@@ -15,12 +15,27 @@ function jsonResponse(payload: unknown): Response {
 }
 
 afterEach(() => {
+  delete requireFromRoot.cache[requireFromRoot.resolve("./next-sitemap.config.js")];
   vi.unstubAllGlobals();
+  vi.unstubAllEnvs();
   vi.restoreAllMocks();
 });
 
+function loadSitemapConfig() {
+  delete requireFromRoot.cache[requireFromRoot.resolve("./next-sitemap.config.js")];
+  return requireFromRoot("./next-sitemap.config.js");
+}
+
 describe("sitemap indexability contract", () => {
-  it("frontend sitemap config keeps authority-safe Career detail routes and excludes query/search-style Career discovery", async () => {
+  it("frontend sitemap config uses apex as the owned production host", () => {
+    vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://www.fermatmind.com");
+    expect(loadSitemapConfig().siteUrl).toBe("https://fermatmind.com");
+
+    vi.stubEnv("NEXT_PUBLIC_SITE_URL", "http://fermatmind.com");
+    expect(loadSitemapConfig().siteUrl).toBe("https://fermatmind.com");
+  });
+
+  it("frontend sitemap config quarantines Career job detail routes and excludes query/search-style Career discovery", async () => {
     vi.stubGlobal(
       "fetch",
       vi.fn(async (input: RequestInfo | URL) => {
@@ -108,7 +123,7 @@ describe("sitemap indexability contract", () => {
       })
     );
 
-    const config = requireFromRoot("./next-sitemap.config.js");
+    const config = loadSitemapConfig();
     const additionalPaths = await config.additionalPaths();
     const locs = additionalPaths.map((entry: { loc?: string }) => String(entry?.loc ?? ""));
 
@@ -124,14 +139,14 @@ describe("sitemap indexability contract", () => {
         "/zh/articles",
         "/en/career/guides",
         "/zh/career/guides",
-        "/en/career/jobs/backend-architect",
-        "/zh/career/jobs/backend-architect",
         "/en/career/family/data-science",
         "/zh/career/family/data-science",
         "/en/career/recommendations/mbti/intj-a",
         "/zh/career/recommendations/mbti/intj-a",
       ])
     );
+    expect(locs).not.toContain("/en/career/jobs/backend-architect");
+    expect(locs).not.toContain("/zh/career/jobs/backend-architect");
     expect(locs).not.toContain("/en/career/jobs/data-engineer");
     expect(locs).not.toContain("/zh/career/jobs/data-engineer");
     expect(locs).not.toContain("/en/career/family/compliance");
@@ -141,7 +156,7 @@ describe("sitemap indexability contract", () => {
   });
 
   it("frontend sitemap config excludes retired and private route families", async () => {
-    const config = requireFromRoot("./next-sitemap.config.js");
+    const config = loadSitemapConfig();
     const policy = requireFromRoot("./lib/seo/indexingPolicy.cjs");
     const additionalPaths = await config.additionalPaths();
     const locs = additionalPaths.map((entry: { loc?: string }) => String(entry?.loc ?? ""));
@@ -155,5 +170,50 @@ describe("sitemap indexability contract", () => {
     expect(locs.some((loc: string) => /\/take(\/|$)/.test(loc))).toBe(false);
     expect(policy.shouldIncludeInSitemap("/en/relationships/mbti")).toBe(false);
     expect(policy.shouldIncludeInSitemap("/zh/relationships/mbti")).toBe(false);
+  });
+
+  it("frontend sitemap config excludes known redirect, 404, ops, and private final paths", async () => {
+    const config = loadSitemapConfig();
+    const additionalPaths = await config.additionalPaths();
+    const locs = additionalPaths.map((entry: { loc?: string }) => String(entry?.loc ?? ""));
+
+    expect(locs).not.toContain("/zh");
+    expect(locs).not.toContain("/en/datasets/occupations");
+    expect(locs).not.toContain("/zh/datasets/occupations");
+    expect(locs).not.toContain("/en/datasets/occupations/method");
+    expect(locs).not.toContain("/zh/datasets/occupations/method");
+    expect(locs.some((loc: string) => /^\/tests(?:\/|$)/.test(loc))).toBe(false);
+    expect(locs.some((loc: string) => /^\/(?:en|zh)\/ops(?:\/|$)/.test(loc))).toBe(false);
+    expect(locs).not.toContain("/en/blog");
+    expect(locs).not.toContain("/zh/blog");
+    expect(locs).not.toContain("/en/help");
+    expect(locs).not.toContain("/zh/help");
+    expect(locs).not.toContain("/en/refund");
+    expect(locs).not.toContain("/zh/refund");
+    expect(locs).not.toContain("/zh/help/about");
+    expect(locs).not.toContain("/zh/help/team");
+    expect(locs).not.toContain("/zh/help/used-and-mentioned");
+    expect(locs).not.toContain("/en/brand");
+    expect(locs).not.toContain("/en/careers");
+    expect(locs).not.toContain("/en/charter");
+    expect(locs).not.toContain("/en/foundation");
+    expect(locs).not.toContain("/en/policies");
+    expect(await config.transform({}, "/zh")).toBeNull();
+    expect(await config.transform({}, "/tests/mbti-personality-test-16-personality-types")).toBeNull();
+    expect(await config.transform({}, "/en/tests/mbti-personality-test-16-personality-types")).not.toBeNull();
+    expect(await config.transform({}, "/en/help")).toBeNull();
+    expect(await config.transform({}, "/zh/help")).toBeNull();
+    expect(await config.transform({}, "/en/blog")).toBeNull();
+    expect(await config.transform({}, "/zh/blog")).toBeNull();
+    expect(await config.transform({}, "/en/refund")).toBeNull();
+    expect(await config.transform({}, "/zh/refund")).toBeNull();
+    expect(await config.transform({}, "/zh/help/about")).toBeNull();
+    expect(await config.transform({}, "/en/brand")).toBeNull();
+    expect(await config.transform({}, "/en/careers")).toBeNull();
+    expect(await config.transform({}, "/en/datasets/occupations")).toBeNull();
+    expect(await config.transform({}, "/zh/datasets/occupations/method")).toBeNull();
+    expect(await config.transform({}, "/en/career/jobs/backend-engineer")).toBeNull();
+    expect(await config.transform({}, "/zh/career/jobs/product-manager")).toBeNull();
+    expect(await config.transform({}, "/en/ops/content-pages")).toBeNull();
   });
 });
