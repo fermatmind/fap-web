@@ -71,8 +71,76 @@ const CMS_LOCALES = [
 ];
 const MBTI_BASE_SLUG_RE = /^[ie][ns][ft][jp]$/i;
 const MBTI_RUNTIME_SLUG_RE = /^[ie][ns][ft][jp]-[at]$/i;
+const CANONICAL_SITE_URL = "https://fermatmind.com";
+const OWNED_CANONICAL_HOSTS = new Set(["fermatmind.com", "www.fermatmind.com"]);
+const SITEMAP_FINAL_PATH_DENY_PATTERNS = [
+  /^\/zh$/i,
+  /^\/tests(?:\/|$)/i,
+  /^\/(?:en|zh)\/blog$/i,
+  /^\/(?:en|zh)\/help$/i,
+  /^\/(?:en|zh)\/refund$/i,
+  /^\/zh\/help\/(?:about|team|used-and-mentioned)$/i,
+  /^\/en\/(?:brand|careers|charter|foundation|policies)$/i,
+  /^\/datasets\/occupations(?:\/method)?$/i,
+  /^\/(?:en|zh)\/datasets\/occupations(?:\/method)?$/i,
+  /^\/career\/jobs\/[^/]+$/i,
+  /^\/(?:en|zh)\/career\/jobs\/[^/]+$/i,
+  /^\/ops(?:\/|$)/i,
+  /^\/(?:en|zh)\/ops(?:\/|$)/i,
+];
+const SITEMAP_ROUTE_EXCLUDES = [
+  "/zh",
+  "/tests",
+  "/tests/*",
+  "/en/blog",
+  "/zh/blog",
+  "/en/help",
+  "/zh/help",
+  "/en/refund",
+  "/zh/refund",
+  "/zh/help/about",
+  "/zh/help/team",
+  "/zh/help/used-and-mentioned",
+  "/en/brand",
+  "/en/careers",
+  "/en/charter",
+  "/en/foundation",
+  "/en/policies",
+  "/result/*",
+  "/orders/*",
+  "/share/*",
+  "/api/*",
+  "/pay/*",
+  "/payment/*",
+  "/history/*",
+  "/tests/*/take",
+  "/datasets/occupations",
+  "/datasets/occupations/method",
+  "/en/datasets/occupations",
+  "/zh/datasets/occupations",
+  "/en/datasets/occupations/method",
+  "/zh/datasets/occupations/method",
+  "/en/career/jobs/*",
+  "/zh/career/jobs/*",
+  "/ops/*",
+  "/en/ops/*",
+  "/zh/ops/*",
+];
 
-const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://example.com").replace(/\/$/, "");
+function resolveSitemapSiteUrl(value) {
+  const normalized = normalizeSlug(value) || CANONICAL_SITE_URL;
+
+  try {
+    const url = new URL(normalized);
+    return OWNED_CANONICAL_HOSTS.has(url.hostname.toLowerCase())
+      ? CANONICAL_SITE_URL
+      : normalized.replace(/\/$/, "");
+  } catch {
+    return CANONICAL_SITE_URL;
+  }
+}
+
+const siteUrl = resolveSitemapSiteUrl(process.env.NEXT_PUBLIC_SITE_URL);
 const apiOrigin = (process.env.NEXT_PUBLIC_API_URL || "https://api.fermatmind.com").replace(/\/$/, "");
 const cmsSitemapTimeoutMs = Number.parseInt(process.env.CMS_SITEMAP_TIMEOUT_MS || "10000", 10) || 10000;
 
@@ -155,7 +223,19 @@ function resolveCareerExplicitGate(item) {
 }
 
 function shouldIncludeCareerSitemapPath(path, item) {
-  return shouldIncludeInSitemap(path, resolveCareerExplicitGate(item));
+  return shouldIncludeGeneratedSitemapPath(path, resolveCareerExplicitGate(item));
+}
+
+function isForbiddenFinalSitemapPath(path) {
+  const normalized = normalizePath(path);
+  return SITEMAP_FINAL_PATH_DENY_PATTERNS.some((pattern) => pattern.test(normalized));
+}
+
+function shouldIncludeGeneratedSitemapPath(path, explicitGate) {
+  const normalized = normalizePath(path);
+  if (isForbiddenFinalSitemapPath(normalized)) return false;
+  if (!shouldIncludeCmsSitemapPath(normalized)) return false;
+  return shouldIncludeInSitemap(normalized, explicitGate);
 }
 
 function extractAuthorityItems(payload) {
@@ -187,7 +267,6 @@ function buildLandingPaths() {
   return [
     "/",
     "/en",
-    "/zh",
     "/en/articles",
     "/zh/articles",
     "/en/methods",
@@ -214,10 +293,6 @@ function buildLandingPaths() {
     "/zh/career/recommendations",
     "/en/career/tests",
     "/zh/career/tests",
-    "/en/datasets/occupations",
-    "/zh/datasets/occupations",
-    "/en/datasets/occupations/method",
-    "/zh/datasets/occupations/method",
   ];
 }
 
@@ -462,31 +537,8 @@ async function buildDataDetailPaths() {
 }
 
 async function buildCareerJobDetailPathsFromAuthority() {
-  try {
-    const paths = new Set();
-
-    for (const { localePrefix, apiLocale } of CMS_LOCALES) {
-      const routes = await fetchCareerDiscoverabilityManifestRoutes(apiLocale);
-
-      for (const route of routes) {
-        if (route.routeKind !== "career_job_detail" || route.discoverabilityState !== "discoverable") {
-          continue;
-        }
-
-        paths.add(
-          buildLocalizedAuthorityCareerPath(
-            localePrefix,
-            route.canonicalPath,
-            `/${localePrefix}/career/jobs/${route.canonicalSlug}`
-          )
-        );
-      }
-    }
-
-    return [...paths];
-  } catch {
-    return [];
-  }
+  // Career job detail URLs remain quarantined until the live 404/canonical gate is closed.
+  return [];
 }
 
 async function buildCareerRecommendationDetailPathsFromAuthority() {
@@ -599,12 +651,12 @@ module.exports = {
   exclude: [
     "/server-sitemap.xml",
     ...NON_PAGE_ROUTE_EXCLUDES,
+    ...SITEMAP_ROUTE_EXCLUDES,
     ...buildInvalidCmsSitemapExcludes(),
   ],
   transform: async (_config, path) => {
     const normalized = normalizePath(path);
-    if (!shouldIncludeCmsSitemapPath(normalized)) return null;
-    if (!shouldIncludeInSitemap(normalized)) return null;
+    if (!shouldIncludeGeneratedSitemapPath(normalized)) return null;
 
     return {
       loc: normalized,
@@ -652,8 +704,7 @@ module.exports = {
       ...topicApiPaths,
     ])]
       .map((path) => normalizePath(path))
-      .filter((path) => shouldIncludeCmsSitemapPath(path))
-      .filter((path) => shouldIncludeInSitemap(path))
+      .filter((path) => shouldIncludeGeneratedSitemapPath(path))
       .map((loc) => ({
         loc,
         changefreq: "weekly",
