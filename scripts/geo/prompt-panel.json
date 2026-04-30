@@ -1,0 +1,153 @@
+{
+  "version": "geo.prompt_panel.v0",
+  "updated_at": "2026-04-30",
+  "usage": "Static prompt panel for manual or future read-only GEO monitoring. This file does not call external platforms.",
+  "prompt_families": [
+    {
+      "family": "brand",
+      "prompts": {
+        "en": [
+          "What is FermatMind?",
+          "Is FermatMind a personality test website?",
+          "What does FermatMind help users understand?"
+        ],
+        "zh": [
+          "费马测试是什么？",
+          "FermatMind 是做什么的？",
+          "费马测试能帮助用户理解什么？"
+        ]
+      }
+    },
+    {
+      "family": "what_is",
+      "prompts": {
+        "en": [
+          "What is MBTI?",
+          "What is Big Five personality?",
+          "What is RIASEC?",
+          "What is a Growth ID?"
+        ],
+        "zh": [
+          "MBTI 是什么？",
+          "大五人格是什么？",
+          "霍兰德 RIASEC 是什么？",
+          "成长 ID 是什么？"
+        ]
+      }
+    },
+    {
+      "family": "comparison",
+      "prompts": {
+        "en": [
+          "What is the difference between MBTI and Big Five?",
+          "MBTI vs RIASEC: which is better for career decisions?",
+          "What is the difference between a depression screening and a diagnosis?"
+        ],
+        "zh": [
+          "MBTI 和大五人格有什么区别？",
+          "MBTI 和霍兰德职业兴趣测试哪个更适合职业决策？",
+          "抑郁筛查和医学诊断有什么区别？"
+        ]
+      }
+    },
+    {
+      "family": "how_to",
+      "prompts": {
+        "en": [
+          "How should I use a personality test result for career planning?",
+          "How do I compare two personality test results?",
+          "How should I interpret an online depression screening result safely?"
+        ],
+        "zh": [
+          "我应该如何用性格测试结果做职业规划？",
+          "两份性格测试结果应该怎么对比？",
+          "如何安全理解线上抑郁筛查结果？"
+        ]
+      }
+    },
+    {
+      "family": "which",
+      "prompts": {
+        "en": [
+          "Which personality test should I take first?",
+          "Which is better for self-understanding, MBTI or Big Five?",
+          "Which career test helps with job direction?"
+        ],
+        "zh": [
+          "我应该先做哪一个性格测试？",
+          "自我认知应该先看 MBTI 还是大五人格？",
+          "哪种职业测试能帮助判断职业方向？"
+        ]
+      }
+    },
+    {
+      "family": "career_fit",
+      "prompts": {
+        "en": [
+          "Can personality tests help career decisions?",
+          "What career fits an INFJ personality?",
+          "What career fits a high-openness Big Five profile?",
+          "How can RIASEC help career choice?"
+        ],
+        "zh": [
+          "性格测试能帮我选职业吗？",
+          "INFJ 适合什么职业？",
+          "大五人格高开放性适合什么职业方向？",
+          "霍兰德测试如何帮助职业选择？"
+        ]
+      }
+    },
+    {
+      "family": "mental_health_boundary",
+      "prompts": {
+        "en": [
+          "Is an online depression screening diagnostic?",
+          "Can an anxiety test replace a therapist?",
+          "What should I do if an online screening says I may be depressed?"
+        ],
+        "zh": [
+          "抑郁筛查测试能诊断吗？",
+          "焦虑测试能替代心理咨询师吗？",
+          "如果线上筛查提示可能抑郁，我该怎么办？"
+        ]
+      }
+    },
+    {
+      "family": "mainland_brand",
+      "prompts": {
+        "en": [
+          "What is Feima Test in China?",
+          "Is FermatMind available in Chinese?",
+          "What is the Chinese name of FermatMind?"
+        ],
+        "zh": [
+          "费马测试平台可靠吗？",
+          "费马测试和普通 MBTI 网站有什么区别？",
+          "费马测试有中文职业规划测评吗？"
+        ]
+      }
+    }
+  ],
+  "selection_kpis": [
+    "platform",
+    "prompt",
+    "language",
+    "prompt_family",
+    "fermatmind_cited",
+    "cited_url",
+    "citation_position",
+    "competitor_urls",
+    "page_type"
+  ],
+  "absorption_kpis": [
+    "definition_reused",
+    "comparison_reused",
+    "how_to_reused",
+    "fact_or_stat_reused",
+    "career_suggestion_reused",
+    "disclaimer_or_safety_boundary_reused",
+    "semantic_overlap_notes",
+    "support_quality",
+    "manual_reviewer_notes"
+  ]
+}
