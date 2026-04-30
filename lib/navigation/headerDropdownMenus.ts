@@ -30,10 +30,6 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
     ],
     articles: [
       { href: "/articles", label: "All articles" },
-      { href: "/articles/mbti-basics", label: "MBTI basics" },
-      { href: "/articles/mbti-growth-guide", label: "MBTI growth guide" },
-      { href: "/articles/big-five-tool-guide", label: "Big Five tool guide" },
-      { href: "/articles/eq-test-tool-guide", label: "EQ tool guide" },
     ],
     personality: [
       { href: "/personality", label: "All personality profiles" },

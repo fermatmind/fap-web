@@ -53,10 +53,7 @@ export function SiteFooter() {
   const articleLinks =
     locale === "zh"
       ? [{ href: "/articles", label: "全部文章" }]
-      : [
-          { href: "/articles", label: "All articles" },
-          { href: "/articles/mbti-basics", label: "MBTI Basics" },
-        ];
+      : [{ href: "/articles", label: "All articles" }];
   const companyLinks: FooterLinkItem[] =
     locale === "zh"
       ? [

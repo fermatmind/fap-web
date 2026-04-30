@@ -47,11 +47,19 @@ const nextConfig = {
         headers: [{ key: "X-Robots-Tag", value }],
       },
       {
+        source: "/en/result/:path*",
+        headers: [{ key: "X-Robots-Tag", value }],
+      },
+      {
         source: "/zh/result/:path*",
         headers: [{ key: "X-Robots-Tag", value }],
       },
       {
         source: "/orders/:path*",
+        headers: [{ key: "X-Robots-Tag", value }],
+      },
+      {
+        source: "/en/orders/:path*",
         headers: [{ key: "X-Robots-Tag", value }],
       },
       {
@@ -63,7 +71,23 @@ const nextConfig = {
         headers: [{ key: "X-Robots-Tag", value }],
       },
       {
+        source: "/en/share/:path*",
+        headers: [{ key: "X-Robots-Tag", value }],
+      },
+      {
         source: "/zh/share/:path*",
+        headers: [{ key: "X-Robots-Tag", value }],
+      },
+      {
+        source: "/tests/:slug/take",
+        headers: [{ key: "X-Robots-Tag", value }],
+      },
+      {
+        source: "/en/tests/:slug/take",
+        headers: [{ key: "X-Robots-Tag", value }],
+      },
+      {
+        source: "/zh/tests/:slug/take",
         headers: [{ key: "X-Robots-Tag", value }],
       },
     ];
@@ -98,32 +122,32 @@ const nextConfig = {
       },
       {
         source: "/help/about",
-        destination: "/en/help",
+        destination: "/en/support",
         permanent: true,
       },
       {
         source: "/zh/help/about",
-        destination: "/zh/help",
+        destination: "/zh/support",
         permanent: true,
       },
       {
         source: "/help/used-and-mentioned",
-        destination: "/en/help",
+        destination: "/en/support",
         permanent: true,
       },
       {
         source: "/zh/help/used-and-mentioned",
-        destination: "/zh/help",
+        destination: "/zh/support",
         permanent: true,
       },
       {
         source: "/help/team",
-        destination: "/en/help",
+        destination: "/en/support",
         permanent: true,
       },
       {
         source: "/zh/help/team",
-        destination: "/zh/help",
+        destination: "/zh/support",
         permanent: true,
       },
       {
@@ -133,12 +157,17 @@ const nextConfig = {
       },
       {
         source: "/refund",
-        destination: "/en/help",
+        destination: "/en/support",
+        permanent: true,
+      },
+      {
+        source: "/en/refund",
+        destination: "/en/support",
         permanent: true,
       },
       {
         source: "/zh/refund",
-        destination: "/zh/help",
+        destination: "/zh/support",
         permanent: true,
       },
       ...(enableRootQuizRedirects
@@ -150,7 +179,7 @@ const nextConfig = {
             },
             {
               source: "/quiz/:slug",
-              destination: "/en/quiz/:slug",
+              destination: "/en/tests/:slug",
               permanent: true,
             },
           ]

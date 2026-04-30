@@ -40,6 +40,5 @@ export default async function DeprecatedQuizPage({
   const locale = resolveLocale(localeParam);
   const canonicalSlug = resolveCanonicalSlug(slug);
 
-  // Deprecated: use /tests/[slug]/take as the single quiz engine.
-  permanentRedirect(appendQuery(localizedPath(`/tests/${canonicalSlug}/take`, locale), query));
+  permanentRedirect(appendQuery(localizedPath(`/tests/${canonicalSlug}`, locale), query));
 }
