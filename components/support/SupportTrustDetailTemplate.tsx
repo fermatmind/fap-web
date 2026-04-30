@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
+import { SanitizedCmsHtml } from "@/components/content/SanitizedCmsHtml";
 import { Container } from "@/components/layout/Container";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { cn } from "@/lib/utils";
@@ -123,7 +124,7 @@ function buildToc(bodyMd: string) {
 
 function RichBody({ bodyMd, bodyHtml }: { bodyMd: string; bodyHtml: string }) {
   if (bodyHtml.trim()) {
-    return <div className="fm-content-page-prose" dangerouslySetInnerHTML={{ __html: bodyHtml }} />;
+    return <SanitizedCmsHtml className="fm-content-page-prose" html={bodyHtml} />;
   }
 
   const blocks = parseMarkdown(bodyMd);

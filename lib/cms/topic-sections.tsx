@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { SanitizedCmsHtml } from "@/components/content/SanitizedCmsHtml";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type {
@@ -85,9 +86,9 @@ function asArray<T = unknown>(value: unknown): T[] {
 function renderRichTextSection(section: CmsTopicSection) {
   if (section.bodyHtml.trim()) {
     return (
-      <div
+      <SanitizedCmsHtml
         className="space-y-4 text-[var(--fm-text)] [&_a]:text-[var(--fm-accent)] [&_a]:underline-offset-2 [&_a:hover]:underline [&_p]:leading-7 [&_strong]:font-semibold [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-5"
-        dangerouslySetInnerHTML={{ __html: section.bodyHtml }}
+        html={section.bodyHtml}
       />
     );
   }

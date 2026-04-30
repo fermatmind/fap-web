@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
 import { RelatedContent } from "@/components/content/RelatedContent";
+import { SanitizedCmsHtml } from "@/components/content/SanitizedCmsHtml";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -39,7 +40,7 @@ function renderGuideBody(guide: CareerGuideDetailViewModel) {
   const bodyMd = stripDuplicateFirstHeading(guide.bodyMd, guide.title);
 
   if (guide.bodyHtml.trim()) {
-    return <div dangerouslySetInnerHTML={{ __html: guide.bodyHtml }} />;
+    return <SanitizedCmsHtml html={guide.bodyHtml} />;
   }
 
   if (bodyMd.trim()) {

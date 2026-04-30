@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
+import { SanitizedCmsHtml } from "@/components/content/SanitizedCmsHtml";
 import { Container } from "@/components/layout/Container";
 import { cn } from "@/lib/utils";
 import type { ContentPage } from "@/lib/cms/content-pages";
@@ -124,12 +125,7 @@ function renderInline(text: string) {
 
 function ContentPageBody({ page }: { page: ContentPage }) {
   if (page.contentHtml.trim()) {
-    return (
-      <div
-        className="fm-content-page-prose"
-        dangerouslySetInnerHTML={{ __html: page.contentHtml }}
-      />
-    );
+    return <SanitizedCmsHtml className="fm-content-page-prose" html={page.contentHtml} />;
   }
 
   const blocks = parseMarkdown(page.contentMd);
