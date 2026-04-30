@@ -28,7 +28,8 @@ import { buildBreadcrumbJsonLd, buildFAQPageJsonLd, buildWebPageJsonLd } from "@
 import { buildPageMetadata, normalizeTwitterImages, resolveTwitterCard } from "@/lib/seo/metadata";
 import { canonicalUrl } from "@/lib/site";
 
-export const dynamic = "force-dynamic";
+export const dynamic = "force-static";
+export const revalidate = 300;
 
 function shouldNoindex(robotsValue: string | null | undefined): boolean {
   return String(robotsValue ?? "")

@@ -14,7 +14,7 @@ import type { PersonalityHubFamilyGroup } from "@/lib/mbti/personalityHub.types"
 import { buildBreadcrumbJsonLd, buildItemListJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
 
 export async function generateMetadata({
   params,

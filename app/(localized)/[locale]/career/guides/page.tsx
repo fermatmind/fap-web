@@ -7,7 +7,7 @@ import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
 
 type GuideGroup = {
   key: string;
