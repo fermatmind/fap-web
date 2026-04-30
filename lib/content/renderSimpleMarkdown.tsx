@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { sanitizeCmsUrl } from "@/lib/cms/sanitizeCmsRichText";
 
 type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
 
@@ -233,8 +234,13 @@ function renderInlineMarkdown(text: string, keyPrefix: string): ReactNode[] {
     const key = `${keyPrefix}-${index}`;
     const link = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
     if (link) {
+      const href = sanitizeCmsUrl(link[2] ?? "");
+      if (!href) {
+        return <span key={key}>{link[1]}</span>;
+      }
+
       return (
-        <a key={key} href={link[2]} className="text-[var(--fm-accent)] underline-offset-2 hover:underline">
+        <a key={key} href={href} className="text-[var(--fm-accent)] underline-offset-2 hover:underline">
           {link[1]}
         </a>
       );

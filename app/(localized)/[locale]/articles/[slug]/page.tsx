@@ -5,6 +5,7 @@ import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
 import { ArticleResponsiveImage } from "@/components/content/ArticleResponsiveImage";
 import { RelatedContent } from "@/components/content/RelatedContent";
+import { SanitizedCmsHtml } from "@/components/content/SanitizedCmsHtml";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Badge } from "@/components/ui/badge";
@@ -102,7 +103,7 @@ function shouldNoindex(robotsValue: string | null | undefined): boolean {
 
 function renderArticleBody(article: CmsArticle) {
   if (article.contentHtml.trim()) {
-    return <div dangerouslySetInnerHTML={{ __html: article.contentHtml }} />;
+    return <SanitizedCmsHtml html={article.contentHtml} />;
   }
 
   if (article.contentMd.trim()) {

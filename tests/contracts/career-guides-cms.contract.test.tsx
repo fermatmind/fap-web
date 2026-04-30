@@ -310,7 +310,7 @@ describe("career guides frontend boundary contract", () => {
     expect(detailSource).toContain("career-guide-answer-surface");
     expect(detailSource).toContain("career-guide-landing-cta");
     expect(detailSource).toContain("renderSimpleMarkdown");
-    expect(detailSource).toContain("dangerouslySetInnerHTML");
+    expect(detailSource).toContain("SanitizedCmsHtml");
     expect(detailSource).not.toContain("getCareerGuideBySlug");
     expect(detailSource).not.toContain("listCareerGuideSlugs");
     expect(detailSource).not.toContain("listRelatedArticlesForGuide");
