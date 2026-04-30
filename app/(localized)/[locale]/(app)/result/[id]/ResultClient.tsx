@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { AnticipationSkeleton } from "@/components/design/AnticipationSkeleton";
 import { MbtiResultShellLoadingShell } from "@/components/result/mbti/MbtiResultShell";
 import { RiasecResultShell } from "@/components/result/riasec/RiasecResultShell";
@@ -43,7 +43,7 @@ import {
 } from "@/lib/api/v0_3";
 import { ApiError } from "@/lib/api-client";
 import { ensureFmTokenReady, runWithGuestTokenRetry } from "@/lib/auth/authRetry";
-import { getFmToken, isGuestTokenRequestError, setFmToken } from "@/lib/auth/fmToken";
+import { getFmToken, isGuestTokenRequestError } from "@/lib/auth/fmToken";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath, type Locale } from "@/lib/i18n/locales";
 import { buildDefaultPublicPersonalitySlug } from "@/lib/cms/personality";
@@ -498,7 +498,6 @@ export default function ResultClient({
   void rolloutEnv;
 
   const pathname = usePathname() ?? "/";
-  const searchParams = useSearchParams();
   const locale = getLocaleFromPathname(pathname);
   const dict = getDictSync(locale);
   const [reportData, setReportData] = useState<ReportResponse | null>(null);
@@ -515,18 +514,16 @@ export default function ResultClient({
   const mbtiBootstrapPhaseTrackedRef = useRef(false);
 
   useEffect(() => {
-    const tokenFromUrl = searchParams.get("token")?.trim() ?? "";
-    if (!tokenFromUrl.startsWith("fm_")) {
+    const authToken = getFmToken();
+    if (!authToken) {
       return;
     }
-
-    setFmToken(tokenFromUrl);
 
     const candidateAttemptIds = Array.from(new Set([attemptId, ...readPendingAnonLinkAttempts()]));
     if (
       candidateAttemptIds.length === 0
       || !shouldLinkAnonAttemptsOnLoginSuccess({
-        tokenFromUrl,
+        authToken,
         anonId,
         attemptIds: candidateAttemptIds,
       })
@@ -535,13 +532,13 @@ export default function ResultClient({
     }
 
     void linkAnonAttemptsOnceOnLoginSuccess({
-      tokenFromUrl,
+      authToken,
       anonId,
       attemptIds: candidateAttemptIds,
     }).catch(() => {
       // Keep result entry non-blocking.
     });
-  }, [anonId, attemptId, searchParams]);
+  }, [anonId, attemptId]);
 
   const runWithAuthRetry = useCallback(
     async <T,>(runner: () => Promise<T>): Promise<T> =>

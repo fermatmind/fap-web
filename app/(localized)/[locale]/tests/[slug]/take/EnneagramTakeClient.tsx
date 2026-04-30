@@ -16,7 +16,7 @@ import { StaleDraftResetPrompt } from "@/components/quiz/StaleDraftResetPrompt";
 import { Button } from "@/components/ui/button";
 import { getOrCreateAnonId } from "@/lib/anon";
 import { ensureFmTokenReady } from "@/lib/auth/authRetry";
-import { isGuestTokenEndpointMissingError, setFmToken } from "@/lib/auth/fmToken";
+import { isGuestTokenEndpointMissingError } from "@/lib/auth/fmToken";
 import { trackEvent } from "@/lib/analytics";
 import {
   buildEnneagramSubmitAnswers,
@@ -279,13 +279,6 @@ function EnneagramTakeInner({
     cancelAutoAdvanceRef.current();
     submitInFlightRef.current = false;
   }, []);
-
-  useEffect(() => {
-    const tokenFromUrl = searchParams.get("token")?.trim() ?? "";
-    if (tokenFromUrl.startsWith("fm_")) {
-      setFmToken(tokenFromUrl);
-    }
-  }, [searchParams]);
 
   useEffect(() => {
     let active = true;

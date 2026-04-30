@@ -15,13 +15,12 @@ import {
 import { StaleDraftResetPrompt } from "@/components/quiz/StaleDraftResetPrompt";
 import { Alert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
-import { getOrCreateAnonId, readPendingAnonLinkAttempts } from "@/lib/anon";
+import { getOrCreateAnonId } from "@/lib/anon";
 import { trackEvent } from "@/lib/analytics";
 import { ensureFmTokenReady, runWithGuestTokenRetry } from "@/lib/auth/authRetry";
 import {
   isGuestTokenEndpointMissingError,
   isGuestTokenRequestError,
-  setFmToken,
 } from "@/lib/auth/fmToken";
 import { ApiError } from "@/lib/api-client";
 import {
@@ -30,12 +29,7 @@ import {
   submitClinicalAttempt,
   type ClinicalScaleCode,
 } from "@/lib/clinical/api";
-import {
-  linkAnonAttemptsOnceOnLoginSuccess,
-  shouldLinkAnonAttemptsOnLoginSuccess,
-  type QuestionsMeta,
-  type ScaleQuestionItem,
-} from "@/lib/api/v0_3";
+import { type QuestionsMeta, type ScaleQuestionItem } from "@/lib/api/v0_3";
 import { useClinicalAttemptStore } from "@/lib/clinical/attemptStore";
 import { mapClinicalError } from "@/lib/clinical/errors";
 import { getDictSync } from "@/lib/i18n/getDict";
@@ -233,33 +227,6 @@ export default function ClinicalTakeClient({
   const forceNewAttemptAppliedRef = useRef(false);
   const cancelAutoAdvanceRef = useRef<() => void>(() => {});
   const immersiveEnabled = isImmersiveSingleFlowEnabled();
-
-  useEffect(() => {
-    const tokenFromUrl = searchParams.get("token")?.trim() ?? "";
-    if (!tokenFromUrl.startsWith("fm_")) return;
-
-    setFmToken(tokenFromUrl);
-
-    const pendingAttemptIds = readPendingAnonLinkAttempts();
-    if (
-      pendingAttemptIds.length === 0
-      || !shouldLinkAnonAttemptsOnLoginSuccess({
-        tokenFromUrl,
-        anonId,
-        attemptIds: pendingAttemptIds,
-      })
-    ) {
-      return;
-    }
-
-    void linkAnonAttemptsOnceOnLoginSuccess({
-      tokenFromUrl,
-      anonId,
-      attemptIds: pendingAttemptIds,
-    }).catch(() => {
-      // Keep login flow non-blocking.
-    });
-  }, [anonId, searchParams]);
 
   const trackGuestTokenFailure = useCallback(
     (stage: "bootstrap" | "questions" | "start_attempt" | "submit_attempt", error: unknown) => {

@@ -2384,31 +2384,31 @@ function markLinkAnonUnsupported(now: number = Date.now()): void {
 }
 
 function buildLinkAnonDedupKey({
-  tokenFromUrl,
+  authToken,
   anonId,
   attemptIds,
 }: {
-  tokenFromUrl: string;
+  authToken: string;
   anonId: string;
   attemptIds: string[];
 }): string {
   return JSON.stringify([
-    tokenFromUrl.trim(),
+    authToken.trim(),
     anonId.trim(),
     normalizeLinkAnonAttemptIds(attemptIds),
   ]);
 }
 
 export function shouldLinkAnonAttemptsOnLoginSuccess({
-  tokenFromUrl,
+  authToken,
   anonId,
   attemptIds,
 }: {
-  tokenFromUrl: string;
+  authToken: string;
   anonId: string;
   attemptIds: string[];
 }): boolean {
-  const normalizedToken = tokenFromUrl.trim();
+  const normalizedToken = authToken.trim();
   const normalizedAnonId = anonId.trim();
   const normalizedAttemptIds = normalizeLinkAnonAttemptIds(attemptIds);
 
@@ -2418,7 +2418,7 @@ export function shouldLinkAnonAttemptsOnLoginSuccess({
   if (!canUseWebStorage()) return true;
 
   const key = buildLinkAnonDedupKey({
-    tokenFromUrl: normalizedToken,
+    authToken: normalizedToken,
     anonId: normalizedAnonId,
     attemptIds: normalizedAttemptIds,
   });
@@ -2427,15 +2427,15 @@ export function shouldLinkAnonAttemptsOnLoginSuccess({
 }
 
 export async function linkAnonAttemptsOnceOnLoginSuccess({
-  tokenFromUrl,
+  authToken,
   anonId,
   attemptIds,
 }: {
-  tokenFromUrl: string;
+  authToken: string;
   anonId: string;
   attemptIds: string[];
 }): Promise<void> {
-  const normalizedToken = tokenFromUrl.trim();
+  const normalizedToken = authToken.trim();
   const normalizedAnonId = anonId.trim();
   const normalizedAttemptIds = normalizeLinkAnonAttemptIds(attemptIds);
 
@@ -2444,7 +2444,7 @@ export async function linkAnonAttemptsOnceOnLoginSuccess({
   if (isLinkAnonUnsupportedActive()) return;
 
   const dedupKey = buildLinkAnonDedupKey({
-    tokenFromUrl: normalizedToken,
+    authToken: normalizedToken,
     anonId: normalizedAnonId,
     attemptIds: normalizedAttemptIds,
   });
