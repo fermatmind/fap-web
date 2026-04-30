@@ -7,7 +7,6 @@ import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import {
   buildBreadcrumbJsonLd,
-  buildFAQPageJsonLd,
   buildWebPageJsonLd,
 } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
@@ -57,7 +56,7 @@ function isFaqSectionHeading(value: string): boolean {
   return normalized.includes("faq") || normalized.includes("frequently asked questions") || normalized.includes("常见问题");
 }
 
-export function extractVisibleFaqItemsFromMarkdown(markdown: string): FAQItem[] {
+function extractVisibleFaqItemsFromMarkdown(markdown: string): FAQItem[] {
   const lines = markdown.replace(/\r\n?/g, "\n").split("\n");
   const items: FAQItem[] = [];
   let inFaqSection = false;
@@ -114,7 +113,7 @@ function extractVisibleFaqSectionHtml(html: string): string {
   return html.slice(start, end);
 }
 
-export function extractVisibleFaqItemsFromHtml(html: string): FAQItem[] {
+function extractVisibleFaqItemsFromHtml(html: string): FAQItem[] {
   const faqSectionHtml = extractVisibleFaqSectionHtml(html);
   if (!faqSectionHtml) {
     return [];
@@ -138,12 +137,27 @@ export function extractVisibleFaqItemsFromHtml(html: string): FAQItem[] {
     .filter((item): item is FAQItem => Boolean(item));
 }
 
-export function extractVisibleFaqItems(page: { contentHtml: string; contentMd: string }): FAQItem[] {
+function extractVisibleFaqItems(page: { contentHtml: string; contentMd: string }): FAQItem[] {
   if (page.contentHtml.trim()) {
     return extractVisibleFaqItemsFromHtml(page.contentHtml);
   }
 
   return extractVisibleFaqItemsFromMarkdown(page.contentMd);
+}
+
+function buildVisibleHelpFaqJsonLd(faq: FAQItem[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
 }
 
 export function generateStaticParams() {
@@ -208,7 +222,7 @@ export default async function HelpDetailPage({
     locale: locale as Locale,
   });
   const faqItems = slug === "faq" ? extractVisibleFaqItems(page) : [];
-  const faqJsonLd = faqItems.length > 0 ? buildFAQPageJsonLd(faqItems) : null;
+  const faqJsonLd = faqItems.length > 0 ? buildVisibleHelpFaqJsonLd(faqItems) : null;
 
   return (
     <>

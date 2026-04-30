@@ -16,6 +16,9 @@ import { getSiteUrlOrThrow } from "@/lib/site";
 import type { CareerFirstWaveDiscoverabilityManifestAdapter } from "@/lib/career/adapters/types";
 
 const TOPIC_FALLBACK_SLUGS = ["mbti", "big-five", "iq-eq"];
+const LLMS_FINAL_PATH_ALLOW_PATTERNS: RegExp[] = [
+  /^\/(?:en|zh)\/career\/recommendations\/mbti\/[^/]+$/i,
+];
 const LLMS_FINAL_PATH_DENY_PATTERNS: RegExp[] = [
   /^\/zh$/i,
   /^\/tests(?:\/|$)/i,
@@ -49,8 +52,17 @@ function normalizePath(path: string): string {
   return withLeadingSlash.replace(/\/+$/, "");
 }
 
+function isAllowedFinalLlmsPath(path: string): boolean {
+  const normalized = normalizePath(path);
+  return LLMS_FINAL_PATH_ALLOW_PATTERNS.some((pattern) => pattern.test(normalized));
+}
+
 function isForbiddenFinalLlmsPath(path: string): boolean {
   const normalized = normalizePath(path);
+  if (isAllowedFinalLlmsPath(normalized)) {
+    return false;
+  }
+
   return LLMS_FINAL_PATH_DENY_PATTERNS.some((pattern) => pattern.test(normalized));
 }
 

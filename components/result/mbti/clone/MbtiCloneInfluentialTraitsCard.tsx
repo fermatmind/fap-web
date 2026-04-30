@@ -69,7 +69,7 @@ export function MbtiCloneInfluentialTraitsCard({
 
   return (
     <section className={styles.influentialCard}>
-      <p className={styles.microLabel}>{locale === "zh" ? "关键影响特质" : "Influential Traits"}</p>
+      <p className={styles.microLabel}>Influential Traits</p>
       <div className={styles.traitSlotRow}>
         {traits.slice(0, 4).map((trait, index) => (
           <button

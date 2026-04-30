@@ -1602,7 +1602,7 @@ function LegacyEnneagramResultShell({
   const topTypes = viewModel.topTypes;
 
   return (
-    <div data-testid="enneagram-result-shell-legacy" className="space-y-8">
+    <div data-testid="enneagram-result-shell" className="space-y-8">
       <Card className="overflow-hidden border-slate-200 bg-gradient-to-br from-white via-sky-50/80 to-emerald-50/60 shadow-[0_18px_40px_rgba(15,23,42,0.06)]">
         <CardContent className="space-y-6 p-6 md:p-8">
           <div className="flex flex-wrap items-center gap-3">

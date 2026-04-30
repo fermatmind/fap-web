@@ -698,7 +698,7 @@ export default async function TestLandingPage({
             key: form.formCode,
             label: getEnneagramVariantLabel(form.formCode, locale),
             summary: getEnneagramVariantSummary(form.formCode, locale),
-            href: withAttribution(buildEnneagramTakeHref(test.slug, locale, form.formCode)),
+            href: buildEnneagramTakeHref(test.slug, locale, form.formCode),
             ctaLabel: getEnneagramStartLabel(form.formCode, locale),
             testId: `test-detail-landing-cta-${form.formCode}`,
             eventProperties: buildStartClickTrackingProps({
