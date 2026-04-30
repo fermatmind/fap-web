@@ -108,10 +108,12 @@ describe("tracking whitelist contract", () => {
 
     expect(filterTrackingPayload(TRACKING_EVENTS.CAREER_CENTER_VIEW, payload)).toEqual({
       locale: "en",
+      landing_path: "/en/career/jobs",
     });
 
     expect(filterTrackingPayload(TRACKING_EVENTS.CAREER_RECOMMENDATION_VIEW, payload)).toEqual({
       locale: "en",
+      landing_path: "/en/career/jobs",
     });
 
     expect(filterTrackingPayload(TRACKING_EVENTS.CAREER_RECOMMENDATION_CLICK, payload)).toEqual({
@@ -119,6 +121,7 @@ describe("tracking whitelist contract", () => {
       job_slug: "software-engineer",
       rank: 1,
       score: 88.2,
+      landing_path: "/en/career/jobs",
     });
 
     expect(filterTrackingPayload(TRACKING_EVENTS.CAREER_JOB_SEARCH_RESULT_CLICK, payload)).toEqual({
@@ -391,6 +394,17 @@ describe("tracking whitelist contract", () => {
       source_page_type: "personality_detail",
       target_action: "start_mbti_test_primary",
       landing_path: "/zh/personality/intj-a",
+      current_path: "/zh/personality/intj-a?utm_source=zhihu",
+      utm_source: "zhihu",
+      utm_medium: "community",
+      utm_campaign: "launch_0506",
+      utm_term: "mbti",
+      utm_content: "hero",
+      referrer: "https://www.zhihu.com/question/1",
+      gclid: "test-gclid",
+      msclkid: "test-msclkid",
+      fbclid: "test-fbclid",
+      session_id: "anon-session-1",
       locale: "zh",
       scaleCode: "MBTI",
       attempt_id: "attempt-start-123",
@@ -409,6 +423,17 @@ describe("tracking whitelist contract", () => {
       source_page_type: "personality_detail",
       target_action: "start_mbti_test_primary",
       landing_path: "/zh/personality/intj-a",
+      current_path: "/zh/personality/intj-a?utm_source=zhihu",
+      utm_source: "zhihu",
+      utm_medium: "community",
+      utm_campaign: "launch_0506",
+      utm_term: "mbti",
+      utm_content: "hero",
+      referrer: "https://www.zhihu.com/question/1",
+      gclid: "test-gclid",
+      msclkid: "test-msclkid",
+      fbclid: "test-fbclid",
+      session_id: "anon-session-1",
       locale: "zh",
     });
 
@@ -420,6 +445,17 @@ describe("tracking whitelist contract", () => {
       source_page_type: "personality_detail",
       target_action: "start_mbti_test_primary",
       landing_path: "/zh/personality/intj-a",
+      current_path: "/zh/personality/intj-a?utm_source=zhihu",
+      utm_source: "zhihu",
+      utm_medium: "community",
+      utm_campaign: "launch_0506",
+      utm_term: "mbti",
+      utm_content: "hero",
+      referrer: "https://www.zhihu.com/question/1",
+      gclid: "test-gclid",
+      msclkid: "test-msclkid",
+      fbclid: "test-fbclid",
+      session_id: "anon-session-1",
       locale: "zh",
       disclaimer_version: "v1",
     });
@@ -435,6 +471,17 @@ describe("tracking whitelist contract", () => {
       source_page_type: "personality_detail",
       target_action: "start_mbti_test_primary",
       landing_path: "/zh/personality/intj-a",
+      current_path: "/zh/personality/intj-a?utm_source=zhihu",
+      utm_source: "zhihu",
+      utm_medium: "community",
+      utm_campaign: "launch_0506",
+      utm_term: "mbti",
+      utm_content: "hero",
+      referrer: "https://www.zhihu.com/question/1",
+      gclid: "test-gclid",
+      msclkid: "test-msclkid",
+      fbclid: "test-fbclid",
+      session_id: "anon-session-1",
       locale: "zh",
     });
   });

@@ -3234,6 +3234,7 @@ export async function createCheckoutOrOrder({
   idempotencyKey,
   provider,
   region,
+  attribution,
 }: {
   attemptId: string;
   anonId?: string;
@@ -3242,8 +3243,10 @@ export async function createCheckoutOrOrder({
   idempotencyKey?: string;
   provider?: string;
   region?: CheckoutRegion;
+  attribution?: AttemptAttributionPayload;
 }): Promise<CheckoutResponse> {
   const resolvedAnonId = resolveAnonId(anonId);
+  const normalizedAttribution = normalizeAttemptAttributionPayload(attribution);
   const headers: Record<string, string> = {};
   if (idempotencyKey) {
     headers["Idempotency-Key"] = idempotencyKey;
@@ -3260,6 +3263,7 @@ export async function createCheckoutOrOrder({
       order_no: orderNo,
       ...(provider ? { provider } : {}),
       ...(idempotencyKey ? { idempotency_key: idempotencyKey } : {}),
+      ...(normalizedAttribution ?? {}),
     },
     anonHeader(resolvedAnonId, headers)
   );

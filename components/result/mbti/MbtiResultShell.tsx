@@ -36,6 +36,10 @@ import {
 } from "@/lib/cms/personality-desktop-clone";
 import { buildOrderWaitPath, regionFromLocale, resolveCheckoutAction } from "@/lib/commerce/checkoutAction";
 import { clearPendingOrder, readPendingOrder, writePendingOrder } from "@/lib/commerce/pendingOrder";
+import {
+  readStoredTrackingAttributionPayload,
+  toAttemptAttributionPayload,
+} from "@/lib/tracking/attribution";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { normalizeMbtiAccessHub } from "@/lib/mbti/accessHub";
 import { buildMbtiFormDisplayLabel, normalizeMbtiFormSummary } from "@/lib/mbti/formSummary";
@@ -1398,7 +1402,12 @@ export function MbtiResultShell({
     setIsCheckingOut(true);
 
     try {
+      const currentPath = `${window.location.pathname}${window.location.search}`;
+      const trackingAttribution = readStoredTrackingAttributionPayload(currentPath);
+      const checkoutAttribution = toAttemptAttributionPayload(trackingAttribution);
+
       trackEvent("click_unlock", {
+        ...trackingAttribution,
         attempt_id: attemptId,
         attemptIdMasked: maskIdentifier(attemptId),
         sku,
@@ -1418,6 +1427,7 @@ export function MbtiResultShell({
         sku,
         idempotencyKey: `mbti_result_checkout_${attemptId}_${sku}`,
         region: regionFromLocale(locale),
+        attribution: checkoutAttribution,
       });
       const action = resolveCheckoutAction(
         checkout,
@@ -1461,6 +1471,7 @@ export function MbtiResultShell({
         resultUrl: resultUrl || null,
       });
       trackEvent("create_order", {
+        ...trackingAttribution,
         attempt_id: attemptId,
         attemptIdMasked: maskIdentifier(attemptId),
         orderNoMasked: maskIdentifier(pendingOrderNo),

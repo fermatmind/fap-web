@@ -12,7 +12,7 @@ describe("test detail landing contract", () => {
     const source = fs.readFileSync(PAGE_PATH, "utf8");
 
     expect(source).toContain('normalizeLandingSurface(lookup?.landing_surface_v1 ?? null)');
-    expect(source).toContain('const startTestHref = landingSurface?.startTestTarget');
+    expect(source).toContain('const startTestHref = withAttribution(landingSurface?.startTestTarget');
     expect(source).toContain('findLandingCta(landingSurface, "continue_public_content")');
     expect(source).toContain('data-testid="test-detail-landing-cta"');
   });
@@ -25,6 +25,8 @@ describe("test detail landing contract", () => {
     expect(source).toContain('data-testid="mbti-landing-secondary-cta"');
     expect(source).toContain('buildMbtiEntryHref({');
     expect(source).toContain('buildMbtiEntryTrackingPayload({');
+    expect(source).toContain('attributionParams: landingAttributionParams');
+    expect(source).toContain('attributionPayload: landingAttributionPayload');
     expect(source).toContain('targetAction: "start_mbti_test_primary"');
   });
 
@@ -57,7 +59,7 @@ describe("test detail landing contract", () => {
 
     expect(source).toContain("const showsRiasecActions = isRiasecScaleCode(test.scale_code)");
     expect(source).toContain("listRiasecFormMetas(lookup?.forms)");
-    expect(source).toContain("buildRiasecTakeHref(test.slug, locale, form.formCode)");
+    expect(source).toContain("withAttribution(buildRiasecTakeHref(test.slug, locale, form.formCode))");
     expect(source).toContain("getRiasecStartLabel(form.formCode, locale)");
     expect(source).toContain('testId: `test-detail-landing-cta-${form.formCode}`');
     expect(source).toContain("选择霍兰德职业兴趣版本");

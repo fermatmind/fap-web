@@ -1,5 +1,10 @@
 import type { Locale } from "@/lib/i18n/locales";
 import { DEFAULT_MBTI_FORM_CODE, buildMbtiTakeHref, normalizeMbtiFormCode } from "@/lib/mbti/forms";
+import {
+  appendAttributionParamsToHref,
+  type AttributionParams,
+  type TrackingAttributionPayload,
+} from "@/lib/tracking/attribution";
 
 export const MBTI_ENTRY_TEST_SLUG = "mbti-personality-test-16-personality-types";
 
@@ -30,6 +35,7 @@ type BuildMbtiEntryHrefInput = {
   sourcePageType: MbtiEntrySourcePageType;
   targetAction: string;
   sourcePath: string;
+  attributionParams?: AttributionParams;
 };
 
 type BuildMbtiEntryTrackingPayloadInput = {
@@ -40,6 +46,7 @@ type BuildMbtiEntryTrackingPayloadInput = {
   sourcePageType: MbtiEntrySourcePageType;
   targetAction: string;
   sourcePath?: string;
+  attributionPayload?: TrackingAttributionPayload;
 };
 
 function appendQueryToHref(href: string, query: Record<string, string | undefined>): string {
@@ -63,10 +70,11 @@ export function buildMbtiEntryHref({
   sourcePageType,
   targetAction,
   sourcePath,
+  attributionParams,
 }: BuildMbtiEntryHrefInput): string {
   const normalizedFormCode = normalizeMbtiFormCode(formCode);
   const takeHref = buildMbtiTakeHref(testSlug, locale, normalizedFormCode);
-  return appendQueryToHref(takeHref, {
+  return appendAttributionParamsToHref(appendQueryToHref(takeHref, {
     entrypoint: entrySurface,
     entry_surface: entrySurface,
     source_page_type: sourcePageType,
@@ -74,7 +82,7 @@ export function buildMbtiEntryHref({
     test_slug: testSlug,
     form_code: normalizedFormCode,
     landing_path: sourcePath,
-  });
+  }), attributionParams ?? {});
 }
 
 export function buildMbtiEntryTrackingPayload({
@@ -85,9 +93,11 @@ export function buildMbtiEntryTrackingPayload({
   sourcePageType,
   targetAction,
   sourcePath,
+  attributionPayload,
 }: BuildMbtiEntryTrackingPayloadInput): Record<string, string> {
   const normalizedFormCode = normalizeMbtiFormCode(formCode);
   return {
+    ...(attributionPayload ?? {}),
     slug: testSlug,
     test_slug: testSlug,
     form_code: normalizedFormCode,

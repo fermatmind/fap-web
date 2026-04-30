@@ -1,3 +1,5 @@
+import { TRACKING_ATTRIBUTION_FIELDS } from "@/lib/tracking/attribution";
+
 export const TRACKING_EVENTS = {
   // Legacy events (keep for backward compatibility)
   VIEW_LANDING: "view_landing",
@@ -298,7 +300,7 @@ export function filterTrackingPayload(
   eventName: TrackingEventName,
   payload: Record<string, unknown>
 ): Record<string, string | number | boolean | null> {
-  const allowed = EVENT_FIELD_WHITELIST[eventName];
+  const allowed = [...EVENT_FIELD_WHITELIST[eventName], ...TRACKING_ATTRIBUTION_FIELDS];
 
   return allowed.reduce<Record<string, string | number | boolean | null>>((acc, key) => {
     const normalizedKey = key.toLowerCase();

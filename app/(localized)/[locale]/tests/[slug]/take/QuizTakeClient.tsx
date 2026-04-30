@@ -45,6 +45,13 @@ import type { QuizQuestion } from "@/lib/quiz/types";
 import { isImmersiveSingleFlowEnabled } from "@/lib/quiz/uxFlags";
 import { resolveResultAttemptId } from "@/lib/attempt/resolveResultAttemptId";
 import {
+  buildTrackingAttributionPayload,
+  extractAttributionParamsFromSearchParams,
+  readStoredTrackingAttributionPayload,
+  toAttemptAttributionPayload,
+  type TrackingAttributionPayload,
+} from "@/lib/tracking/attribution";
+import {
   createTakeFlowController,
   recoverStaleAttemptSubmit,
   resolveStaleDraftResetMessage,
@@ -207,6 +214,7 @@ function readTakeFlowAttribution(
     testSlug?: string;
     landingPath?: string;
   };
+  trackingAttribution: TrackingAttributionPayload;
 } {
   const isMbti = isMbtiScaleCode(scaleCode);
   const share_id = normalizeQueryValue(searchParams.get("share_id"));
@@ -229,6 +237,18 @@ function readTakeFlowAttribution(
   const targetAction = normalizeQueryValue(searchParams.get("target_action"));
   const testSlug = normalizeQueryValue(searchParams.get("test_slug"));
   const compareIntent = searchParams.get("compare_intent") === "true";
+  const attributionParams = extractAttributionParamsFromSearchParams(
+    new URLSearchParams(searchParams.toString())
+  );
+  const storedAttribution = readStoredTrackingAttributionPayload();
+  const trackingAttribution = {
+    ...storedAttribution,
+    ...buildTrackingAttributionPayload(attributionParams, {
+      referrer: referrer ?? storedAttribution.referrer,
+      landingPath: landing_path ?? storedAttribution.landing_path,
+    }),
+  };
+  const attemptAttribution = toAttemptAttributionPayload(trackingAttribution);
 
   return {
     attribution: {
@@ -237,8 +257,7 @@ function readTakeFlowAttribution(
       ...(invite_unlock_code ? { invite_unlock_code } : {}),
       ...(share_click_id ? { share_click_id } : {}),
       ...(entrypoint ? { entrypoint } : {}),
-      ...(referrer ? { referrer } : {}),
-      ...(landing_path ? { landing_path } : {}),
+      ...attemptAttribution,
       ...(source || medium || campaign || term || content
         ? {
             utm: {
@@ -259,6 +278,7 @@ function readTakeFlowAttribution(
       ...(testSlug ? { testSlug } : {}),
       ...(landing_path ? { landingPath: landing_path } : {}),
     },
+    trackingAttribution,
   };
 }
 
@@ -333,7 +353,7 @@ function QuizTakeInner({
   const locale = getLocaleFromPathname(pathname);
   const withLocale = (path: string) => localizedPath(path, locale);
   const dict = getDictSync(locale);
-  const { attribution, compareIntent, entryContext } = useMemo(
+  const { attribution, compareIntent, entryContext, trackingAttribution } = useMemo(
     () => readTakeFlowAttribution(searchParams, scaleCode),
     [scaleCode, searchParams]
   );
@@ -746,6 +766,7 @@ function QuizTakeInner({
     trackedStartRef.current = true;
 
     trackEvent("start_attempt", {
+      ...trackingAttribution,
       slug,
       scaleCode,
       test_slug: entryContext.testSlug ?? slug,
@@ -758,7 +779,7 @@ function QuizTakeInner({
       attemptIdMasked: `${attemptId.slice(0, 6)}...${attemptId.slice(-4)}`,
       locale,
     });
-  }, [attemptId, entryContext.entrySurface, entryContext.landingPath, entryContext.sourcePageType, entryContext.targetAction, entryContext.testSlug, locale, resolvedFormCode, scaleCode, slug]);
+  }, [attemptId, entryContext.entrySurface, entryContext.landingPath, entryContext.sourcePageType, entryContext.targetAction, entryContext.testSlug, locale, resolvedFormCode, scaleCode, slug, trackingAttribution]);
 
   useEffect(() => {
     const takeFlow = takeFlowRef.current;
@@ -884,12 +905,16 @@ function QuizTakeInner({
 
     const resultAttemptId = resolveResultAttemptId(response, activeAttemptId);
     trackEvent("submit_attempt", {
+      ...trackingAttribution,
       slug,
+      test_slug: entryContext.testSlug ?? slug,
       attemptIdMasked: `${resultAttemptId.slice(0, 6)}...${resultAttemptId.slice(-4)}`,
       durationMs,
+      ...(resolvedFormCode ? { form_code: resolvedFormCode } : {}),
+      locale,
     });
     return resultAttemptId;
-  }, [anonId, attribution, isFlowActive, questions, runWithAuthRetry, slug, startedAt]);
+  }, [anonId, attribution, entryContext.testSlug, isFlowActive, locale, questions, resolvedFormCode, runWithAuthRetry, slug, startedAt, trackingAttribution]);
 
   const handleSubmit = async (pendingSelection?: LastSelectionContext, runId?: number): Promise<string | null> => {
     if (submitInFlightRef.current || staleDraftError) {
