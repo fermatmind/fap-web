@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
+import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
 import { ArticleResponsiveImage } from "@/components/content/ArticleResponsiveImage";
 import { RelatedContent } from "@/components/content/RelatedContent";
 import { Container } from "@/components/layout/Container";
@@ -21,6 +22,7 @@ import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import {
   buildArticleJsonLd,
   buildBreadcrumbJsonLd,
+  buildFAQPageJsonLd,
 } from "@/lib/seo/generateSchema";
 import { buildPageMetadata, normalizeTwitterImages, resolveTwitterCard } from "@/lib/seo/metadata";
 
@@ -229,6 +231,14 @@ export default async function ArticleDetailPage({
     { name: locale === "zh" ? "文章" : "Articles", path: localizedPath("/articles", locale) },
     { name: article.title, path: canonicalPath },
   ]);
+  const faqItems = article.answerSurface?.faqBlocks.length
+    ? article.answerSurface.faqBlocks
+      .filter((item) => item.question && item.answer)
+      .map((item) => ({
+        question: item.question,
+        answer: item.answer,
+      }))
+    : [];
 
   const publishedAt = formatArticleDate(article.publishedAt, locale);
   const updatedAt = formatArticleDate(article.updatedAt, locale);
@@ -250,6 +260,7 @@ export default async function ArticleDetailPage({
     <Container as="main" className="space-y-8 py-10">
       <JsonLd id={`article-jsonld-${slug}`} data={articleJsonLd} />
       <JsonLd id={`article-breadcrumb-${slug}`} data={breadcrumbJsonLd} />
+      {faqItems.length > 0 ? <JsonLd id={`article-faq-${slug}`} data={buildFAQPageJsonLd(faqItems)} /> : null}
 
       <Breadcrumb
         items={[
@@ -307,6 +318,12 @@ export default async function ArticleDetailPage({
           </div>
         </div>
       </header>
+
+      <AnswerSurfaceSection
+        surface={article.answerSurface}
+        locale={locale}
+        testId="article-detail-answer-surface"
+      />
 
       <div className="grid gap-8 lg:grid-cols-[minmax(0,760px)_minmax(240px,1fr)] lg:items-start">
         <article

@@ -81,8 +81,10 @@ describe("articles cleanup contract", () => {
     const source = read("app/(localized)/[locale]/articles/[slug]/page.tsx");
 
     expect(source).toContain('from "@/lib/cms/articles"');
-    expect(source).not.toContain("AnswerSurfaceSection");
-    expect(source).not.toContain('testId="article-answer-surface"');
+    expect(source).toContain("AnswerSurfaceSection");
+    expect(source).toContain("article.answerSurface");
+    expect(source).toContain('testId="article-detail-answer-surface"');
+    expect(source).toContain("buildFAQPageJsonLd");
     expect(source).toContain('findLandingCta(article.landingSurface, "back_to_articles")');
     expect(source).not.toContain("normalizeStructuredDataUrls");
     expect(source).toContain("seo?.surface?.canonicalUrl ?? seo?.meta.canonical");
