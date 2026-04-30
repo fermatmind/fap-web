@@ -64,6 +64,11 @@ import {
 import { buildMbtiEntryHref, buildMbtiEntryTrackingPayload } from "@/lib/mbti/entryTracking";
 import { buildMbtiTestLandingContinuityItems } from "@/lib/mbti/sceneDeepContent";
 import {
+  appendAttributionParamsToHref,
+  buildTrackingAttributionPayload,
+  extractAttributionParamsFromRecord,
+} from "@/lib/tracking/attribution";
+import {
   createScaleRolloutEnvSnapshot,
   resolveScaleRollout,
   type SupportedScaleCode,
@@ -468,6 +473,7 @@ type FlagshipVariantChoice = {
   href: string;
   ctaLabel: string;
   testId: string;
+  eventProperties?: Record<string, string>;
 };
 
 function FlagshipVariantChooser({
@@ -495,14 +501,26 @@ function FlagshipVariantChooser({
               <h3 className="m-0 text-[1rem] font-semibold tracking-[-0.02em] text-slate-950">{choice.label}</h3>
               <p className="m-0 text-sm leading-7 text-slate-600">{choice.summary}</p>
             </div>
-            <Link
-              href={choice.href}
-              prefetch={false}
-              data-testid={choice.testId}
-              className={buttonVariants({ size: "sm", className: "mt-auto w-full justify-center" })}
-            >
-              {choice.ctaLabel}
-            </Link>
+            {choice.eventProperties ? (
+              <TrackedEntryCtaLink
+                href={choice.href}
+                prefetch={false}
+                data-testid={choice.testId}
+                eventProperties={choice.eventProperties}
+                className={buttonVariants({ size: "sm", className: "mt-auto w-full justify-center" })}
+              >
+                {choice.ctaLabel}
+              </TrackedEntryCtaLink>
+            ) : (
+              <Link
+                href={choice.href}
+                prefetch={false}
+                data-testid={choice.testId}
+                className={buttonVariants({ size: "sm", className: "mt-auto w-full justify-center" })}
+              >
+                {choice.ctaLabel}
+              </Link>
+            )}
           </article>
         ))}
       </div>
@@ -562,7 +580,7 @@ export default async function TestLandingPage({
   searchParams,
 }: {
   params: Promise<{ locale: string; slug: string }>;
-  searchParams: Promise<{ maintenance?: string | string[] }>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const { locale: localeParam, slug: requestedSlug } = await params;
   const query = await searchParams;
@@ -597,7 +615,32 @@ export default async function TestLandingPage({
   });
   const testDisabled = !rollout.assessmentEnabled;
   const maintenanceRequested = ["1", "true", "yes"].includes(firstQueryValue(query.maintenance).toLowerCase());
-  const startTestHref = landingSurface?.startTestTarget || withLocale(`/tests/${test.slug}/take`);
+  const landingAttributionParams = extractAttributionParamsFromRecord(query);
+  const landingBasePath = withLocale(`/tests/${test.slug}`);
+  const landingPath = appendAttributionParamsToHref(landingBasePath, landingAttributionParams);
+  const landingAttributionPayload = buildTrackingAttributionPayload(landingAttributionParams, {
+    landingPath,
+    currentPath: landingPath,
+  });
+  const withAttribution = (href: string) => appendAttributionParamsToHref(href, landingAttributionParams);
+  const buildStartClickTrackingProps = ({
+    formCode,
+    targetAction,
+  }: {
+    formCode?: string;
+    targetAction: string;
+  }): Record<string, string> => ({
+    ...landingAttributionPayload,
+    slug: test.slug,
+    test_slug: test.slug,
+    ...(formCode ? { form_code: formCode } : {}),
+    entry_surface: "test_landing",
+    source_page_type: "test_landing",
+    target_action: targetAction,
+    landing_path: landingPath,
+    locale,
+  });
+  const startTestHref = withAttribution(landingSurface?.startTestTarget || withLocale(`/tests/${test.slug}/take`));
   const showsMbtiActions = isMbtiScaleCode(test.scale_code);
   const showsBig5Actions = isBig5ScaleCode(test.scale_code);
   const showsEnneagramActions = isEnneagramScaleCode(test.scale_code);
@@ -621,36 +664,52 @@ export default async function TestLandingPage({
         key: form.formCode,
         label: getMbtiVariantLabel(form.formCode, locale),
         summary: getMbtiVariantSummary(form.formCode, locale),
-        href: buildMbtiTakeHref(test.slug, locale, form.formCode),
+        href: withAttribution(buildMbtiTakeHref(test.slug, locale, form.formCode)),
         ctaLabel: getMbtiStartLabel(form.formCode, locale),
         testId: `test-detail-landing-cta-${form.formCode}`,
+        eventProperties: buildStartClickTrackingProps({
+          formCode: form.formCode,
+          targetAction: `start_${form.formCode}`,
+        }),
       }))
     : showsBig5Actions
       ? listBig5FormMetas().map((form) => ({
           key: form.formCode,
           label: getBig5VariantLabel(form.formCode, locale),
           summary: getBig5VariantSummary(form.formCode, locale),
-          href: buildBig5TakeHref(test.slug, locale, form.formCode),
+          href: withAttribution(buildBig5TakeHref(test.slug, locale, form.formCode)),
           ctaLabel: getBig5StartLabel(form.formCode, locale),
           testId: `test-detail-landing-cta-${form.formCode}`,
+          eventProperties: buildStartClickTrackingProps({
+            formCode: form.formCode,
+            targetAction: `start_${form.formCode}`,
+          }),
         }))
       : showsEnneagramActions
         ? listEnneagramFormMetas().map((form) => ({
             key: form.formCode,
             label: getEnneagramVariantLabel(form.formCode, locale),
             summary: getEnneagramVariantSummary(form.formCode, locale),
-            href: buildEnneagramTakeHref(test.slug, locale, form.formCode),
+            href: withAttribution(buildEnneagramTakeHref(test.slug, locale, form.formCode)),
             ctaLabel: getEnneagramStartLabel(form.formCode, locale),
             testId: `test-detail-landing-cta-${form.formCode}`,
+            eventProperties: buildStartClickTrackingProps({
+              formCode: form.formCode,
+              targetAction: `start_${form.formCode}`,
+            }),
           }))
         : showsRiasecActions
           ? listRiasecFormMetas(lookup?.forms).map((form) => ({
               key: form.formCode,
               label: getRiasecVariantLabel(form.formCode, locale),
               summary: getRiasecVariantSummary(form.formCode, locale),
-              href: buildRiasecTakeHref(test.slug, locale, form.formCode),
+              href: withAttribution(buildRiasecTakeHref(test.slug, locale, form.formCode)),
               ctaLabel: getRiasecStartLabel(form.formCode, locale),
               testId: `test-detail-landing-cta-${form.formCode}`,
+              eventProperties: buildStartClickTrackingProps({
+                formCode: form.formCode,
+                targetAction: `start_${form.formCode}`,
+              }),
             }))
       : [];
   const depressionVersionChoices: FlagshipVariantChoice[] = showsDepressionVersionActions
@@ -662,9 +721,12 @@ export default async function TestLandingPage({
             locale === "zh"
               ? "68 题，约 12 分钟，同时查看抑郁与焦虑两个维度，并获得更完整的近期状态参考。"
               : "68 items, about 12 minutes, with a fuller recent-state reference across depression and anxiety.",
-          href: withLocale("/tests/clinical-depression-anxiety-assessment-professional-edition/take"),
+          href: withAttribution(withLocale("/tests/clinical-depression-anxiety-assessment-professional-edition/take")),
           ctaLabel: locale === "zh" ? "开始学术专业版" : "Start professional version",
           testId: "test-detail-landing-cta-clinical-combo-68",
+          eventProperties: buildStartClickTrackingProps({
+            targetAction: "start_clinical_combo_68",
+          }),
         },
         {
           key: "depression_standard_20",
@@ -673,9 +735,12 @@ export default async function TestLandingPage({
             locale === "zh"
               ? "20 题，约 5 分钟，快速了解近期情绪低落、兴趣下降与状态波动是否值得进一步关注。"
               : "20 items, about 5 minutes, for a faster screen of recent low mood, loss of interest, and state changes.",
-          href: withLocale("/tests/depression-screening-test-standard-edition/take"),
+          href: withAttribution(withLocale("/tests/depression-screening-test-standard-edition/take")),
           ctaLabel: locale === "zh" ? "开始标准版" : "Start standard version",
           testId: "test-detail-landing-cta-depression-standard-20",
+          eventProperties: buildStartClickTrackingProps({
+            targetAction: "start_depression_standard_20",
+          }),
         },
       ]
     : [];
@@ -685,7 +750,7 @@ export default async function TestLandingPage({
   const mbtiSecondaryChoice = showsMbtiActions
     ? flagshipVariantChoices.find((choice) => choice.key !== (mbtiPrimaryChoice?.key ?? DEFAULT_MBTI_FORM_CODE)) ?? null
     : null;
-  const mbtiLandingPath = withLocale(`/tests/${test.slug}`);
+  const mbtiLandingPath = landingPath;
   const mbtiPrimaryHref = mbtiPrimaryChoice
     ? buildMbtiEntryHref({
         locale,
@@ -695,6 +760,7 @@ export default async function TestLandingPage({
         sourcePageType: "test_landing",
         targetAction: "start_mbti_test_primary",
         sourcePath: mbtiLandingPath,
+        attributionParams: landingAttributionParams,
       })
     : null;
   const mbtiSecondaryHref = mbtiSecondaryChoice
@@ -706,6 +772,7 @@ export default async function TestLandingPage({
         sourcePageType: "test_landing",
         targetAction: "start_mbti_test_secondary",
         sourcePath: mbtiLandingPath,
+        attributionParams: landingAttributionParams,
       })
     : null;
   const mbtiEntryViewTrackingProps = showsMbtiActions
@@ -717,6 +784,7 @@ export default async function TestLandingPage({
         sourcePageType: "test_landing",
         targetAction: "entry_view",
         sourcePath: mbtiLandingPath,
+        attributionPayload: landingAttributionPayload,
       })
     : null;
   const mbtiPrimaryClickTrackingProps = mbtiPrimaryChoice
@@ -728,6 +796,7 @@ export default async function TestLandingPage({
         sourcePageType: "test_landing",
         targetAction: "start_mbti_test_primary",
         sourcePath: mbtiLandingPath,
+        attributionPayload: landingAttributionPayload,
       })
     : null;
   const mbtiSecondaryClickTrackingProps = mbtiSecondaryChoice
@@ -739,6 +808,7 @@ export default async function TestLandingPage({
         sourcePageType: "test_landing",
         targetAction: "start_mbti_test_secondary",
         sourcePath: mbtiLandingPath,
+        attributionPayload: landingAttributionPayload,
       })
     : null;
 
@@ -753,6 +823,7 @@ export default async function TestLandingPage({
   });
 
   const landingTrackingProps = {
+    ...landingAttributionPayload,
     slug: test.slug,
     locale,
     scale_code: test.scale_code || "BIG5_OCEAN",
@@ -954,9 +1025,14 @@ export default async function TestLandingPage({
               </div>
             ) : (
               <div className="flex flex-wrap items-center gap-3 pt-1">
-                <Link href={startTestHref} prefetch={false} className={buttonVariants({ size: "lg" })}>
+                <TrackedEntryCtaLink
+                  href={startTestHref}
+                  prefetch={false}
+                  eventProperties={buildStartClickTrackingProps({ targetAction: "start_test" })}
+                  className={buttonVariants({ size: "lg" })}
+                >
                   {locale === "zh" ? "开始测试" : "Start test"}
-                </Link>
+                </TrackedEntryCtaLink>
               </div>
             )}
           </section>
@@ -1163,6 +1239,8 @@ export default async function TestLandingPage({
             minutes={test.time_minutes}
             scaleCode={test.scale_code}
             locale={locale}
+            attributionParams={landingAttributionParams}
+            attributionPayload={landingAttributionPayload}
           />
         </aside>
       </div>

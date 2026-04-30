@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { notFound } from "next/navigation";
 import { SiteChrome } from "@/components/layout/SiteChrome";
+import { AnalyticsScripts } from "@/components/analytics/AnalyticsScripts";
+import { CookieBanner } from "@/components/legal/CookieBanner";
 import { LocaleProvider } from "@/components/i18n/LocaleContext";
 import { Providers } from "@/app/providers";
 import { isSupportedLocale, type Locale } from "@/lib/i18n/locales";
@@ -84,9 +86,11 @@ export default async function LocalizedRootLayout({
   return (
     <html lang={resolvedLocale}>
       <body className={`${fmSans.variable} ${fmSerif.variable} ${fmMono.variable} antialiased`}>
+        <AnalyticsScripts />
         <Providers>
           <LocaleProvider locale={resolvedLocale}>
             <SiteChrome productPriority={productPriority}>{children}</SiteChrome>
+            <CookieBanner />
           </LocaleProvider>
         </Providers>
       </body>

@@ -168,6 +168,49 @@ describe("mbti entry wiring contract", () => {
     ).toBe(true);
   });
 
+  it("preserves paid attribution in sticky MBTI CTA landing_path and click IDs", () => {
+    render(
+      <CTASticky
+        slug="mbti-personality-test-16-personality-types"
+        title="MBTI Personality Test"
+        questions={144}
+        minutes={15}
+        scaleCode="MBTI"
+        locale="en"
+        attributionParams={{
+          utm_source: "zhihu",
+          utm_medium: "community",
+          utm_campaign: "launch_0506",
+          gclid: "test-gclid",
+        }}
+        attributionPayload={{
+          utm_source: "zhihu",
+          utm_medium: "community",
+          utm_campaign: "launch_0506",
+          gclid: "test-gclid",
+          landing_path:
+            "/en/tests/mbti-personality-test-16-personality-types?utm_source=zhihu&utm_medium=community&utm_campaign=launch_0506&gclid=test-gclid",
+        }}
+      />
+    );
+
+    const hrefs = screen
+      .getAllByRole("link", { name: /Start Deep Profile/ })
+      .map((link) => link.getAttribute("href") ?? "");
+
+    expect(
+      hrefs.some((href) =>
+        href.includes("utm_source=zhihu")
+        && href.includes("utm_medium=community")
+        && href.includes("utm_campaign=launch_0506")
+        && href.includes("gclid=test-gclid")
+        && href.includes(
+          "landing_path=%2Fen%2Ftests%2Fmbti-personality-test-16-personality-types%3Futm_source%3Dzhihu%26utm_medium%3Dcommunity%26utm_campaign%3Dlaunch_0506%26gclid%3Dtest-gclid"
+        )
+      )
+    ).toBe(true);
+  });
+
   it("wires the highlighted home section directly to MBTI form-aware take routes", () => {
     const source = read("components/marketing/HighlightedTestsSection.tsx");
 

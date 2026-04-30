@@ -1,6 +1,10 @@
 import { trackClientEvent } from "@/lib/tracking/client";
 import { getLocaleFromPathname } from "@/lib/i18n/locales";
 import { getOrCreateAnonId } from "@/lib/anon";
+import {
+  captureAttributionFromLocation,
+  readStoredTrackingAttributionPayload,
+} from "@/lib/tracking/attribution";
 
 const ANALYTICS_ENABLED = process.env.NEXT_PUBLIC_ANALYTICS_ENABLED === "true";
 
@@ -25,6 +29,13 @@ export function clearAnalyticsQueue(): void {
 
 export function initAnalytics(): void {
   if (!isBrowser()) return;
+  if (ANALYTICS_ENABLED) {
+    captureAttributionFromLocation({
+      pathname: window.location.pathname,
+      search: window.location.search,
+      referrer: document.referrer,
+    });
+  }
   if (!ANALYTICS_ENABLED) {
     clearAnalyticsQueue();
   }
@@ -34,16 +45,22 @@ export function trackEvent(eventName: string, properties: AnalyticsProperties = 
   if (!ANALYTICS_ENABLED || !isBrowser() || !eventName) return;
 
   const locale = getLocaleFromPathname(window.location.pathname);
+  const currentPath = `${window.location.pathname}${window.location.search}`;
+  const attributionPayload = readStoredTrackingAttributionPayload(currentPath);
+  const anonymousId = getAnonymousId();
   const payload = {
+    ...attributionPayload,
     ...properties,
     locale: properties.locale ?? locale,
+    current_path: properties.current_path ?? currentPath,
+    session_id: properties.session_id ?? anonymousId,
   };
 
   void trackClientEvent({
     eventName,
     payload,
-    anonymousId: getAnonymousId(),
-    path: `${window.location.pathname}${window.location.search}`,
+    anonymousId,
+    path: currentPath,
   });
 }
 

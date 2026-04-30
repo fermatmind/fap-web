@@ -38,6 +38,10 @@ import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
 import { classifyApiError } from "@/lib/observability/httpError";
 import { captureError } from "@/lib/observability/sentry";
 import { resolveScaleRollout, type ScaleRolloutEnvSnapshot } from "@/lib/rollout/scaleRollout";
+import {
+  readStoredTrackingAttributionPayload,
+  toAttemptAttributionPayload,
+} from "@/lib/tracking/attribution";
 
 const SDS_SECTION_KEYS = [
   "disclaimer_top",
@@ -888,7 +892,14 @@ export default function ClinicalReportClient({
     setPaying(true);
 
     try {
+      const currentPath = typeof window !== "undefined"
+        ? `${window.location.pathname}${window.location.search}`
+        : "";
+      const trackingAttribution = readStoredTrackingAttributionPayload(currentPath);
+      const checkoutAttribution = toAttemptAttributionPayload(trackingAttribution);
+
       trackEvent("clinical_checkout_start", {
+        ...trackingAttribution,
         scale_code: scaleCode,
         locked,
         variant,
@@ -903,6 +914,7 @@ export default function ClinicalReportClient({
         orderNo: firstOffer.order_no,
         idempotencyKey: `clinical_checkout_${attemptId}_${firstOffer.sku ?? "default"}`,
         region: regionFromLocale(locale),
+        attribution: checkoutAttribution,
       });
       const action = resolveCheckoutAction(checkout, isZh ? "暂时无法发起支付。" : "Unable to start checkout.");
       const pendingOrderNo =

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import type { ReactNode } from "react";
 import { SiteChrome } from "@/components/layout/SiteChrome";
+import { AnalyticsScripts } from "@/components/analytics/AnalyticsScripts";
+import { CookieBanner } from "@/components/legal/CookieBanner";
 import { LocaleProvider } from "@/components/i18n/LocaleContext";
 import { Providers } from "@/app/providers";
 import { createProductPriorityEnvSnapshot } from "@/lib/rollout/scaleRollout";
@@ -58,9 +60,11 @@ export default function RootRouteLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="zh">
       <body className={`${fmSans.variable} ${fmSerif.variable} ${fmMono.variable} antialiased`}>
+        <AnalyticsScripts />
         <Providers>
           <LocaleProvider locale="zh">
             <SiteChrome productPriority={productPriority}>{children}</SiteChrome>
+            <CookieBanner />
           </LocaleProvider>
         </Providers>
       </body>

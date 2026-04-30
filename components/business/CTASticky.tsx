@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -41,6 +40,11 @@ import {
   listMbtiFormMetas,
 } from "@/lib/mbti/forms";
 import { buildMbtiEntryHref, buildMbtiEntryTrackingPayload } from "@/lib/mbti/entryTracking";
+import {
+  appendAttributionParamsToHref,
+  type AttributionParams,
+  type TrackingAttributionPayload,
+} from "@/lib/tracking/attribution";
 
 type CTAStickyProps = {
   slug: string;
@@ -49,9 +53,20 @@ type CTAStickyProps = {
   minutes: number;
   scaleCode?: string;
   locale?: Locale;
+  attributionParams?: AttributionParams;
+  attributionPayload?: TrackingAttributionPayload;
 };
 
-export function CTASticky({ slug, title, questions, minutes, scaleCode, locale = "en" }: CTAStickyProps) {
+export function CTASticky({
+  slug,
+  title,
+  questions,
+  minutes,
+  scaleCode,
+  locale = "en",
+  attributionParams = {},
+  attributionPayload = {},
+}: CTAStickyProps) {
   const showsMbtiActions = isMbtiScaleCode(scaleCode) || isMbtiSlug(slug);
   const showsBig5Actions = isBig5ScaleCode(scaleCode) || isBig5Slug(slug);
   const showsEnneagramActions = isEnneagramScaleCode(scaleCode) || isEnneagramSlug(slug);
@@ -59,7 +74,25 @@ export function CTASticky({ slug, title, questions, minutes, scaleCode, locale =
   const mbtiForms = listMbtiFormMetas();
   const mbtiPrimaryForm = mbtiForms.find((form) => form.formCode === DEFAULT_MBTI_FORM_CODE) ?? mbtiForms[0] ?? null;
   const mbtiSecondaryForm = mbtiForms.find((form) => form.formCode !== (mbtiPrimaryForm?.formCode ?? DEFAULT_MBTI_FORM_CODE)) ?? null;
-  const mbtiLandingPath = localizedPath(`/tests/${slug}`, locale);
+  const mbtiLandingPath = attributionPayload.landing_path ?? localizedPath(`/tests/${slug}`, locale);
+  const withAttribution = (href: string) => appendAttributionParamsToHref(href, attributionParams);
+  const buildStartClickTrackingProps = ({
+    formCode,
+    targetAction,
+  }: {
+    formCode?: string;
+    targetAction: string;
+  }): Record<string, string> => ({
+    ...attributionPayload,
+    slug,
+    test_slug: slug,
+    ...(formCode ? { form_code: formCode } : {}),
+    entry_surface: "test_landing",
+    source_page_type: "test_landing",
+    target_action: targetAction,
+    landing_path: attributionPayload.landing_path ?? mbtiLandingPath,
+    locale,
+  });
   const mbtiPrimaryHref = mbtiPrimaryForm
     ? buildMbtiEntryHref({
         locale,
@@ -69,6 +102,7 @@ export function CTASticky({ slug, title, questions, minutes, scaleCode, locale =
         sourcePageType: "test_landing",
         targetAction: "start_mbti_test_primary",
         sourcePath: mbtiLandingPath,
+        attributionParams,
       })
     : null;
   const mbtiSecondaryHref = mbtiSecondaryForm
@@ -80,6 +114,7 @@ export function CTASticky({ slug, title, questions, minutes, scaleCode, locale =
         sourcePageType: "test_landing",
         targetAction: "start_mbti_test_secondary",
         sourcePath: mbtiLandingPath,
+        attributionParams,
       })
     : null;
   const mbtiPrimaryTrackingProps = mbtiPrimaryForm
@@ -91,6 +126,7 @@ export function CTASticky({ slug, title, questions, minutes, scaleCode, locale =
         sourcePageType: "test_landing",
         targetAction: "start_mbti_test_primary",
         sourcePath: mbtiLandingPath,
+        attributionPayload,
       })
     : null;
   const mbtiSecondaryTrackingProps = mbtiSecondaryForm
@@ -102,6 +138,7 @@ export function CTASticky({ slug, title, questions, minutes, scaleCode, locale =
         sourcePageType: "test_landing",
         targetAction: "start_mbti_test_secondary",
         sourcePath: mbtiLandingPath,
+        attributionPayload,
       })
     : null;
   const mbtiSummary = listMbtiFormMetas().map((form) => getMbtiVariantLabel(form.formCode, locale)).join(" / ");
@@ -173,12 +210,16 @@ export function CTASticky({ slug, title, questions, minutes, scaleCode, locale =
                       {getBig5VariantLabel(form.formCode, locale)}
                     </p>
                     <p className="m-0 mt-2 text-xs leading-6 text-slate-600">{getBig5VariantSummary(form.formCode, locale)}</p>
-                    <Link
-                      href={buildBig5TakeHref(slug, locale, form.formCode)}
+                    <TrackedEntryCtaLink
+                      href={withAttribution(buildBig5TakeHref(slug, locale, form.formCode))}
+                      eventProperties={buildStartClickTrackingProps({
+                        formCode: form.formCode,
+                        targetAction: `start_${form.formCode}`,
+                      })}
                       className={buttonVariants({ className: "mt-3 w-full" })}
                     >
                       {getBig5StartLabel(form.formCode, locale)}
-                    </Link>
+                    </TrackedEntryCtaLink>
                   </div>
                 ))}
               </div>
@@ -190,12 +231,16 @@ export function CTASticky({ slug, title, questions, minutes, scaleCode, locale =
                       {getEnneagramVariantLabel(form.formCode, locale)}
                     </p>
                     <p className="m-0 mt-2 text-xs leading-6 text-slate-600">{getEnneagramVariantSummary(form.formCode, locale)}</p>
-                    <Link
-                      href={buildEnneagramTakeHref(slug, locale, form.formCode)}
+                    <TrackedEntryCtaLink
+                      href={withAttribution(buildEnneagramTakeHref(slug, locale, form.formCode))}
+                      eventProperties={buildStartClickTrackingProps({
+                        formCode: form.formCode,
+                        targetAction: `start_${form.formCode}`,
+                      })}
                       className={buttonVariants({ className: "mt-3 w-full" })}
                     >
                       {getEnneagramStartLabel(form.formCode, locale)}
-                    </Link>
+                    </TrackedEntryCtaLink>
                   </div>
                 ))}
               </div>
@@ -207,20 +252,28 @@ export function CTASticky({ slug, title, questions, minutes, scaleCode, locale =
                       {getRiasecVariantLabel(form.formCode, locale)}
                     </p>
                     <p className="m-0 mt-2 text-xs leading-6 text-slate-600">{getRiasecVariantSummary(form.formCode, locale)}</p>
-                    <Link
-                      href={buildRiasecTakeHref(slug, locale, form.formCode)}
+                    <TrackedEntryCtaLink
+                      href={withAttribution(buildRiasecTakeHref(slug, locale, form.formCode))}
+                      eventProperties={buildStartClickTrackingProps({
+                        formCode: form.formCode,
+                        targetAction: `start_${form.formCode}`,
+                      })}
                       data-testid={`riasec-sticky-cta-${form.formCode}`}
                       className={buttonVariants({ className: "mt-3 w-full" })}
                     >
                       {getRiasecStartLabel(form.formCode, locale)}
-                    </Link>
+                    </TrackedEntryCtaLink>
                   </div>
                 ))}
               </div>
             ) : (
-              <Link href={localizedPath(`/tests/${slug}/take`, locale)} className={buttonVariants({ className: "w-full" })}>
+              <TrackedEntryCtaLink
+                href={withAttribution(localizedPath(`/tests/${slug}/take`, locale))}
+                eventProperties={buildStartClickTrackingProps({ targetAction: "start_test" })}
+                className={buttonVariants({ className: "w-full" })}
+              >
                 {locale === "zh" ? "开始此测试" : "Start this test"}
-              </Link>
+              </TrackedEntryCtaLink>
             )}
           </CardContent>
         </Card>
@@ -265,44 +318,60 @@ export function CTASticky({ slug, title, questions, minutes, scaleCode, locale =
           ) : showsBig5Actions ? (
             <div className="flex w-full gap-2 sm:w-auto">
               {listBig5FormMetas().map((form) => (
-                <Link
+                <TrackedEntryCtaLink
                   key={form.formCode}
-                  href={buildBig5TakeHref(slug, locale, form.formCode)}
+                  href={withAttribution(buildBig5TakeHref(slug, locale, form.formCode))}
+                  eventProperties={buildStartClickTrackingProps({
+                    formCode: form.formCode,
+                    targetAction: `start_${form.formCode}`,
+                  })}
                   className={buttonVariants({ size: "sm", className: "flex-1 sm:flex-none" })}
                 >
                   {getBig5StartLabel(form.formCode, locale)}
-                </Link>
+                </TrackedEntryCtaLink>
               ))}
             </div>
           ) : showsEnneagramActions ? (
             <div className="flex w-full gap-2 sm:w-auto">
               {listEnneagramFormMetas().map((form) => (
-                <Link
+                <TrackedEntryCtaLink
                   key={form.formCode}
-                  href={buildEnneagramTakeHref(slug, locale, form.formCode)}
+                  href={withAttribution(buildEnneagramTakeHref(slug, locale, form.formCode))}
+                  eventProperties={buildStartClickTrackingProps({
+                    formCode: form.formCode,
+                    targetAction: `start_${form.formCode}`,
+                  })}
                   className={buttonVariants({ size: "sm", className: "flex-1 sm:flex-none" })}
                 >
                   {getEnneagramStartLabel(form.formCode, locale)}
-                </Link>
+                </TrackedEntryCtaLink>
               ))}
             </div>
           ) : showsRiasecActions ? (
             <div className="flex w-full gap-2 sm:w-auto">
               {listRiasecFormMetas().map((form) => (
-                <Link
+                <TrackedEntryCtaLink
                   key={form.formCode}
-                  href={buildRiasecTakeHref(slug, locale, form.formCode)}
+                  href={withAttribution(buildRiasecTakeHref(slug, locale, form.formCode))}
+                  eventProperties={buildStartClickTrackingProps({
+                    formCode: form.formCode,
+                    targetAction: `start_${form.formCode}`,
+                  })}
                   data-testid={`riasec-sticky-mobile-cta-${form.formCode}`}
                   className={buttonVariants({ size: "sm", className: "flex-1 sm:flex-none" })}
                 >
                   {getRiasecStartLabel(form.formCode, locale)}
-                </Link>
+                </TrackedEntryCtaLink>
               ))}
             </div>
           ) : (
-            <Link href={localizedPath(`/tests/${slug}/take`, locale)} className={buttonVariants({ size: "sm" })}>
+            <TrackedEntryCtaLink
+              href={withAttribution(localizedPath(`/tests/${slug}/take`, locale))}
+              eventProperties={buildStartClickTrackingProps({ targetAction: "start_test" })}
+              className={buttonVariants({ size: "sm" })}
+            >
               {locale === "zh" ? "开始" : "Start"}
-            </Link>
+            </TrackedEntryCtaLink>
           )}
         </div>
       </div>

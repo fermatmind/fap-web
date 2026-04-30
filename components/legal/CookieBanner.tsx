@@ -16,6 +16,11 @@ export function CookieBanner() {
   const updateConsent = (next: Extract<BannerConsent, "granted" | "denied">) => {
     setAnalyticsConsent(next);
     setConsent(next);
+    window.dispatchEvent(
+      new CustomEvent("fm:analytics-consent-updated", {
+        detail: { analytics: next },
+      })
+    );
   };
 
   if (consent !== "unknown") return null;
