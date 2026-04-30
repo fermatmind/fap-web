@@ -4,6 +4,10 @@ import { notFound, permanentRedirect } from "next/navigation";
 import { DataGlyph } from "@/components/assessment-cards/DataGlyph";
 import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
 import { CTASticky } from "@/components/business/CTASticky";
+import {
+  isMentalHealthScreeningTest,
+  MentalHealthDisclaimer,
+} from "@/components/compliance/MentalHealthDisclaimer";
 import { FAQAccordion, type FAQItem } from "@/components/business/FAQAccordion";
 import { MbtiSceneEntrySection } from "@/components/content/MbtiSceneEntrySection";
 import { Container } from "@/components/layout/Container";
@@ -645,6 +649,10 @@ export default async function TestLandingPage({
   const showsBig5Actions = isBig5ScaleCode(test.scale_code);
   const showsEnneagramActions = isEnneagramScaleCode(test.scale_code);
   const showsRiasecActions = isRiasecScaleCode(test.scale_code);
+  const showsMentalHealthDisclaimer = isMentalHealthScreeningTest({
+    slug: test.slug,
+    scaleCode: test.scale_code,
+  });
   const showsDepressionVersionActions = [
     "clinical-depression-anxiety-assessment-professional-edition",
     "depression-screening-test-standard-edition",
@@ -1036,6 +1044,8 @@ export default async function TestLandingPage({
               </div>
             )}
           </section>
+
+          {showsMentalHealthDisclaimer ? <MentalHealthDisclaimer locale={locale} /> : null}
 
           {showsMbtiActions ? (
             <MbtiSceneEntrySection
