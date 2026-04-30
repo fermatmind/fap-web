@@ -3,10 +3,15 @@ import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { ArticleResponsiveImage } from "@/components/content/ArticleResponsiveImage";
 import { Container } from "@/components/layout/Container";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { Badge } from "@/components/ui/badge";
 import { getCmsArticlesWithLastKnownGood } from "@/lib/cms/articles";
 import { getDict, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
+import {
+  buildBreadcrumbJsonLd,
+  buildCollectionPageJsonLd,
+} from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const dynamic = "force-dynamic";
@@ -99,6 +104,21 @@ export default async function ArticlesPage({
   const currentPage = pagination.currentPage > 0 ? pagination.currentPage : requestedPage;
   const lastPage = Math.max(1, pagination.lastPage);
   const pageLink = (page: number) => (page <= 1 ? withLocale("/articles") : `${withLocale("/articles")}?page=${page}`);
+  const articlesPath = pageLink(currentPage);
+  const articleIndexTitle =
+    currentPage > 1
+      ? `${dict.articles.title} · ${locale === "zh" ? `第 ${currentPage} 页` : `Page ${currentPage}`}`
+      : dict.articles.title;
+  const collectionPageJsonLd = buildCollectionPageJsonLd({
+    path: articlesPath,
+    title: articleIndexTitle,
+    description: dict.articles.subtitle,
+    locale,
+  });
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+    { name: locale === "zh" ? "首页" : "Home", path: localizedPath("/", locale) },
+    { name: dict.articles.title, path: withLocale("/articles") },
+  ]);
   const emptyTitle = locale === "zh" ? "暂无已发布文章" : "No published articles yet";
   const emptyDescription =
     locale === "zh"
@@ -107,12 +127,20 @@ export default async function ArticlesPage({
 
   return (
     <Container as="main" className="space-y-8 py-10">
+      <JsonLd id={`articles-collection-${locale}`} data={collectionPageJsonLd} />
+      <JsonLd id={`articles-breadcrumb-${locale}`} data={breadcrumbJsonLd} />
       <Breadcrumb
         items={[
           { label: locale === "zh" ? "首页" : "Home", href: withLocale("/") },
           { label: dict.articles.title },
         ]}
       />
+      <header className="max-w-3xl space-y-3">
+        <h1 className="m-0 font-serif text-4xl font-semibold leading-tight text-[var(--fm-text)] md:text-5xl">
+          {articleIndexTitle}
+        </h1>
+        <p className="m-0 text-base leading-7 text-[var(--fm-text-muted)] md:text-lg">{dict.articles.subtitle}</p>
+      </header>
 
       {items.length > 0 ? (
         <>
@@ -258,7 +286,7 @@ export default async function ArticlesPage({
         </>
       ) : (
         <section className="rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface)] p-6 shadow-[var(--fm-shadow-sm)]">
-          <h1 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">{emptyTitle}</h1>
+          <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">{emptyTitle}</h2>
           <p className="mt-2 text-sm text-[var(--fm-text-muted)]">{emptyDescription}</p>
         </section>
       )}
