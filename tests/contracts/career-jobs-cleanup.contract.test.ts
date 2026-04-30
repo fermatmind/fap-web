@@ -26,6 +26,30 @@ afterEach(() => {
 });
 
 describe("career routing cleanup contract", () => {
+  it("quarantines career jobs index from sitemap and llms until the performance gate passes", async () => {
+    const { shouldIncludeInSitemap, shouldNoindex } = await import("@/lib/seo/indexingPolicy");
+
+    expect(shouldIncludeInSitemap("/en/career/jobs")).toBe(false);
+    expect(shouldIncludeInSitemap("/zh/career/jobs")).toBe(false);
+    expect(shouldNoindex("/en/career/jobs", "en")).toBe(false);
+    expect(shouldNoindex("/zh/career/jobs", "zh")).toBe(false);
+
+    const config = requireFromRoot("./next-sitemap.config.js");
+    expect(config.exclude).not.toContain("/en/career/jobs");
+    expect(config.exclude).not.toContain("/zh/career/jobs");
+    expect(await config.transform({}, "/en/career/jobs")).toBeNull();
+    expect(await config.transform({}, "/zh/career/jobs")).toBeNull();
+
+    const llms = read("app/llms.txt/route.ts");
+    const llmsFull = read("app/llms-full.txt/route.ts");
+    expect(llms).not.toContain('toCanonical(siteUrl, "/en/career/jobs")');
+    expect(llms).not.toContain('toCanonical(siteUrl, "/zh/career/jobs")');
+    expect(llmsFull).not.toContain('toCanonical(siteUrl, "/en/career/jobs")');
+    expect(llmsFull).not.toContain('toCanonical(siteUrl, "/zh/career/jobs")');
+    expect(llms).toContain('^\\/career\\/jobs$');
+    expect(llmsFull).toContain('^\\/career\\/jobs$');
+  });
+
   it("frontend sitemap config keeps recommendation detail routes out until protocol gating exists and excludes stale private result paths", async () => {
     vi.stubGlobal(
       "fetch",

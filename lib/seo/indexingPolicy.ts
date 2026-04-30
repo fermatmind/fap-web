@@ -86,6 +86,12 @@ export function isCareerJobsQueryPage(pathname: string): boolean {
   return typeof rawQuery === "string" && rawQuery.trim().length > 0;
 }
 
+export function isCareerJobsIndexLaunchQuarantined(pathname: string): boolean {
+  // PR-07 launch quarantine: keep the heavy jobs index reachable for users, but out of
+  // sitemap/llms/paid/backlink exposure until the performance/cache gate passes.
+  return stripLocalePrefix(pathname) === "/career/jobs" && !isCareerJobsQueryPage(pathname);
+}
+
 function normalizeIndexState(value: string | null | undefined): string {
   return String(value ?? "").trim().toLowerCase();
 }
@@ -124,6 +130,10 @@ export function shouldIncludeInSitemap(pathname: string, explicitGate?: Explicit
   }
 
   if (isCareerJobsQueryPage(pathname)) {
+    return false;
+  }
+
+  if (isCareerJobsIndexLaunchQuarantined(pathname)) {
     return false;
   }
 

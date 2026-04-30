@@ -44,6 +44,8 @@ describe("robots contract", () => {
     expect(shouldIncludeInSitemap("/zh/topics/mbti")).toBe(true);
     expect(shouldIncludeInSitemap("/en/help/faq")).toBe(true);
     expect(shouldIncludeInSitemap("/en/career/recommendations/mbti/INTJ")).toBe(true);
+    expect(shouldIncludeInSitemap("/en/career/jobs")).toBe(false);
+    expect(shouldIncludeInSitemap("/zh/career/jobs")).toBe(false);
     expect(shouldIncludeInSitemap("/en/career/jobs?q=backend")).toBe(false);
 
     expect(shouldIncludeInSitemap("/en/types/intj")).toBe(false);

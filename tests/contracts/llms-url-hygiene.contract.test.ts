@@ -16,6 +16,8 @@ function expectLlmsRouteHygiene(source: string): void {
   expect(source).not.toContain('toCanonical(siteUrl, "/zh")');
   expect(source).not.toContain('toCanonical(siteUrl, "/en/help")');
   expect(source).not.toContain('toCanonical(siteUrl, "/zh/help")');
+  expect(source).not.toContain('toCanonical(siteUrl, "/en/career/jobs")');
+  expect(source).not.toContain('toCanonical(siteUrl, "/zh/career/jobs")');
   expect(source).not.toContain("isCareerJobDetailDiscoverableByManifest");
   expect(source).not.toContain(".map((job) => job.href)");
   expect(source).not.toContain("fetchCareerJobIndex");

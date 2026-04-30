@@ -99,9 +99,9 @@ describe("career llms alignment contract", () => {
     const text = await response.text();
 
     expect(text).toContain("https://fermatmind.com/en/career");
-    expect(text).toContain("https://fermatmind.com/en/career/jobs");
+    expect(text).not.toContain("https://fermatmind.com/en/career/jobs");
     expect(text).toContain("https://fermatmind.com/en/career/recommendations");
-    expect(text).toContain("https://fermatmind.com/en/career/jobs/backend-architect");
+    expect(text).not.toContain("https://fermatmind.com/en/career/jobs/backend-architect");
     expect(text).not.toContain("https://fermatmind.com/en/career/jobs/data-engineer");
     expect(text).toContain("https://fermatmind.com/en/career/family/data-science");
     expect(text).toContain("https://fermatmind.com/en/career/recommendations/mbti/intj-a");
@@ -259,9 +259,9 @@ describe("career llms alignment contract", () => {
     const text = await response.text();
 
     expect(text).toContain("[en] Career center | https://fermatmind.com/en/career");
-    expect(text).toContain("[en] Career jobs | https://fermatmind.com/en/career/jobs");
+    expect(text).not.toContain("[en] Career jobs | https://fermatmind.com/en/career/jobs");
     expect(text).toContain("[en] Career recommendations | https://fermatmind.com/en/career/recommendations");
-    expect(text).toContain("[en] Backend Architect | https://fermatmind.com/en/career/jobs/backend-architect");
+    expect(text).not.toContain("[en] Backend Architect | https://fermatmind.com/en/career/jobs/backend-architect");
     expect(text).not.toContain("[en] Data Engineer | https://fermatmind.com/en/career/jobs/data-engineer");
     expect(text).toContain("[en] Data Science | https://fermatmind.com/en/career/family/data-science");
     expect(text).toContain("[en] INTJ Career Match | https://fermatmind.com/en/career/recommendations/mbti/intj-a");

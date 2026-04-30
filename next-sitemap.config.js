@@ -285,8 +285,6 @@ function buildLandingPaths() {
     "/zh/career",
     "/en/career/guides",
     "/zh/career/guides",
-    "/en/career/jobs",
-    "/zh/career/jobs",
     "/en/career/industries",
     "/zh/career/industries",
     "/en/career/recommendations",
