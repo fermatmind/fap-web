@@ -42,7 +42,8 @@ import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
-export const dynamic = "force-dynamic";
+export const dynamic = "force-static";
+export const revalidate = 300;
 
 function buildCanonicalPath(slug: string, locale: Locale): string {
   return buildCareerJobFrontendUrl(locale, slug);
