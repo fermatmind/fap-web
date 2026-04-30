@@ -20,10 +20,9 @@ import { ensureFmTokenReady, runWithGuestTokenRetry } from "@/lib/auth/authRetry
 import {
   isGuestTokenEndpointMissingError,
   isGuestTokenRequestError,
-  setFmToken,
 } from "@/lib/auth/fmToken";
 import { ApiError } from "@/lib/api-client";
-import { getOrCreateAnonId, readPendingAnonLinkAttempts } from "@/lib/anon";
+import { getOrCreateAnonId } from "@/lib/anon";
 import {
   buildBig5TrackingContext,
   trackBig5Event,
@@ -53,10 +52,6 @@ import {
   recoverStaleAttemptSubmit,
   resolveStaleDraftResetMessage,
 } from "@/lib/attempt/staleAttempt";
-import {
-  linkAnonAttemptsOnceOnLoginSuccess,
-  shouldLinkAnonAttemptsOnLoginSuccess,
-} from "@/lib/api/v0_3";
 
 function resolveGuestTokenTelemetry(error: unknown): {
   statusCode?: number;
@@ -107,7 +102,6 @@ export default function Big5TakeClient({
   const acceptDisclaimer = useBig5AttemptStore((store) => store.acceptDisclaimer);
   const hydrateAnonId = useBig5AttemptStore((store) => store.hydrateAnonId);
   const setSessionContext = useBig5AttemptStore((store) => store.setSessionContext);
-  const setAuthToken = useBig5AttemptStore((store) => store.setAuthToken);
   const markSubmitted = useBig5AttemptStore((store) => store.markSubmitted);
   const clearAttemptMeta = useBig5AttemptStore((store) => store.clearAttemptMeta);
   const resetAfterSubmit = useBig5AttemptStore((store) => store.resetAfterSubmit);
@@ -253,34 +247,6 @@ export default function Big5TakeClient({
     submitInFlightRef.current = false;
     recoveringAttemptRef.current = false;
   }, []);
-
-  useEffect(() => {
-    const tokenFromUrl = searchParams.get("token")?.trim() ?? "";
-    if (!tokenFromUrl.startsWith("fm_")) return;
-
-    setFmToken(tokenFromUrl);
-    setAuthToken(tokenFromUrl);
-
-    const pendingAttemptIds = readPendingAnonLinkAttempts();
-    if (
-      pendingAttemptIds.length === 0
-      || !shouldLinkAnonAttemptsOnLoginSuccess({
-        tokenFromUrl,
-        anonId,
-        attemptIds: pendingAttemptIds,
-      })
-    ) {
-      return;
-    }
-
-    void linkAnonAttemptsOnceOnLoginSuccess({
-      tokenFromUrl,
-      anonId,
-      attemptIds: pendingAttemptIds,
-    }).catch(() => {
-      // Keep login flow non-blocking.
-    });
-  }, [anonId, searchParams, setAuthToken]);
 
   useEffect(() => {
     hydrateAnonId(anonId || null);

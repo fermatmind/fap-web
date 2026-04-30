@@ -17,18 +17,15 @@ import {
 import { QuizShell } from "@/components/quiz/QuizShell";
 import { StaleDraftResetPrompt } from "@/components/quiz/StaleDraftResetPrompt";
 import { Button } from "@/components/ui/button";
-import { getOrCreateAnonId, readPendingAnonLinkAttempts } from "@/lib/anon";
+import { getOrCreateAnonId } from "@/lib/anon";
 import { ensureFmTokenReady, runWithGuestTokenRetry } from "@/lib/auth/authRetry";
 import {
   isGuestTokenEndpointMissingError,
   isGuestTokenRequestError,
-  setFmToken,
 } from "@/lib/auth/fmToken";
 import {
   fetchScaleQuestions,
-  linkAnonAttemptsOnceOnLoginSuccess,
   startAttempt,
-  shouldLinkAnonAttemptsOnLoginSuccess,
   submitAttempt,
   type AttemptAttributionPayload,
 } from "@/lib/api/v0_3";
@@ -430,33 +427,6 @@ function QuizTakeInner({
       locale,
     });
   }, [attemptId, attribution.invite_unlock_code, locale, normalizedScaleCode, resolvedFormCode]);
-
-  useEffect(() => {
-    const tokenFromUrl = searchParams.get("token")?.trim() ?? "";
-    if (!tokenFromUrl.startsWith("fm_")) return;
-
-    setFmToken(tokenFromUrl);
-
-    const pendingAttemptIds = readPendingAnonLinkAttempts();
-    if (
-      pendingAttemptIds.length === 0
-      || !shouldLinkAnonAttemptsOnLoginSuccess({
-        tokenFromUrl,
-        anonId,
-        attemptIds: pendingAttemptIds,
-      })
-    ) {
-      return;
-    }
-
-    void linkAnonAttemptsOnceOnLoginSuccess({
-      tokenFromUrl,
-      anonId,
-      attemptIds: pendingAttemptIds,
-    }).catch(() => {
-      // Keep login flow non-blocking.
-    });
-  }, [anonId, searchParams]);
 
   const trackGuestTokenFailure = useCallback(
     (stage: "bootstrap" | "questions" | "start_attempt" | "submit_attempt", error: unknown) => {

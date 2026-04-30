@@ -46,9 +46,13 @@ const hoisted = vi.hoisted(() => ({
   fetchAttemptReport: vi.fn(),
   fetchAttemptResult: vi.fn(),
   fetchAttemptSubmission: vi.fn(),
-  getFmToken: vi.fn(() => "fm_result_test_token"),
+  getFmToken: vi.fn<() => string | null>(() => "fm_result_test_token"),
   setFmToken: vi.fn(),
   ensureFmTokenReady: vi.fn(),
+  linkAnonAttemptsOnceOnLoginSuccess: vi.fn(),
+  shouldLinkAnonAttemptsOnLoginSuccess: vi.fn(() => false),
+  pendingAnonLinkAttempts: [] as string[],
+  search: "",
   trackEvent: vi.fn(),
   captureError: vi.fn(),
   classifyApiError: vi.fn(() => ({
@@ -60,7 +64,7 @@ const hoisted = vi.hoisted(() => ({
 
 vi.mock("next/navigation", () => ({
   usePathname: () => "/en/result/attempt-123",
-  useSearchParams: () => new URLSearchParams(),
+  useSearchParams: () => new URLSearchParams(hoisted.search),
 }));
 
 vi.mock("@/components/design/AnticipationSkeleton", () => ({
@@ -128,7 +132,7 @@ vi.mock("@/components/ui/alert", () => ({
 
 vi.mock("@/lib/anon", () => ({
   getOrCreateAnonId: () => "anon_result_test",
-  readPendingAnonLinkAttempts: () => [],
+  readPendingAnonLinkAttempts: () => hoisted.pendingAnonLinkAttempts,
 }));
 
 vi.mock("@/lib/analytics", () => ({
@@ -152,8 +156,8 @@ vi.mock("@/lib/api/v0_3", () => ({
   fetchAttemptReport: hoisted.fetchAttemptReport,
   fetchAttemptResult: hoisted.fetchAttemptResult,
   fetchAttemptSubmission: hoisted.fetchAttemptSubmission,
-  linkAnonAttemptsOnceOnLoginSuccess: vi.fn(),
-  shouldLinkAnonAttemptsOnLoginSuccess: vi.fn(() => false),
+  linkAnonAttemptsOnceOnLoginSuccess: hoisted.linkAnonAttemptsOnceOnLoginSuccess,
+  shouldLinkAnonAttemptsOnLoginSuccess: hoisted.shouldLinkAnonAttemptsOnLoginSuccess,
 }));
 
 function createAccessProjection(overrides: Partial<Record<string, unknown>> = {}) {
@@ -212,8 +216,12 @@ vi.mock("@/lib/observability/sentry", () => ({
 describe("ResultClient view-state contract", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    hoisted.search = "";
+    hoisted.pendingAnonLinkAttempts = [];
     hoisted.getFmToken.mockReturnValue("fm_result_test_token");
     hoisted.ensureFmTokenReady.mockResolvedValue("issued");
+    hoisted.linkAnonAttemptsOnceOnLoginSuccess.mockResolvedValue(undefined);
+    hoisted.shouldLinkAnonAttemptsOnLoginSuccess.mockReturnValue(false);
     hoisted.fetchAttemptReportAccess.mockResolvedValue(createAccessProjection());
     hoisted.fetchAttemptInviteUnlockProgress.mockResolvedValue({
       ok: true,
@@ -240,6 +248,47 @@ describe("ResultClient view-state contract", () => {
   it("routes the public career next step through the runtime 32-type slug", () => {
     expect(buildMbtiCareerRecommendationHref("en", "ENFP-T")).toBe("/en/career/recommendations/mbti/enfp-t");
     expect(buildMbtiCareerRecommendationHref("zh", "INTJ-A")).toBe("/zh/career/recommendations/mbti/intj-a");
+  });
+
+  it("does not persist or link from a raw result URL bearer token", async () => {
+    hoisted.search = "token=fm_url_bearer_result_123456";
+    hoisted.pendingAnonLinkAttempts = ["attempt_pending_from_queue"];
+    hoisted.getFmToken.mockReturnValue(null);
+    hoisted.fetchAttemptReport.mockResolvedValue(cloneFixture(reportReadyMbtiProjectionFixture) as ReportResponse);
+
+    render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("rich-result-report")).toBeInTheDocument();
+    });
+
+    expect(hoisted.setFmToken).not.toHaveBeenCalled();
+    expect(hoisted.shouldLinkAnonAttemptsOnLoginSuccess).not.toHaveBeenCalled();
+    expect(hoisted.linkAnonAttemptsOnceOnLoginSuccess).not.toHaveBeenCalled();
+  });
+
+  it("links pending result attempts with an existing stored auth token", async () => {
+    hoisted.pendingAnonLinkAttempts = ["attempt_pending_from_queue"];
+    hoisted.getFmToken.mockReturnValue("fm_stored_result_link_123456");
+    hoisted.shouldLinkAnonAttemptsOnLoginSuccess.mockReturnValue(true);
+    hoisted.fetchAttemptReport.mockResolvedValue(cloneFixture(reportReadyMbtiProjectionFixture) as ReportResponse);
+
+    render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
+
+    await waitFor(() => {
+      expect(hoisted.linkAnonAttemptsOnceOnLoginSuccess).toHaveBeenCalledWith({
+        authToken: "fm_stored_result_link_123456",
+        anonId: "anon_result_test",
+        attemptIds: ["attempt-123", "attempt_pending_from_queue"],
+      });
+    });
+
+    expect(hoisted.setFmToken).not.toHaveBeenCalled();
+    expect(hoisted.shouldLinkAnonAttemptsOnLoginSuccess).toHaveBeenCalledWith({
+      authToken: "fm_stored_result_link_123456",
+      anonId: "anon_result_test",
+      attemptIds: ["attempt-123", "attempt_pending_from_queue"],
+    });
   });
 
   it("keeps the MBTI page on the rich report path when projection is ready even if legacy hero fields are thin", async () => {

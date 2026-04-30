@@ -20,7 +20,7 @@ describe("link-anon login helper contract", () => {
     window.sessionStorage.clear();
   });
 
-  it("deduplicates by sorted attempts, uses tokenFromUrl directly, and clears queue on success", async () => {
+  it("deduplicates by sorted attempts, uses the stored auth token, and clears queue on success", async () => {
     queuePendingAnonLinkAttempt("attempt_b");
     queuePendingAnonLinkAttempt("attempt_a");
 
@@ -33,13 +33,13 @@ describe("link-anon login helper contract", () => {
     vi.stubGlobal("fetch", fetchSpy);
 
     await linkAnonAttemptsOnceOnLoginSuccess({
-      tokenFromUrl: "fm_token_sorted_dedup_123456",
+      authToken: "fm_token_sorted_dedup_123456",
       anonId: "anon_login_001",
       attemptIds: ["attempt_b", "attempt_a", "attempt_a"],
     });
 
     await linkAnonAttemptsOnceOnLoginSuccess({
-      tokenFromUrl: "fm_token_sorted_dedup_123456",
+      authToken: "fm_token_sorted_dedup_123456",
       anonId: "anon_login_001",
       attemptIds: ["attempt_a", "attempt_b"],
     });
@@ -86,13 +86,13 @@ describe("link-anon login helper contract", () => {
     vi.stubGlobal("fetch", fetchSpy);
 
     await linkAnonAttemptsOnceOnLoginSuccess({
-      tokenFromUrl: "fm_token_unsupported_123456",
+      authToken: "fm_token_unsupported_123456",
       anonId: "anon_login_404",
       attemptIds: ["attempt_404"],
     });
 
     await linkAnonAttemptsOnceOnLoginSuccess({
-      tokenFromUrl: "fm_token_unsupported_123456",
+      authToken: "fm_token_unsupported_123456",
       anonId: "anon_login_404",
       attemptIds: ["attempt_should_skip"],
     });
@@ -103,7 +103,7 @@ describe("link-anon login helper contract", () => {
     vi.setSystemTime(new Date("2026-03-09T00:00:01.000Z"));
 
     await linkAnonAttemptsOnceOnLoginSuccess({
-      tokenFromUrl: "fm_token_unsupported_123456",
+      authToken: "fm_token_unsupported_123456",
       anonId: "anon_login_404",
       attemptIds: ["attempt_retry_after_ttl"],
     });
@@ -136,7 +136,7 @@ describe("link-anon login helper contract", () => {
 
     await expect(
       linkAnonAttemptsOnceOnLoginSuccess({
-        tokenFromUrl: "fm_token_retry_123456",
+        authToken: "fm_token_retry_123456",
         anonId: "anon_login_retry",
         attemptIds: ["attempt_retry"],
       })
@@ -149,7 +149,7 @@ describe("link-anon login helper contract", () => {
     expect(readPendingAnonLinkAttempts()).toEqual(["attempt_retry"]);
 
     await linkAnonAttemptsOnceOnLoginSuccess({
-      tokenFromUrl: "fm_token_retry_123456",
+      authToken: "fm_token_retry_123456",
       anonId: "anon_login_retry",
       attemptIds: ["attempt_retry"],
     });
