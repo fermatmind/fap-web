@@ -71,16 +71,20 @@ describe("career llms alignment contract", () => {
     vi.doMock("@/lib/cms/articles", () => ({
       listCmsArticlesForLlms: vi.fn(async () => []),
       listCmsArticlesForLlmsWithLastKnownGood: vi.fn(async () => ({ value: [] })),
+      getCmsArticleWithLastKnownGood: vi.fn(async () => ({ value: null })),
     }));
     vi.doMock("@/lib/cms/career-guides", () => ({
       listCareerGuidesFromCms: vi.fn(async () => []),
+      getCareerGuideFromCmsBySlug: vi.fn(async () => null),
     }));
     vi.doMock("@/lib/cms/personality", () => ({
       buildDefaultPublicPersonalitySlug: vi.fn(() => ""),
       listPersonalityProfiles: vi.fn(async () => ({ items: [] })),
+      getPersonalityProjectionDetailBySlugOrType: vi.fn(async () => null),
     }));
     vi.doMock("@/lib/cms/topics", () => ({
       listTopics: vi.fn(async () => ({ items: [] })),
+      getTopicBySlug: vi.fn(async () => null),
     }));
     vi.doMock("@/lib/cms/content-pages", () => ({
       listContentPages: vi.fn(async () => []),
@@ -88,6 +92,7 @@ describe("career llms alignment contract", () => {
     }));
     vi.doMock("@/lib/content", () => ({
       getAllTests: vi.fn(async () => []),
+      resolveTestTitleByLocale: vi.fn((test: { title: string }) => test.title),
       listCareerIndustrySlugs: vi.fn(() => []),
     }));
     vi.doMock("@/lib/site", () => ({
@@ -231,16 +236,20 @@ describe("career llms alignment contract", () => {
     vi.doMock("@/lib/cms/articles", () => ({
       listCmsArticlesForLlms: vi.fn(async () => []),
       listCmsArticlesForLlmsWithLastKnownGood: vi.fn(async () => ({ value: [] })),
+      getCmsArticleWithLastKnownGood: vi.fn(async () => ({ value: null })),
     }));
     vi.doMock("@/lib/cms/career-guides", () => ({
       listCareerGuidesFromCms: vi.fn(async () => []),
+      getCareerGuideFromCmsBySlug: vi.fn(async () => null),
     }));
     vi.doMock("@/lib/cms/personality", () => ({
       buildDefaultPublicPersonalitySlug: vi.fn(() => ""),
       listPersonalityProfiles: vi.fn(async () => ({ items: [] })),
+      getPersonalityProjectionDetailBySlugOrType: vi.fn(async () => null),
     }));
     vi.doMock("@/lib/cms/topics", () => ({
       listTopics: vi.fn(async () => ({ items: [] })),
+      getTopicBySlug: vi.fn(async () => null),
     }));
     vi.doMock("@/lib/cms/content-pages", () => ({
       listContentPages: vi.fn(async () => []),
@@ -248,6 +257,7 @@ describe("career llms alignment contract", () => {
     }));
     vi.doMock("@/lib/content", () => ({
       getAllTests: vi.fn(async () => []),
+      resolveTestTitleByLocale: vi.fn((test: { title: string }) => test.title),
       listCareerIndustrySlugs: vi.fn(() => []),
     }));
     vi.doMock("@/lib/site", () => ({
