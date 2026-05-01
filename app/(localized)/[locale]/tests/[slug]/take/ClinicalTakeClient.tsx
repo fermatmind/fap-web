@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { ModuleTransitionCard } from "@/components/clinical/quiz/ModuleTransitionCard";
+import { ConsentGate } from "@/components/clinical/quiz/ConsentGate";
 import { QuestionCard } from "@/components/clinical/quiz/QuestionCard";
 import { QuizShell } from "@/components/clinical/quiz/QuizShell";
 import { AdaptiveOptionGroup } from "@/components/quiz/immersive/AdaptiveOptionGroup";
@@ -210,6 +211,7 @@ export default function ClinicalTakeClient({
 
   const [starting, setStarting] = useState(false);
   const [startError, setStartError] = useState<string | null>(null);
+  const [consentChecked, setConsentChecked] = useState(false);
 
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
@@ -326,6 +328,8 @@ export default function ClinicalTakeClient({
 
   const serverConsentVersion =
     typeof questionsMeta?.consent?.version === "string" ? questionsMeta.consent.version.trim() : "";
+  const serverConsentText =
+    typeof questionsMeta?.consent?.text === "string" ? questionsMeta.consent.text.trim() : "";
 
   const totalQuestions = questions.length;
   const currentQuestion = questions[currentIndex];
@@ -348,6 +352,10 @@ export default function ClinicalTakeClient({
     if (!serverConsentVersion) return false;
     return consentVersion !== serverConsentVersion;
   }, [consentAcceptedAt, consentVersion, serverConsentVersion]);
+  const consentRequiredMessage =
+    isZh
+      ? "请先阅读并同意知情同意说明，然后再开始答题。"
+      : "Please review and accept informed consent before answering.";
 
   const pendingModuleTransition = useMemo(() => {
     if (scaleCode !== "CLINICAL_COMBO_68") return "";
@@ -487,13 +495,13 @@ export default function ClinicalTakeClient({
   }, [authBlockError, initSession, locale, runWithAuthRetry, scaleCode, slug]);
 
   useEffect(() => {
-    if (!needsConsent) {
+    if (!needsConsent || !attemptId) {
       return;
     }
     setAttemptId(null);
-  }, [needsConsent, setAttemptId]);
+  }, [attemptId, needsConsent, setAttemptId]);
 
-  useEffect(() => {
+  const handleAcceptConsentAndStart = useCallback(() => {
     if (loadingQuestions || totalQuestions === 0 || !needsConsent) {
       return;
     }
@@ -502,6 +510,8 @@ export default function ClinicalTakeClient({
       version: serverConsentVersion || null,
       locale: toApiLocale(locale),
     });
+    setConsentChecked(false);
+    setStartError(null);
   }, [acceptConsent, loadingQuestions, locale, needsConsent, serverConsentVersion, totalQuestions]);
 
   useEffect(() => {
@@ -553,6 +563,11 @@ export default function ClinicalTakeClient({
 
   const startFreshAttempt = useCallback(async (runId?: number) => {
     if (authBlockError || staleDraftError) {
+      return null;
+    }
+
+    if (needsConsent) {
+      setStartError(consentRequiredMessage);
       return null;
     }
 
@@ -611,7 +626,7 @@ export default function ClinicalTakeClient({
         setStarting(false);
       }
     }
-  }, [authBlockError, isFlowActive, locale, runWithAuthRetry, scaleCode, serverConsentVersion, setAttemptId, slug, staleDraftError]);
+  }, [authBlockError, consentRequiredMessage, isFlowActive, locale, needsConsent, runWithAuthRetry, scaleCode, serverConsentVersion, setAttemptId, slug, staleDraftError]);
 
   const ensureAttempt = useCallback(async (runId?: number) => {
     if (authBlockError || staleDraftError || recoveringAttemptRef.current) {
@@ -632,6 +647,11 @@ export default function ClinicalTakeClient({
   }, [attemptId, authBlockError, clearAttemptMeta, forceNewAttemptRequested, staleDraftError, startFreshAttempt]);
 
   const handleSelect = (questionId: string, code: string) => {
+    if (needsConsent) {
+      setStartError(consentRequiredMessage);
+      return;
+    }
+
     setAnswer(questionId, code);
   };
 
@@ -688,19 +708,9 @@ export default function ClinicalTakeClient({
 
     submitInFlightRef.current = true;
     const activeRunId = typeof runId === "number" ? runId : takeFlowRef.current.beginRun();
-    const activeAttemptId = await ensureAttempt(activeRunId);
-    if (!isFlowActive(activeRunId)) {
-      submitInFlightRef.current = false;
-      return null;
-    }
-    if (!activeAttemptId) {
-      submitInFlightRef.current = false;
-      return null;
-    }
-
     const submitConsentVersion = String(consentVersion ?? serverConsentVersion ?? "").trim();
     const submitConsentLocale = String(consentLocale ?? toApiLocale(locale)).trim();
-    if (!consentAcceptedAt || !submitConsentVersion || !submitConsentLocale) {
+    if (needsConsent || !consentAcceptedAt || !submitConsentVersion || !submitConsentLocale) {
       if (isFlowActive(activeRunId)) {
         setSubmitError(
           isZh
@@ -708,6 +718,17 @@ export default function ClinicalTakeClient({
             : "Consent snapshot is missing for this session. Please restart the assessment from test details."
         );
       }
+      submitInFlightRef.current = false;
+      return null;
+    }
+
+    const activeAttemptId = await ensureAttempt(activeRunId);
+    if (!isFlowActive(activeRunId)) {
+      submitInFlightRef.current = false;
+      return null;
+    }
+    if (!activeAttemptId) {
+      submitInFlightRef.current = false;
       return null;
     }
 
@@ -722,6 +743,7 @@ export default function ClinicalTakeClient({
             : `Please answer question ${firstMissing + 1} before submitting.`
         );
       }
+      submitInFlightRef.current = false;
       return null;
     }
 
@@ -815,6 +837,7 @@ export default function ClinicalTakeClient({
     isFlowActive,
     isZh,
     locale,
+    needsConsent,
     questions,
     scaleCode,
     serverConsentVersion,
@@ -971,6 +994,21 @@ export default function ClinicalTakeClient({
       <QuizShell>
         <Alert>{isZh ? "当前量表暂无可用题目。" : "No questions are currently available."}</Alert>
       </QuizShell>
+    );
+  }
+
+  if (needsConsent) {
+    return (
+      <ConsentGate
+        locale={locale}
+        text={serverConsentText}
+        version={serverConsentVersion || undefined}
+        checked={consentChecked}
+        starting={starting}
+        error={startError}
+        onCheckedChange={setConsentChecked}
+        onStart={handleAcceptConsentAndStart}
+      />
     );
   }
 

@@ -5,6 +5,7 @@ export function ConsentGate({
   locale,
   text,
   version,
+  checkboxLabel,
   checked,
   starting,
   error,
@@ -14,6 +15,7 @@ export function ConsentGate({
   locale: "en" | "zh";
   text: string;
   version?: string;
+  checkboxLabel?: string;
   checked: boolean;
   starting?: boolean;
   error?: string | null;
@@ -40,7 +42,7 @@ export function ConsentGate({
 
       <label className="flex items-center gap-2 text-sm text-slate-700">
         <input type="checkbox" checked={checked} onChange={(event) => onCheckedChange(event.target.checked)} />
-        {isZh ? "我已阅读并同意上述内容" : "I have read and agree to the statement above"}
+        {checkboxLabel ?? (isZh ? "我已阅读并同意上述内容" : "I have read and agree to the statement above")}
       </label>
 
       {error ? <Alert>{error}</Alert> : null}
