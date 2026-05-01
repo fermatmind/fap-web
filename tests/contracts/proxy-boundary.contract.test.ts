@@ -117,6 +117,45 @@ describe("proxy boundary contract", () => {
     expect(response.headers.get("x-middleware-request-x-anon-id")).not.toBe("caller-controlled-id");
   });
 
+  it("keeps ordinary page routes sanitized when callers supply anon-id headers", () => {
+    const response = proxy(
+      new NextRequest("https://example.com/en/articles/career-fit", {
+        headers: {
+          "x-anon-id": "caller-controlled-id",
+        },
+      })
+    );
+
+    expect(response.headers.get("x-middleware-request-x-anon-id")).toBeNull();
+    expect(response.headers.get("x-middleware-override-headers") ?? "").not.toContain("x-anon-id");
+    expect(response.cookies.get("fap_anonymous_id_v1")).toBeUndefined();
+  });
+
+  it("forwards cookie-derived anon identity through same-origin attempt API proxy paths", () => {
+    const response = proxy(
+      new NextRequest("https://example.com/api/v0.3/attempts/submit", {
+        headers: {
+          cookie: "fap_anonymous_id_v1=known-api-anon",
+          "x-anon-id": "caller-controlled-id",
+        },
+      })
+    );
+
+    expect(response.headers.get("x-middleware-override-headers")).toContain("x-anon-id");
+    expect(response.headers.get("x-middleware-request-x-anon-id")).toBe("known-api-anon");
+    expect(response.headers.get("x-middleware-request-x-anon-id")).not.toBe("caller-controlled-id");
+    expect(response.headers.get("set-cookie")).toBeNull();
+  });
+
+  it("creates proxy-owned anon identity for report API proxy paths when absent", () => {
+    vi.spyOn(globalThis.crypto, "randomUUID").mockReturnValue("proxy-api-generated-id");
+
+    const response = proxy(new NextRequest("https://example.com/api/v0.3/attempts/attempt-1/report-access"));
+
+    expect(response.cookies.get("fap_anonymous_id_v1")?.value).toBe("proxy-api-generated-id");
+    expect(response.headers.get("x-middleware-request-x-anon-id")).toBe("proxy-api-generated-id");
+  });
+
   it("replaces malformed anon cookies before forwarding identity", () => {
     vi.spyOn(globalThis.crypto, "randomUUID").mockReturnValue("proxy-recovered-id");
 
