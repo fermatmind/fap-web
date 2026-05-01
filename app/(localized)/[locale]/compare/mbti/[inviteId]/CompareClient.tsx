@@ -10,6 +10,7 @@ import { trackEvent } from "@/lib/analytics";
 import type { Locale } from "@/lib/i18n/locales";
 import { buildCompareInviteViewModel } from "@/lib/mbti/compareInvite";
 import { captureError } from "@/lib/observability/sentry";
+import { normalizeInternalHref } from "@/lib/url/safeContentUrls";
 
 function buildLandingPath(pathname: string | null, queryString: string): string {
   const safePath = pathname || "/";
@@ -19,8 +20,13 @@ function buildLandingPath(pathname: string | null, queryString: string): string 
 function buildAugmentedPath(
   path: string,
   query: Record<string, string | boolean | null | undefined>
-): string {
-  const url = new URL(path, "https://fap.local");
+): string | null {
+  const normalizedPath = normalizeInternalHref(path);
+  if (!normalizedPath) {
+    return null;
+  }
+
+  const url = new URL(normalizedPath, "https://fap.local");
 
   for (const [key, value] of Object.entries(query)) {
     if (value === undefined || value === null || value === "") {
@@ -31,7 +37,7 @@ function buildAugmentedPath(
 
   return url.origin === "https://fap.local"
     ? `${url.pathname}${url.search}${url.hash}`
-    : url.toString();
+    : null;
 }
 
 export default function CompareClient({
@@ -104,7 +110,7 @@ export default function CompareClient({
       landing_path: landingPath,
       referrer: pageReferrer,
       compare_intent: true,
-    });
+    }) ?? undefined;
   }, [inviteId, landingPath, pageReferrer, viewModel.inviteId, viewModel.primaryCtaPath, viewModel.shareId]);
 
   useEffect(() => {

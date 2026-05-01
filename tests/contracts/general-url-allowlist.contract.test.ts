@@ -92,6 +92,27 @@ describe("general content URL allowlists", () => {
         "/en/career/jobs/fallback"
       )
     ).toBe("/en/career/jobs/fallback");
+    expect(
+      normalizeCareerBundleCanonicalPath(
+        "en",
+        "/orders/lookup",
+        "/en/career/jobs/fallback"
+      )
+    ).toBe("/en/career/jobs/fallback");
+    expect(
+      normalizeCareerBundleCanonicalPath(
+        "en",
+        "/topics/mbti",
+        "/en/tests/mbti-personality-test-16-personality-types"
+      )
+    ).toBe("/en/tests/mbti-personality-test-16-personality-types");
+    expect(
+      normalizeCareerBundleCanonicalPath(
+        "en",
+        "/topics/mbti",
+        "/en/topics/fallback"
+      )
+    ).toBe("/topics/mbti");
 
     const viewModel = buildRelationshipIndexViewModel({
       ok: true,

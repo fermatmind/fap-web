@@ -3,6 +3,7 @@
 import type { AttemptInviteUnlockProgressResponse, InviteUnlockDiagnosticRaw } from "@/lib/api/v0_3";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import type { UnifiedUnlockSource, UnifiedUnlockStage } from "@/lib/access/unifiedAccess";
+import { normalizeInternalHref } from "@/lib/url/safeContentUrls";
 
 const MBTI_INVITE_TAKE_PATH = "/tests/mbti-personality-test-16-personality-types/take";
 
@@ -118,22 +119,17 @@ function normalizeInviteUnlockDiagnostics(
 }
 
 function normalizeInviteUrl(value: unknown, locale: Locale): string | null {
-  const normalized = normalizeText(value);
+  const normalized = normalizeInternalHref(value);
   if (!normalized) {
     return null;
   }
 
-  if (/^https?:\/\//i.test(normalized)) {
-    return normalized;
+  const stripped = normalized.replace(/^\/(?:en|zh)(?=\/|$)/i, "") || "/";
+  if (!stripped.startsWith(MBTI_INVITE_TAKE_PATH)) {
+    return null;
   }
 
-  const candidate = normalized.startsWith("/") ? normalized : `/${normalized}`;
-  const firstSegment = candidate.split("/").filter(Boolean)[0];
-  if (firstSegment === "en" || firstSegment === "zh") {
-    return candidate;
-  }
-
-  return localizedPath(candidate, locale);
+  return /^\/(en|zh)(\/|$)/i.test(normalized) ? normalized : localizedPath(stripped, locale);
 }
 
 export function normalizeAttemptInviteUnlockProgress(

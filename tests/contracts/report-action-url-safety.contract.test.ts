@@ -21,6 +21,7 @@ describe("report action URL safety contract", () => {
     expect(normalizeReportActionHref("https://evil.example/result/attempt-1", "en", "page")).toBeNull();
     expect(normalizeReportActionHref("https://api.fermatmind.com/api/v0.3/attempts/attempt-1/report.pdf", "en", "pdf")).toBeNull();
     expect(normalizeReportActionHref("/api/v0.3/attempts/attempt-1/report.pdf", "en", "page")).toBeNull();
+    expect(normalizeReportActionHref("//evil.example/result/attempt-1", "en", "page")).toBeNull();
   });
 
   it("normalizes access projections without preserving unsafe action URLs", () => {

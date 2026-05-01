@@ -10,6 +10,7 @@ import {
   normalizeMbtiPublicProjectionCard,
   type MbtiPublicProjectionCardViewModel,
 } from "@/lib/mbti/publicProjection";
+import { normalizeInternalHref } from "@/lib/url/safeContentUrls";
 
 export type MbtiCompareAxisViewModel = {
   key: string;
@@ -182,7 +183,7 @@ export function normalizeRelationshipSync(
           title: normalizeText(rawRelationshipSync.action_prompt.title),
           summary: normalizeText(rawRelationshipSync.action_prompt.summary),
           ctaLabel: normalizeText(rawRelationshipSync.action_prompt.cta_label),
-          ctaPath: normalizeText(rawRelationshipSync.action_prompt.cta_path),
+          ctaPath: normalizeInternalHref(rawRelationshipSync.action_prompt.cta_path) ?? "",
         }
       : null;
 
@@ -284,7 +285,7 @@ export function buildCompareInviteViewModel(
     shareId: normalizeText(rawCompareInvite?.share_id),
     status: normalizeText(rawCompareInvite?.status).toLowerCase() || "pending",
     primaryCtaLabel: normalizeText(rawCompareInvite?.primary_cta_label),
-    primaryCtaPath: normalizeText(rawCompareInvite?.primary_cta_path),
+    primaryCtaPath: normalizeInternalHref(rawCompareInvite?.primary_cta_path) ?? "",
     inviterCard: normalizeMbtiPublicProjectionCard(rawCompareInvite?.inviter?.mbti_public_projection_v1),
     inviteeCard: normalizeMbtiPublicProjectionCard(rawCompareInvite?.invitee?.mbti_public_projection_v1),
     compareSummary: normalizeMbtiCompareSummary(rawCompareInvite?.compare),

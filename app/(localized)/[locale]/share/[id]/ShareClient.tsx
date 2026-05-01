@@ -31,6 +31,7 @@ import {
 } from "@/lib/mbti/continuity";
 import { buildSharePageViewModel } from "@/lib/mbti/publicProjection";
 import { sanitizeTrackingUrl } from "@/lib/tracking/privacy";
+import { normalizeInternalHref } from "@/lib/url/safeContentUrls";
 
 const SHARE_CLICK_SESSION_PREFIX = "fm_share_click_v1";
 const MBTI_TAKE_FALLBACK_PATH = "/tests/mbti-personality-test-16-personality-types/take";
@@ -48,8 +49,13 @@ function sanitizeShareAttributionUrl(value: string | undefined): string | undefi
 function buildAugmentedPath(
   path: string,
   query: Record<string, string | boolean | null | undefined>
-): string {
-  const url = new URL(path, "https://fap.local");
+): string | null {
+  const normalizedPath = normalizeInternalHref(path);
+  if (!normalizedPath) {
+    return null;
+  }
+
+  const url = new URL(normalizedPath, "https://fap.local");
 
   for (const [key, value] of Object.entries(query)) {
     if (value === undefined || value === null || value === "") {
@@ -60,7 +66,7 @@ function buildAugmentedPath(
 
   return url.origin === "https://fap.local"
     ? `${url.pathname}${url.search}${url.hash}`
-    : url.toString();
+    : null;
 }
 
 function readNormalizedUtm(searchParams: URLSearchParams): AttributionUtm | undefined {
@@ -293,7 +299,8 @@ export default function ShareClient({
         : shareScaleCode === "RIASEC"
           ? RIASEC_TAKE_FALLBACK_PATH
           : MBTI_TAKE_FALLBACK_PATH;
-    const basePath = viewModel.primaryCtaPath || (shareScaleCode === "ENNEAGRAM" ? fallbackPath : `/${locale}${fallbackPath}`);
+    const fallbackHref = shareScaleCode === "ENNEAGRAM" ? fallbackPath : `/${locale}${fallbackPath}`;
+    const basePath = viewModel.primaryCtaPath || fallbackHref;
     const attributedPath = buildAugmentedPath(basePath, {
       share_id: resolvedShareId,
       share_click_id: shareClickId ?? undefined,
@@ -301,7 +308,7 @@ export default function ShareClient({
       landing_path: safeLandingPath,
       referrer: safePageReferrer,
       ...utmQuery,
-    });
+    }) || fallbackHref;
 
     return shareScaleCode === "MBTI"
       ? appendMbtiContinuityQuery(attributedPath, viewModel.continuity)
@@ -495,18 +502,21 @@ export default function ShareClient({
         throw new Error("Compare invite path is unavailable.");
       }
 
-      router.push(
-        buildAugmentedPath(takePath, {
-          share_id: resolvedShareId,
-          compare_invite_id: inviteId,
-          share_click_id: shareClickId ?? undefined,
-          entrypoint: "share_compare_invite",
-          landing_path: safeLandingPath,
-          referrer: safePageReferrer,
-          compare_intent: true,
-          ...utmQuery,
-        })
-      );
+      const compareInviteHref = buildAugmentedPath(takePath, {
+        share_id: resolvedShareId,
+        compare_invite_id: inviteId,
+        share_click_id: shareClickId ?? undefined,
+        entrypoint: "share_compare_invite",
+        landing_path: safeLandingPath,
+        referrer: safePageReferrer,
+        compare_intent: true,
+        ...utmQuery,
+      });
+      if (!compareInviteHref) {
+        throw new Error("Compare invite path is unavailable.");
+      }
+
+      router.push(compareInviteHref);
     } catch (cause) {
       setCompareInviteError(cause instanceof Error ? cause.message : "Unable to create compare invite.");
       captureError(cause, {
