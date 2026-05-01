@@ -816,6 +816,59 @@ describe("enneagram result assembler contract", () => {
     expect(assembled.moduleMap.instant_summary.formVariant).toBe("all");
   });
 
+  it("filters V2 paid report modules for restricted Enneagram access while preserving preview-safe modules", () => {
+    const assembled = assembleEnneagramResultViewModel({
+      reportData: createV2ReportResponse(),
+      locale: "en",
+      gate: {
+        isFreeVariant: true,
+        modulesAllowed: new Set(["enneagram_core"]),
+        modulesPreview: new Set(),
+      },
+    });
+
+    expect(assembled.pages.map((page) => page.pageKey)).toEqual([
+      "page_1_result_overview",
+      "page_5_method_observation_next",
+    ]);
+    expect(assembled.moduleMap.instant_summary).toBeDefined();
+    expect(assembled.moduleMap.top3_cards).toBeDefined();
+    expect(assembled.moduleMap.confidence_band_card).toBeDefined();
+    expect(assembled.moduleMap.all9_profile).toBeUndefined();
+    expect(assembled.moduleMap.dominance_gap_card).toBeUndefined();
+    expect(assembled.moduleMap.work_style_summary).toBeUndefined();
+    expect(assembled.moduleMap.growth_axis).toBeUndefined();
+    expect(assembled.moduleMap.relationship_need).toBeUndefined();
+  });
+
+  it("allows explicitly previewed Enneagram V2 modules without unlocking adjacent paid modules", () => {
+    const reportData = createV2ReportResponse();
+    const rawWorkPage = (
+      reportData as unknown as {
+        enneagram_report_v2: { pages: Array<Record<string, unknown>> };
+      }
+    ).enneagram_report_v2.pages.find((page) => page.page_key === "page_2_work_reality");
+    if (rawWorkPage) {
+      rawWorkPage.access_level = "paid";
+    }
+
+    const assembled = assembleEnneagramResultViewModel({
+      reportData,
+      locale: "en",
+      gate: {
+        isFreeVariant: true,
+        modulesAllowed: new Set(["enneagram_core"]),
+        modulesPreview: new Set(["work_style_summary"]),
+      },
+    });
+
+    const workPage = assembled.pages.find((page) => page.pageKey === "page_2_work_reality");
+    expect(workPage?.modules.map((module) => module.moduleKey)).toEqual(["work_style_summary"]);
+    expect(assembled.moduleMap.work_style_summary).toBeDefined();
+    expect(assembled.moduleMap.collaboration_strengths).toBeUndefined();
+    expect(assembled.moduleMap.collaboration_friction).toBeUndefined();
+  });
+
   it("parses report._meta.enneagram_report_v2 when the top-level sibling is absent", () => {
     const reportData = createV2ReportResponse({ includeTopLevel: false, formCode: "enneagram_forced_choice_144" });
     const assembled = assembleEnneagramResultViewModel({

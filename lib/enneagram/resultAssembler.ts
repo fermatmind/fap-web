@@ -41,6 +41,8 @@ export type EnneagramReportV2Module = {
   visibility: EnneagramModuleVisibility;
   state: EnneagramModuleState;
   formVariant: EnneagramFormVariant;
+  accessLevel: string;
+  moduleCode: string;
   content: Record<string, unknown>;
   dataRefs: string[];
   registryRefs: string[];
@@ -59,6 +61,8 @@ export type EnneagramReportV2Page = {
   title: string;
   purpose: string;
   visibility: string;
+  accessLevel: string;
+  moduleCode: string;
   sourceRegistryRefs: string[];
   modules: EnneagramReportV2Module[];
 };
@@ -128,6 +132,49 @@ export type EnneagramResultViewModel = {
 
 type AccessGate = {
   isFreeVariant: boolean;
+  modulesAllowed?: Set<string>;
+  modulesPreview?: Set<string>;
+};
+
+const ENNEAGRAM_FULL_ACCESS_MODULES = new Set(["full", "enneagram_full", "report.full", "report_full"]);
+
+const ENNEAGRAM_V2_FREE_MODULES = new Set([
+  "instant_summary",
+  "top3_cards",
+  "confidence_band_card",
+  "close_call_card",
+  "methodology_boundary_card",
+  "method_boundary",
+  "diffuse_boundary",
+  "low_quality_boundary",
+  "seven_day_observation",
+  "form_recommendation",
+  "sample_report_link",
+  "technical_note_link",
+  "resonance_feedback_placeholder",
+  "history_share_retake_placeholder",
+]);
+
+const ENNEAGRAM_V2_MODULE_ENTITLEMENTS: Record<string, readonly string[]> = {
+  all9_profile: ["enneagram_full", "report.full", "report_full"],
+  dominance_gap_card: ["enneagram_full", "report.full", "report_full"],
+  type_deep_dive_summary: ["enneagram_full", "report.full", "report_full"],
+  work_style_summary: ["enneagram_full", "report.full", "report_full"],
+  collaboration_strengths: ["enneagram_full", "report.full", "report_full"],
+  collaboration_friction: ["enneagram_full", "report.full", "report_full"],
+  managed_by_others: ["enneagram_full", "report.full", "report_full"],
+  workplace_trigger_points: ["enneagram_full", "report.full", "report_full"],
+  growth_axis: ["enneagram_full", "report.full", "report_full"],
+  stress_trigger: ["enneagram_full", "report.full", "report_full"],
+  state_spectrum: ["enneagram_full", "report.full", "report_full"],
+  recovery_action: ["enneagram_full", "report.full", "report_full"],
+  strength_expression: ["enneagram_full", "report.full", "report_full"],
+  cost_expression: ["enneagram_full", "report.full", "report_full"],
+  relationship_need: ["enneagram_full", "report.full", "report_full"],
+  relationship_strengths: ["enneagram_full", "report.full", "report_full"],
+  misread_by_others: ["enneagram_full", "report.full", "report_full"],
+  conflict_script: ["enneagram_full", "report.full", "report_full"],
+  communication_manual: ["enneagram_full", "report.full", "report_full"],
 };
 
 function asRecord(value: unknown): Record<string, unknown> | null {
@@ -257,6 +304,155 @@ function normalizeStringArray(value: unknown): string[] {
     .filter((item) => item.length > 0);
 }
 
+function normalizeGateSet(value: Set<string> | undefined): Set<string> {
+  if (!value) {
+    return new Set();
+  }
+
+  return new Set(Array.from(value).map((item) => normalizeText(item).toLowerCase()).filter(Boolean));
+}
+
+function setHasAny(values: Iterable<string>, candidates: Set<string>): boolean {
+  for (const value of values) {
+    if (candidates.has(value)) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+function normalizeGateKey(value: unknown): string {
+  return normalizeText(value).toLowerCase();
+}
+
+function moduleGateKeys(module: EnneagramReportV2Module): Set<string> {
+  const content = asRecord(module.content);
+  return new Set(
+    [
+      normalizeGateKey(module.moduleKey),
+      normalizeGateKey(module.moduleCode),
+      normalizeGateKey(content?.module_key),
+    ].filter(Boolean)
+  );
+}
+
+function pageGateKeys(page: EnneagramReportV2Page): Set<string> {
+  return new Set([normalizeGateKey(page.pageKey), normalizeGateKey(page.moduleCode)].filter(Boolean));
+}
+
+function accessLevelRequiresEntitlement(accessLevel: string): boolean {
+  return accessLevel === "paid" || accessLevel === "full" || accessLevel === "locked";
+}
+
+function isModuleAllowedByEntitlement(module: EnneagramReportV2Module, modulesAllowed: Set<string>): boolean {
+  const moduleKey = normalizeGateKey(module.moduleKey);
+  const entitlements = ENNEAGRAM_V2_MODULE_ENTITLEMENTS[moduleKey] ?? [];
+  return setHasAny(entitlements, modulesAllowed);
+}
+
+function shouldIncludeRestrictedModule(
+  module: EnneagramReportV2Module,
+  modulesAllowed: Set<string>,
+  modulesPreview: Set<string>
+): boolean {
+  const moduleKey = normalizeGateKey(module.moduleKey);
+  const accessLevel = normalizeGateKey(module.accessLevel);
+  const gateKeys = moduleGateKeys(module);
+  const isExplicitlyAllowed = setHasAny(gateKeys, modulesAllowed) || isModuleAllowedByEntitlement(module, modulesAllowed);
+  const isExplicitlyPreviewed = setHasAny(gateKeys, modulesPreview);
+
+  if (module.kind === "asset_backed_card") {
+    if (accessLevel === "free") {
+      return true;
+    }
+
+    if (accessLevel === "preview") {
+      return isExplicitlyAllowed || isExplicitlyPreviewed;
+    }
+
+    return isExplicitlyAllowed || isExplicitlyPreviewed;
+  }
+
+  if (accessLevelRequiresEntitlement(accessLevel)) {
+    return isExplicitlyAllowed;
+  }
+
+  if (accessLevel === "free") {
+    return true;
+  }
+
+  if (accessLevel === "preview") {
+    return isExplicitlyAllowed || isExplicitlyPreviewed || ENNEAGRAM_V2_FREE_MODULES.has(moduleKey);
+  }
+
+  if (isExplicitlyAllowed || isExplicitlyPreviewed) {
+    return true;
+  }
+
+  return ENNEAGRAM_V2_FREE_MODULES.has(moduleKey);
+}
+
+function shouldIncludeRestrictedPage(
+  page: EnneagramReportV2Page,
+  modulesAllowed: Set<string>,
+  modulesPreview: Set<string>
+): boolean {
+  const accessLevel = normalizeGateKey(page.accessLevel);
+  if (!accessLevel) {
+    return true;
+  }
+
+  const gateKeys = pageGateKeys(page);
+  if (accessLevel === "locked") {
+    return setHasAny(gateKeys, modulesAllowed) || setHasAny(gateKeys, modulesPreview);
+  }
+
+  if (accessLevelRequiresEntitlement(accessLevel)) {
+    return setHasAny(gateKeys, modulesAllowed) || setHasAny(gateKeys, modulesPreview) || page.modules.length > 0;
+  }
+
+  if (accessLevel === "preview") {
+    return setHasAny(gateKeys, modulesAllowed) || setHasAny(gateKeys, modulesPreview) || page.modules.length > 0;
+  }
+
+  return true;
+}
+
+function filterEnneagramReportV2ForGate(reportV2: EnneagramReportV2 | null, gate: AccessGate): EnneagramReportV2 | null {
+  if (!reportV2 || !gate.isFreeVariant) {
+    return reportV2;
+  }
+
+  const modulesAllowed = normalizeGateSet(gate.modulesAllowed);
+  const modulesPreview = normalizeGateSet(gate.modulesPreview);
+  if (setHasAny(ENNEAGRAM_FULL_ACCESS_MODULES, modulesAllowed)) {
+    return reportV2;
+  }
+
+  const filterModules = (modules: EnneagramReportV2Module[]) =>
+    modules.filter((module) => shouldIncludeRestrictedModule(module, modulesAllowed, modulesPreview));
+  const pages = reportV2.pages
+    .map((page) => ({
+      ...page,
+      modules: filterModules(page.modules),
+    }))
+    .filter((page) => page.modules.length > 0 && shouldIncludeRestrictedPage(page, modulesAllowed, modulesPreview));
+  const modules = filterModules(reportV2.modules);
+  const visibleModuleKeys = new Set(pages.flatMap((page) => page.modules.map((module) => module.moduleKey)));
+  const effectiveModules = modules.length > 0
+    ? modules.filter((module) => visibleModuleKeys.has(module.moduleKey) || reportV2.pages.length === 0)
+    : pages.flatMap((page) => page.modules);
+  const moduleMap = Object.fromEntries(effectiveModules.map((module) => [module.moduleKey, module])) as Record<string, EnneagramReportV2Module>;
+
+  return {
+    ...reportV2,
+    pages,
+    modules: effectiveModules,
+    moduleMap,
+  };
+}
+
 const ASSET_BACKED_CONTENT_FIELDS = [
   "asset_key",
   "asset_type",
@@ -303,6 +499,8 @@ function normalizeModule(value: unknown): EnneagramReportV2Module | null {
     visibility: normalizeModuleVisibility(moduleRecord.visibility),
     state: normalizeModuleState(moduleRecord.state),
     formVariant: normalizeFormVariant(moduleRecord.form_variant),
+    accessLevel: normalizeGateKey(moduleRecord.access_level ?? moduleRecord.accessLevel),
+    moduleCode: normalizeGateKey(moduleRecord.module_code ?? moduleRecord.moduleCode),
     content: kind === "asset_backed_card" ? sanitizeAssetBackedContent(moduleRecord.content) : asRecord(moduleRecord.content) ?? {},
     dataRefs: normalizeStringArray(moduleRecord.data_refs),
     registryRefs: normalizeStringArray(moduleRecord.registry_refs),
@@ -343,6 +541,8 @@ function normalizePage(value: unknown): EnneagramReportV2Page | null {
     title: normalizeText(page.title, page.page_title),
     purpose: normalizeText(page.purpose, page.description),
     visibility: normalizeText(page.visibility, "visible"),
+    accessLevel: normalizeGateKey(page.access_level ?? page.accessLevel),
+    moduleCode: normalizeGateKey(page.module_code ?? page.moduleCode),
     sourceRegistryRefs: normalizeStringArray(page.source_registry_refs),
     modules: normalizeModules(page.modules),
   };
@@ -623,7 +823,7 @@ export function assembleEnneagramResultViewModel({
   locale: Locale;
 }): EnneagramResultViewModel {
   const projection = resolveProjection(reportData);
-  const reportV2 = resolveReportV2(reportData);
+  const reportV2 = filterEnneagramReportV2ForGate(resolveReportV2(reportData), gate);
   const formSummary = resolveFormSummary(reportData, projection, reportV2);
   const sections = resolveSections(reportData, projection);
   const split = splitSections(sections, gate);
