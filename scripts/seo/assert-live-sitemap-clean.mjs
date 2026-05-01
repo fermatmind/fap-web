@@ -4,6 +4,7 @@ import {
   decodeXmlEntities,
   dedupeUrls,
   fetchNoRedirect,
+  getUnsafeLiveFetchIssue,
   LIVE_CHECK_DEFAULTS,
   mapWithConcurrency,
   makeIssue,
@@ -15,6 +16,12 @@ const sourceUrl = process.argv[2];
 if (!sourceUrl) {
   console.error("Usage: node scripts/seo/assert-live-sitemap-clean.mjs <sitemap-url>");
   process.exit(2);
+}
+
+const sourceIssue = getUnsafeLiveFetchIssue(sourceUrl);
+if (sourceIssue) {
+  console.error(`[seo-live] unsafe_sitemap_source=${JSON.stringify(sourceIssue)}`);
+  process.exit(1);
 }
 
 let sitemapResponse;
