@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { trackEvent } from "@/lib/analytics";
+import { normalizeRecommendedReadHref } from "@/lib/access/reportActionUrls";
 import type { ReportRecommendedRead } from "@/lib/api/v0_3";
 import type { Locale } from "@/lib/i18n/locales";
 import { appendMbtiContinuityQuery, isInternalMbtiCarryoverHref } from "@/lib/mbti/continuity";
@@ -405,10 +406,11 @@ export function MbtiRecommendedReadsSection({
           const tags = normalizeStringArray(read.tags);
           const linkLabel = normalizeText(read.cta, locale === "zh" ? "继续阅读" : "Continue reading");
           const minutes = typeof read.estimated_minutes === "number" ? read.estimated_minutes : null;
-          const resolvedHref = isInternalMbtiCarryoverHref(normalizeText(read.url))
-            ? appendMbtiContinuityQuery(normalizeText(read.url), personalization?.continuity)
-            : normalizeText(read.url);
-          const isInternal = isInternalMbtiCarryoverHref(resolvedHref);
+          const safeReadHref = normalizeRecommendedReadHref(read.url);
+          const resolvedHref = safeReadHref && isInternalMbtiCarryoverHref(safeReadHref)
+            ? appendMbtiContinuityQuery(safeReadHref, personalization?.continuity)
+            : safeReadHref;
+          const isInternal = resolvedHref ? isInternalMbtiCarryoverHref(resolvedHref) : false;
           const isReadingFocus = recommendationKey !== "" && recommendationKey === readingFocusKey;
 
           return (
@@ -451,11 +453,9 @@ export function MbtiRecommendedReadsSection({
                     ))}
                   </div>
                 ) : null}
-                {read.url ? (
+                {resolvedHref ? (
                   <a
                     href={resolvedHref}
-                    target={isInternal ? undefined : "_blank"}
-                    rel={isInternal ? undefined : "noreferrer"}
                     className={buttonVariants({ variant: "outline", className: "mt-auto" })}
                     onClick={() => {
                       trackEvent("ui_card_interaction", {

@@ -234,6 +234,37 @@ describe("BIG5 secondary surfaces contract", () => {
     expect(hoisted.fetchBig5ReportAccess).not.toHaveBeenCalled();
   });
 
+  it("keeps BIG5 history action links on internal report paths when backend URLs are not allowed", async () => {
+    const canonical120 = asReport(canonical120ReportFixture);
+
+    hoisted.fetchBig5History.mockResolvedValue({
+      ok: true,
+      items: [
+        buildHistoryItem("attempt-external-action", "2026-03-25T00:00:00Z", canonical120, {
+          actions: {
+            page_href: "https://evil.example/result/attempt-external-action",
+            pdf_href: "https://evil.example/report.pdf",
+          },
+        }),
+      ],
+      meta: {
+        current_page: 1,
+        last_page: 1,
+      },
+    });
+
+    render(<Big5HistoryClient />);
+
+    const row = await screen.findByTestId("big5-history-row-attempt-external-action");
+    expect(within(row).getByRole("link", { name: "Open formal result" })).toHaveAttribute(
+      "href",
+      "/en/result/attempt-external-action"
+    );
+    expect(within(row).queryByRole("button", { name: "Download PDF" })).not.toBeInTheDocument();
+    expect(hoisted.fetchBig5Report).not.toHaveBeenCalled();
+    expect(hoisted.fetchBig5ReportAccess).not.toHaveBeenCalled();
+  });
+
   it("does not render facet percentile chips for locked BIG5 history rows", async () => {
     const canonical120 = asReport(canonical120ReportFixture);
     const latestTopFacet = buildTopFacetSummaries(canonical120, 1)[0];
@@ -360,6 +391,33 @@ describe("BIG5 secondary surfaces contract", () => {
     await waitFor(() => {
       expect(hoisted.fetchBig5Report).toHaveBeenCalledTimes(2);
     });
+    expect(hoisted.fetchBig5ReportAccess).toHaveBeenCalledTimes(1);
+  });
+
+  it("keeps BIG5 compare action links on internal report paths when backend URLs are not allowed", async () => {
+    hoisted.pathname = "/en/history/big5/compare";
+    hoisted.search = "current=attempt-current&previous=attempt-previous";
+    hoisted.fetchBig5ReportAccess.mockResolvedValue({
+      ok: true,
+      attempt_id: "attempt-current",
+      access_state: "ready",
+      report_state: "ready",
+      pdf_state: "ready",
+      actions: {
+        page_href: "https://evil.example/result/attempt-current",
+        pdf_href: "https://evil.example/report.pdf",
+      },
+    });
+
+    render(<Big5CompareClient />);
+
+    expect(await screen.findByText("Continue to the formal result page")).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Open formal result" })).toHaveAttribute(
+      "href",
+      "/en/result/attempt-current"
+    );
+    expect(screen.queryByTestId("big5-compare-pdf-entry")).not.toBeInTheDocument();
+    expect(hoisted.fetchBig5Report).not.toHaveBeenCalled();
     expect(hoisted.fetchBig5ReportAccess).toHaveBeenCalledTimes(1);
   });
 

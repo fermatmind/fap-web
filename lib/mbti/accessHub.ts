@@ -1,4 +1,5 @@
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import { normalizeReportActionHref } from "@/lib/access/reportActionUrls";
 import {
   normalizeInviteUnlockSummary,
   type InviteUnlockSummaryRaw,
@@ -102,28 +103,6 @@ function normalizeBoolean(value: unknown): boolean {
   return value === true;
 }
 
-function toHref(value: string | null, locale: Locale): string | null {
-  if (!value) {
-    return null;
-  }
-
-  if (/^https?:\/\//i.test(value)) {
-    return value;
-  }
-
-  const normalized = value.startsWith("/") ? value : `/${value}`;
-  if (normalized.startsWith("/api/")) {
-    return normalized;
-  }
-
-  const firstSegment = normalized.split("/").filter(Boolean)[0];
-  if (firstSegment === "en" || firstSegment === "zh") {
-    return normalized;
-  }
-
-  return localizedPath(normalized, locale);
-}
-
 function extractAttemptIdFromAttemptReportUrl(value: string | null): string | null {
   if (!value) {
     return null;
@@ -163,7 +142,7 @@ export function buildMbtiAccessHubLinks(
     ?? viewModel.workspaceLite.attemptId;
   const reportHref = reportAttemptId
     ? localizedPath(`/result/${reportAttemptId}`, locale)
-    : toHref(viewModel.reportAccess.reportUrl, locale);
+    : normalizeReportActionHref(viewModel.reportAccess.reportUrl, locale, "page");
 
   return {
     historyHref,
@@ -253,6 +232,7 @@ export function normalizeMbtiAccessHub(
     core.workspaceLite.hasEntry && core.workspaceLite.entryKind === "mbti_history"
       ? links.historyHref
       : null;
+  const pdfHref = normalizeReportActionHref(pdfUrl, locale, "pdf");
 
   return {
     ...core,
@@ -263,8 +243,8 @@ export function normalizeMbtiAccessHub(
     },
     pdfAccess: {
       ...core.pdfAccess,
-      canDownloadPdf: core.pdfAccess.canDownloadPdf && Boolean(pdfUrl),
-      href: toHref(pdfUrl, locale),
+      canDownloadPdf: core.pdfAccess.canDownloadPdf && Boolean(pdfHref),
+      href: pdfHref,
     },
     recovery: {
       ...core.recovery,

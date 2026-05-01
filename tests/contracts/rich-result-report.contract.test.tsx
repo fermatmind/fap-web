@@ -319,6 +319,10 @@ describe("RichResultReport", () => {
     if (!reportData.report.layers?.identity) {
       throw new Error("Expected identity layer");
     }
+    for (const read of reportData.report.recommended_reads ?? []) {
+      read.url = `/zh/articles/${read.id}`;
+      read.canonical_url = `/zh/articles/${read.id}`;
+    }
     reportData.cta = createCustomCta({
       title: "Unified MBTI unlock plan",
       subtitle: "Use one primary commerce surface and keep the rest as mirrors.",
