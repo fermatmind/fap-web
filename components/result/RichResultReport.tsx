@@ -16,7 +16,7 @@ import type { AttemptReportAccessView } from "@/lib/access/unifiedAccess";
 import type { Big5PublicProjection, OfferPayload, ReportResponse } from "@/lib/api/v0_3";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { assembleBig5ResultViewModel } from "@/lib/big5/resultAssembler";
-import { getBig5ResultPageV2Payload } from "@/lib/big5/resultPageV2";
+import { filterBig5ResultPageV2PayloadForGate, getBig5ResultPageV2Payload } from "@/lib/big5/resultPageV2";
 import { assembleEnneagramResultViewModel, hasEnneagramProjection } from "@/lib/enneagram/resultAssembler";
 import { assembleRiasecResultViewModel, hasRiasecProjection } from "@/lib/riasec/resultAssembler";
 import {
@@ -1443,7 +1443,15 @@ export function RichResultReport({
   if (scaleCode === "BIG5_OCEAN") {
     const resultPageV2Payload = getBig5ResultPageV2Payload(reportData);
     if (resultPageV2Payload) {
-      return <Big5ResultPageV2Shell locale={locale} payload={resultPageV2Payload} />;
+      return (
+        <Big5ResultPageV2Shell
+          locale={locale}
+          payload={filterBig5ResultPageV2PayloadForGate(resultPageV2Payload, {
+            isFreeVariant: gate.isFreeVariant,
+            modulesAllowed: gate.modulesAllowed,
+          })}
+        />
+      );
     }
 
     const assembled = assembleBig5ResultViewModel({

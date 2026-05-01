@@ -65,15 +65,33 @@ export default function Big5CompareClient() {
           throw new Error("Not enough history records to compare.");
         }
 
-        const [accessResponse, currentReport, previousReport] = await Promise.all([
-          fetchBig5ReportAccess({ attemptId: pair.current, locale }).catch(() => null),
+        const accessResponse = await fetchBig5ReportAccess({ attemptId: pair.current, locale }).catch(() => null);
+        const nextAccessView = accessResponse ? normalizeAttemptReportAccess(accessResponse, locale) : null;
+
+        if (!canEnterReportPage(nextAccessView)) {
+          if (!active) return;
+
+          setAccessView(nextAccessView);
+          setCurrent({
+            attemptId: pair.current,
+            domainPercentiles: {},
+            facetPercentiles: {},
+          });
+          setPrevious({
+            attemptId: pair.previous,
+            domainPercentiles: {},
+            facetPercentiles: {},
+          });
+          return;
+        }
+
+        const [currentReport, previousReport] = await Promise.all([
           fetchBig5Report({ attemptId: pair.current }),
           fetchBig5Report({ attemptId: pair.previous }),
         ]);
 
         const currentExtract = normalizeBig5CompareSnapshot(currentReport);
         const previousExtract = normalizeBig5CompareSnapshot(previousReport);
-        const nextAccessView = accessResponse ? normalizeAttemptReportAccess(accessResponse, locale) : null;
 
         if (!active) return;
 
@@ -248,65 +266,69 @@ export default function Big5CompareClient() {
             </CardContent>
           </Card>
 
-          <Card>
-            <CardHeader>
-              <CardTitle>Domain percentile delta</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-2 text-sm text-slate-700">
-              <p className="m-0">Current: {current.attemptId}</p>
-              <p className="m-0">Previous: {previous.attemptId}</p>
+          {reportReady ? (
+            <>
+              <Card>
+                <CardHeader>
+                  <CardTitle>Domain percentile delta</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-2 text-sm text-slate-700">
+                  <p className="m-0">Current: {current.attemptId}</p>
+                  <p className="m-0">Previous: {previous.attemptId}</p>
 
-              <div className="grid gap-2">
-                {domainDeltaRows.map((row) => (
-                  <div key={row.domain} className="grid grid-cols-[60px_1fr_1fr_1fr] gap-2 rounded-lg border border-slate-200 px-3 py-2">
-                    <span className="font-semibold">{row.domain}</span>
-                    <span>Now {formatValue(row.current)}</span>
-                    <span>Prev {formatValue(row.previous)}</span>
-                    <span className={!row.comparable ? "text-amber-700" : row.delta && row.delta > 0 ? "text-emerald-700" : row.delta && row.delta < 0 ? "text-rose-700" : "text-slate-600"}>
-                      {formatDelta(row)}
-                    </span>
-                    {!row.comparable ? <span className="col-span-4 text-xs text-amber-700">Not comparable</span> : null}
+                  <div className="grid gap-2">
+                    {domainDeltaRows.map((row) => (
+                      <div key={row.domain} className="grid grid-cols-[60px_1fr_1fr_1fr] gap-2 rounded-lg border border-slate-200 px-3 py-2">
+                        <span className="font-semibold">{row.domain}</span>
+                        <span>Now {formatValue(row.current)}</span>
+                        <span>Prev {formatValue(row.previous)}</span>
+                        <span className={!row.comparable ? "text-amber-700" : row.delta && row.delta > 0 ? "text-emerald-700" : row.delta && row.delta < 0 ? "text-rose-700" : "text-slate-600"}>
+                          {formatDelta(row)}
+                        </span>
+                        {!row.comparable ? <span className="col-span-4 text-xs text-amber-700">Not comparable</span> : null}
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
+                </CardContent>
+              </Card>
 
-          <Card>
-            <CardHeader>
-              <CardTitle>Top changed facets</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-2 text-sm text-slate-700">
-              {comparableFacets.length === 0 ? (
-                <p className="m-0 text-slate-600">No comparable facet percentile data.</p>
-              ) : (
-                comparableFacets.map((row) => (
-                  <div key={row.key} className="grid grid-cols-[1fr_90px_90px_90px] gap-2 rounded-lg border border-slate-200 px-3 py-2">
-                    <span>{row.key}</span>
-                    <span>Now {formatValue(row.current)}</span>
-                    <span>Prev {formatValue(row.previous)}</span>
-                    <span className={!row.comparable ? "text-amber-700" : row.delta && row.delta > 0 ? "text-emerald-700" : row.delta && row.delta < 0 ? "text-rose-700" : "text-slate-600"}>
-                      {formatDelta(row)}
-                    </span>
-                  </div>
-                ))
-              )}
+              <Card>
+                <CardHeader>
+                  <CardTitle>Top changed facets</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-2 text-sm text-slate-700">
+                  {comparableFacets.length === 0 ? (
+                    <p className="m-0 text-slate-600">No comparable facet percentile data.</p>
+                  ) : (
+                    comparableFacets.map((row) => (
+                      <div key={row.key} className="grid grid-cols-[1fr_90px_90px_90px] gap-2 rounded-lg border border-slate-200 px-3 py-2">
+                        <span>{row.key}</span>
+                        <span>Now {formatValue(row.current)}</span>
+                        <span>Prev {formatValue(row.previous)}</span>
+                        <span className={!row.comparable ? "text-amber-700" : row.delta && row.delta > 0 ? "text-emerald-700" : row.delta && row.delta < 0 ? "text-rose-700" : "text-slate-600"}>
+                          {formatDelta(row)}
+                        </span>
+                      </div>
+                    ))
+                  )}
 
-              {unavailableFacets.length > 0 ? (
-                <div className="space-y-2 pt-2">
-                  <p className="m-0 text-xs font-semibold uppercase tracking-wide text-amber-700">Unavailable facets (N/A)</p>
-                  {unavailableFacets.map((row) => (
-                    <div key={`na-${row.key}`} className="grid grid-cols-[1fr_90px_90px_90px] gap-2 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2">
-                      <span>{row.key}</span>
-                      <span>Now {formatValue(row.current)}</span>
-                      <span>Prev {formatValue(row.previous)}</span>
-                      <span className="text-amber-700">--</span>
+                  {unavailableFacets.length > 0 ? (
+                    <div className="space-y-2 pt-2">
+                      <p className="m-0 text-xs font-semibold uppercase tracking-wide text-amber-700">Unavailable facets (N/A)</p>
+                      {unavailableFacets.map((row) => (
+                        <div key={`na-${row.key}`} className="grid grid-cols-[1fr_90px_90px_90px] gap-2 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2">
+                          <span>{row.key}</span>
+                          <span>Now {formatValue(row.current)}</span>
+                          <span>Prev {formatValue(row.previous)}</span>
+                          <span className="text-amber-700">--</span>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              ) : null}
-            </CardContent>
-          </Card>
+                  ) : null}
+                </CardContent>
+              </Card>
+            </>
+          ) : null}
         </>
       ) : null}
     </div>

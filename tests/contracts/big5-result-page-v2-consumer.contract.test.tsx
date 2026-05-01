@@ -61,7 +61,33 @@ describe("Big Five Result Page V2 frontend consumer", () => {
     expect(screen.getByTestId("big5-result-page-v2-shell")).toBeInTheDocument();
     expect(screen.queryByTestId("big5-result-shell")).not.toBeInTheDocument();
     expect(screen.getByTestId("big5-v2-module-module_00_trust_bar")).toBeInTheDocument();
+    expect(screen.getByTestId("big5-v2-module-module_05_facet_reframe")).toBeInTheDocument();
     expect(screen.getByTestId("big5-v2-block-trust_bar")).toHaveTextContent("fixture boundary");
+  });
+
+  it("filters paid V2 modules when Big5 access is locked", () => {
+    render(
+      <RichResultReport
+        locale="zh"
+        reportData={{
+          ...withResultPageV2(createCanonicalPayload()),
+          locked: true,
+          variant: "free",
+          access_level: "free",
+          modules_allowed: ["big5_core"],
+          modules_preview: ["big5_core"],
+        }}
+      />
+    );
+
+    expect(screen.getByTestId("big5-result-page-v2-shell")).toBeInTheDocument();
+    expect(screen.getByText("fixture boundary")).toBeInTheDocument();
+    expect(screen.getByText("fixture hero")).toBeInTheDocument();
+    expect(screen.getByText("fixture quick cards")).toBeInTheDocument();
+    expect(screen.queryByTestId("big5-v2-module-module_03_trait_deep_dive")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("big5-v2-module-module_05_facet_reframe")).not.toBeInTheDocument();
+    expect(screen.queryByText("fixture trait deep dive")).not.toBeInTheDocument();
+    expect(screen.queryByText("fixture facet reframe")).not.toBeInTheDocument();
   });
 
   it("can render from the additive V2 payload without treating legacy sections as required", () => {
