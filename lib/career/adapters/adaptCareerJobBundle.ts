@@ -276,13 +276,19 @@ function buildTrustManifest(raw: Record<string, unknown>, slug: string): CareerT
       used: false,
       summary: null,
     },
-    quality: {
-      complete: reviewed,
-      reviewed,
-      stale: false,
-      blocked_reasons: [],
-      ...quality,
-    },
+    quality: isRecord(trustRaw.quality)
+      ? {
+          reviewed,
+          stale: false,
+          blocked_reasons: [],
+          ...quality,
+        }
+      : {
+          complete: reviewed,
+          reviewed,
+          stale: false,
+          blocked_reasons: [],
+        },
     last_substantive_update_at: trustRaw.last_substantive_update_at ?? null,
     next_review_due_at: trustRaw.next_review_due_at ?? null,
   });

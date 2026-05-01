@@ -222,6 +222,73 @@ describe("career job backend bundle contract", () => {
     expect(detail?.authoritySource).toBe("career_backend_bundle.v0.5");
   });
 
+  it("blocks job render gates when trust quality is partial, stale, or blocked", () => {
+    const basePayload = {
+      identity: {
+        occupation_uuid: "occ_software_developer",
+        canonical_slug: "software-developer",
+      },
+      titles: {
+        canonical_en: "Software Developer",
+      },
+      truth_layer: {
+        median_pay_usd_annual: 133080,
+        outlook_pct_2024_2034: 16,
+      },
+      score_bundle: {
+        fit_score: { value: 78, integrity_state: "full", degradation_factor: 1.0 },
+      },
+      claim_permissions: {
+        allow_strong_claim: true,
+        allow_salary_comparison: true,
+        allow_ai_strategy: true,
+        allow_transition_recommendation: false,
+        allow_cross_market_pay_copy: false,
+        reason_codes: [],
+      },
+      seo_contract: {
+        canonical_path: "/career/jobs/software-developer",
+        index_state: "index",
+        index_eligible: true,
+      },
+    };
+    const adaptWithQuality = (quality: Record<string, unknown>) =>
+      adaptCareerJobBundle({
+        locale: "en",
+        requestedSlug: "software-developer",
+        payload: {
+          ...basePayload,
+          trust_manifest: {
+            reviewer_status: "reviewed",
+            reviewed: true,
+            quality,
+          },
+        },
+      });
+
+    for (const quality of [
+      { reviewed: true, stale: false, blocked_reasons: [] },
+      { complete: true, reviewed: true, stale: true, blocked_reasons: [] },
+      { complete: true, reviewed: true, stale: false, blocked_reasons: ["quality_hold"] },
+    ]) {
+      const detail = adaptWithQuality(quality);
+
+      expect(detail?.renderState.canRenderSalarySurface).toBe(false);
+      expect(detail?.renderState.canRenderOutlookSurface).toBe(false);
+      expect(detail?.renderState.canRenderFitSurface).toBe(false);
+      expect(detail?.renderState.canRenderStructuredData).toBe(false);
+      expect(detail?.renderState.canIndexPage).toBe(false);
+    }
+
+    const trustedDetail = adaptWithQuality({ complete: true, reviewed: true, stale: false, blocked_reasons: [] });
+
+    expect(trustedDetail?.renderState.canRenderSalarySurface).toBe(true);
+    expect(trustedDetail?.renderState.canRenderOutlookSurface).toBe(true);
+    expect(trustedDetail?.renderState.canRenderFitSurface).toBe(true);
+    expect(trustedDetail?.renderState.canRenderStructuredData).toBe(true);
+    expect(trustedDetail?.renderState.canIndexPage).toBe(true);
+  });
+
   it("adapts backend explainability into a machine-safe frontend dto with allowlisted strain radar only", () => {
     const explainability = adaptCareerJobExplainability({
       summary_kind: "career_explainability",

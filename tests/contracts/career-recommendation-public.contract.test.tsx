@@ -197,6 +197,76 @@ describe("career recommendation public contract", () => {
     expect(buildCareerRecommendationFrontendUrl("en", "INTJ-A")).toBe("/en/career/recommendations/mbti/intj-a");
   });
 
+  it("blocks recommendation render gates when trust quality is partial, stale, or blocked", () => {
+    const basePayload = {
+      identity: {
+        mbti_type: "INTJ-A",
+      },
+      recommendation_subject_meta: {
+        canonical_type: "INTJ",
+      },
+      score_bundle: {
+        fit_score: { value: 82, integrity_state: "full", degradation_factor: 1.0 },
+        confidence_score: { value: 77, integrity_state: "full", degradation_factor: 1.0 },
+      },
+      supporting_truth_summary: {
+        summary: "Approved strong recommendation summary",
+      },
+      claim_permissions: {
+        allow_strong_claim: true,
+        allow_salary_comparison: false,
+        allow_ai_strategy: true,
+        allow_transition_recommendation: true,
+        allow_cross_market_pay_copy: false,
+        reason_codes: [],
+      },
+      seo_contract: {
+        canonical_path: "/career/recommendations/mbti/intj-a",
+        index_state: "index",
+        index_eligible: true,
+      },
+      matched_jobs: [
+        {
+          canonical_slug: "data-scientist",
+          title: "Data Scientist",
+        },
+      ],
+    };
+    const adaptWithQuality = (quality: Record<string, unknown>) =>
+      adaptCareerRecommendationBundle({
+        locale: "en",
+        requestedType: "intj-a",
+        payload: {
+          ...basePayload,
+          trust_manifest: {
+            reviewer_status: "reviewed",
+            reviewed: true,
+            quality,
+          },
+        },
+      });
+
+    for (const quality of [
+      { reviewed: true, stale: false, blocked_reasons: [] },
+      { complete: true, reviewed: true, stale: true, blocked_reasons: [] },
+      { complete: true, reviewed: true, stale: false, blocked_reasons: ["quality_hold"] },
+    ]) {
+      const detail = adaptWithQuality(quality);
+
+      expect(detail?.renderState.canRenderStrongTruth).toBe(false);
+      expect(detail?.renderState.canRenderSummarySurface).toBe(false);
+      expect(detail?.renderState.canRenderMatchedJobs).toBe(false);
+      expect(detail?.renderState.canIndexPage).toBe(false);
+    }
+
+    const trustedDetail = adaptWithQuality({ complete: true, reviewed: true, stale: false, blocked_reasons: [] });
+
+    expect(trustedDetail?.renderState.canRenderStrongTruth).toBe(true);
+    expect(trustedDetail?.renderState.canRenderSummarySurface).toBe(true);
+    expect(trustedDetail?.renderState.canRenderMatchedJobs).toBe(true);
+    expect(trustedDetail?.renderState.canIndexPage).toBe(true);
+  });
+
   it("adapts backend recommendation explainability into a machine-safe dto with allowlisted strain radar only", () => {
     const explainability = adaptCareerRecommendationExplainability({
       summary_kind: "career_explainability",
