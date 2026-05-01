@@ -577,6 +577,7 @@ function renderShell(typeCode: "INFJ-A" | "ENTJ-T" | "ISTP-A", locale: "zh" | "e
       offers={[]}
       projectionViewModel={null}
       isUnlocked={isUnlocked}
+      canLoadDesktopCloneStorage
       shareCtaLabel="分享"
       onShare={vi.fn()}
       retakeHref="/zh/test/mbti"
@@ -610,6 +611,7 @@ function renderShellWithProjection({
       offers={[]}
       projectionViewModel={projectionViewModel}
       isUnlocked={isUnlocked}
+      canLoadDesktopCloneStorage
       shareCtaLabel="分享"
       onShare={vi.fn()}
       retakeHref="/zh/test/mbti"
@@ -635,6 +637,50 @@ beforeEach(() => {
 
 describe("MBTI desktop chapter premium teaser reset contract", () => {
   const unifiedUnlockBody = "解锁完整报告后即可查看这些结果，并纳入你的人格分析。";
+
+  it("does not fetch or hydrate authored paid clone content while locked by default", async () => {
+    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("INFJ-A"));
+
+    render(
+      <MbtiDesktopCloneShell
+        locale="zh"
+        headline={createHeadline("INFJ-A")}
+        tags={[]}
+        dimensions={[]}
+        highlights={[]}
+        sections={[]}
+        sectionUnlocks={createSectionUnlocks()}
+        offers={[]}
+        projectionViewModel={null}
+        isUnlocked={false}
+        shareCtaLabel="分享"
+        onShare={vi.fn()}
+        retakeHref="/zh/test/mbti"
+        historyHref="/zh/history"
+        orderDetailHref="/zh/orders/detail"
+        relationshipHref="/zh/relationships/mbti"
+        pdfHref="/zh/result/test.pdf"
+        pdfReady
+        primaryCtaLabel="去结算"
+        primaryCtaHref="/zh/pay/checkout"
+        lockedInviteCtaHref={INVITE_TAKE_HREF}
+      />,
+    );
+
+    await waitFor(() => {
+      expect(screen.getByTestId("mbti-desktop-clone-shell")).toBeInTheDocument();
+    });
+
+    expect(fetchPersonalityDesktopCloneContent).not.toHaveBeenCalled();
+    expect(screen.queryByText("career ideas item infj-a")).not.toBeInTheDocument();
+    expect(screen.queryByText("what energizes body 1 infj-a")).not.toBeInTheDocument();
+    expect(screen.queryByText("superpowers body 1 infj-a")).not.toBeInTheDocument();
+    expect(screen.queryByText("career trait 1 infj-a")).not.toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: "导出 PDF" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: "PDF" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: "Detail" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: "关系" })).not.toBeInTheDocument();
+  });
 
   it("keeps Career chapter-end premium teasers on the locked path without extra matched cards", async () => {
     vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("INFJ-A"));

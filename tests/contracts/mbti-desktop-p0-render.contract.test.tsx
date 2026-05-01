@@ -396,6 +396,7 @@ function renderShell(typeCode: "INFJ-A" | "ENTJ-T" | "ISTP-A", locale: "zh" | "e
       offers={[]}
       projectionViewModel={null}
       isUnlocked={false}
+      canLoadDesktopCloneStorage
       shareCtaLabel="分享"
       onShare={vi.fn()}
       retakeHref="/zh/test/mbti"
@@ -426,6 +427,7 @@ function renderShellWithProjection({
       offers={[]}
       projectionViewModel={projectionViewModel}
       isUnlocked={false}
+      canLoadDesktopCloneStorage
       shareCtaLabel="分享"
       onShare={vi.fn()}
       retakeHref="/zh/test/mbti"

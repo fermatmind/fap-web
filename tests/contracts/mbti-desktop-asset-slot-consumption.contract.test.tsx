@@ -334,6 +334,7 @@ function renderShell(typeCode: string) {
       offers={[]}
       projectionViewModel={null}
       isUnlocked={false}
+      canLoadDesktopCloneStorage
       shareCtaLabel="分享"
       onShare={vi.fn()}
       retakeHref="/zh/test/mbti"

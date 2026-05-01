@@ -14,6 +14,7 @@ import {
   getMbtiDesktopAnchorHash,
   getMbtiDesktopAnchorId,
 } from "@/components/result/mbti/mbtiDesktopAnchorTargets";
+import { MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH } from "@/components/result/mbti/clone/mbtiDesktopClone.placeholders";
 import { resolveMbtiDesktopCloneSlots } from "@/components/result/mbti/clone/mbtiDesktopClone.resolve";
 import type {
   EnergyBlock,
@@ -85,6 +86,7 @@ type MbtiDesktopCloneShellProps = {
   storageContentOverride?: MbtiDesktopCloneContent | null;
   storageAssetSlotsOverride?: PersonalityDesktopCloneAssetSlot[] | null;
   storageManagedExternally?: boolean;
+  canLoadDesktopCloneStorage?: boolean;
 };
 
 function normalizeText(...values: unknown[]) {
@@ -357,8 +359,10 @@ export function MbtiDesktopCloneShell({
   storageContentOverride,
   storageAssetSlotsOverride,
   storageManagedExternally = false,
+  canLoadDesktopCloneStorage,
 }: MbtiDesktopCloneShellProps) {
   const cloneLocale = locale === "zh" ? "zh" : "en";
+  const shouldLoadDesktopCloneStorage = canLoadDesktopCloneStorage ?? isUnlocked;
   const initialMobileViewport = useMemo(() => readIsMobileViewport(), []);
   const [isMobileViewport, setIsMobileViewport] = useState(initialMobileViewport);
   const [isDeepContentReady, setIsDeepContentReady] = useState(!initialMobileViewport);
@@ -376,10 +380,12 @@ export function MbtiDesktopCloneShell({
     storageSnapshot && storageSnapshot.locale === locale && storageSnapshot.fullCode === fullCodeForStorage
       ? storageSnapshot
       : null;
-  const storageContent =
-    storageContentOverride !== undefined ? storageContentOverride : activeStorageSnapshot?.content ?? null;
-  const storageAssetSlots =
-    storageAssetSlotsOverride !== undefined ? storageAssetSlotsOverride : activeStorageSnapshot?.assetSlots ?? null;
+  const storageContent = shouldLoadDesktopCloneStorage
+    ? storageContentOverride !== undefined ? storageContentOverride : activeStorageSnapshot?.content ?? null
+    : null;
+  const storageAssetSlots = shouldLoadDesktopCloneStorage
+    ? storageAssetSlotsOverride !== undefined ? storageAssetSlotsOverride : activeStorageSnapshot?.assetSlots ?? null
+    : null;
 
   useEffect(() => {
     if (typeof window === "undefined" || typeof window.matchMedia !== "function") {
@@ -431,6 +437,7 @@ export function MbtiDesktopCloneShell({
 
     if (
       locale !== "zh"
+      || !shouldLoadDesktopCloneStorage
       || storageManagedExternally
       || storageContentOverride !== undefined
       || storageAssetSlotsOverride !== undefined
@@ -455,7 +462,14 @@ export function MbtiDesktopCloneShell({
     return () => {
       active = false;
     };
-  }, [fullCodeForStorage, locale, storageAssetSlotsOverride, storageContentOverride, storageManagedExternally]);
+  }, [
+    fullCodeForStorage,
+    locale,
+    shouldLoadDesktopCloneStorage,
+    storageAssetSlotsOverride,
+    storageContentOverride,
+    storageManagedExternally,
+  ]);
 
   const traitDimensions = projectionViewModel?.dimensions?.length ? projectionViewModel.dimensions : dimensions;
   const slots = resolveMbtiDesktopCloneSlots({
@@ -627,6 +641,9 @@ export function MbtiDesktopCloneShell({
   const inviteCtaBusy = inviteCtaStatus === "creating" || inviteCtaStatus === "copying";
   const desktopEntryHref = isUnlocked ? primaryCtaHref : desktopOfferHref;
   const desktopWorkspaceHref = isUnlocked ? workspaceHref : desktopOfferHref;
+  const unlockedPdfHref = isUnlocked && pdfReady ? pdfHref : "";
+  const unlockedOrderDetailHref = isUnlocked ? orderDetailHref : "";
+  const unlockedRelationshipHref = isUnlocked ? relationshipHref : "";
 
   useEffect(() => {
     if (inviteHrefFromProps || inviteCodeFromProps) {
@@ -800,15 +817,15 @@ export function MbtiDesktopCloneShell({
     ...(desktopWorkspaceHref && desktopWorkspaceHref !== historyHref
       ? [{ label: cloneLocale === "zh" ? "工作台" : "Workspace", href: desktopWorkspaceHref }]
       : []),
-    ...(pdfReady && pdfHref ? [{ label: "PDF", href: pdfHref }] : []),
+    ...(unlockedPdfHref ? [{ label: "PDF", href: unlockedPdfHref }] : []),
     ...(orderLookupHref ? [{ label: cloneLocale === "zh" ? "订单" : "Orders", href: orderLookupHref }] : []),
-    ...(orderDetailHref ? [{ label: cloneLocale === "zh" ? "详情" : "Detail", href: orderDetailHref }] : []),
-    ...(relationshipHref ? [{ label: cloneLocale === "zh" ? "关系" : "Compare", href: relationshipHref }] : []),
+    ...(unlockedOrderDetailHref ? [{ label: cloneLocale === "zh" ? "详情" : "Detail", href: unlockedOrderDetailHref }] : []),
+    ...(unlockedRelationshipHref ? [{ label: cloneLocale === "zh" ? "关系" : "Compare", href: unlockedRelationshipHref }] : []),
   ];
 
   const traitsTools: DesktopCloneTool[] = [
     { label: shareCtaLabel, onClick: onShare, disabled: shareDisabled },
-    ...(pdfReady && pdfHref ? [{ label: cloneLocale === "zh" ? "导出 PDF" : "Export PDF", href: pdfHref }] : []),
+    ...(unlockedPdfHref ? [{ label: cloneLocale === "zh" ? "导出 PDF" : "Export PDF", href: unlockedPdfHref }] : []),
     ...(historyHref ? [{ label: cloneLocale === "zh" ? "查看历史" : "History", href: historyHref }] : []),
   ];
   const traitsToolsPrompt = cloneLocale === "zh"
@@ -884,15 +901,15 @@ export function MbtiDesktopCloneShell({
           buildPremiumTeaserBlock({
             locale: cloneLocale,
             zhTitle: "你可能会喜欢的职业选择",
-            source: slots.chapters.career.careerIdeas,
-            fallback: slots.chapters.career.lockedBlocks[0],
+            source: null,
+            fallback: MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.chapters.career.lockedBlocks[0],
             testId: "mbti-premium-career-career-ideas",
           }),
           buildPremiumTeaserBlock({
             locale: cloneLocale,
             zhTitle: "适合你的工作方式",
-            source: slots.chapters.career.workStyles,
-            fallback: slots.chapters.career.lockedBlocks[1],
+            source: null,
+            fallback: MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.chapters.career.lockedBlocks[1],
             testId: "mbti-premium-career-work-styles",
           }),
         ]}
@@ -923,15 +940,15 @@ export function MbtiDesktopCloneShell({
           buildPremiumTeaserBlock({
             locale: cloneLocale,
             zhTitle: "什么能让你充满活力？",
-            source: slots.chapters.growth.whatEnergizes,
-            fallback: slots.chapters.growth.lockedBlocks[0],
+            source: null,
+            fallback: MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.chapters.growth.lockedBlocks[0],
             testId: "mbti-premium-growth-what-energizes",
           }),
           buildPremiumTeaserBlock({
             locale: cloneLocale,
             zhTitle: "什么让你精力力竭？",
-            source: slots.chapters.growth.whatDrains,
-            fallback: slots.chapters.growth.lockedBlocks[1],
+            source: null,
+            fallback: MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.chapters.growth.lockedBlocks[1],
             testId: "mbti-premium-growth-what-drains",
           }),
         ]}
@@ -962,15 +979,15 @@ export function MbtiDesktopCloneShell({
           buildPremiumTeaserBlock({
             locale: cloneLocale,
             zhTitle: "你的人际关系优势",
-            source: slots.chapters.relationships.superpowers,
-            fallback: slots.chapters.relationships.lockedBlocks[0],
+            source: null,
+            fallback: MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.chapters.relationships.lockedBlocks[0],
             testId: "mbti-premium-relationships-superpowers",
           }),
           buildPremiumTeaserBlock({
             locale: cloneLocale,
             zhTitle: "人际关系陷阱",
-            source: slots.chapters.relationships.pitfalls,
-            fallback: slots.chapters.relationships.lockedBlocks[1],
+            source: null,
+            fallback: MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.chapters.relationships.lockedBlocks[1],
             testId: "mbti-premium-relationships-pitfalls",
           }),
         ]}
