@@ -6,6 +6,7 @@ import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/
 import { normalizeLandingSurface, type LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
 import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
 import { normalizeSeoSurface, type SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
+import { normalizeInternalHref } from "@/lib/url/safeContentUrls";
 
 const DEFAULT_ORG_ID = "0";
 const DEFAULT_PER_PAGE = 100;
@@ -350,7 +351,7 @@ export function normalizeTopicSection(section: CmsTopicApiSection): CmsTopicSect
 function normalizeTopicEntry(entry: CmsTopicApiEntry): CmsTopicEntry | null {
   const groupKey = normalizeTopicSlug(String(entry.group_key ?? ""));
   const title = fallbackText(entry.title);
-  const url = String(entry.url ?? "").trim();
+  const url = normalizeInternalHref(entry.url);
 
   if (!groupKey || !title || !url) {
     return null;

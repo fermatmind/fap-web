@@ -4,6 +4,7 @@ import type {
   RelationshipIndexRaw,
   RelationshipResumeRaw,
 } from "@/lib/api/v0_3";
+import { normalizeInternalHref } from "@/lib/url/safeContentUrls";
 
 export type RelationshipIndexEntrySummaryViewModel = {
   title: string;
@@ -74,7 +75,7 @@ function normalizeResume(rawResume?: RelationshipResumeRaw | null): Relationship
     return null;
   }
 
-  const resumeTarget = normalizeText(rawResume.resume_target);
+  const resumeTarget = normalizeInternalHref(rawResume.resume_target);
   if (!resumeTarget) {
     return null;
   }
@@ -92,7 +93,7 @@ function normalizeResume(rawResume?: RelationshipResumeRaw | null): Relationship
 function normalizeItem(rawItem: RelationshipIndexItemRaw): RelationshipIndexItemViewModel | null {
   const inviteId = normalizeText(rawItem.invite_id);
   const resume = normalizeResume(rawItem.relationship_resume_v1);
-  const resumeTarget = normalizeText(rawItem.resume_target, resume?.resumeTarget);
+  const resumeTarget = normalizeInternalHref(rawItem.resume_target) || resume?.resumeTarget || "";
   if (!inviteId || !resumeTarget) {
     return null;
   }

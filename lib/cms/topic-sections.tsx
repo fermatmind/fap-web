@@ -11,6 +11,7 @@ import type {
 } from "@/lib/cms/topics";
 import type { Locale } from "@/lib/i18n/locales";
 import type { FAQItem } from "@/lib/seo/generateSchema";
+import { normalizeInternalHref } from "@/lib/url/safeContentUrls";
 
 const KNOWN_SECTION_KEYS = [
   "overview",
@@ -191,7 +192,7 @@ function renderCardsSection(section: CmsTopicSection) {
       {items.map((item, index) => {
         const title = normalizeText(item.title);
         const summary = normalizeText(item.summary ?? item.body);
-        const href = normalizeText(item.href ?? item.url);
+        const href = normalizeInternalHref(item.href ?? item.url);
 
         if (!title) {
           return null;

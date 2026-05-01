@@ -20,7 +20,7 @@ function createAssetSlots(): PersonalityDesktopCloneAssetSlot[] {
       assetRef: {
         provider: "cdn",
         path: "mbti/desktop/hero/infj-a/v1.webp",
-        url: "https://cdn.example.com/mbti/desktop/hero/infj-a/v1.webp",
+        url: "https://assets.fermatmind.com/mbti/desktop/hero/infj-a/v1.webp",
         version: "v1",
         checksum: "sha256:hero",
       },
@@ -102,7 +102,7 @@ describe("MBTI desktop clone asset slot api contract", () => {
     const disabled = getCloneAssetSlot(slots, "traits-summary-illustration") as CloneResolvedAssetSlot;
 
     expect(ready.status).toBe("ready");
-    expect(resolveAssetSlotUrl(ready)).toBe("https://cdn.example.com/mbti/desktop/hero/infj-a/v1.webp");
+    expect(resolveAssetSlotUrl(ready)).toBe("https://assets.fermatmind.com/mbti/desktop/hero/infj-a/v1.webp");
 
     expect(placeholder.status).toBe("placeholder");
     expect(resolveAssetSlotUrl(placeholder)).toBeNull();
@@ -182,5 +182,38 @@ describe("MBTI desktop clone asset slot api contract", () => {
     const ready = getCloneAssetSlot(slots, "hero-illustration");
     expect(resolveAssetSlotUrl(ready)).toBeNull();
     expect(shouldSkipRemoteCloneAssetLoad(ready)).toBe(true);
+  });
+
+  it("rejects arbitrary external asset URLs unless a safe local fallback exists", () => {
+    const slots = createAssetSlots();
+    slots[0] = {
+      ...slots[0],
+      assetRef: {
+        provider: "cdn",
+        path: null,
+        url: "https://cdn.example.com/mbti/desktop/hero/infj-a/v5.webp",
+        version: "v5",
+        checksum: "sha256:v5",
+      },
+    };
+
+    const unsafeRemote = getCloneAssetSlot(slots, "hero-illustration");
+    expect(resolveAssetSlotUrl(unsafeRemote)).toBeNull();
+    expect(shouldSkipRemoteCloneAssetLoad(unsafeRemote)).toBe(true);
+
+    slots[0] = {
+      ...slots[0],
+      assetRef: {
+        provider: "cdn",
+        path: "storage/content_assets/mbti/desktop/hero/infj-a/v5.webp",
+        url: "https://cdn.example.com/mbti/desktop/hero/infj-a/v5.webp",
+        version: "v5",
+        checksum: "sha256:v5",
+      },
+    };
+
+    const withFallback = getCloneAssetSlot(slots, "hero-illustration");
+    expect(resolveAssetSlotUrl(withFallback)).toBe("/storage/content_assets/mbti/desktop/hero/infj-a/v5.webp");
+    expect(shouldSkipRemoteCloneAssetLoad(withFallback)).toBe(false);
   });
 });

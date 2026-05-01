@@ -19,6 +19,8 @@ describe("media asset contract", () => {
     expect(cmsManagedMediaUrl("https://assets.fermatmind.com/article/image.jpg")).toBe(
       "https://assets.fermatmind.com/article/image.jpg"
     );
+    expect(cmsManagedMediaUrl("https://cdn.example.com/article/image.jpg")).toBeNull();
+    expect(cmsManagedMediaUrl("javascript:alert(1)")).toBeNull();
   });
 
   it("does not render legacy mutable article image URLs", () => {

@@ -1,4 +1,5 @@
 import type { AnswerSurfaceRaw } from "@/lib/api/v0_3";
+import { normalizeInternalHref } from "@/lib/url/safeContentUrls";
 
 export type AnswerContentBlockViewModel = {
   key: string;
@@ -92,7 +93,7 @@ function normalizeContentBlocks(value: unknown): AnswerContentBlockViewModel[] {
         key: key || title || body,
         title,
         body,
-        href: normalizeNullableText(record.href),
+        href: normalizeInternalHref(record.href),
         kind: normalizeNullableText(record.kind),
       };
     })
@@ -133,7 +134,7 @@ function normalizeNextStepBlocks(value: unknown): AnswerNextStepBlockViewModel[]
       const record = item && typeof item === "object" && !Array.isArray(item) ? item : {};
       const title = normalizeText(record.title);
       const body = normalizeText(record.body);
-      const href = normalizeNullableText(record.href);
+      const href = normalizeInternalHref(record.href);
       const key = normalizeText(record.key) || title || href || body;
       if (!key && !title && !body && !href) {
         return null;

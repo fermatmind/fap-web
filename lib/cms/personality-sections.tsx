@@ -10,6 +10,7 @@ import {
 } from "@/lib/cms/personality";
 import { type Locale } from "@/lib/i18n/locales";
 import type { FAQItem } from "@/lib/seo/generateSchema";
+import { normalizeInternalHref } from "@/lib/url/safeContentUrls";
 
 const KNOWN_SECTION_KEYS = [
   "hero",
@@ -277,7 +278,7 @@ function normalizeLinkItems(
     .map((item) => {
       const title = normalizeText(item.title);
       const summary = normalizeText(item.summary ?? item.body);
-      const href = normalizeText(item.href);
+      const href = normalizeInternalHref(item.href);
       const slug = normalizeText(item.slug);
 
       if (!title) {

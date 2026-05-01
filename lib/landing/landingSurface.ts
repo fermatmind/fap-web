@@ -1,4 +1,5 @@
 import type { LandingSurfaceRaw } from "@/lib/api/v0_3";
+import { normalizeInternalHref } from "@/lib/url/safeContentUrls";
 
 export type LandingSummaryBlockViewModel = {
   key: string;
@@ -103,7 +104,7 @@ export function normalizeLandingSurface(raw: LandingSurfaceRaw | null | undefine
         .map((item) => {
           const record = item && typeof item === "object" && !Array.isArray(item) ? item : {};
           const label = normalizeText(record.label);
-          const href = normalizeText(record.href);
+          const href = normalizeInternalHref(record.href);
           if (!label || !href) {
             return null;
           }
@@ -123,7 +124,7 @@ export function normalizeLandingSurface(raw: LandingSurfaceRaw | null | undefine
         .map((item) => {
           const record = item && typeof item === "object" && !Array.isArray(item) ? item : {};
           const title = normalizeText(record.title);
-          const href = normalizeText(record.href ?? record.url);
+          const href = normalizeInternalHref(record.href ?? record.url);
           if (!title || !href) {
             return null;
           }

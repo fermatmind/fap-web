@@ -3,6 +3,8 @@ import {
   type MbtiDesktopCloneAssetSlotId,
 } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 import type { PersonalityDesktopCloneAssetSlot } from "@/lib/cms/personality-desktop-clone";
+import { CANONICAL_MEDIA_ASSET_ORIGIN } from "@/lib/cms/media";
+import { normalizeMediaAssetUrl } from "@/lib/url/safeContentUrls";
 
 export type CloneAssetRef = {
   provider: string | null;
@@ -69,30 +71,17 @@ export function getCloneAssetSlot(
   return indexAssetSlotsById(assetSlots)[slotId];
 }
 
-function normalizeUrl(value: string | null | undefined): string | null {
-  const normalized = String(value ?? "").trim();
-  if (!normalized) {
+function normalizeAssetUrl(value: string | null | undefined): string | null {
+  if (isTencentAssetUrl(value)) {
     return null;
   }
 
-  if (/^https?:\/\//i.test(normalized)) {
-    if (isTencentAssetUrl(normalized)) {
-      return null;
-    }
-
-    return normalized;
-  }
-
-  if (normalized.startsWith("/")) {
-    return normalized;
-  }
-
-  const cdnBase = String(process.env.NEXT_PUBLIC_CDN_URL ?? "").trim().replace(/\/+$/, "");
-  if (cdnBase && !isTencentAssetUrl(cdnBase)) {
-    return `${cdnBase}/${normalized.replace(/^\/+/, "")}`;
-  }
-
-  return `/${normalized.replace(/^\/+/, "")}`;
+  return normalizeMediaAssetUrl(value, {
+    allowedOrigins: [
+      CANONICAL_MEDIA_ASSET_ORIGIN,
+      process.env.NEXT_PUBLIC_CDN_URL,
+    ],
+  });
 }
 
 export function isTencentAssetUrl(value: string | null | undefined): boolean {
@@ -108,11 +97,11 @@ export function shouldSkipRemoteCloneAssetLoad(
   slot: CloneResolvedAssetSlot | null,
 ): boolean {
   const directUrl = String(slot?.assetRef?.url ?? "").trim();
-  if (!directUrl || !isTencentAssetUrl(directUrl)) {
+  if (!directUrl || normalizeAssetUrl(directUrl)) {
     return false;
   }
 
-  const fallbackPath = normalizeUrl(slot?.assetRef?.path ?? null);
+  const fallbackPath = normalizeAssetUrl(slot?.assetRef?.path ?? null);
   return !Boolean(fallbackPath);
 }
 
@@ -121,10 +110,10 @@ export function resolveAssetSlotUrl(slot: CloneResolvedAssetSlot | null): string
     return null;
   }
 
-  const directUrl = normalizeUrl(slot.assetRef.url);
+  const directUrl = normalizeAssetUrl(slot.assetRef.url);
   if (directUrl) {
     return directUrl;
   }
 
-  return normalizeUrl(slot.assetRef.path);
+  return normalizeAssetUrl(slot.assetRef.path);
 }
