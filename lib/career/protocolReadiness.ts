@@ -318,7 +318,11 @@ export function getCareerJobRenderState(
   const allowSalaryComparison = hasCareerSalaryPermission(input.claimPermissions);
   const hasIndexGate =
     hasExplicitIndexGate(input.careerAsset) || hasExplicitIndexGateFromSeoContract(input.seoContract);
-  const canIndexPage = isCareerIndexEligible(input.careerAsset) || isSeoContractIndexEligible(input.seoContract);
+  const canIndexPage =
+    (isCareerIndexEligible(input.careerAsset) || isSeoContractIndexEligible(input.seoContract)) &&
+    hasIndexGate &&
+    isTrustReady &&
+    allowStrongClaim;
 
   const missingFields: string[] = [];
   if (!hasAuthoritySource) {

@@ -415,7 +415,7 @@ describe("career job backend bundle contract", () => {
 
     expect(source).toContain("<Breadcrumb");
     expect(source).toContain('localizedPath("/career/jobs", locale)');
-    expect(source.indexOf("<Breadcrumb")).toBeLessThan(source.indexOf("{job.contentBodyMd ?"));
+    expect(source.indexOf("<Breadcrumb")).toBeLessThan(source.indexOf("{visibleContentBodyMd ?"));
   });
 
   it("keeps DOCX job detail header and fallback cells user-facing", () => {

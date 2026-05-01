@@ -588,7 +588,14 @@ export async function generateMetadata({
 
   const canonicalPath = normalizeCareerBundleCanonicalPath(locale, job.seoContract.canonicalPath, buildCanonicalPath(job.slug, locale));
   const title = `${job.title} | FermatMind`;
-  const description = job.summary || (locale === "zh" ? `${job.title} 的职业概览、匹配信号与下一步路径。` : `Overview, fit signals, and next steps for ${job.title}.`);
+  const canRenderStrongClaimSurface =
+    job.renderState.canRenderAnswerSurface || job.renderState.canRenderOutlookSurface || job.renderState.canRenderFitSurface;
+  const description =
+    canRenderStrongClaimSurface && job.summary
+      ? job.summary
+      : locale === "zh"
+        ? `${job.title} 的职业概览与下一步路径。`
+        : `Career overview and next steps for ${job.title}.`;
 
   return buildPageMetadata({
     locale,
@@ -615,12 +622,7 @@ export default async function CareerJobDetailPage({
 }) {
   const { locale: localeParam, slug } = await params;
   const locale = resolveLocale(localeParam);
-  const [job, explainability, nextStepLinks, runtimeConfig] = await Promise.all([
-    loadCareerJobBundle(locale, slug),
-    loadCareerJobExplainability(locale, slug),
-    loadCareerNextStepLinks(locale, slug),
-    loadRuntimeConfig(locale),
-  ]);
+  const job = await loadCareerJobBundle(locale, slug);
 
   if (!job) {
     return notFound();
@@ -631,24 +633,17 @@ export default async function CareerJobDetailPage({
   }
 
   const renderState = job.renderState;
+  const [explainability, nextStepLinks, runtimeConfig] = await Promise.all([
+    renderState.canRenderFitSurface ? loadCareerJobExplainability(locale, slug) : Promise.resolve(null),
+    loadCareerNextStepLinks(locale, slug),
+    loadRuntimeConfig(locale),
+  ]);
   const canRenderAiStrategy = job.claimPermissions.allow_ai_strategy && renderState.careerDataStatus !== "unavailable";
-  const canRenderAnswerSurface = renderState.canRenderAnswerSurface;
   const canRenderStrongClaimSurface =
     renderState.canRenderAnswerSurface || renderState.canRenderOutlookSurface || renderState.canRenderFitSurface;
+  const visibleContentBodyMd = canRenderStrongClaimSurface ? job.contentBodyMd : null;
+  const visibleContentSections = canRenderStrongClaimSurface ? job.contentSections : [];
   const jobDetailLandingPath = localizedPath(`/career/jobs/${job.slug}`, locale);
-  const salaryClaimBlocked =
-    !renderState.canRenderSalarySurface &&
-    !job.claimPermissions.allow_salary_comparison &&
-    job.truthLayer.medianPayUsdAnnual !== null &&
-    renderState.careerDataStatus !== "unavailable";
-  const strongClaimBlocked =
-    !canRenderAnswerSurface &&
-    !job.claimPermissions.allow_strong_claim &&
-    (job.truthLayer.outlookPct20242034 !== null ||
-      job.truthLayer.entryEducation !== null ||
-      job.truthLayer.workExperience !== null ||
-      job.truthLayer.onTheJobTraining !== null ||
-      job.scoreBundle.fitScore.value !== null);
   const aiStrategyClaimBlocked =
     canRenderStrongClaimSurface &&
     !job.claimPermissions.allow_ai_strategy &&
@@ -673,58 +668,7 @@ export default async function CareerJobDetailPage({
             subjectKey: job.slug,
           })}
         />
-        {salaryClaimBlocked ? (
-          <AnalyticsPageViewTracker
-            eventName={CAREER_TRACKING_EVENTS.claimBlockedSurfaceExposed}
-            trackingKey={`claim-blocked:salary:${job.slug}`}
-            properties={buildCareerAttributionPayload({
-              locale,
-              entrySurface: "career_job_detail",
-              sourcePageType: "career_job_detail",
-              targetAction: "expose_claim_blocked_surface",
-              landingPath: jobDetailLandingPath,
-              routeFamily: "job_detail",
-              subjectKind: "job_slug",
-              subjectKey: job.slug,
-              blockedClaimKind: "salary",
-            })}
-          />
-        ) : null}
-        {strongClaimBlocked ? (
-          <AnalyticsPageViewTracker
-            eventName={CAREER_TRACKING_EVENTS.claimBlockedSurfaceExposed}
-            trackingKey={`claim-blocked:strong-claim:${job.slug}`}
-            properties={buildCareerAttributionPayload({
-              locale,
-              entrySurface: "career_job_detail",
-              sourcePageType: "career_job_detail",
-              targetAction: "expose_claim_blocked_surface",
-              landingPath: jobDetailLandingPath,
-              routeFamily: "job_detail",
-              subjectKind: "job_slug",
-              subjectKey: job.slug,
-              blockedClaimKind: "strong_claim",
-            })}
-          />
-        ) : null}
-        {aiStrategyClaimBlocked ? (
-          <AnalyticsPageViewTracker
-            eventName={CAREER_TRACKING_EVENTS.claimBlockedSurfaceExposed}
-            trackingKey={`claim-blocked:ai-strategy:${job.slug}`}
-            properties={buildCareerAttributionPayload({
-              locale,
-              entrySurface: "career_job_detail",
-              sourcePageType: "career_job_detail",
-              targetAction: "expose_claim_blocked_surface",
-              landingPath: jobDetailLandingPath,
-              routeFamily: "job_detail",
-              subjectKind: "job_slug",
-              subjectKey: job.slug,
-              blockedClaimKind: "ai_strategy",
-            })}
-          />
-        ) : null}
-        {job.structuredData.occupation ? <JsonLd id={`career-job-occupation-${job.slug}`} data={job.structuredData.occupation} /> : null}
+        {renderState.canRenderStructuredData && job.structuredData.occupation ? <JsonLd id={`career-job-occupation-${job.slug}`} data={job.structuredData.occupation} /> : null}
         {job.structuredData.breadcrumbList ? <JsonLd id={`career-job-breadcrumb-${job.slug}`} data={job.structuredData.breadcrumbList} /> : null}
         <Breadcrumb
           items={[
@@ -734,13 +678,13 @@ export default async function CareerJobDetailPage({
             { label: job.title },
           ]}
         />
-        {job.contentBodyMd ? (
+        {visibleContentBodyMd ? (
           <>
             <section className="space-y-3" data-testid="career-job-document-overview">
               <h1 className="m-0 text-4xl font-semibold tracking-tight text-slate-950 md:text-5xl">{job.title}</h1>
               {job.titles.canonicalEn ? <p className="m-0 text-base leading-7 text-slate-500">{job.titles.canonicalEn}</p> : null}
             </section>
-            <CareerJobDocument bodyMd={job.contentBodyMd} title={job.title} />
+            <CareerJobDocument bodyMd={visibleContentBodyMd} title={job.title} />
           </>
         ) : (
           <>
@@ -748,7 +692,7 @@ export default async function CareerJobDetailPage({
               <div className="space-y-5">
                 <ConfidenceBadge tone={stateCopy.tone}>{stateCopy.label}</ConfidenceBadge>
                 <h1 className="m-0 text-4xl font-semibold tracking-tight text-slate-950 md:text-5xl">{job.title}</h1>
-                {job.summary ? <p className="m-0 max-w-3xl text-base leading-8 text-slate-600">{job.summary}</p> : null}
+                {canRenderStrongClaimSurface && job.summary ? <p className="m-0 max-w-3xl text-base leading-8 text-slate-600">{job.summary}</p> : null}
                 {renderJobBoundary(job, locale)}
                 <div className="flex flex-wrap gap-3">
                   <CareerShortlistAction
@@ -775,10 +719,10 @@ export default async function CareerJobDetailPage({
               </div>
             </section>
 
-        {job.contentSections.length > 0 ? (
+        {visibleContentSections.length > 0 ? (
           <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm md:p-8" data-testid="career-job-docx-content">
             <div className="space-y-8">
-              {job.contentSections.map((section) => (
+              {visibleContentSections.map((section) => (
                 <ContentSection key={`${section.sectionKey}-${section.title}`} section={section} />
               ))}
             </div>
@@ -802,7 +746,7 @@ export default async function CareerJobDetailPage({
             />
             <MetricCard
               title={locale === "zh" ? "转型难度" : "Transition"}
-              value={renderScoreValue(job.scoreBundle.mobilityScore.value)}
+              value={job.renderState.canRenderFitSurface ? renderScoreValue(job.scoreBundle.mobilityScore.value) : "—"}
               caption={locale === "zh" ? "用于判断从相邻路径切入的难度。" : "A compact signal for moving in from adjacent paths."}
             />
           </div>
@@ -814,8 +758,8 @@ export default async function CareerJobDetailPage({
               {locale === "zh" ? "适不适合继续看？" : "Is this worth exploring?"}
             </h2>
             <div className="mt-5 space-y-3 text-sm leading-6 text-slate-600">
-              <p className="m-0">{locale === "zh" ? `适合度：${renderScoreValue(job.scoreBundle.fitScore.value)}` : `Fit signal: ${renderScoreValue(job.scoreBundle.fitScore.value)}`}</p>
-              <p className="m-0">{locale === "zh" ? `信心：${renderScoreValue(job.scoreBundle.confidenceScore.value)}` : `Confidence: ${renderScoreValue(job.scoreBundle.confidenceScore.value)}`}</p>
+              <p className="m-0">{locale === "zh" ? `适合度：${renderState.canRenderFitSurface ? renderScoreValue(job.scoreBundle.fitScore.value) : "—"}` : `Fit signal: ${renderState.canRenderFitSurface ? renderScoreValue(job.scoreBundle.fitScore.value) : "—"}`}</p>
+              <p className="m-0">{locale === "zh" ? `信心：${renderState.canRenderFitSurface ? renderScoreValue(job.scoreBundle.confidenceScore.value) : "—"}` : `Confidence: ${renderState.canRenderFitSurface ? renderScoreValue(job.scoreBundle.confidenceScore.value) : "—"}`}</p>
               {renderState.canRenderOutlookSurface ? (
                 <p className="m-0">{locale === "zh" ? `十年趋势：${formatPercent(job.truthLayer.outlookPct20242034)}` : `Ten-year outlook: ${formatPercent(job.truthLayer.outlookPct20242034)}`}</p>
               ) : null}
@@ -855,9 +799,11 @@ export default async function CareerJobDetailPage({
               >
                 <p className="m-0">{locale === "zh" ? "薪资" : "Salary"}: {formatUsdAnnual(job.truthLayer.medianPayUsdAnnual, locale)}</p>
               </ClaimGuard>
-              {job.truthLayer.entryEducation ? <p className="m-0">{locale === "zh" ? "入门学历" : "Entry education"}: {job.truthLayer.entryEducation}</p> : null}
-              {job.truthLayer.workExperience ? <p className="m-0">{locale === "zh" ? "工作经验" : "Work experience"}: {job.truthLayer.workExperience}</p> : null}
-              {job.truthLayer.onTheJobTraining ? <p className="m-0">{locale === "zh" ? "在岗训练" : "On-the-job training"}: {job.truthLayer.onTheJobTraining}</p> : null}
+              <ClaimGuard allowed={canRenderStrongClaimSurface}>
+                {job.truthLayer.entryEducation ? <p className="m-0">{locale === "zh" ? "入门学历" : "Entry education"}: {job.truthLayer.entryEducation}</p> : null}
+                {job.truthLayer.workExperience ? <p className="m-0">{locale === "zh" ? "工作经验" : "Work experience"}: {job.truthLayer.workExperience}</p> : null}
+                {job.truthLayer.onTheJobTraining ? <p className="m-0">{locale === "zh" ? "在岗训练" : "On-the-job training"}: {job.truthLayer.onTheJobTraining}</p> : null}
+              </ClaimGuard>
               {canRenderAiStrategy && job.truthLayer.aiExposure !== null ? <p className="m-0">AI exposure: {job.truthLayer.aiExposure}</p> : null}
               {aiStrategyClaimBlocked ? (
                 <ConfidenceBoundary
@@ -881,10 +827,10 @@ export default async function CareerJobDetailPage({
 
         <section className="space-y-3" data-testid="career-job-v1-evidence">
           <EvidenceDrawer title={locale === "zh" ? "查看评分依据" : "View scoring basis"} testId="career-job-v1-score-drawer">
-            {job.whiteBoxScores.strainScore?.radarDimensions ? (
+            {renderState.canRenderFitSurface && job.whiteBoxScores.strainScore?.radarDimensions ? (
               <StrainRadar locale={locale} dimensions={job.whiteBoxScores.strainScore.radarDimensions} testId="career-job-strain-radar" />
             ) : null}
-            {explainability ? (
+            {renderState.canRenderFitSurface && explainability ? (
               <CareerExplainabilityPanel
                 locale={locale}
                 explainability={explainability}

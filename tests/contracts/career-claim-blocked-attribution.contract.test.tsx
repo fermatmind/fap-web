@@ -71,7 +71,7 @@ afterEach(() => {
 });
 
 describe("career claim-blocked attribution contract", () => {
-  it("emits job-detail claim-blocked events only for salary and strong-claim gated branches", async () => {
+  it("does not emit job-detail claim-blocked telemetry for gated data presence", async () => {
     const { pageViewEvents } = installTrackingRecorder();
     mockCommonFrontendShell("/en/career/jobs/data-scientists");
 
@@ -128,23 +128,10 @@ describe("career claim-blocked attribution contract", () => {
     renderToStaticMarkup(page as ReactNode);
 
     const claimBlockedEvents = collectClaimBlockedEvents(pageViewEvents);
-    expect(claimBlockedEvents).toHaveLength(2);
-    expect(claimBlockedEvents.map((event) => event.properties?.blocked_claim_kind).sort()).toEqual([
-      "salary",
-      "strong_claim",
-    ]);
-
-    claimBlockedEvents.forEach((event) => {
-      expect(event.properties?.entry_surface).toBe("career_job_detail");
-      expect(event.properties?.source_page_type).toBe("career_job_detail");
-      expect(event.properties?.route_family).toBe("job_detail");
-      expect(event.properties?.subject_kind).toBe("job_slug");
-      expect(event.properties?.subject_key).toBe("data-scientists");
-      expect(event.properties?.target_action).toBe("expose_claim_blocked_surface");
-    });
+    expect(claimBlockedEvents).toHaveLength(0);
   });
 
-  it("emits recommendation-detail claim-blocked events for salary, strong-claim, and transition gates", async () => {
+  it("does not emit recommendation-detail claim-blocked telemetry for gated data presence", async () => {
     const { pageViewEvents } = installTrackingRecorder();
     mockCommonFrontendShell("/en/career/recommendations/mbti/intj-a");
 
@@ -213,24 +200,10 @@ describe("career claim-blocked attribution contract", () => {
     renderToStaticMarkup(page as ReactNode);
 
     const claimBlockedEvents = collectClaimBlockedEvents(pageViewEvents);
-    expect(claimBlockedEvents).toHaveLength(3);
-    expect(claimBlockedEvents.map((event) => event.properties?.blocked_claim_kind).sort()).toEqual([
-      "salary",
-      "strong_claim",
-      "transition_recommendation",
-    ]);
-
-    claimBlockedEvents.forEach((event) => {
-      expect(event.properties?.entry_surface).toBe("career_recommendation_detail");
-      expect(event.properties?.source_page_type).toBe("career_recommendation_detail");
-      expect(event.properties?.route_family).toBe("recommendation_detail");
-      expect(event.properties?.subject_kind).toBe("job_slug");
-      expect(event.properties?.subject_key).toBe("data-scientists");
-      expect(event.properties?.target_action).toBe("expose_claim_blocked_surface");
-    });
+    expect(claimBlockedEvents).toHaveLength(0);
   });
 
-  it("falls back to subject_kind=none when recommendation claim-blocked branches have no stable job identity", async () => {
+  it("keeps recommendation claim-blocked telemetry disabled when no stable job identity exists", async () => {
     const { pageViewEvents } = installTrackingRecorder();
     mockCommonFrontendShell("/en/career/recommendations/mbti/intj-a");
 
@@ -293,9 +266,6 @@ describe("career claim-blocked attribution contract", () => {
     renderToStaticMarkup(page as ReactNode);
 
     const claimBlockedEvents = collectClaimBlockedEvents(pageViewEvents);
-    expect(claimBlockedEvents).toHaveLength(1);
-    expect(claimBlockedEvents[0]?.properties?.blocked_claim_kind).toBe("strong_claim");
-    expect(claimBlockedEvents[0]?.properties?.subject_kind).toBe("none");
-    expect(claimBlockedEvents[0]?.properties?.subject_key).toBeUndefined();
+    expect(claimBlockedEvents).toHaveLength(0);
   });
 });
