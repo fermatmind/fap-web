@@ -487,6 +487,65 @@ describe("MBTI shell authored fields contract", () => {
     );
   });
 
+  it("drops unsafe recommended read links while preserving first-party content links", () => {
+    const reportData = createReportFixture();
+
+    if (!reportData.report) {
+      throw new Error("Expected report payload");
+    }
+
+    reportData.report.recommended_reads = [
+      {
+        id: "unsafe-read",
+        type: "article",
+        title: "Unsafe backend read",
+        desc: "This card should not expose the backend URL as a link.",
+        url: "https://api.fermatmind.com/private/report-action",
+        cover: null,
+        cta: "Open unsafe read",
+        priority: 20,
+        tags: [],
+        estimated_minutes: null,
+        status: null,
+        published_at: null,
+        updated_at: null,
+        canonical_id: null,
+        canonical_url: null,
+      },
+      {
+        id: "safe-read",
+        type: "article",
+        title: "Safe first-party read",
+        desc: "This card can keep its same-origin content link.",
+        url: "https://fermatmind.com/zh/articles/safe-report-read?ref=result",
+        cover: null,
+        cta: "Open safe read",
+        priority: 10,
+        tags: [],
+        estimated_minutes: null,
+        status: null,
+        published_at: null,
+        updated_at: null,
+        canonical_id: null,
+        canonical_url: null,
+      },
+    ];
+
+    render(<RichResultReport locale="zh" reportData={reportData} />);
+
+    const unsafeCard = screen.getByText("Unsafe backend read").closest("[data-testid^='mbti-recommended-read-card']");
+    const safeCard = screen.getByText("Safe first-party read").closest("[data-testid^='mbti-recommended-read-card']");
+
+    if (!unsafeCard || !safeCard) {
+      throw new Error("Expected recommended read cards");
+    }
+
+    expect(within(unsafeCard as HTMLElement).queryByRole("link", { name: "Open unsafe read" })).not.toBeInTheDocument();
+    const safeHref = within(safeCard as HTMLElement).getByRole("link", { name: "Open safe read" }).getAttribute("href");
+    expect(safeHref).toContain("/zh/articles/safe-report-read?ref=result");
+    expect(safeHref).not.toContain("api.fermatmind.com");
+  });
+
   it("falls back to default CTA copy when top-level cta is absent", () => {
     const reportData = createReportFixture();
 

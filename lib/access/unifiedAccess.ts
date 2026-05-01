@@ -1,7 +1,8 @@
 "use client";
 
 import type { AttemptReportAccessResponse } from "@/lib/api/v0_3";
-import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import { normalizeReportActionHref } from "@/lib/access/reportActionUrls";
+import type { Locale } from "@/lib/i18n/locales";
 
 export type UnifiedAccessState =
   | "pending"
@@ -65,25 +66,6 @@ function normalizeState(value: unknown, fallback: UnifiedAccessState): UnifiedAc
   }
 
   return fallback;
-}
-
-function normalizeActionHref(value: unknown, locale: Locale): string | null {
-  const normalized = normalizeText(value);
-  if (!normalized) {
-    return null;
-  }
-
-  if (/^https?:\/\//i.test(normalized) || normalized.startsWith("/api/")) {
-    return normalized;
-  }
-
-  const candidate = normalized.startsWith("/") ? normalized : `/${normalized}`;
-  const firstSegment = candidate.split("/").filter(Boolean)[0];
-  if (firstSegment === "en" || firstSegment === "zh") {
-    return candidate;
-  }
-
-  return localizedPath(candidate, locale);
 }
 
 function normalizePayload(value: unknown): Record<string, unknown> | null {
@@ -183,11 +165,11 @@ export function normalizeAttemptReportAccess(
     modulesAllowed: normalizeAccessStringArrayField(raw, "modules_allowed"),
     modulesPreview: normalizeAccessStringArrayField(raw, "modules_preview"),
     actions: {
-      pageHref: normalizeActionHref(raw.actions?.page_href, locale),
-      pdfHref: normalizeActionHref(raw.actions?.pdf_href, locale),
-      waitHref: normalizeActionHref(raw.actions?.wait_href, locale),
-      historyHref: normalizeActionHref(raw.actions?.history_href, locale),
-      lookupHref: normalizeActionHref(raw.actions?.lookup_href, locale),
+      pageHref: normalizeReportActionHref(raw.actions?.page_href, locale, "page"),
+      pdfHref: normalizeReportActionHref(raw.actions?.pdf_href, locale, "pdf"),
+      waitHref: normalizeReportActionHref(raw.actions?.wait_href, locale, "wait"),
+      historyHref: normalizeReportActionHref(raw.actions?.history_href, locale, "history"),
+      lookupHref: normalizeReportActionHref(raw.actions?.lookup_href, locale, "lookup"),
     },
     meta: {
       producedAt: normalizeText(raw.meta?.produced_at),

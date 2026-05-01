@@ -174,6 +174,50 @@ describe("MBTI history account-center contract", () => {
     expect(screen.queryByRole("heading", { name: /Order status/i })).not.toBeInTheDocument();
   });
 
+  it("does not render externally supplied MBTI history report actions", async () => {
+    hoisted.getMyAttempts.mockResolvedValue({
+      items: [
+        {
+          attempt_id: "attempt-history-external-1",
+          scale_code: "MBTI",
+          submitted_at: "2026-03-12T09:30:00Z",
+          type_code: "INTJ-A",
+          mbti_form_v1: {
+            form_code: "mbti_144",
+            label: "144-question full version",
+            short_label: "144 questions",
+            question_count: 144,
+            estimated_minutes: 15,
+            scale_code: "MBTI",
+          },
+          access_summary: createAccessSummary({
+            actions: {
+              page_href: "https://evil.example/result/attempt-history-external-1",
+              pdf_href: "https://evil.example/report.pdf",
+              wait_href: null,
+              history_href: "/history/mbti",
+              lookup_href: "/orders/lookup",
+            },
+          }),
+        },
+      ],
+      meta: {
+        current_page: 1,
+        last_page: 1,
+      },
+    });
+
+    render(<MbtiHistoryClient />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("mbti-history-card")).toBeInTheDocument();
+    });
+
+    expect(screen.getByTestId("mbti-history-open-attempt-history-external-1")).toBeDisabled();
+    expect(screen.queryByTestId("mbti-history-pdf-attempt-history-external-1")).not.toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: /evil\.example/i })).not.toBeInTheDocument();
+  });
+
   it("renders carryover guidance and preserves continuity query on history re-entry links", async () => {
     hoisted.search =
       "carryover_focus_key=career.work_experiments&carryover_reason=adaptive_next_best_action&recommended_resume_keys=career.work_experiments%7Cgrowth.next_actions&carryover_scene_keys=growth%7Cwork&carryover_action_keys=work_experiment.theme.name_decision_rule%7Cweekly_action.theme.name_decision_rule&feedback_sentiment=negative&feedback_coverage=explainability_only&action_completion_tendency=repeatable&last_deep_read_section=traits.close_call_axes&current_intent_cluster=clarify_type&journey_contract_version=action_journey.v1&journey_fingerprint=journey-fixture-1&journey_scope=result_revisit&journey_state=refine_after_feedback&progress_state=repeatable&journey_action_focus_key=weekly_action.theme.name_decision_rule&recommended_next_pulse_keys=growth.watchouts%7Cread-explain&revisit_reorder_reason=reorder_after_feedback&pulse_state=recalibrate&pulse_prompt_keys=pulse.review_feedback_signal%7Cpulse.refine_focus&adaptive_contract_version=mbti.adaptive_selection.v1&adaptive_fingerprint=adaptive-fixture-1&selection_rewrite_reason=career_followthrough_loop&next_best_action_key=work_experiment.theme.name_decision_rule&next_best_action_section=career.work_experiments&next_best_action_reason=career_followthrough_loop&memory_contract_version=mbti.longitudinal_memory.v1&memory_fingerprint=memory-fixture-1&memory_scope=identity_recent_mbti_window&memory_state=resume_ready&memory_progression_state=reading_loop&section_history_keys=traits.close_call_axes%7Cgrowth.next_actions&behavior_delta_keys=behavior.revisit.repeat&dominant_interest_keys=explainability%7Cgrowth&resume_bias_keys=traits.why_this_type%7Cgrowth.next_actions&memory_rewrite_keys=rewrite.reason.refine_type_clarity&memory_rewrite_reason=refine_type_clarity";
