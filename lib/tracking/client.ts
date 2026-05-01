@@ -6,6 +6,7 @@ import {
   isTrackingEvent,
   type TrackingEventName,
 } from "@/lib/tracking/events";
+import { sanitizeTrackingUrl } from "@/lib/tracking/privacy";
 
 type AnalyticsWindow = Window & {
   dataLayer?: unknown[];
@@ -83,6 +84,7 @@ export async function trackClientEvent({
   if (!isTrackingEvent(eventName)) return;
 
   const filteredPayload = filterTrackingPayload(eventName as TrackingEventName, payload ?? {});
+  const safePath = sanitizeTrackingUrl(path) ?? "";
   dispatchBrowserAnalyticsEvent(eventName as TrackingEventName, filteredPayload);
 
   try {
@@ -96,7 +98,7 @@ export async function trackClientEvent({
         eventName,
         payload: filteredPayload,
         anonymousId,
-        path,
+        path: safePath,
         timestamp: new Date().toISOString(),
       }),
       keepalive: true,

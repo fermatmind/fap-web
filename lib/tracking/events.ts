@@ -1,4 +1,10 @@
 import { TRACKING_ATTRIBUTION_FIELDS } from "@/lib/tracking/attribution";
+import {
+  isSensitiveTrackingIdentifierField,
+  isUrlValuedTrackingField,
+  maskTrackingIdentifier,
+  sanitizeTrackingUrl,
+} from "@/lib/tracking/privacy";
 
 export const TRACKING_EVENTS = {
   // Legacy events (keep for backward compatibility)
@@ -274,14 +280,33 @@ const CAREER_ATTRIBUTION_EVENTS = [
 
 export type CareerTrackingEventName = (typeof CAREER_ATTRIBUTION_EVENTS)[number];
 
-const FORBIDDEN_FIELD_PATTERNS = [/^answers?($|_)/, /^reports?($|_)/, /email/, /token/, /authorization/];
+const FORBIDDEN_FIELD_PATTERNS = [
+  /^answers?($|_)/,
+  /^reports?($|_)/,
+  /email/,
+  /token/,
+  /authorization/,
+  /bearer/,
+  /^fm_/,
+  /checkout_?url/,
+  /recovery/,
+  /report_?url/,
+  /resume/,
+];
 
 function sanitizeString(value: string): string {
   return value.slice(0, 256);
 }
 
-function sanitizeValue(value: unknown): string | number | boolean | null {
-  if (typeof value === "string") return sanitizeString(value);
+function sanitizeValue(key: string, value: unknown): string | number | boolean | null {
+  if (isSensitiveTrackingIdentifierField(key)) {
+    return maskTrackingIdentifier(value);
+  }
+
+  if (typeof value === "string") {
+    const safeValue = isUrlValuedTrackingField(key) || value.includes("?") ? sanitizeTrackingUrl(value) : value;
+    return sanitizeString(safeValue ?? "");
+  }
   if (typeof value === "number") return Number.isFinite(value) ? value : 0;
   if (typeof value === "boolean") return value;
   if (value === null) return null;
@@ -308,7 +333,7 @@ export function filterTrackingPayload(
     if (forbidden) return acc;
 
     if (Object.prototype.hasOwnProperty.call(payload, key)) {
-      acc[key] = sanitizeValue(payload[key]);
+      acc[key] = sanitizeValue(key, payload[key]);
     }
 
     return acc;
