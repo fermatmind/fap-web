@@ -330,15 +330,19 @@ describe("career markdown renderer contract", () => {
 });
 
 describe("career alias route contract", () => {
-  it("uses CMS lookup for the job branch before guide and industry checks", async () => {
+  it("uses backend job bundle exposure gates for the job alias branch before guide and industry checks", async () => {
     const permanentRedirect = vi.fn(() => {
       throw new Error("redirected");
     });
     const notFound = vi.fn(() => {
       throw new Error("not-found");
     });
-    const cmsLookup = vi.fn(async () => ({
+    const jobBundleLookup = vi.fn(async () => ({ bundle_kind: "career_job_bundle" }));
+    const adaptJobBundle = vi.fn(() => ({
       slug: "product-manager",
+      renderState: {
+        canIndexPage: true,
+      },
     }));
     const guideLookup = vi.fn(async () => null);
 
@@ -346,8 +350,11 @@ describe("career alias route contract", () => {
       permanentRedirect,
       notFound,
     }));
-    vi.doMock("@/lib/cms/career-jobs", () => ({
-      getCareerJobFromCmsBySlug: cmsLookup,
+    vi.doMock("@/lib/career/api/fetchCareerJobBundle", () => ({
+      fetchCareerJobBundle: jobBundleLookup,
+    }));
+    vi.doMock("@/lib/career/adapters/adaptCareerJobBundle", () => ({
+      adaptCareerJobBundle: adaptJobBundle,
     }));
     vi.doMock("@/lib/cms/career-guides", () => ({
       getCareerGuideFromCmsBySlug: guideLookup,
@@ -371,9 +378,68 @@ describe("career alias route contract", () => {
       })
     ).rejects.toThrow("redirected");
 
-    expect(cmsLookup).toHaveBeenCalledWith({ slug: "product-manager", locale: "en" });
+    expect(jobBundleLookup).toHaveBeenCalledWith({ slug: "product-manager", locale: "en" });
+    expect(adaptJobBundle).toHaveBeenCalledWith({
+      requestedSlug: "product-manager",
+      locale: "en",
+      payload: { bundle_kind: "career_job_bundle" },
+    });
     expect(guideLookup).not.toHaveBeenCalled();
     expect(permanentRedirect).toHaveBeenCalledWith("/en/career/jobs/product-manager");
+  });
+
+  it("does not redirect a job alias when the backend exposure gate blocks indexing", async () => {
+    const permanentRedirect = vi.fn(() => {
+      throw new Error("redirected");
+    });
+    const notFound = vi.fn(() => {
+      throw new Error("not-found");
+    });
+    const jobBundleLookup = vi.fn(async () => ({ bundle_kind: "career_job_bundle" }));
+    const adaptJobBundle = vi.fn(() => ({
+      slug: "draft-occupation",
+      renderState: {
+        canIndexPage: false,
+      },
+    }));
+    const guideLookup = vi.fn(async () => null);
+
+    vi.doMock("next/navigation", () => ({
+      permanentRedirect,
+      notFound,
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerJobBundle", () => ({
+      fetchCareerJobBundle: jobBundleLookup,
+    }));
+    vi.doMock("@/lib/career/adapters/adaptCareerJobBundle", () => ({
+      adaptCareerJobBundle: adaptJobBundle,
+    }));
+    vi.doMock("@/lib/cms/career-guides", () => ({
+      getCareerGuideFromCmsBySlug: guideLookup,
+    }));
+    vi.doMock("@/lib/career/datasetDirectory", () => ({
+      CAREER_DATASET_FAMILY_SLUGS: ["technology"],
+      normalizeFamilySlug: vi.fn((value: string) => value),
+    }));
+    vi.doMock("@/lib/i18n/getDict", () => ({
+      resolveLocale: vi.fn(() => "en"),
+    }));
+    vi.doMock("@/lib/i18n/locales", () => ({
+      localizedPath: vi.fn((path: string, locale: string) => `/${locale}${path}`),
+    }));
+
+    const { default: CareerAliasPage } = await import("@/app/(localized)/[locale]/career/[slug]/page");
+
+    await expect(
+      CareerAliasPage({
+        params: Promise.resolve({ locale: "en", slug: "draft-occupation" }),
+      })
+    ).rejects.toThrow("not-found");
+
+    expect(jobBundleLookup).toHaveBeenCalledWith({ slug: "draft-occupation", locale: "en" });
+    expect(guideLookup).toHaveBeenCalledWith("draft-occupation", "en");
+    expect(permanentRedirect).not.toHaveBeenCalled();
+    expect(notFound).toHaveBeenCalled();
   });
 
   it("keeps the cms guide branch before the local industry branch when the job lookup misses", async () => {
@@ -383,15 +449,19 @@ describe("career alias route contract", () => {
     const notFound = vi.fn(() => {
       throw new Error("not-found");
     });
-    const cmsLookup = vi.fn(async () => null);
+    const jobBundleLookup = vi.fn(async () => null);
+    const adaptJobBundle = vi.fn(() => null);
     const guideLookup = vi.fn(async () => ({ slug: "product-manager" }));
 
     vi.doMock("next/navigation", () => ({
       permanentRedirect,
       notFound,
     }));
-    vi.doMock("@/lib/cms/career-jobs", () => ({
-      getCareerJobFromCmsBySlug: cmsLookup,
+    vi.doMock("@/lib/career/api/fetchCareerJobBundle", () => ({
+      fetchCareerJobBundle: jobBundleLookup,
+    }));
+    vi.doMock("@/lib/career/adapters/adaptCareerJobBundle", () => ({
+      adaptCareerJobBundle: adaptJobBundle,
     }));
     vi.doMock("@/lib/cms/career-guides", () => ({
       getCareerGuideFromCmsBySlug: guideLookup,
@@ -415,7 +485,7 @@ describe("career alias route contract", () => {
       })
     ).rejects.toThrow("redirected");
 
-    expect(cmsLookup).toHaveBeenCalledWith({ slug: "product-manager", locale: "en" });
+    expect(jobBundleLookup).toHaveBeenCalledWith({ slug: "product-manager", locale: "en" });
     expect(guideLookup).toHaveBeenCalledWith("product-manager", "en");
     expect(permanentRedirect).toHaveBeenCalledWith("/en/career/guides/product-manager");
   });

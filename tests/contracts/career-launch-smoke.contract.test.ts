@@ -89,7 +89,8 @@ describe("career launch smoke contract", () => {
     expect(familyHubPage).toContain("generateMetadata");
     expect(jobDetailPage).toContain("job.seoContract.indexEligible");
     expect(recommendationDetailPage).toContain("detail.seoContract.indexEligible");
-    expect(legacySlugPage).toContain("getCareerJobFromCmsBySlug");
+    expect(legacySlugPage).toContain("fetchCareerJobBundle");
+    expect(legacySlugPage).toContain("adaptCareerJobBundle");
     expect(fs.existsSync(path.join(ROOT, "app/(localized)/[locale]/career/recommendations/big5/[trait]/page.tsx"))).toBe(false);
   });
 

@@ -60,6 +60,13 @@ describe("career alias resolution fetch and adapter contract", () => {
             canonical_slug: "data-scientists",
             canonical_title_en: "Data Scientists",
             canonical_title_zh: "数据科学家",
+            seo_contract: {
+              index_state: "indexable",
+              index_eligible: true,
+            },
+            trust_summary: {
+              reviewer_status: "approved",
+            },
           },
         },
       },
@@ -83,6 +90,13 @@ describe("career alias resolution fetch and adapter contract", () => {
               occupation_uuid: "occ_123",
               canonical_slug: "data-scientists",
               canonical_title_en: "Data Scientists",
+              seo_contract: {
+                index_state: "indexable",
+                index_eligible: true,
+              },
+              trust_summary: {
+                reviewer_status: "approved",
+              },
             },
             {
               candidate_kind: "family",
@@ -139,5 +153,92 @@ describe("career alias resolution fetch and adapter contract", () => {
     expect(ambiguous).not.toHaveProperty("summary");
     expect(ambiguous).not.toHaveProperty("guidance");
     expect(ambiguous).not.toHaveProperty("description");
+  });
+
+  it("filters occupation aliases that fail the career exposure gate", () => {
+    const direct = adaptCareerAliasResolution({
+      locale: "en",
+      payload: {
+        bundle_kind: "career_alias_resolution",
+        bundle_version: "career.protocol.alias_resolution.v1",
+        query: {
+          raw: "draft occupation",
+          normalized: "draft occupation",
+          locale: "en-us",
+        },
+        resolution: {
+          resolved_kind: "occupation",
+          occupation: {
+            occupation_uuid: "occ_draft",
+            canonical_slug: "draft-occupation",
+            canonical_title_en: "Draft Occupation",
+            seo_contract: {
+              index_state: "blocked",
+              index_eligible: false,
+            },
+            trust_summary: {
+              reviewer_status: "review_needed",
+            },
+          },
+        },
+      },
+    });
+
+    const ambiguous = adaptCareerAliasResolution({
+      locale: "en",
+      payload: {
+        bundle_kind: "career_alias_resolution",
+        bundle_version: "career.protocol.alias_resolution.v1",
+        query: {
+          raw: "analytics",
+          normalized: "analytics",
+          locale: "en-us",
+        },
+        resolution: {
+          resolved_kind: "ambiguous",
+          candidates: [
+            {
+              candidate_kind: "occupation",
+              occupation_uuid: "occ_draft",
+              canonical_slug: "draft-occupation",
+              canonical_title_en: "Draft Occupation",
+              seo_contract: {
+                index_state: "blocked",
+                index_eligible: false,
+              },
+              trust_summary: {
+                reviewer_status: "review_needed",
+              },
+            },
+            {
+              candidate_kind: "occupation",
+              occupation_uuid: "occ_public",
+              canonical_slug: "data-scientists",
+              canonical_title_en: "Data Scientists",
+              seo_contract: {
+                index_state: "indexable",
+                index_eligible: true,
+              },
+              trust_summary: {
+                reviewer_status: "approved",
+              },
+            },
+          ],
+        },
+      },
+    });
+
+    expect(direct?.resolution).toEqual({ resolvedKind: "none" });
+    expect(ambiguous?.resolution).toEqual({
+      resolvedKind: "ambiguous",
+      candidates: [
+        {
+          candidateKind: "occupation",
+          canonicalSlug: "data-scientists",
+          title: "Data Scientists",
+          href: "/en/career/jobs/data-scientists",
+        },
+      ],
+    });
   });
 });

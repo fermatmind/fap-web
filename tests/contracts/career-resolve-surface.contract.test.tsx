@@ -47,6 +47,13 @@ describe("career resolve surface contract", () => {
           occupation: {
             canonical_slug: "data-scientists",
             canonical_title_en: "Data Scientists",
+            seo_contract: {
+              index_state: "indexable",
+              index_eligible: true,
+            },
+            trust_summary: {
+              reviewer_status: "approved",
+            },
           },
         },
       })),
@@ -145,6 +152,13 @@ describe("career resolve surface contract", () => {
               candidate_kind: "occupation",
               canonical_slug: "data-scientists",
               canonical_title_en: "Data Scientists",
+              seo_contract: {
+                index_state: "indexable",
+                index_eligible: true,
+              },
+              trust_summary: {
+                reviewer_status: "approved",
+              },
             },
             {
               candidate_kind: "family",
@@ -170,6 +184,122 @@ describe("career resolve surface contract", () => {
     expect(html).toContain("/en/career/jobs/data-scientists");
     expect(html).toContain("/en/career/family/data-science");
     expect(html).not.toContain("career-job-search-card");
+  });
+
+  it("does not expose blocked occupation aliases on redirect or ambiguous candidate surfaces", async () => {
+    vi.doMock("next/link", () => ({
+      default: ({
+        href,
+        children,
+        prefetch: _prefetch,
+        ...props
+      }: {
+        href: string;
+        children: ReactNode;
+        prefetch?: boolean;
+      }) => {
+        void _prefetch;
+
+        return (
+          <a href={href} {...props}>
+            {children}
+          </a>
+        );
+      },
+    }));
+    vi.doMock("@/lib/i18n/getDict", () => ({
+      resolveLocale: vi.fn(() => "en"),
+    }));
+    vi.doMock("@/lib/i18n/locales", async () => {
+      const actual = await vi.importActual<typeof import("@/lib/i18n/locales")>("@/lib/i18n/locales");
+      return {
+        ...actual,
+        localizedPath: vi.fn((pathname: string, locale: string) => `/${locale}${pathname}`),
+      };
+    });
+    vi.doMock("next/navigation", () => ({
+      usePathname: vi.fn(() => "/en/career/resolve"),
+      redirect: vi.fn((destination: string) => {
+        throw new Error(`unexpected-redirect:${destination}`);
+      }),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerAliasResolution", () => ({
+      fetchCareerAliasResolution: vi.fn(async ({ q }: { q: string }) => ({
+        bundle_kind: "career_alias_resolution",
+        query: {
+          raw: q,
+          normalized: q,
+          locale: "en-us",
+        },
+        resolution:
+          q === "direct"
+            ? {
+                resolved_kind: "occupation",
+                occupation: {
+                  canonical_slug: "draft-occupation",
+                  canonical_title_en: "Draft Occupation",
+                  seo_contract: {
+                    index_state: "blocked",
+                    index_eligible: false,
+                  },
+                  trust_summary: {
+                    reviewer_status: "review_needed",
+                  },
+                },
+              }
+            : {
+                resolved_kind: "ambiguous",
+                candidates: [
+                  {
+                    candidate_kind: "occupation",
+                    canonical_slug: "draft-occupation",
+                    canonical_title_en: "Draft Occupation",
+                    seo_contract: {
+                      index_state: "blocked",
+                      index_eligible: false,
+                    },
+                    trust_summary: {
+                      reviewer_status: "review_needed",
+                    },
+                  },
+                  {
+                    candidate_kind: "occupation",
+                    canonical_slug: "data-scientists",
+                    canonical_title_en: "Data Scientists",
+                    seo_contract: {
+                      index_state: "indexable",
+                      index_eligible: true,
+                    },
+                    trust_summary: {
+                      reviewer_status: "approved",
+                    },
+                  },
+                ],
+              },
+      })),
+    }));
+
+    const { default: CareerResolvePage } = await import("@/app/(localized)/[locale]/career/resolve/page");
+    const blockedDirectPage = await CareerResolvePage({
+      params: Promise.resolve({ locale: "en" }),
+      searchParams: Promise.resolve({ q: "direct" }),
+    });
+    const blockedDirectHtml = renderToStaticMarkup(blockedDirectPage as ReactNode);
+
+    expect(blockedDirectHtml).toContain("career-resolve-no-result");
+    expect(blockedDirectHtml).not.toContain("Draft Occupation");
+    expect(blockedDirectHtml).not.toContain("/en/career/jobs/draft-occupation");
+
+    const ambiguousPage = await CareerResolvePage({
+      params: Promise.resolve({ locale: "en" }),
+      searchParams: Promise.resolve({ q: "ambiguous" }),
+    });
+    const ambiguousHtml = renderToStaticMarkup(ambiguousPage as ReactNode);
+
+    expect(ambiguousHtml).toContain("career-alias-resolution-candidate-link");
+    expect(ambiguousHtml).toContain("/en/career/jobs/data-scientists");
+    expect(ambiguousHtml).not.toContain("Draft Occupation");
+    expect(ambiguousHtml).not.toContain("/en/career/jobs/draft-occupation");
   });
 
   it("renders resolve no-result state and idle state contracts", async () => {

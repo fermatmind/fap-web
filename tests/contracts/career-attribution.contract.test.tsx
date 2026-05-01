@@ -670,6 +670,13 @@ describe("career attribution page wiring contract", () => {
               candidate_kind: "occupation",
               canonical_slug: "data-scientists",
               canonical_title_en: "Data Scientists",
+              seo_contract: {
+                index_state: "indexable",
+                index_eligible: true,
+              },
+              trust_summary: {
+                reviewer_status: "approved",
+              },
             },
             {
               candidate_kind: "family",

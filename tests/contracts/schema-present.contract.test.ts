@@ -141,7 +141,8 @@ describe("schema injection contract", () => {
     expect(listSource).toContain("filterCareerDatasetMembers");
     expect(listSource).not.toContain("listCareerJobs(");
     expect(listSource).not.toContain("personalityQuickLocate");
-    expect(aliasSource).toContain("getCareerJobFromCmsBySlug");
+    expect(aliasSource).toContain("fetchCareerJobBundle");
+    expect(aliasSource).toContain("adaptCareerJobBundle");
     expect(aliasSource).not.toContain("getCareerJobBySlug");
   });
 
