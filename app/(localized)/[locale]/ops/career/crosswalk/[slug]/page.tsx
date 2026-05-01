@@ -11,15 +11,21 @@ import {
   fetchCareerCrosswalkPatchHistory,
   fetchCareerCrosswalkReviewQueueItem,
 } from "@/lib/career/api/fetchCareerCrosswalkOps";
+import { isCareerCrosswalkOpsRouteEnabled } from "@/lib/career/crosswalkOpsAccess";
 import { normalizeLocale, type Locale } from "@/lib/i18n/locales";
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
 };
 
+export const dynamic = "force-dynamic";
+
 export default async function CareerCrosswalkOpsDetailPage({ params }: Props) {
   const { locale: localeParam, slug } = await params;
   const locale = normalizeLocale(localeParam) as Locale;
+  if (!isCareerCrosswalkOpsRouteEnabled()) {
+    notFound();
+  }
 
   const [queueItem, patchHistoryRaw, overrideRaw] = await Promise.all([
     fetchCareerCrosswalkReviewQueueItem({ locale, slug }),
