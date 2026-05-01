@@ -734,7 +734,10 @@ export function MbtiResultShell({
     assetSlots: PersonalityDesktopCloneAssetSlot[];
   } | null>(null);
   const activeDesktopCloneSnapshot =
-    desktopCloneSnapshot && desktopCloneSnapshot.locale === locale && desktopCloneSnapshot.fullCode === fullCodeForStorage
+    isUnlockedPostPurchase
+    && desktopCloneSnapshot
+    && desktopCloneSnapshot.locale === locale
+    && desktopCloneSnapshot.fullCode === fullCodeForStorage
       ? desktopCloneSnapshot
       : null;
   const terminalPrimaryCtaLabel = isUnlockedPostPurchase
@@ -1639,7 +1642,7 @@ export function MbtiResultShell({
   useEffect(() => {
     let active = true;
 
-    if (locale !== "zh") {
+    if (locale !== "zh" || !isUnlockedPostPurchase) {
       return () => {
         active = false;
       };
@@ -1660,7 +1663,7 @@ export function MbtiResultShell({
     return () => {
       active = false;
     };
-  }, [fullCodeForStorage, locale]);
+  }, [fullCodeForStorage, isUnlockedPostPurchase, locale]);
 
   const supplementaryNodes = auxiliaryCtaEntries.map((entry) =>
     entry.key === "career_bridge" ? (
@@ -1789,6 +1792,7 @@ export function MbtiResultShell({
         storageContentOverride={activeDesktopCloneSnapshot?.content ?? null}
         storageAssetSlotsOverride={activeDesktopCloneSnapshot?.assetSlots ?? []}
         storageManagedExternally
+        canLoadDesktopCloneStorage={isUnlockedPostPurchase}
       />
     </div>
   );

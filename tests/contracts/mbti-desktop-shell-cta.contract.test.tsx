@@ -292,6 +292,7 @@ function renderDefaultShell(overrides: Partial<ComponentProps<typeof MbtiDesktop
       offers={[]}
       projectionViewModel={null}
       isUnlocked={false}
+      canLoadDesktopCloneStorage
       shareCtaLabel="分享"
       onShare={vi.fn()}
       retakeHref="/zh/test/mbti"
@@ -317,6 +318,7 @@ describe("MBTI desktop clone shell CTA wiring", () => {
         offers={[]}
         projectionViewModel={null}
         isUnlocked={false}
+        canLoadDesktopCloneStorage
         shareCtaLabel="分享"
         onShare={vi.fn()}
         retakeHref="/zh/test/mbti"
@@ -516,6 +518,7 @@ describe("MBTI desktop clone shell CTA wiring", () => {
         ]}
         projectionViewModel={null}
         isUnlocked={false}
+        canLoadDesktopCloneStorage
         shareCtaLabel="分享"
         onShare={vi.fn()}
         retakeHref="/zh/test/mbti"
@@ -547,7 +550,8 @@ describe("MBTI desktop clone shell CTA wiring", () => {
         sectionUnlocks={createSectionUnlocks()}
         offers={[]}
         projectionViewModel={null}
-        isUnlocked={false}
+        isUnlocked
+        canLoadDesktopCloneStorage
         shareCtaLabel="分享"
         onShare={vi.fn()}
         retakeHref="/zh/test/mbti"

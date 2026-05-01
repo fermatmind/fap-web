@@ -6,6 +6,7 @@ import {
   fetchPersonalityDesktopCloneContent,
   type PersonalityDesktopCloneContentPayload,
 } from "@/lib/cms/personality-desktop-clone";
+import type { AttemptReportAccessView } from "@/lib/access/unifiedAccess";
 import type { ReportResponse } from "@/lib/api/v0_3";
 import { applyMbtiPhase2Fixture } from "@/tests/helpers/mbtiPhase2Fixture";
 import reportReadyMbtiFreeFixture from "@/tests/fixtures/report_ready.mbti.free.json";
@@ -116,6 +117,34 @@ function createCustomCta(overrides: Partial<NonNullable<ReportResponse["cta"]>> 
     target_sku: "MBTI_REPORT_FULL",
     target_sku_effective: "MBTI_REPORT_FULL_199",
     ...overrides,
+  };
+}
+
+function createUnlockedAccessProjection(): AttemptReportAccessView {
+  return {
+    attemptId: "attempt-123",
+    accessState: "ready",
+    reportState: "ready",
+    pdfState: "ready",
+    unlockStage: "full",
+    unlockSource: "payment",
+    reasonCode: "report_ready",
+    accessLevel: "paid",
+    variant: "full",
+    projectionVersion: 1,
+    modulesAllowed: ["core_free", "core_full"],
+    modulesPreview: [],
+    actions: {
+      pageHref: "/zh/result/attempt-123",
+      pdfHref: "/api/v0.3/attempts/attempt-123/report.pdf",
+      waitHref: null,
+      historyHref: "/zh/history/mbti",
+      lookupHref: "/zh/orders/lookup",
+    },
+    meta: {
+      producedAt: "2026-05-01T00:00:00.000Z",
+      refreshedAt: "2026-05-01T00:00:00.000Z",
+    },
   };
 }
 
@@ -385,7 +414,13 @@ describe("RichResultReport", () => {
 
     vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createDesktopClonePayload("ENFJ-T"));
 
-    render(<RichResultReport locale="zh" reportData={reportData} />);
+    render(
+      <RichResultReport
+        locale="zh"
+        reportData={reportData}
+        accessProjection={createUnlockedAccessProjection()}
+      />
+    );
 
     await waitFor(() => {
       expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("ENFJ-T", "zh");
@@ -409,6 +444,26 @@ describe("RichResultReport", () => {
       expect(railIdentity).toHaveTextContent("共情");
       expect(railIdentity).not.toHaveTextContent("Projection Tag Alpha");
     });
+  });
+
+  it("does not request desktop clone storage for locked MBTI results", async () => {
+    const reportData = createProjectionReportFixture();
+    const projection = reportData.mbti_public_projection_v1 as Record<string, unknown>;
+
+    projection.runtime_type_code = "ENFJ-T";
+    projection.display_type = "ENFJ-T";
+    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createDesktopClonePayload("ENFJ-T"));
+
+    render(<RichResultReport locale="zh" reportData={reportData} />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("mbti-desktop-clone-shell")).toBeInTheDocument();
+    });
+
+    expect(fetchPersonalityDesktopCloneContent).not.toHaveBeenCalled();
+    expect(getDesktopHero()).not.toHaveTextContent("desktop clone hero summary");
+    expect(screen.queryByText("list title 1")).not.toBeInTheDocument();
+    expect(screen.queryByText("主人公型")).not.toBeInTheDocument();
   });
 
   it("prefers mbti_preview_v1 over raw section scraping for MBTI preview chapters", () => {
