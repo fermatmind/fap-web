@@ -63,9 +63,19 @@ process.stdout.write(JSON.stringify(payload));
 NODE
 )"
 
+curl_header_config="$(mktemp "${TMPDIR:-/tmp}/content-release-revalidate-curl.XXXXXX")"
+cleanup_header_config() {
+  rm -f "$curl_header_config"
+}
+trap cleanup_header_config EXIT
+chmod 600 "$curl_header_config"
+printf '%s\n' \
+  'header = "Content-Type: application/json"' \
+  "header = \"x-fm-content-release-token: ${REVALIDATE_TOKEN}\"" \
+  >"$curl_header_config"
+
 response="$(curl -fsS -X POST "$REVALIDATE_URL" \
-  -H 'Content-Type: application/json' \
-  -H "x-fm-content-release-token: ${REVALIDATE_TOKEN}" \
+  --config "$curl_header_config" \
   --data "$payload")"
 
 log "validate response payload"

@@ -13,6 +13,11 @@ describe("content release revalidation smoke contract", () => {
     expect(smokeScript).toContain("CONTENT_RELEASE_REVALIDATE_URL");
     expect(smokeScript).toContain("CONTENT_RELEASE_REVALIDATE_TOKEN");
     expect(smokeScript).toContain("x-fm-content-release-token");
+    expect(smokeScript).toContain('mktemp "${TMPDIR:-/tmp}/content-release-revalidate-curl.XXXXXX"');
+    expect(smokeScript).toContain('chmod 600 "$curl_header_config"');
+    expect(smokeScript).toContain('trap cleanup_header_config EXIT');
+    expect(smokeScript).toContain('--config "$curl_header_config"');
+    expect(smokeScript).not.toContain('-H "x-fm-content-release-token: ${REVALIDATE_TOKEN}"');
     expect(smokeScript).toContain("revalidated_paths");
 
     expect(deployScript).toContain('RUN_CONTENT_RELEASE_REVALIDATE_SMOKE="${RUN_CONTENT_RELEASE_REVALIDATE_SMOKE:-0}"');
