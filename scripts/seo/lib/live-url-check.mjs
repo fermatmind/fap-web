@@ -87,7 +87,15 @@ export function looksLikeHtml(contentType, body) {
   return contentType.toLowerCase().includes("text/html") || /^\s*<!doctype html|^\s*<html[\s>]/i.test(body);
 }
 
-export async function fetchNoRedirect(url, { timeoutMs = LIVE_CHECK_DEFAULTS.timeoutMs, accept = "*/*" } = {}) {
+export async function fetchNoRedirect(
+  url,
+  { timeoutMs = LIVE_CHECK_DEFAULTS.timeoutMs, accept = "*/*", expectedHost = LIVE_CHECK_DEFAULTS.expectedHost } = {}
+) {
+  const unsafeFetchIssue = getUnsafeLiveFetchIssue(url, { expectedHost });
+  if (unsafeFetchIssue) {
+    throw new Error(`unsafe-live-fetch:${JSON.stringify(unsafeFetchIssue)}`);
+  }
+
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
 
@@ -129,7 +137,7 @@ export function makeIssue(url, reason, detail = "") {
   return { url, reason, detail };
 }
 
-export async function checkLiveUrl(rawUrl, options = {}) {
+export function getUnsafeLiveFetchIssue(rawUrl, options = {}) {
   const expectedHost = options.expectedHost || LIVE_CHECK_DEFAULTS.expectedHost;
   const reasons = [];
   let parsed;
@@ -160,14 +168,33 @@ export async function checkLiveUrl(rawUrl, options = {}) {
     reasons.push({ reason: "forbidden-final-path", detail: parsed.pathname });
   }
 
-  if (reasons.some((issue) => issue.reason === "forbidden-private-path")) {
-    return { url: rawUrl, reasons };
+  return reasons.length > 0 ? { url: rawUrl, reasons } : null;
+}
+
+export async function checkLiveUrl(rawUrl, options = {}) {
+  const unsafeFetchIssue = getUnsafeLiveFetchIssue(rawUrl, options);
+  if (unsafeFetchIssue) {
+    return unsafeFetchIssue;
+  }
+
+  const reasons = [];
+  let parsed;
+
+  try {
+    parsed = new URL(rawUrl);
+  } catch {
+    return makeIssue(rawUrl, "invalid-url");
+  }
+
+  if (!["http:", "https:"].includes(parsed.protocol)) {
+    return makeIssue(rawUrl, "invalid-protocol", parsed.protocol);
   }
 
   let fetched;
   try {
     fetched = await fetchNoRedirect(rawUrl, {
       timeoutMs: options.timeoutMs,
+      expectedHost: options.expectedHost,
       accept: "text/html,application/xhtml+xml,application/xml,text/plain,*/*",
     });
   } catch (error) {

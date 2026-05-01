@@ -3,6 +3,7 @@ import {
   checkLiveUrl,
   dedupeUrls,
   fetchNoRedirect,
+  getUnsafeLiveFetchIssue,
   LIVE_CHECK_DEFAULTS,
   mapWithConcurrency,
   makeIssue,
@@ -16,6 +17,12 @@ const FORBIDDEN_FINAL_PATHS = new Set(["/zh", "/en/help", "/zh/help"]);
 if (!sourceUrl) {
   console.error("Usage: node scripts/seo/assert-live-llms-clean.mjs <llms-url>");
   process.exit(2);
+}
+
+const sourceIssue = getUnsafeLiveFetchIssue(sourceUrl);
+if (sourceIssue) {
+  console.error(`[seo-live] unsafe_llms_source=${JSON.stringify(sourceIssue)}`);
+  process.exit(1);
 }
 
 let llmsResponse;
