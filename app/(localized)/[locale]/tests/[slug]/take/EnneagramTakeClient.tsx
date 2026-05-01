@@ -40,6 +40,7 @@ import {
   shouldBlockInvalidDraftOnTakePage,
 } from "@/lib/attempt/staleAttempt";
 import { QuizStoreProvider, useQuizStore } from "@/lib/quiz/store";
+import { useConstrainQuizUrlTokens } from "@/lib/quiz/urlTokenGuard";
 import { isImmersiveSingleFlowEnabled } from "@/lib/quiz/uxFlags";
 import { cn } from "@/lib/utils";
 
@@ -213,6 +214,7 @@ function EnneagramTakeInner({
   const dict = getDictSync(locale);
   const router = useRouter();
   const searchParams = useSearchParams();
+  useConstrainQuizUrlTokens({ pathname, router, searchParams });
   const withLocale = useCallback((path: string) => localizedPath(path, locale), [locale]);
   const resolvedFormCode = normalizeEnneagramFormCode(formCode);
   const formMeta = resolveEnneagramFormMeta(resolvedFormCode);

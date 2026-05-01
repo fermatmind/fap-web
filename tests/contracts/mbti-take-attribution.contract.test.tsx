@@ -12,6 +12,7 @@ const hoisted = vi.hoisted(() => ({
   pathname: "/en/tests/mbti-personality-test-16-personality-types/take",
   search: "share_id=share-123&compare_invite_id=invite-456&invite_code=iul_test_001&share_click_id=click-123&entrypoint=share_compare_invite&entry_surface=mbti_personality_detail&source_page_type=personality_detail&target_action=start_mbti_test_primary&test_slug=mbti-personality-test-16-personality-types&referrer=https%3A%2F%2Fexample.com%2Fen%2Fshare%2Fshare-123&landing_path=%2Fen%2Fshare%2Fshare-123&utm_source=wechat&utm_medium=organic&utm_campaign=pr07b&utm_term=friends&utm_content=hero&compare_intent=true",
   routerPush: vi.fn(),
+  routerReplace: vi.fn(),
   fetchScaleQuestions: vi.fn(),
   startAttempt: vi.fn(),
   submitAttempt: vi.fn(),
@@ -31,6 +32,7 @@ vi.mock("next/navigation", () => ({
   useSearchParams: () => new URLSearchParams(hoisted.search),
   useRouter: () => ({
     push: hoisted.routerPush,
+    replace: hoisted.routerReplace,
   }),
 }));
 
@@ -338,6 +340,43 @@ describe("MBTI take attribution contract", () => {
       locale: "en",
     });
     expect(hoisted.startAttempt).not.toHaveBeenCalled();
+  });
+
+  it("clears URL auth parameters while preserving safe quiz attribution", async () => {
+    hoisted.search = "share_id=share-123&token=fm_query_token&fm_token=fm_query_other&auth=Bearer%20query&utm_source=wechat&compare_intent=true";
+
+    renderClient();
+
+    await waitFor(() => {
+      expect(hoisted.routerReplace).toHaveBeenCalledWith(
+        "/en/tests/mbti-personality-test-16-personality-types/take?share_id=share-123&utm_source=wechat&compare_intent=true",
+        { scroll: false }
+      );
+    });
+
+    await submitSingleQuestion();
+
+    await waitFor(() => {
+      expect(hoisted.startAttempt).toHaveBeenCalled();
+    });
+
+    const payload = hoisted.startAttempt.mock.calls[0]?.[0] as Record<string, unknown>;
+    expect(payload).toMatchObject({
+      scaleCode: "MBTI",
+      formCode: "mbti_144",
+      anonId: "anon_take_test",
+      share_id: "share-123",
+      utm: {
+        source: "wechat",
+        medium: null,
+        campaign: null,
+        term: null,
+        content: null,
+      },
+    });
+    expect(payload).not.toHaveProperty("token");
+    expect(payload).not.toHaveProperty("fm_token");
+    expect(payload).not.toHaveProperty("auth");
   });
 
   it("uses the explicit mbti_93 form when loading questions and starting the attempt", async () => {

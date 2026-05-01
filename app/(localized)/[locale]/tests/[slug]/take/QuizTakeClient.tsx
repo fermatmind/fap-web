@@ -39,6 +39,7 @@ import { captureError } from "@/lib/observability/sentry";
 import { normalizeQuizQuestions } from "@/lib/quiz/normalizeQuestions";
 import { QuizStoreProvider, useQuizStore } from "@/lib/quiz/store";
 import type { QuizQuestion } from "@/lib/quiz/types";
+import { useConstrainQuizUrlTokens } from "@/lib/quiz/urlTokenGuard";
 import { isImmersiveSingleFlowEnabled } from "@/lib/quiz/uxFlags";
 import { resolveResultAttemptId } from "@/lib/attempt/resolveResultAttemptId";
 import {
@@ -347,6 +348,7 @@ function QuizTakeInner({
   const router = useRouter();
   const searchParams = useSearchParams();
   const pathname = usePathname() ?? "/";
+  useConstrainQuizUrlTokens({ pathname, router, searchParams });
   const locale = getLocaleFromPathname(pathname);
   const withLocale = (path: string) => localizedPath(path, locale);
   const dict = getDictSync(locale);
