@@ -417,6 +417,48 @@ function resolveFreeSections(reportData: ReportResponse): Set<string> | null {
   return items.length > 0 ? new Set(items) : null;
 }
 
+const FULL_ACCESS_MODULES_BY_SCALE: Record<RichResultScaleCode, Set<string>> = {
+  MBTI: new Set(["full"]),
+  BIG5_OCEAN: new Set(["full", "big5_full", "report.full", "report_full"]),
+  ENNEAGRAM: new Set(["full", "enneagram_full", "report.full", "report_full"]),
+  RIASEC: new Set(["full", "riasec_full", "report.full", "report_full"]),
+  IQ_RAVEN: new Set(["full", "iq_raven_full", "raven_full", "report.full", "report_full"]),
+  EQ_60: new Set(["full", "eq_60_full", "eq_full", "report.full", "report_full"]),
+};
+
+function hasFullAccessModule(scaleCode: RichResultScaleCode, modulesAllowed: Set<string>): boolean {
+  const fullAccessModules = FULL_ACCESS_MODULES_BY_SCALE[scaleCode];
+  return Array.from(modulesAllowed).some((moduleCode) => fullAccessModules.has(moduleCode));
+}
+
+function isRestrictedRichResultVariant({
+  reportData,
+  scaleCode,
+  variant,
+  accessLevel,
+  modulesAllowed,
+}: {
+  reportData: ReportResponse;
+  scaleCode: RichResultScaleCode;
+  variant: string;
+  accessLevel: string;
+  modulesAllowed: Set<string>;
+}): boolean {
+  if (reportData.locked === true) {
+    return true;
+  }
+
+  if (variant === "free" || variant === "preview" || variant === "partial") {
+    return true;
+  }
+
+  if (accessLevel === "free" || accessLevel === "preview" || accessLevel === "partial") {
+    return true;
+  }
+
+  return modulesAllowed.size > 0 && !hasFullAccessModule(scaleCode, modulesAllowed);
+}
+
 function resolveRichResultGate(
   reportData: ReportResponse,
   scaleCode: RichResultScaleCode,
@@ -428,11 +470,13 @@ function resolveRichResultGate(
   const modulesPreview = resolveModulesPreview(reportData, previewView);
 
   return {
-    isFreeVariant:
-      reportData.locked === true ||
-      variant === "free" ||
-      accessLevel === "free" ||
-      (scaleCode === "MBTI" && modulesAllowed.size > 0 && !modulesAllowed.has("full")),
+    isFreeVariant: isRestrictedRichResultVariant({
+      reportData,
+      scaleCode,
+      variant,
+      accessLevel,
+      modulesAllowed,
+    }),
     modulesAllowed,
     modulesPreview,
     previewSections: new Set((previewView?.visibleSections ?? []).map((item) => item.toLowerCase())),
