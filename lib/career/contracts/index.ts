@@ -42,7 +42,15 @@ export function hasCareerTransitionPermission(value: CareerClaimPermissions | nu
 }
 
 export function isCareerTrustManifestReady(value: CareerTrustManifest | null | undefined): boolean {
-  return value?.quality.complete === true && value?.reviewer.reviewed === true;
+  const blockedReasons = value?.quality.blocked_reasons ?? [];
+
+  return (
+    value?.quality.complete === true &&
+    value.quality.reviewed === true &&
+    value.quality.stale !== true &&
+    blockedReasons.length === 0 &&
+    value.reviewer.reviewed === true
+  );
 }
 
 export function isCareerIndexEligible(

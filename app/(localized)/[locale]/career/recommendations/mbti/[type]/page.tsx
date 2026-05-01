@@ -44,6 +44,7 @@ import { fetchCareerRecommendationExplainability } from "@/lib/career/api/fetchC
 import { fetchCareerRecommendationBundle } from "@/lib/career/api/fetchCareerRecommendationBundle";
 import { fetchCareerRuntimeConfig } from "@/lib/career/api/fetchCareerRuntimeConfig";
 import { fetchCareerTransitionPreview } from "@/lib/career/api/fetchCareerTransitionPreview";
+import { isCareerTrustManifestReady } from "@/lib/career/contracts";
 import { filterStableRecommendationMatchedJobs } from "@/lib/career/recommendationMatchedJobExposurePolicy";
 import {
   buildCareerFamilyFrontendUrl,
@@ -308,9 +309,12 @@ export default async function CareerMbtiRecommendationPage({
   const canRenderSummarySurface = renderState.canRenderSummarySurface;
   const safeRecommendationSummary = canRenderSummarySurface ? detail.supportingTruthSummary.summary : null;
   const canRenderTransitionSurface =
-    detail.trustManifest?.quality.complete === true &&
-    detail.trustManifest.reviewer.reviewed === true &&
-    detail.claimPermissions.allow_transition_recommendation;
+    isCareerTrustManifestReady(detail.trustManifest) && detail.claimPermissions.allow_transition_recommendation;
+  const safeFitUpside = renderState.canRenderStrongTruth
+    ? locale === "zh"
+      ? `适合度 ${renderScoreValue(detail.scoreBundle.fitScore.value)}`
+      : `Fit ${renderScoreValue(detail.scoreBundle.fitScore.value)}`
+    : undefined;
   const [explainability, transitionPreview, companionLinks, runtimeConfig] = await Promise.all([
     renderState.canRenderStrongTruth ? loadRecommendationExplainability(locale, type) : Promise.resolve(null),
     canRenderTransitionSurface ? loadTransitionPreview(locale, type) : Promise.resolve(null),
@@ -491,7 +495,7 @@ export default async function CareerMbtiRecommendationPage({
             eyebrow={locale === "zh" ? "主推荐路径" : "Top recommendation path"}
             title={transitionPreview?.targetJob.title ?? (locale === "zh" ? `${detail.displayType} 的优先探索方向` : `${detail.displayType} priority path`)}
             summary={transitionPreview?.whyThisPath ?? safeRecommendationSummary ?? (locale === "zh" ? "先从结构清晰、沟通噪音较低的路径开始验证。" : "Start from a path with clearer structure and lower communication noise.")}
-            upside={locale === "zh" ? `适合度 ${renderScoreValue(detail.scoreBundle.fitScore.value)}` : `Fit ${renderScoreValue(detail.scoreBundle.fitScore.value)}`}
+            upside={safeFitUpside}
             tradeoff={transitionPreview?.whatIsLost ?? (locale === "zh" ? "仍需要结合职业详情确认边界。" : "Still validate boundaries in the role detail page.")}
             ctaLabel={locale === "zh" ? "查看路径" : "View path"}
             href={transitionPreview?.targetJob.href ?? localizedPath("/career/jobs", locale)}

@@ -549,6 +549,8 @@ describe("career recommendation backend page contract", () => {
     expect(html).toContain("career-recommendation-trust-strip");
     expect(html).toContain("career-recommendation-protocol-status");
     expect(html).not.toContain("Strong-fit summary copy");
+    expect(html).not.toContain("Fit 82");
+    expect(html).not.toContain("Upside:");
     expect(html).not.toContain("career-recommendation-hero-summary");
     expect(html).not.toContain("career-recommendation-supporting-truth-summary");
     expect(html).not.toContain("career-recommendation-type-interpretation");
