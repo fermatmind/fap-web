@@ -1,0 +1,141 @@
+import { afterEach, describe, expect, it, vi } from "vitest";
+import { trackClientEvent } from "@/lib/tracking/client";
+import { TRACKING_EVENTS, filterTrackingPayload } from "@/lib/tracking/events";
+
+const CONSENT_KEY = "fm_consent_v1";
+
+function grantAnalyticsConsent() {
+  window.localStorage.setItem(
+    CONSENT_KEY,
+    JSON.stringify({ analytics: "granted", updatedAt: "2026-05-01T00:00:00.000Z" })
+  );
+}
+
+afterEach(() => {
+  window.localStorage.clear();
+  vi.unstubAllGlobals();
+  vi.restoreAllMocks();
+});
+
+describe("analytics payload privacy contract", () => {
+  it("redacts sensitive URL query values before tracking dispatch", () => {
+    const payload = filterTrackingPayload(TRACKING_EVENTS.PAYMENT_CONFIRMED, {
+      current_path:
+        "/en/pay/wait?order_no=ord_raw_1&payment_recovery_token=recovery_secret&utm_source=ads",
+      landing_path:
+        "/en/orders/ord_raw_1?checkout_url=https%3A%2F%2Fpay.example%2Fcheckout%3Ftoken%3Dsecret&utm_medium=cpc",
+      referrer: "https://search.example/en/result/attempt-abcdef-123456?authorization=Bearer%20secret&utm_campaign=launch",
+      orderNoMasked: "ord_raw_1",
+      attemptIdMasked: "attempt-abcdef-123456",
+      provider: "alipay",
+      locale: "en",
+    });
+
+    expect(payload).toMatchObject({
+      current_path: "/en/pay/wait?order_no=redacted&payment_recovery_token=redacted&utm_source=ads",
+      landing_path: "/en/orders/redacted?checkout_url=redacted&utm_medium=cpc",
+      referrer: "https://search.example/en/result/redacted?authorization=redacted&utm_campaign=launch",
+      orderNoMasked: "ord_ra...aw_1",
+      attemptIdMasked: "attemp...3456",
+      provider: "alipay",
+      locale: "en",
+    });
+    expect(JSON.stringify(payload)).not.toContain("recovery_secret");
+    expect(JSON.stringify(payload)).not.toContain("Bearer%20secret");
+    expect(JSON.stringify(payload)).not.toContain("/ord_raw_1");
+  });
+
+  it("masks full attempt identifiers while preserving safe attribution fields", () => {
+    const payload = filterTrackingPayload(TRACKING_EVENTS.START_ATTEMPT, {
+      slug: "mbti-personality-test-16-personality-types",
+      test_slug: "mbti-personality-test-16-personality-types",
+      scaleCode: "MBTI",
+      attempt_id: "attempt-start-123456",
+      attemptIdMasked: "abc123...xyz9",
+      form_code: "mbti_144",
+      entry_surface: "mbti_personality_detail",
+      source_page_type: "personality_detail",
+      target_action: "start_mbti_test_primary",
+      landing_path: "/zh/personality/intj-a?utm_source=zhihu&utm_campaign=launch",
+      current_path: "/zh/personality/intj-a?utm_source=zhihu&utm_campaign=launch",
+      utm_source: "zhihu",
+      utm_campaign: "launch",
+      session_id: "anon-session-1",
+      locale: "zh",
+    });
+
+    expect(payload).toMatchObject({
+      attempt_id: "attemp...3456",
+      attemptIdMasked: "abc123...xyz9",
+      landing_path: "/zh/personality/intj-a?utm_source=zhihu&utm_campaign=launch",
+      current_path: "/zh/personality/intj-a?utm_source=zhihu&utm_campaign=launch",
+      utm_source: "zhihu",
+      utm_campaign: "launch",
+      session_id: "anon-session-1",
+      locale: "zh",
+    });
+  });
+
+  it("keeps consent denial as a hard stop before browser or network dispatch", async () => {
+    const fetchMock = vi.fn();
+    const gtagMock = vi.fn();
+    vi.stubGlobal("fetch", fetchMock);
+    Object.defineProperty(window, "gtag", {
+      configurable: true,
+      value: gtagMock,
+    });
+
+    await trackClientEvent({
+      eventName: TRACKING_EVENTS.START_ATTEMPT,
+      payload: { attempt_id: "attempt-start-123456", locale: "en" },
+      anonymousId: "anon-session-1",
+      path: "/en/tests/mbti/take?attempt_id=attempt-start-123456",
+    });
+
+    expect(gtagMock).not.toHaveBeenCalled();
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it("sends only redacted path and payload values after analytics consent is granted", async () => {
+    grantAnalyticsConsent();
+    const fetchMock = vi.fn().mockResolvedValue(new Response(JSON.stringify({ ok: true })));
+    const gtagMock = vi.fn();
+    vi.stubGlobal("fetch", fetchMock);
+    Object.defineProperty(window, "gtag", {
+      configurable: true,
+      value: gtagMock,
+    });
+
+    await trackClientEvent({
+      eventName: TRACKING_EVENTS.PAYMENT_CONFIRMED,
+      payload: {
+        current_path: "/en/pay/wait?payment_recovery_token=recovery_secret&utm_source=ads",
+        attemptIdMasked: "attempt-abcdef-123456",
+        orderNoMasked: "ord_raw_1",
+        provider: "alipay",
+        locale: "en",
+      },
+      anonymousId: "anon-session-1",
+      path: "/en/pay/wait?payment_recovery_token=recovery_secret&utm_source=ads",
+    });
+
+    expect(gtagMock).toHaveBeenCalledWith(
+      "event",
+      "add_payment_info",
+      expect.objectContaining({
+        current_path: "/en/pay/wait?payment_recovery_token=redacted&utm_source=ads",
+        attemptIdMasked: "attemp...3456",
+        orderNoMasked: "ord_ra...aw_1",
+      })
+    );
+
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    const body = JSON.parse(String(fetchMock.mock.calls[0]?.[1]?.body ?? "{}")) as {
+      path?: string;
+      payload?: Record<string, unknown>;
+    };
+    expect(body.path).toBe("/en/pay/wait?payment_recovery_token=redacted&utm_source=ads");
+    expect(body.payload?.current_path).toBe("/en/pay/wait?payment_recovery_token=redacted&utm_source=ads");
+    expect(JSON.stringify(body)).not.toContain("recovery_secret");
+  });
+});

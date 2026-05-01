@@ -1,3 +1,5 @@
+import { sanitizeTrackingUrl } from "@/lib/tracking/privacy";
+
 export const ATTRIBUTION_QUERY_KEYS = [
   "utm_source",
   "utm_medium",
@@ -139,9 +141,9 @@ export function buildTrackingAttributionPayload(
     }
   }
 
-  const referrer = normalizeText(extra.referrer, 2048);
-  const landingPath = normalizeText(extra.landingPath, 2048);
-  const currentPath = normalizeText(extra.currentPath, 2048);
+  const referrer = sanitizeTrackingUrl(extra.referrer);
+  const landingPath = sanitizeTrackingUrl(extra.landingPath);
+  const currentPath = sanitizeTrackingUrl(extra.currentPath);
   const sessionId = normalizeText(extra.sessionId, 128);
 
   if (referrer) payload.referrer = referrer;
@@ -194,9 +196,10 @@ export function captureAttributionFromLocation({
 
 export function readStoredTrackingAttributionPayload(currentPath?: string): TrackingAttributionPayload {
   const stored = readStoredAttribution();
+  const safeCurrentPath = sanitizeTrackingUrl(currentPath);
   return {
     ...(stored?.last_touch ?? {}),
-    ...(currentPath ? { current_path: currentPath } : {}),
+    ...(safeCurrentPath ? { current_path: safeCurrentPath } : {}),
   };
 }
 
