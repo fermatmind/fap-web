@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { normalizeCommerceWaitPath } from "@/lib/commerce/redirectUrls";
 import { clearPendingOrder, readPendingOrder } from "@/lib/commerce/pendingOrder";
 import { localizedPath, stripLocalePrefix, type Locale } from "@/lib/i18n/locales";
 import { recoverAlipayReturnContext } from "@/lib/api/v0_3";
@@ -25,32 +26,14 @@ function buildWaitHref(locale: Locale, orderNo: string, paymentRecoveryToken: st
 }
 
 function normalizeWaitHref(locale: Locale, value: string | null | undefined): string | null {
-  const normalized = normalizeText(value);
+  const normalized = normalizeCommerceWaitPath(value);
   if (!normalized) {
     return null;
   }
 
-  try {
-    const parsed = new URL(normalized, "https://example.test");
-    const normalizedPath = stripLocalePrefix(parsed.pathname);
-    if (normalizedPath !== "/pay/wait") {
-      return null;
-    }
-
-    return localizedPath(`${normalizedPath}${parsed.search}${parsed.hash}`, locale);
-  } catch {
-    try {
-      const parsed = new URL(normalized.startsWith("/") ? normalized : `/${normalized}`, "https://example.test");
-      const normalizedPath = stripLocalePrefix(parsed.pathname);
-      if (normalizedPath !== "/pay/wait") {
-        return null;
-      }
-
-      return localizedPath(`${normalizedPath}${parsed.search}${parsed.hash}`, locale);
-    } catch {
-      return null;
-    }
-  }
+  const parsed = new URL(normalized, "https://example.test");
+  const normalizedPath = stripLocalePrefix(parsed.pathname);
+  return localizedPath(`${normalizedPath}${parsed.search}`, locale);
 }
 
 export function OrderReturnFallbackClient({

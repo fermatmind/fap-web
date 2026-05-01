@@ -32,6 +32,7 @@ import { trackEvent } from "@/lib/analytics";
 import { fetchClinicalReport } from "@/lib/clinical/api";
 import { mapClinicalError } from "@/lib/clinical/errors";
 import { buildOrderWaitPath, regionFromLocale, resolveCheckoutAction } from "@/lib/commerce/checkoutAction";
+import { normalizeCommerceReportPath } from "@/lib/commerce/redirectUrls";
 import { writePendingOrder } from "@/lib/commerce/pendingOrder";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
@@ -932,7 +933,7 @@ export default function ClinicalReportClient({
         ?? (action.kind === "order_wait" || action.kind === "redirect" ? action.paymentRecoveryToken : null)
       );
       const resultUrl = normalizeNullableText(
-        checkout.result_url
+        normalizeCommerceReportPath(checkout.result_url)
         ?? (action.kind === "order_wait" || action.kind === "redirect" ? action.resultUrl : null)
       );
       const provider = normalizeNullableText(

@@ -32,6 +32,11 @@ import {
   type PublicFormSummaryV1Raw,
 } from "@/lib/api/v0_3";
 import { buildOrderWaitPath, resolveCheckoutAction } from "@/lib/commerce/checkoutAction";
+import {
+  normalizeCommercePayValue,
+  normalizeCommercePaymentRedirectUrl,
+  normalizeCommerceReportPath,
+} from "@/lib/commerce/redirectUrls";
 import { writePendingOrder } from "@/lib/commerce/pendingOrder";
 import type { Locale } from "@/lib/i18n/locales";
 import { localizedPath } from "@/lib/i18n/locales";
@@ -270,13 +275,19 @@ export function OrderLookupForm({
     () => normalizePayType(typeof lookupHit?.pay?.type === "string" ? lookupHit.pay.type : null),
     [lookupHit?.pay?.type]
   );
-  const lookupPayValue = useMemo(
-    () => normalizeQueryValue(typeof lookupHit?.pay?.value === "string" ? lookupHit.pay.value : null),
-    [lookupHit?.pay?.value]
-  );
   const lookupPayProvider =
     normalizeQueryValue(typeof lookupHit?.provider === "string" ? lookupHit.provider : null)
     ?? normalizeQueryValue(typeof lookupHit?.pay?.provider === "string" ? lookupHit.pay?.provider : null);
+  const lookupPayValue = useMemo(
+    () =>
+      normalizeCommercePayValue({
+        payType: lookupPayType,
+        value: typeof lookupHit?.pay?.value === "string" ? lookupHit.pay.value : null,
+        provider: lookupPayProvider,
+      }),
+    [lookupHit?.pay?.value, lookupPayProvider, lookupPayType]
+  );
+  const lookupEffectivePayType = lookupPayValue ? lookupPayType : null;
   const lookupPaymentRecoveryToken = useMemo(
     () => normalizeQueryValue(typeof lookupHit?.payment_recovery_token === "string" ? lookupHit.payment_recovery_token : null),
     [lookupHit?.payment_recovery_token]
@@ -299,7 +310,7 @@ export function OrderLookupForm({
     () => buildPublicFormDisplayLabel(lookupFormSummary, { includeScaleCode: true, locale }),
     [lookupFormSummary, locale]
   );
-  const lookupReportHref = lookupAccessView?.actions.pageHref ?? null;
+  const lookupReportHref = normalizeCommerceReportPath(lookupAccessView?.actions.pageHref ?? null);
   const lookupHistoryHref = lookupAccessView?.actions.historyHref ?? null;
   const lookupPdfHref = lookupAccessView?.actions.pdfHref ?? null;
   const lookupPdfAttemptId = lookupAccessView?.attemptId ?? lookupAttemptId;
@@ -369,7 +380,7 @@ export function OrderLookupForm({
   useEffect(() => {
     let active = true;
 
-    if (lookupPayType !== "qr" || !lookupPayValue) {
+    if (lookupEffectivePayType !== "qr" || !lookupPayValue) {
       setLookupQrCodeDataUrl(null);
       setLookupQrCodeError(false);
       return () => {
@@ -395,7 +406,7 @@ export function OrderLookupForm({
     return () => {
       active = false;
     };
-  }, [lookupPayType, lookupPayValue]);
+  }, [lookupEffectivePayType, lookupPayValue]);
 
   async function captureLookupContact({
     trimmedEmail,
@@ -509,7 +520,7 @@ export function OrderLookupForm({
   }
 
   const handleOpenLookupPaymentPage = () => {
-    if ((lookupPayType !== "html" && lookupPayType !== "redirect") || !lookupPayValue) return;
+    if ((lookupEffectivePayType !== "html" && lookupEffectivePayType !== "redirect") || !lookupPayValue) return;
     const lookupOrderNo = normalizeQueryValue(typeof lookupHit?.order_no === "string" ? lookupHit.order_no : null);
 
     if (lookupWaitFlowHref && lookupOrderNo) {
@@ -518,13 +529,15 @@ export function OrderLookupForm({
         provider: lookupPayProvider,
         waitUrl: lookupWaitFlowHref,
         paymentRecoveryToken: lookupPaymentRecoveryToken,
-        resultUrl: lookupAccessView?.actions.pageHref ?? null,
+        resultUrl: normalizeCommerceReportPath(lookupAccessView?.actions.pageHref ?? null),
       });
       router.push(lookupWaitFlowHref);
       return;
     }
 
-    window.open(lookupPayValue, "_blank", "noopener,noreferrer");
+    const safePayUrl = normalizeCommercePaymentRedirectUrl(lookupPayValue, lookupPayProvider);
+    if (!safePayUrl) return;
+    window.open(safePayUrl, "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -689,7 +702,7 @@ export function OrderLookupForm({
                       : "The order number and purchase email matched. Continue the recovery actions here."}
                 </p>
               </div>
-              {lookupStatus === "pending" && (lookupPayType === "qr" || lookupPayType === "html" || lookupPayType === "redirect") ? (
+              {lookupStatus === "pending" && (lookupEffectivePayType === "qr" || lookupEffectivePayType === "html" || lookupEffectivePayType === "redirect") ? (
                 <div
                   className="space-y-3 rounded-lg border border-slate-200 bg-white p-4"
                   data-testid="order-lookup-hit-payment-action"
@@ -701,7 +714,7 @@ export function OrderLookupForm({
                     </p>
                   ) : null}
 
-                  {lookupPayType === "qr" ? (
+                  {lookupEffectivePayType === "qr" ? (
                     <div className="space-y-3">
                       <p className="m-0 text-sm text-slate-600">{dict.orders.qrCodeHint}</p>
                       {lookupQrCodeDataUrl ? (
@@ -726,7 +739,7 @@ export function OrderLookupForm({
                     </div>
                   ) : null}
 
-                  {lookupPayType === "html" || lookupPayType === "redirect" ? (
+                  {lookupEffectivePayType === "html" || lookupEffectivePayType === "redirect" ? (
                     <div className="space-y-3">
                       <p className="m-0 text-sm text-slate-600">{dict.orders.openPaymentHint}</p>
                       <Button

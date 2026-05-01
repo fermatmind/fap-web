@@ -3,7 +3,7 @@ import { buildOrderWaitPath, resolveCheckoutAction } from "@/lib/commerce/checko
 describe("checkout action contract", () => {
   const paymentUnavailable = "payment unavailable";
 
-  it("resolves pay.redirect to external redirect action", () => {
+  it("resolves pay.redirect to an allowed external provider redirect action", () => {
     const action = resolveCheckoutAction(
       {
         order_no: "ord_redirect_1",
@@ -12,7 +12,7 @@ describe("checkout action contract", () => {
         wait_url: "/en/pay/wait?order_no=ord_redirect_1&payment_recovery_token=recovery_redirect_1",
         pay: {
           type: "redirect",
-          value: "https://checkout.example.com/pay?order_no=ord_redirect_1",
+          value: "https://checkout.lemonsqueezy.com/pay?order_no=ord_redirect_1",
           provider: "lemonsqueezy",
         },
       },
@@ -21,11 +21,63 @@ describe("checkout action contract", () => {
 
     expect(action).toEqual({
       kind: "redirect",
-      url: "https://checkout.example.com/pay?order_no=ord_redirect_1",
+      url: "https://checkout.lemonsqueezy.com/pay?order_no=ord_redirect_1",
       orderNo: "ord_redirect_1",
       provider: "lemonsqueezy",
       waitUrl: "/pay/wait?order_no=ord_redirect_1&payment_recovery_token=recovery_redirect_1",
       paymentRecoveryToken: "recovery_redirect_1",
+      resultUrl: null,
+    });
+  });
+
+  it("does not expose arbitrary external pay.redirect URLs as checkout actions", () => {
+    const action = resolveCheckoutAction(
+      {
+        order_no: "ord_redirect_blocked_1",
+        provider: "lemonsqueezy",
+        payment_recovery_token: "recovery_redirect_blocked_1",
+        wait_url: "/en/pay/wait?order_no=ord_redirect_blocked_1&payment_recovery_token=recovery_redirect_blocked_1",
+        pay: {
+          type: "redirect",
+          value: "https://checkout.invalid.example/pay?order_no=ord_redirect_blocked_1",
+          provider: "lemonsqueezy",
+        },
+      },
+      paymentUnavailable
+    );
+
+    expect(action).toEqual({
+      kind: "order_wait",
+      orderNo: "ord_redirect_blocked_1",
+      payType: null,
+      payValue: null,
+      provider: "lemonsqueezy",
+      waitUrl: "/pay/wait?order_no=ord_redirect_blocked_1&payment_recovery_token=recovery_redirect_blocked_1",
+      paymentRecoveryToken: "recovery_redirect_blocked_1",
+      resultUrl: null,
+    });
+  });
+
+  it("does not expose arbitrary checkout_url values as redirect actions", () => {
+    const action = resolveCheckoutAction(
+      {
+        order_no: "ord_checkout_url_blocked_1",
+        provider: "lemonsqueezy",
+        payment_recovery_token: "recovery_checkout_url_blocked_1",
+        wait_url: "/en/pay/wait?order_no=ord_checkout_url_blocked_1&payment_recovery_token=recovery_checkout_url_blocked_1",
+        checkout_url: "https://checkout.invalid.example/pay?order_no=ord_checkout_url_blocked_1",
+      },
+      paymentUnavailable
+    );
+
+    expect(action).toEqual({
+      kind: "order_wait",
+      orderNo: "ord_checkout_url_blocked_1",
+      payType: null,
+      payValue: null,
+      provider: "lemonsqueezy",
+      waitUrl: "/pay/wait?order_no=ord_checkout_url_blocked_1&payment_recovery_token=recovery_checkout_url_blocked_1",
+      paymentRecoveryToken: "recovery_checkout_url_blocked_1",
       resultUrl: null,
     });
   });

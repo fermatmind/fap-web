@@ -506,14 +506,14 @@ test.describe("UAT matrix (mock)", () => {
           provider: "lemonsqueezy",
           pay: {
             type: "redirect",
-            value: `https://checkout.example.com/pay?order_no=${orderNo}`,
+            value: `https://checkout.lemonsqueezy.com/pay?order_no=${orderNo}`,
             provider: "lemonsqueezy",
           },
         }),
       });
     });
 
-    await page.route("https://checkout.example.com/**", async (route) => {
+    await page.route("https://checkout.lemonsqueezy.com/**", async (route) => {
       await route.fulfill({
         status: 200,
         contentType: "text/html",
