@@ -193,6 +193,16 @@ describe("career explainability contract", () => {
           allow_cross_market_pay_copy: false,
           reason_codes: [],
         },
+        trust_manifest: {
+          reviewer_status: "reviewed",
+          reviewed: true,
+          quality: {
+            complete: true,
+            reviewed: true,
+            stale: false,
+            blocked_reasons: [],
+          },
+        },
         seo_contract: {
           canonical_path: "/career/jobs/software-developer",
           index_state: "index",

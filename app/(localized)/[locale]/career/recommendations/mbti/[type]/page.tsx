@@ -253,7 +253,12 @@ export async function generateMetadata({
 
   const canonicalPath = normalizeCareerBundleCanonicalPath(locale, detail.seoContract.canonicalPath, buildCareerRecommendationFrontendUrl(locale, detail.publicRouteSlug));
   const title = `${detail.displayType} Career Recommendations | FermatMind`;
-  const description = detail.supportingTruthSummary.summary || (locale === "zh" ? `${detail.displayType} 的职业方向建议。` : `Career direction recommendations for ${detail.displayType}.`);
+  const description =
+    detail.renderState.canRenderSummarySurface && detail.supportingTruthSummary.summary
+      ? detail.supportingTruthSummary.summary
+      : locale === "zh"
+        ? `${detail.displayType} 的职业方向建议。`
+        : `Career direction recommendations for ${detail.displayType}.`;
 
   return buildPageMetadata({
     locale,
@@ -284,13 +289,7 @@ export default async function CareerMbtiRecommendationPage({
   const resolvedSearchParams = await searchParams;
   const locale = resolveLocale(localeParam);
   const withLocale = (pathname: string) => localizedPath(pathname, locale);
-  const [detail, explainability, transitionPreview, companionLinks, runtimeConfig] = await Promise.all([
-    loadRecommendationBundle(locale, type),
-    loadRecommendationExplainability(locale, type),
-    loadTransitionPreview(locale, type),
-    loadRecommendationCompanionLinks(locale, type),
-    loadRuntimeConfig(locale),
-  ]);
+  const detail = await loadRecommendationBundle(locale, type);
 
   if (!detail) {
     return notFound();
@@ -306,6 +305,18 @@ export default async function CareerMbtiRecommendationPage({
   const canonicalPath = normalizeCareerBundleCanonicalPath(locale, detail.seoContract.canonicalPath, buildCareerRecommendationFrontendUrl(locale, detail.publicRouteSlug));
   const recommendationLandingPath = localizedPath(`/career/recommendations/mbti/${detail.publicRouteSlug}`, locale);
   const renderState = detail.renderState;
+  const canRenderSummarySurface = renderState.canRenderSummarySurface;
+  const safeRecommendationSummary = canRenderSummarySurface ? detail.supportingTruthSummary.summary : null;
+  const canRenderTransitionSurface =
+    detail.trustManifest?.quality.complete === true &&
+    detail.trustManifest.reviewer.reviewed === true &&
+    detail.claimPermissions.allow_transition_recommendation;
+  const [explainability, transitionPreview, companionLinks, runtimeConfig] = await Promise.all([
+    renderState.canRenderStrongTruth ? loadRecommendationExplainability(locale, type) : Promise.resolve(null),
+    canRenderTransitionSurface ? loadTransitionPreview(locale, type) : Promise.resolve(null),
+    canRenderTransitionSurface ? loadRecommendationCompanionLinks(locale, type) : Promise.resolve(null),
+    loadRuntimeConfig(locale),
+  ]);
   const matchedJobs = renderState.canRenderMatchedJobs ? filterStableRecommendationMatchedJobs(detail.matchedJobs) : [];
   const displayedMatchedJobs = matchedJobs.slice(0, 5);
   const mbtiEntryViewTrackingProps = buildMbtiEntryTrackingPayload({
@@ -336,7 +347,7 @@ export default async function CareerMbtiRecommendationPage({
   const webPageJsonLd = buildWebPageJsonLd({
     path: canonicalPath,
     title: `${detail.displayType} Career Recommendations | FermatMind`,
-    description: detail.supportingTruthSummary.summary || (locale === "zh" ? `${detail.displayType} 职业推荐` : `${detail.displayType} career recommendations`),
+    description: safeRecommendationSummary || (locale === "zh" ? `${detail.displayType} 职业推荐` : `${detail.displayType} career recommendations`),
     locale,
   });
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
@@ -348,7 +359,7 @@ export default async function CareerMbtiRecommendationPage({
   const itemListJsonLd = buildItemListJsonLd({
     path: canonicalPath,
     title: locale === "zh" ? `${detail.displayType} 推荐职业列表` : `${detail.displayType} recommended roles`,
-    description: detail.supportingTruthSummary.summary || (locale === "zh" ? `${detail.displayType} 推荐职业列表` : `${detail.displayType} recommended roles`),
+    description: safeRecommendationSummary || (locale === "zh" ? `${detail.displayType} 推荐职业列表` : `${detail.displayType} recommended roles`),
     locale,
     items: matchedJobs.map((job) => ({
       name: job.title,
@@ -373,17 +384,8 @@ export default async function CareerMbtiRecommendationPage({
     },
   ];
   const canRenderAiScore = detail.claimPermissions.allow_ai_strategy && detail.careerDataStatus !== "unavailable";
-  const canRenderSummarySurface = renderState.canRenderSummarySurface;
-  const canRenderSalarySummary = renderState.canRenderSalarySummary;
-  const recommendationSubjectSlug = detail.shortlistContract.subjectSlug ?? matchedJobs[0]?.canonicalSlug ?? transitionPreview?.targetJob.canonicalSlug ?? extractJobSlugFromCanonicalTarget(detail.seoContract.canonicalTarget);
+  const recommendationSubjectSlug = detail.shortlistContract.subjectSlug ?? matchedJobs[0]?.canonicalSlug ?? extractJobSlugFromCanonicalTarget(detail.seoContract.canonicalTarget);
   const recommendationSubjectKind = recommendationSubjectSlug ? "job_slug" : "none";
-  const strongClaimBlocked =
-    !renderState.canRenderStrongTruth &&
-    !detail.claimPermissions.allow_strong_claim &&
-    (detail.supportingTruthSummary.summary !== null || detail.scoreBundle.fitScore.value !== null || detail.matchedJobs.length > 0);
-  const salaryClaimBlocked = !canRenderSalarySummary && detail.supportingTruthSummary.medianPayUsdAnnual !== null && !detail.claimPermissions.allow_salary_comparison;
-  const aiStrategyClaimBlocked = renderState.canRenderStrongTruth && !detail.claimPermissions.allow_ai_strategy && detail.careerDataStatus !== "unavailable" && detail.supportingTruthSummary.aiExposure !== null;
-  const transitionRecommendationClaimBlocked = !renderState.canRenderMatchedJobs && detail.matchedJobs.length > 0 && !detail.claimPermissions.allow_transition_recommendation;
   const stateCopy = getCareerV1StateCopy(detail.careerDataStatus);
   const confidenceLabel = getDecisionConfidenceLabel(locale, detail.scoreBundle.confidenceScore.value);
   const companionRailItems = buildCompanionRailItems(locale, companionLinks, recommendationLandingPath, recommendationSubjectSlug);
@@ -405,34 +407,6 @@ export default async function CareerMbtiRecommendationPage({
             subjectKey: detail.publicRouteSlug,
           })}
         />
-        {strongClaimBlocked ? (
-          <AnalyticsPageViewTracker
-            eventName={CAREER_TRACKING_EVENTS.claimBlockedSurfaceExposed}
-            trackingKey={`claim-blocked:strong-claim:${detail.publicRouteSlug}`}
-            properties={buildCareerAttributionPayload({ locale, entrySurface: "career_recommendation_detail", sourcePageType: "career_recommendation_detail", targetAction: "expose_claim_blocked_surface", landingPath: recommendationLandingPath, routeFamily: "recommendation_detail", subjectKind: recommendationSubjectKind, subjectKey: recommendationSubjectSlug, blockedClaimKind: "strong_claim" })}
-          />
-        ) : null}
-        {salaryClaimBlocked ? (
-          <AnalyticsPageViewTracker
-            eventName={CAREER_TRACKING_EVENTS.claimBlockedSurfaceExposed}
-            trackingKey={`claim-blocked:salary:${detail.publicRouteSlug}`}
-            properties={buildCareerAttributionPayload({ locale, entrySurface: "career_recommendation_detail", sourcePageType: "career_recommendation_detail", targetAction: "expose_claim_blocked_surface", landingPath: recommendationLandingPath, routeFamily: "recommendation_detail", subjectKind: recommendationSubjectKind, subjectKey: recommendationSubjectSlug, blockedClaimKind: "salary" })}
-          />
-        ) : null}
-        {aiStrategyClaimBlocked ? (
-          <AnalyticsPageViewTracker
-            eventName={CAREER_TRACKING_EVENTS.claimBlockedSurfaceExposed}
-            trackingKey={`claim-blocked:ai-strategy:${detail.publicRouteSlug}`}
-            properties={buildCareerAttributionPayload({ locale, entrySurface: "career_recommendation_detail", sourcePageType: "career_recommendation_detail", targetAction: "expose_claim_blocked_surface", landingPath: recommendationLandingPath, routeFamily: "recommendation_detail", subjectKind: recommendationSubjectKind, subjectKey: recommendationSubjectSlug, blockedClaimKind: "ai_strategy" })}
-          />
-        ) : null}
-        {transitionRecommendationClaimBlocked ? (
-          <AnalyticsPageViewTracker
-            eventName={CAREER_TRACKING_EVENTS.claimBlockedSurfaceExposed}
-            trackingKey={`claim-blocked:transition:${detail.publicRouteSlug}`}
-            properties={buildCareerAttributionPayload({ locale, entrySurface: "career_recommendation_detail", sourcePageType: "career_recommendation_detail", targetAction: "expose_claim_blocked_surface", landingPath: recommendationLandingPath, routeFamily: "recommendation_detail", subjectKind: recommendationSubjectKind, subjectKey: recommendationSubjectSlug, blockedClaimKind: "transition_recommendation" })}
-          />
-        ) : null}
         {transitionPreview ? (
           <AnalyticsPageViewTracker
             eventName={CAREER_TRACKING_EVENTS.transitionPreviewView}
@@ -474,8 +448,8 @@ export default async function CareerMbtiRecommendationPage({
                 className="m-0 max-w-3xl text-base leading-8 text-slate-600"
                 data-testid={canRenderSummarySurface ? "career-recommendation-hero-summary" : undefined}
               >
-                {canRenderSummarySurface && detail.supportingTruthSummary.summary
-                  ? detail.supportingTruthSummary.summary
+                {safeRecommendationSummary
+                  ? safeRecommendationSummary
                   : locale === "zh"
                     ? `基于 ${detail.displayType} 的测评结果，先从结构清晰、边界明确的职业路径开始探索。`
                     : `Based on ${detail.displayType}, start with structured paths where tradeoffs and next steps are clearer.`}
@@ -516,7 +490,7 @@ export default async function CareerMbtiRecommendationPage({
           <DecisionPathCard
             eyebrow={locale === "zh" ? "主推荐路径" : "Top recommendation path"}
             title={transitionPreview?.targetJob.title ?? (locale === "zh" ? `${detail.displayType} 的优先探索方向` : `${detail.displayType} priority path`)}
-            summary={transitionPreview?.whyThisPath ?? detail.supportingTruthSummary.summary ?? (locale === "zh" ? "先从结构清晰、沟通噪音较低的路径开始验证。" : "Start from a path with clearer structure and lower communication noise.")}
+            summary={transitionPreview?.whyThisPath ?? safeRecommendationSummary ?? (locale === "zh" ? "先从结构清晰、沟通噪音较低的路径开始验证。" : "Start from a path with clearer structure and lower communication noise.")}
             upside={locale === "zh" ? `适合度 ${renderScoreValue(detail.scoreBundle.fitScore.value)}` : `Fit ${renderScoreValue(detail.scoreBundle.fitScore.value)}`}
             tradeoff={transitionPreview?.whatIsLost ?? (locale === "zh" ? "仍需要结合职业详情确认边界。" : "Still validate boundaries in the role detail page.")}
             ctaLabel={locale === "zh" ? "查看路径" : "View path"}
@@ -641,8 +615,8 @@ export default async function CareerMbtiRecommendationPage({
                 <Metric title="Confidence" value={renderScoreValue(detail.scoreBundle.confidenceScore.value)} />
               </div>
             </ClaimGuard>
-            {detail.whiteBoxScores.strainScore?.radarDimensions ? <StrainRadar locale={locale} dimensions={detail.whiteBoxScores.strainScore.radarDimensions} testId="career-recommendation-strain-radar" /> : null}
-            {explainability ? <CareerExplainabilityPanel locale={locale} explainability={explainability} title={locale === "zh" ? "评分说明" : "Scoring explanation"} subtitle={locale === "zh" ? "复杂依据默认折叠。" : "Detailed evidence is collapsed by default."} testId="career-recommendation-explainability-panel" showStrainRadar={false} /> : null}
+            {renderState.canRenderStrongTruth && detail.whiteBoxScores.strainScore?.radarDimensions ? <StrainRadar locale={locale} dimensions={detail.whiteBoxScores.strainScore.radarDimensions} testId="career-recommendation-strain-radar" /> : null}
+            {renderState.canRenderStrongTruth && explainability ? <CareerExplainabilityPanel locale={locale} explainability={explainability} title={locale === "zh" ? "评分说明" : "Scoring explanation"} subtitle={locale === "zh" ? "复杂依据默认折叠。" : "Detailed evidence is collapsed by default."} testId="career-recommendation-explainability-panel" showStrainRadar={false} /> : null}
           </EvidenceDrawer>
 
           <EvidenceDrawer title={locale === "zh" ? "查看路径依据" : "View path evidence"} testId="career-recommendation-v1-transition-drawer">

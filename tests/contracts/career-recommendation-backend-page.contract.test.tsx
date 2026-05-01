@@ -79,7 +79,7 @@ describe("career recommendation backend page contract", () => {
           allow_strong_claim: true,
           allow_salary_comparison: false,
           allow_ai_strategy: true,
-          allow_transition_recommendation: false,
+          allow_transition_recommendation: true,
           allow_cross_market_pay_copy: false,
           reason_codes: [],
         },
@@ -534,7 +534,7 @@ describe("career recommendation backend page contract", () => {
       fetchCareerFirstWaveRecommendationCompanionLinks: vi.fn(async () => null),
     }));
 
-    const { default: CareerRecommendationPage } = await import(
+    const { default: CareerRecommendationPage, generateMetadata } = await import(
       "@/app/(localized)/[locale]/career/recommendations/mbti/[type]/page"
     );
     const page = await CareerRecommendationPage({
@@ -542,12 +542,20 @@ describe("career recommendation backend page contract", () => {
       searchParams: Promise.resolve({}),
     });
     const html = renderToStaticMarkup(page as ReactNode);
+    const metadata = await generateMetadata({
+      params: Promise.resolve({ locale: "en", type: "intj-a" }),
+    });
 
     expect(html).toContain("career-recommendation-trust-strip");
     expect(html).toContain("career-recommendation-protocol-status");
+    expect(html).not.toContain("Strong-fit summary copy");
     expect(html).not.toContain("career-recommendation-hero-summary");
     expect(html).not.toContain("career-recommendation-supporting-truth-summary");
     expect(html).not.toContain("career-recommendation-type-interpretation");
+    expect(html).not.toContain("career-recommendation-strain-radar");
+    expect(html).not.toContain("career-recommendation-explainability-panel");
+    expect(metadata.description).not.toContain("Strong-fit summary copy");
+    expect(metadata.robots).toEqual(expect.objectContaining({ index: false, follow: false }));
   });
 
   it("renders only stable matched jobs from authority readiness signals", async () => {
