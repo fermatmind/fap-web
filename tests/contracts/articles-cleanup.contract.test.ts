@@ -2,7 +2,15 @@ import fs from "node:fs";
 import path from "node:path";
 import { createRequire } from "node:module";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { getCmsArticle, getCmsArticles, listCmsArticlesForLlms, normalizeArticleSeoPayload } from "@/lib/cms/articles";
+import {
+  MAX_ARTICLE_SLUG_LENGTH,
+  getCmsArticle,
+  getCmsArticleSeo,
+  getCmsArticles,
+  listCmsArticlesForLlms,
+  normalizeArticleSeoPayload,
+  normalizeArticleSlug,
+} from "@/lib/cms/articles";
 
 const ROOT = process.cwd();
 const requireFromRoot = createRequire(path.join(ROOT, "package.json"));
@@ -451,6 +459,61 @@ describe("articles cleanup contract", () => {
     expect(result.items).toEqual([]);
     expect(result.pagination.total).toBe(0);
     expect(result.pagination.lastPage).toBe(1);
+  });
+
+  it("keeps attacker-controlled article detail slugs out of shared cache fetches", async () => {
+    const fetchMock = vi.fn(async () => jsonResponse({ ok: false }, 404));
+    vi.stubGlobal("fetch", fetchMock);
+
+    const oversizedSlug = "a".repeat(MAX_ARTICLE_SLUG_LENGTH + 1);
+    const invalidSlug = "valid/../other";
+
+    expect(normalizeArticleSlug(oversizedSlug)).toBe("");
+    expect(normalizeArticleSlug(invalidSlug)).toBe("");
+    await expect(getCmsArticle(oversizedSlug, "en")).resolves.toBeNull();
+    await expect(getCmsArticleSeo(invalidSlug, "en")).resolves.toBeNull();
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it("does not put article detail or seo lookups into the shared Data Cache", async () => {
+    const fetchMock = vi.fn(async (input: RequestInfo | URL, _init?: RequestInit) => {
+      const url = String(input);
+      if (url.includes("/seo?")) {
+        return jsonResponse({
+          meta: {
+            title: "Safe article",
+            description: "Safe article description.",
+            canonical: "https://www.fermatmind.com/en/articles/safe-article",
+          },
+        });
+      }
+
+      return jsonResponse({
+        ok: true,
+        article: {
+          slug: "safe-article",
+          locale: "en",
+          title: "Safe article",
+          excerpt: "Safe article description.",
+          status: "published",
+          is_public: true,
+          published_revision_id: 12,
+          is_indexable: true,
+        },
+      });
+    });
+    vi.stubGlobal("fetch", fetchMock);
+
+    await expect(getCmsArticle("safe-article", "en")).resolves.toMatchObject({ slug: "safe-article" });
+    await expect(getCmsArticleSeo("safe-article", "en")).resolves.toMatchObject({
+      meta: { title: "Safe article" },
+    });
+
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    for (const call of fetchMock.mock.calls) {
+      expect(call[1]).toMatchObject({ cache: "no-store" });
+      expect(call[1]).not.toHaveProperty("next");
+    }
   });
 
   it("uses backend article placement fields for test-related article slots", async () => {

@@ -36,6 +36,23 @@ describe("api proxy routing contract", () => {
     expect(nextConfig).toContain('destination: `${apiOrigin}/api/v0.3/:path*`');
   });
 
+  it("narrows the same-origin v0.5 proxy to public route families", () => {
+    const nextConfig = read("next.config.mjs");
+
+    expect(nextConfig).toContain("publicV05ApiProxySources");
+    expect(nextConfig).toContain('"/api/v0.5/articles/:slug"');
+    expect(nextConfig).toContain('"/api/v0.5/career/recommendations/mbti/:type"');
+    expect(nextConfig).toContain('"/api/v0.5/career/recommendations/mbti/:type/explainability"');
+    expect(nextConfig).toContain('"/api/v0.5/personality/:slug"');
+    expect(nextConfig).toContain('"/api/v0.5/career/shortlist/state"');
+    expect(nextConfig).not.toContain('source: "/api/v0.5/:path*"');
+    expect(nextConfig).not.toContain('"/api/v0.5/career/recommendations/mbti/:path*"');
+    expect(nextConfig).not.toContain('"/api/v0.5/career/shortlist/:path*"');
+    expect(nextConfig).not.toContain('"/api/v0.5/career/recommendations/mbti/:type/feedback"');
+    expect(nextConfig).not.toContain('"/api/v0.5/internal/:path*"');
+    expect(nextConfig).not.toContain('"/api/v0.5/internal/career/crosswalk/:path*"');
+  });
+
   it("keeps the careers content page separate from the career hub", () => {
     const nextConfig = read("next.config.mjs");
 
