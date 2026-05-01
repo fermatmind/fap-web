@@ -1,7 +1,15 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
+import fs from "node:fs";
+import path from "node:path";
 import { NextRequest } from "next/server";
 import * as testing from "next/experimental/testing/server";
 import { config, proxy } from "@/proxy";
+
+const ROOT = process.cwd();
+
+function readSource(relPath: string): string {
+  return fs.readFileSync(path.join(ROOT, relPath), "utf8");
+}
 
 afterEach(() => {
   vi.restoreAllMocks();
@@ -91,5 +99,46 @@ describe("proxy boundary contract", () => {
     expect(response.headers.get("set-cookie")).toBeNull();
     expect(response.headers.get("x-middleware-request-x-anon-id")).toBe("known-anon");
     expect(response.headers.get("x-robots-tag")?.toLowerCase()).toContain("noindex");
+  });
+
+  it("does not persist caller-supplied anon-id headers", () => {
+    vi.spyOn(globalThis.crypto, "randomUUID").mockReturnValue("proxy-generated-id");
+
+    const response = proxy(
+      new NextRequest("https://example.com/en/tests/mbti-personality-test-16-personality-types/take", {
+        headers: {
+          "x-anon-id": "caller-controlled-id",
+        },
+      })
+    );
+
+    expect(response.cookies.get("fap_anonymous_id_v1")?.value).toBe("proxy-generated-id");
+    expect(response.headers.get("x-middleware-request-x-anon-id")).toBe("proxy-generated-id");
+    expect(response.headers.get("x-middleware-request-x-anon-id")).not.toBe("caller-controlled-id");
+  });
+
+  it("replaces malformed anon cookies before forwarding identity", () => {
+    vi.spyOn(globalThis.crypto, "randomUUID").mockReturnValue("proxy-recovered-id");
+
+    const response = proxy(
+      new NextRequest("https://example.com/en/tests/mbti-personality-test-16-personality-types/take", {
+        headers: {
+          cookie: "fap_anonymous_id_v1=<script>",
+        },
+      })
+    );
+
+    expect(response.cookies.get("fap_anonymous_id_v1")?.value).toBe("proxy-recovered-id");
+    expect(response.headers.get("x-middleware-request-x-anon-id")).toBe("proxy-recovered-id");
+  });
+
+  it("keeps rollout gates independent from request anonymous identity", () => {
+    const landingSource = readSource("app/(localized)/[locale]/tests/[slug]/page.tsx");
+    const takeSource = readSource("app/(localized)/[locale]/tests/[slug]/take/page.tsx");
+
+    expect(landingSource).not.toContain("resolveRequestAnonId");
+    expect(takeSource).not.toContain("resolveRequestAnonId");
+    expect(landingSource).not.toMatch(/resolveScaleRollout\(\{[\s\S]*?anonId[\s\S]*?\}\)/);
+    expect(takeSource).not.toMatch(/resolveScaleRollout\(\{[\s\S]*?anonId[\s\S]*?\}\)/);
   });
 });

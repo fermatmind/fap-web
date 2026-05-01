@@ -13,6 +13,7 @@ import { shouldNoindex } from "@/lib/seo/indexingPolicy";
 const NOINDEX_VALUE = "noindex, nofollow, noarchive";
 const ANON_COOKIE_NAME = "fap_anonymous_id_v1";
 const ANON_COOKIE_MAX_AGE_SECONDS = 31536000;
+const ANON_ID_PATTERN = /^[A-Za-z0-9_-]{8,128}$/;
 const FORCE_GONE_PATTERNS = [/^\/professions(\/|$)/i];
 const LOCALE_REDIRECT_PREFIXES = ["articles", "career", "topics", "personality"] as const;
 const MBTI_TYPE_RE = /^[ie][ns][ft][jp]$/i;
@@ -73,6 +74,11 @@ function generateAnonId(): string {
     return crypto.randomUUID();
   }
   return buildFallbackAnonId();
+}
+
+function normalizeCookieAnonId(value: string | null | undefined): string {
+  const normalized = String(value ?? "").trim();
+  return ANON_ID_PATTERN.test(normalized) ? normalized : "";
 }
 
 function shouldAttachAnonIdentity(strippedPath: string): boolean {
@@ -138,12 +144,12 @@ export function proxy(request: NextRequest) {
   }
 
   const requestHeaders = new Headers(request.headers);
-  const requestAnonHeader = requestHeaders.get("x-anon-id")?.trim() ?? "";
-  const cookieAnonId = request.cookies.get(ANON_COOKIE_NAME)?.value?.trim() ?? "";
+  requestHeaders.delete("x-anon-id");
+  const cookieAnonId = normalizeCookieAnonId(request.cookies.get(ANON_COOKIE_NAME)?.value);
   const shouldAttachAnon = shouldAttachAnonIdentity(strippedPath);
-  const resolvedAnonId = shouldAttachAnon ? (cookieAnonId || requestAnonHeader || generateAnonId()) : "";
+  const resolvedAnonId = shouldAttachAnon ? (cookieAnonId || generateAnonId()) : "";
 
-  if (shouldAttachAnon && !requestAnonHeader && resolvedAnonId) {
+  if (shouldAttachAnon && resolvedAnonId) {
     requestHeaders.set("x-anon-id", resolvedAnonId);
   }
 
