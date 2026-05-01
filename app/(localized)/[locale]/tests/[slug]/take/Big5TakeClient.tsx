@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { QuestionCard } from "@/components/big5/quiz/QuestionCard";
 import { QuestionNavigator } from "@/components/big5/quiz/QuestionNavigator";
+import { ConsentGate } from "@/components/clinical/quiz/ConsentGate";
 import { AdaptiveOptionGroup } from "@/components/quiz/immersive/AdaptiveOptionGroup";
 import { ImmersiveTakeLayout } from "@/components/quiz/immersive/ImmersiveTakeLayout";
 import { SubmitPhaseOverlay } from "@/components/quiz/immersive/SubmitPhaseOverlay";
@@ -118,6 +119,8 @@ export default function Big5TakeClient({
 
   const [serverDisclaimerVersion, setServerDisclaimerVersion] = useState<string | null>(null);
   const [serverDisclaimerHash, setServerDisclaimerHash] = useState<string | null>(null);
+  const [serverDisclaimerText, setServerDisclaimerText] = useState<string>("");
+  const [consentChecked, setConsentChecked] = useState(false);
   const [starting, setStarting] = useState(false);
   const [startError, setStartError] = useState<string | null>(null);
 
@@ -169,12 +172,11 @@ export default function Big5TakeClient({
     () => questions.reduce((sum, item) => sum + (answers[item.question_id] ? 1 : 0), 0),
     [answers, questions]
   );
+  const hasServerDisclaimerSnapshot = Boolean(serverDisclaimerVersion && serverDisclaimerHash);
   const needsConsent =
     !disclaimerAcceptedAt ||
-    !serverDisclaimerVersion ||
-    !serverDisclaimerHash ||
-    disclaimerVersion !== serverDisclaimerVersion ||
-    disclaimerHash !== serverDisclaimerHash;
+    (hasServerDisclaimerSnapshot &&
+      (disclaimerVersion !== serverDisclaimerVersion || disclaimerHash !== serverDisclaimerHash));
 
   const withLocale = useCallback((path: string) => localizedPath(path, locale), [locale]);
   const big5RetakeCopy = dict.quiz.big5Retake;
@@ -187,6 +189,10 @@ export default function Big5TakeClient({
   const progressStatus = locale === "zh"
     ? `${answeredCount}/${total} 已答 · 约 ${effectiveEstimatedMinutes} 分钟`
     : `${answeredCount}/${total} answered · about ${effectiveEstimatedMinutes} min`;
+  const consentRequiredMessage =
+    locale === "zh"
+      ? "请先阅读并同意测评说明，然后再开始答题。"
+      : "Please review and accept the assessment disclaimer before answering.";
 
   const trackingFallback = useMemo<Big5TrackingContext>(
     () => ({
@@ -535,6 +541,8 @@ export default function Big5TakeClient({
         const version =
           typeof response.meta?.disclaimer_version === "string" ? response.meta.disclaimer_version : null;
         const hash = typeof response.meta?.disclaimer_hash === "string" ? response.meta.disclaimer_hash : null;
+        const disclaimerText =
+          typeof response.meta?.disclaimer_text === "string" ? response.meta.disclaimer_text.trim() : "";
         const contentVersion =
           (typeof response.content_package_version === "string" && response.content_package_version) ||
           (typeof response.dir_version === "string" && response.dir_version) ||
@@ -571,6 +579,7 @@ export default function Big5TakeClient({
         setQuestions(options);
         setServerDisclaimerVersion(version);
         setServerDisclaimerHash(hash);
+        setServerDisclaimerText(disclaimerText);
         setPackVersion(contentVersion);
         setTrackingBase(context);
       } catch (error) {
@@ -629,6 +638,11 @@ export default function Big5TakeClient({
 
   const startFreshAttempt = useCallback(async (runId?: number): Promise<string | null> => {
     if (authBlockError || staleDraftError) {
+      return null;
+    }
+
+    if (needsConsent) {
+      setStartError(consentRequiredMessage);
       return null;
     }
 
@@ -792,6 +806,8 @@ export default function Big5TakeClient({
     staleDraftError,
     retryCountdownText,
     big5RetakeCopy,
+    consentRequiredMessage,
+    needsConsent,
   ]);
 
   const ensureAttempt = useCallback(async (runId?: number): Promise<string | null> => {
@@ -813,6 +829,18 @@ export default function Big5TakeClient({
   }, [attemptId, authBlockError, clearAttemptMeta, forceNewAttemptRequested, matchesSavedAttempt, staleDraftError, startFreshAttempt]);
 
   useEffect(() => {
+    if (!needsConsent) {
+      return;
+    }
+    if (!attemptId && !ensureAttemptPromiseRef.current && !submitInFlightRef.current && !recoveringAttemptRef.current) {
+      return;
+    }
+
+    clearAttemptMeta();
+    cancelPendingSubmitSideEffects();
+  }, [attemptId, cancelPendingSubmitSideEffects, clearAttemptMeta, needsConsent]);
+
+  const handleAcceptDisclaimerAndStart = useCallback(() => {
     if (loadingQuestions || questions.length === 0 || !needsConsent) {
       return;
     }
@@ -821,9 +849,16 @@ export default function Big5TakeClient({
       version: serverDisclaimerVersion,
       hash: serverDisclaimerHash,
     });
+    setConsentChecked(false);
+    setStartError(null);
   }, [acceptDisclaimer, loadingQuestions, needsConsent, questions.length, serverDisclaimerHash, serverDisclaimerVersion]);
 
   const handleSelectAnswer = (questionId: string, code: string) => {
+    if (needsConsent) {
+      setStartError(consentRequiredMessage);
+      return;
+    }
+
     const shouldPrimeAttempt =
       !attemptId &&
       !matchesSavedAttempt &&
@@ -898,6 +933,15 @@ export default function Big5TakeClient({
 
     submitInFlightRef.current = true;
     const activeRunId = typeof runId === "number" ? runId : takeFlowRef.current.beginRun();
+
+    if (needsConsent) {
+      if (isFlowActive(activeRunId)) {
+        setSubmitError(consentRequiredMessage);
+      }
+      submitInFlightRef.current = false;
+      return null;
+    }
+
     const activeAttemptId = await ensureAttempt(activeRunId);
     if (!isFlowActive(activeRunId)) {
       submitInFlightRef.current = false;
@@ -1042,12 +1086,14 @@ export default function Big5TakeClient({
     applyUiError,
     buildAnswersSnapshot,
     buildEventPayload,
+    consentRequiredMessage,
     cooldownSeconds,
     clearAttemptMeta,
     ensureAttempt,
     inCooldown,
     isFlowActive,
     locale,
+    needsConsent,
     questions,
     resolvedFormCode,
     setCurrentIndex,
@@ -1202,6 +1248,27 @@ export default function Big5TakeClient({
           setStartError(null);
           router.replace(withLocale(`/tests/${slug}`));
         }}
+      />
+    );
+  }
+
+  if (needsConsent && questions.length > 0) {
+    return (
+      <ConsentGate
+        locale={locale}
+        text={
+          serverDisclaimerText ||
+          (locale === "zh"
+            ? "本测评仅用于自我了解，不构成医疗、诊断或招聘筛选建议。"
+            : "This assessment is for self-discovery only and is not medical, diagnostic, or employment-screening advice.")
+        }
+        version={serverDisclaimerVersion ?? undefined}
+        checkboxLabel={locale === "zh" ? "我已阅读并同意测评说明。" : "I have read and agree to the disclaimer."}
+        checked={consentChecked}
+        starting={starting}
+        error={startError}
+        onCheckedChange={setConsentChecked}
+        onStart={handleAcceptDisclaimerAndStart}
       />
     );
   }
