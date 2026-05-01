@@ -46,6 +46,7 @@ import { useBig5AttemptStore } from "@/lib/big5/attemptStore";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath, toApiLocale } from "@/lib/i18n/locales";
 import { classifyApiError } from "@/lib/observability/httpError";
+import { useConstrainQuizUrlTokens } from "@/lib/quiz/urlTokenGuard";
 import { isImmersiveSingleFlowEnabled } from "@/lib/quiz/uxFlags";
 import { resolveResultAttemptId } from "@/lib/attempt/resolveResultAttemptId";
 import {
@@ -86,6 +87,7 @@ export default function Big5TakeClient({
   const dict = getDictSync(locale);
   const router = useRouter();
   const searchParams = useSearchParams();
+  useConstrainQuizUrlTokens({ pathname, router, searchParams });
   const forceNewAttemptRequested = searchParams.get("force_new_attempt") === "1";
   const anonId = useMemo(() => getOrCreateAnonId(), []);
 

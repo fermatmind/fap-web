@@ -11,6 +11,7 @@ const hoisted = vi.hoisted(() => ({
   pathname: "/en/tests/enneagram-personality-test-nine-types/take",
   search: "",
   routerPush: vi.fn(),
+  routerReplace: vi.fn(),
   fetchEnneagramQuestions: vi.fn(),
   startEnneagramAttempt: vi.fn(),
   submitEnneagramAttempt: vi.fn(),
@@ -29,6 +30,7 @@ vi.mock("next/navigation", () => ({
   useSearchParams: () => new URLSearchParams(hoisted.search),
   useRouter: () => ({
     push: hoisted.routerPush,
+    replace: hoisted.routerReplace,
   }),
 }));
 
@@ -242,6 +244,7 @@ describe("enneagram take flow contract", () => {
     window.localStorage.clear();
     hoisted.search = "";
     hoisted.routerPush.mockClear();
+    hoisted.routerReplace.mockClear();
     hoisted.startEnneagramAttempt.mockResolvedValue({
       ok: true,
       attempt_id: "attempt_enneagram_take",
@@ -334,5 +337,35 @@ describe("enneagram take flow contract", () => {
       }));
       expect(hoisted.routerPush).toHaveBeenCalledWith("/en/result/attempt_enneagram_forced");
     });
+  });
+
+  it("clears URL auth parameters without using them for Enneagram guest auth", async () => {
+    hoisted.search = "form=enneagram_likert_105&token=fm_query_token&fm_token=fm_query_other&auth=Bearer%20query&utm_source=organic";
+    hoisted.fetchEnneagramQuestions.mockResolvedValue(likertResponse());
+
+    render(
+      <EnneagramTakeClient
+        slug="enneagram-personality-test-nine-types"
+        formCode="enneagram_likert_105"
+        estimatedMinutes={12}
+      />
+    );
+
+    await waitForQuestion("I pursue high standards.");
+
+    await waitFor(() => {
+      expect(hoisted.routerReplace).toHaveBeenCalledWith(
+        "/en/tests/enneagram-personality-test-nine-types/take?form=enneagram_likert_105&utm_source=organic",
+        { scroll: false }
+      );
+    });
+    expect(hoisted.ensureFmTokenReady).toHaveBeenCalledWith({
+      anonId: "anon_enneagram_take",
+      locale: "en",
+    });
+    expect(hoisted.fetchEnneagramQuestions).toHaveBeenCalledWith(expect.objectContaining({
+      anonId: "anon_enneagram_take",
+      formCode: "enneagram_likert_105",
+    }));
   });
 });

@@ -10,6 +10,7 @@ type ChildrenProps = {
 
 const hoisted = vi.hoisted(() => ({
   pathname: "/en/tests/clinical-depression-anxiety-assessment-professional-edition/take",
+  search: "",
   routerPush: vi.fn(),
   routerReplace: vi.fn(),
   fetchClinicalQuestions: vi.fn(),
@@ -22,7 +23,7 @@ const hoisted = vi.hoisted(() => ({
 
 vi.mock("next/navigation", () => ({
   usePathname: () => hoisted.pathname,
-  useSearchParams: () => new URLSearchParams(""),
+  useSearchParams: () => new URLSearchParams(hoisted.search),
   useRouter: () => ({
     push: hoisted.routerPush,
     replace: hoisted.routerReplace,
@@ -208,6 +209,7 @@ describe("clinical take consent gate", () => {
     window.localStorage.clear();
     useClinicalAttemptStore.getState().resetAll();
     hoisted.pathname = "/en/tests/clinical-depression-anxiety-assessment-professional-edition/take";
+    hoisted.search = "";
     hoisted.fetchClinicalQuestions.mockResolvedValue(buildClinicalQuestionsResponse());
     hoisted.startClinicalAttempt.mockResolvedValue({
       ok: true,
@@ -295,5 +297,28 @@ describe("clinical take consent gate", () => {
         locale: "en",
       },
     }));
+  });
+
+  it("clears URL auth parameters without bypassing the clinical consent gate", async () => {
+    hoisted.search = "token=fm_query_token&authToken=fm_query_other&utm_source=organic";
+
+    render(<ClinicalTakeClient slug="clinical-depression-anxiety-assessment-professional-edition" scaleCode="SDS_20" />);
+
+    await waitFor(() => {
+      expect(hoisted.routerReplace).toHaveBeenCalledWith(
+        "/en/tests/clinical-depression-anxiety-assessment-professional-edition/take?utm_source=organic",
+        { scroll: false }
+      );
+    });
+    await waitFor(() => {
+      expect(screen.getByRole("button", { name: "Agree and start" })).toBeInTheDocument();
+    });
+
+    expect(hoisted.ensureFmTokenReady).toHaveBeenCalledWith({
+      anonId: "anon_clinical_take",
+      locale: "en",
+      forceRefresh: true,
+    });
+    expect(hoisted.startClinicalAttempt).not.toHaveBeenCalled();
   });
 });

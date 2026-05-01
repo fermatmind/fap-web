@@ -236,8 +236,8 @@ function buildQuestionResponse(count = 3) {
   };
 }
 
-function renderClient(formCode = "big5_90") {
-  hoisted.search = `form=${formCode}`;
+function renderClient(formCode = "big5_90", search = `form=${formCode}`) {
+  hoisted.search = search;
 
   return render(
     <Big5TakeClient
@@ -345,6 +345,32 @@ describe("Big Five take attempt priming", () => {
     expect(useBig5AttemptStore.getState().attemptId).toBe("attempt-big5-start-001");
     expect(useBig5AttemptStore.getState().resumeToken).toBe("resume-big5-start-001");
     expect(useBig5AttemptStore.getState().formCode).toBe("big5_90");
+  });
+
+  it("clears URL auth parameters without using them for Big Five guest auth", async () => {
+    const { unmount } = renderClient(
+      "big5_90",
+      "form=big5_90&token=fm_query_token&fm_token=fm_query_other&authorization=Bearer%20query&utm_source=organic"
+    );
+
+    await waitForBig5ConsentGate();
+
+    await waitFor(() => {
+      expect(hoisted.routerReplace).toHaveBeenCalledWith(
+        "/en/tests/big-five-personality-test-ocean-model/take?form=big5_90&utm_source=organic",
+        { scroll: false }
+      );
+    });
+    expect(hoisted.ensureFmTokenReady).toHaveBeenCalledWith({
+      anonId: "anon_big5_take",
+      locale: "en",
+    });
+    expect(hoisted.fetchBig5Questions).toHaveBeenCalledWith(expect.objectContaining({
+      anonId: "anon_big5_take",
+      formCode: "big5_90",
+    }));
+    expect(useBig5AttemptStore.getState().authToken).toBeNull();
+    unmount();
   });
 
   it("does not show stale reset for a near-complete local-only 90Q draft on entry", async () => {

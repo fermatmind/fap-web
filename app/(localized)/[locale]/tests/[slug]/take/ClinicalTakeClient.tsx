@@ -37,6 +37,7 @@ import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath, toApiLocale } from "@/lib/i18n/locales";
 import { classifyApiError } from "@/lib/observability/httpError";
 import { captureError } from "@/lib/observability/sentry";
+import { useConstrainQuizUrlTokens } from "@/lib/quiz/urlTokenGuard";
 import { isImmersiveSingleFlowEnabled } from "@/lib/quiz/uxFlags";
 import { resolveResultAttemptId } from "@/lib/attempt/resolveResultAttemptId";
 import {
@@ -178,6 +179,7 @@ export default function ClinicalTakeClient({
   const dict = getDictSync(locale);
   const isZh = locale === "zh";
   const router = useRouter();
+  useConstrainQuizUrlTokens({ pathname, router, searchParams });
   const withLocale = useCallback((path: string) => localizedPath(path, locale), [locale]);
   const anonId = useMemo(() => getOrCreateAnonId(), []);
 
