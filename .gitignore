@@ -12,6 +12,7 @@ build/
 dist/
 coverage/
 *.tsbuildinfo
+output/
 
 # logs
 *.log
