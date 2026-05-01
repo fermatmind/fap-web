@@ -152,6 +152,15 @@ function extractSections(report: ReportResponse): Array<Record<string, unknown>>
   return projectionSections as Array<Record<string, unknown>>;
 }
 
+function canExposeHistoryFacetSummaries(accessSummary: Record<string, unknown> | null): boolean {
+  if (!accessSummary) {
+    return true;
+  }
+
+  return normalizeText(accessSummary.access_state).toLowerCase() === "ready"
+    && normalizeText(accessSummary.report_state).toLowerCase() === "ready";
+}
+
 export function normalizeBig5HistoryRows(
   items: MeAttemptItem[] | undefined,
   locale: Locale
@@ -168,6 +177,8 @@ export function normalizeBig5HistoryRows(
     const offerSummary = asRecord(item.offer_summary);
     const shareSummary = asRecord(item.share_summary);
     const formSummary = normalizeBig5FormSummary(item.big5_form_v1 ?? null);
+    const accessSummary = asRecord(item.access_summary) ? item.access_summary ?? null : null;
+    const exposeFacetSummaries = canExposeHistoryFacetSummaries(accessSummary);
 
     const topDomains = BIG5_DOMAIN_ORDER.map((code) => ({
       code,
@@ -179,22 +190,24 @@ export function normalizeBig5HistoryRows(
       .slice(0, 3)
       .map((entry) => entry.label);
 
-    const topFacets = (Array.isArray(topFacetsSummary?.items) ? topFacetsSummary.items : [])
-      .map((entry) => {
-        const facet = asRecord(entry);
-        const key = normalizeMetricCode(facet?.key);
-        if (!key) return null;
+    const topFacets = exposeFacetSummaries
+      ? (Array.isArray(topFacetsSummary?.items) ? topFacetsSummary.items : [])
+        .map((entry) => {
+          const facet = asRecord(entry);
+          const key = normalizeMetricCode(facet?.key);
+          if (!key) return null;
 
-        return {
-          key,
-          label: normalizeFacetLabel(key, facet?.label, locale),
-          domain: normalizeFacetDomain(key, facet?.domain),
-          percentile: normalizeNumericPercentile(facet?.percentile),
-          bucket: normalizeText(facet?.bucket) || null,
-          kind: normalizeText(facet?.kind) || null,
-        } satisfies Big5HistoryFacetSummary;
-      })
-      .filter((entry): entry is Big5HistoryFacetSummary => entry !== null);
+          return {
+            key,
+            label: normalizeFacetLabel(key, facet?.label, locale),
+            domain: normalizeFacetDomain(key, facet?.domain),
+            percentile: normalizeNumericPercentile(facet?.percentile),
+            bucket: normalizeText(facet?.bucket) || null,
+            kind: normalizeText(facet?.kind) || null,
+          } satisfies Big5HistoryFacetSummary;
+        })
+        .filter((entry): entry is Big5HistoryFacetSummary => entry !== null)
+      : [];
 
     return {
       attemptId,
@@ -226,7 +239,7 @@ export function normalizeBig5HistoryRows(
             shareKind: normalizeText(shareSummary?.share_kind) || "big5_result",
           }
         : null,
-      accessSummary: asRecord(item.access_summary) ? item.access_summary ?? null : null,
+      accessSummary,
     };
   });
 }

@@ -109,6 +109,57 @@ describe("big5 result assembler contract", () => {
     });
   });
 
+  it("does not carry paid Big5 blocks into visible or locked preview sections without entitlement", () => {
+    const reportData = createCanonical120Fixture();
+    reportData.report = {
+      scale_code: "BIG5_OCEAN",
+      sections: [
+        {
+          key: "summary",
+          title: "Summary",
+          access_level: "free",
+          module_code: "big5_core",
+          blocks: [{ kind: "paragraph", body: "Free summary." }],
+        },
+        {
+          key: "domains_overview",
+          title: "Domains",
+          access_level: "free",
+          module_code: "big5_core",
+          blocks: [
+            { kind: "chart", body: "Free domain overview.", module_code: "big5_core" },
+            { kind: "metric_card", body: "Paid facet percentile detail.", access_level: "paid", module_code: "big5_full" },
+          ],
+        },
+        {
+          key: "action_plan",
+          title: "Action plan",
+          access_level: "paid",
+          module_code: "big5_action_plan",
+          blocks: [{ kind: "paragraph", body: "Paid action detail." }],
+        },
+      ],
+    };
+
+    const assembled = assembleBig5ResultViewModel({
+      locale: "en",
+      reportData,
+      gate: buildGate({
+        isFreeVariant: true,
+        modulesAllowed: new Set(["big5_core"]),
+        freeSections: new Set(["hero_summary", "domains_overview", "methodology_and_access"]),
+      }),
+    });
+
+    const visibleText = assembled.visibleSections.flatMap((section) => section.blocks.map((block) => String(block.body ?? "")));
+    expect(visibleText).toContain("Free domain overview.");
+    expect(visibleText).not.toContain("Paid facet percentile detail.");
+
+    const lockedActionPlan = assembled.lockedSections.find((section) => section.key === "action_plan");
+    expect(lockedActionPlan).toBeDefined();
+    expect(lockedActionPlan?.blocks).toEqual([]);
+  });
+
   it("uses locked preview policy metadata from blueprint at runtime", () => {
     const reportData = createCanonical120Fixture();
     const assembled = assembleBig5ResultViewModel({

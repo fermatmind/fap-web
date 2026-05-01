@@ -1142,6 +1142,54 @@ function shouldForceSectionLocked(section: Big5AssembledSection, gate: Big5Resul
   return !gate.modulesPreview.has(moduleCode);
 }
 
+function isBig5CoreModuleCode(moduleCode: string): boolean {
+  return !moduleCode || moduleCode === "core_free" || moduleCode === "big5_core";
+}
+
+function isBlockVisibleInGate(block: ReportBlock, gate: Big5ResultAssemblerGate): boolean {
+  if (!gate.isFreeVariant) {
+    return true;
+  }
+
+  const accessLevel = normalizeText(block.access_level).toLowerCase();
+  if (accessLevel === "paid") {
+    return false;
+  }
+
+  const moduleCode = normalizeText(block.module_code).toLowerCase();
+  if (isBig5CoreModuleCode(moduleCode)) {
+    return true;
+  }
+
+  if (accessLevel === "preview") {
+    return gate.modulesPreview.has(moduleCode);
+  }
+
+  if (gate.modulesAllowed.size > 0) {
+    return gate.modulesAllowed.has(moduleCode);
+  }
+
+  return gate.modulesPreview.has(moduleCode);
+}
+
+function filterVisibleSectionBlocks(section: Big5AssembledSection, gate: Big5ResultAssemblerGate): Big5AssembledSection {
+  if (!gate.isFreeVariant) {
+    return section;
+  }
+
+  return {
+    ...section,
+    blocks: section.blocks.filter((block) => isBlockVisibleInGate(block, gate)),
+  };
+}
+
+function redactLockedSectionBlocks(section: Big5AssembledSection): Big5AssembledSection {
+  return {
+    ...section,
+    blocks: [],
+  };
+}
+
 function buildSectionFromBlueprint(
   blueprint: Big5V1SectionBlueprint,
   reportData: ReportResponse,
@@ -1255,8 +1303,13 @@ export function assembleBig5ResultViewModel({
       .map((blueprint) => buildSectionFromBlueprint(blueprint, reportData, projection, sectionsByKey, locale))
       .filter((section): section is Big5AssembledSection => section !== null);
 
-  const visibleSections = plannedSections.filter((section) => !shouldForceSectionLocked(section, gate));
-  const lockedSections = plannedSections.filter((section) => shouldForceSectionLocked(section, gate));
+  const visibleSections = plannedSections
+    .filter((section) => !shouldForceSectionLocked(section, gate))
+    .map((section) => filterVisibleSectionBlocks(section, gate))
+    .filter((section) => section.blocks.length > 0 || normalizeText(section.access_level).toLowerCase() !== "paid");
+  const lockedSections = plannedSections
+    .filter((section) => shouldForceSectionLocked(section, gate))
+    .map((section) => redactLockedSectionBlocks(section));
 
   return {
     projection,

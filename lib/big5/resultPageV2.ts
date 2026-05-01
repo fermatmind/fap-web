@@ -150,6 +150,28 @@ export type Big5ResultPageV2Payload = z.infer<typeof big5ResultPageV2PayloadSche
 export type Big5ResultPageV2Module = Big5ResultPageV2Payload["modules"][number];
 export type Big5ResultPageV2Block = Big5ResultPageV2Module["blocks"][number];
 
+export type Big5ResultPageV2Gate = {
+  isFreeVariant: boolean;
+  modulesAllowed: Set<string>;
+};
+
+const BIG5_RESULT_PAGE_V2_FREE_MODULES = new Set<string>([
+  "module_00_trust_bar",
+  "module_01_hero",
+  "module_02_quick_understanding",
+  "module_08_share_save",
+  "module_09_feedback_data_flywheel",
+  "module_10_method_privacy",
+]);
+
+const BIG5_RESULT_PAGE_V2_MODULE_ENTITLEMENTS: Record<string, readonly string[]> = {
+  module_03_trait_deep_dive: ["big5_full", "report.full", "report_full"],
+  module_04_coupling: ["big5_full", "report.full", "report_full"],
+  module_05_facet_reframe: ["big5_full", "report.full", "report_full"],
+  module_06_application_matrix: ["big5_action_plan", "big5_full", "report.full", "report_full"],
+  module_07_collaboration_manual: ["big5_action_plan", "big5_full", "report.full", "report_full"],
+};
+
 export function parseBig5ResultPageV2Payload(value: unknown): Big5ResultPageV2Payload | null {
   const parsed = big5ResultPageV2PayloadSchema.safeParse(value);
   return parsed.success ? parsed.data : null;
@@ -165,6 +187,29 @@ export function getBig5ResultPageV2Payload(reportData: ReportResponse | null | u
 
 export function hasBig5ResultPageV2Payload(reportData: ReportResponse | null | undefined): boolean {
   return getBig5ResultPageV2Payload(reportData) !== null;
+}
+
+export function filterBig5ResultPageV2PayloadForGate(
+  payload: Big5ResultPageV2Payload,
+  gate: Big5ResultPageV2Gate
+): Big5ResultPageV2Payload {
+  if (!gate.isFreeVariant) {
+    return payload;
+  }
+
+  const modulesAllowed = new Set(Array.from(gate.modulesAllowed).map((item) => item.toLowerCase()));
+  return {
+    ...payload,
+    modules: payload.modules.filter((module) => {
+      const moduleKey = module.module_key.toLowerCase();
+      if (BIG5_RESULT_PAGE_V2_FREE_MODULES.has(moduleKey)) {
+        return true;
+      }
+
+      const entitlements = BIG5_RESULT_PAGE_V2_MODULE_ENTITLEMENTS[moduleKey] ?? [];
+      return modulesAllowed.has(moduleKey) || entitlements.some((moduleCode) => modulesAllowed.has(moduleCode));
+    }),
+  };
 }
 
 function collectForbiddenPublicKeys(value: unknown, path: Array<string | number>, ctx: z.RefinementCtx): void {

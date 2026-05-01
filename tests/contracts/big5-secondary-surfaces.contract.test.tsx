@@ -71,7 +71,12 @@ function buildTopFacetSummaries(report: ReportResponse, limit = 2) {
   }));
 }
 
-function buildHistoryItem(attemptId: string, submittedAt: string, report: ReportResponse) {
+function buildHistoryItem(
+  attemptId: string,
+  submittedAt: string,
+  report: ReportResponse,
+  accessSummaryOverrides: Record<string, unknown> = {}
+) {
   const domainsMean = {
     O: percentileByDomain(report, "O"),
     C: percentileByDomain(report, "C"),
@@ -118,6 +123,7 @@ function buildHistoryItem(attemptId: string, submittedAt: string, report: Report
         page_href: `/en/result/${attemptId}`,
         pdf_href: `/api/v0.3/attempts/${attemptId}/report.pdf`,
       },
+      ...accessSummaryOverrides,
     },
   };
 }
@@ -224,6 +230,45 @@ describe("BIG5 secondary surfaces contract", () => {
       "href",
       "/en/history/big5/compare?current=attempt-latest&previous=attempt-previous"
     );
+    expect(hoisted.fetchBig5Report).not.toHaveBeenCalled();
+    expect(hoisted.fetchBig5ReportAccess).not.toHaveBeenCalled();
+  });
+
+  it("does not render facet percentile chips for locked BIG5 history rows", async () => {
+    const canonical120 = asReport(canonical120ReportFixture);
+    const latestTopFacet = buildTopFacetSummaries(canonical120, 1)[0];
+    if (!latestTopFacet) {
+      throw new Error("Expected a fixture top facet");
+    }
+
+    hoisted.fetchBig5History.mockResolvedValue({
+      ok: true,
+      items: [
+        buildHistoryItem("attempt-locked", "2026-03-25T00:00:00Z", canonical120, {
+          access_state: "locked",
+          report_state: "ready",
+          pdf_state: "unavailable",
+          access_level: "free",
+          variant: "free",
+          modules_allowed: ["big5_core"],
+          actions: {
+            page_href: "/en/result/attempt-locked",
+            pdf_href: null,
+          },
+        }),
+      ],
+      meta: {
+        current_page: 1,
+        last_page: 1,
+      },
+    });
+
+    render(<Big5HistoryClient />);
+
+    const lockedRow = await screen.findByTestId("big5-history-row-attempt-locked");
+    expect(within(lockedRow).getByText("Preview access only")).toBeInTheDocument();
+    expect(within(lockedRow).queryByText(`${latestTopFacet.label} · P${latestTopFacet.percentile}`)).not.toBeInTheDocument();
+    expect(within(lockedRow).queryByTestId(`big5-history-row-facet-attempt-locked-${latestTopFacet.key}`)).not.toBeInTheDocument();
     expect(hoisted.fetchBig5Report).not.toHaveBeenCalled();
     expect(hoisted.fetchBig5ReportAccess).not.toHaveBeenCalled();
   });
@@ -371,5 +416,31 @@ describe("BIG5 secondary surfaces contract", () => {
     expect(await screen.findByText("Formal result unavailable")).toBeInTheDocument();
     expect(screen.queryByRole("link", { name: "Open formal result" })).not.toBeInTheDocument();
     expect(screen.queryByTestId("big5-compare-pdf-entry")).not.toBeInTheDocument();
+  });
+
+  it("does not fetch or render BIG5 compare percentiles before formal result access is ready", async () => {
+    hoisted.pathname = "/en/history/big5/compare";
+    hoisted.search = "current=attempt-current&previous=attempt-previous";
+    hoisted.fetchBig5ReportAccess.mockResolvedValue({
+      ok: true,
+      attempt_id: "attempt-current",
+      access_state: "locked",
+      report_state: "ready",
+      pdf_state: "unavailable",
+      access_level: "free",
+      variant: "free",
+      modules_allowed: ["big5_core"],
+      actions: {
+        page_href: "/en/result/attempt-current",
+        pdf_href: null,
+      },
+    });
+
+    render(<Big5CompareClient />);
+
+    expect(await screen.findByText("Current result is still in preview")).toBeInTheDocument();
+    expect(screen.queryByText("Domain percentile delta")).not.toBeInTheDocument();
+    expect(screen.queryByText("Top changed facets")).not.toBeInTheDocument();
+    expect(hoisted.fetchBig5Report).not.toHaveBeenCalled();
   });
 });
