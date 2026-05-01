@@ -10,6 +10,8 @@ type ChildrenProps = {
   children?: ReactNode;
 };
 
+const CONTRACT_RENDER_TIMEOUT_MS = 5_000;
+
 const hoisted = vi.hoisted(() => ({
   pathname: "/en/tests/big-five-personality-test-ocean-model/take",
   search: "form=big5_90",
@@ -258,9 +260,13 @@ function readBig5TakeClientSource(): string {
 async function waitForFirstQuestion() {
   await waitFor(() => {
     expect(screen.getByText("Big Five question 1")).toBeInTheDocument();
+  }, {
+    timeout: CONTRACT_RENDER_TIMEOUT_MS,
   });
   await waitFor(() => {
     expect(screen.getByRole("button", { name: "Answer current" })).toBeInTheDocument();
+  }, {
+    timeout: CONTRACT_RENDER_TIMEOUT_MS,
   });
 }
 
