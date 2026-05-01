@@ -5,6 +5,7 @@ import {
   type MbtiEntrySourcePageType,
 } from "@/lib/mbti/entryTracking";
 import type { Locale } from "@/lib/i18n/locales";
+import { normalizeInternalHref } from "@/lib/url/safeContentUrls";
 
 type SceneBlock = {
   key: string;
@@ -19,10 +20,6 @@ type MbtiSceneEntrySectionProps = {
   blocks?: SceneBlock[] | null;
   testId?: string;
 };
-
-function normalizeHref(href: string | null | undefined): string {
-  return typeof href === "string" ? href.trim() : "";
-}
 
 export function MbtiSceneEntrySection({
   locale,
@@ -39,7 +36,7 @@ export function MbtiSceneEntrySection({
       const fallback = fallbackByKey.get(key);
       const title = String(block.title ?? "").trim() || fallback?.title || "";
       const body = String(block.body ?? "").trim() || fallback?.body || "";
-      const href = normalizeHref(block.href) || fallback?.href || "";
+      const href = normalizeInternalHref(block.href) || normalizeInternalHref(fallback?.href) || "";
       if (!title || !body || !href) {
         return null;
       }

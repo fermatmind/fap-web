@@ -1,4 +1,5 @@
 import { resolveApiOrigin } from "@/lib/api-base";
+import { normalizeMediaAssetUrl } from "@/lib/url/safeContentUrls";
 
 export const CANONICAL_MEDIA_ASSET_ORIGIN = "https://assets.fermatmind.com";
 
@@ -33,7 +34,13 @@ export function cmsManagedMediaUrl(value: string | null | undefined): string | n
     return null;
   }
 
-  return value;
+  return normalizeMediaAssetUrl(value, {
+    allowedOrigins: [
+      CANONICAL_MEDIA_ASSET_ORIGIN,
+      resolveApiOrigin(),
+      process.env.NEXT_PUBLIC_CDN_URL,
+    ],
+  });
 }
 
 export const DEFAULT_SHARE_IMAGE_URL = backendStaticMediaUrl("/static/share/mbti_wide_1200x630.png");

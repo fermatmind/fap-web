@@ -246,7 +246,7 @@ function createStoragePayload(fullCode: "INFJ-A" | "ENTJ-T", readySlot: "hero-il
           ? {
               provider: "cdn",
               path: "mbti/desktop/hero/path.webp",
-              url: "https://cdn.example.com/mbti/desktop/hero/path.webp",
+              url: "https://assets.fermatmind.com/mbti/desktop/hero/path.webp",
               version: "v1",
               checksum: "sha256:hero",
             }
@@ -290,7 +290,7 @@ function createStoragePayload(fullCode: "INFJ-A" | "ENTJ-T", readySlot: "hero-il
           ? {
               provider: "cdn",
               path: "mbti/desktop/growth/path.webp",
-              url: "https://cdn.example.com/mbti/desktop/growth/path.webp",
+              url: "https://assets.fermatmind.com/mbti/desktop/growth/path.webp",
               version: "v1",
               checksum: "sha256:growth",
             }
@@ -366,7 +366,7 @@ describe("MBTI desktop asset slot consumption contract", () => {
     });
 
     const heroImage = heroSlot.querySelector("img");
-    expect(heroImage?.getAttribute("src")).toBe("https://cdn.example.com/mbti/desktop/hero/path.webp");
+    expect(heroImage?.getAttribute("src")).toBe("https://assets.fermatmind.com/mbti/desktop/hero/path.webp");
     expect(screen.getByTestId("mbti-asset-slot-traits-summary")).toHaveAttribute("data-slot-mode", "disabled");
   });
 
@@ -387,7 +387,7 @@ describe("MBTI desktop asset slot consumption contract", () => {
     });
 
     const growthImage = growthSlot.querySelector("img");
-    expect(growthImage?.getAttribute("src")).toBe("https://cdn.example.com/mbti/desktop/growth/path.webp");
+    expect(growthImage?.getAttribute("src")).toBe("https://assets.fermatmind.com/mbti/desktop/growth/path.webp");
   });
 
   it("keeps placeholder fallback stable when storage misses or slot is disabled", async () => {

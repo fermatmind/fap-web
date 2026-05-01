@@ -7,6 +7,7 @@ import {
 } from "@/lib/mbti/entryTracking";
 import type { MbtiSceneDeepModule } from "@/lib/mbti/sceneDeepContent";
 import type { Locale } from "@/lib/i18n/locales";
+import { normalizeInternalHref } from "@/lib/url/safeContentUrls";
 
 type MbtiScenarioDeepDiveSectionProps = {
   locale: Locale;
@@ -70,18 +71,24 @@ export function MbtiScenarioDeepDiveSection({
                   (link.kind === "start_test"
                     ? `start_mbti_test_scene_${module.sceneKey}`
                     : `open_scene_deep_${module.sceneKey}_${link.key}`);
+                let trackedHref: string;
 
-                const trackedHref =
-                  link.kind === "start_test"
-                    ? buildMbtiEntryHref({
-                        locale,
-                        formCode: DEFAULT_MBTI_FORM_CODE,
-                        entrySurface: "mbti_scene_block",
-                        sourcePageType,
-                        targetAction,
-                        sourcePath,
-                      })
-                    : link.href;
+                if (link.kind === "start_test") {
+                  trackedHref = buildMbtiEntryHref({
+                    locale,
+                    formCode: DEFAULT_MBTI_FORM_CODE,
+                    entrySurface: "mbti_scene_block",
+                    sourcePageType,
+                    targetAction,
+                    sourcePath,
+                  });
+                } else {
+                  const safeLinkHref = normalizeInternalHref(link.href);
+                  if (!safeLinkHref) {
+                    return null;
+                  }
+                  trackedHref = safeLinkHref;
+                }
 
                 return (
                   <TrackedEntryCtaLink

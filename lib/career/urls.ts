@@ -1,4 +1,5 @@
 import { localizedPath, normalizeLocale, type Locale } from "@/lib/i18n/locales";
+import { normalizeInternalHref } from "@/lib/url/safeContentUrls";
 
 function normalizeCareerSlug(value: string): string {
   return String(value ?? "")
@@ -27,14 +28,10 @@ export function normalizeCareerBundleCanonicalPath(
   fallbackPath: string
 ): string {
   const normalizedLocale = normalizeLocale(locale);
-  const normalizedCanonical = String(canonicalPath ?? "").trim();
+  const normalizedCanonical = normalizeInternalHref(canonicalPath);
 
   if (!normalizedCanonical) {
     return fallbackPath;
-  }
-
-  if (/^https?:\/\//i.test(normalizedCanonical)) {
-    return normalizedCanonical;
   }
 
   if (/^\/(en|zh)(\/|$)/i.test(normalizedCanonical)) {
