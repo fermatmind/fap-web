@@ -13,6 +13,7 @@ import {
   normalizeMbtiPublicProjectionCard,
   type MbtiPublicProjectionCardViewModel,
 } from "@/lib/mbti/publicProjection";
+import { normalizeInternalHref } from "@/lib/url/safeContentUrls";
 
 export type PrivateRelationshipSectionViewModel = {
   key: string;
@@ -171,7 +172,7 @@ function normalizePrivateActionPrompt(
     title,
     summary,
     ctaLabel: normalizeText(rawActionPrompt.cta_label),
-    ctaPath: normalizeText(rawActionPrompt.cta_path),
+    ctaPath: normalizeInternalHref(rawActionPrompt.cta_path) ?? "",
   };
 }
 

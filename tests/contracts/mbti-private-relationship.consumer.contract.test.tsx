@@ -2,6 +2,7 @@ import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import PrivateRelationshipClient from "@/app/(localized)/[locale]/(app)/relationships/mbti/[inviteId]/PrivateRelationshipClient";
 import type { MbtiCompareParticipantRaw, PrivateMbtiRelationshipResponse } from "@/lib/api/v0_3";
+import { normalizePrivateRelationship } from "@/lib/mbti/privateRelationship";
 
 const hoisted = vi.hoisted(() => ({
   getPrivateMbtiRelationship: vi.fn(),
@@ -241,6 +242,21 @@ describe("MBTI private relationship consumer contract", () => {
         accessState: "private_access_ready",
       })
     );
+  });
+
+  it("drops unsafe private action prompt CTA paths before rendering links", () => {
+    const viewModel = normalizePrivateRelationship({
+      ...createPrivateRelationshipFixture().private_relationship_v1,
+      private_action_prompt: {
+        key: "unsafe",
+        title: "Unsafe next step",
+        summary: "Unsafe CTA should not render.",
+        cta_label: "Open",
+        cta_path: "javascript:alert(1)",
+      },
+    });
+
+    expect(viewModel?.actionPrompt?.ctaPath).toBe("");
   });
 
   it("supports dyadic journey mutation and re-renders pulse-aware progression", async () => {

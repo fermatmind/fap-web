@@ -820,6 +820,47 @@ describe("MBTI share consumer contract", () => {
     });
   });
 
+  it("falls back when API-provided share CTA paths are external", async () => {
+    hoisted.getShareSummary.mockResolvedValue({
+      ...createShareFixture(),
+      primary_cta_path: "https://evil.example/tests/mbti-personality-test-16-personality-types/take",
+    });
+
+    render(<ShareClient locale="en" shareId="share-123" />);
+
+    await waitFor(() => {
+      const href = screen.getAllByRole("link", { name: "Start MBTI test" })[0]?.getAttribute("href") ?? "";
+      expect(href).toContain("/en/tests/mbti-personality-test-16-personality-types/take?");
+      expect(href).not.toContain("evil.example");
+    });
+  });
+
+  it("does not route compare invite responses with external take paths", async () => {
+    hoisted.createMbtiCompareInvite.mockResolvedValue({
+      ok: true,
+      invite_id: "invite-evil",
+      share_id: "share-123",
+      scale_code: "MBTI",
+      locale: "en",
+      status: "pending",
+      take_path: "https://evil.example/en/tests/mbti-personality-test-16-personality-types/take",
+      compare_path: "/en/compare/mbti/invite-evil",
+    });
+
+    render(<ShareClient locale="en" shareId="share-123" />);
+
+    await waitFor(() => {
+      expect(screen.getByRole("button", { name: "Invite a friend to compare" })).toBeEnabled();
+    });
+
+    fireEvent.click(screen.getByRole("button", { name: "Invite a friend to compare" }));
+
+    await waitFor(() => {
+      expect(hoisted.routerPush).not.toHaveBeenCalled();
+      expect(screen.getByText("Compare invite path is unavailable.")).toBeInTheDocument();
+    });
+  });
+
   it("redacts sensitive share-click landing and referrer values before tracking", async () => {
     hoisted.search = "utm_source=wechat&utm_medium=organic&utm_campaign=spring&attempt_id=attempt-secret&fm_token=raw-token";
     Object.defineProperty(document, "referrer", {

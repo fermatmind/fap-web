@@ -288,6 +288,26 @@ describe("MBTI compare invite consumer contract", () => {
     });
   });
 
+  it("drops unsafe compare invite CTA paths from the view model", () => {
+    const viewModel = buildCompareInviteViewModel({
+      ...createPendingFixture(),
+      primary_cta_path: "https://evil.example/tests/mbti-personality-test-16-personality-types/take",
+      relationship_sync_v1: {
+        ...createPendingFixture().relationship_sync_v1,
+        action_prompt: {
+          key: "unsafe",
+          title: "Unsafe action",
+          summary: "Unsafe action prompt CTA should not render.",
+          cta_label: "Open",
+          cta_path: "data:text/html,alert(1)",
+        },
+      },
+    });
+
+    expect(viewModel.primaryCtaPath).toBe("");
+    expect(viewModel.relationshipSync?.actionPrompt?.ctaPath).toBe("");
+  });
+
   it("renders ready state with inviter, invitee, and public compare summary only", async () => {
     hoisted.getMbtiCompareInvite.mockResolvedValue(createReadyFixture("ready"));
 

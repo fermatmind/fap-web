@@ -7,6 +7,36 @@ function normalizeCareerSlug(value: string): string {
     .toLowerCase();
 }
 
+function stripLocalePrefix(path: string): string {
+  return path.replace(/^\/(?:en|zh)(?=\/|$)/i, "") || "/";
+}
+
+function allowedCareerRoutePrefix(path: string): string | null {
+  const normalized = stripLocalePrefix(path);
+
+  if (normalized.startsWith("/career/jobs/")) {
+    return "/career/jobs/";
+  }
+
+  if (normalized.startsWith("/career/family/")) {
+    return "/career/family/";
+  }
+
+  if (normalized.startsWith("/career/recommendations/mbti/")) {
+    return "/career/recommendations/mbti/";
+  }
+
+  if (normalized.startsWith("/tests/")) {
+    return "/tests/";
+  }
+
+  if (normalized.startsWith("/topics/")) {
+    return "/topics/";
+  }
+
+  return null;
+}
+
 export function buildCareerJobFrontendUrl(locale: Locale | string, slug: string): string {
   const normalizedLocale = normalizeLocale(locale);
   return localizedPath(`/career/jobs/${normalizeCareerSlug(slug)}`, normalizedLocale);
@@ -31,6 +61,12 @@ export function normalizeCareerBundleCanonicalPath(
   const normalizedCanonical = normalizeInternalHref(canonicalPath);
 
   if (!normalizedCanonical) {
+    return fallbackPath;
+  }
+
+  const allowedPrefix = allowedCareerRoutePrefix(fallbackPath);
+  const normalizedCanonicalPath = stripLocalePrefix(normalizedCanonical);
+  if (!allowedPrefix || !normalizedCanonicalPath.startsWith(allowedPrefix)) {
     return fallbackPath;
   }
 

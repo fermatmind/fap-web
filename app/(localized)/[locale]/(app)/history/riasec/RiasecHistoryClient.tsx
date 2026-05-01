@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { Alert } from "@/components/ui/alert";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { normalizeReportActionHref } from "@/lib/access/reportActionUrls";
 import { createAttemptShare, type MeAttemptItem } from "@/lib/api/v0_3";
 import { fetchRiasecHistory } from "@/lib/riasec/api";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
@@ -194,7 +195,9 @@ export default function RiasecHistoryClient() {
 
       <div className="grid gap-3">
         {rows.map((row) => {
-          const resultHref = row.accessSummary?.actions?.page_href || localizedPath(`/result/${row.attemptId}`, locale);
+          const resultHref =
+            normalizeReportActionHref(row.accessSummary?.actions?.page_href, locale, "page")
+            || localizedPath(`/result/${row.attemptId}`, locale);
           const retakeHref = buildRiasecTakeHref(SCALE_CANONICAL_SLUG_MAP.RIASEC, locale, row.formCode ?? undefined);
           const shareState = shareStateByAttemptId[row.attemptId] ?? "idle";
           const formMeta = [

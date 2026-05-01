@@ -11,7 +11,11 @@ import {
 import type { ReportResponse } from "@/lib/api/v0_3";
 import { readPendingOrder, writePendingOrder } from "@/lib/commerce/pendingOrder";
 import { buildMbtiResultProjectionViewModel } from "@/lib/mbti/publicProjection";
-import type { AttemptInviteUnlockProgressView } from "@/lib/access/inviteUnlock";
+import {
+  normalizeAttemptInviteUnlockProgress,
+  resolveInviteUnlockUrl,
+  type AttemptInviteUnlockProgressView,
+} from "@/lib/access/inviteUnlock";
 import { applyMbtiPhase2Fixture } from "@/tests/helpers/mbtiPhase2Fixture";
 import type {
   HighlightCard,
@@ -444,7 +448,7 @@ describe("MBTI checkout wiring contract", () => {
         unlockStage="locked"
         unlockSource="invite"
         inviteUnlockProgress={createInviteProgress({
-          inviteUrl: "https://example.com/zh/tests/mbti-personality-test-16-personality-types/take?invite_code=invite_mbti_001",
+          inviteUrl: "https://www.fermatmind.com/zh/tests/mbti-personality-test-16-personality-types/take?invite_code=invite_mbti_001",
         })}
       />
     );
@@ -469,9 +473,27 @@ describe("MBTI checkout wiring contract", () => {
 
     await waitFor(() => {
       expect(window.navigator.clipboard.writeText).toHaveBeenCalledWith(
-        "https://example.com/zh/tests/mbti-personality-test-16-personality-types/take?invite_code=invite_mbti_001"
+        "http://localhost:3000/zh/tests/mbti-personality-test-16-personality-types/take?invite_code=invite_mbti_001"
       );
     });
+  });
+
+  it("drops unsafe backend invite_url values before resolving unlock CTAs", () => {
+    const progress = normalizeAttemptInviteUnlockProgress(
+      {
+        ok: true,
+        invite_code: "invite_mbti_safe_fallback",
+        invite_url: "https://evil.example/zh/tests/mbti-personality-test-16-personality-types/take?invite_code=bad",
+        status: "locked",
+        required_invitees: 2,
+        completed_invitees: 0,
+      },
+      "zh"
+    );
+
+    expect(resolveInviteUnlockUrl({ progress, locale: "zh" })).toBe(
+      "/zh/tests/mbti-personality-test-16-personality-types/take?invite_code=invite_mbti_safe_fallback"
+    );
   });
 
   it("builds locale invite URL from invite_code when invite_url is missing", async () => {
