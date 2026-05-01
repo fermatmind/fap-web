@@ -786,7 +786,7 @@ describe("MBTI share consumer contract", () => {
       meta: {
         entrypoint: "share_page",
         landing_path: "/en/share/share-123?utm_source=wechat&utm_medium=organic&utm_campaign=spring",
-        referrer: "https://example.com/en/result/attempt-123",
+        referrer: "https://example.com/en/result/redacted",
         utm: {
           source: "wechat",
           medium: "organic",
@@ -820,6 +820,43 @@ describe("MBTI share consumer contract", () => {
     });
   });
 
+  it("redacts sensitive share-click landing and referrer values before tracking", async () => {
+    hoisted.search = "utm_source=wechat&utm_medium=organic&utm_campaign=spring&attempt_id=attempt-secret&fm_token=raw-token";
+    Object.defineProperty(document, "referrer", {
+      configurable: true,
+      value: "https://example.com/en/results/attempt-secret?report_url=https%3A%2F%2Fevil.example%2Freport%2Fsecret&token=raw-ref-token",
+    });
+
+    render(<ShareClient locale="en" shareId="share-123" />);
+
+    await waitFor(() => {
+      expect(hoisted.trackShareClick).toHaveBeenCalledTimes(1);
+    });
+
+    const payload = hoisted.trackShareClick.mock.calls[0]?.[0];
+    expect(payload).toEqual({
+      shareId: "share-123",
+      anonId: "anon_share_test",
+      locale: "en",
+      meta: {
+        entrypoint: "share_page",
+        landing_path: "/en/share/share-123?utm_source=wechat&utm_medium=organic&utm_campaign=spring&attempt_id=redacted&fm_token=redacted",
+        referrer: "https://example.com/en/results/redacted?report_url=redacted&token=redacted",
+        utm: {
+          source: "wechat",
+          medium: "organic",
+          campaign: "spring",
+          term: null,
+          content: null,
+        },
+        compare_intent: false,
+      },
+    });
+    expect(JSON.stringify(payload)).not.toContain("attempt-secret");
+    expect(JSON.stringify(payload)).not.toContain("raw-token");
+    expect(JSON.stringify(payload)).not.toContain("raw-ref-token");
+  });
+
   it("creates compare invite from the share page and routes into the take flow with full attribution query", async () => {
     render(<ShareClient locale="en" shareId="share-123" />);
 
@@ -835,7 +872,7 @@ describe("MBTI share consumer contract", () => {
         anonId: "anon_share_test",
         locale: "en",
         entrypoint: "share_page",
-        referrer: "https://example.com/en/result/attempt-123",
+        referrer: "https://example.com/en/result/redacted",
         landingPath: "/en/share/share-123?utm_source=wechat&utm_medium=organic&utm_campaign=spring",
         compareIntent: true,
         shareClickId: "click-123",
@@ -851,7 +888,7 @@ describe("MBTI share consumer contract", () => {
 
     await waitFor(() => {
       expect(hoisted.routerPush).toHaveBeenCalledWith(
-        "/en/tests/mbti-personality-test-16-personality-types/take?share_id=share-123&compare_invite_id=invite-456&share_click_id=click-123&entrypoint=share_compare_invite&landing_path=%2Fen%2Fshare%2Fshare-123%3Futm_source%3Dwechat%26utm_medium%3Dorganic%26utm_campaign%3Dspring&referrer=https%3A%2F%2Fexample.com%2Fen%2Fresult%2Fattempt-123&compare_intent=true&utm_source=wechat&utm_medium=organic&utm_campaign=spring"
+        "/en/tests/mbti-personality-test-16-personality-types/take?share_id=share-123&compare_invite_id=invite-456&share_click_id=click-123&entrypoint=share_compare_invite&landing_path=%2Fen%2Fshare%2Fshare-123%3Futm_source%3Dwechat%26utm_medium%3Dorganic%26utm_campaign%3Dspring&referrer=https%3A%2F%2Fexample.com%2Fen%2Fresult%2Fredacted&compare_intent=true&utm_source=wechat&utm_medium=organic&utm_campaign=spring"
       );
     });
   });
