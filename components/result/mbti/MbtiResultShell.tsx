@@ -35,6 +35,7 @@ import {
   type PersonalityDesktopCloneAssetSlot,
 } from "@/lib/cms/personality-desktop-clone";
 import { buildOrderWaitPath, regionFromLocale, resolveCheckoutAction } from "@/lib/commerce/checkoutAction";
+import { normalizeCommerceReportPath } from "@/lib/commerce/redirectUrls";
 import { clearPendingOrder, readPendingOrder, writePendingOrder } from "@/lib/commerce/pendingOrder";
 import {
   readStoredTrackingAttributionPayload,
@@ -1449,7 +1450,7 @@ export function MbtiResultShell({
         action.kind === "order_wait" || action.kind === "redirect" ? action.paymentRecoveryToken : null
       );
       const resultUrl = normalizeText(
-        checkout.result_url,
+        normalizeCommerceReportPath(checkout.result_url),
         action.kind === "order_wait" || action.kind === "redirect" ? action.resultUrl : null
       );
       const resolvedProvider = normalizeText(

@@ -32,6 +32,12 @@ import {
 } from "@/lib/api/v0_3";
 import { ApiError } from "@/lib/api-client";
 import { trackEvent } from "@/lib/analytics";
+import {
+  normalizeCommercePayValue,
+  normalizeCommercePaymentRedirectUrl,
+  normalizeCommerceReportPath,
+  normalizeCommerceWaitPath,
+} from "@/lib/commerce/redirectUrls";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { captureError } from "@/lib/observability/sentry";
 import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
@@ -68,6 +74,14 @@ function normalizeLocalizedPath(pathname: string): string {
   return pathname.replace(/^\/(en|zh)(?=\/|$)/, "") || "/";
 }
 
+function localizeCommerceHref(path: string | null, localePath: (path: string) => string): string | null {
+  if (!path) {
+    return null;
+  }
+
+  return hasLocalePrefix(path) ? path : localePath(path);
+}
+
 function buildCanonicalWaitHref({
   orderNo,
   localePath,
@@ -85,12 +99,10 @@ function buildCanonicalWaitHref({
 }): string {
   const params = new URLSearchParams({ order_no: orderNo });
 
-  if (payType === "qr" || payType === "html" || payType === "redirect") {
+  const safePayValue = normalizeCommercePayValue({ payType, value: payValue, provider });
+  if ((payType === "qr" || payType === "html" || payType === "redirect") && safePayValue) {
     params.set("pay_type", payType);
-  }
-
-  if (payValue) {
-    params.set("pay_value", payValue);
+    params.set("pay_value", safePayValue);
   }
 
   if (provider) {
@@ -146,8 +158,17 @@ export default function OrdersClient({
       ? "请使用原购买账号登录，或在匿名购买场景下通过订单查询恢复支付流程。"
       : "Sign in with the account used for purchase, or use order lookup if you checked out as a guest.";
   const queryPayType = useMemo(() => normalizePayType(searchParams.get("pay_type")), [searchParams]);
-  const queryPayValue = useMemo(() => normalizeQueryValue(searchParams.get("pay_value")), [searchParams]);
   const queryPayProvider = useMemo(() => normalizeQueryValue(searchParams.get("provider")), [searchParams]);
+  const queryPayValue = useMemo(
+    () =>
+      normalizeCommercePayValue({
+        payType: queryPayType,
+        value: searchParams.get("pay_value"),
+        provider: queryPayProvider,
+      }),
+    [queryPayProvider, queryPayType, searchParams]
+  );
+  const effectiveQueryPayType = queryPayValue ? queryPayType : null;
   const queryPaymentRecoveryToken = useMemo(
     () => normalizeQueryValue(searchParams.get("payment_recovery_token") ?? searchParams.get("paymentRecoveryToken")),
     [searchParams]
@@ -165,7 +186,7 @@ export default function OrdersClient({
   const [delivery, setDelivery] = useState<DeliveryPayload | null>(null);
   const [accessHubRaw, setAccessHubRaw] = useState<OrderStatusResponse["mbti_access_hub_v1"] | null>(null);
   const [formSummaryRaw, setFormSummaryRaw] = useState<PublicFormSummaryV1Raw | null>(null);
-  const [payType, setPayType] = useState<PayType>(queryPayType);
+  const [payType, setPayType] = useState<PayType>(effectiveQueryPayType);
   const [payValue, setPayValue] = useState<string | null>(queryPayValue);
   const [payProvider, setPayProvider] = useState<string | null>(queryPayProvider);
   const [message, setMessage] = useState<string>(initializingMessage);
@@ -186,7 +207,7 @@ export default function OrdersClient({
   const pollStartedAtRef = useRef(Date.now());
   const isPollingRef = useRef(true);
   const payProviderRef = useRef<string | null>(payProvider);
-  const payTypeRef = useRef<PayType>(queryPayType);
+  const payTypeRef = useRef<PayType>(effectiveQueryPayType);
   const payValueRef = useRef<string | null>(queryPayValue);
   const reportedStatusRef = useRef<ViewStatus | null>(null);
   const didAutoRedirectRef = useRef(false);
@@ -198,8 +219,8 @@ export default function OrdersClient({
   }, [orderNo, withLocale]);
 
   useEffect(() => {
-    if (queryPayType) {
-      setPayType(queryPayType);
+    if (effectiveQueryPayType) {
+      setPayType(effectiveQueryPayType);
     }
     if (queryPayValue) {
       setPayValue(queryPayValue);
@@ -207,7 +228,7 @@ export default function OrdersClient({
     if (queryPayProvider) {
       setPayProvider(queryPayProvider);
     }
-  }, [queryPayProvider, queryPayType, queryPayValue]);
+  }, [effectiveQueryPayType, queryPayProvider, queryPayValue]);
 
   useEffect(() => {
     if (oldOrderRouteRecoveryRef.current) {
@@ -221,7 +242,7 @@ export default function OrdersClient({
     const pendingOrder = readPendingOrder();
     const pendingMatchesOrder = pendingOrder?.orderNo === orderNo ? pendingOrder : null;
     const recoveryToken = effectivePaymentRecoveryToken ?? pendingMatchesOrder?.paymentRecoveryToken ?? null;
-    const pendingWaitHref = normalizeQueryValue(pendingMatchesOrder?.waitUrl ?? null);
+    const pendingWaitHref = normalizeCommerceWaitPath(pendingMatchesOrder?.waitUrl ?? null);
     const normalizedSearchEntries = Array.from(searchParams.entries()).map(([key, value]) => [
       key,
       normalizeQueryValue(value),
@@ -232,20 +253,18 @@ export default function OrdersClient({
     );
 
     const nextHref =
-      pendingWaitHref && (/^https?:\/\//i.test(pendingWaitHref) || hasLocalePrefix(pendingWaitHref))
-        ? pendingWaitHref
-        : pendingWaitHref
-          ? withLocale(pendingWaitHref)
-          : recoveryToken
-            ? buildCanonicalWaitHref({
-                orderNo,
-                localePath: withLocale,
-                paymentRecoveryToken: recoveryToken,
-                payType: queryPayType,
-                payValue: queryPayValue,
-                provider: queryPayProvider,
-              })
-            : null;
+      pendingWaitHref
+        ? withLocale(pendingWaitHref)
+        : recoveryToken
+          ? buildCanonicalWaitHref({
+              orderNo,
+              localePath: withLocale,
+              paymentRecoveryToken: recoveryToken,
+              payType: effectiveQueryPayType,
+              payValue: queryPayValue,
+              provider: queryPayProvider,
+            })
+          : null;
 
     if (!nextHref) {
       if (!hasNativeAlipayReturnContext) {
@@ -263,14 +282,10 @@ export default function OrdersClient({
               out_trade_no: returnParams.out_trade_no ?? returnParams.outTradeNo ?? orderNo,
             },
           });
-          const recoveredWaitHref = normalizeQueryValue(recovered.wait_url ?? null);
+          const recoveredWaitHref = normalizeCommerceWaitPath(recovered.wait_url ?? null);
           const recoveredToken = normalizeQueryValue(recovered.payment_recovery_token ?? null);
           if (recoveredWaitHref) {
-            router.replace(
-              /^https?:\/\//i.test(recoveredWaitHref) || hasLocalePrefix(recoveredWaitHref)
-                ? recoveredWaitHref
-                : withLocale(recoveredWaitHref)
-            );
+            router.replace(withLocale(recoveredWaitHref));
             return;
           }
 
@@ -280,7 +295,7 @@ export default function OrdersClient({
                 orderNo,
                 localePath: withLocale,
                 paymentRecoveryToken: recoveredToken,
-                payType: queryPayType,
+                payType: effectiveQueryPayType,
                 payValue: queryPayValue,
                 provider: queryPayProvider,
               })
@@ -302,7 +317,7 @@ export default function OrdersClient({
     orderNo,
     pathname,
     queryPayProvider,
-    queryPayType,
+    effectiveQueryPayType,
     queryPayValue,
     searchParams,
     router,
@@ -401,7 +416,7 @@ export default function OrdersClient({
         pollStepRef.current = 0;
       }
 
-      const includePaymentAction = !queryPayType && (!payTypeRef.current || !payValueRef.current);
+      const includePaymentAction = !effectiveQueryPayType && (!payTypeRef.current || !payValueRef.current);
 
       try {
         const response = await getOrderStatus({
@@ -419,16 +434,18 @@ export default function OrdersClient({
         const responsePayType = normalizePayType(
           typeof responsePayNode?.type === "string" ? responsePayNode.type : null
         );
-        const responsePayValue = normalizeQueryValue(
-          typeof responsePayNode?.value === "string" ? responsePayNode.value : null
-        );
         const responsePayProvider =
           normalizeQueryValue(typeof response.provider === "string" ? response.provider : null)
           ?? normalizeQueryValue(typeof responsePayNode?.provider === "string" ? responsePayNode.provider : null);
+        const responsePayValue = normalizeCommercePayValue({
+          payType: responsePayType,
+          value: typeof responsePayNode?.value === "string" ? responsePayNode.value : null,
+          provider: responsePayProvider,
+        });
         const responseOrderBoundAttemptId =
           normalizeQueryValue(response.exact_result_entry?.attempt_id ?? null)
           ?? normalizeQueryValue(response.attempt_id ?? null);
-        const responseOrderBoundResultHref = normalizeQueryValue(
+        const responseOrderBoundResultHref = normalizeCommerceReportPath(
           typeof response.exact_result_entry?.actions?.page_href === "string"
             ? response.exact_result_entry.actions.page_href
             : null
@@ -476,7 +493,7 @@ export default function OrdersClient({
         setDelivery((response.delivery ?? null) as DeliveryPayload | null);
         setAccessHubRaw(response.mbti_access_hub_v1 ?? null);
         setFormSummaryRaw(responseFormSummaryRaw);
-        if (!queryPayType && responsePayType && responsePayValue) {
+        if (!effectiveQueryPayType && responsePayType && responsePayValue) {
           setPayType(responsePayType);
           setPayValue(responsePayValue);
         }
@@ -485,7 +502,8 @@ export default function OrdersClient({
         }
 
         if (nextStatus === "paid") {
-          const exactResultReady = canEnterReportPage(nextAccessView) && Boolean(nextAccessView?.actions.pageHref);
+          const exactResultHref = normalizeCommerceReportPath(nextAccessView?.actions.pageHref ?? null);
+          const exactResultReady = canEnterReportPage(nextAccessView) && Boolean(exactResultHref);
           if (reportedStatusRef.current !== "paid") {
             const maskedOrder = `${orderNo.slice(0, 6)}...${orderNo.slice(-4)}`;
             const maskedAttempt = response.attempt_id
@@ -515,16 +533,12 @@ export default function OrdersClient({
             reportedStatusRef.current = "paid";
           }
 
-          if (exactResultReady && nextAccessView?.actions.pageHref) {
+          if (exactResultReady && exactResultHref) {
             setMessage(dict.orders.reportReady);
             stopPolling();
             if (!didAutoRedirectRef.current) {
               didAutoRedirectRef.current = true;
-              if (/^https?:\/\//i.test(nextAccessView.actions.pageHref)) {
-                window.location.assign(nextAccessView.actions.pageHref);
-              } else {
-                router.replace(nextAccessView.actions.pageHref);
-              }
+              router.replace(localizeCommerceHref(exactResultHref, withLocale) ?? withLocale("/orders/lookup"));
             }
             return;
           }
@@ -638,7 +652,8 @@ export default function OrdersClient({
     locale,
     orderNo,
     queryPayProvider,
-    queryPayType,
+    effectiveQueryPayType,
+    queryPayValue,
     router,
     withLocale,
   ]);
@@ -651,8 +666,10 @@ export default function OrdersClient({
 
   const handleOpenPaymentPage = useCallback(() => {
     if ((payType !== "html" && payType !== "redirect") || !payValue) return;
-    window.open(payValue, "_blank", "noopener,noreferrer");
-  }, [payType, payValue]);
+    const safePayUrl = normalizeCommercePaymentRedirectUrl(payValue, payProvider);
+    if (!safePayUrl) return;
+    window.open(safePayUrl, "_blank", "noopener,noreferrer");
+  }, [payProvider, payType, payValue]);
 
   const handleRetryPayment = useCallback(() => {
     if ((payType === "html" || payType === "redirect") && payValue) {
@@ -756,15 +773,13 @@ export default function OrdersClient({
     return withLocale(`/orders/lookup?${query.toString()}`);
   }, [accessHub?.recovery.claimHref, delivery?.can_request_claim_email, orderNo, withLocale]);
   const canViewReport = canEnterReportPage(accessView);
-  const resolvedReportHref = accessView?.actions.pageHref ?? null;
-  const reportEntryHref = canViewReport ? resolvedReportHref : null;
+  const resolvedReportHref = normalizeCommerceReportPath(accessView?.actions.pageHref ?? null);
+  const reportEntryHref = canViewReport ? localizeCommerceHref(resolvedReportHref, withLocale) : null;
   const backToResultHref = useMemo(() => {
-    if (orderBoundResultHref) {
-      if (/^https?:\/\//i.test(orderBoundResultHref) || hasLocalePrefix(orderBoundResultHref)) {
-        return orderBoundResultHref;
-      }
-
-      return withLocale(orderBoundResultHref);
+    const safeOrderBoundResultHref = normalizeCommerceReportPath(orderBoundResultHref);
+    const localizedOrderBoundResultHref = localizeCommerceHref(safeOrderBoundResultHref, withLocale);
+    if (localizedOrderBoundResultHref) {
+      return localizedOrderBoundResultHref;
     }
 
     if (orderBoundAttemptId) {

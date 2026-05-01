@@ -87,6 +87,23 @@ describe("alipay return flow contract", () => {
     });
   });
 
+  it("ignores wait_url values from non-first-party origins", async () => {
+    render(
+      <OrderReturnFallbackClient
+        locale="en"
+        orderNo="ord_return_alipay_1c"
+        paymentRecoveryToken="recovery_return_alipay_1c"
+        waitUrl="https://evil.example/en/pay/wait?order_no=ord_return_alipay_1c&payment_recovery_token=recovery_return_alipay_1c"
+      />
+    );
+
+    await waitFor(() => {
+      expect(hoisted.routerReplace).toHaveBeenCalledWith(
+        "/en/pay/wait?order_no=ord_return_alipay_1c&payment_recovery_token=recovery_return_alipay_1c"
+      );
+    });
+  });
+
   it("builds the canonical wait flow from order_no and payment token when wait_url is absent", async () => {
     render(
       <OrderReturnFallbackClient

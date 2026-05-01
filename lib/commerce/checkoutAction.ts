@@ -1,4 +1,10 @@
 import type { CheckoutRegion, CheckoutResponse, OrderLookupResponse, OrderStatusResponse } from "@/lib/api/v0_3";
+import {
+  normalizeCommercePayValue,
+  normalizeCommercePaymentRedirectUrl,
+  normalizeCommerceReportPath,
+  normalizeCommerceWaitPath,
+} from "@/lib/commerce/redirectUrls";
 import type { Locale } from "@/lib/i18n/locales";
 
 export type CheckoutAction =
@@ -48,40 +54,24 @@ function normalizePayType(value: unknown): "qr" | "redirect" | "html" | null {
   return null;
 }
 
-function normalizeWaitPath(value: unknown): string | null {
-  const normalized = nonEmptyString(value);
-  if (!normalized) {
-    return null;
-  }
-
-  try {
-    const parsed = new URL(normalized, "https://example.test");
-    const firstSegment = parsed.pathname.split("/").filter(Boolean)[0];
-    const pathname =
-      firstSegment === "en" || firstSegment === "zh"
-        ? parsed.pathname.replace(new RegExp(`^/${firstSegment}`), "") || "/"
-        : parsed.pathname;
-
-    return `${pathname.startsWith("/") ? pathname : `/${pathname}`}${parsed.search}${parsed.hash}`;
-  } catch {
-    return normalized.startsWith("/") ? normalized : `/${normalized}`;
-  }
-}
-
 export function resolveCheckoutAction(
   checkout: CheckoutResponse | OrderStatusResponse | OrderLookupResponse,
   paymentUnavailableMessage: string
 ): CheckoutAction {
   const orderNo = nonEmptyString(checkout.order_no);
   const provider = nonEmptyString(checkout.provider);
-  const waitUrl = normalizeWaitPath(checkout.wait_url);
+  const waitUrl = normalizeCommerceWaitPath(checkout.wait_url);
   const paymentRecoveryToken = nonEmptyString(checkout.payment_recovery_token);
-  const resultUrl = nonEmptyString(checkout.result_url);
-  const checkoutUrl = nonEmptyString(checkout.checkout_url);
   const payNode = checkout.pay && typeof checkout.pay === "object" ? checkout.pay : null;
   const payType = normalizePayType(payNode?.type);
-  const payValue = nonEmptyString(payNode?.value);
   const payProvider = nonEmptyString(payNode?.provider) ?? provider;
+  const payValue = normalizeCommercePayValue({
+    payType,
+    value: payNode?.value,
+    provider: payProvider,
+  });
+  const resultUrl = normalizeCommerceReportPath(checkout.result_url);
+  const checkoutUrl = normalizeCommercePaymentRedirectUrl(checkout.checkout_url, payProvider);
 
   if (payType === "redirect" && payValue) {
     return {

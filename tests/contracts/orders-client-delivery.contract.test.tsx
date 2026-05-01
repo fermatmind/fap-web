@@ -350,6 +350,46 @@ describe("OrdersClient delivery contract", () => {
     expect(hoisted.fetchAttemptReportAccess).not.toHaveBeenCalled();
   });
 
+  it("does not auto-enter externally projected report URLs", async () => {
+    const exactResultEntry = createAccessProjection({
+      attempt_id: "attempt-paid-external-result-1",
+      actions: {
+        page_href: "https://evil.example/result/attempt-paid-external-result-1",
+        pdf_href: "/api/v0.3/attempts/attempt-paid-external-result-1/report.pdf",
+        history_href: "/history/mbti",
+        lookup_href: "/orders/lookup",
+      },
+    });
+    hoisted.getOrderStatus.mockResolvedValue({
+      ok: true,
+      order_no: "ord_paid_external_result_1",
+      status: "paid",
+      attempt_id: "attempt-paid-external-result-1",
+      exact_result_entry: exactResultEntry,
+      delivery: {
+        can_view_report: true,
+        report_url: "https://evil.example/result/attempt-paid-external-result-1",
+        can_download_pdf: false,
+        can_resend: false,
+        can_request_claim_email: false,
+        contact_email_present: true,
+      },
+    });
+
+    render(<OrdersClient orderNo="ord_paid_external_result_1" />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("order-paid-processing-state")).toBeInTheDocument();
+    });
+
+    expect(hoisted.routerReplace).not.toHaveBeenCalledWith("https://evil.example/result/attempt-paid-external-result-1");
+    expect(screen.getByTestId("order-back-to-result-link")).toHaveAttribute(
+      "href",
+      "/en/result/attempt-paid-external-result-1"
+    );
+    expect(screen.queryByTestId("order-workspace-lite-entry")).not.toBeInTheDocument();
+  });
+
   it("falls back to report-access mbti_form_v1 when the order payload omits the top-level summary", async () => {
     hoisted.fetchAttemptReportAccess.mockResolvedValueOnce(
       createAccessProjection({
@@ -666,6 +706,30 @@ describe("OrdersClient delivery contract", () => {
       "_blank",
       "noopener,noreferrer"
     );
+  });
+
+  it("does not expose unsafe pending payment action URLs from order status", async () => {
+    hoisted.getOrderStatus.mockResolvedValue({
+      ok: true,
+      order_no: "ord_pending_pay_unsafe_1",
+      status: "pending",
+      attempt_id: "attempt-pending-pay-unsafe-1",
+      provider: "alipay",
+      pay: {
+        type: "html",
+        value: "https://pay.example.invalid/checkout",
+        provider: "alipay",
+      },
+    });
+
+    render(<OrdersClient orderNo="ord_pending_pay_unsafe_1" paymentRecoveryToken="recovery_pending_pay_unsafe_1" />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("order-wait-actions-pending")).toBeInTheDocument();
+    });
+
+    expect(screen.queryByRole("button", { name: "Open payment page" })).not.toBeInTheDocument();
+    expect(hoisted.openWindow).not.toHaveBeenCalled();
   });
 
   it("keeps requesting payment actions while a pending order still has no pay payload", async () => {
