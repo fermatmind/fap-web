@@ -794,6 +794,99 @@ describe("RichResultReport", () => {
     expect(screen.queryByText("解锁完整报告")).not.toBeInTheDocument();
   });
 
+  it("locks non-MBTI paid modules when modules_allowed lacks a full report entitlement", () => {
+    const reportData = {
+      ok: true,
+      locked: false,
+      variant: "preview",
+      access_level: "preview",
+      modules_allowed: ["big5_core"],
+      modules_preview: ["big5_core"],
+      offers: [
+        {
+          sku: "BIG5_REPORT_FULL",
+          title: "BIG5 Full Report",
+          formatted_price: "$19.00",
+          modules_included: ["big5_full", "big5_action_plan"],
+        },
+      ],
+      big5_public_projection_v1: {
+        schema_version: "big5.public_projection.v1",
+        explainability_summary: {
+          headline: "This profile is primarily driven by Openness.",
+        },
+        action_plan_summary: {
+          headline: "Action planning remains a paid module.",
+        },
+        trait_vector: [{ key: "O", label: "Openness", percentile: 81, band_label: "exploratory" }],
+      },
+      report: {
+        scale_code: "BIG5_OCEAN",
+        sections: [
+          {
+            key: "traits.overview",
+            title: "Traits Overview",
+            access_level: "free",
+            module_code: "big5_core",
+            blocks: [{ kind: "paragraph", body: "Visible overview." }],
+          },
+          {
+            key: "growth.next_actions",
+            title: "Next actions",
+            access_level: "paid",
+            module_code: "big5_action_plan",
+            blocks: [{ kind: "paragraph", body: "Paid action details." }],
+          },
+        ],
+      },
+      meta: {
+        scale_code: "BIG5_OCEAN",
+      },
+    } as ReportResponse;
+
+    render(
+      <RichResultReport
+        locale="en"
+        reportData={reportData}
+        accessProjection={{
+          attemptId: "attempt-big5-preview",
+          accessState: "ready",
+          reportState: "ready",
+          pdfState: "unavailable",
+          unlockStage: "partial",
+          unlockSource: "invite",
+          reasonCode: "partial_unlock",
+          accessLevel: "preview",
+          variant: "preview",
+          projectionVersion: 1,
+          modulesAllowed: ["big5_core"],
+          modulesPreview: ["big5_core"],
+          actions: {
+            pageHref: "/en/result/attempt-big5-preview",
+            pdfHref: null,
+            waitHref: null,
+            historyHref: "/en/history/big5",
+            lookupHref: "/en/orders/lookup",
+          },
+          meta: {
+            producedAt: "2026-03-26T00:00:00Z",
+            refreshedAt: "2026-03-26T00:00:00Z",
+          },
+        }}
+      />
+    );
+
+    const visibleSections = screen.getByTestId("big5-sections");
+    expect(within(visibleSections).getByText("Traits Overview")).toBeInTheDocument();
+    expect(within(visibleSections).getByText("Visible overview.")).toBeInTheDocument();
+    expect(within(visibleSections).queryByText("Next actions")).not.toBeInTheDocument();
+
+    const lockedSections = screen.getByTestId("big5-locked-sections");
+    expect(within(lockedSections).getAllByText("Next actions").length).toBeGreaterThan(0);
+    expect(screen.getByTestId("big5-offer-surface")).toBeInTheDocument();
+    expect(screen.getByText("BIG5 Full Report")).toBeInTheDocument();
+  });
+
   it("renders BIG5 comparative guidance without mutating the foundation summary", () => {
     const reportData = {
       ok: true,

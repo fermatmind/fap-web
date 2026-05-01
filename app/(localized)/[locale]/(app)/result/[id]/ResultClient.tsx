@@ -20,6 +20,7 @@ import {
   type AttemptInviteUnlockProgressView,
 } from "@/lib/access/inviteUnlock";
 import {
+  canEnterReportPage,
   isProjectionLocked,
   isProjectionProcessing,
   isProjectionUnavailable,
@@ -56,7 +57,6 @@ import { assembleRiasecResultViewModel, hasRiasecProjection } from "@/lib/riasec
 
 const RESULT_POLL_FALLBACK_MS = 3000;
 const RESULT_POLL_MAX = 10;
-const RESULT_PAGE_READY_STATE = "ready";
 const INVITE_PROGRESS_POLL_MS = 15000;
 
 type ResultClientStatus = "loading" | "generating" | "ready" | "failed";
@@ -614,7 +614,7 @@ export default function ResultClient({
   }, [anonId, attemptId, locale, runWithAuthRetry]);
 
   const canLoadRichReport = useCallback((view: AttemptReportAccessView | null) => {
-    return view?.reportState === RESULT_PAGE_READY_STATE;
+    return canEnterReportPage(view);
   }, []);
 
   useEffect(() => {
