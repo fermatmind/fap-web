@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { fetchCareerShortlistState } from "@/lib/career/api/fetchCareerShortlistState";
 import { submitCareerShortlistAdd } from "@/lib/career/api/submitCareerShortlistAdd";
 import { CAREER_TRACKING_EVENTS, trackCareerAttributionEvent } from "@/lib/career/attribution";
+import { hasAnalyticsConsent } from "@/lib/consent/store";
 import type { Locale } from "@/lib/i18n/locales";
 
 type CareerShortlistActionProps = {
@@ -47,17 +48,43 @@ export function CareerShortlistAction({
   testId,
 }: CareerShortlistActionProps) {
   const normalizedSlug = useMemo(() => String(subjectSlug ?? "").trim().toLowerCase(), [subjectSlug]);
-  const [visitorKey] = useState<string>(() => resolveVisitorKey());
+  const [analyticsConsentGranted, setAnalyticsConsentGranted] = useState<boolean>(() => hasAnalyticsConsent());
+  const [visitorKey, setVisitorKey] = useState<string>("");
   const [shortlisted, setShortlisted] = useState(false);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    const syncConsent = () => {
+      setAnalyticsConsentGranted(hasAnalyticsConsent());
+    };
+
+    syncConsent();
+    window.addEventListener("fm:analytics-consent-updated", syncConsent);
+
+    return () => {
+      window.removeEventListener("fm:analytics-consent-updated", syncConsent);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!analyticsConsentGranted) {
+      setVisitorKey("");
+      setShortlisted(false);
+      setLoading(false);
+      return;
+    }
+
+    setError(null);
+    setVisitorKey(resolveVisitorKey());
+  }, [analyticsConsentGranted]);
+
+  useEffect(() => {
     let cancelled = false;
 
     async function loadState() {
-      if (!visitorKey || !normalizedSlug) {
+      if (!analyticsConsentGranted || !visitorKey || !normalizedSlug) {
         setLoading(false);
         return;
       }
@@ -84,11 +111,26 @@ export function CareerShortlistAction({
     return () => {
       cancelled = true;
     };
-  }, [locale, visitorKey, normalizedSlug, sourcePageType]);
+  }, [analyticsConsentGranted, locale, visitorKey, normalizedSlug, sourcePageType]);
 
   const onAdd = async () => {
-    if (!visitorKey || !normalizedSlug || shortlisted || saving) {
+    if (!analyticsConsentGranted) {
+      setError(
+        locale === "zh"
+          ? "请先同意分析 Cookie，再保存 Shortlist。"
+          : "Please allow analytics cookies before saving to shortlist."
+      );
       return;
+    }
+
+    const activeVisitorKey = visitorKey || resolveVisitorKey();
+
+    if (!activeVisitorKey || !normalizedSlug || shortlisted || saving) {
+      return;
+    }
+
+    if (!visitorKey) {
+      setVisitorKey(activeVisitorKey);
     }
 
     setSaving(true);
@@ -96,7 +138,7 @@ export function CareerShortlistAction({
 
     const response = await submitCareerShortlistAdd({
       locale,
-      visitorKey,
+      visitorKey: activeVisitorKey,
       subjectKind: "job_slug",
       subjectSlug: normalizedSlug,
       sourcePageType,
