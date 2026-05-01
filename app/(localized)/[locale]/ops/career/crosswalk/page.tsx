@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { CrosswalkQueueTable } from "@/components/ops/career/CrosswalkQueueTable";
 import { adaptCareerCrosswalkQueue } from "@/lib/career/adapters/adaptCareerCrosswalkOps";
 import { fetchCareerCrosswalkReviewQueue } from "@/lib/career/api/fetchCareerCrosswalkOps";
+import { isCareerCrosswalkOpsRouteEnabled } from "@/lib/career/crosswalkOpsAccess";
 import { normalizeLocale, type Locale } from "@/lib/i18n/locales";
 
 type Props = {
@@ -16,6 +17,8 @@ type Props = {
   }>;
 };
 
+export const dynamic = "force-dynamic";
+
 function pickString(value: string | string[] | undefined): string | undefined {
   if (Array.isArray(value)) {
     return value[0];
@@ -25,8 +28,12 @@ function pickString(value: string | string[] | undefined): string | undefined {
 
 export default async function CareerCrosswalkOpsQueuePage({ params, searchParams }: Props) {
   const { locale: localeParam } = await params;
-  const query: NonNullable<Awaited<Props["searchParams"]>> = (await searchParams) ?? {};
   const locale = normalizeLocale(localeParam) as Locale;
+  if (!isCareerCrosswalkOpsRouteEnabled()) {
+    notFound();
+  }
+
+  const query: NonNullable<Awaited<Props["searchParams"]>> = (await searchParams) ?? {};
 
   const payload = await fetchCareerCrosswalkReviewQueue({
     locale,
