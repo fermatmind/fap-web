@@ -5,7 +5,7 @@ import { ArticleResponsiveImage } from "@/components/content/ArticleResponsiveIm
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Badge } from "@/components/ui/badge";
-import { getCmsArticlesWithLastKnownGood } from "@/lib/cms/articles";
+import { getCmsArticlesWithLastKnownGood, normalizeArticleListPage } from "@/lib/cms/articles";
 import { getDict, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 import {
@@ -19,10 +19,7 @@ export const dynamic = "force-dynamic";
 const ARTICLE_AUTHOR_NAME = "Fermat Institute";
 
 function parsePage(value: string | string[] | undefined): number {
-  const raw = Array.isArray(value) ? value[0] : value;
-  const parsed = Number.parseInt(String(raw ?? "1"), 10);
-
-  return Number.isFinite(parsed) && parsed > 0 ? parsed : 1;
+  return normalizeArticleListPage(value);
 }
 
 function formatArticleDate(value: string | null, locale: "en" | "zh"): string | null {

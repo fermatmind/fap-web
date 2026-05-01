@@ -3,11 +3,14 @@ import path from "node:path";
 import { createRequire } from "node:module";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import {
+  MAX_ARTICLE_LIST_PAGE,
   MAX_ARTICLE_SLUG_LENGTH,
   getCmsArticle,
   getCmsArticleSeo,
   getCmsArticles,
+  getCmsArticlesWithLastKnownGood,
   listCmsArticlesForLlms,
+  normalizeArticleListPage,
   normalizeArticleSeoPayload,
   normalizeArticleSlug,
 } from "@/lib/cms/articles";
@@ -473,6 +476,49 @@ describe("articles cleanup contract", () => {
     await expect(getCmsArticle(oversizedSlug, "en")).resolves.toBeNull();
     await expect(getCmsArticleSeo(invalidSlug, "en")).resolves.toBeNull();
     expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it("bounds article list page values before shared cache fetches", async () => {
+    const oversizedPage = MAX_ARTICLE_LIST_PAGE + 1000;
+    const fetchMock = vi.fn(async (input: RequestInfo | URL, _init?: RequestInit) => {
+      const url = String(input);
+      expect(url).toContain("/api/v0.5/articles?");
+      expect(url).toContain(`page=${MAX_ARTICLE_LIST_PAGE}`);
+
+      return jsonResponse({
+        ok: true,
+        items: [],
+        pagination: {
+          current_page: MAX_ARTICLE_LIST_PAGE,
+          per_page: 20,
+          total: 0,
+          last_page: MAX_ARTICLE_LIST_PAGE,
+        },
+      });
+    });
+    vi.stubGlobal("fetch", fetchMock);
+
+    expect(normalizeArticleListPage("2")).toBe(2);
+    expect(normalizeArticleListPage(["3"])).toBe(3);
+    expect(normalizeArticleListPage("not-a-page")).toBe(1);
+    expect(normalizeArticleListPage(0)).toBe(1);
+    expect(normalizeArticleListPage(oversizedPage)).toBe(MAX_ARTICLE_LIST_PAGE);
+
+    const result = await getCmsArticlesWithLastKnownGood({
+      locale: "en",
+      page: oversizedPage,
+    });
+
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(result.value.pagination.currentPage).toBe(MAX_ARTICLE_LIST_PAGE);
+    expect(fetchMock.mock.calls[0]?.[1]).toHaveProperty("next");
+  });
+
+  it("uses the article list page normalizer at the route boundary", () => {
+    const source = read("app/(localized)/[locale]/articles/page.tsx");
+
+    expect(source).toContain("normalizeArticleListPage");
+    expect(source).not.toContain("Number.parseInt(String(raw ?? \"1\"), 10)");
   });
 
   it("does not put article detail or seo lookups into the shared Data Cache", async () => {
