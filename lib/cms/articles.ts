@@ -11,6 +11,9 @@ import { canonicalUrl } from "@/lib/site";
 const DEFAULT_ORG_ID = "0";
 const DEFAULT_LIST_PER_PAGE = 20;
 const DEFAULT_ENUMERATION_PER_PAGE = 100;
+export const MAX_ARTICLE_SLUG_LENGTH = 128;
+const ARTICLE_SLUG_PATTERN = /^[A-Za-z0-9][A-Za-z0-9_-]*$/;
+const UNBOUNDED_ARTICLE_DETAIL_FETCH_OPTIONS = { cache: "no-store" } as const;
 
 type CmsArticleApiTag = {
   id?: number;
@@ -480,7 +483,12 @@ function normalizeBackendArticleAlternate(value: unknown): string | null {
 }
 
 export function normalizeArticleSlug(value: string): string {
-  return String(value ?? "").trim();
+  const normalized = String(value ?? "").trim();
+  if (!normalized || normalized.length > MAX_ARTICLE_SLUG_LENGTH || !ARTICLE_SLUG_PATTERN.test(normalized)) {
+    return "";
+  }
+
+  return normalized;
 }
 
 export function buildArticleFrontendUrl(locale: Locale | string, slug: string): string {
@@ -789,7 +797,7 @@ export async function listCmsArticlesForLlmsWithLastKnownGood(
 }
 
 export async function getCmsArticle(slug: string, locale: Locale | string): Promise<CmsArticle | null> {
-  const normalizedSlug = slug.trim();
+  const normalizedSlug = normalizeArticleSlug(slug);
   if (!normalizedSlug) {
     return null;
   }
@@ -803,7 +811,7 @@ export async function getCmsArticle(slug: string, locale: Locale | string): Prom
     const response = await apiClient.get<CmsArticleApiResponse>(`/v0.5/articles/${encodeURIComponent(normalizedSlug)}${query}`, {
       locale,
       skipAuth: true,
-      ...PUBLIC_API_CACHE_OPTIONS,
+      ...UNBOUNDED_ARTICLE_DETAIL_FETCH_OPTIONS,
     });
 
     if (!response.article) {
@@ -860,7 +868,7 @@ export async function getCmsArticleSeo(slug: string, locale: Locale | string): P
       {
         locale,
         skipAuth: true,
-        ...PUBLIC_API_CACHE_OPTIONS,
+        ...UNBOUNDED_ARTICLE_DETAIL_FETCH_OPTIONS,
       }
     );
 
