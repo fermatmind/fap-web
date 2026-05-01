@@ -11,6 +11,7 @@ import { canonicalUrl } from "@/lib/site";
 const DEFAULT_ORG_ID = "0";
 const DEFAULT_LIST_PER_PAGE = 20;
 const DEFAULT_ENUMERATION_PER_PAGE = 100;
+export const MAX_ARTICLE_LIST_PAGE = 100;
 export const MAX_ARTICLE_SLUG_LENGTH = 128;
 const ARTICLE_SLUG_PATTERN = /^[A-Za-z0-9][A-Za-z0-9_-]*$/;
 const UNBOUNDED_ARTICLE_DETAIL_FETCH_OPTIONS = { cache: "no-store" } as const;
@@ -491,6 +492,17 @@ export function normalizeArticleSlug(value: string): string {
   return normalized;
 }
 
+export function normalizeArticleListPage(value: unknown): number {
+  const raw = Array.isArray(value) ? value[0] : value;
+  const parsed = typeof raw === "number" ? raw : Number.parseInt(String(raw ?? "1"), 10);
+
+  if (!Number.isFinite(parsed) || parsed < 1) {
+    return 1;
+  }
+
+  return Math.min(Math.floor(parsed), MAX_ARTICLE_LIST_PAGE);
+}
+
 export function buildArticleFrontendUrl(locale: Locale | string, slug: string): string {
   return localizedPath(`/articles/${normalizeArticleSlug(slug)}`, normalizeLocale(locale));
 }
@@ -638,7 +650,7 @@ function isPublishedRevisionBackedArticle(article: CmsArticle, locale: Locale | 
 
 export async function getCmsArticles(params: GetCmsArticlesParams): Promise<GetCmsArticlesResult> {
   const allowLocalFallback = params.allowLocalFallback !== false;
-  const requestedPage = typeof params.page === "number" && params.page > 0 ? params.page : 1;
+  const requestedPage = normalizeArticleListPage(params.page);
   const requestedPerPage =
     typeof params.perPage === "number" && params.perPage > 0
       ? Math.min(params.perPage, DEFAULT_ENUMERATION_PER_PAGE)
@@ -708,7 +720,7 @@ export async function getCmsArticlesWithLastKnownGood(
   params: GetCmsArticlesParams
 ): Promise<LastKnownGoodResult<GetCmsArticlesResult>> {
   const locale = normalizeLocale(params.locale);
-  const page = typeof params.page === "number" && params.page > 0 ? params.page : 1;
+  const page = normalizeArticleListPage(params.page);
   const perPage =
     typeof params.perPage === "number" && params.perPage > 0
       ? Math.min(params.perPage, DEFAULT_ENUMERATION_PER_PAGE)
