@@ -9,6 +9,7 @@ import type {
   CareerAliasResolutionAmbiguousCandidateAdapter,
   CareerAliasResolutionTargetAdapter,
 } from "@/lib/career/adapters/types";
+import { isCareerJobExposureGateOpen } from "@/lib/career/jobExposurePolicy";
 import { buildCareerFamilyFrontendUrl, buildCareerJobFrontendUrl } from "@/lib/career/urls";
 
 type AdaptCareerAliasResolutionInput = {
@@ -41,6 +42,21 @@ function normalizeString(value: unknown): string | null {
   return normalized || null;
 }
 
+function normalizeBoolean(value: unknown): boolean | null {
+  return typeof value === "boolean" ? value : null;
+}
+
+function isOccupationAliasExposable(raw: CareerAliasResolutionOccupationResponseRaw | CareerAliasResolutionCandidateResponseRaw | Record<string, unknown>): boolean {
+  const seoContract = isRecord(raw.seo_contract) ? raw.seo_contract : {};
+  const trustSummary = isRecord(raw.trust_summary) ? raw.trust_summary : {};
+
+  return isCareerJobExposureGateOpen({
+    indexEligible: normalizeBoolean(seoContract.index_eligible),
+    indexState: normalizeString(seoContract.index_state),
+    reviewerStatus: normalizeString(trustSummary.reviewer_status),
+  });
+}
+
 function humanizeSlug(slug: string): string {
   return slug
     .split("-")
@@ -53,6 +69,10 @@ function adaptOccupationTarget(
   locale: "en" | "zh",
   raw: CareerAliasResolutionOccupationResponseRaw | Record<string, unknown>
 ): CareerAliasResolutionTargetAdapter | null {
+  if (!isOccupationAliasExposable(raw)) {
+    return null;
+  }
+
   const canonicalSlug = normalizeString(raw.canonical_slug);
   if (!canonicalSlug) {
     return null;
@@ -157,7 +177,12 @@ export function adaptCareerAliasResolution(
   if (resolvedKind === "occupation") {
     const occupation = adaptOccupationTarget(input.locale, isRecord(resolution.occupation) ? resolution.occupation : {});
     if (!occupation) {
-      return null;
+      return {
+        ...base,
+        resolution: {
+          resolvedKind: "none",
+        },
+      };
     }
 
     return {
@@ -188,6 +213,15 @@ export function adaptCareerAliasResolution(
     const candidates = Array.isArray(resolution.candidates)
       ? resolution.candidates.filter(isRecord).map((item) => adaptCandidate(input.locale, item)).filter(Boolean)
       : [];
+
+    if (candidates.length === 0) {
+      return {
+        ...base,
+        resolution: {
+          resolvedKind: "none",
+        },
+      };
+    }
 
     return {
       ...base,

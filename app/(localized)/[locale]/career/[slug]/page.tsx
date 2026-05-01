@@ -1,7 +1,8 @@
 import { notFound, permanentRedirect } from "next/navigation";
 import { CAREER_DATASET_FAMILY_SLUGS, normalizeFamilySlug } from "@/lib/career/datasetDirectory";
+import { adaptCareerJobBundle } from "@/lib/career/adapters/adaptCareerJobBundle";
+import { fetchCareerJobBundle } from "@/lib/career/api/fetchCareerJobBundle";
 import { getCareerGuideFromCmsBySlug } from "@/lib/cms/career-guides";
-import { getCareerJobFromCmsBySlug } from "@/lib/cms/career-jobs";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 
@@ -15,8 +16,9 @@ export default async function CareerAliasPage({
   const { locale: localeParam, slug } = await params;
   const locale = resolveLocale(localeParam);
 
-  const job = await getCareerJobFromCmsBySlug({ slug, locale });
-  if (job) {
+  const jobPayload = await fetchCareerJobBundle({ slug, locale });
+  const job = adaptCareerJobBundle({ requestedSlug: slug, locale, payload: jobPayload });
+  if (job?.renderState.canIndexPage) {
     permanentRedirect(localizedPath(`/career/jobs/${job.slug}`, locale));
   }
 
