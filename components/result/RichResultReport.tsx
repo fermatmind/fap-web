@@ -1492,6 +1492,8 @@ export function RichResultReport({
       reportData,
       gate: {
         isFreeVariant: gate.isFreeVariant,
+        modulesAllowed: gate.modulesAllowed,
+        modulesPreview: gate.modulesPreview,
       },
     });
 

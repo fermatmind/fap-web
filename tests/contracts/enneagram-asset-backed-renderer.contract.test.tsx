@@ -133,6 +133,31 @@ describe("ENNEAGRAM asset-backed renderer contract", () => {
     });
   });
 
+  it("requires an explicit restricted-access gate before rendering asset-backed preview copy", () => {
+    const blockedViewModel = assembleEnneagramResultViewModel({
+      reportData: createAssetBackedReport(),
+      gate: {
+        isFreeVariant: true,
+        modulesAllowed: new Set(["enneagram_core"]),
+        modulesPreview: new Set(),
+      },
+      locale: "zh",
+    });
+    expect(blockedViewModel.moduleMap.asset_preview_core_motivation).toBeUndefined();
+    expect(blockedViewModel.pages).toHaveLength(0);
+
+    const previewViewModel = assembleEnneagramResultViewModel({
+      reportData: createAssetBackedReport(),
+      gate: {
+        isFreeVariant: true,
+        modulesAllowed: new Set(["enneagram_core"]),
+        modulesPreview: new Set(["type_deep_dive_summary"]),
+      },
+      locale: "zh",
+    });
+    expect(previewViewModel.moduleMap.asset_preview_core_motivation).toBeDefined();
+  });
+
   it("renders backend asset copy while hiding internal metadata", () => {
     const viewModel = assembleEnneagramResultViewModel({
       reportData: createAssetBackedReport(),
