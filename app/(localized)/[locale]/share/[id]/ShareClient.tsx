@@ -30,6 +30,7 @@ import {
   resolveMbtiCarryoverReasonLabel,
 } from "@/lib/mbti/continuity";
 import { buildSharePageViewModel } from "@/lib/mbti/publicProjection";
+import { sanitizeTrackingUrl } from "@/lib/tracking/privacy";
 
 const SHARE_CLICK_SESSION_PREFIX = "fm_share_click_v1";
 const MBTI_TAKE_FALLBACK_PATH = "/tests/mbti-personality-test-16-personality-types/take";
@@ -38,6 +39,10 @@ const RIASEC_TAKE_FALLBACK_PATH = "/tests/holland-career-interest-test-riasec/ta
 function buildLandingPath(pathname: string | null, queryString: string): string {
   const safePath = pathname || "/";
   return queryString ? `${safePath}?${queryString}` : safePath;
+}
+
+function sanitizeShareAttributionUrl(value: string | undefined): string | undefined {
+  return sanitizeTrackingUrl(value) ?? undefined;
 }
 
 function buildAugmentedPath(
@@ -138,6 +143,8 @@ export default function ShareClient({
   const utm = useMemo(() => readNormalizedUtm(new URLSearchParams(queryString)), [queryString]);
   const utmQuery = useMemo(() => buildUtmQuery(utm), [utm]);
   const pageReferrer = typeof document === "undefined" ? undefined : document.referrer || undefined;
+  const safeLandingPath = useMemo(() => sanitizeShareAttributionUrl(landingPath) ?? "/", [landingPath]);
+  const safePageReferrer = useMemo(() => sanitizeShareAttributionUrl(pageReferrer), [pageReferrer]);
   const viewModel = useMemo(() => buildSharePageViewModel(data), [data]);
   const enneagramShareViewModel = useMemo(() => buildEnneagramShareViewModel(data, locale), [data, locale]);
   const landingSurface = viewModel.landingSurface;
@@ -225,7 +232,7 @@ export default function ShareClient({
     let active = true;
     const dedupKey = readShareClickDedupKey({
       shareId,
-      landingPath,
+      landingPath: safeLandingPath,
     });
     const existingShareClickId = readTrackedShareClickId(dedupKey);
     if (existingShareClickId) {
@@ -243,8 +250,8 @@ export default function ShareClient({
       locale,
       meta: {
         entrypoint: "share_page",
-        landing_path: landingPath,
-        referrer: pageReferrer,
+        landing_path: safeLandingPath,
+        referrer: safePageReferrer,
         ...(utm ? { utm } : {}),
         compare_intent: false,
       },
@@ -272,7 +279,7 @@ export default function ShareClient({
     return () => {
       active = false;
     };
-  }, [landingPath, locale, pageReferrer, shareId, utm]);
+  }, [locale, safeLandingPath, safePageReferrer, shareId, utm]);
 
   const resolvedShareId = viewModel.shareId || shareId;
   const primaryCtaHref = useMemo(() => {
@@ -291,15 +298,15 @@ export default function ShareClient({
       share_id: resolvedShareId,
       share_click_id: shareClickId ?? undefined,
       entrypoint: "share_page",
-      landing_path: landingPath,
-      referrer: pageReferrer,
+      landing_path: safeLandingPath,
+      referrer: safePageReferrer,
       ...utmQuery,
     });
 
     return shareScaleCode === "MBTI"
       ? appendMbtiContinuityQuery(attributedPath, viewModel.continuity)
       : attributedPath;
-  }, [enneagramShareViewModel?.formCode, landingPath, locale, pageReferrer, resolvedShareId, shareClickId, shareScaleCode, utmQuery, viewModel.continuity, viewModel.primaryCtaPath]);
+  }, [enneagramShareViewModel?.formCode, locale, resolvedShareId, safeLandingPath, safePageReferrer, shareClickId, shareScaleCode, utmQuery, viewModel.continuity, viewModel.primaryCtaPath]);
 
   const primaryContinueTarget = publicSurface?.continueReadingKeys[0] || "share_take_flow";
   const publicSurfaceTelemetry = useMemo(
@@ -475,8 +482,8 @@ export default function ShareClient({
         anonId,
         locale,
         entrypoint: "share_page",
-        referrer: pageReferrer,
-        landingPath,
+        referrer: safePageReferrer,
+        landingPath: safeLandingPath,
         compareIntent: true,
         shareClickId: shareClickId ?? undefined,
         utm,
@@ -494,8 +501,8 @@ export default function ShareClient({
           compare_invite_id: inviteId,
           share_click_id: shareClickId ?? undefined,
           entrypoint: "share_compare_invite",
-          landing_path: landingPath,
-          referrer: pageReferrer,
+          landing_path: safeLandingPath,
+          referrer: safePageReferrer,
           compare_intent: true,
           ...utmQuery,
         })
