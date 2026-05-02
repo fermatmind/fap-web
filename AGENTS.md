@@ -26,7 +26,11 @@
 - If a dependency is not merged, mark the current item `blocked_dependency` in `docs/codex/pr-train-state.json` and stop.
 
 ## Manifest discipline
+- If the requested PR id is missing from `docs/codex/pr-train.yaml`, stop and report the gap unless the user explicitly asks to update the train manifest.
 - If the user explicitly asks to proceed with that PR, Codex may add the missing manifest/state entry first, then continue under the same scope discipline.
+- Never invent a PR id or scope that is not either:
+  - already present in the manifest, or
+  - explicitly provided by the user.
 
 ## Verification discipline
 - Run all local checks listed in the PR manifest before push.
@@ -41,6 +45,7 @@
 
 ## PR discipline
 - Open exactly one PR for the current task.
+- The PR title must match the PR id and scope from the manifest.
 - The PR body must include:
   - what changed
   - why

@@ -77,4 +77,16 @@ describe("CI validator hygiene", () => {
     expect(read("scripts/seo/assert-live-sitemap-clean.mjs")).toContain("getUnsafeLiveFetchIssue(sourceUrl)");
     expect(read("scripts/seo/assert-live-llms-clean.mjs")).toContain("getUnsafeLiveFetchIssue(sourceUrl)");
   });
+
+  it("keeps AI-assisted PR train guardrails explicit", () => {
+    const agents = read("AGENTS.md");
+
+    expect(agents).toContain(
+      "If the requested PR id is missing from `docs/codex/pr-train.yaml`, stop and report the gap"
+    );
+    expect(agents).toContain("Never invent a PR id or scope");
+    expect(agents).toContain("already present in the manifest");
+    expect(agents).toContain("explicitly provided by the user");
+    expect(agents).toContain("The PR title must match the PR id and scope from the manifest.");
+  });
 });
