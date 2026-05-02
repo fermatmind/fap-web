@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-05-02T13:46:00.000000Z",
+  "updated_at": "2026-05-02T15:07:37Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -69,10 +69,10 @@
     "PR-B2": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "in_progress",
+      "status": "pr_open",
       "branch": "codex/pr-b2-career-display-route-integration",
-      "commit_sha": "1c23649",
-      "pr_url": "",
+      "commit_sha": "d0ad3e6",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/617",
       "checks": {
         "local": [
           {
