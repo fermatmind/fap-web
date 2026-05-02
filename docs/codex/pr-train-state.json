@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-05-02T13:42:00.000000Z",
+  "updated_at": "2026-05-02T13:46:00.000000Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -9,9 +9,9 @@
     "PR-B1": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "open",
+      "status": "github_checks_failed",
       "branch": "codex/pr-b1-career-display-surface-adapter-components",
-      "commit_sha": "00a936e47cbc357d84bc8dc0c8329c8784012ab1",
+      "commit_sha": "415ed01f75840e3f35fab6a0c650252e9c899351",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/616",
       "checks": {
         "local": [
@@ -36,9 +36,31 @@
             "status": "passed"
           }
         ],
-        "github": []
+        "github": [
+          {
+            "name": "build",
+            "status": "passed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/25253202079/job/74048384480"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/25253202079/job/74048384492",
+            "failure": "tests/contracts/big5-take-attempt-priming.contract.test.tsx timed out in 'does not show stale reset for a near-complete local-only 90Q draft on entry'; local single-file reproduction also failed. Big Five files are outside PR-B1 scope, so no out-of-scope fix was included."
+          },
+          {
+            "name": "verify-big5-contract-freeze",
+            "status": "passed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/25253202079/job/74048384493"
+          },
+          {
+            "name": "verify-enneagram-contract-freeze",
+            "status": "passed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/25253202079/job/74048384485"
+          }
+        ]
       },
-      "failure_reason": "",
+      "failure_reason": "GitHub contracts check failed on a Big Five take-attempt priming timeout outside PR-B1 scope; no user override to treat the remote failure as non-blocking for merge.",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,
