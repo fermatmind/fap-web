@@ -20,6 +20,7 @@ export type CareerJobBundleResponseRaw = {
   lifecycle_operational?: unknown;
   shortlist_contract?: unknown;
   conversion_closure?: unknown;
+  display_surface_v1?: unknown;
 };
 
 export type CareerJobStructuredDataOccupationResponseRaw = {

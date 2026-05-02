@@ -1,11 +1,71 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-23T04:48:47.153461Z",
+  "updated_at": "2026-05-02T13:46:00.000000Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
   "items": {
+    "PR-B1": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "github_checks_failed",
+      "branch": "codex/pr-b1-career-display-surface-adapter-components",
+      "commit_sha": "415ed01f75840e3f35fab6a0c650252e9c899351",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/616",
+      "checks": {
+        "local": [
+          {
+            "command": "pnpm lint lib/career/displaySurface.ts components/career/display tests/contracts/career-display-surface.contract.test.tsx tests/contracts/career-display-schema.contract.test.ts tests/contracts/career-display-cta.contract.test.tsx",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/career-display-surface.contract.test.tsx tests/contracts/career-display-schema.contract.test.ts tests/contracts/career-display-cta.contract.test.tsx",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "git diff --check",
+            "status": "passed"
+          },
+          {
+            "command": "git diff --cached --check",
+            "status": "passed"
+          }
+        ],
+        "github": [
+          {
+            "name": "build",
+            "status": "passed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/25253202079/job/74048384480"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/25253202079/job/74048384492",
+            "failure": "tests/contracts/big5-take-attempt-priming.contract.test.tsx timed out in 'does not show stale reset for a near-complete local-only 90Q draft on entry'; local single-file reproduction also failed. Big Five files are outside PR-B1 scope, so no out-of-scope fix was included."
+          },
+          {
+            "name": "verify-big5-contract-freeze",
+            "status": "passed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/25253202079/job/74048384493"
+          },
+          {
+            "name": "verify-enneagram-contract-freeze",
+            "status": "passed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/25253202079/job/74048384485"
+          }
+        ]
+      },
+      "failure_reason": "GitHub contracts check failed on a Big Five take-attempt priming timeout outside PR-B1 scope; no user override to treat the remote failure as non-blocking for merge.",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
     "PR-CMSOPS-1": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
