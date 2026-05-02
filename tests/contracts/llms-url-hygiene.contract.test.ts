@@ -10,6 +10,7 @@ function read(relPath: string): string {
 
 function expectLlmsRouteHygiene(source: string): void {
   expect(source).toContain("LLMS_FINAL_PATH_DENY_PATTERNS");
+  expect(source).not.toContain("LLMS_FINAL_PATH_ALLOW_PATTERNS");
   expect(source).toContain("isForbiddenFinalLlmsPath");
   expect(source).toContain('toCanonical(siteUrl, "/en/support")');
   expect(source).toContain('toCanonical(siteUrl, "/zh/support")');
@@ -18,9 +19,15 @@ function expectLlmsRouteHygiene(source: string): void {
   expect(source).not.toContain('toCanonical(siteUrl, "/zh/help")');
   expect(source).not.toContain('toCanonical(siteUrl, "/en/career/jobs")');
   expect(source).not.toContain('toCanonical(siteUrl, "/zh/career/jobs")');
+  expect(source).not.toContain('toCanonical(siteUrl, "/en/career/recommendations")');
+  expect(source).not.toContain('toCanonical(siteUrl, "/zh/career/recommendations")');
   expect(source).toContain("career\\/recommendations\\/mbti");
   expect(source).toContain("career\\/guides");
   expect(source).toContain("personality\\/(");
+  expect(source).toContain("result(?:\\/|$)");
+  expect(source).toContain("orders(?:\\/|$)");
+  expect(source).toContain("share(?:\\/|$)");
+  expect(source).toContain("tests\\/[^/]+\\/take");
   expect(source).not.toContain("isCareerJobDetailDiscoverableByManifest");
   expect(source).not.toContain(".map((job) => job.href)");
   expect(source).not.toContain("fetchCareerJobIndex");

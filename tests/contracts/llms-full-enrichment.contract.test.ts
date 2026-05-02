@@ -234,6 +234,8 @@ describe("llms-full enrichment contract", () => {
     expect(text).toContain("Topic answer summary from CMS.");
     expect(text).toContain("Career guides");
     expect(text).not.toContain("https://fermatmind.com/en/career/guides/career-planning");
+    expect(text).not.toContain("https://fermatmind.com/en/career/recommendations");
+    expect(text).not.toContain("https://fermatmind.com/zh/career/recommendations");
     expect(text).toContain("Existing MBTI test summary.");
     expect(text).not.toContain("Clinical depression-anxiety screening");
     expect(text).not.toContain("clinical-depression-anxiety-assessment-professional-edition");
@@ -244,6 +246,9 @@ describe("llms-full enrichment contract", () => {
     expect(text).not.toContain("/share/");
     expect(text).not.toContain("/take");
     expect(text).not.toContain("/api/");
+    expect(text).not.toContain("/pay");
+    expect(text).not.toContain("/payment");
+    expect(text).not.toContain("/history");
   });
 
   it("does not invent summaries when no source surface or list summary exists", async () => {

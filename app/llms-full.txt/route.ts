@@ -35,12 +35,17 @@ const TOPIC_FALLBACKS = [
   { slug: "big-five", title: "Big Five" },
   { slug: "iq-eq", title: "IQ and EQ" },
 ];
-const LLMS_FINAL_PATH_ALLOW_PATTERNS: RegExp[] = [
-  /^\/(?:en|zh)\/career\/recommendations\/mbti\/[^/]+$/i,
-];
 const LLMS_FINAL_PATH_DENY_PATTERNS: RegExp[] = [
   /^\/zh$/i,
   /^\/tests(?:\/|$)/i,
+  /^\/(?:en|zh)?\/?result(?:\/|$)/i,
+  /^\/(?:en|zh)?\/?orders(?:\/|$)/i,
+  /^\/(?:en|zh)?\/?share(?:\/|$)/i,
+  /^\/(?:en|zh)?\/?api(?:\/|$)/i,
+  /^\/(?:en|zh)?\/?pay(?:\/|$)/i,
+  /^\/(?:en|zh)?\/?payment(?:\/|$)/i,
+  /^\/(?:en|zh)?\/?history(?:\/|$)/i,
+  /^\/(?:en|zh)?\/?tests\/[^/]+\/take(?:\/|$)/i,
   /^\/(?:en|zh)\/blog$/i,
   /^\/(?:en|zh)\/help$/i,
   /^\/(?:en|zh)\/refund$/i,
@@ -52,6 +57,7 @@ const LLMS_FINAL_PATH_DENY_PATTERNS: RegExp[] = [
   /^\/(?:en|zh)\/career\/jobs$/i,
   /^\/career\/jobs\/[^/]+$/i,
   /^\/(?:en|zh)\/career\/jobs\/[^/]+$/i,
+  /^\/(?:en|zh)\/career\/recommendations$/i,
   /^\/(?:en|zh)\/career\/recommendations\/mbti\/[^/]+$/i,
   /^\/(?:en|zh)\/career\/guides\/[^/]+$/i,
   /^\/(?:en|zh)\/personality\/(?:intj|intp|entj|entp|infj|infp|enfj|enfp|istj|isfj|estj|esfj|istp|isfp|estp|esfp)$/i,
@@ -96,17 +102,8 @@ function normalizePath(path: string): string {
   return withLeadingSlash.replace(/\/+$/, "");
 }
 
-function isAllowedFinalLlmsPath(path: string): boolean {
-  const normalized = normalizePath(path);
-  return LLMS_FINAL_PATH_ALLOW_PATTERNS.some((pattern) => pattern.test(normalized));
-}
-
 function isForbiddenFinalLlmsPath(path: string): boolean {
   const normalized = normalizePath(path);
-  if (isAllowedFinalLlmsPath(normalized)) {
-    return false;
-  }
-
   return LLMS_FINAL_PATH_DENY_PATTERNS.some((pattern) => pattern.test(normalized));
 }
 
@@ -250,8 +247,35 @@ function buildNextSteps(answerSurface: AnswerSurfaceViewModel | null | undefined
   return steps;
 }
 
+function sanitizeNextStep(siteUrl: string, value: string): string {
+  const text = cleanText(value, 240);
+  if (!text) {
+    return "";
+  }
+
+  const urls = text.match(/https?:\/\/[^\s)]+/g) ?? [];
+  if (!urls.length) {
+    return text;
+  }
+
+  let sanitized = text;
+  for (const url of urls) {
+    const safeUrl = safeCanonicalUrlFromHref(siteUrl, url);
+    if (!safeUrl) {
+      return "";
+    }
+    sanitized = sanitized.replace(url, safeUrl);
+  }
+
+  return sanitized;
+}
+
 function formatEntry(entry: LlmsFullEntry, siteUrl: string): string[] {
-  const canonicalUrl = entry.url ?? toCanonical(siteUrl, entry.path);
+  const canonicalUrl = safeCanonicalUrlFromHref(siteUrl, entry.url ?? entry.path);
+  if (!canonicalUrl) {
+    return [];
+  }
+
   const lines = [
     `### [${entry.locale}] ${entry.title} | ${canonicalUrl}`,
     `- URL: ${canonicalUrl}`,
@@ -262,7 +286,10 @@ function formatEntry(entry: LlmsFullEntry, siteUrl: string): string[] {
   const summary = cleanText(entry.summary);
   const disclaimer = cleanText(entry.disclaimer);
   const faq = (entry.faq ?? []).filter((item) => item.question && item.answer).slice(0, MAX_FAQ_ITEMS);
-  const nextSteps = (entry.nextSteps ?? []).filter(Boolean).slice(0, MAX_NEXT_STEPS);
+  const nextSteps = (entry.nextSteps ?? [])
+    .map((step) => sanitizeNextStep(siteUrl, step))
+    .filter(Boolean)
+    .slice(0, MAX_NEXT_STEPS);
 
   if (updatedAt) {
     lines.push(`- Updated: ${updatedAt}`);
@@ -709,20 +736,6 @@ export async function GET() {
       { locale: "zh" as const, path: "/zh/support", title: "支持", type: "support", url: toCanonical(siteUrl, "/zh/support") },
       { locale: "en" as const, path: "/en/career", title: "Career center", type: "career_index", url: toCanonical(siteUrl, "/en/career") },
       { locale: "zh" as const, path: "/zh/career", title: "职业发展中心", type: "career_index", url: toCanonical(siteUrl, "/zh/career") },
-      {
-        locale: "en" as const,
-        path: "/en/career/recommendations",
-        title: "Career recommendations",
-        type: "career_recommendations_index",
-        url: toCanonical(siteUrl, "/en/career/recommendations"),
-      },
-      {
-        locale: "zh" as const,
-        path: "/zh/career/recommendations",
-        title: "职业推荐",
-        type: "career_recommendations_index",
-        url: toCanonical(siteUrl, "/zh/career/recommendations"),
-      },
     ].flatMap((entry) => formatEntry(entry, siteUrl)),
     "",
     "## Personality",

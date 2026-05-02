@@ -17,12 +17,17 @@ import { filterVisiblePublicTestEntries } from "@/lib/tests/publicTestEntryVisib
 import type { CareerFirstWaveDiscoverabilityManifestAdapter } from "@/lib/career/adapters/types";
 
 const TOPIC_FALLBACK_SLUGS = ["mbti", "big-five", "iq-eq"];
-const LLMS_FINAL_PATH_ALLOW_PATTERNS: RegExp[] = [
-  /^\/(?:en|zh)\/career\/recommendations\/mbti\/[^/]+$/i,
-];
 const LLMS_FINAL_PATH_DENY_PATTERNS: RegExp[] = [
   /^\/zh$/i,
   /^\/tests(?:\/|$)/i,
+  /^\/(?:en|zh)?\/?result(?:\/|$)/i,
+  /^\/(?:en|zh)?\/?orders(?:\/|$)/i,
+  /^\/(?:en|zh)?\/?share(?:\/|$)/i,
+  /^\/(?:en|zh)?\/?api(?:\/|$)/i,
+  /^\/(?:en|zh)?\/?pay(?:\/|$)/i,
+  /^\/(?:en|zh)?\/?payment(?:\/|$)/i,
+  /^\/(?:en|zh)?\/?history(?:\/|$)/i,
+  /^\/(?:en|zh)?\/?tests\/[^/]+\/take(?:\/|$)/i,
   /^\/(?:en|zh)\/blog$/i,
   /^\/(?:en|zh)\/help$/i,
   /^\/(?:en|zh)\/refund$/i,
@@ -34,6 +39,7 @@ const LLMS_FINAL_PATH_DENY_PATTERNS: RegExp[] = [
   /^\/(?:en|zh)\/career\/jobs$/i,
   /^\/career\/jobs\/[^/]+$/i,
   /^\/(?:en|zh)\/career\/jobs\/[^/]+$/i,
+  /^\/(?:en|zh)\/career\/recommendations$/i,
   /^\/(?:en|zh)\/career\/recommendations\/mbti\/[^/]+$/i,
   /^\/(?:en|zh)\/career\/guides\/[^/]+$/i,
   /^\/(?:en|zh)\/personality\/(?:intj|intp|entj|entp|infj|infp|enfj|enfp|istj|isfj|estj|esfj|istp|isfp|estp|esfp)$/i,
@@ -53,17 +59,8 @@ function normalizePath(path: string): string {
   return withLeadingSlash.replace(/\/+$/, "");
 }
 
-function isAllowedFinalLlmsPath(path: string): boolean {
-  const normalized = normalizePath(path);
-  return LLMS_FINAL_PATH_ALLOW_PATTERNS.some((pattern) => pattern.test(normalized));
-}
-
 function isForbiddenFinalLlmsPath(path: string): boolean {
   const normalized = normalizePath(path);
-  if (isAllowedFinalLlmsPath(normalized)) {
-    return false;
-  }
-
   return LLMS_FINAL_PATH_DENY_PATTERNS.some((pattern) => pattern.test(normalized));
 }
 
@@ -266,8 +263,9 @@ export async function GET() {
     `- ${toCanonical(siteUrl, "/zh/support")}`,
     `- ${toCanonical(siteUrl, "/en/career")}`,
     `- ${toCanonical(siteUrl, "/zh/career")}`,
-    `- ${toCanonical(siteUrl, "/en/career/recommendations")}`,
-    `- ${toCanonical(siteUrl, "/zh/career/recommendations")}`,
+    ...dedupePaths(["/en/career/recommendations", "/zh/career/recommendations"]).map(
+      (path) => `- ${toCanonical(siteUrl, path)}`
+    ),
     "",
     "Indexable Personality:",
     ...personalityEntries.map((path) => `- ${toCanonical(siteUrl, path)}`),
