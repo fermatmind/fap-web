@@ -35,6 +35,7 @@ export type QuizStore = {
 };
 
 const QUIZ_VERSION = 4;
+export const QUIZ_DRAFT_TTL_MS = 24 * 60 * 60 * 1000;
 
 function buildQuizPersistKey(slug: string, anonId: string | null, formCode: string | null): string {
   const normalizedAnonId = (anonId ?? "").trim() || "anon";
@@ -76,6 +77,28 @@ function extractPersistedQuizState(raw: string): Partial<QuizState> | null {
   }
 }
 
+function isFiniteTimestamp(value: unknown): value is number {
+  return typeof value === "number" && Number.isFinite(value) && value > 0;
+}
+
+function isUsablePersistedQuizDraft(raw: string, now = Date.now()): boolean {
+  const persistedQuizState = extractPersistedQuizState(raw);
+
+  if (!persistedQuizState) {
+    return false;
+  }
+
+  if (isFiniteTimestamp(persistedQuizState.submittedAt)) {
+    return false;
+  }
+
+  const savedAt = isFiniteTimestamp(persistedQuizState.lastSavedAt)
+    ? persistedQuizState.lastSavedAt
+    : persistedQuizState.startedAt;
+
+  return isFiniteTimestamp(savedAt) && now - savedAt <= QUIZ_DRAFT_TTL_MS;
+}
+
 function upgradeLegacyQuizEnvelope(raw: string, formCode: string | null): string {
   const persistedQuizState = extractPersistedQuizState(raw);
 
@@ -102,11 +125,20 @@ function createQuizStorage(slug: string, anonId: string | null, formCode: string
 
       try {
         const direct = window.localStorage.getItem(name);
-        if (direct) return direct;
+        if (direct) {
+          if (isUsablePersistedQuizDraft(direct)) {
+            return direct;
+          }
+          window.localStorage.removeItem(name);
+        }
 
         for (const legacyKey of buildLegacyQuizKeys(slug, anonId)) {
           const legacyValue = window.localStorage.getItem(legacyKey);
           if (!legacyValue) continue;
+          if (!isUsablePersistedQuizDraft(legacyValue)) {
+            window.localStorage.removeItem(legacyKey);
+            continue;
+          }
           const upgradedValue = upgradeLegacyQuizEnvelope(legacyValue, formCode);
           window.localStorage.setItem(name, upgradedValue);
           return upgradedValue;
@@ -320,10 +352,10 @@ export const createQuizStore = ({
           state: {
             ...store.state,
             currentIndex: store.state.currentIndex,
-            answers: store.state.answers,
+            answers: store.state.submittedAt ? {} : store.state.answers,
             startedAt: store.state.startedAt,
-            attemptId: store.state.attemptId,
-            scaleCode: store.state.scaleCode,
+            attemptId: store.state.submittedAt ? null : store.state.attemptId,
+            scaleCode: store.state.submittedAt ? null : store.state.scaleCode,
             formCode: store.state.formCode,
             anonId: store.state.anonId,
           },

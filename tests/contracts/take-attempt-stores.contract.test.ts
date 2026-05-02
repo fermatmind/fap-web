@@ -1,9 +1,10 @@
-import { afterEach, describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { useBig5AttemptStore } from "@/lib/big5/attemptStore";
 import { useClinicalAttemptStore } from "@/lib/clinical/attemptStore";
-import { createQuizStore } from "@/lib/quiz/store";
+import { createQuizStore, QUIZ_DRAFT_TTL_MS } from "@/lib/quiz/store";
 
 afterEach(() => {
+  vi.useRealTimers();
   useBig5AttemptStore.getState().resetAll();
   useClinicalAttemptStore.getState().resetAll();
   window.localStorage.clear();
@@ -54,6 +55,7 @@ describe("take attempt stores", () => {
   });
 
   it("quiz store adopts legacy mbti drafts into mbti_144 instead of resetting them", () => {
+    const now = Date.now();
     window.localStorage.setItem(
       "fm_quiz_v3_mbti-personality-test-16-personality-types_anon-quiz-legacy",
       JSON.stringify({
@@ -65,11 +67,11 @@ describe("take attempt stores", () => {
             anonId: "anon-quiz-legacy",
             currentIndex: 1,
             answers: { q1: "A" },
-            startedAt: 123,
+            startedAt: now,
             attemptId: "attempt-legacy",
             scaleCode: "MBTI",
             submittedAt: null,
-            lastSavedAt: 123,
+            lastSavedAt: now,
           },
         },
       })
@@ -91,6 +93,79 @@ describe("take attempt stores", () => {
     expect(state.answers).toEqual({ q1: "A" });
     expect(state.attemptId).toBe("attempt-legacy");
     expect(state.formCode).toBe("mbti_144");
+  });
+
+  it("quiz draft persistence keeps active drafts within the resume window", () => {
+    const now = new Date("2026-01-01T00:00:00.000Z");
+    vi.useFakeTimers();
+    vi.setSystemTime(now);
+
+    const store = createQuizStore({
+      slug: "mbti-personality-test-16-personality-types",
+      anonId: "anon-quiz-active",
+      formCode: "mbti_144",
+    });
+    store.getState().setAnswer("q1", "A");
+    store.getState().jump(1, 4);
+
+    vi.setSystemTime(now.getTime() + QUIZ_DRAFT_TTL_MS - 1_000);
+
+    const reloaded = createQuizStore({
+      slug: "mbti-personality-test-16-personality-types",
+      anonId: "anon-quiz-active",
+      formCode: "mbti_144",
+    });
+
+    expect(reloaded.getState().state.answers).toEqual({ q1: "A" });
+    expect(reloaded.getState().state.currentIndex).toBe(1);
+  });
+
+  it("quiz draft persistence ignores expired local drafts", () => {
+    const now = new Date("2026-01-01T00:00:00.000Z");
+    vi.useFakeTimers();
+    vi.setSystemTime(now);
+
+    const store = createQuizStore({
+      slug: "mbti-personality-test-16-personality-types",
+      anonId: "anon-quiz-expired",
+      formCode: "mbti_144",
+    });
+    store.getState().setAnswer("q1", "A");
+
+    vi.setSystemTime(now.getTime() + QUIZ_DRAFT_TTL_MS + 1);
+
+    const reloaded = createQuizStore({
+      slug: "mbti-personality-test-16-personality-types",
+      anonId: "anon-quiz-expired",
+      formCode: "mbti_144",
+    });
+
+    expect(reloaded.getState().state.answers).toEqual({});
+    expect(reloaded.getState().state.currentIndex).toBe(0);
+  });
+
+  it("quiz submission clears sensitive answers from persisted drafts", () => {
+    const slug = "mbti-personality-test-16-personality-types";
+    const anonId = "anon-quiz-submitted";
+    const formCode = "mbti_144";
+    const storageKey = `fm_quiz_v4_${slug}_${anonId}_${formCode}`;
+    const store = createQuizStore({ slug, anonId, formCode });
+
+    store.getState().setAnswer("q1", "A");
+    store.getState().setAttemptMeta("attempt-submitted", "MBTI", formCode);
+    store.getState().markSubmitted();
+
+    const persisted = JSON.parse(window.localStorage.getItem(storageKey) ?? "{}") as {
+      state?: { state?: Partial<{ answers: Record<string, string>; attemptId: string | null; scaleCode: string | null }> };
+    };
+
+    expect(persisted.state?.state?.answers).toEqual({});
+    expect(persisted.state?.state?.attemptId).toBeNull();
+    expect(persisted.state?.state?.scaleCode).toBeNull();
+
+    const reloaded = createQuizStore({ slug, anonId, formCode });
+    expect(reloaded.getState().state.answers).toEqual({});
+    expect(reloaded.getState().state.attemptId).toBeNull();
   });
 
   it("big5 clearAttemptMeta preserves answers while dropping stale attempt metadata", () => {
