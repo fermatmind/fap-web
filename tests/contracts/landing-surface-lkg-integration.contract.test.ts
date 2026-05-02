@@ -1,6 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
-import { beforeEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import type { ApiError } from "@/lib/api-client";
+import { clearLastKnownGoodForTests } from "@/lib/cms/last-known-good";
 
 function read(relPath: string): string {
   return fs.readFileSync(path.join(process.cwd(), relPath), "utf8");
@@ -122,6 +124,11 @@ describe("landing surface last-known-good integration", () => {
     landingMock.mockReset();
   });
 
+  afterEach(() => {
+    clearLastKnownGoodForTests();
+    vi.unstubAllGlobals();
+  });
+
   it("routes high-traffic marketing content adapters through the LKG landing surface wrapper", () => {
     expect(read("lib/marketing/homepageContent.ts")).toContain("getCmsLandingSurfaceWithLastKnownGood");
     expect(read("lib/marketing/testsHubContent.ts")).toContain("getCmsLandingSurfaceWithLastKnownGood");
@@ -152,4 +159,79 @@ describe("landing surface last-known-good integration", () => {
     });
     await expect(getCareerCenterContent("en")).resolves.toMatchObject({ hero: { title: "Career center" } });
   });
+
+  it("does not serve stale landing surfaces for permanent backend publication errors", async () => {
+    vi.doUnmock("@/lib/cms/landing-surfaces");
+    vi.resetModules();
+
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce(jsonResponse({ ok: true, surface: apiSurface(payloads.homePayload) }))
+      .mockResolvedValueOnce(jsonResponse({ message: "not found" }, 404));
+    vi.stubGlobal("fetch", fetchMock);
+
+    const { getCmsLandingSurfaceWithLastKnownGood } = await import("@/lib/cms/landing-surfaces");
+
+    await expect(getCmsLandingSurfaceWithLastKnownGood("home", "en")).resolves.toMatchObject({
+      source: "fresh",
+      value: {
+        status: "published",
+        isPublic: true,
+      },
+    });
+
+    await expect(getCmsLandingSurfaceWithLastKnownGood("home", "en")).rejects.toMatchObject({
+      status: 404,
+    } satisfies Partial<ApiError>);
+  });
+
+  it("keeps stale landing surfaces only for transient backend failures", async () => {
+    vi.doUnmock("@/lib/cms/landing-surfaces");
+    vi.resetModules();
+
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce(jsonResponse({ ok: true, surface: apiSurface(payloads.homePayload) }))
+      .mockResolvedValueOnce(jsonResponse({ message: "temporary failure" }, 503));
+    vi.stubGlobal("fetch", fetchMock);
+
+    const { getCmsLandingSurfaceWithLastKnownGood } = await import("@/lib/cms/landing-surfaces");
+
+    await expect(getCmsLandingSurfaceWithLastKnownGood("home", "en")).resolves.toMatchObject({
+      source: "fresh",
+    });
+    await expect(getCmsLandingSurfaceWithLastKnownGood("home", "en")).resolves.toMatchObject({
+      source: "last-known-good",
+      stale: true,
+      value: {
+        payloadJson: payloads.homePayload,
+      },
+    });
+  });
 });
+
+function apiSurface(payloadJson: unknown) {
+  return {
+    surface_key: "home",
+    locale: "en",
+    title: "Home",
+    description: "Home description",
+    schema_version: "test",
+    payload_json: payloadJson,
+    status: "published",
+    is_public: true,
+    is_indexable: true,
+    published_at: "2026-04-19T00:00:00.000Z",
+    scheduled_at: null,
+    page_blocks: [],
+  };
+}
+
+function jsonResponse(payload: unknown, status = 200): Response {
+  return new Response(JSON.stringify(payload), {
+    status,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+}

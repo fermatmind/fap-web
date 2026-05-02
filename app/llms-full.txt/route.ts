@@ -24,6 +24,7 @@ import {
 } from "@/components/compliance/MentalHealthDisclaimer";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
 import { getSiteUrlOrThrow } from "@/lib/site";
+import { filterVisiblePublicTestEntries } from "@/lib/tests/publicTestEntryVisibility";
 import type { AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
 import type { CareerFirstWaveDiscoverabilityManifestAdapter } from "@/lib/career/adapters/types";
 import type { Locale } from "@/lib/i18n/locales";
@@ -574,8 +575,10 @@ export async function GET() {
     })),
   ].filter((entry) => shouldKeep(entry.path));
 
+  const visibleEnTestList = filterVisiblePublicTestEntries(enTestList);
+  const visibleZhTestList = filterVisiblePublicTestEntries(zhTestList);
   const tests = [
-    ...enTestList.map((test) => ({
+    ...visibleEnTestList.map((test) => ({
       locale: "en" as const,
       path: `/en/tests/${test.slug}`,
       title: resolveTestTitleByLocale(test, "en"),
@@ -586,7 +589,7 @@ export async function GET() {
         ? MENTAL_HEALTH_NON_MEDICAL_DISCLAIMER.en
         : null,
     })),
-    ...zhTestList.map((test) => ({
+    ...visibleZhTestList.map((test) => ({
       locale: "zh" as const,
       path: `/zh/tests/${test.slug}`,
       title: resolveTestTitleByLocale(test, "zh"),

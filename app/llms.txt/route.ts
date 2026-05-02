@@ -13,6 +13,7 @@ import { listTopics } from "@/lib/cms/topics";
 import { getAllTests } from "@/lib/content";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
 import { getSiteUrlOrThrow } from "@/lib/site";
+import { filterVisiblePublicTestEntries } from "@/lib/tests/publicTestEntryVisibility";
 import type { CareerFirstWaveDiscoverabilityManifestAdapter } from "@/lib/career/adapters/types";
 
 const TOPIC_FALLBACK_SLUGS = ["mbti", "big-five", "iq-eq"];
@@ -216,7 +217,7 @@ export async function GET() {
     ...zhHelpPages.map((page) => `/zh${page.path}`),
   ]);
   const testEntries = dedupePaths(
-    testList.flatMap((test) => [`/en/tests/${test.slug}`, `/zh/tests/${test.slug}`])
+    filterVisiblePublicTestEntries(testList).flatMap((test) => [`/en/tests/${test.slug}`, `/zh/tests/${test.slug}`])
   );
 
   const articleEntries = dedupePaths(

@@ -235,7 +235,8 @@ describe("llms-full enrichment contract", () => {
     expect(text).toContain("Career guides");
     expect(text).not.toContain("https://fermatmind.com/en/career/guides/career-planning");
     expect(text).toContain("Existing MBTI test summary.");
-    expect(text).toContain("not a medical diagnosis");
+    expect(text).not.toContain("Clinical depression-anxiety screening");
+    expect(text).not.toContain("clinical-depression-anxiety-assessment-professional-edition");
     expect(text).not.toContain("www.fermatmind.com");
     expect(text).not.toContain("/career/jobs");
     expect(text).not.toContain("/result/");

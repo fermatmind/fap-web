@@ -63,7 +63,7 @@ function normalizeStatus(value: unknown): CareerFirstWaveReadinessStatus | null 
 }
 
 function adaptOccupation(raw: Record<string, unknown>): CareerFirstWaveReadinessOccupationAdapter | null {
-  const canonicalSlug = normalizeString(raw.canonical_slug);
+  const canonicalSlug = normalizeString(raw.canonical_slug)?.toLowerCase() ?? null;
   const status = normalizeStatus(raw.status);
 
   if (!canonicalSlug || !status) {

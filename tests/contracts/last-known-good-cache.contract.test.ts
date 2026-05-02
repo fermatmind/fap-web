@@ -54,6 +54,41 @@ describe("last-known-good cache helper", () => {
     ).rejects.toThrow("missing first response");
   });
 
+  it("can restrict stale fallback to transient load failures", async () => {
+    await withLastKnownGood({
+      key: "landing-surface:home:en",
+      load: async () => ({ hero: "cms" }),
+    });
+
+    await expect(
+      withLastKnownGood({
+        key: "landing-surface:home:en",
+        load: async () => {
+          throw Object.assign(new Error("withdrawn"), { status: 404 });
+        },
+        useStaleOnError: (error) =>
+          typeof (error as { status?: unknown }).status !== "number" ||
+          Number((error as { status?: unknown }).status) >= 500,
+      })
+    ).rejects.toThrow("withdrawn");
+
+    await expect(
+      withLastKnownGood({
+        key: "landing-surface:home:en",
+        load: async () => {
+          throw Object.assign(new Error("cms unavailable"), { status: 503 });
+        },
+        useStaleOnError: (error) =>
+          typeof (error as { status?: unknown }).status !== "number" ||
+          Number((error as { status?: unknown }).status) >= 500,
+      })
+    ).resolves.toMatchObject({
+      source: "last-known-good",
+      stale: true,
+      value: { hero: "cms" },
+    });
+  });
+
   it("does not replace the cached value with unusable fresh data", async () => {
     await withLastKnownGood({
       key: "landing-surface:home:zh",

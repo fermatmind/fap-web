@@ -114,7 +114,7 @@ describe("career first-wave readiness summary contract", () => {
     expect(source).not.toContain("marketing-managers");
   });
 
-  it("fails closed when the readiness summary is unavailable and only falls back for slugs outside the summary map", () => {
+  it("fails closed when readiness is unavailable or the card slug is missing from the summary map", () => {
     const stableCard: CareerJobIndexCardAdapter = {
       dataStatus: "available",
       identity: {
@@ -222,6 +222,116 @@ describe("career first-wave readiness summary contract", () => {
       },
     });
 
+    expect(isJobFacingCardExposableByFirstWaveSummary(summary, stableCard)).toBe(false);
+  });
+
+  it("normalizes readiness summary slugs before applying the fail-closed exposure gate", () => {
+    const stableCard: CareerJobIndexCardAdapter = {
+      dataStatus: "available",
+      identity: {
+        occupationUuid: "occ_data_scientists",
+        canonicalSlug: "data-scientists",
+        entityLevel: null,
+        familyUuid: null,
+      },
+      titles: {
+        title: "Data Scientists",
+        canonicalEn: "Data Scientists",
+        canonicalZh: null,
+        searchH1Zh: null,
+      },
+      truthSummary: {
+        truthMarket: "US",
+        medianPayUsdAnnual: 182000,
+        outlookPct20242034: 14,
+        outlookDescription: "High-trust systems work.",
+        aiExposure: null,
+      },
+      trustSummary: {
+        reviewerStatus: "approved",
+        reviewedAt: null,
+        contentVersion: null,
+        dataVersion: null,
+        logicVersion: null,
+        editorialPatchRequired: false,
+        editorialPatchStatus: null,
+        allowStrongClaim: true,
+        allowSalaryComparison: true,
+        allowAiStrategy: true,
+        reasonCodes: [],
+      },
+      scoreSummary: {
+        fitScore: {
+          value: 84,
+          integrity_state: "full",
+          degradation_factor: 1,
+          critical_missing_fields: [],
+          confidence_cap: null,
+          formula_ref: null,
+          component_breakdown: {},
+          penalties: [],
+        },
+        confidenceScore: {
+          value: 79,
+          integrity_state: "full",
+          degradation_factor: 1,
+          critical_missing_fields: [],
+          confidence_cap: null,
+          formula_ref: null,
+          component_breakdown: {},
+          penalties: [],
+        },
+      },
+      seoContract: {
+        canonicalPath: "/career/jobs/data-scientists",
+        canonicalTarget: null,
+        indexState: "index",
+        indexEligible: true,
+        reasonCodes: [],
+        datasetEligible: null,
+        articleEligible: null,
+      },
+      provenanceMeta: {
+        contentVersion: "content_v1",
+        dataVersion: "data_v1",
+        logicVersion: "logic_v1",
+        compilerVersion: "compiler_v1",
+        compiledAt: null,
+        truthMetricId: null,
+        trustManifestId: null,
+        indexStateId: null,
+        compileRunId: null,
+        importRunId: null,
+        compileRefs: {},
+      },
+      href: "/en/career/jobs/data-scientists",
+      authoritySource: "career_backend_lightweight_index.v0.5",
+    };
+
+    const summary = adaptCareerFirstWaveReadinessSummary({
+      payload: {
+        summary_kind: "career_first_wave_readiness",
+        summary_version: "career.release.first_wave_readiness.v1",
+        wave_name: "career_first_wave_10",
+        counts: {
+          total: 10,
+          publish_ready: 6,
+          blocked_override_eligible: 2,
+          blocked_not_safely_remediable: 2,
+          blocked_total: 4,
+          partial_raw: 0,
+        },
+        occupations: [
+          {
+            canonical_slug: "DATA-SCIENTISTS",
+            status: "publish_ready",
+            reason_codes: ["publish_ready"],
+          },
+        ],
+      },
+    });
+
+    expect(summary?.occupationsBySlug["data-scientists"]?.status).toBe("publish_ready");
     expect(isJobFacingCardExposableByFirstWaveSummary(summary, stableCard)).toBe(true);
   });
 });

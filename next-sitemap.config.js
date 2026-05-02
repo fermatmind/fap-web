@@ -42,6 +42,10 @@ const HELP_PAGE_SLUGS = [
   "for-business-and-research",
   "contact",
 ];
+const HIDDEN_PUBLIC_TEST_ENTRY_SLUGS = new Set([
+  "clinical-depression-anxiety-assessment-professional-edition",
+  "depression-screening-test-standard-edition",
+]);
 const NON_PAGE_ROUTE_EXCLUDES = [
   "/robots.txt",
   "/en/types",
@@ -146,6 +150,10 @@ const cmsSitemapTimeoutMs = Number.parseInt(process.env.CMS_SITEMAP_TIMEOUT_MS |
 
 function normalizeSlug(value) {
   return String(value || "").trim();
+}
+
+function isHiddenPublicTestEntrySlug(value) {
+  return HIDDEN_PUBLIC_TEST_ENTRY_SLUGS.has(normalizeSlug(value).toLowerCase());
 }
 
 function normalizePath(path) {
@@ -377,7 +385,7 @@ async function buildTestPathsFromApi() {
 
       for (const item of items) {
         const slug = normalizeSlug(item?.slug);
-        if (!slug || hasIndexableFlagFalse(item) || !isPublicIndexable(item)) continue;
+        if (!slug || isHiddenPublicTestEntrySlug(slug) || hasIndexableFlagFalse(item) || !isPublicIndexable(item)) continue;
         paths.add(`/${localePrefix}/tests/${slug}`);
       }
     }

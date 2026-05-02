@@ -1,4 +1,6 @@
 import type { ReactNode } from "react";
+import fs from "node:fs";
+import path from "node:path";
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import { LocaleProvider } from "@/components/i18n/LocaleContext";
@@ -11,6 +13,12 @@ import {
   extractTestSlugFromEntryHref,
   isPublicTestEntryVisible,
 } from "@/lib/tests/publicTestEntryVisibility";
+
+const ROOT = process.cwd();
+
+function read(relPath: string): string {
+  return fs.readFileSync(path.join(ROOT, relPath), "utf8");
+}
 
 const mockTestItems = vi.hoisted(() => [
   {
@@ -225,5 +233,21 @@ describe("depression entry visibility contract", () => {
     expect(
       screen.queryByRole("link", { name: "Depression & Anxiety Assessment" })
     ).not.toBeInTheDocument();
+  });
+
+  it("excludes hidden clinical tests from sitemap and LLM discovery surfaces", () => {
+    const llms = read("app/llms.txt/route.ts");
+    const llmsFull = read("app/llms-full.txt/route.ts");
+    const sitemap = read("next-sitemap.config.js");
+    const generatedSitemap = read("public/sitemap.xml");
+
+    expect(llms).toContain("filterVisiblePublicTestEntries");
+    expect(llmsFull).toContain("filterVisiblePublicTestEntries");
+    expect(sitemap).toContain("HIDDEN_PUBLIC_TEST_ENTRY_SLUGS");
+    expect(sitemap).toContain("isHiddenPublicTestEntrySlug");
+    expect(sitemap).toContain("clinical-depression-anxiety-assessment-professional-edition");
+    expect(sitemap).toContain("depression-screening-test-standard-edition");
+    expect(generatedSitemap).not.toContain("clinical-depression-anxiety-assessment-professional-edition");
+    expect(generatedSitemap).not.toContain("depression-screening-test-standard-edition");
   });
 });
