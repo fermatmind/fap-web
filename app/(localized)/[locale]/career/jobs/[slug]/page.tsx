@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { ClaimGuard } from "@/components/career/ClaimGuard";
+import { CareerDisplaySurface } from "@/components/career/display/CareerDisplaySurface";
 import { CareerExplainabilityPanel } from "@/components/career/CareerExplainabilityPanel";
 import { StrainRadar } from "@/components/career/StrainRadar";
 import { CareerProjectionDeltaPanel } from "@/components/career/timeline/CareerProjectionDeltaPanel";
@@ -28,6 +29,7 @@ import type {
   CareerRuntimeConfigAdapter,
 } from "@/lib/career/adapters/types";
 import { CAREER_TRACKING_EVENTS, buildCareerAttributionPayload } from "@/lib/career/attribution";
+import { buildCareerDisplayFAQPageJsonLd } from "@/lib/career/displaySurface";
 import { fetchCareerFirstWaveNextStepLinks } from "@/lib/career/api/fetchCareerFirstWaveNextStepLinks";
 import { fetchCareerJobExplainability } from "@/lib/career/api/fetchCareerJobExplainability";
 import { fetchCareerJobBundle } from "@/lib/career/api/fetchCareerJobBundle";
@@ -628,11 +630,50 @@ export default async function CareerJobDetailPage({
     return notFound();
   }
 
-  if (shouldRedirectEnglishJobDetailToChinese(job, locale)) {
+  if (!job.displaySurfaceV1 && shouldRedirectEnglishJobDetailToChinese(job, locale)) {
     permanentRedirect(buildCareerJobFrontendUrl("zh", job.slug));
   }
 
   const renderState = job.renderState;
+  const jobDetailLandingPath = localizedPath(`/career/jobs/${job.slug}`, locale);
+  const displaySurface = job.displaySurfaceV1;
+
+  if (displaySurface) {
+    const displayFAQJsonLd = buildCareerDisplayFAQPageJsonLd(displaySurface);
+
+    return (
+      <main className="min-h-screen bg-slate-50">
+        <Container as="div" className="space-y-8 py-8 md:space-y-10 md:py-12">
+          <AnalyticsPageViewTracker
+            eventName={CAREER_TRACKING_EVENTS.jobDetailView}
+            properties={buildCareerAttributionPayload({
+              locale,
+              entrySurface: "career_job_detail",
+              sourcePageType: "career_job_detail",
+              targetAction: "view_surface",
+              landingPath: jobDetailLandingPath,
+              routeFamily: "job_detail",
+              subjectKind: "job_slug",
+              subjectKey: job.slug,
+            })}
+          />
+          {renderState.canRenderStructuredData && job.structuredData.occupation ? <JsonLd id={`career-job-occupation-${job.slug}`} data={job.structuredData.occupation} /> : null}
+          {job.structuredData.breadcrumbList ? <JsonLd id={`career-job-breadcrumb-${job.slug}`} data={job.structuredData.breadcrumbList} /> : null}
+          {displayFAQJsonLd ? <JsonLd id={`career-job-display-faq-${job.slug}`} data={displayFAQJsonLd} /> : null}
+          <Breadcrumb
+            items={[
+              { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
+              { label: locale === "zh" ? "职业" : "Career", href: localizedPath("/career", locale) },
+              { label: locale === "zh" ? "职业库" : "Jobs", href: localizedPath("/career/jobs", locale) },
+              { label: job.title },
+            ]}
+          />
+          <CareerDisplaySurface surface={displaySurface} />
+        </Container>
+      </main>
+    );
+  }
+
   const [explainability, nextStepLinks, runtimeConfig] = await Promise.all([
     renderState.canRenderFitSurface ? loadCareerJobExplainability(locale, slug) : Promise.resolve(null),
     loadCareerNextStepLinks(locale, slug),
@@ -643,7 +684,6 @@ export default async function CareerJobDetailPage({
     renderState.canRenderAnswerSurface || renderState.canRenderOutlookSurface || renderState.canRenderFitSurface;
   const visibleContentBodyMd = canRenderStrongClaimSurface ? job.contentBodyMd : null;
   const visibleContentSections = canRenderStrongClaimSurface ? job.contentSections : [];
-  const jobDetailLandingPath = localizedPath(`/career/jobs/${job.slug}`, locale);
   const aiStrategyClaimBlocked =
     canRenderStrongClaimSurface &&
     !job.claimPermissions.allow_ai_strategy &&

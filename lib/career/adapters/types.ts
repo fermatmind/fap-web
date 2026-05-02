@@ -1,4 +1,5 @@
 import type { CareerClaimPermissions, CareerScoreResult, CareerTrustManifest } from "@/lib/career/contracts";
+import type { CareerDisplaySurfaceViewModel } from "@/lib/career/displaySurface";
 import type {
   CareerDataStatus,
   CareerJobRenderState,
@@ -360,6 +361,7 @@ export type CareerJobBundleAdapter = {
     sortOrder: number | null;
   }>;
   contentBodyMd: string | null;
+  displaySurfaceV1: CareerDisplaySurfaceViewModel | null;
   scoreBundle: CareerScoreBundleAdapter;
   warnings: CareerWarningsAdapter;
   claimPermissions: CareerClaimPermissions;

@@ -5,6 +5,7 @@ import {
   type CareerTrustManifest,
 } from "@/lib/career/contracts";
 import { getCareerJobRenderState } from "@/lib/career/protocolReadiness";
+import { adaptCareerDisplaySurface } from "@/lib/career/displaySurface";
 import { buildCareerJobFrontendUrl, normalizeCareerBundleCanonicalPath } from "@/lib/career/urls";
 import type { CareerJobBundleResponseRaw } from "@/lib/career/api/types";
 import type {
@@ -595,6 +596,7 @@ export function adaptCareerJobBundle(input: AdaptCareerJobBundleInput): CareerJo
     },
     contentSections: buildContentSections(raw),
     contentBodyMd: normalizeString(raw.content_body_md),
+    displaySurfaceV1: adaptCareerDisplaySurface(raw.display_surface_v1, input.locale),
     scoreBundle,
     warnings,
     claimPermissions,
