@@ -1,5 +1,3 @@
-import Script from "next/script";
-
 type AnalyticsScriptConfig = {
   enabled: boolean;
   gaMeasurementId: string;
@@ -85,9 +83,10 @@ export function AnalyticsScripts() {
   }
 
   return (
-    <Script
+    <script
       id="fm-analytics-bootstrap"
-      strategy="afterInteractive"
+      data-analytics-bootstrap="true"
+      suppressHydrationWarning
       dangerouslySetInnerHTML={{ __html: buildAnalyticsBootstrapScript(config) }}
     />
   );
