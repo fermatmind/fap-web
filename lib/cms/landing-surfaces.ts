@@ -122,6 +122,35 @@ function normalizeLandingSurface<TPayload>(record: LandingSurfaceApiRecord): Cms
   };
 }
 
+function isPublishedPublicLandingSurface(surface: CmsLandingSurface<unknown>): boolean {
+  return surface.isPublic && surface.status === "published" && Boolean(surface.payloadJson);
+}
+
+function isPermanentLandingSurfaceError(error: unknown): boolean {
+  if (!(error instanceof ApiError)) {
+    return false;
+  }
+
+  return error.status === 401 || error.status === 403 || error.status === 404 || error.status === 410 || error.status === 422;
+}
+
+async function getPublishedPublicLandingSurface<TPayload>(
+  surfaceKey: string,
+  locale: Locale
+): Promise<CmsLandingSurface<TPayload>> {
+  const surface = await getCmsLandingSurface<TPayload>(surfaceKey, locale);
+
+  if (isPublishedPublicLandingSurface(surface)) {
+    return surface;
+  }
+
+  throw new ApiError({
+    status: 404,
+    errorCode: "LANDING_SURFACE_NOT_PUBLIC",
+    message: `Landing surface ${surfaceKey} is not published public content.`,
+  });
+}
+
 export async function getCmsLandingSurface<TPayload>(
   surfaceKey: string,
   locale: Locale,
@@ -166,7 +195,8 @@ export async function getCmsLandingSurfaceWithLastKnownGood<TPayload>(
 ): Promise<LastKnownGoodResult<CmsLandingSurface<TPayload>>> {
   return withLastKnownGood({
     key: `landing-surface:${surfaceKey}:${locale}`,
-    load: () => getCmsLandingSurface<TPayload>(surfaceKey, locale),
-    isUsable: (surface) => surface.isPublic && Boolean(surface.payloadJson),
+    load: () => getPublishedPublicLandingSurface<TPayload>(surfaceKey, locale),
+    isUsable: isPublishedPublicLandingSurface,
+    useStaleOnError: (error) => !isPermanentLandingSurfaceError(error),
   });
 }

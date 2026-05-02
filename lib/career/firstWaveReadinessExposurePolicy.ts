@@ -38,7 +38,7 @@ export function isJobFacingCardExposableByFirstWaveSummary(
   const readiness = getFirstWaveReadinessOccupation(summary, card.identity.canonicalSlug);
 
   if (!readiness) {
-    return isJobCardStableExposable(card);
+    return false;
   }
 
   return readiness.status === "publish_ready" && isJobCardStableExposable(card);
