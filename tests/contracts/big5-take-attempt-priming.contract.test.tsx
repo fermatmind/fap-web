@@ -12,29 +12,43 @@ type ChildrenProps = {
 
 const CONTRACT_RENDER_TIMEOUT_MS = 5_000;
 
-const hoisted = vi.hoisted(() => ({
-  pathname: "/en/tests/big-five-personality-test-ocean-model/take",
-  search: "form=big5_90",
-  routerPush: vi.fn(),
-  routerReplace: vi.fn(),
-  fetchBig5Lookup: vi.fn(),
-  fetchBig5Questions: vi.fn(),
-  startBig5Attempt: vi.fn(),
-  submitBig5Attempt: vi.fn(),
-  recoverStaleAttemptSubmit: vi.fn(),
-  trackEvent: vi.fn(),
-  trackBig5Event: vi.fn(),
-  classifyApiError: vi.fn(() => ({
-    statusGroup: "5xx",
-    statusCode: 500,
-    errorCode: "TEST_ERROR",
-  })),
-  ensureFmTokenReady: vi.fn(async () => "existing" as const),
-}));
+const hoisted = vi.hoisted(() => {
+  let cachedSearch = "";
+  let cachedSearchParams = new URLSearchParams();
+  const state = {
+    pathname: "/en/tests/big-five-personality-test-ocean-model/take",
+    search: "form=big5_90",
+    routerPush: vi.fn(),
+    routerReplace: vi.fn(),
+    fetchBig5Lookup: vi.fn(),
+    fetchBig5Questions: vi.fn(),
+    startBig5Attempt: vi.fn(),
+    submitBig5Attempt: vi.fn(),
+    recoverStaleAttemptSubmit: vi.fn(),
+    trackEvent: vi.fn(),
+    trackBig5Event: vi.fn(),
+    classifyApiError: vi.fn(() => ({
+      statusGroup: "5xx",
+      statusCode: 500,
+      errorCode: "TEST_ERROR",
+    })),
+    ensureFmTokenReady: vi.fn(async () => "existing" as const),
+    getSearchParams: () => {
+      if (cachedSearch !== state.search) {
+        cachedSearch = state.search;
+        cachedSearchParams = new URLSearchParams(state.search);
+      }
+
+      return cachedSearchParams;
+    },
+  };
+
+  return state;
+});
 
 vi.mock("next/navigation", () => ({
   usePathname: () => hoisted.pathname,
-  useSearchParams: () => new URLSearchParams(hoisted.search),
+  useSearchParams: () => hoisted.getSearchParams(),
   useRouter: () => ({
     push: hoisted.routerPush,
     replace: hoisted.routerReplace,
@@ -396,8 +410,6 @@ describe("Big Five take attempt priming", () => {
 
     expect(screen.queryByTestId("stale-reset")).toBeNull();
     expect(screen.queryByText("Draft reset required.")).toBeNull();
-
-    await acceptBig5DisclaimerGate();
   });
 
   it("keeps stale reset driven by submit recovery instead of take-page entry heuristics", () => {

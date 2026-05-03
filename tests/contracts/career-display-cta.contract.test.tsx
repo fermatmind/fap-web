@@ -75,4 +75,44 @@ describe("career display CTA contract", () => {
     expect(parsed.searchParams.get("utm_campaign")).toBe("actors_launch");
     expect(parsed.searchParams.get("landing_path")).toBe("/en/career/jobs/actors?utm_source=search");
   });
+
+  it("preserves inbound UTM and click IDs on the rendered display CTA", () => {
+    const surface = adaptCareerDisplaySurface(buildActorsDisplaySurfaceFixture(), "zh");
+
+    render(
+      <CareerDisplaySurface
+        surface={surface}
+        ctaLandingPath="/zh/career/jobs/actors?utm_source=zhihu&utm_medium=community&utm_campaign=career_actor_test&utm_content=pilot&gclid=test-gclid&msclkid=test-msclkid&fbclid=test-fbclid"
+        ctaAttributionParams={{
+          utm_source: "zhihu",
+          utm_medium: "community",
+          utm_campaign: "career_actor_test",
+          utm_content: "pilot",
+          gclid: "test-gclid",
+          msclkid: "test-msclkid",
+          fbclid: "test-fbclid",
+        }}
+      />
+    );
+
+    const cta = screen.getByTestId("career-display-cta").querySelector("a");
+    const parsed = new URL(`https://fermatmind.test${cta?.getAttribute("href") ?? ""}`);
+
+    expect(parsed.pathname).toBe("/zh/tests/holland-career-interest-test-riasec");
+    expect(parsed.searchParams.get("entry_surface")).toBe("career_job_detail");
+    expect(parsed.searchParams.get("source_page_type")).toBe("career_job_detail");
+    expect(parsed.searchParams.get("target_action")).toBe("start_riasec_test");
+    expect(parsed.searchParams.get("subject_kind")).toBe("job_slug");
+    expect(parsed.searchParams.get("subject_key")).toBe("actors");
+    expect(parsed.searchParams.get("utm_source")).toBe("zhihu");
+    expect(parsed.searchParams.get("utm_medium")).toBe("community");
+    expect(parsed.searchParams.get("utm_campaign")).toBe("career_actor_test");
+    expect(parsed.searchParams.get("utm_content")).toBe("pilot");
+    expect(parsed.searchParams.get("gclid")).toBe("test-gclid");
+    expect(parsed.searchParams.get("msclkid")).toBe("test-msclkid");
+    expect(parsed.searchParams.get("fbclid")).toBe("test-fbclid");
+    expect(parsed.searchParams.get("landing_path")).toBe(
+      "/zh/career/jobs/actors?utm_source=zhihu&utm_medium=community&utm_campaign=career_actor_test&utm_content=pilot&gclid=test-gclid&msclkid=test-msclkid&fbclid=test-fbclid"
+    );
+  });
 });

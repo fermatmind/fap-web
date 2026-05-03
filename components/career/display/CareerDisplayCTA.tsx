@@ -1,11 +1,26 @@
 import Link from "next/link";
-import type { CareerDisplaySurfaceViewModel } from "@/lib/career/displaySurface";
+import { buildCareerDisplayCtaHref, type CareerDisplaySurfaceViewModel } from "@/lib/career/displaySurface";
+import type { AttributionParams } from "@/lib/tracking/attribution";
 
 type CareerDisplayCTAProps = {
   surface: CareerDisplaySurfaceViewModel;
+  ctaAttributionParams?: AttributionParams;
+  ctaLandingPath?: string;
 };
 
-export function CareerDisplayCTA({ surface }: CareerDisplayCTAProps) {
+export function CareerDisplayCTA({
+  surface,
+  ctaAttributionParams,
+  ctaLandingPath,
+}: CareerDisplayCTAProps) {
+  const href = ctaLandingPath
+    ? buildCareerDisplayCtaHref({
+        locale: surface.locale,
+        landingPath: ctaLandingPath,
+        attributionParams: ctaAttributionParams,
+      })
+    : surface.cta.href;
+
   return (
     <section className="rounded-lg border border-slate-950 bg-slate-950 p-5 text-white" data-testid="career-display-cta">
       <h2 className="m-0 text-2xl font-semibold tracking-normal">{surface.locale === "zh" ? "下一步" : "Next step"}</h2>
@@ -15,7 +30,7 @@ export function CareerDisplayCTA({ surface }: CareerDisplayCTAProps) {
           : "Use RIASEC to check your career-interest structure before making a job-path decision."}
       </p>
       <Link
-        href={surface.cta.href}
+        href={href}
         className="mt-4 inline-flex min-h-11 items-center rounded-lg bg-white px-4 py-2 text-sm font-semibold text-slate-950 hover:bg-slate-100"
         data-entry-surface="career_job_detail"
         data-source-page-type="career_job_detail"

@@ -43,9 +43,11 @@ import { getCareerV1RendererCopy, getCareerV1StateCopy } from "@/lib/career/ui/s
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { buildPageMetadata } from "@/lib/seo/metadata";
+import { appendAttributionParamsToHref, extractAttributionParamsFromRecord } from "@/lib/tracking/attribution";
 
-export const dynamic = "force-static";
 export const revalidate = 300;
+
+type CareerJobSearchParams = Record<string, string | string[] | undefined>;
 
 function buildCanonicalPath(slug: string, locale: Locale): string {
   return buildCareerJobFrontendUrl(locale, slug);
@@ -105,6 +107,12 @@ function shouldRedirectEnglishJobDetailToChinese(job: CareerJobBundleAdapter, lo
 async function loadCareerJobBundle(locale: Locale, slug: string): Promise<CareerJobBundleAdapter | null> {
   const payload = await fetchCareerJobBundle({ locale, slug });
   return adaptCareerJobBundle({ locale, requestedSlug: slug, payload });
+}
+
+async function resolveCareerJobSearchParams(
+  searchParams?: CareerJobSearchParams | Promise<CareerJobSearchParams>
+): Promise<CareerJobSearchParams> {
+  return searchParams ? await searchParams : {};
 }
 
 async function loadCareerJobExplainability(locale: Locale, slug: string): Promise<CareerExplainabilityAdapter | null> {
@@ -619,10 +627,13 @@ export async function generateMetadata({
 
 export default async function CareerJobDetailPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string; slug: string }>;
+  searchParams?: CareerJobSearchParams | Promise<CareerJobSearchParams>;
 }) {
   const { locale: localeParam, slug } = await params;
+  const query = await resolveCareerJobSearchParams(searchParams);
   const locale = resolveLocale(localeParam);
   const job = await loadCareerJobBundle(locale, slug);
 
@@ -636,6 +647,8 @@ export default async function CareerJobDetailPage({
 
   const renderState = job.renderState;
   const jobDetailLandingPath = localizedPath(`/career/jobs/${job.slug}`, locale);
+  const displayCtaAttributionParams = extractAttributionParamsFromRecord(query);
+  const displayCtaLandingPath = appendAttributionParamsToHref(jobDetailLandingPath, displayCtaAttributionParams);
   const displaySurface = job.displaySurfaceV1;
 
   if (displaySurface) {
@@ -668,7 +681,11 @@ export default async function CareerJobDetailPage({
               { label: job.title },
             ]}
           />
-          <CareerDisplaySurface surface={displaySurface} />
+          <CareerDisplaySurface
+            surface={displaySurface}
+            ctaAttributionParams={displayCtaAttributionParams}
+            ctaLandingPath={displayCtaLandingPath}
+          />
         </Container>
       </main>
     );

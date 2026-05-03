@@ -60,12 +60,19 @@ describe("public api cache contract", () => {
       "app/(localized)/[locale]/personality/[type]/page.tsx",
       "app/(localized)/[locale]/topics/[slug]/page.tsx",
       "app/(localized)/[locale]/career/guides/[slug]/page.tsx",
-      "app/(localized)/[locale]/career/jobs/[slug]/page.tsx",
     ];
 
     for (const file of publicSeoDetailRoutes) {
       expect(read(file)).toContain('export const dynamic = "force-static"');
     }
+  });
+
+  it("keeps career job detail public-cacheable while allowing SSR query attribution", () => {
+    const source = read("app/(localized)/[locale]/career/jobs/[slug]/page.tsx");
+
+    expect(source).toContain("export const revalidate = 300");
+    expect(source).not.toContain('export const dynamic = "force-dynamic"');
+    expect(source).not.toContain('cache: "no-store"');
   });
 
   it("keeps the quarantined career jobs index out of the public cache fix", () => {
