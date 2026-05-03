@@ -1,5 +1,11 @@
 import { CAREER_DISPLAY_COMPONENT_ORDER } from "@/lib/career/displaySurface";
 
+type SelectedCareerDisplaySurfaceFixtureInput = {
+  slug: "actors" | "data-scientists" | "registered-nurses" | "accountants-and-auditors" | string;
+  titleEn?: string;
+  titleZh?: string;
+};
+
 export function buildActorsDisplaySurfaceFixture() {
   return {
     surface_version: "display.surface.v1",
@@ -378,4 +384,27 @@ export function buildActorsDisplaySurfaceFixture() {
       raw_ai_exposure_score: 7,
     },
   };
+}
+
+export function buildSelectedCareerDisplaySurfaceFixture({
+  slug,
+  titleEn = "Data Scientists",
+  titleZh = "数据科学家",
+}: SelectedCareerDisplaySurfaceFixtureInput) {
+  const fixture = JSON.parse(JSON.stringify(buildActorsDisplaySurfaceFixture()));
+
+  fixture.subject.canonical_slug = slug;
+  fixture.asset.slug = slug;
+  fixture.page.zh.path = `/zh/career/jobs/${slug}`;
+  fixture.page.en.path = `/en/career/jobs/${slug}`;
+  fixture.page.zh.hero.h1 = titleZh;
+  fixture.page.zh.hero.subtitle = titleEn;
+  fixture.page.en.hero.h1 = titleEn;
+  fixture.page.en.hero.subtitle = titleZh;
+
+  if (fixture.structured_data_from_visible_content?.occupation) {
+    fixture.structured_data_from_visible_content.occupation.name = titleEn;
+  }
+
+  return fixture;
 }

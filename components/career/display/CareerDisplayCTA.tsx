@@ -14,11 +14,12 @@ export function CareerDisplayCTA({
   ctaLandingPath,
 }: CareerDisplayCTAProps) {
   const href = ctaLandingPath
-    ? buildCareerDisplayCtaHref({
-        locale: surface.locale,
-        landingPath: ctaLandingPath,
-        attributionParams: ctaAttributionParams,
-      })
+      ? buildCareerDisplayCtaHref({
+          locale: surface.locale,
+          landingPath: ctaLandingPath,
+          subjectSlug: surface.subject.canonicalSlug,
+          attributionParams: ctaAttributionParams,
+        })
     : surface.cta.href;
 
   return (
