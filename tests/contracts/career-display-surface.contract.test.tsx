@@ -53,11 +53,36 @@ describe("career display surface contract", () => {
     expect(surface?.subject.path).toBe(`/en/career/jobs/${slug}`);
     expect(surface?.subject.title).toBe(titleEn);
     expect(surface?.componentOrder).toHaveLength(24);
+    expect(surface?.sections.find((section) => section.component === "CareerFAQBlock")?.faqItems).toHaveLength(2);
+    expect(surface?.sources).toHaveLength(2);
+    expect(surface?.reviewValidity?.lastReviewed).toBe("2026-05-03");
 
     render(<CareerDisplaySurface surface={surface} />);
 
     expect(screen.getByTestId("career-display-surface")).toHaveTextContent(titleEn);
     expect(screen.getByTestId("fermat-decision-card")).toHaveTextContent("Fermat Quick Fit");
+    expect(screen.getByTestId("career-snapshot-primary")).toHaveTextContent("Career Snapshot: U.S. Reference");
+    expect(screen.getByTestId("career-display-faq")).toHaveTextContent(`Is ${titleEn} a good career fit?`);
+    expect(screen.getByTestId("source-list")).toHaveTextContent("O*NET Online");
+    expect(screen.getByTestId("boundary-notice")).toHaveTextContent("Last reviewed: 2026-05-03");
+  });
+
+  it("adapts real backend component-keyed selected payloads for Chinese locale", () => {
+    const surface = adaptCareerDisplaySurface(
+      buildSelectedCareerDisplaySurfaceFixture({
+        slug: "data-scientists",
+        locale: "zh",
+        titleEn: "Data Scientists",
+        titleZh: "数据科学家",
+      }),
+      "zh-CN"
+    );
+
+    expect(surface?.subject.canonicalSlug).toBe("data-scientists");
+    expect(surface?.locale).toBe("zh");
+    expect(surface?.subject.path).toBe("/zh/career/jobs/data-scientists");
+    expect(surface?.hero.primaryCta.href).toBe("/zh/tests/holland-career-interest-test-riasec");
+    expect(surface?.faqItems[0]?.question).toBe("数据科学家 适合普通人探索吗？");
   });
 
   it("returns null for non-selected subjects", () => {
@@ -87,6 +112,16 @@ describe("career display surface contract", () => {
   it("rejects unknown component_order ids", () => {
     const fixture = buildActorsDisplaySurfaceFixture();
     fixture.component_order = [...fixture.component_order, "unknown_component"];
+
+    expect(adaptCareerDisplaySurface(fixture, "en")).toBeNull();
+  });
+
+  it("rejects payloads that contain Product schema", () => {
+    const fixture = buildSelectedCareerDisplaySurfaceFixture({ slug: "data-scientists" });
+    (fixture.structured_data_from_visible_content as Record<string, unknown>).product = {
+      "@type": "Product",
+      name: "unsafe",
+    };
 
     expect(adaptCareerDisplaySurface(fixture, "en")).toBeNull();
   });

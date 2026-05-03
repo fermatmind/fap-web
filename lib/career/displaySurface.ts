@@ -183,6 +183,78 @@ export type CareerDisplaySurfaceViewModel = {
   };
 };
 
+type ComponentKeyedSectionDefinition = {
+  component: CareerDisplaySection["component"];
+  fallbackHeading: Record<Locale, string>;
+};
+
+const COMPONENT_KEYED_SECTION_DEFINITIONS: Partial<Record<CareerDisplayComponentId, ComponentKeyedSectionDefinition>> = {
+  fermat_decision_card: {
+    component: "FermatDecisionCard",
+    fallbackHeading: { zh: "费马快速判断", en: "Fermat Quick Fit" },
+  },
+  career_snapshot_primary_locale: {
+    component: "CareerSnapshotCard",
+    fallbackHeading: { zh: "职业快照：中国大陆参考", en: "Career Snapshot: U.S. Reference" },
+  },
+  career_snapshot_secondary_locale: {
+    component: "CareerSnapshotCard",
+    fallbackHeading: { zh: "海外参考", en: "Secondary Locale Reference" },
+  },
+  fit_decision_checklist: {
+    component: "FitDecisionChecklist",
+    fallbackHeading: { zh: "如何判断是否适合", en: "How to Decide Whether This Career Fits You" },
+  },
+  riasec_fit_block: {
+    component: "RIASECFitBlock",
+    fallbackHeading: { zh: "RIASEC 兴趣匹配", en: "RIASEC Fit" },
+  },
+  personality_fit_block: {
+    component: "PersonalityFitBlock",
+    fallbackHeading: { zh: "人格匹配", en: "Personality Fit" },
+  },
+  definition_block: {
+    component: "DefinitionBlock",
+    fallbackHeading: { zh: "职业定义", en: "What Does This Career Do?" },
+  },
+  responsibilities_block: {
+    component: "ResponsibilitiesBlock",
+    fallbackHeading: { zh: "核心职责", en: "Core Responsibilities" },
+  },
+  work_context_block: {
+    component: "WorkContextBlock",
+    fallbackHeading: { zh: "工作场景", en: "Work Context" },
+  },
+  market_signal_card: {
+    component: "MarketSignalCard",
+    fallbackHeading: { zh: "市场信号", en: "What Skills Does the Market Signal?" },
+  },
+  adjacent_career_comparison_table: {
+    component: "AdjacentCareerComparisonTable",
+    fallbackHeading: { zh: "相邻职业比较", en: "Adjacent Career Comparison" },
+  },
+  ai_impact_table: {
+    component: "AIImpactTable",
+    fallbackHeading: { zh: "AI 影响", en: "Will AI Replace This Career?" },
+  },
+  career_risk_cards: {
+    component: "CareerRiskCards",
+    fallbackHeading: { zh: "职业风险", en: "Career Risks" },
+  },
+  contract_project_risk_block: {
+    component: "ContractRiskBlock",
+    fallbackHeading: { zh: "合同与项目风险", en: "Contract and Project Risks" },
+  },
+  next_steps_block: {
+    component: "NextStepsBlock",
+    fallbackHeading: { zh: "下一步", en: "What Should You Prepare Next?" },
+  },
+  faq_block: {
+    component: "CareerFAQBlock",
+    fallbackHeading: { zh: "常见问题", en: "FAQ" },
+  },
+};
+
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
 }
@@ -202,6 +274,22 @@ function normalizeStringArray(value: unknown): string[] {
   }
 
   return [...new Set(value.map((item) => normalizeString(item)).filter((item): item is string => Boolean(item)))];
+}
+
+function containsSchemaType(value: unknown, schemaType: string): boolean {
+  if (Array.isArray(value)) {
+    return value.some((item) => containsSchemaType(item, schemaType));
+  }
+
+  if (!isRecord(value)) {
+    return false;
+  }
+
+  if (normalizeString(value["@type"]) === schemaType) {
+    return true;
+  }
+
+  return Object.values(value).some((item) => containsSchemaType(item, schemaType));
 }
 
 function isCareerDisplayPilotSlug(value: string | null): value is CareerDisplayPilotSlug {
@@ -439,23 +527,148 @@ function normalizeSections(value: unknown): CareerDisplaySection[] {
   return value.map(normalizeSection).filter((section): section is CareerDisplaySection => section !== null);
 }
 
-function normalizeHero(value: unknown): CareerDisplayHeroViewModel | null {
+function normalizeComponentKeyedSection(
+  componentId: CareerDisplayComponentId,
+  value: unknown,
+  locale: Locale
+): CareerDisplaySection | null {
+  if (value === undefined || value === null) {
+    return null;
+  }
+
+  const definition = COMPONENT_KEYED_SECTION_DEFINITIONS[componentId];
+  if (!definition) {
+    return null;
+  }
+
+  const block = isRecord(value) ? value : {};
+  const heading = normalizeString(block.heading) ?? normalizeString(block.title) ?? definition.fallbackHeading[locale];
+  const base = {
+    id: normalizeString(block.id) ?? componentId,
+    component: definition.component,
+    heading,
+  };
+
+  if (componentId === "fermat_decision_card") {
+    const summary = normalizeString(block.summary);
+    const caveat = normalizeString(block.caveat);
+    return normalizeSection({
+      ...base,
+      fit_title: locale === "zh" ? "适合信号" : "Fit signal",
+      fit_items: summary ? [summary] : [],
+      caution_title: locale === "zh" ? "使用边界" : "Boundary",
+      caution_items: caveat ? [caveat] : [],
+    });
+  }
+
+  if (componentId === "career_snapshot_secondary_locale") {
+    return normalizeSection({
+      ...base,
+      body: normalizeString(block.limitation),
+      rows: normalizeString(block.salary_data_type)
+        ? [[locale === "zh" ? "薪资数据类型" : "Salary data type", normalizeString(block.salary_data_type)]]
+        : [],
+    });
+  }
+
+  if (componentId === "definition_block") {
+    return normalizeSection({
+      ...base,
+      body: normalizeString(value),
+    });
+  }
+
+  if (componentId === "responsibilities_block") {
+    return normalizeSection({
+      ...base,
+      items: normalizeStringArray(value),
+    });
+  }
+
+  if (componentId === "work_context_block") {
+    return normalizeSection({
+      ...base,
+      contexts: normalizeStringArray(block.target_queries),
+      rows: normalizeStringArray(block.search_intent_type).map((item) => [
+        locale === "zh" ? "搜索意图" : "Search intent",
+        item,
+      ]),
+    });
+  }
+
+  if (componentId === "market_signal_card") {
+    const snapshot = isRecord(block.snapshot) ? block.snapshot : {};
+    return normalizeSection({
+      ...base,
+      body: normalizeString(snapshot.body),
+      signal_meta: normalizeRows(snapshot.rows),
+      note: block.sample_only_notice ? (locale === "zh" ? "样本信号，不代表总体统计。" : "Example only, not market-wide statistics.") : null,
+      source_key: normalizeString(snapshot.source_key),
+    });
+  }
+
+  if (componentId === "adjacent_career_comparison_table") {
+    return normalizeSection({
+      ...base,
+      rows: normalizeRows(value),
+    });
+  }
+
+  if (componentId === "ai_impact_table") {
+    return normalizeSection({
+      ...base,
+      score: normalizeString(block.score_normalized) ?? normalizeString(block.label),
+      body: normalizeString(block.explanation),
+      fermat_view: normalizeString(block.source),
+    });
+  }
+
+  if (componentId === "career_risk_cards") {
+    return normalizeSection({
+      ...base,
+      career_risks: normalizeString(block.caveat) ? [normalizeString(block.caveat)] : [],
+      caveat: normalizeString(block.caveat),
+    });
+  }
+
+  const normalizedValue = isRecord(value) ? { ...value, ...base } : base;
+  return normalizeSection(normalizedValue);
+}
+
+function normalizeDisplaySections(
+  page: Record<string, unknown>,
+  componentOrder: CareerDisplayComponentId[],
+  locale: Locale
+): CareerDisplaySection[] {
+  const sections = normalizeSections(page.sections);
+  if (sections.length > 0) {
+    return sections;
+  }
+
+  return componentOrder
+    .map((componentId) => normalizeComponentKeyedSection(componentId, page[componentId], locale))
+    .filter((section): section is CareerDisplaySection => section !== null);
+}
+
+function normalizeHero(value: unknown, primaryCtaValue?: unknown, secondaryCtaValue?: unknown): CareerDisplayHeroViewModel | null {
   const raw = isRecord(value) ? value : null;
   const h1 = normalizeString(raw?.h1);
   const quickAnswer = normalizeString(raw?.quick_answer);
-  const primaryCta = normalizeCta(raw?.primary_cta);
+  const primaryCta = normalizeCta(raw?.primary_cta) ?? normalizeCta(primaryCtaValue);
 
   if (!raw || !h1 || !quickAnswer || !primaryCta) {
     return null;
   }
 
-  const secondary = isRecord(raw?.secondary_cta) ? raw.secondary_cta : null;
+  const secondary = isRecord(raw?.secondary_cta) ? raw.secondary_cta : isRecord(secondaryCtaValue) ? secondaryCtaValue : null;
   const secondaryLabel = normalizeString(secondary?.label);
   const secondaryHrefs = normalizeStringArray(secondary?.hrefs).filter(isKnownTestHref);
+  const fallbackTitle = normalizeString(raw?.title);
+  const subtitle = normalizeString(raw?.subtitle) ?? (fallbackTitle && fallbackTitle !== h1 ? fallbackTitle : null);
 
   return {
     h1,
-    ...(normalizeString(raw?.subtitle) ? { subtitle: normalizeString(raw.subtitle) ?? undefined } : {}),
+    ...(subtitle ? { subtitle } : {}),
     quickAnswer,
     primaryCta,
     ...(secondaryLabel && secondaryHrefs.length > 0
@@ -470,7 +683,11 @@ function normalizeSources(value: unknown): CareerDisplaySource[] {
     return [];
   }
 
-  return Object.entries(raw)
+  const entries = Array.isArray(raw.references)
+    ? raw.references.map((item, index) => [String(index), item] as const)
+    : Object.entries(raw);
+
+  return entries
     .map(([key, item]) => {
       if (!isRecord(item)) {
         return null;
@@ -482,7 +699,7 @@ function normalizeSources(value: unknown): CareerDisplaySource[] {
       }
 
       return {
-        key,
+        key: normalizeString(item.key) ?? key,
         label,
         ...(normalizeString(item.url) ? { url: normalizeString(item.url) ?? undefined } : {}),
         ...(normalizeString(item.usage) ? { usage: normalizeString(item.usage) ?? undefined } : {}),
@@ -493,15 +710,25 @@ function normalizeSources(value: unknown): CareerDisplaySource[] {
     .filter((source): source is CareerDisplaySource => source !== null);
 }
 
-function normalizeBoundaryNotice(root: Record<string, unknown>, locale: Locale): string[] {
+function normalizeBoundaryNotice(root: Record<string, unknown>, locale: Locale, page?: Record<string, unknown>): string[] {
   const support = isRecord(root.support_components) ? root.support_components : {};
   const boundary = isRecord(support.boundary_notice) ? support.boundary_notice : {};
-  return normalizeStringArray(boundary[locale]);
+  const supportNotices = normalizeStringArray(boundary[locale]);
+  if (supportNotices.length > 0) {
+    return supportNotices;
+  }
+
+  const pageBoundary = isRecord(page?.boundary_notice) ? page.boundary_notice : {};
+  return normalizeStringArray(pageBoundary.notices);
 }
 
-function normalizeReviewValidity(root: Record<string, unknown>): CareerDisplayReviewValidity | null {
+function normalizeReviewValidity(root: Record<string, unknown>, page?: Record<string, unknown>): CareerDisplayReviewValidity | null {
   const support = isRecord(root.support_components) ? root.support_components : {};
-  const review = isRecord(support.review_validity) ? support.review_validity : null;
+  const review = isRecord(support.review_validity)
+    ? support.review_validity
+    : isRecord(page?.review_validity_card)
+      ? page.review_validity_card
+      : null;
   if (!review) {
     return null;
   }
@@ -627,7 +854,7 @@ export function adaptCareerDisplaySurface(
   const surfaceRoot = resolveSurfaceRoot(rawDisplaySurface);
   const root = isRecord(stripCareerDisplayForbiddenFields(surfaceRoot)) ? stripCareerDisplayForbiddenFields(surfaceRoot) : null;
 
-  if (!locale || !isRecord(root)) {
+  if (!locale || !isRecord(root) || containsSchemaType(root, "Product")) {
     return null;
   }
 
@@ -641,8 +868,8 @@ export function adaptCareerDisplaySurface(
   const canonicalSlug = normalizeString(subject.canonical_slug);
   const componentOrder = normalizeComponentOrder(root.component_order);
   const page = resolveLocalizedPage(root, locale);
-  const hero = normalizeHero(page?.hero);
-  const sections = normalizeSections(page?.sections);
+  const hero = normalizeHero(page?.hero, page?.primary_cta ?? page?.final_cta, page?.secondary_cta);
+  const sections = page && componentOrder ? normalizeDisplaySections(page, componentOrder, locale) : [];
   const path =
     normalizeString(page?.path) ??
     localizedPath(`/career/jobs/${canonicalSlug ?? CAREER_DISPLAY_ACTORS_SLUG}`, locale);
@@ -656,7 +883,8 @@ export function adaptCareerDisplaySurface(
     !isCareerDisplayPilotSlug(canonicalSlug) ||
     !componentOrder ||
     !page ||
-    !hero
+    !hero ||
+    sections.length === 0
   ) {
     return null;
   }
@@ -689,8 +917,8 @@ export function adaptCareerDisplaySurface(
     faqItems,
     sources: normalizeSources(root.sources),
     relatedNextPages: buildRelatedNextPages(locale, hero),
-    boundaryNotice: normalizeBoundaryNotice(root, locale),
-    reviewValidity: normalizeReviewValidity(root),
+    boundaryNotice: normalizeBoundaryNotice(root, locale, page),
+    reviewValidity: normalizeReviewValidity(root, page),
     cta: {
       label: hero.primaryCta.label,
       href: ctaHref,
