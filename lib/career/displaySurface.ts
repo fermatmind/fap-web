@@ -4,7 +4,7 @@ import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { buildFAQPageJsonLd } from "@/lib/seo/generateSchema";
 import { appendAttributionParamsToHref, type AttributionParams } from "@/lib/tracking/attribution";
 
-export const CAREER_DISPLAY_SURFACE_VERSION = "display_surface_v1" as const;
+export const CAREER_DISPLAY_SURFACE_VERSION = "display.surface.v1" as const;
 export const CAREER_DISPLAY_TEMPLATE_VERSION = "v4.2" as const;
 export const CAREER_DISPLAY_ACTORS_SLUG = "actors" as const;
 export const CAREER_DISPLAY_RIASEC_TEST_SLUG = "holland-career-interest-test-riasec" as const;
@@ -272,6 +272,11 @@ function resolveLocalizedPage(root: Record<string, unknown>, locale: Locale): Re
   const content = isRecord(page.content) ? page.content : null;
   if (content && isRecord(content[locale])) {
     return content[locale];
+  }
+
+  const pageLocale = normalizeCareerDisplayLocale(page.locale);
+  if (content && pageLocale && pageLocale !== locale) {
+    return null;
   }
 
   return isRecord(content) ? content : null;

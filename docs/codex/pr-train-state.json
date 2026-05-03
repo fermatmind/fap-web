@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-05-02T13:46:00.000000Z",
+  "updated_at": "2026-05-02T15:07:37Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -9,9 +9,9 @@
     "PR-B1": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "github_checks_failed",
+      "status": "merged",
       "branch": "codex/pr-b1-career-display-surface-adapter-components",
-      "commit_sha": "415ed01f75840e3f35fab6a0c650252e9c899351",
+      "commit_sha": "b53edea2441e32a1700cc4944ea5d91845d9031b",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/616",
       "checks": {
         "local": [
@@ -60,7 +60,53 @@
           }
         ]
       },
-      "failure_reason": "GitHub contracts check failed on a Big Five take-attempt priming timeout outside PR-B1 scope; no user override to treat the remote failure as non-blocking for merge.",
+      "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "2026-05-02T13:54:29Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
+    },
+    "PR-B2": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "pr_open",
+      "branch": "codex/pr-b2-career-display-route-integration",
+      "commit_sha": "d0ad3e6",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/617",
+      "checks": {
+        "local": [
+          {
+            "command": "pnpm lint 'app/(localized)/[locale]/career/jobs/[slug]/page.tsx' lib/career/adapters/adaptCareerJobBundle.ts lib/career/adapters/types.ts lib/career/api/types.ts components/career/display lib/career/displaySurface.ts tests/contracts/career-job-detail-actors-v42.contract.test.tsx tests/contracts/career-display-surface.contract.test.tsx tests/contracts/career-display-schema.contract.test.ts tests/contracts/career-display-cta.contract.test.tsx",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/career-job-detail-actors-v42.contract.test.tsx tests/contracts/career-display-surface.contract.test.tsx tests/contracts/career-display-schema.contract.test.ts tests/contracts/career-display-cta.contract.test.tsx",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/career-job-backend-bundle.contract.test.ts",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "status": "passed"
+          },
+          {
+            "command": "git diff --check",
+            "status": "passed"
+          },
+          {
+            "command": "git diff --cached --check",
+            "status": "passed"
+          }
+        ],
+        "github": []
+      },
+      "failure_reason": "",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,

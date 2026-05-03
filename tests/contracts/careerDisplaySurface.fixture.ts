@@ -2,7 +2,7 @@ import { CAREER_DISPLAY_COMPONENT_ORDER } from "@/lib/career/displaySurface";
 
 export function buildActorsDisplaySurfaceFixture() {
   return {
-    surface_version: "display_surface_v1",
+    surface_version: "display.surface.v1",
     template_version: "v4.2",
     asset_type: "career_job_public_display",
     asset_role: "formal_pilot_master",
@@ -27,7 +27,7 @@ export function buildActorsDisplaySurfaceFixture() {
           subtitle: "Actors",
           quick_answer: "演员是把剧本语义、人物关系和情绪节奏转化为镜头或舞台表达的职业。",
           primary_cta: {
-            label: "测我的职业兴趣是否适合演员",
+            label: "测量我的职业兴趣",
             href: "/zh/tests/holland-career-interest-test-riasec",
           },
         },
@@ -182,7 +182,7 @@ export function buildActorsDisplaySurfaceFixture() {
           subtitle: "演员",
           quick_answer: "Actors interpret scripted or improvised roles through voice, gesture, movement, timing, and emotional control.",
           primary_cta: {
-            label: "Test whether your career interests fit acting",
+            label: "Measure my career interests",
             href: "/en/tests/holland-career-interest-test-riasec",
           },
         },

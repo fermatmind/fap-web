@@ -37,6 +37,39 @@ prs:
       delete_remote_branch: true
       run_local_cleanup: true
 
+  - id: PR-B2
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-b2-career-display-route-integration
+    base: main
+    depends_on: ["PR-B1"]
+    mode: execute
+    scope: >
+      Route integration for Actors v4.2 display_surface_v1. Connect the
+      existing Career Display Surface adapter/components to the career job
+      detail route so valid backend display_surface_v1 renders the Actors
+      v4.2 decision page, while missing or invalid surfaces and non-Actors
+      keep the existing legacy job detail rendering. Preserve current metadata,
+      canonical behavior, backend-projected Occupation and Breadcrumb JSON-LD,
+      and add FAQPage JSON-LD only from visible display FAQ. Do not change
+      sitemap, llms, robots, payment, order, tracking mapping, fap-api,
+      Product schema, markdown mirrors, or career quarantine.
+    checks:
+      - "pnpm lint 'app/(localized)/[locale]/career/jobs/[slug]/page.tsx' lib/career/adapters/adaptCareerJobBundle.ts lib/career/adapters/types.ts lib/career/api/types.ts components/career/display lib/career/displaySurface.ts tests/contracts/career-job-detail-actors-v42.contract.test.tsx tests/contracts/career-display-surface.contract.test.tsx tests/contracts/career-display-schema.contract.test.ts tests/contracts/career-display-cta.contract.test.tsx"
+      - "pnpm vitest run tests/contracts/career-job-detail-actors-v42.contract.test.tsx tests/contracts/career-display-surface.contract.test.tsx tests/contracts/career-display-schema.contract.test.ts tests/contracts/career-display-cta.contract.test.tsx"
+      - "pnpm typecheck"
+      - "git diff --check"
+      - "git diff --cached --check"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: false
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
+
   - id: PR-CMSOPS-1
     repo: fap-web
     repo_path: /Users/rainie/Desktop/GitHub/fap-web
