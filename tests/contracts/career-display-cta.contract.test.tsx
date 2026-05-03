@@ -7,7 +7,10 @@ import {
   buildCareerDisplayCtaAttribution,
   buildCareerDisplayCtaHref,
 } from "@/lib/career/displaySurface";
-import { buildActorsDisplaySurfaceFixture } from "@/tests/contracts/careerDisplaySurface.fixture";
+import {
+  buildActorsDisplaySurfaceFixture,
+  buildSelectedCareerDisplaySurfaceFixture,
+} from "@/tests/contracts/careerDisplaySurface.fixture";
 
 describe("career display CTA contract", () => {
   it("renders the RIASEC CTA and preserves the test slug", () => {
@@ -56,6 +59,23 @@ describe("career display CTA contract", () => {
     expect(parsed.searchParams.get("subject_kind")).toBe("job_slug");
     expect(parsed.searchParams.get("subject_key")).toBe("actors");
     expect(parsed.searchParams.get("landing_path")).toBe("/zh/career/jobs/actors");
+  });
+
+  it("uses the selected pilot slug as the display CTA subject key", () => {
+    const href = buildCareerDisplayCtaHref({
+      locale: "en",
+      landingPath: "/en/career/jobs/data-scientists",
+      subjectSlug: "data-scientists",
+    });
+    const payload = buildCareerDisplayCtaAttribution({
+      locale: "en",
+      landingPath: "/en/career/jobs/data-scientists",
+      subjectSlug: "data-scientists",
+    });
+    const parsed = new URL(`https://fermatmind.test${href}`);
+
+    expect(parsed.searchParams.get("subject_key")).toBe("data-scientists");
+    expect(payload.subject_key).toBe("data-scientists");
   });
 
   it("preserves UTM-like attribution query params when building CTA href", () => {
@@ -113,6 +133,38 @@ describe("career display CTA contract", () => {
     expect(parsed.searchParams.get("fbclid")).toBe("test-fbclid");
     expect(parsed.searchParams.get("landing_path")).toBe(
       "/zh/career/jobs/actors?utm_source=zhihu&utm_medium=community&utm_campaign=career_actor_test&utm_content=pilot&gclid=test-gclid&msclkid=test-msclkid&fbclid=test-fbclid"
+    );
+  });
+
+  it("preserves inbound attribution for selected non-Actors display CTAs", () => {
+    const surface = adaptCareerDisplaySurface(
+      buildSelectedCareerDisplaySurfaceFixture({
+        slug: "registered-nurses",
+        titleEn: "Registered Nurses",
+        titleZh: "注册护士",
+      }),
+      "en"
+    );
+
+    render(
+      <CareerDisplaySurface
+        surface={surface}
+        ctaLandingPath="/en/career/jobs/registered-nurses?utm_source=google&gclid=test-gclid"
+        ctaAttributionParams={{
+          utm_source: "google",
+          gclid: "test-gclid",
+        }}
+      />
+    );
+
+    const cta = screen.getByTestId("career-display-cta").querySelector("a");
+    const parsed = new URL(`https://fermatmind.test${cta?.getAttribute("href") ?? ""}`);
+
+    expect(parsed.searchParams.get("subject_key")).toBe("registered-nurses");
+    expect(parsed.searchParams.get("utm_source")).toBe("google");
+    expect(parsed.searchParams.get("gclid")).toBe("test-gclid");
+    expect(parsed.searchParams.get("landing_path")).toBe(
+      "/en/career/jobs/registered-nurses?utm_source=google&gclid=test-gclid"
     );
   });
 });

@@ -1,7 +1,10 @@
 import type { ReactNode } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { buildActorsDisplaySurfaceFixture } from "@/tests/contracts/careerDisplaySurface.fixture";
+import {
+  buildActorsDisplaySurfaceFixture,
+  buildSelectedCareerDisplaySurfaceFixture,
+} from "@/tests/contracts/careerDisplaySurface.fixture";
 
 afterEach(() => {
   vi.resetModules();
@@ -193,6 +196,30 @@ describe("career job detail Actors v4.2 route integration", () => {
     expect(html).not.toContain("career-job-docx-document");
   });
 
+  it.each([
+    ["data-scientists", "Data Scientists"],
+    ["registered-nurses", "Registered Nurses"],
+    ["accountants-and-auditors", "Accountants and Auditors"],
+  ] as const)("renders the selected %s v4.2 display surface when backend returns a valid surface", async (slug, titleEn) => {
+    const html = await renderCareerJobPage(
+      "en",
+      slug,
+      buildJobBundle({
+        slug,
+        displaySurface: buildSelectedCareerDisplaySurfaceFixture({ slug, titleEn }),
+      })
+    );
+
+    expect(html).toContain("career-display-surface");
+    expect(html).toContain(titleEn);
+    expect(html).toContain("Fermat Quick Fit");
+    expect(html).toContain("Career Snapshot: U.S. Reference");
+    expect(html).toContain("What Skills Does the Market Signal?");
+    expect(html).toContain("Measure my career interests");
+    expect(html).toContain(`subject_key=${slug}`);
+    expect(html).not.toContain("career-job-docx-document");
+  });
+
   it("falls back to the existing legacy renderer when display_surface_v1 is missing", async () => {
     const html = await renderCareerJobPage("en", "actors", buildJobBundle());
 
@@ -219,6 +246,25 @@ describe("career job detail Actors v4.2 route integration", () => {
     expect(html).toContain("Legacy Accountants and Auditors DOCX body");
     expect(html).not.toContain("career-display-surface");
     expect(html).not.toContain("Fermat Quick Fit");
+  });
+
+  it("keeps non-selected slugs on the legacy renderer even when a display surface is present", async () => {
+    const html = await renderCareerJobPage(
+      "en",
+      "software-developers",
+      buildJobBundle({
+        slug: "software-developers",
+        displaySurface: buildSelectedCareerDisplaySurfaceFixture({
+          slug: "software-developers",
+          titleEn: "Software Developers",
+        }),
+      })
+    );
+
+    expect(html).toContain("career-job-docx-document");
+    expect(html).toContain("Legacy Accountants and Auditors DOCX body");
+    expect(html).not.toContain("career-display-surface");
+    expect(html).not.toContain("Software Developers");
   });
 
   it("keeps non-Actors on the legacy renderer when inbound attribution is present", async () => {
@@ -313,6 +359,44 @@ describe("career job detail Actors v4.2 route integration", () => {
     expect(html).toContain("fbclid=test-fbclid");
     expect(html).toContain(
       "landing_path=%2Fzh%2Fcareer%2Fjobs%2Factors%3Futm_source%3Dzhihu%26utm_medium%3Dcommunity%26utm_campaign%3Dcareer_actor_test%26utm_content%3Dpilot%26gclid%3Dtest-gclid%26msclkid%3Dtest-msclkid%26fbclid%3Dtest-fbclid"
+    );
+  });
+
+  it("preserves inbound UTM and click IDs in a selected non-Actors display CTA href", async () => {
+    const html = await renderCareerJobPage(
+      "zh",
+      "data-scientists",
+      buildJobBundle({
+        slug: "data-scientists",
+        displaySurface: buildSelectedCareerDisplaySurfaceFixture({
+          slug: "data-scientists",
+          titleEn: "Data Scientists",
+          titleZh: "数据科学家",
+        }),
+      }),
+      {
+        utm_source: "zhihu",
+        utm_medium: "community",
+        utm_campaign: "career_data_test",
+        utm_content: "pilot",
+        gclid: "test-gclid",
+        msclkid: "test-msclkid",
+        fbclid: "test-fbclid",
+      }
+    );
+
+    expect(html).toContain("career-display-surface");
+    expect(html).toContain("数据科学家");
+    expect(html).toContain("subject_key=data-scientists");
+    expect(html).toContain("utm_source=zhihu");
+    expect(html).toContain("utm_medium=community");
+    expect(html).toContain("utm_campaign=career_data_test");
+    expect(html).toContain("utm_content=pilot");
+    expect(html).toContain("gclid=test-gclid");
+    expect(html).toContain("msclkid=test-msclkid");
+    expect(html).toContain("fbclid=test-fbclid");
+    expect(html).toContain(
+      "landing_path=%2Fzh%2Fcareer%2Fjobs%2Fdata-scientists%3Futm_source%3Dzhihu%26utm_medium%3Dcommunity%26utm_campaign%3Dcareer_data_test%26utm_content%3Dpilot%26gclid%3Dtest-gclid%26msclkid%3Dtest-msclkid%26fbclid%3Dtest-fbclid"
     );
   });
 });

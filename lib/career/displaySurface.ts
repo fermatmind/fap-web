@@ -7,6 +7,12 @@ import { appendAttributionParamsToHref, type AttributionParams } from "@/lib/tra
 export const CAREER_DISPLAY_SURFACE_VERSION = "display.surface.v1" as const;
 export const CAREER_DISPLAY_TEMPLATE_VERSION = "v4.2" as const;
 export const CAREER_DISPLAY_ACTORS_SLUG = "actors" as const;
+export const CAREER_DISPLAY_PILOT_SLUGS = [
+  CAREER_DISPLAY_ACTORS_SLUG,
+  "data-scientists",
+  "registered-nurses",
+  "accountants-and-auditors",
+] as const;
 export const CAREER_DISPLAY_RIASEC_TEST_SLUG = "holland-career-interest-test-riasec" as const;
 
 export const CAREER_DISPLAY_FORBIDDEN_FIELDS = [
@@ -49,8 +55,10 @@ const DISPLAY_ASSET_TYPE = "career_job_public_display";
 const DISPLAY_ASSET_ROLE = "formal_pilot_master";
 const ALLOWED_COMPONENT_ORDER = new Set<string>(CAREER_DISPLAY_COMPONENT_ORDER);
 const FORBIDDEN_FIELD_SET = new Set<string>(CAREER_DISPLAY_FORBIDDEN_FIELDS);
+const CAREER_DISPLAY_PILOT_SLUG_SET = new Set<string>(CAREER_DISPLAY_PILOT_SLUGS);
 
 export type CareerDisplayComponentId = (typeof CAREER_DISPLAY_COMPONENT_ORDER)[number];
+export type CareerDisplayPilotSlug = (typeof CAREER_DISPLAY_PILOT_SLUGS)[number];
 export type CareerDisplayLocaleInput = Locale | "zh-CN";
 
 export type CareerDisplayCta = {
@@ -153,7 +161,7 @@ export type CareerDisplaySurfaceViewModel = {
   status: typeof READY_STATUS;
   locale: Locale;
   subject: {
-    canonicalSlug: typeof CAREER_DISPLAY_ACTORS_SLUG;
+    canonicalSlug: CareerDisplayPilotSlug;
     path: string;
     title: string;
     subtitle?: string;
@@ -194,6 +202,10 @@ function normalizeStringArray(value: unknown): string[] {
   }
 
   return [...new Set(value.map((item) => normalizeString(item)).filter((item): item is string => Boolean(item)))];
+}
+
+function isCareerDisplayPilotSlug(value: string | null): value is CareerDisplayPilotSlug {
+  return Boolean(value && CAREER_DISPLAY_PILOT_SLUG_SET.has(value));
 }
 
 export function normalizeCareerDisplayLocale(locale: unknown): Locale | null {
@@ -554,10 +566,12 @@ function buildRelatedNextPages(locale: Locale, hero: CareerDisplayHeroViewModel)
 export function buildCareerDisplayCtaHref({
   locale,
   landingPath,
+  subjectSlug = CAREER_DISPLAY_ACTORS_SLUG,
   attributionParams = {},
 }: {
   locale: Locale;
   landingPath: string;
+  subjectSlug?: CareerDisplayPilotSlug;
   attributionParams?: AttributionParams;
 }): string {
   const href = localizedPath(`/tests/${CAREER_DISPLAY_RIASEC_TEST_SLUG}`, locale);
@@ -567,7 +581,7 @@ export function buildCareerDisplayCtaHref({
     target_action: "start_riasec_test",
     test_slug: CAREER_DISPLAY_RIASEC_TEST_SLUG,
     subject_kind: "job_slug",
-    subject_key: CAREER_DISPLAY_ACTORS_SLUG,
+    subject_key: subjectSlug,
     landing_path: landingPath,
   });
 
@@ -577,9 +591,11 @@ export function buildCareerDisplayCtaHref({
 export function buildCareerDisplayCtaAttribution({
   locale,
   landingPath,
+  subjectSlug = CAREER_DISPLAY_ACTORS_SLUG,
 }: {
   locale: Locale;
   landingPath: string;
+  subjectSlug?: CareerDisplayPilotSlug;
 }) {
   return buildCareerAttributionPayload({
     locale,
@@ -589,7 +605,7 @@ export function buildCareerDisplayCtaAttribution({
     landingPath,
     routeFamily: "job_detail",
     subjectKind: "job_slug",
-    subjectKey: CAREER_DISPLAY_ACTORS_SLUG,
+    subjectKey: subjectSlug,
     queryMode: "non_query",
   });
 }
@@ -627,7 +643,9 @@ export function adaptCareerDisplaySurface(
   const page = resolveLocalizedPage(root, locale);
   const hero = normalizeHero(page?.hero);
   const sections = normalizeSections(page?.sections);
-  const path = normalizeString(page?.path) ?? localizedPath(`/career/jobs/${CAREER_DISPLAY_ACTORS_SLUG}`, locale);
+  const path =
+    normalizeString(page?.path) ??
+    localizedPath(`/career/jobs/${canonicalSlug ?? CAREER_DISPLAY_ACTORS_SLUG}`, locale);
 
   if (
     surfaceVersion !== CAREER_DISPLAY_SURFACE_VERSION ||
@@ -635,7 +653,7 @@ export function adaptCareerDisplaySurface(
     assetType !== DISPLAY_ASSET_TYPE ||
     assetRole !== DISPLAY_ASSET_ROLE ||
     status !== READY_STATUS ||
-    canonicalSlug !== CAREER_DISPLAY_ACTORS_SLUG ||
+    !isCareerDisplayPilotSlug(canonicalSlug) ||
     !componentOrder ||
     !page ||
     !hero
@@ -648,6 +666,7 @@ export function adaptCareerDisplaySurface(
   const ctaHref = buildCareerDisplayCtaHref({
     locale,
     landingPath: path,
+    subjectSlug: canonicalSlug,
     attributionParams,
   });
 
@@ -659,7 +678,7 @@ export function adaptCareerDisplaySurface(
     status: READY_STATUS,
     locale,
     subject: {
-      canonicalSlug: CAREER_DISPLAY_ACTORS_SLUG,
+      canonicalSlug,
       path,
       title: hero.h1,
       ...(hero.subtitle ? { subtitle: hero.subtitle } : {}),
@@ -677,7 +696,7 @@ export function adaptCareerDisplaySurface(
       href: ctaHref,
       testSlug: CAREER_DISPLAY_RIASEC_TEST_SLUG,
       targetAction: "start_riasec_test",
-      eventPayload: buildCareerDisplayCtaAttribution({ locale, landingPath: path }),
+      eventPayload: buildCareerDisplayCtaAttribution({ locale, landingPath: path, subjectSlug: canonicalSlug }),
     },
   };
 }

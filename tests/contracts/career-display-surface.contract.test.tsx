@@ -2,7 +2,10 @@ import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { CareerDisplaySurface } from "@/components/career/display/CareerDisplaySurface";
 import { adaptCareerDisplaySurface } from "@/lib/career/displaySurface";
-import { buildActorsDisplaySurfaceFixture } from "@/tests/contracts/careerDisplaySurface.fixture";
+import {
+  buildActorsDisplaySurfaceFixture,
+  buildSelectedCareerDisplaySurfaceFixture,
+} from "@/tests/contracts/careerDisplaySurface.fixture";
 
 describe("career display surface contract", () => {
   it("adapts and renders the valid Actors display surface", () => {
@@ -36,9 +39,29 @@ describe("career display surface contract", () => {
     expect(screen.getByTestId("career-display-cta")).toHaveTextContent("Next step");
   });
 
-  it("returns null for non-Actors subjects", () => {
-    const fixture = buildActorsDisplaySurfaceFixture();
-    fixture.subject.canonical_slug = "data-scientists";
+  it.each([
+    ["data-scientists", "Data Scientists"],
+    ["registered-nurses", "Registered Nurses"],
+    ["accountants-and-auditors", "Accountants and Auditors"],
+  ] as const)("adapts selected pilot display surfaces for %s", (slug, titleEn) => {
+    const surface = adaptCareerDisplaySurface(
+      buildSelectedCareerDisplaySurfaceFixture({ slug, titleEn }),
+      "en"
+    );
+
+    expect(surface?.subject.canonicalSlug).toBe(slug);
+    expect(surface?.subject.path).toBe(`/en/career/jobs/${slug}`);
+    expect(surface?.subject.title).toBe(titleEn);
+    expect(surface?.componentOrder).toHaveLength(24);
+
+    render(<CareerDisplaySurface surface={surface} />);
+
+    expect(screen.getByTestId("career-display-surface")).toHaveTextContent(titleEn);
+    expect(screen.getByTestId("fermat-decision-card")).toHaveTextContent("Fermat Quick Fit");
+  });
+
+  it("returns null for non-selected subjects", () => {
+    const fixture = buildSelectedCareerDisplaySurfaceFixture({ slug: "software-developers" });
 
     expect(adaptCareerDisplaySurface(fixture, "en")).toBeNull();
   });
@@ -86,9 +109,8 @@ describe("career display surface contract", () => {
     expect(adaptCareerDisplaySurface(buildActorsDisplaySurfaceFixture(), "zh")?.subject.path).toBe("/zh/career/jobs/actors");
   });
 
-  it("does not render a non-Actors fixture", () => {
-    const fixture = buildActorsDisplaySurfaceFixture();
-    fixture.subject.canonical_slug = "writers";
+  it("does not render a non-selected fixture", () => {
+    const fixture = buildSelectedCareerDisplaySurfaceFixture({ slug: "writers" });
     const surface = adaptCareerDisplaySurface(fixture, "en");
     const { container } = render(<CareerDisplaySurface surface={surface} />);
 
