@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-05-03T22:45:00+08:00",
+  "updated_at": "2026-05-03T22:47:00+08:00",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -3147,10 +3147,10 @@
     "PR-D3c": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "in_progress",
+      "status": "pr_open",
       "branch": "codex/pr-d3c-career-display-surface-generalization",
-      "commit_sha": "2ae064032ac34bebdab6a5eb4f4ad44e408e4a5d",
-      "pr_url": "",
+      "commit_sha": "b08263004745ab7075cdef23fa6345854b899b15",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/619",
       "checks": {
         "local": [
           {
