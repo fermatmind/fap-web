@@ -370,6 +370,7 @@ describe("career job detail Actors v4.2 route integration", () => {
         slug: "data-scientists",
         displaySurface: buildSelectedCareerDisplaySurfaceFixture({
           slug: "data-scientists",
+          locale: "zh",
           titleEn: "Data Scientists",
           titleZh: "数据科学家",
         }),

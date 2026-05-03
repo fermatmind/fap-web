@@ -2,6 +2,7 @@ import { CAREER_DISPLAY_COMPONENT_ORDER } from "@/lib/career/displaySurface";
 
 type SelectedCareerDisplaySurfaceFixtureInput = {
   slug: "actors" | "data-scientists" | "registered-nurses" | "accountants-and-auditors" | string;
+  locale?: "en" | "zh";
   titleEn?: string;
   titleZh?: string;
 };
@@ -388,23 +389,225 @@ export function buildActorsDisplaySurfaceFixture() {
 
 export function buildSelectedCareerDisplaySurfaceFixture({
   slug,
+  locale = "en",
   titleEn = "Data Scientists",
   titleZh = "数据科学家",
 }: SelectedCareerDisplaySurfaceFixtureInput) {
-  const fixture = JSON.parse(JSON.stringify(buildActorsDisplaySurfaceFixture()));
+  const isZh = locale === "zh";
+  const title = isZh ? titleZh : titleEn;
+  const secondaryTitle = isZh ? titleEn : titleZh;
+  const path = `/${locale}/career/jobs/${slug}`;
+  const primaryCtaHref = `/${locale}/tests/holland-career-interest-test-riasec`;
 
-  fixture.subject.canonical_slug = slug;
-  fixture.asset.slug = slug;
-  fixture.page.zh.path = `/zh/career/jobs/${slug}`;
-  fixture.page.en.path = `/en/career/jobs/${slug}`;
-  fixture.page.zh.hero.h1 = titleZh;
-  fixture.page.zh.hero.subtitle = titleEn;
-  fixture.page.en.hero.h1 = titleEn;
-  fixture.page.en.hero.subtitle = titleZh;
-
-  if (fixture.structured_data_from_visible_content?.occupation) {
-    fixture.structured_data_from_visible_content.occupation.name = titleEn;
-  }
-
-  return fixture;
+  return {
+    surface_version: "display.surface.v1",
+    template_version: "v4.2",
+    asset_type: "career_job_public_display",
+    asset_role: "formal_pilot_master",
+    status: "ready_for_pilot",
+    subject: {
+      canonical_slug: slug,
+    },
+    component_order: [...CAREER_DISPLAY_COMPONENT_ORDER] as string[],
+    asset: {
+      template_name: "Fermat Career Job Display Template",
+      template_version: "v4.2",
+      asset_role: "formal_pilot_master",
+      asset_type: "career_job_public_display",
+      slug,
+      release_gate: "must-not-render",
+    },
+    page: {
+      locale: isZh ? "zh-CN" : "en",
+      content: {
+        path,
+        breadcrumb: [],
+        hero: {
+          h1: title,
+          title,
+          quick_answer: isZh
+            ? `${title} 是一个真实后端 component-keyed display_surface_v1 测试页面。`
+            : `${title} is a real backend component-keyed display_surface_v1 test page.`,
+        },
+        primary_cta: {
+          label: isZh ? "测量我的职业兴趣" : "Measure my career interests",
+          href: primaryCtaHref,
+          test_slug: "holland-career-interest-test-riasec",
+          subject_key: slug,
+          subject_kind: "career_job",
+          entry_surface: "career_job_detail",
+          target_action: "start_riasec_test",
+          source_page_type: "career_job_detail",
+        },
+        secondary_cta: {
+          label: isZh ? "继续比较职业兴趣" : "Continue comparing career interests",
+          hrefs: [
+            primaryCtaHref,
+            `/${locale}/tests/mbti-personality-test-16-personality-types`,
+            `/${locale}/tests/big-five-personality-test-ocean-model`,
+          ],
+        },
+        fermat_decision_card: {
+          title: isZh ? "费马快速判断" : "Fermat Quick Fit",
+          summary: isZh ? `${title} 适合能持续处理证据、反馈和复杂任务的人。` : `${title} fits people who can sustain evidence work, feedback, and complex tasks.`,
+          caveat: isZh ? "这不是录用、收入或长期发展保证。" : "This is not a guarantee of hiring, income, or long-term outcomes.",
+        },
+        career_snapshot_primary_locale: {
+          id: "us_bls_snapshot",
+          component: "CareerSnapshotCard",
+          heading: isZh ? "职业快照：中国大陆参考" : "Career Snapshot: U.S. Reference",
+          body: isZh ? `${title} 的事实基础来自官方职业来源和市场信号边界。` : `${title} uses official occupational sources and bounded market-signal context.`,
+          rows: [
+            ["Occupation", title],
+            ["SOC Code", slug === "registered-nurses" ? "29-1141" : slug === "accountants-and-auditors" ? "13-2011" : "15-2051"],
+            ["O*NET Code", slug === "registered-nurses" ? "29-1141.00" : slug === "accountants-and-auditors" ? "13-2011.00" : "15-2051.00"],
+          ],
+        },
+        career_snapshot_secondary_locale: {
+          limitation: isZh ? "跨市场数据只作为参考，不是本地薪资承诺。" : "Cross-market data is reference only, not a local salary promise.",
+          salary_data_type: "official_reference",
+        },
+        fit_decision_checklist: {
+          checks: [
+            {
+              title: isZh ? "工作结构承受" : "Work-structure tolerance",
+              question: isZh ? "你能长期处理复杂任务和反馈吗？" : "Can you sustain complex work and feedback?",
+              note: isZh ? "适配取决于日常工作结构。" : "Fit depends on daily work structure.",
+            },
+          ],
+        },
+        riasec_fit_block: {
+          profile: ["Investigative-primary", "Conventional-support"],
+          body: [isZh ? "RIASEC 是工作风格参考，不是命运判断。" : "RIASEC is work-style guidance, not a destiny judgment."],
+        },
+        personality_fit_block: {
+          answer: isZh ? `${title} 需要可靠性、学习能力和反馈恢复。` : `${title} rewards reliability, learning, and feedback recovery.`,
+          body: [isZh ? "人格匹配不是诊断。" : "Personality fit is not a diagnosis."],
+        },
+        definition_block: isZh ? `${title} 负责把职业任务转化为可验证的工作结果。` : `${title} turns occupational tasks into accountable work outcomes.`,
+        responsibilities_block: [isZh ? "分析任务要求" : "Analyze task requirements", isZh ? "维护工作记录" : "Maintain work records"],
+        work_context_block: {
+          target_queries: [`${title} career`, `${title} salary`],
+          search_intent_type: ["career_exploration", "career_fit"],
+        },
+        market_signal_card: {
+          snapshot: {
+            body: isZh ? "市场信号只作为样本参考。" : "Market signals are sample references only.",
+            rows: [
+              ["Signal type", "sample"],
+              ["Usage", "Example only, not market-wide statistics"],
+            ],
+          },
+          sample_only_notice: true,
+        },
+        adjacent_career_comparison_table: [
+          [`${title} vs adjacent roles`, "Different work boundary", "People comparing nearby paths"],
+        ],
+        ai_impact_table: {
+          label: "moderate-high",
+          score_normalized: "7/10",
+          explanation: isZh ? "AI 可能加速部分任务，但不是简单替代预测。" : "AI may accelerate some tasks, but this is not a simple replacement prediction.",
+          source: "FermatMind interpretation; not an official labor-market fact source.",
+        },
+        career_risk_cards: {
+          caveat: isZh ? "本页不是收入预测。" : "This page is not an income forecast.",
+        },
+        contract_project_risk_block: {
+          caveat: isZh ? "确认合同、证照和责任边界。" : "Confirm contract, credential, and responsibility boundaries.",
+        },
+        next_steps_block: {
+          cta: {
+            label: isZh ? "开始霍兰德职业兴趣测试" : "Start the Holland Career Interest Test",
+            href: primaryCtaHref,
+          },
+          steps: [
+            {
+              title: isZh ? "验证兴趣适配" : "Validate interest fit",
+              items: [isZh ? "先做 RIASEC，再结合 MBTI 或 Big Five。" : "Start with RIASEC, then compare with MBTI or Big Five."],
+            },
+          ],
+        },
+        faq_block: {
+          items: [
+            {
+              question: isZh ? `${title} 适合普通人探索吗？` : `Is ${title} a good career fit?`,
+              answer: isZh ? "可以探索，但要结合事实来源和工作风格。" : "It can be explored, but should be checked against facts and work style.",
+            },
+            {
+              question: isZh ? `${title} 会被 AI 取代吗？` : `Will AI replace ${title}?`,
+              answer: isZh ? "不要做简单替代判断，应拆分任务看风险。" : "Do not use a simple replacement claim; inspect task-level risk.",
+            },
+          ],
+        },
+        related_next_pages: {
+          related_tests: [
+            primaryCtaHref,
+            `/${locale}/tests/mbti-personality-test-16-personality-types`,
+            `/${locale}/tests/big-five-personality-test-ocean-model`,
+          ],
+          related_jobs: [],
+          related_guides: [],
+          validation_policy: {
+            related_tests: "stable_routes_allowed",
+            related_jobs: "requires_later_live_validation",
+            related_guides: "requires_later_live_validation",
+            render_policy: "hide_or_plain_text_if_unvalidated",
+          },
+        },
+        source_card: {
+          source_refs: "sources_json.references",
+        },
+        review_validity_card: {
+          last_reviewed: "2026-05-03",
+          next_review_due: "2026-08-03",
+        },
+        boundary_notice: {
+          release_gates: {
+            sitemap: false,
+            llms: false,
+            paid: false,
+            backlink: false,
+          },
+        },
+        final_cta: {
+          label: isZh ? "测量我的职业兴趣" : "Measure my career interests",
+          href: primaryCtaHref,
+          test_slug: "holland-career-interest-test-riasec",
+          subject_key: slug,
+          subject_kind: "career_job",
+          entry_surface: "career_job_detail",
+          target_action: "start_riasec_test",
+          source_page_type: "career_job_detail",
+        },
+      },
+    },
+    sources: {
+      references: [
+        {
+          label: `O*NET Online: ${title}`,
+          url: "https://www.onetonline.org/",
+          usage: "Official occupational definition and work-context reference.",
+          source_type: "official",
+        },
+        {
+          label: "FermatMind interpretation",
+          usage: "FermatMind synthesis; not an official occupational fact source.",
+          source_type: "interpretation",
+        },
+      ],
+    },
+    structured_data_from_visible_content: {
+      faq_page: {
+        "@type": "FAQPage",
+        mainEntity: [{ name: "Hidden FAQ should not be trusted", acceptedAnswer: { text: "tracking_json" } }],
+      },
+      occupation: {
+        "@type": "Occupation",
+        name: secondaryTitle,
+      },
+    },
+    tracking_json: {
+      raw_ai_exposure_score: 7,
+    },
+  };
 }

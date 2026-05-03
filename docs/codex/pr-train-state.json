@@ -3147,14 +3147,56 @@
     "PR-D3c": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "pr_open",
+      "status": "merged",
       "branch": "codex/pr-d3c-career-display-surface-generalization",
-      "commit_sha": "b08263004745ab7075cdef23fa6345854b899b15",
+      "commit_sha": "0052e89444eca3fcd97dc276c2725b68e3126c0f",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/619",
       "checks": {
         "local": [
           {
             "command": "pnpm lint lib/career/displaySurface.ts lib/career/adapters/adaptCareerJobBundle.ts 'app/(localized)/[locale]/career/jobs/[slug]/page.tsx' components/career/display tests/contracts/career-display-surface.contract.test.tsx tests/contracts/career-display-cta.contract.test.tsx tests/contracts/career-job-detail-actors-v42.contract.test.tsx",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/career-display-surface.contract.test.tsx tests/contracts/career-display-schema.contract.test.ts tests/contracts/career-display-cta.contract.test.tsx tests/contracts/career-job-detail-actors-v42.contract.test.tsx tests/contracts/public-api-cache.contract.test.ts",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+            "status": "passed"
+          },
+          {
+            "command": "git diff --check",
+            "status": "passed"
+          },
+          {
+            "command": "git diff --cached --check",
+            "status": "passed"
+          }
+        ],
+        "github": []
+      },
+      "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "2026-05-03T14:50:43Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
+    },
+    "PR-D4a": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "pr_open",
+      "branch": "codex/pr-d4a-display-surface-real-payload",
+      "commit_sha": "50fdf4ffe7e3a189ffa5122a8804fb3971b9a90a",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/620",
+      "checks": {
+        "local": [
+          {
+            "command": "pnpm lint lib/career/displaySurface.ts components/career/display tests/contracts/career-display-surface.contract.test.tsx tests/contracts/career-display-schema.contract.test.ts tests/contracts/career-display-cta.contract.test.tsx tests/contracts/career-job-detail-actors-v42.contract.test.tsx tests/contracts/careerDisplaySurface.fixture.ts",
             "status": "passed"
           },
           {

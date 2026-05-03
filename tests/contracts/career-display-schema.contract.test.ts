@@ -1,6 +1,9 @@
 import { describe, expect, it } from "vitest";
 import { adaptCareerDisplaySurface, buildCareerDisplayFAQPageJsonLd } from "@/lib/career/displaySurface";
-import { buildActorsDisplaySurfaceFixture } from "@/tests/contracts/careerDisplaySurface.fixture";
+import {
+  buildActorsDisplaySurfaceFixture,
+  buildSelectedCareerDisplaySurfaceFixture,
+} from "@/tests/contracts/careerDisplaySurface.fixture";
 
 describe("career display schema contract", () => {
   it("builds FAQPage only from visible FAQ items", () => {
@@ -31,6 +34,20 @@ describe("career display schema contract", () => {
       "普通人想做演员，应该先去横店跑组吗？",
       "没有表演院校背景，可以做演员吗？",
     ]);
+  });
+
+  it("builds selected non-Actors FAQPage from component-keyed visible FAQ only", () => {
+    const surface = adaptCareerDisplaySurface(
+      buildSelectedCareerDisplaySurfaceFixture({ slug: "data-scientists", titleEn: "Data Scientists" }),
+      "en"
+    );
+    const faqJsonLd = buildCareerDisplayFAQPageJsonLd(surface);
+    const serialized = JSON.stringify(faqJsonLd);
+
+    expect(faqJsonLd?.["@type"]).toBe("FAQPage");
+    expect(faqJsonLd?.mainEntity).toHaveLength(2);
+    expect(serialized).toContain("Is Data Scientists a good career fit?");
+    expect(serialized).not.toContain("Hidden FAQ should not be trusted");
   });
 
   it("does not locally produce Product or Occupation schema", () => {
