@@ -85,6 +85,18 @@ describe("career display surface contract", () => {
     expect(surface?.faqItems[0]?.question).toBe("数据科学家 适合普通人探索吗？");
   });
 
+  it("adapts component-keyed AI explanation objects without accepting unsafe schema", () => {
+    const fixture = buildSelectedCareerDisplaySurfaceFixture({ slug: "data-scientists" });
+    (fixture.page.content.ai_impact_table as { explanation: unknown }).explanation = {
+      summary: "AI may change some tasks, but this remains a task-level interpretation.",
+    };
+    const surface = adaptCareerDisplaySurface(fixture, "en");
+
+    expect(surface?.sections.find((section) => section.component === "AIImpactTable")?.body).toBe(
+      "AI may change some tasks, but this remains a task-level interpretation."
+    );
+  });
+
   it("returns null for non-selected subjects", () => {
     const fixture = buildSelectedCareerDisplaySurfaceFixture({ slug: "software-developers" });
 

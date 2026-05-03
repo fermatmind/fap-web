@@ -276,6 +276,25 @@ function normalizeStringArray(value: unknown): string[] {
   return [...new Set(value.map((item) => normalizeString(item)).filter((item): item is string => Boolean(item)))];
 }
 
+function normalizeStringFromValue(value: unknown): string | null {
+  const direct = normalizeString(value);
+  if (direct) {
+    return direct;
+  }
+
+  if (!isRecord(value)) {
+    return null;
+  }
+
+  return (
+    normalizeString(value.explanation) ??
+    normalizeString(value.body) ??
+    normalizeString(value.summary) ??
+    normalizeString(value.text) ??
+    null
+  );
+}
+
 function containsSchemaType(value: unknown, schemaType: string): boolean {
   if (Array.isArray(value)) {
     return value.some((item) => containsSchemaType(item, schemaType));
@@ -618,7 +637,7 @@ function normalizeComponentKeyedSection(
     return normalizeSection({
       ...base,
       score: normalizeString(block.score_normalized) ?? normalizeString(block.label),
-      body: normalizeString(block.explanation),
+      body: normalizeStringFromValue(block.explanation),
       fermat_view: normalizeString(block.source),
     });
   }
