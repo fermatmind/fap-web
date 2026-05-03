@@ -3189,10 +3189,10 @@
     "PR-D4a": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "local_checks_passed",
+      "status": "pr_open",
       "branch": "codex/pr-d4a-display-surface-real-payload",
       "commit_sha": "806590fa2f6c72dba845c2c50817630867845618",
-      "pr_url": "",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/620",
       "checks": {
         "local": [
           {
