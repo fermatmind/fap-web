@@ -8,9 +8,12 @@ import { MarketSignalCard } from "@/components/career/display/MarketSignalCard";
 import { RelatedNextPages } from "@/components/career/display/RelatedNextPages";
 import { SourceList } from "@/components/career/display/SourceList";
 import type { CareerDisplaySection, CareerDisplaySurfaceViewModel } from "@/lib/career/displaySurface";
+import type { AttributionParams } from "@/lib/tracking/attribution";
 
 type CareerDisplaySurfaceProps = {
   surface: CareerDisplaySurfaceViewModel | null;
+  ctaAttributionParams?: AttributionParams;
+  ctaLandingPath?: string;
 };
 
 function findSection(sections: CareerDisplaySection[], component: string): CareerDisplaySection | null {
@@ -21,7 +24,11 @@ function findSections(sections: CareerDisplaySection[], component: string): Care
   return sections.filter((section) => section.component === component);
 }
 
-export function CareerDisplaySurface({ surface }: CareerDisplaySurfaceProps) {
+export function CareerDisplaySurface({
+  surface,
+  ctaAttributionParams,
+  ctaLandingPath,
+}: CareerDisplaySurfaceProps) {
   if (!surface) {
     return null;
   }
@@ -73,7 +80,11 @@ export function CareerDisplaySurface({ surface }: CareerDisplaySurfaceProps) {
         notices={surface.boundaryNotice}
         reviewValidity={surface.reviewValidity}
       />
-      <CareerDisplayCTA surface={surface} />
+      <CareerDisplayCTA
+        surface={surface}
+        ctaAttributionParams={ctaAttributionParams}
+        ctaLandingPath={ctaLandingPath}
+      />
     </article>
   );
 }

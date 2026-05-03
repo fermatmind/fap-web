@@ -45,12 +45,18 @@ function mockRouteRuntime(payload: unknown) {
   }));
 }
 
-async function renderCareerJobPage(locale: "en" | "zh", slug: string, payload: unknown): Promise<string> {
+async function renderCareerJobPage(
+  locale: "en" | "zh",
+  slug: string,
+  payload: unknown,
+  searchParams: Record<string, string | string[] | undefined> = {}
+): Promise<string> {
   mockRouteRuntime(payload);
 
   const { default: Page } = await import("@/app/(localized)/[locale]/career/jobs/[slug]/page");
   const page = await Page({
     params: Promise.resolve({ locale, slug }),
+    searchParams: Promise.resolve(searchParams),
   });
 
   return renderToStaticMarkup(page as ReactNode);
@@ -215,6 +221,22 @@ describe("career job detail Actors v4.2 route integration", () => {
     expect(html).not.toContain("Fermat Quick Fit");
   });
 
+  it("keeps non-Actors on the legacy renderer when inbound attribution is present", async () => {
+    const html = await renderCareerJobPage(
+      "en",
+      "accountants-and-auditors",
+      buildJobBundle({ slug: "accountants-and-auditors" }),
+      { utm_source: "zhihu", gclid: "test-gclid" }
+    );
+
+    expect(html).toContain("career-job-docx-document");
+    expect(html).toContain("Legacy Accountants and Auditors DOCX body");
+    expect(html).not.toContain("career-display-surface");
+    expect(html).not.toContain("holland-career-interest-test-riasec");
+    expect(html).not.toContain("utm_source=zhihu");
+    expect(html).not.toContain("gclid=test-gclid");
+  });
+
   it("emits FAQPage only from visible display FAQ items and keeps hidden FAQ out", async () => {
     const html = await renderCareerJobPage("en", "actors", buildJobBundle({ displaySurface: buildActorsDisplaySurfaceFixture() }));
     const jsonLd = jsonLdPayloads(html).join("\n");
@@ -259,5 +281,38 @@ describe("career job detail Actors v4.2 route integration", () => {
     expect(html).toContain("source_page_type=career_job_detail");
     expect(html).toContain("subject_key=actors");
     expect(html).toContain('data-target-action="start_riasec_test"');
+  });
+
+  it("preserves inbound UTM and click IDs in the server-rendered Actors display CTA href", async () => {
+    const html = await renderCareerJobPage(
+      "zh",
+      "actors",
+      buildJobBundle({ displaySurface: buildActorsDisplaySurfaceFixture() }),
+      {
+        utm_source: "zhihu",
+        utm_medium: "community",
+        utm_campaign: "career_actor_test",
+        utm_content: "pilot",
+        gclid: "test-gclid",
+        msclkid: "test-msclkid",
+        fbclid: "test-fbclid",
+      }
+    );
+
+    expect(html).toContain("holland-career-interest-test-riasec");
+    expect(html).toContain("target_action=start_riasec_test");
+    expect(html).toContain("entry_surface=career_job_detail");
+    expect(html).toContain("source_page_type=career_job_detail");
+    expect(html).toContain("subject_key=actors");
+    expect(html).toContain("utm_source=zhihu");
+    expect(html).toContain("utm_medium=community");
+    expect(html).toContain("utm_campaign=career_actor_test");
+    expect(html).toContain("utm_content=pilot");
+    expect(html).toContain("gclid=test-gclid");
+    expect(html).toContain("msclkid=test-msclkid");
+    expect(html).toContain("fbclid=test-fbclid");
+    expect(html).toContain(
+      "landing_path=%2Fzh%2Fcareer%2Fjobs%2Factors%3Futm_source%3Dzhihu%26utm_medium%3Dcommunity%26utm_campaign%3Dcareer_actor_test%26utm_content%3Dpilot%26gclid%3Dtest-gclid%26msclkid%3Dtest-msclkid%26fbclid%3Dtest-fbclid"
+    );
   });
 });
