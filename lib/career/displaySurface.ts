@@ -12,11 +12,20 @@ export const CAREER_DISPLAY_PILOT_SLUGS = [
   "data-scientists",
   "registered-nurses",
   "accountants-and-auditors",
+  "actuaries",
+  "financial-analysts",
+  "high-school-teachers",
+  "market-research-analysts",
+  "architectural-and-engineering-managers",
+  "civil-engineers",
+  "biomedical-engineers",
+  "dentists",
 ] as const;
 export const CAREER_DISPLAY_RIASEC_TEST_SLUG = "holland-career-interest-test-riasec" as const;
 
 export const CAREER_DISPLAY_FORBIDDEN_FIELDS = [
   "release_gate",
+  "release_gates",
   "qa_risk",
   "admin_review_state",
   "tracking_json",

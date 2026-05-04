@@ -220,6 +220,34 @@ describe("career job detail Actors v4.2 route integration", () => {
     expect(html).not.toContain("career-job-docx-document");
   });
 
+  it.each([
+    ["actuaries", "Actuaries"],
+    ["financial-analysts", "Financial Analysts"],
+    ["high-school-teachers", "High School Teachers"],
+    ["market-research-analysts", "Market Research Analysts"],
+    ["architectural-and-engineering-managers", "Architectural and Engineering Managers"],
+    ["civil-engineers", "Civil Engineers"],
+    ["biomedical-engineers", "Biomedical Engineers"],
+    ["dentists", "Dentists"],
+  ] as const)("renders the D5 selected %s v4.2 display surface when backend returns a valid surface", async (slug, titleEn) => {
+    const html = await renderCareerJobPage(
+      "en",
+      slug,
+      buildJobBundle({
+        slug,
+        displaySurface: buildSelectedCareerDisplaySurfaceFixture({ slug, titleEn }),
+      })
+    );
+
+    expect(html).toContain("career-display-surface");
+    expect(html).toContain(titleEn);
+    expect(html).toContain("Fermat Quick Fit");
+    expect(html).toContain("Career Snapshot: U.S. Reference");
+    expect(html).toContain("Measure my career interests");
+    expect(html).toContain(`subject_key=${slug}`);
+    expect(html).not.toContain("career-job-docx-document");
+  });
+
   it("falls back to the existing legacy renderer when display_surface_v1 is missing", async () => {
     const html = await renderCareerJobPage("en", "actors", buildJobBundle());
 
@@ -308,6 +336,7 @@ describe("career job detail Actors v4.2 route integration", () => {
     const jsonLd = jsonLdPayloads(html).join("\n");
 
     expect(html).not.toContain("release_gate");
+    expect(html).not.toContain("release_gates");
     expect(html).not.toContain("qa_risk");
     expect(html).not.toContain("admin_review_state");
     expect(html).not.toContain("tracking_json");
