@@ -4,6 +4,7 @@ import { CareerDisplaySurface } from "@/components/career/display/CareerDisplayS
 import { adaptCareerDisplaySurface } from "@/lib/career/displaySurface";
 import {
   buildActorsDisplaySurfaceFixture,
+  buildDisplaySurfaceClaimPermissions,
   buildSelectedCareerDisplaySurfaceFixture,
 } from "@/tests/contracts/careerDisplaySurface.fixture";
 
@@ -26,6 +27,8 @@ describe("career display surface contract", () => {
     expect(surface?.locale).toBe("en");
     expect(surface?.componentOrder).toContain("market_signal_card");
     expect(surface?.faqItems).toHaveLength(2);
+    expect(surface?.claimPermissions.integrityState).toBe("full");
+    expect(surface?.claimPermissions.allowAiStrategy).toBe(true);
 
     render(<CareerDisplaySurface surface={surface} />);
 
@@ -67,6 +70,7 @@ describe("career display surface contract", () => {
     expect(surface?.sections.find((section) => section.component === "CareerFAQBlock")?.faqItems).toHaveLength(2);
     expect(surface?.sources).toHaveLength(2);
     expect(surface?.reviewValidity?.lastReviewed).toBe("2026-05-03");
+    expect(surface?.claimPermissions.allowStrongClaim).toBe(true);
 
     render(<CareerDisplaySurface surface={surface} />);
 
@@ -87,6 +91,7 @@ describe("career display surface contract", () => {
     expect(surface?.subject.canonicalSlug).toBe(slug);
     expect(surface?.componentOrder).toHaveLength(24);
     expect(surface?.sections.find((section) => section.component === "CareerFAQBlock")?.faqItems).toHaveLength(2);
+    expect(surface?.claimPermissions.evidenceBasis.crosswalk).toBe("direct");
 
     render(<CareerDisplaySurface surface={surface} />);
 
@@ -123,6 +128,50 @@ describe("career display surface contract", () => {
     expect(surface?.sections.find((section) => section.component === "AIImpactTable")?.body).toBe(
       "AI may change some tasks, but this remains a task-level interpretation."
     );
+  });
+
+  it("fails safe when display claim permissions are missing", () => {
+    const fixture = buildSelectedCareerDisplaySurfaceFixture({ slug: "data-scientists" });
+    delete (fixture as { claim_permissions?: unknown }).claim_permissions;
+    const surface = adaptCareerDisplaySurface(fixture, "en");
+
+    expect(surface?.claimPermissions.integrityState).toBe("restricted");
+    expect(surface?.claimPermissions.allowStrongClaim).toBe(false);
+    expect(surface?.claimPermissions.allowAiStrategy).toBe(false);
+    expect(surface?.claimPermissions.allowSalaryComparison).toBe(false);
+    expect(surface?.claimPermissions.allowMarketSignal).toBe(false);
+
+    render(<CareerDisplaySurface surface={surface} />);
+
+    expect(screen.getByTestId("claim-permission-notice-integrity")).toHaveTextContent("restricted permissions");
+    expect(screen.getByTestId("claim-permission-notice-strong_claim")).toHaveTextContent("Strong fit language is hidden");
+    expect(screen.queryByTestId("fermat-decision-card")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("market-signal-card")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("ai-impact-block")).not.toBeInTheDocument();
+  });
+
+  it("enforces backend claim permissions for AI, market, salary, and strong claims", () => {
+    const fixture = buildActorsDisplaySurfaceFixture();
+    fixture.claim_permissions = buildDisplaySurfaceClaimPermissions({
+      integrity_state: "restricted",
+      allow_strong_claim: false,
+      allow_ai_strategy: false,
+      allow_salary_comparison: false,
+      allow_market_signal: false,
+      blocked_claims: ["salary_missing", "ai_exposure_missing", "market_signal_missing", "proxy_crosswalk"],
+    });
+    const surface = adaptCareerDisplaySurface(fixture, "en");
+
+    render(<CareerDisplaySurface surface={surface} />);
+
+    expect(screen.getByTestId("claim-permission-notice-integrity")).toHaveTextContent("evidence-limited");
+    expect(screen.queryByTestId("fermat-decision-card")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("market-signal-card")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("ai-impact-block")).not.toBeInTheDocument();
+    expect(screen.getByTestId("claim-permission-notice-salary")).toHaveTextContent("Direct salary comparison is hidden");
+    expect(screen.queryByText("Median hourly wage")).not.toBeInTheDocument();
+    expect(screen.getByTestId("boundary-notice")).toHaveTextContent("Boundary notice");
+    expect(screen.getByTestId("career-display-cta")).toHaveTextContent("Measure my career interests");
   });
 
   it("returns null for non-selected subjects", () => {
