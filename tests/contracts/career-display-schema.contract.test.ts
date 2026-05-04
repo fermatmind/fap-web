@@ -50,6 +50,21 @@ describe("career display schema contract", () => {
     expect(serialized).not.toContain("Hidden FAQ should not be trusted");
   });
 
+  it("builds D5 FAQPage from visible FAQ only", () => {
+    const surface = adaptCareerDisplaySurface(
+      buildSelectedCareerDisplaySurfaceFixture({ slug: "biomedical-engineers", titleEn: "Biomedical Engineers" }),
+      "en"
+    );
+    const faqJsonLd = buildCareerDisplayFAQPageJsonLd(surface);
+    const serialized = JSON.stringify(faqJsonLd);
+
+    expect(faqJsonLd?.["@type"]).toBe("FAQPage");
+    expect(faqJsonLd?.mainEntity).toHaveLength(2);
+    expect(serialized).toContain("Is Biomedical Engineers a good career fit?");
+    expect(serialized).not.toContain("Hidden FAQ should not be trusted");
+    expect(serialized).not.toContain("Product");
+  });
+
   it("does not locally produce Product or Occupation schema", () => {
     const surface = adaptCareerDisplaySurface(buildActorsDisplaySurfaceFixture(), "en");
     const faqJsonLd = buildCareerDisplayFAQPageJsonLd(surface);

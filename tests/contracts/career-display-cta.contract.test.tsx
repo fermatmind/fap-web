@@ -167,4 +167,35 @@ describe("career display CTA contract", () => {
       "/en/career/jobs/registered-nurses?utm_source=google&gclid=test-gclid"
     );
   });
+
+  it("uses a D5 selected slug as the display CTA subject key", () => {
+    const surface = adaptCareerDisplaySurface(
+      buildSelectedCareerDisplaySurfaceFixture({
+        slug: "civil-engineers",
+        titleEn: "Civil Engineers",
+        titleZh: "土木工程师",
+      }),
+      "en"
+    );
+
+    render(
+      <CareerDisplaySurface
+        surface={surface}
+        ctaLandingPath="/en/career/jobs/civil-engineers?utm_source=d5&gclid=test-gclid"
+        ctaAttributionParams={{
+          utm_source: "d5",
+          gclid: "test-gclid",
+        }}
+      />
+    );
+
+    const cta = screen.getByTestId("career-display-cta").querySelector("a");
+    const parsed = new URL(`https://fermatmind.test${cta?.getAttribute("href") ?? ""}`);
+
+    expect(parsed.searchParams.get("subject_key")).toBe("civil-engineers");
+    expect(parsed.searchParams.get("target_action")).toBe("start_riasec_test");
+    expect(parsed.searchParams.get("entry_surface")).toBe("career_job_detail");
+    expect(parsed.searchParams.get("utm_source")).toBe("d5");
+    expect(parsed.searchParams.get("gclid")).toBe("test-gclid");
+  });
 });

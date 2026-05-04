@@ -141,6 +141,44 @@ prs:
       delete_remote_branch: true
       run_local_cleanup: true
 
+  - id: PR-D5d-web
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-d5d-web-display-surface-d5-slugs
+    base: main
+    depends_on: ["PR-D4a"]
+    mode: execute
+    scope: >
+      D5d fap-web Career Display Surface allowlist expansion. Extend the
+      selected display_surface_v1 frontend adapter and route contracts to the
+      D5 selected slugs: actuaries, financial-analysts,
+      high-school-teachers, market-research-analysts,
+      architectural-and-engineering-managers, civil-engineers,
+      biomedical-engineers, and dentists. Preserve adapter validation,
+      legacy fallback for missing or invalid surfaces, CTA attribution
+      continuity, FAQPage derivation from visible FAQ only, forbidden field
+      stripping including release_gates, Product schema rejection, and
+      non-selected slug blocking. Do not change fap-api, sitemap, llms,
+      llms-full, paid/backlink gates, tracking event mapping, content assets,
+      Product schema emission, local Occupation schema expansion, or the 2786
+      full career rollout.
+    checks:
+      - "pnpm lint lib/career/displaySurface.ts components/career/display tests/contracts/career-display-surface.contract.test.tsx tests/contracts/career-display-schema.contract.test.ts tests/contracts/career-display-cta.contract.test.tsx tests/contracts/career-job-detail-actors-v42.contract.test.tsx tests/contracts/careerDisplaySurface.fixture.ts"
+      - "pnpm vitest run tests/contracts/career-display-surface.contract.test.tsx tests/contracts/career-display-schema.contract.test.ts tests/contracts/career-display-cta.contract.test.tsx tests/contracts/career-job-detail-actors-v42.contract.test.tsx tests/contracts/public-api-cache.contract.test.ts"
+      - "pnpm typecheck"
+      - "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build"
+      - "git diff --check"
+      - "git diff --cached --check"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: false
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
+
   - id: PR-CMSOPS-1
     repo: fap-web
     repo_path: /Users/rainie/Desktop/GitHub/fap-web

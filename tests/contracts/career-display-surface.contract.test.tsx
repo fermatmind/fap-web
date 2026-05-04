@@ -7,6 +7,17 @@ import {
   buildSelectedCareerDisplaySurfaceFixture,
 } from "@/tests/contracts/careerDisplaySurface.fixture";
 
+const D5_SELECTED_DISPLAY_SLUGS = [
+  ["actuaries", "Actuaries"],
+  ["financial-analysts", "Financial Analysts"],
+  ["high-school-teachers", "High School Teachers"],
+  ["market-research-analysts", "Market Research Analysts"],
+  ["architectural-and-engineering-managers", "Architectural and Engineering Managers"],
+  ["civil-engineers", "Civil Engineers"],
+  ["biomedical-engineers", "Biomedical Engineers"],
+  ["dentists", "Dentists"],
+] as const;
+
 describe("career display surface contract", () => {
   it("adapts and renders the valid Actors display surface", () => {
     const surface = adaptCareerDisplaySurface(buildActorsDisplaySurfaceFixture(), "en");
@@ -67,6 +78,23 @@ describe("career display surface contract", () => {
     expect(screen.getByTestId("boundary-notice")).toHaveTextContent("Last reviewed: 2026-05-03");
   });
 
+  it.each(D5_SELECTED_DISPLAY_SLUGS)("adapts D5 selected display surfaces for %s", (slug, titleEn) => {
+    const surface = adaptCareerDisplaySurface(
+      buildSelectedCareerDisplaySurfaceFixture({ slug, titleEn }),
+      "en"
+    );
+
+    expect(surface?.subject.canonicalSlug).toBe(slug);
+    expect(surface?.componentOrder).toHaveLength(24);
+    expect(surface?.sections.find((section) => section.component === "CareerFAQBlock")?.faqItems).toHaveLength(2);
+
+    render(<CareerDisplaySurface surface={surface} />);
+
+    expect(screen.getByTestId("career-display-surface")).toHaveTextContent(titleEn);
+    expect(screen.getByTestId("career-display-cta")).toHaveTextContent("Measure my career interests");
+    expect(screen.getByTestId("career-display-faq")).toHaveTextContent(`Is ${titleEn} a good career fit?`);
+  });
+
   it("adapts real backend component-keyed selected payloads for Chinese locale", () => {
     const surface = adaptCareerDisplaySurface(
       buildSelectedCareerDisplaySurfaceFixture({
@@ -115,6 +143,7 @@ describe("career display surface contract", () => {
     const serialized = JSON.stringify(surface);
 
     expect(serialized).not.toContain("release_gate");
+    expect(serialized).not.toContain("release_gates");
     expect(serialized).not.toContain("qa_risk");
     expect(serialized).not.toContain("admin_review_state");
     expect(serialized).not.toContain("tracking_json");
