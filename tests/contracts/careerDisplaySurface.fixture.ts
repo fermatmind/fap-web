@@ -7,6 +7,26 @@ type SelectedCareerDisplaySurfaceFixtureInput = {
   titleZh?: string;
 };
 
+export function buildDisplaySurfaceClaimPermissions(overrides: Record<string, unknown> = {}) {
+  return {
+    integrity_state: "full",
+    allow_strong_claim: true,
+    allow_ai_strategy: true,
+    allow_salary_comparison: true,
+    allow_market_signal: true,
+    allow_local_proxy_wage: false,
+    blocked_claims: [],
+    warnings: [],
+    evidence_basis: {
+      salary: "official",
+      ai_exposure: "central_score",
+      market_signal: "sample",
+      crosswalk: "direct",
+    },
+    ...overrides,
+  };
+}
+
 export function buildActorsDisplaySurfaceFixture() {
   return {
     surface_version: "display.surface.v1",
@@ -17,6 +37,7 @@ export function buildActorsDisplaySurfaceFixture() {
     subject: {
       canonical_slug: "actors",
     },
+    claim_permissions: buildDisplaySurfaceClaimPermissions(),
     component_order: [...CAREER_DISPLAY_COMPONENT_ORDER] as string[],
     asset: {
       template_name: "Fermat Career Job Display Template",
@@ -408,6 +429,7 @@ export function buildSelectedCareerDisplaySurfaceFixture({
     subject: {
       canonical_slug: slug,
     },
+    claim_permissions: buildDisplaySurfaceClaimPermissions(),
     component_order: [...CAREER_DISPLAY_COMPONENT_ORDER] as string[],
     asset: {
       template_name: "Fermat Career Job Display Template",

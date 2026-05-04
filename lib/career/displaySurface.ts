@@ -162,6 +162,27 @@ export type CareerDisplayReviewValidity = {
   marketSignalExpiry?: string;
 };
 
+export type CareerDisplayIntegrityState = "full" | "provisional" | "restricted" | "blocked";
+
+export type CareerDisplayEvidenceBasis = {
+  salary: "official" | "proxy" | "missing";
+  aiExposure: "central_score" | "missing" | "blocked";
+  marketSignal: "sample" | "official" | "missing";
+  crosswalk: "direct" | "trust_inheritance" | "proxy" | "missing";
+};
+
+export type CareerDisplayClaimPermissions = {
+  integrityState: CareerDisplayIntegrityState;
+  allowStrongClaim: boolean;
+  allowAiStrategy: boolean;
+  allowSalaryComparison: boolean;
+  allowMarketSignal: boolean;
+  allowLocalProxyWage: boolean;
+  blockedClaims: string[];
+  warnings: string[];
+  evidenceBasis: CareerDisplayEvidenceBasis;
+};
+
 export type CareerDisplaySurfaceViewModel = {
   surfaceVersion: typeof CAREER_DISPLAY_SURFACE_VERSION;
   templateVersion: typeof CAREER_DISPLAY_TEMPLATE_VERSION;
@@ -183,6 +204,7 @@ export type CareerDisplaySurfaceViewModel = {
   relatedNextPages: CareerDisplayRelatedPage[];
   boundaryNotice: string[];
   reviewValidity: CareerDisplayReviewValidity | null;
+  claimPermissions: CareerDisplayClaimPermissions;
   cta: {
     label: string;
     href: string;
@@ -302,6 +324,15 @@ function normalizeStringFromValue(value: unknown): string | null {
     normalizeString(value.text) ??
     null
   );
+}
+
+function normalizeBoolean(value: unknown, fallback = false): boolean {
+  return typeof value === "boolean" ? value : fallback;
+}
+
+function normalizeOneOf<T extends string>(value: unknown, allowed: readonly T[], fallback: T): T {
+  const normalized = normalizeString(value);
+  return normalized && (allowed as readonly string[]).includes(normalized) ? (normalized as T) : fallback;
 }
 
 function containsSchemaType(value: unknown, schemaType: string): boolean {
@@ -770,6 +801,47 @@ function normalizeReviewValidity(root: Record<string, unknown>, page?: Record<st
   };
 }
 
+function normalizeClaimPermissions(value: unknown): CareerDisplayClaimPermissions {
+  const raw = isRecord(value) ? value : null;
+  if (!raw) {
+    return {
+      integrityState: "restricted",
+      allowStrongClaim: false,
+      allowAiStrategy: false,
+      allowSalaryComparison: false,
+      allowMarketSignal: false,
+      allowLocalProxyWage: false,
+      blockedClaims: ["missing_claim_permissions"],
+      warnings: ["claim_permissions missing; restricted claim rendering applied"],
+      evidenceBasis: {
+        salary: "missing",
+        aiExposure: "missing",
+        marketSignal: "missing",
+        crosswalk: "missing",
+      },
+    };
+  }
+
+  const evidence = isRecord(raw.evidence_basis) ? raw.evidence_basis : {};
+
+  return {
+    integrityState: normalizeOneOf(raw.integrity_state, ["full", "provisional", "restricted", "blocked"] as const, "restricted"),
+    allowStrongClaim: normalizeBoolean(raw.allow_strong_claim),
+    allowAiStrategy: normalizeBoolean(raw.allow_ai_strategy),
+    allowSalaryComparison: normalizeBoolean(raw.allow_salary_comparison),
+    allowMarketSignal: normalizeBoolean(raw.allow_market_signal),
+    allowLocalProxyWage: normalizeBoolean(raw.allow_local_proxy_wage),
+    blockedClaims: normalizeStringArray(raw.blocked_claims),
+    warnings: normalizeStringArray(raw.warnings),
+    evidenceBasis: {
+      salary: normalizeOneOf(evidence.salary, ["official", "proxy", "missing"] as const, "missing"),
+      aiExposure: normalizeOneOf(evidence.ai_exposure, ["central_score", "missing", "blocked"] as const, "missing"),
+      marketSignal: normalizeOneOf(evidence.market_signal, ["sample", "official", "missing"] as const, "missing"),
+      crosswalk: normalizeOneOf(evidence.crosswalk, ["direct", "trust_inheritance", "proxy", "missing"] as const, "missing"),
+    },
+  };
+}
+
 function isKnownTestHref(href: string): boolean {
   return [
     "/tests/holland-career-interest-test-riasec",
@@ -947,6 +1019,7 @@ export function adaptCareerDisplaySurface(
     relatedNextPages: buildRelatedNextPages(locale, hero),
     boundaryNotice: normalizeBoundaryNotice(root, locale, page),
     reviewValidity: normalizeReviewValidity(root, page),
+    claimPermissions: normalizeClaimPermissions(root.claim_permissions),
     cta: {
       label: hero.primaryCta.label,
       href: ctaHref,

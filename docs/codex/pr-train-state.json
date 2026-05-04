@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-05-04T11:07:00+08:00",
+  "updated_at": "2026-05-04T12:35:00+08:00",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -975,8 +975,8 @@
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-api/backend",
       "status": "pending",
       "branch": "codex/pr-b7-career-first-wave-manifest-publish-gate",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "aa4b79b",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/622",
       "checks": {
         "local": [
           {
@@ -1012,7 +1012,32 @@
       "commit_sha": "",
       "pr_url": "",
       "checks": {
-        "local": [],
+        "local": [
+          {
+            "command": "pnpm lint lib/career/displaySurface.ts components/career/display tests/contracts/career-display-surface.contract.test.tsx tests/contracts/career-display-schema.contract.test.ts tests/contracts/career-display-cta.contract.test.tsx tests/contracts/career-job-detail-actors-v42.contract.test.tsx tests/contracts/careerDisplaySurface.fixture.ts",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/career-display-surface.contract.test.tsx tests/contracts/career-display-schema.contract.test.ts tests/contracts/career-display-cta.contract.test.tsx tests/contracts/career-job-detail-actors-v42.contract.test.tsx tests/contracts/public-api-cache.contract.test.ts",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+            "status": "passed"
+          },
+          {
+            "command": "git diff --check",
+            "status": "passed"
+          },
+          {
+            "command": "git diff --cached --check",
+            "status": "passed"
+          }
+        ],
         "github": []
       },
       "failure_reason": "",
@@ -3231,9 +3256,9 @@
     "PR-D5d-web": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "pr_open",
+      "status": "merged",
       "branch": "codex/pr-d5d-web-display-surface-d5-slugs",
-      "commit_sha": "073ed407cfb0b2e758458663f5ccddf5dc495d76",
+      "commit_sha": "5ca099fa41eb5ac1c09e431d28e634e9d90ddbbf",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/621",
       "checks": {
         "local": [
@@ -3262,6 +3287,23 @@
             "status": "passed"
           }
         ],
+        "github": []
+      },
+      "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "2026-05-04T02:47:10Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
+    },
+    "PR-D7a-web": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "in_progress",
+      "branch": "codex/pr-d7a-web-claimguard-display-surface",
+      "commit_sha": "",
+      "pr_url": "",
+      "checks": {
+        "local": [],
         "github": []
       },
       "failure_reason": "",
