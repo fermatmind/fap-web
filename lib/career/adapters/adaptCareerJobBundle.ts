@@ -596,7 +596,7 @@ export function adaptCareerJobBundle(input: AdaptCareerJobBundleInput): CareerJo
     },
     contentSections: buildContentSections(raw),
     contentBodyMd: normalizeString(raw.content_body_md),
-    displaySurfaceV1: adaptCareerDisplaySurface(raw.display_surface_v1, input.locale),
+    displaySurfaceV1: adaptCareerDisplaySurface(raw.display_surface_v1, input.locale, undefined, slug),
     scoreBundle,
     warnings,
     claimPermissions,

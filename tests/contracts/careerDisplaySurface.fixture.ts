@@ -30,6 +30,7 @@ export function buildDisplaySurfaceClaimPermissions(overrides: Record<string, un
 export function buildActorsDisplaySurfaceFixture() {
   return {
     surface_version: "display.surface.v1",
+    asset_version: "v4.2",
     template_version: "v4.2",
     asset_type: "career_job_public_display",
     asset_role: "formal_pilot_master",
@@ -41,6 +42,7 @@ export function buildActorsDisplaySurfaceFixture() {
     component_order: [...CAREER_DISPLAY_COMPONENT_ORDER] as string[],
     asset: {
       template_name: "Fermat Career Job Display Template",
+      asset_version: "v4.2",
       template_version: "v4.2",
       asset_role: "formal_pilot_master",
       asset_type: "career_job_public_display",
@@ -422,6 +424,7 @@ export function buildSelectedCareerDisplaySurfaceFixture({
 
   return {
     surface_version: "display.surface.v1",
+    asset_version: "v4.2",
     template_version: "v4.2",
     asset_type: "career_job_public_display",
     asset_role: "formal_pilot_master",
@@ -433,6 +436,7 @@ export function buildSelectedCareerDisplaySurfaceFixture({
     component_order: [...CAREER_DISPLAY_COMPONENT_ORDER] as string[],
     asset: {
       template_name: "Fermat Career Job Display Template",
+      asset_version: "v4.2",
       template_version: "v4.2",
       asset_role: "formal_pilot_master",
       asset_type: "career_job_public_display",

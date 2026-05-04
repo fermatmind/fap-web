@@ -65,6 +65,21 @@ describe("career display schema contract", () => {
     expect(serialized).not.toContain("Product");
   });
 
+  it("builds D8 FAQPage from visible FAQ only", () => {
+    const surface = adaptCareerDisplaySurface(
+      buildSelectedCareerDisplaySurfaceFixture({ slug: "web-developers", titleEn: "Web Developers" }),
+      "en"
+    );
+    const faqJsonLd = buildCareerDisplayFAQPageJsonLd(surface);
+    const serialized = JSON.stringify(faqJsonLd);
+
+    expect(faqJsonLd?.["@type"]).toBe("FAQPage");
+    expect(faqJsonLd?.mainEntity).toHaveLength(2);
+    expect(serialized).toContain("Is Web Developers a good career fit?");
+    expect(serialized).not.toContain("Hidden FAQ should not be trusted");
+    expect(serialized).not.toContain("Product");
+  });
+
   it("does not locally produce Product or Occupation schema", () => {
     const surface = adaptCareerDisplaySurface(buildActorsDisplaySurfaceFixture(), "en");
     const faqJsonLd = buildCareerDisplayFAQPageJsonLd(surface);

@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-05-04T12:35:00+08:00",
+  "updated_at": "2026-05-04T10:51:21.470853Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -3298,12 +3298,54 @@
     "PR-D7a-web": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "in_progress",
+      "status": "merged",
       "branch": "codex/pr-d7a-web-claimguard-display-surface",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "7dde95eead9eaa383fdec0fd7d74e6d207e40ddc",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/622",
       "checks": {
         "local": [],
+        "github": []
+      },
+      "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "2026-05-04T04:42:43Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
+    },
+    "PR-D8d-web": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "pr_open",
+      "branch": "codex/pr-d8d-web-validator-driven-display-surface",
+      "commit_sha": "ee8e58b",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/623",
+      "checks": {
+        "local": [
+          {
+            "command": "pnpm lint lib/career/displaySurface.ts lib/career/adapters/adaptCareerJobBundle.ts components/career/display tests/contracts/career-display-surface.contract.test.tsx tests/contracts/career-display-schema.contract.test.ts tests/contracts/career-display-cta.contract.test.tsx tests/contracts/career-job-detail-actors-v42.contract.test.tsx tests/contracts/careerDisplaySurface.fixture.ts",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/career-display-surface.contract.test.tsx tests/contracts/career-display-schema.contract.test.ts tests/contracts/career-display-cta.contract.test.tsx tests/contracts/career-job-detail-actors-v42.contract.test.tsx tests/contracts/public-api-cache.contract.test.ts",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+            "status": "passed"
+          },
+          {
+            "command": "git diff --check",
+            "status": "passed"
+          },
+          {
+            "command": "git diff --cached --check",
+            "status": "passed"
+          }
+        ],
         "github": []
       },
       "failure_reason": "",
