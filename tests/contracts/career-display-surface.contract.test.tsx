@@ -19,6 +19,28 @@ const D5_SELECTED_DISPLAY_SLUGS = [
   ["dentists", "Dentists"],
 ] as const;
 
+const D8_ACTIVE_DISPLAY_SLUGS = [
+  ["web-developers", "Web Developers"],
+  ["marketing-managers", "Marketing Managers"],
+  ["lawyers", "Lawyers"],
+  ["pharmacists", "Pharmacists"],
+  ["acupuncturists", "Acupuncturists"],
+  ["business-intelligence-analysts", "Business Intelligence Analysts"],
+  ["clinical-data-managers", "Clinical Data Managers"],
+  ["budget-analysts", "Budget Analysts"],
+  ["human-resources-managers", "Human Resources Managers"],
+  ["administrative-services-managers", "Administrative Services Managers"],
+  ["advertising-and-promotions-managers", "Advertising and Promotions Managers"],
+  ["architects", "Architects"],
+  ["air-traffic-controllers", "Air Traffic Controllers"],
+  ["airline-and-commercial-pilots", "Airline and Commercial Pilots"],
+  ["chemists-and-materials-scientists", "Chemists and Materials Scientists"],
+  ["clinical-laboratory-technologists-and-technicians", "Clinical Laboratory Technologists and Technicians"],
+  ["community-health-workers", "Community Health Workers"],
+  ["compensation-and-benefits-managers", "Compensation and Benefits Managers"],
+  ["career-and-technical-education-teachers", "Career and Technical Education Teachers"],
+] as const;
+
 describe("career display surface contract", () => {
   it("adapts and renders the valid Actors display surface", () => {
     const surface = adaptCareerDisplaySurface(buildActorsDisplaySurfaceFixture(), "en");
@@ -135,19 +157,7 @@ describe("career display surface contract", () => {
     delete (fixture as { claim_permissions?: unknown }).claim_permissions;
     const surface = adaptCareerDisplaySurface(fixture, "en");
 
-    expect(surface?.claimPermissions.integrityState).toBe("restricted");
-    expect(surface?.claimPermissions.allowStrongClaim).toBe(false);
-    expect(surface?.claimPermissions.allowAiStrategy).toBe(false);
-    expect(surface?.claimPermissions.allowSalaryComparison).toBe(false);
-    expect(surface?.claimPermissions.allowMarketSignal).toBe(false);
-
-    render(<CareerDisplaySurface surface={surface} />);
-
-    expect(screen.getByTestId("claim-permission-notice-integrity")).toHaveTextContent("restricted permissions");
-    expect(screen.getByTestId("claim-permission-notice-strong_claim")).toHaveTextContent("Strong fit language is hidden");
-    expect(screen.queryByTestId("fermat-decision-card")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("market-signal-card")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("ai-impact-block")).not.toBeInTheDocument();
+    expect(surface).toBeNull();
   });
 
   it("enforces backend claim permissions for AI, market, salary, and strong claims", () => {
@@ -174,8 +184,38 @@ describe("career display surface contract", () => {
     expect(screen.getByTestId("career-display-cta")).toHaveTextContent("Measure my career interests");
   });
 
-  it("returns null for non-selected subjects", () => {
+  it.each(D8_ACTIVE_DISPLAY_SLUGS)("adapts D8 validator-eligible display surfaces for %s", (slug, titleEn) => {
+    const surface = adaptCareerDisplaySurface(
+      buildSelectedCareerDisplaySurfaceFixture({ slug, titleEn }),
+      "en"
+    );
+
+    expect(surface?.subject.canonicalSlug).toBe(slug);
+    expect(surface?.componentOrder).toHaveLength(24);
+    expect(surface?.claimPermissions.integrityState).toBe("full");
+
+    render(<CareerDisplaySurface surface={surface} />);
+
+    expect(screen.getByTestId("career-display-surface")).toHaveTextContent(titleEn);
+    expect(screen.getByTestId("career-display-cta")).toHaveTextContent("Measure my career interests");
+    expect(screen.getByTestId("career-display-faq")).toHaveTextContent(`Is ${titleEn} a good career fit?`);
+  });
+
+  it("returns null for manual-hold subjects even when the payload is otherwise valid", () => {
     const fixture = buildSelectedCareerDisplaySurfaceFixture({ slug: "software-developers" });
+
+    expect(adaptCareerDisplaySurface(fixture, "en")).toBeNull();
+  });
+
+  it("returns null when the display surface slug does not match the route slug", () => {
+    const fixture = buildSelectedCareerDisplaySurfaceFixture({ slug: "web-developers", titleEn: "Web Developers" });
+
+    expect(adaptCareerDisplaySurface(fixture, "en", undefined, "marketing-managers")).toBeNull();
+  });
+
+  it("returns null when the nested asset slug does not match the canonical slug", () => {
+    const fixture = buildSelectedCareerDisplaySurfaceFixture({ slug: "web-developers", titleEn: "Web Developers" });
+    fixture.asset.slug = "marketing-managers";
 
     expect(adaptCareerDisplaySurface(fixture, "en")).toBeNull();
   });
@@ -234,12 +274,11 @@ describe("career display surface contract", () => {
     expect(adaptCareerDisplaySurface(buildActorsDisplaySurfaceFixture(), "zh")?.subject.path).toBe("/zh/career/jobs/actors");
   });
 
-  it("does not render a non-selected fixture", () => {
+  it("renders a validator-eligible slug without a hardcoded selected allowlist entry", () => {
     const fixture = buildSelectedCareerDisplaySurfaceFixture({ slug: "writers" });
     const surface = adaptCareerDisplaySurface(fixture, "en");
-    const { container } = render(<CareerDisplaySurface surface={surface} />);
 
-    expect(surface).toBeNull();
-    expect(container).toBeEmptyDOMElement();
+    expect(surface?.subject.canonicalSlug).toBe("writers");
   });
+
 });

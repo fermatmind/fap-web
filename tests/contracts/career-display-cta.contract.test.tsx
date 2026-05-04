@@ -198,4 +198,35 @@ describe("career display CTA contract", () => {
     expect(parsed.searchParams.get("utm_source")).toBe("d5");
     expect(parsed.searchParams.get("gclid")).toBe("test-gclid");
   });
+
+  it("uses a D8 validator-eligible slug as the display CTA subject key", () => {
+    const surface = adaptCareerDisplaySurface(
+      buildSelectedCareerDisplaySurfaceFixture({
+        slug: "web-developers",
+        titleEn: "Web Developers",
+        titleZh: "网页开发人员",
+      }),
+      "en"
+    );
+
+    render(
+      <CareerDisplaySurface
+        surface={surface}
+        ctaLandingPath="/en/career/jobs/web-developers?utm_source=d8&gclid=test-gclid"
+        ctaAttributionParams={{
+          utm_source: "d8",
+          gclid: "test-gclid",
+        }}
+      />
+    );
+
+    const cta = screen.getByTestId("career-display-cta").querySelector("a");
+    const parsed = new URL(`https://fermatmind.test${cta?.getAttribute("href") ?? ""}`);
+
+    expect(parsed.searchParams.get("subject_key")).toBe("web-developers");
+    expect(parsed.searchParams.get("target_action")).toBe("start_riasec_test");
+    expect(parsed.searchParams.get("entry_surface")).toBe("career_job_detail");
+    expect(parsed.searchParams.get("utm_source")).toBe("d8");
+    expect(parsed.searchParams.get("gclid")).toBe("test-gclid");
+  });
 });

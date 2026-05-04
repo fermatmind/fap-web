@@ -248,6 +248,44 @@ describe("career job detail Actors v4.2 route integration", () => {
     expect(html).not.toContain("career-job-docx-document");
   });
 
+  it.each([
+    ["web-developers", "Web Developers"],
+    ["marketing-managers", "Marketing Managers"],
+    ["lawyers", "Lawyers"],
+    ["pharmacists", "Pharmacists"],
+    ["acupuncturists", "Acupuncturists"],
+    ["business-intelligence-analysts", "Business Intelligence Analysts"],
+    ["clinical-data-managers", "Clinical Data Managers"],
+    ["budget-analysts", "Budget Analysts"],
+    ["human-resources-managers", "Human Resources Managers"],
+    ["administrative-services-managers", "Administrative Services Managers"],
+    ["advertising-and-promotions-managers", "Advertising and Promotions Managers"],
+    ["architects", "Architects"],
+    ["air-traffic-controllers", "Air Traffic Controllers"],
+    ["airline-and-commercial-pilots", "Airline and Commercial Pilots"],
+    ["chemists-and-materials-scientists", "Chemists and Materials Scientists"],
+    ["clinical-laboratory-technologists-and-technicians", "Clinical Laboratory Technologists and Technicians"],
+    ["community-health-workers", "Community Health Workers"],
+    ["compensation-and-benefits-managers", "Compensation and Benefits Managers"],
+    ["career-and-technical-education-teachers", "Career and Technical Education Teachers"],
+  ] as const)("renders the D8 validator-eligible %s v4.2 display surface when backend returns a valid surface", async (slug, titleEn) => {
+    const html = await renderCareerJobPage(
+      "en",
+      slug,
+      buildJobBundle({
+        slug,
+        displaySurface: buildSelectedCareerDisplaySurfaceFixture({ slug, titleEn }),
+      })
+    );
+
+    expect(html).toContain("career-display-surface");
+    expect(html).toContain(titleEn);
+    expect(html).toContain("Fermat Quick Fit");
+    expect(html).toContain("Measure my career interests");
+    expect(html).toContain(`subject_key=${slug}`);
+    expect(html).not.toContain("career-job-docx-document");
+  });
+
   it("falls back to the existing legacy renderer when display_surface_v1 is missing", async () => {
     const html = await renderCareerJobPage("en", "actors", buildJobBundle());
 
@@ -276,7 +314,7 @@ describe("career job detail Actors v4.2 route integration", () => {
     expect(html).not.toContain("Fermat Quick Fit");
   });
 
-  it("keeps non-selected slugs on the legacy renderer even when a display surface is present", async () => {
+  it("keeps software developers on the legacy renderer even when a display surface is present", async () => {
     const html = await renderCareerJobPage(
       "en",
       "software-developers",
@@ -293,6 +331,44 @@ describe("career job detail Actors v4.2 route integration", () => {
     expect(html).toContain("Legacy Accountants and Auditors DOCX body");
     expect(html).not.toContain("career-display-surface");
     expect(html).not.toContain("Software Developers");
+  });
+
+  it("keeps unrelated slugs on the legacy renderer when display_surface_v1 is invalid", async () => {
+    const invalidSurface = buildSelectedCareerDisplaySurfaceFixture({
+      slug: "writers",
+      titleEn: "Writers",
+    });
+    invalidSurface.asset_version = "v4.1";
+    const html = await renderCareerJobPage(
+      "en",
+      "writers",
+      buildJobBundle({
+        slug: "writers",
+        displaySurface: invalidSurface,
+      })
+    );
+
+    expect(html).toContain("career-job-docx-document");
+    expect(html).not.toContain("career-display-surface");
+    expect(html).not.toContain("Writers is a real backend component-keyed display_surface_v1 test page.");
+  });
+
+  it("keeps route slug mismatches on the legacy renderer", async () => {
+    const html = await renderCareerJobPage(
+      "en",
+      "web-developers",
+      buildJobBundle({
+        slug: "web-developers",
+        displaySurface: buildSelectedCareerDisplaySurfaceFixture({
+          slug: "marketing-managers",
+          titleEn: "Marketing Managers",
+        }),
+      })
+    );
+
+    expect(html).toContain("career-job-docx-document");
+    expect(html).not.toContain("career-display-surface");
+    expect(html).not.toContain("Marketing Managers");
   });
 
   it("keeps non-Actors on the legacy renderer when inbound attribution is present", async () => {

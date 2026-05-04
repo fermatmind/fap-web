@@ -7,20 +7,7 @@ import { appendAttributionParamsToHref, type AttributionParams } from "@/lib/tra
 export const CAREER_DISPLAY_SURFACE_VERSION = "display.surface.v1" as const;
 export const CAREER_DISPLAY_TEMPLATE_VERSION = "v4.2" as const;
 export const CAREER_DISPLAY_ACTORS_SLUG = "actors" as const;
-export const CAREER_DISPLAY_PILOT_SLUGS = [
-  CAREER_DISPLAY_ACTORS_SLUG,
-  "data-scientists",
-  "registered-nurses",
-  "accountants-and-auditors",
-  "actuaries",
-  "financial-analysts",
-  "high-school-teachers",
-  "market-research-analysts",
-  "architectural-and-engineering-managers",
-  "civil-engineers",
-  "biomedical-engineers",
-  "dentists",
-] as const;
+export const CAREER_DISPLAY_MANUAL_HOLD_SLUGS = ["software-developers"] as const;
 export const CAREER_DISPLAY_RIASEC_TEST_SLUG = "holland-career-interest-test-riasec" as const;
 
 export const CAREER_DISPLAY_FORBIDDEN_FIELDS = [
@@ -64,10 +51,9 @@ const DISPLAY_ASSET_TYPE = "career_job_public_display";
 const DISPLAY_ASSET_ROLE = "formal_pilot_master";
 const ALLOWED_COMPONENT_ORDER = new Set<string>(CAREER_DISPLAY_COMPONENT_ORDER);
 const FORBIDDEN_FIELD_SET = new Set<string>(CAREER_DISPLAY_FORBIDDEN_FIELDS);
-const CAREER_DISPLAY_PILOT_SLUG_SET = new Set<string>(CAREER_DISPLAY_PILOT_SLUGS);
+const CAREER_DISPLAY_MANUAL_HOLD_SLUG_SET = new Set<string>(CAREER_DISPLAY_MANUAL_HOLD_SLUGS);
 
 export type CareerDisplayComponentId = (typeof CAREER_DISPLAY_COMPONENT_ORDER)[number];
-export type CareerDisplayPilotSlug = (typeof CAREER_DISPLAY_PILOT_SLUGS)[number];
 export type CareerDisplayLocaleInput = Locale | "zh-CN";
 
 export type CareerDisplayCta = {
@@ -191,7 +177,7 @@ export type CareerDisplaySurfaceViewModel = {
   status: typeof READY_STATUS;
   locale: Locale;
   subject: {
-    canonicalSlug: CareerDisplayPilotSlug;
+    canonicalSlug: string;
     path: string;
     title: string;
     subtitle?: string;
@@ -351,8 +337,8 @@ function containsSchemaType(value: unknown, schemaType: string): boolean {
   return Object.values(value).some((item) => containsSchemaType(item, schemaType));
 }
 
-function isCareerDisplayPilotSlug(value: string | null): value is CareerDisplayPilotSlug {
-  return Boolean(value && CAREER_DISPLAY_PILOT_SLUG_SET.has(value));
+function isValidCareerDisplaySlug(value: string | null): value is string {
+  return Boolean(value && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value) && !CAREER_DISPLAY_MANUAL_HOLD_SLUG_SET.has(value));
 }
 
 export function normalizeCareerDisplayLocale(locale: unknown): Locale | null {
@@ -898,7 +884,7 @@ export function buildCareerDisplayCtaHref({
 }: {
   locale: Locale;
   landingPath: string;
-  subjectSlug?: CareerDisplayPilotSlug;
+  subjectSlug?: string;
   attributionParams?: AttributionParams;
 }): string {
   const href = localizedPath(`/tests/${CAREER_DISPLAY_RIASEC_TEST_SLUG}`, locale);
@@ -922,7 +908,7 @@ export function buildCareerDisplayCtaAttribution({
 }: {
   locale: Locale;
   landingPath: string;
-  subjectSlug?: CareerDisplayPilotSlug;
+  subjectSlug?: string;
 }) {
   return buildCareerAttributionPayload({
     locale,
@@ -948,7 +934,8 @@ export function buildCareerDisplayFAQPageJsonLd(surface: Pick<CareerDisplaySurfa
 export function adaptCareerDisplaySurface(
   rawDisplaySurface: unknown,
   localeInput: CareerDisplayLocaleInput,
-  attributionParams?: AttributionParams
+  attributionParams?: AttributionParams,
+  expectedSlug?: string
 ): CareerDisplaySurfaceViewModel | null {
   const locale = normalizeCareerDisplayLocale(localeInput);
   const surfaceRoot = resolveSurfaceRoot(rawDisplaySurface);
@@ -961,11 +948,14 @@ export function adaptCareerDisplaySurface(
   const asset = isRecord(root.asset) ? root.asset : {};
   const subject = isRecord(root.subject) ? root.subject : {};
   const surfaceVersion = normalizeString(root.surface_version);
+  const assetVersion = normalizeString(root.asset_version) ?? normalizeString(asset.asset_version);
   const templateVersion = normalizeString(root.template_version) ?? normalizeString(asset.template_version);
   const assetType = normalizeString(root.asset_type) ?? normalizeString(asset.asset_type);
   const assetRole = normalizeString(root.asset_role) ?? normalizeString(asset.asset_role);
   const status = normalizeString(root.status);
   const canonicalSlug = normalizeString(subject.canonical_slug);
+  const assetSlug = normalizeString(asset.slug);
+  const normalizedExpectedSlug = normalizeString(expectedSlug);
   const componentOrder = normalizeComponentOrder(root.component_order);
   const page = resolveLocalizedPage(root, locale);
   const hero = normalizeHero(page?.hero, page?.primary_cta ?? page?.final_cta, page?.secondary_cta);
@@ -976,15 +966,20 @@ export function adaptCareerDisplaySurface(
 
   if (
     surfaceVersion !== CAREER_DISPLAY_SURFACE_VERSION ||
+    assetVersion !== CAREER_DISPLAY_TEMPLATE_VERSION ||
     templateVersion !== CAREER_DISPLAY_TEMPLATE_VERSION ||
     assetType !== DISPLAY_ASSET_TYPE ||
-    assetRole !== DISPLAY_ASSET_ROLE ||
+    (assetRole !== null && assetRole !== DISPLAY_ASSET_ROLE) ||
     status !== READY_STATUS ||
-    !isCareerDisplayPilotSlug(canonicalSlug) ||
+    !isValidCareerDisplaySlug(canonicalSlug) ||
+    (assetSlug !== null && assetSlug !== canonicalSlug) ||
+    (normalizedExpectedSlug !== null && canonicalSlug !== normalizedExpectedSlug) ||
     !componentOrder ||
+    componentOrder.length !== CAREER_DISPLAY_COMPONENT_ORDER.length ||
     !page ||
     !hero ||
-    sections.length === 0
+    sections.length === 0 ||
+    !isRecord(root.claim_permissions)
   ) {
     return null;
   }
