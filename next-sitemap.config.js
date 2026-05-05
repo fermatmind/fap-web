@@ -147,6 +147,9 @@ function resolveSitemapSiteUrl(value) {
 const siteUrl = resolveSitemapSiteUrl(process.env.NEXT_PUBLIC_SITE_URL);
 const apiOrigin = (process.env.NEXT_PUBLIC_API_URL || "https://api.fermatmind.com").replace(/\/$/, "");
 const cmsSitemapTimeoutMs = Number.parseInt(process.env.CMS_SITEMAP_TIMEOUT_MS || "10000", 10) || 10000;
+const careerSitemapTimeoutMs =
+  Number.parseInt(process.env.CAREER_SITEMAP_TIMEOUT_MS || process.env.CMS_SITEMAP_TIMEOUT_MS || "30000", 10) ||
+  30000;
 
 function normalizeSlug(value) {
   return String(value || "").trim();
@@ -239,9 +242,15 @@ function isForbiddenFinalSitemapPath(path) {
   return SITEMAP_FINAL_PATH_DENY_PATTERNS.some((pattern) => pattern.test(normalized));
 }
 
+function isCareerJobDetailPath(path) {
+  return /^\/(?:en|zh)\/career\/jobs\/[^/]+$/i.test(normalizePath(path));
+}
+
 function shouldIncludeGeneratedSitemapPath(path, explicitGate) {
   const normalized = normalizePath(path);
-  if (isForbiddenFinalSitemapPath(normalized)) return false;
+  if (isForbiddenFinalSitemapPath(normalized) && !(isCareerJobDetailPath(normalized) && explicitGate?.indexEligible === true)) {
+    return false;
+  }
   if (!shouldIncludeCmsSitemapPath(normalized)) return false;
   return shouldIncludeInSitemap(normalized, explicitGate);
 }
@@ -430,6 +439,7 @@ function extractCareerDiscoverabilityManifestRoutes(payload) {
 }
 
 const careerDiscoverabilityManifestRouteCache = new Map();
+let backendSitemapSourceCareerJobPathCache = null;
 
 async function fetchCareerDiscoverabilityManifestRoutes(apiLocale) {
   const cacheKey = normalizeSlug(apiLocale).toLowerCase() || "default";
@@ -439,12 +449,39 @@ async function fetchCareerDiscoverabilityManifestRoutes(apiLocale) {
 
   const params = new URLSearchParams({ locale: apiLocale });
   const payload = await fetchJsonWithTimeout(
-    `${buildApiUrl("/v0.5/career/first-wave/discoverability-manifest")}?${params.toString()}`
+    `${buildApiUrl("/v0.5/career/first-wave/discoverability-manifest")}?${params.toString()}`,
+    careerSitemapTimeoutMs
   );
   const routes = extractCareerDiscoverabilityManifestRoutes(payload);
   careerDiscoverabilityManifestRouteCache.set(cacheKey, routes);
 
   return routes;
+}
+
+function extractBackendSitemapSourceCareerJobPaths(payload) {
+  const items = Array.isArray(payload?.items) ? payload.items : [];
+  const paths = new Set();
+
+  for (const item of items) {
+    const path = extractPathFromCanonicalUrl(item?.loc);
+    if (isCareerJobDetailPath(path) && shouldIncludeGeneratedSitemapPath(path, { indexEligible: true, indexState: "indexed" })) {
+      paths.add(path);
+    }
+  }
+
+  return [...paths];
+}
+
+async function fetchBackendSitemapSourceCareerJobPaths() {
+  if (backendSitemapSourceCareerJobPathCache) {
+    return backendSitemapSourceCareerJobPathCache;
+  }
+
+  const payload = await fetchJsonWithTimeout(buildApiUrl("/v0.5/seo/sitemap-source"), careerSitemapTimeoutMs);
+  const paths = extractBackendSitemapSourceCareerJobPaths(payload);
+  backendSitemapSourceCareerJobPathCache = paths;
+
+  return paths;
 }
 
 async function fetchPaginatedItems(path, queryParams = {}, timeoutMs = cmsSitemapTimeoutMs) {
@@ -543,8 +580,11 @@ async function buildDataDetailPaths() {
 }
 
 async function buildCareerJobDetailPathsFromAuthority() {
-  // Career job detail URLs remain quarantined until the live 404/canonical gate is closed.
-  return [];
+  try {
+    return await fetchBackendSitemapSourceCareerJobPaths();
+  } catch {
+    return [];
+  }
 }
 
 async function buildCareerRecommendationDetailPathsFromAuthority() {
@@ -710,7 +750,12 @@ module.exports = {
       ...topicApiPaths,
     ])]
       .map((path) => normalizePath(path))
-      .filter((path) => shouldIncludeGeneratedSitemapPath(path))
+      .filter((path) =>
+        shouldIncludeGeneratedSitemapPath(
+          path,
+          isCareerJobDetailPath(path) ? { indexEligible: true, indexState: "indexed" } : null
+        )
+      )
       .map((loc) => ({
         loc,
         changefreq: "weekly",

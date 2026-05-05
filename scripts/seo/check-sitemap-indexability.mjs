@@ -28,8 +28,6 @@ const FORBIDDEN_FINAL_PATH_PATTERNS = [
   /^\/en\/(?:brand|careers|charter|foundation|policies)$/i,
   /^\/datasets\/occupations(?:\/method)?$/i,
   /^\/(?:en|zh)\/datasets\/occupations(?:\/method)?$/i,
-  /^\/career\/jobs\/[^/]+$/i,
-  /^\/(?:en|zh)\/career\/jobs\/[^/]+$/i,
   /^\/ops(?:\/|$)/i,
   /^\/(?:en|zh)\/ops(?:\/|$)/i,
 ];
