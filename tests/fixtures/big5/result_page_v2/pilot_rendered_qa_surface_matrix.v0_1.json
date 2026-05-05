@@ -1,0 +1,112 @@
+{
+  "schema": "fap.big5.result_page_v2.pilot_rendered_qa_surface_matrix.v0_1",
+  "package_key": "big5_result_page_v2.o59_pilot_rendered_qa.web.v0_1",
+  "mode": "pilot_rendered_qa_contract",
+  "runtime_use": "not_runtime",
+  "production_use_allowed": false,
+  "ready_for_runtime": false,
+  "ready_for_production": false,
+  "surfaces": [
+    {
+      "surface_key": "result_page_desktop",
+      "status": "pass",
+      "coverage": "fap_web_pilot_rendered_contract",
+      "viewport_width": 1440,
+      "expected_visible_terms": [
+        "敏锐的独立思考者",
+        "开放性中位｜优势、代价与使用方式",
+        "尽责性偏低｜优势、代价与使用方式",
+        "外向性偏低｜优势、代价与使用方式",
+        "宜人性中位｜优势、代价与使用方式",
+        "情绪性偏高｜优势、代价与使用方式",
+        "此模块暂未启用"
+      ],
+      "forbidden_visible_terms": [
+        "frontend_fallback",
+        "internal_metadata",
+        "selector_basis",
+        "source_reference",
+        "production_use_allowed",
+        "runtime_use",
+        "ready_for_runtime",
+        "ready_for_production",
+        "[object Object]",
+        "A compact overview",
+        "Norms Comparison",
+        "Methodology and Access",
+        "根据你的分数",
+        "你的性格说明"
+      ],
+      "evidence": [
+        "tests/contracts/big5-pilot-rendered-qa.contract.test.tsx"
+      ]
+    },
+    {
+      "surface_key": "result_page_mobile",
+      "status": "pass",
+      "coverage": "fap_web_pilot_rendered_contract",
+      "viewport_width": 390,
+      "expected_visible_terms": [
+        "敏锐的独立思考者",
+        "开放性中位｜优势、代价与使用方式",
+        "尽责性偏低｜优势、代价与使用方式",
+        "外向性偏低｜优势、代价与使用方式",
+        "宜人性中位｜优势、代价与使用方式",
+        "情绪性偏高｜优势、代价与使用方式",
+        "此模块暂未启用"
+      ],
+      "forbidden_visible_terms": [
+        "frontend_fallback",
+        "internal_metadata",
+        "selector_basis",
+        "source_reference",
+        "production_use_allowed",
+        "runtime_use",
+        "ready_for_runtime",
+        "ready_for_production",
+        "[object Object]",
+        "A compact overview",
+        "Norms Comparison",
+        "Methodology and Access",
+        "根据你的分数",
+        "你的性格说明"
+      ],
+      "evidence": [
+        "tests/contracts/big5-pilot-rendered-qa.contract.test.tsx"
+      ]
+    },
+    {
+      "surface_key": "pdf",
+      "status": "pending_surface",
+      "coverage": "no_pilot_pdf_render_harness",
+      "evidence": [],
+      "pending_reason": "No pilot PDF render harness exists in fap-web contracts."
+    },
+    {
+      "surface_key": "share_card",
+      "status": "pending_surface",
+      "coverage": "no_pilot_share_card_render_harness",
+      "evidence": [],
+      "pending_reason": "No pilot share-card render harness exists in fap-web contracts."
+    },
+    {
+      "surface_key": "history",
+      "status": "pending_surface",
+      "coverage": "no_pilot_history_surface_contract",
+      "evidence": [],
+      "pending_reason": "No pilot history surface consumes the pilot payload fixture."
+    },
+    {
+      "surface_key": "compare",
+      "status": "pending_surface",
+      "coverage": "no_pilot_compare_surface_contract",
+      "evidence": [],
+      "pending_reason": "No pilot compare surface consumes the pilot payload fixture."
+    }
+  ],
+  "status_counts": {
+    "pass": 2,
+    "pending_surface": 4,
+    "fail": 0
+  }
+}

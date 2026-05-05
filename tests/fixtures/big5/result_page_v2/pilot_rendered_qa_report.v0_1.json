@@ -1,0 +1,31 @@
+{
+  "schema": "fap.big5.result_page_v2.pilot_rendered_qa_report.web.v0_1",
+  "package_key": "big5_result_page_v2.o59_pilot_rendered_qa.web.v0_1",
+  "mode": "pilot_rendered_qa_contract",
+  "runtime_use": "not_runtime",
+  "production_use_allowed": false,
+  "ready_for_runtime": false,
+  "ready_for_production": false,
+  "passed_surfaces": [
+    "result_page_desktop",
+    "result_page_mobile"
+  ],
+  "failed_surfaces": [],
+  "pending_surfaces": [
+    "pdf",
+    "share_card",
+    "history",
+    "compare"
+  ],
+  "pilot_rendered_qa": {
+    "desktop_mobile_result_page_contract_available": true,
+    "all_required_surfaces_passed": false,
+    "pilot_user_surface_release_blocked": true,
+    "production_blocked": true
+  },
+  "not_allowed": [
+    "Do not mark PDF, share, history, or compare as pass without a rendered harness.",
+    "Do not use frontend-authored Big Five body fallback for V2 pilot payloads.",
+    "Do not expose internal metadata or staging flags in public rendered text."
+  ]
+}
