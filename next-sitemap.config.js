@@ -77,9 +77,12 @@ const MBTI_BASE_SLUG_RE = /^[ie][ns][ft][jp]$/i;
 const MBTI_RUNTIME_SLUG_RE = /^[ie][ns][ft][jp]-[at]$/i;
 const CANONICAL_SITE_URL = "https://fermatmind.com";
 const OWNED_CANONICAL_HOSTS = new Set(["fermatmind.com", "www.fermatmind.com"]);
+const SOFTWARE_DEVELOPERS_DETAIL_RE = /^\/(?:en|zh)\/career\/jobs\/software-developers$/i;
+const CAREER_JOB_DETAIL_PARTS_RE = /^\/(en|zh)\/career\/jobs\/([^/]+)$/i;
 const SITEMAP_FINAL_PATH_DENY_PATTERNS = [
   /^\/zh$/i,
   /^\/tests(?:\/|$)/i,
+  /^\/(?:en|zh)\/results\/lookup$/i,
   /^\/(?:en|zh)\/blog$/i,
   /^\/(?:en|zh)\/help$/i,
   /^\/(?:en|zh)\/refund$/i,
@@ -110,6 +113,8 @@ const SITEMAP_ROUTE_EXCLUDES = [
   "/en/charter",
   "/en/foundation",
   "/en/policies",
+  "/en/results/lookup",
+  "/zh/results/lookup",
   "/result/*",
   "/orders/*",
   "/share/*",
@@ -244,6 +249,36 @@ function isForbiddenFinalSitemapPath(path) {
 
 function isCareerJobDetailPath(path) {
   return /^\/(?:en|zh)\/career\/jobs\/[^/]+$/i.test(normalizePath(path));
+}
+
+function parseCareerJobDetailPath(path) {
+  const normalized = normalizePath(path);
+  const match = normalized.match(CAREER_JOB_DETAIL_PARTS_RE);
+  const locale = match?.[1]?.toLowerCase();
+  const slug = match?.[2]?.toLowerCase();
+
+  if ((locale !== "en" && locale !== "zh") || !slug) {
+    return null;
+  }
+
+  return {
+    locale,
+    slug,
+    path: normalized,
+  };
+}
+
+function shouldKeepBackendSitemapCareerJobDetailPath(path) {
+  const normalized = normalizePath(path);
+
+  return (
+    isCareerJobDetailPath(normalized) &&
+    !SOFTWARE_DEVELOPERS_DETAIL_RE.test(normalized) &&
+    shouldIncludeGeneratedSitemapPath(normalized, {
+      indexEligible: true,
+      indexState: "indexed",
+    })
+  );
 }
 
 function shouldIncludeGeneratedSitemapPath(path, explicitGate) {
@@ -460,16 +495,23 @@ async function fetchCareerDiscoverabilityManifestRoutes(apiLocale) {
 
 function extractBackendSitemapSourceCareerJobPaths(payload) {
   const items = Array.isArray(payload?.items) ? payload.items : [];
-  const paths = new Set();
+  const pathsBySlug = new Map();
 
   for (const item of items) {
     const path = extractPathFromCanonicalUrl(item?.loc);
-    if (isCareerJobDetailPath(path) && shouldIncludeGeneratedSitemapPath(path, { indexEligible: true, indexState: "indexed" })) {
-      paths.add(path);
+    const parsed = parseCareerJobDetailPath(path);
+    if (parsed && shouldKeepBackendSitemapCareerJobDetailPath(parsed.path)) {
+      pathsBySlug.set(parsed.slug, {
+        ...pathsBySlug.get(parsed.slug),
+        [parsed.locale]: parsed.path,
+      });
     }
   }
 
-  return [...paths];
+  return [...pathsBySlug.values()]
+    .filter((paths) => Boolean(paths.en && paths.zh))
+    .flatMap((paths) => [paths.en, paths.zh])
+    .sort((left, right) => left.localeCompare(right));
 }
 
 async function fetchBackendSitemapSourceCareerJobPaths() {
