@@ -379,7 +379,9 @@ describe("ResultClient view-state contract", () => {
     });
   });
 
-  it("does not load rich report content when report access is locked even if the report is ready", async () => {
+  it("keeps the page on the rich report path when report access is locked but the report page is ready", async () => {
+    const reportFixture = cloneFixture(reportReadyMbtiProjectionFixture) as ReportResponse;
+    reportFixture.mbti_access_hub_v1 = createMbtiAccessHubRaw("attempt-123");
     hoisted.fetchAttemptReportAccess.mockResolvedValue(
       createAccessProjection({
         access_state: "locked",
@@ -393,21 +395,21 @@ describe("ResultClient view-state contract", () => {
         },
       })
     );
+    hoisted.fetchAttemptReport.mockResolvedValue(reportFixture);
 
     render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
 
     await waitFor(() => {
-      expect(screen.getByTestId("result-summary")).toHaveTextContent("ENFP-T");
+      expect(screen.getByTestId("rich-result-report")).toBeInTheDocument();
     });
 
-    expect(hoisted.fetchAttemptReport).not.toHaveBeenCalled();
-    expect(hoisted.fetchAttemptResult).toHaveBeenCalledWith({
+    expect(hoisted.fetchAttemptReport).toHaveBeenCalledWith({
       attemptId: "attempt-123",
       anonId: "anon_result_test",
       locale: "en",
     });
-    expect(screen.queryByTestId("rich-result-report")).not.toBeInTheDocument();
     expect(screen.queryByRole("alert")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("result-summary")).not.toBeInTheDocument();
   });
 
   it("keeps BIG5 on the rich report path when report access and report payload are both ready", async () => {

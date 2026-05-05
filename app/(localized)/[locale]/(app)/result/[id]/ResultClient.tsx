@@ -20,7 +20,6 @@ import {
   type AttemptInviteUnlockProgressView,
 } from "@/lib/access/inviteUnlock";
 import {
-  canEnterReportPage,
   isProjectionLocked,
   isProjectionProcessing,
   isProjectionUnavailable,
@@ -324,6 +323,12 @@ function isMbtiReportAccessResponse(response: AttemptReportAccessResponse): bool
   return payloadScaleCode === "MBTI";
 }
 
+function hasMbtiReportAccessRouteHint(response: AttemptReportAccessResponse): boolean {
+  const actions = asRecord(response?.actions);
+  const historyHref = normalizeText(actions?.history_href).toLowerCase();
+  return historyHref.includes("/history/mbti");
+}
+
 function resolveRetakeHrefByScale(locale: Locale, scaleCode: string): string {
   const normalized = scaleCode.toUpperCase();
   const canonicalSlug = SCALE_CANONICAL_SLUG_MAP[normalized as keyof typeof SCALE_CANONICAL_SLUG_MAP] ?? "mbti";
@@ -488,6 +493,17 @@ function resolveSubmissionFailureMessage(
   );
 }
 
+function canLoadResultProjection(
+  view: AttemptReportAccessView | null,
+  options: { allowLockedPreview: boolean }
+): boolean {
+  if (!view?.actions.pageHref || view.reportState !== "ready") {
+    return false;
+  }
+
+  return view.accessState === "ready" || options.allowLockedPreview;
+}
+
 export default function ResultClient({
   attemptId,
   rolloutEnv,
@@ -613,8 +629,11 @@ export default function ResultClient({
     }
   }, [anonId, attemptId, locale, runWithAuthRetry]);
 
-  const canLoadRichReport = useCallback((view: AttemptReportAccessView | null) => {
-    return canEnterReportPage(view);
+  const canLoadRichReport = useCallback((
+    view: AttemptReportAccessView | null,
+    options: { allowLockedPreview: boolean }
+  ) => {
+    return canLoadResultProjection(view, options);
   }, []);
 
   useEffect(() => {
@@ -885,7 +904,9 @@ export default function ResultClient({
           diagnostic_snapshot_at: normalizeText(inviteDiagnostic?.snapshot_at),
         });
 
-        if (isMbtiReportAccessResponse(accessResponse)) {
+        const mbtiReportAccessPath = isMbtiReportAccessResponse(accessResponse);
+        const allowMbtiLockedPreview = mbtiReportAccessPath || hasMbtiReportAccessRouteHint(accessResponse);
+        if (mbtiReportAccessPath) {
           setMbtiAccessPath(true);
           if (!mbtiBootstrapPhaseTrackedRef.current) {
             mbtiBootstrapPhaseTrackedRef.current = true;
@@ -924,7 +945,7 @@ export default function ResultClient({
           return;
         }
 
-        if (!canLoadRichReport(nextAccessView)) {
+        if (!canLoadRichReport(nextAccessView, { allowLockedPreview: allowMbtiLockedPreview })) {
           setReportData(null);
           const fallback = await loadFallbackResult();
           if (!active) return;

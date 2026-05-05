@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test, type Page } from "@playwright/test";
 import { getMbtiDesktopAnchorId } from "@/components/result/mbti/mbtiDesktopAnchorTargets";
 import reportReadyMbtiFreeFixture from "../fixtures/report_ready.mbti.free.json";
 import reportReadyMbtiProjectionFixture from "../fixtures/report_ready.mbti.projection.json";
@@ -55,12 +55,27 @@ function createMbtiLockedPreviewReportFixture() {
   return reportData as Record<string, unknown>;
 }
 
-function getDesktopOfferComparison(page: import("@playwright/test").Page) {
+function getDesktopOfferComparison(page: Page) {
   return page.getByTestId("mbti-desktop-clone-shell").getByTestId("mbti-offer-comparison");
 }
 
-function getDesktopOfferPrimaryCta(page: import("@playwright/test").Page) {
+function getDesktopOfferPrimaryCta(page: Page) {
   return getDesktopOfferComparison(page).getByTestId("mbti-offers-primary-cta");
+}
+
+async function mockInviteUnlockProgress(page: Page, attemptId: string) {
+  await page.route(`**/api/v0.3/attempts/${attemptId}/invite-unlocks*`, async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        invite_code: `invite_${attemptId}`,
+        required_invitees: 2,
+        completed_invitees: 0,
+      }),
+    });
+  });
 }
 
 test("MBTI locked access report still shows unlock offer block on /zh/result/<attemptId>#offer-full", async ({ page }) => {
@@ -99,6 +114,7 @@ test("MBTI locked access report still shows unlock offer block on /zh/result/<at
   });
 
   const pagePath = `/zh/result/${attemptId}#offer-full`;
+  await mockInviteUnlockProgress(page, attemptId);
 
   await page.route(`**/api/v0.3/attempts/${attemptId}/report-access*`, async (route) => {
     await route.fulfill({
@@ -128,7 +144,7 @@ test("MBTI locked access report still shows unlock offer block on /zh/result/<at
     });
   });
 
-  await page.route(`**/api/v0.3/attempts/${attemptId}/report`, async (route) => {
+  await page.route(new RegExp(`/api/v0\\.3/attempts/${attemptId}/report(?:\\?.*)?$`), async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -193,7 +209,7 @@ test("MBTI locked access report still shows unlock offer block on /zh/result/<at
   await expect(page.getByTestId("mbti-post-purchase-section")).toHaveCount(0);
   await expect(page.locator(`#${getMbtiDesktopAnchorId("offerFull")}`)).toBeVisible();
   await expect(getDesktopOfferPrimaryCta(page)).toBeVisible();
-  await expect(getDesktopOfferPrimaryCta(page)).toHaveText("解锁完整报告");
+  await expect(getDesktopOfferPrimaryCta(page)).toHaveText("1.99元直接解锁");
 
   await getDesktopOfferPrimaryCta(page).click();
 
@@ -236,6 +252,7 @@ test("MBTI result page keeps the unlock offer block on the current access-first 
   });
 
   const pagePath = `/zh/result/${attemptId}#offer-full`;
+  await mockInviteUnlockProgress(page, attemptId);
   await page.route(`**/api/v0.3/attempts/${attemptId}/report-access*`, async (route) => {
     await route.fulfill({
       status: 200,
@@ -304,7 +321,7 @@ test("MBTI result page keeps the unlock offer block on the current access-first 
     });
   });
 
-  await page.route(`**/api/v0.3/attempts/${attemptId}/report`, async (route) => {
+  await page.route(new RegExp(`/api/v0\\.3/attempts/${attemptId}/report(?:\\?.*)?$`), async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -319,7 +336,7 @@ test("MBTI result page keeps the unlock offer block on the current access-first 
   await expect(page.getByTestId("mbti-post-purchase-section")).toHaveCount(0);
   await expect(page.locator(`#${getMbtiDesktopAnchorId("offerFull")}`)).toBeVisible();
   await expect(getDesktopOfferPrimaryCta(page)).toBeVisible();
-  await expect(getDesktopOfferPrimaryCta(page)).toHaveText("解锁完整报告");
+  await expect(getDesktopOfferPrimaryCta(page)).toHaveText("1.99元直接解锁");
 
   await getDesktopOfferPrimaryCta(page).click();
 
@@ -359,6 +376,8 @@ test("MBTI desktop clone hides chapter preview cards while the page remains on t
     });
   });
 
+  await mockInviteUnlockProgress(page, attemptId);
+
   await page.route(`**/api/v0.3/attempts/${attemptId}/report-access*`, async (route) => {
     await route.fulfill({
       status: 200,
@@ -387,7 +406,7 @@ test("MBTI desktop clone hides chapter preview cards while the page remains on t
     });
   });
 
-  await page.route(`**/api/v0.3/attempts/${attemptId}/report`, async (route) => {
+  await page.route(new RegExp(`/api/v0\\.3/attempts/${attemptId}/report(?:\\?.*)?$`), async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",
