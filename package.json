@@ -23,6 +23,7 @@
     "lint:spacing": "node scripts/check-spacing-tokens.mjs",
     "typecheck": "tsc --noEmit",
     "verify:pr": "pnpm lint . && pnpm typecheck && pnpm build && pnpm test:contract",
+    "seo:generate-sitemap": "node scripts/seo/generate-sitemap.mjs",
     "seo:check-sitemap": "node scripts/seo/check-sitemap-indexability.mjs",
     "seo:assert-live-sitemap": "node scripts/seo/assert-live-sitemap-clean.mjs https://fermatmind.com/sitemap.xml",
     "seo:assert-live-llms": "node scripts/seo/assert-live-llms-clean.mjs https://fermatmind.com/llms.txt",
@@ -38,7 +39,7 @@
     "test:e2e:visual:update:linux": "bash scripts/visual/update_linux_snapshots.sh",
     "verify:release-freeze": "bash scripts/release_freeze_verify.sh",
     "release:gate": "bash scripts/release_gate.sh",
-    "postbuild": "next-sitemap"
+    "postbuild": "pnpm seo:generate-sitemap"
   },
   "dependencies": {
     "clsx": "^2.1.1",

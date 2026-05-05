@@ -35,11 +35,27 @@ describe("sitemap indexability contract", () => {
     expect(loadSitemapConfig().siteUrl).toBe("https://fermatmind.com");
   });
 
-  it("frontend sitemap config quarantines Career job detail routes and excludes query/search-style Career discovery", async () => {
+  it("frontend sitemap config includes approved Career job detail routes and excludes query/search-style Career discovery", async () => {
     vi.stubGlobal(
       "fetch",
       vi.fn(async (input: RequestInfo | URL) => {
         const url = String(input);
+
+        if (url.includes("/api/v0.5/seo/sitemap-source")) {
+          return jsonResponse({
+            ok: true,
+            source: "backend_sitemap_generator",
+            count: 2,
+            items: [
+              {
+                loc: "https://fermatmind.com/en/career/jobs/backend-architect",
+              },
+              {
+                loc: "https://fermatmind.com/zh/career/jobs/backend-architect",
+              },
+            ],
+          });
+        }
 
         if (url.includes("/api/v0.5/career/jobs?")) {
           return jsonResponse({
@@ -145,8 +161,8 @@ describe("sitemap indexability contract", () => {
         "/zh/career/recommendations/mbti/intj-a",
       ])
     );
-    expect(locs).not.toContain("/en/career/jobs/backend-architect");
-    expect(locs).not.toContain("/zh/career/jobs/backend-architect");
+    expect(locs).toContain("/en/career/jobs/backend-architect");
+    expect(locs).toContain("/zh/career/jobs/backend-architect");
     expect(locs).not.toContain("/en/career/jobs/data-engineer");
     expect(locs).not.toContain("/zh/career/jobs/data-engineer");
     expect(locs).not.toContain("/en/career/family/compliance");
