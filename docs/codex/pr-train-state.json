@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-05-05T17:01:43Z",
+  "updated_at": "2026-05-05T17:07:08Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -9,9 +9,9 @@
     "frontend-result-email-gate": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "open_pending_github_checks",
+      "status": "github_checks_passed",
       "branch": "codex/frontend-result-email-gate",
-      "commit_sha": "2e7235788d7789890d2d23173248d2bdee699232",
+      "commit_sha": "e610de3441bf1916dd5556307261a8e8cbae4fe6",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/631",
       "checks": {
         "local": [
@@ -38,7 +38,28 @@
             "status": "passed"
           }
         ],
-        "github": []
+        "github": [
+          {
+            "name": "build",
+            "status": "passed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/25390517067/job/74463447332"
+          },
+          {
+            "name": "contracts",
+            "status": "passed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/25390517067/job/74463447355"
+          },
+          {
+            "name": "verify-big5-contract-freeze",
+            "status": "passed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/25390517067/job/74463447357"
+          },
+          {
+            "name": "verify-enneagram-contract-freeze",
+            "status": "passed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/25390517067/job/74463447358"
+          }
+        ]
       },
       "sidecar_issues": [
         {
