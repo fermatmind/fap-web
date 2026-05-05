@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-05-05T16:59:46Z",
+  "updated_at": "2026-05-05T17:00:12Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -9,9 +9,9 @@
     "frontend-result-email-gate": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "in_progress",
+      "status": "local_checks_passed",
       "branch": "codex/frontend-result-email-gate",
-      "commit_sha": null,
+      "commit_sha": "24a19f84a2108b0baddc482d7ab5b85efbb33eda",
       "pr_url": null,
       "checks": {
         "local": [
