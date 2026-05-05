@@ -275,6 +275,30 @@ describe("ResultClient view-state contract", () => {
     expect(hoisted.linkAnonAttemptsOnceOnLoginSuccess).not.toHaveBeenCalled();
   });
 
+  it("passes result lookup access_token through result read APIs", async () => {
+    hoisted.search = "access_token=result_lookup_token_123";
+    hoisted.fetchAttemptReport.mockResolvedValue(cloneFixture(reportReadyMbtiProjectionFixture) as ReportResponse);
+
+    render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("rich-result-report")).toBeInTheDocument();
+    });
+
+    expect(hoisted.fetchAttemptReportAccess).toHaveBeenCalledWith(
+      expect.objectContaining({
+        attemptId: "attempt-123",
+        accessToken: "result_lookup_token_123",
+      })
+    );
+    expect(hoisted.fetchAttemptReport).toHaveBeenCalledWith(
+      expect.objectContaining({
+        attemptId: "attempt-123",
+        accessToken: "result_lookup_token_123",
+      })
+    );
+  });
+
   it("links pending result attempts with an existing stored auth token", async () => {
     hoisted.pendingAnonLinkAttempts = ["attempt_pending_from_queue"];
     hoisted.getFmToken.mockReturnValue("fm_stored_result_link_123456");

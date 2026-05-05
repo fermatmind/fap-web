@@ -2,7 +2,7 @@
 
 import { type FormEvent, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { AnticipationSkeleton } from "@/components/design/AnticipationSkeleton";
 import { MbtiResultShellLoadingShell } from "@/components/result/mbti/MbtiResultShell";
 import { RiasecResultShell } from "@/components/result/riasec/RiasecResultShell";
@@ -520,6 +520,7 @@ export default function ResultClient({
   void rolloutEnv;
 
   const pathname = usePathname() ?? "/";
+  const searchParams = useSearchParams();
   const locale = getLocaleFromPathname(pathname);
   const dict = getDictSync(locale);
   const [reportData, setReportData] = useState<ReportResponse | null>(null);
@@ -534,6 +535,10 @@ export default function ResultClient({
   const [emailBindFeedback, setEmailBindFeedback] = useState<string | null>(null);
   const [emailSubmitting, setEmailSubmitting] = useState(false);
   const [reloadNonce, setReloadNonce] = useState(0);
+  const resultAccessToken = useMemo(() => {
+    const token = searchParams.get("access_token") ?? searchParams.get("result_access_token") ?? "";
+    return token.trim() || null;
+  }, [searchParams]);
 
   const anonId = useMemo(() => getOrCreateAnonId(), []);
   const routeScaleCodeRef = useRef("UNKNOWN");
@@ -649,7 +654,12 @@ export default function ResultClient({
 
   const fetchReportAccessWithAuthMismatchRetry = useCallback(async () => {
     try {
-      return await runWithAuthRetry(() => fetchAttemptReportAccess({ attemptId, anonId, locale }));
+      return await runWithAuthRetry(() => fetchAttemptReportAccess({
+        attemptId,
+        anonId,
+        locale,
+        ...(resultAccessToken ? { accessToken: resultAccessToken } : {}),
+      }));
     } catch (error) {
       if (!hasAuthOrAnonContext(anonId) || !isAttemptNotFoundProblem(error)) {
         throw error;
@@ -660,13 +670,19 @@ export default function ResultClient({
         locale,
         skipAuth: true,
         includeAnonId: false,
+        ...(resultAccessToken ? { accessToken: resultAccessToken } : {}),
       });
     }
-  }, [anonId, attemptId, locale, runWithAuthRetry]);
+  }, [anonId, attemptId, locale, resultAccessToken, runWithAuthRetry]);
 
   const fetchReportWithAuthMismatchRetry = useCallback(async () => {
     try {
-      return await runWithAuthRetry(() => fetchAttemptReport({ attemptId, anonId, locale }));
+      return await runWithAuthRetry(() => fetchAttemptReport({
+        attemptId,
+        anonId,
+        locale,
+        ...(resultAccessToken ? { accessToken: resultAccessToken } : {}),
+      }));
     } catch (error) {
       if (!hasAuthOrAnonContext(anonId) || !isAttemptNotFoundProblem(error)) {
         throw error;
@@ -677,9 +693,10 @@ export default function ResultClient({
         locale,
         skipAuth: true,
         includeAnonId: false,
+        ...(resultAccessToken ? { accessToken: resultAccessToken } : {}),
       });
     }
-  }, [anonId, attemptId, locale, runWithAuthRetry]);
+  }, [anonId, attemptId, locale, resultAccessToken, runWithAuthRetry]);
 
   const fetchInviteUnlockProgressWithAuthMismatchRetry = useCallback(async () => {
     try {
@@ -860,7 +877,12 @@ export default function ResultClient({
     };
 
     const loadFallbackResult = async () => {
-      const response = await runWithAuthRetry(() => fetchAttemptResult({ attemptId, anonId, locale }));
+      const response = await runWithAuthRetry(() => fetchAttemptResult({
+        attemptId,
+        anonId,
+        locale,
+        ...(resultAccessToken ? { accessToken: resultAccessToken } : {}),
+      }));
       if (!active) {
         return { ready: false };
       }
@@ -1150,6 +1172,7 @@ export default function ResultClient({
     fetchReportWithAuthMismatchRetry,
     locale,
     reloadNonce,
+    resultAccessToken,
     runWithAuthRetry,
     showEmailGateForError,
   ]);

@@ -2056,6 +2056,30 @@ export type AttemptEmailBindResponse = {
   [key: string]: unknown;
 };
 
+export type ResultEmailLookupItem = {
+  attempt_id?: string;
+  result_id?: string;
+  scale_code?: string;
+  scale_code_legacy?: string;
+  scale_code_v2?: string;
+  scale_uid?: string | null;
+  scale_version?: string;
+  type_code?: string;
+  submitted_at?: string | null;
+  computed_at?: string | null;
+  bound_at?: string | null;
+  result_url?: string | null;
+  result_access_token?: string;
+  result_access_token_expires_at?: string | null;
+  [key: string]: unknown;
+};
+
+export type ResultEmailLookupResponse = {
+  ok: boolean;
+  items: ResultEmailLookupItem[];
+  [key: string]: unknown;
+};
+
 export type ScaleLookupResponse = {
   ok?: boolean;
   slug?: string;
@@ -2872,13 +2896,16 @@ export async function fetchAttemptResult({
   attemptId,
   anonId,
   locale,
+  accessToken,
 }: {
   attemptId: string;
   anonId: string;
   locale?: string;
+  accessToken?: string | null;
 }): Promise<ResultResponse> {
   const params = new URLSearchParams();
   if (locale) params.set("locale", locale);
+  if (accessToken) params.set("access_token", accessToken);
   const response = await apiClient.get<ResultResponse>(
     `/v0.3/attempts/${attemptId}/result${params.size > 0 ? `?${params.toString()}` : ""}`,
     anonHeader(anonId)
@@ -2910,6 +2937,7 @@ export async function getAttemptReport({
   locale,
   skipAuth,
   includeAnonId = true,
+  accessToken,
 }: {
   attemptId: string;
   anonId?: string;
@@ -2917,11 +2945,13 @@ export async function getAttemptReport({
   locale?: string;
   skipAuth?: boolean;
   includeAnonId?: boolean;
+  accessToken?: string | null;
 }): Promise<ReportResponse> {
   const resolvedAnonId = includeAnonId ? resolveAnonId(anonId) : undefined;
   const params = new URLSearchParams();
   if (refresh) params.set("refresh", "1");
   if (locale) params.set("locale", locale);
+  if (accessToken) params.set("access_token", accessToken);
   const suffix = params.size > 0 ? `?${params.toString()}` : "";
   const response = await apiClient.get<ReportResponse>(
     `/v0.3/attempts/${attemptId}/report${suffix}`,
@@ -2941,6 +2971,7 @@ export async function fetchAttemptReport({
   locale,
   skipAuth,
   includeAnonId = true,
+  accessToken,
 }: {
   attemptId: string;
   anonId?: string;
@@ -2948,8 +2979,9 @@ export async function fetchAttemptReport({
   locale?: string;
   skipAuth?: boolean;
   includeAnonId?: boolean;
+  accessToken?: string | null;
 }): Promise<ReportResponse> {
-  return getAttemptReport({ attemptId, anonId, refresh, locale, skipAuth, includeAnonId });
+  return getAttemptReport({ attemptId, anonId, refresh, locale, skipAuth, includeAnonId, accessToken });
 }
 
 export async function fetchEnneagramObservation({
@@ -3037,16 +3069,19 @@ export async function fetchAttemptReportAccess({
   locale,
   skipAuth,
   includeAnonId = true,
+  accessToken,
 }: {
   attemptId: string;
   anonId?: string;
   locale?: string;
   skipAuth?: boolean;
   includeAnonId?: boolean;
+  accessToken?: string | null;
 }): Promise<AttemptReportAccessResponse> {
   const resolvedAnonId = includeAnonId ? resolveAnonId(anonId) : undefined;
   const params = new URLSearchParams();
   if (locale) params.set("locale", locale);
+  if (accessToken) params.set("access_token", accessToken);
   const response = await apiClient.get<AttemptReportAccessResponse>(
     `/v0.3/attempts/${attemptId}/report-access${params.size > 0 ? `?${params.toString()}` : ""}`,
     {
@@ -3826,6 +3861,25 @@ export async function bindAttemptEmail({
   );
 
   return assertApiOk(response, "Unable to bind email to this result.");
+}
+
+export async function lookupResultsByEmail({
+  email,
+  locale,
+}: {
+  email: string;
+  locale?: string;
+}): Promise<ResultEmailLookupResponse> {
+  const response = await apiClient.post<ResultEmailLookupResponse>(
+    "/v0.3/results/lookup-by-email",
+    {
+      email,
+      ...(locale ? { locale } : {}),
+    },
+    locale ? { locale } : undefined
+  );
+
+  return assertApiOk(response, "Unable to find saved results.");
 }
 
 export async function getEmailPreferences(token: string): Promise<EmailPreferencesResponse> {
