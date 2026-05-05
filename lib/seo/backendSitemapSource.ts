@@ -12,6 +12,7 @@ type BackendSitemapSourcePayload = {
 const BACKEND_SITEMAP_SOURCE_TIMEOUT_MS = 20_000;
 const SOFTWARE_DEVELOPERS_DETAIL_RE = /^\/(?:en|zh)\/career\/jobs\/software-developers$/i;
 const CAREER_JOB_DETAIL_RE = /^\/(?:en|zh)\/career\/jobs\/[^/]+$/i;
+const CAREER_JOB_DETAIL_PARTS_RE = /^\/(en|zh)\/career\/jobs\/([^/]+)$/i;
 
 let careerJobPathCache: string[] | null = null;
 
@@ -40,6 +41,23 @@ function extractPathFromCanonicalUrl(value: unknown): string {
 
 function isCareerJobDetailPath(path: string): boolean {
   return CAREER_JOB_DETAIL_RE.test(normalizePath(path));
+}
+
+function parseCareerJobDetailPath(path: string): { locale: "en" | "zh"; slug: string; path: string } | null {
+  const normalized = normalizePath(path);
+  const match = normalized.match(CAREER_JOB_DETAIL_PARTS_RE);
+  const locale = match?.[1]?.toLowerCase();
+  const slug = match?.[2]?.toLowerCase();
+
+  if ((locale !== "en" && locale !== "zh") || !slug) {
+    return null;
+  }
+
+  return {
+    locale,
+    slug,
+    path: normalized,
+  };
 }
 
 function shouldKeepCareerJobDetailPath(path: string): boolean {
@@ -79,16 +97,23 @@ async function fetchBackendSitemapSource(): Promise<BackendSitemapSourcePayload>
 
 export function extractBackendSitemapCareerJobPaths(payload: BackendSitemapSourcePayload): string[] {
   const items = Array.isArray(payload.items) ? payload.items : [];
-  const paths = new Set<string>();
+  const pathsBySlug = new Map<string, Partial<Record<"en" | "zh", string>>>();
 
   for (const item of items) {
     const path = extractPathFromCanonicalUrl(item?.loc);
-    if (shouldKeepCareerJobDetailPath(path)) {
-      paths.add(path);
+    const parsed = parseCareerJobDetailPath(path);
+    if (parsed && shouldKeepCareerJobDetailPath(parsed.path)) {
+      pathsBySlug.set(parsed.slug, {
+        ...pathsBySlug.get(parsed.slug),
+        [parsed.locale]: parsed.path,
+      });
     }
   }
 
-  return [...paths].sort((left, right) => left.localeCompare(right));
+  return [...pathsBySlug.values()]
+    .filter((paths): paths is Record<"en" | "zh", string> => Boolean(paths.en && paths.zh))
+    .flatMap((paths) => [paths.en, paths.zh])
+    .sort((left, right) => left.localeCompare(right));
 }
 
 export async function listBackendSitemapCareerJobPaths(): Promise<string[]> {

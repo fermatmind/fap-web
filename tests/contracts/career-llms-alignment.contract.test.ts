@@ -1,4 +1,5 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
+import { extractBackendSitemapCareerJobPaths } from "@/lib/seo/backendSitemapSource";
 
 afterEach(() => {
   vi.restoreAllMocks();
@@ -6,6 +7,23 @@ afterEach(() => {
 });
 
 describe("career llms alignment contract", () => {
+  it("uses only bilingual backend sitemap-source Career job details for llms coverage", () => {
+    expect(
+      extractBackendSitemapCareerJobPaths({
+        items: [
+          { loc: "https://fermatmind.com/en/career/jobs/backend-architect" },
+          { loc: "https://fermatmind.com/zh/career/jobs/backend-architect" },
+          { loc: "https://fermatmind.com/en/career/jobs/backend-engineer" },
+          { loc: "https://fermatmind.com/en/career/jobs/software-developers" },
+          { loc: "https://fermatmind.com/zh/career/jobs/software-developers" },
+        ],
+      })
+    ).toEqual([
+      "/en/career/jobs/backend-architect",
+      "/zh/career/jobs/backend-architect",
+    ]);
+  });
+
   it("llms.txt reflects current live Career authority routes and excludes query search urls", async () => {
     vi.doMock("@/lib/seo/backendSitemapSource", () => ({
       listBackendSitemapCareerJobPaths: vi.fn(async () => [
