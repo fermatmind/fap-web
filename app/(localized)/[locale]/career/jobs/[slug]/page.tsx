@@ -606,6 +606,8 @@ export async function generateMetadata({
       : locale === "zh"
         ? `${job.title} 的职业概览与下一步路径。`
         : `Career overview and next steps for ${job.title}.`;
+  const backendSeoAllowsIndex =
+    job.seoContract.indexEligible === true && !shouldNoindex(job.seoContract.indexState);
 
   return buildPageMetadata({
     locale,
@@ -616,7 +618,7 @@ export async function generateMetadata({
       indexEligible: job.seoContract.indexEligible,
       indexState: job.seoContract.indexState,
     },
-    noindex: !job.renderState.canIndexPage || shouldNoindex(job.seoContract.indexState),
+    noindex: !backendSeoAllowsIndex,
     alternatesByLocale: {
       en: buildCareerJobFrontendUrl("en", job.slug),
       zh: buildCareerJobFrontendUrl("zh", job.slug),
