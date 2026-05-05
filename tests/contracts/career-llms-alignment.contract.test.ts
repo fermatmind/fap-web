@@ -7,8 +7,11 @@ afterEach(() => {
 
 describe("career llms alignment contract", () => {
   it("llms.txt reflects current live Career authority routes and excludes query search urls", async () => {
-    vi.doMock("@/lib/career/api/fetchCareerJobIndex", () => ({
-      fetchCareerJobIndex: vi.fn(async () => ({ items: [] })),
+    vi.doMock("@/lib/seo/backendSitemapSource", () => ({
+      listBackendSitemapCareerJobPaths: vi.fn(async () => [
+        "/en/career/jobs/backend-architect",
+        "/zh/career/jobs/backend-architect",
+      ]),
     }));
     vi.doMock("@/lib/career/api/fetchCareerFirstWaveDiscoverabilityManifest", () => ({
       fetchCareerFirstWaveDiscoverabilityManifest: vi.fn(async () => ({
@@ -45,20 +48,6 @@ describe("career llms alignment contract", () => {
     }));
     vi.doMock("@/lib/career/api/fetchCareerRecommendationIndex", () => ({
       fetchCareerRecommendationIndex: vi.fn(async () => ({ items: [] })),
-    }));
-    vi.doMock("@/lib/career/adapters/adaptCareerJobIndex", () => ({
-      adaptCareerJobIndex: vi.fn(() => [
-        {
-          identity: { canonicalSlug: "backend-architect" },
-          href: "/en/career/jobs/backend-architect",
-          seoContract: { indexEligible: true, indexState: "indexed" },
-        },
-        {
-          identity: { canonicalSlug: "data-engineer" },
-          href: "/en/career/jobs/data-engineer",
-          seoContract: { indexEligible: true, indexState: "indexed" },
-        },
-      ]),
     }));
     vi.doMock("@/lib/career/adapters/adaptCareerRecommendationIndex", () => ({
       adaptCareerRecommendationIndex: vi.fn(() => [
@@ -104,9 +93,10 @@ describe("career llms alignment contract", () => {
     const text = await response.text();
 
     expect(text).toContain("https://fermatmind.com/en/career");
-    expect(text).not.toContain("https://fermatmind.com/en/career/jobs");
+    expect(text).not.toMatch(/^- https:\/\/fermatmind\.com\/en\/career\/jobs$/m);
     expect(text).not.toContain("https://fermatmind.com/en/career/recommendations");
-    expect(text).not.toContain("https://fermatmind.com/en/career/jobs/backend-architect");
+    expect(text).toContain("https://fermatmind.com/en/career/jobs/backend-architect");
+    expect(text).toContain("https://fermatmind.com/zh/career/jobs/backend-architect");
     expect(text).not.toContain("https://fermatmind.com/en/career/jobs/data-engineer");
     expect(text).toContain("https://fermatmind.com/en/career/family/data-science");
     expect(text).not.toContain("https://fermatmind.com/en/career/recommendations/mbti/intj-a");
@@ -116,6 +106,12 @@ describe("career llms alignment contract", () => {
   });
 
   it("llms-full.txt reflects backend-owned Career detail routes and excludes query search urls", async () => {
+    vi.doMock("@/lib/seo/backendSitemapSource", () => ({
+      listBackendSitemapCareerJobPaths: vi.fn(async () => [
+        "/en/career/jobs/backend-architect",
+        "/zh/career/jobs/backend-architect",
+      ]),
+    }));
     vi.doMock("@/lib/career/api/fetchCareerFamilyHub", () => ({
       fetchCareerFamilyHub: vi.fn(async ({ slug }: { slug: string }) => {
         if (slug === "data-science") {
@@ -166,9 +162,6 @@ describe("career llms alignment contract", () => {
         };
       }),
     }));
-    vi.doMock("@/lib/career/api/fetchCareerJobIndex", () => ({
-      fetchCareerJobIndex: vi.fn(async () => ({ items: [] })),
-    }));
     vi.doMock("@/lib/career/api/fetchCareerFirstWaveDiscoverabilityManifest", () => ({
       fetchCareerFirstWaveDiscoverabilityManifest: vi.fn(async () => ({
         manifest_kind: "career_first_wave_discoverability_manifest",
@@ -204,24 +197,6 @@ describe("career llms alignment contract", () => {
     }));
     vi.doMock("@/lib/career/api/fetchCareerRecommendationIndex", () => ({
       fetchCareerRecommendationIndex: vi.fn(async () => ({ items: [] })),
-    }));
-    vi.doMock("@/lib/career/adapters/adaptCareerJobIndex", () => ({
-      adaptCareerJobIndex: vi.fn(() => [
-        {
-          identity: { canonicalSlug: "backend-architect" },
-          href: "/en/career/jobs/backend-architect",
-          titles: { title: "Backend Architect" },
-          provenanceMeta: { compiledAt: "2026-04-10T12:00:00Z" },
-          seoContract: { indexEligible: true, indexState: "indexed" },
-        },
-        {
-          identity: { canonicalSlug: "data-engineer" },
-          href: "/en/career/jobs/data-engineer",
-          titles: { title: "Data Engineer" },
-          provenanceMeta: { compiledAt: "2026-04-10T12:00:00Z" },
-          seoContract: { indexEligible: true, indexState: "indexed" },
-        },
-      ]),
     }));
     vi.doMock("@/lib/career/adapters/adaptCareerRecommendationIndex", () => ({
       adaptCareerRecommendationIndex: vi.fn(() => [
@@ -271,7 +246,8 @@ describe("career llms alignment contract", () => {
     expect(text).toContain("[en] Career center | https://fermatmind.com/en/career");
     expect(text).not.toContain("[en] Career jobs | https://fermatmind.com/en/career/jobs");
     expect(text).not.toContain("[en] Career recommendations | https://fermatmind.com/en/career/recommendations");
-    expect(text).not.toContain("[en] Backend Architect | https://fermatmind.com/en/career/jobs/backend-architect");
+    expect(text).toContain("[en] Backend Architect | https://fermatmind.com/en/career/jobs/backend-architect");
+    expect(text).toContain("[zh] Backend Architect | https://fermatmind.com/zh/career/jobs/backend-architect");
     expect(text).not.toContain("[en] Data Engineer | https://fermatmind.com/en/career/jobs/data-engineer");
     expect(text).toContain("[en] Data Science | https://fermatmind.com/en/career/family/data-science");
     expect(text).not.toContain("[en] INTJ Career Match | https://fermatmind.com/en/career/recommendations/mbti/intj-a");

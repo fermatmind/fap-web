@@ -12,6 +12,7 @@ import { buildDefaultPublicPersonalitySlug, listPersonalityProfiles } from "@/li
 import { listTopics } from "@/lib/cms/topics";
 import { getAllTests } from "@/lib/content";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
+import { listBackendSitemapCareerJobPaths } from "@/lib/seo/backendSitemapSource";
 import { getSiteUrlOrThrow } from "@/lib/site";
 import { filterVisiblePublicTestEntries } from "@/lib/tests/publicTestEntryVisibility";
 import type { CareerFirstWaveDiscoverabilityManifestAdapter } from "@/lib/career/adapters/types";
@@ -37,8 +38,6 @@ const LLMS_FINAL_PATH_DENY_PATTERNS: RegExp[] = [
   /^\/(?:en|zh)\/datasets\/occupations(?:\/method)?$/i,
   /^\/career\/jobs$/i,
   /^\/(?:en|zh)\/career\/jobs$/i,
-  /^\/career\/jobs\/[^/]+$/i,
-  /^\/(?:en|zh)\/career\/jobs\/[^/]+$/i,
   /^\/(?:en|zh)\/career\/recommendations$/i,
   /^\/(?:en|zh)\/career\/recommendations\/mbti\/[^/]+$/i,
   /^\/(?:en|zh)\/career\/guides\/[^/]+$/i,
@@ -182,6 +181,7 @@ export async function GET() {
     testList,
     enHelpPages,
     zhHelpPages,
+    careerJobEntries,
   ] = await Promise.all([
     fetchCareerFirstWaveDiscoverabilityManifest({ locale: "en" })
       .then((payload) => adaptCareerFirstWaveDiscoverabilityManifest({ payload }))
@@ -204,6 +204,7 @@ export async function GET() {
     getAllTests("en").catch(() => []),
     listContentPagesWithLastKnownGood("en", "help").then((result) => result.value).catch(() => []),
     listContentPagesWithLastKnownGood("zh", "help").then((result) => result.value).catch(() => []),
+    listBackendSitemapCareerJobPaths().catch(() => []),
   ]);
 
   const enCareerFamilies = listCareerFamilyPathsFromManifest("en", enDiscoverabilityManifest);
@@ -245,6 +246,7 @@ export async function GET() {
     ...zhCareerFamilies,
     ...enCareerRecommendations.filter(shouldKeepCareerAuthorityRoute).map((item) => item.href),
     ...zhCareerRecommendations.filter(shouldKeepCareerAuthorityRoute).map((item) => item.href),
+    ...careerJobEntries,
   ]);
 
   const lines = [

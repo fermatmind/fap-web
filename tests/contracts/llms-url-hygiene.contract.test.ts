@@ -23,6 +23,7 @@ function expectLlmsRouteHygiene(source: string): void {
   expect(source).not.toContain('toCanonical(siteUrl, "/zh/career/recommendations")');
   expect(source).toContain("career\\/recommendations\\/mbti");
   expect(source).toContain("career\\/guides");
+  expect(source).toContain("listBackendSitemapCareerJobPaths");
   expect(source).toContain("personality\\/(");
   expect(source).toContain("result(?:\\/|$)");
   expect(source).toContain("orders(?:\\/|$)");
@@ -32,6 +33,7 @@ function expectLlmsRouteHygiene(source: string): void {
   expect(source).not.toContain(".map((job) => job.href)");
   expect(source).not.toContain("fetchCareerJobIndex");
   expect(source).not.toContain("adaptCareerJobIndex");
+  expect(source).not.toContain("\\/career\\/jobs\\/[^/]+");
 }
 
 describe("llms final URL hygiene contract", () => {

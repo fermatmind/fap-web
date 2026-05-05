@@ -23,6 +23,7 @@ import {
   isMentalHealthScreeningTest,
 } from "@/components/compliance/MentalHealthDisclaimer";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
+import { listBackendSitemapCareerJobPaths } from "@/lib/seo/backendSitemapSource";
 import { getSiteUrlOrThrow } from "@/lib/site";
 import { filterVisiblePublicTestEntries } from "@/lib/tests/publicTestEntryVisibility";
 import type { AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
@@ -55,8 +56,6 @@ const LLMS_FINAL_PATH_DENY_PATTERNS: RegExp[] = [
   /^\/(?:en|zh)\/datasets\/occupations(?:\/method)?$/i,
   /^\/career\/jobs$/i,
   /^\/(?:en|zh)\/career\/jobs$/i,
-  /^\/career\/jobs\/[^/]+$/i,
-  /^\/(?:en|zh)\/career\/jobs\/[^/]+$/i,
   /^\/(?:en|zh)\/career\/recommendations$/i,
   /^\/(?:en|zh)\/career\/recommendations\/mbti\/[^/]+$/i,
   /^\/(?:en|zh)\/career\/guides\/[^/]+$/i,
@@ -136,6 +135,37 @@ function summaryFromRecord(value: unknown): string {
 function extractSlugFromPath(path: string): string {
   const segments = normalizePath(path).split("/").filter(Boolean);
   return segments.at(-1) ?? "";
+}
+
+function localeFromLocalizedPath(path: string): LlmsLocale | null {
+  const locale = normalizePath(path).split("/").filter(Boolean).at(0);
+  return locale === "en" || locale === "zh" ? locale : null;
+}
+
+function titleFromSlug(slug: string): string {
+  return slug
+    .split("-")
+    .filter(Boolean)
+    .map((part) => `${part.charAt(0).toUpperCase()}${part.slice(1)}`)
+    .join(" ");
+}
+
+function buildCareerJobEntry(path: string): LlmsFullEntry | null {
+  const normalized = normalizePath(path);
+  const locale = localeFromLocalizedPath(normalized);
+  const slug = extractSlugFromPath(normalized);
+
+  if (!locale || !slug) {
+    return null;
+  }
+
+  return {
+    locale,
+    path: normalized,
+    title: titleFromSlug(slug),
+    type: "career_job_detail",
+    updatedAt: "",
+  };
 }
 
 function displayLocale(locale: LlmsLocale): string {
@@ -555,6 +585,7 @@ export async function GET() {
     zhTestList,
     enHelpPages,
     zhHelpPages,
+    careerJobPaths,
   ] = await Promise.all([
     fetchCareerFirstWaveDiscoverabilityManifest({ locale: "en" })
       .then((payload) => adaptCareerFirstWaveDiscoverabilityManifest({ payload }))
@@ -578,6 +609,7 @@ export async function GET() {
     getAllTests("zh").catch(() => []),
     listContentPagesWithLastKnownGood("en", "help").then((result) => result.value).catch(() => []),
     listContentPagesWithLastKnownGood("zh", "help").then((result) => result.value).catch(() => []),
+    listBackendSitemapCareerJobPaths().catch(() => []),
   ]);
 
   const [enCareerFamilies, zhCareerFamilies] = await Promise.all([
@@ -702,6 +734,9 @@ export async function GET() {
       type: "career_recommendation",
       updatedAt: item.provenanceMeta.compiledAt ?? "",
     })),
+    ...careerJobPaths
+      .map((path) => buildCareerJobEntry(path))
+      .filter((entry): entry is LlmsFullEntry => Boolean(entry)),
   ].filter((entry) => shouldKeep(entry.path));
 
   const [enrichedPersonalityEntries, enrichedTopicEntries, enrichedArticles, enrichedGuideEntries] = await Promise.all([
