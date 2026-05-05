@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-05-05T17:07:08Z",
+  "updated_at": "2026-05-05T17:26:33Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -9,9 +9,9 @@
     "frontend-result-email-gate": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "github_checks_passed",
+      "status": "merged",
       "branch": "codex/frontend-result-email-gate",
-      "commit_sha": "e610de3441bf1916dd5556307261a8e8cbae4fe6",
+      "commit_sha": "2585609e6411a8884ee639626f61ba115a858ef0",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/631",
       "checks": {
         "local": [
@@ -42,22 +42,22 @@
           {
             "name": "build",
             "status": "passed",
-            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/25390517067/job/74463447332"
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/25390790607/job/74465208364"
           },
           {
             "name": "contracts",
             "status": "passed",
-            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/25390517067/job/74463447355"
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/25390790607/job/74465229609"
           },
           {
             "name": "verify-big5-contract-freeze",
             "status": "passed",
-            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/25390517067/job/74463447357"
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/25390790607/job/74465208792"
           },
           {
             "name": "verify-enneagram-contract-freeze",
             "status": "passed",
-            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/25390517067/job/74463447358"
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/25390790607/job/74465209036"
           }
         ]
       },
@@ -77,6 +77,70 @@
           "affected_command_or_check": "npm test -- --run",
           "evidence": "npm exits with Missing script: \"test\"; package.json defines test:contract, test:a11y, and test:e2e but no test script.",
           "why_external_to_current_pr": "PR4 does not modify package scripts; targeted Vitest validation passed with pnpm vitest run tests/contracts/result-client-view-state.contract.test.tsx.",
+          "owner": "unknown",
+          "follow_up_recommendation": "Add a repository-level npm test alias or update train validation docs to use pnpm vitest/test:contract."
+        }
+      ],
+      "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "2026-05-05T17:14:58Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
+    },
+    "frontend-email-result-lookup": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "local_checks_passed_with_sidecars",
+      "branch": "codex/frontend-email-result-lookup",
+      "commit_sha": "",
+      "pr_url": "",
+      "checks": {
+        "local": [
+          {
+            "command": "pnpm lint 'app/(localized)/[locale]/results/lookup/page.tsx' 'app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx' components/support/ResultEmailLookupForm.tsx lib/api/v0_3.ts lib/seo/indexingPolicy.ts tests/contracts/result-email-lookup.contract.test.tsx tests/contracts/result-client-view-state.contract.test.tsx tests/contracts/robots.contract.test.ts",
+            "status": "passed",
+            "notes": "Targeted pnpm lint passed; npm run lint with the same file list also passed."
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/result-email-lookup.contract.test.tsx tests/contracts/result-client-view-state.contract.test.tsx tests/contracts/robots.contract.test.ts",
+            "status": "passed",
+            "notes": "29 tests passed."
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "jq empty docs/codex/pr-train-state.json",
+            "status": "passed"
+          },
+          {
+            "command": "git diff --check",
+            "status": "passed"
+          },
+          {
+            "command": "git diff --cached --check",
+            "status": "passed"
+          }
+        ],
+        "github": []
+      },
+      "sidecar_issues": [
+        {
+          "title": "Full repository lint has pre-existing errors outside frontend-email-result-lookup scope",
+          "repo": "fap-web",
+          "affected_command_or_check": "npm run lint",
+          "evidence": "Full lint fails in components/career/CareerShortlistAction.tsx, components/result/mbti/clone/MbtiCloneAssetSlot.tsx, ecosystem.config.cjs, lib/cms/last-known-good.ts, tests/contracts/big5-pilot-payload-only-renderer.contract.test.tsx, and tests/contracts/enneagram-asset-backed-renderer.contract.test.tsx. Targeted PR5 lint passed for the lookup page, ResultClient token forwarding, API adapter, noindex policy, and focused tests.",
+          "why_external_to_current_pr": "The failing files are outside the PR5 changed-file set and the same targeted lint for all PR5 files passes.",
+          "owner": "unknown",
+          "follow_up_recommendation": "Fix or baseline the existing full-repo ESLint violations in a dedicated maintenance PR."
+        },
+        {
+          "title": "Package has no npm test script",
+          "repo": "fap-web",
+          "affected_command_or_check": "npm test -- --run",
+          "evidence": "npm exits with Missing script: \"test\"; package.json defines test:contract, test:a11y, and test:e2e but no test script.",
+          "why_external_to_current_pr": "PR5 does not modify package scripts; targeted Vitest validation passed with pnpm vitest run tests/contracts/result-email-lookup.contract.test.tsx tests/contracts/result-client-view-state.contract.test.tsx tests/contracts/robots.contract.test.ts.",
           "owner": "unknown",
           "follow_up_recommendation": "Add a repository-level npm test alias or update train validation docs to use pnpm vitest/test:contract."
         }

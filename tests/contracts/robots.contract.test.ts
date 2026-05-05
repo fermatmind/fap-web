@@ -51,6 +51,7 @@ describe("robots contract", () => {
     expect(shouldIncludeInSitemap("/en/types/intj")).toBe(false);
     expect(shouldIncludeInSitemap("/en/share/share-123")).toBe(false);
     expect(shouldIncludeInSitemap("/en/result/attempt-123")).toBe(false);
+    expect(shouldIncludeInSitemap("/en/results/lookup")).toBe(false);
     expect(shouldIncludeInSitemap("/en/history")).toBe(false);
   });
 
@@ -68,6 +69,7 @@ describe("robots contract", () => {
     expect(sbtiResultSource).toContain("noindex: true");
     expect(shouldNoindex("/en/share/share-123", "en")).toBe(true);
     expect(shouldNoindex("/en/result/attempt-123", "en")).toBe(true);
+    expect(shouldNoindex("/en/results/lookup", "en")).toBe(true);
     expect(shouldNoindex("/en/career/jobs?q=backend", "en")).toBe(true);
     expect(shouldNoindex("/zh/fun/sbti", "zh", undefined, { indexEligible: false, indexState: "noindex" })).toBe(true);
   });
