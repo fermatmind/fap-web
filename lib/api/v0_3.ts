@@ -2046,6 +2046,16 @@ export type ClaimReportEmailResponse = {
   [key: string]: unknown;
 };
 
+export type AttemptEmailBindResponse = {
+  ok: boolean;
+  attempt_id?: string;
+  status?: "active" | "pending" | "verified" | string;
+  binding_id?: string;
+  result_url?: string;
+  message?: string;
+  [key: string]: unknown;
+};
+
 export type ScaleLookupResponse = {
   ok?: boolean;
   slug?: string;
@@ -3786,6 +3796,36 @@ export async function requestClaimReportEmail({
   );
 
   return assertApiOk(response, "Unable to request a report recovery email.");
+}
+
+export async function bindAttemptEmail({
+  attemptId,
+  email,
+  anonId,
+  locale,
+  surface = "result_gate",
+}: {
+  attemptId: string;
+  email: string;
+  anonId?: string;
+  locale?: string;
+  surface?: "result_gate" | "result" | "report";
+}): Promise<AttemptEmailBindResponse> {
+  const resolvedAnonId = resolveAnonId(anonId);
+  const response = await apiClient.post<AttemptEmailBindResponse>(
+    `/v0.3/attempts/${attemptId}/email-bind`,
+    {
+      email,
+      ...(locale ? { locale } : {}),
+      surface,
+    },
+    {
+      ...anonHeader(resolvedAnonId),
+      ...(locale ? { locale } : {}),
+    }
+  );
+
+  return assertApiOk(response, "Unable to bind email to this result.");
 }
 
 export async function getEmailPreferences(token: string): Promise<EmailPreferencesResponse> {

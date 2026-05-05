@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { type FormEvent, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnticipationSkeleton } from "@/components/design/AnticipationSkeleton";
@@ -29,6 +29,7 @@ import {
 import { getOrCreateAnonId, readPendingAnonLinkAttempts } from "@/lib/anon";
 import { trackEvent } from "@/lib/analytics";
 import {
+  bindAttemptEmail,
   fetchAttemptReport,
   fetchAttemptReportAccess,
   fetchAttemptInviteUnlockProgress,
@@ -53,12 +54,13 @@ import { captureError } from "@/lib/observability/sentry";
 import type { ScaleRolloutEnvSnapshot } from "@/lib/rollout/scaleRollout";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import { assembleRiasecResultViewModel, hasRiasecProjection } from "@/lib/riasec/resultAssembler";
+import { Button } from "@/components/ui/button";
 
 const RESULT_POLL_FALLBACK_MS = 3000;
 const RESULT_POLL_MAX = 10;
 const INVITE_PROGRESS_POLL_MS = 15000;
 
-type ResultClientStatus = "loading" | "generating" | "ready" | "failed";
+type ResultClientStatus = "loading" | "generating" | "ready" | "failed" | "email_required";
 
 type ResultDimension = {
   code?: string;
@@ -147,6 +149,10 @@ function resolveRetryMs(retryAfterSeconds: number | undefined): number {
   const retryMs = Math.floor(retryAfterValue * 1000);
   if (retryMs <= 0) return RESULT_POLL_FALLBACK_MS;
   return Math.min(10000, Math.max(1000, retryMs));
+}
+
+function isEmailBindRequiredProblem(error: unknown): error is ApiError {
+  return error instanceof ApiError && error.errorCode === "EMAIL_BIND_REQUIRED";
 }
 
 function resolveResponseRetryMs(
@@ -523,6 +529,11 @@ export default function ResultClient({
   const [mbtiAccessPath, setMbtiAccessPath] = useState(false);
   const [status, setStatus] = useState<ResultClientStatus>("loading");
   const [error, setError] = useState<string | null>(null);
+  const [email, setEmail] = useState("");
+  const [emailGateError, setEmailGateError] = useState<string | null>(null);
+  const [emailBindFeedback, setEmailBindFeedback] = useState<string | null>(null);
+  const [emailSubmitting, setEmailSubmitting] = useState(false);
+  const [reloadNonce, setReloadNonce] = useState(0);
 
   const anonId = useMemo(() => getOrCreateAnonId(), []);
   const routeScaleCodeRef = useRef("UNKNOWN");
@@ -577,6 +588,64 @@ export default function ResultClient({
       }),
     [anonId, locale]
   );
+
+  const showEmailGateForError = useCallback((cause: unknown): boolean => {
+    if (!isEmailBindRequiredProblem(cause)) {
+      return false;
+    }
+
+    setReportData(null);
+    setResultData(null);
+    setAccessView(null);
+    setInviteUnlockProgress(null);
+    setStatus("email_required");
+    setEmailGateError(null);
+    setEmailBindFeedback(null);
+
+    trackEvent("result_email_gate_required", {
+      attempt_id: attemptId,
+      route: "/result/[id]",
+      locale,
+    });
+
+    return true;
+  }, [attemptId, locale]);
+
+  const handleEmailBindSubmit = useCallback(async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const normalizedEmail = email.trim().toLowerCase();
+    if (!normalizedEmail) {
+      setEmailGateError(locale === "zh" ? "请输入邮箱。" : "Enter an email address.");
+      return;
+    }
+
+    setEmailSubmitting(true);
+    setEmailGateError(null);
+    setEmailBindFeedback(null);
+
+    try {
+      await runWithAuthRetry(() => bindAttemptEmail({
+        attemptId,
+        email: normalizedEmail,
+        anonId,
+        locale,
+        surface: "result_gate",
+      }));
+      setEmailBindFeedback(locale === "zh" ? "邮箱已保存，正在打开结果。" : "Email saved. Opening the result.");
+      setStatus("loading");
+      setReloadNonce((value) => value + 1);
+    } catch (cause) {
+      const message = cause instanceof Error ? cause.message : String(cause);
+      setEmailGateError(message || (locale === "zh" ? "邮箱保存失败，请稍后再试。" : "Could not save this email. Try again later."));
+      trackEvent("result_email_bind_failed", {
+        attempt_id: attemptId,
+        route: "/result/[id]",
+        locale,
+      });
+    } finally {
+      setEmailSubmitting(false);
+    }
+  }, [anonId, attemptId, email, locale, runWithAuthRetry]);
 
   const fetchReportAccessWithAuthMismatchRetry = useCallback(async () => {
     try {
@@ -860,6 +929,8 @@ export default function ResultClient({
         setStatus("loading");
         setInviteUnlockProgress(null);
         setMbtiAccessPath(false);
+        setEmailGateError(null);
+        setEmailBindFeedback(null);
         inviteProgressSnapshotRef.current = null;
         mbtiBootstrapPhaseTrackedRef.current = false;
 
@@ -1000,6 +1071,7 @@ export default function ResultClient({
         setError(dict.result.reportUnavailable);
       } catch (reportCause) {
         if (!active) return;
+        if (showEmailGateForError(reportCause)) return;
 
         setReportData(null);
 
@@ -1019,11 +1091,13 @@ export default function ResultClient({
           setError(dict.result.reportUnavailable);
         } catch (resultCause) {
           if (!active) return;
+          if (showEmailGateForError(resultCause)) return;
 
           try {
             const submissionFallback = await loadSubmissionFallback(attempt);
             if (!active || submissionFallback.handled) return;
           } catch (submissionCause) {
+            if (showEmailGateForError(submissionCause)) return;
             resultCause = submissionCause;
           }
 
@@ -1075,7 +1149,9 @@ export default function ResultClient({
     fetchReportAccessWithAuthMismatchRetry,
     fetchReportWithAuthMismatchRetry,
     locale,
+    reloadNonce,
     runWithAuthRetry,
+    showEmailGateForError,
   ]);
 
   const hasRichReport = reportData ? canRenderRichResultReport(reportData) : false;
@@ -1087,6 +1163,70 @@ export default function ResultClient({
     || Boolean(reportData?.mbti_access_hub_v1)
     || (hasReadyResultPayload(resultData) && normalizeText(resultData.meta?.scale_code).toUpperCase() === "MBTI")
     || resolveScaleCodeForTelemetry(reportData, resultData) === "MBTI";
+
+  if (status === "email_required") {
+    return (
+      <section
+        className="mx-auto flex min-h-[420px] w-full max-w-xl flex-col justify-center space-y-6 rounded-[8px] border border-[var(--fm-border)] bg-[var(--fm-surface)] p-6 shadow-[var(--fm-shadow-sm)] sm:p-8"
+        data-testid="result-email-gate"
+      >
+        <div className="space-y-2">
+          <p className="text-xs font-semibold uppercase text-[var(--fm-text-muted)]">
+            {locale === "zh" ? "结果访问" : "Result access"}
+          </p>
+          <h1 className="text-2xl font-semibold text-[var(--fm-text)]">
+            {locale === "zh" ? "先保存邮箱，再查看结果" : "Save an email to view this result"}
+          </h1>
+          <p className="text-sm leading-6 text-[var(--fm-text-muted)]">
+            输入邮箱即可查看并找回该邮箱下保存的结果，请使用你自己的邮箱。
+          </p>
+        </div>
+
+        <form className="space-y-4" onSubmit={handleEmailBindSubmit}>
+          <label className="block space-y-2">
+            <span className="text-sm font-medium text-[var(--fm-text)]">
+              {locale === "zh" ? "邮箱" : "Email"}
+            </span>
+            <input
+              data-testid="result-email-gate-input"
+              type="email"
+              value={email}
+              autoComplete="email"
+              inputMode="email"
+              required
+              onChange={(event) => setEmail(event.target.value)}
+              className="h-12 w-full rounded-[8px] border border-[var(--fm-border)] bg-white px-4 text-base text-[var(--fm-text)] outline-none transition focus:border-[var(--fm-trust-blue)] focus:ring-2 focus:ring-[var(--fm-focus)]"
+              placeholder="you@example.com"
+            />
+          </label>
+
+          {emailGateError ? (
+            <Alert>{emailGateError}</Alert>
+          ) : null}
+          {emailBindFeedback ? (
+            <p className="text-sm text-[var(--fm-trust-blue)]" role="status">
+              {emailBindFeedback}
+            </p>
+          ) : null}
+
+          <Button
+            type="submit"
+            disabled={emailSubmitting}
+            className="w-full"
+            data-testid="result-email-gate-submit"
+          >
+            {emailSubmitting
+              ? locale === "zh"
+                ? "保存中..."
+                : "Saving..."
+              : locale === "zh"
+                ? "查看结果"
+                : "View result"}
+          </Button>
+        </form>
+      </section>
+    );
+  }
 
   const viewState: "processing" | "ready" | "failed" =
     status === "loading" || status === "generating"

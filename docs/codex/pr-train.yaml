@@ -6,6 +6,37 @@ require_clean_worktree: true
 execution_mode: local_clone_preferred
 
 prs:
+  - id: frontend-result-email-gate
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/frontend-result-email-gate
+    base: main
+    depends_on: []
+    mode: execute
+    scope: >
+      PR4 of the email-first result access train. Add the frontend
+      bindAttemptEmail API adapter, make the result page handle
+      EMAIL_BIND_REQUIRED from backend result/report/report-access reads,
+      render the required email gate copy before result/report content, and
+      reload the result/report after a successful bind. Do not add account
+      registration, email verification UI, lookup-by-email page, order lookup
+      semantics, editorial/static content, or local content fallback.
+    checks:
+      - "pnpm lint 'app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx' lib/api/v0_3.ts tests/contracts/result-client-view-state.contract.test.tsx"
+      - "pnpm vitest run tests/contracts/result-client-view-state.contract.test.tsx"
+      - "pnpm typecheck"
+      - "git diff --check"
+      - "git diff --cached --check"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: true
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
+
   - id: PR-B1
     repo: fap-web
     repo_path: /Users/rainie/Desktop/GitHub/fap-web

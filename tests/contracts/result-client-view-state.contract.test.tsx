@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { render, screen, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import ResultClient from "@/app/(localized)/[locale]/(app)/result/[id]/ResultClient";
 import { ApiError } from "@/lib/api-client";
@@ -46,6 +46,7 @@ const hoisted = vi.hoisted(() => ({
   fetchAttemptReport: vi.fn(),
   fetchAttemptResult: vi.fn(),
   fetchAttemptSubmission: vi.fn(),
+  bindAttemptEmail: vi.fn(),
   getFmToken: vi.fn<() => string | null>(() => "fm_result_test_token"),
   setFmToken: vi.fn(),
   ensureFmTokenReady: vi.fn(),
@@ -151,6 +152,7 @@ vi.mock("@/lib/auth/fmToken", () => ({
 }));
 
 vi.mock("@/lib/api/v0_3", () => ({
+  bindAttemptEmail: hoisted.bindAttemptEmail,
   fetchAttemptReportAccess: hoisted.fetchAttemptReportAccess,
   fetchAttemptInviteUnlockProgress: hoisted.fetchAttemptInviteUnlockProgress,
   fetchAttemptReport: hoisted.fetchAttemptReport,
@@ -238,6 +240,12 @@ describe("ResultClient view-state contract", () => {
         state: "succeeded",
       },
       generating: false,
+    });
+    hoisted.bindAttemptEmail.mockResolvedValue({
+      ok: true,
+      attempt_id: "attempt-123",
+      status: "active",
+      result_url: "/en/result/attempt-123",
     });
   });
 
@@ -356,6 +364,52 @@ describe("ResultClient view-state contract", () => {
     expect(hoisted.fetchAttemptResult).not.toHaveBeenCalled();
     expect(screen.queryByTestId("result-summary")).not.toBeInTheDocument();
     expect(screen.queryByTestId("dimension-bars")).not.toBeInTheDocument();
+  });
+
+  it("shows the email gate for EMAIL_BIND_REQUIRED and reloads after binding", async () => {
+    hoisted.fetchAttemptReportAccess.mockRejectedValueOnce(
+      new ApiError({
+        status: 428,
+        errorCode: "EMAIL_BIND_REQUIRED",
+        message: "email binding required to view this result.",
+        details: {
+          attempt_id: "attempt-123",
+          bind_endpoint: "/api/v0.3/attempts/attempt-123/email-bind",
+        },
+      })
+    );
+    hoisted.fetchAttemptReport.mockResolvedValue(cloneFixture(reportReadyMbtiProjectionFixture) as ReportResponse);
+
+    render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("result-email-gate")).toHaveTextContent(
+        "输入邮箱即可查看并找回该邮箱下保存的结果，请使用你自己的邮箱。"
+      );
+    });
+
+    expect(hoisted.fetchAttemptResult).not.toHaveBeenCalled();
+
+    fireEvent.change(screen.getByTestId("result-email-gate-input"), {
+      target: { value: "Owner@Example.Test" },
+    });
+    fireEvent.submit(screen.getByTestId("result-email-gate-submit").closest("form") as HTMLFormElement);
+
+    await waitFor(() => {
+      expect(hoisted.bindAttemptEmail).toHaveBeenCalledWith({
+        attemptId: "attempt-123",
+        email: "owner@example.test",
+        anonId: "anon_result_test",
+        locale: "en",
+        surface: "result_gate",
+      });
+    });
+
+    await waitFor(() => {
+      expect(screen.getByTestId("rich-result-report")).toBeInTheDocument();
+    });
+
+    expect(hoisted.fetchAttemptReportAccess).toHaveBeenCalledTimes(2);
   });
 
   it("keeps MBTI continue-test attribution params for recommendation scene links", () => {

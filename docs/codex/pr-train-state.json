@@ -1,11 +1,71 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-05-04T10:51:21.470853Z",
+  "updated_at": "2026-05-05T16:59:46Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
   "items": {
+    "frontend-result-email-gate": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "in_progress",
+      "branch": "codex/frontend-result-email-gate",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": {
+        "local": [
+          {
+            "command": "pnpm lint 'app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx' lib/api/v0_3.ts tests/contracts/result-client-view-state.contract.test.tsx",
+            "status": "passed",
+            "notes": "Targeted pnpm lint passed; npm run lint with the same file list also passed."
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/result-client-view-state.contract.test.tsx",
+            "status": "passed",
+            "notes": "20 tests passed."
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "git diff --check",
+            "status": "passed"
+          },
+          {
+            "command": "git diff --cached --check",
+            "status": "passed"
+          }
+        ],
+        "github": []
+      },
+      "sidecar_issues": [
+        {
+          "title": "Full repository lint has pre-existing errors outside frontend-result-email-gate scope",
+          "repo": "fap-web",
+          "affected_command_or_check": "pnpm lint",
+          "evidence": "Full lint fails in components/career/CareerShortlistAction.tsx, components/result/mbti/clone/MbtiCloneAssetSlot.tsx, ecosystem.config.cjs, lib/cms/last-known-good.ts, tests/contracts/big5-pilot-payload-only-renderer.contract.test.tsx, and tests/contracts/enneagram-asset-backed-renderer.contract.test.tsx. Targeted PR4 lint passed for ResultClient, lib/api/v0_3.ts, and result-client-view-state contract.",
+          "why_external_to_current_pr": "The failing files are outside the PR4 changed-file set and the same targeted lint for all PR4 files passes.",
+          "owner": "unknown",
+          "follow_up_recommendation": "Fix or baseline the existing full-repo ESLint violations in a dedicated maintenance PR."
+        },
+        {
+          "title": "Package has no npm test script",
+          "repo": "fap-web",
+          "affected_command_or_check": "npm test -- --run",
+          "evidence": "npm exits with Missing script: \"test\"; package.json defines test:contract, test:a11y, and test:e2e but no test script.",
+          "why_external_to_current_pr": "PR4 does not modify package scripts; targeted Vitest validation passed with pnpm vitest run tests/contracts/result-client-view-state.contract.test.tsx.",
+          "owner": "unknown",
+          "follow_up_recommendation": "Add a repository-level npm test alias or update train validation docs to use pnpm vitest/test:contract."
+        }
+      ],
+      "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
     "PR-B1": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
