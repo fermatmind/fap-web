@@ -98,7 +98,7 @@ describe("career routing cleanup contract", () => {
     expect(source).not.toContain("best next move");
   });
 
-  it("machine-readable routes keep recommendations and quarantine career job details until live URL gate passes", () => {
+  it("machine-readable routes use backend sitemap authority for Career job details after the live URL gate passes", () => {
     const llms = read("app/llms.txt/route.ts");
     const llmsFull = read("app/llms-full.txt/route.ts");
 
@@ -109,6 +109,10 @@ describe("career routing cleanup contract", () => {
     expect(llms).not.toContain('import { adaptCareerJobIndex } from "@/lib/career/adapters/adaptCareerJobIndex"');
     expect(llmsFull).not.toContain('import { fetchCareerJobIndex } from "@/lib/career/api/fetchCareerJobIndex"');
     expect(llmsFull).not.toContain('import { adaptCareerJobIndex } from "@/lib/career/adapters/adaptCareerJobIndex"');
+    expect(llms).toContain('import { listBackendSitemapCareerJobPaths } from "@/lib/seo/backendSitemapSource"');
+    expect(llmsFull).toContain('import { listBackendSitemapCareerJobPaths } from "@/lib/seo/backendSitemapSource"');
+    expect(llms).not.toContain('^\\/career\\/jobs\\/[^/]+$');
+    expect(llmsFull).not.toContain('^\\/career\\/jobs\\/[^/]+$');
     expect(llms).not.toContain("isCareerJobDetailDiscoverableByManifest");
     expect(llmsFull).not.toContain("isCareerJobDetailDiscoverableByManifest");
     expect(llms).not.toContain('import { listCareerJobsFromCms } from "@/lib/cms/career-jobs"');
