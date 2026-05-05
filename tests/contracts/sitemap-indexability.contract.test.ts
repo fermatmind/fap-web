@@ -53,6 +53,24 @@ describe("sitemap indexability contract", () => {
               {
                 loc: "https://fermatmind.com/zh/career/jobs/backend-architect",
               },
+              {
+                loc: "https://fermatmind.com/en/career/jobs/backend-engineer",
+              },
+              {
+                loc: "https://www.fermatmind.com/en/career/jobs/software-developers",
+              },
+              {
+                loc: "https://www.fermatmind.com/zh/career/jobs/software-developers",
+              },
+              {
+                loc: "https://fermatmind.com/en/career/jobs/software-engineer",
+              },
+              {
+                loc: "https://fermatmind.com/en/results/lookup",
+              },
+              {
+                loc: "https://fermatmind.com/zh/results/lookup",
+              },
             ],
           });
         }
@@ -163,6 +181,12 @@ describe("sitemap indexability contract", () => {
     );
     expect(locs).toContain("/en/career/jobs/backend-architect");
     expect(locs).toContain("/zh/career/jobs/backend-architect");
+    expect(locs).not.toContain("/en/career/jobs/backend-engineer");
+    expect(locs).not.toContain("/en/career/jobs/software-engineer");
+    expect(locs).not.toContain("/en/career/jobs/software-developers");
+    expect(locs).not.toContain("/zh/career/jobs/software-developers");
+    expect(locs).not.toContain("/en/results/lookup");
+    expect(locs).not.toContain("/zh/results/lookup");
     expect(locs).not.toContain("/en/career/jobs/data-engineer");
     expect(locs).not.toContain("/zh/career/jobs/data-engineer");
     expect(locs).not.toContain("/en/career/family/compliance");
@@ -230,6 +254,8 @@ describe("sitemap indexability contract", () => {
     expect(await config.transform({}, "/zh/datasets/occupations/method")).toBeNull();
     expect(await config.transform({}, "/en/career/jobs/backend-engineer")).toBeNull();
     expect(await config.transform({}, "/zh/career/jobs/product-manager")).toBeNull();
+    expect(await config.transform({}, "/en/results/lookup")).toBeNull();
+    expect(await config.transform({}, "/zh/results/lookup")).toBeNull();
     expect(await config.transform({}, "/en/ops/content-pages")).toBeNull();
   });
 });
