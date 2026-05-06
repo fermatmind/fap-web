@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useLocale } from "@/components/i18n/LocaleContext";
+import { COOKIE_BANNER_ENABLED } from "@/components/layout/siteChromeRules";
 import { Button } from "@/components/ui/button";
 import { getConsent, setAnalyticsConsent, type AnalyticsConsent } from "@/lib/consent/store";
 import { getDictSync } from "@/lib/i18n/getDict";
@@ -23,7 +24,7 @@ export function CookieBanner() {
     );
   };
 
-  if (consent !== "unknown") return null;
+  if (!COOKIE_BANNER_ENABLED || consent !== "unknown") return null;
 
   return (
     <div
