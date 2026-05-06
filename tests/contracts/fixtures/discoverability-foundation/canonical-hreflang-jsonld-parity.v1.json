@@ -1,0 +1,143 @@
+{
+  "version": "discoverability.canonical_hreflang_jsonld_parity.v1",
+  "scope": "PR-DF-05",
+  "siteUrl": "https://fermatmind.com",
+  "sourceContracts": [
+    {
+      "source": "lib/seo/metadata.ts",
+      "requiredTokens": ["alternates", "canonical", "languages", "x-default"],
+      "forbiddenTokens": []
+    },
+    {
+      "source": "lib/seo/generateSchema.ts",
+      "requiredTokens": ["canonicalUrl(input.path)", "@id", "mainEntityOfPage", "buildBreadcrumbJsonLd"],
+      "forbiddenTokens": []
+    },
+    {
+      "source": "app/(localized)/[locale]/tests/[slug]/page.tsx",
+      "requiredTokens": ["buildPageMetadata", "alternatesByLocale", "buildWebPageJsonLd", "buildBreadcrumbJsonLd", "JsonLd"],
+      "forbiddenTokens": []
+    },
+    {
+      "source": "app/(localized)/[locale]/personality/[type]/page.tsx",
+      "requiredTokens": ["buildPageMetadata", "alternatesByLocale", "buildWebPageJsonLd", "buildBreadcrumbJsonLd", "JsonLd"],
+      "forbiddenTokens": []
+    },
+    {
+      "source": "app/(localized)/[locale]/topics/[slug]/page.tsx",
+      "requiredTokens": ["buildPageMetadata", "alternatesByLocale", "buildWebPageJsonLd", "buildBreadcrumbJsonLd", "JsonLd"],
+      "forbiddenTokens": []
+    }
+  ],
+  "samples": [
+    {
+      "id": "test_detail_en",
+      "pairKey": "test_detail_mbti",
+      "locale": "en",
+      "path": "/en/tests/mbti-personality-test-16-personality-types",
+      "canonicalUrl": "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types",
+      "expectedInSitemap": true,
+      "alternates": {
+        "en": "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types",
+        "zh-CN": "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
+        "x-default": "https://fermatmind.com"
+      },
+      "jsonLdReferences": [
+        "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types",
+        "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types#webpage"
+      ]
+    },
+    {
+      "id": "test_detail_zh",
+      "pairKey": "test_detail_mbti",
+      "locale": "zh-CN",
+      "path": "/zh/tests/mbti-personality-test-16-personality-types",
+      "canonicalUrl": "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
+      "expectedInSitemap": true,
+      "alternates": {
+        "en": "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types",
+        "zh-CN": "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
+        "x-default": "https://fermatmind.com"
+      },
+      "jsonLdReferences": [
+        "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
+        "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types#webpage"
+      ]
+    },
+    {
+      "id": "personality_en",
+      "pairKey": "personality_intj_a",
+      "locale": "en",
+      "path": "/en/personality/intj-a",
+      "canonicalUrl": "https://fermatmind.com/en/personality/intj-a",
+      "expectedInSitemap": true,
+      "alternates": {
+        "en": "https://fermatmind.com/en/personality/intj-a",
+        "zh-CN": "https://fermatmind.com/zh/personality/intj-a",
+        "x-default": "https://fermatmind.com"
+      },
+      "jsonLdReferences": [
+        "https://fermatmind.com/en/personality/intj-a",
+        "https://fermatmind.com/en/personality/intj-a#webpage"
+      ]
+    },
+    {
+      "id": "personality_zh",
+      "pairKey": "personality_intj_a",
+      "locale": "zh-CN",
+      "path": "/zh/personality/intj-a",
+      "canonicalUrl": "https://fermatmind.com/zh/personality/intj-a",
+      "expectedInSitemap": true,
+      "alternates": {
+        "en": "https://fermatmind.com/en/personality/intj-a",
+        "zh-CN": "https://fermatmind.com/zh/personality/intj-a",
+        "x-default": "https://fermatmind.com"
+      },
+      "jsonLdReferences": [
+        "https://fermatmind.com/zh/personality/intj-a",
+        "https://fermatmind.com/zh/personality/intj-a#webpage"
+      ]
+    },
+    {
+      "id": "topic_en",
+      "pairKey": "topic_mbti",
+      "locale": "en",
+      "path": "/en/topics/mbti",
+      "canonicalUrl": "https://fermatmind.com/en/topics/mbti",
+      "expectedInSitemap": true,
+      "alternates": {
+        "en": "https://fermatmind.com/en/topics/mbti",
+        "zh-CN": "https://fermatmind.com/zh/topics/mbti",
+        "x-default": "https://fermatmind.com"
+      },
+      "jsonLdReferences": [
+        "https://fermatmind.com/en/topics/mbti",
+        "https://fermatmind.com/en/topics/mbti#webpage"
+      ]
+    },
+    {
+      "id": "topic_zh",
+      "pairKey": "topic_mbti",
+      "locale": "zh-CN",
+      "path": "/zh/topics/mbti",
+      "canonicalUrl": "https://fermatmind.com/zh/topics/mbti",
+      "expectedInSitemap": true,
+      "alternates": {
+        "en": "https://fermatmind.com/en/topics/mbti",
+        "zh-CN": "https://fermatmind.com/zh/topics/mbti",
+        "x-default": "https://fermatmind.com"
+      },
+      "jsonLdReferences": [
+        "https://fermatmind.com/zh/topics/mbti",
+        "https://fermatmind.com/zh/topics/mbti#webpage"
+      ]
+    }
+  ],
+  "privateFlowSamples": [
+    "/en/tests/mbti-personality-test-16-personality-types/take",
+    "/zh/tests/mbti-personality-test-16-personality-types/take",
+    "/en/result/example",
+    "/zh/orders/example",
+    "/en/share/example"
+  ]
+}
