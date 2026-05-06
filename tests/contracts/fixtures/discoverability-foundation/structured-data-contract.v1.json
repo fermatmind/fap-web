@@ -1,0 +1,91 @@
+{
+  "version": "discoverability.structured_data_contract.v1",
+  "requiredSchemaTypes": [
+    "Quiz",
+    "FAQPage",
+    "Dataset",
+    "WebPage",
+    "BreadcrumbList"
+  ],
+  "rules": {
+    "quizRuntimeState": "not_emitted",
+    "faqPageSource": "visible_faq_or_answer_surface_only",
+    "datasetSource": "dedicated_dataset_or_backend_dataset_bundle_only",
+    "careerJobOccupationAuthority": "backend_seo_surface_v1_structured_data_keys",
+    "privateFlows": "no_jsonld"
+  },
+  "pageFamilies": [
+    {
+      "name": "test_detail",
+      "source": "app/(localized)/[locale]/tests/[slug]/page.tsx",
+      "authority": "deterministic_visible_landing_content",
+      "allowedTypes": ["WebPage", "BreadcrumbList", "FAQPage"],
+      "requiredTokens": ["buildWebPageJsonLd", "buildBreadcrumbJsonLd", "buildFAQPageJsonLd", "id=\"faq\""],
+      "forbiddenTokens": ["buildQuizJsonLd", "Quiz", "Dataset"]
+    },
+    {
+      "name": "article_detail",
+      "source": "app/(localized)/[locale]/articles/[slug]/page.tsx",
+      "authority": "cms_article_visible_content",
+      "allowedTypes": ["Article", "BreadcrumbList", "FAQPage"],
+      "requiredTokens": ["buildArticleJsonLd", "buildBreadcrumbJsonLd", "buildFAQPageJsonLd", "data-testid=\"article-detail-content\""],
+      "forbiddenTokens": ["Dataset", "Quiz"]
+    },
+    {
+      "name": "topic_detail",
+      "source": "app/(localized)/[locale]/topics/[slug]/page.tsx",
+      "authority": "cms_topic_seo_and_visible_content",
+      "allowedTypes": ["WebPage", "BreadcrumbList", "FAQPage"],
+      "requiredTokens": ["normalizeTopicSeoPayload", "buildWebPageJsonLd", "buildBreadcrumbJsonLd", "buildFAQPageJsonLd", "renderTopicSections"],
+      "forbiddenTokens": ["buildQuizJsonLd"]
+    },
+    {
+      "name": "help_detail",
+      "source": "app/(localized)/[locale]/help/[slug]/page.tsx",
+      "authority": "cms_content_page_visible_content",
+      "allowedTypes": ["WebPage", "BreadcrumbList", "FAQPage"],
+      "requiredTokens": ["buildWebPageJsonLd", "buildBreadcrumbJsonLd", "buildVisibleHelpFaqJsonLd"],
+      "forbiddenTokens": ["buildQuizJsonLd", "Dataset"]
+    },
+    {
+      "name": "career_job_detail",
+      "source": "app/(localized)/[locale]/career/jobs/[slug]/page.tsx",
+      "authority": "backend_seo_surface_v1",
+      "allowedTypes": ["Occupation", "BreadcrumbList", "FAQPage"],
+      "requiredTokens": ["job.seoSurface?.structuredDataKeys", "job.structuredData.occupation", "job.structuredData.breadcrumbList", "buildCareerDisplayFAQPageJsonLd"],
+      "forbiddenTokens": ["buildOccupationJsonLd", "buildBreadcrumbJsonLd", "Dataset", "Article"]
+    },
+    {
+      "name": "career_family_hub",
+      "source": "app/(localized)/[locale]/career/family/[slug]/page.tsx",
+      "authority": "backend_family_hub_bundle",
+      "allowedTypes": ["CollectionPage", "ItemList", "BreadcrumbList"],
+      "requiredTokens": ["hub.structuredData.collectionPage", "hub.structuredData.itemList", "hub.structuredData.breadcrumbList"],
+      "forbiddenTokens": ["buildCollectionPageJsonLd", "buildItemListJsonLd", "buildBreadcrumbJsonLd", "Dataset", "Article"]
+    },
+    {
+      "name": "dataset_hub",
+      "source": "app/(localized)/[locale]/datasets/occupations/page.tsx",
+      "authority": "backend_dataset_bundle",
+      "allowedTypes": ["Dataset", "BreadcrumbList"],
+      "requiredTokens": ["dataset.structuredData.dataset", "dataset.structuredData.breadcrumbList", "DatasetFilterHub"],
+      "forbiddenTokens": ["fetchCareerJobBundle", "fetchCareerRecommendationBundle"]
+    },
+    {
+      "name": "dataset_method",
+      "source": "app/(localized)/[locale]/datasets/occupations/method/page.tsx",
+      "authority": "backend_dataset_method_bundle",
+      "allowedTypes": ["Article", "BreadcrumbList"],
+      "requiredTokens": ["method.structuredData.article", "method.structuredData.breadcrumbList", "DatasetMethodPanel"],
+      "forbiddenTokens": ["fetchCareerJobBundle", "fetchCareerRecommendationBundle"]
+    }
+  ],
+  "privateFlowSources": [
+    "app/(localized)/[locale]/tests/[slug]/take/page.tsx",
+    "app/(localized)/[locale]/test/[slug]/take/page.tsx",
+    "app/(localized)/[locale]/(app)/result/[id]/page.tsx",
+    "app/(localized)/[locale]/orders/[orderNo]/page.tsx",
+    "app/(localized)/[locale]/share/[id]/page.tsx"
+  ],
+  "forbiddenPrivateFlowTokens": ["JsonLd", "buildWebPageJsonLd", "buildFAQPageJsonLd", "buildBreadcrumbJsonLd"]
+}
