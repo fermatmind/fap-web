@@ -82,97 +82,149 @@
     "PR-DF-01": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "planned",
-      "not_started": true,
+      "status": "merged",
+      "not_started": false,
       "branch": "codex/pr-df-01-discoverability-regression-snapshot",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "d62e8518a6e5308498c10ec7e9117255c96dbcef",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/655",
       "scope": "Discoverability regression snapshot for sitemap, llms, private-flow exposure, canonical, hreflang, and JSON-LD parity without runtime SEO behavior changes.",
       "checks": {
-        "local": [],
-        "github": []
+        "local": [
+          "scoped validation passed",
+          "required local train checks passed"
+        ],
+        "github": [
+          "build passed",
+          "contracts passed",
+          "verify-big5-contract-freeze passed",
+          "verify-enneagram-contract-freeze passed"
+        ]
       },
       "sidecar_issues": [],
       "failure_reason": "",
       "resume_policy": "manual_only",
-      "merged_at": "",
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false
+      "merged_at": "2026-05-06T13:15:07Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
     },
     "PR-DF-02": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "planned",
-      "not_started": true,
+      "status": "merged",
+      "not_started": false,
       "branch": "codex/pr-df-02-url-exposure-contract",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "08984e7676f560a735f498d0b7cc3c1d73ccd079",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/656",
       "scope": "URL exposure policy inventory and contract for sitemap, llms, robots/noindex, canonical, hreflang, and private-flow exposure rules.",
       "checks": {
-        "local": [],
-        "github": []
+        "local": [
+          "scoped validation passed",
+          "required local train checks passed"
+        ],
+        "github": [
+          "build passed",
+          "contracts passed",
+          "verify-big5-contract-freeze passed",
+          "verify-enneagram-contract-freeze passed"
+        ]
       },
       "sidecar_issues": [],
       "failure_reason": "",
       "resume_policy": "manual_only",
-      "merged_at": "",
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false
+      "merged_at": "2026-05-06T13:29:30Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
     },
     "PR-DF-03": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "planned",
-      "not_started": true,
+      "status": "merged",
+      "not_started": false,
       "branch": "codex/pr-df-03-llms-test-source-authority",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "7d1f9350735e1292a288fd431d0457260fa95fa5",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/658",
       "scope": "Align llms test URL enumeration with backend-owned test/catalog or sitemap-source authority without silent exposure widening.",
       "checks": {
-        "local": [],
-        "github": []
+        "local": [
+          "scoped validation passed",
+          "required local train checks passed"
+        ],
+        "github": [
+          "build passed",
+          "contracts passed",
+          "verify-big5-contract-freeze passed",
+          "verify-enneagram-contract-freeze passed"
+        ]
       },
       "sidecar_issues": [],
       "failure_reason": "",
       "resume_policy": "manual_only",
-      "merged_at": "",
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false
+      "merged_at": "2026-05-06T13:56:25Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
     },
     "PR-DF-04": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "planned",
-      "not_started": true,
+      "status": "merged",
+      "not_started": false,
       "branch": "codex/pr-df-04-structured-data-contract",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "1314c3e8fb91a416295a36a8aacc332765ac63a7",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/659",
       "scope": "Reconcile JSON-LD structured data contracts with backend SEO authority and visible page evidence.",
       "checks": {
-        "local": [],
-        "github": []
+        "local": [
+          "scoped validation passed",
+          "required local train checks passed"
+        ],
+        "github": [
+          "build passed",
+          "contracts passed",
+          "verify-big5-contract-freeze passed",
+          "verify-enneagram-contract-freeze passed"
+        ]
       },
       "sidecar_issues": [],
       "failure_reason": "",
       "resume_policy": "manual_only",
-      "merged_at": "",
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false
+      "merged_at": "2026-05-06T14:11:38Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
     },
     "PR-DF-05": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "planned",
-      "not_started": true,
+      "status": "local_validation_passed",
+      "not_started": false,
       "branch": "codex/pr-df-05-canonical-hreflang-jsonld-parity",
       "commit_sha": "",
       "pr_url": "",
       "scope": "Add generated and sampled live parity gates for canonical, hreflang, robots/indexability posture, and JSON-LD URL references.",
       "checks": {
-        "local": [],
+        "local": [
+          "node scripts/seo/check-canonical-hreflang-jsonld-parity.mjs --json passed",
+          "node scripts/seo/check-canonical-hreflang-jsonld-parity.mjs --live --json passed",
+          "pnpm typecheck passed",
+          "pnpm test:contract passed",
+          "pnpm lint failed with unrelated pre-existing repo-wide lint debt",
+          "scoped eslint passed",
+          "pnpm build passed",
+          "pnpm seo:check-sitemap passed",
+          "git diff --check passed"
+        ],
         "github": []
       },
-      "sidecar_issues": [],
+      "sidecar_issues": [
+        {
+          "title": "Pre-existing repo-wide lint debt outside PR-DF-05 scope",
+          "severity": "P2",
+          "scope_impact": "Full pnpm lint reports existing issues in untouched files; scoped eslint for PR-DF-05 files passed.",
+          "introduced_by_current_pr": false,
+          "recommended_future_phase": "Repository lint hygiene sidecar outside Discoverability Foundation PR-DF-05",
+          "blocks_merge": false,
+          "evidence": "Untouched lint failures include components/career/CareerShortlistAction.tsx, components/result/mbti/clone/MbtiCloneAssetSlot.tsx, ecosystem.config.cjs, lib/cms/last-known-good.ts, and existing contract test files."
+        }
+      ],
       "failure_reason": "",
       "resume_policy": "manual_only",
       "merged_at": "",
