@@ -178,30 +178,22 @@ function mockLlmsFullDependencies({ includeSurfaces = true }: { includeSurfaces?
           : [],
     })),
   }));
-  vi.doMock("@/lib/content", () => ({
-    getAllTests: vi.fn(async (locale: "en" | "zh") =>
-      locale === "en"
+  vi.doMock("@/lib/seo/backendTestDiscoverabilitySource", () => ({
+    listBackendDiscoverabilityTestEntries: vi.fn(async () =>
+      includeSurfaces
         ? [
             {
+              locale: "en",
               slug: "mbti-personality-test-16-personality-types",
+              path: "/en/tests/mbti-personality-test-16-personality-types",
               title: "MBTI Test",
-              title_i18n: { en: "MBTI Test" },
               description: "Existing MBTI test summary.",
-              scale_code: "MBTI_93",
-              highlight_excerpt_i18n: {},
-            },
-            {
-              slug: "clinical-depression-anxiety-assessment-professional-edition",
-              title: "Clinical depression-anxiety screening",
-              title_i18n: { en: "Clinical depression-anxiety screening" },
-              description: "Existing mental-health screening summary.",
-              scale_code: "CLINICAL_COMBO_68",
-              highlight_excerpt_i18n: {},
+              scaleCode: "MBTI_93",
+              highlightExcerptI18n: {},
             },
           ]
         : []
     ),
-    resolveTestTitleByLocale: vi.fn((test: { title: string }) => test.title),
   }));
 }
 

@@ -17,15 +17,14 @@ import {
   listPersonalityProfiles,
 } from "@/lib/cms/personality";
 import { getTopicBySlug, listTopics } from "@/lib/cms/topics";
-import { getAllTests, resolveTestTitleByLocale } from "@/lib/content";
 import {
   MENTAL_HEALTH_NON_MEDICAL_DISCLAIMER,
   isMentalHealthScreeningTest,
 } from "@/components/compliance/MentalHealthDisclaimer";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
 import { listBackendSitemapCareerJobPaths } from "@/lib/seo/backendSitemapSource";
+import { listBackendDiscoverabilityTestEntries } from "@/lib/seo/backendTestDiscoverabilitySource";
 import { getSiteUrlOrThrow } from "@/lib/site";
-import { filterVisiblePublicTestEntries } from "@/lib/tests/publicTestEntryVisibility";
 import type { AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
 import type { CareerFirstWaveDiscoverabilityManifestAdapter } from "@/lib/career/adapters/types";
 import type { Locale } from "@/lib/i18n/locales";
@@ -581,8 +580,7 @@ export async function GET() {
     topicEntries,
     enArticles,
     zhArticles,
-    enTestList,
-    zhTestList,
+    backendTestEntries,
     enHelpPages,
     zhHelpPages,
     careerJobPaths,
@@ -605,8 +603,7 @@ export async function GET() {
     listTopicEntries(),
     listCmsArticlesForLlmsWithLastKnownGood({ locale: "en" }).then((result) => result.value).catch(() => []),
     listCmsArticlesForLlmsWithLastKnownGood({ locale: "zh" }).then((result) => result.value).catch(() => []),
-    getAllTests("en").catch(() => []),
-    getAllTests("zh").catch(() => []),
+    listBackendDiscoverabilityTestEntries().catch(() => []),
     listContentPagesWithLastKnownGood("en", "help").then((result) => result.value).catch(() => []),
     listContentPagesWithLastKnownGood("zh", "help").then((result) => result.value).catch(() => []),
     listBackendSitemapCareerJobPaths().catch(() => []),
@@ -634,32 +631,24 @@ export async function GET() {
     })),
   ].filter((entry) => shouldKeep(entry.path));
 
-  const visibleEnTestList = filterVisiblePublicTestEntries(enTestList);
-  const visibleZhTestList = filterVisiblePublicTestEntries(zhTestList);
-  const tests = [
-    ...visibleEnTestList.map((test) => ({
-      locale: "en" as const,
-      path: `/en/tests/${test.slug}`,
-      title: resolveTestTitleByLocale(test, "en"),
+  const tests = backendTestEntries
+    .map((test) => ({
+      locale: test.locale,
+      path: test.path,
+      title: test.title,
       type: "test",
       updatedAt: "",
-      summary: cleanText(test.description ?? test.highlight_excerpt_i18n?.en ?? ""),
-      disclaimer: isMentalHealthScreeningTest({ slug: test.slug, scaleCode: test.scale_code })
-        ? MENTAL_HEALTH_NON_MEDICAL_DISCLAIMER.en
+      summary: cleanText(
+        test.description ||
+          (test.locale === "zh"
+            ? test.highlightExcerptI18n.zh || test.highlightExcerptI18n["zh-CN"] || test.highlightExcerptI18n.en
+            : test.highlightExcerptI18n.en || test.highlightExcerptI18n.zh || test.highlightExcerptI18n["zh-CN"]) ||
+          ""
+      ),
+      disclaimer: isMentalHealthScreeningTest({ slug: test.slug, scaleCode: test.scaleCode })
+        ? MENTAL_HEALTH_NON_MEDICAL_DISCLAIMER[test.locale]
         : null,
-    })),
-    ...visibleZhTestList.map((test) => ({
-      locale: "zh" as const,
-      path: `/zh/tests/${test.slug}`,
-      title: resolveTestTitleByLocale(test, "zh"),
-      type: "test",
-      updatedAt: "",
-      summary: cleanText(test.description ?? test.highlight_excerpt_i18n?.zh ?? test.highlight_excerpt_i18n?.["zh-CN"] ?? ""),
-      disclaimer: isMentalHealthScreeningTest({ slug: test.slug, scaleCode: test.scale_code })
-        ? MENTAL_HEALTH_NON_MEDICAL_DISCLAIMER.zh
-        : null,
-    })),
-  ]
+    }))
     .filter((entry) => shouldKeep(entry.path));
 
   const articles = [...enArticles, ...zhArticles]

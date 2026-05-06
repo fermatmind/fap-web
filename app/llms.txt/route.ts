@@ -10,11 +10,10 @@ import { CAREER_DATASET_FAMILY_SLUGS } from "@/lib/career/datasetDirectory";
 import { listContentPagesWithLastKnownGood } from "@/lib/cms/content-pages";
 import { buildDefaultPublicPersonalitySlug, listPersonalityProfiles } from "@/lib/cms/personality";
 import { listTopics } from "@/lib/cms/topics";
-import { getAllTests } from "@/lib/content";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
 import { listBackendSitemapCareerJobPaths } from "@/lib/seo/backendSitemapSource";
+import { listBackendDiscoverabilityTestEntries } from "@/lib/seo/backendTestDiscoverabilitySource";
 import { getSiteUrlOrThrow } from "@/lib/site";
-import { filterVisiblePublicTestEntries } from "@/lib/tests/publicTestEntryVisibility";
 import type { CareerFirstWaveDiscoverabilityManifestAdapter } from "@/lib/career/adapters/types";
 
 const TOPIC_FALLBACK_SLUGS = ["mbti", "big-five", "iq-eq"];
@@ -178,7 +177,7 @@ export async function GET() {
     topicEntries,
     enArticles,
     zhArticles,
-    testList,
+    backendTestEntries,
     enHelpPages,
     zhHelpPages,
     careerJobEntries,
@@ -201,7 +200,7 @@ export async function GET() {
     listTopicPaths(),
     listCmsArticlesForLlmsWithLastKnownGood({ locale: "en" }).then((result) => result.value).catch(() => []),
     listCmsArticlesForLlmsWithLastKnownGood({ locale: "zh" }).then((result) => result.value).catch(() => []),
-    getAllTests("en").catch(() => []),
+    listBackendDiscoverabilityTestEntries().catch(() => []),
     listContentPagesWithLastKnownGood("en", "help").then((result) => result.value).catch(() => []),
     listContentPagesWithLastKnownGood("zh", "help").then((result) => result.value).catch(() => []),
     listBackendSitemapCareerJobPaths().catch(() => []),
@@ -214,9 +213,7 @@ export async function GET() {
     ...enHelpPages.map((page) => `/en${page.path}`),
     ...zhHelpPages.map((page) => `/zh${page.path}`),
   ]);
-  const testEntries = dedupePaths(
-    filterVisiblePublicTestEntries(testList).flatMap((test) => [`/en/tests/${test.slug}`, `/zh/tests/${test.slug}`])
-  );
+  const testEntries = dedupePaths(backendTestEntries.map((entry) => entry.path));
 
   const articleEntries = dedupePaths(
     [...enArticles, ...zhArticles]

@@ -160,10 +160,8 @@ describe("career llms alignment contract", () => {
       listContentPages: vi.fn(async () => []),
       listContentPagesWithLastKnownGood: vi.fn(async () => ({ value: [] })),
     }));
-    vi.doMock("@/lib/content", () => ({
-      getAllTests: vi.fn(async () => []),
-      resolveTestTitleByLocale: vi.fn((test: { title: string }) => test.title),
-      listCareerIndustrySlugs: vi.fn(() => []),
+    vi.doMock("@/lib/seo/backendTestDiscoverabilitySource", () => ({
+      listBackendDiscoverabilityTestEntries: vi.fn(async () => []),
     }));
     vi.doMock("@/lib/site", () => ({
       getSiteUrlOrThrow: vi.fn(() => "https://fermatmind.com"),
@@ -311,10 +309,8 @@ describe("career llms alignment contract", () => {
       listContentPages: vi.fn(async () => []),
       listContentPagesWithLastKnownGood: vi.fn(async () => ({ value: [] })),
     }));
-    vi.doMock("@/lib/content", () => ({
-      getAllTests: vi.fn(async () => []),
-      resolveTestTitleByLocale: vi.fn((test: { title: string }) => test.title),
-      listCareerIndustrySlugs: vi.fn(() => []),
+    vi.doMock("@/lib/seo/backendTestDiscoverabilitySource", () => ({
+      listBackendDiscoverabilityTestEntries: vi.fn(async () => []),
     }));
     vi.doMock("@/lib/site", () => ({
       getSiteUrlOrThrow: vi.fn(() => "https://fermatmind.com"),
