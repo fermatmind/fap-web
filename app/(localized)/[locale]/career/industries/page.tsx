@@ -15,8 +15,15 @@ import { fetchCareerJobIndex } from "@/lib/career/api/fetchCareerJobIndex";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 import { buildPageMetadata } from "@/lib/seo/metadata";
+import { listBackendSitemapCareerJobPaths } from "@/lib/seo/backendSitemapSource";
 
 export const dynamic = "force-dynamic";
+
+function normalizeApprovedCareerJobSlug(value: string | undefined): string {
+  return String(value ?? "")
+    .trim()
+    .toLowerCase();
+}
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale: localeParam } = await params;
@@ -42,10 +49,17 @@ export default async function CareerIndustriesPage({ params }: { params: Promise
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
   const withLocale = (pathname: string) => localizedPath(pathname, locale);
-  const [datasetPayload, jobIndexPayload] = await Promise.all([
+  const [datasetPayload, jobIndexPayload, approvedCareerJobPaths] = await Promise.all([
     fetchCareerDatasetHub({ locale }),
     fetchCareerJobIndex({ locale }),
+    listBackendSitemapCareerJobPaths(),
   ]);
+  const approvedCareerJobSlugs = new Set(
+    approvedCareerJobPaths
+      .map((path) => path.match(new RegExp(`^/${locale}/career/jobs/([^/]+)$`, "i"))?.[1]?.toLowerCase() ?? "")
+      .map(normalizeApprovedCareerJobSlug)
+      .filter((slug): slug is string => Boolean(slug))
+  );
   const dataset = adaptCareerDatasetHub({ payload: datasetPayload });
   const detailReadyJobs = new Map(
     adaptCareerJobIndex({ locale, payload: jobIndexPayload })
@@ -59,7 +73,16 @@ export default async function CareerIndustriesPage({ params }: { params: Promise
   const families = buildCareerFamilyDirectory(members, locale);
   const detailReadyMembersByFamily = new Map<string, typeof members>();
 
-  for (const member of members.filter(isCareerDatasetMemberDetailReady)) {
+  for (const member of members.filter(
+    (candidate) => {
+      const canonicalSlug = normalizeApprovedCareerJobSlug(candidate.canonicalSlug);
+      return Boolean(
+        canonicalSlug &&
+          isCareerDatasetMemberDetailReady(candidate) &&
+          approvedCareerJobSlugs.has(canonicalSlug)
+      );
+    }
+  )) {
     const familySlug = normalizeFamilySlug(member.familySlug);
     const familyMembers = detailReadyMembersByFamily.get(familySlug) ?? [];
     familyMembers.push(member);
