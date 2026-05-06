@@ -13,6 +13,10 @@ describe("career llms alignment contract", () => {
         items: [
           { loc: "https://fermatmind.com/en/career/jobs/backend-architect" },
           { loc: "https://fermatmind.com/zh/career/jobs/backend-architect" },
+          { loc: "https://attacker.example/en/career/jobs/poisoned" },
+          { loc: "javascript:/en/career/jobs/poisoned" },
+          { loc: "http://fermatmind.com/en/career/jobs/insecure" },
+          { loc: "https://fermatmind.com/en/career/jobs/..%2F..%2Fapi%2Fv0.5%2Fpoisoned" },
           { loc: "https://fermatmind.com/en/career/jobs/backend-engineer" },
           { loc: "https://fermatmind.com/en/career/jobs/software-developers" },
           { loc: "https://fermatmind.com/zh/career/jobs/software-developers" },

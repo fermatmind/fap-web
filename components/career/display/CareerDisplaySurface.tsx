@@ -71,6 +71,9 @@ function sectionIncludesSalaryClaim(section: CareerDisplaySection): boolean {
   return (
     textIncludesAny(section.intro, SALARY_CLAIM_PATTERNS) ||
     bodyIncludesSalaryClaim(section.body) ||
+    textIncludesAny(section.answer, SALARY_CLAIM_PATTERNS) ||
+    textIncludesAny(section.fitTitle, SALARY_CLAIM_PATTERNS) ||
+    textIncludesAny(section.cautionTitle, SALARY_CLAIM_PATTERNS) ||
     (section.rows ?? []).some(rowIncludesSalaryClaim) ||
     (section.entryTable ?? []).some(rowIncludesSalaryClaim) ||
     (section.signalMeta ?? []).some(rowIncludesSalaryClaim) ||
@@ -100,6 +103,10 @@ function sectionIncludesSalaryClaim(section: CareerDisplaySection): boolean {
     (section.steps ?? []).some((step) => (
       textIncludesAny(step.title, SALARY_CLAIM_PATTERNS) ||
       stringListIncludesSalaryClaim(step.items)
+    )) ||
+    (section.faqItems ?? []).some((item) => (
+      textIncludesAny(item.question, SALARY_CLAIM_PATTERNS) ||
+      textIncludesAny(item.answer, SALARY_CLAIM_PATTERNS)
     ))
   );
 }
@@ -113,6 +120,11 @@ function stripSalaryClaims(section: CareerDisplaySection, allowSalaryComparison:
   const entryTable = (section.entryTable ?? []).filter((row) => !rowIncludesSalaryClaim(row));
   const signalMeta = (section.signalMeta ?? []).filter((row) => !rowIncludesSalaryClaim(row));
   const body = bodyIncludesSalaryClaim(section.body) ? undefined : section.body;
+  const faqItems = (section.faqItems ?? []).filter(
+    (item) =>
+      !textIncludesAny(item.question, SALARY_CLAIM_PATTERNS) &&
+      !textIncludesAny(item.answer, SALARY_CLAIM_PATTERNS)
+  );
   const filterStrings = (value: string[] | undefined): string[] | undefined => {
     const filtered = (value ?? []).filter((item) => !textIncludesAny(item, SALARY_CLAIM_PATTERNS));
     return filtered.length > 0 ? filtered : undefined;
@@ -132,6 +144,7 @@ function stripSalaryClaims(section: CareerDisplaySection, allowSalaryComparison:
     .filter((step) => !textIncludesAny(step.title, SALARY_CLAIM_PATTERNS) && step.items.length > 0);
   const hasContent =
     Boolean(body) ||
+    Boolean(section.answer && !textIncludesAny(section.answer, SALARY_CLAIM_PATTERNS)) ||
     rows.length > 0 ||
     entryTable.length > 0 ||
     signalMeta.length > 0 ||
@@ -149,6 +162,9 @@ function stripSalaryClaims(section: CareerDisplaySection, allowSalaryComparison:
     ...section,
     ...(textIncludesAny(section.intro, SALARY_CLAIM_PATTERNS) ? { intro: undefined } : {}),
     ...(body ? { body } : { body: undefined }),
+    ...(textIncludesAny(section.answer, SALARY_CLAIM_PATTERNS) ? { answer: undefined } : {}),
+    ...(textIncludesAny(section.fitTitle, SALARY_CLAIM_PATTERNS) ? { fitTitle: undefined } : {}),
+    ...(textIncludesAny(section.cautionTitle, SALARY_CLAIM_PATTERNS) ? { cautionTitle: undefined } : {}),
     rows,
     entryTable,
     signalMeta,
@@ -170,6 +186,7 @@ function stripSalaryClaims(section: CareerDisplaySection, allowSalaryComparison:
     ...(textIncludesAny(section.question, SALARY_CLAIM_PATTERNS) ? { question: undefined } : {}),
     ...(textIncludesAny(section.fermatView, SALARY_CLAIM_PATTERNS) ? { fermatView: undefined } : {}),
     steps,
+    faqItems,
   };
 }
 
@@ -247,6 +264,7 @@ export function CareerDisplaySurface({
   const contractRisks = findSection(visibleSections, "ContractRiskBlock");
   const nextSteps = findSection(visibleSections, "NextStepsBlock");
   const faq = findSection(visibleSections, "CareerFAQBlock");
+  const visibleFaqItems = faq?.faqItems ?? [];
   const salaryClaimsRestricted =
     !claimPermissions.allowSalaryComparison && surface.sections.some((section) => sectionIncludesSalaryClaim(section));
 
@@ -292,7 +310,7 @@ export function CareerDisplaySurface({
       {careerRisks ? <EvidenceContainer section={careerRisks} testId="career-risks-block" /> : null}
       {contractRisks ? <EvidenceContainer section={contractRisks} testId="contract-risks-block" /> : null}
       {nextSteps ? <EvidenceContainer section={nextSteps} testId="next-steps-block" /> : null}
-      {faq ? <CareerFAQBlock heading={faq.heading} items={surface.faqItems} /> : null}
+      {faq ? <CareerFAQBlock heading={faq.heading} items={visibleFaqItems} /> : null}
       <RelatedNextPages heading={surface.locale === "zh" ? "下一步页面" : "Related next pages"} pages={surface.relatedNextPages} />
       <SourceList heading={surface.locale === "zh" ? "来源" : "Sources"} sources={surface.sources} />
       <BoundaryNotice

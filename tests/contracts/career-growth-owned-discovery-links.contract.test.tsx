@@ -76,6 +76,24 @@ function installCareerIndustryMocks() {
         },
         {
           member_kind: "career_tracked_occupation",
+          canonical_slug: "aerospace-engineers",
+          canonical_title_en: "Aerospace Engineers",
+          family_slug: "architecture-and-engineering",
+          release_cohort: "public_detail_indexable",
+          public_index_state: "indexable",
+          included_in_public_dataset: true,
+        },
+        {
+          member_kind: "career_tracked_occupation",
+          canonical_slug: "..%2f..%2fapi%2fv0.5%2fpoisoned-discovery",
+          canonical_title_en: "Poisoned Discovery",
+          family_slug: "computer-and-information-technology",
+          release_cohort: "public_detail_indexable",
+          public_index_state: "indexable",
+          included_in_public_dataset: true,
+        },
+        {
+          member_kind: "career_tracked_occupation",
           canonical_slug: "software-developers",
           canonical_title_en: "Software Developers",
           family_slug: "computer-and-information-technology",
@@ -108,8 +126,28 @@ function installCareerIndustryMocks() {
           titles: { canonical_en: "Actors" },
           seo_contract: { index_state: "noindex", index_eligible: false },
         },
+        {
+          identity: { canonical_slug: "aerospace-engineers" },
+          titles: { canonical_en: "Aerospace Engineers" },
+          seo_contract: { index_state: "indexable", index_eligible: true },
+        },
+        {
+          identity: { canonical_slug: "..%2f..%2fapi%2fv0.5%2fpoisoned-discovery" },
+          titles: { canonical_en: "Poisoned Discovery" },
+          seo_contract: { index_state: "indexable", index_eligible: true },
+        },
       ],
     })),
+  }));
+
+  vi.doMock("@/lib/seo/backendSitemapSource", () => ({
+    listBackendSitemapCareerJobPaths: vi.fn(async () => [
+      "/en/career/jobs/data-engineers",
+      "/zh/career/jobs/data-engineers",
+      "/en/career/jobs/data-scientists",
+      "/zh/career/jobs/data-scientists",
+      "/en/career/jobs/..%2F..%2Fapi%2Fv0.5%2Fpoisoned-discovery",
+    ]),
   }));
 }
 
@@ -126,8 +164,11 @@ describe("Career-owned discovery links", () => {
     expect(html).toContain('data-testid="career-industry-approved-job-link"');
     expect(html).toContain('href="/en/career/jobs/data-engineers"');
     expect(html).toContain('href="/en/career/jobs/data-scientists"');
+    expect(html).not.toContain('href="/en/career/jobs/aerospace-engineers"');
     expect(html).not.toContain('href="/en/career/jobs/actors"');
     expect(html).not.toContain('href="/en/career/jobs/software-developers"');
+    expect(html).not.toContain("poisoned-discovery");
+    expect(html).not.toContain("%2F");
     expect(html).not.toContain("/tests/");
     expect(html).not.toContain("big-five");
     expect(html).not.toContain("riasec");

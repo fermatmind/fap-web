@@ -1,4 +1,5 @@
 import { buildApiUrl } from "@/lib/api-base";
+import { normalizeCareerJobSlug } from "@/lib/career/slugSafety";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
 
 type BackendSitemapSourceItem = {
@@ -13,6 +14,7 @@ const BACKEND_SITEMAP_SOURCE_TIMEOUT_MS = 20_000;
 const SOFTWARE_DEVELOPERS_DETAIL_RE = /^\/(?:en|zh)\/career\/jobs\/software-developers$/i;
 const CAREER_JOB_DETAIL_RE = /^\/(?:en|zh)\/career\/jobs\/[^/]+$/i;
 const CAREER_JOB_DETAIL_PARTS_RE = /^\/(en|zh)\/career\/jobs\/([^/]+)$/i;
+const BACKEND_SITEMAP_CANONICAL_HOSTS = new Set(["fermatmind.com", "www.fermatmind.com"]);
 
 let careerJobPathCache: string[] | null = null;
 
@@ -30,9 +32,12 @@ function extractPathFromCanonicalUrl(value: unknown): string {
   }
 
   try {
-    const url = /^https?:\/\//i.test(rawValue)
-      ? new URL(rawValue)
-      : new URL(rawValue, "https://fermatmind.com");
+    const url = new URL(rawValue);
+    const hostname = url.hostname.toLowerCase().replace(/\.$/, "");
+    if (url.protocol !== "https:" || !BACKEND_SITEMAP_CANONICAL_HOSTS.has(hostname)) {
+      return "";
+    }
+
     return normalizePath(url.pathname);
   } catch {
     return "";
@@ -47,7 +52,7 @@ function parseCareerJobDetailPath(path: string): { locale: "en" | "zh"; slug: st
   const normalized = normalizePath(path);
   const match = normalized.match(CAREER_JOB_DETAIL_PARTS_RE);
   const locale = match?.[1]?.toLowerCase();
-  const slug = match?.[2]?.toLowerCase();
+  const slug = normalizeCareerJobSlug(match?.[2]);
 
   if ((locale !== "en" && locale !== "zh") || !slug) {
     return null;
