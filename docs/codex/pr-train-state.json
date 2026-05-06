@@ -564,7 +564,7 @@
       "status": "in_progress",
       "not_started": false,
       "branch": "codex/pr-ug-03-duplicate-detector",
-      "commit_sha": "",
+      "commit_sha": "4cf94475c86b55e0e67ef19e5747235c09185343",
       "pr_url": "",
       "scope": "Add read-only duplicate metadata, duplicate canonical, duplicate semantic entity, and career family variant detector.",
       "checks": {
