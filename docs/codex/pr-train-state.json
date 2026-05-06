@@ -561,11 +561,11 @@
     "PR-UG-03": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "in_progress",
+      "status": "open",
       "not_started": false,
       "branch": "codex/pr-ug-03-duplicate-detector",
-      "commit_sha": "4cf94475c86b55e0e67ef19e5747235c09185343",
-      "pr_url": "",
+      "commit_sha": "a1752a6ad2efb3870bd6545331b8aae9201f73ab",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/668",
       "scope": "Add read-only duplicate metadata, duplicate canonical, duplicate semantic entity, and career family variant detector.",
       "checks": {
         "local": [
