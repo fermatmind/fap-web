@@ -587,6 +587,35 @@ describe("personality desktop clone api adapter contract", () => {
     expect(result?.meta?.route_mode).toBe("full_code_exact");
   });
 
+  it("accepts backend-redacted locked preview items without dropping the published desktop clone payload", async () => {
+    const payload = createValidPayload("redacted");
+    const chapters = payload.content.chapters as Record<string, Record<string, unknown>>;
+
+    for (const chapter of Object.values(chapters)) {
+      const lockedBlocks = chapter.lockedBlocks as Array<Record<string, unknown>>;
+      for (const block of lockedBlocks) {
+        block.blurredItems = Array.from({ length: 6 }, () => ({ is_locked: true }));
+      }
+    }
+
+    vi.stubGlobal("fetch", vi.fn(async () => jsonResponse(payload)));
+
+    const result = await fetchPersonalityDesktopCloneContent("INFJ-A", "zh");
+
+    expect(result).not.toBeNull();
+    expect(result?.content.hero.summary).toBe("hero redacted");
+    expect(result?.content.chapters.career.strengths?.items[0]?.description).toBe("career strengths body 1 redacted");
+    expect(result?.content.chapters.career.lockedBlocks[0].blurredItems).toHaveLength(6);
+    expect(result?.content.chapters.career.lockedBlocks[0].blurredItems[0]).toEqual({
+      title: "career locked 1 redacted 1",
+      body: "已隐藏的付费内容。解锁后可查看完整细节。",
+      tone: "neutral",
+      isPlaceholder: true,
+    });
+    expect(result?.content.chapters.growth.lockedBlocks[1].blurredItems[5]?.isPlaceholder).toBe(true);
+    expect(result?.content.chapters.relationships.lockedBlocks[0].blurredItems[0]).not.toHaveProperty("is_locked");
+  });
+
   it("returns null when locale is not zh/zh-CN and skips network", async () => {
     const fetchMock = vi.fn();
     vi.stubGlobal("fetch", fetchMock);

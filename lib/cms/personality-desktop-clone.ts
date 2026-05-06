@@ -113,6 +113,24 @@ function isListItemTuple6(value: unknown): value is [ListItem, ListItem, ListIte
   return Array.isArray(value) && value.length === 6 && value.every(isListItem);
 }
 
+function isRedactedLockedListItem(value: unknown): boolean {
+  if (!isRecord(value)) {
+    return false;
+  }
+
+  return value.is_locked === true
+    && normalizeText(value.title).length === 0
+    && normalizeText(value.body).length === 0;
+}
+
+function isLockedBlurredItem(value: unknown): boolean {
+  return isListItem(value) || isRedactedLockedListItem(value);
+}
+
+function isLockedBlurredItemTuple6(value: unknown): boolean {
+  return Array.isArray(value) && value.length === 6 && value.every(isLockedBlurredItem);
+}
+
 function isContentListBlock(value: unknown): value is ContentListBlock {
   if (!isRecord(value)) {
     return false;
@@ -130,7 +148,7 @@ function isLockedListBlock(value: unknown): value is LockedListBlock {
     && normalizeText(value.overlayTitle).length > 0
     && normalizeText(value.overlayBody).length > 0
     && normalizeText(value.overlayCtaLabel).length > 0
-    && isListItemTuple6(value.blurredItems);
+    && isLockedBlurredItemTuple6(value.blurredItems);
 }
 
 function isTraitSlot(value: unknown): value is TraitSlot {
@@ -321,6 +339,65 @@ function normalizeStrengthWeakness(value: unknown): StrengthWeaknessBlock | unde
 
 function normalizeIdeaListBlock(value: unknown): IdeaListBlock | undefined {
   return normalizeStrengthWeakness(value);
+}
+
+function normalizeRedactedLockedListItem(blockTitle: string, index: number): ListItem {
+  return {
+    title: `${blockTitle} ${index + 1}`,
+    body: "已隐藏的付费内容。解锁后可查看完整细节。",
+    tone: "neutral",
+    isPlaceholder: true,
+  };
+}
+
+function normalizeLockedListItem(value: unknown, blockTitle: string, index: number): ListItem {
+  if (isListItem(value)) {
+    return {
+      title: normalizeText(value.title),
+      body: normalizeText(value.body),
+      ...(normalizeText(value.tone) ? { tone: normalizeText(value.tone) as ListItem["tone"] } : {}),
+      ...(value.isPlaceholder === true ? { isPlaceholder: true } : {}),
+    };
+  }
+
+  return normalizeRedactedLockedListItem(blockTitle, index);
+}
+
+function normalizeLockedListBlock(value: unknown): LockedListBlock | null {
+  if (!isLockedListBlock(value)) {
+    return null;
+  }
+
+  const block = value as Record<string, unknown>;
+  const title = normalizeText(block.title);
+  const blurredItems = (block.blurredItems as unknown[]).map((item, index) =>
+    normalizeLockedListItem(item, title, index)
+  );
+
+  if (!isListItemTuple6(blurredItems)) {
+    return null;
+  }
+
+  return {
+    title,
+    overlayTitle: normalizeText(block.overlayTitle),
+    overlayBody: normalizeText(block.overlayBody),
+    overlayCtaLabel: normalizeText(block.overlayCtaLabel),
+    blurredItems,
+  };
+}
+
+function normalizeLockedBlocks(value: unknown): [LockedListBlock, LockedListBlock] | null {
+  if (!Array.isArray(value) || value.length !== 2) {
+    return null;
+  }
+
+  const blocks = value.map(normalizeLockedListBlock);
+  if (blocks.some((block) => block === null)) {
+    return null;
+  }
+
+  return blocks as [LockedListBlock, LockedListBlock];
 }
 
 function normalizeStringArray(value: unknown): string[] {
@@ -693,6 +770,13 @@ function normalizeMbtiDesktopCloneContent(value: unknown): MbtiDesktopCloneConte
   const traits = isRecord(source.traits) ? source.traits : ({} as Record<string, unknown>);
   const axisExplainers = traits.axis_explainers ?? traits.axisExplainers;
   const hero = isRecord(source.hero) ? source.hero : ({} as Record<string, unknown>);
+  const careerLockedBlocks = normalizeLockedBlocks(career.lockedBlocks);
+  const growthLockedBlocks = normalizeLockedBlocks(growth.lockedBlocks);
+  const relationshipsLockedBlocks = normalizeLockedBlocks(relationships.lockedBlocks);
+
+  if (!careerLockedBlocks || !growthLockedBlocks || !relationshipsLockedBlocks) {
+    return null;
+  }
 
   return {
     hero: {
@@ -709,6 +793,7 @@ function normalizeMbtiDesktopCloneContent(value: unknown): MbtiDesktopCloneConte
     chapters: {
       career: {
         ...typedContent.chapters.career,
+        lockedBlocks: careerLockedBlocks,
         strengths: normalizeStrengthWeakness(career.strengths),
         weaknesses: normalizeStrengthWeakness(career.weaknesses),
         matchedJobs: normalizeMatchedJobs(career.matched_jobs ?? career.matchedJobs),
@@ -719,6 +804,7 @@ function normalizeMbtiDesktopCloneContent(value: unknown): MbtiDesktopCloneConte
       },
       growth: {
         ...typedContent.chapters.growth,
+        lockedBlocks: growthLockedBlocks,
         strengths: normalizeStrengthWeakness(growth.strengths),
         weaknesses: normalizeStrengthWeakness(growth.weaknesses),
         whatEnergizes: normalizeEnergyBlock(growth.what_energizes ?? growth.whatEnergizes),
@@ -727,6 +813,7 @@ function normalizeMbtiDesktopCloneContent(value: unknown): MbtiDesktopCloneConte
       },
       relationships: {
         ...typedContent.chapters.relationships,
+        lockedBlocks: relationshipsLockedBlocks,
         strengths: normalizeStrengthWeakness(relationships.strengths),
         weaknesses: normalizeStrengthWeakness(relationships.weaknesses),
         superpowers: normalizeRelationshipInsightBlock(relationships.superpowers),
