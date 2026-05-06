@@ -19,10 +19,14 @@ import { listBackendSitemapCareerJobPaths } from "@/lib/seo/backendSitemapSource
 
 export const dynamic = "force-dynamic";
 
+const CAREER_JOB_CANONICAL_SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+
 function normalizeApprovedCareerJobSlug(value: string | undefined): string {
-  return String(value ?? "")
+  const slug = String(value ?? "")
     .trim()
     .toLowerCase();
+
+  return CAREER_JOB_CANONICAL_SLUG_PATTERN.test(slug) ? slug : "";
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
