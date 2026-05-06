@@ -8,11 +8,23 @@ const FIXTURE_PATH = path.join(
   ROOT,
   "tests/contracts/fixtures/discoverability-foundation/canonical-hreflang-jsonld-parity.v1.json"
 );
+const ALLOWED_SCOPES = new Set(["PR-DF-05", "PR-UG-06"]);
 const SITEMAP_PATH = path.join(ROOT, "public/sitemap.xml");
 const PRIVATE_FLOW_RE = /\/(?:tests\/[^/]+\/take|test\/[^/]+\/take|result\/|orders\/|share\/)/i;
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
+}
+
+function resolveCliFixturePath(argv = process.argv) {
+  const fixtureIndex = argv.indexOf("--fixture");
+  if (fixtureIndex < 0) {
+    return FIXTURE_PATH;
+  }
+
+  const value = argv[fixtureIndex + 1];
+  assert(value, "--fixture requires a file path");
+  return path.resolve(ROOT, value);
 }
 
 function assert(condition, message) {
@@ -191,7 +203,7 @@ export async function validateCanonicalHreflangJsonLdParity({
   live = false,
 } = {}) {
   assert(fixture.version === "discoverability.canonical_hreflang_jsonld_parity.v1", "unexpected fixture version");
-  assert(fixture.scope === "PR-DF-05", "unexpected fixture scope");
+  assert(ALLOWED_SCOPES.has(fixture.scope), `unexpected fixture scope: ${fixture.scope}`);
   assert(fixture.siteUrl === "https://fermatmind.com", "unexpected siteUrl");
 
   assertSourceContracts(fixture);
@@ -205,6 +217,7 @@ export async function validateCanonicalHreflangJsonLdParity({
 
   return {
     version: fixture.version,
+    scope: fixture.scope,
     samples: fixture.samples.length,
     hreflangPairs: new Set(fixture.samples.map((sample) => sample.pairKey)).size,
     privateFlowSamples: fixture.privateFlowSamples.length,
@@ -214,7 +227,8 @@ export async function validateCanonicalHreflangJsonLdParity({
 
 if (import.meta.url === `file://${process.argv[1]}`) {
   const live = process.argv.includes("--live");
-  const summary = await validateCanonicalHreflangJsonLdParity({ live });
+  const fixture = readJson(resolveCliFixturePath());
+  const summary = await validateCanonicalHreflangJsonLdParity({ fixture, live });
   if (process.argv.includes("--json")) {
     process.stdout.write(`${JSON.stringify(summary, null, 2)}\n`);
   } else {

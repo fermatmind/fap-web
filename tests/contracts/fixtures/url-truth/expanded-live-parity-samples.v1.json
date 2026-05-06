@@ -1,0 +1,180 @@
+{
+  "version": "discoverability.canonical_hreflang_jsonld_parity.v1",
+  "scope": "PR-UG-06",
+  "siteUrl": "https://fermatmind.com",
+  "sourceContracts": [
+    {
+      "source": "app/(localized)/[locale]/career/page.tsx",
+      "requiredTokens": ["buildPageMetadata", "alternatesByLocale", "buildWebPageJsonLd", "buildBreadcrumbJsonLd", "JsonLd"],
+      "forbiddenTokens": []
+    },
+    {
+      "source": "app/(localized)/[locale]/articles/page.tsx",
+      "requiredTokens": ["buildPageMetadata", "alternatesByLocale", "buildCollectionPageJsonLd", "buildBreadcrumbJsonLd", "JsonLd"],
+      "forbiddenTokens": []
+    },
+    {
+      "source": "app/(localized)/[locale]/topics/page.tsx",
+      "requiredTokens": ["buildPageMetadata", "alternatesByLocale", "buildWebPageJsonLd", "buildBreadcrumbJsonLd", "JsonLd"],
+      "forbiddenTokens": []
+    },
+    {
+      "source": "app/(localized)/[locale]/help/[slug]/page.tsx",
+      "requiredTokens": ["buildPageMetadata", "alternatesByLocale", "buildWebPageJsonLd", "buildBreadcrumbJsonLd", "JsonLd"],
+      "forbiddenTokens": []
+    }
+  ],
+  "samples": [
+    {
+      "id": "career_hub_en",
+      "routeFamily": "career_hub",
+      "pairKey": "career_hub",
+      "locale": "en",
+      "path": "/en/career",
+      "canonicalUrl": "https://fermatmind.com/en/career",
+      "expectedInSitemap": true,
+      "alternates": {
+        "en": "https://fermatmind.com/en/career",
+        "zh-CN": "https://fermatmind.com/zh/career",
+        "x-default": "https://fermatmind.com"
+      },
+      "jsonLdReferences": [
+        "https://fermatmind.com/en/career",
+        "https://fermatmind.com/en/career#webpage"
+      ]
+    },
+    {
+      "id": "career_hub_zh",
+      "routeFamily": "career_hub",
+      "pairKey": "career_hub",
+      "locale": "zh-CN",
+      "path": "/zh/career",
+      "canonicalUrl": "https://fermatmind.com/zh/career",
+      "expectedInSitemap": true,
+      "alternates": {
+        "en": "https://fermatmind.com/en/career",
+        "zh-CN": "https://fermatmind.com/zh/career",
+        "x-default": "https://fermatmind.com"
+      },
+      "jsonLdReferences": [
+        "https://fermatmind.com/zh/career",
+        "https://fermatmind.com/zh/career#webpage"
+      ]
+    },
+    {
+      "id": "articles_hub_en",
+      "routeFamily": "articles_hub",
+      "pairKey": "articles_hub",
+      "locale": "en",
+      "path": "/en/articles",
+      "canonicalUrl": "https://fermatmind.com/en/articles",
+      "expectedInSitemap": true,
+      "alternates": {
+        "en": "https://fermatmind.com/en/articles",
+        "zh-CN": "https://fermatmind.com/zh/articles",
+        "x-default": "https://fermatmind.com"
+      },
+      "jsonLdReferences": [
+        "https://fermatmind.com/en/articles",
+        "https://fermatmind.com/en/articles#collectionpage"
+      ]
+    },
+    {
+      "id": "articles_hub_zh",
+      "routeFamily": "articles_hub",
+      "pairKey": "articles_hub",
+      "locale": "zh-CN",
+      "path": "/zh/articles",
+      "canonicalUrl": "https://fermatmind.com/zh/articles",
+      "expectedInSitemap": true,
+      "alternates": {
+        "en": "https://fermatmind.com/en/articles",
+        "zh-CN": "https://fermatmind.com/zh/articles",
+        "x-default": "https://fermatmind.com"
+      },
+      "jsonLdReferences": [
+        "https://fermatmind.com/zh/articles",
+        "https://fermatmind.com/zh/articles#collectionpage"
+      ]
+    },
+    {
+      "id": "topics_hub_en",
+      "routeFamily": "topics_hub",
+      "pairKey": "topics_hub",
+      "locale": "en",
+      "path": "/en/topics",
+      "canonicalUrl": "https://fermatmind.com/en/topics",
+      "expectedInSitemap": true,
+      "alternates": {
+        "en": "https://fermatmind.com/en/topics",
+        "zh-CN": "https://fermatmind.com/zh/topics",
+        "x-default": "https://fermatmind.com"
+      },
+      "jsonLdReferences": [
+        "https://fermatmind.com/en/topics",
+        "https://fermatmind.com/en/topics#webpage"
+      ]
+    },
+    {
+      "id": "topics_hub_zh",
+      "routeFamily": "topics_hub",
+      "pairKey": "topics_hub",
+      "locale": "zh-CN",
+      "path": "/zh/topics",
+      "canonicalUrl": "https://fermatmind.com/zh/topics",
+      "expectedInSitemap": true,
+      "alternates": {
+        "en": "https://fermatmind.com/en/topics",
+        "zh-CN": "https://fermatmind.com/zh/topics",
+        "x-default": "https://fermatmind.com"
+      },
+      "jsonLdReferences": [
+        "https://fermatmind.com/zh/topics",
+        "https://fermatmind.com/zh/topics#webpage"
+      ]
+    },
+    {
+      "id": "help_faq_en",
+      "routeFamily": "help_detail",
+      "pairKey": "help_faq",
+      "locale": "en",
+      "path": "/en/help/faq",
+      "canonicalUrl": "https://fermatmind.com/en/help/faq",
+      "expectedInSitemap": true,
+      "alternates": {
+        "en": "https://fermatmind.com/en/help/faq",
+        "zh-CN": "https://fermatmind.com/zh/help/faq",
+        "x-default": "https://fermatmind.com"
+      },
+      "jsonLdReferences": [
+        "https://fermatmind.com/en/help/faq",
+        "https://fermatmind.com/en/help/faq#webpage"
+      ]
+    },
+    {
+      "id": "help_faq_zh",
+      "routeFamily": "help_detail",
+      "pairKey": "help_faq",
+      "locale": "zh-CN",
+      "path": "/zh/help/faq",
+      "canonicalUrl": "https://fermatmind.com/zh/help/faq",
+      "expectedInSitemap": true,
+      "alternates": {
+        "en": "https://fermatmind.com/en/help/faq",
+        "zh-CN": "https://fermatmind.com/zh/help/faq",
+        "x-default": "https://fermatmind.com"
+      },
+      "jsonLdReferences": [
+        "https://fermatmind.com/zh/help/faq",
+        "https://fermatmind.com/zh/help/faq#webpage"
+      ]
+    }
+  ],
+  "privateFlowSamples": [
+    "/en/tests/mbti-personality-test-16-personality-types/take",
+    "/zh/tests/mbti-personality-test-16-personality-types/take",
+    "/en/result/example",
+    "/zh/orders/example",
+    "/en/share/example"
+  ]
+}
