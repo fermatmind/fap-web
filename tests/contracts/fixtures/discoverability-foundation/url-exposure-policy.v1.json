@@ -1,0 +1,276 @@
+{
+  "version": "discoverability.url_exposure_policy.v1",
+  "scope": "PR-DF-02",
+  "description": "Route-family inventory for current FermatMind discoverability exposure. This is a contract fixture only and must not widen runtime sitemap or llms exposure.",
+  "siteUrl": "https://fermatmind.com",
+  "sourceFiles": {
+    "sitemap": "next-sitemap.config.js",
+    "llms": "app/llms.txt/route.ts",
+    "llmsFull": "app/llms-full.txt/route.ts",
+    "indexingPolicy": "lib/seo/indexingPolicy.ts",
+    "robots": "app/robots.ts",
+    "metadata": "lib/seo/metadata.ts"
+  },
+  "exposureDimensions": [
+    "indexable",
+    "noindex",
+    "sitemap",
+    "llms",
+    "canonical",
+    "privateFlow"
+  ],
+  "llmsExposureStates": [
+    "allow",
+    "block",
+    "conditional",
+    "not_exposed"
+  ],
+  "requiredPrivateFlowProtections": [
+    "noindex",
+    "nofollow",
+    "xRobotsTag",
+    "excludedFromSitemap",
+    "excludedFromLlms"
+  ],
+  "routeFamilies": [
+    {
+      "name": "localized_test_detail",
+      "kind": "public_indexable",
+      "samples": [
+        "/en/tests/mbti-personality-test-16-personality-types",
+        "/zh/tests/mbti-personality-test-16-personality-types"
+      ],
+      "expected": {
+        "noindex": false,
+        "sitemap": true,
+        "llms": "allow",
+        "privateFlow": false
+      }
+    },
+    {
+      "name": "test_take_flow",
+      "kind": "private_flow",
+      "samples": [
+        "/en/tests/mbti-personality-test-16-personality-types/take",
+        "/zh/tests/mbti-personality-test-16-personality-types/take"
+      ],
+      "expected": {
+        "noindex": true,
+        "sitemap": false,
+        "llms": "block",
+        "privateFlow": true
+      }
+    },
+    {
+      "name": "result_flow",
+      "kind": "private_flow",
+      "samples": [
+        "/en/result/example",
+        "/zh/result/example"
+      ],
+      "expected": {
+        "noindex": true,
+        "sitemap": false,
+        "llms": "block",
+        "privateFlow": true
+      }
+    },
+    {
+      "name": "order_flow",
+      "kind": "private_flow",
+      "samples": [
+        "/en/orders/example",
+        "/zh/orders/example"
+      ],
+      "expected": {
+        "noindex": true,
+        "sitemap": false,
+        "llms": "block",
+        "privateFlow": true
+      }
+    },
+    {
+      "name": "share_flow",
+      "kind": "private_flow",
+      "samples": [
+        "/en/share/example",
+        "/zh/share/example"
+      ],
+      "expected": {
+        "noindex": true,
+        "sitemap": false,
+        "llms": "block",
+        "privateFlow": true
+      }
+    },
+    {
+      "name": "personality_type_detail",
+      "kind": "public_indexable",
+      "samples": [
+        "/en/personality/intj-a",
+        "/zh/personality/intj-a"
+      ],
+      "expected": {
+        "noindex": false,
+        "sitemap": true,
+        "llms": "allow",
+        "privateFlow": false
+      }
+    },
+    {
+      "name": "topic_detail",
+      "kind": "public_indexable",
+      "samples": [
+        "/en/topics/mbti",
+        "/zh/topics/mbti"
+      ],
+      "expected": {
+        "noindex": false,
+        "sitemap": true,
+        "llms": "allow",
+        "privateFlow": false
+      }
+    },
+    {
+      "name": "support_landing",
+      "kind": "public_indexable",
+      "samples": [
+        "/en/support",
+        "/zh/support"
+      ],
+      "expected": {
+        "noindex": false,
+        "sitemap": true,
+        "llms": "allow",
+        "privateFlow": false
+      }
+    },
+    {
+      "name": "help_detail",
+      "kind": "public_indexable",
+      "samples": [
+        "/en/help/faq",
+        "/zh/help/faq"
+      ],
+      "expected": {
+        "noindex": false,
+        "sitemap": true,
+        "llms": "conditional",
+        "privateFlow": false
+      }
+    },
+    {
+      "name": "legal_policy_detail",
+      "kind": "public_indexable",
+      "samples": [
+        "/en/privacy",
+        "/zh/privacy",
+        "/en/terms",
+        "/zh/terms"
+      ],
+      "expected": {
+        "noindex": false,
+        "sitemap": true,
+        "llms": "not_exposed",
+        "privateFlow": false
+      }
+    },
+    {
+      "name": "career_jobs_index",
+      "kind": "public_not_sitemap",
+      "samples": [
+        "/en/career/jobs",
+        "/zh/career/jobs"
+      ],
+      "expected": {
+        "noindex": false,
+        "sitemap": false,
+        "llms": "block",
+        "privateFlow": false
+      }
+    },
+    {
+      "name": "career_jobs_query",
+      "kind": "search_noindex",
+      "samples": [
+        "/en/career/jobs?q=designer",
+        "/zh/career/jobs?q=designer"
+      ],
+      "expected": {
+        "noindex": true,
+        "sitemap": false,
+        "llms": "block",
+        "privateFlow": false
+      }
+    },
+    {
+      "name": "career_job_detail_backend_gated",
+      "kind": "backend_authority_gated",
+      "samples": [
+        "/en/career/jobs/accountants-and-auditors",
+        "/zh/career/jobs/accountants-and-auditors"
+      ],
+      "explicitGate": {
+        "indexEligible": true,
+        "indexState": "indexed"
+      },
+      "expected": {
+        "noindex": false,
+        "sitemap": true,
+        "llms": "conditional",
+        "privateFlow": false
+      }
+    },
+    {
+      "name": "payment_flow",
+      "kind": "private_commerce_flow",
+      "samples": [
+        "/en/pay/wait",
+        "/zh/payment/stripe/success"
+      ],
+      "expected": {
+        "noindex": true,
+        "sitemap": false,
+        "llms": "block",
+        "privateFlow": false
+      }
+    }
+  ],
+  "sourceTokenContracts": {
+    "indexingPolicy": [
+      "tests\\/[^/]+\\/take",
+      "result",
+      "orders",
+      "share",
+      "payment",
+      "pay",
+      "shouldNoindex",
+      "shouldIncludeInSitemap"
+    ],
+    "sitemap": [
+      "SITEMAP_FINAL_PATH_DENY_PATTERNS",
+      "SITEMAP_ROUTE_EXCLUDES",
+      "tests/*/take",
+      "/result/*",
+      "/orders/*",
+      "/share/*",
+      "shouldIncludeGeneratedSitemapPath"
+    ],
+    "llms": [
+      "LLMS_FINAL_PATH_DENY_PATTERNS",
+      "tests\\/[^/]+\\/take",
+      "result(?:\\/|$)",
+      "orders(?:\\/|$)",
+      "share(?:\\/|$)",
+      "isForbiddenFinalLlmsPath"
+    ],
+    "llmsFull": [
+      "LLMS_FINAL_PATH_DENY_PATTERNS",
+      "tests\\/[^/]+\\/take",
+      "result(?:\\/|$)",
+      "orders(?:\\/|$)",
+      "share(?:\\/|$)",
+      "isForbiddenFinalLlmsPath"
+    ]
+  }
+}
