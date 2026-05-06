@@ -1,14 +1,14 @@
 {
-  "train_name": "discoverability-foundation-train",
-  "train_description": "Stabilize and unify FermatMind discoverability truth across sitemap, llms, canonical, metadata, JSON-LD, robots/noindex, hreflang, Evidence Container, URL truth, and SEO authority ownership.",
-  "previous_train_name": "career-night-train",
+  "train_name": "url-truth-seo-governance-train",
+  "train_description": "Stabilize FermatMind URL truth and SEO governance across inventory, sitemap/llms parity, canonical, hreflang, JSON-LD, duplicate entities, internal graph readiness, Evidence Container readiness, and SEO authority ownership.",
+  "previous_train_name": "discoverability-foundation-train",
   "started_at": "2026-05-06T12:32:48Z",
   "updated_at": "2026-05-06T12:32:48Z",
   "status": "initialized",
   "phase": "discoverability-and-growth-foundation",
   "platform_positioning": "人格与职业决策平台",
-  "pr_namespace": "PR-DF-*",
-  "branch_naming_convention": "codex/pr-df-<nn>-<short-scope>",
+  "pr_namespace": "PR-UG-*",
+  "branch_naming_convention": "codex/pr-ug-<nn>-<short-scope>",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -384,6 +384,211 @@
           "evidence": "Untouched lint failures include components/career/CareerShortlistAction.tsx, components/result/mbti/clone/MbtiCloneAssetSlot.tsx, ecosystem.config.cjs, lib/cms/last-known-good.ts, and existing contract test files."
         }
       ],
+      "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    "PR-UG-01": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "open",
+      "not_started": false,
+      "branch": "codex/pr-ug-01-url-inventory-generator",
+      "commit_sha": "41d995c17a81f12196d15623f53004b5f3a951b7",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/666",
+      "scope": "Add read-only production-like URL inventory generator, reproducible JSON/CSV artifacts, route-family classification, and governance report.",
+      "checks": {
+        "local": [
+          {
+            "name": "pnpm exec vitest run tests/contracts/url-inventory-generator.contract.test.ts",
+            "status": "passed"
+          },
+          {
+            "name": "pnpm exec eslint scripts/seo/generate-url-inventory.mjs tests/contracts/url-inventory-generator.contract.test.ts",
+            "status": "passed"
+          },
+          {
+            "name": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "name": "pnpm test:contract",
+            "status": "passed"
+          },
+          {
+            "name": "pnpm seo:generate-sitemap",
+            "status": "passed",
+            "note": "Validation regenerated public/sitemap.xml lastmod timestamps; generated diff was restored before commit."
+          },
+          {
+            "name": "pnpm seo:check-sitemap",
+            "status": "passed"
+          },
+          {
+            "name": "git diff --check",
+            "status": "passed"
+          },
+          {
+            "name": "pnpm lint",
+            "status": "failed_sidecar",
+            "note": "Repo-wide pre-existing lint debt outside PR-UG-01 scope; scoped eslint for changed files passed."
+          }
+        ],
+        "github": []
+      },
+      "sidecar_issues": [
+        {
+          "title": "Repo-wide lint debt outside URL inventory scope",
+          "severity": "P2",
+          "scope_impact": "Unrelated files fail eslint in existing career/result/Big5/Enneagram surfaces; PR-UG-01 changed files pass scoped eslint.",
+          "introduced_by_current_pr": false,
+          "recommended_future_phase": "maintenance lint cleanup outside URL Truth & SEO Governance train",
+          "blocks_merge": false,
+          "evidence": "pnpm lint fails on pre-existing files including components/career/CareerShortlistAction.tsx, components/result/mbti/clone/MbtiCloneAssetSlot.tsx, ecosystem.config.cjs, lib/cms/last-known-good.ts, and unrelated contract tests; pnpm exec eslint scripts/seo/generate-url-inventory.mjs tests/contracts/url-inventory-generator.contract.test.ts passed."
+        }
+      ],
+      "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    "PR-UG-02": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "planned",
+      "not_started": true,
+      "branch": "codex/pr-ug-02-llms-parity-contract",
+      "commit_sha": "",
+      "pr_url": "",
+      "scope": "Add llms vs llms-full canonical URL parity contracts and intentional-difference fixtures.",
+      "checks": {
+        "local": [],
+        "github": []
+      },
+      "sidecar_issues": [],
+      "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    "PR-UG-03": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "planned",
+      "not_started": true,
+      "branch": "codex/pr-ug-03-duplicate-detector",
+      "commit_sha": "",
+      "pr_url": "",
+      "scope": "Add read-only duplicate metadata, duplicate canonical, duplicate semantic entity, and career family variant detector.",
+      "checks": {
+        "local": [],
+        "github": []
+      },
+      "sidecar_issues": [],
+      "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    "PR-UG-04": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "planned",
+      "not_started": true,
+      "branch": "codex/pr-ug-04-career-family-authority-audit",
+      "commit_sha": "",
+      "pr_url": "",
+      "scope": "Add career family duplicate authority audit, migration safety analysis, and remediation plan without runtime URL changes.",
+      "checks": {
+        "local": [],
+        "github": []
+      },
+      "sidecar_issues": [],
+      "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    "PR-UG-05": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "planned",
+      "not_started": true,
+      "branch": "codex/pr-ug-05-orphan-detector",
+      "commit_sha": "",
+      "pr_url": "",
+      "scope": "Add read-only internal-link graph and orphan detector with true orphan, weak graph, and intentional isolation classification.",
+      "checks": {
+        "local": [],
+        "github": []
+      },
+      "sidecar_issues": [],
+      "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    "PR-UG-06": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "planned",
+      "not_started": true,
+      "branch": "codex/pr-ug-06-expanded-live-parity",
+      "commit_sha": "",
+      "pr_url": "",
+      "scope": "Expand live canonical, hreflang, and JSON-LD parity samples across route families without runtime URL behavior changes.",
+      "checks": {
+        "local": [],
+        "github": []
+      },
+      "sidecar_issues": [],
+      "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    "PR-UG-07": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "planned",
+      "not_started": true,
+      "branch": "codex/pr-ug-07-fallback-seo-authority-audit",
+      "commit_sha": "",
+      "pr_url": "",
+      "scope": "Add read-only CMS-backed fallback SEO authority inventory and classify acceptable product-code vs dangerous CMS-backed fallback surfaces.",
+      "checks": {
+        "local": [],
+        "github": []
+      },
+      "sidecar_issues": [],
+      "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    "PR-UG-08": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "planned",
+      "not_started": true,
+      "branch": "codex/pr-ug-08-evidence-live-readiness",
+      "commit_sha": "",
+      "pr_url": "",
+      "scope": "Add Evidence Container live readiness sampling through visible HTML validation without GEO content expansion or hidden schema generation.",
+      "checks": {
+        "local": [],
+        "github": []
+      },
+      "sidecar_issues": [],
       "failure_reason": "",
       "resume_policy": "manual_only",
       "merged_at": "",

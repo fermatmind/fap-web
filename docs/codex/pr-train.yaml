@@ -1,18 +1,19 @@
-train_name: discoverability-foundation-train
+train_name: url-truth-seo-governance-train
 train_description: >
-  Stabilize and unify FermatMind discoverability truth across sitemap, llms,
-  canonical, metadata, JSON-LD, robots/noindex, hreflang, Evidence Container,
-  URL truth, and SEO authority ownership without changing runtime SEO behavior
-  during train bootstrap.
-previous_train_name: career-night-train
+  Stabilize FermatMind URL truth and SEO governance across inventory,
+  sitemap/llms parity, canonical, hreflang, JSON-LD, duplicate entities,
+  internal graph readiness, Evidence Container readiness, and SEO authority
+  ownership without expanding Topic Graph, Career pSEO, Recommendation,
+  Behavior Graph, Long-term Profile, B2B, or AI-generated SEO content.
+previous_train_name: discoverability-foundation-train
 base_branch: main
 merge_method: squash
 stop_on_failure: true
 require_clean_worktree: true
 execution_mode: local_clone_preferred
 status: initialized
-pr_namespace: PR-DF-*
-branch_naming_convention: codex/pr-df-<nn>-<short-scope>
+pr_namespace: PR-UG-*
+branch_naming_convention: codex/pr-ug-<nn>-<short-scope>
 required_github_checks:
   - build
   - contracts
@@ -302,6 +303,256 @@ prs:
       - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
       - "pnpm typecheck"
       - "pnpm test:contract"
+      - "git diff --check"
+      - "git diff --cached --check"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: true
+      required_github_checks: ["build", "contracts", "verify-big5-contract-freeze", "verify-enneagram-contract-freeze"]
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
+
+  - id: PR-UG-01
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-ug-01-url-inventory-generator
+    base: main
+    depends_on: []
+    mode: execute
+    status: in_progress
+    scope: >
+      URL inventory generator and governance report. Add read-only production-like
+      URL inventory tooling and reproducible artifacts without changing runtime
+      SEO behavior, sitemap exposure, llms exposure, routes, controllers,
+      commerce, auth, report, payment, scoring, or attempt flows.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "pnpm typecheck"
+      - "pnpm test:contract"
+      - "pnpm lint"
+      - "pnpm seo:generate-sitemap"
+      - "pnpm seo:check-sitemap"
+      - "git diff --check"
+      - "git diff --cached --check"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: true
+      required_github_checks: ["build", "contracts", "verify-big5-contract-freeze", "verify-enneagram-contract-freeze"]
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
+
+  - id: PR-UG-02
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-ug-02-llms-parity-contract
+    base: main
+    depends_on: ["PR-UG-01"]
+    mode: execute
+    status: planned
+    scope: >
+      llms vs llms-full parity contracts. Preserve intentional exclusions,
+      private-flow protection, and current exposure.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "pnpm typecheck"
+      - "pnpm test:contract"
+      - "pnpm lint"
+      - "pnpm seo:generate-sitemap"
+      - "pnpm seo:check-sitemap"
+      - "git diff --check"
+      - "git diff --cached --check"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: true
+      required_github_checks: ["build", "contracts", "verify-big5-contract-freeze", "verify-enneagram-contract-freeze"]
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
+
+  - id: PR-UG-03
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-ug-03-duplicate-detector
+    base: main
+    depends_on: ["PR-UG-02"]
+    mode: execute
+    status: planned
+    scope: >
+      Duplicate metadata and duplicate entity detector. Add read-only detection
+      and generated reports only.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "pnpm typecheck"
+      - "pnpm test:contract"
+      - "pnpm lint"
+      - "pnpm seo:generate-sitemap"
+      - "pnpm seo:check-sitemap"
+      - "git diff --check"
+      - "git diff --cached --check"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: true
+      required_github_checks: ["build", "contracts", "verify-big5-contract-freeze", "verify-enneagram-contract-freeze"]
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
+
+  - id: PR-UG-04
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-ug-04-career-family-authority-audit
+    base: main
+    depends_on: ["PR-UG-03"]
+    mode: execute
+    status: planned
+    scope: >
+      Career family duplicate authority audit and remediation plan. Read-only
+      docs, contracts, and authority reports only.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "pnpm typecheck"
+      - "pnpm test:contract"
+      - "pnpm lint"
+      - "pnpm seo:generate-sitemap"
+      - "pnpm seo:check-sitemap"
+      - "git diff --check"
+      - "git diff --cached --check"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: true
+      required_github_checks: ["build", "contracts", "verify-big5-contract-freeze", "verify-enneagram-contract-freeze"]
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
+
+  - id: PR-UG-05
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-ug-05-orphan-detector
+    base: main
+    depends_on: ["PR-UG-04"]
+    mode: execute
+    status: planned
+    scope: >
+      Internal-link graph and orphan detector. Add read-only graph reports only;
+      no Topic Graph rollout or auto-link insertion.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "pnpm typecheck"
+      - "pnpm test:contract"
+      - "pnpm lint"
+      - "pnpm seo:generate-sitemap"
+      - "pnpm seo:check-sitemap"
+      - "git diff --check"
+      - "git diff --cached --check"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: true
+      required_github_checks: ["build", "contracts", "verify-big5-contract-freeze", "verify-enneagram-contract-freeze"]
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
+
+  - id: PR-UG-06
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-ug-06-expanded-live-parity
+    base: main
+    depends_on: ["PR-UG-05"]
+    mode: execute
+    status: planned
+    scope: >
+      Expanded live canonical, hreflang, and JSON-LD parity samples. Preserve
+      current URL behavior and discoverability truth.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "pnpm typecheck"
+      - "pnpm test:contract"
+      - "pnpm lint"
+      - "pnpm seo:generate-sitemap"
+      - "pnpm seo:check-sitemap"
+      - "git diff --check"
+      - "git diff --cached --check"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: true
+      required_github_checks: ["build", "contracts", "verify-big5-contract-freeze", "verify-enneagram-contract-freeze"]
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
+
+  - id: PR-UG-07
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-ug-07-fallback-seo-authority-audit
+    base: main
+    depends_on: ["PR-UG-06"]
+    mode: execute
+    status: planned
+    scope: >
+      CMS-backed fallback SEO authority inventory. Add read-only ownership
+      reports and contracts; do not remove fallbacks yet.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "pnpm typecheck"
+      - "pnpm test:contract"
+      - "pnpm lint"
+      - "pnpm seo:generate-sitemap"
+      - "pnpm seo:check-sitemap"
+      - "git diff --check"
+      - "git diff --cached --check"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: true
+      required_github_checks: ["build", "contracts", "verify-big5-contract-freeze", "verify-enneagram-contract-freeze"]
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
+
+  - id: PR-UG-08
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-ug-08-evidence-live-readiness
+    base: main
+    depends_on: ["PR-UG-07"]
+    mode: execute
+    status: planned
+    scope: >
+      Evidence Container live readiness sampling. Visible HTML validation only;
+      no GEO content expansion or hidden schema generation.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "pnpm typecheck"
+      - "pnpm test:contract"
+      - "pnpm lint"
+      - "pnpm seo:generate-sitemap"
+      - "pnpm seo:check-sitemap"
       - "git diff --check"
       - "git diff --cached --check"
     stop_if_changed_files_outside_scope: true
