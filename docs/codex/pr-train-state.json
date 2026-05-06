@@ -478,7 +478,7 @@
       "status": "in_progress",
       "not_started": false,
       "branch": "codex/pr-ug-02-llms-parity-contract",
-      "commit_sha": "",
+      "commit_sha": "c90ef96a3388235744201a993e89363582ba74b9",
       "pr_url": "",
       "scope": "Add llms vs llms-full canonical URL parity contracts and intentional-difference fixtures.",
       "checks": {
