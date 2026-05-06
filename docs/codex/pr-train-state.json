@@ -561,10 +561,10 @@
     "PR-UG-03": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "open",
+      "status": "merged",
       "not_started": false,
       "branch": "codex/pr-ug-03-duplicate-detector",
-      "commit_sha": "a1752a6ad2efb3870bd6545331b8aae9201f73ab",
+      "commit_sha": "46d157d000d7ad3afd299846b136f25c6fc7f703",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/668",
       "scope": "Add read-only duplicate metadata, duplicate canonical, duplicate semantic entity, and career family variant detector.",
       "checks": {
@@ -608,7 +608,24 @@
             "note": "Repo-wide pre-existing lint debt outside PR-UG-03 scope; scoped eslint for changed files passed."
           }
         ],
-        "github": []
+        "github": [
+          {
+            "name": "build",
+            "status": "passed"
+          },
+          {
+            "name": "contracts",
+            "status": "passed"
+          },
+          {
+            "name": "verify-big5-contract-freeze",
+            "status": "passed"
+          },
+          {
+            "name": "verify-enneagram-contract-freeze",
+            "status": "passed"
+          }
+        ]
       },
       "sidecar_issues": [
         {
@@ -623,24 +640,73 @@
       ],
       "failure_reason": "",
       "resume_policy": "manual_only",
-      "merged_at": "",
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false
+      "merged_at": "2026-05-06T17:02:50Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
     },
     "PR-UG-04": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "planned",
-      "not_started": true,
+      "status": "open",
+      "not_started": false,
       "branch": "codex/pr-ug-04-career-family-authority-audit",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "e60cac9ee6d69b77f424e56214405bb3d1c65f4a",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/669",
       "scope": "Add career family duplicate authority audit, migration safety analysis, and remediation plan without runtime URL changes.",
       "checks": {
-        "local": [],
+        "local": [
+          {
+            "name": "pnpm exec vitest run tests/contracts/career-family-authority-audit.contract.test.ts",
+            "status": "passed"
+          },
+          {
+            "name": "pnpm exec eslint tests/contracts/career-family-authority-audit.contract.test.ts",
+            "status": "passed"
+          },
+          {
+            "name": "python3 -m json.tool docs/seo/generated/career-family-authority-audit.v1.json >/dev/null",
+            "status": "passed"
+          },
+          {
+            "name": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "name": "pnpm test:contract",
+            "status": "passed"
+          },
+          {
+            "name": "pnpm seo:generate-sitemap",
+            "status": "passed",
+            "note": "Validation regenerated public/sitemap.xml lastmod timestamps; generated diff was restored before commit."
+          },
+          {
+            "name": "pnpm seo:check-sitemap",
+            "status": "passed"
+          },
+          {
+            "name": "git diff --check",
+            "status": "passed"
+          },
+          {
+            "name": "pnpm lint",
+            "status": "failed_sidecar",
+            "note": "Repo-wide pre-existing lint debt outside PR-UG-04 scope; scoped eslint for changed files passed."
+          }
+        ],
         "github": []
       },
-      "sidecar_issues": [],
+      "sidecar_issues": [
+        {
+          "title": "Repo-wide lint debt outside career authority audit scope",
+          "severity": "P2",
+          "scope_impact": "Unrelated files fail eslint in existing career/result/Big5/Enneagram surfaces; PR-UG-04 changed files pass scoped eslint.",
+          "introduced_by_current_pr": false,
+          "recommended_future_phase": "maintenance lint cleanup outside URL Truth & SEO Governance train",
+          "blocks_merge": false,
+          "evidence": "pnpm lint fails on the same pre-existing files observed in PR-UG-01 through PR-UG-03; pnpm exec eslint tests/contracts/career-family-authority-audit.contract.test.ts passed."
+        }
+      ],
       "failure_reason": "",
       "resume_policy": "manual_only",
       "merged_at": "",

@@ -387,7 +387,7 @@ prs:
     base: main
     depends_on: ["PR-UG-02"]
     mode: execute
-    status: in_progress
+    status: merged
     scope: >
       Duplicate metadata and duplicate entity detector. Add read-only detection
       and generated reports only.
@@ -418,7 +418,7 @@ prs:
     base: main
     depends_on: ["PR-UG-03"]
     mode: execute
-    status: planned
+    status: in_progress
     scope: >
       Career family duplicate authority audit and remediation plan. Read-only
       docs, contracts, and authority reports only.
