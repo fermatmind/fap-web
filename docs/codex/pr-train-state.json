@@ -831,11 +831,11 @@
     "PR-UG-06": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "in_progress",
+      "status": "open",
       "not_started": false,
       "branch": "codex/pr-ug-06-expanded-live-parity",
       "commit_sha": "e1e305145a1111cb35ab6799a399a3f00f3b5247",
-      "pr_url": "",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/671",
       "scope": "Expand live canonical, hreflang, and JSON-LD parity samples across route families without runtime URL behavior changes.",
       "checks": {
         "local": [
