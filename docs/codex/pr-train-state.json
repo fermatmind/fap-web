@@ -393,10 +393,10 @@
     "PR-UG-01": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "open",
+      "status": "merged",
       "not_started": false,
       "branch": "codex/pr-ug-01-url-inventory-generator",
-      "commit_sha": "41d995c17a81f12196d15623f53004b5f3a951b7",
+      "commit_sha": "92ba860141b58e719548b4f2d59e4527b26acb45",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/666",
       "scope": "Add read-only production-like URL inventory generator, reproducible JSON/CSV artifacts, route-family classification, and governance report.",
       "checks": {
@@ -436,7 +436,24 @@
             "note": "Repo-wide pre-existing lint debt outside PR-UG-01 scope; scoped eslint for changed files passed."
           }
         ],
-        "github": []
+        "github": [
+          {
+            "name": "build",
+            "status": "passed"
+          },
+          {
+            "name": "contracts",
+            "status": "passed"
+          },
+          {
+            "name": "verify-big5-contract-freeze",
+            "status": "passed"
+          },
+          {
+            "name": "verify-enneagram-contract-freeze",
+            "status": "passed"
+          }
+        ]
       },
       "sidecar_issues": [
         {
@@ -451,24 +468,73 @@
       ],
       "failure_reason": "",
       "resume_policy": "manual_only",
-      "merged_at": "",
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false
+      "merged_at": "2026-05-06T16:36:51Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
     },
     "PR-UG-02": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "planned",
-      "not_started": true,
+      "status": "in_progress",
+      "not_started": false,
       "branch": "codex/pr-ug-02-llms-parity-contract",
       "commit_sha": "",
       "pr_url": "",
       "scope": "Add llms vs llms-full canonical URL parity contracts and intentional-difference fixtures.",
       "checks": {
-        "local": [],
+        "local": [
+          {
+            "name": "pnpm exec vitest run tests/contracts/llms-parity-contract.contract.test.ts",
+            "status": "passed"
+          },
+          {
+            "name": "pnpm exec eslint tests/contracts/llms-parity-contract.contract.test.ts",
+            "status": "passed"
+          },
+          {
+            "name": "python3 -m json.tool tests/contracts/fixtures/url-truth/llms-parity-policy.v1.json >/dev/null",
+            "status": "passed"
+          },
+          {
+            "name": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "name": "pnpm test:contract",
+            "status": "passed"
+          },
+          {
+            "name": "pnpm seo:generate-sitemap",
+            "status": "passed",
+            "note": "Validation regenerated public/sitemap.xml lastmod timestamps; generated diff was restored before commit."
+          },
+          {
+            "name": "pnpm seo:check-sitemap",
+            "status": "passed"
+          },
+          {
+            "name": "git diff --check",
+            "status": "passed"
+          },
+          {
+            "name": "pnpm lint",
+            "status": "failed_sidecar",
+            "note": "Repo-wide pre-existing lint debt outside PR-UG-02 scope; scoped eslint for changed files passed."
+          }
+        ],
         "github": []
       },
-      "sidecar_issues": [],
+      "sidecar_issues": [
+        {
+          "title": "Repo-wide lint debt outside llms parity scope",
+          "severity": "P2",
+          "scope_impact": "Unrelated files fail eslint in existing career/result/Big5/Enneagram surfaces; PR-UG-02 changed files pass scoped eslint.",
+          "introduced_by_current_pr": false,
+          "recommended_future_phase": "maintenance lint cleanup outside URL Truth & SEO Governance train",
+          "blocks_merge": false,
+          "evidence": "pnpm lint fails on the same pre-existing files observed in PR-UG-01, including components/career/CareerShortlistAction.tsx, components/result/mbti/clone/MbtiCloneAssetSlot.tsx, ecosystem.config.cjs, lib/cms/last-known-good.ts, and unrelated contract tests; pnpm exec eslint tests/contracts/llms-parity-contract.contract.test.ts passed."
+        }
+      ],
       "failure_reason": "",
       "resume_policy": "manual_only",
       "merged_at": "",

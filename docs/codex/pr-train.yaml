@@ -323,7 +323,7 @@ prs:
     base: main
     depends_on: []
     mode: execute
-    status: in_progress
+    status: merged
     scope: >
       URL inventory generator and governance report. Add read-only production-like
       URL inventory tooling and reproducible artifacts without changing runtime
@@ -356,7 +356,7 @@ prs:
     base: main
     depends_on: ["PR-UG-01"]
     mode: execute
-    status: planned
+    status: in_progress
     scope: >
       llms vs llms-full parity contracts. Preserve intentional exclusions,
       private-flow protection, and current exposure.

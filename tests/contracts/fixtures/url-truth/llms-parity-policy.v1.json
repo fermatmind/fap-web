@@ -1,0 +1,51 @@
+{
+  "version": "url_truth.llms_parity_policy.v1",
+  "description": "PR-UG-02 contract fixture for llms.txt and llms-full.txt URL parity governance.",
+  "canonical_url_set_policy": "llms.txt and llms-full.txt must expose the same unique canonical URL set under the same backend/CMS authority inputs.",
+  "approved_intentional_differences": {
+    "llms_full_may_repeat_existing_canonical_urls_for_evidence_blocks": true,
+    "llms_full_may_include_summaries_faq_next_steps_and_safety_notes": true,
+    "llms_full_must_not_introduce_additional_canonical_urls": true,
+    "approved_canonical_urls_only_in_llms": [
+      "https://fermatmind.com/en/career/tests",
+      "https://fermatmind.com/zh/career/tests",
+      "https://fermatmind.com/zh/topics/mbti"
+    ],
+    "approved_canonical_urls_only_in_llms_full": []
+  },
+  "protected_path_patterns": [
+    "/tests/*/take",
+    "/result/*",
+    "/orders/*",
+    "/share/*",
+    "/api/*",
+    "/pay/*",
+    "/payment/*",
+    "/history/*"
+  ],
+  "route_family_policy": {
+    "allowed_route_families": [
+      "home",
+      "primary_page",
+      "support",
+      "personality_detail",
+      "topic_detail",
+      "test_detail",
+      "article_detail",
+      "career_index",
+      "career_guides_index",
+      "career_industry",
+      "career_family",
+      "sitemap"
+    ],
+    "denied_route_families": [
+      "private_flow",
+      "api",
+      "payment",
+      "order",
+      "share",
+      "result",
+      "take_flow"
+    ]
+  }
+}
