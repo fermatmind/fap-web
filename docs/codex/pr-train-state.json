@@ -475,11 +475,11 @@
     "PR-UG-02": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "in_progress",
+      "status": "open",
       "not_started": false,
       "branch": "codex/pr-ug-02-llms-parity-contract",
-      "commit_sha": "c90ef96a3388235744201a993e89363582ba74b9",
-      "pr_url": "",
+      "commit_sha": "01426e6bb572fbbc626ba3cad5873cb34e96e947",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/667",
       "scope": "Add llms vs llms-full canonical URL parity contracts and intentional-difference fixtures.",
       "checks": {
         "local": [
