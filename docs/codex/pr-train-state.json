@@ -393,11 +393,11 @@
     "PR-UG-01": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "in_progress",
+      "status": "open",
       "not_started": false,
       "branch": "codex/pr-ug-01-url-inventory-generator",
-      "commit_sha": "c6aef8395caf76aa61ed292d5873b9e58e7db4ba",
-      "pr_url": "",
+      "commit_sha": "41d995c17a81f12196d15623f53004b5f3a951b7",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/666",
       "scope": "Add read-only production-like URL inventory generator, reproducible JSON/CSV artifacts, route-family classification, and governance report.",
       "checks": {
         "local": [
