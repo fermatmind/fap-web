@@ -1,0 +1,113 @@
+{
+  "version": "url_truth.career_family_authority_audit.v1",
+  "generatedAt": "offline-reproducible",
+  "source": {
+    "duplicateEntityReport": "docs/seo/generated/duplicate-seo-entities.v1.json",
+    "duplicateEntityReportVersion": "url_truth.duplicate_entity_report.v1"
+  },
+  "scope": {
+    "runtimeUrlChanges": false,
+    "routingChanges": false,
+    "canonicalChanges": false,
+    "sitemapChanges": false,
+    "llmsChanges": false,
+    "careerPseoExpansion": false
+  },
+  "summary": {
+    "clusters": 3,
+    "p1Clusters": 3,
+    "hashedFamilySlugClusters": 1,
+    "familyIndustryOverlapClusters": 3,
+    "affectedUrls": 14,
+    "recommendedFuturePhase": "URL Truth & SEO Governance remediation after audit approval"
+  },
+  "clusters": [
+    {
+      "key": "career-family:business-and-financial",
+      "severity": "P1",
+      "issueType": "hashed_family_slug_duplication_plus_family_industry_overlap",
+      "authorityRisk": "Two backend-generated career family hash variants and the industry route describe the same semantic family in both locales.",
+      "canonicalOwnershipQuestion": "Choose one backend canonical family slug and decide whether the industry page remains a differentiated taxonomy page or becomes a supporting page.",
+      "urls": [
+        "https://fermatmind.com/en/career/family/business-and-financial-37ec69bd",
+        "https://fermatmind.com/en/career/family/business-and-financial-a0352070",
+        "https://fermatmind.com/en/career/industries/business-and-financial",
+        "https://fermatmind.com/zh/career/family/business-and-financial-37ec69bd",
+        "https://fermatmind.com/zh/career/family/business-and-financial-a0352070",
+        "https://fermatmind.com/zh/career/industries/business-and-financial"
+      ],
+      "recommendedPlan": [
+        "Freeze current public URLs until backend ownership is confirmed.",
+        "Identify backend source rows that produce the 37ec69bd and a0352070 variants.",
+        "Select one canonical family entity id and one canonical public family slug.",
+        "Prepare compatibility redirects only after sitemap, llms, canonical, and internal-link parity tests cover the migration.",
+        "Preserve the industry URL only if it has distinct industry taxonomy intent, title, schema identity, and internal links."
+      ],
+      "mustNotDoNow": [
+        "Do not delete hashed URLs in frontend code.",
+        "Do not add frontend canonical overrides.",
+        "Do not redirect without backend canonical ownership and regression gates.",
+        "Do not widen career exposure."
+      ]
+    },
+    {
+      "key": "career-family:computer-and-information-technology",
+      "severity": "P1",
+      "issueType": "family_industry_overlap",
+      "authorityRisk": "Career family and career industry URLs share the same semantic slug across locales.",
+      "canonicalOwnershipQuestion": "Confirm whether family hub and industry page are separate entity types with differentiated metadata/schema.",
+      "urls": [
+        "https://fermatmind.com/en/career/family/computer-and-information-technology",
+        "https://fermatmind.com/en/career/industries/computer-and-information-technology",
+        "https://fermatmind.com/zh/career/family/computer-and-information-technology",
+        "https://fermatmind.com/zh/career/industries/computer-and-information-technology"
+      ],
+      "recommendedPlan": [
+        "Keep both route families stable while auditing rendered titles, descriptions, JSON-LD identity, and internal links.",
+        "If both remain indexable, differentiate family-hub intent from industry-taxonomy intent.",
+        "If one is only a compatibility surface, plan redirect and sitemap removal in a later scoped PR."
+      ],
+      "mustNotDoNow": [
+        "Do not collapse family and industry routes in this PR.",
+        "Do not invent frontend SEO metadata to create differentiation.",
+        "Do not change current indexed URLs before migration gates exist."
+      ]
+    },
+    {
+      "key": "career-family:healthcare",
+      "severity": "P1",
+      "issueType": "family_industry_overlap",
+      "authorityRisk": "Career family and career industry URLs share the same semantic slug across locales.",
+      "canonicalOwnershipQuestion": "Confirm whether family hub and industry page are separate entity types with differentiated metadata/schema.",
+      "urls": [
+        "https://fermatmind.com/en/career/family/healthcare",
+        "https://fermatmind.com/en/career/industries/healthcare",
+        "https://fermatmind.com/zh/career/family/healthcare",
+        "https://fermatmind.com/zh/career/industries/healthcare"
+      ],
+      "recommendedPlan": [
+        "Keep both route families stable while auditing rendered titles, descriptions, JSON-LD identity, and internal links.",
+        "If both remain indexable, differentiate family-hub intent from industry-taxonomy intent.",
+        "If one is only a compatibility surface, plan redirect and sitemap removal in a later scoped PR."
+      ],
+      "mustNotDoNow": [
+        "Do not collapse family and industry routes in this PR.",
+        "Do not invent frontend SEO metadata to create differentiation.",
+        "Do not change current indexed URLs before migration gates exist."
+      ]
+    }
+  ],
+  "futureRemediationSequence": [
+    "Backend source-of-truth audit for career family ids, slugs, locale mappings, and canonical entity ownership.",
+    "Rendered metadata/schema sampling for affected family and industry URLs.",
+    "Decision record: keep differentiated routes or consolidate compatibility variants.",
+    "Regression gates for sitemap, llms, canonical, hreflang, JSON-LD, redirects, and internal links.",
+    "Scoped migration PR only after backend ownership and compatibility rules are approved."
+  ],
+  "mergeSafety": {
+    "blocksCurrentPr": false,
+    "blocksTopicGraphExpansion": true,
+    "blocksCareerPseoExpansion": true,
+    "reason": "Career entity ambiguity should be resolved or explicitly governed before expanding graph/link surfaces."
+  }
+}
