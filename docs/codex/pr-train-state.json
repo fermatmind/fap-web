@@ -733,11 +733,11 @@
     "PR-UG-05": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "in_progress",
+      "status": "open",
       "not_started": false,
       "branch": "codex/pr-ug-05-orphan-detector",
       "commit_sha": "5982b29d756234e874de53f0240e3c216f7b42eb",
-      "pr_url": "",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/670",
       "scope": "Add read-only internal-link graph and orphan detector with true orphan, weak graph, and intentional isolation classification.",
       "checks": {
         "local": [
