@@ -194,11 +194,11 @@
     "PR-DF-05": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "local_validation_passed",
+      "status": "merged",
       "not_started": false,
       "branch": "codex/pr-df-05-canonical-hreflang-jsonld-parity",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "2faa46eb2a8bd9713f8275344d5b7891a3a18006",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/660",
       "scope": "Add generated and sampled live parity gates for canonical, hreflang, robots/indexability posture, and JSON-LD URL references.",
       "checks": {
         "local": [
@@ -227,24 +227,56 @@
       ],
       "failure_reason": "",
       "resume_policy": "manual_only",
-      "merged_at": "",
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false
+      "merged_at": "2026-05-06T14:33:49Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
     },
     "PR-DF-06": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "planned",
-      "not_started": true,
+      "status": "local_validation_passed",
+      "not_started": false,
       "branch": "codex/pr-df-06-cms-seo-completeness",
       "commit_sha": "",
       "pr_url": "",
       "scope": "Document and enforce page-family CMS SEO completeness requirements for seo.surface.v1, sitemap-source, indexability, llms exposure, canonical, structured data, and Evidence Container readiness.",
       "checks": {
-        "local": [],
+        "local": [
+          "node scripts/seo/check-cms-seo-completeness-matrix.mjs --json passed",
+          "focused contract tests passed",
+          "scoped eslint passed",
+          "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null passed",
+          "pnpm typecheck passed",
+          "pnpm test:contract passed on rerun",
+          "pnpm lint failed with unrelated pre-existing repo-wide lint debt",
+          "verify-big5-contract-freeze passed",
+          "verify-enneagram-contract-freeze passed",
+          "pnpm build passed",
+          "pnpm seo:check-sitemap passed",
+          "git diff --check passed"
+        ],
         "github": []
       },
-      "sidecar_issues": [],
+      "sidecar_issues": [
+        {
+          "title": "Pre-existing repo-wide lint debt outside PR-DF-06 scope",
+          "severity": "P2",
+          "scope_impact": "Full pnpm lint reports existing issues in untouched files; scoped eslint for PR-DF-06 files passed.",
+          "introduced_by_current_pr": false,
+          "recommended_future_phase": "Repository lint hygiene sidecar outside Discoverability Foundation PR-DF-06",
+          "blocks_merge": false,
+          "evidence": "Untouched lint failures include components/career/CareerShortlistAction.tsx, components/result/mbti/clone/MbtiCloneAssetSlot.tsx, ecosystem.config.cjs, lib/cms/last-known-good.ts, and existing contract test files."
+        },
+        {
+          "title": "Contract suite order instability did not reproduce",
+          "severity": "P3",
+          "scope_impact": "First full contract run failed once in untouched MBTI desktop P1 rendering; the targeted failing test passed in both PR worktree and main, and full contract suite passed on rerun.",
+          "introduced_by_current_pr": false,
+          "recommended_future_phase": "Contract suite stability sidecar outside Discoverability Foundation PR-DF-06",
+          "blocks_merge": false,
+          "evidence": "Initial pnpm test:contract: 1 failed / 1302 passed. Targeted test passed. Rerun pnpm test:contract: 256 files / 1303 tests passed."
+        }
+      ],
       "failure_reason": "",
       "resume_policy": "manual_only",
       "merged_at": "",

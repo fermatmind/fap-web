@@ -1,0 +1,241 @@
+{
+  "version": "discoverability.cms_seo_completeness_matrix.v1",
+  "scope": "PR-DF-06",
+  "description": "Page-family CMS SEO completeness matrix for backend-owned discoverability authority. This fixture defines requirements only and must not widen runtime sitemap, llms, metadata, or schema exposure.",
+  "authorityPrinciples": [
+    "backend_owns_seo_truth",
+    "frontend_deterministic_render_only",
+    "no_frontend_fallback_seo_authority",
+    "no_hidden_schema_without_visible_evidence",
+    "private_flows_never_discoverable"
+  ],
+  "requiredAuthorityFields": [
+    "metadata_contract_version",
+    "canonical_url",
+    "title",
+    "description",
+    "robots_policy",
+    "indexability_state",
+    "sitemap_state",
+    "llms_exposure_state",
+    "structured_data_keys",
+    "alternates",
+    "answer_surface_v1",
+    "landing_surface_v1"
+  ],
+  "allowedStates": {
+    "metadata_contract_version": ["seo.surface.v1"],
+    "indexability_state": ["indexable", "noindex", "blocked", "trust_limited"],
+    "sitemap_state": ["included", "excluded", "conditional"],
+    "llms_exposure_state": ["allow", "blocked", "conditional"],
+    "evidence_container_readiness": ["ready", "partial", "not_required", "not_ready"]
+  },
+  "forbiddenStateCombinations": [
+    {
+      "id": "llms_allow_requires_indexable",
+      "rule": "llms_exposure_state=allow requires indexability_state=indexable"
+    },
+    {
+      "id": "sitemap_included_requires_indexable_robots",
+      "rule": "sitemap_state=included requires robots_policy without noindex"
+    },
+    {
+      "id": "indexable_detail_requires_canonical",
+      "rule": "indexable CMS-backed detail pages require canonical_url"
+    },
+    {
+      "id": "structured_data_requires_visible_or_backend_authority",
+      "rule": "structured_data_keys require visible content evidence or backend structured data authority"
+    },
+    {
+      "id": "private_flows_forbidden",
+      "rule": "private flows must not be indexable, sitemap included, or llms allowed"
+    }
+  ],
+  "pageFamilies": [
+    {
+      "name": "test_detail",
+      "owner": "backend_scale_catalog_and_sitemap_source",
+      "frontendConsumer": "app/(localized)/[locale]/tests/[slug]/page.tsx",
+      "requiredFields": [
+        "canonical_url",
+        "title",
+        "description",
+        "indexability_state",
+        "sitemap_state",
+        "llms_exposure_state",
+        "structured_data_keys"
+      ],
+      "optionalFields": ["alternates", "answer_surface_v1"],
+      "forbiddenFields": ["frontend_local_canonical_fallback"],
+      "evidenceContainerReadiness": "partial"
+    },
+    {
+      "name": "topic_detail",
+      "owner": "backend_cms_topics",
+      "frontendConsumer": "lib/cms/topics.ts",
+      "requiredFields": [
+        "seo_surface_v1",
+        "canonical_url",
+        "title",
+        "description",
+        "alternates",
+        "indexability_state",
+        "llms_exposure_state",
+        "answer_surface_v1"
+      ],
+      "optionalFields": ["landing_surface_v1", "structured_data_keys"],
+      "forbiddenFields": ["frontend_local_topic_seo_copy"],
+      "evidenceContainerReadiness": "partial"
+    },
+    {
+      "name": "personality_detail",
+      "owner": "backend_cms_personality",
+      "frontendConsumer": "lib/cms/personality.ts",
+      "requiredFields": [
+        "seo_surface_v1",
+        "canonical_url",
+        "title",
+        "description",
+        "alternates",
+        "indexability_state",
+        "llms_exposure_state",
+        "answer_surface_v1"
+      ],
+      "optionalFields": ["landing_surface_v1", "structured_data_keys"],
+      "forbiddenFields": ["frontend_local_personality_seo_copy"],
+      "evidenceContainerReadiness": "partial"
+    },
+    {
+      "name": "career_job_detail",
+      "owner": "backend_career_job_bundle_and_seo_surface",
+      "frontendConsumer": "lib/cms/career-jobs.ts",
+      "requiredFields": [
+        "seo_surface_v1",
+        "canonical_url",
+        "title",
+        "description",
+        "robots_policy",
+        "indexability_state",
+        "sitemap_state",
+        "llms_exposure_state",
+        "structured_data_keys",
+        "answer_surface_v1"
+      ],
+      "optionalFields": ["landing_surface_v1", "alternates"],
+      "forbiddenFields": ["frontend_built_occupation_jsonld"],
+      "evidenceContainerReadiness": "not_ready"
+    },
+    {
+      "name": "career_guide_detail",
+      "owner": "backend_cms_career_guides",
+      "frontendConsumer": "lib/cms/career-guides.ts",
+      "requiredFields": [
+        "seo_surface_v1",
+        "canonical_url",
+        "title",
+        "description",
+        "alternates",
+        "indexability_state",
+        "answer_surface_v1"
+      ],
+      "optionalFields": ["landing_surface_v1", "structured_data_keys"],
+      "forbiddenFields": ["frontend_local_guide_seo_copy"],
+      "evidenceContainerReadiness": "partial"
+    },
+    {
+      "name": "article_detail",
+      "owner": "backend_cms_articles",
+      "frontendConsumer": "lib/cms/articles.ts",
+      "requiredFields": [
+        "seo_surface_v1",
+        "canonical_url",
+        "title",
+        "description",
+        "indexability_state",
+        "answer_surface_v1"
+      ],
+      "optionalFields": ["landing_surface_v1", "structured_data_keys"],
+      "forbiddenFields": ["frontend_local_article_seo_copy"],
+      "evidenceContainerReadiness": "partial"
+    },
+    {
+      "name": "landing_surface",
+      "owner": "backend_landing_surfaces",
+      "frontendConsumer": "lib/cms/landing-surfaces.ts",
+      "requiredFields": ["slug", "locale", "title", "description", "is_indexable", "landing_surface_v1"],
+      "optionalFields": ["canonical_url", "answer_surface_v1"],
+      "forbiddenFields": ["frontend_local_landing_editorial_copy"],
+      "evidenceContainerReadiness": "not_required"
+    },
+    {
+      "name": "content_page",
+      "owner": "backend_content_pages",
+      "frontendConsumer": "lib/cms/content-pages.ts",
+      "requiredFields": ["slug", "locale", "title", "body", "is_indexable"],
+      "optionalFields": ["canonical_url", "answer_surface_v1"],
+      "forbiddenFields": ["frontend_local_static_page_copy"],
+      "evidenceContainerReadiness": "not_required"
+    },
+    {
+      "name": "dataset_method",
+      "owner": "backend_dataset_bundle",
+      "frontendConsumer": "app/(localized)/[locale]/datasets/occupations/method/page.tsx",
+      "requiredFields": ["canonical_url", "title", "description", "structured_data_keys"],
+      "optionalFields": ["answer_surface_v1"],
+      "forbiddenFields": ["dataset_jsonld_without_dataset_page"],
+      "evidenceContainerReadiness": "ready"
+    }
+  ],
+  "sourceTokenContracts": [
+    {
+      "source": "lib/seo/seoSurface.ts",
+      "requiredTokens": [
+        "metadataContractVersion",
+        "canonicalUrl",
+        "structuredDataKeys",
+        "indexabilityState",
+        "sitemapState",
+        "llmsExposureState"
+      ]
+    },
+    {
+      "source": "lib/seo/backendSitemapSource.ts",
+      "requiredTokens": [
+        "seo_surface_v1",
+        "indexability_state",
+        "sitemap_state",
+        "llms_exposure_state",
+        "isCareerJobSeoAuthorityDiscoverable"
+      ]
+    },
+    {
+      "source": "lib/cms/topics.ts",
+      "requiredTokens": ["seo_surface_v1", "normalizeSeoSurface", "answer_surface_v1", "landing_surface_v1"]
+    },
+    {
+      "source": "lib/cms/personality.ts",
+      "requiredTokens": ["seo_surface_v1", "normalizeSeoSurface", "answer_surface_v1", "landing_surface_v1"]
+    },
+    {
+      "source": "lib/cms/career-jobs.ts",
+      "requiredTokens": ["seo_surface_v1", "normalizeSeoSurface", "answer_surface_v1", "landing_surface_v1"]
+    },
+    {
+      "source": "lib/cms/career-guides.ts",
+      "requiredTokens": ["seo_surface_v1", "normalizeSeoSurface", "answer_surface_v1", "landing_surface_v1"]
+    },
+    {
+      "source": "lib/cms/articles.ts",
+      "requiredTokens": ["seo_surface_v1", "normalizeSeoSurface", "answer_surface_v1", "landing_surface_v1"]
+    },
+    {
+      "source": "lib/cms/landing-surfaces.ts",
+      "requiredTokens": ["is_indexable", "CmsLandingSurface"]
+    },
+    {
+      "source": "lib/cms/content-pages.ts",
+      "requiredTokens": ["is_indexable", "ContentPage"]
+    }
+  ]
+}
