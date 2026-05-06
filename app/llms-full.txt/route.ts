@@ -21,6 +21,7 @@ import {
   MENTAL_HEALTH_NON_MEDICAL_DISCLAIMER,
   isMentalHealthScreeningTest,
 } from "@/components/compliance/MentalHealthDisclaimer";
+import { isSharedDiscoverabilityDeniedPath } from "@/lib/seo/discoverabilityExposurePolicy";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
 import { listBackendSitemapCareerJobPaths } from "@/lib/seo/backendSitemapSource";
 import { listBackendDiscoverabilityTestEntries } from "@/lib/seo/backendTestDiscoverabilitySource";
@@ -38,14 +39,6 @@ const TOPIC_FALLBACKS = [
 const LLMS_FINAL_PATH_DENY_PATTERNS: RegExp[] = [
   /^\/zh$/i,
   /^\/tests(?:\/|$)/i,
-  /^\/(?:en|zh)?\/?result(?:\/|$)/i,
-  /^\/(?:en|zh)?\/?orders(?:\/|$)/i,
-  /^\/(?:en|zh)?\/?share(?:\/|$)/i,
-  /^\/(?:en|zh)?\/?api(?:\/|$)/i,
-  /^\/(?:en|zh)?\/?pay(?:\/|$)/i,
-  /^\/(?:en|zh)?\/?payment(?:\/|$)/i,
-  /^\/(?:en|zh)?\/?history(?:\/|$)/i,
-  /^\/(?:en|zh)?\/?tests\/[^/]+\/take(?:\/|$)/i,
   /^\/(?:en|zh)\/blog$/i,
   /^\/(?:en|zh)\/help$/i,
   /^\/(?:en|zh)\/refund$/i,
@@ -102,7 +95,10 @@ function normalizePath(path: string): string {
 
 function isForbiddenFinalLlmsPath(path: string): boolean {
   const normalized = normalizePath(path);
-  return LLMS_FINAL_PATH_DENY_PATTERNS.some((pattern) => pattern.test(normalized));
+  return (
+    isSharedDiscoverabilityDeniedPath(normalized) ||
+    LLMS_FINAL_PATH_DENY_PATTERNS.some((pattern) => pattern.test(normalized))
+  );
 }
 
 function shouldKeep(path: string): boolean {

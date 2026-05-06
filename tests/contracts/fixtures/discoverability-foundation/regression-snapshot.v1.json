@@ -20,6 +20,7 @@
     "sitemap": "next-sitemap.config.js",
     "llms": "app/llms.txt/route.ts",
     "llmsFull": "app/llms-full.txt/route.ts",
+    "sharedExposurePolicy": "lib/seo/discoverabilityExposurePolicy.ts",
     "indexingPolicy": "lib/seo/indexingPolicy.ts",
     "robots": "app/robots.ts",
     "metadata": "lib/seo/metadata.ts",
@@ -36,17 +37,25 @@
     "llms": [
       "LLMS_FINAL_PATH_DENY_PATTERNS",
       "isForbiddenFinalLlmsPath",
+      "isSharedDiscoverabilityDeniedPath",
       "shouldIncludeInSitemap",
       "listBackendSitemapCareerJobPaths"
     ],
     "llmsFull": [
       "LLMS_FINAL_PATH_DENY_PATTERNS",
       "isForbiddenFinalLlmsPath",
+      "isSharedDiscoverabilityDeniedPath",
       "shouldIncludeInSitemap",
       "listBackendSitemapCareerJobPaths"
     ],
+    "sharedExposurePolicy": [
+      "SHARED_DISCOVERABILITY_DENY_PATH_PATTERNS",
+      "PRIVATE_FLOW_ROUTE_EXCLUDES",
+      "isSharedDiscoverabilityDeniedPath"
+    ],
     "indexingPolicy": [
       "DENY_PATH_PATTERNS",
+      "SHARED_DISCOVERABILITY_DENY_PATH_PATTERNS",
       "shouldNoindex",
       "shouldIncludeInSitemap"
     ],

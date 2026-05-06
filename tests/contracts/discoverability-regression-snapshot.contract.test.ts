@@ -117,6 +117,7 @@ describe("discoverability regression snapshot", () => {
     const snapshot = readSnapshot();
     const llmsSource = readSource(snapshot.sourceFiles.llms);
     const llmsFullSource = readSource(snapshot.sourceFiles.llmsFull);
+    const sharedExposureSource = readSource(snapshot.sourceFiles.sharedExposurePolicy);
 
     for (const url of snapshot.llmsSnapshot.mustExcludeSamples) {
       const pathname = pathnameFromUrl(url);
@@ -128,13 +129,14 @@ describe("discoverability regression snapshot", () => {
         pathname.includes("/take")
           ? "tests\\/[^/]+\\/take"
           : pathname.includes("/result/")
-            ? "result(?:\\/|$)"
+            ? "result(\\/|$)"
             : pathname.includes("/orders/")
-              ? "orders(?:\\/|$)"
-              : "share(?:\\/|$)";
+              ? "orders(\\/|$)"
+              : "share(\\/|$)";
 
-      expect(llmsSource).toContain(familyToken);
-      expect(llmsFullSource).toContain(familyToken);
+      expect(sharedExposureSource).toContain(familyToken);
+      expect(llmsSource).toContain("isSharedDiscoverabilityDeniedPath");
+      expect(llmsFullSource).toContain("isSharedDiscoverabilityDeniedPath");
     }
   });
 

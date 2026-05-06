@@ -1,4 +1,9 @@
 import type { Locale } from "@/lib/i18n/locales";
+import {
+  SHARED_DISCOVERABILITY_DENY_PATH_PATTERNS,
+  hasDiscoverabilityLocalePrefix,
+  stripDiscoverabilityLocalePrefix,
+} from "@/lib/seo/discoverabilityExposurePolicy";
 
 export type ContentIndexabilityState = {
   hasLocalizedContent?: boolean;
@@ -11,33 +16,14 @@ export type ExplicitIndexGate = {
   indexState?: string | null;
 };
 
-const LOCALE_PREFIX_RE = /^\/(en|zh)(?=\/|$)/i;
 const DENY_PATH_PATTERNS: RegExp[] = [
-  /^\/api(\/|$)/i,
-  /^\/og(\/|$)/i,
-  /^\/history(\/|$)/i,
-  /^\/result(\/|$)/i,
-  /^\/results(\/|$)/i,
-  /^\/orders(\/|$)/i,
-  /^\/share(\/|$)/i,
+  ...SHARED_DISCOVERABILITY_DENY_PATH_PATTERNS,
   /^\/attempts(\/|$)/i,
   /^\/relationships(\/|$)/i,
-  /^\/payment(\/|$)/i,
-  /^\/pay(\/|$)/i,
   /^\/quiz(\/|$)/i,
   /^\/professions(\/|$)/i,
   /^\/types(\/|$)/i,
-  /^\/tests\/[^/]+\/take(\/|$)/i,
-  /^\/test\/[^/]+\/take(\/|$)/i,
 ];
-
-function normalizePathname(pathname: string): string {
-  const raw = String(pathname || "").trim();
-  if (!raw) return "/";
-  const withoutQuery = raw.split("?")[0]?.split("#")[0] ?? raw;
-  const withLeadingSlash = withoutQuery.startsWith("/") ? withoutQuery : `/${withoutQuery}`;
-  return withLeadingSlash.replace(/\/{2,}/g, "/");
-}
 
 function extractQueryString(pathname: string): string {
   const raw = String(pathname || "").trim();
@@ -55,14 +41,11 @@ function extractQueryString(pathname: string): string {
 }
 
 export function stripLocalePrefix(pathname: string): string {
-  const normalized = normalizePathname(pathname);
-  const stripped = normalized.replace(LOCALE_PREFIX_RE, "");
-  return stripped.length > 0 ? stripped : "/";
+  return stripDiscoverabilityLocalePrefix(pathname);
 }
 
 export function hasLocalePrefix(pathname: string): boolean {
-  const normalized = normalizePathname(pathname);
-  return LOCALE_PREFIX_RE.test(normalized);
+  return hasDiscoverabilityLocalePrefix(pathname);
 }
 
 export function isIndexablePath(pathname: string): boolean {

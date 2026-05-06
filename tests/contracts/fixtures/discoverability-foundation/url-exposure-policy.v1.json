@@ -7,6 +7,7 @@
     "sitemap": "next-sitemap.config.js",
     "llms": "app/llms.txt/route.ts",
     "llmsFull": "app/llms-full.txt/route.ts",
+    "sharedExposurePolicy": "lib/seo/discoverabilityExposurePolicy.ts",
     "indexingPolicy": "lib/seo/indexingPolicy.ts",
     "robots": "app/robots.ts",
     "metadata": "lib/seo/metadata.ts"
@@ -238,38 +239,36 @@
   ],
   "sourceTokenContracts": {
     "indexingPolicy": [
+      "SHARED_DISCOVERABILITY_DENY_PATH_PATTERNS",
+      "shouldNoindex",
+      "shouldIncludeInSitemap"
+    ],
+    "sharedExposurePolicy": [
+      "SHARED_DISCOVERABILITY_DENY_PATH_PATTERNS",
+      "PRIVATE_FLOW_ROUTE_EXCLUDES",
       "tests\\/[^/]+\\/take",
       "result",
       "orders",
       "share",
       "payment",
       "pay",
-      "shouldNoindex",
-      "shouldIncludeInSitemap"
+      "isSharedDiscoverabilityDeniedPath"
     ],
     "sitemap": [
       "SITEMAP_FINAL_PATH_DENY_PATTERNS",
       "SITEMAP_ROUTE_EXCLUDES",
-      "tests/*/take",
-      "/result/*",
-      "/orders/*",
-      "/share/*",
+      "PRIVATE_FLOW_ROUTE_EXCLUDES",
+      "isSharedDiscoverabilityDeniedPath",
       "shouldIncludeGeneratedSitemapPath"
     ],
     "llms": [
       "LLMS_FINAL_PATH_DENY_PATTERNS",
-      "tests\\/[^/]+\\/take",
-      "result(?:\\/|$)",
-      "orders(?:\\/|$)",
-      "share(?:\\/|$)",
+      "isSharedDiscoverabilityDeniedPath",
       "isForbiddenFinalLlmsPath"
     ],
     "llmsFull": [
       "LLMS_FINAL_PATH_DENY_PATTERNS",
-      "tests\\/[^/]+\\/take",
-      "result(?:\\/|$)",
-      "orders(?:\\/|$)",
-      "share(?:\\/|$)",
+      "isSharedDiscoverabilityDeniedPath",
       "isForbiddenFinalLlmsPath"
     ]
   }

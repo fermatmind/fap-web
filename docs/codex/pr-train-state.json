@@ -286,11 +286,11 @@
     "PR-DF-07": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "local_validation_passed",
+      "status": "merged",
       "not_started": false,
       "branch": "codex/pr-df-07-evidence-container-gate",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "21dd0b2",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/663",
       "scope": "Add page-family Evidence Container readiness gates for visible evidence-rich answer blocks before Topic Graph or GEO expansion.",
       "checks": {
         "local": [
@@ -321,24 +321,48 @@
       ],
       "failure_reason": "",
       "resume_policy": "manual_only",
-      "merged_at": "",
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false
+      "merged_at": "2026-05-06T15:16:29Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
     },
     "PR-DF-08": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "planned",
-      "not_started": true,
-      "branch": "codex/pr-df-08-shared-exposure-policy-extraction",
+      "status": "local_validation_passed",
+      "not_started": false,
+      "branch": "codex/pr-df-08-shared-exposure-policy",
       "commit_sha": "",
       "pr_url": "",
       "scope": "Extract duplicated sitemap, llms, robots/noindex, canonical, and private-flow deny/gate rules into shared discoverability policy utilities after regression coverage exists.",
       "checks": {
-        "local": [],
+        "local": [
+          "focused shared exposure policy contracts passed",
+          "scoped eslint passed",
+          "node -c for CJS policy/config files passed",
+          "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null passed",
+          "pnpm typecheck passed",
+          "pnpm test:contract passed",
+          "pnpm lint failed with unrelated pre-existing repo-wide lint debt",
+          "verify-big5-contract-freeze passed",
+          "verify-enneagram-contract-freeze passed",
+          "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build passed",
+          "pnpm seo:generate-sitemap passed",
+          "pnpm seo:check-sitemap passed",
+          "git diff --check passed"
+        ],
         "github": []
       },
-      "sidecar_issues": [],
+      "sidecar_issues": [
+        {
+          "title": "Pre-existing repo-wide lint debt outside PR-DF-08 scope",
+          "severity": "P2",
+          "scope_impact": "Full pnpm lint reports existing issues in untouched files; scoped eslint for PR-DF-08 files passed and no new lint issue remains in touched TS files.",
+          "introduced_by_current_pr": false,
+          "recommended_future_phase": "Repository lint hygiene sidecar outside Discoverability Foundation PR-DF-08",
+          "blocks_merge": false,
+          "evidence": "Untouched lint failures include components/career/CareerShortlistAction.tsx, components/result/mbti/clone/MbtiCloneAssetSlot.tsx, ecosystem.config.cjs, lib/cms/last-known-good.ts, and existing contract test files."
+        }
+      ],
       "failure_reason": "",
       "resume_policy": "manual_only",
       "merged_at": "",

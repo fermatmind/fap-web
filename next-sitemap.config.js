@@ -2,6 +2,10 @@
 /** @type {import('next-sitemap').IConfig} */
 const { shouldIncludeInSitemap } = require("./lib/seo/indexingPolicy.cjs");
 const {
+  PRIVATE_FLOW_ROUTE_EXCLUDES,
+  isSharedDiscoverabilityDeniedPath,
+} = require("./lib/seo/discoverabilityExposurePolicy.cjs");
+const {
   isValidCmsApiRoute,
   buildInvalidCmsSitemapExcludes,
   shouldIncludeCmsSitemapPath,
@@ -135,14 +139,8 @@ const SITEMAP_ROUTE_EXCLUDES = [
   "/en/policies",
   "/en/results/lookup",
   "/zh/results/lookup",
-  "/result/*",
-  "/orders/*",
-  "/share/*",
   "/api/*",
-  "/pay/*",
-  "/payment/*",
-  "/history/*",
-  "/tests/*/take",
+  ...PRIVATE_FLOW_ROUTE_EXCLUDES,
   "/datasets/occupations",
   "/datasets/occupations/method",
   "/en/datasets/occupations",
@@ -259,7 +257,10 @@ function shouldIncludeCareerSitemapPath(path, item) {
 
 function isForbiddenFinalSitemapPath(path) {
   const normalized = normalizePath(path);
-  return SITEMAP_FINAL_PATH_DENY_PATTERNS.some((pattern) => pattern.test(normalized));
+  return (
+    isSharedDiscoverabilityDeniedPath(normalized) ||
+    SITEMAP_FINAL_PATH_DENY_PATTERNS.some((pattern) => pattern.test(normalized))
+  );
 }
 
 function isCareerJobDetailPath(path) {

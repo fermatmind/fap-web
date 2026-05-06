@@ -25,10 +25,7 @@ function expectLlmsRouteHygiene(source: string): void {
   expect(source).toContain("career\\/guides");
   expect(source).toContain("listBackendSitemapCareerJobPaths");
   expect(source).toContain("personality\\/(");
-  expect(source).toContain("result(?:\\/|$)");
-  expect(source).toContain("orders(?:\\/|$)");
-  expect(source).toContain("share(?:\\/|$)");
-  expect(source).toContain("tests\\/[^/]+\\/take");
+  expect(source).toContain("isSharedDiscoverabilityDeniedPath");
   expect(source).not.toContain("isCareerJobDetailDiscoverableByManifest");
   expect(source).not.toContain(".map((job) => job.href)");
   expect(source).not.toContain("fetchCareerJobIndex");

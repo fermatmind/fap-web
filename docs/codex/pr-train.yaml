@@ -286,7 +286,7 @@ prs:
   - id: PR-DF-08
     repo: fap-web
     repo_path: /Users/rainie/Desktop/GitHub/fap-web
-    branch: codex/pr-df-08-shared-exposure-policy-extraction
+    branch: codex/pr-df-08-shared-exposure-policy
     base: main
     depends_on: ["PR-DF-05", "PR-DF-06", "PR-DF-07"]
     mode: execute
