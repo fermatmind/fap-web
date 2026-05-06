@@ -535,10 +535,8 @@ export default function ResultClient({
   const [emailBindFeedback, setEmailBindFeedback] = useState<string | null>(null);
   const [emailSubmitting, setEmailSubmitting] = useState(false);
   const [reloadNonce, setReloadNonce] = useState(0);
-  const resultAccessToken = useMemo(() => {
-    const token = searchParams.get("access_token") ?? searchParams.get("result_access_token") ?? "";
-    return token.trim() || null;
-  }, [searchParams]);
+  void searchParams;
+  const resultAccessToken = null;
 
   const anonId = useMemo(() => getOrCreateAnonId(), []);
   const routeScaleCodeRef = useRef("UNKNOWN");

@@ -293,6 +293,42 @@ function normalizeStringArray(value: unknown): string[] {
   return [...new Set(value.map((item) => normalizeString(item)).filter((item): item is string => Boolean(item)))];
 }
 
+function isSafeDisplayInternalHref(href: string): boolean {
+  if (!href.startsWith("/") || href.startsWith("//") || href.includes("\\")) {
+    return false;
+  }
+
+  try {
+    const parsed = new URL(href, "https://fermatmind.com");
+    if (parsed.origin !== "https://fermatmind.com") {
+      return false;
+    }
+
+    return parsed.pathname.startsWith("/tests/") || /^\/(?:en|zh)\/tests\//.test(parsed.pathname);
+  } catch {
+    return false;
+  }
+}
+
+function normalizeSafeDisplayHref(value: unknown): string | null {
+  const href = normalizeString(value);
+  return href && isSafeDisplayInternalHref(href) ? href : null;
+}
+
+function normalizeSafeSourceUrl(value: unknown): string | null {
+  const raw = normalizeString(value);
+  if (!raw || raw.includes("\\")) {
+    return null;
+  }
+
+  try {
+    const parsed = new URL(raw);
+    return parsed.protocol === "https:" || parsed.protocol === "http:" ? parsed.toString() : null;
+  } catch {
+    return null;
+  }
+}
+
 function normalizeStringFromValue(value: unknown): string | null {
   const direct = normalizeString(value);
   if (direct) {
@@ -430,7 +466,7 @@ function resolveLocalizedPage(root: Record<string, unknown>, locale: Locale): Re
 function normalizeCta(value: unknown): CareerDisplayCta | null {
   const raw = isRecord(value) ? value : null;
   const label = normalizeString(raw?.label);
-  const href = normalizeString(raw?.href);
+  const href = normalizeSafeDisplayHref(raw?.href);
 
   if (!label || !href) {
     return null;
@@ -746,7 +782,7 @@ function normalizeSources(value: unknown): CareerDisplaySource[] {
       return {
         key: normalizeString(item.key) ?? key,
         label,
-        ...(normalizeString(item.url) ? { url: normalizeString(item.url) ?? undefined } : {}),
+        ...(normalizeSafeSourceUrl(item.url) ? { url: normalizeSafeSourceUrl(item.url) ?? undefined } : {}),
         ...(normalizeString(item.usage) ? { usage: normalizeString(item.usage) ?? undefined } : {}),
         ...(normalizeString(item.captured_at) ? { capturedAt: normalizeString(item.captured_at) ?? undefined } : {}),
         ...(normalizeString(item.expires_at) ? { expiresAt: normalizeString(item.expires_at) ?? undefined } : {}),
