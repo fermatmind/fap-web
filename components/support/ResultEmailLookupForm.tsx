@@ -4,7 +4,7 @@ import Link from "next/link";
 import { type FormEvent, useMemo, useState } from "react";
 import { Alert } from "@/components/ui/alert";
 import { Button, buttonVariants } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card";
 import { ApiError } from "@/lib/api-client";
 import { lookupResultsByEmail, type ResultEmailLookupItem } from "@/lib/api/v0_3";
 import { normalizeCommerceReportPath } from "@/lib/commerce/redirectUrls";
@@ -71,7 +71,6 @@ export function ResultEmailLookupForm({ locale }: { locale: Locale }) {
   const labels = useMemo(() => {
     const isZh = locale === "zh";
     return {
-      cardTitle: isZh ? "通过邮箱找回结果" : "Find saved results by email",
       cardDescription: isZh
         ? "输入邮箱即可找回该邮箱下保存的结果，请使用你自己的邮箱。"
         : "Enter your email to find saved results for that email. Use your own email address.",
@@ -130,7 +129,6 @@ export function ResultEmailLookupForm({ locale }: { locale: Locale }) {
     <div className="space-y-6">
       <Card>
         <CardHeader>
-          <CardTitle>{labels.cardTitle}</CardTitle>
           <CardDescription>{labels.cardDescription}</CardDescription>
         </CardHeader>
         <CardContent>

@@ -25,6 +25,13 @@ describe("ResultEmailLookupForm contract", () => {
     vi.clearAllMocks();
   });
 
+  it("keeps the lookup form compact without redundant recovery headings", () => {
+    render(<ResultEmailLookupForm locale="zh" />);
+
+    expect(screen.queryByText("通过邮箱找回结果")).toBeNull();
+    expect(screen.getByText("输入邮箱即可找回该邮箱下保存的结果，请使用你自己的邮箱。")).toBeInTheDocument();
+  });
+
   it("looks up normalized email and opens backend-issued result access token links", async () => {
     hoisted.lookupResultsByEmail.mockResolvedValueOnce({
       ok: true,

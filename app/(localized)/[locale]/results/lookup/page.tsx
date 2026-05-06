@@ -41,9 +41,6 @@ export default async function ResultLookupPage({
         <h1 className="m-0 text-2xl font-bold text-slate-900">
           {isZh ? "找回结果" : "Find saved results"}
         </h1>
-        <p className="m-0 text-sm text-slate-600">
-          {isZh ? "输入邮箱查看该邮箱下保存的结果。" : "Enter an email to view saved results for that email."}
-        </p>
       </div>
       <ResultEmailLookupForm locale={locale} />
     </Container>
