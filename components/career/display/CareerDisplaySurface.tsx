@@ -55,6 +55,10 @@ function rowIncludesSalaryClaim(row: CareerDisplayTableRow): boolean {
   return row.some((cell) => textIncludesAny(cell, SALARY_CLAIM_PATTERNS));
 }
 
+function stringListIncludesSalaryClaim(value: string[] | undefined): boolean {
+  return (value ?? []).some((item) => textIncludesAny(item, SALARY_CLAIM_PATTERNS));
+}
+
 function bodyIncludesSalaryClaim(body: CareerDisplaySection["body"]): boolean {
   if (Array.isArray(body)) {
     return body.some((paragraph) => textIncludesAny(paragraph, SALARY_CLAIM_PATTERNS));
@@ -65,9 +69,38 @@ function bodyIncludesSalaryClaim(body: CareerDisplaySection["body"]): boolean {
 
 function sectionIncludesSalaryClaim(section: CareerDisplaySection): boolean {
   return (
+    textIncludesAny(section.intro, SALARY_CLAIM_PATTERNS) ||
     bodyIncludesSalaryClaim(section.body) ||
     (section.rows ?? []).some(rowIncludesSalaryClaim) ||
-    (section.entryTable ?? []).some(rowIncludesSalaryClaim)
+    (section.entryTable ?? []).some(rowIncludesSalaryClaim) ||
+    (section.signalMeta ?? []).some(rowIncludesSalaryClaim) ||
+    stringListIncludesSalaryClaim(section.items) ||
+    stringListIncludesSalaryClaim(section.fitItems) ||
+    stringListIncludesSalaryClaim(section.cautionItems) ||
+    stringListIncludesSalaryClaim(section.profile) ||
+    stringListIncludesSalaryClaim(section.traits) ||
+    stringListIncludesSalaryClaim(section.contexts) ||
+    stringListIncludesSalaryClaim(section.keywords) ||
+    stringListIncludesSalaryClaim(section.careerRisks) ||
+    textIncludesAny(section.caveat, SALARY_CLAIM_PATTERNS) ||
+    textIncludesAny(section.warning, SALARY_CLAIM_PATTERNS) ||
+    textIncludesAny(section.note, SALARY_CLAIM_PATTERNS) ||
+    textIncludesAny(section.interpretation, SALARY_CLAIM_PATTERNS) ||
+    textIncludesAny(section.linkedinNote, SALARY_CLAIM_PATTERNS) ||
+    textIncludesAny(section.score, SALARY_CLAIM_PATTERNS) ||
+    textIncludesAny(section.question, SALARY_CLAIM_PATTERNS) ||
+    textIncludesAny(section.fermatView, SALARY_CLAIM_PATTERNS) ||
+    (section.checks ?? []).some((check) => (
+      typeof check === "string"
+        ? textIncludesAny(check, SALARY_CLAIM_PATTERNS)
+        : textIncludesAny(check.title, SALARY_CLAIM_PATTERNS) ||
+          textIncludesAny(check.question, SALARY_CLAIM_PATTERNS) ||
+          textIncludesAny(check.note, SALARY_CLAIM_PATTERNS)
+    )) ||
+    (section.steps ?? []).some((step) => (
+      textIncludesAny(step.title, SALARY_CLAIM_PATTERNS) ||
+      stringListIncludesSalaryClaim(step.items)
+    ))
   );
 }
 
@@ -78,15 +111,35 @@ function stripSalaryClaims(section: CareerDisplaySection, allowSalaryComparison:
 
   const rows = (section.rows ?? []).filter((row) => !rowIncludesSalaryClaim(row));
   const entryTable = (section.entryTable ?? []).filter((row) => !rowIncludesSalaryClaim(row));
+  const signalMeta = (section.signalMeta ?? []).filter((row) => !rowIncludesSalaryClaim(row));
   const body = bodyIncludesSalaryClaim(section.body) ? undefined : section.body;
+  const filterStrings = (value: string[] | undefined): string[] | undefined => {
+    const filtered = (value ?? []).filter((item) => !textIncludesAny(item, SALARY_CLAIM_PATTERNS));
+    return filtered.length > 0 ? filtered : undefined;
+  };
+  const checks = (section.checks ?? []).filter((check) => (
+    typeof check === "string"
+      ? !textIncludesAny(check, SALARY_CLAIM_PATTERNS)
+      : !textIncludesAny(check.title, SALARY_CLAIM_PATTERNS) &&
+        !textIncludesAny(check.question, SALARY_CLAIM_PATTERNS) &&
+        !textIncludesAny(check.note, SALARY_CLAIM_PATTERNS)
+  ));
+  const steps = (section.steps ?? [])
+    .map((step) => ({
+      ...step,
+      items: step.items.filter((item) => !textIncludesAny(item, SALARY_CLAIM_PATTERNS)),
+    }))
+    .filter((step) => !textIncludesAny(step.title, SALARY_CLAIM_PATTERNS) && step.items.length > 0);
   const hasContent =
     Boolean(body) ||
     rows.length > 0 ||
     entryTable.length > 0 ||
-    (section.items?.length ?? 0) > 0 ||
-    (section.contexts?.length ?? 0) > 0 ||
-    (section.checks?.length ?? 0) > 0 ||
-    (section.profile?.length ?? 0) > 0;
+    signalMeta.length > 0 ||
+    Boolean(filterStrings(section.items)) ||
+    Boolean(filterStrings(section.contexts)) ||
+    checks.length > 0 ||
+    Boolean(filterStrings(section.profile)) ||
+    Boolean(section.heading);
 
   if (!hasContent) {
     return null;
@@ -94,9 +147,29 @@ function stripSalaryClaims(section: CareerDisplaySection, allowSalaryComparison:
 
   return {
     ...section,
+    ...(textIncludesAny(section.intro, SALARY_CLAIM_PATTERNS) ? { intro: undefined } : {}),
     ...(body ? { body } : { body: undefined }),
     rows,
     entryTable,
+    signalMeta,
+    items: filterStrings(section.items),
+    fitItems: filterStrings(section.fitItems),
+    cautionItems: filterStrings(section.cautionItems),
+    checks,
+    profile: filterStrings(section.profile),
+    traits: filterStrings(section.traits),
+    contexts: filterStrings(section.contexts),
+    keywords: filterStrings(section.keywords),
+    careerRisks: filterStrings(section.careerRisks),
+    ...(textIncludesAny(section.caveat, SALARY_CLAIM_PATTERNS) ? { caveat: undefined } : {}),
+    ...(textIncludesAny(section.warning, SALARY_CLAIM_PATTERNS) ? { warning: undefined } : {}),
+    ...(textIncludesAny(section.note, SALARY_CLAIM_PATTERNS) ? { note: undefined } : {}),
+    ...(textIncludesAny(section.interpretation, SALARY_CLAIM_PATTERNS) ? { interpretation: undefined } : {}),
+    ...(textIncludesAny(section.linkedinNote, SALARY_CLAIM_PATTERNS) ? { linkedinNote: undefined } : {}),
+    ...(textIncludesAny(section.score, SALARY_CLAIM_PATTERNS) ? { score: undefined } : {}),
+    ...(textIncludesAny(section.question, SALARY_CLAIM_PATTERNS) ? { question: undefined } : {}),
+    ...(textIncludesAny(section.fermatView, SALARY_CLAIM_PATTERNS) ? { fermatView: undefined } : {}),
+    steps,
   };
 }
 
@@ -153,27 +226,29 @@ export function CareerDisplaySurface({
     return null;
   }
 
-  const decision = findSection(surface.sections, "FermatDecisionCard");
-  const snapshots = findSections(surface.sections, "CareerSnapshotCard");
-  const fitDecision = findSection(surface.sections, "FitDecisionChecklist");
-  const riasecFit = findSection(surface.sections, "RIASECFitBlock");
-  const personalityFit = findSection(surface.sections, "PersonalityFitBlock");
-  const definition = findSection(surface.sections, "DefinitionBlock");
-  const responsibilities = findSection(surface.sections, "ResponsibilitiesBlock");
-  const workContext = findSection(surface.sections, "WorkContextBlock");
-  const marketSignal = findSection(surface.sections, "MarketSignalCard");
-  const comparison = findSection(surface.sections, "AdjacentCareerComparisonTable");
-  const aiImpact = findSection(surface.sections, "AIImpactTable");
-  const careerRisks = findSection(surface.sections, "CareerRiskCards");
-  const contractRisks = findSection(surface.sections, "ContractRiskBlock");
-  const nextSteps = findSection(surface.sections, "NextStepsBlock");
-  const faq = findSection(surface.sections, "CareerFAQBlock");
   const claimPermissions = surface.claimPermissions;
+  const visibleSections = claimPermissions.allowSalaryComparison
+    ? surface.sections
+    : surface.sections
+      .map((section) => stripSalaryClaims(section, false))
+      .filter((section): section is CareerDisplaySection => section !== null);
+  const decision = findSection(visibleSections, "FermatDecisionCard");
+  const snapshots = findSections(visibleSections, "CareerSnapshotCard");
+  const fitDecision = findSection(visibleSections, "FitDecisionChecklist");
+  const riasecFit = findSection(visibleSections, "RIASECFitBlock");
+  const personalityFit = findSection(visibleSections, "PersonalityFitBlock");
+  const definition = findSection(visibleSections, "DefinitionBlock");
+  const responsibilities = findSection(visibleSections, "ResponsibilitiesBlock");
+  const workContext = findSection(visibleSections, "WorkContextBlock");
+  const marketSignal = findSection(visibleSections, "MarketSignalCard");
+  const comparison = findSection(visibleSections, "AdjacentCareerComparisonTable");
+  const aiImpact = findSection(visibleSections, "AIImpactTable");
+  const careerRisks = findSection(visibleSections, "CareerRiskCards");
+  const contractRisks = findSection(visibleSections, "ContractRiskBlock");
+  const nextSteps = findSection(visibleSections, "NextStepsBlock");
+  const faq = findSection(visibleSections, "CareerFAQBlock");
   const salaryClaimsRestricted =
-    !claimPermissions.allowSalaryComparison && snapshots.some((section) => sectionIncludesSalaryClaim(section));
-  const salarySafeSnapshots = snapshots
-    .map((section) => stripSalaryClaims(section, claimPermissions.allowSalaryComparison))
-    .filter((section): section is CareerDisplaySection => section !== null);
+    !claimPermissions.allowSalaryComparison && surface.sections.some((section) => sectionIncludesSalaryClaim(section));
 
   return (
     <article className="mx-auto max-w-5xl space-y-6 px-4 py-8 md:px-6" data-testid="career-display-surface">
@@ -188,7 +263,7 @@ export function CareerDisplaySurface({
         {decision ? <FermatDecisionCard section={decision} /> : null}
       </ClaimGuard>
       {salaryClaimsRestricted ? <ClaimPermissionNotice locale={surface.locale} kind="salary" /> : null}
-      {salarySafeSnapshots.map((section, index) => (
+      {snapshots.map((section, index) => (
         <EvidenceContainer
           key={section.id}
           section={section}

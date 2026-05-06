@@ -62,13 +62,13 @@ describe("analytics scripts contract", () => {
     const html = renderAnalyticsScripts({
       NEXT_PUBLIC_ANALYTICS_ENABLED: "true",
       NEXT_PUBLIC_GA_MEASUREMENT_ID: "G-TEST1234",
-      NEXT_PUBLIC_BAIDU_TONGJI_ID: "BAIDU_TEST_ID",
+      NEXT_PUBLIC_BAIDU_TONGJI_ID: "0123456789abcdef",
     });
 
     expect(html).toContain('id="fm-analytics-bootstrap"');
     expect(html).toContain('data-analytics-bootstrap="true"');
     expect(html).toContain("G-TEST1234");
-    expect(html).toContain("BAIDU_TEST_ID");
+    expect(html).toContain("0123456789abcdef");
     expect(html).toContain("dataLayer");
     expect(html).toContain("gtag");
     expect(html).toContain("hm.baidu.com/hm.js");

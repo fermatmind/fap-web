@@ -8,17 +8,32 @@ function normalizeEnvValue(value: string | undefined): string {
   return typeof value === "string" ? value.trim() : "";
 }
 
+function normalizeGaMeasurementId(value: string): string {
+  return /^G-[A-Z0-9]{4,32}$/i.test(value) ? value : "";
+}
+
+function normalizeBaiduTongjiId(value: string): string {
+  return /^[a-f0-9]{16,64}$/i.test(value) ? value : "";
+}
+
+function safeInlineJson(value: string): string {
+  return JSON.stringify(value)
+    .replace(/</g, "\\u003c")
+    .replace(/\u2028/g, "\\u2028")
+    .replace(/\u2029/g, "\\u2029");
+}
+
 export function getAnalyticsScriptConfig(env: Partial<NodeJS.ProcessEnv> = process.env): AnalyticsScriptConfig {
   return {
     enabled: env.NEXT_PUBLIC_ANALYTICS_ENABLED === "true",
-    gaMeasurementId: normalizeEnvValue(env.NEXT_PUBLIC_GA_MEASUREMENT_ID),
-    baiduTongjiId: normalizeEnvValue(env.NEXT_PUBLIC_BAIDU_TONGJI_ID),
+    gaMeasurementId: normalizeGaMeasurementId(normalizeEnvValue(env.NEXT_PUBLIC_GA_MEASUREMENT_ID)),
+    baiduTongjiId: normalizeBaiduTongjiId(normalizeEnvValue(env.NEXT_PUBLIC_BAIDU_TONGJI_ID)),
   };
 }
 
 export function buildAnalyticsBootstrapScript(config: AnalyticsScriptConfig): string {
-  const gaMeasurementId = JSON.stringify(config.gaMeasurementId);
-  const baiduTongjiId = JSON.stringify(config.baiduTongjiId);
+  const gaMeasurementId = safeInlineJson(config.gaMeasurementId);
+  const baiduTongjiId = safeInlineJson(config.baiduTongjiId);
 
   return `
 (function () {
