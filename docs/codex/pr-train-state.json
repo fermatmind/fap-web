@@ -1,11 +1,244 @@
 {
-  "train_name": "career-night-train",
-  "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-05-05T17:33:40Z",
+  "train_name": "discoverability-foundation-train",
+  "train_description": "Stabilize and unify FermatMind discoverability truth across sitemap, llms, canonical, metadata, JSON-LD, robots/noindex, hreflang, Evidence Container, URL truth, and SEO authority ownership.",
+  "previous_train_name": "career-night-train",
+  "started_at": "2026-05-06T12:32:48Z",
+  "updated_at": "2026-05-06T12:32:48Z",
+  "status": "initialized",
+  "phase": "discoverability-and-growth-foundation",
+  "platform_positioning": "人格与职业决策平台",
+  "pr_namespace": "PR-DF-*",
+  "branch_naming_convention": "codex/pr-df-<nn>-<short-scope>",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
+  "required_github_checks": [
+    "build",
+    "contracts",
+    "verify-big5-contract-freeze",
+    "verify-enneagram-contract-freeze"
+  ],
+  "train_policy": {
+    "scope": "discoverability_foundation_stabilization",
+    "continue_if_unrelated_repo_debt_exists": true,
+    "stop_only_on_scoped_regression_or_required_check_failure": true,
+    "no_runtime_seo_behavior_changes_during_bootstrap": true,
+    "no_topic_graph_rollout": true,
+    "no_recommendation_system_rollout": true,
+    "no_behavior_graph_rollout": true,
+    "no_commerce_auth_report_payment_changes": true,
+    "authority_rules": [
+      "backend owns SEO and discoverability truth",
+      "frontend deterministic render only",
+      "never invent frontend SEO fallback authority",
+      "never silently widen sitemap or llms exposure",
+      "never expose private take result order share flows"
+    ]
+  },
+  "sidecar_issue_policy": {
+    "continue_train_when": [
+      "blocker is unrelated to the current PR",
+      "scoped validation passes",
+      "required GitHub checks are green",
+      "no new P0 or P1 issue is introduced"
+    ],
+    "required_fields": [
+      "title",
+      "severity",
+      "scope impact",
+      "whether introduced by current PR",
+      "recommended future phase",
+      "whether it blocks merge",
+      "evidence"
+    ]
+  },
+  "merge_policy_defaults": {
+    "mode": "github_checks_or_local_verify",
+    "local_verify_required": true,
+    "github_checks_required": true,
+    "merge_ready_if": [
+      "scoped functionality is correct",
+      "regression tests pass",
+      "required checks pass",
+      "no new P0 or P1 issue is introduced",
+      "discoverability truth improves or remains stable",
+      "unrelated existing debt is documented as sidecar"
+    ],
+    "do_not_block_on": [
+      "unrelated repo lint debt",
+      "unrelated sidecar issues",
+      "pre-existing non-scoped failures"
+    ],
+    "must_block_on": [
+      "private flow exposure",
+      "canonical drift introduced by current PR",
+      "SEO truth split introduced by current PR",
+      "schema authority regression introduced by current PR",
+      "Evidence Container breakage introduced by current PR",
+      "required checks failure"
+    ]
+  },
   "items": {
+    "PR-DF-01": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "planned",
+      "not_started": true,
+      "branch": "codex/pr-df-01-discoverability-regression-snapshot",
+      "commit_sha": "",
+      "pr_url": "",
+      "scope": "Discoverability regression snapshot for sitemap, llms, private-flow exposure, canonical, hreflang, and JSON-LD parity without runtime SEO behavior changes.",
+      "checks": {
+        "local": [],
+        "github": []
+      },
+      "sidecar_issues": [],
+      "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    "PR-DF-02": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "planned",
+      "not_started": true,
+      "branch": "codex/pr-df-02-url-exposure-contract",
+      "commit_sha": "",
+      "pr_url": "",
+      "scope": "URL exposure policy inventory and contract for sitemap, llms, robots/noindex, canonical, hreflang, and private-flow exposure rules.",
+      "checks": {
+        "local": [],
+        "github": []
+      },
+      "sidecar_issues": [],
+      "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    "PR-DF-03": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "planned",
+      "not_started": true,
+      "branch": "codex/pr-df-03-llms-test-source-authority",
+      "commit_sha": "",
+      "pr_url": "",
+      "scope": "Align llms test URL enumeration with backend-owned test/catalog or sitemap-source authority without silent exposure widening.",
+      "checks": {
+        "local": [],
+        "github": []
+      },
+      "sidecar_issues": [],
+      "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    "PR-DF-04": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "planned",
+      "not_started": true,
+      "branch": "codex/pr-df-04-structured-data-contract",
+      "commit_sha": "",
+      "pr_url": "",
+      "scope": "Reconcile JSON-LD structured data contracts with backend SEO authority and visible page evidence.",
+      "checks": {
+        "local": [],
+        "github": []
+      },
+      "sidecar_issues": [],
+      "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    "PR-DF-05": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "planned",
+      "not_started": true,
+      "branch": "codex/pr-df-05-canonical-hreflang-jsonld-parity",
+      "commit_sha": "",
+      "pr_url": "",
+      "scope": "Add generated and sampled live parity gates for canonical, hreflang, robots/indexability posture, and JSON-LD URL references.",
+      "checks": {
+        "local": [],
+        "github": []
+      },
+      "sidecar_issues": [],
+      "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    "PR-DF-06": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "planned",
+      "not_started": true,
+      "branch": "codex/pr-df-06-cms-seo-completeness",
+      "commit_sha": "",
+      "pr_url": "",
+      "scope": "Document and enforce page-family CMS SEO completeness requirements for seo.surface.v1, sitemap-source, indexability, llms exposure, canonical, structured data, and Evidence Container readiness.",
+      "checks": {
+        "local": [],
+        "github": []
+      },
+      "sidecar_issues": [],
+      "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    "PR-DF-07": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "planned",
+      "not_started": true,
+      "branch": "codex/pr-df-07-evidence-container-readiness",
+      "commit_sha": "",
+      "pr_url": "",
+      "scope": "Add page-family Evidence Container readiness gates for visible evidence-rich answer blocks before Topic Graph or GEO expansion.",
+      "checks": {
+        "local": [],
+        "github": []
+      },
+      "sidecar_issues": [],
+      "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    "PR-DF-08": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "planned",
+      "not_started": true,
+      "branch": "codex/pr-df-08-shared-exposure-policy-extraction",
+      "commit_sha": "",
+      "pr_url": "",
+      "scope": "Extract duplicated sitemap, llms, robots/noindex, canonical, and private-flow deny/gate rules into shared discoverability policy utilities after regression coverage exists.",
+      "checks": {
+        "local": [],
+        "github": []
+      },
+      "sidecar_issues": [],
+      "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
     "PR-1": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
