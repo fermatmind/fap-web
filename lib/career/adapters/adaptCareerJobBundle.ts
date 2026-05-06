@@ -8,6 +8,7 @@ import { getCareerJobRenderState } from "@/lib/career/protocolReadiness";
 import { adaptCareerDisplaySurface } from "@/lib/career/displaySurface";
 import { buildCareerJobFrontendUrl, normalizeCareerBundleCanonicalPath } from "@/lib/career/urls";
 import type { CareerJobBundleResponseRaw } from "@/lib/career/api/types";
+import type { SeoSurfaceRaw } from "@/lib/api/v0_3";
 import type {
   CareerConversionClosureAdapter,
   CareerLifecycleFeedbackCheckinAdapter,
@@ -26,6 +27,7 @@ import type {
   CareerWarningsAdapter,
 } from "@/lib/career/adapters/types";
 import { localizedPath } from "@/lib/i18n/locales";
+import { normalizeSeoSurface, type SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
 import { canonicalUrl } from "@/lib/site";
 
 type AdaptCareerJobBundleInput = {
@@ -48,6 +50,22 @@ function unwrapPayload<T extends { data?: unknown }>(payload: T | null): Record<
   }
 
   return isRecord(payload) ? payload : null;
+}
+
+function readSeoAuthorityPayload(payload: CareerJobBundleResponseRaw | null): Record<string, unknown> | null {
+  if (!payload || !isRecord(payload)) {
+    return null;
+  }
+
+  if (isRecord(payload.seo_authority_v1)) {
+    return payload.seo_authority_v1;
+  }
+
+  if (isRecord(payload.data) && isRecord(payload.data.seo_authority_v1)) {
+    return payload.data.seo_authority_v1;
+  }
+
+  return null;
 }
 
 function normalizeString(value: unknown): string | null {
@@ -391,6 +409,56 @@ function buildStructuredData(
   };
 }
 
+function jsonLdTypeMatches(value: unknown, expectedType: string): boolean {
+  if (typeof value === "string") {
+    return value === expectedType;
+  }
+
+  if (Array.isArray(value)) {
+    return value.some((item) => item === expectedType);
+  }
+
+  return false;
+}
+
+function findJsonLdNodeByType(value: unknown, expectedType: string): Record<string, unknown> | null {
+  if (Array.isArray(value)) {
+    for (const item of value) {
+      const match = findJsonLdNodeByType(item, expectedType);
+      if (match) {
+        return match;
+      }
+    }
+    return null;
+  }
+
+  if (!isRecord(value)) {
+    return null;
+  }
+
+  if (jsonLdTypeMatches(value["@type"], expectedType)) {
+    return value;
+  }
+
+  return findJsonLdNodeByType(value["@graph"], expectedType);
+}
+
+function hasStructuredDataKey(seoSurface: SeoSurfaceViewModel | null, key: string): boolean {
+  const normalizedKey = key.toLowerCase();
+  return Boolean(seoSurface?.structuredDataKeys.some((item) => item.toLowerCase() === normalizedKey));
+}
+
+function buildSeoAuthorityOccupationJsonLd(
+  seoAuthority: Record<string, unknown> | null,
+  seoSurface: SeoSurfaceViewModel | null
+): Record<string, unknown> | null {
+  if (!seoAuthority || !hasStructuredDataKey(seoSurface, "Occupation")) {
+    return null;
+  }
+
+  return findJsonLdNodeByType(seoAuthority.jsonld, "Occupation");
+}
+
 function arrayFilterRecord(input: Record<string, unknown>): Record<string, unknown> {
   return Object.fromEntries(Object.entries(input).filter(([, value]) => value !== null && value !== undefined));
 }
@@ -535,6 +603,8 @@ function buildContentSections(raw: Record<string, unknown>): CareerJobBundleAdap
 }
 
 export function adaptCareerJobBundle(input: AdaptCareerJobBundleInput): CareerJobBundleAdapter | null {
+  const seoAuthority = readSeoAuthorityPayload(input.payload);
+  const seoSurface = normalizeSeoSurface((seoAuthority?.seo_surface_v1 ?? null) as SeoSurfaceRaw | null);
   const raw = unwrapPayload(input.payload);
   if (!raw) {
     return null;
@@ -564,6 +634,7 @@ export function adaptCareerJobBundle(input: AdaptCareerJobBundleInput): CareerJo
   const integritySummary = buildIntegritySummary(raw, scoreBundle);
   const whiteBoxScores = buildWhiteBoxScores(raw);
   const structuredData = buildStructuredData(raw, input.locale, slug);
+  const seoAuthorityOccupation = buildSeoAuthorityOccupationJsonLd(seoAuthority, seoSurface);
   const lifecycleCompanionRaw = isRecord(raw.lifecycle_companion) ? raw.lifecycle_companion : {};
 
   const adapter: CareerJobBundleAdapter = {
@@ -597,6 +668,7 @@ export function adaptCareerJobBundle(input: AdaptCareerJobBundleInput): CareerJo
     contentSections: buildContentSections(raw),
     contentBodyMd: normalizeString(raw.content_body_md),
     displaySurfaceV1: adaptCareerDisplaySurface(raw.display_surface_v1, input.locale, undefined, slug),
+    seoSurface,
     scoreBundle,
     warnings,
     claimPermissions,
@@ -613,7 +685,10 @@ export function adaptCareerJobBundle(input: AdaptCareerJobBundleInput): CareerJo
     lifecycleOperational: buildLifecycleOperational(raw),
     shortlistContract: buildShortlistContract(raw),
     conversionClosure: buildConversionClosure(raw),
-    structuredData,
+    structuredData: {
+      ...structuredData,
+      occupation: seoAuthorityOccupation ?? structuredData.occupation,
+    },
     renderState: getCareerJobRenderState({
       authoritySource: "career_backend_bundle.v0.5",
       claimPermissions,

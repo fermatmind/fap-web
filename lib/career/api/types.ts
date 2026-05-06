@@ -16,11 +16,18 @@ export type CareerJobBundleResponseRaw = {
   supporting_truth_summary?: unknown;
   white_box_scores?: unknown;
   structured_data?: CareerJobStructuredDataResponseRaw | unknown;
+  seo_authority_v1?: CareerJobSeoAuthorityResponseRaw | unknown;
   lifecycle_companion?: unknown;
   lifecycle_operational?: unknown;
   shortlist_contract?: unknown;
   conversion_closure?: unknown;
   display_surface_v1?: unknown;
+};
+
+export type CareerJobSeoAuthorityResponseRaw = {
+  meta?: unknown;
+  jsonld?: unknown;
+  seo_surface_v1?: unknown;
 };
 
 export type CareerJobStructuredDataOccupationResponseRaw = {
