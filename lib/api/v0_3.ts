@@ -2536,6 +2536,34 @@ function anonHeader(anonId?: string, extraHeaders?: Record<string, string>) {
   return { headers };
 }
 
+function explicitAnonHeader(anonId: string | undefined, extraHeaders?: Record<string, string>) {
+  const headers: Record<string, string> = {
+    ...(extraHeaders ?? {}),
+  };
+
+  if (anonId) {
+    headers["X-Anon-Id"] = anonId;
+  }
+
+  if (Object.keys(headers).length === 0) {
+    return {};
+  }
+
+  return { headers };
+}
+
+function normalizeResultAccessToken(accessToken?: string | null): string {
+  const normalized = typeof accessToken === "string" ? accessToken.trim() : "";
+
+  return normalized;
+}
+
+function resultAccessTokenHeader(accessToken?: string | null): Record<string, string> {
+  const normalized = normalizeResultAccessToken(accessToken);
+
+  return normalized ? { "X-Result-Access-Token": normalized } : {};
+}
+
 function resolveAnonId(anonId?: string): string | undefined {
   if (anonId && anonId.trim().length > 0) {
     return anonId.trim();
@@ -2905,10 +2933,11 @@ export async function fetchAttemptResult({
 }): Promise<ResultResponse> {
   const params = new URLSearchParams();
   if (locale) params.set("locale", locale);
-  if (accessToken) params.set("access_token", accessToken);
+  const normalizedAccessToken = normalizeResultAccessToken(accessToken);
+  if (normalizedAccessToken) params.set("access_token", normalizedAccessToken);
   const response = await apiClient.get<ResultResponse>(
     `/v0.3/attempts/${attemptId}/result${params.size > 0 ? `?${params.toString()}` : ""}`,
-    anonHeader(anonId)
+    anonHeader(anonId, resultAccessTokenHeader(normalizedAccessToken))
   );
 
   return assertApiOk(response, "Failed to load result.");
@@ -2951,12 +2980,13 @@ export async function getAttemptReport({
   const params = new URLSearchParams();
   if (refresh) params.set("refresh", "1");
   if (locale) params.set("locale", locale);
-  if (accessToken) params.set("access_token", accessToken);
+  const normalizedAccessToken = normalizeResultAccessToken(accessToken);
+  if (normalizedAccessToken) params.set("access_token", normalizedAccessToken);
   const suffix = params.size > 0 ? `?${params.toString()}` : "";
   const response = await apiClient.get<ReportResponse>(
     `/v0.3/attempts/${attemptId}/report${suffix}`,
     {
-      ...anonHeader(resolvedAnonId),
+      ...explicitAnonHeader(resolvedAnonId, resultAccessTokenHeader(normalizedAccessToken)),
       ...(skipAuth ? { skipAuth: true } : {}),
     }
   );
@@ -3081,11 +3111,12 @@ export async function fetchAttemptReportAccess({
   const resolvedAnonId = includeAnonId ? resolveAnonId(anonId) : undefined;
   const params = new URLSearchParams();
   if (locale) params.set("locale", locale);
-  if (accessToken) params.set("access_token", accessToken);
+  const normalizedAccessToken = normalizeResultAccessToken(accessToken);
+  if (normalizedAccessToken) params.set("access_token", normalizedAccessToken);
   const response = await apiClient.get<AttemptReportAccessResponse>(
     `/v0.3/attempts/${attemptId}/report-access${params.size > 0 ? `?${params.toString()}` : ""}`,
     {
-      ...anonHeader(resolvedAnonId),
+      ...explicitAnonHeader(resolvedAnonId, resultAccessTokenHeader(normalizedAccessToken)),
       ...(skipAuth ? { skipAuth: true } : {}),
     }
   );
