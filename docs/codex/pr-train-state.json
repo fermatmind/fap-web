@@ -647,11 +647,11 @@
     "PR-UG-04": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "in_progress",
+      "status": "open",
       "not_started": false,
       "branch": "codex/pr-ug-04-career-family-authority-audit",
-      "commit_sha": "63d5ea39369d4b6869c4270cebff85e0e00428e1",
-      "pr_url": "",
+      "commit_sha": "e60cac9ee6d69b77f424e56214405bb3d1c65f4a",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/669",
       "scope": "Add career family duplicate authority audit, migration safety analysis, and remediation plan without runtime URL changes.",
       "checks": {
         "local": [
