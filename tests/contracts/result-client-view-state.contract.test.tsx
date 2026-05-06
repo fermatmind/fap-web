@@ -275,7 +275,7 @@ describe("ResultClient view-state contract", () => {
     expect(hoisted.linkAnonAttemptsOnceOnLoginSuccess).not.toHaveBeenCalled();
   });
 
-  it("does not pass raw result URL access_token through result read APIs", async () => {
+  it("passes result access_token through result read APIs", async () => {
     hoisted.search = "access_token=result_lookup_token_123";
     hoisted.fetchAttemptReport.mockResolvedValue(cloneFixture(reportReadyMbtiProjectionFixture) as ReportResponse);
 
@@ -287,11 +287,11 @@ describe("ResultClient view-state contract", () => {
 
     const [reportAccessParams] = hoisted.fetchAttemptReportAccess.mock.calls[0] ?? [];
     expect(reportAccessParams).toEqual(expect.objectContaining({ attemptId: "attempt-123" }));
-    expect(reportAccessParams).not.toHaveProperty("accessToken");
+    expect(reportAccessParams).toEqual(expect.objectContaining({ accessToken: "result_lookup_token_123" }));
 
     const [reportParams] = hoisted.fetchAttemptReport.mock.calls[0] ?? [];
     expect(reportParams).toEqual(expect.objectContaining({ attemptId: "attempt-123" }));
-    expect(reportParams).not.toHaveProperty("accessToken");
+    expect(reportParams).toEqual(expect.objectContaining({ accessToken: "result_lookup_token_123" }));
   });
 
   it("links pending result attempts with an existing stored auth token", async () => {
