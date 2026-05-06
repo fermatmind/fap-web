@@ -55,11 +55,6 @@ function withLocaleIfNeeded(path: string, locale: Locale): string {
 function resolveResultHref(item: ResultEmailLookupItem, locale: Locale): string | null {
   const directHref = normalizeCommerceReportPath(item.result_url);
   if (directHref) {
-    const params = new URLSearchParams(directHref.split("?")[1] ?? "");
-    if (params.has("access_token") || params.has("result_access_token")) {
-      return null;
-    }
-
     return withLocaleIfNeeded(directHref, locale);
   }
 

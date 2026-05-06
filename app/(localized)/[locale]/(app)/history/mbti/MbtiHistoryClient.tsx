@@ -441,7 +441,7 @@ export default function MbtiHistoryClient() {
   const copy = getDictSync(locale).history.mbti;
   const surfaceCopy = copy.surface;
   const startTestHref = localizedPath(`/tests/${SCALE_CANONICAL_SLUG_MAP.MBTI}/take`, locale);
-  const orderLookupHref = localizedPath("/orders/lookup", locale);
+  const resultLookupHref = localizedPath("/results/lookup", locale);
 
   const [rows, setRows] = useState<Row[]>([]);
   const [error, setError] = useState<string | null>(null);
@@ -473,7 +473,7 @@ export default function MbtiHistoryClient() {
   const pulsePromptLabels = (journey?.pulsePromptKeys ?? []).map((key) => resolveMbtiPulsePromptLabel(key, locale));
   const latestRow = rows[0] ?? null;
   const latestRowSurface = latestRow ? resolveRowSurface(latestRow, locale, surfaceCopy) : null;
-  const recoveryHref = latestRowSurface?.lookupHref ?? orderLookupHref;
+  const recoveryHref = latestRowSurface?.lookupHref ?? resultLookupHref;
   const latestResultHref = latestRow
     && latestRowSurface?.primaryHref
     ? appendMbtiActionJourneyQuery(
@@ -730,7 +730,7 @@ export default function MbtiHistoryClient() {
                 {copy.emptyStartCta}
               </Link>
               <Link
-                href={orderLookupHref}
+                href={resultLookupHref}
                 className={buttonVariants({ variant: "outline", className: "w-full sm:w-auto" })}
                 data-testid="mbti-history-empty-recovery"
               >

@@ -25,7 +25,7 @@ describe("ResultEmailLookupForm contract", () => {
     vi.clearAllMocks();
   });
 
-  it("looks up normalized email but does not open bearer token result links", async () => {
+  it("looks up normalized email and opens backend-issued result access token links", async () => {
     hoisted.lookupResultsByEmail.mockResolvedValueOnce({
       ok: true,
       items: [
@@ -59,8 +59,10 @@ describe("ResultEmailLookupForm contract", () => {
     expect(screen.getByTestId("result-email-lookup-results")).toHaveTextContent("Saved results found");
     expect(screen.getByTestId("result-email-lookup-item")).toHaveTextContent("MBTI");
     expect(screen.getByTestId("result-email-lookup-item")).toHaveTextContent("INTJ-A");
-    expect(screen.getByTestId("result-email-lookup-item")).toHaveTextContent("Result link unavailable");
-    expect(screen.queryByTestId("result-email-lookup-open")).not.toBeInTheDocument();
+    expect(screen.getByTestId("result-email-lookup-open")).toHaveAttribute(
+      "href",
+      "/en/result/attempt-email-lookup-1?access_token=result_lookup_token_1"
+    );
   });
 
   it("returns a blind empty state for unmatched emails", async () => {
