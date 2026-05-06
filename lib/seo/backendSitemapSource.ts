@@ -10,13 +10,27 @@ type BackendSitemapSourcePayload = {
   items?: BackendSitemapSourceItem[];
 };
 
+type CareerSeoAuthorityPayload = {
+  meta?: {
+    robots?: unknown;
+  };
+  seo_surface_v1?: {
+    robots_policy?: unknown;
+    indexability_state?: unknown;
+    sitemap_state?: unknown;
+    llms_exposure_state?: unknown;
+  };
+};
+
 const BACKEND_SITEMAP_SOURCE_TIMEOUT_MS = 20_000;
+const CAREER_SEO_AUTHORITY_CONCURRENCY = 8;
 const SOFTWARE_DEVELOPERS_DETAIL_RE = /^\/(?:en|zh)\/career\/jobs\/software-developers$/i;
 const CAREER_JOB_DETAIL_RE = /^\/(?:en|zh)\/career\/jobs\/[^/]+$/i;
 const CAREER_JOB_DETAIL_PARTS_RE = /^\/(en|zh)\/career\/jobs\/([^/]+)$/i;
 const BACKEND_SITEMAP_CANONICAL_HOSTS = new Set(["fermatmind.com", "www.fermatmind.com"]);
 
 let careerJobPathCache: string[] | null = null;
+const careerJobSeoAuthorityCache = new Map<string, Promise<CareerSeoAuthorityPayload | null>>();
 
 function normalizePath(path: string): string {
   const value = String(path || "").trim() || "/";
@@ -78,6 +92,26 @@ function shouldKeepCareerJobDetailPath(path: string): boolean {
   );
 }
 
+function toSeoAuthorityApiLocale(locale: "en" | "zh"): string {
+  return locale === "zh" ? "zh-CN" : "en-US";
+}
+
+function normalizeText(value: unknown): string {
+  if (typeof value !== "string" && typeof value !== "number") {
+    return "";
+  }
+
+  return String(value).trim();
+}
+
+function hasToken(value: unknown, token: string): boolean {
+  return normalizeText(value)
+    .toLowerCase()
+    .split(",")
+    .map((part) => part.trim())
+    .includes(token);
+}
+
 async function fetchBackendSitemapSource(): Promise<BackendSitemapSourcePayload> {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), BACKEND_SITEMAP_SOURCE_TIMEOUT_MS);
@@ -100,25 +134,116 @@ async function fetchBackendSitemapSource(): Promise<BackendSitemapSourcePayload>
   }
 }
 
+async function fetchCareerJobSeoAuthority(locale: "en" | "zh", slug: string): Promise<CareerSeoAuthorityPayload | null> {
+  const cacheKey = `${locale}:${slug}`;
+  if (careerJobSeoAuthorityCache.has(cacheKey)) {
+    return careerJobSeoAuthorityCache.get(cacheKey) ?? null;
+  }
+
+  const promise = (async () => {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), BACKEND_SITEMAP_SOURCE_TIMEOUT_MS);
+
+    try {
+      const params = new URLSearchParams({
+        locale: toSeoAuthorityApiLocale(locale),
+        org_id: "0",
+      });
+      const response = await fetch(buildApiUrl(`/v0.5/career-jobs/${encodeURIComponent(slug)}/seo?${params.toString()}`), {
+        headers: {
+          Accept: "application/json",
+        },
+        signal: controller.signal,
+      });
+
+      if (!response.ok) {
+        return null;
+      }
+
+      return (await response.json()) as CareerSeoAuthorityPayload;
+    } finally {
+      clearTimeout(timer);
+    }
+  })();
+
+  careerJobSeoAuthorityCache.set(cacheKey, promise);
+  return promise;
+}
+
+function isCareerJobSeoAuthorityDiscoverable(payload: CareerSeoAuthorityPayload | null): boolean {
+  if (!payload) {
+    return false;
+  }
+
+  const surface = payload.seo_surface_v1;
+  const robotsPolicy = normalizeText(surface?.robots_policy || payload.meta?.robots);
+  const indexabilityState = normalizeText(surface?.indexability_state).toLowerCase();
+  const sitemapState = normalizeText(surface?.sitemap_state).toLowerCase();
+  const llmsExposureState = normalizeText(surface?.llms_exposure_state).toLowerCase();
+
+  if (hasToken(robotsPolicy, "noindex")) {
+    return false;
+  }
+
+  if (robotsPolicy && !hasToken(robotsPolicy, "index")) {
+    return false;
+  }
+
+  if (indexabilityState && indexabilityState !== "indexable") {
+    return false;
+  }
+
+  if (sitemapState && sitemapState !== "included") {
+    return false;
+  }
+
+  if (llmsExposureState && llmsExposureState !== "allow") {
+    return false;
+  }
+
+  return true;
+}
+
+async function filterCareerJobPathsBySeoAuthority(paths: string[]): Promise<string[]> {
+  const results = new Array<string | null>(paths.length).fill(null);
+  let nextIndex = 0;
+
+  async function worker(): Promise<void> {
+    while (nextIndex < paths.length) {
+      const index = nextIndex;
+      nextIndex += 1;
+      const path = paths[index] ?? "";
+      const parsed = parseCareerJobDetailPath(path);
+      if (!parsed) {
+        results[index] = null;
+        continue;
+      }
+
+      const authority = await fetchCareerJobSeoAuthority(parsed.locale, parsed.slug);
+      results[index] = isCareerJobSeoAuthorityDiscoverable(authority) ? parsed.path : null;
+    }
+  }
+
+  await Promise.all(
+    Array.from({ length: Math.min(CAREER_SEO_AUTHORITY_CONCURRENCY, paths.length) }, () => worker())
+  );
+
+  return results.filter((path): path is string => Boolean(path)).sort((left, right) => left.localeCompare(right));
+}
+
 export function extractBackendSitemapCareerJobPaths(payload: BackendSitemapSourcePayload): string[] {
   const items = Array.isArray(payload.items) ? payload.items : [];
-  const pathsBySlug = new Map<string, Partial<Record<"en" | "zh", string>>>();
+  const paths = new Set<string>();
 
   for (const item of items) {
     const path = extractPathFromCanonicalUrl(item?.loc);
     const parsed = parseCareerJobDetailPath(path);
     if (parsed && shouldKeepCareerJobDetailPath(parsed.path)) {
-      pathsBySlug.set(parsed.slug, {
-        ...pathsBySlug.get(parsed.slug),
-        [parsed.locale]: parsed.path,
-      });
+      paths.add(parsed.path);
     }
   }
 
-  return [...pathsBySlug.values()]
-    .filter((paths): paths is Record<"en" | "zh", string> => Boolean(paths.en && paths.zh))
-    .flatMap((paths) => [paths.en, paths.zh])
-    .sort((left, right) => left.localeCompare(right));
+  return [...paths].sort((left, right) => left.localeCompare(right));
 }
 
 export async function listBackendSitemapCareerJobPaths(): Promise<string[]> {
@@ -127,7 +252,7 @@ export async function listBackendSitemapCareerJobPaths(): Promise<string[]> {
   }
 
   const payload = await fetchBackendSitemapSource();
-  careerJobPathCache = extractBackendSitemapCareerJobPaths(payload);
+  careerJobPathCache = await filterCareerJobPathsBySeoAuthority(extractBackendSitemapCareerJobPaths(payload));
 
   return careerJobPathCache;
 }

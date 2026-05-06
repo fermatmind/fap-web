@@ -1,13 +1,23 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { extractBackendSitemapCareerJobPaths } from "@/lib/seo/backendSitemapSource";
+import { extractBackendSitemapCareerJobPaths, listBackendSitemapCareerJobPaths } from "@/lib/seo/backendSitemapSource";
+
+function jsonResponse(payload: unknown, status = 200): Response {
+  return new Response(JSON.stringify(payload), {
+    status,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+}
 
 afterEach(() => {
+  vi.unstubAllGlobals();
   vi.restoreAllMocks();
   vi.resetModules();
 });
 
 describe("career llms alignment contract", () => {
-  it("uses only bilingual backend sitemap-source Career job details for llms coverage", () => {
+  it("extracts only safe canonical backend sitemap-source Career job detail candidates", () => {
     expect(
       extractBackendSitemapCareerJobPaths({
         items: [
@@ -24,8 +34,57 @@ describe("career llms alignment contract", () => {
       })
     ).toEqual([
       "/en/career/jobs/backend-architect",
+      "/en/career/jobs/backend-engineer",
       "/zh/career/jobs/backend-architect",
     ]);
+  });
+
+  it("keeps only SEO-authority indexable Career job details for sitemap and llms coverage", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async (input: RequestInfo | URL) => {
+        const url = String(input);
+
+        if (url.includes("/api/v0.5/seo/sitemap-source")) {
+          return jsonResponse({
+            items: [
+              { loc: "https://fermatmind.com/en/career/jobs/actors" },
+              { loc: "https://fermatmind.com/zh/career/jobs/actors" },
+              { loc: "https://fermatmind.com/zh/career/jobs/noindex-role" },
+              { loc: "https://fermatmind.com/zh/career/jobs/software-developers" },
+            ],
+          });
+        }
+
+        if (url.includes("/api/v0.5/career-jobs/actors/seo?") && url.includes("locale=zh-CN")) {
+          return jsonResponse({
+            meta: { robots: "index,follow" },
+            seo_surface_v1: {
+              robots_policy: "index,follow",
+              indexability_state: "indexable",
+              sitemap_state: "included",
+              llms_exposure_state: "allow",
+            },
+          });
+        }
+
+        if (url.includes("/api/v0.5/career-jobs/noindex-role/seo?")) {
+          return jsonResponse({
+            meta: { robots: "noindex,follow" },
+            seo_surface_v1: {
+              robots_policy: "noindex,follow",
+              indexability_state: "trust_limited",
+              sitemap_state: "excluded",
+              llms_exposure_state: "blocked",
+            },
+          });
+        }
+
+        return jsonResponse({ message: "not found" }, 404);
+      })
+    );
+
+    await expect(listBackendSitemapCareerJobPaths()).resolves.toEqual(["/zh/career/jobs/actors"]);
   });
 
   it("llms.txt reflects current live Career authority routes and excludes query search urls", async () => {
