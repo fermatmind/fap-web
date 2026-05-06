@@ -1,11 +1,320 @@
-train_name: career-night-train
+train_name: discoverability-foundation-train
+train_description: >
+  Stabilize and unify FermatMind discoverability truth across sitemap, llms,
+  canonical, metadata, JSON-LD, robots/noindex, hreflang, Evidence Container,
+  URL truth, and SEO authority ownership without changing runtime SEO behavior
+  during train bootstrap.
+previous_train_name: career-night-train
 base_branch: main
 merge_method: squash
 stop_on_failure: true
 require_clean_worktree: true
 execution_mode: local_clone_preferred
+status: initialized
+pr_namespace: PR-DF-*
+branch_naming_convention: codex/pr-df-<nn>-<short-scope>
+required_github_checks:
+  - build
+  - contracts
+  - verify-big5-contract-freeze
+  - verify-enneagram-contract-freeze
+train_policy:
+  scope: discoverability_foundation_stabilization
+  continue_if_unrelated_repo_debt_exists: true
+  stop_only_on_scoped_regression_or_required_check_failure: true
+  no_runtime_seo_behavior_changes_during_bootstrap: true
+  no_topic_graph_rollout: true
+  no_recommendation_system_rollout: true
+  no_behavior_graph_rollout: true
+  no_commerce_auth_report_payment_changes: true
+  authority_rules:
+    - backend owns SEO and discoverability truth
+    - frontend deterministic render only
+    - never invent frontend SEO fallback authority
+    - never silently widen sitemap or llms exposure
+    - never expose private take result order share flows
+sidecar_issue_policy:
+  continue_train_when:
+    - blocker is unrelated to the current PR
+    - scoped validation passes
+    - required GitHub checks are green
+    - no new P0 or P1 issue is introduced
+  required_fields:
+    - title
+    - severity
+    - scope impact
+    - whether introduced by current PR
+    - recommended future phase
+    - whether it blocks merge
+    - evidence
+merge_policy_defaults:
+  mode: github_checks_or_local_verify
+  local_verify_required: true
+  github_checks_required: true
+  required_github_checks:
+    - build
+    - contracts
+    - verify-big5-contract-freeze
+    - verify-enneagram-contract-freeze
+  merge_ready_if:
+    - scoped functionality is correct
+    - regression tests pass
+    - required checks pass
+    - no new P0 or P1 issue is introduced
+    - discoverability truth improves or remains stable
+    - unrelated existing debt is documented as sidecar
 
 prs:
+  - id: PR-DF-01
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-df-01-discoverability-regression-snapshot
+    base: main
+    depends_on: []
+    mode: execute
+    status: planned
+    scope: >
+      Discoverability regression snapshot. Add or strengthen read-only
+      regression coverage for sitemap, llms, private-flow exposure, canonical,
+      hreflang, and JSON-LD parity without changing runtime SEO behavior,
+      public URLs, sitemap exposure, llms exposure, metadata rendering,
+      commerce, auth, report, payment, scoring, or attempt flows.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "pnpm typecheck"
+      - "pnpm test:contract"
+      - "git diff --check"
+      - "git diff --cached --check"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: true
+      required_github_checks: ["build", "contracts", "verify-big5-contract-freeze", "verify-enneagram-contract-freeze"]
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
+
+  - id: PR-DF-02
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-df-02-url-exposure-contract
+    base: main
+    depends_on: ["PR-DF-01"]
+    mode: execute
+    status: planned
+    scope: >
+      URL exposure policy inventory and contract. Capture existing sitemap,
+      llms, robots/noindex, canonical, hreflang, and private-flow exposure
+      rules as explicit contracts before shared-policy extraction. Do not
+      change runtime discoverability behavior, widen exposure, add frontend SEO
+      authority, or touch commerce/auth/report/payment systems.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "pnpm typecheck"
+      - "pnpm test:contract"
+      - "git diff --check"
+      - "git diff --cached --check"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: true
+      required_github_checks: ["build", "contracts", "verify-big5-contract-freeze", "verify-enneagram-contract-freeze"]
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
+
+  - id: PR-DF-03
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-df-03-llms-test-source-authority
+    base: main
+    depends_on: ["PR-DF-02"]
+    mode: execute
+    status: planned
+    scope: >
+      llms test source authority alignment. Align test URL enumeration for
+      llms surfaces with backend-owned test/catalog or sitemap-source
+      authority, preserving existing public URLs and avoiding any silent
+      sitemap/llms exposure widening. Do not change scoring, attempt,
+      payment, auth, report, or commerce flows.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "pnpm typecheck"
+      - "pnpm test:contract"
+      - "git diff --check"
+      - "git diff --cached --check"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: true
+      required_github_checks: ["build", "contracts", "verify-big5-contract-freeze", "verify-enneagram-contract-freeze"]
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
+
+  - id: PR-DF-04
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-df-04-structured-data-contract
+    base: main
+    depends_on: ["PR-DF-02"]
+    mode: execute
+    status: planned
+    scope: >
+      Structured data contract reconciliation. Reconcile test, career,
+      personality, topic, and support page JSON-LD expectations with backend
+      SEO authority and visible page evidence, updating contracts/docs or
+      deterministic renderers only within scoped discoverability behavior. Do
+      not add hidden schema stuffing, Product schema expansion, frontend SEO
+      authority, or content generation.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "pnpm typecheck"
+      - "pnpm test:contract"
+      - "git diff --check"
+      - "git diff --cached --check"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: true
+      required_github_checks: ["build", "contracts", "verify-big5-contract-freeze", "verify-enneagram-contract-freeze"]
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
+
+  - id: PR-DF-05
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-df-05-canonical-hreflang-jsonld-parity
+    base: main
+    depends_on: ["PR-DF-03", "PR-DF-04"]
+    mode: execute
+    status: planned
+    scope: >
+      Canonical, hreflang, and JSON-LD parity gates. Add generated and sampled
+      live parity checks that verify sitemap URLs, canonical URLs, hreflang
+      alternates, robots/indexability posture, and JSON-LD @id/url references
+      remain consistent. Do not change public URLs or runtime exposure outside
+      contract fixes.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "pnpm typecheck"
+      - "pnpm test:contract"
+      - "git diff --check"
+      - "git diff --cached --check"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: true
+      required_github_checks: ["build", "contracts", "verify-big5-contract-freeze", "verify-enneagram-contract-freeze"]
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
+
+  - id: PR-DF-06
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-df-06-cms-seo-completeness
+    base: main
+    depends_on: ["PR-DF-02"]
+    mode: execute
+    status: planned
+    scope: >
+      CMS SEO completeness matrix. Document and enforce page-family SEO
+      authority requirements for seo.surface.v1, sitemap-source,
+      indexability_state, llms_exposure_state, canonical_url,
+      structured_data_keys, and Evidence Container readiness. Do not migrate
+      content, add local frontend fallback content, or change runtime commerce,
+      auth, report, payment, scoring, or attempt systems.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "pnpm typecheck"
+      - "pnpm test:contract"
+      - "git diff --check"
+      - "git diff --cached --check"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: true
+      required_github_checks: ["build", "contracts", "verify-big5-contract-freeze", "verify-enneagram-contract-freeze"]
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
+
+  - id: PR-DF-07
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-df-07-evidence-container-readiness
+    base: main
+    depends_on: ["PR-DF-04", "PR-DF-06"]
+    mode: execute
+    status: planned
+    scope: >
+      Evidence Container readiness gates. Add page-family readiness contracts
+      for visible evidence-rich answer blocks on core discoverability surfaces
+      before Topic Graph or GEO expansion. Do not generate AI content, create
+      new topic clusters, redesign UI, or widen sitemap/llms exposure.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "pnpm typecheck"
+      - "pnpm test:contract"
+      - "git diff --check"
+      - "git diff --cached --check"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: true
+      required_github_checks: ["build", "contracts", "verify-big5-contract-freeze", "verify-enneagram-contract-freeze"]
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
+
+  - id: PR-DF-08
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-df-08-shared-exposure-policy-extraction
+    base: main
+    depends_on: ["PR-DF-05", "PR-DF-06", "PR-DF-07"]
+    mode: execute
+    status: planned
+    scope: >
+      Shared exposure policy extraction. After regression coverage and
+      authority contracts exist, carefully extract duplicated sitemap, llms,
+      robots/noindex, canonical, and private-flow deny/gate rules into shared
+      discoverability policy utilities. Preserve public URLs, existing indexed
+      routes, backend SEO authority, and current exposure unless a scoped
+      contract explicitly requires correction.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "pnpm typecheck"
+      - "pnpm test:contract"
+      - "git diff --check"
+      - "git diff --cached --check"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: true
+      required_github_checks: ["build", "contracts", "verify-big5-contract-freeze", "verify-enneagram-contract-freeze"]
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
+
   - id: PR-1
     repo: fap-web
     repo_path: /Users/rainie/Desktop/GitHub/fap-web
