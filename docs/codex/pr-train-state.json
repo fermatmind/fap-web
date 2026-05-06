@@ -328,7 +328,7 @@
     "PR-DF-08": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "pr_open",
+      "status": "github_checks_passed",
       "not_started": false,
       "branch": "codex/pr-df-08-shared-exposure-policy",
       "commit_sha": "019b1efdb8902f823710be587c6a2da4ec410865",
@@ -350,7 +350,28 @@
           "pnpm seo:check-sitemap passed",
           "git diff --check passed"
         ],
-        "github": []
+        "github": [
+          {
+            "name": "build",
+            "status": "passed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/25445154270/job/74647104913"
+          },
+          {
+            "name": "contracts",
+            "status": "passed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/25445154270/job/74647104933"
+          },
+          {
+            "name": "verify-big5-contract-freeze",
+            "status": "passed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/25445154270/job/74647104894"
+          },
+          {
+            "name": "verify-enneagram-contract-freeze",
+            "status": "passed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/25445154270/job/74647104983"
+          }
+        ]
       },
       "sidecar_issues": [
         {
