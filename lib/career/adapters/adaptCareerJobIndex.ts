@@ -2,6 +2,7 @@ import { normalizeCareerScoreResult } from "@/lib/career/contracts";
 import type { CareerJobIndexResponseRaw } from "@/lib/career/api/types";
 import { buildCareerJobFrontendUrl, normalizeCareerBundleCanonicalPath } from "@/lib/career/urls";
 import { deriveCareerLightweightDataStatus } from "@/lib/career/lightweightGate";
+import { normalizeCareerJobSlug } from "@/lib/career/slugSafety";
 import type {
   CareerJobIndexCardAdapter,
   CareerProvenanceMetaAdapter,
@@ -100,7 +101,7 @@ function adaptItem(raw: Record<string, unknown>, locale: "en" | "zh"): CareerJob
   const seoContract = buildSeoContract(raw);
   const provenanceMeta = buildProvenanceMeta(raw);
 
-  const canonicalSlug = normalizeString(identity.canonical_slug);
+  const canonicalSlug = normalizeCareerJobSlug(normalizeString(identity.canonical_slug));
   if (!canonicalSlug) {
     return null;
   }

@@ -6,6 +6,50 @@
   "base_branch": "main",
   "stop_on_failure": true,
   "items": {
+    "PR-1": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "in_progress",
+      "branch": "codex/low-web-url-slug-href-safety",
+      "commit_sha": "",
+      "pr_url": "",
+      "checks": {
+        "local": [
+          {
+            "command": "pnpm lint 'app/(localized)/[locale]/career/industries/page.tsx' components/career/display/CareerDisplaySurface.tsx lib/career/adapters/adaptCareerDatasetHub.ts lib/career/adapters/adaptCareerJobIndex.ts lib/career/slugSafety.ts lib/seo/backendSitemapSource.ts tests/contracts/career-display-surface.contract.test.tsx tests/contracts/career-growth-owned-discovery-links.contract.test.tsx tests/contracts/career-llms-alignment.contract.test.ts",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/career-display-surface.contract.test.tsx tests/contracts/career-growth-owned-discovery-links.contract.test.tsx tests/contracts/career-llms-alignment.contract.test.ts",
+            "status": "passed",
+            "notes": "52 tests passed."
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "jq empty docs/codex/pr-train-state.json",
+            "status": "passed"
+          },
+          {
+            "command": "git diff --check",
+            "status": "passed"
+          },
+          {
+            "command": "git diff --cached --check",
+            "status": "passed"
+          }
+        ],
+        "github": []
+      },
+      "sidecar_issues": [],
+      "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
     "frontend-result-email-gate": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",

@@ -184,6 +184,51 @@ describe("career display surface contract", () => {
     expect(screen.getByTestId("career-display-cta")).toHaveTextContent("Measure my career interests");
   });
 
+  it("rejects unsafe backend CTA hrefs before they reach Link sinks", () => {
+    const fixture = buildSelectedCareerDisplaySurfaceFixture({ slug: "data-scientists" });
+    fixture.page.content.primary_cta.href = "javascript:alert(1)";
+
+    expect(adaptCareerDisplaySurface(fixture, "en")).toBeNull();
+  });
+
+  it("drops unsafe display-surface section CTA and source URLs", () => {
+    const fixture = buildSelectedCareerDisplaySurfaceFixture({ slug: "data-scientists" });
+    fixture.page.content.next_steps_block.cta.href = "data:text/html,alert(1)";
+    fixture.sources.references[0].url = "javascript:alert(1)";
+    fixture.sources.references[1].url = "https://www.onetonline.org/";
+
+    const surface = adaptCareerDisplaySurface(fixture, "en");
+
+    expect(surface?.sections.find((section) => section.component === "NextStepsBlock")?.cta).toBeUndefined();
+    expect(surface?.sources).toEqual([
+      expect.objectContaining({ label: "O*NET Online: Data Scientists" }),
+      expect.objectContaining({ label: "FermatMind interpretation", url: "https://www.onetonline.org/" }),
+    ]);
+    expect(surface?.sources[0]).not.toHaveProperty("url");
+  });
+
+  it("removes salary claims from all visible display-surface fields when salary comparison is blocked", () => {
+    const fixture = buildSelectedCareerDisplaySurfaceFixture({ slug: "data-scientists" });
+    fixture.claim_permissions = buildDisplaySurfaceClaimPermissions({
+      allow_salary_comparison: false,
+      blocked_claims: ["salary_missing"],
+    });
+    fixture.page.content.personality_fit_block.answer = "Salary should not render from answer fields.";
+    fixture.page.content.fermat_decision_card.summary = "Salary should not render from fit titles.";
+    fixture.page.content.faq_block.items[0] = {
+      question: "What salary can I expect?",
+      answer: "Salary should not render from FAQ fields.",
+    };
+
+    const surface = adaptCareerDisplaySurface(fixture, "en");
+
+    render(<CareerDisplaySurface surface={surface} />);
+
+    expect(screen.getByTestId("claim-permission-notice-salary")).toHaveTextContent("Direct salary comparison is hidden");
+    expect(screen.queryByText(/Salary should not render/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/What salary can I expect/i)).not.toBeInTheDocument();
+  });
+
   it.each(D8_ACTIVE_DISPLAY_SLUGS)("adapts D8 validator-eligible display surfaces for %s", (slug, titleEn) => {
     const surface = adaptCareerDisplaySurface(
       buildSelectedCareerDisplaySurfaceFixture({ slug, titleEn }),

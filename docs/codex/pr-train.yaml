@@ -6,6 +6,38 @@ require_clean_worktree: true
 execution_mode: local_clone_preferred
 
 prs:
+  - id: PR-1
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/low-web-url-slug-href-safety
+    base: main
+    depends_on: []
+    mode: execute
+    scope: >
+      fap-web URL / slug / href safety. Fix Low security findings for
+      Career job discovery slugs, backend sitemap-source URL authority,
+      display_surface_v1 CTA/source href safety, and display-surface salary
+      claim gating. Do not change fap-api, order/payment flows, CMS backend
+      publishing authority, sitemap route generation outside backend-owned
+      Career sitemap-source filtering, content assets, editorial copy, or
+      subsequent Low finding scopes.
+    checks:
+      - "pnpm lint 'app/(localized)/[locale]/career/industries/page.tsx' components/career/display/CareerDisplaySurface.tsx lib/career/adapters/adaptCareerDatasetHub.ts lib/career/adapters/adaptCareerJobIndex.ts lib/career/slugSafety.ts lib/seo/backendSitemapSource.ts tests/contracts/career-display-surface.contract.test.tsx tests/contracts/career-growth-owned-discovery-links.contract.test.tsx tests/contracts/career-llms-alignment.contract.test.ts"
+      - "pnpm vitest run tests/contracts/career-display-surface.contract.test.tsx tests/contracts/career-growth-owned-discovery-links.contract.test.tsx tests/contracts/career-llms-alignment.contract.test.ts"
+      - "pnpm typecheck"
+      - "jq empty docs/codex/pr-train-state.json"
+      - "git diff --check"
+      - "git diff --cached --check"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: true
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
+
   - id: frontend-result-email-gate
     repo: fap-web
     repo_path: /Users/rainie/Desktop/GitHub/fap-web

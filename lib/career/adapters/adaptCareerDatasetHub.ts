@@ -1,5 +1,6 @@
 import type { CareerDatasetHubResponseRaw } from "@/lib/career/api/types";
 import type { CareerDatasetHubAdapter, CareerDatasetMemberAdapter } from "@/lib/career/adapters/types";
+import { normalizeCareerJobSlug } from "@/lib/career/slugSafety";
 
 type AdaptCareerDatasetHubInput = {
   payload: CareerDatasetHubResponseRaw | null;
@@ -62,7 +63,7 @@ function normalizeRecordOfRecordNumbers(value: unknown): Record<string, Record<s
 
 function normalizeMember(value: unknown): CareerDatasetMemberAdapter | null {
   const member = normalizeObject(value);
-  const canonicalSlug = normalizeString(member.canonical_slug);
+  const canonicalSlug = normalizeCareerJobSlug(normalizeString(member.canonical_slug));
   if (!canonicalSlug) {
     return null;
   }
