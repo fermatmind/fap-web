@@ -9,9 +9,9 @@
     "PR-1": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "in_progress",
+      "status": "local_checks_passed",
       "branch": "codex/low-web-url-slug-href-safety",
-      "commit_sha": "",
+      "commit_sha": "2a423bb2a01f79e3598d223e32786c253751be53",
       "pr_url": "",
       "checks": {
         "local": [
