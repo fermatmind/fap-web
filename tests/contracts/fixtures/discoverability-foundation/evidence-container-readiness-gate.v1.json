@@ -1,0 +1,140 @@
+{
+  "version": "discoverability.evidence_container_readiness_gate.v1",
+  "scope": "PR-DF-07",
+  "description": "Evidence Container readiness gates for visible HTML, grounded answer blocks, JSON-LD alignment, and public next steps. This fixture must not generate content or widen discoverability exposure.",
+  "authorityPrinciples": [
+    "visible_html_first",
+    "backend_cms_authority",
+    "answer_surface_v1_is_current_content_carrier",
+    "faq_schema_must_match_visible_content",
+    "private_flows_never_discoverable",
+    "no_hidden_schema_stuffing"
+  ],
+  "allowedBlockTypes": [
+    "quick_answer",
+    "definition",
+    "comparison",
+    "how_to",
+    "evidence_facts",
+    "caveat",
+    "faq",
+    "next_step",
+    "related_links",
+    "last_reviewed"
+  ],
+  "minimumGate": {
+    "requiresPrimaryAnswer": true,
+    "minimumNonFaqEvidenceBlocks": 1,
+    "requiresCaveatForRiskPages": true,
+    "requiresCanonicalPublicNextSteps": true,
+    "faqOnlyIsReady": false,
+    "hiddenSchemaAllowed": false
+  },
+  "privateFlowDenyPatterns": [
+    "/tests/*/take",
+    "/result/*",
+    "/orders/*",
+    "/share/*",
+    "/payment/*",
+    "/pay/*",
+    "/history/*"
+  ],
+  "pageFamilies": [
+    {
+      "name": "test_detail",
+      "readiness": "partial",
+      "requiredBlocks": ["quick_answer", "definition", "caveat", "next_step"],
+      "recommendedBlocks": ["comparison", "faq", "evidence_facts"],
+      "riskBoundary": "identity_and_decision_support"
+    },
+    {
+      "name": "article_detail",
+      "readiness": "partial",
+      "requiredBlocks": ["quick_answer", "definition", "next_step"],
+      "recommendedBlocks": ["faq", "comparison", "evidence_facts", "caveat"],
+      "riskBoundary": "topic_dependent"
+    },
+    {
+      "name": "topic_detail",
+      "readiness": "partial",
+      "requiredBlocks": ["quick_answer", "definition", "comparison", "related_links"],
+      "recommendedBlocks": ["faq", "evidence_facts"],
+      "riskBoundary": "concept_boundary"
+    },
+    {
+      "name": "personality_detail",
+      "readiness": "partial",
+      "requiredBlocks": ["quick_answer", "definition", "caveat", "next_step"],
+      "recommendedBlocks": ["comparison", "faq", "related_links"],
+      "riskBoundary": "type_is_not_destiny"
+    },
+    {
+      "name": "career_guide",
+      "readiness": "partial",
+      "requiredBlocks": ["quick_answer", "how_to", "caveat", "next_step"],
+      "recommendedBlocks": ["evidence_facts", "comparison", "faq"],
+      "riskBoundary": "career_decision_support"
+    },
+    {
+      "name": "career_job_detail",
+      "readiness": "not_ready",
+      "requiredBlocks": ["quick_answer", "evidence_facts", "caveat", "next_step"],
+      "recommendedBlocks": ["how_to", "comparison"],
+      "riskBoundary": "blocked_until_career_availability_and_indexability_gates_pass"
+    },
+    {
+      "name": "mental_health_test",
+      "readiness": "partial",
+      "requiredBlocks": ["quick_answer", "definition", "caveat", "next_step"],
+      "recommendedBlocks": ["faq", "evidence_facts"],
+      "riskBoundary": "non_medical_screening_not_diagnosis"
+    }
+  ],
+  "visibleHtmlSamples": [
+    {
+      "id": "article_answer_surface_ready_sample",
+      "pageFamily": "article_detail",
+      "expectedReady": true,
+      "html": "<section data-evidence-container=\"article_detail\"><article data-evidence-block=\"quick_answer\"><h2>Quick answer</h2><p>Use this guide when you need a short interpretation before reading the full article.</p></article><article data-evidence-block=\"definition\"><h2>Definition</h2><p>An answer surface is visible answer-first content owned by backend CMS data.</p></article><article data-evidence-block=\"next_step\"><h2>Next steps</h2><a href=\"https://fermatmind.com/en/articles/answer-surface-article\">Read the full article</a></article><article data-evidence-block=\"faq\"><h2>FAQ</h2><h3>When should I use the article FAQ?</h3><p>Use it when you need the shortest answer before the full guide.</p></article><script type=\"application/ld+json\">{\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"When should I use the article FAQ?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Use it when you need the shortest answer before the full guide.\"}}]}</script></section>",
+      "expectedBlocks": ["quick_answer", "definition", "next_step", "faq"],
+      "expectedNextStepUrls": ["https://fermatmind.com/en/articles/answer-surface-article"],
+      "expectedFaqQuestions": ["When should I use the article FAQ?"]
+    },
+    {
+      "id": "faq_only_not_ready_sample",
+      "pageFamily": "topic_detail",
+      "expectedReady": false,
+      "html": "<section data-evidence-container=\"topic_detail\"><article data-evidence-block=\"faq\"><h2>FAQ</h2><h3>What is MBTI?</h3><p>MBTI is a personality framework.</p></article></section>",
+      "expectedBlocks": ["faq"],
+      "expectedNextStepUrls": [],
+      "expectedFaqQuestions": ["What is MBTI?"]
+    },
+    {
+      "id": "private_next_step_not_ready_sample",
+      "pageFamily": "test_detail",
+      "expectedReady": false,
+      "html": "<section data-evidence-container=\"test_detail\"><article data-evidence-block=\"quick_answer\"><p>The MBTI test helps users reflect on preference patterns.</p></article><article data-evidence-block=\"caveat\"><p>It is decision support, not a full identity label.</p></article><article data-evidence-block=\"next_step\"><a href=\"https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types/take\">Start private flow</a></article></section>",
+      "expectedBlocks": ["quick_answer", "caveat", "next_step"],
+      "expectedNextStepUrls": ["https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types/take"],
+      "expectedFaqQuestions": []
+    }
+  ],
+  "sourceTokenContracts": [
+    {
+      "source": "docs/geo/evidence-container-spec.md",
+      "requiredTokens": ["Quick Answer", "Evidence / Facts Block", "Caveat / Boundary Block", "FAQ-only GEO pages", "hidden schema"]
+    },
+    {
+      "source": "lib/answer/answerSurface.ts",
+      "requiredTokens": ["summaryBlocks", "faqBlocks", "nextStepBlocks", "evidenceRefs", "normalizeAnswerSurface"]
+    },
+    {
+      "source": "app/llms-full.txt/route.ts",
+      "requiredTokens": ["buildFaq", "buildNextSteps", "safeCanonicalUrlFromHref", "MAX_NEXT_STEPS", "isForbiddenFinalLlmsPath"]
+    },
+    {
+      "source": "tests/contracts/article-answer-surface.contract.test.ts",
+      "requiredTokens": ["data-testid=\"article-detail-answer-surface\"", "FAQPage", "does not emit FAQPage JSON-LD when no visible answer-surface FAQ exists"]
+    }
+  ]
+}

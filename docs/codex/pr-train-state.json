@@ -234,11 +234,11 @@
     "PR-DF-06": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "local_validation_passed",
+      "status": "merged",
       "not_started": false,
       "branch": "codex/pr-df-06-cms-seo-completeness",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "2a25e30e9e26adde1d5afc9d3a9c6312b54cff37",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/661",
       "scope": "Document and enforce page-family CMS SEO completeness requirements for seo.surface.v1, sitemap-source, indexability, llms exposure, canonical, structured data, and Evidence Container readiness.",
       "checks": {
         "local": [
@@ -279,24 +279,46 @@
       ],
       "failure_reason": "",
       "resume_policy": "manual_only",
-      "merged_at": "",
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false
+      "merged_at": "2026-05-06T15:00:15Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
     },
     "PR-DF-07": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "planned",
-      "not_started": true,
-      "branch": "codex/pr-df-07-evidence-container-readiness",
+      "status": "local_validation_passed",
+      "not_started": false,
+      "branch": "codex/pr-df-07-evidence-container-gate",
       "commit_sha": "",
       "pr_url": "",
       "scope": "Add page-family Evidence Container readiness gates for visible evidence-rich answer blocks before Topic Graph or GEO expansion.",
       "checks": {
-        "local": [],
+        "local": [
+          "focused Evidence Container readiness contracts passed",
+          "scoped eslint passed",
+          "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null passed",
+          "pnpm typecheck passed",
+          "pnpm test:contract passed",
+          "pnpm lint failed with unrelated pre-existing repo-wide lint debt",
+          "verify-big5-contract-freeze passed",
+          "verify-enneagram-contract-freeze passed",
+          "pnpm build passed",
+          "pnpm seo:check-sitemap passed",
+          "git diff --check passed"
+        ],
         "github": []
       },
-      "sidecar_issues": [],
+      "sidecar_issues": [
+        {
+          "title": "Pre-existing repo-wide lint debt outside PR-DF-07 scope",
+          "severity": "P2",
+          "scope_impact": "Full pnpm lint reports existing issues in untouched files; scoped eslint for PR-DF-07 files passed.",
+          "introduced_by_current_pr": false,
+          "recommended_future_phase": "Repository lint hygiene sidecar outside Discoverability Foundation PR-DF-07",
+          "blocks_merge": false,
+          "evidence": "Untouched lint failures include components/career/CareerShortlistAction.tsx, components/result/mbti/clone/MbtiCloneAssetSlot.tsx, ecosystem.config.cjs, lib/cms/last-known-good.ts, and existing contract test files."
+        }
+      ],
       "failure_reason": "",
       "resume_policy": "manual_only",
       "merged_at": "",

@@ -256,7 +256,7 @@ prs:
   - id: PR-DF-07
     repo: fap-web
     repo_path: /Users/rainie/Desktop/GitHub/fap-web
-    branch: codex/pr-df-07-evidence-container-readiness
+    branch: codex/pr-df-07-evidence-container-gate
     base: main
     depends_on: ["PR-DF-04", "PR-DF-06"]
     mode: execute
