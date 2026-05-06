@@ -328,11 +328,11 @@
     "PR-DF-08": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "local_validation_passed",
+      "status": "pr_open",
       "not_started": false,
       "branch": "codex/pr-df-08-shared-exposure-policy",
       "commit_sha": "019b1efdb8902f823710be587c6a2da4ec410865",
-      "pr_url": "",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/665",
       "scope": "Extract duplicated sitemap, llms, robots/noindex, canonical, and private-flow deny/gate rules into shared discoverability policy utilities after regression coverage exists.",
       "checks": {
         "local": [
