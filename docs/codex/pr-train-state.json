@@ -834,7 +834,7 @@
       "status": "in_progress",
       "not_started": false,
       "branch": "codex/pr-ug-06-expanded-live-parity",
-      "commit_sha": "",
+      "commit_sha": "e1e305145a1111cb35ab6799a399a3f00f3b5247",
       "pr_url": "",
       "scope": "Expand live canonical, hreflang, and JSON-LD parity samples across route families without runtime URL behavior changes.",
       "checks": {
