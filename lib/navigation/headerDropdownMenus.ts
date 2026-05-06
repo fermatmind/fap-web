@@ -48,7 +48,7 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
       { href: "/career/tests", label: "Career tests" },
     ],
     help: [
-      { href: "/orders/lookup", label: "Reports & orders" },
+      { href: "/results/lookup", label: "Find saved results" },
       { href: "/help/faq", label: "Payments & refunds" },
       { href: "/help/faq", label: "Understand results" },
       { href: "/about", label: "Science & boundaries" },
@@ -93,7 +93,7 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
       { href: "/career/tests", label: "职业测试" },
     ],
     help: [
-      { href: "/orders/lookup", label: "报告与订单" },
+      { href: "/results/lookup", label: "邮箱找回结果" },
       { href: "/help/faq", label: "支付与退款" },
       { href: "/help/faq", label: "读懂结果" },
       { href: "/about", label: "测评科学与边界" },

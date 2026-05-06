@@ -84,10 +84,10 @@ const SECTION_COPY = {
     authTerminalTitle: "Pro assessment entry",
     authTerminalStatus: "Pro access",
     authTerminalCopy:
-      "This assessment is part of the pro catalog. You can continue authorization after entering the flow. If you already have an order, recover it from Order lookup.",
+      "This assessment is part of the pro catalog. You can continue authorization after entering the flow. If you already saved a result, recover it by email.",
     authTerminalClose: "Close",
     authTerminalProceed: "Go to assessment",
-    authTerminalLookup: "Order lookup",
+    authTerminalLookup: "Recover by email",
     minuteUnit: "min",
   },
   zh: {
@@ -106,10 +106,10 @@ const SECTION_COPY = {
     authTerminalTitle: "专业版测评入口",
     authTerminalStatus: "专业版入口",
     authTerminalCopy:
-      "该测评属于专业版入口。进入流程后可继续完成授权；如已有订单，可通过订单查询恢复。",
+      "该测评属于专业版入口。进入流程后可继续完成授权；如已保存结果，可通过邮箱找回。",
     authTerminalClose: "关闭",
     authTerminalProceed: "进入测评",
-    authTerminalLookup: "订单查询",
+    authTerminalLookup: "邮箱找回",
     minuteUnit: "分钟",
   },
 } as const;
@@ -543,7 +543,7 @@ export function HighlightedTestsSection({
               <p className="fm-home-auth-terminal-copy m-0">{copy.authTerminalCopy}</p>
 
               <div className="fm-home-auth-terminal-actions">
-                <Link href={withLocale("/orders/lookup")} prefetch={false} className="fm-home-auth-terminal-secondary fm-home-auth-terminal-link">
+                <Link href={withLocale("/results/lookup")} prefetch={false} className="fm-home-auth-terminal-secondary fm-home-auth-terminal-link">
                   {copy.authTerminalLookup}
                 </Link>
                 <button

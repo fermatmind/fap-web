@@ -138,12 +138,12 @@ describe("MBTI history account-center contract", () => {
     expect(screen.getByRole("heading", { level: 1, name: "MBTI Workspace Lite" })).toBeInTheDocument();
     expect(screen.getByText("Re-enter saved MBTI result entries from the current workspace-lite surface.")).toBeInTheDocument();
     expect(
-      screen.getByText("Need to recover a purchased report from another device or inbox? Use order lookup.")
+      screen.getByText("Need to recover saved results from another device? Enter the bound email to reopen that email's results.")
     ).toBeInTheDocument();
     expect(
-      screen.getByText("This is now your MBTI Workspace Lite entry: continue from saved results here, or recover a purchased report through order lookup.")
+      screen.getByText("This is now your MBTI Workspace Lite entry: continue from saved results here, or recover saved results by email.")
     ).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-history-recovery-cta")).toHaveAttribute("href", "/en/orders/lookup");
+    expect(screen.getByTestId("mbti-history-recovery-cta")).toHaveAttribute("href", "/en/results/lookup");
 
     await waitFor(() => {
       expect(screen.getAllByTestId("mbti-history-card")).toHaveLength(2);
@@ -439,9 +439,9 @@ describe("MBTI history account-center contract", () => {
 
     expect(screen.getByRole("heading", { level: 1, name: "MBTI Workspace Lite" })).toBeInTheDocument();
     expect(screen.getByText("这里是你当前身份下的 MBTI Workspace Lite 回访入口，可继续已保存的结果入口。")).toBeInTheDocument();
-    expect(screen.getByText("需要跨设备或通过购买邮箱找回已购报告，请使用订单找回。")).toBeInTheDocument();
-    expect(screen.getByText("这里现在就是你的 MBTI Workspace Lite 入口：继续查看当前结果，或用订单找回恢复已购报告。")).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-history-recovery-cta")).toHaveAttribute("href", "/zh/orders/lookup");
+    expect(screen.getByText("需要跨设备找回已保存结果时，输入绑定邮箱即可查看该邮箱下的结果。")).toBeInTheDocument();
+    expect(screen.getByText("这里现在就是你的 MBTI Workspace Lite 入口：继续查看当前结果，或用邮箱找回已保存结果。")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-history-recovery-cta")).toHaveAttribute("href", "/zh/results/lookup");
 
     await waitFor(() => {
       expect(screen.getByTestId("mbti-history-empty")).toBeInTheDocument();
@@ -453,8 +453,8 @@ describe("MBTI history account-center contract", () => {
       "/zh/tests/mbti-personality-test-16-personality-types/take"
     );
     expect(screen.getByTestId("mbti-history-empty-start")).toHaveTextContent("去做 MBTI 测试");
-    expect(screen.getByTestId("mbti-history-empty-recovery")).toHaveAttribute("href", "/zh/orders/lookup");
-    expect(screen.getByTestId("mbti-history-empty-recovery")).toHaveTextContent("找回已购报告");
+    expect(screen.getByTestId("mbti-history-empty-recovery")).toHaveAttribute("href", "/zh/results/lookup");
+    expect(screen.getByTestId("mbti-history-empty-recovery")).toHaveTextContent("用邮箱找回结果");
   });
 
   it("renders unavailable rows without pretending they are normal result entries", async () => {

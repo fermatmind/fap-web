@@ -337,7 +337,7 @@ export function SiteHeader({
                 <Search className="h-4 w-4" />
               </Link>
               <Link
-                href={withLocale("/history/mbti")}
+                href={withLocale("/results/lookup")}
                 prefetch={false}
                 className="inline-flex h-11 min-h-[44px] min-w-[112px] shrink-0 items-center justify-center gap-1 rounded-full border border-white/25 bg-white/10 px-3.5 text-[13px] font-semibold text-white transition hover:bg-white/20 whitespace-nowrap xl:min-w-[120px] xl:px-4 xl:text-sm"
               >
@@ -472,7 +472,7 @@ export function SiteHeader({
                   {dict.header.start}
                 </Link>
                 <Link
-                  href={withLocale("/history/mbti")}
+                  href={withLocale("/results/lookup")}
                   prefetch={false}
                   onClick={handleMobileLinkClick}
                   className="inline-flex h-11 min-h-[44px] flex-1 items-center justify-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 text-sm font-semibold text-white transition hover:bg-white/20"
