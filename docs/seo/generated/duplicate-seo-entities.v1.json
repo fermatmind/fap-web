@@ -1,0 +1,6218 @@
+{
+  "version": "url_truth.duplicate_entity_report.v1",
+  "generatedAt": "offline-reproducible",
+  "source": {
+    "inventory": "docs/seo/generated/url-inventory.v1.json",
+    "inventoryVersion": "url_truth.inventory.v1",
+    "mode": "offline"
+  },
+  "summary": {
+    "totalUrls": 317,
+    "duplicateTitleClusters": 90,
+    "duplicateDescriptionClusters": 0,
+    "duplicateCanonicalClusters": 0,
+    "duplicateSemanticEntityClusters": 75,
+    "careerFamilyVariantClusters": 3,
+    "totalClusters": 168
+  },
+  "titleClusters": [
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "career",
+      "source": "metadata_or_path_derived_title",
+      "count": 4,
+      "routeFamilies": [
+        "career_hub",
+        "test_category"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career",
+        "https://fermatmind.com/en/tests/category/career",
+        "https://fermatmind.com/zh/career",
+        "https://fermatmind.com/zh/tests/category/career"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "computer-and-information-technology",
+      "source": "metadata_or_path_derived_title",
+      "count": 4,
+      "routeFamilies": [
+        "career_family",
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/family/computer-and-information-technology",
+        "https://fermatmind.com/en/career/industries/computer-and-information-technology",
+        "https://fermatmind.com/zh/career/family/computer-and-information-technology",
+        "https://fermatmind.com/zh/career/industries/computer-and-information-technology"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "healthcare",
+      "source": "metadata_or_path_derived_title",
+      "count": 4,
+      "routeFamilies": [
+        "career_family",
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/family/healthcare",
+        "https://fermatmind.com/en/career/industries/healthcare",
+        "https://fermatmind.com/zh/career/family/healthcare",
+        "https://fermatmind.com/zh/career/industries/healthcare"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "personality",
+      "source": "metadata_or_path_derived_title",
+      "count": 4,
+      "routeFamilies": [
+        "personality_hub",
+        "test_category"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality",
+        "https://fermatmind.com/en/tests/category/personality",
+        "https://fermatmind.com/zh/personality",
+        "https://fermatmind.com/zh/tests/category/personality"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "tests",
+      "source": "metadata_or_path_derived_title",
+      "count": 4,
+      "routeFamilies": [
+        "career_hub",
+        "tests_hub"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/tests",
+        "https://fermatmind.com/en/tests",
+        "https://fermatmind.com/zh/career/tests",
+        "https://fermatmind.com/zh/tests"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "about",
+      "source": "metadata_or_path_derived_title",
+      "count": 3,
+      "routeFamilies": [
+        "help_detail",
+        "static_legal_help"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/about",
+        "https://fermatmind.com/en/help/about",
+        "https://fermatmind.com/zh/about"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "architecture-and-engineering",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/architecture-and-engineering",
+        "https://fermatmind.com/zh/career/industries/architecture-and-engineering"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "are-infj-men-rare-or-socially-silenced",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "article_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/articles/are-infj-men-rare-or-socially-silenced",
+        "https://fermatmind.com/zh/articles/are-infj-men-rare-or-socially-silenced"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "articles",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "articles_hub"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/articles",
+        "https://fermatmind.com/zh/articles"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "arts-and-design",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/arts-and-design",
+        "https://fermatmind.com/zh/career/industries/arts-and-design"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "best-valentines-date-by-personality-and-relationship-science",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "article_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/articles/best-valentines-date-by-personality-and-relationship-science",
+        "https://fermatmind.com/zh/articles/best-valentines-date-by-personality-and-relationship-science"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "big-five",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "topic_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/topics/big-five",
+        "https://fermatmind.com/zh/topics/big-five"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "big-five-personality-test-ocean-model",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "test_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/tests/big-five-personality-test-ocean-model",
+        "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "building-and-grounds-cleaning",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/building-and-grounds-cleaning",
+        "https://fermatmind.com/zh/career/industries/building-and-grounds-cleaning"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "business",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "static_legal_help"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/business",
+        "https://fermatmind.com/zh/business"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "business-and-financial",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/business-and-financial",
+        "https://fermatmind.com/zh/career/industries/business-and-financial"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "business-and-financial-37ec69bd",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_family"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/family/business-and-financial-37ec69bd",
+        "https://fermatmind.com/zh/career/family/business-and-financial-37ec69bd"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "business-and-financial-a0352070",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_family"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/family/business-and-financial-a0352070",
+        "https://fermatmind.com/zh/career/family/business-and-financial-a0352070"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "childhood-dream-job-still-shapes-career-choice",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "article_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/articles/childhood-dream-job-still-shapes-career-choice",
+        "https://fermatmind.com/zh/articles/childhood-dream-job-still-shapes-career-choice"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "community-and-social-service",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/community-and-social-service",
+        "https://fermatmind.com/zh/career/industries/community-and-social-service"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "construction-and-extraction",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/construction-and-extraction",
+        "https://fermatmind.com/zh/career/industries/construction-and-extraction"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "contact",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "help_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/help/contact",
+        "https://fermatmind.com/zh/help/contact"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "education-training-and-library",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/education-training-and-library",
+        "https://fermatmind.com/zh/career/industries/education-training-and-library"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "enfj-a",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/enfj-a",
+        "https://fermatmind.com/zh/personality/enfj-a"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "enfj-t",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/enfj-t",
+        "https://fermatmind.com/zh/personality/enfj-t"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "enfp-a",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/enfp-a",
+        "https://fermatmind.com/zh/personality/enfp-a"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "enfp-t",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/enfp-t",
+        "https://fermatmind.com/zh/personality/enfp-t"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "enneagram-personality-test-nine-types",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "test_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/tests/enneagram-personality-test-nine-types",
+        "https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "entertainment-and-sports",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/entertainment-and-sports",
+        "https://fermatmind.com/zh/career/industries/entertainment-and-sports"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "entj-a",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/entj-a",
+        "https://fermatmind.com/zh/personality/entj-a"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "entj-t",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/entj-t",
+        "https://fermatmind.com/zh/personality/entj-t"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "entp-a",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/entp-a",
+        "https://fermatmind.com/zh/personality/entp-a"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "entp-t",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/entp-t",
+        "https://fermatmind.com/zh/personality/entp-t"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "eq-test-emotional-intelligence-assessment",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "test_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/tests/eq-test-emotional-intelligence-assessment",
+        "https://fermatmind.com/zh/tests/eq-test-emotional-intelligence-assessment"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "esfj-a",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/esfj-a",
+        "https://fermatmind.com/zh/personality/esfj-a"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "esfj-t",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/esfj-t",
+        "https://fermatmind.com/zh/personality/esfj-t"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "esfp-a",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/esfp-a",
+        "https://fermatmind.com/zh/personality/esfp-a"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "esfp-t",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/esfp-t",
+        "https://fermatmind.com/zh/personality/esfp-t"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "estj-a",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/estj-a",
+        "https://fermatmind.com/zh/personality/estj-a"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "estj-t",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/estj-t",
+        "https://fermatmind.com/zh/personality/estj-t"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "estp-a",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/estp-a",
+        "https://fermatmind.com/zh/personality/estp-a"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "estp-t",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/estp-t",
+        "https://fermatmind.com/zh/personality/estp-t"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "faq",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "help_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/help/faq",
+        "https://fermatmind.com/zh/help/faq"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "farming-fishing-and-forestry",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/farming-fishing-and-forestry",
+        "https://fermatmind.com/zh/career/industries/farming-fishing-and-forestry"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "food-preparation-and-serving",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/food-preparation-and-serving",
+        "https://fermatmind.com/zh/career/industries/food-preparation-and-serving"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "for-business-and-research",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "help_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/help/for-business-and-research",
+        "https://fermatmind.com/zh/help/for-business-and-research"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "guides",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_guides_hub"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/guides",
+        "https://fermatmind.com/zh/career/guides"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "holland-career-interest-test-riasec",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "test_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/tests/holland-career-interest-test-riasec",
+        "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "how-16-personality-types-talk-to-an-ai-coach",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "article_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/articles/how-16-personality-types-talk-to-an-ai-coach",
+        "https://fermatmind.com/zh/articles/how-16-personality-types-talk-to-an-ai-coach"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "how-personality-shapes-attitude-toward-ai",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "article_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/articles/how-personality-shapes-attitude-toward-ai",
+        "https://fermatmind.com/zh/articles/how-personality-shapes-attitude-toward-ai"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "industries",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_hub"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries",
+        "https://fermatmind.com/zh/career/industries"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "infj-a",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/infj-a",
+        "https://fermatmind.com/zh/personality/infj-a"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "infj-t",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/infj-t",
+        "https://fermatmind.com/zh/personality/infj-t"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "infp-a",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/infp-a",
+        "https://fermatmind.com/zh/personality/infp-a"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "infp-t",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/infp-t",
+        "https://fermatmind.com/zh/personality/infp-t"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "installation-maintenance-and-repair",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/installation-maintenance-and-repair",
+        "https://fermatmind.com/zh/career/industries/installation-maintenance-and-repair"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "intj-a",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/intj-a",
+        "https://fermatmind.com/zh/personality/intj-a"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "intj-t",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/intj-t",
+        "https://fermatmind.com/zh/personality/intj-t"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "intp-a",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/intp-a",
+        "https://fermatmind.com/zh/personality/intp-a"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "intp-t",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/intp-t",
+        "https://fermatmind.com/zh/personality/intp-t"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "iq-eq",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "topic_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/topics/iq-eq",
+        "https://fermatmind.com/zh/topics/iq-eq"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "iq-test-intelligence-quotient-assessment",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "test_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/tests/iq-test-intelligence-quotient-assessment",
+        "https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "isfj-a",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/isfj-a",
+        "https://fermatmind.com/zh/personality/isfj-a"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "isfj-t",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/isfj-t",
+        "https://fermatmind.com/zh/personality/isfj-t"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "isfp-a",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/isfp-a",
+        "https://fermatmind.com/zh/personality/isfp-a"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "isfp-t",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/isfp-t",
+        "https://fermatmind.com/zh/personality/isfp-t"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "istj-a",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/istj-a",
+        "https://fermatmind.com/zh/personality/istj-a"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "istj-t",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/istj-t",
+        "https://fermatmind.com/zh/personality/istj-t"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "istp-a",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/istp-a",
+        "https://fermatmind.com/zh/personality/istp-a"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "istp-t",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/istp-t",
+        "https://fermatmind.com/zh/personality/istp-t"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "legal",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/legal",
+        "https://fermatmind.com/zh/career/industries/legal"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "life-physical-and-social-science",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/life-physical-and-social-science",
+        "https://fermatmind.com/zh/career/industries/life-physical-and-social-science"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "management",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/management",
+        "https://fermatmind.com/zh/career/industries/management"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "math",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/math",
+        "https://fermatmind.com/zh/career/industries/math"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "mbti",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "topic_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/topics/mbti",
+        "https://fermatmind.com/zh/topics/mbti"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "mbti-personality-test-16-personality-types",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "test_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types",
+        "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "media-and-communication",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/media-and-communication",
+        "https://fermatmind.com/zh/career/industries/media-and-communication"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "military",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/military",
+        "https://fermatmind.com/zh/career/industries/military"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "office-and-administrative-support",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/office-and-administrative-support",
+        "https://fermatmind.com/zh/career/industries/office-and-administrative-support"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "personal-care-and-service",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/personal-care-and-service",
+        "https://fermatmind.com/zh/career/industries/personal-care-and-service"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "privacy",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "static_legal_help"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/privacy",
+        "https://fermatmind.com/zh/privacy"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "production",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/production",
+        "https://fermatmind.com/zh/career/industries/production"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "protective-service",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/protective-service",
+        "https://fermatmind.com/zh/career/industries/protective-service"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "recommendations",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_hub"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/recommendations",
+        "https://fermatmind.com/zh/career/recommendations"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "sales",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/sales",
+        "https://fermatmind.com/zh/career/industries/sales"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "support",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "static_legal_help"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/support",
+        "https://fermatmind.com/zh/support"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "terms",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "static_legal_help"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/terms",
+        "https://fermatmind.com/zh/terms"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "topics",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "topics_hub"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/topics",
+        "https://fermatmind.com/zh/topics"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "transportation-and-material-moving",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/transportation-and-material-moving",
+        "https://fermatmind.com/zh/career/industries/transportation-and-material-moving"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "which-love-script-fits-you-best",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "article_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/articles/which-love-script-fits-you-best",
+        "https://fermatmind.com/zh/articles/which-love-script-fits-you-best"
+      ]
+    }
+  ],
+  "descriptionClusters": [],
+  "canonicalClusters": [],
+  "semanticEntityClusters": [
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:business-and-financial",
+      "source": "route_family_semantic_entity_key",
+      "count": 6,
+      "routeFamilies": [
+        "career_family",
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/family/business-and-financial-37ec69bd",
+        "https://fermatmind.com/en/career/family/business-and-financial-a0352070",
+        "https://fermatmind.com/en/career/industries/business-and-financial",
+        "https://fermatmind.com/zh/career/family/business-and-financial-37ec69bd",
+        "https://fermatmind.com/zh/career/family/business-and-financial-a0352070",
+        "https://fermatmind.com/zh/career/industries/business-and-financial"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:computer-and-information-technology",
+      "source": "route_family_semantic_entity_key",
+      "count": 4,
+      "routeFamilies": [
+        "career_family",
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/family/computer-and-information-technology",
+        "https://fermatmind.com/en/career/industries/computer-and-information-technology",
+        "https://fermatmind.com/zh/career/family/computer-and-information-technology",
+        "https://fermatmind.com/zh/career/industries/computer-and-information-technology"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:healthcare",
+      "source": "route_family_semantic_entity_key",
+      "count": 4,
+      "routeFamilies": [
+        "career_family",
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/family/healthcare",
+        "https://fermatmind.com/en/career/industries/healthcare",
+        "https://fermatmind.com/zh/career/family/healthcare",
+        "https://fermatmind.com/zh/career/industries/healthcare"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "personality:enfj",
+      "source": "route_family_semantic_entity_key",
+      "count": 4,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/enfj-a",
+        "https://fermatmind.com/en/personality/enfj-t",
+        "https://fermatmind.com/zh/personality/enfj-a",
+        "https://fermatmind.com/zh/personality/enfj-t"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "personality:enfp",
+      "source": "route_family_semantic_entity_key",
+      "count": 4,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/enfp-a",
+        "https://fermatmind.com/en/personality/enfp-t",
+        "https://fermatmind.com/zh/personality/enfp-a",
+        "https://fermatmind.com/zh/personality/enfp-t"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "personality:entj",
+      "source": "route_family_semantic_entity_key",
+      "count": 4,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/entj-a",
+        "https://fermatmind.com/en/personality/entj-t",
+        "https://fermatmind.com/zh/personality/entj-a",
+        "https://fermatmind.com/zh/personality/entj-t"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "personality:entp",
+      "source": "route_family_semantic_entity_key",
+      "count": 4,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/entp-a",
+        "https://fermatmind.com/en/personality/entp-t",
+        "https://fermatmind.com/zh/personality/entp-a",
+        "https://fermatmind.com/zh/personality/entp-t"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "personality:esfj",
+      "source": "route_family_semantic_entity_key",
+      "count": 4,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/esfj-a",
+        "https://fermatmind.com/en/personality/esfj-t",
+        "https://fermatmind.com/zh/personality/esfj-a",
+        "https://fermatmind.com/zh/personality/esfj-t"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "personality:esfp",
+      "source": "route_family_semantic_entity_key",
+      "count": 4,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/esfp-a",
+        "https://fermatmind.com/en/personality/esfp-t",
+        "https://fermatmind.com/zh/personality/esfp-a",
+        "https://fermatmind.com/zh/personality/esfp-t"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "personality:estj",
+      "source": "route_family_semantic_entity_key",
+      "count": 4,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/estj-a",
+        "https://fermatmind.com/en/personality/estj-t",
+        "https://fermatmind.com/zh/personality/estj-a",
+        "https://fermatmind.com/zh/personality/estj-t"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "personality:estp",
+      "source": "route_family_semantic_entity_key",
+      "count": 4,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/estp-a",
+        "https://fermatmind.com/en/personality/estp-t",
+        "https://fermatmind.com/zh/personality/estp-a",
+        "https://fermatmind.com/zh/personality/estp-t"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "personality:infj",
+      "source": "route_family_semantic_entity_key",
+      "count": 4,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/infj-a",
+        "https://fermatmind.com/en/personality/infj-t",
+        "https://fermatmind.com/zh/personality/infj-a",
+        "https://fermatmind.com/zh/personality/infj-t"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "personality:infp",
+      "source": "route_family_semantic_entity_key",
+      "count": 4,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/infp-a",
+        "https://fermatmind.com/en/personality/infp-t",
+        "https://fermatmind.com/zh/personality/infp-a",
+        "https://fermatmind.com/zh/personality/infp-t"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "personality:intj",
+      "source": "route_family_semantic_entity_key",
+      "count": 4,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/intj-a",
+        "https://fermatmind.com/en/personality/intj-t",
+        "https://fermatmind.com/zh/personality/intj-a",
+        "https://fermatmind.com/zh/personality/intj-t"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "personality:intp",
+      "source": "route_family_semantic_entity_key",
+      "count": 4,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/intp-a",
+        "https://fermatmind.com/en/personality/intp-t",
+        "https://fermatmind.com/zh/personality/intp-a",
+        "https://fermatmind.com/zh/personality/intp-t"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "personality:isfj",
+      "source": "route_family_semantic_entity_key",
+      "count": 4,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/isfj-a",
+        "https://fermatmind.com/en/personality/isfj-t",
+        "https://fermatmind.com/zh/personality/isfj-a",
+        "https://fermatmind.com/zh/personality/isfj-t"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "personality:isfp",
+      "source": "route_family_semantic_entity_key",
+      "count": 4,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/isfp-a",
+        "https://fermatmind.com/en/personality/isfp-t",
+        "https://fermatmind.com/zh/personality/isfp-a",
+        "https://fermatmind.com/zh/personality/isfp-t"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "personality:istj",
+      "source": "route_family_semantic_entity_key",
+      "count": 4,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/istj-a",
+        "https://fermatmind.com/en/personality/istj-t",
+        "https://fermatmind.com/zh/personality/istj-a",
+        "https://fermatmind.com/zh/personality/istj-t"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "personality:istp",
+      "source": "route_family_semantic_entity_key",
+      "count": 4,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/istp-a",
+        "https://fermatmind.com/en/personality/istp-t",
+        "https://fermatmind.com/zh/personality/istp-a",
+        "https://fermatmind.com/zh/personality/istp-t"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "article_detail:articlesare-infj-men-rare-or-socially-silenced",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "article_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/articles/are-infj-men-rare-or-socially-silenced",
+        "https://fermatmind.com/zh/articles/are-infj-men-rare-or-socially-silenced"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "article_detail:articlesbest-valentines-date-by-personality-and-relationship-science",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "article_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/articles/best-valentines-date-by-personality-and-relationship-science",
+        "https://fermatmind.com/zh/articles/best-valentines-date-by-personality-and-relationship-science"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "article_detail:articleschildhood-dream-job-still-shapes-career-choice",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "article_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/articles/childhood-dream-job-still-shapes-career-choice",
+        "https://fermatmind.com/zh/articles/childhood-dream-job-still-shapes-career-choice"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "article_detail:articleshow-16-personality-types-talk-to-an-ai-coach",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "article_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/articles/how-16-personality-types-talk-to-an-ai-coach",
+        "https://fermatmind.com/zh/articles/how-16-personality-types-talk-to-an-ai-coach"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "article_detail:articleshow-personality-shapes-attitude-toward-ai",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "article_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/articles/how-personality-shapes-attitude-toward-ai",
+        "https://fermatmind.com/zh/articles/how-personality-shapes-attitude-toward-ai"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "article_detail:articleswhich-love-script-fits-you-best",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "article_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/articles/which-love-script-fits-you-best",
+        "https://fermatmind.com/zh/articles/which-love-script-fits-you-best"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "articles_hub:articles",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "articles_hub"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/articles",
+        "https://fermatmind.com/zh/articles"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career_guides_hub:careerguides",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_guides_hub"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/guides",
+        "https://fermatmind.com/zh/career/guides"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career_hub:career",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_hub"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career",
+        "https://fermatmind.com/zh/career"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career_hub:careerindustries",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_hub"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries",
+        "https://fermatmind.com/zh/career/industries"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career_hub:careerrecommendations",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_hub"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/recommendations",
+        "https://fermatmind.com/zh/career/recommendations"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career_hub:careertests",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_hub"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/tests",
+        "https://fermatmind.com/zh/career/tests"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:architecture-and-engineering",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/architecture-and-engineering",
+        "https://fermatmind.com/zh/career/industries/architecture-and-engineering"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:arts-and-design",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/arts-and-design",
+        "https://fermatmind.com/zh/career/industries/arts-and-design"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:building-and-grounds-cleaning",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/building-and-grounds-cleaning",
+        "https://fermatmind.com/zh/career/industries/building-and-grounds-cleaning"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:community-and-social-service",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/community-and-social-service",
+        "https://fermatmind.com/zh/career/industries/community-and-social-service"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:construction-and-extraction",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/construction-and-extraction",
+        "https://fermatmind.com/zh/career/industries/construction-and-extraction"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:education-training-and-library",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/education-training-and-library",
+        "https://fermatmind.com/zh/career/industries/education-training-and-library"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:entertainment-and-sports",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/entertainment-and-sports",
+        "https://fermatmind.com/zh/career/industries/entertainment-and-sports"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:farming-fishing-and-forestry",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/farming-fishing-and-forestry",
+        "https://fermatmind.com/zh/career/industries/farming-fishing-and-forestry"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:food-preparation-and-serving",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/food-preparation-and-serving",
+        "https://fermatmind.com/zh/career/industries/food-preparation-and-serving"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:installation-maintenance-and-repair",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/installation-maintenance-and-repair",
+        "https://fermatmind.com/zh/career/industries/installation-maintenance-and-repair"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:legal",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/legal",
+        "https://fermatmind.com/zh/career/industries/legal"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:life-physical-and-social-science",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/life-physical-and-social-science",
+        "https://fermatmind.com/zh/career/industries/life-physical-and-social-science"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:management",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/management",
+        "https://fermatmind.com/zh/career/industries/management"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:math",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/math",
+        "https://fermatmind.com/zh/career/industries/math"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:media-and-communication",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/media-and-communication",
+        "https://fermatmind.com/zh/career/industries/media-and-communication"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:military",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/military",
+        "https://fermatmind.com/zh/career/industries/military"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:office-and-administrative-support",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/office-and-administrative-support",
+        "https://fermatmind.com/zh/career/industries/office-and-administrative-support"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:personal-care-and-service",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/personal-care-and-service",
+        "https://fermatmind.com/zh/career/industries/personal-care-and-service"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:production",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/production",
+        "https://fermatmind.com/zh/career/industries/production"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:protective-service",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/protective-service",
+        "https://fermatmind.com/zh/career/industries/protective-service"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:sales",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/sales",
+        "https://fermatmind.com/zh/career/industries/sales"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:transportation-and-material-moving",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/transportation-and-material-moving",
+        "https://fermatmind.com/zh/career/industries/transportation-and-material-moving"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "help_detail:helpcontact",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "help_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/help/contact",
+        "https://fermatmind.com/zh/help/contact"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "help_detail:helpfaq",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "help_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/help/faq",
+        "https://fermatmind.com/zh/help/faq"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "help_detail:helpfor-business-and-research",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "help_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/help/for-business-and-research",
+        "https://fermatmind.com/zh/help/for-business-and-research"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "personality_hub:personality",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "personality_hub"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality",
+        "https://fermatmind.com/zh/personality"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "static_legal_help:about",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "static_legal_help"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/about",
+        "https://fermatmind.com/zh/about"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "static_legal_help:business",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "static_legal_help"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/business",
+        "https://fermatmind.com/zh/business"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "static_legal_help:privacy",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "static_legal_help"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/privacy",
+        "https://fermatmind.com/zh/privacy"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "static_legal_help:support",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "static_legal_help"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/support",
+        "https://fermatmind.com/zh/support"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "static_legal_help:terms",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "static_legal_help"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/terms",
+        "https://fermatmind.com/zh/terms"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "test_category:testscategorycareer",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "test_category"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/tests/category/career",
+        "https://fermatmind.com/zh/tests/category/career"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "test_category:testscategorypersonality",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "test_category"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/tests/category/personality",
+        "https://fermatmind.com/zh/tests/category/personality"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "test:big-five-personality-test-ocean-model",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "test_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/tests/big-five-personality-test-ocean-model",
+        "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "test:enneagram-personality-test-nine-types",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "test_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/tests/enneagram-personality-test-nine-types",
+        "https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "test:eq-test-emotional-intelligence-assessment",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "test_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/tests/eq-test-emotional-intelligence-assessment",
+        "https://fermatmind.com/zh/tests/eq-test-emotional-intelligence-assessment"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "test:holland-career-interest-test-riasec",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "test_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/tests/holland-career-interest-test-riasec",
+        "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "test:iq-test-intelligence-quotient-assessment",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "test_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/tests/iq-test-intelligence-quotient-assessment",
+        "https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "test:mbti-personality-test-16-personality-types",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "test_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types",
+        "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "tests_hub:tests",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "tests_hub"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/tests",
+        "https://fermatmind.com/zh/tests"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "topic:big-five",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "topic_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/topics/big-five",
+        "https://fermatmind.com/zh/topics/big-five"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "topic:iq-eq",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "topic_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/topics/iq-eq",
+        "https://fermatmind.com/zh/topics/iq-eq"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "topic:mbti",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "topic_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/topics/mbti",
+        "https://fermatmind.com/zh/topics/mbti"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "topics_hub:topics",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "topics_hub"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/topics",
+        "https://fermatmind.com/zh/topics"
+      ]
+    }
+  ],
+  "careerFamilyVariantClusters": [
+    {
+      "type": "career_family_variant",
+      "severity": "P1",
+      "key": "career-family:business-and-financial",
+      "source": "path_semantic_entity_key",
+      "count": 6,
+      "routeFamilies": [
+        "career_family",
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/family/business-and-financial-37ec69bd",
+        "https://fermatmind.com/en/career/family/business-and-financial-a0352070",
+        "https://fermatmind.com/en/career/industries/business-and-financial",
+        "https://fermatmind.com/zh/career/family/business-and-financial-37ec69bd",
+        "https://fermatmind.com/zh/career/family/business-and-financial-a0352070",
+        "https://fermatmind.com/zh/career/industries/business-and-financial"
+      ]
+    },
+    {
+      "type": "career_family_variant",
+      "severity": "P1",
+      "key": "career-family:computer-and-information-technology",
+      "source": "path_semantic_entity_key",
+      "count": 4,
+      "routeFamilies": [
+        "career_family",
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/family/computer-and-information-technology",
+        "https://fermatmind.com/en/career/industries/computer-and-information-technology",
+        "https://fermatmind.com/zh/career/family/computer-and-information-technology",
+        "https://fermatmind.com/zh/career/industries/computer-and-information-technology"
+      ]
+    },
+    {
+      "type": "career_family_variant",
+      "severity": "P1",
+      "key": "career-family:healthcare",
+      "source": "path_semantic_entity_key",
+      "count": 4,
+      "routeFamilies": [
+        "career_family",
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/family/healthcare",
+        "https://fermatmind.com/en/career/industries/healthcare",
+        "https://fermatmind.com/zh/career/family/healthcare",
+        "https://fermatmind.com/zh/career/industries/healthcare"
+      ]
+    }
+  ],
+  "clusters": [
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "career",
+      "source": "metadata_or_path_derived_title",
+      "count": 4,
+      "routeFamilies": [
+        "career_hub",
+        "test_category"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career",
+        "https://fermatmind.com/en/tests/category/career",
+        "https://fermatmind.com/zh/career",
+        "https://fermatmind.com/zh/tests/category/career"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "computer-and-information-technology",
+      "source": "metadata_or_path_derived_title",
+      "count": 4,
+      "routeFamilies": [
+        "career_family",
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/family/computer-and-information-technology",
+        "https://fermatmind.com/en/career/industries/computer-and-information-technology",
+        "https://fermatmind.com/zh/career/family/computer-and-information-technology",
+        "https://fermatmind.com/zh/career/industries/computer-and-information-technology"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "healthcare",
+      "source": "metadata_or_path_derived_title",
+      "count": 4,
+      "routeFamilies": [
+        "career_family",
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/family/healthcare",
+        "https://fermatmind.com/en/career/industries/healthcare",
+        "https://fermatmind.com/zh/career/family/healthcare",
+        "https://fermatmind.com/zh/career/industries/healthcare"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "personality",
+      "source": "metadata_or_path_derived_title",
+      "count": 4,
+      "routeFamilies": [
+        "personality_hub",
+        "test_category"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality",
+        "https://fermatmind.com/en/tests/category/personality",
+        "https://fermatmind.com/zh/personality",
+        "https://fermatmind.com/zh/tests/category/personality"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "tests",
+      "source": "metadata_or_path_derived_title",
+      "count": 4,
+      "routeFamilies": [
+        "career_hub",
+        "tests_hub"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/tests",
+        "https://fermatmind.com/en/tests",
+        "https://fermatmind.com/zh/career/tests",
+        "https://fermatmind.com/zh/tests"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "about",
+      "source": "metadata_or_path_derived_title",
+      "count": 3,
+      "routeFamilies": [
+        "help_detail",
+        "static_legal_help"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/about",
+        "https://fermatmind.com/en/help/about",
+        "https://fermatmind.com/zh/about"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "architecture-and-engineering",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/architecture-and-engineering",
+        "https://fermatmind.com/zh/career/industries/architecture-and-engineering"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "are-infj-men-rare-or-socially-silenced",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "article_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/articles/are-infj-men-rare-or-socially-silenced",
+        "https://fermatmind.com/zh/articles/are-infj-men-rare-or-socially-silenced"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "articles",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "articles_hub"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/articles",
+        "https://fermatmind.com/zh/articles"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "arts-and-design",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/arts-and-design",
+        "https://fermatmind.com/zh/career/industries/arts-and-design"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "best-valentines-date-by-personality-and-relationship-science",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "article_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/articles/best-valentines-date-by-personality-and-relationship-science",
+        "https://fermatmind.com/zh/articles/best-valentines-date-by-personality-and-relationship-science"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "big-five",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "topic_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/topics/big-five",
+        "https://fermatmind.com/zh/topics/big-five"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "big-five-personality-test-ocean-model",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "test_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/tests/big-five-personality-test-ocean-model",
+        "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "building-and-grounds-cleaning",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/building-and-grounds-cleaning",
+        "https://fermatmind.com/zh/career/industries/building-and-grounds-cleaning"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "business",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "static_legal_help"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/business",
+        "https://fermatmind.com/zh/business"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "business-and-financial",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/business-and-financial",
+        "https://fermatmind.com/zh/career/industries/business-and-financial"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "business-and-financial-37ec69bd",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_family"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/family/business-and-financial-37ec69bd",
+        "https://fermatmind.com/zh/career/family/business-and-financial-37ec69bd"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "business-and-financial-a0352070",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_family"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/family/business-and-financial-a0352070",
+        "https://fermatmind.com/zh/career/family/business-and-financial-a0352070"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "childhood-dream-job-still-shapes-career-choice",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "article_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/articles/childhood-dream-job-still-shapes-career-choice",
+        "https://fermatmind.com/zh/articles/childhood-dream-job-still-shapes-career-choice"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "community-and-social-service",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/community-and-social-service",
+        "https://fermatmind.com/zh/career/industries/community-and-social-service"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "construction-and-extraction",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/construction-and-extraction",
+        "https://fermatmind.com/zh/career/industries/construction-and-extraction"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "contact",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "help_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/help/contact",
+        "https://fermatmind.com/zh/help/contact"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "education-training-and-library",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/education-training-and-library",
+        "https://fermatmind.com/zh/career/industries/education-training-and-library"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "enfj-a",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/enfj-a",
+        "https://fermatmind.com/zh/personality/enfj-a"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "enfj-t",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/enfj-t",
+        "https://fermatmind.com/zh/personality/enfj-t"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "enfp-a",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/enfp-a",
+        "https://fermatmind.com/zh/personality/enfp-a"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "enfp-t",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/enfp-t",
+        "https://fermatmind.com/zh/personality/enfp-t"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "enneagram-personality-test-nine-types",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "test_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/tests/enneagram-personality-test-nine-types",
+        "https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "entertainment-and-sports",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/entertainment-and-sports",
+        "https://fermatmind.com/zh/career/industries/entertainment-and-sports"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "entj-a",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/entj-a",
+        "https://fermatmind.com/zh/personality/entj-a"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "entj-t",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/entj-t",
+        "https://fermatmind.com/zh/personality/entj-t"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "entp-a",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/entp-a",
+        "https://fermatmind.com/zh/personality/entp-a"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "entp-t",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/entp-t",
+        "https://fermatmind.com/zh/personality/entp-t"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "eq-test-emotional-intelligence-assessment",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "test_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/tests/eq-test-emotional-intelligence-assessment",
+        "https://fermatmind.com/zh/tests/eq-test-emotional-intelligence-assessment"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "esfj-a",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/esfj-a",
+        "https://fermatmind.com/zh/personality/esfj-a"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "esfj-t",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/esfj-t",
+        "https://fermatmind.com/zh/personality/esfj-t"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "esfp-a",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/esfp-a",
+        "https://fermatmind.com/zh/personality/esfp-a"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "esfp-t",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/esfp-t",
+        "https://fermatmind.com/zh/personality/esfp-t"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "estj-a",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/estj-a",
+        "https://fermatmind.com/zh/personality/estj-a"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "estj-t",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/estj-t",
+        "https://fermatmind.com/zh/personality/estj-t"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "estp-a",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/estp-a",
+        "https://fermatmind.com/zh/personality/estp-a"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "estp-t",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/estp-t",
+        "https://fermatmind.com/zh/personality/estp-t"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "faq",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "help_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/help/faq",
+        "https://fermatmind.com/zh/help/faq"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "farming-fishing-and-forestry",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/farming-fishing-and-forestry",
+        "https://fermatmind.com/zh/career/industries/farming-fishing-and-forestry"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "food-preparation-and-serving",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/food-preparation-and-serving",
+        "https://fermatmind.com/zh/career/industries/food-preparation-and-serving"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "for-business-and-research",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "help_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/help/for-business-and-research",
+        "https://fermatmind.com/zh/help/for-business-and-research"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "guides",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_guides_hub"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/guides",
+        "https://fermatmind.com/zh/career/guides"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "holland-career-interest-test-riasec",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "test_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/tests/holland-career-interest-test-riasec",
+        "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "how-16-personality-types-talk-to-an-ai-coach",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "article_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/articles/how-16-personality-types-talk-to-an-ai-coach",
+        "https://fermatmind.com/zh/articles/how-16-personality-types-talk-to-an-ai-coach"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "how-personality-shapes-attitude-toward-ai",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "article_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/articles/how-personality-shapes-attitude-toward-ai",
+        "https://fermatmind.com/zh/articles/how-personality-shapes-attitude-toward-ai"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "industries",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_hub"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries",
+        "https://fermatmind.com/zh/career/industries"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "infj-a",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/infj-a",
+        "https://fermatmind.com/zh/personality/infj-a"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "infj-t",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/infj-t",
+        "https://fermatmind.com/zh/personality/infj-t"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "infp-a",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/infp-a",
+        "https://fermatmind.com/zh/personality/infp-a"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "infp-t",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/infp-t",
+        "https://fermatmind.com/zh/personality/infp-t"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "installation-maintenance-and-repair",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/installation-maintenance-and-repair",
+        "https://fermatmind.com/zh/career/industries/installation-maintenance-and-repair"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "intj-a",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/intj-a",
+        "https://fermatmind.com/zh/personality/intj-a"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "intj-t",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/intj-t",
+        "https://fermatmind.com/zh/personality/intj-t"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "intp-a",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/intp-a",
+        "https://fermatmind.com/zh/personality/intp-a"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "intp-t",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/intp-t",
+        "https://fermatmind.com/zh/personality/intp-t"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "iq-eq",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "topic_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/topics/iq-eq",
+        "https://fermatmind.com/zh/topics/iq-eq"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "iq-test-intelligence-quotient-assessment",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "test_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/tests/iq-test-intelligence-quotient-assessment",
+        "https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "isfj-a",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/isfj-a",
+        "https://fermatmind.com/zh/personality/isfj-a"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "isfj-t",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/isfj-t",
+        "https://fermatmind.com/zh/personality/isfj-t"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "isfp-a",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/isfp-a",
+        "https://fermatmind.com/zh/personality/isfp-a"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "isfp-t",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/isfp-t",
+        "https://fermatmind.com/zh/personality/isfp-t"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "istj-a",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/istj-a",
+        "https://fermatmind.com/zh/personality/istj-a"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "istj-t",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/istj-t",
+        "https://fermatmind.com/zh/personality/istj-t"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "istp-a",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/istp-a",
+        "https://fermatmind.com/zh/personality/istp-a"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "istp-t",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/istp-t",
+        "https://fermatmind.com/zh/personality/istp-t"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "legal",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/legal",
+        "https://fermatmind.com/zh/career/industries/legal"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "life-physical-and-social-science",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/life-physical-and-social-science",
+        "https://fermatmind.com/zh/career/industries/life-physical-and-social-science"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "management",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/management",
+        "https://fermatmind.com/zh/career/industries/management"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "math",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/math",
+        "https://fermatmind.com/zh/career/industries/math"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "mbti",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "topic_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/topics/mbti",
+        "https://fermatmind.com/zh/topics/mbti"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "mbti-personality-test-16-personality-types",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "test_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types",
+        "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "media-and-communication",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/media-and-communication",
+        "https://fermatmind.com/zh/career/industries/media-and-communication"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "military",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/military",
+        "https://fermatmind.com/zh/career/industries/military"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "office-and-administrative-support",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/office-and-administrative-support",
+        "https://fermatmind.com/zh/career/industries/office-and-administrative-support"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "personal-care-and-service",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/personal-care-and-service",
+        "https://fermatmind.com/zh/career/industries/personal-care-and-service"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "privacy",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "static_legal_help"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/privacy",
+        "https://fermatmind.com/zh/privacy"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "production",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/production",
+        "https://fermatmind.com/zh/career/industries/production"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "protective-service",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/protective-service",
+        "https://fermatmind.com/zh/career/industries/protective-service"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "recommendations",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_hub"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/recommendations",
+        "https://fermatmind.com/zh/career/recommendations"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "sales",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/sales",
+        "https://fermatmind.com/zh/career/industries/sales"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "support",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "static_legal_help"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/support",
+        "https://fermatmind.com/zh/support"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "terms",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "static_legal_help"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/terms",
+        "https://fermatmind.com/zh/terms"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "topics",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "topics_hub"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/topics",
+        "https://fermatmind.com/zh/topics"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "transportation-and-material-moving",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/transportation-and-material-moving",
+        "https://fermatmind.com/zh/career/industries/transportation-and-material-moving"
+      ]
+    },
+    {
+      "type": "duplicate_title",
+      "severity": "P2",
+      "key": "which-love-script-fits-you-best",
+      "source": "metadata_or_path_derived_title",
+      "count": 2,
+      "routeFamilies": [
+        "article_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/articles/which-love-script-fits-you-best",
+        "https://fermatmind.com/zh/articles/which-love-script-fits-you-best"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:business-and-financial",
+      "source": "route_family_semantic_entity_key",
+      "count": 6,
+      "routeFamilies": [
+        "career_family",
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/family/business-and-financial-37ec69bd",
+        "https://fermatmind.com/en/career/family/business-and-financial-a0352070",
+        "https://fermatmind.com/en/career/industries/business-and-financial",
+        "https://fermatmind.com/zh/career/family/business-and-financial-37ec69bd",
+        "https://fermatmind.com/zh/career/family/business-and-financial-a0352070",
+        "https://fermatmind.com/zh/career/industries/business-and-financial"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:computer-and-information-technology",
+      "source": "route_family_semantic_entity_key",
+      "count": 4,
+      "routeFamilies": [
+        "career_family",
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/family/computer-and-information-technology",
+        "https://fermatmind.com/en/career/industries/computer-and-information-technology",
+        "https://fermatmind.com/zh/career/family/computer-and-information-technology",
+        "https://fermatmind.com/zh/career/industries/computer-and-information-technology"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:healthcare",
+      "source": "route_family_semantic_entity_key",
+      "count": 4,
+      "routeFamilies": [
+        "career_family",
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/family/healthcare",
+        "https://fermatmind.com/en/career/industries/healthcare",
+        "https://fermatmind.com/zh/career/family/healthcare",
+        "https://fermatmind.com/zh/career/industries/healthcare"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "personality:enfj",
+      "source": "route_family_semantic_entity_key",
+      "count": 4,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/enfj-a",
+        "https://fermatmind.com/en/personality/enfj-t",
+        "https://fermatmind.com/zh/personality/enfj-a",
+        "https://fermatmind.com/zh/personality/enfj-t"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "personality:enfp",
+      "source": "route_family_semantic_entity_key",
+      "count": 4,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/enfp-a",
+        "https://fermatmind.com/en/personality/enfp-t",
+        "https://fermatmind.com/zh/personality/enfp-a",
+        "https://fermatmind.com/zh/personality/enfp-t"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "personality:entj",
+      "source": "route_family_semantic_entity_key",
+      "count": 4,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/entj-a",
+        "https://fermatmind.com/en/personality/entj-t",
+        "https://fermatmind.com/zh/personality/entj-a",
+        "https://fermatmind.com/zh/personality/entj-t"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "personality:entp",
+      "source": "route_family_semantic_entity_key",
+      "count": 4,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/entp-a",
+        "https://fermatmind.com/en/personality/entp-t",
+        "https://fermatmind.com/zh/personality/entp-a",
+        "https://fermatmind.com/zh/personality/entp-t"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "personality:esfj",
+      "source": "route_family_semantic_entity_key",
+      "count": 4,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/esfj-a",
+        "https://fermatmind.com/en/personality/esfj-t",
+        "https://fermatmind.com/zh/personality/esfj-a",
+        "https://fermatmind.com/zh/personality/esfj-t"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "personality:esfp",
+      "source": "route_family_semantic_entity_key",
+      "count": 4,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/esfp-a",
+        "https://fermatmind.com/en/personality/esfp-t",
+        "https://fermatmind.com/zh/personality/esfp-a",
+        "https://fermatmind.com/zh/personality/esfp-t"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "personality:estj",
+      "source": "route_family_semantic_entity_key",
+      "count": 4,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/estj-a",
+        "https://fermatmind.com/en/personality/estj-t",
+        "https://fermatmind.com/zh/personality/estj-a",
+        "https://fermatmind.com/zh/personality/estj-t"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "personality:estp",
+      "source": "route_family_semantic_entity_key",
+      "count": 4,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/estp-a",
+        "https://fermatmind.com/en/personality/estp-t",
+        "https://fermatmind.com/zh/personality/estp-a",
+        "https://fermatmind.com/zh/personality/estp-t"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "personality:infj",
+      "source": "route_family_semantic_entity_key",
+      "count": 4,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/infj-a",
+        "https://fermatmind.com/en/personality/infj-t",
+        "https://fermatmind.com/zh/personality/infj-a",
+        "https://fermatmind.com/zh/personality/infj-t"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "personality:infp",
+      "source": "route_family_semantic_entity_key",
+      "count": 4,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/infp-a",
+        "https://fermatmind.com/en/personality/infp-t",
+        "https://fermatmind.com/zh/personality/infp-a",
+        "https://fermatmind.com/zh/personality/infp-t"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "personality:intj",
+      "source": "route_family_semantic_entity_key",
+      "count": 4,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/intj-a",
+        "https://fermatmind.com/en/personality/intj-t",
+        "https://fermatmind.com/zh/personality/intj-a",
+        "https://fermatmind.com/zh/personality/intj-t"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "personality:intp",
+      "source": "route_family_semantic_entity_key",
+      "count": 4,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/intp-a",
+        "https://fermatmind.com/en/personality/intp-t",
+        "https://fermatmind.com/zh/personality/intp-a",
+        "https://fermatmind.com/zh/personality/intp-t"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "personality:isfj",
+      "source": "route_family_semantic_entity_key",
+      "count": 4,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/isfj-a",
+        "https://fermatmind.com/en/personality/isfj-t",
+        "https://fermatmind.com/zh/personality/isfj-a",
+        "https://fermatmind.com/zh/personality/isfj-t"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "personality:isfp",
+      "source": "route_family_semantic_entity_key",
+      "count": 4,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/isfp-a",
+        "https://fermatmind.com/en/personality/isfp-t",
+        "https://fermatmind.com/zh/personality/isfp-a",
+        "https://fermatmind.com/zh/personality/isfp-t"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "personality:istj",
+      "source": "route_family_semantic_entity_key",
+      "count": 4,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/istj-a",
+        "https://fermatmind.com/en/personality/istj-t",
+        "https://fermatmind.com/zh/personality/istj-a",
+        "https://fermatmind.com/zh/personality/istj-t"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "personality:istp",
+      "source": "route_family_semantic_entity_key",
+      "count": 4,
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/istp-a",
+        "https://fermatmind.com/en/personality/istp-t",
+        "https://fermatmind.com/zh/personality/istp-a",
+        "https://fermatmind.com/zh/personality/istp-t"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "article_detail:articlesare-infj-men-rare-or-socially-silenced",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "article_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/articles/are-infj-men-rare-or-socially-silenced",
+        "https://fermatmind.com/zh/articles/are-infj-men-rare-or-socially-silenced"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "article_detail:articlesbest-valentines-date-by-personality-and-relationship-science",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "article_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/articles/best-valentines-date-by-personality-and-relationship-science",
+        "https://fermatmind.com/zh/articles/best-valentines-date-by-personality-and-relationship-science"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "article_detail:articleschildhood-dream-job-still-shapes-career-choice",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "article_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/articles/childhood-dream-job-still-shapes-career-choice",
+        "https://fermatmind.com/zh/articles/childhood-dream-job-still-shapes-career-choice"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "article_detail:articleshow-16-personality-types-talk-to-an-ai-coach",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "article_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/articles/how-16-personality-types-talk-to-an-ai-coach",
+        "https://fermatmind.com/zh/articles/how-16-personality-types-talk-to-an-ai-coach"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "article_detail:articleshow-personality-shapes-attitude-toward-ai",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "article_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/articles/how-personality-shapes-attitude-toward-ai",
+        "https://fermatmind.com/zh/articles/how-personality-shapes-attitude-toward-ai"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "article_detail:articleswhich-love-script-fits-you-best",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "article_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/articles/which-love-script-fits-you-best",
+        "https://fermatmind.com/zh/articles/which-love-script-fits-you-best"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "articles_hub:articles",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "articles_hub"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/articles",
+        "https://fermatmind.com/zh/articles"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career_guides_hub:careerguides",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_guides_hub"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/guides",
+        "https://fermatmind.com/zh/career/guides"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career_hub:career",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_hub"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career",
+        "https://fermatmind.com/zh/career"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career_hub:careerindustries",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_hub"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries",
+        "https://fermatmind.com/zh/career/industries"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career_hub:careerrecommendations",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_hub"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/recommendations",
+        "https://fermatmind.com/zh/career/recommendations"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career_hub:careertests",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_hub"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/tests",
+        "https://fermatmind.com/zh/career/tests"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:architecture-and-engineering",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/architecture-and-engineering",
+        "https://fermatmind.com/zh/career/industries/architecture-and-engineering"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:arts-and-design",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/arts-and-design",
+        "https://fermatmind.com/zh/career/industries/arts-and-design"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:building-and-grounds-cleaning",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/building-and-grounds-cleaning",
+        "https://fermatmind.com/zh/career/industries/building-and-grounds-cleaning"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:community-and-social-service",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/community-and-social-service",
+        "https://fermatmind.com/zh/career/industries/community-and-social-service"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:construction-and-extraction",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/construction-and-extraction",
+        "https://fermatmind.com/zh/career/industries/construction-and-extraction"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:education-training-and-library",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/education-training-and-library",
+        "https://fermatmind.com/zh/career/industries/education-training-and-library"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:entertainment-and-sports",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/entertainment-and-sports",
+        "https://fermatmind.com/zh/career/industries/entertainment-and-sports"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:farming-fishing-and-forestry",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/farming-fishing-and-forestry",
+        "https://fermatmind.com/zh/career/industries/farming-fishing-and-forestry"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:food-preparation-and-serving",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/food-preparation-and-serving",
+        "https://fermatmind.com/zh/career/industries/food-preparation-and-serving"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:installation-maintenance-and-repair",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/installation-maintenance-and-repair",
+        "https://fermatmind.com/zh/career/industries/installation-maintenance-and-repair"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:legal",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/legal",
+        "https://fermatmind.com/zh/career/industries/legal"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:life-physical-and-social-science",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/life-physical-and-social-science",
+        "https://fermatmind.com/zh/career/industries/life-physical-and-social-science"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:management",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/management",
+        "https://fermatmind.com/zh/career/industries/management"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:math",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/math",
+        "https://fermatmind.com/zh/career/industries/math"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:media-and-communication",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/media-and-communication",
+        "https://fermatmind.com/zh/career/industries/media-and-communication"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:military",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/military",
+        "https://fermatmind.com/zh/career/industries/military"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:office-and-administrative-support",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/office-and-administrative-support",
+        "https://fermatmind.com/zh/career/industries/office-and-administrative-support"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:personal-care-and-service",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/personal-care-and-service",
+        "https://fermatmind.com/zh/career/industries/personal-care-and-service"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:production",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/production",
+        "https://fermatmind.com/zh/career/industries/production"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:protective-service",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/protective-service",
+        "https://fermatmind.com/zh/career/industries/protective-service"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:sales",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/sales",
+        "https://fermatmind.com/zh/career/industries/sales"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "career-family:transportation-and-material-moving",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/industries/transportation-and-material-moving",
+        "https://fermatmind.com/zh/career/industries/transportation-and-material-moving"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "help_detail:helpcontact",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "help_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/help/contact",
+        "https://fermatmind.com/zh/help/contact"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "help_detail:helpfaq",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "help_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/help/faq",
+        "https://fermatmind.com/zh/help/faq"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "help_detail:helpfor-business-and-research",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "help_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/help/for-business-and-research",
+        "https://fermatmind.com/zh/help/for-business-and-research"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "personality_hub:personality",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "personality_hub"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality",
+        "https://fermatmind.com/zh/personality"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "static_legal_help:about",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "static_legal_help"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/about",
+        "https://fermatmind.com/zh/about"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "static_legal_help:business",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "static_legal_help"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/business",
+        "https://fermatmind.com/zh/business"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "static_legal_help:privacy",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "static_legal_help"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/privacy",
+        "https://fermatmind.com/zh/privacy"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "static_legal_help:support",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "static_legal_help"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/support",
+        "https://fermatmind.com/zh/support"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "static_legal_help:terms",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "static_legal_help"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/terms",
+        "https://fermatmind.com/zh/terms"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "test_category:testscategorycareer",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "test_category"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/tests/category/career",
+        "https://fermatmind.com/zh/tests/category/career"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "test_category:testscategorypersonality",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "test_category"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/tests/category/personality",
+        "https://fermatmind.com/zh/tests/category/personality"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "test:big-five-personality-test-ocean-model",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "test_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/tests/big-five-personality-test-ocean-model",
+        "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "test:enneagram-personality-test-nine-types",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "test_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/tests/enneagram-personality-test-nine-types",
+        "https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "test:eq-test-emotional-intelligence-assessment",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "test_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/tests/eq-test-emotional-intelligence-assessment",
+        "https://fermatmind.com/zh/tests/eq-test-emotional-intelligence-assessment"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "test:holland-career-interest-test-riasec",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "test_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/tests/holland-career-interest-test-riasec",
+        "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "test:iq-test-intelligence-quotient-assessment",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "test_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/tests/iq-test-intelligence-quotient-assessment",
+        "https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "test:mbti-personality-test-16-personality-types",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "test_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types",
+        "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "tests_hub:tests",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "tests_hub"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/tests",
+        "https://fermatmind.com/zh/tests"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "topic:big-five",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "topic_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/topics/big-five",
+        "https://fermatmind.com/zh/topics/big-five"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "topic:iq-eq",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "topic_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/topics/iq-eq",
+        "https://fermatmind.com/zh/topics/iq-eq"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "topic:mbti",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "topic_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/topics/mbti",
+        "https://fermatmind.com/zh/topics/mbti"
+      ]
+    },
+    {
+      "type": "duplicate_semantic_entity",
+      "severity": "P2",
+      "key": "topics_hub:topics",
+      "source": "route_family_semantic_entity_key",
+      "count": 2,
+      "routeFamilies": [
+        "topics_hub"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/topics",
+        "https://fermatmind.com/zh/topics"
+      ]
+    },
+    {
+      "type": "career_family_variant",
+      "severity": "P1",
+      "key": "career-family:business-and-financial",
+      "source": "path_semantic_entity_key",
+      "count": 6,
+      "routeFamilies": [
+        "career_family",
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/family/business-and-financial-37ec69bd",
+        "https://fermatmind.com/en/career/family/business-and-financial-a0352070",
+        "https://fermatmind.com/en/career/industries/business-and-financial",
+        "https://fermatmind.com/zh/career/family/business-and-financial-37ec69bd",
+        "https://fermatmind.com/zh/career/family/business-and-financial-a0352070",
+        "https://fermatmind.com/zh/career/industries/business-and-financial"
+      ]
+    },
+    {
+      "type": "career_family_variant",
+      "severity": "P1",
+      "key": "career-family:computer-and-information-technology",
+      "source": "path_semantic_entity_key",
+      "count": 4,
+      "routeFamilies": [
+        "career_family",
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/family/computer-and-information-technology",
+        "https://fermatmind.com/en/career/industries/computer-and-information-technology",
+        "https://fermatmind.com/zh/career/family/computer-and-information-technology",
+        "https://fermatmind.com/zh/career/industries/computer-and-information-technology"
+      ]
+    },
+    {
+      "type": "career_family_variant",
+      "severity": "P1",
+      "key": "career-family:healthcare",
+      "source": "path_semantic_entity_key",
+      "count": 4,
+      "routeFamilies": [
+        "career_family",
+        "career_industry_detail"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/family/healthcare",
+        "https://fermatmind.com/en/career/industries/healthcare",
+        "https://fermatmind.com/zh/career/family/healthcare",
+        "https://fermatmind.com/zh/career/industries/healthcare"
+      ]
+    }
+  ]
+}

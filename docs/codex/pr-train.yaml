@@ -356,7 +356,7 @@ prs:
     base: main
     depends_on: ["PR-UG-01"]
     mode: execute
-    status: in_progress
+    status: merged
     scope: >
       llms vs llms-full parity contracts. Preserve intentional exclusions,
       private-flow protection, and current exposure.
@@ -387,7 +387,7 @@ prs:
     base: main
     depends_on: ["PR-UG-02"]
     mode: execute
-    status: planned
+    status: in_progress
     scope: >
       Duplicate metadata and duplicate entity detector. Add read-only detection
       and generated reports only.
