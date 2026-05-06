@@ -736,7 +736,7 @@
       "status": "in_progress",
       "not_started": false,
       "branch": "codex/pr-ug-05-orphan-detector",
-      "commit_sha": "",
+      "commit_sha": "5982b29d756234e874de53f0240e3c216f7b42eb",
       "pr_url": "",
       "scope": "Add read-only internal-link graph and orphan detector with true orphan, weak graph, and intentional isolation classification.",
       "checks": {
