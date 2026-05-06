@@ -195,6 +195,50 @@ describe("sitemap indexability contract", () => {
     expect(locs.some((loc: string) => loc.includes("?q="))).toBe(false);
   });
 
+  it("frontend sitemap config keeps backend-owned MBTI personality A/T variant routes", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async (input: RequestInfo | URL) => {
+        const url = String(input);
+
+        if (url.includes("/api/v0.5/seo/sitemap-source")) {
+          return jsonResponse({
+            ok: true,
+            source: "backend_sitemap_generator",
+            count: 7,
+            items: [
+              { loc: "https://fermatmind.com/en/personality/intp-a" },
+              { loc: "https://fermatmind.com/en/personality/intp-t" },
+              { loc: "https://fermatmind.com/zh/personality/intp-a" },
+              { loc: "https://fermatmind.com/zh/personality/intp-t" },
+              { loc: "https://fermatmind.com/en/personality/intp" },
+              { loc: "https://fermatmind.com/en/personality/not-a-type" },
+              { loc: "https://fermatmind.com/en/types/intp-t" },
+            ],
+          });
+        }
+
+        return jsonResponse({ items: [] });
+      })
+    );
+
+    const config = loadSitemapConfig();
+    const additionalPaths = await config.additionalPaths();
+    const locs = additionalPaths.map((entry: { loc?: string }) => String(entry?.loc ?? ""));
+
+    expect(locs).toEqual(
+      expect.arrayContaining([
+        "/en/personality/intp-a",
+        "/en/personality/intp-t",
+        "/zh/personality/intp-a",
+        "/zh/personality/intp-t",
+      ])
+    );
+    expect(locs).not.toContain("/en/personality/intp");
+    expect(locs).not.toContain("/en/personality/not-a-type");
+    expect(locs).not.toContain("/en/types/intp-t");
+  });
+
   it("frontend sitemap config excludes retired and private route families", async () => {
     const config = loadSitemapConfig();
     const policy = requireFromRoot("./lib/seo/indexingPolicy.cjs");

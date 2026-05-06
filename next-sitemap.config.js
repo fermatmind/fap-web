@@ -42,6 +42,27 @@ const HELP_PAGE_SLUGS = [
   "for-business-and-research",
   "contact",
 ];
+const STATIC_PUBLIC_PAGE_PATHS = [
+  "/en/about",
+  "/zh/about",
+  "/zh/brand",
+  "/en/business",
+  "/zh/business",
+  "/zh/careers",
+  "/zh/charter",
+  "/zh/foundation",
+  "/zh/policies",
+  "/en/privacy",
+  "/zh/privacy",
+  "/en/support",
+  "/zh/support",
+  "/en/terms",
+  "/zh/terms",
+  "/en/tests/category/career",
+  "/zh/tests/category/career",
+  "/en/tests/category/personality",
+  "/zh/tests/category/personality",
+];
 const HIDDEN_PUBLIC_TEST_ENTRY_SLUGS = new Set([
   "clinical-depression-anxiety-assessment-professional-edition",
   "depression-screening-test-standard-edition",
@@ -73,12 +94,11 @@ const CMS_LOCALES = [
   { localePrefix: "en", apiLocale: "en" },
   { localePrefix: "zh", apiLocale: "zh-CN" },
 ];
-const MBTI_BASE_SLUG_RE = /^[ie][ns][ft][jp]$/i;
-const MBTI_RUNTIME_SLUG_RE = /^[ie][ns][ft][jp]-[at]$/i;
 const CANONICAL_SITE_URL = "https://fermatmind.com";
 const OWNED_CANONICAL_HOSTS = new Set(["fermatmind.com", "www.fermatmind.com"]);
 const SOFTWARE_DEVELOPERS_DETAIL_RE = /^\/(?:en|zh)\/career\/jobs\/software-developers$/i;
 const CAREER_JOB_DETAIL_PARTS_RE = /^\/(en|zh)\/career\/jobs\/([^/]+)$/i;
+const PERSONALITY_DETAIL_PARTS_RE = /^\/(en|zh)\/personality\/([ie][ns][ft][jp]-[at])$/i;
 const SITEMAP_FINAL_PATH_DENY_PATTERNS = [
   /^\/zh$/i,
   /^\/tests(?:\/|$)/i,
@@ -179,13 +199,6 @@ function isPublicIndexable(item) {
   return item && item.is_public !== false && item.is_indexable !== false;
 }
 
-function buildDefaultPublicPersonalitySlug(value) {
-  const normalized = normalizeSlug(value).toLowerCase();
-  if (!normalized) return "";
-  if (MBTI_RUNTIME_SLUG_RE.test(normalized)) return normalized;
-  return MBTI_BASE_SLUG_RE.test(normalized) ? `${normalized}-a` : normalized;
-}
-
 function extractPathFromCanonicalUrl(value) {
   const normalized = normalizeSlug(value);
   if (!normalized) return "";
@@ -268,6 +281,23 @@ function parseCareerJobDetailPath(path) {
   };
 }
 
+function parsePersonalityDetailPath(path) {
+  const normalized = normalizePath(path);
+  const match = normalized.match(PERSONALITY_DETAIL_PARTS_RE);
+  const locale = match?.[1]?.toLowerCase();
+  const slug = match?.[2]?.toLowerCase();
+
+  if ((locale !== "en" && locale !== "zh") || !slug) {
+    return null;
+  }
+
+  return {
+    locale,
+    slug,
+    path: normalized,
+  };
+}
+
 function shouldKeepBackendSitemapCareerJobDetailPath(path) {
   const normalized = normalizePath(path);
 
@@ -279,6 +309,11 @@ function shouldKeepBackendSitemapCareerJobDetailPath(path) {
       indexState: "indexed",
     })
   );
+}
+
+function shouldKeepBackendSitemapPersonalityDetailPath(path) {
+  const normalized = normalizePath(path);
+  return Boolean(parsePersonalityDetailPath(normalized)) && shouldIncludeGeneratedSitemapPath(normalized);
 }
 
 function shouldIncludeGeneratedSitemapPath(path, explicitGate) {
@@ -380,6 +415,7 @@ const staticGeneratedPaths = [
     ...buildCareerPaths(),
     ...buildTopicPaths(),
     ...buildHelpPaths(),
+    ...STATIC_PUBLIC_PAGE_PATHS,
   ]),
 ];
 
@@ -474,7 +510,9 @@ function extractCareerDiscoverabilityManifestRoutes(payload) {
 }
 
 const careerDiscoverabilityManifestRouteCache = new Map();
+let backendSitemapSourcePayloadCache = null;
 let backendSitemapSourceCareerJobPathCache = null;
+let backendSitemapSourcePersonalityPathCache = null;
 
 async function fetchCareerDiscoverabilityManifestRoutes(apiLocale) {
   const cacheKey = normalizeSlug(apiLocale).toLowerCase() || "default";
@@ -514,14 +552,53 @@ function extractBackendSitemapSourceCareerJobPaths(payload) {
     .sort((left, right) => left.localeCompare(right));
 }
 
+function extractBackendSitemapSourcePersonalityPaths(payload) {
+  const items = Array.isArray(payload?.items) ? payload.items : [];
+  const paths = new Set();
+
+  for (const item of items) {
+    const path = extractPathFromCanonicalUrl(item?.loc);
+    if (shouldKeepBackendSitemapPersonalityDetailPath(path)) {
+      paths.add(normalizePath(path));
+    }
+  }
+
+  return [...paths].sort((left, right) => left.localeCompare(right));
+}
+
+async function fetchBackendSitemapSourcePayload() {
+  if (backendSitemapSourcePayloadCache) {
+    return backendSitemapSourcePayloadCache;
+  }
+
+  backendSitemapSourcePayloadCache = await fetchJsonWithTimeout(
+    buildApiUrl("/v0.5/seo/sitemap-source"),
+    careerSitemapTimeoutMs
+  );
+
+  return backendSitemapSourcePayloadCache;
+}
+
 async function fetchBackendSitemapSourceCareerJobPaths() {
   if (backendSitemapSourceCareerJobPathCache) {
     return backendSitemapSourceCareerJobPathCache;
   }
 
-  const payload = await fetchJsonWithTimeout(buildApiUrl("/v0.5/seo/sitemap-source"), careerSitemapTimeoutMs);
+  const payload = await fetchBackendSitemapSourcePayload();
   const paths = extractBackendSitemapSourceCareerJobPaths(payload);
   backendSitemapSourceCareerJobPathCache = paths;
+
+  return paths;
+}
+
+async function fetchBackendSitemapSourcePersonalityPaths() {
+  if (backendSitemapSourcePersonalityPathCache) {
+    return backendSitemapSourcePersonalityPathCache;
+  }
+
+  const payload = await fetchBackendSitemapSourcePayload();
+  const paths = extractBackendSitemapSourcePersonalityPaths(payload);
+  backendSitemapSourcePersonalityPathCache = paths;
 
   return paths;
 }
@@ -703,20 +780,12 @@ async function buildTopicDetailPathsFromApi() {
   );
 }
 
-async function buildPersonalityDetailPaths() {
-  return buildCmsDetailPaths(
-    "/v0.5/personality",
-    (apiLocale) => ({ locale: apiLocale, org_id: 0, scale_code: "MBTI" }),
-    (item, localePrefix) => {
-      const canonicalPath = extractPathFromCanonicalUrl(item?.seo_meta?.canonical_url);
-      if (canonicalPath) {
-        return canonicalPath;
-      }
-
-      const slug = buildDefaultPublicPersonalitySlug(item?.slug || item?.type_code);
-      return slug ? `/${localePrefix}/personality/${slug}` : "";
-    }
-  );
+async function buildPersonalityDetailPathsFromAuthority() {
+  try {
+    return await fetchBackendSitemapSourcePersonalityPaths();
+  } catch {
+    return [];
+  }
 }
 
 async function buildValidatedCmsPaths(apiRoute, builder) {
@@ -773,7 +842,7 @@ module.exports = {
       buildCareerJobDetailPathsFromAuthority(),
       buildCareerFamilyDetailPathsFromAuthority(),
       buildCareerRecommendationDetailPathsFromAuthority(),
-      buildValidatedCmsPaths("/v0.5/personality", buildPersonalityDetailPaths),
+      buildPersonalityDetailPathsFromAuthority(),
       buildValidatedCmsPaths("/v0.5/topics", buildTopicDetailPathsFromApi),
       buildTestPathsFromApi(),
     ]);
