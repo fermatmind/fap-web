@@ -831,10 +831,10 @@
     "PR-UG-06": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "open",
+      "status": "merged",
       "not_started": false,
       "branch": "codex/pr-ug-06-expanded-live-parity",
-      "commit_sha": "e1e305145a1111cb35ab6799a399a3f00f3b5247",
+      "commit_sha": "d4f8e5603d04ccd7820f0df65965a855b361310f",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/671",
       "scope": "Expand live canonical, hreflang, and JSON-LD parity samples across route families without runtime URL behavior changes.",
       "checks": {
@@ -895,7 +895,24 @@
             "command": "git diff --check"
           }
         ],
-        "github": []
+        "github": [
+          {
+            "name": "build",
+            "status": "passed"
+          },
+          {
+            "name": "contracts",
+            "status": "passed"
+          },
+          {
+            "name": "verify-big5-contract-freeze",
+            "status": "passed"
+          },
+          {
+            "name": "verify-enneagram-contract-freeze",
+            "status": "passed"
+          }
+        ]
       },
       "sidecar_issues": [
         {
@@ -910,24 +927,84 @@
       ],
       "failure_reason": "",
       "resume_policy": "manual_only",
-      "merged_at": "",
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false
+      "merged_at": "2026-05-06T17:43:53Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
     },
     "PR-UG-07": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "planned",
-      "not_started": true,
+      "status": "in_progress",
+      "not_started": false,
       "branch": "codex/pr-ug-07-fallback-seo-authority-audit",
       "commit_sha": "",
       "pr_url": "",
       "scope": "Add read-only CMS-backed fallback SEO authority inventory and classify acceptable product-code vs dangerous CMS-backed fallback surfaces.",
       "checks": {
-        "local": [],
+        "local": [
+          {
+            "name": "focused-contract",
+            "status": "passed",
+            "command": "pnpm exec vitest run tests/contracts/fallback-seo-authority-inventory.contract.test.ts"
+          },
+          {
+            "name": "scoped-eslint",
+            "status": "passed",
+            "command": "pnpm exec eslint tests/contracts/fallback-seo-authority-inventory.contract.test.ts"
+          },
+          {
+            "name": "json-validation",
+            "status": "passed",
+            "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null && python3 -m json.tool docs/seo/generated/fallback-seo-authority-inventory.v1.json >/dev/null"
+          },
+          {
+            "name": "typecheck",
+            "status": "passed",
+            "command": "pnpm typecheck"
+          },
+          {
+            "name": "contracts",
+            "status": "passed",
+            "command": "pnpm test:contract",
+            "note": "267 files passed, 1333 tests passed."
+          },
+          {
+            "name": "lint",
+            "status": "failed_sidecar",
+            "command": "pnpm lint",
+            "note": "Repo-wide pre-existing lint debt outside PR-UG-07 scope; scoped eslint for changed files passed."
+          },
+          {
+            "name": "seo-generate-sitemap",
+            "status": "passed",
+            "command": "pnpm seo:generate-sitemap",
+            "note": "Generated sitemap successfully; timestamp-only public/sitemap.xml diff was reverted before commit."
+          },
+          {
+            "name": "seo-check-sitemap",
+            "status": "passed",
+            "command": "pnpm seo:check-sitemap",
+            "note": "317 sitemap URLs passed indexability check."
+          },
+          {
+            "name": "diff-check",
+            "status": "passed",
+            "command": "git diff --check"
+          }
+        ],
         "github": []
       },
-      "sidecar_issues": [],
+      "sidecar_issues": [
+        {
+          "title": "Pre-existing repo-wide lint debt outside PR-UG-07 scope",
+          "severity": "P2",
+          "scope_impact": "Full pnpm lint reports existing issues in untouched files; scoped eslint for PR-UG-07 files passed.",
+          "introduced_by_current_pr": false,
+          "recommended_future_phase": "Repository lint hygiene sidecar outside URL Truth & SEO Governance PR-UG-07",
+          "blocks_merge": false,
+          "evidence": "pnpm lint fails on the same pre-existing files observed in PR-UG-01 through PR-UG-06; pnpm exec eslint tests/contracts/fallback-seo-authority-inventory.contract.test.ts passed."
+        }
+      ],
       "failure_reason": "",
       "resume_policy": "manual_only",
       "merged_at": "",
