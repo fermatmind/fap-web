@@ -650,7 +650,7 @@
       "status": "in_progress",
       "not_started": false,
       "branch": "codex/pr-ug-04-career-family-authority-audit",
-      "commit_sha": "",
+      "commit_sha": "63d5ea39369d4b6869c4270cebff85e0e00428e1",
       "pr_url": "",
       "scope": "Add career family duplicate authority audit, migration safety analysis, and remediation plan without runtime URL changes.",
       "checks": {
