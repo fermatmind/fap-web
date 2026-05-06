@@ -5,9 +5,9 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 const ROOT = process.cwd();
 const requireFromRoot = createRequire(path.join(ROOT, "package.json"));
 
-function jsonResponse(payload: unknown): Response {
+function jsonResponse(payload: unknown, status = 200): Response {
   return new Response(JSON.stringify(payload), {
-    status: 200,
+    status,
     headers: {
       "Content-Type": "application/json",
     },
@@ -100,6 +100,34 @@ describe("sitemap indexability contract", () => {
               },
             ],
           });
+        }
+
+        if (url.includes("/api/v0.5/career-jobs/backend-architect/seo?")) {
+          return jsonResponse({
+            meta: { robots: "index,follow" },
+            seo_surface_v1: {
+              robots_policy: "index,follow",
+              indexability_state: "indexable",
+              sitemap_state: "included",
+              llms_exposure_state: "allow",
+            },
+          });
+        }
+
+        if (url.includes("/api/v0.5/career-jobs/backend-engineer/seo?")) {
+          return jsonResponse({
+            meta: { robots: "noindex,follow" },
+            seo_surface_v1: {
+              robots_policy: "noindex,follow",
+              indexability_state: "trust_limited",
+              sitemap_state: "excluded",
+              llms_exposure_state: "blocked",
+            },
+          });
+        }
+
+        if (url.includes("/api/v0.5/career-jobs/")) {
+          return jsonResponse({ message: "not found" }, 404);
         }
 
         if (url.includes("/api/v0.5/career/first-wave/discoverability-manifest?")) {

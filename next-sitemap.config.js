@@ -175,6 +175,8 @@ const cmsSitemapTimeoutMs = Number.parseInt(process.env.CMS_SITEMAP_TIMEOUT_MS |
 const careerSitemapTimeoutMs =
   Number.parseInt(process.env.CAREER_SITEMAP_TIMEOUT_MS || process.env.CMS_SITEMAP_TIMEOUT_MS || "30000", 10) ||
   30000;
+const careerSeoAuthorityConcurrency =
+  Number.parseInt(process.env.CAREER_SEO_AUTHORITY_CONCURRENCY || "8", 10) || 8;
 
 function normalizeSlug(value) {
   return String(value || "").trim();
@@ -513,6 +515,7 @@ const careerDiscoverabilityManifestRouteCache = new Map();
 let backendSitemapSourcePayloadCache = null;
 let backendSitemapSourceCareerJobPathCache = null;
 let backendSitemapSourcePersonalityPathCache = null;
+const careerJobSeoAuthorityCache = new Map();
 
 async function fetchCareerDiscoverabilityManifestRoutes(apiLocale) {
   const cacheKey = normalizeSlug(apiLocale).toLowerCase() || "default";
@@ -533,23 +536,109 @@ async function fetchCareerDiscoverabilityManifestRoutes(apiLocale) {
 
 function extractBackendSitemapSourceCareerJobPaths(payload) {
   const items = Array.isArray(payload?.items) ? payload.items : [];
-  const pathsBySlug = new Map();
+  const paths = new Set();
 
   for (const item of items) {
     const path = extractPathFromCanonicalUrl(item?.loc);
     const parsed = parseCareerJobDetailPath(path);
     if (parsed && shouldKeepBackendSitemapCareerJobDetailPath(parsed.path)) {
-      pathsBySlug.set(parsed.slug, {
-        ...pathsBySlug.get(parsed.slug),
-        [parsed.locale]: parsed.path,
-      });
+      paths.add(parsed.path);
     }
   }
 
-  return [...pathsBySlug.values()]
-    .filter((paths) => Boolean(paths.en && paths.zh))
-    .flatMap((paths) => [paths.en, paths.zh])
-    .sort((left, right) => left.localeCompare(right));
+  return [...paths].sort((left, right) => left.localeCompare(right));
+}
+
+function toCareerSeoAuthorityLocale(locale) {
+  return locale === "zh" ? "zh-CN" : "en-US";
+}
+
+function hasPolicyToken(value, token) {
+  return normalizeSlug(value)
+    .toLowerCase()
+    .split(",")
+    .map((part) => part.trim())
+    .includes(token);
+}
+
+async function fetchCareerJobSeoAuthority(locale, slug) {
+  const cacheKey = `${locale}:${slug}`;
+  if (careerJobSeoAuthorityCache.has(cacheKey)) {
+    return careerJobSeoAuthorityCache.get(cacheKey);
+  }
+
+  const params = new URLSearchParams({
+    locale: toCareerSeoAuthorityLocale(locale),
+    org_id: "0",
+  });
+  const promise = fetchJsonWithTimeout(
+    buildApiUrl(`/v0.5/career-jobs/${encodeURIComponent(slug)}/seo?${params.toString()}`),
+    careerSitemapTimeoutMs
+  ).catch(() => null);
+  careerJobSeoAuthorityCache.set(cacheKey, promise);
+  return promise;
+}
+
+function isCareerSeoAuthorityDiscoverable(payload) {
+  if (!payload || typeof payload !== "object") {
+    return false;
+  }
+
+  const surface = payload.seo_surface_v1 && typeof payload.seo_surface_v1 === "object" ? payload.seo_surface_v1 : {};
+  const meta = payload.meta && typeof payload.meta === "object" ? payload.meta : {};
+  const robotsPolicy = normalizeSlug(surface.robots_policy || meta.robots);
+  const indexabilityState = normalizeSlug(surface.indexability_state).toLowerCase();
+  const sitemapState = normalizeSlug(surface.sitemap_state).toLowerCase();
+  const llmsExposureState = normalizeSlug(surface.llms_exposure_state).toLowerCase();
+
+  if (hasPolicyToken(robotsPolicy, "noindex")) {
+    return false;
+  }
+
+  if (robotsPolicy && !hasPolicyToken(robotsPolicy, "index")) {
+    return false;
+  }
+
+  if (indexabilityState && indexabilityState !== "indexable") {
+    return false;
+  }
+
+  if (sitemapState && sitemapState !== "included") {
+    return false;
+  }
+
+  if (llmsExposureState && llmsExposureState !== "allow") {
+    return false;
+  }
+
+  return true;
+}
+
+async function filterCareerJobPathsBySeoAuthority(paths) {
+  const results = new Array(paths.length).fill(null);
+  let nextIndex = 0;
+
+  async function worker() {
+    while (nextIndex < paths.length) {
+      const index = nextIndex;
+      nextIndex += 1;
+      const path = paths[index];
+      const parsed = parseCareerJobDetailPath(path);
+      if (!parsed) {
+        results[index] = null;
+        continue;
+      }
+
+      const payload = await fetchCareerJobSeoAuthority(parsed.locale, parsed.slug);
+      results[index] = isCareerSeoAuthorityDiscoverable(payload) ? parsed.path : null;
+    }
+  }
+
+  await Promise.all(
+    Array.from({ length: Math.min(careerSeoAuthorityConcurrency, paths.length) }, () => worker())
+  );
+
+  return results.filter(Boolean).sort((left, right) => left.localeCompare(right));
 }
 
 function extractBackendSitemapSourcePersonalityPaths(payload) {
@@ -585,7 +674,7 @@ async function fetchBackendSitemapSourceCareerJobPaths() {
   }
 
   const payload = await fetchBackendSitemapSourcePayload();
-  const paths = extractBackendSitemapSourceCareerJobPaths(payload);
+  const paths = await filterCareerJobPathsBySeoAuthority(extractBackendSitemapSourceCareerJobPaths(payload));
   backendSitemapSourceCareerJobPathCache = paths;
 
   return paths;
@@ -862,10 +951,7 @@ module.exports = {
     ])]
       .map((path) => normalizePath(path))
       .filter((path) =>
-        shouldIncludeGeneratedSitemapPath(
-          path,
-          isCareerJobDetailPath(path) ? { indexEligible: true, indexState: "indexed" } : null
-        )
+        shouldIncludeGeneratedSitemapPath(path, isCareerJobDetailPath(path) ? { indexEligible: true, indexState: "indexed" } : null)
       )
       .map((loc) => ({
         loc,
