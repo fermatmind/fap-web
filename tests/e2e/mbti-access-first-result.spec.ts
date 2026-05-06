@@ -11,6 +11,7 @@ function createMbtiReportFixture() {
 
 test("MBTI result page stays on the access-first rich report path", async ({ page }) => {
   const attemptId = "mbti-release-freeze-0001";
+  const accessToken = "result_access_token_e2e_001";
   const reportAccessPattern = new RegExp(`/api/v0\\.3/attempts/${attemptId}/report-access(?:\\?.*)?$`);
   const reportPattern = new RegExp(`/api/v0\\.3/attempts/${attemptId}/report(?:\\?.*)?$`);
   let reportAccessRequestCount = 0;
@@ -47,6 +48,7 @@ test("MBTI result page stays on the access-first rich report path", async ({ pag
 
   await page.route(reportAccessPattern, async (route) => {
     reportAccessRequestCount += 1;
+    expect(route.request().url()).toContain(`access_token=${accessToken}`);
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -74,6 +76,7 @@ test("MBTI result page stays on the access-first rich report path", async ({ pag
 
   await page.route(reportPattern, async (route) => {
     reportRequestCount += 1;
+    expect(route.request().url()).toContain(`access_token=${accessToken}`);
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -81,7 +84,7 @@ test("MBTI result page stays on the access-first rich report path", async ({ pag
     });
   });
 
-  await page.goto(`/en/result/${attemptId}`);
+  await page.goto(`/en/result/${attemptId}?access_token=${accessToken}`);
 
   await expect(page.getByTestId("mbti-result-shell")).toBeVisible();
   await expect(page.getByTestId("mbti-hero")).toBeVisible();
