@@ -331,7 +331,7 @@
       "status": "local_validation_passed",
       "not_started": false,
       "branch": "codex/pr-df-08-shared-exposure-policy",
-      "commit_sha": "",
+      "commit_sha": "019b1efdb8902f823710be587c6a2da4ec410865",
       "pr_url": "",
       "scope": "Extract duplicated sitemap, llms, robots/noindex, canonical, and private-flow deny/gate rules into shared discoverability policy utilities after regression coverage exists.",
       "checks": {
