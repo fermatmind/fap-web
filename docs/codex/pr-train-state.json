@@ -733,10 +733,10 @@
     "PR-UG-05": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "open",
+      "status": "merged",
       "not_started": false,
       "branch": "codex/pr-ug-05-orphan-detector",
-      "commit_sha": "5982b29d756234e874de53f0240e3c216f7b42eb",
+      "commit_sha": "3ac18fa0d081619224aceb7fe9413baf4ee794e4",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/670",
       "scope": "Add read-only internal-link graph and orphan detector with true orphan, weak graph, and intentional isolation classification.",
       "checks": {
@@ -792,7 +792,24 @@
             "command": "git diff --check"
           }
         ],
-        "github": []
+        "github": [
+          {
+            "name": "build",
+            "status": "passed"
+          },
+          {
+            "name": "contracts",
+            "status": "passed"
+          },
+          {
+            "name": "verify-big5-contract-freeze",
+            "status": "passed"
+          },
+          {
+            "name": "verify-enneagram-contract-freeze",
+            "status": "passed"
+          }
+        ]
       },
       "sidecar_issues": [
         {
@@ -807,24 +824,90 @@
       ],
       "failure_reason": "",
       "resume_policy": "manual_only",
-      "merged_at": "",
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false
+      "merged_at": "2026-05-06T17:29:16Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
     },
     "PR-UG-06": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "planned",
-      "not_started": true,
+      "status": "open",
+      "not_started": false,
       "branch": "codex/pr-ug-06-expanded-live-parity",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "e1e305145a1111cb35ab6799a399a3f00f3b5247",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/671",
       "scope": "Expand live canonical, hreflang, and JSON-LD parity samples across route families without runtime URL behavior changes.",
       "checks": {
-        "local": [],
+        "local": [
+          {
+            "name": "expanded-generated-parity",
+            "status": "passed",
+            "command": "node scripts/seo/check-canonical-hreflang-jsonld-parity.mjs --fixture tests/contracts/fixtures/url-truth/expanded-live-parity-samples.v1.json --json"
+          },
+          {
+            "name": "expanded-live-parity",
+            "status": "passed",
+            "command": "node scripts/seo/check-canonical-hreflang-jsonld-parity.mjs --fixture tests/contracts/fixtures/url-truth/expanded-live-parity-samples.v1.json --live --json",
+            "note": "Validated 8 live samples across 4 reciprocal route-family pairs."
+          },
+          {
+            "name": "focused-contract",
+            "status": "passed",
+            "command": "pnpm exec vitest run tests/contracts/expanded-live-parity-samples.contract.test.ts tests/contracts/canonical-hreflang-jsonld-parity.contract.test.ts"
+          },
+          {
+            "name": "scoped-eslint",
+            "status": "passed",
+            "command": "pnpm exec eslint scripts/seo/check-canonical-hreflang-jsonld-parity.mjs tests/contracts/expanded-live-parity-samples.contract.test.ts"
+          },
+          {
+            "name": "typecheck",
+            "status": "passed",
+            "command": "pnpm typecheck"
+          },
+          {
+            "name": "contracts",
+            "status": "passed",
+            "command": "pnpm test:contract",
+            "note": "266 files passed, 1329 tests passed."
+          },
+          {
+            "name": "lint",
+            "status": "failed_sidecar",
+            "command": "pnpm lint",
+            "note": "Repo-wide pre-existing lint debt outside PR-UG-06 scope; scoped eslint for changed files passed."
+          },
+          {
+            "name": "seo-generate-sitemap",
+            "status": "passed",
+            "command": "pnpm seo:generate-sitemap",
+            "note": "Generated sitemap successfully; timestamp-only public/sitemap.xml diff was reverted before commit."
+          },
+          {
+            "name": "seo-check-sitemap",
+            "status": "passed",
+            "command": "pnpm seo:check-sitemap",
+            "note": "317 sitemap URLs passed indexability check."
+          },
+          {
+            "name": "diff-check",
+            "status": "passed",
+            "command": "git diff --check"
+          }
+        ],
         "github": []
       },
-      "sidecar_issues": [],
+      "sidecar_issues": [
+        {
+          "title": "Pre-existing repo-wide lint debt outside PR-UG-06 scope",
+          "severity": "P2",
+          "scope_impact": "Full pnpm lint reports existing issues in untouched files; scoped eslint for PR-UG-06 files passed.",
+          "introduced_by_current_pr": false,
+          "recommended_future_phase": "Repository lint hygiene sidecar outside URL Truth & SEO Governance PR-UG-06",
+          "blocks_merge": false,
+          "evidence": "pnpm lint fails on the same pre-existing files observed in PR-UG-01 through PR-UG-05; pnpm exec eslint scripts/seo/check-canonical-hreflang-jsonld-parity.mjs tests/contracts/expanded-live-parity-samples.contract.test.ts passed."
+        }
+      ],
       "failure_reason": "",
       "resume_policy": "manual_only",
       "merged_at": "",
