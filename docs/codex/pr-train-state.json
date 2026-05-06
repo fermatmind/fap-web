@@ -396,7 +396,7 @@
       "status": "in_progress",
       "not_started": false,
       "branch": "codex/pr-ug-01-url-inventory-generator",
-      "commit_sha": "",
+      "commit_sha": "c6aef8395caf76aa61ed292d5873b9e58e7db4ba",
       "pr_url": "",
       "scope": "Add read-only production-like URL inventory generator, reproducible JSON/CSV artifacts, route-family classification, and governance report.",
       "checks": {
