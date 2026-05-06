@@ -9,10 +9,10 @@
     "PR-1": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "local_checks_passed",
+      "status": "pr_open",
       "branch": "codex/low-web-url-slug-href-safety",
       "commit_sha": "2a423bb2a01f79e3598d223e32786c253751be53",
-      "pr_url": "",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/642",
       "checks": {
         "local": [
           {
