@@ -647,10 +647,10 @@
     "PR-UG-04": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "open",
+      "status": "merged",
       "not_started": false,
       "branch": "codex/pr-ug-04-career-family-authority-audit",
-      "commit_sha": "e60cac9ee6d69b77f424e56214405bb3d1c65f4a",
+      "commit_sha": "f256c35d3165c7d04473d84e2966f49e6138db7b",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/669",
       "scope": "Add career family duplicate authority audit, migration safety analysis, and remediation plan without runtime URL changes.",
       "checks": {
@@ -694,7 +694,24 @@
             "note": "Repo-wide pre-existing lint debt outside PR-UG-04 scope; scoped eslint for changed files passed."
           }
         ],
-        "github": []
+        "github": [
+          {
+            "name": "build",
+            "status": "passed"
+          },
+          {
+            "name": "contracts",
+            "status": "passed"
+          },
+          {
+            "name": "verify-big5-contract-freeze",
+            "status": "passed"
+          },
+          {
+            "name": "verify-enneagram-contract-freeze",
+            "status": "passed"
+          }
+        ]
       },
       "sidecar_issues": [
         {
@@ -709,24 +726,85 @@
       ],
       "failure_reason": "",
       "resume_policy": "manual_only",
-      "merged_at": "",
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false
+      "merged_at": "2026-05-06T17:14:42Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
     },
     "PR-UG-05": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "planned",
-      "not_started": true,
+      "status": "in_progress",
+      "not_started": false,
       "branch": "codex/pr-ug-05-orphan-detector",
       "commit_sha": "",
       "pr_url": "",
       "scope": "Add read-only internal-link graph and orphan detector with true orphan, weak graph, and intentional isolation classification.",
       "checks": {
-        "local": [],
+        "local": [
+          {
+            "name": "internal-link-orphan-detector",
+            "status": "passed",
+            "command": "node scripts/seo/detect-internal-link-orphans.mjs --output docs/seo/generated/internal-link-graph.v1.json --csv docs/seo/generated/internal-link-graph.v1.csv --pretty",
+            "note": "Generated read-only internal-link graph report with 317 URLs, 276 true orphans, 9 weakly connected URLs, 15 intentional isolation URLs, and 167 low-link career pages."
+          },
+          {
+            "name": "focused-contract",
+            "status": "passed",
+            "command": "pnpm exec vitest run tests/contracts/internal-link-orphan-detector.contract.test.ts"
+          },
+          {
+            "name": "scoped-eslint",
+            "status": "passed",
+            "command": "pnpm exec eslint scripts/seo/detect-internal-link-orphans.mjs tests/contracts/internal-link-orphan-detector.contract.test.ts"
+          },
+          {
+            "name": "typecheck",
+            "status": "passed",
+            "command": "pnpm typecheck"
+          },
+          {
+            "name": "contracts",
+            "status": "passed",
+            "command": "pnpm test:contract",
+            "note": "265 files passed, 1327 tests passed."
+          },
+          {
+            "name": "lint",
+            "status": "failed_sidecar",
+            "command": "pnpm lint",
+            "note": "Repo-wide pre-existing lint debt outside PR-UG-05 scope; scoped eslint for changed files passed."
+          },
+          {
+            "name": "seo-generate-sitemap",
+            "status": "passed",
+            "command": "pnpm seo:generate-sitemap",
+            "note": "Generated sitemap successfully; timestamp-only public/sitemap.xml diff was reverted before commit."
+          },
+          {
+            "name": "seo-check-sitemap",
+            "status": "passed",
+            "command": "pnpm seo:check-sitemap",
+            "note": "317 sitemap URLs passed indexability check."
+          },
+          {
+            "name": "diff-check",
+            "status": "passed",
+            "command": "git diff --check"
+          }
+        ],
         "github": []
       },
-      "sidecar_issues": [],
+      "sidecar_issues": [
+        {
+          "title": "Pre-existing repo-wide lint debt outside PR-UG-05 scope",
+          "severity": "P2",
+          "scope_impact": "Full pnpm lint reports existing issues in untouched files; scoped eslint for PR-UG-05 files passed.",
+          "introduced_by_current_pr": false,
+          "recommended_future_phase": "Repository lint hygiene sidecar outside URL Truth & SEO Governance PR-UG-05",
+          "blocks_merge": false,
+          "evidence": "pnpm lint fails on the same pre-existing files observed in PR-UG-01 through PR-UG-04; pnpm exec eslint scripts/seo/detect-internal-link-orphans.mjs tests/contracts/internal-link-orphan-detector.contract.test.ts passed."
+        }
+      ],
       "failure_reason": "",
       "resume_policy": "manual_only",
       "merged_at": "",

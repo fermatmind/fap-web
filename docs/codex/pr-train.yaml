@@ -418,7 +418,7 @@ prs:
     base: main
     depends_on: ["PR-UG-03"]
     mode: execute
-    status: in_progress
+    status: merged
     scope: >
       Career family duplicate authority audit and remediation plan. Read-only
       docs, contracts, and authority reports only.
@@ -449,7 +449,7 @@ prs:
     base: main
     depends_on: ["PR-UG-04"]
     mode: execute
-    status: planned
+    status: in_progress
     scope: >
       Internal-link graph and orphan detector. Add read-only graph reports only;
       no Topic Graph rollout or auto-link insertion.
