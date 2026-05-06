@@ -82,6 +82,23 @@ function shouldNoindex(indexState: string | null | undefined): boolean {
   return normalized === "blocked" || normalized === "noindex" || normalized === "unavailable";
 }
 
+function hasBackendStructuredDataKey(job: CareerJobBundleAdapter, key: string): boolean {
+  const normalizedKey = key.toLowerCase();
+  return Boolean(job.seoSurface?.structuredDataKeys.some((item) => item.toLowerCase() === normalizedKey));
+}
+
+function shouldRenderOccupationJsonLd(job: CareerJobBundleAdapter): boolean {
+  if (!job.structuredData.occupation) {
+    return false;
+  }
+
+  if (job.seoSurface) {
+    return hasBackendStructuredDataKey(job, "Occupation");
+  }
+
+  return job.renderState.canRenderStructuredData;
+}
+
 function containsCjkText(value: string | null | undefined): boolean {
   return /[\u3400-\u9fff]/.test(String(value ?? ""));
 }
@@ -105,7 +122,7 @@ function shouldRedirectEnglishJobDetailToChinese(job: CareerJobBundleAdapter, lo
 }
 
 async function loadCareerJobBundle(locale: Locale, slug: string): Promise<CareerJobBundleAdapter | null> {
-  const payload = await fetchCareerJobBundle({ locale, slug });
+  const payload = await fetchCareerJobBundle({ locale, slug, includeSeoAuthority: true });
   return adaptCareerJobBundle({ locale, requestedSlug: slug, payload });
 }
 
@@ -596,11 +613,12 @@ export async function generateMetadata({
     return { title: "Not Found", robots: { index: false, follow: false } };
   }
 
-  const canonicalPath = normalizeCareerBundleCanonicalPath(locale, job.seoContract.canonicalPath, buildCanonicalPath(job.slug, locale));
-  const title = `${job.title} | FermatMind`;
+  const seoSurface = job.seoSurface;
+  const canonicalPath =
+    seoSurface?.canonicalPath ?? normalizeCareerBundleCanonicalPath(locale, job.seoContract.canonicalPath, buildCanonicalPath(job.slug, locale));
   const canRenderStrongClaimSurface =
     job.renderState.canRenderAnswerSurface || job.renderState.canRenderOutlookSurface || job.renderState.canRenderFitSurface;
-  const description =
+  const fallbackDescription =
     canRenderStrongClaimSurface && job.summary
       ? job.summary
       : locale === "zh"
@@ -612,13 +630,14 @@ export async function generateMetadata({
   return buildPageMetadata({
     locale,
     pathname: canonicalPath,
-    title,
-    description,
+    title: job.title,
+    description: fallbackDescription,
+    seoSurface,
     explicitIndexGate: {
-      indexEligible: job.seoContract.indexEligible,
-      indexState: job.seoContract.indexState,
+      indexEligible: seoSurface?.indexEligible ?? job.seoContract.indexEligible,
+      indexState: seoSurface?.indexState || job.seoContract.indexState,
     },
-    noindex: !backendSeoAllowsIndex,
+    ...(seoSurface ? {} : { noindex: !backendSeoAllowsIndex }),
     alternatesByLocale: {
       en: buildCareerJobFrontendUrl("en", job.slug),
       zh: buildCareerJobFrontendUrl("zh", job.slug),
@@ -672,7 +691,7 @@ export default async function CareerJobDetailPage({
               subjectKey: job.slug,
             })}
           />
-          {renderState.canRenderStructuredData && job.structuredData.occupation ? <JsonLd id={`career-job-occupation-${job.slug}`} data={job.structuredData.occupation} /> : null}
+          {shouldRenderOccupationJsonLd(job) ? <JsonLd id={`career-job-occupation-${job.slug}`} data={job.structuredData.occupation} /> : null}
           {job.structuredData.breadcrumbList ? <JsonLd id={`career-job-breadcrumb-${job.slug}`} data={job.structuredData.breadcrumbList} /> : null}
           {displayFAQJsonLd ? <JsonLd id={`career-job-display-faq-${job.slug}`} data={displayFAQJsonLd} /> : null}
           <Breadcrumb
@@ -727,7 +746,7 @@ export default async function CareerJobDetailPage({
             subjectKey: job.slug,
           })}
         />
-        {renderState.canRenderStructuredData && job.structuredData.occupation ? <JsonLd id={`career-job-occupation-${job.slug}`} data={job.structuredData.occupation} /> : null}
+        {shouldRenderOccupationJsonLd(job) ? <JsonLd id={`career-job-occupation-${job.slug}`} data={job.structuredData.occupation} /> : null}
         {job.structuredData.breadcrumbList ? <JsonLd id={`career-job-breadcrumb-${job.slug}`} data={job.structuredData.breadcrumbList} /> : null}
         <Breadcrumb
           items={[

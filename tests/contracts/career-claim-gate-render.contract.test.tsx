@@ -323,6 +323,26 @@ describe("career claim gate render contract", () => {
             mainEntityOfPage: "/career/jobs/product-manager",
           },
         },
+        seo_authority_v1: {
+          seo_surface_v1: {
+            metadata_contract_version: "seo.surface.v1",
+            surface_type: "career_job_detail",
+            canonical_url: "https://fermatmind.com/en/career/jobs/product-manager",
+            robots_policy: "index,follow",
+            title: "Product Manager | FermatMind Career Library",
+            description: "Backend SEO authority summary for product manager.",
+            structured_data_keys: ["Occupation"],
+            index_eligible: true,
+            index_state: "indexable",
+          },
+          jsonld: {
+            "@context": "https://schema.org",
+            "@type": "Occupation",
+            name: "Product Manager",
+            url: "https://fermatmind.com/en/career/jobs/product-manager",
+            mainEntityOfPage: "https://fermatmind.com/en/career/jobs/product-manager",
+          },
+        },
       })),
     }));
     vi.doMock("@/lib/career/api/fetchCareerJobExplainability", () => ({
@@ -344,7 +364,7 @@ describe("career claim gate render contract", () => {
     expect(html).toContain("career-job-docx-document");
     expect(html).toContain("Approved DOCX body paragraph");
     expect(html).toContain('"@type":"Occupation"');
-    expect(metadata.description).toContain("Approved product manager summary");
+    expect(metadata.description).toContain("Backend SEO authority summary for product manager.");
     expect(metadata.robots).toEqual(expect.objectContaining({ index: true, follow: true }));
   });
 });

@@ -5,6 +5,7 @@ import type {
   CareerJobRenderState,
   CareerRecommendationRenderState,
 } from "@/lib/career/protocolReadiness";
+import type { SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
 
 export type CareerSeoContractAdapter = {
   canonicalPath: string | null;
@@ -362,6 +363,7 @@ export type CareerJobBundleAdapter = {
   }>;
   contentBodyMd: string | null;
   displaySurfaceV1: CareerDisplaySurfaceViewModel | null;
+  seoSurface: SeoSurfaceViewModel | null;
   scoreBundle: CareerScoreBundleAdapter;
   warnings: CareerWarningsAdapter;
   claimPermissions: CareerClaimPermissions;
