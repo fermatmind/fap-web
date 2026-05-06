@@ -1,0 +1,257 @@
+{
+  "version": "discoverability.regression.snapshot.v1",
+  "scope": "PR-DF-01",
+  "description": "Baseline regression snapshot for FermatMind discoverability surfaces. This fixture is intentionally policy-oriented and must not widen runtime sitemap or llms exposure.",
+  "siteUrl": "https://fermatmind.com",
+  "surfaces": [
+    "sitemap.xml",
+    "llms.txt",
+    "llms-full.txt",
+    "canonical",
+    "metadata",
+    "JSON-LD",
+    "robots/noindex",
+    "hreflang",
+    "Evidence Container",
+    "URL truth",
+    "SEO authority ownership"
+  ],
+  "sourceFiles": {
+    "sitemap": "next-sitemap.config.js",
+    "llms": "app/llms.txt/route.ts",
+    "llmsFull": "app/llms-full.txt/route.ts",
+    "indexingPolicy": "lib/seo/indexingPolicy.ts",
+    "robots": "app/robots.ts",
+    "metadata": "lib/seo/metadata.ts",
+    "seoSurface": "lib/seo/seoSurface.ts",
+    "evidenceContainerSpec": "docs/geo/evidence-container-spec.md"
+  },
+  "sourceTokenSnapshot": {
+    "sitemap": [
+      "SITEMAP_FINAL_PATH_DENY_PATTERNS",
+      "SITEMAP_ROUTE_EXCLUDES",
+      "shouldIncludeInSitemap",
+      "fetchBackendSitemapSourceCareerJobPaths"
+    ],
+    "llms": [
+      "LLMS_FINAL_PATH_DENY_PATTERNS",
+      "isForbiddenFinalLlmsPath",
+      "shouldIncludeInSitemap",
+      "listBackendSitemapCareerJobPaths"
+    ],
+    "llmsFull": [
+      "LLMS_FINAL_PATH_DENY_PATTERNS",
+      "isForbiddenFinalLlmsPath",
+      "shouldIncludeInSitemap",
+      "listBackendSitemapCareerJobPaths"
+    ],
+    "indexingPolicy": [
+      "DENY_PATH_PATTERNS",
+      "shouldNoindex",
+      "shouldIncludeInSitemap"
+    ],
+    "seoSurface": [
+      "canonicalUrl",
+      "robotsPolicy",
+      "indexabilityState",
+      "sitemapState",
+      "llmsExposureState",
+      "structuredDataKeys"
+    ]
+  },
+  "sitemapSnapshot": {
+    "authority": "backend sitemap-source plus deterministic frontend sitemap generation gates",
+    "mustIncludeSamples": [
+      "/en/tests/mbti-personality-test-16-personality-types",
+      "/zh/tests/mbti-personality-test-16-personality-types",
+      "/en/personality/intj-a",
+      "/zh/personality/intj-a",
+      "/en/topics/mbti",
+      "/zh/topics/mbti",
+      "/en/help/faq",
+      "/zh/help/faq"
+    ],
+    "mustExcludeSamples": [
+      "/tests/mbti-personality-test-16-personality-types",
+      "/en/tests/mbti-personality-test-16-personality-types/take",
+      "/zh/tests/mbti-personality-test-16-personality-types/take",
+      "/en/result/example",
+      "/zh/result/example",
+      "/en/orders/example",
+      "/zh/orders/example",
+      "/en/share/example",
+      "/zh/share/example",
+      "/en/results/lookup",
+      "/zh/results/lookup",
+      "/en/career/jobs?q=designer",
+      "/zh/career/jobs?q=designer"
+    ]
+  },
+  "llmsSnapshot": {
+    "authority": "llms routes must use sitemap/indexability gates and backend-owned career job sitemap-source entries",
+    "mustIncludeSamples": [
+      "https://fermatmind.com/en/personality/intj-a",
+      "https://fermatmind.com/zh/personality/intj-a",
+      "https://fermatmind.com/en/topics/mbti",
+      "https://fermatmind.com/zh/topics/mbti",
+      "https://fermatmind.com/en/support",
+      "https://fermatmind.com/zh/support"
+    ],
+    "mustExcludeSamples": [
+      "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types/take",
+      "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types/take",
+      "https://fermatmind.com/en/result/example",
+      "https://fermatmind.com/zh/result/example",
+      "https://fermatmind.com/en/orders/example",
+      "https://fermatmind.com/zh/orders/example",
+      "https://fermatmind.com/en/share/example",
+      "https://fermatmind.com/zh/share/example",
+      "https://fermatmind.com/en/career/jobs",
+      "https://fermatmind.com/zh/career/jobs"
+    ]
+  },
+  "canonicalSnapshot": {
+    "samples": [
+      {
+        "path": "/en/tests/mbti-personality-test-16-personality-types",
+        "canonicalUrl": "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types"
+      },
+      {
+        "path": "/zh/tests/mbti-personality-test-16-personality-types",
+        "canonicalUrl": "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types"
+      },
+      {
+        "path": "/en/personality/intj-a",
+        "canonicalUrl": "https://fermatmind.com/en/personality/intj-a"
+      },
+      {
+        "path": "/zh/topics/mbti",
+        "canonicalUrl": "https://fermatmind.com/zh/topics/mbti"
+      }
+    ]
+  },
+  "hreflangSnapshot": {
+    "samples": [
+      {
+        "path": "/en/tests/mbti-personality-test-16-personality-types",
+        "alternates": {
+          "en": "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types",
+          "zh-CN": "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
+          "x-default": "https://fermatmind.com"
+        }
+      },
+      {
+        "path": "/zh/personality/intj-a",
+        "alternates": {
+          "en": "https://fermatmind.com/en/personality/intj-a",
+          "zh-CN": "https://fermatmind.com/zh/personality/intj-a",
+          "x-default": "https://fermatmind.com"
+        }
+      }
+    ]
+  },
+  "jsonLdSnapshot": {
+    "samples": [
+      {
+        "path": "/en/tests/mbti-personality-test-16-personality-types",
+        "expectedTypes": [
+          "WebPage",
+          "BreadcrumbList",
+          "FAQPage"
+        ],
+        "canonicalUrl": "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types"
+      },
+      {
+        "path": "/zh/career/jobs/accountants-and-auditors",
+        "expectedTypes": [
+          "Occupation",
+          "BreadcrumbList",
+          "FAQPage"
+        ],
+        "canonicalUrl": "https://fermatmind.com/zh/career/jobs/accountants-and-auditors"
+      }
+    ]
+  },
+  "privateFlowExposureSnapshot": [
+    {
+      "path": "/en/tests/mbti-personality-test-16-personality-types/take",
+      "protections": {
+        "noindex": true,
+        "nofollow": true,
+        "xRobotsTag": true,
+        "excludedFromSitemap": true,
+        "excludedFromLlms": true
+      }
+    },
+    {
+      "path": "/zh/tests/mbti-personality-test-16-personality-types/take",
+      "protections": {
+        "noindex": true,
+        "nofollow": true,
+        "xRobotsTag": true,
+        "excludedFromSitemap": true,
+        "excludedFromLlms": true
+      }
+    },
+    {
+      "path": "/en/result/example",
+      "protections": {
+        "noindex": true,
+        "nofollow": true,
+        "xRobotsTag": true,
+        "excludedFromSitemap": true,
+        "excludedFromLlms": true
+      }
+    },
+    {
+      "path": "/zh/orders/example",
+      "protections": {
+        "noindex": true,
+        "nofollow": true,
+        "xRobotsTag": true,
+        "excludedFromSitemap": true,
+        "excludedFromLlms": true
+      }
+    },
+    {
+      "path": "/en/share/example",
+      "protections": {
+        "noindex": true,
+        "nofollow": true,
+        "xRobotsTag": true,
+        "excludedFromSitemap": true,
+        "excludedFromLlms": true
+      }
+    }
+  ],
+  "generatedLiveParityFixtures": {
+    "sitemapUrl": "https://fermatmind.com/sitemap.xml",
+    "llmsUrl": "https://fermatmind.com/llms.txt",
+    "llmsFullUrl": "https://fermatmind.com/llms-full.txt",
+    "samplePages": [
+      {
+        "path": "/en/tests/mbti-personality-test-16-personality-types",
+        "checks": [
+          "canonical",
+          "hreflang",
+          "jsonld"
+        ]
+      },
+      {
+        "path": "/zh/personality/intj-a",
+        "checks": [
+          "canonical",
+          "hreflang"
+        ]
+      },
+      {
+        "path": "/zh/career/jobs/accountants-and-auditors",
+        "checks": [
+          "canonical",
+          "hreflang",
+          "jsonld"
+        ]
+      }
+    ]
+  }
+}
