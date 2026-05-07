@@ -1,0 +1,106 @@
+{
+  "version": "mbti_core_topic_graph.v1",
+  "source_authority": "backend_cms",
+  "frontend_role": "deterministic_render_only",
+  "runtime_effect": "none",
+  "cluster": "mbti",
+  "base_topic": "topic:mbti",
+  "base_test": "test:mbti-personality-test-16-personality-types",
+  "locale_paths": {
+    "topic": [
+      "/en/topics/mbti",
+      "/zh/topics/mbti"
+    ],
+    "test": [
+      "/en/tests/mbti-personality-test-16-personality-types",
+      "/zh/tests/mbti-personality-test-16-personality-types"
+    ]
+  },
+  "edge_templates": [
+    {
+      "edge_type": "topic_to_test",
+      "source_entity": "topic:mbti",
+      "target_entity": "test:mbti-personality-test-16-personality-types",
+      "source_authority": "backend_cms",
+      "owner": "cms:topic_graph",
+      "review_state": "approved",
+      "visibility_state": "public",
+      "confidence": 1,
+      "evidence_requirement": "visible_topic_cta_or_related_test_block",
+      "rendered_visibility": "visible_content"
+    },
+    {
+      "edge_type": "topic_to_type",
+      "source_entity": "topic:mbti",
+      "target_entity_template": "personality:{type}",
+      "target_path_template": "/{locale}/personality/{type}",
+      "source_authority": "backend_cms",
+      "owner": "cms:topic_graph",
+      "review_state": "reviewed",
+      "visibility_state": "candidate",
+      "confidence": 0.9,
+      "evidence_requirement": "visible_type_grid_or_related_type_block",
+      "rendered_visibility": "visible_content"
+    },
+    {
+      "edge_type": "type_to_career",
+      "source_entity_template": "personality:{type}",
+      "target_entity_template": "career_recommendation:mbti:{type}",
+      "target_path_template": "/{locale}/career/recommendations/mbti/{type}",
+      "source_authority": "backend_public_api",
+      "owner": "cms:career_graph",
+      "review_state": "reviewed",
+      "visibility_state": "candidate",
+      "confidence": 0.75,
+      "evidence_requirement": "visible_career_next_step_cta",
+      "rendered_visibility": "visible_content"
+    },
+    {
+      "edge_type": "personality_to_faq",
+      "source_entity_template": "personality:{type}",
+      "target_entity_template": "faq_block:personality:{type}",
+      "source_authority": "backend_cms",
+      "owner": "cms:topic_graph",
+      "review_state": "reviewed",
+      "visibility_state": "candidate",
+      "confidence": 0.85,
+      "evidence_requirement": "visible_faq_answer_block",
+      "rendered_visibility": "visible_content"
+    },
+    {
+      "edge_type": "personality_to_cta",
+      "source_entity_template": "personality:{type}",
+      "target_entity_template": "cta:retake-mbti-test",
+      "target_path_template": "/{locale}/tests/mbti-personality-test-16-personality-types",
+      "source_authority": "backend_cms",
+      "owner": "cms:conversion_graph",
+      "review_state": "approved",
+      "visibility_state": "public",
+      "confidence": 1,
+      "evidence_requirement": "visible_next_step_cta",
+      "rendered_visibility": "visible_content"
+    }
+  ],
+  "coverage_requirements": {
+    "required_personality_variant_count": 32,
+    "required_locales": [
+      "en",
+      "zh"
+    ],
+    "required_edge_types": [
+      "topic_to_test",
+      "topic_to_type",
+      "type_to_career",
+      "personality_to_faq",
+      "personality_to_cta"
+    ],
+    "forbidden_runtime_effects": [
+      "new_public_routes",
+      "sitemap_widening",
+      "llms_widening",
+      "frontend_graph_authority",
+      "hidden_faq_or_schema_stuffing",
+      "ai_generated_content"
+    ]
+  }
+}
