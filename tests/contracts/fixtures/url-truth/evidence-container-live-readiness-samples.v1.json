@@ -1,0 +1,118 @@
+{
+  "version": "url_truth.evidence_container_live_readiness.v1",
+  "scope": "PR-UG-08",
+  "siteUrl": "https://fermatmind.com",
+  "description": "Read-only Evidence Container live-readiness sampling fixture. Samples validate visible HTML grounding, JSON-LD alignment, public next steps, and readiness classification without creating content or widening discoverability exposure.",
+  "readinessStates": ["ready", "partial", "not_ready"],
+  "authorityPrinciples": [
+    "visible_html_first",
+    "backend_cms_authority",
+    "faq_schema_must_match_visible_content",
+    "no_hidden_schema_stuffing",
+    "private_flows_never_discoverable",
+    "sampling_only_no_content_expansion"
+  ],
+  "requiredCoverage": {
+    "routeFamilies": [
+      "article_detail",
+      "test_detail",
+      "topic_detail",
+      "personality_detail",
+      "career_guide",
+      "career_job_detail",
+      "mental_health_test"
+    ],
+    "readinessStates": ["ready", "partial", "not_ready"]
+  },
+  "privateFlowDenyPatterns": [
+    "/tests/*/take",
+    "/result/*",
+    "/orders/*",
+    "/share/*",
+    "/payment/*",
+    "/pay/*",
+    "/history/*"
+  ],
+  "samples": [
+    {
+      "id": "article_answer_surface_ready",
+      "routeFamily": "article_detail",
+      "url": "https://fermatmind.com/en/articles/answer-surface-article",
+      "expectedReadiness": "ready",
+      "expectedBlocks": ["quick_answer", "definition", "evidence_facts", "next_step", "faq"],
+      "expectedFaqQuestions": ["What makes an answer surface ready?"],
+      "expectedPublicNextSteps": ["https://fermatmind.com/en/articles"],
+      "html": "<main><section data-evidence-container=\"article_detail\"><article data-evidence-block=\"quick_answer\"><h2>Quick answer</h2><p>An answer surface is ready when the visible page can answer the user's core question before relying on schema.</p></article><article data-evidence-block=\"definition\"><h2>Definition</h2><p>Evidence Container readiness means visible answer blocks, boundaries, and public next steps are available in rendered HTML.</p></article><article data-evidence-block=\"evidence_facts\"><h2>Evidence facts</h2><ul><li>The FAQ is rendered visibly.</li><li>The next step is a public canonical page.</li></ul></article><article data-evidence-block=\"next_step\"><h2>Next step</h2><a href=\"https://fermatmind.com/en/articles\">Browse articles</a></article><article data-evidence-block=\"faq\"><h2>FAQ</h2><h3>What makes an answer surface ready?</h3><p>Visible answers, evidence blocks, and public next steps make it ready.</p></article><script type=\"application/ld+json\">{\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"What makes an answer surface ready?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Visible answers, evidence blocks, and public next steps make it ready.\"}}]}</script></section></main>"
+    },
+    {
+      "id": "test_detail_partial_missing_definition",
+      "routeFamily": "test_detail",
+      "url": "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types",
+      "expectedReadiness": "partial",
+      "expectedBlocks": ["quick_answer", "caveat", "next_step"],
+      "expectedFaqQuestions": [],
+      "expectedPublicNextSteps": ["https://fermatmind.com/en/tests"],
+      "html": "<main><section data-evidence-container=\"test_detail\"><article data-evidence-block=\"quick_answer\"><h2>Quick answer</h2><p>This test helps users reflect on personality preference patterns.</p></article><article data-evidence-block=\"caveat\"><h2>Boundary</h2><p>It is decision support, not a fixed identity label.</p></article><article data-evidence-block=\"next_step\"><h2>Next step</h2><a href=\"https://fermatmind.com/en/tests\">Browse public tests</a></article></section></main>"
+    },
+    {
+      "id": "topic_detail_partial_missing_comparison",
+      "routeFamily": "topic_detail",
+      "url": "https://fermatmind.com/en/topics/mbti",
+      "expectedReadiness": "partial",
+      "expectedBlocks": ["quick_answer", "definition", "related_links"],
+      "expectedFaqQuestions": [],
+      "expectedPublicNextSteps": ["https://fermatmind.com/en/topics"],
+      "html": "<main><section data-evidence-container=\"topic_detail\"><article data-evidence-block=\"quick_answer\"><h2>Quick answer</h2><p>MBTI is a preference framework used for self-reflection.</p></article><article data-evidence-block=\"definition\"><h2>Definition</h2><p>The framework groups preferences into type patterns.</p></article><article data-evidence-block=\"related_links\"><h2>Related links</h2><a href=\"https://fermatmind.com/en/topics\">Browse topics</a></article></section></main>"
+    },
+    {
+      "id": "personality_detail_partial_missing_next_step",
+      "routeFamily": "personality_detail",
+      "url": "https://fermatmind.com/en/personality/intj-a",
+      "expectedReadiness": "partial",
+      "expectedBlocks": ["quick_answer", "definition", "caveat"],
+      "expectedFaqQuestions": [],
+      "expectedPublicNextSteps": [],
+      "html": "<main><section data-evidence-container=\"personality_detail\"><article data-evidence-block=\"quick_answer\"><h2>Quick answer</h2><p>INTJ-A describes one asserted preference pattern.</p></article><article data-evidence-block=\"definition\"><h2>Definition</h2><p>Personality type pages explain patterns, not destiny.</p></article><article data-evidence-block=\"caveat\"><h2>Boundary</h2><p>A type label should not replace context, skills, or lived behavior.</p></article></section></main>"
+    },
+    {
+      "id": "career_guide_partial_visible_boundary",
+      "routeFamily": "career_guide",
+      "url": "https://fermatmind.com/en/career/guides/career-change",
+      "expectedReadiness": "partial",
+      "expectedBlocks": ["quick_answer", "how_to", "caveat", "next_step"],
+      "expectedFaqQuestions": [],
+      "expectedPublicNextSteps": ["https://fermatmind.com/en/career"],
+      "html": "<main><section data-evidence-container=\"career_guide\"><article data-evidence-block=\"quick_answer\"><h2>Quick answer</h2><p>A career change page should start with decision guidance.</p></article><article data-evidence-block=\"how_to\"><h2>How to use it</h2><ol><li>Compare constraints.</li><li>Map skills.</li><li>Choose a next experiment.</li></ol></article><article data-evidence-block=\"caveat\"><h2>Boundary</h2><p>Career advice should be checked against local market and personal constraints.</p></article><article data-evidence-block=\"next_step\"><h2>Next step</h2><a href=\"https://fermatmind.com/en/career\">Return to career center</a></article></section></main>"
+    },
+    {
+      "id": "career_job_detail_not_ready_without_container",
+      "routeFamily": "career_job_detail",
+      "url": "https://fermatmind.com/en/career/jobs/software-developers",
+      "expectedReadiness": "not_ready",
+      "expectedBlocks": [],
+      "expectedFaqQuestions": [],
+      "expectedPublicNextSteps": [],
+      "html": "<main><h1>Software Developers</h1><script type=\"application/ld+json\">{\"@type\":\"Occupation\",\"name\":\"Software Developers\",\"url\":\"https://fermatmind.com/en/career/jobs/software-developers\"}</script></main>"
+    },
+    {
+      "id": "mental_health_test_not_ready_hidden_faq",
+      "routeFamily": "mental_health_test",
+      "url": "https://fermatmind.com/en/tests/depression-screening-test",
+      "expectedReadiness": "not_ready",
+      "expectedBlocks": ["quick_answer", "definition", "next_step", "faq"],
+      "expectedFaqQuestions": ["Can this diagnose depression?"],
+      "expectedPublicNextSteps": ["https://fermatmind.com/en/tests"],
+      "html": "<main><section data-evidence-container=\"mental_health_test\"><article data-evidence-block=\"quick_answer\"><h2>Quick answer</h2><p>This screening page can support reflection only.</p></article><article data-evidence-block=\"definition\"><h2>Definition</h2><p>A screening test is not a diagnosis.</p></article><article data-evidence-block=\"next_step\"><h2>Next step</h2><a href=\"https://fermatmind.com/en/tests\">Browse public tests</a></article><article data-evidence-block=\"faq\" style=\"display:none\"><h2>FAQ</h2><h3>Can this diagnose depression?</h3><p>No.</p></article><script type=\"application/ld+json\">{\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Can this diagnose depression?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"No.\"}}]}</script></section></main>"
+    }
+  ],
+  "sourceTokenContracts": [
+    {
+      "source": "docs/geo/evidence-container-live-readiness-sampling.md",
+      "requiredTokens": ["PR-UG-08", "visible HTML", "ready", "partial", "not_ready", "No runtime behavior changes"]
+    },
+    {
+      "source": "docs/geo/evidence-container-readiness-gate.md",
+      "requiredTokens": ["FAQ-only pages are not Evidence Container ready", "No private flows in next steps", "hidden schema"]
+    }
+  ]
+}
