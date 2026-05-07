@@ -1,0 +1,76 @@
+{
+  "version": "seo_foundation.article_jsonld_fallback_authority.v1",
+  "scope": "PR-SEOF-02",
+  "runtimeBehaviorChanged": false,
+  "authorityStates": {
+    "backend_cms_complete": {
+      "description": "CMS Article SEO or backend seo.surface.v1 supplies complete Article JSON-LD aligned with canonical URL, visible content, author policy, dates, and publication state.",
+      "finalAuthority": true,
+      "allowedForExpansion": true
+    },
+    "frontend_fallback": {
+      "description": "Frontend deterministically builds Article JSON-LD from visible CMS article fields when CMS Article SEO JSON-LD is absent.",
+      "finalAuthority": false,
+      "allowedForExpansion": false
+    },
+    "migration_required": {
+      "description": "Fallback is temporarily allowed for compatibility but blocks Topic Graph, GEO, article SEO expansion, and large content rollout until backend/CMS completeness exists.",
+      "finalAuthority": false,
+      "allowedForExpansion": false
+    }
+  },
+  "requirements": [
+    "Article JSON-LD must align with visible article title, excerpt/body, dates, author policy, canonical URL, and locale.",
+    "Backend/CMS Article SEO completeness must become the final authority before article SEO/GEO expansion.",
+    "Frontend fallback must remain tracked as migration_required until removed or explicitly replaced by backend/CMS authority.",
+    "Fallback must not emit hidden schema, hidden FAQ, Dataset, Quiz, Product, or unrelated entity schema."
+  ],
+  "trackedFallbacks": [
+    {
+      "id": "cms_article_detail_article_jsonld_fallback",
+      "routeFamily": "article_detail",
+      "source": "app/(localized)/[locale]/articles/[slug]/page.tsx",
+      "classification": "migration_required",
+      "risk": "P1",
+      "currentAuthority": "seo_jsonld_preferred_frontend_article_fallback",
+      "requiredFinalAuthority": "backend_cms_complete",
+      "temporaryAllowance": "Compatibility only; do not treat fallback as final authority.",
+      "requiredTokens": [
+        "normalizeArticleJsonLdAuthor(seo?.jsonld)",
+        "buildArticleJsonLd({",
+        "article.title",
+        "article.excerpt",
+        "ARTICLE_AUTHOR_NAME"
+      ],
+      "forbiddenTokens": [
+        "buildQuizJsonLd",
+        "buildOccupationJsonLd",
+        "Dataset"
+      ],
+      "blocksBeforeExpansion": [
+        "article_topic_graph_expansion",
+        "article_geo_expansion",
+        "large_article_seo_rollout"
+      ]
+    }
+  ],
+  "nonArticleFallbackGuards": [
+    {
+      "id": "support_article_webpage_jsonld_not_article_fallback",
+      "source": "app/(localized)/[locale]/support/articles/[slug]/page.tsx",
+      "expectedAllowedTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "forbiddenTokens": [
+        "buildArticleJsonLd",
+        "\"@type\": \"Article\""
+      ]
+    }
+  ],
+  "futureFailGate": {
+    "condition": "If Article JSON-LD fallback remains after backend/CMS Article SEO completeness is marked ready, the migration gate must fail.",
+    "targetFuturePhase": "SEO Foundation remediation after backend Article SEO completeness",
+    "blocksMergeWhenEnabled": true
+  }
+}
