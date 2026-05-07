@@ -89,7 +89,9 @@
       "branch": "codex/pr-prac-01-frontend-source-of-truth-lock",
       "base": "main",
       "depends_on": [],
-      "status": "in_progress",
+      "status": "merged",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/689",
+      "merge_sha": "6d496d9262f84f78f2ca8feb814370730f11a232",
       "title": "docs(runtime): lock production frontend source of truth",
       "artifacts": [
         "docs/runtime/public-frontend-source-of-truth.md",
@@ -106,7 +108,7 @@
       "depends_on": [
         "PR-PRAC-01"
       ],
-      "status": "planned",
+      "status": "in_progress",
       "title": "test(runtime): add page family runtime contract coverage matrix",
       "artifacts": [
         "docs/runtime/page-family-runtime-coverage.md",
