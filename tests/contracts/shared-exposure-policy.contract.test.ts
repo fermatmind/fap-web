@@ -58,12 +58,14 @@ describe("shared discoverability exposure policy", () => {
 
   it("keeps sitemap, llms, and indexing surfaces wired to the shared policy", () => {
     const sitemapConfig = read("next-sitemap.config.js");
+    const sitemapAdapters = read("lib/seo/sitemapAuthorityAdapters.cjs");
     const llms = read("app/llms.txt/route.ts");
     const llmsFull = read("app/llms-full.txt/route.ts");
     const indexingPolicy = read("lib/seo/indexingPolicy.ts");
     const cjsIndexingPolicy = read("lib/seo/indexingPolicy.cjs");
 
-    expect(sitemapConfig).toContain("PRIVATE_FLOW_ROUTE_EXCLUDES");
+    expect(sitemapConfig).toContain("sitemapAuthorityAdapters.cjs");
+    expect(sitemapAdapters).toContain("PRIVATE_FLOW_ROUTE_EXCLUDES");
     expect(sitemapConfig).toContain("isSharedDiscoverabilityDeniedPath");
     expect(llms).toContain("isSharedDiscoverabilityDeniedPath");
     expect(llmsFull).toContain("isSharedDiscoverabilityDeniedPath");

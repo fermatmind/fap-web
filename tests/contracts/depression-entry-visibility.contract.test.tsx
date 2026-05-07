@@ -239,7 +239,7 @@ describe("depression entry visibility contract", () => {
     const llms = read("app/llms.txt/route.ts");
     const llmsFull = read("app/llms-full.txt/route.ts");
     const backendTestSource = read("lib/seo/backendTestDiscoverabilitySource.ts");
-    const sitemap = read("next-sitemap.config.js");
+    const sitemap = `${read("next-sitemap.config.js")}\n${read("lib/seo/sitemapAuthorityAdapters.cjs")}`;
     const generatedSitemap = read("public/sitemap.xml");
 
     expect(llms).toContain("listBackendDiscoverabilityTestEntries");

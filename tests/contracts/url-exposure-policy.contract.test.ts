@@ -140,7 +140,10 @@ describe("URL exposure policy contract", () => {
     for (const [surface, tokens] of Object.entries(fixture.sourceTokenContracts)) {
       const relPath = fixture.sourceFiles[surface];
       expect(relPath, `missing sourceFiles.${surface}`).toBeTruthy();
-      const source = readSource(relPath);
+      const source =
+        surface === "sitemap"
+          ? `${readSource(relPath)}\n${readSource("lib/seo/sitemapAuthorityAdapters.cjs")}`
+          : readSource(relPath);
 
       for (const token of tokens) {
         expect(source, `${relPath} should include ${token}`).toContain(token);

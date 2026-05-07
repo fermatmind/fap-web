@@ -75,7 +75,7 @@ describe("robots contract", () => {
   });
 
   it("keeps sbti fun routes outside sitemap generation", () => {
-    const sitemapSource = read("next-sitemap.config.js");
+    const sitemapSource = read("lib/seo/sitemapAuthorityAdapters.cjs");
 
     expect(sitemapSource).toContain('"/en/fun/sbti"');
     expect(sitemapSource).toContain('"/zh/fun/sbti"');
