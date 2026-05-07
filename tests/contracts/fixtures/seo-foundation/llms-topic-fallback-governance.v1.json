@@ -1,0 +1,83 @@
+{
+  "version": "seo_foundation.llms_topic_fallback_governance.v1",
+  "scope": "PR-SEOF-03",
+  "runtimeBehaviorChanged": false,
+  "fallbackOwner": "frontend_compatibility_fixture_until_backend_topic_exposure_authority",
+  "futureFinalAuthority": "backend_or_cms_topic_exposure_state",
+  "stablePublicTopicFallbacks": [
+    {
+      "slug": "mbti",
+      "intentionalInclusion": true,
+      "reason": "Existing public topic fallback used by llms surfaces when topics CMS is unavailable."
+    },
+    {
+      "slug": "big-five",
+      "intentionalInclusion": true,
+      "reason": "Existing public topic fallback used by llms surfaces when topics CMS is unavailable."
+    },
+    {
+      "slug": "iq-eq",
+      "intentionalInclusion": true,
+      "reason": "Existing public topic fallback used by llms surfaces when topics CMS is unavailable."
+    }
+  ],
+  "intentionalExclusions": [
+    {
+      "slug": "riasec",
+      "reason": "RIASEC topic route and CMS graph authority are not ready."
+    },
+    {
+      "slug": "enneagram",
+      "reason": "Not part of current stable topic fallback set."
+    },
+    {
+      "slug": "career",
+      "reason": "Career surfaces use dedicated career authority and must not enter topic fallback implicitly."
+    }
+  ],
+  "sourceContracts": [
+    {
+      "source": "app/llms.txt/route.ts",
+      "fallbackIdentifier": "TOPIC_FALLBACK_SLUGS",
+      "requiredTokens": [
+        "TOPIC_FALLBACK_SLUGS",
+        "mbti",
+        "big-five",
+        "iq-eq",
+        "listTopicPaths",
+        "listTopics"
+      ],
+      "forbiddenTokens": [
+        "riasec",
+        "enneagram"
+      ]
+    },
+    {
+      "source": "app/llms-full.txt/route.ts",
+      "fallbackIdentifier": "TOPIC_FALLBACKS",
+      "requiredTokens": [
+        "TOPIC_FALLBACKS",
+        "mbti",
+        "big-five",
+        "iq-eq",
+        "listTopicEntries",
+        "listTopics"
+      ],
+      "forbiddenTokens": [
+        "riasec",
+        "enneagram"
+      ]
+    }
+  ],
+  "parityExpectations": {
+    "llmsAndLlmsFullFallbackSlugsMustMatch": true,
+    "unexpectedTopicFallbackAdditionsFailContract": true,
+    "topicGraphExpansionMustNotSilentlyWidenLlms": true,
+    "privateFlowsRemainDenied": true
+  },
+  "blockedBeforeTopicGraphExpansion": [
+    "Move topic fallback exposure to backend/CMS topic exposure authority or a reviewed versioned compatibility fixture.",
+    "Define topic visibility/indexability/llms exposure state before adding new topic slugs.",
+    "Keep llms.txt and llms-full.txt topic fallback sets in parity."
+  ]
+}
