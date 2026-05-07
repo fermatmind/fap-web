@@ -34,6 +34,7 @@ Notes:
 - staging and canary use the same script and the same URL checklist
 - only `BASE_URL` and `LEGACY_MODE_EXPECTATION` change between environments
 - `LEGACY_MODE_EXPECTATION` must match the mode the target deployment was built with
+- production canonical host policy is `https://www.fermatmind.com/*` => `308` => `https://fermatmind.com/*`; when the target is production apex or production `www`, the script verifies representative `www` redirects and the apex final statuses
 - root `/test*` is still owned by unconditional `next.config.mjs` redirects and therefore stays `308` in both modes
 - under the current constrained root-quiz contract, `LEGACY_MODE_EXPECTATION=gone` expects:
   - `/quiz/:slug` => `410`
@@ -54,11 +55,12 @@ The gate passes only if all items below hold:
 
 1. `build` and `contracts` are green for the deployed commit
 2. `/` returns `200` without a redirect
-3. `/articles`, `/career`, `/topics`, and `/personality` return `308` and preserve query strings
-4. `/professions` and `/types` return `410` with `X-Robots-Tag` containing `noindex`
-5. root `/test*` keeps its explicit `308` redirects and locale `/[locale]/test*` plus `/quiz*` match the selected legacy mode contract
-6. canonical `/en/tests/.../take` returns `200`, keeps `X-Robots-Tag`, sets anon cookie on the first request, and does not rotate it on the second request
-7. `robots`, `sitemap`, and `llms` endpoints are not redirected and do not emit proxy side-effect cookies
+3. production `www` requests return `308` to the identical apex path, and the apex final status is validated
+4. `/articles`, `/career`, `/topics`, and `/personality` return `308` and preserve query strings
+5. `/professions` and `/types` return `410` with `X-Robots-Tag` containing `noindex`
+6. root `/test*` keeps its explicit `308` redirects and locale `/[locale]/test*` plus `/quiz*` match the selected legacy mode contract
+7. canonical `/en/tests/.../take` returns `200`, keeps `X-Robots-Tag`, sets anon cookie on the first request, and does not rotate it on the second request
+8. `robots`, `sitemap`, and `llms` endpoints are not redirected and do not emit proxy side-effect cookies
 
 ## Fail triggers
 

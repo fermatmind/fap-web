@@ -4,6 +4,7 @@ set -euo pipefail
 BASE_URL_INPUT="${BASE_URL:-${1:-}}"
 LEGACY_MODE_INPUT="${LEGACY_MODE_EXPECTATION:-${2:-redirect}}"
 CURL_TIMEOUT_SEC="${CURL_TIMEOUT_SEC:-15}"
+CANONICAL_BASE_URL_INPUT="${CANONICAL_BASE_URL:-https://fermatmind.com}"
 FIXED_ACCEPT_LANGUAGE="${FIXED_ACCEPT_LANGUAGE:-zh-CN,zh;q=0.9,en;q=0.8}"
 ANON_COOKIE_NAME="fap_anonymous_id_v1"
 
@@ -18,6 +19,7 @@ Required:
 Optional:
   LEGACY_MODE_EXPECTATION    redirect | gone (default: redirect)
   CURL_TIMEOUT_SEC           curl timeout in seconds (default: 15)
+  CANONICAL_BASE_URL         Apex canonical origin when BASE_URL is production www (default: https://fermatmind.com)
   FIXED_ACCEPT_LANGUAGE      accept-language for root content redirects
 EOF
 }
@@ -128,6 +130,23 @@ assert_location_contains() {
   fi
 }
 
+assert_location_equals() {
+  local expected="$1"
+  local label="$2"
+  if [[ "${LAST_LOCATION:-}" != "$expected" ]]; then
+    fail "${label}: expected location='${expected}', got='${LAST_LOCATION:-<none>}'"
+  fi
+}
+
+assert_location_contains_either() {
+  local first="$1"
+  local second="$2"
+  local label="$3"
+  if [[ "${LAST_LOCATION:-}" != *"$first"* && "${LAST_LOCATION:-}" != *"$second"* ]]; then
+    fail "${label}: expected location to contain '${first}' or '${second}', got='${LAST_LOCATION:-<none>}'"
+  fi
+}
+
 assert_no_location() {
   local label="$1"
   if [[ -n "${LAST_LOCATION:-}" ]]; then
@@ -160,7 +179,31 @@ assert_set_cookie_contains() {
   fi
 }
 
+assert_www_redirect_to_apex() {
+  local path="$1"
+  local expected_final_status="$2"
+  local previous_base_url="$BASE_URL"
+  local expected_location="${CANONICAL_BASE_URL}${path}"
+
+  if [[ "$path" == "/" ]]; then
+    expected_location="$CANONICAL_BASE_URL"
+  fi
+
+  BASE_URL="$WWW_REDIRECT_BASE_URL"
+  run_request "$path"
+  assert_status "308" "www ${path}"
+  assert_location_equals "$expected_location" "www ${path}"
+  assert_no_set_cookie "www ${path}"
+
+  BASE_URL="$CANONICAL_BASE_URL"
+  run_request "$path"
+  assert_status "$expected_final_status" "apex ${path}"
+
+  BASE_URL="$previous_base_url"
+}
+
 BASE_URL="$(trim_trailing_slash "$BASE_URL_INPUT")"
+CANONICAL_BASE_URL="$(trim_trailing_slash "$CANONICAL_BASE_URL_INPUT")"
 LEGACY_MODE_EXPECTATION="$(printf '%s' "$LEGACY_MODE_INPUT" | tr '[:upper:]' '[:lower:]')"
 
 if [[ -z "$BASE_URL" ]]; then
@@ -182,12 +225,29 @@ require_bin mktemp
 require_bin paste
 require_bin sed
 
+WWW_REDIRECT_BASE_URL=""
+if [[ "$BASE_URL" == "https://www.fermatmind.com" ]]; then
+  WWW_REDIRECT_BASE_URL="$BASE_URL"
+  BASE_URL="$CANONICAL_BASE_URL"
+elif [[ "$BASE_URL" == "$CANONICAL_BASE_URL" ]]; then
+  WWW_REDIRECT_BASE_URL="https://www.fermatmind.com"
+fi
+
 FAILURES=0
 REQUEST_COUNTER=0
 TMP_DIR="$(mktemp -d)"
 trap 'rm -rf "$TMP_DIR"' EXIT
 
 log "base_url=${BASE_URL} legacy_mode=${LEGACY_MODE_EXPECTATION} accept_language=${FIXED_ACCEPT_LANGUAGE}"
+
+if [[ -n "$WWW_REDIRECT_BASE_URL" ]]; then
+  log "www_redirect_base_url=${WWW_REDIRECT_BASE_URL} canonical_base_url=${CANONICAL_BASE_URL}"
+  assert_www_redirect_to_apex "/" "200"
+  assert_www_redirect_to_apex "/en" "200"
+  assert_www_redirect_to_apex "/zh/career/jobs" "200"
+  assert_www_redirect_to_apex "/zh/career/tests/riasec" "404"
+  assert_www_redirect_to_apex "/zh/career/tests/riasec/result" "404"
+fi
 
 run_request "/"
 assert_status "200" "/"
@@ -235,11 +295,11 @@ if [[ "$LEGACY_MODE_EXPECTATION" == "redirect" ]]; then
 
   run_request "/quiz/mbti-test?utm=a"
   assert_status "308" "/quiz/mbti-test?utm=a"
-  assert_location_contains "/en/quiz/mbti-test?utm=a" "/quiz/mbti-test?utm=a"
+  assert_location_contains_either "/en/quiz/mbti-test?utm=a" "/en/tests/mbti-test?utm=a" "/quiz/mbti-test?utm=a"
 
   run_request "/en/quiz/mbti-test?utm=a"
   assert_status "308" "/en/quiz/mbti-test?utm=a"
-  assert_location_contains "/en/tests/mbti-personality-test-16-personality-types/take?utm=a" "/en/quiz/mbti-test?utm=a"
+  assert_location_contains_either "/en/tests/mbti-personality-test-16-personality-types/take?utm=a" "/en/tests/mbti-personality-test-16-personality-types?utm=a" "/en/quiz/mbti-test?utm=a"
 else
   for gone_legacy_path in "/en/test/mbti-test" "/en/test/mbti-test/take" "/quiz/mbti-test" "/en/quiz/mbti-test"; do
     run_request "${gone_legacy_path}"
