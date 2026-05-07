@@ -3,7 +3,7 @@
   "train_description": "Establish FermatMind Core Topic Graph Foundation v1 through read-only graph inventory, graph edge governance contracts, and MBTI graph stabilization without large topic expansion, Recommendation, Behavior Graph, Long-term Profile, B2B, Career pSEO expansion, or AI-generated SEO content.",
   "previous_train_name": "url-truth-seo-governance-train",
   "started_at": "2026-05-06T12:32:48Z",
-  "updated_at": "2026-05-07T05:16:44Z",
+  "updated_at": "2026-05-07T05:18:59Z",
   "status": "initialized",
   "phase": "core-topic-graph-foundation",
   "platform_positioning": "人格与职业决策平台",
@@ -4896,11 +4896,11 @@
     "PR-TG-03": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "local_validation_passed",
+      "status": "pr_open",
       "not_started": false,
       "branch": "codex/pr-tg-03-mbti-graph-stabilization",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "1392316c5f514647c76466467cc3c7fa93ff675a",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/676",
       "scope": "Stabilize existing MBTI graph foundation through observable contract-backed graph links and validators without page expansion or commercial/runtime changes.",
       "depends_on": [
         "PR-TG-02"
