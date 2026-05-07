@@ -1,0 +1,5782 @@
+{
+  "version": "core_topic_graph.inventory.v1",
+  "generatedAt": "offline-reproducible",
+  "source": {
+    "urlInventory": "docs/seo/generated/url-inventory.v1.json",
+    "urlInventoryVersion": "url_truth.inventory.v1",
+    "internalLinkGraph": "docs/seo/generated/internal-link-graph.v1.json",
+    "internalLinkGraphVersion": "url_truth.internal_link_graph.v1",
+    "duplicateReport": "docs/seo/generated/duplicate-seo-entities.v1.json",
+    "duplicateReportVersion": "url_truth.duplicate_entity_report.v1",
+    "careerAuthorityAudit": "docs/seo/generated/career-family-authority-audit.v1.json",
+    "careerAuthorityAuditVersion": "url_truth.career_family_authority_audit.v1",
+    "limitation": "Read-only graph inventory. Static link graph does not infer CMS-rendered runtime links."
+  },
+  "scope": {
+    "clusters": [
+      "mbti",
+      "big-five",
+      "riasec"
+    ],
+    "entityTypes": [
+      "topic",
+      "test",
+      "personality_type",
+      "trait_dimension",
+      "riasec_type",
+      "career_family",
+      "career_job",
+      "article"
+    ],
+    "forbiddenRuntimeEffects": [
+      "no route changes",
+      "no SEO exposure changes",
+      "no generated graph rendering",
+      "no Topic Graph expansion"
+    ]
+  },
+  "summary": {
+    "totalEntities": 156,
+    "entityTypeCounts": {
+      "article": 16,
+      "career_family": 4,
+      "career_job": 87,
+      "personality_type": 32,
+      "riasec_type": 6,
+      "test": 3,
+      "topic": 3,
+      "trait_dimension": 5
+    },
+    "readinessCounts": {
+      "weak": 137,
+      "dangerous": 4,
+      "blocked": 12,
+      "partial": 3
+    },
+    "missingPublicRoutes": 12,
+    "trueOrphanEntities": 141,
+    "duplicateRiskEntities": 47,
+    "careerFamilyP1AuthorityClusters": 3
+  },
+  "graphReadinessMatrix": [
+    {
+      "cluster": "mbti",
+      "entityCount": 34,
+      "readinessCounts": {
+        "weak": 33,
+        "partial": 1
+      },
+      "missingPublicRoutes": 0,
+      "trueOrphanEntities": 33,
+      "duplicateRiskEntities": 34
+    },
+    {
+      "cluster": "big-five",
+      "entityCount": 7,
+      "readinessCounts": {
+        "partial": 1,
+        "weak": 1,
+        "blocked": 5
+      },
+      "missingPublicRoutes": 5,
+      "trueOrphanEntities": 1,
+      "duplicateRiskEntities": 2
+    },
+    {
+      "cluster": "riasec",
+      "entityCount": 8,
+      "readinessCounts": {
+        "blocked": 7,
+        "partial": 1
+      },
+      "missingPublicRoutes": 7,
+      "trueOrphanEntities": 0,
+      "duplicateRiskEntities": 1
+    }
+  ],
+  "entities": [
+    {
+      "id": "article:are-infj-men-rare-or-socially-silenced",
+      "type": "article",
+      "cluster": "article",
+      "label": "are-infj-men-rare-or-socially-silenced",
+      "paths": [
+        "/en/articles/are-infj-men-rare-or-socially-silenced",
+        "/zh/articles/are-infj-men-rare-or-socially-silenced"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/articles/are-infj-men-rare-or-socially-silenced",
+        "https://fermatmind.com/zh/articles/are-infj-men-rare-or-socially-silenced"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "article_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "are-infj-men-rare-or-socially-silenced",
+        "article_detail:articlesare-infj-men-rare-or-socially-silenced"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "article:best-valentines-date-by-personality-and-relationship-science",
+      "type": "article",
+      "cluster": "article",
+      "label": "best-valentines-date-by-personality-and-relationship-science",
+      "paths": [
+        "/en/articles/best-valentines-date-by-personality-and-relationship-science",
+        "/zh/articles/best-valentines-date-by-personality-and-relationship-science"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/articles/best-valentines-date-by-personality-and-relationship-science",
+        "https://fermatmind.com/zh/articles/best-valentines-date-by-personality-and-relationship-science"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "article_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "article_detail:articlesbest-valentines-date-by-personality-and-relationship-science",
+        "best-valentines-date-by-personality-and-relationship-science"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "article:big-five-growth-guide",
+      "type": "article",
+      "cluster": "article",
+      "label": "big-five-growth-guide",
+      "paths": [
+        "/en/articles/big-five-growth-guide",
+        "/zh/articles/big-five-growth-guide"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/articles/big-five-growth-guide"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "article_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "article:big-five-narrative-portrait",
+      "type": "article",
+      "cluster": "article",
+      "label": "big-five-narrative-portrait",
+      "paths": [
+        "/en/articles/big-five-narrative-portrait",
+        "/zh/articles/big-five-narrative-portrait"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/articles/big-five-narrative-portrait"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "article_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "article:big-five-tool-guide",
+      "type": "article",
+      "cluster": "article",
+      "label": "big-five-tool-guide",
+      "paths": [
+        "/en/articles/big-five-tool-guide",
+        "/zh/articles/big-five-tool-guide"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/articles/big-five-tool-guide"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "article_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "article:childhood-dream-job-still-shapes-career-choice",
+      "type": "article",
+      "cluster": "article",
+      "label": "childhood-dream-job-still-shapes-career-choice",
+      "paths": [
+        "/en/articles/childhood-dream-job-still-shapes-career-choice",
+        "/zh/articles/childhood-dream-job-still-shapes-career-choice"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/articles/childhood-dream-job-still-shapes-career-choice",
+        "https://fermatmind.com/zh/articles/childhood-dream-job-still-shapes-career-choice"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "article_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "article_detail:articleschildhood-dream-job-still-shapes-career-choice",
+        "childhood-dream-job-still-shapes-career-choice"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "article:eq-test-tool-guide",
+      "type": "article",
+      "cluster": "article",
+      "label": "eq-test-tool-guide",
+      "paths": [
+        "/en/articles/eq-test-tool-guide",
+        "/zh/articles/eq-test-tool-guide"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/articles/eq-test-tool-guide"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "article_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "article:how-16-personality-types-talk-to-an-ai-coach",
+      "type": "article",
+      "cluster": "article",
+      "label": "how-16-personality-types-talk-to-an-ai-coach",
+      "paths": [
+        "/en/articles/how-16-personality-types-talk-to-an-ai-coach",
+        "/zh/articles/how-16-personality-types-talk-to-an-ai-coach"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/articles/how-16-personality-types-talk-to-an-ai-coach",
+        "https://fermatmind.com/zh/articles/how-16-personality-types-talk-to-an-ai-coach"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "article_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "article_detail:articleshow-16-personality-types-talk-to-an-ai-coach",
+        "how-16-personality-types-talk-to-an-ai-coach"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "article:how-personality-shapes-attitude-toward-ai",
+      "type": "article",
+      "cluster": "article",
+      "label": "how-personality-shapes-attitude-toward-ai",
+      "paths": [
+        "/en/articles/how-personality-shapes-attitude-toward-ai",
+        "/zh/articles/how-personality-shapes-attitude-toward-ai"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/articles/how-personality-shapes-attitude-toward-ai",
+        "https://fermatmind.com/zh/articles/how-personality-shapes-attitude-toward-ai"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "article_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "article_detail:articleshow-personality-shapes-attitude-toward-ai",
+        "how-personality-shapes-attitude-toward-ai"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "article:iq-test-growth-guide",
+      "type": "article",
+      "cluster": "article",
+      "label": "iq-test-growth-guide",
+      "paths": [
+        "/en/articles/iq-test-growth-guide",
+        "/zh/articles/iq-test-growth-guide"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/articles/iq-test-growth-guide"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "article_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "article:iq-test-narrative-portrait",
+      "type": "article",
+      "cluster": "article",
+      "label": "iq-test-narrative-portrait",
+      "paths": [
+        "/en/articles/iq-test-narrative-portrait",
+        "/zh/articles/iq-test-narrative-portrait"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/articles/iq-test-narrative-portrait"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "article_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "article:iq-test-tool-guide",
+      "type": "article",
+      "cluster": "article",
+      "label": "iq-test-tool-guide",
+      "paths": [
+        "/en/articles/iq-test-tool-guide",
+        "/zh/articles/iq-test-tool-guide"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/articles/iq-test-tool-guide"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "article_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "article:mbti-basics",
+      "type": "article",
+      "cluster": "article",
+      "label": "mbti-basics",
+      "paths": [
+        "/en/articles/mbti-basics",
+        "/zh/articles/mbti-basics"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/articles/mbti-basics"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "article_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "article:mbti-growth-guide",
+      "type": "article",
+      "cluster": "article",
+      "label": "mbti-growth-guide",
+      "paths": [
+        "/en/articles/mbti-growth-guide",
+        "/zh/articles/mbti-growth-guide"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/articles/mbti-growth-guide"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "article_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "article:mbti-narrative-portrait",
+      "type": "article",
+      "cluster": "article",
+      "label": "mbti-narrative-portrait",
+      "paths": [
+        "/en/articles/mbti-narrative-portrait",
+        "/zh/articles/mbti-narrative-portrait"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/articles/mbti-narrative-portrait"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "article_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "article:which-love-script-fits-you-best",
+      "type": "article",
+      "cluster": "article",
+      "label": "which-love-script-fits-you-best",
+      "paths": [
+        "/en/articles/which-love-script-fits-you-best",
+        "/zh/articles/which-love-script-fits-you-best"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/articles/which-love-script-fits-you-best",
+        "https://fermatmind.com/zh/articles/which-love-script-fits-you-best"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "article_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "article_detail:articleswhich-love-script-fits-you-best",
+        "which-love-script-fits-you-best"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_family:business-and-financial-37ec69bd",
+      "type": "career_family",
+      "cluster": "career",
+      "label": "business-and-financial-37ec69bd",
+      "paths": [
+        "/en/career/family/business-and-financial-37ec69bd",
+        "/zh/career/family/business-and-financial-37ec69bd"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/family/business-and-financial-37ec69bd",
+        "https://fermatmind.com/zh/career/family/business-and-financial-37ec69bd"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_family"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p1",
+      "duplicateRiskClusters": [
+        "business-and-financial-37ec69bd",
+        "career-family:business-and-financial"
+      ],
+      "authorityRisk": "p1",
+      "graphReadiness": "dangerous"
+    },
+    {
+      "id": "career_family:business-and-financial-a0352070",
+      "type": "career_family",
+      "cluster": "career",
+      "label": "business-and-financial-a0352070",
+      "paths": [
+        "/en/career/family/business-and-financial-a0352070",
+        "/zh/career/family/business-and-financial-a0352070"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/family/business-and-financial-a0352070",
+        "https://fermatmind.com/zh/career/family/business-and-financial-a0352070"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_family"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p1",
+      "duplicateRiskClusters": [
+        "business-and-financial-a0352070",
+        "career-family:business-and-financial"
+      ],
+      "authorityRisk": "p1",
+      "graphReadiness": "dangerous"
+    },
+    {
+      "id": "career_family:computer-and-information-technology",
+      "type": "career_family",
+      "cluster": "career",
+      "label": "computer-and-information-technology",
+      "paths": [
+        "/en/career/family/computer-and-information-technology",
+        "/zh/career/family/computer-and-information-technology"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/family/computer-and-information-technology",
+        "https://fermatmind.com/zh/career/family/computer-and-information-technology"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_family"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p1",
+      "duplicateRiskClusters": [
+        "career-family:computer-and-information-technology",
+        "computer-and-information-technology"
+      ],
+      "authorityRisk": "p1",
+      "graphReadiness": "dangerous"
+    },
+    {
+      "id": "career_family:healthcare",
+      "type": "career_family",
+      "cluster": "career",
+      "label": "healthcare",
+      "paths": [
+        "/en/career/family/healthcare",
+        "/zh/career/family/healthcare"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/career/family/healthcare",
+        "https://fermatmind.com/zh/career/family/healthcare"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_family"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p1",
+      "duplicateRiskClusters": [
+        "career-family:healthcare",
+        "healthcare"
+      ],
+      "authorityRisk": "p1",
+      "graphReadiness": "dangerous"
+    },
+    {
+      "id": "career_job:accountants-and-auditors",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "accountants-and-auditors",
+      "paths": [
+        "/en/career/jobs/accountants-and-auditors",
+        "/zh/career/jobs/accountants-and-auditors"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/accountants-and-auditors"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:actors",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "actors",
+      "paths": [
+        "/en/career/jobs/actors",
+        "/zh/career/jobs/actors"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/actors"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:actuaries",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "actuaries",
+      "paths": [
+        "/en/career/jobs/actuaries",
+        "/zh/career/jobs/actuaries"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/actuaries"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:administrative-services-managers",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "administrative-services-managers",
+      "paths": [
+        "/en/career/jobs/administrative-services-managers",
+        "/zh/career/jobs/administrative-services-managers"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/administrative-services-managers"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:adult-literacy-and-ged-teachers",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "adult-literacy-and-ged-teachers",
+      "paths": [
+        "/en/career/jobs/adult-literacy-and-ged-teachers",
+        "/zh/career/jobs/adult-literacy-and-ged-teachers"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/adult-literacy-and-ged-teachers"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:advertising-promotions-and-marketing-managers",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "advertising-promotions-and-marketing-managers",
+      "paths": [
+        "/en/career/jobs/advertising-promotions-and-marketing-managers",
+        "/zh/career/jobs/advertising-promotions-and-marketing-managers"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/advertising-promotions-and-marketing-managers"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:advertising-sales-agents",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "advertising-sales-agents",
+      "paths": [
+        "/en/career/jobs/advertising-sales-agents",
+        "/zh/career/jobs/advertising-sales-agents"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/advertising-sales-agents"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:aerospace-engineering-and-operations-technicians",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "aerospace-engineering-and-operations-technicians",
+      "paths": [
+        "/en/career/jobs/aerospace-engineering-and-operations-technicians",
+        "/zh/career/jobs/aerospace-engineering-and-operations-technicians"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/aerospace-engineering-and-operations-technicians"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:agricultural-and-food-science-technicians",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "agricultural-and-food-science-technicians",
+      "paths": [
+        "/en/career/jobs/agricultural-and-food-science-technicians",
+        "/zh/career/jobs/agricultural-and-food-science-technicians"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/agricultural-and-food-science-technicians"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:agricultural-engineers",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "agricultural-engineers",
+      "paths": [
+        "/en/career/jobs/agricultural-engineers",
+        "/zh/career/jobs/agricultural-engineers"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/agricultural-engineers"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:air-traffic-controllers",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "air-traffic-controllers",
+      "paths": [
+        "/en/career/jobs/air-traffic-controllers",
+        "/zh/career/jobs/air-traffic-controllers"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/air-traffic-controllers"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:aircraft-and-avionics-equipment-mechanics-and-technicians",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "aircraft-and-avionics-equipment-mechanics-and-technicians",
+      "paths": [
+        "/en/career/jobs/aircraft-and-avionics-equipment-mechanics-and-technicians",
+        "/zh/career/jobs/aircraft-and-avionics-equipment-mechanics-and-technicians"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/aircraft-and-avionics-equipment-mechanics-and-technicians"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:airline-and-commercial-pilots",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "airline-and-commercial-pilots",
+      "paths": [
+        "/en/career/jobs/airline-and-commercial-pilots",
+        "/zh/career/jobs/airline-and-commercial-pilots"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/airline-and-commercial-pilots"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:animal-care-and-service-workers",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "animal-care-and-service-workers",
+      "paths": [
+        "/en/career/jobs/animal-care-and-service-workers",
+        "/zh/career/jobs/animal-care-and-service-workers"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/animal-care-and-service-workers"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:appraisers-and-assessors-of-real-estate",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "appraisers-and-assessors-of-real-estate",
+      "paths": [
+        "/en/career/jobs/appraisers-and-assessors-of-real-estate",
+        "/zh/career/jobs/appraisers-and-assessors-of-real-estate"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/appraisers-and-assessors-of-real-estate"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:architects",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "architects",
+      "paths": [
+        "/en/career/jobs/architects",
+        "/zh/career/jobs/architects"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/architects"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:architectural-and-engineering-managers",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "architectural-and-engineering-managers",
+      "paths": [
+        "/en/career/jobs/architectural-and-engineering-managers",
+        "/zh/career/jobs/architectural-and-engineering-managers"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/architectural-and-engineering-managers"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:art-directors",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "art-directors",
+      "paths": [
+        "/en/career/jobs/art-directors",
+        "/zh/career/jobs/art-directors"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/art-directors"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:automotive-body-and-glass-repairers",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "automotive-body-and-glass-repairers",
+      "paths": [
+        "/en/career/jobs/automotive-body-and-glass-repairers",
+        "/zh/career/jobs/automotive-body-and-glass-repairers"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/automotive-body-and-glass-repairers"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:bill-and-account-collectors",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "bill-and-account-collectors",
+      "paths": [
+        "/en/career/jobs/bill-and-account-collectors",
+        "/zh/career/jobs/bill-and-account-collectors"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/bill-and-account-collectors"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:biochemists-and-biophysicists",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "biochemists-and-biophysicists",
+      "paths": [
+        "/en/career/jobs/biochemists-and-biophysicists",
+        "/zh/career/jobs/biochemists-and-biophysicists"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/biochemists-and-biophysicists"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:biomedical-engineers",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "biomedical-engineers",
+      "paths": [
+        "/en/career/jobs/biomedical-engineers",
+        "/zh/career/jobs/biomedical-engineers"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/biomedical-engineers"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:bookkeeping-accounting-and-auditing-clerks",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "bookkeeping-accounting-and-auditing-clerks",
+      "paths": [
+        "/en/career/jobs/bookkeeping-accounting-and-auditing-clerks",
+        "/zh/career/jobs/bookkeeping-accounting-and-auditing-clerks"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/bookkeeping-accounting-and-auditing-clerks"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:budget-analysts",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "budget-analysts",
+      "paths": [
+        "/en/career/jobs/budget-analysts",
+        "/zh/career/jobs/budget-analysts"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/budget-analysts"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:butchers-and-meat-cutters",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "butchers-and-meat-cutters",
+      "paths": [
+        "/en/career/jobs/butchers-and-meat-cutters",
+        "/zh/career/jobs/butchers-and-meat-cutters"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/butchers-and-meat-cutters"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:cardiovascular-technologists-and-technicians",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "cardiovascular-technologists-and-technicians",
+      "paths": [
+        "/en/career/jobs/cardiovascular-technologists-and-technicians",
+        "/zh/career/jobs/cardiovascular-technologists-and-technicians"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/cardiovascular-technologists-and-technicians"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:career-and-technical-education-teachers",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "career-and-technical-education-teachers",
+      "paths": [
+        "/en/career/jobs/career-and-technical-education-teachers",
+        "/zh/career/jobs/career-and-technical-education-teachers"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/career-and-technical-education-teachers"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:carpenters",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "carpenters",
+      "paths": [
+        "/en/career/jobs/carpenters",
+        "/zh/career/jobs/carpenters"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/carpenters"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:cashiers",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "cashiers",
+      "paths": [
+        "/en/career/jobs/cashiers",
+        "/zh/career/jobs/cashiers"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/cashiers"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:chefs-and-head-cooks",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "chefs-and-head-cooks",
+      "paths": [
+        "/en/career/jobs/chefs-and-head-cooks",
+        "/zh/career/jobs/chefs-and-head-cooks"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/chefs-and-head-cooks"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:chemists-and-materials-scientists",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "chemists-and-materials-scientists",
+      "paths": [
+        "/en/career/jobs/chemists-and-materials-scientists",
+        "/zh/career/jobs/chemists-and-materials-scientists"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/chemists-and-materials-scientists"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:chiropractors",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "chiropractors",
+      "paths": [
+        "/en/career/jobs/chiropractors",
+        "/zh/career/jobs/chiropractors"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/chiropractors"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:civil-engineers",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "civil-engineers",
+      "paths": [
+        "/en/career/jobs/civil-engineers",
+        "/zh/career/jobs/civil-engineers"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/civil-engineers"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:clinical-laboratory-technologists-and-technicians",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "clinical-laboratory-technologists-and-technicians",
+      "paths": [
+        "/en/career/jobs/clinical-laboratory-technologists-and-technicians",
+        "/zh/career/jobs/clinical-laboratory-technologists-and-technicians"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/clinical-laboratory-technologists-and-technicians"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:community-health-workers",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "community-health-workers",
+      "paths": [
+        "/en/career/jobs/community-health-workers",
+        "/zh/career/jobs/community-health-workers"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/community-health-workers"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:compensation-and-benefits-managers",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "compensation-and-benefits-managers",
+      "paths": [
+        "/en/career/jobs/compensation-and-benefits-managers",
+        "/zh/career/jobs/compensation-and-benefits-managers"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/compensation-and-benefits-managers"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:compensation-benefits-and-job-analysis-specialists",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "compensation-benefits-and-job-analysis-specialists",
+      "paths": [
+        "/en/career/jobs/compensation-benefits-and-job-analysis-specialists",
+        "/zh/career/jobs/compensation-benefits-and-job-analysis-specialists"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/compensation-benefits-and-job-analysis-specialists"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:computer-and-information-research-scientists",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "computer-and-information-research-scientists",
+      "paths": [
+        "/en/career/jobs/computer-and-information-research-scientists",
+        "/zh/career/jobs/computer-and-information-research-scientists"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/computer-and-information-research-scientists"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:computer-and-information-systems-managers",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "computer-and-information-systems-managers",
+      "paths": [
+        "/en/career/jobs/computer-and-information-systems-managers",
+        "/zh/career/jobs/computer-and-information-systems-managers"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/computer-and-information-systems-managers"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:computer-support-specialists",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "computer-support-specialists",
+      "paths": [
+        "/en/career/jobs/computer-support-specialists",
+        "/zh/career/jobs/computer-support-specialists"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/computer-support-specialists"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:conservation-scientists",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "conservation-scientists",
+      "paths": [
+        "/en/career/jobs/conservation-scientists",
+        "/zh/career/jobs/conservation-scientists"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/conservation-scientists"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:construction-and-building-inspectors",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "construction-and-building-inspectors",
+      "paths": [
+        "/en/career/jobs/construction-and-building-inspectors",
+        "/zh/career/jobs/construction-and-building-inspectors"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/construction-and-building-inspectors"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:construction-managers",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "construction-managers",
+      "paths": [
+        "/en/career/jobs/construction-managers",
+        "/zh/career/jobs/construction-managers"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/construction-managers"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:correctional-officers",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "correctional-officers",
+      "paths": [
+        "/en/career/jobs/correctional-officers",
+        "/zh/career/jobs/correctional-officers"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/correctional-officers"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:court-reporters",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "court-reporters",
+      "paths": [
+        "/en/career/jobs/court-reporters",
+        "/zh/career/jobs/court-reporters"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/court-reporters"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:credit-counselors",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "credit-counselors",
+      "paths": [
+        "/en/career/jobs/credit-counselors",
+        "/zh/career/jobs/credit-counselors"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/credit-counselors"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:data-scientists",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "data-scientists",
+      "paths": [
+        "/en/career/jobs/data-scientists",
+        "/zh/career/jobs/data-scientists"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/data-scientists"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:database-administrators",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "database-administrators",
+      "paths": [
+        "/en/career/jobs/database-administrators",
+        "/zh/career/jobs/database-administrators"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/database-administrators"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:dental-assistants",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "dental-assistants",
+      "paths": [
+        "/en/career/jobs/dental-assistants",
+        "/zh/career/jobs/dental-assistants"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/dental-assistants"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:dental-hygienists",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "dental-hygienists",
+      "paths": [
+        "/en/career/jobs/dental-hygienists",
+        "/zh/career/jobs/dental-hygienists"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/dental-hygienists"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:dentists",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "dentists",
+      "paths": [
+        "/en/career/jobs/dentists",
+        "/zh/career/jobs/dentists"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/dentists"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:desktop-publishers",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "desktop-publishers",
+      "paths": [
+        "/en/career/jobs/desktop-publishers",
+        "/zh/career/jobs/desktop-publishers"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/desktop-publishers"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:diagnostic-medical-sonographers",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "diagnostic-medical-sonographers",
+      "paths": [
+        "/en/career/jobs/diagnostic-medical-sonographers",
+        "/zh/career/jobs/diagnostic-medical-sonographers"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/diagnostic-medical-sonographers"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:electrical-and-electronics-engineering-technicians",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "electrical-and-electronics-engineering-technicians",
+      "paths": [
+        "/en/career/jobs/electrical-and-electronics-engineering-technicians",
+        "/zh/career/jobs/electrical-and-electronics-engineering-technicians"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/electrical-and-electronics-engineering-technicians"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:emergency-management-directors",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "emergency-management-directors",
+      "paths": [
+        "/en/career/jobs/emergency-management-directors",
+        "/zh/career/jobs/emergency-management-directors"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/emergency-management-directors"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:environmental-engineering-technicians",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "environmental-engineering-technicians",
+      "paths": [
+        "/en/career/jobs/environmental-engineering-technicians",
+        "/zh/career/jobs/environmental-engineering-technicians"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/environmental-engineering-technicians"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:epidemiologists",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "epidemiologists",
+      "paths": [
+        "/en/career/jobs/epidemiologists",
+        "/zh/career/jobs/epidemiologists"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/epidemiologists"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:exercise-physiologists",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "exercise-physiologists",
+      "paths": [
+        "/en/career/jobs/exercise-physiologists",
+        "/zh/career/jobs/exercise-physiologists"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/exercise-physiologists"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:financial-analysts",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "financial-analysts",
+      "paths": [
+        "/en/career/jobs/financial-analysts",
+        "/zh/career/jobs/financial-analysts"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/financial-analysts"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:financial-examiners",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "financial-examiners",
+      "paths": [
+        "/en/career/jobs/financial-examiners",
+        "/zh/career/jobs/financial-examiners"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/financial-examiners"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:financial-managers",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "financial-managers",
+      "paths": [
+        "/en/career/jobs/financial-managers",
+        "/zh/career/jobs/financial-managers"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/financial-managers"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:fire-inspectors-and-investigators",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "fire-inspectors-and-investigators",
+      "paths": [
+        "/en/career/jobs/fire-inspectors-and-investigators",
+        "/zh/career/jobs/fire-inspectors-and-investigators"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/fire-inspectors-and-investigators"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:food-preparation-workers",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "food-preparation-workers",
+      "paths": [
+        "/en/career/jobs/food-preparation-workers",
+        "/zh/career/jobs/food-preparation-workers"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/food-preparation-workers"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:food-service-managers",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "food-service-managers",
+      "paths": [
+        "/en/career/jobs/food-service-managers",
+        "/zh/career/jobs/food-service-managers"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/food-service-managers"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:genetic-counselors",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "genetic-counselors",
+      "paths": [
+        "/en/career/jobs/genetic-counselors",
+        "/zh/career/jobs/genetic-counselors"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/genetic-counselors"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:geographers",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "geographers",
+      "paths": [
+        "/en/career/jobs/geographers",
+        "/zh/career/jobs/geographers"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/geographers"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:glaziers",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "glaziers",
+      "paths": [
+        "/en/career/jobs/glaziers",
+        "/zh/career/jobs/glaziers"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/glaziers"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:hazardous-materials-removal-workers",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "hazardous-materials-removal-workers",
+      "paths": [
+        "/en/career/jobs/hazardous-materials-removal-workers",
+        "/zh/career/jobs/hazardous-materials-removal-workers"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/hazardous-materials-removal-workers"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:health-information-technologists-and-medical-registrars",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "health-information-technologists-and-medical-registrars",
+      "paths": [
+        "/en/career/jobs/health-information-technologists-and-medical-registrars",
+        "/zh/career/jobs/health-information-technologists-and-medical-registrars"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/health-information-technologists-and-medical-registrars"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:high-school-teachers",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "high-school-teachers",
+      "paths": [
+        "/en/career/jobs/high-school-teachers",
+        "/zh/career/jobs/high-school-teachers"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/high-school-teachers"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:historians",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "historians",
+      "paths": [
+        "/en/career/jobs/historians",
+        "/zh/career/jobs/historians"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/historians"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:human-resources-managers",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "human-resources-managers",
+      "paths": [
+        "/en/career/jobs/human-resources-managers",
+        "/zh/career/jobs/human-resources-managers"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/human-resources-managers"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:human-resources-specialists",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "human-resources-specialists",
+      "paths": [
+        "/en/career/jobs/human-resources-specialists",
+        "/zh/career/jobs/human-resources-specialists"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/human-resources-specialists"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:lawyers",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "lawyers",
+      "paths": [
+        "/en/career/jobs/lawyers",
+        "/zh/career/jobs/lawyers"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/lawyers"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:management-analysts",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "management-analysts",
+      "paths": [
+        "/en/career/jobs/management-analysts",
+        "/zh/career/jobs/management-analysts"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/management-analysts"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:market-research-analysts",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "market-research-analysts",
+      "paths": [
+        "/en/career/jobs/market-research-analysts",
+        "/zh/career/jobs/market-research-analysts"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/market-research-analysts"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:nursing-assistants",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "nursing-assistants",
+      "paths": [
+        "/en/career/jobs/nursing-assistants",
+        "/zh/career/jobs/nursing-assistants"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/nursing-assistants"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:opticians-dispensing",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "opticians-dispensing",
+      "paths": [
+        "/en/career/jobs/opticians-dispensing",
+        "/zh/career/jobs/opticians-dispensing"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/opticians-dispensing"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:pharmacists",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "pharmacists",
+      "paths": [
+        "/en/career/jobs/pharmacists",
+        "/zh/career/jobs/pharmacists"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/pharmacists"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:project-management-specialists",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "project-management-specialists",
+      "paths": [
+        "/en/career/jobs/project-management-specialists",
+        "/zh/career/jobs/project-management-specialists"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/project-management-specialists"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:public-relations-managers",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "public-relations-managers",
+      "paths": [
+        "/en/career/jobs/public-relations-managers",
+        "/zh/career/jobs/public-relations-managers"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/public-relations-managers"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:registered-nurses",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "registered-nurses",
+      "paths": [
+        "/en/career/jobs/registered-nurses",
+        "/zh/career/jobs/registered-nurses"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/registered-nurses"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:security-guards",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "security-guards",
+      "paths": [
+        "/en/career/jobs/security-guards",
+        "/zh/career/jobs/security-guards"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/security-guards"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:structural-iron-and-steel-workers",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "structural-iron-and-steel-workers",
+      "paths": [
+        "/en/career/jobs/structural-iron-and-steel-workers",
+        "/zh/career/jobs/structural-iron-and-steel-workers"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/structural-iron-and-steel-workers"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:surgical-technologists",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "surgical-technologists",
+      "paths": [
+        "/en/career/jobs/surgical-technologists",
+        "/zh/career/jobs/surgical-technologists"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/surgical-technologists"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:telecommunications-equipment-installers-and-repairers-except-line-installers",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "telecommunications-equipment-installers-and-repairers-except-line-installers",
+      "paths": [
+        "/en/career/jobs/telecommunications-equipment-installers-and-repairers-except-line-installers",
+        "/zh/career/jobs/telecommunications-equipment-installers-and-repairers-except-line-installers"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/telecommunications-equipment-installers-and-repairers-except-line-installers"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "career_job:web-developers",
+      "type": "career_job",
+      "cluster": "career",
+      "label": "web-developers",
+      "paths": [
+        "/en/career/jobs/web-developers",
+        "/zh/career/jobs/web-developers"
+      ],
+      "urls": [
+        "https://fermatmind.com/zh/career/jobs/web-developers"
+      ],
+      "locales": [
+        "zh"
+      ],
+      "routeFamilies": [
+        "career_job_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "conditional"
+      ],
+      "evidenceReadiness": [
+        "not_ready"
+      ],
+      "orphanState": {
+        "true_orphan": 1
+      },
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "personality:enfj-a",
+      "type": "personality_type",
+      "cluster": "mbti",
+      "label": "enfj-a",
+      "paths": [
+        "/en/personality/enfj-a",
+        "/zh/personality/enfj-a"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/enfj-a",
+        "https://fermatmind.com/zh/personality/enfj-a"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "enfj-a",
+        "personality:enfj"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "personality:enfj-t",
+      "type": "personality_type",
+      "cluster": "mbti",
+      "label": "enfj-t",
+      "paths": [
+        "/en/personality/enfj-t",
+        "/zh/personality/enfj-t"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/enfj-t",
+        "https://fermatmind.com/zh/personality/enfj-t"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "enfj-t",
+        "personality:enfj"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "personality:enfp-a",
+      "type": "personality_type",
+      "cluster": "mbti",
+      "label": "enfp-a",
+      "paths": [
+        "/en/personality/enfp-a",
+        "/zh/personality/enfp-a"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/enfp-a",
+        "https://fermatmind.com/zh/personality/enfp-a"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "enfp-a",
+        "personality:enfp"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "personality:enfp-t",
+      "type": "personality_type",
+      "cluster": "mbti",
+      "label": "enfp-t",
+      "paths": [
+        "/en/personality/enfp-t",
+        "/zh/personality/enfp-t"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/enfp-t",
+        "https://fermatmind.com/zh/personality/enfp-t"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "enfp-t",
+        "personality:enfp"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "personality:entj-a",
+      "type": "personality_type",
+      "cluster": "mbti",
+      "label": "entj-a",
+      "paths": [
+        "/en/personality/entj-a",
+        "/zh/personality/entj-a"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/entj-a",
+        "https://fermatmind.com/zh/personality/entj-a"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "entj-a",
+        "personality:entj"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "personality:entj-t",
+      "type": "personality_type",
+      "cluster": "mbti",
+      "label": "entj-t",
+      "paths": [
+        "/en/personality/entj-t",
+        "/zh/personality/entj-t"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/entj-t",
+        "https://fermatmind.com/zh/personality/entj-t"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "entj-t",
+        "personality:entj"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "personality:entp-a",
+      "type": "personality_type",
+      "cluster": "mbti",
+      "label": "entp-a",
+      "paths": [
+        "/en/personality/entp-a",
+        "/zh/personality/entp-a"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/entp-a",
+        "https://fermatmind.com/zh/personality/entp-a"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "entp-a",
+        "personality:entp"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "personality:entp-t",
+      "type": "personality_type",
+      "cluster": "mbti",
+      "label": "entp-t",
+      "paths": [
+        "/en/personality/entp-t",
+        "/zh/personality/entp-t"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/entp-t",
+        "https://fermatmind.com/zh/personality/entp-t"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "entp-t",
+        "personality:entp"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "personality:esfj-a",
+      "type": "personality_type",
+      "cluster": "mbti",
+      "label": "esfj-a",
+      "paths": [
+        "/en/personality/esfj-a",
+        "/zh/personality/esfj-a"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/esfj-a",
+        "https://fermatmind.com/zh/personality/esfj-a"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "esfj-a",
+        "personality:esfj"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "personality:esfj-t",
+      "type": "personality_type",
+      "cluster": "mbti",
+      "label": "esfj-t",
+      "paths": [
+        "/en/personality/esfj-t",
+        "/zh/personality/esfj-t"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/esfj-t",
+        "https://fermatmind.com/zh/personality/esfj-t"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "esfj-t",
+        "personality:esfj"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "personality:esfp-a",
+      "type": "personality_type",
+      "cluster": "mbti",
+      "label": "esfp-a",
+      "paths": [
+        "/en/personality/esfp-a",
+        "/zh/personality/esfp-a"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/esfp-a",
+        "https://fermatmind.com/zh/personality/esfp-a"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "esfp-a",
+        "personality:esfp"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "personality:esfp-t",
+      "type": "personality_type",
+      "cluster": "mbti",
+      "label": "esfp-t",
+      "paths": [
+        "/en/personality/esfp-t",
+        "/zh/personality/esfp-t"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/esfp-t",
+        "https://fermatmind.com/zh/personality/esfp-t"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "esfp-t",
+        "personality:esfp"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "personality:estj-a",
+      "type": "personality_type",
+      "cluster": "mbti",
+      "label": "estj-a",
+      "paths": [
+        "/en/personality/estj-a",
+        "/zh/personality/estj-a"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/estj-a",
+        "https://fermatmind.com/zh/personality/estj-a"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "estj-a",
+        "personality:estj"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "personality:estj-t",
+      "type": "personality_type",
+      "cluster": "mbti",
+      "label": "estj-t",
+      "paths": [
+        "/en/personality/estj-t",
+        "/zh/personality/estj-t"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/estj-t",
+        "https://fermatmind.com/zh/personality/estj-t"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "estj-t",
+        "personality:estj"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "personality:estp-a",
+      "type": "personality_type",
+      "cluster": "mbti",
+      "label": "estp-a",
+      "paths": [
+        "/en/personality/estp-a",
+        "/zh/personality/estp-a"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/estp-a",
+        "https://fermatmind.com/zh/personality/estp-a"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "estp-a",
+        "personality:estp"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "personality:estp-t",
+      "type": "personality_type",
+      "cluster": "mbti",
+      "label": "estp-t",
+      "paths": [
+        "/en/personality/estp-t",
+        "/zh/personality/estp-t"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/estp-t",
+        "https://fermatmind.com/zh/personality/estp-t"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "estp-t",
+        "personality:estp"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "personality:infj-a",
+      "type": "personality_type",
+      "cluster": "mbti",
+      "label": "infj-a",
+      "paths": [
+        "/en/personality/infj-a",
+        "/zh/personality/infj-a"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/infj-a",
+        "https://fermatmind.com/zh/personality/infj-a"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "infj-a",
+        "personality:infj"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "personality:infj-t",
+      "type": "personality_type",
+      "cluster": "mbti",
+      "label": "infj-t",
+      "paths": [
+        "/en/personality/infj-t",
+        "/zh/personality/infj-t"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/infj-t",
+        "https://fermatmind.com/zh/personality/infj-t"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "infj-t",
+        "personality:infj"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "personality:infp-a",
+      "type": "personality_type",
+      "cluster": "mbti",
+      "label": "infp-a",
+      "paths": [
+        "/en/personality/infp-a",
+        "/zh/personality/infp-a"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/infp-a",
+        "https://fermatmind.com/zh/personality/infp-a"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "infp-a",
+        "personality:infp"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "personality:infp-t",
+      "type": "personality_type",
+      "cluster": "mbti",
+      "label": "infp-t",
+      "paths": [
+        "/en/personality/infp-t",
+        "/zh/personality/infp-t"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/infp-t",
+        "https://fermatmind.com/zh/personality/infp-t"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "infp-t",
+        "personality:infp"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "personality:intj-a",
+      "type": "personality_type",
+      "cluster": "mbti",
+      "label": "intj-a",
+      "paths": [
+        "/en/personality/intj-a",
+        "/zh/personality/intj-a"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/intj-a",
+        "https://fermatmind.com/zh/personality/intj-a"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "intj-a",
+        "personality:intj"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "personality:intj-t",
+      "type": "personality_type",
+      "cluster": "mbti",
+      "label": "intj-t",
+      "paths": [
+        "/en/personality/intj-t",
+        "/zh/personality/intj-t"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/intj-t",
+        "https://fermatmind.com/zh/personality/intj-t"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "intj-t",
+        "personality:intj"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "personality:intp-a",
+      "type": "personality_type",
+      "cluster": "mbti",
+      "label": "intp-a",
+      "paths": [
+        "/en/personality/intp-a",
+        "/zh/personality/intp-a"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/intp-a",
+        "https://fermatmind.com/zh/personality/intp-a"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "intp-a",
+        "personality:intp"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "personality:intp-t",
+      "type": "personality_type",
+      "cluster": "mbti",
+      "label": "intp-t",
+      "paths": [
+        "/en/personality/intp-t",
+        "/zh/personality/intp-t"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/intp-t",
+        "https://fermatmind.com/zh/personality/intp-t"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "intp-t",
+        "personality:intp"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "personality:isfj-a",
+      "type": "personality_type",
+      "cluster": "mbti",
+      "label": "isfj-a",
+      "paths": [
+        "/en/personality/isfj-a",
+        "/zh/personality/isfj-a"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/isfj-a",
+        "https://fermatmind.com/zh/personality/isfj-a"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "isfj-a",
+        "personality:isfj"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "personality:isfj-t",
+      "type": "personality_type",
+      "cluster": "mbti",
+      "label": "isfj-t",
+      "paths": [
+        "/en/personality/isfj-t",
+        "/zh/personality/isfj-t"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/isfj-t",
+        "https://fermatmind.com/zh/personality/isfj-t"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "isfj-t",
+        "personality:isfj"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "personality:isfp-a",
+      "type": "personality_type",
+      "cluster": "mbti",
+      "label": "isfp-a",
+      "paths": [
+        "/en/personality/isfp-a",
+        "/zh/personality/isfp-a"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/isfp-a",
+        "https://fermatmind.com/zh/personality/isfp-a"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "isfp-a",
+        "personality:isfp"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "personality:isfp-t",
+      "type": "personality_type",
+      "cluster": "mbti",
+      "label": "isfp-t",
+      "paths": [
+        "/en/personality/isfp-t",
+        "/zh/personality/isfp-t"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/isfp-t",
+        "https://fermatmind.com/zh/personality/isfp-t"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "isfp-t",
+        "personality:isfp"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "personality:istj-a",
+      "type": "personality_type",
+      "cluster": "mbti",
+      "label": "istj-a",
+      "paths": [
+        "/en/personality/istj-a",
+        "/zh/personality/istj-a"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/istj-a",
+        "https://fermatmind.com/zh/personality/istj-a"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "istj-a",
+        "personality:istj"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "personality:istj-t",
+      "type": "personality_type",
+      "cluster": "mbti",
+      "label": "istj-t",
+      "paths": [
+        "/en/personality/istj-t",
+        "/zh/personality/istj-t"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/istj-t",
+        "https://fermatmind.com/zh/personality/istj-t"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "istj-t",
+        "personality:istj"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "personality:istp-a",
+      "type": "personality_type",
+      "cluster": "mbti",
+      "label": "istp-a",
+      "paths": [
+        "/en/personality/istp-a",
+        "/zh/personality/istp-a"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/istp-a",
+        "https://fermatmind.com/zh/personality/istp-a"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "istp-a",
+        "personality:istp"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "personality:istp-t",
+      "type": "personality_type",
+      "cluster": "mbti",
+      "label": "istp-t",
+      "paths": [
+        "/en/personality/istp-t",
+        "/zh/personality/istp-t"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/personality/istp-t",
+        "https://fermatmind.com/zh/personality/istp-t"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "personality_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "istp-t",
+        "personality:istp"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "riasec:artistic",
+      "type": "riasec_type",
+      "cluster": "riasec",
+      "label": "artistic",
+      "paths": [
+        "/en/career/interests/artistic",
+        "/zh/career/interests/artistic"
+      ],
+      "urls": [],
+      "locales": [],
+      "routeFamilies": [],
+      "discoverabilityState": "missing_public_route",
+      "canonicalState": [],
+      "llmsState": [],
+      "evidenceReadiness": [],
+      "orphanState": {},
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "blocked"
+    },
+    {
+      "id": "riasec:conventional",
+      "type": "riasec_type",
+      "cluster": "riasec",
+      "label": "conventional",
+      "paths": [
+        "/en/career/interests/conventional",
+        "/zh/career/interests/conventional"
+      ],
+      "urls": [],
+      "locales": [],
+      "routeFamilies": [],
+      "discoverabilityState": "missing_public_route",
+      "canonicalState": [],
+      "llmsState": [],
+      "evidenceReadiness": [],
+      "orphanState": {},
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "blocked"
+    },
+    {
+      "id": "riasec:enterprising",
+      "type": "riasec_type",
+      "cluster": "riasec",
+      "label": "enterprising",
+      "paths": [
+        "/en/career/interests/enterprising",
+        "/zh/career/interests/enterprising"
+      ],
+      "urls": [],
+      "locales": [],
+      "routeFamilies": [],
+      "discoverabilityState": "missing_public_route",
+      "canonicalState": [],
+      "llmsState": [],
+      "evidenceReadiness": [],
+      "orphanState": {},
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "blocked"
+    },
+    {
+      "id": "riasec:investigative",
+      "type": "riasec_type",
+      "cluster": "riasec",
+      "label": "investigative",
+      "paths": [
+        "/en/career/interests/investigative",
+        "/zh/career/interests/investigative"
+      ],
+      "urls": [],
+      "locales": [],
+      "routeFamilies": [],
+      "discoverabilityState": "missing_public_route",
+      "canonicalState": [],
+      "llmsState": [],
+      "evidenceReadiness": [],
+      "orphanState": {},
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "blocked"
+    },
+    {
+      "id": "riasec:realistic",
+      "type": "riasec_type",
+      "cluster": "riasec",
+      "label": "realistic",
+      "paths": [
+        "/en/career/interests/realistic",
+        "/zh/career/interests/realistic"
+      ],
+      "urls": [],
+      "locales": [],
+      "routeFamilies": [],
+      "discoverabilityState": "missing_public_route",
+      "canonicalState": [],
+      "llmsState": [],
+      "evidenceReadiness": [],
+      "orphanState": {},
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "blocked"
+    },
+    {
+      "id": "riasec:social",
+      "type": "riasec_type",
+      "cluster": "riasec",
+      "label": "social",
+      "paths": [
+        "/en/career/interests/social",
+        "/zh/career/interests/social"
+      ],
+      "urls": [],
+      "locales": [],
+      "routeFamilies": [],
+      "discoverabilityState": "missing_public_route",
+      "canonicalState": [],
+      "llmsState": [],
+      "evidenceReadiness": [],
+      "orphanState": {},
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "blocked"
+    },
+    {
+      "id": "test:big-five-personality-test-ocean-model",
+      "type": "test",
+      "cluster": "big-five",
+      "label": "big-five-personality-test-ocean-model",
+      "paths": [
+        "/en/tests/big-five-personality-test-ocean-model",
+        "/zh/tests/big-five-personality-test-ocean-model"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/tests/big-five-personality-test-ocean-model",
+        "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "test_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "weakly_connected": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "big-five-personality-test-ocean-model",
+        "test:big-five-personality-test-ocean-model"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "partial"
+    },
+    {
+      "id": "test:mbti-personality-test-16-personality-types",
+      "type": "test",
+      "cluster": "mbti",
+      "label": "mbti-personality-test-16-personality-types",
+      "paths": [
+        "/en/tests/mbti-personality-test-16-personality-types",
+        "/zh/tests/mbti-personality-test-16-personality-types"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types",
+        "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "test_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "weakly_connected": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "mbti-personality-test-16-personality-types",
+        "test:mbti-personality-test-16-personality-types"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "partial"
+    },
+    {
+      "id": "test:holland-career-interest-test-riasec",
+      "type": "test",
+      "cluster": "riasec",
+      "label": "holland-career-interest-test-riasec",
+      "paths": [
+        "/en/tests/holland-career-interest-test-riasec",
+        "/zh/tests/holland-career-interest-test-riasec"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/tests/holland-career-interest-test-riasec",
+        "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "test_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "weakly_connected": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "holland-career-interest-test-riasec",
+        "test:holland-career-interest-test-riasec"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "partial"
+    },
+    {
+      "id": "topic:big-five",
+      "type": "topic",
+      "cluster": "big-five",
+      "label": "big-five",
+      "paths": [
+        "/en/topics/big-five",
+        "/zh/topics/big-five"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/topics/big-five",
+        "https://fermatmind.com/zh/topics/big-five"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "topic_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "big-five",
+        "topic:big-five"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "topic:mbti",
+      "type": "topic",
+      "cluster": "mbti",
+      "label": "mbti",
+      "paths": [
+        "/en/topics/mbti",
+        "/zh/topics/mbti"
+      ],
+      "urls": [
+        "https://fermatmind.com/en/topics/mbti",
+        "https://fermatmind.com/zh/topics/mbti"
+      ],
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "routeFamilies": [
+        "topic_detail"
+      ],
+      "discoverabilityState": "public_inventory",
+      "canonicalState": [
+        "not_checked"
+      ],
+      "llmsState": [
+        "allow"
+      ],
+      "evidenceReadiness": [
+        "partial"
+      ],
+      "orphanState": {
+        "true_orphan": 2
+      },
+      "duplicateEntityRisk": "p2",
+      "duplicateRiskClusters": [
+        "mbti",
+        "topic:mbti"
+      ],
+      "authorityRisk": "none",
+      "graphReadiness": "weak"
+    },
+    {
+      "id": "topic:riasec",
+      "type": "topic",
+      "cluster": "riasec",
+      "label": "riasec",
+      "paths": [
+        "/en/topics/riasec",
+        "/zh/topics/riasec"
+      ],
+      "urls": [],
+      "locales": [],
+      "routeFamilies": [],
+      "discoverabilityState": "missing_public_route",
+      "canonicalState": [],
+      "llmsState": [],
+      "evidenceReadiness": [],
+      "orphanState": {},
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "blocked"
+    },
+    {
+      "id": "trait:agreeableness",
+      "type": "trait_dimension",
+      "cluster": "big-five",
+      "label": "agreeableness",
+      "paths": [
+        "/en/personality/traits/agreeableness",
+        "/zh/personality/traits/agreeableness"
+      ],
+      "urls": [],
+      "locales": [],
+      "routeFamilies": [],
+      "discoverabilityState": "missing_public_route",
+      "canonicalState": [],
+      "llmsState": [],
+      "evidenceReadiness": [],
+      "orphanState": {},
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "blocked"
+    },
+    {
+      "id": "trait:conscientiousness",
+      "type": "trait_dimension",
+      "cluster": "big-five",
+      "label": "conscientiousness",
+      "paths": [
+        "/en/personality/traits/conscientiousness",
+        "/zh/personality/traits/conscientiousness"
+      ],
+      "urls": [],
+      "locales": [],
+      "routeFamilies": [],
+      "discoverabilityState": "missing_public_route",
+      "canonicalState": [],
+      "llmsState": [],
+      "evidenceReadiness": [],
+      "orphanState": {},
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "blocked"
+    },
+    {
+      "id": "trait:extraversion",
+      "type": "trait_dimension",
+      "cluster": "big-five",
+      "label": "extraversion",
+      "paths": [
+        "/en/personality/traits/extraversion",
+        "/zh/personality/traits/extraversion"
+      ],
+      "urls": [],
+      "locales": [],
+      "routeFamilies": [],
+      "discoverabilityState": "missing_public_route",
+      "canonicalState": [],
+      "llmsState": [],
+      "evidenceReadiness": [],
+      "orphanState": {},
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "blocked"
+    },
+    {
+      "id": "trait:neuroticism",
+      "type": "trait_dimension",
+      "cluster": "big-five",
+      "label": "neuroticism",
+      "paths": [
+        "/en/personality/traits/neuroticism",
+        "/zh/personality/traits/neuroticism"
+      ],
+      "urls": [],
+      "locales": [],
+      "routeFamilies": [],
+      "discoverabilityState": "missing_public_route",
+      "canonicalState": [],
+      "llmsState": [],
+      "evidenceReadiness": [],
+      "orphanState": {},
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "blocked"
+    },
+    {
+      "id": "trait:openness",
+      "type": "trait_dimension",
+      "cluster": "big-five",
+      "label": "openness",
+      "paths": [
+        "/en/personality/traits/openness",
+        "/zh/personality/traits/openness"
+      ],
+      "urls": [],
+      "locales": [],
+      "routeFamilies": [],
+      "discoverabilityState": "missing_public_route",
+      "canonicalState": [],
+      "llmsState": [],
+      "evidenceReadiness": [],
+      "orphanState": {},
+      "duplicateEntityRisk": "none",
+      "duplicateRiskClusters": [],
+      "authorityRisk": "none",
+      "graphReadiness": "blocked"
+    }
+  ]
+}

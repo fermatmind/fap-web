@@ -1,14 +1,14 @@
 {
-  "train_name": "url-truth-seo-governance-train",
-  "train_description": "Stabilize FermatMind URL truth and SEO governance across inventory, sitemap/llms parity, canonical, hreflang, JSON-LD, duplicate entities, internal graph readiness, Evidence Container readiness, and SEO authority ownership.",
-  "previous_train_name": "discoverability-foundation-train",
+  "train_name": "core-topic-graph-foundation-train",
+  "train_description": "Establish FermatMind Core Topic Graph Foundation v1 through read-only graph inventory, graph edge governance contracts, and MBTI graph stabilization without large topic expansion, Recommendation, Behavior Graph, Long-term Profile, B2B, Career pSEO expansion, or AI-generated SEO content.",
+  "previous_train_name": "url-truth-seo-governance-train",
   "started_at": "2026-05-06T12:32:48Z",
-  "updated_at": "2026-05-06T12:32:48Z",
+  "updated_at": "2026-05-07T04:20:56Z",
   "status": "initialized",
-  "phase": "discoverability-and-growth-foundation",
+  "phase": "core-topic-graph-foundation",
   "platform_positioning": "人格与职业决策平台",
-  "pr_namespace": "PR-UG-*",
-  "branch_naming_convention": "codex/pr-ug-<nn>-<short-scope>",
+  "pr_namespace": "PR-TG-*",
+  "branch_naming_convention": "codex/pr-tg-<nn>-<short-scope>",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -19,20 +19,21 @@
     "verify-enneagram-contract-freeze"
   ],
   "train_policy": {
-    "scope": "discoverability_foundation_stabilization",
+    "scope": "core_topic_graph_foundation",
     "continue_if_unrelated_repo_debt_exists": true,
     "stop_only_on_scoped_regression_or_required_check_failure": true,
-    "no_runtime_seo_behavior_changes_during_bootstrap": true,
-    "no_topic_graph_rollout": true,
+    "no_runtime_seo_behavior_changes_during_inventory": true,
+    "no_topic_graph_page_expansion": true,
     "no_recommendation_system_rollout": true,
     "no_behavior_graph_rollout": true,
     "no_commerce_auth_report_payment_changes": true,
     "authority_rules": [
-      "backend owns SEO and discoverability truth",
+      "backend/CMS owns graph truth",
       "frontend deterministic render only",
-      "never invent frontend SEO fallback authority",
+      "never invent frontend graph authority",
       "never silently widen sitemap or llms exposure",
-      "never expose private take result order share flows"
+      "never expose private take result order share flows",
+      "never add hidden FAQ/schema graph stuffing"
     ]
   },
   "sidecar_issue_policy": {
@@ -1057,11 +1058,11 @@
     "PR-UG-08": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "in_progress",
+      "status": "merged",
       "not_started": false,
       "branch": "codex/pr-ug-08-evidence-live-readiness",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "e11af691e15e0f649adbf3bc5743274c287c7852",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/673",
       "scope": "Add Evidence Container live readiness sampling through visible HTML validation without GEO content expansion or hidden schema generation.",
       "checks": {
         "local": [
@@ -1126,9 +1127,9 @@
       ],
       "failure_reason": "",
       "resume_policy": "manual_only",
-      "merged_at": "",
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false
+      "merged_at": "2026-05-07T02:47:36Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
     },
     "PR-1": {
       "repo": "fap-web",
@@ -4684,6 +4685,135 @@
       },
       "failure_reason": "",
       "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    "PR-TG-01": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "pr_open",
+      "not_started": false,
+      "branch": "codex/pr-tg-01-graph-inventory-contract",
+      "commit_sha": "0a795f34e9621e22fe80c1872ed68ba0637c864d",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/674",
+      "scope": "Add read-only Core Topic Graph inventory generation, readiness matrix artifacts, and contract coverage without runtime graph, route, sitemap, llms, SEO, or commercial changes.",
+      "depends_on": [],
+      "checks": {
+        "local": [
+          {
+            "name": "json-ledger",
+            "status": "passed",
+            "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+          },
+          {
+            "name": "graph-inventory-generator",
+            "status": "passed",
+            "command": "node scripts/seo/generate-core-topic-graph-inventory.mjs --output docs/graph/generated/core-topic-graph-inventory.v1.json --csv docs/graph/generated/core-topic-graph-inventory.v1.csv --pretty >/tmp/core-topic-graph-inventory.json",
+            "note": "Generated 156 graph entities across MBTI, Big Five, RIASEC, career, article, and test families."
+          },
+          {
+            "name": "focused-contract",
+            "status": "passed",
+            "command": "pnpm exec vitest run tests/contracts/core-topic-graph-inventory.contract.test.ts",
+            "note": "4 tests passed."
+          },
+          {
+            "name": "typecheck",
+            "status": "passed",
+            "command": "pnpm typecheck"
+          },
+          {
+            "name": "contracts",
+            "status": "passed",
+            "command": "pnpm test:contract",
+            "note": "269 files passed, 1341 tests passed."
+          },
+          {
+            "name": "lint",
+            "status": "failed_sidecar",
+            "command": "pnpm lint",
+            "note": "Repo-wide pre-existing lint debt outside PR-TG-01 scope; scoped eslint for changed script/test passed."
+          },
+          {
+            "name": "scoped-eslint",
+            "status": "passed",
+            "command": "pnpm exec eslint scripts/seo/generate-core-topic-graph-inventory.mjs tests/contracts/core-topic-graph-inventory.contract.test.ts"
+          },
+          {
+            "name": "seo-generate-sitemap",
+            "status": "passed",
+            "command": "pnpm seo:generate-sitemap",
+            "note": "Generated successfully; timestamp-only public/sitemap.xml diff was reverted before commit."
+          },
+          {
+            "name": "seo-check-sitemap",
+            "status": "passed",
+            "command": "pnpm seo:check-sitemap",
+            "note": "317 sitemap URLs passed."
+          },
+          {
+            "name": "diff-check",
+            "status": "passed",
+            "command": "git diff --check"
+          }
+        ],
+        "github": []
+      },
+      "failure_reason": "",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [
+        {
+          "title": "Pre-existing repo-wide lint debt outside PR-TG-01 scope",
+          "severity": "P2",
+          "scope_impact": "Full pnpm lint reports existing issues in untouched runtime/test files; changed-file scoped eslint for PR-TG-01 files passed.",
+          "introduced_by_current_pr": false,
+          "recommended_future_phase": "Repository lint hygiene sidecar outside Core Topic Graph Foundation",
+          "blocks_merge": false,
+          "evidence": "pnpm lint failed on CareerShortlistAction, MbtiCloneAssetSlot, ecosystem.config.cjs, last-known-good, and unrelated existing contract tests; PR-TG-01 changed only docs/codex, docs/graph, scripts/seo/generate-core-topic-graph-inventory.mjs, and tests/contracts/core-topic-graph-inventory.contract.test.ts."
+        }
+      ]
+    },
+    "PR-TG-02": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "planned",
+      "not_started": true,
+      "branch": "codex/pr-tg-02-graph-edge-schema",
+      "commit_sha": "",
+      "pr_url": "",
+      "scope": "Add graph edge schema and CMS governance contracts for core Topic Graph edge types without public graph rollout or frontend graph authority.",
+      "depends_on": [
+        "PR-TG-01"
+      ],
+      "checks": {
+        "local": [],
+        "github": []
+      },
+      "failure_reason": "",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    "PR-TG-03": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "planned",
+      "not_started": true,
+      "branch": "codex/pr-tg-03-mbti-graph-stabilization",
+      "commit_sha": "",
+      "pr_url": "",
+      "scope": "Stabilize existing MBTI graph foundation through observable contract-backed graph links and validators without page expansion or commercial/runtime changes.",
+      "depends_on": [
+        "PR-TG-02"
+      ],
+      "checks": {
+        "local": [],
+        "github": []
+      },
+      "failure_reason": "",
       "merged_at": "",
       "remote_branch_deleted": false,
       "local_cleanup_executed": false
