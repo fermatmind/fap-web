@@ -2077,6 +2077,7 @@ export type ResultEmailLookupItem = {
 export type ResultEmailLookupResponse = {
   ok: boolean;
   items: ResultEmailLookupItem[];
+  email_verification_required?: boolean;
   [key: string]: unknown;
 };
 
