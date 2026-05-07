@@ -25,6 +25,12 @@ import { isSharedDiscoverabilityDeniedPath } from "@/lib/seo/discoverabilityExpo
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
 import { listBackendSitemapCareerJobPaths } from "@/lib/seo/backendSitemapSource";
 import { listBackendDiscoverabilityTestEntries } from "@/lib/seo/backendTestDiscoverabilitySource";
+import {
+  LLMS_ROUTE_ARTICLE_MAX_PAGES,
+  LLMS_ROUTE_LIMITS,
+  limitLlmsRouteEntries,
+  withLlmsRouteBudget,
+} from "@/lib/seo/llmsRouteBudget";
 import { getSiteUrlOrThrow } from "@/lib/site";
 import type { AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
 import type { CareerFirstWaveDiscoverabilityManifestAdapter } from "@/lib/career/adapters/types";
@@ -59,7 +65,7 @@ const LLMS_FINAL_PATH_DENY_PATTERNS: RegExp[] = [
 const MAX_FAQ_ITEMS = 2;
 const MAX_NEXT_STEPS = 3;
 const MAX_TEXT_CHARS = 360;
-const ENRICHMENT_CONCURRENCY = 8;
+const ENRICHMENT_CONCURRENCY = 4;
 
 type LlmsLocale = Locale;
 
@@ -402,27 +408,29 @@ async function listCareerFamilyEntriesFromManifest(
   }
 
   const entries = await Promise.all(
-    manifest.discoverableFamilyHubSlugs.map(async (slug) => {
-      if (!isCareerFamilyHubDiscoverableByManifest(manifest, slug)) {
-        return null;
+    limitLlmsRouteEntries(manifest.discoverableFamilyHubSlugs, LLMS_ROUTE_LIMITS.careerFamilies).map(
+      async (slug) => {
+        if (!isCareerFamilyHubDiscoverableByManifest(manifest, slug)) {
+          return null;
+        }
+
+        const payload = await fetchCareerFamilyHub({ locale, slug }).catch(() => null);
+        const hub = adaptCareerFamilyHub({ locale, payload });
+
+        if (!hub || hub.counts.visibleChildrenCount <= 0) {
+          return null;
+        }
+
+        return {
+          locale,
+          path: buildCareerFamilyFrontendUrl(locale, hub.family.canonicalSlug),
+          title: hub.family.title,
+          type: "career_family",
+          summary: summaryFromRecord(hub.family),
+          updatedAt: "",
+        };
       }
-
-      const payload = await fetchCareerFamilyHub({ locale, slug }).catch(() => null);
-      const hub = adaptCareerFamilyHub({ locale, payload });
-
-      if (!hub || hub.counts.visibleChildrenCount <= 0) {
-        return null;
-      }
-
-      return {
-        locale,
-        path: buildCareerFamilyFrontendUrl(locale, hub.family.canonicalSlug),
-        title: hub.family.title,
-        type: "career_family",
-        summary: summaryFromRecord(hub.family),
-        updatedAt: "",
-      };
-    })
+    )
   );
 
   return entries.filter((entry): entry is NonNullable<typeof entry> => Boolean(entry));
@@ -431,12 +439,12 @@ async function listCareerFamilyEntriesFromManifest(
 async function listPersonalityEntries(): Promise<LlmsFullEntry[]> {
   try {
     const [enProfiles, zhProfiles] = await Promise.all([
-      listPersonalityProfiles({ locale: "en", perPage: 100 }),
-      listPersonalityProfiles({ locale: "zh", perPage: 100 }),
+      listPersonalityProfiles({ locale: "en", perPage: LLMS_ROUTE_LIMITS.personalityProfiles }),
+      listPersonalityProfiles({ locale: "zh", perPage: LLMS_ROUTE_LIMITS.personalityProfiles }),
     ]);
 
     return [
-      ...enProfiles.items
+      ...limitLlmsRouteEntries(enProfiles.items, LLMS_ROUTE_LIMITS.personalityProfiles)
         .filter((item) => item.isIndexable)
         .flatMap((item) =>
           publishedPersonalityVariantSlugs(String(item.typeCode ?? item.slug ?? ""))
@@ -448,7 +456,7 @@ async function listPersonalityEntries(): Promise<LlmsFullEntry[]> {
               summary: summaryFromRecord(item),
             }))
         ),
-      ...zhProfiles.items
+      ...limitLlmsRouteEntries(zhProfiles.items, LLMS_ROUTE_LIMITS.personalityProfiles)
         .filter((item) => item.isIndexable)
         .flatMap((item) =>
           publishedPersonalityVariantSlugs(String(item.typeCode ?? item.slug ?? ""))
@@ -471,8 +479,8 @@ async function listPersonalityEntries(): Promise<LlmsFullEntry[]> {
 async function listTopicEntries(): Promise<LlmsFullEntry[]> {
   try {
     const [enTopics, zhTopics] = await Promise.all([
-      listTopics({ locale: "en", perPage: 100 }),
-      listTopics({ locale: "zh", perPage: 100 }),
+      listTopics({ locale: "en", perPage: LLMS_ROUTE_LIMITS.topics }),
+      listTopics({ locale: "zh", perPage: LLMS_ROUTE_LIMITS.topics }),
     ]);
 
     return [
@@ -581,28 +589,96 @@ export async function GET() {
     zhHelpPages,
     careerJobPaths,
   ] = await Promise.all([
-    fetchCareerFirstWaveDiscoverabilityManifest({ locale: "en" })
-      .then((payload) => adaptCareerFirstWaveDiscoverabilityManifest({ payload }))
-      .catch(() => null),
-    fetchCareerFirstWaveDiscoverabilityManifest({ locale: "zh" })
-      .then((payload) => adaptCareerFirstWaveDiscoverabilityManifest({ payload }))
-      .catch(() => null),
-    listCareerGuidesFromCms("en").catch(() => []),
-    listCareerGuidesFromCms("zh").catch(() => []),
-    fetchCareerRecommendationIndex({ locale: "en" })
-      .then((payload) => adaptCareerRecommendationIndex({ locale: "en", payload }))
-      .catch(() => []),
-    fetchCareerRecommendationIndex({ locale: "zh" })
-      .then((payload) => adaptCareerRecommendationIndex({ locale: "zh", payload }))
-      .catch(() => []),
-    listPersonalityEntries(),
-    listTopicEntries(),
-    listCmsArticlesForLlmsWithLastKnownGood({ locale: "en" }).then((result) => result.value).catch(() => []),
-    listCmsArticlesForLlmsWithLastKnownGood({ locale: "zh" }).then((result) => result.value).catch(() => []),
-    listBackendDiscoverabilityTestEntries().catch(() => []),
-    listContentPagesWithLastKnownGood("en", "help").then((result) => result.value).catch(() => []),
-    listContentPagesWithLastKnownGood("zh", "help").then((result) => result.value).catch(() => []),
-    listBackendSitemapCareerJobPaths().catch(() => []),
+    withLlmsRouteBudget(
+      () =>
+        fetchCareerFirstWaveDiscoverabilityManifest({ locale: "en" }).then((payload) =>
+          adaptCareerFirstWaveDiscoverabilityManifest({ payload })
+        ),
+      null
+    ),
+    withLlmsRouteBudget(
+      () =>
+        fetchCareerFirstWaveDiscoverabilityManifest({ locale: "zh" }).then((payload) =>
+          adaptCareerFirstWaveDiscoverabilityManifest({ payload })
+        ),
+      null
+    ),
+    withLlmsRouteBudget(
+      () => listCareerGuidesFromCms("en", { page: 1, perPage: LLMS_ROUTE_LIMITS.careerGuides }),
+      []
+    ),
+    withLlmsRouteBudget(
+      () => listCareerGuidesFromCms("zh", { page: 1, perPage: LLMS_ROUTE_LIMITS.careerGuides }),
+      []
+    ),
+    withLlmsRouteBudget(
+      () =>
+        fetchCareerRecommendationIndex({ locale: "en" }).then((payload) =>
+          limitLlmsRouteEntries(
+            adaptCareerRecommendationIndex({ locale: "en", payload }),
+            LLMS_ROUTE_LIMITS.careerRecommendations
+          )
+        ),
+      []
+    ),
+    withLlmsRouteBudget(
+      () =>
+        fetchCareerRecommendationIndex({ locale: "zh" }).then((payload) =>
+          limitLlmsRouteEntries(
+            adaptCareerRecommendationIndex({ locale: "zh", payload }),
+            LLMS_ROUTE_LIMITS.careerRecommendations
+          )
+        ),
+      []
+    ),
+    withLlmsRouteBudget(() => listPersonalityEntries(), []),
+    withLlmsRouteBudget(() => listTopicEntries(), []),
+    withLlmsRouteBudget(
+      () =>
+        listCmsArticlesForLlmsWithLastKnownGood({
+          locale: "en",
+          perPage: LLMS_ROUTE_LIMITS.articles,
+          maxPages: LLMS_ROUTE_ARTICLE_MAX_PAGES,
+        }).then((result) => result.value),
+      []
+    ),
+    withLlmsRouteBudget(
+      () =>
+        listCmsArticlesForLlmsWithLastKnownGood({
+          locale: "zh",
+          perPage: LLMS_ROUTE_LIMITS.articles,
+          maxPages: LLMS_ROUTE_ARTICLE_MAX_PAGES,
+        }).then((result) => result.value),
+      []
+    ),
+    withLlmsRouteBudget(
+      () =>
+        listBackendDiscoverabilityTestEntries().then((entries) =>
+          limitLlmsRouteEntries(entries, LLMS_ROUTE_LIMITS.tests)
+        ),
+      []
+    ),
+    withLlmsRouteBudget(
+      () =>
+        listContentPagesWithLastKnownGood("en", "help").then((result) =>
+          limitLlmsRouteEntries(result.value, LLMS_ROUTE_LIMITS.helpPages)
+        ),
+      []
+    ),
+    withLlmsRouteBudget(
+      () =>
+        listContentPagesWithLastKnownGood("zh", "help").then((result) =>
+          limitLlmsRouteEntries(result.value, LLMS_ROUTE_LIMITS.helpPages)
+        ),
+      []
+    ),
+    withLlmsRouteBudget(
+      () =>
+        listBackendSitemapCareerJobPaths().then((entries) =>
+          limitLlmsRouteEntries(entries, LLMS_ROUTE_LIMITS.careerJobs)
+        ),
+      []
+    ),
   ]);
 
   const [enCareerFamilies, zhCareerFamilies] = await Promise.all([
@@ -725,10 +801,26 @@ export async function GET() {
   ].filter((entry) => shouldKeep(entry.path));
 
   const [enrichedPersonalityEntries, enrichedTopicEntries, enrichedArticles, enrichedGuideEntries] = await Promise.all([
-    mapWithConcurrency(personalityEntries, ENRICHMENT_CONCURRENCY, (entry) => enrichPersonalityEntry(entry, siteUrl)),
-    mapWithConcurrency(topicEntries, ENRICHMENT_CONCURRENCY, (entry) => enrichTopicEntry(entry, siteUrl)),
-    mapWithConcurrency(articles, ENRICHMENT_CONCURRENCY, (entry) => enrichArticleEntry(entry, siteUrl)),
-    mapWithConcurrency(guideEntries, ENRICHMENT_CONCURRENCY, (entry) => enrichCareerGuideEntry(entry, siteUrl)),
+    mapWithConcurrency(
+      limitLlmsRouteEntries(personalityEntries, LLMS_ROUTE_LIMITS.personalityProfiles),
+      ENRICHMENT_CONCURRENCY,
+      (entry) => withLlmsRouteBudget(() => enrichPersonalityEntry(entry, siteUrl), entry)
+    ),
+    mapWithConcurrency(
+      limitLlmsRouteEntries(topicEntries, LLMS_ROUTE_LIMITS.topics),
+      ENRICHMENT_CONCURRENCY,
+      (entry) => withLlmsRouteBudget(() => enrichTopicEntry(entry, siteUrl), entry)
+    ),
+    mapWithConcurrency(
+      limitLlmsRouteEntries(articles, LLMS_ROUTE_LIMITS.articles),
+      ENRICHMENT_CONCURRENCY,
+      (entry) => withLlmsRouteBudget(() => enrichArticleEntry(entry, siteUrl), entry)
+    ),
+    mapWithConcurrency(
+      limitLlmsRouteEntries(guideEntries, LLMS_ROUTE_LIMITS.careerGuides),
+      ENRICHMENT_CONCURRENCY,
+      (entry) => withLlmsRouteBudget(() => enrichCareerGuideEntry(entry, siteUrl), entry)
+    ),
   ]);
 
   const enrichedCareerPathMap = new Map(enrichedGuideEntries.map((entry) => [`${entry.locale}:${entry.path}`, entry]));

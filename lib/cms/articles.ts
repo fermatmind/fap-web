@@ -232,6 +232,7 @@ export type GetCmsArticlesResult = {
 export type ListCmsArticlesForLlmsParams = {
   locale: Locale | string;
   perPage?: number;
+  maxPages?: number;
 };
 
 function buildQuery(params: Record<string, string | number | undefined>): string {
@@ -745,13 +746,17 @@ export async function listCmsArticlesForLlms(
     typeof params.perPage === "number" && params.perPage > 0
       ? Math.min(params.perPage, DEFAULT_ENUMERATION_PER_PAGE)
       : DEFAULT_ENUMERATION_PER_PAGE;
+  const maxPages =
+    typeof params.maxPages === "number" && params.maxPages > 0
+      ? Math.floor(params.maxPages)
+      : Number.POSITIVE_INFINITY;
   const seen = new Set<string>();
   const entries: CmsArticleLlmsEntry[] = [];
 
   let currentPage = 1;
   let lastPage = 1;
 
-  do {
+  while (currentPage <= lastPage && currentPage <= maxPages) {
     const response = await getCmsArticles({
       locale,
       page: currentPage,
@@ -785,7 +790,7 @@ export async function listCmsArticlesForLlms(
     }
 
     currentPage += 1;
-  } while (currentPage <= lastPage);
+  }
 
   return entries;
 }
@@ -798,10 +803,14 @@ export async function listCmsArticlesForLlmsWithLastKnownGood(
     typeof params.perPage === "number" && params.perPage > 0
       ? Math.min(params.perPage, DEFAULT_ENUMERATION_PER_PAGE)
       : DEFAULT_ENUMERATION_PER_PAGE;
+  const maxPages =
+    typeof params.maxPages === "number" && params.maxPages > 0
+      ? Math.floor(params.maxPages)
+      : Number.POSITIVE_INFINITY;
 
   return withLastKnownGood({
-    key: `articles:llms:${locale}:${perPage}`,
-    load: () => listCmsArticlesForLlms({ locale, perPage }),
+    key: `articles:llms:${locale}:${perPage}:${maxPages}`,
+    load: () => listCmsArticlesForLlms({ locale, perPage, maxPages }),
     isUsable: (entries) => entries.length > 0,
     useStaleOnUnusable: false,
     useStaleOnError: false,
