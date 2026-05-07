@@ -511,7 +511,7 @@ prs:
     base: main
     depends_on: ["PR-UG-06"]
     mode: execute
-    status: in_progress
+    status: merged
     scope: >
       CMS-backed fallback SEO authority inventory. Add read-only ownership
       reports and contracts; do not remove fallbacks yet.
@@ -542,7 +542,7 @@ prs:
     base: main
     depends_on: ["PR-UG-07"]
     mode: execute
-    status: planned
+    status: in_progress
     scope: >
       Evidence Container live readiness sampling. Visible HTML validation only;
       no GEO content expansion or hidden schema generation.
