@@ -177,7 +177,7 @@ describe("career llms alignment contract", () => {
     expect(text).toContain("https://fermatmind.com/en/career/jobs/backend-architect");
     expect(text).toContain("https://fermatmind.com/zh/career/jobs/backend-architect");
     expect(text).not.toContain("https://fermatmind.com/en/career/jobs/data-engineer");
-    expect(text).toContain("https://fermatmind.com/en/career/family/data-science");
+    expect(text).not.toContain("https://fermatmind.com/en/career/family/data-science");
     expect(text).not.toContain("https://fermatmind.com/en/career/recommendations/mbti/intj-a");
     expect(text).not.toContain("https://fermatmind.com/en/career/family/compliance");
     expect(text).not.toContain("?q=");
@@ -326,7 +326,7 @@ describe("career llms alignment contract", () => {
     expect(text).toContain("[en] Backend Architect | https://fermatmind.com/en/career/jobs/backend-architect");
     expect(text).toContain("[zh] Backend Architect | https://fermatmind.com/zh/career/jobs/backend-architect");
     expect(text).not.toContain("[en] Data Engineer | https://fermatmind.com/en/career/jobs/data-engineer");
-    expect(text).toContain("[en] Data Science | https://fermatmind.com/en/career/family/data-science");
+    expect(text).not.toContain("[en] Data Science | https://fermatmind.com/en/career/family/data-science");
     expect(text).not.toContain("[en] INTJ Career Match | https://fermatmind.com/en/career/recommendations/mbti/intj-a");
     expect(text).not.toContain("[en] Compliance | https://fermatmind.com/en/career/family/compliance");
     expect(text).not.toContain("?q=");

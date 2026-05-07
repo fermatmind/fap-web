@@ -479,61 +479,10 @@ async function buildTestPathsFromApi() {
   }
 }
 
-function normalizeDiscoverabilityState(value) {
-  const normalized = normalizeSlug(value).toLowerCase();
-  if (normalized === "discoverable" || normalized === "excluded") {
-    return normalized;
-  }
-  return null;
-}
-
-function extractCareerDiscoverabilityManifestRoutes(payload) {
-  const rows = Array.isArray(payload?.routes) ? payload.routes : [];
-
-  return rows
-    .filter((row) => row && typeof row === "object")
-    .map((row) => {
-      const routeKind = normalizeSlug(row.route_kind);
-      const canonicalPath = normalizePath(row.canonical_path || "");
-      const canonicalSlug = normalizeSlug(row.canonical_slug).toLowerCase();
-      const discoverabilityState = normalizeDiscoverabilityState(row.discoverability_state);
-
-      if (!routeKind || !canonicalPath || !canonicalSlug || !discoverabilityState) {
-        return null;
-      }
-
-      return {
-        routeKind,
-        canonicalPath,
-        canonicalSlug,
-        discoverabilityState,
-      };
-    })
-    .filter(Boolean);
-}
-
-const careerDiscoverabilityManifestRouteCache = new Map();
 let backendSitemapSourcePayloadCache = null;
 let backendSitemapSourceCareerJobPathCache = null;
 let backendSitemapSourcePersonalityPathCache = null;
 const careerJobSeoAuthorityCache = new Map();
-
-async function fetchCareerDiscoverabilityManifestRoutes(apiLocale) {
-  const cacheKey = normalizeSlug(apiLocale).toLowerCase() || "default";
-  if (careerDiscoverabilityManifestRouteCache.has(cacheKey)) {
-    return careerDiscoverabilityManifestRouteCache.get(cacheKey);
-  }
-
-  const params = new URLSearchParams({ locale: apiLocale });
-  const payload = await fetchJsonWithTimeout(
-    `${buildApiUrl("/v0.5/career/first-wave/discoverability-manifest")}?${params.toString()}`,
-    careerSitemapTimeoutMs
-  );
-  const routes = extractCareerDiscoverabilityManifestRoutes(payload);
-  careerDiscoverabilityManifestRouteCache.set(cacheKey, routes);
-
-  return routes;
-}
 
 function extractBackendSitemapSourceCareerJobPaths(payload) {
   const items = Array.isArray(payload?.items) ? payload.items : [];
@@ -831,34 +780,6 @@ async function buildCareerRecommendationDetailPathsFromAuthority() {
   }
 }
 
-async function buildCareerFamilyDetailPathsFromAuthority() {
-  try {
-    const paths = new Set();
-
-    for (const { localePrefix, apiLocale } of CMS_LOCALES) {
-      const routes = await fetchCareerDiscoverabilityManifestRoutes(apiLocale);
-
-      for (const route of routes) {
-        if (route.routeKind !== "career_family_hub" || route.discoverabilityState !== "discoverable") {
-          continue;
-        }
-
-        paths.add(
-          buildLocalizedAuthorityCareerPath(
-            localePrefix,
-            route.canonicalPath,
-            `/${localePrefix}/career/family/${route.canonicalSlug}`
-          )
-        );
-      }
-    }
-
-    return [...paths];
-  } catch {
-    return [];
-  }
-}
-
 async function buildTopicDetailPathsFromApi() {
   return buildCmsDetailPaths(
     "/v0.5/topics",
@@ -919,7 +840,6 @@ module.exports = {
       methodPaths,
       dataPaths,
       careerJobApiPaths,
-      careerFamilyApiPaths,
       careerRecommendationApiPaths,
       personalityPaths,
       topicApiPaths,
@@ -930,7 +850,6 @@ module.exports = {
       buildValidatedCmsPaths("/v0.5/methods", buildMethodDetailPaths),
       buildValidatedCmsPaths("/v0.5/data", buildDataDetailPaths),
       buildCareerJobDetailPathsFromAuthority(),
-      buildCareerFamilyDetailPathsFromAuthority(),
       buildCareerRecommendationDetailPathsFromAuthority(),
       buildPersonalityDetailPathsFromAuthority(),
       buildValidatedCmsPaths("/v0.5/topics", buildTopicDetailPathsFromApi),
@@ -945,7 +864,6 @@ module.exports = {
       ...methodPaths,
       ...dataPaths,
       ...careerJobApiPaths,
-      ...careerFamilyApiPaths,
       ...careerRecommendationApiPaths,
       ...personalityPaths,
       ...topicApiPaths,

@@ -4990,6 +4990,65 @@
           "evidence": "git status shows those four files modified; path-limited staging excludes them from the PR diff."
         }
       ]
+    },
+    "PR-CAR-RUNTIME-03": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "pr_open",
+      "not_started": false,
+      "branch": "codex/career-runtime-sitemap-llms-projection",
+      "commit_sha": "12caaa2f8f8c516c0cf65adf3c04423149e67edb",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/684",
+      "scope": "Remove frontend family hub discoverability bypasses from sitemap, llms.txt, and llms-full.txt so Career job inclusion is sourced from the backend runtime publish projection-backed sitemap source.",
+      "depends_on": [],
+      "checks": {
+        "local": [
+          {
+            "name": "json-ledger",
+            "status": "passed",
+            "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+          },
+          {
+            "name": "sitemap-llms-contracts",
+            "status": "passed",
+            "command": "pnpm exec vitest run tests/contracts/sitemap-indexability.contract.test.ts tests/contracts/career-llms-alignment.contract.test.ts",
+            "note": "9 tests passed."
+          },
+          {
+            "name": "adjacent-llms-contracts",
+            "status": "passed",
+            "command": "pnpm exec vitest run tests/contracts/llms-full-enrichment.contract.test.ts tests/contracts/llms-parity-contract.contract.test.ts tests/contracts/career-jobs-cleanup.contract.test.ts",
+            "note": "9 tests passed."
+          },
+          {
+            "name": "scoped-eslint",
+            "status": "passed",
+            "command": "pnpm exec eslint next-sitemap.config.js app/llms.txt/route.ts app/llms-full.txt/route.ts tests/contracts/sitemap-indexability.contract.test.ts tests/contracts/career-llms-alignment.contract.test.ts"
+          },
+          {
+            "name": "typecheck",
+            "status": "passed",
+            "command": "pnpm typecheck"
+          },
+          {
+            "name": "seo-check-sitemap",
+            "status": "passed",
+            "command": "pnpm seo:check-sitemap",
+            "note": "317 sitemap URLs passed."
+          },
+          {
+            "name": "diff-check",
+            "status": "passed",
+            "command": "git diff --check && git diff --cached --check"
+          }
+        ],
+        "github": []
+      },
+      "failure_reason": "",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": []
     }
   },
   "prs": {

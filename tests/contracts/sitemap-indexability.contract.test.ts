@@ -201,8 +201,6 @@ describe("sitemap indexability contract", () => {
         "/zh/articles",
         "/en/career/guides",
         "/zh/career/guides",
-        "/en/career/family/data-science",
-        "/zh/career/family/data-science",
         "/en/career/recommendations/mbti/intj-a",
         "/zh/career/recommendations/mbti/intj-a",
       ])
@@ -217,6 +215,8 @@ describe("sitemap indexability contract", () => {
     expect(locs).not.toContain("/zh/results/lookup");
     expect(locs).not.toContain("/en/career/jobs/data-engineer");
     expect(locs).not.toContain("/zh/career/jobs/data-engineer");
+    expect(locs).not.toContain("/en/career/family/data-science");
+    expect(locs).not.toContain("/zh/career/family/data-science");
     expect(locs).not.toContain("/en/career/family/compliance");
     expect(locs).not.toContain("/zh/career/family/compliance");
     expect(locs.some((loc: string) => loc.includes("/career/recommendations/big5/"))).toBe(false);
