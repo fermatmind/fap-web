@@ -1,39 +1,39 @@
-train_name: url-truth-seo-governance-train
+train_name: core-topic-graph-foundation-train
 train_description: >
-  Stabilize FermatMind URL truth and SEO governance across inventory,
-  sitemap/llms parity, canonical, hreflang, JSON-LD, duplicate entities,
-  internal graph readiness, Evidence Container readiness, and SEO authority
-  ownership without expanding Topic Graph, Career pSEO, Recommendation,
-  Behavior Graph, Long-term Profile, B2B, or AI-generated SEO content.
-previous_train_name: discoverability-foundation-train
+  Establish FermatMind Core Topic Graph Foundation v1 through read-only graph
+  inventory, graph edge governance contracts, and MBTI graph stabilization
+  without large topic expansion, Recommendation, Behavior Graph, Long-term
+  Profile, B2B, Career pSEO expansion, or AI-generated SEO content.
+previous_train_name: url-truth-seo-governance-train
 base_branch: main
 merge_method: squash
 stop_on_failure: true
 require_clean_worktree: true
 execution_mode: local_clone_preferred
 status: initialized
-pr_namespace: PR-UG-*
-branch_naming_convention: codex/pr-ug-<nn>-<short-scope>
+pr_namespace: PR-TG-*
+branch_naming_convention: codex/pr-tg-<nn>-<short-scope>
 required_github_checks:
   - build
   - contracts
   - verify-big5-contract-freeze
   - verify-enneagram-contract-freeze
 train_policy:
-  scope: discoverability_foundation_stabilization
+  scope: core_topic_graph_foundation
   continue_if_unrelated_repo_debt_exists: true
   stop_only_on_scoped_regression_or_required_check_failure: true
-  no_runtime_seo_behavior_changes_during_bootstrap: true
-  no_topic_graph_rollout: true
+  no_runtime_seo_behavior_changes_during_inventory: true
+  no_topic_graph_page_expansion: true
   no_recommendation_system_rollout: true
   no_behavior_graph_rollout: true
   no_commerce_auth_report_payment_changes: true
   authority_rules:
-    - backend owns SEO and discoverability truth
+    - backend/CMS owns graph truth
     - frontend deterministic render only
-    - never invent frontend SEO fallback authority
+    - never invent frontend graph authority
     - never silently widen sitemap or llms exposure
     - never expose private take result order share flows
+    - never add hidden FAQ/schema graph stuffing
 sidecar_issue_policy:
   continue_train_when:
     - blocker is unrelated to the current PR
@@ -2791,6 +2791,114 @@ prs:
       mode: github_checks_or_local_verify
       local_verify_required: true
       github_checks_required: false
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
+
+  - id: PR-TG-01
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-tg-01-graph-inventory-contract
+    base: main
+    depends_on: []
+    mode: execute
+    scope: >
+      Core Topic Graph inventory contract. Add read-only graph inventory
+      generation, graph readiness matrix artifacts, and contract coverage for
+      MBTI, Big Five, RIASEC, career, article, and test entity families. Do
+      not change runtime graph rendering, public routes, sitemap/llms
+      exposure, SEO rendering, commerce, auth, report, payment, scoring, or
+      attempt flows.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "node scripts/seo/generate-core-topic-graph-inventory.mjs --output docs/graph/generated/core-topic-graph-inventory.v1.json --csv docs/graph/generated/core-topic-graph-inventory.v1.csv --pretty >/tmp/core-topic-graph-inventory.json"
+      - "pnpm exec vitest run tests/contracts/core-topic-graph-inventory.contract.test.ts"
+      - "pnpm typecheck"
+      - "pnpm test:contract"
+      - "pnpm lint"
+      - "pnpm seo:generate-sitemap"
+      - "pnpm seo:check-sitemap"
+      - "git diff --check"
+      - "git diff --cached --check"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: true
+      required_github_checks: ["build", "contracts", "verify-big5-contract-freeze", "verify-enneagram-contract-freeze"]
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
+
+  - id: PR-TG-02
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-tg-02-graph-edge-schema
+    base: main
+    depends_on: ["PR-TG-01"]
+    mode: execute
+    scope: >
+      Graph edge schema and CMS governance contracts. Define testable graph
+      edge fixtures for topic_to_test, topic_to_type, type_to_career,
+      career_to_trait, topic_to_article, topic_to_faq, and topic_to_cta with
+      review state, visibility state, confidence, source authority, and
+      ownership. Do not generate graph pages, auto-generate public graph
+      links, expand Topic Graph publicly, or introduce frontend graph
+      authority.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "pnpm exec vitest run tests/contracts/core-topic-graph-edge-schema.contract.test.ts"
+      - "pnpm typecheck"
+      - "pnpm test:contract"
+      - "pnpm lint"
+      - "pnpm seo:generate-sitemap"
+      - "pnpm seo:check-sitemap"
+      - "git diff --check"
+      - "git diff --cached --check"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: true
+      required_github_checks: ["build", "contracts", "verify-big5-contract-freeze", "verify-enneagram-contract-freeze"]
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
+
+  - id: PR-TG-03
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-tg-03-mbti-graph-stabilization
+    base: main
+    depends_on: ["PR-TG-02"]
+    mode: execute
+    scope: >
+      MBTI graph foundation stabilization v1. Stabilize existing MBTI graph
+      connectivity through CMS-backed or contract-backed graph surfaces,
+      internal-link governance, Evidence Container alignment, CTA governance,
+      and graph validators. Preserve current public URLs, SEO authority, and
+      discoverability governance. Do not create massive MBTI pages, expand
+      relationship graph, expand Career pSEO, generate AI content, or touch
+      commerce, auth, report, payment, scoring, or attempt systems.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "pnpm exec vitest run tests/contracts/mbti-core-topic-graph.contract.test.ts"
+      - "pnpm typecheck"
+      - "pnpm test:contract"
+      - "pnpm lint"
+      - "pnpm seo:generate-sitemap"
+      - "pnpm seo:check-sitemap"
+      - "git diff --check"
+      - "git diff --cached --check"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: true
+      required_github_checks: ["build", "contracts", "verify-big5-contract-freeze", "verify-enneagram-contract-freeze"]
     cleanup:
       delete_remote_branch: true
       run_local_cleanup: true
