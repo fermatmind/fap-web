@@ -2,6 +2,7 @@ import type { ButtonHTMLAttributes, ReactNode } from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import ClinicalReportClient from "@/components/clinical/report/ClinicalReportClient";
+import pilotEnvelope from "@/tests/fixtures/big5/result_page_v2/pilot_o59_staging_payload_v0_1.payload.json";
 
 type ChildrenProps = {
   children?: ReactNode;
@@ -93,6 +94,17 @@ vi.mock("@/components/design/AnimatedCounter", () => ({
 
 vi.mock("@/components/design/AnticipationSkeleton", () => ({
   AnticipationSkeleton: () => <div data-testid="skeleton">processing-skeleton</div>,
+}));
+
+vi.mock("@/components/result/RichResultReport", () => ({
+  canRenderRichResultReport: (
+    report: {
+      scale_code?: string;
+      big5_result_page_v2?: unknown;
+      report?: { scale_code?: string } | unknown[];
+    } | null
+  ) => Boolean(report?.big5_result_page_v2),
+  RichResultReport: () => <div data-testid="rich-result-report">big5-v2-rich-report</div>,
 }));
 
 vi.mock("@/components/ui/alert", () => ({
@@ -239,6 +251,29 @@ describe("ClinicalReportClient view-state contract", () => {
 
     await waitFor(() => {
       expect(screen.getByTestId("report-section")).toHaveTextContent("result_summary_free");
+    });
+
+    expect(screen.queryByText("Report is generating. Please wait...")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("skeleton")).not.toBeInTheDocument();
+  });
+
+  it("renders Big Five V2 payload reports even when legacy generation remains pending", async () => {
+    hoisted.fetchClinicalReport.mockResolvedValue({
+      ok: true,
+      generating: true,
+      meta: {
+        generating: true,
+        scale_code: "BIG5_OCEAN",
+      },
+      report: [],
+      scale_code: "BIG5_OCEAN",
+      big5_result_page_v2: structuredClone(pilotEnvelope).big5_result_page_v2,
+    });
+
+    render(<ClinicalReportClient attemptId="attempt-456" rolloutEnv={{} as never} />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("rich-result-report")).toHaveTextContent("big5-v2-rich-report");
     });
 
     expect(screen.queryByText("Report is generating. Please wait...")).not.toBeInTheDocument();

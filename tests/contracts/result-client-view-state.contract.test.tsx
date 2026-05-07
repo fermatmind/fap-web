@@ -18,6 +18,7 @@ type ChildrenProps = {
 type RichResultReportProps = {
   reportData?: {
     summary?: string;
+    big5_result_page_v2?: unknown;
     mbti_public_projection_v1?: {
       summary_card?: {
         summary?: string;
@@ -84,11 +85,13 @@ vi.mock("@/components/result/RichResultReport", () => ({
     Boolean(
       report?.mbti_public_projection_v1
       || report?.big5_public_projection_v1
+      || (report as { big5_result_page_v2?: unknown } | null)?.big5_result_page_v2
       || report?.summary
       || report?.report?.sections
       || report?.report?.profile
     ),
-  isGeneratingReportResponse: (report: { generating?: boolean } | null) => report?.generating === true,
+  isGeneratingReportResponse: (report: { generating?: boolean; big5_result_page_v2?: unknown } | null) =>
+    report?.big5_result_page_v2 ? false : report?.generating === true,
   resolveReportScaleCode: (report: { report?: { scale_code?: string } } | null) =>
     report?.report?.scale_code === "MBTI"
       ? "MBTI"
@@ -104,6 +107,7 @@ vi.mock("@/components/result/RichResultReport", () => ({
       {reportData?.mbti_public_projection_v1?.summary_card?.summary
         ?? (reportData as { big5_public_projection_v1?: { explainability_summary?: { headline?: string } } } | undefined)
           ?.big5_public_projection_v1?.explainability_summary?.headline
+        ?? (reportData?.big5_result_page_v2 ? "big5-v2-rich-report" : undefined)
         ?? reportData?.report?.profile?.short_summary
         ?? reportData?.summary
         ?? reportData?.report?.profile?.type_code
@@ -572,6 +576,39 @@ describe("ResultClient view-state contract", () => {
     expect(screen.getByTestId("skeleton")).toBeInTheDocument();
     expect(hoisted.fetchAttemptResult).not.toHaveBeenCalled();
     expect(screen.queryByTestId("rich-result-report")).not.toBeInTheDocument();
+  });
+
+  it("renders Big Five V2 payload when legacy generation is still flagged", async () => {
+    hoisted.fetchAttemptReportAccess.mockResolvedValue(
+      createAccessProjection({
+        report_state: "ready",
+        pdf_state: "ready",
+      })
+    );
+    hoisted.fetchAttemptReport.mockResolvedValue({
+      ok: true,
+      generating: true,
+      meta: {
+        generating: true,
+        scale_code: "BIG5_OCEAN",
+      },
+      scale_code: "BIG5_OCEAN",
+      report: [],
+      big5_result_page_v2: {
+        schema_version: "fap.big5.result_page.v2",
+        payload_key: "big5_result_page_v2",
+      },
+    } as unknown as ReportResponse);
+
+    render(<ResultClient attemptId="attempt-big5-v2" rolloutEnv={{} as never} />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("rich-result-report")).toHaveTextContent("big5-v2-rich-report");
+    });
+
+    expect(screen.queryByRole("alert")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("skeleton")).not.toBeInTheDocument();
+    expect(hoisted.fetchAttemptResult).not.toHaveBeenCalled();
   });
 
   it("shows MBTI critical-surface loading shell early after access projection is identified", async () => {
