@@ -1,0 +1,394 @@
+{
+  "version": "discoverability.canonical_hreflang_jsonld_parity.v1",
+  "scope": "PR-SEOF-04",
+  "description": "Expanded SEO Foundation parity matrix for metadata, canonical, hreflang, JSON-LD, sitemap inclusion, and private-flow negative samples. This fixture is read-only and must not change runtime SEO output.",
+  "siteUrl": "https://fermatmind.com",
+  "liveChecks": {
+    "requiredInCi": false,
+    "optInFlag": "--live",
+    "skipWhenLiveOptionalFalse": true
+  },
+  "sourceContracts": [
+    {
+      "source": "app/(localized)/[locale]/page.tsx",
+      "requiredTokens": ["buildPageMetadata", "alternatesByLocale", "buildWebPageJsonLd", "JsonLd"],
+      "forbiddenTokens": []
+    },
+    {
+      "source": "app/(localized)/[locale]/tests/page.tsx",
+      "requiredTokens": ["buildPageMetadata", "alternatesByLocale", "buildCollectionPageJsonLd", "JsonLd"],
+      "forbiddenTokens": []
+    },
+    {
+      "source": "app/(localized)/[locale]/tests/[slug]/page.tsx",
+      "requiredTokens": ["buildPageMetadata", "alternatesByLocale", "buildWebPageJsonLd", "buildFAQPageJsonLd", "JsonLd"],
+      "forbiddenTokens": []
+    },
+    {
+      "source": "app/(localized)/[locale]/topics/[slug]/page.tsx",
+      "requiredTokens": ["buildPageMetadata", "alternatesByLocale", "buildWebPageJsonLd", "buildFAQPageJsonLd", "JsonLd"],
+      "forbiddenTokens": []
+    },
+    {
+      "source": "app/(localized)/[locale]/articles/[slug]/page.tsx",
+      "requiredTokens": ["buildPageMetadata", "alternatesByLocale", "buildArticleJsonLd", "buildBreadcrumbJsonLd", "JsonLd"],
+      "forbiddenTokens": []
+    },
+    {
+      "source": "app/(localized)/[locale]/career/jobs/[slug]/page.tsx",
+      "requiredTokens": ["buildPageMetadata", "alternatesByLocale", "structuredData.occupation", "JsonLd"],
+      "forbiddenTokens": []
+    },
+    {
+      "source": "app/(localized)/[locale]/career/family/[slug]/page.tsx",
+      "requiredTokens": ["buildPageMetadata", "alternatesByLocale", "structuredData.collectionPage", "JsonLd"],
+      "forbiddenTokens": []
+    },
+    {
+      "source": "app/(localized)/[locale]/career/recommendations/page.tsx",
+      "requiredTokens": ["buildPageMetadata", "alternatesByLocale", "buildWebPageJsonLd", "JsonLd"],
+      "forbiddenTokens": []
+    },
+    {
+      "source": "app/(localized)/[locale]/personality/[type]/page.tsx",
+      "requiredTokens": ["buildPageMetadata", "alternatesByLocale", "buildWebPageJsonLd", "buildFAQPageJsonLd", "JsonLd"],
+      "forbiddenTokens": []
+    },
+    {
+      "source": "app/(localized)/[locale]/help/[slug]/page.tsx",
+      "requiredTokens": ["buildPageMetadata", "alternatesByLocale", "buildWebPageJsonLd", "buildVisibleHelpFaqJsonLd", "JsonLd"],
+      "forbiddenTokens": []
+    }
+  ],
+  "samples": [
+    {
+      "id": "home_en",
+      "routeFamily": "home",
+      "pairKey": "home",
+      "locale": "en",
+      "path": "/en",
+      "canonicalUrl": "https://fermatmind.com/en",
+      "expectedInSitemap": true,
+      "alternates": {
+        "en": "https://fermatmind.com/en",
+        "zh-CN": "https://fermatmind.com/zh",
+        "x-default": "https://fermatmind.com"
+      },
+      "jsonLdReferences": ["https://fermatmind.com/en", "https://fermatmind.com/en#webpage"]
+    },
+    {
+      "id": "home_zh",
+      "routeFamily": "home",
+      "pairKey": "home",
+      "locale": "zh-CN",
+      "path": "/zh",
+      "canonicalUrl": "https://fermatmind.com/zh",
+      "expectedInSitemap": false,
+      "alternates": {
+        "en": "https://fermatmind.com/en",
+        "zh-CN": "https://fermatmind.com/zh",
+        "x-default": "https://fermatmind.com"
+      },
+      "jsonLdReferences": ["https://fermatmind.com/zh", "https://fermatmind.com/zh#webpage"]
+    },
+    {
+      "id": "tests_hub_en",
+      "routeFamily": "tests_hub",
+      "pairKey": "tests_hub",
+      "locale": "en",
+      "path": "/en/tests",
+      "canonicalUrl": "https://fermatmind.com/en/tests",
+      "expectedInSitemap": true,
+      "alternates": {
+        "en": "https://fermatmind.com/en/tests",
+        "zh-CN": "https://fermatmind.com/zh/tests",
+        "x-default": "https://fermatmind.com"
+      },
+      "jsonLdReferences": ["https://fermatmind.com/en/tests", "https://fermatmind.com/en/tests#collectionpage"]
+    },
+    {
+      "id": "tests_hub_zh",
+      "routeFamily": "tests_hub",
+      "pairKey": "tests_hub",
+      "locale": "zh-CN",
+      "path": "/zh/tests",
+      "canonicalUrl": "https://fermatmind.com/zh/tests",
+      "expectedInSitemap": true,
+      "alternates": {
+        "en": "https://fermatmind.com/en/tests",
+        "zh-CN": "https://fermatmind.com/zh/tests",
+        "x-default": "https://fermatmind.com"
+      },
+      "jsonLdReferences": ["https://fermatmind.com/zh/tests", "https://fermatmind.com/zh/tests#collectionpage"]
+    },
+    {
+      "id": "test_detail_en",
+      "routeFamily": "test_detail",
+      "pairKey": "test_detail_mbti",
+      "locale": "en",
+      "path": "/en/tests/mbti-personality-test-16-personality-types",
+      "canonicalUrl": "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types",
+      "expectedInSitemap": true,
+      "alternates": {
+        "en": "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types",
+        "zh-CN": "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
+        "x-default": "https://fermatmind.com"
+      },
+      "jsonLdReferences": [
+        "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types",
+        "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types#webpage"
+      ]
+    },
+    {
+      "id": "test_detail_zh",
+      "routeFamily": "test_detail",
+      "pairKey": "test_detail_mbti",
+      "locale": "zh-CN",
+      "path": "/zh/tests/mbti-personality-test-16-personality-types",
+      "canonicalUrl": "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
+      "expectedInSitemap": true,
+      "alternates": {
+        "en": "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types",
+        "zh-CN": "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
+        "x-default": "https://fermatmind.com"
+      },
+      "jsonLdReferences": [
+        "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
+        "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types#webpage"
+      ]
+    },
+    {
+      "id": "topic_detail_en",
+      "routeFamily": "topic_detail",
+      "pairKey": "topic_detail_mbti",
+      "locale": "en",
+      "path": "/en/topics/mbti",
+      "canonicalUrl": "https://fermatmind.com/en/topics/mbti",
+      "expectedInSitemap": true,
+      "alternates": {
+        "en": "https://fermatmind.com/en/topics/mbti",
+        "zh-CN": "https://fermatmind.com/zh/topics/mbti",
+        "x-default": "https://fermatmind.com"
+      },
+      "jsonLdReferences": ["https://fermatmind.com/en/topics/mbti", "https://fermatmind.com/en/topics/mbti#webpage"]
+    },
+    {
+      "id": "topic_detail_zh",
+      "routeFamily": "topic_detail",
+      "pairKey": "topic_detail_mbti",
+      "locale": "zh-CN",
+      "path": "/zh/topics/mbti",
+      "canonicalUrl": "https://fermatmind.com/zh/topics/mbti",
+      "expectedInSitemap": true,
+      "alternates": {
+        "en": "https://fermatmind.com/en/topics/mbti",
+        "zh-CN": "https://fermatmind.com/zh/topics/mbti",
+        "x-default": "https://fermatmind.com"
+      },
+      "jsonLdReferences": ["https://fermatmind.com/zh/topics/mbti", "https://fermatmind.com/zh/topics/mbti#webpage"]
+    },
+    {
+      "id": "article_detail_en",
+      "routeFamily": "article_detail",
+      "pairKey": "article_valentines",
+      "locale": "en",
+      "path": "/en/articles/best-valentines-date-by-personality-and-relationship-science",
+      "canonicalUrl": "https://fermatmind.com/en/articles/best-valentines-date-by-personality-and-relationship-science",
+      "expectedInSitemap": true,
+      "alternates": {
+        "en": "https://fermatmind.com/en/articles/best-valentines-date-by-personality-and-relationship-science",
+        "zh-CN": "https://fermatmind.com/zh/articles/best-valentines-date-by-personality-and-relationship-science",
+        "x-default": "https://fermatmind.com"
+      },
+      "jsonLdReferences": [
+        "https://fermatmind.com/en/articles/best-valentines-date-by-personality-and-relationship-science",
+        "https://fermatmind.com/en/articles/best-valentines-date-by-personality-and-relationship-science#article"
+      ]
+    },
+    {
+      "id": "article_detail_zh",
+      "routeFamily": "article_detail",
+      "pairKey": "article_valentines",
+      "locale": "zh-CN",
+      "path": "/zh/articles/best-valentines-date-by-personality-and-relationship-science",
+      "canonicalUrl": "https://fermatmind.com/zh/articles/best-valentines-date-by-personality-and-relationship-science",
+      "expectedInSitemap": true,
+      "alternates": {
+        "en": "https://fermatmind.com/en/articles/best-valentines-date-by-personality-and-relationship-science",
+        "zh-CN": "https://fermatmind.com/zh/articles/best-valentines-date-by-personality-and-relationship-science",
+        "x-default": "https://fermatmind.com"
+      },
+      "jsonLdReferences": [
+        "https://fermatmind.com/zh/articles/best-valentines-date-by-personality-and-relationship-science",
+        "https://fermatmind.com/zh/articles/best-valentines-date-by-personality-and-relationship-science#article"
+      ]
+    },
+    {
+      "id": "career_job_en",
+      "routeFamily": "career_job_detail",
+      "pairKey": "career_job_accountants",
+      "locale": "en",
+      "path": "/en/career/jobs/accountants-and-auditors",
+      "canonicalUrl": "https://fermatmind.com/en/career/jobs/accountants-and-auditors",
+      "expectedInSitemap": false,
+      "liveOptional": false,
+      "alternates": {
+        "en": "https://fermatmind.com/en/career/jobs/accountants-and-auditors",
+        "zh-CN": "https://fermatmind.com/zh/career/jobs/accountants-and-auditors",
+        "x-default": "https://fermatmind.com"
+      },
+      "jsonLdReferences": [
+        "https://fermatmind.com/en/career/jobs/accountants-and-auditors",
+        "https://fermatmind.com/en/career/jobs/accountants-and-auditors#occupation"
+      ]
+    },
+    {
+      "id": "career_job_zh",
+      "routeFamily": "career_job_detail",
+      "pairKey": "career_job_accountants",
+      "locale": "zh-CN",
+      "path": "/zh/career/jobs/accountants-and-auditors",
+      "canonicalUrl": "https://fermatmind.com/zh/career/jobs/accountants-and-auditors",
+      "expectedInSitemap": true,
+      "alternates": {
+        "en": "https://fermatmind.com/en/career/jobs/accountants-and-auditors",
+        "zh-CN": "https://fermatmind.com/zh/career/jobs/accountants-and-auditors",
+        "x-default": "https://fermatmind.com"
+      },
+      "jsonLdReferences": [
+        "https://fermatmind.com/zh/career/jobs/accountants-and-auditors",
+        "https://fermatmind.com/zh/career/jobs/accountants-and-auditors#occupation"
+      ]
+    },
+    {
+      "id": "career_family_en",
+      "routeFamily": "career_family",
+      "pairKey": "career_family_healthcare",
+      "locale": "en",
+      "path": "/en/career/family/healthcare",
+      "canonicalUrl": "https://fermatmind.com/en/career/family/healthcare",
+      "expectedInSitemap": true,
+      "alternates": {
+        "en": "https://fermatmind.com/en/career/family/healthcare",
+        "zh-CN": "https://fermatmind.com/zh/career/family/healthcare",
+        "x-default": "https://fermatmind.com"
+      },
+      "jsonLdReferences": ["https://fermatmind.com/en/career/family/healthcare"]
+    },
+    {
+      "id": "career_family_zh",
+      "routeFamily": "career_family",
+      "pairKey": "career_family_healthcare",
+      "locale": "zh-CN",
+      "path": "/zh/career/family/healthcare",
+      "canonicalUrl": "https://fermatmind.com/zh/career/family/healthcare",
+      "expectedInSitemap": true,
+      "alternates": {
+        "en": "https://fermatmind.com/en/career/family/healthcare",
+        "zh-CN": "https://fermatmind.com/zh/career/family/healthcare",
+        "x-default": "https://fermatmind.com"
+      },
+      "jsonLdReferences": ["https://fermatmind.com/zh/career/family/healthcare"]
+    },
+    {
+      "id": "career_recommendation_en",
+      "routeFamily": "career_recommendation",
+      "pairKey": "career_recommendations",
+      "locale": "en",
+      "path": "/en/career/recommendations",
+      "canonicalUrl": "https://fermatmind.com/en/career/recommendations",
+      "expectedInSitemap": true,
+      "alternates": {
+        "en": "https://fermatmind.com/en/career/recommendations",
+        "zh-CN": "https://fermatmind.com/zh/career/recommendations",
+        "x-default": "https://fermatmind.com"
+      },
+      "jsonLdReferences": ["https://fermatmind.com/en/career/recommendations", "https://fermatmind.com/en/career/recommendations#webpage"]
+    },
+    {
+      "id": "career_recommendation_zh",
+      "routeFamily": "career_recommendation",
+      "pairKey": "career_recommendations",
+      "locale": "zh-CN",
+      "path": "/zh/career/recommendations",
+      "canonicalUrl": "https://fermatmind.com/zh/career/recommendations",
+      "expectedInSitemap": true,
+      "alternates": {
+        "en": "https://fermatmind.com/en/career/recommendations",
+        "zh-CN": "https://fermatmind.com/zh/career/recommendations",
+        "x-default": "https://fermatmind.com"
+      },
+      "jsonLdReferences": ["https://fermatmind.com/zh/career/recommendations", "https://fermatmind.com/zh/career/recommendations#webpage"]
+    },
+    {
+      "id": "personality_detail_en",
+      "routeFamily": "personality_detail",
+      "pairKey": "personality_intj_a",
+      "locale": "en",
+      "path": "/en/personality/intj-a",
+      "canonicalUrl": "https://fermatmind.com/en/personality/intj-a",
+      "expectedInSitemap": true,
+      "alternates": {
+        "en": "https://fermatmind.com/en/personality/intj-a",
+        "zh-CN": "https://fermatmind.com/zh/personality/intj-a",
+        "x-default": "https://fermatmind.com"
+      },
+      "jsonLdReferences": ["https://fermatmind.com/en/personality/intj-a", "https://fermatmind.com/en/personality/intj-a#webpage"]
+    },
+    {
+      "id": "personality_detail_zh",
+      "routeFamily": "personality_detail",
+      "pairKey": "personality_intj_a",
+      "locale": "zh-CN",
+      "path": "/zh/personality/intj-a",
+      "canonicalUrl": "https://fermatmind.com/zh/personality/intj-a",
+      "expectedInSitemap": true,
+      "alternates": {
+        "en": "https://fermatmind.com/en/personality/intj-a",
+        "zh-CN": "https://fermatmind.com/zh/personality/intj-a",
+        "x-default": "https://fermatmind.com"
+      },
+      "jsonLdReferences": ["https://fermatmind.com/zh/personality/intj-a", "https://fermatmind.com/zh/personality/intj-a#webpage"]
+    },
+    {
+      "id": "help_detail_en",
+      "routeFamily": "help_detail",
+      "pairKey": "help_faq",
+      "locale": "en",
+      "path": "/en/help/faq",
+      "canonicalUrl": "https://fermatmind.com/en/help/faq",
+      "expectedInSitemap": true,
+      "alternates": {
+        "en": "https://fermatmind.com/en/help/faq",
+        "zh-CN": "https://fermatmind.com/zh/help/faq",
+        "x-default": "https://fermatmind.com"
+      },
+      "jsonLdReferences": ["https://fermatmind.com/en/help/faq", "https://fermatmind.com/en/help/faq#webpage"]
+    },
+    {
+      "id": "help_detail_zh",
+      "routeFamily": "help_detail",
+      "pairKey": "help_faq",
+      "locale": "zh-CN",
+      "path": "/zh/help/faq",
+      "canonicalUrl": "https://fermatmind.com/zh/help/faq",
+      "expectedInSitemap": true,
+      "alternates": {
+        "en": "https://fermatmind.com/en/help/faq",
+        "zh-CN": "https://fermatmind.com/zh/help/faq",
+        "x-default": "https://fermatmind.com"
+      },
+      "jsonLdReferences": ["https://fermatmind.com/zh/help/faq", "https://fermatmind.com/zh/help/faq#webpage"]
+    }
+  ],
+  "privateFlowSamples": [
+    "/en/tests/mbti-personality-test-16-personality-types/take",
+    "/zh/tests/mbti-personality-test-16-personality-types/take",
+    "/en/result/example",
+    "/zh/results/example",
+    "/zh/orders/example",
+    "/en/share/example",
+    "/zh/pay/example",
+    "/en/payment/example"
+  ]
+}
