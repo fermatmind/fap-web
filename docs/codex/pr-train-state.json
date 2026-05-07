@@ -943,6 +943,23 @@
       "checks": {
         "local": [
           {
+            "name": "ci-stabilization-focused-big5",
+            "status": "passed",
+            "command": "pnpm exec vitest run tests/contracts/big5-take-attempt-priming.contract.test.tsx --testNamePattern \"primes a Big Five server attempt\"",
+            "note": "Reproduced the GitHub timeout locally before the fix; passed in 83ms after stabilizing the mocked next/navigation router identity."
+          },
+          {
+            "name": "ci-stabilization-big5-file",
+            "status": "passed",
+            "command": "pnpm exec vitest run tests/contracts/big5-take-attempt-priming.contract.test.tsx",
+            "note": "4 tests passed."
+          },
+          {
+            "name": "ci-stabilization-big5-eslint",
+            "status": "passed",
+            "command": "pnpm exec eslint tests/contracts/big5-take-attempt-priming.contract.test.tsx"
+          },
+          {
             "name": "focused-contract",
             "status": "passed",
             "command": "pnpm exec vitest run tests/contracts/fallback-seo-authority-inventory.contract.test.ts"
@@ -966,7 +983,7 @@
             "name": "contracts",
             "status": "passed",
             "command": "pnpm test:contract",
-            "note": "267 files passed, 1333 tests passed."
+            "note": "267 files passed, 1333 tests passed after CI stabilization."
           },
           {
             "name": "lint",
@@ -1003,6 +1020,15 @@
           "recommended_future_phase": "Repository lint hygiene sidecar outside URL Truth & SEO Governance PR-UG-07",
           "blocks_merge": false,
           "evidence": "pnpm lint fails on the same pre-existing files observed in PR-UG-01 through PR-UG-06; pnpm exec eslint tests/contracts/fallback-seo-authority-inventory.contract.test.ts passed."
+        },
+        {
+          "title": "Pre-existing Big Five contract mock identity instability",
+          "severity": "P1",
+          "scope_impact": "GitHub contracts check timed out in tests/contracts/big5-take-attempt-priming.contract.test.tsx even though PR-UG-07 changed only read-only SEO fallback inventory artifacts.",
+          "introduced_by_current_pr": false,
+          "recommended_future_phase": "Resolved in PR-UG-07 CI stabilization addendum; no future phase required unless act() warning cleanup is scheduled separately.",
+          "blocks_merge": false,
+          "evidence": "The failing test reproduced locally before the fix with a 5000ms timeout and maximum update depth warnings. The next/navigation useRouter mock returned a new object on each render, retriggering Big5TakeClient effects that depend on router identity. Hoisting a stable router object made the focused case, full Big Five file, and full contract suite pass."
         }
       ],
       "failure_reason": "",

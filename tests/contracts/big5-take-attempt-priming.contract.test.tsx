@@ -15,11 +15,18 @@ const CONTRACT_RENDER_TIMEOUT_MS = 5_000;
 const hoisted = vi.hoisted(() => {
   let cachedSearch = "";
   let cachedSearchParams = new URLSearchParams();
+  const routerPush = vi.fn();
+  const routerReplace = vi.fn();
+  const router = {
+    push: routerPush,
+    replace: routerReplace,
+  };
   const state = {
     pathname: "/en/tests/big-five-personality-test-ocean-model/take",
     search: "form=big5_90",
-    routerPush: vi.fn(),
-    routerReplace: vi.fn(),
+    routerPush,
+    routerReplace,
+    router,
     fetchBig5Lookup: vi.fn(),
     fetchBig5Questions: vi.fn(),
     startBig5Attempt: vi.fn(),
@@ -49,10 +56,7 @@ const hoisted = vi.hoisted(() => {
 vi.mock("next/navigation", () => ({
   usePathname: () => hoisted.pathname,
   useSearchParams: () => hoisted.getSearchParams(),
-  useRouter: () => ({
-    push: hoisted.routerPush,
-    replace: hoisted.routerReplace,
-  }),
+  useRouter: () => hoisted.router,
 }));
 
 vi.mock("@/components/big5/quiz/QuestionCard", () => ({
