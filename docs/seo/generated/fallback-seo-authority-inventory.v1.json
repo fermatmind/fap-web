@@ -1,0 +1,173 @@
+{
+  "version": "url_truth.fallback_seo_authority_inventory.v1",
+  "scope": "PR-UG-07",
+  "generatedAt": "2026-05-06T17:45:00Z",
+  "runtimeBehaviorChanged": false,
+  "summary": {
+    "totalSurfaces": 11,
+    "acceptableProductCodeSurfaces": 2,
+    "safeCmsBackedFallbacks": 4,
+    "watchlistSurfaces": 3,
+    "migrationRequiredSurfaces": 2
+  },
+  "classificationPolicy": {
+    "acceptable_product_code": "Static product-code SEO remains acceptable when the page family is not CMS-backed editorial authority.",
+    "safe_cms_backed_fallback": "Fallback is acceptable when CMS absence produces noindex, notFound, or minimal shell behavior without indexable frontend editorial SEO authority.",
+    "watchlist": "Frontend deterministic rendering uses CMS visible content but can still become a second SEO/schema authority if backend seo.surface.v1 coverage weakens.",
+    "migration_required": "Frontend fallback can affect indexable SEO/GEO exposure and must be governed before Topic Graph, pSEO, or GEO expansion."
+  },
+  "surfaces": [
+    {
+      "id": "home_landing_surface",
+      "routeFamily": "home",
+      "files": [
+        "app/(root)/page.tsx",
+        "app/(localized)/[locale]/page.tsx",
+        "lib/marketing/homepageContent.ts"
+      ],
+      "cmsAuthority": "landing_surfaces:home",
+      "frontendFallback": "CMS fetch failure returns noindex metadata or a minimal shell instead of full local editorial SEO authority.",
+      "classification": "safe_cms_backed_fallback",
+      "risk": "P2",
+      "recommendedAction": "Keep noindex/minimal-shell fallback; ensure future homepage content changes remain CMS-owned."
+    },
+    {
+      "id": "tests_landing_surface",
+      "routeFamily": "tests_hub_and_category",
+      "files": [
+        "app/(localized)/[locale]/tests/page.tsx",
+        "app/(localized)/[locale]/tests/category/[slug]/page.tsx",
+        "lib/marketing/testsHubContent.ts"
+      ],
+      "cmsAuthority": "landing_surfaces:tests and landing_surfaces:tests_category_*",
+      "frontendFallback": "CMS fetch failure returns noindex/minimal shell behavior; category content is still rendered from typed product surface when CMS is unavailable.",
+      "classification": "watchlist",
+      "risk": "P2",
+      "recommendedAction": "Before expanding test category SEO, verify category metadata is backend-authoritative and no frontend editorial fallback can become indexable."
+    },
+    {
+      "id": "career_landing_surface",
+      "routeFamily": "career_hub",
+      "files": [
+        "app/(localized)/[locale]/career/page.tsx",
+        "lib/marketing/careerCenterContent.ts"
+      ],
+      "cmsAuthority": "landing_surfaces:career_home",
+      "frontendFallback": "CMS fetch failure returns noindex metadata and CareerMinimalShell.",
+      "classification": "safe_cms_backed_fallback",
+      "risk": "P2",
+      "recommendedAction": "Keep fallback noindex-only; do not add local career hub copy as publishable SEO content."
+    },
+    {
+      "id": "articles_detail",
+      "routeFamily": "articles_detail",
+      "files": [
+        "app/(localized)/[locale]/articles/[slug]/page.tsx",
+        "lib/cms/articles.ts"
+      ],
+      "cmsAuthority": "CMS Article + Article SEO + last-known-good cache",
+      "frontendFallback": "If Article SEO JSON-LD is absent, frontend builds Article JSON-LD from CMS article title, excerpt, dates, and author.",
+      "classification": "migration_required",
+      "risk": "P1",
+      "recommendedAction": "Move Article JSON-LD completeness into backend seo.surface.v1 before article or GEO expansion; keep current fallback only as compatibility."
+    },
+    {
+      "id": "articles_index",
+      "routeFamily": "articles_hub",
+      "files": [
+        "app/(localized)/[locale]/articles/page.tsx",
+        "lib/cms/articles.ts"
+      ],
+      "cmsAuthority": "CMS article list + landing surface",
+      "frontendFallback": "Empty CMS response renders an empty state while metadata is deterministic hub metadata.",
+      "classification": "safe_cms_backed_fallback",
+      "risk": "P2",
+      "recommendedAction": "Accept empty-state fallback; do not add local article lists or article SEO copies."
+    },
+    {
+      "id": "topics_detail",
+      "routeFamily": "topics_detail",
+      "files": [
+        "app/(localized)/[locale]/topics/[slug]/page.tsx",
+        "lib/cms/topics.ts",
+        "lib/cms/topic-sections.tsx"
+      ],
+      "cmsAuthority": "CMS topic + topic SEO",
+      "frontendFallback": "Frontend renders backend normalized topic JSON-LD plus deterministic WebPage, BreadcrumbList, and FAQPage from visible CMS content.",
+      "classification": "watchlist",
+      "risk": "P1",
+      "recommendedAction": "Before Topic Graph rollout, define which structured data keys are backend-owned and which deterministic visible-content schemas remain frontend-rendered."
+    },
+    {
+      "id": "topics_hub",
+      "routeFamily": "topics_hub",
+      "files": [
+        "app/(localized)/[locale]/topics/page.tsx",
+        "lib/cms/topics.ts"
+      ],
+      "cmsAuthority": "CMS topic list + landing surface",
+      "frontendFallback": "CMS absence renders an empty CMS state with deterministic hub WebPage/Breadcrumb JSON-LD.",
+      "classification": "watchlist",
+      "risk": "P2",
+      "recommendedAction": "Keep as read-only hub until Topic Graph governance defines indexable expansion criteria."
+    },
+    {
+      "id": "career_guides_detail",
+      "routeFamily": "career_guides_detail",
+      "files": [
+        "app/(localized)/[locale]/career/guides/[slug]/page.tsx",
+        "lib/cms/career-guides.ts"
+      ],
+      "cmsAuthority": "CMS career guide + career guide SEO",
+      "frontendFallback": "Frontend normalizes CMS guide SEO and renders breadcrumb JSON-LD locally.",
+      "classification": "watchlist",
+      "risk": "P1",
+      "recommendedAction": "Before career guide SEO expansion, require backend schema completeness for guide detail pages and keep frontend breadcrumb rendering deterministic only."
+    },
+    {
+      "id": "content_pages_help_static",
+      "routeFamily": "content_pages",
+      "files": [
+        "app/(localized)/[locale]/contentPageRoute.tsx",
+        "app/(localized)/[locale]/help/[slug]/page.tsx",
+        "lib/cms/content-pages.ts"
+      ],
+      "cmsAuthority": "CMS content_pages",
+      "frontendFallback": "Metadata falls back from seoTitle/metaDescription to CMS title/summary; page absence becomes noindex or notFound.",
+      "classification": "safe_cms_backed_fallback",
+      "risk": "P2",
+      "recommendedAction": "Accept CMS-field fallback; keep static policy/help content in backend content_pages."
+    },
+    {
+      "id": "llms_topic_fallback_set",
+      "routeFamily": "llms_topics",
+      "files": [
+        "app/llms.txt/route.ts",
+        "app/llms-full.txt/route.ts"
+      ],
+      "cmsAuthority": "CMS topics + discoverability exposure policy",
+      "frontendFallback": "llms routes fall back to a stable public topic set when the topics CMS is unavailable.",
+      "classification": "migration_required",
+      "risk": "P1",
+      "recommendedAction": "Before Topic Graph expansion, replace fallback topic enumeration with backend exposure authority or an explicitly versioned compatibility fixture."
+    },
+    {
+      "id": "personality_product_code",
+      "routeFamily": "personality_profiles",
+      "files": [
+        "app/(localized)/[locale]/personality/[type]/page.tsx",
+        "lib/mbti/mbtiTypeContentPack.ts"
+      ],
+      "cmsAuthority": "Hybrid CMS personality profile plus product-code MBTI compatibility",
+      "frontendFallback": "MBTI personality content can use product-code compatibility content for legacy profile rendering.",
+      "classification": "acceptable_product_code",
+      "risk": "P2",
+      "recommendedAction": "Accept as product-code compatibility, but do not expand personality SEO graph until CMS authority is explicit."
+    }
+  ],
+  "blockedBeforeExpansion": [
+    "Article detail JSON-LD fallback must be reconciled with backend seo.surface.v1 before article GEO expansion.",
+    "llms topic fallback enumeration must be governed before Topic Graph rollout.",
+    "Topic detail structured-data ownership must be documented before adding topic clusters."
+  ]
+}
