@@ -88,7 +88,7 @@ function hasBackendStructuredDataKey(job: CareerJobBundleAdapter, key: string): 
 }
 
 function shouldRenderOccupationJsonLd(job: CareerJobBundleAdapter): boolean {
-  if (!job.structuredData.occupation) {
+  if (!job.structuredData.occupation || !job.renderState.canRenderStructuredData) {
     return false;
   }
 
@@ -625,7 +625,13 @@ export async function generateMetadata({
         ? `${job.title} 的职业概览与下一步路径。`
         : `Career overview and next steps for ${job.title}.`;
   const backendSeoAllowsIndex =
-    job.seoContract.indexEligible === true && !shouldNoindex(job.seoContract.indexState);
+    job.renderState.canIndexPage &&
+    job.seoContract.indexEligible === true &&
+    !shouldNoindex(job.seoContract.indexState);
+  const effectiveIndexEligible =
+    job.renderState.canIndexPage && (seoSurface?.indexEligible ?? job.seoContract.indexEligible) === true;
+  const effectiveIndexState =
+    job.renderState.canIndexPage ? seoSurface?.indexState || job.seoContract.indexState : "blocked";
 
   return buildPageMetadata({
     locale,
@@ -634,10 +640,10 @@ export async function generateMetadata({
     description: fallbackDescription,
     seoSurface,
     explicitIndexGate: {
-      indexEligible: seoSurface?.indexEligible ?? job.seoContract.indexEligible,
-      indexState: seoSurface?.indexState || job.seoContract.indexState,
+      indexEligible: effectiveIndexEligible,
+      indexState: effectiveIndexState,
     },
-    ...(seoSurface ? {} : { noindex: !backendSeoAllowsIndex }),
+    noindex: !backendSeoAllowsIndex || !effectiveIndexEligible || shouldNoindex(effectiveIndexState),
     alternatesByLocale: {
       en: buildCareerJobFrontendUrl("en", job.slug),
       zh: buildCareerJobFrontendUrl("zh", job.slug),

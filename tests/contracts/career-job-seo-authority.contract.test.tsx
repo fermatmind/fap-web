@@ -90,6 +90,17 @@ function buildCareerJobBundlePayload() {
   };
 }
 
+function buildTrustBlockedCareerJobBundlePayload() {
+  return {
+    ...buildCareerJobBundlePayload(),
+    trust_manifest: {
+      reviewer_status: "reviewed",
+      reviewed: true,
+      quality: { complete: false, reviewed: true, stale: false, blocked_reasons: [] },
+    },
+  };
+}
+
 function mockCareerJobPageShell() {
   vi.doMock("next/link", () => ({
     default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
@@ -238,5 +249,59 @@ describe("career job seo.surface.v1 authority contract", () => {
     expect(html).toContain('"name":"会计师和审计师"');
     expect(html).toContain(CANONICAL);
     expect(html).not.toContain("Bundle Occupation");
+  });
+
+  it("does not render backend Occupation JSON-LD when career trust gates block structured data", async () => {
+    vi.doMock("next/link", () => ({
+      default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
+        <a href={href} {...props}>
+          {children}
+        </a>
+      ),
+    }));
+    vi.doMock("next/navigation", async () => {
+      const actual = await vi.importActual<typeof import("next/navigation")>("next/navigation");
+      return {
+        ...actual,
+        notFound: vi.fn(() => {
+          throw new Error("not-found");
+        }),
+        permanentRedirect: vi.fn((href: string) => {
+          throw new Error(`redirect:${href}`);
+        }),
+        usePathname: vi.fn(() => "/zh/career/jobs/accountants-and-auditors"),
+      };
+    });
+    vi.doMock("@/hooks/useAnalytics", () => ({
+      AnalyticsPageViewTracker: () => null,
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerJobBundle", () => ({
+      fetchCareerJobBundle: vi.fn(async () => buildTrustBlockedCareerJobBundlePayload()),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerJobExplainability", () => ({
+      fetchCareerJobExplainability: vi.fn(async () => null),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerFirstWaveNextStepLinks", () => ({
+      fetchCareerFirstWaveNextStepLinks: vi.fn(async () => null),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerRuntimeConfig", () => ({
+      fetchCareerRuntimeConfig: vi.fn(async () => null),
+    }));
+
+    const { default: CareerJobDetailPage, generateMetadata } = await import(
+      "@/app/(localized)/[locale]/career/jobs/[slug]/page"
+    );
+    const metadata = await generateMetadata({
+      params: Promise.resolve({ locale: "zh", slug: "accountants-and-auditors" }),
+    });
+    const page = await CareerJobDetailPage({
+      params: Promise.resolve({ locale: "zh", slug: "accountants-and-auditors" }),
+      searchParams: Promise.resolve({}),
+    });
+    const html = renderToStaticMarkup(page as ReactNode);
+
+    expect(metadata.robots).toMatchObject({ index: false });
+    expect(html).not.toContain('"@type":"Occupation"');
+    expect(html).not.toContain('"name":"会计师和审计师"');
   });
 });
