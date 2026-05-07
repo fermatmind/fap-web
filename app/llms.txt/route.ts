@@ -14,6 +14,12 @@ import { isSharedDiscoverabilityDeniedPath } from "@/lib/seo/discoverabilityExpo
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
 import { listBackendSitemapCareerJobPaths } from "@/lib/seo/backendSitemapSource";
 import { listBackendDiscoverabilityTestEntries } from "@/lib/seo/backendTestDiscoverabilitySource";
+import {
+  LLMS_ROUTE_ARTICLE_MAX_PAGES,
+  LLMS_ROUTE_LIMITS,
+  limitLlmsRouteEntries,
+  withLlmsRouteBudget,
+} from "@/lib/seo/llmsRouteBudget";
 import { getSiteUrlOrThrow } from "@/lib/site";
 import type { CareerFirstWaveDiscoverabilityManifestAdapter } from "@/lib/career/adapters/types";
 
@@ -111,18 +117,18 @@ function listCareerFamilyPathsFromManifest(
 async function listPersonalityPaths(): Promise<string[]> {
   try {
     const [enProfiles, zhProfiles] = await Promise.all([
-      listPersonalityProfiles({ locale: "en", perPage: 100 }),
-      listPersonalityProfiles({ locale: "zh", perPage: 100 }),
+      listPersonalityProfiles({ locale: "en", perPage: LLMS_ROUTE_LIMITS.personalityProfiles }),
+      listPersonalityProfiles({ locale: "zh", perPage: LLMS_ROUTE_LIMITS.personalityProfiles }),
     ]);
 
     return dedupePaths([
-      ...enProfiles.items
+      ...limitLlmsRouteEntries(enProfiles.items, LLMS_ROUTE_LIMITS.personalityProfiles)
         .filter((item) => item.isIndexable)
         .flatMap((item) =>
           publishedPersonalityVariantSlugs(String(item.typeCode ?? item.slug ?? ""))
             .map((slug) => `/en/personality/${slug}`)
         ),
-      ...zhProfiles.items
+      ...limitLlmsRouteEntries(zhProfiles.items, LLMS_ROUTE_LIMITS.personalityProfiles)
         .filter((item) => item.isIndexable)
         .flatMap((item) =>
           publishedPersonalityVariantSlugs(String(item.typeCode ?? item.slug ?? ""))
@@ -139,8 +145,8 @@ async function listPersonalityPaths(): Promise<string[]> {
 async function listTopicPaths(): Promise<string[]> {
   try {
     const [enTopics, zhTopics] = await Promise.all([
-      listTopics({ locale: "en", perPage: 100 }),
-      listTopics({ locale: "zh", perPage: 100 }),
+      listTopics({ locale: "en", perPage: LLMS_ROUTE_LIMITS.topics }),
+      listTopics({ locale: "zh", perPage: LLMS_ROUTE_LIMITS.topics }),
     ]);
     const slugs = new Set(
       [...enTopics.items, ...zhTopics.items]
@@ -178,28 +184,96 @@ export async function GET() {
     zhHelpPages,
     careerJobEntries,
   ] = await Promise.all([
-    fetchCareerFirstWaveDiscoverabilityManifest({ locale: "en" })
-      .then((payload) => adaptCareerFirstWaveDiscoverabilityManifest({ payload }))
-      .catch(() => null),
-    fetchCareerFirstWaveDiscoverabilityManifest({ locale: "zh" })
-      .then((payload) => adaptCareerFirstWaveDiscoverabilityManifest({ payload }))
-      .catch(() => null),
-    listCareerGuidesFromCms("en").catch(() => []),
-    listCareerGuidesFromCms("zh").catch(() => []),
-    fetchCareerRecommendationIndex({ locale: "en" })
-      .then((payload) => adaptCareerRecommendationIndex({ locale: "en", payload }))
-      .catch(() => []),
-    fetchCareerRecommendationIndex({ locale: "zh" })
-      .then((payload) => adaptCareerRecommendationIndex({ locale: "zh", payload }))
-      .catch(() => []),
-    listPersonalityPaths(),
-    listTopicPaths(),
-    listCmsArticlesForLlmsWithLastKnownGood({ locale: "en" }).then((result) => result.value).catch(() => []),
-    listCmsArticlesForLlmsWithLastKnownGood({ locale: "zh" }).then((result) => result.value).catch(() => []),
-    listBackendDiscoverabilityTestEntries().catch(() => []),
-    listContentPagesWithLastKnownGood("en", "help").then((result) => result.value).catch(() => []),
-    listContentPagesWithLastKnownGood("zh", "help").then((result) => result.value).catch(() => []),
-    listBackendSitemapCareerJobPaths().catch(() => []),
+    withLlmsRouteBudget(
+      () =>
+        fetchCareerFirstWaveDiscoverabilityManifest({ locale: "en" }).then((payload) =>
+          adaptCareerFirstWaveDiscoverabilityManifest({ payload })
+        ),
+      null
+    ),
+    withLlmsRouteBudget(
+      () =>
+        fetchCareerFirstWaveDiscoverabilityManifest({ locale: "zh" }).then((payload) =>
+          adaptCareerFirstWaveDiscoverabilityManifest({ payload })
+        ),
+      null
+    ),
+    withLlmsRouteBudget(
+      () => listCareerGuidesFromCms("en", { page: 1, perPage: LLMS_ROUTE_LIMITS.careerGuides }),
+      []
+    ),
+    withLlmsRouteBudget(
+      () => listCareerGuidesFromCms("zh", { page: 1, perPage: LLMS_ROUTE_LIMITS.careerGuides }),
+      []
+    ),
+    withLlmsRouteBudget(
+      () =>
+        fetchCareerRecommendationIndex({ locale: "en" }).then((payload) =>
+          limitLlmsRouteEntries(
+            adaptCareerRecommendationIndex({ locale: "en", payload }),
+            LLMS_ROUTE_LIMITS.careerRecommendations
+          )
+        ),
+      []
+    ),
+    withLlmsRouteBudget(
+      () =>
+        fetchCareerRecommendationIndex({ locale: "zh" }).then((payload) =>
+          limitLlmsRouteEntries(
+            adaptCareerRecommendationIndex({ locale: "zh", payload }),
+            LLMS_ROUTE_LIMITS.careerRecommendations
+          )
+        ),
+      []
+    ),
+    withLlmsRouteBudget(() => listPersonalityPaths(), []),
+    withLlmsRouteBudget(() => listTopicPaths(), []),
+    withLlmsRouteBudget(
+      () =>
+        listCmsArticlesForLlmsWithLastKnownGood({
+          locale: "en",
+          perPage: LLMS_ROUTE_LIMITS.articles,
+          maxPages: LLMS_ROUTE_ARTICLE_MAX_PAGES,
+        }).then((result) => result.value),
+      []
+    ),
+    withLlmsRouteBudget(
+      () =>
+        listCmsArticlesForLlmsWithLastKnownGood({
+          locale: "zh",
+          perPage: LLMS_ROUTE_LIMITS.articles,
+          maxPages: LLMS_ROUTE_ARTICLE_MAX_PAGES,
+        }).then((result) => result.value),
+      []
+    ),
+    withLlmsRouteBudget(
+      () =>
+        listBackendDiscoverabilityTestEntries().then((entries) =>
+          limitLlmsRouteEntries(entries, LLMS_ROUTE_LIMITS.tests)
+        ),
+      []
+    ),
+    withLlmsRouteBudget(
+      () =>
+        listContentPagesWithLastKnownGood("en", "help").then((result) =>
+          limitLlmsRouteEntries(result.value, LLMS_ROUTE_LIMITS.helpPages)
+        ),
+      []
+    ),
+    withLlmsRouteBudget(
+      () =>
+        listContentPagesWithLastKnownGood("zh", "help").then((result) =>
+          limitLlmsRouteEntries(result.value, LLMS_ROUTE_LIMITS.helpPages)
+        ),
+      []
+    ),
+    withLlmsRouteBudget(
+      () =>
+        listBackendSitemapCareerJobPaths().then((entries) =>
+          limitLlmsRouteEntries(entries, LLMS_ROUTE_LIMITS.careerJobs)
+        ),
+      []
+    ),
   ]);
 
   const enCareerFamilies = listCareerFamilyPathsFromManifest("en", enDiscoverabilityManifest);
