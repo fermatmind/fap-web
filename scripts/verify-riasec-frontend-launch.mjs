@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
-const DEFAULT_WEB_ORIGIN = "https://www.fermatmind.com";
+const DEFAULT_WEB_ORIGIN = "https://fermatmind.com";
+const DEFAULT_WWW_WEB_ORIGIN = "https://www.fermatmind.com";
 const DEFAULT_API_ORIGIN = "https://api.fermatmind.com";
 const DEFAULT_TIMEOUT_MS = 8000;
 const CANONICAL_SLUG = "holland-career-interest-test-riasec";
@@ -29,6 +30,14 @@ function buildUrl(origin, path) {
   return new URL(path, origin).toString();
 }
 
+function canonicalizeWebOrigin(origin) {
+  const url = new URL(origin);
+  if (url.hostname === "www.fermatmind.com") {
+    url.hostname = "fermatmind.com";
+  }
+  return url.toString().replace(/\/$/, "");
+}
+
 async function fetchText(url, { timeoutMs, allowStatuses = [200] } = {}) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
@@ -46,6 +55,29 @@ async function fetchText(url, { timeoutMs, allowStatuses = [200] } = {}) {
       throw new Error(`${url} returned HTTP ${response.status}`);
     }
     return body;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+async function fetchNoRedirectStatus(url, { timeoutMs } = {}) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+
+  try {
+    const response = await fetch(url, {
+      headers: {
+        accept: "text/html,application/xhtml+xml,text/plain;q=0.9,*/*;q=0.8",
+      },
+      redirect: "manual",
+      signal: controller.signal,
+    });
+
+    await response.arrayBuffer().catch(() => null);
+    return {
+      status: response.status,
+      location: response.headers.get("location") || "",
+    };
   } finally {
     clearTimeout(timer);
   }
@@ -144,6 +176,40 @@ async function verifyWebSurface(webOrigin, timeoutMs) {
   assertNoLegacyMarkers("en RIASEC history page", historyBody);
 }
 
+function isProductionApexOrigin(webOrigin) {
+  const parsed = new URL(webOrigin);
+  return parsed.protocol === "https:" && parsed.hostname === "fermatmind.com";
+}
+
+async function verifyCanonicalHostRedirects(webOrigin, timeoutMs) {
+  if (!isProductionApexOrigin(webOrigin)) {
+    return;
+  }
+
+  const wwwOrigin = readOrigin("RIASEC_WWW_WEB_BASE_URL", DEFAULT_WWW_WEB_ORIGIN);
+  const cases = [
+    { path: `/en${CANONICAL_TEST_PATH}`, finalStatus: 200 },
+    { path: `/zh${CANONICAL_TEST_PATH}`, finalStatus: 200 },
+    { path: "/zh/career/tests/riasec", finalStatus: 404 },
+    { path: "/zh/career/tests/riasec/result", finalStatus: 404 },
+  ];
+
+  for (const entry of cases) {
+    const redirectUrl = buildUrl(wwwOrigin, entry.path);
+    const canonicalUrl = buildUrl(webOrigin, entry.path);
+    const redirect = await fetchNoRedirectStatus(redirectUrl, { timeoutMs });
+    assert(redirect.status === 308, `${redirectUrl} expected 308 www -> apex redirect, got ${redirect.status}`);
+    assert(redirect.location === canonicalUrl, `${redirectUrl} redirected to ${redirect.location || "<none>"}, expected ${canonicalUrl}`);
+
+    const canonical = await fetchNoRedirectStatus(canonicalUrl, { timeoutMs });
+    assert(
+      canonical.status === entry.finalStatus,
+      `${canonicalUrl} expected final HTTP ${entry.finalStatus}, got ${canonical.status}`
+    );
+    assert(!canonical.location, `${canonicalUrl} unexpectedly redirected to ${canonical.location}`);
+  }
+}
+
 async function verifyStaticDiscovery(webOrigin, timeoutMs) {
   const sitemapCorpus = await readSitemapCorpus(webOrigin, timeoutMs);
   assert(sitemapCorpus.includes(CANONICAL_TEST_PATH), "sitemap does not include canonical RIASEC path");
@@ -187,10 +253,11 @@ async function verifyApiContracts(apiOrigin, timeoutMs) {
 }
 
 async function main() {
-  const webOrigin = readOrigin("RIASEC_WEB_BASE_URL", readOrigin("WEB_BASE_URL", DEFAULT_WEB_ORIGIN));
+  const webOrigin = canonicalizeWebOrigin(readOrigin("RIASEC_WEB_BASE_URL", readOrigin("WEB_BASE_URL", DEFAULT_WEB_ORIGIN)));
   const apiOrigin = readOrigin("RIASEC_API_BASE_URL", readOrigin("NEXT_PUBLIC_API_URL", DEFAULT_API_ORIGIN));
   const timeoutMs = readTimeoutMs();
 
+  await verifyCanonicalHostRedirects(webOrigin, timeoutMs);
   await verifyWebSurface(webOrigin, timeoutMs);
   await verifyStaticDiscovery(webOrigin, timeoutMs);
   await verifyApiContracts(apiOrigin, timeoutMs);

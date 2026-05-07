@@ -38,6 +38,8 @@ RIASEC_API_BASE_URL=https://api-staging.example.com \
 pnpm verify:riasec-launch
 ```
 
+Production uses apex as the canonical host. `pnpm verify:riasec-launch` validates `https://www.fermatmind.com/*` as `308` redirects to the identical `https://fermatmind.com/*` apex URL, then verifies the apex final status. Legacy `/zh/career/tests/riasec` and `/zh/career/tests/riasec/result` must remain `404` after the redirect.
+
 ## Staging Smoke Matrix
 
 - Catalog and detail: `/en/tests/holland-career-interest-test-riasec` and `/zh/tests/holland-career-interest-test-riasec` return 200 and expose both `riasec_60` and `riasec_140`.
@@ -45,7 +47,7 @@ pnpm verify:riasec-launch
 - Result/report: submit one staging attempt for each form and open the shared result/report route; confirm the RIASEC shell shows the form summary, top code, six dimension scores, retake, history, and share actions.
 - History: `/en/history/riasec` renders from backend attempts for an authenticated test account and stays noindex.
 - Share: create one share link from each form result and verify the public share page uses the RIASEC public projection with the canonical continue-test target.
-- Discovery: `/sitemap.xml`, `/llms.txt`, and `/llms-full.txt` include the canonical RIASEC test path and do not expose the removed legacy career RIASEC route or local storage source.
+- Discovery: `/sitemap.xml`, `/llms.txt`, and `/llms-full.txt` include the canonical RIASEC test path and do not expose the removed legacy career RIASEC route or local storage source. Production `www` URLs must redirect to apex before this validation.
 - Regression: MBTI, Big Five, and Enneagram detail/take/result surfaces still pass the targeted contract checks listed above.
 
 ## Release Steps
