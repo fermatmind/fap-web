@@ -127,7 +127,9 @@
       "depends_on": [
         "PR-PRAC-02"
       ],
-      "status": "in_progress",
+      "status": "merged",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/693",
+      "merge_sha": "aa38378987da3d89ca7d1a3b46eaa85383862952",
       "title": "test(runtime): add frontend fallback authority lockdown inventory",
       "artifacts": [
         "docs/runtime/frontend-fallback-authority-inventory.md",
@@ -144,7 +146,7 @@
       "depends_on": [
         "PR-PRAC-03"
       ],
-      "status": "planned",
+      "status": "in_progress",
       "title": "test(runtime): add public claim runtime boundary matrix",
       "artifacts": [
         "docs/claims/public-claim-boundary-matrix.md",

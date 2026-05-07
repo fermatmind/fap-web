@@ -1,0 +1,416 @@
+{
+  "version": "runtime.public_claim_boundary_matrix.v1",
+  "scope": "PR-PRAC-04",
+  "trainName": "public-runtime-authority-convergence-train",
+  "runtimeBehaviorChanged": false,
+  "claimBoundaryEnum": [
+    "allowed",
+    "soft_allowed",
+    "needs_disclaimer",
+    "internal_only",
+    "forbidden"
+  ],
+  "requiredClaimAreas": [
+    "MBTI claims",
+    "RIASEC claims",
+    "Big Five claims",
+    "Career Graph claims",
+    "Career Recommendation claims",
+    "Career Fit claims",
+    "Report claims",
+    "AI/GEO answer claims",
+    "Paywall / report value claims"
+  ],
+  "hardRules": [
+    "RIASEC precise best-career recommendation is forbidden",
+    "Big Five precise career matching is forbidden",
+    "AI precise career planning is forbidden",
+    "career fit score must not be described as hiring, income, success, or placement guarantee",
+    "snapshot recommendation must not be described as a live personalized recommender",
+    "sitemap/llms/schema must not be described as a true graph",
+    "frontend local ranking must not be described as a recommendation engine",
+    "public claims require backend support, visible runtime evidence, or explicit boundary status"
+  ],
+  "defaultForbiddenClaims": [
+    "RIASEC 精准推荐最适合职业",
+    "Big Five 精准匹配职业",
+    "AI 精准职业规划",
+    "career fit score 等于录用/成功保证",
+    "snapshot recommendation 等于 personalized recommender",
+    "sitemap/llms/schema 等于真实 graph",
+    "frontend local ranking 等于 recommendation engine"
+  ],
+  "allowedWithBoundary": [
+    "RIASEC 描述职业兴趣方向",
+    "Big Five 解释行为倾向和职场风格",
+    "MBTI 描述偏好、表达风格、身份感",
+    "Career Graph 使用职业结构、任务、技能和证据生成评分",
+    "MBTI career recommendation 作为 snapshot-based career direction support"
+  ],
+  "rows": [
+    {
+      "id": "riasec_interest_direction",
+      "claimArea": "RIASEC claims",
+      "claimText": "RIASEC describes career interest direction.",
+      "status": "allowed",
+      "pageFamilies": ["test_detail", "test_take", "result_report", "career_job_detail", "share"],
+      "sourceFiles": [
+        {
+          "path": "tests/contracts/riasec-public-ia.contract.test.ts",
+          "requiredTokens": ["scale_code: \"RIASEC\"", "霍兰德职业兴趣测试（RIASEC）"]
+        }
+      ],
+      "backendSupport": "scale catalog and RIASEC result/history/share surfaces",
+      "runtimeEvidence": "canonical RIASEC test route and RIASEC history/share affordances",
+      "frontendInvented": false,
+      "riskLevel": "P2",
+      "boundaryRule": "interest_direction_only",
+      "blocksWhen": "copy presents RIASEC as precise best-career recommendation",
+      "requiredAuthority": "backend scale lookup plus visible result/report evidence"
+    },
+    {
+      "id": "riasec_precise_best_career_recommendation",
+      "claimArea": "RIASEC claims",
+      "claimText": "RIASEC 精准推荐最适合职业",
+      "status": "forbidden",
+      "pageFamilies": ["test_detail", "result_report", "career_recommendation_detail", "topic_detail"],
+      "sourceFiles": [
+        {
+          "path": "docs/claims/public-claim-boundary-matrix.md",
+          "requiredTokens": ["RIASEC 精准推荐最适合职业", "RIASEC describes career interest direction."]
+        }
+      ],
+      "backendSupport": "not established as complete career recommender",
+      "runtimeEvidence": "no public runtime proof for precise best-career recommendation",
+      "frontendInvented": true,
+      "riskLevel": "P0",
+      "boundaryRule": "forbidden_overclaim",
+      "blocksWhen": "public runtime, SEO, FAQ, CTA, or paywall frames RIASEC as precise best-career recommender",
+      "requiredAuthority": "future explicit backend recommendation contract, claim gate, and visible evidence"
+    },
+    {
+      "id": "big5_workplace_behavior",
+      "claimArea": "Big Five claims",
+      "claimText": "Big Five explains workplace behavior tendencies and trait style.",
+      "status": "allowed",
+      "pageFamilies": ["test_detail", "result_report", "share"],
+      "sourceFiles": [
+        {
+          "path": "lib/big5/interpretation/domainInterpretation.ts",
+          "requiredTokens": ["definition:", "scene_line:"]
+        }
+      ],
+      "backendSupport": "Big Five trait-vector report and frontend interpretation layer",
+      "runtimeEvidence": "OCEAN domain interpretation includes definitions, bands, tradeoffs, and scene lines",
+      "frontendInvented": false,
+      "riskLevel": "P2",
+      "boundaryRule": "behavior_tendency_not_career_match",
+      "blocksWhen": "copy treats Big Five trait score as a deterministic career match",
+      "requiredAuthority": "Big Five trait/report contract plus visible behavior interpretation"
+    },
+    {
+      "id": "big5_precise_career_match",
+      "claimArea": "Big Five claims",
+      "claimText": "Big Five 精准匹配职业",
+      "status": "forbidden",
+      "pageFamilies": ["test_detail", "result_report", "career_recommendation_detail", "paywall_order_payment"],
+      "sourceFiles": [
+        {
+          "path": "docs/claims/public-claim-boundary-matrix.md",
+          "requiredTokens": ["Big Five 精准匹配职业", "Big Five explains workplace behavior."]
+        }
+      ],
+      "backendSupport": "not established as complete career recommender",
+      "runtimeEvidence": "no public runtime proof for precise Big Five career matching",
+      "frontendInvented": true,
+      "riskLevel": "P0",
+      "boundaryRule": "forbidden_overclaim",
+      "blocksWhen": "public runtime frames Big Five as precise career matching engine",
+      "requiredAuthority": "future explicit backend recommendation contract, claim gate, and visible evidence"
+    },
+    {
+      "id": "mbti_preferences_expression_identity",
+      "claimArea": "MBTI claims",
+      "claimText": "MBTI describes preference, expression style, and identity language.",
+      "status": "allowed",
+      "pageFamilies": ["test_detail", "personality_detail", "result_report", "share"],
+      "sourceFiles": [
+        {
+          "path": "tests/contracts/mbti-preview-semantics.contract.test.tsx",
+          "requiredTokens": ["MBTI", "career", "growth"]
+        }
+      ],
+      "backendSupport": "MBTI report payload and content pack surfaces",
+      "runtimeEvidence": "preview semantics render bounded MBTI report modules",
+      "frontendInvented": false,
+      "riskLevel": "P2",
+      "boundaryRule": "preference_identity_not_destiny",
+      "blocksWhen": "copy describes MBTI as deterministic destiny, diagnosis, hiring screen, or guaranteed outcome",
+      "requiredAuthority": "MBTI report/content authority plus visible report sections"
+    },
+    {
+      "id": "career_graph_scoring_evidence",
+      "claimArea": "Career Graph claims",
+      "claimText": "Career Graph uses occupation structure, tasks, skills, score components, and evidence for scoring when backend claim permissions allow it.",
+      "status": "allowed",
+      "pageFamilies": ["career_job_detail", "career_recommendation_detail"],
+      "sourceFiles": [
+        {
+          "path": "tests/contracts/career-explainability.contract.test.tsx",
+          "requiredTokens": ["formula_version: fit.v1", "blocked_claims: salary_comparison"]
+        },
+        {
+          "path": "tests/contracts/career-display-surface.contract.test.tsx",
+          "requiredTokens": ["claim_permissions", "allow_strong_claim"]
+        }
+      ],
+      "backendSupport": "career bundle, explainability, score bundle, and claim permissions",
+      "runtimeEvidence": "career explainability panel and display surface enforce bounded claim permissions",
+      "frontendInvented": false,
+      "riskLevel": "P1",
+      "boundaryRule": "backend_claim_permission_required",
+      "blocksWhen": "frontend emits graph or score claims without backend permission and visible evidence",
+      "requiredAuthority": "career backend bundle plus claim_permissions and explainability"
+    },
+    {
+      "id": "mbti_career_snapshot_direction",
+      "claimArea": "Career Recommendation claims",
+      "claimText": "MBTI career recommendation is snapshot-based career direction support.",
+      "status": "soft_allowed",
+      "pageFamilies": ["career_recommendation_detail", "career_recommendation_index", "result_report"],
+      "sourceFiles": [
+        {
+          "path": "tests/contracts/career-recommendation-public.contract.test.tsx",
+          "requiredTokens": ["/api/v0.5/career/recommendations/mbti/intj-a", "career.explainability.v1"]
+        },
+        {
+          "path": "tests/contracts/career-recommendation-index-backend.contract.test.tsx",
+          "requiredTokens": ["Open recommendation direction", "career-personalized-status"]
+        }
+      ],
+      "backendSupport": "backend career recommendation bundle and explainability endpoint",
+      "runtimeEvidence": "recommendation index renders backend card while suppressing personalized status",
+      "frontendInvented": false,
+      "riskLevel": "P1",
+      "boundaryRule": "snapshot_direction_not_live_personalized",
+      "blocksWhen": "snapshot recommendation is described as live personalized recommender",
+      "requiredAuthority": "backend recommendation bundle plus visible snapshot boundary"
+    },
+    {
+      "id": "snapshot_as_personalized_recommender",
+      "claimArea": "Career Recommendation claims",
+      "claimText": "snapshot recommendation 等于 personalized recommender",
+      "status": "forbidden",
+      "pageFamilies": ["career_recommendation_detail", "career_recommendation_index", "result_report", "paywall_order_payment"],
+      "sourceFiles": [
+        {
+          "path": "tests/contracts/career-recommendation-index-backend.contract.test.tsx",
+          "requiredTokens": ["expect(html).not.toContain(\"career-personalized-status\")", "Open recommendation direction"]
+        }
+      ],
+      "backendSupport": "backend snapshot bundle exists; live personalization is not proven",
+      "runtimeEvidence": "contract suppresses personalized status",
+      "frontendInvented": true,
+      "riskLevel": "P0",
+      "boundaryRule": "forbidden_overclaim",
+      "blocksWhen": "public copy, schema, CTA, or paywall equates snapshot recommendations with live personalized recommendation",
+      "requiredAuthority": "future personalization contract, runtime profile signals, claim gate, and visible evidence"
+    },
+    {
+      "id": "career_fit_decision_support",
+      "claimArea": "Career Fit claims",
+      "claimText": "Career fit score is decision support with caveats.",
+      "status": "needs_disclaimer",
+      "pageFamilies": ["career_job_detail", "career_recommendation_detail", "result_report"],
+      "sourceFiles": [
+        {
+          "path": "tests/contracts/careerDisplaySurface.fixture.ts",
+          "requiredTokens": ["This is not a guarantee of hiring, income, or long-term outcomes.", "Career interest tests and personality tests do not guarantee casting or income."]
+        }
+      ],
+      "backendSupport": "career display surface claim permissions and decision card caveat",
+      "runtimeEvidence": "fixture includes explicit fit caveat and non-guarantee language",
+      "frontendInvented": false,
+      "riskLevel": "P1",
+      "boundaryRule": "fit_score_requires_visible_caveat",
+      "blocksWhen": "fit score is displayed as success, hiring, income, admission, or placement guarantee",
+      "requiredAuthority": "backend score bundle plus visible boundary notice"
+    },
+    {
+      "id": "career_fit_success_guarantee",
+      "claimArea": "Career Fit claims",
+      "claimText": "career fit score 等于录用/成功保证",
+      "status": "forbidden",
+      "pageFamilies": ["career_job_detail", "career_recommendation_detail", "paywall_order_payment"],
+      "sourceFiles": [
+        {
+          "path": "tests/contracts/careerDisplaySurface.fixture.ts",
+          "requiredTokens": ["This is not a guarantee of hiring, income, or long-term outcomes.", "职业兴趣测试和人格测试不能保证试镜成功。"]
+        }
+      ],
+      "backendSupport": "claim permissions explicitly require boundary caveats",
+      "runtimeEvidence": "fixture disallows guarantee framing",
+      "frontendInvented": true,
+      "riskLevel": "P0",
+      "boundaryRule": "forbidden_guarantee",
+      "blocksWhen": "public runtime implies fit score guarantees hiring, income, career success, or placement",
+      "requiredAuthority": "not allowed under current PRAC claim boundary"
+    },
+    {
+      "id": "ai_geo_answerability",
+      "claimArea": "AI/GEO answer claims",
+      "claimText": "GEO readiness means visible evidence and answerability, not hidden schema or AI-precise planning.",
+      "status": "allowed",
+      "pageFamilies": ["test_detail", "topic_detail", "article_detail", "career_job_detail"],
+      "sourceFiles": [
+        {
+          "path": "docs/geo/evidence-container-spec.md",
+          "requiredTokens": ["Evidence Container", "visible HTML first", "career suggestions are decision support, not placement guarantees"]
+        }
+      ],
+      "backendSupport": "answer_surface_v1 and visible evidence standard when available",
+      "runtimeEvidence": "GEO spec requires visible evidence first",
+      "frontendInvented": false,
+      "riskLevel": "P1",
+      "boundaryRule": "visible_evidence_first",
+      "blocksWhen": "GEO claim relies on hidden schema, hidden FAQ, or invisible evidence",
+      "requiredAuthority": "visible Evidence Container plus answer surface grounding"
+    },
+    {
+      "id": "ai_precise_career_planning",
+      "claimArea": "AI/GEO answer claims",
+      "claimText": "AI 精准职业规划",
+      "status": "forbidden",
+      "pageFamilies": ["career_job_detail", "career_recommendation_detail", "article_detail", "paywall_order_payment"],
+      "sourceFiles": [
+        {
+          "path": "docs/geo/evidence-container-spec.md",
+          "requiredTokens": ["not placement guarantees", "not a schema type by itself"]
+        }
+      ],
+      "backendSupport": "not established as AI career planning runtime",
+      "runtimeEvidence": "Evidence Container spec is answerability standard, not AI planning runtime",
+      "frontendInvented": true,
+      "riskLevel": "P0",
+      "boundaryRule": "forbidden_overclaim",
+      "blocksWhen": "public runtime claims precise AI career planning or AI career coach capability",
+      "requiredAuthority": "not allowed in PRAC train"
+    },
+    {
+      "id": "sitemap_llms_schema_as_true_graph",
+      "claimArea": "Career Graph claims",
+      "claimText": "sitemap/llms/schema 等于真实 graph",
+      "status": "forbidden",
+      "pageFamilies": ["topic_detail", "article_detail", "career_job_detail", "career_recommendation_detail"],
+      "sourceFiles": [
+        {
+          "path": "docs/seo/url-inventory-governance.md",
+          "requiredTokens": ["measurement surface, not a source of SEO truth", "Do not use this generator to widen sitemap or llms exposure"]
+        },
+        {
+          "path": "docs/runtime/frontend-fallback-authority-inventory.md",
+          "requiredTokens": ["Frontend graph hardcode cannot become public graph truth.", "local recommendation placeholder"]
+        }
+      ],
+      "backendSupport": "discoverability and graph authority are separate",
+      "runtimeEvidence": "URL inventory and fallback inventory explicitly separate measurement/exposure from truth",
+      "frontendInvented": true,
+      "riskLevel": "P0",
+      "boundaryRule": "discoverability_is_not_graph",
+      "blocksWhen": "copy, report, or docs present sitemap, llms, or schema exposure as a true semantic graph",
+      "requiredAuthority": "backend/CMS graph contract and governed edges"
+    },
+    {
+      "id": "frontend_local_ranking_as_recommendation_engine",
+      "claimArea": "Career Recommendation claims",
+      "claimText": "frontend local ranking 等于 recommendation engine",
+      "status": "forbidden",
+      "pageFamilies": ["career_recommendation_detail", "result_report", "topic_detail"],
+      "sourceFiles": [
+        {
+          "path": "tests/contracts/career-recommendation-engine.contract.test.ts",
+          "requiredTokens": ["no longer returns local recommendation truth from the consumer layer", "expect(result).toEqual([])"]
+        },
+        {
+          "path": "docs/runtime/generated/frontend-fallback-authority-inventory.v1.json",
+          "requiredTokens": ["local_recommendation_engine_placeholder", "frontend fallback cannot become recommendation truth"]
+        }
+      ],
+      "backendSupport": "local frontend ranker is not public authority",
+      "runtimeEvidence": "contract returns no local recommendation truth from consumer layer",
+      "frontendInvented": true,
+      "riskLevel": "P0",
+      "boundaryRule": "forbidden_frontend_authority",
+      "blocksWhen": "frontend local ranking is exposed as recommendation engine or recommendation truth",
+      "requiredAuthority": "backend recommendation contract plus governed explanation"
+    },
+    {
+      "id": "report_value_access_not_outcome",
+      "claimArea": "Report claims",
+      "claimText": "Report/paywall value describes access, modules, and retained report surfaces, not guaranteed outcomes.",
+      "status": "needs_disclaimer",
+      "pageFamilies": ["result_report", "paywall_order_payment", "profile_history"],
+      "sourceFiles": [
+        {
+          "path": "tests/contracts/mbti-preview-semantics.contract.test.tsx",
+          "requiredTokens": ["modules_preview", "Paid-only content should remain hidden."]
+        },
+        {
+          "path": "components/marketing/SocialProofSection.tsx",
+          "requiredTokens": ["No guaranteed outcomes or deterministic destiny claims."]
+        }
+      ],
+      "backendSupport": "report access and preview module surfaces",
+      "runtimeEvidence": "preview semantics distinguish free, preview, and paid content without outcome guarantee",
+      "frontendInvented": false,
+      "riskLevel": "P1",
+      "boundaryRule": "access_value_not_outcome_guarantee",
+      "blocksWhen": "paywall or report copy promises career, hiring, income, or life outcome guarantees",
+      "requiredAuthority": "report access entitlement plus visible module boundary"
+    },
+    {
+      "id": "paywall_report_value_claim",
+      "claimArea": "Paywall / report value claims",
+      "claimText": "Paywall/report value claims require access entitlement truth and must not promise outcomes.",
+      "status": "needs_disclaimer",
+      "pageFamilies": ["paywall_order_payment", "result_report"],
+      "sourceFiles": [
+        {
+          "path": "tests/contracts/mbti-preview-semantics.contract.test.tsx",
+          "requiredTokens": ["access_level", "modules_allowed", "modules_preview"]
+        },
+        {
+          "path": "components/marketing/SocialProofSection.tsx",
+          "requiredTokens": ["No guaranteed outcomes or deterministic destiny claims."]
+        }
+      ],
+      "backendSupport": "report access, modules_allowed, and entitlement surfaces",
+      "runtimeEvidence": "preview contract separates allowed modules from preview modules",
+      "frontendInvented": false,
+      "riskLevel": "P1",
+      "boundaryRule": "entitlement_truth_only",
+      "blocksWhen": "paywall value claim bypasses entitlement truth or promises outcome guarantees",
+      "requiredAuthority": "backend report access and entitlement state"
+    },
+    {
+      "id": "internal_claim_only_when_not_public",
+      "claimArea": "AI/GEO answer claims",
+      "claimText": "Internal strategy or readiness labels are not public claims unless backed by public runtime evidence.",
+      "status": "internal_only",
+      "pageFamilies": ["topic_detail", "article_detail", "career_job_detail", "career_recommendation_detail"],
+      "sourceFiles": [
+        {
+          "path": "docs/seo/discoverability-regression-snapshot.md",
+          "requiredTokens": ["This snapshot does not change runtime SEO behavior.", "must never widen sitemap or llms exposure by itself"]
+        }
+      ],
+      "backendSupport": "not public-facing unless surfaced through governed runtime",
+      "runtimeEvidence": "discoverability snapshot is read-only governance",
+      "frontendInvented": false,
+      "riskLevel": "P2",
+      "boundaryRule": "internal_readiness_not_public_claim",
+      "blocksWhen": "internal readiness labels are exposed as public user or GEO claims",
+      "requiredAuthority": "explicit public runtime surface and visible evidence"
+    }
+  ]
+}
