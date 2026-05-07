@@ -108,7 +108,9 @@
       "depends_on": [
         "PR-PRAC-01"
       ],
-      "status": "in_progress",
+      "status": "merged",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/691",
+      "merge_sha": "43d64baf350c1ca345f1624cd1987f76d8446748",
       "title": "test(runtime): add page family runtime contract coverage matrix",
       "artifacts": [
         "docs/runtime/page-family-runtime-coverage.md",
@@ -125,7 +127,7 @@
       "depends_on": [
         "PR-PRAC-02"
       ],
-      "status": "planned",
+      "status": "in_progress",
       "title": "test(runtime): add frontend fallback authority lockdown inventory",
       "artifacts": [
         "docs/runtime/frontend-fallback-authority-inventory.md",

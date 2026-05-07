@@ -67,11 +67,12 @@ describe("page family runtime coverage matrix", () => {
 
     expect(state.train_name).toBe("public-runtime-authority-convergence-train");
     expect(byId.get("PR-PRAC-01")).toMatchObject({ status: "merged" });
-    expect(byId.get("PR-PRAC-02")).toMatchObject({
-      status: "in_progress",
+    const prac02 = byId.get("PR-PRAC-02");
+    expect(prac02).toMatchObject({
       branch: "codex/pr-prac-02-page-family-runtime-coverage",
       depends_on: ["PR-PRAC-01"],
     });
+    expect(["in_progress", "merged"]).toContain(prac02?.status);
   });
 
   it("covers every required page family with the frozen runtime status enum", () => {
