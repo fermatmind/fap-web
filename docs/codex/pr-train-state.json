@@ -146,7 +146,9 @@
       "depends_on": [
         "PR-PRAC-03"
       ],
-      "status": "in_progress",
+      "status": "merged",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/694",
+      "merge_sha": "68dbc85a33c47a84b902c8048ca5dfdfe95e64b0",
       "title": "test(runtime): add public claim runtime boundary matrix",
       "artifacts": [
         "docs/claims/public-claim-boundary-matrix.md",
@@ -163,7 +165,7 @@
       "depends_on": [
         "PR-PRAC-04"
       ],
-      "status": "planned",
+      "status": "in_progress",
       "title": "test(seo): add discoverability authority convergence guards",
       "artifacts": [
         "docs/seo/discoverability-authority-convergence.md",

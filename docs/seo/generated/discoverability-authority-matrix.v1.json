@@ -1,0 +1,326 @@
+{
+  "version": "seo.discoverability_authority_matrix.v1",
+  "scope": "PR-PRAC-05",
+  "trainName": "public-runtime-authority-convergence-train",
+  "runtimeBehaviorChanged": false,
+  "urlSetChanged": false,
+  "llmsExposureChanged": false,
+  "jsonLdOutputChanged": false,
+  "requiredSurfaces": [
+    "sitemap",
+    "backend_sitemap_source",
+    "frontend_static_sitemap_paths",
+    "llms",
+    "llms_full",
+    "topic_fallback_exposure",
+    "json_ld",
+    "faq_page",
+    "evidence_container",
+    "private_flow_exclusions",
+    "canonical_hreflang",
+    "no_silent_exposure_widening"
+  ],
+  "privateFlowProtections": {
+    "paths": [
+      "/tests/*/take",
+      "/result/*",
+      "/results/*",
+      "/orders/*",
+      "/share/*",
+      "/pay/*",
+      "/payment/*"
+    ],
+    "requiredProtections": {
+      "noindex": true,
+      "nofollow": true,
+      "xRobotsTag": true,
+      "excludedFromSitemap": true,
+      "excludedFromLlms": true,
+      "excludedFromLlmsFull": true,
+      "noPublicJsonLd": true
+    }
+  },
+  "hardRules": [
+    "sitemap/llms new exposure requires fixture",
+    "llms topic fallback must remain governed",
+    "JSON-LD fallback must be classified",
+    "FAQPage must come from visible FAQ or answer surface",
+    "Evidence Container must be visible and grounded",
+    "private flows remain excluded",
+    "no silent discoverability exposure widening"
+  ],
+  "rows": [
+    {
+      "id": "sitemap_authority_owner",
+      "surface": "sitemap",
+      "currentPublicAuthorityOwner": "next-sitemap.config.js with backend sitemap-source consumption and shared deny policy",
+      "backendAuthorityAvailable": true,
+      "frontendOverrideRisk": "watchlist",
+      "parityStatus": "partial",
+      "runtimeOutput": "public/sitemap.xml checked-in output remains unchanged by this PR",
+      "sourceOfTruth": "backend sitemap-source where available, with frontend compatibility adapters and deny gates",
+      "driftRisk": "generated sitemap drift remains sidecar until PR-PRAC-05 follow-up hardens generated output parity",
+      "ciCoverage": ["sitemap-authority-adapters", "sitemap-indexability", "discoverability-regression-snapshot"],
+      "requiresFixtureForNewExposure": true,
+      "blocksWhen": "new sitemap URL appears without fixture, backend/CMS authority, and shared deny-policy proof",
+      "sourceFiles": [
+        {
+          "path": "next-sitemap.config.js",
+          "requiredTokens": ["buildStaticGeneratedPaths", "shouldIncludeGeneratedSitemapPath", "isForbiddenFinalSitemapPath"]
+        },
+        {
+          "path": "lib/seo/backendSitemapSource.ts",
+          "requiredTokens": ["fetchBackendSitemapSource", "/v0.5/seo/sitemap-source", "shouldKeepCareerJobDetailPath"]
+        }
+      ]
+    },
+    {
+      "id": "backend_sitemap_source_consumption",
+      "surface": "backend_sitemap_source",
+      "currentPublicAuthorityOwner": "backend /v0.5/seo/sitemap-source plus frontend normalization",
+      "backendAuthorityAvailable": true,
+      "frontendOverrideRisk": "watchlist",
+      "parityStatus": "operational",
+      "runtimeOutput": "backend paths are consumed by sitemap and filtered through shared indexability gates",
+      "sourceOfTruth": "backend sitemap-source response",
+      "driftRisk": "backend availability or explicit index gate mismatch can alter generated sitemap",
+      "ciCoverage": ["sitemap-authority-adapters", "discoverability-regression-snapshot"],
+      "requiresFixtureForNewExposure": true,
+      "blocksWhen": "backend path bypasses shared final deny patterns or indexability policy",
+      "sourceFiles": [
+        {
+          "path": "lib/seo/backendSitemapSource.ts",
+          "requiredTokens": ["BACKEND_SITEMAP_SOURCE_TIMEOUT_MS", "BACKEND_SITEMAP_CANONICAL_HOSTS", "shouldIncludeInSitemap"]
+        }
+      ]
+    },
+    {
+      "id": "frontend_static_sitemap_paths",
+      "surface": "frontend_static_sitemap_paths",
+      "currentPublicAuthorityOwner": "lib/seo/sitemapAuthorityAdapters.cjs compatibility wrapper",
+      "backendAuthorityAvailable": false,
+      "frontendOverrideRisk": "migration_required",
+      "parityStatus": "partial",
+      "runtimeOutput": "static generated paths remain included through adapter",
+      "sourceOfTruth": "compatibility fixture until backend/CMS exposure state owns final URL truth",
+      "driftRisk": "static additions can widen sitemap without CMS/backend authority",
+      "ciCoverage": ["sitemap-authority-adapters", "frontend-fallback-authority-inventory"],
+      "requiresFixtureForNewExposure": true,
+      "blocksWhen": "static path additions bypass adapter coverage or PRAC fixture review",
+      "sourceFiles": [
+        {
+          "path": "tests/contracts/sitemap-authority-adapters.contract.test.ts",
+          "requiredTokens": ["buildStaticGeneratedPaths", "SITEMAP_ROUTE_EXCLUDES", "resolveSitemapSiteUrl"]
+        },
+        {
+          "path": "docs/runtime/generated/frontend-fallback-authority-inventory.v1.json",
+          "requiredTokens": ["static_sitemap_layer", "compatibility_wrapper"]
+        }
+      ]
+    },
+    {
+      "id": "llms_authority_owner",
+      "surface": "llms",
+      "currentPublicAuthorityOwner": "app/llms.txt/route.ts with CMS/backend consumers and shared deny policy",
+      "backendAuthorityAvailable": true,
+      "frontendOverrideRisk": "watchlist",
+      "parityStatus": "partial",
+      "runtimeOutput": "/llms.txt remains unchanged by this PR",
+      "sourceOfTruth": "CMS/backend list APIs where available, compatibility topic fallback where explicitly governed",
+      "driftRisk": "frontend fallback or budget changes can widen AI-readable exposure",
+      "ciCoverage": ["llms-topic-fallback-governance", "llms-url-hygiene", "discoverability-regression-snapshot"],
+      "requiresFixtureForNewExposure": true,
+      "blocksWhen": "new llms URL appears without fixture and private-flow exclusion proof",
+      "sourceFiles": [
+        {
+          "path": "app/llms.txt/route.ts",
+          "requiredTokens": ["TOPIC_FALLBACK_SLUGS", "isSharedDiscoverabilityDeniedPath", "shouldIncludeInSitemap"]
+        }
+      ]
+    },
+    {
+      "id": "llms_full_authority_owner",
+      "surface": "llms_full",
+      "currentPublicAuthorityOwner": "app/llms-full.txt/route.ts with CMS/backend enrichment and shared deny policy",
+      "backendAuthorityAvailable": true,
+      "frontendOverrideRisk": "watchlist",
+      "parityStatus": "partial",
+      "runtimeOutput": "/llms-full.txt remains unchanged by this PR",
+      "sourceOfTruth": "CMS/backend content and answer surfaces where available, governed compatibility fallback otherwise",
+      "driftRisk": "enrichment can expose ungrounded summary/FAQ if source is not visible or answer-surface backed",
+      "ciCoverage": ["llms-full-enrichment", "llms-topic-fallback-governance", "discoverability-regression-snapshot"],
+      "requiresFixtureForNewExposure": true,
+      "blocksWhen": "new llms-full entry bypasses grounding, budget, or private-flow exclusion",
+      "sourceFiles": [
+        {
+          "path": "app/llms-full.txt/route.ts",
+          "requiredTokens": ["TOPIC_FALLBACKS", "AnswerSurfaceViewModel", "isSharedDiscoverabilityDeniedPath"]
+        }
+      ]
+    },
+    {
+      "id": "topic_fallback_exposure",
+      "surface": "topic_fallback_exposure",
+      "currentPublicAuthorityOwner": "llms topic fallback compatibility fixture",
+      "backendAuthorityAvailable": false,
+      "frontendOverrideRisk": "migration_required",
+      "parityStatus": "partial",
+      "runtimeOutput": "fallback topic slugs remain mbti, big-five, iq-eq",
+      "sourceOfTruth": "compatibility fixture until backend/CMS topic exposure state exists",
+      "driftRisk": "new topic fallback can become pseudo Topic Graph exposure",
+      "ciCoverage": ["llms-topic-fallback-governance", "frontend-fallback-authority-inventory"],
+      "requiresFixtureForNewExposure": true,
+      "blocksWhen": "topic fallback widens without fixture or before backend/CMS topic exposure authority",
+      "sourceFiles": [
+        {
+          "path": "tests/contracts/fixtures/seo-foundation/llms-topic-fallback-governance.v1.json",
+          "requiredTokens": ["mbti", "big-five", "iq-eq"]
+        },
+        {
+          "path": "docs/seo/llms-topic-fallback-governance.md",
+          "requiredTokens": ["No llms exposure widening", "backend/CMS topic exposure authority"]
+        }
+      ]
+    },
+    {
+      "id": "json_ld_authority",
+      "surface": "json_ld",
+      "currentPublicAuthorityOwner": "structured-data contract plus page renderers and backend structured data keys",
+      "backendAuthorityAvailable": true,
+      "frontendOverrideRisk": "watchlist",
+      "parityStatus": "operational",
+      "runtimeOutput": "JSON-LD output remains unchanged by this PR",
+      "sourceOfTruth": "backend structured data keys or visible page content",
+      "driftRisk": "frontend JSON-LD fallback can become hidden schema stuffing",
+      "ciCoverage": ["structured-data-contract", "schema-present", "jsonld-serialization"],
+      "requiresFixtureForNewExposure": true,
+      "blocksWhen": "JSON-LD type appears without visible content, canonical alignment, or backend authority",
+      "sourceFiles": [
+        {
+          "path": "docs/seo/structured-data-spec.md",
+          "requiredTokens": ["Backend-owned SEO surfaces render backend-provided structured data", "`FAQPage` must be derived from visible FAQ", "Private flows must not render JSON-LD"]
+        },
+        {
+          "path": "tests/contracts/fixtures/discoverability-foundation/structured-data-contract.v1.json",
+          "requiredTokens": ["faqPageSource", "visible_faq_or_answer_surface_only", "forbiddenPrivateFlowTokens"]
+        }
+      ]
+    },
+    {
+      "id": "faq_page_authority",
+      "surface": "faq_page",
+      "currentPublicAuthorityOwner": "visible FAQ or answer_surface_v1 rendered content",
+      "backendAuthorityAvailable": true,
+      "frontendOverrideRisk": "watchlist",
+      "parityStatus": "operational",
+      "runtimeOutput": "FAQPage output remains unchanged by this PR",
+      "sourceOfTruth": "visible FAQ / answer surface",
+      "driftRisk": "hidden FAQPage schema can pollute GEO and claim boundary",
+      "ciCoverage": ["article-answer-surface", "help-faq-schema", "structured-data-contract"],
+      "requiresFixtureForNewExposure": true,
+      "blocksWhen": "FAQPage is emitted from hidden or non-rendered FAQ content",
+      "sourceFiles": [
+        {
+          "path": "tests/contracts/article-answer-surface.contract.test.ts",
+          "requiredTokens": ["renders existing answer_surface_v1 blocks visibly", "emits FAQPage JSON-LD only from the visibly rendered answer surface FAQ", "does not emit FAQPage JSON-LD when no visible answer-surface FAQ exists"]
+        },
+        {
+          "path": "docs/seo/structured-data-spec.md",
+          "requiredTokens": ["`FAQPage` is allowed only when the questions and answers are visibly rendered.", "No hidden schema stuffing is allowed."]
+        }
+      ]
+    },
+    {
+      "id": "evidence_container_authority",
+      "surface": "evidence_container",
+      "currentPublicAuthorityOwner": "visible HTML evidence standard plus answer_surface_v1 grounding",
+      "backendAuthorityAvailable": true,
+      "frontendOverrideRisk": "watchlist",
+      "parityStatus": "partial",
+      "runtimeOutput": "Evidence rendering remains unchanged by this PR",
+      "sourceOfTruth": "visible Evidence Container blocks and answer surface data",
+      "driftRisk": "schema-only or FAQ-only pages can be misclassified as GEO ready",
+      "ciCoverage": ["evidence-container-readiness-gate", "evidence-container-live-readiness", "public-claim-boundary-matrix"],
+      "requiresFixtureForNewExposure": true,
+      "blocksWhen": "Evidence Container readiness is claimed without visible HTML evidence and answer surface grounding",
+      "sourceFiles": [
+        {
+          "path": "docs/geo/evidence-container-spec.md",
+          "requiredTokens": ["visible HTML first", "FAQ-only pages", "hidden SEO-only snippet"]
+        },
+        {
+          "path": "tests/contracts/fixtures/discoverability-foundation/evidence-container-readiness-gate.v1.json",
+          "requiredTokens": ["answer_surface_v1_is_current_content_carrier", "faqOnlyIsReady", "hidden schema"]
+        }
+      ]
+    },
+    {
+      "id": "private_flow_exclusions",
+      "surface": "private_flow_exclusions",
+      "currentPublicAuthorityOwner": "shared discoverability deny policy, indexing policy, and structured-data private-flow contract",
+      "backendAuthorityAvailable": true,
+      "frontendOverrideRisk": "blocked",
+      "parityStatus": "production_grade",
+      "runtimeOutput": "private-flow exclusions remain unchanged by this PR",
+      "sourceOfTruth": "shared deny policy and noindex/indexability gates",
+      "driftRisk": "private result, payment, order, share, or take flows can leak into sitemap/llms/schema if bypassed",
+      "ciCoverage": ["private-noindex", "url-exposure-policy", "discoverability-regression-snapshot", "structured-data-contract"],
+      "requiresFixtureForNewExposure": true,
+      "blocksWhen": "protected private route becomes indexable, sitemap-included, llms-included, llms-full-included, or emits public JSON-LD",
+      "sourceFiles": [
+        {
+          "path": "tests/contracts/fixtures/discoverability-foundation/regression-snapshot.v1.json",
+          "requiredTokens": ["excludedFromSitemap", "excludedFromLlms", "xRobotsTag"]
+        },
+        {
+          "path": "lib/seo/indexingPolicy.ts",
+          "requiredTokens": ["shouldNoindex", "shouldIncludeInSitemap", "DENY_PATH_PATTERNS"]
+        }
+      ]
+    },
+    {
+      "id": "canonical_hreflang_authority",
+      "surface": "canonical_hreflang",
+      "currentPublicAuthorityOwner": "metadata/rendering contracts with backend/CMS canonical data where available",
+      "backendAuthorityAvailable": true,
+      "frontendOverrideRisk": "watchlist",
+      "parityStatus": "operational",
+      "runtimeOutput": "canonical and hreflang output remains unchanged by this PR",
+      "sourceOfTruth": "backend/CMS SEO authority or deterministic canonical helpers",
+      "driftRisk": "canonical drift or hreflang reciprocity breaks JSON-LD and sitemap parity",
+      "ciCoverage": ["canonical-hreflang-jsonld-parity", "expanded-metadata-canonical-parity"],
+      "requiresFixtureForNewExposure": true,
+      "blocksWhen": "new discoverability URL lacks canonical/hreflang/JSON-LD parity fixture",
+      "sourceFiles": [
+        {
+          "path": "tests/contracts/discoverability-regression-snapshot.contract.test.ts",
+          "requiredTokens": ["captures canonical, hreflang, JSON-LD", "canonicalSnapshot", "hreflangSnapshot"]
+        }
+      ]
+    },
+    {
+      "id": "no_silent_exposure_widening",
+      "surface": "no_silent_exposure_widening",
+      "currentPublicAuthorityOwner": "PRAC fixture and contract gates",
+      "backendAuthorityAvailable": true,
+      "frontendOverrideRisk": "blocked",
+      "parityStatus": "operational",
+      "runtimeOutput": "no new public exposure in this PR",
+      "sourceOfTruth": "explicit fixture-backed exposure changes only",
+      "driftRisk": "new sitemap/llms/llms-full/schema exposure can bypass authority convergence",
+      "ciCoverage": ["discoverability-authority-matrix", "llms-topic-fallback-governance", "sitemap-authority-adapters"],
+      "requiresFixtureForNewExposure": true,
+      "blocksWhen": "public discoverability exposure widens without fixture and authority classification",
+      "sourceFiles": [
+        {
+          "path": "docs/seo/discoverability-regression-snapshot.md",
+          "requiredTokens": ["must never widen sitemap or llms exposure by itself", "does not change runtime SEO behavior"]
+        },
+        {
+          "path": "docs/seo/discoverability-authority-convergence.md",
+          "requiredTokens": ["sitemap/llms new exposure requires an explicit fixture", "No Runtime Change Statement"]
+        }
+      ]
+    }
+  ]
+}
