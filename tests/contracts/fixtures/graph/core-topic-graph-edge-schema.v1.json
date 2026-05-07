@@ -1,0 +1,199 @@
+{
+  "version": "core_topic_graph.edge_schema.v1",
+  "authority_model": {
+    "graph_truth_owner": "backend_cms",
+    "frontend_role": "deterministic_render_only",
+    "forbidden_authorities": [
+      "frontend_local_graph_authority",
+      "frontend_hardcoded_graph_expansion",
+      "ai_generated_graph_filler",
+      "hidden_schema_graph_stuffing"
+    ]
+  },
+  "entity_type_registry": [
+    "topic",
+    "test",
+    "personality_type",
+    "trait_dimension",
+    "riasec_type",
+    "career_family",
+    "career_job",
+    "article",
+    "faq_block",
+    "cta"
+  ],
+  "edge_type_registry": [
+    "topic_to_test",
+    "topic_to_type",
+    "type_to_career",
+    "career_to_trait",
+    "topic_to_article",
+    "topic_to_faq",
+    "topic_to_cta"
+  ],
+  "governance_fields": {
+    "required": [
+      "edge_id",
+      "edge_type",
+      "source_entity",
+      "target_entity",
+      "source_authority",
+      "owner",
+      "review_state",
+      "visibility_state",
+      "confidence",
+      "evidence_requirement",
+      "rendered_visibility"
+    ],
+    "review_states": [
+      "draft",
+      "reviewed",
+      "approved",
+      "deprecated"
+    ],
+    "visibility_states": [
+      "candidate",
+      "public",
+      "private",
+      "blocked"
+    ],
+    "source_authorities": [
+      "backend_cms",
+      "backend_public_api",
+      "backend_sitemap_source",
+      "migration_fixture"
+    ],
+    "rendered_visibility_states": [
+      "visible_content",
+      "not_rendered",
+      "private_only"
+    ]
+  },
+  "rules": [
+    {
+      "id": "graph-authority-backend-owned",
+      "severity": "P0",
+      "description": "Every graph edge must be backend/CMS or backend public API authoritative."
+    },
+    {
+      "id": "public-edge-visible-content",
+      "severity": "P0",
+      "description": "Public graph edges must be grounded in visible rendered content, not hidden FAQ or schema."
+    },
+    {
+      "id": "missing-route-cannot-be-public",
+      "severity": "P0",
+      "description": "Edges targeting blocked or missing public route entities must remain candidate or blocked until the entity is CMS-reviewed."
+    },
+    {
+      "id": "no-runtime-rollout-from-contract",
+      "severity": "P0",
+      "description": "This contract fixture does not authorize public graph expansion or automatic link rendering."
+    }
+  ],
+  "edge_fixtures": [
+    {
+      "edge_id": "edge:topic:mbti:test:mbti-personality-test-16-personality-types",
+      "edge_type": "topic_to_test",
+      "source_entity": "topic:mbti",
+      "target_entity": "test:mbti-personality-test-16-personality-types",
+      "source_authority": "backend_cms",
+      "owner": "cms:topic_graph",
+      "review_state": "approved",
+      "visibility_state": "public",
+      "confidence": 1,
+      "evidence_requirement": "visible_topic_cta_or_related_test_block",
+      "rendered_visibility": "visible_content"
+    },
+    {
+      "edge_id": "edge:topic:mbti:personality:intj-a",
+      "edge_type": "topic_to_type",
+      "source_entity": "topic:mbti",
+      "target_entity": "personality:intj-a",
+      "source_authority": "backend_cms",
+      "owner": "cms:topic_graph",
+      "review_state": "reviewed",
+      "visibility_state": "candidate",
+      "confidence": 0.9,
+      "evidence_requirement": "visible_type_grid_or_related_type_block",
+      "rendered_visibility": "not_rendered"
+    },
+    {
+      "edge_id": "edge:personality:intj-a:career_family:computer-and-information-technology",
+      "edge_type": "type_to_career",
+      "source_entity": "personality:intj-a",
+      "target_entity": "career_family:computer-and-information-technology",
+      "source_authority": "backend_public_api",
+      "owner": "cms:career_graph",
+      "review_state": "draft",
+      "visibility_state": "candidate",
+      "confidence": 0.72,
+      "evidence_requirement": "visible_career_fit_or_next_step_block",
+      "rendered_visibility": "not_rendered"
+    },
+    {
+      "edge_id": "edge:career_family:computer-and-information-technology:trait:openness",
+      "edge_type": "career_to_trait",
+      "source_entity": "career_family:computer-and-information-technology",
+      "target_entity": "trait:openness",
+      "source_authority": "backend_cms",
+      "owner": "cms:career_graph",
+      "review_state": "draft",
+      "visibility_state": "candidate",
+      "confidence": 0.62,
+      "evidence_requirement": "visible_work_style_or_trait_fit_block",
+      "rendered_visibility": "not_rendered"
+    },
+    {
+      "edge_id": "edge:topic:mbti:article:mbti-basics",
+      "edge_type": "topic_to_article",
+      "source_entity": "topic:mbti",
+      "target_entity": "article:mbti-basics",
+      "source_authority": "backend_cms",
+      "owner": "cms:editorial_graph",
+      "review_state": "draft",
+      "visibility_state": "candidate",
+      "confidence": 0.8,
+      "evidence_requirement": "visible_related_article_block",
+      "rendered_visibility": "not_rendered"
+    },
+    {
+      "edge_id": "edge:topic:mbti:faq:mbti-basics",
+      "edge_type": "topic_to_faq",
+      "source_entity": "topic:mbti",
+      "target_entity": "faq_block:mbti-basics",
+      "source_authority": "backend_cms",
+      "owner": "cms:topic_graph",
+      "review_state": "reviewed",
+      "visibility_state": "candidate",
+      "confidence": 0.9,
+      "evidence_requirement": "visible_faq_answer_block",
+      "rendered_visibility": "not_rendered"
+    },
+    {
+      "edge_id": "edge:topic:mbti:cta:take-mbti-test",
+      "edge_type": "topic_to_cta",
+      "source_entity": "topic:mbti",
+      "target_entity": "cta:take-mbti-test",
+      "source_authority": "backend_cms",
+      "owner": "cms:conversion_graph",
+      "review_state": "approved",
+      "visibility_state": "public",
+      "confidence": 1,
+      "evidence_requirement": "visible_next_step_cta",
+      "rendered_visibility": "visible_content"
+    }
+  ],
+  "blocked_public_expansion_examples": [
+    {
+      "source_entity": "topic:riasec",
+      "target_entity": "riasec_type:realistic",
+      "reason": "RIASEC topic and type routes are missing from current public inventory; edge must remain blocked until CMS authority and visible evidence exist."
+    },
+    {
+      "source_entity": "topic:big-five",
+      "target_entity": "trait:openness",
+      "reason": "Big Five trait public routes are missing from current public inventory; edge must remain candidate or blocked until entity governance exists."
+    }
+  ]
+}
