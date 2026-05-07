@@ -165,7 +165,9 @@
       "depends_on": [
         "PR-PRAC-04"
       ],
-      "status": "in_progress",
+      "status": "merged",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/695",
+      "merge_sha": "26343e0281500990ef624788a529e0b49978b810",
       "title": "test(seo): add discoverability authority convergence guards",
       "artifacts": [
         "docs/seo/discoverability-authority-convergence.md",
@@ -182,7 +184,7 @@
       "depends_on": [
         "PR-PRAC-05"
       ],
-      "status": "planned",
+      "status": "in_progress",
       "title": "test(runtime): add freemium public runtime coverage matrix",
       "artifacts": [
         "docs/freemium/freemium-runtime-coverage.md",

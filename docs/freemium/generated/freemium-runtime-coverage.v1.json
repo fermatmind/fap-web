@@ -1,0 +1,444 @@
+{
+  "version": "runtime.freemium_runtime_coverage.v1",
+  "scope": "PR-PRAC-06",
+  "trainName": "public-runtime-authority-convergence-train",
+  "runtimeBehaviorChanged": false,
+  "commerceBehaviorChanged": false,
+  "classificationEnum": [
+    "full_loop",
+    "backend_ready",
+    "frontend_partial",
+    "MBTI_only",
+    "cross_scale_partial",
+    "blocked",
+    "unknown"
+  ],
+  "requiredCapabilities": [
+    "free_result",
+    "locked_report",
+    "report_access",
+    "SKU",
+    "offer_card",
+    "paywall",
+    "checkout",
+    "order_wait",
+    "entitlement_unlock",
+    "report_PDF",
+    "history",
+    "invite_unlock",
+    "email_capture",
+    "attribution",
+    "bundle_module_entitlement",
+    "cross_scale_freemium_support"
+  ],
+  "mbtiFullLoop": [
+    "result_report",
+    "locked_full_report",
+    "checkout",
+    "order_wait",
+    "entitlement",
+    "report_pdf",
+    "history"
+  ],
+  "explicitFindings": [
+    {
+      "id": "mbti_result_to_paid_report_loop",
+      "classification": "full_loop",
+      "summary": "MBTI result -> locked/full report -> checkout -> order wait -> entitlement -> report/PDF/history is evidenced in frontend contracts."
+    },
+    {
+      "id": "big5_paywall_coverage",
+      "classification": "cross_scale_partial",
+      "summary": "Big Five has module gating, report access, history/PDF/readable contracts, and offer-card support, but public checkout loop parity with MBTI is not proven in this train."
+    },
+    {
+      "id": "invite_unlock_mbti_vs_big5",
+      "classification": "MBTI_only",
+      "summary": "Invite unlock progress and partial/full unlock UI are evidenced for MBTI; Big Five invite unlock is not evidenced."
+    },
+    {
+      "id": "module_bundle_logic",
+      "classification": "cross_scale_partial",
+      "summary": "Public runtime uses module allow/preview gates; an advanced multi-offer bundle engine is not proven."
+    },
+    {
+      "id": "retention_email_lifecycle",
+      "classification": "frontend_partial",
+      "summary": "Email bind, preferences, unsubscribe, and post-purchase retention surfaces exist; scheduled production lifecycle proof is not established by this artifact."
+    }
+  ],
+  "rows": [
+    {
+      "id": "free_result",
+      "capability": "free_result",
+      "classification": "full_loop",
+      "scaleCoverage": ["MBTI", "BIG5_OCEAN"],
+      "backendRuntimeExists": true,
+      "frontendPublicUiExists": true,
+      "ctaExists": true,
+      "userCanCompleteFlow": true,
+      "eventTrackingExists": true,
+      "entitlementRespected": true,
+      "crossScaleSupport": "cross_scale_partial",
+      "reality": "Free result surfaces exist for MBTI and Big Five; full public funnel strength is MBTI-led.",
+      "sourceFiles": [
+        {
+          "path": "tests/contracts/result-client-view-state.contract.test.tsx",
+          "requiredTokens": ["modules_preview", "fetchAttemptReportAccess", "EMAIL_BIND_REQUIRED"]
+        },
+        {
+          "path": "tests/contracts/big5-result-page-v2-consumer.contract.test.tsx",
+          "requiredTokens": ["filters paid V2 modules when Big5 access is locked", "modules_allowed", "modules_preview"]
+        }
+      ]
+    },
+    {
+      "id": "locked_report",
+      "capability": "locked_report",
+      "classification": "full_loop",
+      "scaleCoverage": ["MBTI", "BIG5_OCEAN"],
+      "backendRuntimeExists": true,
+      "frontendPublicUiExists": true,
+      "ctaExists": true,
+      "userCanCompleteFlow": true,
+      "eventTrackingExists": true,
+      "entitlementRespected": true,
+      "crossScaleSupport": "cross_scale_partial",
+      "reality": "MBTI locked/full report loop is full; Big Five module locking is present but checkout parity is partial.",
+      "sourceFiles": [
+        {
+          "path": "tests/contracts/mbti-preview-semantics.contract.test.tsx",
+          "requiredTokens": ["modules_preview", "Paid-only content should remain hidden.", "access_level"]
+        },
+        {
+          "path": "tests/contracts/big5-result-page-v2-consumer.contract.test.tsx",
+          "requiredTokens": ["queryByTestId(\"big5-v2-module-module_03_trait_deep_dive\")", "not.toBeInTheDocument"]
+        }
+      ]
+    },
+    {
+      "id": "report_access",
+      "capability": "report_access",
+      "classification": "full_loop",
+      "scaleCoverage": ["MBTI", "BIG5_OCEAN"],
+      "backendRuntimeExists": true,
+      "frontendPublicUiExists": true,
+      "ctaExists": true,
+      "userCanCompleteFlow": true,
+      "eventTrackingExists": true,
+      "entitlementRespected": true,
+      "crossScaleSupport": "cross_scale_partial",
+      "reality": "Report access is consumed on result/order surfaces; Big Five report-access exists in secondary surfaces.",
+      "sourceFiles": [
+        {
+          "path": "tests/contracts/result-client-view-state.contract.test.tsx",
+          "requiredTokens": ["fetchAttemptReportAccess", "access_state", "report_state"]
+        },
+        {
+          "path": "tests/contracts/big5-secondary-surfaces.contract.test.tsx",
+          "requiredTokens": ["fetchBig5ReportAccess", "access_summary", "pdf_state"]
+        }
+      ]
+    },
+    {
+      "id": "sku_runtime",
+      "capability": "SKU",
+      "classification": "MBTI_only",
+      "scaleCoverage": ["MBTI"],
+      "backendRuntimeExists": true,
+      "frontendPublicUiExists": true,
+      "ctaExists": true,
+      "userCanCompleteFlow": true,
+      "eventTrackingExists": true,
+      "entitlementRespected": true,
+      "crossScaleSupport": "unknown",
+      "reality": "MBTI SKU resolution is wired to MBTI_REPORT_FULL_199; cross-scale SKU loop is not proven.",
+      "sourceFiles": [
+        {
+          "path": "tests/contracts/mbti-checkout-wiring.contract.test.tsx",
+          "requiredTokens": ["resolveMbtiCheckoutSku", "MBTI_REPORT_FULL_199", "createCheckoutOrOrder"]
+        }
+      ]
+    },
+    {
+      "id": "offer_card",
+      "capability": "offer_card",
+      "classification": "cross_scale_partial",
+      "scaleCoverage": ["MBTI", "BIG5_OCEAN"],
+      "backendRuntimeExists": true,
+      "frontendPublicUiExists": true,
+      "ctaExists": true,
+      "userCanCompleteFlow": false,
+      "eventTrackingExists": true,
+      "entitlementRespected": true,
+      "crossScaleSupport": "cross_scale_partial",
+      "reality": "Offer rendering exists for MBTI and Big Five, but Big Five public checkout loop is not proven.",
+      "sourceFiles": [
+        {
+          "path": "components/big5/paywall/OfferCard.tsx",
+          "requiredTokens": ["OfferPayload", "modules_allowed", "SKU:"]
+        },
+        {
+          "path": "tests/contracts/mbti-checkout-wiring.contract.test.tsx",
+          "requiredTokens": ["MbtiOfferComparisonSection", "ResolvedOffer", "MBTI_REPORT_FULL"]
+        }
+      ]
+    },
+    {
+      "id": "paywall",
+      "capability": "paywall",
+      "classification": "cross_scale_partial",
+      "scaleCoverage": ["MBTI", "BIG5_OCEAN"],
+      "backendRuntimeExists": true,
+      "frontendPublicUiExists": true,
+      "ctaExists": true,
+      "userCanCompleteFlow": true,
+      "eventTrackingExists": true,
+      "entitlementRespected": true,
+      "crossScaleSupport": "cross_scale_partial",
+      "reality": "MBTI paywall is full-loop; Big Five paywall mode and module gate exist but full public checkout parity is not proven.",
+      "sourceFiles": [
+        {
+          "path": "lib/big5/api.ts",
+          "requiredTokens": ["paywallMode", "free_only", "full"]
+        },
+        {
+          "path": "tests/contracts/mbti-checkout-wiring.contract.test.tsx",
+          "requiredTokens": ["target_sku_effective", "MBTI_REPORT_FULL_199"]
+        }
+      ]
+    },
+    {
+      "id": "checkout",
+      "capability": "checkout",
+      "classification": "MBTI_only",
+      "scaleCoverage": ["MBTI"],
+      "backendRuntimeExists": true,
+      "frontendPublicUiExists": true,
+      "ctaExists": true,
+      "userCanCompleteFlow": true,
+      "eventTrackingExists": true,
+      "entitlementRespected": true,
+      "crossScaleSupport": "unknown",
+      "reality": "MBTI checkout creates order/payment context and navigates to pay wait; cross-scale checkout parity is not proven.",
+      "sourceFiles": [
+        {
+          "path": "tests/contracts/mbti-checkout-wiring.contract.test.tsx",
+          "requiredTokens": ["createCheckoutOrOrder", "/zh/pay/wait", "payment_recovery_token"]
+        }
+      ]
+    },
+    {
+      "id": "order_wait",
+      "capability": "order_wait",
+      "classification": "full_loop",
+      "scaleCoverage": ["MBTI", "BIG5_OCEAN"],
+      "backendRuntimeExists": true,
+      "frontendPublicUiExists": true,
+      "ctaExists": true,
+      "userCanCompleteFlow": true,
+      "eventTrackingExists": true,
+      "entitlementRespected": true,
+      "crossScaleSupport": "cross_scale_partial",
+      "reality": "Order wait and order delivery surfaces handle paid/pending/recovery states and paid delivery actions.",
+      "sourceFiles": [
+        {
+          "path": "tests/contracts/orders-client-delivery.contract.test.tsx",
+          "requiredTokens": ["keeps paid-but-not-ready orders on the wait flow", "recoverAlipayReturnContext", "report_pdf_url"]
+        }
+      ]
+    },
+    {
+      "id": "entitlement_unlock",
+      "capability": "entitlement_unlock",
+      "classification": "full_loop",
+      "scaleCoverage": ["MBTI", "BIG5_OCEAN"],
+      "backendRuntimeExists": true,
+      "frontendPublicUiExists": true,
+      "ctaExists": true,
+      "userCanCompleteFlow": true,
+      "eventTrackingExists": true,
+      "entitlementRespected": true,
+      "crossScaleSupport": "cross_scale_partial",
+      "reality": "Report access and order delivery consume entitlement/report access; Big Five access summaries are readable but checkout parity is partial.",
+      "sourceFiles": [
+        {
+          "path": "tests/contracts/orders-client-delivery.contract.test.tsx",
+          "requiredTokens": ["fetchAttemptReportAccess", "report_access", "access_state"]
+        },
+        {
+          "path": "tests/contracts/big5.contract.test.ts",
+          "requiredTokens": ["entitlement_granted", "modules_allowed", "pdf_href"]
+        }
+      ]
+    },
+    {
+      "id": "report_pdf",
+      "capability": "report_PDF",
+      "classification": "full_loop",
+      "scaleCoverage": ["MBTI", "BIG5_OCEAN"],
+      "backendRuntimeExists": true,
+      "frontendPublicUiExists": true,
+      "ctaExists": true,
+      "userCanCompleteFlow": true,
+      "eventTrackingExists": true,
+      "entitlementRespected": true,
+      "crossScaleSupport": "cross_scale_partial",
+      "reality": "PDF access is wired on order and post-purchase surfaces; Big Five PDF access is covered through report access/history contracts.",
+      "sourceFiles": [
+        {
+          "path": "tests/contracts/orders-client-delivery.contract.test.tsx",
+          "requiredTokens": ["fetchAttemptReportPdf", "blob:mbti-report", "report.pdf"]
+        },
+        {
+          "path": "tests/contracts/mbti-post-purchase-retention.contract.test.tsx",
+          "requiredTokens": ["fetchAttemptReportPdf", "report_pdf_url", "订单详情"]
+        }
+      ]
+    },
+    {
+      "id": "history",
+      "capability": "history",
+      "classification": "cross_scale_partial",
+      "scaleCoverage": ["MBTI", "BIG5_OCEAN", "RIASEC", "ENNEAGRAM"],
+      "backendRuntimeExists": true,
+      "frontendPublicUiExists": true,
+      "ctaExists": true,
+      "userCanCompleteFlow": true,
+      "eventTrackingExists": true,
+      "entitlementRespected": true,
+      "crossScaleSupport": "cross_scale_partial",
+      "reality": "History/account surfaces exist across multiple scales; freemium parity is strongest for MBTI and readable for Big Five.",
+      "sourceFiles": [
+        {
+          "path": "docs/runtime/page-family-runtime-coverage.md",
+          "requiredTokens": ["profile/history", "/me/attempts", "operational"]
+        },
+        {
+          "path": "tests/contracts/big5-secondary-surfaces.contract.test.tsx",
+          "requiredTokens": ["Big5HistoryClient", "result-center card", "access_summary"]
+        }
+      ]
+    },
+    {
+      "id": "invite_unlock",
+      "capability": "invite_unlock",
+      "classification": "MBTI_only",
+      "scaleCoverage": ["MBTI"],
+      "backendRuntimeExists": true,
+      "frontendPublicUiExists": true,
+      "ctaExists": true,
+      "userCanCompleteFlow": true,
+      "eventTrackingExists": true,
+      "entitlementRespected": true,
+      "crossScaleSupport": "blocked",
+      "reality": "MBTI invite unlock partial/full progress is wired; Big Five invite unlock is not evidenced.",
+      "sourceFiles": [
+        {
+          "path": "tests/contracts/mbti-desktop-shell-cta.contract.test.tsx",
+          "requiredTokens": ["renders 1/2 partial-unlock progress", "完整报告已免费解锁", "mbti-offers-invite-progress"]
+        },
+        {
+          "path": "docs/ops/invite-unlock-production-diagnostics-runbook.md",
+          "requiredTokens": ["invite_unlock_v1", "unlock_stage", "API -> UI"]
+        }
+      ]
+    },
+    {
+      "id": "email_capture",
+      "capability": "email_capture",
+      "classification": "frontend_partial",
+      "scaleCoverage": ["MBTI", "BIG5_OCEAN"],
+      "backendRuntimeExists": true,
+      "frontendPublicUiExists": true,
+      "ctaExists": true,
+      "userCanCompleteFlow": true,
+      "eventTrackingExists": false,
+      "entitlementRespected": true,
+      "crossScaleSupport": "cross_scale_partial",
+      "reality": "Result email gate and email preferences exist; scheduled lifecycle and production delivery proof are outside this artifact.",
+      "sourceFiles": [
+        {
+          "path": "tests/contracts/result-client-view-state.contract.test.tsx",
+          "requiredTokens": ["EMAIL_BIND_REQUIRED", "bindAttemptEmail", "result-email-gate"]
+        },
+        {
+          "path": "tests/contracts/email-preferences.contract.test.tsx",
+          "requiredTokens": ["marketing_updates", "report_recovery", "product_updates"]
+        }
+      ]
+    },
+    {
+      "id": "attribution",
+      "capability": "attribution",
+      "classification": "frontend_partial",
+      "scaleCoverage": ["MBTI", "BIG5_OCEAN", "career"],
+      "backendRuntimeExists": true,
+      "frontendPublicUiExists": true,
+      "ctaExists": true,
+      "userCanCompleteFlow": true,
+      "eventTrackingExists": true,
+      "entitlementRespected": true,
+      "crossScaleSupport": "cross_scale_partial",
+      "reality": "Checkout, purchase/unlock, career conversion, and take attribution events exist, but full lifecycle attribution closure is not proven here.",
+      "sourceFiles": [
+        {
+          "path": "tests/contracts/mbti-checkout-wiring.contract.test.tsx",
+          "requiredTokens": ["trackEvent", "create_order", "sku"]
+        },
+        {
+          "path": "tests/contracts/career-conversion-attribution.contract.test.tsx",
+          "requiredTokens": ["career conversion attribution contract", "shortlist", "feedback-submit"]
+        }
+      ]
+    },
+    {
+      "id": "bundle_module_entitlement",
+      "capability": "bundle_module_entitlement",
+      "classification": "cross_scale_partial",
+      "scaleCoverage": ["MBTI", "BIG5_OCEAN", "ENNEAGRAM"],
+      "backendRuntimeExists": true,
+      "frontendPublicUiExists": true,
+      "ctaExists": true,
+      "userCanCompleteFlow": true,
+      "eventTrackingExists": true,
+      "entitlementRespected": true,
+      "crossScaleSupport": "cross_scale_partial",
+      "reality": "Module allow/preview gates exist; advanced bundle engine beyond module entitlement is not proven.",
+      "sourceFiles": [
+        {
+          "path": "tests/contracts/mbti-preview-semantics.contract.test.tsx",
+          "requiredTokens": ["modules_allowed", "modules_preview", "Paid-only content should remain hidden."]
+        },
+        {
+          "path": "tests/contracts/enneagram-result-assembler.contract.test.ts",
+          "requiredTokens": ["previewed Enneagram V2 modules", "without unlocking adjacent paid modules"]
+        }
+      ]
+    },
+    {
+      "id": "cross_scale_freemium_support",
+      "capability": "cross_scale_freemium_support",
+      "classification": "cross_scale_partial",
+      "scaleCoverage": ["MBTI", "BIG5_OCEAN", "ENNEAGRAM", "RIASEC"],
+      "backendRuntimeExists": true,
+      "frontendPublicUiExists": true,
+      "ctaExists": true,
+      "userCanCompleteFlow": false,
+      "eventTrackingExists": true,
+      "entitlementRespected": true,
+      "crossScaleSupport": "cross_scale_partial",
+      "reality": "Cross-scale result/report/history/access surfaces exist, but only MBTI is evidenced as a full public commerce loop in this artifact.",
+      "sourceFiles": [
+        {
+          "path": "docs/runtime/page-family-runtime-coverage.md",
+          "requiredTokens": ["MBTI loop is strongest; cross-scale funnel remains partial.", "result/report", "paywall/order/payment"]
+        },
+        {
+          "path": "tests/contracts/big5-secondary-surfaces.contract.test.tsx",
+          "requiredTokens": ["fetchBig5ReportAccess", "offer_summary", "primary_offer"]
+        }
+      ]
+    }
+  ]
+}
