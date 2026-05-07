@@ -185,4 +185,23 @@ describe("Clinical contract schemas", () => {
 
     expect(() => clinicalReportResponseSchema.parse(payload)).not.toThrow();
   });
+
+  it("allows Big Five V2 payload-only reports without requiring legacy report object", () => {
+    const payload = {
+      ok: true,
+      locked: false,
+      access_level: "full",
+      scale_code: "BIG5_OCEAN",
+      modules_allowed: ["big5_core", "big5_full", "big5_action_plan"],
+      report: [],
+      big5_result_page_v2: {
+        schema_version: "fap.big5.result_page.v2",
+        payload_key: "big5_result_page_v2",
+        scale_code: "BIG5_OCEAN",
+        modules: [],
+      },
+    };
+
+    expect(() => clinicalReportResponseSchema.parse(payload)).not.toThrow();
+  });
 });

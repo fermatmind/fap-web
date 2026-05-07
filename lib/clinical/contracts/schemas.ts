@@ -139,12 +139,16 @@ export const clinicalReportResponseSchema = z
       .passthrough()
       .optional(),
     report: z
-      .object({
-        scale_code: z.string().optional(),
-        locale: z.string().optional(),
-        sections: z.array(clinicalReportSectionSchema).optional(),
-      })
-      .passthrough()
+      .union([
+        z
+          .object({
+            scale_code: z.string().optional(),
+            locale: z.string().optional(),
+            sections: z.array(clinicalReportSectionSchema).optional(),
+          })
+          .passthrough(),
+        z.array(z.unknown()),
+      ])
       .optional(),
   })
   .passthrough();
