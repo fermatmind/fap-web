@@ -2902,3 +2902,35 @@ prs:
     cleanup:
       delete_remote_branch: true
       run_local_cleanup: true
+
+  - id: PR-CAR-RUNTIME-03
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/career-runtime-sitemap-llms-projection
+    base: main
+    depends_on: []
+    mode: execute
+    scope: >
+      Career runtime sitemap and llms projection consumer. Remove frontend
+      family hub discoverability bypasses from sitemap, llms.txt, and
+      llms-full.txt so Career job inclusion is sourced from the backend
+      runtime publish projection-backed sitemap source. Do not add public
+      URLs, frontend content authority, fallback bridges, or sitemap/llms
+      independent visibility logic.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "pnpm exec vitest run tests/contracts/sitemap-indexability.contract.test.ts tests/contracts/career-llms-alignment.contract.test.ts"
+      - "pnpm exec eslint next-sitemap.config.js app/llms.txt/route.ts app/llms-full.txt/route.ts tests/contracts/sitemap-indexability.contract.test.ts tests/contracts/career-llms-alignment.contract.test.ts"
+      - "pnpm typecheck"
+      - "git diff --check"
+      - "git diff --cached --check"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: true
+      required_github_checks: ["build", "contracts", "verify-big5-contract-freeze", "verify-enneagram-contract-freeze"]
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true

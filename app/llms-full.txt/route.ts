@@ -1,15 +1,9 @@
 import { NextResponse } from "next/server";
 import { getCmsArticleWithLastKnownGood, listCmsArticlesForLlmsWithLastKnownGood } from "@/lib/cms/articles";
 import { getCareerGuideFromCmsBySlug, listCareerGuidesFromCms } from "@/lib/cms/career-guides";
-import { adaptCareerFamilyHub } from "@/lib/career/adapters/adaptCareerFamilyHub";
-import { adaptCareerFirstWaveDiscoverabilityManifest } from "@/lib/career/adapters/adaptCareerFirstWaveDiscoverabilityManifest";
 import { adaptCareerRecommendationIndex } from "@/lib/career/adapters/adaptCareerRecommendationIndex";
-import { fetchCareerFamilyHub } from "@/lib/career/api/fetchCareerFamilyHub";
-import { fetchCareerFirstWaveDiscoverabilityManifest } from "@/lib/career/api/fetchCareerFirstWaveDiscoverabilityManifest";
 import { fetchCareerRecommendationIndex } from "@/lib/career/api/fetchCareerRecommendationIndex";
-import { isCareerFamilyHubDiscoverableByManifest } from "@/lib/career/launchPolicy";
 import { CAREER_DATASET_FAMILY_SLUGS } from "@/lib/career/datasetDirectory";
-import { buildCareerFamilyFrontendUrl } from "@/lib/career/urls";
 import { listContentPagesWithLastKnownGood } from "@/lib/cms/content-pages";
 import {
   buildDefaultPublicPersonalitySlug,
@@ -33,7 +27,6 @@ import {
 } from "@/lib/seo/llmsRouteBudget";
 import { getSiteUrlOrThrow } from "@/lib/site";
 import type { AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
-import type { CareerFirstWaveDiscoverabilityManifestAdapter } from "@/lib/career/adapters/types";
 import type { Locale } from "@/lib/i18n/locales";
 import type { LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
 
@@ -399,43 +392,6 @@ function publishedPersonalityVariantSlugs(value: string): string[] {
   return [defaultSlug];
 }
 
-async function listCareerFamilyEntriesFromManifest(
-  locale: "en" | "zh",
-  manifest: CareerFirstWaveDiscoverabilityManifestAdapter | null
-): Promise<LlmsFullEntry[]> {
-  if (!manifest) {
-    return [];
-  }
-
-  const entries = await Promise.all(
-    limitLlmsRouteEntries(manifest.discoverableFamilyHubSlugs, LLMS_ROUTE_LIMITS.careerFamilies).map(
-      async (slug) => {
-        if (!isCareerFamilyHubDiscoverableByManifest(manifest, slug)) {
-          return null;
-        }
-
-        const payload = await fetchCareerFamilyHub({ locale, slug }).catch(() => null);
-        const hub = adaptCareerFamilyHub({ locale, payload });
-
-        if (!hub || hub.counts.visibleChildrenCount <= 0) {
-          return null;
-        }
-
-        return {
-          locale,
-          path: buildCareerFamilyFrontendUrl(locale, hub.family.canonicalSlug),
-          title: hub.family.title,
-          type: "career_family",
-          summary: summaryFromRecord(hub.family),
-          updatedAt: "",
-        };
-      }
-    )
-  );
-
-  return entries.filter((entry): entry is NonNullable<typeof entry> => Boolean(entry));
-}
-
 async function listPersonalityEntries(): Promise<LlmsFullEntry[]> {
   try {
     const [enProfiles, zhProfiles] = await Promise.all([
@@ -574,8 +530,6 @@ async function enrichCareerGuideEntry(entry: LlmsFullEntry, siteUrl: string): Pr
 export async function GET() {
   const siteUrl = getSiteUrlOrThrow();
   const [
-    enDiscoverabilityManifest,
-    zhDiscoverabilityManifest,
     enCareerGuides,
     zhCareerGuides,
     enCareerRecommendations,
@@ -589,20 +543,6 @@ export async function GET() {
     zhHelpPages,
     careerJobPaths,
   ] = await Promise.all([
-    withLlmsRouteBudget(
-      () =>
-        fetchCareerFirstWaveDiscoverabilityManifest({ locale: "en" }).then((payload) =>
-          adaptCareerFirstWaveDiscoverabilityManifest({ payload })
-        ),
-      null
-    ),
-    withLlmsRouteBudget(
-      () =>
-        fetchCareerFirstWaveDiscoverabilityManifest({ locale: "zh" }).then((payload) =>
-          adaptCareerFirstWaveDiscoverabilityManifest({ payload })
-        ),
-      null
-    ),
     withLlmsRouteBudget(
       () => listCareerGuidesFromCms("en", { page: 1, perPage: LLMS_ROUTE_LIMITS.careerGuides }),
       []
@@ -679,11 +619,6 @@ export async function GET() {
         ),
       []
     ),
-  ]);
-
-  const [enCareerFamilies, zhCareerFamilies] = await Promise.all([
-    listCareerFamilyEntriesFromManifest("en", enDiscoverabilityManifest),
-    listCareerFamilyEntriesFromManifest("zh", zhDiscoverabilityManifest),
   ]);
 
   const helpEntries = [
@@ -779,8 +714,6 @@ export async function GET() {
       { locale: "zh" as const, path: `/zh/career/industries/${slug}`, title: slug, type: "career_industry", updatedAt: "" },
     ]),
     ...guideEntries,
-    ...enCareerFamilies,
-    ...zhCareerFamilies,
     ...enCareerRecommendations.filter(shouldKeepCareerAuthorityEntry).map((item) => ({
       locale: "en" as const,
       path: item.href,
