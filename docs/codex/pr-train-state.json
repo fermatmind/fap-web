@@ -3,7 +3,7 @@
   "train_description": "Establish FermatMind Core Topic Graph Foundation v1 through read-only graph inventory, graph edge governance contracts, and MBTI graph stabilization without large topic expansion, Recommendation, Behavior Graph, Long-term Profile, B2B, Career pSEO expansion, or AI-generated SEO content.",
   "previous_train_name": "url-truth-seo-governance-train",
   "started_at": "2026-05-06T12:32:48Z",
-  "updated_at": "2026-05-07T04:31:29Z",
+  "updated_at": "2026-05-07T04:32:27Z",
   "status": "initialized",
   "phase": "core-topic-graph-foundation",
   "platform_positioning": "人格与职业决策平台",
@@ -4796,11 +4796,11 @@
     "PR-TG-02": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "local_validation_passed",
+      "status": "pr_open",
       "not_started": false,
       "branch": "codex/pr-tg-02-graph-edge-schema",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "7e2f90f5186c1a5dfb54c034588eab3406da4ea4",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/675",
       "scope": "Add graph edge schema and CMS governance contracts for core Topic Graph edge types without public graph rollout or frontend graph authority.",
       "depends_on": [
         "PR-TG-01"
