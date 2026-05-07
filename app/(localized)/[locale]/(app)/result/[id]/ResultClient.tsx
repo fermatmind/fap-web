@@ -1065,15 +1065,15 @@ export default function ResultClient({
           startInviteProgressSync();
         }
 
-        if (isGeneratingReportResponse(reportResponse)) {
-          setStatus("generating");
-          scheduleRetry(attempt, resolveResponseRetryMs(reportResponse));
-          return;
-        }
-
         const richReportReady = canRenderRichResultReport(reportResponse);
         if (richReportReady) {
           setStatus("ready");
+          return;
+        }
+
+        if (isGeneratingReportResponse(reportResponse)) {
+          setStatus("generating");
+          scheduleRetry(attempt, resolveResponseRetryMs(reportResponse));
           return;
         }
 

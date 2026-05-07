@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import { RichResultReport } from "@/components/result/RichResultReport";
+import { canRenderRichResultReport, RichResultReport } from "@/components/result/RichResultReport";
 import type { ReportResponse } from "@/lib/api/v0_3";
 import {
   BIG5_RESULT_PAGE_V2_PAYLOAD_KEY,
@@ -74,6 +74,26 @@ describe("Big Five V2 pilot payload-only renderer contract", () => {
       expect(text).toContain(term);
     }
     expect(text).not.toContain("FRONTEND_FALLBACK_BODY_SHOULD_NOT_RENDER");
+  });
+
+  it("renders an authoritative V2 payload even when legacy report generation is still flagged", () => {
+    const report = createPilotReport({
+      generating: true,
+      meta: {
+        generating: true,
+        scale_code: "BIG5_OCEAN",
+      },
+      report: [],
+    } as unknown as Partial<ReportResponse>);
+
+    expect(canRenderRichResultReport(report)).toBe(true);
+
+    render(<RichResultReport locale="zh" reportData={report} />);
+
+    expect(screen.getByTestId("big5-result-page-v2-shell")).toBeInTheDocument();
+    expect(visibleText()).toContain("敏锐的独立思考者");
+    expect(visibleText()).not.toContain("Report is generating");
+    expect(visibleText()).not.toContain("报告生成中");
   });
 
   it("does not render metadata, staging flags, compact anti-target copy, or object string leaks", () => {

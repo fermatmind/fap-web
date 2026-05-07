@@ -392,6 +392,8 @@ export function isRichResultScaleCode(scaleCode: string | null | undefined): sca
 
 export function isGeneratingReportResponse(reportData: ReportResponse | null | undefined): boolean {
   if (!reportData) return false;
+  if (getBig5ResultPageV2Payload(reportData)) return false;
+
   if (reportData.generating === true) return true;
 
   const meta = asRecord(reportData.meta);

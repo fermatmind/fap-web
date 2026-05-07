@@ -10,6 +10,7 @@ import { SdsFactorPanel } from "@/components/clinical/report/SdsFactorPanel";
 import { UnlockCTA } from "@/components/commerce/UnlockCTA";
 import { AnimatedCounter } from "@/components/design/AnimatedCounter";
 import { AnticipationSkeleton } from "@/components/design/AnticipationSkeleton";
+import { canRenderRichResultReport, RichResultReport } from "@/components/result/RichResultReport";
 import { Alert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import {
@@ -248,6 +249,10 @@ function resolveSnapshotError(report: ReportResponse | null): boolean {
   }
 
   return Boolean((report as Record<string, unknown>).snapshot_error);
+}
+
+function shouldPollGeneratingReport(report: ReportResponse | null): boolean {
+  return !canRenderRichResultReport(report) && resolveGenerating(report);
 }
 
 function readCachedSubmitReport(attemptId: string): ReportResponse | null {
@@ -528,7 +533,8 @@ export default function ClinicalReportClient({
   const qualityLevel = String(reportData?.quality?.level ?? "unrated");
   const crisisAlert = reportData?.quality?.crisis_alert === true;
   const primaryNumericScore = useMemo(() => extractPrimaryNumericScore(reportData), [reportData]);
-  const generating = resolveGenerating(reportData);
+  const hasRichReport = canRenderRichResultReport(reportData);
+  const generating = hasRichReport ? false : resolveGenerating(reportData);
   const snapshotError = resolveSnapshotError(reportData);
   const consentTrace = useMemo(() => resolveConsentTrace(reportData), [reportData]);
   const sdsFactors = useMemo(() => resolveSdsFactors(reportData), [reportData]);
@@ -645,7 +651,7 @@ export default function ClinicalReportClient({
         setNotFoundRetrying(false);
 
         let polls = 0;
-        while (resolveGenerating(latest) && polls < GENERATING_POLL_MAX) {
+        while (shouldPollGeneratingReport(latest) && polls < GENERATING_POLL_MAX) {
           polls += 1;
           await sleep(GENERATING_POLL_INTERVAL_MS);
           const accessResponse = await fetchAttemptReportAccess({ attemptId, anonId });
@@ -1034,7 +1040,7 @@ export default function ClinicalReportClient({
   const viewState: "processing" | "ready" | "failed" =
     loading || notFoundRetrying || generating || isProjectionProcessing(accessView)
       ? "processing"
-      : isProjectionUnavailable(accessView) || snapshotError || error || !reportData || !scaleCode
+      : isProjectionUnavailable(accessView) || snapshotError || error || !reportData || (!scaleCode && !hasRichReport)
         ? "failed"
         : "ready";
 
@@ -1057,6 +1063,10 @@ export default function ClinicalReportClient({
           : (isZh ? "报告暂不可用。" : "Report is unavailable."));
 
     return <Alert>{failedMessage}</Alert>;
+  }
+
+  if (hasRichReport && reportData) {
+    return <RichResultReport locale={locale} reportData={reportData} accessProjection={accessView} />;
   }
 
   const readyReportData = reportData as ReportResponse;
