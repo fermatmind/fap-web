@@ -52,7 +52,25 @@ function withLocaleIfNeeded(path: string, locale: Locale): string {
   return localizedPath(path, locale);
 }
 
+function hasBearerResultToken(value: unknown): boolean {
+  const normalized = normalizeText(value);
+  if (!normalized) {
+    return false;
+  }
+
+  try {
+    const parsed = new URL(normalized, "https://fermatmind.com");
+    return parsed.searchParams.has("access_token") || parsed.searchParams.has("result_access_token");
+  } catch {
+    return false;
+  }
+}
+
 function resolveResultHref(item: ResultEmailLookupItem, locale: Locale): string | null {
+  if (normalizeText(item.result_access_token) || hasBearerResultToken(item.result_url)) {
+    return null;
+  }
+
   const directHref = normalizeCommerceReportPath(item.result_url);
   if (directHref) {
     return withLocaleIfNeeded(directHref, locale);
@@ -83,7 +101,6 @@ export function ResultEmailLookupForm({ locale }: { locale: Locale }) {
       unavailable: isZh ? "结果链接暂不可用" : "Result link unavailable",
       type: isZh ? "类型" : "Type",
       submittedAt: isZh ? "提交时间" : "Submitted",
-      tokenExpiry: isZh ? "访问链接有效期" : "Access link expires",
       validation: isZh ? "请输入邮箱。" : "Enter an email address.",
       genericError: isZh ? "暂时无法查找结果，请稍后再试。" : "Unable to find saved results. Try again later.",
       rateLimited: isZh ? "请求过于频繁，请稍后再试。" : "Too many lookup attempts. Try again later.",
@@ -191,10 +208,6 @@ export function ResultEmailLookupForm({ locale }: { locale: Locale }) {
                           <div className="flex gap-2">
                             <dt>{labels.submittedAt}</dt>
                             <dd className="m-0">{formatDate(locale, item.submitted_at ?? item.computed_at ?? null)}</dd>
-                          </div>
-                          <div className="flex gap-2">
-                            <dt>{labels.tokenExpiry}</dt>
-                            <dd className="m-0">{formatDate(locale, item.result_access_token_expires_at ?? null)}</dd>
                           </div>
                         </dl>
                       </div>
