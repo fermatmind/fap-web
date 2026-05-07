@@ -3,7 +3,7 @@
   "train_description": "Establish FermatMind Core Topic Graph Foundation v1 through read-only graph inventory, graph edge governance contracts, and MBTI graph stabilization without large topic expansion, Recommendation, Behavior Graph, Long-term Profile, B2B, Career pSEO expansion, or AI-generated SEO content.",
   "previous_train_name": "url-truth-seo-governance-train",
   "started_at": "2026-05-06T12:32:48Z",
-  "updated_at": "2026-05-07T04:20:56Z",
+  "updated_at": "2026-05-07T04:32:27Z",
   "status": "initialized",
   "phase": "core-topic-graph-foundation",
   "platform_positioning": "人格与职业决策平台",
@@ -4692,10 +4692,10 @@
     "PR-TG-01": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "pr_open",
+      "status": "merged",
       "not_started": false,
       "branch": "codex/pr-tg-01-graph-inventory-contract",
-      "commit_sha": "0a795f34e9621e22fe80c1872ed68ba0637c864d",
+      "commit_sha": "7cbae464444b205aec9056dc4ab6058ba121b4a9",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/674",
       "scope": "Add read-only Core Topic Graph inventory generation, readiness matrix artifacts, and contract coverage without runtime graph, route, sitemap, llms, SEO, or commercial changes.",
       "depends_on": [],
@@ -4758,12 +4758,29 @@
             "command": "git diff --check"
           }
         ],
-        "github": []
+        "github": [
+          {
+            "name": "build",
+            "status": "passed"
+          },
+          {
+            "name": "contracts",
+            "status": "passed"
+          },
+          {
+            "name": "verify-big5-contract-freeze",
+            "status": "passed"
+          },
+          {
+            "name": "verify-enneagram-contract-freeze",
+            "status": "passed"
+          }
+        ]
       },
       "failure_reason": "",
-      "merged_at": "",
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-05-07T04:26:25Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "sidecar_issues": [
         {
           "title": "Pre-existing repo-wide lint debt outside PR-TG-01 scope",
@@ -4779,23 +4796,85 @@
     "PR-TG-02": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "planned",
-      "not_started": true,
+      "status": "pr_open",
+      "not_started": false,
       "branch": "codex/pr-tg-02-graph-edge-schema",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "7e2f90f5186c1a5dfb54c034588eab3406da4ea4",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/675",
       "scope": "Add graph edge schema and CMS governance contracts for core Topic Graph edge types without public graph rollout or frontend graph authority.",
       "depends_on": [
         "PR-TG-01"
       ],
       "checks": {
-        "local": [],
+        "local": [
+          {
+            "name": "json-ledger-and-fixture",
+            "status": "passed",
+            "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null && python3 -m json.tool tests/contracts/fixtures/graph/core-topic-graph-edge-schema.v1.json >/dev/null"
+          },
+          {
+            "name": "focused-contract",
+            "status": "passed",
+            "command": "pnpm exec vitest run tests/contracts/core-topic-graph-edge-schema.contract.test.ts",
+            "note": "4 tests passed."
+          },
+          {
+            "name": "typecheck",
+            "status": "passed",
+            "command": "pnpm typecheck"
+          },
+          {
+            "name": "contracts",
+            "status": "passed",
+            "command": "pnpm test:contract",
+            "note": "270 files passed, 1345 tests passed."
+          },
+          {
+            "name": "lint",
+            "status": "failed_sidecar",
+            "command": "pnpm lint",
+            "note": "Repo-wide pre-existing lint debt outside PR-TG-02 scope; scoped eslint for changed test passed."
+          },
+          {
+            "name": "scoped-eslint",
+            "status": "passed",
+            "command": "pnpm exec eslint tests/contracts/core-topic-graph-edge-schema.contract.test.ts"
+          },
+          {
+            "name": "seo-generate-sitemap",
+            "status": "passed",
+            "command": "pnpm seo:generate-sitemap",
+            "note": "Generated successfully; timestamp-only public/sitemap.xml diff was reverted before commit."
+          },
+          {
+            "name": "seo-check-sitemap",
+            "status": "passed",
+            "command": "pnpm seo:check-sitemap",
+            "note": "317 sitemap URLs passed."
+          },
+          {
+            "name": "diff-check",
+            "status": "passed",
+            "command": "git diff --check"
+          }
+        ],
         "github": []
       },
       "failure_reason": "",
       "merged_at": "",
       "remote_branch_deleted": false,
-      "local_cleanup_executed": false
+      "local_cleanup_executed": false,
+      "sidecar_issues": [
+        {
+          "title": "Pre-existing repo-wide lint debt outside PR-TG-02 scope",
+          "severity": "P2",
+          "scope_impact": "Full pnpm lint reports existing issues in untouched runtime/test files; changed-file scoped eslint for PR-TG-02 files passed.",
+          "introduced_by_current_pr": false,
+          "recommended_future_phase": "Repository lint hygiene sidecar outside Core Topic Graph Foundation",
+          "blocks_merge": false,
+          "evidence": "pnpm lint failed on the same unrelated files observed during PR-TG-01; PR-TG-02 changed only graph docs, graph fixtures, one graph contract test, and train state."
+        }
+      ]
     },
     "PR-TG-03": {
       "repo": "fap-web",
