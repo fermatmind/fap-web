@@ -14,7 +14,7 @@ async function loadLiveUrlCheck(): Promise<{
   checkLiveUrl: (url: string, options?: Record<string, unknown>) => Promise<unknown>;
   fetchNoRedirect: (url: string, options?: Record<string, unknown>) => Promise<unknown>;
   getUnsafeLiveFetchIssue: (url: string, options?: Record<string, unknown>) => unknown;
-  LIVE_CHECK_DEFAULTS: { concurrency: number; timeoutMs: number };
+  LIVE_CHECK_DEFAULTS: { concurrency: number; timeoutMs: number; sourceTimeoutMs: number };
 }> {
   return import(liveUrlCheckModule);
 }
@@ -79,6 +79,7 @@ describe("CI validator hygiene", () => {
 
     expect(LIVE_CHECK_DEFAULTS.concurrency).toBe(2);
     expect(LIVE_CHECK_DEFAULTS.timeoutMs).toBe(30_000);
+    expect(LIVE_CHECK_DEFAULTS.sourceTimeoutMs).toBe(60_000);
   });
 
   it("still fails bad live URLs after timeout policy tuning", async () => {
@@ -136,6 +137,8 @@ describe("CI validator hygiene", () => {
   it("preflights live validator source URLs before downloading documents", () => {
     expect(read("scripts/seo/assert-live-sitemap-clean.mjs")).toContain("getUnsafeLiveFetchIssue(sourceUrl)");
     expect(read("scripts/seo/assert-live-llms-clean.mjs")).toContain("getUnsafeLiveFetchIssue(sourceUrl)");
+    expect(read("scripts/seo/assert-live-sitemap-clean.mjs")).toContain("LIVE_CHECK_DEFAULTS.sourceTimeoutMs");
+    expect(read("scripts/seo/assert-live-llms-clean.mjs")).toContain("LIVE_CHECK_DEFAULTS.sourceTimeoutMs");
   });
 
   it("keeps AI-assisted PR train guardrails explicit", () => {

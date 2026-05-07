@@ -1,5 +1,6 @@
 const DEFAULT_CONCURRENCY = 2;
 const DEFAULT_TIMEOUT_MS = 30_000;
+const DEFAULT_SOURCE_TIMEOUT_MS = 60_000;
 const DEFAULT_MAX_BAD_ROWS = 80;
 const EXPECTED_HOST = "fermatmind.com";
 
@@ -22,6 +23,7 @@ function readPositiveInt(value, fallback) {
 export const LIVE_CHECK_DEFAULTS = {
   concurrency: readPositiveInt(process.env.SEO_LIVE_CONCURRENCY, DEFAULT_CONCURRENCY),
   timeoutMs: readPositiveInt(process.env.SEO_LIVE_TIMEOUT_MS, DEFAULT_TIMEOUT_MS),
+  sourceTimeoutMs: readPositiveInt(process.env.SEO_LIVE_SOURCE_TIMEOUT_MS, DEFAULT_SOURCE_TIMEOUT_MS),
   maxBadRows: readPositiveInt(process.env.SEO_LIVE_MAX_BAD_ROWS, DEFAULT_MAX_BAD_ROWS),
   expectedHost: EXPECTED_HOST,
 };

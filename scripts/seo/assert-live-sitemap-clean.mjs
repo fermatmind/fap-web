@@ -27,7 +27,7 @@ if (sourceIssue) {
 let sitemapResponse;
 try {
   sitemapResponse = await fetchNoRedirect(sourceUrl, {
-    timeoutMs: Math.max(LIVE_CHECK_DEFAULTS.timeoutMs, 30_000),
+    timeoutMs: LIVE_CHECK_DEFAULTS.sourceTimeoutMs,
     accept: "application/xml,text/xml,text/plain,*/*",
   });
 } catch (error) {
