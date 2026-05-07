@@ -28,7 +28,7 @@ if (sourceIssue) {
 let llmsResponse;
 try {
   llmsResponse = await fetchNoRedirect(sourceUrl, {
-    timeoutMs: Math.max(LIVE_CHECK_DEFAULTS.timeoutMs, 30_000),
+    timeoutMs: LIVE_CHECK_DEFAULTS.sourceTimeoutMs,
     accept: "text/plain,text/markdown,*/*",
   });
 } catch (error) {

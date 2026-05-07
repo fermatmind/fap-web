@@ -14,6 +14,7 @@ async function loadLiveUrlCheck(): Promise<{
   checkLiveUrl: (url: string, options?: Record<string, unknown>) => Promise<unknown>;
   fetchNoRedirect: (url: string, options?: Record<string, unknown>) => Promise<unknown>;
   getUnsafeLiveFetchIssue: (url: string, options?: Record<string, unknown>) => unknown;
+  LIVE_CHECK_DEFAULTS: { concurrency: number; timeoutMs: number; sourceTimeoutMs: number };
 }> {
   return import(liveUrlCheckModule);
 }
@@ -73,9 +74,71 @@ describe("CI validator hygiene", () => {
     expect(fetchMock).toHaveBeenCalledTimes(1);
   });
 
+  it("uses production-safe live validator defaults without disabling checks", async () => {
+    const { LIVE_CHECK_DEFAULTS } = await loadLiveUrlCheck();
+
+    expect(LIVE_CHECK_DEFAULTS.concurrency).toBe(2);
+    expect(LIVE_CHECK_DEFAULTS.timeoutMs).toBe(30_000);
+    expect(LIVE_CHECK_DEFAULTS.sourceTimeoutMs).toBe(60_000);
+  });
+
+  it("still fails bad live URLs after timeout policy tuning", async () => {
+    const { checkLiveUrl } = await loadLiveUrlCheck();
+
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () => new Response("not found", { status: 404, headers: { "content-type": "text/plain" } }))
+    );
+    await expect(checkLiveUrl("https://fermatmind.com/missing")).resolves.toEqual({
+      url: "https://fermatmind.com/missing",
+      reasons: [{ reason: "bad-status", detail: "status=404" }],
+    });
+
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () =>
+        new Response(
+          '<!doctype html><html><head><link rel="canonical" href="https://fermatmind.com/noindex" /></head><body>noindex</body></html>',
+          {
+            status: 200,
+            headers: {
+              "content-type": "text/html; charset=utf-8",
+              "x-robots-tag": "noindex, nofollow",
+            },
+          }
+        )
+      )
+    );
+    await expect(checkLiveUrl("https://fermatmind.com/noindex")).resolves.toEqual({
+      url: "https://fermatmind.com/noindex",
+      reasons: [{ reason: "x-robots-noindex", detail: "noindex, nofollow" }],
+    });
+
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () =>
+        new Response(
+          '<!doctype html><html><head><link rel="canonical" href="https://fermatmind.com/canonical-target" /></head><body>wrong canonical</body></html>',
+          {
+            status: 200,
+            headers: {
+              "content-type": "text/html; charset=utf-8",
+            },
+          }
+        )
+      )
+    );
+    await expect(checkLiveUrl("https://fermatmind.com/canonical-source")).resolves.toEqual({
+      url: "https://fermatmind.com/canonical-source",
+      reasons: [{ reason: "non-canonical", detail: "https://fermatmind.com/canonical-target" }],
+    });
+  });
+
   it("preflights live validator source URLs before downloading documents", () => {
     expect(read("scripts/seo/assert-live-sitemap-clean.mjs")).toContain("getUnsafeLiveFetchIssue(sourceUrl)");
     expect(read("scripts/seo/assert-live-llms-clean.mjs")).toContain("getUnsafeLiveFetchIssue(sourceUrl)");
+    expect(read("scripts/seo/assert-live-sitemap-clean.mjs")).toContain("LIVE_CHECK_DEFAULTS.sourceTimeoutMs");
+    expect(read("scripts/seo/assert-live-llms-clean.mjs")).toContain("LIVE_CHECK_DEFAULTS.sourceTimeoutMs");
   });
 
   it("keeps AI-assisted PR train guardrails explicit", () => {
