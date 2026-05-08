@@ -1,0 +1,167 @@
+{
+  "version": "uasp.signal_contract_schema.v1",
+  "scope": "PR-UASP-01",
+  "trainName": "universal-assessment-signal-platform-v1-train",
+  "manualDecisionVersion": "uasp.manual-decision.v1",
+  "runtimeBehaviorChanged": false,
+  "sourceFiles": [
+    "/Users/rainie/Desktop/UASP_v1_manual_decision_for_codex.md",
+    "/Users/rainie/Desktop/uasp_v1_manual_decision_enums.json"
+  ],
+  "contractFields": [
+    "scale_code",
+    "scale_slug",
+    "form_code",
+    "signal_type",
+    "result_shape",
+    "stability",
+    "sensitivity",
+    "decision_domains",
+    "claim_level",
+    "profile_contribution",
+    "recommendation_eligible",
+    "report_eligible",
+    "seo_geo_eligible",
+    "freemium_status",
+    "evidence_required",
+    "disclaimer_required",
+    "runtime_authority_owner",
+    "frontend_fallback_policy",
+    "version",
+    "locale_support",
+    "source_authority",
+    "rollback_policy"
+  ],
+  "enums": {
+    "signal_type": [
+      "identity",
+      "trait",
+      "interest",
+      "ability",
+      "emotion",
+      "relationship",
+      "workstyle",
+      "motivation",
+      "state",
+      "value",
+      "learning"
+    ],
+    "result_shape": [
+      "type",
+      "vector",
+      "band",
+      "score",
+      "facet_vector",
+      "profile",
+      "hybrid",
+      "state",
+      "ability_estimate",
+      "ranked_profile"
+    ],
+    "stability": [
+      "stable_trait",
+      "semi_stable_preference",
+      "temporary_state",
+      "ability_estimate",
+      "contextual_pattern",
+      "developmental",
+      "unknown"
+    ],
+    "sensitivity": [
+      "normal",
+      "sensitive",
+      "mental_health_sensitive",
+      "ability_sensitive",
+      "minor_sensitive",
+      "workplace_sensitive",
+      "relationship_sensitive"
+    ],
+    "profile_contribution": [
+      "none",
+      "summary_only",
+      "longitudinal",
+      "sensitive_opt_in",
+      "ephemeral",
+      "blocked"
+    ],
+    "decision_domain": [
+      "self_understanding",
+      "career_decision",
+      "workstyle_decision",
+      "relationship_decision",
+      "learning_growth",
+      "emotional_state",
+      "ability_growth",
+      "team_communication",
+      "leadership_growth",
+      "life_direction"
+    ],
+    "claim_level": [
+      "descriptive",
+      "interpretive",
+      "directional",
+      "decision_support",
+      "recommendation_candidate",
+      "forbidden"
+    ],
+    "recommendation_eligible": [
+      "not_eligible",
+      "explanation_only",
+      "next_step_only",
+      "candidate_signal",
+      "eligible_with_guard"
+    ],
+    "seo_geo_eligible": [
+      "not_eligible",
+      "seo_only",
+      "geo_candidate",
+      "llms_eligible",
+      "llms_full_eligible",
+      "private_noindex"
+    ],
+    "freemium_status": [
+      "not_monetized",
+      "free_only",
+      "backend_ready",
+      "frontend_partial",
+      "full_loop",
+      "bundle_candidate",
+      "blocked"
+    ]
+  },
+  "defaultsForFutureScale": {
+    "recommendation_eligible": "not_eligible",
+    "seo_geo_eligible": "not_eligible",
+    "profile_contribution": "none",
+    "freemium_status": "blocked",
+    "claim_level": "descriptive",
+    "stability": "unknown",
+    "report_eligible": false,
+    "evidence_required": true,
+    "disclaimer_required": false,
+    "frontend_fallback_policy": "forbidden_for_new_surface"
+  },
+  "hardRules": [
+    "A scale cannot be public-catalog-ready without UASP signal contract.",
+    "A scale cannot be recommendation-ready without claim + evidence + graph + runtime support.",
+    "A scale cannot be SEO/GEO-ready without evidence + discoverability + claim boundary.",
+    "A scale cannot be monetization-ready without freemium parity proof.",
+    "A scale cannot enter long-term profile without profile_contribution policy.",
+    "Sensitive scales require sensitivity policy and disclaimer rules.",
+    "Mental-health-sensitive scales must not be diagnostic.",
+    "Ability-sensitive scales must not evaluate human worth.",
+    "Frontend fallback cannot become scale authority."
+  ],
+  "mustNotChange": [
+    "runtime",
+    "public routes",
+    "sitemap output",
+    "llms output",
+    "scoring",
+    "report entitlement",
+    "checkout/payment",
+    "profile runtime",
+    "recommendation runtime",
+    "SEO/GEO exposure"
+  ]
+}
