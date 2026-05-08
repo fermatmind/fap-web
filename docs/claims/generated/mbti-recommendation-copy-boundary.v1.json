@@ -1,0 +1,87 @@
+{
+  "version": "claims.mbti_recommendation_copy_boundary.v1",
+  "scope": "PR-SCB-03",
+  "trainName": "semantic-claim-boundary-enforcement-train",
+  "dependsOn": ["PR-SCB-02"],
+  "runtimeBehaviorChanged": false,
+  "executionMode": "contract_guard_only",
+  "claimStatusEnum": ["allowed", "soft_allowed", "needs_disclaimer", "internal_only", "forbidden", "unknown"],
+  "priorityEnum": ["P0", "P1", "P2", "P3"],
+  "scannerCategories": ["forbidden", "soft_boundary", "needs_disclaimer", "allowed_reference", "manual_review"],
+  "sourceArtifacts": [
+    "docs/assessment/uasp/generated/recommendation-eligibility-guard.v1.json",
+    "docs/claims/generated/public-claim-boundary-matrix.v1.json",
+    "docs/claims/generated/semantic-claim-scanner-baseline.v1.json",
+    "docs/claims/generated/riasec-bigfive-boundary-guards.v1.json"
+  ],
+  "runtimeScanScope": {
+    "repoLocal": ["app/**", "components/**", "lib/**", "docs/seo/**", "docs/geo/**", "docs/freemium/**"],
+    "excluded": ["docs/claims/**", "tests/contracts/**", "docs/codex/**", "**/generated/**"],
+    "matchMode": "exact_phrase",
+    "softLanguageMode": "inventory_only"
+  },
+  "guard": {
+    "id": "mbti_snapshot_next_step_not_live_recommender",
+    "scale_code": "MBTI",
+    "signal_type": "identity",
+    "recommendation_eligible": "next_step_only",
+    "status": "forbidden",
+    "priority": "P0",
+    "allowedUse": "snapshot_based_career_direction_support",
+    "notAllowedUse": ["live_personalized_recommender", "career_success_predictor", "precise_career_recommendation"],
+    "forbiddenPhrases": [
+      "live personalized recommender",
+      "实时个性化职业推荐",
+      "精准职业推荐",
+      "精准匹配职业",
+      "最佳职业预测",
+      "最适合职业",
+      "职业成功预测",
+      "MBTI predicts career success"
+    ],
+    "allowedBoundedPhrases": ["职业方向参考", "探索路径", "职业探索建议", "snapshot-based direction support", "基于当前公开快照的方向支持", "decision support", "next step"],
+    "runtimeBehaviorChange": "none"
+  },
+  "softBoundaryPhrases": ["career recommendation", "职业推荐", "recommendations", "match best", "高匹配方向"],
+  "softLanguageInventory": [
+    {
+      "phrase": "高匹配方向",
+      "status": "needs_disclaimer",
+      "category": "needs_disclaimer",
+      "evidence": "components/result/mbti/MbtiResultShell.tsx contains this phrase in next-step copy; this PR inventories it without rewriting visible copy."
+    },
+    {
+      "phrase": "match best",
+      "status": "needs_disclaimer",
+      "category": "needs_disclaimer",
+      "evidence": "components/result/mbti/MbtiResultShell.tsx contains this phrase in next-step copy; this PR inventories it without rewriting visible copy."
+    },
+    {
+      "phrase": "career recommendation / 职业推荐",
+      "status": "soft_allowed",
+      "category": "soft_boundary",
+      "evidence": "app/(localized)/[locale]/career/recommendations/page.tsx states recommendations narrow the field and do not decide for the user."
+    }
+  ],
+  "allowedBoundaryOccurrences": [
+    {
+      "phrase": "live personalized recommender",
+      "file": "lib/geo/evidenceContainer.ts",
+      "reason": "The phrase appears only in an explicit negated boundary note: career recommendation must not imply a live personalized recommender."
+    }
+  ],
+  "assertions": {
+    "mbtiRecommendationEligible": "next_step_only",
+    "mbtiRecommendationIsSnapshotDirectionSupport": true,
+    "snapshotRecommendationIsNotLivePersonalizedRecommender": true,
+    "mbtiDoesNotPredictCareerSuccess": true,
+    "forbiddenPhrasesFailRuntimeScan": true,
+    "softBoundaryPhrasesInventoriedNotRewritten": true,
+    "visibleCopyChanged": false,
+    "recommendationRuntimeChanged": false,
+    "careerRecommendationBundleChanged": false,
+    "matchedJobsChanged": false,
+    "scoringChanged": false,
+    "explainabilityChanged": false
+  }
+}
