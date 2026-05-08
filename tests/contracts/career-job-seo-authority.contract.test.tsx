@@ -251,7 +251,7 @@ describe("career job seo.surface.v1 authority contract", () => {
     expect(html).not.toContain("Bundle Occupation");
   });
 
-  it("does not render backend Occupation JSON-LD when career trust gates block structured data", async () => {
+  it("keeps robots on backend SEO authority when career trust gates block structured data", async () => {
     vi.doMock("next/link", () => ({
       default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
         <a href={href} {...props}>
@@ -300,7 +300,7 @@ describe("career job seo.surface.v1 authority contract", () => {
     });
     const html = renderToStaticMarkup(page as ReactNode);
 
-    expect(metadata.robots).toMatchObject({ index: false });
+    expect(metadata.robots).toMatchObject({ index: true, follow: true });
     expect(html).not.toContain('"@type":"Occupation"');
     expect(html).not.toContain('"name":"会计师和审计师"');
   });

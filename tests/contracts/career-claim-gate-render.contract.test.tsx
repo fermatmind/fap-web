@@ -248,6 +248,96 @@ describe("career claim gate render contract", () => {
     expect(html).not.toContain("Backend score dimensions");
   });
 
+  it("uses backend SEO contract for robots while keeping trust and claim gates on content", async () => {
+    vi.doMock("next/link", () => ({
+      default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
+        <a href={href} {...props}>
+          {children}
+        </a>
+      ),
+    }));
+    vi.doMock("next/navigation", async () => {
+      const actual = await vi.importActual<typeof import("next/navigation")>("next/navigation");
+      return {
+        ...actual,
+        notFound: vi.fn(() => {
+          throw new Error("not-found");
+        }),
+        usePathname: vi.fn(() => "/en/career/jobs/actors"),
+      };
+    });
+    vi.doMock("@/lib/i18n/getDict", () => ({
+      resolveLocale: vi.fn(() => "en"),
+    }));
+    vi.doMock("@/lib/i18n/locales", async () => {
+      const actual = await vi.importActual<typeof import("@/lib/i18n/locales")>("@/lib/i18n/locales");
+      return {
+        ...actual,
+        localizedPath: vi.fn((pathname: string, locale: string) => `/${locale}${pathname}`),
+      };
+    });
+    vi.doMock("@/lib/career/api/fetchCareerJobBundle", () => ({
+      fetchCareerJobBundle: vi.fn(async () => ({
+        identity: {
+          canonical_slug: "actors",
+        },
+        titles: {
+          canonical_en: "Actors",
+        },
+        truth_layer: {
+          summary: "Claim-gated actors summary should stay hidden.",
+        },
+        content_body_md: "# Actors\n\nClaim-gated DOCX body should stay hidden.",
+        claim_permissions: {
+          allow_strong_claim: false,
+          allow_salary_comparison: false,
+          allow_ai_strategy: false,
+          allow_transition_recommendation: false,
+          allow_cross_market_pay_copy: false,
+          reason_codes: ["display_asset_claim_permissions_required"],
+        },
+        trust_manifest: {
+          reviewer_status: "pending",
+          reviewed: false,
+          quality: {
+            complete: false,
+            reviewed: false,
+            stale: false,
+            blocked_reasons: ["compiled_recommendation_snapshot_missing"],
+          },
+        },
+        seo_contract: {
+          canonical_path: "/career/jobs/actors",
+          canonical_target: "/career/jobs/actors",
+          index_state: "indexable",
+          index_eligible: true,
+          robots_policy: "index,follow",
+          reason_codes: ["validated_display_asset_backed_release", "runtime_publish_projection"],
+        },
+      })),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerJobExplainability", () => ({
+      fetchCareerJobExplainability: vi.fn(async () => null),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerFirstWaveNextStepLinks", () => ({
+      fetchCareerFirstWaveNextStepLinks: vi.fn(async () => null),
+    }));
+
+    const { default: CareerJobDetailPage, generateMetadata } = await import("@/app/(localized)/[locale]/career/jobs/[slug]/page");
+    const page = await CareerJobDetailPage({
+      params: Promise.resolve({ locale: "en", slug: "actors" }),
+    });
+    const html = renderToStaticMarkup(page as ReactNode);
+    const metadata = await generateMetadata({
+      params: Promise.resolve({ locale: "en", slug: "actors" }),
+    });
+
+    expect(html).toContain("data-renderer-state=\"blocked\"");
+    expect(html).not.toContain("Claim-gated actors summary should stay hidden.");
+    expect(html).not.toContain("Claim-gated DOCX body should stay hidden.");
+    expect(metadata.robots).toEqual(expect.objectContaining({ index: true, follow: true }));
+  });
+
   it("renders DOCX job content and structured data after trust and claim gates pass", async () => {
     vi.doMock("next/link", () => ({
       default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
