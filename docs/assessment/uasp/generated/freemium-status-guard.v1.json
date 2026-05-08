@@ -1,0 +1,124 @@
+{
+  "version": "uasp.freemium_status_guard.v1",
+  "scope": "PR-UASP2B-04",
+  "trainName": "uasp-runtime-metadata-integration-train",
+  "dependsOn": [
+    "PR-UASP2B-03"
+  ],
+  "runtimeBehaviorChanged": false,
+  "executionMode": "contract_only",
+  "checkoutChanged": false,
+  "paymentChanged": false,
+  "skuChanged": false,
+  "entitlementChanged": false,
+  "reportAccessChanged": false,
+  "offerCardChanged": false,
+  "paywallUiChanged": false,
+  "commerceRuntimeChanged": false,
+  "sourceArtifacts": [
+    "docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json",
+    "docs/assessment/uasp/generated/uasp-eligibility-guards.v1.json",
+    "docs/freemium/generated/freemium-cross-scale-parity-ledger.v1.json"
+  ],
+  "fullLoopRequiredCapabilities": [
+    "free_result",
+    "locked_report",
+    "offer_card",
+    "SKU",
+    "checkout",
+    "order_wait",
+    "entitlement_unlock",
+    "PDF_report_access",
+    "history",
+    "attribution"
+  ],
+  "guardRules": [
+    {
+      "id": "full_loop_requires_parity_proof",
+      "rule": "full_loop requires all freemium parity proof capabilities.",
+      "blocksWhen": "A scale is marked full_loop without every required capability proven."
+    },
+    {
+      "id": "future_scale_default_blocked",
+      "rule": "Future scales default to blocked.",
+      "blocksWhen": "A future scale is marked monetization-ready without parity evidence."
+    },
+    {
+      "id": "backend_ready_not_full_loop",
+      "rule": "backend_ready is not monetization-ready.",
+      "blocksWhen": "Backend readiness is used as public checkout or conversion proof."
+    },
+    {
+      "id": "frontend_partial_not_full_loop",
+      "rule": "frontend_partial is not full-loop parity.",
+      "blocksWhen": "Partial frontend evidence is used as commerce readiness."
+    },
+    {
+      "id": "sku_exists_not_full_loop",
+      "rule": "SKU existence is not proof of full loop.",
+      "blocksWhen": "A backend SKU is used as checkout, entitlement, or public funnel proof."
+    },
+    {
+      "id": "offer_card_not_full_loop",
+      "rule": "Offer card existence is not proof of full loop.",
+      "blocksWhen": "Offer card presence is used as checkout or entitlement proof."
+    }
+  ],
+  "firstBatchFreemiumStatus": [
+    {
+      "scale_code": "MBTI",
+      "uaspFreemiumStatus": "full_loop",
+      "parityLedgerStatus": "full_loop",
+      "guardStatus": "reference_full_loop",
+      "commerceBehaviorChange": "none"
+    },
+    {
+      "scale_code": "BIG5_OCEAN",
+      "uaspFreemiumStatus": "frontend_partial",
+      "parityLedgerStatus": "cross_scale_partial",
+      "guardStatus": "not_full_loop",
+      "commerceBehaviorChange": "none"
+    },
+    {
+      "scale_code": "RIASEC",
+      "uaspFreemiumStatus": "frontend_partial",
+      "parityLedgerStatus": "frontend_partial",
+      "guardStatus": "not_full_loop",
+      "commerceBehaviorChange": "none"
+    },
+    {
+      "scale_code": "ENNEAGRAM",
+      "uaspFreemiumStatus": "backend_ready",
+      "parityLedgerStatus": "not_in_parity_ledger",
+      "guardStatus": "backend_ready_not_full_loop",
+      "commerceBehaviorChange": "none"
+    },
+    {
+      "scale_code": "FUTURE_SCALE_PLACEHOLDER",
+      "uaspFreemiumStatus": "blocked",
+      "parityLedgerStatus": "blocked",
+      "guardStatus": "blocked_until_parity_proof",
+      "commerceBehaviorChange": "none"
+    }
+  ],
+  "nonEquivalences": [
+    "offer_card_is_not_checkout_parity",
+    "backend_sku_is_not_public_funnel_proof",
+    "entitlement_is_not_full_conversion_loop_proof",
+    "report_access_is_not_checkout_parity",
+    "backend_ready_is_not_monetization_ready",
+    "frontend_partial_is_not_full_loop"
+  ],
+  "mustNotChange": [
+    "checkout",
+    "payment",
+    "SKU",
+    "entitlement",
+    "report access",
+    "offer cards",
+    "paywall UI",
+    "commerce runtime",
+    "report unlock behavior",
+    "product catalog behavior"
+  ]
+}

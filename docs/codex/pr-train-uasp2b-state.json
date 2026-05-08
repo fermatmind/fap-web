@@ -123,14 +123,23 @@
         "PR-UASP2B-02"
       ],
       "mode": "contract_only",
-      "status": "in_progress",
+      "status": "merged",
       "title": "test(seo): add UASP SEO GEO eligibility guard",
       "artifacts": [
         "docs/assessment/uasp/seo-geo-eligibility-guard.md",
         "docs/assessment/uasp/generated/seo-geo-eligibility-guard.v1.json",
         "tests/contracts/uasp-seo-geo-eligibility-guard.contract.test.ts"
       ],
-      "checks": [],
+      "checks": [
+        {
+          "command": "pnpm vitest run tests/contracts/uasp-seo-geo-eligibility-guard.contract.test.ts",
+          "status": "passed"
+        },
+        {
+          "command": "pnpm typecheck && pnpm test:contract && pnpm seo:generate-sitemap && pnpm seo:check-sitemap",
+          "status": "passed"
+        }
+      ],
       "sidecar_issues": []
     },
     {
@@ -143,7 +152,7 @@
         "PR-UASP2B-03"
       ],
       "mode": "contract_only",
-      "status": "planned",
+      "status": "in_progress",
       "title": "test(freemium): add UASP freemium status guard",
       "artifacts": [
         "docs/assessment/uasp/freemium-status-guard.md",
