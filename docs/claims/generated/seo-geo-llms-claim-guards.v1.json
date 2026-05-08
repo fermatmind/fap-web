@@ -1,0 +1,71 @@
+{
+  "version": "claims.seo_geo_llms_claim_guards.v1",
+  "scope": "PR-SCB-05",
+  "trainName": "semantic-claim-boundary-enforcement-train",
+  "dependsOn": ["PR-SCB-04"],
+  "runtimeBehaviorChanged": false,
+  "executionMode": "contract_guard_only",
+  "claimStatusEnum": ["allowed", "soft_allowed", "needs_disclaimer", "internal_only", "forbidden", "unknown"],
+  "priorityEnum": ["P0", "P1", "P2", "P3"],
+  "scannerCategories": ["forbidden", "soft_boundary", "needs_disclaimer", "allowed_reference", "manual_review"],
+  "sourceArtifacts": [
+    "docs/assessment/uasp/generated/seo-geo-eligibility-guard.v1.json",
+    "docs/seo/generated/discoverability-authority-matrix.v1.json",
+    "docs/geo/generated/evidence-container-runtime-baseline.v1.json",
+    "docs/claims/generated/career-fit-graph-ai-claim-guards.v1.json"
+  ],
+  "forbiddenPhrases": [
+    "sitemap equals graph",
+    "llms equals graph",
+    "JSON-LD proves graph",
+    "FAQ-only is evidence-ready",
+    "hidden schema is evidence",
+    "AI answerability equals AI planning",
+    "llms-full proves strong citation",
+    "schema guarantees AI citation"
+  ],
+  "allowedBoundaries": [
+    "sitemap = discoverability surface",
+    "llms = AI/GEO entry surface",
+    "llms-full = enriched readable context only when evidence-gated",
+    "JSON-LD = structured data, not graph proof",
+    "FAQ = visible answer block only if grounded",
+    "Evidence Container = visible content + source/evidence alignment"
+  ],
+  "guardRules": [
+    {
+      "id": "faq_only_not_evidence_ready",
+      "status": "forbidden",
+      "priority": "P0",
+      "rule": "FAQ-only cannot be represented as Evidence-ready."
+    },
+    {
+      "id": "hidden_schema_not_evidence",
+      "status": "forbidden",
+      "priority": "P0",
+      "rule": "Hidden schema cannot be represented as Evidence."
+    },
+    {
+      "id": "llms_full_requires_visible_evidence_claim_source",
+      "status": "forbidden",
+      "priority": "P0",
+      "rule": "llms-full eligibility requires visible evidence, claim boundary, and source authority."
+    },
+    {
+      "id": "seo_geo_guard_no_exposure_widening",
+      "status": "forbidden",
+      "priority": "P0",
+      "rule": "Claim guard must not widen sitemap, llms, llms-full, JSON-LD, or metadata exposure."
+    }
+  ],
+  "nonRuntimeChangeGuarantees": {
+    "sitemapOutputChanged": false,
+    "llmsOutputChanged": false,
+    "llmsFullOutputChanged": false,
+    "jsonLdOutputChanged": false,
+    "metadataOutputChanged": false,
+    "evidenceRenderingChanged": false,
+    "hiddenSchemaAdded": false,
+    "seoGeoExposureWidened": false
+  }
+}
