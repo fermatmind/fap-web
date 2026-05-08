@@ -8,25 +8,25 @@
     "scanner": "scripts/seo/generate-metadata-surface-inventory.mjs"
   },
   "summary": {
-    "totalSurfaces": 71,
+    "totalSurfaces": 72,
     "byClassification": {
       "private_noindex": 22,
       "product_code_only": 17,
       "safe_static": 11,
       "migration_required": 2,
-      "cms_backed": 12,
+      "cms_backed": 13,
       "backend_owned": 5,
       "watchlist": 2
     },
     "byOwnership": {
       "private_noindex": 22,
       "product_code_only": 18,
-      "cms_backed": 26,
+      "cms_backed": 27,
       "backend_owned": 5
     },
     "byRouteFamily": {
       "private_flow": 22,
-      "other": 7,
+      "other": 8,
       "static_content_page": 10,
       "article_detail": 2,
       "articles_hub": 1,
@@ -55,7 +55,7 @@
     "migrationRequiredSurfaces": 2,
     "watchlistSurfaces": 2,
     "privateNoindexSurfaces": 22,
-    "frontendJsonLdFallbackSurfaces": 19
+    "frontendJsonLdFallbackSurfaces": 20
   },
   "rows": [
     {
@@ -653,6 +653,21 @@
       "rendersJsonLd": false,
       "hasFrontendJsonLdBuilderFallback": false,
       "noindexSignal": false,
+      "ownership": "cms_backed",
+      "classification": "cms_backed",
+      "risk": "P2",
+      "reason": "Route metadata is derived from CMS/public API data."
+    },
+    {
+      "file": "app/(localized)/[locale]/method-boundaries/page.tsx",
+      "routePattern": "/method-boundaries",
+      "routeFamily": "other",
+      "exportKind": "generateMetadata",
+      "usesBuildPageMetadata": true,
+      "usesSeoSurface": false,
+      "rendersJsonLd": true,
+      "hasFrontendJsonLdBuilderFallback": true,
+      "noindexSignal": true,
       "ownership": "cms_backed",
       "classification": "cms_backed",
       "risk": "P2",

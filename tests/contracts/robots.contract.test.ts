@@ -43,6 +43,8 @@ describe("robots contract", () => {
     expect(shouldIncludeInSitemap("/en/personality/intj")).toBe(true);
     expect(shouldIncludeInSitemap("/zh/topics/mbti")).toBe(true);
     expect(shouldIncludeInSitemap("/en/help/faq")).toBe(true);
+    expect(shouldIncludeInSitemap("/en/method-boundaries")).toBe(true);
+    expect(shouldIncludeInSitemap("/zh/method-boundaries")).toBe(true);
     expect(shouldIncludeInSitemap("/en/career/recommendations/mbti/INTJ")).toBe(true);
     expect(shouldIncludeInSitemap("/en/career/jobs")).toBe(false);
     expect(shouldIncludeInSitemap("/zh/career/jobs")).toBe(false);
@@ -70,6 +72,8 @@ describe("robots contract", () => {
     expect(shouldNoindex("/en/share/share-123", "en")).toBe(true);
     expect(shouldNoindex("/en/result/attempt-123", "en")).toBe(true);
     expect(shouldNoindex("/en/results/lookup", "en")).toBe(true);
+    expect(shouldNoindex("/en/method-boundaries", "en")).toBe(false);
+    expect(shouldNoindex("/zh/method-boundaries", "zh")).toBe(false);
     expect(shouldNoindex("/en/career/jobs?q=backend", "en")).toBe(true);
     expect(shouldNoindex("/zh/fun/sbti", "zh", undefined, { indexEligible: false, indexState: "noindex" })).toBe(true);
   });
