@@ -1,0 +1,100 @@
+{
+  "version": "core_decision_domain.evidence_cta_policy.v1",
+  "scope": "PR-CDD-03",
+  "trainName": "core-decision-domain-governance-train",
+  "dependsOn": [
+    "PR-CDD-02"
+  ],
+  "runtimeBehaviorChanged": false,
+  "executionMode": "artifact_json_contract_only",
+  "domains": [
+    "self_understanding",
+    "career_decision",
+    "workstyle_decision"
+  ],
+  "globalRules": [
+    "FAQ-only is not enough.",
+    "Evidence must be visible.",
+    "Evidence must be backed by Answer Surface, Evidence Container, backend/CMS authority, or artifact-approved source authority.",
+    "CTA must be backend/CMS-owned or artifact-governed.",
+    "Frontend fallback CTA cannot become domain authority.",
+    "Private result/pay/order/take flows are not public evidence targets.",
+    "No new CTA runtime."
+  ],
+  "sourceArtifacts": [
+    "docs/geo/generated/evidence-container-runtime-baseline.v1.json",
+    "docs/runtime/generated/fallback-owner-gates.v1.json",
+    "docs/runtime/generated/frontend-fallback-authority-inventory.v1.json",
+    "docs/assessment/domains/generated/core-decision-domain-v1.json",
+    "docs/assessment/domains/generated/signal-to-domain-role-matrix.v1.json"
+  ],
+  "policies": [
+    {
+      "domain_id": "self_understanding",
+      "evidence_requirement": "Visible result, report, personality, topic, article, answer surface, or Evidence Container support required before public domain claims.",
+      "answer_surface_requirement": "answer_surface_v1 or equivalent visible report/result explanation.",
+      "FAQ_requirement": "FAQ can support but cannot be the sole evidence source.",
+      "CTA_policy": "Existing test/report/personality CTAs remain source-owned; no domain-owned runtime CTA yet.",
+      "next_step_policy": "Next steps may point to existing tests, reports, or public source-owned surfaces only.",
+      "private_flow_policy": "Private result/pay/order/take flows are not public evidence targets.",
+      "fallback_policy": "Frontend fallback CTA cannot become domain authority.",
+      "page_family_candidates": [
+        "test_detail",
+        "personality_detail",
+        "topic_detail",
+        "article_detail",
+        "result_report"
+      ],
+      "domain_owned_CTA_status": "blocked",
+      "evidence_status": "partial",
+      "CTA_status": "partial"
+    },
+    {
+      "domain_id": "career_decision",
+      "evidence_requirement": "Career direction claims require visible career evidence, explainability, caveat, and source authority.",
+      "answer_surface_requirement": "Career job/recommendation answer or evidence block with visible caveat.",
+      "FAQ_requirement": "FAQ can support but cannot be the sole evidence source.",
+      "CTA_policy": "MBTI recommendation CTAs remain snapshot/direction only; no generalized recommender CTA.",
+      "next_step_policy": "Next steps may support exploration or validation, not precise recommendation.",
+      "private_flow_policy": "Private result/pay/order/take flows are not public evidence targets.",
+      "fallback_policy": "Frontend career CTA fallback cannot become domain authority.",
+      "page_family_candidates": [
+        "test_detail",
+        "career_job_detail",
+        "career_recommendation_detail",
+        "career_guide",
+        "result_report"
+      ],
+      "domain_owned_CTA_status": "blocked",
+      "evidence_status": "partial",
+      "CTA_status": "partial"
+    },
+    {
+      "domain_id": "workstyle_decision",
+      "evidence_requirement": "Visible result/report or answer evidence required before workplace claims.",
+      "answer_surface_requirement": "Workstyle explanation must be visible and scale-authoritative.",
+      "FAQ_requirement": "FAQ can support but cannot be the sole evidence source.",
+      "CTA_policy": "No domain-owned workstyle CTA yet; future DISC/EQ CTAs remain blocked placeholders.",
+      "next_step_policy": "Next steps may support reflection or report review only.",
+      "private_flow_policy": "Private result/pay/order/take flows are not public evidence targets.",
+      "fallback_policy": "Frontend workstyle CTA fallback cannot become domain authority.",
+      "page_family_candidates": [
+        "test_detail",
+        "result_report",
+        "topic_detail",
+        "article_detail"
+      ],
+      "domain_owned_CTA_status": "blocked",
+      "evidence_status": "partial",
+      "CTA_status": "partial"
+    }
+  ],
+  "mustNotChange": [
+    "CTA rendering",
+    "CTA copy",
+    "Evidence rendering",
+    "Evidence Container runtime",
+    "runtime pages",
+    "private flows"
+  ]
+}
