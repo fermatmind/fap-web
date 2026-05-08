@@ -189,15 +189,15 @@ test("desktop header dropdown opens and closes by click and Escape", async ({ pa
   await page.setViewportSize({ width: 1400, height: 900 });
   await page.goto("/en");
 
-  const testsTrigger = page.getByRole("navigation").getByRole("button", { name: "Tests", exact: true });
+  const testsTrigger = page.getByRole("navigation").getByRole("button", { name: "Tests menu", exact: true });
   await testsTrigger.click();
-  await expect(page.getByRole("menuitem", { name: "All tests", exact: true })).toBeVisible();
+  await expect(page.getByRole("menuitem", { name: "Tests hub", exact: true })).toBeVisible();
 
   await page.keyboard.press("Escape");
-  await expect(page.getByRole("menuitem", { name: "All tests", exact: true })).toHaveCount(0);
+  await expect(page.getByRole("menuitem", { name: "Tests hub", exact: true })).toHaveCount(0);
 
   await testsTrigger.click();
-  await expect(page.getByRole("menuitem", { name: "All tests", exact: true })).toBeVisible();
+  await expect(page.getByRole("menuitem", { name: "Tests hub", exact: true })).toBeVisible();
   await page.mouse.click(20, 20);
-  await expect(page.getByRole("menuitem", { name: "All tests", exact: true })).toHaveCount(0);
+  await expect(page.getByRole("menuitem", { name: "Tests hub", exact: true })).toHaveCount(0);
 });
