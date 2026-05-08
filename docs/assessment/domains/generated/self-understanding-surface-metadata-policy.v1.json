@@ -1,0 +1,167 @@
+{
+  "version": "decision_domain.self_understanding_surface_metadata_policy.v1",
+  "scope": "PR-4B-03",
+  "trainName": "domain-runtime-metadata-integration-train",
+  "dependsOn": [
+    "PR-4B-02"
+  ],
+  "runtimeBehaviorChanged": false,
+  "executionMode": "artifact_json_contract_only",
+  "domain": "self_understanding",
+  "runtimeReadiness": "partial",
+  "runtimeRecommendation": "existing_result_report_only",
+  "phase4bDecision": "existing-surface metadata policy only; no runtime surface changes",
+  "statusEnum": [
+    "ready_for_runtime_v1",
+    "ready_for_metadata_only",
+    "partial",
+    "artifact_only",
+    "backend_ready",
+    "frontend_partial",
+    "blocked",
+    "dangerous_if_integrated",
+    "requires_human_decision",
+    "safe_to_defer",
+    "unknown"
+  ],
+  "runtimeRecommendationEnum": [
+    "no_runtime",
+    "metadata_only",
+    "data_attribute_only",
+    "existing_surface_only",
+    "existing_result_report_only",
+    "existing_cta_guard_only",
+    "future_runtime_candidate",
+    "blocked"
+  ],
+  "sourceArtifacts": [
+    "docs/assessment/domains/generated/core-decision-domain-v1.json",
+    "docs/assessment/domains/generated/signal-to-domain-role-matrix.v1.json",
+    "docs/assessment/domains/generated/domain-evidence-cta-policy.v1.json",
+    "docs/assessment/domains/generated/domain-claim-boundary-overlay.v1.json",
+    "docs/assessment/domains/generated/decision-domain-runtime-metadata-envelope.v1.json",
+    "docs/assessment/domains/generated/result-report-domain-metadata-guard.v1.json",
+    "docs/assessment/uasp/generated/uasp-runtime-metadata-envelope.v1.json",
+    "docs/runtime/generated/fallback-owner-gates.v1.json",
+    "docs/geo/generated/evidence-container-runtime-baseline.v1.json",
+    "docs/seo/generated/discoverability-authority-matrix.v1.json"
+  ],
+  "allowedSignals": [
+    {
+      "scale_code": "MBTI",
+      "role": "primary",
+      "policy": "existing result/report and personality surfaces only"
+    },
+    {
+      "scale_code": "BIG5_OCEAN",
+      "role": "primary",
+      "policy": "existing result/report surfaces only"
+    },
+    {
+      "scale_code": "ENNEAGRAM",
+      "role": "supporting",
+      "policy": "existing result/report surfaces only"
+    },
+    {
+      "scale_code": "RIASEC",
+      "role": "supporting",
+      "policy": "supporting only if already present; not primary"
+    }
+  ],
+  "surfaceCandidates": [
+    {
+      "surface": "result_report",
+      "route": "/result/[id]",
+      "componentEvidence": [
+        "app/(localized)/[locale]/(app)/result/[id]/page.tsx",
+        "app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx",
+        "components/result/RichResultReport.tsx"
+      ],
+      "status": "partial",
+      "runtimeRecommendation": "existing_result_report_only",
+      "policy": "metadata-only candidate; no visible badge or copy"
+    },
+    {
+      "surface": "personality_detail",
+      "route": "/personality/[type]",
+      "componentEvidence": [
+        "app/(localized)/[locale]/personality/[type]/page.tsx",
+        "components/personality/PersonalityHeroExecutiveSummary.tsx",
+        "components/personality/PersonalityFaq.tsx"
+      ],
+      "status": "partial",
+      "runtimeRecommendation": "existing_surface_only",
+      "policy": "existing-surface-only; no new sections"
+    },
+    {
+      "surface": "topic_detail",
+      "route": "/topics/[slug]",
+      "componentEvidence": [
+        "app/(localized)/[locale]/topics/[slug]/page.tsx"
+      ],
+      "status": "partial",
+      "runtimeRecommendation": "existing_surface_only",
+      "policy": "existing-surface-only; no SEO/GEO widening"
+    },
+    {
+      "surface": "article_detail",
+      "route": "/articles/[slug]",
+      "componentEvidence": [
+        "app/(localized)/[locale]/articles/[slug]/page.tsx"
+      ],
+      "status": "partial",
+      "runtimeRecommendation": "existing_surface_only",
+      "policy": "existing-surface-only; no content rewrite"
+    },
+    {
+      "surface": "test_detail",
+      "route": "/tests/[slug]",
+      "componentEvidence": [
+        "app/(localized)/[locale]/tests/[slug]/page.tsx",
+        "app/(localized)/[locale]/test/[slug]/page.tsx"
+      ],
+      "status": "partial",
+      "runtimeRecommendation": "existing_surface_only",
+      "policy": "existing-surface-only; no CTA or copy change"
+    }
+  ],
+  "guardRules": [
+    "no_new_hub",
+    "no_new_public_route",
+    "no_decision_route",
+    "no_domains_route",
+    "no_visible_copy",
+    "no_visible_domain_badge",
+    "no_new_cta",
+    "no_cta_copy_change",
+    "no_seo_geo_expansion",
+    "no_sitemap_llms_url_set_change",
+    "evidence_remains_partial_unless_visible_evidence_exists",
+    "cta_existing_or_artifact_governed_only",
+    "frontend_fallback_not_domain_authority"
+  ],
+  "claimBoundaries": [
+    "no determinism",
+    "no diagnosis",
+    "no destiny framing",
+    "no personality entertainment framing"
+  ],
+  "mustNotChange": [
+    "personality pages",
+    "topic pages",
+    "test pages",
+    "article pages",
+    "result/report runtime",
+    "CTA runtime",
+    "CTA copy",
+    "SEO metadata",
+    "sitemap output",
+    "llms output",
+    "recommendation runtime",
+    "profile runtime",
+    "freemium runtime",
+    "checkout/payment",
+    "report entitlement",
+    "scoring"
+  ]
+}

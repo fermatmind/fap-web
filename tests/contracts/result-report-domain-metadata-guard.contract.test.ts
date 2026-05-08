@@ -78,11 +78,16 @@ describe("result/report decision domain metadata guard", () => {
       status: "merged",
       pr_url: "https://github.com/fermatmind/fap-web/pull/742",
     });
-    expect(byId.get("PR-4B-02")).toMatchObject({
-      status: "in_progress",
+    const pr4b02 = byId.get("PR-4B-02");
+    expect(pr4b02).toMatchObject({
       branch: "codex/pr-4b-02-result-report-domain-metadata-guard",
       depends_on: ["PR-4B-01"],
     });
+    expect(["in_progress", "merged"]).toContain(pr4b02?.status);
+    if (pr4b02?.status === "merged") {
+      expect(pr4b02.pr_url).toBe("https://github.com/fermatmind/fap-web/pull/743");
+      expect(pr4b02.merge_sha).toMatch(/^[0-9a-f]{40}$/);
+    }
   });
 
   it("defines a contract-only guard and approved enums", () => {
