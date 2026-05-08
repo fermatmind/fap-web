@@ -181,14 +181,23 @@
         "PR-UASP2B-04"
       ],
       "mode": "contract_only",
-      "status": "in_progress",
+      "status": "merged",
       "title": "test(recommendation): add UASP recommendation eligibility guard",
       "artifacts": [
         "docs/assessment/uasp/recommendation-eligibility-guard.md",
         "docs/assessment/uasp/generated/recommendation-eligibility-guard.v1.json",
         "tests/contracts/uasp-recommendation-eligibility-guard.contract.test.ts"
       ],
-      "checks": [],
+      "checks": [
+        {
+          "command": "pnpm vitest run tests/contracts/uasp-recommendation-eligibility-guard.contract.test.ts",
+          "status": "passed"
+        },
+        {
+          "command": "pnpm typecheck && pnpm test:contract && pnpm seo:generate-sitemap && pnpm seo:check-sitemap",
+          "status": "passed"
+        }
+      ],
       "sidecar_issues": []
     },
     {
@@ -201,7 +210,7 @@
         "PR-UASP2B-05"
       ],
       "mode": "ledger_blocker_only",
-      "status": "planned",
+      "status": "in_progress",
       "title": "test(profile): add UASP profile write blocker and memory readiness ledger",
       "artifacts": [
         "docs/assessment/uasp/profile-write-blocker-memory-readiness-ledger.md",
