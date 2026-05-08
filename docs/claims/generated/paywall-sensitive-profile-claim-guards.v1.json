@@ -1,0 +1,54 @@
+{
+  "version": "claims.paywall_sensitive_profile_claim_guards.v1",
+  "scope": "PR-SCB-06",
+  "trainName": "semantic-claim-boundary-enforcement-train",
+  "dependsOn": ["PR-SCB-05"],
+  "runtimeBehaviorChanged": false,
+  "executionMode": "contract_guard_only",
+  "claimStatusEnum": ["allowed", "soft_allowed", "needs_disclaimer", "internal_only", "forbidden", "unknown"],
+  "priorityEnum": ["P0", "P1", "P2", "P3"],
+  "scannerCategories": ["forbidden", "soft_boundary", "needs_disclaimer", "allowed_reference", "manual_review"],
+  "sourceArtifacts": [
+    "docs/assessment/uasp/generated/freemium-status-guard.v1.json",
+    "docs/assessment/uasp/generated/profile-write-blocker-memory-readiness-ledger.v1.json",
+    "docs/assessment/uasp/generated/uasp-profile-sensitivity-policy.v1.json",
+    "docs/freemium/generated/freemium-cross-scale-parity-ledger.v1.json",
+    "docs/claims/generated/seo-geo-llms-claim-guards.v1.json"
+  ],
+  "guaranteeBoundary": {
+    "allowedOnlyFor": ["访问保障", "报告可查看保障", "支付后交付保障", "access guarantee", "delivery guarantee", "continuity guarantee"],
+    "forbiddenForOutcome": ["结果准确保证", "职业成功保证", "报告结论保证", "career success guarantee", "accuracy guarantee", "outcome guarantee"]
+  },
+  "sensitiveClinicalBoundary": {
+    "forbiddenClaims": ["diagnosis claims", "treatment claims", "replacing professional help", "employment screening suitability"],
+    "allowedBoundary": "descriptive self-check only",
+    "mentalHealthLongitudinalDefaultAllowed": false
+  },
+  "abilityBoundary": {
+    "humanWorthClaimAllowed": false,
+    "employmentScreeningSuitabilityAllowed": false
+  },
+  "profileBoundary": {
+    "savedCareersIsUaspProfileMemory": false,
+    "profileContributionMeansAlreadyStored": false,
+    "profileMemoryWritesRemainBlocked": true,
+    "sensitiveSignalPersistenceRemainBlocked": true
+  },
+  "freemiumBoundary": {
+    "MBTI": "full_loop",
+    "BIG5_OCEAN": "not_full_loop",
+    "RIASEC": "not_full_loop",
+    "skuExistsMeansFullLoop": false,
+    "offerCardExistsMeansFullLoop": false,
+    "backendReadyMeansMonetizationReady": false
+  },
+  "nonRuntimeChangeGuarantees": {
+    "checkoutPaymentEntitlementChanged": false,
+    "reportAccessChanged": false,
+    "paywallUiChanged": false,
+    "profileMemoryRuntimeChanged": false,
+    "savedCareersChanged": false,
+    "sensitiveResultRuntimeChanged": false,
+    "visibleCopyChanged": false
+  }
+}
