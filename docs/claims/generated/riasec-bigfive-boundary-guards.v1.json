@@ -1,0 +1,87 @@
+{
+  "version": "claims.riasec_bigfive_boundary_guards.v1",
+  "scope": "PR-SCB-02",
+  "trainName": "semantic-claim-boundary-enforcement-train",
+  "dependsOn": ["PR-SCB-01"],
+  "runtimeBehaviorChanged": false,
+  "executionMode": "contract_guard_only",
+  "claimStatusEnum": ["allowed", "soft_allowed", "needs_disclaimer", "internal_only", "forbidden", "unknown"],
+  "priorityEnum": ["P0", "P1", "P2", "P3"],
+  "scannerCategories": ["forbidden", "soft_boundary", "needs_disclaimer", "allowed_reference", "manual_review"],
+  "sourceArtifacts": [
+    "docs/claims/generated/public-claim-boundary-matrix.v1.json",
+    "docs/assessment/uasp/generated/recommendation-eligibility-guard.v1.json",
+    "docs/claims/generated/semantic-claim-scanner-baseline.v1.json"
+  ],
+  "runtimeScanScope": {
+    "repoLocal": ["app/**", "components/**", "lib/**", "docs/seo/**", "docs/geo/**", "docs/freemium/**"],
+    "excluded": ["docs/claims/**", "tests/contracts/**", "docs/codex/**", "**/generated/**"],
+    "matchMode": "exact_phrase",
+    "softLanguageMode": "inventory_only"
+  },
+  "guards": [
+    {
+      "id": "riasec_candidate_signal_not_recommender",
+      "scale_code": "RIASEC",
+      "signal_type": "interest",
+      "recommendation_eligible": "candidate_signal",
+      "status": "forbidden",
+      "priority": "P0",
+      "forbiddenPhrases": [
+        "RIASEC 精准推荐最适合职业",
+        "RIASEC 精准职业推荐",
+        "RIASEC 最适合职业",
+        "RIASEC 自动匹配最佳工作",
+        "RIASEC precise recommender",
+        "RIASEC best-career recommendation"
+      ],
+      "allowedBoundedPhrases": ["career interest direction", "职业兴趣方向", "职业探索方向", "candidate signal"],
+      "allowedUse": "career_interest_direction_candidate_signal",
+      "notAllowedUse": ["precise_best_career_recommendation", "complete_career_recommender", "live_personalized_recommender"],
+      "runtimeBehaviorChange": "none"
+    },
+    {
+      "id": "big5_explanation_only_not_recommender",
+      "scale_code": "BIG5_OCEAN",
+      "signal_type": "trait",
+      "recommendation_eligible": "explanation_only",
+      "status": "forbidden",
+      "priority": "P0",
+      "forbiddenPhrases": [
+        "Big Five 精准匹配职业",
+        "大五人格 精准匹配职业",
+        "Big Five career matcher",
+        "Big Five career recommender",
+        "Big Five precise career match"
+      ],
+      "allowedBoundedPhrases": ["trait explanation", "workplace behavior", "职场行为倾向", "人格特质解释"],
+      "allowedUse": "trait_and_workplace_behavior_explanation",
+      "notAllowedUse": ["precise_career_matching", "career_recommendation_engine", "employment_success_prediction"],
+      "runtimeBehaviorChange": "none"
+    }
+  ],
+  "softLanguageInventory": [
+    {
+      "phrase": "Big Five career direction",
+      "status": "soft_allowed",
+      "category": "soft_boundary",
+      "evidence": "app/(localized)/[locale]/career/recommendations/page.tsx uses Big Five as a trait-based direction entry, not a recommender."
+    },
+    {
+      "phrase": "大五人格职业方向",
+      "status": "soft_allowed",
+      "category": "soft_boundary",
+      "evidence": "docs/geo/prompt-panel.md references career direction, not precise career matching."
+    }
+  ],
+  "assertions": {
+    "riasecIsCandidateSignalNotRecommender": true,
+    "bigFiveIsExplanationOnlyNotRecommender": true,
+    "forbiddenPhrasesFailRuntimeScan": true,
+    "softLanguageInventoriedNotRewritten": true,
+    "visibleCopyChanged": false,
+    "recommendationRuntimeChanged": false,
+    "scoringChanged": false,
+    "seoGeoExposureChanged": false
+  }
+}

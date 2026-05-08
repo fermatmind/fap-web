@@ -79,9 +79,9 @@ describe("semantic claim scanner baseline", () => {
     expect(state.train_name).toBe("semantic-claim-boundary-enforcement-train");
     expect(state.pr_namespace).toBe("PR-SCB-*");
     expect(state.prs.map((pr) => pr.id)).toEqual(["PR-SCB-01", "PR-SCB-02", "PR-SCB-03", "PR-SCB-04", "PR-SCB-05", "PR-SCB-06"]);
+    expect(["in_progress", "merged"]).toContain(state.prs[0]?.status);
     expect(state.prs[0]).toMatchObject({
       branch: "codex/pr-scb-01-claim-scanner-baseline",
-      status: "in_progress",
       depends_on: [],
     });
   });
