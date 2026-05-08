@@ -1241,14 +1241,23 @@ export default async function TestLandingPage({
           ) : null}
 
           {mergedFaq.length > 0 ? (
-            <section id="faq" className="space-y-4">
+            <section
+              id="faq"
+              className="space-y-4"
+              data-evidence-container="true"
+              data-evidence-page-family="test_detail"
+              data-evidence-source-type="visible_page_content"
+              data-evidence-readiness="partial"
+            >
               <h2 className="text-2xl font-bold tracking-tight text-slate-900">FAQ</h2>
-              <FAQAccordion items={mergedFaq} />
+              <div data-evidence-block="faq">
+                <FAQAccordion items={mergedFaq} />
+              </div>
             </section>
           ) : null}
 
           {disclaimer ? (
-            <Card id="limitations">
+            <Card id="limitations" data-evidence-block="caveat">
               <CardHeader>
                 <CardTitle>{locale === "zh" ? "免责声明" : "Disclaimer"}</CardTitle>
               </CardHeader>
@@ -1257,7 +1266,7 @@ export default async function TestLandingPage({
           ) : null}
 
           {!isFlagshipDualVariant ? (
-            <Card id="references">
+            <Card id="references" data-evidence-block="evidence_facts">
               <CardHeader>
                 <CardTitle>{locale === "zh" ? "参考与说明" : "References and Notes"}</CardTitle>
               </CardHeader>

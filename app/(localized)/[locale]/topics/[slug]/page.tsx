@@ -330,6 +330,7 @@ export default async function TopicDetailPage({
             surface={topic.answerSurface}
             locale={locale}
             testId="topic-detail-answer-surface"
+            pageFamily="topic_detail"
           />
           {renderedEntryGroups}
           {canRenderRelatedTopicCtas ? (

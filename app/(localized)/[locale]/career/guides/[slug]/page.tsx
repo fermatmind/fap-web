@@ -200,6 +200,7 @@ export default async function CareerGuideDetailPage({ params }: { params: Promis
         surface={guide.answerSurface}
         locale={locale}
         testId="career-guide-answer-surface"
+        pageFamily="career_guide"
       />
 
       <div className="grid gap-4 md:grid-cols-2">

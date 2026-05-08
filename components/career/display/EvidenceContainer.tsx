@@ -67,7 +67,14 @@ function TableRows({ rows }: { rows: CareerDisplayTableRow[] }) {
 
 export function EvidenceContainer({ section, testId }: EvidenceContainerProps) {
   return (
-    <section className="rounded-lg border border-slate-200 bg-white p-5" data-testid={testId ?? `career-display-section-${section.id}`}>
+    <section
+      className="rounded-lg border border-slate-200 bg-white p-5"
+      data-testid={testId ?? `career-display-section-${section.id}`}
+      data-evidence-container="true"
+      data-evidence-page-family="career_job_detail"
+      data-evidence-source-type="career_backend_bundle"
+      data-evidence-block="evidence_facts"
+    >
       <h2 className="m-0 text-2xl font-semibold tracking-normal text-slate-950">{section.heading}</h2>
       {section.intro ? <p className="m-0 mt-3 text-sm leading-7 text-slate-700">{section.intro}</p> : null}
       {renderBody(section.body)}
