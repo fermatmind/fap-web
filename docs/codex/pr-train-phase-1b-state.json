@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-phase-1b-remediation-train",
   "train_description": "Phase 1B remediation train for FermatMind Public Runtime Authority.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-08T00:00:00Z",
+  "updated_at": "2026-05-08T02:15:00Z",
   "status": "initialized",
   "phase": "public-runtime-authority-phase-1b-remediation",
   "pr_namespace": "PR-PRA1B-*",
@@ -75,7 +75,7 @@
       "branch": "codex/pr-pra1b-01-fallback-owner-gates",
       "base": "main",
       "depends_on": [],
-      "status": "in_progress",
+      "status": "merged",
       "title": "test(runtime): add fallback owner gates for public runtime authority",
       "artifacts": [
         "docs/runtime/fallback-owner-gates.md",
@@ -125,11 +125,12 @@
         }
       ],
       "failure_reason": null,
-      "commit_sha": null,
-      "pr_url": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false
+      "commit_sha": "7f62187c7ef2f4c998ceef958e0eb634f87e2c19",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/701",
+      "merge_sha": "0e8a76361fdb5129fae1a5befa55dc6a779aac80",
+      "merged_at": "2026-05-08T01:58:00Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
     },
     {
       "id": "PR-PRA1B-02",
@@ -140,8 +141,78 @@
       "depends_on": [
         "PR-PRA1B-01"
       ],
-      "status": "planned",
-      "title": "fix(runtime): converge test detail authority fallback safely"
+      "status": "in_progress",
+      "title": "fix(runtime): converge test detail authority fallback safely",
+      "artifacts": [
+        "docs/runtime/test-detail-authority-convergence.md",
+        "docs/runtime/generated/test-detail-authority-convergence.v1.json",
+        "tests/contracts/test-detail-authority-convergence.contract.test.ts",
+        "lib/seo/testDetailAuthority.ts"
+      ],
+      "checks": [
+        {
+          "name": "scoped authority contracts",
+          "command": "pnpm exec vitest run tests/contracts/test-detail-landing.contract.test.ts tests/contracts/test-detail-authority-convergence.contract.test.ts",
+          "status": "passed"
+        },
+        {
+          "name": "train ledger regression contract",
+          "command": "pnpm exec vitest run tests/contracts/fallback-owner-gates.contract.test.ts tests/contracts/test-detail-landing.contract.test.ts tests/contracts/test-detail-authority-convergence.contract.test.ts",
+          "status": "passed"
+        },
+        {
+          "name": "scoped eslint",
+          "command": "pnpm exec eslint tests/contracts/fallback-owner-gates.contract.test.ts tests/contracts/test-detail-landing.contract.test.ts tests/contracts/test-detail-authority-convergence.contract.test.ts lib/seo/testDetailAuthority.ts 'app/(localized)/[locale]/tests/[slug]/page.tsx'",
+          "status": "passed"
+        },
+        {
+          "name": "next typegen",
+          "command": "pnpm exec next typegen",
+          "status": "passed"
+        },
+        {
+          "name": "typecheck",
+          "command": "pnpm typecheck",
+          "status": "passed"
+        },
+        {
+          "name": "contracts",
+          "command": "pnpm test:contract",
+          "status": "passed"
+        },
+        {
+          "name": "build",
+          "command": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build",
+          "status": "passed"
+        },
+        {
+          "name": "sitemap generation",
+          "command": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm seo:generate-sitemap",
+          "status": "passed"
+        },
+        {
+          "name": "sitemap check",
+          "command": "pnpm seo:check-sitemap",
+          "status": "passed"
+        }
+      ],
+      "sidecars": [
+        {
+          "title": "Generated sitemap lastmod timestamp churn",
+          "severity": "P3",
+          "scope_impact": "Generated public/sitemap.xml lastmod values changed during build and seo:generate-sitemap; URL set remained 257 and was not staged.",
+          "introduced_by_current_pr": false,
+          "recommended_future_phase": "discoverability-build-determinism",
+          "blocks_merge": false,
+          "evidence": "public/sitemap.xml diff contained lastmod timestamp updates only; pnpm seo:check-sitemap passed after restoring the generated file."
+        }
+      ],
+      "failure_reason": null,
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
     },
     {
       "id": "PR-PRA1B-03",

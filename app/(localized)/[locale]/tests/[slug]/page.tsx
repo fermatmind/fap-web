@@ -84,6 +84,7 @@ import {
   buildWebPageJsonLd,
 } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
+import { resolveTestDetailAuthority } from "@/lib/seo/testDetailAuthority";
 import { formatCardTitleForUi } from "@/lib/ui/testTitleDisplay";
 
 type LookupResponse = {
@@ -558,11 +559,24 @@ export async function generateMetadata({
   const alternates = alternatesForSlug(test.slug);
   const canonical = localizedPath(`/tests/${test.slug}`, locale);
   const localizedTestTitle = resolveTestTitleByLocale(test, locale);
+  const seoTitle = toStringValue(lookup?.seo_title);
+  const seoDescription = toStringValue(lookup?.seo_description);
+  const ogImageAuthority = toStringValue(lookup?.og_image_url);
+  const metadataAuthority = resolveTestDetailAuthority({
+    slug: test.slug,
+    hasSeoTitle: seoTitle.length > 0,
+    hasSeoDescription: seoDescription.length > 0,
+    hasOgImage: ogImageAuthority.length > 0,
+    hasVisibleFaq: false,
+    hasLandingSurface: false,
+    hasStartTestTarget: false,
+    hasCtaBundle: false,
+  });
 
-  const title = toStringValue(lookup?.seo_title) || localizedTestTitle;
-  const description = toStringValue(lookup?.seo_description) || test.description;
-  const ogImage = toStringValue(lookup?.og_image_url) || test.cover_image;
-  const forcedNoindex = lookup?.is_indexable === false;
+  const title = seoTitle || (metadataAuthority.metadata.allowed ? localizedTestTitle : test.slug);
+  const description = seoDescription || (metadataAuthority.metadata.allowed ? test.description : "");
+  const ogImage = ogImageAuthority || (metadataAuthority.metadata.allowed ? test.cover_image : "");
+  const forcedNoindex = lookup?.is_indexable === false || metadataAuthority.shouldNoindexMissingMetadataAuthority;
 
   return buildPageMetadata({
     locale,
@@ -644,7 +658,20 @@ export default async function TestLandingPage({
     landing_path: landingPath,
     locale,
   });
-  const startTestHref = withAttribution(landingSurface?.startTestTarget || withLocale(`/tests/${test.slug}/take`));
+  const testDetailAuthority = resolveTestDetailAuthority({
+    slug: test.slug,
+    hasSeoTitle: toStringValue(lookup?.seo_title).length > 0,
+    hasSeoDescription: toStringValue(lookup?.seo_description).length > 0,
+    hasOgImage: toStringValue(lookup?.og_image_url).length > 0,
+    hasVisibleFaq: faqItems.length > 0,
+    hasLandingSurface: landingSurface !== null,
+    hasStartTestTarget: Boolean(landingSurface?.startTestTarget),
+    hasCtaBundle: Boolean(landingSurface?.ctaBundle.length),
+  });
+  const startTestHref = withAttribution(
+    landingSurface?.startTestTarget || (testDetailAuthority.cta.allowed ? withLocale(`/tests/${test.slug}/take`) : landingBasePath)
+  );
+  const canRenderStartCta = testDetailAuthority.cta.allowed || Boolean(landingSurface?.startTestTarget);
   const showsMbtiActions = isMbtiScaleCode(test.scale_code);
   const showsBig5Actions = isBig5ScaleCode(test.scale_code);
   const showsEnneagramActions = isEnneagramScaleCode(test.scale_code);
@@ -659,13 +686,15 @@ export default async function TestLandingPage({
   ].includes(test.slug);
   const isFlagshipDualVariant = showsMbtiActions || showsBig5Actions || showsEnneagramActions || showsRiasecActions;
   const mergedFaq = faqItems.length > 0
-      ? faqItems
-      : isFlagshipDualVariant
+    ? faqItems
+    : testDetailAuthority.faq.allowed
+      ? isFlagshipDualVariant
         ? buildFlagshipVariantFaq(
             showsMbtiActions ? "mbti" : showsBig5Actions ? "big5" : showsEnneagramActions ? "enneagram" : "riasec",
             locale
           )
-        : buildFallbackFaq(localizedTestTitle, test.time_minutes, test.questions_count, locale);
+        : buildFallbackFaq(localizedTestTitle, test.time_minutes, test.questions_count, locale)
+      : [];
   const continuePublicContentCta = findLandingCta(landingSurface, "continue_public_content");
   const flagshipVariantChoices: FlagshipVariantChoice[] = showsMbtiActions
     ? listMbtiFormMetas().map((form) => ({
@@ -867,8 +896,8 @@ export default async function TestLandingPage({
   const mbtiLandingContinuityItems = showsMbtiActions ? buildMbtiTestLandingContinuityItems(locale) : [];
   const webPageJsonLd = buildWebPageJsonLd({
     path: canonicalPath,
-    title: toStringValue(lookup?.seo_title) || localizedTestTitle,
-    description: toStringValue(lookup?.seo_description) || test.description,
+    title: toStringValue(lookup?.seo_title) || (testDetailAuthority.metadata.allowed ? localizedTestTitle : test.slug),
+    description: toStringValue(lookup?.seo_description) || (testDetailAuthority.metadata.allowed ? test.description : ""),
     locale,
   });
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
@@ -876,18 +905,21 @@ export default async function TestLandingPage({
     { name: locale === "zh" ? "测评" : "Tests", path: locale === "zh" ? "/zh/tests" : "/en/tests" },
     { name: localizedTestTitle, path: canonicalPath },
   ]);
-  const faqJsonLd = buildFAQPageJsonLd(
-    mergedFaq.map((item) => ({
-      question: item.q,
-      answer: item.a,
-    }))
-  );
+  const faqJsonLd =
+    mergedFaq.length > 0
+      ? buildFAQPageJsonLd(
+          mergedFaq.map((item) => ({
+            question: item.q,
+            answer: item.a,
+          }))
+        )
+      : null;
 
   return (
     <Container as="main" className="pb-[var(--fm-space-30)] pt-12 lg:pb-12">
       <JsonLd id={`test-webpage-${test.slug}`} data={webPageJsonLd} />
       <JsonLd id={`test-breadcrumb-${test.slug}`} data={breadcrumbJsonLd} />
-      <JsonLd id={`test-faq-${test.slug}`} data={faqJsonLd} />
+      {faqJsonLd ? <JsonLd id={`test-faq-${test.slug}`} data={faqJsonLd} /> : null}
       <AnalyticsPageViewTracker eventName="landing_view" properties={landingTrackingProps} />
 
       <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
@@ -1031,7 +1063,7 @@ export default async function TestLandingPage({
                   choices={depressionVersionChoices}
                 />
               </div>
-            ) : (
+            ) : canRenderStartCta ? (
               <div className="flex flex-wrap items-center gap-3 pt-1">
                 <TrackedEntryCtaLink
                   href={startTestHref}
@@ -1042,7 +1074,7 @@ export default async function TestLandingPage({
                   {locale === "zh" ? "开始测试" : "Start test"}
                 </TrackedEntryCtaLink>
               </div>
-            )}
+            ) : null}
           </section>
 
           {showsMentalHealthDisclaimer ? <MentalHealthDisclaimer locale={locale} /> : null}
@@ -1208,10 +1240,12 @@ export default async function TestLandingPage({
             </Card>
           ) : null}
 
-          <section id="faq" className="space-y-4">
-            <h2 className="text-2xl font-bold tracking-tight text-slate-900">FAQ</h2>
-            <FAQAccordion items={mergedFaq} />
-          </section>
+          {mergedFaq.length > 0 ? (
+            <section id="faq" className="space-y-4">
+              <h2 className="text-2xl font-bold tracking-tight text-slate-900">FAQ</h2>
+              <FAQAccordion items={mergedFaq} />
+            </section>
+          ) : null}
 
           {disclaimer ? (
             <Card id="limitations">
@@ -1241,18 +1275,20 @@ export default async function TestLandingPage({
           ) : null}
         </div>
 
-        <aside>
-          <CTASticky
-            slug={test.slug}
-            title={localizedTestTitle}
-            questions={test.questions_count}
-            minutes={test.time_minutes}
-            scaleCode={test.scale_code}
-            locale={locale}
-            attributionParams={landingAttributionParams}
-            attributionPayload={landingAttributionPayload}
-          />
-        </aside>
+        {testDetailAuthority.cta.allowed ? (
+          <aside>
+            <CTASticky
+              slug={test.slug}
+              title={localizedTestTitle}
+              questions={test.questions_count}
+              minutes={test.time_minutes}
+              scaleCode={test.scale_code}
+              locale={locale}
+              attributionParams={landingAttributionParams}
+              attributionPayload={landingAttributionPayload}
+            />
+          </aside>
+        ) : null}
       </div>
     </Container>
   );
