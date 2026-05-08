@@ -78,7 +78,7 @@ export function SiteHeader({
     { key: "articles", href: "/articles", label: dict.header.articles },
     { key: "personality", href: "/personality", label: dict.header.personality },
     { key: "career", href: "/career", label: dict.header.career },
-    { key: "help", href: "/help", label: dict.header.help },
+    { key: "help", href: "/support", label: dict.header.help },
     { key: "business", href: "/business", label: dict.header.business },
   ] satisfies Array<{ key: HeaderNavKey; href: string; label: string }>;
   const visibleNavItems = navItems.filter((item) => !shouldHideNavItem(item, priorityFlags));
@@ -268,7 +268,6 @@ export function SiteHeader({
                     className="relative shrink-0"
                     onMouseEnter={() => openDropdown(item.key, 70)}
                     onMouseLeave={() => closeDropdown(110)}
-                    onFocus={() => openDropdown(item.key)}
                     onBlur={(event) => {
                       const nextTarget = event.relatedTarget;
                       if (!(nextTarget instanceof Node) || !event.currentTarget.contains(nextTarget)) {
@@ -276,35 +275,47 @@ export function SiteHeader({
                       }
                     }}
                   >
-                    <button
-                      id={triggerId}
-                      type="button"
-                      aria-haspopup={items.length > 0 ? true : undefined}
-                      aria-expanded={isOpen}
-                      aria-controls={items.length > 0 ? menuId : undefined}
-                      onClick={() => setActiveDropdown((prev) => (prev === item.key ? null : item.key))}
-                      onKeyDown={(event) => {
-                        if (event.key === "ArrowDown" || event.key === "Enter" || event.key === " ") {
-                          event.preventDefault();
-                          openDropdown(item.key);
-                        }
+                    <div className="flex items-center gap-0.5">
+                      <Link
+                        href={withLocale(item.href)}
+                        prefetch={false}
+                        className="fm-site-header-link"
+                        data-testid={`desktop-primary-nav-link-${item.key}`}
+                        onClick={() => setActiveDropdown(null)}
+                      >
+                        {item.label}
+                      </Link>
+                      <button
+                        id={triggerId}
+                        type="button"
+                        aria-label={`${item.label} menu`}
+                        aria-haspopup={items.length > 0 ? "menu" : undefined}
+                        aria-expanded={isOpen}
+                        aria-controls={items.length > 0 ? menuId : undefined}
+                        onClick={() => setActiveDropdown((prev) => (prev === item.key ? null : item.key))}
+                        onKeyDown={(event) => {
+                          if (event.key === "ArrowDown" || event.key === "Enter" || event.key === " ") {
+                            event.preventDefault();
+                            openDropdown(item.key);
+                          }
 
-                        if (event.key === "Escape") {
-                          event.preventDefault();
-                          closeDropdown();
-                        }
-                      }}
-                      className={cn(
-                        "fm-site-header-link fm-site-header-trigger"
-                      )}
-                    >
-                      <span>{item.label}</span>
-                      <ChevronDown className={isOpen ? "h-3.5 w-3.5 rotate-180 transition" : "h-3.5 w-3.5 transition"} />
-                    </button>
+                          if (event.key === "Escape") {
+                            event.preventDefault();
+                            closeDropdown();
+                          }
+                        }}
+                        className={cn(
+                          "fm-site-header-link fm-site-header-trigger px-1.5"
+                        )}
+                      >
+                        <ChevronDown className={isOpen ? "h-3.5 w-3.5 rotate-180 transition" : "h-3.5 w-3.5 transition"} />
+                      </button>
+                    </div>
 
                     {isOpen && items.length > 0 ? (
                       <div
                         id={menuId}
+                        role="menu"
                         aria-labelledby={triggerId}
                         className="fm-header-dropdown-panel"
                       >
@@ -313,6 +324,7 @@ export function SiteHeader({
                             key={`${item.key}-${menuItem.href}-${menuItemIndex}`}
                             href={withLocale(menuItem.href)}
                             prefetch={false}
+                            role="menuitem"
                             className="fm-header-dropdown-link"
                             onClick={() => setActiveDropdown(null)}
                           >
@@ -407,24 +419,36 @@ export function SiteHeader({
 
                   return (
                     <div key={`mobile-group-${item.key}`} className="rounded-lg border border-white/10 bg-white/[0.03]">
-                      <button
-                        type="button"
-                        aria-expanded={isExpanded}
-                        aria-controls={`mobile-submenu-${item.key}`}
-                        onClick={() => setMobileExpandedKey((prev) => (prev === item.key ? null : item.key))}
-                        className="flex min-h-[44px] w-full items-center justify-between rounded-lg px-3 py-2 text-left text-sm font-semibold text-white transition hover:bg-white/10"
-                      >
-                        <span>{item.label}</span>
-                        <ChevronDown className={isExpanded ? "h-4 w-4 rotate-180 transition" : "h-4 w-4 transition"} />
-                      </button>
+                      <div className="flex min-h-[44px] items-stretch">
+                        <Link
+                          href={withLocale(item.href)}
+                          prefetch={false}
+                          onClick={handleMobileLinkClick}
+                          data-testid={`mobile-primary-nav-link-${item.key}`}
+                          className="flex flex-1 items-center rounded-l-lg px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
+                        >
+                          {item.label}
+                        </Link>
+                        <button
+                          type="button"
+                          aria-label={`${item.label} menu`}
+                          aria-expanded={isExpanded}
+                          aria-controls={`mobile-submenu-${item.key}`}
+                          onClick={() => setMobileExpandedKey((prev) => (prev === item.key ? null : item.key))}
+                          className="flex min-h-[44px] w-12 items-center justify-center rounded-r-lg text-white transition hover:bg-white/10"
+                        >
+                          <ChevronDown className={isExpanded ? "h-4 w-4 rotate-180 transition" : "h-4 w-4 transition"} />
+                        </button>
+                      </div>
 
                       {isExpanded ? (
-                        <div id={`mobile-submenu-${item.key}`} className="space-y-1 border-t border-white/10 px-2 pb-2 pt-2">
+                        <div id={`mobile-submenu-${item.key}`} role="menu" className="space-y-1 border-t border-white/10 px-2 pb-2 pt-2">
                           {menuItems.map((menuItem, menuItemIndex) => (
                             <Link
                               key={`mobile-submenu-link-${item.key}-${menuItem.href}-${menuItemIndex}`}
                               href={withLocale(menuItem.href)}
                               prefetch={false}
+                              role="menuitem"
                               onClick={handleMobileLinkClick}
                               className="block rounded-md px-3 py-2 text-sm text-blue-100 transition hover:bg-white/10 hover:text-white"
                             >

@@ -57,7 +57,7 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
     ],
     business: [
       { href: "/business", label: "Business overview" },
-      { href: "/help", label: "Help Center" },
+      { href: "/support", label: "Help Center" },
     ],
   },
   zh: {
@@ -65,7 +65,7 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
       { href: "/tests", label: "全部测试" },
       { href: "/tests/mbti-personality-test-16-personality-types", label: "MBTI 性格测试" },
       { href: "/tests/big-five-personality-test-ocean-model", label: "大五人格测试" },
-      { href: "/tests", label: "九型人格测试" },
+      { href: "/tests/enneagram-personality-test-nine-types", label: "九型人格测试" },
       { href: "/tests/iq-test-intelligence-quotient-assessment", label: "智商测试" },
       { href: "/tests/eq-test-emotional-intelligence-assessment", label: "情商测试" },
     ],
@@ -102,7 +102,7 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
     ],
     business: [
       { href: "/business", label: "企业服务" },
-      { href: "/help", label: "帮助中心" },
+      { href: "/support", label: "帮助中心" },
     ],
   },
 };
