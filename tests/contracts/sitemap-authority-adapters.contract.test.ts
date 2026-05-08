@@ -25,8 +25,10 @@ describe("sitemap authority adapters", () => {
     expect(staticPaths).toContain("/zh/tests");
     expect(staticPaths).toContain("/en/topics/mbti");
     expect(staticPaths).toContain("/zh/topics/mbti");
-    expect(staticPaths).toContain("/en/career/industries/healthcare");
-    expect(staticPaths).toContain("/zh/career/industries/healthcare");
+    expect(staticPaths).not.toContain("/en/career/industries");
+    expect(staticPaths).not.toContain("/zh/career/industries");
+    expect(staticPaths).not.toContain("/en/career/industries/healthcare");
+    expect(staticPaths).not.toContain("/zh/career/industries/healthcare");
     expect(staticPaths).toContain("/en/help/faq");
     expect(staticPaths).toContain("/zh/help/contact");
     expect(new Set(staticPaths).size).toBe(staticPaths.length);

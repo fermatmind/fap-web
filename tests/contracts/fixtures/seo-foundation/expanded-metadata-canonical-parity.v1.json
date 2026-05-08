@@ -267,7 +267,8 @@
       "locale": "en",
       "path": "/en/career/family/healthcare",
       "canonicalUrl": "https://fermatmind.com/en/career/family/healthcare",
-      "expectedInSitemap": true,
+      "expectedInSitemap": false,
+      "liveOptional": false,
       "alternates": {
         "en": "https://fermatmind.com/en/career/family/healthcare",
         "zh-CN": "https://fermatmind.com/zh/career/family/healthcare",
@@ -282,7 +283,8 @@
       "locale": "zh-CN",
       "path": "/zh/career/family/healthcare",
       "canonicalUrl": "https://fermatmind.com/zh/career/family/healthcare",
-      "expectedInSitemap": true,
+      "expectedInSitemap": false,
+      "liveOptional": false,
       "alternates": {
         "en": "https://fermatmind.com/en/career/family/healthcare",
         "zh-CN": "https://fermatmind.com/zh/career/family/healthcare",
