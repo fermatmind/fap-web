@@ -1,0 +1,179 @@
+{
+  "version": "core_decision_domain.signal_to_domain_role_matrix.v1",
+  "scope": "PR-CDD-02",
+  "trainName": "core-decision-domain-governance-train",
+  "dependsOn": [
+    "PR-CDD-01"
+  ],
+  "runtimeBehaviorChanged": false,
+  "executionMode": "artifact_json_contract_only",
+  "roleEnum": [
+    "primary",
+    "secondary",
+    "supporting",
+    "future",
+    "blocked"
+  ],
+  "domainStatusEnum": [
+    "ready_for_domain_v1",
+    "partial",
+    "artifact_only",
+    "backend_ready",
+    "frontend_partial",
+    "blocked",
+    "dangerous_if_expanded",
+    "requires_human_decision",
+    "safe_to_defer",
+    "unknown"
+  ],
+  "domains": [
+    "self_understanding",
+    "career_decision",
+    "workstyle_decision"
+  ],
+  "signals": [
+    "MBTI",
+    "BIG5_OCEAN",
+    "RIASEC",
+    "ENNEAGRAM",
+    "future_DISC",
+    "future_EQ",
+    "future_career_values",
+    "future_ability_tests"
+  ],
+  "matrix": [
+    {
+      "signal": "MBTI",
+      "signal_type": "identity",
+      "roles": {
+        "self_understanding": "primary",
+        "career_decision": "supporting",
+        "workstyle_decision": "secondary"
+      },
+      "status": "ready_for_domain_v1",
+      "eligibilityGrantedByRole": false,
+      "evidence": [
+        "docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json"
+      ]
+    },
+    {
+      "signal": "BIG5_OCEAN",
+      "signal_type": "trait",
+      "roles": {
+        "self_understanding": "primary",
+        "career_decision": "supporting",
+        "workstyle_decision": "primary"
+      },
+      "status": "partial",
+      "eligibilityGrantedByRole": false,
+      "evidence": [
+        "docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json",
+        "docs/claims/generated/riasec-bigfive-boundary-guards.v1.json"
+      ]
+    },
+    {
+      "signal": "RIASEC",
+      "signal_type": "interest",
+      "roles": {
+        "self_understanding": "supporting",
+        "career_decision": "primary",
+        "workstyle_decision": "blocked"
+      },
+      "status": "partial",
+      "eligibilityGrantedByRole": false,
+      "evidence": [
+        "docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json",
+        "docs/claims/generated/riasec-bigfive-boundary-guards.v1.json"
+      ]
+    },
+    {
+      "signal": "ENNEAGRAM",
+      "signal_type": "motivation",
+      "roles": {
+        "self_understanding": "supporting",
+        "career_decision": "blocked",
+        "workstyle_decision": "supporting"
+      },
+      "status": "partial",
+      "eligibilityGrantedByRole": false,
+      "evidence": [
+        "docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json"
+      ]
+    },
+    {
+      "signal": "future_DISC",
+      "signal_type": "unknown",
+      "roles": {
+        "self_understanding": "future",
+        "career_decision": "blocked",
+        "workstyle_decision": "future"
+      },
+      "status": "blocked",
+      "eligibilityGrantedByRole": false,
+      "evidence": [
+        "future human decision required"
+      ]
+    },
+    {
+      "signal": "future_EQ",
+      "signal_type": "unknown",
+      "roles": {
+        "self_understanding": "future",
+        "career_decision": "blocked",
+        "workstyle_decision": "future"
+      },
+      "status": "requires_human_decision",
+      "eligibilityGrantedByRole": false,
+      "evidence": [
+        "docs/assessment/uasp/generated/uasp-readiness-dashboard.v1.json"
+      ]
+    },
+    {
+      "signal": "future_career_values",
+      "signal_type": "unknown",
+      "roles": {
+        "self_understanding": "future",
+        "career_decision": "future",
+        "workstyle_decision": "blocked"
+      },
+      "status": "requires_human_decision",
+      "eligibilityGrantedByRole": false,
+      "evidence": [
+        "future human decision required"
+      ]
+    },
+    {
+      "signal": "future_ability_tests",
+      "signal_type": "ability",
+      "roles": {
+        "self_understanding": "future",
+        "career_decision": "blocked",
+        "workstyle_decision": "blocked"
+      },
+      "status": "dangerous_if_expanded",
+      "eligibilityGrantedByRole": false,
+      "evidence": [
+        "docs/assessment/uasp/generated/uasp-readiness-dashboard.v1.json",
+        "docs/claims/generated/paywall-sensitive-profile-claim-guards.v1.json"
+      ]
+    }
+  ],
+  "hardRules": [
+    "RIASEC cannot enter Workstyle Decision.",
+    "Big Five career role is supporting only, not recommender.",
+    "Enneagram cannot enter Career Decision.",
+    "Future signals cannot be marked ready.",
+    "No signal role grants recommendation eligibility automatically.",
+    "No signal role grants profile contribution automatically.",
+    "No signal role grants SEO/GEO eligibility automatically.",
+    "No signal role grants freemium eligibility automatically."
+  ],
+  "mustNotChange": [
+    "UASP registry runtime",
+    "future signal onboarding",
+    "recommendation runtime",
+    "profile runtime",
+    "SEO/GEO output",
+    "freemium runtime"
+  ]
+}
