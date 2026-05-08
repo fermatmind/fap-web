@@ -74,7 +74,7 @@ describe("decision_domain_v1 runtime metadata envelope", () => {
       train_name: string;
       pr_namespace: string;
       policy: Record<string, boolean>;
-      prs: Array<{ id: string; branch: string; status: string; depends_on: string[] }>;
+      prs: Array<{ id: string; branch: string; status: string; depends_on: string[]; pr_url?: string; merge_sha?: string }>;
     }>(TRAIN_STATE_PATH);
 
     expect(manifest).toContain("train_name: domain-runtime-metadata-integration-train");
@@ -84,12 +84,17 @@ describe("decision_domain_v1 runtime metadata envelope", () => {
     expect(state.policy.artifact_json_contract_only).toBe(true);
     expect(state.policy.runtime_behavior_changed).toBe(false);
     expect(state.prs.map((pr) => pr.id)).toEqual(["PR-4B-01", "PR-4B-02", "PR-4B-03", "PR-4B-04", "PR-4B-05", "PR-4B-06"]);
-    expect(state.prs[0]).toMatchObject({
+    const pr4b01 = state.prs[0];
+    expect(pr4b01).toMatchObject({
       id: "PR-4B-01",
       branch: "codex/pr-4b-01-decision-domain-metadata-envelope",
       depends_on: [],
-      status: "in_progress",
     });
+    expect(["in_progress", "merged"]).toContain(pr4b01.status);
+    if (pr4b01.status === "merged") {
+      expect(pr4b01.pr_url).toBe("https://github.com/fermatmind/fap-web/pull/742");
+      expect(pr4b01.merge_sha).toMatch(/^[0-9a-f]{40}$/);
+    }
   });
 
   it("defines exactly the approved domain envelope fields, domains, and status enums", () => {

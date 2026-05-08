@@ -1,0 +1,155 @@
+{
+  "version": "decision_domain.result_report_metadata_guard.v1",
+  "scope": "PR-4B-02",
+  "trainName": "domain-runtime-metadata-integration-train",
+  "dependsOn": [
+    "PR-4B-01"
+  ],
+  "runtimeBehaviorChanged": false,
+  "executionMode": "contract_only_deferred_data_attributes",
+  "envelopeArtifact": "docs/assessment/domains/generated/decision-domain-runtime-metadata-envelope.v1.json",
+  "runtimePayloadEnvelopeAvailable": false,
+  "actualRuntimeAttributesAdded": false,
+  "visibleCopyAdded": false,
+  "statusEnum": [
+    "ready_for_runtime_v1",
+    "ready_for_metadata_only",
+    "partial",
+    "artifact_only",
+    "backend_ready",
+    "frontend_partial",
+    "blocked",
+    "dangerous_if_integrated",
+    "requires_human_decision",
+    "safe_to_defer",
+    "unknown"
+  ],
+  "runtimeRecommendationEnum": [
+    "no_runtime",
+    "metadata_only",
+    "data_attribute_only",
+    "existing_surface_only",
+    "existing_result_report_only",
+    "existing_cta_guard_only",
+    "future_runtime_candidate",
+    "blocked"
+  ],
+  "reservedDataAttributes": [
+    {
+      "attribute": "data-domain-id",
+      "status": "safe_to_defer",
+      "allowedOnlyWhen": "runtime payload carries decision_domain_v1.domain_id",
+      "frontendArtifactInferenceAllowed": false
+    },
+    {
+      "attribute": "data-domain-role",
+      "status": "safe_to_defer",
+      "allowedOnlyWhen": "runtime payload carries decision_domain_v1.domain_role",
+      "frontendArtifactInferenceAllowed": false
+    },
+    {
+      "attribute": "data-domain-envelope-state",
+      "status": "safe_to_defer",
+      "allowedOnlyWhen": "runtime payload carries decision_domain_v1 envelope state",
+      "frontendArtifactInferenceAllowed": false
+    }
+  ],
+  "surfaces": [
+    {
+      "surface": "result_report_page",
+      "route": "/result/[id]",
+      "componentEvidence": [
+        "app/(localized)/[locale]/(app)/result/[id]/page.tsx",
+        "app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx",
+        "components/result/RichResultReport.tsx"
+      ],
+      "status": "partial",
+      "runtimeRecommendation": "metadata_only",
+      "dataAttributes": "safe_to_defer",
+      "privateNoindexContext": true
+    },
+    {
+      "surface": "mbti_result_report",
+      "componentEvidence": [
+        "components/result/mbti/MbtiResultShell.tsx",
+        "components/result/RichResultReport.tsx"
+      ],
+      "domainSupport": [
+        "self_understanding",
+        "career_decision",
+        "workstyle_decision"
+      ],
+      "status": "partial",
+      "runtimeRecommendation": "existing_result_report_only",
+      "dataAttributes": "safe_to_defer"
+    },
+    {
+      "surface": "big5_result_report",
+      "componentEvidence": [
+        "components/result/big5/Big5ResultShell.tsx",
+        "components/result/big5/Big5ResultPageV2Shell.tsx",
+        "components/result/RichResultReport.tsx"
+      ],
+      "domainSupport": [
+        "self_understanding",
+        "workstyle_decision",
+        "career_decision"
+      ],
+      "status": "partial",
+      "runtimeRecommendation": "existing_result_report_only",
+      "dataAttributes": "safe_to_defer"
+    },
+    {
+      "surface": "enneagram_result_report",
+      "componentEvidence": [
+        "components/result/enneagram/EnneagramResultShell.tsx",
+        "components/result/RichResultReport.tsx"
+      ],
+      "domainSupport": [
+        "self_understanding",
+        "workstyle_decision"
+      ],
+      "status": "partial",
+      "runtimeRecommendation": "existing_result_report_only",
+      "dataAttributes": "safe_to_defer"
+    },
+    {
+      "surface": "riasec_result_report",
+      "componentEvidence": [
+        "components/result/riasec/RiasecResultShell.tsx",
+        "app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx"
+      ],
+      "domainSupport": [
+        "career_decision",
+        "self_understanding"
+      ],
+      "status": "dangerous_if_integrated",
+      "runtimeRecommendation": "existing_cta_guard_only",
+      "dataAttributes": "safe_to_defer"
+    }
+  ],
+  "guardRules": [
+    "no_visible_badge",
+    "no_translated_copy",
+    "no_result_report_layout_change",
+    "no_report_prose_change",
+    "no_paywall_copy_change",
+    "no_entitlement_change",
+    "no_profile_write",
+    "no_recommendation_trigger",
+    "no_seo_geo_exposure_change",
+    "no_frontend_artifact_synthesis_as_authority"
+  ],
+  "mustNotChange": [
+    "result/report layout",
+    "result/report visible copy",
+    "paywall copy",
+    "report entitlement",
+    "PDF output",
+    "API clients",
+    "profile runtime",
+    "recommendation runtime",
+    "SEO/GEO output",
+    "freemium runtime"
+  ]
+}
