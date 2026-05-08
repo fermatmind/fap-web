@@ -562,7 +562,7 @@ describe("personality cms adapter contract", () => {
     expect(source).toContain("url: canonical,");
     expect(source).toContain('robots: "noindex,nofollow"');
     expect(source).toContain("isIndexable: false");
-    expect(source).toContain("const isFallbackRoute =");
-    expect(source).toContain("!isFallbackRoute ? <JsonLd");
+    expect(source).toContain("const fallbackProjectionGate = resolvePersonalityFallbackProjectionGate(detail);");
+    expect(source).toContain("fallbackProjectionGate.canRenderPublicSchema ? <JsonLd");
   });
 });

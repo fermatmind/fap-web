@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-phase-1b-remediation-train",
   "train_description": "Phase 1B remediation train for FermatMind Public Runtime Authority.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-08T02:53:48Z",
+  "updated_at": "2026-05-08T03:09:53Z",
   "status": "initialized",
   "phase": "public-runtime-authority-phase-1b-remediation",
   "pr_namespace": "PR-PRA1B-*",
@@ -224,7 +224,7 @@
       "depends_on": [
         "PR-PRA1B-02"
       ],
-      "status": "in_progress",
+      "status": "merged",
       "title": "fix(seo): converge topic and llms exposure authority",
       "artifacts": [
         "docs/seo/topic-llms-exposure-convergence.md",
@@ -286,11 +286,12 @@
         }
       ],
       "failure_reason": null,
-      "commit_sha": null,
-      "pr_url": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false
+      "commit_sha": "390d0db24c3bb0e726b61cbf5bf4ca09447dfa45",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/705",
+      "merge_sha": "734d7f3f9a14573ea70996b0592a927c8a97dae1",
+      "merged_at": "2026-05-08T02:58:42Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
     },
     {
       "id": "PR-PRA1B-04",
@@ -301,8 +302,87 @@
       "depends_on": [
         "PR-PRA1B-03"
       ],
-      "status": "planned",
-      "title": "test(runtime): gate Article JSON-LD and personality fallback projection"
+      "status": "in_progress",
+      "title": "test(runtime): gate Article JSON-LD and personality fallback projection",
+      "artifacts": [
+        "docs/seo/article-personality-jsonld-projection-gates.md",
+        "docs/seo/generated/article-personality-jsonld-projection-gates.v1.json",
+        "tests/contracts/article-personality-jsonld-projection-gates.contract.test.ts",
+        "lib/seo/articlePersonalityAuthority.ts"
+      ],
+      "checks": [
+        {
+          "name": "scoped article/personality contracts",
+          "command": "pnpm exec vitest run tests/contracts/article-personality-jsonld-projection-gates.contract.test.ts tests/contracts/article-jsonld-fallback-authority.contract.test.ts tests/contracts/fallback-owner-gates.contract.test.ts",
+          "status": "passed"
+        },
+        {
+          "name": "scoped regression contracts",
+          "command": "pnpm exec vitest run tests/contracts/locale-purity.contract.test.ts tests/contracts/articles-cleanup.contract.test.ts tests/contracts/personality-cms.contract.test.ts tests/contracts/article-personality-jsonld-projection-gates.contract.test.ts",
+          "status": "passed"
+        },
+        {
+          "name": "scoped eslint",
+          "command": "pnpm exec eslint tests/contracts/article-personality-jsonld-projection-gates.contract.test.ts tests/contracts/locale-purity.contract.test.ts tests/contracts/articles-cleanup.contract.test.ts tests/contracts/personality-cms.contract.test.ts lib/seo/articlePersonalityAuthority.ts 'app/(localized)/[locale]/articles/[slug]/page.tsx' 'app/(localized)/[locale]/personality/[type]/page.tsx'",
+          "status": "passed"
+        },
+        {
+          "name": "next typegen",
+          "command": "pnpm exec next typegen",
+          "status": "passed"
+        },
+        {
+          "name": "typecheck",
+          "command": "pnpm typecheck",
+          "status": "passed"
+        },
+        {
+          "name": "contracts",
+          "command": "pnpm test:contract",
+          "status": "passed"
+        },
+        {
+          "name": "build",
+          "command": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build",
+          "status": "passed"
+        },
+        {
+          "name": "sitemap generation",
+          "command": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm seo:generate-sitemap",
+          "status": "passed"
+        },
+        {
+          "name": "sitemap check",
+          "command": "pnpm seo:check-sitemap",
+          "status": "passed"
+        }
+      ],
+      "sidecars": [
+        {
+          "title": "Generated sitemap lastmod timestamp churn",
+          "severity": "P3",
+          "scope_impact": "Generated public/sitemap.xml lastmod values changed during build and seo:generate-sitemap; URL set remained 257 and was not staged.",
+          "introduced_by_current_pr": false,
+          "recommended_future_phase": "discoverability-build-determinism",
+          "blocks_merge": false,
+          "evidence": "public/sitemap.xml diff contained lastmod timestamp updates only; pnpm seo:check-sitemap passed after restoring the generated file."
+        },
+        {
+          "title": "Existing scoped eslint warnings in articles cleanup contract",
+          "severity": "P3",
+          "scope_impact": "Scoped eslint passed with pre-existing @typescript-eslint/no-unused-vars warnings for _init in tests/contracts/articles-cleanup.contract.test.ts.",
+          "introduced_by_current_pr": false,
+          "recommended_future_phase": "contract-lint-cleanup",
+          "blocks_merge": false,
+          "evidence": "pnpm exec eslint ... exited 0 with warnings at tests/contracts/articles-cleanup.contract.test.ts:484 and :526."
+        }
+      ],
+      "failure_reason": null,
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
     },
     {
       "id": "PR-PRA1B-05",

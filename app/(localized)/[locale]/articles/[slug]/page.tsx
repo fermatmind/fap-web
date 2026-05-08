@@ -25,6 +25,7 @@ import {
   buildBreadcrumbJsonLd,
   buildFAQPageJsonLd,
 } from "@/lib/seo/generateSchema";
+import { resolveArticleJsonLdAuthority } from "@/lib/seo/articlePersonalityAuthority";
 import { buildPageMetadata, normalizeTwitterImages, resolveTwitterCard } from "@/lib/seo/metadata";
 
 export const dynamic = "force-dynamic";
@@ -215,17 +216,24 @@ export default async function ArticleDetailPage({
   }
 
   const canonicalPath = buildCanonicalPath(article.slug, locale);
-  const articleJsonLd =
-    normalizeArticleJsonLdAuthor(seo?.jsonld) ||
-    buildArticleJsonLd({
-      path: canonicalPath,
-      title: article.title,
-      description: article.excerpt,
-      locale,
-      datePublished: article.publishedAt ?? article.updatedAt ?? article.createdAt ?? new Date().toISOString(),
-      dateModified: article.updatedAt ?? article.publishedAt ?? article.createdAt ?? new Date().toISOString(),
-      authorName: ARTICLE_AUTHOR_NAME,
-    });
+  const cmsArticleSeoJsonLd = normalizeArticleJsonLdAuthor(seo?.jsonld);
+  const articleJsonLdAuthority = resolveArticleJsonLdAuthority({
+    cmsArticleSeoJsonLd,
+    article,
+  });
+  const articleJsonLd = cmsArticleSeoJsonLd || (
+    articleJsonLdAuthority.canRenderJsonLd
+      ? buildArticleJsonLd({
+        path: canonicalPath,
+        title: article.title,
+        description: article.excerpt,
+        locale,
+        datePublished: article.publishedAt ?? article.updatedAt ?? article.createdAt ?? new Date().toISOString(),
+        dateModified: article.updatedAt ?? article.publishedAt ?? article.createdAt ?? new Date().toISOString(),
+        authorName: ARTICLE_AUTHOR_NAME,
+      })
+      : null
+  );
 
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
     { name: locale === "zh" ? "首页" : "Home", path: localizedPath("/", locale) },
@@ -259,7 +267,7 @@ export default async function ArticleDetailPage({
 
   return (
     <Container as="main" className="space-y-8 py-10">
-      <JsonLd id={`article-jsonld-${slug}`} data={articleJsonLd} />
+      {articleJsonLd ? <JsonLd id={`article-jsonld-${slug}`} data={articleJsonLd} /> : null}
       <JsonLd id={`article-breadcrumb-${slug}`} data={breadcrumbJsonLd} />
       {faqItems.length > 0 ? <JsonLd id={`article-faq-${slug}`} data={buildFAQPageJsonLd(faqItems)} /> : null}
 

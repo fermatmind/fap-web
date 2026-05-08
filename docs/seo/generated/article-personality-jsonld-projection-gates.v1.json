@@ -1,0 +1,101 @@
+{
+  "version": "seo.article_personality_jsonld_projection_gates.v1",
+  "scope": "PR-PRA1B-04",
+  "trainName": "public-runtime-authority-phase-1b-remediation-train",
+  "runtimeBehaviorChanged": true,
+  "urlSetChanged": false,
+  "llmsExposureChanged": false,
+  "statusEnum": [
+    "complete",
+    "ready_for_remediation",
+    "partial",
+    "blocked",
+    "not_ready",
+    "safe_to_defer",
+    "dangerous_if_expanded",
+    "requires_human_decision",
+    "unknown"
+  ],
+  "priorityEnum": ["P0", "P1", "P2", "P3"],
+  "rows": [
+    {
+      "id": "article_jsonld_authority_gate",
+      "surface": "Article JSON-LD fallback",
+      "status": "ready_for_remediation",
+      "priority": "P1",
+      "currentOwner": "CMS article SEO JSON-LD preferred; visible-content compatibility fallback remains in frontend",
+      "desiredOwner": "CMS article SEO JSON-LD or backend seo.surface.v1",
+      "runtimeGuard": "resolveArticleJsonLdAuthority",
+      "authorityRule": "Article JSON-LD fallback may render only from visible article content and remains a compatibility wrapper that blocks article SEO/GEO expansion.",
+      "sourceFiles": [
+        {
+          "path": "app/(localized)/[locale]/articles/[slug]/page.tsx",
+          "requiredTokens": [
+            "resolveArticleJsonLdAuthority({",
+            "cmsArticleSeoJsonLd",
+            "articleJsonLdAuthority.canRenderJsonLd",
+            "buildArticleJsonLd({"
+          ]
+        },
+        {
+          "path": "lib/seo/articlePersonalityAuthority.ts",
+          "requiredTokens": [
+            "resolveArticleJsonLdAuthority",
+            "visible_content_compatibility_fallback",
+            "blocksExpansion: true"
+          ]
+        }
+      ],
+      "blocksWhen": "Article JSON-LD fallback is treated as final SEO/GEO authority or emits hidden schema not grounded in visible article content."
+    },
+    {
+      "id": "personality_fallback_projection_gate",
+      "surface": "Personality fallback projection",
+      "status": "ready_for_remediation",
+      "priority": "P0",
+      "currentOwner": "frontend_gateway_fallback for emergency personality detail projection",
+      "desiredOwner": "CMS personality projection and public surface bundle",
+      "runtimeGuard": "resolvePersonalityFallbackProjectionGate",
+      "authorityRule": "Personality fallback projection must remain noindex/schema-suppressed and cannot carry career, graph, recommendation, scenario, or local content-pack claims.",
+      "sourceFiles": [
+        {
+          "path": "app/(localized)/[locale]/personality/[type]/page.tsx",
+          "requiredTokens": [
+            "resolvePersonalityFallbackProjectionGate(detail)",
+            "fallbackProjectionGate.canRenderPublicSchema",
+            "fallbackProjectionGate.canRenderCareerOrRecommendationClaims",
+            "fallbackProjectionGate.canRenderLocalPersonalityContentPack",
+            "fallbackProjectionGate.canRenderScenarioDeepDive"
+          ]
+        },
+        {
+          "path": "lib/seo/articlePersonalityAuthority.ts",
+          "requiredTokens": [
+            "frontend_gateway_fallback",
+            "canRenderPublicSchema: false",
+            "canRenderCareerOrRecommendationClaims: false",
+            "requiredRobots: \"noindex,nofollow\""
+          ]
+        }
+      ],
+      "blocksWhen": "Frontend personality fallback projection renders public schema, career direction, recommendation, graph, scenario, or local content-pack claims."
+    }
+  ],
+  "hardRules": [
+    "Article JSON-LD fallback cannot silently become accepted final authority",
+    "Article JSON-LD must be backend/CMS-owned or visible-content deterministic",
+    "Personality fallback cannot carry career / graph / recommendation claims",
+    "Personality fallback must remain noindex/schema-suppressed if used",
+    "CMS personality projection must be preferred when available",
+    "private flows remain excluded"
+  ],
+  "mustNotTouch": [
+    "article content",
+    "personality content",
+    "new schema types",
+    "hidden FAQ/schema",
+    "career claims",
+    "sitemap URL set",
+    "llms URL set"
+  ]
+}

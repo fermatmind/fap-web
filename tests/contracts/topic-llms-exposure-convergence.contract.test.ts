@@ -89,7 +89,7 @@ describe("topic / llms exposure convergence", () => {
       branch: "codex/pr-pra1b-02-test-detail-authority-convergence",
     });
     expect(byId.get("PR-PRA1B-03")).toMatchObject({
-      status: "in_progress",
+      status: "merged",
       branch: "codex/pr-pra1b-03-topic-llms-exposure-convergence",
       depends_on: ["PR-PRA1B-02"],
     });
