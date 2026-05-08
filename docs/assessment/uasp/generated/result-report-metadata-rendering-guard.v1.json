@@ -1,0 +1,88 @@
+{
+  "version": "uasp.result_report_metadata_rendering_guard.v1",
+  "scope": "PR-UASP2B-02",
+  "trainName": "uasp-runtime-metadata-integration-train",
+  "dependsOn": [
+    "PR-UASP2B-01"
+  ],
+  "runtimeBehaviorChanged": false,
+  "executionMode": "guard_only_contract_only",
+  "envelopeArtifact": "docs/assessment/uasp/generated/uasp-runtime-metadata-envelope.v1.json",
+  "runtimeEnvelopePresent": false,
+  "runtimeDataAttributesAdded": false,
+  "runtimeDataAttributesDeferred": true,
+  "frontendArtifactSynthesisAllowed": false,
+  "allowedDataAttributesIfBackedByRuntimeEnvelope": [
+    "data-uasp-signal-type",
+    "data-uasp-result-shape",
+    "data-uasp-claim-level",
+    "data-uasp-envelope-state"
+  ],
+  "runtimeScan": {
+    "command": "rg -n \"uasp_signal_v1|data-uasp|uaspSignal|uasp_signal\" app components lib",
+    "paths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "matches": 0,
+    "status": "no_runtime_envelope_found"
+  },
+  "pageFamilyGuards": [
+    {
+      "pageFamily": "MBTI result/report",
+      "evidence": [
+        "components/result/mbti/MbtiResultShell.tsx",
+        "components/result/RichResultReport.tsx"
+      ],
+      "guardStatus": "deferred_until_runtime_envelope",
+      "visibleCopyChange": false
+    },
+    {
+      "pageFamily": "Big Five result/report",
+      "evidence": [
+        "components/result/big5/Big5ResultShell.tsx",
+        "components/result/RichResultReport.tsx"
+      ],
+      "guardStatus": "deferred_until_runtime_envelope",
+      "visibleCopyChange": false
+    },
+    {
+      "pageFamily": "RIASEC result/report",
+      "evidence": [
+        "components/result/riasec/RiasecResultShell.tsx",
+        "components/result/RichResultReport.tsx"
+      ],
+      "guardStatus": "deferred_until_runtime_envelope",
+      "visibleCopyChange": false
+    },
+    {
+      "pageFamily": "Enneagram result/report",
+      "evidence": [
+        "components/result/enneagram/EnneagramResultShell.tsx",
+        "components/result/RichResultReport.tsx"
+      ],
+      "guardStatus": "deferred_until_runtime_envelope",
+      "visibleCopyChange": false
+    }
+  ],
+  "noVisibleCopyRules": [
+    "no_signal_badge_text",
+    "no_new_translated_copy",
+    "no_user_facing_signal_explanation",
+    "no_paywall_copy_change",
+    "no_report_prose_change"
+  ],
+  "mustNotChange": [
+    "result/report components",
+    "visible copy",
+    "shell routing",
+    "scoring",
+    "report content",
+    "report entitlement",
+    "PDF",
+    "profile runtime",
+    "recommendation runtime",
+    "runtime payloads"
+  ]
+}
