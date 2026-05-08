@@ -65,9 +65,10 @@ describe("Signal-to-Domain role matrix", () => {
       pr_url: "https://github.com/fermatmind/fap-web/pull/736",
     });
     expect(byId.get("PR-CDD-02")).toMatchObject({
-      status: "in_progress",
+      status: "merged",
       branch: "codex/pr-cdd-02-signal-to-domain-role-matrix",
       depends_on: ["PR-CDD-01"],
+      pr_url: "https://github.com/fermatmind/fap-web/pull/737",
     });
     expect(fs.existsSync(OVERLAY_PATH)).toBe(true);
   });

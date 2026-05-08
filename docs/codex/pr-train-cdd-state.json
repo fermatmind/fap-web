@@ -35,7 +35,9 @@
       "depends_on": [
         "PR-CDD-01"
       ],
-      "status": "in_progress",
+      "status": "merged",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/737",
+      "merge_sha": "1cd7e6e9",
       "title": "feat(domains): add signal-to-domain role matrix",
       "artifacts": [
         "docs/assessment/domains/signal-to-domain-role-matrix.md",
@@ -50,7 +52,7 @@
       "depends_on": [
         "PR-CDD-02"
       ],
-      "status": "planned",
+      "status": "in_progress",
       "title": "feat(domains): add domain evidence and CTA policy",
       "artifacts": [
         "docs/assessment/domains/domain-evidence-cta-policy.md",
