@@ -1,0 +1,320 @@
+{
+  "version": "uasp.existing_scale_signal_registry.v1",
+  "scope": "PR-UASP-02",
+  "trainName": "universal-assessment-signal-platform-v1-train",
+  "dependsOn": [
+    "PR-UASP-01"
+  ],
+  "runtimeBehaviorChanged": false,
+  "schemaArtifact": "docs/assessment/uasp/generated/uasp-signal-contract-schema.v1.json",
+  "allowedFirstBatchScales": [
+    "MBTI",
+    "BIG5_OCEAN",
+    "RIASEC",
+    "ENNEAGRAM"
+  ],
+  "entries": [
+    {
+      "version": "uasp.signal.v1",
+      "scale_code": "MBTI",
+      "scale_slug": "mbti-personality-test-16-personality-types",
+      "form_code": "mbti_93",
+      "signal_type": "identity",
+      "result_shape": "type",
+      "stability": "semi_stable_preference",
+      "sensitivity": "normal",
+      "decision_domains": [
+        "self_understanding",
+        "career_decision",
+        "workstyle_decision"
+      ],
+      "claim_level": "directional",
+      "profile_contribution": "longitudinal",
+      "recommendation_eligible": "next_step_only",
+      "report_eligible": true,
+      "seo_geo_eligible": "llms_eligible",
+      "freemium_status": "full_loop",
+      "evidence_required": true,
+      "disclaimer_required": false,
+      "runtime_authority_owner": "backend_cms",
+      "frontend_fallback_policy": "forbidden_for_new_surface",
+      "locale_support": [
+        "en",
+        "zh-CN"
+      ],
+      "source_authority": [
+        "scale_registry",
+        "content_pack",
+        "public_runtime_contract",
+        "freemium_parity_ledger"
+      ],
+      "rollback_policy": "disable_public_signal_mapping",
+      "boundaries": [
+        "Can describe preference, expression style, identity, and career-direction support.",
+        "Cannot predict career success.",
+        "Cannot claim precise career recommendation."
+      ],
+      "forbidden_claims": [
+        "career fit score equals hiring or success guarantee",
+        "precise career recommendation"
+      ],
+      "sourceEvidence": [
+        {
+          "path": "lib/assessmentSlugMap.ts",
+          "requiredTokens": [
+            "MBTI",
+            "mbti-personality-test-16-personality-types"
+          ]
+        },
+        {
+          "path": "docs/claims/generated/public-claim-boundary-matrix.v1.json",
+          "requiredTokens": [
+            "mbti_preferences_expression_identity",
+            "mbti_career_snapshot_direction"
+          ]
+        },
+        {
+          "path": "docs/freemium/generated/freemium-cross-scale-parity-ledger.v1.json",
+          "requiredTokens": [
+            "MBTI",
+            "full_loop"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "uasp.signal.v1",
+      "scale_code": "BIG5_OCEAN",
+      "scale_slug": "big-five-personality-test",
+      "form_code": "big5_90",
+      "signal_type": "trait",
+      "result_shape": "facet_vector",
+      "stability": "stable_trait",
+      "sensitivity": "normal",
+      "decision_domains": [
+        "self_understanding",
+        "workstyle_decision",
+        "career_decision"
+      ],
+      "claim_level": "interpretive",
+      "profile_contribution": "longitudinal",
+      "recommendation_eligible": "explanation_only",
+      "report_eligible": true,
+      "seo_geo_eligible": "geo_candidate",
+      "freemium_status": "frontend_partial",
+      "evidence_required": true,
+      "disclaimer_required": false,
+      "runtime_authority_owner": "backend_cms",
+      "frontend_fallback_policy": "forbidden_for_new_surface",
+      "locale_support": [
+        "en",
+        "zh-CN"
+      ],
+      "source_authority": [
+        "scale_registry",
+        "public_runtime_contract",
+        "claim_boundary_matrix",
+        "freemium_parity_ledger"
+      ],
+      "rollback_policy": "disable_public_signal_mapping",
+      "boundaries": [
+        "Can explain behavior and workplace style.",
+        "Cannot directly match careers.",
+        "Cannot claim Big Five precise career recommendation."
+      ],
+      "forbidden_claims": [
+        "Big Five precise career matching",
+        "Big Five as a career recommender"
+      ],
+      "sourceEvidence": [
+        {
+          "path": "lib/assessmentSlugMap.ts",
+          "requiredTokens": [
+            "BIG5_OCEAN",
+            "big-five-personality-test"
+          ]
+        },
+        {
+          "path": "docs/claims/generated/public-claim-boundary-matrix.v1.json",
+          "requiredTokens": [
+            "big5_workplace_behavior",
+            "big5_precise_career_match"
+          ]
+        },
+        {
+          "path": "docs/freemium/generated/freemium-cross-scale-parity-ledger.v1.json",
+          "requiredTokens": [
+            "BIG5_OCEAN",
+            "frontend_partial"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "uasp.signal.v1",
+      "scale_code": "RIASEC",
+      "scale_slug": "holland-career-interest-test-riasec",
+      "form_code": "riasec_60",
+      "signal_type": "interest",
+      "result_shape": "vector",
+      "stability": "semi_stable_preference",
+      "sensitivity": "normal",
+      "decision_domains": [
+        "career_decision",
+        "self_understanding"
+      ],
+      "claim_level": "directional",
+      "profile_contribution": "longitudinal",
+      "recommendation_eligible": "candidate_signal",
+      "report_eligible": true,
+      "seo_geo_eligible": "geo_candidate",
+      "freemium_status": "frontend_partial",
+      "evidence_required": true,
+      "disclaimer_required": false,
+      "runtime_authority_owner": "backend_cms",
+      "frontend_fallback_policy": "forbidden_for_new_surface",
+      "locale_support": [
+        "en",
+        "zh-CN"
+      ],
+      "source_authority": [
+        "scale_registry",
+        "public_runtime_contract",
+        "claim_boundary_matrix",
+        "freemium_parity_ledger"
+      ],
+      "rollback_policy": "disable_public_signal_mapping",
+      "boundaries": [
+        "Can describe career interest direction.",
+        "Can be a candidate signal for career decision support.",
+        "Cannot claim full career recommendation runtime.",
+        "Cannot claim precise best-career recommendation."
+      ],
+      "forbidden_claims": [
+        "RIASEC precise best-career recommendation",
+        "RIASEC as a complete career recommender"
+      ],
+      "sourceEvidence": [
+        {
+          "path": "lib/assessmentSlugMap.ts",
+          "requiredTokens": [
+            "RIASEC",
+            "holland-career-interest-test-riasec"
+          ]
+        },
+        {
+          "path": "docs/claims/generated/public-claim-boundary-matrix.v1.json",
+          "requiredTokens": [
+            "riasec_interest_direction",
+            "riasec_precise_best_career_recommendation"
+          ]
+        },
+        {
+          "path": "docs/freemium/generated/freemium-cross-scale-parity-ledger.v1.json",
+          "requiredTokens": [
+            "RIASEC",
+            "frontend_partial"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "uasp.signal.v1",
+      "scale_code": "ENNEAGRAM",
+      "scale_slug": "enneagram-personality-test-nine-types",
+      "form_code": "enneagram_likert_105",
+      "signal_type": "motivation",
+      "result_shape": "type",
+      "stability": "semi_stable_preference",
+      "sensitivity": "sensitive",
+      "decision_domains": [
+        "self_understanding",
+        "relationship_decision",
+        "workstyle_decision"
+      ],
+      "claim_level": "interpretive",
+      "profile_contribution": "summary_only",
+      "recommendation_eligible": "explanation_only",
+      "report_eligible": true,
+      "seo_geo_eligible": "seo_only",
+      "freemium_status": "backend_ready",
+      "evidence_required": true,
+      "disclaimer_required": true,
+      "runtime_authority_owner": "backend_cms",
+      "frontend_fallback_policy": "forbidden_for_new_surface",
+      "locale_support": [
+        "en",
+        "zh-CN"
+      ],
+      "source_authority": [
+        "scale_registry",
+        "public_runtime_contract",
+        "manual_decision"
+      ],
+      "rollback_policy": "disable_public_signal_mapping",
+      "boundaries": [
+        "Can explain motivation and relationship/workstyle patterns.",
+        "Should not enter career recommendation mainline."
+      ],
+      "forbidden_claims": [
+        "Enneagram career recommendation mainline"
+      ],
+      "sourceEvidence": [
+        {
+          "path": "lib/assessmentSlugMap.ts",
+          "requiredTokens": [
+            "ENNEAGRAM",
+            "enneagram-personality-test"
+          ]
+        },
+        {
+          "path": "tests/contracts/enneagram-result-assembler.contract.test.ts",
+          "requiredTokens": [
+            "ENNEAGRAM",
+            "enneagram_likert_105"
+          ]
+        },
+        {
+          "path": "docs/freemium/generated/freemium-runtime-coverage.v1.json",
+          "requiredTokens": [
+            "ENNEAGRAM",
+            "backend_ready"
+          ]
+        }
+      ]
+    }
+  ],
+  "nonMvpExamples": [
+    {
+      "scale_code": "SDS20",
+      "readinessStatus": "blocked",
+      "reason": "Mental-health-sensitive state signal example only; not first batch and not onboarded."
+    },
+    {
+      "scale_code": "CLINICAL_COMBO_68",
+      "readinessStatus": "blocked",
+      "reason": "Mental-health-sensitive state signal example only; requires sensitivity policy before UASP runtime use."
+    },
+    {
+      "scale_code": "IQ_RAVEN",
+      "readinessStatus": "partial",
+      "reason": "Ability-sensitive demo-backed example only; not first batch and not monetization-ready."
+    },
+    {
+      "scale_code": "FUTURE_SCALE_PLACEHOLDER",
+      "readinessStatus": "blocked",
+      "reason": "Future scales default to blocked until UASP contract, decision domain, claim, evidence, profile, SEO/GEO, fallback, and freemium gates pass."
+    }
+  ],
+  "mustNotChange": [
+    "public catalog",
+    "runtime",
+    "claim copy",
+    "freemium behavior",
+    "recommendation behavior",
+    "scoring",
+    "report entitlement",
+    "checkout/payment",
+    "SEO/GEO exposure"
+  ]
+}

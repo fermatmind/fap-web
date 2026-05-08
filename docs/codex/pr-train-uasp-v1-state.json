@@ -58,7 +58,7 @@
       "branch": "codex/pr-uasp-01-signal-contract-schema",
       "base": "main",
       "depends_on": [],
-      "status": "in_progress",
+      "status": "merged",
       "title": "feat(assessment): add UASP signal contract schema",
       "artifacts": [
         "docs/assessment/uasp/uasp-signal-contract-schema.md",
@@ -97,11 +97,11 @@
         }
       ],
       "failure_reason": "",
-      "pr_url": "",
-      "commit_sha": "",
-      "merged_at": "",
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/710",
+      "commit_sha": "aa8e41f91523a9180698e8dbc79eaa9f919c58e2",
+      "merged_at": "2026-05-08T05:45:00Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
     },
     {
       "id": "PR-UASP-02",
@@ -112,14 +112,48 @@
       "depends_on": [
         "PR-UASP-01"
       ],
-      "status": "planned",
+      "status": "in_progress",
       "title": "feat(assessment): map existing scales to UASP signal registry",
       "artifacts": [
         "docs/assessment/uasp/existing-scale-signal-mapping.md",
         "docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json",
         "tests/contracts/uasp-existing-scale-signal-registry.contract.test.ts"
       ],
-      "checks": [],
+      "checks": [
+        {
+          "command": "pnpm vitest run tests/contracts/uasp-existing-scale-signal-registry.contract.test.ts",
+          "status": "passed"
+        },
+        {
+          "command": "pnpm vitest run tests/contracts/uasp-signal-contract-schema.contract.test.ts tests/contracts/uasp-existing-scale-signal-registry.contract.test.ts",
+          "status": "passed"
+        },
+        {
+          "command": "pnpm typecheck",
+          "status": "passed"
+        },
+        {
+          "command": "pnpm test:contract",
+          "status": "passed"
+        },
+        {
+          "command": "pnpm seo:generate-sitemap",
+          "status": "passed",
+          "note": "Validation-generated sitemap and metadata inventory side effects were restored; no sitemap URL set changes included."
+        },
+        {
+          "command": "pnpm seo:check-sitemap",
+          "status": "passed"
+        },
+        {
+          "command": "pnpm lint tests/contracts/uasp-existing-scale-signal-registry.contract.test.ts tests/contracts/uasp-signal-contract-schema.contract.test.ts",
+          "status": "passed"
+        },
+        {
+          "command": "git diff --check && git diff --cached --check",
+          "status": "passed"
+        }
+      ],
       "failure_reason": "",
       "pr_url": "",
       "commit_sha": "",

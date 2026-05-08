@@ -151,9 +151,9 @@ describe("UASP signal contract schema", () => {
     ]);
     expect(state.prs[0]).toMatchObject({
       branch: "codex/pr-uasp-01-signal-contract-schema",
-      status: "in_progress",
       depends_on: [],
     });
+    expect(["in_progress", "merged"]).toContain(state.prs[0]?.status);
   });
 
   it("defines every UASP v1 contract field", () => {
