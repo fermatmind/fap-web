@@ -1,0 +1,288 @@
+{
+  "version": "runtime.freemium_cross_scale_parity_ledger.v1",
+  "scope": "PR-PRA1B-06",
+  "trainName": "public-runtime-authority-phase-1b-remediation-train",
+  "runtimeBehaviorChanged": false,
+  "commerceBehaviorChanged": false,
+  "reportBehaviorChanged": false,
+  "paymentBehaviorChanged": false,
+  "classificationEnum": [
+    "full_loop",
+    "backend_ready",
+    "frontend_partial",
+    "scale_specific",
+    "MBTI_only",
+    "cross_scale_partial",
+    "blocked",
+    "unknown"
+  ],
+  "capabilityEnum": [
+    "free_result",
+    "locked_report",
+    "offer_card",
+    "SKU",
+    "checkout",
+    "order_wait",
+    "entitlement_unlock",
+    "PDF_report_access",
+    "history",
+    "invite_unlock",
+    "bundle_module_entitlement",
+    "email_capture",
+    "retention_lifecycle",
+    "attribution"
+  ],
+  "fullLoopRequiredCapabilities": [
+    "free_result",
+    "locked_report",
+    "offer_card",
+    "SKU",
+    "checkout",
+    "order_wait",
+    "entitlement_unlock",
+    "PDF_report_access",
+    "history",
+    "attribution"
+  ],
+  "nonEquivalences": [
+    "offer_card_is_not_checkout_parity",
+    "backend_sku_is_not_public_funnel_proof",
+    "entitlement_is_not_full_conversion_loop_proof",
+    "module_entitlement_is_not_advanced_bundle_engine",
+    "email_capture_is_not_scheduled_retention_lifecycle_proof",
+    "future_scale_entry_is_not_monetization_readiness"
+  ],
+  "scales": [
+    {
+      "scale": "MBTI",
+      "scaleName": "MBTI",
+      "monetizationReadiness": "full_loop",
+      "monetizationReady": true,
+      "summary": "MBTI is the only scale with full public commerce-loop evidence in this ledger.",
+      "capabilities": {
+        "free_result": "full_loop",
+        "locked_report": "full_loop",
+        "offer_card": "full_loop",
+        "SKU": "full_loop",
+        "checkout": "full_loop",
+        "order_wait": "full_loop",
+        "entitlement_unlock": "full_loop",
+        "PDF_report_access": "full_loop",
+        "history": "full_loop",
+        "invite_unlock": "MBTI_only",
+        "bundle_module_entitlement": "cross_scale_partial",
+        "email_capture": "frontend_partial",
+        "retention_lifecycle": "frontend_partial",
+        "attribution": "full_loop"
+      },
+      "evidence": [
+        {
+          "path": "tests/contracts/mbti-checkout-wiring.contract.test.tsx",
+          "requiredTokens": [
+            "resolveMbtiCheckoutSku",
+            "MBTI_REPORT_FULL_199",
+            "createCheckoutOrOrder",
+            "payment_recovery_token"
+          ]
+        },
+        {
+          "path": "tests/contracts/orders-client-delivery.contract.test.tsx",
+          "requiredTokens": [
+            "fetchAttemptReportAccess",
+            "fetchAttemptReportPdf",
+            "report_pdf_url"
+          ]
+        },
+        {
+          "path": "tests/contracts/mbti-desktop-shell-cta.contract.test.tsx",
+          "requiredTokens": [
+            "renders 1/2 partial-unlock progress",
+            "完整报告已免费解锁",
+            "mbti-offers-invite-progress"
+          ]
+        }
+      ],
+      "mustProveBeforeMonetizationClaims": []
+    },
+    {
+      "scale": "BIG5_OCEAN",
+      "scaleName": "Big Five",
+      "monetizationReadiness": "cross_scale_partial",
+      "monetizationReady": false,
+      "summary": "Big Five has report access, offer summary/card, V2 module gates, history/PDF-readable surfaces, and email capture evidence; checkout parity and invite unlock parity are not proven.",
+      "capabilities": {
+        "free_result": "full_loop",
+        "locked_report": "cross_scale_partial",
+        "offer_card": "cross_scale_partial",
+        "SKU": "unknown",
+        "checkout": "blocked",
+        "order_wait": "cross_scale_partial",
+        "entitlement_unlock": "cross_scale_partial",
+        "PDF_report_access": "cross_scale_partial",
+        "history": "cross_scale_partial",
+        "invite_unlock": "blocked",
+        "bundle_module_entitlement": "cross_scale_partial",
+        "email_capture": "frontend_partial",
+        "retention_lifecycle": "frontend_partial",
+        "attribution": "frontend_partial"
+      },
+      "evidence": [
+        {
+          "path": "tests/contracts/big5-secondary-surfaces.contract.test.tsx",
+          "requiredTokens": [
+            "fetchBig5ReportAccess",
+            "offer_summary",
+            "primary_offer",
+            "modules_allowed"
+          ]
+        },
+        {
+          "path": "tests/contracts/big5-result-page-v2-consumer.contract.test.tsx",
+          "requiredTokens": [
+            "filters paid V2 modules when Big5 access is locked",
+            "modules_allowed",
+            "modules_preview"
+          ]
+        },
+        {
+          "path": "tests/contracts/result-client-view-state.contract.test.tsx",
+          "requiredTokens": [
+            "EMAIL_BIND_REQUIRED",
+            "bindAttemptEmail",
+            "result-email-gate"
+          ]
+        }
+      ],
+      "mustProveBeforeMonetizationClaims": [
+        "public_checkout_route_parity",
+        "scale_specific_sku_resolution",
+        "order_wait_delivery_parity",
+        "invite_unlock_parity_if_claimed"
+      ]
+    },
+    {
+      "scale": "RIASEC",
+      "scaleName": "RIASEC",
+      "monetizationReadiness": "frontend_partial",
+      "monetizationReady": false,
+      "summary": "RIASEC has public IA, take links, result/history/share affordances, and catalog authority evidence; monetization-loop parity is not proven.",
+      "capabilities": {
+        "free_result": "frontend_partial",
+        "locked_report": "unknown",
+        "offer_card": "blocked",
+        "SKU": "blocked",
+        "checkout": "blocked",
+        "order_wait": "unknown",
+        "entitlement_unlock": "unknown",
+        "PDF_report_access": "unknown",
+        "history": "frontend_partial",
+        "invite_unlock": "blocked",
+        "bundle_module_entitlement": "unknown",
+        "email_capture": "unknown",
+        "retention_lifecycle": "unknown",
+        "attribution": "frontend_partial"
+      },
+      "evidence": [
+        {
+          "path": "tests/contracts/riasec-public-ia.contract.test.ts",
+          "requiredTokens": [
+            "listRiasecFormMetas",
+            "SCALE_CANONICAL_SLUG_MAP.RIASEC",
+            "fetchRiasecHistory",
+            "createAttemptShare"
+          ]
+        },
+        {
+          "path": "tests/contracts/mbti-entry-wiring.contract.test.tsx",
+          "requiredTokens": [
+            "scaleCode=\"RIASEC\"",
+            "/zh/tests/holland-career-interest-test-riasec/take?form=riasec_60",
+            "/zh/tests/holland-career-interest-test-riasec/take?form=riasec_140"
+          ]
+        }
+      ],
+      "mustProveBeforeMonetizationClaims": [
+        "locked_report_runtime",
+        "offer_card_runtime",
+        "scale_specific_sku_resolution",
+        "public_checkout_route_parity",
+        "entitlement_report_access_parity",
+        "pdf_history_delivery_parity"
+      ]
+    },
+    {
+      "scale": "FUTURE_SCALE",
+      "scaleName": "Generic future scale",
+      "monetizationReadiness": "blocked",
+      "monetizationReady": false,
+      "summary": "A future scale cannot be marked monetization-ready until it provides explicit parity evidence for full-loop required capabilities.",
+      "capabilities": {
+        "free_result": "unknown",
+        "locked_report": "blocked",
+        "offer_card": "blocked",
+        "SKU": "blocked",
+        "checkout": "blocked",
+        "order_wait": "blocked",
+        "entitlement_unlock": "blocked",
+        "PDF_report_access": "blocked",
+        "history": "unknown",
+        "invite_unlock": "blocked",
+        "bundle_module_entitlement": "unknown",
+        "email_capture": "unknown",
+        "retention_lifecycle": "unknown",
+        "attribution": "unknown"
+      },
+      "evidence": [
+        {
+          "path": "docs/freemium/freemium-runtime-coverage.md",
+          "requiredTokens": [
+            "MBTI result to unlock loop",
+            "Big Five paywall coverage",
+            "No Runtime Change Statement"
+          ]
+        }
+      ],
+      "mustProveBeforeMonetizationClaims": [
+        "free_result_runtime",
+        "locked_report_runtime",
+        "offer_card_runtime",
+        "scale_specific_sku_resolution",
+        "checkout_order_wait_delivery",
+        "entitlement_report_access_pdf_history",
+        "attribution_and_email_lifecycle_boundaries"
+      ]
+    }
+  ],
+  "explicitFindings": [
+    {
+      "id": "mbti_full_loop",
+      "classification": "full_loop",
+      "summary": "MBTI full loop is evidenced from result/report through checkout, order wait, entitlement, PDF, history, invite unlock, and attribution."
+    },
+    {
+      "id": "big5_checkout_parity_not_proven",
+      "classification": "cross_scale_partial",
+      "summary": "Big Five has offer/report/module evidence, but public checkout parity with MBTI is not proven."
+    },
+    {
+      "id": "riasec_monetization_not_ready",
+      "classification": "frontend_partial",
+      "summary": "RIASEC has public IA and result/history/share affordances, but locked report, SKU, checkout, entitlement, and PDF parity are not proven."
+    },
+    {
+      "id": "future_scale_monetization_blocked",
+      "classification": "blocked",
+      "summary": "Future scales must provide explicit evidence for full-loop required capabilities before monetization readiness or conversion claims."
+    },
+    {
+      "id": "bundle_engine_not_proven",
+      "classification": "cross_scale_partial",
+      "summary": "Module entitlement gates exist, but an advanced bundle engine is not proven by current public runtime evidence."
+    },
+    {
+      "id": "retention_lifecycle_not_proven",
+      "classification": "frontend_partial",
+      "summary": "Email capture, preferences, unsubscribe, and report recovery surfaces exist; scheduled production retention lifecycle proof is not established."
+    }
+  ]
+}

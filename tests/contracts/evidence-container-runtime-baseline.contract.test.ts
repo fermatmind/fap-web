@@ -59,11 +59,12 @@ describe("Evidence Container runtime baseline", () => {
       status: "merged",
       branch: "codex/pr-pra1b-04-article-personality-jsonld-projection-gates",
     });
-    expect(byId.get("PR-PRA1B-05")).toMatchObject({
-      status: "in_progress",
+    const pr5 = byId.get("PR-PRA1B-05");
+    expect(pr5).toMatchObject({
       branch: "codex/pr-pra1b-05-evidence-container-runtime-baseline",
       depends_on: ["PR-PRA1B-04"],
     });
+    expect(["in_progress", "merged"]).toContain(pr5?.status);
   });
 
   it("defines the baseline without content, schema, sitemap, or llms expansion", () => {
