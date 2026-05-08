@@ -1,0 +1,207 @@
+{
+  "version": "uasp.runtime_integration_readiness_report.v1",
+  "trainName": "uasp-runtime-integration-readiness-report-train",
+  "prNamespace": "PR-UASP2B-RPT-*",
+  "scope": "PR-UASP2B-RPT-01",
+  "runtimeBehaviorChanged": false,
+  "reportPath": "docs/assessment/uasp/uasp-runtime-integration-readiness-report.md",
+  "allowedStatuses": [
+    "ready_for_integration",
+    "partial",
+    "backend_ready",
+    "frontend_partial",
+    "artifact_only",
+    "blocked",
+    "dangerous_if_integrated",
+    "requires_human_decision",
+    "safe_to_defer",
+    "unknown"
+  ],
+  "allowedPriorities": [
+    "P0",
+    "P1",
+    "P2",
+    "P3"
+  ],
+  "sections": [
+    "Executive Summary",
+    "UASP Artifact Reality Matrix",
+    "Backend Scale Registry Integration Matrix",
+    "Frontend Test Runtime Integration Matrix",
+    "Result / Report UASP Integration Matrix",
+    "Claim Runtime Integration Matrix",
+    "Evidence Runtime Integration Matrix",
+    "SEO/GEO UASP Integration Matrix",
+    "Freemium UASP Integration Matrix",
+    "Profile / Memory UASP Integration Matrix",
+    "Recommendation UASP Integration Matrix",
+    "Scale-specific Runtime Risk Matrix",
+    "UASP Runtime Ownership Matrix",
+    "P0 / P1 / P2 / P3 Backlog",
+    "Phase 2B Runtime Integration PR Train Proposal",
+    "Codex-safe vs Human-decision-required Matrix",
+    "What Must Not Be Integrated Yet",
+    "Final Phase 2B Readiness Assessment"
+  ],
+  "sourceArtifactIndex": [
+    {
+      "phase": "Phase 1A / PRAC",
+      "path": "docs/runtime/public-frontend-source-of-truth.md",
+      "status": "present"
+    },
+    {
+      "phase": "Phase 1A / PRAC",
+      "path": "docs/runtime/generated/public-frontend-source-of-truth.v1.json",
+      "status": "present"
+    },
+    {
+      "phase": "Phase 1A / PRAC",
+      "path": "docs/runtime/page-family-runtime-coverage.md",
+      "status": "present"
+    },
+    {
+      "phase": "Phase 1A / PRAC",
+      "path": "docs/runtime/generated/page-family-runtime-coverage.v1.json",
+      "status": "present"
+    },
+    {
+      "phase": "Phase 1A / PRAC",
+      "path": "docs/runtime/frontend-fallback-authority-inventory.md",
+      "status": "present"
+    },
+    {
+      "phase": "Phase 1A / PRAC",
+      "path": "docs/runtime/generated/frontend-fallback-authority-inventory.v1.json",
+      "status": "present"
+    },
+    {
+      "phase": "Phase 1A / PRAC",
+      "path": "docs/claims/public-claim-boundary-matrix.md",
+      "status": "present"
+    },
+    {
+      "phase": "Phase 1A / PRAC",
+      "path": "docs/claims/generated/public-claim-boundary-matrix.v1.json",
+      "status": "present"
+    },
+    {
+      "phase": "Phase 1A / PRAC",
+      "path": "docs/seo/discoverability-authority-convergence.md",
+      "status": "present"
+    },
+    {
+      "phase": "Phase 1A / PRAC",
+      "path": "docs/seo/generated/discoverability-authority-matrix.v1.json",
+      "status": "present"
+    },
+    {
+      "phase": "Phase 1A / PRAC",
+      "path": "docs/freemium/freemium-runtime-coverage.md",
+      "status": "present"
+    },
+    {
+      "phase": "Phase 1A / PRAC",
+      "path": "docs/freemium/generated/freemium-runtime-coverage.v1.json",
+      "status": "present"
+    },
+    {
+      "phase": "Phase 1B / PRA1B",
+      "path": "docs/runtime/fallback-owner-gates.md",
+      "status": "present"
+    },
+    {
+      "phase": "Phase 1B / PRA1B",
+      "path": "docs/runtime/generated/fallback-owner-gates.v1.json",
+      "status": "present"
+    },
+    {
+      "phase": "Phase 1B / PRA1B",
+      "path": "docs/geo/evidence-container-runtime-baseline.md",
+      "status": "present"
+    },
+    {
+      "phase": "Phase 1B / PRA1B",
+      "path": "docs/geo/generated/evidence-container-runtime-baseline.v1.json",
+      "status": "present"
+    },
+    {
+      "phase": "Phase 1B / PRA1B",
+      "path": "docs/freemium/freemium-cross-scale-parity-ledger.md",
+      "status": "present"
+    },
+    {
+      "phase": "Phase 1B / PRA1B",
+      "path": "docs/freemium/generated/freemium-cross-scale-parity-ledger.v1.json",
+      "status": "present"
+    },
+    {
+      "phase": "Phase 2A / UASP",
+      "path": "docs/assessment/uasp/uasp-signal-contract-schema.md",
+      "status": "present"
+    },
+    {
+      "phase": "Phase 2A / UASP",
+      "path": "docs/assessment/uasp/generated/uasp-signal-contract-schema.v1.json",
+      "status": "present"
+    },
+    {
+      "phase": "Phase 2A / UASP",
+      "path": "docs/assessment/uasp/existing-scale-signal-mapping.md",
+      "status": "present"
+    },
+    {
+      "phase": "Phase 2A / UASP",
+      "path": "docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json",
+      "status": "present"
+    },
+    {
+      "phase": "Phase 2A / UASP",
+      "path": "docs/assessment/uasp/decision-domain-registry.md",
+      "status": "present"
+    },
+    {
+      "phase": "Phase 2A / UASP",
+      "path": "docs/assessment/uasp/generated/uasp-decision-domain-registry.v1.json",
+      "status": "present"
+    },
+    {
+      "phase": "Phase 2A / UASP",
+      "path": "docs/assessment/uasp/uasp-eligibility-guards.md",
+      "status": "present"
+    },
+    {
+      "phase": "Phase 2A / UASP",
+      "path": "docs/assessment/uasp/generated/uasp-eligibility-guards.v1.json",
+      "status": "present"
+    },
+    {
+      "phase": "Phase 2A / UASP",
+      "path": "docs/assessment/uasp/profile-contribution-sensitivity-policy.md",
+      "status": "present"
+    },
+    {
+      "phase": "Phase 2A / UASP",
+      "path": "docs/assessment/uasp/generated/uasp-profile-sensitivity-policy.v1.json",
+      "status": "present"
+    },
+    {
+      "phase": "Phase 2A / UASP",
+      "path": "docs/assessment/uasp/uasp-readiness-dashboard.md",
+      "status": "present"
+    },
+    {
+      "phase": "Phase 2A / UASP",
+      "path": "docs/assessment/uasp/generated/uasp-readiness-dashboard.v1.json",
+      "status": "present"
+    }
+  ],
+  "matrices": {},
+  "backlog": [],
+  "phase2bPrTrainProposal": [],
+  "codexSafeVsHumanDecision": [],
+  "mustNotIntegrateYet": [],
+  "finalReadinessAssessment": {
+    "status": "partial",
+    "statement": "Pending final synthesis in PR-UASP2B-RPT-06."
+  }
+}
