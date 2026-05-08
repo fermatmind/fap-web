@@ -102,7 +102,7 @@ describe("MBTI recommendation copy boundary", () => {
       pr_url: "https://github.com/fermatmind/fap-web/pull/731",
       merge_sha: "017f8cbbc0daf59d91f2a5908cd881eb7451b93e",
     });
-    expect(state.prs.find((pr) => pr.id === "PR-SCB-03")).toMatchObject({ status: "in_progress" });
+    expect(["in_progress", "merged"]).toContain(state.prs.find((pr) => pr.id === "PR-SCB-03")?.status);
   });
 
   it("keeps MBTI recommendation as next_step_only snapshot direction support", () => {

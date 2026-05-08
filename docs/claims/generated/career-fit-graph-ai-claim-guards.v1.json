@@ -1,0 +1,98 @@
+{
+  "version": "claims.career_fit_graph_ai_claim_guards.v1",
+  "scope": "PR-SCB-04",
+  "trainName": "semantic-claim-boundary-enforcement-train",
+  "dependsOn": ["PR-SCB-03"],
+  "runtimeBehaviorChanged": false,
+  "executionMode": "contract_guard_manual_decision_enforcement",
+  "claimStatusEnum": ["allowed", "soft_allowed", "needs_disclaimer", "internal_only", "forbidden", "unknown"],
+  "priorityEnum": ["P0", "P1", "P2", "P3"],
+  "scannerCategories": ["forbidden", "soft_boundary", "needs_disclaimer", "allowed_reference", "manual_review"],
+  "sourceArtifacts": [
+    "docs/claims/generated/semantic-claim-scanner-baseline.v1.json",
+    "docs/claims/generated/public-claim-boundary-matrix.v1.json",
+    "docs/assessment/uasp/generated/seo-geo-eligibility-guard.v1.json",
+    "docs/geo/generated/evidence-container-runtime-baseline.v1.json",
+    "docs/claims/generated/mbti-recommendation-copy-boundary.v1.json"
+  ],
+  "runtimeScanScope": {
+    "repoLocal": ["app/**", "components/**", "lib/**", "docs/seo/**", "docs/geo/**", "docs/freemium/**"],
+    "excluded": ["docs/claims/**", "tests/contracts/**", "docs/codex/**", "**/generated/**"],
+    "matchMode": "exact_phrase",
+    "softLanguageMode": "inventory_only"
+  },
+  "guards": [
+    {
+      "id": "career_fit_no_success_or_placement_guarantee",
+      "category": "forbidden",
+      "status": "forbidden",
+      "priority": "P0",
+      "forbiddenPhrases": ["fit score guarantees success", "职业适配分保证成功", "录用保证", "就业成功保证", "placement guarantee", "career success guarantee"],
+      "allowedBoundary": "fit = exploration signal",
+      "runtimeBehaviorChange": "none"
+    },
+    {
+      "id": "confidence_no_certainty_claim",
+      "category": "forbidden",
+      "status": "forbidden",
+      "priority": "P0",
+      "forbiddenPhrases": ["confidence means certainty", "置信度等于保证", "置信度保证结果正确"],
+      "allowedBoundary": "confidence = data completeness / trust signal",
+      "runtimeBehaviorChange": "none"
+    },
+    {
+      "id": "graph_no_true_graph_overclaim",
+      "category": "forbidden",
+      "status": "forbidden",
+      "priority": "P0",
+      "forbiddenPhrases": ["sitemap/llms/schema = true graph", "完整语义知识图谱", "fully proven semantic KG"],
+      "allowedBoundary": "graph = backend occupation authority graph / scoring substrate",
+      "runtimeBehaviorChange": "none"
+    },
+    {
+      "id": "ai_no_precise_career_planning_claim",
+      "category": "forbidden",
+      "status": "forbidden",
+      "priority": "P0",
+      "forbiddenPhrases": ["AI 精准职业规划", "AI 自动规划职业人生", "AI guarantees career plan"],
+      "allowedBoundary": "AI/GEO = answerability / discoverability surface, not AI planning",
+      "runtimeBehaviorChange": "none"
+    }
+  ],
+  "manualReviewTerms": [
+    {
+      "term": "岗位诊断",
+      "status": "needs_disclaimer",
+      "category": "needs_disclaimer",
+      "publicPrimaryPhraseAllowed": false,
+      "evidence": "lib/marketing/socialProof.ts"
+    },
+    {
+      "term": "role-fit diagnostics",
+      "status": "manual_review",
+      "category": "manual_review",
+      "publicPrimaryPhraseAllowed": false,
+      "evidence": "lib/marketing/socialProof.ts"
+    }
+  ],
+  "preferredAlternatives": ["岗位适配分析", "职业方向分析", "职业适配参考", "岗位匹配参考", "职业探索建议"],
+  "allowedBoundaryOccurrences": [
+    {
+      "phrase": "placement guarantee",
+      "file": "docs/geo/evidence-container-spec.md",
+      "reason": "The phrase appears in a negated boundary: career suggestions are decision support, not placement guarantees."
+    }
+  ],
+  "assertions": {
+    "careerFitDoesNotGuaranteeSuccess": true,
+    "confidenceDoesNotMeanCertainty": true,
+    "sitemapLlmsSchemaDoesNotEqualTrueGraph": true,
+    "aiGeoIsNotAiCareerPlanning": true,
+    "roleFitDiagnosticsIsManualReviewUnlessBounded": true,
+    "publicCopyChanged": false,
+    "careerScoringChanged": false,
+    "explainabilityChanged": false,
+    "graphRuntimeChanged": false,
+    "aiGeoRuntimeChanged": false
+  }
+}
