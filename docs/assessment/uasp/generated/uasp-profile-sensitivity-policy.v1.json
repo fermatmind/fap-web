@@ -1,0 +1,348 @@
+{
+  "version": "uasp.profile_sensitivity_policy.v1",
+  "scope": "PR-UASP-05",
+  "trainName": "universal-assessment-signal-platform-v1-train",
+  "dependsOn": [
+    "PR-UASP-04"
+  ],
+  "runtimeBehaviorChanged": false,
+  "profileRuntimeChanged": false,
+  "sensitivePersistenceImplemented": false,
+  "authUserModelChanged": false,
+  "attemptStorageChanged": false,
+  "privacyRuntimeChanged": false,
+  "reportAccessChanged": false,
+  "recommendationRuntimeChanged": false,
+  "sourceArtifacts": [
+    "docs/assessment/uasp/generated/uasp-signal-contract-schema.v1.json",
+    "docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json",
+    "docs/assessment/uasp/generated/uasp-eligibility-guards.v1.json"
+  ],
+  "retentionCategories": [
+    "no_profile_storage",
+    "summary_storage",
+    "longitudinal_storage",
+    "opt_in_sensitive_storage",
+    "session_only",
+    "blocked_storage"
+  ],
+  "disclaimerCategories": [
+    "none",
+    "informational",
+    "sensitive_result",
+    "mental_health",
+    "ability_estimate",
+    "workplace_context",
+    "relationship_context",
+    "minor_protection"
+  ],
+  "sensitivityPolicy": [
+    {
+      "sensitivity": "normal",
+      "allowedProfileContributions": [
+        "none",
+        "summary_only",
+        "longitudinal"
+      ],
+      "defaultProfileContribution": "none",
+      "allowedRetention": [
+        "no_profile_storage",
+        "summary_storage",
+        "longitudinal_storage"
+      ],
+      "defaultRetention": "no_profile_storage",
+      "defaultDisclaimer": "none",
+      "recommendationDefault": "not_eligible",
+      "lockedRules": [
+        "Longitudinal contribution requires explicit scale mapping."
+      ]
+    },
+    {
+      "sensitivity": "sensitive",
+      "allowedProfileContributions": [
+        "none",
+        "summary_only",
+        "sensitive_opt_in",
+        "blocked"
+      ],
+      "defaultProfileContribution": "summary_only",
+      "allowedRetention": [
+        "no_profile_storage",
+        "summary_storage",
+        "opt_in_sensitive_storage",
+        "blocked_storage"
+      ],
+      "defaultRetention": "summary_storage",
+      "defaultDisclaimer": "sensitive_result",
+      "recommendationDefault": "explanation_only",
+      "lockedRules": [
+        "Sensitive scales cannot become longitudinal without human approval and explicit policy."
+      ]
+    },
+    {
+      "sensitivity": "mental_health_sensitive",
+      "allowedProfileContributions": [
+        "none",
+        "sensitive_opt_in",
+        "ephemeral",
+        "blocked"
+      ],
+      "defaultProfileContribution": "ephemeral",
+      "allowedRetention": [
+        "no_profile_storage",
+        "opt_in_sensitive_storage",
+        "session_only",
+        "blocked_storage"
+      ],
+      "defaultRetention": "session_only",
+      "defaultDisclaimer": "mental_health",
+      "recommendationDefault": "not_eligible",
+      "lockedRules": [
+        "Must not default to longitudinal.",
+        "Must not be diagnostic.",
+        "Recommendation eligibility must default to not_eligible."
+      ]
+    },
+    {
+      "sensitivity": "ability_sensitive",
+      "allowedProfileContributions": [
+        "none",
+        "summary_only",
+        "blocked"
+      ],
+      "defaultProfileContribution": "summary_only",
+      "allowedRetention": [
+        "no_profile_storage",
+        "summary_storage",
+        "blocked_storage"
+      ],
+      "defaultRetention": "summary_storage",
+      "defaultDisclaimer": "ability_estimate",
+      "recommendationDefault": "explanation_only",
+      "lockedRules": [
+        "Must not claim human worth.",
+        "Must not claim employment suitability.",
+        "Must not claim hiring suitability."
+      ]
+    },
+    {
+      "sensitivity": "minor_sensitive",
+      "allowedProfileContributions": [
+        "none",
+        "blocked"
+      ],
+      "defaultProfileContribution": "blocked",
+      "allowedRetention": [
+        "no_profile_storage",
+        "blocked_storage"
+      ],
+      "defaultRetention": "blocked_storage",
+      "defaultDisclaimer": "minor_protection",
+      "recommendationDefault": "not_eligible",
+      "lockedRules": [
+        "Blocked until minor policy exists."
+      ]
+    },
+    {
+      "sensitivity": "workplace_sensitive",
+      "allowedProfileContributions": [
+        "none",
+        "summary_only",
+        "sensitive_opt_in"
+      ],
+      "defaultProfileContribution": "summary_only",
+      "allowedRetention": [
+        "no_profile_storage",
+        "summary_storage",
+        "opt_in_sensitive_storage"
+      ],
+      "defaultRetention": "summary_storage",
+      "defaultDisclaimer": "workplace_context",
+      "recommendationDefault": "explanation_only",
+      "lockedRules": [
+        "Workplace-sensitive signals require contextual boundary notes."
+      ]
+    },
+    {
+      "sensitivity": "relationship_sensitive",
+      "allowedProfileContributions": [
+        "none",
+        "summary_only",
+        "sensitive_opt_in"
+      ],
+      "defaultProfileContribution": "summary_only",
+      "allowedRetention": [
+        "no_profile_storage",
+        "summary_storage",
+        "opt_in_sensitive_storage"
+      ],
+      "defaultRetention": "summary_storage",
+      "defaultDisclaimer": "relationship_context",
+      "recommendationDefault": "explanation_only",
+      "lockedRules": [
+        "Relationship-sensitive signals require relationship-context boundary notes."
+      ]
+    }
+  ],
+  "profileContributionPolicy": [
+    {
+      "profile_contribution": "none",
+      "meaning": "Signal does not contribute to profile memory.",
+      "allowedRetention": [
+        "no_profile_storage"
+      ],
+      "requiresFutureConsentPolicy": false
+    },
+    {
+      "profile_contribution": "summary_only",
+      "meaning": "Signal may appear as a non-longitudinal summary when product policy allows it.",
+      "allowedRetention": [
+        "summary_storage"
+      ],
+      "requiresFutureConsentPolicy": false
+    },
+    {
+      "profile_contribution": "longitudinal",
+      "meaning": "Signal may contribute to longitudinal profile interpretation when the scale is not sensitive and has versioned interpretation.",
+      "allowedRetention": [
+        "longitudinal_storage"
+      ],
+      "requiresFutureConsentPolicy": false
+    },
+    {
+      "profile_contribution": "sensitive_opt_in",
+      "meaning": "Signal requires explicit future consent policy before storage.",
+      "allowedRetention": [
+        "opt_in_sensitive_storage"
+      ],
+      "requiresFutureConsentPolicy": true
+    },
+    {
+      "profile_contribution": "ephemeral",
+      "meaning": "Signal describes a temporary state and must not be frozen as a stable trait.",
+      "allowedRetention": [
+        "session_only"
+      ],
+      "requiresFutureConsentPolicy": false
+    },
+    {
+      "profile_contribution": "blocked",
+      "meaning": "Signal is blocked from profile contribution.",
+      "allowedRetention": [
+        "blocked_storage"
+      ],
+      "requiresFutureConsentPolicy": false
+    }
+  ],
+  "decisionDomainDefaults": [
+    {
+      "decision_domain": "emotional_state",
+      "defaultProfileContribution": "ephemeral",
+      "allowedProfileContributions": [
+        "ephemeral",
+        "sensitive_opt_in"
+      ],
+      "defaultSensitivity": "mental_health_sensitive"
+    },
+    {
+      "decision_domain": "ability_growth",
+      "defaultProfileContribution": "summary_only",
+      "allowedProfileContributions": [
+        "none",
+        "summary_only",
+        "blocked"
+      ],
+      "defaultSensitivity": "ability_sensitive"
+    }
+  ],
+  "firstBatchBindings": [
+    {
+      "scale_code": "MBTI",
+      "sensitivity": "normal",
+      "profile_contribution": "longitudinal",
+      "retentionCategory": "longitudinal_storage",
+      "disclaimerCategory": "informational"
+    },
+    {
+      "scale_code": "BIG5_OCEAN",
+      "sensitivity": "normal",
+      "profile_contribution": "longitudinal",
+      "retentionCategory": "longitudinal_storage",
+      "disclaimerCategory": "informational"
+    },
+    {
+      "scale_code": "RIASEC",
+      "sensitivity": "normal",
+      "profile_contribution": "longitudinal",
+      "retentionCategory": "longitudinal_storage",
+      "disclaimerCategory": "informational"
+    },
+    {
+      "scale_code": "ENNEAGRAM",
+      "sensitivity": "sensitive",
+      "profile_contribution": "summary_only",
+      "retentionCategory": "summary_storage",
+      "disclaimerCategory": "sensitive_result"
+    }
+  ],
+  "protectedExamples": [
+    {
+      "scale_code": "SDS20",
+      "signal_type": "state",
+      "result_shape": "band",
+      "sensitivity": "mental_health_sensitive",
+      "profile_contribution": "sensitive_opt_in",
+      "retentionCategory": "opt_in_sensitive_storage",
+      "disclaimerCategory": "mental_health",
+      "recommendation_eligible": "not_eligible",
+      "readinessStatus": "blocked",
+      "runtimeOnboarded": false
+    },
+    {
+      "scale_code": "CLINICAL_COMBO_68",
+      "signal_type": "state",
+      "result_shape": "band",
+      "sensitivity": "mental_health_sensitive",
+      "profile_contribution": "sensitive_opt_in",
+      "retentionCategory": "opt_in_sensitive_storage",
+      "disclaimerCategory": "mental_health",
+      "recommendation_eligible": "not_eligible",
+      "readinessStatus": "blocked",
+      "runtimeOnboarded": false
+    },
+    {
+      "scale_code": "IQ_RAVEN",
+      "signal_type": "ability",
+      "result_shape": "ability_estimate",
+      "sensitivity": "ability_sensitive",
+      "profile_contribution": "summary_only",
+      "retentionCategory": "summary_storage",
+      "disclaimerCategory": "ability_estimate",
+      "recommendation_eligible": "explanation_only",
+      "forbiddenClaims": [
+        "human worth",
+        "employment suitability",
+        "hiring suitability"
+      ],
+      "readinessStatus": "partial",
+      "runtimeOnboarded": false
+    }
+  ],
+  "lockedRules": [
+    "mental_health_sensitive cannot default to longitudinal.",
+    "ability_sensitive cannot claim human worth or employment suitability.",
+    "emotional_state signals default to ephemeral or sensitive_opt_in.",
+    "sensitive_opt_in requires explicit future consent policy before runtime storage.",
+    "blocked means no profile contribution.",
+    "recommendation eligibility must be not_eligible for mental_health_sensitive by default."
+  ],
+  "mustNotChange": [
+    "profile memory runtime",
+    "sensitive signal persistence",
+    "auth/user model",
+    "attempt storage",
+    "privacy runtime",
+    "report access",
+    "recommendation runtime"
+  ]
+}
