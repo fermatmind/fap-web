@@ -16,9 +16,10 @@ import {
   limitLlmsRouteEntries,
   withLlmsRouteBudget,
 } from "@/lib/seo/llmsRouteBudget";
+import { TOPIC_LLMS_COMPATIBILITY_FALLBACK_SLUGS } from "@/lib/seo/topicLlmsAuthority";
 import { getSiteUrlOrThrow } from "@/lib/site";
 
-const TOPIC_FALLBACK_SLUGS = ["mbti", "big-five", "iq-eq"];
+const TOPIC_FALLBACK_SLUGS = TOPIC_LLMS_COMPATIBILITY_FALLBACK_SLUGS;
 const LLMS_FINAL_PATH_DENY_PATTERNS: RegExp[] = [
   /^\/zh$/i,
   /^\/tests(?:\/|$)/i,

@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
+import { TOPIC_LLMS_COMPATIBILITY_FALLBACKS, TOPIC_LLMS_COMPATIBILITY_FALLBACK_SLUGS } from "@/lib/seo/topicLlmsAuthority";
 
 const ROOT = process.cwd();
 const FIXTURE_PATH = path.join(
@@ -37,22 +38,6 @@ function readSource(relPath: string): string {
   return fs.readFileSync(path.join(ROOT, relPath), "utf8");
 }
 
-function extractStringArrayLiteral(source: string, identifier: string): string[] {
-  const pattern = new RegExp(`const\\s+${identifier}\\s*=\\s*\\[([^\\]]*)\\]`, "m");
-  const match = source.match(pattern);
-  expect(match, `${identifier} array literal must exist`).toBeTruthy();
-
-  return [...String(match?.[1] ?? "").matchAll(/["']([^"']+)["']/g)].map((item) => item[1]);
-}
-
-function extractObjectFallbackSlugs(source: string, identifier: string): string[] {
-  const pattern = new RegExp(`const\\s+${identifier}\\s*=\\s*\\[([\\s\\S]*?)\\];`, "m");
-  const match = source.match(pattern);
-  expect(match, `${identifier} object fallback literal must exist`).toBeTruthy();
-
-  return [...String(match?.[1] ?? "").matchAll(/slug:\s*["']([^"']+)["']/g)].map((item) => item[1]);
-}
-
 describe("llms topic fallback governance", () => {
   it("defines a versioned compatibility fixture for the current stable public topic fallback set", () => {
     const fixture = readFixture();
@@ -74,8 +59,10 @@ describe("llms topic fallback governance", () => {
     const llmsSource = readSource("app/llms.txt/route.ts");
     const llmsFullSource = readSource("app/llms-full.txt/route.ts");
 
-    expect(extractStringArrayLiteral(llmsSource, "TOPIC_FALLBACK_SLUGS")).toEqual(expectedSlugs);
-    expect(extractObjectFallbackSlugs(llmsFullSource, "TOPIC_FALLBACKS")).toEqual(expectedSlugs);
+    expect(TOPIC_LLMS_COMPATIBILITY_FALLBACK_SLUGS).toEqual(expectedSlugs);
+    expect(TOPIC_LLMS_COMPATIBILITY_FALLBACKS.map((topic) => topic.slug)).toEqual(expectedSlugs);
+    expect(llmsSource).toContain("TOPIC_FALLBACK_SLUGS = TOPIC_LLMS_COMPATIBILITY_FALLBACK_SLUGS");
+    expect(llmsFullSource).toContain("TOPIC_FALLBACKS = TOPIC_LLMS_COMPATIBILITY_FALLBACKS");
   });
 
   it("anchors source tokens and prevents unreviewed topic fallback widening", () => {
@@ -83,9 +70,13 @@ describe("llms topic fallback governance", () => {
 
     for (const contract of fixture.sourceContracts) {
       const source = readSource(contract.source);
+      const sharedAuthoritySource = readSource("lib/seo/topicLlmsAuthority.ts");
 
       for (const token of contract.requiredTokens) {
-        expect(source, `${contract.source} missing ${token}`).toContain(token);
+        expect(
+          source.includes(token) || sharedAuthoritySource.includes(token),
+          `${contract.source} or shared topic authority missing ${token}`
+        ).toBe(true);
       }
 
       for (const token of contract.forbiddenTokens) {

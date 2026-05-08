@@ -24,16 +24,13 @@ import {
   limitLlmsRouteEntries,
   withLlmsRouteBudget,
 } from "@/lib/seo/llmsRouteBudget";
+import { TOPIC_LLMS_COMPATIBILITY_FALLBACKS } from "@/lib/seo/topicLlmsAuthority";
 import { getSiteUrlOrThrow } from "@/lib/site";
 import type { AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
 import type { Locale } from "@/lib/i18n/locales";
 import type { LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
 
-const TOPIC_FALLBACKS = [
-  { slug: "mbti", title: "MBTI" },
-  { slug: "big-five", title: "Big Five" },
-  { slug: "iq-eq", title: "IQ and EQ" },
-];
+const TOPIC_FALLBACKS = TOPIC_LLMS_COMPATIBILITY_FALLBACKS;
 const LLMS_FINAL_PATH_DENY_PATTERNS: RegExp[] = [
   /^\/zh$/i,
   /^\/tests(?:\/|$)/i,

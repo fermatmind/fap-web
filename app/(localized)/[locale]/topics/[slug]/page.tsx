@@ -26,6 +26,7 @@ import { MBTI_TYPE_GROUPS } from "@/lib/mbti/mbtiTypeContentPack";
 import { buildMbtiTopicScenarioDeepModules } from "@/lib/mbti/sceneDeepContent";
 import { buildBreadcrumbJsonLd, buildFAQPageJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata, normalizeTwitterImages, resolveTwitterCard } from "@/lib/seo/metadata";
+import { resolveTopicRuntimeAuthority } from "@/lib/seo/topicLlmsAuthority";
 import { canonicalUrl } from "@/lib/site";
 
 export const dynamic = "force-static";
@@ -138,6 +139,11 @@ export default async function TopicDetailPage({
       }))
     : extractTopicFaqItems(topic.sections);
   const landingSurface = topic.landingSurface;
+  const topicRuntimeAuthority = resolveTopicRuntimeAuthority({
+    slug: topic.slug,
+    hasLandingSurfaceCtaBundle: Boolean(landingSurface?.ctaBundle.length),
+  });
+  const canRenderRelatedTopicCtas = Boolean(landingSurface?.ctaBundle.length) || topicRuntimeAuthority.cta.allowed;
   const webPageJsonLd = buildWebPageJsonLd({
     path: canonicalPath,
     title: normalizedSeo.meta.title,
@@ -326,35 +332,39 @@ export default async function TopicDetailPage({
             testId="topic-detail-answer-surface"
           />
           {renderedEntryGroups}
-          <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
-            <h2 className="m-0 font-serif text-xl font-semibold text-[var(--fm-text)]">
-              {locale === "zh" ? "继续延伸阅读" : "Continue with related public guides"}
-            </h2>
-            <div className="flex flex-wrap gap-2 text-sm">
-              {landingSurface?.ctaBundle.length
-                ? landingSurface.ctaBundle.map((cta) => (
-                    <Link key={cta.key} href={cta.href} className="fm-help-chip-link">
-                      {cta.label}
-                    </Link>
-                  ))
-                : (
-                    <>
-                      <Link href={mbtiPersonalityHubHref} className="fm-help-chip-link">
-                        {locale === "zh" ? "人格画像" : "Personality hub"}
+          {canRenderRelatedTopicCtas ? (
+            <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
+              <h2 className="m-0 font-serif text-xl font-semibold text-[var(--fm-text)]">
+                {locale === "zh" ? "继续延伸阅读" : "Continue with related public guides"}
+              </h2>
+              <div className="flex flex-wrap gap-2 text-sm">
+                {landingSurface?.ctaBundle.length
+                  ? landingSurface.ctaBundle.map((cta) => (
+                      <Link key={cta.key} href={cta.href} className="fm-help-chip-link">
+                        {cta.label}
                       </Link>
-                      <Link href={mbtiCareerRecommendationHubHref} className="fm-help-chip-link">
-                        {locale === "zh" ? "职业推荐" : "Career recommendations"}
-                      </Link>
-                      <Link href={mbtiTopicHubHref} className="fm-help-chip-link">
-                        {locale === "zh" ? "MBTI 主题页" : "MBTI topic hub"}
-                      </Link>
-                      <Link href={localizedPath("/help/faq", locale)} className="fm-help-chip-link">
-                        {locale === "zh" ? "帮助与常见问题" : "Help and FAQ"}
-                      </Link>
-                    </>
-                  )}
-            </div>
-          </section>
+                    ))
+                  : topicRuntimeAuthority.cta.allowed
+                    ? (
+                        <>
+                          <Link href={mbtiPersonalityHubHref} className="fm-help-chip-link">
+                            {locale === "zh" ? "人格画像" : "Personality hub"}
+                          </Link>
+                          <Link href={mbtiCareerRecommendationHubHref} className="fm-help-chip-link">
+                            {locale === "zh" ? "职业推荐" : "Career recommendations"}
+                          </Link>
+                          <Link href={mbtiTopicHubHref} className="fm-help-chip-link">
+                            {locale === "zh" ? "MBTI 主题页" : "MBTI topic hub"}
+                          </Link>
+                          <Link href={localizedPath("/help/faq", locale)} className="fm-help-chip-link">
+                            {locale === "zh" ? "帮助与常见问题" : "Help and FAQ"}
+                          </Link>
+                        </>
+                      )
+                    : null}
+              </div>
+            </section>
+          ) : null}
           {renderedSections.length === 0 && renderedEntryGroups.length === 0 ? (
             <Card>
               <CardHeader>
