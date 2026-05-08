@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-phase-1b-remediation-train",
   "train_description": "Phase 1B remediation train for FermatMind Public Runtime Authority.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-08T03:25:33Z",
+  "updated_at": "2026-05-08T03:43:34Z",
   "status": "initialized",
   "phase": "public-runtime-authority-phase-1b-remediation",
   "pr_namespace": "PR-PRA1B-*",
@@ -394,7 +394,7 @@
       "depends_on": [
         "PR-PRA1B-04"
       ],
-      "status": "in_progress",
+      "status": "merged",
       "title": "feat(geo): add visible Evidence Container runtime baseline",
       "artifacts": [
         "docs/geo/evidence-container-runtime-baseline.md",
@@ -465,11 +465,12 @@
         }
       ],
       "failure_reason": null,
-      "commit_sha": null,
-      "pr_url": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false
+      "commit_sha": "ee27c69edfc1f53db255b4b0b226958fba38d996",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/707",
+      "merge_sha": "d79588b4794b389f84e3db598e3dee02cec5305e",
+      "merged_at": "2026-05-08T03:35:12Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
     },
     {
       "id": "PR-PRA1B-06",
@@ -480,8 +481,72 @@
       "depends_on": [
         "PR-PRA1B-05"
       ],
-      "status": "planned",
-      "title": "test(freemium): add cross-scale freemium parity ledger"
+      "status": "in_progress",
+      "title": "test(freemium): add cross-scale freemium parity ledger",
+      "artifacts": [
+        "docs/freemium/freemium-cross-scale-parity-ledger.md",
+        "docs/freemium/generated/freemium-cross-scale-parity-ledger.v1.json",
+        "tests/contracts/freemium-cross-scale-parity-ledger.contract.test.ts"
+      ],
+      "checks": [
+        {
+          "name": "scoped freemium parity contracts",
+          "command": "pnpm exec vitest run tests/contracts/freemium-cross-scale-parity-ledger.contract.test.ts tests/contracts/freemium-runtime-coverage.contract.test.ts",
+          "status": "passed"
+        },
+        {
+          "name": "scoped freemium/evidence train contracts",
+          "command": "pnpm exec vitest run tests/contracts/evidence-container-runtime-baseline.contract.test.ts tests/contracts/freemium-cross-scale-parity-ledger.contract.test.ts tests/contracts/freemium-runtime-coverage.contract.test.ts",
+          "status": "passed"
+        },
+        {
+          "name": "scoped eslint",
+          "command": "pnpm exec eslint tests/contracts/freemium-cross-scale-parity-ledger.contract.test.ts",
+          "status": "passed"
+        },
+        {
+          "name": "next typegen",
+          "command": "pnpm exec next typegen",
+          "status": "passed"
+        },
+        {
+          "name": "typecheck",
+          "command": "pnpm typecheck",
+          "status": "passed"
+        },
+        {
+          "name": "contracts",
+          "command": "pnpm test:contract",
+          "status": "passed"
+        },
+        {
+          "name": "build",
+          "command": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build",
+          "status": "passed"
+        },
+        {
+          "name": "sitemap check",
+          "command": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm seo:check-sitemap",
+          "status": "passed"
+        }
+      ],
+      "sidecars": [
+        {
+          "title": "Generated sitemap lastmod timestamp churn",
+          "severity": "P3",
+          "scope_impact": "Build/postbuild regenerated public/sitemap.xml lastmod values; URL set remained 257 and generated file was restored before staging.",
+          "introduced_by_current_pr": false,
+          "recommended_future_phase": "discoverability-build-determinism",
+          "blocks_merge": false,
+          "evidence": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build triggered seo:generate-sitemap; git restore public/sitemap.xml followed by pnpm seo:check-sitemap passed with 257 URLs."
+        }
+      ],
+      "failure_reason": null,
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
     }
   ],
   "sidecar_issues": [
