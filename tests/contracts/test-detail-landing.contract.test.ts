@@ -12,9 +12,25 @@ describe("test detail landing contract", () => {
     const source = fs.readFileSync(PAGE_PATH, "utf8");
 
     expect(source).toContain('normalizeLandingSurface(lookup?.landing_surface_v1 ?? null)');
-    expect(source).toContain('const startTestHref = withAttribution(landingSurface?.startTestTarget');
+    expect(source).toContain('const testDetailAuthority = resolveTestDetailAuthority({');
+    expect(source).toContain('const startTestHref = withAttribution(');
+    expect(source).toContain('landingSurface?.startTestTarget || (testDetailAuthority.cta.allowed ? withLocale(`/tests/${test.slug}/take`) : landingBasePath)');
+    expect(source).toContain("const canRenderStartCta = testDetailAuthority.cta.allowed || Boolean(landingSurface?.startTestTarget);");
     expect(source).toContain('findLandingCta(landingSurface, "continue_public_content")');
     expect(source).toContain('data-testid="test-detail-landing-cta"');
+    expect(source).toContain(') : canRenderStartCta ? (');
+    expect(source).toContain("{testDetailAuthority.cta.allowed ? (");
+  });
+
+  it("renders FAQPage only from visible FAQ content or approved compatibility fallback", () => {
+    const source = fs.readFileSync(PAGE_PATH, "utf8");
+
+    expect(source).toContain("hasVisibleFaq: faqItems.length > 0");
+    expect(source).toContain(": testDetailAuthority.faq.allowed");
+    expect(source).toContain("const faqJsonLd =");
+    expect(source).toContain("mergedFaq.length > 0");
+    expect(source).toContain('{faqJsonLd ? <JsonLd id={`test-faq-${test.slug}`} data={faqJsonLd} /> : null}');
+    expect(source).toContain("{mergedFaq.length > 0 ? (");
   });
 
   it("keeps one primary mbti CTA plus a secondary CTA on the landing hero", () => {

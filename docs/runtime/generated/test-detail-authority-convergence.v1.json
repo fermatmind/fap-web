@@ -1,0 +1,140 @@
+{
+  "version": "runtime.test_detail_authority_convergence.v1",
+  "scope": "PR-PRA1B-02",
+  "trainName": "public-runtime-authority-phase-1b-remediation-train",
+  "runtimeBehaviorChanged": true,
+  "runtimeBehaviorChangeScope": "Future unapproved test detail pages without backend/CMS authority fail closed for metadata, FAQ, CTA, and FAQPage JSON-LD fallback; existing approved test detail pages retain compatibility fallback.",
+  "statusEnum": [
+    "complete",
+    "ready_for_remediation",
+    "partial",
+    "blocked",
+    "not_ready",
+    "safe_to_defer",
+    "dangerous_if_expanded",
+    "requires_human_decision",
+    "unknown"
+  ],
+  "priorityEnum": [
+    "P0",
+    "P1",
+    "P2",
+    "P3"
+  ],
+  "fallbackClassificationEnum": [
+    "safe_static",
+    "product_code_only",
+    "compatibility_wrapper",
+    "watchlist",
+    "migration_required",
+    "forbidden"
+  ],
+  "sourceArtifacts": [
+    "docs/runtime/generated/fallback-owner-gates.v1.json",
+    "docs/runtime/generated/frontend-fallback-authority-inventory.v1.json"
+  ],
+  "approvedCompatibilityFallbackSlugs": [
+    "mbti-personality-test-16-personality-types",
+    "big-five-personality-test-ocean-model",
+    "enneagram-personality-test-nine-types",
+    "holland-career-interest-test-riasec",
+    "eq-test-emotional-intelligence-assessment",
+    "iq-test-intelligence-quotient-assessment",
+    "clinical-depression-anxiety-assessment-professional-edition",
+    "depression-screening-test-standard-edition"
+  ],
+  "newTestGuard": {
+    "status": "complete",
+    "priority": "P0",
+    "rule": "A new test detail surface without backend/CMS authority cannot inherit frontend metadata, FAQ, CTA, or FAQPage JSON-LD fallback.",
+    "implementation": "lib/seo/testDetailAuthority.ts",
+    "runtimeConsumer": "app/(localized)/[locale]/tests/[slug]/page.tsx",
+    "blocksUniversalAssessmentSignalPlatform": true
+  },
+  "rows": [
+    {
+      "id": "test_detail_metadata_authority",
+      "surface": "test detail metadata",
+      "fallbackId": "test_metadata_faq_cta_fallback",
+      "currentOwner": "backend seo.surface.v1 or scale lookup when present; approved compatibility wrapper otherwise",
+      "desiredOwner": "seo.surface.v1 and scale lookup",
+      "classification": "migration_required",
+      "status": "partial",
+      "priority": "P0",
+      "backendReplacement": "replacement_partial",
+      "runtimeGuard": "resolveTestDetailAuthority().metadata",
+      "compatibilityAllowance": "approvedCompatibilityFallbackSlugs only",
+      "failsClosedWhen": "slug is not approved and seo title/description authority is missing",
+      "runtimeEvidence": [
+        "generateMetadata uses resolveTestDetailAuthority",
+        "missing metadata authority noindexes unapproved new test detail pages"
+      ]
+    },
+    {
+      "id": "test_detail_faq_authority",
+      "surface": "test detail visible FAQ",
+      "fallbackId": "test_metadata_faq_cta_fallback",
+      "currentOwner": "content_i18n_json FAQ when present; approved compatibility wrapper otherwise",
+      "desiredOwner": "answer_surface_v1 or CMS/scale visible FAQ authority",
+      "classification": "migration_required",
+      "status": "partial",
+      "priority": "P0",
+      "backendReplacement": "replacement_partial",
+      "runtimeGuard": "resolveTestDetailAuthority().faq",
+      "compatibilityAllowance": "approvedCompatibilityFallbackSlugs only",
+      "failsClosedWhen": "slug is not approved and visible FAQ authority is missing",
+      "runtimeEvidence": [
+        "mergedFaq becomes empty for unapproved test detail pages without visible FAQ authority",
+        "FAQ section renders only when mergedFaq has visible items"
+      ]
+    },
+    {
+      "id": "test_detail_faqpage_jsonld_authority",
+      "surface": "test detail FAQPage JSON-LD",
+      "fallbackId": "test_metadata_faq_cta_fallback",
+      "currentOwner": "visible FAQ items only",
+      "desiredOwner": "visible FAQ or answer_surface_v1",
+      "classification": "migration_required",
+      "status": "complete",
+      "priority": "P0",
+      "backendReplacement": "replacement_partial",
+      "runtimeGuard": "faqJsonLd is null when mergedFaq is empty",
+      "compatibilityAllowance": "FAQPage JSON-LD only mirrors visible mergedFaq",
+      "failsClosedWhen": "no visible FAQ items are rendered",
+      "runtimeEvidence": [
+        "JsonLd id test-faq renders only when faqJsonLd is not null",
+        "faqJsonLd is built only from mergedFaq"
+      ]
+    },
+    {
+      "id": "test_detail_cta_authority",
+      "surface": "test detail CTA",
+      "fallbackId": "test_metadata_faq_cta_fallback",
+      "currentOwner": "landing_surface_v1 when present; approved compatibility wrapper otherwise",
+      "desiredOwner": "landing_surface_v1 or CMS CTA authority",
+      "classification": "migration_required",
+      "status": "partial",
+      "priority": "P0",
+      "backendReplacement": "replacement_partial",
+      "runtimeGuard": "resolveTestDetailAuthority().cta",
+      "compatibilityAllowance": "approvedCompatibilityFallbackSlugs only",
+      "failsClosedWhen": "slug is not approved and landing_surface_v1 CTA authority is missing",
+      "runtimeEvidence": [
+        "generic start CTA renders only when canRenderStartCta is true",
+        "CTASticky renders only when testDetailAuthority.cta.allowed is true"
+      ]
+    }
+  ],
+  "mustNotTouch": [
+    "scoring",
+    "test take flow",
+    "result/report",
+    "checkout",
+    "payment",
+    "entitlement",
+    "new test onboarding",
+    "sitemap URL set",
+    "llms URL set",
+    "hidden schema"
+  ]
+}

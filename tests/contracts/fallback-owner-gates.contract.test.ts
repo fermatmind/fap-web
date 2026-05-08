@@ -144,7 +144,7 @@ describe("fallback owner gates", () => {
     expect(state.prs[0]).toMatchObject({
       branch: "codex/pr-pra1b-01-fallback-owner-gates",
       depends_on: [],
-      status: "in_progress",
+      status: "merged",
     });
   });
 
