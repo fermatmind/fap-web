@@ -1,0 +1,212 @@
+{
+  "version": "core_decision_domain.v1",
+  "scope": "PR-CDD-01",
+  "trainName": "core-decision-domain-governance-train",
+  "runtimeBehaviorChanged": false,
+  "executionMode": "artifact_json_contract_only",
+  "allowedDomains": [
+    "self_understanding",
+    "career_decision",
+    "workstyle_decision"
+  ],
+  "domainStatusEnum": [
+    "ready_for_domain_v1",
+    "partial",
+    "artifact_only",
+    "backend_ready",
+    "frontend_partial",
+    "blocked",
+    "dangerous_if_expanded",
+    "requires_human_decision",
+    "safe_to_defer",
+    "unknown"
+  ],
+  "finalReadinessEnum": [
+    "ready",
+    "partial",
+    "blocked",
+    "not_applicable",
+    "requires_human_decision",
+    "unknown"
+  ],
+  "sourceArtifacts": [
+    {
+      "path": "docs/assessment/uasp/generated/uasp-decision-domain-registry.v1.json",
+      "status": "ready_for_domain_v1"
+    },
+    {
+      "path": "docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json",
+      "status": "ready_for_domain_v1"
+    },
+    {
+      "path": "docs/claims/generated/public-claim-boundary-matrix.v1.json",
+      "status": "ready_for_domain_v1"
+    },
+    {
+      "path": "docs/claims/generated/semantic-claim-scanner-baseline.v1.json",
+      "status": "ready_for_domain_v1"
+    },
+    {
+      "path": "docs/geo/generated/evidence-container-runtime-baseline.v1.json",
+      "status": "partial"
+    },
+    {
+      "path": "docs/freemium/generated/freemium-cross-scale-parity-ledger.v1.json",
+      "status": "partial"
+    },
+    {
+      "path": "docs/graph/generated/core-topic-graph-inventory.v1.json",
+      "status": "dangerous_if_expanded"
+    },
+    {
+      "path": "docs/graph/generated/core-topic-graph-edge-schema.v1.json",
+      "status": "safe_to_defer",
+      "missing_artifact": true
+    }
+  ],
+  "domains": [
+    {
+      "domain_id": "self_understanding",
+      "user_problem": "我是谁？我的核心倾向是什么？",
+      "allowed_signal_types": [
+        "identity",
+        "trait",
+        "motivation"
+      ],
+      "prohibited_signal_types": [
+        "state",
+        "ability"
+      ],
+      "allowed_scales": [
+        "MBTI",
+        "BIG5_OCEAN",
+        "ENNEAGRAM"
+      ],
+      "blocked_scales": [
+        "future_clinical_scales",
+        "future_ability_tests"
+      ],
+      "claim_boundary": [
+        "no determinism",
+        "no diagnosis",
+        "no destiny framing",
+        "not personality entertainment"
+      ],
+      "evidence_requirement": "Visible result, report, answer surface, or evidence container support is required before public domain claims.",
+      "CTA_policy": "No domain-owned runtime CTA yet; existing CTAs remain source-owned and must not become frontend fallback authority.",
+      "SEO_GEO_policy": "Does not grant SEO/GEO eligibility automatically.",
+      "profile_policy": "Domain mapping does not imply profile write.",
+      "recommendation_policy": "Does not grant recommendation eligibility.",
+      "freemium_policy": "Domain bundle is blocked until explicit freemium parity proof exists.",
+      "runtime_status": "artifact_only",
+      "readiness_status": "ready_for_domain_v1"
+    },
+    {
+      "domain_id": "career_decision",
+      "user_problem": "我适合什么职业方向？下一步该探索什么？",
+      "allowed_signal_types": [
+        "interest",
+        "identity",
+        "trait",
+        "workstyle"
+      ],
+      "prohibited_signal_types": [
+        "state"
+      ],
+      "allowed_scales": [
+        "RIASEC",
+        "MBTI",
+        "BIG5_OCEAN",
+        "Career Graph"
+      ],
+      "blocked_scales": [
+        "ENNEAGRAM",
+        "future_ability_tests",
+        "future_clinical_scales"
+      ],
+      "claim_boundary": [
+        "no precise recommender",
+        "no best-career prediction",
+        "no success guarantee",
+        "no placement guarantee",
+        "no Big Five/RIASEC career matcher",
+        "no AI planning claim"
+      ],
+      "evidence_requirement": "Career direction claims require visible evidence, claim boundary, and source authority.",
+      "CTA_policy": "MBTI career CTAs remain snapshot/direction support; no generalized recommender CTA.",
+      "SEO_GEO_policy": "Career domain SEO/GEO remains guard-only; no sitemap or llms widening.",
+      "profile_policy": "Domain mapping does not imply profile write or saved-careers promotion.",
+      "recommendation_policy": "RIASEC is candidate_signal, MBTI is next_step_only, Big Five is explanation_only.",
+      "freemium_policy": "Career domain commerce is partial; no full recommendation package claim.",
+      "runtime_status": "artifact_only",
+      "readiness_status": "partial"
+    },
+    {
+      "domain_id": "workstyle_decision",
+      "user_problem": "我适合怎样的工作方式？在团队里怎么发挥？",
+      "allowed_signal_types": [
+        "trait",
+        "identity",
+        "motivation",
+        "workstyle"
+      ],
+      "prohibited_signal_types": [
+        "state",
+        "ability",
+        "interest"
+      ],
+      "allowed_scales": [
+        "BIG5_OCEAN",
+        "MBTI",
+        "ENNEAGRAM"
+      ],
+      "blocked_scales": [
+        "RIASEC",
+        "future_ability_tests"
+      ],
+      "claim_boundary": [
+        "no employment suitability",
+        "no workplace performance prediction",
+        "no HR screening claim",
+        "no Big Five career matching"
+      ],
+      "evidence_requirement": "Workstyle claims require visible report, result, or answer evidence; FAQ-only is not enough.",
+      "CTA_policy": "No domain-owned workstyle CTA yet; future DISC/EQ remain blocked placeholders.",
+      "SEO_GEO_policy": "Artifact-only until claim and evidence guards are approved.",
+      "profile_policy": "Domain mapping does not imply profile write.",
+      "recommendation_policy": "Explanation or next-step only unless future recommendation guard passes.",
+      "freemium_policy": "Report value is partial; no domain bundle policy yet.",
+      "runtime_status": "artifact_only",
+      "readiness_status": "partial"
+    }
+  ],
+  "blockedDomains": [
+    "relationship_decision",
+    "learning_growth",
+    "emotional_state",
+    "ability_growth",
+    "team_communication",
+    "leadership_growth",
+    "life_direction"
+  ],
+  "mustNotChange": [
+    "app routes",
+    "public pages",
+    "visible copy",
+    "recommendation runtime",
+    "profile runtime",
+    "freemium runtime",
+    "SEO/GEO output",
+    "sitemap/llms URL sets",
+    "scoring",
+    "report entitlement",
+    "checkout/payment"
+  ],
+  "residualRisks": [
+    {
+      "title": "Generated graph edge schema artifact is absent",
+      "status": "safe_to_defer",
+      "evidence": "docs/graph/core-topic-graph-edge-schema.md exists, but docs/graph/generated/core-topic-graph-edge-schema.v1.json is missing."
+    }
+  ]
+}

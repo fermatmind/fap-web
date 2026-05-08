@@ -1,0 +1,173 @@
+train_name: core-decision-domain-governance-train
+train_description: >
+  Phase 4A governance train for the first three FermatMind core decision
+  domains. The train creates artifacts, generated JSON, and contract guards
+  only. It does not add pages, routes, runtime CTAs, recommendation logic,
+  profile writes, SEO/GEO exposure, freemium runtime, scoring, or entitlement
+  behavior.
+base_branch: main
+merge_method: squash
+stop_on_failure: true
+require_clean_worktree: true
+execution_mode: local_clone_preferred
+status: initialized
+pr_namespace: PR-CDD-*
+branch_naming_convention: codex/pr-cdd-<nn>-<short-scope>
+required_github_checks:
+  - build
+  - contracts
+  - verify-big5-contract-freeze
+  - verify-enneagram-contract-freeze
+
+allowed_domains:
+  - self_understanding
+  - career_decision
+  - workstyle_decision
+
+role_enum:
+  - primary
+  - secondary
+  - supporting
+  - future
+  - blocked
+
+domain_status_enum:
+  - ready_for_domain_v1
+  - partial
+  - artifact_only
+  - backend_ready
+  - frontend_partial
+  - blocked
+  - dangerous_if_expanded
+  - requires_human_decision
+  - safe_to_defer
+  - unknown
+
+final_readiness_enum:
+  - ready
+  - partial
+  - blocked
+  - not_applicable
+  - requires_human_decision
+  - unknown
+
+train_policy:
+  governance_only: true
+  artifact_json_contract_only: true
+  no_new_tests: true
+  no_new_scale_onboarding: true
+  no_new_domain_hub_pages: true
+  no_new_public_routes: true
+  no_new_visible_copy: true
+  no_runtime_cta_changes: true
+  no_recommendation_runtime_changes: true
+  no_profile_memory_writes: true
+  no_seo_geo_exposure_expansion: true
+  no_sitemap_llms_widening: true
+  no_topic_graph_expansion: true
+  no_career_pseo_expansion: true
+  no_report_entitlement_changes: true
+  no_checkout_payment_changes: true
+  no_scoring_changes: true
+  no_frontend_rewrite: true
+  no_backend_rewrite: true
+
+allowed_paths:
+  - docs/assessment/domains/**
+  - docs/assessment/uasp/**
+  - docs/claims/**
+  - docs/seo/**
+  - docs/geo/**
+  - docs/freemium/**
+  - docs/runtime/**
+  - tests/contracts/**
+  - scripts/runtime/**
+  - scripts/seo/**
+  - docs/codex/pr-train-cdd.yaml
+  - docs/codex/pr-train-cdd-state.json
+
+forbidden_paths:
+  - app/**
+  - components/**
+  - checkout/payment/report/auth/attempt/scoring
+  - career recommender runtime
+  - profile runtime
+  - commerce runtime
+  - assessment scoring drivers
+  - backend runtime code
+  - content pack rewrite
+  - CMS data rewrite
+
+prs:
+  - id: PR-CDD-01
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-cdd-01-domain-registry-overlay
+    base: main
+    depends_on: []
+    status: planned
+    title: "feat(domains): add core decision domain registry overlay"
+    artifacts:
+      - docs/assessment/domains/core-decision-domain-v1.md
+      - docs/assessment/domains/generated/core-decision-domain-v1.json
+      - tests/contracts/core-decision-domain-v1.contract.test.ts
+  - id: PR-CDD-02
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-cdd-02-signal-to-domain-role-matrix
+    base: main
+    depends_on: [PR-CDD-01]
+    status: planned
+    title: "feat(domains): add signal-to-domain role matrix"
+    artifacts:
+      - docs/assessment/domains/signal-to-domain-role-matrix.md
+      - docs/assessment/domains/generated/signal-to-domain-role-matrix.v1.json
+      - tests/contracts/signal-to-domain-role-matrix.contract.test.ts
+  - id: PR-CDD-03
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-cdd-03-domain-evidence-cta-policy
+    base: main
+    depends_on: [PR-CDD-02]
+    status: planned
+    title: "feat(domains): add domain evidence and CTA policy"
+    artifacts:
+      - docs/assessment/domains/domain-evidence-cta-policy.md
+      - docs/assessment/domains/generated/domain-evidence-cta-policy.v1.json
+      - tests/contracts/domain-evidence-cta-policy.contract.test.ts
+  - id: PR-CDD-04
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-cdd-04-domain-claim-boundary-overlay
+    base: main
+    depends_on: [PR-CDD-03]
+    status: planned
+    title: "feat(domains): add domain claim boundary overlay"
+    artifacts:
+      - docs/assessment/domains/domain-claim-boundary-overlay.md
+      - docs/assessment/domains/generated/domain-claim-boundary-overlay.v1.json
+      - tests/contracts/domain-claim-boundary-overlay.contract.test.ts
+  - id: PR-CDD-05
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-cdd-05-domain-report-freemium-ledger
+    base: main
+    depends_on: [PR-CDD-04]
+    status: planned
+    title: "feat(domains): add domain report and freemium ledger"
+    artifacts:
+      - docs/assessment/domains/domain-report-freemium-ledger.md
+      - docs/assessment/domains/generated/domain-report-freemium-ledger.v1.json
+      - tests/contracts/domain-report-freemium-ledger.contract.test.ts
+  - id: PR-CDD-06
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-cdd-06-final-domain-readiness-dashboard
+    base: main
+    depends_on: [PR-CDD-05]
+    status: planned
+    title: "feat(domains): add core decision domain readiness dashboard"
+    artifacts:
+      - docs/assessment/domains/core-decision-domain-readiness-dashboard.md
+      - docs/assessment/domains/generated/core-decision-domain-readiness-dashboard.v1.json
+      - tests/contracts/core-decision-domain-readiness-dashboard.contract.test.ts
