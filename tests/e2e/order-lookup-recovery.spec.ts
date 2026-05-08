@@ -19,6 +19,34 @@ async function mockCommonApis(page: Page) {
       }),
     });
   });
+
+  await page.route("**/api/v0.3/attempts/*/report-access**", async (route) => {
+    const url = new URL(route.request().url());
+    const attemptId = decodeURIComponent(url.pathname.split("/").at(-2) ?? "");
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        attempt_id: attemptId,
+        access_state: "ready",
+        report_state: "ready",
+        pdf_state: "ready",
+        actions: {
+          page_href: `/result/${attemptId}`,
+          pdf_href: `/api/v0.3/attempts/${attemptId}/report.pdf`,
+          history_href: "/history/mbti",
+        },
+      }),
+    });
+  });
+}
+
+async function fillLookupIdentity(page: Page, orderNo: string, email = "buyer@example.com") {
+  await page.waitForTimeout(100);
+  await page.getByTestId("order-lookup-order-no").fill(orderNo);
+  await expect(page.getByTestId("order-lookup-order-no")).toHaveValue(orderNo);
+  await page.getByTestId("order-lookup-email").fill(email);
 }
 
 function createLookupHubRaw(attemptId: string, orderNo: string) {
@@ -59,6 +87,16 @@ test("order lookup shows the marketing consent consumer", async ({ page }) => {
     "Receive product and marketing updates"
   );
   await expect(page.getByTestId("order-lookup-marketing-consent")).not.toBeChecked();
+});
+
+test("singular order lookup aliases preserve query strings", async ({ page }) => {
+  await page.goto("/en/order/lookup?orderNo=ord_alias_001&mode=claim");
+  await expect(page).toHaveURL("/en/orders/lookup?orderNo=ord_alias_001&mode=claim");
+  await expect(page.getByTestId("order-lookup-order-no")).toHaveValue("ord_alias_001");
+
+  await page.goto("/zh/order/lookup?orderNo=ord_alias_002&mode=claim");
+  await expect(page).toHaveURL("/zh/orders/lookup?orderNo=ord_alias_002&mode=claim");
+  await expect(page.getByTestId("order-lookup-order-no")).toHaveValue("ord_alias_002");
 });
 
 test("order lookup success routes pending alipay recovery into the wait flow", async ({ page }) => {
@@ -126,8 +164,7 @@ test("order lookup success routes pending alipay recovery into the wait flow", a
   });
 
   await page.goto("/en/orders/lookup");
-  await page.getByTestId("order-lookup-order-no").fill(orderNo);
-  await page.getByTestId("order-lookup-email").fill("buyer@example.com");
+  await fillLookupIdentity(page, orderNo);
   await page.getByTestId("order-lookup-submit").click();
 
   await expect.poll(() => captureBody).toMatchObject({
@@ -185,8 +222,7 @@ test("order lookup hit prefers mbti_access_hub_v1 and keeps recovery actions on 
   });
 
   await page.goto("/en/orders/lookup");
-  await page.getByTestId("order-lookup-order-no").fill(orderNo);
-  await page.getByTestId("order-lookup-email").fill("buyer@example.com");
+  await fillLookupIdentity(page, orderNo);
   await page.getByTestId("order-lookup-submit").click();
 
   await expect(page.getByTestId("order-lookup-hit-actions")).toBeVisible();
@@ -202,7 +238,7 @@ test("protected order page turns ownership 404 into an order lookup recovery CTA
   const orderNo = "ord_lookup_recovery_404";
 
   await mockCommonApis(page);
-  await page.route(`**/api/v0.3/orders/${orderNo}?include_payment_action=1`, async (route) => {
+  await page.route(`**/api/v0.3/orders/${orderNo}*`, async (route) => {
     await route.fulfill({
       status: 404,
       contentType: "application/json",
@@ -409,6 +445,7 @@ test("order detail recovery entry routes back to lookup claim mode", async ({ pa
         ok: true,
         order_no: orderNo,
         status: "paid",
+        attempt_id: "attempt-claim-back-001",
         message: "Your full report is ready.",
         delivery: {
           contact_email_present: false,

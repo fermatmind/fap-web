@@ -198,6 +198,36 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/en/help/method-boundaries",
+        destination: "/en/method-boundaries",
+        permanent: true,
+      },
+      {
+        source: "/zh/help/method-boundaries",
+        destination: "/zh/method-boundaries",
+        permanent: true,
+      },
+      {
+        source: "/en/results",
+        destination: "/en/results/lookup",
+        permanent: true,
+      },
+      {
+        source: "/zh/results",
+        destination: "/zh/results/lookup",
+        permanent: true,
+      },
+      {
+        source: "/en/order/lookup",
+        destination: "/en/orders/lookup",
+        permanent: true,
+      },
+      {
+        source: "/zh/order/lookup",
+        destination: "/zh/orders/lookup",
+        permanent: true,
+      },
+      {
         source: "/careers",
         destination: "/zh/careers",
         permanent: true,

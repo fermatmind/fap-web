@@ -16,6 +16,9 @@ function labels(locale: Locale) {
       summaryFallback: "从找回报告，到读懂结果，再到方法边界与数据控制，把最常见的问题放在正式入口里。",
       toolsTitle: "快速自助工具",
       helpTitle: "帮助主题",
+      methodBoundariesTitle: "测评科学与边界",
+      methodBoundariesSummary: "了解 FermatMind 测评能提供什么参考、不能替代什么判断，以及数据和隐私边界。",
+      methodBoundariesBadge: "信任",
       supportArticlesTitle: "支持文章",
       guidesTitle: "结果解读指南",
       viewAll: "查看详情",
@@ -31,6 +34,10 @@ function labels(locale: Locale) {
       "From report recovery, to understanding results, to method boundaries and data controls, the most common questions live behind formal entry points.",
     toolsTitle: "Quick self-serve tools",
     helpTitle: "Help topics",
+    methodBoundariesTitle: "Science & boundaries",
+    methodBoundariesSummary:
+      "Understand what FermatMind assessments can support, what they cannot replace, and where data and privacy boundaries apply.",
+    methodBoundariesBadge: "Trust",
     supportArticlesTitle: "Support articles",
     guidesTitle: "Interpretation guides",
     viewAll: "View details",
@@ -106,8 +113,8 @@ export default async function SupportPage({
 
   const [gateway, supportArticles, guides] = await Promise.all([
     getHelpGatewaySurface(locale),
-    listSupportArticles(locale),
-    listInterpretationGuides(locale),
+    listSupportArticles(locale).catch(() => []),
+    listInterpretationGuides(locale).catch(() => []),
   ]);
 
   if (!gateway?.landingSurface) {
@@ -156,6 +163,12 @@ export default async function SupportPage({
                     badge={item.badgeLabel}
                   />
                 ))}
+                <SectionCard
+                  title={copy.methodBoundariesTitle}
+                  summary={copy.methodBoundariesSummary}
+                  href={localizedPath("/method-boundaries", locale)}
+                  badge={copy.methodBoundariesBadge}
+                />
               </div>
             </section>
 

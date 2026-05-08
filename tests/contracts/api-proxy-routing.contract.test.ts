@@ -61,4 +61,20 @@ describe("api proxy routing contract", () => {
     expect(nextConfig).not.toContain('source: "/zh/careers"');
     expect(nextConfig).not.toContain('destination: "/zh/career"');
   });
+
+  it("keeps public utility and trust aliases off bare 404 routes", () => {
+    const nextConfig = read("next.config.mjs");
+
+    for (const [source, destination] of [
+      ["/en/help/method-boundaries", "/en/method-boundaries"],
+      ["/zh/help/method-boundaries", "/zh/method-boundaries"],
+      ["/en/results", "/en/results/lookup"],
+      ["/zh/results", "/zh/results/lookup"],
+      ["/en/order/lookup", "/en/orders/lookup"],
+      ["/zh/order/lookup", "/zh/orders/lookup"],
+    ] as const) {
+      expect(nextConfig).toContain(`source: "${source}"`);
+      expect(nextConfig).toContain(`destination: "${destination}"`);
+    }
+  });
 });
