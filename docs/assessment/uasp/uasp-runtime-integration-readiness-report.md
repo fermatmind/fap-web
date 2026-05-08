@@ -105,19 +105,51 @@ Status: pending completion in PR-UASP2B-RPT-06.
 
 ## 10. Profile / Memory UASP Integration Matrix
 
-Status: pending completion in PR-UASP2B-RPT-05.
+| Area | Current State | Status | Boundary | Evidence |
+| --- | --- | --- | --- | --- |
+| `/v0.3/me/attempts` | Attempt/report history exists, but it is not UASP Profile. | `backend_ready` | Read-only history can reference UASP metadata later; it is not profile memory. | `backend/routes/api.php`; `backend/app/Services/V0_3/Me/MeAttemptsService.php` |
+| `MeProfileService` | Returns org/user/anon/roles, not UASP signal profile. | `blocked` | Do not claim `/me/profile` UASP readiness. | `backend/app/Services/V0_3/Me/MeProfileService.php`; `backend/app/Http/Controllers/API/V0_3/MeController.php` |
+| Memory service | Memory infrastructure exists with consent/version/deleted state, but is not UASP-governed durable signal memory. | `partial` | Keep separate from UASP profile until lifecycle/export/delete coverage is defined. | `backend/database/migrations/2026_01_28_140100_create_memories_table.php`; `backend/app/Services/Memory/MemoryService.php` |
+| DSAR lifecycle | Does not yet cover all UASP memory candidates such as memories, profile projections, recommendation snapshots, and saved career items. | `blocked` | Blocks sensitive/profile signal persistence. | `backend/app/Services/Attempts/UserDataLifecycleService.php` |
+| Saved careers | Visitor-key preference store, not UASP profile memory. | `safe_to_defer` | Do not promote saved careers into UASP profile. | `backend/app/Http/Controllers/API/V0_5/Career/CareerShortlistController.php`; `components/career/CareerShortlistAction.tsx` |
+| `profile_contribution` | Policy says first-batch scales may contribute, but runtime storage is not implemented. | `blocked` | `profile_contribution = blocked for runtime storage` in Phase 2B. | `docs/assessment/uasp/generated/uasp-profile-sensitivity-policy.v1.json` |
 
 ## 11. Recommendation UASP Integration Matrix
 
-Status: pending completion in PR-UASP2B-RPT-05.
+| Area | Current State | Status | Boundary | Evidence |
+| --- | --- | --- | --- | --- |
+| MBTI recommendation | Snapshot/deterministic career-direction support exists; UASP says `next_step_only`. | `partial` | Display/next-step only; not live personalized recommender. | `docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json`; `backend/app/Services/Career/Bundles/CareerRecommendationDetailBundleBuilder.php` |
+| RIASEC | UASP says `candidate_signal`, but runtime is not full recommender. | `dangerous_if_integrated` | Candidate signal only; do not feed recommender without graph/evidence/claim proof. | `docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json` |
+| Big Five | UASP says `explanation_only`. | `blocked` | Must not become career matching/recommendation authority. | `docs/assessment/uasp/generated/uasp-eligibility-guards.v1.json` |
+| Enneagram | UASP says `explanation_only`; not career mainline. | `blocked` | Motivation explanation only. | `docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json` |
+| Career scoring runtime | Backend scoring and claim gates exist outside UASP. | `partial` | UASP `recommendation_eligible = guard-only`. | `backend/app/Domain/Career/Scoring/ScoringEngine5D.php`; `backend/app/Domain/Career/Scoring/ClaimPermissionsCompiler.php` |
+| Frontend local ranking | Forbidden as authority. | `blocked` | Must not become recommendation engine. | `docs/assessment/uasp/generated/uasp-eligibility-guards.v1.json` |
 
 ## 12. Scale-specific Runtime Risk Matrix
 
-Status: pending completion in PR-UASP2B-RPT-05.
+| Runtime Area | Current State | Status | Risk Boundary | Evidence |
+| --- | --- | --- | --- | --- |
+| Frontend take dispatch | Switches by `scale_code` and form behavior. | `safe_to_defer` | Acceptable for first batch; should not be generalized in report train. | `app/(localized)/[locale]/tests/[slug]/take/page.tsx` |
+| Frontend fallback seeds | Public test seeds can bypass UASP if expanded. | `dangerous_if_integrated` | Future scale additions must require UASP contract and fallback owner gate. | `lib/content.ts`; `docs/runtime/generated/fallback-owner-gates.v1.json` |
+| Rich result/report shells | Scale-specific shells and module logic. | `partial` | Add metadata envelope only; do not rewrite report shell routing now. | `components/result/RichResultReport.tsx`; `app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx` |
+| Backend questions/forms | Branches by scale and driver. | `partial` | Good enough for first batch, not future 20-scale onboarding. | `backend/app/Http/Controllers/API/V0_3/ScalesController.php`; `backend/app/Services/Scale/PublicScaleFormsProjector.php` |
+| Backend scoring | Driver/scorer routing is scale/driver-specific. | `safe_to_defer` | Do not generalize scoring in UASP metadata integration. | `backend/app/Services/Assessment/AssessmentEngine.php`; `backend/config/fap.php` |
+| SDS code mismatch | UASP artifact uses `SDS20`; backend uses `SDS_20`. | `requires_human_decision` | Canonical code normalization needed before sensitive scale runtime integration. | `docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json`; `backend/database/seeders/ScaleRegistrySeeder.php` |
 
 ## 13. UASP Runtime Ownership Matrix
 
-Status: pending completion in PR-UASP2B-RPT-05.
+| UASP Field / Area | Source of Truth Owner | Storage Recommendation | Runtime Consumer | Status |
+| --- | --- | --- | --- | --- |
+| `scale_code`, `scale_slug`, `form_code` | Backend scale registry | Existing DB/API fields or transform | Backend/frontend catalog, result/report envelope | `backend_ready` |
+| `signal_type`, `result_shape`, `stability` | Backend UASP/scale metadata projection seeded from approved artifacts | Backend config/registry JSON namespace before DB migration | Test detail, result/report metadata display | `ready_for_integration` |
+| `sensitivity`, `disclaimer_required` | Human policy + backend UASP metadata | Backend metadata; CMS copy for disclaimers | Result/report/test detail guard display | `requires_human_decision` |
+| `decision_domains` | Backend UASP metadata | Backend response field | Test detail signal meaning, future CTA guard | `ready_for_integration` |
+| `claim_level` | Backend/CMS governance | Backend metadata + CMS claim copy | Claim guard tests, copy validation | `partial` |
+| `profile_contribution` | Human privacy/product decision | Artifact only for now; no runtime storage | Read-only display/guard only | `blocked` |
+| `recommendation_eligible` | Product/graph governance | Artifact/backend metadata only | Guard tests only, not recommender runtime | `dangerous_if_integrated` |
+| `seo_geo_eligible` | Discoverability governance | Backend metadata + SEO guard fixture | Sitemap/llms non-widening validator | `partial` |
+| `freemium_status`, `report_eligible` | Freemium ledger + backend report authority | Readiness artifact and backend-derived proof | Offer/paywall claim guard only | `partial` |
+| `runtime_authority_owner`, `frontend_fallback_policy`, `source_authority`, `rollback_policy` | Platform governance | Backend response/config artifact | Future scale onboarding gate | `ready_for_integration` |
 
 ## 14. P0 / P1 / P2 / P3 Backlog
 

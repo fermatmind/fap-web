@@ -245,4 +245,54 @@ describe("UASP runtime integration readiness report", () => {
     expect(report).toContain("| `seo_geo_eligible` |");
     expect(report).toContain("| `freemium_status` |");
   });
+
+  it("completes PR-UASP2B-RPT-05 profile, recommendation, risk, and ownership matrices with write blocks", () => {
+    const artifact = readArtifact();
+    const report = fs.readFileSync(REPORT_PATH, "utf8");
+    const evidenceMatrixKeys = [
+      "profileMemoryUaspIntegration",
+      "recommendationUaspIntegration",
+      "scaleSpecificRuntimeRisk",
+    ];
+
+    for (const key of evidenceMatrixKeys) {
+      const rows = artifact.matrices?.[key];
+      expect(rows, key).toBeDefined();
+      expect(rows?.length, key).toBeGreaterThan(0);
+      for (const row of rows ?? []) {
+        expect(ALLOWED_STATUSES).toContain(row.status);
+        expect(Array.isArray(row.evidence), `${key} evidence`).toBe(true);
+        expect((row.evidence as unknown[]).length, `${key} evidence length`).toBeGreaterThan(0);
+      }
+    }
+
+    const ownershipRows = artifact.matrices?.uaspRuntimeOwnership;
+    expect(ownershipRows?.length).toBeGreaterThan(0);
+    for (const row of ownershipRows ?? []) {
+      expect(ALLOWED_STATUSES).toContain(row.status);
+      expect(row).toHaveProperty("sourceOfTruthOwner");
+      expect(row).toHaveProperty("storageRecommendation");
+      expect(row).toHaveProperty("runtimeConsumer");
+    }
+
+    const profile = JSON.stringify(artifact.matrices?.profileMemoryUaspIntegration);
+    const recommendation = JSON.stringify(artifact.matrices?.recommendationUaspIntegration);
+    const risk = JSON.stringify(artifact.matrices?.scaleSpecificRuntimeRisk);
+    const ownership = JSON.stringify(artifact.matrices?.uaspRuntimeOwnership);
+
+    expect(profile).toContain("not UASP Profile");
+    expect(profile).toContain("not UASP profile memory");
+    expect(profile).toContain("profile_contribution = blocked for runtime storage");
+    expect(recommendation).toContain("next-step only");
+    expect(recommendation).toContain("Candidate signal only");
+    expect(recommendation).toContain("recommendation_eligible = guard-only");
+    expect(recommendation).toContain("Must not become recommendation engine");
+    expect(risk).toContain("SDS20");
+    expect(risk).toContain("SDS_20");
+    expect(ownership).toContain("no runtime storage");
+    expect(ownership).toContain("not recommender runtime");
+    expect(report).toContain("| `profile_contribution` | Policy says first-batch scales may contribute");
+    expect(report).toContain("| Frontend local ranking | Forbidden as authority.");
+    expect(report).toContain("| SDS code mismatch | UASP artifact uses `SDS20`; backend uses `SDS_20`.");
+  });
 });
