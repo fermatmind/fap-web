@@ -176,4 +176,43 @@ describe("UASP runtime integration readiness report", () => {
     expect(JSON.stringify(artifact.matrices?.backendScaleRegistryIntegration)).toContain("uasp_signal_v1");
     expect(JSON.stringify(artifact.matrices?.frontendTestRuntimeIntegration)).toContain("Future scale additions must fail");
   });
+
+  it("completes PR-UASP2B-RPT-03 result/report, claim, and evidence matrices with locked boundaries", () => {
+    const artifact = readArtifact();
+    const report = fs.readFileSync(REPORT_PATH, "utf8");
+    const matrixKeys = [
+      "resultReportUaspIntegration",
+      "claimRuntimeIntegration",
+      "evidenceRuntimeIntegration",
+    ];
+
+    for (const key of matrixKeys) {
+      const rows = artifact.matrices?.[key];
+      expect(rows, key).toBeDefined();
+      expect(rows?.length, key).toBeGreaterThan(0);
+      for (const row of rows ?? []) {
+        expect(ALLOWED_STATUSES).toContain(row.status);
+        expect(Array.isArray(row.evidence), `${key} evidence`).toBe(true);
+        expect((row.evidence as unknown[]).length, `${key} evidence length`).toBeGreaterThan(0);
+      }
+    }
+
+    const resultReport = JSON.stringify(artifact.matrices?.resultReportUaspIntegration);
+    const claims = JSON.stringify(artifact.matrices?.claimRuntimeIntegration);
+    const evidence = JSON.stringify(artifact.matrices?.evidenceRuntimeIntegration);
+
+    expect(resultReport).toContain("read-only uasp_signal_v1");
+    expect(resultReport).toContain("must not persist profile signals");
+    expect(resultReport).toContain("never trigger recommender");
+    expect(claims).toContain("cannot predict career success");
+    expect(claims).toContain("cannot claim precise career matching");
+    expect(claims).toContain("cannot claim full or precise recommender runtime");
+    expect(claims).toContain("private/noindex");
+    expect(evidence).toContain("visible-only rule");
+    expect(evidence).toContain("do not generate new evidence content");
+    expect(evidence).toContain("Do not add hidden schema or FAQ stuffing");
+    expect(report).toContain("| Attempt result payload |");
+    expect(report).toContain("| MBTI claim boundary |");
+    expect(report).toContain("| Visible Evidence Container baseline |");
+  });
 });

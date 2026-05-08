@@ -424,6 +424,181 @@
           "components/result/RichResultReport.tsx"
         ]
       }
+    ],
+    "resultReportUaspIntegration": [
+      {
+        "surface": "Attempt result payload",
+        "currentState": "Carries scale_code, score data, result data, and scale-specific public projections; no UASP metadata envelope.",
+        "status": "backend_ready",
+        "phase2bBoundary": "Add read-only uasp_signal_v1 metadata. Do not change scoring or result interpretation.",
+        "evidence": [
+          "backend/app/Http/Controllers/API/V0_3/AttemptReadController.php"
+        ]
+      },
+      {
+        "surface": "Report payload",
+        "currentState": "Builds scale-specific report payloads and access modules; no UASP metadata fields.",
+        "status": "backend_ready",
+        "phase2bBoundary": "Add read-only signal metadata for display/guarding only. Do not change report entitlement.",
+        "evidence": [
+          "backend/app/Http/Controllers/API/V0_3/AttemptReadController.php",
+          "backend/app/Services/Report/ReportAccess.php"
+        ]
+      },
+      {
+        "surface": "Frontend result client",
+        "currentState": "Routes by scale-specific shells and projections.",
+        "status": "frontend_partial",
+        "phase2bBoundary": "Consume UASP metadata only after backend envelope exists; do not rewire shell selection.",
+        "evidence": [
+          "app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx"
+        ]
+      },
+      {
+        "surface": "Rich report shell",
+        "currentState": "Uses scale-specific report shells and module access metadata.",
+        "status": "partial",
+        "phase2bBoundary": "UASP metadata can render caveats and signal meaning, not modules or paid access.",
+        "evidence": [
+          "components/result/RichResultReport.tsx"
+        ]
+      },
+      {
+        "surface": "profile_contribution in result/report",
+        "currentState": "Policy exists but storage semantics are not runtime-governed.",
+        "status": "blocked",
+        "phase2bBoundary": "Result/report may display policy metadata, but must not persist profile signals.",
+        "evidence": [
+          "docs/assessment/uasp/generated/uasp-profile-sensitivity-policy.v1.json"
+        ]
+      },
+      {
+        "surface": "recommendation_eligible in result/report",
+        "currentState": "Policy exists but recommender runtime is separate.",
+        "status": "dangerous_if_integrated",
+        "phase2bBoundary": "Treat as display/guard only; never trigger recommender.",
+        "evidence": [
+          "docs/assessment/uasp/generated/uasp-eligibility-guards.v1.json"
+        ]
+      }
+    ],
+    "claimRuntimeIntegration": [
+      {
+        "claimArea": "Public claim boundary matrix",
+        "currentState": "Exists as governance artifact and contract test.",
+        "status": "artifact_only",
+        "runtimeBoundary": "Preserve forbidden baseline; do not change public copy in report train.",
+        "evidence": [
+          "docs/claims/generated/public-claim-boundary-matrix.v1.json",
+          "tests/contracts/public-claim-boundary-matrix.contract.test.ts"
+        ]
+      },
+      {
+        "claimArea": "Runtime career claim gating",
+        "currentState": "Uses backend/frontend claim_permissions, not UASP claim_level.",
+        "status": "partial",
+        "runtimeBoundary": "UASP claim_level can become guard metadata; it must not replace career claim permissions.",
+        "evidence": [
+          "lib/career/contracts/claimPermissions.ts",
+          "components/career/display/CareerDisplaySurface.tsx"
+        ]
+      },
+      {
+        "claimArea": "MBTI claim boundary",
+        "currentState": "MBTI is identity/preference and next_step_only snapshot support.",
+        "status": "ready_for_integration",
+        "runtimeBoundary": "Can describe preference, expression, identity, and career-direction support; cannot predict career success.",
+        "evidence": [
+          "docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json"
+        ]
+      },
+      {
+        "claimArea": "Big Five claim boundary",
+        "currentState": "Big Five is trait/workplace behavior and explanation_only.",
+        "status": "ready_for_integration",
+        "runtimeBoundary": "Can explain behavior/workstyle; cannot claim precise career matching.",
+        "evidence": [
+          "docs/assessment/uasp/generated/uasp-eligibility-guards.v1.json"
+        ]
+      },
+      {
+        "claimArea": "RIASEC claim boundary",
+        "currentState": "RIASEC is interest vector and candidate_signal.",
+        "status": "ready_for_integration",
+        "runtimeBoundary": "Can describe career interest direction; cannot claim full or precise recommender runtime.",
+        "evidence": [
+          "docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json"
+        ]
+      },
+      {
+        "claimArea": "Enneagram claim boundary",
+        "currentState": "Enneagram is motivation/self-understanding and explanation_only.",
+        "status": "ready_for_integration",
+        "runtimeBoundary": "Can explain motivation/workstyle/relationship patterns; should not enter career recommendation mainline.",
+        "evidence": [
+          "docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json"
+        ]
+      },
+      {
+        "claimArea": "SDS/Clinical claim boundary",
+        "currentState": "Sensitive state examples are blocked/private.",
+        "status": "blocked",
+        "runtimeBoundary": "Must remain non-diagnostic, private/noindex, and not recommendation eligible.",
+        "evidence": [
+          "docs/assessment/uasp/generated/uasp-profile-sensitivity-policy.v1.json"
+        ]
+      }
+    ],
+    "evidenceRuntimeIntegration": [
+      {
+        "evidenceSurface": "Visible Evidence Container baseline",
+        "currentState": "Runtime baseline exists for visible evidence markers and page-family readiness.",
+        "status": "partial",
+        "phase2bBoundary": "Keep visible-only rule; do not claim universal evidence readiness.",
+        "evidence": [
+          "docs/geo/evidence-container-runtime-baseline.md",
+          "docs/geo/generated/evidence-container-runtime-baseline.v1.json",
+          "components/content/AnswerSurfaceSection.tsx"
+        ]
+      },
+      {
+        "evidenceSurface": "UASP evidence_required",
+        "currentState": "Defined in schema but not consumed by runtime.",
+        "status": "artifact_only",
+        "phase2bBoundary": "Add as metadata gate; do not generate new evidence content.",
+        "evidence": [
+          "docs/assessment/uasp/generated/uasp-signal-contract-schema.v1.json"
+        ]
+      },
+      {
+        "evidenceSurface": "Signal-level evidence",
+        "currentState": "Not separated from page-level answer/evidence blocks.",
+        "status": "blocked",
+        "phase2bBoundary": "Requires future source authority before signal-specific evidence claims.",
+        "evidence": [
+          "components/content/AnswerSurfaceSection.tsx",
+          "lib/geo/evidenceContainer.ts"
+        ]
+      },
+      {
+        "evidenceSurface": "FAQ / JSON-LD alignment",
+        "currentState": "Existing governance requires visible FAQ/answer grounding; UASP does not drive it.",
+        "status": "partial",
+        "phase2bBoundary": "Do not add hidden schema or FAQ stuffing.",
+        "evidence": [
+          "tests/contracts/evidence-container-readiness-gate.contract.test.ts",
+          "tests/contracts/structured-data-contract.contract.test.ts"
+        ]
+      },
+      {
+        "evidenceSurface": "Sensitive scale evidence",
+        "currentState": "Sensitive/mental-health examples are not UASP runtime-onboarded.",
+        "status": "blocked",
+        "phase2bBoundary": "Require disclaimer/privacy decision before public evidence or llms-full use.",
+        "evidence": [
+          "docs/assessment/uasp/generated/uasp-profile-sensitivity-policy.v1.json"
+        ]
+      }
     ]
   },
   "backlog": [],
