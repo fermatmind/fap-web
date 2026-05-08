@@ -1,0 +1,198 @@
+{
+  "version": "uasp.runtime_metadata_envelope.v1",
+  "scope": "PR-UASP2B-01",
+  "trainName": "uasp-runtime-metadata-integration-train",
+  "envelopeKey": "uasp_signal_v1",
+  "runtimeBehaviorChanged": false,
+  "executionMode": "contract_only",
+  "schemaArtifact": "docs/assessment/uasp/generated/uasp-signal-contract-schema.v1.json",
+  "scaleRegistryArtifact": "docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json",
+  "runtimeReadinessArtifact": "docs/assessment/uasp/generated/uasp-runtime-integration-readiness-report.v1.json",
+  "envelopeFields": [
+    "scale_code",
+    "scale_slug",
+    "form_code",
+    "signal_type",
+    "result_shape",
+    "stability",
+    "sensitivity",
+    "decision_domains",
+    "claim_level",
+    "profile_contribution",
+    "recommendation_eligible",
+    "report_eligible",
+    "seo_geo_eligible",
+    "freemium_status",
+    "evidence_required",
+    "disclaimer_required",
+    "runtime_authority_owner",
+    "frontend_fallback_policy",
+    "version",
+    "locale_support",
+    "source_authority",
+    "rollback_policy"
+  ],
+  "enums": {
+    "signal_type": [
+      "identity",
+      "trait",
+      "interest",
+      "ability",
+      "emotion",
+      "relationship",
+      "workstyle",
+      "motivation",
+      "state",
+      "value",
+      "learning"
+    ],
+    "result_shape": [
+      "type",
+      "vector",
+      "band",
+      "score",
+      "facet_vector",
+      "profile",
+      "hybrid",
+      "state",
+      "ability_estimate",
+      "ranked_profile"
+    ],
+    "stability": [
+      "stable_trait",
+      "semi_stable_preference",
+      "temporary_state",
+      "ability_estimate",
+      "contextual_pattern",
+      "developmental",
+      "unknown"
+    ],
+    "sensitivity": [
+      "normal",
+      "sensitive",
+      "mental_health_sensitive",
+      "ability_sensitive",
+      "minor_sensitive",
+      "workplace_sensitive",
+      "relationship_sensitive"
+    ],
+    "profile_contribution": [
+      "none",
+      "summary_only",
+      "longitudinal",
+      "sensitive_opt_in",
+      "ephemeral",
+      "blocked"
+    ],
+    "decision_domain": [
+      "self_understanding",
+      "career_decision",
+      "workstyle_decision",
+      "relationship_decision",
+      "learning_growth",
+      "emotional_state",
+      "ability_growth",
+      "team_communication",
+      "leadership_growth",
+      "life_direction"
+    ],
+    "claim_level": [
+      "descriptive",
+      "interpretive",
+      "directional",
+      "decision_support",
+      "recommendation_candidate",
+      "forbidden"
+    ],
+    "recommendation_eligible": [
+      "not_eligible",
+      "explanation_only",
+      "next_step_only",
+      "candidate_signal",
+      "eligible_with_guard"
+    ],
+    "seo_geo_eligible": [
+      "not_eligible",
+      "seo_only",
+      "geo_candidate",
+      "llms_eligible",
+      "llms_full_eligible",
+      "private_noindex"
+    ],
+    "freemium_status": [
+      "not_monetized",
+      "free_only",
+      "backend_ready",
+      "frontend_partial",
+      "full_loop",
+      "bundle_candidate",
+      "blocked"
+    ]
+  },
+  "defaultsForUnknownScale": {
+    "recommendation_eligible": "not_eligible",
+    "seo_geo_eligible": "not_eligible",
+    "profile_contribution": "none",
+    "freemium_status": "blocked",
+    "claim_level": "descriptive",
+    "stability": "unknown",
+    "report_eligible": false,
+    "evidence_required": true,
+    "disclaimer_required": false,
+    "frontend_fallback_policy": "forbidden_for_new_surface"
+  },
+  "firstBatchReferences": [
+    {
+      "scale_code": "MBTI",
+      "envelopeStatus": "reference_only",
+      "runtimeInjection": "not_injected_by_this_pr"
+    },
+    {
+      "scale_code": "BIG5_OCEAN",
+      "envelopeStatus": "reference_only",
+      "runtimeInjection": "not_injected_by_this_pr"
+    },
+    {
+      "scale_code": "RIASEC",
+      "envelopeStatus": "reference_only",
+      "runtimeInjection": "not_injected_by_this_pr"
+    },
+    {
+      "scale_code": "ENNEAGRAM",
+      "envelopeStatus": "reference_only",
+      "runtimeInjection": "not_injected_by_this_pr"
+    }
+  ],
+  "readOnlyRules": [
+    "metadata_only",
+    "no_scoring_impact",
+    "no_report_entitlement_impact",
+    "no_checkout_payment_commerce_trigger",
+    "no_recommendation_runtime_trigger",
+    "no_seo_geo_exposure_trigger",
+    "no_sitemap_llms_url_set_change",
+    "no_profile_write",
+    "no_sensitive_signal_persistence",
+    "no_frontend_fallback_authority"
+  ],
+  "authorityPolicy": {
+    "backendAuthorityPreferred": true,
+    "frontendArtifactPermanentAuthority": false,
+    "frontendArtifactAllowedAsTemporaryContractFixture": true
+  },
+  "mustNotChange": [
+    "runtime payloads",
+    "result/report UI",
+    "API clients",
+    "backend",
+    "scoring",
+    "report entitlement",
+    "checkout/payment",
+    "profile runtime",
+    "recommendation runtime",
+    "sitemap output",
+    "llms output",
+    "SEO/GEO exposure",
+    "public copy"
+  ]
+}

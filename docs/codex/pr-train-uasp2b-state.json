@@ -65,7 +65,7 @@
       "base": "main",
       "depends_on": [],
       "mode": "contract_only",
-      "status": "planned",
+      "status": "in_progress",
       "title": "feat(assessment): add UASP runtime metadata envelope contract",
       "artifacts": [
         "docs/assessment/uasp/uasp-runtime-metadata-envelope.md",
