@@ -1,7 +1,7 @@
 {
   "train_name": "semantic-claim-boundary-enforcement-train",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-08T12:24:00Z",
+  "updated_at": "2026-05-08T12:31:00Z",
   "status": "running",
   "phase": "semantic-claim-boundary-enforcement",
   "pr_namespace": "PR-SCB-*",
@@ -58,17 +58,17 @@
       "id": "PR-SCB-04",
       "branch": "codex/pr-scb-04-career-fit-graph-ai-claim-guards",
       "depends_on": ["PR-SCB-03"],
-      "status": "in_progress",
-      "pr_url": null,
-      "merge_sha": null,
-      "local_cleanup_executed": false,
-      "remote_branch_deleted": false
+      "status": "merged",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/733",
+      "merge_sha": "92d5d62bf2d291eab25ebf5e0244e32f528eec9c",
+      "local_cleanup_executed": true,
+      "remote_branch_deleted": true
     },
     {
       "id": "PR-SCB-05",
       "branch": "codex/pr-scb-05-seo-geo-llms-claim-guards",
       "depends_on": ["PR-SCB-04"],
-      "status": "planned",
+      "status": "in_progress",
       "pr_url": null,
       "merge_sha": null,
       "local_cleanup_executed": false,

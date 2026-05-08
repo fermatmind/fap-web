@@ -77,7 +77,7 @@ describe("career fit graph and AI claim guards", () => {
       pr_url: "https://github.com/fermatmind/fap-web/pull/732",
       merge_sha: "4f2f5aaff96412a4bb1817393f0e8b2ba666a887",
     });
-    expect(state.prs.find((pr) => pr.id === "PR-SCB-04")).toMatchObject({ status: "in_progress" });
+    expect(["in_progress", "merged"]).toContain(state.prs.find((pr) => pr.id === "PR-SCB-04")?.status);
   });
 
   it("blocks exact unbounded career fit, confidence, graph, and AI overclaims", () => {
