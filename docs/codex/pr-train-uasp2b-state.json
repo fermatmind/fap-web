@@ -152,14 +152,23 @@
         "PR-UASP2B-03"
       ],
       "mode": "contract_only",
-      "status": "in_progress",
+      "status": "merged",
       "title": "test(freemium): add UASP freemium status guard",
       "artifacts": [
         "docs/assessment/uasp/freemium-status-guard.md",
         "docs/assessment/uasp/generated/freemium-status-guard.v1.json",
         "tests/contracts/uasp-freemium-status-guard.contract.test.ts"
       ],
-      "checks": [],
+      "checks": [
+        {
+          "command": "pnpm vitest run tests/contracts/uasp-freemium-status-guard.contract.test.ts",
+          "status": "passed"
+        },
+        {
+          "command": "pnpm typecheck && pnpm test:contract && pnpm seo:generate-sitemap && pnpm seo:check-sitemap",
+          "status": "passed"
+        }
+      ],
       "sidecar_issues": []
     },
     {
@@ -172,7 +181,7 @@
         "PR-UASP2B-04"
       ],
       "mode": "contract_only",
-      "status": "planned",
+      "status": "in_progress",
       "title": "test(recommendation): add UASP recommendation eligibility guard",
       "artifacts": [
         "docs/assessment/uasp/recommendation-eligibility-guard.md",

@@ -1,0 +1,168 @@
+{
+  "version": "uasp.recommendation_eligibility_guard.v1",
+  "scope": "PR-UASP2B-05",
+  "trainName": "uasp-runtime-metadata-integration-train",
+  "dependsOn": [
+    "PR-UASP2B-04"
+  ],
+  "runtimeBehaviorChanged": false,
+  "executionMode": "contract_only",
+  "recommendationRuntimeChanged": false,
+  "careerRecommendationBundleChanged": false,
+  "scoringChanged": false,
+  "graphEdgesChanged": false,
+  "companionLinksChanged": false,
+  "localRecommendationEngineChanged": false,
+  "visibleRecommendationCopyChanged": false,
+  "resultReportBehaviorChanged": false,
+  "seoGeoExposureChanged": false,
+  "sourceArtifacts": [
+    "docs/assessment/uasp/generated/uasp-signal-contract-schema.v1.json",
+    "docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json",
+    "docs/assessment/uasp/generated/uasp-eligibility-guards.v1.json",
+    "docs/claims/generated/public-claim-boundary-matrix.v1.json",
+    "docs/runtime/generated/fallback-owner-gates.v1.json",
+    "tests/contracts/career-recommendation-index-backend.contract.test.tsx",
+    "tests/contracts/career-recommendation-engine.contract.test.ts",
+    "lib/career/recommendationEngine.ts"
+  ],
+  "defaults": {
+    "futureScaleRecommendationEligible": "not_eligible",
+    "guardMode": "guard_only",
+    "candidateSignalMeansRecommender": false,
+    "frontendLocalRankingAuthority": "forbidden"
+  },
+  "eligibleWithGuardRequiredProof": [
+    "visible_evidence",
+    "graph_or_backend_recommendation_runtime",
+    "claim_boundary",
+    "explainability",
+    "public_runtime_consumer",
+    "no_forbidden_claim",
+    "human_approval_for_sensitive_signals"
+  ],
+  "guardRules": [
+    {
+      "id": "future_scale_defaults_not_eligible",
+      "rule": "Future scales default to not_eligible.",
+      "blocksWhen": "A future scale is marked recommendation-ready without explicit eligibility and proof."
+    },
+    {
+      "id": "candidate_signal_not_recommender",
+      "rule": "candidate_signal is an input candidate only and cannot be rendered as recommendation engine authority.",
+      "blocksWhen": "RIASEC or any candidate signal is described as a complete recommender."
+    },
+    {
+      "id": "eligible_with_guard_requires_proof",
+      "rule": "eligible_with_guard requires visible evidence, graph/backend runtime, claim boundary, explainability, public runtime consumer, no forbidden claim, and human approval for sensitive signals.",
+      "blocksWhen": "eligible_with_guard is assigned without every required proof."
+    },
+    {
+      "id": "frontend_local_ranking_forbidden",
+      "rule": "Frontend local ranking is forbidden as recommendation authority.",
+      "blocksWhen": "Frontend local ranking becomes public recommendation truth."
+    },
+    {
+      "id": "snapshot_not_live_personalized",
+      "rule": "Snapshot recommendation must not be described as live personalized recommendation.",
+      "blocksWhen": "MBTI snapshot direction support is described as a live personalized recommender."
+    },
+    {
+      "id": "big5_explanation_only_not_recommender",
+      "rule": "Big Five explanation_only can explain trait/workplace behavior, not directly match careers.",
+      "blocksWhen": "Big Five is marked as precise career matcher or recommender."
+    },
+    {
+      "id": "riasec_candidate_signal_not_precise_best_career",
+      "rule": "RIASEC candidate_signal can describe career interest direction, not precise best-career recommendation.",
+      "blocksWhen": "RIASEC is marked as full career recommender or precise best-career recommender."
+    }
+  ],
+  "firstBatchRecommendationStatus": [
+    {
+      "scale_code": "MBTI",
+      "signal_type": "identity",
+      "uaspRecommendationEligible": "next_step_only",
+      "guardStatus": "snapshot_next_step_support",
+      "allowedUse": "snapshot_based_career_direction_support",
+      "notAllowedUse": [
+        "live_personalized_recommender",
+        "career_success_predictor",
+        "precise_career_recommendation"
+      ],
+      "runtimeBehaviorChange": "none"
+    },
+    {
+      "scale_code": "BIG5_OCEAN",
+      "signal_type": "trait",
+      "uaspRecommendationEligible": "explanation_only",
+      "guardStatus": "not_recommender",
+      "allowedUse": "trait_and_workplace_behavior_explanation",
+      "notAllowedUse": [
+        "precise_career_matching",
+        "career_recommendation_engine_input_without_future_guard",
+        "employment_success_prediction"
+      ],
+      "runtimeBehaviorChange": "none"
+    },
+    {
+      "scale_code": "RIASEC",
+      "signal_type": "interest",
+      "uaspRecommendationEligible": "candidate_signal",
+      "guardStatus": "candidate_signal_not_recommender",
+      "allowedUse": "career_interest_direction_candidate_signal",
+      "notAllowedUse": [
+        "precise_best_career_recommendation",
+        "complete_career_recommender",
+        "live_personalized_recommender"
+      ],
+      "runtimeBehaviorChange": "none"
+    },
+    {
+      "scale_code": "ENNEAGRAM",
+      "signal_type": "motivation",
+      "uaspRecommendationEligible": "explanation_only",
+      "guardStatus": "not_recommender",
+      "allowedUse": "motivation_relationship_workstyle_explanation",
+      "notAllowedUse": [
+        "career_recommendation_mainline",
+        "generalized_recommender_input"
+      ],
+      "runtimeBehaviorChange": "none"
+    },
+    {
+      "scale_code": "FUTURE_SCALE_PLACEHOLDER",
+      "signal_type": "unknown",
+      "uaspRecommendationEligible": "not_eligible",
+      "guardStatus": "blocked_until_guard_proof",
+      "allowedUse": "none_until_signal_contract_and_guard_proof",
+      "notAllowedUse": [
+        "recommendation_runtime",
+        "career_recommender",
+        "frontend_local_ranking"
+      ],
+      "runtimeBehaviorChange": "none"
+    }
+  ],
+  "forbiddenClaimBaseline": [
+    "RIASEC precise best-career recommendation",
+    "Big Five precise career matching",
+    "AI precise career planning",
+    "career fit score as hiring, income, success, or placement guarantee",
+    "snapshot recommendation as live personalized recommender",
+    "sitemap/llms/schema as true graph",
+    "frontend local ranking as recommendation engine"
+  ],
+  "mustNotChange": [
+    "recommendation runtime",
+    "career recommendation bundle",
+    "scoring",
+    "graph edges",
+    "companion links",
+    "local recommendation engine",
+    "visible recommendation copy",
+    "result/report behavior",
+    "SEO/GEO exposure",
+    "Big Five/RIASEC recommender status"
+  ]
+}
