@@ -278,7 +278,7 @@
       "depends_on": [
         "PR-UASP-04"
       ],
-      "status": "in_progress",
+      "status": "merged",
       "title": "feat(assessment): add UASP profile contribution and sensitivity policy",
       "artifacts": [
         "docs/assessment/uasp/profile-contribution-sensitivity-policy.md",
@@ -317,11 +317,11 @@
         }
       ],
       "failure_reason": "",
-      "pr_url": "",
-      "commit_sha": "",
-      "merged_at": "",
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/714",
+      "commit_sha": "05102b11a13c0a2a12bf86c7d7e9f6a07307aeaa",
+      "merged_at": "2026-05-08T06:18:40Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
     },
     {
       "id": "PR-UASP-06",
@@ -332,14 +332,44 @@
       "depends_on": [
         "PR-UASP-05"
       ],
-      "status": "planned",
+      "status": "in_progress",
       "title": "feat(assessment): add UASP readiness dashboard matrix",
       "artifacts": [
         "docs/assessment/uasp/uasp-readiness-dashboard.md",
         "docs/assessment/uasp/generated/uasp-readiness-dashboard.v1.json",
         "tests/contracts/uasp-readiness-dashboard.contract.test.ts"
       ],
-      "checks": [],
+      "checks": [
+        {
+          "command": "pnpm vitest run tests/contracts/uasp-readiness-dashboard.contract.test.ts tests/contracts/uasp-profile-sensitivity-policy.contract.test.ts tests/contracts/uasp-eligibility-guards.contract.test.ts tests/contracts/uasp-decision-domain-registry.contract.test.ts tests/contracts/uasp-existing-scale-signal-registry.contract.test.ts tests/contracts/uasp-signal-contract-schema.contract.test.ts",
+          "status": "passed"
+        },
+        {
+          "command": "pnpm typecheck",
+          "status": "passed"
+        },
+        {
+          "command": "pnpm test:contract",
+          "status": "passed"
+        },
+        {
+          "command": "pnpm seo:generate-sitemap",
+          "status": "passed",
+          "note": "Validation-generated sitemap and metadata inventory side effects were restored; no sitemap URL set changes included."
+        },
+        {
+          "command": "pnpm seo:check-sitemap",
+          "status": "passed"
+        },
+        {
+          "command": "pnpm lint tests/contracts/uasp-readiness-dashboard.contract.test.ts tests/contracts/uasp-profile-sensitivity-policy.contract.test.ts tests/contracts/uasp-eligibility-guards.contract.test.ts tests/contracts/uasp-decision-domain-registry.contract.test.ts tests/contracts/uasp-existing-scale-signal-registry.contract.test.ts tests/contracts/uasp-signal-contract-schema.contract.test.ts",
+          "status": "passed"
+        },
+        {
+          "command": "git diff --check && git diff --cached --check",
+          "status": "passed"
+        }
+      ],
       "failure_reason": "",
       "pr_url": "",
       "commit_sha": "",

@@ -1,0 +1,582 @@
+{
+  "version": "uasp.readiness_dashboard.v1",
+  "scope": "PR-UASP-06",
+  "trainName": "universal-assessment-signal-platform-v1-train",
+  "dependsOn": [
+    "PR-UASP-05"
+  ],
+  "runtimeBehaviorChanged": false,
+  "futureScalesOnboarded": false,
+  "publicCatalogChanged": false,
+  "seoGeoOutputChanged": false,
+  "freemiumRuntimeChanged": false,
+  "recommendationRuntimeChanged": false,
+  "profileRuntimeChanged": false,
+  "sourceArtifacts": [
+    "docs/assessment/uasp/generated/uasp-signal-contract-schema.v1.json",
+    "docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json",
+    "docs/assessment/uasp/generated/uasp-decision-domain-registry.v1.json",
+    "docs/assessment/uasp/generated/uasp-eligibility-guards.v1.json",
+    "docs/assessment/uasp/generated/uasp-profile-sensitivity-policy.v1.json"
+  ],
+  "uaspEnums": {
+    "signal_type": [
+      "identity",
+      "trait",
+      "interest",
+      "ability",
+      "emotion",
+      "relationship",
+      "workstyle",
+      "motivation",
+      "state",
+      "value",
+      "learning"
+    ],
+    "result_shape": [
+      "type",
+      "vector",
+      "band",
+      "score",
+      "facet_vector",
+      "profile",
+      "hybrid",
+      "state",
+      "ability_estimate",
+      "ranked_profile"
+    ],
+    "stability": [
+      "stable_trait",
+      "semi_stable_preference",
+      "temporary_state",
+      "ability_estimate",
+      "contextual_pattern",
+      "developmental",
+      "unknown"
+    ],
+    "sensitivity": [
+      "normal",
+      "sensitive",
+      "mental_health_sensitive",
+      "ability_sensitive",
+      "minor_sensitive",
+      "workplace_sensitive",
+      "relationship_sensitive"
+    ],
+    "profile_contribution": [
+      "none",
+      "summary_only",
+      "longitudinal",
+      "sensitive_opt_in",
+      "ephemeral",
+      "blocked"
+    ],
+    "decision_domain": [
+      "self_understanding",
+      "career_decision",
+      "workstyle_decision",
+      "relationship_decision",
+      "learning_growth",
+      "emotional_state",
+      "ability_growth",
+      "team_communication",
+      "leadership_growth",
+      "life_direction"
+    ],
+    "claim_level": [
+      "descriptive",
+      "interpretive",
+      "directional",
+      "decision_support",
+      "recommendation_candidate",
+      "forbidden"
+    ],
+    "recommendation_eligible": [
+      "not_eligible",
+      "explanation_only",
+      "next_step_only",
+      "candidate_signal",
+      "eligible_with_guard"
+    ],
+    "seo_geo_eligible": [
+      "not_eligible",
+      "seo_only",
+      "geo_candidate",
+      "llms_eligible",
+      "llms_full_eligible",
+      "private_noindex"
+    ],
+    "freemium_status": [
+      "not_monetized",
+      "free_only",
+      "backend_ready",
+      "frontend_partial",
+      "full_loop",
+      "bundle_candidate",
+      "blocked"
+    ]
+  },
+  "readinessStatuses": [
+    "ready",
+    "partial",
+    "blocked",
+    "not_applicable",
+    "requires_human_decision",
+    "unknown"
+  ],
+  "readinessDimensions": [
+    "signal_contract_ready",
+    "decision_domain_ready",
+    "claim_boundary_ready",
+    "evidence_ready",
+    "report_value_ready",
+    "profile_policy_ready",
+    "recommendation_eligibility_ready",
+    "seo_geo_eligibility_ready",
+    "freemium_ready",
+    "runtime_authority_ready",
+    "fallback_policy_ready"
+  ],
+  "scaleReadiness": [
+    {
+      "scale_code": "MBTI",
+      "overallStatus": "ready",
+      "signal_type": "identity",
+      "result_shape": "type",
+      "careerRecommenderStatus": "not_recommender_next_step_only",
+      "monetizationStatus": "full_loop_proven",
+      "dimensions": {
+        "signal_contract_ready": "ready",
+        "decision_domain_ready": "ready",
+        "claim_boundary_ready": "ready",
+        "evidence_ready": "ready",
+        "report_value_ready": "ready",
+        "profile_policy_ready": "ready",
+        "recommendation_eligibility_ready": "ready",
+        "seo_geo_eligibility_ready": "ready",
+        "freemium_ready": "ready",
+        "runtime_authority_ready": "ready",
+        "fallback_policy_ready": "ready"
+      },
+      "requiredEvidence": [
+        "existing-scale-signal-registry",
+        "claim-boundary-matrix",
+        "eligibility-guards",
+        "profile-sensitivity-policy",
+        "freemium-cross-scale-parity-ledger"
+      ],
+      "lockedBoundaries": [
+        "Cannot predict career success.",
+        "Cannot claim precise career recommendation."
+      ]
+    },
+    {
+      "scale_code": "BIG5_OCEAN",
+      "overallStatus": "partial",
+      "signal_type": "trait",
+      "result_shape": "facet_vector",
+      "careerRecommenderStatus": "not_recommender_explanation_only",
+      "monetizationStatus": "frontend_partial_not_full_loop",
+      "dimensions": {
+        "signal_contract_ready": "ready",
+        "decision_domain_ready": "ready",
+        "claim_boundary_ready": "ready",
+        "evidence_ready": "partial",
+        "report_value_ready": "partial",
+        "profile_policy_ready": "ready",
+        "recommendation_eligibility_ready": "ready",
+        "seo_geo_eligibility_ready": "partial",
+        "freemium_ready": "partial",
+        "runtime_authority_ready": "partial",
+        "fallback_policy_ready": "ready"
+      },
+      "requiredEvidence": [
+        "existing-scale-signal-registry",
+        "claim-boundary-matrix",
+        "eligibility-guards",
+        "profile-sensitivity-policy",
+        "freemium-cross-scale-parity-ledger"
+      ],
+      "lockedBoundaries": [
+        "Can explain behavior and workplace style.",
+        "Cannot directly match careers.",
+        "Cannot claim Big Five precise career recommendation."
+      ]
+    },
+    {
+      "scale_code": "RIASEC",
+      "overallStatus": "partial",
+      "signal_type": "interest",
+      "result_shape": "vector",
+      "careerRecommenderStatus": "candidate_signal_not_recommender",
+      "monetizationStatus": "frontend_partial_not_full_loop",
+      "dimensions": {
+        "signal_contract_ready": "ready",
+        "decision_domain_ready": "ready",
+        "claim_boundary_ready": "ready",
+        "evidence_ready": "partial",
+        "report_value_ready": "partial",
+        "profile_policy_ready": "ready",
+        "recommendation_eligibility_ready": "ready",
+        "seo_geo_eligibility_ready": "partial",
+        "freemium_ready": "partial",
+        "runtime_authority_ready": "partial",
+        "fallback_policy_ready": "ready"
+      },
+      "requiredEvidence": [
+        "existing-scale-signal-registry",
+        "claim-boundary-matrix",
+        "eligibility-guards",
+        "profile-sensitivity-policy",
+        "freemium-cross-scale-parity-ledger"
+      ],
+      "lockedBoundaries": [
+        "Can describe career interest direction.",
+        "Can be a candidate signal for career decision support.",
+        "Cannot claim full career recommendation runtime.",
+        "Cannot claim precise best-career recommendation."
+      ]
+    },
+    {
+      "scale_code": "ENNEAGRAM",
+      "overallStatus": "partial",
+      "signal_type": "motivation",
+      "result_shape": "type",
+      "careerRecommenderStatus": "not_career_mainline_explanation_only",
+      "monetizationStatus": "backend_ready_not_full_loop",
+      "dimensions": {
+        "signal_contract_ready": "ready",
+        "decision_domain_ready": "ready",
+        "claim_boundary_ready": "ready",
+        "evidence_ready": "partial",
+        "report_value_ready": "partial",
+        "profile_policy_ready": "ready",
+        "recommendation_eligibility_ready": "ready",
+        "seo_geo_eligibility_ready": "partial",
+        "freemium_ready": "partial",
+        "runtime_authority_ready": "partial",
+        "fallback_policy_ready": "ready"
+      },
+      "requiredEvidence": [
+        "existing-scale-signal-registry",
+        "eligibility-guards",
+        "profile-sensitivity-policy"
+      ],
+      "lockedBoundaries": [
+        "Can explain motivation and relationship/workstyle patterns.",
+        "Should not enter career recommendation mainline."
+      ]
+    },
+    {
+      "scale_code": "SDS20",
+      "overallStatus": "blocked",
+      "signal_type": "state",
+      "result_shape": "band",
+      "careerRecommenderStatus": "not_eligible",
+      "monetizationStatus": "not_monetization_ready",
+      "dimensions": {
+        "signal_contract_ready": "partial",
+        "decision_domain_ready": "blocked",
+        "claim_boundary_ready": "blocked",
+        "evidence_ready": "blocked",
+        "report_value_ready": "blocked",
+        "profile_policy_ready": "ready",
+        "recommendation_eligibility_ready": "blocked",
+        "seo_geo_eligibility_ready": "blocked",
+        "freemium_ready": "blocked",
+        "runtime_authority_ready": "blocked",
+        "fallback_policy_ready": "blocked"
+      },
+      "requiredEvidence": [
+        "future human approval",
+        "mental-health-sensitive consent policy",
+        "private-noindex policy"
+      ],
+      "lockedBoundaries": [
+        "Mental-health-sensitive example only.",
+        "Not onboarded.",
+        "Not diagnostic."
+      ]
+    },
+    {
+      "scale_code": "CLINICAL_COMBO_68",
+      "overallStatus": "blocked",
+      "signal_type": "state",
+      "result_shape": "band",
+      "careerRecommenderStatus": "not_eligible",
+      "monetizationStatus": "not_monetization_ready",
+      "dimensions": {
+        "signal_contract_ready": "partial",
+        "decision_domain_ready": "blocked",
+        "claim_boundary_ready": "blocked",
+        "evidence_ready": "blocked",
+        "report_value_ready": "blocked",
+        "profile_policy_ready": "ready",
+        "recommendation_eligibility_ready": "blocked",
+        "seo_geo_eligibility_ready": "blocked",
+        "freemium_ready": "blocked",
+        "runtime_authority_ready": "blocked",
+        "fallback_policy_ready": "blocked"
+      },
+      "requiredEvidence": [
+        "future human approval",
+        "mental-health-sensitive consent policy",
+        "private-noindex policy"
+      ],
+      "lockedBoundaries": [
+        "Mental-health-sensitive example only.",
+        "Not onboarded.",
+        "Not diagnostic."
+      ]
+    },
+    {
+      "scale_code": "EQ_60",
+      "overallStatus": "requires_human_decision",
+      "signal_type": "unknown",
+      "result_shape": "unknown",
+      "careerRecommenderStatus": "unknown_not_ready",
+      "monetizationStatus": "not_monetization_ready",
+      "dimensions": {
+        "signal_contract_ready": "requires_human_decision",
+        "decision_domain_ready": "requires_human_decision",
+        "claim_boundary_ready": "requires_human_decision",
+        "evidence_ready": "unknown",
+        "report_value_ready": "unknown",
+        "profile_policy_ready": "requires_human_decision",
+        "recommendation_eligibility_ready": "blocked",
+        "seo_geo_eligibility_ready": "blocked",
+        "freemium_ready": "blocked",
+        "runtime_authority_ready": "unknown",
+        "fallback_policy_ready": "blocked"
+      },
+      "requiredEvidence": [
+        "approved UASP enum mapping",
+        "claim boundary",
+        "sensitivity policy"
+      ],
+      "lockedBoundaries": [
+        "Requires human decision before UASP readiness."
+      ]
+    },
+    {
+      "scale_code": "IQ_RAVEN",
+      "overallStatus": "partial",
+      "signal_type": "ability",
+      "result_shape": "ability_estimate",
+      "careerRecommenderStatus": "not_recommender_explanation_only",
+      "monetizationStatus": "not_monetization_ready",
+      "dimensions": {
+        "signal_contract_ready": "partial",
+        "decision_domain_ready": "partial",
+        "claim_boundary_ready": "partial",
+        "evidence_ready": "partial",
+        "report_value_ready": "partial",
+        "profile_policy_ready": "ready",
+        "recommendation_eligibility_ready": "partial",
+        "seo_geo_eligibility_ready": "partial",
+        "freemium_ready": "blocked",
+        "runtime_authority_ready": "partial",
+        "fallback_policy_ready": "blocked"
+      },
+      "requiredEvidence": [
+        "ability-sensitive claim boundary",
+        "human-worth claim exclusion",
+        "future runtime authority proof"
+      ],
+      "lockedBoundaries": [
+        "Must not evaluate human worth.",
+        "Must not claim employment suitability.",
+        "Not first-batch."
+      ]
+    },
+    {
+      "scale_code": "FUTURE_SCALE_PLACEHOLDER",
+      "overallStatus": "blocked",
+      "signal_type": "unknown",
+      "result_shape": "unknown",
+      "careerRecommenderStatus": "not_eligible",
+      "monetizationStatus": "blocked_without_freemium_proof",
+      "dimensions": {
+        "signal_contract_ready": "blocked",
+        "decision_domain_ready": "blocked",
+        "claim_boundary_ready": "blocked",
+        "evidence_ready": "blocked",
+        "report_value_ready": "blocked",
+        "profile_policy_ready": "blocked",
+        "recommendation_eligibility_ready": "blocked",
+        "seo_geo_eligibility_ready": "blocked",
+        "freemium_ready": "blocked",
+        "runtime_authority_ready": "blocked",
+        "fallback_policy_ready": "blocked"
+      },
+      "requiredEvidence": [
+        "signal gate",
+        "decision domain gate",
+        "claim boundary gate",
+        "evidence gate",
+        "report value gate",
+        "profile contribution gate",
+        "graph edge gate",
+        "SEO/GEO gate",
+        "sensitivity gate",
+        "runtime authority gate",
+        "fallback policy gate",
+        "freemium parity gate"
+      ],
+      "lockedBoundaries": [
+        "Future scales default to blocked.",
+        "Future scales cannot become monetization-ready without freemium parity proof.",
+        "Future scales cannot use frontend fallback as scale authority."
+      ]
+    }
+  ],
+  "futureScaleOnboardingGates": [
+    {
+      "gate_id": "signal_gate",
+      "requiredForReady": true,
+      "blocksIfMissing": true,
+      "evidenceRequired": [
+        "scale_code",
+        "signal_type",
+        "result_shape",
+        "runtime_authority_owner"
+      ]
+    },
+    {
+      "gate_id": "decision_domain_gate",
+      "requiredForReady": true,
+      "blocksIfMissing": true,
+      "evidenceRequired": [
+        "approved decision_domains",
+        "domain policy"
+      ]
+    },
+    {
+      "gate_id": "claim_boundary_gate",
+      "requiredForReady": true,
+      "blocksIfMissing": true,
+      "evidenceRequired": [
+        "claim_level",
+        "forbidden claims",
+        "disclaimer policy when required"
+      ]
+    },
+    {
+      "gate_id": "evidence_gate",
+      "requiredForReady": true,
+      "blocksIfMissing": true,
+      "evidenceRequired": [
+        "visible evidence",
+        "answer surface alignment"
+      ]
+    },
+    {
+      "gate_id": "report_value_gate",
+      "requiredForReady": true,
+      "blocksIfMissing": true,
+      "evidenceRequired": [
+        "free result value",
+        "paid report value when report_eligible"
+      ]
+    },
+    {
+      "gate_id": "profile_contribution_gate",
+      "requiredForReady": true,
+      "blocksIfMissing": true,
+      "evidenceRequired": [
+        "profile_contribution",
+        "retention category",
+        "sensitivity policy"
+      ]
+    },
+    {
+      "gate_id": "graph_edge_gate",
+      "requiredForReady": false,
+      "blocksIfMissing": false,
+      "evidenceRequired": [
+        "graph contract only when recommendation or graph claims are requested"
+      ]
+    },
+    {
+      "gate_id": "seo_geo_gate",
+      "requiredForReady": true,
+      "blocksIfMissing": true,
+      "evidenceRequired": [
+        "seo_geo_eligible",
+        "discoverability authority",
+        "visible evidence for GEO"
+      ]
+    },
+    {
+      "gate_id": "sensitivity_gate",
+      "requiredForReady": true,
+      "blocksIfMissing": true,
+      "evidenceRequired": [
+        "sensitivity",
+        "disclaimer policy",
+        "minor/mental-health/ability protections when applicable"
+      ]
+    },
+    {
+      "gate_id": "runtime_authority_gate",
+      "requiredForReady": true,
+      "blocksIfMissing": true,
+      "evidenceRequired": [
+        "backend/CMS source authority",
+        "public runtime consumer",
+        "rollback policy"
+      ]
+    },
+    {
+      "gate_id": "fallback_policy_gate",
+      "requiredForReady": true,
+      "blocksIfMissing": true,
+      "evidenceRequired": [
+        "frontend_fallback_policy",
+        "fallback owner gate",
+        "no unclassified fallback"
+      ]
+    },
+    {
+      "gate_id": "freemium_parity_gate",
+      "requiredForReady": true,
+      "blocksIfMissing": true,
+      "evidenceRequired": [
+        "freemium_status",
+        "checkout proof when full_loop",
+        "entitlement proof when full_loop",
+        "report access proof when full_loop"
+      ]
+    }
+  ],
+  "lockedRules": [
+    "future_scale_placeholder is blocked until full UASP contract exists.",
+    "future scale cannot be ready without all required gates.",
+    "readiness dashboard cannot mark Big Five as career recommender.",
+    "readiness dashboard cannot mark RIASEC as precise career recommender.",
+    "future scale cannot be monetization-ready without freemium proof.",
+    "offer card existence is not proof of full checkout parity.",
+    "backend SKU is not proof of public funnel.",
+    "career_decision domain mapping does not grant recommendation eligibility automatically."
+  ],
+  "mustNotChange": [
+    "future scale onboarding",
+    "runtime",
+    "catalog",
+    "SEO/GEO output",
+    "freemium runtime",
+    "recommendation runtime",
+    "profile runtime"
+  ],
+  "finalReadiness": {
+    "uaspV1ContractLayer": "ready",
+    "futureTestOnboarding": "blocked_until_dashboard_gates_pass",
+    "firstBatchRuntimeImplementation": "out_of_scope",
+    "remainingBlockers": [
+      "Future scales need approved signal contract entries.",
+      "Future scales need visible evidence and claim boundary proof.",
+      "Future monetization readiness requires freemium parity proof.",
+      "Recommendation eligibility requires evidence + graph + runtime support."
+    ]
+  }
+}
