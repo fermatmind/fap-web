@@ -52,9 +52,10 @@ describe("Domain report and freemium ledger", () => {
       pr_url: "https://github.com/fermatmind/fap-web/pull/739",
     });
     expect(byId.get("PR-CDD-05")).toMatchObject({
-      status: "in_progress",
+      status: "merged",
       branch: "codex/pr-cdd-05-domain-report-freemium-ledger",
       depends_on: ["PR-CDD-04"],
+      pr_url: "https://github.com/fermatmind/fap-web/pull/740",
     });
     expect(fs.existsSync(CLAIM_OVERLAY_PATH)).toBe(true);
   });
