@@ -41,7 +41,9 @@
       "depends_on": [
         "PR-4B-01"
       ],
-      "status": "in_progress",
+      "status": "merged",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/743",
+      "merge_sha": "3e3f2a92f69743a1b2cd2297d6122f4e39ba8fbd",
       "title": "test(domains): add result report domain metadata guard",
       "artifacts": [
         "docs/assessment/domains/result-report-domain-metadata-guard.md",
@@ -56,7 +58,7 @@
       "depends_on": [
         "PR-4B-02"
       ],
-      "status": "planned",
+      "status": "in_progress",
       "title": "feat(domains): add self-understanding existing surface metadata policy",
       "artifacts": [
         "docs/assessment/domains/self-understanding-surface-metadata-policy.md",
