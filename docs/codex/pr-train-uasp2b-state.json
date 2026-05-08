@@ -65,14 +65,23 @@
       "base": "main",
       "depends_on": [],
       "mode": "contract_only",
-      "status": "in_progress",
+      "status": "merged",
       "title": "feat(assessment): add UASP runtime metadata envelope contract",
       "artifacts": [
         "docs/assessment/uasp/uasp-runtime-metadata-envelope.md",
         "docs/assessment/uasp/generated/uasp-runtime-metadata-envelope.v1.json",
         "tests/contracts/uasp-runtime-metadata-envelope.contract.test.ts"
       ],
-      "checks": [],
+      "checks": [
+        {
+          "command": "pnpm vitest run tests/contracts/uasp-runtime-metadata-envelope.contract.test.ts",
+          "status": "passed"
+        },
+        {
+          "command": "pnpm typecheck && pnpm test:contract && pnpm seo:generate-sitemap && pnpm seo:check-sitemap",
+          "status": "passed"
+        }
+      ],
       "sidecar_issues": []
     },
     {
@@ -85,7 +94,7 @@
         "PR-UASP2B-01"
       ],
       "mode": "guard_only",
-      "status": "planned",
+      "status": "in_progress",
       "title": "test(assessment): add result report UASP metadata rendering guard",
       "artifacts": [
         "docs/assessment/uasp/result-report-metadata-rendering-guard.md",
