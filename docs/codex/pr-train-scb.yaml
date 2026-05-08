@@ -1,0 +1,168 @@
+train_name: semantic-claim-boundary-enforcement-train
+train_description: >
+  Contract scanner and guard train for FermatMind Semantic Claim Boundary
+  Enforcement v1. The train establishes forbidden, soft-boundary,
+  needs-disclaimer, allowed-reference, and manual-review claim fixtures without
+  changing scoring, recommendation runtime, report entitlement, checkout/payment,
+  profile/memory runtime, SEO/GEO exposure, Topic Graph, Career pSEO, or public
+  copy.
+base_branch: main
+merge_method: squash
+stop_on_failure: true
+require_clean_worktree: true
+execution_mode: local_clone_preferred
+status: initialized
+pr_namespace: PR-SCB-*
+branch_naming_convention: codex/pr-scb-<nn>-<short-scope>
+required_github_checks:
+  - build
+  - contracts
+  - verify-big5-contract-freeze
+  - verify-enneagram-contract-freeze
+
+manual_decision_source:
+  version: semantic_claim_boundary_manual_decisions.v1
+  files:
+    - /Users/rainie/Desktop/semantic_claim_boundary_manual_decisions_v1.md
+    - /Users/rainie/Desktop/semantic_claim_boundary_manual_decisions_v1.json
+  rule: >
+    Do not invent scanner categories or claim statuses. Public copy remediation
+    requires explicit human-approved replacement text.
+
+claim_status_enum:
+  - allowed
+  - soft_allowed
+  - needs_disclaimer
+  - internal_only
+  - forbidden
+  - unknown
+
+priority_enum:
+  - P0
+  - P1
+  - P2
+  - P3
+
+scanner_categories:
+  - forbidden
+  - soft_boundary
+  - needs_disclaimer
+  - allowed_reference
+  - manual_review
+
+train_policy:
+  scanner_fixtures_contract_guards_only: true
+  no_public_copy_changes: true
+  no_runtime_behavior_changes: true
+  no_scoring_changes: true
+  no_report_entitlement_changes: true
+  no_checkout_payment_changes: true
+  no_recommendation_runtime_changes: true
+  no_profile_memory_changes: true
+  no_seo_geo_expansion: true
+  no_topic_graph_expansion: true
+  no_career_pseo_expansion: true
+  no_new_tests_or_scale_onboarding: true
+
+allowed_paths:
+  - docs/claims/**
+  - docs/assessment/uasp/**
+  - docs/seo/**
+  - docs/geo/**
+  - docs/freemium/**
+  - docs/runtime/**
+  - tests/contracts/**
+  - scripts/claims/**
+  - scripts/runtime/**
+  - scripts/seo/**
+  - docs/codex/pr-train-scb.yaml
+  - docs/codex/pr-train-scb-state.json
+
+forbidden_paths:
+  - checkout/payment/report/auth/attempt/scoring
+  - career recommender runtime
+  - profile runtime
+  - commerce runtime
+  - assessment scoring drivers
+  - backend runtime code
+  - content packs rewrite
+  - CMS data rewrite
+
+prs:
+  - id: PR-SCB-01
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-scb-01-claim-scanner-baseline
+    base: main
+    depends_on: []
+    status: in_progress
+    title: "test(claims): add semantic claim scanner baseline"
+    artifacts:
+      - docs/claims/semantic-claim-scanner-baseline.md
+      - docs/claims/generated/semantic-claim-scanner-baseline.v1.json
+      - tests/contracts/semantic-claim-scanner-baseline.contract.test.ts
+
+  - id: PR-SCB-02
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-scb-02-riasec-bigfive-boundary-guards
+    base: main
+    depends_on: [PR-SCB-01]
+    status: planned
+    title: "test(claims): guard RIASEC and Big Five claim boundaries"
+    artifacts:
+      - docs/claims/riasec-bigfive-boundary-guards.md
+      - docs/claims/generated/riasec-bigfive-boundary-guards.v1.json
+      - tests/contracts/riasec-bigfive-boundary-guards.contract.test.ts
+
+  - id: PR-SCB-03
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-scb-03-mbti-recommendation-copy-boundary
+    base: main
+    depends_on: [PR-SCB-02]
+    status: planned
+    title: "test(claims): guard MBTI recommendation copy boundary"
+    artifacts:
+      - docs/claims/mbti-recommendation-copy-boundary.md
+      - docs/claims/generated/mbti-recommendation-copy-boundary.v1.json
+      - tests/contracts/mbti-recommendation-copy-boundary.contract.test.ts
+
+  - id: PR-SCB-04
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-scb-04-career-fit-graph-ai-claim-guards
+    base: main
+    depends_on: [PR-SCB-03]
+    status: planned
+    title: "test(claims): guard career fit graph and AI claim boundaries"
+    artifacts:
+      - docs/claims/career-fit-graph-ai-claim-guards.md
+      - docs/claims/generated/career-fit-graph-ai-claim-guards.v1.json
+      - tests/contracts/career-fit-graph-ai-claim-guards.contract.test.ts
+
+  - id: PR-SCB-05
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-scb-05-seo-geo-llms-claim-guards
+    base: main
+    depends_on: [PR-SCB-04]
+    status: planned
+    title: "test(claims): guard SEO GEO and llms claim boundaries"
+    artifacts:
+      - docs/claims/seo-geo-llms-claim-guards.md
+      - docs/claims/generated/seo-geo-llms-claim-guards.v1.json
+      - tests/contracts/seo-geo-llms-claim-guards.contract.test.ts
+
+  - id: PR-SCB-06
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-scb-06-paywall-sensitive-profile-claim-guards
+    base: main
+    depends_on: [PR-SCB-05]
+    status: planned
+    title: "test(claims): guard paywall sensitive and profile claim boundaries"
+    artifacts:
+      - docs/claims/paywall-sensitive-profile-claim-guards.md
+      - docs/claims/generated/paywall-sensitive-profile-claim-guards.v1.json
+      - tests/contracts/paywall-sensitive-profile-claim-guards.contract.test.ts

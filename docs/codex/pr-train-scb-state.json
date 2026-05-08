@@ -1,0 +1,88 @@
+{
+  "train_name": "semantic-claim-boundary-enforcement-train",
+  "started_at": "2026-05-08T00:00:00Z",
+  "updated_at": "2026-05-08T00:00:00Z",
+  "status": "initialized",
+  "phase": "semantic-claim-boundary-enforcement",
+  "pr_namespace": "PR-SCB-*",
+  "base_branch": "main",
+  "merge_method": "squash",
+  "required_github_checks": [
+    "build",
+    "contracts",
+    "verify-big5-contract-freeze",
+    "verify-enneagram-contract-freeze"
+  ],
+  "claim_status_enum": ["allowed", "soft_allowed", "needs_disclaimer", "internal_only", "forbidden", "unknown"],
+  "priority_enum": ["P0", "P1", "P2", "P3"],
+  "scanner_categories": ["forbidden", "soft_boundary", "needs_disclaimer", "allowed_reference", "manual_review"],
+  "manual_decision_source": {
+    "version": "semantic_claim_boundary_manual_decisions.v1",
+    "files": [
+      "/Users/rainie/Desktop/semantic_claim_boundary_manual_decisions_v1.md",
+      "/Users/rainie/Desktop/semantic_claim_boundary_manual_decisions_v1.json"
+    ]
+  },
+  "prs": [
+    {
+      "id": "PR-SCB-01",
+      "branch": "codex/pr-scb-01-claim-scanner-baseline",
+      "depends_on": [],
+      "status": "in_progress",
+      "pr_url": null,
+      "merge_sha": null,
+      "local_cleanup_executed": false,
+      "remote_branch_deleted": false
+    },
+    {
+      "id": "PR-SCB-02",
+      "branch": "codex/pr-scb-02-riasec-bigfive-boundary-guards",
+      "depends_on": ["PR-SCB-01"],
+      "status": "planned",
+      "pr_url": null,
+      "merge_sha": null,
+      "local_cleanup_executed": false,
+      "remote_branch_deleted": false
+    },
+    {
+      "id": "PR-SCB-03",
+      "branch": "codex/pr-scb-03-mbti-recommendation-copy-boundary",
+      "depends_on": ["PR-SCB-02"],
+      "status": "planned",
+      "pr_url": null,
+      "merge_sha": null,
+      "local_cleanup_executed": false,
+      "remote_branch_deleted": false
+    },
+    {
+      "id": "PR-SCB-04",
+      "branch": "codex/pr-scb-04-career-fit-graph-ai-claim-guards",
+      "depends_on": ["PR-SCB-03"],
+      "status": "planned",
+      "pr_url": null,
+      "merge_sha": null,
+      "local_cleanup_executed": false,
+      "remote_branch_deleted": false
+    },
+    {
+      "id": "PR-SCB-05",
+      "branch": "codex/pr-scb-05-seo-geo-llms-claim-guards",
+      "depends_on": ["PR-SCB-04"],
+      "status": "planned",
+      "pr_url": null,
+      "merge_sha": null,
+      "local_cleanup_executed": false,
+      "remote_branch_deleted": false
+    },
+    {
+      "id": "PR-SCB-06",
+      "branch": "codex/pr-scb-06-paywall-sensitive-profile-claim-guards",
+      "depends_on": ["PR-SCB-05"],
+      "status": "planned",
+      "pr_url": null,
+      "merge_sha": null,
+      "local_cleanup_executed": false,
+      "remote_branch_deleted": false
+    }
+  ]
+}
