@@ -724,6 +724,257 @@
           "backend/app/Services/Report/Resolvers/OfferResolver.php"
         ]
       }
+    ],
+    "profileMemoryUaspIntegration": [
+      {
+        "area": "/v0.3/me/attempts",
+        "currentState": "Attempt/report history exists, but it is not UASP Profile.",
+        "status": "backend_ready",
+        "boundary": "Read-only history can reference UASP metadata later; it is not profile memory.",
+        "evidence": [
+          "backend/routes/api.php",
+          "backend/app/Services/V0_3/Me/MeAttemptsService.php"
+        ]
+      },
+      {
+        "area": "MeProfileService",
+        "currentState": "Returns org/user/anon/roles, not UASP signal profile.",
+        "status": "blocked",
+        "boundary": "Do not claim /me/profile UASP readiness.",
+        "evidence": [
+          "backend/app/Services/V0_3/Me/MeProfileService.php",
+          "backend/app/Http/Controllers/API/V0_3/MeController.php"
+        ]
+      },
+      {
+        "area": "Memory service",
+        "currentState": "Memory infrastructure exists with consent/version/deleted state, but is not UASP-governed durable signal memory.",
+        "status": "partial",
+        "boundary": "Keep separate from UASP profile until lifecycle/export/delete coverage is defined.",
+        "evidence": [
+          "backend/database/migrations/2026_01_28_140100_create_memories_table.php",
+          "backend/app/Services/Memory/MemoryService.php"
+        ]
+      },
+      {
+        "area": "DSAR lifecycle",
+        "currentState": "Does not yet cover all UASP memory candidates such as memories, profile projections, recommendation snapshots, and saved career items.",
+        "status": "blocked",
+        "boundary": "Blocks sensitive/profile signal persistence.",
+        "evidence": [
+          "backend/app/Services/Attempts/UserDataLifecycleService.php"
+        ]
+      },
+      {
+        "area": "Saved careers",
+        "currentState": "Visitor-key preference store, not UASP profile memory.",
+        "status": "safe_to_defer",
+        "boundary": "Do not promote saved careers into UASP profile.",
+        "evidence": [
+          "backend/app/Http/Controllers/API/V0_5/Career/CareerShortlistController.php",
+          "components/career/CareerShortlistAction.tsx"
+        ]
+      },
+      {
+        "area": "profile_contribution",
+        "currentState": "Policy says first-batch scales may contribute, but runtime storage is not implemented.",
+        "status": "blocked",
+        "boundary": "profile_contribution = blocked for runtime storage in Phase 2B.",
+        "evidence": [
+          "docs/assessment/uasp/generated/uasp-profile-sensitivity-policy.v1.json"
+        ]
+      }
+    ],
+    "recommendationUaspIntegration": [
+      {
+        "area": "MBTI recommendation",
+        "currentState": "Snapshot/deterministic career-direction support exists; UASP says next_step_only.",
+        "status": "partial",
+        "boundary": "Display/next-step only; not live personalized recommender.",
+        "evidence": [
+          "docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json",
+          "backend/app/Services/Career/Bundles/CareerRecommendationDetailBundleBuilder.php"
+        ]
+      },
+      {
+        "area": "RIASEC",
+        "currentState": "UASP says candidate_signal, but runtime is not full recommender.",
+        "status": "dangerous_if_integrated",
+        "boundary": "Candidate signal only; do not feed recommender without graph/evidence/claim proof.",
+        "evidence": [
+          "docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json"
+        ]
+      },
+      {
+        "area": "Big Five",
+        "currentState": "UASP says explanation_only.",
+        "status": "blocked",
+        "boundary": "Must not become career matching/recommendation authority.",
+        "evidence": [
+          "docs/assessment/uasp/generated/uasp-eligibility-guards.v1.json"
+        ]
+      },
+      {
+        "area": "Enneagram",
+        "currentState": "UASP says explanation_only; not career mainline.",
+        "status": "blocked",
+        "boundary": "Motivation explanation only.",
+        "evidence": [
+          "docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json"
+        ]
+      },
+      {
+        "area": "Career scoring runtime",
+        "currentState": "Backend scoring and claim gates exist outside UASP.",
+        "status": "partial",
+        "boundary": "UASP recommendation_eligible = guard-only.",
+        "evidence": [
+          "backend/app/Domain/Career/Scoring/ScoringEngine5D.php",
+          "backend/app/Domain/Career/Scoring/ClaimPermissionsCompiler.php"
+        ]
+      },
+      {
+        "area": "Frontend local ranking",
+        "currentState": "Forbidden as authority.",
+        "status": "blocked",
+        "boundary": "Must not become recommendation engine.",
+        "evidence": [
+          "docs/assessment/uasp/generated/uasp-eligibility-guards.v1.json"
+        ]
+      }
+    ],
+    "scaleSpecificRuntimeRisk": [
+      {
+        "runtimeArea": "Frontend take dispatch",
+        "currentState": "Switches by scale_code and form behavior.",
+        "status": "safe_to_defer",
+        "riskBoundary": "Acceptable for first batch; should not be generalized in report train.",
+        "evidence": [
+          "app/(localized)/[locale]/tests/[slug]/take/page.tsx"
+        ]
+      },
+      {
+        "runtimeArea": "Frontend fallback seeds",
+        "currentState": "Public test seeds can bypass UASP if expanded.",
+        "status": "dangerous_if_integrated",
+        "riskBoundary": "Future scale additions must require UASP contract and fallback owner gate.",
+        "evidence": [
+          "lib/content.ts",
+          "docs/runtime/generated/fallback-owner-gates.v1.json"
+        ]
+      },
+      {
+        "runtimeArea": "Rich result/report shells",
+        "currentState": "Scale-specific shells and module logic.",
+        "status": "partial",
+        "riskBoundary": "Add metadata envelope only; do not rewrite report shell routing now.",
+        "evidence": [
+          "components/result/RichResultReport.tsx",
+          "app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx"
+        ]
+      },
+      {
+        "runtimeArea": "Backend questions/forms",
+        "currentState": "Branches by scale and driver.",
+        "status": "partial",
+        "riskBoundary": "Good enough for first batch, not future 20-scale onboarding.",
+        "evidence": [
+          "backend/app/Http/Controllers/API/V0_3/ScalesController.php",
+          "backend/app/Services/Scale/PublicScaleFormsProjector.php"
+        ]
+      },
+      {
+        "runtimeArea": "Backend scoring",
+        "currentState": "Driver/scorer routing is scale/driver-specific.",
+        "status": "safe_to_defer",
+        "riskBoundary": "Do not generalize scoring in UASP metadata integration.",
+        "evidence": [
+          "backend/app/Services/Assessment/AssessmentEngine.php",
+          "backend/config/fap.php"
+        ]
+      },
+      {
+        "runtimeArea": "SDS code mismatch",
+        "currentState": "UASP artifact uses SDS20; backend uses SDS_20.",
+        "status": "requires_human_decision",
+        "riskBoundary": "Canonical code normalization needed before sensitive scale runtime integration.",
+        "evidence": [
+          "docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json",
+          "backend/database/seeders/ScaleRegistrySeeder.php"
+        ]
+      }
+    ],
+    "uaspRuntimeOwnership": [
+      {
+        "field": "scale_code/scale_slug/form_code",
+        "sourceOfTruthOwner": "Backend scale registry",
+        "storageRecommendation": "Existing DB/API fields or transform",
+        "runtimeConsumer": "Backend/frontend catalog and result/report envelope",
+        "status": "backend_ready"
+      },
+      {
+        "field": "signal_type/result_shape/stability",
+        "sourceOfTruthOwner": "Backend UASP/scale metadata projection seeded from approved artifacts",
+        "storageRecommendation": "Backend config/registry JSON namespace before DB migration",
+        "runtimeConsumer": "Test detail and result/report metadata display",
+        "status": "ready_for_integration"
+      },
+      {
+        "field": "sensitivity/disclaimer_required",
+        "sourceOfTruthOwner": "Human policy plus backend UASP metadata",
+        "storageRecommendation": "Backend metadata; CMS copy for disclaimers",
+        "runtimeConsumer": "Result/report/test detail guard display",
+        "status": "requires_human_decision"
+      },
+      {
+        "field": "decision_domains",
+        "sourceOfTruthOwner": "Backend UASP metadata",
+        "storageRecommendation": "Backend response field",
+        "runtimeConsumer": "Test detail signal meaning and future CTA guard",
+        "status": "ready_for_integration"
+      },
+      {
+        "field": "claim_level",
+        "sourceOfTruthOwner": "Backend/CMS governance",
+        "storageRecommendation": "Backend metadata plus CMS claim copy",
+        "runtimeConsumer": "Claim guard tests and copy validation",
+        "status": "partial"
+      },
+      {
+        "field": "profile_contribution",
+        "sourceOfTruthOwner": "Human privacy/product decision",
+        "storageRecommendation": "Artifact only for now; no runtime storage",
+        "runtimeConsumer": "Read-only display/guard only",
+        "status": "blocked"
+      },
+      {
+        "field": "recommendation_eligible",
+        "sourceOfTruthOwner": "Product/graph governance",
+        "storageRecommendation": "Artifact/backend metadata only",
+        "runtimeConsumer": "Guard tests only, not recommender runtime",
+        "status": "dangerous_if_integrated"
+      },
+      {
+        "field": "seo_geo_eligible",
+        "sourceOfTruthOwner": "Discoverability governance",
+        "storageRecommendation": "Backend metadata plus SEO guard fixture",
+        "runtimeConsumer": "Sitemap/llms non-widening validator",
+        "status": "partial"
+      },
+      {
+        "field": "freemium_status/report_eligible",
+        "sourceOfTruthOwner": "Freemium ledger plus backend report authority",
+        "storageRecommendation": "Readiness artifact and backend-derived proof",
+        "runtimeConsumer": "Offer/paywall claim guard only",
+        "status": "partial"
+      },
+      {
+        "field": "runtime_authority_owner/frontend_fallback_policy/source_authority/rollback_policy",
+        "sourceOfTruthOwner": "Platform governance",
+        "storageRecommendation": "Backend response/config artifact",
+        "runtimeConsumer": "Future scale onboarding gate",
+        "status": "ready_for_integration"
+      }
     ]
   },
   "backlog": [],
