@@ -1,0 +1,192 @@
+train_name: public-runtime-authority-phase-1b-remediation-train
+train_description: >
+  Phase 1B remediation train for FermatMind Public Runtime Authority. This
+  train contains fallback expansion, remediates high-risk public runtime
+  fallback, enforces claim boundaries, converges topic/llms exposure, establishes
+  a visible Evidence Container baseline, and records cross-scale freemium parity
+  without expanding tests, Topic Graph, Career pSEO, Recommendation, or Long-term
+  Profile.
+base_branch: main
+merge_method: squash
+stop_on_failure: true
+require_clean_worktree: true
+execution_mode: local_clone_preferred
+status: initialized
+pr_namespace: PR-PRA1B-*
+branch_naming_convention: codex/pr-pra1b-<nn>-<short-scope>
+required_github_checks:
+  - build
+  - contracts
+  - verify-big5-contract-freeze
+  - verify-enneagram-contract-freeze
+
+phase_1a_source_artifacts:
+  - docs/runtime/public-frontend-source-of-truth.md
+  - docs/runtime/generated/public-frontend-source-of-truth.v1.json
+  - docs/runtime/page-family-runtime-coverage.md
+  - docs/runtime/generated/page-family-runtime-coverage.v1.json
+  - docs/runtime/frontend-fallback-authority-inventory.md
+  - docs/runtime/generated/frontend-fallback-authority-inventory.v1.json
+  - docs/claims/public-claim-boundary-matrix.md
+  - docs/claims/generated/public-claim-boundary-matrix.v1.json
+  - docs/seo/discoverability-authority-convergence.md
+  - docs/seo/generated/discoverability-authority-matrix.v1.json
+  - docs/freemium/freemium-runtime-coverage.md
+  - docs/freemium/generated/freemium-runtime-coverage.v1.json
+
+production_frontend_source_of_truth:
+  primary_public_runtime: /Users/rainie/Desktop/GitHub/fap-web
+  nested_skeleton_or_stale: /Users/rainie/Desktop/GitHub/fap-api/fap-web
+  rule: >
+    The nested fap-api/fap-web copy must not be treated as public frontend
+    runtime because it is a skeleton/stale copy, not the product renderer.
+
+status_enum:
+  - complete
+  - ready_for_remediation
+  - partial
+  - blocked
+  - not_ready
+  - safe_to_defer
+  - dangerous_if_expanded
+  - requires_human_decision
+  - unknown
+
+priority_enum:
+  - P0
+  - P1
+  - P2
+  - P3
+
+fallback_classification_enum:
+  - safe_static
+  - product_code_only
+  - compatibility_wrapper
+  - watchlist
+  - migration_required
+  - forbidden
+
+claim_boundary_enum:
+  - allowed
+  - soft_allowed
+  - needs_disclaimer
+  - internal_only
+  - forbidden
+
+allowed_paths:
+  - docs/runtime/**
+  - docs/seo/**
+  - docs/claims/**
+  - docs/freemium/**
+  - docs/geo/**
+  - tests/contracts/**
+  - tests/e2e/**
+  - scripts/runtime/**
+  - scripts/seo/**
+  - docs/codex/pr-train-phase-1b.yaml
+  - docs/codex/pr-train-phase-1b-state.json
+
+forbidden_paths:
+  - checkout/payment/report/auth/attempt/scoring
+  - recommendation runtime changes
+  - new tests or new assessment onboarding
+  - Topic Graph expansion
+  - Career pSEO expansion
+  - GEO content expansion
+  - Behavior Graph or Long-term Profile work
+  - frontend rewrite
+  - backend rewrite
+
+train_policy:
+  scope: public_runtime_authority_phase_1b_remediation
+  no_new_tests: true
+  no_universal_assessment_signal_platform: true
+  no_topic_graph_expansion: true
+  no_career_pseo_expansion: true
+  no_geo_expansion: true
+  no_recommendation_engine: true
+  no_behavior_or_long_term_profile_work: true
+  no_payment_lifecycle_changes: true
+  no_report_entitlement_changes: true
+  no_auth_attempt_commerce_scoring_changes: true
+  no_backend_or_frontend_rewrite: true
+  public_runtime_constitution:
+    - Backend/CMS owns truth where backend/CMS surface exists.
+    - Frontend deterministically renders truth.
+    - Public runtime must not invent SEO truth.
+    - Public runtime must not invent graph truth.
+    - Public runtime must not invent recommendation truth.
+    - Public runtime must not overclaim runtime capabilities.
+    - Fallback authority must be inventoried, classified, gated, and contained.
+    - Migration_required fallback must not expand to new tests or surfaces.
+    - Forbidden fallback must fail contract.
+    - Public discoverability must not silently widen.
+    - JSON-LD must align with visible content or backend authority.
+    - FAQPage must come from visible FAQ or answer surface.
+    - Evidence must be visible, not hidden schema stuffing.
+    - Private flows must never appear in sitemap, llms, or indexable HTML.
+
+prs:
+  - id: PR-PRA1B-01
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-pra1b-01-fallback-owner-gates
+    base: main
+    depends_on: []
+    mode: execute
+    status: in_progress
+    title: "test(runtime): add fallback owner gates for public runtime authority"
+    artifacts:
+      - docs/runtime/fallback-owner-gates.md
+      - docs/runtime/generated/fallback-owner-gates.v1.json
+      - tests/contracts/fallback-owner-gates.contract.test.ts
+
+  - id: PR-PRA1B-02
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-pra1b-02-test-detail-authority-convergence
+    base: main
+    depends_on: [PR-PRA1B-01]
+    mode: execute
+    status: planned
+    title: "fix(runtime): converge test detail authority fallback safely"
+
+  - id: PR-PRA1B-03
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-pra1b-03-topic-llms-exposure-convergence
+    base: main
+    depends_on: [PR-PRA1B-02]
+    mode: execute
+    status: planned
+    title: "fix(seo): converge topic and llms exposure authority"
+
+  - id: PR-PRA1B-04
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-pra1b-04-article-personality-jsonld-projection-gates
+    base: main
+    depends_on: [PR-PRA1B-03]
+    mode: execute
+    status: planned
+    title: "test(runtime): gate Article JSON-LD and personality fallback projection"
+
+  - id: PR-PRA1B-05
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-pra1b-05-evidence-container-runtime-baseline
+    base: main
+    depends_on: [PR-PRA1B-04]
+    mode: execute
+    status: planned
+    title: "feat(geo): add visible Evidence Container runtime baseline"
+
+  - id: PR-PRA1B-06
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-pra1b-06-freemium-cross-scale-parity-ledger
+    base: main
+    depends_on: [PR-PRA1B-05]
+    mode: execute
+    status: planned
+    title: "test(freemium): add cross-scale freemium parity ledger"

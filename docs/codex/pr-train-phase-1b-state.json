@@ -1,0 +1,225 @@
+{
+  "train_name": "public-runtime-authority-phase-1b-remediation-train",
+  "train_description": "Phase 1B remediation train for FermatMind Public Runtime Authority.",
+  "started_at": "2026-05-08T00:00:00Z",
+  "updated_at": "2026-05-08T00:00:00Z",
+  "status": "initialized",
+  "phase": "public-runtime-authority-phase-1b-remediation",
+  "pr_namespace": "PR-PRA1B-*",
+  "branch_naming_convention": "codex/pr-pra1b-<nn>-<short-scope>",
+  "mode": "local_clone_preferred",
+  "base_branch": "main",
+  "stop_on_failure": true,
+  "required_github_checks": [
+    "build",
+    "contracts",
+    "verify-big5-contract-freeze",
+    "verify-enneagram-contract-freeze"
+  ],
+  "production_frontend_source_of_truth": {
+    "primary_public_runtime": "/Users/rainie/Desktop/GitHub/fap-web",
+    "nested_skeleton_or_stale": "/Users/rainie/Desktop/GitHub/fap-api/fap-web",
+    "rule": "The nested fap-api/fap-web copy must not be treated as public frontend runtime."
+  },
+  "status_enum": [
+    "complete",
+    "ready_for_remediation",
+    "partial",
+    "blocked",
+    "not_ready",
+    "safe_to_defer",
+    "dangerous_if_expanded",
+    "requires_human_decision",
+    "unknown"
+  ],
+  "priority_enum": [
+    "P0",
+    "P1",
+    "P2",
+    "P3"
+  ],
+  "fallback_classification_enum": [
+    "safe_static",
+    "product_code_only",
+    "compatibility_wrapper",
+    "watchlist",
+    "migration_required",
+    "forbidden"
+  ],
+  "claim_boundary_enum": [
+    "allowed",
+    "soft_allowed",
+    "needs_disclaimer",
+    "internal_only",
+    "forbidden"
+  ],
+  "train_policy": {
+    "scope": "public_runtime_authority_phase_1b_remediation",
+    "no_new_tests": true,
+    "no_universal_assessment_signal_platform": true,
+    "no_topic_graph_expansion": true,
+    "no_career_pseo_expansion": true,
+    "no_geo_expansion": true,
+    "no_recommendation_engine": true,
+    "no_behavior_or_long_term_profile_work": true,
+    "no_payment_lifecycle_changes": true,
+    "no_report_entitlement_changes": true,
+    "no_auth_attempt_commerce_scoring_changes": true,
+    "no_backend_or_frontend_rewrite": true
+  },
+  "prs": [
+    {
+      "id": "PR-PRA1B-01",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/pr-pra1b-01-fallback-owner-gates",
+      "base": "main",
+      "depends_on": [],
+      "status": "in_progress",
+      "title": "test(runtime): add fallback owner gates for public runtime authority",
+      "artifacts": [
+        "docs/runtime/fallback-owner-gates.md",
+        "docs/runtime/generated/fallback-owner-gates.v1.json",
+        "tests/contracts/fallback-owner-gates.contract.test.ts"
+      ],
+      "checks": [
+        {
+          "name": "scoped contracts",
+          "command": "pnpm exec vitest run tests/contracts/fallback-owner-gates.contract.test.ts tests/contracts/frontend-fallback-authority-inventory.contract.test.ts",
+          "status": "passed"
+        },
+        {
+          "name": "scoped eslint",
+          "command": "pnpm exec eslint tests/contracts/fallback-owner-gates.contract.test.ts",
+          "status": "passed"
+        },
+        {
+          "name": "next typegen",
+          "command": "pnpm exec next typegen",
+          "status": "passed"
+        },
+        {
+          "name": "typecheck",
+          "command": "pnpm typecheck",
+          "status": "passed"
+        },
+        {
+          "name": "contracts",
+          "command": "pnpm test:contract",
+          "status": "passed"
+        },
+        {
+          "name": "build",
+          "command": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build",
+          "status": "passed"
+        },
+        {
+          "name": "sitemap generation",
+          "command": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm seo:generate-sitemap",
+          "status": "passed"
+        },
+        {
+          "name": "sitemap check",
+          "command": "pnpm seo:check-sitemap",
+          "status": "passed"
+        }
+      ],
+      "failure_reason": null,
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    {
+      "id": "PR-PRA1B-02",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/pr-pra1b-02-test-detail-authority-convergence",
+      "base": "main",
+      "depends_on": [
+        "PR-PRA1B-01"
+      ],
+      "status": "planned",
+      "title": "fix(runtime): converge test detail authority fallback safely"
+    },
+    {
+      "id": "PR-PRA1B-03",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/pr-pra1b-03-topic-llms-exposure-convergence",
+      "base": "main",
+      "depends_on": [
+        "PR-PRA1B-02"
+      ],
+      "status": "planned",
+      "title": "fix(seo): converge topic and llms exposure authority"
+    },
+    {
+      "id": "PR-PRA1B-04",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/pr-pra1b-04-article-personality-jsonld-projection-gates",
+      "base": "main",
+      "depends_on": [
+        "PR-PRA1B-03"
+      ],
+      "status": "planned",
+      "title": "test(runtime): gate Article JSON-LD and personality fallback projection"
+    },
+    {
+      "id": "PR-PRA1B-05",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/pr-pra1b-05-evidence-container-runtime-baseline",
+      "base": "main",
+      "depends_on": [
+        "PR-PRA1B-04"
+      ],
+      "status": "planned",
+      "title": "feat(geo): add visible Evidence Container runtime baseline"
+    },
+    {
+      "id": "PR-PRA1B-06",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/pr-pra1b-06-freemium-cross-scale-parity-ledger",
+      "base": "main",
+      "depends_on": [
+        "PR-PRA1B-05"
+      ],
+      "status": "planned",
+      "title": "test(freemium): add cross-scale freemium parity ledger"
+    }
+  ],
+  "sidecar_issues": [
+    {
+      "title": "Generated sitemap drift on validation rebuild",
+      "severity": "P1",
+      "scope_impact": "pnpm build/postbuild and explicit seo:generate-sitemap rewrote public/sitemap.xml lastmod timestamps and removed existing career family URLs during local validation; the generated diff was reverted and is not included in PR-PRA1B-01.",
+      "introduced_by_current_pr": false,
+      "recommended_future_phase": "PR-PRA1B-03 topic/llms exposure convergence or a dedicated sitemap determinism pass",
+      "blocks_merge": false,
+      "evidence": [
+        "Validation command: NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build",
+        "Validation command: NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm seo:generate-sitemap",
+        "Observed generated diff in public/sitemap.xml only",
+        "Reverted public/sitemap.xml before staging PR-PRA1B-01"
+      ]
+    },
+    {
+      "title": "Fresh worktree requires generated Next ambient types before standalone typecheck",
+      "severity": "P2",
+      "scope_impact": "A clean worktree without ignored next-env.d.ts reports missing PNG module declarations in pnpm typecheck. Running pnpm exec next typegen generated ignored Next ambient types, after which pnpm typecheck passed.",
+      "introduced_by_current_pr": false,
+      "recommended_future_phase": "CI reliability or developer bootstrap",
+      "blocks_merge": false,
+      "evidence": [
+        "Initial command: pnpm typecheck",
+        "Failure: TS2307 missing components/sbti/result/assets/*.png module declarations",
+        "Recovery command: pnpm exec next typegen",
+        "Re-run command: pnpm typecheck passed"
+      ]
+    }
+  ]
+}

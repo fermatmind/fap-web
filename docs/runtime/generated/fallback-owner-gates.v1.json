@@ -1,0 +1,468 @@
+{
+  "version": "runtime.fallback_owner_gates.v1",
+  "scope": "PR-PRA1B-01",
+  "trainName": "public-runtime-authority-phase-1b-remediation-train",
+  "runtimeBehaviorChanged": false,
+  "sourceArtifacts": [
+    "docs/runtime/generated/frontend-fallback-authority-inventory.v1.json",
+    "docs/runtime/frontend-fallback-authority-inventory.md"
+  ],
+  "statusEnum": [
+    "complete",
+    "ready_for_remediation",
+    "partial",
+    "blocked",
+    "not_ready",
+    "safe_to_defer",
+    "dangerous_if_expanded",
+    "requires_human_decision",
+    "unknown"
+  ],
+  "priorityEnum": [
+    "P0",
+    "P1",
+    "P2",
+    "P3"
+  ],
+  "fallbackClassificationEnum": [
+    "safe_static",
+    "product_code_only",
+    "compatibility_wrapper",
+    "watchlist",
+    "migration_required",
+    "forbidden"
+  ],
+  "requiredFallbackIds": [
+    "test_metadata_faq_cta_fallback",
+    "topic_cta_fallback",
+    "llms_topic_fallback",
+    "personality_fallback_projection",
+    "article_jsonld_fallback",
+    "static_sitemap_layer",
+    "local_recommendation_engine_placeholder",
+    "test_catalog_seed_fallback",
+    "homepage_forced_items"
+  ],
+  "ownerGateRequiredFields": [
+    "id",
+    "surface",
+    "currentOwner",
+    "desiredOwner",
+    "classification",
+    "status",
+    "priority",
+    "allowedDuration",
+    "intendedReplacement",
+    "expansionGate",
+    "blocksWhen",
+    "sourceFiles"
+  ],
+  "hardRules": [
+    "Every fallback pattern must be classified before it can be treated as acceptable public runtime risk.",
+    "migration_required fallback cannot expand to a new scale, new test, new page family, new topic, new personality, new article, or new recommendation surface.",
+    "forbidden fallback fails contract when it can become public SEO, graph, recommendation, or claim authority.",
+    "local recommendation placeholder cannot become public authority.",
+    "Future Universal Assessment Signal Platform surfaces cannot use unclassified fallback.",
+    "Fallback additions must include owner, risk, intended replacement, and allowed duration.",
+    "Compatibility wrapper fallback cannot be treated as permanent authority.",
+    "Frontend fallback cannot become SEO truth.",
+    "Frontend fallback cannot become graph truth.",
+    "Frontend fallback cannot become recommendation truth."
+  ],
+  "futureSurfaceGates": [
+    {
+      "id": "future_uasp_surface_requires_declared_fallback_owner",
+      "appliesTo": [
+        "new_scale",
+        "new_test",
+        "new_page_family",
+        "new_topic",
+        "new_personality",
+        "new_article",
+        "new_recommendation_surface"
+      ],
+      "requiredBeforeMerge": [
+        "owner",
+        "risk",
+        "intendedReplacement",
+        "allowedDuration",
+        "classification",
+        "contractCoverage"
+      ],
+      "blocksWhen": "unclassified fallback appears in runtime source or generated public authority artifact"
+    }
+  ],
+  "sourcePatternGates": [
+    {
+      "source": "app/(localized)/[locale]/tests/[slug]/page.tsx",
+      "requiredTokens": [
+        "normalizeLandingSurface",
+        "parseFaq",
+        "buildFAQPageJsonLd",
+        "findLandingCta"
+      ],
+      "coveredByFallbackId": "test_metadata_faq_cta_fallback"
+    },
+    {
+      "source": "app/(localized)/[locale]/topics/[slug]/page.tsx",
+      "requiredTokens": [
+        "landingSurface?.ctaBundle",
+        "localizedPath(\"/help/faq\", locale)"
+      ],
+      "coveredByFallbackId": "topic_cta_fallback"
+    },
+    {
+      "source": "app/llms.txt/route.ts",
+      "requiredTokens": [
+        "TOPIC_FALLBACK_SLUGS"
+      ],
+      "coveredByFallbackId": "llms_topic_fallback"
+    },
+    {
+      "source": "app/llms-full.txt/route.ts",
+      "requiredTokens": [
+        "TOPIC_FALLBACKS"
+      ],
+      "coveredByFallbackId": "llms_topic_fallback"
+    },
+    {
+      "source": "app/(localized)/[locale]/personality/[type]/page.tsx",
+      "requiredTokens": [
+        "buildFallbackProjection",
+        "frontend_gateway_fallback",
+        "routeMode: \"fallback\""
+      ],
+      "coveredByFallbackId": "personality_fallback_projection"
+    },
+    {
+      "source": "app/(localized)/[locale]/articles/[slug]/page.tsx",
+      "requiredTokens": [
+        "pathFromCanonicalUrl",
+        "buildFAQPageJsonLd",
+        "article.answerSurface"
+      ],
+      "coveredByFallbackId": "article_jsonld_fallback"
+    },
+    {
+      "source": "next-sitemap.config.js",
+      "requiredTokens": [
+        "additionalPaths",
+        "buildLocalizedAuthorityCareerPath"
+      ],
+      "coveredByFallbackId": "static_sitemap_layer"
+    },
+    {
+      "source": "lib/career/recommendationEngine.ts",
+      "requiredTokens": [
+        "rankCareerRecommendations",
+        "return []"
+      ],
+      "coveredByFallbackId": "local_recommendation_engine_placeholder"
+    },
+    {
+      "source": "lib/content.ts",
+      "requiredTokens": [
+        "FALLBACK_PUBLIC_TEST_SEEDS",
+        "buildFallbackPublicTests"
+      ],
+      "coveredByFallbackId": "test_catalog_seed_fallback"
+    },
+    {
+      "source": "lib/marketing/homepageContent.ts",
+      "requiredTokens": [
+        "getCmsLandingSurfaceWithLastKnownGood",
+        "REQUIRED_QUICK_START_ITEMS"
+      ],
+      "coveredByFallbackId": "homepage_forced_items"
+    },
+    {
+      "source": "docs/graph/core-topic-graph-edge-schema.md",
+      "requiredTokens": [
+        "frontend-local graph authority",
+        "frontend hardcoded graph expansion"
+      ],
+      "coveredByFallbackId": "frontend_graph_hardcode"
+    }
+  ],
+  "rows": [
+    {
+      "id": "test_metadata_faq_cta_fallback",
+      "surface": "test detail metadata, FAQ, and CTA fallback",
+      "currentOwner": "frontend compatibility code",
+      "desiredOwner": "backend scale lookup, landing_surface_v1, answer_surface_v1, and seo.surface.v1",
+      "classification": "migration_required",
+      "status": "dangerous_if_expanded",
+      "priority": "P0",
+      "allowedDuration": "existing approved test detail runtime only until PR-PRA1B-02 replacement or fail-closed gate",
+      "intendedReplacement": "backend_scale_lookup_landing_answer_surface",
+      "replacementAuthority": "scale lookup plus landing_surface_v1, answer_surface_v1, and seo.surface.v1",
+      "sourceFiles": [
+        {
+          "path": "app/(localized)/[locale]/tests/[slug]/page.tsx",
+          "requiredTokens": [
+            "normalizeLandingSurface",
+            "parseFaq",
+            "buildFAQPageJsonLd",
+            "findLandingCta"
+          ]
+        }
+      ],
+      "expansionGate": "no_new_test_or_scale_fallback_without_backend_authority",
+      "blocksWhen": "Added to new tests, new public surfaces, or new SEO/GEO exposure without backend/CMS authority.",
+      "canBecomePublicTruth": false,
+      "blocksUniversalAssessmentSignalPlatform": true,
+      "runtimeBehaviorChangeRequired": true,
+      "risk": "SEO/GEO and claim boundary pollution if new tests inherit frontend metadata, FAQ, or CTA truth."
+    },
+    {
+      "id": "topic_cta_fallback",
+      "surface": "topic detail CTA fallback",
+      "currentOwner": "frontend topic page compatibility code",
+      "desiredOwner": "CMS topic landing_surface_v1 or topic public API CTA authority",
+      "classification": "migration_required",
+      "status": "dangerous_if_expanded",
+      "priority": "P0",
+      "allowedDuration": "existing topic detail compatibility only until PR-PRA1B-03 convergence gate",
+      "intendedReplacement": "cms_topic_landing_surface",
+      "replacementAuthority": "CMS topic landing surface and topic public API",
+      "sourceFiles": [
+        {
+          "path": "app/(localized)/[locale]/topics/[slug]/page.tsx",
+          "requiredTokens": [
+            "landingSurface?.ctaBundle",
+            "localizedPath(\"/help/faq\", locale)"
+          ]
+        }
+      ],
+      "expansionGate": "no_topic_expansion_with_frontend_cta_truth",
+      "blocksWhen": "Topic Graph, Topic SEO, or GEO expansion depends on frontend CTA fallback.",
+      "canBecomePublicTruth": false,
+      "blocksUniversalAssessmentSignalPlatform": true,
+      "runtimeBehaviorChangeRequired": true,
+      "risk": "Topic expansion can expose frontend-invented CTA authority."
+    },
+    {
+      "id": "llms_topic_fallback",
+      "surface": "llms and llms-full topic fallback exposure",
+      "currentOwner": "frontend llms route fallback constants",
+      "desiredOwner": "backend/CMS topic discoverability and exposure authority",
+      "classification": "migration_required",
+      "status": "dangerous_if_expanded",
+      "priority": "P0",
+      "allowedDuration": "bounded compatibility fixture only until PR-PRA1B-03 topic/llms convergence",
+      "intendedReplacement": "backend_cms_topic_discoverability_authority",
+      "replacementAuthority": "CMS topic exposure state plus backend discoverability eligibility",
+      "sourceFiles": [
+        {
+          "path": "app/llms.txt/route.ts",
+          "requiredTokens": [
+            "TOPIC_FALLBACK_SLUGS"
+          ]
+        },
+        {
+          "path": "app/llms-full.txt/route.ts",
+          "requiredTokens": [
+            "TOPIC_FALLBACKS"
+          ]
+        }
+      ],
+      "expansionGate": "no_silent_llms_topic_exposure_widening",
+      "blocksWhen": "llms or llms-full topic exposure widens without fixture and backend/CMS authority.",
+      "canBecomePublicTruth": false,
+      "blocksUniversalAssessmentSignalPlatform": true,
+      "runtimeBehaviorChangeRequired": true,
+      "risk": "AI-search exposure can widen before topic authority, evidence, or claim boundaries are ready."
+    },
+    {
+      "id": "personality_fallback_projection",
+      "surface": "personality frontend fallback projection",
+      "currentOwner": "frontend personality page fallback projection",
+      "desiredOwner": "CMS personality projection and public surface bundle",
+      "classification": "migration_required",
+      "status": "dangerous_if_expanded",
+      "priority": "P0",
+      "allowedDuration": "noindex/schema-suppressed emergency fallback only until PR-PRA1B-04 projection gate",
+      "intendedReplacement": "cms_personality_projection_and_public_surfaces",
+      "replacementAuthority": "CMS personality projection and public gateway surface",
+      "sourceFiles": [
+        {
+          "path": "app/(localized)/[locale]/personality/[type]/page.tsx",
+          "requiredTokens": [
+            "buildFallbackProjection",
+            "frontend_gateway_fallback",
+            "routeMode: \"fallback\""
+          ]
+        }
+      ],
+      "expansionGate": "no_personality_or_career_claim_expansion_on_fallback_projection",
+      "blocksWhen": "Fallback projection is used for indexable schema, graph authority, recommendation authority, or career claims.",
+      "canBecomePublicTruth": false,
+      "blocksUniversalAssessmentSignalPlatform": true,
+      "runtimeBehaviorChangeRequired": true,
+      "risk": "Personality fallback can be mistaken for CMS personality, graph, career, or recommendation authority."
+    },
+    {
+      "id": "article_jsonld_fallback",
+      "surface": "Article JSON-LD frontend fallback",
+      "currentOwner": "frontend article page fallback schema builder",
+      "desiredOwner": "CMS article SEO/answer surface or visible-content deterministic Article JSON-LD",
+      "classification": "migration_required",
+      "status": "ready_for_remediation",
+      "priority": "P0",
+      "allowedDuration": "existing article compatibility bridge only until PR-PRA1B-04 JSON-LD authority gate",
+      "intendedReplacement": "backend_cms_article_seo_jsonld",
+      "replacementAuthority": "CMS article SEO, answer surface, and visible article content",
+      "sourceFiles": [
+        {
+          "path": "app/(localized)/[locale]/articles/[slug]/page.tsx",
+          "requiredTokens": [
+            "pathFromCanonicalUrl",
+            "buildFAQPageJsonLd",
+            "article.answerSurface"
+          ]
+        }
+      ],
+      "expansionGate": "no_article_or_geo_expansion_until_backend_jsonld_authority",
+      "blocksWhen": "New article/GEO expansion relies on frontend-generated Article schema authority.",
+      "canBecomePublicTruth": false,
+      "blocksUniversalAssessmentSignalPlatform": false,
+      "runtimeBehaviorChangeRequired": true,
+      "risk": "Frontend schema fallback can become hidden SEO/GEO authority if not tied to CMS or visible content."
+    },
+    {
+      "id": "static_sitemap_layer",
+      "surface": "static sitemap path layer",
+      "currentOwner": "frontend sitemap generation compatibility layer",
+      "desiredOwner": "backend sitemap-source where backend authority exists, with fixtures for retained static compatibility paths",
+      "classification": "compatibility_wrapper",
+      "status": "partial",
+      "priority": "P1",
+      "allowedDuration": "retained only for existing governed sitemap generation until backend sitemap-source coverage is complete",
+      "intendedReplacement": "backend_sitemap_source_where_available",
+      "replacementAuthority": "backend sitemap-source and explicit compatibility fixtures",
+      "sourceFiles": [
+        {
+          "path": "next-sitemap.config.js",
+          "requiredTokens": [
+            "additionalPaths",
+            "buildLocalizedAuthorityCareerPath"
+          ]
+        }
+      ],
+      "expansionGate": "no_static_sitemap_expansion_without_backend_fixture",
+      "blocksWhen": "Static sitemap additions bypass backend indexability and exposure fixtures.",
+      "canBecomePublicTruth": false,
+      "blocksUniversalAssessmentSignalPlatform": false,
+      "runtimeBehaviorChangeRequired": false,
+      "risk": "Static sitemap additions can widen public discoverability outside backend/CMS truth."
+    },
+    {
+      "id": "local_recommendation_engine_placeholder",
+      "surface": "local career recommendation ranking placeholder",
+      "currentOwner": "frontend local placeholder",
+      "desiredOwner": "backend recommendation snapshot or future governed recommendation runtime",
+      "classification": "forbidden",
+      "status": "dangerous_if_expanded",
+      "priority": "P0",
+      "allowedDuration": "unused placeholder only; never public authority",
+      "intendedReplacement": "backend_recommendation_snapshot_or_future_governed_runtime",
+      "replacementAuthority": "backend governed recommendation snapshot or future approved runtime",
+      "sourceFiles": [
+        {
+          "path": "lib/career/recommendationEngine.ts",
+          "requiredTokens": [
+            "rankCareerRecommendations",
+            "return []"
+          ]
+        }
+      ],
+      "expansionGate": "must_not_become_public_authority",
+      "blocksWhen": "Local ranking is used as public recommendation, graph, SEO, CTA, or claim authority.",
+      "canBecomePublicTruth": false,
+      "blocksUniversalAssessmentSignalPlatform": true,
+      "runtimeBehaviorChangeRequired": false,
+      "risk": "Frontend-local ranking would misrepresent placeholder logic as recommendation authority."
+    },
+    {
+      "id": "frontend_graph_hardcode",
+      "surface": "frontend-local graph edge expansion",
+      "currentOwner": "documentation-only graph candidate examples",
+      "desiredOwner": "backend/CMS graph edge authority",
+      "classification": "forbidden",
+      "status": "dangerous_if_expanded",
+      "priority": "P0",
+      "allowedDuration": "documentation and internal candidate examples only; never public runtime authority",
+      "intendedReplacement": "backend_cms_graph_edge_authority",
+      "replacementAuthority": "backend/CMS graph edge authority",
+      "sourceFiles": [
+        {
+          "path": "docs/graph/core-topic-graph-edge-schema.md",
+          "requiredTokens": [
+            "frontend-local graph authority",
+            "frontend hardcoded graph expansion"
+          ]
+        }
+      ],
+      "expansionGate": "must_not_invent_frontend_graph_authority",
+      "blocksWhen": "Frontend creates public graph edges or schema graph authority.",
+      "canBecomePublicTruth": false,
+      "blocksUniversalAssessmentSignalPlatform": true,
+      "runtimeBehaviorChangeRequired": false,
+      "risk": "Frontend-created edges would pollute public graph and recommendation semantics."
+    },
+    {
+      "id": "homepage_forced_items",
+      "surface": "homepage product-code forced items",
+      "currentOwner": "frontend product shell",
+      "desiredOwner": "CMS landing surface for editorial truth",
+      "classification": "product_code_only",
+      "status": "safe_to_defer",
+      "priority": "P2",
+      "allowedDuration": "product shell compatibility only while not used as SEO, graph, or recommendation authority",
+      "intendedReplacement": "cms_landing_surface_for_editorial_truth",
+      "replacementAuthority": "CMS landing surface and page blocks",
+      "sourceFiles": [
+        {
+          "path": "lib/marketing/homepageContent.ts",
+          "requiredTokens": [
+            "getCmsLandingSurfaceWithLastKnownGood",
+            "REQUIRED_QUICK_START_ITEMS"
+          ]
+        }
+      ],
+      "expansionGate": "do_not_reclassify_as_seo_or_graph_authority",
+      "blocksWhen": "Product shell content is treated as SEO, graph, recommendation, or public claim truth.",
+      "canBecomePublicTruth": false,
+      "blocksUniversalAssessmentSignalPlatform": false,
+      "runtimeBehaviorChangeRequired": false,
+      "risk": "Homepage shell items can be misread as editorial/discoverability authority if reclassified."
+    },
+    {
+      "id": "test_catalog_seed_fallback",
+      "surface": "fallback public test catalog seeds",
+      "currentOwner": "frontend public test catalog compatibility seed",
+      "desiredOwner": "backend scale catalog and scale lookup",
+      "classification": "watchlist",
+      "status": "ready_for_remediation",
+      "priority": "P1",
+      "allowedDuration": "existing test catalog compatibility only; no new scale or test exposure",
+      "intendedReplacement": "backend_scale_catalog_and_lookup",
+      "replacementAuthority": "backend scale catalog and lookup",
+      "sourceFiles": [
+        {
+          "path": "lib/content.ts",
+          "requiredTokens": [
+            "FALLBACK_PUBLIC_TEST_SEEDS",
+            "buildFallbackPublicTests"
+          ]
+        }
+      ],
+      "expansionGate": "no_new_scale_or_test_from_frontend_seed",
+      "blocksWhen": "New tests or scales are exposed through frontend seed fallback.",
+      "canBecomePublicTruth": false,
+      "blocksUniversalAssessmentSignalPlatform": true,
+      "runtimeBehaviorChangeRequired": true,
+      "risk": "Future tests can appear in public runtime without backend scale authority."
+    }
+  ]
+}
