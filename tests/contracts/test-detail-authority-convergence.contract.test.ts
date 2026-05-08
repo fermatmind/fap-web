@@ -60,7 +60,7 @@ describe("test detail authority convergence", () => {
     expect(byId.get("PR-PRA1B-02")).toMatchObject({
       branch: "codex/pr-pra1b-02-test-detail-authority-convergence",
       depends_on: ["PR-PRA1B-01"],
-      status: "in_progress",
+      status: "merged",
     });
   });
 

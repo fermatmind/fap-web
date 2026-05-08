@@ -1,0 +1,165 @@
+{
+  "version": "seo.topic_llms_exposure_convergence.v1",
+  "scope": "PR-PRA1B-03",
+  "trainName": "public-runtime-authority-phase-1b-remediation-train",
+  "runtimeBehaviorChanged": true,
+  "urlSetChanged": false,
+  "llmsExposureChanged": false,
+  "statusEnum": [
+    "complete",
+    "ready_for_remediation",
+    "partial",
+    "blocked",
+    "not_ready",
+    "safe_to_defer",
+    "dangerous_if_expanded",
+    "requires_human_decision",
+    "unknown"
+  ],
+  "priorityEnum": ["P0", "P1", "P2", "P3"],
+  "compatibilityFallbacks": [
+    {
+      "slug": "mbti",
+      "title": "MBTI",
+      "allowedInLlms": true,
+      "allowedInLlmsFull": true,
+      "allowedTopicCtaFallback": true,
+      "reason": "Existing public topic compatibility fixture until backend/CMS topic exposure authority is complete."
+    },
+    {
+      "slug": "big-five",
+      "title": "Big Five",
+      "allowedInLlms": true,
+      "allowedInLlmsFull": true,
+      "allowedTopicCtaFallback": true,
+      "reason": "Existing public topic compatibility fixture until backend/CMS topic exposure authority is complete."
+    },
+    {
+      "slug": "iq-eq",
+      "title": "IQ and EQ",
+      "allowedInLlms": true,
+      "allowedInLlmsFull": true,
+      "allowedTopicCtaFallback": true,
+      "reason": "Existing public topic compatibility fixture until backend/CMS topic exposure authority is complete."
+    }
+  ],
+  "blockedFallbackSlugs": [
+    {
+      "slug": "riasec",
+      "reason": "RIASEC topic route and CMS graph authority are not ready for topic fallback exposure."
+    },
+    {
+      "slug": "enneagram",
+      "reason": "Not part of current stable topic fallback set."
+    },
+    {
+      "slug": "career",
+      "reason": "Career surfaces use dedicated career authority and must not enter topic fallback implicitly."
+    }
+  ],
+  "rows": [
+    {
+      "id": "topic_cta_fallback_convergence",
+      "surface": "topic detail CTA fallback",
+      "status": "ready_for_remediation",
+      "priority": "P0",
+      "currentOwner": "topic detail runtime",
+      "desiredOwner": "CMS topic landing_surface_v1",
+      "runtimeGuard": "resolveTopicRuntimeAuthority().cta",
+      "authorityRule": "topic CTA renders from landing_surface_v1 when present; otherwise only approved compatibility fixture slugs may render fallback links.",
+      "sourceFiles": [
+        {
+          "path": "app/(localized)/[locale]/topics/[slug]/page.tsx",
+          "requiredTokens": [
+            "resolveTopicRuntimeAuthority",
+            "topicRuntimeAuthority.cta.allowed",
+            "canRenderRelatedTopicCtas",
+            "landingSurface?.ctaBundle"
+          ]
+        },
+        {
+          "path": "lib/seo/topicLlmsAuthority.ts",
+          "requiredTokens": [
+            "TOPIC_LLMS_COMPATIBILITY_FALLBACKS",
+            "allowedTopicCtaFallback",
+            "resolveTopicRuntimeAuthority"
+          ]
+        }
+      ],
+      "blocksWhen": "A future topic page without landing_surface_v1 attempts to render frontend fallback CTA links outside the compatibility fixture."
+    },
+    {
+      "id": "llms_topic_fallback_convergence",
+      "surface": "llms topic fallback exposure",
+      "status": "ready_for_remediation",
+      "priority": "P0",
+      "currentOwner": "llms route compatibility fixture",
+      "desiredOwner": "backend/CMS topic exposure state",
+      "runtimeGuard": "TOPIC_LLMS_COMPATIBILITY_FALLBACK_SLUGS",
+      "authorityRule": "llms.txt may only use the shared compatibility fixture when CMS topics are unavailable; the fixture must stay in parity with llms-full.",
+      "sourceFiles": [
+        {
+          "path": "app/llms.txt/route.ts",
+          "requiredTokens": [
+            "TOPIC_FALLBACK_SLUGS",
+            "TOPIC_LLMS_COMPATIBILITY_FALLBACK_SLUGS",
+            "listTopics"
+          ]
+        },
+        {
+          "path": "lib/seo/topicLlmsAuthority.ts",
+          "requiredTokens": [
+            "TOPIC_LLMS_COMPATIBILITY_FALLBACK_SLUGS",
+            "TOPIC_LLMS_COMPATIBILITY_FALLBACKS"
+          ]
+        }
+      ],
+      "blocksWhen": "llms.txt topic exposure widens without backend/CMS authority or a reviewed compatibility fixture update."
+    },
+    {
+      "id": "llms_full_topic_fallback_convergence",
+      "surface": "llms-full topic fallback exposure",
+      "status": "ready_for_remediation",
+      "priority": "P0",
+      "currentOwner": "llms-full route compatibility fixture",
+      "desiredOwner": "backend/CMS topic answer/evidence readiness",
+      "runtimeGuard": "TOPIC_LLMS_COMPATIBILITY_FALLBACKS",
+      "authorityRule": "llms-full may only use the shared compatibility fixture when CMS topics are unavailable; enrichment still attempts backend/CMS topic detail before adding summary/FAQ/next steps.",
+      "sourceFiles": [
+        {
+          "path": "app/llms-full.txt/route.ts",
+          "requiredTokens": [
+            "TOPIC_FALLBACKS",
+            "TOPIC_LLMS_COMPATIBILITY_FALLBACKS",
+            "enrichTopicEntry",
+            "getTopicBySlug"
+          ]
+        },
+        {
+          "path": "lib/seo/topicLlmsAuthority.ts",
+          "requiredTokens": [
+            "allowedInLlmsFull",
+            "allowedInLlms"
+          ]
+        }
+      ],
+      "blocksWhen": "llms-full topic fallback is enriched or widened without answer/evidence readiness or compatibility fixture approval."
+    }
+  ],
+  "hardRules": [
+    "no silent topic addition to llms",
+    "no topic exposure without backend/CMS or explicit compatibility fixture",
+    "no llms-full enrichment without answer/evidence readiness",
+    "topic CTA must prefer landing_surface_v1 / CMS",
+    "future topic expansion must require authority entry",
+    "private flows remain excluded"
+  ],
+  "mustNotTouch": [
+    "new topics",
+    "sitemap URL set",
+    "llms URL set",
+    "Topic Graph expansion",
+    "frontend-invented topic content",
+    "private flow exposure"
+  ]
+}
