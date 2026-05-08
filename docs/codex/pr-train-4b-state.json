@@ -58,7 +58,9 @@
       "depends_on": [
         "PR-4B-02"
       ],
-      "status": "in_progress",
+      "status": "merged",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/744",
+      "merge_sha": "a60784750bc7fcc29f87dccc55d5e1c0476c2461",
       "title": "feat(domains): add self-understanding existing surface metadata policy",
       "artifacts": [
         "docs/assessment/domains/self-understanding-surface-metadata-policy.md",
@@ -73,7 +75,7 @@
       "depends_on": [
         "PR-4B-03"
       ],
-      "status": "planned",
+      "status": "in_progress",
       "title": "test(domains): add career decision existing surface guard ledger",
       "artifacts": [
         "docs/assessment/domains/career-decision-surface-guard-ledger.md",

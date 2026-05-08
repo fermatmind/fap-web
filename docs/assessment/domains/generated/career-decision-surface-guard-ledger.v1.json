@@ -1,0 +1,164 @@
+{
+  "version": "decision_domain.career_decision_surface_guard_ledger.v1",
+  "scope": "PR-4B-04",
+  "trainName": "domain-runtime-metadata-integration-train",
+  "dependsOn": [
+    "PR-4B-03"
+  ],
+  "runtimeBehaviorChanged": false,
+  "executionMode": "contract_ledger_only",
+  "domain": "career_decision",
+  "runtimeReadiness": "dangerous_if_integrated",
+  "runtimeRecommendation": "existing_cta_guard_only",
+  "phase4bDecision": "guard ledger only; no generalized runtime and no recommender",
+  "statusEnum": [
+    "ready_for_runtime_v1",
+    "ready_for_metadata_only",
+    "partial",
+    "artifact_only",
+    "backend_ready",
+    "frontend_partial",
+    "blocked",
+    "dangerous_if_integrated",
+    "requires_human_decision",
+    "safe_to_defer",
+    "unknown"
+  ],
+  "runtimeRecommendationEnum": [
+    "no_runtime",
+    "metadata_only",
+    "data_attribute_only",
+    "existing_surface_only",
+    "existing_result_report_only",
+    "existing_cta_guard_only",
+    "future_runtime_candidate",
+    "blocked"
+  ],
+  "sourceArtifacts": [
+    "docs/assessment/domains/generated/core-decision-domain-v1.json",
+    "docs/assessment/domains/generated/signal-to-domain-role-matrix.v1.json",
+    "docs/assessment/domains/generated/domain-claim-boundary-overlay.v1.json",
+    "docs/assessment/domains/generated/domain-report-freemium-ledger.v1.json",
+    "docs/assessment/domains/generated/decision-domain-runtime-metadata-envelope.v1.json",
+    "docs/assessment/domains/generated/result-report-domain-metadata-guard.v1.json",
+    "docs/assessment/uasp/generated/recommendation-eligibility-guard.v1.json",
+    "docs/claims/generated/riasec-bigfive-boundary-guards.v1.json",
+    "docs/claims/generated/mbti-recommendation-copy-boundary.v1.json",
+    "docs/claims/generated/career-fit-graph-ai-claim-guards.v1.json",
+    "docs/graph/generated/core-topic-graph-inventory.v1.json"
+  ],
+  "signalRoles": [
+    {
+      "scale_code": "RIASEC",
+      "role": "primary",
+      "recommendation_eligible": "candidate_signal",
+      "boundary": "not recommender"
+    },
+    {
+      "scale_code": "MBTI",
+      "role": "supporting",
+      "recommendation_eligible": "next_step_only",
+      "boundary": "snapshot support only"
+    },
+    {
+      "scale_code": "BIG5_OCEAN",
+      "role": "supporting",
+      "recommendation_eligible": "explanation_only",
+      "boundary": "not career matcher"
+    },
+    {
+      "scale_code": "Career Graph",
+      "role": "supporting",
+      "recommendation_eligible": "not_eligible",
+      "boundary": "evidence substrate, not full semantic recommender"
+    }
+  ],
+  "surfaceLedger": [
+    {
+      "surface": "career_job_detail",
+      "route": "/career/jobs/[slug]",
+      "componentEvidence": [
+        "app/(localized)/[locale]/career/jobs/[slug]/page.tsx",
+        "components/career/display/CareerDisplaySurface.tsx",
+        "components/career/display/EvidenceContainer.tsx",
+        "components/career/CareerExplainabilityPanel.tsx"
+      ],
+      "status": "partial",
+      "runtimeRecommendation": "existing_cta_guard_only",
+      "guardPolicy": "Career Graph is evidence substrate only, not a full semantic recommender."
+    },
+    {
+      "surface": "mbti_career_recommendation",
+      "route": "/career/recommendations/mbti/[type]",
+      "componentEvidence": [
+        "app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx",
+        "components/career/CareerRecommendationPanel.tsx",
+        "components/career/CareerRecommendationCompanionLinks.tsx"
+      ],
+      "status": "partial",
+      "runtimeRecommendation": "existing_cta_guard_only",
+      "guardPolicy": "Snapshot-based direction support only, not live personalized recommender."
+    },
+    {
+      "surface": "result_report_career_adjacent",
+      "route": "/result/[id]",
+      "componentEvidence": [
+        "app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx",
+        "components/result/RichResultReport.tsx",
+        "components/result/mbti/MbtiResultShell.tsx"
+      ],
+      "status": "dangerous_if_integrated",
+      "runtimeRecommendation": "existing_cta_guard_only",
+      "guardPolicy": "No domain trigger, no recommendation trigger, no visible copy change."
+    },
+    {
+      "surface": "riasec_result_report",
+      "route": "/result/[id]",
+      "componentEvidence": [
+        "components/result/riasec/RiasecResultShell.tsx",
+        "app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx"
+      ],
+      "status": "dangerous_if_integrated",
+      "runtimeRecommendation": "existing_cta_guard_only",
+      "guardPolicy": "RIASEC remains candidate_signal, not recommender."
+    }
+  ],
+  "guardRules": [
+    "career_decision_does_not_trigger_recommendation_runtime",
+    "riasec_not_recommender",
+    "big_five_not_career_matcher",
+    "mbti_snapshot_not_personalized_recommender",
+    "career_fit_no_success_or_placement_guarantee",
+    "no_ai_planning_claim",
+    "no_best_career_prediction",
+    "no_new_career_decision_page",
+    "no_new_cta_runtime",
+    "no_graph_edge_expansion",
+    "no_companion_link_change",
+    "no_seo_geo_exposure_change"
+  ],
+  "forbiddenClaims": [
+    "precise recommender",
+    "best-career prediction",
+    "success guarantee",
+    "placement guarantee",
+    "Big Five/RIASEC career matcher",
+    "AI planning claim",
+    "snapshot recommendation equals personalized recommender"
+  ],
+  "mustNotChange": [
+    "career recommendation pages",
+    "career job pages",
+    "scoring",
+    "recommendation bundles",
+    "companion links",
+    "graph edges",
+    "CTA copy",
+    "SEO/GEO exposure",
+    "profile runtime",
+    "freemium runtime",
+    "checkout/payment",
+    "report entitlement",
+    "result/report runtime"
+  ]
+}
