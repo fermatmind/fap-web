@@ -24,7 +24,9 @@
       "id": "PR-4B-01",
       "branch": "codex/pr-4b-01-decision-domain-metadata-envelope",
       "depends_on": [],
-      "status": "in_progress",
+      "status": "merged",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/742",
+      "merge_sha": "023074cf92288896a2558f08a82d365515a13977",
       "title": "feat(domains): add decision_domain_v1 metadata envelope contract",
       "artifacts": [
         "docs/assessment/domains/decision-domain-runtime-metadata-envelope.md",
@@ -39,7 +41,7 @@
       "depends_on": [
         "PR-4B-01"
       ],
-      "status": "planned",
+      "status": "in_progress",
       "title": "test(domains): add result report domain metadata guard",
       "artifacts": [
         "docs/assessment/domains/result-report-domain-metadata-guard.md",
