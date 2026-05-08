@@ -1,0 +1,183 @@
+{
+  "version": "uasp.eligibility_guards.v1",
+  "scope": "PR-UASP-04",
+  "trainName": "universal-assessment-signal-platform-v1-train",
+  "dependsOn": [
+    "PR-UASP-03"
+  ],
+  "runtimeBehaviorChanged": false,
+  "claimCopyChanged": false,
+  "recommendationRuntimeChanged": false,
+  "seoGeoOutputChanged": false,
+  "freemiumRuntimeChanged": false,
+  "sourceArtifacts": [
+    "docs/assessment/uasp/generated/uasp-signal-contract-schema.v1.json",
+    "docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json",
+    "docs/assessment/uasp/generated/uasp-decision-domain-registry.v1.json",
+    "docs/claims/generated/public-claim-boundary-matrix.v1.json",
+    "docs/geo/generated/evidence-container-runtime-baseline.v1.json",
+    "docs/freemium/generated/freemium-cross-scale-parity-ledger.v1.json",
+    "docs/runtime/generated/fallback-owner-gates.v1.json"
+  ],
+  "defaults": {
+    "recommendation_eligible": "not_eligible",
+    "seo_geo_eligible": "not_eligible",
+    "freemium_status": "blocked",
+    "claim_level": "descriptive"
+  },
+  "claimGuards": [
+    {
+      "id": "forbidden_claims_remain_forbidden",
+      "status": "locked",
+      "rule": "Forbidden claims in the public claim boundary matrix cannot be promoted by UASP mappings.",
+      "blocksWhen": "Any scale mapping or guard artifact marks a forbidden baseline claim as allowed."
+    },
+    {
+      "id": "riasec_precise_recommender_forbidden",
+      "status": "locked",
+      "rule": "RIASEC precise best-career recommendation remains forbidden.",
+      "blocksWhen": "RIASEC is described as full career recommendation runtime or precise best-career recommender."
+    },
+    {
+      "id": "big5_career_matching_forbidden",
+      "status": "locked",
+      "rule": "Big Five precise career matching remains forbidden.",
+      "blocksWhen": "Big Five is described as direct career matcher or precise career recommender."
+    },
+    {
+      "id": "ai_precise_career_planning_forbidden",
+      "status": "locked",
+      "rule": "AI precise career planning remains forbidden without backend runtime, claim gate, and visible evidence.",
+      "blocksWhen": "AI planning copy claims precise career planning."
+    }
+  ],
+  "recommendationGuards": [
+    {
+      "id": "default_not_eligible",
+      "rule": "recommendation_eligible defaults to not_eligible.",
+      "blocksWhen": "A future scale omits recommendation eligibility or marks itself ready without evidence."
+    },
+    {
+      "id": "candidate_signal_not_recommender",
+      "rule": "candidate_signal can be an input candidate only; it is not a recommender.",
+      "blocksWhen": "A candidate signal is rendered as recommendation engine authority."
+    },
+    {
+      "id": "eligible_with_guard_requires_proof",
+      "rule": "eligible_with_guard requires evidence, graph, claim, and runtime proof.",
+      "requiredProof": [
+        "visible_evidence",
+        "graph_or_backend_runtime",
+        "claim_boundary",
+        "public_runtime_consumer"
+      ],
+      "blocksWhen": "eligible_with_guard is set without all required proof."
+    },
+    {
+      "id": "frontend_local_ranking_forbidden",
+      "rule": "Frontend local ranking is forbidden as recommendation authority.",
+      "blocksWhen": "Frontend local ranking becomes public recommendation truth."
+    }
+  ],
+  "seoGeoGuards": [
+    {
+      "id": "default_not_eligible",
+      "rule": "seo_geo_eligible defaults to not_eligible.",
+      "blocksWhen": "A future scale widens SEO/GEO exposure without explicit eligibility."
+    },
+    {
+      "id": "llms_full_requires_evidence_claim_authority",
+      "rule": "llms_full_eligible requires visible evidence, claim boundary, and source authority.",
+      "requiredProof": [
+        "visible_evidence",
+        "claim_boundary",
+        "source_authority",
+        "discoverability_authority"
+      ],
+      "blocksWhen": "llms_full_eligible is set without all required proof."
+    },
+    {
+      "id": "sensitive_private_no_llms_full_by_default",
+      "rule": "Sensitive/private scales cannot be llms_full_eligible by default.",
+      "blocksWhen": "A sensitive/private scale is marked llms_full_eligible without explicit human-approved policy."
+    }
+  ],
+  "freemiumGuards": [
+    {
+      "id": "default_blocked",
+      "rule": "freemium_status defaults to blocked.",
+      "blocksWhen": "A future scale omits freemium_status or claims monetization readiness without evidence."
+    },
+    {
+      "id": "full_loop_requires_parity_proof",
+      "rule": "full_loop requires freemium parity proof.",
+      "requiredProof": [
+        "free_result",
+        "locked_report",
+        "offer_card",
+        "SKU",
+        "checkout",
+        "order_wait",
+        "entitlement_unlock",
+        "PDF_report_access",
+        "history",
+        "attribution"
+      ],
+      "blocksWhen": "full_loop is set without freemium parity proof."
+    },
+    {
+      "id": "offer_card_not_full_loop",
+      "rule": "Offer card existence is not proof of full loop.",
+      "blocksWhen": "offer_card evidence is used as checkout or entitlement proof."
+    },
+    {
+      "id": "backend_sku_not_public_funnel",
+      "rule": "Backend SKU existence is not proof of public funnel.",
+      "blocksWhen": "backend SKU is used as public checkout parity proof."
+    }
+  ],
+  "firstBatchEligibility": [
+    {
+      "scale_code": "MBTI",
+      "claim_level": "directional",
+      "recommendation_eligible": "next_step_only",
+      "seo_geo_eligible": "llms_eligible",
+      "freemium_status": "full_loop",
+      "guardStatus": "consistent_with_mapping"
+    },
+    {
+      "scale_code": "BIG5_OCEAN",
+      "claim_level": "interpretive",
+      "recommendation_eligible": "explanation_only",
+      "seo_geo_eligible": "geo_candidate",
+      "freemium_status": "frontend_partial",
+      "guardStatus": "consistent_with_mapping"
+    },
+    {
+      "scale_code": "RIASEC",
+      "claim_level": "directional",
+      "recommendation_eligible": "candidate_signal",
+      "seo_geo_eligible": "geo_candidate",
+      "freemium_status": "frontend_partial",
+      "guardStatus": "candidate_signal_not_recommender"
+    },
+    {
+      "scale_code": "ENNEAGRAM",
+      "claim_level": "interpretive",
+      "recommendation_eligible": "explanation_only",
+      "seo_geo_eligible": "seo_only",
+      "freemium_status": "backend_ready",
+      "guardStatus": "consistent_with_mapping"
+    }
+  ],
+  "mustNotChange": [
+    "public copy",
+    "runtime claims",
+    "recommendation runtime",
+    "SEO/GEO output",
+    "freemium runtime",
+    "payment/report access",
+    "sitemap output",
+    "llms output"
+  ]
+}
