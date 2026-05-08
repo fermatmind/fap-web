@@ -69,7 +69,9 @@
       "depends_on": [
         "PR-CDD-03"
       ],
-      "status": "in_progress",
+      "status": "merged",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/739",
+      "merge_sha": "43fa34b3",
       "title": "feat(domains): add domain claim boundary overlay",
       "artifacts": [
         "docs/assessment/domains/domain-claim-boundary-overlay.md",
@@ -84,7 +86,7 @@
       "depends_on": [
         "PR-CDD-04"
       ],
-      "status": "planned",
+      "status": "in_progress",
       "title": "feat(domains): add domain report and freemium ledger",
       "artifacts": [
         "docs/assessment/domains/domain-report-freemium-ledger.md",

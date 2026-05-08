@@ -1,0 +1,122 @@
+{
+  "version": "core_decision_domain.report_freemium_ledger.v1",
+  "scope": "PR-CDD-05",
+  "trainName": "core-decision-domain-governance-train",
+  "dependsOn": ["PR-CDD-04"],
+  "runtimeBehaviorChanged": false,
+  "executionMode": "artifact_json_contract_only",
+  "domains": ["self_understanding", "career_decision", "workstyle_decision"],
+  "sourceArtifacts": [
+    "docs/assessment/domains/generated/core-decision-domain-v1.json",
+    "docs/assessment/domains/generated/signal-to-domain-role-matrix.v1.json",
+    "docs/assessment/domains/generated/domain-evidence-cta-policy.v1.json",
+    "docs/assessment/domains/generated/domain-claim-boundary-overlay.v1.json",
+    "docs/freemium/generated/freemium-cross-scale-parity-ledger.v1.json",
+    "docs/assessment/uasp/generated/freemium-status-guard.v1.json",
+    "docs/claims/generated/paywall-sensitive-profile-claim-guards.v1.json"
+  ],
+  "globalRules": [
+    "SKU exists is not full_loop.",
+    "Offer card exists is not full_loop.",
+    "backend_ready is not monetization-ready.",
+    "Domain bundle remains blocked unless parity proof exists.",
+    "Scale freemium status does not automatically create domain bundle readiness.",
+    "Domain report value does not change report entitlement.",
+    "Domain report value does not create new paid modules."
+  ],
+  "ledger": [
+    {
+      "domain_id": "self_understanding",
+      "status": "partial",
+      "report_value": [
+        "MBTI strong self-understanding report value.",
+        "Big Five partial trait/report value.",
+        "Enneagram partial or backend-ready motivation/report value."
+      ],
+      "primary_report_sources": ["MBTI", "BIG5_OCEAN", "ENNEAGRAM"],
+      "freemium_status": "partial",
+      "full_loop_status": "partial",
+      "bundle_candidate_status": "blocked",
+      "blocked_commerce_claims": [
+        "domain bundle proven",
+        "all self-understanding scales full_loop",
+        "single SKU proves domain full_loop"
+      ],
+      "scale_dependencies": [
+        { "scale_code": "MBTI", "status": "full_loop" },
+        { "scale_code": "BIG5_OCEAN", "status": "frontend_partial" },
+        { "scale_code": "ENNEAGRAM", "status": "backend_ready" }
+      ],
+      "monetization_risks": ["domain bundle not proven", "cross-scale parity incomplete"],
+      "required_future_proof": ["cross-scale report parity proof", "domain bundle entitlement policy", "report value copy approval"]
+    },
+    {
+      "domain_id": "career_decision",
+      "status": "partial",
+      "report_value": [
+        "MBTI snapshot-based career direction support only.",
+        "RIASEC career interest direction support.",
+        "Big Five trait/workstyle explanation only.",
+        "Career Graph is not a full commerce bundle by itself."
+      ],
+      "primary_report_sources": ["MBTI", "RIASEC", "BIG5_OCEAN", "Career Graph"],
+      "freemium_status": "partial",
+      "full_loop_status": "blocked",
+      "bundle_candidate_status": "blocked",
+      "blocked_commerce_claims": [
+        "full recommendation package",
+        "precise best-career package",
+        "career success guarantee",
+        "placement guarantee",
+        "Big Five/RIASEC full_loop recommender bundle"
+      ],
+      "scale_dependencies": [
+        { "scale_code": "MBTI", "status": "full_loop_snapshot_support_only" },
+        { "scale_code": "RIASEC", "status": "frontend_partial" },
+        { "scale_code": "BIG5_OCEAN", "status": "frontend_partial" },
+        { "scale_code": "Career Graph", "status": "evidence_substrate_only" }
+      ],
+      "monetization_risks": ["recommendation overclaim", "bundle entitlement not defined", "career success guarantee risk"],
+      "required_future_proof": ["career decision bundle policy", "claim approval", "evidence parity proof", "recommendation guard proof"]
+    },
+    {
+      "domain_id": "workstyle_decision",
+      "status": "partial",
+      "report_value": [
+        "Big Five and MBTI report surfaces can support workstyle explanation.",
+        "Enneagram can support motivation/team-pattern explanation.",
+        "No domain bundle policy exists yet."
+      ],
+      "primary_report_sources": ["BIG5_OCEAN", "MBTI", "ENNEAGRAM"],
+      "freemium_status": "partial",
+      "full_loop_status": "blocked",
+      "bundle_candidate_status": "blocked",
+      "blocked_commerce_claims": [
+        "workplace performance prediction",
+        "employment suitability package",
+        "HR screening package",
+        "Big Five career matching bundle"
+      ],
+      "scale_dependencies": [
+        { "scale_code": "BIG5_OCEAN", "status": "frontend_partial" },
+        { "scale_code": "MBTI", "status": "full_loop" },
+        { "scale_code": "ENNEAGRAM", "status": "backend_ready" }
+      ],
+      "monetization_risks": ["workstyle module not defined", "domain bundle not proven", "workplace performance overclaim"],
+      "required_future_proof": ["workstyle report module policy", "domain bundle entitlement proof", "claim and evidence alignment"]
+    }
+  ],
+  "mustNotChange": [
+    "checkout",
+    "payment",
+    "paywall UI",
+    "report access",
+    "entitlement",
+    "offer cards",
+    "PDF",
+    "history",
+    "SKU logic",
+    "report entitlement",
+    "commerce runtime"
+  ]
+}
