@@ -86,6 +86,10 @@ describe("self-understanding existing surface metadata policy", () => {
       depends_on: ["PR-4B-02"],
     });
     expect(["in_progress", "merged"]).toContain(pr4b03?.status);
+    if (pr4b03?.status === "merged") {
+      expect(pr4b03.pr_url).toBe("https://github.com/fermatmind/fap-web/pull/744");
+      expect(pr4b03.merge_sha).toMatch(/^[0-9a-f]{40}$/);
+    }
   });
 
   it("defines self_understanding as existing-surface-only metadata policy", () => {
