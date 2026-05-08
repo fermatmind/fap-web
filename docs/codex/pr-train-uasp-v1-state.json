@@ -170,7 +170,7 @@
       "depends_on": [
         "PR-UASP-02"
       ],
-      "status": "in_progress",
+      "status": "merged",
       "title": "feat(assessment): add UASP decision domain registry",
       "artifacts": [
         "docs/assessment/uasp/decision-domain-registry.md",
@@ -209,11 +209,11 @@
         }
       ],
       "failure_reason": "",
-      "pr_url": "",
-      "commit_sha": "",
-      "merged_at": "",
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/712",
+      "commit_sha": "f7ec317726586dd67232a679c1b426c170a95f97",
+      "merged_at": "2026-05-08T06:00:00Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
     },
     {
       "id": "PR-UASP-04",
@@ -224,14 +224,44 @@
       "depends_on": [
         "PR-UASP-03"
       ],
-      "status": "planned",
+      "status": "in_progress",
       "title": "test(assessment): add UASP claim recommendation SEO freemium eligibility guards",
       "artifacts": [
         "docs/assessment/uasp/uasp-eligibility-guards.md",
         "docs/assessment/uasp/generated/uasp-eligibility-guards.v1.json",
         "tests/contracts/uasp-eligibility-guards.contract.test.ts"
       ],
-      "checks": [],
+      "checks": [
+        {
+          "command": "pnpm vitest run tests/contracts/uasp-eligibility-guards.contract.test.ts tests/contracts/uasp-decision-domain-registry.contract.test.ts tests/contracts/uasp-existing-scale-signal-registry.contract.test.ts tests/contracts/uasp-signal-contract-schema.contract.test.ts",
+          "status": "passed"
+        },
+        {
+          "command": "pnpm typecheck",
+          "status": "passed"
+        },
+        {
+          "command": "pnpm test:contract",
+          "status": "passed"
+        },
+        {
+          "command": "pnpm seo:generate-sitemap",
+          "status": "passed",
+          "note": "Validation-generated sitemap and metadata inventory side effects were restored; no sitemap URL set changes included."
+        },
+        {
+          "command": "pnpm seo:check-sitemap",
+          "status": "passed"
+        },
+        {
+          "command": "pnpm lint tests/contracts/uasp-eligibility-guards.contract.test.ts tests/contracts/uasp-decision-domain-registry.contract.test.ts tests/contracts/uasp-existing-scale-signal-registry.contract.test.ts tests/contracts/uasp-signal-contract-schema.contract.test.ts",
+          "status": "passed"
+        },
+        {
+          "command": "git diff --check && git diff --cached --check",
+          "status": "passed"
+        }
+      ],
       "failure_reason": "",
       "pr_url": "",
       "commit_sha": "",
