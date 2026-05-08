@@ -1,0 +1,212 @@
+train_name: uasp-runtime-metadata-integration-train
+train_description: >
+  Runtime metadata integration train for FermatMind Universal Assessment Signal
+  Platform v1. The train makes UASP metadata readable and guard enforceable
+  without adding tests, changing scoring/report/payment/profile/recommendation
+  runtime, widening SEO/GEO exposure, or writing profile memory.
+base_branch: main
+merge_method: squash
+stop_on_failure: true
+require_clean_worktree: true
+execution_mode: local_clone_preferred
+status: initialized
+pr_namespace: PR-UASP2B-*
+branch_naming_convention: codex/pr-uasp2b-<nn>-<short-scope>
+required_github_checks:
+  - build
+  - contracts
+  - verify-big5-contract-freeze
+  - verify-enneagram-contract-freeze
+
+production_frontend_source_of_truth:
+  primary_public_runtime: /Users/rainie/Desktop/GitHub/fap-web
+  nested_skeleton_or_stale: /Users/rainie/Desktop/GitHub/fap-api/fap-web
+  rule: >
+    The nested fap-api/fap-web copy must not be treated as public frontend
+    runtime because it is a skeleton/stale copy, not the product renderer.
+
+approved_first_batch_scales:
+  - MBTI
+  - BIG5_OCEAN
+  - RIASEC
+  - ENNEAGRAM
+
+train_policy:
+  scope: uasp_runtime_metadata_integration_v1
+  metadata_readable: true
+  guard_enforceable: true
+  profile_write_blocked: true
+  recommendation_guard_only: true
+  seo_geo_no_expansion: true
+  freemium_no_commerce_behavior_change: true
+  no_new_tests: true
+  no_new_scale_onboarding: true
+  no_scoring_changes: true
+  no_report_entitlement_changes: true
+  no_checkout_payment_commerce_changes: true
+  no_profile_runtime_changes: true
+  no_memory_writes: true
+  no_recommendation_runtime_changes: true
+  no_sitemap_url_set_changes: true
+  no_llms_or_llms_full_url_set_changes: true
+  no_topic_graph_expansion: true
+  no_career_pseo_expansion: true
+  no_visible_copy_without_human_decision: true
+  no_frontend_fallback_authority: true
+
+default_safety_rules:
+  recommendation_eligible: guard_only
+  seo_geo_eligible: guard_only_no_exposure_expansion
+  freemium_status: guard_only_no_commerce_behavior_change
+  profile_contribution: readiness_blocker_only
+
+claim_boundary_baseline:
+  forbidden:
+    - RIASEC precise best-career recommendation
+    - Big Five precise career matching
+    - AI precise career planning
+    - career fit score as employment/success guarantee
+    - snapshot recommendation as live personalized recommender
+    - sitemap/llms/schema as true graph
+    - frontend local ranking as recommendation engine
+  allowed_with_boundary:
+    - RIASEC as career interest direction signal
+    - Big Five as trait and workplace behavior signal
+    - MBTI as identity and preference signal
+    - Career Graph as occupation structure/tasks/skills/evidence scoring substrate
+    - MBTI career recommendation as snapshot-based career direction support
+
+allowed_paths:
+  - docs/assessment/uasp/**
+  - docs/runtime/**
+  - docs/claims/**
+  - docs/seo/**
+  - docs/geo/**
+  - docs/freemium/**
+  - tests/contracts/**
+  - scripts/runtime/**
+  - scripts/seo/**
+  - docs/codex/pr-train-uasp2b.yaml
+  - docs/codex/pr-train-uasp2b-state.json
+
+conditionally_allowed_paths:
+  - lib/assessment/**
+  - lib/api/**
+  - components/result/**
+  - app/(localized)/[locale]/(app)/result/**
+
+forbidden_paths:
+  - checkout/payment/report/auth/attempt/scoring
+  - career recommender runtime
+  - profile runtime
+  - commerce runtime
+  - assessment scoring drivers
+  - backend runtime code
+
+source_artifacts:
+  uasp_v1:
+    - docs/assessment/uasp/uasp-signal-contract-schema.md
+    - docs/assessment/uasp/generated/uasp-signal-contract-schema.v1.json
+    - docs/assessment/uasp/existing-scale-signal-mapping.md
+    - docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json
+    - docs/assessment/uasp/decision-domain-registry.md
+    - docs/assessment/uasp/generated/uasp-decision-domain-registry.v1.json
+    - docs/assessment/uasp/uasp-eligibility-guards.md
+    - docs/assessment/uasp/generated/uasp-eligibility-guards.v1.json
+    - docs/assessment/uasp/profile-contribution-sensitivity-policy.md
+    - docs/assessment/uasp/generated/uasp-profile-sensitivity-policy.v1.json
+    - docs/assessment/uasp/uasp-readiness-dashboard.md
+    - docs/assessment/uasp/generated/uasp-readiness-dashboard.v1.json
+    - docs/assessment/uasp/uasp-runtime-integration-readiness-report.md
+    - docs/assessment/uasp/generated/uasp-runtime-integration-readiness-report.v1.json
+  runtime_authority:
+    - docs/runtime/generated/fallback-owner-gates.v1.json
+    - docs/claims/generated/public-claim-boundary-matrix.v1.json
+    - docs/seo/generated/discoverability-authority-matrix.v1.json
+    - docs/geo/generated/evidence-container-runtime-baseline.v1.json
+    - docs/freemium/generated/freemium-cross-scale-parity-ledger.v1.json
+
+prs:
+  - id: PR-UASP2B-01
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-uasp2b-01-runtime-metadata-envelope
+    base: main
+    depends_on: []
+    mode: contract_only
+    status: planned
+    title: "feat(assessment): add UASP runtime metadata envelope contract"
+    artifacts:
+      - docs/assessment/uasp/uasp-runtime-metadata-envelope.md
+      - docs/assessment/uasp/generated/uasp-runtime-metadata-envelope.v1.json
+      - tests/contracts/uasp-runtime-metadata-envelope.contract.test.ts
+
+  - id: PR-UASP2B-02
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-uasp2b-02-result-report-metadata-guard
+    base: main
+    depends_on: [PR-UASP2B-01]
+    mode: guard_only
+    status: planned
+    title: "test(assessment): add result report UASP metadata rendering guard"
+    artifacts:
+      - docs/assessment/uasp/result-report-metadata-rendering-guard.md
+      - docs/assessment/uasp/generated/result-report-metadata-rendering-guard.v1.json
+      - tests/contracts/uasp-result-report-metadata-rendering-guard.contract.test.ts
+
+  - id: PR-UASP2B-03
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-uasp2b-03-seo-geo-eligibility-guard
+    base: main
+    depends_on: [PR-UASP2B-02]
+    mode: contract_only
+    status: planned
+    title: "test(seo): add UASP SEO GEO eligibility guard"
+    artifacts:
+      - docs/assessment/uasp/seo-geo-eligibility-guard.md
+      - docs/assessment/uasp/generated/seo-geo-eligibility-guard.v1.json
+      - tests/contracts/uasp-seo-geo-eligibility-guard.contract.test.ts
+
+  - id: PR-UASP2B-04
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-uasp2b-04-freemium-guard
+    base: main
+    depends_on: [PR-UASP2B-03]
+    mode: contract_only
+    status: planned
+    title: "test(freemium): add UASP freemium status guard"
+    artifacts:
+      - docs/assessment/uasp/freemium-status-guard.md
+      - docs/assessment/uasp/generated/freemium-status-guard.v1.json
+      - tests/contracts/uasp-freemium-status-guard.contract.test.ts
+
+  - id: PR-UASP2B-05
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-uasp2b-05-recommendation-guard
+    base: main
+    depends_on: [PR-UASP2B-04]
+    mode: contract_only
+    status: planned
+    title: "test(recommendation): add UASP recommendation eligibility guard"
+    artifacts:
+      - docs/assessment/uasp/recommendation-eligibility-guard.md
+      - docs/assessment/uasp/generated/recommendation-eligibility-guard.v1.json
+      - tests/contracts/uasp-recommendation-eligibility-guard.contract.test.ts
+
+  - id: PR-UASP2B-06
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-uasp2b-06-profile-write-blocker-memory-ledger
+    base: main
+    depends_on: [PR-UASP2B-05]
+    mode: ledger_blocker_only
+    status: planned
+    title: "test(profile): add UASP profile write blocker and memory readiness ledger"
+    artifacts:
+      - docs/assessment/uasp/profile-write-blocker-memory-readiness-ledger.md
+      - docs/assessment/uasp/generated/profile-write-blocker-memory-readiness-ledger.v1.json
+      - tests/contracts/uasp-profile-write-blocker-memory-readiness-ledger.contract.test.ts
