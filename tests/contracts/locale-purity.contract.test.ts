@@ -10,7 +10,8 @@ describe("locale purity contract", () => {
   it("keeps the zh-only MBTI local content pack off English personality detail pages", () => {
     const source = read("app/(localized)/[locale]/personality/[type]/page.tsx");
 
-    expect(source).toContain('const personalityTypeContent = locale === "zh" ? getMbtiPersonalityContent(detail.routeSlug, locale) : null;');
+    expect(source).toContain('locale === "zh" && fallbackProjectionGate.canRenderLocalPersonalityContentPack');
+    expect(source).toContain("getMbtiPersonalityContent(detail.routeSlug, locale)");
   });
 
   it("keeps topic operational labels localized for Chinese pages", () => {

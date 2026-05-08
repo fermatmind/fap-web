@@ -33,6 +33,7 @@ import {
 } from "@/lib/mbti/entryTracking";
 import { buildMbtiPersonalityScenarioDeepModules } from "@/lib/mbti/sceneDeepContent";
 import { getMbtiPersonalityContent } from "@/lib/mbti/mbtiTypeContentPack";
+import { resolvePersonalityFallbackProjectionGate } from "@/lib/seo/articlePersonalityAuthority";
 import { buildBreadcrumbJsonLd, buildFAQPageJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata, normalizeTwitterImages, resolveTwitterCard } from "@/lib/seo/metadata";
 import { canonicalUrl } from "@/lib/site";
@@ -310,9 +311,7 @@ export default async function PersonalityDetailPage({
 
   const normalizedSeo = normalizePersonalitySeoPayload(seo, detail, locale);
   const canonicalPath = buildCanonicalPath(detail.routeSlug, locale);
-  const isFallbackRoute =
-    detail.projection.meta.routeMode === "fallback" ||
-    detail.projection.meta.authoritySource === "frontend_gateway_fallback";
+  const fallbackProjectionGate = resolvePersonalityFallbackProjectionGate(detail);
   const faqItems = detail.answerSurface?.faqBlocks.length
     ? detail.answerSurface.faqBlocks
       .filter((item) => item.question && item.answer)
@@ -363,13 +362,20 @@ export default async function PersonalityDetailPage({
     sourcePath: canonicalPath,
   });
   const personalityBrowseHref = `${localizedPath("/personality", locale)}#type-groups`;
-  const careerDirectionHref = localizedPath(`/career/recommendations/mbti/${detail.routeSlug}`, locale);
-  const personalityScenarioDeepModules = buildMbtiPersonalityScenarioDeepModules({
-    locale,
-    typeCode: detail.canonicalTypeCode,
-  });
+  const careerDirectionHref = fallbackProjectionGate.canRenderCareerOrRecommendationClaims
+    ? localizedPath(`/career/recommendations/mbti/${detail.routeSlug}`, locale)
+    : null;
+  const personalityScenarioDeepModules = fallbackProjectionGate.canRenderScenarioDeepDive
+    ? buildMbtiPersonalityScenarioDeepModules({
+        locale,
+        typeCode: detail.canonicalTypeCode,
+      })
+    : [];
   const personalityHasGrowthScene = personalityScenarioDeepModules.some((module) => module.sceneKey === "growth_planning");
-  const personalityTypeContent = locale === "zh" ? getMbtiPersonalityContent(detail.routeSlug, locale) : null;
+  const personalityTypeContent =
+    locale === "zh" && fallbackProjectionGate.canRenderLocalPersonalityContentPack
+      ? getMbtiPersonalityContent(detail.routeSlug, locale)
+      : null;
 
   const renderSceneBlock = (
     label: string,
@@ -459,10 +465,10 @@ export default async function PersonalityDetailPage({
   return (
     <Container as="main" className="space-y-6 py-10">
       <AnalyticsPageViewTracker eventName="landing_view" properties={mbtiEntryViewTrackingProps} />
-      {!isFallbackRoute ? <JsonLd id={`personality-jsonld-${detail.slug}`} data={normalizedSeo.jsonld} /> : null}
-      {!isFallbackRoute ? <JsonLd id={`personality-webpage-${detail.slug}`} data={webPageJsonLd} /> : null}
-      {!isFallbackRoute ? <JsonLd id={`personality-breadcrumb-${detail.slug}`} data={breadcrumbJsonLd} /> : null}
-      {!isFallbackRoute && faqItems.length > 0 ? (
+      {fallbackProjectionGate.canRenderPublicSchema ? <JsonLd id={`personality-jsonld-${detail.slug}`} data={normalizedSeo.jsonld} /> : null}
+      {fallbackProjectionGate.canRenderPublicSchema ? <JsonLd id={`personality-webpage-${detail.slug}`} data={webPageJsonLd} /> : null}
+      {fallbackProjectionGate.canRenderPublicSchema ? <JsonLd id={`personality-breadcrumb-${detail.slug}`} data={breadcrumbJsonLd} /> : null}
+      {fallbackProjectionGate.canRenderPublicSchema && faqItems.length > 0 ? (
         <JsonLd id={`personality-faq-${detail.slug}`} data={buildFAQPageJsonLd(faqItems)} />
       ) : null}
       <Breadcrumb
@@ -488,9 +494,11 @@ export default async function PersonalityDetailPage({
             data-testid="mbti-personality-entry-cta-group"
             data-ads-surface="secondary"
           >
-            <Link href={careerDirectionHref} className={buttonVariants({ size: "lg" })}>
-              {locale === "zh" ? "看职业方向" : "See career direction"}
-            </Link>
+            {careerDirectionHref ? (
+              <Link href={careerDirectionHref} className={buttonVariants({ size: "lg" })}>
+                {locale === "zh" ? "看职业方向" : "See career direction"}
+              </Link>
+            ) : null}
             <Link href={personalityBrowseHref} className={buttonVariants({ variant: "outline", size: "sm" })}>
               {locale === "zh" ? "返回 16 型浏览" : "Back to 16 types"}
             </Link>
