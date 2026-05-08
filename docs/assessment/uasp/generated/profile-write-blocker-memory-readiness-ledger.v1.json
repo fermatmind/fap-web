@@ -1,0 +1,239 @@
+{
+  "version": "uasp.profile_write_blocker_memory_readiness_ledger.v1",
+  "scope": "PR-UASP2B-06",
+  "trainName": "uasp-runtime-metadata-integration-train",
+  "dependsOn": [
+    "PR-UASP2B-05"
+  ],
+  "runtimeBehaviorChanged": false,
+  "executionMode": "ledger_blocker_only",
+  "profileRuntimeChanged": false,
+  "memoryWritesEnabled": false,
+  "sensitiveSignalStorageEnabled": false,
+  "savedCareersPromotedToUaspProfile": false,
+  "attemptHistoryPromotedToUaspProfile": false,
+  "mbtiLongitudinalMemoryGeneralized": false,
+  "authUserModelChanged": false,
+  "privacyRuntimeChanged": false,
+  "reportHistoryChanged": false,
+  "recommendationSnapshotsChanged": false,
+  "sourceArtifacts": [
+    "docs/assessment/uasp/generated/uasp-signal-contract-schema.v1.json",
+    "docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json",
+    "docs/assessment/uasp/generated/uasp-profile-sensitivity-policy.v1.json",
+    "docs/assessment/uasp/generated/uasp-runtime-integration-readiness-report.v1.json",
+    "docs/assessment/uasp/generated/uasp-runtime-metadata-envelope.v1.json"
+  ],
+  "backendEvidencePaths": [
+    "backend/app/Services/V0_3/Me/MeAttemptsService.php",
+    "backend/app/Services/V0_3/Me/MeProfileService.php",
+    "backend/app/Services/Attempts/UserDataLifecycleService.php",
+    "backend/app/Services/Memory/MemoryService.php",
+    "backend/app/Http/Controllers/API/V0_5/Career/CareerShortlistController.php"
+  ],
+  "phase2bRuntimePolicy": {
+    "profileContributionMeaning": "readiness_blocker_only",
+    "runtimeStorageDecision": "blocked_for_phase_2b",
+    "profilePersistence": "blocked",
+    "sensitivePersistence": "blocked",
+    "attemptHistoryPromotion": "blocked",
+    "savedCareerPromotion": "blocked",
+    "mbtiMemoryGeneralization": "blocked"
+  },
+  "blockerRules": [
+    {
+      "id": "profile_contribution_readiness_only",
+      "rule": "profile_contribution is a readiness field only in Phase 2B.",
+      "blocksWhen": "A UASP profile write is introduced from profile_contribution metadata."
+    },
+    {
+      "id": "no_profile_persistence",
+      "rule": "No UASP profile persistence is allowed in this train.",
+      "blocksWhen": "Any result, report, attempt, recommendation, or saved-career surface writes UASP profile memory."
+    },
+    {
+      "id": "no_sensitive_signal_storage",
+      "rule": "Sensitive signal storage is blocked until explicit consent, retention, deletion, and DSAR policy exists.",
+      "blocksWhen": "Sensitive or mental-health-sensitive signals are persisted without future policy."
+    },
+    {
+      "id": "saved_careers_not_profile_memory",
+      "rule": "Saved careers are preference storage, not UASP profile memory.",
+      "blocksWhen": "Saved careers are promoted into UASP profile memory."
+    },
+    {
+      "id": "attempts_not_profile_memory",
+      "rule": "/v0.3/me/attempts is attempt/report history, not UASP profile.",
+      "blocksWhen": "Attempt history is promoted into UASP profile memory."
+    },
+    {
+      "id": "no_mbti_longitudinal_memory_generalization",
+      "rule": "MBTI longitudinal memory must not be generalized into UASP profile memory in Phase 2B.",
+      "blocksWhen": "MBTI memory semantics are applied as generic UASP memory runtime."
+    },
+    {
+      "id": "mental_health_not_longitudinal_by_default",
+      "rule": "mental_health_sensitive signals cannot default to longitudinal.",
+      "blocksWhen": "Mental-health-sensitive signals are assigned longitudinal runtime storage by default."
+    },
+    {
+      "id": "ability_sensitive_no_human_worth",
+      "rule": "ability_sensitive signals cannot evaluate human worth, employment suitability, or hiring suitability.",
+      "blocksWhen": "Ability signals are stored or rendered as human-worth or hiring-suitability claims."
+    },
+    {
+      "id": "emotional_state_ephemeral_or_opt_in",
+      "rule": "emotional_state signals default to ephemeral or sensitive_opt_in.",
+      "blocksWhen": "Emotional-state signals are frozen as stable traits or default longitudinal memory."
+    },
+    {
+      "id": "sensitive_opt_in_requires_future_consent",
+      "rule": "sensitive_opt_in requires future explicit consent policy before runtime storage.",
+      "blocksWhen": "Opt-in-sensitive signals are stored before consent policy exists."
+    }
+  ],
+  "firstBatchRuntimeStorageStatus": [
+    {
+      "scale_code": "MBTI",
+      "mappedProfileContribution": "longitudinal",
+      "sensitivity": "normal",
+      "phase2bRuntimeStorage": "blocked_for_phase_2b",
+      "guardStatus": "metadata_only_no_write",
+      "reason": "Approved mapping does not grant profile persistence until runtime memory policy exists."
+    },
+    {
+      "scale_code": "BIG5_OCEAN",
+      "mappedProfileContribution": "longitudinal",
+      "sensitivity": "normal",
+      "phase2bRuntimeStorage": "blocked_for_phase_2b",
+      "guardStatus": "metadata_only_no_write",
+      "reason": "Trait signal can be mapped, but no UASP profile write is allowed in Phase 2B."
+    },
+    {
+      "scale_code": "RIASEC",
+      "mappedProfileContribution": "longitudinal",
+      "sensitivity": "normal",
+      "phase2bRuntimeStorage": "blocked_for_phase_2b",
+      "guardStatus": "metadata_only_no_write",
+      "reason": "Interest signal can be mapped, but cannot become durable profile memory in this train."
+    },
+    {
+      "scale_code": "ENNEAGRAM",
+      "mappedProfileContribution": "summary_only",
+      "sensitivity": "sensitive",
+      "phase2bRuntimeStorage": "blocked_for_phase_2b",
+      "guardStatus": "metadata_only_no_write_sensitive",
+      "reason": "Sensitive signal requires stricter future consent and retention policy before storage."
+    }
+  ],
+  "protectedExamples": [
+    {
+      "scale_code": "SDS20",
+      "sensitivity": "mental_health_sensitive",
+      "profile_contribution": "sensitive_opt_in",
+      "phase2bRuntimeStorage": "blocked_for_phase_2b",
+      "requiredFuturePolicy": [
+        "explicit_consent",
+        "mental_health_disclaimer",
+        "session_or_opt_in_retention",
+        "deletion_and_dsar_coverage"
+      ]
+    },
+    {
+      "scale_code": "CLINICAL_COMBO_68",
+      "sensitivity": "mental_health_sensitive",
+      "profile_contribution": "sensitive_opt_in",
+      "phase2bRuntimeStorage": "blocked_for_phase_2b",
+      "requiredFuturePolicy": [
+        "explicit_consent",
+        "non_diagnostic_boundary",
+        "session_or_opt_in_retention",
+        "deletion_and_dsar_coverage"
+      ]
+    },
+    {
+      "scale_code": "IQ_RAVEN",
+      "sensitivity": "ability_sensitive",
+      "profile_contribution": "summary_only",
+      "phase2bRuntimeStorage": "blocked_for_phase_2b",
+      "forbiddenClaims": [
+        "human worth",
+        "employment suitability",
+        "hiring suitability"
+      ]
+    }
+  ],
+  "memoryReadinessLedger": [
+    {
+      "surface": "/v0.3/me/attempts",
+      "currentRole": "attempt_report_history",
+      "uaspBoundary": "not_uasp_profile_memory",
+      "phase2bStatus": "read_only_history_not_profile",
+      "evidence": "backend/app/Services/V0_3/Me/MeAttemptsService.php"
+    },
+    {
+      "surface": "MeProfileService",
+      "currentRole": "org_user_anonymous_identity_roles",
+      "uaspBoundary": "does_not_return_uasp_signal_profile",
+      "phase2bStatus": "blocked",
+      "evidence": "backend/app/Services/V0_3/Me/MeProfileService.php"
+    },
+    {
+      "surface": "saved_careers",
+      "currentRole": "visitor_key_preference_store",
+      "uaspBoundary": "not_uasp_profile_memory",
+      "phase2bStatus": "do_not_promote",
+      "evidence": "backend/app/Http/Controllers/API/V0_5/Career/CareerShortlistController.php"
+    },
+    {
+      "surface": "memory_services",
+      "currentRole": "existing_memory_infrastructure",
+      "uaspBoundary": "not_uasp_governed_durable_memory",
+      "phase2bStatus": "blocked_until_contract_lifecycle",
+      "evidence": "backend/app/Services/Memory/MemoryService.php"
+    },
+    {
+      "surface": "dsar_lifecycle",
+      "currentRole": "existing_user_data_lifecycle",
+      "uaspBoundary": "does_not_yet_cover_all_uasp_memory_candidates",
+      "phase2bStatus": "blocked",
+      "evidence": "backend/app/Services/Attempts/UserDataLifecycleService.php"
+    },
+    {
+      "surface": "report_history",
+      "currentRole": "report_access_history",
+      "uaspBoundary": "not_longitudinal_signal_memory",
+      "phase2bStatus": "read_only_history_not_profile",
+      "evidence": "docs/assessment/uasp/generated/uasp-runtime-integration-readiness-report.v1.json"
+    },
+    {
+      "surface": "recommendation_snapshots",
+      "currentRole": "snapshot_direction_support",
+      "uaspBoundary": "not_uasp_profile_memory",
+      "phase2bStatus": "do_not_promote",
+      "evidence": "docs/assessment/uasp/generated/recommendation-eligibility-guard.v1.json"
+    }
+  ],
+  "futurePrerequisitesBeforeProfileWrites": [
+    "human_approved_profile_product_policy",
+    "explicit_sensitive_signal_consent_model",
+    "runtime_retention_category_mapping",
+    "deletion_and_dsar_coverage_for_memory_targets",
+    "versioned_interpretation_policy",
+    "reinterpretation_policy_when_ontology_changes",
+    "sensitive_signal_disclaimer_runtime",
+    "backend_owned_profile_memory_contract",
+    "frontend_read_only_rendering_without_profile_authority_invention"
+  ],
+  "mustNotChange": [
+    "profile runtime",
+    "memory writes",
+    "saved careers",
+    "attempts",
+    "auth/user model",
+    "privacy runtime",
+    "report history",
+    "recommendation snapshots",
+    "sensitive storage"
+  ]
+}
