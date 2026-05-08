@@ -1,0 +1,151 @@
+import fs from "node:fs";
+import path from "node:path";
+import { describe, expect, it } from "vitest";
+
+const ROOT = process.cwd();
+const REPORT_PATH = path.join(ROOT, "docs/assessment/uasp/uasp-runtime-integration-readiness-report.md");
+const ARTIFACT_PATH = path.join(
+  ROOT,
+  "docs/assessment/uasp/generated/uasp-runtime-integration-readiness-report.v1.json"
+);
+
+const REQUIRED_SECTIONS = [
+  "Executive Summary",
+  "UASP Artifact Reality Matrix",
+  "Backend Scale Registry Integration Matrix",
+  "Frontend Test Runtime Integration Matrix",
+  "Result / Report UASP Integration Matrix",
+  "Claim Runtime Integration Matrix",
+  "Evidence Runtime Integration Matrix",
+  "SEO/GEO UASP Integration Matrix",
+  "Freemium UASP Integration Matrix",
+  "Profile / Memory UASP Integration Matrix",
+  "Recommendation UASP Integration Matrix",
+  "Scale-specific Runtime Risk Matrix",
+  "UASP Runtime Ownership Matrix",
+  "P0 / P1 / P2 / P3 Backlog",
+  "Phase 2B Runtime Integration PR Train Proposal",
+  "Codex-safe vs Human-decision-required Matrix",
+  "What Must Not Be Integrated Yet",
+  "Final Phase 2B Readiness Assessment",
+];
+
+const ALLOWED_STATUSES = [
+  "ready_for_integration",
+  "partial",
+  "backend_ready",
+  "frontend_partial",
+  "artifact_only",
+  "blocked",
+  "dangerous_if_integrated",
+  "requires_human_decision",
+  "safe_to_defer",
+  "unknown",
+];
+
+const ALLOWED_PRIORITIES = ["P0", "P1", "P2", "P3"];
+
+type ReportArtifact = {
+  version: string;
+  trainName: string;
+  prNamespace: string;
+  scope: string;
+  runtimeBehaviorChanged: boolean;
+  reportPath: string;
+  allowedStatuses: string[];
+  allowedPriorities: string[];
+  sections: string[];
+  sourceArtifactIndex: Array<{
+    phase: string;
+    path: string;
+    status: "present" | "missing_artifact";
+  }>;
+};
+
+function readArtifact(): ReportArtifact {
+  return JSON.parse(fs.readFileSync(ARTIFACT_PATH, "utf8")) as ReportArtifact;
+}
+
+describe("UASP runtime integration readiness report", () => {
+  it("creates one canonical report and one canonical JSON artifact", () => {
+    const artifact = readArtifact();
+
+    expect(fs.existsSync(REPORT_PATH)).toBe(true);
+    expect(artifact.version).toBe("uasp.runtime_integration_readiness_report.v1");
+    expect(artifact.trainName).toBe("uasp-runtime-integration-readiness-report-train");
+    expect(artifact.prNamespace).toBe("PR-UASP2B-RPT-*");
+    expect(artifact.reportPath).toBe("docs/assessment/uasp/uasp-runtime-integration-readiness-report.md");
+    expect(artifact.runtimeBehaviorChanged).toBe(false);
+  });
+
+  it("keeps the report section list complete and in order", () => {
+    const artifact = readArtifact();
+    const report = fs.readFileSync(REPORT_PATH, "utf8");
+
+    expect(artifact.sections).toEqual(REQUIRED_SECTIONS);
+    for (const [index, section] of REQUIRED_SECTIONS.entries()) {
+      expect(report).toContain(`## ${index + 1}. ${section}`);
+    }
+  });
+
+  it("uses only approved report status and priority enums", () => {
+    const artifact = readArtifact();
+
+    expect(artifact.allowedStatuses).toEqual(ALLOWED_STATUSES);
+    expect(artifact.allowedPriorities).toEqual(ALLOWED_PRIORITIES);
+  });
+
+  it("indexes all required source artifacts and marks any missing file explicitly", () => {
+    const artifact = readArtifact();
+    const requiredPaths = [
+      "docs/runtime/public-frontend-source-of-truth.md",
+      "docs/runtime/generated/public-frontend-source-of-truth.v1.json",
+      "docs/runtime/page-family-runtime-coverage.md",
+      "docs/runtime/generated/page-family-runtime-coverage.v1.json",
+      "docs/runtime/frontend-fallback-authority-inventory.md",
+      "docs/runtime/generated/frontend-fallback-authority-inventory.v1.json",
+      "docs/claims/public-claim-boundary-matrix.md",
+      "docs/claims/generated/public-claim-boundary-matrix.v1.json",
+      "docs/seo/discoverability-authority-convergence.md",
+      "docs/seo/generated/discoverability-authority-matrix.v1.json",
+      "docs/freemium/freemium-runtime-coverage.md",
+      "docs/freemium/generated/freemium-runtime-coverage.v1.json",
+      "docs/runtime/fallback-owner-gates.md",
+      "docs/runtime/generated/fallback-owner-gates.v1.json",
+      "docs/geo/evidence-container-runtime-baseline.md",
+      "docs/geo/generated/evidence-container-runtime-baseline.v1.json",
+      "docs/freemium/freemium-cross-scale-parity-ledger.md",
+      "docs/freemium/generated/freemium-cross-scale-parity-ledger.v1.json",
+      "docs/assessment/uasp/uasp-signal-contract-schema.md",
+      "docs/assessment/uasp/generated/uasp-signal-contract-schema.v1.json",
+      "docs/assessment/uasp/existing-scale-signal-mapping.md",
+      "docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json",
+      "docs/assessment/uasp/decision-domain-registry.md",
+      "docs/assessment/uasp/generated/uasp-decision-domain-registry.v1.json",
+      "docs/assessment/uasp/uasp-eligibility-guards.md",
+      "docs/assessment/uasp/generated/uasp-eligibility-guards.v1.json",
+      "docs/assessment/uasp/profile-contribution-sensitivity-policy.md",
+      "docs/assessment/uasp/generated/uasp-profile-sensitivity-policy.v1.json",
+      "docs/assessment/uasp/uasp-readiness-dashboard.md",
+      "docs/assessment/uasp/generated/uasp-readiness-dashboard.v1.json",
+    ];
+    const byPath = new Map(artifact.sourceArtifactIndex.map((entry) => [entry.path, entry]));
+
+    expect([...byPath.keys()].sort()).toEqual([...requiredPaths].sort());
+    for (const requiredPath of requiredPaths) {
+      const entry = byPath.get(requiredPath);
+      expect(entry, requiredPath).toBeDefined();
+      const exists = fs.existsSync(path.join(ROOT, requiredPath));
+      expect(entry?.status, requiredPath).toBe(exists ? "present" : "missing_artifact");
+    }
+  });
+
+  it("documents report-only scope without runtime implementation", () => {
+    const report = fs.readFileSync(REPORT_PATH, "utf8");
+
+    expect(report).toContain("Runtime behavior changed: no.");
+    expect(report).toContain("does not implement UASP runtime");
+    expect(report).toContain("does not onboard new tests");
+    expect(report).not.toContain("Runtime behavior changed: yes");
+  });
+});
