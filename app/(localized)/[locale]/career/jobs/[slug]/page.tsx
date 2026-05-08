@@ -906,8 +906,15 @@ export default async function CareerJobDetailPage({
           />
         </section>
 
-        <section className="space-y-3" data-testid="career-job-v1-evidence">
-          <EvidenceDrawer title={locale === "zh" ? "查看评分依据" : "View scoring basis"} testId="career-job-v1-score-drawer">
+        <section
+          className="space-y-3"
+          data-testid="career-job-v1-evidence"
+          data-evidence-container="true"
+          data-evidence-page-family="career_job_detail"
+          data-evidence-source-type="career_backend_bundle"
+          data-evidence-readiness="partial"
+        >
+          <EvidenceDrawer title={locale === "zh" ? "查看评分依据" : "View scoring basis"} testId="career-job-v1-score-drawer" evidenceBlock="evidence_facts">
             {renderState.canRenderFitSurface && job.whiteBoxScores.strainScore?.radarDimensions ? (
               <StrainRadar locale={locale} dimensions={job.whiteBoxScores.strainScore.radarDimensions} testId="career-job-strain-radar" />
             ) : null}
@@ -923,7 +930,7 @@ export default async function CareerJobDetailPage({
             ) : null}
           </EvidenceDrawer>
 
-          <EvidenceDrawer title={locale === "zh" ? "查看信任边界" : "View trust boundaries"} testId="career-job-v1-boundary-drawer">
+          <EvidenceDrawer title={locale === "zh" ? "查看信任边界" : "View trust boundaries"} testId="career-job-v1-boundary-drawer" evidenceBlock="caveat">
             {renderCareerJobProtocolStatus(job)}
             <div className="sr-only" data-testid="career-job-claim-gated-status">
               Salary: {renderState.canRenderSalarySurface ? "open" : "closed"}; fit: {renderState.canRenderFitSurface ? "open" : "closed"}; answer: {renderState.canRenderAnswerSurface ? "open" : "closed"}
@@ -939,7 +946,7 @@ export default async function CareerJobDetailPage({
             />
           </EvidenceDrawer>
 
-          <EvidenceDrawer title={locale === "zh" ? "查看数据来源" : "View data source"} testId="career-job-v1-data-source-drawer">
+          <EvidenceDrawer title={locale === "zh" ? "查看数据来源" : "View data source"} testId="career-job-v1-data-source-drawer" evidenceBlock="evidence_facts">
             <TrustStrip
               locale={locale}
               reviewerStatus={job.trustManifest?.reviewer.reviewer_status}
@@ -958,7 +965,7 @@ export default async function CareerJobDetailPage({
             />
           </EvidenceDrawer>
 
-          <EvidenceDrawer title={locale === "zh" ? "查看推荐变化记录" : "View recommendation change history"} testId="career-job-v1-lifecycle-drawer">
+          <EvidenceDrawer title={locale === "zh" ? "查看推荐变化记录" : "View recommendation change history"} testId="career-job-v1-lifecycle-drawer" evidenceBlock="evidence_facts">
             {job.lifecycleCompanion.timeline ? (
               <CareerProjectionTimeline locale={locale} timeline={job.lifecycleCompanion.timeline} testId="career-job-lifecycle-companion-timeline" />
             ) : null}

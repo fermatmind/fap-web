@@ -605,8 +605,15 @@ export default async function CareerMbtiRecommendationPage({
 
         <NextStepRail title={locale === "zh" ? "下一步" : "Next steps"} description={locale === "zh" ? "保留 2-3 个真实下一步，避免链接过载。" : "A short set of real next steps without link overload."} items={companionRailItems} testId="career-recommendation-v1-next-steps" />
 
-        <section className="space-y-3" data-testid="career-recommendation-v1-evidence">
-          <EvidenceDrawer title={locale === "zh" ? "查看评分依据" : "View scoring basis"} testId="career-recommendation-v1-score-drawer">
+        <section
+          className="space-y-3"
+          data-testid="career-recommendation-v1-evidence"
+          data-evidence-container="true"
+          data-evidence-page-family="career_recommendation_detail"
+          data-evidence-source-type="career_backend_bundle"
+          data-evidence-readiness="partial"
+        >
+          <EvidenceDrawer title={locale === "zh" ? "查看评分依据" : "View scoring basis"} testId="career-recommendation-v1-score-drawer" evidenceBlock="evidence_facts">
             <ClaimGuard
               allowed={renderState.canRenderStrongTruth}
               fallback={<ConfidenceBoundary tone="limited" title={locale === "zh" ? "暂不做强推荐判断" : "Strong recommendation is not open yet"} description={locale === "zh" ? "当前数据不足以支持强判断。" : "There is not enough data to support a strong recommendation yet."} />}
@@ -623,7 +630,7 @@ export default async function CareerMbtiRecommendationPage({
             {renderState.canRenderStrongTruth && explainability ? <CareerExplainabilityPanel locale={locale} explainability={explainability} title={locale === "zh" ? "评分说明" : "Scoring explanation"} subtitle={locale === "zh" ? "复杂依据默认折叠。" : "Detailed evidence is collapsed by default."} testId="career-recommendation-explainability-panel" showStrainRadar={false} /> : null}
           </EvidenceDrawer>
 
-          <EvidenceDrawer title={locale === "zh" ? "查看路径依据" : "View path evidence"} testId="career-recommendation-v1-transition-drawer">
+          <EvidenceDrawer title={locale === "zh" ? "查看路径依据" : "View path evidence"} testId="career-recommendation-v1-transition-drawer" evidenceBlock="how_to">
             {transitionPreview ? (
               <div className="space-y-4">
                 <CareerTransitionPreviewCard locale={locale} preview={transitionPreview} landingPath={recommendationLandingPath} />
@@ -632,7 +639,7 @@ export default async function CareerMbtiRecommendationPage({
             ) : null}
           </EvidenceDrawer>
 
-          <EvidenceDrawer title={locale === "zh" ? "查看数据来源" : "View data source"} testId="career-recommendation-v1-source-drawer">
+          <EvidenceDrawer title={locale === "zh" ? "查看数据来源" : "View data source"} testId="career-recommendation-v1-source-drawer" evidenceBlock="caveat">
             {renderCareerRecommendationProtocolStatus(detail)}
             <div data-testid="career-recommendation-renderer-status" data-renderer-state={getRecommendationRendererContractState(detail) ?? "complete"}>
               {renderCareerDataStatus(detail, locale) ?? <p className="m-0 text-sm text-slate-500">{locale === "zh" ? "当前没有额外展示限制。" : "No additional display boundary is active."}</p>}
@@ -656,13 +663,13 @@ export default async function CareerMbtiRecommendationPage({
             />
           </EvidenceDrawer>
 
-          <EvidenceDrawer title={locale === "zh" ? "查看推荐变化记录" : "View recommendation change history"} testId="career-recommendation-v1-lifecycle-drawer">
+          <EvidenceDrawer title={locale === "zh" ? "查看推荐变化记录" : "View recommendation change history"} testId="career-recommendation-v1-lifecycle-drawer" evidenceBlock="evidence_facts">
             <CareerProjectionTimeline locale={locale} timeline={detail.projectionTimeline} testId="career-recommendation-projection-timeline" />
             <CareerProjectionDeltaPanel locale={locale} delta={detail.projectionDeltaSummary} testId="career-recommendation-projection-delta" />
           </EvidenceDrawer>
 
            {companionLinks ? (
-             <EvidenceDrawer title={locale === "zh" ? "查看全部关联链接" : "View all companion links"} testId="career-recommendation-v1-companion-drawer">
+             <EvidenceDrawer title={locale === "zh" ? "查看全部关联链接" : "View all companion links"} testId="career-recommendation-v1-companion-drawer" evidenceBlock="related_links">
               {/* testId="career-recommendation-companion-links" is retained by the folded status marker after the scene entry. */}
               <CareerRecommendationCompanionLinks locale={locale} summary={companionLinks} landingPath={recommendationLandingPath} subjectKey={recommendationSubjectSlug} testId="career-recommendation-v1-companion-links" />
              </EvidenceDrawer>

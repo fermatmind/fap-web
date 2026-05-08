@@ -690,6 +690,7 @@ export default async function PersonalityDetailPage({
               surface={detail.answerSurface}
               locale={locale}
               testId="personality-detail-answer-surface"
+              pageFamily="personality_detail"
               hideHeading={locale === "zh"}
               hideSummaryLabel={locale === "zh"}
             />
@@ -713,6 +714,7 @@ export default async function PersonalityDetailPage({
             surface={detail.answerSurface}
             locale={locale}
             testId="personality-detail-answer-surface"
+            pageFamily="personality_detail"
             hideHeading={locale === "zh"}
             hideSummaryLabel={locale === "zh"}
           />

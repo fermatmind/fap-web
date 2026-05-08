@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-phase-1b-remediation-train",
   "train_description": "Phase 1B remediation train for FermatMind Public Runtime Authority.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-08T03:09:53Z",
+  "updated_at": "2026-05-08T03:25:33Z",
   "status": "initialized",
   "phase": "public-runtime-authority-phase-1b-remediation",
   "pr_namespace": "PR-PRA1B-*",
@@ -302,7 +302,7 @@
       "depends_on": [
         "PR-PRA1B-03"
       ],
-      "status": "in_progress",
+      "status": "merged",
       "title": "test(runtime): gate Article JSON-LD and personality fallback projection",
       "artifacts": [
         "docs/seo/article-personality-jsonld-projection-gates.md",
@@ -378,11 +378,12 @@
         }
       ],
       "failure_reason": null,
-      "commit_sha": null,
-      "pr_url": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false
+      "commit_sha": "2bc3b67adee642ad90a796688dbefc095a70f1eb",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/706",
+      "merge_sha": "aa7341817834493ed68af8aeb6e91b9cb64d1ac1",
+      "merged_at": "2026-05-08T03:15:17Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
     },
     {
       "id": "PR-PRA1B-05",
@@ -393,8 +394,82 @@
       "depends_on": [
         "PR-PRA1B-04"
       ],
-      "status": "planned",
-      "title": "feat(geo): add visible Evidence Container runtime baseline"
+      "status": "in_progress",
+      "title": "feat(geo): add visible Evidence Container runtime baseline",
+      "artifacts": [
+        "docs/geo/evidence-container-runtime-baseline.md",
+        "docs/geo/generated/evidence-container-runtime-baseline.v1.json",
+        "tests/contracts/evidence-container-runtime-baseline.contract.test.ts",
+        "lib/geo/evidenceContainer.ts"
+      ],
+      "checks": [
+        {
+          "name": "scoped evidence contracts",
+          "command": "pnpm exec vitest run tests/contracts/evidence-container-runtime-baseline.contract.test.ts tests/contracts/evidence-container-readiness-gate.contract.test.ts tests/contracts/evidence-container-live-readiness.contract.test.ts tests/contracts/article-personality-jsonld-projection-gates.contract.test.ts",
+          "status": "passed"
+        },
+        {
+          "name": "scoped eslint",
+          "command": "pnpm exec eslint tests/contracts/evidence-container-runtime-baseline.contract.test.ts lib/geo/evidenceContainer.ts components/content/AnswerSurfaceSection.tsx components/career/v1/EvidenceDrawer.tsx components/career/display/EvidenceContainer.tsx 'app/(localized)/[locale]/tests/[slug]/page.tsx' 'app/(localized)/[locale]/topics/[slug]/page.tsx' 'app/(localized)/[locale]/articles/[slug]/page.tsx' 'app/(localized)/[locale]/personality/[type]/page.tsx' 'app/(localized)/[locale]/career/jobs/[slug]/page.tsx' 'app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx' 'app/(localized)/[locale]/career/guides/[slug]/page.tsx'",
+          "status": "passed"
+        },
+        {
+          "name": "next typegen",
+          "command": "pnpm exec next typegen",
+          "status": "passed"
+        },
+        {
+          "name": "typecheck",
+          "command": "pnpm typecheck",
+          "status": "passed"
+        },
+        {
+          "name": "contracts",
+          "command": "pnpm test:contract",
+          "status": "passed"
+        },
+        {
+          "name": "build",
+          "command": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build",
+          "status": "passed"
+        },
+        {
+          "name": "sitemap generation",
+          "command": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm seo:generate-sitemap",
+          "status": "passed"
+        },
+        {
+          "name": "sitemap check",
+          "command": "pnpm seo:check-sitemap",
+          "status": "passed"
+        }
+      ],
+      "sidecars": [
+        {
+          "title": "Generated sitemap lastmod timestamp churn",
+          "severity": "P3",
+          "scope_impact": "Generated public/sitemap.xml lastmod values changed during build and seo:generate-sitemap; URL set remained 257 and was not staged.",
+          "introduced_by_current_pr": false,
+          "recommended_future_phase": "discoverability-build-determinism",
+          "blocks_merge": false,
+          "evidence": "public/sitemap.xml diff contained lastmod timestamp updates only; pnpm seo:check-sitemap passed after restoring the generated file."
+        },
+        {
+          "title": "Existing scoped eslint warning in career recommendation detail",
+          "severity": "P3",
+          "scope_impact": "Scoped eslint passed with a pre-existing @typescript-eslint/no-unused-vars warning for recommendationSubjectKind in the career recommendation detail page.",
+          "introduced_by_current_pr": false,
+          "recommended_future_phase": "contract-lint-cleanup",
+          "blocks_merge": false,
+          "evidence": "pnpm exec eslint ... exited 0 with warning at app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx:392."
+        }
+      ],
+      "failure_reason": null,
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
     },
     {
       "id": "PR-PRA1B-06",

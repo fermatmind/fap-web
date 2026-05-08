@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
+import type { EvidencePageFamily } from "@/lib/geo/evidenceContainer";
 import type { Locale } from "@/lib/i18n/locales";
 
 function sectionTitle(key: string, locale: Locale): string {
@@ -28,12 +29,16 @@ export function AnswerSurfaceSection({
   testId,
   hideHeading = false,
   hideSummaryLabel = false,
+  pageFamily,
+  evidenceSourceType = "answer_surface_v1",
 }: {
   surface: AnswerSurfaceViewModel | null | undefined;
   locale: Locale;
   testId?: string;
   hideHeading?: boolean;
   hideSummaryLabel?: boolean;
+  pageFamily?: EvidencePageFamily;
+  evidenceSourceType?: "answer_surface_v1" | "visible_page_content";
 }) {
   if (!surface) {
     return null;
@@ -54,6 +59,9 @@ export function AnswerSurfaceSection({
     <section
       className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
       data-testid={testId}
+      data-evidence-container={pageFamily ? "true" : undefined}
+      data-evidence-page-family={pageFamily}
+      data-evidence-source-type={pageFamily ? evidenceSourceType : undefined}
     >
       {!hideHeading ? (
         <h2 className="m-0 font-serif text-xl font-semibold text-[var(--fm-text)]">
@@ -62,7 +70,7 @@ export function AnswerSurfaceSection({
       ) : null}
 
       {surface.summaryBlocks.length ? (
-        <div className="space-y-3">
+        <div className="space-y-3" data-evidence-block={pageFamily ? "quick_answer" : undefined}>
           {!hideSummaryLabel ? (
             <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
               {sectionTitle("summary", locale)}
@@ -80,7 +88,7 @@ export function AnswerSurfaceSection({
       ) : null}
 
       {surface.faqBlocks.length ? (
-        <Card>
+        <Card data-evidence-block={pageFamily ? "faq" : undefined}>
           <CardHeader>
             <CardTitle>{sectionTitle("faq", locale)}</CardTitle>
           </CardHeader>
@@ -96,7 +104,7 @@ export function AnswerSurfaceSection({
       ) : null}
 
       {surface.compareBlocks.length ? (
-        <div className="space-y-3">
+        <div className="space-y-3" data-evidence-block={pageFamily ? "comparison" : undefined}>
           <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
             {sectionTitle("compare", locale)}
           </p>
@@ -112,7 +120,7 @@ export function AnswerSurfaceSection({
       ) : null}
 
       {surface.sceneSummaryBlocks.length ? (
-        <div className="space-y-3">
+        <div className="space-y-3" data-evidence-block={pageFamily ? "definition" : undefined}>
           <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
             {sectionTitle("scene", locale)}
           </p>
@@ -134,7 +142,7 @@ export function AnswerSurfaceSection({
       ) : null}
 
       {surface.nextStepBlocks.length ? (
-        <div className="space-y-3">
+        <div className="space-y-3" data-evidence-block={pageFamily ? "next_step" : undefined}>
           <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
             {sectionTitle("next", locale)}
           </p>

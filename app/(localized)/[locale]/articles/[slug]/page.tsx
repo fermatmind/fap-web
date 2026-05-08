@@ -332,6 +332,7 @@ export default async function ArticleDetailPage({
         surface={article.answerSurface}
         locale={locale}
         testId="article-detail-answer-surface"
+        pageFamily="article_detail"
       />
 
       <div className="grid gap-8 lg:grid-cols-[minmax(0,760px)_minmax(240px,1fr)] lg:items-start">

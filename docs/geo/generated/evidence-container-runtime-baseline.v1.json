@@ -1,0 +1,86 @@
+{
+  "version": "geo.evidence_container_runtime_baseline.v1",
+  "scope": "PR-PRA1B-05",
+  "trainName": "public-runtime-authority-phase-1b-remediation-train",
+  "runtimeBehaviorChanged": true,
+  "contentExpanded": false,
+  "hiddenSchemaAdded": false,
+  "llmsExposureChanged": false,
+  "sitemapUrlSetChanged": false,
+  "readinessStates": ["ready", "partial", "not_ready", "private_noindex", "blocked"],
+  "pageFamilies": [
+    {
+      "pageFamily": "test_detail",
+      "readiness": "partial",
+      "sourceType": "visible_page_content",
+      "requiredBlocks": ["quick_answer", "caveat", "next_step", "faq"],
+      "runtimeEvidence": ["app/(localized)/[locale]/tests/[slug]/page.tsx"],
+      "notes": "Test detail marks visible FAQ/caveat/reference regions; full quick-answer authority still depends on answer_surface_v1 coverage."
+    },
+    {
+      "pageFamily": "topic_detail",
+      "readiness": "partial",
+      "sourceType": "answer_surface_v1",
+      "requiredBlocks": ["quick_answer", "definition", "comparison", "related_links"],
+      "runtimeEvidence": ["app/(localized)/[locale]/topics/[slug]/page.tsx", "components/content/AnswerSurfaceSection.tsx"],
+      "notes": "Topic detail uses visible answer_surface_v1 markers when the backend surface is present."
+    },
+    {
+      "pageFamily": "article_detail",
+      "readiness": "partial",
+      "sourceType": "answer_surface_v1",
+      "requiredBlocks": ["quick_answer", "definition", "next_step"],
+      "runtimeEvidence": ["app/(localized)/[locale]/articles/[slug]/page.tsx", "components/content/AnswerSurfaceSection.tsx"],
+      "notes": "Article detail marks visible answer_surface_v1 blocks; Article JSON-LD fallback remains compatibility-only."
+    },
+    {
+      "pageFamily": "personality_detail",
+      "readiness": "partial",
+      "sourceType": "answer_surface_v1",
+      "requiredBlocks": ["quick_answer", "definition", "caveat", "next_step"],
+      "runtimeEvidence": ["app/(localized)/[locale]/personality/[type]/page.tsx", "components/content/AnswerSurfaceSection.tsx"],
+      "notes": "Personality detail marks visible answer_surface_v1 blocks only when public projection is not fallback-only."
+    },
+    {
+      "pageFamily": "career_job_detail",
+      "readiness": "partial",
+      "sourceType": "career_backend_bundle",
+      "requiredBlocks": ["quick_answer", "evidence_facts", "caveat", "next_step"],
+      "runtimeEvidence": ["app/(localized)/[locale]/career/jobs/[slug]/page.tsx", "components/career/v1/EvidenceDrawer.tsx", "components/career/display/EvidenceContainer.tsx"],
+      "notes": "Career job evidence drawers and display sections are visible runtime blocks, but full readiness remains gated."
+    },
+    {
+      "pageFamily": "career_recommendation_detail",
+      "readiness": "partial",
+      "sourceType": "career_backend_bundle",
+      "requiredBlocks": ["quick_answer", "evidence_facts", "caveat", "next_step"],
+      "runtimeEvidence": ["app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx", "components/career/v1/EvidenceDrawer.tsx"],
+      "notes": "Career recommendation evidence is snapshot-based direction support, not live personalized recommender evidence."
+    },
+    {
+      "pageFamily": "career_guide",
+      "readiness": "partial",
+      "sourceType": "answer_surface_v1",
+      "requiredBlocks": ["quick_answer", "how_to", "caveat", "next_step"],
+      "runtimeEvidence": ["app/(localized)/[locale]/career/guides/[slug]/page.tsx", "components/content/AnswerSurfaceSection.tsx"],
+      "notes": "Career guide answer surface markers are runtime-only; no guide content is added."
+    }
+  ],
+  "hardRules": [
+    "FAQ-only is not Evidence-ready",
+    "hidden schema is not Evidence-ready",
+    "Evidence must be visible",
+    "Evidence must align with JSON-LD / FAQ / answer surface where present",
+    "private/result/pay/order/share/take flows are not public Evidence targets",
+    "no content expansion",
+    "no llms-full exposure expansion"
+  ],
+  "mustNotTouch": [
+    "generated content",
+    "hidden FAQ/schema",
+    "report/private flows",
+    "llms-full exposure",
+    "sitemap URL set",
+    "GEO readiness claim inflation"
+  ]
+}

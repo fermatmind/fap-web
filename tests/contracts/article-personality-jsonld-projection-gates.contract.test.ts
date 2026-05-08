@@ -79,7 +79,7 @@ describe("Article / Personality JSON-LD and projection gates", () => {
       branch: "codex/pr-pra1b-03-topic-llms-exposure-convergence",
     });
     expect(byId.get("PR-PRA1B-04")).toMatchObject({
-      status: "in_progress",
+      status: "merged",
       branch: "codex/pr-pra1b-04-article-personality-jsonld-projection-gates",
       depends_on: ["PR-PRA1B-03"],
     });
