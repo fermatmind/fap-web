@@ -195,7 +195,237 @@
       "status": "present"
     }
   ],
-  "matrices": {},
+  "matrices": {
+    "uaspArtifactReality": [
+      {
+        "area": "UASP signal contract schema",
+        "status": "artifact_only",
+        "runtimeConsumption": "Docs and contract tests only; no app/components/lib runtime consumer imports the UASP schema.",
+        "evidence": [
+          "docs/assessment/uasp/uasp-signal-contract-schema.md",
+          "docs/assessment/uasp/generated/uasp-signal-contract-schema.v1.json",
+          "tests/contracts/uasp-signal-contract-schema.contract.test.ts"
+        ]
+      },
+      {
+        "area": "Existing scale signal registry",
+        "status": "artifact_only",
+        "runtimeConsumption": "First-batch mappings exist, but runtime scale catalog/lookup does not return UASP fields.",
+        "evidence": [
+          "docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json",
+          "backend/app/Http/Controllers/API/V0_3/ScalesLookupController.php"
+        ]
+      },
+      {
+        "area": "Decision domain registry",
+        "status": "artifact_only",
+        "runtimeConsumption": "Domain definitions are contract-governed; result/report/test detail runtime does not consume decision domains.",
+        "evidence": [
+          "docs/assessment/uasp/generated/uasp-decision-domain-registry.v1.json",
+          "tests/contracts/uasp-decision-domain-registry.contract.test.ts"
+        ]
+      },
+      {
+        "area": "Eligibility guards",
+        "status": "artifact_only",
+        "runtimeConsumption": "Guard rules exist for claim, recommendation, SEO/GEO, and freemium, but they do not alter public runtime behavior.",
+        "evidence": [
+          "docs/assessment/uasp/generated/uasp-eligibility-guards.v1.json",
+          "tests/contracts/uasp-eligibility-guards.contract.test.ts"
+        ]
+      },
+      {
+        "area": "Profile and sensitivity policy",
+        "status": "artifact_only",
+        "runtimeConsumption": "Policy exists; no UASP profile storage or sensitivity runtime is wired.",
+        "evidence": [
+          "docs/assessment/uasp/generated/uasp-profile-sensitivity-policy.v1.json",
+          "backend/app/Services/V0_3/Me/MeProfileService.php"
+        ]
+      },
+      {
+        "area": "UASP readiness dashboard",
+        "status": "artifact_only",
+        "runtimeConsumption": "Dashboard says the contract layer is ready while runtime implementation is out of scope.",
+        "evidence": [
+          "docs/assessment/uasp/generated/uasp-readiness-dashboard.v1.json",
+          "tests/contracts/uasp-readiness-dashboard.contract.test.ts"
+        ]
+      }
+    ],
+    "backendScaleRegistryIntegration": [
+      {
+        "field": "scale_code",
+        "currentBackendState": "Already runtime-present through scale registry, attempts, results, SKU, report access, and scale lookup APIs.",
+        "status": "backend_ready",
+        "phase2bHandling": "Use as join key for read-only uasp_signal_v1.",
+        "evidence": [
+          "backend/routes/api.php",
+          "backend/app/Models/ScaleRegistry.php",
+          "backend/app/Http/Controllers/API/V0_3/ScalesLookupController.php"
+        ]
+      },
+      {
+        "field": "scale_slug",
+        "currentBackendState": "Derivable from primary_slug and slug maps.",
+        "status": "backend_ready",
+        "phase2bHandling": "Expose via existing lookup/catalog payload; do not duplicate in UASP storage.",
+        "evidence": [
+          "backend/database/migrations/2026_01_29_090000_create_scales_registry_table.php",
+          "backend/app/Services/Scale/ScaleRegistry.php"
+        ]
+      },
+      {
+        "field": "form_code",
+        "currentBackendState": "Partially available through public forms projection and take flow form selection.",
+        "status": "partial",
+        "phase2bHandling": "Keep as transform-derived field first; do not require DB migration in first runtime envelope.",
+        "evidence": [
+          "backend/app/Services/Scale/PublicScaleFormsProjector.php",
+          "app/(localized)/[locale]/tests/[slug]/take/page.tsx"
+        ]
+      },
+      {
+        "field": "signal_type/result_shape/stability",
+        "currentBackendState": "Defined only in UASP artifacts.",
+        "status": "ready_for_integration",
+        "phase2bHandling": "Add to backend-owned read-only scale metadata projection.",
+        "evidence": [
+          "docs/assessment/uasp/generated/uasp-signal-contract-schema.v1.json",
+          "docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json"
+        ]
+      },
+      {
+        "field": "sensitivity",
+        "currentBackendState": "Defined in UASP policy; backend has separate hardcoded sensitive scale treatment.",
+        "status": "requires_human_decision",
+        "phase2bHandling": "Expose read-only after policy alignment; do not use for storage yet.",
+        "evidence": [
+          "docs/assessment/uasp/generated/uasp-profile-sensitivity-policy.v1.json",
+          "backend/app/Http/Controllers/API/V0_3/AttemptReadController.php"
+        ]
+      },
+      {
+        "field": "decision_domains",
+        "currentBackendState": "Defined only in UASP artifacts.",
+        "status": "ready_for_integration",
+        "phase2bHandling": "Backend response field first; frontend may render bounded signal meaning later.",
+        "evidence": [
+          "docs/assessment/uasp/generated/uasp-decision-domain-registry.v1.json"
+        ]
+      },
+      {
+        "field": "claim_level",
+        "currentBackendState": "UASP artifact-only; runtime career claim gating uses claim_permissions.",
+        "status": "partial",
+        "phase2bHandling": "Add guard metadata; do not replace career claim_permissions.",
+        "evidence": [
+          "docs/claims/generated/public-claim-boundary-matrix.v1.json",
+          "lib/career/contracts/claimPermissions.ts"
+        ]
+      },
+      {
+        "field": "profile_contribution",
+        "currentBackendState": "Policy exists, but no UASP-governed profile persistence exists.",
+        "status": "blocked",
+        "phase2bHandling": "Metadata only; runtime storage must remain blocked.",
+        "evidence": [
+          "docs/assessment/uasp/generated/uasp-profile-sensitivity-policy.v1.json",
+          "backend/app/Services/V0_3/Me/MeProfileService.php"
+        ]
+      },
+      {
+        "field": "recommendation_eligible",
+        "currentBackendState": "UASP artifact-only; career recommendation runtime is snapshot/graph-specific.",
+        "status": "dangerous_if_integrated",
+        "phase2bHandling": "Guard-only. Do not feed scoring or recommendation runtime.",
+        "evidence": [
+          "docs/assessment/uasp/generated/uasp-eligibility-guards.v1.json",
+          "backend/app/Domain/Career/Scoring/ScoringEngine5D.php"
+        ]
+      },
+      {
+        "field": "seo_geo_eligible",
+        "currentBackendState": "UASP artifact-only; runtime uses indexability, robots, sitemap, llms exposure policy.",
+        "status": "partial",
+        "phase2bHandling": "Non-widening guard only. Do not auto-add sitemap/llms URLs.",
+        "evidence": [
+          "next-sitemap.config.js",
+          "app/llms.txt/route.ts",
+          "app/llms-full.txt/route.ts"
+        ]
+      },
+      {
+        "field": "freemium_status",
+        "currentBackendState": "UASP artifact-only; runtime uses SKU, report access, offers, entitlement.",
+        "status": "partial",
+        "phase2bHandling": "Readiness/claim guard only. Do not change checkout or report access.",
+        "evidence": [
+          "docs/freemium/generated/freemium-cross-scale-parity-ledger.v1.json",
+          "backend/app/Services/Report/ReportAccess.php",
+          "backend/app/Services/Commerce/SkuCatalog.php"
+        ]
+      }
+    ],
+    "frontendTestRuntimeIntegration": [
+      {
+        "surface": "Test hub/catalog cards",
+        "currentState": "Uses backend catalog items overlaid with frontend fallback public test seeds; no UASP metadata.",
+        "status": "frontend_partial",
+        "phase2bRecommendation": "Add UASP read-only guard before future scale onboarding; do not alter current card UI.",
+        "evidence": [
+          "lib/content.ts"
+        ]
+      },
+      {
+        "surface": "Slug/code mapping",
+        "currentState": "Hardcoded canonical slug map and aliases.",
+        "status": "partial",
+        "phase2bRecommendation": "Keep as routing compatibility; do not let it become UASP authority.",
+        "evidence": [
+          "lib/assessmentSlugMap.ts"
+        ]
+      },
+      {
+        "surface": "Test detail page",
+        "currentState": "Consumes lookup, landing_surface_v1, answer/SEO authority and fallback gates; no UASP signal_type or claim_level.",
+        "status": "frontend_partial",
+        "phase2bRecommendation": "Later render bounded signal meaning from backend UASP metadata.",
+        "evidence": [
+          "app/(localized)/[locale]/tests/[slug]/page.tsx"
+        ]
+      },
+      {
+        "surface": "Test take page",
+        "currentState": "Dispatches clients by scale_code; MBTI/Big5/Enneagram/RIASEC form behavior remains scale-specific.",
+        "status": "safe_to_defer",
+        "phase2bRecommendation": "Do not generalize take flow in report train or Phase 2B metadata envelope.",
+        "evidence": [
+          "app/(localized)/[locale]/tests/[slug]/take/page.tsx"
+        ]
+      },
+      {
+        "surface": "Frontend fallback seeds",
+        "currentState": "Can expose current public tests without UASP readiness if not gated.",
+        "status": "dangerous_if_integrated",
+        "phase2bRecommendation": "Future scale additions must fail without UASP contract/fallback owner.",
+        "evidence": [
+          "lib/content.ts",
+          "docs/runtime/generated/fallback-owner-gates.v1.json"
+        ]
+      },
+      {
+        "surface": "Result/report entry",
+        "currentState": "Shell routing is scale-specific and does not consume UASP metadata.",
+        "status": "partial",
+        "phase2bRecommendation": "Add metadata envelope consumption later without changing shells.",
+        "evidence": [
+          "app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx",
+          "components/result/RichResultReport.tsx"
+        ]
+      }
+    ]
+  },
   "backlog": [],
   "phase2bPrTrainProposal": [],
   "codexSafeVsHumanDecision": [],
