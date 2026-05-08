@@ -86,7 +86,9 @@
       "depends_on": [
         "PR-CDD-04"
       ],
-      "status": "in_progress",
+      "status": "merged",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/740",
+      "merge_sha": "65b89f16",
       "title": "feat(domains): add domain report and freemium ledger",
       "artifacts": [
         "docs/assessment/domains/domain-report-freemium-ledger.md",
@@ -101,7 +103,7 @@
       "depends_on": [
         "PR-CDD-05"
       ],
-      "status": "planned",
+      "status": "in_progress",
       "title": "feat(domains): add core decision domain readiness dashboard",
       "artifacts": [
         "docs/assessment/domains/core-decision-domain-readiness-dashboard.md",

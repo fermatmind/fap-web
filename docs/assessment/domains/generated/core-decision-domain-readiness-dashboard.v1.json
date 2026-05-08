@@ -1,0 +1,147 @@
+{
+  "version": "core_decision_domain.readiness_dashboard.v1",
+  "scope": "PR-CDD-06",
+  "trainName": "core-decision-domain-governance-train",
+  "dependsOn": ["PR-CDD-05"],
+  "runtimeBehaviorChanged": false,
+  "executionMode": "artifact_json_contract_only",
+  "domains": ["self_understanding", "career_decision", "workstyle_decision"],
+  "sourceArtifacts": [
+    "docs/assessment/domains/generated/core-decision-domain-v1.json",
+    "docs/assessment/domains/generated/signal-to-domain-role-matrix.v1.json",
+    "docs/assessment/domains/generated/domain-evidence-cta-policy.v1.json",
+    "docs/assessment/domains/generated/domain-claim-boundary-overlay.v1.json",
+    "docs/assessment/domains/generated/domain-report-freemium-ledger.v1.json"
+  ],
+  "finalStatusEnum": ["ready", "partial", "blocked", "not_applicable", "requires_human_decision", "unknown"],
+  "domainStatusEnum": [
+    "ready_for_domain_v1",
+    "partial",
+    "artifact_only",
+    "backend_ready",
+    "frontend_partial",
+    "blocked",
+    "dangerous_if_expanded",
+    "requires_human_decision",
+    "safe_to_defer",
+    "unknown"
+  ],
+  "dashboard": [
+    {
+      "domain_id": "self_understanding",
+      "domain_readiness": "ready",
+      "runtime_readiness": "partial",
+      "decision": "artifact + matrix ready, no hub",
+      "signals": [
+        { "scale_code": "MBTI", "role": "primary" },
+        { "scale_code": "BIG5_OCEAN", "role": "primary" },
+        { "scale_code": "ENNEAGRAM", "role": "supporting" }
+      ],
+      "evidence_cta_status": "partial",
+      "claim_boundary_status": "ready_for_domain_v1",
+      "report_freemium_status": "partial",
+      "human_decision_required": [
+        "domain runtime IA",
+        "domain-owned CTA policy",
+        "domain bundle entitlement policy"
+      ],
+      "must_not_expand": ["domain hub page", "public route", "visible copy"]
+    },
+    {
+      "domain_id": "career_decision",
+      "domain_readiness": "partial",
+      "runtime_readiness": "dangerous_if_expanded",
+      "decision": "proceed only with strict claim/recommendation guards",
+      "signals": [
+        { "scale_code": "RIASEC", "role": "primary" },
+        { "scale_code": "MBTI", "role": "supporting" },
+        { "scale_code": "BIG5_OCEAN", "role": "supporting" },
+        { "scale_code": "Career Graph", "role": "supporting" }
+      ],
+      "evidence_cta_status": "partial",
+      "claim_boundary_status": "partial",
+      "report_freemium_status": "partial",
+      "human_decision_required": [
+        "career decision runtime framing",
+        "recommendation boundary approval",
+        "career evidence and explainability policy",
+        "domain bundle entitlement policy"
+      ],
+      "must_not_expand": [
+        "precise recommender",
+        "best-career prediction",
+        "success guarantee",
+        "Big Five/RIASEC career matcher",
+        "AI planning claim"
+      ]
+    },
+    {
+      "domain_id": "workstyle_decision",
+      "domain_readiness": "partial",
+      "runtime_readiness": "artifact_only",
+      "decision": "artifact-first, no public hub",
+      "signals": [
+        { "scale_code": "BIG5_OCEAN", "role": "primary" },
+        { "scale_code": "MBTI", "role": "secondary" },
+        { "scale_code": "ENNEAGRAM", "role": "supporting" }
+      ],
+      "evidence_cta_status": "partial",
+      "claim_boundary_status": "partial",
+      "report_freemium_status": "partial",
+      "human_decision_required": [
+        "workstyle runtime IA",
+        "workstyle CTA policy",
+        "workstyle report module policy"
+      ],
+      "must_not_expand": [
+        "employment suitability",
+        "workplace performance prediction",
+        "HR screening claim",
+        "Big Five career matching"
+      ]
+    }
+  ],
+  "blockedAreas": [
+    "new domain hub pages",
+    "public decision routes",
+    "recommendation expansion",
+    "profile memory",
+    "SEO/GEO expansion",
+    "freemium domain bundle",
+    "new tests",
+    "new scale onboarding",
+    "Topic Graph expansion",
+    "Career pSEO",
+    "report entitlement changes",
+    "checkout/payment changes",
+    "runtime CTA changes",
+    "visible copy changes"
+  ],
+  "nextPhaseRecommendation": {
+    "phase": "Phase 4B",
+    "decision": "do not start execute until humans approve whether domain runtime surfaces are needed",
+    "recommended_next_safe_step": "Domain Runtime Integration Readiness Scan",
+    "runtime_changes_allowed_now": false
+  },
+  "trainCompletionStatus": {
+    "domain_registry_overlay": "ready",
+    "signal_to_domain_role_matrix": "ready",
+    "evidence_cta_policy": "ready",
+    "claim_boundary_overlay": "ready",
+    "report_freemium_ledger": "ready",
+    "readiness_dashboard": "ready"
+  },
+  "mustNotChange": [
+    "domain hub pages",
+    "public routes",
+    "runtime CTA",
+    "SEO/GEO exposure",
+    "recommendation runtime",
+    "profile writes",
+    "freemium runtime",
+    "scoring",
+    "checkout/payment",
+    "report entitlement",
+    "visible public copy"
+  ]
+}
