@@ -34,7 +34,6 @@
       "article_detail",
       "career_index",
       "career_guides_index",
-      "career_industry",
       "career_family",
       "sitemap"
     ],
@@ -45,7 +44,8 @@
       "order",
       "share",
       "result",
-      "take_flow"
+      "take_flow",
+      "career_industry"
     ]
   }
 }

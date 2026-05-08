@@ -3,7 +3,6 @@ import { listCmsArticlesForLlmsWithLastKnownGood } from "@/lib/cms/articles";
 import { listCareerGuidesFromCms } from "@/lib/cms/career-guides";
 import { adaptCareerRecommendationIndex } from "@/lib/career/adapters/adaptCareerRecommendationIndex";
 import { fetchCareerRecommendationIndex } from "@/lib/career/api/fetchCareerRecommendationIndex";
-import { CAREER_DATASET_FAMILY_SLUGS } from "@/lib/career/datasetDirectory";
 import { listContentPagesWithLastKnownGood } from "@/lib/cms/content-pages";
 import { buildDefaultPublicPersonalitySlug, listPersonalityProfiles } from "@/lib/cms/personality";
 import { listTopics } from "@/lib/cms/topics";
@@ -261,13 +260,10 @@ export async function GET() {
   const careerEntries = dedupePaths([
     "/en/career",
     "/zh/career",
-    "/en/career/industries",
-    "/zh/career/industries",
     "/en/career/recommendations",
     "/zh/career/recommendations",
     "/en/career/tests",
     "/zh/career/tests",
-    ...CAREER_DATASET_FAMILY_SLUGS.flatMap((slug) => [`/en/career/industries/${slug}`, `/zh/career/industries/${slug}`]),
     ...guideEntries,
     ...enCareerRecommendations.filter(shouldKeepCareerAuthorityRoute).map((item) => item.href),
     ...zhCareerRecommendations.filter(shouldKeepCareerAuthorityRoute).map((item) => item.href),

@@ -294,6 +294,7 @@ describe("llms parity governance", () => {
       expect(text).not.toContain("/payment");
       expect(text).not.toContain("/history");
       expect(text).not.toContain("/career/jobs");
+      expect(text).not.toContain("/career/industries");
     }
   });
 });

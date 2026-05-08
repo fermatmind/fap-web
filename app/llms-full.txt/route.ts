@@ -3,7 +3,6 @@ import { getCmsArticleWithLastKnownGood, listCmsArticlesForLlmsWithLastKnownGood
 import { getCareerGuideFromCmsBySlug, listCareerGuidesFromCms } from "@/lib/cms/career-guides";
 import { adaptCareerRecommendationIndex } from "@/lib/career/adapters/adaptCareerRecommendationIndex";
 import { fetchCareerRecommendationIndex } from "@/lib/career/api/fetchCareerRecommendationIndex";
-import { CAREER_DATASET_FAMILY_SLUGS } from "@/lib/career/datasetDirectory";
 import { listContentPagesWithLastKnownGood } from "@/lib/cms/content-pages";
 import {
   buildDefaultPublicPersonalitySlug,
@@ -707,12 +706,6 @@ export async function GET() {
     { locale: "zh" as const, path: "/zh/career", title: "职业发展中心", type: "career_index", updatedAt: "" },
     { locale: "en" as const, path: "/en/career/recommendations", title: "Career recommendations", type: "career_recommendations_index", updatedAt: "" },
     { locale: "zh" as const, path: "/zh/career/recommendations", title: "职业推荐", type: "career_recommendations_index", updatedAt: "" },
-    { locale: "en" as const, path: "/en/career/industries", title: "Career industries", type: "career_industries_index", updatedAt: "" },
-    { locale: "zh" as const, path: "/zh/career/industries", title: "职业行业", type: "career_industries_index", updatedAt: "" },
-    ...CAREER_DATASET_FAMILY_SLUGS.flatMap((slug) => [
-      { locale: "en" as const, path: `/en/career/industries/${slug}`, title: slug, type: "career_industry", updatedAt: "" },
-      { locale: "zh" as const, path: `/zh/career/industries/${slug}`, title: slug, type: "career_industry", updatedAt: "" },
-    ]),
     ...guideEntries,
     ...enCareerRecommendations.filter(shouldKeepCareerAuthorityEntry).map((item) => ({
       locale: "en" as const,
