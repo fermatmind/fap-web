@@ -1,0 +1,113 @@
+{
+  "train_name": "domain-runtime-metadata-integration-train",
+  "pr_namespace": "PR-4B-*",
+  "base_branch": "main",
+  "status": "initialized",
+  "updated_at": "2026-05-09T00:00:00Z",
+  "policy": {
+    "artifact_json_contract_only": true,
+    "runtime_behavior_changed": false,
+    "new_pages_added": false,
+    "public_routes_added": false,
+    "visible_copy_added": false,
+    "cta_runtime_changed": false,
+    "seo_geo_exposure_changed": false,
+    "recommendation_runtime_changed": false,
+    "profile_runtime_changed": false,
+    "freemium_runtime_changed": false,
+    "report_entitlement_changed": false,
+    "checkout_payment_changed": false,
+    "scoring_changed": false
+  },
+  "prs": [
+    {
+      "id": "PR-4B-01",
+      "branch": "codex/pr-4b-01-decision-domain-metadata-envelope",
+      "depends_on": [],
+      "status": "in_progress",
+      "title": "feat(domains): add decision_domain_v1 metadata envelope contract",
+      "artifacts": [
+        "docs/assessment/domains/decision-domain-runtime-metadata-envelope.md",
+        "docs/assessment/domains/generated/decision-domain-runtime-metadata-envelope.v1.json",
+        "tests/contracts/decision-domain-runtime-metadata-envelope.contract.test.ts"
+      ],
+      "checks": {}
+    },
+    {
+      "id": "PR-4B-02",
+      "branch": "codex/pr-4b-02-result-report-domain-metadata-guard",
+      "depends_on": [
+        "PR-4B-01"
+      ],
+      "status": "planned",
+      "title": "test(domains): add result report domain metadata guard",
+      "artifacts": [
+        "docs/assessment/domains/result-report-domain-metadata-guard.md",
+        "docs/assessment/domains/generated/result-report-domain-metadata-guard.v1.json",
+        "tests/contracts/result-report-domain-metadata-guard.contract.test.ts"
+      ],
+      "checks": {}
+    },
+    {
+      "id": "PR-4B-03",
+      "branch": "codex/pr-4b-03-self-understanding-surface-metadata-policy",
+      "depends_on": [
+        "PR-4B-02"
+      ],
+      "status": "planned",
+      "title": "feat(domains): add self-understanding existing surface metadata policy",
+      "artifacts": [
+        "docs/assessment/domains/self-understanding-surface-metadata-policy.md",
+        "docs/assessment/domains/generated/self-understanding-surface-metadata-policy.v1.json",
+        "tests/contracts/self-understanding-surface-metadata-policy.contract.test.ts"
+      ],
+      "checks": {}
+    },
+    {
+      "id": "PR-4B-04",
+      "branch": "codex/pr-4b-04-career-decision-surface-guard-ledger",
+      "depends_on": [
+        "PR-4B-03"
+      ],
+      "status": "planned",
+      "title": "test(domains): add career decision existing surface guard ledger",
+      "artifacts": [
+        "docs/assessment/domains/career-decision-surface-guard-ledger.md",
+        "docs/assessment/domains/generated/career-decision-surface-guard-ledger.v1.json",
+        "tests/contracts/career-decision-surface-guard-ledger.contract.test.ts"
+      ],
+      "checks": {}
+    },
+    {
+      "id": "PR-4B-05",
+      "branch": "codex/pr-4b-05-workstyle-metadata-readiness-ledger",
+      "depends_on": [
+        "PR-4B-04"
+      ],
+      "status": "planned",
+      "title": "test(domains): add workstyle metadata readiness ledger",
+      "artifacts": [
+        "docs/assessment/domains/workstyle-metadata-readiness-ledger.md",
+        "docs/assessment/domains/generated/workstyle-metadata-readiness-ledger.v1.json",
+        "tests/contracts/workstyle-metadata-readiness-ledger.contract.test.ts"
+      ],
+      "checks": {}
+    },
+    {
+      "id": "PR-4B-06",
+      "branch": "codex/pr-4b-06-final-runtime-readiness-dashboard",
+      "depends_on": [
+        "PR-4B-05"
+      ],
+      "status": "planned",
+      "title": "feat(domains): add final Phase 4B runtime readiness dashboard",
+      "artifacts": [
+        "docs/assessment/domains/domain-runtime-readiness-dashboard.md",
+        "docs/assessment/domains/generated/domain-runtime-readiness-dashboard.v1.json",
+        "tests/contracts/domain-runtime-readiness-dashboard.contract.test.ts"
+      ],
+      "checks": {}
+    }
+  ],
+  "sidecar_issues": []
+}
