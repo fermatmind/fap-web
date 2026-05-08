@@ -1,0 +1,263 @@
+{
+  "version": "uasp.decision_domain_registry.v1",
+  "scope": "PR-UASP-03",
+  "trainName": "universal-assessment-signal-platform-v1-train",
+  "dependsOn": [
+    "PR-UASP-02"
+  ],
+  "runtimeBehaviorChanged": false,
+  "schemaArtifact": "docs/assessment/uasp/generated/uasp-signal-contract-schema.v1.json",
+  "scaleRegistryArtifact": "docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json",
+  "domains": [
+    {
+      "domain_id": "self_understanding",
+      "user_problem": "Understand identity, traits, motivation, interests, values, or learning pattern.",
+      "allowed_signal_types": [
+        "identity",
+        "trait",
+        "interest",
+        "motivation",
+        "value",
+        "learning",
+        "relationship",
+        "workstyle"
+      ],
+      "prohibited_signal_types": [],
+      "claim_boundary_notes": "Descriptive and interpretive claims are allowed when scale claim boundaries pass.",
+      "evidence_requirement": "Visible evidence or report explanation is required before public claims.",
+      "recommendation_policy": "Does not grant recommendation eligibility.",
+      "seo_geo_policy": "Does not grant SEO/GEO eligibility automatically.",
+      "profile_policy": "Uses each scale profile_contribution policy."
+    },
+    {
+      "domain_id": "career_decision",
+      "user_problem": "Clarify career direction and decision support without implying recommendation runtime.",
+      "allowed_signal_types": [
+        "identity",
+        "trait",
+        "interest",
+        "workstyle",
+        "motivation",
+        "value",
+        "ability"
+      ],
+      "prohibited_signal_types": [
+        "state"
+      ],
+      "claim_boundary_notes": "Career decision support is not career success prediction or precise recommendation.",
+      "evidence_requirement": "Visible evidence, claim boundary, and source authority are required before public decision claims.",
+      "recommendation_policy": "Domain mapping does not grant recommendation eligibility.",
+      "seo_geo_policy": "Career SEO/GEO eligibility requires evidence and discoverability gates.",
+      "profile_policy": "Uses each scale profile_contribution policy."
+    },
+    {
+      "domain_id": "workstyle_decision",
+      "user_problem": "Understand work style, collaboration mode, and workplace preference.",
+      "allowed_signal_types": [
+        "identity",
+        "trait",
+        "workstyle",
+        "motivation",
+        "relationship"
+      ],
+      "prohibited_signal_types": [
+        "state"
+      ],
+      "claim_boundary_notes": "Workstyle claims must not become hiring suitability or employment-worth claims.",
+      "evidence_requirement": "Visible report or answer evidence required before workplace public claims.",
+      "recommendation_policy": "Explanation or next-step only unless separate recommendation guard passes.",
+      "seo_geo_policy": "SEO/GEO requires claim and evidence guards.",
+      "profile_policy": "Longitudinal only for approved normal/sensitive signals."
+    },
+    {
+      "domain_id": "relationship_decision",
+      "user_problem": "Understand relationship and communication patterns.",
+      "allowed_signal_types": [
+        "identity",
+        "motivation",
+        "relationship",
+        "trait"
+      ],
+      "prohibited_signal_types": [
+        "ability",
+        "state"
+      ],
+      "claim_boundary_notes": "Relationship claims must remain interpretive and non-diagnostic.",
+      "evidence_requirement": "Relationship evidence or report explanation required.",
+      "recommendation_policy": "Explanation only unless separate guard passes.",
+      "seo_geo_policy": "Relationship-sensitive content requires explicit eligibility.",
+      "profile_policy": "Relationship-sensitive policy applies when signal sensitivity requires it."
+    },
+    {
+      "domain_id": "learning_growth",
+      "user_problem": "Understand learning and growth patterns.",
+      "allowed_signal_types": [
+        "learning",
+        "ability",
+        "trait",
+        "motivation",
+        "value"
+      ],
+      "prohibited_signal_types": [],
+      "claim_boundary_notes": "Learning claims must not claim fixed ability destiny.",
+      "evidence_requirement": "Evidence must describe growth context.",
+      "recommendation_policy": "Next-step only by default.",
+      "seo_geo_policy": "SEO only until visible evidence and source authority pass.",
+      "profile_policy": "Summary or longitudinal only when sensitivity permits."
+    },
+    {
+      "domain_id": "emotional_state",
+      "user_problem": "Understand temporary emotional or mental-state signals.",
+      "allowed_signal_types": [
+        "state",
+        "emotion"
+      ],
+      "prohibited_signal_types": [
+        "ability"
+      ],
+      "claim_boundary_notes": "Sensitive by default; must not be diagnostic.",
+      "evidence_requirement": "Visible disclaimer and evidence required.",
+      "recommendation_policy": "not_eligible by default.",
+      "seo_geo_policy": "private_noindex by default for mental-health-sensitive signals.",
+      "profile_policy": "ephemeral or sensitive_opt_in only."
+    },
+    {
+      "domain_id": "ability_growth",
+      "user_problem": "Understand ability-estimate or skill-growth signals without evaluating human worth.",
+      "allowed_signal_types": [
+        "ability",
+        "learning"
+      ],
+      "prohibited_signal_types": [
+        "state"
+      ],
+      "claim_boundary_notes": "Ability-sensitive by default; must not evaluate human worth or employment suitability.",
+      "evidence_requirement": "Method and caveat evidence required.",
+      "recommendation_policy": "explanation_only by default.",
+      "seo_geo_policy": "seo_only at most unless separate guard passes.",
+      "profile_policy": "summary_only or sensitive_opt_in only."
+    },
+    {
+      "domain_id": "team_communication",
+      "user_problem": "Support team communication reflection.",
+      "allowed_signal_types": [
+        "identity",
+        "trait",
+        "workstyle",
+        "relationship",
+        "motivation"
+      ],
+      "prohibited_signal_types": [
+        "state",
+        "ability"
+      ],
+      "claim_boundary_notes": "Team claims must not become employee scoring.",
+      "evidence_requirement": "Workplace-context evidence required.",
+      "recommendation_policy": "next_step_only by default.",
+      "seo_geo_policy": "SEO/GEO requires workplace-sensitive review.",
+      "profile_policy": "workplace_sensitive policy applies where relevant."
+    },
+    {
+      "domain_id": "leadership_growth",
+      "user_problem": "Support leadership growth reflection.",
+      "allowed_signal_types": [
+        "trait",
+        "workstyle",
+        "motivation",
+        "value",
+        "learning"
+      ],
+      "prohibited_signal_types": [
+        "state"
+      ],
+      "claim_boundary_notes": "Leadership claims must stay developmental.",
+      "evidence_requirement": "Developmental evidence required.",
+      "recommendation_policy": "next_step_only by default.",
+      "seo_geo_policy": "SEO/GEO requires evidence and claim review.",
+      "profile_policy": "summary or longitudinal only when sensitivity permits."
+    },
+    {
+      "domain_id": "life_direction",
+      "user_problem": "Support value, purpose, and long-range direction reflection.",
+      "allowed_signal_types": [
+        "value",
+        "motivation",
+        "interest",
+        "identity",
+        "trait"
+      ],
+      "prohibited_signal_types": [
+        "state",
+        "ability"
+      ],
+      "claim_boundary_notes": "Life-direction claims must remain reflective and non-deterministic.",
+      "evidence_requirement": "Visible reflective evidence required.",
+      "recommendation_policy": "next_step_only by default.",
+      "seo_geo_policy": "SEO/GEO requires claim and evidence guards.",
+      "profile_policy": "Uses each scale profile_contribution policy."
+    }
+  ],
+  "scaleDomainMappings": [
+    {
+      "scale_code": "MBTI",
+      "decision_domains": [
+        "self_understanding",
+        "career_decision",
+        "workstyle_decision"
+      ],
+      "recommendationGrantedByDomain": false,
+      "seoGeoGrantedByDomain": false,
+      "freemiumGrantedByDomain": false
+    },
+    {
+      "scale_code": "BIG5_OCEAN",
+      "decision_domains": [
+        "self_understanding",
+        "workstyle_decision",
+        "career_decision"
+      ],
+      "recommendationGrantedByDomain": false,
+      "seoGeoGrantedByDomain": false,
+      "freemiumGrantedByDomain": false
+    },
+    {
+      "scale_code": "RIASEC",
+      "decision_domains": [
+        "career_decision",
+        "self_understanding"
+      ],
+      "recommendationGrantedByDomain": false,
+      "seoGeoGrantedByDomain": false,
+      "freemiumGrantedByDomain": false
+    },
+    {
+      "scale_code": "ENNEAGRAM",
+      "decision_domains": [
+        "self_understanding",
+        "relationship_decision",
+        "workstyle_decision"
+      ],
+      "recommendationGrantedByDomain": false,
+      "seoGeoGrantedByDomain": false,
+      "freemiumGrantedByDomain": false
+    }
+  ],
+  "hardRules": [
+    "emotional_state is sensitive by default.",
+    "ability_growth is ability_sensitive by default.",
+    "career_decision does not imply recommendation eligibility.",
+    "domain mapping does not grant SEO/GEO eligibility automatically.",
+    "domain mapping does not grant freemium eligibility automatically.",
+    "domain mapping does not grant profile contribution automatically."
+  ],
+  "mustNotChange": [
+    "result pages",
+    "CTA routing",
+    "recommendation",
+    "profile",
+    "SEO pages",
+    "public catalog",
+    "sitemap output",
+    "llms output"
+  ]
+}
