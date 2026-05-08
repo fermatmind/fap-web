@@ -18,7 +18,9 @@
       "id": "PR-CDD-01",
       "branch": "codex/pr-cdd-01-domain-registry-overlay",
       "depends_on": [],
-      "status": "in_progress",
+      "status": "merged",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/736",
+      "merge_sha": "cbb03ff1",
       "title": "feat(domains): add core decision domain registry overlay",
       "artifacts": [
         "docs/assessment/domains/core-decision-domain-v1.md",
@@ -33,7 +35,7 @@
       "depends_on": [
         "PR-CDD-01"
       ],
-      "status": "planned",
+      "status": "in_progress",
       "title": "feat(domains): add signal-to-domain role matrix",
       "artifacts": [
         "docs/assessment/domains/signal-to-domain-role-matrix.md",
