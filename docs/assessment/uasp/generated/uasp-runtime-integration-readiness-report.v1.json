@@ -2,7 +2,7 @@
   "version": "uasp.runtime_integration_readiness_report.v1",
   "trainName": "uasp-runtime-integration-readiness-report-train",
   "prNamespace": "PR-UASP2B-RPT-*",
-  "scope": "PR-UASP2B-RPT-01",
+  "scope": "PR-UASP2B-RPT-06",
   "runtimeBehaviorChanged": false,
   "reportPath": "docs/assessment/uasp/uasp-runtime-integration-readiness-report.md",
   "allowedStatuses": [
@@ -977,12 +977,367 @@
       }
     ]
   },
-  "backlog": [],
-  "phase2bPrTrainProposal": [],
-  "codexSafeVsHumanDecision": [],
-  "mustNotIntegrateYet": [],
+  "backlog": [
+    {
+      "priority": "P0",
+      "item": "Runtime Metadata Envelope Contract",
+      "status": "ready_for_integration",
+      "ownerOrGate": "Backend scale registry plus UASP artifact projection",
+      "evidence": [
+        "docs/assessment/uasp/generated/uasp-signal-contract-schema.v1.json",
+        "backend/app/Models/ScaleRegistry.php"
+      ]
+    },
+    {
+      "priority": "P0",
+      "item": "Profile Write Blocker",
+      "status": "blocked",
+      "ownerOrGate": "Privacy/product decision before any profile persistence",
+      "evidence": [
+        "docs/assessment/uasp/generated/uasp-profile-sensitivity-policy.v1.json",
+        "backend/app/Services/V0_3/Me/MeProfileService.php"
+      ]
+    },
+    {
+      "priority": "P0",
+      "item": "Recommendation Guard",
+      "status": "dangerous_if_integrated",
+      "ownerOrGate": "Product/graph governance; guard-only until graph/evidence/claim proof exists",
+      "evidence": [
+        "docs/assessment/uasp/generated/uasp-eligibility-guards.v1.json",
+        "backend/app/Domain/Career/Scoring/ScoringEngine5D.php"
+      ]
+    },
+    {
+      "priority": "P0",
+      "item": "Future Scale Onboarding Gate",
+      "status": "ready_for_integration",
+      "ownerOrGate": "Contract gate requiring UASP metadata and fallback owner proof",
+      "evidence": [
+        "docs/assessment/uasp/generated/uasp-readiness-dashboard.v1.json",
+        "docs/runtime/generated/fallback-owner-gates.v1.json"
+      ]
+    },
+    {
+      "priority": "P1",
+      "item": "Result / Report Metadata Rendering Guard",
+      "status": "partial",
+      "ownerOrGate": "Frontend result/report shell consumes read-only metadata only",
+      "evidence": [
+        "components/result/RichResultReport.tsx",
+        "app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx"
+      ]
+    },
+    {
+      "priority": "P1",
+      "item": "SEO/GEO Eligibility Guard",
+      "status": "partial",
+      "ownerOrGate": "Discoverability guard, no URL widening",
+      "evidence": [
+        "app/llms.txt/route.ts",
+        "app/llms-full.txt/route.ts",
+        "next-sitemap.config.js"
+      ]
+    },
+    {
+      "priority": "P1",
+      "item": "Freemium UASP Guard",
+      "status": "partial",
+      "ownerOrGate": "Freemium parity proof required before monetization claims",
+      "evidence": [
+        "docs/freemium/generated/freemium-cross-scale-parity-ledger.v1.json",
+        "backend/app/Services/Commerce/SkuCatalog.php"
+      ]
+    },
+    {
+      "priority": "P2",
+      "item": "Sensitive Scale Canonical Code Decision",
+      "status": "requires_human_decision",
+      "ownerOrGate": "Human canonicalization of SDS20 vs SDS_20 before sensitive runtime integration",
+      "evidence": [
+        "docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json",
+        "backend/database/seeders/ScaleRegistrySeeder.php"
+      ]
+    },
+    {
+      "priority": "P2",
+      "item": "CMS Disclaimer Ownership",
+      "status": "requires_human_decision",
+      "ownerOrGate": "Human/CMS policy for disclaimer copy and localization",
+      "evidence": [
+        "docs/assessment/uasp/generated/uasp-profile-sensitivity-policy.v1.json"
+      ]
+    },
+    {
+      "priority": "P3",
+      "item": "Full UASP Profile Memory Architecture",
+      "status": "blocked",
+      "ownerOrGate": "Long-term architecture only after DSAR/consent lifecycle closes",
+      "evidence": [
+        "backend/app/Services/Attempts/UserDataLifecycleService.php",
+        "backend/app/Services/Memory/MemoryService.php"
+      ]
+    }
+  ],
+  "phase2bPrTrainProposal": [
+    {
+      "pr": "PR-UASP2B-01",
+      "name": "Runtime Metadata Envelope Contract",
+      "scope": "Add backend/read-only uasp_signal_v1 envelope contract using approved UASP artifact fields keyed by scale_code.",
+      "status": "ready_for_integration",
+      "mustNotTouch": [
+        "scoring",
+        "report entitlement",
+        "payment",
+        "recommendation",
+        "profile writes"
+      ],
+      "evidence": [
+        "docs/assessment/uasp/generated/uasp-signal-contract-schema.v1.json",
+        "backend/app/Models/ScaleRegistry.php"
+      ]
+    },
+    {
+      "pr": "PR-UASP2B-02",
+      "name": "Result / Report UASP Metadata Rendering Guard",
+      "scope": "Let result/report surfaces display bounded signal metadata and caveats only after envelope exists.",
+      "status": "partial",
+      "mustNotTouch": [
+        "paid module logic",
+        "shell routing rewrite",
+        "scoring interpretation"
+      ],
+      "evidence": [
+        "components/result/RichResultReport.tsx",
+        "backend/app/Http/Controllers/API/V0_3/AttemptReadController.php"
+      ]
+    },
+    {
+      "pr": "PR-UASP2B-03",
+      "name": "SEO/GEO UASP Eligibility Guard",
+      "scope": "Add non-widening validators that prevent future scales from entering sitemap/llms/llms-full without UASP, evidence, and claim authority.",
+      "status": "partial",
+      "mustNotTouch": [
+        "sitemap URL set",
+        "llms exposure",
+        "JSON-LD widening"
+      ],
+      "evidence": [
+        "docs/seo/generated/discoverability-authority-matrix.v1.json",
+        "app/llms-full.txt/route.ts"
+      ]
+    },
+    {
+      "pr": "PR-UASP2B-04",
+      "name": "Freemium UASP Guard",
+      "scope": "Add guard that prevents future scales from claiming monetization readiness without parity proof.",
+      "status": "partial",
+      "mustNotTouch": [
+        "checkout",
+        "payment",
+        "entitlement",
+        "report access"
+      ],
+      "evidence": [
+        "docs/freemium/generated/freemium-cross-scale-parity-ledger.v1.json",
+        "backend/app/Services/Report/ReportAccess.php"
+      ]
+    },
+    {
+      "pr": "PR-UASP2B-05",
+      "name": "Recommendation UASP Guard",
+      "scope": "Lock recommendation_eligible as guard-only and block Big Five/RIASEC overclaim paths.",
+      "status": "dangerous_if_integrated",
+      "mustNotTouch": [
+        "recommender runtime",
+        "career scoring",
+        "graph expansion"
+      ],
+      "evidence": [
+        "docs/assessment/uasp/generated/uasp-eligibility-guards.v1.json",
+        "backend/app/Domain/Career/Scoring/ClaimPermissionsCompiler.php"
+      ]
+    },
+    {
+      "pr": "PR-UASP2B-06",
+      "name": "Profile Write Blocker & Memory Readiness Ledger",
+      "scope": "Add explicit blockers and readiness ledger for profile contribution, sensitive storage, DSAR coverage, and memory lifecycle.",
+      "status": "blocked",
+      "mustNotTouch": [
+        "profile persistence",
+        "sensitive signal storage",
+        "saved careers promotion"
+      ],
+      "evidence": [
+        "docs/assessment/uasp/generated/uasp-profile-sensitivity-policy.v1.json",
+        "backend/app/Services/Attempts/UserDataLifecycleService.php"
+      ]
+    }
+  ],
+  "codexSafeVsHumanDecision": [
+    {
+      "workArea": "UASP metadata envelope schema/contract",
+      "status": "ready_for_integration",
+      "codexSafeAction": "Add read-only contract, fixtures, and validators.",
+      "humanDecisionRequired": "Storage permanence and backend ownership confirmation if DB migration is proposed.",
+      "evidence": [
+        "docs/assessment/uasp/generated/uasp-signal-contract-schema.v1.json"
+      ]
+    },
+    {
+      "workArea": "Result/report metadata display guard",
+      "status": "partial",
+      "codexSafeAction": "Render existing metadata/caveats after backend envelope exists.",
+      "humanDecisionRequired": "Exact user-facing copy and localization for sensitive disclaimers.",
+      "evidence": [
+        "components/result/RichResultReport.tsx"
+      ]
+    },
+    {
+      "workArea": "Claim and recommendation guards",
+      "status": "dangerous_if_integrated",
+      "codexSafeAction": "Add tests that keep recommendation_eligible guard-only.",
+      "humanDecisionRequired": "Any decision to make RIASEC/Big Five feed recommendation runtime.",
+      "evidence": [
+        "docs/assessment/uasp/generated/uasp-eligibility-guards.v1.json"
+      ]
+    },
+    {
+      "workArea": "SEO/GEO eligibility guard",
+      "status": "partial",
+      "codexSafeAction": "Add non-widening validators and readiness fixtures.",
+      "humanDecisionRequired": "Any new public exposure, llms-full eligibility, or sensitive scale indexability.",
+      "evidence": [
+        "app/llms.txt/route.ts",
+        "app/llms-full.txt/route.ts"
+      ]
+    },
+    {
+      "workArea": "Freemium readiness guard",
+      "status": "partial",
+      "codexSafeAction": "Validate that full_loop requires parity proof.",
+      "humanDecisionRequired": "Product/commercial decision to monetize non-MBTI scales.",
+      "evidence": [
+        "docs/freemium/generated/freemium-cross-scale-parity-ledger.v1.json"
+      ]
+    },
+    {
+      "workArea": "Profile contribution / memory",
+      "status": "blocked",
+      "codexSafeAction": "Add blocker tests and readiness ledger only.",
+      "humanDecisionRequired": "Consent, retention, DSAR, deletion, sensitive storage, and longitudinal profile policy.",
+      "evidence": [
+        "backend/app/Services/Memory/MemoryService.php",
+        "backend/app/Services/Attempts/UserDataLifecycleService.php"
+      ]
+    },
+    {
+      "workArea": "Sensitive scale canonicalization",
+      "status": "requires_human_decision",
+      "codexSafeAction": "Document mismatch and block runtime integration.",
+      "humanDecisionRequired": "Canonical SDS20 vs SDS_20 code decision.",
+      "evidence": [
+        "docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json",
+        "backend/database/seeders/ScaleRegistrySeeder.php"
+      ]
+    }
+  ],
+  "mustNotIntegrateYet": [
+    "UASP profile persistence must not be implemented.",
+    "Sensitive signal storage must not be enabled.",
+    "Saved careers must not be promoted to UASP profile memory.",
+    "MBTI longitudinal memory must not be generalized.",
+    "Generalized recommendation must not be implemented.",
+    "RIASEC must not be represented as a precise career recommender.",
+    "Big Five must not be represented as career matching/recommendation runtime.",
+    "recommendation_eligible must not trigger scoring, graph expansion, or recommender input.",
+    "seo_geo_eligible must not widen sitemap, llms.txt, llms-full.txt, JSON-LD, or indexable exposure.",
+    "freemium_status must not alter checkout, payment, entitlement, report access, SKU, or paywall behavior.",
+    "Future scale onboarding must not start until UASP runtime metadata and fallback gates are enforced.",
+    "Sensitive/clinical examples must remain private/noindex and non-diagnostic until human privacy and disclaimer decisions are complete."
+  ],
   "finalReadinessAssessment": {
-    "status": "partial",
-    "statement": "Pending final synthesis in PR-UASP2B-RPT-06."
+    "status": "ready_for_integration",
+    "statement": "Phase 2B may begin with metadata envelope and guard-only runtime integration. It must not begin with profile memory, generalized recommendation, new scale onboarding, sensitive persistence, SEO/GEO expansion, freemium behavior changes, or scoring/report/payment changes.",
+    "lockedConclusions": [
+      "UASP v1 governance/contract layer = complete",
+      "UASP runtime metadata integration = ready to start",
+      "UASP profile memory = blocked",
+      "UASP generalized recommendation = blocked",
+      "UASP new scale onboarding = blocked",
+      "UASP sensitive signal persistence = blocked",
+      "UASP SEO/GEO = guard-only, no expansion"
+    ],
+    "areas": [
+      {
+        "area": "UASP v1 governance/contract layer",
+        "status": "ready_for_integration",
+        "judgment": "Complete. Approved enums, mappings, domains, guards, profile policy, and dashboard exist.",
+        "evidence": [
+          "docs/assessment/uasp/generated/uasp-readiness-dashboard.v1.json"
+        ]
+      },
+      {
+        "area": "UASP runtime metadata integration",
+        "status": "ready_for_integration",
+        "judgment": "Ready to start as read-only envelope and guard integration.",
+        "evidence": [
+          "docs/assessment/uasp/generated/uasp-signal-contract-schema.v1.json",
+          "backend/app/Models/ScaleRegistry.php"
+        ]
+      },
+      {
+        "area": "Result/report runtime",
+        "status": "partial",
+        "judgment": "Can consume metadata later; must not change scoring, report entitlement, or paid modules.",
+        "evidence": [
+          "backend/app/Http/Controllers/API/V0_3/AttemptReadController.php",
+          "components/result/RichResultReport.tsx"
+        ]
+      },
+      {
+        "area": "SEO/GEO runtime",
+        "status": "partial",
+        "judgment": "Guard-only, no expansion. UASP cannot add URLs or schema by itself.",
+        "evidence": [
+          "app/llms.txt/route.ts",
+          "next-sitemap.config.js"
+        ]
+      },
+      {
+        "area": "Freemium runtime",
+        "status": "partial",
+        "judgment": "Guard-only. MBTI is reference full loop; other scales require parity proof.",
+        "evidence": [
+          "docs/freemium/generated/freemium-cross-scale-parity-ledger.v1.json"
+        ]
+      },
+      {
+        "area": "Profile memory",
+        "status": "blocked",
+        "judgment": "Blocked until consent, DSAR, deletion, retention, and sensitive storage policy are runtime-ready.",
+        "evidence": [
+          "backend/app/Services/V0_3/Me/MeProfileService.php",
+          "backend/app/Services/Attempts/UserDataLifecycleService.php"
+        ]
+      },
+      {
+        "area": "Generalized recommendation",
+        "status": "blocked",
+        "judgment": "Blocked. UASP recommendation_eligible is guard-only.",
+        "evidence": [
+          "docs/assessment/uasp/generated/uasp-eligibility-guards.v1.json"
+        ]
+      },
+      {
+        "area": "New scale onboarding",
+        "status": "blocked",
+        "judgment": "Blocked until future scale gate is wired to runtime authority and fallback policy.",
+        "evidence": [
+          "docs/assessment/uasp/generated/uasp-readiness-dashboard.v1.json",
+          "docs/runtime/generated/fallback-owner-gates.v1.json"
+        ]
+      }
+    ]
   }
 }

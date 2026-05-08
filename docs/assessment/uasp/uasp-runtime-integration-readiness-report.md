@@ -8,7 +8,19 @@ This report consolidates the UASP Runtime Integration readiness scan into one ca
 
 ## 1. Executive Summary
 
-Status: pending completion in PR-UASP2B-RPT-06.
+UASP v1 governance/contract layer is complete: the repo has approved enums, a signal contract schema, first-batch scale mappings, decision domain registry, eligibility guards, profile/sensitivity policy, and readiness dashboard. The current state is still runtime-integration incomplete: UASP fields are not yet consumed by backend scale lookup/catalog, frontend test runtime, result/report payloads, SEO/GEO generation, freemium runtime, profile/memory, or recommendation runtime.
+
+The Phase 2B runtime integration can start, but only as read-only metadata and fail-closed guards. The first safe step is a `uasp_signal_v1` metadata envelope keyed by backend `scale_code`, then bounded display/guard consumption in test detail and result/report surfaces. Profile persistence, sensitive signal storage, generalized recommendation, new scale onboarding, SEO/GEO exposure widening, and commerce behavior changes remain blocked.
+
+Final readiness:
+
+- UASP v1 governance/contract layer = complete
+- UASP runtime metadata integration = ready to start
+- UASP profile memory = blocked
+- UASP generalized recommendation = blocked
+- UASP new scale onboarding = blocked
+- UASP sensitive signal persistence = blocked
+- UASP SEO/GEO = guard-only, no expansion
 
 ## 2. UASP Artifact Reality Matrix
 
@@ -153,23 +165,71 @@ Status: pending completion in PR-UASP2B-RPT-06.
 
 ## 14. P0 / P1 / P2 / P3 Backlog
 
-Status: pending completion in PR-UASP2B-RPT-06.
+| Priority | Item | Status | Owner / Gate | Evidence |
+| --- | --- | --- | --- | --- |
+| `P0` | Runtime Metadata Envelope Contract | `ready_for_integration` | Backend scale registry + UASP artifact projection | `docs/assessment/uasp/generated/uasp-signal-contract-schema.v1.json`; `backend/app/Models/ScaleRegistry.php` |
+| `P0` | Profile Write Blocker | `blocked` | Privacy/product decision before any profile persistence | `docs/assessment/uasp/generated/uasp-profile-sensitivity-policy.v1.json`; `backend/app/Services/V0_3/Me/MeProfileService.php` |
+| `P0` | Recommendation Guard | `dangerous_if_integrated` | Product/graph governance; guard-only until graph/evidence/claim proof exists | `docs/assessment/uasp/generated/uasp-eligibility-guards.v1.json`; `backend/app/Domain/Career/Scoring/ScoringEngine5D.php` |
+| `P0` | Future Scale Onboarding Gate | `ready_for_integration` | Contract gate requiring UASP metadata and fallback owner proof | `docs/assessment/uasp/generated/uasp-readiness-dashboard.v1.json`; `docs/runtime/generated/fallback-owner-gates.v1.json` |
+| `P1` | Result / Report Metadata Rendering Guard | `partial` | Frontend result/report shell consumes read-only metadata only | `components/result/RichResultReport.tsx`; `app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx` |
+| `P1` | SEO/GEO Eligibility Guard | `partial` | Discoverability guard, no URL widening | `app/llms.txt/route.ts`; `app/llms-full.txt/route.ts`; `next-sitemap.config.js` |
+| `P1` | Freemium UASP Guard | `partial` | Freemium parity proof required before monetization claims | `docs/freemium/generated/freemium-cross-scale-parity-ledger.v1.json`; `backend/app/Services/Commerce/SkuCatalog.php` |
+| `P2` | Sensitive Scale Canonical Code Decision | `requires_human_decision` | Human canonicalization of `SDS20` vs `SDS_20` before sensitive runtime integration | `docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json`; `backend/database/seeders/ScaleRegistrySeeder.php` |
+| `P2` | CMS Disclaimer Ownership | `requires_human_decision` | Human/CMS policy for disclaimer copy and localization | `docs/assessment/uasp/generated/uasp-profile-sensitivity-policy.v1.json` |
+| `P3` | Full UASP Profile Memory Architecture | `blocked` | Long-term architecture only after DSAR/consent lifecycle closes | `backend/app/Services/Attempts/UserDataLifecycleService.php`; `backend/app/Services/Memory/MemoryService.php` |
 
 ## 15. Phase 2B Runtime Integration PR Train Proposal
 
-Status: pending completion in PR-UASP2B-RPT-06.
+| PR | Scope | Status | Must Not Touch | Evidence |
+| --- | --- | --- | --- | --- |
+| PR-UASP2B-01 Runtime Metadata Envelope Contract | Add backend/read-only `uasp_signal_v1` envelope contract using approved UASP artifact fields keyed by `scale_code`. | `ready_for_integration` | scoring, report entitlement, payment, recommendation, profile writes | `docs/assessment/uasp/generated/uasp-signal-contract-schema.v1.json`; `backend/app/Models/ScaleRegistry.php` |
+| PR-UASP2B-02 Result / Report UASP Metadata Rendering Guard | Let result/report surfaces display bounded signal metadata and caveats only after envelope exists. | `partial` | paid module logic, shell routing rewrite, scoring interpretation | `components/result/RichResultReport.tsx`; `backend/app/Http/Controllers/API/V0_3/AttemptReadController.php` |
+| PR-UASP2B-03 SEO/GEO UASP Eligibility Guard | Add non-widening validators that prevent future scales from entering sitemap/llms/llms-full without UASP + evidence + claim authority. | `partial` | sitemap URL set, llms exposure, JSON-LD widening | `docs/seo/generated/discoverability-authority-matrix.v1.json`; `app/llms-full.txt/route.ts` |
+| PR-UASP2B-04 Freemium UASP Guard | Add guard that prevents future scales from claiming monetization readiness without parity proof. | `partial` | checkout, payment, entitlement, report access | `docs/freemium/generated/freemium-cross-scale-parity-ledger.v1.json`; `backend/app/Services/Report/ReportAccess.php` |
+| PR-UASP2B-05 Recommendation UASP Guard | Lock `recommendation_eligible` as guard-only and block Big Five/RIASEC overclaim paths. | `dangerous_if_integrated` | recommender runtime, career scoring, graph expansion | `docs/assessment/uasp/generated/uasp-eligibility-guards.v1.json`; `backend/app/Domain/Career/Scoring/ClaimPermissionsCompiler.php` |
+| PR-UASP2B-06 Profile Write Blocker & Memory Readiness Ledger | Add explicit blockers and readiness ledger for profile contribution, sensitive storage, DSAR coverage, and memory lifecycle. | `blocked` | profile persistence, sensitive signal storage, saved careers promotion | `docs/assessment/uasp/generated/uasp-profile-sensitivity-policy.v1.json`; `backend/app/Services/Attempts/UserDataLifecycleService.php` |
 
 ## 16. Codex-safe vs Human-decision-required Matrix
 
-Status: pending completion in PR-UASP2B-RPT-06.
+| Work Area | Status | Codex-safe Action | Human Decision Required | Evidence |
+| --- | --- | --- | --- | --- |
+| UASP metadata envelope schema/contract | `ready_for_integration` | Add read-only contract, fixtures, and validators. | Storage permanence and backend ownership confirmation if DB migration is proposed. | `docs/assessment/uasp/generated/uasp-signal-contract-schema.v1.json` |
+| Result/report metadata display guard | `partial` | Render existing metadata/caveats after backend envelope exists. | Exact user-facing copy and localization for sensitive disclaimers. | `components/result/RichResultReport.tsx` |
+| Claim and recommendation guards | `dangerous_if_integrated` | Add tests that keep `recommendation_eligible` guard-only. | Any decision to make RIASEC/Big Five feed recommendation runtime. | `docs/assessment/uasp/generated/uasp-eligibility-guards.v1.json` |
+| SEO/GEO eligibility guard | `partial` | Add non-widening validators and readiness fixtures. | Any new public exposure, llms-full eligibility, or sensitive scale indexability. | `app/llms.txt/route.ts`; `app/llms-full.txt/route.ts` |
+| Freemium readiness guard | `partial` | Validate that `full_loop` requires parity proof. | Product/commercial decision to monetize non-MBTI scales. | `docs/freemium/generated/freemium-cross-scale-parity-ledger.v1.json` |
+| Profile contribution / memory | `blocked` | Add blocker tests and readiness ledger only. | Consent, retention, DSAR, deletion, sensitive storage, and longitudinal profile policy. | `backend/app/Services/Memory/MemoryService.php`; `backend/app/Services/Attempts/UserDataLifecycleService.php` |
+| Sensitive scale canonicalization | `requires_human_decision` | Document mismatch and block runtime integration. | Canonical `SDS20` vs `SDS_20` code decision. | `docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json`; `backend/database/seeders/ScaleRegistrySeeder.php` |
 
 ## 17. What Must Not Be Integrated Yet
 
-Status: pending completion in PR-UASP2B-RPT-06.
+- UASP profile persistence must not be implemented.
+- Sensitive signal storage must not be enabled.
+- Saved careers must not be promoted to UASP profile memory.
+- MBTI longitudinal memory must not be generalized.
+- Generalized recommendation must not be implemented.
+- RIASEC must not be represented as a precise career recommender.
+- Big Five must not be represented as career matching/recommendation runtime.
+- `recommendation_eligible` must not trigger scoring, graph expansion, or recommender input.
+- `seo_geo_eligible` must not widen sitemap, `llms.txt`, `llms-full.txt`, JSON-LD, or indexable exposure.
+- `freemium_status` must not alter checkout, payment, entitlement, report access, SKU, or paywall behavior.
+- Future scale onboarding must not start until UASP runtime metadata and fallback gates are enforced.
+- Sensitive/clinical examples must remain private/noindex and non-diagnostic until human privacy and disclaimer decisions are complete.
 
 ## 18. Final Phase 2B Readiness Assessment
 
-Status: pending completion in PR-UASP2B-RPT-06.
+| Assessment Area | Status | Final Judgment | Evidence |
+| --- | --- | --- | --- |
+| UASP v1 governance/contract layer | `ready_for_integration` | Complete. Approved enums, mappings, domains, guards, profile policy, and dashboard exist. | `docs/assessment/uasp/generated/uasp-readiness-dashboard.v1.json` |
+| UASP runtime metadata integration | `ready_for_integration` | Ready to start as read-only envelope and guard integration. | `docs/assessment/uasp/generated/uasp-signal-contract-schema.v1.json`; `backend/app/Models/ScaleRegistry.php` |
+| Result/report runtime | `partial` | Can consume metadata later; must not change scoring, report entitlement, or paid modules. | `backend/app/Http/Controllers/API/V0_3/AttemptReadController.php`; `components/result/RichResultReport.tsx` |
+| SEO/GEO runtime | `partial` | Guard-only, no expansion. UASP cannot add URLs or schema by itself. | `app/llms.txt/route.ts`; `next-sitemap.config.js` |
+| Freemium runtime | `partial` | Guard-only. MBTI is reference full loop; other scales require parity proof. | `docs/freemium/generated/freemium-cross-scale-parity-ledger.v1.json` |
+| Profile memory | `blocked` | Blocked until consent, DSAR, deletion, retention, and sensitive storage policy are runtime-ready. | `backend/app/Services/V0_3/Me/MeProfileService.php`; `backend/app/Services/Attempts/UserDataLifecycleService.php` |
+| Generalized recommendation | `blocked` | Blocked. UASP `recommendation_eligible` is guard-only. | `docs/assessment/uasp/generated/uasp-eligibility-guards.v1.json` |
+| New scale onboarding | `blocked` | Blocked until future scale gate is wired to runtime authority and fallback policy. | `docs/assessment/uasp/generated/uasp-readiness-dashboard.v1.json`; `docs/runtime/generated/fallback-owner-gates.v1.json` |
+
+Final statement: Phase 2B may begin with metadata envelope and guard-only runtime integration. It must not begin with profile memory, generalized recommendation, new scale onboarding, sensitive persistence, SEO/GEO expansion, freemium behavior changes, or scoring/report/payment changes.
 
 ## Source Artifact Index
 
