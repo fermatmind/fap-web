@@ -1,0 +1,259 @@
+{
+  "version": "decision_domain.runtime_metadata_envelope.v1",
+  "scope": "PR-4B-01",
+  "trainName": "domain-runtime-metadata-integration-train",
+  "envelopeKey": "decision_domain_v1",
+  "runtimeBehaviorChanged": false,
+  "executionMode": "contract_only",
+  "domains": [
+    "self_understanding",
+    "career_decision",
+    "workstyle_decision"
+  ],
+  "statusEnum": [
+    "ready_for_runtime_v1",
+    "ready_for_metadata_only",
+    "partial",
+    "artifact_only",
+    "backend_ready",
+    "frontend_partial",
+    "blocked",
+    "dangerous_if_integrated",
+    "requires_human_decision",
+    "safe_to_defer",
+    "unknown"
+  ],
+  "runtimeRecommendationEnum": [
+    "no_runtime",
+    "metadata_only",
+    "data_attribute_only",
+    "existing_surface_only",
+    "existing_result_report_only",
+    "existing_cta_guard_only",
+    "future_runtime_candidate",
+    "blocked"
+  ],
+  "finalReadinessEnum": [
+    "ready",
+    "partial",
+    "blocked",
+    "not_applicable",
+    "requires_human_decision",
+    "unknown"
+  ],
+  "envelopeFields": [
+    "domain_id",
+    "domain_role",
+    "user_problem",
+    "signal_roles",
+    "claim_boundary",
+    "evidence_requirement",
+    "cta_policy",
+    "report_value_status",
+    "seo_geo_policy",
+    "profile_policy",
+    "runtime_recommendation",
+    "runtime_status",
+    "readiness_status",
+    "version",
+    "source_authority",
+    "frontend_fallback_policy",
+    "rollback_policy"
+  ],
+  "readOnlyRules": [
+    "metadata_only",
+    "no_new_domain_hub_page",
+    "no_new_public_route",
+    "no_decision_route",
+    "no_domains_route",
+    "no_visible_domain_badge",
+    "no_visible_copy",
+    "no_runtime_cta",
+    "no_recommendation_trigger",
+    "no_profile_write",
+    "no_saved_careers_promotion",
+    "no_seo_geo_exposure_change",
+    "no_sitemap_llms_url_set_change",
+    "no_freemium_paywall_checkout_report_entitlement_change",
+    "no_scoring_change",
+    "no_frontend_fallback_authority"
+  ],
+  "authorityPolicy": {
+    "backendAuthorityPreferred": true,
+    "cmsAuthorityAllowed": true,
+    "artifactGovernedUntilRuntimeSourceExists": true,
+    "frontendArtifactPermanentAuthority": false,
+    "frontendFallbackPermanentAuthority": false
+  },
+  "sourceArtifacts": [
+    "docs/assessment/domains/generated/core-decision-domain-v1.json",
+    "docs/assessment/domains/generated/signal-to-domain-role-matrix.v1.json",
+    "docs/assessment/domains/generated/domain-evidence-cta-policy.v1.json",
+    "docs/assessment/domains/generated/domain-claim-boundary-overlay.v1.json",
+    "docs/assessment/domains/generated/domain-report-freemium-ledger.v1.json",
+    "docs/assessment/domains/generated/core-decision-domain-readiness-dashboard.v1.json",
+    "docs/assessment/uasp/generated/uasp-runtime-metadata-envelope.v1.json",
+    "docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json",
+    "docs/claims/generated/semantic-claim-scanner-baseline.v1.json",
+    "docs/runtime/generated/fallback-owner-gates.v1.json",
+    "docs/geo/generated/evidence-container-runtime-baseline.v1.json",
+    "docs/seo/generated/discoverability-authority-matrix.v1.json",
+    "docs/freemium/generated/freemium-cross-scale-parity-ledger.v1.json"
+  ],
+  "entries": [
+    {
+      "domain_id": "self_understanding",
+      "domain_role": "core_decision_domain",
+      "user_problem": "Who am I? What are my core tendencies?",
+      "signal_roles": [
+        {
+          "scale_code": "MBTI",
+          "role": "primary"
+        },
+        {
+          "scale_code": "BIG5_OCEAN",
+          "role": "primary"
+        },
+        {
+          "scale_code": "ENNEAGRAM",
+          "role": "supporting"
+        },
+        {
+          "scale_code": "RIASEC",
+          "role": "supporting"
+        }
+      ],
+      "claim_boundary": [
+        "no determinism",
+        "no diagnosis",
+        "no destiny framing",
+        "no personality entertainment framing"
+      ],
+      "evidence_requirement": "Visible result, report, personality, topic, article, test detail, answer surface, or Evidence Container support is required before public domain claims.",
+      "cta_policy": "Existing source-owned CTAs only; no domain-owned runtime CTA.",
+      "report_value_status": "partial",
+      "seo_geo_policy": "No SEO/GEO expansion; existing surfaces only.",
+      "profile_policy": "Domain mapping does not imply profile write.",
+      "runtime_recommendation": "existing_result_report_only",
+      "runtime_status": "partial",
+      "readiness_status": "ready_for_metadata_only",
+      "version": "decision_domain.runtime_metadata_envelope.v1",
+      "source_authority": "artifact_governed_until_backend_or_cms_runtime_source_exists",
+      "frontend_fallback_policy": "forbidden_as_domain_authority",
+      "rollback_policy": "remove envelope artifact and contract without runtime rollback"
+    },
+    {
+      "domain_id": "career_decision",
+      "domain_role": "core_decision_domain",
+      "user_problem": "What career direction should I explore next?",
+      "signal_roles": [
+        {
+          "scale_code": "RIASEC",
+          "role": "primary"
+        },
+        {
+          "scale_code": "MBTI",
+          "role": "supporting"
+        },
+        {
+          "scale_code": "BIG5_OCEAN",
+          "role": "supporting"
+        },
+        {
+          "scale_code": "Career Graph",
+          "role": "supporting"
+        }
+      ],
+      "claim_boundary": [
+        "no precise recommender",
+        "no best-career prediction",
+        "no success guarantee",
+        "no placement guarantee",
+        "no Big Five/RIASEC career matcher",
+        "no AI planning claim",
+        "no snapshot recommendation equals personalized recommender"
+      ],
+      "evidence_requirement": "Career direction claims require visible career evidence, explainability, caveat, and source authority.",
+      "cta_policy": "Existing career CTAs remain snapshot/direction or exploration only; no generalized recommender CTA.",
+      "report_value_status": "partial",
+      "seo_geo_policy": "Guard-only; no sitemap or llms widening.",
+      "profile_policy": "Domain mapping does not imply profile write; saved careers remain preference store only.",
+      "runtime_recommendation": "existing_cta_guard_only",
+      "runtime_status": "dangerous_if_integrated",
+      "readiness_status": "partial",
+      "version": "decision_domain.runtime_metadata_envelope.v1",
+      "source_authority": "artifact_guarded_existing_surface_only",
+      "frontend_fallback_policy": "forbidden_as_recommendation_or_domain_authority",
+      "rollback_policy": "remove envelope artifact and contract without runtime rollback"
+    },
+    {
+      "domain_id": "workstyle_decision",
+      "domain_role": "core_decision_domain",
+      "user_problem": "What work style helps me contribute well with a team?",
+      "signal_roles": [
+        {
+          "scale_code": "BIG5_OCEAN",
+          "role": "primary"
+        },
+        {
+          "scale_code": "MBTI",
+          "role": "secondary"
+        },
+        {
+          "scale_code": "ENNEAGRAM",
+          "role": "supporting"
+        },
+        {
+          "scale_code": "future_DISC",
+          "role": "future"
+        },
+        {
+          "scale_code": "future_EQ",
+          "role": "future"
+        },
+        {
+          "scale_code": "RIASEC",
+          "role": "blocked"
+        }
+      ],
+      "claim_boundary": [
+        "no employment suitability",
+        "no workplace performance prediction",
+        "no HR screening claim",
+        "no Big Five career matching"
+      ],
+      "evidence_requirement": "Visible result/report or answer evidence required before workplace claims.",
+      "cta_policy": "No domain-owned workstyle CTA; no new CTA runtime.",
+      "report_value_status": "partial",
+      "seo_geo_policy": "No SEO/GEO expansion; no workstyle domain public hub.",
+      "profile_policy": "Domain mapping does not imply profile write.",
+      "runtime_recommendation": "data_attribute_only",
+      "runtime_status": "artifact_only",
+      "readiness_status": "ready_for_metadata_only",
+      "version": "decision_domain.runtime_metadata_envelope.v1",
+      "source_authority": "artifact_governed_until_payload_backed_runtime_source_exists",
+      "frontend_fallback_policy": "forbidden_as_domain_authority",
+      "rollback_policy": "remove envelope artifact and contract without runtime rollback"
+    }
+  ],
+  "mustNotChange": [
+    "app routes",
+    "components runtime",
+    "runtime payloads",
+    "result/report UI",
+    "CTA runtime",
+    "CTA copy",
+    "public copy",
+    "SEO/GEO output",
+    "sitemap output",
+    "llms output",
+    "recommendation runtime",
+    "profile runtime",
+    "saved careers",
+    "freemium runtime",
+    "paywall UI",
+    "checkout/payment",
+    "report entitlement",
+    "scoring"
+  ]
+}
