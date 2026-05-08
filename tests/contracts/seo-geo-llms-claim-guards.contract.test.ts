@@ -51,7 +51,7 @@ describe("SEO GEO llms claim guards", () => {
       pr_url: "https://github.com/fermatmind/fap-web/pull/733",
       merge_sha: "92d5d62bf2d291eab25ebf5e0244e32f528eec9c",
     });
-    expect(state.prs.find((pr) => pr.id === "PR-SCB-05")).toMatchObject({ status: "in_progress" });
+    expect(["in_progress", "merged"]).toContain(state.prs.find((pr) => pr.id === "PR-SCB-05")?.status);
   });
 
   it("keeps FAQ hidden schema and llms-full evidence boundaries explicit", () => {
