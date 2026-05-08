@@ -1,0 +1,138 @@
+{
+  "version": "core_decision_domain.claim_boundary_overlay.v1",
+  "scope": "PR-CDD-04",
+  "trainName": "core-decision-domain-governance-train",
+  "dependsOn": ["PR-CDD-03"],
+  "runtimeBehaviorChanged": false,
+  "executionMode": "artifact_json_contract_only",
+  "domains": ["self_understanding", "career_decision", "workstyle_decision"],
+  "sourceArtifacts": [
+    "docs/assessment/domains/generated/core-decision-domain-v1.json",
+    "docs/assessment/domains/generated/signal-to-domain-role-matrix.v1.json",
+    "docs/assessment/domains/generated/domain-evidence-cta-policy.v1.json",
+    "docs/claims/generated/public-claim-boundary-matrix.v1.json",
+    "docs/claims/generated/semantic-claim-scanner-baseline.v1.json",
+    "docs/claims/generated/riasec-bigfive-boundary-guards.v1.json",
+    "docs/claims/generated/mbti-recommendation-copy-boundary.v1.json",
+    "docs/claims/generated/career-fit-graph-ai-claim-guards.v1.json",
+    "docs/claims/generated/seo-geo-llms-claim-guards.v1.json",
+    "docs/claims/generated/paywall-sensitive-profile-claim-guards.v1.json",
+    "docs/assessment/uasp/generated/recommendation-eligibility-guard.v1.json"
+  ],
+  "globalRules": [
+    "Domain mapping does not create or weaken product claims.",
+    "Domain mapping does not grant recommendation eligibility.",
+    "Domain mapping does not grant profile write permission.",
+    "Domain mapping does not grant SEO/GEO eligibility.",
+    "Public copy remediation requires a separate scoped decision.",
+    "Existing Semantic Claim Boundary artifacts remain the source boundary guards for phrase-level enforcement."
+  ],
+  "overlays": [
+    {
+      "domain_id": "self_understanding",
+      "status": "ready_for_domain_v1",
+      "forbidden_boundaries": [
+        "no determinism",
+        "no diagnosis",
+        "no destiny framing",
+        "no personality entertainment framing"
+      ],
+      "allowed_with_boundary": [
+        "identity and preference explanation",
+        "trait and behavior explanation",
+        "motivation pattern explanation",
+        "self-explanation and next-step exploration"
+      ],
+      "guard_artifacts": [
+        "docs/claims/generated/public-claim-boundary-matrix.v1.json",
+        "docs/claims/generated/semantic-claim-scanner-baseline.v1.json",
+        "docs/claims/generated/paywall-sensitive-profile-claim-guards.v1.json"
+      ],
+      "copy_remediation_allowed": false
+    },
+    {
+      "domain_id": "career_decision",
+      "status": "partial",
+      "forbidden_boundaries": [
+        "no precise recommender",
+        "no best-career prediction",
+        "no success guarantee",
+        "no placement guarantee",
+        "no Big Five/RIASEC career matcher",
+        "no AI planning claim",
+        "no snapshot recommendation equals personalized recommender"
+      ],
+      "allowed_with_boundary": [
+        "career direction support",
+        "career interest direction signal",
+        "snapshot-based direction support",
+        "occupation authority graph and scoring/explainability substrate"
+      ],
+      "guard_artifacts": [
+        "docs/claims/generated/riasec-bigfive-boundary-guards.v1.json",
+        "docs/claims/generated/mbti-recommendation-copy-boundary.v1.json",
+        "docs/claims/generated/career-fit-graph-ai-claim-guards.v1.json",
+        "docs/assessment/uasp/generated/recommendation-eligibility-guard.v1.json"
+      ],
+      "copy_remediation_allowed": false
+    },
+    {
+      "domain_id": "workstyle_decision",
+      "status": "partial",
+      "forbidden_boundaries": [
+        "no employment suitability",
+        "no workplace performance prediction",
+        "no HR screening claim",
+        "no Big Five career matching"
+      ],
+      "allowed_with_boundary": [
+        "workstyle preference",
+        "workplace behavior explanation",
+        "collaboration pattern",
+        "stress and action-pattern reflection"
+      ],
+      "guard_artifacts": [
+        "docs/claims/generated/riasec-bigfive-boundary-guards.v1.json",
+        "docs/claims/generated/paywall-sensitive-profile-claim-guards.v1.json"
+      ],
+      "copy_remediation_allowed": false
+    }
+  ],
+  "crossDomainBoundaries": {
+    "seo_geo": [
+      "no sitemap/llms/schema as true graph",
+      "no FAQ-only as evidence ready",
+      "no AI answerability as AI planning",
+      "no llms-full as proof of strong citation"
+    ],
+    "profile": [
+      "no domain mapping implies profile write",
+      "saved careers are not UASP profile memory",
+      "profile_contribution remains readiness/blocker only"
+    ],
+    "recommendation": [
+      "MBTI remains next_step_only / snapshot support",
+      "RIASEC remains candidate_signal, not recommender",
+      "Big Five remains explanation_only, not recommender",
+      "future scale remains not_eligible by default"
+    ],
+    "freemium": [
+      "SKU exists is not full_loop",
+      "offer card exists is not full_loop",
+      "backend_ready is not monetization-ready",
+      "domain bundle remains blocked until parity proof exists"
+    ]
+  },
+  "mustNotChange": [
+    "public copy",
+    "claim runtime",
+    "result/report runtime",
+    "recommendation runtime",
+    "SEO/GEO output",
+    "profile runtime",
+    "freemium runtime",
+    "scoring",
+    "checkout/payment",
+    "report entitlement"
+  ]
+}
