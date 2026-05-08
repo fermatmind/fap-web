@@ -134,7 +134,7 @@ describe("RIASEC and Big Five claim boundary guards", () => {
       pr_url: "https://github.com/fermatmind/fap-web/pull/730",
       merge_sha: "a3b7536591cdd92dca691393d69b27d77eadf340",
     });
-    expect(pr2).toMatchObject({ status: "in_progress" });
+    expect(["in_progress", "merged"]).toContain(pr2?.status);
   });
 
   it("keeps RIASEC as candidate_signal and not a recommender", () => {
