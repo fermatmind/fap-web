@@ -60,6 +60,7 @@ type ReportArtifact = {
     path: string;
     status: "present" | "missing_artifact";
   }>;
+  matrices?: Record<string, Array<Record<string, unknown>>>;
 };
 
 function readArtifact(): ReportArtifact {
@@ -147,5 +148,32 @@ describe("UASP runtime integration readiness report", () => {
     expect(report).toContain("does not implement UASP runtime");
     expect(report).toContain("does not onboard new tests");
     expect(report).not.toContain("Runtime behavior changed: yes");
+  });
+
+  it("completes PR-UASP2B-RPT-02 artifact/backend/frontend matrices with approved statuses and evidence", () => {
+    const artifact = readArtifact();
+    const report = fs.readFileSync(REPORT_PATH, "utf8");
+    const matrixKeys = [
+      "uaspArtifactReality",
+      "backendScaleRegistryIntegration",
+      "frontendTestRuntimeIntegration",
+    ];
+
+    for (const key of matrixKeys) {
+      const rows = artifact.matrices?.[key];
+      expect(rows, key).toBeDefined();
+      expect(rows?.length, key).toBeGreaterThan(0);
+      for (const row of rows ?? []) {
+        expect(ALLOWED_STATUSES).toContain(row.status);
+        expect(Array.isArray(row.evidence), `${key} evidence`).toBe(true);
+        expect((row.evidence as unknown[]).length, `${key} evidence length`).toBeGreaterThan(0);
+      }
+    }
+
+    expect(report).toContain("| UASP signal contract schema | `artifact_only` |");
+    expect(report).toContain("| `signal_type`, `result_shape`, `stability` |");
+    expect(report).toContain("| Frontend fallback seeds |");
+    expect(JSON.stringify(artifact.matrices?.backendScaleRegistryIntegration)).toContain("uasp_signal_v1");
+    expect(JSON.stringify(artifact.matrices?.frontendTestRuntimeIntegration)).toContain("Future scale additions must fail");
   });
 });
