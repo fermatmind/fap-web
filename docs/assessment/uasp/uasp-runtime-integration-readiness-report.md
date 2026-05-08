@@ -50,15 +50,36 @@ Status: pending completion in PR-UASP2B-RPT-06.
 
 ## 5. Result / Report UASP Integration Matrix
 
-Status: pending completion in PR-UASP2B-RPT-03.
+| Surface | Current State | Status | Phase 2B Boundary | Evidence |
+| --- | --- | --- | --- | --- |
+| Attempt result payload | Carries `scale_code`, score data, result data, and scale-specific public projections; no UASP metadata envelope. | `backend_ready` | Add read-only `uasp_signal_v1` metadata. Do not change scoring or result interpretation. | `backend/app/Http/Controllers/API/V0_3/AttemptReadController.php` |
+| Report payload | Builds scale-specific report payloads and access modules; no UASP metadata fields. | `backend_ready` | Add read-only signal metadata for display/guarding only. Do not change report entitlement. | `backend/app/Http/Controllers/API/V0_3/AttemptReadController.php`; `backend/app/Services/Report/ReportAccess.php` |
+| Frontend result client | Routes by scale-specific shells and projections. | `frontend_partial` | Consume UASP metadata only after backend envelope exists; do not rewire shell selection. | `app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx` |
+| Rich report shell | Uses scale-specific report shells and module access metadata. | `partial` | UASP metadata can render caveats and signal meaning, not modules or paid access. | `components/result/RichResultReport.tsx` |
+| `profile_contribution` in result/report | Policy exists but storage semantics are not runtime-governed. | `blocked` | Result/report may display policy metadata, but must not persist profile signals. | `docs/assessment/uasp/generated/uasp-profile-sensitivity-policy.v1.json` |
+| `recommendation_eligible` in result/report | Policy exists but recommender runtime is separate. | `dangerous_if_integrated` | Treat as display/guard only; never trigger recommender. | `docs/assessment/uasp/generated/uasp-eligibility-guards.v1.json` |
 
 ## 6. Claim Runtime Integration Matrix
 
-Status: pending completion in PR-UASP2B-RPT-03.
+| Claim Area | Current State | Status | Runtime Boundary | Evidence |
+| --- | --- | --- | --- | --- |
+| Public claim boundary matrix | Exists as governance artifact and contract test. | `artifact_only` | Preserve forbidden baseline; do not change public copy in report train. | `docs/claims/generated/public-claim-boundary-matrix.v1.json`; `tests/contracts/public-claim-boundary-matrix.contract.test.ts` |
+| Runtime career claim gating | Uses backend/frontend `claim_permissions`, not UASP `claim_level`. | `partial` | UASP `claim_level` can become guard metadata; it must not replace career claim permissions. | `lib/career/contracts/claimPermissions.ts`; `components/career/display/CareerDisplaySurface.tsx` |
+| MBTI claim boundary | MBTI is identity/preference and `next_step_only` snapshot support. | `ready_for_integration` | Can describe preference, expression, identity, and career-direction support; cannot predict career success. | `docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json` |
+| Big Five claim boundary | Big Five is trait/workplace behavior and `explanation_only`. | `ready_for_integration` | Can explain behavior/workstyle; cannot claim precise career matching. | `docs/assessment/uasp/generated/uasp-eligibility-guards.v1.json` |
+| RIASEC claim boundary | RIASEC is interest vector and `candidate_signal`. | `ready_for_integration` | Can describe career interest direction; cannot claim full or precise recommender runtime. | `docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json` |
+| Enneagram claim boundary | Enneagram is motivation/self-understanding and `explanation_only`. | `ready_for_integration` | Can explain motivation/workstyle/relationship patterns; should not enter career recommendation mainline. | `docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json` |
+| SDS/Clinical claim boundary | Sensitive state examples are blocked/private. | `blocked` | Must remain non-diagnostic, private/noindex, and not recommendation eligible. | `docs/assessment/uasp/generated/uasp-profile-sensitivity-policy.v1.json` |
 
 ## 7. Evidence Runtime Integration Matrix
 
-Status: pending completion in PR-UASP2B-RPT-03.
+| Evidence Surface | Current State | Status | Phase 2B Boundary | Evidence |
+| --- | --- | --- | --- | --- |
+| Visible Evidence Container baseline | Runtime baseline exists for visible evidence markers and page-family readiness. | `partial` | Keep visible-only rule; do not claim universal evidence readiness. | `docs/geo/evidence-container-runtime-baseline.md`; `docs/geo/generated/evidence-container-runtime-baseline.v1.json`; `components/content/AnswerSurfaceSection.tsx` |
+| UASP `evidence_required` | Defined in schema but not consumed by runtime. | `artifact_only` | Add as metadata gate; do not generate new evidence content. | `docs/assessment/uasp/generated/uasp-signal-contract-schema.v1.json` |
+| Signal-level evidence | Not separated from page-level answer/evidence blocks. | `blocked` | Requires future source authority before signal-specific evidence claims. | `components/content/AnswerSurfaceSection.tsx`; `lib/geo/evidenceContainer.ts` |
+| FAQ / JSON-LD alignment | Existing governance requires visible FAQ/answer grounding; UASP does not drive it. | `partial` | Do not add hidden schema or FAQ stuffing. | `tests/contracts/evidence-container-readiness-gate.contract.test.ts`; `tests/contracts/structured-data-contract.contract.test.ts` |
+| Sensitive scale evidence | Sensitive/mental-health examples are not UASP runtime-onboarded. | `blocked` | Require disclaimer/privacy decision before public evidence or llms-full use. | `docs/assessment/uasp/generated/uasp-profile-sensitivity-policy.v1.json` |
 
 ## 8. SEO/GEO UASP Integration Matrix
 
