@@ -94,14 +94,23 @@
         "PR-UASP2B-01"
       ],
       "mode": "guard_only",
-      "status": "in_progress",
+      "status": "merged",
       "title": "test(assessment): add result report UASP metadata rendering guard",
       "artifacts": [
         "docs/assessment/uasp/result-report-metadata-rendering-guard.md",
         "docs/assessment/uasp/generated/result-report-metadata-rendering-guard.v1.json",
         "tests/contracts/uasp-result-report-metadata-rendering-guard.contract.test.ts"
       ],
-      "checks": [],
+      "checks": [
+        {
+          "command": "pnpm vitest run tests/contracts/uasp-result-report-metadata-rendering-guard.contract.test.ts",
+          "status": "passed"
+        },
+        {
+          "command": "pnpm typecheck && pnpm test:contract && pnpm seo:generate-sitemap && pnpm seo:check-sitemap",
+          "status": "passed"
+        }
+      ],
       "sidecar_issues": []
     },
     {
@@ -114,7 +123,7 @@
         "PR-UASP2B-02"
       ],
       "mode": "contract_only",
-      "status": "planned",
+      "status": "in_progress",
       "title": "test(seo): add UASP SEO GEO eligibility guard",
       "artifacts": [
         "docs/assessment/uasp/seo-geo-eligibility-guard.md",

@@ -1,0 +1,131 @@
+{
+  "version": "uasp.seo_geo_eligibility_guard.v1",
+  "scope": "PR-UASP2B-03",
+  "trainName": "uasp-runtime-metadata-integration-train",
+  "dependsOn": [
+    "PR-UASP2B-02"
+  ],
+  "runtimeBehaviorChanged": false,
+  "executionMode": "contract_only",
+  "sitemapOutputChanged": false,
+  "llmsOutputChanged": false,
+  "llmsFullOutputChanged": false,
+  "jsonLdOutputChanged": false,
+  "metadataOutputChanged": false,
+  "canonicalHreflangChanged": false,
+  "sourceArtifacts": [
+    "docs/assessment/uasp/generated/uasp-eligibility-guards.v1.json",
+    "docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json",
+    "docs/seo/generated/discoverability-authority-matrix.v1.json",
+    "docs/geo/generated/evidence-container-runtime-baseline.v1.json",
+    "docs/claims/generated/public-claim-boundary-matrix.v1.json"
+  ],
+  "runtimeOwners": [
+    {
+      "surface": "sitemap",
+      "owner": "existing_discoverability_runtime",
+      "evidence": [
+        "next-sitemap.config.js",
+        "public/sitemap.xml",
+        "docs/seo/generated/discoverability-authority-matrix.v1.json"
+      ]
+    },
+    {
+      "surface": "llms",
+      "owner": "existing_discoverability_runtime",
+      "evidence": [
+        "app/llms.txt/route.ts",
+        "docs/seo/generated/discoverability-authority-matrix.v1.json"
+      ]
+    },
+    {
+      "surface": "llms_full",
+      "owner": "existing_discoverability_runtime",
+      "evidence": [
+        "app/llms-full.txt/route.ts",
+        "docs/geo/generated/evidence-container-runtime-baseline.v1.json"
+      ]
+    }
+  ],
+  "guardRules": [
+    {
+      "id": "not_eligible_is_not_public_ready",
+      "rule": "not_eligible cannot be treated as SEO/GEO-ready.",
+      "blocksWhen": "A scale with seo_geo_eligible=not_eligible enters sitemap, llms, llms-full, JSON-LD, or public metadata by UASP default."
+    },
+    {
+      "id": "private_noindex_excluded",
+      "rule": "private_noindex cannot enter sitemap, llms, or llms-full.",
+      "blocksWhen": "private_noindex appears in public discoverability surfaces."
+    },
+    {
+      "id": "llms_full_requires_proof",
+      "rule": "llms_full_eligible requires visible evidence, claim boundary, source authority, and discoverability authority.",
+      "requiredProof": [
+        "visible_evidence",
+        "claim_boundary",
+        "source_authority",
+        "discoverability_authority"
+      ],
+      "blocksWhen": "llms_full_eligible is set without all proof categories."
+    },
+    {
+      "id": "sensitive_scales_no_llms_full_by_default",
+      "rule": "Sensitive and mental-health-sensitive scales cannot be llms_full_eligible by default.",
+      "blocksWhen": "A sensitive scale enters llms-full without explicit human-approved policy."
+    },
+    {
+      "id": "future_scale_default_not_eligible",
+      "rule": "Future scales default to not_eligible.",
+      "blocksWhen": "A future scale is marked SEO/GEO-ready without UASP contract and evidence proof."
+    },
+    {
+      "id": "schema_is_not_true_graph",
+      "rule": "Sitemap, llms, schema, or JSON-LD exposure does not prove a true graph.",
+      "blocksWhen": "Discoverability exposure is described as graph authority."
+    }
+  ],
+  "firstBatchSeoGeoStatus": [
+    {
+      "scale_code": "MBTI",
+      "seo_geo_eligible": "llms_eligible",
+      "guardStatus": "existing_allowed_no_expansion",
+      "runtimeExposureChange": "none"
+    },
+    {
+      "scale_code": "BIG5_OCEAN",
+      "seo_geo_eligible": "geo_candidate",
+      "guardStatus": "candidate_only_no_llms_full",
+      "runtimeExposureChange": "none"
+    },
+    {
+      "scale_code": "RIASEC",
+      "seo_geo_eligible": "geo_candidate",
+      "guardStatus": "candidate_only_no_llms_full",
+      "runtimeExposureChange": "none"
+    },
+    {
+      "scale_code": "ENNEAGRAM",
+      "seo_geo_eligible": "seo_only",
+      "guardStatus": "seo_only_no_llms_full",
+      "runtimeExposureChange": "none"
+    },
+    {
+      "scale_code": "FUTURE_SCALE_PLACEHOLDER",
+      "seo_geo_eligible": "not_eligible",
+      "guardStatus": "blocked_until_proof",
+      "runtimeExposureChange": "none"
+    }
+  ],
+  "mustNotChange": [
+    "sitemap output",
+    "llms output",
+    "llms-full output",
+    "JSON-LD output",
+    "metadata output",
+    "canonical/hreflang",
+    "route behavior",
+    "public copy",
+    "SEO/GEO exposure"
+  ]
+}
