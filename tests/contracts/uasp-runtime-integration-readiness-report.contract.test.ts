@@ -215,4 +215,34 @@ describe("UASP runtime integration readiness report", () => {
     expect(report).toContain("| MBTI claim boundary |");
     expect(report).toContain("| Visible Evidence Container baseline |");
   });
+
+  it("completes PR-UASP2B-RPT-04 SEO/GEO and freemium matrices without exposure or commerce widening", () => {
+    const artifact = readArtifact();
+    const report = fs.readFileSync(REPORT_PATH, "utf8");
+    const matrixKeys = ["seoGeoUaspIntegration", "freemiumUaspIntegration"];
+
+    for (const key of matrixKeys) {
+      const rows = artifact.matrices?.[key];
+      expect(rows, key).toBeDefined();
+      expect(rows?.length, key).toBeGreaterThan(0);
+      for (const row of rows ?? []) {
+        expect(ALLOWED_STATUSES).toContain(row.status);
+        expect(Array.isArray(row.evidence), `${key} evidence`).toBe(true);
+        expect((row.evidence as unknown[]).length, `${key} evidence length`).toBeGreaterThan(0);
+      }
+    }
+
+    const seoGeo = JSON.stringify(artifact.matrices?.seoGeoUaspIntegration);
+    const freemium = JSON.stringify(artifact.matrices?.freemiumUaspIntegration);
+
+    expect(seoGeo).toContain("non-widening guard");
+    expect(seoGeo).toContain("must not silently add URLs");
+    expect(seoGeo).toContain("Sensitive scales cannot default to llms_full_eligible");
+    expect(freemium).toContain("do not alter commerce runtime");
+    expect(freemium).toContain("Cannot claim monetization-ready without parity evidence");
+    expect(freemium).toContain("Do not infer full_loop from SKU existence");
+    expect(freemium).toContain("Future scale cannot be monetization-ready without freemium parity proof");
+    expect(report).toContain("| `seo_geo_eligible` |");
+    expect(report).toContain("| `freemium_status` |");
+  });
 });

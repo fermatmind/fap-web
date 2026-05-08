@@ -599,6 +599,131 @@
           "docs/assessment/uasp/generated/uasp-profile-sensitivity-policy.v1.json"
         ]
       }
+    ],
+    "seoGeoUaspIntegration": [
+      {
+        "surface": "seo_geo_eligible",
+        "currentState": "Defined in UASP artifacts but not consumed by sitemap, llms, metadata, or JSON-LD runtime.",
+        "status": "artifact_only",
+        "phase2bBoundary": "Add non-widening guard only; do not change URL exposure.",
+        "evidence": [
+          "docs/assessment/uasp/generated/uasp-eligibility-guards.v1.json",
+          "next-sitemap.config.js"
+        ]
+      },
+      {
+        "surface": "Sitemap generation",
+        "currentState": "Uses existing discoverability authority, backend sitemap source, robots policy, and indexability.",
+        "status": "partial",
+        "phase2bBoundary": "UASP may block future readiness; it must not silently add URLs.",
+        "evidence": [
+          "docs/seo/generated/discoverability-authority-matrix.v1.json",
+          "next-sitemap.config.js",
+          "backend/app/Http/Controllers/API/V0_5/SEO/SitemapSourceController.php"
+        ]
+      },
+      {
+        "surface": "llms.txt / llms-full.txt",
+        "currentState": "Uses deny patterns, exposure policy, topic/test authority, and visible evidence/readiness rules; not UASP.",
+        "status": "partial",
+        "phase2bBoundary": "llms_full_eligible requires visible evidence, claim boundary, and source authority.",
+        "evidence": [
+          "app/llms.txt/route.ts",
+          "app/llms-full.txt/route.ts",
+          "tests/contracts/llms-full-enrichment.contract.test.ts"
+        ]
+      },
+      {
+        "surface": "Sensitive/private signals",
+        "currentState": "UASP policy blocks clinical/SDS examples; runtime exposure is not UASP-driven yet.",
+        "status": "blocked",
+        "phase2bBoundary": "Sensitive scales cannot default to llms_full_eligible and should remain private/noindex until policy/runtime align.",
+        "evidence": [
+          "docs/assessment/uasp/generated/uasp-profile-sensitivity-policy.v1.json",
+          "tests/contracts/private-noindex.contract.test.ts"
+        ]
+      },
+      {
+        "surface": "Metadata / JSON-LD",
+        "currentState": "Runtime governed by existing SEO/structured data contracts; no UASP eligibility field.",
+        "status": "partial",
+        "phase2bBoundary": "Do not infer JSON-LD readiness from UASP alone.",
+        "evidence": [
+          "tests/contracts/structured-data-contract.contract.test.ts",
+          "tests/contracts/canonical-hreflang-jsonld-parity.contract.test.ts"
+        ]
+      }
+    ],
+    "freemiumUaspIntegration": [
+      {
+        "surface": "freemium_status",
+        "currentState": "Defined in UASP artifacts; not consumed by checkout, offer, entitlement, report access, or PDF runtime.",
+        "status": "artifact_only",
+        "phase2bBoundary": "Readiness/claim guard only; do not alter commerce runtime.",
+        "evidence": [
+          "docs/assessment/uasp/generated/uasp-eligibility-guards.v1.json",
+          "docs/freemium/generated/freemium-cross-scale-parity-ledger.v1.json"
+        ]
+      },
+      {
+        "surface": "MBTI full loop",
+        "currentState": "Documented as full-loop reference and supported by existing report/commerce runtime.",
+        "status": "backend_ready",
+        "phase2bBoundary": "Use as reference only; do not generalize automatically.",
+        "evidence": [
+          "docs/freemium/generated/freemium-runtime-coverage.v1.json",
+          "backend/app/Services/Report/ReportAccess.php"
+        ]
+      },
+      {
+        "surface": "Big Five",
+        "currentState": "UASP marks frontend_partial; runtime support is not proven as full loop.",
+        "status": "frontend_partial",
+        "phase2bBoundary": "Cannot claim monetization-ready without parity evidence.",
+        "evidence": [
+          "docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json",
+          "docs/freemium/generated/freemium-cross-scale-parity-ledger.v1.json"
+        ]
+      },
+      {
+        "surface": "RIASEC",
+        "currentState": "UASP marks frontend_partial; not full loop.",
+        "status": "frontend_partial",
+        "phase2bBoundary": "Offer or report presence is not checkout parity proof.",
+        "evidence": [
+          "docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json",
+          "docs/freemium/generated/freemium-cross-scale-parity-ledger.v1.json"
+        ]
+      },
+      {
+        "surface": "Enneagram",
+        "currentState": "UASP marks backend_ready; public funnel parity is not full loop.",
+        "status": "backend_ready",
+        "phase2bBoundary": "Backend readiness is not public conversion proof.",
+        "evidence": [
+          "docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json"
+        ]
+      },
+      {
+        "surface": "Future scale",
+        "currentState": "Default blocked.",
+        "status": "blocked",
+        "phase2bBoundary": "Future scale cannot be monetization-ready without freemium parity proof.",
+        "evidence": [
+          "docs/assessment/uasp/generated/uasp-readiness-dashboard.v1.json"
+        ]
+      },
+      {
+        "surface": "SKU / offer / entitlement",
+        "currentState": "Runtime exists but does not consume UASP freemium_status.",
+        "status": "partial",
+        "phase2bBoundary": "Do not infer full_loop from SKU existence.",
+        "evidence": [
+          "backend/app/Services/Commerce/SkuCatalog.php",
+          "backend/app/Services/Commerce/EntitlementManager.php",
+          "backend/app/Services/Report/Resolvers/OfferResolver.php"
+        ]
+      }
     ]
   },
   "backlog": [],

@@ -83,11 +83,25 @@ Status: pending completion in PR-UASP2B-RPT-06.
 
 ## 8. SEO/GEO UASP Integration Matrix
 
-Status: pending completion in PR-UASP2B-RPT-04.
+| Surface | Current State | Status | Phase 2B Boundary | Evidence |
+| --- | --- | --- | --- | --- |
+| `seo_geo_eligible` | Defined in UASP artifacts but not consumed by sitemap, llms, metadata, or JSON-LD runtime. | `artifact_only` | Add non-widening guard only; do not change URL exposure. | `docs/assessment/uasp/generated/uasp-eligibility-guards.v1.json`; `next-sitemap.config.js` |
+| Sitemap generation | Uses existing discoverability authority, backend sitemap source, robots policy, and indexability. | `partial` | UASP may block future readiness; it must not silently add URLs. | `docs/seo/generated/discoverability-authority-matrix.v1.json`; `next-sitemap.config.js`; `backend/app/Http/Controllers/API/V0_5/SEO/SitemapSourceController.php` |
+| `llms.txt` / `llms-full.txt` | Uses deny patterns, exposure policy, topic/test authority, and visible evidence/readiness rules; not UASP. | `partial` | `llms_full_eligible` requires visible evidence, claim boundary, and source authority. | `app/llms.txt/route.ts`; `app/llms-full.txt/route.ts`; `tests/contracts/llms-full-enrichment.contract.test.ts` |
+| Sensitive/private signals | UASP policy blocks clinical/SDS examples; runtime exposure is not UASP-driven yet. | `blocked` | Sensitive scales cannot default to `llms_full_eligible` and should remain private/noindex until policy/runtime align. | `docs/assessment/uasp/generated/uasp-profile-sensitivity-policy.v1.json`; `tests/contracts/private-noindex.contract.test.ts` |
+| Metadata / JSON-LD | Runtime governed by existing SEO/structured data contracts; no UASP eligibility field. | `partial` | Do not infer JSON-LD readiness from UASP alone. | `tests/contracts/structured-data-contract.contract.test.ts`; `tests/contracts/canonical-hreflang-jsonld-parity.contract.test.ts` |
 
 ## 9. Freemium UASP Integration Matrix
 
-Status: pending completion in PR-UASP2B-RPT-04.
+| Surface | Current State | Status | Phase 2B Boundary | Evidence |
+| --- | --- | --- | --- | --- |
+| `freemium_status` | Defined in UASP artifacts; not consumed by checkout, offer, entitlement, report access, or PDF runtime. | `artifact_only` | Readiness/claim guard only; do not alter commerce runtime. | `docs/assessment/uasp/generated/uasp-eligibility-guards.v1.json`; `docs/freemium/generated/freemium-cross-scale-parity-ledger.v1.json` |
+| MBTI full loop | Documented as full-loop reference and supported by existing report/commerce runtime. | `backend_ready` | Use as reference only; do not generalize automatically. | `docs/freemium/generated/freemium-runtime-coverage.v1.json`; `backend/app/Services/Report/ReportAccess.php` |
+| Big Five | UASP marks `frontend_partial`; runtime support is not proven as full loop. | `frontend_partial` | Cannot claim monetization-ready without parity evidence. | `docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json`; `docs/freemium/generated/freemium-cross-scale-parity-ledger.v1.json` |
+| RIASEC | UASP marks `frontend_partial`; not full loop. | `frontend_partial` | Offer or report presence is not checkout parity proof. | `docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json`; `docs/freemium/generated/freemium-cross-scale-parity-ledger.v1.json` |
+| Enneagram | UASP marks `backend_ready`; public funnel parity is not full loop. | `backend_ready` | Backend readiness is not public conversion proof. | `docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json` |
+| Future scale | Default `blocked`. | `blocked` | Future scale cannot be monetization-ready without freemium parity proof. | `docs/assessment/uasp/generated/uasp-readiness-dashboard.v1.json` |
+| SKU / offer / entitlement | Runtime exists but does not consume UASP `freemium_status`. | `partial` | Do not infer `full_loop` from SKU existence. | `backend/app/Services/Commerce/SkuCatalog.php`; `backend/app/Services/Commerce/EntitlementManager.php`; `backend/app/Services/Report/Resolvers/OfferResolver.php` |
 
 ## 10. Profile / Memory UASP Integration Matrix
 
