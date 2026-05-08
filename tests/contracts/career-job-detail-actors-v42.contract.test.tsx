@@ -387,6 +387,28 @@ describe("career job detail Actors v4.2 route integration", () => {
     expect(html).not.toContain("gclid=test-gclid");
   });
 
+  it("renders an attributed RIASEC CTA on zh legacy canonical job pages", async () => {
+    const html = await renderCareerJobPage(
+      "zh",
+      "data-scientists",
+      buildJobBundle({ slug: "data-scientists" }),
+      {
+        utm_source: "zhihu",
+        gclid: "test-gclid",
+      }
+    );
+
+    expect(html).toContain("career-job-docx-document");
+    expect(html).toContain("holland-career-interest-test-riasec");
+    expect(html).toContain("target_action=start_riasec_test");
+    expect(html).toContain("entry_surface=career_job_detail");
+    expect(html).toContain("source_page_type=career_job_detail");
+    expect(html).toContain("subject_key=data-scientists");
+    expect(html).toContain("utm_source=zhihu");
+    expect(html).toContain("gclid=test-gclid");
+    expect(html).toContain("landing_path=%2Fzh%2Fcareer%2Fjobs%2Fdata-scientists%3Futm_source%3Dzhihu%26gclid%3Dtest-gclid");
+  });
+
   it("emits FAQPage only from visible display FAQ items and keeps hidden FAQ out", async () => {
     const html = await renderCareerJobPage("en", "actors", buildJobBundle({ displaySurface: buildActorsDisplaySurfaceFixture() }));
     const jsonLd = jsonLdPayloads(html).join("\n");

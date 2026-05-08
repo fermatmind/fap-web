@@ -29,7 +29,10 @@ import type {
   CareerRuntimeConfigAdapter,
 } from "@/lib/career/adapters/types";
 import { CAREER_TRACKING_EVENTS, buildCareerAttributionPayload } from "@/lib/career/attribution";
-import { buildCareerDisplayFAQPageJsonLd } from "@/lib/career/displaySurface";
+import {
+  buildCareerDisplayCtaHref,
+  buildCareerDisplayFAQPageJsonLd,
+} from "@/lib/career/displaySurface";
 import { fetchCareerFirstWaveNextStepLinks } from "@/lib/career/api/fetchCareerFirstWaveNextStepLinks";
 import { fetchCareerJobExplainability } from "@/lib/career/api/fetchCareerJobExplainability";
 import { fetchCareerJobBundle } from "@/lib/career/api/fetchCareerJobBundle";
@@ -200,9 +203,40 @@ function renderCareerJobProtocolStatus(job: CareerJobBundleAdapter) {
 function buildNextStepRailItems(
   locale: Locale,
   summary: CareerFirstWaveNextStepLinksSummaryAdapter | null,
-  landingPath: string
+  landingPath: string,
+  subjectSlug: string,
+  attributionParams: ReturnType<typeof extractAttributionParamsFromRecord> = {},
+  includeAttributedRiasecCta = false
 ): NextStepRailItem[] {
   const items: NextStepRailItem[] = [];
+
+  if (includeAttributedRiasecCta) {
+    items.push({
+      title: locale === "zh" ? "RIASEC 职业兴趣测试" : "RIASEC career interest test",
+      description:
+        locale === "zh"
+          ? "先确认职业兴趣结构，再回到当前职业页判断。"
+          : "Check your career-interest structure before deciding on this role.",
+      href: buildCareerDisplayCtaHref({
+        locale,
+        landingPath,
+        subjectSlug,
+        attributionParams,
+      }),
+      eventName: CAREER_TRACKING_EVENTS.jobDetailCtaClick,
+      eventPayload: {
+        locale,
+        entrySurface: "career_job_detail",
+        sourcePageType: "career_job_detail",
+        targetAction: "start_riasec_test",
+        landingPath,
+        routeFamily: "job_detail",
+        subjectKind: "job_slug",
+        subjectKey: subjectSlug,
+        queryMode: "non_query",
+      },
+    });
+  }
 
   if (summary) {
     for (const link of summary.familyHubLinks) {
@@ -731,7 +765,14 @@ export default async function CareerJobDetailPage({
     renderState.careerDataStatus !== "unavailable" &&
     job.truthLayer.aiExposure !== null;
   const stateCopy = getCareerV1StateCopy(renderState.careerDataStatus);
-  const nextSteps = buildNextStepRailItems(locale, nextStepLinks, jobDetailLandingPath);
+  const nextSteps = buildNextStepRailItems(
+    locale,
+    nextStepLinks,
+    displayCtaLandingPath,
+    job.slug,
+    displayCtaAttributionParams,
+    locale === "zh" && job.seoContract.indexEligible === true
+  );
 
   return (
     <main className="min-h-screen bg-slate-50">
@@ -766,6 +807,14 @@ export default async function CareerJobDetailPage({
               {job.titles.canonicalEn ? <p className="m-0 text-base leading-7 text-slate-500">{job.titles.canonicalEn}</p> : null}
             </section>
             <CareerJobDocument bodyMd={visibleContentBodyMd} title={job.title} />
+            {locale === "zh" && job.seoContract.indexEligible === true ? (
+              <NextStepRail
+                title="下一步"
+                description="只保留少量真实可走的路径。"
+                items={nextSteps}
+                testId="career-job-next-step-links"
+              />
+            ) : null}
           </>
         ) : (
           <>
