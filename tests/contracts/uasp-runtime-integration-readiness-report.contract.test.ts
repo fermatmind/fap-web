@@ -61,6 +61,16 @@ type ReportArtifact = {
     status: "present" | "missing_artifact";
   }>;
   matrices?: Record<string, Array<Record<string, unknown>>>;
+  backlog?: Array<Record<string, unknown>>;
+  phase2bPrTrainProposal?: Array<Record<string, unknown>>;
+  codexSafeVsHumanDecision?: Array<Record<string, unknown>>;
+  mustNotIntegrateYet?: string[];
+  finalReadinessAssessment?: {
+    status: string;
+    statement: string;
+    lockedConclusions?: string[];
+    areas?: Array<Record<string, unknown>>;
+  };
 };
 
 function readArtifact(): ReportArtifact {
@@ -294,5 +304,67 @@ describe("UASP runtime integration readiness report", () => {
     expect(report).toContain("| `profile_contribution` | Policy says first-batch scales may contribute");
     expect(report).toContain("| Frontend local ranking | Forbidden as authority.");
     expect(report).toContain("| SDS code mismatch | UASP artifact uses `SDS20`; backend uses `SDS_20`.");
+  });
+
+  it("completes PR-UASP2B-RPT-06 final synthesis, backlog, and Phase 2B proposal", () => {
+    const artifact = readArtifact();
+    const report = fs.readFileSync(REPORT_PATH, "utf8");
+
+    expect(artifact.scope).toBe("PR-UASP2B-RPT-06");
+
+    expect(artifact.backlog?.length).toBeGreaterThan(0);
+    for (const row of artifact.backlog ?? []) {
+      expect(ALLOWED_PRIORITIES).toContain(row.priority);
+      expect(ALLOWED_STATUSES).toContain(row.status);
+      expect(Array.isArray(row.evidence)).toBe(true);
+      expect((row.evidence as unknown[]).length).toBeGreaterThan(0);
+    }
+
+    const proposalNames = (artifact.phase2bPrTrainProposal ?? []).map((row) => row.name);
+    expect(proposalNames).toEqual([
+      "Runtime Metadata Envelope Contract",
+      "Result / Report UASP Metadata Rendering Guard",
+      "SEO/GEO UASP Eligibility Guard",
+      "Freemium UASP Guard",
+      "Recommendation UASP Guard",
+      "Profile Write Blocker & Memory Readiness Ledger",
+    ]);
+    for (const row of artifact.phase2bPrTrainProposal ?? []) {
+      expect(ALLOWED_STATUSES).toContain(row.status);
+      expect(Array.isArray(row.mustNotTouch)).toBe(true);
+      expect(Array.isArray(row.evidence)).toBe(true);
+      expect((row.evidence as unknown[]).length).toBeGreaterThan(0);
+    }
+
+    expect(artifact.codexSafeVsHumanDecision?.length).toBeGreaterThan(0);
+    for (const row of artifact.codexSafeVsHumanDecision ?? []) {
+      expect(ALLOWED_STATUSES).toContain(row.status);
+      expect(row).toHaveProperty("codexSafeAction");
+      expect(row).toHaveProperty("humanDecisionRequired");
+    }
+
+    const mustNotIntegrate = JSON.stringify(artifact.mustNotIntegrateYet);
+    expect(mustNotIntegrate).toContain("UASP profile persistence must not be implemented");
+    expect(mustNotIntegrate).toContain("Generalized recommendation must not be implemented");
+    expect(mustNotIntegrate).toContain("seo_geo_eligible must not widen");
+    expect(mustNotIntegrate).toContain("Future scale onboarding must not start");
+
+    expect(artifact.finalReadinessAssessment?.status).toBe("ready_for_integration");
+    expect(artifact.finalReadinessAssessment?.lockedConclusions).toEqual([
+      "UASP v1 governance/contract layer = complete",
+      "UASP runtime metadata integration = ready to start",
+      "UASP profile memory = blocked",
+      "UASP generalized recommendation = blocked",
+      "UASP new scale onboarding = blocked",
+      "UASP sensitive signal persistence = blocked",
+      "UASP SEO/GEO = guard-only, no expansion",
+    ]);
+    expect(JSON.stringify(artifact.finalReadinessAssessment)).toContain(
+      "Phase 2B may begin with metadata envelope and guard-only runtime integration"
+    );
+    expect(JSON.stringify(artifact.finalReadinessAssessment)).toContain("Blocked. UASP recommendation_eligible is guard-only.");
+    expect(report).toContain("UASP runtime metadata integration = ready to start");
+    expect(report).toContain("| PR-UASP2B-01 Runtime Metadata Envelope Contract |");
+    expect(report).toContain("Final statement: Phase 2B may begin with metadata envelope and guard-only runtime integration.");
   });
 });
