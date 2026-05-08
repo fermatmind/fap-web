@@ -1,0 +1,107 @@
+{
+  "train_name": "core-decision-domain-governance-train",
+  "pr_namespace": "PR-CDD-*",
+  "base_branch": "main",
+  "status": "initialized",
+  "updated_at": "2026-05-08T00:00:00Z",
+  "policy": {
+    "artifact_json_contract_only": true,
+    "runtime_behavior_changed": false,
+    "new_pages_added": false,
+    "seo_geo_exposure_changed": false,
+    "recommendation_runtime_changed": false,
+    "profile_runtime_changed": false,
+    "freemium_runtime_changed": false
+  },
+  "prs": [
+    {
+      "id": "PR-CDD-01",
+      "branch": "codex/pr-cdd-01-domain-registry-overlay",
+      "depends_on": [],
+      "status": "in_progress",
+      "title": "feat(domains): add core decision domain registry overlay",
+      "artifacts": [
+        "docs/assessment/domains/core-decision-domain-v1.md",
+        "docs/assessment/domains/generated/core-decision-domain-v1.json",
+        "tests/contracts/core-decision-domain-v1.contract.test.ts"
+      ],
+      "checks": {}
+    },
+    {
+      "id": "PR-CDD-02",
+      "branch": "codex/pr-cdd-02-signal-to-domain-role-matrix",
+      "depends_on": [
+        "PR-CDD-01"
+      ],
+      "status": "planned",
+      "title": "feat(domains): add signal-to-domain role matrix",
+      "artifacts": [
+        "docs/assessment/domains/signal-to-domain-role-matrix.md",
+        "docs/assessment/domains/generated/signal-to-domain-role-matrix.v1.json",
+        "tests/contracts/signal-to-domain-role-matrix.contract.test.ts"
+      ],
+      "checks": {}
+    },
+    {
+      "id": "PR-CDD-03",
+      "branch": "codex/pr-cdd-03-domain-evidence-cta-policy",
+      "depends_on": [
+        "PR-CDD-02"
+      ],
+      "status": "planned",
+      "title": "feat(domains): add domain evidence and CTA policy",
+      "artifacts": [
+        "docs/assessment/domains/domain-evidence-cta-policy.md",
+        "docs/assessment/domains/generated/domain-evidence-cta-policy.v1.json",
+        "tests/contracts/domain-evidence-cta-policy.contract.test.ts"
+      ],
+      "checks": {}
+    },
+    {
+      "id": "PR-CDD-04",
+      "branch": "codex/pr-cdd-04-domain-claim-boundary-overlay",
+      "depends_on": [
+        "PR-CDD-03"
+      ],
+      "status": "planned",
+      "title": "feat(domains): add domain claim boundary overlay",
+      "artifacts": [
+        "docs/assessment/domains/domain-claim-boundary-overlay.md",
+        "docs/assessment/domains/generated/domain-claim-boundary-overlay.v1.json",
+        "tests/contracts/domain-claim-boundary-overlay.contract.test.ts"
+      ],
+      "checks": {}
+    },
+    {
+      "id": "PR-CDD-05",
+      "branch": "codex/pr-cdd-05-domain-report-freemium-ledger",
+      "depends_on": [
+        "PR-CDD-04"
+      ],
+      "status": "planned",
+      "title": "feat(domains): add domain report and freemium ledger",
+      "artifacts": [
+        "docs/assessment/domains/domain-report-freemium-ledger.md",
+        "docs/assessment/domains/generated/domain-report-freemium-ledger.v1.json",
+        "tests/contracts/domain-report-freemium-ledger.contract.test.ts"
+      ],
+      "checks": {}
+    },
+    {
+      "id": "PR-CDD-06",
+      "branch": "codex/pr-cdd-06-final-domain-readiness-dashboard",
+      "depends_on": [
+        "PR-CDD-05"
+      ],
+      "status": "planned",
+      "title": "feat(domains): add core decision domain readiness dashboard",
+      "artifacts": [
+        "docs/assessment/domains/core-decision-domain-readiness-dashboard.md",
+        "docs/assessment/domains/generated/core-decision-domain-readiness-dashboard.v1.json",
+        "tests/contracts/core-decision-domain-readiness-dashboard.contract.test.ts"
+      ],
+      "checks": {}
+    }
+  ],
+  "sidecar_issues": []
+}
