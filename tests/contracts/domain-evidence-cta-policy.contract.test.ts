@@ -65,9 +65,10 @@ describe("Domain evidence and CTA policy", () => {
       pr_url: "https://github.com/fermatmind/fap-web/pull/737",
     });
     expect(byId.get("PR-CDD-03")).toMatchObject({
-      status: "in_progress",
+      status: "merged",
       branch: "codex/pr-cdd-03-domain-evidence-cta-policy",
       depends_on: ["PR-CDD-02"],
+      pr_url: "https://github.com/fermatmind/fap-web/pull/738",
     });
     expect(fs.existsSync(ROLE_MATRIX_PATH)).toBe(true);
   });

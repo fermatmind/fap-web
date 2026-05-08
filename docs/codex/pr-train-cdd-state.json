@@ -52,7 +52,9 @@
       "depends_on": [
         "PR-CDD-02"
       ],
-      "status": "in_progress",
+      "status": "merged",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/738",
+      "merge_sha": "846d6a3e",
       "title": "feat(domains): add domain evidence and CTA policy",
       "artifacts": [
         "docs/assessment/domains/domain-evidence-cta-policy.md",
@@ -67,7 +69,7 @@
       "depends_on": [
         "PR-CDD-03"
       ],
-      "status": "planned",
+      "status": "in_progress",
       "title": "feat(domains): add domain claim boundary overlay",
       "artifacts": [
         "docs/assessment/domains/domain-claim-boundary-overlay.md",
