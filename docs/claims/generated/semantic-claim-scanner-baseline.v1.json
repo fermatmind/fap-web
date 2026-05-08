@@ -1,0 +1,149 @@
+{
+  "version": "claims.semantic_claim_scanner_baseline.v1",
+  "scope": "PR-SCB-01",
+  "trainName": "semantic-claim-boundary-enforcement-train",
+  "runtimeBehaviorChanged": false,
+  "executionMode": "contract_scanner_only",
+  "manualDecisionSources": [
+    "/Users/rainie/Desktop/semantic_claim_boundary_manual_decisions_v1.md",
+    "/Users/rainie/Desktop/semantic_claim_boundary_manual_decisions_v1.json"
+  ],
+  "claimStatusEnum": ["allowed", "soft_allowed", "needs_disclaimer", "internal_only", "forbidden", "unknown"],
+  "priorityEnum": ["P0", "P1", "P2", "P3"],
+  "scannerCategories": ["forbidden", "soft_boundary", "needs_disclaimer", "allowed_reference", "manual_review"],
+  "scanScope": {
+    "repoLocal": ["app/**", "components/**", "lib/**", "docs/seo/**", "docs/geo/**", "docs/freemium/**"],
+    "externalEvidenceOnly": [
+      "/Users/rainie/Desktop/GitHub/fap-api/content_packages/**",
+      "/Users/rainie/Desktop/GitHub/fap-api/backend/content_packs/**",
+      "/Users/rainie/Desktop/GitHub/fap-api/backend/content_baselines/**"
+    ],
+    "ciExternalPresenceRequired": false
+  },
+  "ignoredGeneratedFilePolicy": {
+    "ignoreFixtureAndGuardFiles": true,
+    "paths": ["docs/claims/**", "tests/contracts/**", "docs/codex/**"],
+    "reason": "Claim guard files intentionally contain forbidden phrase examples and must not be treated as public runtime copy."
+  },
+  "manualDecisionTerms": [
+    {
+      "term": "岗位诊断",
+      "defaultStatus": "needs_disclaimer",
+      "category": "needs_disclaimer",
+      "publicMainTermAllowed": false,
+      "preferredReplacements": ["岗位适配分析", "职业方向分析", "职业适配参考", "岗位匹配参考", "职业探索建议"],
+      "requiredBoundaryIfUsed": "这是基于公开职业信息与测评信号的结构化参考，不是医学诊断，也不代表职业成功预测。",
+      "forbiddenEscalators": ["精准", "成功", "保证", "录用", "诊断证明", "AI 精准"]
+    },
+    {
+      "term": "职业匹配",
+      "defaultStatus": "soft_allowed",
+      "category": "soft_boundary",
+      "publicMainTermAllowed": true,
+      "preferredReplacements": ["职业匹配参考", "职业方向匹配", "职业探索匹配", "职业适配参考", "职业方向参考"],
+      "forbiddenEscalators": ["精准", "最适合", "成功", "自动", "最佳", "AI"]
+    },
+    {
+      "term": "match best / 高匹配方向",
+      "defaultStatus": "needs_disclaimer",
+      "category": "needs_disclaimer",
+      "publicMainTermAllowed": false,
+      "preferredReplacements": ["较高相关方向", "优先探索方向", "更值得探索的方向", "较值得关注的方向", "可能更相关的方向"],
+      "requiredBoundaryIfUsed": "这是方向参考，不代表职业成功预测。",
+      "forbiddenEscalators": ["match best", "best career", "最佳职业", "最适合职业", "高匹配即最适合", "高匹配岗位保证", "最高匹配职业", "精准高匹配"]
+    },
+    {
+      "term": "guarantee / 保证 / 保障",
+      "defaultStatus": "unknown",
+      "category": "manual_review",
+      "publicMainTermAllowed": true,
+      "allowedOnlyFor": ["access guarantee", "delivery guarantee", "report access guarantee", "payment fulfillment guarantee", "访问保障", "报告可查看保障", "支付后交付保障", "权益开通保障", "订单交付保障"],
+      "forbiddenWhen": ["outcome guarantee", "accuracy guarantee", "career success guarantee", "report conclusion guarantee", "placement guarantee", "recommendation guarantee"]
+    }
+  ],
+  "fixtures": [
+    {
+      "id": "forbidden_core_overclaims",
+      "category": "forbidden",
+      "status": "forbidden",
+      "priority": "P0",
+      "phrases": [
+        "RIASEC 精准推荐最适合职业",
+        "Big Five 精准匹配职业",
+        "AI 精准职业规划",
+        "精准职业匹配",
+        "最适合职业匹配",
+        "职业成功匹配",
+        "职业成功保证",
+        "结果准确保证",
+        "报告结论保证",
+        "live personalized recommender",
+        "frontend recommendation engine"
+      ]
+    },
+    {
+      "id": "soft_boundary_claim_terms",
+      "category": "soft_boundary",
+      "status": "soft_allowed",
+      "priority": "P1",
+      "phrases": ["职业匹配", "高匹配方向", "match best", "recommendations", "career fit", "fit score", "confidence", "岗位诊断", "role-fit diagnostics", "guarantee"]
+    },
+    {
+      "id": "needs_disclaimer_terms",
+      "category": "needs_disclaimer",
+      "status": "needs_disclaimer",
+      "priority": "P1",
+      "phrases": ["岗位诊断", "高匹配方向", "career fit", "fit score", "confidence", "guarantee"]
+    },
+    {
+      "id": "manual_review_terms",
+      "category": "manual_review",
+      "status": "unknown",
+      "priority": "P2",
+      "phrases": ["诊断", "diagnostic", "AI", "guarantee", "best", "match"]
+    },
+    {
+      "id": "allowed_reference_terms",
+      "category": "allowed_reference",
+      "status": "allowed",
+      "priority": "P3",
+      "phrases": ["职业兴趣方向", "职场行为倾向", "snapshot-based direction support", "discoverability surface", "answerability surface"]
+    }
+  ],
+  "sourceFileInventory": [
+    {
+      "path": "docs/claims/generated/public-claim-boundary-matrix.v1.json",
+      "type": "claim_boundary_source",
+      "required": true
+    },
+    {
+      "path": "docs/assessment/uasp/generated/recommendation-eligibility-guard.v1.json",
+      "type": "uasp_guard_source",
+      "required": true
+    },
+    {
+      "path": "docs/assessment/uasp/generated/seo-geo-eligibility-guard.v1.json",
+      "type": "uasp_guard_source",
+      "required": true
+    },
+    {
+      "path": "docs/freemium/generated/freemium-cross-scale-parity-ledger.v1.json",
+      "type": "freemium_source",
+      "required": true
+    },
+    {
+      "path": "/Users/rainie/Desktop/GitHub/fap-api/content_packages",
+      "type": "external_evidence",
+      "required": false
+    }
+  ],
+  "nonRuntimeChangeGuarantees": {
+    "publicCopyChanged": false,
+    "scoringChanged": false,
+    "recommendationRuntimeChanged": false,
+    "reportEntitlementChanged": false,
+    "checkoutPaymentChanged": false,
+    "profileMemoryChanged": false,
+    "seoGeoExposureChanged": false
+  }
+}
