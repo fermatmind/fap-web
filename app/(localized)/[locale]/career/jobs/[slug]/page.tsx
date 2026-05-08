@@ -625,13 +625,10 @@ export async function generateMetadata({
         ? `${job.title} 的职业概览与下一步路径。`
         : `Career overview and next steps for ${job.title}.`;
   const backendSeoAllowsIndex =
-    job.renderState.canIndexPage &&
     job.seoContract.indexEligible === true &&
     !shouldNoindex(job.seoContract.indexState);
-  const effectiveIndexEligible =
-    job.renderState.canIndexPage && (seoSurface?.indexEligible ?? job.seoContract.indexEligible) === true;
-  const effectiveIndexState =
-    job.renderState.canIndexPage ? seoSurface?.indexState || job.seoContract.indexState : "blocked";
+  const effectiveIndexEligible = (seoSurface?.indexEligible ?? job.seoContract.indexEligible) === true;
+  const effectiveIndexState = seoSurface?.indexState || job.seoContract.indexState;
 
   return buildPageMetadata({
     locale,
