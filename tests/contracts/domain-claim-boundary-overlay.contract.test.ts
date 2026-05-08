@@ -60,9 +60,10 @@ describe("Domain claim boundary overlay", () => {
       pr_url: "https://github.com/fermatmind/fap-web/pull/738",
     });
     expect(byId.get("PR-CDD-04")).toMatchObject({
-      status: "in_progress",
+      status: "merged",
       branch: "codex/pr-cdd-04-domain-claim-boundary-overlay",
       depends_on: ["PR-CDD-03"],
+      pr_url: "https://github.com/fermatmind/fap-web/pull/739",
     });
     expect(fs.existsSync(EVIDENCE_CTA_PATH)).toBe(true);
   });
