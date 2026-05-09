@@ -7,7 +7,6 @@ import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink"
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
 import { MbtiSceneEntrySection } from "@/components/content/MbtiSceneEntrySection";
 import { MbtiScenarioDeepDiveSection } from "@/components/content/MbtiScenarioDeepDiveSection";
-import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -463,7 +462,12 @@ export default async function PersonalityDetailPage({
   );
 
   return (
-    <Container as="main" className="space-y-6 py-10">
+    <main
+      className="mx-auto w-full max-w-6xl px-[var(--fm-container-gutter)] space-y-6 py-10"
+      data-domain-id="self_understanding"
+      data-domain-role="primary"
+      data-domain-envelope-state="metadata_only"
+    >
       <AnalyticsPageViewTracker eventName="landing_view" properties={mbtiEntryViewTrackingProps} />
       {fallbackProjectionGate.canRenderPublicSchema ? <JsonLd id={`personality-jsonld-${detail.slug}`} data={normalizedSeo.jsonld} /> : null}
       {fallbackProjectionGate.canRenderPublicSchema ? <JsonLd id={`personality-webpage-${detail.slug}`} data={webPageJsonLd} /> : null}
@@ -720,6 +724,6 @@ export default async function PersonalityDetailPage({
           />
         ) : null}
       </div>
-    </Container>
+    </main>
   );
 }

@@ -1,0 +1,94 @@
+{
+  "version": "self_understanding.personality_test_surface_attributes.v1",
+  "scope": "PR-4C-02",
+  "trainName": "domain-runtime-metadata-integration-phase-4c-train",
+  "dependsOn": [
+    "PR-4C-01"
+  ],
+  "runtimeBehaviorChanged": false,
+  "visibleCopyAdded": false,
+  "seoGeoChanged": false,
+  "recommendationChanged": false,
+  "profileMemoryChanged": false,
+  "freemiumChanged": false,
+  "domain": "self_understanding",
+  "executionMode": "passive_data_attributes_only",
+  "attributes": [
+    "data-domain-id",
+    "data-domain-role",
+    "data-domain-envelope-state"
+  ],
+  "attributePolicy": "static governance markers; no runtime behavior triggered; not synthesized from frontend artifacts",
+  "surfaces": [
+    {
+      "surface": "personality_detail",
+      "route": "/personality/[type]",
+      "domain_role": "primary",
+      "attributePolicy": "metadata_only",
+      "file": "app/(localized)/[locale]/personality/[type]/page.tsx",
+      "note": "Always self_understanding/primary; personality surface is MBTI-based content"
+    },
+    {
+      "surface": "test_detail",
+      "route": "/tests/[slug]",
+      "scale_code": "MBTI",
+      "domain_role": "primary",
+      "attributePolicy": "metadata_only",
+      "file": "app/(localized)/[locale]/tests/[slug]/page.tsx",
+      "note": "Conditional: only when scale_code === MBTI"
+    },
+    {
+      "surface": "test_detail",
+      "route": "/tests/[slug]",
+      "scale_code": "BIG5_OCEAN",
+      "domain_role": "primary",
+      "attributePolicy": "metadata_only",
+      "file": "app/(localized)/[locale]/tests/[slug]/page.tsx",
+      "note": "Conditional: only when scale_code === BIG5_OCEAN"
+    },
+    {
+      "surface": "test_detail",
+      "route": "/tests/[slug]",
+      "scale_code": "ENNEAGRAM",
+      "domain_role": "supporting",
+      "attributePolicy": "metadata_only",
+      "file": "app/(localized)/[locale]/tests/[slug]/page.tsx",
+      "note": "Conditional: only when scale_code === ENNEAGRAM"
+    }
+  ],
+  "excluded": [
+    "RIASEC",
+    "SDS",
+    "CLINICAL",
+    "EQ",
+    "IQ",
+    "future_DISC",
+    "future_career_values",
+    "future_ability_tests"
+  ],
+  "blocked": [
+    "career_decision",
+    "workstyle_decision",
+    "new_domain_hub",
+    "visible_copy",
+    "domain_cta_runtime",
+    "seo_geo_expansion",
+    "recommendation_runtime",
+    "profile_memory",
+    "freemium_runtime",
+    "topic_article_scope"
+  ],
+  "mustNotChange": [
+    "visible copy",
+    "CTA runtime",
+    "recommendation runtime",
+    "profile memory",
+    "freemium runtime",
+    "checkout/payment",
+    "report entitlement",
+    "SEO/GEO output",
+    "sitemap generation",
+    "llms generation",
+    "scoring"
+  ]
+}

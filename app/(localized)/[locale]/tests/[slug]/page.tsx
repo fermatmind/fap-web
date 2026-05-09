@@ -10,7 +10,6 @@ import {
 } from "@/components/compliance/MentalHealthDisclaimer";
 import { FAQAccordion, type FAQItem } from "@/components/business/FAQAccordion";
 import { MbtiSceneEntrySection } from "@/components/content/MbtiSceneEntrySection";
-import { Container } from "@/components/layout/Container";
 import { CiteableSection } from "@/components/seo/CiteableSection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buttonVariants } from "@/components/ui/button";
@@ -676,6 +675,8 @@ export default async function TestLandingPage({
   const showsBig5Actions = isBig5ScaleCode(test.scale_code);
   const showsEnneagramActions = isEnneagramScaleCode(test.scale_code);
   const showsRiasecActions = isRiasecScaleCode(test.scale_code);
+  const isSelfUnderstanding = showsMbtiActions || showsBig5Actions || showsEnneagramActions;
+  const domainRole = showsMbtiActions ? "primary" : showsBig5Actions ? "primary" : showsEnneagramActions ? "supporting" : null;
   const showsMentalHealthDisclaimer = isMentalHealthScreeningTest({
     slug: test.slug,
     scaleCode: test.scale_code,
@@ -916,7 +917,14 @@ export default async function TestLandingPage({
       : null;
 
   return (
-    <Container as="main" className="pb-[var(--fm-space-30)] pt-12 lg:pb-12">
+    <main
+      className="mx-auto w-full max-w-6xl px-[var(--fm-container-gutter)] pb-[var(--fm-space-30)] pt-12 lg:pb-12"
+      {...(isSelfUnderstanding ? {
+        "data-domain-id": "self_understanding",
+        "data-domain-role": domainRole,
+        "data-domain-envelope-state": "metadata_only",
+      } : {})}
+    >
       <JsonLd id={`test-webpage-${test.slug}`} data={webPageJsonLd} />
       <JsonLd id={`test-breadcrumb-${test.slug}`} data={breadcrumbJsonLd} />
       {faqJsonLd ? <JsonLd id={`test-faq-${test.slug}`} data={faqJsonLd} /> : null}
@@ -1299,6 +1307,6 @@ export default async function TestLandingPage({
           </aside>
         ) : null}
       </div>
-    </Container>
+    </main>
   );
 }
