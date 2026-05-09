@@ -1,0 +1,82 @@
+{
+  "version": "self_understanding.topic_article_surface_attributes.v1",
+  "scope": "PR-4C-03",
+  "trainName": "domain-runtime-metadata-integration-phase-4c-train",
+  "dependsOn": [
+    "PR-4C-02"
+  ],
+  "runtimeBehaviorChanged": false,
+  "visibleCopyAdded": false,
+  "seoGeoChanged": false,
+  "recommendationChanged": false,
+  "profileMemoryChanged": false,
+  "freemiumChanged": false,
+  "domain": "self_understanding",
+  "executionMode": "contract_only_deferred",
+  "attributes": [
+    "data-domain-id",
+    "data-domain-role",
+    "data-domain-envelope-state"
+  ],
+  "attributePolicy": "deferred until backend/CMS payload-backed domain metadata is available for topics and articles",
+  "surfaces": [
+    {
+      "surface": "topic_detail",
+      "route": "/topics/[slug]",
+      "status": "deferred",
+      "allowedTopics": ["MBTI", "BIG5_OCEAN", "ENNEAGRAM"],
+      "attributePolicy": "metadata_only_or_deferred",
+      "deferredReason": "CmsTopicProfile.topicCode does not provide a stable mapping to scale code or decision domain. Hardcoding allowed topic slugs would create a fragile mapping that drifts with CMS changes.",
+      "allowedWhen": "backend/CMS payload field (e.g., decision_domain or scale_code) is added to topic model"
+    },
+    {
+      "surface": "article_detail",
+      "route": "/articles/[slug]",
+      "status": "deferred",
+      "allowedTopics": ["MBTI", "BIG5_OCEAN", "ENNEAGRAM"],
+      "attributePolicy": "metadata_only_or_deferred",
+      "deferredReason": "CmsArticle.relatedTestSlug can link to self_understanding test slugs, but mapping requires inverting SCALE_CANONICAL_SLUG_MAP and is not guaranteed stable. Articles without relatedTestSlug or with non-self-understanding test slugs must not receive attributes.",
+      "allowedWhen": "backend/CMS payload field (e.g., decision_domain or scale_code) is added to article model"
+    }
+  ],
+  "excluded": [
+    "RIASEC",
+    "career_decision",
+    "workstyle_decision",
+    "SDS",
+    "CLINICAL",
+    "EQ",
+    "IQ",
+    "future_DISC",
+    "future_career_values",
+    "future_ability_tests",
+    "unknown_topic",
+    "unknown_article"
+  ],
+  "blocked": [
+    "new_domain_hub",
+    "visible_copy",
+    "domain_cta_runtime",
+    "seo_geo_expansion",
+    "recommendation_runtime",
+    "profile_memory",
+    "freemium_runtime",
+    "topic_graph_expansion",
+    "career_pseo_expansion"
+  ],
+  "mustNotChange": [
+    "visible copy",
+    "CTA runtime",
+    "recommendation runtime",
+    "profile memory",
+    "freemium runtime",
+    "checkout/payment",
+    "report entitlement",
+    "SEO/GEO output",
+    "sitemap generation",
+    "llms generation",
+    "scoring",
+    "topic page markup",
+    "article page markup"
+  ]
+}
