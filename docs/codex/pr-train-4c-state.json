@@ -38,12 +38,26 @@
       "id": "PR-4C-02",
       "branch": "codex/pr-4c-02-self-understanding-personality-test-surface-attributes",
       "depends_on": ["PR-4C-01"],
-      "status": "in_progress",
+      "status": "merged",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/749",
       "title": "test(domains): add self-understanding personality test surface attributes",
       "artifacts": [
         "docs/assessment/domains/self-understanding-personality-test-surface-attributes.md",
         "docs/assessment/domains/generated/self-understanding-personality-test-surface-attributes.v1.json",
         "tests/contracts/self-understanding-personality-test-surface-attributes.contract.test.ts"
+      ],
+      "checks": {}
+    },
+    {
+      "id": "PR-4C-03",
+      "branch": "codex/pr-4c-03-self-understanding-topic-article-surface-attributes",
+      "depends_on": ["PR-4C-02"],
+      "status": "in_progress",
+      "title": "test(domains): add self-understanding topic article surface attributes",
+      "artifacts": [
+        "docs/assessment/domains/self-understanding-topic-article-surface-attributes.md",
+        "docs/assessment/domains/generated/self-understanding-topic-article-surface-attributes.v1.json",
+        "tests/contracts/self-understanding-topic-article-surface-attributes.contract.test.ts"
       ],
       "checks": {}
     }
