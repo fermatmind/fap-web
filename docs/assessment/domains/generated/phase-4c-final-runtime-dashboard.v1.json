@@ -1,0 +1,123 @@
+{
+  "version": "phase_4c.final_runtime_dashboard.v1",
+  "scope": "PR-4C-05",
+  "trainName": "domain-runtime-metadata-integration-phase-4c-train",
+  "dependsOn": [
+    "PR-4C-04"
+  ],
+  "phase": "4C",
+  "status": "completed_metadata_only",
+  "runtimeBehaviorChanged": false,
+  "visibleCopyAdded": false,
+  "ctaRuntimeChanged": false,
+  "seoGeoChanged": false,
+  "sitemapChanged": false,
+  "llmsChanged": false,
+  "recommendationChanged": false,
+  "profileMemoryChanged": false,
+  "freemiumChanged": false,
+  "scoringChanged": false,
+  "newRoutesAdded": false,
+  "domainHubAdded": false,
+  "completedPRs": [
+    "PR-4C-01",
+    "PR-4C-02",
+    "PR-4C-03",
+    "PR-4C-04",
+    "PR-4C-05"
+  ],
+  "domains": {
+    "self_understanding": {
+      "domainStatus": "metadata_runtime_integrated",
+      "runtimeMode": "metadata_only",
+      "visibleRuntime": false,
+      "surfaces": [
+        "result_report",
+        "personality_detail",
+        "test_detail",
+        "topic_article_policy"
+      ],
+      "signals": [
+        { "scale_code": "MBTI", "role": "primary" },
+        { "scale_code": "BIG5_OCEAN", "role": "primary" },
+        { "scale_code": "ENNEAGRAM", "role": "supporting" }
+      ],
+      "noHub": true,
+      "noVisibleCopy": true,
+      "noCTA": true,
+      "noSEOGeoExpansion": true,
+      "noRecommendation": true,
+      "noProfileWrite": true,
+      "noFreemium": true
+    },
+    "career_decision": {
+      "domainStatus": "blocked_for_runtime",
+      "runtimeMode": "guard_only",
+      "visibleRuntime": false,
+      "signals": [
+        { "scale_code": "RIASEC", "role": "primary", "boundary": "candidate_signal, not recommender" },
+        { "scale_code": "MBTI", "role": "supporting", "boundary": "next_step_only / snapshot support" },
+        { "scale_code": "BIG5_OCEAN", "role": "supporting", "boundary": "explanation_only, not career matcher" },
+        { "scale_code": "Career Graph", "role": "supporting", "boundary": "evidence substrate, not recommender" }
+      ],
+      "noRecommender": true,
+      "noNewRuntime": true
+    },
+    "workstyle_decision": {
+      "domainStatus": "deferred",
+      "runtimeMode": "artifact_only",
+      "visibleRuntime": false,
+      "signals": [
+        { "scale_code": "BIG5_OCEAN", "role": "primary", "boundary": "not employment suitability" },
+        { "scale_code": "MBTI", "role": "secondary", "boundary": "not workplace performance" },
+        { "scale_code": "ENNEAGRAM", "role": "supporting", "boundary": "not HR screening" },
+        { "scale_code": "RIASEC", "role": "blocked" },
+        { "scale_code": "future_DISC", "role": "future" },
+        { "scale_code": "future_EQ", "role": "future" }
+      ],
+      "noPublicModule": true,
+      "dataAttributesDeferred": true
+    }
+  },
+  "blocked": [
+    "new_domain_hub_pages",
+    "public_decision_routes",
+    "visible_domain_copy",
+    "domain_owned_cta_runtime",
+    "seo_geo_expansion",
+    "sitemap_llms_widening",
+    "generalized_recommendation",
+    "riasec_recommender",
+    "big_five_career_matcher",
+    "career_decision_runtime",
+    "workstyle_public_module",
+    "profile_memory",
+    "saved_careers_promotion",
+    "sensitive_signal_persistence",
+    "domain_freemium_bundle",
+    "checkout_payment_changes",
+    "report_entitlement_changes",
+    "scoring_changes",
+    "new_test_onboarding",
+    "new_scale_onboarding",
+    "topic_graph_expansion",
+    "career_pseo_expansion",
+    "long_term_profile",
+    "b2b"
+  ],
+  "nextRecommendedStep": "phase_4c_final_verification_scan_or_human_visible_runtime_planning",
+  "phase4DExecutionAllowed": false,
+  "mustNotChange": [
+    "visible copy",
+    "CTA runtime",
+    "recommendation runtime",
+    "profile memory",
+    "freemium runtime",
+    "checkout/payment",
+    "report entitlement",
+    "SEO/GEO output",
+    "sitemap generation",
+    "llms generation",
+    "scoring"
+  ]
+}

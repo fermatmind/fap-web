@@ -66,12 +66,26 @@
       "id": "PR-4C-04",
       "branch": "codex/pr-4c-04-runtime-verification-report",
       "depends_on": ["PR-4C-03"],
-      "status": "in_progress",
+      "status": "merged",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/751",
       "title": "docs(domains): add Phase 4C runtime verification report",
       "artifacts": [
         "docs/assessment/domains/phase-4c-runtime-verification-report.md",
         "docs/assessment/domains/generated/phase-4c-runtime-verification-report.v1.json",
         "tests/contracts/phase-4c-runtime-verification-report.contract.test.ts"
+      ],
+      "checks": {}
+    },
+    {
+      "id": "PR-4C-05",
+      "branch": "codex/pr-4c-05-final-runtime-dashboard",
+      "depends_on": ["PR-4C-04"],
+      "status": "in_progress",
+      "title": "feat(domains): add Phase 4C final runtime dashboard",
+      "artifacts": [
+        "docs/assessment/domains/phase-4c-final-runtime-dashboard.md",
+        "docs/assessment/domains/generated/phase-4c-final-runtime-dashboard.v1.json",
+        "tests/contracts/phase-4c-final-runtime-dashboard.contract.test.ts"
       ],
       "checks": {}
     }
