@@ -52,12 +52,26 @@
       "id": "PR-4C-03",
       "branch": "codex/pr-4c-03-self-understanding-topic-article-surface-attributes",
       "depends_on": ["PR-4C-02"],
-      "status": "in_progress",
+      "status": "merged",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/750",
       "title": "test(domains): add self-understanding topic article surface attributes",
       "artifacts": [
         "docs/assessment/domains/self-understanding-topic-article-surface-attributes.md",
         "docs/assessment/domains/generated/self-understanding-topic-article-surface-attributes.v1.json",
         "tests/contracts/self-understanding-topic-article-surface-attributes.contract.test.ts"
+      ],
+      "checks": {}
+    },
+    {
+      "id": "PR-4C-04",
+      "branch": "codex/pr-4c-04-runtime-verification-report",
+      "depends_on": ["PR-4C-03"],
+      "status": "in_progress",
+      "title": "docs(domains): add Phase 4C runtime verification report",
+      "artifacts": [
+        "docs/assessment/domains/phase-4c-runtime-verification-report.md",
+        "docs/assessment/domains/generated/phase-4c-runtime-verification-report.v1.json",
+        "tests/contracts/phase-4c-runtime-verification-report.contract.test.ts"
       ],
       "checks": {}
     }
