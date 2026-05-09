@@ -113,7 +113,13 @@ export function Big5ResultPageV2Shell({
   const modules = payload.modules.filter((module) => module.blocks.length > 0);
 
   return (
-    <div data-testid="big5-result-page-v2-shell" className="space-y-6">
+    <div
+      data-testid="big5-result-page-v2-shell"
+      data-domain-id="self_understanding"
+      data-domain-role="primary"
+      data-domain-envelope-state="metadata_only"
+      className="space-y-6"
+    >
       {modules.map((module) => {
         const title = MODULE_TITLES[module.module_key]?.[locale] ?? module.module_key;
         return (
