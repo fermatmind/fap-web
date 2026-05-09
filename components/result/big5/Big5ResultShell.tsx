@@ -323,7 +323,13 @@ export function Big5ResultShell({
     : "This page now organizes the summary, domains, facets, comparison, and actions into one reading path.";
 
   return (
-    <div data-testid="big5-result-shell" className="space-y-8">
+    <div
+      data-testid="big5-result-shell"
+      data-domain-id="self_understanding"
+      data-domain-role="primary"
+      data-domain-envelope-state="metadata_only"
+      className="space-y-8"
+    >
       <Card className="overflow-hidden border-slate-200 bg-gradient-to-br from-white via-sky-50/70 to-emerald-50/60 shadow-[0_18px_40px_rgba(15,23,42,0.06)]">
         <CardContent className="space-y-6 p-6 md:p-8">
           <div className="flex flex-wrap items-center gap-3">

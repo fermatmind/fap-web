@@ -584,6 +584,9 @@ export function MbtiResultShellLoadingShell({
   return (
     <div
       data-testid="mbti-result-shell"
+      data-domain-id="self_understanding"
+      data-domain-role="primary"
+      data-domain-envelope-state="metadata_only"
       className="relative flex min-h-[60vh] flex-col gap-8 pb-16 xl:pb-0"
     >
       <div className="mx-auto flex w-full max-w-[904px] flex-col gap-6 px-4 md:px-6">

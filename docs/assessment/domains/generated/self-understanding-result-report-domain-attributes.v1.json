@@ -1,0 +1,83 @@
+{
+  "version": "self_understanding.result_report_domain_attributes.v1",
+  "scope": "PR-4C-01",
+  "trainName": "domain-runtime-metadata-integration-phase-4c-train",
+  "runtimeBehaviorChanged": false,
+  "visibleCopyAdded": false,
+  "seoGeoChanged": false,
+  "recommendationChanged": false,
+  "profileMemoryChanged": false,
+  "freemiumChanged": false,
+  "domain": "self_understanding",
+  "executionMode": "passive_data_attributes_only",
+  "attributes": [
+    "data-domain-id",
+    "data-domain-role",
+    "data-domain-envelope-state"
+  ],
+  "attributePolicy": "static governance markers; no runtime behavior triggered; not synthesized from frontend artifacts",
+  "surfaces": [
+    {
+      "scale_code": "MBTI",
+      "domain_role": "primary",
+      "attributePolicy": "metadata_only",
+      "component": "MbtiResultShellLoadingShell",
+      "file": "components/result/mbti/MbtiResultShell.tsx"
+    },
+    {
+      "scale_code": "BIG5_OCEAN",
+      "domain_role": "primary",
+      "attributePolicy": "metadata_only",
+      "component": "Big5ResultShell",
+      "file": "components/result/big5/Big5ResultShell.tsx"
+    },
+    {
+      "scale_code": "BIG5_OCEAN",
+      "domain_role": "primary",
+      "attributePolicy": "metadata_only",
+      "component": "Big5ResultPageV2Shell",
+      "file": "components/result/big5/Big5ResultPageV2Shell.tsx"
+    },
+    {
+      "scale_code": "ENNEAGRAM",
+      "domain_role": "supporting",
+      "attributePolicy": "metadata_only",
+      "component": "EnneagramResultShell",
+      "file": "components/result/enneagram/EnneagramResultShell.tsx"
+    }
+  ],
+  "notCovered": [
+    "RIASEC",
+    "career_decision",
+    "workstyle_decision",
+    "future_DISC",
+    "future_EQ",
+    "future_career_values",
+    "future_ability_tests"
+  ],
+  "blocked": [
+    "career_decision",
+    "workstyle_decision",
+    "new_domain_hub",
+    "visible_copy",
+    "domain_cta_runtime",
+    "seo_geo_expansion",
+    "recommendation_runtime",
+    "profile_memory",
+    "freemium_runtime"
+  ],
+  "mustNotChange": [
+    "visible copy",
+    "result/report layout",
+    "CTA runtime",
+    "recommendation runtime",
+    "profile memory",
+    "freemium runtime",
+    "checkout/payment",
+    "report entitlement",
+    "SEO/GEO output",
+    "sitemap generation",
+    "llms generation",
+    "scoring"
+  ]
+}
