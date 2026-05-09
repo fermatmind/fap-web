@@ -75,7 +75,9 @@
       "depends_on": [
         "PR-4B-03"
       ],
-      "status": "in_progress",
+      "status": "merged",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/745",
+      "merge_sha": "2c00613d9cc03a8b4d7f964ee1840e0c300c1f1a",
       "title": "test(domains): add career decision existing surface guard ledger",
       "artifacts": [
         "docs/assessment/domains/career-decision-surface-guard-ledger.md",
@@ -90,7 +92,7 @@
       "depends_on": [
         "PR-4B-04"
       ],
-      "status": "planned",
+      "status": "in_progress",
       "title": "test(domains): add workstyle metadata readiness ledger",
       "artifacts": [
         "docs/assessment/domains/workstyle-metadata-readiness-ledger.md",
