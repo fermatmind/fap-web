@@ -1,0 +1,183 @@
+{
+  "version": "decision_domain.runtime_readiness_dashboard.v1",
+  "scope": "PR-4B-06",
+  "trainName": "domain-runtime-metadata-integration-train",
+  "dependsOn": [
+    "PR-4B-05"
+  ],
+  "runtimeBehaviorChanged": false,
+  "executionMode": "artifact_json_contract_only",
+  "domains": [
+    "self_understanding",
+    "career_decision",
+    "workstyle_decision"
+  ],
+  "phase": "Phase 4B",
+  "phaseTitle": "Final Phase 4B Runtime Readiness Dashboard",
+  "sourceArtifacts": [
+    "docs/assessment/domains/generated/decision-domain-runtime-metadata-envelope.v1.json",
+    "docs/assessment/domains/generated/result-report-domain-metadata-guard.v1.json",
+    "docs/assessment/domains/generated/self-understanding-surface-metadata-policy.v1.json",
+    "docs/assessment/domains/generated/career-decision-surface-guard-ledger.v1.json",
+    "docs/assessment/domains/generated/workstyle-metadata-readiness-ledger.v1.json",
+    "docs/assessment/domains/generated/core-decision-domain-v1.json",
+    "docs/assessment/domains/generated/signal-to-domain-role-matrix.v1.json",
+    "docs/assessment/domains/generated/domain-claim-boundary-overlay.v1.json",
+    "docs/assessment/domains/generated/domain-evidence-cta-policy.v1.json",
+    "docs/assessment/domains/generated/domain-report-freemium-ledger.v1.json"
+  ],
+  "runtimeReadinessEnum": [
+    "ready_for_runtime_v1",
+    "ready_for_metadata_only",
+    "partial",
+    "artifact_only",
+    "backend_ready",
+    "frontend_partial",
+    "blocked",
+    "dangerous_if_integrated",
+    "requires_human_decision",
+    "safe_to_defer",
+    "unknown"
+  ],
+  "runtimeRecommendationEnum": [
+    "no_runtime",
+    "metadata_only",
+    "data_attribute_only",
+    "existing_surface_only",
+    "existing_result_report_only",
+    "existing_cta_guard_only",
+    "future_runtime_candidate",
+    "blocked"
+  ],
+  "dashboard": [
+    {
+      "domain_id": "self_understanding",
+      "runtime_readiness": "partial",
+      "runtime_recommendation": "existing_result_report_only",
+      "phase_4b_decision": "metadata-only on existing result/report/personality/topic/test surfaces",
+      "no_hub": true,
+      "no_visible_copy": true,
+      "signals": [
+        { "scale_code": "MBTI", "role": "primary" },
+        { "scale_code": "BIG5_OCEAN", "role": "primary" },
+        { "scale_code": "ENNEAGRAM", "role": "supporting" },
+        { "scale_code": "RIASEC", "role": "supporting" }
+      ],
+      "allowed_surfaces": [
+        "result_report",
+        "personality_detail",
+        "topic_detail",
+        "article_detail",
+        "test_detail"
+      ],
+      "source_prs": ["PR-4B-01", "PR-4B-02", "PR-4B-03"],
+      "human_decision_required": [
+        "visible domain copy policy",
+        "domain-owned CTA policy",
+        "domain runtime IA"
+      ]
+    },
+    {
+      "domain_id": "career_decision",
+      "runtime_readiness": "dangerous_if_integrated",
+      "runtime_recommendation": "existing_cta_guard_only",
+      "phase_4b_decision": "guard ledger only; no generalized runtime and no recommender",
+      "no_recommender": true,
+      "no_new_runtime": true,
+      "signals": [
+        { "scale_code": "RIASEC", "role": "primary" },
+        { "scale_code": "MBTI", "role": "supporting" },
+        { "scale_code": "BIG5_OCEAN", "role": "supporting" },
+        { "scale_code": "Career Graph", "role": "supporting" }
+      ],
+      "allowed_surfaces": [
+        "career_job_detail",
+        "mbti_career_recommendation",
+        "result_report_career_adjacent",
+        "riasec_result_report"
+      ],
+      "source_prs": ["PR-4B-01", "PR-4B-02", "PR-4B-04"],
+      "human_decision_required": [
+        "career decision runtime framing",
+        "recommendation boundary approval",
+        "career evidence and explainability policy",
+        "domain bundle entitlement policy"
+      ]
+    },
+    {
+      "domain_id": "workstyle_decision",
+      "runtime_readiness": "artifact_only",
+      "runtime_recommendation": "data_attribute_only",
+      "phase_4b_decision": "metadata readiness ledger only; data attributes deferred",
+      "no_public_module": true,
+      "data_attributes_deferred": true,
+      "signals": [
+        { "scale_code": "BIG5_OCEAN", "role": "primary" },
+        { "scale_code": "MBTI", "role": "secondary" },
+        { "scale_code": "ENNEAGRAM", "role": "supporting" },
+        { "scale_code": "RIASEC", "role": "blocked" },
+        { "scale_code": "future_DISC", "role": "future" },
+        { "scale_code": "future_EQ", "role": "future" }
+      ],
+      "allowed_surfaces": [],
+      "source_prs": ["PR-4B-01", "PR-4B-02", "PR-4B-05"],
+      "human_decision_required": [
+        "workstyle runtime IA",
+        "workstyle CTA policy",
+        "workstyle report module policy",
+        "domain bundle entitlement proof"
+      ]
+    }
+  ],
+  "blockedAreas": [
+    "new domain hub pages",
+    "public decision routes",
+    "domain-owned CTA runtime",
+    "SEO/GEO expansion",
+    "sitemap/llms widening",
+    "generalized recommendation runtime",
+    "RIASEC recommender",
+    "Big Five career matcher",
+    "profile memory writes",
+    "saved careers promotion",
+    "domain freemium bundle",
+    "checkout/payment changes",
+    "visible domain copy",
+    "new tests",
+    "new scale onboarding",
+    "Topic Graph expansion",
+    "Career pSEO"
+  ],
+  "trainCompletion": {
+    "PR-4B-01_decision_domain_metadata_envelope": "ready",
+    "PR-4B-02_result_report_domain_metadata_guard": "ready",
+    "PR-4B-03_self_understanding_surface_metadata_policy": "ready",
+    "PR-4B-04_career_decision_surface_guard_ledger": "ready",
+    "PR-4B-05_workstyle_metadata_readiness_ledger": "ready",
+    "PR-4B-06_final_runtime_readiness_dashboard": "ready"
+  },
+  "nextPhaseRecommendation": {
+    "phase": "Phase 4C",
+    "decision": "do not start unless humans approve visible runtime IA, domain-level copy policy, domain-owned CTA policy, and domain bundle entitlement policy",
+    "recommended_next_safe_step": "Phase 4B verification scan: confirm no runtime drift, no frontend fallback authority leaks, no SEO/GEO/sitemap expansion",
+    "runtime_changes_allowed_now": false
+  },
+  "mustNotChange": [
+    "domain hub pages",
+    "public routes",
+    "visible domain copy",
+    "CTA runtime",
+    "recommendation runtime",
+    "profile memory",
+    "freemium runtime",
+    "saved careers promotion",
+    "SEO/GEO output",
+    "sitemap generation",
+    "llms generation",
+    "llms-full generation",
+    "domain freemium bundle",
+    "checkout/payment",
+    "report entitlement",
+    "scoring"
+  ]
+}

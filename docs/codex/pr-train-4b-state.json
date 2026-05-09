@@ -92,7 +92,9 @@
       "depends_on": [
         "PR-4B-04"
       ],
-      "status": "in_progress",
+      "status": "merged",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/746",
+      "merge_sha": "96982c2e8c98ef3d5b33703938d7cf0cc9019c0d",
       "title": "test(domains): add workstyle metadata readiness ledger",
       "artifacts": [
         "docs/assessment/domains/workstyle-metadata-readiness-ledger.md",
@@ -107,7 +109,7 @@
       "depends_on": [
         "PR-4B-05"
       ],
-      "status": "planned",
+      "status": "in_progress",
       "title": "feat(domains): add final Phase 4B runtime readiness dashboard",
       "artifacts": [
         "docs/assessment/domains/domain-runtime-readiness-dashboard.md",
