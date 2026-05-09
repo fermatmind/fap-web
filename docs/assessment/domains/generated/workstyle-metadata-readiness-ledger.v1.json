@@ -1,0 +1,151 @@
+{
+  "version": "decision_domain.workstyle_metadata_readiness_ledger.v1",
+  "scope": "PR-4B-05",
+  "trainName": "domain-runtime-metadata-integration-train",
+  "dependsOn": [
+    "PR-4B-04"
+  ],
+  "runtimeBehaviorChanged": false,
+  "executionMode": "contract_ledger_only",
+  "domain": "workstyle_decision",
+  "runtimeReadiness": "artifact_only",
+  "runtimeRecommendation": "data_attribute_only",
+  "phase4bDecision": "metadata readiness only; data attributes deferred until payload-backed metadata exists",
+  "statusEnum": [
+    "ready_for_runtime_v1",
+    "ready_for_metadata_only",
+    "partial",
+    "artifact_only",
+    "backend_ready",
+    "frontend_partial",
+    "blocked",
+    "dangerous_if_integrated",
+    "requires_human_decision",
+    "safe_to_defer",
+    "unknown"
+  ],
+  "runtimeRecommendationEnum": [
+    "no_runtime",
+    "metadata_only",
+    "data_attribute_only",
+    "existing_surface_only",
+    "existing_result_report_only",
+    "existing_cta_guard_only",
+    "future_runtime_candidate",
+    "blocked"
+  ],
+  "sourceArtifacts": [
+    "docs/assessment/domains/generated/core-decision-domain-v1.json",
+    "docs/assessment/domains/generated/signal-to-domain-role-matrix.v1.json",
+    "docs/assessment/domains/generated/decision-domain-runtime-metadata-envelope.v1.json",
+    "docs/assessment/domains/generated/result-report-domain-metadata-guard.v1.json",
+    "docs/assessment/domains/generated/domain-claim-boundary-overlay.v1.json",
+    "docs/assessment/domains/generated/domain-evidence-cta-policy.v1.json",
+    "docs/assessment/domains/generated/domain-report-freemium-ledger.v1.json",
+    "docs/assessment/uasp/generated/existing-scale-signal-registry.v1.json",
+    "docs/claims/generated/riasec-bigfive-boundary-guards.v1.json"
+  ],
+  "signalRoles": [
+    {
+      "scale_code": "BIG5_OCEAN",
+      "role": "primary",
+      "boundary": "trait/workstyle explanation only; not employment suitability"
+    },
+    {
+      "scale_code": "MBTI",
+      "role": "secondary",
+      "boundary": "identity/preference explanation only; not workplace performance"
+    },
+    {
+      "scale_code": "ENNEAGRAM",
+      "role": "supporting",
+      "boundary": "motivation/team-pattern explanation only; not HR screening"
+    },
+    {
+      "scale_code": "RIASEC",
+      "role": "blocked",
+      "boundary": "cannot enter workstyle_decision"
+    },
+    {
+      "scale_code": "future_DISC",
+      "role": "future",
+      "boundary": "future only; not ready for metadata or runtime"
+    },
+    {
+      "scale_code": "future_EQ",
+      "role": "future",
+      "boundary": "future only; not ready for metadata or runtime"
+    },
+    {
+      "scale_code": "future_career_values",
+      "role": "blocked",
+      "boundary": "cannot enter workstyle_decision"
+    },
+    {
+      "scale_code": "future_ability_tests",
+      "role": "blocked",
+      "boundary": "cannot enter workstyle_decision"
+    }
+  ],
+  "deferredDataAttributes": [
+    "data-domain-id",
+    "data-domain-role",
+    "data-domain-envelope-state"
+  ],
+  "deferredDataAttributesPolicy": "must not be added from frontend artifact inference; only when backend/CMS/runtime payload carries the domain envelope",
+  "surfaceLedger": [],
+  "surfaceLedgerNote": "No workstyle public module, page, or route exists. Workstyle metadata is passive on existing result/report surfaces only.",
+  "guardRules": [
+    "no_workstyle_public_module",
+    "no_workstyle_public_page",
+    "no_workstyle_public_route",
+    "no_decision_route",
+    "no_domains_route",
+    "no_visible_workstyle_copy",
+    "no_visible_workstyle_badge",
+    "no_workplace_performance_prediction",
+    "no_employment_suitability",
+    "no_hr_screening_claim",
+    "no_big_five_career_matching",
+    "no_new_cta",
+    "no_cta_copy_change",
+    "no_seo_geo_expansion",
+    "no_sitemap_llms_url_set_change",
+    "no_result_report_layout_change",
+    "no_recommendation_trigger",
+    "no_profile_write",
+    "no_freemium_domain_bundle",
+    "no_report_entitlement_change",
+    "no_checkout_payment_change",
+    "no_scoring_change",
+    "data_attributes_deferred_until_payload_backed_metadata",
+    "frontend_fallback_not_domain_authority"
+  ],
+  "forbiddenClaims": [
+    "employment suitability",
+    "workplace performance prediction",
+    "HR screening claim",
+    "Big Five career matching",
+    "precise workplace recommendation",
+    "team placement guarantee",
+    "leadership prediction",
+    "communication style diagnosis"
+  ],
+  "mustNotChange": [
+    "result/report runtime",
+    "personality surfaces",
+    "test surfaces",
+    "career surfaces",
+    "CTA runtime",
+    "recommendation runtime",
+    "profile runtime",
+    "freemium runtime",
+    "checkout/payment",
+    "report entitlement",
+    "SEO/GEO output",
+    "sitemap generation",
+    "llms generation",
+    "llms-full generation",
+    "scoring"
+  ]
+}
