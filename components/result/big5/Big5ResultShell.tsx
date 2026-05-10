@@ -12,6 +12,7 @@ import type { Big5PublicProjection, OfferPayload } from "@/lib/api/v0_3";
 import { BIG5_V1_SHELL_MICROCOPY } from "@/lib/big5/microcopy";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import { SelfUnderstandingDomainBadge } from "@/components/domains/SelfUnderstandingDomainBadge";
 
 type Headline = {
   badge: string;
@@ -330,6 +331,7 @@ export function Big5ResultShell({
       data-domain-envelope-state="metadata_only"
       className="space-y-8"
     >
+      <SelfUnderstandingDomainBadge locale={locale} />
       <Card className="overflow-hidden border-slate-200 bg-gradient-to-br from-white via-sky-50/70 to-emerald-50/60 shadow-[0_18px_40px_rgba(15,23,42,0.06)]">
         <CardContent className="space-y-6 p-6 md:p-8">
           <div className="flex flex-wrap items-center gap-3">

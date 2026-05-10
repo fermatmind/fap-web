@@ -2,6 +2,7 @@
 
 import type { Big5ResultPageV2Block, Big5ResultPageV2Payload } from "@/lib/big5/resultPageV2";
 import type { Locale } from "@/lib/i18n/locales";
+import { SelfUnderstandingDomainBadge } from "@/components/domains/SelfUnderstandingDomainBadge";
 
 const MODULE_TITLES: Record<string, { en: string; zh: string }> = {
   module_00_trust_bar: { en: "Trust note", zh: "可信说明" },
@@ -120,6 +121,7 @@ export function Big5ResultPageV2Shell({
       data-domain-envelope-state="metadata_only"
       className="space-y-6"
     >
+      <SelfUnderstandingDomainBadge locale={locale} />
       {modules.map((module) => {
         const title = MODULE_TITLES[module.module_key]?.[locale] ?? module.module_key;
         return (

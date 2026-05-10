@@ -24,12 +24,26 @@
       "id": "PR-4D-00",
       "branch": "codex/pr-4d-00-visible-domain-badge-manual-decision-lock",
       "depends_on": [],
-      "status": "in_progress",
+      "status": "merged",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/753",
       "title": "docs(domains): lock Phase 4D visible domain badge decision",
       "artifacts": [
         "docs/assessment/domains/phase-4d-visible-domain-badge-manual-decision.md",
         "docs/assessment/domains/generated/phase-4d-visible-domain-badge-manual-decision.v1.json",
         "tests/contracts/phase-4d-visible-domain-badge-manual-decision.contract.test.ts"
+      ],
+      "checks": {}
+    },
+    {
+      "id": "PR-4D-01",
+      "branch": "codex/pr-4d-01-self-understanding-result-report-badge-runtime",
+      "depends_on": ["PR-4D-00"],
+      "status": "in_progress",
+      "title": "feat(domains): add self-understanding result report badge",
+      "artifacts": [
+        "docs/assessment/domains/self-understanding-result-report-badge-runtime.md",
+        "docs/assessment/domains/generated/self-understanding-result-report-badge-runtime.v1.json",
+        "tests/contracts/self-understanding-result-report-badge-runtime.contract.test.ts"
       ],
       "checks": {}
     }
