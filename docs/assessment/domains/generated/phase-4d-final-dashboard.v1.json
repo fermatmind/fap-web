@@ -1,0 +1,105 @@
+{
+  "version": "phase_4d.final_dashboard.v1",
+  "scope": "PR-4D-03",
+  "trainName": "domain-runtime-metadata-integration-phase-4d-train",
+  "dependsOn": [
+    "PR-4D-02"
+  ],
+  "phase": "4D",
+  "status": "completed_minimal_visible_badge_runtime",
+  "runtimeBehaviorChanged": true,
+  "runtimeChangeType": "minimal_visible_domain_label",
+  "visibleCopyAdded": true,
+  "visibleCopyScope": "self_understanding_badge_only",
+  "visibleCopyText": {
+    "zh-CN": "自我认知",
+    "en": "Self-understanding"
+  },
+  "ctaRuntimeChanged": false,
+  "seoGeoChanged": false,
+  "sitemapChanged": false,
+  "llmsChanged": false,
+  "llmsFullChanged": false,
+  "jsonLdChanged": false,
+  "metadataChanged": false,
+  "recommendationChanged": false,
+  "profileMemoryChanged": false,
+  "freemiumChanged": false,
+  "scoringChanged": false,
+  "newRoutesAdded": false,
+  "domainHubAdded": false,
+  "completedPRs": [
+    "PR-4D-00",
+    "PR-4D-01",
+    "PR-4D-02",
+    "PR-4D-03"
+  ],
+  "domains": {
+    "self_understanding": {
+      "domainStatus": "minimal_visible_runtime_integrated",
+      "runtimeMode": "self_understanding_result_report_badge_only",
+      "visibleRuntime": true,
+      "allowedSurfaces": [
+        "mbti_result_report",
+        "big_five_result_report",
+        "enneagram_result_report"
+      ],
+      "ctaAllowed": false,
+      "linkAllowed": false,
+      "recommendationTriggered": false,
+      "profileWriteAllowed": false,
+      "seoGeoExpansionAllowed": false
+    },
+    "career_decision": {
+      "domainStatus": "blocked_for_visible_runtime",
+      "runtimeMode": "guard_only",
+      "visibleRuntime": false
+    },
+    "workstyle_decision": {
+      "domainStatus": "deferred",
+      "runtimeMode": "artifact_only",
+      "visibleRuntime": false
+    }
+  },
+  "blocked": [
+    "new_domain_hub_pages",
+    "public_decision_routes",
+    "visible_domain_copy_beyond_approved_badge",
+    "domain_owned_cta_runtime",
+    "seo_geo_expansion",
+    "sitemap_llms_widening",
+    "generalized_recommendation",
+    "riasec_recommender",
+    "big_five_career_matcher",
+    "career_decision_runtime",
+    "workstyle_public_module",
+    "profile_memory",
+    "saved_careers_promotion",
+    "sensitive_signal_persistence",
+    "domain_freemium_bundle",
+    "checkout_payment_changes",
+    "report_entitlement_changes",
+    "scoring_changes",
+    "new_test_onboarding",
+    "new_scale_onboarding",
+    "topic_graph_expansion",
+    "career_pseo_expansion",
+    "long_term_profile",
+    "b2b"
+  ],
+  "nextRecommendedStep": "phase_4d_final_verification_scan",
+  "nextRuntimeExpansionAllowed": false,
+  "mustNotChange": [
+    "visible copy beyond badge text",
+    "CTA runtime",
+    "recommendation runtime",
+    "profile memory",
+    "freemium runtime",
+    "checkout/payment",
+    "report entitlement",
+    "SEO/GEO output",
+    "sitemap generation",
+    "llms generation",
+    "scoring"
+  ]
+}
