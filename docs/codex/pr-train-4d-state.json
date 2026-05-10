@@ -1,0 +1,38 @@
+{
+  "train_name": "domain-runtime-metadata-integration-phase-4d-train",
+  "pr_namespace": "PR-4D-*",
+  "base_branch": "main",
+  "status": "initialized",
+  "updated_at": "2026-05-10T00:00:00Z",
+  "policy": {
+    "visible_domain_badge_only": true,
+    "runtime_behavior_changed": false,
+    "visible_copy_limited_to_badge": true,
+    "new_pages_added": false,
+    "public_routes_added": false,
+    "cta_runtime_changed": false,
+    "seo_geo_exposure_changed": false,
+    "recommendation_runtime_changed": false,
+    "profile_runtime_changed": false,
+    "freemium_runtime_changed": false,
+    "report_entitlement_changed": false,
+    "checkout_payment_changed": false,
+    "scoring_changed": false
+  },
+  "prs": [
+    {
+      "id": "PR-4D-00",
+      "branch": "codex/pr-4d-00-visible-domain-badge-manual-decision-lock",
+      "depends_on": [],
+      "status": "in_progress",
+      "title": "docs(domains): lock Phase 4D visible domain badge decision",
+      "artifacts": [
+        "docs/assessment/domains/phase-4d-visible-domain-badge-manual-decision.md",
+        "docs/assessment/domains/generated/phase-4d-visible-domain-badge-manual-decision.v1.json",
+        "tests/contracts/phase-4d-visible-domain-badge-manual-decision.contract.test.ts"
+      ],
+      "checks": {}
+    }
+  ],
+  "sidecar_issues": []
+}
