@@ -52,11 +52,24 @@
       "id": "PR-4D-02",
       "branch": "codex/pr-4d-02-badge-runtime-verification",
       "depends_on": ["PR-4D-01"],
-      "status": "in_progress",
+      "status": "merged",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/755",
       "title": "docs(domains): add Phase 4D badge runtime verification",
       "artifacts": [
         "docs/assessment/domains/generated/phase-4d-badge-runtime-verification-report.v1.json",
         "tests/contracts/phase-4d-badge-runtime-verification-report.contract.test.ts"
+      ],
+      "checks": {}
+    },
+    {
+      "id": "PR-4D-03",
+      "branch": "codex/pr-4d-03-final-dashboard",
+      "depends_on": ["PR-4D-02"],
+      "status": "in_progress",
+      "title": "feat(domains): add Phase 4D final dashboard",
+      "artifacts": [
+        "docs/assessment/domains/generated/phase-4d-final-dashboard.v1.json",
+        "tests/contracts/phase-4d-final-dashboard.contract.test.ts"
       ],
       "checks": {}
     }
