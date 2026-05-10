@@ -38,12 +38,25 @@
       "id": "PR-4D-01",
       "branch": "codex/pr-4d-01-self-understanding-result-report-badge-runtime",
       "depends_on": ["PR-4D-00"],
-      "status": "in_progress",
+      "status": "merged",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/754",
       "title": "feat(domains): add self-understanding result report badge",
       "artifacts": [
         "docs/assessment/domains/self-understanding-result-report-badge-runtime.md",
         "docs/assessment/domains/generated/self-understanding-result-report-badge-runtime.v1.json",
         "tests/contracts/self-understanding-result-report-badge-runtime.contract.test.ts"
+      ],
+      "checks": {}
+    },
+    {
+      "id": "PR-4D-02",
+      "branch": "codex/pr-4d-02-badge-runtime-verification",
+      "depends_on": ["PR-4D-01"],
+      "status": "in_progress",
+      "title": "docs(domains): add Phase 4D badge runtime verification",
+      "artifacts": [
+        "docs/assessment/domains/generated/phase-4d-badge-runtime-verification-report.v1.json",
+        "tests/contracts/phase-4d-badge-runtime-verification-report.contract.test.ts"
       ],
       "checks": {}
     }
