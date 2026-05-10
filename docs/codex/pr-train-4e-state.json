@@ -25,11 +25,24 @@
       "id": "PR-4E-00",
       "branch": "codex/pr-4e-00-visible-runtime-planning-decision-lock",
       "depends_on": [],
-      "status": "in_progress",
+      "status": "merged",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/757",
       "title": "docs(domains): lock Phase 4E visible runtime planning decision",
       "artifacts": [
         "docs/assessment/domains/generated/phase-4e-visible-runtime-planning-decision.v1.json",
         "tests/contracts/phase-4e-visible-runtime-planning-decision.contract.test.ts"
+      ],
+      "checks": {}
+    },
+    {
+      "id": "PR-4E-01",
+      "branch": "codex/pr-4e-01-runtime-drift-verification-scan-artifact",
+      "depends_on": ["PR-4E-00"],
+      "status": "in_progress",
+      "title": "docs(domains): add Phase 4E runtime drift verification artifact",
+      "artifacts": [
+        "docs/assessment/domains/generated/phase-4e-runtime-drift-verification.v1.json",
+        "tests/contracts/phase-4e-runtime-drift-verification.contract.test.ts"
       ],
       "checks": {}
     }
