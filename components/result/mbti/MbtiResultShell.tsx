@@ -12,6 +12,7 @@ import type { MbtiDesktopCloneContent } from "@/components/result/mbti/clone/mbt
 import { MbtiOfferComparisonSection } from "@/components/result/mbti/MbtiOfferComparisonSection";
 import { MbtiPostPurchaseSection } from "@/components/result/mbti/MbtiPostPurchaseSection";
 import { MbtiRecommendedReadsSection } from "@/components/result/mbti/MbtiRecommendedReadsSection";
+import { SelfUnderstandingDomainBadge } from "@/components/domains/SelfUnderstandingDomainBadge";
 import { buttonVariants } from "@/components/ui/button";
 import {
   canEnterReportPage,
@@ -589,6 +590,9 @@ export function MbtiResultShellLoadingShell({
       data-domain-envelope-state="metadata_only"
       className="relative flex min-h-[60vh] flex-col gap-8 pb-16 xl:pb-0"
     >
+      <div className="mx-auto flex w-full max-w-[904px] px-4 md:px-6">
+        <SelfUnderstandingDomainBadge locale={locale} />
+      </div>
       <div className="mx-auto flex w-full max-w-[904px] flex-col gap-6 px-4 md:px-6">
         <section
           id="hero"
