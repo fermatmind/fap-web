@@ -1,0 +1,38 @@
+{
+  "train_name": "domain-runtime-metadata-integration-phase-4e-train",
+  "pr_namespace": "PR-4E-*",
+  "base_branch": "main",
+  "status": "initialized",
+  "updated_at": "2026-05-10T00:00:00Z",
+  "policy": {
+    "visible_runtime_expansion_blocked": true,
+    "badge_only_mode": true,
+    "runtime_behavior_changed": false,
+    "visible_copy_added": false,
+    "new_pages_added": false,
+    "public_routes_added": false,
+    "cta_runtime_changed": false,
+    "seo_geo_exposure_changed": false,
+    "recommendation_runtime_changed": false,
+    "profile_runtime_changed": false,
+    "freemium_runtime_changed": false,
+    "report_entitlement_changed": false,
+    "checkout_payment_changed": false,
+    "scoring_changed": false
+  },
+  "prs": [
+    {
+      "id": "PR-4E-00",
+      "branch": "codex/pr-4e-00-visible-runtime-planning-decision-lock",
+      "depends_on": [],
+      "status": "in_progress",
+      "title": "docs(domains): lock Phase 4E visible runtime planning decision",
+      "artifacts": [
+        "docs/assessment/domains/generated/phase-4e-visible-runtime-planning-decision.v1.json",
+        "tests/contracts/phase-4e-visible-runtime-planning-decision.contract.test.ts"
+      ],
+      "checks": {}
+    }
+  ],
+  "sidecar_issues": []
+}
