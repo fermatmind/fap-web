@@ -1,24 +1,26 @@
 import { useMemo, type KeyboardEvent } from "react";
 import { IqVectorSvg } from "@/components/quiz/iq/IqStemSvg";
+import { normalizeIqOptionForRenderer, type IqRenderableSvg } from "@/lib/iq/renderer";
 import { cn } from "@/lib/utils";
-import type { QuizVectorGraphic } from "@/lib/quiz/types";
 
 type IqOptionItem = {
-  code: string;
-  text: string;
-  svg?: QuizVectorGraphic | null;
+  code?: string;
+  option_code?: string | number;
+  id?: string;
+  text?: string;
+  label?: string;
+  svg?: IqRenderableSvg;
+  [key: string]: unknown;
 };
+
+type NormalizedIqOptionItem = NonNullable<ReturnType<typeof normalizeIqOptionForRenderer>>;
 
 type LayoutMode = "responsive" | "desktop" | "mobile";
 
-function normalizeOptions(options: IqOptionItem[]): IqOptionItem[] {
+function normalizeOptions(options: IqOptionItem[]): NormalizedIqOptionItem[] {
   return options
-    .filter((option) => option.code.trim().length > 0)
-    .map((option) => ({
-      code: option.code.trim(),
-      text: option.text.trim() || option.code.trim(),
-      svg: option.svg ?? null,
-    }));
+    .map((option) => normalizeIqOptionForRenderer(option))
+    .filter((option): option is NonNullable<ReturnType<typeof normalizeIqOptionForRenderer>> => option !== null);
 }
 
 function toOptionLetter(index: number): string {
@@ -42,6 +44,7 @@ export function IqOptionBoard({
   locale,
   noOptionsLabel,
   layoutMode = "responsive",
+  disabled = false,
   onChange,
 }: {
   questionId: string;
@@ -50,6 +53,7 @@ export function IqOptionBoard({
   locale: "en" | "zh";
   noOptionsLabel: string;
   layoutMode?: LayoutMode;
+  disabled?: boolean;
   onChange: (code: string) => void;
 }) {
   const normalized = useMemo(() => normalizeOptions(options), [options]);
@@ -62,28 +66,28 @@ export function IqOptionBoard({
     if (event.key === "ArrowRight" || event.key === "ArrowDown") {
       event.preventDefault();
       const next = normalized[Math.min(index + 1, optionCount - 1)];
-      if (next) onChange(next.code);
+      if (next && !disabled) onChange(next.code);
       return;
     }
 
     if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
       event.preventDefault();
       const prev = normalized[Math.max(index - 1, 0)];
-      if (prev) onChange(prev.code);
+      if (prev && !disabled) onChange(prev.code);
       return;
     }
 
     if (event.key === "Home") {
       event.preventDefault();
       const first = normalized[0];
-      if (first) onChange(first.code);
+      if (first && !disabled) onChange(first.code);
       return;
     }
 
     if (event.key === "End") {
       event.preventDefault();
       const last = normalized[optionCount - 1];
-      if (last) onChange(last.code);
+      if (last && !disabled) onChange(last.code);
     }
   };
 
@@ -116,11 +120,14 @@ export function IqOptionBoard({
                   type="button"
                   role="radio"
                   aria-checked={selected}
+                  aria-disabled={disabled}
                   aria-label={optionLabel}
+                  disabled={disabled}
+                  data-state={selected ? "selected" : "idle"}
                   onClick={() => onChange(option.code)}
                   onKeyDown={(event) => moveByArrow(idx, event)}
                   className={cn(
-                    "group relative min-h-[170px] rounded-xl border p-3 text-left transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-focus)]",
+                    "group relative min-h-[170px] rounded-xl border p-3 text-left transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-focus)] disabled:cursor-not-allowed disabled:opacity-60",
                     selected
                       ? "border-[var(--fm-trust-blue)] bg-[var(--fm-surface-muted)] shadow-[var(--fm-shadow-md)]"
                       : "border-[var(--fm-border)] bg-white hover:border-[var(--fm-border-strong)]"
@@ -140,7 +147,7 @@ export function IqOptionBoard({
                   <div className="flex h-full flex-col gap-2 pt-8">
                     <span className="flex min-h-[108px] items-center justify-center overflow-hidden rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface)] p-2">
                       {option.svg ? (
-                        <IqVectorSvg svg={option.svg} className="h-full w-full object-contain" />
+                        <IqVectorSvg svg={option.svg} className="h-full w-full object-contain" ariaLabel={optionLabel} />
                       ) : (
                         <span className="text-sm font-medium text-[var(--fm-text-muted)]">{optionLabel}</span>
                       )}
@@ -174,11 +181,14 @@ export function IqOptionBoard({
                 type="button"
                 role="radio"
                 aria-checked={selected}
+                aria-disabled={disabled}
                 aria-label={optionLabel}
+                disabled={disabled}
+                data-state={selected ? "selected" : "idle"}
                 onClick={() => onChange(option.code)}
                 onKeyDown={(event) => moveByArrow(idx, event)}
                 className={cn(
-                  "flex min-h-[92px] w-full items-center gap-3 rounded-xl border p-3 text-left transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-focus)]",
+                  "flex min-h-[92px] w-full items-center gap-3 rounded-xl border p-3 text-left transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-focus)] disabled:cursor-not-allowed disabled:opacity-60",
                   selected
                     ? "border-[var(--fm-trust-blue)] bg-[var(--fm-surface-muted)] shadow-[var(--fm-shadow-sm)]"
                     : "border-[var(--fm-border)] bg-white"
@@ -197,7 +207,7 @@ export function IqOptionBoard({
 
                 <span className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface)] p-2">
                   {option.svg ? (
-                    <IqVectorSvg svg={option.svg} className="h-full w-full object-contain" />
+                    <IqVectorSvg svg={option.svg} className="h-full w-full object-contain" ariaLabel={optionLabel} />
                   ) : (
                     <span className="text-xs font-medium text-[var(--fm-text-muted)]">{optionLabel}</span>
                   )}
