@@ -260,3 +260,466 @@ prs:
     artifacts:
       - app/(localized)/[locale]/career/jobs/[slug]/page.tsx
       - tests/contracts/career-v1-job-detail-redesign.contract.test.tsx
+
+  - id: IQ-FE-1
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/iq-fe-api-client-contracts
+    base: main
+    depends_on: []
+    mode: execute
+    status: planned
+    title: "feat(iq): add frontend API contracts"
+    artifacts:
+      - lib/api/v0_3.ts
+      - lib/iq/**
+      - tests/contracts/iq-frontend-api-contracts.contract.test.ts
+      - docs/audits/iq-fe/10_iq_fe_1_api_contract_notes.md
+
+  - id: IQ-FE-2
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/iq-fe-question-renderer-option-grid
+    base: main
+    depends_on: [IQ-FE-1]
+    mode: execute
+    status: planned
+    title: "feat(iq): add question SVG renderer and option grid contracts"
+    artifacts:
+      - components/quiz/iq/**
+      - lib/quiz/**
+      - tests/a11y/iq-option-board.a11y.test.tsx
+      - tests/e2e/visual/iq-take.visual.spec.ts
+
+  - id: IQ-FE-3
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/iq-fe-take-page-attempt-lifecycle
+    base: main
+    depends_on: [IQ-FE-2]
+    mode: execute
+    status: planned
+    title: "feat(iq): add take page shell and attempt lifecycle"
+    artifacts:
+      - app/(localized)/[locale]/tests/[slug]/take/page.tsx
+      - app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient.tsx
+      - tests/e2e/iq-eq-result-regression.spec.ts
+
+  - id: IQ-FE-4
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/iq-fe-result-page-dimensions
+    base: main
+    depends_on: [IQ-FE-1]
+    mode: execute
+    status: planned
+    title: "feat(iq): add result page shell and IQ dimension cards"
+    artifacts:
+      - app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx
+      - components/result/iq/**
+      - tests/contracts/iq-result-contracts.contract.test.tsx
+
+  - id: IQ-FE-5
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/iq-fe-report-module-deferred-commerce
+    base: main
+    depends_on: [IQ-FE-4]
+    mode: execute
+    status: planned
+    title: "feat(iq): add report module shell and deferred commerce state"
+    artifacts:
+      - components/result/RichResultReport.tsx
+      - components/result/iq/**
+      - tests/contracts/iq-report-contracts.contract.test.tsx
+
+  - id: IQ-FE-6
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/iq-fe-mobile-loading-error-polish
+    base: main
+    depends_on: [IQ-FE-3, IQ-FE-5]
+    mode: execute
+    status: planned
+    title: "feat(iq): polish mobile loading and error states"
+    artifacts:
+      - components/quiz/iq/**
+      - components/result/iq/**
+      - tests/e2e/visual/iq-take.visual.spec.ts
+
+  - id: IQ-FE-7
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/iq-fe-commerce-unlock
+    base: main
+    depends_on: [IQ-FE-5]
+    mode: execute
+    status: planned
+    execution_policy: deferred_until_backend_commerce
+    deferred_reason: "Backend iq-commerce-unlock-199-500 is intentionally deferred."
+    title: "feat(iq): add frontend IQ commerce unlock"
+    artifacts:
+      - components/commerce/**
+      - app/(localized)/[locale]/orders/**
+      - tests/contracts/iq-commerce-unlock.contract.test.tsx
+
+  - id: RIASEC-TRAIN-00
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/riasec-train-00-register-train
+    base: main
+    depends_on: []
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "docs(codex): register RIASEC Trusted Result v1.5 train"
+    goal: "Register the RIASEC Trusted Result v1.5 PR train after the read-only readiness scan."
+    in_scope:
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - runtime code
+      - scorer changes
+      - content pack changes
+      - frontend result rendering
+    artifacts:
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    acceptance:
+      - RIASEC-TRAIN-00 through RIASEC-TRAIN-10 are registered.
+      - Existing PR-PRAC train entries remain unchanged.
+      - No runtime files are modified.
+    must_not_touch:
+      - backend scorer
+      - content_packs/RIASEC
+      - app/**
+      - components/**
+      - lib/**
+    rollback_note: "Revert the docs/codex train-file changes."
+
+  - id: RIASEC-TRAIN-01
+    repo: fap-api
+    repo_path: /Users/rainie/Desktop/GitHub/fap-api
+    branch: codex/riasec-train-01-measurement-contract
+    base: main
+    depends_on: [RIASEC-TRAIN-00]
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "feat(riasec): add measurement contract and compare policy"
+    goal: "Add a backend-authoritative RIASEC measurement contract, score_space_version, and 60Q/140Q compare guard without changing scoring math."
+    in_scope:
+      - RIASEC measurement metadata
+      - score_space_version for riasec_60 and riasec_140
+      - compare policy blocking cross-form raw score delta
+      - compatibility wrapper for existing v1 projection/result routes
+      - focused backend contract tests
+    out_of_scope:
+      - scoring math changes
+      - question/content semantic changes
+      - result UI changes
+      - career examples
+      - feedback runtime
+    likely_touched:
+      - backend/app/Services/Riasec/**
+      - backend/app/Services/Assessment/Drivers/RiasecDriver.php
+      - backend/tests/**/Riasec*
+    acceptance:
+      - riasec_60 and riasec_140 expose explicit distinct score spaces.
+      - cross-form compare is blocked by contract.
+      - existing v1 projection compatibility remains intact.
+      - tests prove no raw 60Q/140Q delta is exposed.
+    must_not_touch:
+      - backend/content_packs/RIASEC/** question semantics
+      - RIASEC scoring formulas
+    rollback_note: "Remove the measurement-contract surface while preserving existing v1 scorer/projection."
+
+  - id: RIASEC-TRAIN-02
+    repo: fap-api
+    repo_path: /Users/rainie/Desktop/GitHub/fap-api
+    branch: codex/riasec-train-02-projection-v2
+    base: main
+    depends_on: [RIASEC-TRAIN-01]
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "feat(riasec): add public projection v2 evidence metadata"
+    goal: "Add minimal RIASEC public projection v2 with measurement evidence metadata and claim boundaries."
+    in_scope:
+      - riasec_public_projection_v2
+      - evidence metadata
+      - claim boundary metadata
+      - projection v1 compatibility
+    out_of_scope:
+      - long result page copy
+      - Career Activity Registry
+      - feedback overlay
+    likely_touched:
+      - backend/app/Services/Riasec/RiasecPublicProjectionService.php
+      - backend/app/Http/Controllers/API/V0_3/AttemptReadController.php
+      - backend/tests/Feature/V0_3/RiasecAssessmentFlowTest.php
+    acceptance:
+      - projection v2 is deterministic and additive.
+      - projection v1 remains available.
+      - evidence metadata does not claim validation not present in the repo.
+    must_not_touch:
+      - scorer math
+      - frontend hardcoded interpretation authority
+    rollback_note: "Consumers can ignore projection v2 and keep reading projection v1."
+
+  - id: RIASEC-TRAIN-03
+    repo: fap-api
+    repo_path: /Users/rainie/Desktop/GitHub/fap-api
+    branch: codex/riasec-train-03-snapshot-report
+    base: main
+    depends_on: [RIASEC-TRAIN-02]
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "feat(riasec): make formal report snapshot-bound"
+    goal: "Route RIASEC formal report generation through deterministic report snapshots."
+    in_scope:
+      - ReportGatekeeper RIASEC snapshot policy
+      - ReportSnapshotStore RIASEC composer support
+      - snapshot binding metadata
+      - focused report snapshot tests
+    out_of_scope:
+      - share/PDF/history rendering changes
+      - V11 deep content
+    likely_touched:
+      - backend/app/Services/Report/ReportGatekeeper.php
+      - backend/app/Services/Report/ReportSnapshotStore.php
+      - backend/app/Services/Report/RiasecReportComposer.php
+      - backend/tests/Feature/V0_3/*Report*Test.php
+    acceptance:
+      - RIASEC report reads a ready snapshot for formal report access.
+      - snapshot build uses RiasecReportComposer, not generic fallback.
+      - report output is deterministic and audit-friendly.
+    must_not_touch:
+      - non-RIASEC report behavior except shared snapshot plumbing required by tests
+    rollback_note: "Disable RIASEC snapshot gate and fall back to existing live report path."
+
+  - id: RIASEC-TRAIN-04
+    repo: fap-api
+    repo_path: /Users/rainie/Desktop/GitHub/fap-api
+    branch: codex/riasec-train-04-snapshot-surfaces
+    base: main
+    depends_on: [RIASEC-TRAIN-03]
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "feat(riasec): align share PDF and history with snapshots"
+    goal: "Make RIASEC share, PDF metadata, and history summaries read snapshot-bound report data."
+    in_scope:
+      - RIASEC share public-safe payload from snapshot
+      - RIASEC PDF metadata from snapshot
+      - history snapshot summary metadata
+    out_of_scope:
+      - raw feedback exposure
+      - occupation matching
+    likely_touched:
+      - backend/app/Services/V0_3/ShareService.php
+      - backend/app/Services/Report/Pdf/ReportPdfDocumentService.php
+      - backend/app/Services/V0_3/Me/MeAttemptsService.php
+      - backend/app/Http/Controllers/API/V0_3/AttemptReadController.php
+    acceptance:
+      - share/PDF/history expose the same snapshot binding.
+      - PDF no longer uses generic RIASEC metadata.
+      - public share remains noindex/public-safe.
+    must_not_touch:
+      - share raw answers
+      - feedback payloads
+    rollback_note: "Hide new snapshot metadata and keep existing public-safe share shell."
+
+  - id: RIASEC-TRAIN-05
+    repo: fap-api
+    repo_path: /Users/rainie/Desktop/GitHub/fap-api
+    branch: codex/riasec-train-05-technical-note
+    base: main
+    depends_on: [RIASEC-TRAIN-02]
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "feat(riasec): add technical note v0.1"
+    goal: "Add RIASEC Technical Note v0.1 and method boundary registry using the existing Enneagram pattern."
+    in_scope:
+      - technical note service
+      - method boundary metadata
+      - no-recommendation disclaimers
+      - technical-note API contract tests
+    out_of_scope:
+      - validation claims beyond available evidence
+      - V11 page copy rollout
+    likely_touched:
+      - backend/app/Services/Riasec/**
+      - backend/app/Http/Controllers/API/V0_3/ScalesController.php
+      - backend/tests/Feature/V0_3/*TechnicalNote*Test.php
+    acceptance:
+      - Technical Note is deterministic.
+      - It states RIASEC measures interests, not ability, personality, success, or job match.
+      - 140Q is described as contextual/deeper daily-work signal, not more accurate.
+    must_not_touch:
+      - runtime AI generation
+      - career recommendation runtime
+    rollback_note: "Remove RIASEC from the technical-note route allowlist."
+
+  - id: RIASEC-TRAIN-06
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/riasec-train-06-trusted-result-shell
+    base: main
+    depends_on: [RIASEC-TRAIN-02, RIASEC-TRAIN-03]
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "feat(riasec): render trusted result card and six-dimension map"
+    goal: "Render the Trusted Result v1.5 3-minute result card and six-dimension map from backend projection v2."
+    in_scope:
+      - projection v2 frontend types
+      - 3-minute result card
+      - six-dimension map renderer
+      - no-authority fallback guard
+    out_of_scope:
+      - V11 long page
+      - hardcoded interpretation authority
+      - occupation matches
+    likely_touched:
+      - lib/riasec/**
+      - components/result/riasec/**
+      - tests/contracts/*riasec*
+    acceptance:
+      - renderer reads backend projection/CMS fields.
+      - 140Q copy avoids “more accurate.”
+      - no 60Q/140Q raw delta is displayed.
+    must_not_touch:
+      - backend scorer
+      - local editorial content as authority
+    rollback_note: "Fall back to existing RIASEC v1 shell."
+
+  - id: RIASEC-TRAIN-07
+    repo: fap-api
+    repo_path: /Users/rainie/Desktop/GitHub/fap-api
+    branch: codex/riasec-train-07-activity-examples
+    base: main
+    depends_on: [RIASEC-TRAIN-02, RIASEC-TRAIN-05]
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "feat(riasec): add activity explorer examples v0.1"
+    goal: "Add Career Activity Registry v0.1 as content examples only, not occupation matches."
+    in_scope:
+      - activity families
+      - task examples
+      - occupation examples labelled content_example_not_registry_match
+      - source-status boundary contract
+    out_of_scope:
+      - real career database matching
+      - occupation ranking
+      - fit percentages
+    likely_touched:
+      - backend/app/Services/Riasec/**
+      - backend/tests/Feature/V0_3/Riasec*
+    acceptance:
+      - every occupation example is labelled content_example_not_registry_match.
+      - no Matches, fit score, ranking, or success prediction copy is emitted.
+      - missing registry source rows do not block the result shell.
+    must_not_touch:
+      - career recommendation scoring
+      - unreviewed O*NET/SOC claims
+    rollback_note: "Hide activity explorer payload while keeping projection v2."
+
+  - id: RIASEC-TRAIN-08
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/riasec-train-08-content-governance
+    base: main
+    depends_on: [RIASEC-TRAIN-05, RIASEC-TRAIN-06, RIASEC-TRAIN-07]
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "feat(riasec): add V11 copy governance and fallback guards"
+    goal: "Render governed RIASEC copy without making frontend the interpretation authority."
+    in_scope:
+      - CMS/content-registry consumption contract
+      - empty/minimal fallback behavior
+      - frontend fallback guard tests
+    out_of_scope:
+      - local MDX/JSON editorial authority
+      - full V11 long page rollout
+    likely_touched:
+      - lib/riasec/**
+      - components/result/riasec/**
+      - tests/contracts/*riasec*
+    acceptance:
+      - frontend does not invent core interpretation copy.
+      - missing governed copy renders minimal/empty state, not local replacement content.
+      - occupation examples remain examples only.
+    must_not_touch:
+      - content_packs/RIASEC question semantics
+      - recommendation runtime
+    rollback_note: "Disable governed-copy modules and keep trusted minimal shell."
+
+  - id: RIASEC-TRAIN-09
+    repo: fap-api
+    repo_path: /Users/rainie/Desktop/GitHub/fap-api
+    branch: codex/riasec-train-09-feedback-overlay
+    base: main
+    depends_on: [RIASEC-TRAIN-03, RIASEC-TRAIN-04]
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "feat(riasec): add exploration feedback overlay"
+    goal: "Add Exploration Feedback Layer overlay that references snapshots without mutating measured scores."
+    in_scope:
+      - feedback event contract
+      - snapshot-bound read model
+      - no-score-mutation tests
+    out_of_scope:
+      - profile memory writes
+      - AI career coach
+      - recommendation runtime
+    likely_touched:
+      - backend/app/Services/Riasec/**
+      - backend/app/Http/Controllers/API/V0_3/**
+      - backend/tests/Feature/V0_3/Riasec*
+    acceptance:
+      - feedback references snapshot_id.
+      - feedback never modifies measured_holland_code or scores.
+      - share/PDF do not expose raw feedback.
+    must_not_touch:
+      - scorer
+      - result_json measured scores
+      - profile memory
+    rollback_note: "Disable feedback endpoints/read model while preserving snapshots."
+
+  - id: RIASEC-TRAIN-10
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/riasec-train-10-freeze-contracts
+    base: main
+    depends_on: [RIASEC-TRAIN-01, RIASEC-TRAIN-02, RIASEC-TRAIN-03, RIASEC-TRAIN-04, RIASEC-TRAIN-05, RIASEC-TRAIN-06, RIASEC-TRAIN-07, RIASEC-TRAIN-08, RIASEC-TRAIN-09]
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "test(riasec): freeze Trusted Result v1.5 analytics fixtures and contracts"
+    goal: "Freeze Trusted Result v1.5 analytics, fixtures, and contract coverage across backend and frontend consumers."
+    in_scope:
+      - analytics event contract
+      - frontend contract fixtures
+      - no-overclaim guard coverage
+      - train completion ledger update
+    out_of_scope:
+      - new product behavior
+      - career matching rollout
+    likely_touched:
+      - tests/contracts/**/*
+      - lib/riasec/**
+      - docs/codex/pr-train-state.json
+    acceptance:
+      - Trusted Result v1.5 contract tests pass.
+      - analytics events do not imply recommendations.
+      - train state records completion readiness.
+    must_not_touch:
+      - scorer math
+      - AI-generated report runtime
+    rollback_note: "Revert test/fixture freeze without changing runtime behavior."

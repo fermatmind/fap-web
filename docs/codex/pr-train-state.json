@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-12T15:12:00Z",
+  "updated_at": "2026-05-12T10:36:25Z",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -229,6 +229,176 @@
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false
+    },
+    {
+      "id": "IQ-FE-1",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/iq-fe-api-client-contracts",
+      "base": "main",
+      "depends_on": [],
+      "status": "planned",
+      "title": "feat(iq): add frontend API contracts",
+      "artifacts": [
+        "lib/api/v0_3.ts",
+        "lib/iq/**",
+        "tests/contracts/iq-frontend-api-contracts.contract.test.ts",
+        "docs/audits/iq-fe/10_iq_fe_1_api_contract_notes.md"
+      ],
+      "checks": [],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    {
+      "id": "IQ-FE-2",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/iq-fe-question-renderer-option-grid",
+      "base": "main",
+      "depends_on": [
+        "IQ-FE-1"
+      ],
+      "status": "planned",
+      "title": "feat(iq): add question SVG renderer and option grid contracts",
+      "artifacts": [
+        "components/quiz/iq/**",
+        "lib/quiz/**",
+        "tests/a11y/iq-option-board.a11y.test.tsx",
+        "tests/e2e/visual/iq-take.visual.spec.ts"
+      ],
+      "checks": [],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    {
+      "id": "IQ-FE-3",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/iq-fe-take-page-attempt-lifecycle",
+      "base": "main",
+      "depends_on": [
+        "IQ-FE-2"
+      ],
+      "status": "planned",
+      "title": "feat(iq): add take page shell and attempt lifecycle",
+      "artifacts": [
+        "app/(localized)/[locale]/tests/[slug]/take/page.tsx",
+        "app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient.tsx",
+        "tests/e2e/iq-eq-result-regression.spec.ts"
+      ],
+      "checks": [],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    {
+      "id": "IQ-FE-4",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/iq-fe-result-page-dimensions",
+      "base": "main",
+      "depends_on": [
+        "IQ-FE-1"
+      ],
+      "status": "planned",
+      "title": "feat(iq): add result page shell and IQ dimension cards",
+      "artifacts": [
+        "app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx",
+        "components/result/iq/**",
+        "tests/contracts/iq-result-contracts.contract.test.tsx"
+      ],
+      "checks": [],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    {
+      "id": "IQ-FE-5",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/iq-fe-report-module-deferred-commerce",
+      "base": "main",
+      "depends_on": [
+        "IQ-FE-4"
+      ],
+      "status": "planned",
+      "title": "feat(iq): add report module shell and deferred commerce state",
+      "artifacts": [
+        "components/result/RichResultReport.tsx",
+        "components/result/iq/**",
+        "tests/contracts/iq-report-contracts.contract.test.tsx"
+      ],
+      "checks": [],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    {
+      "id": "IQ-FE-6",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/iq-fe-mobile-loading-error-polish",
+      "base": "main",
+      "depends_on": [
+        "IQ-FE-3",
+        "IQ-FE-5"
+      ],
+      "status": "planned",
+      "title": "feat(iq): polish mobile loading and error states",
+      "artifacts": [
+        "components/quiz/iq/**",
+        "components/result/iq/**",
+        "tests/e2e/visual/iq-take.visual.spec.ts"
+      ],
+      "checks": [],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    {
+      "id": "IQ-FE-7",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/iq-fe-commerce-unlock",
+      "base": "main",
+      "depends_on": [
+        "IQ-FE-5"
+      ],
+      "status": "deferred",
+      "title": "feat(iq): add frontend IQ commerce unlock",
+      "execution_policy": "deferred_until_backend_commerce",
+      "failure_reason": "Backend iq-commerce-unlock-199-500 is intentionally deferred.",
+      "artifacts": [
+        "components/commerce/**",
+        "app/(localized)/[locale]/orders/**",
+        "tests/contracts/iq-commerce-unlock.contract.test.tsx"
+      ],
+      "checks": [],
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
     }
   ],
   "sidecar_issues": [
@@ -244,6 +414,19 @@
         "Postbuild command: pnpm seo:generate-sitemap",
         "Observed and reverted generated diff in public/sitemap.xml",
         "PR-PRAC-01 changed files remain docs/codex, docs/runtime, and tests/contracts only"
+      ]
+    },
+    {
+      "title": "IQ frontend commerce unlock deferred until backend commerce exists",
+      "severity": "P2",
+      "scope_impact": "IQ-FE-7 remains intentionally deferred while backend iq-commerce-unlock-199-500 is not implemented.",
+      "introduced_by_current_pr": false,
+      "recommended_future_phase": "IQ-FE-7",
+      "blocks_merge": false,
+      "evidence": [
+        "Backend commerce unlock remains deferred in fap-api IQ train.",
+        "Frontend scan PR #763 recommended suppressing IQ commerce until backend unlock contract exists.",
+        "State entry IQ-FE-7 is marked deferred."
       ]
     }
   ]
