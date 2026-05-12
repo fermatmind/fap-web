@@ -618,6 +618,87 @@
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false
+    },
+    {
+      "id": "PR-RT-01",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/pr-rt-01-article-runtime-truth-gate",
+      "base": "main",
+      "depends_on": [],
+      "status": "open",
+      "title": "test(runtime): add article publishing runtime truth gate",
+      "checks": [
+        {
+          "name": "scoped_contracts",
+          "status": "passed",
+          "command": "pnpm exec vitest run tests/contracts/article-publishing-runtime-truth.contract.test.ts tests/contracts/homepage-recommended-articles-block.contract.test.ts",
+          "evidence": "2 contract files passed, 8 tests passed."
+        },
+        {
+          "name": "contracts",
+          "status": "passed",
+          "command": "pnpm test:contract",
+          "evidence": "336 files passed, 1883 tests passed."
+        },
+        {
+          "name": "typecheck",
+          "status": "passed",
+          "command": "pnpm typecheck"
+        },
+        {
+          "name": "scoped_eslint",
+          "status": "passed",
+          "command": "pnpm exec eslint lib/marketing/homepageRecommendedArticles.ts tests/contracts/homepage-recommended-articles-block.contract.test.ts tests/contracts/article-publishing-runtime-truth.contract.test.ts"
+        },
+        {
+          "name": "build",
+          "status": "passed",
+          "command": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build",
+          "evidence": "Next.js build completed and postbuild sitemap generation completed."
+        },
+        {
+          "name": "seo_check_sitemap",
+          "status": "passed",
+          "command": "pnpm seo:check-sitemap",
+          "evidence": "206 sitemap URLs validated."
+        },
+        {
+          "name": "diff_check",
+          "status": "passed",
+          "command": "git diff --check"
+        },
+        {
+          "name": "lint",
+          "status": "sidecar_unrelated_pre_existing_issue",
+          "command": "pnpm lint",
+          "evidence": "Failed on unrelated existing lint debt in career, MBTI clone, ecosystem config, last-known-good, and unrelated contract files; scoped eslint passed."
+        }
+      ],
+      "failure_reason": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/772",
+      "commit_sha": "56ffb6dac8364f54eb3852adbb38807b221ee65d",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "companion_pr": {
+        "repo": "fap-api",
+        "branch": "codex/pr-rt-01-article-runtime-truth-gate"
+      },
+      "sidecar_issues": [
+        {
+          "title": "Repo-wide frontend lint debt remains outside PR-RT-01 scope",
+          "severity": "P2",
+          "scope_impact": "Full pnpm lint fails on files unrelated to the article runtime truth gate; scoped eslint on changed files passes.",
+          "introduced_by_current_pr": false,
+          "recommended_future_phase": "frontend lint debt cleanup",
+          "blocks_merge": false,
+          "evidence": [
+            "pnpm lint reports errors in components/career/CareerShortlistAction.tsx, components/result/mbti/clone/MbtiCloneAssetSlot.tsx, ecosystem.config.cjs, lib/cms/last-known-good.ts, and unrelated contract tests.",
+            "pnpm exec eslint on the PR-RT-01 changed frontend files passes."
+          ]
+        }
+      ]
     }
   ],
   "sidecar_issues": [

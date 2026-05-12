@@ -60,10 +60,23 @@ describe("homepage recommended articles page block contract", () => {
             locale: "zh-CN",
             title: "CMS 运营配置文章",
             excerpt: "来自 landing surface page block",
+            cover_image_url: "https://api.fermatmind.com/static/articles/covers/cms-selected-article.svg",
+            cover_image_alt: "CMS 运营配置文章封面",
+            category: { id: 11, slug: "self-knowledge", name: "自我理解" },
+            tags: [{ id: 21, slug: "mbti", name: "MBTI" }],
             status: "Published",
             is_public: true,
             published_revision: { id: 61 },
             published_at: "2026-04-21T00:00:00Z",
+          },
+          {
+            slug: "incomplete-article",
+            locale: "zh-CN",
+            title: "Incomplete article",
+            excerpt: "Missing cover and taxonomy",
+            status: "published",
+            is_public: true,
+            published_revision_id: 63,
           },
           {
             slug: "english-article",
@@ -93,6 +106,10 @@ describe("homepage recommended articles page block contract", () => {
       slug: "cms-selected-article",
       title: "CMS 运营配置文章",
       locale: "zh-CN",
+      coverImageUrl: "https://api.fermatmind.com/static/articles/covers/cms-selected-article.svg",
+      coverImageAlt: "CMS 运营配置文章封面",
+      category: { slug: "self-knowledge", name: "自我理解" },
+      tags: [{ slug: "mbti", name: "MBTI" }],
     });
   });
 });
