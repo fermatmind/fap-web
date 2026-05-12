@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-12T18:34:49Z",
+  "updated_at": "2026-05-12T18:42:42Z",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -329,7 +329,7 @@
       "depends_on": [
         "PR-WEB-SBTI-REMOVE-01"
       ],
-      "status": "open",
+      "status": "github_checks_failed",
       "title": "chore(sbti): clean residual SBTI route and rule references",
       "artifacts": [
         "proxy.ts",
@@ -406,14 +406,14 @@
         },
         {
           "name": "github checks",
-          "status": "passed",
+          "status": "failed",
           "command": "gh pr checks 777 --watch=false",
-          "details": "build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze passed for PR #777 after opening."
+          "details": "build, verify-big5-contract-freeze, and verify-enneagram-contract-freeze passed. contracts failed twice after local pnpm test:contract passed: first on a Big Five take attempt priming timeout, then on order-lookup-recovery.contract.test.tsx. Order lookup CI work is outside this PR scope."
         }
       ],
-      "failure_reason": null,
+      "failure_reason": "GitHub contracts check failed twice after local checks passed; the rerun failure is in tests/contracts/order-lookup-recovery.contract.test.tsx, which is outside PR-WEB-SBTI-REMOVE-02 scope and excluded by the user from this SBTI cleanup PR.",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/777",
-      "commit_sha": "ec65d54ab3d7d9106244821f9ff54c8f3bba0429",
+      "commit_sha": "fb2d2dea12646c114b98e98f9ffbdd8423a3ed0c",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false
