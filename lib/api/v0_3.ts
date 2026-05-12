@@ -205,6 +205,7 @@ export type ResultResponse = {
   enneagram_public_projection_v2?: Record<string, unknown> | null;
   enneagram_report_v2?: Record<string, unknown> | null;
   riasec_public_projection_v1?: RiasecPublicProjection | null;
+  riasec_public_projection_v2?: Record<string, unknown> | null;
   comparative_v1?: ComparativeRaw | null;
   controlled_narrative_v1?: ControlledNarrativeRaw | null;
   cultural_calibration_v1?: CulturalCalibrationRaw | null;
@@ -826,6 +827,7 @@ export type ReportResponse = {
   enneagram_public_projection_v2?: Record<string, unknown> | null;
   enneagram_report_v2?: Record<string, unknown> | null;
   riasec_public_projection_v1?: RiasecPublicProjection | null;
+  riasec_public_projection_v2?: Record<string, unknown> | null;
   mbti_public_projection_v1?: MbtiPublicProjectionV1Raw | null;
   mbti_read_contract_v1?: MbtiReadContractRaw | null;
   mbti_cross_assessment_v1?: MbtiCrossAssessmentRaw | null;
@@ -1748,6 +1750,7 @@ export type ShareSummaryResponse = {
   enneagram_public_summary_v1?: EnneagramPublicSummaryV1 | null;
   enneagram_public_projection_v1?: EnneagramPublicProjection | null;
   riasec_public_projection_v1?: RiasecPublicProjection | null;
+  riasec_public_projection_v2?: Record<string, unknown> | null;
   comparative_v1?: ComparativeRaw | null;
   controlled_narrative_v1?: ControlledNarrativeRaw | null;
   cultural_calibration_v1?: CulturalCalibrationRaw | null;

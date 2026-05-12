@@ -11,15 +11,6 @@ import { localizedPath } from "@/lib/i18n/locales";
 import { buildRiasecTakeHref, getRiasecVariantLabel } from "@/lib/riasec/forms";
 import type { RiasecResultViewModel } from "@/lib/riasec/resultAssembler";
 
-const DIMENSION_COPY: Record<string, { en: string; zh: string }> = {
-  R: { en: "Hands-on work, tools, equipment, implementation, and tangible outcomes.", zh: "偏好动手实践、工具设备、现场实施与可见成果。" },
-  I: { en: "Research, analysis, evidence, systems, and independent problem solving.", zh: "偏好研究分析、证据推理、系统理解与独立解决问题。" },
-  A: { en: "Original creation, expression, aesthetics, content, and open-ended tasks.", zh: "偏好原创表达、审美创作、内容塑造与开放式任务。" },
-  S: { en: "Helping, teaching, listening, coordination, and human-centered work.", zh: "偏好助人支持、教学辅导、倾听协调与人际互动。" },
-  E: { en: "Influence, leadership, business development, competition, and results.", zh: "偏好影响他人、主导推进、商业拓展、竞争突破与结果达成。" },
-  C: { en: "Structure, detail, records, standards, operations, and reliable execution.", zh: "偏好结构流程、细节校验、记录规范、运营执行与稳定交付。" },
-};
-
 export function RiasecResultShell({
   locale,
   viewModel,
@@ -45,6 +36,15 @@ export function RiasecResultShell({
     typeof viewModel.questionCount === "number" ? `${viewModel.questionCount}${isZh ? " 题" : " questions"}` : "",
     typeof viewModel.estimatedMinutes === "number" ? `${isZh ? "约 " : "about "}${viewModel.estimatedMinutes}${isZh ? " 分钟" : " minutes"}` : "",
   ].filter(Boolean).join(" · ");
+  const trustedCard = viewModel.trustedResultCard;
+  const boundaryRows = trustedCard
+    ? [
+        [isZh ? "分数空间" : "Score space", trustedCard.scoreSpaceVersion],
+        [isZh ? "质量规则" : "Quality rule", trustedCard.qualityRuleStatus],
+        [isZh ? "报告快照" : "Snapshot", trustedCard.snapshotBound ? (isZh ? "已绑定" : "bound") : (isZh ? "未绑定" : "not bound")],
+        [isZh ? "跨表分数对比" : "Cross-form numeric compare", trustedCard.rawScoreDeltaAllowed ? (isZh ? "开启" : "enabled") : (isZh ? "关闭" : "disabled")],
+      ].filter(([, value]) => Boolean(value))
+    : [];
 
   async function handleShare() {
     if (!attemptId || shareState === "loading") {
@@ -83,9 +83,12 @@ export function RiasecResultShell({
 
   return (
     <div className="space-y-[var(--fm-gap-md)]">
-      <section className="rounded-2xl border border-[var(--fm-border)] bg-white p-[var(--fm-space-6)] shadow-[var(--fm-shadow-md)]">
+      <section
+        data-testid="riasec-trusted-result-card"
+        className="rounded-2xl border border-[var(--fm-border)] bg-white p-[var(--fm-space-6)] shadow-[var(--fm-shadow-md)]"
+      >
         <div className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--fm-text-muted)]">
-          {isZh ? "霍兰德职业兴趣主码" : "Holland career interest code"}
+          {isZh ? "3 分钟结果卡" : "3-minute result card"}
         </div>
         <h1 className="mt-[var(--fm-space-2)] text-4xl font-bold text-[var(--fm-text)]">{viewModel.topCode}</h1>
         {formMeta ? (
@@ -96,6 +99,21 @@ export function RiasecResultShell({
             ? `你的前三个兴趣维度依次是 ${viewModel.primaryType}、${viewModel.secondaryType}、${viewModel.tertiaryType}。清晰度指数 ${viewModel.clarityIndex}，兴趣广度 ${viewModel.breadthIndex}。`
             : `Your top three interest dimensions are ${viewModel.primaryType}, ${viewModel.secondaryType}, and ${viewModel.tertiaryType}. Clarity index ${viewModel.clarityIndex}, breadth index ${viewModel.breadthIndex}.`}
         </p>
+        {boundaryRows.length > 0 ? (
+          <dl className="mt-[var(--fm-space-5)] grid gap-3 sm:grid-cols-2" data-testid="riasec-measurement-boundary">
+            {boundaryRows.map(([label, value]) => (
+              <div key={label} className="rounded-lg border border-[var(--fm-border)] bg-slate-50 px-3 py-2">
+                <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">{label}</dt>
+                <dd className="mt-1 break-words text-sm font-medium text-[var(--fm-text)]">{value}</dd>
+              </div>
+            ))}
+          </dl>
+        ) : null}
+        {trustedCard?.occupationExamplesPolicy ? (
+          <p className="mt-[var(--fm-space-3)] text-sm leading-6 text-[var(--fm-text-muted)]">
+            {isZh ? "职业例子策略" : "Occupation example policy"}: {trustedCard.occupationExamplesPolicy}
+          </p>
+        ) : null}
         {viewModel.qualityGrade !== "A" || viewModel.qualityFlags.length > 0 ? (
           <p className="mt-[var(--fm-space-3)] text-sm text-amber-700">
             {isZh ? "作答质量提示" : "Response quality"}: {viewModel.qualityGrade}
@@ -121,13 +139,13 @@ export function RiasecResultShell({
         </div>
       </section>
 
-      <Card>
+      <Card data-testid="riasec-six-dimension-map">
         <CardHeader>
-          <CardTitle>{isZh ? "六维兴趣分数" : "Six RIASEC scores"}</CardTitle>
+          <CardTitle>{isZh ? "六维兴趣地图" : "Six-dimension interest map"}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-[var(--fm-gap-sm)]">
           {viewModel.dimensions.map((dimension) => (
-            <div key={dimension.code} className="space-y-2">
+            <div key={dimension.code} className="space-y-2" data-testid={`riasec-dimension-${dimension.code}`}>
               <div className="flex items-center justify-between gap-[var(--fm-gap-sm)] text-sm font-semibold">
                 <span>{dimension.code} · {dimension.label}</span>
                 <span>{Math.round(dimension.score)}</span>
@@ -135,9 +153,6 @@ export function RiasecResultShell({
               <div className="h-3 overflow-hidden rounded-full bg-slate-100">
                 <div className="h-full rounded-full bg-[var(--fm-trust-blue)]" style={{ width: `${Math.max(0, Math.min(100, dimension.score))}%` }} />
               </div>
-              <p className="text-sm leading-6 text-[var(--fm-text-muted)]">
-                {DIMENSION_COPY[dimension.code]?.[locale] ?? DIMENSION_COPY[dimension.code]?.en ?? ""}
-              </p>
             </div>
           ))}
         </CardContent>

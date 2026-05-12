@@ -52,6 +52,7 @@ describe("riasec public IA contract", () => {
   it("adds backend-history and shared share affordances for canonical riasec results", () => {
     const historySource = read("app/(localized)/[locale]/(app)/history/riasec/RiasecHistoryClient.tsx");
     const resultShellSource = read("components/result/riasec/RiasecResultShell.tsx");
+    const assemblerSource = read("lib/riasec/resultAssembler.ts");
 
     expect(historySource).toContain("fetchRiasecHistory");
     expect(historySource).toContain("createAttemptShare");
@@ -60,5 +61,10 @@ describe("riasec public IA contract", () => {
     expect(resultShellSource).toContain("createAttemptShare");
     expect(resultShellSource).toContain('localizedPath("/history/riasec", locale)');
     expect(resultShellSource).toContain("buildRiasecTakeHref");
+    expect(resultShellSource).toContain("riasec-trusted-result-card");
+    expect(resultShellSource).toContain("riasec-six-dimension-map");
+    expect(resultShellSource).not.toContain("DIMENSION_COPY");
+    expect(assemblerSource).toContain("riasec_public_projection_v2");
+    expect(assemblerSource).toContain("trustedResultCard");
   });
 });
