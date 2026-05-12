@@ -63,8 +63,12 @@ describe("riasec public IA contract", () => {
     expect(resultShellSource).toContain("buildRiasecTakeHref");
     expect(resultShellSource).toContain("riasec-trusted-result-card");
     expect(resultShellSource).toContain("riasec-six-dimension-map");
+    expect(resultShellSource).toContain("riasec-governed-copy-surface");
+    expect(resultShellSource).toContain("riasec-governed-copy-empty");
     expect(resultShellSource).not.toContain("DIMENSION_COPY");
     expect(assemblerSource).toContain("riasec_public_projection_v2");
+    expect(assemblerSource).toContain("activity_explorer_v0_1");
     expect(assemblerSource).toContain("trustedResultCard");
+    expect(assemblerSource).toContain("activityExplorer");
   });
 });

@@ -158,6 +158,96 @@ export function RiasecResultShell({
         </CardContent>
       </Card>
 
+      <Card data-testid="riasec-governed-copy-surface">
+        <CardHeader>
+          <CardTitle>{isZh ? "职业活动探索" : "Career activity explorer"}</CardTitle>
+        </CardHeader>
+        <CardContent>
+          {viewModel.activityExplorer ? (
+            <div className="space-y-[var(--fm-gap-md)]">
+              <div className="rounded-lg border border-[var(--fm-border)] bg-slate-50 px-3 py-2 text-sm text-[var(--fm-text-muted)]">
+                <span className="font-medium text-[var(--fm-text)]">
+                  {viewModel.activityExplorer.sourceStatus}
+                </span>
+                {viewModel.activityExplorer.occupationExamplesPolicy ? (
+                  <span> · {viewModel.activityExplorer.occupationExamplesPolicy}</span>
+                ) : null}
+              </div>
+              {viewModel.activityExplorer.dimensionActivityFamilies.length > 0 ? (
+                <div className="grid gap-3 md:grid-cols-3" data-testid="riasec-activity-families">
+                  {viewModel.activityExplorer.dimensionActivityFamilies.map((family) => (
+                    <section key={family.dimension} className="rounded-lg border border-[var(--fm-border)] p-3">
+                      <div className="text-sm font-semibold text-[var(--fm-text)]">{family.dimension} · {family.label}</div>
+                      {family.coreDrive ? (
+                        <p className="mt-2 text-sm leading-6 text-[var(--fm-text-muted)]">{family.coreDrive}</p>
+                      ) : null}
+                      {family.activityFamilies.length > 0 ? (
+                        <div className="mt-3 flex flex-wrap gap-2">
+                          {family.activityFamilies.map((activityFamily) => (
+                            <span key={activityFamily} className="rounded-md bg-slate-100 px-2 py-1 text-xs text-[var(--fm-text-muted)]">
+                              {activityFamily}
+                            </span>
+                          ))}
+                        </div>
+                      ) : null}
+                    </section>
+                  ))}
+                </div>
+              ) : null}
+              {viewModel.activityExplorer.codeActivityPack.activities.length > 0 ? (
+                <div className="space-y-3" data-testid="riasec-activity-pack">
+                  {viewModel.activityExplorer.codeActivityPack.activities.map((activity) => (
+                    <section key={activity.activityKey} className="rounded-lg border border-[var(--fm-border)] p-3">
+                      <div className="text-sm font-semibold text-[var(--fm-text)]">{activity.activityLabel || activity.activityKey}</div>
+                      {activity.activityUserCopy ? (
+                        <p className="mt-2 text-sm leading-6 text-[var(--fm-text-muted)]">{activity.activityUserCopy}</p>
+                      ) : null}
+                      {activity.taskExamples.length > 0 ? (
+                        <div className="mt-3">
+                          <div className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">
+                            {isZh ? "任务例子" : "Task examples"}
+                          </div>
+                          <ul className="mt-2 list-disc space-y-1 pl-5 text-sm leading-6 text-[var(--fm-text-muted)]">
+                            {activity.taskExamples.map((task) => (
+                              <li key={task}>{task}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      ) : null}
+                      {activity.occupationExamples.length > 0 ? (
+                        <div className="mt-3 grid gap-2 sm:grid-cols-2" data-testid="riasec-occupation-examples">
+                          {activity.occupationExamples.map((example) => (
+                            <article key={example.occupationExample} className="rounded-lg border border-[var(--fm-border)] bg-white p-3">
+                              <div className="text-sm font-semibold text-[var(--fm-text)]">{example.occupationExample}</div>
+                              <div className="mt-1 text-xs text-[var(--fm-text-muted)]">{example.displayLabel || example.sourceStatus}</div>
+                              {example.commonTasks.length > 0 ? (
+                                <ul className="mt-2 list-disc space-y-1 pl-5 text-xs leading-5 text-[var(--fm-text-muted)]">
+                                  {example.commonTasks.map((task) => (
+                                    <li key={task}>{task}</li>
+                                  ))}
+                                </ul>
+                              ) : null}
+                            </article>
+                          ))}
+                        </div>
+                      ) : null}
+                    </section>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-sm text-[var(--fm-text-muted)]" data-testid="riasec-governed-copy-empty">
+                  {isZh ? "当前结果没有可渲染的后端活动内容。" : "No backend-governed activity content is available for this result."}
+                </p>
+              )}
+            </div>
+          ) : (
+            <p className="text-sm text-[var(--fm-text-muted)]" data-testid="riasec-governed-copy-empty">
+              {isZh ? "当前结果没有可渲染的后端活动内容。" : "No backend-governed activity content is available for this result."}
+            </p>
+          )}
+        </CardContent>
+      </Card>
+
       {enhancedVisible ? (
         <Card>
           <CardHeader>

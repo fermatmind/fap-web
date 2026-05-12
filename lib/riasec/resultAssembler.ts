@@ -19,6 +19,52 @@ export type RiasecTrustedResultCard = {
   validationStatus: string;
 };
 
+export type RiasecActivityExplorerOccupationExample = {
+  occupationExample: string;
+  sourceStatus: string;
+  displayLabel: string;
+  commonTasks: string[];
+  skillsToCheck: string[];
+  educationBoundary: string;
+  skillBoundary: string;
+  qualificationBoundary: string;
+  localizationNote: string;
+  notARecommendation: boolean;
+};
+
+export type RiasecActivityExplorerActivity = {
+  activityKey: string;
+  activityLabel: string;
+  activityUserCopy: string;
+  riasecDimensions: string[];
+  taskExamples: string[];
+  occupationExamples: RiasecActivityExplorerOccupationExample[];
+  sourceStatus: string;
+};
+
+export type RiasecActivityExplorer = {
+  schemaVersion: string;
+  contentVersion: string;
+  status: string;
+  sourceStatus: string;
+  sourceName: string;
+  occupationExamplesPolicy: string;
+  registrySourceConnected: boolean;
+  fitScoreAllowed: boolean;
+  successPredictionAllowed: boolean;
+  dimensionActivityFamilies: Array<{
+    dimension: string;
+    label: string;
+    coreDrive: string;
+    activityFamilies: string[];
+    sourceStatus: string;
+  }>;
+  codeActivityPack: {
+    status: string;
+    activities: RiasecActivityExplorerActivity[];
+  };
+};
+
 export type RiasecResultViewModel = {
   topCode: string;
   formCode: string | null;
@@ -35,6 +81,7 @@ export type RiasecResultViewModel = {
   qualityFlags: string[];
   dimensions: RiasecDimension[];
   trustedResultCard: RiasecTrustedResultCard | null;
+  activityExplorer: RiasecActivityExplorer | null;
   enhancedBreakdown: {
     activity: Record<string, number>;
     environment: Record<string, number>;
@@ -59,6 +106,10 @@ function normalizeBoolean(value: unknown): boolean {
   return value === true;
 }
 
+function normalizeStringList(value: unknown): string[] {
+  return Array.isArray(value) ? value.map((item) => normalizeText(item)).filter(Boolean) : [];
+}
+
 type RiasecProjectionContainer =
   | Pick<ReportResponse, "riasec_public_projection_v1" | "riasec_public_projection_v2">
   | Pick<ResultResponse, "riasec_public_projection_v1" | "riasec_public_projection_v2">;
@@ -80,6 +131,7 @@ export function assembleRiasecResultViewModel(reportData: RiasecProjectionContai
   const v2Quality = asRecord(projectionV2?.quality);
   const v2ContentBoundary = asRecord(projectionV2?.content_boundary);
   const v2Scores = asRecord(projectionV2?.scores);
+  const v2ActivityExplorer = asRecord(projectionV2?.activity_explorer_v0_1);
   const v2Dimensions = Array.isArray(v2Scores?.dimensions) ? v2Scores.dimensions : [];
   const dimensions = v2Dimensions.length > 0
     ? v2Dimensions.map((rawDimension) => {
@@ -138,10 +190,77 @@ export function assembleRiasecResultViewModel(reportData: RiasecProjectionContai
           validationStatus: normalizeText(v2MeasurementEvidence?.validation_status),
         }
       : null,
+    activityExplorer: buildActivityExplorer(v2ActivityExplorer),
     enhancedBreakdown: {
       activity: Object.fromEntries(Object.entries(asRecord(enhanced.activity) ?? {}).map(([key, value]) => [key, normalizeNumber(value)])),
       environment: Object.fromEntries(Object.entries(asRecord(enhanced.environment) ?? {}).map(([key, value]) => [key, normalizeNumber(value)])),
       role: Object.fromEntries(Object.entries(asRecord(enhanced.role) ?? {}).map(([key, value]) => [key, normalizeNumber(value)])),
+    },
+  };
+}
+
+function buildActivityExplorer(rawExplorer: Record<string, unknown> | null): RiasecActivityExplorer | null {
+  if (!rawExplorer) {
+    return null;
+  }
+
+  const boundary = asRecord(rawExplorer.boundary) ?? {};
+  const rawFamilies = Array.isArray(rawExplorer.dimension_activity_families) ? rawExplorer.dimension_activity_families : [];
+  const rawPack = asRecord(rawExplorer.code_activity_pack) ?? {};
+  const rawActivities = Array.isArray(rawPack.activities) ? rawPack.activities : [];
+
+  return {
+    schemaVersion: normalizeText(rawExplorer.schema_version),
+    contentVersion: normalizeText(rawExplorer.content_version),
+    status: normalizeText(rawExplorer.status),
+    sourceStatus: normalizeText(rawExplorer.source_status),
+    sourceName: normalizeText(rawExplorer.source_name),
+    occupationExamplesPolicy: normalizeText(boundary.occupation_examples_policy),
+    registrySourceConnected: normalizeBoolean(boundary.registry_source_connected),
+    fitScoreAllowed: normalizeBoolean(boundary.fit_score_allowed),
+    successPredictionAllowed: normalizeBoolean(boundary.success_prediction_allowed),
+    dimensionActivityFamilies: rawFamilies.map((rawFamily) => {
+      const family = asRecord(rawFamily) ?? {};
+
+      return {
+        dimension: normalizeText(family.dimension),
+        label: normalizeText(family.label),
+        coreDrive: normalizeText(family.core_drive),
+        activityFamilies: normalizeStringList(family.activity_families),
+        sourceStatus: normalizeText(family.source_status),
+      };
+    }).filter((family) => family.dimension),
+    codeActivityPack: {
+      status: normalizeText(rawPack.status),
+      activities: rawActivities.map((rawActivity) => {
+        const activity = asRecord(rawActivity) ?? {};
+        const rawExamples = Array.isArray(activity.occupation_examples) ? activity.occupation_examples : [];
+
+        return {
+          activityKey: normalizeText(activity.activity_key),
+          activityLabel: normalizeText(activity.activity_label),
+          activityUserCopy: normalizeText(activity.activity_user_copy),
+          riasecDimensions: normalizeStringList(activity.riasec_dimensions),
+          taskExamples: normalizeStringList(activity.task_examples),
+          sourceStatus: normalizeText(activity.source_status),
+          occupationExamples: rawExamples.map((rawExample) => {
+            const example = asRecord(rawExample) ?? {};
+
+            return {
+              occupationExample: normalizeText(example.occupation_example),
+              sourceStatus: normalizeText(example.source_status),
+              displayLabel: normalizeText(example.display_label),
+              commonTasks: normalizeStringList(example.common_tasks),
+              skillsToCheck: normalizeStringList(example.skills_to_check),
+              educationBoundary: normalizeText(example.education_boundary),
+              skillBoundary: normalizeText(example.skill_boundary),
+              qualificationBoundary: normalizeText(example.qualification_boundary),
+              localizationNote: normalizeText(example.localization_note),
+              notARecommendation: normalizeBoolean(example.not_a_recommendation),
+            };
+          }).filter((example) => example.occupationExample),
+        };
+      }).filter((activity) => activity.activityKey),
     },
   };
 }
