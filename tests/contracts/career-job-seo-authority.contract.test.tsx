@@ -101,6 +101,47 @@ function buildTrustBlockedCareerJobBundlePayload() {
   };
 }
 
+function buildSeoAuthorityPublishedWithStaleBundlePayload() {
+  return {
+    ...buildCareerJobBundlePayload(),
+    seo_contract: {
+      canonical_path: "/zh/career/jobs/accountants-and-auditors",
+      index_state: "locale_not_ready",
+      index_eligible: false,
+    },
+    seo_authority_v1: {
+      seo_surface_v1: {
+        metadata_contract_version: "seo.surface.v1",
+        surface_type: "career_job_detail",
+        canonical_url: CANONICAL,
+        robots_policy: "index,follow",
+        title: SEO_TITLE,
+        description: SEO_DESCRIPTION,
+        structured_data_keys: ["Occupation"],
+      },
+      jsonld: {
+        "@context": "https://schema.org",
+        "@type": "Occupation",
+        name: "会计师和审计师",
+        url: CANONICAL,
+        mainEntityOfPage: CANONICAL,
+      },
+    },
+  };
+}
+
+function buildCandidateCareerJobBundlePayload() {
+  return {
+    ...buildCareerJobBundlePayload(),
+    seo_contract: {
+      canonical_path: "/zh/career/jobs/accountants-and-auditors",
+      index_state: "locale_not_ready",
+      index_eligible: false,
+    },
+    seo_authority_v1: null,
+  };
+}
+
 function mockCareerJobPageShell() {
   vi.doMock("next/link", () => ({
     default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
@@ -303,5 +344,96 @@ describe("career job seo.surface.v1 authority contract", () => {
     expect(metadata.robots).toMatchObject({ index: true, follow: true });
     expect(html).not.toContain('"@type":"Occupation"');
     expect(html).not.toContain('"name":"会计师和审计师"');
+  });
+
+  it("lets backend SEO authority override stale locale_not_ready bundle noindex state", async () => {
+    vi.doMock("next/link", () => ({
+      default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
+        <a href={href} {...props}>
+          {children}
+        </a>
+      ),
+    }));
+    vi.doMock("next/navigation", async () => {
+      const actual = await vi.importActual<typeof import("next/navigation")>("next/navigation");
+      return {
+        ...actual,
+        notFound: vi.fn(() => {
+          throw new Error("not-found");
+        }),
+        permanentRedirect: vi.fn((href: string) => {
+          throw new Error(`redirect:${href}`);
+        }),
+        usePathname: vi.fn(() => "/zh/career/jobs/accountants-and-auditors"),
+      };
+    });
+    vi.doMock("@/hooks/useAnalytics", () => ({
+      AnalyticsPageViewTracker: () => null,
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerJobBundle", () => ({
+      fetchCareerJobBundle: vi.fn(async () => buildSeoAuthorityPublishedWithStaleBundlePayload()),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerJobExplainability", () => ({
+      fetchCareerJobExplainability: vi.fn(async () => null),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerFirstWaveNextStepLinks", () => ({
+      fetchCareerFirstWaveNextStepLinks: vi.fn(async () => null),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerRuntimeConfig", () => ({
+      fetchCareerRuntimeConfig: vi.fn(async () => null),
+    }));
+
+    const { generateMetadata } = await import("@/app/(localized)/[locale]/career/jobs/[slug]/page");
+    const metadata = await generateMetadata({
+      params: Promise.resolve({ locale: "zh", slug: "accountants-and-auditors" }),
+    });
+
+    expect(metadata.alternates?.canonical).toBe(CANONICAL);
+    expect(metadata.robots).toMatchObject({ index: true, follow: true });
+  });
+
+  it("keeps candidate zh job detail pages noindex when published SEO authority is absent", async () => {
+    vi.doMock("next/link", () => ({
+      default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
+        <a href={href} {...props}>
+          {children}
+        </a>
+      ),
+    }));
+    vi.doMock("next/navigation", async () => {
+      const actual = await vi.importActual<typeof import("next/navigation")>("next/navigation");
+      return {
+        ...actual,
+        notFound: vi.fn(() => {
+          throw new Error("not-found");
+        }),
+        permanentRedirect: vi.fn((href: string) => {
+          throw new Error(`redirect:${href}`);
+        }),
+        usePathname: vi.fn(() => "/zh/career/jobs/accountants-and-auditors"),
+      };
+    });
+    vi.doMock("@/hooks/useAnalytics", () => ({
+      AnalyticsPageViewTracker: () => null,
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerJobBundle", () => ({
+      fetchCareerJobBundle: vi.fn(async () => buildCandidateCareerJobBundlePayload()),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerJobExplainability", () => ({
+      fetchCareerJobExplainability: vi.fn(async () => null),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerFirstWaveNextStepLinks", () => ({
+      fetchCareerFirstWaveNextStepLinks: vi.fn(async () => null),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerRuntimeConfig", () => ({
+      fetchCareerRuntimeConfig: vi.fn(async () => null),
+    }));
+
+    const { generateMetadata } = await import("@/app/(localized)/[locale]/career/jobs/[slug]/page");
+    const metadata = await generateMetadata({
+      params: Promise.resolve({ locale: "zh", slug: "accountants-and-auditors" }),
+    });
+
+    expect(metadata.robots).toMatchObject({ index: false, follow: false });
   });
 });
