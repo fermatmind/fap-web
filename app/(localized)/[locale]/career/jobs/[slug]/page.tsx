@@ -786,6 +786,7 @@ export default async function CareerJobDetailPage({
   const renderState = job.renderState;
   const jobDetailLandingPath = localizedPath(`/career/jobs/${job.slug}`, locale);
   const displayCtaAttributionParams = extractAttributionParamsFromRecord(query);
+  const hasInboundAttribution = Object.keys(displayCtaAttributionParams).length > 0;
   const displayCtaLandingPath = appendAttributionParamsToHref(jobDetailLandingPath, displayCtaAttributionParams);
   const displaySurface = job.displaySurfaceV1;
 
@@ -851,7 +852,7 @@ export default async function CareerJobDetailPage({
     displayCtaLandingPath,
     job.slug,
     displayCtaAttributionParams,
-    false
+    publishedIndexAuthority && !hasInboundAttribution
   );
   const shouldRenderLegacyCareerJobCta = locale === "zh" && publishedIndexAuthority;
 
@@ -888,7 +889,7 @@ export default async function CareerJobDetailPage({
               {job.titles.canonicalEn ? <p className="m-0 text-base leading-7 text-slate-500">{job.titles.canonicalEn}</p> : null}
             </section>
             <CareerJobDocument bodyMd={visibleContentBodyMd} title={job.title} />
-            {locale === "zh" && job.seoContract.indexEligible === true ? (
+            {publishedIndexAuthority ? (
               <NextStepRail
                 title="下一步"
                 description="只保留少量真实可走的路径。"

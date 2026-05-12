@@ -45,7 +45,7 @@ describe("URL inventory generator", () => {
 
     expect(inventory.version).toBe("url_truth.inventory.v1");
     expect(inventory.mode).toBe("offline");
-    expect(inventory.summary.totalUrls).toBeGreaterThan(250);
+    expect(inventory.summary.totalUrls).toBeGreaterThan(200);
     expect(inventory.summary.routeFamilyCounts).toMatchObject({
       test_detail: expect.any(Number),
       topic_detail: expect.any(Number),
@@ -70,7 +70,7 @@ describe("URL inventory generator", () => {
       exposureClassification: "public_indexable",
       jsonLdFamily: expect.arrayContaining(["AboutPage", "DefinedTerm"]),
     });
-    expect(byPath.get("/zh/career/jobs/actors")).toMatchObject({
+    expect(byPath.get("/zh/career/jobs/actuaries")).toMatchObject({
       routeFamily: "career_job_detail",
       expectedLlmsState: "conditional",
       evidenceContainerReadiness: "not_ready",

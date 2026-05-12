@@ -247,3 +247,16 @@ prs:
       - docs/freemium/freemium-runtime-coverage.md
       - docs/freemium/generated/freemium-runtime-coverage.v1.json
       - tests/contracts/freemium-runtime-coverage.contract.test.ts
+
+  - id: PR-WEB-HOTFIX-761A
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-web-hotfix-761a-job-detail-cta-attribution
+    base: main
+    depends_on: []
+    mode: execute
+    status: planned
+    title: "fix(career): restore attributed RIASEC CTA on published job detail live HTML"
+    artifacts:
+      - app/(localized)/[locale]/career/jobs/[slug]/page.tsx
+      - tests/contracts/career-v1-job-detail-redesign.contract.test.tsx

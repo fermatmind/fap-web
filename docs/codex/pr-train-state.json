@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-08T00:00:00Z",
+  "updated_at": "2026-05-12T15:10:00Z",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -184,13 +184,51 @@
       "depends_on": [
         "PR-PRAC-05"
       ],
-      "status": "in_progress",
+      "status": "local_checks_passed",
       "title": "test(runtime): add freemium public runtime coverage matrix",
       "artifacts": [
         "docs/freemium/freemium-runtime-coverage.md",
         "docs/freemium/generated/freemium-runtime-coverage.v1.json",
         "tests/contracts/freemium-runtime-coverage.contract.test.ts"
       ]
+    },
+    {
+      "id": "PR-WEB-HOTFIX-761A",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/pr-web-hotfix-761a-job-detail-cta-attribution",
+      "base": "main",
+      "depends_on": [],
+      "status": "in_progress",
+      "title": "fix(career): restore attributed RIASEC CTA on published job detail live HTML",
+      "artifacts": [
+        "app/(localized)/[locale]/career/jobs/[slug]/page.tsx",
+        "tests/contracts/career-v1-job-detail-redesign.contract.test.tsx"
+      ],
+      "checks": [
+        {
+          "name": "pnpm typecheck",
+          "status": "passed"
+        },
+        {
+          "name": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm test:contract",
+          "status": "passed"
+        },
+        {
+          "name": "git diff --check",
+          "status": "passed"
+        }
+      ],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
     }
   ],
   "sidecar_issues": [

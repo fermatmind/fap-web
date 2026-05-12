@@ -41,4 +41,15 @@ describe("career V1 job detail redesign contract", () => {
     expect(source).not.toContain("{itemIndex + 1}、");
     expect(source).not.toContain("aria-hidden=\"true\"");
   });
+
+  it("keeps published job detail next-step CTA attribution in live HTML", () => {
+    const source = read("app/(localized)/[locale]/career/jobs/[slug]/page.tsx");
+
+    expect(source).toContain("const nextSteps = buildNextStepRailItems(");
+    expect(source).toContain("displayCtaLandingPath,");
+    expect(source).toContain("displayCtaAttributionParams,");
+    expect(source).toContain("publishedIndexAuthority");
+    expect(source).toContain("{publishedIndexAuthority ? (");
+    expect(source).not.toContain('{locale === "zh" && job.seoContract.indexEligible === true ? (');
+  });
 });
