@@ -1,0 +1,66 @@
+{
+  "scan_type": "test_build_strategy",
+  "commands": [
+    {
+      "command": "pnpm lint",
+      "exists": true,
+      "recommended": true
+    },
+    {
+      "command": "pnpm typecheck",
+      "exists": true,
+      "recommended": true
+    },
+    {
+      "command": "pnpm build",
+      "exists": true,
+      "recommended": true,
+      "notes": [
+        "runs postbuild sitemap generation"
+      ]
+    },
+    {
+      "command": "pnpm test:contract",
+      "exists": true,
+      "recommended": true
+    },
+    {
+      "command": "pnpm test:a11y",
+      "exists": true,
+      "recommended": true
+    },
+    {
+      "command": "pnpm test:e2e",
+      "exists": true,
+      "recommended": true
+    },
+    {
+      "command": "pnpm test:e2e:visual",
+      "exists": true,
+      "recommended": true
+    },
+    {
+      "command": "pnpm verify:pr",
+      "exists": true,
+      "recommended": true
+    }
+  ],
+  "test_frameworks": [
+    "vitest",
+    "playwright"
+  ],
+  "storybook_found": false,
+  "build_sidecar_note": {
+    "present": true,
+    "summary": "pnpm build currently fails on a non-IQ ops prerender dependency at 127.0.0.1:8000",
+    "affected_route": "/zh/ops/content-pages",
+    "introduced_by_current_scan_pr": false
+  },
+  "can_mock_backend_responses": true,
+  "e2e_should_be_split_later": true,
+  "iq_fe_1_reasonable_test_scope": [
+    "typecheck",
+    "contract tests around API adapters",
+    "targeted renderer or helper unit tests if new adapters are introduced"
+  ]
+}

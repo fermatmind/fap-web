@@ -1,0 +1,43 @@
+{
+  "scan_type": "result_report_renderer_audit",
+  "existing_result_ui_reusable": true,
+  "existing_report_ui_reusable": true,
+  "reusability_level": "partial",
+  "files": {
+    "result_route": "app/(localized)/[locale]/(app)/result/[id]/page.tsx",
+    "result_client": "app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx",
+    "rich_report_renderer": "components/result/RichResultReport.tsx",
+    "locked_teaser": "components/report/LockedInsightTeaser.tsx",
+    "attempt_report_page": "app/(localized)/[locale]/attempts/[attemptId]/report/page.tsx"
+  },
+  "required_iq_fields": {
+    "scale_code": "partial",
+    "attempt_id": "yes",
+    "unlock_stage": "partial",
+    "summary_raw_score": "missing",
+    "summary_iq_estimate": "missing",
+    "summary_percentile": "missing",
+    "summary_confidence_interval": "missing",
+    "dimensions_visual_spatial_insight": "missing",
+    "dimensions_visual_spatial_pattern_reasoning": "missing",
+    "dimensions_numerical_pattern_reasoning": "missing",
+    "quality_level": "partial",
+    "quality_flags": "missing",
+    "stability_status": "missing"
+  },
+  "missing_iq_dimension_support": true,
+  "missing_stability_quality_rendering": true,
+  "locked_deferred_commerce_state_handling": "partial",
+  "recommended_components": [
+    "IqResultSummaryCard",
+    "IqDimensionCards",
+    "IqQualityStabilityPanel",
+    "IqReportModuleShell"
+  ],
+  "required_prs": [
+    "IQ-FE-4",
+    "IQ-FE-5",
+    "IQ-FE-6"
+  ]
+}
+

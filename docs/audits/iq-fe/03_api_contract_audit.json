@@ -1,0 +1,107 @@
+{
+  "scan_type": "api_contract_audit",
+  "client_pattern": {
+    "api_base_file": "lib/api-base.ts",
+    "main_client_file": "lib/api/v0_3.ts",
+    "guest_token_retry_file": "lib/auth/authRetry.ts",
+    "scale_code_mode_file": "lib/scaleCodeMode.ts"
+  },
+  "endpoints": [
+    {
+      "endpoint": "GET /api/v0.3/scales/lookup",
+      "existing_client_found": true,
+      "file_path": "lib/api/v0_3.ts:3267",
+      "response_typing": "typed",
+      "error_handling": "shared_fetch_plus_ApiError",
+      "can_reuse_for_iq": true,
+      "required_additions": [
+        "iq-specific metadata narrowing"
+      ]
+    },
+    {
+      "endpoint": "GET /api/v0.3/scales/{scale_code}/questions",
+      "existing_client_found": true,
+      "file_path": "lib/api/v0_3.ts:2808",
+      "response_typing": "typed",
+      "error_handling": "shared_fetch_plus_guest_token_retry_in_callers",
+      "can_reuse_for_iq": true,
+      "required_additions": [
+        "iq-specific question payload alias"
+      ]
+    },
+    {
+      "endpoint": "POST /api/v0.3/attempts/start",
+      "existing_client_found": true,
+      "file_path": "lib/api/v0_3.ts:2723",
+      "response_typing": "typed",
+      "error_handling": "shared",
+      "can_reuse_for_iq": true,
+      "required_additions": [
+        "iq attempt lifecycle wrapper"
+      ]
+    },
+    {
+      "endpoint": "POST /api/v0.3/attempts/submit",
+      "existing_client_found": true,
+      "file_path": "lib/api/v0_3.ts:2857",
+      "response_typing": "typed",
+      "error_handling": "shared",
+      "can_reuse_for_iq": true,
+      "required_additions": [
+        "iq-specific post-submit redirect contract"
+      ]
+    },
+    {
+      "endpoint": "GET /api/v0.3/attempts/{id}/result",
+      "existing_client_found": true,
+      "file_path": "lib/api/v0_3.ts:2924",
+      "response_typing": "typed",
+      "error_handling": "shared",
+      "can_reuse_for_iq": true,
+      "required_additions": [
+        "explicit iq result model for VSPR/VSI/NPR"
+      ]
+    },
+    {
+      "endpoint": "GET /api/v0.3/attempts/{id}/report-access",
+      "existing_client_found": true,
+      "file_path": "lib/api/v0_3.ts:3097",
+      "response_typing": "typed",
+      "error_handling": "shared",
+      "can_reuse_for_iq": true,
+      "required_additions": [
+        "deferred-commerce safe adapter"
+      ]
+    },
+    {
+      "endpoint": "GET /api/v0.3/attempts/{id}/report",
+      "existing_client_found": true,
+      "file_path": "lib/api/v0_3.ts:2963,2998",
+      "response_typing": "typed",
+      "error_handling": "shared",
+      "can_reuse_for_iq": true,
+      "required_additions": [
+        "iq report schema typing",
+        "three-dimension rendering adapter"
+      ]
+    }
+  ],
+  "iq_specific_findings": [
+    {
+      "finding": "dual-code IQ endpoint usage already tested",
+      "evidence": [
+        "tests/e2e/iq-eq-result-regression.spec.ts",
+        "tests/e2e/visual/iq-take.visual.spec.ts"
+      ],
+      "risk": "low"
+    },
+    {
+      "finding": "frontend fallback content still uses IQ_RAVEN scale_code",
+      "evidence": [
+        "lib/content.ts"
+      ],
+      "risk": "medium"
+    }
+  ]
+}
+

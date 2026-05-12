@@ -1,0 +1,44 @@
+{
+  "scan_type": "question_renderer_audit",
+  "current_renderer_exists": true,
+  "files": [
+    "app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient.tsx",
+    "components/quiz/iq/IqStemSvg.tsx",
+    "components/quiz/iq/IqOptionBoard.tsx",
+    "lib/quiz/normalizeQuestions.ts"
+  ],
+  "supported_asset_formats": {
+    "structured_svg_object": true,
+    "option_svg_object": true,
+    "text_plus_stem_svg": true,
+    "raw_svg_string": false,
+    "static_svg_asset_path": false
+  },
+  "capabilities": {
+    "selected_option_state": true,
+    "keyboard_selection": true,
+    "progress_bar": true,
+    "mobile_responsive_answer_cards": true,
+    "two_by_three_answer_grid": true,
+    "zoom_modal": false,
+    "sanitized_svg_rendering_for_structured_payload": true,
+    "dangerously_set_inner_html_usage_in_iq_path": false
+  },
+  "missing_support_for_iq_inline_svg": {
+    "current_backend_structured_inline_svg": false,
+    "raw_svg_markup_string": true
+  },
+  "risk_of_unsafe_svg_rendering": "low_for_current_structured_payload_medium_if_raw_svg_string_is_introduced_later",
+  "recommended_component_design": [
+    "keep IqStemSvg for structured SVG",
+    "keep IqOptionBoard for answer grid",
+    "add explicit IQ type guards instead of generic-only assumptions",
+    "avoid raw SVG innerHTML unless backend contract requires it"
+  ],
+  "required_prs": [
+    "IQ-FE-1",
+    "IQ-FE-2",
+    "IQ-FE-3"
+  ]
+}
+
