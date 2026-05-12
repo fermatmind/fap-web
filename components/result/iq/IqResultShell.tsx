@@ -2,6 +2,7 @@
 
 import { Alert } from "@/components/ui/alert";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { IqReportModule } from "@/components/result/iq/IqReportModule";
 import type { AttemptReportAccessView } from "@/lib/access/unifiedAccess";
 import type { ReportResponse, ResultResponse } from "@/lib/api/v0_3";
 import { buildIqResultViewModel, type IqResultMetricValue } from "@/lib/iq/result";
@@ -256,6 +257,8 @@ export function IqResultShell({
           );
         })}
       </div>
+
+      <IqReportModule locale={locale} viewModel={viewModel.reportModule} />
     </div>
   );
 }
