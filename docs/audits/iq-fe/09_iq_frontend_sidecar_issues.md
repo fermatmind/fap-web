@@ -135,3 +135,21 @@
 - `next_goal`: `Fix existing repo-wide ESLint baseline independently of IQ frontend audit docs.`
 - `may_continue_train`: `true`
 - `resume_condition`: `Repo lint baseline is clean or required checks exclude unrelated existing lint debt.`
+
+## IQ-FE-SIDECAR-CLEAN-WORKTREE-BUILD-ENV-001
+
+- `sidecar_id`: `IQ-FE-SIDECAR-CLEAN-WORKTREE-BUILD-ENV-001`
+- `title`: `env(iq-fe): clean worktree local build cannot use symlinked node_modules with Turbopack`
+- `owner_repo`: `fap-web`
+- `scope_relation`: `external_to_current_pr`
+- `introduced_by_current_pr`: `false`
+- `affected_area`: `local_build_validation`
+- `evidence`:
+  - current IQ-FE-1 implementation ran in a clean temp worktree to avoid unrelated main-worktree drift
+  - `pnpm build` failed before application compilation with `Symlink node_modules is invalid, it points out of the filesystem root`
+  - no build error referenced files under `lib/iq/`, `tests/contracts/iq-frontend-api-contracts.contract.test.ts`, or `docs/audits/iq-fe/10_iq_fe_1_api_contract_notes.md`
+- `severity`: `low`
+- `proposed_owner_pr`: `none required for IQ-FE-1; GitHub required build check is authoritative`
+- `next_goal`: `Validate merged/frontend PRs in a standard clone or a worktree with native dependencies rather than a symlinked dependency tree.`
+- `may_continue_train`: `true`
+- `resume_condition`: `A standard checkout or CI run validates build without the temp-worktree symlink constraint.`
