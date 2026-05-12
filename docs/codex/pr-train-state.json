@@ -407,7 +407,7 @@
       "branch": "codex/riasec-train-00-register-train",
       "base": "main",
       "depends_on": [],
-      "status": "local_checks_passed",
+      "status": "open",
       "title": "docs(codex): register RIASEC Trusted Result v1.5 train",
       "checks": [
         {
@@ -433,8 +433,8 @@
         }
       ],
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/765",
+      "commit_sha": "6a091fe027ffba311136d7c2690c4bbde7d84b17",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false
