@@ -261,6 +261,42 @@ prs:
       - app/(localized)/[locale]/career/jobs/[slug]/page.tsx
       - tests/contracts/career-v1-job-detail-redesign.contract.test.tsx
 
+  - id: PR-WEB-SBTI-REMOVE-01
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-web-sbti-remove-01
+    base: main
+    depends_on: []
+    mode: execute
+    status: planned
+    title: "chore(sbti): remove inactive SBTI product surface and test coverage"
+    goal: "Remove the inactive SBTI frontend product surface, routes, product-code assets, tests, rollout links, and SEO/discoverability references without touching backend code or order lookup CI work."
+    in_scope:
+      - app/(localized)/[locale]/fun/sbti/**
+      - components/sbti/**
+      - lib/sbti/**
+      - tests/contracts/*sbti*
+      - tests/e2e/sbti-result-illustration.spec.ts
+      - lib/rollout/scaleRollout.ts
+      - components/layout/SiteHeader.tsx
+      - app/robots.ts
+      - tests/contracts/robots.contract.test.ts
+      - tests/contracts/homepage-v1-density.contract.test.tsx
+      - lib/seo/sitemapAuthorityAdapters.cjs
+      - docs/seo/generated/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - backend code
+      - order lookup CI fix work
+      - MBTI, Big Five, Enneagram, and RIASEC runtime behavior
+      - new frontend fallback content
+    acceptance:
+      - SBTI routes and local product implementation are removed.
+      - Header, rollout, robots, sitemap, and SEO inventories no longer reference SBTI.
+      - SBTI-specific contract and e2e coverage is removed.
+      - Required local checks pass.
+
   - id: IQ-FE-1
     repo: fap-web
     repo_path: /Users/rainie/Desktop/GitHub/fap-web

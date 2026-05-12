@@ -8,10 +8,10 @@
     "scanner": "scripts/seo/generate-metadata-surface-inventory.mjs"
   },
   "summary": {
-    "totalSurfaces": 72,
+    "totalSurfaces": 70,
     "byClassification": {
       "private_noindex": 22,
-      "product_code_only": 17,
+      "product_code_only": 15,
       "safe_static": 11,
       "migration_required": 2,
       "cms_backed": 13,
@@ -20,13 +20,13 @@
     },
     "byOwnership": {
       "private_noindex": 22,
-      "product_code_only": 18,
+      "product_code_only": 16,
       "cms_backed": 27,
       "backend_owned": 5
     },
     "byRouteFamily": {
-      "private_flow": 22,
-      "other": 8,
+      "private_flow": 21,
+      "other": 7,
       "static_content_page": 10,
       "article_detail": 2,
       "articles_hub": 1,
@@ -55,7 +55,7 @@
     "migrationRequiredSurfaces": 2,
     "watchlistSurfaces": 2,
     "privateNoindexSurfaces": 22,
-    "frontendJsonLdFallbackSurfaces": 20
+    "frontendJsonLdFallbackSurfaces": 19
   },
   "rows": [
     {
@@ -599,36 +599,6 @@
       "reason": "Static content pages should remain backend content-page authoritative."
     },
     {
-      "file": "app/(localized)/[locale]/fun/sbti/page.tsx",
-      "routePattern": "/fun/sbti",
-      "routeFamily": "other",
-      "exportKind": "generateMetadata",
-      "usesBuildPageMetadata": true,
-      "usesSeoSurface": false,
-      "rendersJsonLd": false,
-      "hasFrontendJsonLdBuilderFallback": false,
-      "noindexSignal": true,
-      "ownership": "product_code_only",
-      "classification": "product_code_only",
-      "risk": "P2",
-      "reason": "Deterministic product-code metadata; keep out of CMS-backed SEO authority unless intentionally migrated."
-    },
-    {
-      "file": "app/(localized)/[locale]/fun/sbti/result/page.tsx",
-      "routePattern": "/fun/sbti/result",
-      "routeFamily": "private_flow",
-      "exportKind": "generateMetadata",
-      "usesBuildPageMetadata": true,
-      "usesSeoSurface": false,
-      "rendersJsonLd": false,
-      "hasFrontendJsonLdBuilderFallback": false,
-      "noindexSignal": true,
-      "ownership": "product_code_only",
-      "classification": "product_code_only",
-      "risk": "P2",
-      "reason": "Deterministic product-code metadata; keep out of CMS-backed SEO authority unless intentionally migrated."
-    },
-    {
       "file": "app/(localized)/[locale]/help/[slug]/page.tsx",
       "routePattern": "/help/:slug",
       "routeFamily": "help_detail",
@@ -663,11 +633,11 @@
       "routePattern": "/method-boundaries",
       "routeFamily": "other",
       "exportKind": "generateMetadata",
-      "usesBuildPageMetadata": true,
+      "usesBuildPageMetadata": false,
       "usesSeoSurface": false,
-      "rendersJsonLd": true,
-      "hasFrontendJsonLdBuilderFallback": true,
-      "noindexSignal": true,
+      "rendersJsonLd": false,
+      "hasFrontendJsonLdBuilderFallback": false,
+      "noindexSignal": false,
       "ownership": "cms_backed",
       "classification": "cms_backed",
       "risk": "P2",

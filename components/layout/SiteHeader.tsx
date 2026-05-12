@@ -65,7 +65,6 @@ export function SiteHeader({
     () =>
       productPriority ?? {
         mbtiPriorityMode: false,
-        sbtiEnabled: true,
         articlesEnabled: true,
         topicsEnabled: true,
         careerRecommendEnabled: true,
