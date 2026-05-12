@@ -723,3 +723,48 @@ prs:
       - scorer math
       - AI-generated report runtime
     rollback_note: "Revert test/fixture freeze without changing runtime behavior."
+
+  - id: PR-RT-01
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-rt-01-article-runtime-truth-gate
+    base: main
+    depends_on: []
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "test(runtime): add article publishing runtime truth gate"
+    goal: "Add dry-run article publishing runtime truth fixtures and frontend contracts before importing the first six SEO articles."
+    in_scope:
+      - article dry-run runtime truth fixture
+      - frontend article payload and SEO surface consumption contracts
+      - homepage recommended article authority completeness gate
+      - Article JSON-LD fallback classification contract
+      - sitemap/llms/canonical/robots article discoverability contract
+    out_of_scope:
+      - production article import
+      - AI cover generation
+      - Topic Graph expansion
+      - Career pSEO expansion
+      - results/payment/invite/orders changes
+    likely_touched:
+      - tests/contracts/**
+      - lib/marketing/homepageRecommendedArticles.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    acceptance:
+      - Six-article dry-run fixture validates article metadata, cover, alt, category, tags, canonical, robots, and JSON-LD authority.
+      - Homepage recommended articles require valid published article authority and complete card fields.
+      - Article JSON-LD fallback remains tracked as migration_required, not final authority.
+      - Draft/private/noindex articles cannot silently enter sitemap or llms.
+    must_not_touch:
+      - MBTI runtime
+      - Big Five runtime
+      - Personality runtime
+      - Career expansion runtime
+      - tests/take/result/payment/invite/order flows
+    companion_pr:
+      repo: fap-api
+      branch: codex/pr-rt-01-article-runtime-truth-gate
+      purpose: "Backend Article API, SEO payload, and structured data acceptance tests."
+    rollback_note: "Remove runtime truth fixture/contract gates; no production article content is introduced."

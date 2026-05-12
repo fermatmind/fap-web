@@ -1,5 +1,5 @@
 import { getCmsLandingSurfaceWithLastKnownGood, type CmsPageBlock } from "@/lib/cms/landing-surfaces";
-import type { CmsArticle, CmsArticleImageVariants } from "@/lib/cms/articles";
+import type { CmsArticle, CmsArticleCategory, CmsArticleImageVariants, CmsArticleTag } from "@/lib/cms/articles";
 import { toApiLocale, type Locale } from "@/lib/i18n/locales";
 
 const HOMEPAGE_RECOMMENDED_ARTICLE_BLOCK_KEYS = new Set([
@@ -122,6 +122,48 @@ function normalizeImageVariants(value: unknown): CmsArticleImageVariants {
   };
 }
 
+function firstImageUrl(...variants: Array<CmsArticleImageVariants["hero"]>): string | null {
+  for (const variant of variants) {
+    if (variant?.url) return variant.url;
+  }
+
+  return null;
+}
+
+function normalizeTag(value: unknown): CmsArticleTag | null {
+  const record = asRecord(value);
+  const slug = normalizeText(record?.slug);
+  const name = normalizeText(record?.name ?? record?.title);
+
+  if (!slug && !name) return null;
+
+  return {
+    id: normalizePositiveInteger(record?.id),
+    slug,
+    name: name || slug,
+  };
+}
+
+function normalizeTags(value: unknown): CmsArticleTag[] {
+  return Array.isArray(value) ? value.map(normalizeTag).filter((tag): tag is CmsArticleTag => tag !== null) : [];
+}
+
+function normalizeCategory(value: unknown): CmsArticleCategory {
+  const record = asRecord(value);
+  if (!record) return null;
+
+  const slug = normalizeText(record.slug);
+  const name = normalizeText(record.name ?? record.title);
+
+  if (!slug && !name) return null;
+
+  return {
+    id: normalizePositiveInteger(record.id),
+    slug,
+    name: name || slug,
+  };
+}
+
 function normalizeArticleBlockItems(payload: unknown): unknown[] {
   if (Array.isArray(payload)) return payload;
 
@@ -166,22 +208,35 @@ function normalizeRecommendedArticle(value: unknown, locale: Locale): CmsArticle
     return null;
   }
 
+  const excerpt = normalizeText(record.excerpt);
+  const coverImageVariants = normalizeImageVariants(record.cover_image_variants);
+  const coverImageUrl =
+    normalizeNullableText(record.cover_image_url) ??
+    firstImageUrl(coverImageVariants.card, coverImageVariants.hero, coverImageVariants.og, coverImageVariants.thumbnail);
+  const coverImageAlt = normalizeNullableText(record.cover_image_alt);
+  const category = normalizeCategory(record.category);
+  const tags = normalizeTags(record.tags);
+
+  if (!excerpt || !coverImageUrl || !coverImageAlt || !category || tags.length === 0) {
+    return null;
+  }
+
   return {
     id,
     slug,
     locale: articleLocale,
     title,
-    excerpt: normalizeText(record.excerpt),
+    excerpt,
     contentMd: "",
     contentHtml: "",
     authorName: null,
     reviewerName: null,
     readingMinutes: normalizePositiveInteger(record.reading_minutes),
-    coverImageUrl: normalizeNullableText(record.cover_image_url),
-    coverImageAlt: normalizeNullableText(record.cover_image_alt),
+    coverImageUrl,
+    coverImageAlt,
     coverImageWidth: normalizePositiveInteger(record.cover_image_width),
     coverImageHeight: normalizePositiveInteger(record.cover_image_height),
-    coverImageVariants: normalizeImageVariants(record.cover_image_variants),
+    coverImageVariants,
     relatedTestSlug: null,
     voice: null,
     voiceOrder: null,
@@ -193,8 +248,8 @@ function normalizeRecommendedArticle(value: unknown, locale: Locale): CmsArticle
     scheduledAt: null,
     createdAt: normalizeNullableText(record.created_at),
     updatedAt: normalizeNullableText(record.updated_at),
-    category: null,
-    tags: [],
+    category,
+    tags,
     seoMeta: null,
     landingSurface: null,
     answerSurface: null,
