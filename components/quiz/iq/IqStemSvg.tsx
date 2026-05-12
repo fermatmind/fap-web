@@ -54,11 +54,11 @@ export function IqStemSvg({
     <div
       data-testid="iq-stem-svg"
       className={cn(
-        "overflow-hidden rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-3",
+        "overflow-hidden rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-2 sm:p-3",
         className
       )}
     >
-      <div className="mx-auto aspect-square w-full max-w-[420px]">
+      <div className="mx-auto aspect-square w-full max-w-[460px] min-h-[220px] sm:min-h-[280px]">
         <IqVectorSvg svg={stem.svg} />
       </div>
     </div>

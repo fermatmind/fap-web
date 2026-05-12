@@ -49,9 +49,9 @@ function renderMetricRow({
   }
 
   return (
-    <div className="flex items-center justify-between gap-4 text-sm">
+    <div className="flex flex-col items-start justify-between gap-1.5 text-sm sm:flex-row sm:items-center sm:gap-4">
       <dt className="text-[var(--fm-text-muted)]">{label}</dt>
-      <dd className="text-right font-semibold text-[var(--fm-text)]">{value}</dd>
+      <dd className="font-semibold text-[var(--fm-text)] sm:text-right">{value}</dd>
     </div>
   );
 }
@@ -104,7 +104,7 @@ export function IqReportModule({
               {viewModel.sections.map((section) => (
                 <div
                   key={section.key}
-                  className="rounded-[12px] border border-[var(--fm-border)] p-4"
+                  className="rounded-[12px] border border-[var(--fm-border)] p-4 sm:p-5"
                   data-testid={`iq-report-section-${section.key}`}
                 >
                   {section.title ? (
@@ -125,11 +125,11 @@ export function IqReportModule({
             </div>
           ) : null}
 
-          <div className="grid gap-4 lg:grid-cols-3" data-testid="iq-report-dimensions">
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3" data-testid="iq-report-dimensions">
             {viewModel.dimensions.map((dimension) => (
               <div
                 key={dimension.key}
-                className="rounded-[12px] border border-[var(--fm-border)] p-4"
+                className="rounded-[12px] border border-[var(--fm-border)] p-4 sm:p-5"
                 data-testid={`iq-report-dimension-detail-${dimension.code.toLowerCase()}`}
               >
                 <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--fm-text-muted)]">
@@ -159,7 +159,7 @@ export function IqReportModule({
                       value: dimension.band,
                     })}
                     {dimension.insight ? (
-                      <div className="pt-1 text-sm leading-6 text-[var(--fm-text-muted)]">{dimension.insight}</div>
+                      <div className="pt-1 text-sm leading-6 break-words text-[var(--fm-text-muted)]">{dimension.insight}</div>
                     ) : null}
                   </dl>
                 )}

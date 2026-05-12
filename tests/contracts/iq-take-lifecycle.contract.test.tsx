@@ -262,6 +262,17 @@ function renderClient() {
   );
 }
 
+function deferredPromise<T>() {
+  let resolve!: (value: T) => void;
+  let reject!: (reason?: unknown) => void;
+  const promise = new Promise<T>((res, rej) => {
+    resolve = res;
+    reject = rej;
+  });
+
+  return { promise, resolve, reject };
+}
+
 describe("IQ take lifecycle contract", () => {
   beforeEach(() => {
     vi.clearAllMocks();
@@ -297,6 +308,20 @@ describe("IQ take lifecycle contract", () => {
     expect(screen.getByTestId("iq-option-board-desktop")).toBeInTheDocument();
     expect(screen.queryByText("IQ_RAVEN")).not.toBeInTheDocument();
     expect(screen.queryByText(/¥1\.99|¥5|unlock/i)).not.toBeInTheDocument();
+  });
+
+  it("renders a loading state while IQ questions are still in flight", async () => {
+    const pending = deferredPromise<ReturnType<typeof buildIqQuestionResponse>>();
+    hoisted.getIqQuestions.mockReturnValueOnce(pending.promise);
+
+    renderClient();
+
+    expect(screen.getByTestId("iq-take-loading-state")).toHaveTextContent("Loading IQ questions...");
+    expect(screen.queryByText("IQ_RAVEN")).not.toBeInTheDocument();
+
+    pending.resolve(buildIqQuestionResponse());
+
+    expect(await screen.findByText("Find the missing matrix tile.")).toBeInTheDocument();
   });
 
   it("primes attempt on first selection, advances questions, submits safe IQ answers, and redirects to the localized result path", async () => {
@@ -389,6 +414,52 @@ describe("IQ take lifecycle contract", () => {
 
     renderClient();
 
-    expect(await screen.findByText("No questions found for this test.")).toBeInTheDocument();
+    expect(await screen.findByTestId("iq-take-empty-state")).toHaveTextContent(
+      "No questions are available for this IQ test yet."
+    );
+  });
+
+  it("shows a submit loading state without exposing any score", async () => {
+    const pendingSubmit = deferredPromise<{
+      ok: true;
+      attempt_id: string;
+    }>();
+    hoisted.submitIqAttempt.mockReturnValueOnce(pendingSubmit.promise);
+
+    renderClient();
+
+    expect(await screen.findByText("Find the missing matrix tile.")).toBeInTheDocument();
+
+    await act(async () => {
+      fireEvent.click(
+        within(screen.getByTestId("iq-option-board-desktop")).getByRole("radio", { name: "Option A" })
+      );
+    });
+
+    await act(async () => {
+      fireEvent.click(screen.getByRole("button", { name: "Next" }));
+    });
+
+    await act(async () => {
+      fireEvent.click(
+        within(screen.getByTestId("iq-option-board-desktop")).getByRole("radio", { name: "Option B" })
+      );
+    });
+
+    await act(async () => {
+      fireEvent.click(screen.getByRole("button", { name: "Submit" }));
+    });
+
+    expect(screen.getByRole("button", { name: "Submitting..." })).toBeDisabled();
+    expect(screen.queryByText(/score|raw score|iq estimate/i)).not.toBeInTheDocument();
+
+    pendingSubmit.resolve({
+      ok: true,
+      attempt_id: "iq-result-002",
+    });
+
+    await waitFor(() => {
+      expect(hoisted.routerPush).toHaveBeenCalledWith("/en/result/iq-result-002");
+    });
   });
 });
