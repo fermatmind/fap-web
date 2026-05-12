@@ -94,6 +94,13 @@ export const TRACKING_EVENTS = {
   CAREER_BLOCKED_SURFACE_EXPOSED: "career_blocked_surface_exposed",
   CAREER_CLAIM_BLOCKED_SURFACE_EXPOSED: "career_claim_blocked_surface_exposed",
 
+  // RIASEC Trusted Result events
+  RIASEC_RESULT_VIEW: "riasec_result_view",
+  RIASEC_SHARE_VIEW: "riasec_share_view",
+  RIASEC_PDF_VIEW: "riasec_pdf_view",
+  RIASEC_ACTIVITY_EXPLORER_VIEW: "riasec_activity_explorer_view",
+  RIASEC_FEEDBACK_OVERLAY_VIEW: "riasec_feedback_overlay_view",
+
   // Reliability and launch-day SLO events
   QUESTIONS_LOAD_FAILURE: "questions_load_failure",
   SUBMIT_FAILURE: "submit_failure",
@@ -158,6 +165,21 @@ const COMMON_CAREER_ATTRIBUTION_FIELDS = [
   "subject_kind",
   "subject_key",
   "query_mode",
+] as const;
+
+const COMMON_RIASEC_TRUSTED_RESULT_FIELDS = [
+  "scale_code",
+  "form_code",
+  "score_space_version",
+  "projection_version",
+  "snapshot_bound",
+  "activity_explorer_status",
+  "activity_source_status",
+  "feedback_overlay_status",
+  "feedback_stream_status",
+  "raw_feedback_included",
+  "occupation_examples_policy",
+  "locale",
 ] as const;
 
 const EVENT_FIELD_WHITELIST: Record<TrackingEventName, readonly string[]> = {
@@ -246,6 +268,11 @@ const EVENT_FIELD_WHITELIST: Record<TrackingEventName, readonly string[]> = {
   career_ready_surface_exposed: [...COMMON_CAREER_ATTRIBUTION_FIELDS],
   career_blocked_surface_exposed: [...COMMON_CAREER_ATTRIBUTION_FIELDS],
   career_claim_blocked_surface_exposed: [...COMMON_CAREER_ATTRIBUTION_FIELDS, "blocked_claim_kind"],
+  riasec_result_view: [...COMMON_RIASEC_TRUSTED_RESULT_FIELDS],
+  riasec_share_view: [...COMMON_RIASEC_TRUSTED_RESULT_FIELDS],
+  riasec_pdf_view: [...COMMON_RIASEC_TRUSTED_RESULT_FIELDS, "pdf_variant"],
+  riasec_activity_explorer_view: [...COMMON_RIASEC_TRUSTED_RESULT_FIELDS],
+  riasec_feedback_overlay_view: [...COMMON_RIASEC_TRUSTED_RESULT_FIELDS],
   questions_load_failure: ["scale_code", "stage", "stage_detail", "status_group", "status_code", "error_code", "request_id", "route", "form_code", "locale"],
   submit_failure: ["scale_code", "stage", "stage_detail", "status_group", "status_code", "error_code", "request_id", "route", "form_code", "locale"],
   report_load_failure: ["scale_code", "stage", "stage_detail", "status_group", "status_code", "error_code", "request_id", "route", "form_code", "locale"],
