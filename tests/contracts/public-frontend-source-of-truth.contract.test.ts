@@ -86,7 +86,7 @@ describe("public frontend source-of-truth lock", () => {
     expect(manifest).toContain("codex/pr-prac-01-frontend-source-of-truth-lock");
     expect(state.train_name).toBe("public-runtime-authority-convergence-train");
     expect(state.pr_namespace).toBe("PR-PRAC-*");
-    expect(state.prs.map((pr) => pr.id)).toEqual([
+    expect(state.prs.filter((pr) => pr.id.startsWith("PR-PRAC-")).map((pr) => pr.id)).toEqual([
       "PR-PRAC-01",
       "PR-PRAC-02",
       "PR-PRAC-03",

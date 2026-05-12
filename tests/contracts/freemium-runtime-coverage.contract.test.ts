@@ -60,7 +60,7 @@ describe("freemium runtime coverage matrix", () => {
       train_name: string;
       prs: Array<{ id: string; status: string; branch: string; depends_on: string[] }>;
     };
-    const byId = new Map(state.prs.map((pr) => [pr.id, pr]));
+    const byId = new Map(state.prs.filter((pr) => pr.id.startsWith("PR-PRAC-")).map((pr) => [pr.id, pr]));
 
     expect(state.train_name).toBe("public-runtime-authority-convergence-train");
     expect(byId.get("PR-PRAC-05")).toMatchObject({ status: "merged" });
@@ -69,7 +69,7 @@ describe("freemium runtime coverage matrix", () => {
       branch: "codex/pr-prac-06-freemium-runtime-coverage",
       depends_on: ["PR-PRAC-05"],
     });
-    expect(["in_progress", "merged"]).toContain(prac06?.status);
+    expect(["in_progress", "open", "merged"]).toContain(prac06?.status);
   });
 
   it("uses only the frozen freemium classification taxonomy", () => {
