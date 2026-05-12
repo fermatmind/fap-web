@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-12T17:23:00Z",
+  "updated_at": "2026-05-12T17:28:51Z",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -237,7 +237,7 @@
       "branch": "codex/pr-web-sbti-remove-01",
       "base": "main",
       "depends_on": [],
-      "status": "ready_for_pr",
+      "status": "open",
       "title": "chore(sbti): remove inactive SBTI product surface and test coverage",
       "artifacts": [
         "app/(localized)/[locale]/fun/sbti/**",
@@ -299,11 +299,16 @@
           "name": "git diff --check",
           "status": "passed",
           "command": "git diff --check"
+        },
+        {
+          "name": "github checks",
+          "status": "pending",
+          "details": "Draft PR #776 opened; build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze are in progress."
         }
       ],
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/776",
+      "commit_sha": "947e8504334f2a428d2bc1302109fc0c2340889e",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false
