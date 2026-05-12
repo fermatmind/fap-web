@@ -121,6 +121,28 @@ describe("IQ question renderer contract", () => {
     expect(screen.getAllByRole("radio")).toHaveLength(5);
   });
 
+  it("keeps the mobile option board selectable in the narrow responsive layout", () => {
+    const onChange = vi.fn();
+
+    render(
+      <IqOptionBoard
+        questionId="IQ_Q_02_MOBILE"
+        options={["A", "B", "C", "D", "E", "F"].map((code) => ({ option_code: code, label: code }))}
+        value="A"
+        locale="en"
+        layoutMode="mobile"
+        noOptionsLabel="No options"
+        onChange={onChange}
+      />
+    );
+
+    const mobileBoard = screen.getByTestId("iq-option-board-mobile");
+    expect(mobileBoard.className).toContain("min-[390px]:grid-cols-2");
+
+    fireEvent.click(screen.getByRole("radio", { name: "Option D" }));
+    expect(onChange).toHaveBeenCalledWith("D");
+  });
+
   it("selecting an option calls onSelect with option_code", () => {
     const onChange = vi.fn();
 
@@ -221,4 +243,3 @@ describe("IQ question renderer contract", () => {
     expect(normalized && "correct_answer" in normalized).toBe(false);
   });
 });
-

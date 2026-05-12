@@ -142,6 +142,46 @@ function resolveRetryButtonLabel(locale: "en" | "zh", retryAfterSeconds: number 
   return "Retry";
 }
 
+function resolveTakeLoadingCopy(locale: "en" | "zh", isIqScale: boolean): string {
+  if (locale === "zh") {
+    return isIqScale ? "正在加载智商测试题目..." : "正在加载题目...";
+  }
+
+  return isIqScale ? "Loading IQ questions..." : "Loading questions...";
+}
+
+function resolveTakeEmptyCopy(locale: "en" | "zh", isIqScale: boolean): string {
+  if (locale === "zh") {
+    return isIqScale ? "当前暂无可用的智商测试题目。" : "当前暂无可用题目。";
+  }
+
+  return isIqScale ? "No questions are available for this IQ test yet." : "No questions found for this test.";
+}
+
+function resolveUnsupportedQuestionCopy(locale: "en" | "zh"): string {
+  if (locale === "zh") {
+    return "当前题目格式暂不受此版本支持，请稍后再试。";
+  }
+
+  return "This question format is not supported in the current frontend yet.";
+}
+
+function resolveSubmitLabel(locale: "en" | "zh", submitting: boolean, fallback: string): string {
+  if (!submitting) {
+    return fallback;
+  }
+
+  return locale === "zh" ? "提交中..." : "Submitting...";
+}
+
+function resolveStatusTitle(locale: "en" | "zh", kind: "error" | "empty"): string {
+  if (locale === "zh") {
+    return kind === "error" ? "暂时无法继续" : "暂无内容";
+  }
+
+  return kind === "error" ? "Something went wrong" : "Nothing to show yet";
+}
+
 function resolveGuestTokenTelemetry(error: unknown): {
   statusCode?: number;
   errorCode: string;
@@ -576,13 +616,19 @@ function QuizTakeInner({
           const orderedQuestions = [...response.questions.items].sort(
             (a, b) => (a.order ?? 0) - (b.order ?? 0)
           );
+          const normalizedQuestions = normalizeIqQuestionsForTake({
+            items: orderedQuestions,
+            locale,
+          });
 
-          setQuestions(
-            normalizeIqQuestionsForTake({
-              items: orderedQuestions,
-              locale,
-            })
-          );
+          if (orderedQuestions.length > 0 && normalizedQuestions.length === 0) {
+            setQuestions([]);
+            setQuestionsError(resolveUnsupportedQuestionCopy(locale));
+            setRetryAfterSeconds(null);
+            return;
+          }
+
+          setQuestions(normalizedQuestions);
         } else {
           const response = await runWithAuthRetry("questions", () =>
             fetchScaleQuestions({ scaleCode, formCode: resolvedFormCode, anonId })
@@ -1160,9 +1206,29 @@ function QuizTakeInner({
   if (questionsLoading) {
     return (
       <QuizShell>
-        <p className="m-0 text-slate-600">
-          Loading quiz data...
-        </p>
+        <div
+          className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-white p-4 shadow-[var(--fm-shadow-sm)] sm:p-6"
+          data-testid="iq-take-loading-state"
+          role="status"
+          aria-live="polite"
+        >
+          <div className="space-y-2">
+            <div className="h-3 w-24 animate-pulse rounded-full bg-[var(--fm-surface-muted)]" />
+            <div className="h-7 w-2/3 animate-pulse rounded-full bg-[var(--fm-surface-muted)]" />
+            <p className="m-0 text-sm leading-6 text-[var(--fm-text-muted)]">
+              {resolveTakeLoadingCopy(locale, isIqScale)}
+            </p>
+          </div>
+          <div className="aspect-square w-full animate-pulse rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)]" />
+          <div className="grid gap-3 min-[390px]:grid-cols-2 md:grid-cols-3">
+            {Array.from({ length: 6 }).map((_, idx) => (
+              <div
+                key={`iq-loading-option-${idx + 1}`}
+                className="min-h-[124px] animate-pulse rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)]"
+              />
+            ))}
+          </div>
+        </div>
       </QuizShell>
     );
   }
@@ -1170,15 +1236,28 @@ function QuizTakeInner({
   if (loadError) {
     return (
       <QuizShell>
-        <p className="m-0 text-red-700">{loadError}</p>
-        <Button
-          type="button"
-          variant="outline"
-          disabled={Boolean(retryAfterSeconds && retryAfterSeconds > 0)}
-          onClick={() => window.location.reload()}
+        <div
+          className="space-y-4 rounded-2xl border border-rose-200 bg-white p-4 shadow-[var(--fm-shadow-sm)] sm:p-6"
+          data-testid="iq-take-error-state"
+          role="alert"
         >
-          {resolveRetryButtonLabel(locale, retryAfterSeconds)}
-        </Button>
+          <div className="space-y-2">
+            <h2 className="m-0 text-lg font-semibold text-[var(--fm-text)]">
+              {resolveStatusTitle(locale, "error")}
+            </h2>
+            <p className="m-0 text-sm leading-6 text-rose-700">{loadError}</p>
+          </div>
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <Button
+              type="button"
+              variant="outline"
+              disabled={Boolean(retryAfterSeconds && retryAfterSeconds > 0)}
+              onClick={() => window.location.reload()}
+            >
+              {resolveRetryButtonLabel(locale, retryAfterSeconds)}
+            </Button>
+          </div>
+        </div>
       </QuizShell>
     );
   }
@@ -1205,7 +1284,17 @@ function QuizTakeInner({
   if (!question) {
     return (
       <QuizShell>
-        <p className="m-0 text-slate-600">No questions found for this test.</p>
+        <div
+          className="space-y-2 rounded-2xl border border-dashed border-[var(--fm-border)] bg-white p-4 shadow-[var(--fm-shadow-sm)] sm:p-6"
+          data-testid="iq-take-empty-state"
+        >
+          <h2 className="m-0 text-lg font-semibold text-[var(--fm-text)]">
+            {resolveStatusTitle(locale, "empty")}
+          </h2>
+          <p className="m-0 text-sm leading-6 text-[var(--fm-text-muted)]">
+            {resolveTakeEmptyCopy(locale, isIqScale)}
+          </p>
+        </div>
       </QuizShell>
     );
   }
@@ -1243,7 +1332,7 @@ function QuizTakeInner({
           }
           footerSlot={
             isIqScale ? (
-              <div className="flex items-center gap-[var(--fm-gap-sm)]">
+              <div className="flex flex-col gap-[var(--fm-gap-sm)] sm:flex-row sm:items-center">
                 {submitError ? (
                   <Button
                     type="button"
@@ -1265,7 +1354,7 @@ function QuizTakeInner({
                     }}
                     disabled={!iqCanSubmit}
                   >
-                    {submitting ? "Submitting..." : dict.quiz.iq.submit}
+                    {resolveSubmitLabel(locale, submitting, dict.quiz.iq.submit)}
                   </Button>
                 ) : (
                   <Button type="button" onClick={goNext} disabled={!iqCanContinue}>
@@ -1289,14 +1378,14 @@ function QuizTakeInner({
             )
           }
         >
-          <article className="space-y-[var(--fm-space-5)] rounded-2xl border border-[var(--fm-border-strong)] bg-white p-[var(--fm-space-6)] shadow-[var(--fm-shadow-md)]">
+          <article className="space-y-[var(--fm-space-4)] rounded-2xl border border-[var(--fm-border-strong)] bg-white p-[var(--fm-space-4)] shadow-[var(--fm-shadow-md)] sm:space-y-[var(--fm-space-5)] sm:p-[var(--fm-space-6)]">
             {!showsMbtiQuizChrome ? (
               <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">{testTitle}</p>
             ) : null}
-            <h2 className="m-0 text-2xl font-semibold leading-9 text-[var(--fm-text)]">{question.title}</h2>
+            <h2 className="m-0 text-xl font-semibold leading-8 text-[var(--fm-text)] sm:text-2xl sm:leading-9">{question.title}</h2>
 
             {question.stem?.svg ? (
-              <IqStemSvg stem={question.stem} className={isIqScale ? "max-h-[420px]" : "max-h-[320px]"} />
+              <IqStemSvg stem={question.stem} className={isIqScale ? "max-h-[460px]" : "max-h-[320px]"} />
             ) : null}
 
             {isIqScale ? (
@@ -1351,11 +1440,21 @@ function QuizTakeInner({
             ) : null}
 
             {iqNeedsSelection ? (
-              <p className="m-0 text-sm font-medium text-amber-700">{dict.quiz.iq.selectHint}</p>
+              <p className="m-0 rounded-xl border border-amber-200 bg-amber-50 px-3 py-2 text-sm font-medium leading-6 text-amber-700">
+                {dict.quiz.iq.selectHint}
+              </p>
             ) : null}
 
-            {attemptError ? <p className="m-0 text-sm text-red-700">{attemptError}</p> : null}
-            {submitError ? <p className="m-0 text-sm text-red-700">{submitError}</p> : null}
+            {attemptError ? (
+              <p className="m-0 rounded-xl border border-rose-200 bg-rose-50 px-3 py-2 text-sm leading-6 text-rose-700" data-testid="iq-attempt-error">
+                {attemptError}
+              </p>
+            ) : null}
+            {submitError ? (
+              <p className="m-0 rounded-xl border border-rose-200 bg-rose-50 px-3 py-2 text-sm leading-6 text-rose-700" data-testid="iq-submit-error">
+                {submitError}
+              </p>
+            ) : null}
           </article>
         </ImmersiveTakeLayout>
 
@@ -1385,14 +1484,14 @@ function QuizTakeInner({
         backLabel={dict.quiz.immersive.backToDetails}
       />
 
-      <article className="space-y-[var(--fm-space-5)] rounded-2xl border border-[var(--fm-border-strong)] bg-white p-[var(--fm-space-6)] shadow-[var(--fm-shadow-md)]">
+      <article className="space-y-[var(--fm-space-4)] rounded-2xl border border-[var(--fm-border-strong)] bg-white p-[var(--fm-space-4)] shadow-[var(--fm-shadow-md)] sm:space-y-[var(--fm-space-5)] sm:p-[var(--fm-space-6)]">
         {!showsMbtiQuizChrome ? (
           <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">{testTitle}</p>
         ) : null}
-        <h2 className="m-0 text-2xl font-semibold leading-9 text-[var(--fm-text)]">{question.title}</h2>
+        <h2 className="m-0 text-xl font-semibold leading-8 text-[var(--fm-text)] sm:text-2xl sm:leading-9">{question.title}</h2>
 
         {question.stem?.svg ? (
-          <IqStemSvg stem={question.stem} className={isIqScale ? "max-h-[420px]" : "max-h-[360px]"} />
+          <IqStemSvg stem={question.stem} className={isIqScale ? "max-h-[460px]" : "max-h-[360px]"} />
         ) : null}
 
         {isIqScale ? (
@@ -1447,14 +1546,24 @@ function QuizTakeInner({
         ) : null}
 
         {iqNeedsSelection ? (
-          <p className="m-0 text-sm font-medium text-amber-700">{dict.quiz.iq.selectHint}</p>
+          <p className="m-0 rounded-xl border border-amber-200 bg-amber-50 px-3 py-2 text-sm font-medium leading-6 text-amber-700">
+            {dict.quiz.iq.selectHint}
+          </p>
         ) : null}
 
-        {attemptError ? <p className="m-0 text-sm text-red-700">{attemptError}</p> : null}
-        {submitError ? <p className="m-0 text-sm text-red-700">{submitError}</p> : null}
+        {attemptError ? (
+          <p className="m-0 rounded-xl border border-rose-200 bg-rose-50 px-3 py-2 text-sm leading-6 text-rose-700" data-testid="iq-attempt-error">
+            {attemptError}
+          </p>
+        ) : null}
+        {submitError ? (
+          <p className="m-0 rounded-xl border border-rose-200 bg-rose-50 px-3 py-2 text-sm leading-6 text-rose-700" data-testid="iq-submit-error">
+            {submitError}
+          </p>
+        ) : null}
       </article>
 
-      <div className="flex items-center gap-[var(--fm-gap-sm)]">
+      <div className="flex flex-col gap-[var(--fm-gap-sm)] sm:flex-row sm:items-center">
         <Button
           type="button"
           onClick={goPrevious}
@@ -1486,7 +1595,7 @@ function QuizTakeInner({
                 }}
                 disabled={!iqCanSubmit}
               >
-                {submitting ? "Submitting..." : dict.quiz.iq.submit}
+                {resolveSubmitLabel(locale, submitting, dict.quiz.iq.submit)}
               </Button>
             ) : (
               <Button type="button" onClick={goNext} disabled={!iqCanContinue}>

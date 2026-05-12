@@ -77,9 +77,9 @@ function renderMetricRow({
   }
 
   return (
-    <div className="flex items-center justify-between gap-4 text-sm" data-testid={testId}>
+    <div className="flex flex-col items-start justify-between gap-1.5 text-sm sm:flex-row sm:items-center sm:gap-4" data-testid={testId}>
       <dt className="text-[var(--fm-text-muted)]">{label}</dt>
-      <dd className="text-right font-semibold text-[var(--fm-text)]">{value}</dd>
+      <dd className="font-semibold text-[var(--fm-text)] sm:text-right">{value}</dd>
     </div>
   );
 }
@@ -130,11 +130,11 @@ export function IqResultShell({
           ) : null}
 
           {iqEstimateText ? (
-            <div className="rounded-[12px] border border-[var(--fm-border)] bg-[var(--fm-surface-subtle,#f8fafc)] p-4">
+            <div className="rounded-[12px] border border-[var(--fm-border)] bg-[var(--fm-surface-subtle,#f8fafc)] p-4 sm:p-5">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--fm-text-muted)]">
                 {locale === "zh" ? "IQ 估计值" : "IQ estimate"}
               </p>
-              <p className="mt-2 text-3xl font-semibold text-[var(--fm-text)]" data-testid="iq-iq-estimate-value">
+              <p className="mt-2 text-2xl font-semibold text-[var(--fm-text)] sm:text-3xl" data-testid="iq-iq-estimate-value">
                 {iqEstimateText}
               </p>
             </div>
@@ -202,7 +202,7 @@ export function IqResultShell({
         </CardContent>
       </Card>
 
-      <div className="grid gap-4 lg:grid-cols-3">
+      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {viewModel.dimensions.map((dimension) => {
           const rawScore = formatMetricValue(dimension.rawScore);
           const scaledScore = formatMetricValue(dimension.scaledScore);
@@ -242,7 +242,7 @@ export function IqResultShell({
                 </dl>
 
                 {dimension.insight ? (
-                  <p className="text-sm leading-6 text-[var(--fm-text-muted)]">{dimension.insight}</p>
+                  <p className="text-sm leading-6 text-[var(--fm-text-muted)] break-words">{dimension.insight}</p>
                 ) : null}
 
                 {dimension.missing ? (

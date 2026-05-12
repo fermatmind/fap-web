@@ -92,7 +92,11 @@ export function IqOptionBoard({
   };
 
   if (optionCount === 0) {
-    return <p className="m-0 text-sm text-rose-700">{noOptionsLabel}</p>;
+    return (
+      <p className="m-0 rounded-xl border border-dashed border-[var(--fm-border)] bg-[var(--fm-surface-muted)] px-4 py-3 text-sm leading-6 text-rose-700">
+        {noOptionsLabel}
+      </p>
+    );
   }
 
   const showDesktop = layoutMode === "responsive" || layoutMode === "desktop";
@@ -124,10 +128,11 @@ export function IqOptionBoard({
                   aria-label={optionLabel}
                   disabled={disabled}
                   data-state={selected ? "selected" : "idle"}
+                  data-layout="desktop"
                   onClick={() => onChange(option.code)}
                   onKeyDown={(event) => moveByArrow(idx, event)}
                   className={cn(
-                    "group relative min-h-[170px] rounded-xl border p-3 text-left transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-focus)] disabled:cursor-not-allowed disabled:opacity-60",
+                    "group relative min-h-[170px] rounded-xl border p-3 text-left transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-focus)] focus-visible:ring-offset-2 focus-visible:ring-offset-white disabled:cursor-not-allowed disabled:opacity-60",
                     selected
                       ? "border-[var(--fm-trust-blue)] bg-[var(--fm-surface-muted)] shadow-[var(--fm-shadow-md)]"
                       : "border-[var(--fm-border)] bg-white hover:border-[var(--fm-border-strong)]"
@@ -165,7 +170,10 @@ export function IqOptionBoard({
       {showMobile ? (
         <div
           data-testid="iq-option-board-mobile"
-          className={cn("space-y-2", layoutMode === "responsive" ? "md:hidden" : undefined)}
+          className={cn(
+            "grid grid-cols-1 gap-2.5 min-[390px]:grid-cols-2",
+            layoutMode === "responsive" ? "md:hidden" : undefined
+          )}
           role="radiogroup"
           aria-label={`iq-options-${questionId}-mobile`}
         >
@@ -185,35 +193,38 @@ export function IqOptionBoard({
                 aria-label={optionLabel}
                 disabled={disabled}
                 data-state={selected ? "selected" : "idle"}
+                data-layout="mobile"
                 onClick={() => onChange(option.code)}
                 onKeyDown={(event) => moveByArrow(idx, event)}
                 className={cn(
-                  "flex min-h-[92px] w-full items-center gap-3 rounded-xl border p-3 text-left transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-focus)] disabled:cursor-not-allowed disabled:opacity-60",
+                  "flex min-h-[128px] w-full flex-col items-start gap-3 rounded-xl border p-3 text-left transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-focus)] focus-visible:ring-offset-2 focus-visible:ring-offset-white disabled:cursor-not-allowed disabled:opacity-60",
                   selected
                     ? "border-[var(--fm-trust-blue)] bg-[var(--fm-surface-muted)] shadow-[var(--fm-shadow-sm)]"
                     : "border-[var(--fm-border)] bg-white"
                 )}
               >
-                <span
-                  className={cn(
-                    "inline-flex h-8 min-w-[32px] shrink-0 items-center justify-center rounded-full border px-2 text-sm font-semibold",
-                    selected
-                      ? "border-[var(--fm-trust-blue)] bg-[var(--fm-trust-blue)] text-white"
-                      : "border-[var(--fm-border-strong)] bg-[var(--fm-surface-muted)] text-[var(--fm-text)]"
-                  )}
-                >
-                  {letter}
-                </span>
+                <div className="flex w-full items-start gap-3">
+                  <span
+                    className={cn(
+                      "inline-flex h-8 min-w-[32px] shrink-0 items-center justify-center rounded-full border px-2 text-sm font-semibold",
+                      selected
+                        ? "border-[var(--fm-trust-blue)] bg-[var(--fm-trust-blue)] text-white"
+                        : "border-[var(--fm-border-strong)] bg-[var(--fm-surface-muted)] text-[var(--fm-text)]"
+                    )}
+                  >
+                    {letter}
+                  </span>
 
-                <span className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface)] p-2">
-                  {option.svg ? (
-                    <IqVectorSvg svg={option.svg} className="h-full w-full object-contain" ariaLabel={optionLabel} />
-                  ) : (
-                    <span className="text-xs font-medium text-[var(--fm-text-muted)]">{optionLabel}</span>
-                  )}
-                </span>
+                  <span className="flex aspect-square w-full max-w-[132px] shrink-0 items-center justify-center overflow-hidden rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface)] p-2">
+                    {option.svg ? (
+                      <IqVectorSvg svg={option.svg} className="h-full w-full object-contain" ariaLabel={optionLabel} />
+                    ) : (
+                      <span className="text-xs font-medium text-[var(--fm-text-muted)]">{optionLabel}</span>
+                    )}
+                  </span>
+                </div>
 
-                <span className="line-clamp-2 text-sm font-medium text-[var(--fm-text)]">{subLabel}</span>
+                <span className="line-clamp-3 text-sm font-medium leading-6 text-[var(--fm-text)]">{subLabel}</span>
               </button>
             );
           })}
