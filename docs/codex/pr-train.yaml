@@ -297,6 +297,37 @@ prs:
       - SBTI-specific contract and e2e coverage is removed.
       - Required local checks pass.
 
+  - id: PR-WEB-SBTI-REMOVE-02
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-web-sbti-remove-02
+    base: main
+    depends_on: [PR-WEB-SBTI-REMOVE-01]
+    mode: execute
+    status: planned
+    title: "chore(sbti): clean residual SBTI route and rule references"
+    goal: "Clean residual active-route and repository-rule references after the inactive SBTI frontend product surface was removed."
+    in_scope:
+      - proxy.ts
+      - tests/contracts/proxy-boundary.contract.test.ts
+      - AGENTS.md
+      - CONTRIBUTING.md
+      - docs/codex/final-v4-upgrade-plan.md
+      - docs/codex/pr-review-checklist.md
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - backend code
+      - already-merged SBTI product surface deletion
+      - order lookup CI fix work
+      - MBTI, Big Five, Enneagram, and RIASEC runtime behavior
+      - new frontend fallback content
+    acceptance:
+      - The retired SBTI result route no longer receives anonymous identity plumbing in proxy.
+      - Proxy boundary coverage asserts the retired SBTI route remains outside active product plumbing.
+      - Current repository rules and review checklists no longer list SBTI as an active product-code exception or priority tier.
+      - Required local checks pass.
+
   - id: IQ-FE-1
     repo: fap-web
     repo_path: /Users/rainie/Desktop/GitHub/fap-web

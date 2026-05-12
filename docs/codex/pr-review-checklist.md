@@ -50,7 +50,7 @@ Use this checklist for PRs that touch content authority, CMS/public APIs, SEO, m
 
 ## Priority And Degradation
 
-- Confirm MBTI remains L1 priority, Big Five L2, and SBTI/articles/topics/career recommendations/non-core tests L3.
+- Confirm MBTI remains L1 priority, Big Five L2, and articles/topics/career recommendations/non-core tests L3.
 - Confirm caching, throttling, resource isolation, or degradation changes do not let non-core surfaces degrade MBTI paths.
 - Confirm experimental or heavily interactive surfaces are not mechanically CMS-ified unless the PR explicitly converts them into operational content.
 
