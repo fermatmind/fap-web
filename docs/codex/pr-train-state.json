@@ -626,7 +626,7 @@
       "branch": "codex/pr-rt-01-article-runtime-truth-gate",
       "base": "main",
       "depends_on": [],
-      "status": "local_checks_passed",
+      "status": "open",
       "title": "test(runtime): add article publishing runtime truth gate",
       "checks": [
         {
@@ -676,8 +676,8 @@
         }
       ],
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/772",
+      "commit_sha": "56ffb6dac8364f54eb3852adbb38807b221ee65d",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
