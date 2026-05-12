@@ -1,22 +1,32 @@
 import { cn } from "@/lib/utils";
+import type { IqStemPayload } from "@/lib/iq/contracts";
+import { normalizeIqStructuredSvg, type IqRenderableSvg } from "@/lib/iq/renderer";
 import type { QuizQuestionStem, QuizVectorGraphic } from "@/lib/quiz/types";
 
 export function IqVectorSvg({
   svg,
   className,
+  ariaLabel = "IQ matrix graphic",
 }: {
-  svg: QuizVectorGraphic;
+  svg: QuizVectorGraphic | IqRenderableSvg;
   className?: string;
+  ariaLabel?: string;
 }) {
+  const normalizedSvg = normalizeIqStructuredSvg(svg);
+  if (!normalizedSvg) {
+    return null;
+  }
+
   return (
     <svg
-      viewBox={svg.viewBox}
+      viewBox={normalizedSvg.viewBox}
       className={cn("h-full w-full", className)}
       preserveAspectRatio="xMidYMid meet"
       role="img"
-      aria-label="IQ matrix graphic"
+      aria-label={ariaLabel}
+      focusable="false"
     >
-      {svg.paths.map((path, idx) => (
+      {normalizedSvg.paths.map((path, idx) => (
         <path
           key={`iq-path-${idx}`}
           d={path.d}
@@ -24,6 +34,7 @@ export function IqVectorSvg({
           {...(path.fillRule ? { fillRule: path.fillRule as "evenodd" | "nonzero" | "inherit" } : {})}
           {...(path.stroke ? { stroke: path.stroke } : {})}
           {...(path.strokeWidth !== undefined ? { strokeWidth: path.strokeWidth } : {})}
+          {...(path.opacity !== undefined ? { opacity: path.opacity } : {})}
         />
       ))}
     </svg>
@@ -34,7 +45,7 @@ export function IqStemSvg({
   stem,
   className,
 }: {
-  stem: QuizQuestionStem;
+  stem: QuizQuestionStem | IqStemPayload;
   className?: string;
 }) {
   if (!stem.svg) return null;
@@ -47,7 +58,9 @@ export function IqStemSvg({
         className
       )}
     >
-      <IqVectorSvg svg={stem.svg} />
+      <div className="mx-auto aspect-square w-full max-w-[420px]">
+        <IqVectorSvg svg={stem.svg} />
+      </div>
     </div>
   );
 }
