@@ -30,6 +30,7 @@ import type {
 } from "@/lib/career/adapters/types";
 import { CAREER_TRACKING_EVENTS, buildCareerAttributionPayload } from "@/lib/career/attribution";
 import {
+  CAREER_DISPLAY_RIASEC_TEST_SLUG,
   buildCareerDisplayCtaHref,
   buildCareerDisplayFAQPageJsonLd,
 } from "@/lib/career/displaySurface";
@@ -83,6 +84,43 @@ function renderScoreValue(value: number | null): string {
 function shouldNoindex(indexState: string | null | undefined): boolean {
   const normalized = String(indexState ?? "").trim().toLowerCase();
   return normalized === "blocked" || normalized === "noindex" || normalized === "unavailable";
+}
+
+function isIndexableState(indexState: string | null | undefined): boolean {
+  const normalized = String(indexState ?? "").trim().toLowerCase();
+  return normalized === "index" || normalized === "indexable" || normalized === "indexed";
+}
+
+function robotsAllowIndex(robotsPolicy: string | null | undefined): boolean | null {
+  const normalized = String(robotsPolicy ?? "")
+    .toLowerCase()
+    .split(",")
+    .map((part) => part.trim())
+    .filter(Boolean);
+
+  if (normalized.includes("noindex")) {
+    return false;
+  }
+
+  return normalized.includes("index") ? true : null;
+}
+
+function hasPublishedIndexAuthority(job: CareerJobBundleAdapter): boolean {
+  const seoRobotsAllowIndex = robotsAllowIndex(job.seoSurface?.robotsPolicy);
+
+  if (seoRobotsAllowIndex === false || job.seoSurface?.indexEligible === false || shouldNoindex(job.seoSurface?.indexState)) {
+    return false;
+  }
+
+  if (
+    seoRobotsAllowIndex === true ||
+    job.seoSurface?.indexEligible === true ||
+    isIndexableState(job.seoSurface?.indexState)
+  ) {
+    return true;
+  }
+
+  return job.seoContract.indexEligible === true && !shouldNoindex(job.seoContract.indexState);
 }
 
 function hasBackendStructuredDataKey(job: CareerJobBundleAdapter, key: string): boolean {
@@ -284,6 +322,47 @@ function MetricCard({ title, value, caption }: { title: string; value: string; c
       <p className="m-0 mt-3 text-3xl font-semibold tracking-tight text-slate-950">{value}</p>
       <p className="m-0 mt-2 text-sm leading-6 text-slate-500">{caption}</p>
     </div>
+  );
+}
+
+function LegacyCareerJobCta({
+  locale,
+  landingPath,
+  subjectSlug,
+  attributionParams,
+}: {
+  locale: Locale;
+  landingPath: string;
+  subjectSlug: string;
+  attributionParams: ReturnType<typeof extractAttributionParamsFromRecord>;
+}) {
+  const href = buildCareerDisplayCtaHref({
+    locale,
+    landingPath,
+    subjectSlug,
+    attributionParams,
+  });
+
+  return (
+    <section className="rounded-lg border border-slate-950 bg-slate-950 p-5 text-white" data-testid="career-display-cta">
+      <h2 className="m-0 text-2xl font-semibold tracking-normal">{locale === "zh" ? "下一步" : "Next step"}</h2>
+      <p className="m-0 mt-3 text-sm leading-7 text-slate-200">
+        {locale === "zh"
+          ? "用 RIASEC 先确认职业兴趣结构，再回到职业页做风险和行动判断。"
+          : "Use RIASEC to check your career-interest structure before making a job-path decision."}
+      </p>
+      <Link
+        href={href}
+        className="mt-4 inline-flex min-h-11 items-center rounded-lg bg-white px-4 py-2 text-sm font-semibold text-slate-950 hover:bg-slate-100"
+        data-entry-surface="career_job_detail"
+        data-source-page-type="career_job_detail"
+        data-target-action="start_riasec_test"
+        data-test-slug={CAREER_DISPLAY_RIASEC_TEST_SLUG}
+        data-landing-path={landingPath}
+      >
+        {locale === "zh" ? "开始 RIASEC 职业兴趣测试" : "Start the RIASEC career interest test"}
+      </Link>
+    </section>
   );
 }
 
@@ -659,8 +738,7 @@ export async function generateMetadata({
         ? `${job.title} 的职业概览与下一步路径。`
         : `Career overview and next steps for ${job.title}.`;
   const backendSeoAllowsIndex =
-    job.seoContract.indexEligible === true &&
-    !shouldNoindex(job.seoContract.indexState);
+    hasPublishedIndexAuthority(job);
   const effectiveIndexEligible = (seoSurface?.indexEligible ?? job.seoContract.indexEligible) === true;
   const effectiveIndexState = seoSurface?.indexState || job.seoContract.indexState;
 
@@ -674,7 +752,7 @@ export async function generateMetadata({
       indexEligible: effectiveIndexEligible,
       indexState: effectiveIndexState,
     },
-    noindex: !backendSeoAllowsIndex || !effectiveIndexEligible || shouldNoindex(effectiveIndexState),
+    noindex: !backendSeoAllowsIndex,
     alternatesByLocale: {
       en: buildCareerJobFrontendUrl("en", job.slug),
       zh: buildCareerJobFrontendUrl("zh", job.slug),
@@ -699,7 +777,9 @@ export default async function CareerJobDetailPage({
     return notFound();
   }
 
-  if (!job.displaySurfaceV1 && shouldRedirectEnglishJobDetailToChinese(job, locale)) {
+  const publishedIndexAuthority = hasPublishedIndexAuthority(job);
+
+  if (!job.displaySurfaceV1 && !publishedIndexAuthority && shouldRedirectEnglishJobDetailToChinese(job, locale)) {
     permanentRedirect(buildCareerJobFrontendUrl("zh", job.slug));
   }
 
@@ -771,8 +851,9 @@ export default async function CareerJobDetailPage({
     displayCtaLandingPath,
     job.slug,
     displayCtaAttributionParams,
-    locale === "zh" && job.seoContract.indexEligible === true
+    false
   );
+  const shouldRenderLegacyCareerJobCta = locale === "zh" && publishedIndexAuthority;
 
   return (
     <main className="min-h-screen bg-slate-50">
@@ -813,6 +894,14 @@ export default async function CareerJobDetailPage({
                 description="只保留少量真实可走的路径。"
                 items={nextSteps}
                 testId="career-job-next-step-links"
+              />
+            ) : null}
+            {shouldRenderLegacyCareerJobCta ? (
+              <LegacyCareerJobCta
+                locale={locale}
+                landingPath={displayCtaLandingPath}
+                subjectSlug={job.slug}
+                attributionParams={displayCtaAttributionParams}
               />
             ) : null}
           </>

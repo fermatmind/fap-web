@@ -65,12 +65,31 @@ async function renderCareerJobPage(
   return renderToStaticMarkup(page as ReactNode);
 }
 
+async function generateCareerJobMetadata(
+  locale: "en" | "zh",
+  slug: string,
+  payload: unknown
+) {
+  mockRouteRuntime(payload);
+
+  const { generateMetadata } = await import("@/app/(localized)/[locale]/career/jobs/[slug]/page");
+  return generateMetadata({
+    params: Promise.resolve({ locale, slug }),
+  });
+}
+
 function buildJobBundle({
   slug = "actors",
   displaySurface,
+  seoContract,
+  seoAuthority,
+  trustManifest,
 }: {
   slug?: string;
   displaySurface?: unknown;
+  seoContract?: Record<string, unknown>;
+  seoAuthority?: Record<string, unknown>;
+  trustManifest?: Record<string, unknown>;
 } = {}) {
   const title = slug === "actors" ? "Actors" : "Accountants and Auditors";
   const canonicalPath = `/career/jobs/${slug}`;
@@ -105,7 +124,7 @@ function buildJobBundle({
       allow_cross_market_pay_copy: false,
       reason_codes: [],
     },
-    trust_manifest: {
+    trust_manifest: trustManifest ?? {
       reviewer_status: "reviewed",
       reviewed: true,
       quality: {
@@ -127,12 +146,13 @@ function buildJobBundle({
       strain_score: { value: 45, integrity_state: "full", degradation_factor: 1 },
       confidence_score: { value: 88, integrity_state: "full", degradation_factor: 1 },
     },
-    seo_contract: {
+    seo_contract: seoContract ?? {
       canonical_path: canonicalPath,
       canonical_target: canonicalPath,
       index_state: "index",
       index_eligible: true,
     },
+    ...(seoAuthority === undefined ? {} : { seo_authority_v1: seoAuthority }),
     structured_data: {
       occupation: {
         "@context": "https://schema.org",
@@ -314,6 +334,116 @@ describe("career job detail Actors v4.2 route integration", () => {
     expect(html).not.toContain("Fermat Quick Fit");
   });
 
+  it("does not redirect a published English DOCX-baseline job detail page to zh when canonical authority is indexable", async () => {
+    const html = await renderCareerJobPage(
+      "en",
+      "compliance-officers",
+      buildJobBundle({
+        slug: "compliance-officers",
+        trustManifest: {
+          reviewer_status: "reviewed",
+          reviewed: true,
+          quality: {
+            complete: true,
+            reviewed: true,
+            stale: false,
+            blocked_reasons: [],
+          },
+          locale_context: {
+            locale: "zh-CN",
+            display_market: "zh-CN",
+          },
+          methodology: {
+            crosswalk_mode: "docx_baseline",
+          },
+        },
+        seoContract: {
+          canonical_path: "/en/career/jobs/compliance-officers",
+          canonical_target: "/en/career/jobs/compliance-officers",
+          index_state: "index",
+          index_eligible: true,
+        },
+      })
+    );
+
+    expect(html).toContain("career-job-docx-document");
+    expect(html).toContain("Legacy Accountants and Auditors DOCX body");
+    expect(html).not.toContain("redirect:/zh/career/jobs/compliance-officers");
+  });
+
+  it("keeps the published English DOCX-baseline canonical self even when the bundle content is zh sourced", async () => {
+    vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://fermatmind.com");
+
+    const metadata = await generateCareerJobMetadata(
+      "en",
+      "compliance-officers",
+      buildJobBundle({
+        slug: "compliance-officers",
+        trustManifest: {
+          reviewer_status: "reviewed",
+          reviewed: true,
+          quality: {
+            complete: true,
+            reviewed: true,
+            stale: false,
+            blocked_reasons: [],
+          },
+          locale_context: {
+            locale: "zh-CN",
+            display_market: "zh-CN",
+          },
+          methodology: {
+            crosswalk_mode: "docx_baseline",
+          },
+        },
+        seoContract: {
+          canonical_path: "/en/career/jobs/compliance-officers",
+          canonical_target: "/en/career/jobs/compliance-officers",
+          index_state: "index",
+          index_eligible: true,
+        },
+      })
+    );
+
+    expect(metadata.alternates?.canonical).toBe("https://fermatmind.com/en/career/jobs/compliance-officers");
+    expect(metadata.robots).toMatchObject({ index: true, follow: true });
+  });
+
+  it("keeps candidate English DOCX-baseline job detail pages redirected to zh when index authority is absent", async () => {
+    await expect(
+      renderCareerJobPage(
+        "en",
+        "compliance-officers",
+        buildJobBundle({
+          slug: "compliance-officers",
+          trustManifest: {
+            reviewer_status: "reviewed",
+            reviewed: true,
+            quality: {
+              complete: true,
+              reviewed: true,
+              stale: false,
+              blocked_reasons: [],
+            },
+            locale_context: {
+              locale: "zh-CN",
+              display_market: "zh-CN",
+            },
+            methodology: {
+              crosswalk_mode: "docx_baseline",
+            },
+          },
+          seoContract: {
+            canonical_path: "/en/career/jobs/compliance-officers",
+            canonical_target: "/en/career/jobs/compliance-officers",
+            index_state: "locale_not_ready",
+            index_eligible: false,
+          },
+        })
+      )
+    ).rejects.toThrow("redirect:/zh/career/jobs/compliance-officers");
+  });
+
   it("keeps software developers on the legacy renderer even when a display surface is present", async () => {
     const html = await renderCareerJobPage(
       "en",
@@ -407,6 +537,46 @@ describe("career job detail Actors v4.2 route integration", () => {
     expect(html).toContain("utm_source=zhihu");
     expect(html).toContain("gclid=test-gclid");
     expect(html).toContain("landing_path=%2Fzh%2Fcareer%2Fjobs%2Fdata-scientists%3Futm_source%3Dzhihu%26gclid%3Dtest-gclid");
+    expect(html).toContain('data-entry-surface="career_job_detail"');
+    expect(html).toContain('data-target-action="start_riasec_test"');
+    expect(html).toContain('data-landing-path="/zh/career/jobs/data-scientists?utm_source=zhihu&amp;gclid=test-gclid"');
+  });
+
+  it("renders an attributed RIASEC CTA on zh legacy pages when SEO authority overrides stale locale_not_ready", async () => {
+    const html = await renderCareerJobPage(
+      "zh",
+      "actuaries",
+      buildJobBundle({
+        slug: "actuaries",
+        seoContract: {
+          canonical_path: "/zh/career/jobs/actuaries",
+          canonical_target: "/zh/career/jobs/actuaries",
+          index_state: "locale_not_ready",
+          index_eligible: false,
+        },
+        seoAuthority: {
+          seo_surface_v1: {
+            metadata_contract_version: "seo.surface.v1",
+            surface_type: "career_job_detail",
+            canonical_url: "https://fermatmind.com/zh/career/jobs/actuaries",
+            robots_policy: "index,follow",
+            title: "精算师｜FermatMind 职业库",
+            description: "Backend-owned SEO authority for an indexable zh job detail page.",
+            structured_data_keys: [],
+          },
+        },
+      })
+    );
+
+    expect(html).toContain("career-job-docx-document");
+    expect(html).toContain("holland-career-interest-test-riasec");
+    expect(html).toContain("target_action=start_riasec_test");
+    expect(html).toContain("entry_surface=career_job_detail");
+    expect(html).toContain("source_page_type=career_job_detail");
+    expect(html).toContain("subject_key=actuaries");
+    expect(html).toContain('data-entry-surface="career_job_detail"');
+    expect(html).toContain('data-target-action="start_riasec_test"');
+    expect(html).toContain('data-landing-path="/zh/career/jobs/actuaries"');
   });
 
   it("emits FAQPage only from visible display FAQ items and keeps hidden FAQ out", async () => {
