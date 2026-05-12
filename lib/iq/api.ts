@@ -36,6 +36,25 @@ import {
   type IqSubmitResponse,
 } from "@/lib/iq/contracts";
 
+type IqAttributionUtm = {
+  source?: string | null;
+  medium?: string | null;
+  campaign?: string | null;
+  term?: string | null;
+  content?: string | null;
+};
+
+type IqAttemptAttributionPayload = {
+  referrer?: string;
+  share_id?: string;
+  compare_invite_id?: string;
+  invite_unlock_code?: string;
+  share_click_id?: string;
+  entrypoint?: string;
+  landing_path?: string;
+  utm?: IqAttributionUtm;
+};
+
 function resolveAnonId(anonId?: string): string | undefined {
   const normalized = String(anonId ?? "").trim();
   if (normalized) return normalized;
@@ -138,7 +157,15 @@ export async function startIqAttempt({
   source,
   meta,
   client_version,
-}: IqStartAttemptPayload): Promise<IqStartAttemptResponse> {
+  referrer,
+  share_id,
+  compare_invite_id,
+  invite_unlock_code,
+  share_click_id,
+  entrypoint,
+  landing_path,
+  utm,
+}: IqStartAttemptPayload & IqAttemptAttributionPayload): Promise<IqStartAttemptResponse> {
   const resolvedAnonId = resolveAnonId(anon_id);
   const resolvedScaleCode = normalizeIqScaleCodeForApi(scale_code);
   const response = await withIqAuthRetry({
@@ -157,6 +184,14 @@ export async function startIqAttempt({
         clientPlatform: "web",
         clientVersion: client_version,
         channel: "web",
+        referrer,
+        share_id,
+        compare_invite_id,
+        invite_unlock_code,
+        share_click_id,
+        entrypoint,
+        landing_path,
+        utm,
       }),
   });
 
@@ -168,12 +203,20 @@ export async function submitIqAttempt({
   answers,
   duration_ms,
   anon_id,
+  referrer,
+  share_id,
+  compare_invite_id,
+  invite_unlock_code,
+  share_click_id,
+  entrypoint,
+  landing_path,
+  utm,
 }: {
   attempt_id: string;
   answers: IqAttemptAnswer[];
   duration_ms: number;
   anon_id?: string;
-}): Promise<IqSubmitResponse> {
+} & IqAttemptAttributionPayload): Promise<IqSubmitResponse> {
   const resolvedAnonId = resolveAnonId(anon_id);
   const response = await withIqAuthRetry({
     anonId: resolvedAnonId,
@@ -183,6 +226,14 @@ export async function submitIqAttempt({
         anonId: resolvedAnonId,
         answers: normalizeIqSubmitAnswers(answers),
         durationMs: duration_ms,
+        referrer,
+        share_id,
+        compare_invite_id,
+        invite_unlock_code,
+        share_click_id,
+        entrypoint,
+        landing_path,
+        utm,
       }),
   });
 

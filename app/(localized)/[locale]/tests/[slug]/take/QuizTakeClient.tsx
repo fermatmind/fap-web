@@ -36,9 +36,15 @@ import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
 import { isMbtiScaleCode, normalizeMbtiFormCode } from "@/lib/mbti/forms";
 import { classifyApiError } from "@/lib/observability/httpError";
 import { captureError } from "@/lib/observability/sentry";
+import {
+  getIqQuestions,
+  startIqAttempt,
+  submitIqAttempt,
+} from "@/lib/iq/api";
+import { IQ_CANONICAL_SCALE_CODE, isIqScaleCode } from "@/lib/iq/constants";
+import { buildIqSubmitAnswers, type IqTakeQuestion, normalizeIqQuestionsForTake } from "@/lib/iq/take";
 import { normalizeQuizQuestions } from "@/lib/quiz/normalizeQuestions";
 import { QuizStoreProvider, useQuizStore } from "@/lib/quiz/store";
-import type { QuizQuestion } from "@/lib/quiz/types";
 import { useConstrainQuizUrlTokens } from "@/lib/quiz/urlTokenGuard";
 import { isImmersiveSingleFlowEnabled } from "@/lib/quiz/uxFlags";
 import { resolveResultAttemptId } from "@/lib/attempt/resolveResultAttemptId";
@@ -280,6 +286,8 @@ function readTakeFlowAttribution(
   };
 }
 
+type TakeQuestion = IqTakeQuestion;
+
 export default function QuizTakeClient({
   slug,
   testTitle,
@@ -295,7 +303,7 @@ export default function QuizTakeClient({
   estimatedMinutes?: number;
   questionCount?: number;
 }) {
-  const [questions, setQuestions] = useState<QuizQuestion[]>([]);
+  const [questions, setQuestions] = useState<TakeQuestion[]>([]);
   const questionIds = useMemo(() => questions.map((question) => question.id), [questions]);
   const anonId = useMemo(() => getOrCreateAnonId(), []);
   const resolvedFormCode = useMemo(
@@ -342,8 +350,8 @@ function QuizTakeInner({
   estimatedMinutes?: number;
   questionCount?: number;
   anonId: string;
-  questions: QuizQuestion[];
-  setQuestions: (nextQuestions: QuizQuestion[]) => void;
+  questions: TakeQuestion[];
+  setQuestions: (nextQuestions: TakeQuestion[]) => void;
 }) {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -400,6 +408,7 @@ function QuizTakeInner({
     [formCode, scaleCode]
   );
   const normalizedScaleCode = useMemo(() => scaleCode.trim().toUpperCase(), [scaleCode]);
+  const isIqScale = useMemo(() => isIqScaleCode(normalizedScaleCode), [normalizedScaleCode]);
   const matchesSavedAttempt = useMemo(() => {
     if (!attemptId || savedScaleCode !== scaleCode) {
       return false;
@@ -556,24 +565,44 @@ function QuizTakeInner({
       setQuestionsError(null);
 
       try {
-        const response = await runWithAuthRetry("questions", () =>
-          fetchScaleQuestions({ scaleCode, formCode: resolvedFormCode, anonId })
-        );
-
-        if (!active) return;
-
-        const orderedQuestions = [...response.questions.items].sort(
-          (a, b) => (a.order ?? 0) - (b.order ?? 0)
-        );
-
-        setQuestions(
-          normalizeQuizQuestions({
-            items: orderedQuestions,
+        if (isIqScale) {
+          const response = await getIqQuestions({
             locale,
-            meta: response.meta,
-            optionsFormat: response.options?.format,
-          })
-        );
+            anonId,
+          });
+
+          if (!active) return;
+
+          const orderedQuestions = [...response.questions.items].sort(
+            (a, b) => (a.order ?? 0) - (b.order ?? 0)
+          );
+
+          setQuestions(
+            normalizeIqQuestionsForTake({
+              items: orderedQuestions,
+              locale,
+            })
+          );
+        } else {
+          const response = await runWithAuthRetry("questions", () =>
+            fetchScaleQuestions({ scaleCode, formCode: resolvedFormCode, anonId })
+          );
+
+          if (!active) return;
+
+          const orderedQuestions = [...response.questions.items].sort(
+            (a, b) => (a.order ?? 0) - (b.order ?? 0)
+          );
+
+          setQuestions(
+            normalizeQuizQuestions({
+              items: orderedQuestions,
+              locale,
+              meta: response.meta,
+              optionsFormat: response.options?.format,
+            })
+          );
+        }
         setRetryAfterSeconds(null);
       } catch (error) {
         if (!active) return;
@@ -608,7 +637,7 @@ function QuizTakeInner({
     return () => {
       active = false;
     };
-  }, [anonId, authBlockError, locale, resolvedFormCode, runWithAuthRetry, scaleCode, setQuestions, slug]);
+  }, [anonId, authBlockError, isIqScale, locale, resolvedFormCode, runWithAuthRetry, scaleCode, setQuestions, slug]);
 
   useEffect(() => {
     latestAnswersRef.current = answers;
@@ -627,21 +656,44 @@ function QuizTakeInner({
 
     const pending = (async () => {
       try {
-        const response = await runWithAuthRetry("start_attempt", () =>
-          startAttempt({
-            scaleCode,
-            formCode: resolvedFormCode,
-            anonId,
-            meta: {
-              ...(entryContext.entrySurface ? { entry_surface: entryContext.entrySurface } : {}),
-              ...(entryContext.sourcePageType ? { source_page_type: entryContext.sourcePageType } : {}),
-              ...(entryContext.targetAction ? { target_action: entryContext.targetAction } : {}),
-              ...(entryContext.testSlug ? { test_slug: entryContext.testSlug } : {}),
-              ...(entryContext.landingPath ? { landing_path: entryContext.landingPath } : {}),
-            },
-            ...attribution,
-          })
-        );
+        const response = isIqScale
+          ? await startIqAttempt({
+              scale_code: IQ_CANONICAL_SCALE_CODE,
+              anon_id: anonId,
+              locale,
+              source: "take_page",
+              meta: {
+                ...(entryContext.entrySurface ? { entry_surface: entryContext.entrySurface } : {}),
+                ...(entryContext.sourcePageType ? { source_page_type: entryContext.sourcePageType } : {}),
+                ...(entryContext.targetAction ? { target_action: entryContext.targetAction } : {}),
+                ...(entryContext.testSlug ? { test_slug: entryContext.testSlug } : {}),
+                ...(entryContext.landingPath ? { landing_path: entryContext.landingPath } : {}),
+              },
+              referrer: attribution.referrer,
+              share_id: attribution.share_id,
+              compare_invite_id: attribution.compare_invite_id,
+              invite_unlock_code: attribution.invite_unlock_code,
+              share_click_id: attribution.share_click_id,
+              entrypoint: attribution.entrypoint,
+              landing_path: attribution.landing_path,
+              utm: attribution.utm,
+            })
+          : await runWithAuthRetry("start_attempt", () =>
+              startAttempt({
+                scaleCode,
+                formCode: resolvedFormCode,
+                anonId,
+                meta: {
+                  ...(entryContext.entrySurface ? { entry_surface: entryContext.entrySurface } : {}),
+                  ...(entryContext.sourcePageType ? { source_page_type: entryContext.sourcePageType } : {}),
+                  ...(entryContext.targetAction ? { target_action: entryContext.targetAction } : {}),
+                  ...(entryContext.testSlug ? { test_slug: entryContext.testSlug } : {}),
+                  ...(entryContext.landingPath ? { landing_path: entryContext.landingPath } : {}),
+                },
+                ...attribution,
+              })
+            );
+
         if (!isFlowActive(runId)) {
           return null;
         }
@@ -689,6 +741,7 @@ function QuizTakeInner({
     entryContext.targetAction,
     entryContext.testSlug,
     isFlowActive,
+    isIqScale,
     locale,
     resolvedFormCode,
     runWithAuthRetry,
@@ -772,7 +825,6 @@ function QuizTakeInner({
     normalizedScaleCode === "MBTI" && (compareIntent || Boolean(attribution.compare_invite_id))
       ? attribution.compare_invite_id
       : undefined;
-  const isIqScale = normalizedScaleCode === "IQ_RAVEN" || normalizedScaleCode === "IQ_INTELLIGENCE_QUOTIENT";
   const isLastQuestion = total > 0 && currentIndex === total - 1;
   const iqNeedsSelection = isIqScale && !selectedOptionId;
   const iqCanContinue = isIqScale && Boolean(selectedOptionId) && !submitting && !submitOverlayVisible;
@@ -855,18 +907,36 @@ function QuizTakeInner({
   ): Promise<string> => {
     const durationMs = Math.max(1000, Date.now() - startedAt);
 
-    const response = await runWithAuthRetry("submit_attempt", () =>
-      submitAttempt({
-        attemptId: activeAttemptId,
-        answers: questions.map((item) => ({
-          question_id: item.id,
-          code: answersSnapshot[item.id] ?? "",
-        })),
-        durationMs,
-        anonId,
-        ...attribution,
-      })
-    );
+    const response = isIqScale
+      ? await submitIqAttempt({
+          attempt_id: activeAttemptId,
+          anon_id: anonId,
+          answers: buildIqSubmitAnswers({
+            questions,
+            answersByQuestionId: answersSnapshot,
+          }),
+          duration_ms: durationMs,
+          referrer: attribution.referrer,
+          share_id: attribution.share_id,
+          compare_invite_id: attribution.compare_invite_id,
+          invite_unlock_code: attribution.invite_unlock_code,
+          share_click_id: attribution.share_click_id,
+          entrypoint: attribution.entrypoint,
+          landing_path: attribution.landing_path,
+          utm: attribution.utm,
+        })
+      : await runWithAuthRetry("submit_attempt", () =>
+          submitAttempt({
+            attemptId: activeAttemptId,
+            answers: questions.map((item) => ({
+              question_id: item.id,
+              code: answersSnapshot[item.id] ?? "",
+            })),
+            durationMs,
+            anonId,
+            ...attribution,
+          })
+        );
     if (!isFlowActive(runId)) {
       return "";
     }
@@ -886,7 +956,7 @@ function QuizTakeInner({
       locale,
     });
     return resultAttemptId;
-  }, [anonId, attribution, entryContext.testSlug, isFlowActive, locale, questions, resolvedFormCode, runWithAuthRetry, slug, startedAt, trackingAttribution]);
+  }, [anonId, attribution, entryContext.testSlug, isFlowActive, isIqScale, locale, questions, resolvedFormCode, runWithAuthRetry, slug, startedAt, trackingAttribution]);
 
   const handleSubmit = async (pendingSelection?: LastSelectionContext, runId?: number): Promise<string | null> => {
     if (submitInFlightRef.current || staleDraftError) {
