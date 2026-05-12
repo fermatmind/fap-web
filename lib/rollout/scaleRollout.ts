@@ -74,7 +74,6 @@ export type ScaleRolloutDecision = {
 
 export type ProductPriorityEnvSnapshot = {
   mbtiPriorityMode: boolean;
-  sbtiEnabled: boolean;
   articlesEnabled: boolean;
   topicsEnabled: boolean;
   careerRecommendEnabled: boolean;
@@ -190,7 +189,6 @@ export function createProductPriorityEnvSnapshot(
     readEnvValue(env, "MBTI_PRIORITY_MODE", "NEXT_PUBLIC_MBTI_PRIORITY_MODE"),
     false
   );
-  const sbtiEnabled = parseBoolean(readEnvValue(env, "SBTI_ENABLED", "NEXT_PUBLIC_SBTI_ENABLED"), true);
   const articlesEnabled = parseBoolean(
     readEnvValue(env, "ARTICLES_ENABLED", "NEXT_PUBLIC_ARTICLES_ENABLED"),
     true
@@ -204,7 +202,6 @@ export function createProductPriorityEnvSnapshot(
   if (!mbtiPriorityMode) {
     return {
       mbtiPriorityMode,
-      sbtiEnabled,
       articlesEnabled,
       topicsEnabled,
       careerRecommendEnabled,
@@ -213,7 +210,6 @@ export function createProductPriorityEnvSnapshot(
 
   return {
     mbtiPriorityMode,
-    sbtiEnabled: false,
     articlesEnabled: false,
     topicsEnabled: false,
     careerRecommendEnabled: false,

@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-12T10:36:25Z",
+  "updated_at": "2026-05-12T17:23:00Z",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -226,6 +226,84 @@
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/762",
       "commit_sha": "43dd6981d4e128b4457dd5088aa5f85fe54a79af",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    {
+      "id": "PR-WEB-SBTI-REMOVE-01",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/pr-web-sbti-remove-01",
+      "base": "main",
+      "depends_on": [],
+      "status": "ready_for_pr",
+      "title": "chore(sbti): remove inactive SBTI product surface and test coverage",
+      "artifacts": [
+        "app/(localized)/[locale]/fun/sbti/**",
+        "components/sbti/**",
+        "lib/sbti/**",
+        "tests/contracts/*sbti*",
+        "tests/e2e/sbti-result-illustration.spec.ts",
+        "lib/rollout/scaleRollout.ts",
+        "components/layout/SiteHeader.tsx",
+        "app/robots.ts",
+        "tests/contracts/robots.contract.test.ts",
+        "tests/contracts/homepage-v1-density.contract.test.tsx",
+        "lib/seo/sitemapAuthorityAdapters.cjs",
+        "docs/seo/generated/**",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [
+        {
+          "name": "dependency preflight",
+          "status": "passed",
+          "details": "No manifest dependencies for PR-WEB-SBTI-REMOVE-01."
+        },
+        {
+          "name": "worktree isolation",
+          "status": "passed",
+          "details": "Work is isolated in /Users/rainie/Desktop/GitHub/fap-web-sbti-remove because the anchor worktree has unrelated generated SEO inventory edits."
+        },
+        {
+          "name": "SBTI reference scan",
+          "status": "passed",
+          "command": "rg -n \"SBTI|Sbti|sbti|/fun/sbti|SBTI_ENABLED|NEXT_PUBLIC_SBTI_ENABLED|fm_sbti\" app components lib tests docs/seo/generated scripts/seo public .github || true",
+          "details": "No active app/component/lib/test/generated SEO/public references remain."
+        },
+        {
+          "name": "pnpm typecheck",
+          "status": "passed",
+          "command": "pnpm typecheck"
+        },
+        {
+          "name": "build environment prerequisite",
+          "status": "noted",
+          "command": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+          "details": "The exact manifest command compiled but stopped during page-data collection because this repository requires NEXT_PUBLIC_SITE_URL during production builds."
+        },
+        {
+          "name": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+          "status": "passed",
+          "command": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+          "details": "Passed with the required production site URL env added; postbuild sitemap drift was reverted because it came from unrelated dynamic career URL/timestamp generation."
+        },
+        {
+          "name": "pnpm test:contract",
+          "status": "passed",
+          "command": "pnpm test:contract",
+          "details": "336 files passed, 1894 tests passed."
+        },
+        {
+          "name": "git diff --check",
+          "status": "passed",
+          "command": "git diff --check"
+        }
+      ],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false

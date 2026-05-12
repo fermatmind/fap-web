@@ -105,15 +105,13 @@ describe("homepage v1 density contract", () => {
       expect(bodyText).not.toContain(forbidden);
     }
 
-    expect(screen.queryByText("SBTI 人格测试")).not.toBeInTheDocument();
     expect(screen.queryByText("按领域继续浏览。")).not.toBeInTheDocument();
     expect(screen.queryByText("方法、边界与隐私，都放在明处。")).not.toBeInTheDocument();
   });
 
-  it("does not import hero SBTI, form-version helpers, or heavy result preview in the homepage component", () => {
+  it("does not import form-version helpers or heavy result preview in the homepage component", () => {
     const source = read("components/marketing/HomePageExperience.tsx");
 
-    expect(source).not.toContain("SbtiHeroEntryCard");
     expect(source).not.toContain("ResultsPreviewShowcase");
     expect(source).not.toContain("listMbtiFormMetas");
     expect(source).not.toContain("listBig5FormMetas");
@@ -177,7 +175,6 @@ describe("homepage v1 density contract", () => {
 
     expect(source).not.toContain("Accordion");
     expect(source).not.toContain("ResultsPreviewShowcase");
-    expect(source).not.toContain("SbtiHeroEntryCard");
   });
 
   it("renders secondary paths, about cards, and CMS-driven article grid", async () => {
