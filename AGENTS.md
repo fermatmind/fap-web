@@ -136,9 +136,9 @@
 - Baseline content may exist only for new environment initialization, DB recovery, baseline imports, disaster recovery, and dry-run validation. Baseline content must not become runtime page-rendering authority.
 - Local development must support local API, test/staging API, or mock API workflows. CMS migration must not require frontend UI development against production CMS.
 - Large content imports must include schema validation and dry-run support before import, especially for career DOCX conversion, slugs, sections, SEO fields, and publication state.
-- Experimental surfaces, SBTI, and heavily interactive product experiences may remain product-code-side unless explicitly converted into operational content.
+- Experimental surfaces and heavily interactive product experiences may remain product-code-side unless explicitly converted into operational content.
 - High-traffic CMS-backed entry pages must prefer CMS/API content, then stale last-known-good cache, then a minimal shell. They must not fall back to a full frontend editorial copy set.
-- Business priority is fixed as L1 MBTI, L2 Big Five, and L3 SBTI/articles/topics/career recommendations/non-core tests. Caching, throttling, degradation, and resource isolation must preserve this order.
+- Business priority is fixed as L1 MBTI, L2 Big Five, and L3 articles/topics/career recommendations/non-core tests. Caching, throttling, degradation, and resource isolation must preserve this order.
 
 ## RIASEC launch rules
 - Treat RIASEC as one flagship scale with two public forms: `riasec_60` and `riasec_140`.

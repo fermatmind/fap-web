@@ -14,7 +14,7 @@ Content that must be managed through CMS/backend includes:
 - Career guides, career jobs, career recommendations, personality profiles, topics, FAQ, sections, and SEO.
 - Mutable editorial, marketing, social, article, landing page, and SEO media assets.
 
-Frontend may keep product code: rendering components, interaction flows, scoring logic, payment/order flows, API adapters, icons, fonts, fixed brand assets, SBTI product assets, loading states, empty states, and default error copy.
+Frontend may keep product code: rendering components, interaction flows, scoring logic, payment/order flows, API adapters, icons, fonts, fixed brand assets, loading states, empty states, and default error copy.
 
 ## Runtime Fallback
 

@@ -65,7 +65,7 @@ Business priority is fixed:
 
 - L1: MBTI.
 - L2: Big Five.
-- L3: SBTI, articles, topics, career recommendations, and non-core tests.
+- L3: Articles, topics, career recommendations, and non-core tests.
 
 Performance, caching, throttling, resource isolation, and degradation decisions must preserve this order.
 
@@ -100,7 +100,6 @@ Frontend may keep:
 - Payment, login, order, report, and account product logic.
 - UI components, layout, animation, and state management.
 - Fixed icons, fonts, and foundational brand SVGs.
-- SBTI game logic and assets when explicitly treated as product code.
 - API adapters, DTO normalization, routing, and caching strategy.
 - Default error messages, skeletons, placeholder images, and empty states.
 
@@ -141,7 +140,7 @@ The required order is dry-run first, import second.
 
 ### Experiment Boundary
 
-SBTI, experimental pages, and heavily interactive content can remain product-code-side unless explicitly converted into operational content. Do not mechanically CMS-ify every content-like object.
+Experimental pages and heavily interactive content can remain product-code-side unless explicitly converted into operational content. Do not mechanically CMS-ify every content-like object.
 
 ## Workstreams
 

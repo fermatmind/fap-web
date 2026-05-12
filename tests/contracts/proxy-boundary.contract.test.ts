@@ -131,6 +131,14 @@ describe("proxy boundary contract", () => {
     expect(response.cookies.get("fap_anonymous_id_v1")).toBeUndefined();
   });
 
+  it("does not keep anonymous identity plumbing for retired SBTI fun routes", () => {
+    const response = proxy(new NextRequest("https://example.com/zh/fun/sbti/result"));
+
+    expect(response.headers.get("x-middleware-request-x-anon-id")).toBeNull();
+    expect(response.headers.get("x-middleware-override-headers") ?? "").not.toContain("x-anon-id");
+    expect(response.cookies.get("fap_anonymous_id_v1")).toBeUndefined();
+  });
+
   it("forwards cookie-derived anon identity through same-origin attempt API proxy paths", () => {
     const response = proxy(
       new NextRequest("https://example.com/api/v0.3/attempts/submit", {

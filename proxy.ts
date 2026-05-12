@@ -95,7 +95,6 @@ function shouldAttachAnonIdentity(strippedPath: string): boolean {
     || /^\/share(?:\/|$)/i.test(strippedPath)
     || /^\/compare(?:\/|$)/i.test(strippedPath)
     || /^\/orders(?:\/|$)/i.test(strippedPath)
-    || /^\/fun\/sbti\/result(?:\/|$)/i.test(strippedPath)
     || /^\/api\/v0\.3\/attempts(?:\/|$)/i.test(strippedPath)
   );
 }
