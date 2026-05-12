@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { AnticipationSkeleton } from "@/components/design/AnticipationSkeleton";
 import { MbtiResultShellLoadingShell } from "@/components/result/mbti/MbtiResultShell";
+import { IqResultShell } from "@/components/result/iq/IqResultShell";
 import { RiasecResultShell } from "@/components/result/riasec/RiasecResultShell";
 import {
   canRenderRichResultReport,
@@ -47,6 +48,7 @@ import { ensureFmTokenReady, runWithGuestTokenRetry } from "@/lib/auth/authRetry
 import { getFmToken, isGuestTokenRequestError } from "@/lib/auth/fmToken";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath, type Locale } from "@/lib/i18n/locales";
+import { isIqScaleCode } from "@/lib/iq/constants";
 import { buildDefaultPublicPersonalitySlug } from "@/lib/cms/personality";
 import { classifyApiError } from "@/lib/observability/httpError";
 import { logInfo, logWarn } from "@/lib/observability/logger";
@@ -308,6 +310,12 @@ function resolveScaleCodeForTelemetry(reportData: ReportResponse | null, resultD
   const reportScaleCode = resolveReportScaleCode(reportData);
   if (reportScaleCode) {
     return reportScaleCode;
+  }
+
+  const reportPayload = asRecord(reportData?.report);
+  const directReportScaleCode = normalizeText(reportData?.scale_code, reportPayload?.scale_code).toUpperCase();
+  if (directReportScaleCode) {
+    return directReportScaleCode;
   }
 
   const resultScaleCode = normalizeText(resultData?.meta?.scale_code).toUpperCase();
@@ -1324,6 +1332,17 @@ export default function ResultClient({
     }
 
     return <Alert>{error ?? dict.result.reportUnavailable}</Alert>;
+  }
+
+  if (isIqScaleCode(resolvedScaleCode)) {
+    return (
+      <IqResultShell
+        locale={locale}
+        reportData={reportData}
+        resultData={hasReadyResultPayload(resultData) ? resultData : null}
+        accessView={accessView}
+      />
+    );
   }
 
   if (hasRichReport && reportData) {
