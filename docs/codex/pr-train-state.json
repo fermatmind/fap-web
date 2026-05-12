@@ -407,7 +407,7 @@
       "branch": "codex/riasec-train-00-register-train",
       "base": "main",
       "depends_on": [],
-      "status": "open",
+      "status": "merged",
       "title": "docs(codex): register RIASEC Trusted Result v1.5 train",
       "checks": [
         {
@@ -434,9 +434,9 @@
       ],
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/765",
-      "commit_sha": "6a091fe027ffba311136d7c2690c4bbde7d84b17",
-      "merged_at": null,
-      "remote_branch_deleted": false,
+      "commit_sha": "c97267f0f8d6f937d6d9a95cae975fe19fa29a39",
+      "merged_at": "2026-05-12T10:56:01Z",
+      "remote_branch_deleted": true,
       "local_cleanup_executed": false
     },
     {
@@ -445,15 +445,17 @@
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-api",
       "branch": "codex/riasec-train-01-measurement-contract",
       "base": "main",
-      "depends_on": ["RIASEC-TRAIN-00"],
-      "status": "planned",
+      "depends_on": [
+        "RIASEC-TRAIN-00"
+      ],
+      "status": "merged",
       "title": "feat(riasec): add measurement contract and compare policy",
       "checks": [],
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
+      "pr_url": "https://github.com/fermatmind/fap-api/pull/1319",
+      "commit_sha": "65d6d04dd07d010f764b372cdae7d49775ff8da6",
+      "merged_at": "2026-05-12T11:38:13Z",
+      "remote_branch_deleted": true,
       "local_cleanup_executed": false
     },
     {
@@ -462,15 +464,17 @@
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-api",
       "branch": "codex/riasec-train-02-projection-v2",
       "base": "main",
-      "depends_on": ["RIASEC-TRAIN-01"],
-      "status": "planned",
+      "depends_on": [
+        "RIASEC-TRAIN-01"
+      ],
+      "status": "merged",
       "title": "feat(riasec): add public projection v2 evidence metadata",
       "checks": [],
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
+      "pr_url": "https://github.com/fermatmind/fap-api/pull/1321",
+      "commit_sha": "33155992f26efdeee76e02e753e3dd360c7d8eb9",
+      "merged_at": "2026-05-12T12:08:51Z",
+      "remote_branch_deleted": true,
       "local_cleanup_executed": false
     },
     {
@@ -479,15 +483,17 @@
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-api",
       "branch": "codex/riasec-train-03-snapshot-report",
       "base": "main",
-      "depends_on": ["RIASEC-TRAIN-02"],
-      "status": "planned",
+      "depends_on": [
+        "RIASEC-TRAIN-02"
+      ],
+      "status": "merged",
       "title": "feat(riasec): make formal report snapshot-bound",
       "checks": [],
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
+      "pr_url": "https://github.com/fermatmind/fap-api/pull/1323",
+      "commit_sha": "990c9fea9a5c8e258828eda53e0c56c219c5ef33",
+      "merged_at": "2026-05-12T12:35:46Z",
+      "remote_branch_deleted": true,
       "local_cleanup_executed": false
     },
     {
@@ -496,15 +502,17 @@
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-api",
       "branch": "codex/riasec-train-04-snapshot-surfaces",
       "base": "main",
-      "depends_on": ["RIASEC-TRAIN-03"],
-      "status": "planned",
+      "depends_on": [
+        "RIASEC-TRAIN-03"
+      ],
+      "status": "merged",
       "title": "feat(riasec): align share PDF and history with snapshots",
       "checks": [],
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
+      "pr_url": "https://github.com/fermatmind/fap-api/pull/1325",
+      "commit_sha": "855c9a385c5126d50f8f2cc4e3c6ad6aaa1451df",
+      "merged_at": "2026-05-12T12:59:36Z",
+      "remote_branch_deleted": true,
       "local_cleanup_executed": false
     },
     {
@@ -513,15 +521,17 @@
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-api",
       "branch": "codex/riasec-train-05-technical-note",
       "base": "main",
-      "depends_on": ["RIASEC-TRAIN-02"],
-      "status": "planned",
+      "depends_on": [
+        "RIASEC-TRAIN-02"
+      ],
+      "status": "merged",
       "title": "feat(riasec): add technical note v0.1",
       "checks": [],
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
+      "pr_url": "https://github.com/fermatmind/fap-api/pull/1326",
+      "commit_sha": "542ef88da8ae61a2490d3ef79a1691bbd0eeebdf",
+      "merged_at": "2026-05-12T13:20:07Z",
+      "remote_branch_deleted": true,
       "local_cleanup_executed": false
     },
     {
@@ -530,15 +540,18 @@
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
       "branch": "codex/riasec-train-06-trusted-result-shell",
       "base": "main",
-      "depends_on": ["RIASEC-TRAIN-02", "RIASEC-TRAIN-03"],
-      "status": "planned",
+      "depends_on": [
+        "RIASEC-TRAIN-02",
+        "RIASEC-TRAIN-03"
+      ],
+      "status": "merged",
       "title": "feat(riasec): render trusted result card and six-dimension map",
       "checks": [],
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/770",
+      "commit_sha": "47e9cee30e02cc22b2f8f30cc78e6ef2b53f58ba",
+      "merged_at": "2026-05-12T13:59:12Z",
+      "remote_branch_deleted": true,
       "local_cleanup_executed": false
     },
     {
@@ -547,15 +560,18 @@
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-api",
       "branch": "codex/riasec-train-07-activity-examples",
       "base": "main",
-      "depends_on": ["RIASEC-TRAIN-02", "RIASEC-TRAIN-05"],
-      "status": "planned",
+      "depends_on": [
+        "RIASEC-TRAIN-02",
+        "RIASEC-TRAIN-05"
+      ],
+      "status": "merged",
       "title": "feat(riasec): add activity explorer examples v0.1",
       "checks": [],
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
+      "pr_url": "https://github.com/fermatmind/fap-api/pull/1330",
+      "commit_sha": "7423d414e28045a5cdab93ea1bd7fd3e816668b5",
+      "merged_at": "2026-05-12T14:32:37Z",
+      "remote_branch_deleted": true,
       "local_cleanup_executed": false
     },
     {
@@ -564,15 +580,19 @@
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
       "branch": "codex/riasec-train-08-content-governance",
       "base": "main",
-      "depends_on": ["RIASEC-TRAIN-05", "RIASEC-TRAIN-06", "RIASEC-TRAIN-07"],
-      "status": "planned",
+      "depends_on": [
+        "RIASEC-TRAIN-05",
+        "RIASEC-TRAIN-06",
+        "RIASEC-TRAIN-07"
+      ],
+      "status": "merged",
       "title": "feat(riasec): add V11 copy governance and fallback guards",
       "checks": [],
-      "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
+      "failure_reason": "sidecar: local post-merge cleanup blocked because main is already used by /Users/rainie/Desktop/GitHub/fap-web worktree.",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/774",
+      "commit_sha": "b7d5031b64ebcf20045f5c095b9154bc511ec36c",
+      "merged_at": "2026-05-12T14:48:56Z",
+      "remote_branch_deleted": true,
       "local_cleanup_executed": false
     },
     {
@@ -581,15 +601,18 @@
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-api",
       "branch": "codex/riasec-train-09-feedback-overlay",
       "base": "main",
-      "depends_on": ["RIASEC-TRAIN-03", "RIASEC-TRAIN-04"],
-      "status": "planned",
+      "depends_on": [
+        "RIASEC-TRAIN-03",
+        "RIASEC-TRAIN-04"
+      ],
+      "status": "merged",
       "title": "feat(riasec): add exploration feedback overlay",
       "checks": [],
-      "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
+      "failure_reason": "sidecar: fap-api worktree has no scripts/post_merge_cleanup.sh; remote branch was deleted by gh pr merge.",
+      "pr_url": "https://github.com/fermatmind/fap-api/pull/1334",
+      "commit_sha": "3983c5bb3a274e40fd6fe136df44e2d6b9055be1",
+      "merged_at": "2026-05-12T15:10:38Z",
+      "remote_branch_deleted": true,
       "local_cleanup_executed": false
     },
     {
@@ -609,9 +632,47 @@
         "RIASEC-TRAIN-08",
         "RIASEC-TRAIN-09"
       ],
-      "status": "planned",
+      "status": "ready_for_pr",
       "title": "test(riasec): freeze Trusted Result v1.5 analytics fixtures and contracts",
-      "checks": [],
+      "checks": [
+        {
+          "name": "dependency reconciliation",
+          "status": "passed",
+          "details": "RIASEC-TRAIN-00 through RIASEC-TRAIN-09 are merged in GitHub before TRAIN-10 branch work."
+        },
+        {
+          "name": "scope validation",
+          "status": "passed",
+          "details": "Runtime changes limited to RIASEC projection consumption and tracking event contract; no UI, scorer, content pack, recommendation, or AI report runtime changes."
+        },
+        {
+          "name": "targeted contracts",
+          "status": "passed",
+          "command": "pnpm exec vitest run tests/contracts/riasec-trusted-result-v15-freeze.contract.test.ts tests/contracts/riasec-trusted-result-shell.contract.test.tsx tests/contracts/riasec-public-ia.contract.test.ts tests/contracts/tracking-whitelist.contract.test.ts",
+          "details": "4 files passed, 18 tests passed."
+        },
+        {
+          "name": "typecheck",
+          "status": "passed",
+          "command": "pnpm typecheck"
+        },
+        {
+          "name": "contracts",
+          "status": "passed",
+          "command": "pnpm test:contract",
+          "details": "340 files passed, 1904 tests passed."
+        },
+        {
+          "name": "build",
+          "status": "passed",
+          "command": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://www.fermatmind.com pnpm build"
+        },
+        {
+          "name": "diff check",
+          "status": "passed",
+          "command": "git diff --check"
+        }
+      ],
       "failure_reason": null,
       "pr_url": null,
       "commit_sha": null,

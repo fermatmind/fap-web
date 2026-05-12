@@ -1,0 +1,153 @@
+{
+  "schema_version": "riasec.trusted_result_v1_5.fixture",
+  "runtime_status": "trusted_result_v1_5_contract_freeze",
+  "scale_code": "RIASEC",
+  "projection": {
+    "schema_version": "riasec.public_projection.v2",
+    "holland_code": {
+      "code": "IAS",
+      "primary_type": "I",
+      "secondary_type": "A",
+      "tertiary_type": "S"
+    },
+    "scores": {
+      "score_kind": "dimension_scores_0_100",
+      "dimensions": [
+        { "code": "R", "label": "现实型", "score": 42 },
+        { "code": "I", "label": "研究型", "score": 88 },
+        { "code": "A", "label": "艺术型", "score": 74 },
+        { "code": "S", "label": "社会型", "score": 69 },
+        { "code": "E", "label": "企业型", "score": 36 },
+        { "code": "C", "label": "常规型", "score": 51 }
+      ]
+    },
+    "form": {
+      "form_code": "riasec_60",
+      "question_count": 60,
+      "form_kind": "standard",
+      "score_space_version": "riasec_60_likert5_activity_sum_space.v1",
+      "compare_compatibility_group": "RIASEC:riasec_60:riasec_60_likert5_activity_sum_space.v1",
+      "cross_form_comparable": false,
+      "raw_score_delta_allowed": false
+    },
+    "measurement_evidence": {
+      "measurement_contract_version": "riasec.measurement_contract.v1",
+      "scoring_spec_version": "riasec_standard_60_v1",
+      "form_version": "v1-standard-60",
+      "content_package_version": "v1-standard-60",
+      "score_space_version": "riasec_60_likert5_activity_sum_space.v1",
+      "normalization_method": "raw_sum_per_dimension_min10_max50_to_0_100",
+      "quality_rule_status": "minimal_answer_completion_only",
+      "validation_status": "runtime_contract_defined_validation_pending",
+      "snapshot_bound": true
+    },
+    "quality": {
+      "grade": "A",
+      "flags": [],
+      "low_quality_strength": "not_available_for_strong_low_quality"
+    },
+    "content_boundary": {
+      "occupation_examples_policy": "content_example_not_registry_match_without_reviewed_registry_source"
+    },
+    "activity_explorer_v0_1": {
+      "schema_version": "riasec.activity_explorer.v0.1",
+      "content_version": "career_activity_registry_v0.1",
+      "status": "content_examples_only",
+      "source_status": "content_example_not_registry_match",
+      "source_name": "FermatTest Career Activity Registry v0.1",
+      "boundary": {
+        "occupation_examples_policy": "content_example_not_registry_match_without_reviewed_registry_source",
+        "registry_source_connected": false,
+        "fit_score_allowed": false,
+        "success_prediction_allowed": false
+      },
+      "dimension_activity_families": [
+        {
+          "dimension": "I",
+          "label": "研究型",
+          "core_drive": "把问题看清楚，找出原因、证据和结构。",
+          "activity_families": ["analyze_complex_problems", "organize_evidence_materials"],
+          "source_status": "content_example_not_registry_match"
+        }
+      ],
+      "code_activity_pack": {
+        "status": "available",
+        "activities": [
+          {
+            "activity_key": "understand_real_needs",
+            "activity_label": "理解真实人的需求",
+            "activity_user_copy": "你不只想研究抽象问题，也想知道真实的人为什么卡住。",
+            "riasec_dimensions": ["S", "I"],
+            "source_status": "content_example_not_registry_match",
+            "task_examples": ["访谈或观察真实用户。", "拆解评论、反馈或投诉。"],
+            "occupation_examples": [
+              {
+                "occupation_example": "用户研究助理",
+                "source_status": "content_example_not_registry_match",
+                "display_label": "内容示例，非职业数据库匹配",
+                "common_tasks": ["拆解用户反馈", "整理需求假设"],
+                "skills_to_check": ["访谈", "提问"],
+                "education_boundary": "兴趣不等于学历或资格判断。",
+                "skill_boundary": "兴趣不等于能力，需要通过学习、作品、练习或真实项目验证相关技能。",
+                "qualification_boundary": "涉及专业资质、执业资格或监管领域时，必须遵守资格、证书、教育背景和当地法规。",
+                "localization_note": "职业名称、教育路径和资格要求会因国家、地区、行业和组织不同而变化。",
+                "not_a_recommendation": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "exploration_feedback_overlay_v0_1": {
+      "schema_version": "riasec.exploration_feedback_overlay.v0.1",
+      "status": "overlay_contract_only",
+      "feedback_stream_status": "not_connected_v0_1",
+      "snapshot_bound": true,
+      "snapshot_identity": {
+        "snapshot_required": true,
+        "snapshot_bound": true,
+        "identity_scope": "projection_snapshot",
+        "form_code": "riasec_60",
+        "score_space_version": "riasec_60_likert5_activity_sum_space.v1",
+        "measured_holland_code": "IAS"
+      },
+      "measured_result_guard": {
+        "scores_mutation_allowed": false,
+        "holland_code_mutation_allowed": false,
+        "report_snapshot_mutation_allowed": false,
+        "measurement_evidence_mutation_allowed": false
+      },
+      "surface_policy": {
+        "public_projection_allowed": true,
+        "share_pdf_exposure_allowed": false,
+        "raw_feedback_public_exposure_allowed": false,
+        "formal_report_mutation_allowed": false
+      },
+      "read_model": {
+        "has_feedback": false,
+        "feedback_count": 0,
+        "latest_feedback_at": null,
+        "summary_status": "not_available_without_feedback_stream",
+        "raw_feedback_included": false
+      },
+      "claim_boundary": {
+        "feedback_is_measurement": false,
+        "feedback_changes_scores": false,
+        "feedback_changes_measured_holland_code": false,
+        "feedback_is_career_match": false,
+        "feedback_is_success_prediction": false
+      }
+    }
+  },
+  "analytics_contract": {
+    "events": [
+      "riasec_result_view",
+      "riasec_share_view",
+      "riasec_pdf_view",
+      "riasec_activity_explorer_view",
+      "riasec_feedback_overlay_view"
+    ],
+    "forbidden_event_fragments": ["match", "fit", "recommend", "success", "rank"],
+    "forbidden_payload_fields": ["raw_scores", "raw_feedback", "feedback_text", "fit_score", "match_score", "career_success_probability", "occupation_recommendation"]
+  }
+}

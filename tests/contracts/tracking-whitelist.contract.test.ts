@@ -80,6 +80,60 @@ describe("tracking whitelist contract", () => {
     });
   });
 
+  it("freezes RIASEC Trusted Result analytics without recommender or raw feedback fields", () => {
+    const events = Object.values(TRACKING_EVENTS);
+    expect(events).toEqual(expect.arrayContaining([
+      "riasec_result_view",
+      "riasec_share_view",
+      "riasec_pdf_view",
+      "riasec_activity_explorer_view",
+      "riasec_feedback_overlay_view",
+    ]));
+    expect(events).not.toContain("riasec_career_match");
+    expect(events).not.toContain("riasec_recommendation_click");
+    expect(events).not.toContain("riasec_job_fit_score_view");
+
+    const payload = {
+      scale_code: "RIASEC",
+      form_code: "riasec_60",
+      score_space_version: "riasec_60_likert5_activity_sum_space.v1",
+      projection_version: "riasec.public_projection.v2",
+      snapshot_bound: true,
+      activity_explorer_status: "content_examples_only",
+      activity_source_status: "content_example_not_registry_match",
+      feedback_overlay_status: "overlay_contract_only",
+      feedback_stream_status: "not_connected_v0_1",
+      raw_feedback_included: false,
+      occupation_examples_policy: "content_example_not_registry_match_without_reviewed_registry_source",
+      locale: "zh",
+      holland_code: "RIA",
+      raw_scores: { R: 86 },
+      measured_holland_code: "RIA",
+      feedback_text: "raw feedback should not be sent",
+      match_score: 92,
+      fit_score: 88,
+      career_success_probability: 0.91,
+      occupation_recommendation: "forbidden",
+      email: "forbidden@example.com",
+      token: "forbidden",
+    };
+
+    expect(filterTrackingPayload(TRACKING_EVENTS.RIASEC_RESULT_VIEW, payload)).toEqual({
+      scale_code: "RIASEC",
+      form_code: "riasec_60",
+      score_space_version: "riasec_60_likert5_activity_sum_space.v1",
+      projection_version: "riasec.public_projection.v2",
+      snapshot_bound: true,
+      activity_explorer_status: "content_examples_only",
+      activity_source_status: "content_example_not_registry_match",
+      feedback_overlay_status: "overlay_contract_only",
+      feedback_stream_status: "not_connected_v0_1",
+      raw_feedback_included: false,
+      occupation_examples_policy: "content_example_not_registry_match_without_reviewed_registry_source",
+      locale: "zh",
+    });
+  });
+
   it("enforces strict whitelist for career events", () => {
     const payload = {
       locale: "en",

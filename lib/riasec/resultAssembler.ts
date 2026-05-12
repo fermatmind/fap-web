@@ -65,6 +65,47 @@ export type RiasecActivityExplorer = {
   };
 };
 
+export type RiasecFeedbackOverlay = {
+  schemaVersion: string;
+  status: string;
+  feedbackStreamStatus: string;
+  snapshotBound: boolean;
+  snapshotIdentity: {
+    snapshotRequired: boolean;
+    snapshotBound: boolean;
+    identityScope: string;
+    formCode: string;
+    scoreSpaceVersion: string;
+    measuredHollandCode: string;
+  };
+  measuredResultGuard: {
+    scoresMutationAllowed: boolean;
+    hollandCodeMutationAllowed: boolean;
+    reportSnapshotMutationAllowed: boolean;
+    measurementEvidenceMutationAllowed: boolean;
+  };
+  surfacePolicy: {
+    publicProjectionAllowed: boolean;
+    sharePdfExposureAllowed: boolean;
+    rawFeedbackPublicExposureAllowed: boolean;
+    formalReportMutationAllowed: boolean;
+  };
+  readModel: {
+    hasFeedback: boolean;
+    feedbackCount: number;
+    latestFeedbackAt: string | null;
+    summaryStatus: string;
+    rawFeedbackIncluded: boolean;
+  };
+  claimBoundary: {
+    feedbackIsMeasurement: boolean;
+    feedbackChangesScores: boolean;
+    feedbackChangesMeasuredHollandCode: boolean;
+    feedbackIsCareerMatch: boolean;
+    feedbackIsSuccessPrediction: boolean;
+  };
+};
+
 export type RiasecResultViewModel = {
   topCode: string;
   formCode: string | null;
@@ -82,6 +123,7 @@ export type RiasecResultViewModel = {
   dimensions: RiasecDimension[];
   trustedResultCard: RiasecTrustedResultCard | null;
   activityExplorer: RiasecActivityExplorer | null;
+  feedbackOverlay: RiasecFeedbackOverlay | null;
   enhancedBreakdown: {
     activity: Record<string, number>;
     environment: Record<string, number>;
@@ -132,6 +174,7 @@ export function assembleRiasecResultViewModel(reportData: RiasecProjectionContai
   const v2ContentBoundary = asRecord(projectionV2?.content_boundary);
   const v2Scores = asRecord(projectionV2?.scores);
   const v2ActivityExplorer = asRecord(projectionV2?.activity_explorer_v0_1);
+  const v2FeedbackOverlay = asRecord(projectionV2?.exploration_feedback_overlay_v0_1);
   const v2Dimensions = Array.isArray(v2Scores?.dimensions) ? v2Scores.dimensions : [];
   const dimensions = v2Dimensions.length > 0
     ? v2Dimensions.map((rawDimension) => {
@@ -191,10 +234,64 @@ export function assembleRiasecResultViewModel(reportData: RiasecProjectionContai
         }
       : null,
     activityExplorer: buildActivityExplorer(v2ActivityExplorer),
+    feedbackOverlay: buildFeedbackOverlay(v2FeedbackOverlay),
     enhancedBreakdown: {
       activity: Object.fromEntries(Object.entries(asRecord(enhanced.activity) ?? {}).map(([key, value]) => [key, normalizeNumber(value)])),
       environment: Object.fromEntries(Object.entries(asRecord(enhanced.environment) ?? {}).map(([key, value]) => [key, normalizeNumber(value)])),
       role: Object.fromEntries(Object.entries(asRecord(enhanced.role) ?? {}).map(([key, value]) => [key, normalizeNumber(value)])),
+    },
+  };
+}
+
+function buildFeedbackOverlay(rawOverlay: Record<string, unknown> | null): RiasecFeedbackOverlay | null {
+  if (!rawOverlay) {
+    return null;
+  }
+
+  const snapshotIdentity = asRecord(rawOverlay.snapshot_identity) ?? {};
+  const measuredResultGuard = asRecord(rawOverlay.measured_result_guard) ?? {};
+  const surfacePolicy = asRecord(rawOverlay.surface_policy) ?? {};
+  const readModel = asRecord(rawOverlay.read_model) ?? {};
+  const claimBoundary = asRecord(rawOverlay.claim_boundary) ?? {};
+
+  return {
+    schemaVersion: normalizeText(rawOverlay.schema_version),
+    status: normalizeText(rawOverlay.status),
+    feedbackStreamStatus: normalizeText(rawOverlay.feedback_stream_status),
+    snapshotBound: normalizeBoolean(rawOverlay.snapshot_bound),
+    snapshotIdentity: {
+      snapshotRequired: normalizeBoolean(snapshotIdentity.snapshot_required),
+      snapshotBound: normalizeBoolean(snapshotIdentity.snapshot_bound),
+      identityScope: normalizeText(snapshotIdentity.identity_scope),
+      formCode: normalizeText(snapshotIdentity.form_code),
+      scoreSpaceVersion: normalizeText(snapshotIdentity.score_space_version),
+      measuredHollandCode: normalizeText(snapshotIdentity.measured_holland_code),
+    },
+    measuredResultGuard: {
+      scoresMutationAllowed: normalizeBoolean(measuredResultGuard.scores_mutation_allowed),
+      hollandCodeMutationAllowed: normalizeBoolean(measuredResultGuard.holland_code_mutation_allowed),
+      reportSnapshotMutationAllowed: normalizeBoolean(measuredResultGuard.report_snapshot_mutation_allowed),
+      measurementEvidenceMutationAllowed: normalizeBoolean(measuredResultGuard.measurement_evidence_mutation_allowed),
+    },
+    surfacePolicy: {
+      publicProjectionAllowed: normalizeBoolean(surfacePolicy.public_projection_allowed),
+      sharePdfExposureAllowed: normalizeBoolean(surfacePolicy.share_pdf_exposure_allowed),
+      rawFeedbackPublicExposureAllowed: normalizeBoolean(surfacePolicy.raw_feedback_public_exposure_allowed),
+      formalReportMutationAllowed: normalizeBoolean(surfacePolicy.formal_report_mutation_allowed),
+    },
+    readModel: {
+      hasFeedback: normalizeBoolean(readModel.has_feedback),
+      feedbackCount: normalizeNumber(readModel.feedback_count),
+      latestFeedbackAt: normalizeText(readModel.latest_feedback_at) || null,
+      summaryStatus: normalizeText(readModel.summary_status),
+      rawFeedbackIncluded: normalizeBoolean(readModel.raw_feedback_included),
+    },
+    claimBoundary: {
+      feedbackIsMeasurement: normalizeBoolean(claimBoundary.feedback_is_measurement),
+      feedbackChangesScores: normalizeBoolean(claimBoundary.feedback_changes_scores),
+      feedbackChangesMeasuredHollandCode: normalizeBoolean(claimBoundary.feedback_changes_measured_holland_code),
+      feedbackIsCareerMatch: normalizeBoolean(claimBoundary.feedback_is_career_match),
+      feedbackIsSuccessPrediction: normalizeBoolean(claimBoundary.feedback_is_success_prediction),
     },
   };
 }
