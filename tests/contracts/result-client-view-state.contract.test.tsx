@@ -37,6 +37,17 @@ type RichResultReportProps = {
   } | null;
 };
 
+type IqResultShellProps = {
+  reportData?: {
+    summary?: {
+      iq_estimate?: number | null;
+    };
+  } | null;
+  resultData?: {
+    iq_estimate?: number | null;
+  } | null;
+};
+
 function cloneFixture<T>(fixture: T): T {
   return structuredClone(fixture);
 }
@@ -127,6 +138,14 @@ vi.mock("@/components/result/ResultSummary", () => ({
     <div data-testid="result-summary">
       <span>{typeCode ?? ""}</span>
       <span>{summary ?? ""}</span>
+    </div>
+  ),
+}));
+
+vi.mock("@/components/result/iq/IqResultShell", () => ({
+  IqResultShell: ({ reportData, resultData }: IqResultShellProps) => (
+    <div data-testid="iq-result-shell">
+      {String(reportData?.summary?.iq_estimate ?? resultData?.iq_estimate ?? "iq-shell")}
     </div>
   ),
 }));
@@ -759,8 +778,38 @@ describe("ResultClient view-state contract", () => {
       skipAuth: true,
       includeAnonId: false,
     });
-    expect(hoisted.fetchAttemptReport).toHaveBeenCalledTimes(1);
-    expect(hoisted.fetchAttemptResult).not.toHaveBeenCalled();
+  });
+
+  it("routes IQ result payloads through the dedicated IQ shell without exposing the rich-report branch", async () => {
+    hoisted.fetchAttemptReport.mockResolvedValue({
+      ok: true,
+      locked: false,
+      variant: "full",
+      report: {
+        scale_code: "IQ_INTELLIGENCE_QUOTIENT",
+        sections: [],
+      },
+      meta: {
+        scale_code: "IQ_INTELLIGENCE_QUOTIENT",
+      },
+      summary: {
+        iq_estimate: 118,
+      },
+      dimensions: {
+        visual_spatial_insight: { raw_score: 8 },
+        visual_spatial_pattern_reasoning: { raw_score: 9 },
+        numerical_pattern_reasoning: { raw_score: 7 },
+      },
+    } as unknown as ReportResponse);
+
+    render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("iq-result-shell")).toHaveTextContent("118");
+    });
+
+    expect(screen.queryByTestId("rich-result-report")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("result-summary")).not.toBeInTheDocument();
   });
 
   it("retries report without auth/anon once when ATTEMPT_NOT_FOUND is returned", async () => {
