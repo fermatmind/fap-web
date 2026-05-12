@@ -85,6 +85,15 @@ function createReportData(): ReportResponse {
     report: {
       scale_code: "IQ_INTELLIGENCE_QUOTIENT",
     },
+    iq_pro: {
+      narrative_sections: [
+        {
+          section_id: "overview",
+          title: "How to read this result",
+          body: "Use the interval and quality markers together when interpreting the estimate.",
+        },
+      ],
+    },
     meta: {
       scale_code: "IQ_INTELLIGENCE_QUOTIENT",
     },
@@ -111,6 +120,8 @@ describe("IQ result renderer contract", () => {
     expect(screen.getByTestId("iq-dimension-card-vsi")).toBeInTheDocument();
     expect(screen.getByTestId("iq-dimension-card-vspr")).toBeInTheDocument();
     expect(screen.getByTestId("iq-dimension-card-npr")).toBeInTheDocument();
+    expect(screen.getByTestId("iq-report-module")).toBeInTheDocument();
+    expect(screen.getByTestId("iq-report-sections")).toHaveTextContent("How to read this result");
     expect(screen.queryByText(/¥1\.99|¥5/)).not.toBeInTheDocument();
   });
 

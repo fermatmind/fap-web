@@ -30,6 +30,26 @@ export type IqDimensionCardViewModel = {
   missing: boolean;
 };
 
+export type IqReportNarrativeSectionViewModel = {
+  key: string;
+  title: string | null;
+  body: string | null;
+  bullets: string[];
+};
+
+export type IqReportModuleViewModel = {
+  unlockStage: "locked" | "unlocked_adaptive" | "unlocked_pro" | "unknown";
+  locked: boolean;
+  lockedMessage: string | null;
+  boundaryMessage: string;
+  interpretationMessage: string;
+  detailedReportMessage: string | null;
+  sections: IqReportNarrativeSectionViewModel[];
+  dimensions: IqDimensionCardViewModel[];
+  pdfPlaceholder: string | null;
+  certificatePlaceholder: string | null;
+};
+
 export type IqResultViewModel = {
   scaleCode: typeof IQ_CANONICAL_SCALE_CODE | typeof IQ_LEGACY_SCALE_CODE | null;
   title: string;
@@ -46,6 +66,7 @@ export type IqResultViewModel = {
   dimensions: IqDimensionCardViewModel[];
   locked: boolean;
   lockedMessage: string | null;
+  reportModule: IqReportModuleViewModel;
 };
 
 const IQ_DIMENSION_ORDER: Array<{
@@ -352,6 +373,12 @@ function buildDimensionCard(
   };
 }
 
+export function getIqDeferredCommerceMessage(locale: Locale): string {
+  return locale === "zh"
+    ? "完整报告解锁功能暂未开放。当前可查看已生成的基础结果。"
+    : "Full report unlock is not available yet. You can view the available result summary.";
+}
+
 function resolveLockedMessage(
   locale: Locale,
   accessView: AttemptReportAccessView | null
@@ -360,9 +387,209 @@ function resolveLockedMessage(
     return null;
   }
 
+  return getIqDeferredCommerceMessage(locale);
+}
+
+function resolveIqUnlockStage(
+  accessView: AttemptReportAccessView | null,
+  reportData: ReportResponse | null
+): IqReportModuleViewModel["unlockStage"] {
+  const reportPayload = asRecord(reportData?.report);
+  const rawStage = normalizeText(
+    reportData?.meta?.unlock_stage,
+    (reportPayload?.meta as Record<string, unknown> | undefined)?.unlock_stage,
+    reportData?.access_level,
+    reportData?.variant
+  )?.toLowerCase();
+
+  if (accessView?.accessState === "locked" || accessView?.unlockStage === "locked" || reportData?.locked === true) {
+    return "locked";
+  }
+
+  if (
+    accessView?.unlockStage === "full"
+    || rawStage === "unlocked_pro"
+    || rawStage === "pro"
+    || rawStage === "full"
+  ) {
+    return "unlocked_pro";
+  }
+
+  if (
+    accessView?.unlockStage === "partial"
+    || rawStage === "unlocked_adaptive"
+    || rawStage === "adaptive"
+    || rawStage === "partial"
+  ) {
+    return "unlocked_adaptive";
+  }
+
+  return "unknown";
+}
+
+function resolveReportNarrativeSource(reportData: ReportResponse | null): unknown[] {
+  const topLevel = asRecord(reportData);
+  const reportPayload = asRecord(reportData?.report);
+  const topLevelIqPro = asRecord(topLevel?.iq_pro);
+  const nestedIqPro = asRecord(reportPayload?.iq_pro);
+
+  const candidates = [
+    asArray(topLevelIqPro?.narrative_sections),
+    asArray(nestedIqPro?.narrative_sections),
+    asArray(reportPayload?.narrative_sections),
+    asArray(reportPayload?.sections),
+  ];
+
+  return candidates.find((candidate) => candidate.length > 0) ?? [];
+}
+
+function resolveNarrativeSections(reportData: ReportResponse | null): IqReportNarrativeSectionViewModel[] {
+  return resolveReportNarrativeSource(reportData)
+    .map((entry, index) => {
+      const record = asRecord(entry);
+      if (!record) {
+        return null;
+      }
+
+      const title = normalizeText(record.title, record.heading, record.label);
+      const body = normalizeText(record.body, record.summary, record.text, record.content);
+      const bullets = normalizeStringArray(record.bullets ?? record.points ?? record.takeaways);
+
+      if (!title && !body && bullets.length === 0) {
+        return null;
+      }
+
+      return {
+        key: normalizeText(record.section_id, record.id, record.key, title) ?? `iq-section-${index + 1}`,
+        title,
+        body,
+        bullets,
+      } satisfies IqReportNarrativeSectionViewModel;
+    })
+    .filter((entry): entry is IqReportNarrativeSectionViewModel => Boolean(entry));
+}
+
+function hasPdfPayload(reportData: ReportResponse | null): boolean {
+  const topLevel = asRecord(reportData);
+  const reportPayload = asRecord(reportData?.report);
+  const topLevelIqPro = asRecord(topLevel?.iq_pro);
+  const nestedIqPro = asRecord(reportPayload?.iq_pro);
+  return Boolean(
+    asRecord(topLevelIqPro?.pdf_payload)
+      ?? asRecord(nestedIqPro?.pdf_payload)
+      ?? asRecord(reportPayload?.pdf_payload)
+  );
+}
+
+function hasCertificatePayload(reportData: ReportResponse | null): boolean {
+  const topLevel = asRecord(reportData);
+  const reportPayload = asRecord(reportData?.report);
+  const topLevelIqPro = asRecord(topLevel?.iq_pro);
+  const nestedIqPro = asRecord(reportPayload?.iq_pro);
+  return Boolean(
+    asRecord(topLevelIqPro?.certificate_payload)
+      ?? asRecord(nestedIqPro?.certificate_payload)
+      ?? asRecord(reportPayload?.certificate_payload)
+  );
+}
+
+function getIqMethodBoundaryMessage(locale: Locale): string {
   return locale === "zh"
-    ? "完整报告解锁功能暂未开放。当前可查看已生成的基础结果。"
-    : "Full report unlock is not available yet. You can view the available result summary.";
+    ? "本结果是在线认知能力估测，不是临床诊断。请结合置信区间和作答质量理解结果。"
+    : "This result is an online cognitive ability estimate, not a clinical diagnosis. Interpret it together with the confidence interval and response quality.";
+}
+
+function getIqInterpretationMessage({
+  locale,
+  qualityLevel,
+  qualityFlags,
+  stabilityStatus,
+  stabilityReason,
+}: {
+  locale: Locale;
+  qualityLevel: string | null;
+  qualityFlags: string[];
+  stabilityStatus: string | null;
+  stabilityReason: string | null;
+}): string {
+  const cautionSignals = [
+    stabilityStatus?.toLowerCase() ?? "",
+    stabilityReason?.toLowerCase() ?? "",
+    qualityLevel?.toLowerCase() ?? "",
+    ...qualityFlags.map((flag) => flag.toLowerCase()),
+  ].join(" ");
+
+  if (/(unstable|preliminary|caution|pending|review)/.test(cautionSignals)) {
+    return locale === "zh"
+      ? "当前结果仍应结合稳定性状态、质量标记和置信区间审慎理解。"
+      : "Interpret this result with caution alongside its stability status, quality flags, and confidence interval.";
+  }
+
+  return locale === "zh"
+    ? "各维度结果描述的是本次测验中的表现结构，不代表全部能力。"
+    : "Dimension results describe the structure of performance in this test, not total human ability.";
+}
+
+function getDetailedReportUnavailableMessage(locale: Locale): string {
+  return locale === "zh"
+    ? "详细报告内容暂未开放。"
+    : "Detailed report content is not available yet.";
+}
+
+function buildReportModuleViewModel({
+  locale,
+  reportData,
+  accessView,
+  dimensions,
+  qualityLevel,
+  qualityFlags,
+  stabilityStatus,
+  stabilityReason,
+}: {
+  locale: Locale;
+  reportData: ReportResponse | null;
+  accessView: AttemptReportAccessView | null;
+  dimensions: IqDimensionCardViewModel[];
+  qualityLevel: string | null;
+  qualityFlags: string[];
+  stabilityStatus: string | null;
+  stabilityReason: string | null;
+}): IqReportModuleViewModel {
+  const sections = resolveNarrativeSections(reportData);
+  const locked = accessView?.accessState === "locked" || reportData?.locked === true;
+  const unlockStage = resolveIqUnlockStage(accessView, reportData);
+  const pdfReady = hasPdfPayload(reportData);
+  const certificateReady = hasCertificatePayload(reportData);
+
+  return {
+    unlockStage,
+    locked,
+    lockedMessage: locked ? getIqDeferredCommerceMessage(locale) : null,
+    boundaryMessage: getIqMethodBoundaryMessage(locale),
+    interpretationMessage: getIqInterpretationMessage({
+      locale,
+      qualityLevel,
+      qualityFlags,
+      stabilityStatus,
+      stabilityReason,
+    }),
+    detailedReportMessage:
+      locked || sections.length > 0 || pdfReady || certificateReady
+        ? null
+        : getDetailedReportUnavailableMessage(locale),
+    sections,
+    dimensions,
+    pdfPlaceholder: pdfReady
+      ? locale === "zh"
+        ? "PDF 报告能力已生成，但当前前端版本暂不支持下载。"
+        : "A PDF report payload is available, but this frontend version does not support downloads yet."
+      : null,
+    certificatePlaceholder: certificateReady
+      ? locale === "zh"
+        ? "证书能力已生成，但当前前端版本暂不支持下载。"
+        : "A certificate payload is available, but this frontend version does not support downloads yet."
+      : null,
+  };
 }
 
 export function buildIqResultViewModel({
@@ -378,6 +605,9 @@ export function buildIqResultViewModel({
 }): IqResultViewModel {
   const quality = resolveQuality(reportData, resultData);
   const stability = resolveStability(reportData, resultData);
+  const dimensions = IQ_DIMENSION_ORDER.map((descriptor) =>
+    buildDimensionCard(locale, descriptor, reportData, resultData)
+  );
 
   return {
     scaleCode: resolveScaleCode(reportData, resultData),
@@ -392,10 +622,18 @@ export function buildIqResultViewModel({
     stabilityStatus: stability.status,
     stabilityReason: stability.reason,
     reasonCode: resolveReasonCode(reportData, resultData),
-    dimensions: IQ_DIMENSION_ORDER.map((descriptor) =>
-      buildDimensionCard(locale, descriptor, reportData, resultData)
-    ),
+    dimensions,
     locked: accessView?.accessState === "locked",
     lockedMessage: resolveLockedMessage(locale, accessView),
+    reportModule: buildReportModuleViewModel({
+      locale,
+      reportData,
+      accessView,
+      dimensions,
+      qualityLevel: quality.level,
+      qualityFlags: quality.flags,
+      stabilityStatus: stability.status,
+      stabilityReason: stability.reason,
+    }),
   };
 }
