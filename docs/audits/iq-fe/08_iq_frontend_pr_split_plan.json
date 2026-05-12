@@ -1,0 +1,239 @@
+{
+  "scan_type": "iq_frontend_pr_split_plan",
+  "proposed_prs": [
+    {
+      "goal_name": "IQ-FE-1 API client + IQ data contracts",
+      "scope": "canonical IQ identity cleanup and typed frontend adapters",
+      "likely_files": [
+        "lib/api/v0_3.ts",
+        "lib/assessmentSlugMap.ts",
+        "lib/scaleCodeMode.ts",
+        "lib/content.ts",
+        "tests/contracts/*"
+      ],
+      "dependencies": [
+        "backend #1311",
+        "backend #1312",
+        "backend #1313"
+      ],
+      "forbidden_files": [
+        "payment routes",
+        "checkout files",
+        "order files"
+      ],
+      "tests": [
+        "pnpm lint",
+        "pnpm typecheck",
+        "pnpm test:contract"
+      ],
+      "acceptance_commands": [
+        "pnpm lint",
+        "pnpm typecheck",
+        "pnpm test:contract",
+        "git diff --check"
+      ],
+      "sidecar_risks": [
+        "backend norm table deferred"
+      ],
+      "can_proceed_before_commerce": true,
+      "requires_backend_runtime": false
+    },
+    {
+      "goal_name": "IQ-FE-2 IQ question SVG renderer + answer option grid",
+      "scope": "formalize and harden existing IQ renderer path",
+      "likely_files": [
+        "components/quiz/iq/*",
+        "lib/quiz/normalizeQuestions.ts",
+        "tests/a11y/*",
+        "tests/e2e/visual/*"
+      ],
+      "dependencies": [
+        "IQ-FE-1"
+      ],
+      "forbidden_files": [
+        "payment routes",
+        "checkout files",
+        "order files"
+      ],
+      "tests": [
+        "pnpm lint",
+        "pnpm typecheck",
+        "pnpm test:a11y"
+      ],
+      "acceptance_commands": [
+        "pnpm lint",
+        "pnpm typecheck",
+        "pnpm test:a11y",
+        "git diff --check"
+      ],
+      "sidecar_risks": [
+        "raw SVG string support intentionally excluded"
+      ],
+      "can_proceed_before_commerce": true,
+      "requires_backend_runtime": false
+    },
+    {
+      "goal_name": "IQ-FE-3 IQ take page shell + attempt lifecycle",
+      "scope": "IQ-specific lifecycle and copy on existing take route",
+      "likely_files": [
+        "app/(localized)/[locale]/tests/[slug]/take/*",
+        "tests/e2e/*"
+      ],
+      "dependencies": [
+        "IQ-FE-1",
+        "IQ-FE-2"
+      ],
+      "forbidden_files": [
+        "payment routes",
+        "checkout files",
+        "order files"
+      ],
+      "tests": [
+        "pnpm lint",
+        "pnpm typecheck",
+        "pnpm test:contract",
+        "targeted pnpm test:e2e"
+      ],
+      "acceptance_commands": [
+        "pnpm lint",
+        "pnpm typecheck",
+        "pnpm test:contract",
+        "git diff --check"
+      ],
+      "sidecar_risks": [
+        "manual QA may need backend runtime"
+      ],
+      "can_proceed_before_commerce": true,
+      "requires_backend_runtime": false
+    },
+    {
+      "goal_name": "IQ-FE-4 IQ result page shell + VSPR/VSI/NPR cards",
+      "scope": "explicit IQ result rendering on shared result route",
+      "likely_files": [
+        "app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx",
+        "components/result/iq/*",
+        "tests/contracts/*",
+        "tests/e2e/*"
+      ],
+      "dependencies": [
+        "IQ-FE-1"
+      ],
+      "forbidden_files": [
+        "payment routes",
+        "checkout files",
+        "order files"
+      ],
+      "tests": [
+        "pnpm lint",
+        "pnpm typecheck",
+        "pnpm test:contract"
+      ],
+      "acceptance_commands": [
+        "pnpm lint",
+        "pnpm typecheck",
+        "pnpm test:contract",
+        "git diff --check"
+      ],
+      "sidecar_risks": [
+        "backend norm table still deferred"
+      ],
+      "can_proceed_before_commerce": true,
+      "requires_backend_runtime": false
+    },
+    {
+      "goal_name": "IQ-FE-5 IQ report module shell + deferred-commerce locked state",
+      "scope": "IQ report shell without checkout/payment",
+      "likely_files": [
+        "components/result/RichResultReport.tsx",
+        "app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx",
+        "components/result/iq/*",
+        "tests/e2e/*"
+      ],
+      "dependencies": [
+        "IQ-FE-1",
+        "IQ-FE-4"
+      ],
+      "forbidden_files": [
+        "payment routes",
+        "checkout files",
+        "order files"
+      ],
+      "tests": [
+        "pnpm lint",
+        "pnpm typecheck",
+        "pnpm test:contract"
+      ],
+      "acceptance_commands": [
+        "pnpm lint",
+        "pnpm typecheck",
+        "pnpm test:contract",
+        "git diff --check"
+      ],
+      "sidecar_risks": [
+        "PDF/certificate frontend renderer still missing"
+      ],
+      "can_proceed_before_commerce": true,
+      "requires_backend_runtime": false
+    },
+    {
+      "goal_name": "IQ-FE-6 Mobile/responsive polish + loading/error states",
+      "scope": "responsive and visual hardening",
+      "likely_files": [
+        "components/quiz/iq/*",
+        "components/result/iq/*",
+        "tests/e2e/visual/*"
+      ],
+      "dependencies": [
+        "IQ-FE-2",
+        "IQ-FE-3",
+        "IQ-FE-4",
+        "IQ-FE-5"
+      ],
+      "forbidden_files": [
+        "payment routes",
+        "checkout files",
+        "order files"
+      ],
+      "tests": [
+        "pnpm lint",
+        "pnpm typecheck",
+        "pnpm build",
+        "targeted visual e2e"
+      ],
+      "acceptance_commands": [
+        "pnpm lint",
+        "pnpm typecheck",
+        "pnpm build",
+        "git diff --check"
+      ],
+      "sidecar_risks": [],
+      "can_proceed_before_commerce": true,
+      "requires_backend_runtime": false
+    },
+    {
+      "goal_name": "IQ-FE-7 Optional frontend commerce unlock",
+      "scope": "frontend commerce only after backend commerce train resumes",
+      "likely_files": [
+        "components/commerce/*",
+        "result/report unlock adapters"
+      ],
+      "dependencies": [
+        "backend iq-commerce-unlock-199-500",
+        "IQ-FE-5"
+      ],
+      "forbidden_files": [],
+      "tests": [
+        "full PR verification including payment mocks"
+      ],
+      "acceptance_commands": [
+        "to be defined after backend commerce exists"
+      ],
+      "sidecar_risks": [
+        "must remain blocked while backend commerce is deferred"
+      ],
+      "can_proceed_before_commerce": false,
+      "requires_backend_runtime": true
+    }
+  ]
+}
+

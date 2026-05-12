@@ -1,0 +1,88 @@
+{
+  "scan_type": "route_surface_audit",
+  "route_candidates": [
+    {
+      "route_path": "/[locale]/tests/[slug]",
+      "file_path": "app/(localized)/[locale]/tests/[slug]/page.tsx",
+      "route_type": "test_detail",
+      "dynamic": true,
+      "localized": true,
+      "reusable_for_iq": true,
+      "risk_notes": []
+    },
+    {
+      "route_path": "/[locale]/tests/[slug]/take",
+      "file_path": "app/(localized)/[locale]/tests/[slug]/take/page.tsx",
+      "route_type": "take_page",
+      "dynamic": true,
+      "localized": true,
+      "reusable_for_iq": true,
+      "risk_notes": [
+        "Shared take route still depends on legacy scale-code checks in client logic."
+      ]
+    },
+    {
+      "route_path": "/[locale]/test/[slug]",
+      "file_path": "app/(localized)/[locale]/test/[slug]/page.tsx",
+      "route_type": "legacy_redirect",
+      "dynamic": true,
+      "localized": true,
+      "reusable_for_iq": true,
+      "risk_notes": [
+        "Should remain redirect-only for legacy IQ alias handling."
+      ]
+    },
+    {
+      "route_path": "/[locale]/test/[slug]/take",
+      "file_path": "app/(localized)/[locale]/test/[slug]/take/page.tsx",
+      "route_type": "legacy_take_redirect",
+      "dynamic": true,
+      "localized": true,
+      "reusable_for_iq": true,
+      "risk_notes": [
+        "No implementation needed; keep redirect semantics."
+      ]
+    },
+    {
+      "route_path": "/[locale]/result/[id]",
+      "file_path": "app/(localized)/[locale]/(app)/result/[id]/page.tsx",
+      "route_type": "result_page",
+      "dynamic": true,
+      "localized": true,
+      "reusable_for_iq": true,
+      "risk_notes": [
+        "Current shared renderer is not yet explicit for IQ VSPR/VSI/NPR schema."
+      ]
+    },
+    {
+      "route_path": "/[locale]/attempts/[attemptId]/report",
+      "file_path": "app/(localized)/[locale]/attempts/[attemptId]/report/page.tsx",
+      "route_type": "report_page",
+      "dynamic": true,
+      "localized": true,
+      "reusable_for_iq": false,
+      "risk_notes": [
+        "Route is currently wired to ClinicalReportClient."
+      ]
+    },
+    {
+      "route_path": "/[locale]/orders/lookup",
+      "file_path": "app/(localized)/[locale]/orders/lookup/page.tsx",
+      "route_type": "commerce_recovery",
+      "dynamic": false,
+      "localized": true,
+      "reusable_for_iq": false,
+      "risk_notes": [
+        "Commerce path should remain out of IQ scope until deferred commerce work resumes."
+      ]
+    }
+  ],
+  "seo_contract": {
+    "take_noindex": true,
+    "result_noindex": true,
+    "attempt_report_noindex": true,
+    "legacy_test_redirect_exists": true,
+    "iq_public_detail_in_sitemap": true
+  }
+}
+

@@ -1,0 +1,77 @@
+{
+  "repo": "fap-web",
+  "scan_type": "frontend_structure",
+  "framework": {
+    "name": "Next.js",
+    "routing_mode": "app_router",
+    "evidence": [
+      "app/(localized)/[locale]/tests/[slug]/page.tsx",
+      "app/(localized)/[locale]/tests/[slug]/take/page.tsx"
+    ]
+  },
+  "language": "TypeScript",
+  "package_manager": {
+    "name": "pnpm",
+    "evidence": "package.json"
+  },
+  "i18n": {
+    "style": "localized_segment_routes",
+    "locales_found": [
+      "en",
+      "zh"
+    ],
+    "evidence": [
+      "app/(localized)/[locale]",
+      "lib/i18n/locales"
+    ]
+  },
+  "routing": {
+    "test_detail_route": "/[locale]/tests/[slug]",
+    "take_route": "/[locale]/tests/[slug]/take",
+    "result_route": "/[locale]/result/[id]",
+    "attempt_report_route": "/[locale]/attempts/[attemptId]/report",
+    "legacy_alias_route": "/[locale]/test/[slug]"
+  },
+  "api_client": {
+    "style": "central_typed_client",
+    "file": "lib/api/v0_3.ts"
+  },
+  "auth_and_anon": {
+    "guest_token_retry": true,
+    "anon_id_support": true,
+    "files": [
+      "lib/auth/authRetry.ts",
+      "lib/auth/fmToken.ts",
+      "lib/anon"
+    ]
+  },
+  "assessment_ui": {
+    "generic_take_shell": "app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient.tsx",
+    "iq_renderer_files": [
+      "components/quiz/iq/IqStemSvg.tsx",
+      "components/quiz/iq/IqOptionBoard.tsx"
+    ],
+    "result_shell": "app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx",
+    "report_renderer": "components/result/RichResultReport.tsx",
+    "locked_ui": [
+      "components/report/LockedInsightTeaser.tsx",
+      "components/commerce/UnlockCTA.tsx"
+    ]
+  },
+  "validation_scripts": {
+    "lint": "pnpm lint",
+    "typecheck": "pnpm typecheck",
+    "build": "pnpm build",
+    "contract_tests": "pnpm test:contract",
+    "a11y_tests": "pnpm test:a11y",
+    "e2e_tests": "pnpm test:e2e",
+    "verify_pr": "pnpm verify:pr"
+  },
+  "iq_frontend_readiness": {
+    "take_route_exists": true,
+    "iq_specific_renderer_exists": true,
+    "iq_result_report_is_product_complete": false,
+    "frontend_commerce_for_iq_should_be_deferred": true
+  }
+}
+

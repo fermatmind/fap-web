@@ -1,0 +1,39 @@
+{
+  "scan_type": "deferred_commerce_surface_audit",
+  "existing_paywall_components_exist": true,
+  "components": [
+    {
+      "name": "UnlockCTA",
+      "file": "components/commerce/UnlockCTA.tsx",
+      "can_reuse_for_iq_now": false,
+      "risk": "high"
+    },
+    {
+      "name": "LockedInsightTeaser",
+      "file": "components/report/LockedInsightTeaser.tsx",
+      "can_reuse_for_iq_now": true,
+      "risk": "low"
+    },
+    {
+      "name": "UnifiedAccess",
+      "file": "lib/access/unifiedAccess.ts",
+      "can_reuse_for_iq_now": true,
+      "risk": "medium"
+    }
+  ],
+  "can_hide_or_disable_for_iq": true,
+  "deferred_commerce_safe_state": {
+    "show_locked_preview": true,
+    "show_price": false,
+    "show_checkout_cta": false,
+    "show_sku": false,
+    "show_order_recovery_path": false
+  },
+  "risk_of_accidentally_showing_prices_before_backend_commerce": "high",
+  "recommended_copy": {
+    "zh": "IQ 报告解锁暂未开放，当前仅提供测评流程与基础结果承载能力。",
+    "en": "IQ report unlock is not available yet. The current frontend should only expose the assessment flow and basic result shell."
+  },
+  "future_sidecar_owner_pr": "IQ-FE-7"
+}
+
