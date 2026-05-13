@@ -1217,7 +1217,7 @@
       "depends_on": [
         "RIASEC-PERSONALIZATION-00"
       ],
-      "status": "in_progress",
+      "status": "open",
       "title": "feat(riasec): add interpretation rule spec v2 contract",
       "mode": "execute",
       "risk_level": "L1",
@@ -1281,8 +1281,8 @@
       ],
       "checks": [],
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/789",
+      "commit_sha": "2efcd1491aa00f8db82c1c6c2fc91e6dffb23f23",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
