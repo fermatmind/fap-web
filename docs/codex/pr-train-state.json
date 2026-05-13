@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-13T04:56:38.448Z",
+  "updated_at": "2026-05-13T06:55:00.000Z",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -433,7 +433,23 @@
         "tests/contracts/iq-frontend-api-contracts.contract.test.ts",
         "docs/audits/iq-fe/10_iq_fe_1_api_contract_notes.md"
       ],
-      "checks": [],
+      "checks": [
+        {
+          "name": "yaml_json_validity",
+          "status": "passed",
+          "command": "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"ok\"'"
+        },
+        {
+          "name": "diff_check",
+          "status": "passed",
+          "command": "git diff --check"
+        },
+        {
+          "name": "scope_validation",
+          "status": "passed",
+          "details": "Changed files are limited to docs/codex/pr-train.yaml and docs/codex/pr-train-state.json."
+        }
+      ],
       "failure_reason": null,
       "pr_url": null,
       "commit_sha": null,
@@ -1167,6 +1183,229 @@
           ]
         }
       ]
+    },
+    {
+      "id": "RIASEC-PERSONALIZATION-00",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/riasec-personalization-00-train-registration",
+      "base": "main",
+      "depends_on": [],
+      "status": "in_progress",
+      "title": "docs(codex): register RIASEC personalization train",
+      "mode": "scan/docs",
+      "risk_level": "L1",
+      "allowed_paths": [
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": []
+    },
+    {
+      "id": "RIASEC-PERSONALIZATION-01",
+      "repo": "fap-api",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-api",
+      "branch": "codex/riasec-personalization-01-interpretation-contract",
+      "base": "main",
+      "depends_on": [
+        "RIASEC-PERSONALIZATION-00"
+      ],
+      "status": "pending",
+      "title": "feat(riasec): add interpretation rule spec v2 contract",
+      "mode": "execute",
+      "risk_level": "L1",
+      "allowed_paths": [
+        "backend/app/**/Riasec*Interpretation*",
+        "backend/tests/**/Riasec*Interpretation*",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": []
+    },
+    {
+      "id": "RIASEC-PERSONALIZATION-02",
+      "repo": "fap-api",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-api",
+      "branch": "codex/riasec-personalization-02-quality-contract",
+      "base": "main",
+      "depends_on": [
+        "RIASEC-PERSONALIZATION-01"
+      ],
+      "status": "pending",
+      "title": "feat(riasec): add quality rule spec v2 contract",
+      "mode": "execute",
+      "risk_level": "L1",
+      "allowed_paths": [
+        "backend/app/**/Riasec*Quality*",
+        "backend/tests/**/Riasec*Quality*",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": []
+    },
+    {
+      "id": "RIASEC-PERSONALIZATION-03",
+      "repo": "fap-api",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-api",
+      "branch": "codex/riasec-personalization-03-projection-extension",
+      "base": "main",
+      "depends_on": [
+        "RIASEC-PERSONALIZATION-01",
+        "RIASEC-PERSONALIZATION-02"
+      ],
+      "status": "pending",
+      "title": "feat(riasec): extend projection v2 with interpretation state",
+      "mode": "execute",
+      "risk_level": "L1",
+      "allowed_paths": [
+        "backend/app/**/RiasecPublicProjectionService*",
+        "backend/tests/**/Riasec*Projection*",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": []
+    },
+    {
+      "id": "RIASEC-PERSONALIZATION-04",
+      "repo": "fap-api",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-api",
+      "branch": "codex/riasec-personalization-04-module-selector",
+      "base": "main",
+      "depends_on": [
+        "RIASEC-PERSONALIZATION-03"
+      ],
+      "status": "pending",
+      "title": "feat(riasec): add report module selector contract",
+      "mode": "execute",
+      "risk_level": "L1",
+      "allowed_paths": [
+        "backend/app/**/Riasec*Module*",
+        "backend/app/**/RiasecReportComposer*",
+        "backend/tests/**/Riasec*Module*",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": []
+    },
+    {
+      "id": "RIASEC-PERSONALIZATION-05",
+      "repo": "fap-api",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-api",
+      "branch": "codex/riasec-personalization-05-content-registry-readiness",
+      "base": "main",
+      "depends_on": [
+        "RIASEC-PERSONALIZATION-04"
+      ],
+      "status": "pending",
+      "title": "feat(riasec): add content registry readiness contract",
+      "mode": "execute",
+      "risk_level": "L1",
+      "allowed_paths": [
+        "backend/app/**/Riasec*Content*",
+        "backend/tests/**/Riasec*Content*",
+        "backend/docs/riasec/**",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": []
+    },
+    {
+      "id": "RIASEC-PERSONALIZATION-06",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/riasec-personalization-06-frontend-fail-closed",
+      "base": "main",
+      "depends_on": [
+        "RIASEC-PERSONALIZATION-03",
+        "RIASEC-PERSONALIZATION-04"
+      ],
+      "status": "pending",
+      "title": "feat(riasec): consume backend personalization state fail-closed",
+      "mode": "execute",
+      "risk_level": "L1",
+      "allowed_paths": [
+        "lib/riasec/**",
+        "components/result/riasec/**",
+        "tests/contracts/**riasec**",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": []
+    },
+    {
+      "id": "RIASEC-PERSONALIZATION-07",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/riasec-personalization-07-fixture-matrix",
+      "base": "main",
+      "depends_on": [
+        "RIASEC-PERSONALIZATION-01",
+        "RIASEC-PERSONALIZATION-02",
+        "RIASEC-PERSONALIZATION-03",
+        "RIASEC-PERSONALIZATION-04",
+        "RIASEC-PERSONALIZATION-05",
+        "RIASEC-PERSONALIZATION-06"
+      ],
+      "status": "pending",
+      "title": "test(riasec): add personalization fixture matrix contracts",
+      "mode": "verify",
+      "risk_level": "L1",
+      "allowed_paths": [
+        "tests/contracts/**riasec**",
+        "docs/riasec/**",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": []
     }
   ],
   "sidecar_issues": [

@@ -1008,3 +1008,348 @@ prs:
       branch: codex/pr-rt-01-article-runtime-truth-gate
       purpose: "Backend Article API, SEO payload, and structured data acceptance tests."
     rollback_note: "Remove runtime truth fixture/contract gates; no production article content is introduced."
+
+  - id: RIASEC-PERSONALIZATION-00
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/riasec-personalization-00-train-registration
+    base: main
+    depends_on: []
+    mode: scan/docs
+    risk_level: L1
+    status: planned
+    title: "docs(codex): register RIASEC personalization train"
+    goal: "Register the RIASEC personalization PR train and initialize state entries without touching runtime code."
+    in_scope:
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - RIASEC scorer
+      - RIASEC content packs
+      - frontend result shell
+      - backend projection runtime
+      - public editorial copy
+    likely_touched:
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    acceptance:
+      - RIASEC-PERSONALIZATION-00 through RIASEC-PERSONALIZATION-07 exist in the manifest.
+      - Matching state entries are initialized.
+      - Dependency graph follows the requested train order.
+      - No runtime files changed.
+      - YAML and JSON parse successfully.
+      - git diff --check passes.
+    required_local_checks:
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "ok"'
+      - git diff --check
+    must_not_touch:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - content_packs/**
+      - backend runtime files
+    rollback_note: "Remove the RIASEC-PERSONALIZATION manifest and state entries."
+
+  - id: RIASEC-PERSONALIZATION-01
+    repo: fap-api
+    repo_path: /Users/rainie/Desktop/GitHub/fap-api
+    branch: codex/riasec-personalization-01-interpretation-contract
+    base: main
+    depends_on: [RIASEC-PERSONALIZATION-00]
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "feat(riasec): add interpretation rule spec v2 contract"
+    goal: "Define backend-owned RIASEC interpretation state contract without changing scoring math."
+    in_scope:
+      - backend RIASEC interpretation contract/service
+      - backend RIASEC contract tests
+      - docs/codex train state updates
+    out_of_scope:
+      - scorer math changes
+      - content pack question changes
+      - frontend interpretation inference
+      - result UI changes
+      - career matching
+    likely_touched:
+      - backend/app/**/Riasec*Interpretation*
+      - backend/tests/**/Riasec*Interpretation*
+      - docs/codex/pr-train-state.json
+    required_local_checks:
+      - targeted PHPUnit for touched RIASEC interpretation contract tests
+      - relevant RIASEC flow tests
+      - scoped Pint for touched PHP
+      - git diff --check
+    acceptance:
+      - Interpretation Rule Spec v2 contract exists.
+      - profile_shape, profile_shape_version, clarity_label, near_tie_state, alternate_code, alternate_code_reason, top_code_confidence, reading_strength, and interpretation_rule_version are backend-owned or explicitly pending.
+      - Confidence is an interpretation-strength label, not probability.
+      - Tests prove no scoring math changed.
+    must_not_touch:
+      - RIASEC scorer math
+      - RIASEC content pack question semantics
+      - frontend result rendering
+      - career examples
+      - feedback score mutation behavior
+    rollback_note: "Disable interpretation v2 contract consumption and preserve Trusted Result v1.5 behavior."
+
+  - id: RIASEC-PERSONALIZATION-02
+    repo: fap-api
+    repo_path: /Users/rainie/Desktop/GitHub/fap-api
+    branch: codex/riasec-personalization-02-quality-contract
+    base: main
+    depends_on: [RIASEC-PERSONALIZATION-01]
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "feat(riasec): add quality rule spec v2 contract"
+    goal: "Define backend-owned quality_state and reading_strength routing for RIASEC."
+    in_scope:
+      - backend RIASEC quality contract/service
+      - backend RIASEC quality tests
+      - docs/codex train state updates
+    out_of_scope:
+      - scorer math changes
+      - item wording changes
+      - frontend UI changes
+      - 140Q upsell copy
+    likely_touched:
+      - backend/app/**/Riasec*Quality*
+      - backend/tests/**/Riasec*Quality*
+      - docs/codex/pr-train-state.json
+    required_local_checks:
+      - targeted PHPUnit for touched RIASEC quality contract tests
+      - relevant RIASEC flow tests
+      - scoped Pint for touched PHP
+      - git diff --check
+    acceptance:
+      - 60Q remains minimal-quality and boundary-only unless an expert-approved rule exists.
+      - 140Q flags map only within approved boundaries.
+      - Low quality never alters measured code or scores.
+      - Tests prove no 140Q upsell on low_quality.
+    must_not_touch:
+      - RIASEC scorer math
+      - RIASEC content pack question semantics
+      - frontend result rendering
+      - report snapshot behavior
+    rollback_note: "Fall back to Trusted Result v1.5 quality behavior."
+
+  - id: RIASEC-PERSONALIZATION-03
+    repo: fap-api
+    repo_path: /Users/rainie/Desktop/GitHub/fap-api
+    branch: codex/riasec-personalization-03-projection-extension
+    base: main
+    depends_on: [RIASEC-PERSONALIZATION-01, RIASEC-PERSONALIZATION-02]
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "feat(riasec): extend projection v2 with interpretation state"
+    goal: "Expose backend-authoritative interpretation and quality fields through RIASEC projection v2 additively."
+    in_scope:
+      - RiasecPublicProjectionService
+      - backend projection fixtures/tests
+      - API contract/types if required
+      - docs/codex train state updates
+    out_of_scope:
+      - scorer math changes
+      - frontend copy or UI rendering
+      - career examples
+      - feedback mutation behavior
+    likely_touched:
+      - backend/app/**/RiasecPublicProjectionService*
+      - backend/tests/**/Riasec*Projection*
+      - docs/codex/pr-train-state.json
+    required_local_checks:
+      - targeted PHPUnit for touched RIASEC projection tests
+      - relevant RIASEC flow tests
+      - scoped Pint for touched PHP
+      - git diff --check
+    acceptance:
+      - Projection v2 emits additive backend-provided interpretation fields.
+      - Projection v1 and existing v2 compatibility remain intact.
+      - Missing or pending states are explicit.
+      - Tests prove forbidden career and comparison claims are absent.
+    must_not_touch:
+      - RIASEC scorer math
+      - RIASEC content pack question semantics
+      - frontend local interpretation inference
+      - career matching
+    rollback_note: "Stop emitting projection v2 extension fields while preserving base v2."
+
+  - id: RIASEC-PERSONALIZATION-04
+    repo: fap-api
+    repo_path: /Users/rainie/Desktop/GitHub/fap-api
+    branch: codex/riasec-personalization-04-module-selector
+    base: main
+    depends_on: [RIASEC-PERSONALIZATION-03]
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "feat(riasec): add report module selector contract"
+    goal: "Define deterministic backend module visibility policy by interpretation state, quality state, form, and 140Q context."
+    in_scope:
+      - backend RIASEC module selector
+      - report composer module metadata if required
+      - backend selector tests
+      - docs/codex train state updates
+    out_of_scope:
+      - frontend UI changes
+      - final public copy
+      - scorer math changes
+      - content pack item changes
+      - career match language
+    likely_touched:
+      - backend/app/**/Riasec*Module*
+      - backend/app/**/RiasecReportComposer*
+      - backend/tests/**/Riasec*Module*
+      - docs/codex/pr-train-state.json
+    required_local_checks:
+      - targeted PHPUnit for touched RIASEC selector/composer tests
+      - relevant RIASEC flow tests
+      - scoped Pint for touched PHP
+      - git diff --check
+    acceptance:
+      - module_visibility_policy exists.
+      - Low quality hides strong modules.
+      - 140Q tension states are bounded and do not claim 140Q is more accurate.
+      - Composer returns deterministic module visibility.
+    must_not_touch:
+      - RIASEC scorer math
+      - RIASEC content pack question semantics
+      - frontend result UI
+      - career matching
+    rollback_note: "Composer returns minimal Trusted Result v1.5 sections."
+
+  - id: RIASEC-PERSONALIZATION-05
+    repo: fap-api
+    repo_path: /Users/rainie/Desktop/GitHub/fap-api
+    branch: codex/riasec-personalization-05-content-registry-readiness
+    base: main
+    depends_on: [RIASEC-PERSONALIZATION-04]
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "feat(riasec): add content registry readiness contract"
+    goal: "Define backend content registry slots for future RIASEC deep copy without adding final public editorial copy."
+    in_scope:
+      - backend RIASEC content slot contract
+      - validators/tests
+      - docs if needed
+      - docs/codex train state updates
+    out_of_scope:
+      - runtime public editorial copy
+      - frontend local fallback copy
+      - CMS runtime migrations unless explicitly scoped
+      - career matching
+    likely_touched:
+      - backend/app/**/Riasec*Content*
+      - backend/tests/**/Riasec*Content*
+      - backend/docs/riasec/**
+      - docs/codex/pr-train-state.json
+    required_local_checks:
+      - targeted PHPUnit for touched RIASEC content registry tests
+      - relevant RIASEC flow tests
+      - scoped Pint for touched PHP
+      - git diff --check
+    acceptance:
+      - Registry slot schema exists.
+      - Validators reject unsupported modules and forbidden fields.
+      - Missing content omits modules instead of triggering fallback.
+      - No frontend-authored interpretation is introduced.
+    must_not_touch:
+      - RIASEC scorer math
+      - RIASEC content pack question semantics
+      - frontend local fallback copy
+      - public career matching
+    rollback_note: "Disable registry slot lookup."
+
+  - id: RIASEC-PERSONALIZATION-06
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/riasec-personalization-06-frontend-fail-closed
+    base: main
+    depends_on: [RIASEC-PERSONALIZATION-03, RIASEC-PERSONALIZATION-04]
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "feat(riasec): consume backend personalization state fail-closed"
+    goal: "Make frontend consume backend-provided personalization state and module visibility without local interpretation inference."
+    in_scope:
+      - fap-web RIASEC assembler/types
+      - RIASEC shell contract tests
+      - fail-closed gating
+      - docs/codex train state updates
+    out_of_scope:
+      - backend changes
+      - new editorial copy
+      - frontend interpretation inference
+      - career examples authority changes
+    likely_touched:
+      - lib/riasec/**
+      - components/result/riasec/**
+      - tests/contracts/**riasec**
+      - docs/codex/pr-train-state.json
+    required_local_checks:
+      - targeted RIASEC contract tests
+      - pnpm typecheck
+      - pnpm test:contract where practical
+      - git diff --check
+    acceptance:
+      - Frontend types support backend-provided interpretation and visibility fields.
+      - Unknown state fails closed.
+      - Renderer does not infer profile shape, quality, alternate code, or module visibility from scores.
+      - Trusted Result v1.5 shell compatibility is preserved.
+    must_not_touch:
+      - backend
+      - scorer
+      - public editorial copy
+      - local fallback interpretation copy
+      - career matching
+    rollback_note: "Revert to Trusted Result v1.5 shell behavior."
+
+  - id: RIASEC-PERSONALIZATION-07
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/riasec-personalization-07-fixture-matrix
+    base: main
+    depends_on:
+      - RIASEC-PERSONALIZATION-01
+      - RIASEC-PERSONALIZATION-02
+      - RIASEC-PERSONALIZATION-03
+      - RIASEC-PERSONALIZATION-04
+      - RIASEC-PERSONALIZATION-05
+      - RIASEC-PERSONALIZATION-06
+    mode: verify
+    risk_level: L1
+    status: planned
+    title: "test(riasec): add personalization fixture matrix contracts"
+    goal: "Add fixture matrix and contract tests covering personalization states, fail-closed behavior, and forbidden claims."
+    in_scope:
+      - frontend RIASEC fixtures/contracts
+      - acceptance docs if needed
+      - docs/codex train state updates
+    out_of_scope:
+      - scoring math changes
+      - content semantics changes
+      - career matching
+      - new public UI behavior except test-driven contract fixes in scope
+    likely_touched:
+      - tests/contracts/**riasec**
+      - docs/riasec/**
+      - docs/codex/pr-train-state.json
+    required_local_checks:
+      - targeted RIASEC contract tests
+      - pnpm typecheck
+      - pnpm test:contract where practical
+      - git diff --check
+    acceptance:
+      - Fixture matrix covers baseline, clear, blended, broad, near_tie, alternate_code, low_quality, 140Q tension, missing content, and forbidden phrases.
+      - Existing Trusted Result v1.5 freeze still passes.
+      - Forbidden career, raw delta, 140Q accuracy, and AI-generated report claims remain blocked.
+    must_not_touch:
+      - scorer math
+      - RIASEC content pack question semantics
+      - career examples as matches
+      - AI-generated formal reports
+    rollback_note: "Remove new fixtures and tests only."
