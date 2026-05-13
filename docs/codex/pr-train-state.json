@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-14T01:12:00+08:00",
+  "updated_at": "2026-05-14T01:26:00+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -2184,7 +2184,7 @@
       "branch": "codex/pr-cms-02-content-release-revalidate-web",
       "base": "main",
       "depends_on": [],
-      "status": "pr_open",
+      "status": "pr_open_rebased",
       "title": "test(cms): harden content release revalidate allowlist",
       "mode": "execute",
       "risk_level": "L1",
@@ -2224,7 +2224,7 @@
       ],
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/791",
-      "commit_sha": "bcfbb7217139c45a2f93c372b9a5b3d2420078b9",
+      "commit_sha": "43794f3e196be2b29ca2173871ad951703b8eb1c",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -2239,6 +2239,11 @@
           "at": "2026-05-14T01:12:00+08:00",
           "status": "pr_open",
           "summary": "Opened fap-web PR #791 for PR-CMS-02."
+        },
+        {
+          "at": "2026-05-14T01:26:00+08:00",
+          "status": "pr_open_rebased",
+          "summary": "Rebased PR #791 onto latest origin/main and resolved pr-train state conflict."
         }
       ]
     }
