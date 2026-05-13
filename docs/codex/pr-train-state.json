@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-13T16:17:21Z",
+  "updated_at": "2026-05-13T16:39:12Z",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -1763,7 +1763,7 @@
       "depends_on": [
         "RIASEC-DEEP-COPY-08B"
       ],
-      "status": "in_progress",
+      "status": "merged",
       "title": "test(riasec): add deep copy contract fixtures and forbidden claims",
       "mode": "verify",
       "risk_level": "L1",
@@ -1824,11 +1824,11 @@
         }
       ],
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/789",
+      "commit_sha": "722685377914ef3e792896bbed7780dbad3b562d",
+      "merged_at": "2026-05-13T16:27:02Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "sidecar_issues": [
         {
           "title": "Postbuild sitemap generation rewrites public/sitemap.xml during local validation",
@@ -1854,7 +1854,7 @@
         "RIASEC-DEEP-COPY-08B",
         "RIASEC-DEEP-COPY-09"
       ],
-      "status": "pending",
+      "status": "open",
       "title": "test(riasec): freeze deep copy runtime acceptance",
       "mode": "verify",
       "risk_level": "L1",
@@ -1862,14 +1862,99 @@
         "tests/contracts/**riasec**",
         "docs/codex/**"
       ],
-      "checks": [],
+      "checks": [
+        {
+          "name": "dependency RIASEC-DEEP-COPY-08B merged",
+          "status": "passed",
+          "evidence": "fap-web PR #788 merged at abd114ab330ad5d7473c5f528adf755b6b0a8f7c and origin/main contains the merge commit"
+        },
+        {
+          "name": "dependency RIASEC-DEEP-COPY-09 merged",
+          "status": "passed",
+          "evidence": "fap-web PR #789 merged at 722685377914ef3e792896bbed7780dbad3b562d and origin/main contains the merge commit"
+        },
+        {
+          "name": "JSON/YAML validity",
+          "status": "passed",
+          "command": "node -e \"JSON.parse(require('fs').readFileSync('docs/codex/pr-train-state.json','utf8')); console.log('json ok')\" && ruby -e 'require \"yaml\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); puts \"yaml ok\"'"
+        },
+        {
+          "name": "targeted RIASEC V11 smoke acceptance contracts",
+          "status": "passed",
+          "command": "pnpm vitest run tests/contracts/riasec-deep-copy-v11-smoke-acceptance.contract.test.tsx tests/contracts/riasec-trusted-result-v15-smoke-acceptance.contract.test.ts tests/contracts/riasec-deep-copy-fixture-matrix.contract.test.tsx tests/contracts/riasec-deep-copy-slot-consumption.contract.test.tsx"
+        },
+        {
+          "name": "pnpm typecheck",
+          "status": "passed",
+          "command": "pnpm typecheck"
+        },
+        {
+          "name": "pnpm test:contract",
+          "status": "passed",
+          "command": "pnpm test:contract"
+        },
+        {
+          "name": "production build with production API env",
+          "status": "passed",
+          "command": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://www.fermatmind.com pnpm build"
+        },
+        {
+          "name": "forbidden claim scan",
+          "status": "passed",
+          "command": "rg forbidden claim fragments against runtime RIASEC files and backend-authority fixture"
+        },
+        {
+          "name": "scope validation",
+          "status": "passed",
+          "details": "PR10 authored changes are limited to docs/codex train/acceptance files and RIASEC contract tests. No scorer, content pack, frontend runtime component, share/PDF/history runtime, career registry, feedback runtime, or analytics runtime files are staged for this PR."
+        },
+        {
+          "name": "git diff --check",
+          "status": "passed",
+          "command": "git diff --check -- docs/codex/pr-train-state.json docs/codex/riasec-deep-copy-10-v11-smoke-acceptance.md tests/contracts/riasec-deep-copy-v11-smoke-acceptance.contract.test.tsx"
+        }
+      ],
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/790",
+      "commit_sha": "969f36a1319b4e1ae4de4eb4653e3b25ce3021d2",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "sidecar_issues": []
+      "sidecar_issues": [
+        {
+          "title": "Unrelated content-release revalidate worktree changes are present",
+          "severity": "P2",
+          "introduced_by_current_pr": false,
+          "blocks_merge": false,
+          "evidence": [
+            "app/api/content-release/revalidate/route.ts is modified outside PR10 scope",
+            "tests/contracts/content-release-revalidate-allowlist.contract.test.ts is untracked outside PR10 scope"
+          ],
+          "suggested_owner": "CMS/content release train"
+        },
+        {
+          "title": "Unrelated CMS API environment runbook dirty file is present",
+          "severity": "P3",
+          "introduced_by_current_pr": false,
+          "blocks_merge": false,
+          "evidence": [
+            "docs/ops/cms-api-environments-runbook.md is modified outside PR10 scope"
+          ],
+          "suggested_owner": "CMS/content release train"
+        },
+        {
+          "title": "Postbuild sitemap generation rewrites public/sitemap.xml during local validation",
+          "severity": "P2",
+          "introduced_by_current_pr": false,
+          "blocks_merge": false,
+          "evidence": [
+            "Command: NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://www.fermatmind.com pnpm build",
+            "Postbuild command regenerated public/sitemap.xml",
+            "Generated diff was restored and is not included in RIASEC-DEEP-COPY-10"
+          ],
+          "suggested_owner": "SEO/GEO platform"
+        }
+      ]
     },
     {
       "id": "RIASEC-DEEP-COPY-08B",
@@ -1950,9 +2035,9 @@
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "sidecar_issues": [
-        {
-          "title": "Plain local production build requires local CMS API on 127.0.0.1:8000",
+            "sidecar_issues": [
+                {
+                    "title": "Plain local production build requires local CMS API on 127.0.0.1:8000",
           "severity": "P2",
           "introduced_by_current_pr": false,
           "blocks_merge": false,
@@ -1974,10 +2059,43 @@
             "Generated diff was restored and is not included in RIASEC-DEEP-COPY-08B"
           ],
           "suggested_owner": "SEO/GEO platform"
+                }
+            ]
+        },
+        {
+            "id": "PR-CMS-02",
+            "repo": "fap-web",
+            "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+            "branch": "codex/pr-cms-02-content-release-revalidate-web",
+            "base": "main",
+            "depends_on": [],
+            "status": "in_progress",
+            "title": "test(cms): harden content release revalidate allowlist",
+            "mode": "execute",
+            "risk_level": "L1",
+            "allowed_paths": [
+                "app/api/content-release/revalidate/route.ts",
+                "tests/contracts/content-release-revalidate-allowlist.contract.test.ts",
+                "docs/ops/cms-api-environments-runbook.md",
+                "docs/codex/pr-train.yaml",
+                "docs/codex/pr-train-state.json"
+            ],
+            "checks": [
+                {
+                    "name": "manifest authorization",
+                    "status": "passed",
+                    "details": "User explicitly authorized adding PR-CMS-02 to fap-api and fap-web pr-train manifest/state."
+                }
+            ],
+            "failure_reason": null,
+            "pr_url": null,
+            "commit_sha": null,
+            "merged_at": null,
+            "remote_branch_deleted": false,
+            "local_cleanup_executed": false,
+            "sidecar_issues": []
         }
-      ]
-    }
-  ],
+    ],
   "sidecar_issues": [
     {
       "title": "Generated sitemap drift on validation rebuild",
