@@ -1,15 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { createAttemptShare } from "@/lib/api/v0_3";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
+import { trackEvent } from "@/lib/analytics";
 import type { Locale } from "@/lib/i18n/locales";
 import { localizedPath } from "@/lib/i18n/locales";
 import { buildRiasecTakeHref, getRiasecVariantLabel } from "@/lib/riasec/forms";
 import type { RiasecResultViewModel } from "@/lib/riasec/resultAssembler";
+import {
+  buildRiasecTrustedResultTrackingPayload,
+  RIASEC_TRACKING_EVENTS,
+} from "@/lib/riasec/tracking";
 
 export function RiasecResultShell({
   locale,
@@ -22,6 +27,10 @@ export function RiasecResultShell({
 }) {
   const isZh = locale === "zh";
   const [shareState, setShareState] = useState<"idle" | "loading" | "copied" | "failed">("idle");
+  const trackingPayload = useMemo(
+    () => buildRiasecTrustedResultTrackingPayload(viewModel, locale),
+    [locale, viewModel]
+  );
   const enhancedVisible =
     Object.keys(viewModel.enhancedBreakdown.activity).length > 0 ||
     Object.keys(viewModel.enhancedBreakdown.environment).length > 0 ||
@@ -46,6 +55,26 @@ export function RiasecResultShell({
       ].filter(([, value]) => Boolean(value))
     : [];
 
+  useEffect(() => {
+    trackEvent(RIASEC_TRACKING_EVENTS.resultView, trackingPayload);
+  }, [trackingPayload]);
+
+  useEffect(() => {
+    if (!viewModel.activityExplorer) {
+      return;
+    }
+
+    trackEvent(RIASEC_TRACKING_EVENTS.activityExplorerView, trackingPayload);
+  }, [trackingPayload, viewModel.activityExplorer]);
+
+  useEffect(() => {
+    if (!viewModel.feedbackOverlay) {
+      return;
+    }
+
+    trackEvent(RIASEC_TRACKING_EVENTS.feedbackOverlayView, trackingPayload);
+  }, [trackingPayload, viewModel.feedbackOverlay]);
+
   async function handleShare() {
     if (!attemptId || shareState === "loading") {
       setShareState("failed");
@@ -59,6 +88,8 @@ export function RiasecResultShell({
       if (!rawUrl) {
         throw new Error("share_url_missing");
       }
+
+      trackEvent(RIASEC_TRACKING_EVENTS.shareView, trackingPayload);
 
       const shareUrl = typeof window === "undefined" ? rawUrl : new URL(rawUrl, window.location.origin).toString();
       const shareTitle = isZh ? "分享我的 RIASEC 职业兴趣结果" : "Share my RIASEC career interest result";
