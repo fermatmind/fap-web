@@ -1097,8 +1097,8 @@
         }
       ],
       "failure_reason": null,
-      "pr_url": "https://github.com/fermatmind/fap-web/pull/786",
-      "commit_sha": "ebc32cdeee862948265cf8b7e57f2972d743356d",
+      "pr_url": null,
+      "commit_sha": null,
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false
@@ -1498,7 +1498,7 @@
       "depends_on": [
         "RIASEC-PERSONALIZATION-07"
       ],
-      "status": "in_progress",
+      "status": "merged",
       "title": "docs(riasec): register deep copy train and readiness scan",
       "mode": "scan/docs",
       "risk_level": "L1",
@@ -1526,11 +1526,11 @@
         }
       ],
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/786",
+      "commit_sha": "c17b55c3b8942eb72ac9845d3414876b14c4fe5c",
+      "merged_at": "2026-05-13T10:52:59Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "sidecar_issues": []
     },
     {
