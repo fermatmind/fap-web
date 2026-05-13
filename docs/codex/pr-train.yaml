@@ -791,6 +791,179 @@ prs:
       - AI-generated report runtime
     rollback_note: "Revert test/fixture freeze without changing runtime behavior."
 
+  - id: RIASEC-AH-01
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/riasec-ah-01-technical-note-route
+    base: main
+    depends_on: [RIASEC-TRAIN-05]
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "feat(riasec): enable frontend Technical Note route"
+    goal: "Open the RIASEC Technical Note frontend route using the backend Technical Note API and existing Enneagram route pattern."
+    in_scope:
+      - technical-note route scale allowlist
+      - RIASEC slug handling
+      - frontend contract tests
+    out_of_scope:
+      - backend scoring
+      - RIASEC projection
+      - result page redesign
+      - analytics dispatch
+    likely_touched:
+      - app/(localized)/[locale]/tests/[slug]/technical-note/page.tsx
+      - components/result/enneagram/EnneagramTechnicalNotePage.tsx
+      - tests/contracts/*technical-note*.contract.test.ts*
+    acceptance:
+      - RIASEC technical-note route resolves.
+      - Enneagram technical-note route still resolves.
+      - Unsupported slugs still notFound.
+      - No unsupported RIASEC claims are introduced.
+    must_not_touch:
+      - backend scoring
+      - backend projection
+      - RIASEC content packs
+      - share/PDF/history
+    rollback_note: "Revert route allowlist and contract test changes."
+
+  - id: RIASEC-AH-02
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/riasec-ah-02-runtime-analytics
+    base: main
+    depends_on: [RIASEC-AH-01, RIASEC-TRAIN-10]
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "feat(riasec): wire runtime analytics dispatch"
+    goal: "Dispatch existing RIASEC Trusted Result analytics events from real frontend runtime surfaces without adding recommendation fields."
+    in_scope:
+      - RIASEC result view event
+      - RIASEC share action event
+      - RIASEC PDF/action event where frontend action exists
+      - Activity explorer and feedback overlay observation events
+      - tracking contract tests
+    out_of_scope:
+      - event schema overclaim
+      - backend scoring/projection
+      - raw feedback exposure
+      - recommendation/match logic
+    likely_touched:
+      - components/result/riasec/RiasecResultShell.tsx
+      - lib/riasec/resultAssembler.ts
+      - lib/tracking/events.ts
+      - tests/contracts/*riasec*.contract.test.ts*
+      - tests/contracts/tracking-whitelist.contract.test.ts
+    acceptance:
+      - Runtime call sites exist for relevant RIASEC events.
+      - Forbidden fields remain stripped by whitelist.
+      - Targeted tracking and RIASEC contracts pass.
+    must_not_touch:
+      - scorer math
+      - content packs
+      - career recommendation runtime
+    rollback_note: "Remove RIASEC tracking call sites; event whitelist remains from TRAIN-10 unless separately reverted."
+
+  - id: RIASEC-AH-03
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/riasec-ah-03-ledger-reconcile
+    base: main
+    depends_on: [RIASEC-AH-02]
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "docs(codex): reconcile RIASEC TRAIN-10 ledger"
+    goal: "Update train audit ledger so RIASEC-TRAIN-10 records the merged PR URL and merge commit."
+    in_scope:
+      - docs/codex/pr-train-state.json
+      - docs/codex/pr-train.yaml only if needed for consistency
+    out_of_scope:
+      - runtime code
+      - tests unless an existing ledger test requires it
+      - RIASEC content packs
+    likely_touched:
+      - docs/codex/pr-train-state.json
+      - docs/codex/pr-train.yaml
+    acceptance:
+      - RIASEC-TRAIN-10 is marked merged with PR URL and merge commit.
+      - JSON/YAML remains valid.
+      - No runtime files changed.
+    must_not_touch:
+      - app/**
+      - components/**
+      - lib/**
+      - backend/runtime files
+    rollback_note: "Revert metadata reconciliation only."
+
+  - id: RIASEC-AH-04
+    repo: fap-api
+    repo_path: /Users/rainie/Desktop/GitHub/fap-api
+    branch: codex/riasec-ah-04-activity-examples
+    base: main
+    depends_on: [RIASEC-AH-03, RIASEC-TRAIN-07]
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "feat(riasec): expand activity explorer examples"
+    goal: "Expand backend-governed Activity Explorer v0.1 examples for additional Holland codes while preserving examples-only boundaries."
+    in_scope:
+      - backend RIASEC Activity Explorer service/content constants
+      - backend RIASEC Activity Explorer tests
+      - frontend contract tests only if renderer contract changes
+    out_of_scope:
+      - career registry matching
+      - O*NET/SOC/source URL fabrication
+      - scorer/projection math
+      - recommendation language
+    likely_touched:
+      - backend/app/Services/Riasec/RiasecActivityExplorerService.php
+      - backend/tests/Unit/Services/Riasec/RiasecActivityExplorerServiceTest.php
+    acceptance:
+      - Additional codes beyond IAS render safe examples-only content.
+      - Every occupation example keeps content_example_not_registry_match.
+      - Tests block Matches, ranking, fit score, source_url, O*NET/SOC, and success prediction.
+    must_not_touch:
+      - backend/content_packs/RIASEC/**
+      - backend/app/Services/Assessment/Scorers/**
+      - career registry source rows
+    rollback_note: "Revert Activity Explorer examples and tests; no data migration involved."
+
+  - id: RIASEC-AH-05
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/riasec-ah-05-smoke-acceptance
+    base: main
+    depends_on: [RIASEC-AH-01, RIASEC-AH-02, RIASEC-AH-03, RIASEC-AH-04]
+    mode: verify
+    risk_level: L1
+    status: planned
+    title: "test(riasec): add Trusted Result v1.5 smoke acceptance"
+    goal: "Add end-to-end smoke acceptance coverage for result, report, share, PDF, history, and Technical Note readiness."
+    in_scope:
+      - smoke acceptance docs
+      - contract fixtures or scripts following existing repo patterns
+      - targeted acceptance tests
+    out_of_scope:
+      - product feature expansion
+      - scoring math
+      - career registry matching
+      - AI generation
+    likely_touched:
+      - docs/release/**
+      - tests/contracts/**
+      - scripts/**
+    acceptance:
+      - Smoke report lists GO/NO-GO and remaining sidecars.
+      - Targeted backend and frontend acceptance checks pass.
+      - No unsupported RIASEC claims are introduced.
+    must_not_touch:
+      - scorer math
+      - content pack semantics
+      - organization/counselor surfaces
+    rollback_note: "Remove smoke docs/tests only; runtime remains unchanged."
+
   - id: PR-RT-01
     repo: fap-web
     repo_path: /Users/rainie/Desktop/GitHub/fap-web
