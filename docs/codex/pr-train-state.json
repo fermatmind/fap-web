@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-13T10:41:29Z",
+  "updated_at": "2026-05-13T15:31:14Z",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -1807,6 +1807,112 @@
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
       "sidecar_issues": []
+    },
+    {
+      "id": "RIASEC-DEEP-COPY-08B",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/riasec-deep-copy-08b-frontend-renderer",
+      "base": "main",
+      "depends_on": [
+        "RIASEC-DEEP-COPY-08A"
+      ],
+      "status": "in_progress",
+      "title": "feat(riasec): render backend deep content slots fail closed",
+      "mode": "execute",
+      "risk_level": "L1",
+      "allowed_paths": [
+        "lib/riasec/resultAssembler.ts",
+        "components/result/riasec/RiasecResultShell.tsx",
+        "tests/contracts/fixtures/riasec/deep-copy-v1.projection.json",
+        "tests/contracts/riasec-deep-copy-slot-consumption.contract.test.tsx",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [
+        {
+          "name": "dependency RIASEC-DEEP-COPY-08A merged in fap-api origin/main",
+          "status": "passed",
+          "evidence": "fap-api origin/main contains deep_content_slots_v1 in RiasecPublicProjectionService and RiasecReportComposer"
+        },
+        {
+          "name": "JSON/YAML validity",
+          "status": "passed",
+          "command": "node -e \"JSON.parse(require('fs').readFileSync('docs/codex/pr-train-state.json','utf8')); JSON.parse(require('fs').readFileSync('tests/contracts/fixtures/riasec/deep-copy-v1.projection.json','utf8')); console.log('json ok')\" && ruby -e 'require \"yaml\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); puts \"yaml ok\"'"
+        },
+        {
+          "name": "targeted RIASEC deep copy contract test",
+          "status": "passed",
+          "command": "pnpm vitest run tests/contracts/riasec-deep-copy-slot-consumption.contract.test.tsx"
+        },
+        {
+          "name": "targeted existing RIASEC contract tests",
+          "status": "passed",
+          "command": "pnpm vitest run tests/contracts/riasec-trusted-result-shell.contract.test.tsx tests/contracts/riasec-personalization-fixture-matrix.contract.test.tsx tests/contracts/riasec-trusted-result-v15-freeze.contract.test.ts"
+        },
+        {
+          "name": "pnpm typecheck",
+          "status": "passed",
+          "command": "pnpm typecheck"
+        },
+        {
+          "name": "pnpm test:contract",
+          "status": "passed",
+          "command": "pnpm test:contract"
+        },
+        {
+          "name": "production build with production API env",
+          "status": "passed",
+          "command": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://www.fermatmind.com pnpm build",
+          "details": "Plain pnpm build failed against local 127.0.0.1:8000 content-pages API before reaching RIASEC; production API env build passed."
+        },
+        {
+          "name": "scope validation",
+          "status": "passed",
+          "details": "Changed files limited to authorized 08B metadata, RIASEC result assembler, RIASEC shell renderer, RIASEC deep-copy fixture, and RIASEC contract test. No scorer, backend, content pack, share/PDF/history, career registry, feedback runtime, or analytics runtime files changed."
+        },
+        {
+          "name": "forbidden claim scan for runtime diff",
+          "status": "passed",
+          "command": "rg forbidden phrases against lib/riasec/resultAssembler.ts and components/result/riasec/RiasecResultShell.tsx"
+        },
+        {
+          "name": "git diff --check",
+          "status": "passed"
+        }
+      ],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [
+        {
+          "title": "Plain local production build requires local CMS API on 127.0.0.1:8000",
+          "severity": "P2",
+          "introduced_by_current_pr": false,
+          "blocks_merge": false,
+          "evidence": [
+            "Command: pnpm build",
+            "Failure: prerendering /en/ops/content-pages failed with ECONNREFUSED 127.0.0.1:8000",
+            "Command passed with production API env: NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://www.fermatmind.com pnpm build"
+          ],
+          "suggested_owner": "frontend platform / CMS ops"
+        },
+        {
+          "title": "Postbuild sitemap generation rewrites public/sitemap.xml during local validation",
+          "severity": "P2",
+          "introduced_by_current_pr": false,
+          "blocks_merge": false,
+          "evidence": [
+            "Command: NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://www.fermatmind.com pnpm build",
+            "Postbuild command regenerated public/sitemap.xml",
+            "Generated diff was restored and is not included in RIASEC-DEEP-COPY-08B"
+          ],
+          "suggested_owner": "SEO/GEO platform"
+        }
+      ]
     }
   ],
   "sidecar_issues": [

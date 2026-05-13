@@ -10,7 +10,12 @@ import { trackEvent } from "@/lib/analytics";
 import type { Locale } from "@/lib/i18n/locales";
 import { localizedPath } from "@/lib/i18n/locales";
 import { buildRiasecTakeHref, getRiasecVariantLabel } from "@/lib/riasec/forms";
-import { getRiasecModuleVisibility, type RiasecResultViewModel } from "@/lib/riasec/resultAssembler";
+import {
+  getRenderableRiasecDeepContentSlots,
+  getRiasecModuleVisibility,
+  type RiasecDeepContentSlot,
+  type RiasecResultViewModel,
+} from "@/lib/riasec/resultAssembler";
 import {
   buildRiasecTrustedResultTrackingPayload,
   RIASEC_TRACKING_EVENTS,
@@ -54,6 +59,7 @@ export function RiasecResultShell({
   const showContextCards = contextCardsVisibility !== "hidden";
   const showShareAction = shareVisibility !== "hidden";
   const showHistoryAction = historyVisibility !== "hidden";
+  const deepContentSlots = getRenderableRiasecDeepContentSlots(viewModel);
   const formMeta = [
     formLabel,
     typeof viewModel.questionCount === "number" ? `${viewModel.questionCount}${isZh ? " 题" : " questions"}` : "",
@@ -216,6 +222,10 @@ export function RiasecResultShell({
         </Card>
       ) : null}
 
+      {deepContentSlots.length > 0 ? (
+        <RiasecDeepContentSlotsSection slots={deepContentSlots} isZh={isZh} />
+      ) : null}
+
       {showActivityExplorer ? (
       <Card data-testid="riasec-governed-copy-surface">
         <CardHeader>
@@ -336,4 +346,81 @@ export function RiasecResultShell({
       ) : null}
     </div>
   );
+}
+
+function RiasecDeepContentSlotsSection({
+  slots,
+  isZh,
+}: {
+  slots: RiasecDeepContentSlot[];
+  isZh: boolean;
+}) {
+  return (
+    <Card data-testid="riasec-deep-content-slots">
+      <CardHeader>
+        <CardTitle>{isZh ? "深度内容" : "Deep content"}</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-[var(--fm-gap-sm)]">
+        {slots.map((slot) => (
+          <RiasecDeepContentSlotCard key={slot.slotId || `${slot.slotKey}-${slot.moduleKey}`} slot={slot} />
+        ))}
+      </CardContent>
+    </Card>
+  );
+}
+
+function RiasecDeepContentSlotCard({ slot }: { slot: RiasecDeepContentSlot }) {
+  const { content } = slot;
+  const title = typeof content.title === "string" ? content.title : "";
+  const summary = typeof content.summary === "string" ? content.summary : "";
+  const body = typeof content.body === "string" ? content.body : "";
+  const detailEntries = Object.entries(content).filter(([key]) => !["title", "summary", "body"].includes(key));
+
+  return (
+    <section
+      className="rounded-lg border border-[var(--fm-border)] bg-white p-3"
+      data-testid="riasec-deep-content-slot"
+      data-riasec-deep-slot-key={slot.slotKey}
+      data-riasec-deep-slot-group={slot.slotGroup}
+      data-riasec-deep-slot-visibility={slot.slotVisibility}
+    >
+      <div className="flex flex-wrap items-start justify-between gap-2">
+        <div>
+          {title ? <h3 className="text-sm font-semibold text-[var(--fm-text)]">{title}</h3> : null}
+          {summary ? <p className="mt-2 text-sm leading-6 text-[var(--fm-text-muted)]">{summary}</p> : null}
+        </div>
+        <span className="rounded-md bg-slate-100 px-2 py-1 text-xs text-[var(--fm-text-muted)]">
+          {slot.slotVisibility}
+        </span>
+      </div>
+      {body ? <p className="mt-3 text-sm leading-6 text-[var(--fm-text-muted)]">{body}</p> : null}
+      {detailEntries.length > 0 ? (
+        <div className="mt-3 grid gap-2 md:grid-cols-2">
+          {detailEntries.map(([key, value]) => (
+            <div key={key} className="rounded-md bg-slate-50 px-3 py-2">
+              <div className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">
+                {formatDeepContentKey(key)}
+              </div>
+              {Array.isArray(value) ? (
+                <ul className="mt-2 list-disc space-y-1 pl-5 text-sm leading-6 text-[var(--fm-text-muted)]">
+                  {value.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="mt-2 text-sm leading-6 text-[var(--fm-text-muted)]">{value}</p>
+              )}
+            </div>
+          ))}
+        </div>
+      ) : null}
+      {slot.boundaries.userVisibleBoundary ? (
+        <p className="mt-3 text-xs leading-5 text-[var(--fm-text-muted)]">{slot.boundaries.userVisibleBoundary}</p>
+      ) : null}
+    </section>
+  );
+}
+
+function formatDeepContentKey(key: string): string {
+  return key.replace(/_/g, " ");
 }

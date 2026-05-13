@@ -1,0 +1,326 @@
+{
+  "schema_version": "riasec.public_projection.v2",
+  "holland_code": {
+    "code": "IAS",
+    "primary_type": "I",
+    "secondary_type": "A",
+    "tertiary_type": "S"
+  },
+  "scores": {
+    "score_kind": "dimension_scores_0_100",
+    "dimensions": [
+      { "code": "R", "label": "现实型", "score": 42 },
+      { "code": "I", "label": "研究型", "score": 88 },
+      { "code": "A", "label": "艺术型", "score": 74 },
+      { "code": "S", "label": "社会型", "score": 69 },
+      { "code": "E", "label": "企业型", "score": 36 },
+      { "code": "C", "label": "常规型", "score": 51 }
+    ]
+  },
+  "form": {
+    "form_code": "riasec_140",
+    "question_count": 140,
+    "form_kind": "contextual",
+    "score_space_version": "riasec_140_work_daily_context_space.v1",
+    "compare_compatibility_group": "RIASEC:riasec_140:riasec_140_work_daily_context_space.v1",
+    "cross_form_comparable": false,
+    "raw_score_delta_allowed": false
+  },
+  "measurement_evidence": {
+    "quality_rule_status": "quality_flags_available",
+    "snapshot_bound": true,
+    "validation_status": "runtime_contract_defined_validation_pending"
+  },
+  "quality": {
+    "grade": "A",
+    "flags": [],
+    "quality_state": "normal",
+    "low_quality_strength": "not_triggered"
+  },
+  "content_boundary": {
+    "occupation_examples_policy": "content_example_not_registry_match_without_reviewed_registry_source"
+  },
+  "interpretation_state": {
+    "interpretation_rule_version": "riasec_interpretation_rule_spec_v2",
+    "profile_shape": "blended_code",
+    "profile_shape_version": "riasec_profile_shape_v2_0",
+    "clarity_label": "medium",
+    "near_tie_state": {
+      "state": "none",
+      "dimensions": []
+    },
+    "alternate_code": {
+      "show": false,
+      "codes": [],
+      "display_boundary": ""
+    },
+    "alternate_code_reason": null,
+    "top_code_confidence": {
+      "level": "medium",
+      "meaning": "readability strength, not probability"
+    },
+    "reading_strength": "normal_reading",
+    "result_page_strategy": {
+      "primary_reading_mode": "blend_reading"
+    },
+    "module_visibility_policy_id": "riasec_module_visibility_policy_v1",
+    "validation_status": "rule_contract_defined_validation_pending",
+    "field_authority": {
+      "profile_shape": "backend_owned",
+      "near_tie_state": "backend_owned",
+      "alternate_code": "backend_owned",
+      "top_code_confidence": "backend_owned",
+      "reading_strength": "backend_owned"
+    }
+  },
+  "module_visibility_policy": {
+    "schema_version": "riasec.module_visibility_policy.v1",
+    "policy_id": "riasec_module_visibility_policy_v1",
+    "quality_state": "normal",
+    "profile_shape": "blended_code",
+    "form_code": "riasec_140",
+    "modules": [
+      { "key": "hero_activity_chain", "visibility": "visible", "reason": "standard_reading_available" },
+      { "key": "six_dimension_map", "visibility": "visible", "reason": "dimension_overview_available" },
+      { "key": "pair_blend", "visibility": "visible", "reason": "combination_reading_available" },
+      { "key": "activity_explorer", "visibility": "visible", "reason": "examples_only_activity_explorer_available" },
+      { "key": "occupation_examples", "visibility": "collapsed", "reason": "examples_only_not_registry_match" },
+      { "key": "140q_cta", "visibility": "hidden", "reason": "contextual_cards_available" },
+      { "key": "140q_context_cards", "visibility": "visible", "reason": "contextual_form_completed" },
+      { "key": "share_card", "visibility": "visible", "reason": "safe_share_available" },
+      { "key": "pdf", "visibility": "visible", "reason": "snapshot_bound_pdf_available" },
+      { "key": "history", "visibility": "visible", "reason": "snapshot_bound_history_available" },
+      { "key": "feedback_overlay", "visibility": "visible", "reason": "feedback_does_not_mutate_measured_result" }
+    ],
+    "fallback_policy": {
+      "unknown_module": "hidden",
+      "missing_backend_state": "hidden",
+      "frontend_inference_allowed": false
+    }
+  },
+  "deep_content_slots_v1": {
+    "schema_version": "riasec.deep_content_slots.v1",
+    "scale_code": "RIASEC",
+    "locale": "zh-CN",
+    "content_authority": "backend_riasec_deep_copy_slot_registry",
+    "snapshot_bound": true,
+    "source_policy": {
+      "frontend_fallback_allowed": false,
+      "missing_content_behavior": "omit_module_fail_closed",
+      "pending_content_behavior": "omit_module_fail_closed",
+      "unknown_slot_behavior": "hidden",
+      "formal_report_generation": "deterministic_backend_snapshot"
+    },
+    "slot_visibility_policy": {
+      "module_visibility_policy_id": "riasec_module_visibility_policy_v1",
+      "hidden_slots_omitted": true,
+      "pending_or_unavailable_slots_omitted": true,
+      "frontend_inference_allowed": false
+    },
+    "slots": [
+      {
+        "slot_key": "dimension_deep_copy",
+        "slot_group": "dimension_deep_copy",
+        "slot_id": "dimension_deep_copy:I",
+        "module_key": "six_dimension_map",
+        "slot_visibility": "visible",
+        "status": "authored",
+        "content_status": "authored",
+        "content_version": "riasec_dimension_deep_copy_v1",
+        "review_status": "approved",
+        "source_status": "expert_copy_reviewed",
+        "evidence_level": "method_boundary_v1",
+        "locale": "zh-CN",
+        "frontend_fallback_allowed": false,
+        "fallback_behavior": "omit_module",
+        "applicability": {
+          "form_codes": ["riasec_60", "riasec_140"],
+          "profile_shapes": ["clear_code", "blended_code"],
+          "quality_states": ["normal", "caution"],
+          "codes": ["IAS"],
+          "dimensions": ["I"]
+        },
+        "state": {
+          "dimension_code": "I"
+        },
+        "content": {
+          "title": "Backend fixture I dimension title",
+          "summary": "Backend fixture I summary.",
+          "core_drive": "Backend fixture I core drive.",
+          "positive_value": "Backend fixture I positive value.",
+          "real_world_cost": "Backend fixture I reality cost.",
+          "work_activity_examples": ["Backend fixture I activity one", "Backend fixture I activity two"]
+        },
+        "boundaries": {
+          "user_visible_boundary": "Backend fixture dimension boundary.",
+          "required_boundaries": ["interest_not_ability"],
+          "forbidden_claims": ["career_match", "ability_inference"]
+        }
+      },
+      {
+        "slot_key": "pair_blend_copy",
+        "slot_group": "pair_blend_copy",
+        "slot_id": "pair_blend_copy:I_A",
+        "module_key": "pair_blend",
+        "slot_visibility": "visible",
+        "status": "authored",
+        "content_status": "authored",
+        "content_version": "riasec_pair_blend_copy_v1",
+        "review_status": "approved",
+        "source_status": "expert_copy_reviewed",
+        "evidence_level": "method_boundary_v1",
+        "locale": "zh-CN",
+        "frontend_fallback_allowed": false,
+        "fallback_behavior": "omit_module",
+        "applicability": {
+          "form_codes": ["riasec_60", "riasec_140"],
+          "profile_shapes": ["blended_code"],
+          "quality_states": ["normal", "caution"],
+          "codes": ["IAS"],
+          "dimensions": ["I", "A"]
+        },
+        "state": {
+          "pair_key": "I_A"
+        },
+        "content": {
+          "title": "Backend fixture I_A blend title",
+          "summary": "Backend fixture pair summary.",
+          "chemistry": "Backend fixture pair chemistry.",
+          "activities_to_validate": ["Backend fixture pair activity"]
+        },
+        "boundaries": {
+          "user_visible_boundary": "Backend fixture pair boundary.",
+          "required_boundaries": ["blend_not_identity"],
+          "forbidden_claims": ["personality_identity", "career_match"]
+        }
+      },
+      {
+        "slot_key": "140q_task_card_copy",
+        "slot_group": "140q_layer_copy",
+        "slot_id": "140q_task_card_copy:task_activity_card",
+        "module_key": "140q_context_cards",
+        "slot_visibility": "visible",
+        "status": "authored",
+        "content_status": "authored",
+        "content_version": "riasec_140q_layer_copy_v1",
+        "review_status": "approved",
+        "source_status": "expert_copy_reviewed",
+        "evidence_level": "method_boundary_v1",
+        "locale": "zh-CN",
+        "frontend_fallback_allowed": false,
+        "fallback_behavior": "omit_module",
+        "applicability": {
+          "form_codes": ["riasec_140"],
+          "profile_shapes": ["blended_code"],
+          "quality_states": ["normal"],
+          "codes": ["IAS"],
+          "dimensions": ["I", "A", "S"]
+        },
+        "state": {
+          "slot_name": "task_activity_card",
+          "layer_state": "agreement"
+        },
+        "content": {
+          "title": "Backend fixture 140Q task card",
+          "question": "Backend fixture task question?",
+          "summary": "Backend fixture task summary.",
+          "what_user_sees": ["Backend fixture task signal"]
+        },
+        "boundaries": {
+          "user_visible_boundary": "Backend fixture 140Q boundary.",
+          "required_boundaries": ["contextual_not_accuracy"],
+          "forbidden_claims": ["raw_delta", "accuracy_overclaim"]
+        }
+      },
+      {
+        "slot_key": "structural_difference_copy",
+        "slot_group": "structural_difference_copy",
+        "slot_id": "structural_difference_copy:different_emphasis",
+        "module_key": "structural_difference",
+        "slot_visibility": "collapsed",
+        "status": "authored",
+        "content_status": "authored",
+        "content_version": "riasec_structural_difference_copy_v1",
+        "review_status": "approved",
+        "source_status": "expert_copy_reviewed",
+        "evidence_level": "method_boundary_v1",
+        "locale": "zh-CN",
+        "frontend_fallback_allowed": false,
+        "fallback_behavior": "omit_module",
+        "applicability": {
+          "form_codes": ["riasec_140"],
+          "profile_shapes": ["blended_code"],
+          "quality_states": ["normal"],
+          "codes": ["IAS"],
+          "dimensions": ["I", "A", "S"]
+        },
+        "state": {
+          "structural_difference_state": "different_emphasis"
+        },
+        "content": {
+          "title": "Backend fixture structure title",
+          "summary": "Backend fixture structure summary.",
+          "body": "Backend fixture structure body."
+        },
+        "boundaries": {
+          "user_visible_boundary": "Backend fixture structure boundary.",
+          "required_boundaries": ["narrative_only"],
+          "forbidden_claims": ["raw_delta", "correction_claim"]
+        }
+      },
+      {
+        "slot_key": "aspirations_calibration_copy",
+        "slot_group": "aspirations_copy",
+        "slot_id": "aspirations_calibration_copy:intro",
+        "module_key": "aspirations_calibration",
+        "slot_visibility": "collapsed",
+        "status": "authored",
+        "content_status": "authored",
+        "content_version": "riasec_aspirations_copy_v1",
+        "review_status": "approved",
+        "source_status": "expert_copy_reviewed",
+        "evidence_level": "method_boundary_v1",
+        "locale": "zh-CN",
+        "frontend_fallback_allowed": false,
+        "fallback_behavior": "omit_module",
+        "applicability": {
+          "form_codes": ["riasec_60", "riasec_140"],
+          "profile_shapes": ["blended_code"],
+          "quality_states": ["normal"],
+          "codes": ["IAS"],
+          "dimensions": ["I", "A", "S"]
+        },
+        "state": {
+          "aspirations_state": "not_provided"
+        },
+        "content": {
+          "title": "Backend fixture aspirations title",
+          "summary": "Backend fixture aspirations summary."
+        },
+        "boundaries": {
+          "user_visible_boundary": "Backend fixture aspirations boundary.",
+          "required_boundaries": ["no_score_mutation"],
+          "forbidden_claims": ["feedback_score_mutation"]
+        }
+      }
+    ]
+  },
+  "activity_explorer_v0_1": {
+    "schema_version": "riasec.activity_explorer.v0.1",
+    "content_version": "career_activity_registry_v0.1",
+    "status": "content_examples_only",
+    "source_status": "content_example_not_registry_match",
+    "source_name": "FermatTest Career Activity Registry v0.1",
+    "boundary": {
+      "occupation_examples_policy": "content_example_not_registry_match_without_reviewed_registry_source",
+      "registry_source_connected": false,
+      "fit_score_allowed": false,
+      "success_prediction_allowed": false
+    },
+    "dimension_activity_families": [],
+    "code_activity_pack": {
+      "status": "not_available_for_code_v0_1",
+      "activities": []
+    }
+  }
+}
