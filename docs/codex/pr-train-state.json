@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-12T18:47:35Z",
+  "updated_at": "2026-05-13T03:53:30.285Z",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -861,6 +861,106 @@
           "command": "git diff --check"
         }
       ],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    {
+      "id": "RIASEC-AH-01",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/riasec-ah-01-technical-note-route",
+      "base": "main",
+      "depends_on": [
+        "RIASEC-TRAIN-05"
+      ],
+      "status": "planned",
+      "title": "feat(riasec): enable frontend Technical Note route",
+      "checks": [],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    {
+      "id": "RIASEC-AH-02",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/riasec-ah-02-runtime-analytics",
+      "base": "main",
+      "depends_on": [
+        "RIASEC-AH-01",
+        "RIASEC-TRAIN-10"
+      ],
+      "status": "planned",
+      "title": "feat(riasec): wire runtime analytics dispatch",
+      "checks": [],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    {
+      "id": "RIASEC-AH-03",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/riasec-ah-03-ledger-reconcile",
+      "base": "main",
+      "depends_on": [
+        "RIASEC-AH-02"
+      ],
+      "status": "planned",
+      "title": "docs(codex): reconcile RIASEC TRAIN-10 ledger",
+      "checks": [],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    {
+      "id": "RIASEC-AH-04",
+      "repo": "fap-api",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-api",
+      "branch": "codex/riasec-ah-04-activity-examples",
+      "base": "main",
+      "depends_on": [
+        "RIASEC-AH-03",
+        "RIASEC-TRAIN-07"
+      ],
+      "status": "planned",
+      "title": "feat(riasec): expand activity explorer examples",
+      "checks": [],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    {
+      "id": "RIASEC-AH-05",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/riasec-ah-05-smoke-acceptance",
+      "base": "main",
+      "depends_on": [
+        "RIASEC-AH-01",
+        "RIASEC-AH-02",
+        "RIASEC-AH-03",
+        "RIASEC-AH-04"
+      ],
+      "status": "planned",
+      "title": "test(riasec): add Trusted Result v1.5 smoke acceptance",
+      "checks": [],
       "failure_reason": null,
       "pr_url": null,
       "commit_sha": null,
