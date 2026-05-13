@@ -5,11 +5,14 @@ import { useEffect, useMemo, useState } from "react";
 import { Alert } from "@/components/ui/alert";
 import {
   fetchEnneagramTechnicalNote,
-  type EnneagramMetricDefinition,
-  type EnneagramTechnicalNoteDisclaimer,
+  fetchRiasecTechnicalNote,
+  type ScaleMetricDefinition,
+  type ScaleTechnicalNoteDisclaimer,
   type EnneagramTechnicalNoteResponse,
-  type EnneagramTechnicalNoteSection,
-  type EnneagramTechnicalNoteV1,
+  type RiasecTechnicalNoteResponse,
+  type ScaleTechnicalNoteResponse,
+  type ScaleTechnicalNoteSection,
+  type ScaleTechnicalNoteV1,
 } from "@/lib/api/v0_3";
 import {
   getEnneagramTechnicalNoteNotClaimedLabel,
@@ -31,12 +34,20 @@ const REQUIRED_SECTION_ORDER = [
   "resonance_feedback",
   "method_boundaries",
   "privacy",
+  "measurement_boundary",
+  "riasec_140_context",
+  "quality_boundary",
+  "snapshot_boundary",
+  "career_examples_boundary",
+  "feedback_boundary",
 ] as const;
 
 const DATA_STATUS_ORDER = [
   "currently_operational",
   "collecting_data",
   "pending_sample",
+  "partial",
+  "planned",
   "unavailable",
   "not_claimed",
 ] as const;
@@ -47,7 +58,14 @@ type Props = {
   testTitle: string;
 };
 
-function normalizeDisclaimer(entry: EnneagramTechnicalNoteDisclaimer | string): { key: string; label: string; copy: string } {
+type TechnicalNotePageProps = Props & {
+  fetchTechnicalNote: () => Promise<ScaleTechnicalNoteResponse>;
+  pageTestId: string;
+  testIdPrefix: string;
+  heading: string;
+};
+
+function normalizeDisclaimer(entry: ScaleTechnicalNoteDisclaimer | string): { key: string; label: string; copy: string } {
   if (typeof entry === "string") {
     return {
       key: entry,
@@ -63,11 +81,11 @@ function normalizeDisclaimer(entry: EnneagramTechnicalNoteDisclaimer | string): 
   };
 }
 
-function SectionStatusBadge({ status }: { status: string | null | undefined }) {
+function SectionStatusBadge({ status, testIdPrefix }: { status: string | null | undefined; testIdPrefix: string }) {
   return (
     <span
       className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700"
-      data-testid={`enneagram-technical-note-status-${String(status ?? "unavailable").trim() || "unavailable"}`}
+      data-testid={`${testIdPrefix}-status-${String(status ?? "unavailable").trim() || "unavailable"}`}
     >
       {getEnneagramTechnicalNoteStatusLabel(status)}
     </span>
@@ -75,7 +93,7 @@ function SectionStatusBadge({ status }: { status: string | null | undefined }) {
 }
 
 function formatSummaryLabels(
-  technicalNote: EnneagramTechnicalNoteV1,
+  technicalNote: ScaleTechnicalNoteV1,
   entries: string[]
 ): string[] {
   const sectionLabelMap = new Map(
@@ -113,11 +131,11 @@ function extractStatusEntries(summary: Record<string, unknown>, status: string):
   return [...new Set(merged)];
 }
 
-function renderMetricCard(metric: EnneagramMetricDefinition) {
+function renderMetricCard(metric: ScaleMetricDefinition, testIdPrefix: string) {
   return (
     <article
       key={metric.metric_key}
-      data-testid={`enneagram-technical-note-metric-${metric.metric_key}`}
+      data-testid={`${testIdPrefix}-metric-${metric.metric_key}`}
       className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
     >
       <div className="flex flex-wrap items-start justify-between gap-3">
@@ -125,7 +143,7 @@ function renderMetricCard(metric: EnneagramMetricDefinition) {
           <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{metric.metric_key}</p>
           <h3 className="m-0 text-lg font-semibold text-slate-950">{metric.label ?? metric.metric_key}</h3>
         </div>
-        <SectionStatusBadge status={metric.data_status} />
+        <SectionStatusBadge status={metric.data_status} testIdPrefix={testIdPrefix} />
       </div>
       {metric.description ? <p className="mt-3 text-sm leading-7 text-slate-700">{metric.description}</p> : null}
       {metric.minimum_sample_guidance ? (
@@ -136,16 +154,16 @@ function renderMetricCard(metric: EnneagramMetricDefinition) {
   );
 }
 
-export function EnneagramTechnicalNotePage({ locale, testSlug, testTitle }: Props) {
-  const [technicalNote, setTechnicalNote] = useState<EnneagramTechnicalNoteV1 | null>(null);
+function ScaleTechnicalNotePage({ locale, testSlug, testTitle, fetchTechnicalNote, pageTestId, testIdPrefix, heading }: TechnicalNotePageProps) {
+  const [technicalNote, setTechnicalNote] = useState<ScaleTechnicalNoteV1 | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     let active = true;
 
-    void fetchEnneagramTechnicalNote()
-      .then((response: EnneagramTechnicalNoteResponse) => {
+    void fetchTechnicalNote()
+      .then((response: ScaleTechnicalNoteResponse) => {
         if (!active) {
           return;
         }
@@ -176,7 +194,7 @@ export function EnneagramTechnicalNotePage({ locale, testSlug, testTitle }: Prop
     return () => {
       active = false;
     };
-  }, []);
+  }, [fetchTechnicalNote]);
 
   const orderedSections = useMemo(() => {
     if (!technicalNote) {
@@ -234,21 +252,21 @@ export function EnneagramTechnicalNotePage({ locale, testSlug, testTitle }: Prop
   const backHref = localizedPath(`/tests/${testSlug}`, locale);
 
   return (
-    <main className="mx-auto w-full max-w-6xl px-[var(--fm-container-gutter)] py-[var(--fm-space-6)]" data-testid="enneagram-technical-note-page">
+    <main className="mx-auto w-full max-w-6xl px-[var(--fm-container-gutter)] py-[var(--fm-space-6)]" data-testid={pageTestId}>
       <div className="space-y-4 border-b border-slate-200 pb-8">
         <Link href={backHref} className="text-sm font-medium text-sky-700 hover:text-sky-800">
           返回测试详情
         </Link>
         <div className="space-y-3">
           <p className="m-0 text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">Technical Note v0.1</p>
-          <h1 className="m-0 text-4xl font-semibold tracking-tight text-slate-950">九型人格技术说明</h1>
+          <h1 className="m-0 text-4xl font-semibold tracking-tight text-slate-950">{heading}</h1>
           <p className="m-0 max-w-3xl text-base leading-8 text-slate-700">
-            这份页面用于说明当前九型测量结果的工作边界、可运营指标、以及哪些部分已经可用，哪些仍在继续积累数据。
+            本页只渲染 backend Technical Note contract 返回的 public-safe 方法、边界与数据状态。
           </p>
           <p className="m-0 text-sm text-slate-500">{testTitle}</p>
         </div>
         {technicalNote ? (
-          <dl className="grid gap-3 text-sm text-slate-600 md:grid-cols-2 xl:grid-cols-4" data-testid="enneagram-technical-note-meta">
+          <dl className="grid gap-3 text-sm text-slate-600 md:grid-cols-2 xl:grid-cols-4" data-testid={`${testIdPrefix}-meta`}>
             <div>
               <dt className="font-medium text-slate-500">Technical Note 版本</dt>
               <dd className="mt-1 text-slate-900">{technicalNote.technical_note_version ?? "未标注"}</dd>
@@ -270,13 +288,13 @@ export function EnneagramTechnicalNotePage({ locale, testSlug, testTitle }: Prop
       </div>
 
       {loading ? (
-        <section className="py-10" data-testid="enneagram-technical-note-loading">
+        <section className="py-10" data-testid={`${testIdPrefix}-loading`}>
           <p className="m-0 text-sm text-slate-600">正在加载 Technical Note…</p>
         </section>
       ) : null}
 
       {error ? (
-        <section className="py-8" data-testid="enneagram-technical-note-error">
+        <section className="py-8" data-testid={`${testIdPrefix}-error`}>
           <Alert>
             <p className="m-0 font-medium">Technical Note 暂不可用</p>
             <p className="m-0 mt-1">{error}</p>
@@ -286,16 +304,16 @@ export function EnneagramTechnicalNotePage({ locale, testSlug, testTitle }: Prop
 
       {!loading && !error && technicalNote ? (
         <div className="space-y-12 py-10">
-          <section className="space-y-5" data-testid="enneagram-technical-note-sections">
+          <section className="space-y-5" data-testid={`${testIdPrefix}-sections`}>
             <div className="space-y-2">
               <h2 className="m-0 text-2xl font-semibold text-slate-950">方法与边界</h2>
               <p className="m-0 text-sm text-slate-600">只显示 backend 已提供的 public-safe 章节。缺失章节不会渲染占位噪音。</p>
             </div>
             <div className="space-y-4">
-              {orderedSections.map((section: EnneagramTechnicalNoteSection) => (
+              {orderedSections.map((section: ScaleTechnicalNoteSection) => (
                 <article
                   key={section.section_key}
-                  data-testid={`enneagram-technical-note-section-${section.section_key}`}
+                  data-testid={`${testIdPrefix}-section-${section.section_key}`}
                   className="border-t border-slate-200 pt-5 first:border-t-0 first:pt-0"
                 >
                   <div className="flex flex-wrap items-start justify-between gap-3">
@@ -303,7 +321,7 @@ export function EnneagramTechnicalNotePage({ locale, testSlug, testTitle }: Prop
                       <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">{section.section_key}</p>
                       <h3 className="m-0 text-xl font-semibold text-slate-950">{section.title ?? section.section_key}</h3>
                     </div>
-                    <SectionStatusBadge status={section.data_status} />
+                    <SectionStatusBadge status={section.data_status} testIdPrefix={testIdPrefix} />
                   </div>
                   {section.body ? <p className="mt-3 max-w-4xl text-sm leading-8 text-slate-700">{section.body}</p> : null}
                 </article>
@@ -312,7 +330,7 @@ export function EnneagramTechnicalNotePage({ locale, testSlug, testTitle }: Prop
           </section>
 
           {methodBoundaries.length > 0 ? (
-            <section className="space-y-5" data-testid="enneagram-technical-note-method-boundaries">
+            <section className="space-y-5" data-testid={`${testIdPrefix}-method-boundaries`}>
               <div className="space-y-2">
                 <h2 className="m-0 text-2xl font-semibold text-slate-950">方法边界</h2>
                 <p className="m-0 text-sm text-slate-600">这些条目来自 backend 的 method boundaries，不把跨题型比较或理论层提示写成硬判定。</p>
@@ -336,13 +354,13 @@ export function EnneagramTechnicalNotePage({ locale, testSlug, testTitle }: Prop
                 <p className="m-0 text-sm text-slate-600">这里只展示指标定义、状态、最小样本边界和隐私说明，不展示伪造数值。</p>
               </div>
               <div className="grid gap-4 xl:grid-cols-2">
-                {technicalNote.metric_definitions.map(renderMetricCard)}
+                {technicalNote.metric_definitions.map((metric) => renderMetricCard(metric, testIdPrefix))}
               </div>
             </section>
           ) : null}
 
           {statusSummary.length > 0 ? (
-            <section className="space-y-5" data-testid="enneagram-technical-note-data-status-summary">
+            <section className="space-y-5" data-testid={`${testIdPrefix}-data-status-summary`}>
               <div className="space-y-2">
                 <h2 className="m-0 text-2xl font-semibold text-slate-950">数据状态总览</h2>
                 <p className="m-0 text-sm text-slate-600">这部分用来明确哪些已经可运行，哪些仍在积累样本，以及哪些不作此类声明。</p>
@@ -352,7 +370,7 @@ export function EnneagramTechnicalNotePage({ locale, testSlug, testTitle }: Prop
                   <article key={bucket.status} className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
                     <div className="flex items-center justify-between gap-3">
                       <h3 className="m-0 text-lg font-semibold text-slate-950">{getEnneagramTechnicalNoteStatusLabel(bucket.status)}</h3>
-                      <SectionStatusBadge status={bucket.status} />
+                      <SectionStatusBadge status={bucket.status} testIdPrefix={testIdPrefix} />
                     </div>
                     <ul className="mt-4 space-y-2 text-sm text-slate-700">
                       {bucket.labels.map((label) => (
@@ -366,7 +384,7 @@ export function EnneagramTechnicalNotePage({ locale, testSlug, testTitle }: Prop
           ) : null}
 
           {disclaimers.length > 0 ? (
-            <section className="space-y-5" data-testid="enneagram-technical-note-disclaimers">
+            <section className="space-y-5" data-testid={`${testIdPrefix}-disclaimers`}>
               <div className="space-y-2">
                 <h2 className="m-0 text-2xl font-semibold text-slate-950">使用边界</h2>
                 <p className="m-0 text-sm text-slate-600">以下边界必须成立，不会因为结果页文案或观察反馈而改变。</p>
@@ -384,5 +402,33 @@ export function EnneagramTechnicalNotePage({ locale, testSlug, testTitle }: Prop
         </div>
       ) : null}
     </main>
+  );
+}
+
+export function EnneagramTechnicalNotePage({ locale, testSlug, testTitle }: Props) {
+  return (
+    <ScaleTechnicalNotePage
+      locale={locale}
+      testSlug={testSlug}
+      testTitle={testTitle}
+      fetchTechnicalNote={fetchEnneagramTechnicalNote as () => Promise<EnneagramTechnicalNoteResponse>}
+      pageTestId="enneagram-technical-note-page"
+      testIdPrefix="enneagram-technical-note"
+      heading="九型人格技术说明"
+    />
+  );
+}
+
+export function RiasecTechnicalNotePage({ locale, testSlug, testTitle }: Props) {
+  return (
+    <ScaleTechnicalNotePage
+      locale={locale}
+      testSlug={testSlug}
+      testTitle={testTitle}
+      fetchTechnicalNote={fetchRiasecTechnicalNote as () => Promise<RiasecTechnicalNoteResponse>}
+      pageTestId="riasec-technical-note-page"
+      testIdPrefix="riasec-technical-note"
+      heading="RIASEC Technical Note"
+    />
   );
 }

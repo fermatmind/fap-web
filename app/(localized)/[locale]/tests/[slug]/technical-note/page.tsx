@@ -1,10 +1,21 @@
 import type { Metadata } from "next";
 import { notFound, permanentRedirect } from "next/navigation";
-import { EnneagramTechnicalNotePage } from "@/components/result/enneagram/EnneagramTechnicalNotePage";
+import { EnneagramTechnicalNotePage, RiasecTechnicalNotePage } from "@/components/result/enneagram/EnneagramTechnicalNotePage";
 import { SCALE_CANONICAL_SLUG_MAP, resolveCanonicalSlug } from "@/lib/assessmentSlugMap";
 import { getTestBySlug, resolveTestTitleByLocale } from "@/lib/content";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
+
+const TECHNICAL_NOTE_ROUTE_CONFIG = {
+  [SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM]: {
+    scaleCode: "ENNEAGRAM",
+    Component: EnneagramTechnicalNotePage,
+  },
+  [SCALE_CANONICAL_SLUG_MAP.RIASEC]: {
+    scaleCode: "RIASEC",
+    Component: RiasecTechnicalNotePage,
+  },
+} as const;
 
 export async function generateMetadata({
   params,
@@ -15,7 +26,7 @@ export async function generateMetadata({
   const locale = resolveLocale(localeParam);
   const slug = resolveCanonicalSlug(requestedSlug);
   const test = await getTestBySlug(slug, locale);
-  const title = test ? resolveTestTitleByLocale(test, locale) : "九型人格技术说明";
+  const title = test ? resolveTestTitleByLocale(test, locale) : "Technical Note";
 
   return {
     title: `${title} - Technical Note`,
@@ -25,7 +36,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function EnneagramTechnicalNoteRoute({
+export default async function TechnicalNoteRoute({
   params,
 }: {
   params: Promise<{ locale: string; slug: string }>;
@@ -39,12 +50,15 @@ export default async function EnneagramTechnicalNoteRoute({
   }
 
   const test = await getTestBySlug(slug, locale);
-  if (!test || slug !== SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM || test.scale_code !== "ENNEAGRAM") {
+  const routeConfig = TECHNICAL_NOTE_ROUTE_CONFIG[slug as keyof typeof TECHNICAL_NOTE_ROUTE_CONFIG];
+  if (!test || !routeConfig || test.scale_code !== routeConfig.scaleCode) {
     return notFound();
   }
 
+  const TechnicalNotePage = routeConfig.Component;
+
   return (
-    <EnneagramTechnicalNotePage
+    <TechnicalNotePage
       locale={locale}
       testSlug={slug}
       testTitle={resolveTestTitleByLocale(test, locale)}
