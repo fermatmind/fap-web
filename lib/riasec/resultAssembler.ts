@@ -11,12 +11,61 @@ export type RiasecTrustedResultCard = {
   projectionVersion: string;
   scoreSpaceVersion: string;
   qualityRuleStatus: string;
+  qualityState: string;
   lowQualityStrength: string;
   snapshotBound: boolean;
   crossFormComparable: boolean;
   rawScoreDeltaAllowed: boolean;
   occupationExamplesPolicy: string;
   validationStatus: string;
+};
+
+export type RiasecInterpretationState = {
+  interpretationRuleVersion: string;
+  profileShape: string;
+  profileShapeVersion: string;
+  clarityLabel: string;
+  nearTieState: {
+    state: string;
+    dimensions: string[];
+  };
+  alternateCode: {
+    show: boolean;
+    codes: string[];
+    displayBoundary: string;
+  };
+  alternateCodeReason: string | null;
+  topCodeConfidence: {
+    level: string;
+    meaning: string;
+  };
+  readingStrength: string;
+  resultPageStrategy: {
+    primaryReadingMode: string;
+  };
+  moduleVisibilityPolicyId: string;
+  validationStatus: string;
+  fieldAuthority: Record<string, string>;
+};
+
+export type RiasecModuleVisibility = "visible" | "collapsed" | "hidden";
+
+export type RiasecModuleVisibilityPolicy = {
+  schemaVersion: string;
+  policyId: string;
+  qualityState: string;
+  profileShape: string;
+  formCode: string;
+  modules: Array<{
+    key: string;
+    visibility: RiasecModuleVisibility;
+    reason: string;
+  }>;
+  fallbackPolicy: {
+    unknownModule: string;
+    missingBackendState: string;
+    frontendInferenceAllowed: boolean;
+  };
 };
 
 export type RiasecActivityExplorerOccupationExample = {
@@ -122,6 +171,8 @@ export type RiasecResultViewModel = {
   qualityFlags: string[];
   dimensions: RiasecDimension[];
   trustedResultCard: RiasecTrustedResultCard | null;
+  interpretationState: RiasecInterpretationState | null;
+  moduleVisibilityPolicy: RiasecModuleVisibilityPolicy | null;
   activityExplorer: RiasecActivityExplorer | null;
   feedbackOverlay: RiasecFeedbackOverlay | null;
   enhancedBreakdown: {
@@ -152,6 +203,22 @@ function normalizeStringList(value: unknown): string[] {
   return Array.isArray(value) ? value.map((item) => normalizeText(item)).filter(Boolean) : [];
 }
 
+const KNOWN_RIASEC_MODULE_KEYS = new Set([
+  "hero_activity_chain",
+  "six_dimension_map",
+  "pair_blend",
+  "activity_explorer",
+  "occupation_examples",
+  "140q_cta",
+  "140q_context_cards",
+  "share_card",
+  "pdf",
+  "history",
+  "feedback_overlay",
+]);
+
+const RIASEC_MODULE_VISIBILITIES = new Set<RiasecModuleVisibility>(["visible", "collapsed", "hidden"]);
+
 type RiasecProjectionContainer =
   | Pick<ReportResponse, "riasec_public_projection_v1" | "riasec_public_projection_v2">
   | Pick<ResultResponse, "riasec_public_projection_v1" | "riasec_public_projection_v2">;
@@ -175,6 +242,8 @@ export function assembleRiasecResultViewModel(reportData: RiasecProjectionContai
   const v2Scores = asRecord(projectionV2?.scores);
   const v2ActivityExplorer = asRecord(projectionV2?.activity_explorer_v0_1);
   const v2FeedbackOverlay = asRecord(projectionV2?.exploration_feedback_overlay_v0_1);
+  const v2InterpretationState = asRecord(projectionV2?.interpretation_state);
+  const v2ModuleVisibilityPolicy = asRecord(projectionV2?.module_visibility_policy);
   const v2Dimensions = Array.isArray(v2Scores?.dimensions) ? v2Scores.dimensions : [];
   const dimensions = v2Dimensions.length > 0
     ? v2Dimensions.map((rawDimension) => {
@@ -225,6 +294,7 @@ export function assembleRiasecResultViewModel(reportData: RiasecProjectionContai
           projectionVersion: normalizeText(projectionV2.schema_version),
           scoreSpaceVersion: normalizeText(v2Form?.score_space_version),
           qualityRuleStatus: normalizeText(v2MeasurementEvidence?.quality_rule_status),
+          qualityState: normalizeText(v2Quality?.quality_state),
           lowQualityStrength: normalizeText(v2Quality?.low_quality_strength),
           snapshotBound: normalizeBoolean(v2MeasurementEvidence?.snapshot_bound),
           crossFormComparable: normalizeBoolean(v2Form?.cross_form_comparable),
@@ -233,12 +303,106 @@ export function assembleRiasecResultViewModel(reportData: RiasecProjectionContai
           validationStatus: normalizeText(v2MeasurementEvidence?.validation_status),
         }
       : null,
+    interpretationState: buildInterpretationState(v2InterpretationState),
+    moduleVisibilityPolicy: buildModuleVisibilityPolicy(v2ModuleVisibilityPolicy),
     activityExplorer: buildActivityExplorer(v2ActivityExplorer),
     feedbackOverlay: buildFeedbackOverlay(v2FeedbackOverlay),
     enhancedBreakdown: {
       activity: Object.fromEntries(Object.entries(asRecord(enhanced.activity) ?? {}).map(([key, value]) => [key, normalizeNumber(value)])),
       environment: Object.fromEntries(Object.entries(asRecord(enhanced.environment) ?? {}).map(([key, value]) => [key, normalizeNumber(value)])),
       role: Object.fromEntries(Object.entries(asRecord(enhanced.role) ?? {}).map(([key, value]) => [key, normalizeNumber(value)])),
+    },
+  };
+}
+
+export function getRiasecModuleVisibility(
+  viewModel: Pick<RiasecResultViewModel, "moduleVisibilityPolicy">,
+  moduleKey: string
+): RiasecModuleVisibility {
+  const policy = viewModel.moduleVisibilityPolicy;
+  if (!policy) {
+    return "visible";
+  }
+
+  const moduleState = policy.modules.find((module) => module.key === moduleKey);
+  return moduleState?.visibility ?? "hidden";
+}
+
+function buildInterpretationState(rawState: Record<string, unknown> | null): RiasecInterpretationState | null {
+  if (!rawState) {
+    return null;
+  }
+
+  const nearTieState = asRecord(rawState.near_tie_state) ?? {};
+  const alternateCode = asRecord(rawState.alternate_code) ?? {};
+  const topCodeConfidence = asRecord(rawState.top_code_confidence) ?? {};
+  const resultPageStrategy = asRecord(rawState.result_page_strategy) ?? {};
+  const rawFieldAuthority = asRecord(rawState.field_authority) ?? {};
+
+  return {
+    interpretationRuleVersion: normalizeText(rawState.interpretation_rule_version),
+    profileShape: normalizeText(rawState.profile_shape),
+    profileShapeVersion: normalizeText(rawState.profile_shape_version),
+    clarityLabel: normalizeText(rawState.clarity_label),
+    nearTieState: {
+      state: normalizeText(nearTieState.state),
+      dimensions: normalizeStringList(nearTieState.dimensions),
+    },
+    alternateCode: {
+      show: normalizeBoolean(alternateCode.show),
+      codes: normalizeStringList(alternateCode.codes),
+      displayBoundary: normalizeText(alternateCode.display_boundary),
+    },
+    alternateCodeReason: normalizeText(rawState.alternate_code_reason) || null,
+    topCodeConfidence: {
+      level: normalizeText(topCodeConfidence.level),
+      meaning: normalizeText(topCodeConfidence.meaning),
+    },
+    readingStrength: normalizeText(rawState.reading_strength),
+    resultPageStrategy: {
+      primaryReadingMode: normalizeText(resultPageStrategy.primary_reading_mode),
+    },
+    moduleVisibilityPolicyId: normalizeText(rawState.module_visibility_policy_id),
+    validationStatus: normalizeText(rawState.validation_status),
+    fieldAuthority: Object.fromEntries(
+      Object.entries(rawFieldAuthority)
+        .map(([key, value]) => [key, normalizeText(value)])
+        .filter(([, value]) => Boolean(value))
+    ),
+  };
+}
+
+function buildModuleVisibilityPolicy(rawPolicy: Record<string, unknown> | null): RiasecModuleVisibilityPolicy | null {
+  if (!rawPolicy) {
+    return null;
+  }
+
+  const fallbackPolicy = asRecord(rawPolicy.fallback_policy) ?? {};
+  const rawModules = Array.isArray(rawPolicy.modules) ? rawPolicy.modules : [];
+
+  return {
+    schemaVersion: normalizeText(rawPolicy.schema_version),
+    policyId: normalizeText(rawPolicy.policy_id),
+    qualityState: normalizeText(rawPolicy.quality_state),
+    profileShape: normalizeText(rawPolicy.profile_shape),
+    formCode: normalizeText(rawPolicy.form_code),
+    modules: rawModules.map((rawModule) => {
+      const moduleState = asRecord(rawModule) ?? {};
+      const key = normalizeText(moduleState.key);
+      const visibility = normalizeText(moduleState.visibility);
+
+      return {
+        key,
+        visibility: RIASEC_MODULE_VISIBILITIES.has(visibility as RiasecModuleVisibility)
+          ? (visibility as RiasecModuleVisibility)
+          : "hidden",
+        reason: normalizeText(moduleState.reason),
+      };
+    }).filter((moduleState) => KNOWN_RIASEC_MODULE_KEYS.has(moduleState.key)),
+    fallbackPolicy: {
+      unknownModule: normalizeText(fallbackPolicy.unknown_module),
+      missingBackendState: normalizeText(fallbackPolicy.missing_backend_state),
+      frontendInferenceAllowed: normalizeBoolean(fallbackPolicy.frontend_inference_allowed),
     },
   };
 }

@@ -10,7 +10,7 @@ import { trackEvent } from "@/lib/analytics";
 import type { Locale } from "@/lib/i18n/locales";
 import { localizedPath } from "@/lib/i18n/locales";
 import { buildRiasecTakeHref, getRiasecVariantLabel } from "@/lib/riasec/forms";
-import type { RiasecResultViewModel } from "@/lib/riasec/resultAssembler";
+import { getRiasecModuleVisibility, type RiasecResultViewModel } from "@/lib/riasec/resultAssembler";
 import {
   buildRiasecTrustedResultTrackingPayload,
   RIASEC_TRACKING_EVENTS,
@@ -40,6 +40,20 @@ export function RiasecResultShell({
   const historyHref = localizedPath("/history/riasec", locale);
   const formLabel =
     viewModel.formLabel || (viewModel.formCode ? getRiasecVariantLabel(viewModel.formCode, locale) : null);
+  const heroVisibility = getRiasecModuleVisibility(viewModel, "hero_activity_chain");
+  const dimensionMapVisibility = getRiasecModuleVisibility(viewModel, "six_dimension_map");
+  const activityExplorerVisibility = getRiasecModuleVisibility(viewModel, "activity_explorer");
+  const occupationExamplesVisibility = getRiasecModuleVisibility(viewModel, "occupation_examples");
+  const contextCardsVisibility = getRiasecModuleVisibility(viewModel, "140q_context_cards");
+  const shareVisibility = getRiasecModuleVisibility(viewModel, "share_card");
+  const historyVisibility = getRiasecModuleVisibility(viewModel, "history");
+  const showHeroReading = heroVisibility !== "hidden";
+  const showDimensionMap = dimensionMapVisibility !== "hidden";
+  const showActivityExplorer = activityExplorerVisibility !== "hidden";
+  const showOccupationExamples = occupationExamplesVisibility !== "hidden";
+  const showContextCards = contextCardsVisibility !== "hidden";
+  const showShareAction = shareVisibility !== "hidden";
+  const showHistoryAction = historyVisibility !== "hidden";
   const formMeta = [
     formLabel,
     typeof viewModel.questionCount === "number" ? `${viewModel.questionCount}${isZh ? " 题" : " questions"}` : "",
@@ -113,7 +127,12 @@ export function RiasecResultShell({
   }
 
   return (
-    <div className="space-y-[var(--fm-gap-md)]">
+    <div
+      className="space-y-[var(--fm-gap-md)]"
+      data-riasec-profile-shape={viewModel.interpretationState?.profileShape ?? undefined}
+      data-riasec-quality-state={viewModel.trustedResultCard?.qualityState || viewModel.moduleVisibilityPolicy?.qualityState || undefined}
+      data-riasec-module-policy={viewModel.moduleVisibilityPolicy?.policyId ?? undefined}
+    >
       <section
         data-testid="riasec-trusted-result-card"
         className="rounded-2xl border border-[var(--fm-border)] bg-white p-[var(--fm-space-6)] shadow-[var(--fm-shadow-md)]"
@@ -125,11 +144,13 @@ export function RiasecResultShell({
         {formMeta ? (
           <p className="mt-[var(--fm-space-2)] text-sm font-medium text-[var(--fm-text-muted)]">{formMeta}</p>
         ) : null}
-        <p className="mt-[var(--fm-space-3)] max-w-3xl text-base leading-7 text-[var(--fm-text-muted)]">
-          {isZh
-            ? `你的前三个兴趣维度依次是 ${viewModel.primaryType}、${viewModel.secondaryType}、${viewModel.tertiaryType}。清晰度指数 ${viewModel.clarityIndex}，兴趣广度 ${viewModel.breadthIndex}。`
-            : `Your top three interest dimensions are ${viewModel.primaryType}, ${viewModel.secondaryType}, and ${viewModel.tertiaryType}. Clarity index ${viewModel.clarityIndex}, breadth index ${viewModel.breadthIndex}.`}
-        </p>
+        {showHeroReading ? (
+          <p className="mt-[var(--fm-space-3)] max-w-3xl text-base leading-7 text-[var(--fm-text-muted)]">
+            {isZh
+              ? `你的前三个兴趣维度依次是 ${viewModel.primaryType}、${viewModel.secondaryType}、${viewModel.tertiaryType}。清晰度指数 ${viewModel.clarityIndex}，兴趣广度 ${viewModel.breadthIndex}。`
+              : `Your top three interest dimensions are ${viewModel.primaryType}, ${viewModel.secondaryType}, and ${viewModel.tertiaryType}. Clarity index ${viewModel.clarityIndex}, breadth index ${viewModel.breadthIndex}.`}
+          </p>
+        ) : null}
         {boundaryRows.length > 0 ? (
           <dl className="mt-[var(--fm-space-5)] grid gap-3 sm:grid-cols-2" data-testid="riasec-measurement-boundary">
             {boundaryRows.map(([label, value]) => (
@@ -152,43 +173,50 @@ export function RiasecResultShell({
           </p>
         ) : null}
         <div className="mt-[var(--fm-space-5)] flex flex-wrap gap-3">
-          <Button type="button" variant="secondary" onClick={() => void handleShare()} disabled={shareState === "loading"}>
-            {shareState === "loading"
-              ? isZh ? "生成分享链接..." : "Preparing share..."
-              : shareState === "copied"
-                ? isZh ? "分享链接已复制" : "Link copied"
-                : shareState === "failed"
-                  ? isZh ? "重试分享" : "Retry share"
-                  : isZh ? "分享结果" : "Share result"}
-          </Button>
+          {showShareAction ? (
+            <Button type="button" variant="secondary" onClick={() => void handleShare()} disabled={shareState === "loading"}>
+              {shareState === "loading"
+                ? isZh ? "生成分享链接..." : "Preparing share..."
+                : shareState === "copied"
+                  ? isZh ? "分享链接已复制" : "Link copied"
+                  : shareState === "failed"
+                    ? isZh ? "重试分享" : "Retry share"
+                    : isZh ? "分享结果" : "Share result"}
+            </Button>
+          ) : null}
           <Link href={retakeHref} className={buttonVariants({ variant: "outline" })}>
             {isZh ? "重新测试" : "Retake test"}
           </Link>
-          <Link href={historyHref} className={buttonVariants({ variant: "ghost" })}>
-            {isZh ? "查看历史记录" : "View history"}
-          </Link>
+          {showHistoryAction ? (
+            <Link href={historyHref} className={buttonVariants({ variant: "ghost" })}>
+              {isZh ? "查看历史记录" : "View history"}
+            </Link>
+          ) : null}
         </div>
       </section>
 
-      <Card data-testid="riasec-six-dimension-map">
-        <CardHeader>
-          <CardTitle>{isZh ? "六维兴趣地图" : "Six-dimension interest map"}</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-[var(--fm-gap-sm)]">
-          {viewModel.dimensions.map((dimension) => (
-            <div key={dimension.code} className="space-y-2" data-testid={`riasec-dimension-${dimension.code}`}>
-              <div className="flex items-center justify-between gap-[var(--fm-gap-sm)] text-sm font-semibold">
-                <span>{dimension.code} · {dimension.label}</span>
-                <span>{Math.round(dimension.score)}</span>
+      {showDimensionMap ? (
+        <Card data-testid="riasec-six-dimension-map">
+          <CardHeader>
+            <CardTitle>{isZh ? "六维兴趣地图" : "Six-dimension interest map"}</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-[var(--fm-gap-sm)]">
+            {viewModel.dimensions.map((dimension) => (
+              <div key={dimension.code} className="space-y-2" data-testid={`riasec-dimension-${dimension.code}`}>
+                <div className="flex items-center justify-between gap-[var(--fm-gap-sm)] text-sm font-semibold">
+                  <span>{dimension.code} · {dimension.label}</span>
+                  <span>{Math.round(dimension.score)}</span>
+                </div>
+                <div className="h-3 overflow-hidden rounded-full bg-slate-100">
+                  <div className="h-full rounded-full bg-[var(--fm-trust-blue)]" style={{ width: `${Math.max(0, Math.min(100, dimension.score))}%` }} />
+                </div>
               </div>
-              <div className="h-3 overflow-hidden rounded-full bg-slate-100">
-                <div className="h-full rounded-full bg-[var(--fm-trust-blue)]" style={{ width: `${Math.max(0, Math.min(100, dimension.score))}%` }} />
-              </div>
-            </div>
-          ))}
-        </CardContent>
-      </Card>
+            ))}
+          </CardContent>
+        </Card>
+      ) : null}
 
+      {showActivityExplorer ? (
       <Card data-testid="riasec-governed-copy-surface">
         <CardHeader>
           <CardTitle>{isZh ? "职业活动探索" : "Career activity explorer"}</CardTitle>
@@ -245,7 +273,7 @@ export function RiasecResultShell({
                           </ul>
                         </div>
                       ) : null}
-                      {activity.occupationExamples.length > 0 ? (
+                      {showOccupationExamples && activity.occupationExamples.length > 0 ? (
                         <div className="mt-3 grid gap-2 sm:grid-cols-2" data-testid="riasec-occupation-examples">
                           {activity.occupationExamples.map((example) => (
                             <article key={example.occupationExample} className="rounded-lg border border-[var(--fm-border)] bg-white p-3">
@@ -278,8 +306,9 @@ export function RiasecResultShell({
           )}
         </CardContent>
       </Card>
+      ) : null}
 
-      {enhancedVisible ? (
+      {showContextCards && enhancedVisible ? (
         <Card>
           <CardHeader>
             <CardTitle>{isZh ? "增强版分层结果" : "Enhanced form breakdown"}</CardTitle>

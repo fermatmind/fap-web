@@ -78,10 +78,66 @@ function buildRiasecReport(): ReportResponse {
       quality: {
         grade: "A",
         flags: [],
+        quality_state: "normal",
         low_quality_strength: "not_available_for_strong_low_quality",
       },
       content_boundary: {
         occupation_examples_policy: "content_example_not_registry_match_without_reviewed_registry_source",
+      },
+      interpretation_state: {
+        interpretation_rule_version: "riasec_interpretation_rule_spec_v2",
+        profile_shape: "clear_code",
+        profile_shape_version: "riasec_profile_shape_v2_0",
+        clarity_label: "high",
+        near_tie_state: {
+          state: "none",
+          dimensions: [],
+        },
+        alternate_code: {
+          show: false,
+          codes: [],
+          display_boundary: "",
+        },
+        alternate_code_reason: null,
+        top_code_confidence: {
+          level: "high",
+          meaning: "readability strength, not probability",
+        },
+        reading_strength: "normal_reading",
+        result_page_strategy: {
+          primary_reading_mode: "single_chain",
+        },
+        module_visibility_policy_id: "riasec_module_visibility_policy_v1",
+        validation_status: "rule_contract_defined_validation_pending",
+        field_authority: {
+          profile_shape: "backend_owned",
+          near_tie_state: "backend_owned",
+          alternate_code: "backend_owned",
+          top_code_confidence: "backend_owned",
+          reading_strength: "backend_owned",
+        },
+      },
+      module_visibility_policy: {
+        schema_version: "riasec.module_visibility_policy.v1",
+        policy_id: "riasec_module_visibility_policy_v1",
+        quality_state: "normal",
+        profile_shape: "clear_code",
+        form_code: "riasec_60",
+        modules: [
+          { key: "hero_activity_chain", visibility: "visible", reason: "standard_reading_available" },
+          { key: "six_dimension_map", visibility: "visible", reason: "dimension_overview_available" },
+          { key: "activity_explorer", visibility: "visible", reason: "examples_only_activity_explorer_available" },
+          { key: "occupation_examples", visibility: "collapsed", reason: "examples_only_not_registry_match" },
+          { key: "140q_context_cards", visibility: "hidden", reason: "requires_riasec_140_contextual_form" },
+          { key: "share_card", visibility: "visible", reason: "safe_share_available" },
+          { key: "history", visibility: "visible", reason: "snapshot_bound_history_available" },
+          { key: "unexpected_future_module", visibility: "visible", reason: "must_fail_closed" },
+        ],
+        fallback_policy: {
+          unknown_module: "hidden",
+          missing_backend_state: "hidden",
+          frontend_inference_allowed: false,
+        },
       },
       activity_explorer_v0_1: {
         schema_version: "riasec.activity_explorer.v0.1",
@@ -143,6 +199,10 @@ function buildRiasecReport(): ReportResponse {
   };
 }
 
+function cloneReport(report: ReportResponse): ReportResponse {
+  return JSON.parse(JSON.stringify(report)) as ReportResponse;
+}
+
 describe("RIASEC trusted result shell", () => {
   it("assembles the 3-minute card and six-dimension map from backend projection v2", () => {
     const viewModel = assembleRiasecResultViewModel(buildRiasecReport());
@@ -155,11 +215,48 @@ describe("RIASEC trusted result shell", () => {
       projectionVersion: "riasec.public_projection.v2",
       scoreSpaceVersion: "riasec_60_likert5_activity_sum_space.v1",
       qualityRuleStatus: "minimal_answer_completion_only",
+      qualityState: "normal",
       snapshotBound: true,
       crossFormComparable: false,
       rawScoreDeltaAllowed: false,
       occupationExamplesPolicy: "content_example_not_registry_match_without_reviewed_registry_source",
     });
+    expect(viewModel.interpretationState).toMatchObject({
+      interpretationRuleVersion: "riasec_interpretation_rule_spec_v2",
+      profileShape: "clear_code",
+      profileShapeVersion: "riasec_profile_shape_v2_0",
+      clarityLabel: "high",
+      readingStrength: "normal_reading",
+      moduleVisibilityPolicyId: "riasec_module_visibility_policy_v1",
+      fieldAuthority: {
+        profile_shape: "backend_owned",
+        near_tie_state: "backend_owned",
+        alternate_code: "backend_owned",
+        top_code_confidence: "backend_owned",
+        reading_strength: "backend_owned",
+      },
+    });
+    expect(viewModel.interpretationState?.nearTieState).toEqual({ state: "none", dimensions: [] });
+    expect(viewModel.interpretationState?.alternateCode).toMatchObject({
+      show: false,
+      codes: [],
+    });
+    expect(viewModel.interpretationState?.topCodeConfidence).toMatchObject({
+      level: "high",
+      meaning: "readability strength, not probability",
+    });
+    expect(viewModel.moduleVisibilityPolicy).toMatchObject({
+      schemaVersion: "riasec.module_visibility_policy.v1",
+      policyId: "riasec_module_visibility_policy_v1",
+      qualityState: "normal",
+      profileShape: "clear_code",
+      fallbackPolicy: {
+        unknownModule: "hidden",
+        missingBackendState: "hidden",
+        frontendInferenceAllowed: false,
+      },
+    });
+    expect(viewModel.moduleVisibilityPolicy?.modules.map((moduleState) => moduleState.key)).not.toContain("unexpected_future_module");
     expect(viewModel.activityExplorer).toMatchObject({
       schemaVersion: "riasec.activity_explorer.v0.1",
       status: "content_examples_only",
@@ -206,6 +303,60 @@ describe("RIASEC trusted result shell", () => {
     expect(screen.getByTestId("riasec-governed-copy-surface")).not.toHaveTextContent("岗位匹配度");
   });
 
+  it("fails closed when backend module visibility hides strong RIASEC modules", () => {
+    const report = cloneReport(buildRiasecReport());
+    const projection = report.riasec_public_projection_v2 as Record<string, unknown>;
+    projection.quality = {
+      grade: "C",
+      flags: ["attention_flag"],
+      quality_state: "low_quality",
+      low_quality_strength: "low_quality_boundary_triggered",
+    };
+    projection.interpretation_state = {
+      ...(projection.interpretation_state as Record<string, unknown>),
+      profile_shape: "low_quality",
+      clarity_label: "not_readable",
+      reading_strength: "retake_recommended",
+    };
+    projection.module_visibility_policy = {
+      schema_version: "riasec.module_visibility_policy.v1",
+      policy_id: "riasec_module_visibility_policy_v1",
+      quality_state: "low_quality",
+      profile_shape: "low_quality",
+      form_code: "riasec_60",
+      modules: [
+        { key: "hero_activity_chain", visibility: "hidden", reason: "low_quality_hides_strong_modules" },
+        { key: "six_dimension_map", visibility: "visible", reason: "low_quality_overview_only" },
+        { key: "activity_explorer", visibility: "hidden", reason: "low_quality_hides_strong_modules" },
+        { key: "occupation_examples", visibility: "hidden", reason: "low_quality_hides_strong_modules" },
+        { key: "140q_context_cards", visibility: "hidden", reason: "low_quality_hides_strong_modules" },
+        { key: "share_card", visibility: "hidden", reason: "low_quality_no_strong_public_share" },
+        { key: "history", visibility: "visible", reason: "snapshot_bound_history_available" },
+      ],
+      fallback_policy: {
+        unknown_module: "hidden",
+        missing_backend_state: "hidden",
+        frontend_inference_allowed: false,
+      },
+    };
+
+    render(
+      <RiasecResultShell
+        locale="zh"
+        attemptId="attempt-riasec"
+        viewModel={assembleRiasecResultViewModel(report)}
+      />
+    );
+
+    expect(screen.getByTestId("riasec-trusted-result-card")).toHaveTextContent("RIA");
+    expect(screen.getByTestId("riasec-trusted-result-card")).not.toHaveTextContent("你的前三个兴趣维度依次是");
+    expect(screen.getByTestId("riasec-six-dimension-map")).toBeInTheDocument();
+    expect(screen.queryByTestId("riasec-governed-copy-surface")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("riasec-activity-pack")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("riasec-occupation-examples")).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "分享结果" })).not.toBeInTheDocument();
+  });
+
   it("renders a minimal empty state when backend governed activity content is absent", () => {
     const report = buildRiasecReport();
     delete (report.riasec_public_projection_v2 as Record<string, unknown>).activity_explorer_v0_1;
@@ -221,6 +372,25 @@ describe("RIASEC trusted result shell", () => {
     expect(screen.getByTestId("riasec-governed-copy-empty")).toHaveTextContent("当前结果没有可渲染的后端活动内容");
     expect(screen.queryByText("用户研究助理")).not.toBeInTheDocument();
     expect(screen.queryByText("行业研究助理")).not.toBeInTheDocument();
+  });
+
+  it("preserves Trusted Result v1.5 shell compatibility when personalization policy is absent", () => {
+    const report = cloneReport(buildRiasecReport());
+    delete (report.riasec_public_projection_v2 as Record<string, unknown>).interpretation_state;
+    delete (report.riasec_public_projection_v2 as Record<string, unknown>).module_visibility_policy;
+
+    render(
+      <RiasecResultShell
+        locale="zh"
+        attemptId="attempt-riasec"
+        viewModel={assembleRiasecResultViewModel(report)}
+      />
+    );
+
+    expect(screen.getByTestId("riasec-trusted-result-card")).toHaveTextContent("你的前三个兴趣维度依次是");
+    expect(screen.getByTestId("riasec-six-dimension-map")).toBeInTheDocument();
+    expect(screen.getByTestId("riasec-governed-copy-surface")).toHaveTextContent("content_example_not_registry_match");
+    expect(screen.getByTestId("riasec-occupation-examples")).toHaveTextContent("内容示例，非职业数据库匹配");
   });
 
   it("keeps RIASEC shell free of local dimension interpretation copy and forbidden claim wording", () => {
