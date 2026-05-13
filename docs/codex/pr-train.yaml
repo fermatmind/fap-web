@@ -1791,3 +1791,54 @@ prs:
       - content pack questions
       - final publication state
     rollback_note: "Remove acceptance report/tests."
+
+  - id: RIASEC-DEEP-COPY-08B
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/riasec-deep-copy-08b-frontend-renderer
+    base: main
+    depends_on:
+      - RIASEC-DEEP-COPY-08A
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "feat(riasec): render backend deep content slots fail closed"
+    goal: "Render backend-provided RIASEC deep content slots from projection v2 without frontend interpretation fallback."
+    in_scope:
+      - RIASEC result assembler/types
+      - RiasecResultShell backend slot renderer
+      - RIASEC deep copy projection fixture
+      - frontend contract tests
+      - train ledger update
+    out_of_scope:
+      - backend changes
+      - scorer or content pack changes
+      - frontend-authored interpretation copy
+      - career matching or recommendation logic
+      - analytics runtime changes
+    likely_touched:
+      - lib/riasec/resultAssembler.ts
+      - components/result/riasec/RiasecResultShell.tsx
+      - tests/contracts/fixtures/riasec/deep-copy-v1.projection.json
+      - tests/contracts/riasec-deep-copy-slot-consumption.contract.test.tsx
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    required_local_checks:
+      - targeted RIASEC contract tests
+      - pnpm typecheck
+      - pnpm test:contract
+      - production build
+      - git diff --check
+    acceptance:
+      - Frontend renders only backend-provided deep content slots.
+      - Unknown, missing, pending, or unavailable slots fail closed.
+      - No local RIASEC deep interpretation fallback is introduced.
+      - Forbidden career, accuracy, raw delta, and hiring claims remain absent.
+    must_not_touch:
+      - fap-api backend
+      - scorer math
+      - content pack question semantics
+      - report/share/PDF/history backend behavior
+      - career registry matching
+      - frontend local editorial authority
+    rollback_note: "Remove deep content slot parser, renderer, fixture, and contract test."

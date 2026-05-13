@@ -68,6 +68,61 @@ export type RiasecModuleVisibilityPolicy = {
   };
 };
 
+export type RiasecDeepContentSlotVisibility = "visible" | "collapsed";
+
+export type RiasecDeepContentSlot = {
+  slotKey: string;
+  slotGroup: string;
+  slotId: string;
+  moduleKey: string;
+  slotVisibility: RiasecDeepContentSlotVisibility;
+  status: string;
+  contentStatus: string;
+  contentVersion: string;
+  reviewStatus: string;
+  sourceStatus: string;
+  evidenceLevel: string;
+  locale: string;
+  frontendFallbackAllowed: false;
+  fallbackBehavior: string;
+  applicability: {
+    formCodes: string[];
+    profileShapes: string[];
+    qualityStates: string[];
+    codes: string[];
+    dimensions: string[];
+  };
+  state: Record<string, string>;
+  content: Record<string, string | string[]>;
+  boundaries: {
+    userVisibleBoundary: string;
+    requiredBoundaries: string[];
+    forbiddenClaims: string[];
+  };
+};
+
+export type RiasecDeepContentSlotsEnvelope = {
+  schemaVersion: string;
+  scaleCode: string;
+  locale: string;
+  contentAuthority: string;
+  snapshotBound: boolean;
+  sourcePolicy: {
+    frontendFallbackAllowed: boolean;
+    missingContentBehavior: string;
+    pendingContentBehavior: string;
+    unknownSlotBehavior: string;
+    formalReportGeneration: string;
+  };
+  slotVisibilityPolicy: {
+    moduleVisibilityPolicyId: string;
+    hiddenSlotsOmitted: boolean;
+    pendingOrUnavailableSlotsOmitted: boolean;
+    frontendInferenceAllowed: boolean;
+  };
+  slots: RiasecDeepContentSlot[];
+};
+
 export type RiasecActivityExplorerOccupationExample = {
   occupationExample: string;
   sourceStatus: string;
@@ -173,6 +228,7 @@ export type RiasecResultViewModel = {
   trustedResultCard: RiasecTrustedResultCard | null;
   interpretationState: RiasecInterpretationState | null;
   moduleVisibilityPolicy: RiasecModuleVisibilityPolicy | null;
+  deepContentSlots: RiasecDeepContentSlotsEnvelope | null;
   activityExplorer: RiasecActivityExplorer | null;
   feedbackOverlay: RiasecFeedbackOverlay | null;
   enhancedBreakdown: {
@@ -218,6 +274,55 @@ const KNOWN_RIASEC_MODULE_KEYS = new Set([
 ]);
 
 const RIASEC_MODULE_VISIBILITIES = new Set<RiasecModuleVisibility>(["visible", "collapsed", "hidden"]);
+const RIASEC_DEEP_CONTENT_SLOT_VISIBILITIES = new Set<RiasecDeepContentSlotVisibility>(["visible", "collapsed"]);
+const RIASEC_DEEP_CONTENT_STATUSES = new Set(["authored"]);
+const KNOWN_RIASEC_DEEP_SLOT_GROUPS = new Set([
+  "dimension_deep_copy",
+  "pair_blend_copy",
+  "140q_layer_copy",
+  "quality_copy",
+  "structural_difference_copy",
+  "aspirations_copy",
+  "feedback_response_copy",
+]);
+const KNOWN_RIASEC_DEEP_SLOT_KEYS = new Set([
+  "dimension_deep_copy",
+  "pair_blend_copy",
+  "140q_task_card_copy",
+  "140q_environment_card_copy",
+  "140q_role_card_copy",
+  "140q_layer_agreement_copy",
+  "140q_tension_copy",
+  "140q_layer_unavailable_copy",
+  "140q_cta_copy",
+  "140q_not_recommended_copy",
+  "low_quality_copy",
+  "cautious_reading_copy",
+  "structural_difference_copy",
+  "aspirations_calibration_copy",
+  "disagree_path_copy",
+]);
+const KNOWN_RIASEC_DEEP_CONTENT_KEYS = new Set([
+  "title",
+  "summary",
+  "body",
+  "core_drive",
+  "positive_value",
+  "real_world_cost",
+  "high_score_reading",
+  "low_score_safe_reading",
+  "work_activity_examples",
+  "possible_drains",
+  "common_misread",
+  "action_advice",
+  "pair_label",
+  "short_label",
+  "chemistry",
+  "activities_to_validate",
+  "question",
+  "what_user_sees",
+  "button_label",
+]);
 
 type RiasecProjectionContainer =
   | Pick<ReportResponse, "riasec_public_projection_v1" | "riasec_public_projection_v2">
@@ -244,6 +349,7 @@ export function assembleRiasecResultViewModel(reportData: RiasecProjectionContai
   const v2FeedbackOverlay = asRecord(projectionV2?.exploration_feedback_overlay_v0_1);
   const v2InterpretationState = asRecord(projectionV2?.interpretation_state);
   const v2ModuleVisibilityPolicy = asRecord(projectionV2?.module_visibility_policy);
+  const v2DeepContentSlots = asRecord(projectionV2?.deep_content_slots_v1);
   const v2Dimensions = Array.isArray(v2Scores?.dimensions) ? v2Scores.dimensions : [];
   const dimensions = v2Dimensions.length > 0
     ? v2Dimensions.map((rawDimension) => {
@@ -305,6 +411,7 @@ export function assembleRiasecResultViewModel(reportData: RiasecProjectionContai
       : null,
     interpretationState: buildInterpretationState(v2InterpretationState),
     moduleVisibilityPolicy: buildModuleVisibilityPolicy(v2ModuleVisibilityPolicy),
+    deepContentSlots: buildDeepContentSlots(v2DeepContentSlots),
     activityExplorer: buildActivityExplorer(v2ActivityExplorer),
     feedbackOverlay: buildFeedbackOverlay(v2FeedbackOverlay),
     enhancedBreakdown: {
@@ -313,6 +420,14 @@ export function assembleRiasecResultViewModel(reportData: RiasecProjectionContai
       role: Object.fromEntries(Object.entries(asRecord(enhanced.role) ?? {}).map(([key, value]) => [key, normalizeNumber(value)])),
     },
   };
+}
+
+export function getRenderableRiasecDeepContentSlots(
+  viewModel: Pick<RiasecResultViewModel, "deepContentSlots">,
+  moduleKey?: string
+): RiasecDeepContentSlot[] {
+  const slots = viewModel.deepContentSlots?.slots ?? [];
+  return moduleKey ? slots.filter((slot) => slot.moduleKey === moduleKey) : slots;
 }
 
 export function getRiasecModuleVisibility(
@@ -405,6 +520,136 @@ function buildModuleVisibilityPolicy(rawPolicy: Record<string, unknown> | null):
       frontendInferenceAllowed: normalizeBoolean(fallbackPolicy.frontend_inference_allowed),
     },
   };
+}
+
+function buildDeepContentSlots(rawEnvelope: Record<string, unknown> | null): RiasecDeepContentSlotsEnvelope | null {
+  if (!rawEnvelope) {
+    return null;
+  }
+
+  const rawSourcePolicy = asRecord(rawEnvelope.source_policy) ?? {};
+  const rawSlotVisibilityPolicy = asRecord(rawEnvelope.slot_visibility_policy) ?? {};
+  if (normalizeBoolean(rawSourcePolicy.frontend_fallback_allowed)) {
+    return null;
+  }
+  if (normalizeBoolean(rawSlotVisibilityPolicy.frontend_inference_allowed)) {
+    return null;
+  }
+
+  const rawSlots = Array.isArray(rawEnvelope.slots) ? rawEnvelope.slots : [];
+  const slots = rawSlots
+    .map((rawSlot) => buildDeepContentSlot(asRecord(rawSlot)))
+    .filter((slot): slot is RiasecDeepContentSlot => Boolean(slot));
+
+  return {
+    schemaVersion: normalizeText(rawEnvelope.schema_version),
+    scaleCode: normalizeText(rawEnvelope.scale_code),
+    locale: normalizeText(rawEnvelope.locale),
+    contentAuthority: normalizeText(rawEnvelope.content_authority),
+    snapshotBound: normalizeBoolean(rawEnvelope.snapshot_bound),
+    sourcePolicy: {
+      frontendFallbackAllowed: false,
+      missingContentBehavior: normalizeText(rawSourcePolicy.missing_content_behavior),
+      pendingContentBehavior: normalizeText(rawSourcePolicy.pending_content_behavior),
+      unknownSlotBehavior: normalizeText(rawSourcePolicy.unknown_slot_behavior),
+      formalReportGeneration: normalizeText(rawSourcePolicy.formal_report_generation),
+    },
+    slotVisibilityPolicy: {
+      moduleVisibilityPolicyId: normalizeText(rawSlotVisibilityPolicy.module_visibility_policy_id),
+      hiddenSlotsOmitted: normalizeBoolean(rawSlotVisibilityPolicy.hidden_slots_omitted),
+      pendingOrUnavailableSlotsOmitted: normalizeBoolean(rawSlotVisibilityPolicy.pending_or_unavailable_slots_omitted),
+      frontendInferenceAllowed: false,
+    },
+    slots,
+  };
+}
+
+function buildDeepContentSlot(rawSlot: Record<string, unknown> | null): RiasecDeepContentSlot | null {
+  if (!rawSlot) {
+    return null;
+  }
+
+  const slotKey = normalizeText(rawSlot.slot_key);
+  const slotGroup = normalizeText(rawSlot.slot_group);
+  const slotVisibility = normalizeText(rawSlot.slot_visibility);
+  const status = normalizeText(rawSlot.status);
+  const contentStatus = normalizeText(rawSlot.content_status);
+  if (!KNOWN_RIASEC_DEEP_SLOT_KEYS.has(slotKey) || !KNOWN_RIASEC_DEEP_SLOT_GROUPS.has(slotGroup)) {
+    return null;
+  }
+  if (!RIASEC_DEEP_CONTENT_STATUSES.has(status) || !RIASEC_DEEP_CONTENT_STATUSES.has(contentStatus)) {
+    return null;
+  }
+  if (!RIASEC_DEEP_CONTENT_SLOT_VISIBILITIES.has(slotVisibility as RiasecDeepContentSlotVisibility)) {
+    return null;
+  }
+  if (rawSlot.frontend_fallback_allowed !== false) {
+    return null;
+  }
+
+  const content = buildDeepContentBody(asRecord(rawSlot.content));
+  if (Object.keys(content).length === 0) {
+    return null;
+  }
+
+  const applicability = asRecord(rawSlot.applicability) ?? {};
+  const boundaries = asRecord(rawSlot.boundaries) ?? {};
+
+  return {
+    slotKey,
+    slotGroup,
+    slotId: normalizeText(rawSlot.slot_id),
+    moduleKey: normalizeText(rawSlot.module_key),
+    slotVisibility: slotVisibility as RiasecDeepContentSlotVisibility,
+    status,
+    contentStatus,
+    contentVersion: normalizeText(rawSlot.content_version),
+    reviewStatus: normalizeText(rawSlot.review_status),
+    sourceStatus: normalizeText(rawSlot.source_status),
+    evidenceLevel: normalizeText(rawSlot.evidence_level),
+    locale: normalizeText(rawSlot.locale),
+    frontendFallbackAllowed: false,
+    fallbackBehavior: normalizeText(rawSlot.fallback_behavior),
+    applicability: {
+      formCodes: normalizeStringList(applicability.form_codes),
+      profileShapes: normalizeStringList(applicability.profile_shapes),
+      qualityStates: normalizeStringList(applicability.quality_states),
+      codes: normalizeStringList(applicability.codes),
+      dimensions: normalizeStringList(applicability.dimensions),
+    },
+    state: buildDeepContentState(asRecord(rawSlot.state)),
+    content,
+    boundaries: {
+      userVisibleBoundary: normalizeText(boundaries.user_visible_boundary),
+      requiredBoundaries: normalizeStringList(boundaries.required_boundaries),
+      forbiddenClaims: normalizeStringList(boundaries.forbidden_claims),
+    },
+  };
+}
+
+function buildDeepContentBody(rawContent: Record<string, unknown> | null): Record<string, string | string[]> {
+  if (!rawContent) {
+    return {};
+  }
+
+  return Object.fromEntries(
+    Object.entries(rawContent)
+      .filter(([key]) => KNOWN_RIASEC_DEEP_CONTENT_KEYS.has(key))
+      .map(([key, value]) => [key, Array.isArray(value) ? normalizeStringList(value) : normalizeText(value)])
+      .filter(([, value]) => Array.isArray(value) ? value.length > 0 : Boolean(value))
+  );
+}
+
+function buildDeepContentState(rawState: Record<string, unknown> | null): Record<string, string> {
+  if (!rawState) {
+    return {};
+  }
+
+  return Object.fromEntries(
+    Object.entries(rawState)
+      .map(([key, value]) => [key, normalizeText(value)])
+      .filter(([, value]) => Boolean(value))
+  );
 }
 
 function buildFeedbackOverlay(rawOverlay: Record<string, unknown> | null): RiasecFeedbackOverlay | null {
