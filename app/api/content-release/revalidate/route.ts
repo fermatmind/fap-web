@@ -14,11 +14,16 @@ type ContentReleasePayload = {
   };
 };
 
+type PathDecision = {
+  path: string;
+  reason?: string;
+};
+
 function normalizeLocaleToSegment(locale: string | null | undefined): "en" | "zh" {
   return String(locale ?? "").toLowerCase().startsWith("zh") ? "zh" : "en";
 }
 
-function normalizePath(path: string): string | null {
+function normalizePath(path: string, requestOrigin: string): string | null {
   const normalized = String(path ?? "").trim();
   if (!normalized) {
     return null;
@@ -26,7 +31,12 @@ function normalizePath(path: string): string | null {
 
   if (/^https?:\/\//i.test(normalized)) {
     try {
-      return new URL(normalized).pathname || null;
+      const url = new URL(normalized);
+      if (url.origin !== requestOrigin) {
+        return null;
+      }
+
+      return url.pathname || null;
     } catch {
       return null;
     }
@@ -40,11 +50,93 @@ function localizedPath(path: string, locale: "en" | "zh"): string {
     return locale === "zh" ? "/" : "/en";
   }
 
-  if (path.startsWith("/en/") || path.startsWith("/zh/")) {
+  if (
+    path === "/en" ||
+    path === "/zh" ||
+    path.startsWith("/en/") ||
+    path.startsWith("/zh/") ||
+    path === "/llms.txt" ||
+    path === "/llms-full.txt" ||
+    path.startsWith("/api/") ||
+    path.startsWith("/ops/") ||
+    path.startsWith("/result/") ||
+    path.startsWith("/results/") ||
+    path.startsWith("/orders/") ||
+    path.startsWith("/payment/") ||
+    path.startsWith("/pay/") ||
+    path.startsWith("/share/")
+  ) {
     return path;
   }
 
   return `/${locale}${path}`;
+}
+
+function isAllowedPublicPath(path: string): boolean {
+  if (path === "/" || path === "/zh" || path === "/en") {
+    return true;
+  }
+
+  if (path === "/llms.txt" || path === "/llms-full.txt") {
+    return true;
+  }
+
+  const publicPatterns = [
+    /^\/articles(?:\/[a-z0-9][a-z0-9-]*)?$/,
+    /^\/(?:zh|en)\/articles(?:\/[a-z0-9][a-z0-9-]*)?$/,
+    /^\/(?:zh|en)\/topics\/[a-z0-9][a-z0-9-]*$/,
+    /^\/(?:zh|en)\/career\/guides\/[a-z0-9][a-z0-9-]*$/,
+    /^\/(?:zh|en)\/career\/jobs\/[a-z0-9][a-z0-9-]*$/,
+    /^\/(?:zh|en)\/tests\/[a-z0-9][a-z0-9-]*$/,
+    /^\/(?:zh|en)\/personality(?:\/[a-z0-9][a-z0-9-]*)?$/,
+    /^\/(?:zh|en)\/help\/[a-z0-9][a-z0-9-]*$/,
+    /^\/(?:zh|en)\/support(?:\/[a-z0-9][a-z0-9-]*)?$/,
+    /^\/support(?:\/[a-z0-9][a-z0-9-]*)?$/,
+  ];
+
+  return publicPatterns.some((pattern) => pattern.test(path));
+}
+
+function rejectionReason(path: string | null): string | null {
+  if (!path) {
+    return "malformed_path";
+  }
+
+  let decoded = path;
+  try {
+    decoded = decodeURIComponent(path);
+  } catch {
+    return "malformed_path";
+  }
+
+  if (!path.startsWith("/") || path.startsWith("//")) {
+    return "malformed_path";
+  }
+
+  if (decoded.includes("..") || decoded.includes("\\")) {
+    return "path_traversal";
+  }
+
+  if (
+    path.startsWith("/api/") ||
+    path.startsWith("/ops/") ||
+    path.startsWith("/result/") ||
+    path.startsWith("/results/") ||
+    path.startsWith("/orders/") ||
+    path.startsWith("/payment/") ||
+    path.startsWith("/pay/") ||
+    path.startsWith("/share/") ||
+    /^\/(?:zh|en)\/tests\/[^/]+\/take(?:\/|$)/.test(path) ||
+    /^\/tests\/[^/]+\/take(?:\/|$)/.test(path)
+  ) {
+    return "private_or_api_path";
+  }
+
+  if (!isAllowedPublicPath(path)) {
+    return "not_allowlisted";
+  }
+
+  return null;
 }
 
 function secureEquals(expected: string, actual: string): boolean {
@@ -54,13 +146,14 @@ function secureEquals(expected: string, actual: string): boolean {
   return timingSafeEqual(expectedHash, actualHash);
 }
 
-function collectPaths(payload: ContentReleasePayload): string[] {
+export function collectPathDecisions(payload: ContentReleasePayload, requestOrigin = "https://fermatmind.com") {
   const locale = normalizeLocaleToSegment(payload.content?.locale);
   const directPaths = [...(payload.cache_signal?.paths ?? []), ...(payload.cache_signal?.urls ?? [])]
-    .map(normalizePath)
-    .filter((path): path is string => Boolean(path));
+    .map((path) => normalizePath(path, requestOrigin));
 
-  const localized = directPaths.map((path) => localizedPath(path, locale));
+  const localized = directPaths
+    .filter((path): path is string => Boolean(path))
+    .map((path) => localizedPath(path, locale));
   const type = String(payload.content?.type ?? "").trim();
 
   if (type === "support_article" || type === "interpretation_guide") {
@@ -71,7 +164,31 @@ function collectPaths(payload: ContentReleasePayload): string[] {
     localized.push(localizedPath("/support", locale));
   }
 
-  return [...new Set(localized)];
+  const accepted: string[] = [];
+  const rejected: PathDecision[] = [];
+  const seen = new Set<string>();
+
+  for (const rawPath of localized) {
+    const reason = rejectionReason(rawPath);
+    if (reason) {
+      rejected.push({ path: rawPath, reason });
+      continue;
+    }
+
+    if (!seen.has(rawPath)) {
+      accepted.push(rawPath);
+      seen.add(rawPath);
+    }
+  }
+
+  for (const rawPath of directPaths) {
+    if (rawPath !== null) {
+      continue;
+    }
+    rejected.push({ path: "", reason: "malformed_or_external_url" });
+  }
+
+  return { accepted, rejected };
 }
 
 export async function POST(request: NextRequest) {
@@ -90,14 +207,15 @@ export async function POST(request: NextRequest) {
   }
 
   const payload = (await request.json().catch(() => null)) as ContentReleasePayload | null;
-  const paths = collectPaths(payload ?? {});
+  const { accepted, rejected } = collectPathDecisions(payload ?? {}, request.nextUrl.origin);
 
-  for (const path of paths) {
+  for (const path of accepted) {
     revalidatePath(path);
   }
 
   return NextResponse.json({
     ok: true,
-    revalidated_paths: paths,
+    revalidated_paths: accepted,
+    rejected_paths: rejected,
   });
 }
