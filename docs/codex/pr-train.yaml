@@ -1793,6 +1793,51 @@ prs:
       - final publication state
     rollback_note: "Remove acceptance report/tests."
 
+  - id: RIASEC-V11-LAUNCH-ACCEPTANCE-00
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/riasec-v11-launch-acceptance-00
+    base: main
+    depends_on:
+      - RIASEC-DEEP-COPY-10
+    mode: verify
+    risk_level: L1
+    status: planned
+    title: "test(riasec): run V11 launch acceptance smoke"
+    goal: "Verify the merged RIASEC Trusted Result v1.5, Personalization, and Deep Copy runtime against launch acceptance boundaries without adding product behavior."
+    in_scope:
+      - RIASEC launch acceptance report
+      - RIASEC contract smoke tests
+      - train ledger updates
+    out_of_scope:
+      - result page structure changes
+      - scoring logic
+      - content pack changes
+      - career recommendation or matching
+      - Big Five or Enneagram runtime changes
+    likely_touched:
+      - docs/codex/**
+      - tests/contracts/**riasec**
+    required_local_checks:
+      - targeted RIASEC launch acceptance contracts
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://www.fermatmind.com pnpm build
+      - git diff --check
+    acceptance:
+      - Result, report, share, PDF, history, Technical Note, deep slot, missing-slot, and analytics smoke coverage is explicit.
+      - Forbidden claims remain absent from runtime source and backend-authority fixtures.
+      - Missing or pending deep content fails closed.
+      - No scorer, content pack, career matching, AI report, or frontend fallback drift.
+    must_not_touch:
+      - scorer math
+      - RIASEC question content packs
+      - Holland Code generation
+      - 60Q / 140Q compare policy
+      - career registry matching
+      - Big Five / Enneagram runtime
+    rollback_note: "Remove launch acceptance report/test and ledger entry."
+
   - id: RIASEC-DEEP-COPY-08B
     repo: fap-web
     repo_path: /Users/rainie/Desktop/GitHub/fap-web

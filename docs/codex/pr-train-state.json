@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-13T16:39:12Z",
+  "updated_at": "2026-05-13T17:11:21Z",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -184,7 +184,7 @@
       "depends_on": [
         "PR-PRAC-05"
       ],
-      "status": "open",
+      "status": "merged",
       "title": "test(runtime): add freemium public runtime coverage matrix",
       "artifacts": [
         "docs/freemium/freemium-runtime-coverage.md",
@@ -1916,10 +1916,10 @@
       ],
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/790",
-      "commit_sha": "969f36a1319b4e1ae4de4eb4653e3b25ce3021d2",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "383a351e74ad24f80b231299043bba688d427144",
+      "merged_at": "2026-05-13T16:43:42Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "sidecar_issues": [
         {
           "title": "Unrelated content-release revalidate worktree changes are present",
@@ -1953,6 +1953,121 @@
             "Generated diff was restored and is not included in RIASEC-DEEP-COPY-10"
           ],
           "suggested_owner": "SEO/GEO platform"
+        }
+      ]
+    },
+    {
+      "id": "RIASEC-V11-LAUNCH-ACCEPTANCE-00",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/riasec-v11-launch-acceptance-00",
+      "base": "main",
+      "depends_on": [
+        "RIASEC-DEEP-COPY-10"
+      ],
+      "status": "open",
+      "title": "test(riasec): run V11 launch acceptance smoke",
+      "mode": "verify",
+      "risk_level": "L1",
+      "allowed_paths": [
+        "tests/contracts/**riasec**",
+        "docs/codex/**"
+      ],
+      "checks": [
+        {
+          "name": "dependency RIASEC-DEEP-COPY-10 merged",
+          "status": "passed",
+          "evidence": "fap-web PR #790 merged at 383a351e74ad24f80b231299043bba688d427144 and origin/main contains the merge commit"
+        },
+        {
+          "name": "JSON/YAML validity",
+          "status": "passed",
+          "command": "node -e \"JSON.parse(require('fs').readFileSync('docs/codex/pr-train-state.json','utf8')); console.log('json ok')\" && ruby -e 'require \"yaml\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); puts \"yaml ok\"'"
+        },
+        {
+          "name": "targeted RIASEC launch acceptance contracts",
+          "status": "passed",
+          "command": "pnpm vitest run tests/contracts/riasec-v11-launch-acceptance.contract.test.tsx tests/contracts/riasec-deep-copy-v11-smoke-acceptance.contract.test.tsx tests/contracts/riasec-trusted-result-v15-smoke-acceptance.contract.test.ts tests/contracts/riasec-runtime-analytics.contract.test.tsx tests/contracts/riasec-technical-note-route.contract.test.tsx"
+        },
+        {
+          "name": "pnpm typecheck",
+          "status": "passed",
+          "command": "pnpm typecheck"
+        },
+        {
+          "name": "pnpm test:contract",
+          "status": "passed",
+          "command": "pnpm test:contract"
+        },
+        {
+          "name": "production build with production API env",
+          "status": "passed",
+          "command": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://www.fermatmind.com pnpm build"
+        },
+        {
+          "name": "forbidden claim scan",
+          "status": "passed",
+          "command": "rg forbidden claim fragments against runtime RIASEC files and backend-authority fixtures"
+        },
+        {
+          "name": "scope validation",
+          "status": "passed",
+          "details": "Changed files are limited to docs/codex train/report files and RIASEC contract tests. No scorer, RIASEC question content pack, Holland Code generation, compare policy, career registry, occupation source row, AI report, frontend fallback copy, Big Five runtime, or Enneagram runtime files changed."
+        },
+        {
+          "name": "git diff --check",
+          "status": "passed",
+          "command": "git diff --check"
+        },
+        {
+          "name": "remote contracts failure inspection and ledger reconciliation check",
+          "status": "passed",
+          "command": "pnpm vitest run tests/contracts/page-family-runtime-coverage.contract.test.ts tests/contracts/riasec-v11-launch-acceptance.contract.test.tsx",
+          "details": "GitHub contracts initially failed on stale PR-PRAC-01 ledger status; reconciled PR-PRAC-01 to merged using existing merge_sha and reran the failing contract locally."
+        }
+      ],
+      "failure_reason": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/792",
+      "commit_sha": "0933625db625b5deb1d896e67f4b026da926de8a",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [
+        {
+          "title": "Isolated worktree required dependency bootstrap",
+          "severity": "P3",
+          "introduced_by_current_pr": false,
+          "blocks_merge": false,
+          "evidence": [
+            "Initial targeted test failed because the isolated worktree had no node_modules and local vitest was unavailable",
+            "Command run: pnpm install --frozen-lockfile",
+            "Only ignored node_modules files were created"
+          ],
+          "suggested_owner": "local development environment"
+        },
+        {
+          "title": "Postbuild sitemap generation rewrites public/sitemap.xml during local validation",
+          "severity": "P2",
+          "introduced_by_current_pr": false,
+          "blocks_merge": false,
+          "evidence": [
+            "Command: NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://www.fermatmind.com pnpm build",
+            "Postbuild command regenerated public/sitemap.xml",
+            "Generated diff was restored and is not included in RIASEC-V11-LAUNCH-ACCEPTANCE-00"
+          ],
+          "suggested_owner": "SEO/GEO platform"
+        },
+        {
+          "title": "Remote contracts surfaced stale PR-PRAC-01 train ledger state",
+          "severity": "P2",
+          "introduced_by_current_pr": false,
+          "blocks_merge": false,
+          "evidence": [
+            "GitHub contracts failed in tests/contracts/page-family-runtime-coverage.contract.test.ts because PR-PRAC-01 status was open",
+            "PR-PRAC-01 already had pr_url https://github.com/fermatmind/fap-web/pull/689 and merge_sha 6d496d9262f84f78f2ca8feb814370730f11a232 in the ledger",
+            "Reconciled PR-PRAC-01 status to merged and reran the focused contract locally"
+          ],
+          "suggested_owner": "public runtime authority ledger"
         }
       ]
     },
