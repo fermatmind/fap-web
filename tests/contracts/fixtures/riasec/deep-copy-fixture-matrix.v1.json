@@ -1,0 +1,267 @@
+{
+  "schema_version": "riasec.deep_copy_fixture_matrix.v1",
+  "runtime_status": "deep_copy_runtime_acceptance_fixture_matrix",
+  "authority": {
+    "content_source": "riasec_public_projection_v2.deep_content_slots_v1",
+    "frontend_interpretation_inference_allowed": false,
+    "frontend_editorial_fallback_allowed": false,
+    "missing_content_behavior": "omit_module_fail_closed",
+    "pending_content_behavior": "omit_module_fail_closed"
+  },
+  "career_boundary": {
+    "occupation_examples_policy": "content_example_not_registry_match_without_reviewed_registry_source",
+    "examples_not_matches": true,
+    "fit_score_allowed": false,
+    "ranking_allowed": false,
+    "success_prediction_allowed": false
+  },
+  "feedback_boundary": {
+    "feedback_changes_measured_code": false,
+    "feedback_changes_scores": false,
+    "feedback_changes_snapshot": false
+  },
+  "forbidden_claim_fragments": [
+    "Matches",
+    "best career",
+    "job fit",
+    "success probability",
+    "hiring suitability",
+    "140Q more accurate",
+    "60Q/140Q raw delta",
+    "feedback changes measured code",
+    "feedback changes score"
+  ],
+  "cases": [
+    {
+      "id": "clear_code_standard",
+      "coverage": ["clear_code"],
+      "form_code": "riasec_60",
+      "profile_shape": "clear_code",
+      "quality_state": "normal",
+      "near_tie_state": "none",
+      "deep_content_mode": "authored_subset",
+      "deep_slot_ids": ["dimension_deep_copy:I"],
+      "module_visibility": {
+        "hero_activity_chain": "visible",
+        "six_dimension_map": "visible",
+        "pair_blend": "visible",
+        "activity_explorer": "visible",
+        "occupation_examples": "collapsed",
+        "140q_cta": "visible",
+        "140q_context_cards": "hidden",
+        "share_card": "visible",
+        "pdf": "visible",
+        "history": "visible",
+        "feedback_overlay": "visible"
+      }
+    },
+    {
+      "id": "blended_code_pair_blend",
+      "coverage": ["blended_code"],
+      "form_code": "riasec_60",
+      "profile_shape": "blended_code",
+      "quality_state": "normal",
+      "near_tie_state": "none",
+      "deep_content_mode": "authored_subset",
+      "deep_slot_ids": ["dimension_deep_copy:I", "pair_blend_copy:I_A"],
+      "module_visibility": {
+        "hero_activity_chain": "visible",
+        "six_dimension_map": "visible",
+        "pair_blend": "visible",
+        "activity_explorer": "visible",
+        "occupation_examples": "collapsed",
+        "140q_cta": "visible",
+        "140q_context_cards": "hidden",
+        "share_card": "visible",
+        "pdf": "visible",
+        "history": "visible",
+        "feedback_overlay": "visible"
+      }
+    },
+    {
+      "id": "broad_profile_activity_first",
+      "coverage": ["broad_profile"],
+      "form_code": "riasec_60",
+      "profile_shape": "broad_profile",
+      "quality_state": "normal",
+      "near_tie_state": "multi_near_tie",
+      "deep_content_mode": "authored_subset",
+      "deep_slot_ids": ["dimension_deep_copy:I"],
+      "module_visibility": {
+        "hero_activity_chain": "hidden",
+        "six_dimension_map": "visible",
+        "pair_blend": "collapsed",
+        "activity_explorer": "visible",
+        "occupation_examples": "hidden",
+        "140q_cta": "visible",
+        "140q_context_cards": "hidden",
+        "share_card": "visible",
+        "pdf": "visible",
+        "history": "visible",
+        "feedback_overlay": "visible"
+      }
+    },
+    {
+      "id": "near_tie_alternate_code_reading_aid",
+      "coverage": ["near_tie"],
+      "form_code": "riasec_60",
+      "profile_shape": "near_tie",
+      "quality_state": "normal",
+      "near_tie_state": "top1_top2_near_tie",
+      "alternate_codes": ["AIS"],
+      "deep_content_mode": "authored_subset",
+      "deep_slot_ids": ["dimension_deep_copy:I", "pair_blend_copy:I_A"],
+      "module_visibility": {
+        "hero_activity_chain": "collapsed",
+        "six_dimension_map": "visible",
+        "pair_blend": "visible",
+        "activity_explorer": "visible",
+        "occupation_examples": "collapsed",
+        "140q_cta": "visible",
+        "140q_context_cards": "hidden",
+        "share_card": "visible",
+        "pdf": "visible",
+        "history": "visible",
+        "feedback_overlay": "visible"
+      }
+    },
+    {
+      "id": "low_quality_fail_closed",
+      "coverage": ["low_quality"],
+      "form_code": "riasec_140",
+      "profile_shape": "low_quality",
+      "quality_state": "low_quality",
+      "near_tie_state": "none",
+      "deep_content_mode": "missing_envelope",
+      "deep_slot_ids": [],
+      "module_visibility": {
+        "hero_activity_chain": "hidden",
+        "six_dimension_map": "visible",
+        "pair_blend": "hidden",
+        "activity_explorer": "hidden",
+        "occupation_examples": "hidden",
+        "140q_cta": "hidden",
+        "140q_context_cards": "hidden",
+        "share_card": "collapsed",
+        "pdf": "collapsed",
+        "history": "visible",
+        "feedback_overlay": "visible"
+      }
+    },
+    {
+      "id": "140q_layer_narrative",
+      "coverage": ["140Q layer narrative"],
+      "form_code": "riasec_140",
+      "profile_shape": "blended_code",
+      "quality_state": "normal",
+      "near_tie_state": "none",
+      "deep_content_mode": "authored_subset",
+      "deep_slot_ids": ["140q_task_card_copy:task_activity_card"],
+      "module_visibility": {
+        "hero_activity_chain": "visible",
+        "six_dimension_map": "visible",
+        "pair_blend": "visible",
+        "activity_explorer": "visible",
+        "occupation_examples": "collapsed",
+        "140q_cta": "hidden",
+        "140q_context_cards": "visible",
+        "share_card": "visible",
+        "pdf": "visible",
+        "history": "visible",
+        "feedback_overlay": "visible"
+      }
+    },
+    {
+      "id": "structural_difference_narrative",
+      "coverage": ["structural difference"],
+      "form_code": "riasec_140",
+      "profile_shape": "blended_code",
+      "quality_state": "normal",
+      "near_tie_state": "none",
+      "deep_content_mode": "authored_subset",
+      "deep_slot_ids": ["structural_difference_copy:different_emphasis"],
+      "module_visibility": {
+        "hero_activity_chain": "visible",
+        "six_dimension_map": "visible",
+        "pair_blend": "visible",
+        "activity_explorer": "visible",
+        "occupation_examples": "collapsed",
+        "140q_cta": "hidden",
+        "140q_context_cards": "visible",
+        "share_card": "visible",
+        "pdf": "visible",
+        "history": "visible",
+        "feedback_overlay": "visible"
+      }
+    },
+    {
+      "id": "missing_deep_content_slot",
+      "coverage": ["missing deep content slot"],
+      "form_code": "riasec_60",
+      "profile_shape": "clear_code",
+      "quality_state": "normal",
+      "near_tie_state": "none",
+      "deep_content_mode": "missing_envelope",
+      "deep_slot_ids": [],
+      "module_visibility": {
+        "hero_activity_chain": "visible",
+        "six_dimension_map": "visible",
+        "pair_blend": "visible",
+        "activity_explorer": "visible",
+        "occupation_examples": "collapsed",
+        "140q_cta": "visible",
+        "140q_context_cards": "hidden",
+        "share_card": "visible",
+        "pdf": "visible",
+        "history": "visible",
+        "feedback_overlay": "visible"
+      }
+    },
+    {
+      "id": "examples_only_career_content",
+      "coverage": ["examples-only career content"],
+      "form_code": "riasec_60",
+      "profile_shape": "clear_code",
+      "quality_state": "normal",
+      "near_tie_state": "none",
+      "deep_content_mode": "authored_subset",
+      "deep_slot_ids": ["dimension_deep_copy:I"],
+      "module_visibility": {
+        "hero_activity_chain": "visible",
+        "six_dimension_map": "visible",
+        "pair_blend": "visible",
+        "activity_explorer": "visible",
+        "occupation_examples": "collapsed",
+        "140q_cta": "visible",
+        "140q_context_cards": "hidden",
+        "share_card": "visible",
+        "pdf": "visible",
+        "history": "visible",
+        "feedback_overlay": "visible"
+      }
+    },
+    {
+      "id": "pending_deep_content_slot",
+      "coverage": ["pending deep content slot"],
+      "form_code": "riasec_60",
+      "profile_shape": "clear_code",
+      "quality_state": "normal",
+      "near_tie_state": "none",
+      "deep_content_mode": "pending_slots",
+      "deep_slot_ids": [],
+      "module_visibility": {
+        "hero_activity_chain": "visible",
+        "six_dimension_map": "visible",
+        "pair_blend": "visible",
+        "activity_explorer": "visible",
+        "occupation_examples": "collapsed",
+        "140q_cta": "visible",
+        "140q_context_cards": "hidden",
+        "share_card": "visible",
+        "pdf": "visible",
+        "history": "visible",
+        "feedback_overlay": "visible"
+      }
+    }
+  ]
+}

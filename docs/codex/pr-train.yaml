@@ -1720,7 +1720,8 @@ prs:
     repo_path: /Users/rainie/Desktop/GitHub/fap-web
     branch: codex/riasec-deep-copy-09-contract-fixtures
     base: main
-    depends_on: [RIASEC-DEEP-COPY-07]
+    depends_on:
+      - RIASEC-DEEP-COPY-08B
     mode: verify
     risk_level: L1
     status: planned
@@ -1735,6 +1736,7 @@ prs:
       - UI redesign
     likely_touched:
       - tests/contracts/**riasec**
+      - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
     required_local_checks:
       - targeted RIASEC contract tests
@@ -1757,8 +1759,7 @@ prs:
     branch: codex/riasec-deep-copy-10-acceptance-freeze
     base: main
     depends_on:
-      - RIASEC-DEEP-COPY-07
-      - RIASEC-DEEP-COPY-08
+      - RIASEC-DEEP-COPY-08B
       - RIASEC-DEEP-COPY-09
     mode: verify
     risk_level: L1
