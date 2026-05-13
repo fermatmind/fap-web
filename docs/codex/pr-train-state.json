@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-13T08:57:02Z",
+  "updated_at": "2026-05-13T09:17:54Z",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -476,8 +476,8 @@
       ],
       "checks": [],
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/785",
+      "commit_sha": "53a12b76b3884980fc71a816e8fc8ad4bea35bc8",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false
@@ -1059,7 +1059,7 @@
         "RIASEC-AH-03",
         "RIASEC-AH-04"
       ],
-      "status": "in_progress",
+      "status": "merged",
       "title": "test(riasec): add Trusted Result v1.5 smoke acceptance",
       "checks": [
         {
@@ -1201,11 +1201,11 @@
       ],
       "checks": [],
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/784",
+      "commit_sha": "1ad371b90bfe8a665240e9704775fe85d562b039",
+      "merged_at": "2026-05-13T09:03:50Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "sidecar_issues": []
     },
     {
@@ -1217,7 +1217,7 @@
       "depends_on": [
         "RIASEC-PERSONALIZATION-00"
       ],
-      "status": "pending",
+      "status": "in_progress",
       "title": "feat(riasec): add interpretation rule spec v2 contract",
       "mode": "execute",
       "risk_level": "L1",
@@ -1226,7 +1226,33 @@
         "backend/tests/**/Riasec*Interpretation*",
         "docs/codex/pr-train-state.json"
       ],
-      "checks": [],
+      "checks": [
+        {
+          "name": "pnpm exec vitest run tests/contracts/riasec-personalization-fixture-matrix.contract.test.tsx tests/contracts/riasec-trusted-result-shell.contract.test.tsx tests/contracts/riasec-trusted-result-v15-freeze.contract.test.ts",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm typecheck",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm test:contract",
+          "status": "passed"
+        },
+        {
+          "name": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://www.fermatmind.com pnpm build",
+          "status": "passed",
+          "note": "postbuild sitemap timestamp drift was restored because public/sitemap.xml is outside PR07 scope"
+        },
+        {
+          "name": "git diff --check",
+          "status": "passed"
+        },
+        {
+          "name": "scope validation forbidden claim search",
+          "status": "passed"
+        }
+      ],
       "failure_reason": null,
       "pr_url": null,
       "commit_sha": null,
