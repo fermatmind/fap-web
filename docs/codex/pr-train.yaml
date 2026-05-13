@@ -1353,3 +1353,441 @@ prs:
       - career examples as matches
       - AI-generated formal reports
     rollback_note: "Remove new fixtures and tests only."
+
+  - id: RIASEC-DEEP-COPY-00
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/riasec-deep-copy-00
+    base: main
+    depends_on: [RIASEC-PERSONALIZATION-07]
+    mode: scan/docs
+    risk_level: L1
+    status: planned
+    title: "docs(riasec): register deep copy train and readiness scan"
+    goal: "Register the RIASEC deep content runtime train and document slot readiness without runtime changes."
+    in_scope:
+      - docs/codex train manifest/state updates
+      - RIASEC deep copy readiness scan report
+      - stale ledger reconciliation for prior RIASEC personalization entries needed by this train
+    out_of_scope:
+      - runtime implementation
+      - final copy import
+      - frontend rendering changes
+      - scoring or content pack question changes
+    likely_touched:
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - docs/codex/riasec-deep-copy-00-readiness-scan.md
+    required_local_checks:
+      - YAML/JSON validity
+      - git diff --check
+      - scope validation no runtime files changed
+    acceptance:
+      - RIASEC-DEEP-COPY-00 through RIASEC-DEEP-COPY-10 exist in manifest/state.
+      - Readiness report classifies each deep content slot as runtime-ready, docs-only, missing, or blocked.
+      - No runtime files are changed.
+    must_not_touch:
+      - scorer math
+      - content pack question semantics
+      - frontend UI
+      - backend runtime services
+      - final editorial copy import
+    rollback_note: "Remove RIASEC-DEEP-COPY entries and readiness report."
+
+  - id: RIASEC-DEEP-COPY-01
+    repo: fap-api
+    repo_path: /Users/rainie/Desktop/GitHub/fap-api
+    branch: codex/riasec-deep-copy-01-slot-schema
+    base: main
+    depends_on: [RIASEC-DEEP-COPY-00]
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "feat(riasec): extend deep copy slot schema contract"
+    goal: "Extend backend slot schema with exact deep content block shapes and forbidden-claim validators."
+    in_scope:
+      - RiasecContentRegistrySlotContract
+      - backend RIASEC slot validator tests
+      - docs/codex train state updates
+    out_of_scope:
+      - final copy import
+      - projection rendering
+      - scorer math
+    likely_touched:
+      - backend/app/Services/Riasec/RiasecContentRegistrySlotContract.php
+      - backend/tests/Unit/Services/Riasec/RiasecContentRegistrySlotContractTest.php
+      - backend/tests/Unit/Services/BigFive/ResultPageV2/BigFiveResultPageV2CoreBodyPreviewTest.php
+      - docs/codex/pr-train-state.json
+    required_local_checks:
+      - targeted PHPUnit for RIASEC content slot contract
+      - relevant Big Five freeze classifier test if touched
+      - scoped Pint for touched PHP
+      - git diff --check
+    acceptance:
+      - Slots define block schemas for dimension, pair blend, triad, shadow/cost, 140Q cards, low_quality, structural difference, aspirations, disagree, and feedback response.
+      - Validators reject career match, fit, ranking, success, source_url, O*NET/SOC, raw delta, and 140Q accuracy claims.
+      - Missing content remains omit_module_fail_closed.
+    must_not_touch:
+      - scoring math
+      - content pack questions
+      - public UI
+      - final public copy
+    rollback_note: "Return slot schema to readiness-only contract."
+
+  - id: RIASEC-DEEP-COPY-02
+    repo: fap-api
+    repo_path: /Users/rainie/Desktop/GitHub/fap-api
+    branch: codex/riasec-deep-copy-02-registry-loader
+    base: main
+    depends_on: [RIASEC-DEEP-COPY-01]
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "feat(riasec): add deep copy registry loader contract"
+    goal: "Add deterministic backend/CMS registry lookup for approved RIASEC deep copy slots without importing final copy."
+    in_scope:
+      - backend RIASEC content registry service/loader
+      - schema validation
+      - fail-closed lookup behavior
+      - tests/fixtures with placeholder metadata only
+    out_of_scope:
+      - public editorial copy
+      - CMS migration unless explicitly approved in this PR
+      - frontend fallback copy
+    likely_touched:
+      - backend/app/Services/Riasec/Riasec*Content*
+      - backend/tests/Unit/Services/Riasec/Riasec*Content*
+      - docs/codex/pr-train-state.json
+    required_local_checks:
+      - targeted PHPUnit for RIASEC content registry
+      - scoped Pint for touched PHP
+      - git diff --check
+    acceptance:
+      - Backend can resolve approved slot metadata by slot/version/locale/profile state.
+      - Unknown or missing slots return omitted module state, not fallback copy.
+      - Registry rejects unreviewed or forbidden claims.
+    must_not_touch:
+      - frontend rendering
+      - scoring math
+      - final copy import
+    rollback_note: "Disable registry lookup and preserve existing projection."
+
+  - id: RIASEC-DEEP-COPY-03
+    repo: fap-api
+    repo_path: /Users/rainie/Desktop/GitHub/fap-api
+    branch: codex/riasec-deep-copy-03-dimension-copy
+    base: main
+    depends_on: [RIASEC-DEEP-COPY-02]
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "feat(riasec): add dimension deep copy slot projection"
+    goal: "Expose backend-governed dimension deep copy/core drive/cost/shadow slots when approved content exists."
+    in_scope:
+      - RIASEC content registry lookup for dimension/shadow/cost slots
+      - RiasecPublicProjectionService additive module payload
+      - composer metadata if needed
+      - backend fixtures/tests
+    out_of_scope:
+      - final copy import
+      - frontend UI rendering
+      - career matching
+    likely_touched:
+      - backend/app/Services/Riasec/**
+      - backend/app/Services/Report/RiasecReportComposer.php
+      - backend/tests/**/Riasec*
+      - docs/codex/pr-train-state.json
+    required_local_checks:
+      - targeted PHPUnit for RIASEC projection/composer/content slots
+      - relevant RIASEC flow tests
+      - scoped Pint
+      - git diff --check
+    acceptance:
+      - Dimension copy modules are emitted only from approved backend registry slots.
+      - Missing content omits modules.
+      - No frontend/local copy authority is required.
+    must_not_touch:
+      - scorer math
+      - content pack questions
+      - final editorial copy
+    rollback_note: "Stop emitting dimension deep copy slots."
+
+  - id: RIASEC-DEEP-COPY-04
+    repo: fap-api
+    repo_path: /Users/rainie/Desktop/GitHub/fap-api
+    branch: codex/riasec-deep-copy-04-pair-blend
+    base: main
+    depends_on: [RIASEC-DEEP-COPY-02]
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "feat(riasec): add pair and triad blend content slots"
+    goal: "Add backend-governed pair blend and triad chemistry slot projection keyed by measured code/profile state."
+    in_scope:
+      - pair_blend_copy and triad_blend_copy registry resolution
+      - module visibility integration
+      - backend tests for near_tie/blended/broad behavior
+    out_of_scope:
+      - final copy import
+      - frontend copy fallback
+      - alternate code as second result
+    likely_touched:
+      - backend/app/Services/Riasec/**
+      - backend/tests/**/Riasec*
+      - docs/codex/pr-train-state.json
+    required_local_checks:
+      - targeted PHPUnit for pair/triad slots
+      - RIASEC projection tests
+      - scoped Pint
+      - git diff --check
+    acceptance:
+      - Pair/triad copy is backend-owned and omitted when slot missing.
+      - Alternate code remains reading aid, not measured result.
+      - No identity/career recommendation overclaim.
+    must_not_touch:
+      - scorer math
+      - content pack questions
+      - frontend UI
+    rollback_note: "Disable pair/triad slot emission."
+
+  - id: RIASEC-DEEP-COPY-05
+    repo: fap-api
+    repo_path: /Users/rainie/Desktop/GitHub/fap-api
+    branch: codex/riasec-deep-copy-05-140q-narratives
+    base: main
+    depends_on: [RIASEC-DEEP-COPY-02]
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "feat(riasec): add 140Q contextual narrative slots"
+    goal: "Add task/environment/role and 140Q layer/tension narrative slot projection as contextual evidence only."
+    in_scope:
+      - 140q_task_card_copy
+      - 140q_environment_card_copy
+      - 140q_role_card_copy
+      - structural_difference_copy
+      - backend tests for no raw delta/no more accurate claims
+    out_of_scope:
+      - 140Q scoring changes
+      - cross-form raw score comparison
+      - frontend UI
+    likely_touched:
+      - backend/app/Services/Riasec/**
+      - backend/tests/**/Riasec*
+      - docs/codex/pr-train-state.json
+    required_local_checks:
+      - targeted PHPUnit for 140Q narrative projection
+      - RIASEC flow tests
+      - scoped Pint
+      - git diff --check
+    acceptance:
+      - 140Q narratives are labeled contextual, not more accurate.
+      - Tension narratives never say 60Q is wrong or corrected.
+      - Raw delta stays forbidden.
+    must_not_touch:
+      - scoring math
+      - 60Q/140Q compare policy
+      - content pack questions
+    rollback_note: "Stop emitting 140Q contextual narrative slots."
+
+  - id: RIASEC-DEEP-COPY-06
+    repo: fap-api
+    repo_path: /Users/rainie/Desktop/GitHub/fap-api
+    branch: codex/riasec-deep-copy-06-quality-aspirations-feedback-copy
+    base: main
+    depends_on: [RIASEC-DEEP-COPY-02]
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "feat(riasec): add quality aspirations and feedback response slots"
+    goal: "Add low_quality/cautious, aspiration calibration, disagree path, and feedback response slot contracts and projection."
+    in_scope:
+      - low_quality_copy
+      - aspiration_calibration_copy
+      - feedback_response_copy
+      - module_boundary_copy
+      - backend tests for no feedback mutation
+    out_of_scope:
+      - feedback event stream implementation
+      - frontend UI
+      - measured result mutation
+    likely_touched:
+      - backend/app/Services/Riasec/**
+      - backend/tests/**/Riasec*
+      - docs/codex/pr-train-state.json
+    required_local_checks:
+      - targeted PHPUnit for quality/feedback copy slots
+      - RIASEC feedback overlay tests
+      - scoped Pint
+      - git diff --check
+    acceptance:
+      - Low_quality/caution copy does not blame user or alter score/code.
+      - Feedback/disagree copy remains subjective overlay.
+      - Share/PDF do not expose raw feedback.
+    must_not_touch:
+      - feedback runtime writes
+      - scoring math
+      - frontend fallback copy
+    rollback_note: "Disable quality/aspiration/feedback slot emission."
+
+  - id: RIASEC-DEEP-COPY-07
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/riasec-deep-copy-07-frontend-consumer
+    base: main
+    depends_on:
+      - RIASEC-DEEP-COPY-03
+      - RIASEC-DEEP-COPY-04
+      - RIASEC-DEEP-COPY-05
+      - RIASEC-DEEP-COPY-06
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "feat(riasec): consume backend deep copy modules fail-closed"
+    goal: "Make fap-web consume backend deep copy modules without local interpretation copy or inference."
+    in_scope:
+      - RIASEC result assembler/types
+      - RiasecResultShell fail-closed module rendering
+      - frontend contract tests
+    out_of_scope:
+      - frontend-authored public copy
+      - backend changes
+      - result page redesign
+    likely_touched:
+      - lib/riasec/**
+      - components/result/riasec/**
+      - tests/contracts/**riasec**
+      - docs/codex/pr-train-state.json
+    required_local_checks:
+      - targeted RIASEC contract tests
+      - pnpm typecheck
+      - pnpm test:contract
+      - production build if shell touched
+      - git diff --check
+    acceptance:
+      - Frontend renders only backend-provided deep content modules.
+      - Unknown/missing modules fail closed.
+      - No frontend local interpretation fallback is introduced.
+    must_not_touch:
+      - backend
+      - scorer
+      - content pack questions
+      - local editorial copy
+    rollback_note: "Revert to personalization fail-closed shell."
+
+  - id: RIASEC-DEEP-COPY-08
+    repo: fap-api
+    repo_path: /Users/rainie/Desktop/GitHub/fap-api
+    branch: codex/riasec-deep-copy-08-copy-import-dry-run
+    base: main
+    depends_on:
+      - RIASEC-DEEP-COPY-01
+      - RIASEC-DEEP-COPY-02
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "feat(riasec): add deep copy import dry-run validator"
+    goal: "Add dry-run validation for external RIASEC deep copy assets without importing final public copy."
+    in_scope:
+      - backend validator command/service
+      - fixtures with minimal synthetic rows
+      - forbidden claim checks
+    out_of_scope:
+      - production import
+      - CMS migration unless explicitly approved
+      - final copy publication
+    likely_touched:
+      - backend/app/Console/Commands/*Riasec*
+      - backend/app/Services/Riasec/**
+      - backend/tests/**/Riasec*
+      - docs/codex/pr-train-state.json
+    required_local_checks:
+      - targeted PHPUnit for dry-run validator
+      - scoped Pint
+      - git diff --check
+    acceptance:
+      - External assets can be validated read-only.
+      - Forbidden claims and unsupported slots fail validation.
+      - No copy is imported or published.
+    must_not_touch:
+      - runtime public copy
+      - frontend
+      - scoring math
+    rollback_note: "Remove dry-run validator."
+
+  - id: RIASEC-DEEP-COPY-09
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/riasec-deep-copy-09-contract-fixtures
+    base: main
+    depends_on: [RIASEC-DEEP-COPY-07]
+    mode: verify
+    risk_level: L1
+    status: planned
+    title: "test(riasec): extend deep content fixture and forbidden claim contracts"
+    goal: "Extend frontend/backend-aligned fixture matrix for deep copy modules, missing slots, and forbidden claims."
+    in_scope:
+      - tests/contracts/**riasec**
+      - docs/codex train state updates
+    out_of_scope:
+      - runtime implementation
+      - final copy import
+      - UI redesign
+    likely_touched:
+      - tests/contracts/**riasec**
+      - docs/codex/pr-train-state.json
+    required_local_checks:
+      - targeted RIASEC contract tests
+      - pnpm typecheck
+      - pnpm test:contract
+      - git diff --check
+    acceptance:
+      - Fixtures cover all deep copy slot states and missing-content behavior.
+      - Forbidden claim scan covers runtime and fixtures.
+      - Trusted Result v1.5 and personalization contracts still pass.
+    must_not_touch:
+      - scoring math
+      - content pack questions
+      - runtime UI behavior except contract fixes in scope
+    rollback_note: "Remove new fixtures/tests only."
+
+  - id: RIASEC-DEEP-COPY-10
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/riasec-deep-copy-10-acceptance-freeze
+    base: main
+    depends_on:
+      - RIASEC-DEEP-COPY-07
+      - RIASEC-DEEP-COPY-08
+      - RIASEC-DEEP-COPY-09
+    mode: verify
+    risk_level: L1
+    status: planned
+    title: "test(riasec): freeze deep copy runtime acceptance"
+    goal: "Add final acceptance report/contract for RIASEC deep copy runtime readiness without claiming Big Five parity."
+    in_scope:
+      - acceptance report
+      - contract freeze tests
+      - train ledger updates
+    out_of_scope:
+      - final copy import
+      - production launch decision
+      - Big Five parity claim
+    likely_touched:
+      - docs/codex/**
+      - tests/contracts/**riasec**
+    required_local_checks:
+      - targeted RIASEC acceptance tests
+      - pnpm typecheck
+      - pnpm test:contract
+      - production build if acceptance touches shell fixtures
+      - git diff --check
+    acceptance:
+      - Deep copy runtime authority is frozen as backend/CMS-driven and fail-closed.
+      - Remaining content gaps and no-go claims are explicit.
+      - No scoring, content pack, or career matching drift.
+    must_not_touch:
+      - scorer math
+      - content pack questions
+      - final publication state
+    rollback_note: "Remove acceptance report/tests."
