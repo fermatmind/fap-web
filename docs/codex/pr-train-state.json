@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-13T04:30:33.169Z",
+  "updated_at": "2026-05-13T04:56:38.448Z",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -1043,9 +1043,43 @@
         "RIASEC-AH-03",
         "RIASEC-AH-04"
       ],
-      "status": "planned",
+      "status": "in_progress",
       "title": "test(riasec): add Trusted Result v1.5 smoke acceptance",
-      "checks": [],
+      "checks": [
+        {
+          "name": "dependency reconciliation",
+          "status": "passed",
+          "details": "RIASEC-AH-01 through AH-03 are merged in fap-web; RIASEC-AH-04 is merged in fap-api as PR #1340 with merge commit 2487e8e465de2239e7c20047b516084987a7094d."
+        },
+        {
+          "name": "targeted smoke contracts",
+          "status": "passed",
+          "command": "pnpm exec vitest run tests/contracts/riasec-trusted-result-v15-smoke-acceptance.contract.test.ts tests/contracts/riasec-trusted-result-v15-freeze.contract.test.ts tests/contracts/riasec-trusted-result-shell.contract.test.tsx tests/contracts/riasec-technical-note-route.contract.test.tsx tests/contracts/riasec-runtime-analytics.contract.test.tsx",
+          "details": "5 files passed, 14 tests passed."
+        },
+        {
+          "name": "typecheck",
+          "status": "passed",
+          "command": "pnpm typecheck"
+        },
+        {
+          "name": "contracts",
+          "status": "passed",
+          "command": "pnpm test:contract",
+          "details": "339 files passed, 1904 tests passed."
+        },
+        {
+          "name": "build",
+          "status": "passed",
+          "command": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://www.fermatmind.com pnpm build",
+          "details": "Production build passed; generated sitemap diff was restored."
+        },
+        {
+          "name": "scope validation",
+          "status": "passed",
+          "details": "Pending diff is limited to RIASEC smoke acceptance docs/test and train state metadata."
+        }
+      ],
       "failure_reason": null,
       "pr_url": null,
       "commit_sha": null,
