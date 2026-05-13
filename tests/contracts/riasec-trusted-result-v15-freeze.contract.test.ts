@@ -42,6 +42,8 @@ describe("RIASEC Trusted Result v1.5 freeze contract", () => {
     expect(fixture.runtime_status).toBe("trusted_result_v1_5_contract_freeze");
     expect(projection.schema_version).toBe("riasec.public_projection.v2");
     expect(projection).toHaveProperty("measurement_evidence");
+    expect(projection).toHaveProperty("interpretation_state");
+    expect(projection).toHaveProperty("module_visibility_policy");
     expect(projection).toHaveProperty("activity_explorer_v0_1");
     expect(projection).toHaveProperty("exploration_feedback_overlay_v0_1");
     expect(JSON.stringify(projection)).not.toContain("更准确");
@@ -56,9 +58,36 @@ describe("RIASEC Trusted Result v1.5 freeze contract", () => {
     expect(viewModel.trustedResultCard).toMatchObject({
       projectionVersion: "riasec.public_projection.v2",
       scoreSpaceVersion: "riasec_60_likert5_activity_sum_space.v1",
+      qualityState: "normal",
       snapshotBound: true,
       rawScoreDeltaAllowed: false,
       occupationExamplesPolicy: "content_example_not_registry_match_without_reviewed_registry_source",
+    });
+    expect(viewModel.interpretationState).toMatchObject({
+      interpretationRuleVersion: "riasec_interpretation_rule_spec_v2",
+      profileShape: "clear_code",
+      profileShapeVersion: "riasec_profile_shape_v2_0",
+      clarityLabel: "high",
+      readingStrength: "normal_reading",
+      moduleVisibilityPolicyId: "riasec_module_visibility_policy_v1",
+      fieldAuthority: {
+        profile_shape: "backend_owned",
+        near_tie_state: "backend_owned",
+        alternate_code: "backend_owned",
+        top_code_confidence: "backend_owned",
+        reading_strength: "backend_owned",
+      },
+    });
+    expect(viewModel.moduleVisibilityPolicy).toMatchObject({
+      schemaVersion: "riasec.module_visibility_policy.v1",
+      policyId: "riasec_module_visibility_policy_v1",
+      qualityState: "normal",
+      profileShape: "clear_code",
+      fallbackPolicy: {
+        unknownModule: "hidden",
+        missingBackendState: "hidden",
+        frontendInferenceAllowed: false,
+      },
     });
     expect(viewModel.activityExplorer).toMatchObject({
       status: "content_examples_only",

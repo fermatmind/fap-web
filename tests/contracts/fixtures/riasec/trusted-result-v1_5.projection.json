@@ -44,10 +44,69 @@
     "quality": {
       "grade": "A",
       "flags": [],
+      "quality_state": "normal",
       "low_quality_strength": "not_available_for_strong_low_quality"
     },
     "content_boundary": {
       "occupation_examples_policy": "content_example_not_registry_match_without_reviewed_registry_source"
+    },
+    "interpretation_state": {
+      "interpretation_rule_version": "riasec_interpretation_rule_spec_v2",
+      "profile_shape": "clear_code",
+      "profile_shape_version": "riasec_profile_shape_v2_0",
+      "clarity_label": "high",
+      "near_tie_state": {
+        "state": "none",
+        "dimensions": []
+      },
+      "alternate_code": {
+        "show": false,
+        "codes": [],
+        "display_boundary": ""
+      },
+      "alternate_code_reason": null,
+      "top_code_confidence": {
+        "level": "high",
+        "meaning": "readability strength, not probability"
+      },
+      "reading_strength": "normal_reading",
+      "result_page_strategy": {
+        "primary_reading_mode": "single_chain"
+      },
+      "module_visibility_policy_id": "riasec_module_visibility_policy_v1",
+      "validation_status": "rule_contract_defined_validation_pending",
+      "field_authority": {
+        "profile_shape": "backend_owned",
+        "near_tie_state": "backend_owned",
+        "alternate_code": "backend_owned",
+        "top_code_confidence": "backend_owned",
+        "reading_strength": "backend_owned"
+      }
+    },
+    "module_visibility_policy": {
+      "schema_version": "riasec.module_visibility_policy.v1",
+      "policy_id": "riasec_module_visibility_policy_v1",
+      "quality_state": "normal",
+      "profile_shape": "clear_code",
+      "form_code": "riasec_60",
+      "modules": [
+        { "key": "hero_activity_chain", "visibility": "visible", "reason": "standard_reading_available" },
+        { "key": "six_dimension_map", "visibility": "visible", "reason": "dimension_overview_available" },
+        { "key": "pair_blend", "visibility": "visible", "reason": "combination_reading_available" },
+        { "key": "activity_explorer", "visibility": "visible", "reason": "examples_only_activity_explorer_available" },
+        { "key": "occupation_examples", "visibility": "collapsed", "reason": "examples_only_not_registry_match" },
+        { "key": "140q_cta", "visibility": "visible", "reason": "contextual_form_optional_not_more_accurate" },
+        { "key": "140q_context_cards", "visibility": "hidden", "reason": "requires_riasec_140_contextual_form" },
+        { "key": "share_card", "visibility": "visible", "reason": "safe_share_available" },
+        { "key": "pdf", "visibility": "visible", "reason": "snapshot_bound_pdf_available" },
+        { "key": "history", "visibility": "visible", "reason": "snapshot_bound_history_available" },
+        { "key": "feedback_overlay", "visibility": "visible", "reason": "feedback_does_not_mutate_measured_result" }
+      ],
+      "fallback_policy": {
+        "unknown_module": "hidden",
+        "missing_backend_state": "hidden",
+        "frontend_inference_allowed": false
+      }
     },
     "activity_explorer_v0_1": {
       "schema_version": "riasec.activity_explorer.v0.1",
