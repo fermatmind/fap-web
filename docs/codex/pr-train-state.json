@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-13T09:17:54Z",
+  "updated_at": "2026-05-13T10:41:29Z",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -1097,8 +1097,8 @@
         }
       ],
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/786",
+      "commit_sha": "ebc32cdeee862948265cf8b7e57f2972d743356d",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false
@@ -1382,7 +1382,7 @@
         "RIASEC-PERSONALIZATION-03",
         "RIASEC-PERSONALIZATION-04"
       ],
-      "status": "in_progress",
+      "status": "merged",
       "title": "feat(riasec): consume backend personalization state fail-closed",
       "mode": "execute",
       "risk_level": "L1",
@@ -1424,11 +1424,11 @@
         }
       ],
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/784",
+      "commit_sha": "1ad371b90bfe8a665240e9704775fe85d562b039",
+      "merged_at": "2026-05-13T09:03:50Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "sidecar_issues": []
     },
     {
@@ -1445,7 +1445,7 @@
         "RIASEC-PERSONALIZATION-05",
         "RIASEC-PERSONALIZATION-06"
       ],
-      "status": "pending",
+      "status": "merged",
       "title": "test(riasec): add personalization fixture matrix contracts",
       "mode": "verify",
       "risk_level": "L1",
@@ -1453,6 +1453,351 @@
         "tests/contracts/**riasec**",
         "docs/riasec/**",
         "docs/codex/pr-train-state.json"
+      ],
+      "checks": [
+        {
+          "name": "pnpm exec vitest run tests/contracts/riasec-personalization-fixture-matrix.contract.test.tsx tests/contracts/riasec-trusted-result-shell.contract.test.tsx tests/contracts/riasec-trusted-result-v15-freeze.contract.test.ts",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm typecheck",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm test:contract",
+          "status": "passed"
+        },
+        {
+          "name": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://www.fermatmind.com pnpm build",
+          "status": "passed",
+          "note": "postbuild sitemap timestamp drift was restored because public/sitemap.xml is outside PR07 scope"
+        },
+        {
+          "name": "git diff --check",
+          "status": "passed"
+        },
+        {
+          "name": "scope validation forbidden claim search",
+          "status": "passed"
+        }
+      ],
+      "failure_reason": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/785",
+      "commit_sha": "d6db06a8a665f70966230489a12e007fa495c6e7",
+      "merged_at": "2026-05-13T09:26:02Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
+      "sidecar_issues": []
+    },
+    {
+      "id": "RIASEC-DEEP-COPY-00",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/riasec-deep-copy-00",
+      "base": "main",
+      "depends_on": [
+        "RIASEC-PERSONALIZATION-07"
+      ],
+      "status": "in_progress",
+      "title": "docs(riasec): register deep copy train and readiness scan",
+      "mode": "scan/docs",
+      "risk_level": "L1",
+      "allowed_paths": [
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json",
+        "docs/codex/riasec-deep-copy-00-readiness-scan.md"
+      ],
+      "checks": [
+        {
+          "name": "jq empty docs/codex/pr-train-state.json",
+          "status": "passed"
+        },
+        {
+          "name": "ruby -e 'require \"yaml\"; YAML.load_file(\"docs/codex/pr-train.yaml\")'",
+          "status": "passed"
+        },
+        {
+          "name": "git diff --check",
+          "status": "passed"
+        },
+        {
+          "name": "scope validation changed files limited to docs/codex train metadata and readiness scan",
+          "status": "passed"
+        }
+      ],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": []
+    },
+    {
+      "id": "RIASEC-DEEP-COPY-01",
+      "repo": "fap-api",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-api",
+      "branch": "codex/riasec-deep-copy-01-slot-schema",
+      "base": "main",
+      "depends_on": [
+        "RIASEC-DEEP-COPY-00"
+      ],
+      "status": "pending",
+      "title": "feat(riasec): extend deep copy slot schema contract",
+      "mode": "execute",
+      "risk_level": "L1",
+      "allowed_paths": [
+        "backend/app/Services/Riasec/**",
+        "backend/tests/**/Riasec**",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": []
+    },
+    {
+      "id": "RIASEC-DEEP-COPY-02",
+      "repo": "fap-api",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-api",
+      "branch": "codex/riasec-deep-copy-02-registry-loader",
+      "base": "main",
+      "depends_on": [
+        "RIASEC-DEEP-COPY-01"
+      ],
+      "status": "pending",
+      "title": "feat(riasec): add deep copy registry loader contract",
+      "mode": "execute",
+      "risk_level": "L1",
+      "allowed_paths": [
+        "backend/app/Services/Riasec/**",
+        "backend/tests/**/Riasec**",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": []
+    },
+    {
+      "id": "RIASEC-DEEP-COPY-03",
+      "repo": "fap-api",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-api",
+      "branch": "codex/riasec-deep-copy-03-dimension-copy",
+      "base": "main",
+      "depends_on": [
+        "RIASEC-DEEP-COPY-02"
+      ],
+      "status": "pending",
+      "title": "feat(riasec): wire dimension drive cost shadow copy slots",
+      "mode": "execute",
+      "risk_level": "L1",
+      "allowed_paths": [
+        "backend/app/Services/Riasec/**",
+        "backend/tests/**/Riasec**",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": []
+    },
+    {
+      "id": "RIASEC-DEEP-COPY-04",
+      "repo": "fap-api",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-api",
+      "branch": "codex/riasec-deep-copy-04-pair-blend",
+      "base": "main",
+      "depends_on": [
+        "RIASEC-DEEP-COPY-02"
+      ],
+      "status": "pending",
+      "title": "feat(riasec): wire pair and triad blend copy slots",
+      "mode": "execute",
+      "risk_level": "L1",
+      "allowed_paths": [
+        "backend/app/Services/Riasec/**",
+        "backend/tests/**/Riasec**",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": []
+    },
+    {
+      "id": "RIASEC-DEEP-COPY-05",
+      "repo": "fap-api",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-api",
+      "branch": "codex/riasec-deep-copy-05-140q-narratives",
+      "base": "main",
+      "depends_on": [
+        "RIASEC-DEEP-COPY-02"
+      ],
+      "status": "pending",
+      "title": "feat(riasec): wire 140q contextual narrative slots",
+      "mode": "execute",
+      "risk_level": "L1",
+      "allowed_paths": [
+        "backend/app/Services/Riasec/**",
+        "backend/tests/**/Riasec**",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": []
+    },
+    {
+      "id": "RIASEC-DEEP-COPY-06",
+      "repo": "fap-api",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-api",
+      "branch": "codex/riasec-deep-copy-06-quality-aspirations-feedback-copy",
+      "base": "main",
+      "depends_on": [
+        "RIASEC-DEEP-COPY-02"
+      ],
+      "status": "pending",
+      "title": "feat(riasec): wire cautious aspiration disagree feedback copy slots",
+      "mode": "execute",
+      "risk_level": "L1",
+      "allowed_paths": [
+        "backend/app/Services/Riasec/**",
+        "backend/tests/**/Riasec**",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": []
+    },
+    {
+      "id": "RIASEC-DEEP-COPY-07",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/riasec-deep-copy-07-frontend-consumer",
+      "base": "main",
+      "depends_on": [
+        "RIASEC-DEEP-COPY-03",
+        "RIASEC-DEEP-COPY-04",
+        "RIASEC-DEEP-COPY-05",
+        "RIASEC-DEEP-COPY-06"
+      ],
+      "status": "pending",
+      "title": "feat(riasec): consume backend deep copy modules fail closed",
+      "mode": "execute",
+      "risk_level": "L1",
+      "allowed_paths": [
+        "lib/riasec/**",
+        "components/result/riasec/**",
+        "tests/contracts/**riasec**",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": []
+    },
+    {
+      "id": "RIASEC-DEEP-COPY-08",
+      "repo": "fap-api",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-api",
+      "branch": "codex/riasec-deep-copy-08-copy-import-dry-run",
+      "base": "main",
+      "depends_on": [
+        "RIASEC-DEEP-COPY-01",
+        "RIASEC-DEEP-COPY-02"
+      ],
+      "status": "pending",
+      "title": "test(riasec): add deep copy asset dry-run validator",
+      "mode": "verify",
+      "risk_level": "L1",
+      "allowed_paths": [
+        "backend/app/Services/Riasec/**",
+        "backend/tests/**/Riasec**",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": []
+    },
+    {
+      "id": "RIASEC-DEEP-COPY-09",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/riasec-deep-copy-09-contract-fixtures",
+      "base": "main",
+      "depends_on": [
+        "RIASEC-DEEP-COPY-07"
+      ],
+      "status": "pending",
+      "title": "test(riasec): add deep copy contract fixtures and forbidden claims",
+      "mode": "verify",
+      "risk_level": "L1",
+      "allowed_paths": [
+        "tests/contracts/**riasec**",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": []
+    },
+    {
+      "id": "RIASEC-DEEP-COPY-10",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/riasec-deep-copy-10-acceptance-freeze",
+      "base": "main",
+      "depends_on": [
+        "RIASEC-DEEP-COPY-07",
+        "RIASEC-DEEP-COPY-08",
+        "RIASEC-DEEP-COPY-09"
+      ],
+      "status": "pending",
+      "title": "test(riasec): freeze deep copy runtime acceptance",
+      "mode": "verify",
+      "risk_level": "L1",
+      "allowed_paths": [
+        "tests/contracts/**riasec**",
+        "docs/codex/**"
       ],
       "checks": [],
       "failure_reason": null,
