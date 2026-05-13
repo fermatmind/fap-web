@@ -199,7 +199,7 @@
       "branch": "codex/pr-web-hotfix-761a-job-detail-cta-attribution",
       "base": "main",
       "depends_on": [],
-      "status": "in_progress",
+      "status": "open",
       "title": "fix(career): restore attributed RIASEC CTA on published job detail live HTML",
       "artifacts": [
         "app/(localized)/[locale]/career/jobs/[slug]/page.tsx",
@@ -451,8 +451,8 @@
         }
       ],
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/784",
+      "commit_sha": "8049dc9af91924d933be975c6aa608cedb730f99",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false
