@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-13T04:22:40.551Z",
+  "updated_at": "2026-05-13T04:30:33.169Z",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -820,7 +820,7 @@
         "RIASEC-TRAIN-08",
         "RIASEC-TRAIN-09"
       ],
-      "status": "ready_for_pr",
+      "status": "merged",
       "title": "test(riasec): freeze Trusted Result v1.5 analytics fixtures and contracts",
       "checks": [
         {
@@ -859,14 +859,32 @@
           "name": "diff check",
           "status": "passed",
           "command": "git diff --check"
+        },
+        {
+          "name": "github merge reconciliation",
+          "status": "passed",
+          "command": "gh pr view 775 --json state,mergeCommit,mergedAt,headRefName,url --repo fermatmind/fap-web",
+          "details": "GitHub reports PR #775 merged at 2026-05-12T15:29:40Z with merge commit 43cc2f7fc9e52b2a853f83a1ba71cc804711e109."
+        },
+        {
+          "name": "origin main contains merge commit",
+          "status": "passed",
+          "command": "git merge-base --is-ancestor 43cc2f7fc9e52b2a853f83a1ba71cc804711e109 origin/main",
+          "details": "origin/main contains the RIASEC-TRAIN-10 merge commit."
+        },
+        {
+          "name": "post-merge branch cleanup reconciliation",
+          "status": "passed",
+          "command": "git ls-remote --heads origin codex/riasec-train-10-freeze-contracts && git branch --list codex/riasec-train-10-freeze-contracts",
+          "details": "Remote and local task branches are absent during AH-03 reconciliation."
         }
       ],
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/775",
+      "commit_sha": "43cc2f7fc9e52b2a853f83a1ba71cc804711e109",
+      "merged_at": "2026-05-12T15:29:40Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
     },
     {
       "id": "RIASEC-AH-01",
