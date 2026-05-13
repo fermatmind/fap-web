@@ -223,6 +223,16 @@ Deployment wiring for end-to-end release invalidation must stay aligned across b
 
 The backend invalidation URL list should point at the frontend `/api/content-release/revalidate` consumer, and the backend secret must match the frontend token exactly.
 
+For article releases, the backend content-release planner sends locale-aware paths instead of relying on manual cache-busters. The default release set must include the localized homepage, article list, article detail, `/llms.txt`, and `/llms-full.txt`; package graph metadata can add Topic, Test, Personality, and Career Guide paths. The frontend consumer intentionally accepts only public content paths and reports any rejected paths in `rejected_paths`.
+
+Minimum production release wiring:
+
+- `OPS_CONTENT_RELEASE_CACHE_INVALIDATION_URLS=https://www.fermatmind.com/api/content-release/revalidate`
+- `OPS_CONTENT_RELEASE_CACHE_INVALIDATION_SECRET=<shared secret>`
+- `CONTENT_RELEASE_REVALIDATE_TOKEN=<same shared secret>`
+
+Sitemap note: `sitemap.xml` is a generated static artifact, not a path that this revalidation consumer can rewrite. Daily publishing still needs a sitemap regeneration/deploy step, or a future dynamic sitemap rollout, before sitemap freshness can be treated as automatic.
+
 Expected release behavior:
 
 - Homepage recommended articles are visible when the CMS block is configured.

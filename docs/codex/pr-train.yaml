@@ -1888,3 +1888,45 @@ prs:
       - career registry matching
       - frontend local editorial authority
     rollback_note: "Remove deep content slot parser, renderer, fixture, and contract test."
+
+  - id: PR-CMS-02
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-cms-02-content-release-revalidate-web
+    base: main
+    depends_on: []
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "test(cms): harden content release revalidate allowlist"
+    goal: "Harden the frontend content-release revalidation endpoint with a public path allowlist for zh/en article, Topic, Career Guide, Test, Personality, and llms paths."
+    in_scope:
+      - app/api/content-release/revalidate/route.ts
+      - tests/contracts/content-release-revalidate-allowlist.contract.test.ts
+      - docs/ops/cms-api-environments-runbook.md
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - article rendering changes
+      - homepage visual changes
+      - production content mutation
+      - sitemap regeneration implementation
+      - result/payment/order/share/private flows
+    required_local_checks:
+      - pnpm vitest run tests/contracts/content-release-revalidate-allowlist.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - git diff --check
+    acceptance:
+      - Revalidate endpoint rejects private/API/result/order/payment/share/take paths.
+      - Revalidate endpoint accepts only public zh/en content paths and llms routes.
+      - Mixed accepted/rejected payloads report both sets.
+      - Token enforcement remains required.
+      - Existing content release smoke wiring remains documented.
+    must_not_touch:
+      - fap-api backend
+      - article body content
+      - homepage/article visual rendering
+      - tests/results/payment/order/share runtime
+    rollback_note: "Restore the previous revalidate route and remove allowlist contract."
