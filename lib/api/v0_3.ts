@@ -1867,7 +1867,7 @@ export type EnneagramObservationDay7Payload = {
   user_disagreed_reason?: string | null;
 };
 
-export type EnneagramTechnicalNoteSection = {
+export type ScaleTechnicalNoteSection = {
   section_key: string;
   title?: string;
   body?: string;
@@ -1876,7 +1876,7 @@ export type EnneagramTechnicalNoteSection = {
   [key: string]: unknown;
 };
 
-export type EnneagramMethodBoundary = {
+export type ScaleMethodBoundary = {
   label?: string;
   copy?: string;
   evidence_level?: string;
@@ -1884,7 +1884,7 @@ export type EnneagramMethodBoundary = {
   [key: string]: unknown;
 };
 
-export type EnneagramMetricDefinition = {
+export type ScaleMetricDefinition = {
   metric_key: string;
   label?: string;
   description?: string;
@@ -1896,33 +1896,55 @@ export type EnneagramMetricDefinition = {
   [key: string]: unknown;
 };
 
-export type EnneagramTechnicalNoteDisclaimer = {
+export type ScaleTechnicalNoteDisclaimer = {
   key?: string;
   label?: string;
   copy?: string;
   [key: string]: unknown;
 };
 
-export type EnneagramTechnicalNoteV1 = {
-  schema_version: "enneagram.technical_note.v1";
-  scale_code: "ENNEAGRAM";
+export type ScaleTechnicalNoteV1 = {
+  schema_version: string;
+  scale_code: "ENNEAGRAM" | "RIASEC" | string;
   registry_version?: string;
   registry_release_hash?: string;
   technical_note_version?: string;
-  sections: EnneagramTechnicalNoteSection[];
-  method_boundaries?: Record<string, EnneagramMethodBoundary | Record<string, unknown>>;
-  metric_definitions?: EnneagramMetricDefinition[];
+  sections: ScaleTechnicalNoteSection[];
+  method_boundaries?: Record<string, ScaleMethodBoundary | Record<string, unknown>>;
+  metric_definitions?: ScaleMetricDefinition[];
   data_status_summary?: Record<string, unknown>;
-  disclaimers?: Array<EnneagramTechnicalNoteDisclaimer | string>;
+  disclaimers?: Array<ScaleTechnicalNoteDisclaimer | string>;
   generated_at?: string;
   [key: string]: unknown;
 };
 
-export type EnneagramTechnicalNoteResponse = {
+export type ScaleTechnicalNoteResponse = {
   ok?: boolean;
+  scale_code?: "ENNEAGRAM" | "RIASEC" | string;
+  technical_note_v1?: ScaleTechnicalNoteV1 | null;
+  [key: string]: unknown;
+};
+
+export type EnneagramTechnicalNoteSection = ScaleTechnicalNoteSection;
+export type EnneagramMethodBoundary = ScaleMethodBoundary;
+export type EnneagramMetricDefinition = ScaleMetricDefinition;
+export type EnneagramTechnicalNoteDisclaimer = ScaleTechnicalNoteDisclaimer;
+export type EnneagramTechnicalNoteV1 = ScaleTechnicalNoteV1 & {
+  schema_version: "enneagram.technical_note.v1";
+  scale_code: "ENNEAGRAM";
+};
+export type EnneagramTechnicalNoteResponse = ScaleTechnicalNoteResponse & {
   scale_code?: "ENNEAGRAM" | string;
   technical_note_v1?: EnneagramTechnicalNoteV1 | null;
-  [key: string]: unknown;
+};
+
+export type RiasecTechnicalNoteV1 = ScaleTechnicalNoteV1 & {
+  schema_version: "riasec.technical_note.v1";
+  scale_code: "RIASEC";
+};
+export type RiasecTechnicalNoteResponse = ScaleTechnicalNoteResponse & {
+  scale_code?: "RIASEC" | string;
+  technical_note_v1?: RiasecTechnicalNoteV1 | null;
 };
 
 export type MbtiCompareInviteCreateResponse = {
@@ -3095,6 +3117,14 @@ export async function fetchEnneagramTechnicalNote(): Promise<EnneagramTechnicalN
   });
 
   return assertApiOk(response, "Failed to load Enneagram Technical Note.");
+}
+
+export async function fetchRiasecTechnicalNote(): Promise<RiasecTechnicalNoteResponse> {
+  const response = await apiClient.get<RiasecTechnicalNoteResponse>("/v0.3/scales/RIASEC/technical-note", {
+    skipAuth: true,
+  });
+
+  return assertApiOk(response, "Failed to load RIASEC Technical Note.");
 }
 
 export async function fetchAttemptReportAccess({

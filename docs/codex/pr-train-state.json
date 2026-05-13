@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-13T03:53:30.285Z",
+  "updated_at": "2026-05-13T04:11:23.065Z",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -877,12 +877,46 @@
       "depends_on": [
         "RIASEC-TRAIN-05"
       ],
-      "status": "planned",
+      "status": "open",
       "title": "feat(riasec): enable frontend Technical Note route",
-      "checks": [],
+      "checks": [
+        {
+          "name": "targeted technical-note contracts",
+          "status": "passed",
+          "command": "pnpm exec vitest run tests/contracts/enneagram-technical-note-api.contract.test.ts tests/contracts/enneagram-technical-note.contract.test.tsx tests/contracts/riasec-technical-note-route.contract.test.tsx",
+          "details": "3 files passed, 12 tests passed."
+        },
+        {
+          "name": "typecheck",
+          "status": "passed",
+          "command": "pnpm typecheck"
+        },
+        {
+          "name": "contracts",
+          "status": "passed",
+          "command": "pnpm test:contract",
+          "details": "337 files passed, 1900 tests passed."
+        },
+        {
+          "name": "build",
+          "status": "passed_with_env",
+          "command": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://www.fermatmind.com pnpm build",
+          "details": "Plain pnpm build failed against local 127.0.0.1:8000 content-pages API; production API env build passed. Local API refusal recorded as sidecar, not introduced by AH-01."
+        },
+        {
+          "name": "scope validation",
+          "status": "passed",
+          "details": "Diff limited to Technical Note route, shared Technical Note renderer/API types, contract tests, and train ledger state. Forbidden phrase hits are only negative assertions inside tests."
+        },
+        {
+          "name": "diff check",
+          "status": "passed",
+          "command": "git diff --check"
+        }
+      ],
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/779",
+      "commit_sha": "e719e57b",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false

@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { fetchEnneagramTechnicalNote } from "@/lib/api/v0_3";
+import { fetchEnneagramTechnicalNote, fetchRiasecTechnicalNote } from "@/lib/api/v0_3";
 
 const hoisted = vi.hoisted(() => ({
   get: vi.fn(),
@@ -42,6 +42,24 @@ describe("enneagram technical note API contract", () => {
     await fetchEnneagramTechnicalNote();
 
     expect(hoisted.get).toHaveBeenCalledWith("/v0.3/scales/ENNEAGRAM/technical-note", {
+      skipAuth: true,
+    });
+  });
+
+  it("fetches the RIASEC technical note endpoint without requiring frontend-side auth state", async () => {
+    hoisted.get.mockResolvedValueOnce({
+      ok: true,
+      scale_code: "RIASEC",
+      technical_note_v1: {
+        schema_version: "riasec.technical_note.v1",
+        scale_code: "RIASEC",
+        sections: [],
+      },
+    });
+
+    await fetchRiasecTechnicalNote();
+
+    expect(hoisted.get).toHaveBeenCalledWith("/v0.3/scales/RIASEC/technical-note", {
       skipAuth: true,
     });
   });

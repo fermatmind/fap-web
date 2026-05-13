@@ -1,9 +1,10 @@
 import { render, screen, waitFor, within } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { EnneagramTechnicalNotePage } from "@/components/result/enneagram/EnneagramTechnicalNotePage";
+import { EnneagramTechnicalNotePage, RiasecTechnicalNotePage } from "@/components/result/enneagram/EnneagramTechnicalNotePage";
 
 const hoisted = vi.hoisted(() => ({
   fetchEnneagramTechnicalNote: vi.fn(),
+  fetchRiasecTechnicalNote: vi.fn(),
 }));
 
 vi.mock("@/lib/api/v0_3", async () => {
@@ -11,6 +12,7 @@ vi.mock("@/lib/api/v0_3", async () => {
   return {
     ...actual,
     fetchEnneagramTechnicalNote: hoisted.fetchEnneagramTechnicalNote,
+    fetchRiasecTechnicalNote: hoisted.fetchRiasecTechnicalNote,
   };
 });
 
@@ -135,10 +137,77 @@ function createTechnicalNoteResponse() {
   };
 }
 
+function createRiasecTechnicalNoteResponse() {
+  return {
+    ok: true,
+    scale_code: "RIASEC",
+    technical_note_v1: {
+      schema_version: "riasec.technical_note.v1",
+      scale_code: "RIASEC",
+      technical_note_version: "riasec_technical_note.v0.1",
+      measurement_contract_version: "riasec.measurement_contract.v1",
+      method_boundary_version: "riasec.method_boundary.v0.1",
+      sections: [
+        {
+          section_key: "test_goal",
+          title: "测试目标",
+          body: "RIASEC 当前用于呈现职业兴趣线索，帮助用户理解自己更容易被哪些工作活动吸引。",
+          data_status: "currently_operational",
+        },
+        {
+          section_key: "score_space_boundary",
+          title: "分数空间",
+          body: "60Q 与 140Q 属于同一 RIASEC scale，但使用不同 score_space_version。",
+          data_status: "currently_operational",
+        },
+        {
+          section_key: "career_examples_boundary",
+          title: "职业例子边界",
+          body: "没有 reviewed registry source 时，职业例子只能作为 content_example_not_registry_match 展示。",
+          data_status: "partial",
+        },
+      ],
+      method_boundaries: {
+        content_examples_not_registry_match: {
+          label: "Examples only",
+          copy: "occupation examples 必须标注 content_example_not_registry_match。",
+          evidence_level: "content_boundary",
+          content_maturity: "v0.1",
+        },
+        feedback_no_score_mutation: {
+          label: "反馈不改写测量结果",
+          copy: "用户反馈只进入探索层，不会覆盖 measured_holland_code、维度分数或正式报告快照。",
+          evidence_level: "method_boundary",
+          content_maturity: "v0.1",
+        },
+      },
+      data_status_summary: {
+        currently_operational: ["test_goal", "score_space_boundary"],
+        partial: ["career_examples_boundary"],
+        not_claimed: ["job_fit", "career_success_probability", "cross_form_raw_score_delta"],
+      },
+      disclaimers: [
+        {
+          key: "examples_not_matches",
+          label: "职业例子不是匹配",
+          copy: "职业例子是内容示例，不是职业数据库匹配或岗位推荐。",
+        },
+        {
+          key: "feedback_overlay_boundary",
+          label: "反馈层边界",
+          copy: "反馈不会修改 measured_holland_code、分数或正式报告快照。",
+        },
+      ],
+      generated_at: "2026-05-12T00:00:00Z",
+    },
+  };
+}
+
 describe("enneagram technical note page contract", () => {
   beforeEach(() => {
     vi.clearAllMocks();
     hoisted.fetchEnneagramTechnicalNote.mockResolvedValue(createTechnicalNoteResponse());
+    hoisted.fetchRiasecTechnicalNote.mockResolvedValue(createRiasecTechnicalNoteResponse());
   });
 
   it("renders required sections, method boundaries, and version metadata", async () => {
@@ -275,5 +344,32 @@ describe("enneagram technical note page contract", () => {
     });
 
     expect(screen.getByText("当前 Technical Note 暂时不可用。你仍可以先按结果页的方法边界阅读本次测量结果。")).toBeInTheDocument();
+  });
+
+  it("renders the RIASEC technical note from the backend contract without local career-match claims", async () => {
+    render(
+      <RiasecTechnicalNotePage
+        locale="zh"
+        testSlug="holland-career-interest-test-riasec"
+        testTitle="霍兰德职业兴趣测试（RIASEC）"
+      />
+    );
+
+    expect(await screen.findByTestId("riasec-technical-note-page")).toBeInTheDocument();
+    expect(hoisted.fetchRiasecTechnicalNote).toHaveBeenCalledTimes(1);
+    expect(screen.getByTestId("riasec-technical-note-meta")).toHaveTextContent("riasec_technical_note.v0.1");
+    expect(screen.getByTestId("riasec-technical-note-section-test_goal")).toHaveTextContent("职业兴趣线索");
+    expect(screen.getByTestId("riasec-technical-note-section-career_examples_boundary")).toHaveTextContent(
+      "content_example_not_registry_match"
+    );
+    expect(screen.getByTestId("riasec-technical-note-method-boundaries")).toHaveTextContent("Examples only");
+    expect(screen.getByTestId("riasec-technical-note-disclaimers")).toHaveTextContent("职业例子不是匹配");
+
+    const page = screen.getByTestId("riasec-technical-note-page");
+    expect(page).not.toHaveTextContent("career match");
+    expect(page).not.toHaveTextContent("job fit");
+    expect(page).not.toHaveTextContent("fit score");
+    expect(page).not.toHaveTextContent("success prediction");
+    expect(page).not.toHaveTextContent("recommended career");
   });
 });
