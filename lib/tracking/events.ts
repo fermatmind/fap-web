@@ -198,7 +198,7 @@ const EVENT_FIELD_WHITELIST: Record<TrackingEventName, readonly string[]> = {
   payment_confirmed: ["orderNoMasked", "attemptIdMasked", "provider", "form_code", "locale"],
   payment_failed: ["orderNoMasked", "attemptIdMasked", "reason", "provider", "form_code", "locale"],
   abandoned_paywall: ["attemptIdMasked", "locked", "stayMs", "locale"],
-  purchase_success: ["orderNoMasked", "attemptIdMasked", "sku", "amount", "currency", "provider", "form_code", "locale"],
+  purchase_success: ["orderNoMasked", "attemptIdMasked", "sku", "amount", "value", "price", "currency", "provider", "order_no", "orderNo", "order_id", "transaction_id", "form_code", "locale"],
 
   landing_view: ["slug", "test_slug", "form_code", "entry_surface", "source_page_type", "target_action", "landing_path", "locale", ...COMMON_BIG5_FIELDS],
   start_click: ["slug", "test_slug", "form_code", "entry_surface", "source_page_type", "target_action", "landing_path", "locale", "disclaimer_version", "disclaimer_hash", ...COMMON_BIG5_FIELDS],
@@ -207,7 +207,7 @@ const EVENT_FIELD_WHITELIST: Record<TrackingEventName, readonly string[]> = {
   report_view_free: ["attempt_id", "locale", ...COMMON_BIG5_FIELDS],
   paywall_view: ["attempt_id", "offers_count", "locale", ...COMMON_BIG5_FIELDS],
   checkout_start: ["attempt_id", "order_no", "price", "currency", "locale", ...COMMON_BIG5_FIELDS],
-  pay_success: ["attempt_id", "order_no", "locale", ...COMMON_BIG5_FIELDS],
+  pay_success: ["attempt_id", "order_no", "orderNo", "order_id", "transaction_id", "amount", "value", "price", "currency", "locale", ...COMMON_BIG5_FIELDS],
   unlock_success: ["attempt_id", "order_no", "locale", ...COMMON_BIG5_FIELDS],
   pdf_download: ["attempt_id", "pdf_variant", "locale", ...COMMON_BIG5_FIELDS],
   retake_blocked: ["reason", "retry_after_seconds", "locale", ...COMMON_BIG5_FIELDS],

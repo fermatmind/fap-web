@@ -1,6 +1,7 @@
 type AnalyticsScriptConfig = {
   enabled: boolean;
   gaMeasurementId: string;
+  googleAdsConversionId: string;
   baiduTongjiId: string;
 };
 
@@ -10,6 +11,10 @@ function normalizeEnvValue(value: string | undefined): string {
 
 function normalizeGaMeasurementId(value: string): string {
   return /^G-[A-Z0-9]{4,32}$/i.test(value) ? value : "";
+}
+
+function normalizeGoogleAdsConversionId(value: string): string {
+  return /^AW-[A-Z0-9-]{4,32}$/i.test(value) ? value : "";
 }
 
 function normalizeBaiduTongjiId(value: string): string {
@@ -27,17 +32,22 @@ export function getAnalyticsScriptConfig(env: Partial<NodeJS.ProcessEnv> = proce
   return {
     enabled: env.NEXT_PUBLIC_ANALYTICS_ENABLED === "true",
     gaMeasurementId: normalizeGaMeasurementId(normalizeEnvValue(env.NEXT_PUBLIC_GA_MEASUREMENT_ID)),
+    googleAdsConversionId: normalizeGoogleAdsConversionId(
+      normalizeEnvValue(env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID)
+    ),
     baiduTongjiId: normalizeBaiduTongjiId(normalizeEnvValue(env.NEXT_PUBLIC_BAIDU_TONGJI_ID)),
   };
 }
 
 export function buildAnalyticsBootstrapScript(config: AnalyticsScriptConfig): string {
   const gaMeasurementId = safeInlineJson(config.gaMeasurementId);
+  const googleAdsConversionId = safeInlineJson(config.googleAdsConversionId);
   const baiduTongjiId = safeInlineJson(config.baiduTongjiId);
 
   return `
 (function () {
   var gaMeasurementId = ${gaMeasurementId};
+  var googleAdsConversionId = ${googleAdsConversionId};
   var baiduTongjiId = ${baiduTongjiId};
   var consentKey = "fm_consent_v1";
   var loaded = false;
@@ -70,10 +80,18 @@ export function buildAnalyticsBootstrapScript(config: AnalyticsScriptConfig): st
     if (loaded || !hasAnalyticsConsent()) return;
     loaded = true;
 
-    if (gaMeasurementId) {
-      loadScript("fm-ga4-script", "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(gaMeasurementId));
+    var gtagDestinationId = gaMeasurementId || googleAdsConversionId;
+    if (gtagDestinationId) {
+      loadScript("fm-gtag-script", "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(gtagDestinationId));
       window.gtag("js", new Date());
+    }
+
+    if (gaMeasurementId) {
       window.gtag("config", gaMeasurementId, { send_page_view: false });
+    }
+
+    if (googleAdsConversionId) {
+      window.gtag("config", googleAdsConversionId);
     }
 
     if (baiduTongjiId) {
@@ -93,7 +111,7 @@ export function buildAnalyticsBootstrapScript(config: AnalyticsScriptConfig): st
 
 export function AnalyticsScripts() {
   const config = getAnalyticsScriptConfig();
-  if (!config.enabled || (!config.gaMeasurementId && !config.baiduTongjiId)) {
+  if (!config.enabled || (!config.gaMeasurementId && !config.googleAdsConversionId && !config.baiduTongjiId)) {
     return null;
   }
 

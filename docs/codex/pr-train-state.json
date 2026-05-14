@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-14T01:26:00+08:00",
+  "updated_at": "2026-05-14T15:52:46+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -2347,6 +2347,90 @@
           "at": "2026-05-14T01:26:00+08:00",
           "status": "pr_open_rebased",
           "summary": "Rebased PR #791 onto latest origin/main and resolved pr-train state conflict."
+        }
+      ]
+    },
+    {
+      "id": "PR-TRACK-01",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/pr-track-01-ga4-baidu-google-ads-activation",
+      "base": "main",
+      "depends_on": [],
+      "status": "local_checks_passed",
+      "title": "feat(analytics): add GA4 Baidu and Google Ads activation contract",
+      "mode": "execute",
+      "risk_level": "L1",
+      "allowed_paths": [
+        ".env.example",
+        "components/analytics/AnalyticsScripts.tsx",
+        "lib/tracking/client.ts",
+        "lib/tracking/events.ts",
+        "tests/contracts/analytics-scripts.contract.test.ts",
+        "tests/contracts/tracking-activation-contract.contract.test.ts",
+        "docs/analytics/tracking-activation-runbook.md",
+        "docs/analytics/generated/tracking-activation-contract.v1.json",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [
+        {
+          "name": "manifest authorization",
+          "status": "passed",
+          "details": "User explicitly authorized adding PR-TRACK-01 to docs/codex/pr-train.yaml and docs/codex/pr-train-state.json for this PR."
+        },
+        {
+          "name": "branch preflight",
+          "status": "passed",
+          "details": "Started from clean main after git pull --ff-only origin main; branch codex/pr-track-01-ga4-baidu-google-ads-activation did not exist locally or remotely."
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/analytics-scripts.contract.test.ts",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/tracking-activation-contract.contract.test.ts",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm typecheck",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm test:contract",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm seo:check-sitemap",
+          "status": "passed"
+        },
+        {
+          "name": "git diff --check",
+          "status": "passed"
+        },
+        {
+          "name": "scope validation",
+          "status": "passed",
+          "details": "Changed files are limited to approved analytics activation files, docs/analytics artifacts, contract tests, and explicitly authorized PR-train metadata."
+        }
+      ],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [],
+      "history": [
+        {
+          "at": "2026-05-14T00:00:00+08:00",
+          "status": "in_progress",
+          "summary": "Initialized PR-TRACK-01 manifest/state entry and began scoped analytics activation work."
+        },
+        {
+          "at": "2026-05-14T15:52:46+08:00",
+          "status": "local_checks_passed",
+          "summary": "Targeted analytics contracts, typecheck, full contract suite, sitemap check, and diff whitespace check passed."
         }
       ]
     }
