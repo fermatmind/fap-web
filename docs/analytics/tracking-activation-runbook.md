@@ -35,14 +35,28 @@ NEXT_PUBLIC_GOOGLE_ADS_BEGIN_CHECKOUT_CONVERSION_LABEL=
 
 | Internal event | GA4 event | Google Ads purchase conversion |
 | --- | --- | --- |
+| `start_attempt` | `start_attempt` | no |
+| `submit_attempt` | `submit_attempt` | no |
+| `view_result` | `view_result` | no |
+| `click_unlock` | `click_unlock` | no |
 | `create_order` | `begin_checkout` | no |
 | `payment_confirmed` | `add_payment_info` | no |
 | `purchase_success` | `purchase` | yes |
-| `pay_success` | `purchase` | yes |
-| `start_attempt` | analytics event only | no |
-| `submit_attempt` | analytics event only | no |
-| `view_result` | analytics event only | no |
-| `click_unlock` | analytics event only | no |
+
+Legacy scale-specific events are accepted only as aliases and are normalized before browser/network dispatch:
+
+| Legacy alias | Canonical event |
+| --- | --- |
+| `start_click` | `start_attempt` |
+| `clinical_start` | `start_attempt` |
+| `submit_click` | `submit_attempt` |
+| `clinical_submit` | `submit_attempt` |
+| `report_view_free` | `view_result` |
+| `clinical_report_view` | `view_result` |
+| `riasec_result_view` | `view_result` |
+| `checkout_start` | `create_order` |
+| `clinical_checkout_start` | `create_order` |
+| `pay_success` | `purchase_success` |
 
 Google Ads purchase conversion payload:
 
@@ -50,6 +64,8 @@ Google Ads purchase conversion payload:
 - `value`: first finite value from `amount`, `value`, or `price`; omitted when absent.
 - `currency`: from `payload.currency`; no default currency is invented by this bridge.
 - `transaction_id`: first available value from `order_no`, `orderNo`, `order_id`, or `transaction_id`; omitted when absent.
+
+`create_order` and `payment_confirmed` must never dispatch Google Ads purchase conversion. `pay_success` may remain in older product paths, but it is normalized to `purchase_success` before dispatch. Email and other PII fields are filtered before GA4, Google Ads, Baidu Tongji, `/api/track`, URL query payloads, and public HTML.
 
 ## Verification
 

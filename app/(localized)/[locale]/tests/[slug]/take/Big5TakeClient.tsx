@@ -698,8 +698,8 @@ export default function Big5TakeClient({
             });
 
             setCooldownSeconds(0);
-            trackBig5Event(
-              "start_click",
+            trackEvent(
+              "start_attempt",
               buildEventPayload({
                 slug,
                 disclaimer_version: serverDisclaimerVersion ?? "",
@@ -895,8 +895,8 @@ export default function Big5TakeClient({
       0
     );
 
-    trackBig5Event(
-      "submit_click",
+    trackEvent(
+      "submit_attempt",
       buildEventPayload({
         attempt_id: activeAttemptId,
         answered_count: answeredCountSnapshot,

@@ -109,6 +109,40 @@ export const TRACKING_EVENTS = {
 
 export type TrackingEventName = (typeof TRACKING_EVENTS)[keyof typeof TRACKING_EVENTS];
 
+export const CANONICAL_SEO_FUNNEL_EVENTS = [
+  TRACKING_EVENTS.START_ATTEMPT,
+  TRACKING_EVENTS.SUBMIT_ATTEMPT,
+  TRACKING_EVENTS.VIEW_RESULT,
+  TRACKING_EVENTS.CLICK_UNLOCK,
+  TRACKING_EVENTS.CREATE_ORDER,
+  TRACKING_EVENTS.PAYMENT_CONFIRMED,
+  TRACKING_EVENTS.PURCHASE_SUCCESS,
+] as const satisfies readonly TrackingEventName[];
+
+export type CanonicalSeoFunnelEventName = (typeof CANONICAL_SEO_FUNNEL_EVENTS)[number];
+
+export const SEO_FUNNEL_EVENT_ALIAS_MAP = {
+  [TRACKING_EVENTS.START_CLICK]: TRACKING_EVENTS.START_ATTEMPT,
+  [TRACKING_EVENTS.CLINICAL_START]: TRACKING_EVENTS.START_ATTEMPT,
+  [TRACKING_EVENTS.SUBMIT_CLICK]: TRACKING_EVENTS.SUBMIT_ATTEMPT,
+  [TRACKING_EVENTS.CLINICAL_SUBMIT]: TRACKING_EVENTS.SUBMIT_ATTEMPT,
+  [TRACKING_EVENTS.REPORT_VIEW_FREE]: TRACKING_EVENTS.VIEW_RESULT,
+  [TRACKING_EVENTS.CLINICAL_REPORT_VIEW]: TRACKING_EVENTS.VIEW_RESULT,
+  [TRACKING_EVENTS.RIASEC_RESULT_VIEW]: TRACKING_EVENTS.VIEW_RESULT,
+  [TRACKING_EVENTS.CHECKOUT_START]: TRACKING_EVENTS.CREATE_ORDER,
+  [TRACKING_EVENTS.CLINICAL_CHECKOUT_START]: TRACKING_EVENTS.CREATE_ORDER,
+  [TRACKING_EVENTS.PAY_SUCCESS]: TRACKING_EVENTS.PURCHASE_SUCCESS,
+} as const satisfies Partial<Record<TrackingEventName, CanonicalSeoFunnelEventName>>;
+
+export function normalizeTrackingEventName(eventName: TrackingEventName): TrackingEventName {
+  const alias = SEO_FUNNEL_EVENT_ALIAS_MAP[eventName as keyof typeof SEO_FUNNEL_EVENT_ALIAS_MAP];
+  return alias ?? eventName;
+}
+
+export function isCanonicalSeoFunnelEvent(eventName: string): eventName is CanonicalSeoFunnelEventName {
+  return CANONICAL_SEO_FUNNEL_EVENTS.includes(eventName as CanonicalSeoFunnelEventName);
+}
+
 const COMMON_BIG5_FIELDS = [
   "scale_code",
   "pack_version",
@@ -186,19 +220,19 @@ const EVENT_FIELD_WHITELIST: Record<TrackingEventName, readonly string[]> = {
   view_landing: ["locale"],
   view_test: ["slug", "locale"],
   view_test_landing: ["slug", "locale"],
-  start_attempt: ["slug", "test_slug", "scaleCode", "attemptIdMasked", "attempt_id", "form_code", "entry_surface", "source_page_type", "target_action", "landing_path", "locale"],
-  submit_attempt: ["slug", "attemptIdMasked", "durationMs", "form_code", "locale"],
-  view_result: ["attemptIdMasked", "attempt_id", "locked", "typeCode", "identity", "variantKey", "variantKeys", "sceneFingerprint", "boundaryFlags", "axisBands", "packId", "engineVersion", "userState", "feedbackSentiment", "feedbackCoverage", "actionCompletionTendency", "lastDeepReadSection", "currentIntentCluster", "primaryFocusKey", "secondaryFocusKeys", "orderedSectionKeys", "orderedRecommendationKeys", "orderedActionKeys", "recommendationPriorityKeys", "actionPriorityKeys", "readingFocusKey", "actionFocusKey", "ctaPriorityKeys", "carryoverFocusKey", "carryoverReason", "recommendedResumeKeys", "carryoverSceneKeys", "carryoverActionKeys", "memoryContractVersion", "memoryFingerprint", "memoryScope", "memoryState", "memoryProgressionState", "sectionHistoryKeys", "behaviorDeltaKeys", "dominantInterestKeys", "resumeBiasKeys", "memoryRewriteKeys", "memoryRewriteReason", ...COMMON_MBTI_ADAPTIVE_FIELDS, "journeyContractVersion", "journeyFingerprint", "journeyScope", "journeyState", "progressState", "completedActionKeys", "recommendedNextPulseKeys", "revisitReorderReason", "pulseState", "pulsePromptKeys", "form_code", "locale"],
+  start_attempt: ["slug", "test_slug", "scaleCode", "scale_code", "attemptIdMasked", "attempt_id", "form_code", "entry_surface", "source_page_type", "target_action", "landing_path", "locale", ...COMMON_BIG5_FIELDS],
+  submit_attempt: ["slug", "test_slug", "scale_code", "attemptIdMasked", "attempt_id", "answered_count", "durationMs", "duration_ms", "duration_bucket", "form_code", "locale", ...COMMON_BIG5_FIELDS],
+  view_result: ["attemptIdMasked", "attempt_id", "locked", "typeCode", "identity", "variantKey", "variantKeys", "sceneFingerprint", "boundaryFlags", "axisBands", "packId", "engineVersion", "userState", "feedbackSentiment", "feedbackCoverage", "actionCompletionTendency", "lastDeepReadSection", "currentIntentCluster", "primaryFocusKey", "secondaryFocusKeys", "orderedSectionKeys", "orderedRecommendationKeys", "orderedActionKeys", "recommendationPriorityKeys", "actionPriorityKeys", "readingFocusKey", "actionFocusKey", "ctaPriorityKeys", "carryoverFocusKey", "carryoverReason", "recommendedResumeKeys", "carryoverSceneKeys", "carryoverActionKeys", "memoryContractVersion", "memoryFingerprint", "memoryScope", "memoryState", "memoryProgressionState", "sectionHistoryKeys", "behaviorDeltaKeys", "dominantInterestKeys", "resumeBiasKeys", "memoryRewriteKeys", "memoryRewriteReason", ...COMMON_MBTI_ADAPTIVE_FIELDS, "journeyContractVersion", "journeyFingerprint", "journeyScope", "journeyState", "progressState", "completedActionKeys", "recommendedNextPulseKeys", "revisitReorderReason", "pulseState", "pulsePromptKeys", "form_code", "locale", ...COMMON_BIG5_FIELDS, ...COMMON_CLINICAL_REPORT_FIELDS, ...COMMON_RIASEC_TRUSTED_RESULT_FIELDS],
   revisit_result: ["attemptIdMasked", "attempt_id", "locked", "typeCode", "identity", "variantKey", "variantKeys", "sceneFingerprint", "boundaryFlags", "axisBands", "packId", "engineVersion", "userState", "feedbackSentiment", "feedbackCoverage", "actionCompletionTendency", "lastDeepReadSection", "currentIntentCluster", "primaryFocusKey", "secondaryFocusKeys", "orderedSectionKeys", "orderedRecommendationKeys", "orderedActionKeys", "recommendationPriorityKeys", "actionPriorityKeys", "readingFocusKey", "actionFocusKey", "ctaPriorityKeys", "carryoverFocusKey", "carryoverReason", "recommendedResumeKeys", "carryoverSceneKeys", "carryoverActionKeys", "memoryContractVersion", "memoryFingerprint", "memoryScope", "memoryState", "memoryProgressionState", "sectionHistoryKeys", "behaviorDeltaKeys", "dominantInterestKeys", "resumeBiasKeys", "memoryRewriteKeys", "memoryRewriteReason", ...COMMON_MBTI_ADAPTIVE_FIELDS, "journeyContractVersion", "journeyFingerprint", "journeyScope", "journeyState", "progressState", "completedActionKeys", "recommendedNextPulseKeys", "revisitReorderReason", "pulseState", "pulsePromptKeys", "form_code", "locale"],
   share_result: ["attemptIdMasked", "attempt_id", "typeCode", "identity", "variantKey", "variantKeys", "sceneFingerprint", "boundaryFlags", "axisBands", "packId", "engineVersion", "userState", "feedbackSentiment", "feedbackCoverage", "actionCompletionTendency", "lastDeepReadSection", "currentIntentCluster", "primaryFocusKey", "secondaryFocusKeys", "orderedSectionKeys", "orderedRecommendationKeys", "orderedActionKeys", "recommendationPriorityKeys", "actionPriorityKeys", "readingFocusKey", "actionFocusKey", "ctaPriorityKeys", "carryoverFocusKey", "carryoverReason", "recommendedResumeKeys", "carryoverSceneKeys", "carryoverActionKeys", "memoryContractVersion", "memoryFingerprint", "memoryScope", "memoryState", "memoryProgressionState", "sectionHistoryKeys", "behaviorDeltaKeys", "dominantInterestKeys", "resumeBiasKeys", "memoryRewriteKeys", "memoryRewriteReason", ...COMMON_MBTI_ADAPTIVE_FIELDS, "journeyContractVersion", "journeyFingerprint", "journeyScope", "journeyState", "progressState", "completedActionKeys", "recommendedNextPulseKeys", "revisitReorderReason", "pulseState", "pulsePromptKeys", "shareMethod", "ctaKey", "ctaRank", "continueTarget", "form_code", "locale"],
   accuracy_feedback: ["attempt_id", "feedback", "sectionKey", "actionKey", "contrastKey", "synthesisKey", "supportingScale", "crossAssessmentVersion", "neighborTypeKeys", "closeCallAxes", "typeCode", "identity", "variantKeys", "sceneFingerprint", "boundaryFlags", "axisBands", "packId", "engineVersion", "userState", "feedbackSentiment", "feedbackCoverage", "actionCompletionTendency", "lastDeepReadSection", "currentIntentCluster", "primaryFocusKey", "secondaryFocusKeys", "orderedSectionKeys", "orderedRecommendationKeys", "orderedActionKeys", "recommendationPriorityKeys", "actionPriorityKeys", "readingFocusKey", "actionFocusKey", "ctaPriorityKeys", "carryoverFocusKey", "carryoverReason", "recommendedResumeKeys", "carryoverSceneKeys", "carryoverActionKeys", "memoryContractVersion", "memoryFingerprint", "memoryScope", "memoryState", "memoryProgressionState", "sectionHistoryKeys", "behaviorDeltaKeys", "dominantInterestKeys", "resumeBiasKeys", "memoryRewriteKeys", "memoryRewriteReason", ...COMMON_MBTI_ADAPTIVE_FIELDS, "journeyContractVersion", "journeyFingerprint", "journeyScope", "journeyState", "progressState", "completedActionKeys", "recommendedNextPulseKeys", "revisitReorderReason", "pulseState", "pulsePromptKeys", "displayOrder", "isPrimaryFocus", "locale"],
   view_paywall: ["attemptIdMasked", "sku", "priceShown", "locale"],
   click_unlock: ["attemptIdMasked", "attempt_id", "sku", "priceShown", "typeCode", "identity", "variantKey", "variantKeys", "sceneFingerprint", "boundaryFlags", "axisBands", "packId", "engineVersion", "userState", "feedbackSentiment", "feedbackCoverage", "actionCompletionTendency", "lastDeepReadSection", "currentIntentCluster", "primaryFocusKey", "secondaryFocusKeys", "orderedSectionKeys", "orderedRecommendationKeys", "orderedActionKeys", "recommendationPriorityKeys", "actionPriorityKeys", "readingFocusKey", "actionFocusKey", "ctaPriorityKeys", "carryoverFocusKey", "carryoverReason", "recommendedResumeKeys", "carryoverSceneKeys", "carryoverActionKeys", "memoryContractVersion", "memoryFingerprint", "memoryScope", "memoryState", "memoryProgressionState", "sectionHistoryKeys", "behaviorDeltaKeys", "dominantInterestKeys", "resumeBiasKeys", "memoryRewriteKeys", "memoryRewriteReason", ...COMMON_MBTI_ADAPTIVE_FIELDS, "ctaKey", "ctaRank", "form_code", "locale"],
-  create_order: ["attemptIdMasked", "attempt_id", "orderNoMasked", "sku", "typeCode", "identity", "variantKey", "variantKeys", "sceneFingerprint", "boundaryFlags", "axisBands", "packId", "engineVersion", "userState", "feedbackSentiment", "feedbackCoverage", "actionCompletionTendency", "lastDeepReadSection", "currentIntentCluster", "primaryFocusKey", "secondaryFocusKeys", "orderedSectionKeys", "orderedRecommendationKeys", "orderedActionKeys", "recommendationPriorityKeys", "actionPriorityKeys", "readingFocusKey", "actionFocusKey", "ctaPriorityKeys", "carryoverFocusKey", "carryoverReason", "recommendedResumeKeys", "carryoverSceneKeys", "carryoverActionKeys", "memoryContractVersion", "memoryFingerprint", "memoryScope", "memoryState", "memoryProgressionState", "sectionHistoryKeys", "behaviorDeltaKeys", "dominantInterestKeys", "resumeBiasKeys", "memoryRewriteKeys", "memoryRewriteReason", ...COMMON_MBTI_ADAPTIVE_FIELDS, "ctaKey", "ctaRank", "form_code", "locale"],
+  create_order: ["attemptIdMasked", "attempt_id", "orderNoMasked", "order_no", "orderNo", "order_id", "transaction_id", "sku", "price", "currency", "typeCode", "identity", "variantKey", "variantKeys", "sceneFingerprint", "boundaryFlags", "axisBands", "packId", "engineVersion", "userState", "feedbackSentiment", "feedbackCoverage", "actionCompletionTendency", "lastDeepReadSection", "currentIntentCluster", "primaryFocusKey", "secondaryFocusKeys", "orderedSectionKeys", "orderedRecommendationKeys", "orderedActionKeys", "recommendationPriorityKeys", "actionPriorityKeys", "readingFocusKey", "actionFocusKey", "ctaPriorityKeys", "carryoverFocusKey", "carryoverReason", "recommendedResumeKeys", "carryoverSceneKeys", "carryoverActionKeys", "memoryContractVersion", "memoryFingerprint", "memoryScope", "memoryState", "memoryProgressionState", "sectionHistoryKeys", "behaviorDeltaKeys", "dominantInterestKeys", "resumeBiasKeys", "memoryRewriteKeys", "memoryRewriteReason", ...COMMON_MBTI_ADAPTIVE_FIELDS, "ctaKey", "ctaRank", "form_code", "locale", ...COMMON_BIG5_FIELDS, ...COMMON_CLINICAL_REPORT_FIELDS],
   payment_confirmed: ["orderNoMasked", "attemptIdMasked", "provider", "form_code", "locale"],
   payment_failed: ["orderNoMasked", "attemptIdMasked", "reason", "provider", "form_code", "locale"],
   abandoned_paywall: ["attemptIdMasked", "locked", "stayMs", "locale"],
-  purchase_success: ["orderNoMasked", "attemptIdMasked", "sku", "amount", "value", "price", "currency", "provider", "order_no", "orderNo", "order_id", "transaction_id", "form_code", "locale"],
+  purchase_success: ["orderNoMasked", "attemptIdMasked", "sku", "amount", "value", "price", "currency", "provider", "order_no", "orderNo", "order_id", "transaction_id", "form_code", "locale", ...COMMON_BIG5_FIELDS],
 
   landing_view: ["slug", "test_slug", "form_code", "entry_surface", "source_page_type", "target_action", "landing_path", "locale", ...COMMON_BIG5_FIELDS],
   start_click: ["slug", "test_slug", "form_code", "entry_surface", "source_page_type", "target_action", "landing_path", "locale", "disclaimer_version", "disclaimer_hash", ...COMMON_BIG5_FIELDS],
@@ -325,6 +359,10 @@ function sanitizeString(value: string): string {
   return value.slice(0, 256);
 }
 
+function isLikelyEmailPayloadValue(value: unknown): boolean {
+  return typeof value === "string" && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+}
+
 function sanitizeValue(key: string, value: unknown): string | number | boolean | null {
   if (isSensitiveTrackingIdentifierField(key)) {
     return maskTrackingIdentifier(value);
@@ -360,6 +398,7 @@ export function filterTrackingPayload(
     if (forbidden) return acc;
 
     if (Object.prototype.hasOwnProperty.call(payload, key)) {
+      if (isLikelyEmailPayloadValue(payload[key])) return acc;
       acc[key] = sanitizeValue(key, payload[key]);
     }
 

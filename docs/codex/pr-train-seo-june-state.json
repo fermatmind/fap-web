@@ -2,8 +2,8 @@
   "train_name": "seo-june-p0-fix-train",
   "train_description": "June SEO Foundation P0 Fix Train for launch-critical SEO engineering blockers.",
   "started_at": "2026-05-15T00:00:00+08:00",
-  "updated_at": "2026-05-15T03:59:22+08:00",
-  "status": "initialized",
+  "updated_at": "2026-05-15T04:21:40+08:00",
+  "status": "in_progress",
   "phase": "seo-june-p0-foundation",
   "pr_namespace": "PR-SEO-JUNE-*",
   "branch_naming_convention": "codex/pr-seo-june-<nn>-<short-scope>",
@@ -47,13 +47,50 @@
       "branch": "codex/pr-seo-june-00-train-manifest-calibration",
       "base": "main",
       "depends_on": [],
-      "status": "pr_open",
+      "status": "merged",
       "title": "docs(seo): register June SEO P0 fix train",
-      "commit_sha": null,
+      "commit_sha": "a4eb039ccab5d171b6912975c98bf3d97975215d",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/796",
       "checks": [
         {
           "name": "pnpm exec vitest run tests/contracts/june-seo-p0-execution-calibration.contract.test.ts",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm typecheck",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm test:contract",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm seo:check-sitemap",
+          "status": "passed"
+        },
+        {
+          "name": "git diff --check",
+          "status": "passed"
+        }
+      ],
+      "failure_reason": null,
+      "merged_at": "2026-05-14T20:03:14Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
+    },
+    {
+      "id": "PR-SEO-JUNE-01",
+      "repo": "fap-web",
+      "branch": "codex/pr-seo-june-01-funnel-event-taxonomy-parity",
+      "base": "main",
+      "depends_on": ["PR-SEO-JUNE-00"],
+      "status": "local_validated",
+      "title": "feat(tracking): normalize SEO funnel event taxonomy",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": [
+        {
+          "name": "pnpm exec vitest run tests/contracts/seo-funnel-tracking-taxonomy.contract.test.ts tests/contracts/tracking-activation-contract.contract.test.ts tests/contracts/orders-client-delivery.contract.test.tsx",
           "status": "passed"
         },
         {
@@ -79,22 +116,6 @@
       "local_cleanup_executed": false
     },
     {
-      "id": "PR-SEO-JUNE-01",
-      "repo": "fap-web",
-      "branch": "codex/pr-seo-june-01-funnel-event-taxonomy-parity",
-      "base": "main",
-      "depends_on": ["PR-SEO-JUNE-00"],
-      "status": "planned",
-      "title": "feat(tracking): normalize SEO funnel event taxonomy",
-      "commit_sha": null,
-      "pr_url": null,
-      "checks": [],
-      "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false
-    },
-    {
       "id": "PR-SEO-JUNE-01B",
       "repo": "fap-api",
       "branch": "codex/pr-seo-june-01b-backend-attribution-allowlist",
@@ -105,7 +126,7 @@
       "commit_sha": null,
       "pr_url": null,
       "checks": [],
-      "failure_reason": null,
+      "failure_reason": "Backend attribution ingest allow-list exists and still needs a separate fap-api PR to accept canonical submit_attempt payloads.",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false

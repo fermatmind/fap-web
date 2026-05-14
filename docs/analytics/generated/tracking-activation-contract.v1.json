@@ -18,10 +18,34 @@
     "NEXT_PUBLIC_GOOGLE_ADS_BEGIN_CHECKOUT_CONVERSION_LABEL"
   ],
   "eventMapping": {
+    "start_attempt": "ga4_start_attempt",
+    "submit_attempt": "ga4_submit_attempt",
+    "view_result": "ga4_view_result",
+    "click_unlock": "ga4_click_unlock",
     "create_order": "ga4_begin_checkout",
     "payment_confirmed": "ga4_add_payment_info",
-    "purchase_success": "ga4_purchase_and_google_ads_purchase_conversion",
-    "pay_success": "ga4_purchase_and_google_ads_purchase_conversion"
+    "purchase_success": "ga4_purchase_and_google_ads_purchase_conversion"
+  },
+  "canonicalFunnelEvents": [
+    "start_attempt",
+    "submit_attempt",
+    "view_result",
+    "click_unlock",
+    "create_order",
+    "payment_confirmed",
+    "purchase_success"
+  ],
+  "legacyAliasMapping": {
+    "start_click": "start_attempt",
+    "clinical_start": "start_attempt",
+    "submit_click": "submit_attempt",
+    "clinical_submit": "submit_attempt",
+    "report_view_free": "view_result",
+    "clinical_report_view": "view_result",
+    "riasec_result_view": "view_result",
+    "checkout_start": "create_order",
+    "clinical_checkout_start": "create_order",
+    "pay_success": "purchase_success"
   },
   "adsPrimaryConversion": "purchase_success",
   "adsDisabledEvents": [
