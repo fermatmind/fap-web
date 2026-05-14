@@ -58,6 +58,8 @@ Legacy scale-specific events are accepted only as aliases and are normalized bef
 | `clinical_checkout_start` | `create_order` |
 | `pay_success` | `purchase_success` |
 
+SEO page CTA attribution uses backend-safe `start_attempt` payloads for existing article/topic/test-detail test-start CTAs. Source context is encoded through `source_page_type`, `entry_surface`, `landing_path`, and `current_path`; target tests use `test_slug`. Generic fields such as `content_id`, `topic_id`, `source_slug`, `cta_id`, and `campaign` remain deferred until backend attribution ingest owns them explicitly.
+
 Google Ads purchase conversion payload:
 
 - `send_to`: `${NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID}/${NEXT_PUBLIC_GOOGLE_ADS_PURCHASE_CONVERSION_LABEL}`

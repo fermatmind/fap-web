@@ -54,6 +54,8 @@ type TrainState = {
     branch: string;
     depends_on: string[];
     status: string;
+    commit_sha?: string | null;
+    pr_url?: string | null;
   }>;
 };
 
@@ -141,8 +143,12 @@ describe("June SEO P0 execution calibration", () => {
     expect(backendPr).toMatchObject({
       id: "PR-SEO-JUNE-01B",
       repo: "fap-api",
-      status: "planned_if_required",
     });
+    expect(["planned_if_required", "merged"]).toContain(backendPr?.status);
+    if (backendPr?.status === "merged") {
+      expect(backendPr.pr_url).toContain("github.com/fermatmind/fap-api/pull/");
+      expect(backendPr.commit_sha).toMatch(/^[0-9a-f]{40}$/);
+    }
     expect(manifest).toContain("separate_backend_pr_required: true");
     expect(manifest).toContain("backend_change_policy: separate_pr_only");
   });
