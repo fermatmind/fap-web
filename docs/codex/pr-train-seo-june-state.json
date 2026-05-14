@@ -2,7 +2,7 @@
   "train_name": "seo-june-p0-fix-train",
   "train_description": "June SEO Foundation P0 Fix Train for launch-critical SEO engineering blockers.",
   "started_at": "2026-05-15T00:00:00+08:00",
-  "updated_at": "2026-05-15T05:13:39+08:00",
+  "updated_at": "2026-05-15T05:17:18+08:00",
   "status": "in_progress",
   "phase": "seo-june-p0-foundation",
   "pr_namespace": "PR-SEO-JUNE-*",
@@ -154,10 +154,10 @@
       "branch": "codex/pr-seo-june-02-seo-page-cta-attribution",
       "base": "main",
       "depends_on": ["PR-SEO-JUNE-01"],
-      "status": "local_checks_passed",
+      "status": "pr_open",
       "title": "feat(seo): add attribution metadata for SEO page CTAs",
-      "commit_sha": "af1ff1a96bc537d43011744d99b68128d21b9057",
-      "pr_url": null,
+      "commit_sha": "0e46b8b1fe2dca5c70c220852c353f8402066f77",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/798",
       "checks": [
         {
           "name": "pnpm exec vitest run tests/contracts/seo-page-cta-attribution.contract.test.ts tests/contracts/tracking-whitelist.contract.test.ts tests/contracts/seo-funnel-tracking-taxonomy.contract.test.ts tests/contracts/tracked-link-privacy.contract.test.tsx",
