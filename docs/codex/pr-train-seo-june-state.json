@@ -2,7 +2,7 @@
   "train_name": "seo-june-p0-fix-train",
   "train_description": "June SEO Foundation P0 Fix Train for launch-critical SEO engineering blockers.",
   "started_at": "2026-05-15T00:00:00+08:00",
-  "updated_at": "2026-05-15T05:47:34+08:00",
+  "updated_at": "2026-05-15T05:58:41+08:00",
   "status": "in_progress",
   "phase": "seo-june-p0-foundation",
   "pr_namespace": "PR-SEO-JUNE-*",
@@ -232,9 +232,9 @@
       "branch": "codex/pr-seo-june-04-cwv-mobile-seo-gate",
       "base": "main",
       "depends_on": ["PR-SEO-JUNE-03"],
-      "status": "pr_open",
+      "status": "merged",
       "title": "test(seo): add mobile CWV SEO measurement gate",
-      "commit_sha": "0153f999e60ea446bd93921f186391c3ef0ab509",
+      "commit_sha": "492b48483fde90e6ef30190cefac0c4bd31d20b5",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/800",
       "checks": [
         {
@@ -263,9 +263,9 @@
         }
       ],
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false
+      "merged_at": "2026-05-14T21:50:59Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
     },
     {
       "id": "PR-SEO-JUNE-05",
@@ -273,11 +273,32 @@
       "branch": "codex/pr-seo-june-05-sitemap-llms-authority-lastmod",
       "base": "main",
       "depends_on": ["PR-SEO-JUNE-04"],
-      "status": "planned",
+      "status": "pr_open",
       "title": "fix(seo): harden sitemap llms authority and truthful lastmod",
-      "commit_sha": null,
-      "pr_url": null,
-      "checks": [],
+      "commit_sha": "4bd90b20541478630098d5b7e7b25e0b1bcf8dfb",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/801",
+      "checks": [
+        {
+          "name": "pnpm exec vitest run tests/contracts/sitemap-llms-lastmod-authority.contract.test.ts tests/contracts/sitemap-indexability.contract.test.ts tests/contracts/sitemap-authority-adapters.contract.test.ts tests/contracts/llms-parity-contract.contract.test.ts tests/contracts/llms-full-enrichment.contract.test.ts",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm typecheck",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm test:contract",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm seo:check-sitemap",
+          "status": "passed"
+        },
+        {
+          "name": "git diff --check",
+          "status": "passed"
+        }
+      ],
       "failure_reason": null,
       "merged_at": null,
       "remote_branch_deleted": false,

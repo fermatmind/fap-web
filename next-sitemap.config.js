@@ -594,6 +594,7 @@ module.exports = {
   siteUrl,
   generateRobotsTxt: false,
   generateIndexSitemap: false,
+  autoLastmod: false,
   sitemapSize: 5000,
   exclude: [
     "/server-sitemap.xml",
@@ -609,7 +610,6 @@ module.exports = {
       loc: normalized,
       changefreq: "weekly",
       priority: normalized === "/" ? 1.0 : 0.7,
-      lastmod: new Date().toISOString(),
     };
   },
   additionalPaths: async () => {
