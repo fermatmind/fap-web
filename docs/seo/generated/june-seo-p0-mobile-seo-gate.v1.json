@@ -1,0 +1,235 @@
+{
+  "version": "seo.june_p0_mobile_seo_gate.v1",
+  "scope": "PR-SEO-JUNE-04",
+  "trainName": "seo-june-p0-fix-train",
+  "runtimeBehaviorChanged": false,
+  "urlSetChanged": false,
+  "sitemapChanged": false,
+  "llmsChanged": false,
+  "publicContentChanged": false,
+  "measurementMode": "static_contract_plus_optional_runtime_fetch",
+  "mobileViewport": {
+    "width": 390,
+    "height": 844,
+    "deviceScaleFactor": 3,
+    "userAgentProfile": "mobile_googlebot_compatible"
+  },
+  "coreWebVitalsPolicy": {
+    "device": "mobile",
+    "fieldDataRequiredForInp": true,
+    "labInpProxy": "Use total blocking time or scripted interaction latency only as a lab proxy. INP remains a field-data metric.",
+    "thresholds": {
+      "lcp": {
+        "goodMs": 2500,
+        "needsImprovementMaxMs": 4000
+      },
+      "cls": {
+        "good": 0.1,
+        "needsImprovementMax": 0.25
+      },
+      "inp": {
+        "goodMs": 200,
+        "needsImprovementMaxMs": 500,
+        "requiresFieldData": true
+      }
+    },
+    "junePilotPolicy": "Representative public SEO routes must render on mobile, expose main content, keep applicable CTA surfaces visible, and stay out of private-flow indexing. Lab CWV should be good or documented as needs-improvement with owner.",
+    "fullGlobalEnginePolicy": "Full global SEO scale requires field CWV or RUM evidence for LCP, CLS, and INP before route-family expansion."
+  },
+  "requiredRouteFamilies": [
+    "home",
+    "tests_hub",
+    "test_detail",
+    "article_detail",
+    "topic_detail",
+    "personality_detail",
+    "career_job_detail",
+    "career_recommendation_detail"
+  ],
+  "routeSamples": [
+    {
+      "family": "home",
+      "path": "/en",
+      "locale": "en",
+      "sampleAuthority": "app_router_static_sample",
+      "indexabilityExpected": "public_indexable",
+      "mobileChecks": ["mobile_render_success", "main_content_present", "cta_visibility"],
+      "ctaPolicy": "required",
+      "sourceFiles": [
+        {
+          "path": "app/(localized)/[locale]/page.tsx",
+          "requiredTokens": ["HomePageExperience", "HomeMinimalShell", "buildPageMetadata"]
+        }
+      ]
+    },
+    {
+      "family": "tests_hub",
+      "path": "/en/tests",
+      "locale": "en",
+      "sampleAuthority": "app_router_static_sample",
+      "indexabilityExpected": "public_indexable",
+      "mobileChecks": ["mobile_render_success", "main_content_present", "cta_visibility"],
+      "ctaPolicy": "required",
+      "sourceFiles": [
+        {
+          "path": "app/(localized)/[locale]/tests/page.tsx",
+          "requiredTokens": ["TestsHubExperience", "TestsHubMinimalShell", "buildCollectionPageJsonLd"]
+        }
+      ]
+    },
+    {
+      "family": "test_detail",
+      "path": "/en/tests/mbti-personality-test-16-personality-types",
+      "locale": "en",
+      "sampleAuthority": "url_inventory_and_app_router",
+      "indexabilityExpected": "public_indexable",
+      "mobileChecks": ["mobile_render_success", "main_content_present", "cta_visibility"],
+      "ctaPolicy": "required",
+      "sourceFiles": [
+        {
+          "path": "app/(localized)/[locale]/tests/[slug]/page.tsx",
+          "requiredTokens": ["TrackedEntryCtaLink", "CTASticky", "buildMbtiEntryHref"]
+        },
+        {
+          "path": "docs/seo/generated/url-inventory.v1.csv",
+          "requiredTokens": ["/en/tests/mbti-personality-test-16-personality-types"]
+        }
+      ]
+    },
+    {
+      "family": "article_detail",
+      "path": "/en/articles/how-personality-shapes-attitude-toward-ai",
+      "locale": "en",
+      "sampleAuthority": "url_inventory_and_cms_runtime_contract",
+      "indexabilityExpected": "public_indexable",
+      "mobileChecks": ["mobile_render_success", "main_content_present", "cta_visibility", "faq_visible_when_backend_provided", "evidence_visible_when_backend_provided"],
+      "ctaPolicy": "required_when_backend_or_cms_provided",
+      "sourceFiles": [
+        {
+          "path": "app/(localized)/[locale]/articles/[slug]/page.tsx",
+          "requiredTokens": ["AnswerSurfaceSection", "SeoTrackedCtaLink", "resolveArticleRuntimeContract"]
+        },
+        {
+          "path": "docs/seo/generated/url-inventory.v1.csv",
+          "requiredTokens": ["/en/articles/how-personality-shapes-attitude-toward-ai"]
+        }
+      ]
+    },
+    {
+      "family": "topic_detail",
+      "path": "/en/topics/mbti",
+      "locale": "en",
+      "sampleAuthority": "url_inventory_and_cms_runtime_contract",
+      "indexabilityExpected": "public_indexable",
+      "mobileChecks": ["mobile_render_success", "main_content_present", "cta_visibility", "faq_visible_when_backend_provided", "evidence_visible_when_backend_provided"],
+      "ctaPolicy": "required_when_backend_or_cms_provided",
+      "sourceFiles": [
+        {
+          "path": "app/(localized)/[locale]/topics/[slug]/page.tsx",
+          "requiredTokens": ["AnswerSurfaceSection", "SeoTrackedCtaLink", "buildMbtiEntryHref"]
+        },
+        {
+          "path": "docs/seo/generated/url-inventory.v1.csv",
+          "requiredTokens": ["/en/topics/mbti"]
+        }
+      ]
+    },
+    {
+      "family": "personality_detail",
+      "path": "/en/personality/intp-a",
+      "locale": "en",
+      "sampleAuthority": "url_inventory_and_cms_runtime_contract",
+      "indexabilityExpected": "public_indexable",
+      "mobileChecks": ["mobile_render_success", "main_content_present", "cta_visibility", "faq_visible_when_backend_provided", "evidence_visible_when_backend_provided"],
+      "ctaPolicy": "required",
+      "sourceFiles": [
+        {
+          "path": "app/(localized)/[locale]/personality/[type]/page.tsx",
+          "requiredTokens": ["AnswerSurfaceSection", "TrackedEntryCtaLink", "buildMbtiEntryHref"]
+        },
+        {
+          "path": "docs/seo/generated/url-inventory.v1.csv",
+          "requiredTokens": ["/en/personality/intp-a"]
+        }
+      ]
+    },
+    {
+      "family": "career_job_detail",
+      "path": "/zh/career/jobs/accountants-and-auditors",
+      "locale": "zh",
+      "sampleAuthority": "url_inventory_and_backend_seo_surface",
+      "indexabilityExpected": "public_indexable_backend_gated",
+      "mobileChecks": ["mobile_render_success", "main_content_present", "cta_visibility"],
+      "ctaPolicy": "required",
+      "sourceFiles": [
+        {
+          "path": "app/(localized)/[locale]/career/jobs/[slug]/page.tsx",
+          "requiredTokens": ["fetchCareerJobBundle", "CareerDisplaySurface", "buildPageMetadata"]
+        },
+        {
+          "path": "docs/seo/generated/url-inventory.v1.csv",
+          "requiredTokens": ["/zh/career/jobs/accountants-and-auditors"]
+        }
+      ]
+    },
+    {
+      "family": "career_recommendation_detail",
+      "path": "/en/career/recommendations/mbti/intp-a",
+      "locale": "en",
+      "sampleAuthority": "backend_career_recommendation_bundle_and_route_contract",
+      "indexabilityExpected": "public_indexable_backend_gated",
+      "mobileChecks": ["mobile_render_success", "main_content_present", "cta_visibility", "claim_boundary_visible"],
+      "ctaPolicy": "required",
+      "sourceFiles": [
+        {
+          "path": "app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx",
+          "requiredTokens": ["fetchCareerRecommendationBundle", "ClaimGuard", "buildPageMetadata"]
+        },
+        {
+          "path": "tests/e2e/career-routing.spec.ts",
+          "requiredTokens": ["/en/career/recommendations/mbti/intp-a"]
+        }
+      ]
+    }
+  ],
+  "privateFlowIndexingDenySamples": [
+    "/en/tests/mbti-personality-test-16-personality-types/take",
+    "/en/result/mbti/example",
+    "/en/orders/FM-ORDER-EXAMPLE",
+    "/en/share/share-example",
+    "/en/pay/checkout",
+    "/en/payment/alipay/return",
+    "/en/history"
+  ],
+  "runtimeFetchPolicy": {
+    "defaultMode": "static_only",
+    "optionalBaseUrlEnv": "MOBILE_SEO_BASE_URL",
+    "mustNotFetchProductionByDefault": true,
+    "mobileUserAgentRequired": true,
+    "htmlAssertionsWhenRuntimeEnabled": [
+      "status_below_400",
+      "html_payload_present",
+      "no_noindex_meta_on_public_samples"
+    ]
+  },
+  "deferredRuntimeEvidence": [
+    {
+      "area": "lcp_cls_lab_measurement",
+      "reason": "Requires a running app plus browser or Lighthouse execution. This PR adds the gate and deterministic route sample policy only."
+    },
+    {
+      "area": "inp_field_measurement",
+      "reason": "INP requires field data or RUM. Lab interaction timing is only a proxy."
+    }
+  ],
+  "mustNotChange": [
+    "public route set",
+    "sitemap URL set",
+    "llms exposure",
+    "public content copy",
+    "runtime tracking behavior",
+    "recommendation runtime",
+    "scoring",
+    "checkout/payment/report entitlement"
+  ]
+}
