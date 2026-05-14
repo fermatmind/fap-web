@@ -1,0 +1,177 @@
+{
+  "version": "claims.june_p0_pseo_freeze_claim_guard.v1",
+  "scope": "PR-SEO-JUNE-06",
+  "trainName": "seo-june-p0-fix-train",
+  "runtimeBehaviorChanged": false,
+  "publicCopyChanged": false,
+  "routeSetChanged": false,
+  "sitemapExposureChanged": false,
+  "llmsExposureChanged": false,
+  "pseoExpansionAllowed": false,
+  "frozenPseoDimensions": [
+    {
+      "id": "mbti_career_pseo",
+      "label": "MBTI x career pSEO",
+      "status": "frozen",
+      "priority": "P0",
+      "requiresBeforeUnfreeze": [
+        "backend/CMS indexability approval",
+        "visible evidence requirements",
+        "claim boundary inheritance",
+        "manual review workflow",
+        "sitemap and llms eligibility gates"
+      ]
+    },
+    {
+      "id": "big_five_trait_career_pseo",
+      "label": "Big Five trait x career pSEO",
+      "status": "frozen",
+      "priority": "P0",
+      "requiresBeforeUnfreeze": [
+        "explicit non-recommender claim boundary",
+        "backend/CMS indexability approval",
+        "visible evidence requirements",
+        "manual review workflow",
+        "sitemap and llms eligibility gates"
+      ]
+    },
+    {
+      "id": "riasec_code_career_pseo",
+      "label": "RIASEC code x career pSEO",
+      "status": "frozen",
+      "priority": "P0",
+      "requiresBeforeUnfreeze": [
+        "explicit interest-direction claim boundary",
+        "backend/CMS indexability approval",
+        "visible evidence requirements",
+        "manual review workflow",
+        "sitemap and llms eligibility gates"
+      ]
+    },
+    {
+      "id": "trait_problem_pseo",
+      "label": "trait x problem pSEO",
+      "status": "frozen",
+      "priority": "P0",
+      "requiresBeforeUnfreeze": [
+        "unique content standard",
+        "backend/CMS indexability approval",
+        "visible evidence requirements",
+        "manual review workflow",
+        "sitemap and llms eligibility gates"
+      ]
+    },
+    {
+      "id": "career_recommendation_pseo",
+      "label": "career recommendation pSEO",
+      "status": "frozen",
+      "priority": "P0",
+      "requiresBeforeUnfreeze": [
+        "backend/CMS indexability approval",
+        "recommendation authority contract",
+        "visible evidence requirements",
+        "claim boundary inheritance",
+        "manual review workflow",
+        "sitemap and llms eligibility gates"
+      ]
+    }
+  ],
+  "blockedClaimCategories": [
+    "precise career recommendation",
+    "best career",
+    "guaranteed career success",
+    "career success prediction",
+    "AI career planning",
+    "Big Five career matching",
+    "RIASEC recommender",
+    "MBTI personalized recommender",
+    "hiring suitability",
+    "diagnosis",
+    "personality diagnosis"
+  ],
+  "allowedLanguage": [
+    "career direction reference",
+    "exploration suggestion",
+    "interest signal",
+    "workplace behavior tendency",
+    "snapshot-based support",
+    "evidence-backed explanation"
+  ],
+  "manualReviewQueue": [
+    {
+      "phrase": "岗位诊断",
+      "action": "manual_review_only",
+      "status": "needs_disclaimer",
+      "publicCopyRewriteAllowed": false,
+      "approvedReplacement": null
+    },
+    {
+      "phrase": "role-fit diagnostics",
+      "action": "manual_review_only",
+      "status": "needs_disclaimer",
+      "publicCopyRewriteAllowed": false,
+      "approvedReplacement": null
+    },
+    {
+      "phrase": "职业适配度",
+      "action": "manual_review_only",
+      "status": "needs_disclaimer",
+      "publicCopyRewriteAllowed": false,
+      "approvedReplacement": null
+    },
+    {
+      "phrase": "best career",
+      "action": "manual_review_only",
+      "status": "forbidden_or_internal_only",
+      "publicCopyRewriteAllowed": false,
+      "approvedReplacement": null
+    },
+    {
+      "phrase": "precise recommendation",
+      "action": "manual_review_only",
+      "status": "forbidden_or_internal_only",
+      "publicCopyRewriteAllowed": false,
+      "approvedReplacement": null
+    },
+    {
+      "phrase": "guarantee",
+      "action": "manual_review_only",
+      "status": "manual_review",
+      "publicCopyRewriteAllowed": false,
+      "approvedReplacement": null
+    },
+    {
+      "phrase": "AI planning",
+      "action": "manual_review_only",
+      "status": "forbidden_or_internal_only",
+      "publicCopyRewriteAllowed": false,
+      "approvedReplacement": null
+    },
+    {
+      "phrase": "hiring suitability",
+      "action": "manual_review_only",
+      "status": "forbidden_or_internal_only",
+      "publicCopyRewriteAllowed": false,
+      "approvedReplacement": null
+    }
+  ],
+  "sourceArtifacts": [
+    "docs/seo/generated/june-seo-p0-execution-calibration.v1.json",
+    "docs/claims/generated/public-claim-boundary-matrix.v1.json",
+    "docs/claims/generated/semantic-claim-scanner-baseline.v1.json",
+    "docs/claims/generated/riasec-bigfive-boundary-guards.v1.json",
+    "docs/claims/generated/mbti-recommendation-copy-boundary.v1.json",
+    "docs/claims/generated/career-fit-graph-ai-claim-guards.v1.json",
+    "docs/claims/generated/seo-geo-llms-claim-guards.v1.json"
+  ],
+  "mustNotChange": [
+    "public route set",
+    "sitemap URL set",
+    "llms exposure",
+    "runtime recommendation behavior",
+    "checkout/payment/report entitlement logic",
+    "assessment scoring",
+    "profile or memory",
+    "public copy without exact approved replacement"
+  ]
+}
