@@ -2,7 +2,7 @@
   "train_name": "seo-june-p0-fix-train",
   "train_description": "June SEO Foundation P0 Fix Train for launch-critical SEO engineering blockers.",
   "started_at": "2026-05-15T00:00:00+08:00",
-  "updated_at": "2026-05-15T05:58:41+08:00",
+  "updated_at": "2026-05-15T06:10:15+08:00",
   "status": "in_progress",
   "phase": "seo-june-p0-foundation",
   "pr_namespace": "PR-SEO-JUNE-*",
@@ -273,9 +273,9 @@
       "branch": "codex/pr-seo-june-05-sitemap-llms-authority-lastmod",
       "base": "main",
       "depends_on": ["PR-SEO-JUNE-04"],
-      "status": "pr_open",
+      "status": "merged",
       "title": "fix(seo): harden sitemap llms authority and truthful lastmod",
-      "commit_sha": "4bd90b20541478630098d5b7e7b25e0b1bcf8dfb",
+      "commit_sha": "a9c34eeefc4bc4267d2376dcbc6c70889dd3a637",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/801",
       "checks": [
         {
@@ -300,9 +300,9 @@
         }
       ],
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false
+      "merged_at": "2026-05-14T22:03:02Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
     },
     {
       "id": "PR-SEO-JUNE-06",
@@ -310,11 +310,36 @@
       "branch": "codex/pr-seo-june-06-pseo-freeze-claim-guard",
       "base": "main",
       "depends_on": ["PR-SEO-JUNE-05"],
-      "status": "planned",
+      "status": "local_checks_passed",
       "title": "test(seo): freeze pSEO expansion and guard claim boundaries",
       "commit_sha": null,
       "pr_url": null,
-      "checks": [],
+      "checks": [
+        {
+          "name": "pnpm exec vitest run tests/contracts/june-seo-p0-pseo-freeze-claim-guard.contract.test.ts tests/contracts/june-seo-p0-execution-calibration.contract.test.ts tests/contracts/public-claim-boundary-matrix.contract.test.ts tests/contracts/semantic-claim-scanner-baseline.contract.test.ts tests/contracts/riasec-bigfive-boundary-guards.contract.test.ts tests/contracts/career-fit-graph-ai-claim-guards.contract.test.ts tests/contracts/seo-geo-llms-claim-guards.contract.test.ts",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm typecheck",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm test:contract",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm seo:check-sitemap",
+          "status": "passed"
+        },
+        {
+          "name": "git diff --check",
+          "status": "passed"
+        },
+        {
+          "name": "git diff --cached --check",
+          "status": "passed"
+        }
+      ],
       "failure_reason": null,
       "merged_at": null,
       "remote_branch_deleted": false,
