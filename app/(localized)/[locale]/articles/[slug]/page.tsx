@@ -13,6 +13,7 @@ import { Badge } from "@/components/ui/badge";
 import {
   getCmsArticleSeoWithLastKnownGood,
   getCmsArticleWithLastKnownGood,
+  resolveArticleRuntimeContract,
   type CmsArticle,
   type CmsArticleSeoPayload,
 } from "@/lib/cms/articles";
@@ -261,6 +262,8 @@ export default async function ArticleDetailPage({
   const backToArticlesCta = findLandingCta(article.landingSurface, "back_to_articles");
   const topicHubCta = findLandingCta(article.landingSurface, "topic_hub");
   const startTestCta = findLandingCta(article.landingSurface, "start_test");
+  const articleRuntimeContract = resolveArticleRuntimeContract(article);
+  const hasCmsSidebarCtas = Boolean(backToArticlesCta || topicHubCta || startTestCta);
 
   const relatedArticles: RelatedContentItem[] = [];
   const relatedCareerGuides: RelatedContentItem[] = [];
@@ -340,45 +343,51 @@ export default async function ArticleDetailPage({
         <article
           id="how-it-works"
           data-testid="article-detail-content"
+          data-article-runtime-contract={articleRuntimeContract.version}
+          data-article-runtime-page-family={articleRuntimeContract.pageFamily}
           className="space-y-5 text-base text-[var(--fm-text)] [&_a]:text-[var(--fm-accent)] [&_a]:underline-offset-2 [&_a:hover]:underline [&_blockquote]:border-l-4 [&_blockquote]:border-[var(--fm-accent)] [&_blockquote]:bg-[var(--fm-surface-muted)] [&_blockquote]:px-5 [&_blockquote]:py-3 [&_blockquote]:text-[var(--fm-text)] [&_h2]:mt-10 [&_h2]:font-serif [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:leading-tight [&_h3]:mt-7 [&_h3]:font-serif [&_h3]:text-xl [&_h3]:font-semibold [&_img]:rounded-lg [&_img]:border [&_img]:border-[var(--fm-border)] [&_ol]:list-decimal [&_ol]:space-y-2 [&_ol]:pl-5 [&_p]:leading-8 [&_strong]:font-semibold [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-5"
         >
           {renderArticleBody(article)}
         </article>
 
         <aside className="space-y-5 border-t border-[var(--fm-border)] pt-5 lg:sticky lg:top-24 lg:border-t-0 lg:pt-0">
-          <section className="rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface)] p-4 text-sm text-[var(--fm-text-muted)] shadow-[var(--fm-shadow-sm)]">
-            <p className="m-0 font-semibold text-[var(--fm-text)]">{locale === "zh" ? "继续探索" : "Keep exploring"}</p>
-            <div className="mt-3 flex flex-col gap-2">
-              <Link
-                href={backToArticlesCta?.href ?? localizedPath("/articles", locale)}
-                className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
-              >
-                {backToArticlesCta?.label || dict.articles.backToArticles}
-              </Link>
+          {hasCmsSidebarCtas ? (
+            <section className="rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface)] p-4 text-sm text-[var(--fm-text-muted)] shadow-[var(--fm-shadow-sm)]">
+              <p className="m-0 font-semibold text-[var(--fm-text)]">{locale === "zh" ? "继续探索" : "Keep exploring"}</p>
+              <div className="mt-3 flex flex-col gap-2">
+                {backToArticlesCta ? (
+                  <Link
+                    href={backToArticlesCta.href}
+                    className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
+                  >
+                    {backToArticlesCta.label}
+                  </Link>
+                ) : null}
 
-              {topicHubCta ? (
-                <Link href={topicHubCta.href} className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
-                  {topicHubCta.label}
-                </Link>
-              ) : null}
+                {topicHubCta ? (
+                  <Link href={topicHubCta.href} className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
+                    {topicHubCta.label}
+                  </Link>
+                ) : null}
 
-              {startTestCta ? (
-                <SeoTrackedCtaLink
-                  href={startTestCta.href}
-                  sourceRouteFamily="article_detail"
-                  sourceSlug={article.slug}
-                  sourcePath={canonicalPath}
-                  contentId={article.id}
-                  ctaId={startTestCta.key}
-                  targetTestSlug={article.relatedTestSlug}
-                  locale={locale}
-                  className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
-                >
-                  {startTestCta.label}
-                </SeoTrackedCtaLink>
-              ) : null}
-            </div>
-          </section>
+                {startTestCta ? (
+                  <SeoTrackedCtaLink
+                    href={startTestCta.href}
+                    sourceRouteFamily="article_detail"
+                    sourceSlug={article.slug}
+                    sourcePath={canonicalPath}
+                    contentId={article.id}
+                    ctaId={startTestCta.key}
+                    targetTestSlug={article.relatedTestSlug}
+                    locale={locale}
+                    className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
+                  >
+                    {startTestCta.label}
+                  </SeoTrackedCtaLink>
+                ) : null}
+              </div>
+            </section>
+          ) : null}
 
           <section
             id="limitations"

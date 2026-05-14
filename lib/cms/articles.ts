@@ -235,6 +235,182 @@ export type ListCmsArticlesForLlmsParams = {
   maxPages?: number;
 };
 
+export const ARTICLE_RUNTIME_CONTRACT_VERSION = "article.runtime.v1";
+
+export type ArticleRuntimeContractFeatureKey =
+  | "visible_faq"
+  | "visible_cta"
+  | "related_test"
+  | "related_topic"
+  | "related_articles"
+  | "evidence_citation"
+  | "report_preview"
+  | "claim_boundary_metadata";
+
+export type ArticleRuntimeContractState = "backend_cms_provided" | "missing_deferred";
+
+export type ArticleRuntimeContractFeature = {
+  key: ArticleRuntimeContractFeatureKey;
+  state: ArticleRuntimeContractState;
+  source: string;
+  visible: boolean;
+  frontendFallbackPolicy: "forbidden_frontend_fallback";
+  reason: string;
+};
+
+export type ArticleRuntimeContract = {
+  version: typeof ARTICLE_RUNTIME_CONTRACT_VERSION;
+  pageFamily: "article_detail";
+  features: ArticleRuntimeContractFeature[];
+};
+
+function hasVisibleAnswerSurface(surface: AnswerSurfaceViewModel | null | undefined): boolean {
+  return Boolean(
+    surface
+    && (
+      surface.summaryBlocks.length > 0
+      || surface.faqBlocks.length > 0
+      || surface.compareBlocks.length > 0
+      || surface.sceneSummaryBlocks.length > 0
+      || surface.nextStepBlocks.length > 0
+    )
+  );
+}
+
+function hasVisibleArticleFaq(article: CmsArticle): boolean {
+  return Boolean(
+    article.answerSurface?.faqBlocks.some((item) => item.question.trim() && item.answer.trim())
+  );
+}
+
+function hasVisibleArticleCta(article: CmsArticle): boolean {
+  return Boolean(
+    article.landingSurface?.ctaBundle.some((item) => item.label.trim() && item.href.trim())
+    || article.answerSurface?.nextStepBlocks.some((item) => item.title.trim() && item.href)
+  );
+}
+
+function hasBackendRelatedTest(article: CmsArticle): boolean {
+  return Boolean(
+    article.relatedTestSlug
+    || article.landingSurface?.startTestTarget
+    || article.landingSurface?.ctaBundle.some((item) => item.kind === "start_test" && item.href)
+    || article.answerSurface?.nextStepBlocks.some((item) => item.kind === "start_test" && item.href)
+  );
+}
+
+function hasVisibleRelatedTest(article: CmsArticle): boolean {
+  return Boolean(
+    article.landingSurface?.ctaBundle.some((item) => item.kind === "start_test" && item.label && item.href)
+    || article.answerSurface?.nextStepBlocks.some((item) => item.kind === "start_test" && item.title && item.href)
+  );
+}
+
+function hasBackendRelatedTopic(article: CmsArticle): boolean {
+  return Boolean(
+    article.landingSurface?.ctaBundle.some((item) => item.key === "topic_hub" && item.href)
+    || article.answerSurface?.nextStepBlocks.some((item) => item.key === "topic_hub" && item.href)
+    || article.landingSurface?.relatedSurfaceKeys.includes("topic_hub")
+    || article.answerSurface?.relatedSurfaceKeys.includes("topic_hub")
+  );
+}
+
+function hasVisibleRelatedTopic(article: CmsArticle): boolean {
+  return Boolean(
+    article.landingSurface?.ctaBundle.some((item) => item.key === "topic_hub" && item.label && item.href)
+    || article.answerSurface?.nextStepBlocks.some((item) => item.key === "topic_hub" && item.title && item.href)
+  );
+}
+
+function articleRuntimeFeature(
+  key: ArticleRuntimeContractFeatureKey,
+  provided: boolean,
+  visible: boolean,
+  source: string,
+  reason: string
+): ArticleRuntimeContractFeature {
+  return {
+    key,
+    state: provided ? "backend_cms_provided" : "missing_deferred",
+    source,
+    visible,
+    frontendFallbackPolicy: "forbidden_frontend_fallback",
+    reason,
+  };
+}
+
+export function resolveArticleRuntimeContract(article: CmsArticle): ArticleRuntimeContract {
+  const hasEvidenceBackedAnswerSurface = hasVisibleAnswerSurface(article.answerSurface)
+    && Boolean(article.answerSurface?.evidenceRefs.length);
+  const hasRelatedTest = hasBackendRelatedTest(article);
+  const hasVisibleTest = hasVisibleRelatedTest(article);
+  const hasRelatedTopic = hasBackendRelatedTopic(article);
+  const hasVisibleTopic = hasVisibleRelatedTopic(article);
+
+  return {
+    version: ARTICLE_RUNTIME_CONTRACT_VERSION,
+    pageFamily: "article_detail",
+    features: [
+      articleRuntimeFeature(
+        "visible_faq",
+        hasVisibleArticleFaq(article),
+        hasVisibleArticleFaq(article),
+        "answer_surface_v1.faq_blocks",
+        "FAQPage JSON-LD may only use visible answer_surface_v1 FAQ blocks."
+      ),
+      articleRuntimeFeature(
+        "visible_cta",
+        hasVisibleArticleCta(article),
+        hasVisibleArticleCta(article),
+        "landing_surface_v1.cta_bundle|answer_surface_v1.next_step_blocks",
+        "Article CTAs must come from backend/CMS landing or answer surfaces."
+      ),
+      articleRuntimeFeature(
+        "related_test",
+        hasRelatedTest,
+        hasVisibleTest,
+        "article.related_test_slug|landing_surface_v1.start_test_target|answer_surface_v1.next_step_blocks",
+        "Related test references must be backend/CMS provided."
+      ),
+      articleRuntimeFeature(
+        "related_topic",
+        hasRelatedTopic,
+        hasVisibleTopic,
+        "landing_surface_v1.related_surface_keys|answer_surface_v1.related_surface_keys",
+        "Topic links must be backend/CMS provided and not inferred from article tags."
+      ),
+      articleRuntimeFeature(
+        "related_articles",
+        false,
+        false,
+        "deferred_backend_contract",
+        "Article-specific related article lists are not in the article detail API contract yet."
+      ),
+      articleRuntimeFeature(
+        "evidence_citation",
+        hasEvidenceBackedAnswerSurface,
+        hasEvidenceBackedAnswerSurface,
+        "answer_surface_v1.evidence_refs",
+        "Evidence readiness requires visible answer-surface content plus backend evidence refs."
+      ),
+      articleRuntimeFeature(
+        "report_preview",
+        false,
+        false,
+        "deferred_backend_contract",
+        "Report preview placement must wait for backend/CMS ownership."
+      ),
+      articleRuntimeFeature(
+        "claim_boundary_metadata",
+        false,
+        false,
+        "deferred_backend_contract",
+        "Claim boundary metadata is not part of the article detail API contract yet."
+      ),
+    ],
+  };
+}
+
 function buildQuery(params: Record<string, string | number | undefined>): string {
   const query = new URLSearchParams();
 

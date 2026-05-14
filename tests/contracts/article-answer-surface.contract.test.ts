@@ -2,7 +2,8 @@ import { createElement, type ReactNode } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import type { AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
-import type { CmsArticle } from "@/lib/cms/articles";
+import { resolveArticleRuntimeContract, type CmsArticle } from "@/lib/cms/articles";
+import type { LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
 
 const answerSurfaceFixture: AnswerSurfaceViewModel = {
   version: "answer.surface.v1",
@@ -47,6 +48,51 @@ const answerSurfaceFixture: AnswerSurfaceViewModel = {
   publicSurfaceRef: null,
   primaryContentRef: "article:answer-surface-article",
   relatedSurfaceKeys: [],
+  runtimeArtifactRef: null,
+};
+
+const landingSurfaceFixture: LandingSurfaceViewModel = {
+  version: "landing.surface.v1",
+  landingContractVersion: "landing.surface.v1",
+  landingFingerprint: "article-landing-surface-fixture",
+  landingScope: "public_indexable_detail",
+  entrySurface: "article_detail",
+  entryType: "editorial_article",
+  summaryBlocks: [],
+  discoverabilityItems: [],
+  discoverabilityKeys: ["article_index", "topic_hub"],
+  continueReadingKeys: ["article_index"],
+  startTestTarget: "/en/tests/mbti-personality-test-16-personality-types",
+  resultResumeTarget: null,
+  contentContinueTarget: "/en/articles",
+  ctaBundle: [
+    {
+      key: "back_to_articles",
+      label: "Back to articles",
+      href: "/en/articles",
+      kind: "content_continue",
+    },
+    {
+      key: "topic_hub",
+      label: "Browse topic hubs",
+      href: "/en/topics",
+      kind: "discover",
+    },
+    {
+      key: "start_test",
+      label: "Take the test",
+      href: "/en/tests/mbti-personality-test-16-personality-types",
+      kind: "start_test",
+    },
+  ],
+  indexabilityState: "indexable",
+  attributionScope: "public_article_detail",
+  seoSurfaceRef: null,
+  publicSurfaceRef: null,
+  surfaceFamily: "article",
+  primaryContentRef: "answer-surface-article",
+  relatedSurfaceKeys: ["topic_hub", "tests_index"],
+  shareSafetyState: null,
   runtimeArtifactRef: null,
 };
 
@@ -123,6 +169,84 @@ async function renderArticleDetail(article: CmsArticle) {
 }
 
 describe("article answer surface rendering", () => {
+  it("classifies article runtime completeness from backend/CMS surfaces only", () => {
+    const article = {
+      ...makeArticle(),
+      relatedTestSlug: "mbti-personality-test-16-personality-types",
+      landingSurface: landingSurfaceFixture,
+    };
+    const contract = resolveArticleRuntimeContract(article);
+    const byKey = new Map(contract.features.map((feature) => [feature.key, feature]));
+
+    expect(contract).toMatchObject({
+      version: "article.runtime.v1",
+      pageFamily: "article_detail",
+    });
+    expect(byKey.get("visible_faq")).toMatchObject({
+      state: "backend_cms_provided",
+      visible: true,
+      frontendFallbackPolicy: "forbidden_frontend_fallback",
+      source: "answer_surface_v1.faq_blocks",
+    });
+    expect(byKey.get("visible_cta")).toMatchObject({
+      state: "backend_cms_provided",
+      visible: true,
+      source: "landing_surface_v1.cta_bundle|answer_surface_v1.next_step_blocks",
+    });
+    expect(byKey.get("related_test")).toMatchObject({
+      state: "backend_cms_provided",
+      visible: true,
+    });
+    expect(byKey.get("related_topic")).toMatchObject({
+      state: "backend_cms_provided",
+      visible: true,
+    });
+    expect(byKey.get("evidence_citation")).toMatchObject({
+      state: "backend_cms_provided",
+      visible: true,
+      source: "answer_surface_v1.evidence_refs",
+    });
+    expect(byKey.get("related_articles")).toMatchObject({
+      state: "missing_deferred",
+      visible: false,
+      frontendFallbackPolicy: "forbidden_frontend_fallback",
+    });
+    expect(byKey.get("report_preview")).toMatchObject({
+      state: "missing_deferred",
+      visible: false,
+      frontendFallbackPolicy: "forbidden_frontend_fallback",
+    });
+    expect(byKey.get("claim_boundary_metadata")).toMatchObject({
+      state: "missing_deferred",
+      visible: false,
+      frontendFallbackPolicy: "forbidden_frontend_fallback",
+    });
+  });
+
+  it("keeps absent article runtime features deferred instead of granting frontend fallback authority", () => {
+    const contract = resolveArticleRuntimeContract(makeArticle(null));
+
+    expect(contract.features).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          key: "visible_faq",
+          state: "missing_deferred",
+          frontendFallbackPolicy: "forbidden_frontend_fallback",
+        }),
+        expect.objectContaining({
+          key: "visible_cta",
+          state: "missing_deferred",
+          frontendFallbackPolicy: "forbidden_frontend_fallback",
+        }),
+        expect.objectContaining({
+          key: "related_articles",
+          state: "missing_deferred",
+          frontendFallbackPolicy: "forbidden_frontend_fallback",
+        }),
+      ])
+    );
+  });
+
   it("renders existing answer_surface_v1 blocks visibly on article detail", async () => {
     const html = await renderArticleDetail(makeArticle());
 
@@ -174,5 +298,15 @@ describe("article answer surface rendering", () => {
 
     expect(html).not.toContain('data-testid="article-detail-answer-surface"');
     expect(html).not.toContain('"@type":"FAQPage"');
+  });
+
+  it("does not fabricate sidebar CTAs when article landing_surface_v1 is absent", async () => {
+    const html = await renderArticleDetail(makeArticle());
+
+    expect(html).toContain('data-article-runtime-contract="article.runtime.v1"');
+    expect(html).not.toContain("Keep exploring");
+    expect(html).not.toContain("Back to articles");
+    expect(html).not.toContain("Take the test");
+    expect(html).not.toContain("article_detail_seo_cta");
   });
 });
