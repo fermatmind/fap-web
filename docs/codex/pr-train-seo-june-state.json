@@ -1,0 +1,195 @@
+{
+  "train_name": "seo-june-p0-fix-train",
+  "train_description": "June SEO Foundation P0 Fix Train for launch-critical SEO engineering blockers.",
+  "started_at": "2026-05-15T00:00:00+08:00",
+  "updated_at": "2026-05-15T03:55:28+08:00",
+  "status": "initialized",
+  "phase": "seo-june-p0-foundation",
+  "pr_namespace": "PR-SEO-JUNE-*",
+  "branch_naming_convention": "codex/pr-seo-june-<nn>-<short-scope>",
+  "mode": "local_clone_preferred",
+  "base_branch": "main",
+  "stop_on_failure": true,
+  "required_github_checks": [
+    "build",
+    "contracts",
+    "verify-big5-contract-freeze",
+    "verify-enneagram-contract-freeze"
+  ],
+  "production_frontend_source_of_truth": {
+    "primary_public_runtime": "/Users/rainie/Desktop/GitHub/fap-web",
+    "backend_authority_repo": "/Users/rainie/Desktop/GitHub/fap-api",
+    "nested_skeleton_or_stale": "/Users/rainie/Desktop/GitHub/fap-api/fap-web",
+    "rule": "Use fap-web as production frontend runtime. Use fap-api only for scoped backend authority/API changes. Ignore nested fap-api/fap-web."
+  },
+  "train_policy": {
+    "no_public_route_expansion": true,
+    "no_sitemap_url_expansion": true,
+    "no_llms_expansion": true,
+    "no_pseo_generation": true,
+    "no_new_public_routes": true,
+    "no_career_decision_runtime": true,
+    "no_workstyle_runtime": true,
+    "no_riasec_career_recommender": true,
+    "no_bigfive_career_matcher": true,
+    "no_mbti_live_personalized_recommender": true,
+    "no_checkout_payment_report_entitlement_changes": true,
+    "no_scoring_changes": true,
+    "no_profile_or_memory_changes": true,
+    "no_report_pricing_changes": true,
+    "no_paid_report_product_policy_changes": true,
+    "no_public_copy_rewrite_without_approved_replacement": true
+  },
+  "prs": [
+    {
+      "id": "PR-SEO-JUNE-00",
+      "repo": "fap-web",
+      "branch": "codex/pr-seo-june-00-train-manifest-calibration",
+      "base": "main",
+      "depends_on": [],
+      "status": "local_checks_passed",
+      "title": "docs(seo): register June SEO P0 fix train",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": [
+        {
+          "name": "pnpm exec vitest run tests/contracts/june-seo-p0-execution-calibration.contract.test.ts",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm typecheck",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm test:contract",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm seo:check-sitemap",
+          "status": "passed"
+        },
+        {
+          "name": "git diff --check",
+          "status": "passed"
+        }
+      ],
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    {
+      "id": "PR-SEO-JUNE-01",
+      "repo": "fap-web",
+      "branch": "codex/pr-seo-june-01-funnel-event-taxonomy-parity",
+      "base": "main",
+      "depends_on": ["PR-SEO-JUNE-00"],
+      "status": "planned",
+      "title": "feat(tracking): normalize SEO funnel event taxonomy",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": [],
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    {
+      "id": "PR-SEO-JUNE-01B",
+      "repo": "fap-api",
+      "branch": "codex/pr-seo-june-01b-backend-attribution-allowlist",
+      "base": "main",
+      "depends_on": ["PR-SEO-JUNE-01"],
+      "status": "planned_if_required",
+      "title": "feat(api): accept canonical SEO funnel attribution events",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": [],
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    {
+      "id": "PR-SEO-JUNE-02",
+      "repo": "fap-web",
+      "branch": "codex/pr-seo-june-02-seo-page-cta-attribution",
+      "base": "main",
+      "depends_on": ["PR-SEO-JUNE-01"],
+      "status": "planned",
+      "title": "feat(seo): add attribution metadata for SEO page CTAs",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": [],
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    {
+      "id": "PR-SEO-JUNE-03",
+      "repo": "fap-web",
+      "branch": "codex/pr-seo-june-03-article-runtime-contract",
+      "base": "main",
+      "depends_on": ["PR-SEO-JUNE-02"],
+      "status": "planned",
+      "title": "test(seo): enforce article runtime FAQ CTA evidence contract",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": [],
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    {
+      "id": "PR-SEO-JUNE-04",
+      "repo": "fap-web",
+      "branch": "codex/pr-seo-june-04-cwv-mobile-seo-gate",
+      "base": "main",
+      "depends_on": ["PR-SEO-JUNE-03"],
+      "status": "planned",
+      "title": "test(seo): add mobile CWV SEO measurement gate",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": [],
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    {
+      "id": "PR-SEO-JUNE-05",
+      "repo": "fap-web",
+      "branch": "codex/pr-seo-june-05-sitemap-llms-authority-lastmod",
+      "base": "main",
+      "depends_on": ["PR-SEO-JUNE-04"],
+      "status": "planned",
+      "title": "fix(seo): harden sitemap llms authority and truthful lastmod",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": [],
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    {
+      "id": "PR-SEO-JUNE-06",
+      "repo": "fap-web",
+      "branch": "codex/pr-seo-june-06-pseo-freeze-claim-guard",
+      "base": "main",
+      "depends_on": ["PR-SEO-JUNE-05"],
+      "status": "planned",
+      "title": "test(seo): freeze pSEO expansion and guard claim boundaries",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": [],
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    }
+  ],
+  "sidecars": []
+}
