@@ -2,7 +2,7 @@
   "train_name": "seo-june-p0-fix-train",
   "train_description": "June SEO Foundation P0 Fix Train for launch-critical SEO engineering blockers.",
   "started_at": "2026-05-15T00:00:00+08:00",
-  "updated_at": "2026-05-15T03:55:28+08:00",
+  "updated_at": "2026-05-15T03:59:22+08:00",
   "status": "initialized",
   "phase": "seo-june-p0-foundation",
   "pr_namespace": "PR-SEO-JUNE-*",
@@ -47,10 +47,10 @@
       "branch": "codex/pr-seo-june-00-train-manifest-calibration",
       "base": "main",
       "depends_on": [],
-      "status": "local_checks_passed",
+      "status": "pr_open",
       "title": "docs(seo): register June SEO P0 fix train",
       "commit_sha": null,
-      "pr_url": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/796",
       "checks": [
         {
           "name": "pnpm exec vitest run tests/contracts/june-seo-p0-execution-calibration.contract.test.ts",
