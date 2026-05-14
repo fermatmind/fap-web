@@ -3,6 +3,7 @@ import path from "node:path";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { describe, expect, it, vi, beforeEach } from "vitest";
 import { RiasecResultShell } from "@/components/result/riasec/RiasecResultShell";
+import { canRenderRichResultReport, resolveReportScaleCode } from "@/components/result/RichResultReport";
 import { assembleRiasecResultViewModel } from "@/lib/riasec/resultAssembler";
 import { RIASEC_TRACKING_EVENTS } from "@/lib/riasec/tracking";
 import type { ReportResponse } from "@/lib/api/v0_3";
@@ -147,6 +148,13 @@ describe("RIASEC V11 launch acceptance smoke", () => {
         writeText: hoisted.writeText,
       },
     });
+  });
+
+  it("accepts RIASEC as a rich result scale so result and report routes use the snapshot projection", () => {
+    const report = reportFrom(projectionFrom(DEEP_PROJECTION_PATH), "riasec_60");
+
+    expect(resolveReportScaleCode(report)).toBe("RIASEC");
+    expect(canRenderRichResultReport(report)).toBe(true);
   });
 
   it("renders the V11 result structure from backend deep slots and fails closed for unsafe slots", () => {

@@ -19,6 +19,7 @@ type RichResultReportProps = {
   reportData?: {
     summary?: string;
     big5_result_page_v2?: unknown;
+    riasec_public_projection_v2?: unknown;
     mbti_public_projection_v1?: {
       summary_card?: {
         summary?: string;
@@ -97,6 +98,7 @@ vi.mock("@/components/result/RichResultReport", () => ({
       report?.mbti_public_projection_v1
       || report?.big5_public_projection_v1
       || (report as { big5_result_page_v2?: unknown } | null)?.big5_result_page_v2
+      || (report as { riasec_public_projection_v2?: unknown } | null)?.riasec_public_projection_v2
       || report?.summary
       || report?.report?.sections
       || report?.report?.profile
@@ -108,7 +110,9 @@ vi.mock("@/components/result/RichResultReport", () => ({
       ? "MBTI"
       : report?.report?.scale_code === "BIG5_OCEAN"
         ? "BIG5_OCEAN"
-        : null,
+        : report?.report?.scale_code === "RIASEC"
+          ? "RIASEC"
+          : null,
   RichResultReport: ({ reportData, accessProjection }: RichResultReportProps) => (
     <div
       data-testid="rich-result-report"
@@ -117,9 +121,10 @@ vi.mock("@/components/result/RichResultReport", () => ({
     >
       {reportData?.mbti_public_projection_v1?.summary_card?.summary
         ?? (reportData as { big5_public_projection_v1?: { explainability_summary?: { headline?: string } } } | undefined)
-          ?.big5_public_projection_v1?.explainability_summary?.headline
-        ?? (reportData?.big5_result_page_v2 ? "big5-v2-rich-report" : undefined)
-        ?? reportData?.report?.profile?.short_summary
+        ?.big5_public_projection_v1?.explainability_summary?.headline
+      ?? (reportData?.big5_result_page_v2 ? "big5-v2-rich-report" : undefined)
+      ?? (reportData?.riasec_public_projection_v2 ? "riasec-snapshot-rich-report" : undefined)
+      ?? reportData?.report?.profile?.short_summary
         ?? reportData?.summary
         ?? reportData?.report?.profile?.type_code
         ?? "rich-report"}
@@ -208,6 +213,25 @@ function createAccessProjection(overrides: Partial<Record<string, unknown>> = {}
     },
     ...overrides,
   };
+}
+
+function createRiasecSnapshotReport(): ReportResponse {
+  return {
+    ok: true,
+    attempt_id: "attempt-123",
+    meta: {
+      scale_code: "RIASEC",
+    },
+    report: {
+      scale_code: "RIASEC",
+    },
+    riasec_public_projection_v2: {
+      schema_version: "riasec.public_projection.v2",
+      measurement_evidence: {
+        snapshot_bound: true,
+      },
+    },
+  } as ReportResponse;
 }
 
 vi.mock("@/lib/i18n/getDict", () => ({
@@ -403,6 +427,25 @@ describe("ResultClient view-state contract", () => {
     expect(screen.getByTestId("rich-result-report")).toBeInTheDocument();
     expect(screen.getByTestId("rich-result-report")).toHaveAttribute("data-unlock-stage", "locked");
     expect(screen.getByTestId("rich-result-report")).toHaveAttribute("data-unlock-source", "none");
+    expect(hoisted.fetchAttemptResult).not.toHaveBeenCalled();
+    expect(screen.queryByTestId("result-summary")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("dimension-bars")).not.toBeInTheDocument();
+  });
+
+  it("renders RIASEC from the snapshot-bound report projection without falling back to result projection", async () => {
+    hoisted.fetchAttemptReport.mockResolvedValue(createRiasecSnapshotReport());
+
+    render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("rich-result-report")).toHaveTextContent("riasec-snapshot-rich-report");
+    });
+
+    expect(hoisted.fetchAttemptReport).toHaveBeenCalledWith({
+      attemptId: "attempt-123",
+      anonId: "anon_result_test",
+      locale: "en",
+    });
     expect(hoisted.fetchAttemptResult).not.toHaveBeenCalled();
     expect(screen.queryByTestId("result-summary")).not.toBeInTheDocument();
     expect(screen.queryByTestId("dimension-bars")).not.toBeInTheDocument();

@@ -202,3 +202,25 @@ export async function fetchClinicalReport({
     response
   );
 }
+
+export async function fetchAttemptReportForRichResult({
+  attemptId,
+  anonId,
+  refresh,
+}: {
+  attemptId: string;
+  anonId?: string;
+  refresh?: boolean;
+}): Promise<ReportResponse> {
+  const resolvedAnonId = resolveAnonId(anonId);
+
+  return withClinicalAuthRetry({
+    anonId: resolvedAnonId,
+    run: () =>
+      getAttemptReport({
+        attemptId,
+        anonId: resolvedAnonId,
+        refresh,
+      }),
+  });
+}

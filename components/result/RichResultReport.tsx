@@ -370,6 +370,7 @@ export function resolveReportScaleCode(reportData: ReportResponse | null | undef
       normalized === "MBTI" ||
       normalized === "BIG5_OCEAN" ||
       normalized === "ENNEAGRAM" ||
+      normalized === "RIASEC" ||
       normalized === "IQ_RAVEN" ||
       normalized === "EQ_60"
     ) {
@@ -385,6 +386,7 @@ export function isRichResultScaleCode(scaleCode: string | null | undefined): sca
     scaleCode === "MBTI" ||
     scaleCode === "BIG5_OCEAN" ||
     scaleCode === "ENNEAGRAM" ||
+    scaleCode === "RIASEC" ||
     scaleCode === "IQ_RAVEN" ||
     scaleCode === "EQ_60"
   );

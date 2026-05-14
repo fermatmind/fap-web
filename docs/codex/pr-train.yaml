@@ -1889,6 +1889,66 @@ prs:
       - frontend local editorial authority
     rollback_note: "Remove deep content slot parser, renderer, fixture, and contract test."
 
+  - id: RIASEC-V11-LIVE-FIX-01
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/riasec-v11-live-fix-01
+    base: main
+    depends_on:
+      - RIASEC-V11-LAUNCH-ACCEPTANCE-00
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "RIASEC snapshot-bound result/report frontend route fix"
+    goal: "Render RIASEC V11 result and report routes from the snapshot-bound report projection instead of the non-snapshot result projection or clinical-only report validator."
+    in_scope:
+      - RIASEC rich result scale resolution
+      - RIASEC result route snapshot-bound report preference
+      - RIASEC report route rich-result rendering path
+      - RIASEC result/report contract regressions
+      - train ledger update
+    out_of_scope:
+      - backend changes
+      - scorer or content pack changes
+      - deep copy content changes
+      - share/PDF/history backend changes
+      - career matching or recommendation logic
+      - production deploy
+    likely_touched:
+      - components/result/RichResultReport.tsx
+      - app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx
+      - app/(localized)/[locale]/attempts/[attemptId]/report/page.tsx
+      - components/clinical/report/ClinicalReportClient.tsx
+      - lib/clinical/api.ts
+      - tests/contracts/result-client-view-state.contract.test.tsx
+      - tests/contracts/clinical-report-client-view-state.contract.test.tsx
+      - tests/contracts/riasec-v11-launch-acceptance.contract.test.tsx
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    required_local_checks:
+      - targeted RIASEC/result/report contract tests
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://www.fermatmind.com pnpm build
+      - git diff --check
+    acceptance:
+      - RIASEC report payload is accepted by rich result rendering.
+      - RIASEC result route renders from the snapshot-bound report projection without falling back to fetchAttemptResult when the report is ready.
+      - RIASEC report route does not use clinical report contract validation.
+      - No frontend local interpretation fallback, career matching, 140Q more-accurate wording, or raw score delta claim is introduced.
+    must_not_touch:
+      - fap-api backend
+      - scorer math
+      - RIASEC question content packs
+      - Holland Code generation
+      - Measurement Contract
+      - Career Activity Registry
+      - deep copy content
+      - share/PDF/history backend behavior
+      - feedback runtime
+      - analytics runtime
+    rollback_note: "Restore RIASEC omission from rich result resolution and remove the report route rich-result bypass plus related tests."
+
   - id: PR-CMS-02
     repo: fap-web
     repo_path: /Users/rainie/Desktop/GitHub/fap-web
