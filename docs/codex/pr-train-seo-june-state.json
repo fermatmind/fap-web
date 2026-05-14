@@ -2,7 +2,7 @@
   "train_name": "seo-june-p0-fix-train",
   "train_description": "June SEO Foundation P0 Fix Train for launch-critical SEO engineering blockers.",
   "started_at": "2026-05-15T00:00:00+08:00",
-  "updated_at": "2026-05-15T05:28:49+08:00",
+  "updated_at": "2026-05-15T05:30:51+08:00",
   "status": "in_progress",
   "phase": "seo-june-p0-foundation",
   "pr_namespace": "PR-SEO-JUNE-*",
@@ -195,10 +195,10 @@
       "branch": "codex/pr-seo-june-03-article-runtime-contract",
       "base": "main",
       "depends_on": ["PR-SEO-JUNE-02"],
-      "status": "local_checks_passed",
+      "status": "pr_open",
       "title": "test(seo): enforce article runtime FAQ CTA evidence contract",
-      "commit_sha": "b82f25d304da71664501c5ac022dd3a836e74724",
-      "pr_url": null,
+      "commit_sha": "81ac5e3b8ad3f429c5b027858fa7058744ce8e01",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/799",
       "checks": [
         {
           "name": "pnpm exec vitest run tests/contracts/article-answer-surface.contract.test.ts tests/contracts/article-publishing-runtime-truth.contract.test.ts tests/contracts/articles-cleanup.contract.test.ts",
