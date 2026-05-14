@@ -2,7 +2,7 @@
   "train_name": "seo-june-p0-fix-train",
   "train_description": "June SEO Foundation P0 Fix Train for launch-critical SEO engineering blockers.",
   "started_at": "2026-05-15T00:00:00+08:00",
-  "updated_at": "2026-05-15T06:10:15+08:00",
+  "updated_at": "2026-05-15T06:11:03+08:00",
   "status": "in_progress",
   "phase": "seo-june-p0-foundation",
   "pr_namespace": "PR-SEO-JUNE-*",
@@ -310,9 +310,9 @@
       "branch": "codex/pr-seo-june-06-pseo-freeze-claim-guard",
       "base": "main",
       "depends_on": ["PR-SEO-JUNE-05"],
-      "status": "local_checks_passed",
+      "status": "committed",
       "title": "test(seo): freeze pSEO expansion and guard claim boundaries",
-      "commit_sha": null,
+      "commit_sha": "a8f6011dc96eedeb2140c231e2ef23f28ed45bc6",
       "pr_url": null,
       "checks": [
         {
