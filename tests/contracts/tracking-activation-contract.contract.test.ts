@@ -65,6 +65,8 @@ describe("tracking activation contract", () => {
       reportEntitlementChanged?: boolean;
       adsDisabledEvents?: string[];
       eventMapping?: Record<string, string>;
+      canonicalFunnelEvents?: string[];
+      legacyAliasMapping?: Record<string, string>;
     };
 
     expect(contract.version).toBe("tracking.activation_contract.v1");
@@ -77,6 +79,20 @@ describe("tracking activation contract", () => {
     expect(contract.checkoutChanged).toBe(false);
     expect(contract.reportEntitlementChanged).toBe(false);
     expect(contract.eventMapping?.purchase_success).toBe("ga4_purchase_and_google_ads_purchase_conversion");
+    expect(contract.canonicalFunnelEvents).toEqual([
+      "start_attempt",
+      "submit_attempt",
+      "view_result",
+      "click_unlock",
+      "create_order",
+      "payment_confirmed",
+      "purchase_success",
+    ]);
+    expect(contract.legacyAliasMapping).toMatchObject({
+      start_click: "start_attempt",
+      submit_click: "submit_attempt",
+      pay_success: "purchase_success",
+    });
     expect(contract.adsDisabledEvents).toEqual(
       expect.arrayContaining([
         "start_attempt",

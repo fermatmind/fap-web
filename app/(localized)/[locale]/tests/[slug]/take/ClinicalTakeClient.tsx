@@ -595,7 +595,9 @@ export default function ClinicalTakeClient({
       }
 
       setAttemptId(response.attempt_id);
-      trackEvent("clinical_start", {
+      trackEvent("start_attempt", {
+        slug,
+        test_slug: slug,
         scale_code: scaleCode,
         locale,
       });
@@ -695,13 +697,16 @@ export default function ClinicalTakeClient({
     }
 
     markSubmitted();
-    trackEvent("clinical_submit", {
+    trackEvent("submit_attempt", {
+      slug,
+      test_slug: slug,
+      attempt_id: activeAttemptId,
       scale_code: scaleCode,
       locale,
       duration_bucket: durationMs < 60000 ? "lt_1m" : durationMs < 180000 ? "1_3m" : "gte_3m",
     });
     return resultAttemptId;
-  }, [isFlowActive, locale, markSubmitted, questions, runWithAuthRetry, scaleCode, startedAt]);
+  }, [isFlowActive, locale, markSubmitted, questions, runWithAuthRetry, scaleCode, slug, startedAt]);
 
   const handleSubmit = useCallback(async (pendingSelection?: LastSelectionContext, runId?: number): Promise<string | null> => {
     if (submitInFlightRef.current || staleDraftError) {

@@ -4,6 +4,7 @@ import { hasAnalyticsConsent } from "@/lib/consent/store";
 import {
   filterTrackingPayload,
   isTrackingEvent,
+  normalizeTrackingEventName,
   type TrackingEventName,
 } from "@/lib/tracking/events";
 import { sanitizeTrackingUrl } from "@/lib/tracking/privacy";
@@ -91,6 +92,10 @@ function firstNonEmptyString(payload: Record<string, unknown>, keys: string[]): 
   return undefined;
 }
 
+function isLikelyEmailValue(value: string): boolean {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+}
+
 export function buildGoogleAdsPurchaseConversionPayload(
   payload: Record<string, unknown>,
   config: GoogleAdsConversionConfig = getGoogleAdsConversionConfig()
@@ -106,7 +111,7 @@ export function buildGoogleAdsPurchaseConversionPayload(
 
   if (value !== undefined) conversionPayload.value = value;
   if (currency) conversionPayload.currency = currency;
-  if (transactionId) conversionPayload.transaction_id = transactionId;
+  if (transactionId && !isLikelyEmailValue(transactionId)) conversionPayload.transaction_id = transactionId;
 
   return conversionPayload;
 }
@@ -116,7 +121,7 @@ function dispatchGoogleAdsPurchaseConversion(
   eventName: TrackingEventName,
   payload: Record<string, unknown>
 ): void {
-  if (eventName !== "purchase_success" && eventName !== "pay_success") return;
+  if (eventName !== "purchase_success") return;
   const conversionPayload = buildGoogleAdsPurchaseConversionPayload(payload);
   if (!conversionPayload) return;
 
@@ -178,9 +183,10 @@ export async function trackClientEvent({
   if (!hasAnalyticsConsent()) return;
   if (!isTrackingEvent(eventName)) return;
 
-  const filteredPayload = filterTrackingPayload(eventName as TrackingEventName, payload ?? {});
+  const normalizedEventName = normalizeTrackingEventName(eventName as TrackingEventName);
+  const filteredPayload = filterTrackingPayload(normalizedEventName, payload ?? {});
   const safePath = sanitizeTrackingUrl(path) ?? "";
-  dispatchBrowserAnalyticsEvent(eventName as TrackingEventName, filteredPayload, payload ?? {});
+  dispatchBrowserAnalyticsEvent(normalizedEventName, filteredPayload, payload ?? {});
 
   try {
     await fetch("/api/track", {
@@ -190,7 +196,7 @@ export async function trackClientEvent({
         Accept: "application/json",
       },
       body: JSON.stringify({
-        eventName,
+        eventName: normalizedEventName,
         payload: filteredPayload,
         anonymousId,
         path: safePath,

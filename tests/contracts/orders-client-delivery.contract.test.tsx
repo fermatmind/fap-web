@@ -311,6 +311,8 @@ describe("OrdersClient delivery contract", () => {
       "purchase_success",
       expect.objectContaining({
         form_code: "big5_90",
+        order_no: "ord_big5_delivery_1",
+        transaction_id: "ord_big5_delivery_1",
       })
     );
   });

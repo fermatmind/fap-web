@@ -429,6 +429,14 @@ function EnneagramTakeInner({
           return null;
         }
         setAttemptMeta(response.attempt_id, ENNEAGRAM_SCALE_CODE, resolvedFormCode);
+        trackEvent("start_attempt", {
+          slug,
+          test_slug: slug,
+          scale_code: ENNEAGRAM_SCALE_CODE,
+          form_code: resolvedFormCode,
+          attempt_id: response.attempt_id,
+          locale,
+        });
         return response.attempt_id;
       } catch (error) {
         if (!isFlowActive(runId)) {
@@ -526,8 +534,18 @@ function EnneagramTakeInner({
     if (!response.ok) {
       throw new Error("Submit failed.");
     }
+    trackEvent("submit_attempt", {
+      slug,
+      test_slug: slug,
+      scale_code: ENNEAGRAM_SCALE_CODE,
+      form_code: resolvedFormCode,
+      attempt_id: activeAttemptId,
+      answered_count: questionIds.length,
+      durationMs,
+      locale,
+    });
     return resolveResultAttemptId(response, activeAttemptId);
-  }, [anonId, isFlowActive, questionIds, startedAt]);
+  }, [anonId, isFlowActive, locale, questionIds, resolvedFormCode, slug, startedAt]);
 
   const handleSubmit = useCallback(async (pendingSelection?: LastSelectionContext, runId?: number): Promise<string | null> => {
     if (submitInFlightRef.current || staleDraftError) {

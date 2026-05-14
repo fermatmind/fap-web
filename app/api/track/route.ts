@@ -3,6 +3,7 @@ import {
   filterTrackingPayload,
   isCareerAttributionEvent,
   isTrackingEvent,
+  normalizeTrackingEventName,
   type TrackingEventName,
 } from "@/lib/tracking/events";
 import { sanitizeTrackingUrl } from "@/lib/tracking/privacy";
@@ -41,11 +42,12 @@ export async function POST(request: NextRequest) {
   if (!isTrackingEvent(eventName)) {
     return NextResponse.json({ ok: false, error: "invalid_event" }, { status: 400 });
   }
+  const normalizedEventName = normalizeTrackingEventName(eventName as TrackingEventName);
 
   const payloadSource = (body as { payload?: unknown }).payload;
   const payload =
     payloadSource && typeof payloadSource === "object" && !Array.isArray(payloadSource)
-      ? filterTrackingPayload(eventName as TrackingEventName, payloadSource as Record<string, unknown>)
+      ? filterTrackingPayload(normalizedEventName, payloadSource as Record<string, unknown>)
       : {};
 
   const requestId = crypto.randomUUID();
@@ -61,7 +63,7 @@ export async function POST(request: NextRequest) {
 
   const event = {
     requestId,
-    eventName,
+    eventName: normalizedEventName,
     anonymousId,
     path,
     timestamp,
@@ -70,7 +72,7 @@ export async function POST(request: NextRequest) {
 
   const token = process.env.TRACK_INGEST_TOKEN;
   const targets = (
-    isCareerAttributionEvent(eventName)
+    isCareerAttributionEvent(normalizedEventName)
       ? [process.env.CAREER_ATTRIBUTION_INGEST_ENDPOINT ?? process.env.ANALYTICS_ENDPOINT]
       : [
           process.env.MBTI_ATTRIBUTION_INGEST_ENDPOINT,
