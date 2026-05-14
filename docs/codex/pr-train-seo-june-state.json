@@ -2,7 +2,7 @@
   "train_name": "seo-june-p0-fix-train",
   "train_description": "June SEO Foundation P0 Fix Train for launch-critical SEO engineering blockers.",
   "started_at": "2026-05-15T00:00:00+08:00",
-  "updated_at": "2026-05-15T06:11:03+08:00",
+  "updated_at": "2026-05-15T06:11:54+08:00",
   "status": "in_progress",
   "phase": "seo-june-p0-foundation",
   "pr_namespace": "PR-SEO-JUNE-*",
@@ -310,10 +310,10 @@
       "branch": "codex/pr-seo-june-06-pseo-freeze-claim-guard",
       "base": "main",
       "depends_on": ["PR-SEO-JUNE-05"],
-      "status": "committed",
+      "status": "pr_open",
       "title": "test(seo): freeze pSEO expansion and guard claim boundaries",
-      "commit_sha": "a8f6011dc96eedeb2140c231e2ef23f28ed45bc6",
-      "pr_url": null,
+      "commit_sha": "52949605d8c1b5dec5182f5e7c03093f19219333",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/802",
       "checks": [
         {
           "name": "pnpm exec vitest run tests/contracts/june-seo-p0-pseo-freeze-claim-guard.contract.test.ts tests/contracts/june-seo-p0-execution-calibration.contract.test.ts tests/contracts/public-claim-boundary-matrix.contract.test.ts tests/contracts/semantic-claim-scanner-baseline.contract.test.ts tests/contracts/riasec-bigfive-boundary-guards.contract.test.ts tests/contracts/career-fit-graph-ai-claim-guards.contract.test.ts tests/contracts/seo-geo-llms-claim-guards.contract.test.ts",
