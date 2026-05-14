@@ -2,7 +2,7 @@
   "train_name": "seo-june-p0-fix-train",
   "train_description": "June SEO Foundation P0 Fix Train for launch-critical SEO engineering blockers.",
   "started_at": "2026-05-15T00:00:00+08:00",
-  "updated_at": "2026-05-15T04:23:12+08:00",
+  "updated_at": "2026-05-15T05:13:39+08:00",
   "status": "in_progress",
   "phase": "seo-june-p0-foundation",
   "pr_namespace": "PR-SEO-JUNE-*",
@@ -84,9 +84,9 @@
       "branch": "codex/pr-seo-june-01-funnel-event-taxonomy-parity",
       "base": "main",
       "depends_on": ["PR-SEO-JUNE-00"],
-      "status": "pr_open",
+      "status": "merged",
       "title": "feat(tracking): normalize SEO funnel event taxonomy",
-      "commit_sha": "6383761f9ba8d0d7a886e20841fa924c58150928",
+      "commit_sha": "2b20daf220c623233ec750c208282c3de4bca75a",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/797",
       "checks": [
         {
@@ -111,9 +111,9 @@
         }
       ],
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false
+      "merged_at": "2026-05-14T20:26:57Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
     },
     {
       "id": "PR-SEO-JUNE-01B",
@@ -121,15 +121,32 @@
       "branch": "codex/pr-seo-june-01b-backend-attribution-allowlist",
       "base": "main",
       "depends_on": ["PR-SEO-JUNE-01"],
-      "status": "planned_if_required",
+      "status": "merged",
       "title": "feat(api): accept canonical SEO funnel attribution events",
-      "commit_sha": null,
-      "pr_url": null,
-      "checks": [],
-      "failure_reason": "Backend attribution ingest allow-list exists and still needs a separate fap-api PR to accept canonical submit_attempt payloads.",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false
+      "commit_sha": "76ea07c7be2c9c9fc530d4240046bb7829309921",
+      "pr_url": "https://github.com/fermatmind/fap-api/pull/1399",
+      "checks": [
+        {
+          "name": "cd backend && php artisan route:list --no-ansi",
+          "status": "passed"
+        },
+        {
+          "name": "cd backend && APP_ENV=testing DB_CONNECTION=sqlite DB_DATABASE=:memory: php artisan migrate --pretend --no-ansi",
+          "status": "passed"
+        },
+        {
+          "name": "cd backend && php artisan test --filter=MbtiAttributionEventIngestTest",
+          "status": "passed"
+        },
+        {
+          "name": "cd backend && php artisan test --filter=BigFiveResultPageV2CoreBodyPreviewTest",
+          "status": "passed"
+        }
+      ],
+      "failure_reason": null,
+      "merged_at": "2026-05-14T20:58:10Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
     },
     {
       "id": "PR-SEO-JUNE-02",
@@ -137,11 +154,36 @@
       "branch": "codex/pr-seo-june-02-seo-page-cta-attribution",
       "base": "main",
       "depends_on": ["PR-SEO-JUNE-01"],
-      "status": "planned",
+      "status": "local_checks_passed",
       "title": "feat(seo): add attribution metadata for SEO page CTAs",
-      "commit_sha": null,
+      "commit_sha": "af1ff1a96bc537d43011744d99b68128d21b9057",
       "pr_url": null,
-      "checks": [],
+      "checks": [
+        {
+          "name": "pnpm exec vitest run tests/contracts/seo-page-cta-attribution.contract.test.ts tests/contracts/tracking-whitelist.contract.test.ts tests/contracts/seo-funnel-tracking-taxonomy.contract.test.ts tests/contracts/tracked-link-privacy.contract.test.tsx",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/june-seo-p0-execution-calibration.contract.test.ts tests/contracts/seo-page-cta-attribution.contract.test.ts",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm typecheck",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm test:contract",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm seo:check-sitemap",
+          "status": "passed"
+        },
+        {
+          "name": "git diff --check",
+          "status": "passed"
+        }
+      ],
       "failure_reason": null,
       "merged_at": null,
       "remote_branch_deleted": false,

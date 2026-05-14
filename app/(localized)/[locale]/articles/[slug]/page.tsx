@@ -6,6 +6,7 @@ import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection"
 import { ArticleResponsiveImage } from "@/components/content/ArticleResponsiveImage";
 import { RelatedContent } from "@/components/content/RelatedContent";
 import { SanitizedCmsHtml } from "@/components/content/SanitizedCmsHtml";
+import { SeoTrackedCtaLink } from "@/components/cta/SeoTrackedCtaLink";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Badge } from "@/components/ui/badge";
@@ -362,9 +363,19 @@ export default async function ArticleDetailPage({
               ) : null}
 
               {startTestCta ? (
-                <Link href={startTestCta.href} className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
+                <SeoTrackedCtaLink
+                  href={startTestCta.href}
+                  sourceRouteFamily="article_detail"
+                  sourceSlug={article.slug}
+                  sourcePath={canonicalPath}
+                  contentId={article.id}
+                  ctaId={startTestCta.key}
+                  targetTestSlug={article.relatedTestSlug}
+                  locale={locale}
+                  className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
+                >
                   {startTestCta.label}
-                </Link>
+                </SeoTrackedCtaLink>
               ) : null}
             </div>
           </section>

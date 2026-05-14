@@ -6,6 +6,7 @@ import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
 import { MbtiSceneEntrySection } from "@/components/content/MbtiSceneEntrySection";
 import { MbtiScenarioDeepDiveSection } from "@/components/content/MbtiScenarioDeepDiveSection";
+import { SeoTrackedCtaLink } from "@/components/cta/SeoTrackedCtaLink";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buttonVariants } from "@/components/ui/button";
@@ -28,6 +29,7 @@ import { buildBreadcrumbJsonLd, buildFAQPageJsonLd, buildWebPageJsonLd } from "@
 import { buildPageMetadata, normalizeTwitterImages, resolveTwitterCard } from "@/lib/seo/metadata";
 import { resolveTopicRuntimeAuthority } from "@/lib/seo/topicLlmsAuthority";
 import { canonicalUrl } from "@/lib/site";
+import { extractTargetTestSlugFromHref } from "@/lib/tracking/seoCtaAttribution";
 
 export const dynamic = "force-static";
 export const revalidate = 300;
@@ -188,6 +190,33 @@ export default async function TopicDetailPage({
   const mbtiPersonalityHubHref = localizedPath("/personality", locale);
   const mbtiCareerRecommendationHubHref = localizedPath("/career/recommendations", locale);
   const topicScenarioDeepModules = isMbtiTopic ? buildMbtiTopicScenarioDeepModules(locale) : [];
+  const renderLandingCta = (cta: { key: string; href: string; label: string }) => {
+    const targetTestSlug = extractTargetTestSlugFromHref(cta.href);
+    if (!targetTestSlug) {
+      return (
+        <Link key={cta.key} href={cta.href} className="fm-help-chip-link">
+          {cta.label}
+        </Link>
+      );
+    }
+
+    return (
+      <SeoTrackedCtaLink
+        key={cta.key}
+        href={cta.href}
+        sourceRouteFamily="topic_detail"
+        sourceSlug={topic.slug}
+        topicId={topic.id}
+        sourcePath={canonicalPath}
+        ctaId={cta.key}
+        targetTestSlug={targetTestSlug}
+        locale={locale}
+        className="fm-help-chip-link"
+      >
+        {cta.label}
+      </SeoTrackedCtaLink>
+    );
+  };
 
   return (
     <Container as="main" className="space-y-6 py-10">
@@ -340,11 +369,7 @@ export default async function TopicDetailPage({
               </h2>
               <div className="flex flex-wrap gap-2 text-sm">
                 {landingSurface?.ctaBundle.length
-                  ? landingSurface.ctaBundle.map((cta) => (
-                      <Link key={cta.key} href={cta.href} className="fm-help-chip-link">
-                        {cta.label}
-                      </Link>
-                    ))
+                  ? landingSurface.ctaBundle.map(renderLandingCta)
                   : topicRuntimeAuthority.cta.allowed
                     ? (
                         <>

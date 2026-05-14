@@ -71,6 +71,7 @@ import {
   buildTrackingAttributionPayload,
   extractAttributionParamsFromRecord,
 } from "@/lib/tracking/attribution";
+import { buildSeoCtaTrackingPayload } from "@/lib/tracking/seoCtaAttribution";
 import {
   createScaleRolloutEnvSnapshot,
   resolveScaleRollout,
@@ -646,16 +647,18 @@ export default async function TestLandingPage({
   }: {
     formCode?: string;
     targetAction: string;
-  }): Record<string, string> => ({
-    ...landingAttributionPayload,
-    slug: test.slug,
-    test_slug: test.slug,
-    ...(formCode ? { form_code: formCode } : {}),
-    entry_surface: "test_landing",
-    source_page_type: "test_landing",
-    target_action: targetAction,
-    landing_path: landingPath,
+  }): Record<string, string> => buildSeoCtaTrackingPayload({
     locale,
+    sourceRouteFamily: "test_detail",
+    sourceSlug: test.slug,
+    sourcePath: landingPath,
+    href: withLocale(`/tests/${test.slug}/take`),
+    ctaId: targetAction,
+    targetAction,
+    targetTestSlug: test.slug,
+    formCode,
+    scaleCode: test.scale_code,
+    attributionPayload: landingAttributionPayload,
   });
   const testDetailAuthority = resolveTestDetailAuthority({
     slug: test.slug,
