@@ -2080,7 +2080,7 @@
       "depends_on": [
         "RIASEC-DEEP-COPY-08A"
       ],
-      "status": "local_validated",
+      "status": "pr_open",
       "title": "feat(riasec): render backend deep content slots fail closed",
       "mode": "execute",
       "risk_level": "L1",
@@ -2145,8 +2145,8 @@
         }
       ],
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/793",
+      "commit_sha": "b5a8dc1f0fb8bf3b30577d71b78b2624513781ff",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
