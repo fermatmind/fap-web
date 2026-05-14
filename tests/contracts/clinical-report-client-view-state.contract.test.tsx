@@ -36,6 +36,7 @@ type LinkProps = {
 
 const hoisted = vi.hoisted(() => ({
   fetchAttemptReportAccess: vi.fn(),
+  fetchAttemptReportForRichResult: vi.fn(),
   fetchClinicalReport: vi.fn(),
   createCheckoutOrOrder: vi.fn(),
   fetchAttemptResult: vi.fn(),
@@ -101,10 +102,15 @@ vi.mock("@/components/result/RichResultReport", () => ({
     report: {
       scale_code?: string;
       big5_result_page_v2?: unknown;
+      riasec_public_projection_v2?: unknown;
       report?: { scale_code?: string } | unknown[];
     } | null
-  ) => Boolean(report?.big5_result_page_v2),
-  RichResultReport: () => <div data-testid="rich-result-report">big5-v2-rich-report</div>,
+  ) => Boolean(report?.big5_result_page_v2 || report?.riasec_public_projection_v2),
+  RichResultReport: ({ reportData }: { reportData?: { big5_result_page_v2?: unknown; riasec_public_projection_v2?: unknown } }) => (
+    <div data-testid="rich-result-report">
+      {reportData?.riasec_public_projection_v2 ? "riasec-snapshot-rich-report" : "big5-v2-rich-report"}
+    </div>
+  ),
 }));
 
 vi.mock("@/components/ui/alert", () => ({
@@ -149,6 +155,7 @@ function createAccessProjection(overrides: Partial<Record<string, unknown>> = {}
 }
 
 vi.mock("@/lib/clinical/api", () => ({
+  fetchAttemptReportForRichResult: hoisted.fetchAttemptReportForRichResult,
   fetchClinicalReport: hoisted.fetchClinicalReport,
 }));
 
@@ -197,6 +204,15 @@ describe("ClinicalReportClient view-state contract", () => {
     window.sessionStorage.clear();
     hoisted.createCheckoutOrOrder.mockResolvedValue({ kind: "redirect", url: "/checkout" });
     hoisted.fetchAttemptReportAccess.mockResolvedValue(createAccessProjection());
+    hoisted.fetchAttemptReportForRichResult.mockResolvedValue({
+      ok: true,
+      meta: {
+        scale_code: "SDS_20",
+      },
+      report: {
+        scale_code: "SDS_20",
+      },
+    });
   });
 
   it("renders processing as processing-only ui when the report is generating", async () => {
@@ -258,6 +274,17 @@ describe("ClinicalReportClient view-state contract", () => {
   });
 
   it("renders Big Five V2 payload reports even when legacy generation remains pending", async () => {
+    hoisted.fetchAttemptReportForRichResult.mockResolvedValue({
+      ok: true,
+      generating: true,
+      meta: {
+        generating: true,
+        scale_code: "BIG5_OCEAN",
+      },
+      report: [],
+      scale_code: "BIG5_OCEAN",
+      big5_result_page_v2: structuredClone(pilotEnvelope).big5_result_page_v2,
+    });
     hoisted.fetchClinicalReport.mockResolvedValue({
       ok: true,
       generating: true,
@@ -278,6 +305,39 @@ describe("ClinicalReportClient view-state contract", () => {
 
     expect(screen.queryByText("Report is generating. Please wait...")).not.toBeInTheDocument();
     expect(screen.queryByTestId("skeleton")).not.toBeInTheDocument();
+  });
+
+  it("routes RIASEC reports through the rich result renderer without clinical validation", async () => {
+    hoisted.fetchAttemptReportForRichResult.mockResolvedValue({
+      ok: true,
+      meta: {
+        scale_code: "RIASEC",
+      },
+      report: {
+        scale_code: "RIASEC",
+      },
+      riasec_public_projection_v2: {
+        schema_version: "riasec.public_projection.v2",
+        measurement_evidence: {
+          snapshot_bound: true,
+        },
+      },
+    });
+
+    render(<ClinicalReportClient attemptId="attempt-456" rolloutEnv={{} as never} />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("rich-result-report")).toHaveTextContent("riasec-snapshot-rich-report");
+    });
+
+    expect(hoisted.fetchAttemptReportForRichResult).toHaveBeenCalledWith({
+      attemptId: "attempt-456",
+      anonId: "anon_clinical_test",
+      refresh: false,
+    });
+    expect(hoisted.fetchClinicalReport).not.toHaveBeenCalled();
+    expect(hoisted.fetchAttemptResult).not.toHaveBeenCalled();
+    expect(screen.queryByText("Report is generating. Please wait...")).not.toBeInTheDocument();
   });
 
   it("keeps the report page report-only and never calls the result endpoint", async () => {

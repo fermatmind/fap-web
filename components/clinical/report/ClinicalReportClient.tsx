@@ -30,7 +30,7 @@ import {
 import { ApiError } from "@/lib/api-client";
 import { getOrCreateAnonId } from "@/lib/anon";
 import { trackEvent } from "@/lib/analytics";
-import { fetchClinicalReport } from "@/lib/clinical/api";
+import { fetchAttemptReportForRichResult, fetchClinicalReport } from "@/lib/clinical/api";
 import { mapClinicalError } from "@/lib/clinical/errors";
 import { buildOrderWaitPath, regionFromLocale, resolveCheckoutAction } from "@/lib/commerce/checkoutAction";
 import { normalizeCommerceReportPath } from "@/lib/commerce/redirectUrls";
@@ -610,9 +610,22 @@ export default function ClinicalReportClient({
           try {
             const accessResponse = await fetchAttemptReportAccess({ attemptId, anonId });
             setAccessView(normalizeAttemptReportAccess(accessResponse, locale));
+            const refreshReport = retryAttempt > 0 ? true : refresh;
+            const richCandidate = await fetchAttemptReportForRichResult({
+              attemptId,
+              anonId,
+              refresh: refreshReport,
+            });
+            if (canRenderRichResultReport(richCandidate)) {
+              latest = richCandidate;
+              setReportData(latest);
+              break;
+            }
+
             latest = await fetchClinicalReport({
               attemptId,
-              refresh: retryAttempt > 0 ? true : refresh,
+              anonId,
+              refresh: refreshReport,
             });
             setReportData(latest);
             break;
@@ -656,8 +669,20 @@ export default function ClinicalReportClient({
           await sleep(GENERATING_POLL_INTERVAL_MS);
           const accessResponse = await fetchAttemptReportAccess({ attemptId, anonId });
           setAccessView(normalizeAttemptReportAccess(accessResponse, locale));
+          const richCandidate = await fetchAttemptReportForRichResult({
+            attemptId,
+            anonId,
+            refresh: true,
+          });
+          if (canRenderRichResultReport(richCandidate)) {
+            latest = richCandidate;
+            setReportData(latest);
+            break;
+          }
+
           latest = await fetchClinicalReport({
             attemptId,
+            anonId,
             refresh: true,
           });
           setReportData(latest);

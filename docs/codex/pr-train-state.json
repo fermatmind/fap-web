@@ -2080,7 +2080,7 @@
       "depends_on": [
         "RIASEC-DEEP-COPY-08A"
       ],
-      "status": "in_progress",
+      "status": "local_validated",
       "title": "feat(riasec): render backend deep content slots fail closed",
       "mode": "execute",
       "risk_level": "L1",
@@ -2172,6 +2172,104 @@
             "Command: NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://www.fermatmind.com pnpm build",
             "Postbuild command regenerated public/sitemap.xml",
             "Generated diff was restored and is not included in RIASEC-DEEP-COPY-08B"
+          ],
+          "suggested_owner": "SEO/GEO platform"
+        }
+      ]
+    },
+    {
+      "id": "RIASEC-V11-LIVE-FIX-01",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/riasec-v11-live-fix-01",
+      "base": "main",
+      "depends_on": [
+        "RIASEC-V11-LAUNCH-ACCEPTANCE-00"
+      ],
+      "status": "in_progress",
+      "title": "RIASEC snapshot-bound result/report frontend route fix",
+      "mode": "execute",
+      "risk_level": "L1",
+      "allowed_paths": [
+        "components/result/RichResultReport.tsx",
+        "app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx",
+        "app/(localized)/[locale]/attempts/[attemptId]/report/page.tsx",
+        "components/clinical/report/ClinicalReportClient.tsx",
+        "lib/clinical/api.ts",
+        "tests/contracts/result-client-view-state.contract.test.tsx",
+        "tests/contracts/clinical-report-client-view-state.contract.test.tsx",
+        "tests/contracts/riasec-v11-launch-acceptance.contract.test.tsx",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [
+        {
+          "name": "dependency RIASEC-V11-LAUNCH-ACCEPTANCE-00 merged",
+          "status": "passed",
+          "evidence": "fap-web PR #792 merged at e71272d19586ac6b896f02ac8571fb2654b8e702 and origin/main contains the merge commit"
+        },
+        {
+          "name": "train metadata validity",
+          "status": "passed",
+          "evidence": "node JSON parse for docs/codex/pr-train-state.json and Ruby YAML parse for docs/codex/pr-train.yaml"
+        },
+        {
+          "name": "targeted RIASEC/result/report contract tests",
+          "status": "passed",
+          "evidence": "pnpm vitest run tests/contracts/result-client-view-state.contract.test.tsx tests/contracts/clinical-report-client-view-state.contract.test.tsx tests/contracts/riasec-v11-launch-acceptance.contract.test.tsx"
+        },
+        {
+          "name": "typecheck",
+          "status": "passed",
+          "evidence": "pnpm typecheck"
+        },
+        {
+          "name": "touched file lint",
+          "status": "passed",
+          "evidence": "pnpm lint components/clinical/report/ClinicalReportClient.tsx components/result/RichResultReport.tsx lib/clinical/api.ts tests/contracts/clinical-report-client-view-state.contract.test.tsx tests/contracts/result-client-view-state.contract.test.tsx tests/contracts/riasec-v11-launch-acceptance.contract.test.tsx"
+        },
+        {
+          "name": "contract suite",
+          "status": "passed",
+          "evidence": "pnpm test:contract"
+        },
+        {
+          "name": "production API env build",
+          "status": "passed",
+          "evidence": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://www.fermatmind.com pnpm build"
+        },
+        {
+          "name": "forbidden claim scan",
+          "status": "passed",
+          "evidence": "Forbidden phrases were absent from changed runtime files; only allowed test assertions mention forbidden phrases."
+        },
+        {
+          "name": "git diff whitespace",
+          "status": "passed",
+          "evidence": "git diff --check"
+        },
+        {
+          "name": "scope validation",
+          "status": "passed",
+          "evidence": "Changed files are limited to fap-web route/report rendering, contract tests, clinical API adapter, and train metadata; no backend, scorer, content pack, career, feedback, share/PDF/history backend, or analytics runtime files changed."
+        }
+      ],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [
+        {
+          "title": "Postbuild sitemap generation rewrites public/sitemap.xml during local validation",
+          "severity": "P2",
+          "introduced_by_current_pr": false,
+          "blocks_merge": false,
+          "evidence": [
+            "Command: NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://www.fermatmind.com pnpm build",
+            "Postbuild command regenerated public/sitemap.xml timestamps and public URL enumeration.",
+            "Generated diff was restored and is not included in RIASEC-V11-LIVE-FIX-01."
           ],
           "suggested_owner": "SEO/GEO platform"
         }
