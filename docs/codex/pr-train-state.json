@@ -2145,8 +2145,8 @@
         }
       ],
       "failure_reason": null,
-      "pr_url": "https://github.com/fermatmind/fap-web/pull/793",
-      "commit_sha": "b5a8dc1f0fb8bf3b30577d71b78b2624513781ff",
+      "pr_url": null,
+      "commit_sha": null,
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -2186,7 +2186,7 @@
       "depends_on": [
         "RIASEC-V11-LAUNCH-ACCEPTANCE-00"
       ],
-      "status": "in_progress",
+      "status": "github_checks_green",
       "title": "RIASEC snapshot-bound result/report frontend route fix",
       "mode": "execute",
       "risk_level": "L1",
@@ -2252,11 +2252,16 @@
           "name": "scope validation",
           "status": "passed",
           "evidence": "Changed files are limited to fap-web route/report rendering, contract tests, clinical API adapter, and train metadata; no backend, scorer, content pack, career, feedback, share/PDF/history backend, or analytics runtime files changed."
+        },
+        {
+          "name": "GitHub required checks",
+          "status": "passed",
+          "evidence": "PR #793 checks passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze"
         }
       ],
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/793",
+      "commit_sha": "4eee03536c86a33bcd151c427f843f14180a0621",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
