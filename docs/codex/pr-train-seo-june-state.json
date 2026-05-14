@@ -2,7 +2,7 @@
   "train_name": "seo-june-p0-fix-train",
   "train_description": "June SEO Foundation P0 Fix Train for launch-critical SEO engineering blockers.",
   "started_at": "2026-05-15T00:00:00+08:00",
-  "updated_at": "2026-05-15T05:17:18+08:00",
+  "updated_at": "2026-05-15T05:28:49+08:00",
   "status": "in_progress",
   "phase": "seo-june-p0-foundation",
   "pr_namespace": "PR-SEO-JUNE-*",
@@ -154,9 +154,9 @@
       "branch": "codex/pr-seo-june-02-seo-page-cta-attribution",
       "base": "main",
       "depends_on": ["PR-SEO-JUNE-01"],
-      "status": "pr_open",
+      "status": "merged",
       "title": "feat(seo): add attribution metadata for SEO page CTAs",
-      "commit_sha": "0e46b8b1fe2dca5c70c220852c353f8402066f77",
+      "commit_sha": "1bd1602fae100884bfbcb8823e9d5ef6bd9dab5d",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/798",
       "checks": [
         {
@@ -185,9 +185,9 @@
         }
       ],
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false
+      "merged_at": "2026-05-14T21:20:56Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
     },
     {
       "id": "PR-SEO-JUNE-03",
@@ -195,11 +195,32 @@
       "branch": "codex/pr-seo-june-03-article-runtime-contract",
       "base": "main",
       "depends_on": ["PR-SEO-JUNE-02"],
-      "status": "planned",
+      "status": "local_checks_passed",
       "title": "test(seo): enforce article runtime FAQ CTA evidence contract",
-      "commit_sha": null,
+      "commit_sha": "b82f25d304da71664501c5ac022dd3a836e74724",
       "pr_url": null,
-      "checks": [],
+      "checks": [
+        {
+          "name": "pnpm exec vitest run tests/contracts/article-answer-surface.contract.test.ts tests/contracts/article-publishing-runtime-truth.contract.test.ts tests/contracts/articles-cleanup.contract.test.ts",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm typecheck",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm test:contract",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm seo:check-sitemap",
+          "status": "passed"
+        },
+        {
+          "name": "git diff --check",
+          "status": "passed"
+        }
+      ],
       "failure_reason": null,
       "merged_at": null,
       "remote_branch_deleted": false,
