@@ -18,6 +18,7 @@ describe("analytics scripts contract", () => {
       ...originalEnv,
       NEXT_PUBLIC_ANALYTICS_ENABLED: env.NEXT_PUBLIC_ANALYTICS_ENABLED,
       NEXT_PUBLIC_GA_MEASUREMENT_ID: env.NEXT_PUBLIC_GA_MEASUREMENT_ID,
+      NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID: env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID,
       NEXT_PUBLIC_BAIDU_TONGJI_ID: env.NEXT_PUBLIC_BAIDU_TONGJI_ID,
     };
 
@@ -36,6 +37,7 @@ describe("analytics scripts contract", () => {
     ).toEqual({
       enabled: true,
       gaMeasurementId: "",
+      googleAdsConversionId: "",
       baiduTongjiId: "",
     });
   });
@@ -44,10 +46,12 @@ describe("analytics scripts contract", () => {
     const script = buildAnalyticsBootstrapScript({
       enabled: true,
       gaMeasurementId: "G-TEST1234",
+      googleAdsConversionId: "AW-TEST1234",
       baiduTongjiId: "BAIDU_TEST_ID",
     });
 
     expect(script).toContain("G-TEST1234");
+    expect(script).toContain("AW-TEST1234");
     expect(script).toContain("BAIDU_TEST_ID");
     expect(script).toContain("dataLayer");
     expect(script).toContain("gtag");
@@ -56,12 +60,43 @@ describe("analytics scripts contract", () => {
     expect(script).toContain("hm.baidu.com/hm.js");
     expect(script).toContain("fm:analytics-consent-updated");
     expect(script).toContain('parsed.analytics === "granted"');
+    expect(script).not.toContain("GTM-");
+    expect(script).not.toContain("bp.js");
+  });
+
+  it("configures GA4 and Google Ads destinations while loading gtag once", () => {
+    const script = buildAnalyticsBootstrapScript({
+      enabled: true,
+      gaMeasurementId: "G-TEST1234",
+      googleAdsConversionId: "AW-TEST1234",
+      baiduTongjiId: "",
+    });
+
+    expect(script.match(/googletagmanager\.com\/gtag\/js/g)).toHaveLength(1);
+    expect(script).toContain('window.gtag("config", gaMeasurementId, { send_page_view: false });');
+    expect(script).toContain('window.gtag("config", googleAdsConversionId);');
+    expect(script).not.toContain("googletagmanager.com/gtm.js");
+  });
+
+  it("supports Google Ads without a GA4 measurement ID", () => {
+    const html = renderAnalyticsScripts({
+      NEXT_PUBLIC_ANALYTICS_ENABLED: "true",
+      NEXT_PUBLIC_GA_MEASUREMENT_ID: "",
+      NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID: "AW-TEST1234",
+      NEXT_PUBLIC_BAIDU_TONGJI_ID: "",
+    });
+
+    expect(html).toContain('id="fm-analytics-bootstrap"');
+    expect(html).toContain("AW-TEST1234");
+    expect(html).toContain("googletagmanager.com/gtag/js");
+    expect(html).toContain('var baiduTongjiId = "";');
   });
 
   it("renders a deterministic SSR bootstrap marker when analytics env IDs are set", () => {
     const html = renderAnalyticsScripts({
       NEXT_PUBLIC_ANALYTICS_ENABLED: "true",
       NEXT_PUBLIC_GA_MEASUREMENT_ID: "G-TEST1234",
+      NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID: "",
       NEXT_PUBLIC_BAIDU_TONGJI_ID: "0123456789abcdef",
     });
 
@@ -80,6 +115,7 @@ describe("analytics scripts contract", () => {
       renderAnalyticsScripts({
         NEXT_PUBLIC_ANALYTICS_ENABLED: "false",
         NEXT_PUBLIC_GA_MEASUREMENT_ID: "G-TEST1234",
+        NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID: "AW-TEST1234",
         NEXT_PUBLIC_BAIDU_TONGJI_ID: "BAIDU_TEST_ID",
       })
     ).toBe("");
@@ -88,6 +124,7 @@ describe("analytics scripts contract", () => {
       renderAnalyticsScripts({
         NEXT_PUBLIC_ANALYTICS_ENABLED: "true",
         NEXT_PUBLIC_GA_MEASUREMENT_ID: "",
+        NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID: "",
         NEXT_PUBLIC_BAIDU_TONGJI_ID: "",
       })
     ).toBe("");

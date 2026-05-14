@@ -1990,3 +1990,62 @@ prs:
       - homepage/article visual rendering
       - tests/results/payment/order/share runtime
     rollback_note: "Restore the previous revalidate route and remove allowlist contract."
+
+  - id: PR-TRACK-01
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-track-01-ga4-baidu-google-ads-activation
+    base: main
+    depends_on: []
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "feat(analytics): add GA4 Baidu and Google Ads activation contract"
+    goal: "Activate env-gated GA4, Baidu Tongji, and Google Ads purchase conversion support through the existing analytics bridge without GTM, Baidu Ads, or unrelated runtime changes."
+    in_scope:
+      - .env.example
+      - components/analytics/AnalyticsScripts.tsx
+      - lib/tracking/client.ts
+      - lib/tracking/events.ts
+      - tests/contracts/analytics-scripts.contract.test.ts
+      - tests/contracts/tracking-activation-contract.contract.test.ts
+      - docs/analytics/tracking-activation-runbook.md
+      - docs/analytics/generated/tracking-activation-contract.v1.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - fap-api repository or nested fap-api/fap-web copy
+      - GTM, @next/third-parties, react-gtm-module
+      - Baidu Ads bp.js
+      - Facebook, TikTok, or other third-party pixels
+      - checkout/payment/report entitlement runtime
+      - recommendation, profile, memory, scoring, SEO, or GEO runtime
+      - sitemap, llms, or llms-full generation
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/analytics-scripts.contract.test.ts
+      - pnpm exec vitest run tests/contracts/tracking-activation-contract.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - pnpm seo:check-sitemap
+      - git diff --check
+    acceptance:
+      - .env.example declares analytics activation placeholders without real IDs.
+      - Analytics scripts remain gated by NEXT_PUBLIC_ANALYTICS_ENABLED.
+      - GA4 and Google Ads share one gtag.js loader and both destinations can be configured.
+      - Google Ads purchase conversion fires only for purchase_success or pay_success when Ads ID and purchase label are configured.
+      - Baidu Tongji remains analytics-only; no Baidu Ads bp.js is introduced.
+      - No GTM, SEO/GEO, recommendation, profile, checkout, entitlement, or scoring files are changed.
+    must_not_touch:
+      - /Users/rainie/Desktop/GitHub/fap-api
+      - /Users/rainie/Desktop/GitHub/fap-api/fap-web
+      - backend files
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - next-sitemap.config.js
+      - public/sitemap.xml
+      - docs/seo/generated/**
+      - checkout/payment/report entitlement runtime
+      - recommendation files
+      - profile/memory files
+      - scoring files
+    rollback_note: "Remove Ads conversion bridge, activation env placeholders, activation docs/contracts, and related contract tests."
