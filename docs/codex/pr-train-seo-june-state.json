@@ -2,7 +2,7 @@
   "train_name": "seo-june-p0-fix-train",
   "train_description": "June SEO Foundation P0 Fix Train for launch-critical SEO engineering blockers.",
   "started_at": "2026-05-15T00:00:00+08:00",
-  "updated_at": "2026-05-15T05:56:49+08:00",
+  "updated_at": "2026-05-15T05:57:39+08:00",
   "status": "in_progress",
   "phase": "seo-june-p0-foundation",
   "pr_namespace": "PR-SEO-JUNE-*",
@@ -273,9 +273,9 @@
       "branch": "codex/pr-seo-june-05-sitemap-llms-authority-lastmod",
       "base": "main",
       "depends_on": ["PR-SEO-JUNE-04"],
-      "status": "local_checks_passed",
+      "status": "committed",
       "title": "fix(seo): harden sitemap llms authority and truthful lastmod",
-      "commit_sha": null,
+      "commit_sha": "e4bf80ab9a216e2af6e1bda9fa9deec661336087",
       "pr_url": null,
       "checks": [
         {
