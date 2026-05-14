@@ -1,0 +1,80 @@
+{
+  "version": "seo.june_p0_sitemap_llms_authority_lastmod.v1",
+  "scope": "PR-SEO-JUNE-05",
+  "trainName": "seo-june-p0-fix-train",
+  "runtimeBehaviorChanged": false,
+  "urlSetChanged": false,
+  "sitemapUrlSetChanged": false,
+  "llmsExposureChanged": false,
+  "llmsFullExposureChanged": false,
+  "publicContentChanged": false,
+  "sitemapLastmodPolicy": {
+    "autoLastmod": false,
+    "buildTimeNowForbidden": true,
+    "defaultWhenNoAuthorityTimestamp": "omit_lastmod",
+    "allowedAuthorityTimestampFields": [
+      "backend sitemap-source lastmod",
+      "CMS updated_at",
+      "CMS updatedAt",
+      "CMS published_at only when it is the real content timestamp"
+    ],
+    "staticFrontendPathsWithoutAuthorityTimestamp": "omit_lastmod"
+  },
+  "authorityBoundaries": {
+    "sitemapAuthority": "mixed_static_shell_plus_backend_cms_authority",
+    "backendSitemapSource": "/api/v0.5/seo/sitemap-source",
+    "llmsAuthority": "CMS/public API constrained by shared discoverability deny policy",
+    "topicFallbackPolicy": "compatibility fallback only; no broad topic expansion",
+    "careerJobAuthority": "backend sitemap-source plus career job seo.surface.v1 gate",
+    "personalityAuthority": "backend sitemap-source for indexable variants"
+  },
+  "sourceTokenChecks": [
+    {
+      "path": "next-sitemap.config.js",
+      "requiredTokens": ["autoLastmod: false", "fetchBackendSitemapSourcePayload", "buildValidatedCmsPaths"],
+      "forbiddenTokens": ["lastmod: new Date().toISOString()"]
+    },
+    {
+      "path": "app/llms.txt/route.ts",
+      "requiredTokens": [
+        "TOPIC_LLMS_COMPATIBILITY_FALLBACK_SLUGS",
+        "isSharedDiscoverabilityDeniedPath",
+        "listBackendSitemapCareerJobPaths",
+        "listBackendDiscoverabilityTestEntries"
+      ],
+      "forbiddenTokens": []
+    },
+    {
+      "path": "app/llms-full.txt/route.ts",
+      "requiredTokens": [
+        "TOPIC_LLMS_COMPATIBILITY_FALLBACKS",
+        "isSharedDiscoverabilityDeniedPath",
+        "listBackendSitemapCareerJobPaths",
+        "listBackendDiscoverabilityTestEntries"
+      ],
+      "forbiddenTokens": []
+    }
+  ],
+  "privateFlowDenySamples": [
+    "/en/tests/mbti-personality-test-16-personality-types/take",
+    "/zh/tests/mbti-personality-test-16-personality-types/take",
+    "/en/result/mbti/example",
+    "/en/orders/FM-ORDER-EXAMPLE",
+    "/en/share/share-example",
+    "/en/pay/checkout",
+    "/en/payment/alipay/return",
+    "/en/history"
+  ],
+  "mustNotChange": [
+    "public route set",
+    "sitemap URL set expansion",
+    "llms exposure expansion",
+    "llms-full exposure expansion",
+    "topic fallback expansion",
+    "public content copy",
+    "runtime tracking behavior",
+    "recommendation runtime",
+    "scoring",
+    "checkout/payment/report entitlement"
+  ]
+}
