@@ -2,7 +2,7 @@
   "train_name": "seo-june-p0-fix-train",
   "train_description": "June SEO Foundation P0 Fix Train for launch-critical SEO engineering blockers.",
   "started_at": "2026-05-15T00:00:00+08:00",
-  "updated_at": "2026-05-15T05:57:39+08:00",
+  "updated_at": "2026-05-15T05:58:41+08:00",
   "status": "in_progress",
   "phase": "seo-june-p0-foundation",
   "pr_namespace": "PR-SEO-JUNE-*",
@@ -273,10 +273,10 @@
       "branch": "codex/pr-seo-june-05-sitemap-llms-authority-lastmod",
       "base": "main",
       "depends_on": ["PR-SEO-JUNE-04"],
-      "status": "committed",
+      "status": "pr_open",
       "title": "fix(seo): harden sitemap llms authority and truthful lastmod",
-      "commit_sha": "e4bf80ab9a216e2af6e1bda9fa9deec661336087",
-      "pr_url": null,
+      "commit_sha": "4bd90b20541478630098d5b7e7b25e0b1bcf8dfb",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/801",
       "checks": [
         {
           "name": "pnpm exec vitest run tests/contracts/sitemap-llms-lastmod-authority.contract.test.ts tests/contracts/sitemap-indexability.contract.test.ts tests/contracts/sitemap-authority-adapters.contract.test.ts tests/contracts/llms-parity-contract.contract.test.ts tests/contracts/llms-full-enrichment.contract.test.ts",
