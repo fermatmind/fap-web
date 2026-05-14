@@ -1,0 +1,118 @@
+{
+  "version": "seo.june_p0_execution_calibration.v1",
+  "scope": "PR-SEO-JUNE-00",
+  "trainName": "seo-june-p0-fix-train",
+  "runtimeBehaviorChanged": false,
+  "sourceOfTruth": {
+    "primaryFrontendRuntime": "/Users/rainie/Desktop/GitHub/fap-web",
+    "backendAuthorityRepository": "/Users/rainie/Desktop/GitHub/fap-api",
+    "ignoredNestedFrontend": "/Users/rainie/Desktop/GitHub/fap-api/fap-web"
+  },
+  "requiredGithubChecks": [
+    "build",
+    "contracts",
+    "verify-big5-contract-freeze",
+    "verify-enneagram-contract-freeze"
+  ],
+  "prScopes": [
+    {
+      "id": "PR-SEO-JUNE-00",
+      "repo": "fap-web",
+      "scopeType": "governance_calibration",
+      "runtimeChangeAllowed": false
+    },
+    {
+      "id": "PR-SEO-JUNE-01",
+      "repo": "fap-web",
+      "scopeType": "tracking_taxonomy",
+      "runtimeChangeAllowed": true
+    },
+    {
+      "id": "PR-SEO-JUNE-01B",
+      "repo": "fap-api",
+      "scopeType": "backend_attribution_allowlist",
+      "runtimeChangeAllowed": true,
+      "requiredOnlyIf": "backend attribution ingest rejects canonical funnel events"
+    },
+    {
+      "id": "PR-SEO-JUNE-02",
+      "repo": "fap-web",
+      "scopeType": "seo_cta_attribution",
+      "runtimeChangeAllowed": true
+    },
+    {
+      "id": "PR-SEO-JUNE-03",
+      "repo": "fap-web",
+      "scopeType": "article_runtime_contract",
+      "runtimeChangeAllowed": true,
+      "fallbackContentAllowed": false
+    },
+    {
+      "id": "PR-SEO-JUNE-04",
+      "repo": "fap-web",
+      "scopeType": "mobile_cwv_measurement_gate",
+      "runtimeChangeAllowed": false
+    },
+    {
+      "id": "PR-SEO-JUNE-05",
+      "repo": "fap-web",
+      "scopeType": "sitemap_llms_authority_lastmod",
+      "runtimeChangeAllowed": true,
+      "urlSetExpansionAllowed": false
+    },
+    {
+      "id": "PR-SEO-JUNE-06",
+      "repo": "fap-web",
+      "scopeType": "pseo_freeze_claim_guard",
+      "runtimeChangeAllowed": false
+    }
+  ],
+  "backendChangePolicy": {
+    "separateBackendPrRequired": true,
+    "backendPrId": "PR-SEO-JUNE-01B",
+    "mixedFrontendBackendPrAllowed": false
+  },
+  "frozenExpansion": [
+    "MBTI x career pSEO",
+    "Big Five trait x career pSEO",
+    "RIASEC code x career pSEO",
+    "trait x problem pSEO",
+    "career recommendation pSEO",
+    "Career Decision runtime",
+    "Workstyle runtime",
+    "RIASEC career recommendation runtime",
+    "Big Five trait-to-career matching runtime",
+    "MBTI live individualized recommendation runtime"
+  ],
+  "blockedClaims": [
+    "precise career recommendation",
+    "best career",
+    "guaranteed career success",
+    "career success prediction",
+    "AI career planning",
+    "Big Five trait-to-career matching",
+    "RIASEC recommendation engine",
+    "MBTI individualized recommendation engine",
+    "hiring suitability",
+    "diagnosis",
+    "personality diagnosis"
+  ],
+  "allowedClaimLanguage": [
+    "career direction reference",
+    "exploration suggestion",
+    "interest signal",
+    "workplace behavior tendency",
+    "snapshot-based support",
+    "evidence-backed explanation"
+  ],
+  "mustNotChange": [
+    "checkout/payment/report entitlement logic",
+    "assessment scoring",
+    "profile or memory",
+    "report pricing",
+    "paid report product policy",
+    "public route set",
+    "sitemap URL set expansion",
+    "llms exposure expansion"
+  ]
+}

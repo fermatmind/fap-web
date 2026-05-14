@@ -1,0 +1,212 @@
+train_name: seo-june-p0-fix-train
+train_description: >
+  June SEO Foundation P0 Fix Train for closing launch-critical SEO
+  engineering blockers without expanding public SEO surface area.
+base_branch: main
+merge_method: squash
+stop_on_failure: true
+require_clean_worktree: true
+execution_mode: local_clone_preferred
+status: initialized
+pr_namespace: PR-SEO-JUNE-*
+branch_naming_convention: codex/pr-seo-june-<nn>-<short-scope>
+required_github_checks:
+  - build
+  - contracts
+  - verify-big5-contract-freeze
+  - verify-enneagram-contract-freeze
+
+production_frontend_source_of_truth:
+  primary_public_runtime: /Users/rainie/Desktop/GitHub/fap-web
+  backend_authority_repo: /Users/rainie/Desktop/GitHub/fap-api
+  nested_skeleton_or_stale: /Users/rainie/Desktop/GitHub/fap-api/fap-web
+  rule: >
+    Use fap-web as the production frontend runtime. Use fap-api only for
+    scoped backend authority/API changes. Never treat nested fap-api/fap-web
+    as the production frontend runtime.
+
+train_policy:
+  no_public_route_expansion: true
+  no_sitemap_url_expansion: true
+  no_llms_expansion: true
+  no_pseo_generation: true
+  no_new_public_routes: true
+  no_career_decision_runtime: true
+  no_workstyle_runtime: true
+  no_riasec_career_recommender: true
+  no_bigfive_career_matcher: true
+  no_mbti_live_personalized_recommender: true
+  no_checkout_payment_report_entitlement_changes: true
+  no_scoring_changes: true
+  no_profile_or_memory_changes: true
+  no_report_pricing_changes: true
+  no_paid_report_product_policy_changes: true
+  no_public_copy_rewrite_without_approved_replacement: true
+
+backend_pr_policy:
+  separate_backend_pr_required: true
+  backend_pr_id_for_funnel_allowlist: PR-SEO-JUNE-01B
+  rule: >
+    Any backend attribution/API allow-list change must be implemented in a
+    separate fap-api PR and must not be committed inside a fap-web PR.
+
+sidecar_issue_policy:
+  continue_train_when:
+    - issue is not introduced by the current PR
+    - required GitHub checks are green
+    - scoped validation is green
+    - mergeStateStatus is CLEAN
+    - diff scope is clean
+  required_check_failure_rule: >
+    Required GitHub check failure remains a hard stop after investigation and
+    one rerun when appropriate.
+
+prs:
+  - id: PR-SEO-JUNE-00
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-seo-june-00-train-manifest-calibration
+    base: main
+    depends_on: []
+    mode: execute
+    status: planned
+    title: "docs(seo): register June SEO P0 fix train"
+    scope:
+      - docs/codex/pr-train-seo-june.yaml
+      - docs/codex/pr-train-seo-june-state.json
+      - docs/seo/june-seo-p0-execution-calibration.md
+      - docs/seo/generated/june-seo-p0-execution-calibration.v1.json
+      - tests/contracts/june-seo-p0-execution-calibration.contract.test.ts
+    validation:
+      - pnpm exec vitest run tests/contracts/june-seo-p0-execution-calibration.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - pnpm seo:check-sitemap
+      - git diff --check
+      - git diff --cached --check
+
+  - id: PR-SEO-JUNE-01
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-seo-june-01-funnel-event-taxonomy-parity
+    base: main
+    depends_on: [PR-SEO-JUNE-00]
+    mode: execute
+    status: planned
+    title: "feat(tracking): normalize SEO funnel event taxonomy"
+    scope:
+      - lib/tracking/**
+      - app/api/track/route.ts
+      - app/(localized)/[locale]/tests/[slug]/take/**
+      - components/result/**
+      - app/(localized)/[locale]/orders/[orderNo]/**
+      - tests/contracts/**tracking**
+      - tests/contracts/**analytics**
+      - docs/analytics/**
+      - docs/seo/**
+    backend_change_policy: separate_pr_only
+
+  - id: PR-SEO-JUNE-01B
+    repo: fap-api
+    repo_path: /Users/rainie/Desktop/GitHub/fap-api
+    branch: codex/pr-seo-june-01b-backend-attribution-allowlist
+    base: main
+    depends_on: [PR-SEO-JUNE-01]
+    mode: execute_if_required
+    status: planned
+    title: "feat(api): accept canonical SEO funnel attribution events"
+    scope:
+      - backend/app/Http/Controllers/**
+      - backend/app/Services/**
+      - backend/tests/**
+    rule: >
+      Use only if backend attribution allow-list changes are required for
+      canonical funnel event ingest.
+
+  - id: PR-SEO-JUNE-02
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-seo-june-02-seo-page-cta-attribution
+    base: main
+    depends_on: [PR-SEO-JUNE-01]
+    mode: execute
+    status: planned
+    title: "feat(seo): add attribution metadata for SEO page CTAs"
+    scope:
+      - app/(localized)/[locale]/articles/[slug]/page.tsx
+      - app/(localized)/[locale]/topics/[slug]/page.tsx
+      - app/(localized)/[locale]/tests/[slug]/page.tsx
+      - components/content/**
+      - components/cta/**
+      - lib/tracking/**
+      - tests/contracts/**cta**
+      - tests/contracts/**tracking**
+      - docs/seo/**
+      - docs/analytics/**
+
+  - id: PR-SEO-JUNE-03
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-seo-june-03-article-runtime-contract
+    base: main
+    depends_on: [PR-SEO-JUNE-02]
+    mode: execute
+    status: planned
+    title: "test(seo): enforce article runtime FAQ CTA evidence contract"
+    scope:
+      - app/(localized)/[locale]/articles/[slug]/page.tsx
+      - lib/cms/articles.ts
+      - components/content/**
+      - docs/seo/**
+      - tests/contracts/**article**
+      - tests/contracts/**seo**
+    backend_change_policy: separate_pr_only
+
+  - id: PR-SEO-JUNE-04
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-seo-june-04-cwv-mobile-seo-gate
+    base: main
+    depends_on: [PR-SEO-JUNE-03]
+    mode: execute
+    status: planned
+    title: "test(seo): add mobile CWV SEO measurement gate"
+    scope:
+      - scripts/seo/**
+      - docs/seo/**
+      - tests/contracts/**
+      - package.json
+
+  - id: PR-SEO-JUNE-05
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-seo-june-05-sitemap-llms-authority-lastmod
+    base: main
+    depends_on: [PR-SEO-JUNE-04]
+    mode: execute
+    status: planned
+    title: "fix(seo): harden sitemap llms authority and truthful lastmod"
+    scope:
+      - next-sitemap.config.js
+      - lib/seo/**
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - docs/seo/**
+      - tests/contracts/**sitemap**
+      - tests/contracts/**llms**
+
+  - id: PR-SEO-JUNE-06
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-seo-june-06-pseo-freeze-claim-guard
+    base: main
+    depends_on: [PR-SEO-JUNE-05]
+    mode: execute
+    status: planned
+    title: "test(seo): freeze pSEO expansion and guard claim boundaries"
+    scope:
+      - docs/seo/**
+      - docs/claims/**
+      - tests/contracts/**claim**
+      - tests/contracts/**seo**
+      - tests/contracts/**graph**
