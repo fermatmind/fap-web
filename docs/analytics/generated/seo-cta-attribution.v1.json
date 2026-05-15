@@ -1,7 +1,7 @@
 {
   "version": "seo.cta_attribution.v1",
   "owner": "fap-web",
-  "scope": "SEO-OPS-02,SEO-OPS-02B,SEO-OPS-02C,SEO-OPS-02D",
+  "scope": "SEO-OPS-02,SEO-OPS-02B,SEO-OPS-02C,SEO-OPS-02D,SEO-OPS-02E",
   "safeQueryParams": [
     "utm_source",
     "utm_medium",
@@ -65,11 +65,11 @@
     "Attribution capture preserves existing safe UTM fields across same-site navigation without adding PII",
     "Article answer-surface test CTAs use SeoTrackedCtaLink when article source context is provided",
     "Article CMS rich-content HTML test links are sanitized before DOM href attribution hydration",
+    "Article CMS Markdown-rendered test links are hydrated with the same safe DOM href attribution policy",
     "Non-test CMS rich-content links remain unchanged"
   ],
   "deferred": [
-    "SEO-OPS-03 standard RIASEC funnel event observability",
     "Backend-owned first-class attribution fields for source_slug, cta_id, and target_test_slug",
-    "Big Five and generic quiz attribution parity hardening beyond existing query paths"
+    "Additional live acceptance for non-RIASEC article-to-test funnels"
   ]
 }

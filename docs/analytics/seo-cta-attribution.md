@@ -61,8 +61,11 @@ Production verification after `SEO-OPS-02B` showed `attempts/start.meta` carried
 
 Production verification after `SEO-OPS-02C` showed the live article CTA could still come from CMS answer-surface or rich-content HTML paths that bypassed `SeoTrackedCtaLink`. `SEO-OPS-02D` keeps CMS/backend content authority unchanged and only attributes existing CMS-provided test CTA hrefs. Article answer-surface test CTAs now use the shared SEO CTA wrapper when a source context is provided. Article CMS HTML test links are sanitized first, then hydrated in the DOM with the same safe UTM and CTA context allow-list. Non-test CMS links are left unchanged.
 
+## SEO-OPS-02E CMS Markdown CTA Closure
+
+Production verification after `SEO-OPS-02D` showed the target pilot article was delivered as CMS Markdown (`content_md`) rather than CMS HTML (`content_html`). `SEO-OPS-02E` reuses the same CMS link hydration policy for Markdown-rendered article bodies, so existing CMS-authored test detail links get visible safe UTM and SEO CTA context in the DOM. Test detail and take URLs then preserve the same query context through existing test page attribution handling. This does not change backend ingest, `/api/track` event dispatch, result pages, payment, recommendation, scoring, sitemap, or `llms` exposure.
+
 ## Deferred
 
-- Standard RIASEC funnel event observability remains separate `SEO-OPS-03`.
 - Backend attribution ingest expansion for first-class `source_slug`, `cta_id`, and `target_test_slug` fields remains a backend-owned follow-up.
-- Big Five and generic quiz already have partial query attribution paths; this PR keeps runtime changes focused on the RIASEC live pilot path.
+- Additional live acceptance for non-RIASEC article-to-test funnels remains a follow-up.

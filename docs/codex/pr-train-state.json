@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-16T05:48:56+08:00",
+  "updated_at": "2026-05-16T06:16:17+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -501,7 +501,7 @@
       "checks": [],
       "failure_reason": null,
       "pr_url": null,
-      "commit_sha": null,
+      "commit_sha": "e70155297de99ff72899ba52737d647a10fa04eb",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false
@@ -525,7 +525,7 @@
       "checks": [],
       "failure_reason": null,
       "pr_url": null,
-      "commit_sha": null,
+      "commit_sha": "35b619326cb1bfbc66449b71fdb64fae5db37773",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false
@@ -3462,6 +3462,143 @@
           "at": "2026-05-16T11:05:00+08:00",
           "status": "merged",
           "summary": "Reconciled PR #814 as merged into origin/main at 4af211b6998af4e6c9c01b72ae0b12235bb92dec before starting SEO-OPS-03B."
+        }
+      ]
+    },
+    {
+      "id": "SEO-OPS-02E",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/seo-ops-02e-cms-markdown-cta-visible-attribution",
+      "base": "main",
+      "depends_on": [
+        "SEO-OPS-02D"
+      ],
+      "status": "pr_open",
+      "title": "fix(tracking): attribute article markdown CTA URLs",
+      "mode": "execute",
+      "risk_level": "L1",
+      "allowed_paths": [
+        "app/(localized)/[locale]/articles/[slug]/page.tsx",
+        "components/content/AttributedCmsLinkHydrator.tsx",
+        "components/content/AttributedSanitizedCmsHtml.tsx",
+        "tests/contracts/**attribution**",
+        "tests/contracts/**cta**",
+        "tests/contracts/**cms-rich-content**",
+        "docs/analytics/seo-cta-attribution.md",
+        "docs/analytics/generated/seo-cta-attribution.v1.json",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [
+        {
+          "name": "manifest authorization",
+          "status": "passed",
+          "details": "User explicitly authorized adding SEO-OPS-02E to docs/codex/pr-train.yaml and docs/codex/pr-train-state.json."
+        },
+        {
+          "name": "dependency reconciliation",
+          "status": "passed",
+          "details": "SEO-OPS-02D PR #814 is merged into origin/main at 4af211b6998af4e6c9c01b72ae0b12235bb92dec."
+        },
+        {
+          "name": "branch preflight",
+          "status": "passed",
+          "details": "Started from latest main and created branch codex/seo-ops-02e-cms-markdown-cta-visible-attribution before scoped edits. Untracked .playwright-mcp/ is unrelated and excluded."
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/seo-ops-02e-article-markdown-cta-visible-attribution.contract.test.tsx",
+          "status": "passed",
+          "details": "1 file / 3 tests passed."
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/seo-ops-02d-article-rich-content-cta-attribution.contract.test.tsx",
+          "status": "passed",
+          "details": "1 file / 3 tests passed."
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/seo-ops-02c-visible-utm-navigation.contract.test.tsx",
+          "status": "passed",
+          "details": "1 file / 2 tests passed."
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/*attribution*",
+          "status": "passed",
+          "details": "8 files / 40 tests passed."
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/*cta*",
+          "status": "passed",
+          "details": "8 files / 45 tests passed."
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/cms-rich-content-sanitization.contract.test.tsx",
+          "status": "passed",
+          "details": "1 file / 5 tests passed."
+        },
+        {
+          "name": "pnpm typecheck",
+          "status": "passed",
+          "details": "passed."
+        },
+        {
+          "name": "pnpm test:contract",
+          "status": "passed",
+          "details": "363 files / 2035 tests passed."
+        },
+        {
+          "name": "pnpm seo:check-sitemap",
+          "status": "passed",
+          "details": "sitemap indexability check passed: 261 urls."
+        },
+        {
+          "name": "manifest/state parse",
+          "status": "passed",
+          "details": "Ruby YAML parse and python JSON parse passed."
+        },
+        {
+          "name": "git diff --check",
+          "status": "passed",
+          "details": "passed."
+        },
+        {
+          "name": "git diff --cached --check",
+          "status": "passed",
+          "details": "passed."
+        },
+        {
+          "name": "scope validation",
+          "status": "passed",
+          "details": "Changed files are limited to article CMS Markdown/HTML link hydration, visible attribution contracts, analytics docs/artifact, and PR train metadata. Untracked .playwright-mcp/ is excluded."
+        }
+      ],
+      "failure_reason": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/816",
+      "commit_sha": "ac3f1daaf2bf8f093c97c9527b2cb5d7bc3c8edb",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [],
+      "history": [
+        {
+          "at": "2026-05-16T06:16:17+08:00",
+          "status": "in_progress",
+          "summary": "Initialized SEO-OPS-02E to close the remaining visible URL gap for CMS Markdown article test CTA hrefs while keeping backend, /api/track, result pages, payment, recommendation, profile, scoring, sitemap, and llms unchanged."
+        },
+        {
+          "at": "2026-05-16T06:22:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Implemented reusable CMS link hydration for Markdown article CTA hrefs and passed targeted contracts, attribution/CTA suites, full contracts, typecheck, sitemap, manifest parse, diff checks, and scope validation."
+        },
+        {
+          "at": "2026-05-16T06:23:00+08:00",
+          "status": "committed",
+          "summary": "Committed scoped SEO-OPS-02E implementation at ac3f1daaf2bf8f093c97c9527b2cb5d7bc3c8edb."
+        },
+        {
+          "at": "2026-05-16T06:25:00+08:00",
+          "status": "pr_open",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/816 for SEO-OPS-02E."
         }
       ]
     },
