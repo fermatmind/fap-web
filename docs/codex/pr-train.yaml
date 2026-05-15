@@ -2049,3 +2049,48 @@ prs:
       - profile/memory files
       - scoring files
     rollback_note: "Remove Ads conversion bridge, activation env placeholders, activation docs/contracts, and related contract tests."
+
+  - id: PR-HOME-01
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/homepage-recommended-cover-images
+    base: main
+    depends_on: []
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "PR-HOME-01｜Homepage Recommended Articles CMS Cover Display"
+    goal: "Make homepage recommended article cards render CMS-provided cover images first, while preserving the existing ArticleVisual fallback only for missing cover data."
+    in_scope:
+      - components/marketing/HomePageExperience.tsx
+      - tests/contracts/homepage-v1-density.contract.test.tsx
+      - tests/contracts/homepage-recommended-articles-block.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - fap-api backend
+      - article body content
+      - CMS article metadata
+      - Media Library uploads
+      - homepage landing surface authority
+      - article list/detail rendering outside homepage recommended cards
+      - tests/results/payment/order/share runtime
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/homepage-v1-density.contract.test.tsx tests/contracts/homepage-recommended-articles-block.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - git diff --check
+    acceptance:
+      - Homepage recommended article cards prefer CMS coverImageUrl/coverImageVariants.
+      - ArticleVisual remains the fallback only when a recommended article has no cover image.
+      - Homepage routes still source recommended articles from backend landing surface authority.
+      - No frontend hardcoded article content or image assets are introduced.
+    must_not_touch:
+      - /Users/rainie/Desktop/GitHub/fap-api
+      - article body content
+      - public image assets
+      - homepage landing surface configuration
+      - article list/detail pages
+      - result/payment/order/share runtime
+    rollback_note: "Restore homepage recommended article cards to ArticleVisual-only rendering and remove the cover rendering contract assertions."
