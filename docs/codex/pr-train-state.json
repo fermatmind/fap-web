@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-16T10:41:00+08:00",
+  "updated_at": "2026-05-16T05:47:46+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -3340,7 +3340,7 @@
       "depends_on": [
         "SEO-OPS-02C"
       ],
-      "status": "pr_open",
+      "status": "merged",
       "title": "fix(tracking): attribute article CMS test CTA hrefs",
       "mode": "execute",
       "risk_level": "L1",
@@ -3432,10 +3432,10 @@
       ],
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/814",
-      "commit_sha": "733b34bf53330b8efd8c1dadae5a86fc8eafa311",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "4af211b6998af4e6c9c01b72ae0b12235bb92dec",
+      "merged_at": "2026-05-15T21:31:08Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "sidecar_issues": [],
       "history": [
         {
@@ -3457,6 +3457,11 @@
           "at": "2026-05-16T10:41:00+08:00",
           "status": "pr_open",
           "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/814 for SEO-OPS-02D."
+        },
+        {
+          "at": "2026-05-16T11:05:00+08:00",
+          "status": "merged",
+          "summary": "Reconciled PR #814 as merged into origin/main at 4af211b6998af4e6c9c01b72ae0b12235bb92dec before starting SEO-OPS-03B."
         }
       ]
     },
@@ -3471,7 +3476,7 @@
         "EMAIL-RIASEC-02",
         "SEO-OPS-02"
       ],
-      "status": "pr_open",
+      "status": "merged",
       "title": "feat(tracking): emit standard RIASEC funnel events",
       "mode": "execute",
       "risk_level": "L1",
@@ -3539,10 +3544,10 @@
       ],
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/811",
-      "commit_sha": "4fd4cd532bc064b577c7edf3b7e21f58bfdeac11",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "e3f50da242d30689cb3ffb88ac948162ce9dada5",
+      "merged_at": "2026-05-15T13:35:09Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "sidecar_issues": [],
       "history": [
         {
@@ -3564,6 +3569,140 @@
           "at": "2026-05-15T00:00:00+08:00",
           "status": "pr_open",
           "summary": "Opened fap-web PR #811 for SEO-OPS-03."
+        },
+        {
+          "at": "2026-05-16T11:05:00+08:00",
+          "status": "merged",
+          "summary": "Reconciled PR #811 as merged into origin/main at e3f50da242d30689cb3ffb88ac948162ce9dada5 before starting SEO-OPS-03B."
+        }
+      ]
+    },
+    {
+      "id": "SEO-OPS-03B",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/seo-ops-03b-riasec-track-network-observability",
+      "base": "main",
+      "depends_on": [
+        "SEO-OPS-03",
+        "SEO-OPS-02D"
+      ],
+      "status": "committed",
+      "title": "fix(tracking): make RIASEC standard events network observable",
+      "mode": "execute",
+      "risk_level": "L1",
+      "allowed_paths": [
+        "app/(localized)/[locale]/tests/[slug]/take/RiasecTakeClient.tsx",
+        "components/result/riasec/RiasecResultShell.tsx",
+        "lib/analytics.ts",
+        "lib/tracking/client.ts",
+        "tests/contracts/**riasec**",
+        "tests/contracts/**tracking**",
+        "tests/contracts/**analytics**",
+        "docs/analytics/riasec-standard-funnel-events.md",
+        "docs/analytics/generated/riasec-standard-funnel-events.v1.json",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [
+        {
+          "name": "manifest authorization",
+          "status": "passed",
+          "details": "User explicitly authorized adding SEO-OPS-03B to docs/codex/pr-train.yaml and docs/codex/pr-train-state.json."
+        },
+        {
+          "name": "dependency reconciliation",
+          "status": "passed",
+          "details": "SEO-OPS-03 PR #811 and SEO-OPS-02D PR #814 are merged into origin/main."
+        },
+        {
+          "name": "branch preflight",
+          "status": "passed",
+          "details": "Started from latest main and created branch codex/seo-ops-03b-riasec-track-network-observability before scoped edits."
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/riasec-standard-funnel-events.contract.test.tsx",
+          "status": "passed",
+          "details": "1 file / 3 tests passed."
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/analytics-payload-privacy.contract.test.ts",
+          "status": "passed",
+          "details": "1 file / 5 tests passed."
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/*riasec*",
+          "status": "passed",
+          "details": "14 files / 56 tests passed."
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/*tracking*",
+          "status": "passed",
+          "details": "3 files / 25 tests passed."
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/*analytics*",
+          "status": "passed",
+          "details": "3 files / 14 tests passed."
+        },
+        {
+          "name": "pnpm typecheck",
+          "status": "passed",
+          "details": "passed."
+        },
+        {
+          "name": "pnpm test:contract",
+          "status": "passed",
+          "details": "362 files / 2032 tests passed."
+        },
+        {
+          "name": "pnpm seo:check-sitemap",
+          "status": "passed",
+          "details": "sitemap indexability check passed: 261 urls."
+        },
+        {
+          "name": "git diff --check",
+          "status": "passed",
+          "details": "passed."
+        },
+        {
+          "name": "git diff --cached --check",
+          "status": "passed",
+          "details": "passed."
+        },
+        {
+          "name": "manifest/state parse",
+          "status": "passed",
+          "details": "Ruby YAML parse and python JSON parse passed."
+        },
+        {
+          "name": "scope validation",
+          "status": "passed",
+          "details": "Changed files are limited to RIASEC standard event network observability, analytics docs/artifact, targeted contracts, and PR train metadata."
+        }
+      ],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": "268a2de9fef8bd9181dc317782359a044ce8d538",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [],
+      "history": [
+        {
+          "at": "2026-05-16T11:05:00+08:00",
+          "status": "in_progress",
+          "summary": "Initialized SEO-OPS-03B to make RIASEC canonical funnel events visible in browser Network via /api/track without expanding Ads or PII surfaces."
+        },
+        {
+          "at": "2026-05-16T05:46:47+08:00",
+          "status": "local_checks_passed",
+          "summary": "Implemented RIASEC /api/track network observability for canonical start_attempt, submit_attempt, and view_result, then passed targeted contracts, full contracts, typecheck, sitemap, manifest parse, diff checks, and scope validation."
+        },
+        {
+          "at": "2026-05-16T05:47:46+08:00",
+          "status": "committed",
+          "summary": "Committed scoped SEO-OPS-03B implementation at 268a2de9fef8bd9181dc317782359a044ce8d538."
         }
       ]
     },

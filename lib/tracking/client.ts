@@ -3,6 +3,7 @@
 import { hasAnalyticsConsent } from "@/lib/consent/store";
 import {
   filterTrackingPayload,
+  isCanonicalSeoFunnelEvent,
   isTrackingEvent,
   normalizeTrackingEventName,
   type TrackingEventName,
@@ -26,6 +27,12 @@ type GoogleAdsPurchaseConversionPayload = {
   currency?: string;
   transaction_id?: string;
 };
+
+const NETWORK_OBSERVABLE_FUNNEL_EVENTS = new Set<TrackingEventName>([
+  "start_attempt",
+  "submit_attempt",
+  "view_result",
+]);
 
 const GA4_EVENT_NAME_MAP: Partial<Record<TrackingEventName, string>> = {
   landing_view: "page_view",
@@ -187,6 +194,52 @@ export async function trackClientEvent({
   const filteredPayload = filterTrackingPayload(normalizedEventName, payload ?? {});
   const safePath = sanitizeTrackingUrl(path) ?? "";
   dispatchBrowserAnalyticsEvent(normalizedEventName, filteredPayload, payload ?? {});
+
+  try {
+    await fetch("/api/track", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        eventName: normalizedEventName,
+        payload: filteredPayload,
+        anonymousId,
+        path: safePath,
+        timestamp: new Date().toISOString(),
+      }),
+      keepalive: true,
+    });
+  } catch {
+    // Never block user flow on tracking transport errors.
+  }
+}
+
+export async function trackNetworkObservableFunnelEvent({
+  eventName,
+  payload,
+  anonymousId,
+  path,
+}: {
+  eventName: string;
+  payload?: Record<string, unknown>;
+  anonymousId: string;
+  path: string;
+}): Promise<void> {
+  if (!isTrackingEvent(eventName)) return;
+
+  const normalizedEventName = normalizeTrackingEventName(eventName as TrackingEventName);
+  if (!isCanonicalSeoFunnelEvent(normalizedEventName) || !NETWORK_OBSERVABLE_FUNNEL_EVENTS.has(normalizedEventName)) {
+    return;
+  }
+
+  const filteredPayload = filterTrackingPayload(normalizedEventName, payload ?? {});
+  const safePath = sanitizeTrackingUrl(path) ?? "";
+
+  if (hasAnalyticsConsent()) {
+    dispatchBrowserAnalyticsEvent(normalizedEventName, filteredPayload, payload ?? {});
+  }
 
   try {
     await fetch("/api/track", {

@@ -166,6 +166,7 @@ vi.mock("@/lib/anon", () => ({
 
 vi.mock("@/lib/analytics", () => ({
   trackEvent: hoisted.trackEvent,
+  trackObservableFunnelEvent: hoisted.trackEvent,
 }));
 
 vi.mock("@/lib/auth/authRetry", () => ({

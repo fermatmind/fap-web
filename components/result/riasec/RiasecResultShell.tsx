@@ -6,7 +6,7 @@ import { createAttemptShare } from "@/lib/api/v0_3";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
-import { trackEvent } from "@/lib/analytics";
+import { trackEvent, trackObservableFunnelEvent } from "@/lib/analytics";
 import type { Locale } from "@/lib/i18n/locales";
 import { localizedPath } from "@/lib/i18n/locales";
 import { buildRiasecTakeHref, getRiasecVariantLabel } from "@/lib/riasec/forms";
@@ -78,7 +78,7 @@ export function RiasecResultShell({
     : [];
 
   useEffect(() => {
-    trackEvent(
+    trackObservableFunnelEvent(
       TRACKING_EVENTS.VIEW_RESULT,
       buildRiasecViewResultTrackingPayload({
         viewModel,

@@ -2726,6 +2726,80 @@ prs:
       - public copy/content files
     rollback_note: "Remove canonical RIASEC funnel event dispatch helpers/call sites, docs, and related contract assertions."
 
+  - id: SEO-OPS-03B
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/seo-ops-03b-riasec-track-network-observability
+    base: main
+    depends_on:
+      - SEO-OPS-03
+      - SEO-OPS-02D
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "fix(tracking): make RIASEC standard events network observable"
+    goal: "Make RIASEC canonical start_attempt, submit_attempt, and view_result visible through browser Network /api/track while preserving PII filtering, Ads purchase boundaries, and consent-gated browser analytics."
+    in_scope:
+      - app/(localized)/[locale]/tests/[slug]/take/RiasecTakeClient.tsx
+      - components/result/riasec/RiasecResultShell.tsx
+      - lib/analytics.ts
+      - lib/tracking/client.ts
+      - tests/contracts/**riasec**
+      - tests/contracts/**tracking**
+      - tests/contracts/**analytics**
+      - docs/analytics/riasec-standard-funnel-events.md
+      - docs/analytics/generated/riasec-standard-funnel-events.v1.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - fap-api repository or nested fap-api/fap-web copy
+      - backend files
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - next-sitemap.config.js
+      - public/sitemap.xml
+      - payment/order/report entitlement files
+      - recommendation files
+      - career graph files
+      - profile/memory files
+      - scoring files
+      - public copy/content files
+      - pSEO pages
+      - deployment/env/production commands
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/riasec-standard-funnel-events.contract.test.tsx
+      - pnpm exec vitest run tests/contracts/analytics-payload-privacy.contract.test.ts
+      - pnpm exec vitest run tests/contracts/*riasec*
+      - pnpm exec vitest run tests/contracts/*tracking*
+      - pnpm exec vitest run tests/contracts/*analytics*
+      - pnpm typecheck
+      - pnpm test:contract
+      - pnpm seo:check-sitemap
+      - git diff --check
+      - git diff --cached --check
+    acceptance:
+      - RIASEC start success sends a browser Network-visible /api/track request with eventName start_attempt.
+      - RIASEC submit success sends a browser Network-visible /api/track request with eventName submit_attempt.
+      - RIASEC visible result render sends a browser Network-visible /api/track request with eventName view_result.
+      - General trackClientEvent consent denial remains a hard stop for default browser/network dispatch.
+      - Network-observable RIASEC funnel dispatch does not send email, arbitrary unsafe params, order/payment identifiers, or answer payloads.
+      - start_attempt, submit_attempt, and view_result do not trigger Google Ads purchase conversion.
+      - Sitemap/llms, backend, payment, recommendation, profile, memory, scoring, and public content remain unchanged.
+    must_not_touch:
+      - /Users/rainie/Desktop/GitHub/fap-api
+      - /Users/rainie/Desktop/GitHub/fap-api/fap-web
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - next-sitemap.config.js
+      - public/sitemap.xml
+      - payment/order/report entitlement runtime
+      - recommendation files
+      - career graph files
+      - profile/memory files
+      - scoring files
+      - public copy/content files
+    rollback_note: "Remove RIASEC network-observable funnel dispatch helper usage, tracking client helper, docs, and related contract assertions."
+
 
   - id: PR-GRAPH-01
     repo: fap-web

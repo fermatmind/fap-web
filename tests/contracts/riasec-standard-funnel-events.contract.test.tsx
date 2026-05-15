@@ -20,11 +20,13 @@ const TRUSTED_PROJECTION_PATH = path.join(
 
 const hoisted = vi.hoisted(() => ({
   trackEvent: vi.fn(),
+  trackObservableFunnelEvent: vi.fn(),
   createAttemptShare: vi.fn(),
 }));
 
 vi.mock("@/lib/analytics", () => ({
   trackEvent: hoisted.trackEvent,
+  trackObservableFunnelEvent: hoisted.trackObservableFunnelEvent,
 }));
 
 vi.mock("@/lib/api/v0_3", async () => {
@@ -133,7 +135,7 @@ describe("RIASEC standard funnel events contract", () => {
     render(<RiasecResultShell locale="zh" attemptId="attempt-riasec-result-view" viewModel={viewModel} />);
 
     await waitFor(() => {
-      expect(hoisted.trackEvent).toHaveBeenCalledWith(
+      expect(hoisted.trackObservableFunnelEvent).toHaveBeenCalledWith(
         TRACKING_EVENTS.VIEW_RESULT,
         expect.objectContaining({
           scale_code: "RIASEC",
@@ -157,9 +159,12 @@ describe("RIASEC standard funnel events contract", () => {
 
   it("keeps RIASEC take flow on canonical start_attempt and submit_attempt source paths", () => {
     const takeClient = readText("app/(localized)/[locale]/tests/[slug]/take/RiasecTakeClient.tsx");
+    const resultShell = readText("components/result/riasec/RiasecResultShell.tsx");
 
     expect(takeClient).toContain("TRACKING_EVENTS.START_ATTEMPT");
     expect(takeClient).toContain("TRACKING_EVENTS.SUBMIT_ATTEMPT");
+    expect(takeClient).toContain("trackObservableFunnelEvent");
+    expect(resultShell).toContain("trackObservableFunnelEvent");
     expect(takeClient).toContain("buildRiasecStartAttemptTrackingPayload");
     expect(takeClient).toContain("buildRiasecSubmitAttemptTrackingPayload");
     expect(takeClient).not.toContain('"start_click"');

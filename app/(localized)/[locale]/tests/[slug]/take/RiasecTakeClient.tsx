@@ -8,7 +8,7 @@ import { QuizShell } from "@/components/quiz/QuizShell";
 import { Button } from "@/components/ui/button";
 import { Alert } from "@/components/ui/alert";
 import { getOrCreateAnonId } from "@/lib/anon";
-import { trackEvent } from "@/lib/analytics";
+import { trackObservableFunnelEvent } from "@/lib/analytics";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath, toApiLocale } from "@/lib/i18n/locales";
 import {
@@ -160,7 +160,7 @@ export default function RiasecTakeClient({
         setQuestions(normalizeQuestions(rawItems, locale));
         setAttemptId(startResponse.attempt_id);
         setStartedAt(Date.now());
-        trackEvent(
+        trackObservableFunnelEvent(
           TRACKING_EVENTS.START_ATTEMPT,
           buildRiasecStartAttemptTrackingPayload({
             slug,
@@ -205,7 +205,7 @@ export default function RiasecTakeClient({
         answers: buildRiasecSubmitAnswers({ questionIds, answers }),
         durationMs,
       });
-      trackEvent(
+      trackObservableFunnelEvent(
         TRACKING_EVENTS.SUBMIT_ATTEMPT,
         buildRiasecSubmitAttemptTrackingPayload({
           slug,
