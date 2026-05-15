@@ -12,12 +12,14 @@ const FIXTURE_PATH = path.join(ROOT, "tests/contracts/fixtures/riasec/trusted-re
 
 const hoisted = vi.hoisted(() => ({
   trackEvent: vi.fn(),
+  trackObservableFunnelEvent: vi.fn(),
   createAttemptShare: vi.fn(),
   writeText: vi.fn(),
 }));
 
 vi.mock("@/lib/analytics", () => ({
   trackEvent: hoisted.trackEvent,
+  trackObservableFunnelEvent: hoisted.trackObservableFunnelEvent,
 }));
 
 vi.mock("@/lib/api/v0_3", async () => {

@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { trackClientEvent } from "@/lib/tracking/client";
+import { trackClientEvent, trackNetworkObservableFunnelEvent } from "@/lib/tracking/client";
 import { TRACKING_EVENTS, filterTrackingPayload } from "@/lib/tracking/events";
 
 const CONSENT_KEY = "fm_consent_v1";
@@ -94,6 +94,56 @@ describe("analytics payload privacy contract", () => {
 
     expect(gtagMock).not.toHaveBeenCalled();
     expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it("allows network-visible non-commercial funnel events without browser analytics consent", async () => {
+    const fetchMock = vi.fn().mockResolvedValue(new Response(JSON.stringify({ ok: true })));
+    const gtagMock = vi.fn();
+    vi.stubGlobal("fetch", fetchMock);
+    Object.defineProperty(window, "gtag", {
+      configurable: true,
+      value: gtagMock,
+    });
+
+    await trackNetworkObservableFunnelEvent({
+      eventName: TRACKING_EVENTS.START_ATTEMPT,
+      payload: {
+        test_slug: "holland-career-interest-test-riasec",
+        scale_code: "RIASEC",
+        form_code: "riasec_60",
+        email: "person@example.com",
+        locale: "zh",
+      },
+      anonymousId: "anon-session-1",
+      path: "/zh/tests/holland-career-interest-test-riasec/take",
+    });
+    await trackNetworkObservableFunnelEvent({
+      eventName: TRACKING_EVENTS.CREATE_ORDER,
+      payload: {
+        order_no: "ord_not_observable_without_consent",
+        amount: 88,
+        currency: "CNY",
+        locale: "zh",
+      },
+      anonymousId: "anon-session-1",
+      path: "/zh/orders/ord_not_observable_without_consent",
+    });
+
+    expect(gtagMock).not.toHaveBeenCalled();
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    const body = JSON.parse(String(fetchMock.mock.calls[0]?.[1]?.body ?? "{}")) as {
+      eventName?: string;
+      payload?: Record<string, unknown>;
+    };
+    expect(body.eventName).toBe("start_attempt");
+    expect(body.payload).toMatchObject({
+      test_slug: "holland-career-interest-test-riasec",
+      scale_code: "RIASEC",
+      form_code: "riasec_60",
+      locale: "zh",
+    });
+    expect(JSON.stringify(body)).not.toContain("person@example.com");
+    expect(JSON.stringify(body)).not.toContain("ord_not_observable_without_consent");
   });
 
   it("sends only redacted path and payload values after analytics consent is granted", async () => {

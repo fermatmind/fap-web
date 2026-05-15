@@ -29,6 +29,10 @@ The RIASEC funnel events must not include email, auth tokens, answer payloads, p
 
 Google Ads purchase conversion remains restricted to `purchase_success` and the legacy `pay_success` alias. `start_attempt`, `submit_attempt`, and `view_result` must never trigger Ads purchase conversion.
 
+## SEO-OPS-03B Live Network Observability
+
+`SEO-OPS-03B` keeps the default analytics consent boundary intact for general `trackClientEvent` calls. For the RIASEC free-result pilot only, canonical non-commercial funnel events (`start_attempt`, `submit_attempt`, `view_result`) also use a network-observable `/api/track` dispatch so live browser QA can verify the standard event chain. Without analytics consent, this path sends only the sanitized `/api/track` payload and does not dispatch GA4, Baidu, or Google Ads browser analytics calls.
+
 ## Commercial Limitation
 
 RIASEC currently has no opened unlock/order commercial path in this PR. `click_unlock`, `create_order`, and `purchase_success` live acceptance remains separate from this RIASEC standard funnel event patch.

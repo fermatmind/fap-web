@@ -1,7 +1,7 @@
 {
   "artifact": "riasec-standard-funnel-events",
   "version": 1,
-  "pr_id": "SEO-OPS-03",
+  "pr_id": "SEO-OPS-03,SEO-OPS-03B",
   "canonical_events": [
     "start_attempt",
     "submit_attempt",
@@ -67,6 +67,23 @@
   },
   "deferred": [
     "RIASEC unlock/order commercial path",
-    "live dashboard verification after deployment"
-  ]
+    "live browser QA after deployment"
+  ],
+  "network_observability": {
+    "enabled_for": [
+      "start_attempt",
+      "submit_attempt",
+      "view_result"
+    ],
+    "transport": "/api/track",
+    "consent_without_browser_analytics": "Sanitized network dispatch is allowed for RIASEC pilot observability; GA4/Baidu/Ads browser dispatch remains consent-gated.",
+    "excluded_events": [
+      "click_unlock",
+      "create_order",
+      "payment_confirmed",
+      "purchase_success",
+      "pay_success"
+    ],
+    "ads_purchase_conversion_triggered": false
+  }
 }

@@ -1,4 +1,4 @@
-import { trackClientEvent } from "@/lib/tracking/client";
+import { trackClientEvent, trackNetworkObservableFunnelEvent } from "@/lib/tracking/client";
 import { getLocaleFromPathname } from "@/lib/i18n/locales";
 import { getOrCreateAnonId } from "@/lib/anon";
 import {
@@ -57,6 +57,29 @@ export function trackEvent(eventName: string, properties: AnalyticsProperties = 
   };
 
   void trackClientEvent({
+    eventName,
+    payload,
+    anonymousId,
+    path: currentPath,
+  });
+}
+
+export function trackObservableFunnelEvent(eventName: string, properties: AnalyticsProperties = {}): void {
+  if (!ANALYTICS_ENABLED || !isBrowser() || !eventName) return;
+
+  const locale = getLocaleFromPathname(window.location.pathname);
+  const currentPath = `${window.location.pathname}${window.location.search}`;
+  const attributionPayload = readStoredTrackingAttributionPayload(currentPath);
+  const anonymousId = getAnonymousId();
+  const payload = {
+    ...attributionPayload,
+    ...properties,
+    locale: properties.locale ?? locale,
+    current_path: properties.current_path ?? currentPath,
+    session_id: properties.session_id ?? anonymousId,
+  };
+
+  void trackNetworkObservableFunnelEvent({
     eventName,
     payload,
     anonymousId,
