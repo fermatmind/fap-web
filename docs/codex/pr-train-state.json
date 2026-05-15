@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-15T13:42:17+08:00",
+  "updated_at": "2026-05-15T14:23:09+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -2080,7 +2080,7 @@
       "depends_on": [
         "RIASEC-DEEP-COPY-08A"
       ],
-      "status": "pr_open",
+      "status": "merged",
       "title": "feat(riasec): render backend deep content slots fail closed",
       "mode": "execute",
       "risk_level": "L1",
@@ -2637,9 +2637,10 @@
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/806",
       "commit_sha": "ed6d780785475e29d2386715b693c1fe0c1fdf84",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merge_sha": "b88ebd14752bbec0d32fab18ad2a0ba286a02f16",
+      "merged_at": "2026-05-15T05:48:28Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "sidecar_issues": [],
       "history": [
         {
@@ -2656,6 +2657,131 @@
           "at": "2026-05-15T13:42:17+08:00",
           "status": "pr_open",
           "summary": "Opened fap-web PR #806 for PR-SEO-01C."
+        },
+        {
+          "at": "2026-05-15T13:48:28+08:00",
+          "status": "merged",
+          "summary": "Reconciled PR-SEO-01C as merged; GitHub PR #806 is MERGED and origin/main contains squash commit b88ebd14."
+        }
+      ]
+    },
+    {
+      "id": "PR-SEO-01D",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/pr-seo-01d-cms-metadata-consumption-gate",
+      "base": "main",
+      "depends_on": [
+        "PR-SEO-01C"
+      ],
+      "status": "pr_open",
+      "title": "test(seo): add CMS metadata consumption gate",
+      "mode": "execute",
+      "risk_level": "L1",
+      "allowed_paths": [
+        "lib/cms/articles.ts",
+        "app/(localized)/[locale]/articles/[slug]/page.tsx",
+        "lib/seo/metadata.ts",
+        "lib/seo/seoSurface.ts",
+        "tests/contracts/*article*metadata*",
+        "tests/contracts/*metadata*",
+        "tests/contracts/*canonical*",
+        "tests/contracts/*seo-passport*",
+        "docs/seo/cms-metadata-consumption-gate.md",
+        "docs/seo/generated/cms-metadata-consumption-gate.v1.json",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [
+        {
+          "name": "manifest authorization",
+          "status": "passed",
+          "details": "User explicitly authorized adding PR-SEO-01D to docs/codex/pr-train.yaml and docs/codex/pr-train-state.json."
+        },
+        {
+          "name": "dependency preflight",
+          "status": "passed",
+          "details": "PR-SEO-01C is merged in GitHub and origin/main contains the squash merge commit b88ebd14."
+        },
+        {
+          "name": "branch preflight",
+          "status": "passed",
+          "details": "Started from latest main after git pull --ff-only origin main and created branch codex/pr-seo-01d-cms-metadata-consumption-gate before scoped edits."
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/*article*metadata*",
+          "status": "passed",
+          "details": "Article metadata consumption gate contract passed."
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/*metadata*",
+          "status": "passed",
+          "details": "Metadata contract suite passed."
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/*canonical*",
+          "status": "passed",
+          "details": "Canonical authority contract suite passed."
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/*seo-passport*",
+          "status": "passed",
+          "details": "i18n SEO Passport contract suite passed."
+        },
+        {
+          "name": "pnpm typecheck",
+          "status": "passed",
+          "details": "TypeScript typecheck passed."
+        },
+        {
+          "name": "pnpm test:contract",
+          "status": "passed",
+          "details": "Full contract suite passed on rerun: 356 files, 2011 tests."
+        },
+        {
+          "name": "pnpm seo:check-sitemap",
+          "status": "passed",
+          "details": "Sitemap check passed with 261 URLs and no generated sitemap drift."
+        },
+        {
+          "name": "git diff --check",
+          "status": "passed",
+          "details": "Whitespace diff check passed."
+        },
+        {
+          "name": "git diff --cached --check",
+          "status": "passed",
+          "details": "Cached whitespace diff check passed before staging."
+        }
+      ],
+      "failure_reason": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/807",
+      "commit_sha": "26bb30888b34dc8e243e30cc90e86063293174f4",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [
+        {
+          "id": "PR-SEO-01D-SIDECAR-01",
+          "status": "non_blocking",
+          "summary": "The first full pnpm test:contract run failed once in out-of-scope tests/contracts/order-lookup-recovery.contract.test.tsx; the targeted test passed on rerun and the full contract suite then passed."
+        }
+      ],
+      "history": [
+        {
+          "at": "2026-05-15T14:13:21+08:00",
+          "status": "in_progress",
+          "summary": "Initialized PR-SEO-01D manifest/state entry and began scoped CMS metadata consumption gate work."
+        },
+        {
+          "at": "2026-05-15T14:21:26+08:00",
+          "status": "local_checks_passed",
+          "summary": "Completed scoped implementation and local validation for PR-SEO-01D; full contract suite passed on rerun after one out-of-scope transient failure."
+        },
+        {
+          "at": "2026-05-15T14:23:09+08:00",
+          "status": "pr_open",
+          "summary": "Opened fap-web PR #807 for PR-SEO-01D."
         }
       ]
     },

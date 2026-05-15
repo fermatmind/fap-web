@@ -2178,6 +2178,73 @@ prs:
       - scoring files
     rollback_note: "Remove the canonical authority helper, article/test metadata wiring, docs/artifact, and canonical contract tests."
 
+  - id: PR-SEO-01D
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-seo-01d-cms-metadata-consumption-gate
+    base: main
+    depends_on: [PR-SEO-01C]
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "test(seo): add CMS metadata consumption gate"
+    goal: "Add contract coverage for CMS-backed article metadata consumption, including OG image alt, while preserving i18n SEO Passport and canonical authority."
+    in_scope:
+      - lib/cms/articles.ts
+      - app/(localized)/[locale]/articles/[slug]/page.tsx
+      - lib/seo/metadata.ts
+      - lib/seo/seoSurface.ts
+      - tests/contracts/*article*metadata*
+      - tests/contracts/*metadata*
+      - tests/contracts/*canonical*
+      - tests/contracts/*seo-passport*
+      - docs/seo/cms-metadata-consumption-gate.md
+      - docs/seo/generated/cms-metadata-consumption-gate.v1.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - fap-api repository or nested fap-api/fap-web copy
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - next-sitemap.config.js
+      - public/sitemap.xml
+      - backend files
+      - payment/order/report entitlement files
+      - recommendation files
+      - profile/memory files
+      - scoring files
+      - new public routes
+      - Product, Offer, Review, AggregateRating, fake ratings, or fake review counts
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/*article*metadata*
+      - pnpm exec vitest run tests/contracts/*metadata*
+      - pnpm exec vitest run tests/contracts/*canonical*
+      - pnpm exec vitest run tests/contracts/*seo-passport*
+      - pnpm typecheck
+      - pnpm test:contract
+      - pnpm seo:check-sitemap
+      - git diff --check
+      - git diff --cached --check
+    acceptance:
+      - Article SEO title and meta description consume backend/CMS SEO payload values.
+      - Article excerpt is used only as description fallback when SEO description is absent.
+      - Article canonical, hreflang, and x-default preserve PR-SEO-01A and PR-SEO-01C behavior.
+      - Article OG image consumes CMS/backend image URL and includes CMS cover image alt when available.
+      - Missing cover alt does not invent hidden or fake metadata.
+      - Sitemap URL set, llms exposure, and Product/Offer/Review/AggregateRating schema remain unchanged.
+    must_not_touch:
+      - /Users/rainie/Desktop/GitHub/fap-api
+      - /Users/rainie/Desktop/GitHub/fap-api/fap-web
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - next-sitemap.config.js
+      - public/sitemap.xml
+      - payment/order/report entitlement runtime
+      - recommendation files
+      - profile/memory files
+      - scoring files
+    rollback_note: "Remove CMS metadata consumption docs/artifact, article metadata tests, and article OG image alt metadata wiring."
+
   - id: PR-HOME-01
     repo: fap-web
     repo_path: /Users/rainie/Desktop/GitHub/fap-web

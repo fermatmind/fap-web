@@ -35,6 +35,21 @@ export const dynamic = "force-dynamic";
 
 const ARTICLE_AUTHOR_NAME = "Fermat Institute";
 
+type ArticleMetadataImage = {
+  url: string;
+  alt?: string;
+};
+
+function buildArticleMetadataImage(url: string | null | undefined, alt: string | null | undefined): string | ArticleMetadataImage | null {
+  const normalizedUrl = String(url ?? "").trim();
+  if (!normalizedUrl) {
+    return null;
+  }
+
+  const normalizedAlt = String(alt ?? "").trim();
+  return normalizedAlt ? { url: normalizedUrl, alt: normalizedAlt } : normalizedUrl;
+}
+
 function formatArticleDate(value: string | null, locale: Locale): string | null {
   if (!value) {
     return null;
@@ -155,6 +170,7 @@ export async function generateMetadata({
 
   const canonical = String(metadata.alternates?.canonical ?? "");
   const ogImage = seo?.surface?.og.image ?? seo?.meta.og.image ?? articleImage ?? null;
+  const ogImageForMetadata = buildArticleMetadataImage(ogImage, article.coverImageAlt);
   const passport = buildI18nSeoPassport({
     canonical,
     currentLocale: locale,
@@ -164,9 +180,7 @@ export async function generateMetadata({
   });
 
   const twitterImages = normalizeTwitterImages(
-    seo?.surface?.twitter.image,
-    seo?.meta.twitter.image,
-    ogImage,
+    buildArticleMetadataImage(seo?.surface?.twitter.image ?? seo?.meta.twitter.image ?? ogImage, article.coverImageAlt),
     metadata.twitter?.images,
   );
 
@@ -182,7 +196,7 @@ export async function generateMetadata({
       url: canonical,
       title: seo?.surface?.og.title || seo?.meta.og.title || title,
       description: seo?.surface?.og.description || seo?.meta.og.description || description,
-      images: ogImage ? [ogImage] : metadata.openGraph?.images,
+      images: ogImageForMetadata ? [ogImageForMetadata] : metadata.openGraph?.images,
       locale: locale === "zh" ? "zh_CN" : "en_US",
     },
     twitter: {

@@ -1,0 +1,52 @@
+{
+  "version": "seo.cms_metadata_consumption.v1",
+  "scope": "PR-SEO-01D",
+  "sitemapUrlSetChanged": false,
+  "llmsExposureChanged": false,
+  "schemaOrgChanged": false,
+  "authority": {
+    "articleMetadata": "backend_cms_seo_payload",
+    "articleContent": "backend_cms_article_payload",
+    "canonical": "canonical_authority_contract",
+    "hreflang": "i18n_seo_passport",
+    "ogImageAlt": "cms_cover_image_alt_only"
+  },
+  "consumedFields": [
+    "seo.meta.title",
+    "seo.meta.description",
+    "article.excerpt",
+    "seo.meta.canonical",
+    "seo.meta.alternates",
+    "seo.meta.og.image",
+    "seo.meta.twitter.image",
+    "article.coverImageAlt"
+  ],
+  "rules": [
+    {
+      "id": "article_seo_title",
+      "rule": "Use CMS SEO title before article title."
+    },
+    {
+      "id": "article_meta_description",
+      "rule": "Use CMS SEO description before article excerpt fallback."
+    },
+    {
+      "id": "article_og_image_alt",
+      "rule": "Use CMS cover image alt for OpenGraph image alt when available."
+    },
+    {
+      "id": "missing_alt",
+      "rule": "Do not invent hidden metadata alt text when CMS cover image alt is missing."
+    }
+  ],
+  "mustNotChange": [
+    "sitemap_url_set",
+    "llms_exposure",
+    "Product_schema",
+    "Offer_schema",
+    "Review_schema",
+    "AggregateRating_schema",
+    "payment_order_report_entitlement",
+    "recommendation_profile_memory_scoring"
+  ]
+}
