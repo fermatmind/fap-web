@@ -5,6 +5,7 @@
 ## Model
 
 - Article CTAs append safe attribution query params to the target test URL.
+- Article CTAs also hydrate from stored first-touch attribution when App Router search params are not available to the client wrapper.
 - Test detail pages preserve the same safe context when linking into `/take`.
 - RIASEC take pages copy the safe context into `attempts/start` metadata after guest-token readiness.
 - Backend remains the receiver of attempt attribution; this PR does not change backend ingest or event allow-lists.
@@ -46,7 +47,11 @@ Do not include email, phone, name, order/payment identifiers, arbitrary query pa
 RIASEC `attempts/start` receives:
 
 - top-level backend-supported attribution: `landing_path`, `referrer`, and `utm`
-- `meta` fields for source context: source route family, source slug, CTA id, target test slug, target action, and safe click ids
+- `meta` fields for source context: source route family, source slug, CTA id, target test slug, target action, safe UTM fields, and safe click ids
+
+## SEO-OPS-02B Live Gap Closure
+
+Production verification after `SEO-OPS-02` showed the code was deployed but article CTA `href` could still render without UTM on the live article route. `SEO-OPS-02B` closes that gap by reading the stored safe attribution payload after hydration and using it to rebuild the CTA href before click. The same safe UTM keys are kept explicit in RIASEC `attempts/start.meta` when present.
 
 ## Deferred
 

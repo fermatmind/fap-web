@@ -1,15 +1,18 @@
 "use client";
 
 import type { ComponentProps } from "react";
-import { useMemo, type MouseEventHandler } from "react";
+import { useEffect, useMemo, useState, type MouseEventHandler } from "react";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
 import {
   appendAttributionParamsToHref,
   buildTrackingAttributionPayload,
+  extractAttributionParamsFromRecord,
   captureAttributionFromLocation,
   extractAttributionParamsFromSearchParams,
+  readStoredTrackingAttributionPayload,
+  type TrackingAttributionPayload,
 } from "@/lib/tracking/attribution";
 import {
   buildSeoCtaNavigationHref,
@@ -42,9 +45,26 @@ export function SeoTrackedCtaLink({
   const pathname = usePathname() ?? sourcePath;
   const searchParams = useSearchParams();
   const search = searchParams.toString();
-  const attributionParams = useMemo(
+  const [storedAttributionPayload, setStoredAttributionPayload] = useState<TrackingAttributionPayload>({});
+  const searchAttributionParams = useMemo(
     () => extractAttributionParamsFromSearchParams(new URLSearchParams(search)),
     [search]
+  );
+  useEffect(() => {
+    setStoredAttributionPayload(
+      readStoredTrackingAttributionPayload(`${pathname}${search ? `?${search}` : ""}`)
+    );
+  }, [pathname, search]);
+  const storedAttributionParams = useMemo(
+    () => extractAttributionParamsFromRecord(storedAttributionPayload),
+    [storedAttributionPayload]
+  );
+  const attributionParams = useMemo(
+    () => ({
+      ...storedAttributionParams,
+      ...searchAttributionParams,
+    }),
+    [searchAttributionParams, storedAttributionParams]
   );
   const sourcePathWithAttribution = useMemo(
     () => appendAttributionParamsToHref(sourcePath, attributionParams),

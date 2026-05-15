@@ -3088,6 +3088,118 @@
       ]
     },
     {
+      "id": "SEO-OPS-02B",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/seo-ops-02b-article-cta-utm-attempt-meta",
+      "base": "main",
+      "depends_on": [
+        "SEO-OPS-02",
+        "SEO-OPS-03"
+      ],
+      "status": "pr_open",
+      "title": "fix(tracking): preserve article UTM through RIASEC attempt start",
+      "mode": "execute",
+      "risk_level": "L1",
+      "allowed_paths": [
+        "components/cta/SeoTrackedCtaLink.tsx",
+        "lib/tracking/seoCtaAttribution.ts",
+        "lib/tracking/attribution.ts",
+        "app/(localized)/[locale]/tests/[slug]/take/RiasecTakeClient.tsx",
+        "tests/contracts/**attribution**",
+        "tests/contracts/**cta**",
+        "tests/contracts/**riasec**",
+        "tests/contracts/**tracking**",
+        "docs/analytics/seo-cta-attribution.md",
+        "docs/analytics/generated/seo-cta-attribution.v1.json",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [
+        {
+          "name": "manifest authorization",
+          "status": "passed",
+          "details": "User explicitly authorized adding SEO-OPS-02B to docs/codex/pr-train.yaml and docs/codex/pr-train-state.json."
+        },
+        {
+          "name": "branch preflight",
+          "status": "passed",
+          "details": "Started from latest main and created branch codex/seo-ops-02b-article-cta-utm-attempt-meta before scoped edits."
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/seo-ops-02-article-cta-attribution.contract.test.ts",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/seo-ops-02b-cta-hydration.contract.test.tsx",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/*attribution*",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/*tracking*",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/*cta*",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/*riasec*",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm typecheck",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm test:contract",
+          "status": "passed",
+          "details": "360 files and 2026 tests passed."
+        },
+        {
+          "name": "pnpm seo:check-sitemap",
+          "status": "passed",
+          "details": "sitemap indexability check passed: 261 urls."
+        },
+        {
+          "name": "git diff --check",
+          "status": "passed"
+        },
+        {
+          "name": "scope validation",
+          "status": "passed",
+          "details": "Final diff is limited to SEO-OPS-02B CTA attribution, tracking attribution, docs, contracts, and PR train metadata."
+        }
+      ],
+      "failure_reason": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/812",
+      "commit_sha": "6b013618",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [],
+      "history": [
+        {
+          "at": "2026-05-16T00:00:00+08:00",
+          "status": "in_progress",
+          "summary": "Initialized SEO-OPS-02B for live article CTA UTM and RIASEC attempts/start metadata gap."
+        },
+        {
+          "at": "2026-05-16T00:00:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Implemented hydrated article CTA attribution and preserved safe UTM through RIASEC attempts/start meta; targeted contracts, hydration contract, full contracts, typecheck, sitemap check, and diff check passed."
+        },
+        {
+          "at": "2026-05-16T04:10:13+08:00",
+          "status": "pr_open",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/812 for SEO-OPS-02B."
+        }
+      ]
+    },
+    {
       "id": "SEO-OPS-03",
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
