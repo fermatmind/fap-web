@@ -636,6 +636,8 @@ export async function generateMetadata({
   return buildPageMetadata({
     locale,
     pathname: canonical,
+    canonicalPathname: canonical,
+    canonicalRouteFamily: "test_detail",
     title,
     description,
     imagePath: ogImage,

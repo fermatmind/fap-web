@@ -2112,6 +2112,72 @@ prs:
       - scoring files
     rollback_note: "Remove the SoftwareApplication builder/rendering, docs/artifact, and structured-data contract updates."
 
+  - id: PR-SEO-01C
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-seo-01c-canonical-authority-contract
+    base: main
+    depends_on: [PR-SEO-01B]
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "test(seo): add canonical authority contract"
+    goal: "Accept backend/CMS canonical URLs only when safe, public, route-consistent, and locale-correct."
+    in_scope:
+      - lib/seo/seoSurface.ts
+      - lib/seo/metadata.ts
+      - lib/seo/i18nPassport.ts
+      - lib/cms/articles.ts
+      - app/(localized)/[locale]/articles/[slug]/page.tsx
+      - app/(localized)/[locale]/tests/[slug]/page.tsx
+      - tests/contracts/*canonical*
+      - tests/contracts/*metadata*
+      - tests/contracts/*seo-passport*
+      - docs/seo/canonical-authority-contract.md
+      - docs/seo/generated/canonical-authority-contract.v1.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - fap-api repository or nested fap-api/fap-web copy
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - next-sitemap.config.js
+      - public/sitemap.xml
+      - backend files
+      - payment/order/report entitlement files
+      - recommendation files
+      - profile/memory files
+      - scoring files
+      - new public routes
+      - Product, Offer, Review, AggregateRating, fake ratings, or fake review counts
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/*canonical*
+      - pnpm exec vitest run tests/contracts/*seo-passport*
+      - pnpm typecheck
+      - pnpm test:contract
+      - pnpm seo:check-sitemap
+      - git diff --check
+      - git diff --cached --check
+    acceptance:
+      - Backend/CMS canonical is accepted only when safe, public, route-consistent, and locale-correct.
+      - Article detail canonical remains the current localized article URL.
+      - Test detail canonical remains the current localized test detail URL.
+      - Private flows, homepage fallback, wrong locale, unpublished sibling, and unrelated host canonical targets are rejected.
+      - i18n SEO Passport still preserves x-default and does not fabricate article sibling alternates.
+      - Sitemap URL set, llms exposure, and Product/Offer/Review/AggregateRating schema remain unchanged.
+    must_not_touch:
+      - /Users/rainie/Desktop/GitHub/fap-api
+      - /Users/rainie/Desktop/GitHub/fap-api/fap-web
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - next-sitemap.config.js
+      - public/sitemap.xml
+      - payment/order/report entitlement runtime
+      - recommendation files
+      - profile/memory files
+      - scoring files
+    rollback_note: "Remove the canonical authority helper, article/test metadata wiring, docs/artifact, and canonical contract tests."
+
   - id: PR-HOME-01
     repo: fap-web
     repo_path: /Users/rainie/Desktop/GitHub/fap-web

@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-15T13:13:17+08:00",
+  "updated_at": "2026-05-15T13:42:17+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -2446,7 +2446,7 @@
       "branch": "codex/pr-seo-01b-test-detail-softwareapplication-schema",
       "base": "main",
       "depends_on": [],
-      "status": "pr_open",
+      "status": "merged",
       "title": "feat(seo): add SoftwareApplication schema for test detail pages",
       "mode": "execute",
       "risk_level": "L1",
@@ -2513,9 +2513,10 @@
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/805",
       "commit_sha": "69c558102c9971c38ef38b0cbc214c378249689c",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merge_sha": "94e048b1cabfed1851c8e4ec1dd0e40fdb173245",
+      "merged_at": "2026-05-15T05:16:43Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "sidecar_issues": [],
       "history": [
         {
@@ -2537,6 +2538,124 @@
           "at": "2026-05-15T13:13:17+08:00",
           "status": "pr_open",
           "summary": "Opened fap-web PR #805 for PR-SEO-01B."
+        },
+        {
+          "at": "2026-05-15T13:16:43+08:00",
+          "status": "merged",
+          "summary": "Reconciled PR-SEO-01B as merged; GitHub PR #805 is MERGED and origin/main contains squash commit 94e048b1."
+        }
+      ]
+    },
+    {
+      "id": "PR-SEO-01C",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/pr-seo-01c-canonical-authority-contract",
+      "base": "main",
+      "depends_on": [
+        "PR-SEO-01B"
+      ],
+      "status": "pr_open",
+      "title": "test(seo): add canonical authority contract",
+      "mode": "execute",
+      "risk_level": "L1",
+      "allowed_paths": [
+        "lib/seo/seoSurface.ts",
+        "lib/seo/metadata.ts",
+        "lib/seo/i18nPassport.ts",
+        "lib/cms/articles.ts",
+        "app/(localized)/[locale]/articles/[slug]/page.tsx",
+        "app/(localized)/[locale]/tests/[slug]/page.tsx",
+        "tests/contracts/*canonical*",
+        "tests/contracts/*metadata*",
+        "tests/contracts/*seo-passport*",
+        "docs/seo/canonical-authority-contract.md",
+        "docs/seo/generated/canonical-authority-contract.v1.json",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [
+        {
+          "name": "manifest authorization",
+          "status": "passed",
+          "details": "User explicitly authorized adding PR-SEO-01C to docs/codex/pr-train.yaml and docs/codex/pr-train-state.json."
+        },
+        {
+          "name": "dependency preflight",
+          "status": "passed",
+          "details": "PR-SEO-01B is merged in GitHub and origin/main contains the squash merge commit 94e048b1."
+        },
+        {
+          "name": "branch preflight",
+          "status": "passed",
+          "details": "Started from latest main after git pull --ff-only origin main and created branch codex/pr-seo-01c-canonical-authority-contract before scoped edits."
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/*canonical*",
+          "status": "passed",
+          "details": "6 canonical contract files and 22 tests passed."
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/*seo-passport*",
+          "status": "passed",
+          "details": "Global i18n SEO Passport contract passed."
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/frontend-fallback-authority-inventory.contract.test.ts tests/contracts/fallback-owner-gates.contract.test.ts",
+          "status": "passed",
+          "details": "Fallback inventory anchors passed after documenting replacement of the former page-level canonical repair token."
+        },
+        {
+          "name": "pnpm typecheck",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm test:contract",
+          "status": "passed",
+          "details": "355 files and 2006 tests passed."
+        },
+        {
+          "name": "pnpm seo:check-sitemap",
+          "status": "passed",
+          "details": "Sitemap indexability check passed with 261 URLs."
+        },
+        {
+          "name": "git diff --check",
+          "status": "passed"
+        },
+        {
+          "name": "git diff --cached --check",
+          "status": "passed",
+          "details": "No staged diff existed before path-limited staging."
+        },
+        {
+          "name": "scope validation",
+          "status": "passed",
+          "details": "Changed files are limited to PR-SEO-01C implementation, docs/artifact, canonical contracts, article/test metadata wiring, and explicitly authorized PR-train metadata."
+        }
+      ],
+      "failure_reason": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/806",
+      "commit_sha": "ed6d780785475e29d2386715b693c1fe0c1fdf84",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [],
+      "history": [
+        {
+          "at": "2026-05-15T13:20:00+08:00",
+          "status": "in_progress",
+          "summary": "Initialized PR-SEO-01C manifest/state entry and began scoped canonical authority contract work."
+        },
+        {
+          "at": "2026-05-15T13:40:40+08:00",
+          "status": "local_checks_passed",
+          "summary": "Implemented canonical authority guardrails; targeted canonical/passport contracts, typecheck, full contract suite, sitemap check, and diff whitespace checks passed."
+        },
+        {
+          "at": "2026-05-15T13:42:17+08:00",
+          "status": "pr_open",
+          "summary": "Opened fap-web PR #806 for PR-SEO-01C."
         }
       ]
     },

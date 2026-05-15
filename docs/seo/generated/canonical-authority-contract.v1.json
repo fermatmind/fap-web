@@ -1,0 +1,49 @@
+{
+  "version": "seo.canonical_authority.v1",
+  "scope": "PR-SEO-01C",
+  "sitemapUrlSetChanged": false,
+  "llmsExposureChanged": false,
+  "schemaOrgChanged": false,
+  "authority": {
+    "backendCmsCanonical": "accepted_only_when_safe_public_route_consistent_locale_correct",
+    "articleDetailCanonical": "self_referencing_current_localized_article_url",
+    "testDetailCanonical": "self_referencing_current_localized_test_url",
+    "hreflangAlternates": "sibling_references_not_canonical_replacements",
+    "frontendSlugParityAlternatesAllowed": false
+  },
+  "canonicalDecisionStatuses": [
+    "accepted",
+    "normalized",
+    "rejected",
+    "deferred"
+  ],
+  "rejectedTargets": [
+    "unrelated_host",
+    "homepage_fallback_for_detail_pages",
+    "wrong_locale",
+    "unpublished_sibling",
+    "private_or_noindex_flow",
+    "query_or_hash_url"
+  ],
+  "privatePathFamilies": [
+    "take",
+    "result",
+    "orders",
+    "share",
+    "pay",
+    "checkout",
+    "account",
+    "profile",
+    "app"
+  ],
+  "mustNotChange": [
+    "sitemap_url_set",
+    "llms_exposure",
+    "Product_schema",
+    "Offer_schema",
+    "Review_schema",
+    "AggregateRating_schema",
+    "payment_order_report_entitlement",
+    "recommendation_profile_memory_scoring"
+  ]
+}
