@@ -15,7 +15,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
-import { resolveCanonicalSlug } from "@/lib/assessmentSlugMap";
+import { SCALE_CANONICAL_SLUG_MAP, resolveCanonicalSlug } from "@/lib/assessmentSlugMap";
 import { computeManifestHash } from "@/lib/big5/manifest";
 import { getCmsArticlesWithLastKnownGood, type CmsArticle } from "@/lib/cms/articles";
 import { getAllTests, getTestBySlug, resolveTestTitleByLocale } from "@/lib/content";
@@ -81,6 +81,7 @@ import { findLandingCta, normalizeLandingSurface } from "@/lib/landing/landingSu
 import {
   buildBreadcrumbJsonLd,
   buildFAQPageJsonLd,
+  buildTestSoftwareAppJsonLd,
   buildWebPageJsonLd,
 } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
@@ -185,6 +186,60 @@ function parseStringList(value: unknown): string[] {
   return value
     .map((item) => toStringValue(item))
     .filter((item) => item.length > 0);
+}
+
+function uniqueVisibleFeatureList(items: string[]): string[] {
+  return [...new Set(items.map((item) => item.trim()).filter(Boolean))];
+}
+
+function hasBlockedSoftwareApplicationClaim(value: string): boolean {
+  const normalized = value.toLowerCase();
+
+  return [
+    ["precise career", "recommendation"].join(" "),
+    ["best-career", "recommendation"].join(" "),
+    ["best", "career"].join(" "),
+    ["career", "matcher"].join(" "),
+    ["career", "recommender"].join(" "),
+    "guaranteed career",
+    "career success",
+    "diagnosis",
+    "diagnostic",
+    "medical diagnosis",
+    "hiring suitability",
+    "employment suitability",
+    ["精准", "推荐"].join(""),
+    ["精准", "职业推荐"].join(""),
+    ["最", "适合职业"].join(""),
+    ["精准", "匹配职业"].join(""),
+    "职业成功",
+    "诊断",
+    "录用",
+  ].some((phrase) => normalized.includes(phrase));
+}
+
+function isSoftwareApplicationSchemaScaleEligible({
+  slug,
+  scaleCode,
+}: {
+  slug: string;
+  scaleCode?: string | null;
+}): boolean {
+  if (isMentalHealthScreeningTest({ slug, scaleCode })) {
+    return false;
+  }
+
+  const normalizedScaleCode = String(scaleCode ?? "").trim().toUpperCase();
+  if (normalizedScaleCode === "IQ_RAVEN" || slug === SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN) {
+    return false;
+  }
+
+  return [
+    "MBTI",
+    "BIG5_OCEAN",
+    "ENNEAGRAM",
+    "RIASEC",
+  ].includes(normalizedScaleCode);
 }
 
 async function fetchLookup(slug: string, locale: "en" | "zh"): Promise<LookupResponse | null> {
@@ -680,6 +735,20 @@ export default async function TestLandingPage({
   const showsRiasecActions = isRiasecScaleCode(test.scale_code);
   const isSelfUnderstanding = showsMbtiActions || showsBig5Actions || showsEnneagramActions;
   const domainRole = showsMbtiActions ? "primary" : showsBig5Actions ? "primary" : showsEnneagramActions ? "supporting" : null;
+  const questionSummary = showsMbtiActions
+    ? getMbtiQuestionSummary(locale)
+    : showsBig5Actions
+    ? getBig5QuestionSummary(locale)
+    : showsRiasecActions
+    ? getRiasecQuestionSummary(locale)
+    : `${test.questions_count} ${locale === "zh" ? "题" : "questions"}`;
+  const durationSummary = showsMbtiActions
+    ? getMbtiDurationSummary(locale)
+    : showsBig5Actions
+    ? getBig5DurationSummary(locale)
+    : showsRiasecActions
+    ? getRiasecDurationSummary(locale)
+    : `${test.time_minutes} ${locale === "zh" ? "分钟" : "minutes"}`;
   const showsMentalHealthDisclaimer = isMentalHealthScreeningTest({
     slug: test.slug,
     scaleCode: test.scale_code,
@@ -898,6 +967,37 @@ export default async function TestLandingPage({
   const relatedArticles = await fetchRelatedArticles(test.slug, locale);
   const canonicalPath = localizedPath(`/tests/${test.slug}`, locale);
   const mbtiLandingContinuityItems = showsMbtiActions ? buildMbtiTestLandingContinuityItems(locale) : [];
+  const softwareApplicationName = localizedTestTitle;
+  const softwareApplicationDescription = landingCopy || test.description;
+  const softwareApplicationFeatureList = uniqueVisibleFeatureList([
+    questionSummary,
+    durationSummary,
+    ...flagshipVariantChoices.map((choice) => choice.label),
+  ]);
+  const softwareApplicationClaimText = [
+    softwareApplicationName,
+    softwareApplicationDescription,
+    ...softwareApplicationFeatureList,
+  ].join(" ");
+  const softwareApplicationJsonLd =
+    test.is_public !== false &&
+    test.is_active !== false &&
+    lookup?.is_indexable !== false &&
+    !testDetailAuthority.shouldNoindexMissingMetadataAuthority &&
+    canonicalPath.length > 0 &&
+    softwareApplicationName.length > 0 &&
+    softwareApplicationDescription.length > 0 &&
+    isSoftwareApplicationSchemaScaleEligible({ slug: test.slug, scaleCode: test.scale_code }) &&
+    !hasBlockedSoftwareApplicationClaim(softwareApplicationClaimText)
+      ? buildTestSoftwareAppJsonLd({
+          path: canonicalPath,
+          name: softwareApplicationName,
+          description: softwareApplicationDescription,
+          locale,
+          minutes: test.time_minutes,
+          featureList: softwareApplicationFeatureList,
+        })
+      : null;
   const webPageJsonLd = buildWebPageJsonLd({
     path: canonicalPath,
     title: toStringValue(lookup?.seo_title) || (testDetailAuthority.metadata.allowed ? localizedTestTitle : test.slug),
@@ -930,6 +1030,9 @@ export default async function TestLandingPage({
     >
       <JsonLd id={`test-webpage-${test.slug}`} data={webPageJsonLd} />
       <JsonLd id={`test-breadcrumb-${test.slug}`} data={breadcrumbJsonLd} />
+      {softwareApplicationJsonLd ? (
+        <JsonLd id={`test-software-application-${test.slug}`} data={softwareApplicationJsonLd} />
+      ) : null}
       {faqJsonLd ? <JsonLd id={`test-faq-${test.slug}`} data={faqJsonLd} /> : null}
       <AnalyticsPageViewTracker eventName="landing_view" properties={landingTrackingProps} />
 
@@ -960,24 +1063,10 @@ export default async function TestLandingPage({
                 <p className="max-w-3xl text-[var(--fm-text-muted)]">{landingCopy || test.description}</p>
                 <div className="flex flex-wrap items-center gap-2 text-sm text-[var(--fm-text-muted)]">
                   <span>
-                    {showsMbtiActions
-                      ? getMbtiQuestionSummary(locale)
-                      : showsBig5Actions
-                      ? getBig5QuestionSummary(locale)
-                      : showsRiasecActions
-                      ? getRiasecQuestionSummary(locale)
-                      : `${test.questions_count} ${locale === "zh" ? "题" : "questions"}`}
+                    {questionSummary}
                   </span>
                   <span>•</span>
-                  <span>
-                    {showsMbtiActions
-                      ? getMbtiDurationSummary(locale)
-                      : showsBig5Actions
-                      ? getBig5DurationSummary(locale)
-                      : showsRiasecActions
-                      ? getRiasecDurationSummary(locale)
-                      : `${test.time_minutes} ${locale === "zh" ? "分钟" : "minutes"}`}
-                  </span>
+                  <span>{durationSummary}</span>
                   {test.scale_code ? (
                     <>
                       <span>•</span>

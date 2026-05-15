@@ -7,8 +7,10 @@ This document is the Discoverability Foundation contract for JSON-LD rendering. 
 ## Authority Rules
 
 - Backend-owned SEO surfaces render backend-provided structured data only when the backend authority declares the schema key.
-- Frontend helpers may deterministically render generic page evidence schemas from visible page content: `WebPage`, `BreadcrumbList`, `FAQPage`, `CollectionPage`, `ItemList`, `Article`, and `Organization`.
+- Frontend helpers may deterministically render generic page evidence schemas from visible page content: `WebPage`, `BreadcrumbList`, `FAQPage`, `CollectionPage`, `ItemList`, `Article`, `Organization`, and eligible test-detail `SoftwareApplication`.
 - `FAQPage` must be derived from visible FAQ or answer-surface content rendered on the page.
+- `SoftwareApplication` is allowed only on eligible public test detail pages, using visible test-detail facts or already-consumed backend/CMS/scale lookup fields.
+- `Product`, `Offer`, `Review`, and `AggregateRating` are not emitted by the current runtime.
 - `Dataset` belongs only on dedicated dataset surfaces or backend-provided career data surfaces that explicitly return it.
 - `Quiz` is not emitted by the current runtime. Do not reintroduce `Quiz` schema unless a future PR adds visible quiz evidence and updates this contract.
 - Private flows must not render JSON-LD.
@@ -19,7 +21,7 @@ This document is the Discoverability Foundation contract for JSON-LD rendering. 
 | --- | --- | --- | --- |
 | Home | deterministic renderer from visible page sections | `WebPage`, `ItemList`, `Organization` | `Quiz`, `Dataset` |
 | Tests hub/category | deterministic renderer from visible catalog sections | `CollectionPage`, `ItemList`, `BreadcrumbList` | `Quiz`, `Dataset` |
-| Test detail | deterministic renderer from visible landing/FAQ content | `WebPage`, `BreadcrumbList`, `FAQPage` | `Quiz`, `Dataset`, hidden FAQ |
+| Test detail | deterministic renderer from visible landing/FAQ content | `WebPage`, `BreadcrumbList`, `FAQPage`, eligible `SoftwareApplication` | `Quiz`, `Dataset`, hidden FAQ, `Product`, `Offer`, `Review`, `AggregateRating` |
 | Article index/detail | CMS article authority plus visible FAQ blocks | `CollectionPage`, `Article`, `BreadcrumbList`, optional `FAQPage` | hidden FAQ, `Dataset`, `Quiz` |
 | Topic index/detail | CMS topic SEO plus visible topic sections | `WebPage`, `BreadcrumbList`, optional `FAQPage`, optional CMS `jsonld` | hidden FAQ, `Quiz` |
 | Help/content/support detail | CMS content page authority plus visible FAQ blocks | `WebPage`, `BreadcrumbList`, optional `FAQPage` | hidden FAQ, `Quiz`, `Dataset` |
@@ -37,6 +39,8 @@ This document is the Discoverability Foundation contract for JSON-LD rendering. 
 ## Evidence Alignment
 
 - `FAQPage` is allowed only when the questions and answers are visibly rendered.
+- Test-detail `SoftwareApplication` is allowed only when the page is public, indexable, has visible name/description, has a canonical URL, and passes the sensitive-scale policy.
+- Test-detail `SoftwareApplication` fields must remain limited to schema identity, URL, language, `operatingSystem`, conservative `applicationCategory`, valid visible duration, and visible feature facts.
 - Backend career `Occupation` is allowed only when the backend SEO surface declares `Occupation`.
 - `Dataset` is allowed only when the page visibly represents a dataset or backend dataset bundle.
 - No hidden schema stuffing is allowed.

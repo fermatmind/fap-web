@@ -1,0 +1,80 @@
+{
+  "version": "seo.software_application_schema.v1",
+  "scope": "PR-SEO-01B",
+  "schemaType": "SoftwareApplication",
+  "runtimeBehaviorChanged": "eligible_test_detail_jsonld_only",
+  "sitemapUrlSetChanged": false,
+  "llmsExposureChanged": false,
+  "backendChangeRequired": false,
+  "authority": {
+    "source": "visible_test_detail_content_or_existing_scale_lookup_fields",
+    "renderer": "app/(localized)/[locale]/tests/[slug]/page.tsx",
+    "builder": "lib/seo/generateSchema.ts",
+    "frontendMayInventProductTruth": false,
+    "frontendMayInventOfferTruth": false,
+    "frontendMayInventRatingTruth": false
+  },
+  "allowedFields": [
+    "@context",
+    "@type",
+    "@id",
+    "name",
+    "description",
+    "url",
+    "inLanguage",
+    "operatingSystem",
+    "applicationCategory",
+    "timeRequired",
+    "featureList"
+  ],
+  "forbiddenFields": [
+    "offers",
+    "price",
+    "priceCurrency",
+    "availability",
+    "aggregateRating",
+    "ratingValue",
+    "review",
+    "reviewCount",
+    "questions_count",
+    "scale_code",
+    "manifest_hash",
+    "norms_version"
+  ],
+  "forbiddenSchema": [
+    "Product",
+    "Offer",
+    "Review",
+    "AggregateRating",
+    "fake ratings"
+  ],
+  "eligibleScalePolicy": {
+    "mbti": "allowed_neutral_self_understanding",
+    "enneagram": "allowed_neutral_self_understanding",
+    "big_five": "allowed_bounded_trait_workplace_behavior_only",
+    "riasec": "allowed_bounded_career_interest_direction_only"
+  },
+  "sensitiveScalePolicy": {
+    "clinical_depression_anxiety": "excluded",
+    "iq_ability": "excluded",
+    "riasec": "allowed_bounded_career_interest_direction_only",
+    "big_five": "allowed_bounded_trait_workplace_behavior_only"
+  },
+  "privateFlowPolicy": {
+    "tests_take": "excluded",
+    "result": "excluded",
+    "orders": "excluded",
+    "share": "excluded",
+    "noindex": "excluded"
+  },
+  "mustNotChange": [
+    "sitemap URL set",
+    "llms exposure",
+    "backend files",
+    "payment/order/report entitlement",
+    "recommendation runtime",
+    "profile or memory",
+    "scoring",
+    "public copy"
+  ]
+}
