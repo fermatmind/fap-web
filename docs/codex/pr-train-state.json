@@ -3217,7 +3217,7 @@
       "depends_on": [
         "SEO-OPS-02B"
       ],
-      "status": "committed",
+      "status": "pr_open",
       "title": "fix(tracking): preserve visible UTM navigation for SEO CTAs",
       "mode": "execute",
       "risk_level": "L1",
@@ -3297,7 +3297,7 @@
         }
       ],
       "failure_reason": null,
-      "pr_url": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/813",
       "commit_sha": "8059e9280ad6fd486e0b491029fb81f2ac3add91",
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -3318,6 +3318,11 @@
           "at": "2026-05-16T04:54:00+08:00",
           "status": "committed",
           "summary": "Committed scoped SEO-OPS-02C implementation at 8059e9280ad6fd486e0b491029fb81f2ac3add91."
+        },
+        {
+          "at": "2026-05-16T04:56:00+08:00",
+          "status": "pr_open",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/813 for SEO-OPS-02C."
         }
       ]
     },
