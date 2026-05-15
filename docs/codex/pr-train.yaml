@@ -2435,6 +2435,80 @@ prs:
       - public copy/content files
     rollback_note: "Remove SEO CTA navigation attribution helpers, RIASEC attempt-start attribution mapping, docs, and related contract assertions."
 
+  - id: SEO-OPS-02B
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/seo-ops-02b-article-cta-utm-attempt-meta
+    base: main
+    depends_on:
+      - SEO-OPS-02
+      - SEO-OPS-03
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "fix(tracking): preserve article UTM through RIASEC attempt start"
+    goal: "Close the live SEO-OPS-02 deployment gap by preserving article CTA UTM/context in CTA hrefs, test detail/take navigation, and RIASEC attempts/start meta."
+    in_scope:
+      - components/cta/SeoTrackedCtaLink.tsx
+      - lib/tracking/seoCtaAttribution.ts
+      - lib/tracking/attribution.ts
+      - app/(localized)/[locale]/tests/[slug]/take/RiasecTakeClient.tsx
+      - tests/contracts/**attribution**
+      - tests/contracts/**cta**
+      - tests/contracts/**riasec**
+      - tests/contracts/**tracking**
+      - docs/analytics/seo-cta-attribution.md
+      - docs/analytics/generated/seo-cta-attribution.v1.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - fap-api repository or nested fap-api/fap-web copy
+      - backend files
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - next-sitemap.config.js
+      - public/sitemap.xml
+      - payment/order/report entitlement files
+      - recommendation files
+      - career graph files
+      - profile/memory files
+      - scoring files
+      - public copy/content files
+      - pSEO pages
+      - deployment/env/production commands
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/seo-ops-02-article-cta-attribution.contract.test.ts
+      - pnpm exec vitest run tests/contracts/*attribution*
+      - pnpm exec vitest run tests/contracts/*tracking*
+      - pnpm exec vitest run tests/contracts/*cta*
+      - pnpm exec vitest run tests/contracts/*riasec*
+      - pnpm typecheck
+      - pnpm test:contract
+      - pnpm seo:check-sitemap
+      - git diff --check
+      - git diff --cached --check
+    acceptance:
+      - Article CTA href preserves safe UTM and CTA context after hydration.
+      - Test detail to take navigation preserves article attribution context.
+      - RIASEC attempts/start meta explicitly includes utm_source, utm_medium, utm_campaign, and utm_content when present.
+      - Safe attribution is preserved without email, order/payment identifiers, or arbitrary query params.
+      - Google Ads purchase conversion behavior remains unchanged.
+      - Sitemap/llms, backend, payment, recommendation, profile, memory, scoring, and public content remain unchanged.
+    must_not_touch:
+      - /Users/rainie/Desktop/GitHub/fap-api
+      - /Users/rainie/Desktop/GitHub/fap-api/fap-web
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - next-sitemap.config.js
+      - public/sitemap.xml
+      - payment/order/report entitlement runtime
+      - recommendation files
+      - career graph files
+      - profile/memory files
+      - scoring files
+      - public copy/content files
+    rollback_note: "Remove SEO-OPS-02B hydration fallback attribution changes, related tests, and docs."
+
   - id: SEO-OPS-03
     repo: fap-web
     repo_path: /Users/rainie/Desktop/GitHub/fap-web

@@ -165,18 +165,30 @@ export function captureAttributionFromLocation({
 }): TrackingAttributionPayload {
   const currentPath = `${pathname}${search}`;
   const params = extractAttributionParamsFromSearchParams(new URLSearchParams(search));
+  const stored = readStoredAttribution();
+  const storedTouch = stored?.last_touch ?? stored?.first_touch;
+  const effectiveParams = hasAttributionParams(params)
+    ? params
+    : extractAttributionParamsFromRecord(storedTouch ?? {});
   const payload = buildTrackingAttributionPayload(params, {
     referrer,
-    landingPath: currentPath,
+    landingPath: hasAttributionParams(params) ? currentPath : storedTouch?.landing_path ?? currentPath,
     currentPath,
   });
   const hasTouch = Object.keys(payload).some((key) => key !== "current_path");
-  const stored = readStoredAttribution();
+  const effectivePayload = hasAttributionParams(params) ? payload : {
+    ...payload,
+    ...buildTrackingAttributionPayload(effectiveParams, {
+      referrer,
+      landingPath: storedTouch?.landing_path ?? currentPath,
+      currentPath,
+    }),
+  };
 
   if (hasTouch) {
     const now = new Date().toISOString();
     const touch: StoredTouch = {
-      ...payload,
+      ...effectivePayload,
       captured_at: now,
     };
     const next: StoredAttribution = {
@@ -185,7 +197,7 @@ export function captureAttributionFromLocation({
       updated_at: now,
     };
     writeStoredAttribution(next);
-    return payload;
+    return effectivePayload;
   }
 
   return {

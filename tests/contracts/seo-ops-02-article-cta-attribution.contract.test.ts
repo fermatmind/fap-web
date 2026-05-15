@@ -44,6 +44,32 @@ describe("SEO-OPS-02 article CTA attribution contract", () => {
     expect(href).not.toContain("ignored=");
   });
 
+  it("can build article CTA hrefs from stored attribution when router search params are empty", () => {
+    const href = buildSeoCtaNavigationHref({
+      locale: "zh",
+      sourceRouteFamily: "article_detail",
+      sourceSlug: "holland-career-interest-test-can-and-cannot-tell-you",
+      contentId: 88,
+      sourcePath: "/zh/articles/holland-career-interest-test-can-and-cannot-tell-you",
+      href: "/zh/tests/holland-career-interest-test-riasec",
+      ctaId: "riasec_article_primary",
+      targetTestSlug: "holland-career-interest-test-riasec",
+      attributionParams: {
+        utm_source: "codex_qa",
+        utm_medium: "controlled_pilot",
+        utm_campaign: "postdeploy_verify",
+        utm_content: "holland-career-interest-test-can-and-cannot-tell-you",
+      },
+    });
+
+    expect(href).toContain("utm_source=codex_qa");
+    expect(href).toContain("utm_medium=controlled_pilot");
+    expect(href).toContain("utm_campaign=postdeploy_verify");
+    expect(href).toContain("utm_content=holland-career-interest-test-can-and-cannot-tell-you");
+    expect(href).toContain("source_page_type=article_detail");
+    expect(href).toContain("target_test_slug=holland-career-interest-test-riasec");
+  });
+
   it("keeps test detail to take navigation from dropping article CTA context", () => {
     const inboundContext = extractSeoCtaContextParamsFromRecord({
       source_route_family: "article",
@@ -124,6 +150,49 @@ describe("SEO-OPS-02 article CTA attribution contract", () => {
     expect(JSON.stringify(result)).not.toContain("drop-me");
   });
 
+  it("keeps stored UTM explicit in RIASEC attempts/start meta when take URL lacks query UTM", () => {
+    const result = buildSeoAttemptStartAttributionFromSearchParams({
+      searchParams: new URLSearchParams({
+        source_page_type: "tests_take_page",
+        target_action: "start_riasec_test",
+        test_slug: "holland-career-interest-test-riasec",
+      }),
+      currentPath: "/zh/tests/holland-career-interest-test-riasec/take?form=riasec_60",
+      storedAttribution: {
+        utm_source: "codex_qa",
+        utm_medium: "controlled_pilot",
+        utm_campaign: "postdeploy_verify",
+        utm_content: "holland-career-interest-test-can-and-cannot-tell-you",
+        landing_path:
+          "/zh/articles/holland-career-interest-test-can-and-cannot-tell-you?utm_source=codex_qa&utm_medium=controlled_pilot&utm_campaign=postdeploy_verify&utm_content=holland-career-interest-test-can-and-cannot-tell-you",
+      },
+      fallbackTestSlug: "holland-career-interest-test-riasec",
+      fallbackSourcePageType: "tests_take_page",
+      fallbackTargetAction: "start_riasec_test",
+    });
+
+    expect(result.meta).toMatchObject({
+      utm_source: "codex_qa",
+      utm_medium: "controlled_pilot",
+      utm_campaign: "postdeploy_verify",
+      utm_content: "holland-career-interest-test-can-and-cannot-tell-you",
+      source_page_type: "tests_take_page",
+      target_action: "start_riasec_test",
+      test_slug: "holland-career-interest-test-riasec",
+    });
+    expect(result.attribution).toEqual({
+      landing_path:
+        "/zh/articles/holland-career-interest-test-can-and-cannot-tell-you?utm_source=codex_qa&utm_medium=controlled_pilot&utm_campaign=postdeploy_verify&utm_content=holland-career-interest-test-can-and-cannot-tell-you",
+      utm: {
+        source: "codex_qa",
+        medium: "controlled_pilot",
+        campaign: "postdeploy_verify",
+        term: null,
+        content: "holland-career-interest-test-can-and-cannot-tell-you",
+      },
+    });
+  });
+
   it("wires article CTA, test detail, and RIASEC take through shared attribution helpers", () => {
     const seoCtaLink = readFileSync("components/cta/SeoTrackedCtaLink.tsx", "utf8");
     const articlePage = readFileSync("app/(localized)/[locale]/articles/[slug]/page.tsx", "utf8");
@@ -133,6 +202,8 @@ describe("SEO-OPS-02 article CTA attribution contract", () => {
     expect(articlePage).toContain("SeoTrackedCtaLink");
     expect(seoCtaLink).toContain("buildSeoCtaNavigationHref");
     expect(seoCtaLink).toContain("extractAttributionParamsFromSearchParams");
+    expect(seoCtaLink).toContain("readStoredTrackingAttributionPayload");
+    expect(seoCtaLink).toContain("extractAttributionParamsFromRecord");
     expect(testDetailPage).toContain("extractSeoCtaContextParamsFromRecord");
     expect(testDetailPage).toContain("appendSeoCtaContextParamsToHref");
     expect(riasecTake).toContain("buildSeoAttemptStartAttributionFromSearchParams");

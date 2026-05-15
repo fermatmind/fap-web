@@ -1,7 +1,7 @@
 {
   "version": "seo.cta_attribution.v1",
   "owner": "fap-web",
-  "scope": "SEO-OPS-02",
+  "scope": "SEO-OPS-02,SEO-OPS-02B",
   "safeQueryParams": [
     "utm_source",
     "utm_medium",
@@ -47,11 +47,21 @@
       "target_test_slug",
       "target_action",
       "test_slug",
+      "utm_source",
+      "utm_medium",
+      "utm_campaign",
+      "utm_term",
+      "utm_content",
       "gclid",
       "msclkid",
       "fbclid"
     ]
   },
+  "runtimeGuards": [
+    "Article CTA hrefs use safe query params from router search params when available",
+    "Article CTA hrefs hydrate from stored first-touch attribution when router search params are unavailable",
+    "Attribution capture preserves existing safe UTM fields across same-site navigation without adding PII"
+  ],
   "deferred": [
     "SEO-OPS-03 standard RIASEC funnel event observability",
     "Backend-owned first-class attribution fields for source_slug, cta_id, and target_test_slug",
