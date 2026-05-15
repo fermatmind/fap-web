@@ -2967,6 +2967,115 @@
           "summary": "Opened fap-web PR #808 for EMAIL-RIASEC-02."
         }
       ]
+    },
+    {
+      "id": "SEO-OPS-02",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/seo-ops-02-article-cta-utm-attempt-attribution",
+      "base": "main",
+      "depends_on": [
+        "EMAIL-RIASEC-01:fap-api",
+        "EMAIL-RIASEC-02"
+      ],
+      "status": "in_progress",
+      "title": "feat(tracking): preserve SEO CTA attribution into attempt start",
+      "mode": "execute",
+      "risk_level": "L1",
+      "allowed_paths": [
+        "app/(localized)/[locale]/articles/[slug]/page.tsx",
+        "app/(localized)/[locale]/topics/[slug]/page.tsx",
+        "app/(localized)/[locale]/tests/[slug]/page.tsx",
+        "app/(localized)/[locale]/tests/[slug]/take/RiasecTakeClient.tsx",
+        "app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient.tsx",
+        "app/(localized)/[locale]/tests/[slug]/take/Big5TakeClient.tsx",
+        "components/content/**",
+        "components/cta/**",
+        "lib/tracking/attribution.ts",
+        "lib/tracking/client.ts",
+        "lib/tracking/seoCtaAttribution.ts",
+        "lib/riasec/api.ts",
+        "lib/api/v0_3.ts",
+        "tests/contracts/**tracking**",
+        "tests/contracts/**cta**",
+        "tests/contracts/**attribution**",
+        "tests/contracts/**riasec**",
+        "docs/analytics/**",
+        "docs/seo/**",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [
+        {
+          "name": "manifest authorization",
+          "status": "passed",
+          "details": "User explicitly authorized adding SEO-OPS-02 to docs/codex/pr-train.yaml and docs/codex/pr-train-state.json."
+        },
+        {
+          "name": "branch preflight",
+          "status": "passed",
+          "details": "Started from latest main and created branch codex/seo-ops-02-article-cta-utm-attempt-attribution before scoped edits."
+        },
+        {
+          "name": "attribution contracts",
+          "status": "passed",
+          "details": "pnpm exec vitest run tests/contracts/*attribution*"
+        },
+        {
+          "name": "tracking contracts",
+          "status": "passed",
+          "details": "pnpm exec vitest run tests/contracts/*tracking*"
+        },
+        {
+          "name": "cta contracts",
+          "status": "passed",
+          "details": "pnpm exec vitest run tests/contracts/*cta*"
+        },
+        {
+          "name": "riasec contracts",
+          "status": "passed",
+          "details": "pnpm exec vitest run tests/contracts/*riasec*"
+        },
+        {
+          "name": "typecheck",
+          "status": "passed",
+          "details": "pnpm typecheck"
+        },
+        {
+          "name": "contract suite",
+          "status": "passed",
+          "details": "pnpm test:contract"
+        },
+        {
+          "name": "sitemap check",
+          "status": "passed",
+          "details": "pnpm seo:check-sitemap"
+        },
+        {
+          "name": "scope validation",
+          "status": "passed",
+          "details": "Final diff is limited to SEO-OPS-02 attribution/CTA/RIASEC take path, docs, tests, and PR train metadata."
+        }
+      ],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [],
+      "history": [
+        {
+          "at": "2026-05-15T00:00:00+08:00",
+          "status": "in_progress",
+          "summary": "Initialized SEO-OPS-02 for article CTA UTM and attempt-start attribution."
+        },
+        {
+          "at": "2026-05-15T00:00:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Implemented safe SEO CTA attribution propagation through article CTA, test detail, and RIASEC attempt start; targeted contracts, full contracts, typecheck, sitemap check, and diff check passed."
+        }
+      ]
     }
   ],
   "sidecar_issues": [

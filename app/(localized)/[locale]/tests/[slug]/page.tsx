@@ -71,7 +71,11 @@ import {
   buildTrackingAttributionPayload,
   extractAttributionParamsFromRecord,
 } from "@/lib/tracking/attribution";
-import { buildSeoCtaTrackingPayload } from "@/lib/tracking/seoCtaAttribution";
+import {
+  appendSeoCtaContextParamsToHref,
+  buildSeoCtaTrackingPayload,
+  extractSeoCtaContextParamsFromRecord,
+} from "@/lib/tracking/seoCtaAttribution";
 import {
   createScaleRolloutEnvSnapshot,
   resolveScaleRollout,
@@ -691,13 +695,18 @@ export default async function TestLandingPage({
   const testDisabled = !rollout.assessmentEnabled;
   const maintenanceRequested = ["1", "true", "yes"].includes(firstQueryValue(query.maintenance).toLowerCase());
   const landingAttributionParams = extractAttributionParamsFromRecord(query);
+  const landingSeoCtaContextParams = extractSeoCtaContextParamsFromRecord(query);
   const landingBasePath = withLocale(`/tests/${test.slug}`);
   const landingPath = appendAttributionParamsToHref(landingBasePath, landingAttributionParams);
   const landingAttributionPayload = buildTrackingAttributionPayload(landingAttributionParams, {
     landingPath,
     currentPath: landingPath,
   });
-  const withAttribution = (href: string) => appendAttributionParamsToHref(href, landingAttributionParams);
+  const withAttribution = (href: string) =>
+    appendSeoCtaContextParamsToHref(
+      appendAttributionParamsToHref(href, landingAttributionParams),
+      landingSeoCtaContextParams
+    );
   const buildStartClickTrackingProps = ({
     formCode,
     targetAction,

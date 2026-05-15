@@ -2352,3 +2352,85 @@ prs:
       - scoring files
       - SEO public pages
     rollback_note: "Remove the RIASEC guest token readiness call/helper and related identity parity contract coverage."
+
+  - id: SEO-OPS-02
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/seo-ops-02-article-cta-utm-attempt-attribution
+    base: main
+    depends_on:
+      - EMAIL-RIASEC-01:fap-api
+      - EMAIL-RIASEC-02
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "feat(tracking): preserve SEO CTA attribution into attempt start"
+    goal: "Preserve safe SEO article CTA attribution through test navigation and attempts/start metadata."
+    in_scope:
+      - app/(localized)/[locale]/articles/[slug]/page.tsx
+      - app/(localized)/[locale]/topics/[slug]/page.tsx
+      - app/(localized)/[locale]/tests/[slug]/page.tsx
+      - app/(localized)/[locale]/tests/[slug]/take/RiasecTakeClient.tsx
+      - app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient.tsx
+      - app/(localized)/[locale]/tests/[slug]/take/Big5TakeClient.tsx
+      - components/content/**
+      - components/cta/**
+      - lib/tracking/attribution.ts
+      - lib/tracking/client.ts
+      - lib/tracking/seoCtaAttribution.ts
+      - lib/riasec/api.ts
+      - lib/api/v0_3.ts
+      - tests/contracts/**tracking**
+      - tests/contracts/**cta**
+      - tests/contracts/**attribution**
+      - tests/contracts/**riasec**
+      - docs/analytics/**
+      - docs/seo/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - fap-api repository or nested fap-api/fap-web copy
+      - backend files
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - next-sitemap.config.js
+      - public/sitemap.xml
+      - payment/order/report entitlement files
+      - recommendation files
+      - career graph files
+      - profile/memory files
+      - scoring files
+      - public copy/content files
+      - pSEO pages
+      - deployment/env/production commands
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/*attribution*
+      - pnpm exec vitest run tests/contracts/*tracking*
+      - pnpm exec vitest run tests/contracts/*cta*
+      - pnpm exec vitest run tests/contracts/*riasec*
+      - pnpm typecheck
+      - pnpm test:contract
+      - pnpm seo:check-sitemap
+      - git diff --check
+      - git diff --cached --check
+    acceptance:
+      - Article CTA navigation preserves safe UTM/click-id context.
+      - Article CTA carries source_route_family, source_slug, cta_id, target_test_slug, and locale context without PII.
+      - RIASEC attempts/start receives safe attribution metadata after guest-token parity.
+      - Unsafe arbitrary query params and email are not included in URL attribution or attempts/start metadata.
+      - Google Ads purchase conversion behavior remains unchanged.
+      - Sitemap/llms, backend, payment, recommendation, profile, memory, scoring, and public content remain unchanged.
+    must_not_touch:
+      - /Users/rainie/Desktop/GitHub/fap-api
+      - /Users/rainie/Desktop/GitHub/fap-api/fap-web
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - next-sitemap.config.js
+      - public/sitemap.xml
+      - payment/order/report entitlement runtime
+      - recommendation files
+      - career graph files
+      - profile/memory files
+      - scoring files
+      - public copy/content files
+    rollback_note: "Remove SEO CTA navigation attribution helpers, RIASEC attempt-start attribution mapping, docs, and related contract assertions."

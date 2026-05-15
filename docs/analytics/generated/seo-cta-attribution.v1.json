@@ -1,0 +1,60 @@
+{
+  "version": "seo.cta_attribution.v1",
+  "owner": "fap-web",
+  "scope": "SEO-OPS-02",
+  "safeQueryParams": [
+    "utm_source",
+    "utm_medium",
+    "utm_campaign",
+    "utm_term",
+    "utm_content",
+    "gclid",
+    "msclkid",
+    "fbclid"
+  ],
+  "safeCtaContextParams": [
+    "entry_surface",
+    "source_page_type",
+    "source_route_family",
+    "source_slug",
+    "content_id",
+    "topic_id",
+    "target_action",
+    "test_slug",
+    "target_test_slug",
+    "cta_id",
+    "landing_path",
+    "entrypoint"
+  ],
+  "blockedFields": [
+    "email",
+    "phone",
+    "name",
+    "order_no",
+    "payment_id",
+    "arbitrary_query_params"
+  ],
+  "attemptStart": {
+    "topLevelAttribution": [
+      "landing_path",
+      "referrer",
+      "utm"
+    ],
+    "metaContext": [
+      "source_route_family",
+      "source_slug",
+      "cta_id",
+      "target_test_slug",
+      "target_action",
+      "test_slug",
+      "gclid",
+      "msclkid",
+      "fbclid"
+    ]
+  },
+  "deferred": [
+    "SEO-OPS-03 standard RIASEC funnel event observability",
+    "Backend-owned first-class attribution fields for source_slug, cta_id, and target_test_slug",
+    "Big Five and generic quiz attribution parity hardening beyond existing query paths"
+  ]
+}
