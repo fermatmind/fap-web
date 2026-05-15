@@ -6,10 +6,22 @@ import type { SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
 export type TwitterImages = NonNullable<NonNullable<Metadata["twitter"]>["images"]>;
 type TwitterImageItem = TwitterImages extends Array<infer Item> ? Item : never;
 
+export type CanonicalRouteFamily = "article_detail" | "test_detail" | "generic";
+export type CanonicalAuthorityStatus = "accepted" | "normalized" | "rejected" | "deferred";
+
+export type CanonicalAuthorityDecision = {
+  status: CanonicalAuthorityStatus;
+  canonicalPathname: string;
+  canonicalUrl: string;
+  reason: string;
+};
+
 type BuildPageMetadataInput = {
   locale: "en" | "zh";
   pathname: string;
   canonicalPathname?: string;
+  canonicalCandidate?: string | null;
+  canonicalRouteFamily?: CanonicalRouteFamily;
   title: string;
   description: string;
   imagePath?: string;
@@ -23,11 +35,159 @@ type BuildPageMetadataInput = {
   };
 };
 
+const PRODUCTION_CANONICAL_HOSTS = new Set(["fermatmind.com", "www.fermatmind.com"]);
+
 function toAbsoluteUrl(pathname: string): string {
   if (/^https?:\/\//i.test(pathname)) return pathname;
   const siteUrl = getSiteUrlOrThrow();
   const normalized = pathname.startsWith("/") ? pathname : `/${pathname}`;
   return `${siteUrl}${normalized}`;
+}
+
+function normalizePathname(pathname: string): string {
+  const trimmed = pathname.trim();
+  const withSlash = trimmed.startsWith("/") ? trimmed : `/${trimmed}`;
+  return withSlash.length > 1 ? withSlash.replace(/\/+$/, "") : withSlash;
+}
+
+function normalizeRoutePathname(value: string): string {
+  const trimmed = value.trim();
+  if (/^https?:\/\//i.test(trimmed)) {
+    try {
+      return normalizePathname(new URL(trimmed).pathname || "/");
+    } catch {
+      return normalizePathname(trimmed);
+    }
+  }
+
+  return normalizePathname(trimmed);
+}
+
+function isAllowedCanonicalHost(hostname: string): boolean {
+  const normalizedHostname = hostname.toLowerCase();
+  if (PRODUCTION_CANONICAL_HOSTS.has(normalizedHostname)) {
+    return true;
+  }
+
+  try {
+    return new URL(getSiteUrlOrThrow()).hostname.toLowerCase() === normalizedHostname;
+  } catch {
+    return false;
+  }
+}
+
+function routeLocalePrefix(locale: "en" | "zh"): string {
+  return locale === "zh" ? "/zh" : "/en";
+}
+
+function isHomepagePath(pathname: string): boolean {
+  return pathname === "/" || pathname === "/en" || pathname === "/zh";
+}
+
+function isPrivateCanonicalTarget(pathname: string): boolean {
+  return [
+    /^\/(?:en|zh)\/tests\/[^/]+\/take(?:\/|$)/,
+    /^\/(?:en|zh)\/(?:take|result|results|orders|order|share|pay|checkout|account|profile|app)(?:\/|$)/,
+    /^\/(?:take|result|results|orders|order|share|pay|checkout|account|profile|app)(?:\/|$)/,
+  ].some((pattern) => pattern.test(pathname));
+}
+
+function parseCanonicalCandidate(value: string): { pathname: string; status: CanonicalAuthorityStatus } | null {
+  const trimmed = value.trim();
+  if (!trimmed) {
+    return null;
+  }
+
+  if (trimmed.startsWith("/")) {
+    try {
+      const parsed = new URL(trimmed, "https://fermatmind.com");
+      if (parsed.search || parsed.hash) {
+        return null;
+      }
+    } catch {
+      return null;
+    }
+
+    return { pathname: normalizePathname(trimmed), status: "normalized" };
+  }
+
+  try {
+    const parsed = new URL(trimmed);
+    if (!["http:", "https:"].includes(parsed.protocol)) {
+      return null;
+    }
+
+    if (!isAllowedCanonicalHost(parsed.hostname)) {
+      return null;
+    }
+
+    if (parsed.search || parsed.hash) {
+      return null;
+    }
+
+    const status: CanonicalAuthorityStatus =
+      parsed.origin === getSiteUrlOrThrow() ? "accepted" : "normalized";
+    return { pathname: normalizePathname(parsed.pathname || "/"), status };
+  } catch {
+    return null;
+  }
+}
+
+export function resolveCanonicalAuthority({
+  candidate,
+  expectedPathname,
+  currentLocale,
+  routeFamily = "generic",
+}: {
+  candidate?: string | null;
+  expectedPathname: string;
+  currentLocale: "en" | "zh";
+  routeFamily?: CanonicalRouteFamily;
+}): CanonicalAuthorityDecision {
+  const expected = normalizeRoutePathname(expectedPathname);
+  const detailRoute = routeFamily === "article_detail" || routeFamily === "test_detail";
+  const fallback = (status: CanonicalAuthorityStatus, reason: string): CanonicalAuthorityDecision => ({
+    status,
+    canonicalPathname: expected,
+    canonicalUrl: toAbsoluteUrl(expected),
+    reason,
+  });
+
+  const normalizedCandidate = String(candidate ?? "").trim();
+  if (!normalizedCandidate) {
+    return fallback("deferred", "no backend/CMS canonical candidate");
+  }
+
+  const parsed = parseCanonicalCandidate(normalizedCandidate);
+  if (!parsed) {
+    return fallback("rejected", "canonical candidate is not a safe same-host URL or relative path");
+  }
+
+  if (isPrivateCanonicalTarget(parsed.pathname)) {
+    return fallback("rejected", "canonical candidate points to a private or noindex flow");
+  }
+
+  if (detailRoute && isHomepagePath(parsed.pathname)) {
+    return fallback("rejected", "detail page canonical candidate points to homepage fallback");
+  }
+
+  if (!parsed.pathname.startsWith(`${routeLocalePrefix(currentLocale)}/`)) {
+    return fallback("rejected", "canonical candidate locale does not match current route locale");
+  }
+
+  if (detailRoute && parsed.pathname !== expected) {
+    return fallback("rejected", "detail page canonical candidate is not self-referential");
+  }
+
+  return {
+    status: parsed.status,
+    canonicalPathname: parsed.pathname,
+    canonicalUrl: toAbsoluteUrl(parsed.pathname),
+    reason:
+      parsed.status === "accepted"
+        ? "backend/CMS canonical candidate accepted"
+        : "backend/CMS canonical candidate normalized to safe route path",
+  };
 }
 
 export function resolveTwitterCard(
@@ -75,9 +235,13 @@ export function normalizeTwitterImages(...candidates: unknown[]): TwitterImages 
 }
 
 export function buildPageMetadata(input: BuildPageMetadataInput): Metadata {
-  const canonical = toAbsoluteUrl(
-    input.seoSurface?.canonicalUrl || input.canonicalPathname || input.pathname
-  );
+  const canonicalDecision = resolveCanonicalAuthority({
+    candidate: input.canonicalCandidate ?? input.seoSurface?.canonicalUrl,
+    expectedPathname: input.canonicalPathname || input.pathname,
+    currentLocale: input.locale,
+    routeFamily: input.canonicalRouteFamily,
+  });
+  const canonical = canonicalDecision.canonicalUrl;
   const xDefaultPath = input.alternatesByLocale.xDefault ?? "/";
   const robotsPolicy = input.seoSurface?.robotsPolicy || "";
   const noindex =

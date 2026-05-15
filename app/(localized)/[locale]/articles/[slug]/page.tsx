@@ -35,19 +35,6 @@ export const dynamic = "force-dynamic";
 
 const ARTICLE_AUTHOR_NAME = "Fermat Institute";
 
-function pathFromCanonicalUrl(value: string | null | undefined, fallbackPath: string): string {
-  const normalized = String(value ?? "").trim();
-  if (!normalized) {
-    return fallbackPath;
-  }
-
-  try {
-    return new URL(normalized).pathname || fallbackPath;
-  } catch {
-    return normalized.startsWith("/") ? normalized : fallbackPath;
-  }
-}
-
 function formatArticleDate(value: string | null, locale: Locale): string | null {
   if (!value) {
     return null;
@@ -141,7 +128,8 @@ export async function generateMetadata({
   }
 
   const canonicalPath = buildCanonicalPath(article.slug, locale);
-  const seoCanonicalPath = pathFromCanonicalUrl(seo?.surface?.canonicalUrl ?? seo?.meta.canonical, canonicalPath);
+  // Canonical authority now replaces the former pathFromCanonicalUrl page-level repair.
+  const canonicalCandidate = seo?.surface?.canonicalUrl ?? seo?.meta.canonical;
   const title = seo?.surface?.title || seo?.meta.title || article.title;
   const description = seo?.surface?.description || seo?.meta.description || article.excerpt;
   const noindex = !article.isIndexable || shouldNoindex(seo?.meta.robots);
@@ -149,7 +137,10 @@ export async function generateMetadata({
 
   const metadata = buildPageMetadata({
     locale,
-    pathname: seoCanonicalPath,
+    pathname: canonicalPath,
+    canonicalPathname: canonicalPath,
+    canonicalCandidate,
+    canonicalRouteFamily: "article_detail",
     title,
     description,
     imagePath: seo?.surface?.og.image ?? seo?.meta.og.image ?? articleImage ?? undefined,
@@ -162,7 +153,7 @@ export async function generateMetadata({
     },
   });
 
-  const canonical = seo?.surface?.canonicalUrl ?? seo?.meta.canonical ?? String(metadata.alternates?.canonical ?? "");
+  const canonical = String(metadata.alternates?.canonical ?? "");
   const ogImage = seo?.surface?.og.image ?? seo?.meta.og.image ?? articleImage ?? null;
   const passport = buildI18nSeoPassport({
     canonical,
