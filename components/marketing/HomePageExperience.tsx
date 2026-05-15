@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArticleResponsiveImage } from "@/components/content/ArticleResponsiveImage";
 import { Container } from "@/components/layout/Container";
 import { HomepageSocialProofCarousel } from "@/components/marketing/HomepageSocialProofCarousel";
 import type { CmsArticle } from "@/lib/cms/articles";
@@ -323,6 +324,24 @@ function getArticleVisualTitle(article: HomeArticle, locale: Locale): string {
   );
 }
 
+function ArticleCoverVisual({ article, index, locale }: { article: HomeArticle; index: number; locale: Locale }) {
+  if (!article.coverImageUrl) {
+    return <ArticleVisual index={index} title={getArticleVisualTitle(article, locale)} />;
+  }
+
+  return (
+    <ArticleResponsiveImage
+      src={article.coverImageUrl}
+      alt={article.coverImageAlt ?? article.title}
+      width={article.coverImageWidth}
+      height={article.coverImageHeight}
+      variants={article.coverImageVariants}
+      mode="card"
+      className="h-40"
+    />
+  );
+}
+
 function getArticleDisplayDate(article: HomeArticle, locale: Locale): string {
   const value = article.publishedAt ?? article.updatedAt ?? article.createdAt;
   if (!value) return "";
@@ -369,7 +388,7 @@ function HomepageArticlesBanner({ locale, articles }: { locale: Locale; articles
           {visibleArticles.map((article, index) => (
             <article key={`${article.slug}-${article.locale}`} className="group">
               <Link href={withLocale(locale, `/articles/${article.slug}`)} prefetch={false} className="block">
-                <ArticleVisual index={index} title={getArticleVisualTitle(article, locale)} />
+                <ArticleCoverVisual article={article} index={index} locale={locale} />
                 <h3 className="m-0 mt-5 text-3xl font-normal leading-tight tracking-[-0.055em] text-slate-900 transition group-hover:text-teal-800">
                   {article.title}
                 </h3>

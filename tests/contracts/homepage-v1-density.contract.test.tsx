@@ -141,6 +141,8 @@ describe("homepage v1 density contract", () => {
     expect(source).toContain("function HomepageArticlesBanner");
     expect(source).not.toContain("listBlogPosts(locale)");
     expect(source).toContain("type HomeArticle = CmsArticle");
+    expect(source).toContain("ArticleResponsiveImage");
+    expect(source).toContain("function ArticleCoverVisual");
     expect(source).toContain("function ArticleVisual");
     expect(source).toContain("bg-gradient-to-br");
 
@@ -190,10 +192,10 @@ describe("homepage v1 density contract", () => {
         authorName: "Fermat Institute",
         reviewerName: null,
         readingMinutes: 3,
-        coverImageUrl: null,
-        coverImageAlt: null,
-        coverImageWidth: null,
-        coverImageHeight: null,
+        coverImageUrl: "https://assets.fermatmind.com/storage/media-library/holland-career-interest-test-riasec-card.jpg",
+        coverImageAlt: "抽象职业罗盘与六个方向节点",
+        coverImageWidth: 1200,
+        coverImageHeight: 675,
         coverImageVariants: {
           hero: null,
           card: null,
@@ -239,6 +241,10 @@ describe("homepage v1 density contract", () => {
     expect(screen.getByRole("link", { name: /你的性格如何塑造你对人工智能的态度？/ })).toHaveAttribute(
       "href",
       "/zh/articles/how-personality-shapes-attitude-toward-ai"
+    );
+    expect(screen.getByRole("img", { name: "抽象职业罗盘与六个方向节点" })).toHaveAttribute(
+      "src",
+      "https://assets.fermatmind.com/storage/media-library/holland-career-interest-test-riasec-card.jpg"
     );
     expect(screen.getByRole("link", { name: /查看全部文章/ })).toHaveAttribute("href", "/zh/articles");
   });

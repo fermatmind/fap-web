@@ -2438,6 +2438,86 @@
           "summary": "Opened fap-web PR #794 for PR-TRACK-01."
         }
       ]
+    },
+    {
+      "id": "PR-HOME-01",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/homepage-recommended-cover-images",
+      "base": "main",
+      "depends_on": [],
+      "status": "local_checks_passed",
+      "title": "PR-HOME-01｜Homepage Recommended Articles CMS Cover Display",
+      "mode": "execute",
+      "risk_level": "L1",
+      "allowed_paths": [
+        "components/marketing/HomePageExperience.tsx",
+        "tests/contracts/homepage-v1-density.contract.test.tsx",
+        "tests/contracts/homepage-recommended-articles-block.contract.test.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [
+        {
+          "name": "manifest authorization",
+          "status": "passed",
+          "details": "User explicitly authorized adding PR-HOME-01 to docs/codex/pr-train.yaml and docs/codex/pr-train-state.json."
+        },
+        {
+          "name": "branch preflight",
+          "status": "passed",
+          "details": "Started from latest main and created branch codex/homepage-recommended-cover-images before scoped edits."
+        },
+        {
+          "name": "focused homepage cover contracts",
+          "status": "passed",
+          "details": "pnpm exec vitest run tests/contracts/homepage-v1-density.contract.test.tsx tests/contracts/homepage-recommended-articles-block.contract.test.ts"
+        },
+        {
+          "name": "typecheck",
+          "status": "passed",
+          "details": "pnpm typecheck"
+        },
+        {
+          "name": "contract suite",
+          "status": "passed",
+          "details": "pnpm test:contract"
+        },
+        {
+          "name": "production api build",
+          "status": "passed",
+          "details": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build"
+        },
+        {
+          "name": "diff whitespace",
+          "status": "passed",
+          "details": "git diff --check"
+        },
+        {
+          "name": "sitemap build artifact scope guard",
+          "status": "passed",
+          "details": "Build regenerated public/sitemap.xml as a postbuild side effect; the generated diff was restored because sitemap changes are outside PR-HOME-01 scope."
+        }
+      ],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [],
+      "history": [
+        {
+          "at": "2026-05-15T00:00:00+08:00",
+          "status": "in_progress",
+          "summary": "Initialized PR-HOME-01 for homepage recommended article CMS cover rendering."
+        },
+        {
+          "at": "2026-05-15T10:13:12+08:00",
+          "status": "local_checks_passed",
+          "summary": "Homepage recommended card CMS cover rendering implemented; focused contracts, typecheck, full contract suite, production API build, and diff whitespace check passed."
+        }
+      ]
     }
   ],
   "sidecar_issues": [

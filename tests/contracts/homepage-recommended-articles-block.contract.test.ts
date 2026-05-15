@@ -51,6 +51,16 @@ describe("homepage recommended articles page block contract", () => {
     expect(read("app/(localized)/[locale]/page.tsx")).toContain("getHomepageRecommendedArticles");
   });
 
+  it("renders homepage recommended article covers from the CMS article projection", () => {
+    const source = read("components/marketing/HomePageExperience.tsx");
+
+    expect(source).toContain("function ArticleCoverVisual");
+    expect(source).toContain("article.coverImageUrl");
+    expect(source).toContain("ArticleResponsiveImage");
+    expect(source).toContain("variants={article.coverImageVariants}");
+    expect(source).toContain("<ArticleVisual index={index} title={getArticleVisualTitle(article, locale)} />");
+  });
+
   it("loads recommended articles from the home landing surface page block", async () => {
     landingMock.mockResolvedValueOnce(
       surfaceWithBlock({
