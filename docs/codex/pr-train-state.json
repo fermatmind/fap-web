@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-16T06:16:17+08:00",
+  "updated_at": "2026-05-16T13:42:00+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -3474,7 +3474,7 @@
       "depends_on": [
         "SEO-OPS-02D"
       ],
-      "status": "pr_open",
+      "status": "merged",
       "title": "fix(tracking): attribute article markdown CTA URLs",
       "mode": "execute",
       "risk_level": "L1",
@@ -3570,14 +3570,19 @@
           "name": "scope validation",
           "status": "passed",
           "details": "Changed files are limited to article CMS Markdown/HTML link hydration, visible attribution contracts, analytics docs/artifact, and PR train metadata. Untracked .playwright-mcp/ is excluded."
+        },
+        {
+          "name": "dependency ledger reconciliation",
+          "status": "passed",
+          "details": "GitHub PR #816 is MERGED, origin/main contains fa06f4adf4474384d8d50c7772b0ca0b0a33b300, and local/remote task branches are absent."
         }
       ],
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/816",
-      "commit_sha": "ac3f1daaf2bf8f093c97c9527b2cb5d7bc3c8edb",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "fa06f4adf4474384d8d50c7772b0ca0b0a33b300",
+      "merged_at": "2026-05-15T22:29:31Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "sidecar_issues": [],
       "history": [
         {
@@ -3599,6 +3604,11 @@
           "at": "2026-05-16T06:25:00+08:00",
           "status": "pr_open",
           "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/816 for SEO-OPS-02E."
+        },
+        {
+          "at": "2026-05-16T12:25:00+08:00",
+          "status": "merged",
+          "summary": "Reconciled PR #816 as merged into origin/main at fa06f4adf4474384d8d50c7772b0ca0b0a33b300 before starting SEO-OPS-04A."
         }
       ]
     },
@@ -3724,7 +3734,7 @@
         "SEO-OPS-03",
         "SEO-OPS-02D"
       ],
-      "status": "pr_open",
+      "status": "merged",
       "title": "fix(tracking): make RIASEC standard events network observable",
       "mode": "execute",
       "risk_level": "L1",
@@ -3816,14 +3826,19 @@
           "name": "scope validation",
           "status": "passed",
           "details": "Changed files are limited to RIASEC standard event network observability, analytics docs/artifact, targeted contracts, and PR train metadata."
+        },
+        {
+          "name": "dependency ledger reconciliation",
+          "status": "passed",
+          "details": "GitHub PR #815 is MERGED, origin/main contains a7fe170d697b9d3867d822b7dbd93521c437bf45, and local/remote task branches are absent."
         }
       ],
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/815",
-      "commit_sha": "954fafd0e0eb53f7b3984f9a65fe40af26642dad",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "a7fe170d697b9d3867d822b7dbd93521c437bf45",
+      "merged_at": "2026-05-15T21:52:06Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "sidecar_issues": [],
       "history": [
         {
@@ -3845,6 +3860,186 @@
           "at": "2026-05-16T05:48:56+08:00",
           "status": "pr_open",
           "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/815 for SEO-OPS-03B."
+        },
+        {
+          "at": "2026-05-16T12:25:00+08:00",
+          "status": "merged",
+          "summary": "Reconciled PR #815 as merged into origin/main at a7fe170d697b9d3867d822b7dbd93521c437bf45 before starting SEO-OPS-04A."
+        }
+      ]
+    },
+    {
+      "id": "SEO-OPS-04A",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/seo-ops-04a-mbti-funnel-unlock-observability",
+      "base": "main",
+      "depends_on": [
+        "SEO-OPS-02E",
+        "SEO-OPS-03B"
+      ],
+      "status": "github_checks_passed",
+      "title": "fix(tracking): make MBTI funnel and unlock events observable",
+      "mode": "execute",
+      "risk_level": "L1",
+      "allowed_paths": [
+        "app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient.tsx",
+        "components/result/mbti/MbtiResultShell.tsx",
+        "lib/tracking/client.ts",
+        "lib/tracking/events.ts",
+        "tests/contracts/**mbti**",
+        "tests/contracts/**tracking**",
+        "tests/contracts/**analytics**",
+        "tests/contracts/rich-result-report.contract.test.tsx",
+        "docs/analytics/mbti-funnel-unlock-observability.md",
+        "docs/analytics/generated/mbti-funnel-unlock-observability.v1.json",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [
+        {
+          "name": "manifest authorization",
+          "status": "passed",
+          "details": "User explicitly authorized adding SEO-OPS-04A to docs/codex/pr-train.yaml and docs/codex/pr-train-state.json."
+        },
+        {
+          "name": "dependency reconciliation",
+          "status": "passed",
+          "details": "SEO-OPS-02E PR #816 and SEO-OPS-03B PR #815 are merged into origin/main."
+        },
+        {
+          "name": "branch preflight",
+          "status": "passed",
+          "details": "Started from latest main and created branch codex/seo-ops-04a-mbti-funnel-unlock-observability before scoped edits. Untracked .playwright-mcp/ is unrelated and excluded."
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/mbti-funnel-unlock-observability.contract.test.ts",
+          "status": "passed",
+          "details": "1 file / 5 tests passed."
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/mbti-checkout-wiring.contract.test.tsx",
+          "status": "passed",
+          "details": "1 file / 22 tests passed."
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/mbti-take-attribution.contract.test.tsx",
+          "status": "passed",
+          "details": "1 file / 10 tests passed."
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/analytics-payload-privacy.contract.test.ts",
+          "status": "passed",
+          "details": "1 file / 5 tests passed."
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/*mbti*",
+          "status": "passed",
+          "details": "29 files / 211 tests passed after updating scoped analytics mocks for the new trackObservableFunnelEvent export."
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/*tracking*",
+          "status": "passed",
+          "details": "3 files / 25 tests passed."
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/*analytics*",
+          "status": "passed",
+          "details": "3 files / 14 tests passed."
+        },
+        {
+          "name": "pnpm typecheck",
+          "status": "passed",
+          "details": "passed."
+        },
+        {
+          "name": "pnpm test:contract",
+          "status": "passed",
+          "details": "364 files / 2041 tests passed."
+        },
+        {
+          "name": "pnpm seo:check-sitemap",
+          "status": "passed",
+          "details": "sitemap indexability check passed: 261 urls."
+        },
+        {
+          "name": "manifest/state parse",
+          "status": "passed",
+          "details": "Ruby YAML parse and python JSON parse passed."
+        },
+        {
+          "name": "git diff --check",
+          "status": "passed",
+          "details": "passed."
+        },
+        {
+          "name": "git diff --cached --check",
+          "status": "passed",
+          "details": "passed."
+        },
+        {
+          "name": "scope validation",
+          "status": "passed",
+          "details": "Changed files are limited to MBTI funnel/unlock tracking observability, shared tracking allow-list/client, scoped analytics/MBTI/rich-result contracts, analytics docs/artifact, and PR train metadata. Untracked .playwright-mcp/ is unrelated and excluded."
+        },
+        {
+          "name": "GitHub build",
+          "status": "passed",
+          "details": "success."
+        },
+        {
+          "name": "GitHub contracts",
+          "status": "passed",
+          "details": "success."
+        },
+        {
+          "name": "GitHub verify-big5-contract-freeze",
+          "status": "passed",
+          "details": "success."
+        },
+        {
+          "name": "GitHub verify-enneagram-contract-freeze",
+          "status": "passed",
+          "details": "success."
+        },
+        {
+          "name": "mergeStateStatus",
+          "status": "passed",
+          "details": "CLEAN."
+        }
+      ],
+      "failure_reason": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/817",
+      "commit_sha": "b6df7939",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [],
+      "history": [
+        {
+          "at": "2026-05-16T12:25:00+08:00",
+          "status": "in_progress",
+          "summary": "Initialized SEO-OPS-04A to make MBTI start_attempt, submit_attempt, view_result, click_unlock, and create_order visible in browser Network via /api/track without changing backend, sitemap/llms, payment/order/report entitlement semantics, recommendation, profile, memory, scoring, or public content."
+        },
+        {
+          "at": "2026-05-16T12:47:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Implemented MBTI network-observable start_attempt, submit_attempt, view_result, click_unlock, and create_order; preserved safe attribution fields for unlock/order; updated scoped mocks/docs/contracts; passed targeted contracts, aggregate globs, full contracts, typecheck, sitemap, parse, diff, and scope validation."
+        },
+        {
+          "at": "2026-05-16T12:52:00+08:00",
+          "status": "committed",
+          "summary": "Committed scoped SEO-OPS-04A implementation at e9ea8b65."
+        },
+        {
+          "at": "2026-05-16T12:58:00+08:00",
+          "status": "pr_open",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/817 for SEO-OPS-04A."
+        },
+        {
+          "at": "2026-05-16T13:42:00+08:00",
+          "status": "github_checks_passed",
+          "summary": "GitHub required checks passed and mergeStateStatus was CLEAN for PR #817."
         }
       ]
     },

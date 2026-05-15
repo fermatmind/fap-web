@@ -10,6 +10,7 @@ import reportReadyMbtiProjectionFixture from "@/tests/fixtures/report_ready.mbti
 
 const hoisted = vi.hoisted(() => ({
   trackEvent: vi.fn(),
+  trackObservableFunnelEvent: vi.fn(),
 }));
 
 vi.mock("next/navigation", () => ({
@@ -18,6 +19,7 @@ vi.mock("next/navigation", () => ({
 
 vi.mock("@/lib/analytics", () => ({
   trackEvent: hoisted.trackEvent,
+  trackObservableFunnelEvent: hoisted.trackObservableFunnelEvent,
 }));
 
 function getPrimaryByTestId(testId: string): HTMLElement {

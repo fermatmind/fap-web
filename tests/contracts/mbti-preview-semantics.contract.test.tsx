@@ -12,6 +12,7 @@ vi.mock("next/navigation", () => ({
 
 vi.mock("@/lib/analytics", () => ({
   trackEvent: vi.fn(),
+  trackObservableFunnelEvent: vi.fn(),
 }));
 
 function getPrimaryByTestId(testId: string): HTMLElement {

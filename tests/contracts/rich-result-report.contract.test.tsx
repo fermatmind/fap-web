@@ -14,6 +14,7 @@ import reportReadyMbtiProjectionFixture from "@/tests/fixtures/report_ready.mbti
 
 const hoisted = vi.hoisted(() => ({
   trackEvent: vi.fn(),
+  trackObservableFunnelEvent: vi.fn(),
 }));
 
 vi.mock("next/navigation", () => ({
@@ -22,6 +23,7 @@ vi.mock("next/navigation", () => ({
 
 vi.mock("@/lib/analytics", () => ({
   trackEvent: hoisted.trackEvent,
+  trackObservableFunnelEvent: hoisted.trackObservableFunnelEvent,
 }));
 
 vi.mock("@/lib/cms/personality-desktop-clone", () => ({
@@ -555,7 +557,7 @@ describe("RichResultReport", () => {
 
     expect(screen.getByTestId("mbti-result-shell")).toBeInTheDocument();
     expect(screen.queryByTestId("mbti-recommended-reads")).not.toBeInTheDocument();
-    expect(hoisted.trackEvent).toHaveBeenCalledWith(
+    expect(hoisted.trackObservableFunnelEvent).toHaveBeenCalledWith(
       "view_result",
       expect.objectContaining({
         attempt_id: "attempt-123",

@@ -32,6 +32,8 @@ const NETWORK_OBSERVABLE_FUNNEL_EVENTS = new Set<TrackingEventName>([
   "start_attempt",
   "submit_attempt",
   "view_result",
+  "click_unlock",
+  "create_order",
 ]);
 
 const GA4_EVENT_NAME_MAP: Partial<Record<TrackingEventName, string>> = {

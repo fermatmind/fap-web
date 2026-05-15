@@ -8,6 +8,7 @@ import reportReadyMbtiFreeFixture from "@/tests/fixtures/report_ready.mbti.free.
 
 const hoisted = vi.hoisted(() => ({
   trackEvent: vi.fn(),
+  trackObservableFunnelEvent: vi.fn(),
   fetchAttemptReportPdf: vi.fn(),
   openWindow: vi.fn(),
 }));
@@ -18,6 +19,7 @@ vi.mock("next/navigation", () => ({
 
 vi.mock("@/lib/analytics", () => ({
   trackEvent: hoisted.trackEvent,
+  trackObservableFunnelEvent: hoisted.trackObservableFunnelEvent,
 }));
 
 vi.mock("@/lib/api/v0_3", async () => {

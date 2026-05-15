@@ -18,6 +18,7 @@ const hoisted = vi.hoisted(() => ({
   submitAttempt: vi.fn(),
   recoverStaleAttemptSubmit: vi.fn(),
   trackEvent: vi.fn(),
+  trackObservableFunnelEvent: vi.fn(),
   captureError: vi.fn(),
   classifyApiError: vi.fn(() => ({
     statusGroup: "5xx",
@@ -135,6 +136,7 @@ vi.mock("@/lib/api/v0_3", async () => {
 
 vi.mock("@/lib/analytics", () => ({
   trackEvent: hoisted.trackEvent,
+  trackObservableFunnelEvent: hoisted.trackObservableFunnelEvent,
 }));
 
 vi.mock("@/lib/i18n/getDict", () => ({
@@ -406,10 +408,11 @@ describe("MBTI take attribution contract", () => {
     await submitSingleQuestion();
 
     await waitFor(() => {
-      expect(hoisted.trackEvent).toHaveBeenCalledWith(
+      expect(hoisted.trackObservableFunnelEvent).toHaveBeenCalledWith(
         "start_attempt",
         expect.objectContaining({
           slug: "mbti-personality-test-16-personality-types",
+          scale_code: "MBTI",
           test_slug: "mbti-personality-test-16-personality-types",
           attempt_id: "attempt-start-123",
           form_code: "mbti_144",
@@ -459,6 +462,22 @@ describe("MBTI take attribution contract", () => {
     await waitFor(() => {
       expect(hoisted.routerPush).toHaveBeenCalledWith("/en/compare/mbti/invite-456");
     });
+
+    expect(hoisted.trackObservableFunnelEvent).toHaveBeenCalledWith(
+      "submit_attempt",
+      expect.objectContaining({
+        slug: "mbti-personality-test-16-personality-types",
+        scale_code: "MBTI",
+        test_slug: "mbti-personality-test-16-personality-types",
+        attempt_id: "attempt-result-123",
+        form_code: "mbti_144",
+        entry_surface: "mbti_personality_detail",
+        source_page_type: "personality_detail",
+        target_action: "start_mbti_test_primary",
+        landing_path: "/en/share/share-123",
+        locale: "en",
+      })
+    );
   });
 
   it("restarts stale recovery attempts with the same attribution and resubmits with the recovered attempt id", async () => {

@@ -1,0 +1,39 @@
+{
+  "version": "mbti.funnel_unlock_observability.v1",
+  "scope": "SEO-OPS-04A",
+  "observableEvents": [
+    "start_attempt",
+    "submit_attempt",
+    "view_result",
+    "click_unlock",
+    "create_order"
+  ],
+  "adsPurchaseConversionTriggers": [
+    "purchase_success",
+    "pay_success"
+  ],
+  "safeAttributionFields": [
+    "utm_source",
+    "utm_medium",
+    "utm_campaign",
+    "utm_content",
+    "utm_term",
+    "source_route_family",
+    "source_slug",
+    "cta_id",
+    "target_test_slug",
+    "landing_path",
+    "referrer"
+  ],
+  "piiPolicy": "email and raw PII are forbidden in event payloads",
+  "purchasePolicy": "SEO-OPS-04A does not execute or change purchase_success handling",
+  "forbiddenChanges": [
+    "backend",
+    "sitemap_llms",
+    "payment_order_report_entitlement_semantics",
+    "recommendation",
+    "profile_memory",
+    "scoring",
+    "public_content"
+  ]
+}
