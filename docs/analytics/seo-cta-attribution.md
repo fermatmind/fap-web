@@ -57,6 +57,10 @@ Production verification after `SEO-OPS-02` showed the code was deployed but arti
 
 Production verification after `SEO-OPS-02B` showed `attempts/start.meta` carried UTM correctly, but the visible article CTA, test detail URL, and take URL could still omit UTM. `SEO-OPS-02C` closes that URL-level gap by allowing the client CTA wrapper to read the current browser URL query when App Router search params and stored attribution are not yet available. Only the existing safe attribution allow-list is copied into CTA hrefs. Email, arbitrary query params, order identifiers, payment identifiers, and Ads conversion behavior remain excluded.
 
+## SEO-OPS-02D CMS Rich Content CTA Closure
+
+Production verification after `SEO-OPS-02C` showed the live article CTA could still come from CMS answer-surface or rich-content HTML paths that bypassed `SeoTrackedCtaLink`. `SEO-OPS-02D` keeps CMS/backend content authority unchanged and only attributes existing CMS-provided test CTA hrefs. Article answer-surface test CTAs now use the shared SEO CTA wrapper when a source context is provided. Article CMS HTML test links are sanitized first, then hydrated in the DOM with the same safe UTM and CTA context allow-list. Non-test CMS links are left unchanged.
+
 ## Deferred
 
 - Standard RIASEC funnel event observability remains separate `SEO-OPS-03`.

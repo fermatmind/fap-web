@@ -4,8 +4,8 @@ import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
 import { ArticleResponsiveImage } from "@/components/content/ArticleResponsiveImage";
+import { AttributedSanitizedCmsHtml } from "@/components/content/AttributedSanitizedCmsHtml";
 import { RelatedContent } from "@/components/content/RelatedContent";
-import { SanitizedCmsHtml } from "@/components/content/SanitizedCmsHtml";
 import { SeoTrackedCtaLink } from "@/components/cta/SeoTrackedCtaLink";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -107,9 +107,18 @@ function shouldNoindex(robotsValue: string | null | undefined): boolean {
     .includes("noindex");
 }
 
-function renderArticleBody(article: CmsArticle) {
+function renderArticleBody(article: CmsArticle, locale: Locale, canonicalPath: string) {
   if (article.contentHtml.trim()) {
-    return <SanitizedCmsHtml html={article.contentHtml} />;
+    return (
+      <AttributedSanitizedCmsHtml
+        html={article.contentHtml}
+        locale={locale}
+        sourceRouteFamily="article_detail"
+        sourceSlug={article.slug}
+        sourcePath={canonicalPath}
+        contentId={article.id}
+      />
+    );
   }
 
   if (article.contentMd.trim()) {
@@ -350,6 +359,13 @@ export default async function ArticleDetailPage({
         locale={locale}
         testId="article-detail-answer-surface"
         pageFamily="article_detail"
+        seoCtaAttribution={{
+          locale,
+          sourceRouteFamily: "article_detail",
+          sourceSlug: article.slug,
+          sourcePath: canonicalPath,
+          contentId: article.id,
+        }}
       />
 
       <div className="grid gap-8 lg:grid-cols-[minmax(0,760px)_minmax(240px,1fr)] lg:items-start">
@@ -360,7 +376,7 @@ export default async function ArticleDetailPage({
           data-article-runtime-page-family={articleRuntimeContract.pageFamily}
           className="space-y-5 text-base text-[var(--fm-text)] [&_a]:text-[var(--fm-accent)] [&_a]:underline-offset-2 [&_a:hover]:underline [&_blockquote]:border-l-4 [&_blockquote]:border-[var(--fm-accent)] [&_blockquote]:bg-[var(--fm-surface-muted)] [&_blockquote]:px-5 [&_blockquote]:py-3 [&_blockquote]:text-[var(--fm-text)] [&_h2]:mt-10 [&_h2]:font-serif [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:leading-tight [&_h3]:mt-7 [&_h3]:font-serif [&_h3]:text-xl [&_h3]:font-semibold [&_img]:rounded-lg [&_img]:border [&_img]:border-[var(--fm-border)] [&_ol]:list-decimal [&_ol]:space-y-2 [&_ol]:pl-5 [&_p]:leading-8 [&_strong]:font-semibold [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-5"
         >
-          {renderArticleBody(article)}
+          {renderArticleBody(article, locale, canonicalPath)}
         </article>
 
         <aside className="space-y-5 border-t border-[var(--fm-border)] pt-5 lg:sticky lg:top-24 lg:border-t-0 lg:pt-0">

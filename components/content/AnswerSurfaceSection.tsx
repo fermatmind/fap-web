@@ -1,8 +1,22 @@
 import Link from "next/link";
+import { SeoTrackedCtaLink } from "@/components/cta/SeoTrackedCtaLink";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
 import type { EvidencePageFamily } from "@/lib/geo/evidenceContainer";
 import type { Locale } from "@/lib/i18n/locales";
+import {
+  extractTargetTestSlugFromHref,
+  type SeoCtaSourceRouteFamily,
+} from "@/lib/tracking/seoCtaAttribution";
+
+type AnswerSurfaceSeoCtaAttribution = {
+  locale: Locale;
+  sourceRouteFamily: SeoCtaSourceRouteFamily;
+  sourceSlug: string;
+  sourcePath: string;
+  contentId?: string | number | null;
+  topicId?: string | number | null;
+};
 
 function sectionTitle(key: string, locale: Locale): string {
   const isZh = locale === "zh";
@@ -23,6 +37,60 @@ function sectionTitle(key: string, locale: Locale): string {
   }
 }
 
+function pathFromHref(href: string): string {
+  try {
+    return new URL(href, "https://fermatmind.com").pathname;
+  } catch {
+    return href.split("?")[0] ?? "";
+  }
+}
+
+function isTrackableTestDetailHref(href: string): boolean {
+  const pathname = pathFromHref(href);
+  const segments = pathname.split("/").filter(Boolean);
+  const testsIndex = segments.indexOf("tests");
+  const testSlug = extractTargetTestSlugFromHref(pathname);
+  const childSegment = testsIndex >= 0 ? segments[testsIndex + 2] : undefined;
+
+  return Boolean(testSlug) && !["take", "result", "orders", "share", "pay"].includes(childSegment ?? "");
+}
+
+function renderAnswerSurfaceLink({
+  href,
+  label,
+  className,
+  ctaId,
+  seoCtaAttribution,
+}: {
+  href: string;
+  label: string;
+  className: string;
+  ctaId: string;
+  seoCtaAttribution?: AnswerSurfaceSeoCtaAttribution;
+}) {
+  const targetTestSlug = extractTargetTestSlugFromHref(href);
+
+  if (seoCtaAttribution && targetTestSlug && isTrackableTestDetailHref(href)) {
+    return (
+      <SeoTrackedCtaLink
+        href={href}
+        {...seoCtaAttribution}
+        ctaId={ctaId}
+        targetTestSlug={targetTestSlug}
+        className={className}
+      >
+        {label}
+      </SeoTrackedCtaLink>
+    );
+  }
+
+  return (
+    <Link href={href} className={className}>
+      {label}
+    </Link>
+  );
+}
+
 export function AnswerSurfaceSection({
   surface,
   locale,
@@ -31,6 +99,7 @@ export function AnswerSurfaceSection({
   hideSummaryLabel = false,
   pageFamily,
   evidenceSourceType = "answer_surface_v1",
+  seoCtaAttribution,
 }: {
   surface: AnswerSurfaceViewModel | null | undefined;
   locale: Locale;
@@ -39,6 +108,7 @@ export function AnswerSurfaceSection({
   hideSummaryLabel?: boolean;
   pageFamily?: EvidencePageFamily;
   evidenceSourceType?: "answer_surface_v1" | "visible_page_content";
+  seoCtaAttribution?: AnswerSurfaceSeoCtaAttribution;
 }) {
   if (!surface) {
     return null;
@@ -128,9 +198,13 @@ export function AnswerSurfaceSection({
             {surface.sceneSummaryBlocks.map((block) => (
               <article key={block.key} className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
                 {block.href ? (
-                  <Link href={block.href} className="m-0 text-sm font-medium text-[var(--fm-text)] hover:text-[var(--fm-accent)]">
-                    {block.title || block.href}
-                  </Link>
+                  renderAnswerSurfaceLink({
+                    href: block.href,
+                    label: block.title || block.href,
+                    className: "m-0 text-sm font-medium text-[var(--fm-text)] hover:text-[var(--fm-accent)]",
+                    ctaId: block.key || "answer_surface_scene",
+                    seoCtaAttribution,
+                  })
                 ) : block.title ? (
                   <p className="m-0 text-sm font-medium text-[var(--fm-text)]">{block.title}</p>
                 ) : null}
@@ -150,9 +224,13 @@ export function AnswerSurfaceSection({
             {surface.nextStepBlocks.map((block) => (
               <article key={block.key} className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
                 {block.href ? (
-                  <Link href={block.href} className="text-sm font-medium text-[var(--fm-text)] hover:text-[var(--fm-accent)]">
-                    {block.title || block.href}
-                  </Link>
+                  renderAnswerSurfaceLink({
+                    href: block.href,
+                    label: block.title || block.href,
+                    className: "text-sm font-medium text-[var(--fm-text)] hover:text-[var(--fm-accent)]",
+                    ctaId: block.key || "answer_surface_next_step",
+                    seoCtaAttribution,
+                  })
                 ) : (
                   <p className="m-0 text-sm font-medium text-[var(--fm-text)]">{block.title}</p>
                 )}
