@@ -2651,6 +2651,80 @@ prs:
       - public copy/content files
     rollback_note: "Remove article answer-surface CTA attribution, attributed sanitized CMS HTML link hydration, related contracts, docs, and train metadata."
 
+  - id: SEO-OPS-02E
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/seo-ops-02e-cms-markdown-cta-visible-attribution
+    base: main
+    depends_on:
+      - SEO-OPS-02D
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "fix(tracking): attribute article markdown CTA URLs"
+    goal: "Close the remaining live visible URL attribution gap by attributing existing CMS Markdown/rich-content article test CTA hrefs and preserving safe UTM/context through test detail and take URLs without changing backend, /api/track, result pages, payment, recommendation, profile, scoring, sitemap, or llms exposure."
+    in_scope:
+      - app/(localized)/[locale]/articles/[slug]/page.tsx
+      - components/content/AttributedCmsLinkHydrator.tsx
+      - components/content/AttributedSanitizedCmsHtml.tsx
+      - tests/contracts/**attribution**
+      - tests/contracts/**cta**
+      - tests/contracts/**cms-rich-content**
+      - docs/analytics/seo-cta-attribution.md
+      - docs/analytics/generated/seo-cta-attribution.v1.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - fap-api repository or nested fap-api/fap-web copy
+      - backend files
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - next-sitemap.config.js
+      - public/sitemap.xml
+      - /api/track behavior or event dispatch semantics
+      - result page files
+      - payment/order/report entitlement files
+      - recommendation files
+      - career graph files
+      - profile/memory files
+      - scoring files
+      - public copy/content files
+      - pSEO pages
+      - deployment/env/production commands
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/seo-ops-02e-article-markdown-cta-visible-attribution.contract.test.tsx
+      - pnpm exec vitest run tests/contracts/seo-ops-02d-article-rich-content-cta-attribution.contract.test.tsx
+      - pnpm exec vitest run tests/contracts/seo-ops-02c-visible-utm-navigation.contract.test.tsx
+      - pnpm exec vitest run tests/contracts/*attribution*
+      - pnpm exec vitest run tests/contracts/*cta*
+      - pnpm typecheck
+      - pnpm test:contract
+      - pnpm seo:check-sitemap
+      - git diff --check
+      - git diff --cached --check
+    acceptance:
+      - Existing CMS Markdown article test CTA hrefs are hydrated in the DOM with safe UTM and SEO CTA context.
+      - Existing CMS HTML article test CTA href behavior from SEO-OPS-02D remains intact.
+      - Test detail and take URLs preserve safe UTM and SEO CTA context when reached from attributed article CTA hrefs.
+      - Safe attribution is preserved without email, order/payment identifiers, or arbitrary query params.
+      - Google Ads purchase conversion behavior and /api/track event semantics remain unchanged.
+      - Sitemap/llms, backend, result pages, payment, recommendation, profile, memory, scoring, and public content remain unchanged.
+    must_not_touch:
+      - /Users/rainie/Desktop/GitHub/fap-api
+      - /Users/rainie/Desktop/GitHub/fap-api/fap-web
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - next-sitemap.config.js
+      - public/sitemap.xml
+      - result page runtime
+      - payment/order/report entitlement runtime
+      - recommendation files
+      - career graph files
+      - profile/memory files
+      - scoring files
+      - public copy/content files
+    rollback_note: "Remove the reusable CMS link hydrator, article Markdown wrapper, visible URL attribution contracts, docs, and train metadata."
+
   - id: SEO-OPS-03
     repo: fap-web
     repo_path: /Users/rainie/Desktop/GitHub/fap-web

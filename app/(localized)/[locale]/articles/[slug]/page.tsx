@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
 import { ArticleResponsiveImage } from "@/components/content/ArticleResponsiveImage";
+import { AttributedCmsLinkHydrator } from "@/components/content/AttributedCmsLinkHydrator";
 import { AttributedSanitizedCmsHtml } from "@/components/content/AttributedSanitizedCmsHtml";
 import { RelatedContent } from "@/components/content/RelatedContent";
 import { SeoTrackedCtaLink } from "@/components/cta/SeoTrackedCtaLink";
@@ -122,7 +123,17 @@ function renderArticleBody(article: CmsArticle, locale: Locale, canonicalPath: s
   }
 
   if (article.contentMd.trim()) {
-    return renderSimpleMarkdown(article.contentMd) ?? <div className="whitespace-pre-wrap">{article.contentMd}</div>;
+    return (
+      <AttributedCmsLinkHydrator
+        locale={locale}
+        sourceRouteFamily="article_detail"
+        sourceSlug={article.slug}
+        sourcePath={canonicalPath}
+        contentId={article.id}
+      >
+        {renderSimpleMarkdown(article.contentMd) ?? <div className="whitespace-pre-wrap">{article.contentMd}</div>}
+      </AttributedCmsLinkHydrator>
+    );
   }
 
   return null;
