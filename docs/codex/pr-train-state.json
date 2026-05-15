@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-15T14:23:09+08:00",
+  "updated_at": "2026-05-15T21:28:00+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -3191,6 +3191,97 @@
           "at": "2026-05-15T00:00:00+08:00",
           "status": "pr_open",
           "summary": "Opened fap-web PR #811 for SEO-OPS-03."
+        }
+      ]
+    },
+    {
+      "id": "PR-GRAPH-01",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web-pr-graph",
+      "branch": "codex/pr-graph-01-multi-test-edges",
+      "base": "main",
+      "depends_on": [
+        "PR-GRAPH-01:fap-api"
+      ],
+      "status": "pr_open",
+      "title": "PR-GRAPH-01｜Article Multi-Test Graph Edges",
+      "mode": "execute",
+      "risk_level": "L2",
+      "allowed_paths": [
+        "lib/cms/articles.ts",
+        "tests/contracts/articles-cleanup.contract.test.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [
+        {
+          "name": "manifest authorization",
+          "status": "passed",
+          "details": "User explicitly authorized adding PR-GRAPH-01 to fap-api and fap-web pr-train manifest/state."
+        },
+        {
+          "name": "branch preflight",
+          "status": "passed",
+          "details": "Started from latest main in isolated worktree /Users/rainie/Desktop/GitHub/fap-web-pr-graph on branch codex/pr-graph-01-multi-test-edges."
+        },
+        {
+          "name": "focused article contract",
+          "status": "passed",
+          "details": "pnpm exec vitest run tests/contracts/articles-cleanup.contract.test.ts"
+        },
+        {
+          "name": "contract suite",
+          "status": "passed",
+          "details": "pnpm test:contract"
+        },
+        {
+          "name": "typecheck",
+          "status": "passed",
+          "details": "pnpm typecheck"
+        },
+        {
+          "name": "production build",
+          "status": "passed",
+          "details": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build"
+        },
+        {
+          "name": "manifest/state parse",
+          "status": "passed",
+          "details": "ruby YAML.load_file + python3 -m json.tool"
+        },
+        {
+          "name": "diff check",
+          "status": "passed",
+          "details": "git diff --check && git diff --cached --check"
+        },
+        {
+          "name": "github_pr_created",
+          "status": "passed",
+          "details": "https://github.com/fermatmind/fap-web/pull/810"
+        }
+      ],
+      "failure_reason": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/810",
+      "commit_sha": "4af8f3ee5741b9d92c5d9fb3c17e8f11c478648b",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [],
+      "history": [
+        {
+          "at": "2026-05-15T00:00:00+08:00",
+          "status": "in_progress",
+          "summary": "Initialized PR-GRAPH-01 for frontend multi-test article graph consumer compatibility."
+        },
+        {
+          "at": "2026-05-15T21:20:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Multi-test graph consumer contract, typecheck, build, and diff checks passed."
+        },
+        {
+          "at": "2026-05-15T21:28:00+08:00",
+          "status": "pr_open",
+          "summary": "Opened fap-web PR #810 for frontend consumer compatibility."
         }
       ]
     }

@@ -580,6 +580,28 @@ describe("articles cleanup contract", () => {
             title: "MBTI 入门",
             excerpt: "先理解 MBTI 适合回答什么。",
             related_test_slug: "mbti-personality-test-16-personality-types",
+            related_test_slugs: [
+              "mbti-personality-test-16-personality-types",
+              "big-five-personality-test",
+            ],
+            test_edges: [
+              {
+                test_slug: "mbti-personality-test-16-personality-types",
+                role: "primary",
+                locale: "zh-CN",
+                sort_order: 10,
+                safety_level: "normal",
+                visibility: "public",
+              },
+              {
+                test_slug: "big-five-personality-test",
+                role: "secondary",
+                locale: "zh-CN",
+                sort_order: 20,
+                safety_level: "normal",
+                visibility: "public",
+              },
+            ],
             voice: "tool",
             voice_order: 1,
             status: "published",
@@ -611,6 +633,22 @@ describe("articles cleanup contract", () => {
     expect(result.items[0]).toMatchObject({
       slug: "mbti-basics",
       relatedTestSlug: "mbti-personality-test-16-personality-types",
+      relatedTestSlugs: [
+        "mbti-personality-test-16-personality-types",
+        "big-five-personality-test",
+      ],
+      testEdges: [
+        expect.objectContaining({
+          testSlug: "mbti-personality-test-16-personality-types",
+          role: "primary",
+          sortOrder: 10,
+        }),
+        expect.objectContaining({
+          testSlug: "big-five-personality-test",
+          role: "secondary",
+          sortOrder: 20,
+        }),
+      ],
       voice: "tool",
       voiceOrder: 1,
     });
