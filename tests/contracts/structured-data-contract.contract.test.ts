@@ -42,7 +42,7 @@ describe("structured data contract", () => {
     expect(fixture.version).toBe("discoverability.structured_data_contract.v1");
     expect(spec).toContain(fixture.version);
     expect(fixture.requiredSchemaTypes).toEqual(
-      expect.arrayContaining(["Quiz", "FAQPage", "Dataset", "WebPage", "BreadcrumbList"])
+      expect.arrayContaining(["Quiz", "FAQPage", "Dataset", "WebPage", "BreadcrumbList", "SoftwareApplication"])
     );
 
     for (const schemaType of fixture.requiredSchemaTypes) {
@@ -53,11 +53,15 @@ describe("structured data contract", () => {
       quizRuntimeState: "not_emitted",
       faqPageSource: "visible_faq_or_answer_surface_only",
       datasetSource: "dedicated_dataset_or_backend_dataset_bundle_only",
+      softwareApplicationSource: "eligible_public_test_detail_visible_fields_only",
+      productOfferReviewRatingSource: "not_emitted",
       careerJobOccupationAuthority: "backend_seo_surface_v1_structured_data_keys",
       privateFlows: "no_jsonld",
     });
     expect(spec).toContain("`Quiz` is not emitted by the current runtime");
     expect(spec).toContain("`FAQPage` must be derived from visible FAQ");
+    expect(spec).toContain("`SoftwareApplication` is allowed only on eligible public test detail pages");
+    expect(spec).toContain("`Product`, `Offer`, `Review`, and `AggregateRating` are not emitted");
     expect(spec).toContain("Backend-owned career JSON-LD");
   });
 

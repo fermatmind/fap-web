@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-14T15:54:52+08:00",
+  "updated_at": "2026-05-15T13:13:17+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -2436,6 +2436,107 @@
           "at": "2026-05-14T15:54:52+08:00",
           "status": "pr_open",
           "summary": "Opened fap-web PR #794 for PR-TRACK-01."
+        }
+      ]
+    },
+    {
+      "id": "PR-SEO-01B",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/pr-seo-01b-test-detail-softwareapplication-schema",
+      "base": "main",
+      "depends_on": [],
+      "status": "pr_open",
+      "title": "feat(seo): add SoftwareApplication schema for test detail pages",
+      "mode": "execute",
+      "risk_level": "L1",
+      "allowed_paths": [
+        "lib/seo/generateSchema.ts",
+        "app/(localized)/[locale]/tests/[slug]/page.tsx",
+        "tests/contracts/test-detail-softwareapplication-schema.contract.test.ts",
+        "tests/contracts/structured-data-contract.contract.test.ts",
+        "tests/contracts/fixtures/discoverability-foundation/structured-data-contract.v1.json",
+        "docs/seo/structured-data-spec.md",
+        "docs/seo/software-application-schema.md",
+        "docs/seo/generated/software-application-schema.v1.json",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [
+        {
+          "name": "manifest authorization",
+          "status": "passed",
+          "details": "User explicitly authorized adding PR-SEO-01B to docs/codex/pr-train.yaml and docs/codex/pr-train-state.json."
+        },
+        {
+          "name": "branch preflight",
+          "status": "passed",
+          "details": "Started from latest main after git pull --ff-only origin main and created branch codex/pr-seo-01b-test-detail-softwareapplication-schema before scoped edits."
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/test-detail-softwareapplication-schema.contract.test.ts",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/structured-data-contract.contract.test.ts",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm typecheck",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm test:contract",
+          "status": "passed",
+          "details": "354 files and 1999 tests passed."
+        },
+        {
+          "name": "pnpm seo:check-sitemap",
+          "status": "passed",
+          "details": "Sitemap indexability check passed with 261 URLs."
+        },
+        {
+          "name": "git diff --check",
+          "status": "passed"
+        },
+        {
+          "name": "git diff --cached --check",
+          "status": "passed",
+          "details": "No staged diff existed before path-limited staging."
+        },
+        {
+          "name": "scope validation",
+          "status": "passed",
+          "details": "Changed files are limited to PR-SEO-01B implementation, docs/artifact, structured-data contracts, and explicitly authorized PR-train metadata."
+        }
+      ],
+      "failure_reason": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/805",
+      "commit_sha": "69c558102c9971c38ef38b0cbc214c378249689c",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [],
+      "history": [
+        {
+          "at": "2026-05-15T13:05:47+08:00",
+          "status": "in_progress",
+          "summary": "Initialized PR-SEO-01B manifest/state entry and began scoped SoftwareApplication schema work."
+        },
+        {
+          "at": "2026-05-15T13:10:55+08:00",
+          "status": "local_checks_passed",
+          "summary": "Implemented conservative test detail SoftwareApplication schema; targeted contracts, typecheck, full contract suite, sitemap check, and diff whitespace checks passed."
+        },
+        {
+          "at": "2026-05-15T13:11:55+08:00",
+          "status": "pr_ready",
+          "summary": "Committed scoped PR-SEO-01B changes on codex/pr-seo-01b-test-detail-softwareapplication-schema."
+        },
+        {
+          "at": "2026-05-15T13:13:17+08:00",
+          "status": "pr_open",
+          "summary": "Opened fap-web PR #805 for PR-SEO-01B."
         }
       ]
     },

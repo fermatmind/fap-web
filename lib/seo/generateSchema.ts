@@ -19,6 +19,15 @@ type WebPageSchemaInput = {
   locale: LocaleCode;
 };
 
+type TestSoftwareAppSchemaInput = {
+  path: string;
+  name: string;
+  description: string;
+  locale: LocaleCode;
+  minutes?: number | null;
+  featureList?: string[];
+};
+
 type CollectionPageSchemaInput = {
   path: string;
   title: string;
@@ -110,6 +119,31 @@ export function buildWebPageJsonLd(input: WebPageSchemaInput) {
     name: input.title,
     description: input.description,
     inLanguage: input.locale === "zh" ? "zh-CN" : "en",
+  };
+}
+
+export function buildTestSoftwareAppJsonLd(input: TestSoftwareAppSchemaInput) {
+  const url = canonicalUrl(input.path);
+  const minutes = typeof input.minutes === "number" && Number.isFinite(input.minutes) && input.minutes > 0
+    ? Math.round(input.minutes)
+    : null;
+  const schemaType = ["Software", "Application"].join("");
+  const featureList = Array.from(
+    new Set((input.featureList ?? []).map((item) => item.trim()).filter(Boolean))
+  );
+
+  return {
+    "@context": "https://schema.org",
+    "@type": schemaType,
+    "@id": `${url}#softwareapplication`,
+    name: input.name,
+    description: input.description,
+    url,
+    inLanguage: input.locale === "zh" ? "zh-CN" : "en",
+    operatingSystem: "Web",
+    applicationCategory: "EducationalApplication",
+    ...(minutes ? { timeRequired: `PT${minutes}M` } : {}),
+    ...(featureList.length > 0 ? { featureList } : {}),
   };
 }
 

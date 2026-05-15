@@ -2050,6 +2050,68 @@ prs:
       - scoring files
     rollback_note: "Remove Ads conversion bridge, activation env placeholders, activation docs/contracts, and related contract tests."
 
+  - id: PR-SEO-01B
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-seo-01b-test-detail-softwareapplication-schema
+    base: main
+    depends_on: []
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "feat(seo): add SoftwareApplication schema for test detail pages"
+    goal: "Add conservative SoftwareApplication JSON-LD to eligible public test detail pages using visible/backend-backed fields only."
+    in_scope:
+      - lib/seo/generateSchema.ts
+      - app/(localized)/[locale]/tests/[slug]/page.tsx
+      - tests/contracts/test-detail-softwareapplication-schema.contract.test.ts
+      - tests/contracts/structured-data-contract.contract.test.ts
+      - tests/contracts/fixtures/discoverability-foundation/structured-data-contract.v1.json
+      - docs/seo/structured-data-spec.md
+      - docs/seo/software-application-schema.md
+      - docs/seo/generated/software-application-schema.v1.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - fap-api repository or nested fap-api/fap-web copy
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - next-sitemap.config.js
+      - public/sitemap.xml
+      - backend files
+      - payment/order/report entitlement files
+      - recommendation files
+      - profile/memory files
+      - scoring files
+      - new route files
+      - Product, Offer, Review, AggregateRating, fake ratings, or fake review counts
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/test-detail-softwareapplication-schema.contract.test.ts
+      - pnpm exec vitest run tests/contracts/structured-data-contract.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - pnpm seo:check-sitemap
+      - git diff --check
+    acceptance:
+      - Eligible public test detail pages render conservative SoftwareApplication JSON-LD.
+      - SoftwareApplication fields come from visible test detail content or existing backend/CMS/scale lookup data already consumed by the page.
+      - Clinical/depression/anxiety and IQ/ability pages are excluded for this baseline.
+      - Product, Offer, Review, AggregateRating, price, availability, fake ratings, and fake review counts remain absent.
+      - Private/noindex/take/result/order/share flows remain excluded.
+      - Sitemap URL set and llms exposure are unchanged.
+    must_not_touch:
+      - /Users/rainie/Desktop/GitHub/fap-api
+      - /Users/rainie/Desktop/GitHub/fap-api/fap-web
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - next-sitemap.config.js
+      - public/sitemap.xml
+      - payment/order/report entitlement runtime
+      - recommendation files
+      - profile/memory files
+      - scoring files
+    rollback_note: "Remove the SoftwareApplication builder/rendering, docs/artifact, and structured-data contract updates."
+
   - id: PR-HOME-01
     repo: fap-web
     repo_path: /Users/rainie/Desktop/GitHub/fap-web
