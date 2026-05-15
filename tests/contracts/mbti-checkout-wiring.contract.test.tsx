@@ -31,6 +31,7 @@ const hoisted = vi.hoisted(() => ({
   createCheckoutOrOrder: vi.fn(),
   captureError: vi.fn(),
   trackEvent: vi.fn(),
+  trackObservableFunnelEvent: vi.fn(),
   routerReplace: vi.fn(),
 }));
 
@@ -43,6 +44,7 @@ vi.mock("next/navigation", () => ({
 
 vi.mock("@/lib/analytics", () => ({
   trackEvent: hoisted.trackEvent,
+  trackObservableFunnelEvent: hoisted.trackObservableFunnelEvent,
 }));
 
 vi.mock("@/lib/observability/sentry", () => ({
@@ -231,6 +233,25 @@ describe("MBTI checkout wiring contract", () => {
   afterEach(() => {
     vi.unstubAllGlobals();
     vi.restoreAllMocks();
+  });
+
+  it("emits MBTI view_result through the network-observable funnel dispatcher", async () => {
+    const reportData = createReportFixture();
+
+    render(<MbtiResultShell {...createShellProps(reportData)} />);
+
+    await waitFor(() => {
+      expect(hoisted.trackObservableFunnelEvent).toHaveBeenCalledWith(
+        "view_result",
+        expect.objectContaining({
+          attempt_id: "attempt-123",
+          attemptIdMasked: "attemp...-123",
+          typeCode: "ENFP-T",
+          identity: "T",
+          axisBands: "EI:clear|SN:clear|TF:boundary|JP:boundary|AT:clear",
+        })
+      );
+    });
   });
 
   it("calls onCheckout from the offer comparison primary CTA", () => {
@@ -833,7 +854,7 @@ describe("MBTI checkout wiring contract", () => {
     expect(navigatedUrl.searchParams.get("pay_value")).toBe("/api/v0.3/orders/ord_html_1/pay/alipay?scene=desktop");
     expect(navigatedUrl.searchParams.get("provider")).toBe("alipay");
     expect(navigatedUrl.searchParams.get("payment_recovery_token")).toBe("recovery_html_1");
-    expect(hoisted.trackEvent).toHaveBeenCalledWith(
+    expect(hoisted.trackObservableFunnelEvent).toHaveBeenCalledWith(
       "click_unlock",
       expect.objectContaining({
         attemptIdMasked: "attemp...-123",
@@ -841,7 +862,7 @@ describe("MBTI checkout wiring contract", () => {
         axisBands: "EI:clear|SN:clear|TF:boundary|JP:boundary|AT:clear",
       })
     );
-    expect(hoisted.trackEvent).toHaveBeenCalledWith(
+    expect(hoisted.trackObservableFunnelEvent).toHaveBeenCalledWith(
       "create_order",
       expect.objectContaining({
         attemptIdMasked: "attemp...-123",

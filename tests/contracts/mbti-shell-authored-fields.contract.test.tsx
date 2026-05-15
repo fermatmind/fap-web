@@ -9,6 +9,7 @@ import reportReadyMbtiProjectionFixture from "@/tests/fixtures/report_ready.mbti
 
 const hoisted = vi.hoisted(() => ({
   trackEvent: vi.fn(),
+  trackObservableFunnelEvent: vi.fn(),
 }));
 
 vi.mock("next/navigation", () => ({
@@ -17,6 +18,7 @@ vi.mock("next/navigation", () => ({
 
 vi.mock("@/lib/analytics", () => ({
   trackEvent: hoisted.trackEvent,
+  trackObservableFunnelEvent: hoisted.trackObservableFunnelEvent,
 }));
 
 function createReportFixture(
@@ -190,7 +192,7 @@ describe("MBTI shell authored fields contract", () => {
       within(stickyRail).getByRole("link", { name: "解锁完整报告" })
     ).toHaveAttribute("href", getMbtiDesktopAnchorHash("offerFull"));
 
-    expect(hoisted.trackEvent).toHaveBeenCalledWith(
+    expect(hoisted.trackObservableFunnelEvent).toHaveBeenCalledWith(
       "view_result",
       expect.objectContaining({
         attemptIdMasked: "attemp...-123",
@@ -361,7 +363,7 @@ describe("MBTI shell authored fields contract", () => {
     expect(getPrimaryByTestId("mbti-post-purchase-section")).toHaveAttribute("data-cta-rank", "1");
     expect(screen.getByTestId("mbti-career-next-step")).toHaveAttribute("data-cta-rank", "2");
     expect(screen.queryByTestId("mbti-mobile-chrome")).not.toBeInTheDocument();
-    expect(hoisted.trackEvent).toHaveBeenCalledWith(
+    expect(hoisted.trackObservableFunnelEvent).toHaveBeenCalledWith(
       "view_result",
       expect.objectContaining({
         userState: "first:0|revisit:1|unlock:1|feedback:1|share:0|action:0",

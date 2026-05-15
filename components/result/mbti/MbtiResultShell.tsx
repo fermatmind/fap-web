@@ -22,7 +22,7 @@ import {
 } from "@/lib/access/unifiedAccess";
 import { resolveInviteUnlockUrl, type AttemptInviteUnlockProgressView } from "@/lib/access/inviteUnlock";
 import { ApiError } from "@/lib/api-client";
-import { trackEvent } from "@/lib/analytics";
+import { trackEvent, trackObservableFunnelEvent } from "@/lib/analytics";
 import {
   createAttemptShare,
   createCheckoutOrOrder,
@@ -1265,7 +1265,7 @@ export function MbtiResultShell({
       ...personalizationTelemetryContext,
     };
 
-    trackEvent("view_result", basePayload);
+    trackObservableFunnelEvent("view_result", basePayload);
 
     if (typeof window === "undefined" || !isRevisit) {
       return;
@@ -1417,7 +1417,7 @@ export function MbtiResultShell({
       const trackingAttribution = readStoredTrackingAttributionPayload(currentPath);
       const checkoutAttribution = toAttemptAttributionPayload(trackingAttribution);
 
-      trackEvent("click_unlock", {
+      trackObservableFunnelEvent("click_unlock", {
         ...trackingAttribution,
         attempt_id: attemptId,
         attemptIdMasked: maskIdentifier(attemptId),
@@ -1481,7 +1481,7 @@ export function MbtiResultShell({
         paymentRecoveryToken: paymentRecoveryToken || null,
         resultUrl: resultUrl || null,
       });
-      trackEvent("create_order", {
+      trackObservableFunnelEvent("create_order", {
         ...trackingAttribution,
         attempt_id: attemptId,
         attemptIdMasked: maskIdentifier(attemptId),

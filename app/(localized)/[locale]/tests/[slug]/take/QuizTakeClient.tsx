@@ -30,7 +30,7 @@ import {
   type AttemptAttributionPayload,
 } from "@/lib/api/v0_3";
 import { ApiError } from "@/lib/api-client";
-import { trackEvent } from "@/lib/analytics";
+import { trackEvent, trackObservableFunnelEvent } from "@/lib/analytics";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
 import { isMbtiScaleCode, normalizeMbtiFormCode } from "@/lib/mbti/forms";
@@ -836,10 +836,11 @@ function QuizTakeInner({
     if (!attemptId || trackedStartRef.current) return;
     trackedStartRef.current = true;
 
-    trackEvent("start_attempt", {
+    const eventPayload = {
       ...trackingAttribution,
       slug,
       scaleCode,
+      scale_code: normalizedScaleCode,
       test_slug: entryContext.testSlug ?? slug,
       ...(entryContext.entrySurface ? { entry_surface: entryContext.entrySurface } : {}),
       ...(entryContext.sourcePageType ? { source_page_type: entryContext.sourcePageType } : {}),
@@ -849,8 +850,15 @@ function QuizTakeInner({
       attempt_id: attemptId,
       attemptIdMasked: `${attemptId.slice(0, 6)}...${attemptId.slice(-4)}`,
       locale,
-    });
-  }, [attemptId, entryContext.entrySurface, entryContext.landingPath, entryContext.sourcePageType, entryContext.targetAction, entryContext.testSlug, locale, resolvedFormCode, scaleCode, slug, trackingAttribution]);
+    };
+
+    if (isMbtiScaleCode(scaleCode)) {
+      trackObservableFunnelEvent("start_attempt", eventPayload);
+      return;
+    }
+
+    trackEvent("start_attempt", eventPayload);
+  }, [attemptId, entryContext.entrySurface, entryContext.landingPath, entryContext.sourcePageType, entryContext.targetAction, entryContext.testSlug, locale, normalizedScaleCode, resolvedFormCode, scaleCode, slug, trackingAttribution]);
 
   useEffect(() => {
     const takeFlow = takeFlowRef.current;
@@ -992,17 +1000,29 @@ function QuizTakeInner({
     }
 
     const resultAttemptId = resolveResultAttemptId(response, activeAttemptId);
-    trackEvent("submit_attempt", {
+    const eventPayload = {
       ...trackingAttribution,
       slug,
+      scaleCode,
+      scale_code: normalizedScaleCode,
       test_slug: entryContext.testSlug ?? slug,
+      ...(entryContext.entrySurface ? { entry_surface: entryContext.entrySurface } : {}),
+      ...(entryContext.sourcePageType ? { source_page_type: entryContext.sourcePageType } : {}),
+      ...(entryContext.targetAction ? { target_action: entryContext.targetAction } : {}),
+      ...(entryContext.landingPath ? { landing_path: entryContext.landingPath } : {}),
+      attempt_id: resultAttemptId,
       attemptIdMasked: `${resultAttemptId.slice(0, 6)}...${resultAttemptId.slice(-4)}`,
       durationMs,
       ...(resolvedFormCode ? { form_code: resolvedFormCode } : {}),
       locale,
-    });
+    };
+    if (isMbtiScaleCode(scaleCode)) {
+      trackObservableFunnelEvent("submit_attempt", eventPayload);
+    } else {
+      trackEvent("submit_attempt", eventPayload);
+    }
     return resultAttemptId;
-  }, [anonId, attribution, entryContext.testSlug, isFlowActive, isIqScale, locale, questions, resolvedFormCode, runWithAuthRetry, slug, startedAt, trackingAttribution]);
+  }, [anonId, attribution, entryContext.entrySurface, entryContext.landingPath, entryContext.sourcePageType, entryContext.targetAction, entryContext.testSlug, isFlowActive, isIqScale, locale, normalizedScaleCode, questions, resolvedFormCode, runWithAuthRetry, scaleCode, slug, startedAt, trackingAttribution]);
 
   const handleSubmit = async (pendingSelection?: LastSelectionContext, runId?: number): Promise<string | null> => {
     if (submitInFlightRef.current || staleDraftError) {

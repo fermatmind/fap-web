@@ -96,7 +96,7 @@ describe("analytics payload privacy contract", () => {
     expect(fetchMock).not.toHaveBeenCalled();
   });
 
-  it("allows network-visible non-commercial funnel events without browser analytics consent", async () => {
+  it("allows network-visible funnel events without browser analytics consent while filtering PII", async () => {
     const fetchMock = vi.fn().mockResolvedValue(new Response(JSON.stringify({ ok: true })));
     const gtagMock = vi.fn();
     vi.stubGlobal("fetch", fetchMock);
@@ -130,7 +130,7 @@ describe("analytics payload privacy contract", () => {
     });
 
     expect(gtagMock).not.toHaveBeenCalled();
-    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
     const body = JSON.parse(String(fetchMock.mock.calls[0]?.[1]?.body ?? "{}")) as {
       eventName?: string;
       payload?: Record<string, unknown>;
@@ -143,7 +143,13 @@ describe("analytics payload privacy contract", () => {
       locale: "zh",
     });
     expect(JSON.stringify(body)).not.toContain("person@example.com");
-    expect(JSON.stringify(body)).not.toContain("ord_not_observable_without_consent");
+    const createOrderBody = JSON.parse(String(fetchMock.mock.calls[1]?.[1]?.body ?? "{}")) as {
+      eventName?: string;
+      payload?: Record<string, unknown>;
+    };
+    expect(createOrderBody.eventName).toBe("create_order");
+    expect(JSON.stringify(createOrderBody)).not.toContain("person@example.com");
+    expect(JSON.stringify(createOrderBody)).not.toContain("ord_not_observable_without_consent");
   });
 
   it("sends only redacted path and payload values after analytics consent is granted", async () => {
