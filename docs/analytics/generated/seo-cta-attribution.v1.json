@@ -1,7 +1,7 @@
 {
   "version": "seo.cta_attribution.v1",
   "owner": "fap-web",
-  "scope": "SEO-OPS-02,SEO-OPS-02B",
+  "scope": "SEO-OPS-02,SEO-OPS-02B,SEO-OPS-02C",
   "safeQueryParams": [
     "utm_source",
     "utm_medium",
@@ -60,6 +60,8 @@
   "runtimeGuards": [
     "Article CTA hrefs use safe query params from router search params when available",
     "Article CTA hrefs hydrate from stored first-touch attribution when router search params are unavailable",
+    "Article CTA hrefs hydrate from the current browser URL query when router search params and stored attribution are initially unavailable",
+    "Test detail and take URLs preserve safe UTM and SEO CTA context that arrived from an article CTA",
     "Attribution capture preserves existing safe UTM fields across same-site navigation without adding PII"
   ],
   "deferred": [
