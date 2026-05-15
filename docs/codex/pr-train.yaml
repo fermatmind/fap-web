@@ -2509,3 +2509,48 @@ prs:
       - scoring files
       - public copy/content files
     rollback_note: "Remove canonical RIASEC funnel event dispatch helpers/call sites, docs, and related contract assertions."
+
+
+  - id: PR-GRAPH-01
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web-pr-graph
+    branch: codex/pr-graph-01-multi-test-edges
+    base: main
+    depends_on:
+      - PR-GRAPH-01:fap-api
+    mode: execute
+    risk_level: L2
+    status: planned
+    title: "PR-GRAPH-01｜Article Multi-Test Graph Edges"
+    goal: "Make test detail related article consumers compatible with backend multi-test graph edges while preserving related_test_slug fallback."
+    in_scope:
+      - lib/cms/articles.ts
+      - tests/contracts/articles-cleanup.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - fap-api repository changes in this frontend PR
+      - article body/content edits
+      - public image assets
+      - sitemap/llms URL set changes
+      - payment/order/report/result/attempt/scoring flows
+      - homepage rendering or article list visual changes
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/articles-cleanup.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - git diff --check
+      - git diff --cached --check
+    acceptance:
+      - Test detail related article fetches remain backend-authoritative.
+      - Frontend accepts multi-test graph fields from the Article API.
+      - related_test_slug remains the primary/backward-compatible field.
+      - No frontend graph authority or hardcoded related articles are introduced.
+    must_not_touch:
+      - /Users/rainie/Desktop/GitHub/fap-api
+      - article body content
+      - public image assets
+      - sitemap/llms files
+      - result/payment/order/share/attempt/scoring runtime
+    rollback_note: "Remove multi-test graph field normalization and keep related_test_slug-only contract."

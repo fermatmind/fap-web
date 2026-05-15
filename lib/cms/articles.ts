@@ -46,6 +46,8 @@ type CmsArticleApiRecord = {
   cover_image_variants?: unknown;
   cover_image?: unknown;
   related_test_slug?: string | null;
+  related_test_slugs?: unknown;
+  test_edges?: unknown;
   voice?: string | null;
   voice_order?: number | string | null;
   status?: string;
@@ -136,6 +138,15 @@ export type CmsArticleImageVariants = {
   preload: CmsArticleImageVariant | null;
 };
 
+export type CmsArticleTestEdge = {
+  testSlug: string;
+  role: "primary" | "secondary" | "contextual" | string;
+  locale: string | null;
+  sortOrder: number | null;
+  safetyLevel: "normal" | "sensitive" | string;
+  visibility: "public" | "review" | "disabled" | string;
+};
+
 export type CmsArticle = {
   id: number | null;
   slug: string;
@@ -153,6 +164,8 @@ export type CmsArticle = {
   coverImageHeight: number | null;
   coverImageVariants: CmsArticleImageVariants;
   relatedTestSlug: string | null;
+  relatedTestSlugs?: string[];
+  testEdges?: CmsArticleTestEdge[];
   voice: string | null;
   voiceOrder: number | null;
   status: string;
@@ -293,6 +306,8 @@ function hasVisibleArticleCta(article: CmsArticle): boolean {
 function hasBackendRelatedTest(article: CmsArticle): boolean {
   return Boolean(
     article.relatedTestSlug
+    || (article.relatedTestSlugs?.length ?? 0) > 0
+    || article.testEdges?.some((edge) => edge.visibility === "public" && edge.testSlug)
     || article.landingSurface?.startTestTarget
     || article.landingSurface?.ctaBundle.some((item) => item.kind === "start_test" && item.href)
     || article.answerSurface?.nextStepBlocks.some((item) => item.kind === "start_test" && item.href)
@@ -449,6 +464,42 @@ function normalizePositiveInteger(value: unknown): number | null {
 
   const parsed = Number.parseInt(String(value ?? ""), 10);
   return Number.isFinite(parsed) && parsed > 0 ? parsed : null;
+}
+
+function normalizeStringList(value: unknown): string[] {
+  if (typeof value === "string") {
+    value = [value];
+  }
+  if (!Array.isArray(value)) {
+    return [];
+  }
+
+  return Array.from(new Set(value.map((item) => String(item ?? "").trim()).filter(Boolean)));
+}
+
+function normalizeArticleTestEdges(value: unknown): CmsArticleTestEdge[] {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+
+  return value
+    .map((item) => {
+      const record = item && typeof item === "object" && !Array.isArray(item) ? item : {};
+      const testSlug = normalizeIsoValue(readRecordValue(record, "test_slug", "testSlug", "slug"));
+      if (!testSlug) {
+        return null;
+      }
+
+      return {
+        testSlug,
+        role: normalizeIsoValue(readRecordValue(record, "role")) ?? "contextual",
+        locale: normalizeIsoValue(readRecordValue(record, "locale")),
+        sortOrder: normalizePositiveInteger(readRecordValue(record, "sort_order", "sortOrder")),
+        safetyLevel: normalizeIsoValue(readRecordValue(record, "safety_level", "safetyLevel")) ?? "normal",
+        visibility: normalizeIsoValue(readRecordValue(record, "visibility")) ?? "public",
+      };
+    })
+    .filter((item): item is CmsArticleTestEdge => item !== null);
 }
 
 function normalizeStatus(value: unknown): string {
@@ -769,6 +820,13 @@ function normalizeArticle(article: CmsArticleApiRecord): CmsArticle {
     firstImageUrl(coverImageVariants.hero, coverImageVariants.card, coverImageVariants.og, coverImageVariants.thumbnail);
   const readingMinutes =
     normalizePositiveInteger(article.reading_minutes) ?? estimateReadingMinutes(article.content_html, article.content_md, article.excerpt);
+  const testEdges = normalizeArticleTestEdges(article.test_edges);
+  const relatedTestSlug = normalizeIsoValue(article.related_test_slug);
+  const relatedTestSlugs = Array.from(new Set([
+    ...(relatedTestSlug ? [relatedTestSlug] : []),
+    ...normalizeStringList(article.related_test_slugs),
+    ...testEdges.map((edge) => edge.testSlug),
+  ]));
 
   return {
     id: typeof article.id === "number" ? article.id : null,
@@ -791,7 +849,9 @@ function normalizeArticle(article: CmsArticleApiRecord): CmsArticle {
     coverImageHeight:
       normalizePositiveInteger(article.cover_image_height) ?? normalizePositiveInteger(readRecordValue(nestedCoverImage, "height")),
     coverImageVariants,
-    relatedTestSlug: normalizeIsoValue(article.related_test_slug),
+    relatedTestSlug,
+    relatedTestSlugs,
+    testEdges,
     voice: normalizeIsoValue(article.voice),
     voiceOrder: normalizePositiveInteger(article.voice_order),
     status: normalizeStatus(article.status),
