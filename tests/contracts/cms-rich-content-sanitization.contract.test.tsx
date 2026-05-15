@@ -107,7 +107,7 @@ describe("CMS rich content sanitization contract", () => {
 
     for (const relPath of sinkFiles) {
       const source = readSource(relPath);
-      expect(source).toContain("SanitizedCmsHtml");
+      expect(source).toMatch(/SanitizedCmsHtml|AttributedSanitizedCmsHtml/);
       expect(source).not.toContain("dangerouslySetInnerHTML");
     }
   });

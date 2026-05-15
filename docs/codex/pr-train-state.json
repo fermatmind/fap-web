@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-15T21:34:00+08:00",
+  "updated_at": "2026-05-16T10:38:00+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -3217,7 +3217,7 @@
       "depends_on": [
         "SEO-OPS-02B"
       ],
-      "status": "pr_open",
+      "status": "merged",
       "title": "fix(tracking): preserve visible UTM navigation for SEO CTAs",
       "mode": "execute",
       "risk_level": "L1",
@@ -3298,10 +3298,10 @@
       ],
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/813",
-      "commit_sha": "8059e9280ad6fd486e0b491029fb81f2ac3add91",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "3ac993a7711087b08832e2fea456a2bae3e23b3a",
+      "merged_at": "2026-05-15T20:56:30Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "sidecar_issues": [],
       "history": [
         {
@@ -3323,6 +3323,135 @@
           "at": "2026-05-16T04:56:00+08:00",
           "status": "pr_open",
           "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/813 for SEO-OPS-02C."
+        },
+        {
+          "at": "2026-05-16T10:30:00+08:00",
+          "status": "merged",
+          "summary": "Reconciled PR #813 as merged into origin/main at 3ac993a7711087b08832e2fea456a2bae3e23b3a before starting SEO-OPS-02D."
+        }
+      ]
+    },
+    {
+      "id": "SEO-OPS-02D",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/seo-ops-02d-article-cms-cta-visible-attribution",
+      "base": "main",
+      "depends_on": [
+        "SEO-OPS-02C"
+      ],
+      "status": "committed",
+      "title": "fix(tracking): attribute article CMS test CTA hrefs",
+      "mode": "execute",
+      "risk_level": "L1",
+      "allowed_paths": [
+        "app/(localized)/[locale]/articles/[slug]/page.tsx",
+        "components/content/AnswerSurfaceSection.tsx",
+        "components/content/AttributedSanitizedCmsHtml.tsx",
+        "tests/contracts/**attribution**",
+        "tests/contracts/**cta**",
+        "tests/contracts/**cms-rich-content**",
+        "docs/analytics/seo-cta-attribution.md",
+        "docs/analytics/generated/seo-cta-attribution.v1.json",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [
+        {
+          "name": "manifest authorization",
+          "status": "passed",
+          "details": "User explicitly authorized adding SEO-OPS-02D to docs/codex/pr-train.yaml and docs/codex/pr-train-state.json."
+        },
+        {
+          "name": "dependency reconciliation",
+          "status": "passed",
+          "details": "PR #813 / SEO-OPS-02C is merged into origin/main at 3ac993a7711087b08832e2fea456a2bae3e23b3a."
+        },
+        {
+          "name": "branch preflight",
+          "status": "passed",
+          "details": "Started from latest main on branch codex/seo-ops-02d-article-cms-cta-visible-attribution before scoped edits."
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/seo-ops-02d-article-rich-content-cta-attribution.contract.test.tsx",
+          "status": "passed",
+          "details": "1 file / 3 tests passed."
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/seo-ops-02c-visible-utm-navigation.contract.test.tsx",
+          "status": "passed",
+          "details": "1 file / 2 tests passed."
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/cms-rich-content-sanitization.contract.test.tsx",
+          "status": "passed",
+          "details": "1 file / 5 tests passed."
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/*attribution*",
+          "status": "passed",
+          "details": "7 files / 37 tests passed."
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/*cta*",
+          "status": "passed",
+          "details": "7 files / 42 tests passed."
+        },
+        {
+          "name": "pnpm typecheck",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm test:contract",
+          "status": "passed",
+          "details": "362 files / 2031 tests passed."
+        },
+        {
+          "name": "pnpm seo:check-sitemap",
+          "status": "passed",
+          "details": "sitemap indexability check passed: 261 urls."
+        },
+        {
+          "name": "git diff --check",
+          "status": "passed"
+        },
+        {
+          "name": "git diff --cached --check",
+          "status": "passed"
+        },
+        {
+          "name": "manifest/state parse",
+          "status": "passed",
+          "details": "Ruby YAML parse and python JSON parse passed."
+        },
+        {
+          "name": "scope validation",
+          "status": "passed",
+          "details": "Changed files are limited to article CMS rich-content CTA attribution, AnswerSurfaceSection CTA wiring, analytics docs/artifact, targeted contracts, and PR train metadata."
+        }
+      ],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": "f6d6b0264b4e2a1d8a93059d74b674be98aeed25",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [],
+      "history": [
+        {
+          "at": "2026-05-16T10:30:00+08:00",
+          "status": "in_progress",
+          "summary": "Initialized SEO-OPS-02D to fix live article CMS/rich-content CTA href attribution paths that bypassed SeoTrackedCtaLink."
+        },
+        {
+          "at": "2026-05-16T10:36:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Implemented article CMS/rich-content test CTA href attribution and passed targeted contracts, full contracts, typecheck, sitemap, manifest parse, and diff checks."
+        },
+        {
+          "at": "2026-05-16T10:38:00+08:00",
+          "status": "committed",
+          "summary": "Committed scoped SEO-OPS-02D implementation at f6d6b0264b4e2a1d8a93059d74b674be98aeed25."
         }
       ]
     },
