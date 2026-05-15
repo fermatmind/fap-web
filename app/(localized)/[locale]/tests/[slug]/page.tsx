@@ -588,7 +588,7 @@ export async function generateMetadata({
     alternatesByLocale: {
       en: alternates.en,
       zh: alternates.zh,
-      xDefault: "/",
+      xDefault: alternates["x-default"],
     },
   });
 }

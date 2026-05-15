@@ -1,0 +1,45 @@
+{
+  "version": "seo.i18n_passport.v1",
+  "scope": "PR-SEO-01A",
+  "runtimeBehaviorChanged": "metadata_alternate_assembly_only",
+  "sitemapUrlSetChanged": false,
+  "llmsExposureChanged": false,
+  "schemaOrgChanged": false,
+  "authority": {
+    "articleSiblingAlternates": "backend_cms_published_sibling_payload",
+    "frontendSlugParityAlternatesAllowed": false,
+    "testDetailAlternates": "deterministic_published_route_family"
+  },
+  "rules": [
+    {
+      "id": "article_preserve_x_default",
+      "pageFamily": "article_detail",
+      "rule": "Article detail must preserve x-default after buildPageMetadata and must not overwrite languages with CMS alternates only."
+    },
+    {
+      "id": "article_no_slug_parity_fabrication",
+      "pageFamily": "article_detail",
+      "rule": "Article detail must not generate unpublished sibling alternates from shared slug parity."
+    },
+    {
+      "id": "test_detail_specific_x_default",
+      "pageFamily": "test_detail",
+      "rule": "Test detail x-default must point to the English test canonical when the test route exists."
+    }
+  ],
+  "deferred": [
+    "SoftwareApplication schema",
+    "Product schema",
+    "AggregateRating schema",
+    "Review schema"
+  ],
+  "mustNotChange": [
+    "sitemap URL set",
+    "llms exposure",
+    "public content",
+    "payment/order/report entitlement",
+    "recommendation runtime",
+    "profile or memory",
+    "scoring"
+  ]
+}

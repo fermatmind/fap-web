@@ -28,6 +28,7 @@ import {
   buildFAQPageJsonLd,
 } from "@/lib/seo/generateSchema";
 import { resolveArticleJsonLdAuthority } from "@/lib/seo/articlePersonalityAuthority";
+import { buildI18nSeoPassport } from "@/lib/seo/i18nPassport";
 import { buildPageMetadata, normalizeTwitterImages, resolveTwitterCard } from "@/lib/seo/metadata";
 
 export const dynamic = "force-dynamic";
@@ -163,6 +164,13 @@ export async function generateMetadata({
 
   const canonical = seo?.surface?.canonicalUrl ?? seo?.meta.canonical ?? String(metadata.alternates?.canonical ?? "");
   const ogImage = seo?.surface?.og.image ?? seo?.meta.og.image ?? articleImage ?? null;
+  const passport = buildI18nSeoPassport({
+    canonical,
+    currentLocale: locale,
+    authorityAlternates: articleAlternateLanguages(seo),
+    existingLanguages: metadata.alternates?.languages,
+    fallbackXDefault: "/",
+  });
 
   const twitterImages = normalizeTwitterImages(
     seo?.surface?.twitter.image,
@@ -175,8 +183,8 @@ export async function generateMetadata({
     ...metadata,
     alternates: {
       ...metadata.alternates,
-      canonical,
-      languages: articleAlternateLanguages(seo),
+      canonical: passport.canonical,
+      languages: passport.languages,
     },
     openGraph: {
       type: "article",
