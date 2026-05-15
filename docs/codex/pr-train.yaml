@@ -2434,3 +2434,78 @@ prs:
       - scoring files
       - public copy/content files
     rollback_note: "Remove SEO CTA navigation attribution helpers, RIASEC attempt-start attribution mapping, docs, and related contract assertions."
+
+  - id: SEO-OPS-03
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/seo-ops-03-riasec-standard-funnel-events
+    base: main
+    depends_on:
+      - EMAIL-RIASEC-01:fap-api
+      - EMAIL-RIASEC-02
+      - SEO-OPS-02
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "feat(tracking): emit standard RIASEC funnel events"
+    goal: "Emit canonical start_attempt, submit_attempt, and view_result events for the RIASEC live path while preserving RIASEC-specific tracking as secondary."
+    in_scope:
+      - app/(localized)/[locale]/tests/[slug]/take/RiasecTakeClient.tsx
+      - components/result/riasec/RiasecResultShell.tsx
+      - lib/riasec/tracking.ts
+      - lib/riasec/api.ts
+      - lib/tracking/events.ts
+      - lib/tracking/client.ts
+      - lib/tracking/attribution.ts
+      - tests/contracts/**riasec**
+      - tests/contracts/**tracking**
+      - tests/contracts/**analytics**
+      - docs/analytics/**
+      - docs/seo/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - fap-api repository or nested fap-api/fap-web copy
+      - backend files
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - next-sitemap.config.js
+      - public/sitemap.xml
+      - payment/order/report entitlement files
+      - recommendation files
+      - career graph files
+      - profile/memory files
+      - scoring files
+      - public copy/content files
+      - pSEO pages
+      - deployment/env/production commands
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/*riasec*
+      - pnpm exec vitest run tests/contracts/*tracking*
+      - pnpm exec vitest run tests/contracts/*analytics*
+      - pnpm typecheck
+      - pnpm test:contract
+      - pnpm seo:check-sitemap
+      - git diff --check
+      - git diff --cached --check
+    acceptance:
+      - RIASEC start success emits canonical start_attempt with safe scale/form/test/source attribution metadata.
+      - RIASEC submit success emits canonical submit_attempt with safe scale/form/test/attempt/source attribution metadata.
+      - RIASEC visible result render emits canonical view_result while preserving RIASEC-specific secondary tracking if present.
+      - start_attempt, submit_attempt, and view_result do not trigger Google Ads purchase conversion.
+      - purchase_success and pay_success remain the only Ads purchase conversion triggers.
+      - Sitemap/llms, backend, payment, recommendation, profile, memory, scoring, and public content remain unchanged.
+    must_not_touch:
+      - /Users/rainie/Desktop/GitHub/fap-api
+      - /Users/rainie/Desktop/GitHub/fap-api/fap-web
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - next-sitemap.config.js
+      - public/sitemap.xml
+      - payment/order/report entitlement runtime
+      - recommendation files
+      - career graph files
+      - profile/memory files
+      - scoring files
+      - public copy/content files
+    rollback_note: "Remove canonical RIASEC funnel event dispatch helpers/call sites, docs, and related contract assertions."

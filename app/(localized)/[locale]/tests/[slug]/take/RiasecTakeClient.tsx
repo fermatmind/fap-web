@@ -8,6 +8,7 @@ import { QuizShell } from "@/components/quiz/QuizShell";
 import { Button } from "@/components/ui/button";
 import { Alert } from "@/components/ui/alert";
 import { getOrCreateAnonId } from "@/lib/anon";
+import { trackEvent } from "@/lib/analytics";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath, toApiLocale } from "@/lib/i18n/locales";
 import {
@@ -17,7 +18,12 @@ import {
   submitRiasecAttempt,
 } from "@/lib/riasec/api";
 import { normalizeRiasecFormCode, resolveRiasecFormMeta } from "@/lib/riasec/forms";
+import {
+  buildRiasecStartAttemptTrackingPayload,
+  buildRiasecSubmitAttemptTrackingPayload,
+} from "@/lib/riasec/tracking";
 import { readStoredTrackingAttributionPayload } from "@/lib/tracking/attribution";
+import { TRACKING_EVENTS } from "@/lib/tracking/events";
 import { buildSeoAttemptStartAttributionFromSearchParams } from "@/lib/tracking/seoCtaAttribution";
 
 type RiasecOption = {
@@ -154,6 +160,16 @@ export default function RiasecTakeClient({
         setQuestions(normalizeQuestions(rawItems, locale));
         setAttemptId(startResponse.attempt_id);
         setStartedAt(Date.now());
+        trackEvent(
+          TRACKING_EVENTS.START_ATTEMPT,
+          buildRiasecStartAttemptTrackingPayload({
+            slug,
+            formCode: resolvedFormCode,
+            locale,
+            attemptId: startResponse.attempt_id,
+            attribution: attributionContext.meta,
+          })
+        );
       } catch (cause) {
         if (!active) return;
         setError(cause instanceof Error ? cause.message : dict.result.reportUnavailable);
@@ -182,18 +198,31 @@ export default function RiasecTakeClient({
     setError(null);
 
     try {
+      const durationMs = Math.max(1000, Date.now() - startedAt);
       await submitRiasecAttempt({
         attemptId,
         anonId,
         answers: buildRiasecSubmitAnswers({ questionIds, answers }),
-        durationMs: Math.max(1000, Date.now() - startedAt),
+        durationMs,
       });
+      trackEvent(
+        TRACKING_EVENTS.SUBMIT_ATTEMPT,
+        buildRiasecSubmitAttemptTrackingPayload({
+          slug,
+          formCode: resolvedFormCode,
+          locale,
+          attemptId,
+          answeredCount,
+          durationMs,
+          attribution: attributionContext.meta,
+        })
+      );
       router.push(withLocale(`/result/${attemptId}`));
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : dict.result.reportUnavailable);
       setSubmitting(false);
     }
-  }, [answeredCount, anonId, answers, attemptId, dict.result.reportUnavailable, questionIds, questions.length, router, startedAt, submitting, withLocale]);
+  }, [answeredCount, anonId, answers, attemptId, attributionContext.meta, dict.result.reportUnavailable, locale, questionIds, questions.length, resolvedFormCode, router, slug, startedAt, submitting, withLocale]);
 
   if (loading) {
     return (

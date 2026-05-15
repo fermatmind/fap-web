@@ -18,8 +18,10 @@ import {
 } from "@/lib/riasec/resultAssembler";
 import {
   buildRiasecTrustedResultTrackingPayload,
+  buildRiasecViewResultTrackingPayload,
   RIASEC_TRACKING_EVENTS,
 } from "@/lib/riasec/tracking";
+import { TRACKING_EVENTS } from "@/lib/tracking/events";
 
 export function RiasecResultShell({
   locale,
@@ -76,8 +78,16 @@ export function RiasecResultShell({
     : [];
 
   useEffect(() => {
+    trackEvent(
+      TRACKING_EVENTS.VIEW_RESULT,
+      buildRiasecViewResultTrackingPayload({
+        viewModel,
+        locale,
+        attemptId,
+      })
+    );
     trackEvent(RIASEC_TRACKING_EVENTS.resultView, trackingPayload);
-  }, [trackingPayload]);
+  }, [attemptId, locale, trackingPayload, viewModel]);
 
   useEffect(() => {
     if (!viewModel.activityExplorer) {
