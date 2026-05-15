@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-16T10:38:00+08:00",
+  "updated_at": "2026-05-16T10:41:00+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -3340,7 +3340,7 @@
       "depends_on": [
         "SEO-OPS-02C"
       ],
-      "status": "committed",
+      "status": "pr_open",
       "title": "fix(tracking): attribute article CMS test CTA hrefs",
       "mode": "execute",
       "risk_level": "L1",
@@ -3431,8 +3431,8 @@
         }
       ],
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": "f6d6b0264b4e2a1d8a93059d74b674be98aeed25",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/814",
+      "commit_sha": "733b34bf53330b8efd8c1dadae5a86fc8eafa311",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -3452,6 +3452,11 @@
           "at": "2026-05-16T10:38:00+08:00",
           "status": "committed",
           "summary": "Committed scoped SEO-OPS-02D implementation at f6d6b0264b4e2a1d8a93059d74b674be98aeed25."
+        },
+        {
+          "at": "2026-05-16T10:41:00+08:00",
+          "status": "pr_open",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/814 for SEO-OPS-02D."
         }
       ]
     },
