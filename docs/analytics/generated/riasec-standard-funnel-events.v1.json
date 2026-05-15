@@ -1,0 +1,72 @@
+{
+  "artifact": "riasec-standard-funnel-events",
+  "version": 1,
+  "pr_id": "SEO-OPS-03",
+  "canonical_events": [
+    "start_attempt",
+    "submit_attempt",
+    "view_result"
+  ],
+  "secondary_events_preserved": [
+    "riasec_result_view",
+    "riasec_share_view",
+    "riasec_pdf_view",
+    "riasec_activity_explorer_view",
+    "riasec_feedback_overlay_view"
+  ],
+  "safe_payload_fields": [
+    "scale_code",
+    "form_code",
+    "test_slug",
+    "attempt_id",
+    "answered_count",
+    "durationMs",
+    "duration_ms",
+    "locale",
+    "utm_source",
+    "utm_medium",
+    "utm_campaign",
+    "utm_term",
+    "utm_content",
+    "gclid",
+    "msclkid",
+    "fbclid",
+    "referrer",
+    "landing_path",
+    "current_path",
+    "session_id",
+    "entry_surface",
+    "source_page_type",
+    "source_route_family",
+    "source_slug",
+    "target_action",
+    "target_test_slug",
+    "cta_id"
+  ],
+  "blocked_payload_fields": [
+    "email",
+    "token",
+    "authorization",
+    "answers",
+    "checkout_url",
+    "report_url",
+    "payment_data"
+  ],
+  "ads_purchase_conversion_boundary": {
+    "allowed_triggers": [
+      "purchase_success",
+      "pay_success"
+    ],
+    "forbidden_triggers": [
+      "start_attempt",
+      "submit_attempt",
+      "view_result",
+      "create_order",
+      "payment_confirmed"
+    ]
+  },
+  "deferred": [
+    "RIASEC unlock/order commercial path",
+    "live dashboard verification after deployment"
+  ]
+}

@@ -3079,6 +3079,118 @@
           "at": "2026-05-15T00:00:00+08:00",
           "status": "pr_open",
           "summary": "Opened fap-web PR #809 for SEO-OPS-02."
+        },
+        {
+          "at": "2026-05-15T00:00:00+08:00",
+          "status": "merged",
+          "summary": "Reconciled PR #809 as merged into origin/main at 92b0c828c507e3fc288e9dfd1298aea34cb02fd0 before starting SEO-OPS-03."
+        }
+      ]
+    },
+    {
+      "id": "SEO-OPS-03",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/seo-ops-03-riasec-standard-funnel-events",
+      "base": "main",
+      "depends_on": [
+        "EMAIL-RIASEC-01:fap-api",
+        "EMAIL-RIASEC-02",
+        "SEO-OPS-02"
+      ],
+      "status": "pr_open",
+      "title": "feat(tracking): emit standard RIASEC funnel events",
+      "mode": "execute",
+      "risk_level": "L1",
+      "allowed_paths": [
+        "app/(localized)/[locale]/tests/[slug]/take/RiasecTakeClient.tsx",
+        "components/result/riasec/RiasecResultShell.tsx",
+        "lib/riasec/tracking.ts",
+        "lib/riasec/api.ts",
+        "lib/tracking/events.ts",
+        "lib/tracking/client.ts",
+        "lib/tracking/attribution.ts",
+        "tests/contracts/**riasec**",
+        "tests/contracts/**tracking**",
+        "tests/contracts/**analytics**",
+        "docs/analytics/**",
+        "docs/seo/**",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [
+        {
+          "name": "manifest authorization",
+          "status": "passed",
+          "details": "User explicitly authorized adding SEO-OPS-03 to docs/codex/pr-train.yaml and docs/codex/pr-train-state.json."
+        },
+        {
+          "name": "branch preflight",
+          "status": "passed",
+          "details": "Started from latest main and created branch codex/seo-ops-03-riasec-standard-funnel-events before scoped edits."
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/*riasec*",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/*tracking*",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/*analytics*",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm typecheck",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm test:contract",
+          "status": "passed",
+          "details": "359 files / 2023 tests passed."
+        },
+        {
+          "name": "pnpm seo:check-sitemap",
+          "status": "passed"
+        },
+        {
+          "name": "git diff --check",
+          "status": "passed"
+        },
+        {
+          "name": "scope validation",
+          "status": "passed",
+          "details": "Changed files are limited to authorized RIASEC tracking, event taxonomy, analytics docs/tests, and PR train metadata."
+        }
+      ],
+      "failure_reason": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/811",
+      "commit_sha": "4fd4cd532bc064b577c7edf3b7e21f58bfdeac11",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [],
+      "history": [
+        {
+          "at": "2026-05-15T00:00:00+08:00",
+          "status": "in_progress",
+          "summary": "Initialized SEO-OPS-03 for canonical RIASEC funnel event dispatch."
+        },
+        {
+          "at": "2026-05-15T00:00:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Implemented RIASEC standard funnel events and completed required local checks."
+        },
+        {
+          "at": "2026-05-15T00:00:00+08:00",
+          "status": "committed",
+          "summary": "Committed scoped SEO-OPS-03 implementation at 8280a3ed2381f0299c009b261da3ec3b8901597f."
+        },
+        {
+          "at": "2026-05-15T00:00:00+08:00",
+          "status": "pr_open",
+          "summary": "Opened fap-web PR #811 for SEO-OPS-03."
         }
       ]
     }

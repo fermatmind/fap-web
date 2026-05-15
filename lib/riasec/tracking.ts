@@ -25,6 +25,95 @@ export type RiasecTrustedResultTrackingPayload = {
   locale: Locale;
 };
 
+const RIASEC_FUNNEL_ATTRIBUTION_FIELDS = [
+  "utm_source",
+  "utm_medium",
+  "utm_campaign",
+  "utm_term",
+  "utm_content",
+  "gclid",
+  "msclkid",
+  "fbclid",
+  "referrer",
+  "landing_path",
+  "current_path",
+  "session_id",
+  "entry_surface",
+  "source_page_type",
+  "source_route_family",
+  "source_slug",
+  "target_action",
+  "target_test_slug",
+  "cta_id",
+] as const;
+
+function copySafeRiasecAttribution(payload?: Record<string, unknown>): Record<string, string> {
+  if (!payload) return {};
+
+  return RIASEC_FUNNEL_ATTRIBUTION_FIELDS.reduce<Record<string, string>>((acc, key) => {
+    const value = payload[key];
+    if (typeof value === "string" && value.trim()) {
+      acc[key] = value.trim();
+    }
+    return acc;
+  }, {});
+}
+
+export function buildRiasecStartAttemptTrackingPayload({
+  slug,
+  formCode,
+  locale,
+  attemptId,
+  attribution,
+}: {
+  slug: string;
+  formCode: string;
+  locale: Locale;
+  attemptId?: string | null;
+  attribution?: Record<string, unknown>;
+}): Record<string, unknown> {
+  return {
+    ...copySafeRiasecAttribution(attribution),
+    slug,
+    test_slug: slug,
+    scale_code: "RIASEC",
+    form_code: formCode,
+    ...(attemptId ? { attempt_id: attemptId } : {}),
+    locale,
+  };
+}
+
+export function buildRiasecSubmitAttemptTrackingPayload({
+  slug,
+  formCode,
+  locale,
+  attemptId,
+  answeredCount,
+  durationMs,
+  attribution,
+}: {
+  slug: string;
+  formCode: string;
+  locale: Locale;
+  attemptId?: string | null;
+  answeredCount: number;
+  durationMs: number;
+  attribution?: Record<string, unknown>;
+}): Record<string, unknown> {
+  return {
+    ...copySafeRiasecAttribution(attribution),
+    slug,
+    test_slug: slug,
+    scale_code: "RIASEC",
+    form_code: formCode,
+    ...(attemptId ? { attempt_id: attemptId } : {}),
+    answered_count: answeredCount,
+    durationMs,
+    duration_ms: durationMs,
+    locale,
+  };
+}
+
 export function buildRiasecTrustedResultTrackingPayload(
   viewModel: RiasecResultViewModel,
   locale: Locale
@@ -52,5 +141,22 @@ export function buildRiasecTrustedResultTrackingPayload(
       activityExplorer?.occupationExamplesPolicy ||
       "",
     locale,
+  };
+}
+
+export function buildRiasecViewResultTrackingPayload({
+  viewModel,
+  locale,
+  attemptId,
+}: {
+  viewModel: RiasecResultViewModel;
+  locale: Locale;
+  attemptId?: string | null;
+}): Record<string, unknown> {
+  return {
+    ...buildRiasecTrustedResultTrackingPayload(viewModel, locale),
+    ...(attemptId ? { attempt_id: attemptId } : {}),
+    result_type: viewModel.topCode,
+    top_code: viewModel.topCode,
   };
 }
