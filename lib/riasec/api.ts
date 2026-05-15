@@ -12,7 +12,7 @@ import {
   type SubmitResponse,
 } from "@/lib/api/v0_3";
 import { getOrCreateAnonId } from "@/lib/anon";
-import { runWithGuestTokenRetry } from "@/lib/auth/authRetry";
+import { ensureFmTokenReady, runWithGuestTokenRetry } from "@/lib/auth/authRetry";
 import { normalizeRiasecFormCode, RIASEC_SCALE_CODE } from "@/lib/riasec/forms";
 
 function resolveAnonId(anonId?: string): string | undefined {
@@ -37,6 +37,22 @@ async function withRiasecAuthRetry<T>({
     runner: run,
     anonId: resolveAnonId(anonId),
     locale,
+  });
+}
+
+export async function ensureRiasecGuestTokenReady({
+  anonId,
+  locale,
+  forceRefresh = true,
+}: {
+  anonId?: string;
+  locale?: string;
+  forceRefresh?: boolean;
+} = {}): Promise<"existing" | "issued"> {
+  return ensureFmTokenReady({
+    anonId: resolveAnonId(anonId),
+    locale,
+    forceRefresh,
   });
 }
 
@@ -85,6 +101,12 @@ export async function startRiasecAttempt({
 }): Promise<StartAttemptResponse> {
   const resolvedAnonId = resolveAnonId(anonId);
   const resolvedFormCode = normalizeRiasecFormCode(formCode);
+
+  await ensureRiasecGuestTokenReady({
+    anonId: resolvedAnonId,
+    locale,
+    forceRefresh: true,
+  });
 
   return withRiasecAuthRetry({
     anonId: resolvedAnonId,

@@ -2874,6 +2874,94 @@
           "summary": "Opened fap-web PR #803 for PR-HOME-01."
         }
       ]
+    },
+    {
+      "id": "EMAIL-RIASEC-02",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/email-riasec-02-frontend-guest-token-parity",
+      "base": "main",
+      "depends_on": [],
+      "status": "in_progress",
+      "title": "fix(riasec): ensure guest token parity before starting attempts",
+      "mode": "execute",
+      "risk_level": "L1",
+      "allowed_paths": [
+        "app/(localized)/[locale]/tests/[slug]/take/RiasecTakeClient.tsx",
+        "lib/riasec/api.ts",
+        "lib/api/v0_3.ts",
+        "tests/contracts/**riasec**",
+        "tests/contracts/**attempt**",
+        "tests/contracts/**email**",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [
+        {
+          "name": "manifest authorization",
+          "status": "passed",
+          "details": "User explicitly authorized adding EMAIL-RIASEC-02 to docs/codex/pr-train.yaml and docs/codex/pr-train-state.json."
+        },
+        {
+          "name": "branch preflight",
+          "status": "passed",
+          "details": "Started from latest main and created branch codex/email-riasec-02-frontend-guest-token-parity before scoped edits."
+        },
+        {
+          "name": "targeted riasec guest token parity contract",
+          "status": "passed",
+          "details": "pnpm exec vitest run tests/contracts/riasec-guest-token-parity.contract.test.ts"
+        },
+        {
+          "name": "riasec attempt email contract set",
+          "status": "passed",
+          "details": "pnpm exec vitest run tests/contracts/*riasec* tests/contracts/*attempt* tests/contracts/*email*"
+        },
+        {
+          "name": "typecheck",
+          "status": "passed",
+          "details": "pnpm typecheck"
+        },
+        {
+          "name": "contract suite",
+          "status": "passed",
+          "details": "pnpm test:contract"
+        },
+        {
+          "name": "sitemap check",
+          "status": "passed",
+          "details": "pnpm seo:check-sitemap"
+        },
+        {
+          "name": "supplementary build",
+          "status": "passed",
+          "details": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build; postbuild generated sitemap drift was restored and public/sitemap.xml is not included."
+        },
+        {
+          "name": "scope validation",
+          "status": "passed",
+          "details": "Final diff is limited to EMAIL-RIASEC-02 manifest/state, lib/riasec/api.ts, and a RIASEC guest token parity contract test."
+        }
+      ],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [],
+      "history": [
+        {
+          "at": "2026-05-15T00:00:00+08:00",
+          "status": "in_progress",
+          "summary": "Initialized EMAIL-RIASEC-02 for frontend RIASEC guest token parity."
+        },
+        {
+          "at": "2026-05-15T00:00:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Implemented RIASEC guest token readiness before attempts/start and validated targeted contracts, full contracts, typecheck, sitemap check, and supplementary build."
+        }
+      ]
     }
   ],
   "sidecar_issues": [

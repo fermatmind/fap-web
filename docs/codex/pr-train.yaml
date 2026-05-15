@@ -2289,3 +2289,66 @@ prs:
       - article list/detail pages
       - result/payment/order/share runtime
     rollback_note: "Restore homepage recommended article cards to ArticleVisual-only rendering and remove the cover rendering contract assertions."
+
+  - id: EMAIL-RIASEC-02
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/email-riasec-02-frontend-guest-token-parity
+    base: main
+    depends_on: []
+    mode: execute
+    risk_level: L1
+    status: planned
+    title: "fix(riasec): ensure guest token parity before starting attempts"
+    goal: "Ensure RIASEC start, submit, result, and email-bind flows share one stable guest token / anon identity."
+    in_scope:
+      - app/(localized)/[locale]/tests/[slug]/take/RiasecTakeClient.tsx
+      - lib/riasec/api.ts
+      - lib/api/v0_3.ts
+      - tests/contracts/*riasec*
+      - tests/contracts/*attempt*
+      - tests/contracts/*email*
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - fap-api repository or nested fap-api/fap-web copy
+      - backend files
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - next-sitemap.config.js
+      - public/sitemap.xml
+      - payment/order/report entitlement files
+      - recommendation files
+      - career graph files
+      - profile/memory files
+      - scoring files
+      - SEO public pages
+      - attribution/UTM policy changes
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/*riasec* tests/contracts/*attempt* tests/contracts/*email*
+      - pnpm typecheck
+      - pnpm test:contract
+      - pnpm seo:check-sitemap
+      - git diff --check
+      - git diff --cached --check
+    acceptance:
+      - RIASEC attempts/start is preceded by guest token readiness for the current anon identity.
+      - RIASEC submit uses the same anon/token context as start.
+      - Guest token retry does not create a different anon context after start.
+      - Result email-bind can rely on the same anon identity.
+      - No email is added to URL, GA4, Google Ads, Baidu, or analytics payloads.
+      - Sitemap/llms, backend, payment, recommendation, profile, memory, scoring, and attribution policy remain unchanged.
+    must_not_touch:
+      - /Users/rainie/Desktop/GitHub/fap-api
+      - /Users/rainie/Desktop/GitHub/fap-api/fap-web
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - next-sitemap.config.js
+      - public/sitemap.xml
+      - payment/order/report entitlement runtime
+      - recommendation files
+      - career graph files
+      - profile/memory files
+      - scoring files
+      - SEO public pages
+    rollback_note: "Remove the RIASEC guest token readiness call/helper and related identity parity contract coverage."
