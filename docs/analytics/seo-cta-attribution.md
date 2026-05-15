@@ -53,6 +53,10 @@ RIASEC `attempts/start` receives:
 
 Production verification after `SEO-OPS-02` showed the code was deployed but article CTA `href` could still render without UTM on the live article route. `SEO-OPS-02B` closes that gap by reading the stored safe attribution payload after hydration and using it to rebuild the CTA href before click. The same safe UTM keys are kept explicit in RIASEC `attempts/start.meta` when present.
 
+## SEO-OPS-02C Visible Navigation Closure
+
+Production verification after `SEO-OPS-02B` showed `attempts/start.meta` carried UTM correctly, but the visible article CTA, test detail URL, and take URL could still omit UTM. `SEO-OPS-02C` closes that URL-level gap by allowing the client CTA wrapper to read the current browser URL query when App Router search params and stored attribution are not yet available. Only the existing safe attribution allow-list is copied into CTA hrefs. Email, arbitrary query params, order identifiers, payment identifiers, and Ads conversion behavior remain excluded.
+
 ## Deferred
 
 - Standard RIASEC funnel event observability remains separate `SEO-OPS-03`.

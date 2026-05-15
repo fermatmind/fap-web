@@ -44,8 +44,19 @@ export function SeoTrackedCtaLink({
 }: SeoTrackedCtaLinkProps) {
   const pathname = usePathname() ?? sourcePath;
   const searchParams = useSearchParams();
-  const search = searchParams.toString();
+  const routerSearch = searchParams.toString();
+  const [browserSearch, setBrowserSearch] = useState("");
+  const search = routerSearch || browserSearch;
   const [storedAttributionPayload, setStoredAttributionPayload] = useState<TrackingAttributionPayload>({});
+
+  useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
+    setBrowserSearch(window.location.search.replace(/^\?/, ""));
+  }, [pathname, routerSearch]);
+
   const searchAttributionParams = useMemo(
     () => extractAttributionParamsFromSearchParams(new URLSearchParams(search)),
     [search]
