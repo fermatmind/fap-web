@@ -2978,7 +2978,7 @@
         "EMAIL-RIASEC-01:fap-api",
         "EMAIL-RIASEC-02"
       ],
-      "status": "in_progress",
+      "status": "pr_open",
       "title": "feat(tracking): preserve SEO CTA attribution into attempt start",
       "mode": "execute",
       "risk_level": "L1",
@@ -3058,8 +3058,8 @@
         }
       ],
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/809",
+      "commit_sha": "2f82828f5b35541d4a70a25900530f245255894a",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -3074,6 +3074,11 @@
           "at": "2026-05-15T00:00:00+08:00",
           "status": "local_checks_passed",
           "summary": "Implemented safe SEO CTA attribution propagation through article CTA, test detail, and RIASEC attempt start; targeted contracts, full contracts, typecheck, sitemap check, and diff check passed."
+        },
+        {
+          "at": "2026-05-15T00:00:00+08:00",
+          "status": "pr_open",
+          "summary": "Opened fap-web PR #809 for SEO-OPS-02."
         }
       ]
     }
