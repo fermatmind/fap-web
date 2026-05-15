@@ -3097,7 +3097,7 @@
         "SEO-OPS-02",
         "SEO-OPS-03"
       ],
-      "status": "local_checks_passed",
+      "status": "pr_open",
       "title": "fix(tracking): preserve article UTM through RIASEC attempt start",
       "mode": "execute",
       "risk_level": "L1",
@@ -3175,8 +3175,8 @@
         }
       ],
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/812",
+      "commit_sha": "6b013618",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -3191,6 +3191,11 @@
           "at": "2026-05-16T00:00:00+08:00",
           "status": "local_checks_passed",
           "summary": "Implemented hydrated article CTA attribution and preserved safe UTM through RIASEC attempts/start meta; targeted contracts, hydration contract, full contracts, typecheck, sitemap check, and diff check passed."
+        },
+        {
+          "at": "2026-05-16T04:10:13+08:00",
+          "status": "pr_open",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/812 for SEO-OPS-02B."
         }
       ]
     },
