@@ -17,6 +17,8 @@ import {
   submitRiasecAttempt,
 } from "@/lib/riasec/api";
 import { normalizeRiasecFormCode, resolveRiasecFormMeta } from "@/lib/riasec/forms";
+import { readStoredTrackingAttributionPayload } from "@/lib/tracking/attribution";
+import { buildSeoAttemptStartAttributionFromSearchParams } from "@/lib/tracking/seoCtaAttribution";
 
 type RiasecOption = {
   code: string;
@@ -86,6 +88,19 @@ export default function RiasecTakeClient({
   );
   const formMeta = resolveRiasecFormMeta(resolvedFormCode);
   const effectiveEstimatedMinutes = estimatedMinutes ?? formMeta.estimatedMinutes;
+  const search = searchParams.toString();
+  const attributionContext = useMemo(
+    () =>
+      buildSeoAttemptStartAttributionFromSearchParams({
+        searchParams: new URLSearchParams(search),
+        currentPath: `${pathname}${search ? `?${search}` : ""}`,
+        storedAttribution: readStoredTrackingAttributionPayload(pathname),
+        fallbackTestSlug: slug,
+        fallbackSourcePageType: "tests_take_page",
+        fallbackTargetAction: "start_riasec_test",
+      }),
+    [pathname, search, slug]
+  );
 
   const [questions, setQuestions] = useState<RiasecQuestion[]>([]);
   const [answers, setAnswers] = useState<Record<string, string>>({});
@@ -118,7 +133,15 @@ export default function RiasecTakeClient({
             locale: toApiLocale(locale),
             anonId,
             formCode: resolvedFormCode,
-            meta: { source: "tests_take_page", slug },
+            meta: {
+              source: "tests_take_page",
+              slug,
+              ...attributionContext.meta,
+            },
+            attribution: {
+              entrypoint: "seo_cta",
+              ...attributionContext.attribution,
+            },
           }),
         ]);
         if (!active) return;
@@ -144,7 +167,7 @@ export default function RiasecTakeClient({
     return () => {
       active = false;
     };
-  }, [anonId, dict.result.reportUnavailable, locale, resolvedFormCode, slug]);
+  }, [anonId, attributionContext, dict.result.reportUnavailable, locale, resolvedFormCode, slug]);
 
   const selectAnswer = useCallback((questionId: string, code: string) => {
     setAnswers((current) => ({ ...current, [questionId]: code }));

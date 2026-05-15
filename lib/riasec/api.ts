@@ -5,6 +5,7 @@ import {
   startAttempt,
   submitAttempt,
   type MeAttemptsResponse,
+  type AttemptAttributionPayload,
   type QuestionsResponse,
   type ReportResponse,
   type StartAttemptResponse,
@@ -90,6 +91,7 @@ export async function startRiasecAttempt({
   region,
   formCode,
   meta,
+  attribution,
   clientVersion,
 }: {
   anonId?: string;
@@ -97,6 +99,7 @@ export async function startRiasecAttempt({
   region?: string;
   formCode?: string | null;
   meta?: Record<string, unknown>;
+  attribution?: AttemptAttributionPayload;
   clientVersion?: string;
 }): Promise<StartAttemptResponse> {
   const resolvedAnonId = resolveAnonId(anonId);
@@ -119,6 +122,7 @@ export async function startRiasecAttempt({
         locale,
         region,
         meta,
+        ...attribution,
         clientPlatform: "web",
         clientVersion,
         channel: "web",

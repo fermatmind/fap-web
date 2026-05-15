@@ -147,11 +147,15 @@ describe("RIASEC guest token parity contract", () => {
     expect(apiClient).toContain("...anonHeader(resolvedAnonId),");
   });
 
-  it("documents attribution as sidecar by not changing RIASEC UTM policy in this PR", () => {
+  it("keeps RIASEC attribution explicit without adding email or PII fields", () => {
     const riasecApi = readSource("lib/riasec/api.ts");
     const riasecTake = readSource("app/(localized)/[locale]/tests/[slug]/take/RiasecTakeClient.tsx");
 
-    expect(riasecApi).not.toContain("utm:");
-    expect(riasecTake).not.toContain("utm_source");
+    expect(riasecApi).toContain("attribution?: AttemptAttributionPayload");
+    expect(riasecApi).toContain("...attribution,");
+    expect(riasecTake).toContain("buildSeoAttemptStartAttributionFromSearchParams");
+    expect(riasecTake).toContain("...attributionContext.meta");
+    expect(riasecTake).toContain("...attributionContext.attribution");
+    expect(riasecTake).not.toContain("email:");
   });
 });
