@@ -2882,7 +2882,7 @@
       "branch": "codex/email-riasec-02-frontend-guest-token-parity",
       "base": "main",
       "depends_on": [],
-      "status": "in_progress",
+      "status": "pr_open",
       "title": "fix(riasec): ensure guest token parity before starting attempts",
       "mode": "execute",
       "risk_level": "L1",
@@ -2944,8 +2944,8 @@
         }
       ],
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/808",
+      "commit_sha": "308e74da820bee7cc5524b8308949493283afadc",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -2960,6 +2960,11 @@
           "at": "2026-05-15T00:00:00+08:00",
           "status": "local_checks_passed",
           "summary": "Implemented RIASEC guest token readiness before attempts/start and validated targeted contracts, full contracts, typecheck, sitemap check, and supplementary build."
+        },
+        {
+          "at": "2026-05-15T00:00:00+08:00",
+          "status": "pr_open",
+          "summary": "Opened fap-web PR #808 for EMAIL-RIASEC-02."
         }
       ]
     }
