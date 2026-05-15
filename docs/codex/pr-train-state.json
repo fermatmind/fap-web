@@ -2446,7 +2446,7 @@
       "branch": "codex/homepage-recommended-cover-images",
       "base": "main",
       "depends_on": [],
-      "status": "pr_ready",
+      "status": "pr_open",
       "title": "PR-HOME-01｜Homepage Recommended Articles CMS Cover Display",
       "mode": "execute",
       "risk_level": "L1",
@@ -2500,8 +2500,8 @@
         }
       ],
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": "e6c00058dac8a850e5185d2c23c065c90e29e064",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/803",
+      "commit_sha": "70e18ad2e744a579845a1ec5f6380ae141df7eb7",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -2521,6 +2521,11 @@
           "at": "2026-05-15T10:13:12+08:00",
           "status": "pr_ready",
           "summary": "Committed scoped PR-HOME-01 changes on codex/homepage-recommended-cover-images."
+        },
+        {
+          "at": "2026-05-15T10:13:12+08:00",
+          "status": "pr_open",
+          "summary": "Opened fap-web PR #803 for PR-HOME-01."
         }
       ]
     }
