@@ -4138,6 +4138,86 @@
           "summary": "Rebased PR-GRAPH-01 over latest origin/main and preserved SEO-OPS-02 ledger entry."
         }
       ]
+    },
+    {
+      "id": "ARCH-SEO-CMS-01",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/arch-seo-cms-01-asset-map-ownership-contract",
+      "base": "main",
+      "depends_on": [],
+      "status": "local_checks_passed",
+      "title": "docs(architecture): add SEO intelligence asset map and ownership contract",
+      "mode": "execute",
+      "risk_level": "L2",
+      "allowed_paths": [
+        "docs/seo/seo-intelligence-node-readiness.md",
+        "docs/seo/generated/seo-intelligence-asset-map.v1.json",
+        "tests/contracts/seo-intelligence-asset-map.contract.test.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [
+        {
+          "name": "manifest authorization",
+          "status": "passed",
+          "details": "User explicitly provided ARCH-SEO-CMS-01 id, title, branch, allowed files, validation commands, and authorized PR train metadata updates if required by governance."
+        },
+        {
+          "name": "branch preflight",
+          "status": "passed",
+          "details": "Started from latest main on branch codex/arch-seo-cms-01-asset-map-ownership-contract. Existing untracked ARCH-SEO-CMS-00 report is isolated and excluded from this PR."
+        },
+        {
+          "name": "focused asset map contract",
+          "status": "passed",
+          "details": "pnpm exec vitest run tests/contracts/seo-intelligence-asset-map.contract.test.ts"
+        },
+        {
+          "name": "contract suite",
+          "status": "passed",
+          "details": "pnpm test:contract"
+        },
+        {
+          "name": "sitemap check",
+          "status": "passed",
+          "details": "pnpm seo:check-sitemap"
+        },
+        {
+          "name": "mobile SEO check",
+          "status": "passed",
+          "details": "pnpm seo:check-mobile"
+        },
+        {
+          "name": "diff check",
+          "status": "passed",
+          "details": "git diff --check && git diff --cached --check"
+        },
+        {
+          "name": "scope validation",
+          "status": "passed",
+          "details": "Staged files are limited to the ARCH-SEO-CMS-01 docs, generated artifact, scoped contract test, and PR train metadata. Existing untracked docs/codex/arch-seo-cms-00-readiness-report.md is unrelated and excluded."
+        }
+      ],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [],
+      "history": [
+        {
+          "at": "2026-05-16T13:52:47+08:00",
+          "status": "in_progress",
+          "summary": "Initialized ARCH-SEO-CMS-01 to document SEO Intelligence asset map, ownership contract, current runtime topology, mixed cloud media chain, dual backend runtime conflict, and forbidden assumptions without runtime, backend, sitemap/llms, tracking, commerce, report, email, recommendation, scoring, deployment, env, SSH, or cloud changes."
+        },
+        {
+          "at": "2026-05-16T13:56:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Added SEO Intelligence readiness doc, generated asset map artifact, scoped contract, and train metadata; targeted contract, full contract suite, sitemap check, mobile SEO check, and diff checks passed."
+        }
+      ]
     }
   ],
   "sidecar_issues": [
