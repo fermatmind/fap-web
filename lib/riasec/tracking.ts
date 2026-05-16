@@ -156,7 +156,5 @@ export function buildRiasecViewResultTrackingPayload({
   return {
     ...buildRiasecTrustedResultTrackingPayload(viewModel, locale),
     ...(attemptId ? { attempt_id: attemptId } : {}),
-    result_type: viewModel.topCode,
-    top_code: viewModel.topCode,
   };
 }

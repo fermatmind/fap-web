@@ -91,7 +91,7 @@ export function buildAnalyticsBootstrapScript(config: AnalyticsScriptConfig): st
     }
 
     if (googleAdsConversionId) {
-      window.gtag("config", googleAdsConversionId);
+      window.gtag("config", googleAdsConversionId, { send_page_view: false });
     }
 
     if (baiduTongjiId) {

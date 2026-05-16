@@ -74,7 +74,8 @@ describe("analytics scripts contract", () => {
 
     expect(script.match(/googletagmanager\.com\/gtag\/js/g)).toHaveLength(1);
     expect(script).toContain('window.gtag("config", gaMeasurementId, { send_page_view: false });');
-    expect(script).toContain('window.gtag("config", googleAdsConversionId);');
+    expect(script).toContain('window.gtag("config", googleAdsConversionId, { send_page_view: false });');
+    expect(script).not.toContain('window.gtag("config", googleAdsConversionId);');
     expect(script).not.toContain("googletagmanager.com/gtm.js");
   });
 

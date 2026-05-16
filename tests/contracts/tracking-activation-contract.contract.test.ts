@@ -130,7 +130,6 @@ describe("tracking activation contract", () => {
       send_to: "AW-TEST1234/purchase_label_test",
       value: 19.9,
       currency: "CNY",
-      transaction_id: "ord_public_transaction_001",
     });
   });
 
@@ -173,7 +172,6 @@ describe("tracking activation contract", () => {
       send_to: "AW-TEST1234/purchase_label_test",
       value: 88,
       currency: "CNY",
-      transaction_id: "ord_ads_purchase_001",
     });
   });
 
