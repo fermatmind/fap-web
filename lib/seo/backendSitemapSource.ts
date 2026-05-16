@@ -22,6 +22,11 @@ type CareerSeoAuthorityPayload = {
   };
 };
 
+type BackendSitemapCareerJobPathOptions = {
+  limit?: number;
+  signal?: AbortSignal;
+};
+
 const BACKEND_SITEMAP_SOURCE_TIMEOUT_MS = 20_000;
 const CAREER_SEO_AUTHORITY_CONCURRENCY = 8;
 const SOFTWARE_DEVELOPERS_DETAIL_RE = /^\/(?:en|zh)\/career\/jobs\/software-developers$/i;
@@ -112,16 +117,49 @@ function hasToken(value: unknown, token: string): boolean {
     .includes(token);
 }
 
-async function fetchBackendSitemapSource(): Promise<BackendSitemapSourcePayload> {
+function limitCareerJobCandidatePaths(paths: string[], limit: number | undefined): string[] {
+  if (!Number.isFinite(limit)) {
+    return paths;
+  }
+
+  const normalizedLimit = Math.floor(Number(limit));
+  if (normalizedLimit <= 0) {
+    return [];
+  }
+
+  return paths.slice(0, normalizedLimit);
+}
+
+function createTimeoutSignal(parentSignal: AbortSignal | undefined): { signal: AbortSignal; cleanup: () => void } {
   const controller = new AbortController();
+  const abortFromParent = () => controller.abort();
+
+  if (parentSignal?.aborted) {
+    controller.abort();
+  } else {
+    parentSignal?.addEventListener("abort", abortFromParent, { once: true });
+  }
+
   const timer = setTimeout(() => controller.abort(), BACKEND_SITEMAP_SOURCE_TIMEOUT_MS);
+
+  return {
+    signal: controller.signal,
+    cleanup: () => {
+      clearTimeout(timer);
+      parentSignal?.removeEventListener("abort", abortFromParent);
+    },
+  };
+}
+
+async function fetchBackendSitemapSource(signal?: AbortSignal): Promise<BackendSitemapSourcePayload> {
+  const timeoutSignal = createTimeoutSignal(signal);
 
   try {
     const response = await fetch(buildApiUrl("/v0.5/seo/sitemap-source"), {
       headers: {
         Accept: "application/json",
       },
-      signal: controller.signal,
+      signal: timeoutSignal.signal,
     });
 
     if (!response.ok) {
@@ -130,19 +168,24 @@ async function fetchBackendSitemapSource(): Promise<BackendSitemapSourcePayload>
 
     return (await response.json()) as BackendSitemapSourcePayload;
   } finally {
-    clearTimeout(timer);
+    timeoutSignal.cleanup();
   }
 }
 
-async function fetchCareerJobSeoAuthority(locale: "en" | "zh", slug: string): Promise<CareerSeoAuthorityPayload | null> {
+async function fetchCareerJobSeoAuthority(
+  locale: "en" | "zh",
+  slug: string,
+  signal?: AbortSignal
+): Promise<CareerSeoAuthorityPayload | null> {
   const cacheKey = `${locale}:${slug}`;
-  if (careerJobSeoAuthorityCache.has(cacheKey)) {
+  const shouldUseCache = !signal;
+
+  if (shouldUseCache && careerJobSeoAuthorityCache.has(cacheKey)) {
     return careerJobSeoAuthorityCache.get(cacheKey) ?? null;
   }
 
   const promise = (async () => {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), BACKEND_SITEMAP_SOURCE_TIMEOUT_MS);
+    const timeoutSignal = createTimeoutSignal(signal);
 
     try {
       const params = new URLSearchParams({
@@ -153,7 +196,7 @@ async function fetchCareerJobSeoAuthority(locale: "en" | "zh", slug: string): Pr
         headers: {
           Accept: "application/json",
         },
-        signal: controller.signal,
+        signal: timeoutSignal.signal,
       });
 
       if (!response.ok) {
@@ -161,12 +204,17 @@ async function fetchCareerJobSeoAuthority(locale: "en" | "zh", slug: string): Pr
       }
 
       return (await response.json()) as CareerSeoAuthorityPayload;
+    } catch {
+      return null;
     } finally {
-      clearTimeout(timer);
+      timeoutSignal.cleanup();
     }
   })();
 
-  careerJobSeoAuthorityCache.set(cacheKey, promise);
+  if (shouldUseCache) {
+    careerJobSeoAuthorityCache.set(cacheKey, promise);
+  }
+
   return promise;
 }
 
@@ -204,12 +252,12 @@ function isCareerJobSeoAuthorityDiscoverable(payload: CareerSeoAuthorityPayload 
   return true;
 }
 
-async function filterCareerJobPathsBySeoAuthority(paths: string[]): Promise<string[]> {
+async function filterCareerJobPathsBySeoAuthority(paths: string[], signal?: AbortSignal): Promise<string[]> {
   const results = new Array<string | null>(paths.length).fill(null);
   let nextIndex = 0;
 
   async function worker(): Promise<void> {
-    while (nextIndex < paths.length) {
+    while (nextIndex < paths.length && !signal?.aborted) {
       const index = nextIndex;
       nextIndex += 1;
       const path = paths[index] ?? "";
@@ -219,7 +267,7 @@ async function filterCareerJobPathsBySeoAuthority(paths: string[]): Promise<stri
         continue;
       }
 
-      const authority = await fetchCareerJobSeoAuthority(parsed.locale, parsed.slug);
+      const authority = await fetchCareerJobSeoAuthority(parsed.locale, parsed.slug, signal);
       results[index] = isCareerJobSeoAuthorityDiscoverable(authority) ? parsed.path : null;
     }
   }
@@ -246,13 +294,21 @@ export function extractBackendSitemapCareerJobPaths(payload: BackendSitemapSourc
   return [...paths].sort((left, right) => left.localeCompare(right));
 }
 
-export async function listBackendSitemapCareerJobPaths(): Promise<string[]> {
-  if (careerJobPathCache) {
+export async function listBackendSitemapCareerJobPaths(
+  options: BackendSitemapCareerJobPathOptions = {}
+): Promise<string[]> {
+  const shouldUseCache = options.limit === undefined && !options.signal;
+  if (shouldUseCache && careerJobPathCache) {
     return careerJobPathCache;
   }
 
-  const payload = await fetchBackendSitemapSource();
-  careerJobPathCache = await filterCareerJobPathsBySeoAuthority(extractBackendSitemapCareerJobPaths(payload));
+  const payload = await fetchBackendSitemapSource(options.signal);
+  const candidatePaths = limitCareerJobCandidatePaths(extractBackendSitemapCareerJobPaths(payload), options.limit);
+  const filteredPaths = await filterCareerJobPathsBySeoAuthority(candidatePaths, options.signal);
 
-  return careerJobPathCache;
+  if (shouldUseCache) {
+    careerJobPathCache = filteredPaths;
+  }
+
+  return filteredPaths;
 }

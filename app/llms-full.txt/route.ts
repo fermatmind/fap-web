@@ -609,10 +609,7 @@ export async function GET() {
       []
     ),
     withLlmsRouteBudget(
-      () =>
-        listBackendSitemapCareerJobPaths().then((entries) =>
-          limitLlmsRouteEntries(entries, LLMS_ROUTE_LIMITS.careerJobs)
-        ),
+      (signal) => listBackendSitemapCareerJobPaths({ limit: LLMS_ROUTE_LIMITS.careerJobs, signal }),
       []
     ),
   ]);

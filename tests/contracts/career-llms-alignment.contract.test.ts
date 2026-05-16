@@ -1,5 +1,6 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { extractBackendSitemapCareerJobPaths, listBackendSitemapCareerJobPaths } from "@/lib/seo/backendSitemapSource";
+import { LLMS_ROUTE_LIMITS } from "@/lib/seo/llmsRouteBudget";
 
 function jsonResponse(payload: unknown, status = 200): Response {
   return new Response(JSON.stringify(payload), {
@@ -85,6 +86,51 @@ describe("career llms alignment contract", () => {
     );
 
     await expect(listBackendSitemapCareerJobPaths()).resolves.toEqual(["/zh/career/jobs/actors"]);
+  });
+
+  it("applies the llms career job limit before per-path SEO authority fetches", async () => {
+    const limit = 3;
+    const seoAuthorityFetches: string[] = [];
+
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async (input: RequestInfo | URL) => {
+        const url = String(input);
+
+        if (url.includes("/api/v0.5/seo/sitemap-source")) {
+          return jsonResponse({
+            items: Array.from({ length: LLMS_ROUTE_LIMITS.careerJobs + 5 }, (_, index) => ({
+              loc: `https://fermatmind.com/en/career/jobs/role-${String(index).padStart(2, "0")}`,
+            })),
+          });
+        }
+
+        if (url.includes("/api/v0.5/career-jobs/")) {
+          seoAuthorityFetches.push(url);
+          return jsonResponse({
+            meta: { robots: "index,follow" },
+            seo_surface_v1: {
+              robots_policy: "index,follow",
+              indexability_state: "indexable",
+              sitemap_state: "included",
+              llms_exposure_state: "allow",
+            },
+          });
+        }
+
+        return jsonResponse({ message: "not found" }, 404);
+      })
+    );
+
+    const paths = await listBackendSitemapCareerJobPaths({ limit });
+
+    expect(paths).toEqual([
+      "/en/career/jobs/role-00",
+      "/en/career/jobs/role-01",
+      "/en/career/jobs/role-02",
+    ]);
+    expect(seoAuthorityFetches).toHaveLength(limit);
+    expect(seoAuthorityFetches.join("\n")).not.toContain("role-03");
   });
 
   it("llms.txt reflects current live Career authority routes and excludes query search urls", async () => {
