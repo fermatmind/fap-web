@@ -3064,3 +3064,72 @@ prs:
       - deployment scripts
       - payment/order/report/recommendation/scoring/profile code
     rollback_note: "Remove the SEO Intelligence readiness document, generated asset map artifact, scoped contract test, and ARCH-SEO-CMS-01 train metadata."
+  - id: ARCH-SEO-CMS-02
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/arch-seo-cms-02-final-architecture-charter
+    base: main
+    depends_on:
+      - ARCH-SEO-CMS-01
+    mode: execute
+    risk_level: L2
+    status: planned
+    title: "docs(architecture): add CMS and SEO middle platform final charter"
+    goal: "Add a final decision-ready CMS/SEO middle platform architecture charter based on ARCH-SEO-CMS-00, ARCH-SEO-CMS-01, cloud asset scan, and runtime read-only scan without changing frontend runtime, backend runtime, sitemap/llms, tracking, commerce, report, email, recommendation, scoring, deployment, env, DNS, CDN, COS/OSS, SSH, or cloud behavior."
+    in_scope:
+      - docs/seo/cms-seo-middle-platform-final-architecture.md
+      - docs/seo/generated/cms-seo-middle-platform-final-architecture.v1.json
+      - tests/contracts/cms-seo-middle-platform-final-architecture.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - /Users/rainie/Desktop/GitHub/fap-api changes
+      - /Users/rainie/Desktop/GitHub/fap-api/fap-web as production runtime
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - backend runtime files
+      - migrations
+      - env files
+      - deploy scripts
+      - DNS/CDN/cloud config
+      - next-sitemap.config.js
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - payment/order/report/recommendation/scoring/profile code
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/cms-seo-middle-platform-final-architecture.contract.test.ts
+      - pnpm test:contract
+      - pnpm seo:check-sitemap
+      - pnpm seo:check-mobile
+      - git diff --check
+      - git diff --cached --check
+    acceptance:
+      - Final architecture artifact includes ARCH-SEO-CMS-00, ARCH-SEO-CMS-01, cloud_asset_scan, and runtime_ssh_readonly_scan sources.
+      - Current runtime topology records fap-node1, fap-node2, fap-api-prod, and staging.
+      - Dual backend runtime drift is documented as conflict / architecture_debt / human_confirm_required.
+      - Backend convergence options A, B, and C are documented with pros, cons, risks, validation, and SEO 中台 impact.
+      - Recommended backend decision is Option A unless blocked by live API compatibility gates.
+      - Target architecture does not mark Server 2, seo_intel DB, Server 4, or Metabase production deployment ready.
+      - Media chain remains DNSPod -> Alibaba CDN -> Alibaba OSS, and Tencent COS is not active media authority.
+      - CMS remains content authority and cannot become SEO BI.
+      - SEO 中台 remains observation/attribution/drift/issue queue and cannot publish content or generate pSEO.
+      - No frontend runtime, backend runtime, sitemap/llms, tracking, commerce, report, email, recommendation, scoring, deployment, env, DNS, CDN, COS/OSS, SSH, or cloud behavior changes.
+    must_not_touch:
+      - /Users/rainie/Desktop/GitHub/fap-api
+      - /Users/rainie/Desktop/GitHub/fap-api/fap-web
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - backend runtime files
+      - migrations
+      - env files
+      - deploy scripts
+      - DNS/CDN/cloud config
+      - next-sitemap.config.js
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - payment/order/report/recommendation/scoring/profile code
+    rollback_note: "Remove the CMS/SEO final architecture charter document, generated artifact, scoped contract test, and ARCH-SEO-CMS-02 train metadata."

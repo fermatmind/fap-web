@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-16T13:42:00+08:00",
+  "updated_at": "2026-05-16T14:31:00+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -4256,6 +4256,93 @@
           "at": "2026-05-16T14:01:00+08:00",
           "status": "github_checks_passed",
           "summary": "GitHub required checks passed and mergeStateStatus was CLEAN for PR #820."
+        }
+      ]
+    },
+    {
+      "id": "ARCH-SEO-CMS-02",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/arch-seo-cms-02-final-architecture-charter",
+      "base": "main",
+      "depends_on": [
+        "ARCH-SEO-CMS-01"
+      ],
+      "status": "local_checks_passed",
+      "title": "docs(architecture): add CMS and SEO middle platform final charter",
+      "mode": "execute",
+      "risk_level": "L2",
+      "allowed_paths": [
+        "docs/seo/cms-seo-middle-platform-final-architecture.md",
+        "docs/seo/generated/cms-seo-middle-platform-final-architecture.v1.json",
+        "tests/contracts/cms-seo-middle-platform-final-architecture.contract.test.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [
+        {
+          "name": "manifest authorization",
+          "status": "passed",
+          "details": "User explicitly provided ARCH-SEO-CMS-02 id, title, branch, allowed files, validation commands, and authorized PR train metadata updates if required by governance."
+        },
+        {
+          "name": "dependency check",
+          "status": "passed",
+          "details": "ARCH-SEO-CMS-01 is merged into main as commit 1fe08050."
+        },
+        {
+          "name": "branch preflight",
+          "status": "passed",
+          "details": "Started from main aligned with origin/main on branch codex/arch-seo-cms-02-final-architecture-charter. No ARCH-SEO-CMS-00 readiness report file is promoted because it is not present in this branch."
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/cms-seo-middle-platform-final-architecture.contract.test.ts",
+          "status": "passed",
+          "details": "10 tests passed."
+        },
+        {
+          "name": "pnpm test:contract",
+          "status": "passed",
+          "details": "366 test files and 2062 tests passed."
+        },
+        {
+          "name": "pnpm seo:check-sitemap",
+          "status": "passed",
+          "details": "Sitemap indexability check passed with 261 URLs."
+        },
+        {
+          "name": "pnpm seo:check-mobile",
+          "status": "passed",
+          "details": "Mobile SEO gate passed; runtimeBehaviorChanged=false, urlSetChanged=false, sitemapChanged=false, llmsChanged=false."
+        },
+        {
+          "name": "git diff --check",
+          "status": "passed",
+          "details": "No whitespace errors."
+        },
+        {
+          "name": "git diff --cached --check",
+          "status": "passed",
+          "details": "No staged whitespace errors."
+        }
+      ],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [],
+      "history": [
+        {
+          "at": "2026-05-16T14:30:00+08:00",
+          "status": "in_progress",
+          "summary": "Initialized ARCH-SEO-CMS-02 to add final CMS/SEO middle platform architecture charter, backend convergence options, recommended Option A direction with gates, SEO/CMS boundaries, media/PII guardrails, and first implementation train without runtime, backend, sitemap/llms, tracking, commerce, report, email, recommendation, scoring, deployment, env, DNS, CDN, COS/OSS, SSH, or cloud changes."
+        },
+        {
+          "at": "2026-05-16T14:31:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Added final CMS/SEO middle platform architecture charter, generated artifact, scoped contract, and train metadata; targeted contract, full contract suite, sitemap check, mobile SEO check, and diff checks passed."
         }
       ]
     }
