@@ -1,0 +1,714 @@
+{
+  "version": "seo_intelligence_asset_map.v1",
+  "scope": "ARCH-SEO-CMS-01",
+  "generated_from": [
+    {
+      "id": "ARCH-SEO-CMS-00",
+      "type": "repository_config_readiness_scan",
+      "status": "observed"
+    },
+    {
+      "id": "cloud_asset_scan",
+      "type": "cloud_console_readonly_scan",
+      "status": "observed"
+    },
+    {
+      "id": "runtime_ssh_readonly_scan",
+      "type": "server_runtime_readonly_scan",
+      "status": "observed"
+    }
+  ],
+  "source_of_truth": {
+    "frontend": {
+      "repository": "/Users/rainie/Desktop/GitHub/fap-web",
+      "role": "production_frontend_source_of_truth",
+      "status": "observed",
+      "contract": "Deterministically renders public runtime from backend/CMS truth."
+    },
+    "backend": {
+      "repository": "/Users/rainie/Desktop/GitHub/fap-api",
+      "role": "backend_cms_commerce_authority_core",
+      "status": "observed",
+      "contract": "Owns CMS, commerce, report, email, public API, and backend authority contracts."
+    },
+    "nested_frontend": {
+      "repository": "/Users/rainie/Desktop/GitHub/fap-api/fap-web",
+      "role": "stale_skeleton_non_runtime",
+      "runtime": false,
+      "status": "dangerous_if_assumed",
+      "contract": "Must not be treated as production frontend runtime."
+    },
+    "cms": {
+      "owner": "fap-api backend/CMS",
+      "status": "observed",
+      "contract": "Owns content, SEO metadata, publish truth, revisions, release/revalidate governance, and CMS gates."
+    },
+    "seo_middle_platform": {
+      "owner": "independent SEO Intelligence Node",
+      "status": "missing",
+      "contract": "Observation, attribution, drift detection, and issue queue only; does not publish content."
+    }
+  },
+  "repositories": {
+    "primary": {
+      "path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "observed",
+      "allowed_for_this_pr": true
+    },
+    "reference_only": {
+      "path": "/Users/rainie/Desktop/GitHub/fap-api",
+      "status": "observed",
+      "allowed_for_this_pr": false
+    },
+    "forbidden_runtime_source": {
+      "path": "/Users/rainie/Desktop/GitHub/fap-api/fap-web",
+      "status": "dangerous_if_assumed",
+      "runtime": false
+    }
+  },
+  "current_runtime_topology": {
+    "status": "partial",
+    "nodes": [
+      {
+        "id": "fap-node1",
+        "aliases": [
+          "fap-app-01"
+        ],
+        "target_server": "Server 1",
+        "domain_role": "fermatmind.com public frontend",
+        "role": "fap-web production frontend",
+        "status": [
+          "observed",
+          "ready"
+        ],
+        "runtime": {
+          "path": "/opt/apps/fap-web",
+          "process_manager": "PM2",
+          "process": "fap-web",
+          "cluster_instances": 4,
+          "node_version": "24.14.0",
+          "listens": [
+            "80",
+            "443",
+            "3000"
+          ],
+          "proxy": "1Panel OpenResty container",
+          "deployed_sha_prefix": "fa06f4a",
+          "worktree": "clean"
+        }
+      },
+      {
+        "id": "fap-node2",
+        "aliases": [
+          "fap-app-02"
+        ],
+        "domain_role": "api.fermatmind.com public API",
+        "role": "public API legacy Docker runtime",
+        "status": [
+          "observed",
+          "conflict",
+          "architecture_debt"
+        ],
+        "runtime": {
+          "style": "Docker / 1Panel / php84 / local MySQL",
+          "backend_path_inside_container": "/www/wwwroot/fap-api/backend",
+          "git_repository_present": false,
+          "deploy_marker": ".deploy_commit",
+          "deployed_sha_prefix": "d12e427",
+          "database_topology": "DB_HOST points to server-local private IP",
+          "redis_env": "missing",
+          "supervisor_fap_api_queue": "FATAL"
+        }
+      },
+      {
+        "id": "fap-api-prod",
+        "aliases": [
+          "ops.fermatmind.com"
+        ],
+        "role": "CMS / authority backend / ops backend",
+        "status": [
+          "observed",
+          "partial"
+        ],
+        "runtime": {
+          "path": "/var/www/fap-api/current/backend",
+          "release_root": "/var/www/fap-api/releases",
+          "deployed_sha_prefix": "c254ef4",
+          "web_stack": "nginx + PHP 8.4 FPM",
+          "scheduler": "cron runs php artisan schedule:run every minute",
+          "queue_workers": 4,
+          "queue_status": "RUNNING",
+          "database_topology": "DB_HOST points to external private host consistent with managed MySQL",
+          "redis_topology": "REDIS_HOST points to external private host consistent with managed Redis"
+        }
+      },
+      {
+        "id": "staging",
+        "aliases": [
+          "fap-api-staging",
+          "fap-web-staging"
+        ],
+        "role": "mixed frontend/backend staging",
+        "status": [
+          "observed",
+          "partial"
+        ],
+        "runtime": {
+          "backend_path": "/var/www/fap-api-staging/current/backend",
+          "frontend_path": "/var/www/fap-web-staging/current",
+          "database_topology": "local loopback staging DB",
+          "known_worktree_drift": "staging web public/sitemap.xml modified"
+        }
+      }
+    ],
+    "dual_backend_runtime_drift": {
+      "status": [
+        "conflict",
+        "architecture_debt",
+        "human_confirm_required"
+      ],
+      "public_api_runtime": "fap-node2 legacy Docker API runtime",
+      "cms_ops_runtime": "fap-api-prod standard Laravel/CMS/queue runtime",
+      "differences": [
+        "deployment_shape",
+        "deployed_sha",
+        "database_topology",
+        "redis_setup",
+        "queue_state"
+      ]
+    }
+  },
+  "target_server_topology": {
+    "status": "partial",
+    "servers": [
+      {
+        "id": "Server 1",
+        "target_role": "fap-web public frontend runtime",
+        "current_candidate": "fap-node1",
+        "status": [
+          "observed",
+          "ready"
+        ]
+      },
+      {
+        "id": "Server 2",
+        "target_role": "single fap-api / CMS / commerce backend authority runtime",
+        "current_candidate": "unresolved between fap-node2 and fap-api-prod",
+        "status": [
+          "conflict",
+          "human_confirm_required",
+          "blocked"
+        ],
+        "ready": false
+      },
+      {
+        "id": "Server 3",
+        "target_role": "data layer with business DB and logically isolated seo_intel DB",
+        "current_candidate": "managed MySQL/Redis plus legacy local MySQL drift",
+        "status": [
+          "partial"
+        ],
+        "seo_intel_db": {
+          "status": [
+            "missing",
+            "blocked"
+          ],
+          "ready": false
+        }
+      },
+      {
+        "id": "Server 4",
+        "target_role": "SEO Intelligence Node",
+        "current_candidate": null,
+        "status": [
+          "missing",
+          "human_confirm_required"
+        ],
+        "ready": false
+      }
+    ]
+  },
+  "confirmed_cloud_assets": {
+    "tencent": {
+      "status": "observed",
+      "compute": {
+        "provider": "Tencent Cloud Lighthouse",
+        "not_cvm": true,
+        "server_count": 4
+      },
+      "mysql": {
+        "name": "rds-fap-prod",
+        "status": "observed"
+      },
+      "redis": {
+        "name": "redis-fap-prod",
+        "status": "observed"
+      },
+      "vpc": {
+        "name": "vpc-fap-prod",
+        "status": "observed"
+      },
+      "dns": {
+        "provider": "DNSPod",
+        "domain": "fermatmind.com",
+        "status": "observed"
+      }
+    },
+    "alibaba": {
+      "status": "observed",
+      "oss": {
+        "bucket": "ferm-mind-site",
+        "status": "observed"
+      },
+      "cdn": {
+        "domain": "assets.fermatmind.com",
+        "status": "observed"
+      },
+      "tls": {
+        "certificate_domain": "assets.fermatmind.com",
+        "status": "observed"
+      }
+    }
+  },
+  "mixed_cloud_media_chain": {
+    "status": "observed",
+    "chain": [
+      "DNSPod",
+      "Alibaba CDN",
+      "Alibaba OSS"
+    ],
+    "domain": "assets.fermatmind.com",
+    "origin_bucket": "ferm-mind-site",
+    "contract": "Public media chain is Tencent DNSPod CNAME to Alibaba CDN to Alibaba OSS."
+  },
+  "dual_backend_runtime_conflict": {
+    "status": [
+      "conflict",
+      "architecture_debt",
+      "human_confirm_required"
+    ],
+    "public_api": {
+      "domain": "api.fermatmind.com",
+      "runtime": "fap-node2 legacy Docker API runtime"
+    },
+    "cms_ops": {
+      "domain": "ops.fermatmind.com",
+      "runtime": "fap-api-prod standard Laravel/CMS/queue runtime"
+    },
+    "must_resolve_before": [
+      "SEO Collector production rollout",
+      "Metabase production dashboarding",
+      "seo_intel production attribution"
+    ]
+  },
+  "current_observed_assets": [
+    "fap-node1 production fap-web PM2 runtime",
+    "fap-node2 public API legacy Docker runtime",
+    "fap-api-prod standard CMS/ops backend runtime",
+    "mixed staging frontend/backend runtime",
+    "Tencent Lighthouse compute",
+    "Tencent rds-fap-prod",
+    "Tencent redis-fap-prod",
+    "Tencent vpc-fap-prod",
+    "Tencent DNSPod fermatmind.com",
+    "Alibaba OSS ferm-mind-site",
+    "Alibaba CDN assets.fermatmind.com",
+    "Alibaba TLS assets.fermatmind.com"
+  ],
+  "current_inferred_assets": [
+    {
+      "asset": "fap-api-prod managed DB/Redis usage",
+      "status": "inferred",
+      "basis": "DB_HOST and REDIS_HOST classify as external private hosts consistent with managed MySQL/Redis."
+    }
+  ],
+  "unknown_assets": [
+    "Exact DNS/CDN origin rules beyond observed chain",
+    "TLS renewal owner/process",
+    "Security group/firewall summaries",
+    "Backup policies",
+    "RDS snapshot/restore policy",
+    "Redis persistence policy",
+    "Cloud billing/renewal owners",
+    "GSC/Baidu API access and verification",
+    "Metabase/SerpBear/Crawlee/SEOnaut deployment",
+    "Whether fap-node2 should remain public API",
+    "Whether fap-api-prod should become canonical public API backend"
+  ],
+  "conflict_assets": [
+    {
+      "id": "dual_backend_runtime_conflict",
+      "status": [
+        "conflict",
+        "architecture_debt"
+      ],
+      "summary": "api.fermatmind.com and ops.fermatmind.com point to different backend runtime shapes."
+    },
+    {
+      "id": "fap-node2_queue_state",
+      "status": [
+        "blocked",
+        "architecture_debt"
+      ],
+      "summary": "fap-node2 supervisor fap-api-queue is FATAL while fap-api-prod queues are RUNNING."
+    }
+  ],
+  "architecture_debt": [
+    "Converge or explicitly document public API vs CMS/ops backend authority.",
+    "Resolve fap-node2 queue FATAL if it remains public API.",
+    "Define Server 3 data layer and seo_intel isolation.",
+    "Provision or designate Server 4 SEO Intelligence Node.",
+    "Document mixed Tencent/Alibaba ownership and runbooks.",
+    "Confirm backup, restore, firewall, billing, TLS renewal, and API access ownership."
+  ],
+  "human_confirmation_needed": [
+    "Should fap-node2 remain public API?",
+    "Should api.fermatmind.com migrate to fap-api-prod?",
+    "Should public API and CMS/ops remain split with explicit contracts?",
+    "Who owns TLS renewal and cloud billing?",
+    "Who owns GSC and Baidu API access?",
+    "Where should seo_intel live?"
+  ],
+  "cdn_dns_tls_assets": {
+    "dns": {
+      "provider": "DNSPod",
+      "domain": "fermatmind.com",
+      "status": "observed"
+    },
+    "cdn": {
+      "provider": "Alibaba CDN",
+      "domain": "assets.fermatmind.com",
+      "status": "observed"
+    },
+    "tls": {
+      "provider": "Alibaba Cloud",
+      "domain": "assets.fermatmind.com",
+      "status": "observed"
+    },
+    "unknown": [
+      "full origin rules",
+      "renewal owner",
+      "fallback plan"
+    ]
+  },
+  "cos_oss_media_assets": {
+    "active_media_authority": {
+      "provider": "Alibaba OSS",
+      "bucket": "ferm-mind-site",
+      "status": "observed"
+    },
+    "tencent_cos": {
+      "status": [
+        "unknown",
+        "dangerous_if_assumed"
+      ],
+      "active_media_authority": false,
+      "reason": "Tencent COS is not confirmed usable and must not be treated as active media authority."
+    }
+  },
+  "runtime_process_assets": {
+    "fap-node1": [
+      "PM2 fap-web cluster online",
+      "1Panel OpenResty proxy"
+    ],
+    "fap-node2": [
+      "Docker php84",
+      "Docker local MySQL",
+      "1Panel OpenResty",
+      "Supervisor fap-api-queue FATAL"
+    ],
+    "fap-api-prod": [
+      "nginx",
+      "PHP 8.4 FPM",
+      "cron schedule:run",
+      "supervisor queue workers RUNNING"
+    ],
+    "staging": [
+      "nginx",
+      "PHP 8.3/8.4 FPM",
+      "Next staging server",
+      "local DB"
+    ]
+  },
+  "database_cache_queue_assets": {
+    "managed_mysql": {
+      "name": "rds-fap-prod",
+      "status": "observed"
+    },
+    "managed_redis": {
+      "name": "redis-fap-prod",
+      "status": "observed"
+    },
+    "legacy_local_mysql": {
+      "host": "fap-node2",
+      "status": [
+        "observed",
+        "architecture_debt"
+      ]
+    },
+    "staging_local_db": {
+      "host": "staging",
+      "status": "observed"
+    },
+    "seo_intel_db": {
+      "status": [
+        "missing",
+        "blocked"
+      ],
+      "ready": false
+    }
+  },
+  "seo_middle_platform_modules": [
+    {
+      "name": "URL Truth Inventory",
+      "status": "partial"
+    },
+    {
+      "name": "Drift Detection",
+      "status": "missing"
+    },
+    {
+      "name": "CWV / Performance Drift",
+      "status": "missing"
+    },
+    {
+      "name": "Tracking Consent Gate",
+      "status": "partial"
+    },
+    {
+      "name": "Funnel Attribution",
+      "status": "partial"
+    },
+    {
+      "name": "GSC",
+      "status": [
+        "blocked",
+        "human_confirm_required"
+      ]
+    },
+    {
+      "name": "Baidu",
+      "status": [
+        "blocked",
+        "human_confirm_required"
+      ]
+    },
+    {
+      "name": "Metabase",
+      "status": [
+        "missing",
+        "human_confirm_required"
+      ],
+      "production_ready": false
+    },
+    {
+      "name": "CMS Issue Queue",
+      "status": "missing"
+    },
+    {
+      "name": "Competitor Radar",
+      "status": "missing"
+    },
+    {
+      "name": "Email / Retention Metrics",
+      "status": "partial"
+    },
+    {
+      "name": "Paid Ads Validation",
+      "status": "missing"
+    }
+  ],
+  "cms_middle_platform_modules": [
+    {
+      "name": "Articles",
+      "status": "partial"
+    },
+    {
+      "name": "Topics",
+      "status": "partial"
+    },
+    {
+      "name": "Personality",
+      "status": "partial"
+    },
+    {
+      "name": "Tests/scales",
+      "status": "partial"
+    },
+    {
+      "name": "Career jobs/guides",
+      "status": "partial"
+    },
+    {
+      "name": "Landing surfaces",
+      "status": "partial"
+    },
+    {
+      "name": "Media",
+      "status": "partial"
+    },
+    {
+      "name": "Revisions/publish state",
+      "status": "partial"
+    },
+    {
+      "name": "Release/revalidate",
+      "status": "partial"
+    },
+    {
+      "name": "Claim gate",
+      "status": "partial"
+    },
+    {
+      "name": "SEO metadata completeness",
+      "status": "partial"
+    }
+  ],
+  "ownership_contract": {
+    "cms": {
+      "owns": [
+        "content_truth",
+        "publish_truth",
+        "seo_metadata_truth",
+        "revisions",
+        "release_revalidate_governance"
+      ],
+      "can_be_seo_bi": false
+    },
+    "fap_api": {
+      "owns": [
+        "backend_contract_truth",
+        "CMS authority",
+        "commerce",
+        "report",
+        "email",
+        "public API contracts"
+      ]
+    },
+    "fap_web": {
+      "owns": [
+        "deterministic_rendering",
+        "frontend_interaction_runtime"
+      ]
+    },
+    "seo_middle_platform": {
+      "owns": [
+        "observation",
+        "drift_detection",
+        "attribution",
+        "issue_queue"
+      ],
+      "can_publish_content": false
+    },
+    "seo_collector": {
+      "can_read": [
+        "CMS/backend truth",
+        "public runtime output"
+      ],
+      "can_write": [
+        "seo_intel"
+      ],
+      "can_publish_content": false,
+      "forbidden_writes": [
+        "CMS tables",
+        "business tables",
+        "runtime config",
+        "sitemap/llms behavior",
+        "tracking behavior"
+      ]
+    },
+    "metabase": {
+      "status": "missing",
+      "read_only": true,
+      "allowed_query_targets": [
+        "seo_intel"
+      ],
+      "forbidden_query_targets": [
+        "CMS/business tables"
+      ]
+    },
+    "convergence_requirement": "Public API and CMS/backend authority must be converged or explicitly documented before SEO Collector production rollout."
+  },
+  "forbidden_assumptions": [
+    "Treating target topology as current truth",
+    "Treating env keys as live cloud assets",
+    "Treating nested fap-api/fap-web as runtime",
+    "Treating RIASEC or Big Five as complete career recommender runtime",
+    "Letting SEO 中台 publish or generate pSEO",
+    "Letting Metabase query CMS/business tables directly",
+    "Storing email in SEO analytics detail",
+    "Exposing order_no to normal ops dashboards",
+    "Running crawlers on fap-web Node1",
+    "Running heavy SEO workers inside fap-api web request process",
+    "Assuming fap-node2 and fap-api-prod are interchangeable backends",
+    "Assuming Tencent COS is active media authority"
+  ],
+  "first_pr_train": {
+    "current": {
+      "id": "ARCH-SEO-CMS-01",
+      "title": "docs(architecture): add SEO intelligence asset map and ownership contract",
+      "status": "in_progress"
+    },
+    "next": [
+      "ARCH-SEO-CMS-02 final architecture charter",
+      "SEO-DASH-00 schema/attribution/PII/consent boundary",
+      "SEO-DASH-01 seo_intel DB + collector skeleton",
+      "SEO-DASH-02 URL truth/drift collector",
+      "SEO-DASH-03 funnel attribution",
+      "SEO-DASH-04 GSC/Baidu",
+      "SEO-DASH-05 Metabase",
+      "SEO-DASH-06 CMS issue queue"
+    ]
+  },
+  "blocked_until_decisions": [
+    "Backend runtime convergence decision",
+    "seo_intel data placement decision",
+    "Server 4 hosting decision",
+    "GSC/Baidu ownership confirmation",
+    "PII and consent boundary approval"
+  ],
+  "pii_rules": {
+    "email": {
+      "seo_analytics_detail": "forbidden"
+    },
+    "order_no": {
+      "normal_ops_dashboards": "masked_or_aggregated"
+    },
+    "payment_ids": {
+      "normal_ops_dashboards": "forbidden"
+    },
+    "raw_attempt_answers": {
+      "seo_intel": "forbidden"
+    }
+  },
+  "deployment_guardrails": {
+    "no_runtime_code_changes": true,
+    "no_backend_runtime_code_changes": true,
+    "no_frontend_runtime_code_changes": true,
+    "no_sitemap_llms_behavior_changes": true,
+    "no_tracking_behavior_changes": true,
+    "no_payment_report_email_recommendation_scoring_changes": true,
+    "no_cloud_changes": true,
+    "no_ssh_required_for_this_pr": true,
+    "allowed_files": [
+      "docs/seo/seo-intelligence-node-readiness.md",
+      "docs/seo/generated/seo-intelligence-asset-map.v1.json",
+      "tests/contracts/seo-intelligence-asset-map.contract.test.ts",
+      "docs/codex/pr-train.yaml",
+      "docs/codex/pr-train-state.json"
+    ],
+    "forbidden_runtime_paths": [
+      "app/",
+      "components/",
+      "lib/",
+      "public/",
+      "next-sitemap.config.js",
+      "app/llms.txt/route.ts",
+      "app/llms-full.txt/route.ts",
+      "backend runtime files",
+      "migrations",
+      "env files",
+      "deployment scripts"
+    ]
+  }
+}

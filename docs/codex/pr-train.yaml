@@ -2996,3 +2996,71 @@ prs:
       - sitemap/llms files
       - result/payment/order/share/attempt/scoring runtime
     rollback_note: "Remove multi-test graph field normalization and keep related_test_slug-only contract."
+
+  - id: ARCH-SEO-CMS-01
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/arch-seo-cms-01-asset-map-ownership-contract
+    base: main
+    depends_on: []
+    mode: execute
+    risk_level: L2
+    status: planned
+    title: "docs(architecture): add SEO intelligence asset map and ownership contract"
+    goal: "Add a versioned SEO Intelligence asset map and ownership contract based on ARCH-SEO-CMS-00, cloud asset scan, and runtime read-only scan without changing frontend runtime, backend runtime, sitemap/llms, tracking, commerce, report, email, recommendation, scoring, deployment, env, or cloud behavior."
+    in_scope:
+      - docs/seo/seo-intelligence-node-readiness.md
+      - docs/seo/generated/seo-intelligence-asset-map.v1.json
+      - tests/contracts/seo-intelligence-asset-map.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - /Users/rainie/Desktop/GitHub/fap-api changes
+      - /Users/rainie/Desktop/GitHub/fap-api/fap-web as production runtime
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - next-sitemap.config.js
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - backend runtime files
+      - migrations
+      - env files
+      - deployment scripts
+      - payment/order/report/recommendation/scoring/profile code
+      - cloud resources
+      - SSH/runtime commands
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/seo-intelligence-asset-map.contract.test.ts
+      - pnpm test:contract
+      - pnpm seo:check-sitemap
+      - pnpm seo:check-mobile
+      - git diff --check
+      - git diff --cached --check
+    acceptance:
+      - Versioned JSON artifact includes ARCH-SEO-CMS-00, cloud_asset_scan, and runtime_ssh_readonly_scan sources.
+      - Artifact locks fap-web as production frontend source-of-truth and nested fap-api/fap-web as stale/skeleton non-runtime.
+      - Artifact records fap-node1, fap-node2, fap-api-prod, and staging current topology.
+      - Artifact marks dual backend runtime drift as conflict / architecture_debt / human_confirm_required.
+      - Target Server 2, seo_intel DB, and Server 4 are not marked ready.
+      - Mixed cloud media chain is DNSPod -> Alibaba CDN -> Alibaba OSS.
+      - Tencent COS is not marked active media authority.
+      - Ownership contract keeps SEO 中台 observational and CMS content-authoritative.
+      - No frontend runtime, backend runtime, sitemap/llms, tracking, commerce, report, email, recommendation, scoring, deployment, env, SSH, or cloud behavior changes.
+    must_not_touch:
+      - /Users/rainie/Desktop/GitHub/fap-api
+      - /Users/rainie/Desktop/GitHub/fap-api/fap-web
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - next-sitemap.config.js
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - backend runtime files
+      - migrations
+      - env files
+      - deployment scripts
+      - payment/order/report/recommendation/scoring/profile code
+    rollback_note: "Remove the SEO Intelligence readiness document, generated asset map artifact, scoped contract test, and ARCH-SEO-CMS-01 train metadata."
