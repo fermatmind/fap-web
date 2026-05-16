@@ -11,6 +11,27 @@ type ChildrenProps = {
 };
 
 const CONTRACT_RENDER_TIMEOUT_MS = 5_000;
+const STABLE_DICT_FIXTURE = {
+  header: {
+    brand: "FAP",
+  },
+  quiz: {
+    milestoneHints: [],
+    immersive: {
+      backToLanding: "Back",
+      previous: "Previous",
+      submitRetry: "Retry submit",
+      noOptions: "No options",
+      submitPhases: ["Saving", "Analyzing", "Generating"],
+    },
+    big5Retake: {
+      forms: {
+        big5_120: "Big Five 120-question Full Edition",
+        big5_90: "Big Five 90-question Standard Edition",
+      },
+    },
+  },
+};
 
 const hoisted = vi.hoisted(() => {
   let cachedSearch = "";
@@ -163,27 +184,7 @@ vi.mock("@/lib/analytics", () => ({
 }));
 
 vi.mock("@/lib/i18n/getDict", () => ({
-  getDictSync: () => ({
-    header: {
-      brand: "FAP",
-    },
-    quiz: {
-      milestoneHints: [],
-      immersive: {
-        backToLanding: "Back",
-        previous: "Previous",
-        submitRetry: "Retry submit",
-        noOptions: "No options",
-        submitPhases: ["Saving", "Analyzing", "Generating"],
-      },
-      big5Retake: {
-        forms: {
-          big5_120: "Big Five 120-question Full Edition",
-          big5_90: "Big Five 90-question Standard Edition",
-        },
-      },
-    },
-  }),
+  getDictSync: () => STABLE_DICT_FIXTURE,
 }));
 
 vi.mock("@/lib/observability/httpError", () => ({
