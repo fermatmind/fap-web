@@ -25,7 +25,6 @@ type GoogleAdsPurchaseConversionPayload = {
   send_to: string;
   value?: number;
   currency?: string;
-  transaction_id?: string;
 };
 
 const NETWORK_OBSERVABLE_FUNNEL_EVENTS = new Set<TrackingEventName>([
@@ -101,10 +100,6 @@ function firstNonEmptyString(payload: Record<string, unknown>, keys: string[]): 
   return undefined;
 }
 
-function isLikelyEmailValue(value: string): boolean {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
-}
-
 export function buildGoogleAdsPurchaseConversionPayload(
   payload: Record<string, unknown>,
   config: GoogleAdsConversionConfig = getGoogleAdsConversionConfig()
@@ -116,11 +111,9 @@ export function buildGoogleAdsPurchaseConversionPayload(
   };
   const value = firstFiniteNumber(payload, ["amount", "value", "price"]);
   const currency = firstNonEmptyString(payload, ["currency"]);
-  const transactionId = firstNonEmptyString(payload, ["order_no", "orderNo", "order_id", "transaction_id"]);
 
   if (value !== undefined) conversionPayload.value = value;
   if (currency) conversionPayload.currency = currency;
-  if (transactionId && !isLikelyEmailValue(transactionId)) conversionPayload.transaction_id = transactionId;
 
   return conversionPayload;
 }
@@ -229,6 +222,7 @@ export async function trackNetworkObservableFunnelEvent({
   anonymousId: string;
   path: string;
 }): Promise<void> {
+  if (!hasAnalyticsConsent()) return;
   if (!isTrackingEvent(eventName)) return;
 
   const normalizedEventName = normalizeTrackingEventName(eventName as TrackingEventName);
@@ -239,9 +233,7 @@ export async function trackNetworkObservableFunnelEvent({
   const filteredPayload = filterTrackingPayload(normalizedEventName, payload ?? {});
   const safePath = sanitizeTrackingUrl(path) ?? "";
 
-  if (hasAnalyticsConsent()) {
-    dispatchBrowserAnalyticsEvent(normalizedEventName, filteredPayload, payload ?? {});
-  }
+  dispatchBrowserAnalyticsEvent(normalizedEventName, filteredPayload, payload ?? {});
 
   try {
     await fetch("/api/track", {

@@ -141,8 +141,6 @@ describe("RIASEC standard funnel events contract", () => {
           scale_code: "RIASEC",
           form_code: "riasec_60",
           attempt_id: "attempt-riasec-result-view",
-          result_type: viewModel.topCode,
-          top_code: viewModel.topCode,
           locale: "zh",
         })
       );
@@ -155,6 +153,11 @@ describe("RIASEC standard funnel events contract", () => {
         })
       );
     });
+    const canonicalPayload = hoisted.trackObservableFunnelEvent.mock.calls[0]?.[1] as Record<string, unknown>;
+    expect(canonicalPayload).not.toHaveProperty("result_type");
+    expect(canonicalPayload).not.toHaveProperty("top_code");
+    expect(canonicalPayload).not.toHaveProperty("typeCode");
+    expect(canonicalPayload).not.toHaveProperty("identity");
   });
 
   it("keeps RIASEC take flow on canonical start_attempt and submit_attempt source paths", () => {

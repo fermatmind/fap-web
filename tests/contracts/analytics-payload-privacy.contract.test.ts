@@ -1,4 +1,5 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
+import { trackObservableFunnelEvent as trackAnalyticsObservableFunnelEvent } from "@/lib/analytics";
 import { trackClientEvent, trackNetworkObservableFunnelEvent } from "@/lib/tracking/client";
 import { TRACKING_EVENTS, filterTrackingPayload } from "@/lib/tracking/events";
 
@@ -96,7 +97,53 @@ describe("analytics payload privacy contract", () => {
     expect(fetchMock).not.toHaveBeenCalled();
   });
 
-  it("allows network-visible funnel events without browser analytics consent while filtering PII", async () => {
+  it("keeps observable funnel dispatch blocked before analytics consent is granted", async () => {
+    const fetchMock = vi.fn().mockResolvedValue(new Response(JSON.stringify({ ok: true })));
+    const gtagMock = vi.fn();
+    vi.stubGlobal("fetch", fetchMock);
+    Object.defineProperty(window, "gtag", {
+      configurable: true,
+      value: gtagMock,
+    });
+
+    trackAnalyticsObservableFunnelEvent(TRACKING_EVENTS.START_ATTEMPT, {
+      test_slug: "mbti-personality-test-16-personality-types",
+      scale_code: "MBTI",
+      email: "person@example.com",
+      locale: "en",
+    });
+
+    await trackNetworkObservableFunnelEvent({
+      eventName: TRACKING_EVENTS.START_ATTEMPT,
+      payload: {
+        test_slug: "holland-career-interest-test-riasec",
+        scale_code: "RIASEC",
+        form_code: "riasec_60",
+        email: "person@example.com",
+        locale: "zh",
+      },
+      anonymousId: "anon-session-1",
+      path: "/zh/tests/holland-career-interest-test-riasec/take",
+    });
+
+    await trackNetworkObservableFunnelEvent({
+      eventName: TRACKING_EVENTS.CREATE_ORDER,
+      payload: {
+        order_no: "ord_not_observable_without_consent",
+        amount: 88,
+        currency: "CNY",
+        locale: "zh",
+      },
+      anonymousId: "anon-session-1",
+      path: "/zh/orders/ord_not_observable_without_consent",
+    });
+
+    expect(gtagMock).not.toHaveBeenCalled();
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it("allows network-visible funnel events after consent while filtering PII", async () => {
+    grantAnalyticsConsent();
     const fetchMock = vi.fn().mockResolvedValue(new Response(JSON.stringify({ ok: true })));
     const gtagMock = vi.fn();
     vi.stubGlobal("fetch", fetchMock);
@@ -115,12 +162,14 @@ describe("analytics payload privacy contract", () => {
         locale: "zh",
       },
       anonymousId: "anon-session-1",
-      path: "/zh/tests/holland-career-interest-test-riasec/take",
+      path: "/zh/tests/holland-career-interest-test-riasec/take?payment_recovery_token=secret&utm_source=seo",
     });
     await trackNetworkObservableFunnelEvent({
       eventName: TRACKING_EVENTS.CREATE_ORDER,
       payload: {
         order_no: "ord_not_observable_without_consent",
+        order_id: "ord_order_id_raw",
+        transaction_id: "ord_transaction_id_raw",
         amount: 88,
         currency: "CNY",
         locale: "zh",
@@ -129,13 +178,18 @@ describe("analytics payload privacy contract", () => {
       path: "/zh/orders/ord_not_observable_without_consent",
     });
 
-    expect(gtagMock).not.toHaveBeenCalled();
+    expect(gtagMock).toHaveBeenCalledWith("event", "start_attempt", expect.any(Object));
+    expect(gtagMock).toHaveBeenCalledWith("event", "begin_checkout", expect.any(Object));
     expect(fetchMock).toHaveBeenCalledTimes(2);
     const body = JSON.parse(String(fetchMock.mock.calls[0]?.[1]?.body ?? "{}")) as {
       eventName?: string;
+      path?: string;
       payload?: Record<string, unknown>;
     };
     expect(body.eventName).toBe("start_attempt");
+    expect(body.path).toBe(
+      "/zh/tests/holland-career-interest-test-riasec/take?payment_recovery_token=redacted&utm_source=seo"
+    );
     expect(body.payload).toMatchObject({
       test_slug: "holland-career-interest-test-riasec",
       scale_code: "RIASEC",
@@ -145,11 +199,18 @@ describe("analytics payload privacy contract", () => {
     expect(JSON.stringify(body)).not.toContain("person@example.com");
     const createOrderBody = JSON.parse(String(fetchMock.mock.calls[1]?.[1]?.body ?? "{}")) as {
       eventName?: string;
+      path?: string;
       payload?: Record<string, unknown>;
     };
     expect(createOrderBody.eventName).toBe("create_order");
+    expect(createOrderBody.path).toBe("/zh/orders/redacted");
+    expect(createOrderBody.payload?.order_no).toBe("ord_no...sent");
+    expect(createOrderBody.payload?.order_id).toBe("ord_or..._raw");
+    expect(createOrderBody.payload?.transaction_id).toBe("ord_tr..._raw");
     expect(JSON.stringify(createOrderBody)).not.toContain("person@example.com");
     expect(JSON.stringify(createOrderBody)).not.toContain("ord_not_observable_without_consent");
+    expect(JSON.stringify(createOrderBody)).not.toContain("ord_order_id_raw");
+    expect(JSON.stringify(createOrderBody)).not.toContain("ord_transaction_id_raw");
   });
 
   it("sends only redacted path and payload values after analytics consent is granted", async () => {

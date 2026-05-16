@@ -50,6 +50,12 @@ function payloadsFor(eventName: string): Record<string, unknown>[] {
     .map(([, payload]) => payload as Record<string, unknown>);
 }
 
+function observablePayloadsFor(eventName: string): Record<string, unknown>[] {
+  return hoisted.trackObservableFunnelEvent.mock.calls
+    .filter(([name]) => name === eventName)
+    .map(([, payload]) => payload as Record<string, unknown>);
+}
+
 function expectNoForbiddenPayloadFields(payload: Record<string, unknown>) {
   for (const forbidden of [
     "raw_scores",
@@ -62,6 +68,10 @@ function expectNoForbiddenPayloadFields(payload: Record<string, unknown>) {
     "match_score",
     "career_success_probability",
     "occupation_recommendation",
+    "result_type",
+    "top_code",
+    "typeCode",
+    "identity",
   ]) {
     expect(payload).not.toHaveProperty(forbidden);
   }
@@ -89,12 +99,14 @@ describe("RIASEC runtime analytics dispatch", () => {
     render(<RiasecResultShell locale="zh" attemptId="attempt-riasec" viewModel={viewModel} />);
 
     await waitFor(() => {
+      expect(observablePayloadsFor("view_result")).toHaveLength(1);
       expect(payloadsFor(RIASEC_TRACKING_EVENTS.resultView)).toHaveLength(1);
       expect(payloadsFor(RIASEC_TRACKING_EVENTS.activityExplorerView)).toHaveLength(1);
       expect(payloadsFor(RIASEC_TRACKING_EVENTS.feedbackOverlayView)).toHaveLength(1);
     });
 
     for (const payload of [
+      ...observablePayloadsFor("view_result"),
       ...payloadsFor(RIASEC_TRACKING_EVENTS.resultView),
       ...payloadsFor(RIASEC_TRACKING_EVENTS.activityExplorerView),
       ...payloadsFor(RIASEC_TRACKING_EVENTS.feedbackOverlayView),

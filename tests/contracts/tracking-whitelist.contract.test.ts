@@ -116,9 +116,27 @@ describe("tracking whitelist contract", () => {
       occupation_recommendation: "forbidden",
       email: "forbidden@example.com",
       token: "forbidden",
+      result_type: "RIA",
+      top_code: "RIA",
+      typeCode: "RIA",
+      identity: "RIA",
     };
 
     expect(filterTrackingPayload(TRACKING_EVENTS.RIASEC_RESULT_VIEW, payload)).toEqual({
+      scale_code: "RIASEC",
+      form_code: "riasec_60",
+      score_space_version: "riasec_60_likert5_activity_sum_space.v1",
+      projection_version: "riasec.public_projection.v2",
+      snapshot_bound: true,
+      activity_explorer_status: "content_examples_only",
+      activity_source_status: "content_example_not_registry_match",
+      feedback_overlay_status: "overlay_contract_only",
+      feedback_stream_status: "not_connected_v0_1",
+      raw_feedback_included: false,
+      occupation_examples_policy: "content_example_not_registry_match_without_reviewed_registry_source",
+      locale: "zh",
+    });
+    expect(filterTrackingPayload(TRACKING_EVENTS.VIEW_RESULT, payload)).toEqual({
       scale_code: "RIASEC",
       form_code: "riasec_60",
       score_space_version: "riasec_60_likert5_activity_sum_space.v1",

@@ -1,6 +1,7 @@
 import { trackClientEvent, trackNetworkObservableFunnelEvent } from "@/lib/tracking/client";
 import { getLocaleFromPathname } from "@/lib/i18n/locales";
 import { getOrCreateAnonId } from "@/lib/anon";
+import { hasAnalyticsConsent } from "@/lib/consent/store";
 import {
   captureAttributionFromLocation,
   readStoredTrackingAttributionPayload,
@@ -29,7 +30,7 @@ export function clearAnalyticsQueue(): void {
 
 export function initAnalytics(): void {
   if (!isBrowser()) return;
-  if (ANALYTICS_ENABLED) {
+  if (ANALYTICS_ENABLED && hasAnalyticsConsent()) {
     captureAttributionFromLocation({
       pathname: window.location.pathname,
       search: window.location.search,
@@ -43,6 +44,7 @@ export function initAnalytics(): void {
 
 export function trackEvent(eventName: string, properties: AnalyticsProperties = {}): void {
   if (!ANALYTICS_ENABLED || !isBrowser() || !eventName) return;
+  if (!hasAnalyticsConsent()) return;
 
   const locale = getLocaleFromPathname(window.location.pathname);
   const currentPath = `${window.location.pathname}${window.location.search}`;
@@ -66,6 +68,7 @@ export function trackEvent(eventName: string, properties: AnalyticsProperties = 
 
 export function trackObservableFunnelEvent(eventName: string, properties: AnalyticsProperties = {}): void {
   if (!ANALYTICS_ENABLED || !isBrowser() || !eventName) return;
+  if (!hasAnalyticsConsent()) return;
 
   const locale = getLocaleFromPathname(window.location.pathname);
   const currentPath = `${window.location.pathname}${window.location.search}`;

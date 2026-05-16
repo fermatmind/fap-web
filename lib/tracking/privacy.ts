@@ -142,7 +142,9 @@ export function isSensitiveTrackingIdentifierField(key: string): boolean {
     normalized === "targetattemptid" ||
     normalized === "attemptidmasked" ||
     normalized === "orderno" ||
-    normalized === "ordernomasked"
+    normalized === "ordernomasked" ||
+    normalized === "orderid" ||
+    normalized === "transactionid"
   );
 }
 

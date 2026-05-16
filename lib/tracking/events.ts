@@ -365,6 +365,8 @@ const FORBIDDEN_FIELD_PATTERNS = [
   /resume/,
 ];
 
+const RIASEC_RESULT_CODE_FIELDS = new Set(["result_type", "top_code", "typeCode", "identity"]);
+
 function sanitizeString(value: string): string {
   return value.slice(0, 256);
 }
@@ -388,6 +390,11 @@ function sanitizeValue(key: string, value: unknown): string | number | boolean |
   return sanitizeString(String(value));
 }
 
+function isRiasecResultCodeField(payload: Record<string, unknown>, key: string): boolean {
+  const scaleCode = typeof payload.scale_code === "string" ? payload.scale_code.trim().toUpperCase() : "";
+  return scaleCode === "RIASEC" && RIASEC_RESULT_CODE_FIELDS.has(key);
+}
+
 export function isTrackingEvent(eventName: string): eventName is TrackingEventName {
   return Object.values(TRACKING_EVENTS).includes(eventName as TrackingEventName);
 }
@@ -406,6 +413,7 @@ export function filterTrackingPayload(
     const normalizedKey = key.toLowerCase();
     const forbidden = FORBIDDEN_FIELD_PATTERNS.some((pattern) => pattern.test(normalizedKey));
     if (forbidden) return acc;
+    if (isRiasecResultCodeField(payload, key)) return acc;
 
     if (Object.prototype.hasOwnProperty.call(payload, key)) {
       if (isLikelyEmailPayloadValue(payload[key])) return acc;

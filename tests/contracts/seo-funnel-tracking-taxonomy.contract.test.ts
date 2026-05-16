@@ -121,7 +121,7 @@ describe("SEO funnel tracking taxonomy parity", () => {
     expect(JSON.stringify([startBody, submitBody])).not.toContain("person@example.com");
   });
 
-  it("keeps purchase conversion limited to purchase aliases and uses non-PII order ids", async () => {
+  it("keeps purchase conversion limited to purchase aliases without order identifiers", async () => {
     grantAnalyticsConsent();
     withGoogleAdsEnv();
     const fetchMock = vi.fn().mockResolvedValue(new Response(JSON.stringify({ ok: true })));
@@ -148,7 +148,8 @@ describe("SEO funnel tracking taxonomy parity", () => {
       eventName: TRACKING_EVENTS.PAY_SUCCESS,
       payload: {
         order_no: "ord_purchase_alias_1",
-        transaction_id: "person@example.com",
+        order_id: "ord_purchase_order_id_1",
+        transaction_id: "ord_purchase_transaction_1",
         amount: 88,
         currency: "CNY",
         email: "person@example.com",
@@ -163,7 +164,6 @@ describe("SEO funnel tracking taxonomy parity", () => {
       send_to: "AW-TEST1234/purchase_label_test",
       value: 88,
       currency: "CNY",
-      transaction_id: "ord_purchase_alias_1",
     });
 
     const paySuccessBody = JSON.parse(String(fetchMock.mock.calls[2]?.[1]?.body ?? "{}")) as {
@@ -172,7 +172,12 @@ describe("SEO funnel tracking taxonomy parity", () => {
     };
     expect(paySuccessBody.eventName).toBe("purchase_success");
     expect(paySuccessBody.payload?.order_no).toBe("ord_pu...as_1");
+    expect(paySuccessBody.payload?.order_id).toBe("ord_pu...id_1");
+    expect(paySuccessBody.payload?.transaction_id).toBe("ord_pu...on_1");
     expect(JSON.stringify(paySuccessBody)).not.toContain("person@example.com");
+    expect(JSON.stringify(paySuccessBody)).not.toContain("ord_purchase_alias_1");
+    expect(JSON.stringify(paySuccessBody)).not.toContain("ord_purchase_order_id_1");
+    expect(JSON.stringify(paySuccessBody)).not.toContain("ord_purchase_transaction_1");
   });
 
   it("preserves submit_attempt support fields while filtering email from payloads", () => {
@@ -210,13 +215,15 @@ describe("SEO funnel tracking taxonomy parity", () => {
     expect(big5TakeClient).toContain('"submit_attempt"');
   });
 
-  it("never derives Google Ads transaction_id from email", () => {
+  it("never derives Google Ads transaction_id from email or order fields", () => {
     expect(
       buildGoogleAdsPurchaseConversionPayload(
         {
           amount: 88,
           currency: "CNY",
           email: "person@example.com",
+          order_no: "ord_purchase_alias_1",
+          order_id: "ord_purchase_order_id_1",
           transaction_id: "person@example.com",
         },
         { conversionId: "AW-TEST1234", purchaseConversionLabel: "purchase_label_test" }
