@@ -3133,3 +3133,223 @@ prs:
       - app/llms-full.txt/route.ts
       - payment/order/report/recommendation/scoring/profile code
     rollback_note: "Remove the CMS/SEO final architecture charter document, generated artifact, scoped contract test, and ARCH-SEO-CMS-02 train metadata."
+
+  - id: AUDIT-WEB-CMS-LINK-XSS
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/audit-web-cms-link-xss
+    base: main
+    global_sequence: 1
+    depends_on: []
+    mode: execute
+    train_scope: security_audit_remediation
+    risk_level: high
+    status: planned
+    title: "fix(security): harden CMS article link attribution against javascript href XSS"
+    findings:
+      - "CMS data attribute can reintroduce javascript: href XSS"
+    goal: "Ensure CMS article link attribution cannot restore javascript: or unsafe cross-origin hrefs after sanitization."
+    in_scope:
+      - app/(localized)/[locale]/articles/[slug]/page.tsx
+      - components/content/**
+      - lib/cms/**
+      - lib/seo/**
+      - tests/contracts/**cms**
+      - tests/contracts/**article**
+      - tests/contracts/**security**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - fap-api repository changes
+      - CMS content edits or article body changes
+      - analytics consent, order tracking, Google Ads, LLMS fanout, and career SEO authority fixes
+      - payment/order/report/scoring runtime changes
+      - deployment or production commands
+    required_local_checks:
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      continue_train_when_external_blocker:
+        - blocker is not introduced by AUDIT-WEB-CMS-LINK-XSS
+        - GitHub required checks are green
+        - scoped validation is green
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+    acceptance:
+      - Sanitized CMS HTML cannot use data attributes to reintroduce javascript: hrefs.
+      - Markdown and sanitized HTML link attribution only rewrites same-origin or explicitly allowed FermatMind test links.
+      - Unsafe hrefs remain sanitized and are not passed to CTA attribution URL builders.
+    rollback_note: "Remove CMS link attribution hardening and focused security tests added for this audit PR."
+
+  - id: AUDIT-WEB-ANALYTICS-CONSENT-REDACTION
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/audit-web-analytics-consent-redaction
+    base: main
+    global_sequence: 3
+    depends_on:
+      - AUDIT-API-IQ-RESULT-SECRECY:fap-api
+    mode: execute
+    train_scope: security_audit_remediation
+    risk_level: medium
+    status: planned
+    title: "fix(security): enforce analytics consent and redact sensitive tracking payloads"
+    findings:
+      - "MBTI analytics sent despite denied consent"
+      - "RIASEC tracking bypasses analytics consent"
+      - "RIASEC result code leaked through analytics events"
+      - "RIASEC attribution bypasses analytics consent"
+      - "Raw order numbers leak via purchase tracking"
+      - "Google Ads config leaks sensitive payment URLs"
+    goal: "Ensure analytics and ads dispatch obey consent and never emit sensitive result, attribution, order, or payment URL data."
+    in_scope:
+      - app/**
+      - components/analytics/**
+      - components/result/**
+      - lib/tracking/**
+      - lib/analytics/**
+      - lib/attribution/**
+      - lib/orders/**
+      - tests/contracts/**analytics**
+      - tests/contracts/**tracking**
+      - tests/contracts/**mbti**
+      - tests/contracts/**riasec**
+      - tests/contracts/**order**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - fap-api repository changes
+      - CMS link XSS, career SEO authority, LLMS fanout, and backend media guard fixes
+      - payment provider behavior or checkout business logic changes beyond tracking redaction
+      - public content edits
+      - deployment or production commands
+    required_local_checks:
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      continue_train_when_external_blocker:
+        - blocker is not introduced by AUDIT-WEB-ANALYTICS-CONSENT-REDACTION
+        - GitHub required checks are green
+        - scoped validation is green
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+    acceptance:
+      - Denied or missing analytics consent prevents MBTI/RIASEC observable funnel network dispatch.
+      - RIASEC result classifications are not sent to analytics.
+      - Order identifiers and payment URLs are redacted before first-party, browser, or ads dispatch.
+      - Google Ads config does not leak sensitive payment/order URLs through automatic page views.
+    rollback_note: "Remove analytics consent/redaction hardening and focused tracking tests added for this audit PR."
+
+  - id: AUDIT-WEB-CAREER-SEO-AUTHORITY
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/audit-web-career-seo-authority
+    base: main
+    global_sequence: 4
+    depends_on:
+      - AUDIT-WEB-ANALYTICS-CONSENT-REDACTION
+    mode: execute
+    train_scope: security_audit_remediation
+    risk_level: medium
+    status: planned
+    title: "fix(security): require explicit career SEO index authority"
+    findings:
+      - "Partial SEO authority can force candidate pages indexable"
+    goal: "Require explicit backend SEO/index authority before career candidate pages can become indexable."
+    in_scope:
+      - app/(localized)/[locale]/career/**
+      - lib/career/**
+      - lib/seo/**
+      - tests/contracts/**career**
+      - tests/contracts/**seo**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - fap-api repository changes
+      - CMS link XSS, analytics consent, LLMS fanout, and backend artifact fixes
+      - sitemap or llms URL set expansion
+      - public content edits
+      - deployment or production commands
+    required_local_checks:
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - pnpm seo:check-sitemap
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      continue_train_when_external_blocker:
+        - blocker is not introduced by AUDIT-WEB-CAREER-SEO-AUTHORITY
+        - GitHub required checks are green
+        - scoped validation is green
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+    acceptance:
+      - Missing/default robots policy cannot become positive publish/index authority.
+      - Career metadata respects backend seo_contract index eligibility and state.
+      - Candidate or locale-not-ready career bundles remain noindex.
+    rollback_note: "Remove career SEO authority hardening and focused tests added for this audit PR."
+
+  - id: AUDIT-WEB-LLMS-FANOUT-BUDGET
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/audit-web-llms-fanout-budget
+    base: main
+    global_sequence: 5
+    depends_on:
+      - AUDIT-WEB-CAREER-SEO-AUTHORITY
+    mode: execute
+    train_scope: security_audit_remediation
+    risk_level: medium
+    status: planned
+    title: "fix(security): bound LLMS route fanout and cancel timed-out work"
+    findings:
+      - "llms budget timeouts leave backend fanout running"
+    goal: "Make public LLMS routes enforce fanout limits before expensive fetches and stop orphaned work after route budget timeout."
+    in_scope:
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - lib/seo/**
+      - tests/contracts/**llms**
+      - tests/contracts/**seo**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - fap-api repository changes
+      - CMS link XSS, analytics consent, career metadata index authority, and backend media guard fixes
+      - sitemap URL set expansion
+      - public content edits
+      - deployment or production commands
+    required_local_checks:
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - pnpm seo:check-sitemap
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      continue_train_when_external_blocker:
+        - blocker is not introduced by AUDIT-WEB-LLMS-FANOUT-BUDGET
+        - GitHub required checks are green
+        - scoped validation is green
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+    acceptance:
+      - LLMS career job limits apply before per-path SEO authority fetches.
+      - Timed-out route work is aborted or otherwise prevented from continuing unbounded backend fanout.
+      - Public /llms.txt and /llms-full.txt remain functional within budget.
+    rollback_note: "Remove LLMS fanout/budget hardening and focused tests added for this audit PR."
