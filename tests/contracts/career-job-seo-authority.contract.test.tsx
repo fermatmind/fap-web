@@ -118,6 +118,57 @@ function buildSeoAuthorityPublishedWithStaleBundlePayload() {
         title: SEO_TITLE,
         description: SEO_DESCRIPTION,
         structured_data_keys: ["Occupation"],
+        index_eligible: true,
+        index_state: "indexable",
+      },
+      jsonld: {
+        "@context": "https://schema.org",
+        "@type": "Occupation",
+        name: "会计师和审计师",
+        url: CANONICAL,
+        mainEntityOfPage: CANONICAL,
+      },
+    },
+  };
+}
+
+function buildPartialSeoAuthorityWithStaleBundlePayload() {
+  return {
+    ...buildSeoAuthorityPublishedWithStaleBundlePayload(),
+    seo_authority_v1: {
+      seo_surface_v1: {
+        metadata_contract_version: "seo.surface.v1",
+        surface_type: "career_job_detail",
+        canonical_url: CANONICAL,
+        robots_policy: "index,follow",
+        title: SEO_TITLE,
+        description: SEO_DESCRIPTION,
+        structured_data_keys: ["Occupation"],
+      },
+      jsonld: {
+        "@context": "https://schema.org",
+        "@type": "Occupation",
+        name: "会计师和审计师",
+        url: CANONICAL,
+        mainEntityOfPage: CANONICAL,
+      },
+    },
+  };
+}
+
+function buildDefaultRobotsSeoAuthorityPayload() {
+  return {
+    ...buildCareerJobBundlePayload(),
+    seo_authority_v1: {
+      seo_surface_v1: {
+        metadata_contract_version: "seo.surface.v1",
+        surface_type: "career_job_detail",
+        canonical_url: CANONICAL,
+        title: SEO_TITLE,
+        description: SEO_DESCRIPTION,
+        structured_data_keys: ["Occupation"],
+        index_eligible: true,
+        index_state: "indexable",
       },
       jsonld: {
         "@context": "https://schema.org",
@@ -390,6 +441,98 @@ describe("career job seo.surface.v1 authority contract", () => {
 
     expect(metadata.alternates?.canonical).toBe(CANONICAL);
     expect(metadata.robots).toMatchObject({ index: true, follow: true });
+  });
+
+  it("does not let robots-only SEO authority override stale bundle noindex state", async () => {
+    vi.doMock("next/link", () => ({
+      default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
+        <a href={href} {...props}>
+          {children}
+        </a>
+      ),
+    }));
+    vi.doMock("next/navigation", async () => {
+      const actual = await vi.importActual<typeof import("next/navigation")>("next/navigation");
+      return {
+        ...actual,
+        notFound: vi.fn(() => {
+          throw new Error("not-found");
+        }),
+        permanentRedirect: vi.fn((href: string) => {
+          throw new Error(`redirect:${href}`);
+        }),
+        usePathname: vi.fn(() => "/zh/career/jobs/accountants-and-auditors"),
+      };
+    });
+    vi.doMock("@/hooks/useAnalytics", () => ({
+      AnalyticsPageViewTracker: () => null,
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerJobBundle", () => ({
+      fetchCareerJobBundle: vi.fn(async () => buildPartialSeoAuthorityWithStaleBundlePayload()),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerJobExplainability", () => ({
+      fetchCareerJobExplainability: vi.fn(async () => null),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerFirstWaveNextStepLinks", () => ({
+      fetchCareerFirstWaveNextStepLinks: vi.fn(async () => null),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerRuntimeConfig", () => ({
+      fetchCareerRuntimeConfig: vi.fn(async () => null),
+    }));
+
+    const { generateMetadata } = await import("@/app/(localized)/[locale]/career/jobs/[slug]/page");
+    const metadata = await generateMetadata({
+      params: Promise.resolve({ locale: "zh", slug: "accountants-and-auditors" }),
+    });
+
+    expect(metadata.alternates?.canonical).toBe(CANONICAL);
+    expect(metadata.robots).toMatchObject({ index: false, follow: false });
+  });
+
+  it("does not treat defaulted robots as explicit career SEO index authority", async () => {
+    vi.doMock("next/link", () => ({
+      default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
+        <a href={href} {...props}>
+          {children}
+        </a>
+      ),
+    }));
+    vi.doMock("next/navigation", async () => {
+      const actual = await vi.importActual<typeof import("next/navigation")>("next/navigation");
+      return {
+        ...actual,
+        notFound: vi.fn(() => {
+          throw new Error("not-found");
+        }),
+        permanentRedirect: vi.fn((href: string) => {
+          throw new Error(`redirect:${href}`);
+        }),
+        usePathname: vi.fn(() => "/zh/career/jobs/accountants-and-auditors"),
+      };
+    });
+    vi.doMock("@/hooks/useAnalytics", () => ({
+      AnalyticsPageViewTracker: () => null,
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerJobBundle", () => ({
+      fetchCareerJobBundle: vi.fn(async () => buildDefaultRobotsSeoAuthorityPayload()),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerJobExplainability", () => ({
+      fetchCareerJobExplainability: vi.fn(async () => null),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerFirstWaveNextStepLinks", () => ({
+      fetchCareerFirstWaveNextStepLinks: vi.fn(async () => null),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerRuntimeConfig", () => ({
+      fetchCareerRuntimeConfig: vi.fn(async () => null),
+    }));
+
+    const { generateMetadata } = await import("@/app/(localized)/[locale]/career/jobs/[slug]/page");
+    const metadata = await generateMetadata({
+      params: Promise.resolve({ locale: "zh", slug: "accountants-and-auditors" }),
+    });
+
+    expect(metadata.alternates?.canonical).toBe(CANONICAL);
+    expect(metadata.robots).toMatchObject({ index: false, follow: false });
   });
 
   it("keeps candidate zh job detail pages noindex when published SEO authority is absent", async () => {

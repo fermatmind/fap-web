@@ -81,11 +81,6 @@ function renderScoreValue(value: number | null): string {
   return value === null ? "—" : String(value);
 }
 
-function shouldNoindex(indexState: string | null | undefined): boolean {
-  const normalized = String(indexState ?? "").trim().toLowerCase();
-  return normalized === "blocked" || normalized === "noindex" || normalized === "unavailable";
-}
-
 function isIndexableState(indexState: string | null | undefined): boolean {
   const normalized = String(indexState ?? "").trim().toLowerCase();
   return normalized === "index" || normalized === "indexable" || normalized === "indexed";
@@ -106,21 +101,16 @@ function robotsAllowIndex(robotsPolicy: string | null | undefined): boolean | nu
 }
 
 function hasPublishedIndexAuthority(job: CareerJobBundleAdapter): boolean {
-  const seoRobotsAllowIndex = robotsAllowIndex(job.seoSurface?.robotsPolicy);
-
-  if (seoRobotsAllowIndex === false || job.seoSurface?.indexEligible === false || shouldNoindex(job.seoSurface?.indexState)) {
-    return false;
+  if (job.seoSurface) {
+    return (
+      job.seoSurface.robotsPolicyExplicit === true &&
+      robotsAllowIndex(job.seoSurface.robotsPolicy) === true &&
+      job.seoSurface.indexEligible === true &&
+      isIndexableState(job.seoSurface.indexState)
+    );
   }
 
-  if (
-    seoRobotsAllowIndex === true ||
-    job.seoSurface?.indexEligible === true ||
-    isIndexableState(job.seoSurface?.indexState)
-  ) {
-    return true;
-  }
-
-  return job.seoContract.indexEligible === true && !shouldNoindex(job.seoContract.indexState);
+  return job.seoContract.indexEligible === true && isIndexableState(job.seoContract.indexState);
 }
 
 function hasBackendStructuredDataKey(job: CareerJobBundleAdapter, key: string): boolean {

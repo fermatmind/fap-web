@@ -563,6 +563,8 @@ describe("career job detail Actors v4.2 route integration", () => {
             title: "精算师｜FermatMind 职业库",
             description: "Backend-owned SEO authority for an indexable zh job detail page.",
             structured_data_keys: [],
+            index_eligible: true,
+            index_state: "indexable",
           },
         },
       })

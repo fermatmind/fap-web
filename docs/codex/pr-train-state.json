@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-16T15:33:10+08:00",
+  "updated_at": "2026-05-16T15:45:50+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -4555,7 +4555,7 @@
       "depends_on": [
         "AUDIT-WEB-ANALYTICS-CONSENT-REDACTION"
       ],
-      "status": "planned",
+      "status": "pr_open",
       "train_scope": "security_audit_remediation",
       "risk_level": "medium",
       "title": "fix(security): require explicit career SEO index authority",
@@ -4570,11 +4570,59 @@
         "scope_validation_policy": {
           "status": "planned",
           "evidence": "External blockers may be recorded as sidecar only when not introduced by the current PR, GitHub required checks are green, and scoped validation is green."
+        },
+        "dependency": {
+          "status": "pass",
+          "evidence": "AUDIT-WEB-ANALYTICS-CONSENT-REDACTION merged as fap-web#823 with merge commit 22efcd732b43429d7913c03a7a15dab9419f5b05."
+        },
+        "branch_preflight": {
+          "status": "pass",
+          "evidence": "Created codex/audit-web-career-seo-authority from latest fap-web main aligned with origin/main."
+        },
+        "typecheck": {
+          "status": "pass",
+          "evidence": "pnpm typecheck passed on final implementation."
+        },
+        "production_build": {
+          "status": "pass",
+          "evidence": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build passed; generated public/sitemap.xml was restored as out-of-scope build output."
+        },
+        "seo_check_sitemap": {
+          "status": "pass",
+          "evidence": "pnpm seo:check-sitemap passed with 261 indexable URLs."
+        },
+        "targeted_contracts": {
+          "status": "pass",
+          "evidence": "pnpm vitest run tests/contracts/career-job-detail-actors-v42.contract.test.tsx tests/contracts/career-job-seo-authority.contract.test.tsx passed: 59 tests."
+        },
+        "contract_full_precommit": {
+          "status": "retry_required_after_clean_tree",
+          "evidence": "pnpm test:contract initially failed on a current-PR fixture missing explicit index authority and on the known SEO Intelligence current diff guard. The in-scope fixture was fixed and targeted contracts pass; full contract suite will be rerun after commit on a clean tree."
+        },
+        "scope_validation": {
+          "status": "pass",
+          "evidence": "git diff --name-only contains only career route, lib/seo, career/seo contract tests, and docs/codex/pr-train-state.json within manifest scope."
+        },
+        "diff_check": {
+          "status": "pass",
+          "evidence": "git diff --check passed."
+        },
+        "test_contract": {
+          "status": "pass",
+          "evidence": "pnpm test:contract passed after commit on clean tree: 366 files, 2067 tests."
+        },
+        "cached_diff_check": {
+          "status": "pass",
+          "evidence": "git diff --cached --check passed before the local-checks ledger amend."
+        },
+        "pr_created": {
+          "status": "pass",
+          "evidence": "Created GitHub PR #824 for codex/audit-web-career-seo-authority."
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/824",
+      "commit_sha": "b110e5d4b2ad7f3518927ebea77c6b4981d313c7",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -4584,6 +4632,31 @@
           "at": "2026-05-16T14:10:19+08:00",
           "status": "planned",
           "summary": "Initialized AUDIT-WEB-CAREER-SEO-AUTHORITY as a security audit remediation train item. Implementation has not started."
+        },
+        {
+          "at": "2026-05-16T15:35:55+08:00",
+          "status": "in_progress",
+          "summary": "Started implementation on codex/audit-web-career-seo-authority after dependency fap-web#823 merge verification."
+        },
+        {
+          "at": "2026-05-16T15:42:54+08:00",
+          "status": "local_checks_in_progress",
+          "summary": "Implemented explicit career SEO index authority hardening; typecheck, build, sitemap check, targeted contracts, scope validation, and git diff --check passed. Full contract suite is queued for clean-tree rerun after commit because its SEO Intelligence diff guard reads current git diff."
+        },
+        {
+          "at": "2026-05-16T15:44:26+08:00",
+          "status": "local_checks_passed",
+          "summary": "All required local checks passed on clean tree for commit 75780b6b74de3c91a8ab59de42aae864d0f988e5."
+        },
+        {
+          "at": "2026-05-16T15:44:59+08:00",
+          "status": "local_checks_passed",
+          "summary": "Ledger commit SHA reconciled after amend: 06689ab40bb41e629396c50ccb1c6098bdc0168c."
+        },
+        {
+          "at": "2026-05-16T15:45:50+08:00",
+          "status": "pr_open",
+          "summary": "Created GitHub PR #824 after local checks and scope validation passed."
         }
       ]
     },
