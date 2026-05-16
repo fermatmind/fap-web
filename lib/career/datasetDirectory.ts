@@ -289,7 +289,7 @@ export function buildRenderableCareerDatasetMembers(input: {
     input.detailReadySlugs ?? new Set([...(input.detailReadyJobs?.keys() ?? [])]);
 
   if (input.datasetMembers.length > 0) {
-    return input.datasetMembers.flatMap((member) => {
+    const renderedMembers = input.datasetMembers.flatMap((member) => {
       const detailReadyJob = input.detailReadyJobs?.get(member.canonicalSlug) ?? null;
       const hasDetailPage = detailReadySlugs.has(member.canonicalSlug);
       const staticMember = staticMemberBySlug.get(member.canonicalSlug);
@@ -324,9 +324,11 @@ export function buildRenderableCareerDatasetMembers(input: {
             }),
       }];
     });
+
+    return appendDetailReadyJobMembers(renderedMembers, input.detailReadyJobs);
   }
 
-  return CAREER_STATIC_OCCUPATION_MEMBERS.map((member) => {
+  const renderedStaticMembers = CAREER_STATIC_OCCUPATION_MEMBERS.map((member) => {
     const hasDetailPage = detailReadySlugs.has(member.canonicalSlug);
     if (!hasDetailPage) {
       return member;
@@ -340,4 +342,35 @@ export function buildRenderableCareerDatasetMembers(input: {
       includedInPublicDataset: true,
     };
   });
+
+  return appendDetailReadyJobMembers(renderedStaticMembers, input.detailReadyJobs);
+}
+
+function appendDetailReadyJobMembers(
+  members: CareerDatasetMemberAdapter[],
+  detailReadyJobs: Map<string, CareerJobIndexCardAdapter> | undefined
+): CareerDatasetMemberAdapter[] {
+  if (!detailReadyJobs || detailReadyJobs.size === 0) {
+    return members;
+  }
+
+  const seenSlugs = new Set(members.map((member) => member.canonicalSlug));
+  const jobOnlyMembers = [...detailReadyJobs.values()]
+    .filter((job) => !seenSlugs.has(job.identity.canonicalSlug))
+    .map((job): CareerDatasetMemberAdapter => ({
+      memberKind: "career_tracked_occupation",
+      canonicalSlug: job.identity.canonicalSlug,
+      canonicalTitleEn: job.titles.canonicalEn ?? job.titles.title,
+      canonicalTitleZh: job.titles.canonicalZh ?? job.titles.title,
+      familySlug: null,
+      publishTrack: "runtime_job_index",
+      batchOrigin: "runtime_job_index",
+      releaseCohort: "public_detail_indexable",
+      publicIndexState: "indexable",
+      strongIndexDecision: "strong_index_ready",
+      includedInPublicDataset: true,
+      exclusionReasons: [],
+    }));
+
+  return [...members, ...jobOnlyMembers];
 }
