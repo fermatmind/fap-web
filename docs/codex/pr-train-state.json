@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-16T15:44:59+08:00",
+  "updated_at": "2026-05-16T15:45:50+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -4555,7 +4555,7 @@
       "depends_on": [
         "AUDIT-WEB-ANALYTICS-CONSENT-REDACTION"
       ],
-      "status": "local_checks_passed",
+      "status": "pr_open",
       "train_scope": "security_audit_remediation",
       "risk_level": "medium",
       "title": "fix(security): require explicit career SEO index authority",
@@ -4614,11 +4614,15 @@
         "cached_diff_check": {
           "status": "pass",
           "evidence": "git diff --cached --check passed before the local-checks ledger amend."
+        },
+        "pr_created": {
+          "status": "pass",
+          "evidence": "Created GitHub PR #824 for codex/audit-web-career-seo-authority."
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": "06689ab40bb41e629396c50ccb1c6098bdc0168c",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/824",
+      "commit_sha": "b110e5d4b2ad7f3518927ebea77c6b4981d313c7",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -4648,6 +4652,11 @@
           "at": "2026-05-16T15:44:59+08:00",
           "status": "local_checks_passed",
           "summary": "Ledger commit SHA reconciled after amend: 06689ab40bb41e629396c50ccb1c6098bdc0168c."
+        },
+        {
+          "at": "2026-05-16T15:45:50+08:00",
+          "status": "pr_open",
+          "summary": "Created GitHub PR #824 after local checks and scope validation passed."
         }
       ]
     },
