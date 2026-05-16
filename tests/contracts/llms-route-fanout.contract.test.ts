@@ -17,13 +17,21 @@ function readSource(relativePath: string): string {
 
 describe("llms route fanout budget contract", () => {
   it("bounds public llms route source waits and enumerable API surfaces", async () => {
+    let timedOutSignalAborted = false;
     const fallback = await withLlmsRouteBudget(
-      () => new Promise<string>((resolve) => setTimeout(() => resolve("late"), 25)),
+      (signal) =>
+        new Promise<string>((resolve) => {
+          signal.addEventListener("abort", () => {
+            timedOutSignalAborted = true;
+          });
+          setTimeout(() => resolve("late"), 25);
+        }),
       "fallback",
       { timeoutMs: 1 }
     );
 
     expect(fallback).toBe("fallback");
+    expect(timedOutSignalAborted).toBe(true);
     expect(LLMS_ROUTE_SOURCE_TIMEOUT_MS).toBeLessThanOrEqual(1500);
     expect(LLMS_ROUTE_ARTICLE_MAX_PAGES).toBe(1);
     expect(LLMS_ROUTE_LIMITS.articles).toBeLessThanOrEqual(40);
@@ -42,6 +50,7 @@ describe("llms route fanout budget contract", () => {
       expect(source).toContain("LLMS_ROUTE_ARTICLE_MAX_PAGES");
       expect(source).toContain("maxPages: LLMS_ROUTE_ARTICLE_MAX_PAGES");
       expect(source).toContain("perPage: LLMS_ROUTE_LIMITS.articles");
+      expect(source).toContain("listBackendSitemapCareerJobPaths({ limit: LLMS_ROUTE_LIMITS.careerJobs, signal })");
     }
   });
 
