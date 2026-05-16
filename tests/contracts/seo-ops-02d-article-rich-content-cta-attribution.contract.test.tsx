@@ -89,6 +89,29 @@ describe("SEO-OPS-02D article CMS rich-content CTA attribution contract", () => 
     });
   });
 
+  it("does not let CMS data attributes restore unsafe original hrefs", async () => {
+    render(
+      <AttributedSanitizedCmsHtml
+        html='<p><a href="/zh/tests/holland-career-interest-test-riasec" data-seo-original-href="javascript:alert(document.domain)//zh/tests/holland-career-interest-test-riasec">FermatMind 霍兰德职业兴趣测试 →</a></p>'
+        locale="zh"
+        sourceRouteFamily="article_detail"
+        sourceSlug={sourceSlug}
+        sourcePath={sourcePath}
+        contentId={88}
+      />
+    );
+
+    const cta = screen.getByRole("link", { name: "FermatMind 霍兰德职业兴趣测试 →" });
+
+    await waitFor(() => {
+      expect(cta.getAttribute("href")).toContain("utm_source=codex_qa");
+    });
+
+    expectSafeArticleAttributionHref(cta.getAttribute("href") ?? "");
+    expect(cta.getAttribute("href")).not.toContain("javascript:");
+    expect(cta.getAttribute("data-seo-original-href")).toBe("/zh/tests/holland-career-interest-test-riasec");
+  });
+
   it("attributes article answer-surface test CTAs through SeoTrackedCtaLink", async () => {
     const surface: AnswerSurfaceViewModel = {
       version: "answer.surface.v1",

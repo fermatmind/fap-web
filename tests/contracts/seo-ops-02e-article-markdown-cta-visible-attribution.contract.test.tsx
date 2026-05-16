@@ -88,6 +88,33 @@ describe("SEO-OPS-02E article Markdown CTA visible attribution contract", () => 
     expect(link.getAttribute("data-seo-cta-attributed")).toBeNull();
   });
 
+  it("does not attribute external Markdown links that only look like test detail paths", async () => {
+    const externalHref = "https://attacker.example/zh/tests/holland-career-interest-test-riasec";
+
+    render(
+      <AttributedCmsLinkHydrator
+        locale="zh"
+        sourceRouteFamily="article_detail"
+        sourceSlug={sourceSlug}
+        sourcePath={sourcePath}
+        contentId={88}
+      >
+        {renderSimpleMarkdown(`[外部霍兰德职业兴趣测试](${externalHref})`)}
+      </AttributedCmsLinkHydrator>
+    );
+
+    const link = screen.getByRole("link", { name: "外部霍兰德职业兴趣测试" });
+
+    await waitFor(() => {
+      expect(link.getAttribute("href")).toBe(externalHref);
+    });
+
+    expect(link.getAttribute("data-seo-cta-attributed")).toBeNull();
+    expect(link.getAttribute("data-seo-original-href")).toBeNull();
+    expect(link.getAttribute("href")).not.toContain("utm_source=");
+    expect(link.getAttribute("href")).not.toContain("gclid=");
+  });
+
   it("preserves article CTA attribution from test detail query into RIASEC take URL", () => {
     const attributedArticleHref = `${testDetailPath}?utm_source=codex_qa&utm_medium=controlled_pilot&utm_campaign=seo_pilot_acceptance_r2&utm_content=${sourceSlug}&source_page_type=article_detail&source_route_family=article&source_slug=${sourceSlug}&target_test_slug=holland-career-interest-test-riasec&cta_id=cms_content_holland-career-interest-test-riasec&entrypoint=seo_cta&email=person%40example.com`;
     const articleCtaUrl = new URL(attributedArticleHref, "https://fermatmind.com");

@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-16T14:34:00+08:00",
+  "updated_at": "2026-05-16T14:39:30+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -4348,6 +4348,233 @@
           "at": "2026-05-16T14:34:00+08:00",
           "status": "pr_open",
           "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/821 for ARCH-SEO-CMS-02."
+        }
+      ]
+    },
+    {
+      "id": "AUDIT-WEB-CMS-LINK-XSS",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/audit-web-cms-link-xss",
+      "base": "main",
+      "global_sequence": 1,
+      "depends_on": [],
+      "status": "pr_open",
+      "train_scope": "security_audit_remediation",
+      "risk_level": "high",
+      "title": "fix(security): harden CMS article link attribution against javascript href XSS",
+      "findings": [
+        "CMS data attribute can reintroduce javascript: href XSS"
+      ],
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized adding the 11 security audit train items to fap-web and fap-api pr-train manifest/state without starting implementation."
+        },
+        "scope_validation_policy": {
+          "status": "planned",
+          "evidence": "External blockers may be recorded as sidecar only when not introduced by the current PR, GitHub required checks are green, and scoped validation is green."
+        },
+        "branch_preflight": {
+          "status": "pass",
+          "evidence": "Started from main aligned with origin/main and created branch codex/audit-web-cms-link-xss. Unrelated untracked docs/codex/arch-seo-cms-00-readiness-report.md is intentionally not touched."
+        },
+        "targeted_contracts": {
+          "status": "pass",
+          "evidence": "pnpm exec vitest run tests/contracts/seo-ops-02d-article-rich-content-cta-attribution.contract.test.tsx tests/contracts/seo-ops-02e-article-markdown-cta-visible-attribution.contract.test.tsx passed: 2 files, 8 tests."
+        },
+        "typecheck": {
+          "status": "pass",
+          "evidence": "pnpm typecheck passed in isolated worktree /tmp/fap-web-audit-cms-link-xss."
+        },
+        "production_build": {
+          "status": "pass",
+          "evidence": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build passed in isolated worktree; NEXT_PUBLIC_SITE_URL was supplied because the temporary worktree does not include gitignored .env.local."
+        },
+        "contract_suite": {
+          "status": "pass",
+          "evidence": "Post-rebase pnpm test:contract passed in isolated worktree: 366 files, 2064 tests."
+        },
+        "diff_whitespace": {
+          "status": "pass",
+          "evidence": "git diff --check and git diff --cached --check passed."
+        },
+        "scope_validation": {
+          "status": "pass",
+          "evidence": "Changed files are limited to CMS link hydrator, focused article CTA attribution contracts, and authorized PR train metadata."
+        },
+        "pr_created": {
+          "status": "pass",
+          "evidence": "Opened GitHub PR #822 for codex/audit-web-cms-link-xss."
+        },
+        "post_rebase": {
+          "status": "pass",
+          "evidence": "Rebased onto origin/main at aa977de2 after ARCH-SEO-CMS-02 merged; typecheck, production build, full contract suite, diff checks, YAML parse, and JSON parse passed."
+        }
+      },
+      "failure_reason": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/822",
+      "commit_sha": "635f2e095607ca2ed46789d5128b68e6017f2ebd",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [],
+      "history": [
+        {
+          "at": "2026-05-16T14:10:19+08:00",
+          "status": "planned",
+          "summary": "Initialized AUDIT-WEB-CMS-LINK-XSS as a security audit remediation train item. Implementation has not started."
+        },
+        {
+          "at": "2026-05-16T14:18:00+08:00",
+          "status": "in_progress",
+          "summary": "Started AUDIT-WEB-CMS-LINK-XSS on dedicated branch; implementation scope is CMS article link attribution hardening only."
+        },
+        {
+          "at": "2026-05-16T14:30:11+08:00",
+          "status": "local_checks_passed",
+          "summary": "Hardened CMS link attribution against unsafe data-seo-original-href and cross-origin test-lookalike links; targeted contracts, typecheck, production build, full contract suite, diff checks, and scope validation passed in isolated worktree."
+        },
+        {
+          "at": "2026-05-16T14:35:00+08:00",
+          "status": "pr_open",
+          "summary": "Created GitHub PR #822 after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-05-16T14:39:30+08:00",
+          "status": "pr_open",
+          "summary": "Rebased PR #822 onto origin/main after ARCH-SEO-CMS-02 merged and reran required local checks successfully."
+        }
+      ]
+    },
+    {
+      "id": "AUDIT-WEB-ANALYTICS-CONSENT-REDACTION",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/audit-web-analytics-consent-redaction",
+      "base": "main",
+      "global_sequence": 3,
+      "depends_on": [
+        "AUDIT-API-IQ-RESULT-SECRECY:fap-api"
+      ],
+      "status": "planned",
+      "train_scope": "security_audit_remediation",
+      "risk_level": "medium",
+      "title": "fix(security): enforce analytics consent and redact sensitive tracking payloads",
+      "findings": [
+        "MBTI analytics sent despite denied consent",
+        "RIASEC tracking bypasses analytics consent",
+        "RIASEC result code leaked through analytics events",
+        "RIASEC attribution bypasses analytics consent",
+        "Raw order numbers leak via purchase tracking",
+        "Google Ads config leaks sensitive payment URLs"
+      ],
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized adding the 11 security audit train items to fap-web and fap-api pr-train manifest/state without starting implementation."
+        },
+        "scope_validation_policy": {
+          "status": "planned",
+          "evidence": "External blockers may be recorded as sidecar only when not introduced by the current PR, GitHub required checks are green, and scoped validation is green."
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [],
+      "history": [
+        {
+          "at": "2026-05-16T14:10:19+08:00",
+          "status": "planned",
+          "summary": "Initialized AUDIT-WEB-ANALYTICS-CONSENT-REDACTION as a security audit remediation train item. Implementation has not started."
+        }
+      ]
+    },
+    {
+      "id": "AUDIT-WEB-CAREER-SEO-AUTHORITY",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/audit-web-career-seo-authority",
+      "base": "main",
+      "global_sequence": 4,
+      "depends_on": [
+        "AUDIT-WEB-ANALYTICS-CONSENT-REDACTION"
+      ],
+      "status": "planned",
+      "train_scope": "security_audit_remediation",
+      "risk_level": "medium",
+      "title": "fix(security): require explicit career SEO index authority",
+      "findings": [
+        "Partial SEO authority can force candidate pages indexable"
+      ],
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized adding the 11 security audit train items to fap-web and fap-api pr-train manifest/state without starting implementation."
+        },
+        "scope_validation_policy": {
+          "status": "planned",
+          "evidence": "External blockers may be recorded as sidecar only when not introduced by the current PR, GitHub required checks are green, and scoped validation is green."
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [],
+      "history": [
+        {
+          "at": "2026-05-16T14:10:19+08:00",
+          "status": "planned",
+          "summary": "Initialized AUDIT-WEB-CAREER-SEO-AUTHORITY as a security audit remediation train item. Implementation has not started."
+        }
+      ]
+    },
+    {
+      "id": "AUDIT-WEB-LLMS-FANOUT-BUDGET",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/audit-web-llms-fanout-budget",
+      "base": "main",
+      "global_sequence": 5,
+      "depends_on": [
+        "AUDIT-WEB-CAREER-SEO-AUTHORITY"
+      ],
+      "status": "planned",
+      "train_scope": "security_audit_remediation",
+      "risk_level": "medium",
+      "title": "fix(security): bound LLMS route fanout and cancel timed-out work",
+      "findings": [
+        "llms budget timeouts leave backend fanout running"
+      ],
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized adding the 11 security audit train items to fap-web and fap-api pr-train manifest/state without starting implementation."
+        },
+        "scope_validation_policy": {
+          "status": "planned",
+          "evidence": "External blockers may be recorded as sidecar only when not introduced by the current PR, GitHub required checks are green, and scoped validation is green."
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [],
+      "history": [
+        {
+          "at": "2026-05-16T14:10:19+08:00",
+          "status": "planned",
+          "summary": "Initialized AUDIT-WEB-LLMS-FANOUT-BUDGET as a security audit remediation train item. Implementation has not started."
         }
       ]
     }
