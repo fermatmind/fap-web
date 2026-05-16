@@ -126,6 +126,40 @@ describe("career dataset directory merge", () => {
     });
   });
 
+  it("adds detail-ready job index members that are missing from a stale dataset hub response", () => {
+    const members = buildRenderableCareerDatasetMembers({
+      datasetMembers: [
+        datasetMember({
+          canonicalSlug: "database-administrators",
+          canonicalTitleEn: "Database Administrators",
+          canonicalTitleZh: "数据库管理员",
+        }),
+      ],
+      detailReadyJobs: new Map([
+        [
+          "database-administrators",
+          jobOverride("database-administrators", "Database administrators and architects", "数据库管理员与架构师"),
+        ],
+        [
+          "runtime-public-specialist",
+          jobOverride("runtime-public-specialist", "Runtime Public Specialist", "运行时公开专家"),
+        ],
+      ]),
+    });
+
+    expect(members.map((member) => member.canonicalSlug)).toEqual([
+      "database-administrators",
+      "runtime-public-specialist",
+    ]);
+    expect(members[1]).toMatchObject({
+      canonicalSlug: "runtime-public-specialist",
+      publishTrack: "runtime_job_index",
+      releaseCohort: "public_detail_indexable",
+      publicIndexState: "indexable",
+      includedInPublicDataset: true,
+    });
+  });
+
   it("does not render dataset-only members that have no meaningful display title", () => {
     const members = buildRenderableCareerDatasetMembers({
       datasetMembers: [

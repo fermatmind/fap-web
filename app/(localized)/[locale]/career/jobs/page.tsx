@@ -101,7 +101,7 @@ export default async function CareerJobsPage({
   const selectedFamilyTitle = selectedFamily ? formatCareerFamilyTitle(normalizeFamilySlug(selectedFamily), locale) : null;
   const detailReadyCount = members.filter(isCareerDatasetMemberDetailReady).length;
   const publicDetailCount = members.filter(isCareerDatasetMemberPublic).length;
-  const occupationCount = dataset?.collectionSummary.memberCount ?? members.length;
+  const occupationCount = Math.max(dataset?.collectionSummary.memberCount ?? 0, members.length);
 
   return (
     <main className="min-h-screen bg-slate-50">
