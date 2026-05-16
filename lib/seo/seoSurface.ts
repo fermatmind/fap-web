@@ -9,6 +9,7 @@ export type SeoSurfaceViewModel = {
   canonicalUrl: string | null;
   canonicalPath: string | null;
   robotsPolicy: string;
+  robotsPolicyExplicit: boolean;
   title: string;
   description: string;
   og: {
@@ -94,11 +95,12 @@ export function normalizeSeoSurface(raw: SeoSurfaceRaw | null | undefined): SeoS
   const title = normalizeText(raw.title);
   const description = normalizeText(raw.description);
   const canonicalUrl = normalizeNullableText(raw.canonical_url);
+  const robotsPolicy = normalizeText(raw.robots_policy);
   const alternates = normalizeStringMap(raw.alternates);
   const ogPayload = raw.og_payload && typeof raw.og_payload === "object" ? raw.og_payload : {};
   const twitterPayload = raw.twitter_payload && typeof raw.twitter_payload === "object" ? raw.twitter_payload : {};
 
-  if (!title && !description && !canonicalUrl && !normalizeText(raw.robots_policy)) {
+  if (!title && !description && !canonicalUrl && !robotsPolicy) {
     return null;
   }
 
@@ -110,7 +112,8 @@ export function normalizeSeoSurface(raw: SeoSurfaceRaw | null | undefined): SeoS
     surfaceType: normalizeText(raw.surface_type),
     canonicalUrl,
     canonicalPath: pathFromCanonicalUrl(canonicalUrl),
-    robotsPolicy: normalizeText(raw.robots_policy || "index,follow") || "index,follow",
+    robotsPolicy: robotsPolicy || "index,follow",
+    robotsPolicyExplicit: Boolean(robotsPolicy),
     title,
     description,
     og: {
