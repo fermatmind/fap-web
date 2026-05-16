@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-16T14:35:00+08:00",
+  "updated_at": "2026-05-16T14:39:30+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -4393,7 +4393,7 @@
         },
         "contract_suite": {
           "status": "pass",
-          "evidence": "pnpm test:contract passed in isolated worktree: 365 files, 2054 tests."
+          "evidence": "Post-rebase pnpm test:contract passed in isolated worktree: 366 files, 2064 tests."
         },
         "diff_whitespace": {
           "status": "pass",
@@ -4406,11 +4406,15 @@
         "pr_created": {
           "status": "pass",
           "evidence": "Opened GitHub PR #822 for codex/audit-web-cms-link-xss."
+        },
+        "post_rebase": {
+          "status": "pass",
+          "evidence": "Rebased onto origin/main at aa977de2 after ARCH-SEO-CMS-02 merged; typecheck, production build, full contract suite, diff checks, YAML parse, and JSON parse passed."
         }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/822",
-      "commit_sha": "462297d2090cded563b80812e1aa59bb3ca4c8c8",
+      "commit_sha": "635f2e095607ca2ed46789d5128b68e6017f2ebd",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -4435,6 +4439,11 @@
           "at": "2026-05-16T14:35:00+08:00",
           "status": "pr_open",
           "summary": "Created GitHub PR #822 after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-05-16T14:39:30+08:00",
+          "status": "pr_open",
+          "summary": "Rebased PR #822 onto origin/main after ARCH-SEO-CMS-02 merged and reran required local checks successfully."
         }
       ]
     },
