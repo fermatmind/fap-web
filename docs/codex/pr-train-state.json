@@ -4146,7 +4146,7 @@
       "branch": "codex/arch-seo-cms-01-asset-map-ownership-contract",
       "base": "main",
       "depends_on": [],
-      "status": "local_checks_passed",
+      "status": "pr_open",
       "title": "docs(architecture): add SEO intelligence asset map and ownership contract",
       "mode": "execute",
       "risk_level": "L2",
@@ -4197,11 +4197,16 @@
           "name": "scope validation",
           "status": "passed",
           "details": "Staged files are limited to the ARCH-SEO-CMS-01 docs, generated artifact, scoped contract test, and PR train metadata. Existing untracked docs/codex/arch-seo-cms-00-readiness-report.md is unrelated and excluded."
+        },
+        {
+          "name": "github_pr_created",
+          "status": "passed",
+          "details": "https://github.com/fermatmind/fap-web/pull/820"
         }
       ],
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/820",
+      "commit_sha": "5da1f8212d9a9954077c78d7b2dc3164c71d7528",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -4216,6 +4221,11 @@
           "at": "2026-05-16T13:56:00+08:00",
           "status": "local_checks_passed",
           "summary": "Added SEO Intelligence readiness doc, generated asset map artifact, scoped contract, and train metadata; targeted contract, full contract suite, sitemap check, mobile SEO check, and diff checks passed."
+        },
+        {
+          "at": "2026-05-16T13:58:00+08:00",
+          "status": "pr_open",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/820 for ARCH-SEO-CMS-01."
         }
       ]
     }
