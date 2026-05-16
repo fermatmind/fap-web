@@ -1,0 +1,465 @@
+{
+  "version": "cms_seo_middle_platform_final_architecture.v1",
+  "scope": "ARCH-SEO-CMS-02",
+  "source_documents": [
+    {
+      "id": "ARCH-SEO-CMS-00",
+      "type": "readiness_scan",
+      "status": "observed"
+    },
+    {
+      "id": "ARCH-SEO-CMS-01",
+      "type": "asset_map_and_ownership_contract",
+      "status": "merged",
+      "paths": [
+        "docs/seo/seo-intelligence-node-readiness.md",
+        "docs/seo/generated/seo-intelligence-asset-map.v1.json"
+      ]
+    },
+    {
+      "id": "cloud_asset_scan",
+      "type": "readonly_cloud_console_scan",
+      "status": "observed"
+    },
+    {
+      "id": "runtime_ssh_readonly_scan",
+      "type": "readonly_server_runtime_scan",
+      "status": "observed"
+    }
+  ],
+  "current_runtime_topology": {
+    "status": "partial",
+    "nodes": [
+      {
+        "id": "fap-node1",
+        "aliases": [
+          "fap-app-01"
+        ],
+        "role": "production fap-web frontend Server 1",
+        "status": [
+          "observed",
+          "ready"
+        ],
+        "runtime": {
+          "path": "/opt/apps/fap-web",
+          "process_manager": "PM2",
+          "process": "fap-web",
+          "cluster_instances": 4,
+          "node_version": "24.14.0",
+          "proxy": "1Panel OpenResty container",
+          "deployed_sha_prefix": "fa06f4a"
+        }
+      },
+      {
+        "id": "fap-node2",
+        "aliases": [
+          "fap-app-02",
+          "api.fermatmind.com"
+        ],
+        "role": "legacy public API runtime",
+        "status": [
+          "observed",
+          "conflict",
+          "architecture_debt"
+        ],
+        "runtime": {
+          "style": "Docker / 1Panel / php84",
+          "backend_path_inside_container": "/www/wwwroot/fap-api/backend",
+          "git_repository_present": false,
+          "deploy_marker_prefix": "d12e427",
+          "database_topology": "local MySQL style",
+          "redis_env": "missing",
+          "supervisor_fap_api_queue": "FATAL"
+        }
+      },
+      {
+        "id": "fap-api-prod",
+        "aliases": [
+          "ops.fermatmind.com"
+        ],
+        "role": "standard CMS/ops backend runtime",
+        "status": [
+          "observed",
+          "partial"
+        ],
+        "runtime": {
+          "path": "/var/www/fap-api/current/backend",
+          "release_root": "/var/www/fap-api/releases",
+          "deployed_sha_prefix": "c254ef4",
+          "stack": "nginx + PHP 8.4 FPM + cron + supervisor",
+          "scheduler": "php artisan schedule:run every minute",
+          "queue_workers": 4,
+          "queue_status": "RUNNING",
+          "database_topology": "external private DB host",
+          "redis_topology": "external private Redis host"
+        }
+      },
+      {
+        "id": "staging",
+        "aliases": [
+          "fap-api-staging",
+          "fap-web-staging"
+        ],
+        "role": "mixed frontend/backend staging runtime",
+        "status": [
+          "observed",
+          "partial"
+        ],
+        "runtime": {
+          "backend_path": "/var/www/fap-api-staging/current/backend",
+          "frontend_path": "/var/www/fap-web-staging/current",
+          "database_topology": "local loopback staging DB"
+        }
+      }
+    ]
+  },
+  "dual_backend_runtime_conflict": {
+    "status": [
+      "conflict",
+      "architecture_debt",
+      "human_confirm_required"
+    ],
+    "public_api_runtime": "fap-node2 legacy Docker API runtime",
+    "cms_ops_runtime": "fap-api-prod standard Laravel/CMS/queue runtime",
+    "why_it_blocks_seo_middle_platform": [
+      "Collectors need a single backend authority or explicitly documented split authority.",
+      "Attribution and issue queue writes must join against the correct backend truth.",
+      "Sitemap/llms observation must not compare public API output against a different CMS truth source.",
+      "Queue and scheduler drift can hide release/revalidate and report/email behavior differences."
+    ],
+    "differences": [
+      "deployment shape",
+      "deployed SHA",
+      "database topology",
+      "Redis setup",
+      "queue state"
+    ]
+  },
+  "cloud_media_chain": {
+    "status": "observed",
+    "chain": [
+      "DNSPod",
+      "Alibaba CDN",
+      "Alibaba OSS"
+    ],
+    "domain": "assets.fermatmind.com",
+    "origin_bucket": "ferm-mind-site",
+    "tencent_cos": {
+      "status": [
+        "unknown",
+        "dangerous_if_assumed"
+      ],
+      "active_media_authority": false
+    },
+    "mixed_cloud_structure": "Tencent DNS/server/DB/Redis plus Alibaba OSS/CDN/TLS"
+  },
+  "target_architecture": {
+    "status": "decision_ready",
+    "doctrine": [
+      "fap-web is public frontend runtime",
+      "single backend/CMS/commerce authority runtime",
+      "managed business DB/Redis as data layer",
+      "logically isolated seo_intel DB",
+      "Server 4 SEO Intelligence Node",
+      "Metabase read-only against seo_intel",
+      "Collector as separate process/container"
+    ],
+    "servers": [
+      {
+        "id": "Server 1",
+        "role": "fap-web public frontend runtime",
+        "current_candidate": "fap-node1",
+        "status": [
+          "observed",
+          "ready"
+        ]
+      },
+      {
+        "id": "Server 2",
+        "role": "single backend/CMS/commerce authority runtime",
+        "current_candidate": "unresolved between fap-node2 and fap-api-prod",
+        "status": [
+          "conflict",
+          "human_confirm_required"
+        ],
+        "ready": false
+      },
+      {
+        "id": "Server 3",
+        "role": "data layer plus isolated seo_intel DB",
+        "current_candidate": "managed MySQL/Redis plus legacy local MySQL drift",
+        "status": [
+          "partial"
+        ],
+        "seo_intel_db": {
+          "status": [
+            "missing",
+            "blocked"
+          ],
+          "ready": false
+        }
+      },
+      {
+        "id": "Server 4",
+        "role": "SEO Intelligence Node",
+        "status": [
+          "missing",
+          "human_confirm_required"
+        ],
+        "deployed": false,
+        "ready": false
+      }
+    ]
+  },
+  "backend_convergence_options": [
+    {
+      "id": "Option A",
+      "title": "Migrate api.fermatmind.com to fap-api-prod / standard backend authority",
+      "recommendation": "recommended_unless_blocked_by_live_api_compatibility",
+      "pros": [
+        "Aligns public API with standard Laravel release/runtime.",
+        "Uses runtime where CMS/ops, scheduler, and queue workers are healthy.",
+        "Reduces dual-SHA and dual-database ambiguity.",
+        "Simplifies SEO Collector source selection."
+      ],
+      "cons": [
+        "Requires careful parity validation.",
+        "May expose route, auth, CORS, webhook, or cache behavior differences.",
+        "Requires rollback plan before DNS/proxy change."
+      ],
+      "risks": [
+        "Public clients may depend on legacy behavior.",
+        "Payment webhooks or report/email gates may be routed differently.",
+        "Session/auth/cookie behavior may differ."
+      ],
+      "required_validation": [
+        "route parity",
+        "auth/session parity",
+        "payment webhook parity",
+        "report/email gate parity",
+        "CORS/origin parity",
+        "rate-limit parity",
+        "healthcheck parity",
+        "queue/scheduler parity",
+        "rollback plan",
+        "DNS/proxy plan",
+        "staged smoke"
+      ],
+      "seo_middle_platform_impact": "Best long-term option after gates pass."
+    },
+    {
+      "id": "Option B",
+      "title": "Keep fap-node2 as public API but standardize it",
+      "pros": [
+        "Avoids immediate DNS/API migration.",
+        "Keeps current public API entry stable while cleaning drift."
+      ],
+      "cons": [
+        "Requires substantial standardization work.",
+        "Maintains two backend nodes unless gateway role is explicit."
+      ],
+      "risks": [
+        "Legacy runtime may continue drifting.",
+        "Local MySQL may diverge from managed business DB.",
+        "Queue failure may hide async defects."
+      ],
+      "required_validation": [
+        "Git/release provenance",
+        "external DB/Redis alignment",
+        "queue health",
+        "same deploy contract",
+        "explicit gateway role"
+      ],
+      "seo_middle_platform_impact": "Acceptable only after standardization and explicit authority contract."
+    },
+    {
+      "id": "Option C",
+      "title": "Keep split public API and ops backend intentionally",
+      "pros": [
+        "Allows dedicated public API and ops/CMS backend responsibilities.",
+        "Can support a gateway pattern if explicitly designed."
+      ],
+      "cons": [
+        "Requires formal gateway/backend boundary.",
+        "Requires shared truth DB or explicit sync contract.",
+        "Increases operational complexity."
+      ],
+      "risks": [
+        "SEO 中台 may observe one truth while CMS edits another.",
+        "Attribution may join against the wrong backend.",
+        "Issue queue summaries may point to stale data."
+      ],
+      "required_validation": [
+        "gateway/backend boundary",
+        "same truth DB or documented sync semantics",
+        "same contract version",
+        "queue/scheduler ownership",
+        "content release and revalidation ownership"
+      ],
+      "seo_middle_platform_impact": "Possible but more complex; collector inputs must explicitly name all authority sources."
+    }
+  ],
+  "recommended_backend_decision": {
+    "option": "Option A",
+    "decision": "Migrate api.fermatmind.com to fap-api-prod / standard backend authority unless blocked by live API compatibility.",
+    "status": [
+      "recommended",
+      "not_implemented",
+      "blocked_until_gates_pass"
+    ]
+  },
+  "pre_migration_gates": [
+    "route parity",
+    "auth/session parity",
+    "payment webhook parity",
+    "report/email gate parity",
+    "CORS/origin parity",
+    "rate-limit parity",
+    "healthcheck parity",
+    "queue/scheduler parity",
+    "rollback plan",
+    "DNS/proxy plan",
+    "staged smoke"
+  ],
+  "seo_middle_platform_gates": [
+    "backend runtime authority decision",
+    "seo_intel DB target",
+    "Server 4 target",
+    "Metabase isolation policy",
+    "Collector input source",
+    "PII/consent boundary"
+  ],
+  "cms_middle_platform_boundary": {
+    "owns": [
+      "content truth",
+      "publish state",
+      "revisions",
+      "SEO metadata truth",
+      "content release/revalidate governance"
+    ],
+    "may_consume": [
+      "seo_issue_queue summaries"
+    ],
+    "forbidden": [
+      "SEO BI ownership",
+      "direct publishing of SEO-generated suggestions without review",
+      "scoring truth",
+      "report runtime truth",
+      "payment/order truth",
+      "profile memory",
+      "recommender state"
+    ],
+    "can_be_seo_bi": false
+  },
+  "seo_middle_platform_boundary": {
+    "observes": [
+      "public runtime output",
+      "backend/CMS truth",
+      "sitemap/llms output",
+      "ranking/search console signals",
+      "performance drift",
+      "attribution/funnel aggregates"
+    ],
+    "writes": [
+      "seo_intel"
+    ],
+    "generates": [
+      "drift records",
+      "attribution aggregates",
+      "issue queue summaries"
+    ],
+    "can_publish_content": false,
+    "can_generate_pseo": false,
+    "collector": {
+      "deployment": "separate process/container",
+      "can_run_on_fap_web_node1": false,
+      "can_run_inside_fap_api_web_request_process": false
+    },
+    "metabase": {
+      "production_ready": false,
+      "read_only": true,
+      "allowed_query_targets": [
+        "seo_intel"
+      ],
+      "forbidden_query_targets": [
+        "CMS/business tables"
+      ]
+    }
+  },
+  "pii_rules": {
+    "email": {
+      "seo_analytics_details": "forbidden"
+    },
+    "order_no": {
+      "normal_dashboards": "masked_or_aggregated"
+    },
+    "payment_ids": {
+      "normal_dashboards": "forbidden"
+    },
+    "external_analytics": {
+      "GA4": "no_pii",
+      "Google Ads": "no_pii",
+      "Baidu": "no_pii"
+    },
+    "seo_intel": {
+      "raw_attempt_answers": "forbidden",
+      "storage_rule": "aggregate_or_sanitized_only"
+    }
+  },
+  "forbidden_actions": [
+    "seo_intel migration",
+    "Metabase production deployment",
+    "crawler deployment",
+    "GSC/Baidu collectors",
+    "DNS/API migration",
+    "fap-node2 shutdown",
+    "pSEO",
+    "Career Decision runtime expansion",
+    "RIASEC/Big Five recommender claims",
+    "heavy SEO workers on fap-web Node1",
+    "heavy SEO workers inside fap-api web request process"
+  ],
+  "first_implementation_train": [
+    "BACKEND-RUNTIME-00 read-only route parity report between fap-node2 and fap-api-prod",
+    "BACKEND-RUNTIME-01 backend convergence decision implementation plan",
+    "SEO-DASH-00 schema/attribution/PII/consent boundary",
+    "SEO-DASH-01 seo_intel DB design, no production migration until approved",
+    "SEO-DASH-02 collector skeleton",
+    "SEO-DASH-03 URL truth/drift collector",
+    "SEO-DASH-04 funnel attribution mirror",
+    "SEO-DASH-05 Metabase deployment plan",
+    "SEO-DASH-06 CMS issue queue summary"
+  ],
+  "deployment_guardrails": {
+    "no_runtime_code_changes": true,
+    "no_backend_runtime_code_changes": true,
+    "no_frontend_runtime_code_changes": true,
+    "no_dns_changes": true,
+    "no_cdn_changes": true,
+    "no_cos_oss_changes": true,
+    "no_sitemap_llms_behavior_changes": true,
+    "no_tracking_behavior_changes": true,
+    "no_payment_report_email_recommendation_scoring_changes": true,
+    "no_ssh_required_for_this_pr": true,
+    "allowed_files": [
+      "docs/seo/cms-seo-middle-platform-final-architecture.md",
+      "docs/seo/generated/cms-seo-middle-platform-final-architecture.v1.json",
+      "tests/contracts/cms-seo-middle-platform-final-architecture.contract.test.ts",
+      "docs/codex/pr-train.yaml",
+      "docs/codex/pr-train-state.json"
+    ],
+    "forbidden_runtime_paths": [
+      "app/",
+      "components/",
+      "lib/",
+      "public/",
+      "next-sitemap.config.js",
+      "app/llms.txt/route.ts",
+      "app/llms-full.txt/route.ts",
+      "backend runtime files",
+      "migrations",
+      "env files",
+      "deploy scripts"
+    ]
+  }
+}
