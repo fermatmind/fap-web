@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-17T11:04:50+08:00",
+  "updated_at": "2026-05-17T21:10:00+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -5316,7 +5316,7 @@
       "depends_on": [
         "BACKEND-RUNTIME-02D"
       ],
-      "status": "pr_open",
+      "status": "merged",
       "train_scope": "search_intelligence_data_contract",
       "risk_level": "L2",
       "title": "docs(architecture): add search intelligence data contract",
@@ -5377,9 +5377,9 @@
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/831",
       "commit_sha": "2033e2d1889c6336bde0b3c7c6aaa8a7ec6b6868",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-05-17T03:07:20Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "sidecar_issues": [],
       "history": [
         {
@@ -5401,6 +5401,120 @@
           "at": "2026-05-17T11:04:50+08:00",
           "status": "pr_open",
           "summary": "Created GitHub PR #831 after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-05-17T20:30:00+08:00",
+          "status": "reconciled_merged",
+          "summary": "Reconciled SEO-DASH-00B as merged in GitHub PR #831 with merge commit db2a8e8cf53dc6668dfc507484c3a0b214daf3ad before starting SEO-DASH-03A."
+        }
+      ],
+      "merge_sha": "db2a8e8cf53dc6668dfc507484c3a0b214daf3ad"
+    },
+    {
+      "id": "SEO-DASH-03A",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/seo-dash-03a-fap-web-tracking-fields",
+      "base": "main",
+      "depends_on": [
+        "SEO-DASH-00B",
+        "SEO-DASH-01B:fap-api",
+        "SEO-DASH-02B:fap-api"
+      ],
+      "status": "pr_open",
+      "train_scope": "search_intelligence_tracking_transport_fields",
+      "risk_level": "medium",
+      "title": "feat(tracking): add search intelligence attribution fields",
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly provided SEO-DASH-03A id, title, repository, allowed files, forbidden files, validation commands, commit title, and authorized PR train metadata updates by listing docs/codex/pr-train.yaml and docs/codex/pr-train-state.json as allowed files."
+        },
+        "dependency": {
+          "status": "pass",
+          "evidence": "SEO-DASH-00B is merged in fap-web PR #831; fap-api SEO-DASH-01B PR #1435 and SEO-DASH-02B PR #1438 are merged."
+        },
+        "branch_preflight": {
+          "status": "pass",
+          "evidence": "Created codex/seo-dash-03a-fap-web-tracking-fields from latest main after git pull --ff-only origin main reported already up to date."
+        },
+        "focused_contracts": {
+          "status": "pass",
+          "evidence": "pnpm exec vitest run tests/contracts/*tracking* tests/contracts/*analytics* tests/contracts/*attribution* passed: 15 files, 93 tests."
+        },
+        "typecheck": {
+          "status": "pass",
+          "evidence": "pnpm typecheck passed."
+        },
+        "test_contract_dirty_tree": {
+          "status": "expected_fail_dirty_tree",
+          "evidence": "pnpm test:contract failed on historical docs-only diff guard tests because uncommitted lib/tracking runtime files were visible in git diff; the full contract suite will be rerun after committing on a clean tree, matching existing fap-web PR-train practice."
+        },
+        "seo_check_sitemap": {
+          "status": "pass",
+          "evidence": "pnpm seo:check-sitemap passed with 261 urls."
+        },
+        "seo_check_mobile": {
+          "status": "pass",
+          "evidence": "pnpm seo:check-mobile passed; routeSamples=8, privateFlowDenySamples=7, runtimeFetches=0, runtimeBehaviorChanged=false, urlSetChanged=false, sitemapChanged=false, llmsChanged=false."
+        },
+        "diff_check": {
+          "status": "pass",
+          "evidence": "git diff --check passed."
+        },
+        "cached_diff_check": {
+          "status": "pass",
+          "evidence": "git diff --cached --check passed before staging."
+        },
+        "scope_validation": {
+          "status": "pass",
+          "evidence": "Changed files are limited to lib/tracking/**, docs/analytics/**, tests/contracts/*tracking*, and docs/codex PR-train metadata. No backend, sitemap/llms, payment, report, email, recommendation, scoring, env, deploy, cloud, SSH, or production files changed."
+        },
+        "test_contract_clean_tree": {
+          "status": "pass",
+          "evidence": "After committing scoped changes, pnpm test:contract passed on a clean tree: 373 files, 2138 tests."
+        },
+        "commit_created": {
+          "status": "pass",
+          "evidence": "Created local commit 7729c7ad5435011e9bc87eb66d4af6852a6bfc18 with message feat(tracking): add search intelligence attribution fields."
+        },
+        "pr_created": {
+          "status": "pass",
+          "evidence": "Opened GitHub PR #832 at https://github.com/fermatmind/fap-web/pull/832."
+        }
+      },
+      "failure_reason": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/832",
+      "commit_sha": "96187021337682a08623aa3e933d2580318e1c3a",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [],
+      "history": [
+        {
+          "at": "2026-05-17T20:30:00+08:00",
+          "status": "in_progress",
+          "summary": "Started SEO-DASH-03A to add Search Intelligence-safe tracking transport fields, docs, generated artifact, focused contract tests, and PR train metadata without backend, sitemap/llms, payment, report, email, recommendation, scoring, deploy, env, SSH, cloud, or production changes."
+        },
+        {
+          "at": "2026-05-17T20:58:00+08:00",
+          "status": "local_checks_in_progress",
+          "summary": "Implemented Search Intelligence tracking fields; focused tracking/analytics/attribution contracts, typecheck, sitemap check, mobile SEO check, and diff checks passed. Full contract suite is queued for clean-tree rerun after commit because historical architecture tests inspect uncommitted git diff."
+        },
+        {
+          "at": "2026-05-17T21:04:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Clean-tree pnpm test:contract passed after the scoped commit, resolving the dirty-tree diff guard failures from historical docs-only contract tests."
+        },
+        {
+          "at": "2026-05-17T21:06:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Recorded local commit 7729c7ad5435011e9bc87eb66d4af6852a6bfc18 after scoped local validation passed."
+        },
+        {
+          "at": "2026-05-17T21:10:00+08:00",
+          "status": "pr_open",
+          "summary": "Created GitHub PR #832 after scoped local validation passed."
         }
       ]
     }

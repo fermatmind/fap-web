@@ -3809,3 +3809,55 @@ prs:
       - Timed-out route work is aborted or otherwise prevented from continuing unbounded backend fanout.
       - Public /llms.txt and /llms-full.txt remain functional within budget.
     rollback_note: "Remove LLMS fanout/budget hardening and focused tests added for this audit PR."
+
+  - id: SEO-DASH-03A
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/seo-dash-03a-fap-web-tracking-fields
+    base: main
+    depends_on:
+      - SEO-DASH-00B
+      - SEO-DASH-01B:fap-api
+      - SEO-DASH-02B:fap-api
+    mode: execute
+    train_scope: search_intelligence_tracking_transport_fields
+    risk_level: medium
+    status: in_progress
+    title: "feat(tracking): add search intelligence attribution fields"
+    goal: "Add Search Intelligence-safe tracking transport fields for source engine, consent state, traffic quality, and internal/QA/bot labels without changing event taxonomy or purchase semantics."
+    in_scope:
+      - lib/tracking/**
+      - app/api/track/route.ts
+      - tests/contracts/*tracking*
+      - tests/contracts/*analytics*
+      - tests/contracts/*attribution*
+      - docs/analytics/search-intelligence-tracking-fields.md
+      - docs/analytics/generated/search-intelligence-tracking-fields.v1.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - fap-api repository changes
+      - payment/order/report/email/recommendation/scoring behavior changes
+      - sitemap or llms behavior changes
+      - public content edits
+      - deploy, env, cloud, SSH, production, or external API commands
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/*tracking* tests/contracts/*analytics* tests/contracts/*attribution*
+      - pnpm typecheck
+      - pnpm test:contract
+      - pnpm seo:check-sitemap
+      - pnpm seo:check-mobile
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: false
+    acceptance:
+      - source_engine, consent_state, and traffic quality labels are transport fields only.
+      - Existing analytics consent hard-stop remains intact.
+      - Canonical funnel event taxonomy and purchase conversion semantics are unchanged.
+      - PII, raw order identifiers, raw attempt identifiers, cookies, tokens, and payment IDs remain forbidden or masked.
+      - /api/track remains transport only and backend purchase truth remains authoritative.
+    next_task: SEO-DASH-03B
+    rollback_note: "Remove Search Intelligence tracking field enrichment, docs, artifact, and focused contract tests added for SEO-DASH-03A."
