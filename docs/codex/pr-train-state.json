@@ -5527,7 +5527,7 @@
       "depends_on": [
         "PUBLISH-API-MEDIA-ORIGIN-READYNESS:fap-api"
       ],
-      "status": "local_checks_passed",
+      "status": "pr_open",
       "train_scope": "publishing_reliability",
       "risk_level": "medium",
       "title": "fix(web-cache): purge article list/detail proxy cache on content release",
@@ -5550,7 +5550,7 @@
         }
       },
       "failure_reason": null,
-      "pr_url": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/835",
       "commit_sha": "83772e1d19d8d444b9ad5bdcacd878f80da17284",
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -5566,6 +5566,11 @@
           "at": "2026-05-17T21:38:00+08:00",
           "status": "local_checks_passed",
           "summary": "Completed scoped implementation and required local checks for commit 83772e1d19d8d444b9ad5bdcacd878f80da17284."
+        },
+        {
+          "at": "2026-05-17T21:40:00+08:00",
+          "status": "pr_open",
+          "summary": "Created GitHub PR #835 for PUBLISH-WEB-CONTENT-CACHE-PURGE."
         }
       ]
     }
