@@ -3861,3 +3861,56 @@ prs:
       - /api/track remains transport only and backend purchase truth remains authoritative.
     next_task: SEO-DASH-03B
     rollback_note: "Remove Search Intelligence tracking field enrichment, docs, artifact, and focused contract tests added for SEO-DASH-03A."
+
+  - id: PUBLISH-WEB-CONTENT-CACHE-PURGE
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/publish-web-content-cache-purge
+    base: main
+    depends_on:
+      - PUBLISH-API-MEDIA-ORIGIN-READYNESS:fap-api
+    mode: execute
+    train_scope: publishing_reliability
+    risk_level: medium
+    status: planned
+    title: "fix(web-cache): purge article list/detail proxy cache on content release"
+    goal: "Ensure content release revalidation refreshes article list and detail HTML across Next and proxy cache layers so CMS media updates do not leave stale cards or placeholders."
+    in_scope:
+      - app/api/content-release/revalidate/route.ts
+      - scripts/content_release_revalidate_smoke.sh
+      - scripts/*content*release*cache*
+      - deploy/nginx/fap-web.conf
+      - docs/deploy/**
+      - tests/contracts/content-release*
+      - tests/contracts/*article*
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - fap-api repository changes
+      - CMS media origin policy or ArticleResource cover binding changes
+      - public article content edits
+      - broad nginx route rewrites unrelated to articles/content release
+      - deploy, SSH, production cache deletion, rollback, unlock, or process termination
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/content-release*
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://www.fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      continue_train_when_external_blocker:
+        - blocker is not introduced by PUBLISH-WEB-CONTENT-CACHE-PURGE
+        - GitHub required checks are green
+        - scoped validation is green
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: false
+    acceptance:
+      - Content release accepts article list and localized article detail paths.
+      - Article list/detail cache purge or prewarm behavior is deterministic and covered by contract tests.
+      - Apex/www article list behavior is accounted for without widening private/API path allowlists.
+      - CMS media changes cannot leave article cards stuck on stale HTML after content release.
+    rollback_note: "Remove content release proxy cache purge/prewarm additions and focused content-release tests."

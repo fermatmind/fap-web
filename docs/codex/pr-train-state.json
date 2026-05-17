@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-17T21:10:00+08:00",
+  "updated_at": "2026-05-17T21:32:00+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -5515,6 +5515,48 @@
           "at": "2026-05-17T21:10:00+08:00",
           "status": "pr_open",
           "summary": "Created GitHub PR #832 after scoped local validation passed."
+        }
+      ]
+    },
+    {
+      "id": "PUBLISH-WEB-CONTENT-CACHE-PURGE",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/publish-web-content-cache-purge",
+      "base": "main",
+      "depends_on": [
+        "PUBLISH-API-MEDIA-ORIGIN-READYNESS:fap-api"
+      ],
+      "status": "in_progress",
+      "train_scope": "publishing_reliability",
+      "risk_level": "medium",
+      "title": "fix(web-cache): purge article list/detail proxy cache on content release",
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly requested sequential execution of PUBLISH-API-MEDIA-ORIGIN-READYNESS, PUBLISH-WEB-CONTENT-CACHE-PURGE, and PUBLISH-API-ARTICLE-COVER-SMOKE."
+        },
+        "dependency": {
+          "status": "pass",
+          "evidence": "fap-api PR #1448 for PUBLISH-API-MEDIA-ORIGIN-READYNESS merged at 2026-05-17T13:21:17Z and origin/main contains merge commit 0a11c274ecc7b01d40998e2443e56aa7150a283a."
+        },
+        "implementation": {
+          "status": "in_progress",
+          "evidence": "Implementing article content-release revalidation path derivation in an isolated worktree from origin/main."
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [],
+      "history": [
+        {
+          "at": "2026-05-17T21:32:00+08:00",
+          "status": "in_progress",
+          "summary": "Started article list/detail content-release cache purge item from origin/main after API media readiness merged; no deploy, SSH, production cache deletion, rollback, unlock, or process command performed."
         }
       ]
     }

@@ -19,8 +19,29 @@ type PathDecision = {
   reason?: string;
 };
 
+const DEFAULT_PUBLIC_FRONTEND_ORIGINS = ["https://fermatmind.com", "https://www.fermatmind.com"];
+
 function normalizeLocaleToSegment(locale: string | null | undefined): "en" | "zh" {
   return String(locale ?? "").toLowerCase().startsWith("zh") ? "zh" : "en";
+}
+
+function configuredPublicOrigins(requestOrigin: string): Set<string> {
+  const origins = new Set([requestOrigin, ...DEFAULT_PUBLIC_FRONTEND_ORIGINS]);
+
+  for (const candidate of [process.env.NEXT_PUBLIC_SITE_URL, process.env.PUBLIC_BASE_URL]) {
+    const normalized = String(candidate ?? "").trim();
+    if (!normalized) {
+      continue;
+    }
+
+    try {
+      origins.add(new URL(normalized).origin);
+    } catch {
+      // Ignore malformed deployment metadata; request-origin validation still applies.
+    }
+  }
+
+  return origins;
 }
 
 function normalizePath(path: string, requestOrigin: string): string | null {
@@ -32,7 +53,7 @@ function normalizePath(path: string, requestOrigin: string): string | null {
   if (/^https?:\/\//i.test(normalized)) {
     try {
       const url = new URL(normalized);
-      if (url.origin !== requestOrigin) {
+      if (!configuredPublicOrigins(requestOrigin).has(url.origin)) {
         return null;
       }
 
@@ -70,6 +91,12 @@ function localizedPath(path: string, locale: "en" | "zh"): string {
   }
 
   return `/${locale}${path}`;
+}
+
+function normalizeSlug(slug: string | null | undefined): string | null {
+  const normalized = String(slug ?? "").trim().toLowerCase();
+
+  return /^[a-z0-9][a-z0-9-]*$/.test(normalized) ? normalized : null;
 }
 
 function isAllowedPublicPath(path: string): boolean {
@@ -155,8 +182,15 @@ export function collectPathDecisions(payload: ContentReleasePayload, requestOrig
     .filter((path): path is string => Boolean(path))
     .map((path) => localizedPath(path, locale));
   const type = String(payload.content?.type ?? "").trim();
+  const slug = normalizeSlug(payload.content?.slug);
 
-  if (type === "support_article" || type === "interpretation_guide") {
+  if (type === "article") {
+    localized.push("/zh/articles", "/en/articles");
+
+    if (slug) {
+      localized.push(`/zh/articles/${slug}`, `/en/articles/${slug}`);
+    }
+  } else if (type === "support_article" || type === "interpretation_guide") {
     localized.push(localizedPath("/support", locale));
   }
 
