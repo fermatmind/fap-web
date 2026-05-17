@@ -5527,7 +5527,7 @@
       "depends_on": [
         "PUBLISH-API-MEDIA-ORIGIN-READYNESS:fap-api"
       ],
-      "status": "in_progress",
+      "status": "local_checks_passed",
       "train_scope": "publishing_reliability",
       "risk_level": "medium",
       "title": "fix(web-cache): purge article list/detail proxy cache on content release",
@@ -5541,13 +5541,17 @@
           "evidence": "fap-api PR #1448 for PUBLISH-API-MEDIA-ORIGIN-READYNESS merged at 2026-05-17T13:21:17Z and origin/main contains merge commit 0a11c274ecc7b01d40998e2443e56aa7150a283a."
         },
         "implementation": {
-          "status": "in_progress",
-          "evidence": "Implementing article content-release revalidation path derivation in an isolated worktree from origin/main."
+          "status": "pass",
+          "evidence": "Article content-release now derives localized article list/detail paths and accepts configured apex/www public frontend origins without widening private/API path allowlists."
+        },
+        "local_checks": {
+          "status": "pass",
+          "evidence": "pnpm exec vitest run tests/contracts/content-release*; pnpm typecheck; NEXT_PUBLIC_SITE_URL=https://www.fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build; pnpm test:contract; git diff --check; git diff --cached --check all passed. Generated public/sitemap.xml drift from postbuild was restored and not included."
         }
       },
       "failure_reason": null,
       "pr_url": null,
-      "commit_sha": null,
+      "commit_sha": "83772e1d19d8d444b9ad5bdcacd878f80da17284",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -5557,6 +5561,11 @@
           "at": "2026-05-17T21:32:00+08:00",
           "status": "in_progress",
           "summary": "Started article list/detail content-release cache purge item from origin/main after API media readiness merged; no deploy, SSH, production cache deletion, rollback, unlock, or process command performed."
+        },
+        {
+          "at": "2026-05-17T21:38:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Completed scoped implementation and required local checks for commit 83772e1d19d8d444b9ad5bdcacd878f80da17284."
         }
       ]
     }
