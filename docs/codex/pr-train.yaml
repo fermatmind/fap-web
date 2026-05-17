@@ -3134,6 +3134,82 @@ prs:
       - payment/order/report/recommendation/scoring/profile code
     rollback_note: "Remove the CMS/SEO final architecture charter document, generated artifact, scoped contract test, and ARCH-SEO-CMS-02 train metadata."
 
+  - id: BACKEND-RUNTIME-01C
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/backend-runtime-01c-api-edge-gateway-contract
+    base: main
+    depends_on:
+      - ARCH-SEO-CMS-01
+      - ARCH-SEO-CMS-02
+    mode: execute
+    risk_level: L2
+    status: planned
+    title: "docs(architecture): add API edge gateway and backend authority contract"
+    goal: "Add a versioned API edge gateway and backend authority contract based on BACKEND-RUNTIME-00/00A without changing frontend runtime, backend runtime, Node2, Node3, OpenResty, DNS, CDN, COS/OSS, database, sitemap/llms, tracking, commerce, report, email, recommendation, scoring, deployment, env, SSH, or cloud behavior."
+    in_scope:
+      - docs/seo/api-edge-gateway-backend-authority-contract.md
+      - docs/seo/generated/api-edge-gateway-backend-authority-contract.v1.json
+      - tests/contracts/api-edge-gateway-backend-authority-contract.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - /Users/rainie/Desktop/GitHub/fap-api changes
+      - /Users/rainie/Desktop/GitHub/fap-api/fap-web as production runtime
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - backend runtime files
+      - migrations
+      - env files
+      - deploy scripts
+      - DNS/CDN/cloud config
+      - next-sitemap.config.js
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - payment/order/report/recommendation/scoring/profile code
+      - Node2 runtime changes
+      - Node3 runtime changes
+      - OpenResty changes
+      - SSH/runtime commands
+      - cloud resources
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/api-edge-gateway-backend-authority-contract.contract.test.ts
+      - pnpm test:contract
+      - pnpm seo:check-sitemap
+      - pnpm seo:check-mobile
+      - git diff --check
+      - git diff --cached --check
+    acceptance:
+      - Artifact includes ARCH-SEO-CMS-01, ARCH-SEO-CMS-02, BACKEND-RUNTIME-00, and BACKEND-RUNTIME-00A sources.
+      - Artifact records fap-node2 local route count 194 and fap-api-prod reference route count 312.
+      - Artifact marks fap-node2 local Laravel as non-authority and queue as FATAL/unhealthy.
+      - Artifact records api.fermatmind.com /api/ proxying to fap-api-prod / Node3.
+      - Artifact marks fap-api-prod as canonical backend authority candidate.
+      - SEO Collector is forbidden from reading Node2 local Laravel as authority.
+      - Metabase is forbidden from querying Node2 local DB.
+      - SEO 中台 production rollout remains blocked until gateway/backend authority boundary is accepted.
+      - RIASEC, Big Five, and Career Decision are not overclaimed as complete recommender runtime.
+      - No frontend runtime, backend runtime, Node2, Node3, OpenResty, DNS, CDN, COS/OSS, database, sitemap/llms, tracking, commerce, report, email, recommendation, scoring, deployment, env, SSH, or cloud behavior changes.
+    must_not_touch:
+      - /Users/rainie/Desktop/GitHub/fap-api
+      - /Users/rainie/Desktop/GitHub/fap-api/fap-web
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - backend runtime files
+      - migrations
+      - env files
+      - deploy scripts
+      - DNS/CDN/cloud config
+      - next-sitemap.config.js
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - payment/order/report/recommendation/scoring/profile code
+    rollback_note: "Remove the API edge gateway/backend authority contract document, generated artifact, scoped contract test, and BACKEND-RUNTIME-01C train metadata."
+
   - id: AUDIT-WEB-CMS-LINK-XSS
     repo: fap-web
     repo_path: /Users/rainie/Desktop/GitHub/fap-web
