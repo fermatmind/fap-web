@@ -1,0 +1,414 @@
+{
+  "version": "api_edge_gateway_backend_authority_contract.v1",
+  "scope": "BACKEND-RUNTIME-01C",
+  "status": [
+    "decision_contract",
+    "not_implemented"
+  ],
+  "source_documents": [
+    {
+      "id": "ARCH-SEO-CMS-01",
+      "type": "seo_intelligence_asset_map_and_ownership_contract",
+      "status": "merged"
+    },
+    {
+      "id": "ARCH-SEO-CMS-02",
+      "type": "cms_seo_middle_platform_final_architecture_charter",
+      "status": "merged"
+    },
+    {
+      "id": "BACKEND-RUNTIME-00",
+      "type": "public_api_vs_backend_authority_parity_scan",
+      "status": "completed"
+    },
+    {
+      "id": "BACKEND-RUNTIME-00A",
+      "type": "fap_node2_runtime_provenance_completion_scan",
+      "status": "completed"
+    }
+  ],
+  "current_topology": {
+    "status": [
+      "observed",
+      "partial",
+      "conflict"
+    ],
+    "nodes": [
+      {
+        "id": "fap-node1",
+        "aliases": [
+          "fap-app-01"
+        ],
+        "role": "production fap-web frontend",
+        "source_of_truth": "public_frontend_runtime",
+        "status": [
+          "observed",
+          "ready"
+        ]
+      },
+      {
+        "id": "fap-node2",
+        "aliases": [
+          "fap-app-02",
+          "api.fermatmind.com",
+          "122.51.23.191"
+        ],
+        "role": "api.fermatmind.com edge gateway / OpenResty / legacy Docker node",
+        "source_of_truth": "edge_gateway_only",
+        "status": [
+          "observed",
+          "conflict",
+          "architecture_debt"
+        ]
+      },
+      {
+        "id": "fap-api-prod",
+        "aliases": [
+          "Node3",
+          "ops.fermatmind.com",
+          "122.152.221.126"
+        ],
+        "role": "standard Laravel backend/CMS/ops authority candidate",
+        "source_of_truth": "canonical_backend_authority_candidate",
+        "status": [
+          "observed",
+          "recommended_authority_candidate"
+        ]
+      },
+      {
+        "id": "staging",
+        "role": "mixed backend/frontend staging",
+        "status": [
+          "observed",
+          "partial"
+        ]
+      }
+    ],
+    "media_chain": {
+      "domain": "assets.fermatmind.com",
+      "chain": [
+        "DNSPod",
+        "Alibaba CDN",
+        "Alibaba OSS"
+      ],
+      "origin_bucket": "ferm-mind-site",
+      "tencent_cos_active_media_authority": false
+    }
+  },
+  "fap_node2_local_runtime": {
+    "status": [
+      "observed",
+      "legacy",
+      "non_authority",
+      "conflict"
+    ],
+    "backend_path": "/www/wwwroot/fap-api/backend",
+    "containers": [
+      {
+        "name": "php84",
+        "image": "1panel-php-fpm:8.4.13",
+        "role": "local PHP/Laravel container",
+        "status": "running"
+      },
+      {
+        "name": "fap-mysql",
+        "image": "mysql:8.0",
+        "role": "local MySQL container",
+        "status": "running"
+      },
+      {
+        "name": "1Panel-openresty-r188",
+        "image": "1panel/openresty:1.27.1.2-5-1-focal",
+        "role": "OpenResty edge/proxy container",
+        "status": "running"
+      }
+    ],
+    "php_version": "8.4.13",
+    "laravel_version": "12.48.1",
+    "local_route_count": 194,
+    "fap_api_prod_reference_route_count": 312,
+    "route_parity_with_fap_api_prod": {
+      "status": [
+        "conflict",
+        "not_equivalent"
+      ],
+      "comparison": "194 local routes on Node2 vs 312 fap-api-prod reference routes"
+    },
+    "route_signature_hash": "b420e15ed34aedfe223c3aa5772c4e5f2ab278a3aa4f3880d28ab528e23343b",
+    "queue": {
+      "name": "fap-api-queue",
+      "status": "FATAL",
+      "healthy": false,
+      "safe_for_report_email_commerce_async_jobs": false
+    },
+    "redis": {
+      "env_key_observed": false,
+      "status": [
+        "missing",
+        "unknown"
+      ]
+    },
+    "scheduler": {
+      "observed": false,
+      "status": [
+        "not_observed",
+        "unknown"
+      ]
+    },
+    "deploy_marker": {
+      "observed": false,
+      "status": [
+        "missing",
+        "conflict_with_prior_scan"
+      ]
+    },
+    "laravel_about": {
+      "environment": "production",
+      "database": "mysql",
+      "cache": "redis",
+      "mail": "log",
+      "queue": "sync",
+      "session": "file",
+      "public_storage": "NOT LINKED",
+      "release": "NOT SET"
+    },
+    "canonical_backend_authority": false,
+    "may_be_consumed_as_authority_by": []
+  },
+  "api_gateway_observation": {
+    "status": [
+      "observed",
+      "gateway_pattern"
+    ],
+    "domain": "api.fermatmind.com",
+    "edge_node": "fap-node2",
+    "observed_path_prefix": "/api/",
+    "observed_proxy_pass": "http://122.152.221.126",
+    "upstream_node": "fap-api-prod / Node3",
+    "upstream_ip": "122.152.221.126",
+    "interpretation": "Public /api/ appears to depend on Node3 backend authority through Node2 OpenResty edge gateway.",
+    "proxies_to_fap_api_prod": true,
+    "proxies_to_node2_local_laravel": false
+  },
+  "canonical_backend_authority_candidate": {
+    "id": "fap-api-prod",
+    "aliases": [
+      "Node3",
+      "ops.fermatmind.com",
+      "122.152.221.126"
+    ],
+    "status": [
+      "observed",
+      "recommended_authority_candidate"
+    ],
+    "route_count_reference": 312,
+    "runtime_shape": "standard Laravel backend/CMS/ops runtime",
+    "owns": [
+      "backend contract truth",
+      "CMS truth",
+      "commerce authority",
+      "queue/scheduler authority candidate"
+    ]
+  },
+  "ownership_contract": {
+    "node2": {
+      "role": "api_edge_gateway_only",
+      "may_proxy_public_api": true,
+      "canonical_backend_authority": false,
+      "local_laravel_authority": false,
+      "local_queue_safe_for_async_jobs": false
+    },
+    "node3": {
+      "role": "canonical_backend_authority_candidate",
+      "owns_backend_cms_commerce_truth": true
+    },
+    "fap_web": {
+      "role": "deterministic_public_renderer",
+      "must_not_consume_node2_local_laravel_as_authority": true
+    },
+    "cms": {
+      "role": "content_publish_truth",
+      "can_be_seo_bi": false
+    },
+    "seo_collector": {
+      "role": "observation_attribution_drift_issue_queue",
+      "must_use_canonical_backend_authority": true,
+      "can_read_node2_local_laravel_as_authority": false,
+      "can_publish_content": false,
+      "can_generate_pseo": false,
+      "writes": [
+        "seo_intel"
+      ]
+    },
+    "metabase": {
+      "read_only": true,
+      "allowed_query_targets": [
+        "seo_intel"
+      ],
+      "can_query_node2_local_db": false,
+      "forbidden_query_targets": [
+        "Node2 local DB",
+        "CMS/business tables"
+      ]
+    }
+  },
+  "seo_middle_platform_implications": {
+    "production_rollout_status": [
+      "blocked",
+      "human_confirm_required"
+    ],
+    "blocked_until": [
+      "gateway/backend authority boundary accepted",
+      "Collector input source locked",
+      "seo_intel DB target approved",
+      "Metabase isolation policy approved"
+    ],
+    "collector_source": {
+      "recommended": "fap-api-prod-backed canonical backend authority",
+      "forbidden": "fap-node2 local Laravel"
+    },
+    "url_truth_inventory": "must use canonical backend authority and public runtime, not Node2 local Laravel",
+    "cms_issue_queue": "must summarize issues against backend/CMS truth from canonical authority"
+  },
+  "future_options": [
+    {
+      "id": "Option A",
+      "title": "Keep Node2 as edge gateway, harden/document it, quarantine local Laravel",
+      "recommended": true,
+      "pros": [
+        "Preserves current public API entrypoint",
+        "Matches observed /api/ proxy behavior",
+        "Keeps Node3 as backend authority"
+      ],
+      "cons": [
+        "Node2 remains in request path",
+        "OpenResty config becomes critical dependency",
+        "Local legacy Laravel must be fenced off"
+      ],
+      "required_gates": [
+        "/api route smoke",
+        "OpenResty config backup",
+        "auth/session/CORS/rate-limit parity",
+        "payment webhook path confirmation",
+        "rollback runbook",
+        "local Laravel quarantine decision"
+      ],
+      "risks": [
+        "operator confusion between gateway and authority",
+        "proxy drift",
+        "unclear gateway observability"
+      ]
+    },
+    {
+      "id": "Option B",
+      "title": "Migrate api.fermatmind.com directly to fap-api-prod",
+      "recommended": false,
+      "pros": [
+        "Simplifies topology",
+        "Eliminates Node2 gateway ambiguity"
+      ],
+      "cons": [
+        "Requires DNS/proxy migration planning",
+        "Requires public API compatibility validation"
+      ],
+      "required_gates": [
+        "full /api route smoke",
+        "auth/session/CORS/rate-limit parity",
+        "payment webhook parity",
+        "report/email gate parity",
+        "DNS/proxy staged change plan",
+        "rollback plan"
+      ],
+      "risks": [
+        "public API clients may depend on current gateway behavior",
+        "webhook endpoints may have provider-side allowlists or cached DNS"
+      ]
+    },
+    {
+      "id": "Option C",
+      "title": "Standardize Node2 into a true backend runtime",
+      "recommended": false,
+      "pros": [
+        "Could preserve a dedicated API node if a strong business reason exists"
+      ],
+      "cons": [
+        "Not recommended from current evidence",
+        "Requires route parity from 194 to canonical set",
+        "Requires DB/Redis/queue/scheduler standardization"
+      ],
+      "required_gates": [
+        "Git/release provenance",
+        "external DB/Redis alignment",
+        "healthy queue workers",
+        "scheduler ownership",
+        "route parity with Node3",
+        "explicit API gateway/backend boundary"
+      ],
+      "risks": [
+        "continues dual-backend runtime drift",
+        "increases SEO 中台 source ambiguity",
+        "can mask report/email/commerce async failures"
+      ]
+    }
+  ],
+  "recommended_direction": {
+    "status": [
+      "recommended",
+      "not_implemented"
+    ],
+    "direction": "Treat fap-api-prod / Node3 as canonical backend authority candidate and treat Node2 as api.fermatmind.com edge gateway / legacy node.",
+    "next_implementation_should_be": "edge gateway hardening / local runtime quarantine plan",
+    "next_implementation_should_not_be": "SEO-DASH production rollout"
+  },
+  "required_gates": [
+    "/api route smoke",
+    "auth/session/CORS/rate-limit parity",
+    "payment webhook path confirmation",
+    "report/email gate parity",
+    "scheduler/queue ownership confirmation",
+    "rollback plan",
+    "OpenResty config backup",
+    "DNS/proxy staged change plan if migration path chosen"
+  ],
+  "forbidden_assumptions": [
+    "Node2 local Laravel is production backend authority",
+    "Node2 and Node3 are interchangeable",
+    "Node2 queue FATAL is harmless for local runtime",
+    "SEO Collector may read Node2 local Laravel as authority",
+    "Metabase may query Node2 local DB",
+    "SEO 中台 production rollout may start before backend authority source is locked",
+    "pSEO or Career Decision expansion may start from this state",
+    "RIASEC/Big Five/Career Decision are complete recommender runtime",
+    "Tencent COS is active media authority without future explicit confirmation"
+  ],
+  "first_implementation_path": [
+    "BACKEND-RUNTIME-02A edge gateway hardening / local runtime quarantine plan",
+    "BACKEND-RUNTIME-02B API gateway smoke and rollback runbook",
+    "SEO-DASH-00 schema/attribution/PII/consent boundary only after gateway/backend authority source is accepted",
+    "SEO-DASH-01 seo_intel DB + collector skeleton after data source is locked"
+  ],
+  "deployment_guardrails": {
+    "allowed_files": [
+      "docs/seo/api-edge-gateway-backend-authority-contract.md",
+      "docs/seo/generated/api-edge-gateway-backend-authority-contract.v1.json",
+      "tests/contracts/api-edge-gateway-backend-authority-contract.contract.test.ts",
+      "docs/codex/pr-train.yaml",
+      "docs/codex/pr-train-state.json"
+    ],
+    "forbidden_runtime_paths": [
+      "app/**",
+      "components/**",
+      "lib/**",
+      "public/**",
+      "backend runtime files",
+      "migrations",
+      "env files",
+      "deploy scripts",
+      "DNS/CDN/cloud config",
+      "payment/order/report/recommendation/scoring/profile code"
+    ],
+    "runtime_behavior_changed": false,
+    "cloud_behavior_changed": false,
+    "production_touched": false
+  }
+}

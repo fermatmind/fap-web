@@ -549,7 +549,7 @@
       "checks": [],
       "failure_reason": null,
       "pr_url": null,
-      "commit_sha": null,
+      "commit_sha": "806c21a2840a8244d50ed3c1862e3bfe6a417484",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false
@@ -4348,6 +4348,104 @@
           "at": "2026-05-16T14:34:00+08:00",
           "status": "pr_open",
           "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/821 for ARCH-SEO-CMS-02."
+        }
+      ]
+    },
+    {
+      "id": "BACKEND-RUNTIME-01C",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/backend-runtime-01c-api-edge-gateway-contract",
+      "base": "main",
+      "depends_on": [
+        "ARCH-SEO-CMS-01",
+        "ARCH-SEO-CMS-02"
+      ],
+      "status": "pr_open",
+      "title": "docs(architecture): add API edge gateway and backend authority contract",
+      "mode": "execute",
+      "risk_level": "L2",
+      "allowed_paths": [
+        "docs/seo/api-edge-gateway-backend-authority-contract.md",
+        "docs/seo/generated/api-edge-gateway-backend-authority-contract.v1.json",
+        "tests/contracts/api-edge-gateway-backend-authority-contract.contract.test.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [
+        {
+          "name": "manifest authorization",
+          "status": "passed",
+          "details": "User explicitly provided BACKEND-RUNTIME-01C id, title, branch, allowed files, validation commands, and authorized PR train metadata updates if required by governance."
+        },
+        {
+          "name": "dependency check",
+          "status": "passed",
+          "details": "ARCH-SEO-CMS-01 and ARCH-SEO-CMS-02 are present on main and documented as merged prerequisites for this contract PR."
+        },
+        {
+          "name": "branch preflight",
+          "status": "passed",
+          "details": "Started from main aligned with origin/main on branch codex/backend-runtime-01c-api-edge-gateway-contract."
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/api-edge-gateway-backend-authority-contract.contract.test.ts",
+          "status": "passed",
+          "details": "8 tests passed."
+        },
+        {
+          "name": "pnpm test:contract",
+          "status": "passed",
+          "details": "367 test files and 2076 tests passed."
+        },
+        {
+          "name": "pnpm seo:check-sitemap",
+          "status": "passed",
+          "details": "Sitemap indexability check passed with 261 URLs."
+        },
+        {
+          "name": "pnpm seo:check-mobile",
+          "status": "passed",
+          "details": "Mobile SEO gate passed; runtimeBehaviorChanged=false, urlSetChanged=false, sitemapChanged=false, llmsChanged=false."
+        },
+        {
+          "name": "git diff --check",
+          "status": "passed",
+          "details": "No whitespace errors."
+        },
+        {
+          "name": "git diff --cached --check",
+          "status": "passed",
+          "details": "No staged whitespace errors."
+        }
+      ],
+      "failure_reason": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/826",
+      "commit_sha": "0aefa9946173c4fcc7aa5b6360abc3e0328e4d32",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [],
+      "history": [
+        {
+          "at": "2026-05-17T08:01:08+08:00",
+          "status": "in_progress",
+          "summary": "Initialized BACKEND-RUNTIME-01C to add a versioned API edge gateway/backend authority contract based on BACKEND-RUNTIME-00/00A without runtime, backend, Node2, Node3, OpenResty, DNS, CDN, COS/OSS, database, sitemap/llms, tracking, commerce, report, email, recommendation, scoring, deployment, env, SSH, or cloud changes."
+        },
+        {
+          "at": "2026-05-17T08:02:59+08:00",
+          "status": "local_checks_passed",
+          "summary": "Added API edge gateway/backend authority contract, generated artifact, scoped contract, and train metadata; targeted contract, full contract suite, sitemap check, mobile SEO check, and diff checks passed."
+        },
+        {
+          "at": "2026-05-17T08:03:20+08:00",
+          "status": "local_checks_passed",
+          "summary": "Committed BACKEND-RUNTIME-01C scoped docs contract changes as 0aefa9946173c4fcc7aa5b6360abc3e0328e4d32."
+        },
+        {
+          "at": "2026-05-17T08:04:30+08:00",
+          "status": "pr_open",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/826 for BACKEND-RUNTIME-01C."
         }
       ]
     },
