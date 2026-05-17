@@ -1,0 +1,299 @@
+{
+  "version": "api_edge_gateway_hardening_quarantine_plan.v1",
+  "scope": "BACKEND-RUNTIME-02A",
+  "status": [
+    "planning_contract",
+    "not_implemented"
+  ],
+  "source_documents": [
+    {
+      "id": "ARCH-SEO-CMS-01",
+      "type": "seo_intelligence_asset_map_and_ownership_contract",
+      "status": "merged"
+    },
+    {
+      "id": "ARCH-SEO-CMS-02",
+      "type": "cms_seo_middle_platform_final_architecture_charter",
+      "status": "merged"
+    },
+    {
+      "id": "BACKEND-RUNTIME-00",
+      "type": "public_api_vs_backend_authority_parity_scan",
+      "status": "completed"
+    },
+    {
+      "id": "BACKEND-RUNTIME-00A",
+      "type": "fap_node2_runtime_provenance_completion_scan",
+      "status": "completed"
+    },
+    {
+      "id": "BACKEND-RUNTIME-01C",
+      "type": "api_edge_gateway_backend_authority_contract",
+      "status": "merged"
+    }
+  ],
+  "accepted_topology": {
+    "status": [
+      "accepted_contract",
+      "partial",
+      "operational_acceptance_pending"
+    ],
+    "nodes": [
+      {
+        "id": "fap-node1",
+        "aliases": [
+          "fap-app-01"
+        ],
+        "role": "production fap-web frontend runtime",
+        "status": [
+          "observed",
+          "ready"
+        ]
+      },
+      {
+        "id": "fap-node2",
+        "aliases": [
+          "fap-app-02",
+          "api.fermatmind.com",
+          "122.51.23.191"
+        ],
+        "role": "api.fermatmind.com API edge gateway / OpenResty proxy node",
+        "source_of_truth": "edge_gateway_only",
+        "status": [
+          "observed",
+          "edge_gateway_only",
+          "local_runtime_quarantine_required"
+        ]
+      },
+      {
+        "id": "fap-api-prod",
+        "aliases": [
+          "Node3",
+          "ops.fermatmind.com",
+          "122.152.221.126"
+        ],
+        "role": "backend/CMS/commerce authority candidate",
+        "source_of_truth": "canonical_backend_authority_candidate",
+        "status": [
+          "observed",
+          "backend_authority_candidate"
+        ]
+      },
+      {
+        "id": "node2-local-laravel",
+        "path": "/www/wwwroot/fap-api/backend",
+        "role": "legacy local Laravel runtime",
+        "source_of_truth": "non_authority",
+        "status": [
+          "observed",
+          "legacy",
+          "quarantined",
+          "non_authority"
+        ]
+      }
+    ],
+    "media_chain": {
+      "domain": "assets.fermatmind.com",
+      "chain": [
+        "DNSPod",
+        "Alibaba CDN",
+        "Alibaba OSS"
+      ],
+      "origin_bucket": "ferm-mind-site",
+      "tencent_cos_active_media_authority": false
+    }
+  },
+  "edge_gateway_responsibilities": {
+    "node": "fap-node2",
+    "may_own": [
+      "public edge ingress for api.fermatmind.com",
+      "OpenResty proxy layer",
+      "TLS/proxy config as applicable",
+      "request forwarding to Node3 backend authority"
+    ],
+    "must_not_own": [
+      "backend truth",
+      "CMS truth",
+      "queue/scheduler truth",
+      "report/email/commerce job truth",
+      "SEO Collector source truth",
+      "Metabase data source truth",
+      "sitemap/llms source truth",
+      "attribution source truth"
+    ]
+  },
+  "node2_local_runtime_quarantine": {
+    "status": [
+      "quarantine_required",
+      "non_authority"
+    ],
+    "local_laravel": {
+      "path": "/www/wwwroot/fap-api/backend",
+      "route_count": 194,
+      "node3_reference_route_count": 312,
+      "authority": false,
+      "quarantine_label": "non_authority"
+    },
+    "local_queue": {
+      "name": "fap-api-queue",
+      "status": "FATAL",
+      "healthy": false,
+      "authority": false,
+      "quarantine_label": "non_authority_unhealthy"
+    },
+    "local_redis_env_key": {
+      "observed": false,
+      "trusted": false
+    },
+    "local_scheduler": {
+      "observed": false,
+      "trusted": false
+    },
+    "deploy_marker": {
+      "observed": false,
+      "trusted": false
+    },
+    "php84_runtime": {
+      "authority": false,
+      "quarantine_label": "non_authority_runtime"
+    },
+    "fap_mysql": {
+      "authority": false,
+      "quarantine_label": "non_authority_data_store"
+    },
+    "ignored_by": [
+      "fap-web",
+      "SEO Collector",
+      "CMS",
+      "Metabase",
+      "production automation"
+    ],
+    "reactivation_requires_future_decision": true
+  },
+  "gateway_hardening_gates": [
+    "OpenResty config backup",
+    "/api proxy target verification",
+    "healthcheck endpoint inventory and smoke",
+    "route smoke through api.fermatmind.com",
+    "CORS/header/rate-limit smoke",
+    "auth/session smoke",
+    "report-access/email-bind smoke",
+    "checkout/order read-only smoke",
+    "payment webhook ingress mapping verification without triggering live payment",
+    "rollback plan",
+    "log location and ownership",
+    "config ownership and change approval"
+  ],
+  "quarantine_gates": [
+    "Node2 local Laravel non-authority label",
+    "Node2 local DB non-authority label",
+    "Node2 local queue non-authority label",
+    "Node2 local fap-mysql non-authority label",
+    "Node2 local php84 runtime non-authority label",
+    "no collector reads from Node2 local Laravel",
+    "no Metabase reads Node2 local DB",
+    "no CMS admin assumes Node2 local data is source of truth",
+    "no production automation uses Node2 local queue or scheduler",
+    "no report/email/commerce worker ownership assigned to Node2 local runtime"
+  ],
+  "seo_middle_platform_implications": {
+    "seo_dash_production_implementation_status": [
+      "blocked",
+      "human_confirm_required"
+    ],
+    "blocked_until": [
+      "Node2 gateway contract operationally accepted",
+      "Node3 backend authority source accepted",
+      "Collector input source locked",
+      "seo_intel target decided",
+      "Metabase read-only policy accepted"
+    ],
+    "allowed_before_gates": [
+      "documentation",
+      "read-only scans",
+      "schema discussion",
+      "PII/consent boundary drafting"
+    ],
+    "blocked_before_gates": [
+      "production collector deployment",
+      "seo_intel production migration",
+      "Metabase production deployment",
+      "GSC/Baidu production collectors",
+      "crawler jobs against production",
+      "CMS issue queue writes",
+      "funnel attribution mirrors"
+    ]
+  },
+  "future_options": [
+    {
+      "id": "Option A",
+      "title": "Keep Node2 gateway, harden it, quarantine local runtime",
+      "recommended": true,
+      "status": [
+        "recommended_current_path"
+      ]
+    },
+    {
+      "id": "Option B",
+      "title": "Migrate api.fermatmind.com directly to Node3, retire Node2 gateway",
+      "recommended": false,
+      "status": [
+        "possible_future_path",
+        "requires_dns_proxy_staging"
+      ]
+    },
+    {
+      "id": "Option C",
+      "title": "Standardize Node2 into true backend runtime",
+      "recommended": false,
+      "status": [
+        "not_recommended_without_strong_business_reason"
+      ]
+    }
+  ],
+  "recommended_next_task": {
+    "id": "BACKEND-RUNTIME-02B",
+    "title": "API Gateway Smoke and Rollback Runbook",
+    "recommended_before": "SEO-DASH-00",
+    "seo_dash_00_recommended_now": false
+  },
+  "forbidden_actions": [
+    "changing DNS in this PR",
+    "restarting OpenResty in this PR",
+    "fixing queue in this PR",
+    "deleting local Laravel in this PR",
+    "modifying Node2 in this PR",
+    "modifying Node3 in this PR",
+    "deploying SEO Collector",
+    "creating seo_intel DB",
+    "deploying Metabase",
+    "letting SEO Collector read Node2 local Laravel",
+    "letting Metabase query Node2 local DB",
+    "starting pSEO from this state",
+    "starting Career Decision expansion from this state"
+  ],
+  "deployment_guardrails": {
+    "allowed_files": [
+      "docs/seo/api-edge-gateway-hardening-quarantine-plan.md",
+      "docs/seo/generated/api-edge-gateway-hardening-quarantine-plan.v1.json",
+      "tests/contracts/api-edge-gateway-hardening-quarantine-plan.contract.test.ts",
+      "docs/codex/pr-train.yaml",
+      "docs/codex/pr-train-state.json"
+    ],
+    "forbidden_runtime_paths": [
+      "app/**",
+      "components/**",
+      "lib/**",
+      "public/**",
+      "backend runtime files",
+      "migrations",
+      "env files",
+      "deploy scripts",
+      "DNS/CDN/cloud config",
+      "payment/order/report/recommendation/scoring/profile code"
+    ],
+    "runtime_behavior_changed": false,
+    "cloud_behavior_changed": false,
+    "production_touched": false
+  }
+}
