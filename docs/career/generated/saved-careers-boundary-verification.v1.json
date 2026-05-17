@@ -1,0 +1,58 @@
+{
+  "version": "saved_careers_boundary_verification.v1",
+  "phase": "5B",
+  "generatedAt": "2026-05-17T19:50:00+08:00",
+  "sourceArtifacts": [
+    "docs/career/generated/career-public-authority-inventory.v1.json",
+    "docs/career/generated/career-route-trust-matrix.v1.json",
+    "docs/career/generated/career-claim-boundary-alignment.v1.json",
+    "docs/career/generated/career-resolve-alias-canonical-audit.v1.json",
+    "docs/career/generated/career-seo-geo-exposure-audit.v1.json",
+    "docs/career/generated/saved-careers-boundary-audit.v1.json",
+    "docs/career/generated/phase-5a-career-public-trust-readiness.v1.json"
+  ],
+  "status": "warn",
+  "savedCareersBoundaryStatus": "warn",
+  "verifiedBoundaries": [
+    {
+      "assertion": "saved careers remains preference store only",
+      "status": "verified_partial",
+      "evidence": "components/career/CareerShortlistAction.tsx labels action as shortlist/bookmark-like and requires analytics consent before write."
+    },
+    {
+      "assertion": "frontend current UI does not pass profile or recommendation evidence into write call",
+      "status": "verified_partial",
+      "evidence": "components/career/CareerShortlistAction.tsx calls submitCareerShortlistAdd without context_snapshot_uuid/projection_uuid/recommendation_snapshot_uuid in current component invocation."
+    },
+    {
+      "assertion": "client API type still permits snapshot identifiers",
+      "status": "warn",
+      "evidence": "lib/career/api/submitCareerShortlistAdd.ts supports optional contextSnapshotUuid, projectionUuid, and recommendationSnapshotUuid; Phase 5A flagged this as high risk if interpreted as memory or recommendation evidence."
+    },
+    {
+      "assertion": "no profile memory write introduced by Phase 5B",
+      "status": "pass",
+      "evidence": "Phase 5B modifies only docs/career/generated artifacts."
+    },
+    {
+      "assertion": "saved careers not used as fit conclusion",
+      "status": "verified_partial",
+      "evidence": "No sampled live saved-career write was executed; code audit shows shortlist action, not scoring update."
+    }
+  ],
+  "forbiddenUses": [
+    "profile_memory",
+    "recommendation_evidence",
+    "personality_inference",
+    "long_term_decision_memory",
+    "fit_conclusion"
+  ],
+  "requiredFixesBeforePhase5C": [
+    "Document or guard why snapshot foreign keys on shortlist records are provenance only, not profile memory.",
+    "Confirm DSAR/deletion lifecycle for CareerShortlistItem before any profile-memory or recommendation use.",
+    "Keep saved careers out of recommendation scoring and personality inference."
+  ],
+  "runtimeExpansionAllowed": false,
+  "profileMemoryExpansionAllowed": false,
+  "recommendationExpansionAllowed": false
+}
