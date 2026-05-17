@@ -3512,6 +3512,84 @@ prs:
       - payment/order/report/recommendation/scoring/profile code
     rollback_note: "Remove the API gateway evidence completion document, generated artifact, scoped contract test, and BACKEND-RUNTIME-02D train metadata."
 
+  - id: SEO-DASH-00B
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/seo-dash-00b-search-intelligence-data-contract
+    base: main
+    depends_on:
+      - BACKEND-RUNTIME-02D
+    mode: execute
+    risk_level: L2
+    status: planned
+    title: "docs(architecture): add search intelligence data contract"
+    goal: "Add a versioned Search Intelligence data contract based on SEO-DASH-00A and BACKEND-RUNTIME-02D, locking data source hierarchy, key model, page entity taxonomy, canonical funnel event taxonomy, attribution model, search channel model, revenue truth, PII and consent boundaries, internal/QA/bot filtering, semantic claim boundaries, logical seo_intel table plan, forbidden assumptions, and next implementation path without changing runtime, backend, tracking, sitemap/llms, payment, report, email, recommendation, scoring, env, deploy, cloud, SSH, or production behavior."
+    in_scope:
+      - docs/seo/search-intelligence-data-contract.md
+      - docs/seo/generated/search-intelligence-data-contract.v1.json
+      - tests/contracts/search-intelligence-data-contract.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - /Users/rainie/Desktop/GitHub/fap-api changes
+      - /Users/rainie/Desktop/GitHub/fap-api/fap-web as production runtime
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - backend runtime files
+      - migrations
+      - env files
+      - deploy scripts
+      - next-sitemap.config.js
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - payment/order/report/email/recommendation/scoring/profile code
+      - seo_intel DB creation
+      - collector jobs
+      - Metabase deployment
+      - GSC/Baidu/IndexNow connections
+      - SSH
+      - production changes
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/search-intelligence-data-contract.contract.test.ts
+      - pnpm test:contract
+      - pnpm seo:check-sitemap
+      - pnpm seo:check-mobile
+      - git diff --check
+      - git diff --cached --check
+    acceptance:
+      - Artifact includes SEO-DASH-00A, BACKEND-RUNTIME-02D, ARCH-SEO-CMS-01, and ARCH-SEO-CMS-02 sources.
+      - Artifact records backend orders/payment/benefit as purchase truth and keeps GA4/Baidu as behavior telemetry.
+      - Artifact records /api/track as transport only.
+      - Artifact defines canonical_url + locale and page_entity_type + entity_id_or_slug + locale key models.
+      - Artifact excludes result, order, take, share, pay, checkout, webhook, and other private flows from SEO URL entities.
+      - Artifact includes canonical funnel events and treats pay_success as a legacy purchase_success alias.
+      - Artifact records first-touch, last-touch, and CTA-touch attribution windows and forbids direct keyword purchase attribution.
+      - Artifact treats domestic search engines as channel adapters rather than alternate SEO truth.
+      - Artifact forbids email, raw cookies, raw order numbers, raw attempt IDs, provider event IDs, and payment payloads in seo_intel detail rows.
+      - Artifact requires consent_state and default exclusion of internal/QA/bot/non-production traffic.
+      - Artifact forbids RIASEC, Big Five, AI career planning, diagnosis, and true IQ authority overclaim metric names.
+      - Artifact defines logical table names only and creates no migrations or physical schema.
+      - Next task is SEO-DASH-01.
+      - No runtime, backend, tracking, payment, order, report, email, recommendation, scoring, sitemap/llms, env, deploy, SSH, cloud, or production behavior changes.
+    must_not_touch:
+      - /Users/rainie/Desktop/GitHub/fap-api
+      - /Users/rainie/Desktop/GitHub/fap-api/fap-web
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - backend runtime files
+      - migrations
+      - env files
+      - deploy scripts
+      - next-sitemap.config.js
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - payment/order/report/email/recommendation/scoring/profile code
+    rollback_note: "Remove the Search Intelligence data contract document, generated artifact, scoped contract test, and SEO-DASH-00B train metadata."
+
   - id: AUDIT-WEB-CMS-LINK-XSS
     repo: fap-web
     repo_path: /Users/rainie/Desktop/GitHub/fap-web
