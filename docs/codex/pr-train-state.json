@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-17T09:49:06+08:00",
+  "updated_at": "2026-05-17T10:14:26+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -1046,7 +1046,7 @@
       "checks": [],
       "failure_reason": null,
       "pr_url": null,
-      "commit_sha": null,
+      "commit_sha": "c999680870510ece94449cdf15de9c41910040ba",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false
@@ -4667,7 +4667,7 @@
       "depends_on": [
         "BACKEND-RUNTIME-02B"
       ],
-      "status": "pr_open",
+      "status": "merged",
       "title": "docs(architecture): add public API authority acceptance gate",
       "mode": "execute",
       "risk_level": "L2",
@@ -4737,10 +4737,10 @@
       ],
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/829",
-      "commit_sha": "f1e1dd84c933b19d6cdf4a5b3afd6f8eda52dff1",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "9dc3c2b52d6db36a1f2ab8c60fd2a2fcc5513099",
+      "merged_at": "2026-05-17T01:50:38Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "sidecar_issues": [],
       "history": [
         {
@@ -4762,6 +4762,123 @@
           "at": "2026-05-17T09:49:06+08:00",
           "status": "pr_open",
           "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/829 for BACKEND-RUNTIME-02C."
+        },
+        {
+          "at": "2026-05-17T10:09:25+08:00",
+          "status": "merged",
+          "summary": "Reconciled BACKEND-RUNTIME-02C ledger after GitHub PR #829 merged as 9dc3c2b52d6db36a1f2ab8c60fd2a2fcc5513099; remote branch deleted and local cleanup executed."
+        }
+      ]
+    },
+    {
+      "id": "BACKEND-RUNTIME-02D",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/backend-runtime-02d-gateway-evidence-completion",
+      "base": "main",
+      "depends_on": [
+        "BACKEND-RUNTIME-02C"
+      ],
+      "status": "pr_open",
+      "title": "docs(architecture): add gateway evidence completion report",
+      "mode": "execute",
+      "risk_level": "L2",
+      "allowed_paths": [
+        "docs/seo/api-gateway-evidence-completion.md",
+        "docs/seo/generated/api-gateway-evidence-completion.v1.json",
+        "tests/contracts/api-gateway-evidence-completion.contract.test.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [
+        {
+          "name": "manifest authorization",
+          "status": "passed",
+          "details": "User explicitly provided BACKEND-RUNTIME-02D id, title, branch, allowed files, validation commands, and authorized PR train metadata updates if required by governance."
+        },
+        {
+          "name": "dependency check",
+          "status": "passed",
+          "details": "BACKEND-RUNTIME-02C is merged into main as 9dc3c2b52d6db36a1f2ab8c60fd2a2fcc5513099."
+        },
+        {
+          "name": "branch preflight",
+          "status": "passed",
+          "details": "Started from main aligned with origin/main on branch codex/backend-runtime-02d-gateway-evidence-completion."
+        },
+        {
+          "name": "fresh Node2 gateway evidence",
+          "status": "passed",
+          "details": "Fresh read-only Node2 evidence shows 1Panel OpenResty running in host network, api.fermatmind.com present in fap-api.conf, location /api/ present, and proxy_pass pointing to Node3 / 122.152.221.126. No config edits, reloads, restarts, env reads, or private key prints were performed."
+        },
+        {
+          "name": "public API smoke recheck",
+          "status": "passed",
+          "details": "All 10 required api.fermatmind.com GET smoke endpoints returned 200 with JSON shape and no stored raw bodies or cookie values."
+        },
+        {
+          "name": "side-effect policy",
+          "status": "passed",
+          "details": "No orders, attempts, emails, payment webhooks, checkout, email-bind, OpenResty changes, service restarts, DNS/CDN/database changes, deploys, migrations, env edits, collector jobs, Metabase deployment, or seo_intel DB creation were performed."
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/api-gateway-evidence-completion.contract.test.ts",
+          "status": "passed",
+          "details": "11 tests passed."
+        },
+        {
+          "name": "pnpm test:contract",
+          "status": "passed",
+          "details": "371 files and 2114 tests passed."
+        },
+        {
+          "name": "pnpm seo:check-sitemap",
+          "status": "passed",
+          "details": "Sitemap indexability check passed with 261 URLs."
+        },
+        {
+          "name": "pnpm seo:check-mobile",
+          "status": "passed",
+          "details": "Mobile SEO gate passed; runtimeBehaviorChanged=false, urlSetChanged=false, sitemapChanged=false, llmsChanged=false."
+        },
+        {
+          "name": "git diff --check",
+          "status": "passed",
+          "details": "No whitespace errors."
+        },
+        {
+          "name": "git diff --cached --check",
+          "status": "passed",
+          "details": "No staged whitespace errors."
+        }
+      ],
+      "failure_reason": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/830",
+      "commit_sha": "628c5fce2e05386d5a51e38085e92cde8dd8ca86",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [],
+      "history": [
+        {
+          "at": "2026-05-17T10:09:25+08:00",
+          "status": "in_progress",
+          "summary": "Initialized BACKEND-RUNTIME-02D to add fresh Node2 OpenResty gateway evidence completion based on BACKEND-RUNTIME-02C partial status without runtime, backend, Node2, Node3, OpenResty, DNS, CDN, COS/OSS, database, sitemap/llms, tracking, commerce, report, email, recommendation, scoring, deployment, env, or cloud changes."
+        },
+        {
+          "at": "2026-05-17T10:12:15+08:00",
+          "status": "local_checks_passed",
+          "summary": "Added API gateway evidence completion report, generated artifact, scoped contract, and train metadata; fresh Node2 OpenResty evidence verifies /api/ proxies to Node3, acceptance_status is accepted, and targeted contract, full contract suite, sitemap check, mobile SEO check, and diff checks passed."
+        },
+        {
+          "at": "2026-05-17T10:13:11+08:00",
+          "status": "local_checks_passed",
+          "summary": "Committed BACKEND-RUNTIME-02D scoped docs contract changes as c999680870510ece94449cdf15de9c41910040ba."
+        },
+        {
+          "at": "2026-05-17T10:14:26+08:00",
+          "status": "pr_open",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/830 for BACKEND-RUNTIME-02D."
         }
       ]
     },

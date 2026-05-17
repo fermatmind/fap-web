@@ -3436,6 +3436,82 @@ prs:
       - payment/order/report/recommendation/scoring/profile code
     rollback_note: "Remove the public API authority acceptance gate document, generated artifact, scoped contract test, and BACKEND-RUNTIME-02C train metadata."
 
+  - id: BACKEND-RUNTIME-02D
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/backend-runtime-02d-gateway-evidence-completion
+    base: main
+    depends_on:
+      - BACKEND-RUNTIME-02C
+    mode: execute
+    risk_level: L2
+    status: planned
+    title: "docs(architecture): add gateway evidence completion report"
+    goal: "Add fresh read-only Node2 OpenResty gateway evidence completion based on BACKEND-RUNTIME-02C partial status, including /api proxy evidence, public API smoke recheck, side-effect boundary, Node2 local runtime quarantine status, acceptance decision, and go/no-go for SEO-DASH-00 without changing runtime, backend, deploy, DNS/CDN/cloud, sitemap/llms, tracking, commerce, report, email, recommendation, or scoring behavior."
+    in_scope:
+      - docs/seo/api-gateway-evidence-completion.md
+      - docs/seo/generated/api-gateway-evidence-completion.v1.json
+      - tests/contracts/api-gateway-evidence-completion.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - /Users/rainie/Desktop/GitHub/fap-api changes
+      - /Users/rainie/Desktop/GitHub/fap-api/fap-web as production runtime
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - backend runtime files
+      - migrations
+      - env files
+      - deploy scripts
+      - DNS/CDN/cloud config
+      - next-sitemap.config.js
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - payment/order/report/recommendation/scoring/profile code
+      - Node2 runtime changes
+      - Node3 runtime changes
+      - OpenResty changes
+      - cloud resources
+      - payment commands
+      - email commands
+      - order creation
+      - attempt creation
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/api-gateway-evidence-completion.contract.test.ts
+      - pnpm test:contract
+      - pnpm seo:check-sitemap
+      - pnpm seo:check-mobile
+      - git diff --check
+      - git diff --cached --check
+    acceptance:
+      - Artifact includes BACKEND-RUNTIME-01C, BACKEND-RUNTIME-02A, BACKEND-RUNTIME-02B, and BACKEND-RUNTIME-02C sources.
+      - Artifact records fresh Node2 OpenResty evidence for server_name api.fermatmind.com, location /api/, and proxy_pass to Node3 / 122.152.221.126.
+      - Artifact classifies api_proxy_target_classification as node3_backend_authority unless evidence says otherwise.
+      - Artifact records read-only GET smoke evidence for scales catalog, MBTI lookup, RIASEC lookup, sitemap-source, articles, topics, personality, career jobs, and skus.
+      - Artifact enforces side-effect policy with no orders, attempts, emails, payment webhooks, OpenResty changes, service restarts, DNS changes, or database changes.
+      - Artifact keeps Node2 local Laravel/DB/queue quarantined as non-authority.
+      - Artifact sets SEO-DASH-00 unblocked only when acceptance_status is accepted.
+      - No frontend runtime, backend runtime, Node2, Node3, OpenResty, DNS, CDN, COS/OSS, database, sitemap/llms, tracking, commerce, report, email, recommendation, scoring, deployment, env, or cloud behavior changes.
+    must_not_touch:
+      - /Users/rainie/Desktop/GitHub/fap-api
+      - /Users/rainie/Desktop/GitHub/fap-api/fap-web
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - backend runtime files
+      - migrations
+      - env files
+      - deploy scripts
+      - DNS/CDN/cloud config
+      - next-sitemap.config.js
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - payment/order/report/recommendation/scoring/profile code
+    rollback_note: "Remove the API gateway evidence completion document, generated artifact, scoped contract test, and BACKEND-RUNTIME-02D train metadata."
+
   - id: AUDIT-WEB-CMS-LINK-XSS
     repo: fap-web
     repo_path: /Users/rainie/Desktop/GitHub/fap-web

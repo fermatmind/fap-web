@@ -1,0 +1,423 @@
+{
+  "version": "api_gateway_evidence_completion.v1",
+  "scope": "BACKEND-RUNTIME-02D",
+  "source_documents": [
+    "BACKEND-RUNTIME-01C",
+    "BACKEND-RUNTIME-02A",
+    "BACKEND-RUNTIME-02B",
+    "BACKEND-RUNTIME-02C"
+  ],
+  "tested_at": "2026-05-17T02:05:54.346Z",
+  "accepted_topology": {
+    "node1": {
+      "name": "fap-node1",
+      "role": "production fap-web public frontend runtime",
+      "status": "observed_prior_contract"
+    },
+    "node2": {
+      "name": "fap-node2",
+      "domain": "api.fermatmind.com",
+      "role": "API edge gateway only",
+      "source_of_truth": "edge_gateway_only",
+      "status": "fresh_gateway_config_verified"
+    },
+    "node3": {
+      "name": "fap-api-prod",
+      "private_or_public_reference": "122.152.221.126",
+      "role": "backend/CMS/commerce authority candidate",
+      "source_of_truth": "canonical_backend_authority_candidate",
+      "status": "accepted_backend_authority_source_for_public_api"
+    },
+    "node2_local_laravel": {
+      "path": "/www/wwwroot/fap-api/backend",
+      "route_count_reference": 194,
+      "source_of_truth": "non_authority",
+      "status": "quarantined"
+    }
+  },
+  "gateway_config_verification": {
+    "gateway_config_verified": true,
+    "evidence_source": "fresh_node2_readonly",
+    "node2_host": "VM-4-14-ubuntu",
+    "node2_evidence_time": "2026-05-17T10:02:57+08:00",
+    "openresty_container": {
+      "name": "1Panel-openresty-r188",
+      "image": "1panel/openresty:1.27.1.2-5-1-focal",
+      "status": "running",
+      "restart_count": 0,
+      "network_mode": "host"
+    },
+    "config_file": "/usr/local/openresty/nginx/conf/conf.d/fap-api.conf",
+    "server_name_api_fermatmind_present": true,
+    "api_location_present": true,
+    "proxy_pass_to_node3_present": true,
+    "config_checksum_present": true,
+    "config_checksum_sha256": "03622298e56a2c4107b63a5911a32c5ea174708c2adaeb9575ccaeea6c112479",
+    "config_mtime_present": true,
+    "config_mtime": "2026-05-03 22:03:20.953200769 +0800",
+    "config_size_bytes": 3298,
+    "printed_full_config": false,
+    "printed_ssl_private_keys": false,
+    "printed_env_values": false
+  },
+  "api_proxy_target_classification": "node3_backend_authority",
+  "proxy_target_observed_masked": "node3:122.152.221.126",
+  "node2_local_laravel_api_authority_evidence": false,
+  "endpoint_smoke_results": [
+    {
+      "name": "scales_catalog",
+      "method": "GET",
+      "url": "https://api.fermatmind.com/api/v0.3/scales/catalog?locale=zh-CN",
+      "status": 200,
+      "ok": true,
+      "body_sha256": "45c5b4a3a53a299ce0c64cf90c7223270a3445bc43198deca6b901727d21d40f",
+      "response_bytes": 20398,
+      "schema_keys": ["ok", "locale", "items"],
+      "headers": {
+        "content_type": "application/json",
+        "cache_control": "no-cache, private",
+        "cors_allow_origin": "https://fermatmind.com",
+        "cors_expose_headers": "X-Request-Id",
+        "rate_limit_limit_present": true,
+        "rate_limit_remaining_present": true,
+        "hsts_present": true,
+        "vary": "Origin",
+        "cookie_header_observed": false
+      }
+    },
+    {
+      "name": "mbti_lookup",
+      "method": "GET",
+      "url": "https://api.fermatmind.com/api/v0.3/scales/lookup?slug=mbti-personality-test-16-personality-types&locale=zh-CN",
+      "status": 200,
+      "ok": true,
+      "body_sha256": "fd2339fcf62271e76304f422ae842743dcb142c4344528e1849fbebbe849967d",
+      "response_bytes": 10332,
+      "schema_keys": ["ok", "scale_code", "scale_code_legacy", "scale_code_v2", "scale_uid"],
+      "headers": {
+        "content_type": "application/json",
+        "cache_control": "no-cache, private",
+        "cors_allow_origin": "https://fermatmind.com",
+        "cors_expose_headers": "X-Request-Id",
+        "rate_limit_limit_present": true,
+        "rate_limit_remaining_present": true,
+        "hsts_present": true,
+        "vary": "Origin",
+        "cookie_header_observed": false
+      }
+    },
+    {
+      "name": "riasec_lookup",
+      "method": "GET",
+      "url": "https://api.fermatmind.com/api/v0.3/scales/lookup?slug=holland-career-interest-test-riasec&locale=zh-CN",
+      "status": 200,
+      "ok": true,
+      "body_sha256": "c9874d02973fdfc5c7a8051e53426152787356514478a33ab53aeecdbab80326",
+      "response_bytes": 9511,
+      "schema_keys": ["ok", "scale_code", "scale_code_legacy", "scale_code_v2", "scale_uid"],
+      "headers": {
+        "content_type": "application/json",
+        "cache_control": "no-cache, private",
+        "cors_allow_origin": "https://fermatmind.com",
+        "cors_expose_headers": "X-Request-Id",
+        "rate_limit_limit_present": true,
+        "rate_limit_remaining_present": true,
+        "hsts_present": true,
+        "vary": "Origin",
+        "cookie_header_observed": false
+      }
+    },
+    {
+      "name": "sitemap_source",
+      "method": "GET",
+      "url": "https://api.fermatmind.com/api/v0.5/seo/sitemap-source",
+      "status": 200,
+      "ok": true,
+      "body_sha256": "7e2fd5c14e72e2634cc108ef3698f56bdbcf851ac6295a6c267b4aa27b1d6ad3",
+      "response_bytes": 266862,
+      "schema_keys": ["ok", "source", "count", "items"],
+      "headers": {
+        "content_type": "application/json",
+        "cache_control": "no-cache, private",
+        "cors_allow_origin": "https://fermatmind.com",
+        "cors_expose_headers": "X-Request-Id",
+        "rate_limit_limit_present": false,
+        "rate_limit_remaining_present": false,
+        "hsts_present": true,
+        "vary": "Origin",
+        "cookie_header_observed": false
+      }
+    },
+    {
+      "name": "articles_list",
+      "method": "GET",
+      "url": "https://api.fermatmind.com/api/v0.5/articles?locale=zh-CN",
+      "status": 200,
+      "ok": true,
+      "body_sha256": "36412d6a78dec91f0f5ac20bf853b75958f456f0b3bb2c710c4ed232bc4696e9",
+      "response_bytes": 298256,
+      "schema_keys": ["ok", "items", "pagination", "landing_surface_v1"],
+      "headers": {
+        "content_type": "application/json",
+        "cache_control": "no-cache, private",
+        "cors_allow_origin": "https://fermatmind.com",
+        "cors_expose_headers": "X-Request-Id",
+        "rate_limit_limit_present": false,
+        "rate_limit_remaining_present": false,
+        "hsts_present": true,
+        "vary": "Origin",
+        "cookie_header_observed": false
+      }
+    },
+    {
+      "name": "article_detail",
+      "method": "GET",
+      "url": "https://api.fermatmind.com/api/v0.5/articles/holland-career-interest-test-can-and-cannot-tell-you?locale=zh-CN",
+      "status": 200,
+      "ok": true,
+      "body_sha256": "724e4c54a995c9ac2942fcf9f0474752e70f6e473471b2a468e0f7ce8b1f2288",
+      "response_bytes": 45057,
+      "schema_keys": ["ok", "article", "seo_surface_v1", "landing_surface_v1", "answer_surface_v1"],
+      "headers": {
+        "content_type": "application/json",
+        "cache_control": "no-cache, private",
+        "cors_allow_origin": "https://fermatmind.com",
+        "cors_expose_headers": "X-Request-Id",
+        "rate_limit_limit_present": false,
+        "rate_limit_remaining_present": false,
+        "hsts_present": true,
+        "vary": "Origin",
+        "cookie_header_observed": false
+      }
+    },
+    {
+      "name": "topics",
+      "method": "GET",
+      "url": "https://api.fermatmind.com/api/v0.5/topics?locale=zh-CN",
+      "status": 200,
+      "ok": true,
+      "body_sha256": "06045f0ed6fee16f8021c57ebf0672ecb3e6f813e2c0c69e27e2463747212654",
+      "response_bytes": 4390,
+      "schema_keys": ["ok", "items", "pagination", "landing_surface_v1"],
+      "headers": {
+        "content_type": "application/json",
+        "cache_control": "no-cache, private",
+        "cors_allow_origin": "https://fermatmind.com",
+        "cors_expose_headers": "X-Request-Id",
+        "rate_limit_limit_present": false,
+        "rate_limit_remaining_present": false,
+        "hsts_present": true,
+        "vary": "Origin",
+        "cookie_header_observed": false
+      }
+    },
+    {
+      "name": "personality_infj",
+      "method": "GET",
+      "url": "https://api.fermatmind.com/api/v0.5/personality/infj?locale=zh-CN",
+      "status": 200,
+      "ok": true,
+      "body_sha256": "f0a059da90320479d19a1afa296eb2ed16965417b46fb0f607f20c8132ddd513",
+      "response_bytes": 16737,
+      "schema_keys": ["ok", "profile", "sections", "seo_meta", "mbti_public_projection_v1"],
+      "headers": {
+        "content_type": "application/json",
+        "cache_control": "no-cache, private",
+        "cors_allow_origin": "https://fermatmind.com",
+        "cors_expose_headers": "X-Request-Id",
+        "rate_limit_limit_present": false,
+        "rate_limit_remaining_present": false,
+        "hsts_present": true,
+        "vary": "Origin",
+        "cookie_header_observed": false
+      }
+    },
+    {
+      "name": "career_jobs",
+      "method": "GET",
+      "url": "https://api.fermatmind.com/api/v0.5/career/jobs?locale=en",
+      "status": 200,
+      "ok": true,
+      "body_sha256": "c190b4ac23450812bd080ad4229ade162c282f0ccccd5eefcf506af9306aebd0",
+      "response_bytes": 1814391,
+      "schema_keys": ["bundle_kind", "bundle_version", "items"],
+      "headers": {
+        "content_type": "application/json",
+        "cache_control": "no-cache, private",
+        "cors_allow_origin": "https://fermatmind.com",
+        "cors_expose_headers": "X-Request-Id",
+        "rate_limit_limit_present": false,
+        "rate_limit_remaining_present": false,
+        "hsts_present": true,
+        "vary": "Origin",
+        "cookie_header_observed": false
+      }
+    },
+    {
+      "name": "skus_mbti",
+      "method": "GET",
+      "url": "https://api.fermatmind.com/api/v0.3/skus?scale=MBTI",
+      "status": 200,
+      "ok": true,
+      "body_sha256": "3108bca1a819fa0ba7e46978839f44595338aa3fe42ee543b560b4fe9223814d",
+      "response_bytes": 1979,
+      "schema_keys": ["ok", "items"],
+      "headers": {
+        "content_type": "application/json",
+        "cache_control": "no-cache, private",
+        "cors_allow_origin": "https://fermatmind.com",
+        "cors_expose_headers": "X-Request-Id",
+        "rate_limit_limit_present": true,
+        "rate_limit_remaining_present": true,
+        "hsts_present": true,
+        "vary": "Origin",
+        "cookie_header_observed": false
+      }
+    }
+  ],
+  "reference_comparison_results": [
+    {
+      "name": "scales_catalog",
+      "reference_domain": "ops.fermatmind.com",
+      "status": 200,
+      "primary_status": 200,
+      "body_hash_match": true,
+      "response_bytes_match": true,
+      "schema_shape_match": true,
+      "classification": "matched"
+    },
+    {
+      "name": "sitemap_source",
+      "reference_domain": "ops.fermatmind.com",
+      "status": 200,
+      "primary_status": 200,
+      "body_hash_match": false,
+      "response_bytes_match": true,
+      "schema_shape_match": true,
+      "classification": "status_schema_size_match_hash_diff"
+    },
+    {
+      "name": "articles_list",
+      "reference_domain": "ops.fermatmind.com",
+      "status": 200,
+      "primary_status": 200,
+      "body_hash_match": true,
+      "response_bytes_match": true,
+      "schema_shape_match": true,
+      "classification": "matched"
+    },
+    {
+      "name": "skus_mbti",
+      "reference_domain": "ops.fermatmind.com",
+      "status": 200,
+      "primary_status": 200,
+      "body_hash_match": true,
+      "response_bytes_match": true,
+      "schema_shape_match": true,
+      "classification": "matched"
+    }
+  ],
+  "header_cors_cache_results": {
+    "origin_used": "https://fermatmind.com",
+    "accept_used": "application/json",
+    "json_content_type_observed": true,
+    "cors_expected_origin_observed": true,
+    "cache_control_observed": "no-cache, private",
+    "hsts_observed_on_primary_api": true,
+    "rate_limit_headers": {
+      "present_on_scale_and_sku_endpoints": true,
+      "absent_on_some_cms_public_content_endpoints": true,
+      "classification": "acceptable_for_read_only_smoke"
+    },
+    "cookie_header_values_stored": false
+  },
+  "side_effect_policy": {
+    "side_effect_policy_enforced": true,
+    "allowed_methods": ["GET", "HEAD"],
+    "forbidden_methods": ["POST", "PUT", "PATCH", "DELETE"],
+    "forbidden_operations": [
+      "create_orders",
+      "create_attempts",
+      "send_emails",
+      "trigger_payment_webhook",
+      "call_provider_payment_callback",
+      "email_bind",
+      "checkout",
+      "queue_restart",
+      "service_restart",
+      "dns_change",
+      "openresty_change",
+      "database_change"
+    ],
+    "created_orders": false,
+    "created_attempts": false,
+    "sent_emails": false,
+    "triggered_payment_webhook": false,
+    "modified_openresty": false,
+    "restarted_services": false,
+    "changed_dns": false,
+    "changed_database": false,
+    "payment_webhook_live_called": false,
+    "email_bind_called": false,
+    "checkout_called": false
+  },
+  "node2_local_runtime_quarantine": {
+    "node2_local_laravel_authority": false,
+    "node2_local_laravel_status": "non_authority_quarantined",
+    "node2_local_db_authority": false,
+    "node2_local_queue_authority": false,
+    "node2_local_php_container_present": true,
+    "node2_local_mysql_container_present": true,
+    "node2_local_route_count_reference": 194,
+    "node3_route_count_reference": 312,
+    "node2_queue_status_reference": "FATAL/unhealthy",
+    "node2_redis_env_key_reference": "not_observed",
+    "node2_scheduler_reference": "not_observed",
+    "api_proxy_uses_node2_local_laravel": false,
+    "seo_collector_may_read_node2_local_laravel": false,
+    "metabase_may_query_node2_local_db": false,
+    "fresh_contradictory_evidence_observed": false
+  },
+  "acceptance_status": "accepted",
+  "seo_dash_00_unblocked": true,
+  "next_task": "SEO-DASH-00",
+  "blocked_reasons": [],
+  "pii_secret_redaction": {
+    "raw_response_bodies_stored": false,
+    "env_values_stored": false,
+    "tokens_stored": false,
+    "passwords_stored": false,
+    "api_keys_stored": false,
+    "cookie_values_stored": false,
+    "email_values_stored": false,
+    "order_numbers_stored": false,
+    "payment_ids_stored": false,
+    "ssl_private_keys_printed": false
+  },
+  "forbidden_actions_observed_false": {
+    "modified_frontend_runtime_code": false,
+    "modified_backend_runtime_code": false,
+    "changed_node2_runtime": false,
+    "changed_node3_runtime": false,
+    "modified_openresty": false,
+    "reloaded_openresty": false,
+    "restarted_services": false,
+    "changed_dns": false,
+    "changed_cdn": false,
+    "changed_database": false,
+    "fixed_queue": false,
+    "deployed": false,
+    "edited_env": false,
+    "ran_migrations": false,
+    "created_seo_intel_db": false,
+    "created_collector_jobs": false,
+    "deployed_metabase": false,
+    "created_orders": false,
+    "created_attempts": false,
+    "sent_emails": false,
+    "triggered_payment_webhook": false,
+    "changed_sitemap_llms_behavior": false,
+    "changed_tracking_behavior": false,
+    "changed_payment_report_email_recommendation_scoring_behavior": false
+  }
+}
