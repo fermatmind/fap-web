@@ -1,0 +1,97 @@
+{
+  "version": "career_claim_hardening_patch_plan.v1",
+  "phase": "5B",
+  "generatedAt": "2026-05-17T19:50:00+08:00",
+  "sourceArtifacts": [
+    "docs/career/generated/career-public-authority-inventory.v1.json",
+    "docs/career/generated/career-route-trust-matrix.v1.json",
+    "docs/career/generated/career-claim-boundary-alignment.v1.json",
+    "docs/career/generated/career-resolve-alias-canonical-audit.v1.json",
+    "docs/career/generated/career-seo-geo-exposure-audit.v1.json",
+    "docs/career/generated/saved-careers-boundary-audit.v1.json",
+    "docs/career/generated/phase-5a-career-public-trust-readiness.v1.json"
+  ],
+  "status": "warn",
+  "claimBoundaryHardeningStatus": "warn",
+  "preservedBoundaries": {
+    "MBTI": "snapshot / next_step_only",
+    "RIASEC": "candidate_signal, not recommender",
+    "BIG5_OCEAN": "explanation_only, not recommender"
+  },
+  "scanScope": [
+    "app/(localized)/[locale]/career/**",
+    "components/career/**",
+    "lib/career/**",
+    "docs/career/generated/**",
+    "live sampled career pages"
+  ],
+  "forbiddenLanguageChecked": [
+    "best career for you",
+    "perfect fit",
+    "most suitable job",
+    "personality determines career",
+    "RIASEC recommends",
+    "Big Five recommends",
+    "guaranteed success",
+    "predicts performance",
+    "diagnoses aptitude",
+    "最适合",
+    "最佳职业",
+    "天生适合",
+    "精准推荐",
+    "职业成功预测",
+    "能力诊断"
+  ],
+  "allowedLanguage": [
+    "career exploration",
+    "candidate direction",
+    "task environment",
+    "worth validating",
+    "interest-signal related",
+    "personality-explanation related",
+    "next step",
+    "职业探索方向",
+    "候选方向",
+    "可能相关的任务环境",
+    "值得验证的路径"
+  ],
+  "issues": [
+    {
+      "priority": "P0",
+      "category": "deterministic_recommender_claims",
+      "status": "not_observed_in_live_samples",
+      "evidence": "Sampled live pages had no forbidden phrases from the Phase 5B forbidden list."
+    },
+    {
+      "priority": "P1",
+      "category": "unsupported_fit_success_aptitude_claims",
+      "status": "warn",
+      "evidence": "app/(localized)/[locale]/career/jobs/[slug]/page.tsx uses bounded copy such as Strong recommendation is not open yet; app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx uses recommendation copy that must remain MBTI snapshot/next_step_only."
+    },
+    {
+      "priority": "P2",
+      "category": "ambiguous_seo_copy",
+      "status": "warn",
+      "evidence": "Live API actors titles.search_h1_zh contains 演员职业诊断. This was observed in API payload and should be manually reviewed against the manual decision to avoid public primary diagnostic phrasing."
+    },
+    {
+      "priority": "P2",
+      "category": "jsonld_claim_surface",
+      "status": "warn",
+      "evidence": "Occupation JSON-LD appears on computer-programmers but not on several display-asset pages; claim hardening should define which pages can expose Occupation JSON-LD and under which evidence conditions."
+    },
+    {
+      "priority": "P3",
+      "category": "cta_wording_risk",
+      "status": "warn",
+      "evidence": "Recommendation detail source contains labels such as Your career direction recommendation and Personalized recommendation status; no live lowercase infj page exposure was observed, but copy should remain snapshot-bounded if route becomes public."
+    }
+  ],
+  "patchPlan": [
+    "No public copy patch in Phase 5B.",
+    "Before Phase 5C, create a scoped claim-hardening PR only if humans approve exact wording changes.",
+    "Keep RIASEC and Big Five from recommender positioning.",
+    "Keep MBTI recommendation language bounded as snapshot direction support."
+  ],
+  "runtimeExpansionAllowed": false
+}

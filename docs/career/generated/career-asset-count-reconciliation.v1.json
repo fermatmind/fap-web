@@ -1,0 +1,126 @@
+{
+  "version": "career_asset_count_reconciliation.v1",
+  "phase": "5B",
+  "generatedAt": "2026-05-17T19:50:00+08:00",
+  "sourceArtifacts": [
+    "docs/career/generated/career-public-authority-inventory.v1.json",
+    "docs/career/generated/career-route-trust-matrix.v1.json",
+    "docs/career/generated/career-claim-boundary-alignment.v1.json",
+    "docs/career/generated/career-resolve-alias-canonical-audit.v1.json",
+    "docs/career/generated/career-seo-geo-exposure-audit.v1.json",
+    "docs/career/generated/saved-careers-boundary-audit.v1.json",
+    "docs/career/generated/phase-5a-career-public-trust-readiness.v1.json"
+  ],
+  "status": "partially_reconciled",
+  "assetCountReconciled": false,
+  "counts": {
+    "declaredFullPublicResolutionAssets": 1122,
+    "sitemapCheckedUrls": 519,
+    "liveSitemapTotalUrls": 519,
+    "liveSitemapCareerUrls": 372,
+    "liveSitemapCareerJobDetailUrls": 341,
+    "liveSitemapCareerGuideDetailUrls": 20,
+    "liveSitemapCareerOtherUrls": 11,
+    "backendSitemapSourceTotalItems": 2192,
+    "backendSitemapSourceCareerItems": 1952,
+    "backendSitemapSourceCareerJobDetailItems": 1927,
+    "staticOccupationMembers": 342,
+    "staticOccupationMembersIncludedInPublicDataset": 0,
+    "staticOccupationMembersNoindex": 342
+  },
+  "classification": [
+    {
+      "bucket": "canonical_career_pages",
+      "count": 372,
+      "basis": "live sitemap career URL count",
+      "evidence": "/tmp/fermatmind-live-sitemap.xml sampled via https://fermatmind.com/sitemap.xml"
+    },
+    {
+      "bucket": "canonical_career_job_pages",
+      "count": 341,
+      "basis": "live sitemap /career/jobs/{slug}",
+      "evidence": "https://fermatmind.com/sitemap.xml"
+    },
+    {
+      "bucket": "career_guide_pages",
+      "count": 20,
+      "basis": "live sitemap /career/guides/{slug}",
+      "evidence": "https://fermatmind.com/sitemap.xml"
+    },
+    {
+      "bucket": "career_other_public_pages",
+      "count": 11,
+      "basis": "career hub/tests/recommendations/category/support URLs",
+      "evidence": "https://fermatmind.com/sitemap.xml"
+    },
+    {
+      "bucket": "api_resolvable_assets",
+      "count": 1952,
+      "basis": "backend /v0.5/seo/sitemap-source career items before frontend sitemap filtering",
+      "evidence": "https://api.fermatmind.com/api/v0.5/seo/sitemap-source"
+    },
+    {
+      "bucket": "cms_backend_backed_assets",
+      "count": 2192,
+      "basis": "all backend sitemap-source items including non-career",
+      "evidence": "https://api.fermatmind.com/api/v0.5/seo/sitemap-source"
+    },
+    {
+      "bucket": "alias_only_assets",
+      "count": null,
+      "basis": "not fully enumerable from fap-web without backend alias table access",
+      "evidence": "backend CareerAliasResolution service referenced in Phase 5A artifact"
+    },
+    {
+      "bucket": "locale_variants",
+      "count": null,
+      "basis": "live career job sitemap currently zh-heavy; en-US sampled software-developers 404",
+      "evidence": "live samples in career-live-parity-sampling.v1.json"
+    },
+    {
+      "bucket": "non_indexable_assets",
+      "count": null,
+      "basis": "backend source has more career items than live sitemap, but item-level index gates are not exposed in sitemap-source response",
+      "evidence": "next-sitemap.config.js filters by backend SEO authority"
+    },
+    {
+      "bucket": "llms_eligible_assets",
+      "count": 0,
+      "basis": "live llms/llms-full samples do not expose career job detail URLs",
+      "evidence": "https://fermatmind.com/llms.txt and /llms-full.txt"
+    },
+    {
+      "bucket": "unresolved_delta_buckets",
+      "count": 603,
+      "basis": "1122 declared assets minus 519 checked sitemap URLs; relationship cannot be proven from available artifacts alone",
+      "evidence": "Phase 5A final readiness required count reconciliation before Phase 5B pass"
+    }
+  ],
+  "explanation": "The 519 value is a live sitemap URL count, not a full career asset count. It includes 372 career URLs, of which 341 are career job detail URLs. Backend sitemap-source currently returns 2192 total items and 1952 career items before frontend sitemap filtering. The declared 1122 Career Full Public Resolution assets cannot be fully reconciled to sitemap URLs because aliases, locale variants, backend-only assets, non-indexable assets, and public-resolution-but-not-indexed assets are not all emitted as sitemap URLs.",
+  "unexplainedDelta": true,
+  "requiredFollowUp": [
+    "Export backend career asset master counts by asset kind: canonical job, alias, locale variant, family, guide, recommendation, index-only, noindex.",
+    "Add a read-only count endpoint or governance export for career public resolution inventory if Phase 5C requires exact reconciliation.",
+    "Clarify whether the 1122 count includes aliases and locale variants or only canonical pages.",
+    "Compare backend SEO authority filtering reasons for the 1927 career job source items against the 341 live sitemap career job pages."
+  ],
+  "runtimeExpansionAllowed": false,
+  "evidence": {
+    "fapWebHead": "f3a40ac888bd23950032c8140d0a53bef4d6f41d",
+    "phase5aPr": "https://github.com/fermatmind/fap-web/pull/833",
+    "fapApiLocalBranch": "codex/china-search-03-360-sogou-shenma-adapters",
+    "backendChangeStatus": "blocked_by_existing_dirty_branch",
+    "backendPolicy": "No fap-api files were modified; live API sampling only.",
+    "routeEvidence": [
+      "app/(localized)/[locale]/career/jobs/[slug]/page.tsx",
+      "app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx",
+      "app/(localized)/[locale]/career/resolve/page.tsx",
+      "app/llms.txt/route.ts",
+      "app/llms-full.txt/route.ts",
+      "next-sitemap.config.js",
+      "lib/seo/backendSitemapSource.ts",
+      "components/career/CareerShortlistAction.tsx",
+      "lib/career/api/submitCareerShortlistAdd.ts"
+    ]
+  }
+}

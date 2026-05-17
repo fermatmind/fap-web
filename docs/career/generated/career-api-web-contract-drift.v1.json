@@ -1,0 +1,147 @@
+{
+  "version": "career_api_web_contract_drift.v1",
+  "phase": "5B",
+  "generatedAt": "2026-05-17T19:50:00+08:00",
+  "sourceArtifacts": [
+    "docs/career/generated/career-public-authority-inventory.v1.json",
+    "docs/career/generated/career-route-trust-matrix.v1.json",
+    "docs/career/generated/career-claim-boundary-alignment.v1.json",
+    "docs/career/generated/career-resolve-alias-canonical-audit.v1.json",
+    "docs/career/generated/career-seo-geo-exposure-audit.v1.json",
+    "docs/career/generated/saved-careers-boundary-audit.v1.json",
+    "docs/career/generated/phase-5a-career-public-trust-readiness.v1.json"
+  ],
+  "status": "warn",
+  "driftSummary": [
+    {
+      "driftType": "slug_mismatch_or_missing",
+      "status": "warn",
+      "evidence": "software-developers returns 404 from API and web in zh-CN/en-US, while user-provided Phase 5B examples expected it to resolve.",
+      "affectedSamples": [
+        "job_en_software_developers",
+        "job_zh_software_developers"
+      ]
+    },
+    {
+      "driftType": "alias_resolution_gap",
+      "status": "warn",
+      "evidence": "resolve?q=software engineer and resolve?q=软件工程师 return resolved_kind=none.",
+      "affectedSamples": [
+        "resolve_en_software_engineer",
+        "resolve_zh_software_engineer"
+      ]
+    },
+    {
+      "driftType": "jsonld_contract_drift",
+      "status": "warn",
+      "evidence": "API job detail has structured_data.occupation for sampled pages; sampled display-asset-backed web pages render BreadcrumbList + FAQPage but no Occupation JSON-LD.",
+      "affectedSamples": [
+        "job_zh_actors",
+        "job_zh_accountants",
+        "job_zh_web_developers"
+      ]
+    },
+    {
+      "driftType": "title_h1_mismatch",
+      "status": "not_fully_verified",
+      "evidence": "Live sampling captured <title>; H1 extraction was not persisted. Needs Phase 5C page-level sampling if title/H1 parity is required."
+    },
+    {
+      "driftType": "evidence_mismatch",
+      "status": "pass_for_sampled_jobs",
+      "evidence": "Sampled zh job pages expose FAQ and evidence markers; resolve and 404 pages intentionally do not."
+    },
+    {
+      "driftType": "frontend_static_authority_risk",
+      "status": "pass",
+      "evidence": "Career runtime routes fetch backend APIs; no new frontend static authority was added in Phase 5B."
+    }
+  ],
+  "sampleReferences": [
+    {
+      "sampleId": "job_zh_actors",
+      "parityStatus": "warn",
+      "drift": [
+        "API structured_data includes Occupation, but sampled web page renders BreadcrumbList + FAQPage only."
+      ]
+    },
+    {
+      "sampleId": "job_zh_accountants",
+      "parityStatus": "warn",
+      "drift": [
+        "API allows strong/AI claims but web JSON-LD still lacks sampled Occupation node; verify claim-gated visual sections before Phase 5C."
+      ]
+    },
+    {
+      "sampleId": "job_zh_computer_programmers",
+      "parityStatus": "pass",
+      "drift": []
+    },
+    {
+      "sampleId": "job_zh_web_developers",
+      "parityStatus": "warn",
+      "drift": [
+        "Occupation JSON-LD absent on sampled web despite API career detail availability."
+      ]
+    },
+    {
+      "sampleId": "job_en_software_developers",
+      "parityStatus": "warn",
+      "drift": [
+        "User-provided software-developers example is not currently API/web resolvable; related live sitemap contains computer-programmers and web-developers instead."
+      ]
+    },
+    {
+      "sampleId": "job_zh_software_developers",
+      "parityStatus": "warn",
+      "drift": [
+        "Representative example is unresolved; classify under unresolved/delta buckets before Phase 5C."
+      ]
+    },
+    {
+      "sampleId": "rec_zh_infj",
+      "parityStatus": "pass",
+      "drift": [
+        "Recommendation detail is not publicly exposed in sitemap/llms and 404s for lowercase infj sample."
+      ]
+    },
+    {
+      "sampleId": "resolve_en_software_engineer",
+      "parityStatus": "warn",
+      "drift": [
+        "API resolved_kind=none for software engineer; alias coverage gap."
+      ]
+    },
+    {
+      "sampleId": "resolve_zh_software_engineer",
+      "parityStatus": "warn",
+      "drift": [
+        "API resolved_kind=none for 软件工程师; alias coverage gap."
+      ]
+    }
+  ],
+  "requiredFixesBeforePhase5C": [
+    "Clarify JSON-LD Occupation rendering policy for display_asset-backed career pages.",
+    "Add or document software-developers/software engineer alias behavior.",
+    "Run H1/body rendered parity sampling on a larger live page set."
+  ],
+  "runtimeExpansionAllowed": false,
+  "evidence": {
+    "fapWebHead": "f3a40ac888bd23950032c8140d0a53bef4d6f41d",
+    "phase5aPr": "https://github.com/fermatmind/fap-web/pull/833",
+    "fapApiLocalBranch": "codex/china-search-03-360-sogou-shenma-adapters",
+    "backendChangeStatus": "blocked_by_existing_dirty_branch",
+    "backendPolicy": "No fap-api files were modified; live API sampling only.",
+    "routeEvidence": [
+      "app/(localized)/[locale]/career/jobs/[slug]/page.tsx",
+      "app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx",
+      "app/(localized)/[locale]/career/resolve/page.tsx",
+      "app/llms.txt/route.ts",
+      "app/llms-full.txt/route.ts",
+      "next-sitemap.config.js",
+      "lib/seo/backendSitemapSource.ts",
+      "components/career/CareerShortlistAction.tsx",
+      "lib/career/api/submitCareerShortlistAdd.ts"
+    ]
+  }
+}

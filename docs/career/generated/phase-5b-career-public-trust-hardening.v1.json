@@ -1,0 +1,92 @@
+{
+  "version": "phase_5b_career_public_trust_hardening.v1",
+  "phase": "5B",
+  "generatedAt": "2026-05-17T19:50:00+08:00",
+  "status": "partially_ready",
+  "careerPublicTrustStatus": "warn",
+  "assetCountReconciled": false,
+  "liveParityVerified": false,
+  "canonicalJsonLdParityStatus": "warn",
+  "claimBoundaryHardeningStatus": "warn",
+  "savedCareersBoundaryStatus": "warn",
+  "runtimeExpansionAllowed": false,
+  "semanticGraphExpansionAllowed": false,
+  "freemiumExpansionAllowed": false,
+  "recommendationExpansionAllowed": false,
+  "profileMemoryExpansionAllowed": false,
+  "backendChangeStatus": "blocked_by_existing_dirty_branch",
+  "backendChangeExplanation": "fap-api was on codex/china-search-03-360-sogou-shenma-adapters; Phase 5B did not modify backend files and used live API sampling only.",
+  "sourceArtifacts": [
+    "docs/career/generated/career-public-authority-inventory.v1.json",
+    "docs/career/generated/career-route-trust-matrix.v1.json",
+    "docs/career/generated/career-claim-boundary-alignment.v1.json",
+    "docs/career/generated/career-resolve-alias-canonical-audit.v1.json",
+    "docs/career/generated/career-seo-geo-exposure-audit.v1.json",
+    "docs/career/generated/saved-careers-boundary-audit.v1.json",
+    "docs/career/generated/phase-5a-career-public-trust-readiness.v1.json"
+  ],
+  "generatedArtifacts": [
+    "docs/career/generated/career-asset-count-reconciliation.v1.json",
+    "docs/career/generated/career-live-parity-sampling.v1.json",
+    "docs/career/generated/career-api-web-contract-drift.v1.json",
+    "docs/career/generated/career-jsonld-canonical-parity.v1.json",
+    "docs/career/generated/career-claim-hardening-patch-plan.v1.json",
+    "docs/career/generated/saved-careers-boundary-verification.v1.json",
+    "docs/career/generated/phase-5b-career-public-trust-hardening.v1.json"
+  ],
+  "summary": {
+    "assetCount": "Not fully reconciled. 519 is live sitemap URL count; 1122 appears to be a broader public-resolution asset count that likely includes non-sitemap assets, aliases, locale variants, or backend-only/non-indexable assets.",
+    "apiWebParity": "Warn. Sampled zh career job pages align on canonical/OG/sitemap and expose FAQ/evidence, but Occupation JSON-LD is inconsistent and software-developers alias/example does not resolve.",
+    "seoGeoParity": "Warn. Sitemap career job pages are live and recommendations remain excluded from llms detail exposure, but career job detail URLs were not detected in live llms/llms-full samples.",
+    "claimBoundary": "Warn. No P0 deterministic phrases observed in sampled live pages; diagnostic and recommendation wording needs human copy review before visible expansion.",
+    "savedCareers": "Warn. Current frontend action behaves as shortlist/preference store, but optional snapshot IDs and backend shortlist provenance remain high-risk if reused as memory/evidence."
+  },
+  "requiredFixesBeforePhase5C": [
+    "Produce exact backend asset taxonomy export for the 1122 declared assets and reconcile it to sitemap/API/alias/locale buckets.",
+    "Fix or formally document software-developers/software engineer alias non-resolution.",
+    "Define Occupation JSON-LD policy for display-asset-backed career pages and make API/web parity testable.",
+    "Confirm whether career job detail pages should appear in llms/llms-full or remain excluded despite sitemap inclusion.",
+    "Keep Career Decision runtime hardening limited to trust correction, not recommendation expansion."
+  ],
+  "requiredFixesBeforePhase5D": [
+    "Run larger SEO/GEO live sample for canonical, hreflang, OpenGraph, JSON-LD, FAQ, evidence, and llms suitability.",
+    "Audit llms-full career omission/eligibility against visible evidence policy.",
+    "Verify duplicate canonical and alias leakage at scale using backend alias export."
+  ],
+  "requiredHumanDecisions": [
+    "Does declaredFullPublicResolutionAssets=1122 include aliases, locale variants, backend-only assets, or only canonical public pages?",
+    "Should software engineer/software-developers resolve to computer-programmers, web-developers, software-quality roles, or remain unresolved?",
+    "May display-asset-backed pages omit Occupation JSON-LD while still being indexable?",
+    "Is 职业诊断 acceptable as secondary bounded wording, or must it be replaced before Phase 5C?",
+    "Are saved-career snapshot/projection foreign keys acceptable as provenance-only fields?"
+  ],
+  "nextRecommendedPhase": "Phase 5B follow-up",
+  "blockedExpansions": [
+    "runtime UI expansion",
+    "semantic graph runtime",
+    "freemium career bundles",
+    "controlled recommendation expansion",
+    "profile memory",
+    "saved careers promotion",
+    "Career pSEO expansion",
+    "AI career coach"
+  ],
+  "evidence": {
+    "fapWebHead": "f3a40ac888bd23950032c8140d0a53bef4d6f41d",
+    "phase5aPr": "https://github.com/fermatmind/fap-web/pull/833",
+    "fapApiLocalBranch": "codex/china-search-03-360-sogou-shenma-adapters",
+    "backendChangeStatus": "blocked_by_existing_dirty_branch",
+    "backendPolicy": "No fap-api files were modified; live API sampling only.",
+    "routeEvidence": [
+      "app/(localized)/[locale]/career/jobs/[slug]/page.tsx",
+      "app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx",
+      "app/(localized)/[locale]/career/resolve/page.tsx",
+      "app/llms.txt/route.ts",
+      "app/llms-full.txt/route.ts",
+      "next-sitemap.config.js",
+      "lib/seo/backendSitemapSource.ts",
+      "components/career/CareerShortlistAction.tsx",
+      "lib/career/api/submitCareerShortlistAdd.ts"
+    ]
+  }
+}

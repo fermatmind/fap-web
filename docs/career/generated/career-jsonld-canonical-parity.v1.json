@@ -1,0 +1,165 @@
+{
+  "version": "career_jsonld_canonical_parity.v1",
+  "phase": "5B",
+  "generatedAt": "2026-05-17T19:50:00+08:00",
+  "sourceArtifacts": [
+    "docs/career/generated/career-public-authority-inventory.v1.json",
+    "docs/career/generated/career-route-trust-matrix.v1.json",
+    "docs/career/generated/career-claim-boundary-alignment.v1.json",
+    "docs/career/generated/career-resolve-alias-canonical-audit.v1.json",
+    "docs/career/generated/career-seo-geo-exposure-audit.v1.json",
+    "docs/career/generated/saved-careers-boundary-audit.v1.json",
+    "docs/career/generated/phase-5a-career-public-trust-readiness.v1.json"
+  ],
+  "status": "warn",
+  "canonicalJsonLdParityStatus": "warn",
+  "checks": [
+    {
+      "check": "page_canonical_vs_open_graph_url",
+      "status": "pass",
+      "evidence": "Sampled live career job pages actors/accountants/web-developers expose matching canonical and og:url."
+    },
+    {
+      "check": "page_canonical_vs_sitemap_url",
+      "status": "pass",
+      "evidence": "Sampled live zh career job pages are present in live sitemap and canonical URL matches sitemap URL."
+    },
+    {
+      "check": "jsonld_url_vs_canonical",
+      "status": "warn",
+      "evidence": "Sampled actors/accountants/web-developers pages do not expose Occupation JSON-LD URL/@id; BreadcrumbList item matches canonical path but no entity URL parity can be asserted."
+    },
+    {
+      "check": "occupation_jsonld_presence",
+      "status": "warn",
+      "evidence": "computer-programmers exposes Occupation JSON-LD; actors/accountants/web-developers/zoologists sampled pages do not."
+    },
+    {
+      "check": "alias_leakage",
+      "status": "pass",
+      "evidence": "software-developers is not present in live sitemap; resolve pages canonicalize to /career/resolve without query."
+    },
+    {
+      "check": "non_canonical_sitemap_entries",
+      "status": "not_observed_in_samples",
+      "evidence": "No sampled non-canonical alias job entry was found in live sitemap."
+    },
+    {
+      "check": "llms_url_parity",
+      "status": "pass",
+      "evidence": "Live llms and llms-full samples expose career hubs/tests/guides only; no career job detail or recommendation detail URLs were detected."
+    },
+    {
+      "check": "locale_hreflang_mismatch",
+      "status": "warn",
+      "evidence": "Live sitemap career job detail set is zh-heavy; en-US sampled software-developers returned 404. Broader hreflang sampling required."
+    }
+  ],
+  "sampledParity": [
+    {
+      "sampleId": "job_zh_actors",
+      "webCanonicalUrl": "https://fermatmind.com/zh/career/jobs/actors",
+      "ogUrl": "https://fermatmind.com/zh/career/jobs/actors",
+      "sitemapPresent": true,
+      "llmsPresent": false,
+      "jsonLdCount": 2,
+      "occupationJsonLdPresent": false,
+      "faqJsonLdPresent": true,
+      "status": "warn"
+    },
+    {
+      "sampleId": "job_zh_accountants",
+      "webCanonicalUrl": "https://fermatmind.com/zh/career/jobs/accountants-and-auditors",
+      "ogUrl": "https://fermatmind.com/zh/career/jobs/accountants-and-auditors",
+      "sitemapPresent": true,
+      "llmsPresent": false,
+      "jsonLdCount": 2,
+      "occupationJsonLdPresent": false,
+      "faqJsonLdPresent": true,
+      "status": "warn"
+    },
+    {
+      "sampleId": "job_zh_computer_programmers",
+      "webCanonicalUrl": "https://fermatmind.com/zh/career/jobs/computer-programmers",
+      "ogUrl": "not_resampled",
+      "sitemapPresent": true,
+      "llmsPresent": false,
+      "jsonLdCount": 3,
+      "occupationJsonLdPresent": true,
+      "faqJsonLdPresent": true,
+      "status": "pass"
+    },
+    {
+      "sampleId": "job_zh_web_developers",
+      "webCanonicalUrl": "https://fermatmind.com/zh/career/jobs/web-developers",
+      "ogUrl": "https://fermatmind.com/zh/career/jobs/web-developers",
+      "sitemapPresent": true,
+      "llmsPresent": false,
+      "jsonLdCount": 2,
+      "occupationJsonLdPresent": false,
+      "faqJsonLdPresent": true,
+      "status": "warn"
+    },
+    {
+      "sampleId": "job_en_software_developers",
+      "webCanonicalUrl": null,
+      "ogUrl": null,
+      "sitemapPresent": false,
+      "llmsPresent": false,
+      "jsonLdCount": 0,
+      "occupationJsonLdPresent": false,
+      "faqJsonLdPresent": false,
+      "status": "warn"
+    },
+    {
+      "sampleId": "job_zh_software_developers",
+      "webCanonicalUrl": null,
+      "ogUrl": null,
+      "sitemapPresent": false,
+      "llmsPresent": false,
+      "jsonLdCount": 0,
+      "occupationJsonLdPresent": false,
+      "faqJsonLdPresent": false,
+      "status": "warn"
+    },
+    {
+      "sampleId": "rec_zh_infj",
+      "webCanonicalUrl": null,
+      "ogUrl": null,
+      "sitemapPresent": false,
+      "llmsPresent": false,
+      "jsonLdCount": 0,
+      "occupationJsonLdPresent": false,
+      "faqJsonLdPresent": false,
+      "status": "pass"
+    },
+    {
+      "sampleId": "resolve_en_software_engineer",
+      "webCanonicalUrl": "https://fermatmind.com/en/career/resolve",
+      "ogUrl": "https://fermatmind.com/en/career/resolve",
+      "sitemapPresent": false,
+      "llmsPresent": false,
+      "jsonLdCount": 0,
+      "occupationJsonLdPresent": false,
+      "faqJsonLdPresent": false,
+      "status": "warn"
+    },
+    {
+      "sampleId": "resolve_zh_software_engineer",
+      "webCanonicalUrl": "https://fermatmind.com/zh/career/resolve",
+      "ogUrl": "https://fermatmind.com/zh/career/resolve",
+      "sitemapPresent": false,
+      "llmsPresent": false,
+      "jsonLdCount": 0,
+      "occupationJsonLdPresent": false,
+      "faqJsonLdPresent": false,
+      "status": "warn"
+    }
+  ],
+  "flags": [
+    "jsonld_url_divergence_unverifiable_on_pages_without_occupation_jsonld",
+    "locale_coverage_requires_larger_sample"
+  ],
+  "runtimeExpansionAllowed": false,
+  "seoGeoExpansionAllowed": false
+}
