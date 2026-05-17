@@ -1,0 +1,190 @@
+{
+  "version": "career_public_authority_inventory.v1",
+  "phase": "5A",
+  "status": "partial",
+  "runtimeExpansionAllowed": false,
+  "generatedAt": "2026-05-17",
+  "sourceRepositories": {
+    "frontend": "/Users/rainie/Desktop/GitHub/fap-web",
+    "backend": "/Users/rainie/Desktop/GitHub/fap-api"
+  },
+  "repositoryHygiene": {
+    "backendBranchObserved": "codex/china-search-03-360-sogou-shenma-adapters",
+    "backendWorktreeClean": true,
+    "frontendBranchObserved": "main",
+    "frontendWorktreeNotes": [
+      "Generated artifacts only under docs/career/generated.",
+      "Pre-existing untracked frontend local artifacts must not be included in any commit unless separately governed."
+    ]
+  },
+  "authorityRules": {
+    "frontendFallbackAuthorityAllowed": false,
+    "careerRecommendationExpansionAllowed": false,
+    "profileMemoryPromotionAllowed": false,
+    "seoGeoExpansionAllowed": false,
+    "freemiumExpansionAllowed": false
+  },
+  "inventory": [
+    {
+      "assetFamily": "career_job_detail",
+      "publicUrlPattern": "/{locale}/career/jobs/{slug}",
+      "canonicalUrlPattern": "/{locale}/career/jobs/{canonical_slug}",
+      "frontendRoute": "app/(localized)/[locale]/career/jobs/[slug]/page.tsx",
+      "frontendFetch": "lib/career/api/fetchCareerJobBundle.ts",
+      "backendApi": "/api/v0.5/career/jobs/{slug}",
+      "backendController": "backend/app/Http/Controllers/API/V0_5/Career/CareerJobDetailController.php",
+      "backendSourceOfTruth": [
+        "Occupation",
+        "RecommendationSnapshot",
+        "TrustManifest",
+        "OccupationTruthMetric",
+        "CareerJobDisplayAsset",
+        "CareerRuntimePublishProjectionVisibility"
+      ],
+      "jsonLd": {
+        "status": "present",
+        "evidence": "CareerJobDetailResource builds structured_data occupation and breadcrumb_list via CareerStructuredDataBuilder."
+      },
+      "faq": {
+        "status": "present_when_display_surface_contains_faq",
+        "evidence": "components/career/display/CareerFAQBlock.tsx renders display-surface FAQ items."
+      },
+      "evidenceContainer": {
+        "status": "present",
+        "evidence": "components/career/display/EvidenceContainer.tsx emits data-evidence-container=true and source_type=career_backend_bundle."
+      },
+      "indexability": {
+        "status": "backend_gated",
+        "evidence": "lib/seo/backendSitemapSource.ts filters backend sitemap career job paths with seo authority and noindex gates."
+      },
+      "llmsEligibility": {
+        "status": "backend_gated_limited",
+        "evidence": "app/llms.txt/route.ts and app/llms-full.txt/route.ts use listBackendSitemapCareerJobPaths with route budgets."
+      },
+      "claimBoundaryStatus": "guarded",
+      "readiness": "ready_for_trust_verification"
+    },
+    {
+      "assetFamily": "career_recommendation_mbti_detail",
+      "publicUrlPattern": "/{locale}/career/recommendations/mbti/{type}",
+      "canonicalUrlPattern": "/{locale}/career/recommendations/mbti/{canonical_type}",
+      "frontendRoute": "app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx",
+      "frontendFetch": "lib/career/api/fetchCareerRecommendationBundle.ts",
+      "backendApi": "/api/v0.5/career/recommendations/mbti/{type}",
+      "backendController": "backend/app/Http/Controllers/API/V0_5/Career/CareerRecommendationDetailController.php",
+      "backendSourceOfTruth": [
+        "RecommendationSnapshot",
+        "ProfileProjection",
+        "ContextSnapshot",
+        "TrustManifest",
+        "OccupationTruthMetric"
+      ],
+      "jsonLd": {
+        "status": "present_or_route_local",
+        "evidence": "Recommendation index route builds WebPage and Breadcrumb JSON-LD; detail bundle exposes backend recommendation payload."
+      },
+      "faq": {
+        "status": "unknown",
+        "evidence": "Detail route may render recommendation bundle sections; Phase 5B should sample live detail payloads."
+      },
+      "evidenceContainer": {
+        "status": "partial",
+        "evidence": "Recommendation detail bundle carries supportingTruthSummary, whiteBoxScores, warnings, trustManifest, matchedJobs, and seoContract."
+      },
+      "indexability": {
+        "status": "restricted",
+        "evidence": "app/llms.txt/route.ts and app/llms-full.txt/route.ts deny /career/recommendations and /career/recommendations/mbti/* from LLMS exposure."
+      },
+      "llmsEligibility": {
+        "status": "not_eligible",
+        "evidence": "LLMS_FINAL_PATH_DENY_PATTERNS exclude career recommendation index/detail routes."
+      },
+      "claimBoundaryStatus": "guarded_snapshot_only",
+      "readiness": "guard_only"
+    },
+    {
+      "assetFamily": "career_alias_resolution",
+      "publicUrlPattern": "/{locale}/career/resolve?q={query}",
+      "canonicalUrlPattern": "/{locale}/career/resolve",
+      "frontendRoute": "app/(localized)/[locale]/career/resolve/page.tsx",
+      "frontendFetch": "lib/career/api/fetchCareerAliasResolution.ts",
+      "backendApi": "/api/v0.5/career/resolve",
+      "backendController": "backend/app/Http/Controllers/API/V0_5/Career/CareerAliasResolutionController.php",
+      "backendSourceOfTruth": [
+        "OccupationAlias",
+        "Occupation",
+        "OccupationFamily",
+        "RecommendationSnapshot",
+        "SeoSurfaceContractService"
+      ],
+      "jsonLd": {
+        "status": "none_observed",
+        "evidence": "Resolve page is a helper/disambiguation flow and uses noindex metadata."
+      },
+      "faq": {
+        "status": "none_observed"
+      },
+      "evidenceContainer": {
+        "status": "none_observed"
+      },
+      "indexability": {
+        "status": "noindex",
+        "evidence": "generateMetadata sets noindex=true for /career/resolve."
+      },
+      "llmsEligibility": {
+        "status": "not_eligible",
+        "evidence": "Not listed as an LLMS source; helper route is noindex."
+      },
+      "claimBoundaryStatus": "low_risk_helper",
+      "readiness": "ready_as_non_indexed_support_surface"
+    },
+    {
+      "assetFamily": "career_shortlist",
+      "publicUrlPattern": "client_action_on_career_job_or_recommendation_detail",
+      "canonicalUrlPattern": "not_applicable",
+      "frontendComponent": "components/career/CareerShortlistAction.tsx",
+      "frontendFetch": [
+        "lib/career/api/fetchCareerShortlistState.ts",
+        "lib/career/api/submitCareerShortlistAdd.ts"
+      ],
+      "backendApi": [
+        "POST /api/v0.5/career/shortlist",
+        "GET /api/v0.5/career/shortlist/state"
+      ],
+      "backendController": "backend/app/Http/Controllers/API/V0_5/Career/CareerShortlistController.php",
+      "backendSourceOfTruth": [
+        "CareerShortlistItem",
+        "CareerShortlistService",
+        "Occupation",
+        "RecommendationSnapshot"
+      ],
+      "jsonLd": {
+        "status": "not_applicable"
+      },
+      "faq": {
+        "status": "not_applicable"
+      },
+      "evidenceContainer": {
+        "status": "not_applicable"
+      },
+      "indexability": {
+        "status": "private_action_not_indexed"
+      },
+      "llmsEligibility": {
+        "status": "not_eligible"
+      },
+      "claimBoundaryStatus": "preference_store_only_with_snapshot_reference_warning",
+      "readiness": "requires_boundary_confirmation_before_profile_or_recommendation_use"
+    }
+  ],
+  "summary": {
+    "careerPublicAuthorityStatus": "warn",
+    "primaryTrustSource": "fap-api backend career bundles and CMS/public career APIs",
+    "frontendRuntimeRole": "renderer and route adapter, not source of truth",
+    "requiredBeforePhase5B": [
+      "Live sample career job detail payloads for canonical/JSON-LD/evidence consistency.",
+      "Confirm saved-careers/shortlist remains preference-store only despite stored snapshot foreign keys.",
+      "Keep recommendation and profile expansion blocked."
+    ]
+  }
+}

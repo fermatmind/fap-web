@@ -1,0 +1,117 @@
+{
+  "version": "career_route_trust_matrix.v1",
+  "phase": "5A",
+  "status": "partial",
+  "runtimeExpansionAllowed": false,
+  "generatedAt": "2026-05-17",
+  "routes": [
+    {
+      "routeFamily": "career_job_detail_api",
+      "apiRoute": "GET /api/v0.5/career/jobs/{slug}",
+      "frontendRoute": "/{locale}/career/jobs/{slug}",
+      "backendRouteEvidence": "backend/routes/api.php:476",
+      "controller": "backend/app/Http/Controllers/API/V0_5/Career/CareerJobDetailController.php",
+      "trustStatus": "backend_authoritative",
+      "indexability": "backend_seo_contract_gated",
+      "canonicalBehavior": "canonical_slug_driven",
+      "jsonLdBehavior": "backend_structured_data_occupation_and_breadcrumb",
+      "evidenceBehavior": "display_surface_evidence_container_when_available",
+      "claimBoundaryRisk": "medium_guarded",
+      "phase5bAction": "sample_live_payloads_and_compare_frontend_canonical_jsonld"
+    },
+    {
+      "routeFamily": "career_job_index",
+      "apiRoute": "GET /api/v0.5/career/jobs",
+      "frontendRoute": "/{locale}/career/jobs",
+      "backendRouteEvidence": "backend/routes/api.php:474",
+      "controller": "backend/app/Http/Controllers/API/V0_5/Career/CareerJobListController.php",
+      "trustStatus": "backend_authoritative",
+      "indexability": "indexable_base_noindex_for_query_or_family",
+      "canonicalBehavior": "base_route_canonical",
+      "jsonLdBehavior": "dataset_jsonld_when_dataset_payload_available",
+      "evidenceBehavior": "directory_summary_not_detail_evidence",
+      "claimBoundaryRisk": "low",
+      "phase5bAction": "verify query/family noindex and directory canonical parity"
+    },
+    {
+      "routeFamily": "career_recommendation_index",
+      "apiRoute": "GET /api/v0.5/career/recommendations/mbti",
+      "frontendRoute": "/{locale}/career/recommendations",
+      "backendRouteEvidence": "backend/routes/api.php:478",
+      "controller": "backend/app/Http/Controllers/API/V0_5/Career/CareerRecommendationIndexController.php",
+      "trustStatus": "backend_authoritative_for_available_mbti_snapshot_entries",
+      "indexability": "public_page_but_llms_excluded",
+      "canonicalBehavior": "route_canonical",
+      "jsonLdBehavior": "frontend_webpage_and_breadcrumb_jsonld",
+      "evidenceBehavior": "directional_summary_only",
+      "claimBoundaryRisk": "medium_soft_recommendation_language",
+      "phase5bAction": "keep MBTI snapshot / next_step_only wording guard"
+    },
+    {
+      "routeFamily": "career_recommendation_detail",
+      "apiRoute": "GET /api/v0.5/career/recommendations/mbti/{type}",
+      "frontendRoute": "/{locale}/career/recommendations/mbti/{type}",
+      "backendRouteEvidence": "backend/routes/api.php:479",
+      "controller": "backend/app/Http/Controllers/API/V0_5/Career/CareerRecommendationDetailController.php",
+      "trustStatus": "backend_authoritative_snapshot_support_only",
+      "indexability": "restricted_llms_excluded",
+      "canonicalBehavior": "type_subject_route",
+      "jsonLdBehavior": "requires_live_detail_sample",
+      "evidenceBehavior": "supportingTruthSummary_whiteBoxScores_warnings_trustManifest_matchedJobs",
+      "claimBoundaryRisk": "high_if_expanded_to_live_recommender",
+      "phase5bAction": "audit detail copy and metadata for snapshot-not-live-recommender boundary"
+    },
+    {
+      "routeFamily": "career_alias_resolution",
+      "apiRoute": "GET /api/v0.5/career/resolve",
+      "frontendRoute": "/{locale}/career/resolve",
+      "backendRouteEvidence": "backend/routes/api.php:468",
+      "controller": "backend/app/Http/Controllers/API/V0_5/Career/CareerAliasResolutionController.php",
+      "trustStatus": "backend_authoritative_helper",
+      "indexability": "noindex",
+      "canonicalBehavior": "base_route_canonical_no_query_indexing",
+      "jsonLdBehavior": "none",
+      "evidenceBehavior": "candidate_resolution_payload",
+      "claimBoundaryRisk": "low",
+      "phase5bAction": "verify alias redirects do not leak duplicate canonicals"
+    },
+    {
+      "routeFamily": "career_shortlist",
+      "apiRoute": "POST /api/v0.5/career/shortlist; GET /api/v0.5/career/shortlist/state",
+      "frontendRoute": "component_action_on_detail_pages",
+      "backendRouteEvidence": "backend/routes/api.php:483-485",
+      "controller": "backend/app/Http/Controllers/API/V0_5/Career/CareerShortlistController.php",
+      "trustStatus": "preference_store_action",
+      "indexability": "not_indexable",
+      "canonicalBehavior": "not_applicable",
+      "jsonLdBehavior": "none",
+      "evidenceBehavior": "not_recommendation_evidence",
+      "claimBoundaryRisk": "medium_profile_memory_boundary",
+      "phase5bAction": "confirm lifecycle/DSAR and prevent profile-memory promotion"
+    },
+    {
+      "routeFamily": "sitemap_source",
+      "apiRoute": "GET /api/v0.5/seo/sitemap-source",
+      "frontendRoute": "next-sitemap backend source adapter",
+      "backendRouteEvidence": "backend/routes/api.php:491",
+      "frontendEvidence": "lib/seo/backendSitemapSource.ts",
+      "trustStatus": "backend_sitemap_source_authoritative",
+      "indexability": "seo_contract_filtered",
+      "canonicalBehavior": "backend_canonical_url_normalized_to_allowed_hosts",
+      "jsonLdBehavior": "not_applicable",
+      "evidenceBehavior": "discoverability_authority_only",
+      "claimBoundaryRisk": "medium_if_treated_as_graph_truth",
+      "phase5bAction": "verify sitemap/canonical divergence samples"
+    }
+  ],
+  "summary": {
+    "routesScanned": 7,
+    "runtimeRoutesChanged": false,
+    "blockedExpansion": [
+      "new recommendation routes",
+      "new profile memory routes",
+      "new freemium bundle routes",
+      "new career pSEO routes"
+    ]
+  }
+}

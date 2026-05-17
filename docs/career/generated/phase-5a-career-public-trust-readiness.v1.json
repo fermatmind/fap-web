@@ -1,0 +1,104 @@
+{
+  "version": "phase_5a_career_public_trust_readiness.v1",
+  "phase": "5A",
+  "status": "partially_ready",
+  "runtimeExpansionAllowed": false,
+  "semanticGraphExpansionAllowed": false,
+  "freemiumExpansionAllowed": false,
+  "recommendationExpansionAllowed": false,
+  "profileMemoryExpansionAllowed": false,
+  "careerPublicTrustStatus": "warn",
+  "generatedAt": "2026-05-17",
+  "sourceArtifacts": [
+    "docs/career/generated/career-public-authority-inventory.v1.json",
+    "docs/career/generated/career-route-trust-matrix.v1.json",
+    "docs/career/generated/career-claim-boundary-alignment.v1.json",
+    "docs/career/generated/career-resolve-alias-canonical-audit.v1.json",
+    "docs/career/generated/career-seo-geo-exposure-audit.v1.json",
+    "docs/career/generated/saved-careers-boundary-audit.v1.json"
+  ],
+  "evidenceSummary": {
+    "backendCareerRoutes": {
+      "status": "present",
+      "evidence": "backend/routes/api.php:459-491 defines /api/v0.5 career routes for attribution, family, first-wave links, resolve, jobs, recommendations, shortlist, runtime-config, transition-preview, search, datasets, and sitemap-source."
+    },
+    "careerJobPublicResolution": {
+      "status": "present",
+      "evidence": "CareerJobDetailController + CareerJobDetailBundleBuilder + CareerJobDetailResource expose backend-governed identity, trust, SEO contract, structured_data, and display_surface_v1."
+    },
+    "careerRecommendationBoundary": {
+      "status": "guarded",
+      "evidence": "CareerRecommendationDetailBundleBuilder exposes snapshot-backed recommendation detail data; Phase 5A keeps this as MBTI next_step_only / snapshot support."
+    },
+    "aliasCanonicalHandling": {
+      "status": "present_needs_live_sampling",
+      "evidence": "CareerAliasPage redirects aliases to canonical jobs/guides/families; CareerResolvePage is noindex and redirects resolved targets."
+    },
+    "seoGeoExposure": {
+      "status": "backend_gated_needs_output_sampling",
+      "evidence": "next-sitemap.config.js, lib/seo/backendSitemapSource.ts, app/llms.txt/route.ts, and app/llms-full.txt/route.ts use backend-gated career job paths and deny recommendation LLMS exposure."
+    },
+    "savedCareersBoundary": {
+      "status": "warn",
+      "evidence": "CareerShortlistService persists CareerShortlistItem and attaches snapshot/profile projection foreign keys; no profile write API observed, but boundary requires explicit lifecycle decision."
+    }
+  },
+  "requiredFixesBeforePhase5B": [
+    {
+      "priority": "P0",
+      "item": "Do not start Phase 6 graph, Phase 7 freemium, Phase 9 recommendation, or Phase 10 memory from these artifacts.",
+      "owner": "product_cto"
+    },
+    {
+      "priority": "P1",
+      "item": "Sample live career job detail payloads and frontend pages for canonical, JSON-LD, FAQ, evidence container, and robots parity.",
+      "owner": "engineering"
+    },
+    {
+      "priority": "P1",
+      "item": "Verify llms.txt and llms-full.txt outputs keep career recommendations excluded while allowing only backend-gated career job entries.",
+      "owner": "engineering"
+    },
+    {
+      "priority": "P1",
+      "item": "Clarify saved-careers lifecycle: preference store only, no UASP profile memory, no recommendation evidence, no personality inference.",
+      "owner": "product_privacy_engineering"
+    },
+    {
+      "priority": "P2",
+      "item": "Run deterministic alias/canonical samples for representative English, Chinese, ambiguous, and unresolved queries.",
+      "owner": "engineering"
+    },
+    {
+      "priority": "P2",
+      "item": "Confirm claimPermissions are present for career display surfaces before strong fit, salary, market, or AI sections render.",
+      "owner": "engineering_content"
+    }
+  ],
+  "requiredHumanDecisions": [
+    "Whether saved-careers snapshot foreign keys are acceptable as preference-store provenance without becoming profile memory.",
+    "Whether Career Decision may ever move beyond MBTI snapshot / next_step_only support.",
+    "Whether career job details with visible evidence may become stronger llms-full candidates, without treating LLMS as semantic graph truth.",
+    "Whether Phase 5B is remediation/verification only or may include narrow trust-runtime fixes."
+  ],
+  "nextRecommendedPhase": "Phase 5B Career Public Trust Hardening and Live Parity Verification",
+  "phase5BMayStart": "conditional",
+  "phase5BConditions": [
+    "Do not stack on an unrelated backend branch.",
+    "Do not include pre-existing untracked frontend artifacts.",
+    "Limit Phase 5B to trust hardening, parity verification, and boundary remediation.",
+    "Keep runtime expansion, graph expansion, freemium expansion, recommendation expansion, and profile memory blocked."
+  ],
+  "blocked": [
+    "semantic_graph_runtime",
+    "freemium_decision_depth",
+    "controlled_recommendation",
+    "long_term_memory",
+    "career_pseo_expansion",
+    "domain_hub",
+    "new_runtime_cta",
+    "new_recommendation_logic",
+    "profile_memory_write",
+    "checkout_or_entitlement_change"
+  ]
+}
