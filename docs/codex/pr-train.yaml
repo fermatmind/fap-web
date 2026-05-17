@@ -3359,6 +3359,83 @@ prs:
       - payment/order/report/recommendation/scoring/profile code
     rollback_note: "Remove the API gateway smoke/rollback runbook document, generated artifact, scoped contract test, and BACKEND-RUNTIME-02B train metadata."
 
+  - id: BACKEND-RUNTIME-02C
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/backend-runtime-02c-public-api-authority-acceptance-gate
+    base: main
+    depends_on:
+      - BACKEND-RUNTIME-02B
+    mode: execute
+    risk_level: L2
+    status: planned
+    title: "docs(architecture): add public API authority acceptance gate"
+    goal: "Capture live read-only public API authority acceptance evidence based on BACKEND-RUNTIME-02B, including public GET smoke results, header/CORS/cache checks, side-effect policy, Node2 gateway / Node3 backend authority status, and go/no-go decision for SEO-DASH-00 without changing runtime, backend, deploy, DNS/CDN/cloud, sitemap/llms, tracking, commerce, report, email, recommendation, or scoring behavior."
+    in_scope:
+      - docs/seo/public-api-authority-acceptance-gate.md
+      - docs/seo/generated/public-api-authority-acceptance-gate.v1.json
+      - tests/contracts/public-api-authority-acceptance-gate.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - /Users/rainie/Desktop/GitHub/fap-api changes
+      - /Users/rainie/Desktop/GitHub/fap-api/fap-web as production runtime
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - backend runtime files
+      - migrations
+      - env files
+      - deploy scripts
+      - DNS/CDN/cloud config
+      - next-sitemap.config.js
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - payment/order/report/recommendation/scoring/profile code
+      - Node2 runtime changes
+      - Node3 runtime changes
+      - OpenResty changes
+      - SSH/runtime commands
+      - cloud resources
+      - payment commands
+      - email commands
+      - order creation
+      - attempt creation
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/public-api-authority-acceptance-gate.contract.test.ts
+      - pnpm test:contract
+      - pnpm seo:check-sitemap
+      - pnpm seo:check-mobile
+      - git diff --check
+      - git diff --cached --check
+    acceptance:
+      - Artifact includes BACKEND-RUNTIME-01C, BACKEND-RUNTIME-02A, and BACKEND-RUNTIME-02B sources.
+      - Artifact records live read-only GET smoke evidence for scales catalog, MBTI lookup, RIASEC lookup, sitemap-source, articles, topics, personality, career jobs, and skus.
+      - Artifact records header/CORS/cache/rate-limit/HSTS observations without raw body, cookie, token, email, order number, or payment ID values.
+      - Artifact enforces side-effect policy with no orders, attempts, emails, or payment webhooks created or triggered.
+      - Artifact keeps Node2 local Laravel/DB/queue quarantined as non-authority.
+      - Artifact sets SEO-DASH-00 unblocked only when acceptance_status is accepted.
+      - If acceptance_status is partial or blocked, next task remains BACKEND-RUNTIME-02D/02E/02F rather than SEO-DASH-00.
+      - No frontend runtime, backend runtime, Node2, Node3, OpenResty, DNS, CDN, COS/OSS, database, sitemap/llms, tracking, commerce, report, email, recommendation, scoring, deployment, env, SSH, or cloud behavior changes.
+    must_not_touch:
+      - /Users/rainie/Desktop/GitHub/fap-api
+      - /Users/rainie/Desktop/GitHub/fap-api/fap-web
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - backend runtime files
+      - migrations
+      - env files
+      - deploy scripts
+      - DNS/CDN/cloud config
+      - next-sitemap.config.js
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - payment/order/report/recommendation/scoring/profile code
+    rollback_note: "Remove the public API authority acceptance gate document, generated artifact, scoped contract test, and BACKEND-RUNTIME-02C train metadata."
+
   - id: AUDIT-WEB-CMS-LINK-XSS
     repo: fap-web
     repo_path: /Users/rainie/Desktop/GitHub/fap-web
