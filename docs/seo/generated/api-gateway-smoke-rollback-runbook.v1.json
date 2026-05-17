@@ -1,0 +1,345 @@
+{
+  "version": "api_gateway_smoke_rollback_runbook.v1",
+  "scope": "BACKEND-RUNTIME-02B",
+  "status": [
+    "planning_contract",
+    "not_implemented"
+  ],
+  "source_documents": [
+    {
+      "id": "BACKEND-RUNTIME-01C",
+      "type": "api_edge_gateway_backend_authority_contract",
+      "status": "merged"
+    },
+    {
+      "id": "BACKEND-RUNTIME-02A",
+      "type": "api_edge_gateway_hardening_quarantine_plan",
+      "status": "merged"
+    }
+  ],
+  "accepted_topology": {
+    "nodes": [
+      {
+        "id": "fap-node2",
+        "aliases": [
+          "Node2",
+          "api.fermatmind.com"
+        ],
+        "role": "API edge gateway only",
+        "source_of_truth": "edge_gateway_only",
+        "status": [
+          "accepted",
+          "edge_gateway_only"
+        ]
+      },
+      {
+        "id": "fap-api-prod",
+        "aliases": [
+          "Node3",
+          "122.152.221.126",
+          "ops.fermatmind.com"
+        ],
+        "role": "backend/CMS/commerce authority candidate",
+        "source_of_truth": "canonical_backend_authority_candidate",
+        "status": [
+          "accepted",
+          "backend_authority_candidate"
+        ]
+      },
+      {
+        "id": "node2-local-laravel",
+        "path": "/www/wwwroot/fap-api/backend",
+        "role": "legacy local Laravel runtime",
+        "source_of_truth": "non_authority",
+        "status": [
+          "quarantined",
+          "non_authority"
+        ]
+      }
+    ],
+    "observed_gateway_proxy": {
+      "domain": "api.fermatmind.com",
+      "path_prefix": "/api/",
+      "proxy_pass": "http://122.152.221.126",
+      "target": "Node3 / fap-api-prod"
+    }
+  },
+  "smoke_checks": [
+    {
+      "name": "api availability",
+      "method": [
+        "HEAD",
+        "GET"
+      ],
+      "path": "/",
+      "side_effect": false
+    },
+    {
+      "name": "scale catalog",
+      "method": [
+        "GET"
+      ],
+      "path": "/api/v0.3/scales/catalog?locale=zh-CN",
+      "side_effect": false
+    },
+    {
+      "name": "MBTI scale lookup",
+      "method": [
+        "GET"
+      ],
+      "path": "/api/v0.3/scales/lookup?slug=mbti-personality-test-16-personality-types&locale=zh-CN",
+      "side_effect": false
+    },
+    {
+      "name": "RIASEC scale lookup",
+      "method": [
+        "GET"
+      ],
+      "path": "/api/v0.3/scales/lookup?slug=holland-career-interest-test-riasec&locale=zh-CN",
+      "side_effect": false
+    },
+    {
+      "name": "sitemap-source",
+      "method": [
+        "GET"
+      ],
+      "path": "/api/v0.5/seo/sitemap-source",
+      "side_effect": false
+    },
+    {
+      "name": "articles list",
+      "method": [
+        "GET"
+      ],
+      "path": "/api/v0.5/articles?locale=zh-CN",
+      "side_effect": false
+    },
+    {
+      "name": "article detail",
+      "method": [
+        "GET"
+      ],
+      "path": "/api/v0.5/articles/holland-career-interest-test-can-and-cannot-tell-you?locale=zh-CN",
+      "side_effect": false
+    },
+    {
+      "name": "topics",
+      "method": [
+        "GET"
+      ],
+      "path": "/api/v0.5/topics?locale=zh-CN",
+      "side_effect": false
+    },
+    {
+      "name": "personality",
+      "method": [
+        "GET"
+      ],
+      "path": "/api/v0.5/personality/infj?locale=zh-CN",
+      "side_effect": false
+    },
+    {
+      "name": "career/jobs",
+      "method": [
+        "GET"
+      ],
+      "path": "/api/v0.5/career/jobs?locale=en",
+      "side_effect": false
+    },
+    {
+      "name": "skus",
+      "method": [
+        "GET"
+      ],
+      "path": "/api/v0.3/skus?scale=MBTI",
+      "side_effect": false
+    }
+  ],
+  "header_cors_cache_checks": {
+    "origin": "https://fermatmind.com",
+    "record": [
+      "status code",
+      "content-type",
+      "CORS allow-origin behavior",
+      "rate-limit header behavior if present",
+      "cache headers",
+      "HSTS observation if present",
+      "robots/noindex headers if relevant"
+    ],
+    "forbidden_to_record": [
+      "cookies",
+      "bearer tokens",
+      "session IDs",
+      "raw authorization headers",
+      "emails",
+      "order numbers",
+      "payment IDs",
+      "webhook signatures",
+      "private IDs"
+    ]
+  },
+  "auth_session_checks": {
+    "mode": "read_only",
+    "allowed": [
+      "verify unauthenticated public surfaces remain public",
+      "verify private surfaces remain protected",
+      "verify public responses do not leak unexpected cookies",
+      "verify auth-required responses do not expose sensitive payloads"
+    ],
+    "forbidden": [
+      "login",
+      "password submission",
+      "account mutation",
+      "email binding",
+      "token refresh",
+      "session creation"
+    ]
+  },
+  "report_email_checkout_checks": {
+    "mode": "read_only_or_no_side_effect",
+    "report_access": {
+      "allowed_only_with_preexisting_safe_qa_attempt": true,
+      "forbidden_without_qa_attempt": "state-changing report/email smoke"
+    },
+    "email_bind": {
+      "forbidden_by_default": true,
+      "allowed_only_with_explicit_qa_authorization": true
+    },
+    "checkout_order_creation": "forbidden",
+    "payment": "forbidden",
+    "mail_sending": "forbidden",
+    "attempt_creation": "forbidden",
+    "queue_triggering_endpoints": "forbidden"
+  },
+  "webhook_mapping_checks": {
+    "mode": "mapping_only_non_triggering",
+    "allowed": [
+      "verify route presence from route inventory or config evidence",
+      "verify provider endpoint path mapping",
+      "verify webhook domain/path owner",
+      "verify whether path enters Node2 gateway or Node3 directly",
+      "verify gateway rewrite preserves signature headers"
+    ],
+    "forbidden": [
+      "send fake payment event to production",
+      "call provider webhook live",
+      "replay captured webhooks",
+      "create payment intents",
+      "create orders",
+      "print webhook secrets or signatures"
+    ]
+  },
+  "backup_plan": {
+    "status": [
+      "future_change_window_only",
+      "not_executed_by_this_pr"
+    ],
+    "steps": [
+      "capture OpenResty config file path for api.fermatmind.com",
+      "copy config to timestamped backup path",
+      "record checksum for active config and backup",
+      "record current upstream target for /api/",
+      "preserve TLS blocks, server_name, redirects, ACME challenge blocks, and proxy header behavior",
+      "validate syntax before reload",
+      "prepare staged reload plan",
+      "prepare rollback restore plan"
+    ]
+  },
+  "rollback_plan": {
+    "exists": true,
+    "triggers": [
+      "/api smoke failure",
+      "auth/session regression",
+      "CORS/header regression",
+      "payment webhook ingress uncertainty",
+      "report/email/checkout route regression",
+      "unexpected 5xx or timeout increase",
+      "proxy target drift",
+      "TLS/server_name regression"
+    ],
+    "steps": [
+      "stop the change window",
+      "restore previous OpenResty config from timestamped backup",
+      "validate OpenResty syntax",
+      "reload OpenResty only inside approved change window",
+      "re-run read-only gateway smoke checks",
+      "communicate rollback result and remaining risk",
+      "block dependent SEO-DASH work until smoke is green"
+    ],
+    "stop_conditions": [
+      "backup missing",
+      "syntax validation fails",
+      "smoke remains red after rollback",
+      "payment/report/email ingress is uncertain",
+      "operator cannot prove active upstream target"
+    ]
+  },
+  "acceptance_prerequisites_for_02c": [
+    "gateway smoke runbook exists",
+    "rollback plan exists",
+    "Node2 local runtime remains quarantined",
+    "Node3-backed public API smoke passes",
+    "payment/report/email routes have non-side-effect mapping verified",
+    "SEO Collector input source can be locked to Node3-backed authority",
+    "forbidden side-effect operations remain out of smoke scope"
+  ],
+  "recommended_next_task": {
+    "id": "BACKEND-RUNTIME-02C",
+    "title": "API Gateway Read-only Smoke Evidence Capture",
+    "seo_dash_00_recommended_now": false
+  },
+  "forbidden_actions": [
+    "changing DNS",
+    "changing OpenResty",
+    "restarting services",
+    "creating orders",
+    "creating attempts",
+    "sending emails",
+    "calling live payment webhooks",
+    "replaying payment webhooks",
+    "creating checkout sessions",
+    "fixing Node2 queue",
+    "touching Node2 local Laravel",
+    "reading Node2 local Laravel as authority",
+    "querying Node2 local DB from Metabase",
+    "deploying SEO Collector",
+    "creating seo_intel DB",
+    "deploying Metabase"
+  ],
+  "side_effect_policy": {
+    "allowed": [
+      "GET/HEAD requests to public or explicitly safe read-only endpoints",
+      "header inspection",
+      "route/config mapping review without secrets",
+      "checksum and backup planning for a future change window"
+    ],
+    "forbidden_methods": [
+      "POST",
+      "PUT",
+      "PATCH",
+      "DELETE"
+    ],
+    "forbidden_operations": [
+      "account mutation",
+      "checkout/order/attempt creation",
+      "payment or webhook event generation",
+      "email sending",
+      "queue/scheduler mutation",
+      "database writes",
+      "OpenResty reload or config edit",
+      "DNS/CDN/COS/OSS changes"
+    ]
+  },
+  "deployment_guardrails": {
+    "allowed_files": [
+      "docs/seo/api-gateway-smoke-rollback-runbook.md",
+      "docs/seo/generated/api-gateway-smoke-rollback-runbook.v1.json",
+      "tests/contracts/api-gateway-smoke-rollback-runbook.contract.test.ts",
+      "docs/codex/pr-train.yaml",
+      "docs/codex/pr-train-state.json"
+    ],
+    "runtime_behavior_changed": false,
+    "cloud_behavior_changed": false,
+    "production_touched": false
+  }
+}

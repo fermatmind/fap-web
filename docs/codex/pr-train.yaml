@@ -3284,6 +3284,81 @@ prs:
       - payment/order/report/recommendation/scoring/profile code
     rollback_note: "Remove the API edge gateway hardening/quarantine plan document, generated artifact, scoped contract test, and BACKEND-RUNTIME-02A train metadata."
 
+  - id: BACKEND-RUNTIME-02B
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/backend-runtime-02b-api-gateway-smoke-rollback-runbook
+    base: main
+    depends_on:
+      - BACKEND-RUNTIME-02A
+    mode: execute
+    risk_level: L2
+    status: planned
+    title: "docs(architecture): add API gateway smoke and rollback runbook"
+    goal: "Add a versioned API gateway smoke and rollback runbook based on BACKEND-RUNTIME-02A without changing frontend runtime, backend runtime, Node2, Node3, OpenResty, DNS, CDN, COS/OSS, database, sitemap/llms, tracking, commerce, report, email, recommendation, scoring, deployment, env, SSH, or cloud behavior."
+    in_scope:
+      - docs/seo/api-gateway-smoke-rollback-runbook.md
+      - docs/seo/generated/api-gateway-smoke-rollback-runbook.v1.json
+      - tests/contracts/api-gateway-smoke-rollback-runbook.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - /Users/rainie/Desktop/GitHub/fap-api changes
+      - /Users/rainie/Desktop/GitHub/fap-api/fap-web as production runtime
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - backend runtime files
+      - migrations
+      - env files
+      - deploy scripts
+      - DNS/CDN/cloud config
+      - next-sitemap.config.js
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - payment/order/report/recommendation/scoring/profile code
+      - Node2 runtime changes
+      - Node3 runtime changes
+      - OpenResty changes
+      - SSH/runtime commands
+      - cloud resources
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/api-gateway-smoke-rollback-runbook.contract.test.ts
+      - pnpm test:contract
+      - pnpm seo:check-sitemap
+      - pnpm seo:check-mobile
+      - git diff --check
+      - git diff --cached --check
+    acceptance:
+      - Artifact includes BACKEND-RUNTIME-01C and BACKEND-RUNTIME-02A sources.
+      - Artifact marks Node2 as api.fermatmind.com edge gateway only.
+      - Artifact marks Node3 / fap-api-prod as backend authority candidate.
+      - Artifact keeps Node2 local Laravel, local DB, local queue, fap-mysql, and php84 as non-authority/quarantined.
+      - Smoke checks include sitemap-source, articles, topics, personality, career/jobs, scales lookup, and skus.
+      - POST side effects, order creation, attempt creation, email mutation, and live payment webhook calls are forbidden.
+      - OpenResty backup plan and rollback plan exist for a future change window.
+      - BACKEND-RUNTIME-02C acceptance prerequisites exist.
+      - Recommended next task is BACKEND-RUNTIME-02C, not SEO-DASH-00.
+      - No frontend runtime, backend runtime, Node2, Node3, OpenResty, DNS, CDN, COS/OSS, database, sitemap/llms, tracking, commerce, report, email, recommendation, scoring, deployment, env, SSH, or cloud behavior changes.
+    must_not_touch:
+      - /Users/rainie/Desktop/GitHub/fap-api
+      - /Users/rainie/Desktop/GitHub/fap-api/fap-web
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - backend runtime files
+      - migrations
+      - env files
+      - deploy scripts
+      - DNS/CDN/cloud config
+      - next-sitemap.config.js
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - payment/order/report/recommendation/scoring/profile code
+    rollback_note: "Remove the API gateway smoke/rollback runbook document, generated artifact, scoped contract test, and BACKEND-RUNTIME-02B train metadata."
+
   - id: AUDIT-WEB-CMS-LINK-XSS
     repo: fap-web
     repo_path: /Users/rainie/Desktop/GitHub/fap-web
