@@ -1,6 +1,7 @@
 "use client";
 
 import { hasAnalyticsConsent } from "@/lib/consent/store";
+import { buildSearchIntelligenceTrackingPayload } from "@/lib/tracking/attribution";
 import {
   filterTrackingPayload,
   isCanonicalSeoFunnelEvent,
@@ -171,6 +172,31 @@ function dispatchBrowserAnalyticsEvent(
   }
 }
 
+function browserReferrer(): string | undefined {
+  return typeof document === "undefined" ? undefined : document.referrer;
+}
+
+function browserUserAgent(): string | undefined {
+  return typeof navigator === "undefined" ? undefined : navigator.userAgent;
+}
+
+function enrichPayloadForSearchIntelligence(
+  payload: Record<string, unknown>,
+  safePath: string
+): Record<string, unknown> {
+  return {
+    ...payload,
+    ...buildSearchIntelligenceTrackingPayload({
+      payload,
+      referrer: typeof payload.referrer === "string" ? payload.referrer : browserReferrer(),
+      currentPath: typeof payload.current_path === "string" ? payload.current_path : safePath,
+      userAgent: browserUserAgent(),
+      environment: process.env.NODE_ENV,
+      consentState: "granted",
+    }),
+  };
+}
+
 export async function trackClientEvent({
   eventName,
   payload,
@@ -186,9 +212,10 @@ export async function trackClientEvent({
   if (!isTrackingEvent(eventName)) return;
 
   const normalizedEventName = normalizeTrackingEventName(eventName as TrackingEventName);
-  const filteredPayload = filterTrackingPayload(normalizedEventName, payload ?? {});
   const safePath = sanitizeTrackingUrl(path) ?? "";
-  dispatchBrowserAnalyticsEvent(normalizedEventName, filteredPayload, payload ?? {});
+  const rawPayload = enrichPayloadForSearchIntelligence(payload ?? {}, safePath);
+  const filteredPayload = filterTrackingPayload(normalizedEventName, rawPayload);
+  dispatchBrowserAnalyticsEvent(normalizedEventName, filteredPayload, rawPayload);
 
   try {
     await fetch("/api/track", {
@@ -230,10 +257,11 @@ export async function trackNetworkObservableFunnelEvent({
     return;
   }
 
-  const filteredPayload = filterTrackingPayload(normalizedEventName, payload ?? {});
   const safePath = sanitizeTrackingUrl(path) ?? "";
+  const rawPayload = enrichPayloadForSearchIntelligence(payload ?? {}, safePath);
+  const filteredPayload = filterTrackingPayload(normalizedEventName, rawPayload);
 
-  dispatchBrowserAnalyticsEvent(normalizedEventName, filteredPayload, payload ?? {});
+  dispatchBrowserAnalyticsEvent(normalizedEventName, filteredPayload, rawPayload);
 
   try {
     await fetch("/api/track", {

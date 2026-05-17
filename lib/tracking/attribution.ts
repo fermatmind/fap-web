@@ -19,11 +19,68 @@ export const TRACKING_ATTRIBUTION_FIELDS = [
   "session_id",
 ] as const;
 
+export const SEARCH_INTELLIGENCE_TRACKING_FIELDS = [
+  "source_engine",
+  "consent_state",
+  "is_internal",
+  "is_qa",
+  "is_bot",
+  "environment",
+  "traffic_quality",
+] as const;
+
+export const SEARCH_INTELLIGENCE_SOURCE_ENGINE_VALUES = [
+  "google",
+  "baidu",
+  "bing_indexnow",
+  "llms",
+  "direct",
+  "paid_google",
+  "paid_baidu",
+  "unknown",
+] as const;
+
+export const SEARCH_INTELLIGENCE_RESERVED_SOURCE_ENGINE_VALUES = [
+  "so360",
+  "sogou",
+  "shenma",
+  "quark",
+  "ai_search",
+] as const;
+
+export const SEARCH_INTELLIGENCE_CONSENT_STATE_VALUES = [
+  "granted",
+  "denied",
+  "unknown",
+  "not_applicable",
+] as const;
+
+export const SEARCH_INTELLIGENCE_TRAFFIC_QUALITY_VALUES = [
+  "production_user",
+  "qa",
+  "internal",
+  "bot",
+  "unknown",
+] as const;
+
 export type AttributionQueryKey = (typeof ATTRIBUTION_QUERY_KEYS)[number];
 export type AttributionParams = Partial<Record<AttributionQueryKey, string>>;
 export type TrackingAttributionPayload = Partial<
   Record<(typeof TRACKING_ATTRIBUTION_FIELDS)[number], string>
 >;
+export type SearchIntelligenceTrackingField = (typeof SEARCH_INTELLIGENCE_TRACKING_FIELDS)[number];
+export type SearchIntelligenceSourceEngine = (typeof SEARCH_INTELLIGENCE_SOURCE_ENGINE_VALUES)[number];
+export type SearchIntelligenceConsentState = (typeof SEARCH_INTELLIGENCE_CONSENT_STATE_VALUES)[number];
+export type SearchIntelligenceTrafficQuality = (typeof SEARCH_INTELLIGENCE_TRAFFIC_QUALITY_VALUES)[number];
+export type SearchIntelligenceTrackingPayload = {
+  source_engine: SearchIntelligenceSourceEngine;
+  consent_state: SearchIntelligenceConsentState;
+  is_internal: boolean;
+  is_qa: boolean;
+  is_bot: boolean;
+  environment: string;
+  traffic_quality: SearchIntelligenceTrafficQuality;
+};
 
 type SearchParamRecord = Record<string, string | string[] | undefined>;
 type StoredTouch = TrackingAttributionPayload & {
@@ -47,9 +104,165 @@ function normalizeText(value: unknown, maxLength = 512): string | undefined {
   return normalized ? normalized.slice(0, maxLength) : undefined;
 }
 
+function normalizeToken(value: unknown): string {
+  return normalizeText(value)?.toLowerCase() ?? "";
+}
+
+function containsAnyToken(value: string, tokens: readonly string[]): boolean {
+  return tokens.some((token) => value.includes(token));
+}
+
+function referrerHost(referrer: unknown): string {
+  const normalized = normalizeText(referrer, 2048);
+  if (!normalized) return "";
+
+  try {
+    return new URL(normalized).hostname.toLowerCase();
+  } catch {
+    return normalized.toLowerCase();
+  }
+}
+
+function normalizeEnvironment(value: unknown): string {
+  const normalized = normalizeToken(value);
+  if (normalized === "production" || normalized === "development" || normalized === "test") {
+    return normalized;
+  }
+  if (normalized === "staging" || normalized === "preview") return normalized;
+  return normalized || "unknown";
+}
+
+function pathSearchParam(path: string, key: string): string {
+  if (!path) return "";
+
+  try {
+    return new URL(path, "https://fermatmind.local").searchParams.get(key)?.trim().toLowerCase() ?? "";
+  } catch {
+    return "";
+  }
+}
+
 function firstRecordValue(value: string | string[] | undefined): string | undefined {
   if (Array.isArray(value)) return normalizeText(value[0]);
   return normalizeText(value);
+}
+
+export function deriveSearchIntelligenceSourceEngine(
+  payload: Record<string, unknown>
+): SearchIntelligenceSourceEngine {
+  const referrer = referrerHost(payload.referrer);
+  const landingPath = normalizeToken(payload.landing_path);
+  const currentPath = normalizeToken(payload.current_path);
+  const utmSource = normalizeToken(payload.utm_source) || pathSearchParam(currentPath, "utm_source") || pathSearchParam(landingPath, "utm_source");
+  const utmMedium = normalizeToken(payload.utm_medium) || pathSearchParam(currentPath, "utm_medium") || pathSearchParam(landingPath, "utm_medium");
+  const utmCampaign = normalizeToken(payload.utm_campaign) || pathSearchParam(currentPath, "utm_campaign") || pathSearchParam(landingPath, "utm_campaign");
+  const utmContent = normalizeToken(payload.utm_content) || pathSearchParam(currentPath, "utm_content") || pathSearchParam(landingPath, "utm_content");
+  const hasGclid = Boolean(
+    normalizeToken(payload.gclid) || pathSearchParam(currentPath, "gclid") || pathSearchParam(landingPath, "gclid")
+  );
+  const hasBaiduPaidId = Boolean(pathSearchParam(currentPath, "bd_vid") || pathSearchParam(landingPath, "bd_vid"));
+  const combinedUtm = [utmSource, utmMedium, utmCampaign, utmContent].filter(Boolean).join(" ");
+  const combinedPath = [landingPath, currentPath].filter(Boolean).join(" ");
+  const paidTokens = ["cpc", "ppc", "paid", "sem", "ads", "adwords", "tuiguang"];
+
+  if (hasGclid) return "paid_google";
+  if (containsAnyToken(utmSource, ["google"]) && containsAnyToken(combinedUtm, paidTokens)) {
+    return "paid_google";
+  }
+  if (hasBaiduPaidId || (containsAnyToken(combinedUtm, ["baidu"]) && containsAnyToken(combinedUtm, paidTokens))) {
+    return "paid_baidu";
+  }
+  if (containsAnyToken(utmSource, ["google"]) || referrer.includes("google.")) return "google";
+  if (containsAnyToken(utmSource, ["baidu"]) || referrer.includes("baidu.")) return "baidu";
+  if (containsAnyToken(utmSource, ["bing"]) || referrer.includes("bing.")) return "bing_indexnow";
+  if (containsAnyToken(combinedUtm, ["llms"]) || combinedPath.includes("llms")) return "llms";
+  if (!utmSource && !utmMedium && !utmCampaign && !utmContent && !referrer) return "direct";
+
+  return "unknown";
+}
+
+export function deriveSearchIntelligenceTrafficLabels({
+  payload,
+  userAgent,
+  environment,
+}: {
+  payload: Record<string, unknown>;
+  userAgent?: string | null;
+  environment?: string | null;
+}): Pick<SearchIntelligenceTrackingPayload, "is_internal" | "is_qa" | "is_bot" | "environment" | "traffic_quality"> {
+  const normalizedEnvironment = normalizeEnvironment(environment);
+  const campaignContext = [
+    payload.utm_source,
+    payload.utm_medium,
+    payload.utm_campaign,
+    payload.utm_content,
+    payload.entry_surface,
+    payload.cta_id,
+  ]
+    .map((value) => normalizeToken(value))
+    .filter(Boolean)
+    .join(" ");
+  const normalizedUserAgent = normalizeToken(userAgent);
+  const isQa = containsAnyToken(campaignContext, ["codex_qa", "codex-qa", "controlled_pilot", "controlled-pilot", "acceptance"]);
+  const isBot = containsAnyToken(normalizedUserAgent, [
+    "bot",
+    "spider",
+    "crawler",
+    "googlebot",
+    "bingbot",
+    "baiduspider",
+    "bytespider",
+  ]);
+  const isInternal = normalizedEnvironment !== "production" && normalizedEnvironment !== "unknown";
+  const trafficQuality: SearchIntelligenceTrafficQuality = isBot
+    ? "bot"
+    : isQa
+      ? "qa"
+      : isInternal
+        ? "internal"
+        : normalizedEnvironment === "production"
+          ? "production_user"
+          : "unknown";
+
+  return {
+    is_internal: isInternal,
+    is_qa: isQa,
+    is_bot: isBot,
+    environment: normalizedEnvironment,
+    traffic_quality: trafficQuality,
+  };
+}
+
+export function buildSearchIntelligenceTrackingPayload({
+  payload,
+  referrer,
+  currentPath,
+  userAgent,
+  environment,
+  consentState,
+}: {
+  payload: Record<string, unknown>;
+  referrer?: string | null;
+  currentPath?: string | null;
+  userAgent?: string | null;
+  environment?: string | null;
+  consentState?: SearchIntelligenceConsentState;
+}): SearchIntelligenceTrackingPayload {
+  const attributionPayload = {
+    ...payload,
+    ...(referrer ? { referrer } : {}),
+    ...(currentPath ? { current_path: currentPath } : {}),
+  };
+
+  return {
+    source_engine: deriveSearchIntelligenceSourceEngine(attributionPayload),
+    consent_state: consentState ?? "unknown",
+    ...deriveSearchIntelligenceTrafficLabels({
+      payload: attributionPayload,
+      userAgent,
+      environment,
+    }),
+  };
 }
 
 function readStoredAttribution(): StoredAttribution | null {

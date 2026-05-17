@@ -1,0 +1,91 @@
+{
+  "version": "search_intelligence_tracking_fields.v1",
+  "source_documents": [
+    "SEO-DASH-00B",
+    "SEO-DASH-TRAIN-00",
+    "SEO-DASH-01B",
+    "SEO-DASH-02B",
+    "BACKEND-RUNTIME-02D"
+  ],
+  "repo": "fap-web",
+  "added_fields": [
+    "source_engine",
+    "consent_state",
+    "is_internal",
+    "is_qa",
+    "is_bot",
+    "environment",
+    "traffic_quality"
+  ],
+  "source_engine_values": [
+    "google",
+    "baidu",
+    "bing_indexnow",
+    "llms",
+    "direct",
+    "paid_google",
+    "paid_baidu",
+    "unknown"
+  ],
+  "reserved_source_engine_values": [
+    "so360",
+    "sogou",
+    "shenma",
+    "quark",
+    "ai_search"
+  ],
+  "consent_state_values": [
+    "granted",
+    "denied",
+    "unknown",
+    "not_applicable"
+  ],
+  "traffic_quality_values": [
+    "production_user",
+    "qa",
+    "internal",
+    "bot",
+    "unknown"
+  ],
+  "pii_forbidden_fields": [
+    "email",
+    "cookie",
+    "raw_order_no",
+    "raw_attempt_id",
+    "payment_id",
+    "provider_event_id",
+    "raw_payment_payload",
+    "token",
+    "checkout_url",
+    "report_url"
+  ],
+  "purchase_truth_source": "backend_orders_payment_benefits",
+  "api_track_role": "transport_only",
+  "consent_hard_stop_preserved": true,
+  "new_event_names_added": false,
+  "canonical_funnel_events": [
+    "start_attempt",
+    "submit_attempt",
+    "view_result",
+    "click_unlock",
+    "create_order",
+    "payment_confirmed",
+    "purchase_success"
+  ],
+  "legacy_aliases": {
+    "pay_success": "purchase_success"
+  },
+  "payment_semantics_changed": false,
+  "sitemap_llms_changed": false,
+  "backend_files_changed": false,
+  "external_api_connected": false,
+  "seo_intel_db_created": false,
+  "collector_jobs_created": false,
+  "metabase_deployed": false,
+  "claim_boundary": {
+    "riasec_full_recommender_runtime": false,
+    "big_five_full_recommender_runtime": false,
+    "career_decision_full_recommender_runtime": false
+  },
+  "next_task": "SEO-DASH-03B"
+}

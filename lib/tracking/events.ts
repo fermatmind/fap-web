@@ -1,4 +1,7 @@
-import { TRACKING_ATTRIBUTION_FIELDS } from "@/lib/tracking/attribution";
+import {
+  SEARCH_INTELLIGENCE_TRACKING_FIELDS,
+  TRACKING_ATTRIBUTION_FIELDS,
+} from "@/lib/tracking/attribution";
 import {
   isSensitiveTrackingIdentifierField,
   isUrlValuedTrackingField,
@@ -355,9 +358,14 @@ const FORBIDDEN_FIELD_PATTERNS = [
   /^answers?($|_)/,
   /^reports?($|_)/,
   /email/,
+  /cookie/,
   /token/,
   /authorization/,
   /bearer/,
+  /payment_?id/,
+  /provider_?event/,
+  /raw_?payload/,
+  /payment_?payload/,
   /^fm_/,
   /checkout_?url/,
   /recovery/,
@@ -407,7 +415,11 @@ export function filterTrackingPayload(
   eventName: TrackingEventName,
   payload: Record<string, unknown>
 ): Record<string, string | number | boolean | null> {
-  const allowed = [...EVENT_FIELD_WHITELIST[eventName], ...TRACKING_ATTRIBUTION_FIELDS];
+  const allowed = [
+    ...EVENT_FIELD_WHITELIST[eventName],
+    ...TRACKING_ATTRIBUTION_FIELDS,
+    ...SEARCH_INTELLIGENCE_TRACKING_FIELDS,
+  ];
 
   return allowed.reduce<Record<string, string | number | boolean | null>>((acc, key) => {
     const normalizedKey = key.toLowerCase();
