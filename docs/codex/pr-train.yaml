@@ -3210,6 +3210,80 @@ prs:
       - payment/order/report/recommendation/scoring/profile code
     rollback_note: "Remove the API edge gateway/backend authority contract document, generated artifact, scoped contract test, and BACKEND-RUNTIME-01C train metadata."
 
+  - id: BACKEND-RUNTIME-02A
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/backend-runtime-02a-edge-gateway-hardening-quarantine-plan
+    base: main
+    depends_on:
+      - BACKEND-RUNTIME-01C
+    mode: execute
+    risk_level: L2
+    status: planned
+    title: "docs(architecture): add API edge gateway hardening and quarantine plan"
+    goal: "Add an API edge gateway hardening and local runtime quarantine plan based on BACKEND-RUNTIME-01C without changing frontend runtime, backend runtime, Node2, Node3, OpenResty, DNS, CDN, COS/OSS, database, sitemap/llms, tracking, commerce, report, email, recommendation, scoring, deployment, env, SSH, or cloud behavior."
+    in_scope:
+      - docs/seo/api-edge-gateway-hardening-quarantine-plan.md
+      - docs/seo/generated/api-edge-gateway-hardening-quarantine-plan.v1.json
+      - tests/contracts/api-edge-gateway-hardening-quarantine-plan.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - /Users/rainie/Desktop/GitHub/fap-api changes
+      - /Users/rainie/Desktop/GitHub/fap-api/fap-web as production runtime
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - backend runtime files
+      - migrations
+      - env files
+      - deploy scripts
+      - DNS/CDN/cloud config
+      - next-sitemap.config.js
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - payment/order/report/recommendation/scoring/profile code
+      - Node2 runtime changes
+      - Node3 runtime changes
+      - OpenResty changes
+      - SSH/runtime commands
+      - cloud resources
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/api-edge-gateway-hardening-quarantine-plan.contract.test.ts
+      - pnpm test:contract
+      - pnpm seo:check-sitemap
+      - pnpm seo:check-mobile
+      - git diff --check
+      - git diff --cached --check
+    acceptance:
+      - Artifact includes ARCH-SEO-CMS-01, ARCH-SEO-CMS-02, BACKEND-RUNTIME-00, BACKEND-RUNTIME-00A, and BACKEND-RUNTIME-01C sources.
+      - Artifact marks Node2 as api.fermatmind.com edge gateway only.
+      - Artifact marks Node3 / fap-api-prod as backend authority candidate.
+      - Artifact quarantines Node2 local Laravel, local DB, local queue, fap-mysql, and php84 as non-authority.
+      - Gateway hardening gates include OpenResty backup, proxy target verification, route smoke, CORS/header/rate-limit smoke, auth/session smoke, report/email smoke, payment webhook ingress mapping, rollback, logs, and ownership.
+      - Quarantine gates forbid SEO Collector reads from Node2 local Laravel and Metabase reads from Node2 local DB.
+      - SEO-DASH production implementation remains blocked until gateway/backend authority is accepted.
+      - Recommended next task is BACKEND-RUNTIME-02B, not SEO-DASH-00.
+      - No frontend runtime, backend runtime, Node2, Node3, OpenResty, DNS, CDN, COS/OSS, database, sitemap/llms, tracking, commerce, report, email, recommendation, scoring, deployment, env, SSH, or cloud behavior changes.
+    must_not_touch:
+      - /Users/rainie/Desktop/GitHub/fap-api
+      - /Users/rainie/Desktop/GitHub/fap-api/fap-web
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - backend runtime files
+      - migrations
+      - env files
+      - deploy scripts
+      - DNS/CDN/cloud config
+      - next-sitemap.config.js
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - payment/order/report/recommendation/scoring/profile code
+    rollback_note: "Remove the API edge gateway hardening/quarantine plan document, generated artifact, scoped contract test, and BACKEND-RUNTIME-02A train metadata."
+
   - id: AUDIT-WEB-CMS-LINK-XSS
     repo: fap-web
     repo_path: /Users/rainie/Desktop/GitHub/fap-web

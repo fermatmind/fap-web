@@ -574,7 +574,7 @@
       "checks": [],
       "failure_reason": null,
       "pr_url": null,
-      "commit_sha": null,
+      "commit_sha": "5eb323dcf6f05cbd82233cf1712124b78b910bc7",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false
@@ -2678,7 +2678,7 @@
       "depends_on": [
         "PR-SEO-01C"
       ],
-      "status": "pr_open",
+      "status": "merged",
       "title": "test(seo): add CMS metadata consumption gate",
       "mode": "execute",
       "risk_level": "L1",
@@ -4421,10 +4421,10 @@
       ],
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/826",
-      "commit_sha": "0aefa9946173c4fcc7aa5b6360abc3e0328e4d32",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "d1db001ede93862bfddf81b0999650094efc4eb1",
+      "merged_at": "2026-05-17T00:11:28Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "sidecar_issues": [],
       "history": [
         {
@@ -4446,6 +4446,108 @@
           "at": "2026-05-17T08:04:30+08:00",
           "status": "pr_open",
           "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/826 for BACKEND-RUNTIME-01C."
+        },
+        {
+          "at": "2026-05-17T08:47:31+08:00",
+          "status": "merged",
+          "summary": "Reconciled BACKEND-RUNTIME-01C ledger after GitHub PR #826 merged as d1db001ede93862bfddf81b0999650094efc4eb1; remote branch deleted and local cleanup executed."
+        }
+      ]
+    },
+    {
+      "id": "BACKEND-RUNTIME-02A",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/backend-runtime-02a-edge-gateway-hardening-quarantine-plan",
+      "base": "main",
+      "depends_on": [
+        "BACKEND-RUNTIME-01C"
+      ],
+      "status": "pr_open",
+      "title": "docs(architecture): add API edge gateway hardening and quarantine plan",
+      "mode": "execute",
+      "risk_level": "L2",
+      "allowed_paths": [
+        "docs/seo/api-edge-gateway-hardening-quarantine-plan.md",
+        "docs/seo/generated/api-edge-gateway-hardening-quarantine-plan.v1.json",
+        "tests/contracts/api-edge-gateway-hardening-quarantine-plan.contract.test.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [
+        {
+          "name": "manifest authorization",
+          "status": "passed",
+          "details": "User explicitly provided BACKEND-RUNTIME-02A id, title, branch, allowed files, validation commands, and authorized PR train metadata updates if required by governance."
+        },
+        {
+          "name": "dependency check",
+          "status": "passed",
+          "details": "BACKEND-RUNTIME-01C is merged into main as d1db001ede93862bfddf81b0999650094efc4eb1."
+        },
+        {
+          "name": "branch preflight",
+          "status": "passed",
+          "details": "Started from main aligned with origin/main on branch codex/backend-runtime-02a-edge-gateway-hardening-quarantine-plan."
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/api-edge-gateway-hardening-quarantine-plan.contract.test.ts",
+          "status": "passed",
+          "details": "9 tests passed."
+        },
+        {
+          "name": "pnpm test:contract",
+          "status": "passed_after_retry",
+          "details": "First full run hit an existing non-deterministic failure in tests/contracts/enneagram-technical-note.contract.test.tsx. Targeted rerun of that existing test passed, then full suite passed: 368 files and 2085 tests."
+        },
+        {
+          "name": "pnpm seo:check-sitemap",
+          "status": "passed",
+          "details": "Sitemap indexability check passed with 261 URLs."
+        },
+        {
+          "name": "pnpm seo:check-mobile",
+          "status": "passed",
+          "details": "Mobile SEO gate passed; runtimeBehaviorChanged=false, urlSetChanged=false, sitemapChanged=false, llmsChanged=false."
+        },
+        {
+          "name": "git diff --check",
+          "status": "passed",
+          "details": "No whitespace errors."
+        },
+        {
+          "name": "git diff --cached --check",
+          "status": "passed",
+          "details": "No staged whitespace errors."
+        }
+      ],
+      "failure_reason": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/827",
+      "commit_sha": "a2f469bcf0a6510b5047672a59bc111568a8ec5e",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [],
+      "history": [
+        {
+          "at": "2026-05-17T08:47:31+08:00",
+          "status": "in_progress",
+          "summary": "Initialized BACKEND-RUNTIME-02A to add API edge gateway hardening and local runtime quarantine plan based on BACKEND-RUNTIME-01C without runtime, backend, Node2, Node3, OpenResty, DNS, CDN, COS/OSS, database, sitemap/llms, tracking, commerce, report, email, recommendation, scoring, deployment, env, SSH, or cloud changes."
+        },
+        {
+          "at": "2026-05-17T08:50:53+08:00",
+          "status": "local_checks_passed",
+          "summary": "Added API edge gateway hardening/quarantine plan, generated artifact, scoped contract, and train metadata; targeted contract, full contract suite after retry, sitemap check, mobile SEO check, and diff checks passed."
+        },
+        {
+          "at": "2026-05-17T08:51:20+08:00",
+          "status": "local_checks_passed",
+          "summary": "Committed BACKEND-RUNTIME-02A scoped docs contract changes as 5eb323dcf6f05cbd82233cf1712124b78b910bc7."
+        },
+        {
+          "at": "2026-05-17T08:52:30+08:00",
+          "status": "pr_open",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/827 for BACKEND-RUNTIME-02A."
         }
       ]
     },
