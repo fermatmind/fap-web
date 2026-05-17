@@ -1,0 +1,80 @@
+{
+  "version": "saved_careers_boundary_audit.v1",
+  "phase": "5A",
+  "status": "warn",
+  "runtimeExpansionAllowed": false,
+  "profileMemoryExpansionAllowed": false,
+  "generatedAt": "2026-05-17",
+  "auditedSurfaces": [
+    {
+      "surface": "frontend_shortlist_action",
+      "file": "components/career/CareerShortlistAction.tsx",
+      "status": "preference_action_ui",
+      "evidence": [
+        "Uses visitor_key stored in localStorage key fm_career_shortlist_visitor_key.",
+        "Requires analytics consent before saving.",
+        "Calls /api/v0.5/career/shortlist/state and POST /api/v0.5/career/shortlist.",
+        "Emits attribution only after backend write succeeds."
+      ],
+      "boundaryRisk": "medium_due_to_persisted_action_copy"
+    },
+    {
+      "surface": "frontend_shortlist_api_clients",
+      "files": [
+        "lib/career/api/fetchCareerShortlistState.ts",
+        "lib/career/api/submitCareerShortlistAdd.ts"
+      ],
+      "status": "preference_store_client",
+      "evidence": [
+        "Only subject_kind=job_slug is allowed in frontend types.",
+        "Optional context_snapshot_uuid, projection_uuid, and recommendation_snapshot_uuid inputs exist in submit client but current UI does not pass them."
+      ],
+      "boundaryRisk": "medium"
+    },
+    {
+      "surface": "backend_shortlist_controller",
+      "file": "backend/app/Http/Controllers/API/V0_5/Career/CareerShortlistController.php",
+      "status": "strict_public_fields",
+      "evidence": [
+        "Rejects unexpected keys outside visitor_key, subject_kind, subject_slug, source_page_type, locale.",
+        "Validates subject_kind in job_slug and source_page_type in career_job_detail/career_recommendation_detail.",
+        "Returns shortlist_item_uuid and optional context/projection/recommendation snapshot identifiers."
+      ],
+      "boundaryRisk": "medium_snapshot_ids_are_visible"
+    },
+    {
+      "surface": "backend_shortlist_service",
+      "file": "backend/app/Services/Career/CareerShortlistService.php",
+      "status": "preference_store_with_snapshot_links",
+      "evidence": [
+        "Creates CareerShortlistItem keyed by visitor_key, subject_kind, subject_slug, source_page_type.",
+        "Resolves existing public Occupation by canonical_slug.",
+        "Attaches latest RecommendationSnapshot context_snapshot_id, profile_projection_id, and recommendation_snapshot_id when available."
+      ],
+      "boundaryRisk": "high_if_interpreted_as_profile_memory_or_recommendation_evidence"
+    },
+    {
+      "surface": "backend_shortlist_model",
+      "file": "backend/app/Models/CareerShortlistItem.php",
+      "status": "immutable_foundation_model",
+      "evidence": [
+        "Belongs to Occupation, ContextSnapshot, ProfileProjection, and RecommendationSnapshot.",
+        "No UASP profile write API observed in scanned files."
+      ],
+      "boundaryRisk": "medium_lifecycle_and_dsar_need_confirmation"
+    }
+  ],
+  "boundaryAssertions": {
+    "savedCareersAsPreferenceStoreOnly": "warn",
+    "savedCareersAsProfileMemory": "blocked",
+    "savedCareersAsRecommendationEvidence": "blocked",
+    "savedCareersAsPersonalityInference": "blocked",
+    "savedCareersAsLongTermDecisionMemory": "blocked",
+    "sensitiveSignalPersistence": "blocked"
+  },
+  "requiredFixesBeforePhase5B": [
+    "Document why context_snapshot_id/profile_projection_id/recommendation_snapshot_id on CareerShortlistItem do not constitute UASP profile memory.",
+    "Confirm DSAR/deletion lifecycle for CareerShortlistItem before any profile-memory or recommendation use.",
+    "Keep saved careers out of recommendation scoring and personality inference."
+  ]
+}

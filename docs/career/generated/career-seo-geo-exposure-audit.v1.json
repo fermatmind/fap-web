@@ -1,0 +1,85 @@
+{
+  "version": "career_seo_geo_exposure_audit.v1",
+  "phase": "5A",
+  "status": "warn",
+  "runtimeExpansionAllowed": false,
+  "generatedAt": "2026-05-17",
+  "seoGeoExpansionAllowed": false,
+  "auditedSurfaces": [
+    {
+      "surface": "next_sitemap",
+      "file": "next-sitemap.config.js",
+      "status": "backend_gated",
+      "evidence": [
+        "Career job details are parsed with CAREER_JOB_DETAIL_PARTS_RE.",
+        "Career paths are filtered by resolveCareerExplicitGate and shouldIncludeGeneratedSitemapPath.",
+        "Backend sitemap career jobs are preserved only after explicit index eligibility."
+      ],
+      "risk": "medium_if_backend_seo_contract_is_wrong"
+    },
+    {
+      "surface": "llms_txt",
+      "file": "app/llms.txt/route.ts",
+      "status": "career_jobs_limited_recommendations_excluded",
+      "evidence": [
+        "Career job entries are sourced through listBackendSitemapCareerJobPaths.",
+        "LLMS_FINAL_PATH_DENY_PATTERNS exclude /career/recommendations and /career/recommendations/mbti/*."
+      ],
+      "risk": "low_for_recommendation_overexposure"
+    },
+    {
+      "surface": "llms_full_txt",
+      "file": "app/llms-full.txt/route.ts",
+      "status": "career_jobs_limited_recommendations_excluded",
+      "evidence": [
+        "Career job entries are reduced to title/type/updatedAt style entries via buildCareerJobEntry.",
+        "Recommendation routes are denied by LLMS_FINAL_PATH_DENY_PATTERNS."
+      ],
+      "risk": "medium_until_visible_evidence_sample_is_verified"
+    },
+    {
+      "surface": "career_jobs_index_metadata",
+      "file": "app/(localized)/[locale]/career/jobs/page.tsx",
+      "status": "base_indexable_query_noindex",
+      "evidence": "generateMetadata uses canonicalPathname=/career/jobs and sets noindex when q or family query is present.",
+      "risk": "low"
+    },
+    {
+      "surface": "career_resolve_metadata",
+      "file": "app/(localized)/[locale]/career/resolve/page.tsx",
+      "status": "noindex",
+      "evidence": "generateMetadata sets noindex=true for the alias resolve helper.",
+      "risk": "low"
+    },
+    {
+      "surface": "career_recommendations_metadata",
+      "file": "app/(localized)/[locale]/career/recommendations/page.tsx",
+      "status": "public_but_llms_denied",
+      "evidence": "Page metadata is public route metadata, while llms deny patterns exclude recommendation index/detail exposure.",
+      "risk": "medium_soft_claim_surface"
+    },
+    {
+      "surface": "backend_sitemap_source_adapter",
+      "file": "lib/seo/backendSitemapSource.ts",
+      "status": "seo_authority_filtered",
+      "evidence": "Fetches /v0.5/seo/sitemap-source and /v0.5/career-jobs/{slug}/seo; denies noindex, non-indexable, non-included sitemap, and non-allow llms states.",
+      "risk": "low_if_backend_authority_is_complete"
+    }
+  ],
+  "exposureChecks": {
+    "sitemapEligibility": "backend_gated",
+    "robotsIndexingBehavior": "present",
+    "llmsEligibility": "career_jobs_limited_recommendations_excluded",
+    "jsonLdPresence": "present_for_job_and_recommendation_index_surfaces",
+    "faqPresence": "display_surface_dependent",
+    "canonicalConsistency": "requires_live_sampling",
+    "openGraphMetadata": "buildPageMetadata_based",
+    "titleDescriptionQuality": "present_for_scanned_index_helper_pages",
+    "aiCitationSuitability": "not_pass_until_visible_evidence_sampled"
+  },
+  "requiredFixesBeforePhase5B": [
+    "Run sitemap output comparison and sample career job URL set.",
+    "Sample llms and llms-full outputs to verify recommendations remain excluded.",
+    "Sample career job detail pages for visible evidence before marking AI-citation suitability pass."
+  ]
+}

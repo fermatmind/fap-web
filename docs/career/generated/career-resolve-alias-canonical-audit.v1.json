@@ -1,0 +1,89 @@
+{
+  "version": "career_resolve_alias_canonical_audit.v1",
+  "phase": "5A",
+  "status": "warn",
+  "runtimeExpansionAllowed": false,
+  "generatedAt": "2026-05-17",
+  "surfaces": [
+    {
+      "surface": "catch_all_career_alias_page",
+      "frontendRoute": "app/(localized)/[locale]/career/[slug]/page.tsx",
+      "behavior": [
+        "Fetches career job bundle by slug and redirects to /career/jobs/{job.slug} when indexable.",
+        "Redirects career guide slugs to /career/guides/{guide.slug}.",
+        "Redirects dataset family slugs to /career/industries/{familySlug}.",
+        "Otherwise returns 404."
+      ],
+      "canonicalRisk": "low",
+      "aliasLeakageRisk": "low_if_redirects_preserve_canonical_slug"
+    },
+    {
+      "surface": "career_resolve_helper",
+      "frontendRoute": "app/(localized)/[locale]/career/resolve/page.tsx",
+      "backendApi": "/api/v0.5/career/resolve",
+      "backendController": "backend/app/Http/Controllers/API/V0_5/Career/CareerAliasResolutionController.php",
+      "behavior": [
+        "Noindex helper flow.",
+        "Redirects resolved occupation to canonical career job URL.",
+        "Redirects resolved family to canonical family URL.",
+        "Renders ambiguous candidates instead of selecting silently."
+      ],
+      "canonicalRisk": "low",
+      "aliasLeakageRisk": "medium_until_live_alias_sample_is_verified"
+    },
+    {
+      "surface": "backend_alias_resolution_builder",
+      "backendService": "backend/app/Services/Career/Bundles/CareerAliasResolutionBundleBuilder.php",
+      "behavior": [
+        "Matches OccupationAlias, Occupation, OccupationFamily, and RecommendationSnapshot data.",
+        "Filters occupation candidates through publish readiness and index eligibility.",
+        "Returns occupation/family/ambiguous/none resolution types."
+      ],
+      "canonicalRisk": "medium",
+      "aliasLeakageRisk": "medium"
+    },
+    {
+      "surface": "sitemap_career_job_filter",
+      "frontendFile": "lib/seo/backendSitemapSource.ts",
+      "behavior": [
+        "Accepts only https canonical hosts fermatmind.com and www.fermatmind.com.",
+        "Parses localized /career/jobs/{slug} detail paths.",
+        "Filters through career SEO authority before exposing job paths."
+      ],
+      "canonicalRisk": "low",
+      "aliasLeakageRisk": "low"
+    }
+  ],
+  "auditFindings": [
+    {
+      "finding": "duplicateCanonicalUrls",
+      "status": "not_verified_live",
+      "reason": "Static code shows canonical redirection and backend filtering, but live payload canonical samples were not fetched in this artifact generation."
+    },
+    {
+      "finding": "aliasLeakage",
+      "status": "warn",
+      "reason": "Alias helper is noindex and redirect-based; Phase 5B should sample aliases to ensure aliases do not remain indexable final URLs."
+    },
+    {
+      "finding": "unresolvedSlugs",
+      "status": "guarded",
+      "reason": "Catch-all route returns notFound when no job/guide/family match exists."
+    },
+    {
+      "finding": "localeMismatch",
+      "status": "warn",
+      "reason": "CareerJobDetailResource can suppress display_surface_v1 and set noindex when locale is not ready; Phase 5B should sample zh-CN/en-US payloads."
+    },
+    {
+      "finding": "sitemapCanonicalDivergence",
+      "status": "warn",
+      "reason": "Sitemap path extraction and SEO authority filtering exist; live sitemap/canonical pair sampling is still required."
+    }
+  ],
+  "requiredFixesBeforePhase5B": [
+    "Run live or fixture sample of representative alias queries and verify final canonical paths.",
+    "Compare backend sitemap source loc values against frontend canonical metadata for sampled career job details.",
+    "Verify locale-specific canonical URLs do not point to noindex or locale-not-ready surfaces."
+  ]
+}

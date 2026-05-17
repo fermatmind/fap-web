@@ -1,0 +1,90 @@
+{
+  "version": "career_claim_boundary_alignment.v1",
+  "phase": "5A",
+  "status": "warn",
+  "runtimeExpansionAllowed": false,
+  "generatedAt": "2026-05-17",
+  "approvedBoundaries": {
+    "MBTI": "snapshot / next_step_only career direction support, not live personalized recommender",
+    "RIASEC": "candidate_signal, not recommender",
+    "BIG5_OCEAN": "explanation_only, not recommender",
+    "careerFit": "exploration signal, not employment, placement, or success guarantee",
+    "careerGraph": "evidence substrate, not full semantic graph runtime"
+  },
+  "scanEvidence": [
+    {
+      "surface": "career_recommendation_index",
+      "file": "app/(localized)/[locale]/career/recommendations/page.tsx",
+      "observedClaimSummary": "Career recommendations narrow the field; they do not decide for the user.",
+      "status": "aligned",
+      "risk": "soft_recommendation_language_still_requires_guard"
+    },
+    {
+      "surface": "career_job_display_surface",
+      "file": "components/career/display/CareerDisplaySurface.tsx",
+      "observedClaimSummary": "Claim permissions can hide strong fit language, salary comparison, market signal interpretation, and AI strategy language.",
+      "status": "aligned",
+      "risk": "medium_if_claim_permissions_are_missing_from_backend_payload"
+    },
+    {
+      "surface": "career_job_evidence_container",
+      "file": "components/career/display/EvidenceContainer.tsx",
+      "observedClaimSummary": "Evidence sections are explicitly marked as career_backend_bundle evidence facts.",
+      "status": "aligned",
+      "risk": "low"
+    },
+    {
+      "surface": "career_recommendation_detail_backend",
+      "file": "backend/app/Services/Career/Bundles/CareerRecommendationDetailBundleBuilder.php",
+      "observedClaimSummary": "Recommendation detail bundles expose supportingTruthSummary, scoreBundle, whiteBoxScores, warnings, claimPermissions, trustManifest, and matchedJobs.",
+      "status": "needs_live_sample",
+      "risk": "high_if_snapshot_support_is_interpreted_as_live_personalized_recommender"
+    },
+    {
+      "surface": "career_shortlist",
+      "file": "components/career/CareerShortlistAction.tsx",
+      "observedClaimSummary": "UI says Shortlist is a persisted action and emits attribution after backend write succeeds.",
+      "status": "boundary_warning",
+      "risk": "must_remain_preference_store_not_profile_memory_or_recommendation_evidence"
+    }
+  ],
+  "forbiddenClaimChecks": [
+    {
+      "claim": "RIASEC precise best-career recommendation",
+      "status": "not_observed_in_scanned_career_surfaces",
+      "guard": "docs/claims/generated/riasec-bigfive-boundary-guards.v1.json"
+    },
+    {
+      "claim": "Big Five precise career matching",
+      "status": "not_observed_as_runtime_recommender",
+      "guard": "docs/claims/generated/riasec-bigfive-boundary-guards.v1.json"
+    },
+    {
+      "claim": "snapshot recommendation equals live personalized recommender",
+      "status": "guard_required",
+      "guard": "docs/claims/generated/mbti-recommendation-copy-boundary.v1.json"
+    },
+    {
+      "claim": "career fit score guarantees employment or success",
+      "status": "guarded_by_claim_permissions",
+      "guard": "docs/claims/generated/career-fit-graph-ai-claim-guards.v1.json"
+    },
+    {
+      "claim": "AI career planning capability",
+      "status": "not_allowed",
+      "guard": "docs/claims/generated/career-fit-graph-ai-claim-guards.v1.json"
+    }
+  ],
+  "deterministicCareerFitLanguage": {
+    "status": "warn",
+    "notes": [
+      "Career pages include bounded recommendation language, but live payload sampling is required before Phase 5B can mark pass.",
+      "CareerDisplaySurface has code-level guards for strong fit, salary, market, and AI claims."
+    ]
+  },
+  "requiredFixesBeforePhase5B": [
+    "Sample live recommendation detail pages for forbidden phrases and JSON-LD/meta claim drift.",
+    "Assert claimPermissions are present for career job display surfaces before strong fit or salary sections render.",
+    "Keep RIASEC and Big Five out of recommender positioning."
+  ]
+}
