@@ -77,7 +77,7 @@ describe("content release revalidate allowlist", () => {
   it("rejects api, private, take-flow, traversal, and external paths", () => {
     const decisions = collectPathDecisions(
       {
-        content: { type: "article", locale: "en" },
+        content: { type: "content_page", locale: "en" },
         cache_signal: {
           paths: [
             "/api/content-release/revalidate",
@@ -132,10 +132,75 @@ describe("content release revalidate allowlist", () => {
     const payload = await response.json();
 
     expect(response.status).toBe(200);
-    expect(payload.revalidated_paths).toEqual(["/zh/articles/how-personality-shapes-attitude-toward-ai"]);
+    expect(payload.revalidated_paths).toEqual([
+      "/zh/articles/how-personality-shapes-attitude-toward-ai",
+      "/zh/articles",
+      "/en/articles",
+    ]);
     expect(payload.rejected_paths).toEqual([{ path: "/api/private", reason: "private_or_api_path" }]);
-    expect(mocks.revalidatePath).toHaveBeenCalledTimes(1);
+    expect(mocks.revalidatePath).toHaveBeenCalledTimes(3);
     expect(mocks.revalidatePath).toHaveBeenCalledWith("/zh/articles/how-personality-shapes-attitude-toward-ai");
+    expect(mocks.revalidatePath).toHaveBeenCalledWith("/zh/articles");
+    expect(mocks.revalidatePath).toHaveBeenCalledWith("/en/articles");
+  });
+
+  it("derives article list and detail paths from article release metadata", async () => {
+    process.env.CONTENT_RELEASE_REVALIDATE_TOKEN = "release-token";
+
+    const request = new NextRequest("https://www.fermatmind.com/api/content-release/revalidate", {
+      method: "POST",
+      headers: {
+        "x-fm-content-release-token": "release-token",
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        content: {
+          type: "article",
+          slug: "big-five-personality-test-vs-mbti",
+          locale: "zh-CN",
+        },
+      }),
+    });
+
+    const response = await POST(request);
+    const payload = await response.json();
+
+    expect(response.status).toBe(200);
+    expect(payload.revalidated_paths).toEqual([
+      "/zh/articles",
+      "/en/articles",
+      "/zh/articles/big-five-personality-test-vs-mbti",
+      "/en/articles/big-five-personality-test-vs-mbti",
+    ]);
+    expect(mocks.revalidatePath).toHaveBeenCalledTimes(4);
+    expect(mocks.revalidatePath).toHaveBeenNthCalledWith(1, "/zh/articles");
+    expect(mocks.revalidatePath).toHaveBeenNthCalledWith(2, "/en/articles");
+    expect(mocks.revalidatePath).toHaveBeenNthCalledWith(3, "/zh/articles/big-five-personality-test-vs-mbti");
+    expect(mocks.revalidatePath).toHaveBeenNthCalledWith(4, "/en/articles/big-five-personality-test-vs-mbti");
+  });
+
+  it("accepts apex and www article URLs for the same public frontend surface", () => {
+    const decisions = collectPathDecisions(
+      {
+        content: { type: "article", locale: "en" },
+        cache_signal: {
+          urls: [
+            "https://fermatmind.com/zh/articles/big-five-personality-test-vs-mbti",
+            "https://www.fermatmind.com/en/articles/big-five-personality-test-vs-mbti",
+            "https://evil.example/en/articles/big-five-personality-test-vs-mbti",
+          ],
+        },
+      },
+      "https://www.fermatmind.com"
+    );
+
+    expect(decisions.accepted).toEqual([
+      "/zh/articles/big-five-personality-test-vs-mbti",
+      "/en/articles/big-five-personality-test-vs-mbti",
+      "/zh/articles",
+      "/en/articles",
+    ]);
+    expect(decisions.rejected).toEqual([{ path: "", reason: "malformed_or_external_url" }]);
   });
 
   it("requires the shared content release token", async () => {
