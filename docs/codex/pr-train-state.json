@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-17T10:14:26+08:00",
+  "updated_at": "2026-05-17T11:04:50+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -4779,7 +4779,7 @@
       "depends_on": [
         "BACKEND-RUNTIME-02C"
       ],
-      "status": "pr_open",
+      "status": "merged",
       "title": "docs(architecture): add gateway evidence completion report",
       "mode": "execute",
       "risk_level": "L2",
@@ -4854,9 +4854,9 @@
       ],
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/830",
-      "commit_sha": "628c5fce2e05386d5a51e38085e92cde8dd8ca86",
-      "merged_at": null,
-      "remote_branch_deleted": false,
+      "commit_sha": "f80f049a885d26c000e952f2c686f31ab4ab96cd",
+      "merged_at": "2026-05-17T02:16:40Z",
+      "remote_branch_deleted": true,
       "local_cleanup_executed": false,
       "sidecar_issues": [],
       "history": [
@@ -4879,6 +4879,11 @@
           "at": "2026-05-17T10:14:26+08:00",
           "status": "pr_open",
           "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/830 for BACKEND-RUNTIME-02D."
+        },
+        {
+          "at": "2026-05-17T20:00:00+08:00",
+          "status": "merged",
+          "summary": "Reconciled BACKEND-RUNTIME-02D ledger state after GitHub PR #830 was already merged into origin/main; included as bookkeeping to unblock SEO-DASH-00B."
         }
       ]
     },
@@ -5299,6 +5304,103 @@
           "at": "2026-05-16T16:02:24+08:00",
           "status": "pr_open",
           "summary": "Created GitHub PR #825 after local checks and scope validation passed."
+        }
+      ]
+    },
+    {
+      "id": "SEO-DASH-00B",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/seo-dash-00b-search-intelligence-data-contract",
+      "base": "main",
+      "depends_on": [
+        "BACKEND-RUNTIME-02D"
+      ],
+      "status": "pr_open",
+      "train_scope": "search_intelligence_data_contract",
+      "risk_level": "L2",
+      "title": "docs(architecture): add search intelligence data contract",
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly provided SEO-DASH-00B id, title, repository, allowed files, forbidden files, validation commands, commit title, and authorized PR train metadata updates by listing docs/codex/pr-train.yaml and docs/codex/pr-train-state.json as allowed files."
+        },
+        "dependency": {
+          "status": "pass",
+          "evidence": "BACKEND-RUNTIME-02D is merged as fap-web#830 with merge commit f80f049a885d26c000e952f2c686f31ab4ab96cd and accepted public API authority for SEO-DASH design work."
+        },
+        "branch_preflight": {
+          "status": "pass",
+          "evidence": "Created codex/seo-dash-00b-search-intelligence-data-contract from latest main after git pull --ff-only origin main reported already up to date."
+        },
+        "targeted_contract": {
+          "status": "pass",
+          "evidence": "pnpm exec vitest run tests/contracts/search-intelligence-data-contract.contract.test.ts passed: 13 tests."
+        },
+        "boundary_regression_contract": {
+          "status": "pass",
+          "evidence": "pnpm exec vitest run tests/contracts/search-intelligence-data-contract.contract.test.ts tests/contracts/riasec-bigfive-boundary-guards.contract.test.ts passed after avoiding exact forbidden claim phrases: 19 tests."
+        },
+        "test_contract": {
+          "status": "pass",
+          "evidence": "pnpm test:contract passed: 372 files, 2127 tests."
+        },
+        "seo_check_sitemap": {
+          "status": "pass",
+          "evidence": "pnpm seo:check-sitemap passed with 261 urls."
+        },
+        "seo_check_mobile": {
+          "status": "pass",
+          "evidence": "pnpm seo:check-mobile passed; routeSamples=8, privateFlowDenySamples=7, runtimeFetches=0, runtimeBehaviorChanged=false, urlSetChanged=false, sitemapChanged=false, llmsChanged=false."
+        },
+        "diff_check": {
+          "status": "pass",
+          "evidence": "git diff --check passed."
+        },
+        "cached_diff_check": {
+          "status": "pass",
+          "evidence": "git diff --cached --check passed before staging."
+        },
+        "scope_validation": {
+          "status": "pass",
+          "evidence": "Changed files are limited to docs/seo/search-intelligence-data-contract.md, docs/seo/generated/search-intelligence-data-contract.v1.json, tests/contracts/search-intelligence-data-contract.contract.test.ts, docs/codex/pr-train.yaml, and docs/codex/pr-train-state.json."
+        },
+        "commit_created": {
+          "status": "pass",
+          "evidence": "Created local commit 7e469fa7e4b13817a8bea9dff3e412d16a1f6488 with message docs(architecture): add search intelligence data contract."
+        },
+        "pr_created": {
+          "status": "pass",
+          "evidence": "Opened GitHub PR #831 for codex/seo-dash-00b-search-intelligence-data-contract."
+        }
+      },
+      "failure_reason": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/831",
+      "commit_sha": "2033e2d1889c6336bde0b3c7c6aaa8a7ec6b6868",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [],
+      "history": [
+        {
+          "at": "2026-05-17T20:00:00+08:00",
+          "status": "in_progress",
+          "summary": "Initialized SEO-DASH-00B to add the Search Intelligence data contract, generated artifact, scoped contract test, and PR train metadata without runtime, backend, tracking, sitemap/llms, payment, report, email, recommendation, scoring, env, deploy, SSH, cloud, or production changes."
+        },
+        {
+          "at": "2026-05-17T11:02:37+08:00",
+          "status": "local_checks_passed",
+          "summary": "Implemented SEO-DASH-00B docs/generated/test contract and PR train metadata; targeted contract, full contract suite, sitemap check, mobile SEO check, diff checks, and scope validation passed."
+        },
+        {
+          "at": "2026-05-17T11:03:20+08:00",
+          "status": "local_checks_passed",
+          "summary": "Recorded local commit 7e469fa7e4b13817a8bea9dff3e412d16a1f6488 for SEO-DASH-00B before push."
+        },
+        {
+          "at": "2026-05-17T11:04:50+08:00",
+          "status": "pr_open",
+          "summary": "Created GitHub PR #831 after local checks and scope validation passed."
         }
       ]
     }
