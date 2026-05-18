@@ -5732,7 +5732,7 @@
       "depends_on": [
         "RIASEC-FULL-CONTENT-PACK-02A"
       ],
-      "status": "local_checks_passed",
+      "status": "pr_open",
       "train_scope": "riasec_full_deep_content_pack",
       "risk_level": "L1",
       "title": "feat(riasec): allow backend medium score reading slots",
@@ -5771,8 +5771,8 @@
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": "6557c279",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/840",
+      "commit_sha": "25ea4c5d",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -5804,6 +5804,11 @@
           "at": "2026-05-18T23:12:12+08:00",
           "status": "local_checks_passed",
           "summary": "Reran the focused MBTI failure, the full MBTI file, and pnpm test:contract. All passed, so the earlier MBTI failure is recorded as transient and PR02B can proceed."
+        },
+        {
+          "at": "2026-05-18T23:15:27+08:00",
+          "status": "pr_open",
+          "summary": "Opened https://github.com/fermatmind/fap-web/pull/840 after local checks and scope validation passed."
         }
       ]
     },
