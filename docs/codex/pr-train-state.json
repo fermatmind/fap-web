@@ -5659,7 +5659,7 @@
       "depends_on": [
         "RIASEC-FULL-CONTENT-PACK-00"
       ],
-      "status": "local_checks_passed",
+      "status": "pr_open",
       "train_scope": "riasec_full_deep_content_pack_governance",
       "risk_level": "L1",
       "title": "docs(riasec): add full content asset inventory and review gate",
@@ -5690,7 +5690,7 @@
         }
       },
       "failure_reason": null,
-      "pr_url": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/838",
       "commit_sha": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -5711,6 +5711,11 @@
           "at": "2026-05-18T00:00:00+08:00",
           "status": "local_checks_passed",
           "summary": "Manifest/state validation, git diff --check, and scope validation passed for docs-only asset inventory and review gate."
+        },
+        {
+          "at": "2026-05-18T00:00:00+08:00",
+          "status": "pr_open",
+          "summary": "Created GitHub PR #838 for RIASEC-FULL-CONTENT-PACK-01."
         }
       ]
     }
