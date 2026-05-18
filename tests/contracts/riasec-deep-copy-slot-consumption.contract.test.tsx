@@ -83,9 +83,10 @@ describe("RIASEC deep copy slot consumption", () => {
       "aspirations_calibration_copy:intro",
     ]);
     expect(viewModel.deepContentSlots?.slots.every((slot) => slot.frontendFallbackAllowed === false)).toBe(true);
+    expect(viewModel.deepContentSlots?.slots[0]?.content.medium_score_reading).toBe("Backend fixture I medium score reading.");
   });
 
-  it("renders only backend-provided authored slot content", () => {
+  it("renders medium_score_reading only when backend provides it", () => {
     const viewModel = assembleRiasecResultViewModel(buildReport(readProjection()));
 
     render(<RiasecResultShell locale="zh" viewModel={viewModel} attemptId="attempt_riasec_deep_copy" />);
@@ -94,11 +95,22 @@ describe("RIASEC deep copy slot consumption", () => {
     expect(screen.getAllByTestId("riasec-deep-content-slot")).toHaveLength(5);
     expect(screen.getByText("Backend fixture I dimension title")).toBeInTheDocument();
     expect(screen.getByText("Backend fixture I core drive.")).toBeInTheDocument();
+    expect(screen.getByText("Backend fixture I medium score reading.")).toBeInTheDocument();
     expect(screen.getByText("Backend fixture I_A blend title")).toBeInTheDocument();
     expect(screen.getByText("Backend fixture pair chemistry.")).toBeInTheDocument();
     expect(screen.getByText("Backend fixture 140Q task card")).toBeInTheDocument();
     expect(screen.getByText("Backend fixture structure title")).toBeInTheDocument();
     expect(screen.getByText("Backend fixture aspirations title")).toBeInTheDocument();
+
+    const projectionWithoutMedium = clone(readProjection());
+    const firstSlot = ((projectionWithoutMedium.deep_content_slots_v1 as Record<string, unknown>).slots as Array<Record<string, unknown>>)[0];
+    delete (firstSlot.content as Record<string, unknown>).medium_score_reading;
+    const viewModelWithoutMedium = assembleRiasecResultViewModel(buildReport(projectionWithoutMedium));
+
+    render(<RiasecResultShell locale="zh" viewModel={viewModelWithoutMedium} attemptId="attempt_riasec_deep_copy_missing_medium" />);
+
+    expect(screen.getAllByTestId("riasec-deep-content-slots")).toHaveLength(2);
+    expect(screen.queryAllByText("Backend fixture I medium score reading.")).toHaveLength(1);
   });
 
   it("fails closed for unknown, missing, pending, unavailable, or fallback-enabled slots", () => {
@@ -131,6 +143,11 @@ describe("RIASEC deep copy slot consumption", () => {
         slot_id: "dimension_deep_copy:E",
         frontend_fallback_allowed: true,
         content: { title: "Fallback enabled slot should not render" },
+      },
+      {
+        ...clone(slots[0]),
+        slot_id: "dimension_deep_copy:C",
+        content: { title: "Known content renders", future_unknown_field: "Unknown backend field should not render" },
       }
     );
 
@@ -142,7 +159,9 @@ describe("RIASEC deep copy slot consumption", () => {
       "140q_task_card_copy:task_activity_card",
       "structural_difference_copy:different_emphasis",
       "aspirations_calibration_copy:intro",
+      "dimension_deep_copy:C",
     ]);
+    expect(viewModel.deepContentSlots?.slots.at(-1)?.content).toEqual({ title: "Known content renders" });
 
     render(<RiasecResultShell locale="zh" viewModel={viewModel} />);
 
@@ -150,6 +169,7 @@ describe("RIASEC deep copy slot consumption", () => {
     expect(screen.queryByText("Pending backend slot should not render")).not.toBeInTheDocument();
     expect(screen.queryByText("Unavailable backend slot should not render")).not.toBeInTheDocument();
     expect(screen.queryByText("Fallback enabled slot should not render")).not.toBeInTheDocument();
+    expect(screen.queryByText("Unknown backend field should not render")).not.toBeInTheDocument();
   });
 
   it("omits deep content rendering when backend envelope is absent or fallback is allowed", () => {

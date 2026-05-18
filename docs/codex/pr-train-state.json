@@ -5724,6 +5724,79 @@
       ]
     },
     {
+      "id": "RIASEC-FULL-CONTENT-PACK-02B",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/riasec-full-content-pack-02b-medium-reading",
+      "base": "main",
+      "depends_on": [
+        "RIASEC-FULL-CONTENT-PACK-02A"
+      ],
+      "status": "in_progress",
+      "train_scope": "riasec_full_deep_content_pack",
+      "risk_level": "L1",
+      "title": "feat(riasec): allow backend medium score reading slots",
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized adding RIASEC-FULL-CONTENT-PACK-02B to fap-web docs/codex/pr-train.yaml and docs/codex/pr-train-state.json, then executing PR02B."
+        },
+        "dependency": {
+          "status": "pass",
+          "evidence": "RIASEC-FULL-CONTENT-PACK-02A merged in fap-api PR #1465 with merge commit 1335414931681127f48e5e1897f3df8f0a673777."
+        },
+        "branch_preflight": {
+          "status": "pass",
+          "evidence": "Created codex/riasec-full-content-pack-02b-medium-reading from fap-web main at ac40c1efcf9f3d8ace38b6d362c8caa569ed9145 after confirming main == origin/main. Unrelated .playwright-mcp/ remains untracked and outside scope."
+        },
+        "local_checks": {
+          "status": "pending",
+          "commands": [
+            "pnpm exec vitest run tests/contracts/riasec-deep-copy-slot-consumption.contract.test.tsx",
+            "pnpm typecheck",
+            "pnpm test:contract",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+            "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"'",
+            "git diff --check",
+            "git diff --cached --check"
+          ]
+        },
+        "scope_validation": {
+          "status": "pending",
+          "evidence": "Expected changed files are limited to RIASEC result assembler allowlist, RIASEC deep-copy fixture/test, and docs/codex train metadata."
+        },
+        "github_required_checks": {
+          "status": "pending"
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [
+        {
+          "title": "Untracked local .playwright-mcp directory outside PR02B scope",
+          "severity": "P2",
+          "scope_impact": "The untracked .playwright-mcp/ directory exists in the fap-web working tree but is outside the declared PR02B scope and will not be staged.",
+          "introduced_by_current_pr": false,
+          "recommended_future_phase": "Clean or ignore local Playwright MCP artifacts separately.",
+          "blocks_merge": false,
+          "evidence": [
+            "git status --short before branch creation showed ?? .playwright-mcp/"
+          ]
+        }
+      ],
+      "history": [
+        {
+          "at": "2026-05-18T14:30:00+08:00",
+          "status": "in_progress",
+          "summary": "Started RIASEC-FULL-CONTENT-PACK-02B to add frontend allowlist support for backend-provided medium_score_reading. Scope excludes fap-api, scoring, content packs, local interpretation fallback copy, UI redesign, career matching, feedback runtime, analytics runtime, and AI report generation."
+        }
+      ]
+    },
+    {
       "id": "CAREER-PHASE-5B-FU2-POLICY-PACK",
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",

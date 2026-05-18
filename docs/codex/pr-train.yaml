@@ -3999,6 +3999,51 @@ prs:
     next_task: RIASEC-FULL-CONTENT-PACK-02
     rollback_note: "Remove the inventory and review-gate docs plus current ledger updates; runtime remains unchanged."
 
+  - id: RIASEC-FULL-CONTENT-PACK-02B
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/riasec-full-content-pack-02b-medium-reading
+    base: main
+    depends_on:
+      - RIASEC-FULL-CONTENT-PACK-02A
+    mode: execute
+    train_scope: riasec_full_deep_content_pack
+    risk_level: L1
+    status: planned
+    title: "feat(riasec): allow backend medium score reading slots"
+    goal: "Allow the generic RIASEC backend slot renderer to consume backend-provided medium_score_reading from deep_content_slots_v1 without adding frontend interpretation copy or fallback."
+    in_scope:
+      - lib/riasec/resultAssembler.ts
+      - tests/contracts/fixtures/riasec/deep-copy-v1.projection.json
+      - tests/contracts/riasec-deep-copy-slot-consumption.contract.test.tsx
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - fap-api repository changes
+      - RIASEC scorer math, Holland Code generation, or question/content pack semantics
+      - frontend local interpretation fallback copy
+      - pair blend, 140Q narrative, career matching, occupation ranking, job-fit, success prediction, or hiring suitability logic
+      - UI redesign, analytics runtime, feedback runtime, share/PDF/history backend behavior, or AI report generation
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/riasec-deep-copy-slot-consumption.contract.test.tsx
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - medium_score_reading is parsed and rendered only when present in backend deep_content_slots_v1.
+      - Missing medium_score_reading omits safely.
+      - Unknown fields, pending/unavailable slots, and frontend-fallback-enabled slots continue to fail closed.
+      - No frontend local interpretation copy or fallback content is added.
+      - Existing RIASEC contracts and shared flagship contract checks pass.
+    rollback_note: "Remove medium_score_reading from the RIASEC deep content allowlist and revert the focused fixture/test additions."
+
   - id: CAREER-PHASE-5B-FU2-POLICY-PACK
     repo: fap-web
     repo_path: /Users/rainie/Desktop/GitHub/fap-web
