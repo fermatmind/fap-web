@@ -3914,3 +3914,87 @@ prs:
       - Apex/www article list behavior is accounted for without widening private/API path allowlists.
       - CMS media changes cannot leave article cards stuck on stale HTML after content release.
     rollback_note: "Remove content release proxy cache purge/prewarm additions and focused content-release tests."
+
+  - id: RIASEC-FULL-CONTENT-PACK-00
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/riasec-full-content-pack-00
+    base: main
+    depends_on: []
+    mode: scan/docs
+    train_scope: riasec_full_deep_content_pack_governance
+    risk_level: L1
+    status: planned
+    title: "docs(riasec): register full deep content pack train"
+    goal: "Register the RIASEC Full Deep Content Pack governance train and preserve the scan ledger without changing runtime, UI, scoring, content packs, or frontend copy authority."
+    in_scope:
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - docs/codex/riasec-full-content-pack-00-scan-ledger.md
+    out_of_scope:
+      - fap-api repository changes
+      - RIASEC scorer math or Holland Code generation
+      - RIASEC content pack question semantics
+      - frontend result shell rendering
+      - frontend local interpretation fallback copy
+      - career registry matching or source rows
+      - share, PDF, history, feedback, analytics, or production runtime behavior
+    required_local_checks:
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - RIASEC-FULL-CONTENT-PACK-00 and RIASEC-FULL-CONTENT-PACK-01 are registered in the fap-web train manifest/state ledger.
+      - The scan ledger records the runtime/content readiness boundary and proposed future train without making future PRs executable.
+      - No runtime, UI, scoring, content-pack, career registry, feedback, share, PDF, history, or analytics files are changed.
+      - Big Five parity is not claimed.
+    next_task: RIASEC-FULL-CONTENT-PACK-01
+    rollback_note: "Remove the RIASEC-FULL-CONTENT-PACK-00/01 manifest and state entries plus the scan ledger document."
+
+  - id: RIASEC-FULL-CONTENT-PACK-01
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/riasec-full-content-pack-01
+    base: main
+    depends_on:
+      - RIASEC-FULL-CONTENT-PACK-00
+    mode: execute/docs
+    train_scope: riasec_full_deep_content_pack_governance
+    risk_level: L1
+    status: planned
+    title: "docs(riasec): add full content asset inventory and review gate"
+    goal: "Create the RIASEC full deep content asset inventory, review gate, and content intake rules before any final editorial copy becomes runtime authority."
+    in_scope:
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - docs/codex/riasec-full-content-pack-asset-inventory.md
+      - docs/codex/riasec-full-content-pack-review-gate.md
+    out_of_scope:
+      - fap-api repository changes
+      - final public editorial copy import
+      - RIASEC scorer math or Holland Code generation
+      - RIASEC content pack question semantics
+      - frontend result shell rendering
+      - frontend local interpretation fallback copy
+      - career registry matching or source rows
+      - share, PDF, history, feedback, analytics, or production runtime behavior
+    required_local_checks:
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - The inventory lists every planned RIASEC full deep content asset group with status, owner, review requirement, runtime destination, blocker, and no-go claims.
+      - The review gate prevents any content slot from becoming runtime authority without backend/CMS ownership, review status, source status, evidence level, forbidden-claim scan, and fail-closed behavior.
+      - No final editorial copy is imported.
+      - No frontend fallback copy is introduced.
+      - Big Five parity is not claimed.
+    next_task: RIASEC-FULL-CONTENT-PACK-02
+    rollback_note: "Remove the inventory and review-gate docs plus current ledger updates; runtime remains unchanged."
