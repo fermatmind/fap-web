@@ -1,0 +1,141 @@
+{
+  "version": "career_asset_count_reconciliation_final.v1",
+  "phase": "5B-FU2",
+  "generatedAt": "2026-05-17T12:44:43.157Z",
+  "assetCountReconciled": false,
+  "status": "incomplete",
+  "backendChangeStatus": "blocked_by_existing_dirty_branch",
+  "sourceArtifacts": [
+    "docs/career/generated/career-public-authority-inventory.v1.json",
+    "docs/career/generated/career-route-trust-matrix.v1.json",
+    "docs/career/generated/career-claim-boundary-alignment.v1.json",
+    "docs/career/generated/career-resolve-alias-canonical-audit.v1.json",
+    "docs/career/generated/career-seo-geo-exposure-audit.v1.json",
+    "docs/career/generated/saved-careers-boundary-audit.v1.json",
+    "docs/career/generated/phase-5a-career-public-trust-readiness.v1.json",
+    "docs/career/generated/career-asset-count-reconciliation.v1.json",
+    "docs/career/generated/career-live-parity-sampling.v1.json",
+    "docs/career/generated/career-api-web-contract-drift.v1.json",
+    "docs/career/generated/career-jsonld-canonical-parity.v1.json",
+    "docs/career/generated/career-claim-hardening-patch-plan.v1.json",
+    "docs/career/generated/saved-careers-boundary-verification.v1.json",
+    "docs/career/generated/phase-5b-career-public-trust-hardening.v1.json"
+  ],
+  "missingArtifacts": [
+    "docs/career/generated/career-backend-asset-taxonomy-readiness.v1.json",
+    "docs/career/generated/career-alias-resolve-policy-gap.v1.json",
+    "docs/career/generated/career-jsonld-policy-gap.v1.json",
+    "docs/career/generated/career-live-parity-expanded-sampling.v1.json",
+    "docs/career/generated/career-human-policy-decisions-needed.v1.json",
+    "docs/career/generated/phase-5b-fu1-career-taxonomy-policy-readiness.v1.json"
+  ],
+  "counts": {
+    "declaredFullPublicResolutionAssets": 1122,
+    "liveSitemapTotalUrls": 519,
+    "liveCareerUrls": 372,
+    "liveCareerJobDetailUrls": 341,
+    "backendSitemapSourceTotalItems": 2192,
+    "backendSitemapSourceCareerItems": 1952,
+    "backendSitemapSourceCareerJobItems": 1927,
+    "liveCareerRecommendationPages": 2,
+    "liveCareerGuidePages": 20,
+    "llmsCareerUrls": 5,
+    "llmsCareerJobUrls": 0,
+    "frontendStaticOnlyAssets": 342
+  },
+  "phase5BBaseline": {
+    "declaredFullPublicResolutionAssets": 1122,
+    "liveSitemapTotalUrls": 519,
+    "liveCareerUrlsRange": [
+      367,
+      372
+    ],
+    "liveCareerJobDetailUrls": 341,
+    "backendSitemapSourceTotalItems": 2192,
+    "backendSitemapSourceCareerItemsRange": [
+      1950,
+      1952
+    ]
+  },
+  "classified": {
+    "canonicalCareerJobPages": 341,
+    "aliasOnlyAssets": null,
+    "localeVariants": {
+      "zhCareerJobPages": 341,
+      "enCareerJobPages": 0,
+      "exactCount": null
+    },
+    "careerRecommendationPages": 2,
+    "careerTopicPages": null,
+    "apiOnlyAssets": 1580,
+    "cmsOnlyAssets": null,
+    "frontendStaticOnlyAssets": 342,
+    "noindexAssets": null,
+    "sitemapEligibleAssets": 372,
+    "llmsEligibleAssets": 5,
+    "structuredDataEligibleAssets": 2,
+    "unresolvedDelta": {
+      "declaredMinusLiveSitemap": 603,
+      "declaredMinusLiveCareerUrls": 750,
+      "backendCareerMinusLiveCareerUrls": 1580,
+      "backendCareerJobMinusLiveCareerJobUrls": 1586
+    }
+  },
+  "explanation": "The current fap-web-only export can reconcile live sitemap URLs and live backend sitemap-source URLs, but it cannot reconcile the declared 1122 Full Public Resolution assets because the backend asset taxonomy/alias/noindex/export fields are unavailable while fap-api remains on a non-main branch and was not modified.",
+  "unresolvedReasons": [
+    "1122 declared assets are a product/backend release metric, not directly encoded in live sitemap XML.",
+    "backend sitemap-source lists URL candidates but does not expose alias-only, CMS-only, noindex reason, or display asset taxonomy buckets.",
+    "live sitemap only exposes indexable URL surfaces after frontend sitemap filtering.",
+    "llms/llms-full are discoverability surfaces and intentionally exclude career job detail URLs in current live samples."
+  ],
+  "requiredBackendExportFields": [
+    "Add or run read-only backend export for career asset master taxonomy without mutating production data.",
+    "Export asset_id, asset_kind, canonical_slug, alias, locale, index_state, sitemap_eligible, llms_eligible, structured_data_keys, noindex_reason, and claim boundary status.",
+    "Export alias rows from OccupationAlias and target canonical slugs.",
+    "Export display asset structured_data_json and seo surface keys by canonical_slug/locale."
+  ],
+  "runtimeExpansionAllowed": false,
+  "evidence": {
+    "fapWebBranch": "codex/phase-5b-fu2-career-taxonomy-policy-pack",
+    "fapWebHead": "99b5a397f98c407929629dbdc144299f045d2d26",
+    "fapApiBranch": "main",
+    "fapApiHead": "f715949676f4ede0eaa9f9e51d570dd162476180",
+    "backendChangeStatus": "blocked_by_existing_dirty_branch",
+    "existingInputs": [
+      "docs/career/generated/career-public-authority-inventory.v1.json",
+      "docs/career/generated/career-route-trust-matrix.v1.json",
+      "docs/career/generated/career-claim-boundary-alignment.v1.json",
+      "docs/career/generated/career-resolve-alias-canonical-audit.v1.json",
+      "docs/career/generated/career-seo-geo-exposure-audit.v1.json",
+      "docs/career/generated/saved-careers-boundary-audit.v1.json",
+      "docs/career/generated/phase-5a-career-public-trust-readiness.v1.json",
+      "docs/career/generated/career-asset-count-reconciliation.v1.json",
+      "docs/career/generated/career-live-parity-sampling.v1.json",
+      "docs/career/generated/career-api-web-contract-drift.v1.json",
+      "docs/career/generated/career-jsonld-canonical-parity.v1.json",
+      "docs/career/generated/career-claim-hardening-patch-plan.v1.json",
+      "docs/career/generated/saved-careers-boundary-verification.v1.json",
+      "docs/career/generated/phase-5b-career-public-trust-hardening.v1.json"
+    ],
+    "missingInputs": [
+      "docs/career/generated/career-backend-asset-taxonomy-readiness.v1.json",
+      "docs/career/generated/career-alias-resolve-policy-gap.v1.json",
+      "docs/career/generated/career-jsonld-policy-gap.v1.json",
+      "docs/career/generated/career-live-parity-expanded-sampling.v1.json",
+      "docs/career/generated/career-human-policy-decisions-needed.v1.json",
+      "docs/career/generated/phase-5b-fu1-career-taxonomy-policy-readiness.v1.json"
+    ],
+    "liveSources": {
+      "sitemap": "https://fermatmind.com/sitemap.xml",
+      "backendSitemapSource": "https://api.fermatmind.com/api/v0.5/seo/sitemap-source",
+      "llms": "https://fermatmind.com/llms.txt",
+      "llmsFull": "https://fermatmind.com/llms-full.txt"
+    },
+    "sourceReferences": [
+      "app/(localized)/[locale]/career/jobs/[slug]/page.tsx:121-130 gates Occupation JSON-LD on backend structuredDataKeys when seoSurface exists.",
+      "lib/career/adapters/adaptCareerJobBundle.ts:451-459 accepts SEO authority Occupation JSON-LD only when structuredDataKeys includes Occupation.",
+      "backend/routes/api.php:468-486 exposes read-only career resolve/job/recommendation and shortlist routes.",
+      "backend/database/migrations/2026_04_16_160000_create_career_shortlist_items_table.php:23-26 contains optional snapshot/projection provenance IDs."
+    ]
+  }
+}

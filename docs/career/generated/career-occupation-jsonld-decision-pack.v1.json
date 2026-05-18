@@ -1,0 +1,645 @@
+{
+  "version": "career_occupation_jsonld_decision_pack.v1",
+  "phase": "5B-FU2",
+  "generatedAt": "2026-05-17T12:44:43.157Z",
+  "jsonLdPolicyReady": false,
+  "backendChangeStatus": "blocked_by_existing_dirty_branch",
+  "policyStatus": "proposed_requires_seo_backend_approval",
+  "sourceArtifacts": [
+    "docs/career/generated/career-public-authority-inventory.v1.json",
+    "docs/career/generated/career-route-trust-matrix.v1.json",
+    "docs/career/generated/career-claim-boundary-alignment.v1.json",
+    "docs/career/generated/career-resolve-alias-canonical-audit.v1.json",
+    "docs/career/generated/career-seo-geo-exposure-audit.v1.json",
+    "docs/career/generated/saved-careers-boundary-audit.v1.json",
+    "docs/career/generated/phase-5a-career-public-trust-readiness.v1.json",
+    "docs/career/generated/career-asset-count-reconciliation.v1.json",
+    "docs/career/generated/career-live-parity-sampling.v1.json",
+    "docs/career/generated/career-api-web-contract-drift.v1.json",
+    "docs/career/generated/career-jsonld-canonical-parity.v1.json",
+    "docs/career/generated/career-claim-hardening-patch-plan.v1.json",
+    "docs/career/generated/saved-careers-boundary-verification.v1.json",
+    "docs/career/generated/phase-5b-career-public-trust-hardening.v1.json"
+  ],
+  "missingArtifacts": [
+    "docs/career/generated/career-backend-asset-taxonomy-readiness.v1.json",
+    "docs/career/generated/career-alias-resolve-policy-gap.v1.json",
+    "docs/career/generated/career-jsonld-policy-gap.v1.json",
+    "docs/career/generated/career-live-parity-expanded-sampling.v1.json",
+    "docs/career/generated/career-human-policy-decisions-needed.v1.json",
+    "docs/career/generated/phase-5b-fu1-career-taxonomy-policy-readiness.v1.json"
+  ],
+  "eligibilityRules": [
+    "Career page must be a canonical career job public route.",
+    "Page must be indexable and sitemap eligible.",
+    "Visible page must contain occupation-specific evidence or source references.",
+    "Backend SEO surface must explicitly authorize structuredDataKeys including Occupation.",
+    "Claim boundary status must not be fail.",
+    "Occupation JSON-LD url, @id/mainEntityOfPage, canonical URL, OpenGraph URL, and sitemap URL must agree."
+  ],
+  "requiredFieldsForOccupationJsonLd": [
+    "name",
+    "description",
+    "url or mainEntityOfPage",
+    "sameAs/source reference when available",
+    "occupationalCategory or identifier when available"
+  ],
+  "disallowedFallbacks": [
+    "frontend-invented Occupation JSON-LD",
+    "FAQ-only as occupation evidence",
+    "hidden schema without visible evidence",
+    "alias URL as Occupation canonical URL",
+    "llms exposure as schema proof"
+  ],
+  "displayAssetBackedPagePolicy": "Display-asset-backed pages may emit Occupation JSON-LD only when backend structuredDataKeys explicitly include Occupation and visible evidence is present; otherwise FAQ/Breadcrumb only is acceptable.",
+  "structuredDataKeysAuthority": "backend SEO surface / career bundle authority, not frontend inference",
+  "canonicalJsonLdParityRule": "Occupation JSON-LD url/@id/mainEntityOfPage must match the page canonical URL or canonical pathname.",
+  "sitemapJsonLdParityRule": "Only canonical sitemap URLs may emit canonical Occupation JSON-LD.",
+  "llmsJsonLdParityRule": "llms eligibility does not imply Occupation JSON-LD; llms-full must remain evidence/claim gated.",
+  "pagesEligibleForOccupationJsonLd": [
+    {
+      "slug": "computer-programmers",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/computer-programmers",
+      "jsonLdTypesObserved": [
+        "Occupation",
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null,
+      "occupationJsonLdAuthority": "rendered"
+    },
+    {
+      "slug": "training-and-development-specialists",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/training-and-development-specialists",
+      "jsonLdTypesObserved": [
+        "Occupation",
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null,
+      "occupationJsonLdAuthority": "rendered"
+    }
+  ],
+  "pagesFaqBreadcrumbOnly": [
+    {
+      "slug": "actors",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/actors",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null,
+      "occupationJsonLdAuthority": "not_authorized_in_sample"
+    },
+    {
+      "slug": "accountants-and-auditors",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/accountants-and-auditors",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null,
+      "occupationJsonLdAuthority": "not_authorized_in_sample"
+    },
+    {
+      "slug": "web-developers",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/web-developers",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null,
+      "occupationJsonLdAuthority": "not_authorized_in_sample"
+    },
+    {
+      "slug": "aircraft-and-avionics-equipment-mechanics-and-technicians",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/aircraft-and-avionics-equipment-mechanics-and-technicians",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null,
+      "occupationJsonLdAuthority": "not_authorized_in_sample"
+    },
+    {
+      "slug": "audiologists",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/audiologists",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null,
+      "occupationJsonLdAuthority": "not_authorized_in_sample"
+    },
+    {
+      "slug": "budget-analysts",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/budget-analysts",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null,
+      "occupationJsonLdAuthority": "not_authorized_in_sample"
+    },
+    {
+      "slug": "chiropractors",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/chiropractors",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null,
+      "occupationJsonLdAuthority": "not_authorized_in_sample"
+    },
+    {
+      "slug": "credit-counselors",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/credit-counselors",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null,
+      "occupationJsonLdAuthority": "not_authorized_in_sample"
+    },
+    {
+      "slug": "dietitians-and-nutritionists",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/dietitians-and-nutritionists",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null,
+      "occupationJsonLdAuthority": "not_authorized_in_sample"
+    },
+    {
+      "slug": "entertainment-and-recreation-managers",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/entertainment-and-recreation-managers",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null,
+      "occupationJsonLdAuthority": "not_authorized_in_sample"
+    },
+    {
+      "slug": "fire-inspectors-and-investigators",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/fire-inspectors-and-investigators",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null,
+      "occupationJsonLdAuthority": "not_authorized_in_sample"
+    },
+    {
+      "slug": "gaming-services-occupations",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/gaming-services-occupations",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null,
+      "occupationJsonLdAuthority": "not_authorized_in_sample"
+    },
+    {
+      "slug": "health-information-technologists-and-medical-registrars",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/health-information-technologists-and-medical-registrars",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null,
+      "occupationJsonLdAuthority": "not_authorized_in_sample"
+    },
+    {
+      "slug": "industrial-production-managers",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/industrial-production-managers",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null,
+      "occupationJsonLdAuthority": "not_authorized_in_sample"
+    },
+    {
+      "slug": "landscape-architects",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/landscape-architects",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null,
+      "occupationJsonLdAuthority": "not_authorized_in_sample"
+    },
+    {
+      "slug": "market-research-analysts",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/market-research-analysts",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null,
+      "occupationJsonLdAuthority": "not_authorized_in_sample"
+    },
+    {
+      "slug": "medical-scientists",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/medical-scientists",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null,
+      "occupationJsonLdAuthority": "not_authorized_in_sample"
+    },
+    {
+      "slug": "nuclear-engineers",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/nuclear-engineers",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null,
+      "occupationJsonLdAuthority": "not_authorized_in_sample"
+    },
+    {
+      "slug": "painting-and-coating-workers",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/painting-and-coating-workers",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null,
+      "occupationJsonLdAuthority": "not_authorized_in_sample"
+    },
+    {
+      "slug": "plumbers-pipefitters-and-steamfitters",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/plumbers-pipefitters-and-steamfitters",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null,
+      "occupationJsonLdAuthority": "not_authorized_in_sample"
+    },
+    {
+      "slug": "project-management-specialists",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/project-management-specialists",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null,
+      "occupationJsonLdAuthority": "not_authorized_in_sample"
+    },
+    {
+      "slug": "recreational-therapists",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/recreational-therapists",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null,
+      "occupationJsonLdAuthority": "not_authorized_in_sample"
+    },
+    {
+      "slug": "set-and-exhibit-designers",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/set-and-exhibit-designers",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null,
+      "occupationJsonLdAuthority": "not_authorized_in_sample"
+    },
+    {
+      "slug": "surgical-technologists",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/surgical-technologists",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null,
+      "occupationJsonLdAuthority": "not_authorized_in_sample"
+    }
+  ],
+  "pagesNotEligible": [
+    {
+      "slug": "actors",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/actors",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null
+    },
+    {
+      "slug": "accountants-and-auditors",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/accountants-and-auditors",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null
+    },
+    {
+      "slug": "web-developers",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/web-developers",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null
+    },
+    {
+      "slug": "aircraft-and-avionics-equipment-mechanics-and-technicians",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/aircraft-and-avionics-equipment-mechanics-and-technicians",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null
+    },
+    {
+      "slug": "audiologists",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/audiologists",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null
+    },
+    {
+      "slug": "budget-analysts",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/budget-analysts",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null
+    },
+    {
+      "slug": "chiropractors",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/chiropractors",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null
+    },
+    {
+      "slug": "credit-counselors",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/credit-counselors",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null
+    },
+    {
+      "slug": "dietitians-and-nutritionists",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/dietitians-and-nutritionists",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null
+    },
+    {
+      "slug": "entertainment-and-recreation-managers",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/entertainment-and-recreation-managers",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null
+    },
+    {
+      "slug": "fire-inspectors-and-investigators",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/fire-inspectors-and-investigators",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null
+    },
+    {
+      "slug": "gaming-services-occupations",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/gaming-services-occupations",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null
+    },
+    {
+      "slug": "health-information-technologists-and-medical-registrars",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/health-information-technologists-and-medical-registrars",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null
+    },
+    {
+      "slug": "industrial-production-managers",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/industrial-production-managers",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null
+    },
+    {
+      "slug": "landscape-architects",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/landscape-architects",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null
+    },
+    {
+      "slug": "market-research-analysts",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/market-research-analysts",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null
+    },
+    {
+      "slug": "medical-scientists",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/medical-scientists",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null
+    },
+    {
+      "slug": "nuclear-engineers",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/nuclear-engineers",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null
+    },
+    {
+      "slug": "painting-and-coating-workers",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/painting-and-coating-workers",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null
+    },
+    {
+      "slug": "plumbers-pipefitters-and-steamfitters",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/plumbers-pipefitters-and-steamfitters",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null
+    },
+    {
+      "slug": "project-management-specialists",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/project-management-specialists",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null
+    },
+    {
+      "slug": "recreational-therapists",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/recreational-therapists",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null
+    },
+    {
+      "slug": "set-and-exhibit-designers",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/set-and-exhibit-designers",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null
+    },
+    {
+      "slug": "surgical-technologists",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/surgical-technologists",
+      "jsonLdTypesObserved": [
+        "BreadcrumbList",
+        "FAQPage",
+        "Question"
+      ],
+      "structuredDataKeys": null
+    }
+  ],
+  "requiredBackendChanges": [
+    "Expose structuredDataKeys/Occupation authority for each canonical slug/locale in taxonomy export.",
+    "Export noindex/filter reason and visible evidence flag for each career page."
+  ],
+  "requiredFrontendChanges": [
+    "Future guard only: assert front-end does not render Occupation JSON-LD unless backend structuredDataKeys includes Occupation.",
+    "Future parity test for canonical/OG/sitemap/JSON-LD URL agreement."
+  ],
+  "runtimeChangesImplemented": false,
+  "evidence": {
+    "fapWebBranch": "codex/phase-5b-fu2-career-taxonomy-policy-pack",
+    "fapWebHead": "99b5a397f98c407929629dbdc144299f045d2d26",
+    "fapApiBranch": "main",
+    "fapApiHead": "f715949676f4ede0eaa9f9e51d570dd162476180",
+    "backendChangeStatus": "blocked_by_existing_dirty_branch",
+    "existingInputs": [
+      "docs/career/generated/career-public-authority-inventory.v1.json",
+      "docs/career/generated/career-route-trust-matrix.v1.json",
+      "docs/career/generated/career-claim-boundary-alignment.v1.json",
+      "docs/career/generated/career-resolve-alias-canonical-audit.v1.json",
+      "docs/career/generated/career-seo-geo-exposure-audit.v1.json",
+      "docs/career/generated/saved-careers-boundary-audit.v1.json",
+      "docs/career/generated/phase-5a-career-public-trust-readiness.v1.json",
+      "docs/career/generated/career-asset-count-reconciliation.v1.json",
+      "docs/career/generated/career-live-parity-sampling.v1.json",
+      "docs/career/generated/career-api-web-contract-drift.v1.json",
+      "docs/career/generated/career-jsonld-canonical-parity.v1.json",
+      "docs/career/generated/career-claim-hardening-patch-plan.v1.json",
+      "docs/career/generated/saved-careers-boundary-verification.v1.json",
+      "docs/career/generated/phase-5b-career-public-trust-hardening.v1.json"
+    ],
+    "missingInputs": [
+      "docs/career/generated/career-backend-asset-taxonomy-readiness.v1.json",
+      "docs/career/generated/career-alias-resolve-policy-gap.v1.json",
+      "docs/career/generated/career-jsonld-policy-gap.v1.json",
+      "docs/career/generated/career-live-parity-expanded-sampling.v1.json",
+      "docs/career/generated/career-human-policy-decisions-needed.v1.json",
+      "docs/career/generated/phase-5b-fu1-career-taxonomy-policy-readiness.v1.json"
+    ],
+    "liveSources": {
+      "sitemap": "https://fermatmind.com/sitemap.xml",
+      "backendSitemapSource": "https://api.fermatmind.com/api/v0.5/seo/sitemap-source",
+      "llms": "https://fermatmind.com/llms.txt",
+      "llmsFull": "https://fermatmind.com/llms-full.txt"
+    },
+    "sourceReferences": [
+      "app/(localized)/[locale]/career/jobs/[slug]/page.tsx:121-130 gates Occupation JSON-LD on backend structuredDataKeys when seoSurface exists.",
+      "lib/career/adapters/adaptCareerJobBundle.ts:451-459 accepts SEO authority Occupation JSON-LD only when structuredDataKeys includes Occupation.",
+      "backend/routes/api.php:468-486 exposes read-only career resolve/job/recommendation and shortlist routes.",
+      "backend/database/migrations/2026_04_16_160000_create_career_shortlist_items_table.php:23-26 contains optional snapshot/projection provenance IDs."
+    ]
+  }
+}

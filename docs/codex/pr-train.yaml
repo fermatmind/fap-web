@@ -3998,3 +3998,52 @@ prs:
       - Big Five parity is not claimed.
     next_task: RIASEC-FULL-CONTENT-PACK-02
     rollback_note: "Remove the inventory and review-gate docs plus current ledger updates; runtime remains unchanged."
+
+  - id: CAREER-PHASE-5B-FU2-POLICY-PACK
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/career-phase-5b-fu2-taxonomy-policy-pack
+    base: main
+    depends_on: []
+    mode: execute/docs
+    train_scope: career_phase_5b_fu2_taxonomy_policy_pack
+    risk_level: L1
+    status: planned
+    title: "docs(career): add phase 5b fu2 taxonomy policy pack"
+    goal: "Publish the Phase 5B-FU2 career taxonomy policy pack as docs-only generated evidence without runtime, SEO/GEO, sitemap, llms, recommendation, scoring, or content authority changes."
+    in_scope:
+      - docs/career/generated/career-alias-canonical-decision-pack.v1.json
+      - docs/career/generated/career-asset-count-reconciliation-final.v1.json
+      - docs/career/generated/career-backend-asset-taxonomy-export.v1.json
+      - docs/career/generated/career-claim-wording-policy-pack.v1.json
+      - docs/career/generated/career-occupation-jsonld-decision-pack.v1.json
+      - docs/career/generated/phase-5b-fu2-backend-taxonomy-policy-pack.v1.json
+      - docs/career/generated/saved-careers-provenance-only-policy.v1.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - tests/**
+      - fap-api repository changes
+      - runtime career routing, sitemap, llms, SEO/GEO, structured data, recommendation, profile memory, scoring, checkout, payment, report, auth, or analytics behavior
+      - RIASEC, MBTI, Big Five, or Enneagram runtime behavior
+      - CMS content publication or public editorial copy changes
+    required_local_checks:
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - for f in docs/career/generated/career-alias-canonical-decision-pack.v1.json docs/career/generated/career-asset-count-reconciliation-final.v1.json docs/career/generated/career-backend-asset-taxonomy-export.v1.json docs/career/generated/career-claim-wording-policy-pack.v1.json docs/career/generated/career-occupation-jsonld-decision-pack.v1.json docs/career/generated/phase-5b-fu2-backend-taxonomy-policy-pack.v1.json docs/career/generated/saved-careers-provenance-only-policy.v1.json; do jq empty "$f"; done
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: false
+    acceptance:
+      - The branch is rebuilt on current origin/main, resolving the prior four-commit lag.
+      - The generated JSON artifacts are valid JSON.
+      - The pack preserves runtimeExpansionAllowed=false and records required backend/product decisions before any runtime expansion.
+      - No runtime, SEO/GEO, sitemap, llms, recommendation, profile memory, scoring, RIASEC, MBTI, Big Five, Enneagram, CMS publication, or frontend behavior files are changed.
+      - Claim wording policy remains governance-only and does not authorize career matching, job fit, success prediction, hiring suitability, or unreviewed source claims.
+    rollback_note: "Remove the Phase 5B-FU2 generated career policy artifacts and current PR train metadata."
