@@ -5718,6 +5718,76 @@
           "summary": "Created GitHub PR #838 for RIASEC-FULL-CONTENT-PACK-01."
         }
       ]
+    },
+    {
+      "id": "CAREER-PHASE-5B-FU2-POLICY-PACK",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/career-phase-5b-fu2-taxonomy-policy-pack",
+      "base": "main",
+      "depends_on": [],
+      "status": "local_checks_passed",
+      "train_scope": "career_phase_5b_fu2_taxonomy_policy_pack",
+      "risk_level": "L1",
+      "title": "docs(career): add phase 5b fu2 taxonomy policy pack",
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User requested converting the existing codex/phase-5b-fu2-career-taxonomy-policy-pack branch into a new docs-only governance PR and explicitly asked to handle the four-commit lag from origin/main."
+        },
+        "branch_preflight": {
+          "status": "pass",
+          "evidence": "Created codex/career-phase-5b-fu2-taxonomy-policy-pack from current origin/main at 983da7b6023ee72f5421b8d536701b68c0f17db8 and cherry-picked the existing local governance artifact commit 2549f303f67597621bbb0b871eaf67989591e48f."
+        },
+        "scope_validation": {
+          "status": "pass",
+          "evidence": "Changed files are limited to seven docs/career/generated JSON artifacts plus docs/codex/pr-train.yaml and docs/codex/pr-train-state.json. No app, components, lib, public, tests, runtime, SEO/GEO, sitemap, llms, recommendation, profile memory, scoring, CMS publication, or assessment runtime files changed."
+        },
+        "manifest_state_validation": {
+          "status": "pass",
+          "evidence": "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"' passed."
+        },
+        "generated_json_validation": {
+          "status": "pass",
+          "evidence": "jq empty passed for all seven added docs/career/generated Phase 5B-FU2 JSON artifacts."
+        },
+        "diff_check": {
+          "status": "pass",
+          "evidence": "git diff --check passed."
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [
+        {
+          "title": "Original local FU2 branch remains unmerged and superseded by rebuilt branch",
+          "severity": "P2",
+          "scope_impact": "The original branch codex/phase-5b-fu2-career-taxonomy-policy-pack remains local and is behind origin/main. This PR uses a new branch rebuilt from current origin/main instead.",
+          "introduced_by_current_pr": false,
+          "recommended_future_phase": "Delete the original local branch after the rebuilt PR is merged and verified.",
+          "blocks_merge": false,
+          "evidence": [
+            "Original branch had rev-list origin/main...HEAD = 4 behind, 1 ahead.",
+            "New branch has rev-list origin/main...HEAD = 0 behind, 1 ahead before metadata commit."
+          ]
+        }
+      ],
+      "history": [
+        {
+          "at": "2026-05-18T00:00:00+08:00",
+          "status": "in_progress",
+          "summary": "Started docs-only Phase 5B-FU2 career taxonomy policy pack PR from current origin/main; no runtime behavior, SEO/GEO, sitemap, llms, recommendation, profile memory, scoring, CMS publication, or assessment runtime changes are in scope."
+        },
+        {
+          "at": "2026-05-18T00:00:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Manifest/state validation, generated JSON validation, git diff --check, and scope validation passed."
+        }
+      ]
     }
   ],
   "sidecar_issues": [
