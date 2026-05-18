@@ -2886,7 +2886,7 @@
       "branch": "codex/email-riasec-02-frontend-guest-token-parity",
       "base": "main",
       "depends_on": [],
-      "status": "pr_open",
+      "status": "merged",
       "title": "fix(riasec): ensure guest token parity before starting attempts",
       "mode": "execute",
       "risk_level": "L1",
@@ -2950,8 +2950,9 @@
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/808",
       "commit_sha": "308e74da820bee7cc5524b8308949493283afadc",
-      "merged_at": null,
-      "remote_branch_deleted": false,
+      "merged_at": "2026-05-18T08:43:27Z",
+      "merge_sha": "d541293978cc5a8f0ba5a208a995dda215ddcd95",
+      "remote_branch_deleted": true,
       "local_cleanup_executed": false,
       "sidecar_issues": [],
       "history": [
@@ -5641,6 +5642,11 @@
           "at": "2026-05-18T00:00:00+08:00",
           "status": "pr_open",
           "summary": "Created GitHub PR #837 for RIASEC-FULL-CONTENT-PACK-00."
+        },
+        {
+          "at": "2026-05-18T00:00:00+08:00",
+          "status": "merged",
+          "summary": "Reconciled GitHub PR #837 as merged with merge commit d541293978cc5a8f0ba5a208a995dda215ddcd95; origin/main contains the merge commit and the remote branch is deleted. Local main checkout/update was blocked by a separate linked worktree, so local cleanup is recorded as not executed here."
         }
       ]
     },
@@ -5653,11 +5659,36 @@
       "depends_on": [
         "RIASEC-FULL-CONTENT-PACK-00"
       ],
-      "status": "pending",
+      "status": "local_checks_passed",
       "train_scope": "riasec_full_deep_content_pack_governance",
       "risk_level": "L1",
       "title": "docs(riasec): add full content asset inventory and review gate",
-      "checks": {},
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly requested RIASEC-FULL-CONTENT-PACK-01 after registering RIASEC-FULL-CONTENT-PACK-00."
+        },
+        "dependency": {
+          "status": "pass",
+          "evidence": "RIASEC-FULL-CONTENT-PACK-00 merged in GitHub PR #837 with merge commit d541293978cc5a8f0ba5a208a995dda215ddcd95, and origin/main contains that commit."
+        },
+        "branch_preflight": {
+          "status": "pass",
+          "evidence": "Created codex/riasec-full-content-pack-01 from origin/main after PR00 merged."
+        },
+        "manifest_state_validation": {
+          "status": "pass",
+          "evidence": "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"' passed."
+        },
+        "diff_check": {
+          "status": "pass",
+          "evidence": "git diff --check passed."
+        },
+        "scope_validation": {
+          "status": "pass",
+          "evidence": "Changed files are limited to docs/codex/pr-train-state.json, docs/codex/riasec-full-content-pack-asset-inventory.md, and docs/codex/riasec-full-content-pack-review-gate.md. No runtime, UI, scoring, content pack, career registry, share/PDF/history, feedback, analytics, or production files changed."
+        }
+      },
       "failure_reason": null,
       "pr_url": null,
       "commit_sha": null,
@@ -5670,6 +5701,16 @@
           "at": "2026-05-18T00:00:00+08:00",
           "status": "pending",
           "summary": "Registered RIASEC-FULL-CONTENT-PACK-01 to add the full content asset inventory and review gate after RIASEC-FULL-CONTENT-PACK-00 merges."
+        },
+        {
+          "at": "2026-05-18T00:00:00+08:00",
+          "status": "in_progress",
+          "summary": "Started RIASEC-FULL-CONTENT-PACK-01 as docs-only asset inventory and review gate work. No final copy import, UI rendering, scoring, question-pack, frontend fallback, career registry, share/PDF/history, feedback, or analytics runtime changes are in scope."
+        },
+        {
+          "at": "2026-05-18T00:00:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Manifest/state validation, git diff --check, and scope validation passed for docs-only asset inventory and review gate."
         }
       ]
     }
