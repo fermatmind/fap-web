@@ -5726,7 +5726,7 @@
       "branch": "codex/career-phase-5b-fu2-taxonomy-policy-pack",
       "base": "main",
       "depends_on": [],
-      "status": "local_checks_passed",
+      "status": "pr_open",
       "train_scope": "career_phase_5b_fu2_taxonomy_policy_pack",
       "risk_level": "L1",
       "title": "docs(career): add phase 5b fu2 taxonomy policy pack",
@@ -5757,8 +5757,8 @@
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/839",
+      "commit_sha": "b00a5c89a1a5770589db0f737deb0360debf1550",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -5786,6 +5786,11 @@
           "at": "2026-05-18T00:00:00+08:00",
           "status": "local_checks_passed",
           "summary": "Manifest/state validation, generated JSON validation, git diff --check, and scope validation passed."
+        },
+        {
+          "at": "2026-05-18T17:06:37+08:00",
+          "status": "pr_open",
+          "summary": "Created GitHub PR #839 for the docs-only Phase 5B-FU2 career taxonomy policy pack on a branch rebuilt from current origin/main."
         }
       ]
     }
