@@ -1,0 +1,521 @@
+{
+  "version": "v1",
+  "phase": "5B-FU3B",
+  "generatedAt": "2026-05-17T17:08:27.659Z",
+  "sampleCount": 20,
+  "rows": [
+    {
+      "query": "software engineer",
+      "locale": "en-US",
+      "backendAliasExists": false,
+      "resolveStatus": 200,
+      "resolveResult": {
+        "resolved_kind": "none"
+      },
+      "canonicalSlug": null,
+      "publicRouteExists": false,
+      "sitemapPresence": false,
+      "llmsPresence": false,
+      "humanDecisionRequired": true,
+      "status": "warn"
+    },
+    {
+      "query": "software engineers",
+      "locale": "en-US",
+      "backendAliasExists": false,
+      "resolveStatus": 200,
+      "resolveResult": {
+        "resolved_kind": "none"
+      },
+      "canonicalSlug": null,
+      "publicRouteExists": false,
+      "sitemapPresence": false,
+      "llmsPresence": false,
+      "humanDecisionRequired": true,
+      "status": "warn"
+    },
+    {
+      "query": "software developer",
+      "locale": "en-US",
+      "backendAliasExists": false,
+      "resolveStatus": 200,
+      "resolveResult": {
+        "resolved_kind": "none"
+      },
+      "canonicalSlug": null,
+      "publicRouteExists": false,
+      "sitemapPresence": false,
+      "llmsPresence": false,
+      "humanDecisionRequired": true,
+      "status": "warn"
+    },
+    {
+      "query": "software developers",
+      "locale": "en-US",
+      "backendAliasExists": true,
+      "resolveStatus": 200,
+      "resolveResult": {
+        "resolved_kind": "none"
+      },
+      "canonicalSlug": null,
+      "publicRouteExists": false,
+      "sitemapPresence": false,
+      "llmsPresence": false,
+      "humanDecisionRequired": true,
+      "status": "warn"
+    },
+    {
+      "query": "software-developers",
+      "locale": "en-US",
+      "backendAliasExists": false,
+      "resolveStatus": 200,
+      "resolveResult": {
+        "resolved_kind": "none"
+      },
+      "canonicalSlug": null,
+      "publicRouteExists": false,
+      "sitemapPresence": false,
+      "llmsPresence": false,
+      "humanDecisionRequired": true,
+      "status": "warn"
+    },
+    {
+      "query": "web developer",
+      "locale": "en-US",
+      "backendAliasExists": false,
+      "resolveStatus": 200,
+      "resolveResult": {
+        "resolved_kind": "none"
+      },
+      "canonicalSlug": null,
+      "publicRouteExists": false,
+      "sitemapPresence": false,
+      "llmsPresence": false,
+      "humanDecisionRequired": false,
+      "status": "warn"
+    },
+    {
+      "query": "web developers",
+      "locale": "en-US",
+      "backendAliasExists": true,
+      "resolveStatus": 200,
+      "resolveResult": {
+        "resolved_kind": "none"
+      },
+      "canonicalSlug": null,
+      "publicRouteExists": true,
+      "sitemapPresence": true,
+      "llmsPresence": false,
+      "humanDecisionRequired": false,
+      "status": "warn"
+    },
+    {
+      "query": "web-developers",
+      "locale": "en-US",
+      "backendAliasExists": false,
+      "resolveStatus": 200,
+      "resolveResult": {
+        "resolved_kind": "none"
+      },
+      "canonicalSlug": null,
+      "publicRouteExists": true,
+      "sitemapPresence": true,
+      "llmsPresence": false,
+      "humanDecisionRequired": false,
+      "status": "warn"
+    },
+    {
+      "query": "computer programmer",
+      "locale": "en-US",
+      "backendAliasExists": false,
+      "resolveStatus": 200,
+      "resolveResult": {
+        "resolved_kind": "none"
+      },
+      "canonicalSlug": null,
+      "publicRouteExists": false,
+      "sitemapPresence": false,
+      "llmsPresence": false,
+      "humanDecisionRequired": false,
+      "status": "warn"
+    },
+    {
+      "query": "computer programmers",
+      "locale": "en-US",
+      "backendAliasExists": true,
+      "resolveStatus": 200,
+      "resolveResult": {
+        "resolved_kind": "none"
+      },
+      "canonicalSlug": null,
+      "publicRouteExists": true,
+      "sitemapPresence": true,
+      "llmsPresence": false,
+      "humanDecisionRequired": false,
+      "status": "warn"
+    },
+    {
+      "query": "computer-programmers",
+      "locale": "en-US",
+      "backendAliasExists": false,
+      "resolveStatus": 200,
+      "resolveResult": {
+        "resolved_kind": "none"
+      },
+      "canonicalSlug": null,
+      "publicRouteExists": true,
+      "sitemapPresence": true,
+      "llmsPresence": false,
+      "humanDecisionRequired": false,
+      "status": "warn"
+    },
+    {
+      "query": "actors",
+      "locale": "en-US",
+      "backendAliasExists": false,
+      "resolveStatus": 200,
+      "resolveResult": {
+        "resolved_kind": "none"
+      },
+      "canonicalSlug": null,
+      "publicRouteExists": true,
+      "sitemapPresence": true,
+      "llmsPresence": false,
+      "humanDecisionRequired": false,
+      "status": "warn"
+    },
+    {
+      "query": "accountants and auditors",
+      "locale": "en-US",
+      "backendAliasExists": true,
+      "resolveStatus": 200,
+      "resolveResult": {
+        "resolved_kind": "occupation",
+        "occupation": {
+          "occupation_uuid": "383cccee-0364-4866-9dc1-f7cd1cfcdf51",
+          "canonical_slug": "accountants-and-auditors",
+          "canonical_title_en": "Accountants and auditors",
+          "canonical_title_zh": "",
+          "seo_contract": {
+            "canonical_path": "/career/jobs/accountants-and-auditors",
+            "canonical_target": null,
+            "index_state": "indexable",
+            "index_eligible": true,
+            "reason_codes": [
+              "manifest_first_wave_selected",
+              "crosswalk_mode_allowed",
+              "confidence_ready",
+              "reviewer_approved",
+              "index_eligible",
+              "strong_claim_allowed",
+              "stable_publish_ready",
+              "first_wave_publish_seed",
+              "career_index_lifecycle_indexed"
+            ],
+            "metadata_contract_version": "seo.surface.v1",
+            "surface_type": "career_alias_resolution_occupation",
+            "robots_policy": "index,follow",
+            "metadata_fingerprint": "ba08c4c439b0f6d4507a66309aefc251313cd229"
+          },
+          "trust_summary": {
+            "reviewer_status": "approved"
+          }
+        }
+      },
+      "canonicalSlug": null,
+      "publicRouteExists": true,
+      "sitemapPresence": true,
+      "llmsPresence": false,
+      "humanDecisionRequired": false,
+      "status": "warn"
+    },
+    {
+      "query": "accountants-and-auditors",
+      "locale": "en-US",
+      "backendAliasExists": false,
+      "resolveStatus": 200,
+      "resolveResult": {
+        "resolved_kind": "occupation",
+        "occupation": {
+          "occupation_uuid": "383cccee-0364-4866-9dc1-f7cd1cfcdf51",
+          "canonical_slug": "accountants-and-auditors",
+          "canonical_title_en": "Accountants and auditors",
+          "canonical_title_zh": "",
+          "seo_contract": {
+            "canonical_path": "/career/jobs/accountants-and-auditors",
+            "canonical_target": null,
+            "index_state": "indexable",
+            "index_eligible": true,
+            "reason_codes": [
+              "manifest_first_wave_selected",
+              "crosswalk_mode_allowed",
+              "confidence_ready",
+              "reviewer_approved",
+              "index_eligible",
+              "strong_claim_allowed",
+              "stable_publish_ready",
+              "first_wave_publish_seed",
+              "career_index_lifecycle_indexed"
+            ],
+            "metadata_contract_version": "seo.surface.v1",
+            "surface_type": "career_alias_resolution_occupation",
+            "robots_policy": "index,follow",
+            "metadata_fingerprint": "ba08c4c439b0f6d4507a66309aefc251313cd229"
+          },
+          "trust_summary": {
+            "reviewer_status": "approved"
+          }
+        }
+      },
+      "canonicalSlug": null,
+      "publicRouteExists": true,
+      "sitemapPresence": true,
+      "llmsPresence": false,
+      "humanDecisionRequired": false,
+      "status": "warn"
+    },
+    {
+      "query": "accountant",
+      "locale": "en-US",
+      "backendAliasExists": true,
+      "resolveStatus": 200,
+      "resolveResult": {
+        "resolved_kind": "occupation",
+        "occupation": {
+          "occupation_uuid": "383cccee-0364-4866-9dc1-f7cd1cfcdf51",
+          "canonical_slug": "accountants-and-auditors",
+          "canonical_title_en": "Accountants and auditors",
+          "canonical_title_zh": "",
+          "seo_contract": {
+            "canonical_path": "/career/jobs/accountants-and-auditors",
+            "canonical_target": null,
+            "index_state": "indexable",
+            "index_eligible": true,
+            "reason_codes": [
+              "manifest_first_wave_selected",
+              "crosswalk_mode_allowed",
+              "confidence_ready",
+              "reviewer_approved",
+              "index_eligible",
+              "strong_claim_allowed",
+              "stable_publish_ready",
+              "first_wave_publish_seed",
+              "career_index_lifecycle_indexed"
+            ],
+            "metadata_contract_version": "seo.surface.v1",
+            "surface_type": "career_alias_resolution_occupation",
+            "robots_policy": "index,follow",
+            "metadata_fingerprint": "ba08c4c439b0f6d4507a66309aefc251313cd229"
+          },
+          "trust_summary": {
+            "reviewer_status": "approved"
+          }
+        }
+      },
+      "canonicalSlug": null,
+      "publicRouteExists": false,
+      "sitemapPresence": false,
+      "llmsPresence": false,
+      "humanDecisionRequired": false,
+      "status": "warn"
+    },
+    {
+      "query": "auditor",
+      "locale": "en-US",
+      "backendAliasExists": true,
+      "resolveStatus": 200,
+      "resolveResult": {
+        "resolved_kind": "none"
+      },
+      "canonicalSlug": null,
+      "publicRouteExists": false,
+      "sitemapPresence": false,
+      "llmsPresence": false,
+      "humanDecisionRequired": false,
+      "status": "warn"
+    },
+    {
+      "query": "programmer",
+      "locale": "en-US",
+      "backendAliasExists": false,
+      "resolveStatus": 200,
+      "resolveResult": {
+        "resolved_kind": "none"
+      },
+      "canonicalSlug": null,
+      "publicRouteExists": false,
+      "sitemapPresence": false,
+      "llmsPresence": false,
+      "humanDecisionRequired": false,
+      "status": "warn"
+    },
+    {
+      "query": "developer",
+      "locale": "en-US",
+      "backendAliasExists": false,
+      "resolveStatus": 200,
+      "resolveResult": {
+        "resolved_kind": "none"
+      },
+      "canonicalSlug": null,
+      "publicRouteExists": false,
+      "sitemapPresence": false,
+      "llmsPresence": false,
+      "humanDecisionRequired": false,
+      "status": "warn"
+    },
+    {
+      "query": "actor",
+      "locale": "en-US",
+      "backendAliasExists": false,
+      "resolveStatus": 200,
+      "resolveResult": {
+        "resolved_kind": "none"
+      },
+      "canonicalSlug": null,
+      "publicRouteExists": false,
+      "sitemapPresence": false,
+      "llmsPresence": false,
+      "humanDecisionRequired": false,
+      "status": "warn"
+    },
+    {
+      "query": "software dev",
+      "locale": "en-US",
+      "backendAliasExists": false,
+      "resolveStatus": 200,
+      "resolveResult": {
+        "resolved_kind": "none"
+      },
+      "canonicalSlug": null,
+      "publicRouteExists": false,
+      "sitemapPresence": false,
+      "llmsPresence": false,
+      "humanDecisionRequired": false,
+      "status": "warn"
+    }
+  ],
+  "aliasPolicyReady": false,
+  "unresolvedPolicyGaps": [
+    {
+      "query": "software engineer",
+      "status": "warn",
+      "humanDecisionRequired": true,
+      "canonicalSlug": null
+    },
+    {
+      "query": "software engineers",
+      "status": "warn",
+      "humanDecisionRequired": true,
+      "canonicalSlug": null
+    },
+    {
+      "query": "software developer",
+      "status": "warn",
+      "humanDecisionRequired": true,
+      "canonicalSlug": null
+    },
+    {
+      "query": "software developers",
+      "status": "warn",
+      "humanDecisionRequired": true,
+      "canonicalSlug": null
+    },
+    {
+      "query": "software-developers",
+      "status": "warn",
+      "humanDecisionRequired": true,
+      "canonicalSlug": null
+    },
+    {
+      "query": "web developer",
+      "status": "warn",
+      "humanDecisionRequired": false,
+      "canonicalSlug": null
+    },
+    {
+      "query": "web developers",
+      "status": "warn",
+      "humanDecisionRequired": false,
+      "canonicalSlug": null
+    },
+    {
+      "query": "web-developers",
+      "status": "warn",
+      "humanDecisionRequired": false,
+      "canonicalSlug": null
+    },
+    {
+      "query": "computer programmer",
+      "status": "warn",
+      "humanDecisionRequired": false,
+      "canonicalSlug": null
+    },
+    {
+      "query": "computer programmers",
+      "status": "warn",
+      "humanDecisionRequired": false,
+      "canonicalSlug": null
+    },
+    {
+      "query": "computer-programmers",
+      "status": "warn",
+      "humanDecisionRequired": false,
+      "canonicalSlug": null
+    },
+    {
+      "query": "actors",
+      "status": "warn",
+      "humanDecisionRequired": false,
+      "canonicalSlug": null
+    },
+    {
+      "query": "accountants and auditors",
+      "status": "warn",
+      "humanDecisionRequired": false,
+      "canonicalSlug": null
+    },
+    {
+      "query": "accountants-and-auditors",
+      "status": "warn",
+      "humanDecisionRequired": false,
+      "canonicalSlug": null
+    },
+    {
+      "query": "accountant",
+      "status": "warn",
+      "humanDecisionRequired": false,
+      "canonicalSlug": null
+    },
+    {
+      "query": "auditor",
+      "status": "warn",
+      "humanDecisionRequired": false,
+      "canonicalSlug": null
+    },
+    {
+      "query": "programmer",
+      "status": "warn",
+      "humanDecisionRequired": false,
+      "canonicalSlug": null
+    },
+    {
+      "query": "developer",
+      "status": "warn",
+      "humanDecisionRequired": false,
+      "canonicalSlug": null
+    },
+    {
+      "query": "actor",
+      "status": "warn",
+      "humanDecisionRequired": false,
+      "canonicalSlug": null
+    },
+    {
+      "query": "software dev",
+      "status": "warn",
+      "humanDecisionRequired": false,
+      "canonicalSlug": null
+    }
+  ]
+}
