@@ -4053,7 +4053,7 @@
       "depends_on": [
         "PR-GRAPH-01:fap-api"
       ],
-      "status": "pr_open",
+      "status": "ready_to_merge",
       "title": "PR-GRAPH-01｜Article Multi-Test Graph Edges",
       "mode": "execute",
       "risk_level": "L2",
@@ -5767,7 +5767,8 @@
           "evidence": "Changed files are limited to fap-web RIASEC result assembler allowlist, RIASEC deep-copy fixture/test, and docs/codex train metadata. No fap-api, scorer, content pack, local interpretation fallback copy, career registry, share/PDF/history backend, feedback runtime, analytics runtime, or AI report generation files changed."
         },
         "github_required_checks": {
-          "status": "pending"
+          "status": "pass",
+          "evidence": "GitHub required checks passed for PR #840: build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze."
         }
       },
       "failure_reason": null,
@@ -5809,6 +5810,11 @@
           "at": "2026-05-18T23:15:27+08:00",
           "status": "pr_open",
           "summary": "Opened https://github.com/fermatmind/fap-web/pull/840 after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-05-18T23:19:29+08:00",
+          "status": "ready_to_merge",
+          "summary": "GitHub required checks passed for PR #840: build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze."
         }
       ]
     },
