@@ -5573,6 +5573,105 @@
           "summary": "Created GitHub PR #835 for PUBLISH-WEB-CONTENT-CACHE-PURGE."
         }
       ]
+    },
+    {
+      "id": "RIASEC-FULL-CONTENT-PACK-00",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/riasec-full-content-pack-00",
+      "base": "main",
+      "depends_on": [],
+      "status": "pr_open",
+      "train_scope": "riasec_full_deep_content_pack_governance",
+      "risk_level": "L1",
+      "title": "docs(riasec): register full deep content pack train",
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly requested execution of RIASEC-FULL-CONTENT-PACK-00 and RIASEC-FULL-CONTENT-PACK-01 and authorized docs/codex train metadata updates."
+        },
+        "branch_preflight": {
+          "status": "pass",
+          "evidence": "Prepared in an isolated clean worktree from origin/main to avoid unrelated dirty docs/codex files in the primary fap-web working tree."
+        },
+        "scope_validation": {
+          "status": "pass",
+          "evidence": "Changed files are limited to docs/codex/pr-train.yaml, docs/codex/pr-train-state.json, and docs/codex/riasec-full-content-pack-00-scan-ledger.md only."
+        },
+        "manifest_state_validation": {
+          "status": "pass",
+          "evidence": "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"' passed."
+        },
+        "diff_check": {
+          "status": "pass",
+          "evidence": "git diff --check passed."
+        }
+      },
+      "failure_reason": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/837",
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [
+        {
+          "title": "Primary fap-web working tree has unrelated dirty PR-train metadata",
+          "severity": "P2",
+          "scope_impact": "The current desktop worktree has pre-existing docs/codex/pr-train.yaml and docs/codex/pr-train-state.json modifications on another branch. This PR is isolated in a separate clean worktree and does not touch those local changes.",
+          "introduced_by_current_pr": false,
+          "recommended_future_phase": "Clean up or reconcile the unrelated branch separately.",
+          "blocks_merge": false,
+          "evidence": [
+            "Primary worktree status before PR00: docs/codex/pr-train.yaml and docs/codex/pr-train-state.json modified on codex/phase-5b-fu2-career-taxonomy-policy-pack."
+          ]
+        }
+      ],
+      "history": [
+        {
+          "at": "2026-05-18T00:00:00+08:00",
+          "status": "in_progress",
+          "summary": "Started RIASEC-FULL-CONTENT-PACK-00 as docs-only train registration and scan ledger. No runtime, UI, scoring, content-pack, career registry, share/PDF/history, feedback, or analytics files are in scope."
+        },
+        {
+          "at": "2026-05-18T00:00:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Manifest/state validation, git diff --check, and scope validation passed for docs-only registration."
+        },
+        {
+          "at": "2026-05-18T00:00:00+08:00",
+          "status": "pr_open",
+          "summary": "Created GitHub PR #837 for RIASEC-FULL-CONTENT-PACK-00."
+        }
+      ]
+    },
+    {
+      "id": "RIASEC-FULL-CONTENT-PACK-01",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/riasec-full-content-pack-01",
+      "base": "main",
+      "depends_on": [
+        "RIASEC-FULL-CONTENT-PACK-00"
+      ],
+      "status": "pending",
+      "train_scope": "riasec_full_deep_content_pack_governance",
+      "risk_level": "L1",
+      "title": "docs(riasec): add full content asset inventory and review gate",
+      "checks": {},
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [],
+      "history": [
+        {
+          "at": "2026-05-18T00:00:00+08:00",
+          "status": "pending",
+          "summary": "Registered RIASEC-FULL-CONTENT-PACK-01 to add the full content asset inventory and review gate after RIASEC-FULL-CONTENT-PACK-00 merges."
+        }
+      ]
     }
   ],
   "sidecar_issues": [
