@@ -5581,7 +5581,7 @@
       "branch": "codex/riasec-full-content-pack-00",
       "base": "main",
       "depends_on": [],
-      "status": "local_checks_passed",
+      "status": "pr_open",
       "train_scope": "riasec_full_deep_content_pack_governance",
       "risk_level": "L1",
       "title": "docs(riasec): register full deep content pack train",
@@ -5608,7 +5608,7 @@
         }
       },
       "failure_reason": null,
-      "pr_url": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/837",
       "commit_sha": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -5636,6 +5636,11 @@
           "at": "2026-05-18T00:00:00+08:00",
           "status": "local_checks_passed",
           "summary": "Manifest/state validation, git diff --check, and scope validation passed for docs-only registration."
+        },
+        {
+          "at": "2026-05-18T00:00:00+08:00",
+          "status": "pr_open",
+          "summary": "Created GitHub PR #837 for RIASEC-FULL-CONTENT-PACK-00."
         }
       ]
     },
