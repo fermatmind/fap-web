@@ -1,0 +1,77 @@
+{
+  "version": "v1",
+  "phase": "5B-FU3B",
+  "generatedAt": "2026-05-17T17:08:27.659Z",
+  "exporterCommandAvailable": true,
+  "exporterCommandSource": "fap-api PR #1449 plus FU3C temp patch executed in production /tmp worktree only",
+  "limit1Bounded": true,
+  "limit5Bounded": true,
+  "aliasRowsBounded": true,
+  "limitedExportMarkedNotForReconciliation": true,
+  "displayAssetSelectionStrategyObserved": true,
+  "savedCareerUserDataEmitted": false,
+  "savedCareerUserDataEvidence": {
+    "itemForbiddenKeyHits": 0,
+    "policy": "schema_and_boundary_policy_only_no_user_rows"
+  },
+  "limitExports": {
+    "limit1": {
+      "sha256": "57fbbef8a0c55509edc7b4ac0740f8cc5e69eaf883732c866db9187ca93e9dc0",
+      "counts": {
+        "backendOccupationRows": 1,
+        "backendAliasRows": 5,
+        "exportedItems": 7,
+        "canonicalCareerJobPages": 2,
+        "aliasOnlyAssets": 5,
+        "localeVariants": 2,
+        "apiResolvableAssets": 7,
+        "publicRouteAvailableAssets": 2,
+        "sitemapEligibleAssets": 2,
+        "llmsEligibleAssets": 2,
+        "indexableAssets": 2,
+        "structuredDataEligibleAssets": 0,
+        "unresolvedDelta": true
+      },
+      "exportScope": {
+        "mode": "limited",
+        "limitApplied": 1,
+        "limitedExport": true,
+        "suitableForFullCountReconciliation": false,
+        "occupationSelectionStrategy": "ordered_by_canonical_slug_limited_occupation_rows",
+        "aliasSelectionStrategy": "related_to_limited_occupation_rows_only",
+        "displayAssetSelectionStrategy": "prefer_non_blocked_non_draft_non_archived_asset_then_latest_updated_at_per_canonical_slug",
+        "savedCareerUserDataPolicy": "schema_and_boundary_policy_only_no_user_rows"
+      }
+    },
+    "limit5": {
+      "sha256": "c50ab23ac1ac50f1093f2c7715114fbfc68e3e608b0d9f1774abccb3b514586d",
+      "counts": {
+        "backendOccupationRows": 5,
+        "backendAliasRows": 9,
+        "exportedItems": 19,
+        "canonicalCareerJobPages": 10,
+        "aliasOnlyAssets": 9,
+        "localeVariants": 10,
+        "apiResolvableAssets": 19,
+        "publicRouteAvailableAssets": 10,
+        "sitemapEligibleAssets": 10,
+        "llmsEligibleAssets": 10,
+        "indexableAssets": 10,
+        "structuredDataEligibleAssets": 0,
+        "unresolvedDelta": true
+      },
+      "exportScope": {
+        "mode": "limited",
+        "limitApplied": 5,
+        "limitedExport": true,
+        "suitableForFullCountReconciliation": false,
+        "occupationSelectionStrategy": "ordered_by_canonical_slug_limited_occupation_rows",
+        "aliasSelectionStrategy": "related_to_limited_occupation_rows_only",
+        "displayAssetSelectionStrategy": "prefer_non_blocked_non_draft_non_archived_asset_then_latest_updated_at_per_canonical_slug",
+        "savedCareerUserDataPolicy": "schema_and_boundary_policy_only_no_user_rows"
+      }
+    }
+  },
+  "preflightStatus": "pass",
+  "blockerDetails": []
+}

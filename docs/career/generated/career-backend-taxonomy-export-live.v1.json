@@ -1,0 +1,203 @@
+{
+  "version": "v1",
+  "phase": "5B-FU3B",
+  "generatedAt": "2026-05-17T17:08:27.659Z",
+  "fullExportHash": "9a9b8aed568a3bcca6a8eab305b6758c316120f23e8f52df84ad654e8e48592a",
+  "fullExportSource": "/tmp/career-taxonomy-fu3c-full.json generated from fap-api-prod /tmp worktree; summarized only, full rows not committed",
+  "totalItems": 11036,
+  "counts": {
+    "backendOccupationRows": 2786,
+    "backendAliasRows": 5464,
+    "exportedItems": 11036,
+    "canonicalCareerJobPages": 5572,
+    "aliasOnlyAssets": 5464,
+    "localeVariants": 5572,
+    "apiResolvableAssets": 11033,
+    "publicRouteAvailableAssets": 1586,
+    "sitemapEligibleAssets": 1586,
+    "llmsEligibleAssets": 1586,
+    "indexableAssets": 1586,
+    "structuredDataEligibleAssets": 0,
+    "unresolvedDelta": true
+  },
+  "countsByAssetType": {
+    "canonicalCareerJobPages": 2786,
+    "aliasOnlyAssets": 3882,
+    "localeVariants": 2786,
+    "apiOnlyAssets": 5849,
+    "cmsOnlyAssets": 0,
+    "frontendStaticOnlyAssets": 0,
+    "noindexAssets": 5852,
+    "sitemapEligibleAssets": 793,
+    "llmsEligibleAssets": 793,
+    "structuredDataEligibleAssets": 0,
+    "unresolvedDelta": 1
+  },
+  "countsByLocale": {
+    "en": 2786,
+    "zh": 2786
+  },
+  "countsByCanonicalStatus": {
+    "canonical": 5572,
+    "alias": 5464
+  },
+  "countsBySitemapEligibility": {
+    "eligible": 1586,
+    "ineligible": 9450
+  },
+  "countsByLlmsEligibility": {
+    "eligible": 1586,
+    "ineligible": 9450
+  },
+  "countsByStructuredDataEligibility": {
+    "eligible": 0,
+    "ineligible": 11036
+  },
+  "countsByOccupationJsonLdAuthority": {
+    "not_present": 5572
+  },
+  "exportScope": {
+    "mode": "full",
+    "limitApplied": null,
+    "limitedExport": false,
+    "suitableForFullCountReconciliation": true,
+    "occupationSelectionStrategy": "all_backend_occupation_rows_ordered_by_canonical_slug",
+    "aliasSelectionStrategy": "all_backend_alias_rows",
+    "displayAssetSelectionStrategy": "prefer_non_blocked_non_draft_non_archived_asset_then_latest_updated_at_per_canonical_slug",
+    "savedCareerUserDataPolicy": "schema_and_boundary_policy_only_no_user_rows"
+  },
+  "representativeRows": [
+    {
+      "careerId": "383cccee-0364-4866-9dc1-f7cd1cfcdf51",
+      "slug": "accountants-and-auditors",
+      "canonicalSlug": "accountants-and-auditors",
+      "locale": "en",
+      "assetType": "canonical_career_job_page",
+      "publicRouteAvailable": true,
+      "sitemapEligible": true,
+      "structuredDataEligible": false,
+      "occupationJsonLdAuthority": "not_present"
+    },
+    {
+      "careerId": "383cccee-0364-4866-9dc1-f7cd1cfcdf51",
+      "slug": "accountants-and-auditors",
+      "canonicalSlug": "accountants-and-auditors",
+      "locale": "zh",
+      "assetType": "canonical_career_job_page",
+      "publicRouteAvailable": true,
+      "sitemapEligible": true,
+      "structuredDataEligible": false,
+      "occupationJsonLdAuthority": "not_present"
+    },
+    {
+      "careerId": "019debb1-b249-721a-ad73-2c4a1f291611",
+      "slug": "actors",
+      "canonicalSlug": "actors",
+      "locale": "en",
+      "assetType": "canonical_career_job_page",
+      "publicRouteAvailable": true,
+      "sitemapEligible": true,
+      "structuredDataEligible": false,
+      "occupationJsonLdAuthority": "not_present"
+    },
+    {
+      "careerId": "019debb1-b249-721a-ad73-2c4a1f291611",
+      "slug": "actors",
+      "canonicalSlug": "actors",
+      "locale": "zh",
+      "assetType": "canonical_career_job_page",
+      "publicRouteAvailable": true,
+      "sitemapEligible": true,
+      "structuredDataEligible": false,
+      "occupationJsonLdAuthority": "not_present"
+    },
+    {
+      "careerId": "019deefb-42ab-708f-ba42-033dba800fc8",
+      "slug": "actuaries",
+      "canonicalSlug": "actuaries",
+      "locale": "en",
+      "assetType": "canonical_career_job_page",
+      "publicRouteAvailable": true,
+      "sitemapEligible": true,
+      "structuredDataEligible": false,
+      "occupationJsonLdAuthority": "not_present"
+    },
+    {
+      "careerId": "019deefb-42ab-708f-ba42-033dba800fc8",
+      "slug": "actuaries",
+      "canonicalSlug": "actuaries",
+      "locale": "zh",
+      "assetType": "canonical_career_job_page",
+      "publicRouteAvailable": true,
+      "sitemapEligible": true,
+      "structuredDataEligible": false,
+      "occupationJsonLdAuthority": "not_present"
+    },
+    {
+      "careerId": "019da904-6336-721c-a4d2-5263c66def4d",
+      "slug": "acupuncturists",
+      "canonicalSlug": "acupuncturists",
+      "locale": "en",
+      "assetType": "canonical_career_job_page",
+      "publicRouteAvailable": true,
+      "sitemapEligible": true,
+      "structuredDataEligible": false,
+      "occupationJsonLdAuthority": "not_present"
+    },
+    {
+      "careerId": "019da904-6336-721c-a4d2-5263c66def4d",
+      "slug": "acupuncturists",
+      "canonicalSlug": "acupuncturists",
+      "locale": "zh",
+      "assetType": "canonical_career_job_page",
+      "publicRouteAvailable": true,
+      "sitemapEligible": true,
+      "structuredDataEligible": false,
+      "occupationJsonLdAuthority": "not_present"
+    },
+    {
+      "careerId": "019da904-5eef-7144-85ce-b2c770f9b77e",
+      "slug": "acute-care-nurses",
+      "canonicalSlug": "acute-care-nurses",
+      "locale": "en",
+      "assetType": "canonical_career_job_page",
+      "publicRouteAvailable": true,
+      "sitemapEligible": true,
+      "structuredDataEligible": false,
+      "occupationJsonLdAuthority": "not_present"
+    },
+    {
+      "careerId": "019da904-5eef-7144-85ce-b2c770f9b77e",
+      "slug": "acute-care-nurses",
+      "canonicalSlug": "acute-care-nurses",
+      "locale": "zh",
+      "assetType": "canonical_career_job_page",
+      "publicRouteAvailable": true,
+      "sitemapEligible": true,
+      "structuredDataEligible": false,
+      "occupationJsonLdAuthority": "not_present"
+    },
+    {
+      "careerId": "019da904-5774-7175-bbf6-0f73b0403fa2",
+      "slug": "adapted-physical-education-specialists",
+      "canonicalSlug": "adapted-physical-education-specialists",
+      "locale": "en",
+      "assetType": "canonical_career_job_page",
+      "publicRouteAvailable": true,
+      "sitemapEligible": true,
+      "structuredDataEligible": false,
+      "occupationJsonLdAuthority": "not_present"
+    },
+    {
+      "careerId": "019da904-5774-7175-bbf6-0f73b0403fa2",
+      "slug": "adapted-physical-education-specialists",
+      "canonicalSlug": "adapted-physical-education-specialists",
+      "locale": "zh",
+      "assetType": "canonical_career_job_page",
+      "publicRouteAvailable": true,
+      "sitemapEligible": true,
+      "structuredDataEligible": false,
+      "occupationJsonLdAuthority": "not_present"
+    }
+  ]
+}

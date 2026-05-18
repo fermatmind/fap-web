@@ -1,0 +1,64 @@
+{
+  "version": "v1",
+  "phase": "5B-FU3B",
+  "generatedAt": "2026-05-17T17:08:27.659Z",
+  "status": "needs_5b_fu4",
+  "exporterPreflightStatus": "pass",
+  "assetCountReconciled": false,
+  "taxonomyWebJoinStatus": "warn",
+  "aliasPolicyReady": false,
+  "jsonLdPolicyReady": false,
+  "claimBoundaryStatus": "pass",
+  "savedCareersPolicyStatus": "pass",
+  "runtimeExpansionAllowed": false,
+  "semanticGraphExpansionAllowed": false,
+  "freemiumExpansionAllowed": false,
+  "recommendationExpansionAllowed": false,
+  "profileMemoryExpansionAllowed": false,
+  "requiredFixesBeforePhase5C": [
+    "Reconcile backend sitemap-eligible career assets with live sitemap career job URLs.",
+    "Resolve software engineer/software-developers alias policy before route or canonical hardening.",
+    "Separate declared 1122 Full Public Resolution assets into exact backend taxonomy buckets."
+  ],
+  "requiredFixesBeforePhase5D": [
+    "Define Occupation JSON-LD eligibility authority and parity rule.",
+    "Resolve runtime drift where live pages emit Occupation JSON-LD but backend taxonomy reports no structured data eligibility.",
+    "Confirm llms/llms-full career inclusion only follows canonical, evidence-backed URLs."
+  ],
+  "requiredHumanDecisions": [
+    "Official product definition for 1122 career assets.",
+    "Canonical target for software engineer/software-developers family aliases.",
+    "Occupation JSON-LD eligibility source of truth."
+  ],
+  "nextRecommendedPhase": "Phase 5B-FU4",
+  "evidence": {
+    "backendFullExportHash": "9a9b8aed568a3bcca6a8eab305b6758c316120f23e8f52df84ad654e8e48592a",
+    "liveSitemapTotalUrls": 519,
+    "liveCareerUrls": 367,
+    "liveCareerJobDetailUrls": 341,
+    "backendSitemapSourceTotalItems": 2192,
+    "backendSitemapSourceCareerItems": 1950,
+    "backendTaxonomyCounts": {
+      "backendOccupationRows": 2786,
+      "backendAliasRows": 5464,
+      "exportedItems": 11036,
+      "canonicalCareerJobPages": 5572,
+      "aliasOnlyAssets": 5464,
+      "localeVariants": 5572,
+      "apiResolvableAssets": 11033,
+      "publicRouteAvailableAssets": 1586,
+      "sitemapEligibleAssets": 1586,
+      "llmsEligibleAssets": 1586,
+      "indexableAssets": 1586,
+      "structuredDataEligibleAssets": 0,
+      "unresolvedDelta": true
+    },
+    "pageSampleCount": 74,
+    "aliasSampleCount": 20,
+    "claimRiskSampleCount": 0
+  },
+  "notes": [
+    "Runtime expansion remains blocked.",
+    "Phase 5C/5D should wait for FU4 or explicit human decision because count and JSON-LD policies remain warn."
+  ]
+}

@@ -1,0 +1,617 @@
+{
+  "version": "v1",
+  "phase": "5B-FU3B",
+  "generatedAt": "2026-05-17T17:08:27.659Z",
+  "backendStructuredDataEligibleAssets": 0,
+  "observedRows": [
+    {
+      "slug": "computer-programmers",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/computer-programmers",
+      "pageStatus": 200,
+      "canonicalUrl": "https://fermatmind.com/zh/career/jobs/computer-programmers",
+      "observedJsonLdTypes": [
+        "Occupation",
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ],
+      "observedOccupationJsonLd": true,
+      "backendStructuredDataKeys": [],
+      "backendOccupationJsonLdAuthority": "not_present",
+      "sitemapPresence": true,
+      "classification": "runtime_drift",
+      "explanation": "Live page emits Occupation JSON-LD while backend taxonomy export reports structuredDataEligibleAssets=0, so policy/runtime authority is not reconciled."
+    },
+    {
+      "slug": "actors",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/actors",
+      "pageStatus": 200,
+      "canonicalUrl": "https://fermatmind.com/zh/career/jobs/actors",
+      "observedJsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ],
+      "observedOccupationJsonLd": false,
+      "backendStructuredDataKeys": [
+        "FAQPage",
+        "Question",
+        "Answer"
+      ],
+      "backendOccupationJsonLdAuthority": "not_present",
+      "sitemapPresence": true,
+      "classification": "policy_expected",
+      "explanation": "Live page emits FAQ/Breadcrumb only; backend taxonomy export also does not prove Occupation JSON-LD authority."
+    },
+    {
+      "slug": "accountants-and-auditors",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/accountants-and-auditors",
+      "pageStatus": 200,
+      "canonicalUrl": "https://fermatmind.com/zh/career/jobs/accountants-and-auditors",
+      "observedJsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ],
+      "observedOccupationJsonLd": false,
+      "backendStructuredDataKeys": [
+        "FAQPage",
+        "Question",
+        "Answer"
+      ],
+      "backendOccupationJsonLdAuthority": "not_present",
+      "sitemapPresence": true,
+      "classification": "policy_expected",
+      "explanation": "Live page emits FAQ/Breadcrumb only; backend taxonomy export also does not prove Occupation JSON-LD authority."
+    },
+    {
+      "slug": "web-developers",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/web-developers",
+      "pageStatus": 200,
+      "canonicalUrl": "https://fermatmind.com/zh/career/jobs/web-developers",
+      "observedJsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ],
+      "observedOccupationJsonLd": false,
+      "backendStructuredDataKeys": [
+        "FAQPage",
+        "Question",
+        "Answer"
+      ],
+      "backendOccupationJsonLdAuthority": "not_present",
+      "sitemapPresence": true,
+      "classification": "policy_expected",
+      "explanation": "Live page emits FAQ/Breadcrumb only; backend taxonomy export also does not prove Occupation JSON-LD authority."
+    },
+    {
+      "slug": "software-developers",
+      "publicUrl": "https://fermatmind.com/zh/career/jobs/software-developers",
+      "pageStatus": 404,
+      "canonicalUrl": null,
+      "observedJsonLdTypes": [],
+      "observedOccupationJsonLd": false,
+      "backendStructuredDataKeys": [],
+      "backendOccupationJsonLdAuthority": "not_present",
+      "sitemapPresence": false,
+      "classification": "policy_expected",
+      "explanation": "Live page emits FAQ/Breadcrumb only; backend taxonomy export also does not prove Occupation JSON-LD authority."
+    }
+  ],
+  "sampledOccupationJsonLdPages": [
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/computer-hardware-engineers",
+      "slug": "computer-hardware-engineers",
+      "jsonLdTypes": [
+        "Occupation",
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/mechanical-engineers",
+      "slug": "mechanical-engineers",
+      "jsonLdTypes": [
+        "Occupation",
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/compliance-officers",
+      "slug": "compliance-officers",
+      "jsonLdTypes": [
+        "Occupation",
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/training-and-development-specialists",
+      "slug": "training-and-development-specialists",
+      "jsonLdTypes": [
+        "Occupation",
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/computer-programmers",
+      "slug": "computer-programmers",
+      "jsonLdTypes": [
+        "Occupation",
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    }
+  ],
+  "sampledFaqBreadcrumbOnlyPages": [
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/accountants-and-auditors",
+      "slug": "accountants-and-auditors",
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/advertising-sales-agents",
+      "slug": "advertising-sales-agents",
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/air-traffic-controllers",
+      "slug": "air-traffic-controllers",
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/arbitrators-mediators-and-conciliators",
+      "slug": "arbitrators-mediators-and-conciliators",
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/atmospheric-scientists-including-meteorologists",
+      "slug": "atmospheric-scientists-including-meteorologists",
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/bill-and-account-collectors",
+      "slug": "bill-and-account-collectors",
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/brickmasons-blockmasons-and-stonemasons",
+      "slug": "brickmasons-blockmasons-and-stonemasons",
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/career-and-technical-education-teachers",
+      "slug": "career-and-technical-education-teachers",
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/chemists-and-materials-scientists",
+      "slug": "chemists-and-materials-scientists",
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/coaches-and-scouts",
+      "slug": "coaches-and-scouts",
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/construction-and-building-inspectors",
+      "slug": "construction-and-building-inspectors",
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/cost-estimators",
+      "slug": "cost-estimators",
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/data-scientists",
+      "slug": "data-scientists",
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/desktop-publishers",
+      "slug": "desktop-publishers",
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/editors",
+      "slug": "editors",
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/elevator-installers-and-repairers",
+      "slug": "elevator-installers-and-repairers",
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/environmental-science-and-protection-technicians",
+      "slug": "environmental-science-and-protection-technicians",
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/financial-analysts",
+      "slug": "financial-analysts",
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/fitness-trainers-and-instructors",
+      "slug": "fitness-trainers-and-instructors",
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/forensic-science-technicians",
+      "slug": "forensic-science-technicians",
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/genetic-counselors",
+      "slug": "genetic-counselors",
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/hand-laborers-and-material-movers",
+      "slug": "hand-laborers-and-material-movers",
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/heavy-and-tractor-trailer-truck-drivers",
+      "slug": "heavy-and-tractor-trailer-truck-drivers",
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/hydrologists",
+      "slug": "hydrologists",
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/information-security-analysts",
+      "slug": "information-security-analysts",
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/janitors-and-building-cleaners",
+      "slug": "janitors-and-building-cleaners",
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/librarians",
+      "slug": "librarians",
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/logging-workers",
+      "slug": "logging-workers",
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/marriage-and-family-therapists",
+      "slug": "marriage-and-family-therapists",
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/medical-transcriptionists",
+      "slug": "medical-transcriptionists",
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/models",
+      "slug": "models",
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/nuclear-medicine-technologists",
+      "slug": "nuclear-medicine-technologists",
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/occupational-therapy-assistants-and-aides",
+      "slug": "occupational-therapy-assistants-and-aides",
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/painting-and-coating-workers",
+      "slug": "painting-and-coating-workers",
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/phlebotomists",
+      "slug": "phlebotomists",
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/plumbers-pipefitters-and-steamfitters",
+      "slug": "plumbers-pipefitters-and-steamfitters",
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/postsecondary-teachers",
+      "slug": "postsecondary-teachers",
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/producers-and-directors",
+      "slug": "producers-and-directors",
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/purchasing-managers-buyers-and-purchasing-agents",
+      "slug": "purchasing-managers-buyers-and-purchasing-agents",
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/recreation-workers",
+      "slug": "recreation-workers",
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ]
+    }
+  ],
+  "jsonLdPolicyReady": false,
+  "status": "warn",
+  "requiredDecision": "Define whether Occupation JSON-LD authority is backend structured_data_json, frontend rendering policy, or a separate display-asset eligibility rule before Phase 5D."
+}
