@@ -4053,7 +4053,7 @@
       "depends_on": [
         "PR-GRAPH-01:fap-api"
       ],
-      "status": "pr_open",
+      "status": "ready_to_merge",
       "title": "PR-GRAPH-01｜Article Multi-Test Graph Edges",
       "mode": "execute",
       "risk_level": "L2",
@@ -5720,6 +5720,101 @@
           "at": "2026-05-18T00:00:00+08:00",
           "status": "pr_open",
           "summary": "Created GitHub PR #838 for RIASEC-FULL-CONTENT-PACK-01."
+        }
+      ]
+    },
+    {
+      "id": "RIASEC-FULL-CONTENT-PACK-02B",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/riasec-full-content-pack-02b-medium-reading",
+      "base": "main",
+      "depends_on": [
+        "RIASEC-FULL-CONTENT-PACK-02A"
+      ],
+      "status": "pr_open",
+      "train_scope": "riasec_full_deep_content_pack",
+      "risk_level": "L1",
+      "title": "feat(riasec): allow backend medium score reading slots",
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized adding RIASEC-FULL-CONTENT-PACK-02B to fap-web docs/codex/pr-train.yaml and docs/codex/pr-train-state.json, then executing PR02B."
+        },
+        "dependency": {
+          "status": "pass",
+          "evidence": "RIASEC-FULL-CONTENT-PACK-02A merged in fap-api PR #1465 with merge commit 1335414931681127f48e5e1897f3df8f0a673777."
+        },
+        "branch_preflight": {
+          "status": "pass",
+          "evidence": "Created codex/riasec-full-content-pack-02b-medium-reading from fap-web main at ac40c1efcf9f3d8ace38b6d362c8caa569ed9145 after confirming main == origin/main. Unrelated .playwright-mcp/ remains untracked and outside scope."
+        },
+        "local_checks": {
+          "status": "pass",
+          "commands": [
+            "pnpm exec vitest run tests/contracts/riasec-deep-copy-slot-consumption.contract.test.tsx",
+            "pnpm typecheck",
+            "pnpm test:contract",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+            "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"'",
+            "git diff --check",
+            "git diff --cached --check"
+          ],
+          "evidence": "Targeted RIASEC contract, typecheck, full contract suite rerun, production API env build, manifest/state validation, forbidden-claim scan, and git diff checks passed. The earlier MBTI desktop P1 render failure was transient: the focused test and whole MBTI file passed, and the full contract suite passed on rerun."
+        },
+        "scope_validation": {
+          "status": "pass",
+          "evidence": "Changed files are limited to fap-web RIASEC result assembler allowlist, RIASEC deep-copy fixture/test, and docs/codex train metadata. No fap-api, scorer, content pack, local interpretation fallback copy, career registry, share/PDF/history backend, feedback runtime, analytics runtime, or AI report generation files changed."
+        },
+        "github_required_checks": {
+          "status": "pass",
+          "evidence": "GitHub required checks passed for PR #840: build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze."
+        }
+      },
+      "failure_reason": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/840",
+      "commit_sha": "25ea4c5d",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [
+        {
+          "title": "Untracked local .playwright-mcp directory outside PR02B scope",
+          "severity": "P2",
+          "scope_impact": "The untracked .playwright-mcp/ directory exists in the fap-web working tree but is outside the declared PR02B scope and will not be staged.",
+          "introduced_by_current_pr": false,
+          "recommended_future_phase": "Clean or ignore local Playwright MCP artifacts separately.",
+          "blocks_merge": false,
+          "evidence": [
+            "git status --short before branch creation showed ?? .playwright-mcp/"
+          ]
+        }
+      ],
+      "history": [
+        {
+          "at": "2026-05-18T14:30:00+08:00",
+          "status": "in_progress",
+          "summary": "Started RIASEC-FULL-CONTENT-PACK-02B to add frontend allowlist support for backend-provided medium_score_reading. Scope excludes fap-api, scoring, content packs, local interpretation fallback copy, UI redesign, career matching, feedback runtime, analytics runtime, and AI report generation."
+        },
+        {
+          "at": "2026-05-18T23:02:22+08:00",
+          "status": "local_checks_failed",
+          "summary": "Stopped before push/PR because required pnpm test:contract failed in unrelated MBTI desktop P1 render contract. Targeted RIASEC contract, typecheck, production build, manifest/state validation, and git diff --check had passed."
+        },
+        {
+          "at": "2026-05-18T23:12:12+08:00",
+          "status": "local_checks_passed",
+          "summary": "Reran the focused MBTI failure, the full MBTI file, and pnpm test:contract. All passed, so the earlier MBTI failure is recorded as transient and PR02B can proceed."
+        },
+        {
+          "at": "2026-05-18T23:15:27+08:00",
+          "status": "pr_open",
+          "summary": "Opened https://github.com/fermatmind/fap-web/pull/840 after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-05-18T23:19:29+08:00",
+          "status": "ready_to_merge",
+          "summary": "GitHub required checks passed for PR #840: build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze."
         }
       ]
     },

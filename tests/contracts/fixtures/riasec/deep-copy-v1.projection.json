@@ -149,6 +149,7 @@
           "core_drive": "Backend fixture I core drive.",
           "positive_value": "Backend fixture I positive value.",
           "real_world_cost": "Backend fixture I reality cost.",
+          "medium_score_reading": "Backend fixture I medium score reading.",
           "work_activity_examples": ["Backend fixture I activity one", "Backend fixture I activity two"]
         },
         "boundaries": {
