@@ -4147,7 +4147,7 @@
       "branch": "codex/arch-seo-cms-01-asset-map-ownership-contract",
       "base": "main",
       "depends_on": [],
-      "status": "pr_open",
+      "status": "ready_to_merge",
       "title": "docs(architecture): add SEO intelligence asset map and ownership contract",
       "mode": "execute",
       "risk_level": "L2",
@@ -5969,11 +5969,15 @@
         "github_pr": {
           "status": "pass",
           "evidence": "Opened https://github.com/fermatmind/fap-web/pull/841 from codex/riasec-take-flow-01 to main."
+        },
+        "github_required_checks": {
+          "status": "pass",
+          "evidence": "PR #841 required checks passed before merge review: build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze. gh pr view reported mergeStateStatus=CLEAN."
         }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/841",
-      "commit_sha": "4e6a32cabd17",
+      "commit_sha": "3198d3262c4b",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -5992,6 +5996,11 @@
           "at": "2026-05-19T10:46:29+08:00",
           "status": "pr_open",
           "summary": "Opened https://github.com/fermatmind/fap-web/pull/841 after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-05-19T10:51:32+08:00",
+          "status": "ready_to_merge",
+          "summary": "Re-reviewed PR #841: title/body, changed files, manifest scope, required local checks ledger, GitHub required checks, and mergeStateStatus=CLEAN are ready for squash merge."
         }
       ]
     }
