@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-19T06:23:49.984Z",
+  "updated_at": "2026-05-19T06:36:14.197Z",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -6149,7 +6149,7 @@
       "depends_on": [
         "WEB-CODEQL-RUNTIME-HTML-01"
       ],
-      "status": "pr_open_github_checks_pending",
+      "status": "merged",
       "title": "fix(security): use cryptographic anonymous id fallback",
       "artifacts": [
         "lib/anon.ts",
@@ -6163,14 +6163,20 @@
           "manifest_state_validation": "passed",
           "git_diff_check": "passed"
         },
-        "github": {}
+        "github": {
+          "build": "passed",
+          "contracts": "passed",
+          "verify_big5_contract_freeze": "passed",
+          "verify_enneagram_contract_freeze": "passed",
+          "codeql": "passed"
+        }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/844",
       "commit_sha": "91b0339707f5ecf33dbffbba46506afd042b8df4",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-05-19T06:25:00Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-19T06:21:37.634Z",
@@ -6191,6 +6197,73 @@
           "at": "2026-05-19T06:23:49.984Z",
           "status": "pr_open_github_checks_pending",
           "summary": "Opened PR #844; GitHub checks pending."
+        },
+        {
+          "at": "2026-05-19T06:28:49.152Z",
+          "status": "post_merge_cleanup_complete",
+          "summary": "PR #844 merged and branch cleanup completed."
+        }
+      ],
+      "merge_commit": "65342f8467d045c553ab397cdf1d43c0c8a392b9"
+    },
+    {
+      "id": "WEB-CODEQL-SEO-SCRIPTS-URL-01",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/web-codeql-seo-scripts-url-01",
+      "base": "main",
+      "depends_on": [
+        "WEB-CODEQL-ANALYTICS-ID-01"
+      ],
+      "status": "pr_open_github_checks_pending",
+      "title": "fix(security): harden SEO script URL validation",
+      "artifacts": [
+        "scripts/seo/check-canonical-hreflang-jsonld-parity.mjs",
+        "scripts/seo/check-mobile-seo-gate.mjs",
+        "scripts/seo/check-sitemap-indexability.mjs",
+        "scripts/seo/lib/live-url-check.mjs",
+        "scripts/seo/push-baidu.mjs",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "local": {
+          "typecheck": "passed",
+          "build": "passed",
+          "sitemap_indexability": "passed",
+          "manifest_state_validation": "passed",
+          "git_diff_check": "passed",
+          "test_contract": "passed",
+          "git_diff_cached_check": "passed"
+        },
+        "github": {}
+      },
+      "failure_reason": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/845",
+      "commit_sha": "be452ad9499b450d50ed66a8c5e637892c5fa0fa",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-05-19T06:28:49.152Z",
+          "status": "in_progress",
+          "summary": "Started scoped SEO scripts CodeQL URL validation fix."
+        },
+        {
+          "at": "2026-05-19T06:31:10.129Z",
+          "status": "precommit_checks_passed",
+          "summary": "typecheck, build, sitemap indexability, manifest/state, and git diff checks passed. Full contract suite will be rerun after commit on a clean worktree because local governance tests inspect active git diff."
+        },
+        {
+          "at": "2026-05-19T06:34:56.123Z",
+          "status": "local_checks_passed",
+          "summary": "Full pnpm test:contract passed on a clean branch after commit; scoped SEO scripts checks are green."
+        },
+        {
+          "at": "2026-05-19T06:36:14.197Z",
+          "status": "pr_open_github_checks_pending",
+          "summary": "Opened PR #845; GitHub checks pending."
         }
       ]
     }

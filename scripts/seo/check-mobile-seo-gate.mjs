@@ -150,7 +150,11 @@ function resolveRuntimeBaseUrl(options) {
     return null;
   }
 
-  return raw.replace(/\/+$/, "");
+  const url = new URL(raw);
+  const allowedHosts = new Set(["fermatmind.com", "www.fermatmind.com", "localhost", "127.0.0.1"]);
+  assert(["http:", "https:"].includes(url.protocol), "runtime base URL must use http or https");
+  assert(allowedHosts.has(url.hostname), `runtime base URL host is not allowed: ${url.hostname}`);
+  return url.toString().replace(/\/+$/, "");
 }
 
 async function assertRuntimeFetches(gate, runtimeBaseUrl) {

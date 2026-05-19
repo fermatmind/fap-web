@@ -174,13 +174,22 @@ function collectJsonValues(value, out = []) {
   return out;
 }
 
+function assertAllowedLiveFetchUrl(rawUrl, expectedSiteUrl, label) {
+  const url = new URL(rawUrl);
+  const expected = new URL(expectedSiteUrl);
+  assert(url.protocol === "https:", `${label} live fetch must use https`);
+  assert(url.hostname === expected.hostname, `${label} live fetch host must match site host`);
+  return url.toString();
+}
+
 async function assertLiveParity(fixture) {
   for (const sample of fixture.samples) {
     if (sample.liveOptional === false) {
       continue;
     }
 
-    const response = await fetch(sample.canonicalUrl, { headers: { Accept: "text/html" } });
+    const liveUrl = assertAllowedLiveFetchUrl(sample.canonicalUrl, fixture.siteUrl, sample.id);
+    const response = await fetch(liveUrl, { headers: { Accept: "text/html" } });
     assert(response.ok, `${sample.id} live fetch failed: ${response.status}`);
     const html = await response.text();
     const links = extractLinks(html);

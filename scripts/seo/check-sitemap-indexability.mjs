@@ -78,7 +78,7 @@ for (const rawUrl of urls) {
     continue;
   }
 
-  if (rawUrl.includes("www.fermatmind.com")) {
+  if (parsed.hostname === "www.fermatmind.com") {
     errors.push(`[www-host] ${rawUrl}`);
     continue;
   }
