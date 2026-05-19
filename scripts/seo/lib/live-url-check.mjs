@@ -158,7 +158,7 @@ export function getUnsafeLiveFetchIssue(rawUrl, options = {}) {
     reasons.push({ reason: "non-apex-host", detail: parsed.hostname });
   }
 
-  if (rawUrl.includes("www.fermatmind.com")) {
+  if (parsed.hostname === "www.fermatmind.com") {
     reasons.push({ reason: "www-host", detail: "" });
   }
 
@@ -268,12 +268,14 @@ export function dedupeUrls(urls) {
 }
 
 export function decodeXmlEntities(value) {
-  return String(value)
-    .replace(/&amp;/g, "&")
-    .replace(/&lt;/g, "<")
-    .replace(/&gt;/g, ">")
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'");
+  const entities = {
+    "&amp;": "&",
+    "&lt;": "<",
+    "&gt;": ">",
+    "&quot;": '"',
+    "&#39;": "'",
+  };
+  return String(value).replace(/&(amp|lt|gt|quot|#39);/g, (entity) => entities[entity] ?? entity);
 }
 
 export function stripTrailingUrlPunctuation(value) {

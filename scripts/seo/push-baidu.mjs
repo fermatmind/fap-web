@@ -29,9 +29,15 @@ const urls = [...xml.matchAll(/<loc>(.*?)<\/loc>/g)]
   });
 
 const endpoint =
-  process.env.BAIDU_PUSH_ENDPOINT || `http://data.zz.baidu.com/urls?site=${encodeURIComponent(site)}&token=${encodeURIComponent(token)}`;
+  process.env.BAIDU_PUSH_ENDPOINT || `https://data.zz.baidu.com/urls?site=${encodeURIComponent(site)}&token=${encodeURIComponent(token)}`;
 
-const response = await fetch(endpoint, {
+const endpointUrl = new URL(endpoint);
+if (endpointUrl.protocol !== "https:" || endpointUrl.hostname !== "data.zz.baidu.com") {
+  console.error("[baidu] BAIDU_PUSH_ENDPOINT must use https://data.zz.baidu.com");
+  process.exit(1);
+}
+
+const response = await fetch(endpointUrl.toString(), {
   method: "POST",
   headers: { "Content-Type": "text/plain" },
   body: urls.join("\n"),
