@@ -30,10 +30,18 @@ function normalizeCanonicalUrl(value: string): string {
   return normalized.endsWith("/") && url.pathname !== "/" ? normalized.slice(0, -1) : normalized;
 }
 
+function isSiteCanonicalUrl(value: string): boolean {
+  try {
+    return new URL(value).origin === SITE_URL;
+  } catch {
+    return false;
+  }
+}
+
 function extractCanonicalUrls(text: string): string[] {
   return [...text.matchAll(/https?:\/\/[^\s<>'"`]+/g)]
     .map((match) => normalizeCanonicalUrl(match[0].replace(/[),.;]+$/, "")))
-    .filter((url) => url.startsWith(SITE_URL));
+    .filter(isSiteCanonicalUrl);
 }
 
 function uniqueSorted(values: string[]): string[] {

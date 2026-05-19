@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-19T06:36:14.197Z",
+  "updated_at": "2026-05-19T06:47:09.075Z",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -6215,7 +6215,7 @@
       "depends_on": [
         "WEB-CODEQL-ANALYTICS-ID-01"
       ],
-      "status": "pr_open_github_checks_pending",
+      "status": "merged",
       "title": "fix(security): harden SEO script URL validation",
       "artifacts": [
         "scripts/seo/check-canonical-hreflang-jsonld-parity.mjs",
@@ -6236,14 +6236,20 @@
           "test_contract": "passed",
           "git_diff_cached_check": "passed"
         },
-        "github": {}
+        "github": {
+          "build": "passed",
+          "contracts": "passed",
+          "verify_big5_contract_freeze": "passed",
+          "verify_enneagram_contract_freeze": "passed",
+          "codeql": "passed"
+        }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/845",
       "commit_sha": "be452ad9499b450d50ed66a8c5e637892c5fa0fa",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-05-19T06:39:33Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-19T06:28:49.152Z",
@@ -6264,6 +6270,78 @@
           "at": "2026-05-19T06:36:14.197Z",
           "status": "pr_open_github_checks_pending",
           "summary": "Opened PR #845; GitHub checks pending."
+        },
+        {
+          "at": "2026-05-19T06:42:18.043Z",
+          "status": "post_merge_cleanup_complete",
+          "summary": "PR #845 merged; main synced and branch cleanup confirmed."
+        }
+      ],
+      "merge_commit": "04d0acbe2c7ed5a6fd0f0c65b559f2f2579c564b"
+    },
+    {
+      "id": "WEB-CODEQL-CONTRACT-HARNESS-01",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/web-codeql-contract-harness-01",
+      "base": "main",
+      "depends_on": [
+        "WEB-CODEQL-SEO-SCRIPTS-URL-01"
+      ],
+      "status": "pr_open_github_checks_pending",
+      "title": "test(security): harden contract harness parsing helpers",
+      "artifacts": [
+        "tests/contracts/analytics-scripts.contract.test.ts",
+        "tests/contracts/evidence-container-live-readiness.contract.test.ts",
+        "tests/contracts/evidence-container-readiness-gate.contract.test.ts",
+        "tests/contracts/llms-parity-contract.contract.test.ts",
+        "tests/contracts/uasp-result-report-metadata-rendering-guard.contract.test.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "local": {
+          "typecheck": "passed",
+          "build": "passed",
+          "test_contract": "passed",
+          "manifest_state_validation": "passed",
+          "git_diff_check": "passed",
+          "git_diff_cached_check": "passed"
+        },
+        "github": {}
+      },
+      "failure_reason": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/846",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-05-19T06:42:18.043Z",
+          "status": "in_progress",
+          "summary": "Started scoped contract harness CodeQL alert fix."
+        },
+        {
+          "at": "2026-05-19T06:45:20.355Z",
+          "status": "precommit_checks_passed",
+          "summary": "typecheck, build, manifest/state, and git diff checks passed. Full contract suite will be rerun after commit on a clean worktree because governance tests inspect active git diff."
+        },
+        {
+          "at": "2026-05-19T06:46:29.922Z",
+          "status": "local_checks_passed",
+          "summary": "typecheck, production build, manifest/state validation, git diff checks, and full pnpm test:contract passed."
+        },
+        {
+          "at": "2026-05-19T06:47:09.075Z",
+          "status": "pr_open_github_checks_pending",
+          "summary": "Opened PR #846; GitHub checks pending."
+        }
+      ],
+      "sidecar_issues": [
+        {
+          "at": "2026-05-19T06:45:20.355Z",
+          "summary": "Full pnpm test:contract failed before commit because historical governance tests reject any active git diff outside their own allowlists. This PR changes contract harness tests intentionally; rerun after commit on a clean branch is required.",
+          "production_blocking": false
         }
       ]
     }

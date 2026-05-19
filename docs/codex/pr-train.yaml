@@ -4312,3 +4312,49 @@ prs:
       - Baidu push endpoint is HTTPS and host-restricted.
       - No runtime page behavior changes.
     rollback_note: "Restore the prior SEO script URL handling if required."
+
+  - id: WEB-CODEQL-CONTRACT-HARNESS-01
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/web-codeql-contract-harness-01
+    base: main
+    depends_on:
+      - WEB-CODEQL-SEO-SCRIPTS-URL-01
+    mode: execute
+    train_scope: web_codeql_contract_harness
+    risk_level: L2
+    status: planned
+    title: "test(security): harden contract harness parsing helpers"
+    goal: "Resolve CodeQL alerts in contract test harnesses without changing runtime behavior."
+    in_scope:
+      - tests/contracts/analytics-scripts.contract.test.ts
+      - tests/contracts/evidence-container-live-readiness.contract.test.ts
+      - tests/contracts/evidence-container-readiness-gate.contract.test.ts
+      - tests/contracts/llms-parity-contract.contract.test.ts
+      - tests/contracts/uasp-result-report-metadata-rendering-guard.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - frontend runtime behavior
+      - CMS content
+      - SEO output changes
+      - analytics behavior changes
+      - backend changes
+      - production deploy
+    required_local_checks:
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Contract harnesses avoid regex-based HTML tag filtering where CodeQL flagged it.
+      - Contract URL origin filtering uses parsed URL origin checks.
+      - Runtime file scans avoid stat/read file-system race patterns.
+      - No runtime behavior changes.
+    rollback_note: "Restore the previous contract harness helpers if required."

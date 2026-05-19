@@ -13,6 +13,10 @@ import { TRACKING_EVENTS } from "@/lib/tracking/events";
 describe("analytics scripts contract", () => {
   const originalEnv = process.env;
 
+  function countOccurrences(value: string, needle: string): number {
+    return value.split(needle).length - 1;
+  }
+
   function renderAnalyticsScripts(env: Record<string, string | undefined>) {
     process.env = {
       ...originalEnv,
@@ -72,7 +76,7 @@ describe("analytics scripts contract", () => {
       baiduTongjiId: "",
     });
 
-    expect(script.match(/googletagmanager\.com\/gtag\/js/g)).toHaveLength(1);
+    expect(countOccurrences(script, "googletagmanager.com/gtag/js")).toBe(1);
     expect(script).toContain('window.gtag("config", gaMeasurementId, { send_page_view: false });');
     expect(script).toContain('window.gtag("config", googleAdsConversionId, { send_page_view: false });');
     expect(script).not.toContain('window.gtag("config", googleAdsConversionId);');
