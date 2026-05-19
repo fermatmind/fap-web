@@ -4151,3 +4151,38 @@ prs:
       - RIASEC start_attempt and submit_attempt tracking stays free of PII and raw scores while retaining safe SEO attribution.
       - MBTI, Big Five, and Enneagram take flows do not regress.
     rollback_note: "Restore the RIASEC take page branch to RiasecTakeClient and remove the shared QuizTakeClient RIASEC-specific form/tracking/test changes."
+
+  - id: OPS-CI-CODESCAN-WEB-01
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/ops-ci-codescan-web-01
+    base: main
+    depends_on: []
+    mode: execute
+    train_scope: ops_ci_codescan_web
+    risk_level: L2
+    status: planned
+    title: "chore(ci): enable code scanning for fap-web"
+    goal: "Add GitHub CodeQL code scanning for fap-web so deploy readiness can consume GitHub code scanning analysis instead of manual waiver."
+    in_scope:
+      - .github/workflows/codeql.yml
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - frontend runtime behavior
+      - CMS authority, content publication, sitemap, llms, SEO/GEO enumeration, scoring, checkout, payment, report, auth, or analytics behavior
+      - fap-api repository changes
+      - production deploy, rollback, unlock, process termination, or server writes
+    required_local_checks:
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file(".github/workflows/codeql.yml"); YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - GitHub CodeQL workflow exists for fap-web.
+      - Pull requests and main are expected to produce GitHub code scanning analysis.
+      - No frontend runtime code or public content authority files are changed.
+    rollback_note: "Remove .github/workflows/codeql.yml and the OPS-CI-CODESCAN-WEB-01 train metadata."

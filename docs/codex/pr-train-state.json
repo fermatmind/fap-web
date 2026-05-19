@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-17T21:32:00+08:00",
+  "updated_at": "2026-05-19T03:52:38.016Z",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -6010,6 +6010,47 @@
           "at": "2026-05-19T10:55:58+08:00",
           "status": "merged",
           "summary": "Squash merged PR #841 into main as 5ac3a16a9931a308d1f010ba6b015ba6ba2cdbb6, deleted the remote branch, ran post-merge cleanup, and verified main was synced."
+        }
+      ]
+    },
+    {
+      "id": "OPS-CI-CODESCAN-WEB-01",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/ops-ci-codescan-web-01",
+      "base": "main",
+      "depends_on": [],
+      "status": "local_checks_passed",
+      "title": "chore(ci): enable code scanning for fap-web",
+      "artifacts": [
+        ".github/workflows/codeql.yml",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "local": {
+          "manifest_state_validation": "passed",
+          "git_diff_check": "passed",
+          "scope_validation": "passed"
+        },
+        "github": {}
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-05-19T03:52:13.554Z",
+          "status": "in_progress",
+          "summary": "Started CodeQL code scanning enablement for fap-web. Scope is limited to CI workflow and PR train metadata; no frontend runtime behavior changes."
+        },
+        {
+          "at": "2026-05-19T03:52:38.015Z",
+          "status": "local_checks_passed",
+          "summary": "Added fap-web CodeQL workflow and train metadata. Manifest/state validation, git diff checks, and scope validation passed."
         }
       ]
     }
