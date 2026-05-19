@@ -8,6 +8,8 @@ import { buildRequestScaleCodeCandidates } from "@/lib/scaleCodeMode";
 export type ScaleQuestionOption = {
   code: string;
   text?: string;
+  text_en?: string | null;
+  text_zh?: string | null;
   label?: string;
   score?: number;
   svg?: {
@@ -28,6 +30,8 @@ export type ScaleQuestionOption = {
 export type ScaleQuestionItem = {
   question_id: string;
   text?: string | null;
+  text_en?: string | null;
+  text_zh?: string | null;
   order?: number;
   direction?: number;
   dimension?: string;

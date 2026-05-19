@@ -32,7 +32,7 @@ import {
 import { ApiError } from "@/lib/api-client";
 import { trackEvent, trackObservableFunnelEvent } from "@/lib/analytics";
 import { getDictSync } from "@/lib/i18n/getDict";
-import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
+import { getLocaleFromPathname, localizedPath, toApiLocale } from "@/lib/i18n/locales";
 import { isMbtiScaleCode, normalizeMbtiFormCode } from "@/lib/mbti/forms";
 import { classifyApiError } from "@/lib/observability/httpError";
 import { captureError } from "@/lib/observability/sentry";
@@ -47,6 +47,11 @@ import { normalizeQuizQuestions } from "@/lib/quiz/normalizeQuestions";
 import { QuizStoreProvider, useQuizStore } from "@/lib/quiz/store";
 import { useConstrainQuizUrlTokens } from "@/lib/quiz/urlTokenGuard";
 import { isImmersiveSingleFlowEnabled } from "@/lib/quiz/uxFlags";
+import { isRiasecScaleCode, normalizeRiasecFormCode } from "@/lib/riasec/forms";
+import {
+  buildRiasecStartAttemptTrackingPayload,
+  buildRiasecSubmitAttemptTrackingPayload,
+} from "@/lib/riasec/tracking";
 import { resolveResultAttemptId } from "@/lib/attempt/resolveResultAttemptId";
 import {
   buildTrackingAttributionPayload,
@@ -279,7 +284,9 @@ function readTakeFlowAttribution(
   const entrySurface = normalizeQueryValue(searchParams.get("entry_surface"));
   const sourcePageType = normalizeQueryValue(searchParams.get("source_page_type"));
   const targetAction = normalizeQueryValue(searchParams.get("target_action"));
-  const testSlug = normalizeQueryValue(searchParams.get("test_slug"));
+  const testSlug =
+    normalizeQueryValue(searchParams.get("test_slug"))
+    ?? normalizeQueryValue(searchParams.get("target_test_slug"));
   const compareIntent = searchParams.get("compare_intent") === "true";
   const attributionParams = extractAttributionParamsFromSearchParams(
     new URLSearchParams(searchParams.toString())
@@ -347,7 +354,15 @@ export default function QuizTakeClient({
   const questionIds = useMemo(() => questions.map((question) => question.id), [questions]);
   const anonId = useMemo(() => getOrCreateAnonId(), []);
   const resolvedFormCode = useMemo(
-    () => (isMbtiScaleCode(scaleCode) ? normalizeMbtiFormCode(formCode) : undefined),
+    () => {
+      if (isMbtiScaleCode(scaleCode)) {
+        return normalizeMbtiFormCode(formCode);
+      }
+      if (isRiasecScaleCode(scaleCode)) {
+        return normalizeRiasecFormCode(formCode);
+      }
+      return undefined;
+    },
     [formCode, scaleCode]
   );
   return (
@@ -440,15 +455,24 @@ function QuizTakeInner({
   const inviteLinkOpenedTrackedRef = useRef(false);
   const forceNewAttemptAppliedRef = useRef(false);
   const immersiveEnabled = isImmersiveSingleFlowEnabled();
-  const showsMbtiQuizChrome = isMbtiScaleCode(scaleCode);
-  const quizHeaderBrand = showsMbtiQuizChrome ? testTitle : dict.header.brand;
+  const showsTitleQuizChrome = isMbtiScaleCode(scaleCode) || isRiasecScaleCode(scaleCode);
+  const quizHeaderBrand = showsTitleQuizChrome ? testTitle : dict.header.brand;
   const trackedStartRef = useRef(false);
   const resolvedFormCode = useMemo(
-    () => (isMbtiScaleCode(scaleCode) ? normalizeMbtiFormCode(formCode) : undefined),
+    () => {
+      if (isMbtiScaleCode(scaleCode)) {
+        return normalizeMbtiFormCode(formCode);
+      }
+      if (isRiasecScaleCode(scaleCode)) {
+        return normalizeRiasecFormCode(formCode);
+      }
+      return undefined;
+    },
     [formCode, scaleCode]
   );
   const normalizedScaleCode = useMemo(() => scaleCode.trim().toUpperCase(), [scaleCode]);
   const isIqScale = useMemo(() => isIqScaleCode(normalizedScaleCode), [normalizedScaleCode]);
+  const isRiasecScale = useMemo(() => isRiasecScaleCode(scaleCode), [scaleCode]);
   const matchesSavedAttempt = useMemo(() => {
     if (!attemptId || savedScaleCode !== scaleCode) {
       return false;
@@ -631,7 +655,12 @@ function QuizTakeInner({
           setQuestions(normalizedQuestions);
         } else {
           const response = await runWithAuthRetry("questions", () =>
-            fetchScaleQuestions({ scaleCode, formCode: resolvedFormCode, anonId })
+            fetchScaleQuestions({
+              scaleCode,
+              formCode: resolvedFormCode,
+              anonId,
+              ...(isRiasecScale ? { locale: toApiLocale(locale) } : {}),
+            })
           );
 
           if (!active) return;
@@ -683,7 +712,7 @@ function QuizTakeInner({
     return () => {
       active = false;
     };
-  }, [anonId, authBlockError, isIqScale, locale, resolvedFormCode, runWithAuthRetry, scaleCode, setQuestions, slug]);
+  }, [anonId, authBlockError, isIqScale, isRiasecScale, locale, resolvedFormCode, runWithAuthRetry, scaleCode, setQuestions, slug]);
 
   useEffect(() => {
     latestAnswersRef.current = answers;
@@ -729,6 +758,7 @@ function QuizTakeInner({
                 scaleCode,
                 formCode: resolvedFormCode,
                 anonId,
+                ...(isRiasecScale ? { locale: toApiLocale(locale) } : {}),
                 meta: {
                   ...(entryContext.entrySurface ? { entry_surface: entryContext.entrySurface } : {}),
                   ...(entryContext.sourcePageType ? { source_page_type: entryContext.sourcePageType } : {}),
@@ -737,6 +767,7 @@ function QuizTakeInner({
                   ...(entryContext.landingPath ? { landing_path: entryContext.landingPath } : {}),
                 },
                 ...attribution,
+                ...(isRiasecScale ? { clientPlatform: "web", channel: "web" } : {}),
               })
             );
 
@@ -788,6 +819,7 @@ function QuizTakeInner({
     entryContext.testSlug,
     isFlowActive,
     isIqScale,
+    isRiasecScale,
     locale,
     resolvedFormCode,
     runWithAuthRetry,
@@ -842,6 +874,7 @@ function QuizTakeInner({
       scaleCode,
       scale_code: normalizedScaleCode,
       test_slug: entryContext.testSlug ?? slug,
+      target_test_slug: entryContext.testSlug ?? slug,
       ...(entryContext.entrySurface ? { entry_surface: entryContext.entrySurface } : {}),
       ...(entryContext.sourcePageType ? { source_page_type: entryContext.sourcePageType } : {}),
       ...(entryContext.targetAction ? { target_action: entryContext.targetAction } : {}),
@@ -857,8 +890,22 @@ function QuizTakeInner({
       return;
     }
 
+    if (isRiasecScale) {
+      trackObservableFunnelEvent(
+        "start_attempt",
+        buildRiasecStartAttemptTrackingPayload({
+          slug,
+          formCode: resolvedFormCode ?? normalizeRiasecFormCode(null),
+          locale,
+          attemptId,
+          attribution: eventPayload,
+        })
+      );
+      return;
+    }
+
     trackEvent("start_attempt", eventPayload);
-  }, [attemptId, entryContext.entrySurface, entryContext.landingPath, entryContext.sourcePageType, entryContext.targetAction, entryContext.testSlug, locale, normalizedScaleCode, resolvedFormCode, scaleCode, slug, trackingAttribution]);
+  }, [attemptId, entryContext.entrySurface, entryContext.landingPath, entryContext.sourcePageType, entryContext.targetAction, entryContext.testSlug, isRiasecScale, locale, normalizedScaleCode, resolvedFormCode, scaleCode, slug, trackingAttribution]);
 
   useEffect(() => {
     const takeFlow = takeFlowRef.current;
@@ -982,9 +1029,10 @@ function QuizTakeInner({
       : await runWithAuthRetry("submit_attempt", () =>
           submitAttempt({
             attemptId: activeAttemptId,
-            answers: questions.map((item) => ({
+            answers: questions.map((item, index) => ({
               question_id: item.id,
               code: answersSnapshot[item.id] ?? "",
+              ...(isRiasecScale ? { question_index: index } : {}),
             })),
             durationMs,
             anonId,
@@ -1006,6 +1054,7 @@ function QuizTakeInner({
       scaleCode,
       scale_code: normalizedScaleCode,
       test_slug: entryContext.testSlug ?? slug,
+      target_test_slug: entryContext.testSlug ?? slug,
       ...(entryContext.entrySurface ? { entry_surface: entryContext.entrySurface } : {}),
       ...(entryContext.sourcePageType ? { source_page_type: entryContext.sourcePageType } : {}),
       ...(entryContext.targetAction ? { target_action: entryContext.targetAction } : {}),
@@ -1018,11 +1067,28 @@ function QuizTakeInner({
     };
     if (isMbtiScaleCode(scaleCode)) {
       trackObservableFunnelEvent("submit_attempt", eventPayload);
+    } else if (isRiasecScale) {
+      const answeredCountSnapshot = questions.reduce(
+        (count, item) => count + (answersSnapshot[item.id] ? 1 : 0),
+        0
+      );
+      trackObservableFunnelEvent(
+        "submit_attempt",
+        buildRiasecSubmitAttemptTrackingPayload({
+          slug,
+          formCode: resolvedFormCode ?? normalizeRiasecFormCode(null),
+          locale,
+          attemptId: resultAttemptId,
+          answeredCount: answeredCountSnapshot,
+          durationMs,
+          attribution: eventPayload,
+        })
+      );
     } else {
       trackEvent("submit_attempt", eventPayload);
     }
     return resultAttemptId;
-  }, [anonId, attribution, entryContext.entrySurface, entryContext.landingPath, entryContext.sourcePageType, entryContext.targetAction, entryContext.testSlug, isFlowActive, isIqScale, locale, normalizedScaleCode, questions, resolvedFormCode, runWithAuthRetry, scaleCode, slug, startedAt, trackingAttribution]);
+  }, [anonId, attribution, entryContext.entrySurface, entryContext.landingPath, entryContext.sourcePageType, entryContext.targetAction, entryContext.testSlug, isFlowActive, isIqScale, isRiasecScale, locale, normalizedScaleCode, questions, resolvedFormCode, runWithAuthRetry, scaleCode, slug, startedAt, trackingAttribution]);
 
   const handleSubmit = async (pendingSelection?: LastSelectionContext, runId?: number): Promise<string | null> => {
     if (submitInFlightRef.current || staleDraftError) {
@@ -1399,7 +1465,7 @@ function QuizTakeInner({
           }
         >
           <article className="space-y-[var(--fm-space-4)] rounded-2xl border border-[var(--fm-border-strong)] bg-white p-[var(--fm-space-4)] shadow-[var(--fm-shadow-md)] sm:space-y-[var(--fm-space-5)] sm:p-[var(--fm-space-6)]">
-            {!showsMbtiQuizChrome ? (
+            {!showsTitleQuizChrome ? (
               <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">{testTitle}</p>
             ) : null}
             <h2 className="m-0 text-xl font-semibold leading-8 text-[var(--fm-text)] sm:text-2xl sm:leading-9">{question.title}</h2>
@@ -1505,7 +1571,7 @@ function QuizTakeInner({
       />
 
       <article className="space-y-[var(--fm-space-4)] rounded-2xl border border-[var(--fm-border-strong)] bg-white p-[var(--fm-space-4)] shadow-[var(--fm-shadow-md)] sm:space-y-[var(--fm-space-5)] sm:p-[var(--fm-space-6)]">
-        {!showsMbtiQuizChrome ? (
+        {!showsTitleQuizChrome ? (
           <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">{testTitle}</p>
         ) : null}
         <h2 className="m-0 text-xl font-semibold leading-8 text-[var(--fm-text)] sm:text-2xl sm:leading-9">{question.title}</h2>

@@ -120,6 +120,33 @@ describe("take attempt stores", () => {
     expect(reloaded.getState().state.currentIndex).toBe(1);
   });
 
+  it("quiz init does not erase a recovered draft before question ids load", () => {
+    const store = createQuizStore({
+      slug: "holland-career-interest-test-riasec",
+      anonId: "anon-riasec-draft",
+      formCode: "riasec_60",
+    });
+    store.getState().setAnswer("riasec-q1", "5");
+    store.getState().jump(1, 60);
+    store.getState().setAttemptMeta("attempt-riasec-draft", "RIASEC", "riasec_60");
+
+    const reloaded = createQuizStore({
+      slug: "holland-career-interest-test-riasec",
+      anonId: "anon-riasec-draft",
+      formCode: "riasec_60",
+    });
+    reloaded.getState().init(
+      "holland-career-interest-test-riasec",
+      [],
+      "anon-riasec-draft",
+      "riasec_60"
+    );
+
+    expect(reloaded.getState().state.answers).toEqual({ "riasec-q1": "5" });
+    expect(reloaded.getState().state.currentIndex).toBe(1);
+    expect(reloaded.getState().state.attemptId).toBe("attempt-riasec-draft");
+  });
+
   it("quiz draft persistence ignores expired local drafts", () => {
     const now = new Date("2026-01-01T00:00:00.000Z");
     vi.useFakeTimers();

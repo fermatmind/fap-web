@@ -197,7 +197,7 @@ describe("SEO-OPS-02 article CTA attribution contract", () => {
     const seoCtaLink = readFileSync("components/cta/SeoTrackedCtaLink.tsx", "utf8");
     const articlePage = readFileSync("app/(localized)/[locale]/articles/[slug]/page.tsx", "utf8");
     const testDetailPage = readFileSync("app/(localized)/[locale]/tests/[slug]/page.tsx", "utf8");
-    const riasecTake = readFileSync("app/(localized)/[locale]/tests/[slug]/take/RiasecTakeClient.tsx", "utf8");
+    const riasecTake = readFileSync("app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient.tsx", "utf8");
 
     expect(articlePage).toContain("SeoTrackedCtaLink");
     expect(seoCtaLink).toContain("buildSeoCtaNavigationHref");
@@ -206,8 +206,8 @@ describe("SEO-OPS-02 article CTA attribution contract", () => {
     expect(seoCtaLink).toContain("extractAttributionParamsFromRecord");
     expect(testDetailPage).toContain("extractSeoCtaContextParamsFromRecord");
     expect(testDetailPage).toContain("appendSeoCtaContextParamsToHref");
-    expect(riasecTake).toContain("buildSeoAttemptStartAttributionFromSearchParams");
-    expect(riasecTake).toContain("...attributionContext.meta");
-    expect(riasecTake).toContain("...attributionContext.attribution");
+    expect(riasecTake).toContain("readTakeFlowAttribution");
+    expect(riasecTake).toContain("buildTrackingAttributionPayload");
+    expect(riasecTake).toContain("...attribution");
   });
 });

@@ -232,6 +232,13 @@ export const createQuizStore = ({
               }
             : state;
 
+          if (initialQuestionIds.length === 0) {
+            if (canAdoptLegacyMbti144Form) {
+              set({ state: touch(nextState) });
+            }
+            return;
+          }
+
           const allowedIds = new Set(initialQuestionIds);
           const filteredAnswers = Object.fromEntries(
             Object.entries(nextState.answers).filter(([questionId]) => allowedIds.has(questionId))

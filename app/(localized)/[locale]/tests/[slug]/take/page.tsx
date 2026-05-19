@@ -22,7 +22,6 @@ import Big5TakeClient from "./Big5TakeClient";
 import ClinicalTakeClient from "./ClinicalTakeClient";
 import EnneagramTakeClient from "./EnneagramTakeClient";
 import QuizTakeClient from "./QuizTakeClient";
-import RiasecTakeClient from "./RiasecTakeClient";
 
 function appendQuery(path: string, query: Record<string, string | string[] | undefined>): string {
   const params = new URLSearchParams();
@@ -181,10 +180,13 @@ export default async function TakePage({
           estimatedMinutes={enneagramFormMeta?.estimatedMinutes}
         />
       ) : test.scale_code === "RIASEC" ? (
-        <RiasecTakeClient
+        <QuizTakeClient
           slug={slug}
+          testTitle={localizedTestTitle}
+          scaleCode={test.scale_code}
           formCode={riasecFormCode ?? undefined}
           estimatedMinutes={riasecFormMeta?.estimatedMinutes}
+          questionCount={riasecFormMeta?.questionCount ?? test.questions_count}
         />
       ) : test.scale_code === "SDS_20" || test.scale_code === "CLINICAL_COMBO_68" ? (
         <ClinicalTakeClient slug={slug} scaleCode={test.scale_code} />

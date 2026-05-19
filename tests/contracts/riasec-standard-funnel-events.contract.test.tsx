@@ -161,11 +161,15 @@ describe("RIASEC standard funnel events contract", () => {
   });
 
   it("keeps RIASEC take flow on canonical start_attempt and submit_attempt source paths", () => {
-    const takeClient = readText("app/(localized)/[locale]/tests/[slug]/take/RiasecTakeClient.tsx");
+    const takePage = readText("app/(localized)/[locale]/tests/[slug]/take/page.tsx");
+    const takeClient = readText("app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient.tsx");
     const resultShell = readText("components/result/riasec/RiasecResultShell.tsx");
 
-    expect(takeClient).toContain("TRACKING_EVENTS.START_ATTEMPT");
-    expect(takeClient).toContain("TRACKING_EVENTS.SUBMIT_ATTEMPT");
+    expect(takePage).toContain('test.scale_code === "RIASEC" ? (');
+    expect(takePage).toContain("<QuizTakeClient");
+    expect(takePage).not.toContain("<RiasecTakeClient");
+    expect(takeClient).toContain('trackObservableFunnelEvent("start_attempt"');
+    expect(takeClient).toContain('trackObservableFunnelEvent("submit_attempt"');
     expect(takeClient).toContain("trackObservableFunnelEvent");
     expect(resultShell).toContain("trackObservableFunnelEvent");
     expect(takeClient).toContain("buildRiasecStartAttemptTrackingPayload");
