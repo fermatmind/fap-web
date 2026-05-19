@@ -5905,7 +5905,7 @@
       "branch": "codex/riasec-take-flow-01",
       "base": "main",
       "depends_on": [],
-      "status": "local_checks_passed",
+      "status": "pr_open",
       "train_scope": "riasec_take_flow_shared_quizstore",
       "risk_level": "L1",
       "title": "fix(riasec): converge take flow on shared QuizStore auto-advance",
@@ -5965,11 +5965,15 @@
         "diff_checks": {
           "status": "pass",
           "evidence": "git diff --check and git diff --cached --check"
+        },
+        "github_pr": {
+          "status": "pass",
+          "evidence": "Opened https://github.com/fermatmind/fap-web/pull/841 from codex/riasec-take-flow-01 to main."
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": "919606502c40",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/841",
+      "commit_sha": "4e6a32cabd17",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -5983,6 +5987,11 @@
           "at": "2026-05-19T10:44:28+08:00",
           "status": "local_checks_passed",
           "summary": "Converged RIASEC take flow onto shared QuizTakeClient/QuizStore, added targeted RIASEC draft/reload/submit/tracking contracts, verified MBTI/Big Five/Enneagram targeted contracts, typecheck, production build, and full contract suite."
+        },
+        {
+          "at": "2026-05-19T10:46:29+08:00",
+          "status": "pr_open",
+          "summary": "Opened https://github.com/fermatmind/fap-web/pull/841 after local checks and scope validation passed."
         }
       ]
     }
