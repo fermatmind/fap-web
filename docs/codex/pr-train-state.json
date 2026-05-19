@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-19T14:51:41Z",
+  "updated_at": "2026-05-19T15:00:58Z",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -6444,7 +6444,7 @@
       "depends_on": [
         "PR-RESEARCH-01"
       ],
-      "status": "in_progress",
+      "status": "local_checks_passed",
       "title": "feat(research): add Research Asset runtime MVP",
       "artifacts": [
         "app/(localized)/[locale]/research/[slug]/page.tsx",
@@ -6456,12 +6456,23 @@
         "docs/codex/pr-train-state.json"
       ],
       "checks": {
-        "local": {},
+        "local": {
+          "typecheck": "passed",
+          "test_contract": "passed",
+          "focused_research_contract": "passed",
+          "metadata_surface_inventory_contract": "passed",
+          "seo_check_sitemap": "passed",
+          "seo_check_mobile": "passed",
+          "build": "passed",
+          "manifest_state_validation": "passed",
+          "git_diff_check": "passed",
+          "git_diff_cached_check": "passed"
+        },
         "github": {}
       },
       "failure_reason": null,
       "pr_url": null,
-      "commit_sha": null,
+      "commit_sha": "da6ac7df70a68dfafe58f9f44b2bedaf8cd4a168",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -6470,6 +6481,11 @@
           "at": "2026-05-19T14:51:41Z",
           "status": "in_progress",
           "summary": "Started Research Asset fap-web runtime MVP after PR-RESEARCH-01 was merged in fap-api."
+        },
+        {
+          "at": "2026-05-19T15:00:58Z",
+          "status": "local_checks_passed",
+          "summary": "Research runtime MVP implementation passed typecheck, full contract suite, focused Research/metadata contracts, SEO sitemap/mobile checks, production build, manifest/state validation, and diff checks. Build-regenerated sitemap output was restored because this PR does not change sitemap URL set."
         }
       ],
       "sidecar_issues": []
