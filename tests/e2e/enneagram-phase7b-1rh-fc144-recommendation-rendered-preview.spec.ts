@@ -2,10 +2,10 @@ import fs from "node:fs";
 import path from "node:path";
 
 import { expect, test, type Page } from "@playwright/test";
+import { buildReportOutputDir, writeReportFile } from "./helpers/report-output";
 
 const PREVIEW_PAYLOAD_DIR = process.env.PHASE7A_PREVIEW_PAYLOAD_DIR;
-const OUTPUT_DIR =
-  process.env.PHASE7B_OUTPUT_DIR ?? "/tmp/fm_enneagram_phase7b_20260427_RENDERED_QA";
+const OUTPUT_DIR = buildReportOutputDir(process.env.PHASE7B_OUTPUT_DIR, "fm_enneagram_phase7b");
 
 const EXPECTED_FIXTURE_COUNT = 90;
 const MODULE_CATEGORY = "fc144_recommendation_response";
@@ -606,7 +606,7 @@ function ensureOutputDir(): void {
 }
 
 function writeMarkdownReport(filename: string, lines: string[]): void {
-  fs.writeFileSync(path.join(OUTPUT_DIR, filename), `${lines.join("\n")}\n`, "utf8");
+  writeReportFile(OUTPUT_DIR, filename, `${lines.join("\n")}\n`, "utf8");
 }
 
 function writePhase7BReports(results: FixtureRunResult[], fixtures: FixtureRecord[]): Summary {
@@ -744,12 +744,7 @@ function writePhase7BReports(results: FixtureRunResult[], fixtures: FixtureRecor
     "- production_import_happened: false",
     "- full_replacement_happened: false",
   ]);
-
-  fs.writeFileSync(
-    path.join(OUTPUT_DIR, "phase7b_summary.json"),
-    `${JSON.stringify(summary, null, 2)}\n`,
-    "utf8",
-  );
+  writeReportFile(OUTPUT_DIR, "phase7b_summary.json", `${JSON.stringify(summary, null, 2)}\n`, "utf8");
 
   return summary;
 }

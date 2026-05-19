@@ -3,12 +3,10 @@ import * as fs from "node:fs";
 import * as path from "node:path";
 
 import { expect, test, type Page } from "@playwright/test";
+import { buildReportOutputDir, writeReportFile } from "./helpers/report-output";
 
 const CANDIDATE_DIR = process.env.PHASE8B_CANDIDATE_DIR;
-const OUTPUT_DIR =
-  process.env.PHASE8C_OUTPUT_DIR ??
-  process.env.PHASE8C1_OUTPUT_DIR ??
-  `/tmp/fm_enneagram_phase8c_${new Date().toISOString().replace(/[-:]/g, "").replace(/\..+/, "").replace("T", "_")}`;
+const OUTPUT_DIR = buildReportOutputDir(process.env.PHASE8C_OUTPUT_DIR ?? process.env.PHASE8C1_OUTPUT_DIR, "fm_enneagram_phase8c");
 
 const EXPECTED_MANIFEST_SHA256 =
   "87f7eb874eb162ff158b5d3ac5e4393218d045054b2f0e3e0eddc09c6c3ea556";
@@ -250,12 +248,12 @@ function ensureOutputDir(): void {
 
 function writeMarkdownReport(filename: string, lines: string[]): void {
   ensureOutputDir();
-  fs.writeFileSync(path.join(OUTPUT_DIR, filename), `${lines.join("\n")}\n`, "utf8");
+  writeReportFile(OUTPUT_DIR, filename, `${lines.join("\n")}\n`, "utf8");
 }
 
 function writeSummary(summary: Summary): void {
   ensureOutputDir();
-  fs.writeFileSync(path.join(OUTPUT_DIR, "phase8c_summary.json"), `${JSON.stringify(summary, null, 2)}\n`, "utf8");
+  writeReportFile(OUTPUT_DIR, "phase8c_summary.json", `${JSON.stringify(summary, null, 2)}\n`, "utf8");
 }
 
 function emptyBranchCounts(): BranchDuplicateCounts {

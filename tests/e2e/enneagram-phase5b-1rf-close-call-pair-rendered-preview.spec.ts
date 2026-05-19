@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { expect, test, type Page } from "@playwright/test";
+import { buildReportOutputDir, writeReportFile } from "./helpers/report-output";
 
 const INTERNAL_METADATA = [
   "selection_guidance",
@@ -502,22 +503,20 @@ function writePhase5BReports(summary: { outputDir: string; fixtureCount: number;
     full_replacement_happened: "no",
   };
 
-  fs.writeFileSync(path.join(outputDir, "Phase5B_RenderedQA_Coverage.md"), coverage);
-  fs.writeFileSync(path.join(outputDir, "Phase5B_DesktopRenderedQA.md"), desktopMd);
-  fs.writeFileSync(path.join(outputDir, "Phase5B_MobileRenderedQA.md"), mobileMd);
-  fs.writeFileSync(path.join(outputDir, "Phase5B_MetadataLeakageQA.md"), metadataMd);
-  fs.writeFileSync(path.join(outputDir, "Phase5B_CopyPollutionQA.md"), copyMd);
-  fs.writeFileSync(path.join(outputDir, "Phase5B_DuplicateCloseCallPairQA.md"), duplicateMd);
-  fs.writeFileSync(path.join(outputDir, "Phase5B_FallbackQA.md"), fallbackMd);
-  fs.writeFileSync(path.join(outputDir, "Phase5B_GoNoGo.md"), goNoGo);
-  fs.writeFileSync(path.join(outputDir, "phase5b_summary.json"), JSON.stringify(jsonSummary, null, 2));
+  writeReportFile(outputDir, "Phase5B_RenderedQA_Coverage.md", coverage);
+  writeReportFile(outputDir, "Phase5B_DesktopRenderedQA.md", desktopMd);
+  writeReportFile(outputDir, "Phase5B_MobileRenderedQA.md", mobileMd);
+  writeReportFile(outputDir, "Phase5B_MetadataLeakageQA.md", metadataMd);
+  writeReportFile(outputDir, "Phase5B_CopyPollutionQA.md", copyMd);
+  writeReportFile(outputDir, "Phase5B_DuplicateCloseCallPairQA.md", duplicateMd);
+  writeReportFile(outputDir, "Phase5B_FallbackQA.md", fallbackMd);
+  writeReportFile(outputDir, "Phase5B_GoNoGo.md", goNoGo);
+  writeReportFile(outputDir, "phase5b_summary.json", JSON.stringify(jsonSummary, null, 2));
 }
 
 test.describe("ENNEAGRAM Phase 5-B close-call pair rendered QA", () => {
   const fixtures = loadPreviewFixtures();
-  const outputDir =
-    process.env.PHASE5B_OUTPUT_DIR?.trim() ||
-    `/tmp/fm_enneagram_phase5b_${new Date().toISOString().replace(/[-:]/g, "").replace(/\..+/, "").replace("T", "_")}`;
+  const outputDir = buildReportOutputDir(process.env.PHASE5B_OUTPUT_DIR, "fm_enneagram_phase5b");
 
   test.afterAll(() => {
     const desktop = viewportSummaries.find((item) => item.viewport === "desktop");

@@ -4358,3 +4358,52 @@ prs:
       - Runtime file scans avoid stat/read file-system race patterns.
       - No runtime behavior changes.
     rollback_note: "Restore the previous contract harness helpers if required."
+
+  - id: WEB-CODEQL-E2E-TEMPFILES-01
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/web-codeql-e2e-tempfiles-01
+    base: main
+    depends_on:
+      - WEB-CODEQL-CONTRACT-HARNESS-01
+    mode: execute
+    train_scope: web_codeql_e2e_tempfiles
+    risk_level: L2
+    status: planned
+    title: "test(security): harden E2E report temp file output"
+    goal: "Resolve CodeQL insecure temporary file alerts in E2E report writers without changing product runtime behavior."
+    in_scope:
+      - tests/e2e/helpers/report-output.ts
+      - tests/e2e/enneagram-phase1b-rendered-preview.spec.ts
+      - tests/e2e/enneagram-phase2b-1rc-low-resonance-rendered-preview.spec.ts
+      - tests/e2e/enneagram-phase3b-1rd-partial-resonance-rendered-preview.spec.ts
+      - tests/e2e/enneagram-phase4b-1re-diffuse-convergence-rendered-preview.spec.ts
+      - tests/e2e/enneagram-phase5b-1rf-close-call-pair-rendered-preview.spec.ts
+      - tests/e2e/enneagram-phase6b-1rg-scene-localization-rendered-preview.spec.ts
+      - tests/e2e/enneagram-phase7b-1rh-fc144-recommendation-rendered-preview.spec.ts
+      - tests/e2e/enneagram-phase8c-production-equivalent-candidate-e2e.spec.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - frontend runtime behavior
+      - Enneagram product semantics
+      - report content changes
+      - CMS/backend changes
+      - production deploy
+    required_local_checks:
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - "! rg -n '/tmp/fm_enneagram|fs\\.writeFileSync\\(path\\.join\\((outputDir|OUTPUT_DIR)' tests/e2e/enneagram-phase*b*.spec.ts tests/e2e/enneagram-phase8c-production-equivalent-candidate-e2e.spec.ts tests/e2e/helpers/report-output.ts"
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - E2E default report output directories use unpredictable mkdtemp directories instead of predictable /tmp paths.
+      - Report writes validate basename-only filenames and prevent output-dir escape.
+      - Environment-provided output directories remain supported.
+      - No product runtime behavior changes.
+    rollback_note: "Restore previous E2E report output path handling if required."
