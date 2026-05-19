@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-19T03:53:35.518Z",
+  "updated_at": "2026-05-19T06:16:02.305Z",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -6056,6 +6056,75 @@
           "at": "2026-05-19T03:53:35.517Z",
           "status": "pr_open_github_checks_pending",
           "summary": "Opened PR #842 for fap-web CodeQL code scanning enablement. GitHub checks pending."
+        }
+      ]
+    },
+    {
+      "id": "WEB-CODEQL-RUNTIME-HTML-01",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/web-codeql-runtime-html-01",
+      "base": "main",
+      "depends_on": [
+        "OPS-CI-CODESCAN-WEB-01"
+      ],
+      "status": "pr_open_github_checks_pending",
+      "title": "fix(security): remove runtime HTML regex FAQ extraction",
+      "artifacts": [
+        "app/(localized)/[locale]/help/[slug]/page.tsx",
+        "tests/contracts/help-faq-schema.contract.test.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "local": {
+          "typecheck": "passed",
+          "build": "passed",
+          "help_faq_schema_contract": "passed",
+          "manifest_state_validation": "passed",
+          "git_diff_check": "passed",
+          "full_test_contract": "sidecar_failed_on_unrelated_runtime_diff_scope_governance_contracts"
+        },
+        "github": {}
+      },
+      "failure_reason": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/843",
+      "commit_sha": "f55a295a0de7dd4f16937bb444a6d239828e3fcc",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-05-19T06:11:27.378Z",
+          "status": "in_progress",
+          "summary": "Started scoped runtime HTML CodeQL alert fix for help FAQ JSON-LD extraction."
+        },
+        {
+          "at": "2026-05-19T06:14:10.165Z",
+          "status": "local_checks_with_sidecar",
+          "summary": "typecheck/build/manifest/git diff passed; full test:contract failed on unrelated diff-scope governance contracts and is recorded as sidecar."
+        },
+        {
+          "at": "2026-05-19T06:15:13.182Z",
+          "status": "local_checks_passed_with_sidecar",
+          "summary": "typecheck, production build, targeted help FAQ schema contract, manifest/state validation, and git diff checks passed. Full test:contract sidecar documented due unrelated governance tests that reject any runtime diff."
+        },
+        {
+          "at": "2026-05-19T06:15:22.495Z",
+          "status": "committed",
+          "summary": "Committed f55a295a0de7dd4f16937bb444a6d239828e3fcc."
+        },
+        {
+          "at": "2026-05-19T06:16:02.305Z",
+          "status": "pr_open_github_checks_pending",
+          "summary": "Opened PR #843; GitHub checks pending."
+        }
+      ],
+      "sidecar_issues": [
+        {
+          "at": "2026-05-19T06:14:10.165Z",
+          "summary": "Full pnpm test:contract includes historical governance tests that fail whenever any runtime file appears in the active git diff. This security PR intentionally changes a runtime help page to resolve CodeQL alerts; no assertions failed for the changed help behavior itself.",
+          "production_blocking": false
         }
       ]
     }

@@ -29,21 +29,6 @@ function normalizeVisibleText(value: string): string {
   return value.replace(/\s+/g, " ").trim();
 }
 
-function stripHtml(value: string): string {
-  return normalizeVisibleText(
-    value
-      .replace(/<script[\s\S]*?<\/script>/gi, " ")
-      .replace(/<style[\s\S]*?<\/style>/gi, " ")
-      .replace(/<[^>]+>/g, " ")
-      .replace(/&nbsp;/g, " ")
-      .replace(/&amp;/g, "&")
-      .replace(/&lt;/g, "<")
-      .replace(/&gt;/g, ">")
-      .replace(/&quot;/g, "\"")
-      .replace(/&#39;/g, "'")
-  );
-}
-
 function cleanMarkdownAnswerLine(value: string): string {
   return value
     .replace(/^\s*[-*+]\s+/, "")
@@ -98,51 +83,12 @@ function extractVisibleFaqItemsFromMarkdown(markdown: string): FAQItem[] {
   return items;
 }
 
-function extractVisibleFaqSectionHtml(html: string): string {
-  const sectionPattern = /<h2\b[^>]*>([\s\S]*?)<\/h2>/gi;
-  const sections = [...html.matchAll(sectionPattern)];
-  const sectionIndex = sections.findIndex((section) => isFaqSectionHeading(stripHtml(section[1] ?? "")));
-
-  if (sectionIndex < 0) {
-    return "";
-  }
-
-  const section = sections[sectionIndex];
-  const start = (section.index ?? 0) + section[0].length;
-  const end = sections[sectionIndex + 1]?.index ?? html.length;
-  return html.slice(start, end);
-}
-
-function extractVisibleFaqItemsFromHtml(html: string): FAQItem[] {
-  const faqSectionHtml = extractVisibleFaqSectionHtml(html);
-  if (!faqSectionHtml) {
-    return [];
-  }
-
-  const headingPattern = /<h3\b[^>]*>([\s\S]*?)<\/h3>/gi;
-  const headings = [...faqSectionHtml.matchAll(headingPattern)];
-
-  return headings
-    .map((heading, index) => {
-      const question = stripHtml(heading[1] ?? "");
-      const answerStart = (heading.index ?? 0) + heading[0].length;
-      const nextQuestionStart = headings[index + 1]?.index ?? faqSectionHtml.length;
-      const nextSectionStart = faqSectionHtml.slice(answerStart).search(/<h[23]\b/i);
-      const answerEnd =
-        nextSectionStart >= 0 ? Math.min(nextQuestionStart, answerStart + nextSectionStart) : nextQuestionStart;
-      const answer = stripHtml(faqSectionHtml.slice(answerStart, answerEnd));
-
-      return question && answer ? { question, answer } : null;
-    })
-    .filter((item): item is FAQItem => Boolean(item));
-}
-
 function extractVisibleFaqItems(page: { contentHtml: string; contentMd: string }): FAQItem[] {
-  if (page.contentHtml.trim()) {
-    return extractVisibleFaqItemsFromHtml(page.contentHtml);
+  if (page.contentMd.trim()) {
+    return extractVisibleFaqItemsFromMarkdown(page.contentMd);
   }
 
-  return extractVisibleFaqItemsFromMarkdown(page.contentMd);
+  return [];
 }
 
 function buildVisibleHelpFaqJsonLd(faq: FAQItem[]) {
