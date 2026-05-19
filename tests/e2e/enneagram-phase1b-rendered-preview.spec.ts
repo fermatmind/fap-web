@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { expect, test, type Page } from "@playwright/test";
+import { buildReportOutputDir, writeReportFile } from "./helpers/report-output";
 
 const INTERNAL_METADATA = [
   "selection_guidance",
@@ -325,18 +326,18 @@ function writePhase1BReports(summary: { outputDir: string; fixtureCount: number;
     layout_issue_count: clippingCount + allResults.filter((item) => item.horizontalOverflow).length,
   };
 
-  fs.writeFileSync(path.join(outputDir, "FermatMind_Enneagram_Phase1B_RenderedQA_Coverage.md"), coverage);
-  fs.writeFileSync(path.join(outputDir, "FermatMind_Enneagram_Phase1B_DesktopRenderedQA.md"), desktopMd);
-  fs.writeFileSync(path.join(outputDir, "FermatMind_Enneagram_Phase1B_MobileRenderedQA.md"), mobileMd);
-  fs.writeFileSync(path.join(outputDir, "FermatMind_Enneagram_Phase1B_MetadataLeakageQA.md"), metadataMd);
-  fs.writeFileSync(path.join(outputDir, "FermatMind_Enneagram_Phase1B_CopyPollutionQA.md"), copyMd);
-  fs.writeFileSync(path.join(outputDir, "FermatMind_Enneagram_Phase1B_GoNoGo.md"), goNoGo);
-  fs.writeFileSync(path.join(outputDir, "phase1b_summary.json"), JSON.stringify(jsonSummary, null, 2));
+  writeReportFile(outputDir, "FermatMind_Enneagram_Phase1B_RenderedQA_Coverage.md", coverage);
+  writeReportFile(outputDir, "FermatMind_Enneagram_Phase1B_DesktopRenderedQA.md", desktopMd);
+  writeReportFile(outputDir, "FermatMind_Enneagram_Phase1B_MobileRenderedQA.md", mobileMd);
+  writeReportFile(outputDir, "FermatMind_Enneagram_Phase1B_MetadataLeakageQA.md", metadataMd);
+  writeReportFile(outputDir, "FermatMind_Enneagram_Phase1B_CopyPollutionQA.md", copyMd);
+  writeReportFile(outputDir, "FermatMind_Enneagram_Phase1B_GoNoGo.md", goNoGo);
+  writeReportFile(outputDir, "phase1b_summary.json", JSON.stringify(jsonSummary, null, 2));
 }
 
 test.describe("ENNEAGRAM Phase 1-B merged preview rendered QA", () => {
   const fixtures = loadPreviewFixtures();
-  const outputDir = process.env.PHASE1B_OUTPUT_DIR?.trim() || `/tmp/fm_enneagram_phase1b_${new Date().toISOString().replace(/[-:]/g, "").replace(/\..+/, "").replace("T", "_")}`;
+  const outputDir = buildReportOutputDir(process.env.PHASE1B_OUTPUT_DIR, "fm_enneagram_phase1b");
 
   test.afterAll(() => {
     const desktop = viewportSummaries.find((item) => item.viewport === "desktop");

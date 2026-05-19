@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-19T06:47:09.075Z",
+  "updated_at": "2026-05-19T06:57:37.817Z",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -6288,7 +6288,7 @@
       "depends_on": [
         "WEB-CODEQL-SEO-SCRIPTS-URL-01"
       ],
-      "status": "pr_open_github_checks_pending",
+      "status": "merged",
       "title": "test(security): harden contract harness parsing helpers",
       "artifacts": [
         "tests/contracts/analytics-scripts.contract.test.ts",
@@ -6308,13 +6308,19 @@
           "git_diff_check": "passed",
           "git_diff_cached_check": "passed"
         },
-        "github": {}
+        "github": {
+          "build": "passed",
+          "contracts": "passed",
+          "verify_big5_contract_freeze": "passed",
+          "verify_enneagram_contract_freeze": "passed",
+          "codeql": "passed"
+        }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/846",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-05-19T06:50:30Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-19T06:42:18.043Z",
@@ -6335,12 +6341,83 @@
           "at": "2026-05-19T06:47:09.075Z",
           "status": "pr_open_github_checks_pending",
           "summary": "Opened PR #846; GitHub checks pending."
+        },
+        {
+          "at": "2026-05-19T06:53:25.570Z",
+          "status": "post_merge_cleanup_complete",
+          "summary": "PR #846 merged; main synced and branch cleanup confirmed."
         }
       ],
       "sidecar_issues": [
         {
           "at": "2026-05-19T06:45:20.355Z",
           "summary": "Full pnpm test:contract failed before commit because historical governance tests reject any active git diff outside their own allowlists. This PR changes contract harness tests intentionally; rerun after commit on a clean branch is required.",
+          "production_blocking": false
+        }
+      ],
+      "merge_commit": "30523e13f33288c57448c3479fab687ece5e21bf"
+    },
+    {
+      "id": "WEB-CODEQL-E2E-TEMPFILES-01",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/web-codeql-e2e-tempfiles-01",
+      "base": "main",
+      "depends_on": [
+        "WEB-CODEQL-CONTRACT-HARNESS-01"
+      ],
+      "status": "pr_open_github_checks_pending",
+      "title": "test(security): harden E2E report temp file output",
+      "artifacts": [
+        "tests/e2e/helpers/report-output.ts",
+        "tests/e2e/enneagram-phase1b-rendered-preview.spec.ts",
+        "tests/e2e/enneagram-phase2b-1rc-low-resonance-rendered-preview.spec.ts",
+        "tests/e2e/enneagram-phase3b-1rd-partial-resonance-rendered-preview.spec.ts",
+        "tests/e2e/enneagram-phase4b-1re-diffuse-convergence-rendered-preview.spec.ts",
+        "tests/e2e/enneagram-phase5b-1rf-close-call-pair-rendered-preview.spec.ts",
+        "tests/e2e/enneagram-phase6b-1rg-scene-localization-rendered-preview.spec.ts",
+        "tests/e2e/enneagram-phase7b-1rh-fc144-recommendation-rendered-preview.spec.ts",
+        "tests/e2e/enneagram-phase8c-production-equivalent-candidate-e2e.spec.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "local": {
+          "typecheck": "passed",
+          "build": "passed",
+          "insecure_tempfile_pattern_scan": "passed",
+          "manifest_state_validation": "passed",
+          "git_diff_check": "passed",
+          "git_diff_cached_check": "passed"
+        },
+        "github": {}
+      },
+      "failure_reason": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/847",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-05-19T06:53:25.570Z",
+          "status": "in_progress",
+          "summary": "Started scoped E2E insecure temporary file CodeQL alert fix."
+        },
+        {
+          "at": "2026-05-19T06:56:40.754Z",
+          "status": "local_checks_passed",
+          "summary": "typecheck, production build, manifest/state validation, git diff checks, and insecure tempfile pattern scan passed. E2E list asset dependency recorded as sidecar."
+        },
+        {
+          "at": "2026-05-19T06:57:37.817Z",
+          "status": "pr_open_github_checks_pending",
+          "summary": "Opened PR #847; GitHub checks pending."
+        }
+      ],
+      "sidecar_issues": [
+        {
+          "at": "2026-05-19T06:56:40.754Z",
+          "summary": "Playwright --list for these historical Enneagram E2E specs requires full phase preview fixture assets at module import time. Without those external assets, listing reports 0 tests before reaching runtime. This is pre-existing and not introduced by the tempfile hardening patch.",
           "production_blocking": false
         }
       ]

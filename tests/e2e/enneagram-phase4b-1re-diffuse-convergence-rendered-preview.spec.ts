@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { expect, test, type Page } from "@playwright/test";
+import { buildReportOutputDir, writeReportFile } from "./helpers/report-output";
 
 const INTERNAL_METADATA = [
   "selection_guidance",
@@ -412,21 +413,19 @@ function writePhase4BReports(summary: { outputDir: string; fixtureCount: number;
     full_replacement_happened: "no",
   };
 
-  fs.writeFileSync(path.join(outputDir, "Phase4B_RenderedQA_Coverage.md"), coverage);
-  fs.writeFileSync(path.join(outputDir, "Phase4B_DesktopRenderedQA.md"), desktopMd);
-  fs.writeFileSync(path.join(outputDir, "Phase4B_MobileRenderedQA.md"), mobileMd);
-  fs.writeFileSync(path.join(outputDir, "Phase4B_MetadataLeakageQA.md"), metadataMd);
-  fs.writeFileSync(path.join(outputDir, "Phase4B_CopyPollutionQA.md"), copyMd);
-  fs.writeFileSync(path.join(outputDir, "Phase4B_DuplicateDiffuseConvergenceQA.md"), duplicateMd);
-  fs.writeFileSync(path.join(outputDir, "Phase4B_GoNoGo.md"), goNoGo);
-  fs.writeFileSync(path.join(outputDir, "phase4b_summary.json"), JSON.stringify(jsonSummary, null, 2));
+  writeReportFile(outputDir, "Phase4B_RenderedQA_Coverage.md", coverage);
+  writeReportFile(outputDir, "Phase4B_DesktopRenderedQA.md", desktopMd);
+  writeReportFile(outputDir, "Phase4B_MobileRenderedQA.md", mobileMd);
+  writeReportFile(outputDir, "Phase4B_MetadataLeakageQA.md", metadataMd);
+  writeReportFile(outputDir, "Phase4B_CopyPollutionQA.md", copyMd);
+  writeReportFile(outputDir, "Phase4B_DuplicateDiffuseConvergenceQA.md", duplicateMd);
+  writeReportFile(outputDir, "Phase4B_GoNoGo.md", goNoGo);
+  writeReportFile(outputDir, "phase4b_summary.json", JSON.stringify(jsonSummary, null, 2));
 }
 
 test.describe("ENNEAGRAM Phase 4-B diffuse-convergence rendered QA", () => {
   const fixtures = loadPreviewFixtures();
-  const outputDir =
-    process.env.PHASE4B_OUTPUT_DIR?.trim() ||
-    `/tmp/fm_enneagram_phase4b_${new Date().toISOString().replace(/[-:]/g, "").replace(/\..+/, "").replace("T", "_")}`;
+  const outputDir = buildReportOutputDir(process.env.PHASE4B_OUTPUT_DIR, "fm_enneagram_phase4b");
 
   test.afterAll(() => {
     const desktop = viewportSummaries.find((item) => item.viewport === "desktop");
