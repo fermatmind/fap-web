@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-19T06:57:37.817Z",
+  "updated_at": "2026-05-19T14:51:41Z",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -6366,7 +6366,7 @@
       "depends_on": [
         "WEB-CODEQL-CONTRACT-HARNESS-01"
       ],
-      "status": "pr_open_github_checks_pending",
+      "status": "merged",
       "title": "test(security): harden E2E report temp file output",
       "artifacts": [
         "tests/e2e/helpers/report-output.ts",
@@ -6390,13 +6390,19 @@
           "git_diff_check": "passed",
           "git_diff_cached_check": "passed"
         },
-        "github": {}
+        "github": {
+          "build": "passed",
+          "contracts": "passed",
+          "verify_big5_contract_freeze": "passed",
+          "verify_enneagram_contract_freeze": "passed",
+          "codeql": "passed"
+        }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/847",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-05-19T14:51:41Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-19T06:53:25.570Z",
@@ -6412,6 +6418,11 @@
           "at": "2026-05-19T06:57:37.817Z",
           "status": "pr_open_github_checks_pending",
           "summary": "Opened PR #847; GitHub checks pending."
+        },
+        {
+          "at": "2026-05-19T14:51:41Z",
+          "status": "ledger_reconciled_merged",
+          "summary": "Reconciled GitHub PR #847 as merged; origin/main contains the merge commit and remote/local task branches are absent."
         }
       ],
       "sidecar_issues": [
@@ -6420,7 +6431,48 @@
           "summary": "Playwright --list for these historical Enneagram E2E specs requires full phase preview fixture assets at module import time. Without those external assets, listing reports 0 tests before reaching runtime. This is pre-existing and not introduced by the tempfile hardening patch.",
           "production_blocking": false
         }
-      ]
+      ],
+      "commit_sha": "9fba4c8d5fbf1bd97847f825b7c73d301f09f111",
+      "merge_commit": "9fba4c8d5fbf1bd97847f825b7c73d301f09f111"
+    },
+    {
+      "id": "PR-RESEARCH-02",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/pr-research-02",
+      "base": "main",
+      "depends_on": [
+        "PR-RESEARCH-01"
+      ],
+      "status": "in_progress",
+      "title": "feat(research): add Research Asset runtime MVP",
+      "artifacts": [
+        "app/(localized)/[locale]/research/[slug]/page.tsx",
+        "lib/research/reports.ts",
+        "components/research/ResearchReportPage.tsx",
+        "tests/contracts/research-runtime-mvp.contract.test.tsx",
+        "docs/seo/research-runtime-mvp.md",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "local": {},
+        "github": {}
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-05-19T14:51:41Z",
+          "status": "in_progress",
+          "summary": "Started Research Asset fap-web runtime MVP after PR-RESEARCH-01 was merged in fap-api."
+        }
+      ],
+      "sidecar_issues": []
     }
   ],
   "sidecar_issues": [

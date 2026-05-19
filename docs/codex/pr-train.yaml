@@ -4369,7 +4369,7 @@ prs:
     mode: execute
     train_scope: web_codeql_e2e_tempfiles
     risk_level: L2
-    status: planned
+    status: merged
     title: "test(security): harden E2E report temp file output"
     goal: "Resolve CodeQL insecure temporary file alerts in E2E report writers without changing product runtime behavior."
     in_scope:
@@ -4407,3 +4407,53 @@ prs:
       - Environment-provided output directories remain supported.
       - No product runtime behavior changes.
     rollback_note: "Restore previous E2E report output path handling if required."
+
+  - id: PR-RESEARCH-02
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-research-02
+    base: main
+    depends_on:
+      - PR-RESEARCH-01
+    mode: execute
+    train_scope: research_asset_runtime_mvp
+    risk_level: L2
+    status: in_progress
+    title: "feat(research): add Research Asset runtime MVP"
+    goal: "Add a backend/CMS-authoritative Research Asset detail rendering shell without publishing Research content or widening sitemap/llms exposure."
+    in_scope:
+      - app/(localized)/[locale]/research/[slug]/**
+      - lib/research/**
+      - components/research/**
+      - tests/contracts/**research**
+      - docs/seo/research-runtime-mvp.md
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - Research publishing
+      - sitemap Research URLs
+      - llms Research URLs
+      - Search Channel Queue insertion
+      - frontend fallback report content
+      - business DB, payment, order, report, auth, scoring, or scheduler changes
+      - production deploy
+    required_local_checks:
+      - pnpm typecheck
+      - pnpm test:contract
+      - pnpm seo:check-sitemap
+      - pnpm seo:check-mobile
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - The /[locale]/research/[slug] route renders only backend/CMS Research payload.
+      - Draft, missing, private, or non-public backend responses do not produce a public page.
+      - The runtime does not hardcode report content or fallback article copy.
+      - No Research sitemap, llms, Search Channel, publish, or Dataset schema exposure is added.
+      - Repository rule impact is documented as CMS/backend-authoritative.
+    rollback_note: "Remove the Research runtime route, adapter, component, contract test, and runtime MVP doc."
