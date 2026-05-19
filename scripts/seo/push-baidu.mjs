@@ -21,8 +21,9 @@ if (!fs.existsSync(sitemapPath)) {
 }
 
 const xml = fs.readFileSync(sitemapPath, "utf8");
+const allowedSitemapHost = resolveSiteHostname(site);
 const urls = [...xml.matchAll(/<loc>(.*?)<\/loc>/g)]
-  .map((match) => match[1])
+  .map((match) => normalizeSitemapUrl(match[1], allowedSitemapHost))
   .filter((url) => {
     const pathname = new URL(url).pathname;
     return shouldIncludeInSitemap(pathname);
@@ -37,10 +38,12 @@ if (endpointUrl.protocol !== "https:" || endpointUrl.hostname !== "data.zz.baidu
   process.exit(1);
 }
 
+const body = urls.join("\n");
 const response = await fetch(endpointUrl.toString(), {
   method: "POST",
   headers: { "Content-Type": "text/plain" },
-  body: urls.join("\n"),
+  // lgtm[js/file-access-to-http] URLs are parsed, scheme-limited, host-limited to BAIDU_PUSH_SITE, policy-filtered, and posted only to Baidu's fixed HTTPS endpoint.
+  body,
 });
 
 if (!response.ok) {
@@ -53,3 +56,26 @@ if (!response.ok) {
 const resultText = await response.text();
 console.log(`[baidu] pushed ${urls.length} urls`);
 console.log(resultText);
+
+function resolveSiteHostname(value) {
+  const raw = value.replace(/\/+$/, "");
+  const parsed = raw.startsWith("http://") || raw.startsWith("https://") ? new URL(raw) : new URL(`https://${raw}`);
+
+  if (parsed.protocol !== "https:") {
+    throw new Error("[baidu] BAIDU_PUSH_SITE must be an https site");
+  }
+
+  return parsed.hostname;
+}
+
+function normalizeSitemapUrl(value, allowedHost) {
+  const url = new URL(String(value).trim());
+
+  if (url.protocol !== "https:" || url.hostname !== allowedHost) {
+    throw new Error(`[baidu] sitemap URL is outside the configured site: ${url.hostname}`);
+  }
+
+  url.hash = "";
+
+  return url.toString();
+}

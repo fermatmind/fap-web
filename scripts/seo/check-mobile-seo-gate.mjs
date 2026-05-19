@@ -22,6 +22,17 @@ const REQUIRED_ROUTE_FAMILIES = [
   "career_recommendation_detail",
 ];
 
+const RUNTIME_ROUTE_SAMPLE_PATHS = new Map([
+  ["home", "/en"],
+  ["tests_hub", "/en/tests"],
+  ["test_detail", "/en/tests/mbti-personality-test-16-personality-types"],
+  ["article_detail", "/en/articles/how-personality-shapes-attitude-toward-ai"],
+  ["topic_detail", "/en/topics/mbti"],
+  ["personality_detail", "/en/personality/intp-a"],
+  ["career_job_detail", "/zh/career/jobs/accountants-and-auditors"],
+  ["career_recommendation_detail", "/en/career/recommendations/mbti/intp-a"],
+]);
+
 const PUBLIC_SAMPLE_DENY_RE = /\/(?:api|og|history|result|results|orders|share|payment|pay)(\/|$)|\/tests\/[^/]+\/take(\/|$)/i;
 const PRIVATE_FLOW_RE = /\/(?:history|result|results|orders|share|payment|pay)(\/|$)|\/tests\/[^/]+\/take(\/|$)/i;
 
@@ -91,6 +102,7 @@ function assertRouteSamples(gate) {
   for (const sample of gate.routeSamples) {
     assert(requiredFamilies.has(sample.family), `unexpected route sample family: ${sample.family}`);
     assert(typeof sample.path === "string" && sample.path.startsWith("/"), `${sample.family} path must be absolute`);
+    assert(sample.path === RUNTIME_ROUTE_SAMPLE_PATHS.get(sample.family), `${sample.family} path does not match the fixed runtime sample`);
     assert(sample.locale === "en" || sample.locale === "zh", `${sample.family} locale must be supported`);
     assert(!PUBLIC_SAMPLE_DENY_RE.test(sample.path), `${sample.family} public sample must not be a private flow: ${sample.path}`);
     assert(String(sample.sampleAuthority ?? "").trim().length > 0, `${sample.family} sampleAuthority is required`);
@@ -169,12 +181,15 @@ async function assertRuntimeFetches(gate, runtimeBaseUrl) {
   };
 
   for (const sample of gate.routeSamples) {
-    const response = await fetch(`${runtimeBaseUrl}${sample.path}`, { headers, redirect: "follow" });
-    assert(response.status < 400, `${sample.path} returned HTTP ${response.status}`);
+    const samplePath = RUNTIME_ROUTE_SAMPLE_PATHS.get(sample.family);
+    assert(typeof samplePath === "string", `${sample.family} fixed runtime sample is missing`);
+
+    const response = await fetch(new URL(samplePath, runtimeBaseUrl), { headers, redirect: "follow" });
+    assert(response.status < 400, `${samplePath} returned HTTP ${response.status}`);
     const html = await response.text();
 
-    assert(html.length > 500, `${sample.path} returned a too-small HTML payload`);
-    assert(!/<meta\s+[^>]*name=["']robots["'][^>]*content=["'][^"']*noindex/i.test(html), `${sample.path} emitted noindex`);
+    assert(html.length > 500, `${samplePath} returned a too-small HTML payload`);
+    assert(!/<meta\s+[^>]*name=["']robots["'][^>]*content=["'][^"']*noindex/i.test(html), `${samplePath} emitted noindex`);
     checked += 1;
   }
 
