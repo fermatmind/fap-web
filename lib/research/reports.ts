@@ -1,0 +1,171 @@
+import { ApiError, apiClient } from "@/lib/api-client";
+import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
+
+export const RESEARCH_REPORT_PAGE_ENTITY_TYPE = "research_report" as const;
+export const MAX_RESEARCH_REPORT_SLUG_LENGTH = 128;
+
+const RESEARCH_REPORT_SLUG_PATTERN = /^[a-zA-Z0-9][a-zA-Z0-9_-]*$/;
+
+type ResearchReportApiRecord = {
+  id?: unknown;
+  slug?: unknown;
+  locale?: unknown;
+  page_entity_type?: unknown;
+  title?: unknown;
+  executive_summary?: unknown;
+  body_md?: unknown;
+  research_type?: unknown;
+  methodology?: unknown;
+  sample_disclaimer?: unknown;
+  claim_boundary?: unknown;
+  author_name?: unknown;
+  reviewer_name?: unknown;
+  references?: unknown;
+  downloadable_asset_placeholder?: unknown;
+  last_reviewed_at?: unknown;
+  published_at?: unknown;
+  seo_title?: unknown;
+  seo_description?: unknown;
+  canonical_path?: unknown;
+};
+
+type ResearchReportApiResponse = {
+  ok?: unknown;
+  report?: ResearchReportApiRecord | null;
+};
+
+export type ResearchReport = {
+  id: number | null;
+  slug: string;
+  locale: Locale;
+  pageEntityType: typeof RESEARCH_REPORT_PAGE_ENTITY_TYPE;
+  title: string;
+  executiveSummary: string;
+  bodyMd: string;
+  researchType: string;
+  methodology: string;
+  sampleDisclaimer: string;
+  claimBoundary: string;
+  authorName: string | null;
+  reviewerName: string | null;
+  references: string[];
+  downloadableAssetPlaceholder: string | null;
+  lastReviewedAt: string | null;
+  publishedAt: string | null;
+  seoTitle: string | null;
+  seoDescription: string | null;
+  canonicalPath: string | null;
+};
+
+function asString(value: unknown): string {
+  return typeof value === "string" ? value.trim() : "";
+}
+
+function asNullableString(value: unknown): string | null {
+  const normalized = asString(value);
+  return normalized || null;
+}
+
+function asNullableNumber(value: unknown): number | null {
+  return typeof value === "number" && Number.isFinite(value) ? value : null;
+}
+
+function normalizeReferences(value: unknown): string[] {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+
+  return value
+    .map((item) => asString(item))
+    .filter(Boolean)
+    .slice(0, 50);
+}
+
+export function normalizeResearchReportSlug(value: string): string {
+  const slug = value.trim();
+  if (
+    slug.length === 0 ||
+    slug.length > MAX_RESEARCH_REPORT_SLUG_LENGTH ||
+    !RESEARCH_REPORT_SLUG_PATTERN.test(slug)
+  ) {
+    throw new Error("Invalid research report slug.");
+  }
+  return slug;
+}
+
+export function buildResearchReportPath(slug: string, locale: Locale | string): string {
+  return localizedPath(`/research/${normalizeResearchReportSlug(slug)}`, normalizeLocale(locale));
+}
+
+function normalizeResearchReport(record: ResearchReportApiRecord | null | undefined): ResearchReport | null {
+  if (!record || record.page_entity_type !== RESEARCH_REPORT_PAGE_ENTITY_TYPE) {
+    return null;
+  }
+
+  const slug = asString(record.slug);
+  const title = asString(record.title);
+  const executiveSummary = asString(record.executive_summary);
+  const methodology = asString(record.methodology);
+  const sampleDisclaimer = asString(record.sample_disclaimer);
+  const claimBoundary = asString(record.claim_boundary);
+
+  if (!slug || !title || !executiveSummary || !methodology || !sampleDisclaimer || !claimBoundary) {
+    return null;
+  }
+
+  return {
+    id: asNullableNumber(record.id),
+    slug,
+    locale: normalizeLocale(asString(record.locale)),
+    pageEntityType: RESEARCH_REPORT_PAGE_ENTITY_TYPE,
+    title,
+    executiveSummary,
+    bodyMd: asString(record.body_md),
+    researchType: asString(record.research_type),
+    methodology,
+    sampleDisclaimer,
+    claimBoundary,
+    authorName: asNullableString(record.author_name),
+    reviewerName: asNullableString(record.reviewer_name),
+    references: normalizeReferences(record.references),
+    downloadableAssetPlaceholder: asNullableString(record.downloadable_asset_placeholder),
+    lastReviewedAt: asNullableString(record.last_reviewed_at),
+    publishedAt: asNullableString(record.published_at),
+    seoTitle: asNullableString(record.seo_title),
+    seoDescription: asNullableString(record.seo_description),
+    canonicalPath: asNullableString(record.canonical_path),
+  };
+}
+
+export async function getResearchReport(slug: string, locale: Locale | string): Promise<ResearchReport | null> {
+  let normalizedSlug: string;
+  try {
+    normalizedSlug = normalizeResearchReportSlug(slug);
+  } catch {
+    return null;
+  }
+
+  const normalizedLocale = normalizeLocale(locale);
+  const query = new URLSearchParams({
+    locale: toApiLocale(normalizedLocale),
+    org_id: "0",
+  });
+
+  try {
+    const response = await apiClient.get<ResearchReportApiResponse>(
+      `/v0.5/research/${encodeURIComponent(normalizedSlug)}?${query.toString()}`,
+      {
+        locale: normalizedLocale,
+        skipAuth: true,
+        cache: "no-store",
+      }
+    );
+
+    return normalizeResearchReport(response.report);
+  } catch (error) {
+    if (error instanceof ApiError && (error.status === 404 || error.status === 422)) {
+      return null;
+    }
+    throw error;
+  }
+}
