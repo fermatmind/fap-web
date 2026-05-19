@@ -4269,7 +4269,7 @@
       "depends_on": [
         "ARCH-SEO-CMS-01"
       ],
-      "status": "pr_open",
+      "status": "merged",
       "title": "docs(architecture): add CMS and SEO middle platform final charter",
       "mode": "execute",
       "risk_level": "L2",
@@ -5973,14 +5973,18 @@
         "github_required_checks": {
           "status": "pass",
           "evidence": "PR #841 required checks passed before merge review: build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze. gh pr view reported mergeStateStatus=CLEAN."
+        },
+        "merge_cleanup": {
+          "status": "pass",
+          "evidence": "Squash merged PR #841 as 5ac3a16a9931a308d1f010ba6b015ba6ba2cdbb6, deleted remote branch codex/riasec-take-flow-01, ran scripts/post_merge_cleanup.sh codex/riasec-take-flow-01 main, and verified main is synced."
         }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/841",
-      "commit_sha": "3198d3262c4b",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "5ac3a16a9931",
+      "merged_at": "2026-05-19T02:55:09Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-19T00:00:00+08:00",
@@ -6001,6 +6005,11 @@
           "at": "2026-05-19T10:51:32+08:00",
           "status": "ready_to_merge",
           "summary": "Re-reviewed PR #841: title/body, changed files, manifest scope, required local checks ledger, GitHub required checks, and mergeStateStatus=CLEAN are ready for squash merge."
+        },
+        {
+          "at": "2026-05-19T10:55:58+08:00",
+          "status": "merged",
+          "summary": "Squash merged PR #841 into main as 5ac3a16a9931a308d1f010ba6b015ba6ba2cdbb6, deleted the remote branch, ran post-merge cleanup, and verified main was synced."
         }
       ]
     }
