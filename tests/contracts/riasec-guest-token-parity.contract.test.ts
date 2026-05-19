@@ -149,13 +149,14 @@ describe("RIASEC guest token parity contract", () => {
 
   it("keeps RIASEC attribution explicit without adding email or PII fields", () => {
     const riasecApi = readSource("lib/riasec/api.ts");
-    const riasecTake = readSource("app/(localized)/[locale]/tests/[slug]/take/RiasecTakeClient.tsx");
+    const riasecTake = readSource("app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient.tsx");
 
     expect(riasecApi).toContain("attribution?: AttemptAttributionPayload");
     expect(riasecApi).toContain("...attribution,");
-    expect(riasecTake).toContain("buildSeoAttemptStartAttributionFromSearchParams");
-    expect(riasecTake).toContain("...attributionContext.meta");
-    expect(riasecTake).toContain("...attributionContext.attribution");
+    expect(riasecTake).toContain("readTakeFlowAttribution");
+    expect(riasecTake).toContain("buildRiasecStartAttemptTrackingPayload");
+    expect(riasecTake).toContain("buildRiasecSubmitAttemptTrackingPayload");
+    expect(riasecTake).toContain("...attribution");
     expect(riasecTake).not.toContain("email:");
   });
 });

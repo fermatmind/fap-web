@@ -5897,6 +5897,94 @@
           "summary": "GitHub required checks passed for PR #839: build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze."
         }
       ]
+    },
+    {
+      "id": "RIASEC-TAKE-FLOW-01",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/riasec-take-flow-01",
+      "base": "main",
+      "depends_on": [],
+      "status": "local_checks_passed",
+      "train_scope": "riasec_take_flow_shared_quizstore",
+      "risk_level": "L1",
+      "title": "fix(riasec): converge take flow on shared QuizStore auto-advance",
+      "allowed_paths": [
+        "app/(localized)/[locale]/tests/[slug]/take/page.tsx",
+        "app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient.tsx",
+        "app/(localized)/[locale]/tests/[slug]/take/RiasecTakeClient.tsx",
+        "lib/api/v0_3.ts",
+        "lib/quiz/normalizeQuestions.ts",
+        "lib/quiz/store.tsx",
+        "tests/contracts/*riasec*take*",
+        "tests/contracts/*riasec*tracking*",
+        "tests/contracts/*mbti*take*",
+        "tests/contracts/test-detail-landing.contract.test.ts",
+        "tests/contracts/take-attempt-stores.contract.test.ts",
+        "tests/contracts/seo-ops-02-article-cta-attribution.contract.test.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized updating docs/codex/pr-train.yaml and docs/codex/pr-train-state.json for missing RIASEC-TAKE-FLOW-01 manifest/state entries on 2026-05-19."
+        },
+        "branch_preflight": {
+          "status": "pass",
+          "evidence": "Current branch codex/riasec-take-flow-01 was clean and git pull --ff-only origin main reported Already up to date before scoped edits."
+        },
+        "manifest_state_validation": {
+          "status": "pass",
+          "evidence": "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"'"
+        },
+        "focused_riasec_take_flow": {
+          "status": "pass",
+          "evidence": "pnpm exec vitest run tests/contracts/riasec-take-flow-shared-quizstore.contract.test.tsx"
+        },
+        "targeted_riasec_mbti_contracts": {
+          "status": "pass",
+          "evidence": "pnpm exec vitest run tests/contracts/riasec-standard-funnel-events.contract.test.tsx tests/contracts/riasec-guest-token-parity.contract.test.ts tests/contracts/test-detail-landing.contract.test.ts tests/contracts/take-attempt-stores.contract.test.ts tests/contracts/mbti-take-attribution.contract.test.tsx"
+        },
+        "targeted_big5_enneagram_contracts": {
+          "status": "pass",
+          "evidence": "pnpm exec vitest run tests/contracts/big5-take-attempt-priming.contract.test.tsx tests/contracts/enneagram-take-flow.contract.test.tsx"
+        },
+        "typecheck": {
+          "status": "pass",
+          "evidence": "pnpm typecheck"
+        },
+        "production_build": {
+          "status": "pass",
+          "evidence": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build"
+        },
+        "contract_suite": {
+          "status": "pass",
+          "evidence": "pnpm test:contract passed after commit on a clean worktree: 374 files, 2144 tests. An earlier pre-commit run failed diff-guard tests because runtime files were intentionally uncommitted, and an order-lookup recovery failure passed on isolated rerun before the clean full rerun."
+        },
+        "diff_checks": {
+          "status": "pass",
+          "evidence": "git diff --check and git diff --cached --check"
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": "919606502c40",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-05-19T00:00:00+08:00",
+          "status": "in_progress",
+          "summary": "Started RIASEC-TAKE-FLOW-01 after user authorized missing manifest/state registration; scope is limited to RIASEC take flow convergence, targeted contracts, and train metadata."
+        },
+        {
+          "at": "2026-05-19T10:44:28+08:00",
+          "status": "local_checks_passed",
+          "summary": "Converged RIASEC take flow onto shared QuizTakeClient/QuizStore, added targeted RIASEC draft/reload/submit/tracking contracts, verified MBTI/Big Five/Enneagram targeted contracts, typecheck, production build, and full contract suite."
+        }
+      ]
     }
   ],
   "sidecar_issues": [

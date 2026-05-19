@@ -4092,3 +4092,62 @@ prs:
       - No runtime, SEO/GEO, sitemap, llms, recommendation, profile memory, scoring, RIASEC, MBTI, Big Five, Enneagram, CMS publication, or frontend behavior files are changed.
       - Claim wording policy remains governance-only and does not authorize career matching, job fit, success prediction, hiring suitability, or unreviewed source claims.
     rollback_note: "Remove the Phase 5B-FU2 generated career policy artifacts and current PR train metadata."
+
+  - id: RIASEC-TAKE-FLOW-01
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/riasec-take-flow-01
+    base: main
+    depends_on: []
+    mode: execute
+    train_scope: riasec_take_flow_shared_quizstore
+    risk_level: L1
+    status: planned
+    title: "fix(riasec): converge take flow on shared QuizStore auto-advance"
+    goal: "Route the RIASEC take page through shared QuizTakeClient/QuizStore auto-advance while preserving form code, draft recovery, submit redirect, and safe funnel tracking."
+    in_scope:
+      - app/(localized)/[locale]/tests/[slug]/take/page.tsx
+      - app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient.tsx
+      - app/(localized)/[locale]/tests/[slug]/take/RiasecTakeClient.tsx
+      - lib/api/v0_3.ts
+      - lib/quiz/normalizeQuestions.ts
+      - lib/quiz/store.tsx
+      - tests/contracts/*riasec*take*
+      - tests/contracts/*riasec*tracking*
+      - tests/contracts/*mbti*take*
+      - tests/contracts/test-detail-landing.contract.test.ts
+      - tests/contracts/take-attempt-stores.contract.test.ts
+      - tests/contracts/seo-ops-02-article-cta-attribution.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - scoring math
+      - RIASEC question/content packs
+      - result/report/share/PDF/history
+      - deep copy content
+      - career match, job fit, or success prediction
+      - frontend local interpretation fallback copy
+      - backend repository changes
+      - public content, sitemap, llms, payment, checkout, commerce, recommendation, profile, or memory behavior
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/riasec-take-flow-shared-quizstore.contract.test.tsx
+      - pnpm exec vitest run tests/contracts/riasec-standard-funnel-events.contract.test.tsx tests/contracts/riasec-guest-token-parity.contract.test.ts tests/contracts/test-detail-landing.contract.test.ts tests/contracts/take-attempt-stores.contract.test.ts tests/contracts/mbti-take-attribution.contract.test.tsx
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: false
+    acceptance:
+      - /zh/tests/holland-career-interest-test-riasec/take?form=riasec_60 uses the shared QuizStore take client.
+      - riasec_140 form code is preserved for question loading, attempt start, draft storage, submit, and tracking.
+      - The take flow no longer deadlocks at 60/60 when answered count is still below total.
+      - Draft answers recover after reload.
+      - Submit redirects to /result/{attemptId}.
+      - RIASEC start_attempt and submit_attempt tracking stays free of PII and raw scores while retaining safe SEO attribution.
+      - MBTI, Big Five, and Enneagram take flows do not regress.
+    rollback_note: "Restore the RIASEC take page branch to RiasecTakeClient and remove the shared QuizTakeClient RIASEC-specific form/tracking/test changes."

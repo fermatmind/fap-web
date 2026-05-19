@@ -15,6 +15,29 @@ function toNonEmptyString(value: unknown): string {
   return normalized;
 }
 
+function resolveLocalizedText({
+  locale,
+  text,
+  textEn,
+  textZh,
+  fallback,
+}: {
+  locale: Locale;
+  text?: unknown;
+  textEn?: unknown;
+  textZh?: unknown;
+  fallback?: unknown;
+}): string {
+  const primary = toNonEmptyString(text);
+  const english = toNonEmptyString(textEn);
+  const chinese = toNonEmptyString(textZh);
+  const fallbackText = toNonEmptyString(fallback);
+
+  return locale === "zh"
+    ? chinese || primary || english || fallbackText
+    : english || primary || chinese || fallbackText;
+}
+
 function toSvgPaths(value: unknown): QuizVectorPath[] {
   if (!Array.isArray(value)) return [];
 
@@ -67,7 +90,7 @@ function toQuizStem(question: ScaleQuestionItem, locale: Locale): QuizQuestionSt
   };
 }
 
-function normalizeQuestionOptions(options: ScaleQuestionOption[] | null | undefined): QuizOption[] {
+function normalizeQuestionOptions(options: ScaleQuestionOption[] | null | undefined, locale: Locale): QuizOption[] {
   if (!Array.isArray(options)) return [];
 
   const out: QuizOption[] = [];
@@ -75,7 +98,13 @@ function normalizeQuestionOptions(options: ScaleQuestionOption[] | null | undefi
     const code = toNonEmptyString(option?.code);
     if (!code) continue;
 
-    const text = toNonEmptyString(option?.text) || toNonEmptyString(option?.label) || code;
+    const text = resolveLocalizedText({
+      locale,
+      text: option?.text,
+      textEn: option?.text_en,
+      textZh: option?.text_zh,
+      fallback: option?.label,
+    }) || code;
     const svg = toQuizVectorGraphic(option?.svg);
     out.push({
       id: code,
@@ -122,7 +151,12 @@ function resolveQuestionTitle({
   locale: Locale;
   index: number;
 }): string {
-  const text = toNonEmptyString(question.text);
+  const text = resolveLocalizedText({
+    locale,
+    text: question.text,
+    textEn: question.text_en,
+    textZh: question.text_zh,
+  });
   if (text) return text;
   if (stem?.prompt) return stem.prompt;
   return locale === "zh" ? `第 ${index + 1} 题` : `Question ${index + 1}`;
@@ -144,7 +178,7 @@ export function normalizeQuizQuestions({
 
   return items.map((question, index) => {
     const stem = toQuizStem(question, locale);
-    const questionOptions = normalizeQuestionOptions(question.options);
+    const questionOptions = normalizeQuestionOptions(question.options, locale);
     const options = questionOptions.length > 0 ? questionOptions : anchorOptions.length > 0 ? anchorOptions : formatOptions;
     const title = resolveQuestionTitle({ question, stem, locale, index });
 
