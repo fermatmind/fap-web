@@ -60,7 +60,35 @@ function readFixture(): Fixture {
 }
 
 function stripTags(value: string): string {
-  return value.replace(/<script[\s\S]*?<\/script>/gi, " ").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  let text = "";
+  let index = 0;
+  let skippedScriptDepth = 0;
+
+  while (index < value.length) {
+    if (value[index] !== "<") {
+      if (skippedScriptDepth === 0) text += value[index];
+      index += 1;
+      continue;
+    }
+
+    const tagEnd = value.indexOf(">", index + 1);
+    if (tagEnd === -1) break;
+
+    const tagSource = value.slice(index + 1, tagEnd).trim().toLowerCase();
+    const isClosingTag = tagSource.startsWith("/");
+    const tagName = tagSource.replace(/^\//, "").split(/\s+/, 1)[0] ?? "";
+
+    if (!isClosingTag && tagName === "script") {
+      skippedScriptDepth += 1;
+    } else if (isClosingTag && tagName === "script" && skippedScriptDepth > 0) {
+      skippedScriptDepth -= 1;
+    }
+
+    if (skippedScriptDepth === 0) text += " ";
+    index = tagEnd + 1;
+  }
+
+  return text.replace(/\s+/g, " ").trim();
 }
 
 function extractEvidenceBlocks(html: string): string[] {

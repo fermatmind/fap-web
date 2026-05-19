@@ -41,32 +41,32 @@ function collectRuntimeMatches(): string[] {
   const ignoredDirectories = new Set([".git", ".next", "node_modules"]);
   const matches: string[] = [];
 
-  function visit(relativePath: string) {
-    const absolutePath = path.join(ROOT, relativePath);
-    const stat = fs.statSync(absolutePath);
-
-    if (stat.isDirectory()) {
-      if (ignoredDirectories.has(path.basename(relativePath))) {
-        return;
-      }
-      for (const entry of fs.readdirSync(absolutePath)) {
-        visit(path.join(relativePath, entry));
-      }
+  function visitDirectory(relativeDirectory: string) {
+    if (ignoredDirectories.has(path.basename(relativeDirectory))) {
       return;
     }
 
-    if (!/\.(cjs|js|jsx|mjs|ts|tsx)$/.test(relativePath)) {
-      return;
-    }
+    for (const entry of fs.readdirSync(path.join(ROOT, relativeDirectory), { withFileTypes: true })) {
+      const childPath = path.join(relativeDirectory, entry.name);
 
-    const content = fs.readFileSync(absolutePath, "utf8");
-    if (needles.test(content)) {
-      matches.push(relativePath);
+      if (entry.isDirectory()) {
+        visitDirectory(childPath);
+        continue;
+      }
+
+      if (!entry.isFile() || !/\.(cjs|js|jsx|mjs|ts|tsx)$/.test(childPath)) {
+        continue;
+      }
+
+      const content = fs.readFileSync(path.join(ROOT, childPath), "utf8");
+      if (needles.test(content)) {
+        matches.push(childPath);
+      }
     }
   }
 
   for (const directory of ["app", "components", "lib"]) {
-    visit(directory);
+    visitDirectory(directory);
   }
 
   return matches;

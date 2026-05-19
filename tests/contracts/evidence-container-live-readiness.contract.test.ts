@@ -62,13 +62,55 @@ function read(relPath: string): string {
   return fs.readFileSync(path.join(ROOT, relPath), "utf8");
 }
 
+function tagNameFromSource(tagSource: string): string {
+  const normalized = tagSource.trim().replace(/^\//, "");
+  return normalized.split(/\s+/, 1)[0]?.toLowerCase() ?? "";
+}
+
+function tagSourceIsHidden(tagSource: string): boolean {
+  const normalized = tagSource.toLowerCase();
+  return (
+    /\bhidden\b/.test(normalized) ||
+    normalized.includes('aria-hidden="true"') ||
+    normalized.includes("aria-hidden='true'") ||
+    normalized.includes("display:none") ||
+    normalized.includes("display: none") ||
+    normalized.includes("visibility:hidden") ||
+    normalized.includes("visibility: hidden")
+  );
+}
+
 function stripInvisible(html: string): string {
-  return html
-    .replace(/<script[\s\S]*?<\/script>/gi, " ")
-    .replace(/<[^>]+(?:display\s*:\s*none|visibility\s*:\s*hidden|hidden|aria-hidden=["']true["'])[^>]*>[\s\S]*?<\/[^>]+>/gi, " ")
-    .replace(/<[^>]+>/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
+  let text = "";
+  let index = 0;
+  let hiddenDepth = 0;
+
+  while (index < html.length) {
+    if (html[index] !== "<") {
+      if (hiddenDepth === 0) text += html[index];
+      index += 1;
+      continue;
+    }
+
+    const tagEnd = html.indexOf(">", index + 1);
+    if (tagEnd === -1) break;
+
+    const tagSource = html.slice(index + 1, tagEnd);
+    const tagName = tagNameFromSource(tagSource);
+    const isClosingTag = tagSource.trim().startsWith("/");
+    const startsHiddenRegion = !isClosingTag && (tagName === "script" || tagName === "style" || tagSourceIsHidden(tagSource));
+
+    if (startsHiddenRegion) {
+      hiddenDepth += 1;
+    } else if (isClosingTag && hiddenDepth > 0) {
+      hiddenDepth -= 1;
+    }
+
+    if (hiddenDepth === 0) text += " ";
+    index = tagEnd + 1;
+  }
+
+  return text.replace(/\s+/g, " ").trim();
 }
 
 function extractEvidenceBlocks(html: string): string[] {
