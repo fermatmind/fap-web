@@ -1975,7 +1975,7 @@ prs:
     required_local_checks:
       - pnpm vitest run tests/contracts/content-release-revalidate-allowlist.contract.test.ts
       - pnpm typecheck
-      - pnpm test:contract
+      - pnpm exec vitest run tests/contracts/help-faq-schema.contract.test.ts
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - git diff --check
     acceptance:
@@ -4186,3 +4186,44 @@ prs:
       - Pull requests and main are expected to produce GitHub code scanning analysis.
       - No frontend runtime code or public content authority files are changed.
     rollback_note: "Remove .github/workflows/codeql.yml and the OPS-CI-CODESCAN-WEB-01 train metadata."
+
+  - id: WEB-CODEQL-RUNTIME-HTML-01
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/web-codeql-runtime-html-01
+    base: main
+    depends_on:
+      - OPS-CI-CODESCAN-WEB-01
+    mode: execute
+    train_scope: web_codeql_runtime_html
+    risk_level: L2
+    status: planned
+    title: "fix(security): remove runtime HTML regex FAQ extraction"
+    goal: "Resolve CodeQL runtime HTML tag/entity handling alerts on help pages without changing CMS authority or public content ownership."
+    in_scope:
+      - app/(localized)/[locale]/help/[slug]/page.tsx
+      - tests/contracts/help-faq-schema.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - CMS content changes
+      - frontend fallback content
+      - help page layout redesign
+      - SEO/GEO enumeration, sitemap, llms, payment, checkout, scoring, auth, analytics, or backend changes
+    required_local_checks:
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Help FAQ JSON-LD no longer depends on regex-based HTML tag stripping or entity double-unescaping.
+      - Markdown-authored FAQ extraction remains deterministic.
+      - HTML-only CMS pages do not receive frontend-inferred FAQ JSON-LD fallback.
+      - No public content authority moves into frontend code.
+    rollback_note: "Restore the prior help FAQ HTML extraction helper if needed."

@@ -112,7 +112,7 @@ describe("help FAQ JSON-LD semantic baseline", () => {
     expect(html).toContain('"@type":"BreadcrumbList"');
   });
 
-  it("builds FAQPage from visible HTML question blocks without absorbing later non-FAQ sections", async () => {
+  it("does not infer FAQPage from HTML-only content without markdown authority", async () => {
     const html = await renderHelpPage(
       "faq",
       makeContentPage({
@@ -122,13 +122,12 @@ describe("help FAQ JSON-LD semantic baseline", () => {
       })
     );
 
-    expect(html).toContain('"@type":"FAQPage"');
+    expect(html).not.toContain('"@type":"FAQPage"');
+    expect(html).not.toContain('id="help-faq-help-faq"');
     expect(html).toContain("This visible heading is not a FAQ item");
-    expect(html).not.toContain('"name":"This visible heading is not a FAQ item"');
-    expect(html).toContain('"name":"How do I recover an order?"');
-    expect(html).toContain('"text":"Use Order lookup."');
+    expect(html).toContain("How do I recover an order?");
+    expect(html).toContain("Use Order lookup.");
     expect(html).toContain("This visible section is not part of the FAQ answer.");
-    expect(html).not.toContain('"text":"Use Order lookup. Contact support This visible section is not part of the FAQ answer."');
   });
 
   it("does not emit FAQPage JSON-LD for non-FAQ help pages", async () => {
