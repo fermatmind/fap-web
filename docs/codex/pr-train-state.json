@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-19T06:16:02.305Z",
+  "updated_at": "2026-05-19T06:23:49.984Z",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -6068,7 +6068,7 @@
       "depends_on": [
         "OPS-CI-CODESCAN-WEB-01"
       ],
-      "status": "pr_open_github_checks_pending",
+      "status": "merged",
       "title": "fix(security): remove runtime HTML regex FAQ extraction",
       "artifacts": [
         "app/(localized)/[locale]/help/[slug]/page.tsx",
@@ -6085,14 +6085,20 @@
           "git_diff_check": "passed",
           "full_test_contract": "sidecar_failed_on_unrelated_runtime_diff_scope_governance_contracts"
         },
-        "github": {}
+        "github": {
+          "build": "passed",
+          "contracts": "passed",
+          "verify_big5_contract_freeze": "passed",
+          "verify_enneagram_contract_freeze": "passed",
+          "codeql": "passed"
+        }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/843",
       "commit_sha": "f55a295a0de7dd4f16937bb444a6d239828e3fcc",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-05-19T06:20:04Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-19T06:11:27.378Z",
@@ -6118,6 +6124,11 @@
           "at": "2026-05-19T06:16:02.305Z",
           "status": "pr_open_github_checks_pending",
           "summary": "Opened PR #843; GitHub checks pending."
+        },
+        {
+          "at": "2026-05-19T06:21:37.634Z",
+          "status": "post_merge_cleanup_complete",
+          "summary": "PR #843 merged and branch cleanup completed."
         }
       ],
       "sidecar_issues": [
@@ -6125,6 +6136,61 @@
           "at": "2026-05-19T06:14:10.165Z",
           "summary": "Full pnpm test:contract includes historical governance tests that fail whenever any runtime file appears in the active git diff. This security PR intentionally changes a runtime help page to resolve CodeQL alerts; no assertions failed for the changed help behavior itself.",
           "production_blocking": false
+        }
+      ],
+      "merge_commit": "f2f7bbc90c297716699d5b8070f9ea8629553adb"
+    },
+    {
+      "id": "WEB-CODEQL-ANALYTICS-ID-01",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/web-codeql-analytics-id-01",
+      "base": "main",
+      "depends_on": [
+        "WEB-CODEQL-RUNTIME-HTML-01"
+      ],
+      "status": "pr_open_github_checks_pending",
+      "title": "fix(security): use cryptographic anonymous id fallback",
+      "artifacts": [
+        "lib/anon.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "local": {
+          "typecheck": "passed",
+          "build": "passed",
+          "manifest_state_validation": "passed",
+          "git_diff_check": "passed"
+        },
+        "github": {}
+      },
+      "failure_reason": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/844",
+      "commit_sha": "91b0339707f5ecf33dbffbba46506afd042b8df4",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-05-19T06:21:37.634Z",
+          "status": "in_progress",
+          "summary": "Started scoped analytics anonymous id CodeQL insecure randomness fix."
+        },
+        {
+          "at": "2026-05-19T06:23:02.070Z",
+          "status": "local_checks_passed",
+          "summary": "typecheck, production build, manifest/state validation, and git diff checks passed."
+        },
+        {
+          "at": "2026-05-19T06:23:11.841Z",
+          "status": "committed",
+          "summary": "Committed 91b0339707f5ecf33dbffbba46506afd042b8df4."
+        },
+        {
+          "at": "2026-05-19T06:23:49.984Z",
+          "status": "pr_open_github_checks_pending",
+          "summary": "Opened PR #844; GitHub checks pending."
         }
       ]
     }

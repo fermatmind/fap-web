@@ -9,7 +9,12 @@ export const ANON_ATTEMPT_LINK_QUEUE_STORAGE_KEY = ANON_ATTEMPT_LINK_QUEUE_KEY;
 
 const isBrowser = () => typeof window !== "undefined" && typeof document !== "undefined";
 
-const buildFallbackId = () => `anon_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`;
+function buildFallbackId(): string {
+  const randomBytes = new Uint8Array(8);
+  globalThis.crypto?.getRandomValues(randomBytes);
+  const randomSuffix = Array.from(randomBytes, (byte) => byte.toString(16).padStart(2, "0")).join("");
+  return `anon_${Date.now()}_${randomSuffix}`;
+}
 
 const generateAnonymousId = () => {
   if (typeof crypto !== "undefined" && "randomUUID" in crypto) {
