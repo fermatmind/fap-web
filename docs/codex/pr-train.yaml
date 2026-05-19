@@ -4227,3 +4227,41 @@ prs:
       - HTML-only CMS pages do not receive frontend-inferred FAQ JSON-LD fallback.
       - No public content authority moves into frontend code.
     rollback_note: "Restore the prior help FAQ HTML extraction helper if needed."
+
+  - id: WEB-CODEQL-ANALYTICS-ID-01
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/web-codeql-analytics-id-01
+    base: main
+    depends_on:
+      - WEB-CODEQL-RUNTIME-HTML-01
+    mode: execute
+    train_scope: web_codeql_analytics_id
+    risk_level: L2
+    status: planned
+    title: "fix(security): use cryptographic anonymous id fallback"
+    goal: "Resolve CodeQL insecure randomness alerts flowing into analytics anonymous/session identifiers without changing analytics consent or tracking behavior."
+    in_scope:
+      - lib/anon.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - analytics event taxonomy
+      - consent policy
+      - attribution payload semantics
+      - CMS, SEO/GEO enumeration, sitemap, llms, scoring, checkout, payment, backend changes, or production deploy
+    required_local_checks:
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Anonymous id fallback no longer uses Math.random.
+      - Existing localStorage and cookie persistence behavior remains unchanged.
+      - Analytics consent, event names, and payload shape remain unchanged.
+    rollback_note: "Restore the previous anonymous id fallback if required."
