@@ -1,0 +1,161 @@
+{
+  "schema_version": "riasec.public_projection.v2",
+  "holland_code": {
+    "code": "IAS",
+    "primary_type": "I",
+    "secondary_type": "A",
+    "tertiary_type": "S"
+  },
+  "form": {
+    "form_code": "riasec_140",
+    "question_count": 140,
+    "form_kind": "enhanced",
+    "score_space_version": "riasec_140_work_daily_context_space.v1",
+    "compare_compatibility_group": "RIASEC:riasec_140:riasec_140_work_daily_context_space.v1",
+    "cross_form_comparable": false,
+    "raw_score_delta_allowed": false
+  },
+  "scores": {
+    "score_kind": "dimension_scores_0_100",
+    "dimensions": [
+      { "code": "R", "label": "现实型", "score": 41 },
+      { "code": "I", "label": "研究型", "score": 88 },
+      { "code": "A", "label": "艺术型", "score": 77 },
+      { "code": "S", "label": "社会型", "score": 70 },
+      { "code": "E", "label": "企业型", "score": 38 },
+      { "code": "C", "label": "常规型", "score": 53 }
+    ]
+  },
+  "lifecycle_copy_v1": {
+    "schema_version": "riasec.lifecycle_copy.v1",
+    "content_authority": "backend_riasec_lifecycle_assets",
+    "status": "available",
+    "snapshot_bound": true,
+    "share_pdf_history_asset_id": "share_pdf_history_v1.zh-CN",
+    "faq_asset_id": "faq_v1.zh-CN",
+    "technical_note_summary_asset_id": "technical_note_user_summary_v1.zh-CN",
+    "professional_method_boundary_asset_id": "professional_method_boundary_v1.zh-CN",
+    "surfaces": [
+      {
+        "surface": "share_safe_card",
+        "copy": "分享默认只展示安全摘要，不带原始分数与反馈明细。",
+        "public_safe": true,
+        "raw_scores_allowed": false,
+        "raw_feedback_allowed": false
+      }
+    ],
+    "faq_items": [
+      {
+        "q": "IAS 是什么意思？",
+        "a": "它表示这次测量里最突出的三个兴趣字母顺序。"
+      }
+    ],
+    "faq_markdown_reference_available": true,
+    "public_safe_default_surface_keys": [
+      "share_safe_card",
+      "share_detail_boundary",
+      "low_quality_share"
+    ],
+    "frontend_fallback_allowed": false,
+    "missing_content_behavior": "omit_module_fail_closed",
+    "measured_payload_mutation_allowed": false,
+    "report_snapshot_mutation_allowed": false,
+    "raw_feedback_public_exposure_allowed": false,
+    "internal_snapshot_id_public_exposure_allowed": false,
+    "life_stage_public_exposure_allowed": false,
+    "organization_context_public_exposure_allowed": false
+  },
+  "exploration_feedback_overlay_v0_1": {
+    "schema_version": "riasec.exploration_feedback_overlay.v0.1",
+    "status": "safe_static_content_bridge_v0_1",
+    "feedback_stream_status": "not_connected_v0_1",
+    "snapshot_bound": true,
+    "snapshot_identity": {
+      "snapshot_required": true,
+      "snapshot_bound": true,
+      "identity_scope": "projection_snapshot",
+      "form_code": "riasec_140",
+      "score_space_version": "riasec_140_work_daily_context_space.v1",
+      "measured_holland_code": "IAS"
+    },
+    "measured_result_guard": {
+      "scores_mutation_allowed": false,
+      "holland_code_mutation_allowed": false,
+      "report_snapshot_mutation_allowed": false,
+      "measurement_evidence_mutation_allowed": false
+    },
+    "surface_policy": {
+      "public_projection_allowed": true,
+      "share_pdf_exposure_allowed": false,
+      "raw_feedback_public_exposure_allowed": false,
+      "formal_report_mutation_allowed": false
+    },
+    "read_model": {
+      "has_feedback": false,
+      "feedback_count": 0,
+      "latest_feedback_at": null,
+      "summary_status": "not_available_without_feedback_stream",
+      "raw_feedback_included": false
+    },
+    "claim_boundary": {
+      "feedback_is_measurement": false,
+      "feedback_changes_scores": false,
+      "feedback_changes_measured_holland_code": false,
+      "feedback_is_career_match": false,
+      "feedback_is_success_prediction": false
+    },
+    "action_lab_v1": {
+      "schema_version": "riasec.feedback_action_lab_payload.v1",
+      "status": "available_static_safe_bridge",
+      "availability": "static_starter_actions_without_feedback_read_model",
+      "frontend_fallback_allowed": false,
+      "frontend_renderer_required_for_visible_module": true,
+      "public_raw_feedback_allowed": false,
+      "affects_measured_code": false,
+      "affects_score": false,
+      "affects_snapshot": false,
+      "share_pdf_history_measured_payload_mutation_allowed": false,
+      "starter_actions": [
+        {
+          "event_type": "saved_activity",
+          "activity_key": "analyze_complex_problems",
+          "user_copy": "已记录：收藏活动。",
+          "system_response": "这条反馈只会影响探索路径。",
+          "next_step_copy": "回看你为什么想继续这一类任务。",
+          "score_mutation_allowed": false,
+          "measured_holland_code_mutation_allowed": false,
+          "snapshot_mutation_allowed": false,
+          "share_pdf_exposure_allowed": false,
+          "frontend_fallback_allowed": false
+        }
+      ]
+    },
+    "next_exploration_nodes_v1": {
+      "schema_version": "riasec.next_exploration_nodes_payload.v1",
+      "status": "available_static_safe_bridge",
+      "selection_mode": "top_code_dimension_static_starter_nodes_without_feedback_read_model",
+      "frontend_fallback_allowed": false,
+      "frontend_renderer_required_for_visible_module": true,
+      "public_raw_feedback_allowed": false,
+      "affects_measured_code": false,
+      "affects_score": false,
+      "affects_snapshot": false,
+      "creates_career_match": false,
+      "share_pdf_history_measured_payload_mutation_allowed": false,
+      "nodes": [
+        {
+          "node_id": "compare_two_activities_i_v7",
+          "node_type": "compare_two_activities",
+          "dimension_hint": "I",
+          "title": "比较两类研究型活动",
+          "summary": "比较哪一种证据工作更能让你继续。",
+          "instruction": "找两个 15 分钟的信息整理任务，记录能量变化。",
+          "estimated_time": "15–30 分钟",
+          "creates_score_change": false,
+          "creates_career_match": false,
+          "frontend_fallback_allowed": false
+        }
+      ]
+    }
+  }
+}

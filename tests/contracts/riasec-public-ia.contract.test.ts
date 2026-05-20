@@ -69,6 +69,9 @@ describe("riasec public IA contract", () => {
     expect(assemblerSource).toContain("riasec_public_projection_v2");
     expect(assemblerSource).toContain("activity_explorer_v0_1");
     expect(assemblerSource).toContain("exploration_feedback_overlay_v0_1");
+    expect(assemblerSource).toContain("lifecycle_copy_v1");
+    expect(assemblerSource).toContain("action_lab_v1");
+    expect(assemblerSource).toContain("next_exploration_nodes_v1");
     expect(assemblerSource).toContain("trustedResultCard");
     expect(assemblerSource).toContain("activityExplorer");
     expect(assemblerSource).toContain("feedbackOverlay");
