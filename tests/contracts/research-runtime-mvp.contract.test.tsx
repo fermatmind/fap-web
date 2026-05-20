@@ -141,6 +141,49 @@ describe("Research runtime MVP contract", () => {
     expect(html).not.toContain("MBTI Salary & Turnover Report");
   });
 
+  it("generates Research metadata from backend SEO fields without frontend editorial fallback", async () => {
+    const getResearchReportMock = vi.fn(async () =>
+      sampleReport({
+        seoTitle: "Backend Research SEO Title",
+        seoDescription: "Backend Research SEO description.",
+        canonicalPath: "/en/research/backend-research-report",
+      })
+    );
+
+    vi.doMock("@/lib/research/reports", async () => {
+      const actual = await vi.importActual<typeof import("@/lib/research/reports")>("@/lib/research/reports");
+
+      return {
+        ...actual,
+        getResearchReport: getResearchReportMock,
+      };
+    });
+    vi.doMock("next/navigation", () => ({
+      notFound: () => {
+        throw new Error("NEXT_NOT_FOUND");
+      },
+    }));
+
+    const page = await import("@/app/(localized)/[locale]/research/[slug]/page");
+    const metadata = await page.generateMetadata({
+      params: Promise.resolve({ locale: "en", slug: "backend-research-report" }),
+    });
+
+    expect(getResearchReportMock).toHaveBeenCalledWith("backend-research-report", "en");
+    expect(metadata.title).toBe("Backend Research SEO Title");
+    expect(metadata.description).toBe("Backend Research SEO description.");
+    expect(metadata.alternates?.canonical).toBe("http://localhost:3000/en/research/backend-research-report");
+    expect(metadata.openGraph?.title).toBe("Backend Research SEO Title");
+    expect(metadata.openGraph?.description).toBe("Backend Research SEO description.");
+    expect(metadata.openGraph?.url).toBe("http://localhost:3000/en/research/backend-research-report");
+    expect(metadata.openGraph?.images).toEqual(["https://api.fermatmind.com/static/share/mbti_wide_1200x630.png"]);
+    expect(metadata.twitter?.title).toBe("Backend Research SEO Title");
+    expect(metadata.twitter?.description).toBe("Backend Research SEO description.");
+    expect(metadata.twitter?.images).toEqual(["https://api.fermatmind.com/static/share/mbti_wide_1200x630.png"]);
+    expect(readSource("app/(localized)/[locale]/research/[slug]/page.tsx")).not.toContain("Dataset");
+    expect(readSource("app/(localized)/[locale]/research/[slug]/page.tsx")).not.toContain("MBTI Salary & Turnover Report");
+  });
+
   it("404s when the backend returns no public Research payload", async () => {
     vi.doMock("@/lib/research/reports", () => ({
       getResearchReport: vi.fn(async () => null),
