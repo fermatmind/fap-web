@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-20T03:12:00Z",
+  "updated_at": "2026-05-20T03:42:00Z",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -6570,7 +6570,7 @@
       "depends_on": [
         "RIASEC-FULL-CONTENT-PACK-11-BE"
       ],
-      "status": "pr_open_github_checks_pending",
+      "status": "merged",
       "title": "RIASEC frontend renderer hardening after full backend content payloads",
       "artifacts": [
         "lib/riasec/resultAssembler.ts",
@@ -6602,10 +6602,10 @@
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/851",
-      "commit_sha": "21161bb5",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "99e67bf9933387914c0dae1e88f20259ef4a6149",
+      "merged_at": "2026-05-20T03:08:21Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-20T03:00:00Z",
@@ -6621,6 +6621,11 @@
           "at": "2026-05-20T03:12:00Z",
           "status": "pr_open_github_checks_pending",
           "summary": "Opened PR #851 for PACK-12 after local checks passed. GitHub required checks pending on frontend renderer hardening scope."
+        },
+        {
+          "at": "2026-05-20T03:09:00Z",
+          "status": "merged",
+          "summary": "Ledger reconciled from GitHub PR #851 and origin/main. PACK-12 merged with squash commit 99e67bf9933387914c0dae1e88f20259ef4a6149; remote branch and local cleanup were already complete."
         }
       ],
       "sidecar_issues": [
@@ -6646,7 +6651,7 @@
         "RIASEC-FULL-CONTENT-PACK-12",
         "RIASEC-FULL-CONTENT-PACK-13-BE"
       ],
-      "status": "planned",
+      "status": "local_checks_passed",
       "title": "Frontend full content fixture matrix and forbidden claim freeze",
       "artifacts": [
         "tests/contracts/fixtures/riasec/**",
@@ -6657,7 +6662,15 @@
         "docs/codex/pr-train-state.json"
       ],
       "checks": {
-        "local": {},
+        "local": {
+          "focused_riasec_contracts": "passed",
+          "typecheck": "passed",
+          "test_contract": "passed",
+          "build": "passed",
+          "manifest_state_validation": "passed",
+          "git_diff_check": "passed",
+          "git_diff_cached_check": "passed"
+        },
         "github": {}
       },
       "failure_reason": null,
@@ -6666,7 +6679,13 @@
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "history": [],
+      "history": [
+        {
+          "at": "2026-05-20T03:42:00Z",
+          "status": "local_checks_passed",
+          "summary": "Added frontend full-content freeze matrix fixture and contract coverage. Focused RIASEC contracts, full pnpm test:contract, pnpm typecheck, production build with production URL env, manifest/state validation, and diff checks passed; generated sitemap drift was reverted before staging."
+        }
+      ],
       "sidecar_issues": []
     },
     {
