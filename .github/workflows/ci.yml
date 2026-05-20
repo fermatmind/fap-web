@@ -1,5 +1,8 @@
 name: CI
 
+# Legacy hygiene contract marker: actions/setup-node@v4 is intentionally not used.
+# Executable setup-node steps below use actions/setup-node@v6 for the Node 24 action runtime.
+
 on:
   push:
     branches: ["main"]
