@@ -6,7 +6,7 @@ import type { SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
 export type TwitterImages = NonNullable<NonNullable<Metadata["twitter"]>["images"]>;
 type TwitterImageItem = TwitterImages extends Array<infer Item> ? Item : never;
 
-export type CanonicalRouteFamily = "article_detail" | "test_detail" | "generic";
+export type CanonicalRouteFamily = "article_detail" | "research_detail" | "test_detail" | "generic";
 export type CanonicalAuthorityStatus = "accepted" | "normalized" | "rejected" | "deferred";
 
 export type CanonicalAuthorityDecision = {
@@ -145,7 +145,7 @@ export function resolveCanonicalAuthority({
   routeFamily?: CanonicalRouteFamily;
 }): CanonicalAuthorityDecision {
   const expected = normalizeRoutePathname(expectedPathname);
-  const detailRoute = routeFamily === "article_detail" || routeFamily === "test_detail";
+  const detailRoute = routeFamily === "article_detail" || routeFamily === "research_detail" || routeFamily === "test_detail";
   const fallback = (status: CanonicalAuthorityStatus, reason: string): CanonicalAuthorityDecision => ({
     status,
     canonicalPathname: expected,

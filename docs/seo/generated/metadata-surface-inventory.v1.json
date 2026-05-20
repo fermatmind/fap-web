@@ -8,25 +8,25 @@
     "scanner": "scripts/seo/generate-metadata-surface-inventory.mjs"
   },
   "summary": {
-    "totalSurfaces": 70,
+    "totalSurfaces": 71,
     "byClassification": {
       "private_noindex": 22,
       "product_code_only": 15,
       "safe_static": 11,
       "migration_required": 2,
-      "cms_backed": 13,
+      "cms_backed": 14,
       "backend_owned": 5,
       "watchlist": 2
     },
     "byOwnership": {
       "private_noindex": 22,
       "product_code_only": 16,
-      "cms_backed": 27,
+      "cms_backed": 28,
       "backend_owned": 5
     },
     "byRouteFamily": {
       "private_flow": 21,
-      "other": 7,
+      "other": 8,
       "static_content_page": 10,
       "article_detail": 2,
       "articles_hub": 1,
@@ -863,6 +863,21 @@
       "rendersJsonLd": false,
       "hasFrontendJsonLdBuilderFallback": false,
       "noindexSignal": false,
+      "ownership": "cms_backed",
+      "classification": "cms_backed",
+      "risk": "P2",
+      "reason": "Route metadata is derived from CMS/public API data."
+    },
+    {
+      "file": "app/(localized)/[locale]/research/[slug]/page.tsx",
+      "routePattern": "/research/:slug",
+      "routeFamily": "other",
+      "exportKind": "generateMetadata",
+      "usesBuildPageMetadata": true,
+      "usesSeoSurface": false,
+      "rendersJsonLd": false,
+      "hasFrontendJsonLdBuilderFallback": false,
+      "noindexSignal": true,
       "ownership": "cms_backed",
       "classification": "cms_backed",
       "risk": "P2",

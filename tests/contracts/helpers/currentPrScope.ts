@@ -29,6 +29,19 @@ const RIASEC_PACK12_ALLOWED_FILES = new Set([
   "tests/contracts/fixtures/riasec/lifecycle-feedback-boundaries.projection.json",
 ]);
 
+const RESEARCH_REPORT_METADATA_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/research/[slug]/page.tsx",
+  "docs/seo/generated/metadata-surface-inventory.v1.csv",
+  "docs/seo/generated/metadata-surface-inventory.v1.json",
+  "lib/seo/metadata.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/research-runtime-mvp.contract.test.tsx",
+]);
+
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH === "codex/research-report-metadata") {
+    return RESEARCH_REPORT_METADATA_ALLOWED_FILES.has(file);
+  }
+
   return CURRENT_BRANCH === "codex/riasec-full-content-pack-12" && RIASEC_PACK12_ALLOWED_FILES.has(file);
 }

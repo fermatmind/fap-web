@@ -53,6 +53,7 @@ file,routePattern,routeFamily,exportKind,ownership,classification,risk,usesBuild
 "app/(localized)/[locale]/privacy/page.tsx","/privacy","static_content_page","generateMetadata","cms_backed","safe_static","P2","false","false","false","false","false"
 "app/(localized)/[locale]/professions/[code]/page.tsx","/professions/:code","other","generateMetadata","cms_backed","cms_backed","P2","true","false","false","false","true"
 "app/(localized)/[locale]/professions/page.tsx","/professions","other","generateMetadata","cms_backed","cms_backed","P2","true","false","false","false","false"
+"app/(localized)/[locale]/research/[slug]/page.tsx","/research/:slug","other","generateMetadata","cms_backed","cms_backed","P2","true","false","false","false","true"
 "app/(localized)/[locale]/results/lookup/page.tsx","/results/lookup","private_flow","generateMetadata","private_noindex","private_noindex","P2","false","false","false","false","true"
 "app/(localized)/[locale]/share/[id]/page.tsx","/share/:id","private_flow","generateMetadata","private_noindex","private_noindex","P2","true","true","false","false","true"
 "app/(localized)/[locale]/support/articles/[slug]/page.tsx","/support/articles/:slug","article_detail","generateMetadata","cms_backed","migration_required","P1","true","false","true","true","true"
