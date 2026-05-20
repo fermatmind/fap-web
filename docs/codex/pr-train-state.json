@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-20T03:42:00Z",
+  "updated_at": "2026-05-20T03:47:00Z",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -6651,7 +6651,7 @@
         "RIASEC-FULL-CONTENT-PACK-12",
         "RIASEC-FULL-CONTENT-PACK-13-BE"
       ],
-      "status": "local_checks_passed",
+      "status": "pr_open_github_checks_pending",
       "title": "Frontend full content fixture matrix and forbidden claim freeze",
       "artifacts": [
         "tests/contracts/fixtures/riasec/**",
@@ -6674,8 +6674,8 @@
         "github": {}
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/852",
+      "commit_sha": "7ecb1018ecbe8df65f02b10fc4ff07ed806570ec",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -6684,6 +6684,11 @@
           "at": "2026-05-20T03:42:00Z",
           "status": "local_checks_passed",
           "summary": "Added frontend full-content freeze matrix fixture and contract coverage. Focused RIASEC contracts, full pnpm test:contract, pnpm typecheck, production build with production URL env, manifest/state validation, and diff checks passed; generated sitemap drift was reverted before staging."
+        },
+        {
+          "at": "2026-05-20T03:47:00Z",
+          "status": "pr_open_github_checks_pending",
+          "summary": "Opened PR #852 for PACK-13-FE after local checks passed. GitHub required checks pending on frontend full-content fixture matrix and forbidden-claim freeze scope."
         }
       ],
       "sidecar_issues": []
