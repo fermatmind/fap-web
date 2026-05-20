@@ -208,6 +208,71 @@ export type RiasecFeedbackOverlay = {
     feedbackIsCareerMatch: boolean;
     feedbackIsSuccessPrediction: boolean;
   };
+  actionLab: RiasecFeedbackActionLabBoundary | null;
+  nextExplorationNodes: RiasecNextExplorationNodesBoundary | null;
+};
+
+export type RiasecFeedbackActionLabBoundary = {
+  schemaVersion: string;
+  status: string;
+  availability: string;
+  frontendRendererRequiredForVisibleModule: boolean;
+  publicRawFeedbackAllowed: false;
+  affectsMeasuredCode: false;
+  affectsScore: false;
+  affectsSnapshot: false;
+  sharePdfHistoryMeasuredPayloadMutationAllowed: false;
+  starterActionCount: number;
+};
+
+export type RiasecNextExplorationNodesBoundary = {
+  schemaVersion: string;
+  status: string;
+  selectionMode: string;
+  frontendRendererRequiredForVisibleModule: boolean;
+  publicRawFeedbackAllowed: false;
+  affectsMeasuredCode: false;
+  affectsScore: false;
+  affectsSnapshot: false;
+  createsCareerMatch: false;
+  sharePdfHistoryMeasuredPayloadMutationAllowed: false;
+  nodeCount: number;
+};
+
+export type RiasecLifecycleCopySurface = {
+  surface: string;
+  copy: string;
+  publicSafe: boolean;
+  rawScoresAllowed: false;
+  rawFeedbackAllowed: false;
+};
+
+export type RiasecLifecycleCopyFaqItem = {
+  q: string;
+  a: string;
+};
+
+export type RiasecLifecycleCopy = {
+  schemaVersion: string;
+  contentAuthority: string;
+  status: string;
+  snapshotBound: boolean;
+  sharePdfHistoryAssetId: string;
+  faqAssetId: string;
+  technicalNoteSummaryAssetId: string;
+  professionalMethodBoundaryAssetId: string;
+  faqMarkdownReferenceAvailable: boolean;
+  publicSafeDefaultSurfaceKeys: string[];
+  frontendFallbackAllowed: false;
+  missingContentBehavior: string;
+  measuredPayloadMutationAllowed: false;
+  reportSnapshotMutationAllowed: false;
+  rawFeedbackPublicExposureAllowed: false;
+  internalSnapshotIdPublicExposureAllowed: false;
+  lifeStagePublicExposureAllowed: false;
+  organizationContextPublicExposureAllowed: false;
+  surfaces: RiasecLifecycleCopySurface[];
+  faqItems: RiasecLifecycleCopyFaqItem[];
 };
 
 export type RiasecResultViewModel = {
@@ -231,6 +296,7 @@ export type RiasecResultViewModel = {
   deepContentSlots: RiasecDeepContentSlotsEnvelope | null;
   activityExplorer: RiasecActivityExplorer | null;
   feedbackOverlay: RiasecFeedbackOverlay | null;
+  lifecycleCopy: RiasecLifecycleCopy | null;
   enhancedBreakdown: {
     activity: Record<string, number>;
     environment: Record<string, number>;
@@ -348,6 +414,7 @@ export function assembleRiasecResultViewModel(reportData: RiasecProjectionContai
   const v2Scores = asRecord(projectionV2?.scores);
   const v2ActivityExplorer = asRecord(projectionV2?.activity_explorer_v0_1);
   const v2FeedbackOverlay = asRecord(projectionV2?.exploration_feedback_overlay_v0_1);
+  const v2LifecycleCopy = asRecord(projectionV2?.lifecycle_copy_v1);
   const v2InterpretationState = asRecord(projectionV2?.interpretation_state);
   const v2ModuleVisibilityPolicy = asRecord(projectionV2?.module_visibility_policy);
   const v2DeepContentSlots = asRecord(projectionV2?.deep_content_slots_v1);
@@ -415,6 +482,7 @@ export function assembleRiasecResultViewModel(reportData: RiasecProjectionContai
     deepContentSlots: buildDeepContentSlots(v2DeepContentSlots),
     activityExplorer: buildActivityExplorer(v2ActivityExplorer),
     feedbackOverlay: buildFeedbackOverlay(v2FeedbackOverlay),
+    lifecycleCopy: buildLifecycleCopy(v2LifecycleCopy),
     enhancedBreakdown: {
       activity: Object.fromEntries(Object.entries(asRecord(enhanced.activity) ?? {}).map(([key, value]) => [key, normalizeNumber(value)])),
       environment: Object.fromEntries(Object.entries(asRecord(enhanced.environment) ?? {}).map(([key, value]) => [key, normalizeNumber(value)])),
@@ -663,6 +731,8 @@ function buildFeedbackOverlay(rawOverlay: Record<string, unknown> | null): Riase
   const surfacePolicy = asRecord(rawOverlay.surface_policy) ?? {};
   const readModel = asRecord(rawOverlay.read_model) ?? {};
   const claimBoundary = asRecord(rawOverlay.claim_boundary) ?? {};
+  const actionLab = buildFeedbackActionLabBoundary(asRecord(rawOverlay.action_lab_v1));
+  const nextExplorationNodes = buildNextExplorationNodesBoundary(asRecord(rawOverlay.next_exploration_nodes_v1));
 
   return {
     schemaVersion: normalizeText(rawOverlay.schema_version),
@@ -703,6 +773,68 @@ function buildFeedbackOverlay(rawOverlay: Record<string, unknown> | null): Riase
       feedbackIsCareerMatch: normalizeBoolean(claimBoundary.feedback_is_career_match),
       feedbackIsSuccessPrediction: normalizeBoolean(claimBoundary.feedback_is_success_prediction),
     },
+    actionLab,
+    nextExplorationNodes,
+  };
+}
+
+function buildFeedbackActionLabBoundary(rawActionLab: Record<string, unknown> | null): RiasecFeedbackActionLabBoundary | null {
+  if (!rawActionLab) {
+    return null;
+  }
+  if (
+    rawActionLab.frontend_fallback_allowed !== false ||
+    rawActionLab.public_raw_feedback_allowed !== false ||
+    rawActionLab.affects_measured_code !== false ||
+    rawActionLab.affects_score !== false ||
+    rawActionLab.affects_snapshot !== false ||
+    rawActionLab.share_pdf_history_measured_payload_mutation_allowed !== false
+  ) {
+    return null;
+  }
+
+  return {
+    schemaVersion: normalizeText(rawActionLab.schema_version),
+    status: normalizeText(rawActionLab.status),
+    availability: normalizeText(rawActionLab.availability),
+    frontendRendererRequiredForVisibleModule: normalizeBoolean(rawActionLab.frontend_renderer_required_for_visible_module),
+    publicRawFeedbackAllowed: false,
+    affectsMeasuredCode: false,
+    affectsScore: false,
+    affectsSnapshot: false,
+    sharePdfHistoryMeasuredPayloadMutationAllowed: false,
+    starterActionCount: Array.isArray(rawActionLab.starter_actions) ? rawActionLab.starter_actions.length : 0,
+  };
+}
+
+function buildNextExplorationNodesBoundary(rawNodes: Record<string, unknown> | null): RiasecNextExplorationNodesBoundary | null {
+  if (!rawNodes) {
+    return null;
+  }
+  if (
+    rawNodes.frontend_fallback_allowed !== false ||
+    rawNodes.public_raw_feedback_allowed !== false ||
+    rawNodes.affects_measured_code !== false ||
+    rawNodes.affects_score !== false ||
+    rawNodes.affects_snapshot !== false ||
+    rawNodes.creates_career_match !== false ||
+    rawNodes.share_pdf_history_measured_payload_mutation_allowed !== false
+  ) {
+    return null;
+  }
+
+  return {
+    schemaVersion: normalizeText(rawNodes.schema_version),
+    status: normalizeText(rawNodes.status),
+    selectionMode: normalizeText(rawNodes.selection_mode),
+    frontendRendererRequiredForVisibleModule: normalizeBoolean(rawNodes.frontend_renderer_required_for_visible_module),
+    publicRawFeedbackAllowed: false,
+    affectsMeasuredCode: false,
+    affectsScore: false,
+    affectsSnapshot: false,
+    createsCareerMatch: false,
+    sharePdfHistoryMeasuredPayloadMutationAllowed: false,
+    nodeCount: Array.isArray(rawNodes.nodes) ? rawNodes.nodes.length : 0,
   };
 }
 
@@ -769,5 +901,76 @@ function buildActivityExplorer(rawExplorer: Record<string, unknown> | null): Ria
         };
       }).filter((activity) => activity.activityKey),
     },
+  };
+}
+
+function buildLifecycleCopy(rawLifecycleCopy: Record<string, unknown> | null): RiasecLifecycleCopy | null {
+  if (!rawLifecycleCopy) {
+    return null;
+  }
+  if (
+    rawLifecycleCopy.frontend_fallback_allowed !== false ||
+    rawLifecycleCopy.measured_payload_mutation_allowed !== false ||
+    rawLifecycleCopy.report_snapshot_mutation_allowed !== false ||
+    rawLifecycleCopy.raw_feedback_public_exposure_allowed !== false ||
+    rawLifecycleCopy.internal_snapshot_id_public_exposure_allowed !== false ||
+    rawLifecycleCopy.life_stage_public_exposure_allowed !== false ||
+    rawLifecycleCopy.organization_context_public_exposure_allowed !== false
+  ) {
+    return null;
+  }
+
+  const surfaces = (Array.isArray(rawLifecycleCopy.surfaces) ? rawLifecycleCopy.surfaces : [])
+    .map((rawSurface) => {
+      const surface = asRecord(rawSurface) ?? {};
+      if (
+        normalizeText(surface.surface) === "" ||
+        normalizeText(surface.copy) === "" ||
+        surface.raw_scores_allowed !== false ||
+        surface.raw_feedback_allowed !== false
+      ) {
+        return null;
+      }
+
+      return {
+        surface: normalizeText(surface.surface),
+        copy: normalizeText(surface.copy),
+        publicSafe: normalizeBoolean(surface.public_safe),
+        rawScoresAllowed: false,
+        rawFeedbackAllowed: false,
+      };
+    })
+    .filter((surface): surface is RiasecLifecycleCopySurface => Boolean(surface));
+  const faqItems = (Array.isArray(rawLifecycleCopy.faq_items) ? rawLifecycleCopy.faq_items : [])
+    .map((rawItem) => {
+      const item = asRecord(rawItem) ?? {};
+      const q = normalizeText(item.q);
+      const a = normalizeText(item.a);
+
+      return q && a ? { q, a } : null;
+    })
+    .filter((item): item is RiasecLifecycleCopyFaqItem => Boolean(item));
+
+  return {
+    schemaVersion: normalizeText(rawLifecycleCopy.schema_version),
+    contentAuthority: normalizeText(rawLifecycleCopy.content_authority),
+    status: normalizeText(rawLifecycleCopy.status),
+    snapshotBound: normalizeBoolean(rawLifecycleCopy.snapshot_bound),
+    sharePdfHistoryAssetId: normalizeText(rawLifecycleCopy.share_pdf_history_asset_id),
+    faqAssetId: normalizeText(rawLifecycleCopy.faq_asset_id),
+    technicalNoteSummaryAssetId: normalizeText(rawLifecycleCopy.technical_note_summary_asset_id),
+    professionalMethodBoundaryAssetId: normalizeText(rawLifecycleCopy.professional_method_boundary_asset_id),
+    faqMarkdownReferenceAvailable: normalizeBoolean(rawLifecycleCopy.faq_markdown_reference_available),
+    publicSafeDefaultSurfaceKeys: normalizeStringList(rawLifecycleCopy.public_safe_default_surface_keys),
+    frontendFallbackAllowed: false,
+    missingContentBehavior: normalizeText(rawLifecycleCopy.missing_content_behavior),
+    measuredPayloadMutationAllowed: false,
+    reportSnapshotMutationAllowed: false,
+    rawFeedbackPublicExposureAllowed: false,
+    internalSnapshotIdPublicExposureAllowed: false,
+    lifeStagePublicExposureAllowed: false,
+    organizationContextPublicExposureAllowed: false,
+    surfaces,
+    faqItems,
   };
 }

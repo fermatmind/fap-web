@@ -2,6 +2,7 @@ import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
+import { isCurrentRiasecPack12AllowedFile } from "./helpers/currentPrScope";
 
 const ROOT = process.cwd();
 const ARTIFACT_PATH = path.join(ROOT, "docs/seo/generated/search-intelligence-data-contract.v1.json");
@@ -91,7 +92,7 @@ function isAllowedFile(file: string): boolean {
     "tests/contracts/search-intelligence-data-contract.contract.test.ts",
     "docs/codex/pr-train.yaml",
     "docs/codex/pr-train-state.json",
-  ].includes(file);
+  ].includes(file) || isCurrentRiasecPack12AllowedFile(file);
 }
 
 describe("Search Intelligence data contract", () => {

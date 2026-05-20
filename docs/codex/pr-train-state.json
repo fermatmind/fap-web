@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-19T15:02:02Z",
+  "updated_at": "2026-05-20T03:08:00Z",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -6493,6 +6493,206 @@
           "summary": "Opened PR #848 for PR-RESEARCH-02; GitHub checks pending."
         }
       ],
+      "sidecar_issues": []
+    },
+    {
+      "id": "RIASEC-FULL-CONTENT-PACK-10-FE",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/riasec-full-content-pack-10-fe",
+      "base": "main",
+      "depends_on": [
+        "RIASEC-FULL-CONTENT-PACK-10-BE",
+        "RIASEC-FULL-CONTENT-PACK-09"
+      ],
+      "status": "planned",
+      "title": "Frontend fail-closed renderer for Action Lab and next exploration nodes",
+      "artifacts": [
+        "lib/riasec/resultAssembler.ts",
+        "components/result/riasec/RiasecResultShell.tsx",
+        "tests/contracts/fixtures/riasec/**",
+        "tests/contracts/**riasec*action*lab**",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "local": {},
+        "github": {}
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [],
+      "sidecar_issues": []
+    },
+    {
+      "id": "RIASEC-FULL-CONTENT-PACK-11-FE",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/riasec-full-content-pack-11-fe",
+      "base": "main",
+      "depends_on": [
+        "RIASEC-FULL-CONTENT-PACK-11-BE"
+      ],
+      "status": "planned",
+      "title": "Frontend lifecycle copy consumption for RIASEC share/report/FAQ/Technical Note",
+      "artifacts": [
+        "lib/riasec/resultAssembler.ts",
+        "components/result/riasec/**",
+        "tests/contracts/fixtures/riasec/**",
+        "tests/contracts/**riasec*technical*note**",
+        "tests/contracts/**riasec*lifecycle**",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "local": {},
+        "github": {}
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [],
+      "sidecar_issues": []
+    },
+    {
+      "id": "RIASEC-FULL-CONTENT-PACK-12",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/riasec-full-content-pack-12",
+      "base": "main",
+      "depends_on": [
+        "RIASEC-FULL-CONTENT-PACK-11-BE"
+      ],
+      "status": "in_progress",
+      "title": "RIASEC frontend renderer hardening after full backend content payloads",
+      "artifacts": [
+        "lib/riasec/resultAssembler.ts",
+        "tests/contracts/fixtures/riasec/**",
+        "tests/contracts/**riasec**",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "tests/contracts/api-gateway-smoke-rollback-runbook.contract.test.ts",
+        "tests/contracts/api-edge-gateway-backend-authority-contract.contract.test.ts",
+        "tests/contracts/api-edge-gateway-hardening-quarantine-plan.contract.test.ts",
+        "tests/contracts/public-api-authority-acceptance-gate.contract.test.ts",
+        "tests/contracts/search-intelligence-data-contract.contract.test.ts",
+        "tests/contracts/api-gateway-evidence-completion.contract.test.ts",
+        "tests/contracts/cms-seo-middle-platform-final-architecture.contract.test.ts",
+        "tests/contracts/seo-intelligence-asset-map.contract.test.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "local": {
+          "focused_riasec_contracts": "passed",
+          "typecheck": "passed",
+          "test_contract": "passed",
+          "build": "passed",
+          "manifest_state_validation": "passed",
+          "git_diff_check": "passed",
+          "git_diff_cached_check": "passed"
+        },
+        "github": {}
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-05-20T03:00:00Z",
+          "status": "in_progress",
+          "summary": "Started PACK-12 from origin/main after PACK-11-BE merged. PACK-10-FE and PACK-11-FE remain conditional and are deferred unless renderer support becomes required."
+        },
+        {
+          "at": "2026-05-20T03:08:00Z",
+          "status": "local_checks_passed",
+          "summary": "Focused RIASEC contracts, full pnpm test:contract, typecheck, production build with production URL env, manifest/state validation, and diff checks passed. Generated sitemap output was reverted because it is outside PACK-12 scope."
+        }
+      ],
+      "sidecar_issues": [
+        {
+          "at": "2026-05-20T03:08:00Z",
+          "summary": "PACK-10-FE remains deferred. Backend action_lab_v1 and next_exploration_nodes_v1 are parsed as safe boundary metadata only; no visible frontend module is required in PACK-12.",
+          "production_blocking": false
+        },
+        {
+          "at": "2026-05-20T03:08:00Z",
+          "summary": "PACK-11-FE remains deferred. lifecycle_copy_v1 is consumed as additive safe metadata only; no new lifecycle route renderer is required in PACK-12.",
+          "production_blocking": false
+        }
+      ]
+    },
+    {
+      "id": "RIASEC-FULL-CONTENT-PACK-13-FE",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/riasec-full-content-pack-13-fe",
+      "base": "main",
+      "depends_on": [
+        "RIASEC-FULL-CONTENT-PACK-12",
+        "RIASEC-FULL-CONTENT-PACK-13-BE"
+      ],
+      "status": "planned",
+      "title": "Frontend full content fixture matrix and forbidden claim freeze",
+      "artifacts": [
+        "tests/contracts/fixtures/riasec/**",
+        "tests/contracts/**riasec**",
+        "lib/riasec/**",
+        "components/result/riasec/**",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "local": {},
+        "github": {}
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [],
+      "sidecar_issues": []
+    },
+    {
+      "id": "RIASEC-FULL-CONTENT-PACK-14",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/riasec-full-content-pack-14",
+      "base": "main",
+      "depends_on": [
+        "RIASEC-FULL-CONTENT-PACK-13-BE",
+        "RIASEC-FULL-CONTENT-PACK-13-FE"
+      ],
+      "status": "planned",
+      "title": "RIASEC full content smoke acceptance plan and release freeze",
+      "artifacts": [
+        "docs/**",
+        "tests/contracts/**riasec**smoke**",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "local": {},
+        "github": {}
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [],
       "sidecar_issues": []
     }
   ],

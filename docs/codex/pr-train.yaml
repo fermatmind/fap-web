@@ -4457,3 +4457,231 @@ prs:
       - No Research sitemap, llms, Search Channel, publish, or Dataset schema exposure is added.
       - Repository rule impact is documented as CMS/backend-authoritative.
     rollback_note: "Remove the Research runtime route, adapter, component, contract test, and runtime MVP doc."
+
+  - id: RIASEC-FULL-CONTENT-PACK-10-FE
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/riasec-full-content-pack-10-fe
+    base: main
+    depends_on:
+      - RIASEC-FULL-CONTENT-PACK-10-BE
+      - RIASEC-FULL-CONTENT-PACK-09
+    mode: execute
+    train_scope: riasec_feedback_action_lab_visible_renderer
+    risk_level: L1
+    status: planned
+    title: "Frontend fail-closed renderer for Action Lab and next exploration nodes"
+    goal: "Consume backend-authoritative Action Lab / next exploration nodes payload only when a visible frontend module is explicitly required."
+    in_scope:
+      - lib/riasec/resultAssembler.ts
+      - components/result/riasec/RiasecResultShell.tsx
+      - tests/contracts/fixtures/riasec/**
+      - tests/contracts/**riasec*action*lab**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - fap-api
+      - frontend local explanation fallback
+      - career matching or recommendation logic
+      - analytics runtime mutation
+      - share/PDF/history backend semantics
+      - production deploy
+    required_local_checks:
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Action Lab and next exploration nodes render only from backend payload.
+      - Unknown, pending, unavailable, or fallback-enabled feedback modules fail closed.
+      - No raw feedback appears in result, share, PDF, or history frontend surfaces.
+      - No local copy fallback is introduced.
+    rollback_note: "Remove Action Lab / next exploration frontend consumption and return to fail-closed omission."
+
+  - id: RIASEC-FULL-CONTENT-PACK-11-FE
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/riasec-full-content-pack-11-fe
+    base: main
+    depends_on:
+      - RIASEC-FULL-CONTENT-PACK-11-BE
+    mode: execute
+    train_scope: riasec_lifecycle_copy_frontend_consumption
+    risk_level: L1
+    status: planned
+    title: "Frontend lifecycle copy consumption for RIASEC share/report/FAQ/Technical Note"
+    goal: "Consume backend-authoritative lifecycle copy without introducing frontend-authored lifecycle fallback."
+    in_scope:
+      - lib/riasec/resultAssembler.ts
+      - components/result/riasec/**
+      - tests/contracts/fixtures/riasec/**
+      - tests/contracts/**riasec*technical*note**
+      - tests/contracts/**riasec*lifecycle**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - fap-api
+      - scorer or question-pack semantics
+      - local editorial lifecycle fallback
+      - share privacy semantics not provided by backend
+      - production deploy
+    required_local_checks:
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Lifecycle copy is consumed from backend payload only.
+      - Public share remains public-safe and noindex.
+      - PDF/history copy does not expose raw feedback or snapshot identifiers.
+      - Unknown lifecycle payload fields fail closed.
+    rollback_note: "Remove lifecycle copy frontend consumption and return to fail-closed omission."
+
+  - id: RIASEC-FULL-CONTENT-PACK-12
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/riasec-full-content-pack-12
+    base: main
+    depends_on:
+      - RIASEC-FULL-CONTENT-PACK-11-BE
+    mode: execute
+    train_scope: riasec_frontend_renderer_hardening
+    risk_level: L1
+    status: planned
+    title: "RIASEC frontend renderer hardening after full backend content payloads"
+    goal: "Harden RIASEC assembler/parser and renderer to fail closed against additive backend payloads without introducing local copy."
+    in_scope:
+      - lib/riasec/resultAssembler.ts
+      - tests/contracts/fixtures/riasec/**
+      - tests/contracts/**riasec**
+      - tests/contracts/helpers/currentPrScope.ts
+      - tests/contracts/api-gateway-smoke-rollback-runbook.contract.test.ts
+      - tests/contracts/api-edge-gateway-backend-authority-contract.contract.test.ts
+      - tests/contracts/api-edge-gateway-hardening-quarantine-plan.contract.test.ts
+      - tests/contracts/public-api-authority-acceptance-gate.contract.test.ts
+      - tests/contracts/search-intelligence-data-contract.contract.test.ts
+      - tests/contracts/api-gateway-evidence-completion.contract.test.ts
+      - tests/contracts/cms-seo-middle-platform-final-architecture.contract.test.ts
+      - tests/contracts/seo-intelligence-asset-map.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - fap-api
+      - local editorial fallback
+      - scorer or question-pack semantics
+      - analytics runtime mutation
+      - production deploy
+    required_local_checks:
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - All currently known backend-governed RIASEC payload groups are parsed or omitted safely.
+      - Unknown, pending, unavailable, or fallback-enabled payloads fail closed.
+      - No local copy fallback is introduced.
+      - Result/report routes remain snapshot-bound.
+      - Share route remains public-safe.
+    rollback_note: "Revert RIASEC renderer/parser hardening to the previous contract baseline."
+
+  - id: RIASEC-FULL-CONTENT-PACK-13-FE
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/riasec-full-content-pack-13-fe
+    base: main
+    depends_on:
+      - RIASEC-FULL-CONTENT-PACK-12
+      - RIASEC-FULL-CONTENT-PACK-13-BE
+    mode: verify
+    train_scope: riasec_frontend_fixture_matrix_freeze
+    risk_level: L1
+    status: planned
+    title: "Frontend full content fixture matrix and forbidden claim freeze"
+    goal: "Freeze frontend contract fixtures for the full RIASEC content renderer and public routes."
+    in_scope:
+      - tests/contracts/fixtures/riasec/**
+      - tests/contracts/**riasec**
+      - lib/riasec/**
+      - components/result/riasec/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - fap-api
+      - local editorial fallback
+      - new runtime semantics beyond test-driven fixes
+      - production deploy
+    required_local_checks:
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Frontend fixture matrix covers key RIASEC states and routes.
+      - No forbidden user claims are introduced.
+      - Share/report/result/technical note contracts pass against backend-authoritative fixtures.
+    rollback_note: "Revert the RIASEC frontend fixture freeze additions."
+
+  - id: RIASEC-FULL-CONTENT-PACK-14
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/riasec-full-content-pack-14
+    base: main
+    depends_on:
+      - RIASEC-FULL-CONTENT-PACK-13-BE
+      - RIASEC-FULL-CONTENT-PACK-13-FE
+    mode: verify
+    train_scope: riasec_full_content_smoke_acceptance
+    risk_level: L1
+    status: planned
+    title: "RIASEC full content smoke acceptance plan and release freeze"
+    goal: "Create final smoke acceptance docs/tests for the RIASEC full content pack without deploying or mutating production."
+    in_scope:
+      - docs/**
+      - tests/contracts/**riasec**smoke**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - deployment
+      - production mutation
+      - backend runtime changes
+      - local editorial fallback
+    required_local_checks:
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Smoke checklist covers result, report, share, PDF, history, and Technical Note surfaces.
+      - Live verification steps are documented without triggering deployment.
+      - Deployment approval phrases are documented if a later operational step requires them.
+    rollback_note: "Remove the RIASEC smoke acceptance docs/tests added for the release freeze."
