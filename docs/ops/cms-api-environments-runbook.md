@@ -38,6 +38,7 @@ Local API mode is not the default for homepage/content review because it depends
 - It requires the homepage recommendation block to expose 6 published public zh-CN article references.
 - It verifies required backend static media paths for footer QR codes and default social preview images return image responses.
 - It fails closed by default when required CMS data is missing or unreachable, because stale Next.js fetch cache can otherwise hide missing CMS data.
+- It uses a 10-second default request timeout. Override with `CMS_API_HEALTH_TIMEOUT_MS` only when investigating network behavior, not to hide missing CMS content.
 - It can be downgraded only with `CMS_API_HEALTH_STRICT=0` for intentionally degraded product-shell work.
 
 Run it directly with:

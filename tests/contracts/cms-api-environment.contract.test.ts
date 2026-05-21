@@ -10,6 +10,8 @@ describe("CMS API environment operations", () => {
 
     expect(packageJson.scripts?.predev).toBe("node ./scripts/check-cms-api-health.mjs");
     expect(packageJson.scripts?.["check:cms-api"]).toBe("node ./scripts/check-cms-api-health.mjs");
+    expect(healthScript).toContain("const DEFAULT_TIMEOUT_MS = 10000");
+    expect(healthScript).toContain("Request timed out after ${timeoutMs}ms");
     expect(healthScript).toContain("buildScaleQuestionsHealthUrl");
     expect(healthScript).toContain("mbti_144");
     expect(healthScript).toContain("mbti_93");

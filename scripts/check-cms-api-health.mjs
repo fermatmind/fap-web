@@ -4,7 +4,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 
 const DEFAULT_API_ORIGIN = "https://api.fermatmind.com";
-const DEFAULT_TIMEOUT_MS = 2500;
+const DEFAULT_TIMEOUT_MS = 10000;
 const DEFAULT_ORG_ID = "0";
 const LOCALHOST_PATTERN = /^https?:\/\/(?:127\.0\.0\.1|localhost)(?::\d+)?(?:\/)?$/i;
 const RECOMMENDED_ARTICLE_BLOCK_KEYS = new Set(["recommended_articles", "homepage_recommended_articles"]);
@@ -263,7 +263,7 @@ async function fetchJson(url) {
     return await response.json();
   } catch (error) {
     clearTimeout(timeout);
-    throw error;
+    throw describeFetchError(error, url);
   }
 }
 
@@ -295,8 +295,16 @@ async function fetchHead(url) {
     return true;
   } catch (error) {
     clearTimeout(timeout);
-    throw error;
+    throw describeFetchError(error, url);
   }
+}
+
+function describeFetchError(error, url) {
+  if (error instanceof Error && error.name === "AbortError") {
+    return new Error(`Request timed out after ${timeoutMs}ms for ${url.pathname}${url.search}`);
+  }
+
+  return error;
 }
 
 function reportProblem(lines) {
