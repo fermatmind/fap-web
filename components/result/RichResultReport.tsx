@@ -19,6 +19,7 @@ import { assembleBig5ResultViewModel } from "@/lib/big5/resultAssembler";
 import { filterBig5ResultPageV2PayloadForGate, getBig5ResultPageV2Payload } from "@/lib/big5/resultPageV2";
 import { assembleEnneagramResultViewModel, hasEnneagramProjection } from "@/lib/enneagram/resultAssembler";
 import { assembleRiasecResultViewModel, hasRiasecProjection } from "@/lib/riasec/resultAssembler";
+import { isEqV5ReportResponse } from "@/components/result/eq/utils";
 import {
   buildMbtiResultProjectionViewModel,
   hasMbtiResultProjection,
@@ -1311,6 +1312,10 @@ function RichResultCta({
 export function canRenderRichResultReport(reportData: ReportResponse | null | undefined): boolean {
   const scaleCode = resolveReportScaleCode(reportData);
   if (!scaleCode || isGeneratingReportResponse(reportData)) {
+    return false;
+  }
+
+  if (isEqV5ReportResponse(reportData)) {
     return false;
   }
 

@@ -256,6 +256,64 @@ export type Big5ReportSection = {
   [key: string]: unknown;
 };
 
+export type EqReportMode = "self_report" | "integrated";
+
+export type EqV5DimensionScore = {
+  code?: string;
+  raw_score?: number;
+  standard_score?: number;
+  percentile?: number;
+  band?: string;
+  display_band?: string;
+  label?: string;
+  short_label?: string;
+};
+
+export type EqV5ReportPayload = {
+  eq_report_mode?: EqReportMode;
+  measurement_type?: "self_report_trait_mixed_ei" | string;
+  access?: {
+    all_results_free?: boolean;
+    locked?: boolean;
+    blur?: boolean;
+    paywall?: boolean;
+  };
+  scores?: {
+    global?: EqV5DimensionScore;
+    dimensions?: Record<string, EqV5DimensionScore>;
+  };
+  dimension_summary?: EqV5DimensionScore[];
+  quality?: {
+    level?: string;
+    confidence_label?: string;
+    flags?: string[];
+    explanation_asset_id?: string;
+  };
+  interpretation?: {
+    core_formulation_id?: string;
+    strongest_dimension?: string;
+    development_lever?: string;
+    primary_mechanism_ids?: string[];
+    primary_scene_ids?: string[];
+    career_environment_ids?: string[];
+    action_prescription_id?: string | null;
+  };
+  next_module?: {
+    available?: boolean;
+    module_code?: string;
+    status?: string;
+    cta_asset_id?: string;
+  };
+  methodology?: {
+    norm_status?: string;
+    scoring_version?: string;
+    report_version?: string;
+    content_version?: string;
+  };
+  asset_refs?: unknown;
+  assets?: unknown;
+};
+
 export type RichResultProfile = {
   type_code?: string;
   type_name?: string;
