@@ -1,5 +1,13 @@
 import { expect, test, type Page } from "@playwright/test";
 import { clickLastOptionAndWaitForSubmitAndUrl } from "./helpers/quiz-flow";
+import highEmpathyEqFixture from "../fixtures/eq/v5/eq60_v5_high_empathy_low_recovery_en.json";
+
+type EqV5Fixture = {
+  report_access: {
+    payload?: Record<string, unknown>;
+  };
+  report: Record<string, unknown>;
+};
 
 async function mockTrack(page: Page) {
   await page.route("**/api/track", async (route) => {
@@ -80,6 +88,51 @@ async function mockReadyReportAccess(page: Page, attemptId: string) {
   });
 }
 
+async function mockEqV5ReportAccess(page: Page, attemptId: string, fixture: EqV5Fixture) {
+  const payload = fixture.report_access.payload ?? {};
+
+  await page.route(reportAccessRoutePattern(attemptId), async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        attempt_id: attemptId,
+        access_state: "ready",
+        report_state: "ready",
+        pdf_state: "unavailable",
+        ...payload,
+        actions: {
+          page_href: `/en/result/${attemptId}`,
+          pdf_href: null,
+          wait_href: null,
+          history_href: null,
+          lookup_href: null,
+        },
+      }),
+    });
+  });
+}
+
+function eqV5ReportResponse(fixture: EqV5Fixture) {
+  const payload = fixture.report_access.payload ?? {};
+
+  return {
+    ok: true,
+    locked: false,
+    variant: payload.variant ?? "full",
+    access_level: payload.access_level ?? "full",
+    upgrade_sku: null,
+    upgrade_sku_effective: null,
+    offers: [],
+    modules_allowed: payload.modules_allowed ?? ["eq_core", "eq_full", "eq_cross_insights", "eq_growth_plan"],
+    modules_preview: payload.modules_preview ?? [],
+    view_policy: payload.view_policy,
+    report: fixture.report,
+    scale_code: "EQ_60",
+  };
+}
+
 async function mockInviteUnlockProgress(page: Page, attemptId: string) {
   await page.route(new RegExp(`/api/v0\\.3/attempts/${escapeRegExp(attemptId)}/invite-unlocks(?:\\?.*)?$`), async (route) => {
     await route.fulfill({
@@ -125,7 +178,7 @@ test("EQ uses option anchors when question options are empty", async ({ page }) 
   await mockGuestToken(page, "fm_eq_anchor_token_123456");
   await mockAttemptLinkAnon(page);
   await mockScaleLookup(page);
-  await mockReadyReportAccess(page, attemptId);
+  await mockEqV5ReportAccess(page, attemptId, highEmpathyEqFixture as EqV5Fixture);
 
   for (const scaleCode of ["EQ_60", "EQ_EMOTIONAL_INTELLIGENCE"]) {
     await page.route(`**/api/v0.3/scales/${scaleCode}/questions*`, async (route) => {
@@ -186,149 +239,7 @@ test("EQ uses option anchors when question options are empty", async ({ page }) 
     await route.fulfill({
       status: 200,
       contentType: "application/json",
-      body: JSON.stringify({
-        ok: true,
-        locked: false,
-        variant: "full",
-        access_level: "full",
-        upgrade_sku: null,
-        offers: [],
-        report: {
-          scale_code: "EQ_60",
-          eq_report_mode: "self_report",
-          measurement_type: "self_report_trait_mixed_ei",
-          access: {
-            all_results_free: true,
-            locked: false,
-            blur: false,
-            paywall: false,
-          },
-          scores: {
-            global: {
-              standard_score: 104,
-              percentile: 61,
-              band: "stable",
-              label: "Emotional & Relational Functioning Index",
-            },
-            dimensions: {
-              SA: { code: "SA", label: "Self-Awareness", standard_score: 108, percentile: 70, band: "proficient" },
-              ER: { code: "ER", label: "Emotion Regulation", standard_score: 91, percentile: 28, band: "developing" },
-              EM: { code: "EM", label: "Empathy", standard_score: 112, percentile: 76, band: "proficient" },
-              RM: { code: "RM", label: "Relationship Management", standard_score: 99, percentile: 52, band: "stable" },
-            },
-          },
-          dimension_summary: [
-            { code: "SA", label: "Self-Awareness", standard_score: 108, percentile: 70, band: "proficient" },
-            { code: "ER", label: "Emotion Regulation", standard_score: 91, percentile: 28, band: "developing" },
-            { code: "EM", label: "Empathy", standard_score: 112, percentile: 76, band: "proficient" },
-            { code: "RM", label: "Relationship Management", standard_score: 99, percentile: 52, band: "stable" },
-          ],
-          quality: {
-            level: "A",
-            confidence_label: "high",
-            flags: [],
-            explanation_asset_id: "eq.quality.level.A",
-          },
-          interpretation: {
-            core_formulation_id: "high_empathy_low_recovery",
-            strongest_dimension: "EM",
-            development_lever: "ER",
-            primary_mechanism_ids: ["EM_ER_high_low"],
-            primary_scene_ids: ["feedback", "conflict", "relationship_boundary"],
-            career_environment_ids: ["emotional_labor_high", "autonomy_recovery_medium"],
-            action_prescription_id: "empathy_boundary",
-          },
-          next_module: {
-            available: false,
-            module_code: "EQ_SJT_16",
-            status: "planned",
-            cta_asset_id: "eq.sjt_bridge.planned",
-          },
-          methodology: {
-            norm_status: "provisional",
-            scoring_version: "v1.0_normed_validity",
-            report_version: "eq_report_v5_assets",
-            content_version: "EQ_60/v1",
-          },
-          report_tags: ["profile:high_empathy", "quality_level:A", "focus:ER", "bucket:eq"],
-          assets: {
-            scientific_contract: {
-              test_definition: "This report is based on 60 self-report items.",
-              self_report_statement: "This report reflects subjective self-perception and is not an objective ability test.",
-              non_clinical_statement: "This report is not for clinical diagnosis.",
-              non_hiring_statement: "This report is not for hiring selection.",
-              non_ability_statement: "This report is not a certified ability assessment.",
-              norm_status_statement: "Current norms are provisional.",
-              quality_rules_statement: "The system uses response quality signals to estimate interpretation confidence.",
-              version_statement: "Report version eq_report_v5_assets.",
-            },
-            score_system: {
-              global_index: {
-                label: "Emotional & Relational Functioning Index",
-                meaning: "A combined self-report signal across four dimensions.",
-              },
-              dimensions: {
-                SA: { label: "Self-Awareness", band_explanations: { proficient: "Self-awareness is mature." } },
-                ER: { label: "Emotion Regulation", band_explanations: { developing: "Emotion regulation has a base." } },
-                EM: { label: "Empathy", band_explanations: { proficient: "Empathy is mature." } },
-                RM: { label: "Relationship Management", band_explanations: { stable: "Relationship management is stable." } },
-              },
-            },
-            core_formulation: {
-              id: "high_empathy_low_recovery",
-              title: "High Empathy, Lower Recovery",
-              one_liner: "You tend to understand others, while recovery and boundaries are the current lever.",
-              core_claim: "You may quickly pick up other people's emotions.",
-              primary_strength: "Trust can form quickly.",
-              likely_cost: "You may carry too much emotion.",
-              development_lever: "Keep recovery space after empathy.",
-              do_not_overread: "This is not ability certification.",
-            },
-            mechanisms: [
-              {
-                id: "EM_ER_high_low",
-                title: "Recovery After Empathy",
-                why_it_matters: "The gap between empathy and recovery affects boundaries.",
-                what_it_feels_like: "Other people's states may pull you along.",
-                strength: "Nuanced understanding.",
-                cost: "Recovery can slow down.",
-                development_lever: "Pause.",
-                micro_action: "Name your own state first.",
-              },
-            ],
-            reality_scenes: [
-              { id: "feedback", title: "Feedback", typical_response: "You may attend to the other person's feeling first.", strength: "Reduces defensiveness.", cost: "You may miss yourself.", better_move: "Separate information from emotion first." },
-              { id: "conflict", title: "Conflict", typical_response: "response", strength: "strength", cost: "cost", better_move: "move" },
-              { id: "relationship_boundary", title: "Relationship Boundary", typical_response: "response", strength: "strength", cost: "cost", better_move: "move" },
-            ],
-            career_environment: [
-              { id: "emotional_labor_high", variable: "emotional_labor", level: "high", label: "High emotional labor", meaning: "Frequent exposure to others' emotions.", fit_signal: "Empathy can be useful.", strain_signal: "Can be draining.", what_to_verify: "Verify recovery space." },
-            ],
-            action_prescription: {
-              id: "empathy_boundary",
-              title: "Empathy Boundary Prescription",
-              why_this_matters: "Understanding others still needs room for yourself.",
-              do_today: "Write down one moment when you were pulled along.",
-              script: "I understand how you feel, and I need a moment to organize my response.",
-              seven_day_plan: ["Day 1: record the trigger."],
-              watch_out: "Do not read boundaries as coldness.",
-            },
-            sjt_bridge: {
-              id: "eq.sjt_bridge.planned",
-              available: false,
-              title: "Future Scenario Module",
-              description: "A 16-item scenario module is planned.",
-              complements: "It complements self-report.",
-              not_this: "It is not a certified ability assessment.",
-              completed_report_adds: ["Integrated report"],
-            },
-            quality: {
-              explanation_asset_id: "eq.quality.level.A",
-              confidence_label: "high",
-            },
-          },
-        },
-      }),
+      body: JSON.stringify(eqV5ReportResponse(highEmpathyEqFixture as EqV5Fixture)),
     });
   });
 
@@ -340,13 +251,15 @@ test("EQ uses option anchors when question options are empty", async ({ page }) 
   await expect(page.getByRole("radio", { name: "Strongly Agree" })).toHaveAttribute("aria-checked", "true");
   await page.goto(`/en/result/${attemptId}`);
   await expect(page.getByTestId("eq-result-v5")).toBeVisible();
-  await expect(page.getByText("High Empathy, Lower Recovery")).toBeVisible();
+  await expect(page.getByText("High Empathy, Low Recovery")).toBeVisible();
   await expect(page.getByText("Evidence Snapshot")).toBeVisible();
   await expect(page.getByRole("heading", { name: "Interpretation Confidence" })).toBeVisible();
   await expect(page.getByText("Emotional Matrix")).toBeVisible();
-  await expect(page.getByText("Empathy Boundary Prescription")).toBeVisible();
+  await expect(page.getByText("Empathy Boundary")).toBeVisible();
+  await expect(page.getByText("A 16-item scenario module is planned")).toBeVisible();
+  await expect(page.getByText("Planned, not available yet")).toBeVisible();
   await expect(page.getByText("Scientific Boundary")).toBeVisible();
-  await expect(page.getByText(/Unlock|Purchase|SKU_EQ_60_FULL_299|locked|blur|paywall/i)).toHaveCount(0);
+  await expect(page.getByText(/Unlock|Purchase|SKU_EQ_60_FULL_299|EQ_60_FULL|locked|blur_others|paywall/i)).toHaveCount(0);
   await expect(page.getByText(/profile:|quality_level:|focus:|bucket:/i)).toHaveCount(0);
 });
 

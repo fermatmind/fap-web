@@ -5,14 +5,16 @@ import { SectionHeading } from "./EQEvidenceSnapshot";
 export function EQSJTBridgeCTA({ viewModel }: { viewModel: EqV5ViewModel }) {
   const bridge = viewModel.assets.sjt_bridge;
   const available = viewModel.nextModule.available === true && bridge.available === true;
+  const complements = bridge.complements || bridge.what_it_adds;
+  const notThis = bridge.not_this || bridge.what_it_is_not;
 
   return (
     <section data-testid="eq-sjt-bridge" className="space-y-4">
       <SectionHeading title={bridge.title || (viewModel.locale === "zh" ? "情境判断模块" : "Scenario Module")} />
       <div className="rounded-[8px] border border-slate-200 bg-white p-4">
         {bridge.description ? <p className="text-sm leading-6 text-slate-700">{bridge.description}</p> : null}
-        {bridge.complements ? <p className="mt-3 text-sm leading-6 text-slate-700">{bridge.complements}</p> : null}
-        {bridge.not_this ? <p className="mt-3 text-sm leading-6 text-slate-600">{bridge.not_this}</p> : null}
+        {complements ? <p className="mt-3 text-sm leading-6 text-slate-700">{complements}</p> : null}
+        {notThis ? <p className="mt-3 text-sm leading-6 text-slate-600">{notThis}</p> : null}
         {Array.isArray(bridge.completed_report_adds) && bridge.completed_report_adds.length > 0 ? (
           <ul className="mt-3 list-inside list-disc space-y-1 text-sm text-slate-700">
             {bridge.completed_report_adds.map((item) => (

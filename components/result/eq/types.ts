@@ -150,10 +150,13 @@ export type EqActionPrescriptionAsset = {
 export type EqSjtBridgeAsset = {
   id?: string;
   available?: boolean;
+  status?: string;
   title?: string;
   description?: string;
   complements?: string;
   not_this?: string;
+  what_it_adds?: string;
+  what_it_is_not?: string;
   completed_report_adds?: string[];
   button_label?: string;
 };
