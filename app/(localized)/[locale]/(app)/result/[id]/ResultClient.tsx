@@ -7,6 +7,8 @@ import { AnticipationSkeleton } from "@/components/design/AnticipationSkeleton";
 import { MbtiResultShellLoadingShell } from "@/components/result/mbti/MbtiResultShell";
 import { IqResultShell } from "@/components/result/iq/IqResultShell";
 import { RiasecResultShell } from "@/components/result/riasec/RiasecResultShell";
+import { EQResultV5 } from "@/components/result/eq/EQResultV5";
+import { isEqV5ReportResponse } from "@/components/result/eq/utils";
 import {
   canRenderRichResultReport,
   isGeneratingReportResponse,
@@ -1073,8 +1075,9 @@ export default function ResultClient({
           startInviteProgressSync();
         }
 
+        const eqReportReady = isEqV5ReportResponse(reportResponse);
         const richReportReady = canRenderRichResultReport(reportResponse);
-        if (richReportReady) {
+        if (eqReportReady || richReportReady) {
           setStatus("ready");
           return;
         }
@@ -1185,6 +1188,7 @@ export default function ResultClient({
     showEmailGateForError,
   ]);
 
+  const hasEqV5Report = reportData ? isEqV5ReportResponse(reportData) : false;
   const hasRichReport = reportData ? canRenderRichResultReport(reportData) : false;
   const projectionUnavailable = isProjectionUnavailable(accessView);
   const projectionLocked = isProjectionLocked(accessView);
@@ -1262,7 +1266,7 @@ export default function ResultClient({
   const viewState: "processing" | "ready" | "failed" =
     status === "loading" || status === "generating"
       ? "processing"
-      : status === "ready" && (hasRichReport || hasReadyResultPayload(resultData))
+      : status === "ready" && (hasEqV5Report || hasRichReport || hasReadyResultPayload(resultData))
         ? "ready"
         : "failed";
 
@@ -1343,6 +1347,10 @@ export default function ResultClient({
         accessView={accessView}
       />
     );
+  }
+
+  if (hasEqV5Report && reportData) {
+    return <EQResultV5 locale={locale} reportData={reportData} attemptId={attemptId} />;
   }
 
   if (hasRichReport && reportData) {
