@@ -30,6 +30,10 @@ function text(value: unknown): string {
   return String(value ?? "").trim();
 }
 
+function lowerText(value: unknown): string {
+  return text(value).toLowerCase();
+}
+
 function numberOrUndefined(value: unknown): number | undefined {
   return typeof value === "number" && Number.isFinite(value) ? value : undefined;
 }
@@ -102,24 +106,60 @@ export function isEqV5ReportResponse(reportData: ReportResponse | null | undefin
   return resolveEqV5Payload(reportData) !== null;
 }
 
+function hasOfferPayload(value: unknown): boolean {
+  if (Array.isArray(value)) {
+    return value.length > 0;
+  }
+
+  return asRecord(value) !== null;
+}
+
+export function isEqV5AccessRestricted(reportData: ReportResponse | null | undefined): boolean {
+  const payload = resolveEqV5Payload(reportData);
+  if (!payload) return false;
+
+  const root = asRecord(reportData);
+  const access = asRecord(payload.access);
+  const viewPolicy = asRecord(root?.view_policy);
+  const restrictedStateMarkers = new Set(["locked", "lock", "paywall", "paywalled", "blur", "blurred", "restricted"]);
+  const accessStateCandidates = [
+    lowerText(root?.access_state),
+    lowerText(root?.report_state),
+    lowerText(payload.access_state),
+    lowerText(payload.report_state),
+    lowerText(access?.state),
+    lowerText(access?.access_state),
+    lowerText(viewPolicy?.mode),
+    lowerText(viewPolicy?.state),
+  ].filter(Boolean);
+
+  return Boolean(
+    reportData?.locked === true ||
+      payload.locked === true ||
+      access?.locked === true ||
+      access?.blur === true ||
+      access?.paywall === true ||
+      accessStateCandidates.some((candidate) => restrictedStateMarkers.has(candidate)) ||
+      text(reportData?.upgrade_sku) ||
+      text(reportData?.upgrade_sku_effective) ||
+      text(payload.upgrade_sku) ||
+      text(payload.upgrade_sku_effective) ||
+      hasOfferPayload(reportData?.offers) ||
+      hasOfferPayload(payload.offers) ||
+      hasOfferPayload(payload.offer)
+  );
+}
+
 export function normalizeEqV5Report(reportData: ReportResponse, locale: Locale): EqV5ViewModel | null {
   const payload = resolveEqV5Payload(reportData);
   if (!payload) return null;
 
   const assets = normalizeAssetObject<EqV5ResolvedAssets>(payload.assets);
-  const access = asRecord(payload.access);
-  const lockedAnomaly =
-    reportData.locked === true ||
-    access?.locked === true ||
-    access?.blur === true ||
-    access?.paywall === true ||
-    Boolean(text(reportData.upgrade_sku) || text(reportData.upgrade_sku_effective)) ||
-    (Array.isArray(reportData.offers) && reportData.offers.length > 0);
 
   return {
     locale,
     payload,
-    lockedAnomaly,
+    lockedAnomaly: isEqV5AccessRestricted(reportData),
     globalScore: normalizeDimensionScore(payload.scores?.global) ?? null,
     dimensions: normalizeDimensions(payload),
     quality: {

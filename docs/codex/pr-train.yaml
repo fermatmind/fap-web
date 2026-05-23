@@ -4685,3 +4685,55 @@ prs:
       - Live verification steps are documented without triggering deployment.
       - Deployment approval phrases are documented if a later operational step requires them.
     rollback_note: "Remove the RIASEC smoke acceptance docs/tests added for the release freeze."
+
+  - id: PR-WEB-SEC-01
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-web-sec-01-eq-v5-report-gate
+    base: main
+    depends_on: []
+    mode: execute
+    train_scope: security_findings_remediation
+    risk_level: high
+    status: planned
+    title: "fix(security): gate locked EQ v5 report payload rendering"
+    findings:
+      - "EQ v5 renders locked/paywalled report payloads"
+    goal: "Ensure EQ v5 result rendering fails closed when report access indicates locked, paywalled, blurred, or commerce-offer restricted state."
+    in_scope:
+      - app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx
+      - components/result/eq/**
+      - components/result/RichResultReport.tsx
+      - tests/contracts/**eq**
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - fap-api repository changes
+      - checkout, payment, order, or entitlement implementation changes
+      - non-EQ result/report rendering changes
+      - PR-WEB-SEC-02 through PR-WEB-SEC-07 scopes
+      - deployment or production commands
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/eq-result-v5-renderer.contract.test.tsx
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      continue_train_when_external_blocker:
+        - blocker is not introduced by PR-WEB-SEC-01
+        - GitHub required checks are green
+        - scoped validation is green
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - EQ v5 full report content is not rendered when locked, paywall, blur, upgrade SKU, or offer signals are present.
+      - EQ v5 restricted state does not leak raw SKU, offer, or technical commerce labels.
+      - Rich result fallback cannot render restricted EQ v5 payloads as a generic report.
+    rollback_note: "Remove the EQ v5 access gate and focused EQ contract tests added for this security PR."

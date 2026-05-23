@@ -1,7 +1,8 @@
 import { render, screen, within } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { EQResultV5 } from "@/components/result/eq/EQResultV5";
-import { isEqV5ReportResponse, normalizeEqV5Report } from "@/components/result/eq/utils";
+import { canRenderRichResultReport } from "@/components/result/RichResultReport";
+import { isEqV5AccessRestricted, isEqV5ReportResponse, normalizeEqV5Report } from "@/components/result/eq/utils";
 import type { ReportResponse } from "@/lib/api/v0_3";
 import balancedEn from "@/tests/fixtures/eq/v5/eq60_v5_balanced_integrated_en.json";
 import balancedZh from "@/tests/fixtures/eq/v5/eq60_v5_balanced_integrated_zh.json";
@@ -142,7 +143,7 @@ describe("EQ v5 result renderer contract", () => {
     expect(screen.queryByText(/unlock|purchase|premium|SKU_EQ_60_FULL_299|EQ_60_FULL|paywall|blur_others|locked/i)).not.toBeInTheDocument();
   });
 
-  it("ignores anomalous paid fields and raw technical tags in the user-visible renderer", () => {
+  it("fails closed when root report access says the EQ v5 payload is locked or commerce restricted", () => {
     const reportData = responseFromFixture(highEmpathyEn as EqV5Fixture, {
       locked: true,
       upgrade_sku: "SKU_EQ_60_FULL_299",
@@ -150,10 +151,38 @@ describe("EQ v5 result renderer contract", () => {
       offers: [{ sku: "SKU_EQ_60_FULL_299", title: "Paid EQ" }],
     });
 
+    expect(isEqV5ReportResponse(reportData)).toBe(true);
+    expect(isEqV5AccessRestricted(reportData)).toBe(true);
+    expect(canRenderRichResultReport(reportData)).toBe(false);
+
     render(<EQResultV5 locale="en" reportData={reportData} />);
 
-    expect(screen.getByTestId("eq-result-hero")).toHaveTextContent("handled as a free result");
-    expect(screen.queryByText(/SKU_EQ_60_FULL_299|EQ_60_FULL|purchase|premium|paywall|blur_others/i)).not.toBeInTheDocument();
+    expect(screen.getByTestId("eq-result-v5-access-restricted")).toHaveTextContent("not ready to view");
+    expect(screen.queryByTestId("eq-result-v5")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("eq-result-hero")).not.toBeInTheDocument();
+    expect(screen.queryByText("High Empathy, Low Recovery")).not.toBeInTheDocument();
+    expect(screen.queryByText(/SKU_EQ_60_FULL_299|EQ_60_FULL|purchase|premium|paywall|blur_others|Paid EQ/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/profile:|quality_level:|focus:|bucket:/i)).not.toBeInTheDocument();
+  });
+
+  it("fails closed when nested EQ v5 access metadata says locked, paywall, or blurred", () => {
+    const reportData = responseFromFixture(highEmpathyEn as EqV5Fixture);
+    const report = reportPayload(reportData);
+    report.access = {
+      locked: true,
+      paywall: true,
+      blur: true,
+    };
+
+    expect(isEqV5ReportResponse(reportData)).toBe(true);
+    expect(isEqV5AccessRestricted(reportData)).toBe(true);
+    expect(canRenderRichResultReport(reportData)).toBe(false);
+
+    render(<EQResultV5 locale="en" reportData={reportData} />);
+
+    expect(screen.getByTestId("eq-result-v5-access-restricted")).toHaveTextContent("not ready to view");
+    expect(screen.queryByTestId("eq-emotional-matrix")).not.toBeInTheDocument();
+    expect(screen.queryByText("Strong empathy, weaker boundaries and recovery")).not.toBeInTheDocument();
     expect(screen.queryByText(/profile:|quality_level:|focus:|bucket:/i)).not.toBeInTheDocument();
   });
 
