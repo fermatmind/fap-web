@@ -60,6 +60,7 @@ import {
   toAttemptAttributionPayload,
   type TrackingAttributionPayload,
 } from "@/lib/tracking/attribution";
+import { sanitizeSeoLandingPath } from "@/lib/tracking/seoCtaAttribution";
 import {
   createTakeFlowController,
   recoverStaleAttemptSubmit,
@@ -275,7 +276,7 @@ function readTakeFlowAttribution(
   const share_click_id = normalizeQueryValue(searchParams.get("share_click_id"));
   const entrypoint = normalizeQueryValue(searchParams.get("entrypoint"));
   const referrer = normalizeQueryValue(searchParams.get("referrer"));
-  const landing_path = normalizeQueryValue(searchParams.get("landing_path"));
+  const landing_path = sanitizeSeoLandingPath(searchParams.get("landing_path"));
   const source = normalizeQueryValue(searchParams.get("utm_source"));
   const medium = normalizeQueryValue(searchParams.get("utm_medium"));
   const campaign = normalizeQueryValue(searchParams.get("utm_campaign"));
@@ -292,11 +293,12 @@ function readTakeFlowAttribution(
     new URLSearchParams(searchParams.toString())
   );
   const storedAttribution = readStoredTrackingAttributionPayload();
+  const storedLandingPath = sanitizeSeoLandingPath(storedAttribution.landing_path);
   const trackingAttribution = {
     ...storedAttribution,
     ...buildTrackingAttributionPayload(attributionParams, {
       referrer: referrer ?? storedAttribution.referrer,
-      landingPath: landing_path ?? storedAttribution.landing_path,
+      landingPath: landing_path ?? storedLandingPath,
     }),
   };
   const attemptAttribution = toAttemptAttributionPayload(trackingAttribution);

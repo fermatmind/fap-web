@@ -6,7 +6,7 @@ import { createQuizStore } from "@/lib/quiz/store";
 
 const hoisted = vi.hoisted(() => ({
   pathname: "/zh/tests/holland-career-interest-test-riasec/take",
-  search: "form=riasec_140&utm_source=seo&source_page_type=article_detail&target_action=seo_cta_start_test&target_test_slug=holland-career-interest-test-riasec&email=person%40example.com",
+  search: "form=riasec_140&utm_source=seo&source_page_type=article_detail&target_action=seo_cta_start_test&target_test_slug=holland-career-interest-test-riasec&landing_path=%2Fzh%2Fresearch%2Friasec-careers%3Futm_source%3Dseo%26utm_campaign%3Driasec%26email%3Dperson%2540example.com%26phone%3D13800138000%26name%3DRainie%2520Li&email=person%40example.com",
   routerPush: vi.fn(),
   routerReplace: vi.fn(),
   fetchScaleQuestions: vi.fn(),
@@ -284,7 +284,7 @@ describe("RIASEC shared QuizStore take flow contract", () => {
     vi.clearAllMocks();
     window.localStorage.clear();
     hoisted.pathname = "/zh/tests/holland-career-interest-test-riasec/take";
-    hoisted.search = "form=riasec_140&utm_source=seo&source_page_type=article_detail&target_action=seo_cta_start_test&target_test_slug=holland-career-interest-test-riasec&email=person%40example.com";
+    hoisted.search = "form=riasec_140&utm_source=seo&source_page_type=article_detail&target_action=seo_cta_start_test&target_test_slug=holland-career-interest-test-riasec&landing_path=%2Fzh%2Fresearch%2Friasec-careers%3Futm_source%3Dseo%26utm_campaign%3Driasec%26email%3Dperson%2540example.com%26phone%3D13800138000%26name%3DRainie%2520Li&email=person%40example.com";
     hoisted.fetchScaleQuestions.mockResolvedValue(buildRiasecQuestionResponse());
     hoisted.startAttempt.mockResolvedValue({
       ok: true,
@@ -362,6 +362,8 @@ describe("RIASEC shared QuizStore take flow contract", () => {
   });
 
   it("emits safe observable RIASEC start and submit tracking with SEO attribution only", async () => {
+    const safeLandingPath = "/zh/research/riasec-careers?utm_source=seo&utm_campaign=riasec";
+
     renderClient("riasec_140");
 
     await answerCurrent("riasec-q1");
@@ -379,6 +381,7 @@ describe("RIASEC shared QuizStore take flow contract", () => {
           source_page_type: "article_detail",
           target_action: "seo_cta_start_test",
           target_test_slug: "holland-career-interest-test-riasec",
+          landing_path: safeLandingPath,
           locale: "zh",
         })
       );
@@ -389,12 +392,31 @@ describe("RIASEC shared QuizStore take flow contract", () => {
           form_code: "riasec_140",
           attempt_id: "attempt-result-riasec-140",
           answered_count: 2,
+          landing_path: safeLandingPath,
           locale: "zh",
         })
       );
     });
 
-    expect(JSON.stringify(hoisted.trackObservableFunnelEvent.mock.calls)).not.toContain("person@example.com");
-    expect(JSON.stringify(hoisted.trackObservableFunnelEvent.mock.calls)).not.toContain("raw_score");
+    expect(hoisted.startAttempt).toHaveBeenCalledWith(expect.objectContaining({
+      landing_path: safeLandingPath,
+      meta: expect.objectContaining({
+        landing_path: safeLandingPath,
+      }),
+    }));
+    expect(hoisted.submitAttempt).toHaveBeenCalledWith(expect.objectContaining({
+      landing_path: safeLandingPath,
+    }));
+
+    const serializedPayloads = JSON.stringify([
+      hoisted.startAttempt.mock.calls,
+      hoisted.submitAttempt.mock.calls,
+      hoisted.trackObservableFunnelEvent.mock.calls,
+    ]);
+    expect(serializedPayloads).not.toContain("person@example.com");
+    expect(serializedPayloads).not.toContain("person%40example.com");
+    expect(serializedPayloads).not.toContain("13800138000");
+    expect(serializedPayloads).not.toContain("Rainie");
+    expect(serializedPayloads).not.toContain("raw_score");
   });
 });

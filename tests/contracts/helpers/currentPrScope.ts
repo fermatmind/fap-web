@@ -56,6 +56,15 @@ const PR_WEB_SEC_02_ALLOWED_FILES = new Set([
   "tests/contracts/research-runtime-mvp.contract.test.tsx",
 ]);
 
+const PR_WEB_SEC_03_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient.tsx",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "lib/tracking/seoCtaAttribution.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/riasec-take-flow-shared-quizstore.contract.test.tsx",
+]);
+
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (CURRENT_BRANCH === "codex/pr-web-sec-01-eq-v5-report-gate") {
     return PR_WEB_SEC_01_ALLOWED_FILES.has(file);
@@ -63,6 +72,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/pr-web-sec-02-research-publication-guard") {
     return PR_WEB_SEC_02_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/pr-web-sec-03-riasec-landing-path-sanitize") {
+    return PR_WEB_SEC_03_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/research-report-metadata") {
