@@ -106,6 +106,12 @@ function asArray<T = unknown>(value: unknown): T[] {
   return Array.isArray(value) ? (value as T[]) : [];
 }
 
+function asRecordArray(value: unknown): Record<string, unknown>[] {
+  return asArray(value)
+    .map((item) => asRecord(item))
+    .filter((item): item is Record<string, unknown> => item !== null);
+}
+
 function normalizeText(...values: unknown[]): string {
   for (const value of values) {
     const normalized = String(value ?? "").trim();
@@ -190,7 +196,7 @@ function resolveBig5Projection(reportData: ReportResponse): Big5PublicProjection
 function getPayloadSections(reportData: ReportResponse, projection: Big5PublicProjection | null): Record<string, Record<string, unknown>> {
   const sectionsByKey: Record<string, Record<string, unknown>> = {};
 
-  const reportSections = asArray<Record<string, unknown>>(reportData.report?.sections);
+  const reportSections = asRecordArray(reportData.report?.sections);
   for (const section of reportSections) {
     const key = normalizeText(section.key).toLowerCase();
     if (key) {
@@ -202,7 +208,7 @@ function getPayloadSections(reportData: ReportResponse, projection: Big5PublicPr
     return sectionsByKey;
   }
 
-  const projectionSections = asArray<Record<string, unknown>>(projection?.sections);
+  const projectionSections = asRecordArray(projection?.sections);
   for (const section of projectionSections) {
     const key = normalizeText(section.key).toLowerCase();
     if (key) {
@@ -270,12 +276,13 @@ function resolveBig5ReportEngineV2(reportData: ReportResponse): Big5ReportEngine
     return null;
   }
 
-  const sections = asArray<NonNullable<Big5ReportEngineV2["sections"]>[number]>(candidate.sections);
+  const sections = asRecordArray(candidate.sections);
   if (sections.length < BIG5_V1_SECTION_BLUEPRINTS.length) {
     return null;
   }
 
   const seenSections = new Set<string>();
+  const normalizedSections: NonNullable<Big5ReportEngineV2["sections"]> = [];
   for (const section of sections) {
     const sectionKey = normalizeText(section.section_key).toLowerCase();
     if (!V2_SECTION_KEY_SET.has(sectionKey as Big5V1SectionKey)) {
@@ -286,7 +293,7 @@ function resolveBig5ReportEngineV2(reportData: ReportResponse): Big5ReportEngine
     }
     seenSections.add(sectionKey);
 
-    const blocks = asArray<Big5ReportEngineV2Block>(section.blocks);
+    const blocks = asRecordArray(section.blocks) as Big5ReportEngineV2Block[];
     if (blocks.length === 0) {
       return null;
     }
@@ -305,6 +312,12 @@ function resolveBig5ReportEngineV2(reportData: ReportResponse): Big5ReportEngine
     if (!blocksAreUsable) {
       return null;
     }
+
+    normalizedSections.push({
+      ...section,
+      section_key: sectionKey,
+      blocks,
+    } as NonNullable<Big5ReportEngineV2["sections"]>[number]);
   }
 
   const requiredSectionsPresent = BIG5_V1_SECTION_BLUEPRINTS.every((blueprint) => seenSections.has(blueprint.section_key));
@@ -312,11 +325,10 @@ function resolveBig5ReportEngineV2(reportData: ReportResponse): Big5ReportEngine
     return null;
   }
 
-  if (!Array.isArray(candidate.sections)) {
-    return null;
-  }
-
-  return candidate as Big5ReportEngineV2;
+  return {
+    ...candidate,
+    sections: normalizedSections,
+  } as Big5ReportEngineV2;
 }
 
 export function hasUsableBig5ReportEngineV2(reportData: ReportResponse): boolean {

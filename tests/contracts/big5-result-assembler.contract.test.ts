@@ -342,4 +342,33 @@ describe("big5 result assembler contract", () => {
     })).toBe(true);
     expect(actionPlan?.blocks.some((block) => block.kind === "bullets" && String(block.body ?? "").includes("｜"))).toBe(true);
   });
+
+  it("falls back safely when Big5 v2 section or block arrays contain non-object entries", () => {
+    const reportData = createCanonical120Fixture();
+    const v2Source = createLiveBridgeV2Fixture().big5_report_engine_v2 as Record<string, unknown>;
+    const v2Sections = Array.isArray(v2Source.sections) ? v2Source.sections : [];
+    const firstSection = v2Sections.find((section): section is Record<string, unknown> => Boolean(section && typeof section === "object" && !Array.isArray(section)));
+
+    reportData.big5_report_engine_v2 = {
+      ...v2Source,
+      sections: [
+        null,
+        "not-a-section",
+        {
+          ...firstSection,
+          blocks: [null, "not-a-block"],
+        },
+        ...v2Sections.slice(1),
+      ],
+    } as ReportResponse["big5_report_engine_v2"];
+
+    const assembled = assembleBig5ResultViewModel({
+      locale: "en",
+      reportData,
+      gate: buildGate(),
+    });
+
+    expect(assembled.visibleSections.map((section) => section.key)).toEqual([...BIG5_V1_SECTION_KEYS]);
+    expect(assembled.visibleSections.some((section) => section.module_code === "big5_report_engine_v2")).toBe(false);
+  });
 });

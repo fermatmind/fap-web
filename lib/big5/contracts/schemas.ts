@@ -1,5 +1,11 @@
 import { z } from "zod";
 
+const objectRecordArray = <T extends z.ZodTypeAny>(itemSchema: T) =>
+  z.preprocess(
+    (value) => Array.isArray(value) ? value.filter((item) => item && typeof item === "object" && !Array.isArray(item)) : value,
+    z.array(itemSchema)
+  );
+
 export const big5QuestionOptionSchema = z.object({
   code: z.string().min(1),
   text: z.string().min(1),
@@ -81,7 +87,7 @@ const big5ReportSectionSchema = z
     title: z.string().optional(),
     access_level: z.string().optional(),
     module_code: z.string().optional(),
-    blocks: z.array(big5ReportBlockSchema).optional(),
+    blocks: objectRecordArray(big5ReportBlockSchema).optional(),
   })
   .passthrough();
 
@@ -166,7 +172,7 @@ const big5PublicProjectionSchema = z
       .optional(),
     ordered_section_keys: z.array(z.string()).optional(),
     comparative_v1: comparativeSchema.optional(),
-    sections: z.array(big5ReportSectionSchema).optional(),
+    sections: objectRecordArray(big5ReportSectionSchema).optional(),
     _meta: z.record(z.string(), z.unknown()).optional(),
   })
   .passthrough();
@@ -197,7 +203,7 @@ const big5ReportEngineV2SectionSchema = z
   .object({
     section_key: z.string().min(1),
     status: z.string().optional(),
-    blocks: z.array(big5ReportEngineV2BlockSchema),
+    blocks: objectRecordArray(big5ReportEngineV2BlockSchema),
   })
   .passthrough();
 
@@ -216,7 +222,7 @@ export const big5ReportEngineV2Schema = z
       })
       .passthrough(),
     engine_decisions: z.record(z.string(), z.unknown()),
-    sections: z.array(big5ReportEngineV2SectionSchema),
+    sections: objectRecordArray(big5ReportEngineV2SectionSchema),
     action_matrix: z.record(z.string(), z.unknown()),
     render_hints: z.record(z.string(), z.unknown()),
   })
