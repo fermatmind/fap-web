@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-20T03:58:00Z",
+  "updated_at": "2026-05-24T00:05:29+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -1274,7 +1274,7 @@
       "depends_on": [
         "RIASEC-PERSONALIZATION-01"
       ],
-      "status": "pending",
+      "status": "merged",
       "title": "feat(riasec): add quality rule spec v2 contract",
       "mode": "execute",
       "risk_level": "L1",
@@ -1286,11 +1286,18 @@
       "checks": [],
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/789",
-      "commit_sha": "2efcd1491aa00f8db82c1c6c2fc91e6dffb23f23",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
-      "sidecar_issues": []
+      "commit_sha": "722685377914ef3e792896bbed7780dbad3b562d",
+      "merged_at": "2026-05-13T16:27:02Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
+      "sidecar_issues": [],
+      "history": [
+        {
+          "at": "2026-05-24T00:05:29+08:00",
+          "status": "ledger_reconciled_merged",
+          "summary": "Reconciled GitHub PR #789 as merged; origin/main contains merge commit 722685377914ef3e792896bbed7780dbad3b562d, remote branch is deleted, and local branch cleanup is confirmed."
+        }
+      ]
     },
     {
       "id": "RIASEC-PERSONALIZATION-03",
@@ -2190,7 +2197,7 @@
       "depends_on": [
         "RIASEC-V11-LAUNCH-ACCEPTANCE-00"
       ],
-      "status": "github_checks_green",
+      "status": "merged",
       "title": "RIASEC snapshot-bound result/report frontend route fix",
       "mode": "execute",
       "risk_level": "L1",
@@ -2265,10 +2272,10 @@
       ],
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/793",
-      "commit_sha": "4eee03536c86a33bcd151c427f843f14180a0621",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "2fa7f4f13fa59f5ae4764f14c4d2b180f46f6b12",
+      "merged_at": "2026-05-14T03:36:51Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "sidecar_issues": [
         {
           "title": "Postbuild sitemap generation rewrites public/sitemap.xml during local validation",
@@ -2282,6 +2289,13 @@
           ],
           "suggested_owner": "SEO/GEO platform"
         }
+      ],
+      "history": [
+        {
+          "at": "2026-05-24T00:05:29+08:00",
+          "status": "ledger_reconciled_merged",
+          "summary": "Reconciled GitHub PR #793 as merged; origin/main contains merge commit 2fa7f4f13fa59f5ae4764f14c4d2b180f46f6b12, remote branch is deleted, and local branch cleanup is confirmed."
+        }
       ]
     },
     {
@@ -2291,7 +2305,7 @@
       "branch": "codex/pr-cms-02-content-release-revalidate-web",
       "base": "main",
       "depends_on": [],
-      "status": "pr_open_rebased",
+      "status": "merged",
       "title": "test(cms): harden content release revalidate allowlist",
       "mode": "execute",
       "risk_level": "L1",
@@ -2331,10 +2345,10 @@
       ],
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/791",
-      "commit_sha": "43794f3e196be2b29ca2173871ad951703b8eb1c",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "d620156cf540ae3359543aaf3093b935b84b533d",
+      "merged_at": "2026-05-13T17:40:08Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "sidecar_issues": [],
       "history": [
         {
@@ -2351,6 +2365,11 @@
           "at": "2026-05-14T01:26:00+08:00",
           "status": "pr_open_rebased",
           "summary": "Rebased PR #791 onto latest origin/main and resolved pr-train state conflict."
+        },
+        {
+          "at": "2026-05-24T00:05:29+08:00",
+          "status": "ledger_reconciled_merged",
+          "summary": "Reconciled GitHub PR #791 as merged; origin/main contains merge commit d620156cf540ae3359543aaf3093b935b84b533d, remote branch is deleted, and local branch cleanup is confirmed."
         }
       ]
     },
@@ -2559,7 +2578,7 @@
       "depends_on": [
         "PR-SEO-01B"
       ],
-      "status": "github_checks_passed",
+      "status": "merged",
       "title": "test(seo): add canonical authority contract",
       "mode": "execute",
       "risk_level": "L1",
@@ -2640,7 +2659,7 @@
       ],
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/806",
-      "commit_sha": "ed6d780785475e29d2386715b693c1fe0c1fdf84",
+      "commit_sha": "b88ebd14752bbec0d32fab18ad2a0ba286a02f16",
       "merge_sha": "b88ebd14752bbec0d32fab18ad2a0ba286a02f16",
       "merged_at": "2026-05-15T05:48:28Z",
       "remote_branch_deleted": true,
@@ -2666,6 +2685,11 @@
           "at": "2026-05-15T13:48:28+08:00",
           "status": "merged",
           "summary": "Reconciled PR-SEO-01C as merged; GitHub PR #806 is MERGED and origin/main contains squash commit b88ebd14."
+        },
+        {
+          "at": "2026-05-24T00:05:29+08:00",
+          "status": "ledger_reconciled_merged",
+          "summary": "Reconciled GitHub PR #806 as merged; origin/main contains merge commit b88ebd14752bbec0d32fab18ad2a0ba286a02f16, remote branch is deleted, and local branch cleanup is confirmed."
         }
       ]
     },
@@ -2983,7 +3007,7 @@
         "EMAIL-RIASEC-01:fap-api",
         "EMAIL-RIASEC-02"
       ],
-      "status": "github_checks_passed",
+      "status": "merged",
       "title": "feat(tracking): preserve SEO CTA attribution into attempt start",
       "mode": "execute",
       "risk_level": "L1",
@@ -3064,10 +3088,10 @@
       ],
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/809",
-      "commit_sha": "2f82828f5b35541d4a70a25900530f245255894a",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "92b0c828c507e3fc288e9dfd1298aea34cb02fd0",
+      "merged_at": "2026-05-15T13:06:25Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "sidecar_issues": [],
       "history": [
         {
@@ -3089,6 +3113,11 @@
           "at": "2026-05-15T00:00:00+08:00",
           "status": "merged",
           "summary": "Reconciled PR #809 as merged into origin/main at 92b0c828c507e3fc288e9dfd1298aea34cb02fd0 before starting SEO-OPS-03."
+        },
+        {
+          "at": "2026-05-24T00:05:29+08:00",
+          "status": "ledger_reconciled_merged",
+          "summary": "Reconciled GitHub PR #809 as merged; origin/main contains merge commit 92b0c828c507e3fc288e9dfd1298aea34cb02fd0, remote branch is deleted, and local branch cleanup is confirmed."
         }
       ]
     },
@@ -3879,7 +3908,7 @@
         "SEO-OPS-02E",
         "SEO-OPS-03B"
       ],
-      "status": "github_checks_passed",
+      "status": "merged",
       "title": "fix(tracking): make MBTI funnel and unlock events observable",
       "mode": "execute",
       "risk_level": "L1",
@@ -4011,10 +4040,10 @@
       ],
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/817",
-      "commit_sha": "b6df7939",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "8d4b2df64a051b71a64604f576f58764c2b4d2fd",
+      "merged_at": "2026-05-15T23:48:17Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "sidecar_issues": [],
       "history": [
         {
@@ -4041,6 +4070,11 @@
           "at": "2026-05-16T13:42:00+08:00",
           "status": "github_checks_passed",
           "summary": "GitHub required checks passed and mergeStateStatus was CLEAN for PR #817."
+        },
+        {
+          "at": "2026-05-24T00:05:29+08:00",
+          "status": "ledger_reconciled_merged",
+          "summary": "Reconciled GitHub PR #817 as merged; origin/main contains merge commit 8d4b2df64a051b71a64604f576f58764c2b4d2fd, remote branch is deleted, and local branch cleanup is confirmed."
         }
       ]
     },
@@ -4896,7 +4930,7 @@
       "base": "main",
       "global_sequence": 1,
       "depends_on": [],
-      "status": "pr_open",
+      "status": "merged",
       "train_scope": "security_audit_remediation",
       "risk_level": "high",
       "title": "fix(security): harden CMS article link attribution against javascript href XSS",
@@ -4951,10 +4985,10 @@
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/822",
-      "commit_sha": "635f2e095607ca2ed46789d5128b68e6017f2ebd",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "76ce4d0c81a90473ba39b2866755c12283feca29",
+      "merged_at": "2026-05-16T06:42:37Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "sidecar_issues": [],
       "history": [
         {
@@ -4981,6 +5015,11 @@
           "at": "2026-05-16T14:39:30+08:00",
           "status": "pr_open",
           "summary": "Rebased PR #822 onto origin/main after ARCH-SEO-CMS-02 merged and reran required local checks successfully."
+        },
+        {
+          "at": "2026-05-24T00:05:29+08:00",
+          "status": "ledger_reconciled_merged",
+          "summary": "Reconciled GitHub PR #822 as merged; origin/main contains merge commit 76ce4d0c81a90473ba39b2866755c12283feca29, remote branch is deleted, and local branch cleanup is confirmed."
         }
       ]
     },
@@ -4994,7 +5033,7 @@
       "depends_on": [
         "AUDIT-API-IQ-RESULT-SECRECY:fap-api"
       ],
-      "status": "pr_open",
+      "status": "merged",
       "train_scope": "security_audit_remediation",
       "risk_level": "medium",
       "title": "fix(security): enforce analytics consent and redact sensitive tracking payloads",
@@ -5054,10 +5093,10 @@
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/823",
-      "commit_sha": "57580290e823dbe2fee972df9c9193a09ebad51e",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "22efcd732b43429d7913c03a7a15dab9419f5b05",
+      "merged_at": "2026-05-16T07:33:39Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "sidecar_issues": [],
       "history": [
         {
@@ -5079,6 +5118,11 @@
           "at": "2026-05-16T15:33:10+08:00",
           "status": "pr_open",
           "summary": "Created GitHub PR #823 after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-05-24T00:05:29+08:00",
+          "status": "ledger_reconciled_merged",
+          "summary": "Reconciled GitHub PR #823 as merged; origin/main contains merge commit 22efcd732b43429d7913c03a7a15dab9419f5b05, remote branch is deleted, and local branch cleanup is confirmed."
         }
       ]
     },
@@ -5092,7 +5136,7 @@
       "depends_on": [
         "AUDIT-WEB-ANALYTICS-CONSENT-REDACTION"
       ],
-      "status": "pr_open",
+      "status": "merged",
       "train_scope": "security_audit_remediation",
       "risk_level": "medium",
       "title": "fix(security): require explicit career SEO index authority",
@@ -5159,10 +5203,10 @@
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/824",
-      "commit_sha": "b110e5d4b2ad7f3518927ebea77c6b4981d313c7",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "ab3bf8cfbe888ddb0a7e37cfb2c3965bdcf82314",
+      "merged_at": "2026-05-16T07:54:25Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "sidecar_issues": [],
       "history": [
         {
@@ -5194,6 +5238,11 @@
           "at": "2026-05-16T15:45:50+08:00",
           "status": "pr_open",
           "summary": "Created GitHub PR #824 after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-05-24T00:05:29+08:00",
+          "status": "ledger_reconciled_merged",
+          "summary": "Reconciled GitHub PR #824 as merged; origin/main contains merge commit ab3bf8cfbe888ddb0a7e37cfb2c3965bdcf82314, remote branch is deleted, and local branch cleanup is confirmed."
         }
       ]
     },
@@ -5207,7 +5256,7 @@
       "depends_on": [
         "AUDIT-WEB-CAREER-SEO-AUTHORITY"
       ],
-      "status": "pr_open",
+      "status": "merged",
       "train_scope": "security_audit_remediation",
       "risk_level": "medium",
       "title": "fix(security): bound LLMS route fanout and cancel timed-out work",
@@ -5270,10 +5319,10 @@
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/825",
-      "commit_sha": "660399fa10442e6719b1db21d116ff664086b3da",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "6bf3a89d58b793d086166eb0faa8b6ba620913e1",
+      "merged_at": "2026-05-16T08:06:43Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "sidecar_issues": [],
       "history": [
         {
@@ -5305,6 +5354,11 @@
           "at": "2026-05-16T16:02:24+08:00",
           "status": "pr_open",
           "summary": "Created GitHub PR #825 after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-05-24T00:05:29+08:00",
+          "status": "ledger_reconciled_merged",
+          "summary": "Reconciled GitHub PR #825 as merged; origin/main contains merge commit 6bf3a89d58b793d086166eb0faa8b6ba620913e1, remote branch is deleted, and local branch cleanup is confirmed."
         }
       ]
     },
@@ -5422,7 +5476,7 @@
         "SEO-DASH-01B:fap-api",
         "SEO-DASH-02B:fap-api"
       ],
-      "status": "pr_open",
+      "status": "merged",
       "train_scope": "search_intelligence_tracking_transport_fields",
       "risk_level": "medium",
       "title": "feat(tracking): add search intelligence attribution fields",
@@ -5486,10 +5540,10 @@
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/832",
-      "commit_sha": "96187021337682a08623aa3e933d2580318e1c3a",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "5b6d7f6675e6888750fbc0fc46a7cad4fbee9915",
+      "merged_at": "2026-05-17T07:05:49Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "sidecar_issues": [],
       "history": [
         {
@@ -5516,6 +5570,11 @@
           "at": "2026-05-17T21:10:00+08:00",
           "status": "pr_open",
           "summary": "Created GitHub PR #832 after scoped local validation passed."
+        },
+        {
+          "at": "2026-05-24T00:05:29+08:00",
+          "status": "ledger_reconciled_merged",
+          "summary": "Reconciled GitHub PR #832 as merged; origin/main contains merge commit 5b6d7f6675e6888750fbc0fc46a7cad4fbee9915, remote branch is deleted, and local branch cleanup is confirmed."
         }
       ]
     },
@@ -5528,7 +5587,7 @@
       "depends_on": [
         "PUBLISH-API-MEDIA-ORIGIN-READYNESS:fap-api"
       ],
-      "status": "pr_open",
+      "status": "merged",
       "train_scope": "publishing_reliability",
       "risk_level": "medium",
       "title": "fix(web-cache): purge article list/detail proxy cache on content release",
@@ -5552,10 +5611,10 @@
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/835",
-      "commit_sha": "83772e1d19d8d444b9ad5bdcacd878f80da17284",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "b3b82d105939e50f6f615e6fb2d535b399f73e8f",
+      "merged_at": "2026-05-17T13:41:06Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "sidecar_issues": [],
       "history": [
         {
@@ -5572,6 +5631,11 @@
           "at": "2026-05-17T21:40:00+08:00",
           "status": "pr_open",
           "summary": "Created GitHub PR #835 for PUBLISH-WEB-CONTENT-CACHE-PURGE."
+        },
+        {
+          "at": "2026-05-24T00:05:29+08:00",
+          "status": "ledger_reconciled_merged",
+          "summary": "Reconciled GitHub PR #835 as merged; origin/main contains merge commit b3b82d105939e50f6f615e6fb2d535b399f73e8f, remote branch is deleted, and local branch cleanup is confirmed."
         }
       ]
     },
@@ -5582,7 +5646,7 @@
       "branch": "codex/riasec-full-content-pack-00",
       "base": "main",
       "depends_on": [],
-      "status": "pr_open",
+      "status": "merged",
       "train_scope": "riasec_full_deep_content_pack_governance",
       "risk_level": "L1",
       "title": "docs(riasec): register full deep content pack train",
@@ -5614,10 +5678,10 @@
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/837",
-      "commit_sha": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "d541293978cc5a8f0ba5a208a995dda215ddcd95",
+      "merged_at": "2026-05-18T08:43:27Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "sidecar_issues": [
         {
           "title": "Primary fap-web working tree has unrelated dirty PR-train metadata",
@@ -5651,6 +5715,11 @@
           "at": "2026-05-18T00:00:00+08:00",
           "status": "merged",
           "summary": "Reconciled GitHub PR #837 as merged with merge commit d541293978cc5a8f0ba5a208a995dda215ddcd95; origin/main contains the merge commit and the remote branch is deleted. Local main checkout/update was blocked by a separate linked worktree, so local cleanup is recorded as not executed here."
+        },
+        {
+          "at": "2026-05-24T00:05:29+08:00",
+          "status": "ledger_reconciled_merged",
+          "summary": "Reconciled GitHub PR #837 as merged; origin/main contains merge commit d541293978cc5a8f0ba5a208a995dda215ddcd95, remote branch is deleted, and local branch cleanup is confirmed."
         }
       ]
     },
@@ -5663,7 +5732,7 @@
       "depends_on": [
         "RIASEC-FULL-CONTENT-PACK-00"
       ],
-      "status": "pr_open",
+      "status": "merged",
       "train_scope": "riasec_full_deep_content_pack_governance",
       "risk_level": "L1",
       "title": "docs(riasec): add full content asset inventory and review gate",
@@ -5695,10 +5764,10 @@
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/838",
-      "commit_sha": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "983da7b6023ee72f5421b8d536701b68c0f17db8",
+      "merged_at": "2026-05-18T08:50:20Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "sidecar_issues": [],
       "history": [
         {
@@ -5720,6 +5789,11 @@
           "at": "2026-05-18T00:00:00+08:00",
           "status": "pr_open",
           "summary": "Created GitHub PR #838 for RIASEC-FULL-CONTENT-PACK-01."
+        },
+        {
+          "at": "2026-05-24T00:05:29+08:00",
+          "status": "ledger_reconciled_merged",
+          "summary": "Reconciled GitHub PR #838 as merged; origin/main contains merge commit 983da7b6023ee72f5421b8d536701b68c0f17db8, remote branch is deleted, and local branch cleanup is confirmed."
         }
       ]
     },
@@ -5732,7 +5806,7 @@
       "depends_on": [
         "RIASEC-FULL-CONTENT-PACK-02A"
       ],
-      "status": "pr_open",
+      "status": "merged",
       "train_scope": "riasec_full_deep_content_pack",
       "risk_level": "L1",
       "title": "feat(riasec): allow backend medium score reading slots",
@@ -5773,10 +5847,10 @@
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/840",
-      "commit_sha": "25ea4c5d",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "f35f0081364d0f010535ba8baf5f7ae850858fa6",
+      "merged_at": "2026-05-18T15:22:59Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "sidecar_issues": [
         {
           "title": "Untracked local .playwright-mcp directory outside PR02B scope",
@@ -5815,6 +5889,11 @@
           "at": "2026-05-18T23:19:29+08:00",
           "status": "ready_to_merge",
           "summary": "GitHub required checks passed for PR #840: build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze."
+        },
+        {
+          "at": "2026-05-24T00:05:29+08:00",
+          "status": "ledger_reconciled_merged",
+          "summary": "Reconciled GitHub PR #840 as merged; origin/main contains merge commit f35f0081364d0f010535ba8baf5f7ae850858fa6, remote branch is deleted, and local branch cleanup is confirmed."
         }
       ]
     },
@@ -5825,7 +5904,7 @@
       "branch": "codex/career-phase-5b-fu2-taxonomy-policy-pack",
       "base": "main",
       "depends_on": [],
-      "status": "pr_open",
+      "status": "merged",
       "train_scope": "career_phase_5b_fu2_taxonomy_policy_pack",
       "risk_level": "L1",
       "title": "docs(career): add phase 5b fu2 taxonomy policy pack",
@@ -5857,10 +5936,10 @@
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/839",
-      "commit_sha": "b00a5c89a1a5770589db0f737deb0360debf1550",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "ac40c1efcf9f3d8ace38b6d362c8caa569ed9145",
+      "merged_at": "2026-05-18T09:14:12Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "sidecar_issues": [
         {
           "title": "Original local FU2 branch remains unmerged and superseded by rebuilt branch",
@@ -5895,6 +5974,11 @@
           "at": "2026-05-18T17:11:00+08:00",
           "status": "github_checks_passed",
           "summary": "GitHub required checks passed for PR #839: build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze."
+        },
+        {
+          "at": "2026-05-24T00:05:29+08:00",
+          "status": "ledger_reconciled_merged",
+          "summary": "Reconciled GitHub PR #839 as merged; origin/main contains merge commit ac40c1efcf9f3d8ace38b6d362c8caa569ed9145, remote branch is deleted, and local branch cleanup is confirmed."
         }
       ]
     },
@@ -5905,7 +5989,7 @@
       "branch": "codex/riasec-take-flow-01",
       "base": "main",
       "depends_on": [],
-      "status": "pr_open",
+      "status": "merged",
       "train_scope": "riasec_take_flow_shared_quizstore",
       "risk_level": "L1",
       "title": "fix(riasec): converge take flow on shared QuizStore auto-advance",
@@ -5981,7 +6065,7 @@
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/841",
-      "commit_sha": "5ac3a16a9931",
+      "commit_sha": "5ac3a16a9931a308d1f010ba6b015ba6ba2cdbb6",
       "merged_at": "2026-05-19T02:55:09Z",
       "remote_branch_deleted": true,
       "local_cleanup_executed": true,
@@ -6010,6 +6094,11 @@
           "at": "2026-05-19T10:55:58+08:00",
           "status": "merged",
           "summary": "Squash merged PR #841 into main as 5ac3a16a9931a308d1f010ba6b015ba6ba2cdbb6, deleted the remote branch, ran post-merge cleanup, and verified main was synced."
+        },
+        {
+          "at": "2026-05-24T00:05:29+08:00",
+          "status": "ledger_reconciled_merged",
+          "summary": "Reconciled GitHub PR #841 as merged; origin/main contains merge commit 5ac3a16a9931a308d1f010ba6b015ba6ba2cdbb6, remote branch is deleted, and local branch cleanup is confirmed."
         }
       ]
     },
@@ -6020,7 +6109,7 @@
       "branch": "codex/ops-ci-codescan-web-01",
       "base": "main",
       "depends_on": [],
-      "status": "pr_open_github_checks_pending",
+      "status": "merged",
       "title": "chore(ci): enable code scanning for fap-web",
       "artifacts": [
         ".github/workflows/codeql.yml",
@@ -6037,10 +6126,10 @@
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/842",
-      "commit_sha": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "4ee8d59510ba2f2d3e854f20228b0b0dd776d061",
+      "merged_at": "2026-05-19T03:57:18Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-19T03:52:13.554Z",
@@ -6056,6 +6145,11 @@
           "at": "2026-05-19T03:53:35.517Z",
           "status": "pr_open_github_checks_pending",
           "summary": "Opened PR #842 for fap-web CodeQL code scanning enablement. GitHub checks pending."
+        },
+        {
+          "at": "2026-05-24T00:05:29+08:00",
+          "status": "ledger_reconciled_merged",
+          "summary": "Reconciled GitHub PR #842 as merged; origin/main contains merge commit 4ee8d59510ba2f2d3e854f20228b0b0dd776d061, remote branch is deleted, and local branch cleanup is confirmed."
         }
       ]
     },
@@ -6444,7 +6538,7 @@
       "depends_on": [
         "PR-RESEARCH-01"
       ],
-      "status": "pr_open_github_checks_pending",
+      "status": "merged",
       "title": "feat(research): add Research Asset runtime MVP",
       "artifacts": [
         "app/(localized)/[locale]/research/[slug]/page.tsx",
@@ -6472,10 +6566,10 @@
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/848",
-      "commit_sha": "858ab95406482f3e81c88fca8c87af58c54ec2d9",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "a91e8f75864090ee96ccb49fafc4479b4250b31a",
+      "merged_at": "2026-05-19T15:07:05Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-19T14:51:41Z",
@@ -6491,6 +6585,11 @@
           "at": "2026-05-19T15:02:02Z",
           "status": "pr_open_github_checks_pending",
           "summary": "Opened PR #848 for PR-RESEARCH-02; GitHub checks pending."
+        },
+        {
+          "at": "2026-05-24T00:05:29+08:00",
+          "status": "ledger_reconciled_merged",
+          "summary": "Reconciled GitHub PR #848 as merged; origin/main contains merge commit a91e8f75864090ee96ccb49fafc4479b4250b31a, remote branch is deleted, and local branch cleanup is confirmed."
         }
       ],
       "sidecar_issues": []
@@ -6708,7 +6807,7 @@
         "RIASEC-FULL-CONTENT-PACK-13-BE",
         "RIASEC-FULL-CONTENT-PACK-13-FE"
       ],
-      "status": "pr_open_github_checks_pending",
+      "status": "merged",
       "title": "RIASEC full content smoke acceptance plan and release freeze",
       "artifacts": [
         "docs/**",
@@ -6730,10 +6829,10 @@
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/853",
-      "commit_sha": "2099a03f968556772de255f4662b99800306454d",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "12bbac9a92e32ad16470a3a2ca63e5b77665e223",
+      "merged_at": "2026-05-20T03:54:53Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-20T03:52:00Z",
@@ -6744,6 +6843,11 @@
           "at": "2026-05-20T03:58:00Z",
           "status": "pr_open_github_checks_pending",
           "summary": "Opened PR #853 for PACK-14 after local checks passed. GitHub required checks pending on final smoke acceptance and release-freeze scope."
+        },
+        {
+          "at": "2026-05-24T00:05:29+08:00",
+          "status": "ledger_reconciled_merged",
+          "summary": "Reconciled GitHub PR #853 as merged; origin/main contains merge commit 12bbac9a92e32ad16470a3a2ca63e5b77665e223, remote branch is deleted, and local branch cleanup is confirmed."
         }
       ],
       "sidecar_issues": []
