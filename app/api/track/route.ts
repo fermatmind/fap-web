@@ -6,6 +6,7 @@ import {
   normalizeTrackingEventName,
   type TrackingEventName,
 } from "@/lib/tracking/events";
+import { buildPublicTrackingServerLabels } from "@/lib/tracking/attribution";
 import { sanitizeTrackingUrl } from "@/lib/tracking/privacy";
 
 const MAX_BODY_BYTES = 8 * 1024;
@@ -60,6 +61,14 @@ export async function POST(request: NextRequest) {
     locale: payload.locale ?? locale,
     landing_path: payload.landing_path ?? path,
   };
+  const payloadReferrer = payload.referrer;
+  const trustedLabels = buildPublicTrackingServerLabels({
+    payload: payloadWithLocale,
+    path,
+    referrer: typeof payloadReferrer === "string" ? payloadReferrer : request.headers.get("referer"),
+    userAgent: request.headers.get("user-agent"),
+    environment: process.env.VERCEL_ENV ?? process.env.NODE_ENV,
+  });
 
   const event = {
     requestId,
@@ -67,7 +76,10 @@ export async function POST(request: NextRequest) {
     anonymousId,
     path,
     timestamp,
-    payload: payloadWithLocale,
+    payload: {
+      ...payloadWithLocale,
+      ...trustedLabels,
+    },
   };
 
   const token = process.env.TRACK_INGEST_TOKEN;

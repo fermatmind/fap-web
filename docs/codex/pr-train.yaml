@@ -4843,3 +4843,57 @@ prs:
       - RIASEC observable tracking payloads preserve allowed SEO attribution keys only.
       - Existing RIASEC form-code, locale, and shared QuizStore behavior remains unchanged.
     rollback_note: "Remove the RIASEC landing_path sanitizer usage and focused RIASEC attribution contract assertions added for this security PR."
+
+  - id: PR-WEB-SEC-04
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-web-sec-04-tracking-attribution-whitelist
+    base: main
+    depends_on: [PR-WEB-SEC-03]
+    mode: execute
+    train_scope: security_findings_remediation
+    risk_level: medium
+    status: planned
+    title: "fix(security): derive public tracking attribution labels"
+    findings:
+      - "Public tracking accepts spoofed attribution labels"
+    goal: "Ensure the public tracking endpoint derives trusted search-intelligence attribution labels server-side instead of forwarding user-supplied label claims."
+    in_scope:
+      - app/api/track/route.ts
+      - lib/tracking/attribution.ts
+      - lib/tracking/events.ts
+      - tests/contracts/tracking-whitelist.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - fap-api repository changes
+      - RIASEC landing_path PII sanitization
+      - frontend docs redaction
+      - CI workflow policy hardening
+      - anonymous ID crypto fallback hardening
+      - PR-WEB-SEC-05 through PR-WEB-SEC-07 scopes
+      - deployment or production commands
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/tracking-whitelist.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      continue_train_when_external_blocker:
+        - blocker is not introduced by PR-WEB-SEC-04
+        - GitHub required checks are green
+        - scoped validation is green
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Public `/api/track` forwarded payloads override spoofed source_engine, consent_state, bot, environment, and traffic_quality claims with server-derived labels.
+      - Existing tracking field whitelist remains strict for sensitive payload fields.
+      - Browser-side analytics can still use derived labels, but public transport ingestion does not trust client label claims.
+    rollback_note: "Remove the public tracking server-label derivation and focused tracking whitelist endpoint contract added for this security PR."
