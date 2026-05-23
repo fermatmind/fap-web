@@ -116,7 +116,7 @@ function normalizeRouteFamily(sourceRouteFamily: SeoCtaSourceRouteFamily): strin
 
 function normalizeContextValue(key: SeoCtaContextQueryKey, value: unknown): string | undefined {
   if (key === "landing_path") {
-    return sanitizeTrackingUrl(typeof value === "string" ? value : undefined) ?? undefined;
+    return sanitizeSeoLandingPath(value);
   }
 
   if (key === "content_id" || key === "topic_id") {
@@ -143,18 +143,27 @@ function normalizeContextParams(params: SeoCtaContextParams): SeoCtaContextParam
   }, {});
 }
 
+export function sanitizeSeoLandingPath(value: unknown): string | undefined {
+  const sanitized = sanitizeTrackingUrl(value);
+  if (!sanitized) {
+    return undefined;
+  }
+
+  try {
+    const parsed = new URL(sanitized, "https://tracking.local");
+    const params = extractAttributionParamsFromSearchParams(parsed.searchParams);
+    return appendAttributionParamsToHref(parsed.pathname || "/", params);
+  } catch {
+    return sanitized;
+  }
+}
+
 function safeCurrentPathWithAttribution(value: string | null | undefined): string | undefined {
   if (!value) {
     return undefined;
   }
 
-  try {
-    const parsed = new URL(value, "https://tracking.local");
-    const params = extractAttributionParamsFromSearchParams(parsed.searchParams);
-    return appendAttributionParamsToHref(parsed.pathname || "/", params);
-  } catch {
-    return sanitizeTrackingUrl(value) ?? undefined;
-  }
+  return sanitizeSeoLandingPath(value);
 }
 
 export function extractTargetTestSlugFromHref(href: string): string | null {
