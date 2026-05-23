@@ -23,7 +23,7 @@
     },
     {
       "id": "BACKEND-RUNTIME-00A",
-      "type": "fap_node2_runtime_provenance_completion_scan",
+      "type": "api_edge_gateway_runtime_provenance_completion_scan",
       "status": "completed"
     },
     {
@@ -40,9 +40,9 @@
     ],
     "nodes": [
       {
-        "id": "fap-node1",
+        "id": "frontend-runtime",
         "aliases": [
-          "fap-app-01"
+          "frontend-runtime"
         ],
         "role": "production fap-web frontend runtime",
         "status": [
@@ -51,11 +51,11 @@
         ]
       },
       {
-        "id": "fap-node2",
+        "id": "api-edge-gateway",
         "aliases": [
-          "fap-app-02",
+          "api-edge-gateway",
           "api.fermatmind.com",
-          "122.51.23.191"
+          "REDACTED_PUBLIC_HOST"
         ],
         "role": "api.fermatmind.com API edge gateway / OpenResty proxy node",
         "source_of_truth": "edge_gateway_only",
@@ -66,11 +66,11 @@
         ]
       },
       {
-        "id": "fap-api-prod",
+        "id": "canonical-backend-authority",
         "aliases": [
-          "Node3",
+          "canonical backend",
           "ops.fermatmind.com",
-          "122.152.221.126"
+          "REDACTED_UPSTREAM"
         ],
         "role": "backend/CMS/commerce authority candidate",
         "source_of_truth": "canonical_backend_authority_candidate",
@@ -80,8 +80,8 @@
         ]
       },
       {
-        "id": "node2-local-laravel",
-        "path": "/www/wwwroot/fap-api/backend",
+        "id": "api-edge-local-laravel",
+        "path": "REDACTED_LEGACY_BACKEND_PATH",
         "role": "legacy local Laravel runtime",
         "source_of_truth": "non_authority",
         "status": [
@@ -104,12 +104,12 @@
     }
   },
   "edge_gateway_responsibilities": {
-    "node": "fap-node2",
+    "node": "api-edge-gateway",
     "may_own": [
       "public edge ingress for api.fermatmind.com",
       "OpenResty proxy layer",
       "TLS/proxy config as applicable",
-      "request forwarding to Node3 backend authority"
+      "request forwarding to canonical backend authority"
     ],
     "must_not_own": [
       "backend truth",
@@ -122,20 +122,20 @@
       "attribution source truth"
     ]
   },
-  "node2_local_runtime_quarantine": {
+  "api_edge_gateway_local_runtime_quarantine": {
     "status": [
       "quarantine_required",
       "non_authority"
     ],
     "local_laravel": {
-      "path": "/www/wwwroot/fap-api/backend",
+      "path": "REDACTED_LEGACY_BACKEND_PATH",
       "route_count": 194,
-      "node3_reference_route_count": 312,
+      "canonical_backend_reference_route_count": 312,
       "authority": false,
       "quarantine_label": "non_authority"
     },
     "local_queue": {
-      "name": "fap-api-queue",
+      "name": "local-queue",
       "status": "FATAL",
       "healthy": false,
       "authority": false,
@@ -153,11 +153,11 @@
       "observed": false,
       "trusted": false
     },
-    "php84_runtime": {
+    "local-php-runtime_runtime": {
       "authority": false,
       "quarantine_label": "non_authority_runtime"
     },
-    "fap_mysql": {
+    "local_db_container": {
       "authority": false,
       "quarantine_label": "non_authority_data_store"
     },
@@ -185,16 +185,16 @@
     "config ownership and change approval"
   ],
   "quarantine_gates": [
-    "Node2 local Laravel non-authority label",
-    "Node2 local DB non-authority label",
-    "Node2 local queue non-authority label",
-    "Node2 local fap-mysql non-authority label",
-    "Node2 local php84 runtime non-authority label",
-    "no collector reads from Node2 local Laravel",
-    "no Metabase reads Node2 local DB",
-    "no CMS admin assumes Node2 local data is source of truth",
-    "no production automation uses Node2 local queue or scheduler",
-    "no report/email/commerce worker ownership assigned to Node2 local runtime"
+    "API edge gateway local Laravel non-authority label",
+    "API edge gateway local DB non-authority label",
+    "API edge gateway local queue non-authority label",
+    "API edge gateway local local-db-container non-authority label",
+    "API edge gateway local local-php-runtime runtime non-authority label",
+    "no collector reads from API edge gateway local Laravel",
+    "no Metabase reads API edge gateway local DB",
+    "no CMS admin assumes API edge gateway local data is source of truth",
+    "no production automation uses API edge gateway local queue or scheduler",
+    "no report/email/commerce worker ownership assigned to API edge gateway local runtime"
   ],
   "seo_middle_platform_implications": {
     "seo_dash_production_implementation_status": [
@@ -202,8 +202,8 @@
       "human_confirm_required"
     ],
     "blocked_until": [
-      "Node2 gateway contract operationally accepted",
-      "Node3 backend authority source accepted",
+      "API edge gateway contract operationally accepted",
+      "canonical backend authority source accepted",
       "Collector input source locked",
       "seo_intel target decided",
       "Metabase read-only policy accepted"
@@ -227,7 +227,7 @@
   "future_options": [
     {
       "id": "Option A",
-      "title": "Keep Node2 gateway, harden it, quarantine local runtime",
+      "title": "Keep API edge gateway, harden it, quarantine local runtime",
       "recommended": true,
       "status": [
         "recommended_current_path"
@@ -235,7 +235,7 @@
     },
     {
       "id": "Option B",
-      "title": "Migrate api.fermatmind.com directly to Node3, retire Node2 gateway",
+      "title": "Migrate api.fermatmind.com directly to canonical backend, retire API edge gateway",
       "recommended": false,
       "status": [
         "possible_future_path",
@@ -244,7 +244,7 @@
     },
     {
       "id": "Option C",
-      "title": "Standardize Node2 into true backend runtime",
+      "title": "Standardize API edge gateway into true backend runtime",
       "recommended": false,
       "status": [
         "not_recommended_without_strong_business_reason"
@@ -262,13 +262,13 @@
     "restarting OpenResty in this PR",
     "fixing queue in this PR",
     "deleting local Laravel in this PR",
-    "modifying Node2 in this PR",
-    "modifying Node3 in this PR",
+    "modifying API edge gateway in this PR",
+    "modifying canonical backend in this PR",
     "deploying SEO Collector",
     "creating seo_intel DB",
     "deploying Metabase",
-    "letting SEO Collector read Node2 local Laravel",
-    "letting Metabase query Node2 local DB",
+    "letting SEO Collector read API edge gateway local Laravel",
+    "letting Metabase query API edge gateway local DB",
     "starting pSEO from this state",
     "starting Career Decision expansion from this state"
   ],

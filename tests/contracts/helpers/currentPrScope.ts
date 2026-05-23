@@ -75,6 +75,18 @@ const PR_WEB_SEC_04_ALLOWED_FILES = new Set([
   "tests/contracts/tracking-whitelist.contract.test.ts",
 ]);
 
+const PR_WEB_SEC_05_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/seo/api-edge-gateway-backend-authority-contract.md",
+  "docs/seo/api-edge-gateway-hardening-quarantine-plan.md",
+  "docs/seo/generated/api-edge-gateway-backend-authority-contract.v1.json",
+  "docs/seo/generated/api-edge-gateway-hardening-quarantine-plan.v1.json",
+  "tests/contracts/api-edge-gateway-backend-authority-contract.contract.test.ts",
+  "tests/contracts/api-edge-gateway-hardening-quarantine-plan.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (CURRENT_BRANCH === "codex/pr-web-sec-01-eq-v5-report-gate") {
     return PR_WEB_SEC_01_ALLOWED_FILES.has(file);
@@ -90,6 +102,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/pr-web-sec-04-tracking-attribution-whitelist") {
     return PR_WEB_SEC_04_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/pr-web-sec-05-docs-infra-redaction") {
+    return PR_WEB_SEC_05_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/research-report-metadata") {
