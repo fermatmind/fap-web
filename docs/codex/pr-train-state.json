@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-24T07:01:39+08:00",
+  "updated_at": "2026-05-24T07:15:06+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -7924,7 +7924,7 @@
       "depends_on": [
         "PR-WEB-SEC-10"
       ],
-      "status": "pr_open_github_checks_pending",
+      "status": "merged",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "docs(audit): redact developer workstation paths",
@@ -7960,14 +7960,26 @@
           "scope_validation": "passed"
         },
         "github": {
+          "status": "passed",
+          "pr_url": "https://github.com/fermatmind/fap-web/pull/870",
+          "head_sha": "11bcf18f",
+          "merge_commit": "f4149846f608d5ca5d98c5a2fbe226fcdce57812",
+          "passed": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "analyze (javascript-typescript)",
+            "CodeQL"
+          ]
         }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/870",
-      "commit_sha": "eef0c8434a9d821c87fad605ec64ca1f73929e89",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "f4149846f608d5ca5d98c5a2fbe226fcdce57812",
+      "merged_at": "2026-05-23T23:05:34Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-24T06:27:02+08:00",
@@ -7988,6 +8000,11 @@
           "at": "2026-05-24T07:01:39+08:00",
           "status": "pr_open_github_checks_pending",
           "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/870 from scoped commit eef0c8434a9d821c87fad605ec64ca1f73929e89; waiting for GitHub checks."
+        },
+        {
+          "at": "2026-05-24T07:07:45+08:00",
+          "status": "ledger_reconciled_merged",
+          "summary": "Reconciled PR-WEB-SEC-11 after GitHub PR #870 merged; origin/main contains merge commit f4149846f608d5ca5d98c5a2fbe226fcdce57812, required checks passed, remote branch deletion was observed, local cleanup ran, and post-merge focused semantic claim scanner revalidation passed."
         }
       ],
       "sidecar_issues": [
@@ -8001,7 +8018,7 @@
           "evidence": "rg --files docs tests/contracts did not list docs/mbti-desktop-content-coverage.md before PR-WEB-SEC-11 edits."
         }
       ],
-      "updated_at": "2026-05-24T07:01:39+08:00"
+      "updated_at": "2026-05-24T07:07:45+08:00"
     },
     {
       "id": "PR-WEB-SEC-12",
@@ -8012,7 +8029,7 @@
       "depends_on": [
         "PR-WEB-SEC-11"
       ],
-      "status": "planned",
+      "status": "pr_open_github_checks_pending",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "fix(audit): restore career trust index gate",
@@ -8030,13 +8047,22 @@
       ],
       "checks": {
         "local": {
+          "focused_career_claim_gate_render": "passed",
+          "career_seo_authority_regression": "passed",
+          "career_launch_smoke_regression": "passed",
+          "typecheck": "passed",
+          "test_contract": "passed",
+          "build": "passed",
+          "manifest_state_validation": "passed",
+          "git_diff_check": "passed",
+          "scope_validation": "passed"
         },
         "github": {
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/871",
+      "commit_sha": "4a36475f782b2b5b40ec02575e9e8e47f3ddbf4d",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -8045,12 +8071,27 @@
           "at": "2026-05-24T06:27:02+08:00",
           "status": "planned",
           "summary": "Initialized PR-WEB-SEC-12 from authorized fap-web security findings train expansion."
+        },
+        {
+          "at": "2026-05-24T07:07:45+08:00",
+          "status": "in_progress",
+          "summary": "Started PR-WEB-SEC-12 from latest main after reconciling merged PR-WEB-SEC-11; requiring local career render-state trust gate before metadata may index backend SEO-eligible job pages."
+        },
+        {
+          "at": "2026-05-24T07:14:03+08:00",
+          "status": "local_checks_passed",
+          "summary": "Focused career claim gate contract, career SEO authority regression, career launch smoke regression, typecheck, full contract suite, production API build, manifest/state parse, diff check, and scope validation passed for PR-WEB-SEC-12."
+        },
+        {
+          "at": "2026-05-24T07:15:06+08:00",
+          "status": "pr_open_github_checks_pending",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/871 from scoped commit 4a36475f782b2b5b40ec02575e9e8e47f3ddbf4d; waiting for GitHub checks."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T06:27:02+08:00"
+      "updated_at": "2026-05-24T07:15:06+08:00"
     },
     {
       "id": "PR-WEB-SEC-13",
