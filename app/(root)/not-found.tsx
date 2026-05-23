@@ -31,7 +31,7 @@ const zhLinks = [
   { href: "/zh/support", label: "支持" },
 ];
 
-export default function NotFound() {
+export default function RootNotFound() {
   return (
     <main className="mx-auto flex min-h-[70vh] w-full max-w-5xl flex-col justify-center px-[var(--fm-container-gutter)] py-[var(--fm-space-10)]">
       <p className="m-0 font-mono text-sm uppercase tracking-[0.16em] text-slate-500">404</p>

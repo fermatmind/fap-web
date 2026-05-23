@@ -8,11 +8,11 @@
     "scanner": "scripts/seo/generate-metadata-surface-inventory.mjs"
   },
   "summary": {
-    "totalSurfaces": 71,
+    "totalSurfaces": 72,
     "byClassification": {
       "private_noindex": 22,
       "product_code_only": 15,
-      "safe_static": 11,
+      "safe_static": 12,
       "migration_required": 2,
       "cms_backed": 14,
       "backend_owned": 5,
@@ -20,13 +20,13 @@
     },
     "byOwnership": {
       "private_noindex": 22,
-      "product_code_only": 16,
+      "product_code_only": 17,
       "cms_backed": 28,
       "backend_owned": 5
     },
     "byRouteFamily": {
       "private_flow": 21,
-      "other": 8,
+      "other": 7,
       "static_content_page": 10,
       "article_detail": 2,
       "articles_hub": 1,
@@ -41,7 +41,7 @@
       "tests_hub": 2,
       "dataset": 2,
       "help_detail": 1,
-      "home": 4,
+      "home": 6,
       "personality_detail": 1,
       "personality_hub": 1,
       "support_detail": 1,
@@ -644,6 +644,21 @@
       "reason": "Route metadata is derived from CMS/public API data."
     },
     {
+      "file": "app/(localized)/[locale]/not-found.tsx",
+      "routePattern": "/",
+      "routeFamily": "home",
+      "exportKind": "direct_metadata",
+      "usesBuildPageMetadata": false,
+      "usesSeoSurface": false,
+      "rendersJsonLd": false,
+      "hasFrontendJsonLdBuilderFallback": false,
+      "noindexSignal": true,
+      "ownership": "product_code_only",
+      "classification": "safe_static",
+      "risk": "P2",
+      "reason": "Static or framework shell metadata with no CMS-backed public SEO expansion role."
+    },
+    {
       "file": "app/(localized)/[locale]/orders/[orderNo]/page.tsx",
       "routePattern": "/orders/:orderNo",
       "routeFamily": "private_flow",
@@ -1094,6 +1109,21 @@
       "reason": "Deterministic product-code metadata; keep out of CMS-backed SEO authority unless intentionally migrated."
     },
     {
+      "file": "app/(root)/not-found.tsx",
+      "routePattern": "/",
+      "routeFamily": "home",
+      "exportKind": "direct_metadata",
+      "usesBuildPageMetadata": false,
+      "usesSeoSurface": false,
+      "rendersJsonLd": false,
+      "hasFrontendJsonLdBuilderFallback": false,
+      "noindexSignal": true,
+      "ownership": "product_code_only",
+      "classification": "safe_static",
+      "risk": "P2",
+      "reason": "Static or framework shell metadata with no CMS-backed public SEO expansion role."
+    },
+    {
       "file": "app/(root)/page.tsx",
       "routePattern": "/",
       "routeFamily": "home",
@@ -1107,21 +1137,6 @@
       "classification": "cms_backed",
       "risk": "P2",
       "reason": "Route metadata is derived from CMS/public API data."
-    },
-    {
-      "file": "app/not-found.tsx",
-      "routePattern": "/not-found.tsx",
-      "routeFamily": "other",
-      "exportKind": "direct_metadata",
-      "usesBuildPageMetadata": false,
-      "usesSeoSurface": false,
-      "rendersJsonLd": false,
-      "hasFrontendJsonLdBuilderFallback": false,
-      "noindexSignal": true,
-      "ownership": "product_code_only",
-      "classification": "safe_static",
-      "risk": "P2",
-      "reason": "Static or framework shell metadata with no CMS-backed public SEO expansion role."
     }
   ],
   "migrationRequired": [
