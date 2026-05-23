@@ -38,7 +38,20 @@ const RESEARCH_REPORT_METADATA_ALLOWED_FILES = new Set([
   "tests/contracts/research-runtime-mvp.contract.test.tsx",
 ]);
 
+const PR_WEB_SEC_01_ALLOWED_FILES = new Set([
+  "components/result/eq/EQResultV5.tsx",
+  "components/result/eq/utils.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "tests/contracts/eq-result-v5-renderer.contract.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH === "codex/pr-web-sec-01-eq-v5-report-gate") {
+    return PR_WEB_SEC_01_ALLOWED_FILES.has(file);
+  }
+
   if (CURRENT_BRANCH === "codex/research-report-metadata") {
     return RESEARCH_REPORT_METADATA_ALLOWED_FILES.has(file);
   }

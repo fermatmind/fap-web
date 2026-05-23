@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-24T00:05:29+08:00",
+  "updated_at": "2026-05-24T00:21:10+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -6848,6 +6848,76 @@
           "at": "2026-05-24T00:05:29+08:00",
           "status": "ledger_reconciled_merged",
           "summary": "Reconciled GitHub PR #853 as merged; origin/main contains merge commit 12bbac9a92e32ad16470a3a2ca63e5b77665e223, remote branch is deleted, and local branch cleanup is confirmed."
+        }
+      ],
+      "sidecar_issues": []
+    },
+    {
+      "id": "PR-WEB-SEC-01",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/pr-web-sec-01-eq-v5-report-gate",
+      "base": "main",
+      "depends_on": [],
+      "status": "pr_open_github_checks_pending",
+      "train_scope": "security_findings_remediation",
+      "risk_level": "high",
+      "title": "fix(security): gate locked EQ v5 report payload rendering",
+      "findings": [
+        "EQ v5 renders locked/paywalled report payloads"
+      ],
+      "artifacts": [
+        "components/result/eq/**",
+        "components/result/RichResultReport.tsx",
+        "app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx",
+        "tests/contracts/**eq**",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json",
+        "tests/contracts/helpers/currentPrScope.ts"
+      ],
+      "checks": {
+        "local": {
+          "focused_eq_contract": "passed",
+          "typecheck": "passed_final",
+          "test_contract": "passed_after_scope_helper_update",
+          "build": "passed",
+          "manifest_state_validation": "passed",
+          "git_diff_check": "passed",
+          "scope_validation": "passed"
+        },
+        "github": {}
+      },
+      "failure_reason": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/859",
+      "commit_sha": "93423e8a6410d17f32cbaa19f4b3bf64330c83be",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-05-24T00:12:30+08:00",
+          "status": "in_progress",
+          "summary": "Registered PR-WEB-SEC-01 and started scoped EQ v5 report access-gate remediation from latest main."
+        },
+        {
+          "at": "2026-05-24T00:15:40+08:00",
+          "status": "local_check_retry",
+          "summary": "Focused EQ contract and typecheck passed. Full contract initially failed in existing no-runtime governance scope checks; added a PR-WEB-SEC-01 current-branch scope helper entry and will rerun the full contract suite."
+        },
+        {
+          "at": "2026-05-24T00:18:35+08:00",
+          "status": "local_checks_passed",
+          "summary": "EQ focused contract, typecheck, full contract suite, production build, manifest/state validation, diff check, and scoped changed-file validation passed. Postbuild sitemap drift was reverted before staging."
+        },
+        {
+          "at": "2026-05-24T00:19:40+08:00",
+          "status": "final_typecheck_passed",
+          "summary": "Reran pnpm typecheck after adding the branch scope helper; typecheck passed."
+        },
+        {
+          "at": "2026-05-24T00:21:10+08:00",
+          "status": "pr_open_github_checks_pending",
+          "summary": "Opened GitHub PR #859 for PR-WEB-SEC-01 after scoped local checks passed. GitHub required checks pending."
         }
       ],
       "sidecar_issues": []
