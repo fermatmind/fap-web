@@ -4897,3 +4897,57 @@ prs:
       - Existing tracking field whitelist remains strict for sensitive payload fields.
       - Browser-side analytics can still use derived labels, but public transport ingestion does not trust client label claims.
     rollback_note: "Remove the public tracking server-label derivation and focused tracking whitelist endpoint contract added for this security PR."
+
+  - id: PR-WEB-SEC-05
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-web-sec-05-docs-infra-redaction
+    base: main
+    depends_on: [PR-WEB-SEC-04]
+    mode: execute
+    train_scope: security_findings_remediation
+    risk_level: low
+    status: planned
+    title: "fix(security): redact frontend docs infrastructure disclosures"
+    findings:
+      - "Frontend ops docs disclose production infrastructure details"
+      - "Production API origin IP disclosed in docs"
+      - "Production SSH target details disclosed in docs"
+    goal: "Redact concrete production infrastructure identifiers from public API edge SEO docs and generated artifacts while preserving architecture authority boundaries as abstract labels."
+    in_scope:
+      - docs/seo/*api-edge*
+      - docs/seo/generated/*api-edge*
+      - tests/contracts/*api-edge*
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - runtime code changes
+      - fap-api repository changes
+      - non-api-edge SEO docs
+      - production infrastructure changes
+      - PR-WEB-SEC-06 through PR-WEB-SEC-07 scopes
+      - deployment or production commands
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/api-edge-gateway-backend-authority-contract.contract.test.ts tests/contracts/api-edge-gateway-hardening-quarantine-plan.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      continue_train_when_external_blocker:
+        - blocker is not introduced by PR-WEB-SEC-05
+        - GitHub required checks are green
+        - scoped validation is green
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - API edge docs and generated JSON contain no raw production IPs, SSH target aliases, concrete deployment paths, or container names.
+      - API edge docs preserve abstract authority/quarantine decisions.
+      - Matching contracts fail if sensitive infrastructure identifiers are reintroduced.
+    rollback_note: "Restore the pre-redaction API edge docs/artifacts and remove the redaction contract assertions added for this security PR."

@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-24T00:55:24+08:00",
+  "updated_at": "2026-05-24T01:10:49+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -7096,7 +7096,7 @@
       "depends_on": [
         "PR-WEB-SEC-03"
       ],
-      "status": "pr_open_github_checks_pending",
+      "status": "merged",
       "train_scope": "security_findings_remediation",
       "risk_level": "medium",
       "title": "fix(security): derive public tracking attribution labels",
@@ -7123,14 +7123,21 @@
           "git_diff_cached_check": "passed",
           "scope_validation": "passed"
         },
-        "github": {}
+        "github": {
+          "codeql": "passed",
+          "analyze_javascript_typescript": "passed",
+          "build": "passed",
+          "contracts": "passed",
+          "verify_big5_contract_freeze": "passed",
+          "verify_enneagram_contract_freeze": "passed"
+        }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/862",
-      "commit_sha": "d22494860c9d9559af8a4ebd7a3d5260f9850782",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "8471228c8a49fc9aa890bc91aeeea50a9f29ca16",
+      "merged_at": "2026-05-23T16:59:05Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-24T00:49:45+08:00",
@@ -7151,9 +7158,79 @@
           "at": "2026-05-24T00:55:24+08:00",
           "status": "pr_open_github_checks_pending",
           "summary": "Opened GitHub PR #862 for PR-WEB-SEC-04 after scoped local checks passed. GitHub required checks pending."
+        },
+        {
+          "at": "2026-05-24T01:02:41+08:00",
+          "status": "ledger_reconciled_merged",
+          "summary": "Reconciled PR-WEB-SEC-04 after GitHub PR #862 merged; origin/main contains merge commit 8471228c8a49fc9aa890bc91aeeea50a9f29ca16, GitHub required checks passed, the remote branch is deleted, local cleanup ran, and post-merge focused tracking revalidation passed."
         }
       ],
       "sidecar_issues": []
+    },
+    {
+      "id": "PR-WEB-SEC-05",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/pr-web-sec-05-docs-infra-redaction",
+      "base": "main",
+      "depends_on": [
+        "PR-WEB-SEC-04"
+      ],
+      "status": "local_checks_passed",
+      "train_scope": "security_findings_remediation",
+      "risk_level": "low",
+      "title": "fix(security): redact frontend docs infrastructure disclosures",
+      "findings": [
+        "Frontend ops docs disclose production infrastructure details",
+        "Production API origin IP disclosed in docs",
+        "Production SSH target details disclosed in docs"
+      ],
+      "artifacts": [
+        "docs/seo/*api-edge*",
+        "docs/seo/generated/*api-edge*",
+        "tests/contracts/*api-edge*",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "local": {
+          "focused_api_edge_contracts": "passed_after_retry",
+          "typecheck": "passed",
+          "test_contract": "passed",
+          "build": "passed",
+          "manifest_state_validation": "passed",
+          "git_diff_check": "passed",
+          "scope_validation": "passed",
+          "infrastructure_disclosure_scan": "passed"
+        },
+        "github": {}
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-05-24T01:02:41+08:00",
+          "status": "in_progress",
+          "summary": "Registered PR-WEB-SEC-05, reconciled merged PR-WEB-SEC-04 ledger state, and started scoped API edge docs infrastructure redaction from latest main."
+        },
+        {
+          "at": "2026-05-24T01:02:41+08:00",
+          "status": "local_check_retry",
+          "summary": "Initial focused API edge contracts failed after redaction because expected labels and current PR scope helper still referenced pre-redaction values; fixing within PR-WEB-SEC-05 scope."
+        },
+        {
+          "at": "2026-05-24T01:10:49+08:00",
+          "status": "local_checks_passed",
+          "summary": "Focused API edge contracts, typecheck, full contract suite, production API build, manifest/state parse, diff check, scope validation, and infrastructure disclosure scan passed for PR-WEB-SEC-05."
+        }
+      ],
+      "sidecar_issues": [],
+      "updated_at": "2026-05-24T01:10:49+08:00"
     }
   ],
   "sidecar_issues": [

@@ -15,8 +15,8 @@ type Artifact = {
     nodes: Array<{ id: string; role: string; source_of_truth?: string; status: string[] }>;
   };
   edge_gateway_responsibilities: { may_own: string[]; must_not_own: string[] };
-  node2_local_runtime_quarantine: {
-    local_laravel: { route_count: number; node3_reference_route_count: number; authority: boolean; quarantine_label: string };
+  api_edge_gateway_local_runtime_quarantine: {
+    local_laravel: { route_count: number; canonical_backend_reference_route_count: number; authority: boolean; quarantine_label: string };
     local_queue: { status: string; healthy: boolean; authority: boolean; quarantine_label: string };
     ignored_by: string[];
   };
@@ -67,6 +67,24 @@ function isAllowedFile(file: string): boolean {
   ].includes(file) || isCurrentRiasecPack12AllowedFile(file);
 }
 
+function combinedPublicArtifactText(): string {
+  return [
+    fs.readFileSync(DOC_PATH, "utf8"),
+    fs.readFileSync(ARTIFACT_PATH, "utf8"),
+  ].join("\n");
+}
+
+const FORMER_INFRASTRUCTURE_FRAGMENTS = [
+  ["fap", "node"].join("-"),
+  ["fap", "app"].join("-"),
+  ["fap", "api", "prod"].join("-"),
+  ["php", "84"].join(""),
+  ["fap", "mysql"].join("-"),
+  ["1Panel", "openresty", "r188"].join("-"),
+  ["Orca", "Term"].join(""),
+  ["T", "A", "T"].join(""),
+];
+
 describe("API edge gateway hardening and quarantine plan", () => {
   it("has version and required source documents", () => {
     const artifact = readArtifact();
@@ -78,50 +96,50 @@ describe("API edge gateway hardening and quarantine plan", () => {
     );
   });
 
-  it("marks Node2 as edge gateway only and Node3 as backend authority candidate", () => {
+  it("marks API edge gateway as edge only and canonical backend as authority candidate", () => {
     const artifact = readArtifact();
 
-    expect(nodeById(artifact, "fap-node2")).toMatchObject({
+    expect(nodeById(artifact, "api-edge-gateway")).toMatchObject({
       role: "api.fermatmind.com API edge gateway / OpenResty proxy node",
       source_of_truth: "edge_gateway_only",
     });
-    expect(nodeById(artifact, "fap-api-prod")).toMatchObject({
+    expect(nodeById(artifact, "canonical-backend-authority")).toMatchObject({
       role: "backend/CMS/commerce authority candidate",
       source_of_truth: "canonical_backend_authority_candidate",
     });
   });
 
-  it("quarantines Node2 local Laravel, queue, DB, and runtime as non-authority", () => {
+  it("quarantines API edge local Laravel, queue, DB, and runtime as non-authority", () => {
     const artifact = readArtifact();
 
-    expect(nodeById(artifact, "node2-local-laravel")).toMatchObject({
+    expect(nodeById(artifact, "api-edge-local-laravel")).toMatchObject({
       source_of_truth: "non_authority",
     });
-    expect(artifact.node2_local_runtime_quarantine.local_laravel).toMatchObject({
+    expect(artifact.api_edge_gateway_local_runtime_quarantine.local_laravel).toMatchObject({
       route_count: 194,
-      node3_reference_route_count: 312,
+      canonical_backend_reference_route_count: 312,
       authority: false,
       quarantine_label: "non_authority",
     });
-    expect(artifact.node2_local_runtime_quarantine.local_queue).toMatchObject({
+    expect(artifact.api_edge_gateway_local_runtime_quarantine.local_queue).toMatchObject({
       status: "FATAL",
       healthy: false,
       authority: false,
       quarantine_label: "non_authority_unhealthy",
     });
-    expect(artifact.node2_local_runtime_quarantine.ignored_by).toEqual(
+    expect(artifact.api_edge_gateway_local_runtime_quarantine.ignored_by).toEqual(
       expect.arrayContaining(["fap-web", "SEO Collector", "CMS", "Metabase", "production automation"])
     );
   });
 
-  it("forbids SEO Collector and Metabase from using Node2 local sources", () => {
+  it("forbids SEO Collector and Metabase from using API edge gateway local sources", () => {
     const artifact = readArtifact();
 
     expect(artifact.quarantine_gates).toEqual(
-      expect.arrayContaining(["no collector reads from Node2 local Laravel", "no Metabase reads Node2 local DB"])
+      expect.arrayContaining(["no collector reads from API edge gateway local Laravel", "no Metabase reads API edge gateway local DB"])
     );
     expect(artifact.forbidden_actions).toEqual(
-      expect.arrayContaining(["letting SEO Collector read Node2 local Laravel", "letting Metabase query Node2 local DB"])
+      expect.arrayContaining(["letting SEO Collector read API edge gateway local Laravel", "letting Metabase query API edge gateway local DB"])
     );
   });
 
@@ -149,11 +167,11 @@ describe("API edge gateway hardening and quarantine plan", () => {
 
     expect(artifact.quarantine_gates).toEqual(
       expect.arrayContaining([
-        "Node2 local Laravel non-authority label",
-        "Node2 local DB non-authority label",
-        "Node2 local queue non-authority label",
-        "Node2 local fap-mysql non-authority label",
-        "Node2 local php84 runtime non-authority label",
+        "API edge gateway local Laravel non-authority label",
+        "API edge gateway local DB non-authority label",
+        "API edge gateway local queue non-authority label",
+        "API edge gateway local local-db-container non-authority label",
+        "API edge gateway local local-php-runtime runtime non-authority label",
       ])
     );
   });
@@ -166,8 +184,8 @@ describe("API edge gateway hardening and quarantine plan", () => {
     );
     expect(artifact.seo_middle_platform_implications.blocked_until).toEqual(
       expect.arrayContaining([
-        "Node2 gateway contract operationally accepted",
-        "Node3 backend authority source accepted",
+        "API edge gateway contract operationally accepted",
+        "canonical backend authority source accepted",
         "Collector input source locked",
         "seo_intel target decided",
         "Metabase read-only policy accepted",
@@ -193,5 +211,18 @@ describe("API edge gateway hardening and quarantine plan", () => {
     expect(artifact.deployment_guardrails.runtime_behavior_changed).toBe(false);
     expect(artifact.deployment_guardrails.cloud_behavior_changed).toBe(false);
     expect(changed.every(isAllowedFile), changed.join("\n")).toBe(true);
+  });
+
+  it("redacts production infrastructure identifiers from public docs and artifacts", () => {
+    const text = combinedPublicArtifactText();
+
+    expect(text).not.toMatch(/\b(?:\d{1,3}\.){3}\d{1,3}\b/);
+    expect(text).not.toMatch(/\/(?:opt\/apps|var\/www|www\/wwwroot)\//);
+    expect(text).not.toMatch(/\/Users\/[^\s"]+\/Desktop\/GitHub\//);
+    for (const fragment of FORMER_INFRASTRUCTURE_FRAGMENTS) {
+      expect(text).not.toContain(fragment);
+    }
+    expect(text).toContain("REDACTED_BACKEND_RELEASE_PATH");
+    expect(text).toContain("REDACTED_LEGACY_BACKEND_PATH");
   });
 });

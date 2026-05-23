@@ -8,17 +8,17 @@ Status: `decision_contract`
 
 This document is the architecture contract after `BACKEND-RUNTIME-00` and `BACKEND-RUNTIME-00A`.
 
-It records the current `api.fermatmind.com` edge gateway finding and defines the intended ownership split between `fap-node2` and `fap-api-prod` / Node3. It does not implement, migrate, deploy, restart, reconfigure, or approve any runtime change.
+It records the current `api.fermatmind.com` edge gateway finding and defines the intended ownership split between `api-edge-gateway` and `canonical-backend-authority`. It does not implement, migrate, deploy, restart, reconfigure, or approve any runtime change.
 
-This contract exists to prevent future SEO 中台, CMS, analytics, Metabase, collector, or automation work from accidentally treating `fap-node2` local Laravel as backend authority.
+This contract exists to prevent future SEO 中台, CMS, analytics, Metabase, collector, or automation work from accidentally treating `api-edge-gateway` local Laravel as backend authority.
 
 ## Current Observed Topology
 
 | Runtime | Current role | Status | Evidence |
 | --- | --- | --- | --- |
-| `fap-node1` / `fap-app-01` | Production `fap-web` frontend | `observed`, `ready` | `/opt/apps/fap-web`, PM2 `fap-web` 4 cluster instances, Node 24.14.0, 1Panel OpenResty |
-| `fap-node2` / `fap-app-02` | `api.fermatmind.com` edge / OpenResty / legacy Docker node | `observed`, `conflict`, `architecture_debt` | Tencent OrcaTerm/TAT access, Docker containers `php84`, `fap-mysql`, `1Panel-openresty-r188` |
-| `fap-api-prod` / Node3 | Standard Laravel backend/CMS/ops authority candidate | `observed`, `canonical_backend_authority_candidate` | `/var/www/fap-api/current/backend`, standard Laravel deploy path, scheduler and queue workers previously observed healthy |
+| `frontend-runtime` | Production `fap-web` frontend | `observed`, `ready` | `REDACTED_FRONTEND_RUNTIME_PATH`, PM2 `fap-web` 4 cluster instances, Node runtime, 1Panel OpenResty |
+| `api-edge-gateway` | `api.fermatmind.com` edge / OpenResty / legacy Docker node | `observed`, `conflict`, `architecture_debt` | redacted read-only runtime observation, Docker containers `local-php-runtime`, `local-db-container`, `local-openresty-container` |
+| `canonical-backend-authority` | Standard Laravel backend/CMS/ops authority candidate | `observed`, `canonical_backend_authority_candidate` | `REDACTED_BACKEND_RELEASE_PATH`, standard Laravel deploy path, scheduler and queue workers previously observed healthy |
 | `staging` | Mixed backend/frontend staging | `observed`, `partial` | `fap-api-staging` and `fap-web-staging` paths observed in prior scan |
 | `assets.fermatmind.com` | Public media chain | `observed` | `DNSPod -> Alibaba CDN -> Alibaba OSS` |
 
@@ -26,83 +26,83 @@ Source-of-truth boundaries remain:
 
 - `fap-web` is the production frontend source-of-truth.
 - `fap-api` is backend/CMS/commerce authority core.
-- `/Users/rainie/Desktop/GitHub/fap-api/fap-web` is stale/skeleton and must not be treated as production runtime.
+- `REDACTED_LOCAL_BACKEND_REPO_PATH` is stale/skeleton and must not be treated as production runtime.
 - CMS is content authority, not SEO BI.
 - SEO 中台 observes, attributes, detects drift, and creates issue queues. It does not publish content or generate pSEO.
 
-## fap-node2 Local Runtime Status
+## api-edge-gateway Local Runtime Status
 
-`BACKEND-RUNTIME-00A` observed the following on `fap-node2`:
+`BACKEND-RUNTIME-00A` observed the following on `api-edge-gateway`:
 
 | Item | Status |
 | --- | --- |
-| Local Laravel path | `/www/wwwroot/fap-api/backend` |
-| PHP/Laravel container | `php84` |
-| Local Docker runtime | `php84`, `fap-mysql`, `1Panel-openresty-r188` |
+| Local Laravel path | `REDACTED_LEGACY_BACKEND_PATH` |
+| PHP/Laravel container | `local-php-runtime` |
+| Local Docker runtime | `local-php-runtime`, `local-db-container`, `local-openresty-container` |
 | Local Laravel route count | `194` |
-| `fap-api-prod` route count reference | `312` |
-| Route parity | `conflict`; local Node2 route set does not match `fap-api-prod` |
-| Local queue | `fap-api-queue FATAL` |
+| `canonical-backend-authority` route count reference | `312` |
+| Route parity | `conflict`; local API edge gateway route set does not match `canonical-backend-authority` |
+| Local queue | `local-queue FATAL` |
 | Local Redis env key | `missing` / not observed |
 | Scheduler | not observed |
 | Deploy marker | not found in current scan |
 | Local Laravel authority status | not canonical backend authority |
 
-The local Laravel runtime on `fap-node2` is therefore a legacy / non-authority runtime unless a future explicit architecture decision reactivates and standardizes it.
+The local Laravel runtime on `api-edge-gateway` is therefore a legacy / non-authority runtime unless a future explicit architecture decision reactivates and standardizes it.
 
 ## API Gateway Finding
 
-`BACKEND-RUNTIME-00A` observed the `api.fermatmind.com` OpenResty configuration on `fap-node2`.
+`BACKEND-RUNTIME-00A` observed the `api.fermatmind.com` OpenResty configuration on `api-edge-gateway`.
 
 Key finding:
 
 ```text
-api.fermatmind.com /api/ -> proxy_pass http://122.152.221.126
+api.fermatmind.com /api/ -> proxy_pass upstream://canonical-backend-authority
 ```
 
-`122.152.221.126` corresponds to `fap-api-prod` / Node3.
+`REDACTED_UPSTREAM` corresponds to `canonical-backend-authority`.
 
-Therefore, public `/api/` traffic appears to depend on Node3 backend authority through Node2 as an edge gateway. This explains why public read-only endpoint samples can appear close to `ops.fermatmind.com` while Node2 local Laravel route/runtime parity remains unproven and divergent.
+Therefore, public `/api/` traffic appears to depend on canonical backend authority through API edge gateway as an edge gateway. This explains why public read-only endpoint samples can appear close to `ops.fermatmind.com` while API edge gateway local Laravel route/runtime parity remains unproven and divergent.
 
 ## Target Ownership Contract
 
 The current contract is:
 
-- Node2 may serve as the `api.fermatmind.com` API edge gateway only.
-- Node3 / `fap-api-prod` owns backend/CMS/commerce truth as the canonical backend authority candidate.
-- Node2 local Laravel must not be consumed by `fap-web`, SEO Collector, CMS, Metabase, or production automation as authority.
-- Node2 local queue must not be relied on for report, email, commerce, release, revalidation, or async jobs.
-- If Node2 remains in the API path, its role must be explicit: edge gateway / OpenResty proxy, not backend authority.
-- If Node2 local Laravel is ever reactivated, it requires a future decision, standardization plan, route parity proof, DB/Redis proof, scheduler/queue proof, and rollback plan.
+- API edge gateway may serve as the `api.fermatmind.com` API edge gateway only.
+- `canonical-backend-authority` owns backend/CMS/commerce truth as the canonical backend authority candidate.
+- API edge gateway local Laravel must not be consumed by `fap-web`, SEO Collector, CMS, Metabase, or production automation as authority.
+- API edge gateway local queue must not be relied on for report, email, commerce, release, revalidation, or async jobs.
+- If API edge gateway remains in the API path, its role must be explicit: edge gateway / OpenResty proxy, not backend authority.
+- If API edge gateway local Laravel is ever reactivated, it requires a future decision, standardization plan, route parity proof, DB/Redis proof, scheduler/queue proof, and rollback plan.
 
 ## SEO 中台 Impact
 
 SEO 中台 must treat this as a blocking boundary issue:
 
-- SEO Collector source should be canonical backend authority, not Node2 local Laravel.
-- URL Truth Inventory must read from `fap-api-prod`-backed authority.
-- `sitemap-source` validation must target canonical backend authority, not Node2 local Laravel.
-- CMS issue queue summaries must join against backend/CMS truth from Node3 authority.
-- Attribution mirror inputs must not depend on Node2 local DB or local Laravel.
-- Metabase must not query Node2 local DB.
+- SEO Collector source should be canonical backend authority, not API edge gateway local Laravel.
+- URL Truth Inventory must read from `canonical-backend-authority`-backed authority.
+- `sitemap-source` validation must target canonical backend authority, not API edge gateway local Laravel.
+- CMS issue queue summaries must join against backend/CMS truth from canonical backend authority.
+- Attribution mirror inputs must not depend on API edge gateway local DB or local Laravel.
+- Metabase must not query API edge gateway local DB.
 - SEO 中台 production rollout remains blocked until the gateway/backend authority boundary is accepted.
 
 ## Acceptable Future Paths
 
-### Option A: Keep Node2 as Edge Gateway
+### Option A: Keep API edge gateway as Edge Gateway
 
-Keep Node2 in front of public API traffic, but harden and document it as an edge gateway while quarantining local Laravel.
+Keep API edge gateway in front of public API traffic, but harden and document it as an edge gateway while quarantining local Laravel.
 
 Pros:
 
 - Preserves current public API entrypoint.
 - Matches the observed `/api/` proxy behavior.
 - Avoids immediate DNS cutover.
-- Lets Node3 remain backend authority.
+- Lets canonical backend remain backend authority.
 
 Cons:
 
-- Node2 remains in the request path.
+- API edge gateway remains in the request path.
 - OpenResty config becomes a critical production dependency.
 - Local legacy Laravel must be fenced off to prevent accidental use.
 
@@ -118,18 +118,18 @@ Required gates:
 
 Risks:
 
-- Future operators may confuse Node2 local Laravel with API authority.
+- Future operators may confuse API edge gateway local Laravel with API authority.
 - Proxy drift may hide backend changes.
 - Gateway observability and rollback ownership may be unclear.
 
-### Option B: Migrate `api.fermatmind.com` Directly to `fap-api-prod`
+### Option B: Migrate `api.fermatmind.com` Directly to `canonical-backend-authority`
 
-Remove Node2 from the public API path and make Node3 / `fap-api-prod` directly serve `api.fermatmind.com`.
+Remove API edge gateway from the public API path and make `canonical-backend-authority` directly serve `api.fermatmind.com`.
 
 Pros:
 
 - Simplifies topology.
-- Eliminates Node2 gateway ambiguity.
+- Eliminates API edge gateway ambiguity.
 - Aligns API domain with canonical backend authority.
 
 Cons:
@@ -154,9 +154,9 @@ Risks:
 - Webhook endpoints may have provider-side allowlists or cached DNS.
 - A rushed migration could affect checkout/report/email flows.
 
-### Option C: Standardize Node2 into a True Backend Runtime
+### Option C: Standardize API edge gateway into a True Backend Runtime
 
-Reactivate and standardize Node2 local Laravel as a backend runtime.
+Reactivate and standardize API edge gateway local Laravel as a backend runtime.
 
 Pros:
 
@@ -177,7 +177,7 @@ Required gates:
 - Healthy queue workers.
 - Scheduler ownership.
 - Same deploy contract as backend authority.
-- Route parity with Node3.
+- Route parity with canonical backend.
 - Explicit API gateway/backend boundary.
 
 Risks:
@@ -190,15 +190,15 @@ Risks:
 
 Recommended direction:
 
-- Treat `fap-api-prod` / Node3 as the canonical backend authority candidate.
-- Treat Node2 as `api.fermatmind.com` edge gateway / legacy node.
-- Do not standardize Node2 local Laravel as backend authority unless a future explicit decision is made.
-- Do not let SEO-DASH work start from Node2 local Laravel evidence.
+- Treat `canonical-backend-authority` as the canonical backend authority candidate.
+- Treat API edge gateway as `api.fermatmind.com` edge gateway / legacy node.
+- Do not standardize API edge gateway local Laravel as backend authority unless a future explicit decision is made.
+- Do not let SEO-DASH work start from API edge gateway local Laravel evidence.
 - Next implementation should be edge gateway hardening and local runtime quarantine planning, not SEO-DASH.
 
 ## Required Gates Before Any Change
 
-Before changing Node2, Node3, DNS, OpenResty, proxy paths, payment routes, or SEO collector sources, complete:
+Before changing API edge gateway, canonical backend, DNS, OpenResty, proxy paths, payment routes, or SEO collector sources, complete:
 
 - `/api` route smoke.
 - Auth/session/CORS/rate-limit parity.
@@ -213,11 +213,11 @@ Before changing Node2, Node3, DNS, OpenResty, proxy paths, payment routes, or SE
 
 The following assumptions are forbidden:
 
-- Node2 local Laravel is production backend authority.
-- Node2 and Node3 are interchangeable.
-- Node2 queue `FATAL` is harmless for local runtime.
-- SEO Collector may read Node2 local Laravel as authority.
-- Metabase may query Node2 local DB.
+- API edge gateway local Laravel is production backend authority.
+- API edge gateway and canonical backend are interchangeable.
+- API edge gateway queue `FATAL` is harmless for local runtime.
+- SEO Collector may read API edge gateway local Laravel as authority.
+- Metabase may query API edge gateway local DB.
 - SEO 中台 production rollout may start before backend authority source is locked.
 - pSEO or Career Decision expansion may start from this state.
 - RIASEC, Big Five, or Career Decision may be described as a complete recommender runtime.
