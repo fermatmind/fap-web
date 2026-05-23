@@ -1,6 +1,12 @@
+import { execFileSync } from "node:child_process";
+import fs from "node:fs";
+import path from "node:path";
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { queuePendingAnonLinkAttempt, readPendingAnonLinkAttempts } from "@/lib/anon";
+import { getOrCreateAnonId, queuePendingAnonLinkAttempt, readPendingAnonLinkAttempts } from "@/lib/anon";
 import { linkAnonAttemptsOnceOnLoginSuccess } from "@/lib/api/v0_3";
+import { isCurrentRiasecPack12AllowedFile } from "./helpers/currentPrScope";
+
+const ROOT = process.cwd();
 
 function jsonResponse(body: unknown, status = 200) {
   return new Response(JSON.stringify(body), {
@@ -9,6 +15,22 @@ function jsonResponse(body: unknown, status = 200) {
       "Content-Type": "application/json",
     },
   });
+}
+
+function currentChangedFiles(): string[] {
+  const files = new Set<string>();
+  for (const args of [
+    ["diff", "--name-only", "HEAD"],
+    ["diff", "--cached", "--name-only"],
+  ]) {
+    const output = execFileSync("git", args, { cwd: ROOT, encoding: "utf8" });
+    for (const line of output.split("\n")) {
+      if (line.trim()) {
+        files.add(line.trim());
+      }
+    }
+  }
+  return [...files].sort();
 }
 
 describe("link-anon login helper contract", () => {
@@ -156,5 +178,34 @@ describe("link-anon login helper contract", () => {
 
     expect(fetchSpy).toHaveBeenCalledTimes(2);
     expect(readPendingAnonLinkAttempts()).toEqual([]);
+  });
+
+  it("generates anonymous ids from crypto fallback without insecure randomness", () => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date("2026-05-24T00:00:00.000Z"));
+
+    const getRandomValues = vi.fn((array: Uint8Array) => {
+      array.set([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]);
+      return array;
+    });
+
+    vi.stubGlobal("crypto", { getRandomValues });
+
+    const anonId = getOrCreateAnonId();
+
+    expect(anonId).toBe("anon_1779580800000_000102030405060708090a0b0c0d0e0f");
+    expect(getRandomValues).toHaveBeenCalledTimes(1);
+    expect(window.localStorage.getItem("fap_anonymous_id_v1")).toBe(anonId);
+    expect(document.cookie).toContain(`fap_anonymous_id_v1=${encodeURIComponent(anonId)}`);
+
+    const anonSource = fs.readFileSync(path.join(ROOT, "lib/anon.ts"), "utf8");
+    expect(anonSource).not.toContain("Math.random");
+    expect(anonSource).not.toContain("crypto?.getRandomValues");
+  });
+
+  it("documents the PR-WEB-SEC-07 scope boundary", () => {
+    const changed = currentChangedFiles();
+
+    expect(changed.every(isCurrentRiasecPack12AllowedFile), changed.join("\n")).toBe(true);
   });
 });

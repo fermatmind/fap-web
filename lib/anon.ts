@@ -9,18 +9,29 @@ export const ANON_ATTEMPT_LINK_QUEUE_STORAGE_KEY = ANON_ATTEMPT_LINK_QUEUE_KEY;
 
 const isBrowser = () => typeof window !== "undefined" && typeof document !== "undefined";
 
-function buildFallbackId(): string {
-  const randomBytes = new Uint8Array(8);
-  globalThis.crypto?.getRandomValues(randomBytes);
+function getCryptoSource(): Crypto | null {
+  const cryptoSource = globalThis.crypto;
+  return cryptoSource && typeof cryptoSource.getRandomValues === "function" ? cryptoSource : null;
+}
+
+function buildFallbackId(cryptoSource: Crypto): string {
+  const randomBytes = new Uint8Array(16);
+  cryptoSource.getRandomValues(randomBytes);
   const randomSuffix = Array.from(randomBytes, (byte) => byte.toString(16).padStart(2, "0")).join("");
   return `anon_${Date.now()}_${randomSuffix}`;
 }
 
 const generateAnonymousId = () => {
-  if (typeof crypto !== "undefined" && "randomUUID" in crypto) {
-    return crypto.randomUUID();
+  const cryptoSource = getCryptoSource();
+  if (!cryptoSource) {
+    return "";
   }
-  return buildFallbackId();
+
+  if (typeof cryptoSource.randomUUID === "function") {
+    return cryptoSource.randomUUID();
+  }
+
+  return buildFallbackId(cryptoSource);
 };
 
 function readLocalStorage(): string | null {
@@ -106,6 +117,10 @@ export function getOrCreateAnonId(): string {
   }
 
   const generatedAnonId = generateAnonymousId();
+  if (!generatedAnonId) {
+    return "";
+  }
+
   writeLocalStorage(generatedAnonId);
   writeCookie(generatedAnonId);
   return generatedAnonId;

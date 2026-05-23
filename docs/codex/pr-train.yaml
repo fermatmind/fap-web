@@ -5004,3 +5004,55 @@ prs:
       - Executable workflow actions remain limited to approved first-party action refs.
       - CI workflow declares read-only contents permissions.
     rollback_note: "Restore the previous CI workflow comment and raw-text contract assertions."
+
+  - id: PR-WEB-SEC-07
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-web-sec-07-anon-crypto-fallback
+    base: main
+    depends_on: [PR-WEB-SEC-06]
+    mode: execute
+    train_scope: security_findings_remediation
+    risk_level: low
+    status: planned
+    title: "fix(security): harden anonymous ID crypto fallback"
+    findings:
+      - "Anonymous ID fallback can generate predictable IDs when crypto is unavailable"
+    goal: "Require Web Crypto for newly generated anonymous IDs, use getRandomValues when randomUUID is unavailable, and preserve existing localStorage/cookie persistence semantics."
+    in_scope:
+      - lib/anon.ts
+      - tests/contracts/link-anon-login.contract.test.ts
+      - tests/contracts/providers-no-link-anon.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - analytics event taxonomy
+      - consent policy
+      - attribution payload semantics
+      - auth/link-anon API behavior
+      - CMS, SEO/GEO enumeration, sitemap, llms, scoring, checkout, payment, backend changes, or production deploy
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/link-anon-login.contract.test.ts tests/contracts/providers-no-link-anon.contract.test.tsx
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      continue_train_when_external_blocker:
+        - blocker is not introduced by PR-WEB-SEC-07
+        - GitHub required checks are green
+        - scoped validation is green
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - New anonymous IDs do not use Math.random or optional crypto calls that can silently fall back to predictable bytes.
+      - randomUUID remains preferred when available.
+      - getRandomValues fallback produces persisted anonymous IDs when randomUUID is unavailable.
+      - Existing queued link-anon behavior and provider no-auto-link behavior remain unchanged.
+    rollback_note: "Restore previous anonymous ID fallback generation if required."
