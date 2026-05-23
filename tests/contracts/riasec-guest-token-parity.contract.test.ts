@@ -73,7 +73,7 @@ describe("RIASEC guest token parity contract", () => {
     hoisted.callOrder = [];
   });
 
-  it("ensures current-anon guest token readiness before RIASEC attempts/start", async () => {
+  it("reuses current-anon guest token readiness before RIASEC attempts/start", async () => {
     await startRiasecAttempt({
       anonId: "anon_riasec_take",
       locale: "zh-CN",
@@ -84,7 +84,7 @@ describe("RIASEC guest token parity contract", () => {
     expect(hoisted.ensureFmTokenReady).toHaveBeenCalledWith({
       anonId: "anon_riasec_take",
       locale: "zh-CN",
-      forceRefresh: true,
+      forceRefresh: false,
     });
     expect(hoisted.startAttempt).toHaveBeenCalledWith(expect.objectContaining({
       scaleCode: "RIASEC",
@@ -122,10 +122,24 @@ describe("RIASEC guest token parity contract", () => {
     expect(JSON.stringify(hoisted.submitAttempt.mock.calls[0]?.[0] ?? {})).not.toContain("email");
   });
 
-  it("exposes a reusable RIASEC guest-token readiness helper bound to the supplied anon id", async () => {
+  it("exposes a reusable RIASEC guest-token readiness helper bound to the supplied anon id without forcing refresh by default", async () => {
     await ensureRiasecGuestTokenReady({
       anonId: "anon_riasec_take",
       locale: "en",
+    });
+
+    expect(hoisted.ensureFmTokenReady).toHaveBeenCalledWith({
+      anonId: "anon_riasec_take",
+      locale: "en",
+      forceRefresh: false,
+    });
+  });
+
+  it("keeps explicit RIASEC guest-token refresh available when requested", async () => {
+    await ensureRiasecGuestTokenReady({
+      anonId: "anon_riasec_take",
+      locale: "en",
+      forceRefresh: true,
     });
 
     expect(hoisted.ensureFmTokenReady).toHaveBeenCalledWith({
