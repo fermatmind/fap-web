@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-24T01:10:49+08:00",
+  "updated_at": "2026-05-24T01:12:10+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -7176,7 +7176,7 @@
       "depends_on": [
         "PR-WEB-SEC-04"
       ],
-      "status": "local_checks_passed",
+      "status": "pr_open_github_checks_pending",
       "train_scope": "security_findings_remediation",
       "risk_level": "low",
       "title": "fix(security): redact frontend docs infrastructure disclosures",
@@ -7204,11 +7204,14 @@
           "scope_validation": "passed",
           "infrastructure_disclosure_scan": "passed"
         },
-        "github": {}
+        "github": {
+          "status": "pending",
+          "pr_url": "https://github.com/fermatmind/fap-web/pull/863"
+        }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/863",
+      "commit_sha": "b2dc6d3955872740128921cc01ed2cba15d58abe",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -7227,10 +7230,15 @@
           "at": "2026-05-24T01:10:49+08:00",
           "status": "local_checks_passed",
           "summary": "Focused API edge contracts, typecheck, full contract suite, production API build, manifest/state parse, diff check, scope validation, and infrastructure disclosure scan passed for PR-WEB-SEC-05."
+        },
+        {
+          "at": "2026-05-24T01:12:10+08:00",
+          "status": "pr_open_github_checks_pending",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/863 from implementation commit b2dc6d3955872740128921cc01ed2cba15d58abe; waiting for GitHub checks."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-05-24T01:10:49+08:00"
+      "updated_at": "2026-05-24T01:12:10+08:00"
     }
   ],
   "sidecar_issues": [
