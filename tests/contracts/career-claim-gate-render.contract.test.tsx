@@ -248,7 +248,7 @@ describe("career claim gate render contract", () => {
     expect(html).not.toContain("Backend score dimensions");
   });
 
-  it("uses backend SEO contract for robots while keeping trust and claim gates on content", async () => {
+  it("keeps trust-blocked backend SEO index signals noindexed until local claim gates pass", async () => {
     vi.doMock("next/link", () => ({
       default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
         <a href={href} {...props}>
@@ -335,7 +335,7 @@ describe("career claim gate render contract", () => {
     expect(html).toContain("data-renderer-state=\"blocked\"");
     expect(html).not.toContain("Claim-gated actors summary should stay hidden.");
     expect(html).not.toContain("Claim-gated DOCX body should stay hidden.");
-    expect(metadata.robots).toEqual(expect.objectContaining({ index: true, follow: true }));
+    expect(metadata.robots).toEqual(expect.objectContaining({ index: false, follow: false }));
   });
 
   it("renders DOCX job content and structured data after trust and claim gates pass", async () => {

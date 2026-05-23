@@ -113,6 +113,24 @@ function hasPublishedIndexAuthority(job: CareerJobBundleAdapter): boolean {
   return job.seoContract.indexEligible === true && isIndexableState(job.seoContract.indexState);
 }
 
+function hasLocalCareerIndexTrust(job: CareerJobBundleAdapter): boolean {
+  const trustReviewed =
+    job.trustManifest?.reviewer.reviewed === true ||
+    job.trustManifest?.reviewer.reviewer_status === "reviewed" ||
+    job.trustManifest?.reviewer.reviewer_status === "approved";
+
+  return (
+    job.renderState.canRenderAnswerSurface ||
+    job.renderState.canRenderOutlookSurface ||
+    job.renderState.canRenderFitSurface ||
+    (trustReviewed && job.claimPermissions.allow_strong_claim === true)
+  );
+}
+
+function hasTrustedPublishedIndexAuthority(job: CareerJobBundleAdapter): boolean {
+  return hasPublishedIndexAuthority(job) && (job.renderState.canIndexPage || hasLocalCareerIndexTrust(job));
+}
+
 function hasBackendStructuredDataKey(job: CareerJobBundleAdapter, key: string): boolean {
   const normalizedKey = key.toLowerCase();
   return Boolean(job.seoSurface?.structuredDataKeys.some((item) => item.toLowerCase() === normalizedKey));
@@ -727,8 +745,7 @@ export async function generateMetadata({
       : locale === "zh"
         ? `${job.title} 的职业概览与下一步路径。`
         : `Career overview and next steps for ${job.title}.`;
-  const backendSeoAllowsIndex =
-    hasPublishedIndexAuthority(job);
+  const backendSeoAllowsIndex = hasTrustedPublishedIndexAuthority(job);
   const effectiveIndexEligible = (seoSurface?.indexEligible ?? job.seoContract.indexEligible) === true;
   const effectiveIndexState = seoSurface?.indexState || job.seoContract.indexState;
 
@@ -739,7 +756,7 @@ export async function generateMetadata({
     description: fallbackDescription,
     seoSurface,
     explicitIndexGate: {
-      indexEligible: effectiveIndexEligible,
+      indexEligible: effectiveIndexEligible && (job.renderState.canIndexPage || hasLocalCareerIndexTrust(job)),
       indexState: effectiveIndexState,
     },
     noindex: !backendSeoAllowsIndex,
