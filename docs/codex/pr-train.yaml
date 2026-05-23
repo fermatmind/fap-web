@@ -4951,3 +4951,56 @@ prs:
       - API edge docs preserve abstract authority/quarantine decisions.
       - Matching contracts fail if sensitive infrastructure identifiers are reintroduced.
     rollback_note: "Restore the pre-redaction API edge docs/artifacts and remove the redaction contract assertions added for this security PR."
+
+  - id: PR-WEB-SEC-06
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-web-sec-06-ci-action-policy-parser
+    base: main
+    depends_on: [PR-WEB-SEC-05]
+    mode: execute
+    train_scope: security_findings_remediation
+    risk_level: low
+    status: planned
+    title: "fix(security): harden CI action policy parser"
+    findings:
+      - "CI action policy parser trusts raw workflow text and can be satisfied by comments"
+      - "CI workflow lacks explicit least-privilege permissions"
+    goal: "Parse executable GitHub Actions uses entries instead of raw comments, keep CI workflow actions on an approved first-party allowlist, and set explicit read-only CI permissions."
+    in_scope:
+      - .github/workflows/ci.yml
+      - .github/workflows/codeql.yml
+      - tests/contracts/ci-validator-hygiene.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - runtime code changes
+      - package manager or dependency changes
+      - production deploy or release workflow changes
+      - non-CI workflows
+      - PR-WEB-SEC-07 scope
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/ci-validator-hygiene.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      continue_train_when_external_blocker:
+        - blocker is not introduced by PR-WEB-SEC-06
+        - GitHub required checks are green
+        - scoped validation is green
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - CI hygiene contract parses executable `uses:` entries and ignores comments.
+      - CI workflow no longer contains comment-only legacy action markers.
+      - Executable workflow actions remain limited to approved first-party action refs.
+      - CI workflow declares read-only contents permissions.
+    rollback_note: "Restore the previous CI workflow comment and raw-text contract assertions."
