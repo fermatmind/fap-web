@@ -8307,7 +8307,7 @@
       "depends_on": [
         "PR-WEB-SEC-14"
       ],
-      "status": "local_checks_passed",
+      "status": "pr_open_github_checks_pending",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "fix(audit): guard Big5 v2 report arrays",
@@ -8340,8 +8340,8 @@
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/874",
+      "commit_sha": "7337122cd8ba6aaf355ad784e9af72da26b73e68",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -8360,12 +8360,17 @@
           "at": "2026-05-24T07:51:21+08:00",
           "status": "local_checks_passed",
           "summary": "Focused Big Five assembler contract, typecheck, full contract suite, production API build, manifest/state parse, diff check, and scope validation passed for PR-WEB-SEC-15."
+        },
+        {
+          "at": "2026-05-24T07:52:10+08:00",
+          "status": "pr_open_github_checks_pending",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/874 from scoped commit 7337122cd8ba6aaf355ad784e9af72da26b73e68; waiting for GitHub checks."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T07:51:21+08:00"
+      "updated_at": "2026-05-24T07:52:10+08:00"
     },
     {
       "id": "PR-WEB-SEC-16",
