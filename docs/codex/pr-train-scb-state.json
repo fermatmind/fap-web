@@ -19,8 +19,8 @@
   "manual_decision_source": {
     "version": "semantic_claim_boundary_manual_decisions.v1",
     "files": [
-      "/Users/rainie/Desktop/semantic_claim_boundary_manual_decisions_v1.md",
-      "/Users/rainie/Desktop/semantic_claim_boundary_manual_decisions_v1.json"
+      "<external-evidence>/semantic_claim_boundary_manual_decisions_v1.md",
+      "<external-evidence>/semantic_claim_boundary_manual_decisions_v1.json"
     ]
   },
   "prs": [

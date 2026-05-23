@@ -23,8 +23,8 @@ required_github_checks:
 manual_decision_source:
   version: semantic_claim_boundary_manual_decisions.v1
   files:
-    - /Users/rainie/Desktop/semantic_claim_boundary_manual_decisions_v1.md
-    - /Users/rainie/Desktop/semantic_claim_boundary_manual_decisions_v1.json
+    - <external-evidence>/semantic_claim_boundary_manual_decisions_v1.md
+    - <external-evidence>/semantic_claim_boundary_manual_decisions_v1.json
   rule: >
     Do not invent scanner categories or claim statuses. Public copy remediation
     requires explicit human-approved replacement text.
@@ -91,7 +91,7 @@ forbidden_paths:
 prs:
   - id: PR-SCB-01
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-scb-01-claim-scanner-baseline
     base: main
     depends_on: []
@@ -104,7 +104,7 @@ prs:
 
   - id: PR-SCB-02
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-scb-02-riasec-bigfive-boundary-guards
     base: main
     depends_on: [PR-SCB-01]
@@ -117,7 +117,7 @@ prs:
 
   - id: PR-SCB-03
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-scb-03-mbti-recommendation-copy-boundary
     base: main
     depends_on: [PR-SCB-02]
@@ -130,7 +130,7 @@ prs:
 
   - id: PR-SCB-04
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-scb-04-career-fit-graph-ai-claim-guards
     base: main
     depends_on: [PR-SCB-03]
@@ -143,7 +143,7 @@ prs:
 
   - id: PR-SCB-05
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-scb-05-seo-geo-llms-claim-guards
     base: main
     depends_on: [PR-SCB-04]
@@ -156,7 +156,7 @@ prs:
 
   - id: PR-SCB-06
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-scb-06-paywall-sensitive-profile-claim-guards
     base: main
     depends_on: [PR-SCB-05]

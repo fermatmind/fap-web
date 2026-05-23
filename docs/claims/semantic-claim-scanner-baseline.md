@@ -10,8 +10,8 @@ This artifact establishes the Phase 3 scanner baseline for Semantic Claim Bounda
 
 The scanner baseline encodes the approved decisions from:
 
-- `/Users/rainie/Desktop/semantic_claim_boundary_manual_decisions_v1.md`
-- `/Users/rainie/Desktop/semantic_claim_boundary_manual_decisions_v1.json`
+- `<external-evidence>/semantic_claim_boundary_manual_decisions_v1.md`
+- `<external-evidence>/semantic_claim_boundary_manual_decisions_v1.json`
 
 The source files stay outside the repository. The repository-local canonical artifact is:
 
@@ -53,9 +53,9 @@ Repository-local scanner scope:
 
 Optional/external evidence scope when present locally:
 
-- `/Users/rainie/Desktop/GitHub/fap-api/content_packages/**`
-- `/Users/rainie/Desktop/GitHub/fap-api/backend/content_packs/**`
-- `/Users/rainie/Desktop/GitHub/fap-api/backend/content_baselines/**`
+- `<workspace>/fap-api/content_packages/**`
+- `<workspace>/fap-api/backend/content_packs/**`
+- `<workspace>/fap-api/backend/content_baselines/**`
 
 External paths are evidence-only. CI must not fail because a sibling `fap-api` checkout is absent.
 

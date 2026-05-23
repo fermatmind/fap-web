@@ -40,5 +40,5 @@
 
 ## Evidence
 
-- Before screenshot: [`docs/pr-assets/mbti-desktop-first-screen-before.png`](/Users/rainie/Desktop/GitHub/fap-web/docs/pr-assets/mbti-desktop-first-screen-before.png)
-- After screenshot: [`docs/pr-assets/mbti-desktop-first-screen-after.png`](/Users/rainie/Desktop/GitHub/fap-web/docs/pr-assets/mbti-desktop-first-screen-after.png)
+- Before screenshot: [`docs/pr-assets/mbti-desktop-first-screen-before.png`](<workspace>/fap-web/docs/pr-assets/mbti-desktop-first-screen-before.png)
+- After screenshot: [`docs/pr-assets/mbti-desktop-first-screen-after.png`](<workspace>/fap-web/docs/pr-assets/mbti-desktop-first-screen-after.png)

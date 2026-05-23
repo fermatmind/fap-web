@@ -19,8 +19,8 @@ required_github_checks:
   - verify-enneagram-contract-freeze
 
 production_frontend_source_of_truth:
-  primary_public_runtime: /Users/rainie/Desktop/GitHub/fap-web
-  nested_skeleton_or_stale: /Users/rainie/Desktop/GitHub/fap-api/fap-web
+  primary_public_runtime: <workspace>/fap-web
+  nested_skeleton_or_stale: <workspace>/fap-api/fap-web
   rule: >
     The nested fap-api/fap-web copy must not be treated as public frontend
     runtime because it is a skeleton/stale copy, not the product renderer.
@@ -129,7 +129,7 @@ source_artifacts:
 prs:
   - id: PR-UASP2B-01
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-uasp2b-01-runtime-metadata-envelope
     base: main
     depends_on: []
@@ -143,7 +143,7 @@ prs:
 
   - id: PR-UASP2B-02
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-uasp2b-02-result-report-metadata-guard
     base: main
     depends_on: [PR-UASP2B-01]
@@ -157,7 +157,7 @@ prs:
 
   - id: PR-UASP2B-03
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-uasp2b-03-seo-geo-eligibility-guard
     base: main
     depends_on: [PR-UASP2B-02]
@@ -171,7 +171,7 @@ prs:
 
   - id: PR-UASP2B-04
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-uasp2b-04-freemium-guard
     base: main
     depends_on: [PR-UASP2B-03]
@@ -185,7 +185,7 @@ prs:
 
   - id: PR-UASP2B-05
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-uasp2b-05-recommendation-guard
     base: main
     depends_on: [PR-UASP2B-04]
@@ -199,7 +199,7 @@ prs:
 
   - id: PR-UASP2B-06
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-uasp2b-06-profile-write-blocker-memory-ledger
     base: main
     depends_on: [PR-UASP2B-05]
