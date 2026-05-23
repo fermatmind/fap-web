@@ -1,13 +1,44 @@
+import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { afterEach, describe, expect, it, vi } from "vitest";
+import { isCurrentRiasecPack12AllowedFile } from "./helpers/currentPrScope";
 
 const ROOT = process.cwd();
 const liveUrlCheckModule = pathToFileURL(path.join(ROOT, "scripts/seo/lib/live-url-check.mjs")).href;
 
 function read(relPath: string): string {
   return fs.readFileSync(path.join(ROOT, relPath), "utf8");
+}
+
+function executableActionUses(relPath: string): string[] {
+  return read(relPath)
+    .split("\n")
+    .map((line) => line.trim())
+    .filter((line) => line.length > 0 && !line.startsWith("#"))
+    .map((line) => line.match(/^(?:-\s*)?uses:\s*([^#\s]+)/)?.[1])
+    .filter((value): value is string => Boolean(value));
+}
+
+function countUses(uses: string[], actionRef: string): number {
+  return uses.filter((value) => value === actionRef).length;
+}
+
+function currentChangedFiles(): string[] {
+  const files = new Set<string>();
+  for (const args of [
+    ["diff", "--name-only", "HEAD"],
+    ["diff", "--cached", "--name-only"],
+  ]) {
+    const output = execFileSync("git", args, { cwd: ROOT, encoding: "utf8" });
+    for (const line of output.split("\n")) {
+      if (line.trim()) {
+        files.add(line.trim());
+      }
+    }
+  }
+  return [...files].sort();
 }
 
 async function loadLiveUrlCheck(): Promise<{
@@ -25,13 +56,44 @@ afterEach(() => {
 });
 
 describe("CI validator hygiene", () => {
-  it("does not use mutable third-party package-manager actions in CI", () => {
+  it("parses executable action policy without trusting comments or third-party package-manager setup", () => {
     const workflow = read(".github/workflows/ci.yml");
+    const uses = executableActionUses(".github/workflows/ci.yml");
 
     expect(workflow).not.toContain("pnpm/action-setup@");
-    expect(workflow).toContain("actions/setup-node@v4");
+    expect(uses).not.toContain("pnpm/action-setup@v4");
+    expect(uses).not.toContain("actions/setup-node@v4");
+    expect(countUses(uses, "actions/checkout@v6")).toBe(4);
+    expect(countUses(uses, "actions/setup-node@v6")).toBe(4);
     expect(workflow.match(/corepack enable/g)).toHaveLength(4);
     expect(workflow.match(/pnpm install --frozen-lockfile/g)).toHaveLength(4);
+  });
+
+  it("keeps executable workflow actions on the approved first-party allowlist", () => {
+    const actionUses = [
+      ...executableActionUses(".github/workflows/ci.yml"),
+      ...executableActionUses(".github/workflows/codeql.yml"),
+    ];
+
+    expect(actionUses).toEqual(
+      expect.arrayContaining([
+        "actions/checkout@v6",
+        "actions/setup-node@v6",
+        "github/codeql-action/init@v4",
+        "github/codeql-action/analyze@v4",
+      ])
+    );
+    for (const actionRef of actionUses) {
+      expect(actionRef).toMatch(/^(actions\/(?:checkout|setup-node)@v6|github\/codeql-action\/(?:init|analyze)@v4)$/);
+      expect(actionRef).not.toMatch(/@(main|master|latest|HEAD)$/);
+    }
+  });
+
+  it("documents the PR-WEB-SEC-06 scope boundary", () => {
+    const changed = currentChangedFiles();
+
+    expect(read(".github/workflows/ci.yml")).toContain("permissions:\n  contents: read");
+    expect(changed.every(isCurrentRiasecPack12AllowedFile), changed.join("\n")).toBe(true);
   });
 
   it("rejects off-domain live validator URLs before fetching", async () => {
