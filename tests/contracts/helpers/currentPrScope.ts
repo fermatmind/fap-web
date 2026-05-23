@@ -175,6 +175,15 @@ const PR_WEB_SEC_14_ALLOWED_FILES = new Set([
   "tests/e2e/enneagram-phase3b-1rd-partial-resonance-rendered-preview.spec.ts",
 ]);
 
+const PR_WEB_SEC_15_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "lib/big5/contracts/schemas.ts",
+  "lib/big5/resultAssembler.ts",
+  "tests/contracts/big5-result-assembler.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (CURRENT_BRANCH === "codex/pr-web-sec-01-eq-v5-report-gate") {
     return PR_WEB_SEC_01_ALLOWED_FILES.has(file);
@@ -230,6 +239,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/pr-web-sec-14-e2e-fixture-env-guards") {
     return PR_WEB_SEC_14_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/pr-web-sec-15-big5-v2-array-guards") {
+    return PR_WEB_SEC_15_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/research-report-metadata") {
