@@ -159,6 +159,39 @@ describe("IQ report module contract", () => {
     expect(screen.getByTestId("iq-report-dimension-detail-npr")).toHaveTextContent("Numerical Pattern Reasoning");
   });
 
+  it("ignores null IQ dimension array entries before rendering report detail blocks", () => {
+    renderReportModule({
+      reportData: createReportData({
+        dimensions: [
+          null,
+          {
+            dimension_code: "visual_spatial_insight",
+            normalized_score: 84,
+            percentile: 82,
+            band: "Strong",
+          },
+          false,
+          {
+            key: "visual_spatial_pattern_reasoning",
+            normalized_score: 80,
+            percentile: 78,
+            band: "Solid",
+          },
+          {
+            id: "numerical_pattern_reasoning",
+            normalized_score: 86,
+            percentile: 88,
+            band: "Strong",
+          },
+        ],
+      }),
+    });
+
+    expect(screen.getByTestId("iq-report-dimension-detail-vsi")).toHaveTextContent("Strong");
+    expect(screen.getByTestId("iq-report-dimension-detail-vspr")).toHaveTextContent("Solid");
+    expect(screen.getByTestId("iq-report-dimension-detail-npr")).toHaveTextContent("88");
+  });
+
   it("does not fabricate narrative sections when they are absent and instead shows a safe unavailable state", () => {
     const reportData = createReportData({
       iq_pro: {},

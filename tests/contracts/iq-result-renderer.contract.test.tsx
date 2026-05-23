@@ -196,6 +196,50 @@ describe("IQ result renderer contract", () => {
     expect(missingCard).not.toHaveTextContent("88%");
   });
 
+  it("ignores null IQ dimension array entries while preserving matched cards", () => {
+    const reportData = {
+      ...createReportData(),
+      dimensions: [
+        null,
+        {
+          dimension: "visual_spatial_insight",
+          raw_score: 10,
+          normalized_score: 84,
+          percentile: 82,
+          band: "Strong",
+        },
+        undefined,
+        {
+          code: "visual_spatial_pattern_reasoning",
+          raw_score: 9,
+          normalized_score: 80,
+          percentile: 78,
+          band: "Solid",
+        },
+        {
+          id: "numerical_pattern_reasoning",
+          raw_score: 10,
+          normalized_score: 86,
+          percentile: 88,
+          band: "Strong",
+        },
+      ],
+    } as unknown as ReportResponse;
+
+    render(
+      <IqResultShell
+        locale="en"
+        reportData={reportData}
+        resultData={null}
+        accessView={createAccessView()}
+      />
+    );
+
+    expect(screen.getByTestId("iq-dimension-card-vsi")).toHaveTextContent("82");
+    expect(screen.getByTestId("iq-dimension-card-vspr")).toHaveTextContent("78");
+    expect(screen.getByTestId("iq-dimension-card-npr")).toHaveTextContent("88");
+  });
+
   it("normalizes canonical and legacy IQ scale codes through the same view-model path", () => {
     const canonical = buildIqResultViewModel({
       locale: "en",

@@ -331,13 +331,18 @@ function resolveDimensionRecordByKey(
 
   for (const dimensionArray of dimensionArrays) {
     const found = dimensionArray.find((entry) => {
+      const record = asRecord(entry);
+      if (!record) {
+        return false;
+      }
+
       const candidate = normalizeText(
-        entry.dimension,
-        entry.dimension_code,
-        entry.dimensionCode,
-        entry.code,
-        entry.key,
-        entry.id
+        record.dimension,
+        record.dimension_code,
+        record.dimensionCode,
+        record.code,
+        record.key,
+        record.id
       )?.toUpperCase();
 
       return candidate === normalizedKey;

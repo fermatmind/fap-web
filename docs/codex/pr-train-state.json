@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-24T06:42:16+08:00",
+  "updated_at": "2026-05-24T06:50:32+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -7749,7 +7749,7 @@
       "depends_on": [
         "PR-WEB-SEC-08"
       ],
-      "status": "pr_open_github_checks_pending",
+      "status": "merged",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "fix(audit): allow RIASEC start to reuse valid guest token",
@@ -7776,14 +7776,26 @@
           "scope_validation": "passed"
         },
         "github": {
+          "status": "passed",
+          "pr_url": "https://github.com/fermatmind/fap-web/pull/868",
+          "head_sha": "322f7f4a",
+          "merge_commit": "a3569d590f2669c5b53d45ed4add11bc1fbce0ed",
+          "passed": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "analyze (javascript-typescript)",
+            "CodeQL"
+          ]
         }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/868",
-      "commit_sha": "1875070f26e88ca597f0f4d59ca24a6c8097a548",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "a3569d590f2669c5b53d45ed4add11bc1fbce0ed",
+      "merged_at": "2026-05-23T22:45:39Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-24T06:27:02+08:00",
@@ -7804,12 +7816,17 @@
           "at": "2026-05-24T06:42:16+08:00",
           "status": "pr_open_github_checks_pending",
           "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/868 from scoped commit 1875070f26e88ca597f0f4d59ca24a6c8097a548; waiting for GitHub checks."
+        },
+        {
+          "at": "2026-05-24T06:47:48+08:00",
+          "status": "ledger_reconciled_merged",
+          "summary": "Reconciled PR-WEB-SEC-09 after GitHub PR #868 merged; origin/main contains merge commit a3569d590f2669c5b53d45ed4add11bc1fbce0ed, required checks passed, remote branch deletion was observed, local cleanup ran, and post-merge focused RIASEC contract revalidation passed."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T06:42:16+08:00"
+      "updated_at": "2026-05-24T06:47:48+08:00"
     },
     {
       "id": "PR-WEB-SEC-10",
@@ -7820,7 +7837,7 @@
       "depends_on": [
         "PR-WEB-SEC-09"
       ],
-      "status": "planned",
+      "status": "local_checks_passed",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "fix(audit): guard IQ dimension array entries",
@@ -7837,6 +7854,13 @@
       ],
       "checks": {
         "local": {
+          "focused_iq_result_renderer_and_report_module": "passed",
+          "typecheck": "passed",
+          "test_contract": "passed",
+          "build": "passed",
+          "manifest_state_validation": "passed",
+          "git_diff_check": "passed",
+          "scope_validation": "passed"
         },
         "github": {
         }
@@ -7852,12 +7876,22 @@
           "at": "2026-05-24T06:27:02+08:00",
           "status": "planned",
           "summary": "Initialized PR-WEB-SEC-10 from authorized fap-web security findings train expansion."
+        },
+        {
+          "at": "2026-05-24T06:47:48+08:00",
+          "status": "in_progress",
+          "summary": "Started PR-WEB-SEC-10 from latest main after reconciling merged PR-WEB-SEC-09; guarding IQ dimension array matching against null and non-object entries."
+        },
+        {
+          "at": "2026-05-24T06:50:32+08:00",
+          "status": "local_checks_passed",
+          "summary": "Focused IQ result/report contracts, typecheck, full contract suite, production API build, manifest/state parse, diff check, and scope validation passed for PR-WEB-SEC-10."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T06:27:02+08:00"
+      "updated_at": "2026-05-24T06:50:32+08:00"
     },
     {
       "id": "PR-WEB-SEC-11",
