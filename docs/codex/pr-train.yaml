@@ -5056,3 +5056,1169 @@ prs:
       - getRandomValues fallback produces persisted anonymous IDs when randomUUID is unavailable.
       - Existing queued link-anon behavior and provider no-auto-link behavior remain unchanged.
     rollback_note: "Restore previous anonymous ID fallback generation if required."
+  - id: PR-WEB-SEC-08
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-web-sec-08-vitest-hoisted-fixture
+    base: main
+    depends_on: [PR-WEB-SEC-07]
+    mode: execute
+    train_scope: security_findings_remediation
+    risk_level: informational
+    status: planned
+    title: "test(audit): stabilize Big Five take mock fixture hoisting"
+    findings:
+      - "Vitest mock references non-hoisted dictionary fixture"
+    goal: "Move the Big Five take test dictionary fixture into Vitest hoisted state so mocked getDictSync cannot reference a later top-level binding during module collection."
+    in_scope:
+      - tests/contracts/big5-take-attempt-priming.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - future PR-WEB-SEC scopes
+      - unrelated public content or CMS authority changes
+      - sitemap, llms, checkout, payment, backend, production deploy, or non-scoped docs
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/big5-take-attempt-priming.contract.test.tsx
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      continue_train_when_external_blocker:
+        - blocker is not introduced by PR-WEB-SEC-08
+        - GitHub required checks are green
+        - scoped validation is green
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Big Five take contract collects without Vitest hoisting ReferenceError.
+      - Dictionary fixture used by the getDict mock is initialized inside vi.hoisted.
+      - Big Five take attempt priming behavior remains unchanged.
+    rollback_note: "Revert PR-WEB-SEC-08 scoped changes if required."
+
+  - id: PR-WEB-SEC-09
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-web-sec-09-riasec-token-reuse
+    base: main
+    depends_on: [PR-WEB-SEC-08]
+    mode: execute
+    train_scope: security_findings_remediation
+    risk_level: informational
+    status: planned
+    title: "fix(audit): allow RIASEC start to reuse valid guest token"
+    findings:
+      - "RIASEC start now hard-depends on token refresh"
+    goal: "Avoid forcing guest-token refresh before every RIASEC start; reuse an existing valid token and rely on guest-token retry only when the API rejects the current auth context."
+    in_scope:
+      - lib/auth/authRetry.ts
+      - lib/auth/fmToken.ts
+      - lib/riasec/api.ts
+      - tests/contracts/riasec-guest-token-parity.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - future PR-WEB-SEC scopes
+      - unrelated public content or CMS authority changes
+      - sitemap, llms, checkout, payment, backend, production deploy, or non-scoped docs
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/riasec-guest-token-parity.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      continue_train_when_external_blocker:
+        - blocker is not introduced by PR-WEB-SEC-09
+        - GitHub required checks are green
+        - scoped validation is green
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - RIASEC start reuses existing fm_auth_token when present.
+      - Guest-token refresh remains available for auth failure recovery.
+      - RIASEC shared quiz-store behavior remains unchanged.
+    rollback_note: "Revert PR-WEB-SEC-09 scoped changes if required."
+
+  - id: PR-WEB-SEC-10
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-web-sec-10-iq-dimension-null-guard
+    base: main
+    depends_on: [PR-WEB-SEC-09]
+    mode: execute
+    train_scope: security_findings_remediation
+    risk_level: informational
+    status: planned
+    title: "fix(audit): guard IQ dimension array entries"
+    findings:
+      - "IQ dimension arrays can crash on null entries"
+    goal: "Filter IQ dimension arrays to object records before property access so malformed null entries cannot crash result view-model assembly."
+    in_scope:
+      - lib/iq/result.ts
+      - tests/contracts/iq-result-renderer.contract.test.tsx
+      - tests/contracts/iq-report-module.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - future PR-WEB-SEC scopes
+      - unrelated public content or CMS authority changes
+      - sitemap, llms, checkout, payment, backend, production deploy, or non-scoped docs
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/iq-result-renderer.contract.test.tsx tests/contracts/iq-report-module.contract.test.tsx
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      continue_train_when_external_blocker:
+        - blocker is not introduced by PR-WEB-SEC-10
+        - GitHub required checks are green
+        - scoped validation is green
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - IQ dimension resolver ignores null/non-object array entries.
+      - Valid IQ dimension cards still render.
+    rollback_note: "Revert PR-WEB-SEC-10 scoped changes if required."
+
+  - id: PR-WEB-SEC-11
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-web-sec-11-developer-path-redaction
+    base: main
+    depends_on: [PR-WEB-SEC-10]
+    mode: execute
+    train_scope: security_findings_remediation
+    risk_level: informational
+    status: planned
+    title: "docs(audit): redact developer workstation paths"
+    findings:
+      - "Local workstation paths leaked in committed docs"
+      - "Developer workstation paths leaked in train manifests"
+      - "Developer filesystem path leaked in new docs"
+      - "Developer workstation path leaked in documentation"
+    goal: "Replace committed developer workstation absolute paths in scoped docs and generated contract artifacts with repo-relative or placeholder references."
+    in_scope:
+      - docs/claims/generated/semantic-claim-scanner-baseline.v1.json
+      - docs/claims/semantic-claim-scanner-baseline.md
+      - docs/codex/pr-train-scb-state.json
+      - docs/codex/pr-train-scb.yaml
+      - docs/codex/pr-train-uasp2b-state.json
+      - docs/codex/pr-train-uasp2b.yaml
+      - docs/mbti-desktop-content-coverage.md
+      - docs/mbti-desktop-first-screen-convergence.md
+      - tests/contracts/semantic-claim-scanner-baseline.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - future PR-WEB-SEC scopes
+      - unrelated public content or CMS authority changes
+      - sitemap, llms, checkout, payment, backend, production deploy, or non-scoped docs
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/semantic-claim-scanner-baseline.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      continue_train_when_external_blocker:
+        - blocker is not introduced by PR-WEB-SEC-11
+        - GitHub required checks are green
+        - scoped validation is green
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Scoped docs no longer disclose /Users/<name> workstation paths.
+      - Generated semantic claim baseline contract remains consistent.
+    rollback_note: "Revert PR-WEB-SEC-11 scoped changes if required."
+
+  - id: PR-WEB-SEC-12
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-web-sec-12-career-index-gate
+    base: main
+    depends_on: [PR-WEB-SEC-11]
+    mode: execute
+    train_scope: security_findings_remediation
+    risk_level: informational
+    status: planned
+    title: "fix(audit): restore career trust index gate"
+    findings:
+      - "Trust-blocked career pages can now be indexed"
+    goal: "Ensure career job metadata noindex logic continues to require local trust/render-state permission in addition to backend SEO eligibility."
+    in_scope:
+      - app/(localized)/[locale]/career/jobs/[slug]/page.tsx
+      - lib/career/protocolReadiness.ts
+      - lib/seo/metadata.ts
+      - tests/contracts/career-claim-gate-render.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - future PR-WEB-SEC scopes
+      - unrelated public content or CMS authority changes
+      - sitemap, llms, checkout, payment, backend, production deploy, or non-scoped docs
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/career-claim-gate-render.contract.test.tsx
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      continue_train_when_external_blocker:
+        - blocker is not introduced by PR-WEB-SEC-12
+        - GitHub required checks are green
+        - scoped validation is green
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Trust-blocked career job pages remain noindex.
+      - Backend SEO eligibility alone cannot override local trust/render-state gate.
+    rollback_note: "Revert PR-WEB-SEC-12 scoped changes if required."
+
+  - id: PR-WEB-SEC-13
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-web-sec-13-root-not-found-layout
+    base: main
+    depends_on: [PR-WEB-SEC-12]
+    mode: execute
+    train_scope: security_findings_remediation
+    risk_level: informational
+    status: planned
+    title: "fix(audit): keep not-found inside valid root layout"
+    findings:
+      - "Root 404 is outside all root layouts"
+    goal: "Remove or relocate root-level not-found handling so the multi-root-layout app does not depend on an orphaned root not-found boundary."
+    in_scope:
+      - app/not-found.tsx
+      - app/(root)/not-found.tsx
+      - app/(localized)/[locale]/not-found.tsx
+      - tests/contracts/root-not-found-layout.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - future PR-WEB-SEC scopes
+      - unrelated public content or CMS authority changes
+      - sitemap, llms, checkout, payment, backend, production deploy, or non-scoped docs
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/root-not-found-layout.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      continue_train_when_external_blocker:
+        - blocker is not introduced by PR-WEB-SEC-13
+        - GitHub required checks are green
+        - scoped validation is green
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - 404 handling is covered inside valid route-group root layouts.
+      - Next build remains clean.
+    rollback_note: "Revert PR-WEB-SEC-13 scoped changes if required."
+
+  - id: PR-WEB-SEC-14
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-web-sec-14-e2e-fixture-env-guards
+    base: main
+    depends_on: [PR-WEB-SEC-13]
+    mode: execute
+    train_scope: security_findings_remediation
+    risk_level: informational
+    status: planned
+    title: "test(audit): guard optional preview E2E fixtures"
+    findings:
+      - "Unguarded E2E fixture loading crashes Playwright"
+      - "E2E suite now requires Phase1A fixture env"
+    goal: "Make specialized rendered-preview E2E specs skip or conditionally declare tests when preview fixture env vars are absent instead of throwing during Playwright discovery."
+    in_scope:
+      - tests/e2e/enneagram-phase3b-1rd-partial-resonance-rendered-preview.spec.ts
+      - tests/e2e/enneagram-phase1b-rendered-preview.spec.ts
+      - playwright.config.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - future PR-WEB-SEC scopes
+      - unrelated public content or CMS authority changes
+      - sitemap, llms, checkout, payment, backend, production deploy, or non-scoped docs
+    required_local_checks:
+      - pnpm exec playwright test --list
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      continue_train_when_external_blocker:
+        - blocker is not introduced by PR-WEB-SEC-14
+        - GitHub required checks are green
+        - scoped validation is green
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Default Playwright discovery succeeds without Phase preview fixture env vars.
+      - Specialized preview specs still run when required fixture dirs are provided.
+    rollback_note: "Revert PR-WEB-SEC-14 scoped changes if required."
+
+  - id: PR-WEB-SEC-15
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-web-sec-15-big5-v2-array-guards
+    base: main
+    depends_on: [PR-WEB-SEC-14]
+    mode: execute
+    train_scope: security_findings_remediation
+    risk_level: informational
+    status: planned
+    title: "fix(audit): guard Big5 v2 report arrays"
+    findings:
+      - "Malformed Big5 v2 report payload can crash result rendering"
+    goal: "Filter Big5 v2 section/block arrays to object records before dereferencing so malformed optional v2 payloads fall back safely."
+    in_scope:
+      - lib/big5/contracts/schemas.ts
+      - lib/big5/resultAssembler.ts
+      - tests/contracts/big5-result-assembler.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - future PR-WEB-SEC scopes
+      - unrelated public content or CMS authority changes
+      - sitemap, llms, checkout, payment, backend, production deploy, or non-scoped docs
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/big5-result-assembler.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      continue_train_when_external_blocker:
+        - blocker is not introduced by PR-WEB-SEC-15
+        - GitHub required checks are green
+        - scoped validation is green
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Malformed Big5 v2 null section/block entries do not crash assembly.
+      - Legacy fallback behavior remains intact.
+    rollback_note: "Revert PR-WEB-SEC-15 scoped changes if required."
+
+  - id: PR-WEB-SEC-16
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-web-sec-16-staging-smoke-separator
+    base: main
+    depends_on: [PR-WEB-SEC-15]
+    mode: execute
+    train_scope: security_findings_remediation
+    risk_level: informational
+    status: planned
+    title: "fix(audit): repair staging CMS smoke invocation"
+    findings:
+      - "Staging CMS smoke command fails on argument separator"
+    goal: "Remove the extra argument separator from the staging CMS smoke wrapper or make the validator explicitly tolerate it."
+    in_scope:
+      - scripts/deploy_web_pm2.sh
+      - scripts/staging_cms_baseline_smoke.sh
+      - scripts/validate-staging-cms-baseline.mjs
+      - tests/contracts/staging-cms-baseline-smoke.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - future PR-WEB-SEC scopes
+      - unrelated public content or CMS authority changes
+      - sitemap, llms, checkout, payment, backend, production deploy, or non-scoped docs
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/staging-cms-baseline-smoke.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      continue_train_when_external_blocker:
+        - blocker is not introduced by PR-WEB-SEC-16
+        - GitHub required checks are green
+        - scoped validation is green
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Staging CMS smoke wrapper passes api/web URL args to the validator.
+      - Validator rejects unknown args while tolerating supported invocation shape.
+    rollback_note: "Revert PR-WEB-SEC-16 scoped changes if required."
+
+  - id: PR-WEB-SEC-17
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-web-sec-17-staging-validator-exact-count
+    base: main
+    depends_on: [PR-WEB-SEC-16]
+    mode: execute
+    train_scope: security_findings_remediation
+    risk_level: informational
+    status: planned
+    title: "fix(audit): enforce recommended article exact count"
+    findings:
+      - "Validator falsely accepts excess recommended articles"
+    goal: "Validate the full recommended article set before truncation so staging CMS baseline requires exactly six published public recommendations per locale."
+    in_scope:
+      - scripts/validate-staging-cms-baseline.mjs
+      - tests/contracts/staging-cms-baseline-validator.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - future PR-WEB-SEC scopes
+      - unrelated public content or CMS authority changes
+      - sitemap, llms, checkout, payment, backend, production deploy, or non-scoped docs
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/staging-cms-baseline-validator.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      continue_train_when_external_blocker:
+        - blocker is not introduced by PR-WEB-SEC-17
+        - GitHub required checks are green
+        - scoped validation is green
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Seven valid recommended articles fail the exact-count check.
+      - Exactly six valid recommended articles still pass.
+    rollback_note: "Revert PR-WEB-SEC-17 scoped changes if required."
+
+  - id: PR-WEB-SEC-18
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-web-sec-18-cms-health-timeout
+    base: main
+    depends_on: [PR-WEB-SEC-17]
+    mode: execute
+    train_scope: security_findings_remediation
+    risk_level: informational
+    status: planned
+    title: "fix(audit): keep CMS health timeout through JSON parsing"
+    findings:
+      - "CMS health check can hang dev startup on slow JSON"
+    goal: "Keep the CMS health-check abort timeout active until response JSON parsing completes so slow bodies cannot hang dev startup."
+    in_scope:
+      - package.json
+      - scripts/check-cms-api-health.mjs
+      - tests/contracts/cms-api-health-check.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - future PR-WEB-SEC scopes
+      - unrelated public content or CMS authority changes
+      - sitemap, llms, checkout, payment, backend, production deploy, or non-scoped docs
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/cms-api-health-check.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      continue_train_when_external_blocker:
+        - blocker is not introduced by PR-WEB-SEC-18
+        - GitHub required checks are green
+        - scoped validation is green
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Slow CMS JSON bodies are bounded by timeout.
+      - Fast healthy responses still pass.
+    rollback_note: "Revert PR-WEB-SEC-18 scoped changes if required."
+
+  - id: PR-WEB-SEC-19
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-web-sec-19-dataset-url-allowlist
+    base: main
+    depends_on: [PR-WEB-SEC-18]
+    mode: execute
+    train_scope: security_findings_remediation
+    risk_level: informational
+    status: planned
+    title: "fix(audit): validate dataset method links"
+    findings:
+      - "Unvalidated dataset method URLs allow click XSS"
+    goal: "Allow only safe http/https or relative dataset publication links before rendering method-page anchors."
+    in_scope:
+      - app/(localized)/[locale]/datasets/occupations/method/page.tsx
+      - components/datasets/DatasetMethodPanel.tsx
+      - lib/career/adapters/adaptCareerDatasetMethod.ts
+      - tests/contracts/dataset-method-links.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - future PR-WEB-SEC scopes
+      - unrelated public content or CMS authority changes
+      - sitemap, llms, checkout, payment, backend, production deploy, or non-scoped docs
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/dataset-method-links.contract.test.tsx
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      continue_train_when_external_blocker:
+        - blocker is not introduced by PR-WEB-SEC-19
+        - GitHub required checks are green
+        - scoped validation is green
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - "javascript: and data: dataset publication URLs are not rendered as clickable hrefs."
+      - Valid publication links remain available.
+    rollback_note: "Revert PR-WEB-SEC-19 scoped changes if required."
+
+  - id: PR-WEB-SEC-20
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-web-sec-20-anon-rollout-bucketing
+    base: main
+    depends_on: [PR-WEB-SEC-19]
+    mode: execute
+    train_scope: security_findings_remediation
+    risk_level: informational
+    status: planned
+    title: "fix(audit): restore anon rollout bucketing on test pages"
+    findings:
+      - "Anon rollout bucketing removed from test pages"
+    goal: "Pass stable anonymous identity into test landing/take rollout resolution so percentage rollouts remain per-user instead of global fixed-seed decisions."
+    in_scope:
+      - app/(localized)/[locale]/tests/[slug]/page.tsx
+      - app/(localized)/[locale]/tests/[slug]/take/page.tsx
+      - lib/rollout/scaleRollout.ts
+      - tests/contracts/scale-rollout.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - future PR-WEB-SEC scopes
+      - unrelated public content or CMS authority changes
+      - sitemap, llms, checkout, payment, backend, production deploy, or non-scoped docs
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/scale-rollout.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      continue_train_when_external_blocker:
+        - blocker is not introduced by PR-WEB-SEC-20
+        - GitHub required checks are green
+        - scoped validation is green
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Percentage rollout decisions use anon identity when available.
+      - Landing and take pages do not collapse all users to the anonymous fallback seed.
+    rollback_note: "Revert PR-WEB-SEC-20 scoped changes if required."
+
+  - id: PR-WEB-SEC-21
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-web-sec-21-animated-counter-reduced-motion
+    base: main
+    depends_on: [PR-WEB-SEC-20]
+    mode: execute
+    train_scope: security_findings_remediation
+    risk_level: informational
+    status: planned
+    title: "fix(audit): sync counter state across reduced motion toggles"
+    findings:
+      - "Reduced-motion toggle can freeze counters at zero"
+    goal: "Synchronize AnimatedCounter display state when reduced-motion preferences change after mount."
+    in_scope:
+      - components/design/AnimatedCounter.tsx
+      - tests/contracts/animated-counter.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - future PR-WEB-SEC scopes
+      - unrelated public content or CMS authority changes
+      - sitemap, llms, checkout, payment, backend, production deploy, or non-scoped docs
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/animated-counter.contract.test.tsx
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      continue_train_when_external_blocker:
+        - blocker is not introduced by PR-WEB-SEC-21
+        - GitHub required checks are green
+        - scoped validation is green
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Counters show the target value under reduced motion.
+      - Toggling reduced motion off after mount does not freeze at stale display values.
+    rollback_note: "Revert PR-WEB-SEC-21 scoped changes if required."
+
+  - id: PR-WEB-SEC-22
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-web-sec-22-result-retry-credentials
+    base: main
+    depends_on: [PR-WEB-SEC-21]
+    mode: execute
+    train_scope: security_findings_remediation
+    risk_level: informational
+    status: planned
+    title: "fix(audit): preserve result retry ownership context"
+    findings:
+      - "Result report retry strips ownership credentials"
+    goal: "Ensure result report fallback retries preserve the appropriate auth/anonymous ownership context and do not downgrade access after an auth-context mismatch."
+    in_scope:
+      - app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx
+      - lib/api-client.ts
+      - lib/api/v0_3.ts
+      - tests/contracts/result-client-view-state.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - future PR-WEB-SEC scopes
+      - unrelated public content or CMS authority changes
+      - sitemap, llms, checkout, payment, backend, production deploy, or non-scoped docs
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/result-client-view-state.contract.test.tsx
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      continue_train_when_external_blocker:
+        - blocker is not introduced by PR-WEB-SEC-22
+        - GitHub required checks are green
+        - scoped validation is green
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Report-access and report retries retain required ownership credentials.
+      - Email gate and fallback behavior remain unchanged.
+    rollback_note: "Revert PR-WEB-SEC-22 scoped changes if required."
+
+  - id: PR-WEB-SEC-23
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-web-sec-23-big5-comparative-fallback
+    base: main
+    depends_on: [PR-WEB-SEC-22]
+    mode: execute
+    train_scope: security_findings_remediation
+    risk_level: informational
+    status: planned
+    title: "fix(audit): honor Big5 comparative fallback"
+    findings:
+      - "Norms comparison ignores comparative_v1 fallback"
+    goal: "Use comparative_v1 data when trait-vector percentile data is absent so norms_comparison does not render an empty state for valid comparative payloads."
+    in_scope:
+      - lib/big5/resultAssembler.ts
+      - lib/big5/sectionBlueprint.ts
+      - tests/contracts/big5-norms-comparison.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - future PR-WEB-SEC scopes
+      - unrelated public content or CMS authority changes
+      - sitemap, llms, checkout, payment, backend, production deploy, or non-scoped docs
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/big5-norms-comparison.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      continue_train_when_external_blocker:
+        - blocker is not introduced by PR-WEB-SEC-23
+        - GitHub required checks are green
+        - scoped validation is green
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - comparative_v1-only payloads produce norms comparison content.
+      - Trait-vector based norms rendering remains unchanged.
+    rollback_note: "Revert PR-WEB-SEC-23 scoped changes if required."
+
+  - id: PR-WEB-SEC-24
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-web-sec-24-mbti-draft-form-guard
+    base: main
+    depends_on: [PR-WEB-SEC-23]
+    mode: execute
+    train_scope: security_findings_remediation
+    risk_level: informational
+    status: planned
+    title: "fix(audit): constrain legacy MBTI draft migration"
+    findings:
+      - "Legacy MBTI drafts can attach to the wrong form"
+    goal: "Prevent legacy form-less MBTI drafts from being adopted by non-default MBTI form routes."
+    in_scope:
+      - app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient.tsx
+      - lib/quiz/store.tsx
+      - tests/contracts/mbti-desktop-storage-cutover.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - future PR-WEB-SEC scopes
+      - unrelated public content or CMS authority changes
+      - sitemap, llms, checkout, payment, backend, production deploy, or non-scoped docs
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/mbti-desktop-storage-cutover.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      continue_train_when_external_blocker:
+        - blocker is not introduced by PR-WEB-SEC-24
+        - GitHub required checks are green
+        - scoped validation is green
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Legacy MBTI drafts do not attach to the wrong form.
+      - Default MBTI draft migration remains supported.
+    rollback_note: "Revert PR-WEB-SEC-24 scoped changes if required."
+
+  - id: PR-WEB-SEC-25
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-web-sec-25-mbti-offer-hash
+    base: main
+    depends_on: [PR-WEB-SEC-24]
+    mode: execute
+    train_scope: security_findings_remediation
+    risk_level: informational
+    status: planned
+    title: "fix(audit): preserve legacy MBTI offer hash on mobile"
+    findings:
+      - "Legacy MBTI offer hash broken on mobile"
+    goal: "Map legacy #offer-full deep links to the rendered MBTI offer section across mobile and desktop shells."
+    in_scope:
+      - components/result/mbti/clone/MbtiDesktopCloneShell.tsx
+      - components/result/mbti/MbtiResultShell.tsx
+      - tests/contracts/mbti-desktop-shell-cta.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - future PR-WEB-SEC scopes
+      - unrelated public content or CMS authority changes
+      - sitemap, llms, checkout, payment, backend, production deploy, or non-scoped docs
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/mbti-desktop-shell-cta.contract.test.tsx
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      continue_train_when_external_blocker:
+        - blocker is not introduced by PR-WEB-SEC-25
+        - GitHub required checks are green
+        - scoped validation is green
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - "#offer-full resolves to a real offer element on mobile."
+      - Desktop clone offer behavior remains unchanged.
+    rollback_note: "Revert PR-WEB-SEC-25 scoped changes if required."
+
+  - id: PR-WEB-SEC-26
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-web-sec-26-mbti-score-pct-fallback
+    base: main
+    depends_on: [PR-WEB-SEC-25]
+    mode: execute
+    train_scope: security_findings_remediation
+    risk_level: informational
+    status: planned
+    title: "fix(audit): restore MBTI score_pct fallback"
+    findings:
+      - "MBTI dimensions lose score_pct fallback"
+    goal: "Restore score_pct as a fallback for MBTI dominant percentage normalization when newer dominant_pct/pct fields are absent."
+    in_scope:
+      - components/result/RichResultReport.tsx
+      - lib/api/v0_3.ts
+      - lib/mbti/publicProjection.ts
+      - tests/contracts/mbti-share-consumer.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - future PR-WEB-SEC scopes
+      - unrelated public content or CMS authority changes
+      - sitemap, llms, checkout, payment, backend, production deploy, or non-scoped docs
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/mbti-share-consumer.contract.test.tsx
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      continue_train_when_external_blocker:
+        - blocker is not introduced by PR-WEB-SEC-26
+        - GitHub required checks are green
+        - scoped validation is green
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - score_pct-only MBTI dimensions render nonzero dominant percentages.
+      - Newer dominant_pct/pct fields remain preferred.
+    rollback_note: "Revert PR-WEB-SEC-26 scoped changes if required."
+
+  - id: PR-WEB-SEC-27
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-web-sec-27-footer-qr-toggle
+    base: main
+    depends_on: [PR-WEB-SEC-26]
+    mode: execute
+    train_scope: security_findings_remediation
+    risk_level: informational
+    status: planned
+    title: "fix(audit): keep QR footer activation open"
+    findings:
+      - "QR social button can close immediately on activation"
+    goal: "Avoid focus-then-click toggling that immediately closes the QR social panel on keyboard/touch activation."
+    in_scope:
+      - components/layout/SiteFooter.tsx
+      - tests/contracts/site-footer-social.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - future PR-WEB-SEC scopes
+      - unrelated public content or CMS authority changes
+      - sitemap, llms, checkout, payment, backend, production deploy, or non-scoped docs
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/site-footer-social.contract.test.tsx
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      continue_train_when_external_blocker:
+        - blocker is not introduced by PR-WEB-SEC-27
+        - GitHub required checks are green
+        - scoped validation is green
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Keyboard/touch activation opens the QR panel.
+      - Hover/focus behavior remains accessible.
+    rollback_note: "Revert PR-WEB-SEC-27 scoped changes if required."
+
+  - id: PR-WEB-SEC-28
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-web-sec-28-take-submit-lockout
+    base: main
+    depends_on: [PR-WEB-SEC-27]
+    mode: execute
+    train_scope: security_findings_remediation
+    risk_level: informational
+    status: planned
+    title: "fix(audit): reset submit lock on validation exits"
+    findings:
+      - "Submit lockout when validation errors occur on take pages"
+    goal: "Ensure take-page submit in-flight guards reset on early validation returns for quiz, Big Five, and clinical flows."
+    in_scope:
+      - app/(localized)/[locale]/tests/[slug]/take/Big5TakeClient.tsx
+      - app/(localized)/[locale]/tests/[slug]/take/ClinicalTakeClient.tsx
+      - app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient.tsx
+      - tests/contracts/take-submit-lockout.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - future PR-WEB-SEC scopes
+      - unrelated public content or CMS authority changes
+      - sitemap, llms, checkout, payment, backend, production deploy, or non-scoped docs
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/take-submit-lockout.contract.test.tsx
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      continue_train_when_external_blocker:
+        - blocker is not introduced by PR-WEB-SEC-28
+        - GitHub required checks are green
+        - scoped validation is green
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Validation errors do not permanently lock submit buttons.
+      - Duplicate-submit protection remains active during real submissions.
+    rollback_note: "Revert PR-WEB-SEC-28 scoped changes if required."
+
+  - id: PR-WEB-SEC-29
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-web-sec-29-result-tracking-whitelist
+    base: main
+    depends_on: [PR-WEB-SEC-28]
+    mode: execute
+    train_scope: security_findings_remediation
+    risk_level: informational
+    status: planned
+    title: "fix(audit): whitelist result load failure tracking"
+    findings:
+      - "Result page error tracking event no longer whitelisted"
+    goal: "Add the result_load_failure event to tracking taxonomy and field whitelist or restore the emitted event name to an existing allowed event."
+    in_scope:
+      - app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx
+      - lib/tracking/client.ts
+      - lib/tracking/events.ts
+      - tests/contracts/tracking-whitelist.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - future PR-WEB-SEC scopes
+      - unrelated public content or CMS authority changes
+      - sitemap, llms, checkout, payment, backend, production deploy, or non-scoped docs
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/tracking-whitelist.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      continue_train_when_external_blocker:
+        - blocker is not introduced by PR-WEB-SEC-29
+        - GitHub required checks are green
+        - scoped validation is green
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Result load failures are forwarded by the tracking allowlist.
+      - Existing report_load_failure events remain supported.
+    rollback_note: "Revert PR-WEB-SEC-29 scoped changes if required."
+
+  - id: PR-WEB-SEC-30
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-web-sec-30-deploy-runbook-redaction
+    base: main
+    depends_on: [PR-WEB-SEC-29]
+    mode: execute
+    train_scope: security_findings_remediation
+    risk_level: informational
+    status: planned
+    title: "docs(audit): redact production SSH endpoint from runbook"
+    findings:
+      - "Runbook exposes production SSH host/IP in repo docs"
+    goal: "Replace concrete production SSH endpoint details in deployment runbooks with placeholders and internal-secret references."
+    in_scope:
+      - docs/deploy/502-recovery-runbook.md
+      - tests/contracts/deploy-runbook-redaction.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - future PR-WEB-SEC scopes
+      - unrelated public content or CMS authority changes
+      - sitemap, llms, checkout, payment, backend, production deploy, or non-scoped docs
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/deploy-runbook-redaction.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      continue_train_when_external_blocker:
+        - blocker is not introduced by PR-WEB-SEC-30
+        - GitHub required checks are green
+        - scoped validation is green
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Deploy runbook no longer contains concrete production SSH user/host/IP.
+      - Operational recovery steps remain usable with placeholders.
+    rollback_note: "Revert PR-WEB-SEC-30 scoped changes if required."
+
+  - id: PR-WEB-SEC-31
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-web-sec-31-clinical-session-storage-guard
+    base: main
+    depends_on: [PR-WEB-SEC-30]
+    mode: execute
+    train_scope: security_findings_remediation
+    risk_level: informational
+    status: planned
+    title: "fix(audit): tolerate clinical sessionStorage failures"
+    findings:
+      - "Clinical submit fails if sessionStorage write throws"
+    goal: "Guard clinical report sessionStorage writes so successful submits can continue even when browser storage is unavailable."
+    in_scope:
+      - app/(localized)/[locale]/tests/[slug]/take/ClinicalTakeClient.tsx
+      - tests/contracts/clinical-consent-gates.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - future PR-WEB-SEC scopes
+      - unrelated public content or CMS authority changes
+      - sitemap, llms, checkout, payment, backend, production deploy, or non-scoped docs
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/clinical-consent-gates.contract.test.tsx
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      continue_train_when_external_blocker:
+        - blocker is not introduced by PR-WEB-SEC-31
+        - GitHub required checks are green
+        - scoped validation is green
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Clinical submit success is not converted to failure when sessionStorage throws.
+      - Clinical navigation/reset behavior remains intact.
+    rollback_note: "Revert PR-WEB-SEC-31 scoped changes if required."
