@@ -111,6 +111,62 @@ describe("Research runtime MVP contract", () => {
     await expect(getResearchReport("missing-research-report", "en")).resolves.toBeNull();
   });
 
+  it("returns null for draft or unpublished Research payloads even when the backend returns report fields", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () =>
+        jsonResponse({
+          ok: true,
+          report: {
+            id: 102,
+            slug: "draft-research-report",
+            locale: "en",
+            page_entity_type: "research_report",
+            title: "Draft Research Title",
+            executive_summary: "Draft executive summary.",
+            body_md: "Draft body block.",
+            methodology: "Draft methodology.",
+            sample_disclaimer: "Draft sample disclaimer.",
+            claim_boundary: "Draft claim boundary.",
+            status: "draft",
+            published_at: "2026-05-18T00:00:00Z",
+            published_revision_id: 19,
+          },
+        })
+      )
+    );
+
+    await expect(getResearchReport("draft-research-report", "en")).resolves.toBeNull();
+  });
+
+  it("returns null when the backend Research payload slug differs from the requested public slug", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () =>
+        jsonResponse({
+          ok: true,
+          report: {
+            id: 103,
+            slug: "different-research-report",
+            locale: "en",
+            page_entity_type: "research_report",
+            title: "Different Research Title",
+            executive_summary: "Different executive summary.",
+            body_md: "Different body block.",
+            methodology: "Different methodology.",
+            sample_disclaimer: "Different sample disclaimer.",
+            claim_boundary: "Different claim boundary.",
+            status: "published",
+            published_at: "2026-05-18T00:00:00Z",
+            published_revision_id: 20,
+          },
+        })
+      )
+    );
+
+    await expect(getResearchReport("requested-research-report", "en")).resolves.toBeNull();
+  });
+
   it("renders the detail shell from backend payload and not local report copy", async () => {
     const getResearchReportMock = vi.fn(async () => sampleReport());
 

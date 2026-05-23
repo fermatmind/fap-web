@@ -4737,3 +4737,56 @@ prs:
       - EQ v5 restricted state does not leak raw SKU, offer, or technical commerce labels.
       - Rich result fallback cannot render restricted EQ v5 payloads as a generic report.
     rollback_note: "Remove the EQ v5 access gate and focused EQ contract tests added for this security PR."
+
+  - id: PR-WEB-SEC-02
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-web-sec-02-research-publication-guard
+    base: main
+    depends_on: [PR-WEB-SEC-01]
+    mode: execute
+    train_scope: security_findings_remediation
+    risk_level: medium
+    status: planned
+    title: "fix(security): enforce Research publication and slug guards"
+    findings:
+      - "Research route lacks publication-state checks"
+      - "Research route lacks returned-payload slug guard"
+    goal: "Ensure public Research detail rendering only accepts backend/CMS Research payloads that are published and whose returned slug matches the requested public slug."
+    in_scope:
+      - app/(localized)/[locale]/research/[slug]/page.tsx
+      - lib/research/reports.ts
+      - tests/contracts/**research**
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - fap-api repository changes
+      - CMS content edits or publication workflow changes
+      - Research sitemap, llms.txt, JSON-LD, or discoverability expansion
+      - frontend fallback content for Research pages
+      - PR-WEB-SEC-03 through PR-WEB-SEC-07 scopes
+      - deployment or production commands
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/research-runtime-mvp.contract.test.tsx
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      continue_train_when_external_blocker:
+        - blocker is not introduced by PR-WEB-SEC-02
+        - GitHub required checks are green
+        - scoped validation is green
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Draft, unpublished, non-published, or publication-state-mismatched Research payloads return null and render notFound/noindex.
+      - Returned backend Research slug must match the requested public slug after normal slug validation.
+      - Research pages still use backend/CMS payload authority and do not add frontend editorial fallback content or discoverability expansion.
+    rollback_note: "Remove the Research publication/slug gate and focused Research contract tests added for this security PR."

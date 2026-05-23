@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-24T00:21:10+08:00",
+  "updated_at": "2026-05-24T00:31:45+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -6859,7 +6859,7 @@
       "branch": "codex/pr-web-sec-01-eq-v5-report-gate",
       "base": "main",
       "depends_on": [],
-      "status": "pr_open_github_checks_pending",
+      "status": "merged",
       "train_scope": "security_findings_remediation",
       "risk_level": "high",
       "title": "fix(security): gate locked EQ v5 report payload rendering",
@@ -6885,14 +6885,21 @@
           "git_diff_check": "passed",
           "scope_validation": "passed"
         },
-        "github": {}
+        "github": {
+          "codeql": "passed",
+          "analyze_javascript_typescript": "passed",
+          "build": "passed",
+          "contracts": "passed",
+          "verify_big5_contract_freeze": "passed",
+          "verify_enneagram_contract_freeze": "passed"
+        }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/859",
-      "commit_sha": "93423e8a6410d17f32cbaa19f4b3bf64330c83be",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "de33372361205d7aa2ba499dd258595713d839f2",
+      "merged_at": "2026-05-23T16:23:29Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-24T00:12:30+08:00",
@@ -6918,6 +6925,73 @@
           "at": "2026-05-24T00:21:10+08:00",
           "status": "pr_open_github_checks_pending",
           "summary": "Opened GitHub PR #859 for PR-WEB-SEC-01 after scoped local checks passed. GitHub required checks pending."
+        },
+        {
+          "at": "2026-05-24T00:28:00+08:00",
+          "status": "ledger_reconciled_merged",
+          "summary": "Reconciled PR-WEB-SEC-01 after GitHub PR #859 merged; origin/main contains merge commit de33372361205d7aa2ba499dd258595713d839f2, the remote branch is deleted, local cleanup ran, and post-merge focused EQ revalidation passed."
+        }
+      ],
+      "sidecar_issues": []
+    },
+    {
+      "id": "PR-WEB-SEC-02",
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "codex/pr-web-sec-02-research-publication-guard",
+      "base": "main",
+      "depends_on": [
+        "PR-WEB-SEC-01"
+      ],
+      "status": "local_checks_passed",
+      "train_scope": "security_findings_remediation",
+      "risk_level": "medium",
+      "title": "fix(security): enforce Research publication and slug guards",
+      "findings": [
+        "Research route lacks publication-state checks",
+        "Research route lacks returned-payload slug guard"
+      ],
+      "artifacts": [
+        "app/(localized)/[locale]/research/[slug]/page.tsx",
+        "lib/research/reports.ts",
+        "tests/contracts/**research**",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "local": {
+          "focused_research_contract": "passed",
+          "typecheck": "passed",
+          "test_contract": "passed",
+          "build": "passed",
+          "manifest_state_validation": "passed",
+          "git_diff_check": "passed",
+          "scope_validation": "passed"
+        },
+        "github": {}
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-05-24T00:28:00+08:00",
+          "status": "in_progress",
+          "summary": "Registered PR-WEB-SEC-02, reconciled merged PR-WEB-SEC-01 ledger state, and started scoped Research publication/slug guard remediation from latest main."
+        },
+        {
+          "at": "2026-05-24T00:31:10+08:00",
+          "status": "local_checks_passed",
+          "summary": "Research focused contract, typecheck, full contract suite, and production build passed. Postbuild sitemap drift was reverted before staging."
+        },
+        {
+          "at": "2026-05-24T00:31:45+08:00",
+          "status": "scope_validation_passed",
+          "summary": "Manifest/state validation, git diff check, and scoped changed-file validation passed; changed files are limited to Research adapter contract, current PR scope helper, and PR train metadata."
         }
       ],
       "sidecar_issues": []
