@@ -24,6 +24,12 @@ type ResearchReportApiRecord = {
   downloadable_asset_placeholder?: unknown;
   last_reviewed_at?: unknown;
   published_at?: unknown;
+  status?: unknown;
+  publication_state?: unknown;
+  is_published?: unknown;
+  published_revision_id?: unknown;
+  publishedRevisionId?: unknown;
+  published_revision?: unknown;
   seo_title?: unknown;
   seo_description?: unknown;
   canonical_path?: unknown;
@@ -70,6 +76,10 @@ function asNullableNumber(value: unknown): number | null {
   return typeof value === "number" && Number.isFinite(value) ? value : null;
 }
 
+function asRecord(value: unknown): Record<string, unknown> | null {
+  return value && typeof value === "object" && !Array.isArray(value) ? value as Record<string, unknown> : null;
+}
+
 function normalizeReferences(value: unknown): string[] {
   if (!Array.isArray(value)) {
     return [];
@@ -97,12 +107,47 @@ export function buildResearchReportPath(slug: string, locale: Locale | string): 
   return localizedPath(`/research/${normalizeResearchReportSlug(slug)}`, normalizeLocale(locale));
 }
 
-function normalizeResearchReport(record: ResearchReportApiRecord | null | undefined): ResearchReport | null {
+function hasPublishedRevisionPointer(record: ResearchReportApiRecord): boolean {
+  return Boolean(
+    asNullableNumber(record.published_revision_id) !== null ||
+      asNullableNumber(record.publishedRevisionId) !== null ||
+      asNullableNumber(asRecord(record.published_revision)?.id) !== null
+  );
+}
+
+function isPublishedResearchReportRecord(record: ResearchReportApiRecord): boolean {
+  const state = asString(record.status || record.publication_state).toLowerCase();
+
+  if (state && state !== "published") {
+    return false;
+  }
+
+  if (record.is_published === false) {
+    return false;
+  }
+
+  return state === "published" || record.is_published === true || Boolean(asNullableString(record.published_at)) || hasPublishedRevisionPointer(record);
+}
+
+function normalizeResearchReport(
+  record: ResearchReportApiRecord | null | undefined,
+  expectedSlug: string
+): ResearchReport | null {
   if (!record || record.page_entity_type !== RESEARCH_REPORT_PAGE_ENTITY_TYPE) {
     return null;
   }
 
-  const slug = asString(record.slug);
+  let slug: string;
+  try {
+    slug = normalizeResearchReportSlug(asString(record.slug));
+  } catch {
+    return null;
+  }
+
+  if (slug !== expectedSlug || !isPublishedResearchReportRecord(record)) {
+    return null;
+  }
+
   const title = asString(record.title);
   const executiveSummary = asString(record.executive_summary);
   const methodology = asString(record.methodology);
@@ -161,7 +206,7 @@ export async function getResearchReport(slug: string, locale: Locale | string): 
       }
     );
 
-    return normalizeResearchReport(response.report);
+    return normalizeResearchReport(response.report, normalizedSlug);
   } catch (error) {
     if (error instanceof ApiError && (error.status === 404 || error.status === 422)) {
       return null;
