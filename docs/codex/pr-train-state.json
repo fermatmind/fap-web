@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-24T01:31:28+08:00",
+  "updated_at": "2026-05-24T01:36:21+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -7345,7 +7345,7 @@
       "depends_on": [
         "PR-WEB-SEC-06"
       ],
-      "status": "pr_open_github_checks_pending",
+      "status": "merged",
       "train_scope": "security_findings_remediation",
       "risk_level": "low",
       "title": "fix(security): harden anonymous ID crypto fallback",
@@ -7371,16 +7371,26 @@
           "scope_validation": "passed"
         },
         "github": {
-          "status": "pending",
-          "pr_url": "https://github.com/fermatmind/fap-web/pull/865"
+          "status": "passed",
+          "pr_url": "https://github.com/fermatmind/fap-web/pull/865",
+          "head_sha": "4967f5026f68510e813409d1534e5d75ae5ef250",
+          "merge_commit": "11de7ee290b4ba68dee317cbd9e86314f8b3cf13",
+          "passed": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "analyze (javascript-typescript)",
+            "CodeQL"
+          ]
         }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/865",
-      "commit_sha": "7675e48912583da3bdfbbcbe3cac5ca5b7c93be3",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "11de7ee290b4ba68dee317cbd9e86314f8b3cf13",
+      "merged_at": "2026-05-23T17:35:02Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-24T01:27:25+08:00",
@@ -7396,10 +7406,15 @@
           "at": "2026-05-24T01:31:28+08:00",
           "status": "pr_open_github_checks_pending",
           "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/865 from implementation commit 7675e48912583da3bdfbbcbe3cac5ca5b7c93be3; waiting for GitHub checks."
+        },
+        {
+          "at": "2026-05-24T01:36:21+08:00",
+          "status": "ledger_reconciled_merged",
+          "summary": "Reconciled PR-WEB-SEC-07 after GitHub PR #865 merged; origin/main contains merge commit 11de7ee290b4ba68dee317cbd9e86314f8b3cf13, GitHub checks passed, remote branch deletion was observed, local cleanup ran, and post-merge focused link-anon/provider revalidation passed."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-05-24T01:31:28+08:00"
+      "updated_at": "2026-05-24T01:36:21+08:00"
     }
   ],
   "sidecar_issues": [
