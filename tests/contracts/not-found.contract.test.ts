@@ -9,26 +9,33 @@ function read(relPath: string): string {
 }
 
 describe("default not-found contract", () => {
-  it("renders a crawl-safe 404 page with one h1 and useful internal links", () => {
-    const source = read("app/not-found.tsx");
+  it("renders crawl-safe route-group 404 pages with one h1 and useful internal links", () => {
+    const sources = [
+      read("app/(root)/not-found.tsx"),
+      read("app/(localized)/[locale]/not-found.tsx"),
+    ];
 
-    expect(source.match(/<h1/g)?.length ?? 0).toBe(1);
-    expect(source).toContain("robots");
-    expect(source).toContain("index: false");
+    expect(fs.existsSync(path.join(ROOT, "app/not-found.tsx"))).toBe(false);
 
-    for (const href of [
-      "/en/tests",
-      "/en/personality",
-      "/en/career",
-      "/en/articles",
-      "/en/support",
-      "/zh/tests",
-      "/zh/personality",
-      "/zh/career",
-      "/zh/articles",
-      "/zh/support",
-    ]) {
-      expect(source).toContain(`href: "${href}"`);
+    for (const source of sources) {
+      expect(source.match(/<h1/g)?.length ?? 0).toBe(1);
+      expect(source).toContain("robots");
+      expect(source).toContain("index: false");
+
+      for (const href of [
+        "/en/tests",
+        "/en/personality",
+        "/en/career",
+        "/en/articles",
+        "/en/support",
+        "/zh/tests",
+        "/zh/personality",
+        "/zh/career",
+        "/zh/articles",
+        "/zh/support",
+      ]) {
+        expect(source).toContain(href);
+      }
     }
   });
 });

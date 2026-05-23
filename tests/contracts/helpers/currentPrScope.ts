@@ -153,6 +153,19 @@ const PR_WEB_SEC_12_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const PR_WEB_SEC_13_ALLOWED_FILES = new Set([
+  "app/not-found.tsx",
+  "app/(root)/not-found.tsx",
+  "app/(localized)/[locale]/not-found.tsx",
+  "docs/seo/generated/metadata-surface-inventory.v1.csv",
+  "docs/seo/generated/metadata-surface-inventory.v1.json",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "tests/contracts/not-found.contract.test.ts",
+  "tests/contracts/root-not-found-layout.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (CURRENT_BRANCH === "codex/pr-web-sec-01-eq-v5-report-gate") {
     return PR_WEB_SEC_01_ALLOWED_FILES.has(file);
@@ -200,6 +213,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/pr-web-sec-12-career-index-gate") {
     return PR_WEB_SEC_12_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/pr-web-sec-13-root-not-found-layout") {
+    return PR_WEB_SEC_13_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/research-report-metadata") {

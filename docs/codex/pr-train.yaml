@@ -5325,6 +5325,9 @@ prs:
       - app/not-found.tsx
       - app/(root)/not-found.tsx
       - app/(localized)/[locale]/not-found.tsx
+      - docs/seo/generated/metadata-surface-inventory.v1.csv
+      - docs/seo/generated/metadata-surface-inventory.v1.json
+      - tests/contracts/not-found.contract.test.ts
       - tests/contracts/root-not-found-layout.contract.test.ts
       - tests/contracts/helpers/currentPrScope.ts
       - docs/codex/pr-train.yaml
@@ -5334,7 +5337,7 @@ prs:
       - unrelated public content or CMS authority changes
       - sitemap, llms, checkout, payment, backend, production deploy, or non-scoped docs
     required_local_checks:
-      - pnpm exec vitest run tests/contracts/root-not-found-layout.contract.test.ts
+      - pnpm exec vitest run tests/contracts/root-not-found-layout.contract.test.ts tests/contracts/not-found.contract.test.ts
       - pnpm typecheck
       - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
