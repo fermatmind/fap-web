@@ -44,7 +44,7 @@ async function withRiasecAuthRetry<T>({
 export async function ensureRiasecGuestTokenReady({
   anonId,
   locale,
-  forceRefresh = true,
+  forceRefresh = false,
 }: {
   anonId?: string;
   locale?: string;
@@ -108,7 +108,6 @@ export async function startRiasecAttempt({
   await ensureRiasecGuestTokenReady({
     anonId: resolvedAnonId,
     locale,
-    forceRefresh: true,
   });
 
   return withRiasecAuthRetry({
