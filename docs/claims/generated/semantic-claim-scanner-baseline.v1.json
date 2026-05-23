@@ -5,8 +5,8 @@
   "runtimeBehaviorChanged": false,
   "executionMode": "contract_scanner_only",
   "manualDecisionSources": [
-    "/Users/rainie/Desktop/semantic_claim_boundary_manual_decisions_v1.md",
-    "/Users/rainie/Desktop/semantic_claim_boundary_manual_decisions_v1.json"
+    "<external-evidence>/semantic_claim_boundary_manual_decisions_v1.md",
+    "<external-evidence>/semantic_claim_boundary_manual_decisions_v1.json"
   ],
   "claimStatusEnum": ["allowed", "soft_allowed", "needs_disclaimer", "internal_only", "forbidden", "unknown"],
   "priorityEnum": ["P0", "P1", "P2", "P3"],
@@ -14,9 +14,9 @@
   "scanScope": {
     "repoLocal": ["app/**", "components/**", "lib/**", "docs/seo/**", "docs/geo/**", "docs/freemium/**"],
     "externalEvidenceOnly": [
-      "/Users/rainie/Desktop/GitHub/fap-api/content_packages/**",
-      "/Users/rainie/Desktop/GitHub/fap-api/backend/content_packs/**",
-      "/Users/rainie/Desktop/GitHub/fap-api/backend/content_baselines/**"
+      "<workspace>/fap-api/content_packages/**",
+      "<workspace>/fap-api/backend/content_packs/**",
+      "<workspace>/fap-api/backend/content_baselines/**"
     ],
     "ciExternalPresenceRequired": false
   },
@@ -132,7 +132,7 @@
       "required": true
     },
     {
-      "path": "/Users/rainie/Desktop/GitHub/fap-api/content_packages",
+      "path": "<workspace>/fap-api/content_packages",
       "type": "external_evidence",
       "required": false
     }

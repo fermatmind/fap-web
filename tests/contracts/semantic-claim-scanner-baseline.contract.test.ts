@@ -7,6 +7,17 @@ const ARTIFACT_PATH = path.join(ROOT, "docs/claims/generated/semantic-claim-scan
 const DOC_PATH = path.join(ROOT, "docs/claims/semantic-claim-scanner-baseline.md");
 const TRAIN_MANIFEST_PATH = path.join(ROOT, "docs/codex/pr-train-scb.yaml");
 const TRAIN_STATE_PATH = path.join(ROOT, "docs/codex/pr-train-scb-state.json");
+const WORKSTATION_PATH_REDACTION_FILES = [
+  "docs/claims/generated/semantic-claim-scanner-baseline.v1.json",
+  "docs/claims/semantic-claim-scanner-baseline.md",
+  "docs/codex/pr-train-scb-state.json",
+  "docs/codex/pr-train-scb.yaml",
+  "docs/codex/pr-train-uasp2b-state.json",
+  "docs/codex/pr-train-uasp2b.yaml",
+  "docs/mbti-desktop-first-screen-convergence.md",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+];
 
 const CLAIM_STATUSES = ["allowed", "soft_allowed", "needs_disclaimer", "internal_only", "forbidden", "unknown"];
 const SCANNER_CATEGORIES = ["forbidden", "soft_boundary", "needs_disclaimer", "allowed_reference", "manual_review"];
@@ -116,8 +127,8 @@ describe("semantic claim scanner baseline", () => {
     const byTerm = new Map(artifact.manualDecisionTerms.map((term) => [term.term, term]));
 
     expect(artifact.manualDecisionSources).toEqual([
-      "/Users/rainie/Desktop/semantic_claim_boundary_manual_decisions_v1.md",
-      "/Users/rainie/Desktop/semantic_claim_boundary_manual_decisions_v1.json",
+      "<external-evidence>/semantic_claim_boundary_manual_decisions_v1.md",
+      "<external-evidence>/semantic_claim_boundary_manual_decisions_v1.json",
     ]);
     expect(byTerm.get("岗位诊断")).toMatchObject({
       defaultStatus: "needs_disclaimer",
@@ -138,6 +149,15 @@ describe("semantic claim scanner baseline", () => {
       defaultStatus: "unknown",
       category: "manual_review",
     });
+  });
+
+  it("redacts developer workstation paths from scoped claim and train docs", () => {
+    for (const relativePath of WORKSTATION_PATH_REDACTION_FILES) {
+      const contents = fs.readFileSync(path.join(ROOT, relativePath), "utf8");
+
+      expect(contents, relativePath).not.toMatch(/\/Users\/[A-Za-z0-9._-]+\//);
+      expect(contents, relativePath).not.toMatch(/C:\\Users\\[A-Za-z0-9._-]+\\/);
+    }
   });
 
   it("contains required forbidden and soft-boundary phrase fixtures", () => {
@@ -175,8 +195,8 @@ describe("semantic claim scanner baseline", () => {
     expect(artifact.scanScope.repoLocal).toEqual(["app/**", "components/**", "lib/**", "docs/seo/**", "docs/geo/**", "docs/freemium/**"]);
     expect(artifact.scanScope.externalEvidenceOnly).toEqual(
       expect.arrayContaining([
-        "/Users/rainie/Desktop/GitHub/fap-api/content_packages/**",
-        "/Users/rainie/Desktop/GitHub/fap-api/backend/content_packs/**",
+        "<workspace>/fap-api/content_packages/**",
+        "<workspace>/fap-api/backend/content_packs/**",
       ])
     );
     expect(artifact.scanScope.ciExternalPresenceRequired).toBe(false);

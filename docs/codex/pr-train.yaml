@@ -20,8 +20,8 @@ required_github_checks:
   - verify-enneagram-contract-freeze
 
 production_frontend_source_of_truth:
-  primary_public_runtime: /Users/rainie/Desktop/GitHub/fap-web
-  nested_skeleton_or_stale: /Users/rainie/Desktop/GitHub/fap-api/fap-web
+  primary_public_runtime: <workspace>/fap-web
+  nested_skeleton_or_stale: <workspace>/fap-api/fap-web
   rule: >
     The nested fap-api/fap-web copy must not be treated as public frontend
     runtime because it is a skeleton/stale copy, not the product renderer.
@@ -166,7 +166,7 @@ merge_policy_defaults:
 prs:
   - id: PR-PRAC-01
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-prac-01-frontend-source-of-truth-lock
     base: main
     depends_on: []
@@ -180,7 +180,7 @@ prs:
 
   - id: PR-PRAC-02
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-prac-02-page-family-runtime-coverage
     base: main
     depends_on: [PR-PRAC-01]
@@ -194,7 +194,7 @@ prs:
 
   - id: PR-PRAC-03
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-prac-03-fallback-authority-lockdown
     base: main
     depends_on: [PR-PRAC-02]
@@ -208,7 +208,7 @@ prs:
 
   - id: PR-PRAC-04
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-prac-04-claim-runtime-boundary
     base: main
     depends_on: [PR-PRAC-03]
@@ -222,7 +222,7 @@ prs:
 
   - id: PR-PRAC-05
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-prac-05-discoverability-authority-convergence
     base: main
     depends_on: [PR-PRAC-04]
@@ -236,7 +236,7 @@ prs:
 
   - id: PR-PRAC-06
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-prac-06-freemium-runtime-coverage
     base: main
     depends_on: [PR-PRAC-05]
@@ -250,7 +250,7 @@ prs:
 
   - id: PR-WEB-HOTFIX-761A
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-web-hotfix-761a-job-detail-cta-attribution
     base: main
     depends_on: []
@@ -263,7 +263,7 @@ prs:
 
   - id: PR-WEB-SBTI-REMOVE-01
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-web-sbti-remove-01
     base: main
     depends_on: []
@@ -299,7 +299,7 @@ prs:
 
   - id: PR-WEB-SBTI-REMOVE-02
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-web-sbti-remove-02
     base: main
     depends_on: [PR-WEB-SBTI-REMOVE-01]
@@ -330,7 +330,7 @@ prs:
 
   - id: IQ-FE-1
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/iq-fe-api-client-contracts
     base: main
     depends_on: []
@@ -345,7 +345,7 @@ prs:
 
   - id: IQ-FE-2
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/iq-fe-question-renderer-option-grid
     base: main
     depends_on: [IQ-FE-1]
@@ -360,7 +360,7 @@ prs:
 
   - id: IQ-FE-3
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/iq-fe-take-page-attempt-lifecycle
     base: main
     depends_on: [IQ-FE-2]
@@ -374,7 +374,7 @@ prs:
 
   - id: IQ-FE-4
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/iq-fe-result-page-dimensions
     base: main
     depends_on: [IQ-FE-1]
@@ -388,7 +388,7 @@ prs:
 
   - id: IQ-FE-5
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/iq-fe-report-module-deferred-commerce
     base: main
     depends_on: [IQ-FE-4]
@@ -402,7 +402,7 @@ prs:
 
   - id: IQ-FE-6
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/iq-fe-mobile-loading-error-polish
     base: main
     depends_on: [IQ-FE-3, IQ-FE-5]
@@ -416,7 +416,7 @@ prs:
 
   - id: IQ-FE-7
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/iq-fe-commerce-unlock
     base: main
     depends_on: [IQ-FE-5]
@@ -432,7 +432,7 @@ prs:
 
   - id: RIASEC-TRAIN-00
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/riasec-train-00-register-train
     base: main
     depends_on: []
@@ -466,7 +466,7 @@ prs:
 
   - id: RIASEC-TRAIN-01
     repo: fap-api
-    repo_path: /Users/rainie/Desktop/GitHub/fap-api
+    repo_path: <workspace>/fap-api
     branch: codex/riasec-train-01-measurement-contract
     base: main
     depends_on: [RIASEC-TRAIN-00]
@@ -503,7 +503,7 @@ prs:
 
   - id: RIASEC-TRAIN-02
     repo: fap-api
-    repo_path: /Users/rainie/Desktop/GitHub/fap-api
+    repo_path: <workspace>/fap-api
     branch: codex/riasec-train-02-projection-v2
     base: main
     depends_on: [RIASEC-TRAIN-01]
@@ -536,7 +536,7 @@ prs:
 
   - id: RIASEC-TRAIN-03
     repo: fap-api
-    repo_path: /Users/rainie/Desktop/GitHub/fap-api
+    repo_path: <workspace>/fap-api
     branch: codex/riasec-train-03-snapshot-report
     base: main
     depends_on: [RIASEC-TRAIN-02]
@@ -568,7 +568,7 @@ prs:
 
   - id: RIASEC-TRAIN-04
     repo: fap-api
-    repo_path: /Users/rainie/Desktop/GitHub/fap-api
+    repo_path: <workspace>/fap-api
     branch: codex/riasec-train-04-snapshot-surfaces
     base: main
     depends_on: [RIASEC-TRAIN-03]
@@ -600,7 +600,7 @@ prs:
 
   - id: RIASEC-TRAIN-05
     repo: fap-api
-    repo_path: /Users/rainie/Desktop/GitHub/fap-api
+    repo_path: <workspace>/fap-api
     branch: codex/riasec-train-05-technical-note
     base: main
     depends_on: [RIASEC-TRAIN-02]
@@ -632,7 +632,7 @@ prs:
 
   - id: RIASEC-TRAIN-06
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/riasec-train-06-trusted-result-shell
     base: main
     depends_on: [RIASEC-TRAIN-02, RIASEC-TRAIN-03]
@@ -665,7 +665,7 @@ prs:
 
   - id: RIASEC-TRAIN-07
     repo: fap-api
-    repo_path: /Users/rainie/Desktop/GitHub/fap-api
+    repo_path: <workspace>/fap-api
     branch: codex/riasec-train-07-activity-examples
     base: main
     depends_on: [RIASEC-TRAIN-02, RIASEC-TRAIN-05]
@@ -697,7 +697,7 @@ prs:
 
   - id: RIASEC-TRAIN-08
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/riasec-train-08-content-governance
     base: main
     depends_on: [RIASEC-TRAIN-05, RIASEC-TRAIN-06, RIASEC-TRAIN-07]
@@ -728,7 +728,7 @@ prs:
 
   - id: RIASEC-TRAIN-09
     repo: fap-api
-    repo_path: /Users/rainie/Desktop/GitHub/fap-api
+    repo_path: <workspace>/fap-api
     branch: codex/riasec-train-09-feedback-overlay
     base: main
     depends_on: [RIASEC-TRAIN-03, RIASEC-TRAIN-04]
@@ -761,7 +761,7 @@ prs:
 
   - id: RIASEC-TRAIN-10
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/riasec-train-10-freeze-contracts
     base: main
     depends_on: [RIASEC-TRAIN-01, RIASEC-TRAIN-02, RIASEC-TRAIN-03, RIASEC-TRAIN-04, RIASEC-TRAIN-05, RIASEC-TRAIN-06, RIASEC-TRAIN-07, RIASEC-TRAIN-08, RIASEC-TRAIN-09]
@@ -793,7 +793,7 @@ prs:
 
   - id: RIASEC-AH-01
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/riasec-ah-01-technical-note-route
     base: main
     depends_on: [RIASEC-TRAIN-05]
@@ -829,7 +829,7 @@ prs:
 
   - id: RIASEC-AH-02
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/riasec-ah-02-runtime-analytics
     base: main
     depends_on: [RIASEC-AH-01, RIASEC-TRAIN-10]
@@ -867,7 +867,7 @@ prs:
 
   - id: RIASEC-AH-03
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/riasec-ah-03-ledger-reconcile
     base: main
     depends_on: [RIASEC-AH-02]
@@ -899,7 +899,7 @@ prs:
 
   - id: RIASEC-AH-04
     repo: fap-api
-    repo_path: /Users/rainie/Desktop/GitHub/fap-api
+    repo_path: <workspace>/fap-api
     branch: codex/riasec-ah-04-activity-examples
     base: main
     depends_on: [RIASEC-AH-03, RIASEC-TRAIN-07]
@@ -932,7 +932,7 @@ prs:
 
   - id: RIASEC-AH-05
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/riasec-ah-05-smoke-acceptance
     base: main
     depends_on: [RIASEC-AH-01, RIASEC-AH-02, RIASEC-AH-03, RIASEC-AH-04]
@@ -966,7 +966,7 @@ prs:
 
   - id: PR-RT-01
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-rt-01-article-runtime-truth-gate
     base: main
     depends_on: []
@@ -1011,7 +1011,7 @@ prs:
 
   - id: RIASEC-PERSONALIZATION-00
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/riasec-personalization-00-train-registration
     base: main
     depends_on: []
@@ -1053,7 +1053,7 @@ prs:
 
   - id: RIASEC-PERSONALIZATION-01
     repo: fap-api
-    repo_path: /Users/rainie/Desktop/GitHub/fap-api
+    repo_path: <workspace>/fap-api
     branch: codex/riasec-personalization-01-interpretation-contract
     base: main
     depends_on: [RIASEC-PERSONALIZATION-00]
@@ -1096,7 +1096,7 @@ prs:
 
   - id: RIASEC-PERSONALIZATION-02
     repo: fap-api
-    repo_path: /Users/rainie/Desktop/GitHub/fap-api
+    repo_path: <workspace>/fap-api
     branch: codex/riasec-personalization-02-quality-contract
     base: main
     depends_on: [RIASEC-PERSONALIZATION-01]
@@ -1137,7 +1137,7 @@ prs:
 
   - id: RIASEC-PERSONALIZATION-03
     repo: fap-api
-    repo_path: /Users/rainie/Desktop/GitHub/fap-api
+    repo_path: <workspace>/fap-api
     branch: codex/riasec-personalization-03-projection-extension
     base: main
     depends_on: [RIASEC-PERSONALIZATION-01, RIASEC-PERSONALIZATION-02]
@@ -1179,7 +1179,7 @@ prs:
 
   - id: RIASEC-PERSONALIZATION-04
     repo: fap-api
-    repo_path: /Users/rainie/Desktop/GitHub/fap-api
+    repo_path: <workspace>/fap-api
     branch: codex/riasec-personalization-04-module-selector
     base: main
     depends_on: [RIASEC-PERSONALIZATION-03]
@@ -1223,7 +1223,7 @@ prs:
 
   - id: RIASEC-PERSONALIZATION-05
     repo: fap-api
-    repo_path: /Users/rainie/Desktop/GitHub/fap-api
+    repo_path: <workspace>/fap-api
     branch: codex/riasec-personalization-05-content-registry-readiness
     base: main
     depends_on: [RIASEC-PERSONALIZATION-04]
@@ -1266,7 +1266,7 @@ prs:
 
   - id: RIASEC-PERSONALIZATION-06
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/riasec-personalization-06-frontend-fail-closed
     base: main
     depends_on: [RIASEC-PERSONALIZATION-03, RIASEC-PERSONALIZATION-04]
@@ -1310,7 +1310,7 @@ prs:
 
   - id: RIASEC-PERSONALIZATION-07
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/riasec-personalization-07-fixture-matrix
     base: main
     depends_on:
@@ -1356,7 +1356,7 @@ prs:
 
   - id: RIASEC-DEEP-COPY-00
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/riasec-deep-copy-00
     base: main
     depends_on: [RIASEC-PERSONALIZATION-07]
@@ -1396,7 +1396,7 @@ prs:
 
   - id: RIASEC-DEEP-COPY-01
     repo: fap-api
-    repo_path: /Users/rainie/Desktop/GitHub/fap-api
+    repo_path: <workspace>/fap-api
     branch: codex/riasec-deep-copy-01-slot-schema
     base: main
     depends_on: [RIASEC-DEEP-COPY-00]
@@ -1436,7 +1436,7 @@ prs:
 
   - id: RIASEC-DEEP-COPY-02
     repo: fap-api
-    repo_path: /Users/rainie/Desktop/GitHub/fap-api
+    repo_path: <workspace>/fap-api
     branch: codex/riasec-deep-copy-02-registry-loader
     base: main
     depends_on: [RIASEC-DEEP-COPY-01]
@@ -1474,7 +1474,7 @@ prs:
 
   - id: RIASEC-DEEP-COPY-03
     repo: fap-api
-    repo_path: /Users/rainie/Desktop/GitHub/fap-api
+    repo_path: <workspace>/fap-api
     branch: codex/riasec-deep-copy-03-dimension-copy
     base: main
     depends_on: [RIASEC-DEEP-COPY-02]
@@ -1514,7 +1514,7 @@ prs:
 
   - id: RIASEC-DEEP-COPY-04
     repo: fap-api
-    repo_path: /Users/rainie/Desktop/GitHub/fap-api
+    repo_path: <workspace>/fap-api
     branch: codex/riasec-deep-copy-04-pair-blend
     base: main
     depends_on: [RIASEC-DEEP-COPY-02]
@@ -1552,7 +1552,7 @@ prs:
 
   - id: RIASEC-DEEP-COPY-05
     repo: fap-api
-    repo_path: /Users/rainie/Desktop/GitHub/fap-api
+    repo_path: <workspace>/fap-api
     branch: codex/riasec-deep-copy-05-140q-narratives
     base: main
     depends_on: [RIASEC-DEEP-COPY-02]
@@ -1592,7 +1592,7 @@ prs:
 
   - id: RIASEC-DEEP-COPY-06
     repo: fap-api
-    repo_path: /Users/rainie/Desktop/GitHub/fap-api
+    repo_path: <workspace>/fap-api
     branch: codex/riasec-deep-copy-06-quality-aspirations-feedback-copy
     base: main
     depends_on: [RIASEC-DEEP-COPY-02]
@@ -1632,7 +1632,7 @@ prs:
 
   - id: RIASEC-DEEP-COPY-07
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/riasec-deep-copy-07-frontend-consumer
     base: main
     depends_on:
@@ -1677,7 +1677,7 @@ prs:
 
   - id: RIASEC-DEEP-COPY-08
     repo: fap-api
-    repo_path: /Users/rainie/Desktop/GitHub/fap-api
+    repo_path: <workspace>/fap-api
     branch: codex/riasec-deep-copy-08-copy-import-dry-run
     base: main
     depends_on:
@@ -1717,7 +1717,7 @@ prs:
 
   - id: RIASEC-DEEP-COPY-09
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/riasec-deep-copy-09-contract-fixtures
     base: main
     depends_on:
@@ -1755,7 +1755,7 @@ prs:
 
   - id: RIASEC-DEEP-COPY-10
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/riasec-deep-copy-10-acceptance-freeze
     base: main
     depends_on:
@@ -1795,7 +1795,7 @@ prs:
 
   - id: RIASEC-V11-LAUNCH-ACCEPTANCE-00
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/riasec-v11-launch-acceptance-00
     base: main
     depends_on:
@@ -1840,7 +1840,7 @@ prs:
 
   - id: RIASEC-DEEP-COPY-08B
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/riasec-deep-copy-08b-frontend-renderer
     base: main
     depends_on:
@@ -1891,7 +1891,7 @@ prs:
 
   - id: RIASEC-V11-LIVE-FIX-01
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/riasec-v11-live-fix-01
     base: main
     depends_on:
@@ -1951,7 +1951,7 @@ prs:
 
   - id: PR-CMS-02
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-cms-02-content-release-revalidate-web
     base: main
     depends_on: []
@@ -1993,7 +1993,7 @@ prs:
 
   - id: PR-TRACK-01
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-track-01-ga4-baidu-google-ads-activation
     base: main
     depends_on: []
@@ -2036,8 +2036,8 @@ prs:
       - Baidu Tongji remains analytics-only; no Baidu Ads bp.js is introduced.
       - No GTM, SEO/GEO, recommendation, profile, checkout, entitlement, or scoring files are changed.
     must_not_touch:
-      - /Users/rainie/Desktop/GitHub/fap-api
-      - /Users/rainie/Desktop/GitHub/fap-api/fap-web
+      - <workspace>/fap-api
+      - <workspace>/fap-api/fap-web
       - backend files
       - app/llms.txt/route.ts
       - app/llms-full.txt/route.ts
@@ -2052,7 +2052,7 @@ prs:
 
   - id: PR-SEO-01B
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-seo-01b-test-detail-softwareapplication-schema
     base: main
     depends_on: []
@@ -2100,8 +2100,8 @@ prs:
       - Private/noindex/take/result/order/share flows remain excluded.
       - Sitemap URL set and llms exposure are unchanged.
     must_not_touch:
-      - /Users/rainie/Desktop/GitHub/fap-api
-      - /Users/rainie/Desktop/GitHub/fap-api/fap-web
+      - <workspace>/fap-api
+      - <workspace>/fap-api/fap-web
       - app/llms.txt/route.ts
       - app/llms-full.txt/route.ts
       - next-sitemap.config.js
@@ -2114,7 +2114,7 @@ prs:
 
   - id: PR-SEO-01C
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-seo-01c-canonical-authority-contract
     base: main
     depends_on: [PR-SEO-01B]
@@ -2166,8 +2166,8 @@ prs:
       - i18n SEO Passport still preserves x-default and does not fabricate article sibling alternates.
       - Sitemap URL set, llms exposure, and Product/Offer/Review/AggregateRating schema remain unchanged.
     must_not_touch:
-      - /Users/rainie/Desktop/GitHub/fap-api
-      - /Users/rainie/Desktop/GitHub/fap-api/fap-web
+      - <workspace>/fap-api
+      - <workspace>/fap-api/fap-web
       - app/llms.txt/route.ts
       - app/llms-full.txt/route.ts
       - next-sitemap.config.js
@@ -2180,7 +2180,7 @@ prs:
 
   - id: PR-SEO-01D
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-seo-01d-cms-metadata-consumption-gate
     base: main
     depends_on: [PR-SEO-01C]
@@ -2233,8 +2233,8 @@ prs:
       - Missing cover alt does not invent hidden or fake metadata.
       - Sitemap URL set, llms exposure, and Product/Offer/Review/AggregateRating schema remain unchanged.
     must_not_touch:
-      - /Users/rainie/Desktop/GitHub/fap-api
-      - /Users/rainie/Desktop/GitHub/fap-api/fap-web
+      - <workspace>/fap-api
+      - <workspace>/fap-api/fap-web
       - app/llms.txt/route.ts
       - app/llms-full.txt/route.ts
       - next-sitemap.config.js
@@ -2247,7 +2247,7 @@ prs:
 
   - id: PR-HOME-01
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/homepage-recommended-cover-images
     base: main
     depends_on: []
@@ -2282,7 +2282,7 @@ prs:
       - Homepage routes still source recommended articles from backend landing surface authority.
       - No frontend hardcoded article content or image assets are introduced.
     must_not_touch:
-      - /Users/rainie/Desktop/GitHub/fap-api
+      - <workspace>/fap-api
       - article body content
       - public image assets
       - homepage landing surface configuration
@@ -2292,7 +2292,7 @@ prs:
 
   - id: EMAIL-RIASEC-02
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/email-riasec-02-frontend-guest-token-parity
     base: main
     depends_on: []
@@ -2339,8 +2339,8 @@ prs:
       - No email is added to URL, GA4, Google Ads, Baidu, or analytics payloads.
       - Sitemap/llms, backend, payment, recommendation, profile, memory, scoring, and attribution policy remain unchanged.
     must_not_touch:
-      - /Users/rainie/Desktop/GitHub/fap-api
-      - /Users/rainie/Desktop/GitHub/fap-api/fap-web
+      - <workspace>/fap-api
+      - <workspace>/fap-api/fap-web
       - app/llms.txt/route.ts
       - app/llms-full.txt/route.ts
       - next-sitemap.config.js
@@ -2355,7 +2355,7 @@ prs:
 
   - id: SEO-OPS-02
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/seo-ops-02-article-cta-utm-attempt-attribution
     base: main
     depends_on:
@@ -2421,8 +2421,8 @@ prs:
       - Google Ads purchase conversion behavior remains unchanged.
       - Sitemap/llms, backend, payment, recommendation, profile, memory, scoring, and public content remain unchanged.
     must_not_touch:
-      - /Users/rainie/Desktop/GitHub/fap-api
-      - /Users/rainie/Desktop/GitHub/fap-api/fap-web
+      - <workspace>/fap-api
+      - <workspace>/fap-api/fap-web
       - app/llms.txt/route.ts
       - app/llms-full.txt/route.ts
       - next-sitemap.config.js
@@ -2437,7 +2437,7 @@ prs:
 
   - id: SEO-OPS-02B
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/seo-ops-02b-article-cta-utm-attempt-meta
     base: main
     depends_on:
@@ -2495,8 +2495,8 @@ prs:
       - Google Ads purchase conversion behavior remains unchanged.
       - Sitemap/llms, backend, payment, recommendation, profile, memory, scoring, and public content remain unchanged.
     must_not_touch:
-      - /Users/rainie/Desktop/GitHub/fap-api
-      - /Users/rainie/Desktop/GitHub/fap-api/fap-web
+      - <workspace>/fap-api
+      - <workspace>/fap-api/fap-web
       - app/llms.txt/route.ts
       - app/llms-full.txt/route.ts
       - next-sitemap.config.js
@@ -2511,7 +2511,7 @@ prs:
 
   - id: SEO-OPS-02C
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/seo-ops-02c-visible-utm-navigation
     base: main
     depends_on:
@@ -2566,8 +2566,8 @@ prs:
       - Google Ads purchase conversion behavior remains unchanged.
       - Sitemap/llms, backend, payment, recommendation, profile, memory, scoring, and public content remain unchanged.
     must_not_touch:
-      - /Users/rainie/Desktop/GitHub/fap-api
-      - /Users/rainie/Desktop/GitHub/fap-api/fap-web
+      - <workspace>/fap-api
+      - <workspace>/fap-api/fap-web
       - app/llms.txt/route.ts
       - app/llms-full.txt/route.ts
       - next-sitemap.config.js
@@ -2582,7 +2582,7 @@ prs:
 
   - id: SEO-OPS-02D
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/seo-ops-02d-article-cms-cta-visible-attribution
     base: main
     depends_on:
@@ -2637,8 +2637,8 @@ prs:
       - Google Ads purchase conversion behavior remains unchanged.
       - Sitemap/llms, backend, payment, recommendation, profile, memory, scoring, and public content remain unchanged.
     must_not_touch:
-      - /Users/rainie/Desktop/GitHub/fap-api
-      - /Users/rainie/Desktop/GitHub/fap-api/fap-web
+      - <workspace>/fap-api
+      - <workspace>/fap-api/fap-web
       - app/llms.txt/route.ts
       - app/llms-full.txt/route.ts
       - next-sitemap.config.js
@@ -2653,7 +2653,7 @@ prs:
 
   - id: SEO-OPS-02E
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/seo-ops-02e-cms-markdown-cta-visible-attribution
     base: main
     depends_on:
@@ -2710,8 +2710,8 @@ prs:
       - Google Ads purchase conversion behavior and /api/track event semantics remain unchanged.
       - Sitemap/llms, backend, result pages, payment, recommendation, profile, memory, scoring, and public content remain unchanged.
     must_not_touch:
-      - /Users/rainie/Desktop/GitHub/fap-api
-      - /Users/rainie/Desktop/GitHub/fap-api/fap-web
+      - <workspace>/fap-api
+      - <workspace>/fap-api/fap-web
       - app/llms.txt/route.ts
       - app/llms-full.txt/route.ts
       - next-sitemap.config.js
@@ -2727,7 +2727,7 @@ prs:
 
   - id: SEO-OPS-03
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/seo-ops-03-riasec-standard-funnel-events
     base: main
     depends_on:
@@ -2786,8 +2786,8 @@ prs:
       - purchase_success and pay_success remain the only Ads purchase conversion triggers.
       - Sitemap/llms, backend, payment, recommendation, profile, memory, scoring, and public content remain unchanged.
     must_not_touch:
-      - /Users/rainie/Desktop/GitHub/fap-api
-      - /Users/rainie/Desktop/GitHub/fap-api/fap-web
+      - <workspace>/fap-api
+      - <workspace>/fap-api/fap-web
       - app/llms.txt/route.ts
       - app/llms-full.txt/route.ts
       - next-sitemap.config.js
@@ -2802,7 +2802,7 @@ prs:
 
   - id: SEO-OPS-03B
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/seo-ops-03b-riasec-track-network-observability
     base: main
     depends_on:
@@ -2860,8 +2860,8 @@ prs:
       - start_attempt, submit_attempt, and view_result do not trigger Google Ads purchase conversion.
       - Sitemap/llms, backend, payment, recommendation, profile, memory, scoring, and public content remain unchanged.
     must_not_touch:
-      - /Users/rainie/Desktop/GitHub/fap-api
-      - /Users/rainie/Desktop/GitHub/fap-api/fap-web
+      - <workspace>/fap-api
+      - <workspace>/fap-api/fap-web
       - app/llms.txt/route.ts
       - app/llms-full.txt/route.ts
       - next-sitemap.config.js
@@ -2876,7 +2876,7 @@ prs:
 
   - id: SEO-OPS-04A
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/seo-ops-04a-mbti-funnel-unlock-observability
     base: main
     depends_on:
@@ -2938,8 +2938,8 @@ prs:
       - purchase_success and pay_success remain the only Ads purchase conversion triggers.
       - Sitemap/llms, backend, payment/order/report entitlement semantics, recommendation, profile, memory, scoring, and public content remain unchanged.
     must_not_touch:
-      - /Users/rainie/Desktop/GitHub/fap-api
-      - /Users/rainie/Desktop/GitHub/fap-api/fap-web
+      - <workspace>/fap-api
+      - <workspace>/fap-api/fap-web
       - app/llms.txt/route.ts
       - app/llms-full.txt/route.ts
       - next-sitemap.config.js
@@ -2955,7 +2955,7 @@ prs:
 
   - id: PR-GRAPH-01
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web-pr-graph
+    repo_path: <workspace>/fap-web-pr-graph
     branch: codex/pr-graph-01-multi-test-edges
     base: main
     depends_on:
@@ -2990,7 +2990,7 @@ prs:
       - related_test_slug remains the primary/backward-compatible field.
       - No frontend graph authority or hardcoded related articles are introduced.
     must_not_touch:
-      - /Users/rainie/Desktop/GitHub/fap-api
+      - <workspace>/fap-api
       - article body content
       - public image assets
       - sitemap/llms files
@@ -2999,7 +2999,7 @@ prs:
 
   - id: ARCH-SEO-CMS-01
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/arch-seo-cms-01-asset-map-ownership-contract
     base: main
     depends_on: []
@@ -3015,8 +3015,8 @@ prs:
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
     out_of_scope:
-      - /Users/rainie/Desktop/GitHub/fap-api changes
-      - /Users/rainie/Desktop/GitHub/fap-api/fap-web as production runtime
+      - <workspace>/fap-api changes
+      - <workspace>/fap-api/fap-web as production runtime
       - app/**
       - components/**
       - lib/**
@@ -3049,8 +3049,8 @@ prs:
       - Ownership contract keeps SEO 中台 observational and CMS content-authoritative.
       - No frontend runtime, backend runtime, sitemap/llms, tracking, commerce, report, email, recommendation, scoring, deployment, env, SSH, or cloud behavior changes.
     must_not_touch:
-      - /Users/rainie/Desktop/GitHub/fap-api
-      - /Users/rainie/Desktop/GitHub/fap-api/fap-web
+      - <workspace>/fap-api
+      - <workspace>/fap-api/fap-web
       - app/**
       - components/**
       - lib/**
@@ -3066,7 +3066,7 @@ prs:
     rollback_note: "Remove the SEO Intelligence readiness document, generated asset map artifact, scoped contract test, and ARCH-SEO-CMS-01 train metadata."
   - id: ARCH-SEO-CMS-02
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/arch-seo-cms-02-final-architecture-charter
     base: main
     depends_on:
@@ -3083,8 +3083,8 @@ prs:
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
     out_of_scope:
-      - /Users/rainie/Desktop/GitHub/fap-api changes
-      - /Users/rainie/Desktop/GitHub/fap-api/fap-web as production runtime
+      - <workspace>/fap-api changes
+      - <workspace>/fap-api/fap-web as production runtime
       - app/**
       - components/**
       - lib/**
@@ -3117,8 +3117,8 @@ prs:
       - SEO 中台 remains observation/attribution/drift/issue queue and cannot publish content or generate pSEO.
       - No frontend runtime, backend runtime, sitemap/llms, tracking, commerce, report, email, recommendation, scoring, deployment, env, DNS, CDN, COS/OSS, SSH, or cloud behavior changes.
     must_not_touch:
-      - /Users/rainie/Desktop/GitHub/fap-api
-      - /Users/rainie/Desktop/GitHub/fap-api/fap-web
+      - <workspace>/fap-api
+      - <workspace>/fap-api/fap-web
       - app/**
       - components/**
       - lib/**
@@ -3136,7 +3136,7 @@ prs:
 
   - id: BACKEND-RUNTIME-01C
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/backend-runtime-01c-api-edge-gateway-contract
     base: main
     depends_on:
@@ -3154,8 +3154,8 @@ prs:
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
     out_of_scope:
-      - /Users/rainie/Desktop/GitHub/fap-api changes
-      - /Users/rainie/Desktop/GitHub/fap-api/fap-web as production runtime
+      - <workspace>/fap-api changes
+      - <workspace>/fap-api/fap-web as production runtime
       - app/**
       - components/**
       - lib/**
@@ -3193,8 +3193,8 @@ prs:
       - RIASEC, Big Five, and Career Decision are not overclaimed as complete recommender runtime.
       - No frontend runtime, backend runtime, Node2, Node3, OpenResty, DNS, CDN, COS/OSS, database, sitemap/llms, tracking, commerce, report, email, recommendation, scoring, deployment, env, SSH, or cloud behavior changes.
     must_not_touch:
-      - /Users/rainie/Desktop/GitHub/fap-api
-      - /Users/rainie/Desktop/GitHub/fap-api/fap-web
+      - <workspace>/fap-api
+      - <workspace>/fap-api/fap-web
       - app/**
       - components/**
       - lib/**
@@ -3212,7 +3212,7 @@ prs:
 
   - id: BACKEND-RUNTIME-02A
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/backend-runtime-02a-edge-gateway-hardening-quarantine-plan
     base: main
     depends_on:
@@ -3229,8 +3229,8 @@ prs:
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
     out_of_scope:
-      - /Users/rainie/Desktop/GitHub/fap-api changes
-      - /Users/rainie/Desktop/GitHub/fap-api/fap-web as production runtime
+      - <workspace>/fap-api changes
+      - <workspace>/fap-api/fap-web as production runtime
       - app/**
       - components/**
       - lib/**
@@ -3267,8 +3267,8 @@ prs:
       - Recommended next task is BACKEND-RUNTIME-02B, not SEO-DASH-00.
       - No frontend runtime, backend runtime, Node2, Node3, OpenResty, DNS, CDN, COS/OSS, database, sitemap/llms, tracking, commerce, report, email, recommendation, scoring, deployment, env, SSH, or cloud behavior changes.
     must_not_touch:
-      - /Users/rainie/Desktop/GitHub/fap-api
-      - /Users/rainie/Desktop/GitHub/fap-api/fap-web
+      - <workspace>/fap-api
+      - <workspace>/fap-api/fap-web
       - app/**
       - components/**
       - lib/**
@@ -3286,7 +3286,7 @@ prs:
 
   - id: BACKEND-RUNTIME-02B
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/backend-runtime-02b-api-gateway-smoke-rollback-runbook
     base: main
     depends_on:
@@ -3303,8 +3303,8 @@ prs:
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
     out_of_scope:
-      - /Users/rainie/Desktop/GitHub/fap-api changes
-      - /Users/rainie/Desktop/GitHub/fap-api/fap-web as production runtime
+      - <workspace>/fap-api changes
+      - <workspace>/fap-api/fap-web as production runtime
       - app/**
       - components/**
       - lib/**
@@ -3342,8 +3342,8 @@ prs:
       - Recommended next task is BACKEND-RUNTIME-02C, not SEO-DASH-00.
       - No frontend runtime, backend runtime, Node2, Node3, OpenResty, DNS, CDN, COS/OSS, database, sitemap/llms, tracking, commerce, report, email, recommendation, scoring, deployment, env, SSH, or cloud behavior changes.
     must_not_touch:
-      - /Users/rainie/Desktop/GitHub/fap-api
-      - /Users/rainie/Desktop/GitHub/fap-api/fap-web
+      - <workspace>/fap-api
+      - <workspace>/fap-api/fap-web
       - app/**
       - components/**
       - lib/**
@@ -3361,7 +3361,7 @@ prs:
 
   - id: BACKEND-RUNTIME-02C
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/backend-runtime-02c-public-api-authority-acceptance-gate
     base: main
     depends_on:
@@ -3378,8 +3378,8 @@ prs:
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
     out_of_scope:
-      - /Users/rainie/Desktop/GitHub/fap-api changes
-      - /Users/rainie/Desktop/GitHub/fap-api/fap-web as production runtime
+      - <workspace>/fap-api changes
+      - <workspace>/fap-api/fap-web as production runtime
       - app/**
       - components/**
       - lib/**
@@ -3419,8 +3419,8 @@ prs:
       - If acceptance_status is partial or blocked, next task remains BACKEND-RUNTIME-02D/02E/02F rather than SEO-DASH-00.
       - No frontend runtime, backend runtime, Node2, Node3, OpenResty, DNS, CDN, COS/OSS, database, sitemap/llms, tracking, commerce, report, email, recommendation, scoring, deployment, env, SSH, or cloud behavior changes.
     must_not_touch:
-      - /Users/rainie/Desktop/GitHub/fap-api
-      - /Users/rainie/Desktop/GitHub/fap-api/fap-web
+      - <workspace>/fap-api
+      - <workspace>/fap-api/fap-web
       - app/**
       - components/**
       - lib/**
@@ -3438,7 +3438,7 @@ prs:
 
   - id: BACKEND-RUNTIME-02D
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/backend-runtime-02d-gateway-evidence-completion
     base: main
     depends_on:
@@ -3455,8 +3455,8 @@ prs:
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
     out_of_scope:
-      - /Users/rainie/Desktop/GitHub/fap-api changes
-      - /Users/rainie/Desktop/GitHub/fap-api/fap-web as production runtime
+      - <workspace>/fap-api changes
+      - <workspace>/fap-api/fap-web as production runtime
       - app/**
       - components/**
       - lib/**
@@ -3495,8 +3495,8 @@ prs:
       - Artifact sets SEO-DASH-00 unblocked only when acceptance_status is accepted.
       - No frontend runtime, backend runtime, Node2, Node3, OpenResty, DNS, CDN, COS/OSS, database, sitemap/llms, tracking, commerce, report, email, recommendation, scoring, deployment, env, or cloud behavior changes.
     must_not_touch:
-      - /Users/rainie/Desktop/GitHub/fap-api
-      - /Users/rainie/Desktop/GitHub/fap-api/fap-web
+      - <workspace>/fap-api
+      - <workspace>/fap-api/fap-web
       - app/**
       - components/**
       - lib/**
@@ -3514,7 +3514,7 @@ prs:
 
   - id: SEO-DASH-00B
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/seo-dash-00b-search-intelligence-data-contract
     base: main
     depends_on:
@@ -3531,8 +3531,8 @@ prs:
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
     out_of_scope:
-      - /Users/rainie/Desktop/GitHub/fap-api changes
-      - /Users/rainie/Desktop/GitHub/fap-api/fap-web as production runtime
+      - <workspace>/fap-api changes
+      - <workspace>/fap-api/fap-web as production runtime
       - app/**
       - components/**
       - lib/**
@@ -3574,8 +3574,8 @@ prs:
       - Next task is SEO-DASH-01.
       - No runtime, backend, tracking, payment, order, report, email, recommendation, scoring, sitemap/llms, env, deploy, SSH, cloud, or production behavior changes.
     must_not_touch:
-      - /Users/rainie/Desktop/GitHub/fap-api
-      - /Users/rainie/Desktop/GitHub/fap-api/fap-web
+      - <workspace>/fap-api
+      - <workspace>/fap-api/fap-web
       - app/**
       - components/**
       - lib/**
@@ -3592,7 +3592,7 @@ prs:
 
   - id: AUDIT-WEB-CMS-LINK-XSS
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/audit-web-cms-link-xss
     base: main
     global_sequence: 1
@@ -3644,7 +3644,7 @@ prs:
 
   - id: AUDIT-WEB-ANALYTICS-CONSENT-REDACTION
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/audit-web-analytics-consent-redaction
     base: main
     global_sequence: 3
@@ -3708,7 +3708,7 @@ prs:
 
   - id: AUDIT-WEB-CAREER-SEO-AUTHORITY
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/audit-web-career-seo-authority
     base: main
     global_sequence: 4
@@ -3760,7 +3760,7 @@ prs:
 
   - id: AUDIT-WEB-LLMS-FANOUT-BUDGET
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/audit-web-llms-fanout-budget
     base: main
     global_sequence: 5
@@ -3812,7 +3812,7 @@ prs:
 
   - id: SEO-DASH-03A
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/seo-dash-03a-fap-web-tracking-fields
     base: main
     depends_on:
@@ -3864,7 +3864,7 @@ prs:
 
   - id: PUBLISH-WEB-CONTENT-CACHE-PURGE
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/publish-web-content-cache-purge
     base: main
     depends_on:
@@ -3917,7 +3917,7 @@ prs:
 
   - id: RIASEC-FULL-CONTENT-PACK-00
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/riasec-full-content-pack-00
     base: main
     depends_on: []
@@ -3957,7 +3957,7 @@ prs:
 
   - id: RIASEC-FULL-CONTENT-PACK-01
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/riasec-full-content-pack-01
     base: main
     depends_on:
@@ -4001,7 +4001,7 @@ prs:
 
   - id: RIASEC-FULL-CONTENT-PACK-02B
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/riasec-full-content-pack-02b-medium-reading
     base: main
     depends_on:
@@ -4046,7 +4046,7 @@ prs:
 
   - id: CAREER-PHASE-5B-FU2-POLICY-PACK
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/career-phase-5b-fu2-taxonomy-policy-pack
     base: main
     depends_on: []
@@ -4095,7 +4095,7 @@ prs:
 
   - id: RIASEC-TAKE-FLOW-01
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/riasec-take-flow-01
     base: main
     depends_on: []
@@ -4154,7 +4154,7 @@ prs:
 
   - id: OPS-CI-CODESCAN-WEB-01
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/ops-ci-codescan-web-01
     base: main
     depends_on: []
@@ -4189,7 +4189,7 @@ prs:
 
   - id: WEB-CODEQL-RUNTIME-HTML-01
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/web-codeql-runtime-html-01
     base: main
     depends_on:
@@ -4230,7 +4230,7 @@ prs:
 
   - id: WEB-CODEQL-ANALYTICS-ID-01
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/web-codeql-analytics-id-01
     base: main
     depends_on:
@@ -4268,7 +4268,7 @@ prs:
 
   - id: WEB-CODEQL-SEO-SCRIPTS-URL-01
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/web-codeql-seo-scripts-url-01
     base: main
     depends_on:
@@ -4315,7 +4315,7 @@ prs:
 
   - id: WEB-CODEQL-CONTRACT-HARNESS-01
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/web-codeql-contract-harness-01
     base: main
     depends_on:
@@ -4361,7 +4361,7 @@ prs:
 
   - id: WEB-CODEQL-E2E-TEMPFILES-01
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/web-codeql-e2e-tempfiles-01
     base: main
     depends_on:
@@ -4410,7 +4410,7 @@ prs:
 
   - id: PR-RESEARCH-02
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-research-02
     base: main
     depends_on:
@@ -4460,7 +4460,7 @@ prs:
 
   - id: RIASEC-FULL-CONTENT-PACK-10-FE
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/riasec-full-content-pack-10-fe
     base: main
     depends_on:
@@ -4506,7 +4506,7 @@ prs:
 
   - id: RIASEC-FULL-CONTENT-PACK-11-FE
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/riasec-full-content-pack-11-fe
     base: main
     depends_on:
@@ -4551,7 +4551,7 @@ prs:
 
   - id: RIASEC-FULL-CONTENT-PACK-12
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/riasec-full-content-pack-12
     base: main
     depends_on:
@@ -4604,7 +4604,7 @@ prs:
 
   - id: RIASEC-FULL-CONTENT-PACK-13-FE
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/riasec-full-content-pack-13-fe
     base: main
     depends_on:
@@ -4647,7 +4647,7 @@ prs:
 
   - id: RIASEC-FULL-CONTENT-PACK-14
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/riasec-full-content-pack-14
     base: main
     depends_on:
@@ -4688,7 +4688,7 @@ prs:
 
   - id: PR-WEB-SEC-01
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-web-sec-01-eq-v5-report-gate
     base: main
     depends_on: []
@@ -4740,7 +4740,7 @@ prs:
 
   - id: PR-WEB-SEC-02
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-web-sec-02-research-publication-guard
     base: main
     depends_on: [PR-WEB-SEC-01]
@@ -4793,7 +4793,7 @@ prs:
 
   - id: PR-WEB-SEC-03
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-web-sec-03-riasec-landing-path-sanitize
     base: main
     depends_on: [PR-WEB-SEC-02]
@@ -4846,7 +4846,7 @@ prs:
 
   - id: PR-WEB-SEC-04
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-web-sec-04-tracking-attribution-whitelist
     base: main
     depends_on: [PR-WEB-SEC-03]
@@ -4900,7 +4900,7 @@ prs:
 
   - id: PR-WEB-SEC-05
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-web-sec-05-docs-infra-redaction
     base: main
     depends_on: [PR-WEB-SEC-04]
@@ -4954,7 +4954,7 @@ prs:
 
   - id: PR-WEB-SEC-06
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-web-sec-06-ci-action-policy-parser
     base: main
     depends_on: [PR-WEB-SEC-05]
@@ -5007,7 +5007,7 @@ prs:
 
   - id: PR-WEB-SEC-07
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-web-sec-07-anon-crypto-fallback
     base: main
     depends_on: [PR-WEB-SEC-06]
@@ -5058,7 +5058,7 @@ prs:
     rollback_note: "Restore previous anonymous ID fallback generation if required."
   - id: PR-WEB-SEC-08
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-web-sec-08-vitest-hoisted-fixture
     base: main
     depends_on: [PR-WEB-SEC-07]
@@ -5105,7 +5105,7 @@ prs:
 
   - id: PR-WEB-SEC-09
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-web-sec-09-riasec-token-reuse
     base: main
     depends_on: [PR-WEB-SEC-08]
@@ -5155,7 +5155,7 @@ prs:
 
   - id: PR-WEB-SEC-10
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-web-sec-10-iq-dimension-null-guard
     base: main
     depends_on: [PR-WEB-SEC-09]
@@ -5203,7 +5203,7 @@ prs:
 
   - id: PR-WEB-SEC-11
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-web-sec-11-developer-path-redaction
     base: main
     depends_on: [PR-WEB-SEC-10]
@@ -5260,7 +5260,7 @@ prs:
 
   - id: PR-WEB-SEC-12
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-web-sec-12-career-index-gate
     base: main
     depends_on: [PR-WEB-SEC-11]
@@ -5309,7 +5309,7 @@ prs:
 
   - id: PR-WEB-SEC-13
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-web-sec-13-root-not-found-layout
     base: main
     depends_on: [PR-WEB-SEC-12]
@@ -5358,7 +5358,7 @@ prs:
 
   - id: PR-WEB-SEC-14
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-web-sec-14-e2e-fixture-env-guards
     base: main
     depends_on: [PR-WEB-SEC-13]
@@ -5407,7 +5407,7 @@ prs:
 
   - id: PR-WEB-SEC-15
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-web-sec-15-big5-v2-array-guards
     base: main
     depends_on: [PR-WEB-SEC-14]
@@ -5455,7 +5455,7 @@ prs:
 
   - id: PR-WEB-SEC-16
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-web-sec-16-staging-smoke-separator
     base: main
     depends_on: [PR-WEB-SEC-15]
@@ -5504,7 +5504,7 @@ prs:
 
   - id: PR-WEB-SEC-17
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-web-sec-17-staging-validator-exact-count
     base: main
     depends_on: [PR-WEB-SEC-16]
@@ -5551,7 +5551,7 @@ prs:
 
   - id: PR-WEB-SEC-18
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-web-sec-18-cms-health-timeout
     base: main
     depends_on: [PR-WEB-SEC-17]
@@ -5599,7 +5599,7 @@ prs:
 
   - id: PR-WEB-SEC-19
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-web-sec-19-dataset-url-allowlist
     base: main
     depends_on: [PR-WEB-SEC-18]
@@ -5648,7 +5648,7 @@ prs:
 
   - id: PR-WEB-SEC-20
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-web-sec-20-anon-rollout-bucketing
     base: main
     depends_on: [PR-WEB-SEC-19]
@@ -5697,7 +5697,7 @@ prs:
 
   - id: PR-WEB-SEC-21
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-web-sec-21-animated-counter-reduced-motion
     base: main
     depends_on: [PR-WEB-SEC-20]
@@ -5744,7 +5744,7 @@ prs:
 
   - id: PR-WEB-SEC-22
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-web-sec-22-result-retry-credentials
     base: main
     depends_on: [PR-WEB-SEC-21]
@@ -5793,7 +5793,7 @@ prs:
 
   - id: PR-WEB-SEC-23
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-web-sec-23-big5-comparative-fallback
     base: main
     depends_on: [PR-WEB-SEC-22]
@@ -5841,7 +5841,7 @@ prs:
 
   - id: PR-WEB-SEC-24
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-web-sec-24-mbti-draft-form-guard
     base: main
     depends_on: [PR-WEB-SEC-23]
@@ -5889,7 +5889,7 @@ prs:
 
   - id: PR-WEB-SEC-25
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-web-sec-25-mbti-offer-hash
     base: main
     depends_on: [PR-WEB-SEC-24]
@@ -5937,7 +5937,7 @@ prs:
 
   - id: PR-WEB-SEC-26
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-web-sec-26-mbti-score-pct-fallback
     base: main
     depends_on: [PR-WEB-SEC-25]
@@ -5986,7 +5986,7 @@ prs:
 
   - id: PR-WEB-SEC-27
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-web-sec-27-footer-qr-toggle
     base: main
     depends_on: [PR-WEB-SEC-26]
@@ -6033,7 +6033,7 @@ prs:
 
   - id: PR-WEB-SEC-28
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-web-sec-28-take-submit-lockout
     base: main
     depends_on: [PR-WEB-SEC-27]
@@ -6082,7 +6082,7 @@ prs:
 
   - id: PR-WEB-SEC-29
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-web-sec-29-result-tracking-whitelist
     base: main
     depends_on: [PR-WEB-SEC-28]
@@ -6131,7 +6131,7 @@ prs:
 
   - id: PR-WEB-SEC-30
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-web-sec-30-deploy-runbook-redaction
     base: main
     depends_on: [PR-WEB-SEC-29]
@@ -6178,7 +6178,7 @@ prs:
 
   - id: PR-WEB-SEC-31
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/pr-web-sec-31-clinical-session-storage-guard
     base: main
     depends_on: [PR-WEB-SEC-30]

@@ -129,6 +129,20 @@ const PR_WEB_SEC_10_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const PR_WEB_SEC_11_ALLOWED_FILES = new Set([
+  "docs/claims/generated/semantic-claim-scanner-baseline.v1.json",
+  "docs/claims/semantic-claim-scanner-baseline.md",
+  "docs/codex/pr-train-scb-state.json",
+  "docs/codex/pr-train-scb.yaml",
+  "docs/codex/pr-train-uasp2b-state.json",
+  "docs/codex/pr-train-uasp2b.yaml",
+  "docs/mbti-desktop-first-screen-convergence.md",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "tests/contracts/semantic-claim-scanner-baseline.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (CURRENT_BRANCH === "codex/pr-web-sec-01-eq-v5-report-gate") {
     return PR_WEB_SEC_01_ALLOWED_FILES.has(file);
@@ -168,6 +182,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/pr-web-sec-10-iq-dimension-null-guard") {
     return PR_WEB_SEC_10_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/pr-web-sec-11-developer-path-redaction") {
+    return PR_WEB_SEC_11_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/research-report-metadata") {
