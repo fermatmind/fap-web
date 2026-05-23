@@ -166,6 +166,15 @@ const PR_WEB_SEC_13_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const PR_WEB_SEC_14_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "playwright.config.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/e2e/enneagram-phase1b-rendered-preview.spec.ts",
+  "tests/e2e/enneagram-phase3b-1rd-partial-resonance-rendered-preview.spec.ts",
+]);
+
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (CURRENT_BRANCH === "codex/pr-web-sec-01-eq-v5-report-gate") {
     return PR_WEB_SEC_01_ALLOWED_FILES.has(file);
@@ -217,6 +226,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/pr-web-sec-13-root-not-found-layout") {
     return PR_WEB_SEC_13_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/pr-web-sec-14-e2e-fixture-env-guards") {
+    return PR_WEB_SEC_14_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/research-report-metadata") {

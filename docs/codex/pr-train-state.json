@@ -8119,7 +8119,7 @@
       "depends_on": [
         "PR-WEB-SEC-12"
       ],
-      "status": "pr_open_github_checks_pending",
+      "status": "merged",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "fix(audit): keep not-found inside valid root layout",
@@ -8154,14 +8154,26 @@
           ]
         },
         "github": {
+          "status": "passed",
+          "pr_url": "https://github.com/fermatmind/fap-web/pull/872",
+          "head_sha": "ab9549fc4510776bafe16881b9bf82fd70179d05",
+          "merge_commit": "9a4a83f2d5c2bd74a6bf5f4110bcd7968e8b45fb",
+          "passed": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "analyze (javascript-typescript)",
+            "CodeQL"
+          ]
         }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/872",
-      "commit_sha": "0286136dffda214434f5a41e2bfc6f7535c70139",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "9a4a83f2d5c2bd74a6bf5f4110bcd7968e8b45fb",
+      "merged_at": "2026-05-23T23:35:59Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-24T06:27:02+08:00",
@@ -8182,12 +8194,17 @@
           "at": "2026-05-24T07:32:05+08:00",
           "status": "pr_open_github_checks_pending",
           "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/872 from scoped commit 0286136dffda214434f5a41e2bfc6f7535c70139; waiting for GitHub checks."
+        },
+        {
+          "at": "2026-05-24T07:37:11+08:00",
+          "status": "ledger_reconciled_merged",
+          "summary": "Reconciled PR-WEB-SEC-13 after GitHub PR #872 merged; origin/main contains merge commit 9a4a83f2d5c2bd74a6bf5f4110bcd7968e8b45fb, required checks passed, remote branch deletion was observed, local cleanup ran, and post-merge focused not-found revalidation passed."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T07:32:05+08:00"
+      "updated_at": "2026-05-24T07:37:11+08:00"
     },
     {
       "id": "PR-WEB-SEC-14",
@@ -8198,7 +8215,7 @@
       "depends_on": [
         "PR-WEB-SEC-13"
       ],
-      "status": "planned",
+      "status": "local_checks_passed",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "test(audit): guard optional preview E2E fixtures",
@@ -8216,6 +8233,17 @@
       ],
       "checks": {
         "local": {
+          "status": "passed",
+          "passed": [
+            "pnpm exec playwright test --list",
+            "pnpm typecheck",
+            "pnpm test:contract",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+            "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"'",
+            "git diff --check",
+            "git diff --cached --check",
+            "scope validation"
+          ]
         },
         "github": {
         }
@@ -8231,12 +8259,22 @@
           "at": "2026-05-24T06:27:02+08:00",
           "status": "planned",
           "summary": "Initialized PR-WEB-SEC-14 from authorized fap-web security findings train expansion."
+        },
+        {
+          "at": "2026-05-24T07:37:11+08:00",
+          "status": "in_progress",
+          "summary": "Started PR-WEB-SEC-14 from latest main after reconciling merged PR-WEB-SEC-13; guarding optional rendered-preview E2E fixture discovery."
+        },
+        {
+          "at": "2026-05-24T07:41:41+08:00",
+          "status": "local_checks_passed",
+          "summary": "Playwright discovery list, typecheck, full contract suite, production API build, manifest/state parse, diff check, and scope validation passed for PR-WEB-SEC-14."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T06:27:02+08:00"
+      "updated_at": "2026-05-24T07:41:41+08:00"
     },
     {
       "id": "PR-WEB-SEC-15",

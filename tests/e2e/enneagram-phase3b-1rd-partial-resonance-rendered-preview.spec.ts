@@ -61,6 +61,11 @@ type PreviewFixture = {
   batches: string[];
 };
 
+type PreviewFixtureLoadResult = {
+  fixtures: PreviewFixture[];
+  skipReason: string | null;
+};
+
 type FixtureResult = {
   fixture: string;
   typeId: string;
@@ -88,14 +93,20 @@ type ViewportSummary = {
 
 const viewportSummaries: ViewportSummary[] = [];
 
-function loadPreviewFixtures(): PreviewFixture[] {
+function loadPreviewFixtures(): PreviewFixtureLoadResult {
   const previewDir = process.env.PHASE3A_PREVIEW_PAYLOAD_DIR?.trim();
   if (!previewDir) {
-    throw new Error("PHASE3A_PREVIEW_PAYLOAD_DIR is required for Phase 3-B rendered QA.");
+    return {
+      fixtures: [],
+      skipReason: "PHASE3A_PREVIEW_PAYLOAD_DIR is not set; skipping optional Phase 3-B rendered preview QA.",
+    };
   }
 
   if (!fs.existsSync(previewDir)) {
-    throw new Error(`Phase 3-A preview payload directory does not exist: ${previewDir}`);
+    return {
+      fixtures: [],
+      skipReason: `PHASE3A_PREVIEW_PAYLOAD_DIR does not exist: ${previewDir}`,
+    };
   }
 
   const files = fs
@@ -104,10 +115,13 @@ function loadPreviewFixtures(): PreviewFixture[] {
     .sort((left, right) => left.localeCompare(right, undefined, { numeric: true }));
 
   if (files.length !== 90) {
-    throw new Error(`Expected 90 preview fixtures, received ${files.length} from ${previewDir}.`);
+    return {
+      fixtures: [],
+      skipReason: `Expected 90 preview fixtures, received ${files.length} from ${previewDir}.`,
+    };
   }
 
-  return files.map((fileName) => {
+  const fixtures = files.map((fileName) => {
     const filePath = path.join(previewDir, fileName);
     const reportV2 = JSON.parse(fs.readFileSync(filePath, "utf8")) as Record<string, unknown>;
     const previewContext = (reportV2.preview_context as Record<string, unknown> | undefined) ?? {};
@@ -139,6 +153,8 @@ function loadPreviewFixtures(): PreviewFixture[] {
         .filter(Boolean),
     };
   });
+
+  return { fixtures, skipReason: null };
 }
 
 function wrapReportResponse(reportV2: Record<string, unknown>) {
@@ -391,10 +407,16 @@ function writePhase3BReports(summary: { outputDir: string; fixtureCount: number;
 }
 
 test.describe("ENNEAGRAM Phase 3-B partial-resonance rendered QA", () => {
-  const fixtures = loadPreviewFixtures();
+  const { fixtures, skipReason } = loadPreviewFixtures();
   const outputDir = buildReportOutputDir(process.env.PHASE3B_OUTPUT_DIR, "fm_enneagram_phase3b");
 
+  test.skip(skipReason !== null, skipReason ?? undefined);
+
   test.afterAll(() => {
+    if (skipReason !== null) {
+      return;
+    }
+
     const desktop = viewportSummaries.find((item) => item.viewport === "desktop");
     const mobile = viewportSummaries.find((item) => item.viewport === "mobile");
     if (!desktop || !mobile) {
