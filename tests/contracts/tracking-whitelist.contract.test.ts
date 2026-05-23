@@ -1,6 +1,22 @@
+import { NextRequest } from "next/server";
+import { afterEach, vi } from "vitest";
+import { POST as postTrackingEvent } from "@/app/api/track/route";
 import { TRACKING_EVENTS, filterTrackingPayload } from "@/lib/tracking/events";
 
+const TRACKING_ENV_KEYS = [
+  "ANALYTICS_ENDPOINT",
+  "MBTI_ATTRIBUTION_INGEST_ENDPOINT",
+  "EDM_ENDPOINT",
+  "CAREER_ATTRIBUTION_INGEST_ENDPOINT",
+  "TRACK_INGEST_TOKEN",
+  "VERCEL_ENV",
+] as const;
+
 describe("tracking whitelist contract", () => {
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
   it("keeps speculative career events out of the supported tracking vocabulary", () => {
     expect(Object.values(TRACKING_EVENTS)).toContain("career_family_hub_view");
     expect(Object.values(TRACKING_EVENTS)).toContain("career_family_hub_child_click");
@@ -556,6 +572,82 @@ describe("tracking whitelist contract", () => {
       session_id: "anon-session-1",
       locale: "zh",
     });
+  });
+
+  it("derives public track endpoint attribution labels instead of trusting spoofed payload labels", async () => {
+    const previousEnv = Object.fromEntries(
+      TRACKING_ENV_KEYS.map((key) => [key, process.env[key]])
+    ) as Record<(typeof TRACKING_ENV_KEYS)[number], string | undefined>;
+    for (const key of TRACKING_ENV_KEYS) {
+      delete process.env[key];
+    }
+    process.env.ANALYTICS_ENDPOINT = "https://analytics.example.test/ingest";
+    process.env.TRACK_INGEST_TOKEN = "track-token";
+    process.env.VERCEL_ENV = "production";
+
+    const fetchMock = vi.spyOn(globalThis, "fetch").mockResolvedValue(new Response(null, { status: 204 }));
+
+    try {
+      const response = await postTrackingEvent(new NextRequest("https://fermatmind.com/api/track", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          "user-agent": "Googlebot/2.1",
+          referer: "https://www.baidu.com/s?wd=riasec",
+        },
+        body: JSON.stringify({
+          eventName: TRACKING_EVENTS.START_ATTEMPT,
+          anonymousId: "anon-public-track",
+          path: "/zh/tests/holland-career-interest-test-riasec/take?utm_source=baidu",
+          timestamp: "2026-05-24T00:00:00.000Z",
+          payload: {
+            slug: "holland-career-interest-test-riasec",
+            test_slug: "holland-career-interest-test-riasec",
+            scale_code: "RIASEC",
+            source_engine: "google",
+            consent_state: "denied",
+            is_internal: true,
+            is_qa: false,
+            is_bot: false,
+            environment: "development",
+            traffic_quality: "production_user",
+            utm_source: "baidu",
+            landing_path: "/zh/tests/holland-career-interest-test-riasec/take?utm_source=baidu",
+            locale: "zh",
+          },
+        }),
+      }));
+
+      expect(response.status).toBe(200);
+      expect(fetchMock).toHaveBeenCalledTimes(1);
+      const [, init] = fetchMock.mock.calls[0];
+      const forwarded = JSON.parse(String(init?.body)) as {
+        payload: Record<string, unknown>;
+      };
+
+      expect(forwarded.payload).toMatchObject({
+        source_engine: "baidu",
+        consent_state: "granted",
+        is_internal: false,
+        is_qa: false,
+        is_bot: true,
+        environment: "production",
+        traffic_quality: "bot",
+      });
+      expect(forwarded.payload.source_engine).not.toBe("google");
+      expect(forwarded.payload.consent_state).not.toBe("denied");
+      expect(forwarded.payload.environment).not.toBe("development");
+      expect(forwarded.payload.traffic_quality).not.toBe("production_user");
+    } finally {
+      for (const key of TRACKING_ENV_KEYS) {
+        const value = previousEnv[key];
+        if (value === undefined) {
+          delete process.env[key];
+        } else {
+          process.env[key] = value;
+        }
+      }
+    }
   });
 
   it("keeps scene block attribution payload for entry click events", () => {

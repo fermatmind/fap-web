@@ -265,6 +265,29 @@ export function buildSearchIntelligenceTrackingPayload({
   };
 }
 
+export function buildPublicTrackingServerLabels({
+  payload,
+  path,
+  referrer,
+  userAgent,
+  environment,
+}: {
+  payload: Record<string, unknown>;
+  path?: string | null;
+  referrer?: string | null;
+  userAgent?: string | null;
+  environment?: string | null;
+}): SearchIntelligenceTrackingPayload {
+  return buildSearchIntelligenceTrackingPayload({
+    payload,
+    referrer,
+    currentPath: path,
+    userAgent,
+    environment,
+    consentState: "granted",
+  });
+}
+
 function readStoredAttribution(): StoredAttribution | null {
   if (!isBrowser()) return null;
 
