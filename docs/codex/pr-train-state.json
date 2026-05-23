@@ -8215,7 +8215,7 @@
       "depends_on": [
         "PR-WEB-SEC-13"
       ],
-      "status": "local_checks_passed",
+      "status": "pr_open_github_checks_pending",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "test(audit): guard optional preview E2E fixtures",
@@ -8249,8 +8249,8 @@
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/873",
+      "commit_sha": "6027b26bf83b7cd3b4c79b3dfb83fc61f9e37704",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -8269,12 +8269,17 @@
           "at": "2026-05-24T07:41:41+08:00",
           "status": "local_checks_passed",
           "summary": "Playwright discovery list, typecheck, full contract suite, production API build, manifest/state parse, diff check, and scope validation passed for PR-WEB-SEC-14."
+        },
+        {
+          "at": "2026-05-24T07:42:31+08:00",
+          "status": "pr_open_github_checks_pending",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/873 from scoped commit 6027b26bf83b7cd3b4c79b3dfb83fc61f9e37704; waiting for GitHub checks."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T07:41:41+08:00"
+      "updated_at": "2026-05-24T07:42:31+08:00"
     },
     {
       "id": "PR-WEB-SEC-15",
