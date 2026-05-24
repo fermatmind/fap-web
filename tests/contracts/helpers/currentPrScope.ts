@@ -306,6 +306,16 @@ const PR_WEB_SEC_27_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const PR_WEB_SEC_28_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/tests/[slug]/take/Big5TakeClient.tsx",
+  "app/(localized)/[locale]/tests/[slug]/take/ClinicalTakeClient.tsx",
+  "app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient.tsx",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "tests/contracts/take-submit-lockout.contract.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (CURRENT_BRANCH === "codex/pr-web-sec-01-eq-v5-report-gate") {
     return PR_WEB_SEC_01_ALLOWED_FILES.has(file);
@@ -417,6 +427,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/pr-web-sec-27-footer-qr-toggle") {
     return PR_WEB_SEC_27_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/pr-web-sec-28-take-submit-lockout") {
+    return PR_WEB_SEC_28_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/research-report-metadata") {

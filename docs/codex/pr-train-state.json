@@ -9527,7 +9527,7 @@
       "depends_on": [
         "PR-WEB-SEC-25"
       ],
-      "status": "local_checks_passed",
+      "status": "merged",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "fix(audit): restore MBTI score_pct fallback",
@@ -9558,14 +9558,22 @@
           ]
         },
         "github": {
+          "status": "passed",
+          "passed": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "CodeQL/analyze"
+          ]
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/887",
+      "commit_sha": "fb611b2ef9c43c5a54e5ff3b30af0199a34e47a9",
+      "merged_at": "2026-05-24T04:20:47Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-24T06:27:02+08:00",
@@ -9669,12 +9677,22 @@
           "at": "2026-05-24T12:18:10+08:00",
           "status": "pr_opened",
           "summary": "Opened https://github.com/fermatmind/fap-web/pull/887 after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-05-24T12:20:20+08:00",
+          "status": "github_checks_passed",
+          "summary": "GitHub required checks passed for PR-WEB-SEC-27: build, contracts, Big Five freeze, Enneagram freeze, and CodeQL/analyze."
+        },
+        {
+          "at": "2026-05-24T12:21:13+08:00",
+          "status": "merged",
+          "summary": "Reconciled PR-WEB-SEC-27 after GitHub showed PR #887 merged at 2026-05-24T04:20:47Z with merge commit ce766b5420eb174f8a3eb8b34e40450407a7372e on origin/main; remote branch is deleted, local cleanup executed, and post-merge focused contract passed."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T12:18:10+08:00"
+      "updated_at": "2026-05-24T12:21:13+08:00"
     },
     {
       "id": "PR-WEB-SEC-28",
@@ -9685,7 +9703,7 @@
       "depends_on": [
         "PR-WEB-SEC-27"
       ],
-      "status": "planned",
+      "status": "local_checks_passed",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "fix(audit): reset submit lock on validation exits",
@@ -9703,6 +9721,17 @@
       ],
       "checks": {
         "local": {
+          "status": "passed",
+          "passed": [
+            "pnpm exec vitest run tests/contracts/take-submit-lockout.contract.test.tsx",
+            "pnpm typecheck",
+            "pnpm test:contract",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+            "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"'",
+            "git diff --check",
+            "git diff --cached --check",
+            "scope validation"
+          ]
         },
         "github": {
         }
@@ -9718,12 +9747,22 @@
           "at": "2026-05-24T06:27:02+08:00",
           "status": "planned",
           "summary": "Initialized PR-WEB-SEC-28 from authorized fap-web security findings train expansion."
+        },
+        {
+          "at": "2026-05-24T12:22:30+08:00",
+          "status": "in_progress",
+          "summary": "Started PR-WEB-SEC-28 from latest main after reconciling merged PR-WEB-SEC-27; resetting submit in-flight guards on validation early returns for take flows."
+        },
+        {
+          "at": "2026-05-24T12:26:20+08:00",
+          "status": "local_checks_passed",
+          "summary": "PR28 focused take submit lockout contract, typecheck, full contract suite, production API build, manifest/state parse, diff checks, and scope validation passed."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T06:27:02+08:00"
+      "updated_at": "2026-05-24T12:26:20+08:00"
     },
     {
       "id": "PR-WEB-SEC-29",

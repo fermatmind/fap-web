@@ -1121,6 +1121,7 @@ function QuizTakeInner({
         setSubmitError("Please answer every question before submitting.");
         jump(firstMissingIndex, total);
       }
+      submitInFlightRef.current = false;
       return null;
     }
 
