@@ -8656,7 +8656,7 @@
       "depends_on": [
         "PR-WEB-SEC-17"
       ],
-      "status": "committed",
+      "status": "pr_open_github_checks_pending",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "test(audit): keep PR17 scope contract main-safe",
@@ -8691,8 +8691,8 @@
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": "41e6bb935159773c36730e159e80dacc683cd942",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/877",
+      "commit_sha": "f991b802f74c4e2c6c7ca15b151e246a2b8ecfca",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -8720,13 +8720,18 @@
         {
           "at": "2026-05-24T10:01:53+08:00",
           "status": "committed",
-          "summary": "Committed scoped PR-WEB-SEC-17A changes as 41e6bb935159773c36730e159e80dacc683cd942."
+          "summary": "Committed scoped PR-WEB-SEC-17A changes as f991b802f74c4e2c6c7ca15b151e246a2b8ecfca."
+        },
+        {
+          "at": "2026-05-24T10:03:00+08:00",
+          "status": "pr_open_github_checks_pending",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/877 from scoped commit f991b802f74c4e2c6c7ca15b151e246a2b8ecfca; waiting for GitHub checks."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T10:01:53+08:00"
+      "updated_at": "2026-05-24T10:03:00+08:00"
     },
     {
       "id": "PR-WEB-SEC-18",
