@@ -1,8 +1,17 @@
 import type { MetadataRoute } from "next";
-import { getSiteUrlOrThrow } from "@/lib/site";
+import { getSiteUrlOrThrow, isConfiguredStagingSiteUrl } from "@/lib/site";
 
 export default function robots(): MetadataRoute.Robots {
   const siteUrl = getSiteUrlOrThrow();
+
+  if (isConfiguredStagingSiteUrl()) {
+    return {
+      rules: {
+        userAgent: "*",
+        disallow: "/",
+      },
+    };
+  }
 
   return {
     rules: {

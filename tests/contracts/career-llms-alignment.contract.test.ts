@@ -211,6 +211,7 @@ describe("career llms alignment contract", () => {
     }));
     vi.doMock("@/lib/site", () => ({
       getSiteUrlOrThrow: vi.fn(() => "https://fermatmind.com"),
+      isConfiguredStagingSiteUrl: vi.fn(() => false),
     }));
 
     const { GET } = await import("@/app/llms.txt/route");
@@ -360,6 +361,7 @@ describe("career llms alignment contract", () => {
     }));
     vi.doMock("@/lib/site", () => ({
       getSiteUrlOrThrow: vi.fn(() => "https://fermatmind.com"),
+      isConfiguredStagingSiteUrl: vi.fn(() => false),
     }));
 
     const { GET } = await import("@/app/llms-full.txt/route");

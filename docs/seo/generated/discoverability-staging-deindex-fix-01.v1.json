@@ -1,0 +1,20 @@
+{
+  "schema_version": "discoverability-staging-deindex-fix-01.v1",
+  "task": "DISCOVERABILITY-STAGING-DEINDEX-FIX-01",
+  "final_decision": "staging_deindex_fix_merged_ready_for_deploy_readiness",
+  "staging_noindex_header_enabled": true,
+  "staging_meta_noindex_enabled": true,
+  "staging_self_canonical_disabled": true,
+  "staging_robots_public_sitemap_disabled": true,
+  "staging_sitemap_staging_urls_removed": true,
+  "staging_llms_staging_urls_removed": true,
+  "production_indexability_preserved": true,
+  "production_canonical_preserved": true,
+  "production_sitemap_preserved": true,
+  "production_llms_preserved": true,
+  "search_submission_performed": false,
+  "baidu_console_mutation_performed": false,
+  "dns_mutation_performed": false,
+  "deploy_performed": false,
+  "next_task": "FRONTEND-DEPLOY-READINESS｜Deploy staging deindex fix"
+}

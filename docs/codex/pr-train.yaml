@@ -6563,3 +6563,101 @@ prs:
       - Storage unavailable paths do not crash.
       - Backend payment API contract, checkout redirect allowlist, CSP/noindex, CMS authority, and unrelated storage keys remain unchanged.
     rollback_note: "Revert PR-AUDIT-FE-03 scoped pending order storage and cleanup changes if required."
+
+  - id: DISCOVERABILITY-STAGING-DEINDEX-FIX-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/discoverability-staging-deindex-fix-01
+    base: main
+    depends_on: []
+    mode: execute
+    train_scope: discoverability_staging_deindex_fix
+    risk_level: high
+    status: planned
+    title: "fix(discoverability): prevent staging domain indexing"
+    goal: "Make staging non-indexable, prevent staging sitemap/llms exposure, and preserve production apex discoverability behavior."
+    in_scope:
+      - lib/site.ts
+      - lib/seo/stagingDiscoverability.ts
+      - lib/seo/sitemapAuthorityAdapters.cjs
+      - proxy.ts
+      - next.config.mjs
+      - app/robots.ts
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - app/(root)/layout.tsx
+      - app/(localized)/[locale]/layout.tsx
+      - tests/contracts/staging-discoverability-containment.contract.test.ts
+      - tests/contracts/proxy-boundary.contract.test.ts
+      - tests/contracts/robots.contract.test.ts
+      - tests/contracts/site-url.contract.test.ts
+      - tests/contracts/sitemap-authority-adapters.contract.test.ts
+      - tests/contracts/sitemap-indexability.contract.test.ts
+      - tests/contracts/llms-full-enrichment.contract.test.ts
+      - tests/contracts/llms-parity-contract.contract.test.ts
+      - tests/contracts/career-llms-alignment.contract.test.ts
+      - docs/seo/discoverability-staging-deindex-fix-01.md
+      - docs/seo/generated/discoverability-staging-deindex-fix-01.v1.json
+      - docs/seo/generated/metadata-surface-inventory.v1.csv
+      - docs/seo/generated/metadata-surface-inventory.v1.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - production deploy
+      - DNS or nginx changes
+      - Search Channel enqueue or URL submission
+      - Baidu, Google, Bing, or IndexNow API calls
+      - CMS mutations
+      - backend URL Truth writes
+      - fap-api changes
+      - staging as URL Truth
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/staging-discoverability-containment.contract.test.ts tests/contracts/robots.contract.test.ts tests/contracts/site-url.contract.test.ts tests/contracts/sitemap-authority-adapters.contract.test.ts tests/contracts/sitemap-indexability.contract.test.ts tests/contracts/proxy-boundary.contract.test.ts tests/contracts/llms-full-enrichment.contract.test.ts tests/contracts/llms-parity-contract.contract.test.ts tests/contracts/career-llms-alignment.contract.test.ts
+      - pnpm lint
+      - pnpm build
+      - python3 -m json.tool docs/seo/generated/discoverability-staging-deindex-fix-01.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
+      - rg "staging\\.fermatmind\\.com" app lib tests docs next.config.mjs || true
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      changed_files_must_match:
+        - lib/site.ts
+        - lib/seo/stagingDiscoverability.ts
+        - lib/seo/sitemapAuthorityAdapters.cjs
+        - proxy.ts
+        - next.config.mjs
+        - app/robots.ts
+        - app/llms.txt/route.ts
+        - app/llms-full.txt/route.ts
+        - app/(root)/layout.tsx
+        - app/(localized)/[locale]/layout.tsx
+        - tests/contracts/staging-discoverability-containment.contract.test.ts
+        - tests/contracts/proxy-boundary.contract.test.ts
+        - tests/contracts/robots.contract.test.ts
+        - tests/contracts/site-url.contract.test.ts
+        - tests/contracts/sitemap-authority-adapters.contract.test.ts
+        - tests/contracts/sitemap-indexability.contract.test.ts
+        - tests/contracts/llms-full-enrichment.contract.test.ts
+        - tests/contracts/llms-parity-contract.contract.test.ts
+        - tests/contracts/career-llms-alignment.contract.test.ts
+        - docs/seo/discoverability-staging-deindex-fix-01.md
+        - docs/seo/generated/discoverability-staging-deindex-fix-01.v1.json
+        - docs/seo/generated/metadata-surface-inventory.v1.csv
+        - docs/seo/generated/metadata-surface-inventory.v1.json
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Staging responses emit X-Robots-Tag noindex, nofollow, noarchive.
+      - Staging HTML metadata emits noindex,nofollow.
+      - Staging pages do not self-canonicalize to staging.
+      - Staging robots.txt does not advertise a staging sitemap.
+      - Staging sitemap and llms routes do not expose staging URLs.
+      - Production apex indexability, canonical, sitemap, and llms behavior are preserved.
+      - Metadata surface inventory is regenerated so build does not leave generated SEO inventory drift.
+    rollback_note: "Revert DISCOVERABILITY-STAGING-DEINDEX-FIX-01 scoped staging containment changes if required."

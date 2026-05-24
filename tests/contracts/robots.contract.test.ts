@@ -15,15 +15,14 @@ afterEach(() => {
 });
 
 describe("robots contract", () => {
-  it("points to the env-aware authoritative sitemap url", () => {
+  it("blocks staging robots without advertising a staging sitemap", () => {
     vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://staging.fermatmind.com");
 
     expect(robots()).toEqual({
       rules: {
         userAgent: "*",
-        allow: "/",
+        disallow: "/",
       },
-      sitemap: "https://staging.fermatmind.com/sitemap.xml",
     });
   });
 

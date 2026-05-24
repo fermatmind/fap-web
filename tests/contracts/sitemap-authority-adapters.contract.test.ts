@@ -57,6 +57,7 @@ describe("sitemap authority adapters", () => {
   it("keeps normalization and owned site-url resolution deterministic", async () => {
     expect(adapters.normalizePath("en/tests/")).toBe("/en/tests");
     expect(adapters.resolveSitemapSiteUrl("https://www.fermatmind.com")).toBe("https://fermatmind.com");
+    expect(adapters.resolveSitemapSiteUrl("https://staging.fermatmind.com")).toBe("https://fermatmind.com");
     expect(adapters.resolveSitemapSiteUrl("https://preview.example.com/")).toBe("https://preview.example.com");
 
     await expect(sitemapConfig.transform({}, "/en/tests")).resolves.toMatchObject({

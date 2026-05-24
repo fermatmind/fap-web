@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { CANONICAL_SITE_URL, getSiteUrlOrThrow } from "@/lib/site";
+import { CANONICAL_SITE_URL, getSiteUrlOrThrow, isConfiguredStagingSiteUrl, isStagingSiteUrl } from "@/lib/site";
 
 afterEach(() => {
   vi.unstubAllEnvs();
@@ -34,9 +34,11 @@ describe("site url hard gate contract", () => {
     expect(getSiteUrlOrThrow()).toBe(CANONICAL_SITE_URL);
   });
 
-  it("keeps non-canonical deployment origins env-owned", () => {
+  it("classifies staging as non-production and converges canonical generation to apex", () => {
     vi.stubEnv("NODE_ENV", "production");
     vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://staging.fermatmind.com");
-    expect(getSiteUrlOrThrow()).toBe("https://staging.fermatmind.com");
+    expect(isStagingSiteUrl("https://staging.fermatmind.com")).toBe(true);
+    expect(isConfiguredStagingSiteUrl()).toBe(true);
+    expect(getSiteUrlOrThrow()).toBe(CANONICAL_SITE_URL);
   });
 });

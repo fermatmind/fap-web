@@ -9,7 +9,7 @@ import { Providers } from "@/app/providers";
 import { isSupportedLocale, type Locale } from "@/lib/i18n/locales";
 import { DEFAULT_SHARE_IMAGE_URL } from "@/lib/cms/media";
 import { createProductPriorityEnvSnapshot } from "@/lib/rollout/scaleRollout";
-import { SITE_URL } from "@/lib/site";
+import { SITE_URL, isConfiguredStagingSiteUrl } from "@/lib/site";
 import "../../globals.css";
 
 const fmSans = localFont({
@@ -46,6 +46,13 @@ export const metadata: Metadata = {
     template: "%s | FermatMind",
   },
   description: "FermatMind assessments and personality tests.",
+  robots: isConfiguredStagingSiteUrl()
+    ? {
+        index: false,
+        follow: false,
+        nocache: true,
+      }
+    : undefined,
   openGraph: {
     siteName: "FermatMind",
     type: "website",

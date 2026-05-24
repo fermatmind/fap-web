@@ -33,6 +33,9 @@ describe("sitemap indexability contract", () => {
 
     vi.stubEnv("NEXT_PUBLIC_SITE_URL", "http://fermatmind.com");
     expect(loadSitemapConfig().siteUrl).toBe("https://fermatmind.com");
+
+    vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://staging.fermatmind.com");
+    expect(loadSitemapConfig().siteUrl).toBe("https://fermatmind.com");
   });
 
   it("frontend sitemap config includes approved Career job detail routes and excludes query/search-style Career discovery", async () => {
