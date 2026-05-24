@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-24T10:57:05+08:00",
+  "updated_at": "2026-05-24T10:59:57+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -8972,7 +8972,7 @@
       "depends_on": [
         "PR-WEB-SEC-19"
       ],
-      "status": "pr_open_github_checks_pending",
+      "status": "github_checks_passed",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "fix(audit): restore anon rollout bucketing on test pages",
@@ -9004,11 +9004,20 @@
           ]
         },
         "github": {
+          "status": "passed",
+          "passed": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "analyze (javascript-typescript)",
+            "CodeQL"
+          ]
         }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/880",
-      "commit_sha": "2449b4bfa08acabe5b7acfec40f6cf9165457f74",
+      "commit_sha": "5dd9590559eb0496ba0aad957ae8cdc58c4e5408",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -9037,12 +9046,17 @@
           "at": "2026-05-24T10:57:05+08:00",
           "status": "pr_open_github_checks_pending",
           "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/880 from scoped branch codex/pr-web-sec-20-anon-rollout-bucketing; waiting for GitHub checks."
+        },
+        {
+          "at": "2026-05-24T10:59:57+08:00",
+          "status": "github_checks_passed",
+          "summary": "GitHub required checks passed for PR-WEB-SEC-20: build, contracts, Big Five freeze, Enneagram freeze, and CodeQL/analyze."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T10:57:05+08:00"
+      "updated_at": "2026-05-24T10:59:57+08:00"
     },
     {
       "id": "PR-WEB-SEC-21",
