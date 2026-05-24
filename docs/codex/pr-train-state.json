@@ -8761,7 +8761,7 @@
       "depends_on": [
         "PR-WEB-SEC-17A"
       ],
-      "status": "committed",
+      "status": "pr_open_github_checks_pending",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "fix(audit): keep CMS health timeout through JSON parsing",
@@ -8794,8 +8794,8 @@
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": "b37945172888223fc4f10e5f2df4071373aeb1d4",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/878",
+      "commit_sha": "72fc2fb97e9382db10d6d85c966a9e77df5c8d53",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -8818,13 +8818,18 @@
         {
           "at": "2026-05-24T10:16:13+08:00",
           "status": "committed",
-          "summary": "Committed scoped PR-WEB-SEC-18 changes as b37945172888223fc4f10e5f2df4071373aeb1d4."
+          "summary": "Committed scoped PR-WEB-SEC-18 changes as 72fc2fb97e9382db10d6d85c966a9e77df5c8d53."
+        },
+        {
+          "at": "2026-05-24T10:17:02+08:00",
+          "status": "pr_open_github_checks_pending",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/878 from scoped commit 72fc2fb97e9382db10d6d85c966a9e77df5c8d53; waiting for GitHub checks."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T10:16:13+08:00"
+      "updated_at": "2026-05-24T10:17:02+08:00"
     },
     {
       "id": "PR-WEB-SEC-19",
