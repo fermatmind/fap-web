@@ -103,10 +103,7 @@ function loadPreviewFixtures(): PreviewFixtureLoadResult {
   }
 
   if (!fs.existsSync(previewDir)) {
-    return {
-      fixtures: [],
-      skipReason: `PHASE3A_PREVIEW_PAYLOAD_DIR does not exist: ${previewDir}`,
-    };
+    throw new Error(`PHASE3A_PREVIEW_PAYLOAD_DIR does not exist: ${previewDir}`);
   }
 
   const files = fs
@@ -115,10 +112,7 @@ function loadPreviewFixtures(): PreviewFixtureLoadResult {
     .sort((left, right) => left.localeCompare(right, undefined, { numeric: true }));
 
   if (files.length !== 90) {
-    return {
-      fixtures: [],
-      skipReason: `Expected 90 preview fixtures, received ${files.length} from ${previewDir}.`,
-    };
+    throw new Error(`Expected 90 preview fixtures, received ${files.length} from ${previewDir}.`);
   }
 
   const fixtures = files.map((fileName) => {
