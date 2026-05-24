@@ -152,7 +152,7 @@ export function SiteFooter() {
                       aria-label={locale === "zh" ? item.labels.zh : item.labels.en}
                       aria-expanded={activeSocialKey === item.key}
                       className="fm-social-badge cursor-pointer border-0 bg-transparent p-0"
-                      onClick={() => setActiveSocialKey((current) => (current === item.key ? null : item.key))}
+                      onClick={() => setActiveSocialKey(item.key)}
                       onFocus={() => setActiveSocialKey(item.key)}
                       onBlur={() => setActiveSocialKey((current) => (current === item.key ? null : current))}
                     >
