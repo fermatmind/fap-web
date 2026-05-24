@@ -8398,7 +8398,7 @@
       "depends_on": [
         "PR-WEB-SEC-15"
       ],
-      "status": "local_checks_passed",
+      "status": "pr_open_github_checks_pending",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "fix(audit): repair staging CMS smoke invocation",
@@ -8433,8 +8433,8 @@
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/875",
+      "commit_sha": "eb36f35f43a0ea14353e4f9a5df8b4021da9cc14",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -8453,12 +8453,17 @@
           "at": "2026-05-24T08:02:07+08:00",
           "status": "local_checks_passed",
           "summary": "Focused staging smoke contract, staging baseline regression contract, typecheck, full contract suite, production API build, manifest/state parse, diff check, and scope validation passed for PR-WEB-SEC-16."
+        },
+        {
+          "at": "2026-05-24T08:02:59+08:00",
+          "status": "pr_open_github_checks_pending",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/875 from scoped commit eb36f35f43a0ea14353e4f9a5df8b4021da9cc14; waiting for GitHub checks."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T08:02:07+08:00"
+      "updated_at": "2026-05-24T08:02:59+08:00"
     },
     {
       "id": "PR-WEB-SEC-17",
