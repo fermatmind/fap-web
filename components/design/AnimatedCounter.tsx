@@ -43,14 +43,22 @@ export function AnimatedCounter({
   useEffect(() => {
     if (prefersReducedMotion) {
       previousTargetRef.current = integerTarget;
-      setDisplayValue(integerTarget);
-      return;
+      const raf = window.requestAnimationFrame(() => {
+        setDisplayValue(integerTarget);
+      });
+      return () => {
+        window.cancelAnimationFrame(raf);
+      };
     }
 
     const fromValue = previousTargetRef.current;
     if (fromValue === integerTarget) {
-      setDisplayValue(integerTarget);
-      return;
+      const raf = window.requestAnimationFrame(() => {
+        setDisplayValue(integerTarget);
+      });
+      return () => {
+        window.cancelAnimationFrame(raf);
+      };
     }
 
     let raf = 0;

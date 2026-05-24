@@ -6367,3 +6367,62 @@ prs:
       - Unset optional preview fixture env vars still skip optional rendered-preview QA.
       - Configured missing directories or wrong fixture counts fail instead of skipping.
     rollback_note: "Revert PR-WEB-SEC-33 scoped changes if required."
+
+  - id: PR-AUDIT-FE-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-audit-fe-01-lint-ci-baseline
+    base: main
+    depends_on: []
+    mode: execute
+    train_scope: prr_audit_remediation
+    risk_level: high
+    status: planned
+    title: "PR-AUDIT-FE-01 frontend lint debt and CI validation gates"
+    findings:
+      - "H-FE-LINT-01 frontend main lint errors and incomplete CI validation gates"
+    goal: "Make frontend lint pass without product behavior changes and hard-fail lint, typecheck, build, contract, and a11y validation in CI; record full e2e as a sidecar until a stable backend/mock API is provisioned."
+    in_scope:
+      - .github/workflows/ci.yml
+      - components/career/CareerShortlistAction.tsx
+      - components/cta/SeoTrackedCtaLink.tsx
+      - components/design/AnimatedCounter.tsx
+      - components/result/mbti/clone/MbtiCloneAssetSlot.tsx
+      - ecosystem.config.cjs
+      - lib/cms/last-known-good.ts
+      - tests/contracts/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - CMS content authority changes
+      - public editorial content changes
+      - payment business logic
+      - CSP or noindex header changes
+      - payment recovery token changes
+      - sitemap or llms authority changes
+      - unrelated feature work
+    required_local_checks:
+      - pnpm lint .
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - pnpm test:a11y
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      continue_train_when_external_blocker:
+        - blocker is not introduced by PR-AUDIT-FE-01
+        - GitHub required checks are green
+        - scoped validation is green
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - pnpm lint exits with zero errors.
+      - CI hard-fails lint, typecheck, build, contract, and a11y validation.
+      - Full e2e backend/mock API provisioning gap is recorded as sidecar and not left as a guaranteed ECONNREFUSED CI gate.
+      - Lint fixes are behavior-equivalent and do not change CMS/content, payment, CSP/noindex, sitemap, or llms authority.
+    rollback_note: "Revert PR-AUDIT-FE-01 scoped lint and CI baseline changes if required."

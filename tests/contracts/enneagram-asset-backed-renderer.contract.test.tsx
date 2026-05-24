@@ -117,9 +117,9 @@ describe("ENNEAGRAM asset-backed renderer contract", () => {
       gate: { isFreeVariant: false },
       locale: "zh",
     });
-    const module = viewModel.moduleMap.asset_preview_core_motivation;
+    const assetModuleViewModel = viewModel.moduleMap.asset_preview_core_motivation;
 
-    expect(enneagramAssetBackedModuleContentSchema.parse(module.content)).toEqual({
+    expect(enneagramAssetBackedModuleContentSchema.parse(assetModuleViewModel.content)).toEqual({
       asset_key: "enneagram_1R_B_t1_core_motivation_v1",
       asset_type: "report_copy",
       category: "core_motivation",

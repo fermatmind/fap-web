@@ -11,21 +11,32 @@ const DOC_PATH = path.join(ROOT, "docs/seo/seo-intelligence-node-readiness.md");
 type AssetMap = {
   version: string;
   generated_from: Array<{ id: string; status: string }>;
-  source_of_truth: Record<string, any>;
+  source_of_truth: Record<string, unknown>;
   current_runtime_topology: {
-    nodes: Array<{ id: string; aliases?: string[]; target_server?: string; role: string; status: string[]; runtime?: Record<string, any> }>;
+    nodes: Array<{ id: string; aliases?: string[]; target_server?: string; role: string; status: string[]; runtime?: Record<string, unknown> }>;
   };
   target_server_topology: {
     servers: Array<{ id: string; status: string[]; ready?: boolean; seo_intel_db?: { status: string[]; ready: boolean } }>;
   };
   mixed_cloud_media_chain: { chain: string[]; domain: string; origin_bucket: string };
-  dual_backend_runtime_conflict: Record<string, any>;
-  conflict_assets: Array<Record<string, any>>;
-  cos_oss_media_assets: Record<string, any>;
+  dual_backend_runtime_conflict: Record<string, unknown>;
+  conflict_assets: Array<Record<string, unknown>>;
+  cos_oss_media_assets: {
+    active_media_authority: Record<string, unknown>;
+    tencent_cos: { active_media_authority: boolean; status: string[] };
+  };
   seo_middle_platform_modules: Array<{ name: string; status: string | string[]; production_ready?: boolean }>;
-  ownership_contract: Record<string, any>;
+  ownership_contract: {
+    cms: { can_be_seo_bi: boolean };
+    seo_middle_platform: { can_publish_content: boolean };
+    seo_collector: { can_publish_content: boolean; can_write: string[] };
+    metabase: { read_only: boolean; allowed_query_targets: string[]; forbidden_query_targets: string[] };
+  };
   forbidden_assumptions: string[];
-  pii_rules: Record<string, any>;
+  pii_rules: {
+    email: { seo_analytics_detail: string };
+    order_no: { normal_ops_dashboards: string };
+  };
   deployment_guardrails: { allowed_files: string[]; forbidden_runtime_paths: string[] };
 };
 
@@ -34,9 +45,9 @@ function readArtifact(): AssetMap {
 }
 
 function moduleStatus(artifact: AssetMap, name: string): string[] {
-  const module = artifact.seo_middle_platform_modules.find((item) => item.name === name);
-  expect(module, name).toBeTruthy();
-  return Array.isArray(module?.status) ? module.status : [String(module?.status)];
+  const seoModule = artifact.seo_middle_platform_modules.find((item) => item.name === name);
+  expect(seoModule, name).toBeTruthy();
+  return Array.isArray(seoModule?.status) ? seoModule.status : [String(seoModule?.status)];
 }
 
 function nodeById(artifact: AssetMap, id: string) {

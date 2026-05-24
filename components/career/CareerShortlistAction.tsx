@@ -57,7 +57,17 @@ export function CareerShortlistAction({
 
   useEffect(() => {
     const syncConsent = () => {
-      setAnalyticsConsentGranted(hasAnalyticsConsent());
+      const nextConsent = hasAnalyticsConsent();
+      setAnalyticsConsentGranted(nextConsent);
+      if (!nextConsent) {
+        setVisitorKey("");
+        setShortlisted(false);
+        setLoading(false);
+        return;
+      }
+
+      setError(null);
+      setVisitorKey(resolveVisitorKey());
     };
 
     syncConsent();
@@ -67,18 +77,6 @@ export function CareerShortlistAction({
       window.removeEventListener("fm:analytics-consent-updated", syncConsent);
     };
   }, []);
-
-  useEffect(() => {
-    if (!analyticsConsentGranted) {
-      setVisitorKey("");
-      setShortlisted(false);
-      setLoading(false);
-      return;
-    }
-
-    setError(null);
-    setVisitorKey(resolveVisitorKey());
-  }, [analyticsConsentGranted]);
 
   useEffect(() => {
     let cancelled = false;

@@ -11,7 +11,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     env:
       NEXT_PUBLIC_SITE_URL: https://fermatmind.com
 
@@ -26,7 +26,13 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
+      - run: pnpm lint .
+
+      - run: pnpm typecheck
+
       - run: pnpm build
+
+      - run: pnpm test:a11y
 
   contracts:
     runs-on: ubuntu-latest

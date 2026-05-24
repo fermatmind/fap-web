@@ -43,7 +43,7 @@ export async function withLastKnownGood<T>({
   load,
   isUsable = (value) => value !== null && value !== undefined,
   useStaleOnUnusable = false,
-  useStaleOnError = true,
+  useStaleOnError: staleOnError = true,
 }: {
   key: string;
   load: () => Promise<T>;
@@ -82,7 +82,7 @@ export async function withLastKnownGood<T>({
   } catch (error) {
     const entry = store.get(key) as LastKnownGoodEntry<T> | undefined;
     const canUseStaleOnError =
-      typeof useStaleOnError === "function" ? useStaleOnError(error) : useStaleOnError;
+      typeof staleOnError === "function" ? staleOnError(error) : staleOnError;
 
     if (!entry || !canUseStaleOnError) {
       throw error;

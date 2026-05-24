@@ -134,7 +134,9 @@ describe("Big Five V2 pilot payload-only renderer contract", () => {
   });
 
   it("rejects invalid V2 pilot payloads instead of manufacturing replacement V2 prose", () => {
-    const invalidPayload = structuredClone(pilotEnvelope).big5_result_page_v2 as any;
+    const invalidPayload = structuredClone(pilotEnvelope).big5_result_page_v2 as {
+      modules: Array<{ blocks: Array<{ content: unknown }> }>;
+    };
     invalidPayload.modules[0].blocks[0].content = {
       summary_zh: "SHOULD_NOT_RENDER_INVALID_V2_PAYLOAD",
       internal_metadata: {

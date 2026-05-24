@@ -156,7 +156,9 @@ describe("Big Five V2 result-page-only public pilot contract", () => {
   });
 
   it("rejects invalid public pilot V2 payloads instead of manufacturing replacement prose", () => {
-    const invalidPayload = structuredClone(o59CanonicalEnvelope).big5_result_page_v2 as any;
+    const invalidPayload = structuredClone(o59CanonicalEnvelope).big5_result_page_v2 as {
+      modules: Array<{ blocks: Array<{ content: unknown }> }>;
+    };
     invalidPayload.modules[0].blocks[0].content = {
       title_zh: "SHOULD_NOT_RENDER_INVALID_PUBLIC_PILOT_PAYLOAD",
       internal_metadata: {

@@ -360,6 +360,24 @@ const PR_WEB_SEC_33_ALLOWED_FILES = new Set([
   "tests/e2e/enneagram-phase3b-1rd-partial-resonance-rendered-preview.spec.ts",
 ]);
 
+const PR_AUDIT_FE_01_ALLOWED_FILES = new Set([
+  ".github/workflows/ci.yml",
+  "components/career/CareerShortlistAction.tsx",
+  "components/cta/SeoTrackedCtaLink.tsx",
+  "components/design/AnimatedCounter.tsx",
+  "components/result/mbti/clone/MbtiCloneAssetSlot.tsx",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "ecosystem.config.cjs",
+  "lib/cms/last-known-good.ts",
+  "tests/contracts/big5-pilot-payload-only-renderer.contract.test.tsx",
+  "tests/contracts/big5-public-pilot-result-page.contract.test.tsx",
+  "tests/contracts/cms-seo-middle-platform-final-architecture.contract.test.ts",
+  "tests/contracts/enneagram-asset-backed-renderer.contract.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/seo-intelligence-asset-map.contract.test.ts",
+]);
+
 const CODEQL_HYGIENE_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx",
   "app/api/content-release/revalidate/route.ts",
@@ -515,6 +533,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/pr-web-sec-33-preview-fixture-hard-fail") {
     return PR_WEB_SEC_33_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/pr-audit-fe-01-lint-ci-baseline") {
+    return PR_AUDIT_FE_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/research-report-metadata") {
