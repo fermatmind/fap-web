@@ -8,9 +8,11 @@ On Node1, `fap-web.service` may be absent; `systemctl status fap-web` returning 
 Only use `systemd` checks on hosts that explicitly install the tracked fallback/reference unit.
 
 ## 1) Login and switch operator
+Retrieve the production SSH alias/user from the internal secrets manager or approved break-glass vault. Do not commit concrete production hostnames, IPs, or user@host targets to this runbook.
+
 ```bash
-ssh ubuntu@49.235.131.248
-sudo -iu ubuntu
+ssh <production-ssh-alias>
+sudo -iu <app-operator-user>
 cd /opt/apps/fap-web
 ```
 

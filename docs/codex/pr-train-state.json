@@ -1642,8 +1642,8 @@
 
       ],
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/890",
+      "commit_sha": "c9816a842465c593c3a4c9e885b15e967b0633cf",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -9711,7 +9711,7 @@
       "depends_on": [
         "PR-WEB-SEC-27"
       ],
-      "status": "local_checks_passed",
+      "status": "merged",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "fix(audit): reset submit lock on validation exits",
@@ -9742,14 +9742,22 @@
           ]
         },
         "github": {
+          "status": "passed",
+          "passed": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "CodeQL/analyze"
+          ]
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/889",
+      "commit_sha": "b0aada1ae9d90d0345a04124637d57472e896959",
+      "merged_at": "2026-05-24T04:37:31Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-24T06:27:02+08:00",
@@ -9855,12 +9863,22 @@
           "at": "2026-05-24T12:35:10+08:00",
           "status": "pr_opened",
           "summary": "Opened https://github.com/fermatmind/fap-web/pull/889 after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-05-24T12:37:10+08:00",
+          "status": "github_checks_passed",
+          "summary": "GitHub required checks passed for PR-WEB-SEC-29: build, contracts, Big Five freeze, Enneagram freeze, and CodeQL/analyze."
+        },
+        {
+          "at": "2026-05-24T12:37:52+08:00",
+          "status": "merged",
+          "summary": "Reconciled PR-WEB-SEC-29 after GitHub showed PR #889 merged at 2026-05-24T04:37:31Z with merge commit 3a7f3d8ecc0e5fea95a6f8d672a76e68c404f367 on origin/main; remote branch is deleted, local cleanup executed, and post-merge focused contract passed."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T12:35:10+08:00"
+      "updated_at": "2026-05-24T12:37:52+08:00"
     },
     {
       "id": "PR-WEB-SEC-30",
@@ -9871,7 +9889,7 @@
       "depends_on": [
         "PR-WEB-SEC-29"
       ],
-      "status": "planned",
+      "status": "local_checks_passed",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "docs(audit): redact production SSH endpoint from runbook",
@@ -9887,6 +9905,17 @@
       ],
       "checks": {
         "local": {
+          "status": "passed",
+          "passed": [
+            "pnpm exec vitest run tests/contracts/deploy-runbook-redaction.contract.test.ts",
+            "pnpm typecheck",
+            "pnpm test:contract",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+            "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"'",
+            "git diff --check",
+            "git diff --cached --check",
+            "scope validation"
+          ]
         },
         "github": {
         }
@@ -9902,12 +9931,27 @@
           "at": "2026-05-24T06:27:02+08:00",
           "status": "planned",
           "summary": "Initialized PR-WEB-SEC-30 from authorized fap-web security findings train expansion."
+        },
+        {
+          "at": "2026-05-24T12:39:00+08:00",
+          "status": "in_progress",
+          "summary": "Started PR-WEB-SEC-30 from latest main after reconciling merged PR-WEB-SEC-29; redacting concrete production SSH endpoint details from the 502 recovery runbook."
+        },
+        {
+          "at": "2026-05-24T12:42:30+08:00",
+          "status": "local_checks_passed",
+          "summary": "PR30 focused deploy runbook redaction contract, typecheck, full contract suite, production API build, manifest/state parse, diff checks, and scope validation passed."
+        },
+        {
+          "at": "2026-05-24T12:44:00+08:00",
+          "status": "pr_opened",
+          "summary": "Opened https://github.com/fermatmind/fap-web/pull/890 after local checks and scope validation passed."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T06:27:02+08:00"
+      "updated_at": "2026-05-24T12:44:00+08:00"
     },
     {
       "id": "PR-WEB-SEC-31",
