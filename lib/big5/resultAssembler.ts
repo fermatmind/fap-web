@@ -144,6 +144,24 @@ function normalizeStringArray(value: unknown): string[] {
     .filter(Boolean);
 }
 
+function getComparativePercentileTraits(comparative: Record<string, unknown> | null): Record<string, unknown>[] {
+  const percentile = asRecord(comparative?.percentile);
+  const value = normalizeNumber(percentile?.value);
+  const key = normalizeText(percentile?.metric_key, percentile?.metricKey).toUpperCase();
+  if (!percentile || value === null || !key) {
+    return [];
+  }
+
+  return [
+    {
+      key,
+      label: normalizeText(percentile.metric_label, percentile.metricLabel, key),
+      percentile: value,
+      band: normalizeText(percentile.band, percentile.bucket, comparative?.band, comparative?.bucket),
+    },
+  ];
+}
+
 function joinTextParts(parts: unknown[], separator = " "): string {
   return parts
     .map((part) => normalizeText(part))
@@ -925,7 +943,8 @@ function buildSyntheticBlocks(
   }
 
   if (blueprint.section_key === "norms_comparison") {
-    const sortedTraits = traitVector
+    const normsTraitVector = traitVector.length > 0 ? traitVector : getComparativePercentileTraits(comparative);
+    const sortedTraits = normsTraitVector
       .slice()
       .sort((left, right) => (normalizeNumber(right.percentile) ?? 0) - (normalizeNumber(left.percentile) ?? 0));
     const leadTrait = sortedTraits[0];
