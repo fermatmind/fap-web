@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-24T07:07:08.051+00:00",
+  "updated_at": "2026-05-24T10:16:30Z",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -9883,7 +9883,7 @@
       "depends_on": [
         "PR-WEB-SEC-32"
       ],
-      "status": "github_checks_passed",
+      "status": "merged",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "test(audit): hard-fail invalid preview fixture config",
@@ -9934,8 +9934,8 @@
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/893",
       "commit_sha": "a6f7bea9c12a6cb20e0722f0103601e0e43dd2aa",
-      "merged_at": null,
-      "remote_branch_deleted": false,
+      "merged_at": "2026-05-24T07:10:24Z",
+      "remote_branch_deleted": true,
       "local_cleanup_executed": false,
       "history": [
         {
@@ -10064,6 +10064,11 @@
           "at": "2026-05-24T07:07:08.051+00:00",
           "status": "github_checks_passed",
           "summary": "GitHub checks passed for PR #895: build, contracts, freeze checks, CodeQL, and JavaScript/TypeScript analysis."
+        },
+        {
+          "at": "2026-05-24T10:00:08Z",
+          "status": "reconciled_merged",
+          "summary": "Reconciled ledger before PR-AUDIT-FE-02: GitHub PR #895 is MERGED with merge commit 915e7631caca001c0df44bf3a48a223942082c49, origin/main contains the merge commit, and the remote task branch is absent."
         }
       ],
       "sidecar_issues": [
@@ -10083,7 +10088,112 @@
           "continue_train_decision": "eligible_for_current_pr_merge_after_metadata_push_checks; do_not_continue_to_PR-AUDIT-BE-01_per_user_instruction"
         }
       ],
-      "updated_at": "2026-05-24T07:07:08.051+00:00"
+      "updated_at": "2026-05-24T10:00:08Z",
+      "merge_commit": "915e7631caca001c0df44bf3a48a223942082c49"
+    },
+    {
+      "id": "PR-AUDIT-FE-02",
+      "repo": "fap-web",
+      "branch": "codex/pr-audit-fe-02-csp-noindex",
+      "base": "main",
+      "depends_on": [
+        "PR-AUDIT-FE-01"
+      ],
+      "status": "github_checks_passed",
+      "title": "PR-AUDIT-FE-02 CSP enforcement and pay payment noindex headers",
+      "risk_ids": [
+        "M-FE-CSP-01",
+        "M-FE-SEO-01"
+      ],
+      "artifacts": [
+        "next.config.mjs",
+        "deploy/nginx/fap-web.conf",
+        "tests/contracts/private-noindex.contract.test.ts",
+        "tests/contracts/**security**",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "dependency": {
+          "status": "passed",
+          "evidence": "PR-AUDIT-FE-01 merged as PR #895 with merge commit 915e7631caca001c0df44bf3a48a223942082c49 and origin/main contains it."
+        },
+        "local": {
+          "status": "passed",
+          "passed": [
+            "pnpm lint .",
+            "pnpm typecheck",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+            "pnpm exec vitest run tests/contracts/private-noindex.contract.test.ts",
+            "pnpm exec vitest run tests/contracts/*security*",
+            "pnpm test:contract",
+            "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"'",
+            "git diff --check",
+            "git diff --cached --check"
+          ],
+          "failed": [],
+          "warnings": [
+            "pnpm lint . completed with existing warnings and 0 errors.",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build regenerated public/sitemap.xml; generated artifact was restored and is not part of this PR."
+          ]
+        },
+        "scope_validation": {
+          "status": "passed",
+          "changed_files": [
+            "deploy/nginx/fap-web.conf",
+            "docs/codex/pr-train-state.json",
+            "docs/codex/pr-train.yaml",
+            "next.config.mjs",
+            "tests/contracts/helpers/currentPrScope.ts",
+            "tests/contracts/private-noindex.contract.test.ts",
+            "tests/contracts/security-headers.contract.test.ts"
+          ],
+          "summary": "Changed files are limited to FE-02 CSP/noindex config, security/noindex contracts, current branch scope helper, and current PR ledger/manifest entries."
+        },
+        "github": {
+          "status": "passed",
+          "passed": [
+            "CodeQL",
+            "analyze (javascript-typescript)",
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze"
+          ],
+          "failed": []
+        }
+      },
+      "failure_reason": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/896",
+      "commit_sha": "4c95d764113f5e16f4aeae235014ae8d1a9d9107",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-05-24T10:00:08Z",
+          "status": "in_progress",
+          "summary": "Initialized PR-AUDIT-FE-02 from authorized PRR audit remediation train after reconciling PR-AUDIT-FE-01 as merged. Scope is CSP enforcement and pay/payment private-flow noindex headers."
+        },
+        {
+          "at": "2026-05-24T10:11:41Z",
+          "status": "local_checks_passed",
+          "summary": "FE-02 local acceptance passed: lint, typecheck, production API build, targeted noindex/security contracts, full contract suite, manifest/state parse, and diff checks. Generated sitemap drift from build was restored out of scope."
+        },
+        {
+          "at": "2026-05-24T10:14:20Z",
+          "status": "pr_opened",
+          "summary": "Opened GitHub PR #896 for PR-AUDIT-FE-02 after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-05-24T10:16:30Z",
+          "status": "github_checks_passed",
+          "summary": "GitHub checks passed for PR #896: build, contracts, freeze checks, CodeQL, and JavaScript/TypeScript analysis."
+        }
+      ],
+      "sidecar_issues": [],
+      "updated_at": "2026-05-24T10:16:30Z"
     }
   ],
   "sidecar_issues": [

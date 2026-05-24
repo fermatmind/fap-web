@@ -378,6 +378,16 @@ const PR_AUDIT_FE_01_ALLOWED_FILES = new Set([
   "tests/contracts/seo-intelligence-asset-map.contract.test.ts",
 ]);
 
+const PR_AUDIT_FE_02_ALLOWED_FILES = new Set([
+  "deploy/nginx/fap-web.conf",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "next.config.mjs",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/private-noindex.contract.test.ts",
+  "tests/contracts/security-headers.contract.test.ts",
+]);
+
 const CODEQL_HYGIENE_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx",
   "app/api/content-release/revalidate/route.ts",
@@ -537,6 +547,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/pr-audit-fe-01-lint-ci-baseline") {
     return PR_AUDIT_FE_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/pr-audit-fe-02-csp-noindex") {
+    return PR_AUDIT_FE_02_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/research-report-metadata") {
