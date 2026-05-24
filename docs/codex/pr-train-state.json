@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-24T12:54:46+08:00",
+  "updated_at": "2026-05-24T12:55:50+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -9708,7 +9708,7 @@
       "depends_on": [
         "PR-WEB-SEC-30"
       ],
-      "status": "local_checks_passed",
+      "status": "pr_opened",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "fix(audit): tolerate clinical sessionStorage failures",
@@ -9739,8 +9739,8 @@
         "github": {}
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/891",
+      "commit_sha": "1a0e2ed1e0a6c71363ed9937fdc69b06246f1dc6",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -9759,10 +9759,15 @@
           "at": "2026-05-24T12:54:46+08:00",
           "status": "local_checks_passed",
           "summary": "PR31 focused clinical consent/storage contract, typecheck, full contract suite, production API build, manifest/state parse, diff checks, and scope validation passed."
+        },
+        {
+          "at": "2026-05-24T12:55:50+08:00",
+          "status": "pr_opened",
+          "summary": "Opened https://github.com/fermatmind/fap-web/pull/891 after local checks and scope validation passed."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-05-24T12:54:46+08:00"
+      "updated_at": "2026-05-24T12:55:50+08:00"
     }
   ],
   "sidecar_issues": [
