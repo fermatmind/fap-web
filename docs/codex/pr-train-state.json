@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-24T13:13:00+08:00",
+  "updated_at": "2026-05-24T13:33:30+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -9797,7 +9797,7 @@
       "depends_on": [
         "PR-WEB-SEC-31"
       ],
-      "status": "pr_opened",
+      "status": "merged",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "fix(audit): align landing and take rollout seeds",
@@ -9826,14 +9826,24 @@
             "scope validation"
           ]
         },
-        "github": {}
+        "github": {
+          "status": "passed",
+          "passed": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "CodeQL",
+            "analyze (javascript-typescript)"
+          ]
+        }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/892",
-      "commit_sha": "b1ee43ccc3fa1278622dd453a7a7a59de0fa5fe0",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "c64ed1523b52ab7c46d26c4b18a785d7e18f7563",
+      "merged_at": "2026-05-24T05:17:49Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-24T13:08:38+08:00",
@@ -9854,10 +9864,15 @@
           "at": "2026-05-24T13:13:00+08:00",
           "status": "pr_opened",
           "summary": "Opened https://github.com/fermatmind/fap-web/pull/892 after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-05-24T13:20:00+08:00",
+          "status": "merged",
+          "summary": "Reconciled PR-WEB-SEC-32 as merged via GitHub, verified required checks passed, remote branch deleted, local cleanup executed, and post-merge focused revalidation passed."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-05-24T13:13:00+08:00"
+      "updated_at": "2026-05-24T13:20:00+08:00"
     },
     {
       "id": "PR-WEB-SEC-33",
@@ -9868,7 +9883,7 @@
       "depends_on": [
         "PR-WEB-SEC-32"
       ],
-      "status": "planned",
+      "status": "github_checks_passed",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "test(audit): hard-fail invalid preview fixture config",
@@ -9884,12 +9899,41 @@
         "docs/codex/pr-train-state.json"
       ],
       "checks": {
-        "local": {},
-        "github": {}
+        "local": {
+          "status": "passed",
+          "passed": [
+            "pnpm exec vitest run tests/contracts/preview-fixture-validation.contract.test.ts",
+            "pnpm typecheck",
+            "pnpm test:contract",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+            "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"'",
+            "git diff --check",
+            "git diff --cached --check",
+            "scope validation"
+          ],
+          "rerun_after_github_failure": [
+            "pnpm exec vitest run tests/contracts/preview-fixture-validation.contract.test.ts",
+            "pnpm typecheck",
+            "pnpm test:contract",
+            "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"'",
+            "git diff --check"
+          ]
+        },
+        "github": {
+          "status": "passed",
+          "passed": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "CodeQL",
+            "analyze (javascript-typescript)"
+          ]
+        }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/893",
+      "commit_sha": "a6f7bea9c12a6cb20e0722f0103601e0e43dd2aa",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -9898,10 +9942,40 @@
           "at": "2026-05-24T13:08:38+08:00",
           "status": "planned",
           "summary": "Initialized PR-WEB-SEC-33 from authorized fap-web security findings train expansion."
+        },
+        {
+          "at": "2026-05-24T13:20:00+08:00",
+          "status": "in_progress",
+          "summary": "Started PR-WEB-SEC-33 from latest main after PR-WEB-SEC-32 merge reconciliation; hard-failing configured invalid preview fixture inputs while preserving unset optional fixture skips."
+        },
+        {
+          "at": "2026-05-24T13:24:30+08:00",
+          "status": "local_checks_passed",
+          "summary": "PR33 focused preview fixture validation contract, typecheck, full contract suite, production API build, manifest/state parse, diff checks, and scope validation passed."
+        },
+        {
+          "at": "2026-05-24T13:26:00+08:00",
+          "status": "pr_opened",
+          "summary": "Opened https://github.com/fermatmind/fap-web/pull/893 after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-05-24T13:29:30+08:00",
+          "status": "github_checks_failed_fixing",
+          "summary": "GitHub contracts failed on the new preview fixture scope contract because CI runs from a clean merge checkout; fixing the contract to allow clean CI while still validating local changed files when present."
+        },
+        {
+          "at": "2026-05-24T13:30:20+08:00",
+          "status": "local_checks_passed",
+          "summary": "Fixed the CI-only scope contract assumption inside PR33 scope; focused contract, typecheck, full contract suite, manifest/state parse, and diff check passed locally."
+        },
+        {
+          "at": "2026-05-24T13:33:30+08:00",
+          "status": "github_checks_passed",
+          "summary": "GitHub required checks passed after PR33 scope contract fix: build, contracts, freeze checks, and CodeQL completed successfully."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-05-24T13:08:38+08:00"
+      "updated_at": "2026-05-24T13:33:30+08:00"
     }
   ],
   "sidecar_issues": [
