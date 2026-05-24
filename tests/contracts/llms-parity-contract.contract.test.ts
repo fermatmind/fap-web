@@ -76,6 +76,7 @@ function classifyRouteFamily(pathname: string): string {
 function mockLlmsDependencies() {
   vi.doMock("@/lib/site", () => ({
     getSiteUrlOrThrow: vi.fn(() => SITE_URL),
+    isConfiguredStagingSiteUrl: vi.fn(() => false),
   }));
   vi.doMock("@/lib/seo/indexingPolicy", () => ({
     shouldIncludeInSitemap: vi.fn((value: string) => {

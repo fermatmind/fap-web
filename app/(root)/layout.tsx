@@ -7,7 +7,7 @@ import { CookieBanner } from "@/components/legal/CookieBanner";
 import { LocaleProvider } from "@/components/i18n/LocaleContext";
 import { Providers } from "@/app/providers";
 import { createProductPriorityEnvSnapshot } from "@/lib/rollout/scaleRollout";
-import { SITE_URL, canonicalUrl } from "@/lib/site";
+import { SITE_URL, canonicalUrl, isConfiguredStagingSiteUrl } from "@/lib/site";
 import "../globals.css";
 
 const fmSans = localFont({
@@ -44,6 +44,13 @@ export const metadata: Metadata = {
     template: "%s | FermatMind",
   },
   description: "费马测试提供人格、能力与职业方向测评。",
+  robots: isConfiguredStagingSiteUrl()
+    ? {
+        index: false,
+        follow: false,
+        nocache: true,
+      }
+    : undefined,
   alternates: {
     canonical: "/",
     languages: {

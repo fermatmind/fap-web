@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-24T10:34:05Z",
+  "updated_at": "2026-05-24T15:51:00Z",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -10209,7 +10209,7 @@
       "depends_on": [
         "PR-AUDIT-FE-02"
       ],
-      "status": "pr_opened",
+      "status": "merged",
       "title": "PR-AUDIT-FE-03 payment recovery token minimization and cleanup",
       "risk_ids": [
         "M-FE-STORAGE-01"
@@ -10273,17 +10273,24 @@
           "summary": "Changed files are limited to FE-03 pending order recovery token storage/minimization logic, terminal cleanup, directly related contracts/e2e expectations, branch scope helper, and current PR train metadata."
         },
         "github": {
-          "status": "pending",
-          "passed": [],
+          "status": "passed",
+          "passed": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "CodeQL",
+            "analyze (javascript-typescript)"
+          ],
           "failed": []
         }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/897",
       "commit_sha": "885396462db2ed81b5e56008b98c269f7744bd71",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-05-24T10:38:11Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-24T10:28:26Z",
@@ -10299,10 +10306,166 @@
           "at": "2026-05-24T10:34:05Z",
           "status": "pr_opened",
           "summary": "Opened GitHub PR #897 for PR-AUDIT-FE-03 after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-05-24T15:37:00Z",
+          "status": "reconciled_merged",
+          "summary": "Reconciled before DISCOVERABILITY-STAGING-DEINDEX-FIX-01: GitHub PR #897 is MERGED with merge commit 660bcd941c775e852571d53a3a651b0653efcdb0, origin/main contains it, the remote branch is deleted, and no local task branch remains."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-05-24T10:34:05Z"
+      "updated_at": "2026-05-24T15:37:00Z",
+      "merge_sha": "660bcd941c775e852571d53a3a651b0653efcdb0",
+      "merge_commit": "660bcd941c775e852571d53a3a651b0653efcdb0"
+    },
+    {
+      "id": "DISCOVERABILITY-STAGING-DEINDEX-FIX-01",
+      "repo": "fap-web",
+      "branch": "codex/discoverability-staging-deindex-fix-01",
+      "base": "main",
+      "depends_on": [],
+      "status": "ci_fix_in_progress",
+      "title": "fix(discoverability): prevent staging domain indexing",
+      "artifacts": [
+        "lib/site.ts",
+        "lib/seo/stagingDiscoverability.ts",
+        "lib/seo/sitemapAuthorityAdapters.cjs",
+        "proxy.ts",
+        "next.config.mjs",
+        "app/robots.ts",
+        "app/llms.txt/route.ts",
+        "app/llms-full.txt/route.ts",
+        "app/(root)/layout.tsx",
+        "app/(localized)/[locale]/layout.tsx",
+        "tests/contracts/staging-discoverability-containment.contract.test.ts",
+        "tests/contracts/proxy-boundary.contract.test.ts",
+        "tests/contracts/robots.contract.test.ts",
+        "tests/contracts/site-url.contract.test.ts",
+        "tests/contracts/sitemap-authority-adapters.contract.test.ts",
+        "tests/contracts/sitemap-indexability.contract.test.ts",
+        "tests/contracts/llms-full-enrichment.contract.test.ts",
+        "tests/contracts/llms-parity-contract.contract.test.ts",
+        "tests/contracts/career-llms-alignment.contract.test.ts",
+        "docs/seo/discoverability-staging-deindex-fix-01.md",
+        "docs/seo/generated/discoverability-staging-deindex-fix-01.v1.json",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json",
+        "docs/seo/generated/metadata-surface-inventory.v1.csv",
+        "docs/seo/generated/metadata-surface-inventory.v1.json"
+      ],
+      "checks": {
+        "dependency": {
+          "status": "passed",
+          "evidence": "User explicitly authorized fap-web manifest/state updates for DISCOVERABILITY-STAGING-DEINDEX-FIX-01. No dependency PR is required."
+        },
+        "local": {
+          "status": "passed",
+          "passed": [
+            "pnpm exec vitest run tests/contracts/staging-discoverability-containment.contract.test.ts tests/contracts/robots.contract.test.ts tests/contracts/site-url.contract.test.ts tests/contracts/sitemap-authority-adapters.contract.test.ts tests/contracts/sitemap-indexability.contract.test.ts tests/contracts/proxy-boundary.contract.test.ts tests/contracts/llms-full-enrichment.contract.test.ts tests/contracts/llms-parity-contract.contract.test.ts tests/contracts/career-llms-alignment.contract.test.ts",
+            "pnpm lint",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+            "python3 -m json.tool docs/seo/generated/discoverability-staging-deindex-fix-01.v1.json >/dev/null",
+            "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "python3 -c import yaml/pathlib parse docs/codex/pr-train.yaml",
+            "git diff --check",
+            "git diff --cached --check",
+            "pnpm test:contract",
+            "node scripts/seo/generate-metadata-surface-inventory.mjs --pretty"
+          ],
+          "failed": [],
+          "warnings": [
+            "Plain pnpm build with local .env.local failed because 127.0.0.1:8000 backend was unavailable while prerendering /en/ops/content-pages; production API build passed.",
+            "pnpm lint completed with existing warnings and 0 errors.",
+            "Static staging host grep still reports pre-existing staging references in docs, tests, and redirect allowlists; current PR staging references are deny/containment constants, not sitemap/llms/canonical authority.",
+            "Plain pnpm build with local .env.local failed because 127.0.0.1:8000 backend was unavailable while prerendering /en/ops/content-pages; production API build passed."
+          ]
+        },
+        "scope_validation": {
+          "status": "passed",
+          "changed_files": [
+            "app/(localized)/[locale]/layout.tsx",
+            "app/(root)/layout.tsx",
+            "app/llms-full.txt/route.ts",
+            "app/llms.txt/route.ts",
+            "app/robots.ts",
+            "docs/codex/pr-train-state.json",
+            "docs/codex/pr-train.yaml",
+            "docs/seo/discoverability-staging-deindex-fix-01.md",
+            "docs/seo/generated/discoverability-staging-deindex-fix-01.v1.json",
+            "docs/seo/generated/metadata-surface-inventory.v1.csv",
+            "docs/seo/generated/metadata-surface-inventory.v1.json",
+            "lib/seo/sitemapAuthorityAdapters.cjs",
+            "lib/seo/stagingDiscoverability.ts",
+            "lib/site.ts",
+            "next.config.mjs",
+            "proxy.ts",
+            "tests/contracts/career-llms-alignment.contract.test.ts",
+            "tests/contracts/llms-full-enrichment.contract.test.ts",
+            "tests/contracts/llms-parity-contract.contract.test.ts",
+            "tests/contracts/proxy-boundary.contract.test.ts",
+            "tests/contracts/robots.contract.test.ts",
+            "tests/contracts/site-url.contract.test.ts",
+            "tests/contracts/sitemap-authority-adapters.contract.test.ts",
+            "tests/contracts/sitemap-indexability.contract.test.ts",
+            "tests/contracts/staging-discoverability-containment.contract.test.ts"
+          ],
+          "summary": "Changed files are limited to staging discoverability containment runtime, focused contracts, docs/generated report, and authorized PR train metadata."
+        },
+        "github": {
+          "status": "failed",
+          "passed": [
+            "build",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "CodeQL",
+            "analyze (javascript-typescript)"
+          ],
+          "failed": [
+            "contracts"
+          ],
+          "failure_reason": "CI build regenerated docs/seo/generated/metadata-surface-inventory.v1.csv and .json after staging layout metadata changed; contracts then saw generated drift."
+        }
+      },
+      "failure_reason": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/898",
+      "commit_sha": "126854bd17f8973eabca14530ceffe3a1bb1905e",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-05-24T15:37:00Z",
+          "status": "in_progress",
+          "summary": "Initialized authorized staging deindex containment PR after active staging index leak scan confirmed staging pages were publicly indexable and self-canonicalizing."
+        },
+        {
+          "at": "2026-05-24T15:42:00Z",
+          "status": "local_checks_passed",
+          "summary": "Focused staging discoverability contracts, lint, production API build, JSON/YAML parsing, and diff checks passed. Default local build without a running local API is recorded as a sidecar environment warning."
+        },
+        {
+          "at": "2026-05-24T15:44:00Z",
+          "status": "committed",
+          "summary": "Created scoped commit ed28f2f23d2d106ae88c0dfc77ec94465bfc30b7 for staging deindex containment."
+        },
+        {
+          "at": "2026-05-24T15:45:00Z",
+          "status": "full_contracts_passed",
+          "summary": "After committing, pnpm test:contract passed with 390 test files and 2231 tests."
+        },
+        {
+          "at": "2026-05-24T15:47:00Z",
+          "status": "pr_opened",
+          "summary": "Opened GitHub PR #898 for DISCOVERABILITY-STAGING-DEINDEX-FIX-01 after scoped validation passed."
+        },
+        {
+          "at": "2026-05-24T15:51:00Z",
+          "status": "ci_fix_in_progress",
+          "summary": "GitHub contracts failed because build regenerated metadata-surface inventory after staging layout noindex changes. Including regenerated metadata inventory in the scoped PR to remove generated drift."
+        }
+      ],
+      "sidecar_issues": [],
+      "updated_at": "2026-05-24T15:51:00Z"
     }
   ],
   "sidecar_issues": [

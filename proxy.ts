@@ -9,6 +9,13 @@ import {
 import { localizedPath, stripLocalePrefix } from "@/lib/i18n/locales";
 import { isLegacyPath, resolveLegacyPathMode } from "@/lib/legacyCompatibility";
 import { shouldNoindex } from "@/lib/seo/indexingPolicy";
+import {
+  createStagingDiscoverabilityGoneResponse,
+  createStagingRobotsResponse,
+  isStagingMachineDiscoverabilityPath,
+  isStagingRequestHost,
+  withStagingNoindexHeader,
+} from "@/lib/seo/stagingDiscoverability";
 
 const NOINDEX_VALUE = "noindex, nofollow, noarchive";
 const ANON_COOKIE_NAME = "fap_anonymous_id_v1";
@@ -105,15 +112,28 @@ function shouldAttachAnonIdentity(strippedPath: string): boolean {
 export function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
   const strippedPath = stripLocalePrefix(pathname);
+  const isStagingHost = isStagingRequestHost(request.headers.get("host") ?? request.nextUrl.host);
+
+  if (isStagingHost && pathname === "/robots.txt") {
+    return createStagingRobotsResponse();
+  }
+
+  if (isStagingHost && isStagingMachineDiscoverabilityPath(pathname)) {
+    return createStagingDiscoverabilityGoneResponse(pathname.includes("sitemap") ? "sitemap" : "llms");
+  }
 
   if (isStaticAsset(pathname)) {
-    return NextResponse.next();
+    const response = NextResponse.next();
+
+    return isStagingHost ? withStagingNoindexHeader(response) : response;
   }
 
   if (pathname === "/zh" || pathname === "/zh/") {
     const target = request.nextUrl.clone();
     target.pathname = "/";
-    return NextResponse.redirect(target, 308);
+    const response = NextResponse.redirect(target, 308);
+
+    return isStagingHost ? withStagingNoindexHeader(response) : response;
   }
 
   const preferredLocale = resolvePreferredLocale({
@@ -126,11 +146,15 @@ export function proxy(request: NextRequest) {
   if (typesRedirectPath) {
     const target = request.nextUrl.clone();
     target.pathname = typesRedirectPath;
-    return NextResponse.redirect(target, 308);
+    const response = NextResponse.redirect(target, 308);
+
+    return isStagingHost ? withStagingNoindexHeader(response) : response;
   }
 
   if (FORCE_GONE_PATTERNS.some((pattern) => pattern.test(strippedPath))) {
-    return createGoneResponse();
+    const response = createGoneResponse();
+
+    return isStagingHost ? withStagingNoindexHeader(response) : response;
   }
 
   if (
@@ -139,11 +163,15 @@ export function proxy(request: NextRequest) {
   ) {
     const target = request.nextUrl.clone();
     target.pathname = localizedPath(strippedPath, preferredLocale);
-    return NextResponse.redirect(target, 308);
+    const response = NextResponse.redirect(target, 308);
+
+    return isStagingHost ? withStagingNoindexHeader(response) : response;
   }
 
   if (resolveLegacyPathMode() === "gone" && isLegacyPath(strippedPath)) {
-    return createGoneResponse();
+    const response = createGoneResponse();
+
+    return isStagingHost ? withStagingNoindexHeader(response) : response;
   }
 
   const requestHeaders = new Headers(request.headers);
@@ -173,7 +201,7 @@ export function proxy(request: NextRequest) {
     });
   }
 
-  if (shouldNoindex(strippedPath, null)) {
+  if (isStagingHost || shouldNoindex(strippedPath, null)) {
     response.headers.set("X-Robots-Tag", NOINDEX_VALUE);
   }
 
@@ -182,6 +210,6 @@ export function proxy(request: NextRequest) {
 
 export const config = {
   matcher: [
-    "/((?!_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|sitemap-en.xml|sitemap-zh.xml|llms.txt|llms-full.txt).*)",
+    "/((?!_next/static|_next/image|favicon.ico).*)",
   ],
 };

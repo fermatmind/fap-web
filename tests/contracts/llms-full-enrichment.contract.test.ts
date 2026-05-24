@@ -48,6 +48,7 @@ function mockLlmsFullDependencies({ includeSurfaces = true }: { includeSurfaces?
 
   vi.doMock("@/lib/site", () => ({
     getSiteUrlOrThrow: vi.fn(() => "https://fermatmind.com"),
+    isConfiguredStagingSiteUrl: vi.fn(() => false),
   }));
   vi.doMock("@/lib/seo/indexingPolicy", () => ({
     shouldIncludeInSitemap: vi.fn((path: string) =>

@@ -19,6 +19,10 @@ import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
 import { listBackendSitemapCareerJobPaths } from "@/lib/seo/backendSitemapSource";
 import { listBackendDiscoverabilityTestEntries } from "@/lib/seo/backendTestDiscoverabilitySource";
 import {
+  createConfiguredStagingLlmsResponse,
+  isConfiguredStagingDiscoverability,
+} from "@/lib/seo/stagingDiscoverability";
+import {
   LLMS_ROUTE_ARTICLE_MAX_PAGES,
   LLMS_ROUTE_LIMITS,
   limitLlmsRouteEntries,
@@ -524,6 +528,10 @@ async function enrichCareerGuideEntry(entry: LlmsFullEntry, siteUrl: string): Pr
 }
 
 export async function GET() {
+  if (isConfiguredStagingDiscoverability()) {
+    return createConfiguredStagingLlmsResponse();
+  }
+
   const siteUrl = getSiteUrlOrThrow();
   const [
     enCareerGuides,

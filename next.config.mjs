@@ -88,6 +88,11 @@ const nextConfig = {
     return [
       {
         source: "/:path*",
+        has: [{ type: "host", value: "staging.fermatmind.com" }],
+        headers: [{ key: "X-Robots-Tag", value }],
+      },
+      {
+        source: "/:path*",
         headers: securityHeaders,
       },
       {

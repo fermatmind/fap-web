@@ -17,15 +17,15 @@ afterEach(() => {
 });
 
 describe("proxy boundary contract", () => {
-  it("matches content roots and excludes robots, sitemap, and llms endpoints", () => {
+  it("matches content roots and machine discoverability endpoints", () => {
     expect(testing.unstable_doesMiddlewareMatch({ config, nextConfig: {}, url: "/articles" })).toBe(true);
     expect(testing.unstable_doesMiddlewareMatch({ config, nextConfig: {}, url: "/career" })).toBe(true);
     expect(testing.unstable_doesMiddlewareMatch({ config, nextConfig: {}, url: "/topics" })).toBe(true);
     expect(testing.unstable_doesMiddlewareMatch({ config, nextConfig: {}, url: "/personality" })).toBe(true);
 
-    expect(testing.unstable_doesMiddlewareMatch({ config, nextConfig: {}, url: "/robots.txt" })).toBe(false);
-    expect(testing.unstable_doesMiddlewareMatch({ config, nextConfig: {}, url: "/sitemap.xml" })).toBe(false);
-    expect(testing.unstable_doesMiddlewareMatch({ config, nextConfig: {}, url: "/llms.txt" })).toBe(false);
+    expect(testing.unstable_doesMiddlewareMatch({ config, nextConfig: {}, url: "/robots.txt" })).toBe(true);
+    expect(testing.unstable_doesMiddlewareMatch({ config, nextConfig: {}, url: "/sitemap.xml" })).toBe(true);
+    expect(testing.unstable_doesMiddlewareMatch({ config, nextConfig: {}, url: "/llms.txt" })).toBe(true);
   });
 
   it("redirects locale-less legacy types routes into the localized personality hub", () => {
