@@ -43,7 +43,7 @@ import { captureError } from "@/lib/observability/sentry";
 import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
 import { extractMbtiAccessHubAttemptId, normalizeMbtiAccessHub } from "@/lib/mbti/accessHub";
 import { buildPublicFormDisplayLabel, normalizePublicFormSummary } from "@/lib/mbti/formSummary";
-import { readPendingOrder } from "@/lib/commerce/pendingOrder";
+import { clearPendingOrder, readPendingOrder } from "@/lib/commerce/pendingOrder";
 
 type ViewStatus = "initializing" | "pending" | "paid" | "failed" | "canceled" | "refunded";
 type PayType = "qr" | "html" | "redirect" | null;
@@ -502,6 +502,7 @@ export default function OrdersClient({
         }
 
         if (nextStatus === "paid") {
+          clearPendingOrder();
           const exactResultHref = normalizeCommerceReportPath(nextAccessView?.actions.pageHref ?? null);
           const exactResultReady = canEnterReportPage(nextAccessView) && Boolean(exactResultHref);
           if (reportedStatusRef.current !== "paid") {
@@ -559,6 +560,7 @@ export default function OrdersClient({
         }
 
         if (nextStatus === "failed" || nextStatus === "canceled" || nextStatus === "refunded") {
+          clearPendingOrder();
           const fallbackMessage =
             nextStatus === "failed"
               ? dict.orders.failed

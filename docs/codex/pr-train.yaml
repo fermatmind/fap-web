@@ -6488,3 +6488,78 @@ prs:
       - /pay, /pay/:path*, /payment, /payment/:path*, and locale-prefixed pay/payment routes emit X-Robots-Tag containing noindex, nofollow, and noarchive.
       - Payment runtime logic, recovery token behavior, sitemap, llms, and CMS authority remain unchanged.
     rollback_note: "Revert PR-AUDIT-FE-02 scoped next.config security header and contract changes if required."
+
+  - id: PR-AUDIT-FE-03
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-audit-fe-03-recovery-token
+    base: main
+    depends_on: [PR-AUDIT-FE-02]
+    mode: execute
+    train_scope: prr_audit_remediation
+    risk_level: medium
+    status: planned
+    title: "PR-AUDIT-FE-03 payment recovery token minimization and cleanup"
+    findings:
+      - "M-FE-STORAGE-01 payment recovery token persisted without bounded minimization"
+    goal: "Minimize payment recovery token persistence by using session-scoped storage with a bounded TTL, preserving recovery behavior, and clearing token context when order payment reaches a terminal state."
+    in_scope:
+      - lib/commerce/pendingOrder.ts
+      - app/(localized)/[locale]/orders/[orderNo]/OrdersClient.tsx
+      - tests/contracts/payment-wait-flow.contract.test.ts
+      - tests/contracts/orders-client-delivery.contract.test.tsx
+      - tests/contracts/order-lookup-recovery.contract.test.tsx
+      - tests/contracts/alipay-return-flow.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - tests/e2e/order-lookup-recovery.spec.ts
+      - tests/e2e/payment-wait-flow.spec.ts
+      - tests/e2e/alipay-return-recovery.spec.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - backend payment API contract changes
+      - checkout redirect allowlist changes
+      - CSP or noindex changes
+      - CMS authority changes
+      - unrelated localStorage keys
+      - expanding token lifetime
+      - writing tokens to URLs beyond existing backend-returned wait flow contract
+      - logging payment recovery tokens
+    required_local_checks:
+      - pnpm lint .
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm exec vitest run tests/contracts/payment-wait-flow.contract.test.ts
+      - pnpm exec vitest run tests/contracts/orders-client-delivery.contract.test.tsx
+      - pnpm exec vitest run tests/contracts/order-lookup-recovery.contract.test.tsx
+      - pnpm exec vitest run tests/contracts/alipay-return-flow.contract.test.tsx
+      - pnpm test:contract
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      changed_files_must_match:
+        - lib/commerce/pendingOrder.ts
+        - app/(localized)/[locale]/orders/[orderNo]/OrdersClient.tsx
+        - tests/contracts/payment-wait-flow.contract.test.ts
+        - tests/contracts/orders-client-delivery.contract.test.tsx
+        - tests/contracts/order-lookup-recovery.contract.test.tsx
+        - tests/contracts/alipay-return-flow.contract.test.tsx
+        - tests/contracts/helpers/currentPrScope.ts
+        - tests/e2e/order-lookup-recovery.spec.ts
+        - tests/e2e/payment-wait-flow.spec.ts
+        - tests/e2e/alipay-return-recovery.spec.ts
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - paymentRecoveryToken pending order context is stored in sessionStorage instead of unbounded localStorage.
+      - Stored pending order context expires after no more than 30 minutes and expired tokens are not read.
+      - Legacy localStorage pending order context is either migrated only when still within TTL or cleared.
+      - Paid, failed, canceled, and refunded order states clear pending payment recovery context.
+      - Storage unavailable paths do not crash.
+      - Backend payment API contract, checkout redirect allowlist, CSP/noindex, CMS authority, and unrelated storage keys remain unchanged.
+    rollback_note: "Revert PR-AUDIT-FE-03 scoped pending order storage and cleanup changes if required."

@@ -2,6 +2,7 @@ import { act, fireEvent, render, screen, waitFor } from "@testing-library/react"
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import OrdersClient from "@/app/(localized)/[locale]/orders/[orderNo]/OrdersClient";
 import { ApiError } from "@/lib/api-client";
+import { readPendingOrder, writePendingOrder } from "@/lib/commerce/pendingOrder";
 import type { MbtiAccessHubV1Raw } from "@/lib/mbti/accessHub";
 
 function deferred<T>() {
@@ -92,6 +93,7 @@ describe("OrdersClient delivery contract", () => {
     hoisted.pathname = "/en/orders/ord_delivery_1";
     hoisted.searchParams = "";
     window.localStorage.clear();
+    window.sessionStorage.clear();
     hoisted.fetchAttemptReportAccess.mockResolvedValue(createAccessProjection());
     hoisted.recoverAlipayReturnContext.mockResolvedValue({
       ok: true,
@@ -441,19 +443,15 @@ describe("OrdersClient delivery contract", () => {
   });
 
   it("rescues legacy /orders return paths back into canonical wait flow when pending order context is available", async () => {
-    window.localStorage.setItem(
-      "fm_pending_order_v1",
-      JSON.stringify({
-        orderNo: "ord_legacy_return_1",
-        attemptId: "attempt-legacy-return-1",
-        sku: "mbti-full-report",
-        provider: "alipay",
-        waitUrl: "/en/pay/wait?order_no=ord_legacy_return_1&payment_recovery_token=recovery_legacy_return_1",
-        paymentRecoveryToken: "recovery_legacy_return_1",
-        resultUrl: "/en/result/attempt-legacy-return-1",
-        updatedAt: "2026-04-02T12:00:00Z",
-      })
-    );
+    writePendingOrder({
+      orderNo: "ord_legacy_return_1",
+      attemptId: "attempt-legacy-return-1",
+      sku: "mbti-full-report",
+      provider: "alipay",
+      waitUrl: "/en/pay/wait?order_no=ord_legacy_return_1&payment_recovery_token=recovery_legacy_return_1",
+      paymentRecoveryToken: "recovery_legacy_return_1",
+      resultUrl: "/en/result/attempt-legacy-return-1",
+    });
     hoisted.pathname = "/en/orders/ord_legacy_return_1";
     hoisted.getOrderStatus.mockResolvedValue({
       ok: true,
@@ -611,6 +609,72 @@ describe("OrdersClient delivery contract", () => {
     expect(screen.queryByTestId("order-view-report")).not.toBeInTheDocument();
     expect(screen.queryByTestId("order-download-pdf")).not.toBeInTheDocument();
     expect(screen.queryByTestId("order-resend-delivery")).not.toBeInTheDocument();
+  });
+
+  it("clears payment recovery token storage when the order reaches paid terminal state", async () => {
+    writePendingOrder({
+      orderNo: "ord_paid_cleanup_1",
+      attemptId: "attempt-paid-cleanup-1",
+      provider: "stripe",
+      waitUrl: "/en/pay/wait?order_no=ord_paid_cleanup_1&payment_recovery_token=recovery_paid_cleanup_1",
+      paymentRecoveryToken: "recovery_paid_cleanup_1",
+      resultUrl: "/en/result/attempt-paid-cleanup-1",
+    });
+    hoisted.getOrderStatus.mockResolvedValue({
+      ok: true,
+      order_no: "ord_paid_cleanup_1",
+      status: "paid",
+      attempt_id: "attempt-paid-cleanup-1",
+      exact_result_entry: createAccessProjection({
+        attempt_id: "attempt-paid-cleanup-1",
+        actions: {
+          page_href: "/result/attempt-paid-cleanup-1",
+          history_href: "/history/mbti",
+          lookup_href: "/orders/lookup",
+        },
+      }),
+      delivery: {
+        contact_email_present: true,
+        can_request_claim_email: false,
+        can_view_report: true,
+        report_url: "/result/attempt-paid-cleanup-1",
+        can_download_pdf: false,
+        can_resend: false,
+      },
+    });
+
+    render(<OrdersClient orderNo="ord_paid_cleanup_1" paymentRecoveryToken="recovery_paid_cleanup_1" />);
+
+    await waitFor(() => {
+      expect(hoisted.routerReplace).toHaveBeenCalledWith("/en/result/attempt-paid-cleanup-1");
+    });
+    expect(readPendingOrder()).toBeNull();
+    expect(window.sessionStorage.getItem("fm_pending_order_v1")).toBeNull();
+    expect(window.localStorage.getItem("fm_pending_order_v1")).toBeNull();
+  });
+
+  it("clears payment recovery token storage when the order reaches failed terminal state", async () => {
+    writePendingOrder({
+      orderNo: "ord_failed_cleanup_1",
+      provider: "alipay",
+      waitUrl: "/en/pay/wait?order_no=ord_failed_cleanup_1&payment_recovery_token=recovery_failed_cleanup_1",
+      paymentRecoveryToken: "recovery_failed_cleanup_1",
+    });
+    hoisted.getOrderStatus.mockResolvedValue({
+      ok: true,
+      order_no: "ord_failed_cleanup_1",
+      status: "failed",
+      message: "Payment failed.",
+    });
+
+    render(<OrdersClient orderNo="ord_failed_cleanup_1" paymentRecoveryToken="recovery_failed_cleanup_1" />);
+
+    await waitFor(() => {
+      expect(screen.getAllByText("Payment failed.").length).toBeGreaterThan(0);
+    });
+    expect(readPendingOrder()).toBeNull();
+    expect(window.sessionStorage.getItem("fm_pending_order_v1")).toBeNull();
+    expect(window.localStorage.getItem("fm_pending_order_v1")).toBeNull();
   });
 
   it("keeps paid-but-not-ready orders on the wait flow and removes the history primary CTA", async () => {
