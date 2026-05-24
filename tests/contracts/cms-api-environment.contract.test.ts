@@ -1,5 +1,7 @@
-import { spawnSync } from "node:child_process";
+import { spawn, spawnSync } from "node:child_process";
 import { readFileSync } from "node:fs";
+import { createServer } from "node:http";
+import { performance } from "node:perf_hooks";
 
 describe("CMS API environment operations", () => {
   it("runs a CMS content integrity check before the dev server starts", () => {
@@ -66,5 +68,65 @@ describe("CMS API environment operations", () => {
     expect(result.stderr).toContain("[check-cms-api] Warning: CMS API health check found degraded content");
     expect(result.stderr).toContain("stale Next.js fetch cache");
     expect(result.stderr).toContain("CMS-backed content must come from backend CMS/API");
+  });
+
+  it("keeps the abort timeout active while JSON response bodies are parsed", async () => {
+    const server = createServer((request, response) => {
+      response.writeHead(200, { "content-type": "application/json" });
+
+      if (request.url?.startsWith("/api/v0.5/articles")) {
+        response.flushHeaders();
+        setTimeout(() => response.end(JSON.stringify({ items: [] })), 1000);
+        return;
+      }
+
+      response.end(JSON.stringify({ surface: { page_blocks: [], payload_json: {} } }));
+    });
+
+    await new Promise<void>((resolve) => {
+      server.listen(0, "127.0.0.1", resolve);
+    });
+
+    const address = server.address();
+    if (!address || typeof address === "string") {
+      server.close();
+      throw new Error("test server did not bind to a TCP port");
+    }
+
+    const startedAt = performance.now();
+    const child = spawn(process.execPath, ["scripts/check-cms-api-health.mjs"], {
+      cwd: process.cwd(),
+      env: {
+        ...process.env,
+        NEXT_PUBLIC_API_URL: `http://127.0.0.1:${address.port}`,
+        CMS_API_HEALTH_TIMEOUT_MS: "50",
+      },
+      stdio: ["ignore", "pipe", "pipe"],
+    });
+
+    let stdout = "";
+    let stderr = "";
+    child.stdout.setEncoding("utf8");
+    child.stderr.setEncoding("utf8");
+    child.stdout.on("data", (chunk) => {
+      stdout += chunk;
+    });
+    child.stderr.on("data", (chunk) => {
+      stderr += chunk;
+    });
+
+    const result = await new Promise<{ code: number | null; signal: NodeJS.Signals | null }>((resolve) => {
+      child.once("exit", (code, signal) => resolve({ code, signal }));
+    });
+
+    await new Promise<void>((resolve, reject) => {
+      server.close((error) => (error ? reject(error) : resolve()));
+    });
+
+    expect(result.signal).toBeNull();
+    expect(result.code).toBe(1);
+    expect(performance.now() - startedAt).toBeLessThan(700);
+    expect(stdout).toBe("");
+    expect(stderr).toContain("Request timed out after 50ms");
   });
 });

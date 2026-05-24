@@ -5615,7 +5615,7 @@ prs:
     in_scope:
       - package.json
       - scripts/check-cms-api-health.mjs
-      - tests/contracts/cms-api-health-check.contract.test.ts
+      - tests/contracts/cms-api-environment.contract.test.ts
       - tests/contracts/helpers/currentPrScope.ts
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
@@ -5624,7 +5624,7 @@ prs:
       - unrelated public content or CMS authority changes
       - sitemap, llms, checkout, payment, backend, production deploy, or non-scoped docs
     required_local_checks:
-      - pnpm exec vitest run tests/contracts/cms-api-health-check.contract.test.ts
+      - pnpm exec vitest run tests/contracts/cms-api-environment.contract.test.ts
       - pnpm typecheck
       - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build

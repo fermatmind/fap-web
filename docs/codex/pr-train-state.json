@@ -2563,7 +2563,7 @@
       "history": [
         {
           "at": "2026-05-14T00:00:00+08:00",
-          "status": "in_progress",
+          "status": "merged",
           "summary": "Initialized PR-TRACK-01 manifest/state entry and began scoped analytics activation work."
         },
         {
@@ -8656,7 +8656,7 @@
       "depends_on": [
         "PR-WEB-SEC-17"
       ],
-      "status": "github_checks_passed",
+      "status": "merged",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "test(audit): keep PR17 scope contract main-safe",
@@ -8701,10 +8701,10 @@
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/877",
-      "commit_sha": "f991b802f74c4e2c6c7ca15b151e246a2b8ecfca",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "b6ff689feba4282c61f5964c86a6a776e3362f82",
+      "merged_at": "2026-05-24T02:09:39Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-24T09:54:39+08:00",
@@ -8740,12 +8740,17 @@
           "at": "2026-05-24T10:06:10+08:00",
           "status": "github_checks_passed",
           "summary": "GitHub required checks passed for PR-WEB-SEC-17A: build, contracts, Big Five freeze, Enneagram freeze, and CodeQL/analyze."
+        },
+        {
+          "at": "2026-05-24T10:12:35+08:00",
+          "status": "ledger_reconciled_merged",
+          "summary": "Reconciled PR-WEB-SEC-17A after GitHub PR #877 merged; origin/main contains merge commit 59a536ba6fa9c27b28340796ab743ecbeee19d10, required checks passed, remote branch deletion was observed, local cleanup ran, and post-merge focused validator revalidation passed."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T10:06:10+08:00"
+      "updated_at": "2026-05-24T10:12:35+08:00"
     },
     {
       "id": "PR-WEB-SEC-18",
@@ -8756,7 +8761,7 @@
       "depends_on": [
         "PR-WEB-SEC-17A"
       ],
-      "status": "planned",
+      "status": "committed",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "fix(audit): keep CMS health timeout through JSON parsing",
@@ -8766,20 +8771,31 @@
       "artifacts": [
         "package.json",
         "scripts/check-cms-api-health.mjs",
-        "tests/contracts/cms-api-health-check.contract.test.ts",
+        "tests/contracts/cms-api-environment.contract.test.ts",
         "tests/contracts/helpers/currentPrScope.ts",
         "docs/codex/pr-train.yaml",
         "docs/codex/pr-train-state.json"
       ],
       "checks": {
         "local": {
+          "status": "passed",
+          "passed": [
+            "pnpm exec vitest run tests/contracts/cms-api-environment.contract.test.ts",
+            "pnpm typecheck",
+            "pnpm test:contract",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+            "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"'",
+            "git diff --check",
+            "git diff --cached --check",
+            "scope validation"
+          ]
         },
         "github": {
         }
       },
       "failure_reason": null,
       "pr_url": null,
-      "commit_sha": null,
+      "commit_sha": "b37945172888223fc4f10e5f2df4071373aeb1d4",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -8788,12 +8804,27 @@
           "at": "2026-05-24T06:27:02+08:00",
           "status": "planned",
           "summary": "Initialized PR-WEB-SEC-18 from authorized fap-web security findings train expansion."
+        },
+        {
+          "at": "2026-05-24T10:12:35+08:00",
+          "status": "in_progress",
+          "summary": "Started PR-WEB-SEC-18 from latest main after reconciling merged PR-WEB-SEC-17A; keeping CMS health abort timeout active through JSON body parsing."
+        },
+        {
+          "at": "2026-05-24T10:15:35+08:00",
+          "status": "local_checks_passed",
+          "summary": "Focused CMS API environment contract, typecheck, full contract suite, production API build, manifest/state parse, diff check, and scope validation passed for PR-WEB-SEC-18."
+        },
+        {
+          "at": "2026-05-24T10:16:13+08:00",
+          "status": "committed",
+          "summary": "Committed scoped PR-WEB-SEC-18 changes as b37945172888223fc4f10e5f2df4071373aeb1d4."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T06:27:02+08:00"
+      "updated_at": "2026-05-24T10:16:13+08:00"
     },
     {
       "id": "PR-WEB-SEC-19",
