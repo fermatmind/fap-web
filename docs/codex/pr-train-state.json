@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-24T13:12:06+08:00",
+  "updated_at": "2026-05-24T13:13:00+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -9797,7 +9797,7 @@
       "depends_on": [
         "PR-WEB-SEC-31"
       ],
-      "status": "local_checks_passed",
+      "status": "pr_opened",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "fix(audit): align landing and take rollout seeds",
@@ -9829,8 +9829,8 @@
         "github": {}
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/892",
+      "commit_sha": "b1ee43ccc3fa1278622dd453a7a7a59de0fa5fe0",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -9849,10 +9849,15 @@
           "at": "2026-05-24T13:12:06+08:00",
           "status": "local_checks_passed",
           "summary": "PR32 focused proxy/rollout contracts, typecheck, full contract suite, production API build, manifest/state parse, diff checks, and scope validation passed."
+        },
+        {
+          "at": "2026-05-24T13:13:00+08:00",
+          "status": "pr_opened",
+          "summary": "Opened https://github.com/fermatmind/fap-web/pull/892 after local checks and scope validation passed."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-05-24T13:12:06+08:00"
+      "updated_at": "2026-05-24T13:13:00+08:00"
     },
     {
       "id": "PR-WEB-SEC-33",
