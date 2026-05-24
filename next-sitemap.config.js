@@ -424,7 +424,7 @@ async function fetchBackendSitemapSourcePersonalityPaths() {
 async function fetchPaginatedItems(path, queryParams = {}, timeoutMs = cmsSitemapTimeoutMs) {
   const items = [];
   let page = 1;
-  let lastPage = 1;
+  let lastPage;
 
   do {
     const params = new URLSearchParams();

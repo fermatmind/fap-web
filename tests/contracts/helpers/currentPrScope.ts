@@ -360,7 +360,27 @@ const PR_WEB_SEC_33_ALLOWED_FILES = new Set([
   "tests/e2e/enneagram-phase3b-1rd-partial-resonance-rendered-preview.spec.ts",
 ]);
 
+const CODEQL_HYGIENE_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx",
+  "app/api/content-release/revalidate/route.ts",
+  "components/personality/ScenarioIntelligenceMatrix.tsx",
+  "components/result/mbti/clone/MbtiDesktopCloneShell.tsx",
+  "lib/big5/resultAssembler.ts",
+  "lib/cms/career-guides.ts",
+  "lib/tracking/seoCtaAttribution.ts",
+  "next-sitemap.config.js",
+  "scripts/seo/detect-internal-link-orphans.mjs",
+  "tests/contracts/article-metadata-consumption-gate.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/riasec-full-content-freeze.contract.test.tsx",
+  "tests/e2e/big5-flow.spec.ts",
+]);
+
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH === "codex/codeql-hygiene-alerts") {
+    return CODEQL_HYGIENE_ALLOWED_FILES.has(file);
+  }
+
   if (CURRENT_BRANCH === "codex/pr-web-sec-01-eq-v5-report-gate") {
     return PR_WEB_SEC_01_ALLOWED_FILES.has(file);
   }

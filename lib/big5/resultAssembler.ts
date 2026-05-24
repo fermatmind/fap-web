@@ -8,7 +8,6 @@ import {
   selectBig5ActionPlan,
 } from "@/lib/big5/interpretation";
 import {
-  BIG5_V1_SECTION_MICROCOPY,
   BIG5_V1_SHELL_MICROCOPY,
   BIG5_V1_STATE_MICROCOPY,
   getBig5SectionDisplayCopy,

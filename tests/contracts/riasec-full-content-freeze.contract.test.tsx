@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { cleanup, render, screen } from "@testing-library/react";
+import { cleanup, render } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { RiasecResultShell } from "@/components/result/riasec/RiasecResultShell";
 import { assembleRiasecResultViewModel } from "@/lib/riasec/resultAssembler";

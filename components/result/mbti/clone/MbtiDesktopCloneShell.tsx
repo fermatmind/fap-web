@@ -710,7 +710,7 @@ export function MbtiDesktopCloneShell({
             setInviteCtaStatus("create_failed");
             trackEvent("invite_create_failed", {
               scale_code: "MBTI",
-              attempt_id: inviteUnlockAttemptId ?? "",
+              attempt_id: "",
               reason: "missing_attempt_id",
             });
             return;

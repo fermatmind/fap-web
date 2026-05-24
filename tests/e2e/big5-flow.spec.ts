@@ -21,19 +21,6 @@ test("BIG5 flow: answer -> submit -> foundation result", async ({ page }) => {
       { code: "5", text: "Strongly agree" },
     ],
   }));
-  const domainBlocks = [
-    { kind: "chart", metric_code: "O", title: "Openness", body: "Openness percentile 62" },
-    { kind: "chart", metric_code: "C", title: "Conscientiousness", body: "Conscientiousness percentile 58" },
-    { kind: "chart", metric_code: "E", title: "Extraversion", body: "Extraversion percentile 44" },
-    { kind: "chart", metric_code: "A", title: "Agreeableness", body: "Agreeableness percentile 71" },
-    { kind: "chart", metric_code: "N", title: "Neuroticism", body: "Neuroticism percentile 33" },
-  ];
-  const facetBlocks = Array.from({ length: 30 }, (_, idx) => ({
-    kind: "table_row",
-    metric_code: `F${idx + 1}`,
-    title: `Facet ${idx + 1}`,
-    body: `Facet ${idx + 1} percentile ${40 + (idx % 50)}`,
-  }));
   const big5Projection = {
     schema_version: "big5.public_projection.v1",
     dominant_traits: [

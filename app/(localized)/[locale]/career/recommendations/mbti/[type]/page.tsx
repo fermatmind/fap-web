@@ -389,7 +389,6 @@ export default async function CareerMbtiRecommendationPage({
   ];
   const canRenderAiScore = detail.claimPermissions.allow_ai_strategy && detail.careerDataStatus !== "unavailable";
   const recommendationSubjectSlug = detail.shortlistContract.subjectSlug ?? matchedJobs[0]?.canonicalSlug ?? extractJobSlugFromCanonicalTarget(detail.seoContract.canonicalTarget);
-  const recommendationSubjectKind = recommendationSubjectSlug ? "job_slug" : "none";
   const stateCopy = getCareerV1StateCopy(detail.careerDataStatus);
   const confidenceLabel = getDecisionConfidenceLabel(locale, detail.scoreBundle.confidenceScore.value);
   const companionRailItems = buildCompanionRailItems(locale, companionLinks, recommendationLandingPath, recommendationSubjectSlug);
