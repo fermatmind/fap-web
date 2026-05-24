@@ -188,7 +188,7 @@ test("order lookup success routes pending alipay recovery into the wait flow", a
   await expect(page.getByText(orderNo)).toBeVisible();
   await expect(page.getByRole("button", { name: "Open payment page" })).toBeVisible();
   await expect
-    .poll(() => page.evaluate(() => window.localStorage.getItem("fm_pending_order_v1")))
+    .poll(() => page.evaluate(() => window.sessionStorage.getItem("fm_pending_order_v1")))
     .toContain(`"paymentRecoveryToken":"${paymentRecoveryToken}"`);
 });
 
@@ -284,7 +284,7 @@ test("legacy protected order return path reuses pending recovery context to re-e
 
   await page.addInitScript(
     ([nextOrderNo, nextToken]) => {
-      window.localStorage.setItem(
+      window.sessionStorage.setItem(
         "fm_pending_order_v1",
         JSON.stringify({
           orderNo: nextOrderNo,
@@ -294,7 +294,7 @@ test("legacy protected order return path reuses pending recovery context to re-e
           waitUrl: `/en/pay/wait?order_no=${nextOrderNo}&payment_recovery_token=${nextToken}`,
           paymentRecoveryToken: nextToken,
           resultUrl: `/en/result/attempt-lookup-legacy-return-1`,
-          updatedAt: "2026-04-02T13:30:00Z",
+          updatedAt: new Date().toISOString(),
         })
       );
     },
@@ -312,7 +312,7 @@ test("legacy protected order return path reuses pending recovery context to re-e
   await expect(page.getByText(orderNo)).toBeVisible();
 });
 
-test("legacy protected order return path rebuilds wait flow from signed Alipay params without local storage", async ({ page }) => {
+test("legacy protected order return path rebuilds wait flow from signed Alipay params without session storage", async ({ page }) => {
   const orderNo = "ord_lookup_legacy_return_002";
   const paymentRecoveryToken = "recovery_lookup_legacy_return_002";
   const requestUrls: string[] = [];

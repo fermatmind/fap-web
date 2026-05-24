@@ -31,7 +31,7 @@ function read(relativePath: string): string {
 describe("alipay return flow contract", () => {
   beforeEach(() => {
     vi.clearAllMocks();
-    window.localStorage.clear();
+    window.sessionStorage.clear();
     hoisted.recoverAlipayReturnContext.mockResolvedValue({
       ok: true,
       order_no: "ord_return_recovered_default",
@@ -158,7 +158,7 @@ describe("alipay return flow contract", () => {
   });
 
   it("keeps return recovery on the wait flow instead of direct-entering a pending result URL", async () => {
-    window.localStorage.setItem(
+    window.sessionStorage.setItem(
       "fm_pending_order_v1",
       JSON.stringify({
         orderNo: "ord_return_alipay_4",

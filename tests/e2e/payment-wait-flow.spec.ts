@@ -27,7 +27,7 @@ test("provider return fallback restores the tokenized wait flow", async ({ page 
 
   await mockCommonApis(page);
   await page.addInitScript(({ nextOrderNo, nextToken }) => {
-    window.localStorage.setItem(
+    window.sessionStorage.setItem(
       "fm_pending_order_v1",
       JSON.stringify({
         orderNo: nextOrderNo,
@@ -69,7 +69,7 @@ test("provider return fallback restores the tokenized wait flow", async ({ page 
   await expect(page.getByRole("button", { name: "Open payment page" })).toBeVisible();
 });
 
-test("provider return query params restore the tokenized wait flow without local storage", async ({ page }) => {
+test("provider return query params restore the tokenized wait flow without session storage", async ({ page }) => {
   const orderNo = "ord_return_wait_query_1";
   const paymentRecoveryToken = "recovery_return_wait_query_1";
 

@@ -388,6 +388,21 @@ const PR_AUDIT_FE_02_ALLOWED_FILES = new Set([
   "tests/contracts/security-headers.contract.test.ts",
 ]);
 
+const PR_AUDIT_FE_03_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/orders/[orderNo]/OrdersClient.tsx",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "lib/commerce/pendingOrder.ts",
+  "tests/contracts/alipay-return-flow.contract.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/order-lookup-recovery.contract.test.tsx",
+  "tests/contracts/orders-client-delivery.contract.test.tsx",
+  "tests/contracts/payment-wait-flow.contract.test.ts",
+  "tests/e2e/alipay-return-recovery.spec.ts",
+  "tests/e2e/order-lookup-recovery.spec.ts",
+  "tests/e2e/payment-wait-flow.spec.ts",
+]);
+
 const CODEQL_HYGIENE_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx",
   "app/api/content-release/revalidate/route.ts",
@@ -551,6 +566,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/pr-audit-fe-02-csp-noindex") {
     return PR_AUDIT_FE_02_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/pr-audit-fe-03-recovery-token") {
+    return PR_AUDIT_FE_03_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/research-report-metadata") {

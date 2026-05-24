@@ -148,6 +148,7 @@ describe("OrderLookupForm recovery contract", () => {
       value: "https://example.com/en/help/faq",
     });
     window.localStorage.clear();
+    window.sessionStorage.clear();
   });
 
   it("renders a marketing consent consumer with a default opt-in of false", () => {

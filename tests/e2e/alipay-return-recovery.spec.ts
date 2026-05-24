@@ -58,13 +58,13 @@ test("alipay return page restores the tokenized wait flow from explicit return p
   await expect(page.getByRole("button", { name: "Open payment page" })).toBeVisible();
 });
 
-test("alipay return page can reuse pending-order recovery context from local storage", async ({ page }) => {
+test("alipay return page can reuse pending-order recovery context from session storage", async ({ page }) => {
   const orderNo = "ord_alipay_return_2";
   const paymentRecoveryToken = "recovery_alipay_return_2";
 
   await mockCommonApis(page);
   await page.addInitScript(({ nextOrderNo, nextToken }) => {
-    window.localStorage.setItem(
+    window.sessionStorage.setItem(
       "fm_pending_order_v1",
       JSON.stringify({
         orderNo: nextOrderNo,
@@ -108,7 +108,7 @@ test("alipay return page can reuse pending-order recovery context from local sto
   await expect(page.getByRole("button", { name: "Open payment page" })).toBeVisible();
 });
 
-test("alipay return page rebuilds wait flow from native out_trade_no without local storage", async ({ page }) => {
+test("alipay return page rebuilds wait flow from native out_trade_no without session storage", async ({ page }) => {
   const orderNo = "ord_alipay_return_3";
   const paymentRecoveryToken = "recovery_alipay_return_3";
 
