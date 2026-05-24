@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-24T07:22:52+08:00",
+  "updated_at": "2026-05-24T10:45:44+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -8761,7 +8761,7 @@
       "depends_on": [
         "PR-WEB-SEC-17A"
       ],
-      "status": "github_checks_passed",
+      "status": "merged",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "fix(audit): keep CMS health timeout through JSON parsing",
@@ -8804,10 +8804,10 @@
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/878",
-      "commit_sha": "749c508f372e3cb57b9bebe331f43a03a85dc9a7",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "eced1e95cb916708caac02eb46cfd3ac0eddaff5",
+      "merged_at": "2026-05-24T02:24:02Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-24T06:27:02+08:00",
@@ -8838,12 +8838,17 @@
           "at": "2026-05-24T10:20:17+08:00",
           "status": "github_checks_passed",
           "summary": "GitHub required checks passed for PR-WEB-SEC-18: build, contracts, Big Five freeze, Enneagram freeze, and CodeQL/analyze."
+        },
+        {
+          "at": "2026-05-24T10:30:28+08:00",
+          "status": "merged",
+          "summary": "Reconciled PR-WEB-SEC-18 after GitHub showed PR #878 merged at 2026-05-24T02:24:02Z with merge commit 03e4eeb168c4dc0f0e7e186b4279de72a212c9ec on origin/main; remote branch is deleted and local cleanup already executed."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T10:20:17+08:00"
+      "updated_at": "2026-05-24T10:30:28+08:00"
     },
     {
       "id": "PR-WEB-SEC-19",
@@ -8854,7 +8859,7 @@
       "depends_on": [
         "PR-WEB-SEC-18"
       ],
-      "status": "planned",
+      "status": "github_checks_passed",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "fix(audit): validate dataset method links",
@@ -8872,13 +8877,42 @@
       ],
       "checks": {
         "local": {
+          "status": "passed",
+          "passed": [
+            "pnpm exec vitest run tests/contracts/dataset-method-links.contract.test.tsx",
+            "pnpm typecheck",
+            "pnpm exec vitest run tests/contracts/mbti-desktop-p1-render.contract.test.tsx",
+            "pnpm test:contract",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+            "node -e \"JSON.parse(require('fs').readFileSync('docs/codex/pr-train-state.json','utf8')); console.log('state json ok')\"",
+            "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'manifest yaml ok'\"",
+            "git diff --check",
+            "git diff --cached --check",
+            "scope validation"
+          ],
+          "failed": [
+            {
+              "command": "pnpm test:contract",
+              "summary": "Initial full contract run failed in tests/contracts/mbti-desktop-p1-render.contract.test.tsx outside PR-WEB-SEC-19 scope; the focused out-of-scope test was rerun unchanged and passed, then full pnpm test:contract passed."
+            }
+          ],
+          "failure_summary": null
         },
         "github": {
+          "status": "passed",
+          "passed": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "analyze (javascript-typescript)",
+            "CodeQL"
+          ]
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/879",
+      "commit_sha": "7479c76a5b1c66678ff75e8424a6f5a894b65787",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -8887,12 +8921,42 @@
           "at": "2026-05-24T06:27:02+08:00",
           "status": "planned",
           "summary": "Initialized PR-WEB-SEC-19 from authorized fap-web security findings train expansion."
+        },
+        {
+          "at": "2026-05-24T10:30:28+08:00",
+          "status": "in_progress",
+          "summary": "Started PR-WEB-SEC-19 from latest main after reconciling merged PR-WEB-SEC-18; validating dataset method publication links before rendering anchors."
+        },
+        {
+          "at": "2026-05-24T10:34:25+08:00",
+          "status": "local_check_failed_retrying",
+          "summary": "Full contract suite failed in an out-of-scope MBTI desktop contract after PR19 focused dataset link contract and typecheck passed; no MBTI files were changed."
+        },
+        {
+          "at": "2026-05-24T10:39:21+08:00",
+          "status": "local_checks_passed",
+          "summary": "PR19 focused dataset link contract, typecheck, retried full contract suite, production build, manifest parse, state parse, diff check, and scope validation passed."
+        },
+        {
+          "at": "2026-05-24T10:42:00+08:00",
+          "status": "committed",
+          "summary": "Committed scoped PR-WEB-SEC-19 changes as c8546239e85bf56f67aae403daeac301a9c7fade."
+        },
+        {
+          "at": "2026-05-24T10:42:15+08:00",
+          "status": "pr_open_github_checks_pending",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/879 from scoped branch codex/pr-web-sec-19-dataset-url-allowlist; waiting for GitHub checks."
+        },
+        {
+          "at": "2026-05-24T10:45:44+08:00",
+          "status": "github_checks_passed",
+          "summary": "GitHub required checks passed for PR-WEB-SEC-19: build, contracts, Big Five freeze, Enneagram freeze, and CodeQL/analyze."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T06:27:02+08:00"
+      "updated_at": "2026-05-24T10:45:44+08:00"
     },
     {
       "id": "PR-WEB-SEC-20",
