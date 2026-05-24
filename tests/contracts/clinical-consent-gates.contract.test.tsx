@@ -1,8 +1,10 @@
+import { execFileSync } from "node:child_process";
 import type { ReactNode } from "react";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import ClinicalTakeClient from "@/app/(localized)/[locale]/tests/[slug]/take/ClinicalTakeClient";
 import { useClinicalAttemptStore } from "@/lib/clinical/attemptStore";
+import { isCurrentRiasecPack12AllowedFile } from "./helpers/currentPrScope";
 
 type ChildrenProps = {
   children?: ReactNode;
@@ -20,6 +22,16 @@ const hoisted = vi.hoisted(() => ({
   trackEvent: vi.fn(),
   ensureFmTokenReady: vi.fn(async () => "existing" as const),
 }));
+
+function currentChangedFiles(): string[] {
+  return execFileSync("git", ["diff", "--name-only", "HEAD"], {
+    cwd: process.cwd(),
+    encoding: "utf8",
+  })
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean);
+}
 
 vi.mock("next/navigation", () => ({
   usePathname: () => hoisted.pathname,
@@ -207,6 +219,7 @@ describe("clinical take consent gate", () => {
   beforeEach(() => {
     vi.clearAllMocks();
     window.localStorage.clear();
+    window.sessionStorage.clear();
     useClinicalAttemptStore.getState().resetAll();
     hoisted.pathname = "/en/tests/clinical-depression-anxiety-assessment-professional-edition/take";
     hoisted.search = "";
@@ -227,6 +240,7 @@ describe("clinical take consent gate", () => {
   afterEach(() => {
     useClinicalAttemptStore.getState().resetAll();
     window.localStorage.clear();
+    window.sessionStorage.clear();
   });
 
   it("blocks direct clinical runner access until consent is accepted", async () => {
@@ -320,5 +334,59 @@ describe("clinical take consent gate", () => {
       forceRefresh: true,
     });
     expect(hoisted.startClinicalAttempt).not.toHaveBeenCalled();
+  });
+
+  it("continues to the report when clinical report sessionStorage cache fails", async () => {
+    vi.spyOn(window.sessionStorage, "setItem").mockImplementation(() => {
+      throw new Error("session storage disabled");
+    });
+    hoisted.submitClinicalAttempt.mockResolvedValue({
+      ok: true,
+      attempt_id: "attempt-clinical-start-001",
+      report: { summary: "accepted" },
+    });
+
+    render(
+      <ClinicalTakeClient
+        slug="clinical-depression-anxiety-assessment-professional-edition"
+        scaleCode="SDS_20"
+      />
+    );
+
+    await waitFor(() => {
+      expect(screen.getByText("Please accept clinical consent.")).toBeInTheDocument();
+    });
+    fireEvent.click(screen.getByLabelText("I have read and agree to the statement above"));
+    await waitFor(() => {
+      expect(screen.getByRole("button", { name: "Agree and start" })).not.toBeDisabled();
+    });
+    fireEvent.click(screen.getByRole("button", { name: "Agree and start" }));
+
+    await waitFor(() => {
+      expect(screen.getByText("Clinical question 1")).toBeInTheDocument();
+    });
+    fireEvent.click(screen.getByRole("button", { name: "Answer current" }));
+    fireEvent.click(screen.getByRole("button", { name: "Submit" }));
+    await waitFor(() => {
+      expect(screen.getByText("Clinical question 2")).toBeInTheDocument();
+    });
+    fireEvent.click(screen.getByRole("button", { name: "Answer current" }));
+    fireEvent.click(screen.getByRole("button", { name: "Next" }));
+    await waitFor(() => {
+      expect(screen.getByText("Clinical question 3")).toBeInTheDocument();
+    });
+    fireEvent.click(screen.getByRole("button", { name: "Answer current" }));
+    fireEvent.click(screen.getByRole("button", { name: "Submit" }));
+
+    await waitFor(() => {
+      expect(hoisted.submitClinicalAttempt).toHaveBeenCalledTimes(1);
+      expect(hoisted.routerPush).toHaveBeenCalledWith("/en/attempts/attempt-clinical-start-001/report");
+    });
+  });
+
+  it("documents the PR-WEB-SEC-31 scope boundary", () => {
+    const changed = currentChangedFiles();
+
+    expect(changed.every(isCurrentRiasecPack12AllowedFile), changed.join("\n")).toBe(true);
   });
 });

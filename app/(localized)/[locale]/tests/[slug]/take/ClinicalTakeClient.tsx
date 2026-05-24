@@ -50,6 +50,19 @@ import {
 const SDS_OPTION_CODES = ["A", "B", "C", "D"];
 const SUBMIT_REPORT_CACHE_PREFIX = "fm_attempt_submit_report_v1_";
 
+function cacheSubmitReport(resultAttemptId: string, report: unknown): void {
+  if (typeof window === "undefined" || !report) {
+    return;
+  }
+
+  try {
+    const key = `${SUBMIT_REPORT_CACHE_PREFIX}${resultAttemptId}`;
+    window.sessionStorage.setItem(key, JSON.stringify(report));
+  } catch {
+    // Storage availability must not turn an accepted submit into a failed flow.
+  }
+}
+
 type ModuleMetaNode = {
   title?: string;
   guidance?: string;
@@ -691,10 +704,7 @@ export default function ClinicalTakeClient({
     }
 
     const resultAttemptId = resolveResultAttemptId(response, activeAttemptId);
-    if (typeof window !== "undefined" && response.report) {
-      const key = `${SUBMIT_REPORT_CACHE_PREFIX}${resultAttemptId}`;
-      window.sessionStorage.setItem(key, JSON.stringify(response.report));
-    }
+    cacheSubmitReport(resultAttemptId, response.report);
 
     markSubmitted();
     trackEvent("submit_attempt", {

@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-24T11:16:12+08:00",
+  "updated_at": "2026-05-24T12:54:46+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -88,9 +88,7 @@
       "repo_path": "<workspace>/fap-web",
       "branch": "codex/pr-prac-01-frontend-source-of-truth-lock",
       "base": "main",
-      "depends_on": [
-
-      ],
+      "depends_on": [],
       "status": "merged",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/689",
       "merge_sha": "6d496d9262f84f78f2ca8feb814370730f11a232",
@@ -200,9 +198,7 @@
       "repo_path": "<workspace>/fap-web",
       "branch": "codex/pr-web-hotfix-761a-job-detail-cta-attribution",
       "base": "main",
-      "depends_on": [
-
-      ],
+      "depends_on": [],
       "status": "open",
       "title": "fix(career): restore attributed RIASEC CTA on published job detail live HTML",
       "artifacts": [
@@ -240,9 +236,7 @@
       "repo_path": "<workspace>/fap-web",
       "branch": "codex/pr-web-sbti-remove-01",
       "base": "main",
-      "depends_on": [
-
-      ],
+      "depends_on": [],
       "status": "merged",
       "title": "chore(sbti): remove inactive SBTI product surface and test coverage",
       "artifacts": [
@@ -430,9 +424,7 @@
       "repo_path": "<workspace>/fap-web",
       "branch": "codex/iq-fe-api-client-contracts",
       "base": "main",
-      "depends_on": [
-
-      ],
+      "depends_on": [],
       "status": "merged",
       "title": "feat(iq): add frontend API contracts",
       "artifacts": [
@@ -482,9 +474,7 @@
         "tests/a11y/iq-option-board.a11y.test.tsx",
         "tests/e2e/visual/iq-take.visual.spec.ts"
       ],
-      "checks": [
-
-      ],
+      "checks": [],
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/785",
       "commit_sha": "53a12b76b3884980fc71a816e8fc8ad4bea35bc8",
@@ -508,9 +498,7 @@
         "app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient.tsx",
         "tests/e2e/iq-eq-result-regression.spec.ts"
       ],
-      "checks": [
-
-      ],
+      "checks": [],
       "failure_reason": null,
       "pr_url": null,
       "commit_sha": "e70155297de99ff72899ba52737d647a10fa04eb",
@@ -534,9 +522,7 @@
         "components/result/iq/**",
         "tests/contracts/iq-result-contracts.contract.test.tsx"
       ],
-      "checks": [
-
-      ],
+      "checks": [],
       "failure_reason": null,
       "pr_url": null,
       "commit_sha": "35b619326cb1bfbc66449b71fdb64fae5db37773",
@@ -560,9 +546,7 @@
         "components/result/iq/**",
         "tests/contracts/iq-report-contracts.contract.test.tsx"
       ],
-      "checks": [
-
-      ],
+      "checks": [],
       "failure_reason": null,
       "pr_url": null,
       "commit_sha": "806c21a2840a8244d50ed3c1862e3bfe6a417484",
@@ -587,9 +571,7 @@
         "components/result/iq/**",
         "tests/e2e/visual/iq-take.visual.spec.ts"
       ],
-      "checks": [
-
-      ],
+      "checks": [],
       "failure_reason": null,
       "pr_url": null,
       "commit_sha": "5eb323dcf6f05cbd82233cf1712124b78b910bc7",
@@ -615,9 +597,7 @@
         "app/(localized)/[locale]/orders/**",
         "tests/contracts/iq-commerce-unlock.contract.test.tsx"
       ],
-      "checks": [
-
-      ],
+      "checks": [],
       "pr_url": null,
       "commit_sha": "81583ffd4a5c1191e96d88a2da945a8fc364bcd1",
       "merged_at": null,
@@ -630,9 +610,7 @@
       "repo_path": "<workspace>/fap-web",
       "branch": "codex/riasec-train-00-register-train",
       "base": "main",
-      "depends_on": [
-
-      ],
+      "depends_on": [],
       "status": "merged",
       "title": "docs(codex): register RIASEC Trusted Result v1.5 train",
       "checks": [
@@ -680,9 +658,7 @@
       ],
       "status": "merged",
       "title": "feat(riasec): add measurement contract and compare policy",
-      "checks": [
-
-      ],
+      "checks": [],
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-api/pull/1319",
       "commit_sha": "65d6d04dd07d010f764b372cdae7d49775ff8da6",
@@ -701,9 +677,7 @@
       ],
       "status": "merged",
       "title": "feat(riasec): add public projection v2 evidence metadata",
-      "checks": [
-
-      ],
+      "checks": [],
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-api/pull/1321",
       "commit_sha": "33155992f26efdeee76e02e753e3dd360c7d8eb9",
@@ -722,9 +696,7 @@
       ],
       "status": "merged",
       "title": "feat(riasec): make formal report snapshot-bound",
-      "checks": [
-
-      ],
+      "checks": [],
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-api/pull/1323",
       "commit_sha": "990c9fea9a5c8e258828eda53e0c56c219c5ef33",
@@ -743,9 +715,7 @@
       ],
       "status": "merged",
       "title": "feat(riasec): align share PDF and history with snapshots",
-      "checks": [
-
-      ],
+      "checks": [],
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-api/pull/1325",
       "commit_sha": "855c9a385c5126d50f8f2cc4e3c6ad6aaa1451df",
@@ -764,9 +734,7 @@
       ],
       "status": "merged",
       "title": "feat(riasec): add technical note v0.1",
-      "checks": [
-
-      ],
+      "checks": [],
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-api/pull/1326",
       "commit_sha": "542ef88da8ae61a2490d3ef79a1691bbd0eeebdf",
@@ -786,9 +754,7 @@
       ],
       "status": "merged",
       "title": "feat(riasec): render trusted result card and six-dimension map",
-      "checks": [
-
-      ],
+      "checks": [],
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/770",
       "commit_sha": "47e9cee30e02cc22b2f8f30cc78e6ef2b53f58ba",
@@ -808,9 +774,7 @@
       ],
       "status": "merged",
       "title": "feat(riasec): add activity explorer examples v0.1",
-      "checks": [
-
-      ],
+      "checks": [],
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-api/pull/1330",
       "commit_sha": "7423d414e28045a5cdab93ea1bd7fd3e816668b5",
@@ -831,9 +795,7 @@
       ],
       "status": "merged",
       "title": "feat(riasec): add V11 copy governance and fallback guards",
-      "checks": [
-
-      ],
+      "checks": [],
       "failure_reason": "sidecar: local post-merge cleanup blocked because main is already used by <workspace>/fap-web worktree.",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/774",
       "commit_sha": "b7d5031b64ebcf20045f5c095b9154bc511ec36c",
@@ -853,9 +815,7 @@
       ],
       "status": "merged",
       "title": "feat(riasec): add exploration feedback overlay",
-      "checks": [
-
-      ],
+      "checks": [],
       "failure_reason": "sidecar: fap-api worktree has no scripts/post_merge_cleanup.sh; remote branch was deleted by gh pr merge.",
       "pr_url": "https://github.com/fermatmind/fap-api/pull/1334",
       "commit_sha": "3983c5bb3a274e40fd6fe136df44e2d6b9055be1",
@@ -1063,9 +1023,7 @@
       ],
       "status": "planned",
       "title": "docs(codex): reconcile RIASEC TRAIN-10 ledger",
-      "checks": [
-
-      ],
+      "checks": [],
       "failure_reason": null,
       "pr_url": null,
       "commit_sha": "cba3014f6dd08f9fb3f6eae28cbaf5afd7802267",
@@ -1085,9 +1043,7 @@
       ],
       "status": "planned",
       "title": "feat(riasec): expand activity explorer examples",
-      "checks": [
-
-      ],
+      "checks": [],
       "failure_reason": null,
       "pr_url": null,
       "commit_sha": "c999680870510ece94449cdf15de9c41910040ba",
@@ -1157,9 +1113,7 @@
       "repo_path": "<workspace>/fap-web",
       "branch": "codex/pr-rt-01-article-runtime-truth-gate",
       "base": "main",
-      "depends_on": [
-
-      ],
+      "depends_on": [],
       "status": "open",
       "title": "test(runtime): add article publishing runtime truth gate",
       "checks": [
@@ -1240,9 +1194,7 @@
       "repo_path": "<workspace>/fap-web",
       "branch": "codex/riasec-personalization-00-train-registration",
       "base": "main",
-      "depends_on": [
-
-      ],
+      "depends_on": [],
       "status": "open",
       "title": "docs(codex): register RIASEC personalization train",
       "mode": "scan/docs",
@@ -1251,18 +1203,14 @@
         "docs/codex/pr-train.yaml",
         "docs/codex/pr-train-state.json"
       ],
-      "checks": [
-
-      ],
+      "checks": [],
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/784",
       "commit_sha": "1ad371b90bfe8a665240e9704775fe85d562b039",
       "merged_at": "2026-05-13T09:03:50Z",
       "remote_branch_deleted": true,
       "local_cleanup_executed": true,
-      "sidecar_issues": [
-
-      ]
+      "sidecar_issues": []
     },
     {
       "id": "RIASEC-PERSONALIZATION-01",
@@ -1315,9 +1263,7 @@
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "sidecar_issues": [
-
-      ]
+      "sidecar_issues": []
     },
     {
       "id": "RIASEC-PERSONALIZATION-02",
@@ -1337,18 +1283,14 @@
         "backend/tests/**/Riasec*Quality*",
         "docs/codex/pr-train-state.json"
       ],
-      "checks": [
-
-      ],
+      "checks": [],
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/789",
       "commit_sha": "722685377914ef3e792896bbed7780dbad3b562d",
       "merged_at": "2026-05-13T16:27:02Z",
       "remote_branch_deleted": true,
       "local_cleanup_executed": true,
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "history": [
         {
           "at": "2026-05-24T00:05:29+08:00",
@@ -1376,18 +1318,14 @@
         "backend/tests/**/Riasec*Projection*",
         "docs/codex/pr-train-state.json"
       ],
-      "checks": [
-
-      ],
+      "checks": [],
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/887",
       "commit_sha": "d48615f1adb92cb9fcd9903b9ee9254b4efe4958",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "sidecar_issues": [
-
-      ]
+      "sidecar_issues": []
     },
     {
       "id": "RIASEC-PERSONALIZATION-04",
@@ -1408,18 +1346,14 @@
         "backend/tests/**/Riasec*Module*",
         "docs/codex/pr-train-state.json"
       ],
-      "checks": [
-
-      ],
+      "checks": [],
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/888",
       "commit_sha": "57b74c7af824667412fe3b79bdf27144ac1382d4",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "sidecar_issues": [
-
-      ]
+      "sidecar_issues": []
     },
     {
       "id": "RIASEC-PERSONALIZATION-05",
@@ -1440,18 +1374,14 @@
         "backend/docs/riasec/**",
         "docs/codex/pr-train-state.json"
       ],
-      "checks": [
-
-      ],
+      "checks": [],
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/889",
       "commit_sha": "96585361191e419f4af59e7d86db04436670ea08",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "sidecar_issues": [
-
-      ]
+      "sidecar_issues": []
     },
     {
       "id": "RIASEC-PERSONALIZATION-06",
@@ -1510,9 +1440,7 @@
       "merged_at": "2026-05-13T09:03:50Z",
       "remote_branch_deleted": true,
       "local_cleanup_executed": true,
-      "sidecar_issues": [
-
-      ]
+      "sidecar_issues": []
     },
     {
       "id": "RIASEC-PERSONALIZATION-07",
@@ -1570,9 +1498,7 @@
       "merged_at": "2026-05-13T09:26:02Z",
       "remote_branch_deleted": true,
       "local_cleanup_executed": true,
-      "sidecar_issues": [
-
-      ]
+      "sidecar_issues": []
     },
     {
       "id": "RIASEC-DEEP-COPY-00",
@@ -1616,9 +1542,7 @@
       "merged_at": "2026-05-13T10:52:59Z",
       "remote_branch_deleted": true,
       "local_cleanup_executed": true,
-      "sidecar_issues": [
-
-      ]
+      "sidecar_issues": []
     },
     {
       "id": "RIASEC-DEEP-COPY-01",
@@ -1638,18 +1562,14 @@
         "backend/tests/**/Riasec**",
         "docs/codex/pr-train-state.json"
       ],
-      "checks": [
-
-      ],
+      "checks": [],
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/890",
       "commit_sha": "c9816a842465c593c3a4c9e885b15e967b0633cf",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "sidecar_issues": [
-
-      ]
+      "sidecar_issues": []
     },
     {
       "id": "RIASEC-DEEP-COPY-02",
@@ -1669,18 +1589,14 @@
         "backend/tests/**/Riasec**",
         "docs/codex/pr-train-state.json"
       ],
-      "checks": [
-
-      ],
+      "checks": [],
       "failure_reason": null,
       "pr_url": null,
       "commit_sha": null,
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "sidecar_issues": [
-
-      ]
+      "sidecar_issues": []
     },
     {
       "id": "RIASEC-DEEP-COPY-03",
@@ -1700,18 +1616,14 @@
         "backend/tests/**/Riasec**",
         "docs/codex/pr-train-state.json"
       ],
-      "checks": [
-
-      ],
+      "checks": [],
       "failure_reason": null,
       "pr_url": null,
       "commit_sha": null,
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "sidecar_issues": [
-
-      ]
+      "sidecar_issues": []
     },
     {
       "id": "RIASEC-DEEP-COPY-04",
@@ -1731,18 +1643,14 @@
         "backend/tests/**/Riasec**",
         "docs/codex/pr-train-state.json"
       ],
-      "checks": [
-
-      ],
+      "checks": [],
       "failure_reason": null,
       "pr_url": null,
       "commit_sha": null,
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "sidecar_issues": [
-
-      ]
+      "sidecar_issues": []
     },
     {
       "id": "RIASEC-DEEP-COPY-05",
@@ -1762,18 +1670,14 @@
         "backend/tests/**/Riasec**",
         "docs/codex/pr-train-state.json"
       ],
-      "checks": [
-
-      ],
+      "checks": [],
       "failure_reason": null,
       "pr_url": null,
       "commit_sha": null,
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "sidecar_issues": [
-
-      ]
+      "sidecar_issues": []
     },
     {
       "id": "RIASEC-DEEP-COPY-06",
@@ -1793,18 +1697,14 @@
         "backend/tests/**/Riasec**",
         "docs/codex/pr-train-state.json"
       ],
-      "checks": [
-
-      ],
+      "checks": [],
       "failure_reason": null,
       "pr_url": null,
       "commit_sha": null,
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "sidecar_issues": [
-
-      ]
+      "sidecar_issues": []
     },
     {
       "id": "RIASEC-DEEP-COPY-07",
@@ -1828,18 +1728,14 @@
         "tests/contracts/**riasec**",
         "docs/codex/pr-train-state.json"
       ],
-      "checks": [
-
-      ],
+      "checks": [],
       "failure_reason": null,
       "pr_url": null,
       "commit_sha": null,
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "sidecar_issues": [
-
-      ]
+      "sidecar_issues": []
     },
     {
       "id": "RIASEC-DEEP-COPY-08",
@@ -1860,18 +1756,14 @@
         "backend/tests/**/Riasec**",
         "docs/codex/pr-train-state.json"
       ],
-      "checks": [
-
-      ],
+      "checks": [],
       "failure_reason": null,
       "pr_url": null,
       "commit_sha": null,
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "sidecar_issues": [
-
-      ]
+      "sidecar_issues": []
     },
     {
       "id": "RIASEC-DEEP-COPY-09",
@@ -2412,9 +2304,7 @@
       "repo_path": "<workspace>/fap-web",
       "branch": "codex/pr-cms-02-content-release-revalidate-web",
       "base": "main",
-      "depends_on": [
-
-      ],
+      "depends_on": [],
       "status": "merged",
       "title": "test(cms): harden content release revalidate allowlist",
       "mode": "execute",
@@ -2459,9 +2349,7 @@
       "merged_at": "2026-05-13T17:40:08Z",
       "remote_branch_deleted": true,
       "local_cleanup_executed": true,
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "history": [
         {
           "at": "2026-05-14T01:05:00+08:00",
@@ -2491,9 +2379,7 @@
       "repo_path": "<workspace>/fap-web",
       "branch": "codex/pr-track-01-ga4-baidu-google-ads-activation",
       "base": "main",
-      "depends_on": [
-
-      ],
+      "depends_on": [],
       "status": "merged",
       "title": "feat(analytics): add GA4 Baidu and Google Ads activation contract",
       "mode": "execute",
@@ -2557,9 +2443,7 @@
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "history": [
         {
           "at": "2026-05-14T00:00:00+08:00",
@@ -2584,9 +2468,7 @@
       "repo_path": "<workspace>/fap-web",
       "branch": "codex/pr-seo-01b-test-detail-softwareapplication-schema",
       "base": "main",
-      "depends_on": [
-
-      ],
+      "depends_on": [],
       "status": "merged",
       "title": "feat(seo): add SoftwareApplication schema for test detail pages",
       "mode": "execute",
@@ -2658,9 +2540,7 @@
       "merged_at": "2026-05-15T05:16:43Z",
       "remote_branch_deleted": true,
       "local_cleanup_executed": true,
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "history": [
         {
           "at": "2026-05-15T13:05:47+08:00",
@@ -2784,9 +2664,7 @@
       "merged_at": "2026-05-15T05:48:28Z",
       "remote_branch_deleted": true,
       "local_cleanup_executed": true,
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "history": [
         {
           "at": "2026-05-15T13:20:00+08:00",
@@ -2941,9 +2819,7 @@
       "repo_path": "<workspace>/fap-web",
       "branch": "codex/homepage-recommended-cover-images",
       "base": "main",
-      "depends_on": [
-
-      ],
+      "depends_on": [],
       "status": "merged",
       "title": "PR-HOME-01｜Homepage Recommended Articles CMS Cover Display",
       "mode": "execute",
@@ -3003,9 +2879,7 @@
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "history": [
         {
           "at": "2026-05-15T00:00:00+08:00",
@@ -3035,9 +2909,7 @@
       "repo_path": "<workspace>/fap-web",
       "branch": "codex/email-riasec-02-frontend-guest-token-parity",
       "base": "main",
-      "depends_on": [
-
-      ],
+      "depends_on": [],
       "status": "merged",
       "title": "fix(riasec): ensure guest token parity before starting attempts",
       "mode": "execute",
@@ -3106,9 +2978,7 @@
       "merge_sha": "d541293978cc5a8f0ba5a208a995dda215ddcd95",
       "remote_branch_deleted": true,
       "local_cleanup_executed": false,
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "history": [
         {
           "at": "2026-05-15T00:00:00+08:00",
@@ -3222,9 +3092,7 @@
       "merged_at": "2026-05-15T13:06:25Z",
       "remote_branch_deleted": true,
       "local_cleanup_executed": true,
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "history": [
         {
           "at": "2026-05-15T00:00:00+08:00",
@@ -3346,9 +3214,7 @@
       "merged_at": "2026-05-15T20:13:43Z",
       "remote_branch_deleted": true,
       "local_cleanup_executed": true,
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "history": [
         {
           "at": "2026-05-16T00:00:00+08:00",
@@ -3466,9 +3332,7 @@
       "merged_at": "2026-05-15T20:56:30Z",
       "remote_branch_deleted": true,
       "local_cleanup_executed": true,
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "history": [
         {
           "at": "2026-05-16T04:45:38+08:00",
@@ -3602,9 +3466,7 @@
       "merged_at": "2026-05-15T21:31:08Z",
       "remote_branch_deleted": true,
       "local_cleanup_executed": true,
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "history": [
         {
           "at": "2026-05-16T10:30:00+08:00",
@@ -3751,9 +3613,7 @@
       "merged_at": "2026-05-15T22:29:31Z",
       "remote_branch_deleted": true,
       "local_cleanup_executed": true,
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "history": [
         {
           "at": "2026-05-16T06:16:17+08:00",
@@ -3865,9 +3725,7 @@
       "merged_at": "2026-05-15T13:35:09Z",
       "remote_branch_deleted": true,
       "local_cleanup_executed": true,
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "history": [
         {
           "at": "2026-05-15T00:00:00+08:00",
@@ -4011,9 +3869,7 @@
       "merged_at": "2026-05-15T21:52:06Z",
       "remote_branch_deleted": true,
       "local_cleanup_executed": true,
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "history": [
         {
           "at": "2026-05-16T11:05:00+08:00",
@@ -4188,9 +4044,7 @@
       "merged_at": "2026-05-15T23:48:17Z",
       "remote_branch_deleted": true,
       "local_cleanup_executed": true,
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "history": [
         {
           "at": "2026-05-16T12:25:00+08:00",
@@ -4296,9 +4150,7 @@
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "history": [
         {
           "at": "2026-05-15T00:00:00+08:00",
@@ -4328,9 +4180,7 @@
       "repo_path": "<workspace>/fap-web",
       "branch": "codex/arch-seo-cms-01-asset-map-ownership-contract",
       "base": "main",
-      "depends_on": [
-
-      ],
+      "depends_on": [],
       "status": "ready_to_merge",
       "title": "docs(architecture): add SEO intelligence asset map and ownership contract",
       "mode": "execute",
@@ -4420,9 +4270,7 @@
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "history": [
         {
           "at": "2026-05-16T13:52:47+08:00",
@@ -4519,9 +4367,7 @@
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "history": [
         {
           "at": "2026-05-16T14:30:00+08:00",
@@ -4614,9 +4460,7 @@
       "merged_at": "2026-05-17T00:11:28Z",
       "remote_branch_deleted": true,
       "local_cleanup_executed": true,
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "history": [
         {
           "at": "2026-05-17T08:01:08+08:00",
@@ -4718,9 +4562,7 @@
       "merged_at": "2026-05-17T00:57:10Z",
       "remote_branch_deleted": true,
       "local_cleanup_executed": true,
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "history": [
         {
           "at": "2026-05-17T08:47:31+08:00",
@@ -4822,9 +4664,7 @@
       "merged_at": "2026-05-17T01:16:33Z",
       "remote_branch_deleted": true,
       "local_cleanup_executed": true,
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "history": [
         {
           "at": "2026-05-17T09:08:17+08:00",
@@ -4936,9 +4776,7 @@
       "merged_at": "2026-05-17T01:50:38Z",
       "remote_branch_deleted": true,
       "local_cleanup_executed": true,
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "history": [
         {
           "at": "2026-05-17T09:42:13+08:00",
@@ -5055,9 +4893,7 @@
       "merged_at": "2026-05-17T02:16:40Z",
       "remote_branch_deleted": true,
       "local_cleanup_executed": false,
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "history": [
         {
           "at": "2026-05-17T10:09:25+08:00",
@@ -5093,9 +4929,7 @@
       "branch": "codex/audit-web-cms-link-xss",
       "base": "main",
       "global_sequence": 1,
-      "depends_on": [
-
-      ],
+      "depends_on": [],
       "status": "merged",
       "train_scope": "security_audit_remediation",
       "risk_level": "high",
@@ -5155,9 +4989,7 @@
       "merged_at": "2026-05-16T06:42:37Z",
       "remote_branch_deleted": true,
       "local_cleanup_executed": true,
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "history": [
         {
           "at": "2026-05-16T14:10:19+08:00",
@@ -5265,9 +5097,7 @@
       "merged_at": "2026-05-16T07:33:39Z",
       "remote_branch_deleted": true,
       "local_cleanup_executed": true,
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "history": [
         {
           "at": "2026-05-16T14:10:19+08:00",
@@ -5377,9 +5207,7 @@
       "merged_at": "2026-05-16T07:54:25Z",
       "remote_branch_deleted": true,
       "local_cleanup_executed": true,
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "history": [
         {
           "at": "2026-05-16T14:10:19+08:00",
@@ -5495,9 +5323,7 @@
       "merged_at": "2026-05-16T08:06:43Z",
       "remote_branch_deleted": true,
       "local_cleanup_executed": true,
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "history": [
         {
           "at": "2026-05-16T14:10:19+08:00",
@@ -5609,9 +5435,7 @@
       "merged_at": "2026-05-17T03:07:20Z",
       "remote_branch_deleted": true,
       "local_cleanup_executed": true,
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "history": [
         {
           "at": "2026-05-17T20:00:00+08:00",
@@ -5720,9 +5544,7 @@
       "merged_at": "2026-05-17T07:05:49Z",
       "remote_branch_deleted": true,
       "local_cleanup_executed": true,
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "history": [
         {
           "at": "2026-05-17T20:30:00+08:00",
@@ -5793,9 +5615,7 @@
       "merged_at": "2026-05-17T13:41:06Z",
       "remote_branch_deleted": true,
       "local_cleanup_executed": true,
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "history": [
         {
           "at": "2026-05-17T21:32:00+08:00",
@@ -5825,9 +5645,7 @@
       "repo_path": "<workspace>/fap-web",
       "branch": "codex/riasec-full-content-pack-00",
       "base": "main",
-      "depends_on": [
-
-      ],
+      "depends_on": [],
       "status": "merged",
       "train_scope": "riasec_full_deep_content_pack_governance",
       "risk_level": "L1",
@@ -5950,9 +5768,7 @@
       "merged_at": "2026-05-18T08:50:20Z",
       "remote_branch_deleted": true,
       "local_cleanup_executed": true,
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "history": [
         {
           "at": "2026-05-18T00:00:00+08:00",
@@ -6087,9 +5903,7 @@
       "repo_path": "<workspace>/fap-web",
       "branch": "codex/career-phase-5b-fu2-taxonomy-policy-pack",
       "base": "main",
-      "depends_on": [
-
-      ],
+      "depends_on": [],
       "status": "merged",
       "train_scope": "career_phase_5b_fu2_taxonomy_policy_pack",
       "risk_level": "L1",
@@ -6174,9 +5988,7 @@
       "repo_path": "<workspace>/fap-web",
       "branch": "codex/riasec-take-flow-01",
       "base": "main",
-      "depends_on": [
-
-      ],
+      "depends_on": [],
       "status": "merged",
       "train_scope": "riasec_take_flow_shared_quizstore",
       "risk_level": "L1",
@@ -6296,9 +6108,7 @@
       "repo_path": "<workspace>/fap-web",
       "branch": "codex/ops-ci-codescan-web-01",
       "base": "main",
-      "depends_on": [
-
-      ],
+      "depends_on": [],
       "status": "merged",
       "title": "chore(ci): enable code scanning for fap-web",
       "artifacts": [
@@ -6312,8 +6122,7 @@
           "git_diff_check": "passed",
           "scope_validation": "passed"
         },
-        "github": {
-        }
+        "github": {}
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/842",
@@ -6753,8 +6562,7 @@
           "git_diff_check": "passed",
           "git_diff_cached_check": "passed"
         },
-        "github": {
-        }
+        "github": {}
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/848",
@@ -6784,9 +6592,7 @@
           "summary": "Reconciled GitHub PR #848 as merged; origin/main contains merge commit a91e8f75864090ee96ccb49fafc4479b4250b31a, remote branch is deleted, and local branch cleanup is confirmed."
         }
       ],
-      "sidecar_issues": [
-
-      ]
+      "sidecar_issues": []
     },
     {
       "id": "RIASEC-FULL-CONTENT-PACK-10-FE",
@@ -6839,12 +6645,8 @@
       "merged_at": "2026-05-24T03:58:25Z",
       "remote_branch_deleted": true,
       "local_cleanup_executed": true,
-      "history": [
-
-      ],
-      "sidecar_issues": [
-
-      ]
+      "history": [],
+      "sidecar_issues": []
     },
     {
       "id": "RIASEC-FULL-CONTENT-PACK-11-FE",
@@ -6867,10 +6669,8 @@
         "docs/codex/pr-train-state.json"
       ],
       "checks": {
-        "local": {
-        },
-        "github": {
-        }
+        "local": {},
+        "github": {}
       },
       "failure_reason": null,
       "pr_url": null,
@@ -6878,12 +6678,8 @@
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "history": [
-
-      ],
-      "sidecar_issues": [
-
-      ]
+      "history": [],
+      "sidecar_issues": []
     },
     {
       "id": "RIASEC-FULL-CONTENT-PACK-12",
@@ -6922,8 +6718,7 @@
           "git_diff_check": "passed",
           "git_diff_cached_check": "passed"
         },
-        "github": {
-        }
+        "github": {}
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/851",
@@ -6996,8 +6791,7 @@
           "git_diff_check": "passed",
           "git_diff_cached_check": "passed"
         },
-        "github": {
-        }
+        "github": {}
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/852",
@@ -7022,9 +6816,7 @@
           "summary": "Ledger reconciled from GitHub PR #852 and origin/main. PACK-13-FE merged with squash commit eb1d67d90c6a3212ebf98c3a63f126ab46e54c69; remote branch deletion and local cleanup completed before PACK-14 started."
         }
       ],
-      "sidecar_issues": [
-
-      ]
+      "sidecar_issues": []
     },
     {
       "id": "RIASEC-FULL-CONTENT-PACK-14",
@@ -7054,8 +6846,7 @@
           "git_diff_check": "passed",
           "git_diff_cached_check": "passed"
         },
-        "github": {
-        }
+        "github": {}
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/853",
@@ -7080,9 +6871,7 @@
           "summary": "Reconciled GitHub PR #853 as merged; origin/main contains merge commit 12bbac9a92e32ad16470a3a2ca63e5b77665e223, remote branch is deleted, and local branch cleanup is confirmed."
         }
       ],
-      "sidecar_issues": [
-
-      ]
+      "sidecar_issues": []
     },
     {
       "id": "PR-WEB-SEC-01",
@@ -7090,9 +6879,7 @@
       "repo_path": "<workspace>/fap-web",
       "branch": "codex/pr-web-sec-01-eq-v5-report-gate",
       "base": "main",
-      "depends_on": [
-
-      ],
+      "depends_on": [],
       "status": "merged",
       "train_scope": "security_findings_remediation",
       "risk_level": "high",
@@ -7166,9 +6953,7 @@
           "summary": "Reconciled PR-WEB-SEC-01 after GitHub PR #859 merged; origin/main contains merge commit de33372361205d7aa2ba499dd258595713d839f2, the remote branch is deleted, local cleanup ran, and post-merge focused EQ revalidation passed."
         }
       ],
-      "sidecar_issues": [
-
-      ]
+      "sidecar_issues": []
     },
     {
       "id": "PR-WEB-SEC-02",
@@ -7247,9 +7032,7 @@
           "summary": "Reconciled PR-WEB-SEC-02 after GitHub PR #860 merged; origin/main contains merge commit d53bc15c11ddb52a193b2eb7320aa16a97b996b4, GitHub required checks passed, the remote branch is deleted, local cleanup ran, and post-merge focused Research revalidation passed."
         }
       ],
-      "sidecar_issues": [
-
-      ]
+      "sidecar_issues": []
     },
     {
       "id": "PR-WEB-SEC-03",
@@ -7323,9 +7106,7 @@
           "summary": "Reconciled PR-WEB-SEC-03 after GitHub PR #861 merged; origin/main contains merge commit e813ebd37750fe6fcb523ff583181ff444f5dd6f, GitHub required checks passed, the remote branch is deleted, local cleanup ran, and post-merge focused RIASEC revalidation passed."
         }
       ],
-      "sidecar_issues": [
-
-      ]
+      "sidecar_issues": []
     },
     {
       "id": "PR-WEB-SEC-04",
@@ -7405,9 +7186,7 @@
           "summary": "Reconciled PR-WEB-SEC-04 after GitHub PR #862 merged; origin/main contains merge commit 8471228c8a49fc9aa890bc91aeeea50a9f29ca16, GitHub required checks passed, the remote branch is deleted, local cleanup ran, and post-merge focused tracking revalidation passed."
         }
       ],
-      "sidecar_issues": [
-
-      ]
+      "sidecar_issues": []
     },
     {
       "id": "PR-WEB-SEC-05",
@@ -7494,9 +7273,7 @@
           "summary": "Reconciled PR-WEB-SEC-05 after GitHub PR #863 merged; origin/main contains merge commit 744c0d4109b4442f107bdb6d2b01637e4e201afd, GitHub checks passed, remote branch deletion was observed, local cleanup ran, and post-merge focused API edge revalidation passed."
         }
       ],
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "updated_at": "2026-05-24T01:17:57+08:00"
     },
     {
@@ -7577,9 +7354,7 @@
           "summary": "Reconciled PR-WEB-SEC-06 after GitHub PR #864 merged; origin/main contains merge commit 447fcaf7741195f9f0bab7f174933dd421b9aae8, GitHub checks passed, remote branch deletion was observed, local cleanup ran, and post-merge focused CI hygiene revalidation passed."
         }
       ],
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "updated_at": "2026-05-24T01:27:25+08:00"
     },
     {
@@ -7659,9 +7434,7 @@
           "summary": "Reconciled PR-WEB-SEC-07 after GitHub PR #865 merged; origin/main contains merge commit 11de7ee290b4ba68dee317cbd9e86314f8b3cf13, GitHub checks passed, remote branch deletion was observed, local cleanup ran, and post-merge focused link-anon/provider revalidation passed."
         }
       ],
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "updated_at": "2026-05-24T01:36:21+08:00"
     },
     {
@@ -7754,9 +7527,7 @@
           "summary": "Reconciled PR-WEB-SEC-08 after GitHub PR #867 merged; origin/main contains merge commit 148fc5be7f11c7886186abdfe31f28cd624ae73d, required checks passed, remote branch deletion was observed, local cleanup ran, and post-merge focused Big Five contract revalidation passed."
         }
       ],
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "updated_at": "2026-05-24T06:38:14+08:00"
     },
     {
@@ -7842,9 +7613,7 @@
           "summary": "Reconciled PR-WEB-SEC-09 after GitHub PR #868 merged; origin/main contains merge commit a3569d590f2669c5b53d45ed4add11bc1fbce0ed, required checks passed, remote branch deletion was observed, local cleanup ran, and post-merge focused RIASEC contract revalidation passed."
         }
       ],
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "updated_at": "2026-05-24T06:47:48+08:00"
     },
     {
@@ -7929,9 +7698,7 @@
           "summary": "Reconciled PR-WEB-SEC-10 after GitHub PR #869 merged; origin/main contains merge commit f2132375a9c294888113d75a5217741f2a0728fa, required checks passed, remote branch deletion was observed, local cleanup ran, and post-merge focused IQ contract revalidation passed."
         }
       ],
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "updated_at": "2026-05-24T06:57:21+08:00"
     },
     {
@@ -8124,9 +7891,7 @@
           "summary": "Reconciled PR-WEB-SEC-12 after GitHub PR #871 merged; origin/main contains merge commit b758e7f7333af77b7e9fd3c352de6da228843c65, required checks passed, remote branch deletion was observed, local cleanup ran, and post-merge focused career index gate revalidation passed."
         }
       ],
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "updated_at": "2026-05-24T07:22:52+08:00"
     },
     {
@@ -8220,9 +7985,7 @@
           "summary": "Reconciled PR-WEB-SEC-13 after GitHub PR #872 merged; origin/main contains merge commit 9a4a83f2d5c2bd74a6bf5f4110bcd7968e8b45fb, required checks passed, remote branch deletion was observed, local cleanup ran, and post-merge focused not-found revalidation passed."
         }
       ],
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "updated_at": "2026-05-24T07:37:11+08:00"
     },
     {
@@ -8312,9 +8075,7 @@
           "summary": "Reconciled PR-WEB-SEC-14 after GitHub PR #873 merged; origin/main contains merge commit 5cdbf98a183f5d81b5600c1fb0f777a92b23d448, required checks passed, remote branch deletion was observed, local cleanup ran, and post-merge Playwright discovery revalidation passed."
         }
       ],
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "updated_at": "2026-05-24T07:47:33+08:00"
     },
     {
@@ -8403,9 +8164,7 @@
           "summary": "Reconciled PR-WEB-SEC-15 after GitHub PR #874 merged; origin/main contains merge commit e5ac40724b18e7cbb1cec8e72f2381bb52875710, required checks passed, remote branch deletion was observed, local cleanup ran, and post-merge focused Big Five assembler revalidation passed."
         }
       ],
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "updated_at": "2026-05-24T07:57:03+08:00"
     },
     {
@@ -8496,9 +8255,7 @@
           "summary": "Reconciled PR-WEB-SEC-16 after GitHub PR #875 merged; origin/main contains merge commit d4df8b243c7ece8669a30bb3f5792a92436e1d80, required checks passed, remote branch deletion was observed, local cleanup ran, and post-merge staging smoke revalidation passed."
         }
       ],
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "updated_at": "2026-05-24T08:09:35+08:00"
     },
     {
@@ -8766,9 +8523,7 @@
           "summary": "Reconciled PR-WEB-SEC-17A after GitHub PR #877 merged; origin/main contains merge commit 59a536ba6fa9c27b28340796ab743ecbeee19d10, required checks passed, remote branch deletion was observed, local cleanup ran, and post-merge focused validator revalidation passed."
         }
       ],
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "updated_at": "2026-05-24T10:12:35+08:00"
     },
     {
@@ -8864,9 +8619,7 @@
           "summary": "Reconciled PR-WEB-SEC-18 after GitHub showed PR #878 merged at 2026-05-24T02:24:02Z with merge commit 03e4eeb168c4dc0f0e7e186b4279de72a212c9ec on origin/main; remote branch is deleted and local cleanup already executed."
         }
       ],
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "updated_at": "2026-05-24T10:30:28+08:00"
     },
     {
@@ -8977,9 +8730,7 @@
           "summary": "Reconciled PR-WEB-SEC-19 after GitHub showed PR #879 merged at 2026-05-24T02:48:53Z with merge commit 90560ed10c5f96a43c96174a434c7f84d9afc5e7 on origin/main; remote branch is deleted, local cleanup executed, and post-merge focused contract passed."
         }
       ],
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "updated_at": "2026-05-24T10:52:48+08:00"
     },
     {
@@ -9077,9 +8828,7 @@
           "summary": "Reconciled PR-WEB-SEC-20 after GitHub showed PR #880 merged at 2026-05-24T03:03:15Z with merge commit 6e62846721dc6aeb9eefc557c6a9bf09fbb2a861 on origin/main; remote branch is deleted, local cleanup executed, and post-merge focused contract passed."
         }
       ],
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "updated_at": "2026-05-24T11:04:54+08:00"
     },
     {
@@ -9160,9 +8909,7 @@
           "summary": "Reconciled PR-WEB-SEC-21 after GitHub showed PR #881 merged at 2026-05-24T03:11:31Z with merge commit f0ab82f76caf6033902b6d7f64d0d5793c2f7b2f on origin/main; remote branch is deleted, local cleanup executed, and post-merge focused contract passed."
         }
       ],
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "updated_at": "2026-05-24T11:13:18+08:00"
     },
     {
@@ -9245,9 +8992,7 @@
           "summary": "Reconciled PR-WEB-SEC-22 after GitHub showed PR #882 merged at 2026-05-24T03:19:59Z with merge commit c9448202705aa42b6d04ce2379e3130454873064 on origin/main; remote branch is deleted, local cleanup executed, and GitHub required checks passed."
         }
       ],
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "updated_at": "2026-05-24T11:31:42+08:00"
     },
     {
@@ -9338,9 +9083,7 @@
           "summary": "Reconciled PR-WEB-SEC-23 after GitHub showed PR #883 merged at 2026-05-24T03:39:48Z with merge commit d95cbf7cdcdc349ac49d4f5022bd574631310e1e on origin/main; remote branch is deleted, local cleanup executed, and post-merge focused contract passed."
         }
       ],
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "updated_at": "2026-05-24T11:42:02+08:00"
     },
     {
@@ -9426,9 +9169,7 @@
           "summary": "Reconciled PR-WEB-SEC-24 after GitHub showed PR #884 merged at 2026-05-24T03:49:53Z with merge commit 639b7a800cf66a2a7aa38deb083df54fd55e4182 on origin/main; remote branch is deleted, local cleanup executed, and post-merge focused contract passed."
         }
       ],
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "updated_at": "2026-05-24T11:51:59+08:00"
     },
     {
@@ -9513,9 +9254,7 @@
           "summary": "Reconciled PR-WEB-SEC-25 after GitHub showed PR #885 merged at 2026-05-24T03:58:25Z with merge commit 26d3f9fb995a43f0421f4689b4574efc8e05fb22 on origin/main; remote branch is deleted, local cleanup executed, and post-merge focused contract passed."
         }
       ],
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "updated_at": "2026-05-24T12:00:40+08:00"
     },
     {
@@ -9606,9 +9345,7 @@
           "summary": "Reconciled PR-WEB-SEC-26 after GitHub showed PR #886 merged at 2026-05-24T04:10:46Z with merge commit 1b38bc890731bb6d6c1a217cb85b1693e4ef18fb on origin/main; remote branch is deleted, local cleanup executed, and post-merge focused contract passed."
         }
       ],
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "updated_at": "2026-05-24T12:11:19+08:00"
     },
     {
@@ -9697,9 +9434,7 @@
           "summary": "Reconciled PR-WEB-SEC-27 after GitHub showed PR #887 merged at 2026-05-24T04:20:47Z with merge commit ce766b5420eb174f8a3eb8b34e40450407a7372e on origin/main; remote branch is deleted, local cleanup executed, and post-merge focused contract passed."
         }
       ],
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "updated_at": "2026-05-24T12:21:13+08:00"
     },
     {
@@ -9790,9 +9525,7 @@
           "summary": "Reconciled PR-WEB-SEC-28 after GitHub showed PR #888 merged at 2026-05-24T04:29:29Z with merge commit c623a4aee3f137176f54f986dbe1c9e0099f4081 on origin/main; remote branch is deleted, local cleanup executed, and post-merge focused contract passed."
         }
       ],
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "updated_at": "2026-05-24T12:29:51+08:00"
     },
     {
@@ -9834,8 +9567,7 @@
             "scope validation"
           ]
         },
-        "github": {
-        }
+        "github": {}
       },
       "failure_reason": null,
       "pr_url": null,
@@ -9875,9 +9607,7 @@
           "summary": "Reconciled PR-WEB-SEC-29 after GitHub showed PR #889 merged at 2026-05-24T04:37:31Z with merge commit 3a7f3d8ecc0e5fea95a6f8d672a76e68c404f367 on origin/main; remote branch is deleted, local cleanup executed, and post-merge focused contract passed."
         }
       ],
-      "sidecar_issues": [
-
-      ],
+      "sidecar_issues": [],
       "updated_at": "2026-05-24T12:37:52+08:00"
     },
     {
@@ -9889,7 +9619,7 @@
       "depends_on": [
         "PR-WEB-SEC-29"
       ],
-      "status": "local_checks_passed",
+      "status": "merged",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "docs(audit): redact production SSH endpoint from runbook",
@@ -9918,14 +9648,22 @@
           ]
         },
         "github": {
+          "status": "passed",
+          "passed": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "CodeQL/analyze"
+          ]
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/890",
+      "commit_sha": "ef5e5ee1f449b967f0ed5e39b8eebb8c268c6d77",
+      "merged_at": "2026-05-24T04:45:42Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-24T06:27:02+08:00",
@@ -9946,12 +9684,20 @@
           "at": "2026-05-24T12:44:00+08:00",
           "status": "pr_opened",
           "summary": "Opened https://github.com/fermatmind/fap-web/pull/890 after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-05-24T12:45:20+08:00",
+          "status": "github_checks_passed",
+          "summary": "GitHub required checks passed for PR-WEB-SEC-30."
+        },
+        {
+          "at": "2026-05-24T12:46:02+08:00",
+          "status": "merged",
+          "summary": "Merged PR-WEB-SEC-30 as 6040521e29f76ff89922745402edb73b83601c91; remote branch deleted, local cleanup executed, and post-merge focused revalidation passed."
         }
       ],
-      "sidecar_issues": [
-
-      ],
-      "updated_at": "2026-05-24T12:44:00+08:00"
+      "sidecar_issues": [],
+      "updated_at": "2026-05-24T12:46:02+08:00"
     },
     {
       "id": "PR-WEB-SEC-31",
@@ -9962,7 +9708,7 @@
       "depends_on": [
         "PR-WEB-SEC-30"
       ],
-      "status": "planned",
+      "status": "local_checks_passed",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "fix(audit): tolerate clinical sessionStorage failures",
@@ -9978,9 +9724,19 @@
       ],
       "checks": {
         "local": {
+          "status": "passed",
+          "passed": [
+            "pnpm exec vitest run tests/contracts/clinical-consent-gates.contract.test.tsx",
+            "pnpm typecheck",
+            "pnpm test:contract",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+            "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"'",
+            "git diff --check",
+            "git diff --cached --check",
+            "scope validation"
+          ]
         },
-        "github": {
-        }
+        "github": {}
       },
       "failure_reason": null,
       "pr_url": null,
@@ -9993,12 +9749,20 @@
           "at": "2026-05-24T06:27:02+08:00",
           "status": "planned",
           "summary": "Initialized PR-WEB-SEC-31 from authorized fap-web security findings train expansion."
+        },
+        {
+          "at": "2026-05-24T12:49:29+08:00",
+          "status": "in_progress",
+          "summary": "Started PR-WEB-SEC-31 from latest main after reconciling merged PR-WEB-SEC-30; guarding clinical report sessionStorage cache failures."
+        },
+        {
+          "at": "2026-05-24T12:54:46+08:00",
+          "status": "local_checks_passed",
+          "summary": "PR31 focused clinical consent/storage contract, typecheck, full contract suite, production API build, manifest/state parse, diff checks, and scope validation passed."
         }
       ],
-      "sidecar_issues": [
-
-      ],
-      "updated_at": "2026-05-24T06:27:02+08:00"
+      "sidecar_issues": [],
+      "updated_at": "2026-05-24T12:54:46+08:00"
     }
   ],
   "sidecar_issues": [
