@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-24T10:42:15+08:00",
+  "updated_at": "2026-05-24T10:45:44+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -8859,7 +8859,7 @@
       "depends_on": [
         "PR-WEB-SEC-18"
       ],
-      "status": "pr_open_github_checks_pending",
+      "status": "github_checks_passed",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "fix(audit): validate dataset method links",
@@ -8899,11 +8899,20 @@
           "failure_summary": null
         },
         "github": {
+          "status": "passed",
+          "passed": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "analyze (javascript-typescript)",
+            "CodeQL"
+          ]
         }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/879",
-      "commit_sha": "c8546239e85bf56f67aae403daeac301a9c7fade",
+      "commit_sha": "7479c76a5b1c66678ff75e8424a6f5a894b65787",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -8937,12 +8946,17 @@
           "at": "2026-05-24T10:42:15+08:00",
           "status": "pr_open_github_checks_pending",
           "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/879 from scoped branch codex/pr-web-sec-19-dataset-url-allowlist; waiting for GitHub checks."
+        },
+        {
+          "at": "2026-05-24T10:45:44+08:00",
+          "status": "github_checks_passed",
+          "summary": "GitHub required checks passed for PR-WEB-SEC-19: build, contracts, Big Five freeze, Enneagram freeze, and CodeQL/analyze."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T10:42:15+08:00"
+      "updated_at": "2026-05-24T10:45:44+08:00"
     },
     {
       "id": "PR-WEB-SEC-20",
