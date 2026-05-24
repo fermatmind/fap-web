@@ -1145,8 +1145,8 @@
         }
       ],
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/886",
+      "commit_sha": "10b42a820bb9c61a790a9a4a405d87e4d2109c79",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false
@@ -9573,12 +9573,17 @@
           "at": "2026-05-24T12:04:40+08:00",
           "status": "local_checks_passed",
           "summary": "PR26 focused MBTI share consumer contract, typecheck, full contract suite, production API build, manifest/state parse, diff checks, and scope validation passed."
+        },
+        {
+          "at": "2026-05-24T12:08:20+08:00",
+          "status": "pr_opened",
+          "summary": "Opened https://github.com/fermatmind/fap-web/pull/886 after local checks and scope validation passed."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T12:04:40+08:00"
+      "updated_at": "2026-05-24T12:08:20+08:00"
     },
     {
       "id": "PR-WEB-SEC-27",
