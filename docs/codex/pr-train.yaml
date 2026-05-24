@@ -6661,3 +6661,59 @@ prs:
       - Production apex indexability, canonical, sitemap, and llms behavior are preserved.
       - Metadata surface inventory is regenerated so build does not leave generated SEO inventory drift.
     rollback_note: "Revert DISCOVERABILITY-STAGING-DEINDEX-FIX-01 scoped staging containment changes if required."
+
+  - id: DISCOVERABILITY-STAGING-META-NOINDEX-FIX-02
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/discoverability-staging-meta-noindex-fix-02
+    base: main
+    depends_on: [DISCOVERABILITY-STAGING-DEINDEX-FIX-01]
+    mode: execute
+    train_scope: discoverability_staging_deindex_fix
+    risk_level: medium
+    status: planned
+    title: "fix(discoverability): align staging meta robots with noindex header"
+    goal: "Force staging HTML page-level metadata to noindex,nofollow so it aligns with the staging X-Robots-Tag containment while preserving production apex indexability and canonical behavior."
+    in_scope:
+      - lib/seo/metadata.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - tests/contracts/staging-discoverability-containment.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - production deploy
+      - staging deploy
+      - DNS or nginx changes
+      - Search Channel enqueue or URL submission
+      - Baidu, Google, Bing, 360, Sogou, Shenma, or IndexNow API calls
+      - CMS mutations
+      - sitemap or llms behavior changes
+      - fap-api changes
+      - staging as URL Truth
+    required_local_checks:
+      - pnpm lint
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      changed_files_must_match:
+        - lib/seo/metadata.ts
+        - tests/contracts/helpers/currentPrScope.ts
+        - tests/contracts/staging-discoverability-containment.contract.test.ts
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Staging HTML page-level metadata emits noindex,nofollow.
+      - Staging X-Robots-Tag containment remains preserved.
+      - Staging pages do not self-canonicalize to staging.
+      - Production apex HTML metadata remains index/follow.
+      - Production canonical remains apex.
+      - Staging sitemap and llms containment remains unchanged.
+    rollback_note: "Revert DISCOVERABILITY-STAGING-META-NOINDEX-FIX-02 scoped metadata helper and contract changes if required."
