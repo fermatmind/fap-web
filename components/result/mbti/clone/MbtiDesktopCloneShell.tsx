@@ -89,6 +89,8 @@ type MbtiDesktopCloneShellProps = {
   canLoadDesktopCloneStorage?: boolean;
 };
 
+const LEGACY_OFFER_SECTION_ID = "offer-full";
+
 function normalizeText(...values: unknown[]) {
   for (const value of values) {
     const normalized = String(value ?? "").trim();
@@ -841,7 +843,8 @@ export function MbtiDesktopCloneShell({
     ? "首屏先展示类型、解锁状态与关键入口。"
     : "Showing type, unlock status, and key actions first.";
   const finalOfferNode = (
-    <section id={getMbtiDesktopAnchorId("offerFull")} data-testid="mbti-offer-full" className={styles.section}>
+    <section id={LEGACY_OFFER_SECTION_ID} data-testid="mbti-offer-full" className={styles.section}>
+      <div id={getMbtiDesktopAnchorId("offerFull")}>
       <MbtiCloneFinalOffer
         locale={cloneLocale}
         eyebrow={slots.finalOffer.eyebrow}
@@ -870,6 +873,7 @@ export function MbtiDesktopCloneShell({
         illustrationLabel={slots.finalOffer.asset.label}
         assetSlots={storageAssetSlots}
       />
+      </div>
     </section>
   );
   const deepNarrativeSectionsNode = (
