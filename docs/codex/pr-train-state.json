@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-24T07:03:00.751+00:00",
+  "updated_at": "2026-05-24T07:04:03.200+00:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -9983,7 +9983,7 @@
       "branch": "codex/pr-audit-fe-01-lint-ci-baseline",
       "base": "main",
       "depends_on": [],
-      "status": "local_checks_passed",
+      "status": "pr_opened",
       "title": "PR-AUDIT-FE-01 frontend lint debt and CI validation gates",
       "risk_ids": [
         "H-FE-LINT-01"
@@ -10016,14 +10016,14 @@
           "failed": []
         },
         "github": {
-          "status": "pending_pr_creation",
+          "status": "pending",
           "passed": [],
           "failed": []
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/895",
+      "commit_sha": "4db3fdbcb3bcb2b335e509828a3c6c5eb88bf68d",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -10047,6 +10047,11 @@
           "at": "2026-05-24T07:03:00.751+00:00",
           "status": "local_checks_passed",
           "summary": "Required PR-AUDIT-FE-01 local checks passed after removing unprovisioned full e2e from the current CI/local gate: lint, typecheck, production API build, full contracts, a11y, manifest/state parse, diff check, and local scope validation."
+        },
+        {
+          "at": "2026-05-24T07:04:03.200+00:00",
+          "status": "pr_opened",
+          "summary": "Opened GitHub PR #895 for PR-AUDIT-FE-01 after local checks and scope validation passed. GitHub checks are pending."
         }
       ],
       "sidecar_issues": [
@@ -10061,12 +10066,12 @@
           "impact_on_current_pr": "The current PR removes the guaranteed ECONNREFUSED e2e hard-fail from CI and keeps lint/typecheck/build/contract/a11y as required local and GitHub gates.",
           "owner": "test-infrastructure",
           "follow_up_recommendation": "Create a separate e2e environment readiness PR to provision a stable backend/mock API for pnpm test:e2e before making it a required CI gate.",
-          "required_checks_status": "pending_pr_creation",
+          "required_checks_status": "pending_github_checks",
           "scope_validation_status": "green_local_diff_only",
-          "continue_train_decision": "continue_current_pr_to_commit_push_pr; do_not_continue_to_PR-AUDIT-BE-01_per_user_instruction"
+          "continue_train_decision": "wait_for_current_pr_github_checks; do_not_continue_to_PR-AUDIT-BE-01_per_user_instruction"
         }
       ],
-      "updated_at": "2026-05-24T07:03:00.751+00:00"
+      "updated_at": "2026-05-24T07:04:03.200+00:00"
     }
   ],
   "sidecar_issues": [
