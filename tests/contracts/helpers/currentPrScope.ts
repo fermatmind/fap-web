@@ -251,6 +251,16 @@ const PR_WEB_SEC_21_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const PR_WEB_SEC_22_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "lib/api-client.ts",
+  "lib/api/v0_3.ts",
+  "tests/contracts/result-client-view-state.contract.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (CURRENT_BRANCH === "codex/pr-web-sec-01-eq-v5-report-gate") {
     return PR_WEB_SEC_01_ALLOWED_FILES.has(file);
@@ -338,6 +348,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/pr-web-sec-21-animated-counter-reduced-motion") {
     return PR_WEB_SEC_21_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/pr-web-sec-22-result-retry-credentials") {
+    return PR_WEB_SEC_22_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/research-report-metadata") {
