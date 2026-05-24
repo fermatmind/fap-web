@@ -1,7 +1,7 @@
 "use client";
 
 import type { ComponentProps } from "react";
-import { useEffect, useMemo, useState, type MouseEventHandler } from "react";
+import { useMemo, type MouseEventHandler } from "react";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
@@ -45,27 +45,17 @@ export function SeoTrackedCtaLink({
   const pathname = usePathname() ?? sourcePath;
   const searchParams = useSearchParams();
   const routerSearch = searchParams.toString();
-  const [browserSearch, setBrowserSearch] = useState("");
+  const browserSearch = typeof window === "undefined" ? "" : window.location.search.replace(/^\?/, "");
   const search = routerSearch || browserSearch;
-  const [storedAttributionPayload, setStoredAttributionPayload] = useState<TrackingAttributionPayload>({});
-
-  useEffect(() => {
-    if (typeof window === "undefined") {
-      return;
-    }
-
-    setBrowserSearch(window.location.search.replace(/^\?/, ""));
-  }, [pathname, routerSearch]);
 
   const searchAttributionParams = useMemo(
     () => extractAttributionParamsFromSearchParams(new URLSearchParams(search)),
     [search]
   );
-  useEffect(() => {
-    setStoredAttributionPayload(
-      readStoredTrackingAttributionPayload(`${pathname}${search ? `?${search}` : ""}`)
-    );
-  }, [pathname, search]);
+  const storedAttributionPayload = useMemo<TrackingAttributionPayload>(
+    () => readStoredTrackingAttributionPayload(`${pathname}${search ? `?${search}` : ""}`),
+    [pathname, search]
+  );
   const storedAttributionParams = useMemo(
     () => extractAttributionParamsFromRecord(storedAttributionPayload),
     [storedAttributionPayload]

@@ -35,7 +35,11 @@ type Artifact = {
     collector: { can_run_on_fap_web_node1: boolean; can_run_inside_fap_api_web_request_process: boolean };
     metabase: { production_ready: boolean; read_only: boolean; allowed_query_targets: string[]; forbidden_query_targets: string[] };
   };
-  pii_rules: Record<string, any>;
+  pii_rules: {
+    email: { seo_analytics_details: string };
+    order_no: { normal_dashboards: string };
+    external_analytics: Record<string, string>;
+  };
   forbidden_actions: string[];
   deployment_guardrails: { allowed_files: string[]; forbidden_runtime_paths: string[] };
 };

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import clsx from "clsx";
 import Image from "next/image";
 import {
@@ -31,7 +31,7 @@ export function MbtiCloneAssetSlot({
   imageClassName,
   testId,
 }: MbtiCloneAssetSlotProps) {
-  const [assetLoadFailed, setAssetLoadFailed] = useState(false);
+  const [failedAssetUrl, setFailedAssetUrl] = useState<string | null>(null);
 
   const slot = useMemo(
     () => getCloneAssetSlot(assetSlots, slotId),
@@ -44,12 +44,9 @@ export function MbtiCloneAssetSlot({
     [slot],
   );
 
-  useEffect(() => {
-    setAssetLoadFailed(false);
-  }, [resolvedUrl]);
-
   const slotLabel = slot?.label?.trim() || fallbackLabel;
   const slotAlt = slot?.alt?.trim() || slotLabel;
+  const assetLoadFailed = Boolean(resolvedUrl && failedAssetUrl === resolvedUrl);
   const mode: "ready" | "placeholder" | "disabled" = slot?.status === "disabled"
     ? "disabled"
     : slot?.status === "ready" && !assetLoadFailed && !skipRemoteAssetLoad && Boolean(resolvedUrl)
@@ -78,7 +75,7 @@ export function MbtiCloneAssetSlot({
           loading="lazy"
           className={clsx(styles.assetSlotImage, imageClassName)}
           onError={() => {
-            setAssetLoadFailed(true);
+            setFailedAssetUrl(resolvedUrl);
           }}
         />
       ) : null}
