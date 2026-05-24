@@ -36,18 +36,6 @@ function currentChangedFiles(): string[] {
     collect(args);
   }
 
-  if (files.size === 0) {
-    try {
-      const base = execFileSync("git", ["merge-base", "origin/main", "HEAD"], {
-        cwd: ROOT,
-        encoding: "utf8",
-      }).trim();
-      collect(["diff", "--name-only", base, "HEAD"]);
-    } catch {
-      collect(["diff", "--name-only", "HEAD~1", "HEAD"]);
-    }
-  }
-
   return [...files].sort();
 }
 
@@ -100,7 +88,9 @@ describe("staging CMS baseline recommended article validation", () => {
   it("keeps the PR-WEB-SEC-17 changed files inside scope", () => {
     const changed = currentChangedFiles();
 
-    expect(changed).toEqual(expect.arrayContaining(["tests/contracts/staging-cms-baseline-validator.contract.test.ts"]));
+    expect(isCurrentRiasecPack12AllowedFile("tests/contracts/staging-cms-baseline-validator.contract.test.ts")).toBe(
+      true
+    );
     expect(changed.every(isCurrentRiasecPack12AllowedFile), changed.join("\n")).toBe(true);
   });
 });

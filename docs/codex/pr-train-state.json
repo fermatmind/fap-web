@@ -8530,6 +8530,11 @@
               "name": "contracts",
               "run": "https://github.com/fermatmind/fap-web/actions/runs/26347291756/job/77559185505",
               "details": "CI clean checkout returned no worktree changed files for the PR17 scope contract; build, freeze checks, and CodeQL passed."
+            },
+            {
+              "name": "contracts",
+              "run": "https://github.com/fermatmind/fap-web/actions/runs/26347414764/job/77559527387",
+              "details": "CI shallow checkout did not have origin/main or HEAD~1 available for the fallback PR diff."
             }
           ],
           "retry_local_passed": [
@@ -8588,12 +8593,22 @@
           "at": "2026-05-24T08:24:14+08:00",
           "status": "github_check_fix_local_passed",
           "summary": "Updated the PR17 scope contract to inspect origin/main...HEAD when CI has a clean worktree; focused validator contract, typecheck, full contract suite, manifest/state parse, diff check, and scope validation passed locally."
+        },
+        {
+          "at": "2026-05-24T08:29:12+08:00",
+          "status": "github_checks_failed_retrying",
+          "summary": "GitHub contracts failed again because CI uses a shallow checkout without origin/main or HEAD~1; adjusted the PR17 scope contract to validate helper membership directly when the checkout is clean."
+        },
+        {
+          "at": "2026-05-24T08:30:42+08:00",
+          "status": "github_check_fix_local_passed",
+          "summary": "Focused validator contract, typecheck, full contract suite, manifest/state parse, diff check, and scope validation passed after removing git-history fallback from the clean-checkout scope contract."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T08:24:14+08:00"
+      "updated_at": "2026-05-24T08:30:42+08:00"
     },
     {
       "id": "PR-WEB-SEC-18",
