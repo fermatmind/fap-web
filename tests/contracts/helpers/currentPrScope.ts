@@ -288,6 +288,16 @@ const PR_WEB_SEC_25_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const PR_WEB_SEC_26_ALLOWED_FILES = new Set([
+  "components/result/RichResultReport.tsx",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "lib/api/v0_3.ts",
+  "lib/mbti/publicProjection.ts",
+  "tests/contracts/mbti-share-consumer.contract.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (CURRENT_BRANCH === "codex/pr-web-sec-01-eq-v5-report-gate") {
     return PR_WEB_SEC_01_ALLOWED_FILES.has(file);
@@ -391,6 +401,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/pr-web-sec-25-mbti-offer-hash") {
     return PR_WEB_SEC_25_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/pr-web-sec-26-mbti-score-pct-fallback") {
+    return PR_WEB_SEC_26_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/research-report-metadata") {

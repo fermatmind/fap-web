@@ -433,7 +433,7 @@
       "depends_on": [
 
       ],
-      "status": "local_checks_passed",
+      "status": "merged",
       "title": "feat(iq): add frontend API contracts",
       "artifacts": [
         "lib/api/v0_3.ts",
@@ -6823,14 +6823,22 @@
           ]
         },
         "github": {
+          "status": "passed",
+          "passed": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "CodeQL/analyze"
+          ]
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/885",
+      "commit_sha": "d5c8218dfaaad9532bc87a74c75a86815bf199c5",
+      "merged_at": "2026-05-24T03:58:25Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
 
       ],
@@ -9485,12 +9493,22 @@
           "at": "2026-05-24T11:54:49+08:00",
           "status": "local_checks_passed",
           "summary": "PR25 focused MBTI desktop shell CTA contract, typecheck, full contract suite, production API build, manifest/state parse, diff checks, and scope validation passed."
+        },
+        {
+          "at": "2026-05-24T11:58:25+08:00",
+          "status": "github_checks_passed",
+          "summary": "GitHub required checks passed for PR-WEB-SEC-25: build, contracts, Big Five freeze, Enneagram freeze, and CodeQL/analyze."
+        },
+        {
+          "at": "2026-05-24T12:00:40+08:00",
+          "status": "merged",
+          "summary": "Reconciled PR-WEB-SEC-25 after GitHub showed PR #885 merged at 2026-05-24T03:58:25Z with merge commit 26d3f9fb995a43f0421f4689b4574efc8e05fb22 on origin/main; remote branch is deleted, local cleanup executed, and post-merge focused contract passed."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T11:54:49+08:00"
+      "updated_at": "2026-05-24T12:00:40+08:00"
     },
     {
       "id": "PR-WEB-SEC-26",
@@ -9501,7 +9519,7 @@
       "depends_on": [
         "PR-WEB-SEC-25"
       ],
-      "status": "planned",
+      "status": "local_checks_passed",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "fix(audit): restore MBTI score_pct fallback",
@@ -9519,6 +9537,17 @@
       ],
       "checks": {
         "local": {
+          "status": "passed",
+          "passed": [
+            "pnpm exec vitest run tests/contracts/mbti-share-consumer.contract.test.tsx",
+            "pnpm typecheck",
+            "pnpm test:contract",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+            "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"'",
+            "git diff --check",
+            "git diff --cached --check",
+            "scope validation"
+          ]
         },
         "github": {
         }
@@ -9534,12 +9563,22 @@
           "at": "2026-05-24T06:27:02+08:00",
           "status": "planned",
           "summary": "Initialized PR-WEB-SEC-26 from authorized fap-web security findings train expansion."
+        },
+        {
+          "at": "2026-05-24T12:00:40+08:00",
+          "status": "in_progress",
+          "summary": "Started PR-WEB-SEC-26 from latest main after reconciling merged PR-WEB-SEC-25; restoring score_pct as the MBTI share dimension percentage fallback after pct/dominant_pct."
+        },
+        {
+          "at": "2026-05-24T12:04:40+08:00",
+          "status": "local_checks_passed",
+          "summary": "PR26 focused MBTI share consumer contract, typecheck, full contract suite, production API build, manifest/state parse, diff checks, and scope validation passed."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T06:27:02+08:00"
+      "updated_at": "2026-05-24T12:04:40+08:00"
     },
     {
       "id": "PR-WEB-SEC-27",

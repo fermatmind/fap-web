@@ -455,6 +455,7 @@ function createProjectionFixture(): MbtiPublicProjectionV1Raw {
         code: "EI",
         label: "E / I",
         pct: 62,
+        score_pct: 12,
         side_label: "Extraversion",
         state: "Expressive",
       },
@@ -546,7 +547,7 @@ describe("MBTI share consumer contract", () => {
     });
   });
 
-  it("renders the lightweight public summary, consumes dimensions.pct, and keeps paid content hidden", async () => {
+  it("renders the lightweight public summary, consumes projection dimensions, and keeps paid content hidden", async () => {
     render(<ShareClient locale="en" shareId="share-123" />);
 
     await waitFor(() => {
@@ -991,6 +992,25 @@ describe("MBTI share consumer contract", () => {
     expect(viewModel.landingSurface?.ctaBundle[1]?.href).toBe("/en/topics/mbti");
     expect(viewModel.answerSurface?.surfaceType).toBe("mbti_share_public_safe");
     expect(viewModel.answerSurface?.indexabilityState).toBe("noindex");
+  });
+
+  it("normalizes MBTI share dimensions from score_pct after pct and dominant_pct", () => {
+    const fixture = createShareFixture();
+    const viewModel = buildSharePageViewModel({
+      ...fixture,
+      mbti_public_projection_v1: null,
+      dimensions: [
+        { code: "EI", label: "E / I", pct: 62, score_pct: 12 },
+        { code: "SN", label: "S / N", score_pct: 74 },
+        { code: "TF", label: "T / F", dominant_pct: 69, score_pct: 31 },
+      ],
+    });
+
+    expect(viewModel.card?.dimensions.map((dimension) => [dimension.code, dimension.percent])).toEqual([
+      ["EI", 62],
+      ["SN", 74],
+      ["TF", 69],
+    ]);
   });
 
   it("normalizes RIASEC public share projection without falling back to MBTI identity", () => {
