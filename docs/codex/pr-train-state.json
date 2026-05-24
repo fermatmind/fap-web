@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-24T10:56:21+08:00",
+  "updated_at": "2026-05-24T10:57:05+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -8972,7 +8972,7 @@
       "depends_on": [
         "PR-WEB-SEC-19"
       ],
-      "status": "committed",
+      "status": "pr_open_github_checks_pending",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "fix(audit): restore anon rollout bucketing on test pages",
@@ -9007,8 +9007,8 @@
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": "5eeb41eb7484089f7bb4ff7a9c34f103dd5269d1",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/880",
+      "commit_sha": "2449b4bfa08acabe5b7acfec40f6cf9165457f74",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -9032,12 +9032,17 @@
           "at": "2026-05-24T10:56:21+08:00",
           "status": "committed",
           "summary": "Committed scoped PR-WEB-SEC-20 changes as 5eeb41eb7484089f7bb4ff7a9c34f103dd5269d1."
+        },
+        {
+          "at": "2026-05-24T10:57:05+08:00",
+          "status": "pr_open_github_checks_pending",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/880 from scoped branch codex/pr-web-sec-20-anon-rollout-bucketing; waiting for GitHub checks."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T10:56:21+08:00"
+      "updated_at": "2026-05-24T10:57:05+08:00"
     },
     {
       "id": "PR-WEB-SEC-21",
