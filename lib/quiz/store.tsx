@@ -5,6 +5,7 @@ import { useStore } from "zustand";
 import { createJSONStorage, persist, type StateStorage } from "zustand/middleware";
 import { createStore } from "zustand/vanilla";
 import { queuePendingAnonLinkAttempt } from "@/lib/anon";
+import { DEFAULT_MBTI_FORM_CODE, isMbtiSlug } from "@/lib/mbti/forms";
 
 export type QuizState = {
   slug: string;
@@ -50,6 +51,14 @@ function buildLegacyQuizKeys(slug: string, anonId: string | null): string[] {
     `fm_quiz_v2_${slug}`,
     `fm_quiz_v1_${slug}`,
   ];
+}
+
+function canReadLegacyQuizKeys(slug: string, formCode: string | null): boolean {
+  if (!isMbtiSlug(slug)) {
+    return true;
+  }
+
+  return (formCode ?? DEFAULT_MBTI_FORM_CODE) === DEFAULT_MBTI_FORM_CODE;
 }
 
 function extractPersistedQuizState(raw: string): Partial<QuizState> | null {
@@ -132,16 +141,18 @@ function createQuizStorage(slug: string, anonId: string | null, formCode: string
           window.localStorage.removeItem(name);
         }
 
-        for (const legacyKey of buildLegacyQuizKeys(slug, anonId)) {
-          const legacyValue = window.localStorage.getItem(legacyKey);
-          if (!legacyValue) continue;
-          if (!isUsablePersistedQuizDraft(legacyValue)) {
-            window.localStorage.removeItem(legacyKey);
-            continue;
+        if (canReadLegacyQuizKeys(slug, formCode)) {
+          for (const legacyKey of buildLegacyQuizKeys(slug, anonId)) {
+            const legacyValue = window.localStorage.getItem(legacyKey);
+            if (!legacyValue) continue;
+            if (!isUsablePersistedQuizDraft(legacyValue)) {
+              window.localStorage.removeItem(legacyKey);
+              continue;
+            }
+            const upgradedValue = upgradeLegacyQuizEnvelope(legacyValue, formCode);
+            window.localStorage.setItem(name, upgradedValue);
+            return upgradedValue;
           }
-          const upgradedValue = upgradeLegacyQuizEnvelope(legacyValue, formCode);
-          window.localStorage.setItem(name, upgradedValue);
-          return upgradedValue;
         }
       } catch {
         return null;

@@ -433,7 +433,7 @@
       "depends_on": [
 
       ],
-      "status": "planned",
+      "status": "local_checks_passed",
       "title": "feat(iq): add frontend API contracts",
       "artifacts": [
         "lib/api/v0_3.ts",
@@ -1145,8 +1145,8 @@
         }
       ],
       "failure_reason": null,
-      "pr_url": "https://github.com/fermatmind/fap-web/pull/883",
-      "commit_sha": "bd8dc8ce",
+      "pr_url": null,
+      "commit_sha": null,
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false
@@ -6810,6 +6810,17 @@
       ],
       "checks": {
         "local": {
+          "status": "passed",
+          "passed": [
+            "pnpm exec vitest run tests/contracts/mbti-desktop-storage-cutover.contract.test.ts",
+            "pnpm typecheck",
+            "pnpm test:contract",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+            "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"'",
+            "git diff --check",
+            "git diff --cached --check",
+            "scope validation"
+          ]
         },
         "github": {
         }
@@ -9240,7 +9251,7 @@
       "depends_on": [
         "PR-WEB-SEC-22"
       ],
-      "status": "local_checks_passed",
+      "status": "merged",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "fix(audit): honor Big5 comparative fallback",
@@ -9270,14 +9281,23 @@
           ]
         },
         "github": {
+          "status": "passed",
+          "passed": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "analyze (javascript-typescript)",
+            "CodeQL"
+          ]
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/883",
+      "commit_sha": "1538744b",
+      "merged_at": "2026-05-24T03:39:48Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-24T06:27:02+08:00",
@@ -9298,12 +9318,22 @@
           "at": "2026-05-24T11:36:40+08:00",
           "status": "pr_opened",
           "summary": "Opened PR-WEB-SEC-23 as GitHub PR #883 from codex/pr-web-sec-23-big5-comparative-fallback."
+        },
+        {
+          "at": "2026-05-24T11:39:48+08:00",
+          "status": "github_checks_passed",
+          "summary": "GitHub required checks passed for PR-WEB-SEC-23: build, contracts, Big Five freeze, Enneagram freeze, and CodeQL/analyze."
+        },
+        {
+          "at": "2026-05-24T11:42:02+08:00",
+          "status": "merged",
+          "summary": "Reconciled PR-WEB-SEC-23 after GitHub showed PR #883 merged at 2026-05-24T03:39:48Z with merge commit d95cbf7cdcdc349ac49d4f5022bd574631310e1e on origin/main; remote branch is deleted, local cleanup executed, and post-merge focused contract passed."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T11:36:40+08:00"
+      "updated_at": "2026-05-24T11:42:02+08:00"
     },
     {
       "id": "PR-WEB-SEC-24",
@@ -9314,7 +9344,7 @@
       "depends_on": [
         "PR-WEB-SEC-23"
       ],
-      "status": "planned",
+      "status": "local_checks_passed",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "fix(audit): constrain legacy MBTI draft migration",
@@ -9331,6 +9361,17 @@
       ],
       "checks": {
         "local": {
+          "status": "passed",
+          "passed": [
+            "pnpm exec vitest run tests/contracts/mbti-desktop-storage-cutover.contract.test.ts",
+            "pnpm typecheck",
+            "pnpm test:contract",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+            "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"'",
+            "git diff --check",
+            "git diff --cached --check",
+            "scope validation"
+          ]
         },
         "github": {
         }
@@ -9346,12 +9387,22 @@
           "at": "2026-05-24T06:27:02+08:00",
           "status": "planned",
           "summary": "Initialized PR-WEB-SEC-24 from authorized fap-web security findings train expansion."
+        },
+        {
+          "at": "2026-05-24T11:42:02+08:00",
+          "status": "in_progress",
+          "summary": "Started PR-WEB-SEC-24 from latest main after reconciling merged PR-WEB-SEC-23; constraining form-less legacy MBTI draft migration to the default form route."
+        },
+        {
+          "at": "2026-05-24T11:45:51+08:00",
+          "status": "local_checks_passed",
+          "summary": "PR24 focused MBTI storage cutover contract, typecheck, full contract suite, production API build, manifest/state parse, diff checks, and scope validation passed."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T06:27:02+08:00"
+      "updated_at": "2026-05-24T11:45:51+08:00"
     },
     {
       "id": "PR-WEB-SEC-25",
