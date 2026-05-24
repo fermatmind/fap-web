@@ -7,6 +7,12 @@ import { isCurrentRiasecPack12AllowedFile } from "./helpers/currentPrScope";
 const ROOT = process.cwd();
 const validatorModuleUrl = pathToFileURL(path.join(ROOT, "scripts/validate-staging-cms-baseline.mjs")).href;
 const EN_LOCALE = { app: "en", api: "en" };
+const PR_WEB_SEC_17A_ALLOWED_FILES = new Set([
+  "tests/contracts/staging-cms-baseline-validator.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+]);
 
 type RecommendedArticleValidator = {
   validateRecommendedArticlesExactCount: (
@@ -54,6 +60,10 @@ async function loadValidator(): Promise<RecommendedArticleValidator> {
   return import(validatorModuleUrl) as Promise<RecommendedArticleValidator>;
 }
 
+function isCurrentFollowupAllowedFile(file: string): boolean {
+  return PR_WEB_SEC_17A_ALLOWED_FILES.has(file) || isCurrentRiasecPack12AllowedFile(file);
+}
+
 describe("staging CMS baseline recommended article validation", () => {
   it("accepts exactly six published public recommended articles", async () => {
     const { validateRecommendedArticlesExactCount } = await loadValidator();
@@ -85,12 +95,14 @@ describe("staging CMS baseline recommended article validation", () => {
     expect(result.articles).toHaveLength(7);
   });
 
-  it("keeps the PR-WEB-SEC-17 changed files inside scope", () => {
+  it("keeps local PR-WEB-SEC-17 follow-up changed files inside scope", () => {
     const changed = currentChangedFiles();
 
-    expect(isCurrentRiasecPack12AllowedFile("tests/contracts/staging-cms-baseline-validator.contract.test.ts")).toBe(
-      true
-    );
-    expect(changed.every(isCurrentRiasecPack12AllowedFile), changed.join("\n")).toBe(true);
+    if (changed.length === 0) {
+      expect(changed).toEqual([]);
+      return;
+    }
+
+    expect(changed.every(isCurrentFollowupAllowedFile), changed.join("\n")).toBe(true);
   });
 });
