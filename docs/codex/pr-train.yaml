@@ -6426,3 +6426,65 @@ prs:
       - Full e2e backend/mock API provisioning gap is recorded as sidecar and not left as a guaranteed ECONNREFUSED CI gate.
       - Lint fixes are behavior-equivalent and do not change CMS/content, payment, CSP/noindex, sitemap, or llms authority.
     rollback_note: "Revert PR-AUDIT-FE-01 scoped lint and CI baseline changes if required."
+
+  - id: PR-AUDIT-FE-02
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-audit-fe-02-csp-noindex
+    base: main
+    depends_on: [PR-AUDIT-FE-01]
+    mode: execute
+    train_scope: prr_audit_remediation
+    risk_level: medium
+    status: planned
+    title: "PR-AUDIT-FE-02 CSP enforcement and pay payment noindex headers"
+    findings:
+      - "M-FE-CSP-01 production CSP remains report-only"
+      - "M-FE-SEO-01 payment/private flow missing noindex headers"
+    goal: "Move production CSP to an enforce header while preserving a report-only companion when useful, and add X-Robots-Tag noindex/nofollow/noarchive to pay/payment private flow routes including locale-prefixed paths."
+    in_scope:
+      - next.config.mjs
+      - deploy/nginx/fap-web.conf
+      - tests/contracts/private-noindex.contract.test.ts
+      - tests/contracts/**security**
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - payment business logic
+      - pending order recovery token changes
+      - CMS authority changes
+      - sitemap changes
+      - llms enumeration changes
+      - analytics provider changes
+      - weakening CSP/noindex contracts
+    required_local_checks:
+      - pnpm lint .
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm exec vitest run tests/contracts/private-noindex.contract.test.ts
+      - pnpm exec vitest run tests/contracts/*security*
+      - pnpm test:contract
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      changed_files_must_match:
+        - next.config.mjs
+        - deploy/nginx/fap-web.conf
+        - tests/contracts/private-noindex.contract.test.ts
+        - tests/contracts/**security**
+        - tests/contracts/helpers/currentPrScope.ts
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Production responses include an enforce Content-Security-Policy header.
+      - Production responses are not limited to Content-Security-Policy-Report-Only.
+      - unsafe-eval and unsafe-inline are removed or explicitly deferred with enforce CSP preserved and contract-tested.
+      - /pay, /pay/:path*, /payment, /payment/:path*, and locale-prefixed pay/payment routes emit X-Robots-Tag containing noindex, nofollow, and noarchive.
+      - Payment runtime logic, recovery token behavior, sitemap, llms, and CMS authority remain unchanged.
+    rollback_note: "Revert PR-AUDIT-FE-02 scoped next.config security header and contract changes if required."

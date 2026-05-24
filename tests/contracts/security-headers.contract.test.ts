@@ -17,6 +17,7 @@ describe("security headers baseline contract", () => {
     expect(nextConfig).toContain("Referrer-Policy");
     expect(nextConfig).toContain("Permissions-Policy");
     expect(nextConfig).toContain("Strict-Transport-Security");
+    expect(nextConfig).toContain("Content-Security-Policy");
     expect(nextConfig).toContain("Content-Security-Policy-Report-Only");
     expect(nextConfig).toContain('source: "/:path*"');
   });
@@ -29,18 +30,23 @@ describe("security headers baseline contract", () => {
     expect(nginxConf).toContain("add_header Referrer-Policy");
     expect(nginxConf).toContain("add_header Permissions-Policy");
     expect(nginxConf).toContain("add_header Strict-Transport-Security");
+    expect(nginxConf).toContain('add_header Content-Security-Policy "');
     expect(nginxConf).toContain("add_header Content-Security-Policy-Report-Only");
   });
 
-  it("csp is report-only and does not include report-uri/report-to", () => {
+  it("csp is enforced, keeps report-only telemetry, and does not include report-uri/report-to", () => {
     const nextConfig = read("next.config.mjs");
     const nginxConf = read("deploy/nginx/fap-web.conf");
 
+    expect(nextConfig).toContain('key: "Content-Security-Policy"');
     expect(nextConfig).toContain("Content-Security-Policy-Report-Only");
+    expect(nextConfig).not.toContain("'unsafe-eval'");
     expect(nextConfig).not.toContain("report-uri");
     expect(nextConfig).not.toContain("report-to");
 
+    expect(nginxConf).toContain('add_header Content-Security-Policy "');
     expect(nginxConf).toContain("Content-Security-Policy-Report-Only");
+    expect(nginxConf).not.toContain("'unsafe-eval'");
     expect(nginxConf).not.toContain("report-uri");
     expect(nginxConf).not.toContain("report-to");
   });
