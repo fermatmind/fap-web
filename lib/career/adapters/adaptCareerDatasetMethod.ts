@@ -43,6 +43,24 @@ function normalizeRecordOfNumbers(value: unknown): Record<string, number> {
   return normalized;
 }
 
+function normalizeDatasetPublicationUrl(value: unknown): string {
+  const url = normalizeString(value);
+  if (!url) {
+    return "";
+  }
+
+  if (url.startsWith("/") && !url.startsWith("//") && !url.includes("\\")) {
+    return url;
+  }
+
+  try {
+    const parsed = new URL(url);
+    return parsed.protocol === "http:" || parsed.protocol === "https:" ? parsed.href : "";
+  } catch {
+    return "";
+  }
+}
+
 export function adaptCareerDatasetMethod(
   input: AdaptCareerDatasetMethodInput
 ): CareerDatasetMethodAdapter | null {
@@ -80,11 +98,11 @@ export function adaptCareerDatasetMethod(
     },
     publication: {
       publisherName: normalizeString(publisher.name, "FermatMind"),
-      publisherUrl: normalizeString(publisher.url, "https://www.fermatmind.com"),
+      publisherUrl: normalizeDatasetPublicationUrl(publisher.url) || "https://www.fermatmind.com/",
       licenseName: normalizeString(license.name),
-      licenseUrl: normalizeString(license.url),
+      licenseUrl: normalizeDatasetPublicationUrl(license.url),
       usageSummary: normalizeString(usage.summary),
-      downloadUrl: normalizeString(distribution.download_url),
+      downloadUrl: normalizeDatasetPublicationUrl(distribution.download_url),
     },
     structuredData: {
       article: normalizeObject(structuredData.article),

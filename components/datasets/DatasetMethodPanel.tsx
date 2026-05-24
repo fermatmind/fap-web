@@ -49,9 +49,9 @@ export function DatasetMethodPanel({ title, summary, sourceSummary, reviewDiscip
         </div>
         <p className="m-0 mt-5 text-sm leading-6 text-slate-500">{publication.usageSummary}</p>
         <div className="mt-4 flex flex-wrap gap-3 text-sm">
-          <Link href={publication.publisherUrl} className="font-semibold text-orange-600 hover:text-orange-700">{publication.publisherName}</Link>
-          <Link href={publication.licenseUrl} className="font-semibold text-orange-600 hover:text-orange-700">{publication.licenseName}</Link>
-          <Link href={publication.downloadUrl} className="font-semibold text-orange-600 hover:text-orange-700">Download</Link>
+          <PublicationLink href={publication.publisherUrl}>{publication.publisherName}</PublicationLink>
+          <PublicationLink href={publication.licenseUrl}>{publication.licenseName}</PublicationLink>
+          <PublicationLink href={publication.downloadUrl}>Download</PublicationLink>
         </div>
       </section>
 
@@ -69,6 +69,18 @@ export function DatasetMethodPanel({ title, summary, sourceSummary, reviewDiscip
         </EvidenceDrawer>
       </div>
     </section>
+  );
+}
+
+function PublicationLink({ href, children }: { href: string; children: string }) {
+  if (!href || !children) {
+    return null;
+  }
+
+  return (
+    <Link href={href} className="font-semibold text-orange-600 hover:text-orange-700">
+      {children}
+    </Link>
   );
 }
 
