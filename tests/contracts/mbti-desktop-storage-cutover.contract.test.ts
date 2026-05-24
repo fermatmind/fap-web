@@ -1,12 +1,17 @@
 import fs from "node:fs";
 import path from "node:path";
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it } from "vitest";
 import { resolveMbtiDesktopCloneSlots } from "@/components/result/mbti/clone/mbtiDesktopClone.resolve";
 import { MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH } from "@/components/result/mbti/clone/mbtiDesktopClone.placeholders";
 import type { MbtiDesktopCloneContent } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 import type { MbtiSectionUnlock, RichResultHeadline } from "@/components/result/RichResultReport";
 import type { Locale } from "@/lib/i18n/locales";
 import type { MbtiResultProjectionViewModel } from "@/lib/mbti/publicProjection";
+import { createQuizStore } from "@/lib/quiz/store";
+
+afterEach(() => {
+  window.localStorage.clear();
+});
 
 function createHeadline(typeCode: string, typeName: string): RichResultHeadline {
   return {
@@ -362,6 +367,52 @@ function resolveSlotsForType({
 }
 
 describe("MBTI desktop storage cutover contract", () => {
+  it("does not adopt form-less legacy MBTI drafts into the non-default MBTI form route", () => {
+    const now = Date.now();
+    const slug = "mbti-personality-test-16-personality-types";
+    const anonId = "anon-mbti-legacy-form-guard";
+    window.localStorage.setItem(
+      `fm_quiz_v3_${slug}_${anonId}`,
+      JSON.stringify({
+        version: 3,
+        state: {
+          version: 3,
+          state: {
+            slug,
+            anonId,
+            currentIndex: 1,
+            answers: { q1: "A" },
+            startedAt: now,
+            attemptId: "attempt-legacy",
+            scaleCode: "MBTI",
+            submittedAt: null,
+            lastSavedAt: now,
+          },
+        },
+      })
+    );
+
+    const quickStore = createQuizStore({ slug, anonId, formCode: "mbti_93" });
+    quickStore.getState().init(slug, ["q1", "q2"], anonId, "mbti_93");
+
+    expect(quickStore.getState().state).toMatchObject({
+      answers: {},
+      attemptId: null,
+      currentIndex: 0,
+      formCode: "mbti_93",
+    });
+
+    const defaultStore = createQuizStore({ slug, anonId, formCode: "mbti_144" });
+    defaultStore.getState().init(slug, ["q1", "q2"], anonId, "mbti_144");
+
+    expect(defaultStore.getState().state).toMatchObject({
+      answers: { q1: "A" },
+      attemptId: "attempt-legacy",
+      currentIndex: 1,
+      formCode: "mbti_144",
+    });
+  });
+
   it("uses storage content for INFJ-A and ENTJ-T under zh while retaining compatibility fields in resolver slots", () => {
     const infjStorage = createStorageContent("infj-a");
     const entjStorage = createStorageContent("entj-t");
