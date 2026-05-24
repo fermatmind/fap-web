@@ -214,6 +214,15 @@ const PR_WEB_SEC_17A_ALLOWED_FILES = new Set([
   "tests/contracts/staging-cms-baseline-validator.contract.test.ts",
 ]);
 
+const PR_WEB_SEC_18_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "package.json",
+  "scripts/check-cms-api-health.mjs",
+  "tests/contracts/cms-api-environment.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (CURRENT_BRANCH === "codex/pr-web-sec-01-eq-v5-report-gate") {
     return PR_WEB_SEC_01_ALLOWED_FILES.has(file);
@@ -285,6 +294,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/pr-web-sec-17a-post-merge-scope-contract") {
     return PR_WEB_SEC_17A_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/pr-web-sec-18-cms-health-timeout") {
+    return PR_WEB_SEC_18_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/research-report-metadata") {

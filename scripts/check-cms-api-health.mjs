@@ -249,8 +249,6 @@ async function fetchJson(url) {
       },
     });
 
-    clearTimeout(timeout);
-
     if (!response.ok) {
       throw new Error(`HTTP ${response.status} for ${url.pathname}${url.search}`);
     }
@@ -260,7 +258,9 @@ async function fetchJson(url) {
       throw new Error(`Non-JSON response for ${url.pathname}${url.search}`);
     }
 
-    return await response.json();
+    const payload = await response.json();
+    clearTimeout(timeout);
+    return payload;
   } catch (error) {
     clearTimeout(timeout);
     throw describeFetchError(error, url);
