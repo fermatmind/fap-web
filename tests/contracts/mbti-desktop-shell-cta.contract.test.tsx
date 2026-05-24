@@ -2,7 +2,7 @@ import type { ComponentProps } from "react";
 import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { MbtiDesktopCloneShell } from "@/components/result/mbti/clone/MbtiDesktopCloneShell";
-import { getMbtiDesktopAnchorHash } from "@/components/result/mbti/mbtiDesktopAnchorTargets";
+import { getMbtiDesktopAnchorHash, getMbtiDesktopAnchorId } from "@/components/result/mbti/mbtiDesktopAnchorTargets";
 import type { MbtiSectionUnlock, RichResultHeadline } from "@/components/result/RichResultReport";
 import {
   fetchPersonalityDesktopCloneContent,
@@ -470,6 +470,10 @@ describe("MBTI desktop clone shell CTA wiring", () => {
         expect(screen.queryByTestId("mbti-chapter-career")).not.toBeInTheDocument();
         expect(screen.getByTestId("mbti-offers-primary-cta")).toBeInTheDocument();
       });
+
+      const offerSection = screen.getByTestId("mbti-offer-full");
+      expect(offerSection).toHaveAttribute("id", "offer-full");
+      expect(offerSection.querySelector(`#${getMbtiDesktopAnchorId("offerFull")}`)).not.toBeNull();
 
       expect(hoisted.trackEvent).toHaveBeenCalledWith(
         "ui_report_loading_phase",

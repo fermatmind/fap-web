@@ -9344,7 +9344,7 @@
       "depends_on": [
         "PR-WEB-SEC-23"
       ],
-      "status": "local_checks_passed",
+      "status": "merged",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "fix(audit): constrain legacy MBTI draft migration",
@@ -9374,14 +9374,23 @@
           ]
         },
         "github": {
+          "status": "passed",
+          "passed": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "analyze (javascript-typescript)",
+            "CodeQL"
+          ]
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/884",
+      "commit_sha": "a2519904",
+      "merged_at": "2026-05-24T03:49:53Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-24T06:27:02+08:00",
@@ -9397,12 +9406,22 @@
           "at": "2026-05-24T11:45:51+08:00",
           "status": "local_checks_passed",
           "summary": "PR24 focused MBTI storage cutover contract, typecheck, full contract suite, production API build, manifest/state parse, diff checks, and scope validation passed."
+        },
+        {
+          "at": "2026-05-24T11:49:53+08:00",
+          "status": "github_checks_passed",
+          "summary": "GitHub required checks passed for PR-WEB-SEC-24: build, contracts, Big Five freeze, Enneagram freeze, and CodeQL/analyze."
+        },
+        {
+          "at": "2026-05-24T11:51:59+08:00",
+          "status": "merged",
+          "summary": "Reconciled PR-WEB-SEC-24 after GitHub showed PR #884 merged at 2026-05-24T03:49:53Z with merge commit 639b7a800cf66a2a7aa38deb083df54fd55e4182 on origin/main; remote branch is deleted, local cleanup executed, and post-merge focused contract passed."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T11:45:51+08:00"
+      "updated_at": "2026-05-24T11:51:59+08:00"
     },
     {
       "id": "PR-WEB-SEC-25",
@@ -9413,7 +9432,7 @@
       "depends_on": [
         "PR-WEB-SEC-24"
       ],
-      "status": "planned",
+      "status": "local_checks_passed",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "fix(audit): preserve legacy MBTI offer hash on mobile",
@@ -9430,6 +9449,17 @@
       ],
       "checks": {
         "local": {
+          "status": "passed",
+          "passed": [
+            "pnpm exec vitest run tests/contracts/mbti-desktop-shell-cta.contract.test.tsx",
+            "pnpm typecheck",
+            "pnpm test:contract",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+            "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"'",
+            "git diff --check",
+            "git diff --cached --check",
+            "scope validation"
+          ]
         },
         "github": {
         }
@@ -9445,12 +9475,22 @@
           "at": "2026-05-24T06:27:02+08:00",
           "status": "planned",
           "summary": "Initialized PR-WEB-SEC-25 from authorized fap-web security findings train expansion."
+        },
+        {
+          "at": "2026-05-24T11:51:59+08:00",
+          "status": "in_progress",
+          "summary": "Started PR-WEB-SEC-25 from latest main after reconciling merged PR-WEB-SEC-24; mapping legacy #offer-full links to the rendered MBTI offer section while preserving desktop anchors."
+        },
+        {
+          "at": "2026-05-24T11:54:49+08:00",
+          "status": "local_checks_passed",
+          "summary": "PR25 focused MBTI desktop shell CTA contract, typecheck, full contract suite, production API build, manifest/state parse, diff checks, and scope validation passed."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T06:27:02+08:00"
+      "updated_at": "2026-05-24T11:54:49+08:00"
     },
     {
       "id": "PR-WEB-SEC-26",
