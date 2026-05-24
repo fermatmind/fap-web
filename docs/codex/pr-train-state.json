@@ -8307,7 +8307,7 @@
       "depends_on": [
         "PR-WEB-SEC-14"
       ],
-      "status": "pr_open_github_checks_pending",
+      "status": "merged",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "fix(audit): guard Big5 v2 report arrays",
@@ -8337,14 +8337,26 @@
           ]
         },
         "github": {
+          "status": "passed",
+          "pr_url": "https://github.com/fermatmind/fap-web/pull/874",
+          "head_sha": "ec05c08ccec76781a5cedf5dbb712f4852e59c01",
+          "merge_commit": "e5ac40724b18e7cbb1cec8e72f2381bb52875710",
+          "passed": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "analyze (javascript-typescript)",
+            "CodeQL"
+          ]
         }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/874",
-      "commit_sha": "7337122cd8ba6aaf355ad784e9af72da26b73e68",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "e5ac40724b18e7cbb1cec8e72f2381bb52875710",
+      "merged_at": "2026-05-23T23:55:50Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-24T06:27:02+08:00",
@@ -8365,12 +8377,17 @@
           "at": "2026-05-24T07:52:10+08:00",
           "status": "pr_open_github_checks_pending",
           "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/874 from scoped commit 7337122cd8ba6aaf355ad784e9af72da26b73e68; waiting for GitHub checks."
+        },
+        {
+          "at": "2026-05-24T07:57:03+08:00",
+          "status": "ledger_reconciled_merged",
+          "summary": "Reconciled PR-WEB-SEC-15 after GitHub PR #874 merged; origin/main contains merge commit e5ac40724b18e7cbb1cec8e72f2381bb52875710, required checks passed, remote branch deletion was observed, local cleanup ran, and post-merge focused Big Five assembler revalidation passed."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T07:52:10+08:00"
+      "updated_at": "2026-05-24T07:57:03+08:00"
     },
     {
       "id": "PR-WEB-SEC-16",
@@ -8381,7 +8398,7 @@
       "depends_on": [
         "PR-WEB-SEC-15"
       ],
-      "status": "planned",
+      "status": "pr_open_github_checks_pending",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "fix(audit): repair staging CMS smoke invocation",
@@ -8399,13 +8416,25 @@
       ],
       "checks": {
         "local": {
+          "status": "passed",
+          "passed": [
+            "pnpm exec vitest run tests/contracts/staging-cms-baseline-smoke.contract.test.ts",
+            "pnpm exec vitest run tests/contracts/staging-cms-baseline-smoke.contract.test.ts tests/contracts/staging-cms-baseline.contract.test.ts",
+            "pnpm typecheck",
+            "pnpm test:contract",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+            "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"'",
+            "git diff --check",
+            "git diff --cached --check",
+            "scope validation"
+          ]
         },
         "github": {
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/875",
+      "commit_sha": "eb36f35f43a0ea14353e4f9a5df8b4021da9cc14",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -8414,12 +8443,27 @@
           "at": "2026-05-24T06:27:02+08:00",
           "status": "planned",
           "summary": "Initialized PR-WEB-SEC-16 from authorized fap-web security findings train expansion."
+        },
+        {
+          "at": "2026-05-24T07:57:03+08:00",
+          "status": "in_progress",
+          "summary": "Started PR-WEB-SEC-16 from latest main after reconciling merged PR-WEB-SEC-15; repairing staging CMS smoke argument separator handling."
+        },
+        {
+          "at": "2026-05-24T08:02:07+08:00",
+          "status": "local_checks_passed",
+          "summary": "Focused staging smoke contract, staging baseline regression contract, typecheck, full contract suite, production API build, manifest/state parse, diff check, and scope validation passed for PR-WEB-SEC-16."
+        },
+        {
+          "at": "2026-05-24T08:02:59+08:00",
+          "status": "pr_open_github_checks_pending",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/875 from scoped commit eb36f35f43a0ea14353e4f9a5df8b4021da9cc14; waiting for GitHub checks."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T06:27:02+08:00"
+      "updated_at": "2026-05-24T08:02:59+08:00"
     },
     {
       "id": "PR-WEB-SEC-17",

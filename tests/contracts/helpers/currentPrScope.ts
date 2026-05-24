@@ -184,6 +184,16 @@ const PR_WEB_SEC_15_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const PR_WEB_SEC_16_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "scripts/deploy_web_pm2.sh",
+  "scripts/staging_cms_baseline_smoke.sh",
+  "scripts/validate-staging-cms-baseline.mjs",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/staging-cms-baseline-smoke.contract.test.ts",
+]);
+
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (CURRENT_BRANCH === "codex/pr-web-sec-01-eq-v5-report-gate") {
     return PR_WEB_SEC_01_ALLOWED_FILES.has(file);
@@ -243,6 +253,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/pr-web-sec-15-big5-v2-array-guards") {
     return PR_WEB_SEC_15_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/pr-web-sec-16-staging-smoke-separator") {
+    return PR_WEB_SEC_16_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/research-report-metadata") {

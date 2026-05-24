@@ -12,4 +12,4 @@ log "validate staging CMS baseline"
 log "api=${API_URL}"
 log "web=${WEB_URL}"
 
-pnpm cms:baseline:staging -- --api-url "$API_URL" --web-url "$WEB_URL"
+pnpm cms:baseline:staging --api-url "$API_URL" --web-url "$WEB_URL"
