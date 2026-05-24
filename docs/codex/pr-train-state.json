@@ -8656,7 +8656,7 @@
       "depends_on": [
         "PR-WEB-SEC-17"
       ],
-      "status": "pr_open_github_checks_pending",
+      "status": "github_checks_passed",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "test(audit): keep PR17 scope contract main-safe",
@@ -8688,6 +8688,15 @@
           "failure_summary": "Full contract suite initially failed because older scope-boundary contracts saw PR17A follow-up files before the PR17A branch was registered in tests/contracts/helpers/currentPrScope.ts; retry passed after adding the branch-scoped allowlist."
         },
         "github": {
+          "status": "passed",
+          "passed": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "analyze (javascript-typescript)",
+            "CodeQL"
+          ]
         }
       },
       "failure_reason": null,
@@ -8726,12 +8735,17 @@
           "at": "2026-05-24T10:03:00+08:00",
           "status": "pr_open_github_checks_pending",
           "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/877 from scoped commit f991b802f74c4e2c6c7ca15b151e246a2b8ecfca; waiting for GitHub checks."
+        },
+        {
+          "at": "2026-05-24T10:06:10+08:00",
+          "status": "github_checks_passed",
+          "summary": "GitHub required checks passed for PR-WEB-SEC-17A: build, contracts, Big Five freeze, Enneagram freeze, and CodeQL/analyze."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T10:03:00+08:00"
+      "updated_at": "2026-05-24T10:06:10+08:00"
     },
     {
       "id": "PR-WEB-SEC-18",
