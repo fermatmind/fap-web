@@ -1642,8 +1642,8 @@
 
       ],
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/890",
+      "commit_sha": "c9816a842465c593c3a4c9e885b15e967b0633cf",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -9941,12 +9941,17 @@
           "at": "2026-05-24T12:42:30+08:00",
           "status": "local_checks_passed",
           "summary": "PR30 focused deploy runbook redaction contract, typecheck, full contract suite, production API build, manifest/state parse, diff checks, and scope validation passed."
+        },
+        {
+          "at": "2026-05-24T12:44:00+08:00",
+          "status": "pr_opened",
+          "summary": "Opened https://github.com/fermatmind/fap-web/pull/890 after local checks and scope validation passed."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T12:42:30+08:00"
+      "updated_at": "2026-05-24T12:44:00+08:00"
     },
     {
       "id": "PR-WEB-SEC-31",
