@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import Link from "next/link";
 import { notFound, permanentRedirect, redirect } from "next/navigation";
 import { resolveCanonicalSlug } from "@/lib/assessmentSlugMap";
@@ -47,6 +48,11 @@ function firstQueryValue(value: string | string[] | undefined): string {
     return value[0] ?? "";
   }
   return value ?? "";
+}
+
+async function readRolloutIdentitySeed(): Promise<string | null> {
+  const value = (await headers()).get("x-anon-id")?.trim();
+  return value || null;
 }
 
 async function fetchLookupCapabilities(slug: string, locale: "en" | "zh"): Promise<Record<string, unknown> | null> {
@@ -149,6 +155,7 @@ export default async function TakePage({
   const rollout = resolveScaleRollout({
     scaleCode: test.scale_code as SupportedScaleCode,
     capabilities,
+    identitySeed: await readRolloutIdentitySeed(),
     envSnapshot: createScaleRolloutEnvSnapshot(),
   });
   if (!rollout.assessmentEnabled) {

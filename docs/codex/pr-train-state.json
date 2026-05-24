@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-24T10:45:44+08:00",
+  "updated_at": "2026-05-24T10:55:47+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -8859,7 +8859,7 @@
       "depends_on": [
         "PR-WEB-SEC-18"
       ],
-      "status": "github_checks_passed",
+      "status": "merged",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "fix(audit): validate dataset method links",
@@ -8913,9 +8913,9 @@
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/879",
       "commit_sha": "7479c76a5b1c66678ff75e8424a6f5a894b65787",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-05-24T02:48:53Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-24T06:27:02+08:00",
@@ -8951,12 +8951,17 @@
           "at": "2026-05-24T10:45:44+08:00",
           "status": "github_checks_passed",
           "summary": "GitHub required checks passed for PR-WEB-SEC-19: build, contracts, Big Five freeze, Enneagram freeze, and CodeQL/analyze."
+        },
+        {
+          "at": "2026-05-24T10:52:48+08:00",
+          "status": "merged",
+          "summary": "Reconciled PR-WEB-SEC-19 after GitHub showed PR #879 merged at 2026-05-24T02:48:53Z with merge commit 90560ed10c5f96a43c96174a434c7f84d9afc5e7 on origin/main; remote branch is deleted, local cleanup executed, and post-merge focused contract passed."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T10:45:44+08:00"
+      "updated_at": "2026-05-24T10:52:48+08:00"
     },
     {
       "id": "PR-WEB-SEC-20",
@@ -8967,7 +8972,7 @@
       "depends_on": [
         "PR-WEB-SEC-19"
       ],
-      "status": "planned",
+      "status": "local_checks_passed",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "fix(audit): restore anon rollout bucketing on test pages",
@@ -8985,6 +8990,18 @@
       ],
       "checks": {
         "local": {
+          "status": "passed",
+          "passed": [
+            "pnpm exec vitest run tests/contracts/scale-rollout.contract.test.ts",
+            "pnpm typecheck",
+            "pnpm test:contract",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+            "node -e \"JSON.parse(require('fs').readFileSync('docs/codex/pr-train-state.json','utf8')); console.log('state json ok')\"",
+            "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'manifest yaml ok'\"",
+            "git diff --check",
+            "git diff --cached --check",
+            "scope validation"
+          ]
         },
         "github": {
         }
@@ -9000,12 +9017,22 @@
           "at": "2026-05-24T06:27:02+08:00",
           "status": "planned",
           "summary": "Initialized PR-WEB-SEC-20 from authorized fap-web security findings train expansion."
+        },
+        {
+          "at": "2026-05-24T10:52:48+08:00",
+          "status": "in_progress",
+          "summary": "Started PR-WEB-SEC-20 from latest main after reconciling merged PR-WEB-SEC-19; restoring request anonymous identity as the percentage rollout bucket seed for test landing and take pages."
+        },
+        {
+          "at": "2026-05-24T10:55:47+08:00",
+          "status": "local_checks_passed",
+          "summary": "PR20 focused scale rollout contract, typecheck, full contract suite, production API build, manifest/state parse, diff check, and scope validation passed."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T06:27:02+08:00"
+      "updated_at": "2026-05-24T10:55:47+08:00"
     },
     {
       "id": "PR-WEB-SEC-21",
