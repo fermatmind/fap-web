@@ -108,6 +108,7 @@ export const TRACKING_EVENTS = {
   QUESTIONS_LOAD_FAILURE: "questions_load_failure",
   SUBMIT_FAILURE: "submit_failure",
   REPORT_LOAD_FAILURE: "report_load_failure",
+  RESULT_LOAD_FAILURE: "result_load_failure",
 } as const;
 
 export type TrackingEventName = (typeof TRACKING_EVENTS)[keyof typeof TRACKING_EVENTS];
@@ -323,6 +324,7 @@ const EVENT_FIELD_WHITELIST: Record<TrackingEventName, readonly string[]> = {
   questions_load_failure: ["scale_code", "stage", "stage_detail", "status_group", "status_code", "error_code", "request_id", "route", "form_code", "locale"],
   submit_failure: ["scale_code", "stage", "stage_detail", "status_group", "status_code", "error_code", "request_id", "route", "form_code", "locale"],
   report_load_failure: ["scale_code", "stage", "stage_detail", "status_group", "status_code", "error_code", "request_id", "route", "form_code", "locale"],
+  result_load_failure: ["scale_code", "stage", "stage_detail", "status_group", "status_code", "error_code", "request_id", "route", "form_code", "locale"],
 };
 
 const CAREER_ATTRIBUTION_EVENTS = [

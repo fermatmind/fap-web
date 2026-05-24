@@ -316,6 +316,16 @@ const PR_WEB_SEC_28_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const PR_WEB_SEC_29_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "lib/tracking/client.ts",
+  "lib/tracking/events.ts",
+  "tests/contracts/tracking-whitelist.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (CURRENT_BRANCH === "codex/pr-web-sec-01-eq-v5-report-gate") {
     return PR_WEB_SEC_01_ALLOWED_FILES.has(file);
@@ -431,6 +441,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/pr-web-sec-28-take-submit-lockout") {
     return PR_WEB_SEC_28_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/pr-web-sec-29-result-tracking-whitelist") {
+    return PR_WEB_SEC_29_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/research-report-metadata") {
