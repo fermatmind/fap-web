@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-24T17:06:16Z",
+  "updated_at": "2026-05-24T17:07:30Z",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -10476,7 +10476,7 @@
       "depends_on": [
         "DISCOVERABILITY-STAGING-DEINDEX-FIX-01"
       ],
-      "status": "committed",
+      "status": "pr_opened",
       "title": "fix(discoverability): align staging meta robots with noindex header",
       "artifacts": [
         "lib/seo/metadata.ts",
@@ -10533,11 +10533,12 @@
         ]
       },
       "github": {
-        "status": "pending"
+        "status": "pending",
+        "pr_url": "https://github.com/fermatmind/fap-web/pull/899"
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": "aa52c48b51871b0b5658513111b183dc01e6b5df",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/899",
+      "commit_sha": "d2f44f04007e6f639a9f17f1298e50006eff0e63",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -10561,10 +10562,15 @@
           "at": "2026-05-24T17:06:16Z",
           "status": "committed",
           "summary": "Created scoped commit aa52c48b51871b0b5658513111b183dc01e6b5df for staging page-level meta robots noindex alignment."
+        },
+        {
+          "at": "2026-05-24T17:07:30Z",
+          "status": "pr_opened",
+          "summary": "Opened GitHub PR #899 after scoped validation passed. Head commit at PR creation: d2f44f04007e6f639a9f17f1298e50006eff0e63."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-05-24T17:06:16Z"
+      "updated_at": "2026-05-24T17:07:30Z"
     }
   ],
   "sidecar_issues": [
