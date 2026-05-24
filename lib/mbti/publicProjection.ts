@@ -1837,7 +1837,14 @@ function normalizeShareCard(rawShare?: ShareSummaryResponse | null): MbtiPublicP
       return {
         code: normalizeText(dimension.code, dimension.key),
         label: normalizeText(dimension.label, dimension.key),
-        percent: toRoundedPercent(dimension.pct ?? dimension.percentile ?? dimension.percent),
+        percent: toRoundedPercent(
+          dimension.pct ??
+            dimension.dominant_pct ??
+            dimension.dominantPct ??
+            dimension.score_pct ??
+            dimension.percentile ??
+            dimension.percent
+        ),
         side: normalizeText(dimension.side, dimension.key),
         sideLabel: normalizeText(dimension.side_label, dimension.sideLabel, dimension.label),
         state: normalizeText(dimension.state, dimension.band_label, dimension.winnerLabel),
