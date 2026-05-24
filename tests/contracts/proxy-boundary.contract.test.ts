@@ -101,6 +101,44 @@ describe("proxy boundary contract", () => {
     expect(response.headers.get("x-robots-tag")?.toLowerCase()).toContain("noindex");
   });
 
+  it("reuses cookie anon-id on exact test landing pages for rollout consistency", () => {
+    const response = proxy(
+      new NextRequest("https://example.com/en/tests/mbti-personality-test-16-personality-types", {
+        headers: {
+          cookie: "fap_anonymous_id_v1=known-landing-anon",
+        },
+      })
+    );
+
+    expect(response.headers.get("set-cookie")).toBeNull();
+    expect(response.headers.get("x-middleware-override-headers")).toContain("x-anon-id");
+    expect(response.headers.get("x-middleware-request-x-anon-id")).toBe("known-landing-anon");
+  });
+
+  it("creates proxy-owned anon identity for test landing pages when absent", () => {
+    vi.spyOn(globalThis.crypto, "randomUUID").mockReturnValue("proxy-landing-id");
+
+    const response = proxy(new NextRequest("https://example.com/en/tests/mbti-personality-test-16-personality-types"));
+
+    expect(response.cookies.get("fap_anonymous_id_v1")?.value).toBe("proxy-landing-id");
+    expect(response.headers.get("x-middleware-request-x-anon-id")).toBe("proxy-landing-id");
+  });
+
+  it("does not attach anon identity to tests category pages", () => {
+    const response = proxy(
+      new NextRequest("https://example.com/en/tests/category/personality", {
+        headers: {
+          cookie: "fap_anonymous_id_v1=known-category-anon",
+          "x-anon-id": "caller-controlled-id",
+        },
+      })
+    );
+
+    expect(response.headers.get("x-middleware-request-x-anon-id")).toBeNull();
+    expect(response.headers.get("x-middleware-override-headers") ?? "").not.toContain("x-anon-id");
+    expect(response.cookies.get("fap_anonymous_id_v1")).toBeUndefined();
+  });
+
   it("does not persist caller-supplied anon-id headers", () => {
     vi.spyOn(globalThis.crypto, "randomUUID").mockReturnValue("proxy-generated-id");
 

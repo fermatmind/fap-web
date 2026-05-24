@@ -342,6 +342,24 @@ const PR_WEB_SEC_31_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const PR_WEB_SEC_32_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "proxy.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/proxy-boundary.contract.test.ts",
+  "tests/contracts/scale-rollout.contract.test.ts",
+]);
+
+const PR_WEB_SEC_33_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/preview-fixture-validation.contract.test.ts",
+  "tests/e2e/enneagram-phase1b-rendered-preview.spec.ts",
+  "tests/e2e/enneagram-phase3b-1rd-partial-resonance-rendered-preview.spec.ts",
+]);
+
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (CURRENT_BRANCH === "codex/pr-web-sec-01-eq-v5-report-gate") {
     return PR_WEB_SEC_01_ALLOWED_FILES.has(file);
@@ -469,6 +487,14 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/pr-web-sec-31-clinical-session-storage-guard") {
     return PR_WEB_SEC_31_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/pr-web-sec-32-landing-rollout-seed") {
+    return PR_WEB_SEC_32_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/pr-web-sec-33-preview-fixture-hard-fail") {
+    return PR_WEB_SEC_33_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/research-report-metadata") {

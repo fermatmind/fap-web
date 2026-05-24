@@ -87,7 +87,10 @@ function shouldAttachAnonIdentity(strippedPath: string): boolean {
   }
 
   return (
-    /^\/tests\/[^/]+\/take(?:\/|$)/i.test(strippedPath)
+    /^\/tests\/[^/]+\/?$/i.test(strippedPath)
+    || /^\/test\/[^/]+\/?$/i.test(strippedPath)
+    || /^\/quiz\/[^/]+\/?$/i.test(strippedPath)
+    || /^\/tests\/[^/]+\/take(?:\/|$)/i.test(strippedPath)
     || /^\/test\/[^/]+\/take(?:\/|$)/i.test(strippedPath)
     || /^\/quiz\/[^/]+\/take(?:\/|$)/i.test(strippedPath)
     || /^\/attempts(?:\/|$)/i.test(strippedPath)
