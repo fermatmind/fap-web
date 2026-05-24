@@ -17,11 +17,8 @@ type RecommendedArticleValidator = {
 
 function currentChangedFiles(): string[] {
   const files = new Set<string>();
-  for (const args of [
-    ["diff", "--name-only", "HEAD"],
-    ["diff", "--cached", "--name-only"],
-    ["ls-files", "--others", "--exclude-standard"],
-  ]) {
+
+  const collect = (args: string[]) => {
     const output = execFileSync("git", args, { cwd: ROOT, encoding: "utf8" });
     for (const line of output.split("\n")) {
       const file = line.trim();
@@ -29,7 +26,28 @@ function currentChangedFiles(): string[] {
         files.add(file);
       }
     }
+  };
+
+  for (const args of [
+    ["diff", "--name-only", "HEAD"],
+    ["diff", "--cached", "--name-only"],
+    ["ls-files", "--others", "--exclude-standard"],
+  ]) {
+    collect(args);
   }
+
+  if (files.size === 0) {
+    try {
+      const base = execFileSync("git", ["merge-base", "origin/main", "HEAD"], {
+        cwd: ROOT,
+        encoding: "utf8",
+      }).trim();
+      collect(["diff", "--name-only", base, "HEAD"]);
+    } catch {
+      collect(["diff", "--name-only", "HEAD~1", "HEAD"]);
+    }
+  }
+
   return [...files].sort();
 }
 

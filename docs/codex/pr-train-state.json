@@ -8524,6 +8524,22 @@
           "failure_summary": "Full contract suite initially failed because tests/contracts/staging-cms-baseline.contract.test.ts expected the validator source to retain the legacy 'expected 6' diagnostic string after exact-count wording changed; retry passed after scoped diagnostic wording fix."
         },
         "github": {
+          "status": "failed_then_retrying",
+          "failed": [
+            {
+              "name": "contracts",
+              "run": "https://github.com/fermatmind/fap-web/actions/runs/26347291756/job/77559185505",
+              "details": "CI clean checkout returned no worktree changed files for the PR17 scope contract; build, freeze checks, and CodeQL passed."
+            }
+          ],
+          "retry_local_passed": [
+            "pnpm exec vitest run tests/contracts/staging-cms-baseline-validator.contract.test.ts",
+            "pnpm typecheck",
+            "pnpm test:contract",
+            "manifest/state parse",
+            "git diff --check",
+            "scope validation"
+          ]
         }
       },
       "failure_reason": null,
@@ -8562,12 +8578,22 @@
           "at": "2026-05-24T08:17:08+08:00",
           "status": "pr_open_github_checks_pending",
           "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/876 from scoped commit efde9e167f370a3f139010163c8ed5d05fd18e4d; waiting for GitHub checks."
+        },
+        {
+          "at": "2026-05-24T08:22:40+08:00",
+          "status": "github_checks_failed_retrying",
+          "summary": "GitHub contracts failed because the PR17 scope contract inspected only clean worktree changes in CI; build, freeze checks, and CodeQL passed, and the fix remains inside PR17 test scope."
+        },
+        {
+          "at": "2026-05-24T08:24:14+08:00",
+          "status": "github_check_fix_local_passed",
+          "summary": "Updated the PR17 scope contract to inspect origin/main...HEAD when CI has a clean worktree; focused validator contract, typecheck, full contract suite, manifest/state parse, diff check, and scope validation passed locally."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T08:17:08+08:00"
+      "updated_at": "2026-05-24T08:24:14+08:00"
     },
     {
       "id": "PR-WEB-SEC-18",
