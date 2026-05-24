@@ -9155,7 +9155,7 @@
       "depends_on": [
         "PR-WEB-SEC-21"
       ],
-      "status": "local_checks_passed",
+      "status": "merged",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "fix(audit): preserve result retry ownership context",
@@ -9187,14 +9187,23 @@
           ]
         },
         "github": {
+          "status": "passed",
+          "passed": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "analyze (javascript-typescript)",
+            "CodeQL"
+          ]
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/882",
+      "commit_sha": "1db55954",
+      "merged_at": "2026-05-24T03:19:59Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-24T06:27:02+08:00",
@@ -9210,12 +9219,17 @@
           "at": "2026-05-24T11:16:12+08:00",
           "status": "local_checks_passed",
           "summary": "PR22 focused result client contract, typecheck, full contract suite, production API build, manifest/state parse, diff check, and scope validation passed."
+        },
+        {
+          "at": "2026-05-24T11:31:42+08:00",
+          "status": "merged",
+          "summary": "Reconciled PR-WEB-SEC-22 after GitHub showed PR #882 merged at 2026-05-24T03:19:59Z with merge commit c9448202705aa42b6d04ce2379e3130454873064 on origin/main; remote branch is deleted, local cleanup executed, and GitHub required checks passed."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T11:16:12+08:00"
+      "updated_at": "2026-05-24T11:31:42+08:00"
     },
     {
       "id": "PR-WEB-SEC-23",
@@ -9226,7 +9240,7 @@
       "depends_on": [
         "PR-WEB-SEC-22"
       ],
-      "status": "planned",
+      "status": "local_checks_passed",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "fix(audit): honor Big5 comparative fallback",
@@ -9243,6 +9257,17 @@
       ],
       "checks": {
         "local": {
+          "status": "passed",
+          "passed": [
+            "pnpm exec vitest run tests/contracts/big5-norms-comparison.contract.test.ts",
+            "pnpm typecheck",
+            "pnpm test:contract",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+            "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"'",
+            "git diff --check",
+            "git diff --cached --check",
+            "scope validation"
+          ]
         },
         "github": {
         }
@@ -9258,12 +9283,22 @@
           "at": "2026-05-24T06:27:02+08:00",
           "status": "planned",
           "summary": "Initialized PR-WEB-SEC-23 from authorized fap-web security findings train expansion."
+        },
+        {
+          "at": "2026-05-24T11:31:42+08:00",
+          "status": "in_progress",
+          "summary": "Started PR-WEB-SEC-23 from latest main after reconciling merged PR-WEB-SEC-22; adding comparative_v1 fallback for Big5 norms comparison without changing trait-vector rendering."
+        },
+        {
+          "at": "2026-05-24T11:35:24+08:00",
+          "status": "local_checks_passed",
+          "summary": "PR23 focused Big5 norms contract, typecheck, full contract suite, production API build, manifest/state parse, diff check, and scope validation passed."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T06:27:02+08:00"
+      "updated_at": "2026-05-24T11:35:24+08:00"
     },
     {
       "id": "PR-WEB-SEC-24",
