@@ -677,9 +677,9 @@ export default function ResultClient({
 
       return fetchAttemptReportAccess({
         attemptId,
+        anonId,
         locale,
         skipAuth: true,
-        includeAnonId: false,
         ...(resultAccessToken ? { accessToken: resultAccessToken } : {}),
       });
     }
@@ -700,9 +700,9 @@ export default function ResultClient({
 
       return fetchAttemptReport({
         attemptId,
+        anonId,
         locale,
         skipAuth: true,
-        includeAnonId: false,
         ...(resultAccessToken ? { accessToken: resultAccessToken } : {}),
       });
     }
@@ -718,9 +718,9 @@ export default function ResultClient({
 
       return fetchAttemptInviteUnlockProgress({
         attemptId,
+        anonId,
         locale,
         skipAuth: true,
-        includeAnonId: false,
       });
     }
   }, [anonId, attemptId, locale, runWithAuthRetry]);

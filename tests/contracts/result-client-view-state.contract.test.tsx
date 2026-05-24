@@ -791,7 +791,7 @@ describe("ResultClient view-state contract", () => {
     });
   });
 
-  it("retries report-access without auth/anon once when ATTEMPT_NOT_FOUND is returned", async () => {
+  it("retries report-access without auth but preserves anon ownership when ATTEMPT_NOT_FOUND is returned", async () => {
     const reportFixture = cloneFixture(reportReadyMbtiProjectionFixture) as ReportResponse;
     reportFixture.mbti_access_hub_v1 = createMbtiAccessHubRaw("attempt-123");
     hoisted.fetchAttemptReportAccess
@@ -818,9 +818,9 @@ describe("ResultClient view-state contract", () => {
     });
     expect(hoisted.fetchAttemptReportAccess).toHaveBeenNthCalledWith(2, {
       attemptId: "attempt-123",
+      anonId: "anon_result_test",
       locale: "en",
       skipAuth: true,
-      includeAnonId: false,
     });
   });
 
@@ -856,7 +856,7 @@ describe("ResultClient view-state contract", () => {
     expect(screen.queryByTestId("result-summary")).not.toBeInTheDocument();
   });
 
-  it("retries report without auth/anon once when ATTEMPT_NOT_FOUND is returned", async () => {
+  it("retries report without auth but preserves anon ownership when ATTEMPT_NOT_FOUND is returned", async () => {
     const reportFixture = cloneFixture(reportReadyMbtiProjectionFixture) as ReportResponse;
     reportFixture.mbti_access_hub_v1 = createMbtiAccessHubRaw("attempt-123");
     hoisted.fetchAttemptReportAccess.mockResolvedValue(createAccessProjection());
@@ -883,14 +883,14 @@ describe("ResultClient view-state contract", () => {
     });
     expect(hoisted.fetchAttemptReport).toHaveBeenNthCalledWith(2, {
       attemptId: "attempt-123",
+      anonId: "anon_result_test",
       locale: "en",
       skipAuth: true,
-      includeAnonId: false,
     });
     expect(hoisted.fetchAttemptResult).not.toHaveBeenCalled();
   });
 
-  it("retries invite-unlocks without auth/anon once when ATTEMPT_NOT_FOUND is returned", async () => {
+  it("retries invite-unlocks without auth but preserves anon ownership when ATTEMPT_NOT_FOUND is returned", async () => {
     const reportFixture = cloneFixture(reportReadyMbtiProjectionFixture) as ReportResponse;
     reportFixture.mbti_access_hub_v1 = createMbtiAccessHubRaw("attempt-123");
     hoisted.fetchAttemptReportAccess.mockResolvedValue(createAccessProjection());
@@ -927,9 +927,9 @@ describe("ResultClient view-state contract", () => {
     });
     expect(hoisted.fetchAttemptInviteUnlockProgress).toHaveBeenNthCalledWith(2, {
       attemptId: "attempt-123",
+      anonId: "anon_result_test",
       locale: "en",
       skipAuth: true,
-      includeAnonId: false,
     });
   });
 
