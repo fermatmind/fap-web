@@ -220,11 +220,13 @@ export function resolveScaleRollout({
   scaleCode,
   capabilities,
   anonId,
+  identitySeed,
   envSnapshot = createScaleRolloutEnvSnapshot(),
 }: {
   scaleCode?: string | null;
   capabilities?: Record<string, unknown> | null;
   anonId?: string | null;
+  identitySeed?: string | null;
   envSnapshot?: ScaleRolloutEnvSnapshot;
 }): ScaleRolloutDecision {
   const normalizedScaleCode = normalizeScaleCode(scaleCode);
@@ -235,7 +237,7 @@ export function resolveScaleRollout({
   const envConfig = envSnapshot[normalizedScaleCode];
   const backendEnabled = resolveBackendEnabled(capabilities);
   const paywallMode = resolvePaywallMode(capabilities);
-  const bucket = resolveBucket(normalizedScaleCode, anonId);
+  const bucket = resolveBucket(normalizedScaleCode, identitySeed ?? anonId);
   const percentEnabled = bucket < envConfig.percent;
   const envEnabled = envConfig.enabled;
   const assessmentEnabled = backendEnabled && envEnabled && percentEnabled && paywallMode !== "off";

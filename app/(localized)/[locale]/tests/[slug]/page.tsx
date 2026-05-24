@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
 import { DataGlyph } from "@/components/assessment-cards/DataGlyph";
@@ -148,6 +149,11 @@ function firstQueryValue(value: string | string[] | undefined): string {
     return value[0] ?? "";
   }
   return value ?? "";
+}
+
+async function readRolloutIdentitySeed(): Promise<string | null> {
+  const value = (await headers()).get("x-anon-id")?.trim();
+  return value || null;
 }
 
 function appendQuery(path: string, query: Record<string, string | string[] | undefined>): string {
@@ -690,6 +696,7 @@ export default async function TestLandingPage({
   const rollout = resolveScaleRollout({
     scaleCode: test.scale_code as SupportedScaleCode | undefined,
     capabilities: lookup?.capabilities,
+    identitySeed: await readRolloutIdentitySeed(),
     envSnapshot: createScaleRolloutEnvSnapshot(),
   });
   const testDisabled = !rollout.assessmentEnabled;
