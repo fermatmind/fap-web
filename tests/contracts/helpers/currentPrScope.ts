@@ -419,7 +419,19 @@ const CODEQL_HYGIENE_ALLOWED_FILES = new Set([
   "tests/e2e/big5-flow.spec.ts",
 ]);
 
+const DISCOVERABILITY_STAGING_META_NOINDEX_FIX_02_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "lib/seo/metadata.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/staging-discoverability-containment.contract.test.ts",
+]);
+
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH === "codex/discoverability-staging-meta-noindex-fix-02") {
+    return DISCOVERABILITY_STAGING_META_NOINDEX_FIX_02_ALLOWED_FILES.has(file);
+  }
+
   if (CURRENT_BRANCH === "codex/codeql-hygiene-alerts") {
     return CODEQL_HYGIENE_ALLOWED_FILES.has(file);
   }

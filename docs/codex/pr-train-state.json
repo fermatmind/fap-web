@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-24T15:51:00Z",
+  "updated_at": "2026-05-24T17:07:30Z",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -10466,6 +10466,111 @@
       ],
       "sidecar_issues": [],
       "updated_at": "2026-05-24T15:51:00Z"
+    },
+    {
+      "id": "DISCOVERABILITY-STAGING-META-NOINDEX-FIX-02",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/discoverability-staging-meta-noindex-fix-02",
+      "base": "main",
+      "depends_on": [
+        "DISCOVERABILITY-STAGING-DEINDEX-FIX-01"
+      ],
+      "status": "pr_opened",
+      "title": "fix(discoverability): align staging meta robots with noindex header",
+      "artifacts": [
+        "lib/seo/metadata.ts",
+        "tests/contracts/staging-discoverability-containment.contract.test.ts",
+        "docs/codex/pr-train.yaml",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [
+        {
+          "command": "pnpm exec vitest run tests/contracts/staging-discoverability-containment.contract.test.ts",
+          "status": "passed"
+        },
+        {
+          "command": "pnpm lint",
+          "status": "passed",
+          "notes": "Passed with existing unrelated warnings."
+        },
+        {
+          "command": "pnpm test:contract",
+          "status": "passed",
+          "notes": "390 test files and 2232 tests passed."
+        },
+        {
+          "command": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+          "status": "passed",
+          "notes": "Postbuild sitemap generation drift in public/sitemap.xml was reverted because sitemap changes are out of scope."
+        },
+        {
+          "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+          "status": "passed"
+        },
+        {
+          "command": "python3 - <<'PY'\nimport yaml, pathlib\nyaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text())\nPY",
+          "status": "passed"
+        },
+        {
+          "command": "git diff --check",
+          "status": "passed"
+        },
+        {
+          "command": "git diff --cached --check",
+          "status": "passed"
+        }
+      ],
+      "scope_validation": {
+        "status": "passed",
+        "changed_files_must_match": [
+          "lib/seo/metadata.ts",
+          "tests/contracts/staging-discoverability-containment.contract.test.ts",
+          "docs/codex/pr-train.yaml",
+          "tests/contracts/helpers/currentPrScope.ts",
+          "docs/codex/pr-train-state.json"
+        ]
+      },
+      "github": {
+        "status": "pending",
+        "pr_url": "https://github.com/fermatmind/fap-web/pull/899"
+      },
+      "failure_reason": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/899",
+      "commit_sha": "d2f44f04007e6f639a9f17f1298e50006eff0e63",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-05-24T16:58:16Z",
+          "status": "in_progress",
+          "summary": "Initialized authorized staging meta noindex fix to align page-level HTML robots metadata with the existing staging X-Robots containment."
+        },
+        {
+          "at": "2026-05-24T17:01:14Z",
+          "status": "scope_helper_added",
+          "summary": "Added the current PR scope helper to allow full contract scope-boundary tests to recognize this branch-specific diff."
+        },
+        {
+          "at": "2026-05-24T17:05:47Z",
+          "status": "local_checks_passed",
+          "summary": "Focused staging contract, lint, full contract suite, production API build, JSON/YAML parsing, and diff checks passed. Build-generated public/sitemap.xml drift was reverted as out of scope."
+        },
+        {
+          "at": "2026-05-24T17:06:16Z",
+          "status": "committed",
+          "summary": "Created scoped commit aa52c48b51871b0b5658513111b183dc01e6b5df for staging page-level meta robots noindex alignment."
+        },
+        {
+          "at": "2026-05-24T17:07:30Z",
+          "status": "pr_opened",
+          "summary": "Opened GitHub PR #899 after scoped validation passed. Head commit at PR creation: d2f44f04007e6f639a9f17f1298e50006eff0e63."
+        }
+      ],
+      "sidecar_issues": [],
+      "updated_at": "2026-05-24T17:07:30Z"
     }
   ],
   "sidecar_issues": [

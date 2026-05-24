@@ -5,6 +5,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { GET as llmsFullRoute } from "@/app/llms-full.txt/route";
 import { GET as llmsRoute } from "@/app/llms.txt/route";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 import { proxy } from "@/proxy";
 
 const ROOT = process.cwd();
@@ -94,6 +95,66 @@ describe("staging discoverability containment", () => {
     expect(read("app/(localized)/[locale]/layout.tsx")).toContain("isConfiguredStagingSiteUrl()");
     expect(read("app/(root)/layout.tsx")).toContain("index: false");
     expect(read("app/(localized)/[locale]/layout.tsx")).toContain("follow: false");
+  });
+
+  it("forces page-level staging metadata to noindex while keeping production pages indexable", () => {
+    vi.stubEnv("NEXT_PUBLIC_SITE_URL", STAGING_URL);
+
+    const stagingMetadata = buildPageMetadata({
+      locale: "en",
+      pathname: "/en/tests/mbti-personality-test-16-personality-types",
+      canonicalPathname: "/en/tests/mbti-personality-test-16-personality-types",
+      canonicalRouteFamily: "test_detail",
+      title: "MBTI Test",
+      description: "MBTI test page.",
+      alternatesByLocale: {
+        en: "/en/tests/mbti-personality-test-16-personality-types",
+        zh: "/zh/tests/mbti-personality-test-16-personality-types",
+        xDefault: "/en/tests/mbti-personality-test-16-personality-types",
+      },
+    });
+
+    expect(stagingMetadata.robots).toMatchObject({
+      index: false,
+      follow: false,
+      noarchive: true,
+      googleBot: {
+        index: false,
+        follow: false,
+        noarchive: true,
+      },
+    });
+    expect(stagingMetadata.alternates?.canonical).toBe(
+      "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types"
+    );
+
+    vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://fermatmind.com");
+
+    const productionMetadata = buildPageMetadata({
+      locale: "en",
+      pathname: "/en/tests/mbti-personality-test-16-personality-types",
+      canonicalPathname: "/en/tests/mbti-personality-test-16-personality-types",
+      canonicalRouteFamily: "test_detail",
+      title: "MBTI Test",
+      description: "MBTI test page.",
+      alternatesByLocale: {
+        en: "/en/tests/mbti-personality-test-16-personality-types",
+        zh: "/zh/tests/mbti-personality-test-16-personality-types",
+        xDefault: "/en/tests/mbti-personality-test-16-personality-types",
+      },
+    });
+
+    expect(productionMetadata.robots).toMatchObject({
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+      },
+    });
+    expect(productionMetadata.alternates?.canonical).toBe(
+      "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types"
+    );
   });
 
   it("staging host is denied in headers while production sitemap and llms routes remain configured", () => {

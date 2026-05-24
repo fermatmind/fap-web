@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getSiteUrlOrThrow } from "@/lib/site";
+import { getSiteUrlOrThrow, isConfiguredStagingSiteUrl } from "@/lib/site";
 import { shouldNoindex, type ExplicitIndexGate } from "@/lib/seo/indexingPolicy";
 import type { SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
 
@@ -244,12 +244,13 @@ export function buildPageMetadata(input: BuildPageMetadataInput): Metadata {
   const canonical = canonicalDecision.canonicalUrl;
   const xDefaultPath = input.alternatesByLocale.xDefault ?? "/";
   const robotsPolicy = input.seoSurface?.robotsPolicy || "";
-  const noindex =
-    typeof input.noindex === "boolean"
+  const forceStagingNoindex = isConfiguredStagingSiteUrl();
+  const noindex = forceStagingNoindex
+    || (typeof input.noindex === "boolean"
       ? input.noindex
       : robotsPolicy
         ? robotsPolicy.toLowerCase().split(",").map((part) => part.trim()).includes("noindex")
-        : shouldNoindex(input.pathname, input.locale, undefined, input.explicitIndexGate);
+        : shouldNoindex(input.pathname, input.locale, undefined, input.explicitIndexGate));
   const title = input.seoSurface?.title || input.title;
   const description = input.seoSurface?.description || input.description;
   const alternates = input.seoSurface?.alternates || {};
