@@ -958,6 +958,7 @@ export default function Big5TakeClient({
       if (isFlowActive(activeRunId)) {
         setSubmitError(retryCountdownText(cooldownSeconds));
       }
+      submitInFlightRef.current = false;
       return null;
     }
 
@@ -969,6 +970,7 @@ export default function Big5TakeClient({
         setSubmitError(`Please answer question ${firstMissingIndex + 1} before submitting.`);
         setSubmitErrorAction("fill_missing");
       }
+      submitInFlightRef.current = false;
       return null;
     }
 
