@@ -8491,7 +8491,7 @@
       "depends_on": [
         "PR-WEB-SEC-16"
       ],
-      "status": "pr_open_github_checks_pending",
+      "status": "merged",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "fix(audit): enforce recommended article exact count",
@@ -8524,7 +8524,7 @@
           "failure_summary": "Full contract suite initially failed because tests/contracts/staging-cms-baseline.contract.test.ts expected the validator source to retain the legacy 'expected 6' diagnostic string after exact-count wording changed; retry passed after scoped diagnostic wording fix."
         },
         "github": {
-          "status": "failed_then_retrying",
+          "status": "passed",
           "failed": [
             {
               "name": "contracts",
@@ -8549,15 +8549,23 @@
             "manifest/state parse",
             "git diff --check",
             "scope validation"
+          ],
+          "passed": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "analyze (javascript-typescript)",
+            "CodeQL"
           ]
         }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/876",
-      "commit_sha": "efde9e167f370a3f139010163c8ed5d05fd18e4d",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "c3a3c60907a41156b3d21c4066b3a23ce93978db",
+      "merged_at": "2026-05-24T00:38:58Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-24T06:27:02+08:00",
@@ -8618,12 +8626,126 @@
           "at": "2026-05-24T08:35:41+08:00",
           "status": "github_check_fix_local_passed",
           "summary": "Simulated GITHUB_HEAD_REF locally; focused validator contract, typecheck, full contract suite, manifest/state parse, diff check, and scope validation passed after adding GitHub branch env fallback."
+        },
+        {
+          "at": "2026-05-24T09:54:39+08:00",
+          "status": "ledger_reconciled_merged",
+          "summary": "Reconciled PR-WEB-SEC-17 after GitHub PR #876 merged; origin/main contains merge commit a0f0760412235a56dfbcfe4baebb02ded40c0ab7, required checks passed, remote branch deletion was observed, and local cleanup had run."
+        },
+        {
+          "at": "2026-05-24T09:54:39+08:00",
+          "status": "post_merge_revalidate_failed",
+          "summary": "Post-merge focused validator contract failed on main because the PR17 scope contract asserted branch-specific helper membership in a clean main worktree; authorized follow-up PR-WEB-SEC-17A will repair the contract only."
+        }
+      ],
+      "sidecar_issues": [
+        {
+          "id": "PR-WEB-SEC-17A",
+          "status": "in_progress",
+          "summary": "Small follow-up authorized to make the PR17 scope contract main-safe after post-merge revalidation failure."
+        }
+      ],
+      "updated_at": "2026-05-24T09:54:39+08:00"
+    },
+    {
+      "id": "PR-WEB-SEC-17A",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/pr-web-sec-17a-post-merge-scope-contract",
+      "base": "main",
+      "depends_on": [
+        "PR-WEB-SEC-17"
+      ],
+      "status": "github_checks_passed",
+      "train_scope": "security_findings_remediation",
+      "risk_level": "informational",
+      "title": "test(audit): keep PR17 scope contract main-safe",
+      "findings": [
+        "PR17 post-merge scope contract fails on main"
+      ],
+      "artifacts": [
+        "tests/contracts/staging-cms-baseline-validator.contract.test.ts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "local": {
+          "status": "passed",
+          "passed": [
+            "pnpm exec vitest run tests/contracts/staging-cms-baseline-validator.contract.test.ts",
+            "pnpm typecheck",
+            "pnpm test:contract",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+            "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"'",
+            "git diff --check",
+            "git diff --cached --check",
+            "scope validation"
+          ],
+          "failed": [
+            "pnpm test:contract"
+          ],
+          "failure_summary": "Full contract suite initially failed because older scope-boundary contracts saw PR17A follow-up files before the PR17A branch was registered in tests/contracts/helpers/currentPrScope.ts; retry passed after adding the branch-scoped allowlist."
+        },
+        "github": {
+          "status": "passed",
+          "passed": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "analyze (javascript-typescript)",
+            "CodeQL"
+          ]
+        }
+      },
+      "failure_reason": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/877",
+      "commit_sha": "f991b802f74c4e2c6c7ca15b151e246a2b8ecfca",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-05-24T09:54:39+08:00",
+          "status": "planned",
+          "summary": "Initialized PR-WEB-SEC-17A after user authorized a small follow-up for the PR17 post-merge scope contract failure."
+        },
+        {
+          "at": "2026-05-24T09:54:39+08:00",
+          "status": "in_progress",
+          "summary": "Started PR-WEB-SEC-17A from latest main; scope is limited to the PR17 focused contract and PR train metadata."
+        },
+        {
+          "at": "2026-05-24T09:58:30+08:00",
+          "status": "local_check_failed_retrying",
+          "summary": "Full contract suite failed because shared historical scope-boundary contracts did not recognize the new PR17A follow-up branch; the fix remained limited to scope helper/test metadata."
+        },
+        {
+          "at": "2026-05-24T10:01:15+08:00",
+          "status": "local_checks_passed",
+          "summary": "Focused validator contract, typecheck, full contract suite, production API build, manifest/state parse, diff check, and scope validation passed after registering the PR17A branch in currentPrScope."
+        },
+        {
+          "at": "2026-05-24T10:01:53+08:00",
+          "status": "committed",
+          "summary": "Committed scoped PR-WEB-SEC-17A changes as f991b802f74c4e2c6c7ca15b151e246a2b8ecfca."
+        },
+        {
+          "at": "2026-05-24T10:03:00+08:00",
+          "status": "pr_open_github_checks_pending",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/877 from scoped commit f991b802f74c4e2c6c7ca15b151e246a2b8ecfca; waiting for GitHub checks."
+        },
+        {
+          "at": "2026-05-24T10:06:10+08:00",
+          "status": "github_checks_passed",
+          "summary": "GitHub required checks passed for PR-WEB-SEC-17A: build, contracts, Big Five freeze, Enneagram freeze, and CodeQL/analyze."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T08:35:41+08:00"
+      "updated_at": "2026-05-24T10:06:10+08:00"
     },
     {
       "id": "PR-WEB-SEC-18",
@@ -8632,7 +8754,7 @@
       "branch": "codex/pr-web-sec-18-cms-health-timeout",
       "base": "main",
       "depends_on": [
-        "PR-WEB-SEC-17"
+        "PR-WEB-SEC-17A"
       ],
       "status": "planned",
       "train_scope": "security_findings_remediation",

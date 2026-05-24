@@ -5552,12 +5552,58 @@ prs:
       - Exactly six valid recommended articles still pass.
     rollback_note: "Revert PR-WEB-SEC-17 scoped changes if required."
 
+  - id: PR-WEB-SEC-17A
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-web-sec-17a-post-merge-scope-contract
+    base: main
+    depends_on: [PR-WEB-SEC-17]
+    mode: execute
+    train_scope: security_findings_remediation
+    risk_level: informational
+    status: planned
+    title: "test(audit): keep PR17 scope contract main-safe"
+    findings:
+      - "PR17 post-merge scope contract fails on main"
+    goal: "Keep the PR17 staging CMS baseline validator contract green on main while preserving branch-scoped validation during PR work."
+    in_scope:
+      - tests/contracts/staging-cms-baseline-validator.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - future PR-WEB-SEC scopes
+      - validator runtime logic
+      - CMS, backend, content, SEO, build, checkout, payment, deploy, or non-scoped docs
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/staging-cms-baseline-validator.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      continue_train_when_external_blocker:
+        - blocker is not introduced by PR-WEB-SEC-17A
+        - GitHub required checks are green
+        - scoped validation is green
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Focused staging CMS baseline validator contract passes on main with a clean worktree.
+      - Local PR17 follow-up metadata and contract changes remain inside the declared scope.
+    rollback_note: "Revert PR-WEB-SEC-17A scoped changes if required."
+
   - id: PR-WEB-SEC-18
     repo: fap-web
     repo_path: <workspace>/fap-web
     branch: codex/pr-web-sec-18-cms-health-timeout
     base: main
-    depends_on: [PR-WEB-SEC-17]
+    depends_on: [PR-WEB-SEC-17A]
     mode: execute
     train_scope: security_findings_remediation
     risk_level: informational
