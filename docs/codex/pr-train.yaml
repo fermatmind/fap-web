@@ -6271,3 +6271,99 @@ prs:
       - Clinical submit success is not converted to failure when sessionStorage throws.
       - Clinical navigation/reset behavior remains intact.
     rollback_note: "Revert PR-WEB-SEC-31 scoped changes if required."
+
+  - id: PR-WEB-SEC-32
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-web-sec-32-landing-rollout-seed
+    base: main
+    depends_on: [PR-WEB-SEC-31]
+    mode: execute
+    train_scope: security_findings_remediation
+    risk_level: informational
+    status: planned
+    title: "fix(audit): align landing and take rollout seeds"
+    findings:
+      - "Rollout seed missing on landing pages"
+    goal: "Forward proxy-owned anonymous identity to exact public test landing routes so landing and take rollout buckets remain consistent."
+    in_scope:
+      - proxy.ts
+      - tests/contracts/proxy-boundary.contract.test.ts
+      - tests/contracts/scale-rollout.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - future PR-WEB-SEC scopes
+      - unrelated public content or CMS authority changes
+      - category pages, articles, sitemap, llms, checkout, payment, backend, production deploy, or non-scoped docs
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/proxy-boundary.contract.test.ts tests/contracts/scale-rollout.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      continue_train_when_external_blocker:
+        - blocker is not introduced by PR-WEB-SEC-32
+        - GitHub required checks are green
+        - scoped validation is green
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Exact public test landing pages receive the same proxy-owned anonymous identity path as take pages.
+      - Caller-supplied x-anon-id remains stripped and tests category routes do not receive anonymous identity.
+    rollback_note: "Revert PR-WEB-SEC-32 scoped changes if required."
+
+  - id: PR-WEB-SEC-33
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-web-sec-33-preview-fixture-hard-fail
+    base: main
+    depends_on: [PR-WEB-SEC-32]
+    mode: execute
+    train_scope: security_findings_remediation
+    risk_level: informational
+    status: planned
+    title: "test(audit): hard-fail invalid preview fixture config"
+    findings:
+      - "Invalid preview fixtures now skip audit E2E tests"
+    goal: "Keep unset optional preview fixture environment variables skippable while failing configured but invalid preview fixture directories or counts."
+    in_scope:
+      - tests/e2e/enneagram-phase1b-rendered-preview.spec.ts
+      - tests/e2e/enneagram-phase3b-1rd-partial-resonance-rendered-preview.spec.ts
+      - tests/contracts/preview-fixture-validation.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - future PR-WEB-SEC scopes
+      - unrelated public content or CMS authority changes
+      - runtime code, sitemap, llms, checkout, payment, backend, production deploy, or non-scoped docs
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/preview-fixture-validation.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      continue_train_when_external_blocker:
+        - blocker is not introduced by PR-WEB-SEC-33
+        - GitHub required checks are green
+        - scoped validation is green
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Unset optional preview fixture env vars still skip optional rendered-preview QA.
+      - Configured missing directories or wrong fixture counts fail instead of skipping.
+    rollback_note: "Revert PR-WEB-SEC-33 scoped changes if required."
