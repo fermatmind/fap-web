@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-24T10:32:28Z",
+  "updated_at": "2026-05-24T10:34:05Z",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -10209,7 +10209,7 @@
       "depends_on": [
         "PR-AUDIT-FE-02"
       ],
-      "status": "local_checks_passed",
+      "status": "pr_opened",
       "title": "PR-AUDIT-FE-03 payment recovery token minimization and cleanup",
       "risk_ids": [
         "M-FE-STORAGE-01"
@@ -10271,11 +10271,16 @@
             "tests/e2e/payment-wait-flow.spec.ts"
           ],
           "summary": "Changed files are limited to FE-03 pending order recovery token storage/minimization logic, terminal cleanup, directly related contracts/e2e expectations, branch scope helper, and current PR train metadata."
+        },
+        "github": {
+          "status": "pending",
+          "passed": [],
+          "failed": []
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/897",
+      "commit_sha": "885396462db2ed81b5e56008b98c269f7744bd71",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -10289,10 +10294,15 @@
           "at": "2026-05-24T10:32:28Z",
           "status": "local_checks_passed",
           "summary": "FE-03 local acceptance passed: lint, typecheck, production API build, focused recovery-token contracts, full contract suite, manifest/state parse, and diff checks. Generated sitemap drift from build was restored out of scope."
+        },
+        {
+          "at": "2026-05-24T10:34:05Z",
+          "status": "pr_opened",
+          "summary": "Opened GitHub PR #897 for PR-AUDIT-FE-03 after local checks and scope validation passed."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-05-24T10:32:28Z"
+      "updated_at": "2026-05-24T10:34:05Z"
     }
   ],
   "sidecar_issues": [
