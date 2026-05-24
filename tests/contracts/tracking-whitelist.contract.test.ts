@@ -96,6 +96,43 @@ describe("tracking whitelist contract", () => {
     });
   });
 
+  it("whitelists result and report load failure fields without sensitive payloads", () => {
+    const payload = {
+      scale_code: "MBTI",
+      stage: "load_result",
+      stage_detail: "fallback_result_failed",
+      status_group: "server_error",
+      status_code: 500,
+      error_code: "REPORT_UNAVAILABLE",
+      request_id: "req-123",
+      route: "/result/[id]",
+      form_code: "mbti_93",
+      locale: "en",
+      email: "forbidden@example.com",
+      token: "forbidden",
+      authorization: "forbidden",
+      unexpected: "drop-me",
+    };
+
+    const expected = {
+      scale_code: "MBTI",
+      stage: "load_result",
+      stage_detail: "fallback_result_failed",
+      status_group: "server_error",
+      status_code: 500,
+      error_code: "REPORT_UNAVAILABLE",
+      request_id: "req-123",
+      route: "/result/[id]",
+      form_code: "mbti_93",
+      locale: "en",
+    };
+
+    expect(Object.values(TRACKING_EVENTS)).toContain("result_load_failure");
+    expect(Object.values(TRACKING_EVENTS)).toContain("report_load_failure");
+    expect(filterTrackingPayload(TRACKING_EVENTS.RESULT_LOAD_FAILURE, payload)).toEqual(expected);
+    expect(filterTrackingPayload(TRACKING_EVENTS.REPORT_LOAD_FAILURE, payload)).toEqual(expected);
+  });
+
   it("freezes RIASEC Trusted Result analytics without recommender or raw feedback fields", () => {
     const events = Object.values(TRACKING_EVENTS);
     expect(events).toEqual(expect.arrayContaining([
