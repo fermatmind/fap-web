@@ -129,7 +129,7 @@ function rejectionReason(path: string | null): string | null {
     return "malformed_path";
   }
 
-  let decoded = path;
+  let decoded: string;
   try {
     decoded = decodeURIComponent(path);
   } catch {

@@ -47,7 +47,7 @@ function readJson(relOrAbsPath) {
 function normalizePath(value) {
   const raw = String(value || "").trim();
   if (!raw) return "/";
-  let pathname = raw;
+  let pathname;
   try {
     const url = new URL(raw, "https://fermatmind.com");
     if (url.origin !== "https://fermatmind.com") return "";

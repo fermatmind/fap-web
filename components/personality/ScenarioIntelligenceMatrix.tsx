@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
-import { PERSONALITY_HUB_TOKENS } from "@/lib/design/personalityHubTokens";
 import type { ScenarioMatrixCard } from "@/lib/mbti/personalityHub.types";
 
 export function ScenarioIntelligenceMatrix({

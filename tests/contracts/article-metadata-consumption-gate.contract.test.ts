@@ -30,10 +30,6 @@ type CmsMetadataConsumptionArtifact = {
 const COVER_URL = "https://cdn.fermatmind.com/articles/cms-metadata-og.jpg";
 const COVER_ALT = "CMS-provided illustration for article metadata consumption";
 
-function read(relPath: string): string {
-  return fs.readFileSync(path.join(ROOT, relPath), "utf8");
-}
-
 function readArtifact(): CmsMetadataConsumptionArtifact {
   return JSON.parse(fs.readFileSync(ARTIFACT_PATH, "utf8")) as CmsMetadataConsumptionArtifact;
 }

@@ -625,7 +625,7 @@ export async function listCareerGuidesFromCms(
   const seen = new Set<string>();
 
   let currentPage = requestedPage ?? 1;
-  let lastPage = currentPage;
+  let lastPage: number;
 
   try {
     do {

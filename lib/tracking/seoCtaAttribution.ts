@@ -2,7 +2,6 @@ import type { Locale } from "@/lib/i18n/locales";
 import {
   appendAttributionParamsToHref,
   buildTrackingAttributionPayload,
-  extractAttributionParamsFromRecord,
   extractAttributionParamsFromSearchParams,
   toAttemptAttributionPayload,
   type AttributionParams,
