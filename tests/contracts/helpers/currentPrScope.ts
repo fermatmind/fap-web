@@ -1,6 +1,11 @@
 import { execFileSync } from "node:child_process";
 
 const CURRENT_BRANCH = (() => {
+  const githubBranch = process.env.GITHUB_HEAD_REF || process.env.GITHUB_REF_NAME;
+  if (githubBranch) {
+    return githubBranch;
+  }
+
   try {
     return execFileSync("git", ["rev-parse", "--abbrev-ref", "HEAD"], {
       cwd: process.cwd(),

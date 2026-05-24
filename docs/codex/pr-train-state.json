@@ -8535,6 +8535,11 @@
               "name": "contracts",
               "run": "https://github.com/fermatmind/fap-web/actions/runs/26347414764/job/77559527387",
               "details": "CI shallow checkout did not have origin/main or HEAD~1 available for the fallback PR diff."
+            },
+            {
+              "name": "contracts",
+              "run": "https://github.com/fermatmind/fap-web/actions/runs/26347510940/job/77559792722",
+              "details": "GitHub Actions detached HEAD made currentPrScope resolve branch as HEAD instead of the PR branch."
             }
           ],
           "retry_local_passed": [
@@ -8603,12 +8608,22 @@
           "at": "2026-05-24T08:30:42+08:00",
           "status": "github_check_fix_local_passed",
           "summary": "Focused validator contract, typecheck, full contract suite, manifest/state parse, diff check, and scope validation passed after removing git-history fallback from the clean-checkout scope contract."
+        },
+        {
+          "at": "2026-05-24T08:34:12+08:00",
+          "status": "github_checks_failed_retrying",
+          "summary": "GitHub contracts failed because Actions checks out a detached HEAD; updated currentPrScope to prefer GITHUB_HEAD_REF/GITHUB_REF_NAME before git branch detection."
+        },
+        {
+          "at": "2026-05-24T08:35:41+08:00",
+          "status": "github_check_fix_local_passed",
+          "summary": "Simulated GITHUB_HEAD_REF locally; focused validator contract, typecheck, full contract suite, manifest/state parse, diff check, and scope validation passed after adding GitHub branch env fallback."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T08:30:42+08:00"
+      "updated_at": "2026-05-24T08:35:41+08:00"
     },
     {
       "id": "PR-WEB-SEC-18",
