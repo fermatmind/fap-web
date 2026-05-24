@@ -8398,7 +8398,7 @@
       "depends_on": [
         "PR-WEB-SEC-15"
       ],
-      "status": "pr_open_github_checks_pending",
+      "status": "merged",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "fix(audit): repair staging CMS smoke invocation",
@@ -8430,14 +8430,26 @@
           ]
         },
         "github": {
+          "status": "passed",
+          "pr_url": "https://github.com/fermatmind/fap-web/pull/875",
+          "head_sha": "77a1c05c853df7c8b2b2fc8f24cb3b384a77a068",
+          "merge_commit_sha": "d4df8b243c7ece8669a30bb3f5792a92436e1d80",
+          "passed": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "analyze (javascript-typescript)",
+            "CodeQL"
+          ]
         }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/875",
-      "commit_sha": "eb36f35f43a0ea14353e4f9a5df8b4021da9cc14",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "d4df8b243c7ece8669a30bb3f5792a92436e1d80",
+      "merged_at": "2026-05-24T00:06:46Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-24T06:27:02+08:00",
@@ -8458,12 +8470,17 @@
           "at": "2026-05-24T08:02:59+08:00",
           "status": "pr_open_github_checks_pending",
           "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/875 from scoped commit eb36f35f43a0ea14353e4f9a5df8b4021da9cc14; waiting for GitHub checks."
+        },
+        {
+          "at": "2026-05-24T08:09:35+08:00",
+          "status": "ledger_reconciled_merged",
+          "summary": "Reconciled PR-WEB-SEC-16 after GitHub PR #875 merged; origin/main contains merge commit d4df8b243c7ece8669a30bb3f5792a92436e1d80, required checks passed, remote branch deletion was observed, local cleanup ran, and post-merge staging smoke revalidation passed."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T08:02:59+08:00"
+      "updated_at": "2026-05-24T08:09:35+08:00"
     },
     {
       "id": "PR-WEB-SEC-17",
@@ -8474,7 +8491,7 @@
       "depends_on": [
         "PR-WEB-SEC-16"
       ],
-      "status": "planned",
+      "status": "pr_open_github_checks_pending",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "fix(audit): enforce recommended article exact count",
@@ -8490,13 +8507,54 @@
       ],
       "checks": {
         "local": {
+          "status": "passed",
+          "passed": [
+            "pnpm exec vitest run tests/contracts/staging-cms-baseline-validator.contract.test.ts",
+            "pnpm typecheck",
+            "pnpm test:contract",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+            "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"'",
+            "git diff --check",
+            "git diff --cached --check",
+            "scope validation"
+          ],
+          "failed": [
+            "pnpm test:contract"
+          ],
+          "failure_summary": "Full contract suite initially failed because tests/contracts/staging-cms-baseline.contract.test.ts expected the validator source to retain the legacy 'expected 6' diagnostic string after exact-count wording changed; retry passed after scoped diagnostic wording fix."
         },
         "github": {
+          "status": "failed_then_retrying",
+          "failed": [
+            {
+              "name": "contracts",
+              "run": "https://github.com/fermatmind/fap-web/actions/runs/26347291756/job/77559185505",
+              "details": "CI clean checkout returned no worktree changed files for the PR17 scope contract; build, freeze checks, and CodeQL passed."
+            },
+            {
+              "name": "contracts",
+              "run": "https://github.com/fermatmind/fap-web/actions/runs/26347414764/job/77559527387",
+              "details": "CI shallow checkout did not have origin/main or HEAD~1 available for the fallback PR diff."
+            },
+            {
+              "name": "contracts",
+              "run": "https://github.com/fermatmind/fap-web/actions/runs/26347510940/job/77559792722",
+              "details": "GitHub Actions detached HEAD made currentPrScope resolve branch as HEAD instead of the PR branch."
+            }
+          ],
+          "retry_local_passed": [
+            "pnpm exec vitest run tests/contracts/staging-cms-baseline-validator.contract.test.ts",
+            "pnpm typecheck",
+            "pnpm test:contract",
+            "manifest/state parse",
+            "git diff --check",
+            "scope validation"
+          ]
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/876",
+      "commit_sha": "efde9e167f370a3f139010163c8ed5d05fd18e4d",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -8505,12 +8563,67 @@
           "at": "2026-05-24T06:27:02+08:00",
           "status": "planned",
           "summary": "Initialized PR-WEB-SEC-17 from authorized fap-web security findings train expansion."
+        },
+        {
+          "at": "2026-05-24T08:09:35+08:00",
+          "status": "in_progress",
+          "summary": "Started PR-WEB-SEC-17 from latest main after reconciling merged PR-WEB-SEC-16; enforcing recommended article exact count before truncation."
+        },
+        {
+          "at": "2026-05-24T08:12:21+08:00",
+          "status": "local_check_failed_retrying",
+          "summary": "Focused contract and typecheck passed, but full contract suite failed on the existing staging baseline contract's legacy diagnostic string assertion; adjusted the PR17 validator wording within scope."
+        },
+        {
+          "at": "2026-05-24T08:15:20+08:00",
+          "status": "local_checks_passed",
+          "summary": "Focused validator contract, typecheck, full contract suite, production API build, manifest/state parse, diff check, and scope validation passed for PR-WEB-SEC-17 after scoped retry."
+        },
+        {
+          "at": "2026-05-24T08:15:55+08:00",
+          "status": "committed",
+          "summary": "Committed scoped PR-WEB-SEC-17 changes as efde9e167f370a3f139010163c8ed5d05fd18e4d."
+        },
+        {
+          "at": "2026-05-24T08:17:08+08:00",
+          "status": "pr_open_github_checks_pending",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/876 from scoped commit efde9e167f370a3f139010163c8ed5d05fd18e4d; waiting for GitHub checks."
+        },
+        {
+          "at": "2026-05-24T08:22:40+08:00",
+          "status": "github_checks_failed_retrying",
+          "summary": "GitHub contracts failed because the PR17 scope contract inspected only clean worktree changes in CI; build, freeze checks, and CodeQL passed, and the fix remains inside PR17 test scope."
+        },
+        {
+          "at": "2026-05-24T08:24:14+08:00",
+          "status": "github_check_fix_local_passed",
+          "summary": "Updated the PR17 scope contract to inspect origin/main...HEAD when CI has a clean worktree; focused validator contract, typecheck, full contract suite, manifest/state parse, diff check, and scope validation passed locally."
+        },
+        {
+          "at": "2026-05-24T08:29:12+08:00",
+          "status": "github_checks_failed_retrying",
+          "summary": "GitHub contracts failed again because CI uses a shallow checkout without origin/main or HEAD~1; adjusted the PR17 scope contract to validate helper membership directly when the checkout is clean."
+        },
+        {
+          "at": "2026-05-24T08:30:42+08:00",
+          "status": "github_check_fix_local_passed",
+          "summary": "Focused validator contract, typecheck, full contract suite, manifest/state parse, diff check, and scope validation passed after removing git-history fallback from the clean-checkout scope contract."
+        },
+        {
+          "at": "2026-05-24T08:34:12+08:00",
+          "status": "github_checks_failed_retrying",
+          "summary": "GitHub contracts failed because Actions checks out a detached HEAD; updated currentPrScope to prefer GITHUB_HEAD_REF/GITHUB_REF_NAME before git branch detection."
+        },
+        {
+          "at": "2026-05-24T08:35:41+08:00",
+          "status": "github_check_fix_local_passed",
+          "summary": "Simulated GITHUB_HEAD_REF locally; focused validator contract, typecheck, full contract suite, manifest/state parse, diff check, and scope validation passed after adding GitHub branch env fallback."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T06:27:02+08:00"
+      "updated_at": "2026-05-24T08:35:41+08:00"
     },
     {
       "id": "PR-WEB-SEC-18",

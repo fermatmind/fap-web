@@ -1,6 +1,11 @@
 import { execFileSync } from "node:child_process";
 
 const CURRENT_BRANCH = (() => {
+  const githubBranch = process.env.GITHUB_HEAD_REF || process.env.GITHUB_REF_NAME;
+  if (githubBranch) {
+    return githubBranch;
+  }
+
   try {
     return execFileSync("git", ["rev-parse", "--abbrev-ref", "HEAD"], {
       cwd: process.cwd(),
@@ -194,6 +199,14 @@ const PR_WEB_SEC_16_ALLOWED_FILES = new Set([
   "tests/contracts/staging-cms-baseline-smoke.contract.test.ts",
 ]);
 
+const PR_WEB_SEC_17_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "scripts/validate-staging-cms-baseline.mjs",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/staging-cms-baseline-validator.contract.test.ts",
+]);
+
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (CURRENT_BRANCH === "codex/pr-web-sec-01-eq-v5-report-gate") {
     return PR_WEB_SEC_01_ALLOWED_FILES.has(file);
@@ -257,6 +270,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/pr-web-sec-16-staging-smoke-separator") {
     return PR_WEB_SEC_16_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/pr-web-sec-17-staging-validator-exact-count") {
+    return PR_WEB_SEC_17_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/research-report-metadata") {
