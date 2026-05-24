@@ -1,9 +1,12 @@
 #!/usr/bin/env node
 
+import { pathToFileURL } from "node:url";
+
 const DEFAULT_API_ORIGIN = "https://staging-api.fermatmind.com";
 const DEFAULT_WEB_ORIGIN = "https://staging.fermatmind.com";
 const DEFAULT_ORG_ID = "0";
 const DEFAULT_TIMEOUT_MS = 10000;
+export const REQUIRED_RECOMMENDED_ARTICLE_COUNT = 6;
 const LOCALES = [
   { app: "en", api: "en" },
   { app: "zh", api: "zh-CN" },
@@ -203,7 +206,7 @@ function normalizeArticleItem(value) {
   return asRecord(wrapper?.article) || wrapper || null;
 }
 
-function getRecommendedItems(surface) {
+export function getRecommendedItems(surface) {
   const blocks = array(surface?.surface?.page_blocks);
   const block = blocks
     .filter((item) => item?.is_enabled !== false)
@@ -213,7 +216,7 @@ function getRecommendedItems(surface) {
   return array(payload?.items).length > 0 ? array(payload.items) : array(payload?.articles);
 }
 
-function publishedPublicArticles(items, locale) {
+export function publishedPublicArticles(items, locale) {
   return items
     .map(normalizeArticleItem)
     .filter(Boolean)
@@ -221,6 +224,16 @@ function publishedPublicArticles(items, locale) {
     .filter((article) => text(article.slug) && text(article.title))
     .filter((article) => text(article.status || "published") === "published")
     .filter((article) => article.is_public !== false);
+}
+
+export function validateRecommendedArticlesExactCount(items, locale) {
+  const articles = publishedPublicArticles(items, locale);
+  return {
+    articles,
+    count: articles.length,
+    expected: REQUIRED_RECOMMENDED_ARTICLE_COUNT,
+    ok: articles.length === REQUIRED_RECOMMENDED_ARTICLE_COUNT,
+  };
 }
 
 function hasRelatedCoverage(article, group) {
@@ -260,11 +273,20 @@ async function validateLocale(args, locale, checks) {
     apiUrl(args, "/v0.5/landing-surfaces/home", { locale: locale.api }),
     args
   );
-  const recommended = publishedPublicArticles(getRecommendedItems(landingSurface), locale).slice(0, 6);
-  if (recommended.length === 6) {
-    pass(checks, `homepage recommended articles ${locale.api}`, "6 published public articles configured");
+  const recommendedResult = validateRecommendedArticlesExactCount(getRecommendedItems(landingSurface), locale);
+  const recommended = recommendedResult.articles;
+  if (recommendedResult.ok) {
+    pass(checks, `homepage recommended articles ${locale.api}`, "exactly 6 published public articles configured");
   } else {
-    fail(checks, `homepage recommended articles ${locale.api}`, `expected 6, found ${recommended.length}`);
+    const details =
+      recommendedResult.expected === 6
+        ? `expected 6 exactly, found ${recommendedResult.count}`
+        : `expected ${recommendedResult.expected} exactly, found ${recommendedResult.count}`;
+    fail(
+      checks,
+      `homepage recommended articles ${locale.api}`,
+      details
+    );
   }
 
   const articleList = await fetchJson(
@@ -427,8 +449,10 @@ async function main() {
   process.exit(result.ok ? 0 : 1);
 }
 
-main().catch((error) => {
-  const message = error instanceof Error ? error.message : String(error);
-  console.error(`[cms-baseline] ERROR: ${message}`);
-  process.exit(1);
-});
+if (import.meta.url === pathToFileURL(process.argv[1] || "").href) {
+  main().catch((error) => {
+    const message = error instanceof Error ? error.message : String(error);
+    console.error(`[cms-baseline] ERROR: ${message}`);
+    process.exit(1);
+  });
+}
