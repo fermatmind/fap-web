@@ -1380,8 +1380,8 @@
 
       ],
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/887",
+      "commit_sha": "d48615f1adb92cb9fcd9903b9ee9254b4efe4958",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -9440,7 +9440,7 @@
       "depends_on": [
         "PR-WEB-SEC-24"
       ],
-      "status": "local_checks_passed",
+      "status": "merged",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "fix(audit): preserve legacy MBTI offer hash on mobile",
@@ -9470,14 +9470,22 @@
           ]
         },
         "github": {
+          "status": "passed",
+          "passed": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "CodeQL/analyze"
+          ]
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/886",
+      "commit_sha": "861031c3e1c67c357b8015d8d9e4e551827989c4",
+      "merged_at": "2026-05-24T04:10:46Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-24T06:27:02+08:00",
@@ -9578,12 +9586,22 @@
           "at": "2026-05-24T12:08:20+08:00",
           "status": "pr_opened",
           "summary": "Opened https://github.com/fermatmind/fap-web/pull/886 after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-05-24T12:10:26+08:00",
+          "status": "github_checks_passed",
+          "summary": "GitHub required checks passed for PR-WEB-SEC-26: build, contracts, Big Five freeze, Enneagram freeze, and CodeQL/analyze."
+        },
+        {
+          "at": "2026-05-24T12:11:19+08:00",
+          "status": "merged",
+          "summary": "Reconciled PR-WEB-SEC-26 after GitHub showed PR #886 merged at 2026-05-24T04:10:46Z with merge commit 1b38bc890731bb6d6c1a217cb85b1693e4ef18fb on origin/main; remote branch is deleted, local cleanup executed, and post-merge focused contract passed."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T12:08:20+08:00"
+      "updated_at": "2026-05-24T12:11:19+08:00"
     },
     {
       "id": "PR-WEB-SEC-27",
@@ -9594,7 +9612,7 @@
       "depends_on": [
         "PR-WEB-SEC-26"
       ],
-      "status": "planned",
+      "status": "local_checks_passed",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "fix(audit): keep QR footer activation open",
@@ -9610,6 +9628,17 @@
       ],
       "checks": {
         "local": {
+          "status": "passed",
+          "passed": [
+            "pnpm exec vitest run tests/contracts/site-footer-social.contract.test.tsx",
+            "pnpm typecheck",
+            "pnpm test:contract",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+            "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"'",
+            "git diff --check",
+            "git diff --cached --check",
+            "scope validation"
+          ]
         },
         "github": {
         }
@@ -9625,12 +9654,27 @@
           "at": "2026-05-24T06:27:02+08:00",
           "status": "planned",
           "summary": "Initialized PR-WEB-SEC-27 from authorized fap-web security findings train expansion."
+        },
+        {
+          "at": "2026-05-24T12:13:10+08:00",
+          "status": "in_progress",
+          "summary": "Started PR-WEB-SEC-27 from latest main after reconciling merged PR-WEB-SEC-26; making QR social activation idempotently open on focus-then-click paths."
+        },
+        {
+          "at": "2026-05-24T12:16:20+08:00",
+          "status": "local_checks_passed",
+          "summary": "PR27 focused footer social contract, typecheck, full contract suite, production API build, manifest/state parse, diff checks, and scope validation passed."
+        },
+        {
+          "at": "2026-05-24T12:18:10+08:00",
+          "status": "pr_opened",
+          "summary": "Opened https://github.com/fermatmind/fap-web/pull/887 after local checks and scope validation passed."
         }
       ],
       "sidecar_issues": [
 
       ],
-      "updated_at": "2026-05-24T06:27:02+08:00"
+      "updated_at": "2026-05-24T12:18:10+08:00"
     },
     {
       "id": "PR-WEB-SEC-28",
