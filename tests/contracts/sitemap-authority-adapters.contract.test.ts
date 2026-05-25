@@ -25,12 +25,23 @@ describe("sitemap authority adapters", () => {
     expect(staticPaths).toContain("/zh/tests");
     expect(staticPaths).toContain("/en/topics/mbti");
     expect(staticPaths).toContain("/zh/topics/mbti");
+    expect(staticPaths).not.toContain("/en/help/about");
+    expect(staticPaths).not.toContain("/en/help/contact");
+    expect(staticPaths).not.toContain("/en/help/faq");
+    expect(staticPaths).not.toContain("/zh/help/contact");
+    expect(staticPaths).not.toContain("/zh/help/faq");
+    expect(staticPaths).not.toContain("/en/method-boundaries");
+    expect(staticPaths).not.toContain("/zh/method-boundaries");
+    expect(staticPaths).not.toContain("/en/support");
+    expect(staticPaths).not.toContain("/zh/support");
+    expect(staticPaths).not.toContain("/en/privacy");
+    expect(staticPaths).not.toContain("/zh/privacy");
+    expect(staticPaths).not.toContain("/en/terms");
+    expect(staticPaths).not.toContain("/zh/terms");
     expect(staticPaths).not.toContain("/en/career/industries");
     expect(staticPaths).not.toContain("/zh/career/industries");
     expect(staticPaths).not.toContain("/en/career/industries/healthcare");
     expect(staticPaths).not.toContain("/zh/career/industries/healthcare");
-    expect(staticPaths).toContain("/en/help/faq");
-    expect(staticPaths).toContain("/zh/help/contact");
     expect(new Set(staticPaths).size).toBe(staticPaths.length);
   });
 
@@ -43,6 +54,12 @@ describe("sitemap authority adapters", () => {
         "/api/*",
         "/en/career/jobs/*",
         "/zh/career/jobs/*",
+        "/en/support",
+        "/zh/support",
+        "/en/privacy",
+        "/zh/privacy",
+        "/en/terms",
+        "/zh/terms",
         "/ops/*",
         "/en/ops/*",
         "/zh/ops/*",

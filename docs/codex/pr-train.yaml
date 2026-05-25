@@ -6837,3 +6837,68 @@ prs:
       - Focused source contract and Playwright overflow guards pass.
       - No content authority, sitemap, llms, backend, payment, report, auth, attempt, commerce, or scoring scope is touched.
     rollback_note: "Revert EN-PARITY-08 scoped layout and test changes if visual regression is reported."
+
+  - id: GLOBAL-EN-ZH-PARITY-P0-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/global-en-zh-parity-p0-01-content-help-policy-discoverability
+    base: main
+    depends_on: []
+    mode: execute
+    train_scope: global_en_zh_parity_p0_fix_train
+    risk_level: p0_discoverability_cleanup
+    status: planned
+    title: "GLOBAL-EN-ZH-PARITY-P0-01 content help policy discoverability cleanup"
+    goal: "Remove missing-authority content/help/policy hard-404 URLs from fap-web sitemap and llms discoverability surfaces without creating frontend fallback content."
+    in_scope:
+      - lib/seo/sitemapAuthorityAdapters.cjs
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - tests/contracts/sitemap-authority-adapters.contract.test.ts
+      - tests/contracts/llms-url-hygiene.contract.test.ts
+      - tests/contracts/llms-full-enrichment.contract.test.ts
+      - tests/contracts/sitemap-indexability.contract.test.ts
+      - tests/contracts/sitemap-llms-lastmod-authority.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - backend authority
+      - CMS content
+      - production deploy
+      - URL submission or Search Channel action
+      - career job sitemap exposure cleanup for GLOBAL-EN-ZH-PARITY-P0-02
+      - frontend fallback editorial content
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/sitemap-authority-adapters.contract.test.ts tests/contracts/llms-url-hygiene.contract.test.ts tests/contracts/llms-full-enrichment.contract.test.ts tests/contracts/sitemap-indexability.contract.test.ts tests/contracts/sitemap-llms-lastmod-authority.contract.test.ts
+      - pnpm lint .
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      changed_files_must_match:
+        - lib/seo/sitemapAuthorityAdapters.cjs
+        - app/llms.txt/route.ts
+        - app/llms-full.txt/route.ts
+        - tests/contracts/sitemap-authority-adapters.contract.test.ts
+        - tests/contracts/llms-url-hygiene.contract.test.ts
+        - tests/contracts/llms-full-enrichment.contract.test.ts
+        - tests/contracts/sitemap-indexability.contract.test.ts
+        - tests/contracts/sitemap-llms-lastmod-authority.contract.test.ts
+        - tests/contracts/helpers/currentPrScope.ts
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - sitemap static generation no longer includes the 18 GLOBAL scan content/help/policy hard-404 URLs.
+      - llms.txt and llms-full.txt no longer hardcode /en/support or /zh/support while authority is missing.
+      - Frontend does not create placeholder pages or become content authority.
+      - Career job sitemap exposure remains deferred to GLOBAL-EN-ZH-PARITY-P0-02.
+    rollback_note: "Revert GLOBAL-EN-ZH-PARITY-P0-01 fap-web sitemap/llms policy and contract changes if discoverability regression is reported."

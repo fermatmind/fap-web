@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-25T02:22:00Z",
+  "updated_at": "2026-05-25T12:16:52.868756+00:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -10784,6 +10784,75 @@
       ],
       "sidecar_issues": [],
       "updated_at": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "GLOBAL-EN-ZH-PARITY-P0-01",
+      "repo": "fap-web",
+      "branch": "codex/global-en-zh-parity-p0-01-content-help-policy-discoverability",
+      "status": "pr_open_github_checks_pending",
+      "depends_on": [],
+      "commit_sha": "b4595c763163a1a41782d389dc1e0e0f83858c12",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/903",
+      "checks": {
+        "scope_boundary": {
+          "status": "pass",
+          "evidence": "Changed files are limited to app/llms-full.txt/route.ts, app/llms.txt/route.ts, lib/seo/sitemapAuthorityAdapters.cjs, focused sitemap/llms contract tests, tests/contracts/helpers/currentPrScope.ts, and current manifest/state entries. Generated public/sitemap.xml was restored and is not included."
+        },
+        "production_safety": {
+          "status": "pass",
+          "evidence": "No deploy, CMS mutation, Search Channel action, URL submission, external search API call, production migration, env/DNS/nginx edit, content generation, or frontend fallback authority use is permitted or performed."
+        },
+        "local_validation": {
+          "status": "pass",
+          "commands": [
+            "pnpm exec vitest run tests/contracts/sitemap-authority-adapters.contract.test.ts tests/contracts/llms-url-hygiene.contract.test.ts tests/contracts/llms-full-enrichment.contract.test.ts tests/contracts/sitemap-indexability.contract.test.ts tests/contracts/sitemap-llms-lastmod-authority.contract.test.ts",
+            "pnpm lint .",
+            "pnpm typecheck",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+            "pnpm test:contract",
+            "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "python3 yaml parse for docs/codex/pr-train.yaml",
+            "git diff --check",
+            "git diff --cached --check"
+          ],
+          "evidence": "Targeted sitemap/llms contracts passed; pnpm lint . passed with 8 pre-existing warnings and 0 errors; pnpm typecheck passed; production build passed; pnpm test:contract passed 392 files / 2238 tests."
+        },
+        "github_required_checks": {
+          "status": "pending",
+          "evidence": null
+        },
+        "github_pr_opened": {
+          "status": "pass",
+          "evidence": "Opened https://github.com/fermatmind/fap-web/pull/903 linked to fap-api PR https://github.com/fermatmind/fap-api/pull/1681."
+        }
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [],
+      "events": [
+        {
+          "at": "2026-05-25T12:16:52.868756+00:00",
+          "status": "started_manifest_state_initialized",
+          "summary": "Initialized GLOBAL-EN-ZH-PARITY-P0-01 fap-web linked PR entry for sitemap/llms content/help/policy hard-404 cleanup only."
+        },
+        {
+          "at": "2026-05-25T12:32:00Z",
+          "status": "local_validation_passed",
+          "summary": "fap-web linked PR local validation passed; generated public/sitemap.xml build artifact was restored and is not part of PR scope."
+        },
+        {
+          "at": "2026-05-25T12:35:00Z",
+          "status": "scope_validation_passed",
+          "summary": "fap-web changed files remain limited to current P0-01 sitemap/llms discoverability cleanup and focused contracts."
+        },
+        {
+          "at": "2026-05-25T12:40:00Z",
+          "status": "pr_open_github_checks_pending",
+          "summary": "Opened fap-web PR #903 and linked fap-api PR #1681; waiting for GitHub checks."
+        }
+      ]
     }
   ],
   "sidecar_issues": [

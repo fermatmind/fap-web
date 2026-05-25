@@ -196,8 +196,6 @@ describe("sitemap indexability contract", () => {
       expect.arrayContaining([
         "/en/topics/mbti",
         "/zh/topics/mbti",
-        "/en/help/faq",
-        "/zh/help/faq",
         "/en/personality",
         "/zh/personality",
         "/en/articles",
@@ -210,6 +208,24 @@ describe("sitemap indexability contract", () => {
     );
     expect(locs).toContain("/en/career/jobs/backend-architect");
     expect(locs).toContain("/zh/career/jobs/backend-architect");
+    expect(locs).not.toContain("/en/help/about");
+    expect(locs).not.toContain("/en/help/contact");
+    expect(locs).not.toContain("/en/help/faq");
+    expect(locs).not.toContain("/en/help/for-business-and-research");
+    expect(locs).not.toContain("/en/help/team");
+    expect(locs).not.toContain("/en/help/used-and-mentioned");
+    expect(locs).not.toContain("/zh/help/contact");
+    expect(locs).not.toContain("/zh/help/faq");
+    expect(locs).not.toContain("/zh/help/for-business-and-research");
+    expect(locs).not.toContain("/en/method-boundaries");
+    expect(locs).not.toContain("/zh/method-boundaries");
+    expect(locs).not.toContain("/zh/policies");
+    expect(locs).not.toContain("/en/privacy");
+    expect(locs).not.toContain("/zh/privacy");
+    expect(locs).not.toContain("/en/support");
+    expect(locs).not.toContain("/zh/support");
+    expect(locs).not.toContain("/en/terms");
+    expect(locs).not.toContain("/zh/terms");
     expect(locs).not.toContain("/en/career/jobs/backend-engineer");
     expect(locs).not.toContain("/en/career/jobs/software-engineer");
     expect(locs).not.toContain("/en/career/jobs/software-developers");
