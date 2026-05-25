@@ -427,7 +427,21 @@ const DISCOVERABILITY_STAGING_META_NOINDEX_FIX_02_ALLOWED_FILES = new Set([
   "tests/contracts/staging-discoverability-containment.contract.test.ts",
 ]);
 
+const SEARCH_CHANNEL_LIVE_ZH_MBTI_01A_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/seo/generated/search-channel-live-zh-mbti-01a-indexnow-keylocation-fix.v1.json",
+  "docs/seo/search-channel-live-zh-mbti-01a-indexnow-keylocation-fix.md",
+  "public/8d59565935303aad72c5eb0ec5bfa42e.txt",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/indexnow-keylocation.contract.test.ts",
+]);
+
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH === "codex/search-channel-live-zh-mbti-01a-indexnow-keylocation-fix") {
+    return SEARCH_CHANNEL_LIVE_ZH_MBTI_01A_ALLOWED_FILES.has(file);
+  }
+
   if (CURRENT_BRANCH === "codex/discoverability-staging-meta-noindex-fix-02") {
     return DISCOVERABILITY_STAGING_META_NOINDEX_FIX_02_ALLOWED_FILES.has(file);
   }
