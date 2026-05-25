@@ -10694,7 +10694,7 @@
       "branch": "codex/en-parity-08-visual-parity",
       "base": "main",
       "depends_on": [],
-      "status": "local_checks_passed",
+      "status": "pr_opened",
       "title": "EN-PARITY-08 Chrome Playwright bilingual visual parity pass",
       "artifacts": [
         "components/marketing/HomePageExperience.tsx",
@@ -10755,8 +10755,8 @@
         }
       ],
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": "07d0417d9abe4dd81cb945095e94c20fc2239bf0",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/901",
+      "commit_sha": "d5cf64788390f809d79fb9d34ce8f563ca9567af",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -10775,6 +10775,11 @@
           "at": "2026-05-25T00:00:00Z",
           "status": "committed",
           "summary": "Created scoped commit 07d0417d9abe4dd81cb945095e94c20fc2239bf0 for EN-PARITY-08 visual parity."
+        },
+        {
+          "at": "2026-05-25T00:00:00Z",
+          "status": "pr_opened",
+          "summary": "Opened GitHub PR #901 after local checks and scope validation passed. GitHub checks are pending."
         }
       ],
       "sidecar_issues": [],
