@@ -4,29 +4,38 @@ import { LocaleProvider } from "@/components/i18n/LocaleContext";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 
 describe("site footer routing contract", () => {
-  it("does not expose english content-page links when CMS has no english content_pages baseline", () => {
+  it("keeps english footer structure aligned while exposing only authority-backed company links", () => {
     render(
       <LocaleProvider locale="en">
         <SiteFooter />
       </LocaleProvider>
     );
 
-    expect(screen.queryByRole("link", { name: "About us" })).not.toBeInTheDocument();
+    expect(screen.getByTestId("site-footer-group-tests")).toHaveTextContent("Top tests");
+    expect(screen.getByTestId("site-footer-group-articles")).toHaveTextContent("Reading & guides");
+    expect(screen.getByTestId("site-footer-group-company")).toHaveTextContent("Company");
+    expect(screen.getByTestId("site-footer-group-policies")).toHaveTextContent("Terms & policies");
+    expect(screen.getByRole("link", { name: "About" })).toHaveAttribute("href", "/en/about");
     expect(screen.queryByRole("link", { name: "Careers" })).not.toBeInTheDocument();
     expect(screen.queryByRole("link", { name: "Terms of use" })).not.toBeInTheDocument();
     expect(screen.queryByRole("link", { name: "Privacy policy" })).not.toBeInTheDocument();
   });
 
-  it("keeps chinese content-page links visible for the published zh-CN CMS baseline", () => {
+  it("keeps chinese footer structure aligned while suppressing known missing policy links", () => {
     render(
       <LocaleProvider locale="zh">
         <SiteFooter />
       </LocaleProvider>
     );
 
+    expect(screen.getByTestId("site-footer-group-tests")).toHaveTextContent("热门测评");
+    expect(screen.getByTestId("site-footer-group-articles")).toHaveTextContent("内容与指南");
+    expect(screen.getByTestId("site-footer-group-company")).toHaveTextContent("公司");
+    expect(screen.getByTestId("site-footer-group-policies")).toHaveTextContent("条款与政策");
     expect(screen.getByRole("link", { name: "关于我们" })).toHaveAttribute("href", "/zh/about");
     expect(screen.getByRole("link", { name: "工作机会" })).toHaveAttribute("href", "/zh/careers");
-    expect(screen.getByRole("link", { name: "使用条款" })).toHaveAttribute("href", "/zh/terms");
-    expect(screen.getByRole("link", { name: "隐私政策" })).toHaveAttribute("href", "/zh/privacy");
+    expect(screen.queryByRole("link", { name: "使用条款" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: "隐私政策" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: "其他政策" })).not.toBeInTheDocument();
   });
 });
