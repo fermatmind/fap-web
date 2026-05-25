@@ -221,7 +221,7 @@ describe("llms-full enrichment contract", () => {
     expect(text).toContain("- Next steps:");
     expect(text).toContain("Take the MBTI test: https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types");
     expect(text).toContain("Read the MBTI topic: https://fermatmind.com/en/topics/mbti");
-    expect(text).toContain("Open support: https://fermatmind.com/en/support");
+    expect(text).not.toContain("Open support: https://fermatmind.com/en/support");
     expect(text).not.toContain("Forbidden take flow");
     expect(text).toContain("Personality answer summary from CMS.");
     expect(text).toContain("Topic answer summary from CMS.");

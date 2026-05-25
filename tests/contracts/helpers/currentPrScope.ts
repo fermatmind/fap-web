@@ -447,6 +447,20 @@ const EN_PARITY_08_ALLOWED_FILES = new Set([
   "tests/e2e/en-parity-08-overflow.spec.ts",
 ]);
 
+const GLOBAL_EN_ZH_PARITY_P0_01_ALLOWED_FILES = new Set([
+  "app/llms-full.txt/route.ts",
+  "app/llms.txt/route.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "lib/seo/sitemapAuthorityAdapters.cjs",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/llms-full-enrichment.contract.test.ts",
+  "tests/contracts/llms-url-hygiene.contract.test.ts",
+  "tests/contracts/sitemap-authority-adapters.contract.test.ts",
+  "tests/contracts/sitemap-indexability.contract.test.ts",
+  "tests/contracts/sitemap-llms-lastmod-authority.contract.test.ts",
+]);
+
 const FRONTEND_CI_BUILD_TIMEOUT_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/professions/[code]/page.tsx",
   "lib/cms/career-guides.ts",
@@ -456,6 +470,10 @@ const FRONTEND_CI_BUILD_TIMEOUT_ALLOWED_FILES = new Set([
 ]);
 
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH === "codex/global-en-zh-parity-p0-01-content-help-policy-discoverability") {
+    return GLOBAL_EN_ZH_PARITY_P0_01_ALLOWED_FILES.has(file);
+  }
+
   if (CURRENT_BRANCH === "codex/fix-frontend-ci-build-timeout") {
     return FRONTEND_CI_BUILD_TIMEOUT_ALLOWED_FILES.has(file);
   }
