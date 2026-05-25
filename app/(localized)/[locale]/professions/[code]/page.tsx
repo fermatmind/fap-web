@@ -4,17 +4,15 @@ import { notFound } from "next/navigation";
 import { Container } from "@/components/layout/Container";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { getPersonalityProfileBySlugOrType, listPersonalityProfiles } from "@/lib/cms/personality";
+import { getPersonalityProfileBySlugOrType } from "@/lib/cms/personality";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
-export async function generateStaticParams() {
-  const { items } = await listPersonalityProfiles({ locale: "en", perPage: 100 }).catch(() => ({ items: [] }));
-  return items.flatMap((type) => [
-    { locale: "en", code: type.slug || type.typeCode },
-    { locale: "zh", code: type.slug || type.typeCode },
-  ]);
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return [];
 }
 
 export async function generateMetadata({

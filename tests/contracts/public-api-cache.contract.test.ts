@@ -81,4 +81,13 @@ describe("public api cache contract", () => {
     expect(source).toContain('export const dynamic = "force-dynamic"');
     expect(source).not.toContain("export const revalidate = 300");
   });
+
+  it("does not enumerate retired professions detail routes from CMS during build", () => {
+    const source = read("app/(localized)/[locale]/professions/[code]/page.tsx");
+
+    expect(source).toContain("export const dynamicParams = false");
+    expect(source).toContain("export function generateStaticParams()");
+    expect(source).toContain("return []");
+    expect(source).not.toContain("listPersonalityProfiles");
+  });
 });

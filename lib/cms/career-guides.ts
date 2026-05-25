@@ -228,6 +228,10 @@ function normalizeIsoValue(value: unknown): string | null {
   return normalized || null;
 }
 
+function isRecoverableCareerGuideListError(error: unknown): boolean {
+  return error instanceof ApiError && (error.status === 404 || error.status === 408);
+}
+
 function extractPlainText(markdown: string): string {
   const withoutCode = markdown.replace(/`{1,3}[^`]*`{1,3}/g, " ");
   const withoutLinks = withoutCode.replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1");
@@ -676,7 +680,7 @@ export async function listCareerGuidesFromCms(
 
     return items;
   } catch (error) {
-    if (error instanceof ApiError && error.status === 404) {
+    if (isRecoverableCareerGuideListError(error)) {
       return [];
     }
 
