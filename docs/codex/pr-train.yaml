@@ -6779,3 +6779,61 @@ prs:
       - Production apex remains the keyLocation host; staging is not used as authority.
       - No live submission, Search Channel enqueue, external search API call, production env edit, CMS mutation, or backend submitter change occurs.
     rollback_note: "Revert SEARCH-CHANNEL-LIVE-ZH-MBTI-01A scoped public verification asset, contract test, and report if required."
+
+  - id: EN-PARITY-08
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/en-parity-08-visual-parity
+    base: main
+    depends_on: []
+    mode: execute
+    train_scope: en_parity
+    risk_level: visual_parity
+    status: planned
+    title: "EN-PARITY-08 Chrome Playwright bilingual visual parity pass"
+    goal: "Fix scoped bilingual H1 overflow issues on the EN homepage and ZH MBTI test detail page with CSS/layout-only changes, plus focused contract and Playwright overflow guards."
+    in_scope:
+      - components/marketing/HomePageExperience.tsx
+      - app/(localized)/[locale]/tests/[slug]/page.tsx
+      - tests/contracts/en-parity-08-visual-overflow.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - tests/e2e/en-parity-08-overflow.spec.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - backend authority
+      - CMS content
+      - sitemap or llms authority
+      - hardcoded editorial content
+      - payment, report, auth, attempt, commerce, or scoring files
+      - production deploy or URL submission
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/en-parity-08-visual-overflow.contract.test.ts
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm exec playwright test tests/e2e/en-parity-08-overflow.spec.ts --project=chromium
+      - pnpm lint .
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      changed_files_must_match:
+        - components/marketing/HomePageExperience.tsx
+        - app/(localized)/[locale]/tests/[slug]/page.tsx
+        - tests/contracts/en-parity-08-visual-overflow.contract.test.ts
+        - tests/contracts/helpers/currentPrScope.ts
+        - tests/e2e/en-parity-08-overflow.spec.ts
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - EN homepage H1 is allowed to wrap and does not overflow at desktop, laptop, or mobile representative widths.
+      - ZH MBTI test detail H1 is allowed to wrap and does not overflow at desktop, laptop, or mobile representative widths.
+      - Focused source contract and Playwright overflow guards pass.
+      - No content authority, sitemap, llms, backend, payment, report, auth, attempt, commerce, or scoring scope is touched.
+    rollback_note: "Revert EN-PARITY-08 scoped layout and test changes if visual regression is reported."

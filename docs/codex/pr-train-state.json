@@ -10686,6 +10686,104 @@
       ],
       "sidecar_issues": [],
       "updated_at": "2026-05-25T02:22:00Z"
+    },
+    {
+      "id": "EN-PARITY-08",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/en-parity-08-visual-parity",
+      "base": "main",
+      "depends_on": [],
+      "status": "pr_opened",
+      "title": "EN-PARITY-08 Chrome Playwright bilingual visual parity pass",
+      "artifacts": [
+        "components/marketing/HomePageExperience.tsx",
+        "app/(localized)/[locale]/tests/[slug]/page.tsx",
+        "tests/contracts/en-parity-08-visual-overflow.contract.test.ts",
+        "tests/e2e/en-parity-08-overflow.spec.ts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [
+        {
+          "name": "pnpm exec vitest run tests/contracts/en-parity-08-visual-overflow.contract.test.ts",
+          "status": "passed",
+          "details": "2 tests passed."
+        },
+        {
+          "name": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm exec playwright test tests/e2e/en-parity-08-overflow.spec.ts --project=chromium",
+          "status": "passed",
+          "details": "6 Chromium viewport overflow tests passed for EN homepage H1 and ZH MBTI test detail H1."
+        },
+        {
+          "name": "pnpm lint .",
+          "status": "passed",
+          "details": "Passed with existing unrelated warnings only."
+        },
+        {
+          "name": "pnpm typecheck",
+          "status": "passed"
+        },
+        {
+          "name": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+          "status": "passed",
+          "details": "Passed; generated public/sitemap.xml drift was restored out of scope."
+        },
+        {
+          "name": "pnpm test:contract",
+          "status": "passed",
+          "details": "392 files passed, 2236 tests passed."
+        },
+        {
+          "name": "verify-big5-contract-freeze",
+          "status": "passed",
+          "details": "3 files passed, 29 tests passed."
+        },
+        {
+          "name": "verify-enneagram-contract-freeze",
+          "status": "passed",
+          "details": "5 files passed, 23 tests passed."
+        },
+        {
+          "name": "manifest/state parse",
+          "status": "passed"
+        },
+        {
+          "name": "git diff --check",
+          "status": "passed"
+        }
+      ],
+      "failure_reason": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/901",
+      "commit_sha": "d5cf64788390f809d79fb9d34ce8f563ca9567af",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-05-25T00:00:00Z",
+          "status": "in_progress",
+          "summary": "Initialized EN-PARITY-08 scoped visual parity fix for EN homepage H1 and ZH MBTI test detail H1 overflow. Scope is limited to layout classes, focused overflow tests, and PR-train metadata. No backend, CMS, sitemap, llms, content-authority, deploy, or URL submission changes are allowed."
+        },
+        {
+          "at": "2026-05-25T00:00:00Z",
+          "status": "local_checks_passed",
+          "summary": "Scoped visual parity layout changes, focused source contract, Chromium overflow checks, lint, typecheck, production API build, full contracts, freeze checks, manifest/state parse, and diff check passed. Build-generated public/sitemap.xml drift was restored out of scope."
+        },
+        {
+          "at": "2026-05-25T00:00:00Z",
+          "status": "committed",
+          "summary": "Created scoped commit 07d0417d9abe4dd81cb945095e94c20fc2239bf0 for EN-PARITY-08 visual parity."
+        },
+        {
+          "at": "2026-05-25T00:00:00Z",
+          "status": "pr_opened",
+          "summary": "Opened GitHub PR #901 after local checks and scope validation passed. GitHub checks are pending."
+        }
+      ],
+      "sidecar_issues": [],
+      "updated_at": "2026-05-25T00:00:00Z"
     }
   ],
   "sidecar_issues": [
