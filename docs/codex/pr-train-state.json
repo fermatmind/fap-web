@@ -1592,7 +1592,7 @@
       "checks": [],
       "failure_reason": null,
       "pr_url": null,
-      "commit_sha": "7ed1ec01dee13d1c9e97b022070c1e2414c968b4",
+      "commit_sha": "653c4c54c6b46bfbf24e4cadbde75bd9bbd68009",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -10676,7 +10676,7 @@
         {
           "at": "2026-05-25T02:18:00Z",
           "status": "committed",
-          "summary": "Created scoped commit 7ed1ec01dee13d1c9e97b022070c1e2414c968b4 for the IndexNow keyLocation fix."
+          "summary": "Created scoped commit 653c4c54c6b46bfbf24e4cadbde75bd9bbd68009 for the IndexNow keyLocation fix."
         }
       ],
       "sidecar_issues": [],
