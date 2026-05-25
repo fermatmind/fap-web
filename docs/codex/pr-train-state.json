@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-25T02:17:00Z",
+  "updated_at": "2026-05-25T02:22:00Z",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -10579,7 +10579,7 @@
       "branch": "codex/search-channel-live-zh-mbti-01a-indexnow-keylocation-fix",
       "base": "main",
       "depends_on": [],
-      "status": "in_progress",
+      "status": "pr_opened",
       "title": "fix(seo): restore IndexNow keyLocation file",
       "artifacts": [
         "public/<indexnow-key>.txt",
@@ -10653,11 +10653,11 @@
         ]
       },
       "github": {
-        "status": "not_started",
-        "pr_url": null
+        "status": "pending",
+        "pr_url": "https://github.com/fermatmind/fap-web/pull/900"
       },
       "failure_reason": null,
-      "pr_url": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/900",
       "commit_sha": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -10677,10 +10677,15 @@
           "at": "2026-05-25T02:18:00Z",
           "status": "committed",
           "summary": "Created scoped commit 653c4c54c6b46bfbf24e4cadbde75bd9bbd68009 for the IndexNow keyLocation fix."
+        },
+        {
+          "at": "2026-05-25T02:22:00Z",
+          "status": "pr_opened",
+          "summary": "Opened GitHub PR #900 after scoped validation passed. GitHub checks are pending."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-05-25T02:17:00Z"
+      "updated_at": "2026-05-25T02:22:00Z"
     }
   ],
   "sidecar_issues": [
