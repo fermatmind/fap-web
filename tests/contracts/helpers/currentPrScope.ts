@@ -437,7 +437,21 @@ const SEARCH_CHANNEL_LIVE_ZH_MBTI_01A_ALLOWED_FILES = new Set([
   "tests/contracts/indexnow-keylocation.contract.test.ts",
 ]);
 
+const EN_PARITY_08_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/tests/[slug]/page.tsx",
+  "components/marketing/HomePageExperience.tsx",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "tests/contracts/en-parity-08-visual-overflow.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/e2e/en-parity-08-overflow.spec.ts",
+]);
+
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH === "codex/en-parity-08-visual-parity") {
+    return EN_PARITY_08_ALLOWED_FILES.has(file);
+  }
+
   if (CURRENT_BRANCH === "codex/search-channel-live-zh-mbti-01a-indexnow-keylocation-fix") {
     return SEARCH_CHANNEL_LIVE_ZH_MBTI_01A_ALLOWED_FILES.has(file);
   }

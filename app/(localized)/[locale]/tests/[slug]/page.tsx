@@ -1059,9 +1059,9 @@ export default async function TestLandingPage({
           <section id="what-it-is" className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-gradient-to-br from-white via-white to-sky-50 p-6 shadow-[var(--fm-shadow-md)]">
             <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_220px] md:items-start">
               <div className="space-y-3">
-                <h1 title={heroTitleDisplay.plain} className="font-serif text-3xl font-semibold tracking-tight text-[var(--fm-text)] md:whitespace-nowrap md:text-[2.15rem] lg:text-[2.35rem]">
+                <h1 title={heroTitleDisplay.plain} className="m-0 max-w-full text-balance break-words font-serif text-3xl font-semibold leading-tight tracking-tight text-[var(--fm-text)] md:text-[2.15rem] lg:text-[2.35rem]">
                   {heroTitleDisplay.multilineFallback ? (
-                    <span className="inline-flex flex-col break-words">
+                    <span className="inline-flex max-w-full flex-col break-words">
                       <span>{heroTitleDisplay.line1}</span>
                       <span className="mt-1">{heroTitleDisplay.line2}</span>
                     </span>
