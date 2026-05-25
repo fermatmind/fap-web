@@ -10862,10 +10862,10 @@
       "depends_on": [
         "GLOBAL-EN-ZH-PARITY-P0-01"
       ],
-      "status": "local_validation_passed",
+      "status": "pr_open_github_checks_pending",
       "title": "GLOBAL-EN-ZH-PARITY-FOOTER-NAV-PARITY-01 footer nav bilingual parity",
-      "commit_sha": null,
-      "pr_url": null,
+      "commit_sha": "5f8284d9a38d45bd1d59e9b8cf246454b16acdff",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/904",
       "checks": {
         "dependency": {
           "status": "passed",
@@ -10920,6 +10920,11 @@
           "at": "2026-05-25T21:05:09+08:00",
           "status": "local_validation_passed",
           "summary": "Footer/nav parity implementation passed targeted and full fap-web local validation; ready for commit and PR."
+        },
+        {
+          "at": "2026-05-25T21:06:26+08:00",
+          "status": "pr_open_github_checks_pending",
+          "summary": "Opened fap-web PR #904; waiting for GitHub checks."
         }
       ]
     },
