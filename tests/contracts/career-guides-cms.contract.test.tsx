@@ -27,6 +27,7 @@ function jsonResponse(payload: unknown, status = 200): Response {
 }
 
 afterEach(() => {
+  vi.useRealTimers();
   vi.unstubAllGlobals();
   vi.restoreAllMocks();
   vi.resetModules();
@@ -80,6 +81,28 @@ describe("career guides cms adapter contract", () => {
     expect(items).toHaveLength(1);
     expect(items[0]?.href).toBe("/zh/career/guides/from-mbti-to-job-fit");
     expect(items[0]?.category).toBe("assessment-usage");
+  });
+
+  it("keeps the career guides index buildable when the CMS list request times out", async () => {
+    vi.useFakeTimers();
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(
+        async (_input: RequestInfo | URL, init?: RequestInit) =>
+          new Promise<Response>((_resolve, reject) => {
+            init?.signal?.addEventListener(
+              "abort",
+              () => reject(new DOMException("Request timed out.", "AbortError")),
+              { once: true }
+            );
+          })
+      )
+    );
+
+    const guides = listCareerGuidesFromCms("en", { perPage: 1 });
+    await vi.advanceTimersByTimeAsync(15_000);
+
+    await expect(guides).resolves.toEqual([]);
   });
 
   it("adapts detail payload with body fields, local industry mapping, and personality hrefs", () => {

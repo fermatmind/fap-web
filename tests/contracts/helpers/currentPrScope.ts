@@ -447,7 +447,19 @@ const EN_PARITY_08_ALLOWED_FILES = new Set([
   "tests/e2e/en-parity-08-overflow.spec.ts",
 ]);
 
+const FRONTEND_CI_BUILD_TIMEOUT_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/professions/[code]/page.tsx",
+  "lib/cms/career-guides.ts",
+  "tests/contracts/career-guides-cms.contract.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/public-api-cache.contract.test.ts",
+]);
+
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH === "codex/fix-frontend-ci-build-timeout") {
+    return FRONTEND_CI_BUILD_TIMEOUT_ALLOWED_FILES.has(file);
+  }
+
   if (CURRENT_BRANCH === "codex/en-parity-08-visual-parity") {
     return EN_PARITY_08_ALLOWED_FILES.has(file);
   }
