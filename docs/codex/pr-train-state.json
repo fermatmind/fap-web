@@ -10789,10 +10789,10 @@
       "id": "GLOBAL-EN-ZH-PARITY-P0-01",
       "repo": "fap-web",
       "branch": "codex/global-en-zh-parity-p0-01-content-help-policy-discoverability",
-      "status": "local_validation_passed",
+      "status": "pr_open_github_checks_pending",
       "depends_on": [],
-      "commit_sha": null,
-      "pr_url": null,
+      "commit_sha": "b4595c763163a1a41782d389dc1e0e0f83858c12",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/903",
       "checks": {
         "scope_boundary": {
           "status": "pass",
@@ -10820,6 +10820,10 @@
         "github_required_checks": {
           "status": "pending",
           "evidence": null
+        },
+        "github_pr_opened": {
+          "status": "pass",
+          "evidence": "Opened https://github.com/fermatmind/fap-web/pull/903 linked to fap-api PR https://github.com/fermatmind/fap-api/pull/1681."
         }
       },
       "failure_reason": null,
@@ -10842,6 +10846,11 @@
           "at": "2026-05-25T12:35:00Z",
           "status": "scope_validation_passed",
           "summary": "fap-web changed files remain limited to current P0-01 sitemap/llms discoverability cleanup and focused contracts."
+        },
+        {
+          "at": "2026-05-25T12:40:00Z",
+          "status": "pr_open_github_checks_pending",
+          "summary": "Opened fap-web PR #903 and linked fap-api PR #1681; waiting for GitHub checks."
         }
       ]
     }
