@@ -10853,6 +10853,185 @@
           "summary": "Opened fap-web PR #903 and linked fap-api PR #1681; waiting for GitHub checks."
         }
       ]
+    },
+    {
+      "id": "GLOBAL-EN-ZH-PARITY-FOOTER-NAV-PARITY-01",
+      "repo": "fap-web",
+      "branch": "codex/global-en-zh-footer-nav-parity-01",
+      "base": "main",
+      "depends_on": [
+        "GLOBAL-EN-ZH-PARITY-P0-01"
+      ],
+      "status": "local_validation_passed",
+      "title": "GLOBAL-EN-ZH-PARITY-FOOTER-NAV-PARITY-01 footer nav bilingual parity",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": {
+        "dependency": {
+          "status": "passed",
+          "evidence": "GLOBAL-EN-ZH-PARITY-P0-01 is merged in fap-web main at 71c5b85f2732aa1428843769d68f8e6b44f51cba."
+        },
+        "scope_boundary": {
+          "status": "pass",
+          "changed_files": [
+            "components/layout/SiteFooter.tsx",
+            "docs/codex/pr-train-state.json",
+            "docs/codex/pr-train.yaml",
+            "lib/navigation/headerDropdownMenus.ts",
+            "tests/contracts/global-en-zh-footer-nav-parity.contract.test.tsx",
+            "tests/contracts/helpers/currentPrScope.ts",
+            "tests/contracts/site-footer-routing.contract.test.tsx"
+          ],
+          "evidence": "Changed files are limited to footer/header navigation, focused footer/nav parity contracts, current PR scope helper, and authorized manifest/state entries."
+        },
+        "production_safety": {
+          "status": "pass",
+          "evidence": "No deploy, CMS mutation, Search Channel action, URL submission, external search API call, production migration, env/DNS/nginx edit, or content publication performed."
+        },
+        "local_validation": {
+          "status": "pass",
+          "commands": [
+            "pnpm exec vitest run tests/contracts/global-en-zh-footer-nav-parity.contract.test.tsx tests/contracts/site-footer-routing.contract.test.tsx tests/contracts/navigation-dead-links.contract.test.ts",
+            "pnpm lint .",
+            "pnpm typecheck",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+            "pnpm test:contract",
+            "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "python3 yaml parse for docs/codex/pr-train.yaml",
+            "git diff --check",
+            "git diff --cached --check"
+          ],
+          "evidence": "Targeted footer/nav contracts passed (3 files / 6 tests). pnpm lint . passed with 8 pre-existing warnings and 0 errors. pnpm typecheck passed. NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build passed; generated public/sitemap.xml drift was restored out of scope. pnpm test:contract passed 393 files / 2241 tests."
+        },
+        "github_required_checks": {
+          "status": "pending"
+        }
+      },
+      "failure_reason": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-05-25T21:01:11+08:00",
+          "status": "in_progress",
+          "summary": "Initialized current footer/nav bilingual parity PR and added authorized remaining train manifest/state entries without implementing future PR scopes."
+        },
+        {
+          "at": "2026-05-25T21:05:09+08:00",
+          "status": "local_validation_passed",
+          "summary": "Footer/nav parity implementation passed targeted and full fap-web local validation; ready for commit and PR."
+        }
+      ]
+    },
+    {
+      "id": "GLOBAL-EN-ZH-PARITY-CONTENT-ASSET-BATCH-01",
+      "repo": "fap-api",
+      "branch": "codex/global-en-zh-content-asset-batch-01",
+      "base": "main",
+      "depends_on": [
+        "GLOBAL-EN-ZH-PARITY-FOOTER-NAV-PARITY-01"
+      ],
+      "status": "planned",
+      "title": "GLOBAL-EN-ZH-PARITY-CONTENT-ASSET-BATCH-01 content help policy import package",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": {},
+      "failure_reason": null,
+      "history": [
+        {
+          "at": "2026-05-25T21:01:11+08:00",
+          "status": "planned",
+          "summary": "Planned manifest/state entry only; no implementation in current PR."
+        }
+      ]
+    },
+    {
+      "id": "GLOBAL-EN-ZH-PARITY-ARTICLE-COUNTERPART-BATCH-01",
+      "repo": "fap-api",
+      "branch": "codex/global-en-zh-article-counterpart-batch-01",
+      "base": "main",
+      "depends_on": [
+        "GLOBAL-EN-ZH-PARITY-CONTENT-ASSET-BATCH-01"
+      ],
+      "status": "planned",
+      "title": "GLOBAL-EN-ZH-PARITY-ARTICLE-COUNTERPART-BATCH-01 article counterpart controlled batch",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": {},
+      "failure_reason": null,
+      "history": [
+        {
+          "at": "2026-05-25T21:01:11+08:00",
+          "status": "planned",
+          "summary": "Planned manifest/state entry only; no implementation in current PR."
+        }
+      ]
+    },
+    {
+      "id": "GLOBAL-EN-ZH-PARITY-CAREER-ASSET-BATCH-01",
+      "repo": "fap-api",
+      "branch": "codex/global-en-zh-career-asset-batch-01",
+      "base": "main",
+      "depends_on": [
+        "GLOBAL-EN-ZH-PARITY-ARTICLE-COUNTERPART-BATCH-01"
+      ],
+      "status": "planned",
+      "title": "GLOBAL-EN-ZH-PARITY-CAREER-ASSET-BATCH-01 career guides jobs parity batch",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": {},
+      "failure_reason": null,
+      "history": [
+        {
+          "at": "2026-05-25T21:01:11+08:00",
+          "status": "planned",
+          "summary": "Planned manifest/state entry only; no implementation in current PR."
+        }
+      ]
+    },
+    {
+      "id": "GLOBAL-EN-ZH-PARITY-RESULT-MEDIA-ASSET-BATCH-01",
+      "repo": "fap-api",
+      "branch": "codex/global-en-zh-result-media-asset-batch-01",
+      "base": "main",
+      "depends_on": [
+        "GLOBAL-EN-ZH-PARITY-CAREER-ASSET-BATCH-01"
+      ],
+      "status": "planned",
+      "title": "GLOBAL-EN-ZH-PARITY-RESULT-MEDIA-ASSET-BATCH-01 result report media parity batch",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": {},
+      "failure_reason": null,
+      "history": [
+        {
+          "at": "2026-05-25T21:01:11+08:00",
+          "status": "planned",
+          "summary": "Planned manifest/state entry only; no implementation in current PR."
+        }
+      ]
+    },
+    {
+      "id": "GLOBAL-EN-ZH-PARITY-FINAL-VERIFY-01",
+      "repo": "fap-api",
+      "branch": "codex/global-en-zh-final-verify-01",
+      "base": "main",
+      "depends_on": [
+        "GLOBAL-EN-ZH-PARITY-RESULT-MEDIA-ASSET-BATCH-01"
+      ],
+      "status": "planned",
+      "title": "GLOBAL-EN-ZH-PARITY-FINAL-VERIFY-01 full site parity verification",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": {},
+      "failure_reason": null,
+      "history": [
+        {
+          "at": "2026-05-25T21:01:11+08:00",
+          "status": "planned",
+          "summary": "Planned manifest/state entry only; no implementation in current PR."
+        }
+      ]
     }
   ],
   "sidecar_issues": [

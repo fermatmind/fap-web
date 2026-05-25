@@ -49,15 +49,10 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
     ],
     help: [
       { href: "/results/lookup", label: "Find saved results" },
-      { href: "/help/faq", label: "Payments & refunds" },
-      { href: "/help/faq", label: "Understand results" },
-      { href: "/method-boundaries", label: "Science & boundaries" },
       { href: "/email/preferences", label: "Email & data management" },
-      { href: "/support", label: "Full help center" },
     ],
     business: [
       { href: "/business", label: "Business overview" },
-      { href: "/support", label: "Help Center" },
     ],
   },
   zh: {
@@ -94,15 +89,10 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
     ],
     help: [
       { href: "/results/lookup", label: "邮箱找回结果" },
-      { href: "/help/faq", label: "支付与退款" },
-      { href: "/help/faq", label: "读懂结果" },
-      { href: "/method-boundaries", label: "测评科学与边界" },
       { href: "/email/preferences", label: "邮箱与数据管理" },
-      { href: "/support", label: "完整帮助中心" },
     ],
     business: [
       { href: "/business", label: "企业服务" },
-      { href: "/support", label: "帮助中心" },
     ],
   },
 };

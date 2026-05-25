@@ -6902,3 +6902,244 @@ prs:
       - Frontend does not create placeholder pages or become content authority.
       - Career job sitemap exposure remains deferred to GLOBAL-EN-ZH-PARITY-P0-02.
     rollback_note: "Revert GLOBAL-EN-ZH-PARITY-P0-01 fap-web sitemap/llms policy and contract changes if discoverability regression is reported."
+
+  - id: GLOBAL-EN-ZH-PARITY-FOOTER-NAV-PARITY-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/global-en-zh-footer-nav-parity-01
+    base: main
+    depends_on:
+      - GLOBAL-EN-ZH-PARITY-P0-01
+    mode: execute
+    train_scope: global_en_zh_remaining_parity_train
+    risk_level: p1_footer_nav_parity
+    status: planned
+    title: "GLOBAL-EN-ZH-PARITY-FOOTER-NAV-PARITY-01 footer nav bilingual parity"
+    goal: "Align EN/ZH footer and navigation structure while exposing only authority-backed links and suppressing known hard-404 content/help/policy targets."
+    in_scope:
+      - components/layout/SiteFooter.tsx
+      - lib/navigation/headerDropdownMenus.ts
+      - tests/contracts/global-en-zh-footer-nav-parity.contract.test.tsx
+      - tests/contracts/site-footer-routing.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - backend authority implementation
+      - CMS content or production mutation
+      - sitemap/llms P0 career job cleanup
+      - content/article/career/result/media asset batch implementation
+      - production deploy or URL submission
+      - frontend editorial fallback content
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/global-en-zh-footer-nav-parity.contract.test.tsx tests/contracts/site-footer-routing.contract.test.tsx tests/contracts/navigation-dead-links.contract.test.ts
+      - pnpm lint .
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      changed_files_must_match:
+        - components/layout/SiteFooter.tsx
+        - lib/navigation/headerDropdownMenus.ts
+        - tests/contracts/global-en-zh-footer-nav-parity.contract.test.tsx
+        - tests/contracts/site-footer-routing.contract.test.tsx
+        - tests/contracts/helpers/currentPrScope.ts
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - EN and ZH footer expose the same four structural groups.
+      - Footer/header links do not include known content/help/policy hard-404 targets.
+      - No placeholder pages, CMS mutation, draft exposure, or frontend fallback authority is introduced.
+    rollback_note: "Revert footer/header parity and focused contract changes if navigation regression is reported."
+
+  - id: GLOBAL-EN-ZH-PARITY-CONTENT-ASSET-BATCH-01
+    repo: fap-api
+    repo_path: <workspace>/fap-api
+    branch: codex/global-en-zh-content-asset-batch-01
+    base: main
+    depends_on:
+      - GLOBAL-EN-ZH-PARITY-FOOTER-NAV-PARITY-01
+    mode: execute
+    train_scope: global_en_zh_remaining_parity_train
+    risk_level: p1_content_asset_batch
+    status: planned
+    title: "GLOBAL-EN-ZH-PARITY-CONTENT-ASSET-BATCH-01 content help policy import package"
+    goal: "Prepare controlled content/help/policy parity import or draft package without production CMS mutation or draft discoverability exposure."
+    in_scope:
+      - backend/docs/seo/**
+      - backend/tests/Feature/SeoIntel/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - production CMS mutation
+      - auto-publishing content
+      - frontend fallback content
+      - sitemap/llms exposure of drafts
+    required_local_checks:
+      - php artisan test --filter=GlobalEnZhContentAssetBatch01 --no-ansi
+      - php artisan route:list --no-ansi
+      - vendor/bin/pint --test
+      - composer validate --strict
+      - composer audit --locked --no-interaction --ignore-unreachable
+      - JSON/YAML parse
+      - git diff --check
+      - git diff --cached --check
+    acceptance:
+      - Content/help/policy gaps are explicit as published/import_ready/draft_review_only/deferred.
+      - Draft/deferred pages are not exposed in sitemap/llms.
+      - No mass auto-publish or unsupported legal/company claims.
+
+  - id: GLOBAL-EN-ZH-PARITY-ARTICLE-COUNTERPART-BATCH-01
+    repo: fap-api
+    repo_path: <workspace>/fap-api
+    branch: codex/global-en-zh-article-counterpart-batch-01
+    base: main
+    depends_on:
+      - GLOBAL-EN-ZH-PARITY-CONTENT-ASSET-BATCH-01
+    mode: execute
+    train_scope: global_en_zh_remaining_parity_train
+    risk_level: p1_article_counterpart_batch
+    status: planned
+    title: "GLOBAL-EN-ZH-PARITY-ARTICLE-COUNTERPART-BATCH-01 article counterpart controlled batch"
+    goal: "Create a controlled English article counterpart draft/import batch or deferred list without mass generation or publication."
+    in_scope:
+      - backend/docs/seo/**
+      - backend/tests/Feature/SeoIntel/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - production CMS mutation
+      - publishing all missing articles
+      - unsupported studies/statistics/citations
+      - frontend hardcoded article fallback
+    required_local_checks:
+      - php artisan test --filter=GlobalEnZhArticleCounterpartBatch01 --no-ansi
+      - php artisan route:list --no-ansi
+      - vendor/bin/pint --test
+      - composer validate --strict
+      - composer audit --locked --no-interaction --ignore-unreachable
+      - JSON/YAML parse
+      - git diff --check
+      - git diff --cached --check
+    acceptance:
+      - Article gaps move into controlled import/draft/deferred state.
+      - Draft/import-only articles are not exposed in sitemap/llms.
+      - Claim boundaries are explicit.
+
+  - id: GLOBAL-EN-ZH-PARITY-CAREER-ASSET-BATCH-01
+    repo: fap-api
+    repo_path: <workspace>/fap-api
+    branch: codex/global-en-zh-career-asset-batch-01
+    base: main
+    depends_on:
+      - GLOBAL-EN-ZH-PARITY-ARTICLE-COUNTERPART-BATCH-01
+    mode: execute
+    train_scope: global_en_zh_remaining_parity_train
+    risk_level: p1_career_asset_batch
+    status: planned
+    title: "GLOBAL-EN-ZH-PARITY-CAREER-ASSET-BATCH-01 career guides jobs parity batch"
+    goal: "Classify career guide/job/recommendation parity and enforce discoverability eligibility without placeholder job pages or overclaim wording."
+    in_scope:
+      - backend/docs/seo/**
+      - backend/tests/Feature/SeoIntel/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - creating 87 placeholder job pages
+      - production CMS mutation
+      - precise career recommendation or hiring-fit claims
+      - frontend fallback career pages
+    required_local_checks:
+      - php artisan test --filter=GlobalEnZhCareerAssetBatch01 --no-ansi
+      - php artisan route:list --no-ansi
+      - vendor/bin/pint --test
+      - composer validate --strict
+      - composer audit --locked --no-interaction --ignore-unreachable
+      - JSON/YAML parse
+      - git diff --check
+      - git diff --cached --check
+    acceptance:
+      - Career guide/job parity state is explicit.
+      - Invalid career URLs do not enter sitemap/llms.
+      - Forbidden career claims are absent.
+
+  - id: GLOBAL-EN-ZH-PARITY-RESULT-MEDIA-ASSET-BATCH-01
+    repo: fap-api
+    repo_path: <workspace>/fap-api
+    branch: codex/global-en-zh-result-media-asset-batch-01
+    base: main
+    depends_on:
+      - GLOBAL-EN-ZH-PARITY-CAREER-ASSET-BATCH-01
+    mode: execute
+    train_scope: global_en_zh_remaining_parity_train
+    risk_level: p1_result_media_asset_batch
+    status: planned
+    title: "GLOBAL-EN-ZH-PARITY-RESULT-MEDIA-ASSET-BATCH-01 result report media parity batch"
+    goal: "Batch remaining result/report and media parity gaps with fail-closed no-ZH-fallback behavior and no runtime activation of drafts."
+    in_scope:
+      - backend/docs/seo/**
+      - backend/tests/Feature/SeoIntel/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - mass report prose generation
+      - production CMS mutation
+      - sensitive or clinical overclaim
+      - frontend clone content as authority
+    required_local_checks:
+      - php artisan test --filter=GlobalEnZhResultMediaAssetBatch01 --no-ansi
+      - php artisan route:list --no-ansi
+      - vendor/bin/pint --test
+      - composer validate --strict
+      - composer audit --locked --no-interaction --ignore-unreachable
+      - JSON/YAML parse
+      - git diff --check
+      - git diff --cached --check
+    acceptance:
+      - Remaining result/media gaps are explicit and batched.
+      - Draft assets are not runtime-active.
+      - No ZH fallback relaxation or unsafe claim.
+
+  - id: GLOBAL-EN-ZH-PARITY-FINAL-VERIFY-01
+    repo: fap-api
+    repo_path: <workspace>/fap-api
+    branch: codex/global-en-zh-final-verify-01
+    base: main
+    depends_on:
+      - GLOBAL-EN-ZH-PARITY-RESULT-MEDIA-ASSET-BATCH-01
+    mode: execute
+    train_scope: global_en_zh_remaining_parity_train
+    risk_level: final_verification
+    status: planned
+    title: "GLOBAL-EN-ZH-PARITY-FINAL-VERIFY-01 full site parity verification"
+    goal: "Produce final full-site EN/ZH parity verification report after remaining train PRs without production mutation."
+    in_scope:
+      - backend/docs/seo/**
+      - backend/tests/Feature/SeoIntel/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - implementation fixes beyond trivial report/test correction
+      - production deploy
+      - CMS mutation
+      - URL submission or Search Channel action
+    required_local_checks:
+      - php artisan test --filter=GlobalEnZhFinalVerify01 --no-ansi
+      - php artisan route:list --no-ansi
+      - vendor/bin/pint --test
+      - composer validate --strict
+      - composer audit --locked --no-interaction --ignore-unreachable
+      - JSON/YAML parse
+      - git diff --check
+      - git diff --cached --check
+    acceptance:
+      - Final report lists remaining P0/P1/P2, GO/NO-GO, and next task.
+      - No production mutation or Search Channel action.

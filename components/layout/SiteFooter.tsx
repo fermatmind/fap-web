@@ -17,6 +17,12 @@ type FooterLinkItem = {
   external?: boolean;
 };
 
+type FooterGroup = {
+  key: "tests" | "articles" | "company" | "policies";
+  title: string;
+  links: FooterLinkItem[];
+};
+
 export function SiteFooter() {
   const locale = useLocale();
   const dict = getDictSync(locale);
@@ -63,15 +69,15 @@ export function SiteFooter() {
           { href: "/careers", label: "工作机会" },
           { href: "/brand", label: "品牌" },
         ]
-      : [];
+      : [{ href: "/about", label: "About" }];
   const policyLinks: FooterLinkItem[] =
-    locale === "zh"
-      ? [
-          { href: "/terms", label: "使用条款" },
-          { href: "/privacy", label: "隐私政策" },
-          { href: "/policies", label: "其他政策" },
-        ]
-      : [];
+    [];
+  const footerGroups: FooterGroup[] = [
+    { key: "tests", title: footerCopy.testsTitle, links: testLinks },
+    { key: "articles", title: footerCopy.articlesTitle, links: articleLinks },
+    { key: "company", title: footerCopy.companyTitle, links: companyLinks },
+    { key: "policies", title: footerCopy.policiesTitle, links: policyLinks },
+  ];
   const renderFooterLink = (item: FooterLinkItem) =>
     item.external ? (
       <a
@@ -98,41 +104,12 @@ export function SiteFooter() {
     <footer className="fm-section-dark border-t border-white/10 text-white">
       <Container className="space-y-8 py-12">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4 md:gap-10">
-          <div className="space-y-3">
-            <p className="m-0 font-mono text-sm uppercase tracking-[0.16em] text-white/82">{footerCopy.testsTitle}</p>
-            <div className="space-y-2 text-sm">
-              {testLinks.map((item) => (
-                <Link key={item.href} href={withLocale(item.href)} prefetch={false} className="block text-slate-300 hover:text-white">
-                  {item.label}
-                </Link>
-              ))}
+          {footerGroups.map((group) => (
+            <div key={group.key} className="space-y-3" data-testid={`site-footer-group-${group.key}`}>
+              <p className="m-0 font-mono text-sm uppercase tracking-[0.16em] text-white/82">{group.title}</p>
+              <div className="min-h-5 space-y-2 text-sm">{group.links.map(renderFooterLink)}</div>
             </div>
-          </div>
-
-          <div className="space-y-3">
-            <p className="m-0 font-mono text-sm uppercase tracking-[0.16em] text-white/82">{footerCopy.articlesTitle}</p>
-            <div className="space-y-2 text-sm">
-              {articleLinks.map((item) => (
-                <Link key={item.href} href={withLocale(item.href)} prefetch={false} className="block text-slate-300 hover:text-white">
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {companyLinks.length ? (
-            <div className="space-y-3">
-              <p className="m-0 font-mono text-sm uppercase tracking-[0.16em] text-white/82">{footerCopy.companyTitle}</p>
-              <div className="space-y-2 text-sm">{companyLinks.map(renderFooterLink)}</div>
-            </div>
-          ) : null}
-
-          {policyLinks.length ? (
-            <div className="space-y-3">
-              <p className="m-0 font-mono text-sm uppercase tracking-[0.16em] text-white/82">{footerCopy.policiesTitle}</p>
-              <div className="space-y-2 text-sm">{policyLinks.map(renderFooterLink)}</div>
-            </div>
-          ) : null}
+          ))}
         </div>
 
         <div className="fm-social-rail border-t border-white/15 pt-6">
