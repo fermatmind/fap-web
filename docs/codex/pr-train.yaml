@@ -6717,3 +6717,65 @@ prs:
       - Production canonical remains apex.
       - Staging sitemap and llms containment remains unchanged.
     rollback_note: "Revert DISCOVERABILITY-STAGING-META-NOINDEX-FIX-02 scoped metadata helper and contract changes if required."
+
+  - id: SEARCH-CHANNEL-LIVE-ZH-MBTI-01A-INDEXNOW-KEYLOCATION-FIX
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/search-channel-live-zh-mbti-01a-indexnow-keylocation-fix
+    base: main
+    depends_on: []
+    mode: execute
+    train_scope: search_channel_live_zh_mbti
+    risk_level: low_public_verification_asset
+    status: planned
+    title: "fix(seo): restore IndexNow keyLocation file"
+    goal: "Restore the durable apex-hosted public IndexNow verification file required by backend Search Channel live submission preflight while avoiding any live submission, enqueue, external API call, or production env edit."
+    in_scope:
+      - public/<indexnow-key>.txt
+      - tests/contracts/indexnow-keylocation.contract.test.ts
+      - docs/seo/search-channel-live-zh-mbti-01a-indexnow-keylocation-fix.md
+      - docs/seo/generated/search-channel-live-zh-mbti-01a-indexnow-keylocation-fix.v1.json
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - live IndexNow submission
+      - Search Channel enqueue
+      - external search API calls
+      - production env edits
+      - backend Search Channel submitter changes
+      - fap-api changes
+      - CMS mutations
+      - DNS, nginx, or deploy execution
+      - staging as keyLocation authority
+      - printing the raw public verification key in docs, PR body, or final report
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/indexnow-keylocation.contract.test.ts
+      - pnpm lint
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - python3 -m json.tool docs/seo/generated/search-channel-live-zh-mbti-01a-indexnow-keylocation-fix.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      changed_files_must_match:
+        - public/<indexnow-key>.txt
+        - tests/contracts/indexnow-keylocation.contract.test.ts
+        - docs/seo/search-channel-live-zh-mbti-01a-indexnow-keylocation-fix.md
+        - docs/seo/generated/search-channel-live-zh-mbti-01a-indexnow-keylocation-fix.v1.json
+        - tests/contracts/helpers/currentPrScope.ts
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Apex keyLocation is backed by a durable fap-web public verification asset.
+      - The verification body length is 32 and its SHA-256 matches the backend configured IndexNow key hash.
+      - Generated report avoids printing the raw public verification key.
+      - Production apex remains the keyLocation host; staging is not used as authority.
+      - No live submission, Search Channel enqueue, external search API call, production env edit, CMS mutation, or backend submitter change occurs.
+    rollback_note: "Revert SEARCH-CHANNEL-LIVE-ZH-MBTI-01A scoped public verification asset, contract test, and report if required."

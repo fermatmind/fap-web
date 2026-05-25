@@ -1,0 +1,22 @@
+{
+  "schema_version": "search-channel-live-zh-mbti-01a-indexnow-keylocation-fix.v1",
+  "task": "SEARCH-CHANNEL-LIVE-ZH-MBTI-01A-INDEXNOW-KEYLOCATION-FIX",
+  "final_decision": "indexnow_keylocation_fix_merged_ready_for_deploy_readiness",
+  "keylocation_url": "https://fermatmind.com/<indexnow-key>.txt",
+  "keylocation_host": "fermatmind.com",
+  "keylocation_path": "/<indexnow-key>.txt",
+  "keylocation_owner": "fap-web public static asset",
+  "key_source_classification": "IndexNow public verification key, not a private API secret",
+  "raw_key_printed": false,
+  "key_body_length_expected": 32,
+  "key_body_sha256_expected": "e9a3eca3e7c107d6e0ac63c1fdba24068d970aecb4bdf18ed69735e8b77cf143",
+  "key_body_hash_matches_config_expected": true,
+  "live_submission_performed": false,
+  "external_api_call_performed": false,
+  "enqueue_performed": false,
+  "production_env_edit_performed": false,
+  "staging_authority_used": false,
+  "search_channel_submitter_changed": false,
+  "production_apex_pages_unaffected": true,
+  "next_task": "DEPLOY-READINESS｜Deploy IndexNow keyLocation fix"
+}
