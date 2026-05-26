@@ -6960,6 +6960,63 @@ prs:
       - No placeholder pages, CMS mutation, draft exposure, or frontend fallback authority is introduced.
     rollback_note: "Revert footer/header parity and focused contract changes if navigation regression is reported."
 
+  - id: GLOBAL-EN-ZH-GLOBAL-UI-I18N-BATCH-08
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/global-en-zh-global-ui-i18n-batch-08
+    base: main
+    depends_on: []
+    mode: execute
+    train_scope: global_en_zh_full_content_translation_batch_train
+    risk_level: p1_global_ui_i18n_parity
+    status: planned
+    title: "GLOBAL-EN-ZH-GLOBAL-UI-I18N-BATCH-08 global UI i18n parity package"
+    goal: "Keep frontend-owned global UI labels aligned across EN/ZH while preserving backend/CMS authority for content pages, articles, reports, legal/company facts, and long-form content."
+    in_scope:
+      - components/layout/SiteFooter.tsx
+      - lib/i18n/locales/en.ts
+      - lib/i18n/locales/zh.ts
+      - lib/i18n/types.ts
+      - tests/contracts/global-ui-i18n-batch-08.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - backend authority implementation
+      - CMS content or production mutation
+      - article, report, career, legal, company, foundation, or policy prose generation
+      - exposing unavailable pages in nav/footer
+      - sitemap, llms, Search Channel, URL submission, or deploy changes
+      - frontend editorial fallback content
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/global-ui-i18n-batch-08.contract.test.tsx tests/contracts/site-footer-routing.contract.test.tsx tests/contracts/global-en-zh-footer-nav-parity.contract.test.tsx
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      changed_files_must_match:
+        - components/layout/SiteFooter.tsx
+        - lib/i18n/locales/en.ts
+        - lib/i18n/locales/zh.ts
+        - lib/i18n/types.ts
+        - tests/contracts/global-ui-i18n-batch-08.contract.test.tsx
+        - tests/contracts/helpers/currentPrScope.ts
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Global UI dictionary families remain EN/ZH shape-aligned.
+      - Footer structural UI labels are dictionary-backed instead of component hardcoded.
+      - Frontend UI parity does not expose unavailable content/help/policy links or become content authority.
+    rollback_note: "Revert GLOBAL-EN-ZH-GLOBAL-UI-I18N-BATCH-08 dictionary/footer/test changes if global UI i18n regression is reported."
+
   - id: GLOBAL-EN-ZH-PARITY-CONTENT-ASSET-BATCH-01
     repo: fap-api
     repo_path: <workspace>/fap-api

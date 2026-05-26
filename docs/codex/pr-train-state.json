@@ -11037,6 +11037,39 @@
           "summary": "Planned manifest/state entry only; no implementation in current PR."
         }
       ]
+    },
+    {
+      "id": "GLOBAL-EN-ZH-GLOBAL-UI-I18N-BATCH-08",
+      "repo": "fap-web",
+      "branch": "codex/global-en-zh-global-ui-i18n-batch-08",
+      "base": "main",
+      "depends_on": [],
+      "status": "local_checks_passed",
+      "title": "GLOBAL-EN-ZH-GLOBAL-UI-I18N-BATCH-08 global UI i18n parity package",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": {
+        "focused_contract": "passed",
+        "typecheck": "passed",
+        "test_contract": "passed",
+        "build": "passed",
+        "manifest_state_parse": "passed",
+        "scope_validation": "passed",
+        "diff_check": "passed"
+      },
+      "failure_reason": null,
+      "history": [
+        {
+          "at": "2026-05-26T10:17:49+08:00",
+          "status": "in_progress",
+          "summary": "User authorized Batch-08 execution; initialized fap-web manifest/state entry and started scoped UI i18n parity implementation."
+        },
+        {
+          "at": "2026-05-26T10:23:24+08:00",
+          "status": "local_checks_passed",
+          "summary": "Focused contract, typecheck, full contract suite, production API build, manifest/state parse, diff check, and scope validation passed. Postbuild sitemap drift was restored as out of scope."
+        }
+      ]
     }
   ],
   "sidecar_issues": [

@@ -30,22 +30,7 @@ export function SiteFooter() {
   const socialItems = FOOTER_SOCIAL_ITEMS;
   const [activeSocialKey, setActiveSocialKey] = useState<string | null>(null);
   const [qrFallbackState, setQrFallbackState] = useState<Record<string, boolean>>({});
-  const footerCopy =
-    locale === "zh"
-      ? {
-          testsTitle: "热门测评",
-          articlesTitle: "内容与指南",
-          companyTitle: "公司",
-          policiesTitle: "条款与政策",
-          tailnote: "测量自己，看见职业，训练未来。",
-        }
-      : {
-          testsTitle: "Top tests",
-          articlesTitle: "Reading & guides",
-          companyTitle: "Company",
-          policiesTitle: "Terms & policies",
-          tailnote: "See the Micro. Lead the Macro.",
-        };
+  const footerGroupTitles = dict.footer.groupTitles;
 
   const testLinks = filterVisiblePublicTestEntries([
     { href: "/tests/mbti-personality-test-16-personality-types", label: "MBTI" },
@@ -73,10 +58,10 @@ export function SiteFooter() {
   const policyLinks: FooterLinkItem[] =
     [];
   const footerGroups: FooterGroup[] = [
-    { key: "tests", title: footerCopy.testsTitle, links: testLinks },
-    { key: "articles", title: footerCopy.articlesTitle, links: articleLinks },
-    { key: "company", title: footerCopy.companyTitle, links: companyLinks },
-    { key: "policies", title: footerCopy.policiesTitle, links: policyLinks },
+    { key: "tests", title: footerGroupTitles.tests, links: testLinks },
+    { key: "articles", title: footerGroupTitles.articles, links: articleLinks },
+    { key: "company", title: footerGroupTitles.company, links: companyLinks },
+    { key: "policies", title: footerGroupTitles.policies, links: policyLinks },
   ];
   const renderFooterLink = (item: FooterLinkItem) =>
     item.external ? (
@@ -182,7 +167,7 @@ export function SiteFooter() {
         </div>
 
         <div className="border-t border-white/10 pt-5 text-center">
-          <p className="m-0 font-mono text-[0.72rem] uppercase tracking-[0.22em] text-white/62">{footerCopy.tailnote}</p>
+          <p className="m-0 font-mono text-[0.72rem] uppercase tracking-[0.22em] text-white/62">{dict.footer.tailnote}</p>
           <p data-visual-volatile="true" className="m-0 mt-3 text-xs text-slate-400">
             © {new Date().getFullYear()} FermatMind. {dict.footer.copyright}
           </p>

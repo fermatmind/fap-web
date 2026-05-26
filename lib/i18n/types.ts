@@ -155,6 +155,13 @@ export type SiteDictionary = {
     socialTitle: string;
     ratingLabel: string;
     contactLabel: string;
+    groupTitles: {
+      tests: string;
+      articles: string;
+      company: string;
+      policies: string;
+    };
+    tailnote: string;
   };
   commerce: {
     unlock_title: string;
