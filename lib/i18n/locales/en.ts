@@ -191,6 +191,13 @@ const en: SiteDictionary = {
     socialTitle: "Follow us",
     ratingLabel: "Average rating 4.8/5",
     contactLabel: "Contact",
+    groupTitles: {
+      tests: "Top tests",
+      articles: "Reading & guides",
+      company: "Company",
+      policies: "Terms & policies",
+    },
+    tailnote: "See the Micro. Lead the Macro.",
   },
   commerce: {
     unlock_title: "Unlock full report",

@@ -190,6 +190,13 @@ const zh: SiteDictionary = {
     socialTitle: "关注我们",
     ratingLabel: "综合评分 4.8/5",
     contactLabel: "联系",
+    groupTitles: {
+      tests: "热门测评",
+      articles: "内容与指南",
+      company: "公司",
+      policies: "条款与政策",
+    },
+    tailnote: "测量自己，看见职业，训练未来。",
   },
   commerce: {
     unlock_title: "解锁完整报告",

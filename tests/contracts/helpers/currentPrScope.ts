@@ -471,6 +471,17 @@ const GLOBAL_EN_ZH_FOOTER_NAV_PARITY_01_ALLOWED_FILES = new Set([
   "tests/contracts/site-footer-routing.contract.test.tsx",
 ]);
 
+const GLOBAL_EN_ZH_GLOBAL_UI_I18N_BATCH_08_ALLOWED_FILES = new Set([
+  "components/layout/SiteFooter.tsx",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "lib/i18n/locales/en.ts",
+  "lib/i18n/locales/zh.ts",
+  "lib/i18n/types.ts",
+  "tests/contracts/global-ui-i18n-batch-08.contract.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 const FRONTEND_CI_BUILD_TIMEOUT_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/professions/[code]/page.tsx",
   "lib/cms/career-guides.ts",
@@ -482,6 +493,10 @@ const FRONTEND_CI_BUILD_TIMEOUT_ALLOWED_FILES = new Set([
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (CURRENT_BRANCH === "codex/global-en-zh-footer-nav-parity-01") {
     return GLOBAL_EN_ZH_FOOTER_NAV_PARITY_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/global-en-zh-global-ui-i18n-batch-08") {
+    return GLOBAL_EN_ZH_GLOBAL_UI_I18N_BATCH_08_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/global-en-zh-parity-p0-01-content-help-policy-discoverability") {
