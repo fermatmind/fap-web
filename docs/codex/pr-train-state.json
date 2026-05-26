@@ -11044,10 +11044,10 @@
       "branch": "codex/global-en-zh-global-ui-i18n-batch-08",
       "base": "main",
       "depends_on": [],
-      "status": "local_checks_passed",
+      "status": "pr_opened",
       "title": "GLOBAL-EN-ZH-GLOBAL-UI-I18N-BATCH-08 global UI i18n parity package",
-      "commit_sha": null,
-      "pr_url": null,
+      "commit_sha": "e6cb8e3f2320808bc097f2b94105be3a04751aa9",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/905",
       "checks": {
         "focused_contract": "passed",
         "typecheck": "passed",
@@ -11068,6 +11068,11 @@
           "at": "2026-05-26T10:23:24+08:00",
           "status": "local_checks_passed",
           "summary": "Focused contract, typecheck, full contract suite, production API build, manifest/state parse, diff check, and scope validation passed. Postbuild sitemap drift was restored as out of scope."
+        },
+        {
+          "at": "2026-05-26T10:24:46+08:00",
+          "status": "pr_opened",
+          "summary": "Opened fap-web PR #905 for Batch-08 after successful local validation; waiting for GitHub required checks."
         }
       ]
     }
