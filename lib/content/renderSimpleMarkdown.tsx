@@ -5,6 +5,7 @@ type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
 
 type MarkdownBlock =
   | { type: "heading"; level: HeadingLevel; text: string }
+  | { type: "image"; alt: string; src: string; title?: string }
   | { type: "paragraph"; text: string }
   | { type: "unordered-list"; items: string[] }
   | { type: "ordered-list"; items: string[] }
@@ -66,6 +67,19 @@ function isBlockquote(line: string): boolean {
 
 function isHr(line: string): boolean {
   return /^\s*([-*_])(?:\s*\1){2,}\s*$/.test(line);
+}
+
+function parseImage(line: string): { alt: string; src: string; title?: string } | null {
+  const image = line.trim().match(/^!\[([^\]]*)\]\((\S+?)(?:\s+"([^"]+)")?\)$/);
+  if (!image) {
+    return null;
+  }
+
+  return {
+    alt: normalizeText(image[1] ?? ""),
+    src: image[2] ?? "",
+    title: image[3] ? normalizeText(image[3]) : undefined,
+  };
 }
 
 function splitTableRow(line: string): string[] {
@@ -139,6 +153,13 @@ function tokenizeMarkdown(markdown: string): MarkdownBlock[] {
       continue;
     }
 
+    const image = parseImage(line);
+    if (image) {
+      blocks.push({ type: "image", ...image });
+      index += 1;
+      continue;
+    }
+
     if (isTableStart(line, lines[index + 1])) {
       const headers = splitTableRow(line);
       const rows: string[][] = [];
@@ -205,6 +226,7 @@ function tokenizeMarkdown(markdown: string): MarkdownBlock[] {
         isUnorderedListItem(current) ||
         isOrderedListItem(current) ||
         isBlockquote(current) ||
+        parseImage(current) ||
         isHr(current) ||
         isTableStart(current, lines[index + 1]) ||
         /^\s*```/.test(current)
@@ -314,6 +336,24 @@ export function renderSimpleMarkdown(markdown: string): ReactNode {
             {renderInlineMarkdown(block.text, `${key}-inline`)}
           </p>
         );
+      case "image": {
+        const src = sanitizeCmsUrl(block.src);
+        if (!src) {
+          return null;
+        }
+
+        return (
+          <figure key={key} className="m-0 overflow-hidden rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface-muted)]">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={src} alt={block.alt} title={block.title} loading="lazy" className="block aspect-[16/9] w-full object-cover" />
+            {block.title ? (
+              <figcaption className="border-t border-[var(--fm-border)] px-4 py-2 text-sm text-[var(--fm-text-muted)]">
+                {block.title}
+              </figcaption>
+            ) : null}
+          </figure>
+        );
+      }
       case "unordered-list":
         return (
           <ul key={key} className="m-0 list-disc space-y-2 pl-5 text-[var(--fm-text-muted)]">
