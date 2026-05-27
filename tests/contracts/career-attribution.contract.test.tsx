@@ -5,7 +5,10 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
+const CONSENT_KEY = "fm_consent_v1";
+
 afterEach(() => {
+  window.localStorage.clear();
   vi.unstubAllGlobals();
   vi.restoreAllMocks();
   vi.resetModules();
@@ -145,6 +148,11 @@ describe("career attribution payload builder contract", () => {
   });
 
   it("re-emits search-mode page views when the tracking key changes on the same pathname", async () => {
+    window.localStorage.setItem(
+      CONSENT_KEY,
+      JSON.stringify({ analytics: "granted", updatedAt: "2026-05-27T00:00:00.000Z" })
+    );
+
     vi.doMock("next/navigation", () => ({
       usePathname: vi.fn(() => "/en/career/jobs"),
     }));
