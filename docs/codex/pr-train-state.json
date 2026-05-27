@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-27T18:07:53+08:00",
+  "updated_at": "2026-05-28T01:16:49+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -11321,6 +11321,64 @@
           "at": "2026-05-27T23:50:18+08:00",
           "status": "pr_opened",
           "summary": "Opened fap-web PR #918 for scoped MBTI locked result desktop clone storage hydration after successful local validation; waiting for GitHub required checks."
+        }
+      ]
+    },
+    {
+      "id": "TAKE-FRONTEND-LOCALE-CONTRACT-04",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/take-frontend-locale-contract-04",
+      "base": "main",
+      "depends_on": [],
+      "status": "local_checks_passed",
+      "pr_url": null,
+      "commit_sha": null,
+      "merge_sha": null,
+      "title": "fix(take): pass locale for generic scale take requests",
+      "artifacts": [
+        "app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient.tsx",
+        "tests/contracts/mbti-take-attribution.contract.test.tsx",
+        "tests/contracts/take-frontend-locale-contract.contract.test.ts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "focused_contracts": {
+          "command": "pnpm exec vitest run tests/contracts/take-frontend-locale-contract.contract.test.ts tests/contracts/mbti-take-attribution.contract.test.tsx tests/contracts/riasec-take-flow-shared-quizstore.contract.test.tsx",
+          "status": "passed"
+        },
+        "typecheck": {
+          "command": "pnpm typecheck",
+          "status": "passed"
+        },
+        "build": {
+          "command": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+          "status": "passed"
+        },
+        "test_contract": {
+          "command": "pnpm test:contract",
+          "status": "passed"
+        },
+        "manifest_state_parse": "passed",
+        "scope_validation": "passed",
+        "diff_check": "passed"
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-05-28T01:14:01+08:00",
+          "status": "in_progress",
+          "summary": "User authorized TAKE-FRONTEND-LOCALE-CONTRACT-04 as a scoped fap-web PR. Scope is limited to generic take client locale payloads, focused MBTI/RIASEC take locale contracts, current PR scope helper, and PR-train metadata. No backend/CMS mutation, content authoring, deploy, Search Channel action, URL submission, external search API call, env/DNS/nginx edit, or frontend editorial fallback content is allowed."
+        },
+        {
+          "at": "2026-05-28T01:16:49+08:00",
+          "status": "local_checks_passed",
+          "summary": "Generic take client locale propagation implemented and focused MBTI/RIASEC locale contracts passed. Required local checks passed: typecheck, production API build, full contract suite, JSON/YAML parse, scope validation, and git diff check. Build-generated public/sitemap.xml drift was restored out of scope."
         }
       ]
     }

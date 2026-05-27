@@ -7443,3 +7443,60 @@ prs:
       - Paid-only modules and post-purchase surfaces remain gated by unlock state.
       - No backend/CMS mutation, media asset authoring, deploy, Search Channel action, URL submission, external search API call, env/DNS/nginx edit, or frontend editorial fallback content is introduced.
     rollback_note: "Revert the MBTI result hydration and focused contract changes if locked result pages regress or paid-only content exposure changes."
+
+  - id: TAKE-FRONTEND-LOCALE-CONTRACT-04
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/take-frontend-locale-contract-04
+    base: main
+    depends_on: []
+    mode: execute
+    train_scope: take_frontend_locale_contract
+    risk_level: scoped_take_locale_contract
+    status: in_progress
+    title: "fix(take): pass locale for generic scale take requests"
+    goal: "Ensure the generic take client sends the resolved frontend locale to question and start-attempt API requests for MBTI, RIASEC, and other generic non-IQ scales so English take pages cannot consume Chinese display fields."
+    in_scope:
+      - app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient.tsx
+      - tests/contracts/mbti-take-attribution.contract.test.tsx
+      - tests/contracts/take-frontend-locale-contract.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - backend or CMS mutation
+      - question/content translation or authoring
+      - result/report rendering
+      - production deploy
+      - Search Channel enqueue or URL submission
+      - external search API calls
+      - env, DNS, or nginx edits
+      - frontend editorial fallback content
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/take-frontend-locale-contract.contract.test.ts tests/contracts/mbti-take-attribution.contract.test.tsx tests/contracts/riasec-take-flow-shared-quizstore.contract.test.tsx
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      changed_files_must_match:
+        - app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient.tsx
+        - tests/contracts/mbti-take-attribution.contract.test.tsx
+        - tests/contracts/take-frontend-locale-contract.contract.test.ts
+        - tests/contracts/helpers/currentPrScope.ts
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Generic non-IQ take question requests include the resolved route locale.
+      - Generic non-IQ start-attempt requests include the resolved route locale.
+      - MBTI English take contracts assert locale=en for question and start-attempt payloads.
+      - RIASEC locale behavior remains covered and RIASEC-only channel metadata stays scoped to RIASEC.
+      - No backend/CMS mutation, question/content authoring, deploy, Search Channel action, URL submission, external search API call, env/DNS/nginx edit, or frontend editorial fallback content is introduced.
+    rollback_note: "Revert the take client locale payload and focused contract changes if backend locale negotiation regresses."
