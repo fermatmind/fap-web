@@ -103,7 +103,7 @@ Publish order:
 | Supporting articles | RIASEC 六维说明；60 题和 140 题怎么选；职业兴趣和能力不一致怎么办；Holland Code 如何结合职业库；转行如何用 RIASEC 缩小方向 | CMS Article | 每篇链接 RIASEC test 和 career hub。 |
 | Target test page | `/zh/tests/holland-career-interest-test-riasec`, `/en/tests/holland-career-interest-test-riasec` | Backend scale/test API plus frontend renderer | 已存在，canonical public IA 必须保留此路径。 |
 | Result interpretation page | `/zh/results/holland-code`, `/en/results/holland-code` | CMS/result-guide authority | P1。解释六维、组合码和职业 shortlist。 |
-| Methodology or boundary page | `/zh/methodology`, `/en/methodology`; `/zh/science/how-to-interpret-results`, `/en/science/how-to-interpret-results` | CMS content_page | P1。职业推荐不得承诺最适合职业或录用预测。 |
+| Methodology or boundary page | `/zh/methodology`, `/en/methodology`; `/zh/science/how-to-interpret-results`, `/en/science/how-to-interpret-results` | CMS content_page | P1。职业推荐不得承诺唯一最佳职业或录用预测。 |
 
 Internal linking graph:
 
