@@ -499,6 +499,25 @@ const GLOBAL_EN_ZH_CONTENT_PAGES_DISCOVERABILITY_EXPOSURE_READINESS_01_ALLOWED_F
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const GLOBAL_EN_ZH_CONTENT_PAGES_DISCOVERABILITY_EXPOSURE_IMPLEMENTATION_01_ALLOWED_FILES = new Set([
+  "app/llms-full.txt/route.ts",
+  "app/llms.txt/route.ts",
+  "components/layout/SiteFooter.tsx",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/seo/global-en-zh-content-pages-discoverability-exposure-implementation-01.md",
+  "docs/seo/generated/global-en-zh-content-pages-discoverability-exposure-implementation-01.v1.json",
+  "lib/seo/cmsRoutePolicy.cjs",
+  "lib/seo/sitemapAuthorityAdapters.cjs",
+  "next-sitemap.config.js",
+  "tests/contracts/global-en-zh-content-pages-discoverability-exposure-implementation-01.contract.test.tsx",
+  "tests/contracts/global-en-zh-footer-nav-parity.contract.test.tsx",
+  "tests/contracts/global-ui-i18n-batch-08.contract.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/site-footer-routing.contract.test.tsx",
+  "tests/contracts/sitemap-indexability.contract.test.ts",
+]);
+
 const GLOBAL_EN_ZH_CONTENT_PAGES_DISCOVERABILITY_READINESS_TEST_FIX_ALLOWED_FILES = new Set([
   "tests/contracts/global-en-zh-content-pages-discoverability-exposure-readiness-01.contract.test.ts",
   "tests/contracts/helpers/currentPrScope.ts",
@@ -519,6 +538,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/global-en-zh-content-pages-discoverability-exposure-readiness-01") {
     return GLOBAL_EN_ZH_CONTENT_PAGES_DISCOVERABILITY_EXPOSURE_READINESS_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/global-en-zh-content-pages-discoverability-exposure-implementation-01") {
+    return GLOBAL_EN_ZH_CONTENT_PAGES_DISCOVERABILITY_EXPOSURE_IMPLEMENTATION_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/global-en-zh-content-pages-frontend-runtime-repair-01") {

@@ -7309,3 +7309,81 @@ prs:
       - Report identifies readiness blockers before discoverability exposure.
       - No CMS mutation, publish, deploy, Search Channel action, URL submission, external search API call, sitemap/llms/footer/nav exposure change, or frontend fallback content is introduced.
     rollback_note: "Revert the report, generated artifact, contract test, and PR train metadata if the readiness scope needs to be replaced."
+
+  - id: GLOBAL-EN-ZH-CONTENT-PAGES-DISCOVERABILITY-EXPOSURE-IMPLEMENTATION-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/global-en-zh-content-pages-discoverability-exposure-implementation-01
+    base: main
+    depends_on:
+      - GLOBAL-EN-ZH-CONTENT-PAGES-DISCOVERABILITY-EXPOSURE-READINESS-01
+    mode: execute
+    train_scope: global_en_zh_content_pages_discoverability_exposure
+    risk_level: controlled_frontend_discoverability_exposure
+    status: in_progress
+    title: "fix(seo): expose approved English content pages to discoverability surfaces"
+    goal: "Remove frontend hard blocks for sitemap, llms, and footer exposure of the five published/indexable Wave 1 English content pages while preserving CMS indexability authority and avoiding frontend fallback content."
+    in_scope:
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - components/layout/SiteFooter.tsx
+      - lib/seo/cmsRoutePolicy.cjs
+      - lib/seo/sitemapAuthorityAdapters.cjs
+      - next-sitemap.config.js
+      - docs/seo/global-en-zh-content-pages-discoverability-exposure-implementation-01.md
+      - docs/seo/generated/global-en-zh-content-pages-discoverability-exposure-implementation-01.v1.json
+      - tests/contracts/global-en-zh-content-pages-discoverability-exposure-implementation-01.contract.test.tsx
+      - tests/contracts/global-en-zh-footer-nav-parity.contract.test.tsx
+      - tests/contracts/global-ui-i18n-batch-08.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - tests/contracts/site-footer-routing.contract.test.tsx
+      - tests/contracts/sitemap-indexability.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - CMS mutation, publish, or content rewrite
+      - production deploy
+      - Search Channel enqueue or URL submission
+      - external search API calls
+      - env, DNS, or nginx edits
+      - frontend fallback editorial content
+      - fap-api code changes
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/global-en-zh-content-pages-discoverability-exposure-implementation-01.contract.test.tsx tests/contracts/sitemap-indexability.contract.test.ts tests/contracts/global-en-zh-footer-nav-parity.contract.test.tsx tests/contracts/global-ui-i18n-batch-08.contract.test.tsx
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - python3 -m json.tool docs/seo/generated/global-en-zh-content-pages-discoverability-exposure-implementation-01.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      changed_files_must_match:
+        - app/llms.txt/route.ts
+        - app/llms-full.txt/route.ts
+        - components/layout/SiteFooter.tsx
+        - lib/seo/cmsRoutePolicy.cjs
+        - lib/seo/sitemapAuthorityAdapters.cjs
+        - next-sitemap.config.js
+        - docs/seo/global-en-zh-content-pages-discoverability-exposure-implementation-01.md
+        - docs/seo/generated/global-en-zh-content-pages-discoverability-exposure-implementation-01.v1.json
+        - tests/contracts/global-en-zh-content-pages-discoverability-exposure-implementation-01.contract.test.tsx
+        - tests/contracts/global-en-zh-footer-nav-parity.contract.test.tsx
+        - tests/contracts/global-ui-i18n-batch-08.contract.test.tsx
+        - tests/contracts/helpers/currentPrScope.ts
+        - tests/contracts/site-footer-routing.contract.test.tsx
+        - tests/contracts/sitemap-indexability.contract.test.ts
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Sitemap and llms no longer hard-deny the five approved English content pages.
+      - Sitemap and llms continue to require CMS public/indexable authority before exposure.
+      - Footer exposes the five approved English content pages.
+      - Content page robots metadata remains tied to CMS page.isIndexable.
+      - No CMS mutation, deploy, Search Channel action, URL submission, external search API call, env/DNS/nginx edit, or frontend fallback content is introduced.
+    rollback_note: "Revert the frontend discoverability exposure changes if sitemap, llms, footer, or content page robots behavior regresses."

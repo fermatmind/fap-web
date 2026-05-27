@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-27T17:16:14+08:00",
+  "updated_at": "2026-05-27T18:05:03+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -11165,6 +11165,88 @@
           "at": "2026-05-27T17:16:14+08:00",
           "status": "pr_opened",
           "summary": "Opened fap-web PR #910 after successful local validation; waiting for GitHub required checks."
+        }
+      ]
+    },
+    {
+      "id": "GLOBAL-EN-ZH-CONTENT-PAGES-DISCOVERABILITY-EXPOSURE-IMPLEMENTATION-01",
+      "repo": "fap-web",
+      "branch": "codex/global-en-zh-content-pages-discoverability-exposure-implementation-01",
+      "base": "main",
+      "depends_on": [
+        "GLOBAL-EN-ZH-CONTENT-PAGES-DISCOVERABILITY-EXPOSURE-READINESS-01"
+      ],
+      "status": "local_checks_passed",
+      "title": "fix(seo): expose approved English content pages to discoverability surfaces",
+      "commit_sha": "a7bf10f94ad02976b4acf5ea785cafd1d6336f43",
+      "pr_url": null,
+      "checks": {
+        "focused_contracts": {
+          "command": "pnpm exec vitest run tests/contracts/global-en-zh-content-pages-discoverability-exposure-implementation-01.contract.test.tsx tests/contracts/sitemap-indexability.contract.test.ts tests/contracts/global-en-zh-footer-nav-parity.contract.test.tsx tests/contracts/global-ui-i18n-batch-08.contract.test.tsx",
+          "status": "passed"
+        },
+        "lint": {
+          "command": "pnpm lint",
+          "status": "passed_with_existing_warnings"
+        },
+        "typecheck": {
+          "command": "pnpm typecheck",
+          "status": "passed"
+        },
+        "build": {
+          "command": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+          "status": "passed"
+        },
+        "test_contract": {
+          "command": "pnpm test:contract",
+          "status": "passed"
+        },
+        "json_generated": {
+          "command": "python3 -m json.tool docs/seo/generated/global-en-zh-content-pages-discoverability-exposure-implementation-01.v1.json >/dev/null",
+          "status": "passed"
+        },
+        "json_state": {
+          "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+          "status": "passed"
+        },
+        "yaml_manifest": {
+          "command": "python3 -c import yaml/pathlib load docs/codex/pr-train.yaml",
+          "status": "passed"
+        },
+        "diff_check": {
+          "command": "git diff --check",
+          "status": "passed"
+        },
+        "release_freeze_attempt": {
+          "command": "pnpm verify:release-freeze",
+          "status": "sidecar_failed_local_backend_unavailable",
+          "note": "Not a required check for this manifest item; E2E freeze hit local 127.0.0.1:8000 backend connection refusals."
+        }
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-05-27T17:52:11+08:00",
+          "status": "in_progress",
+          "summary": "User authorized fap-web manifest/state updates for scoped repo-level discoverability unblockers. Scope excludes CMS mutation, page body copy changes, deploy, Search Channel action, URL submission, external search API calls, env/DNS/nginx edits, and frontend fallback content."
+        },
+        {
+          "at": "2026-05-27T18:04:17+08:00",
+          "status": "local_checks_passed",
+          "summary": "Scoped fap-web discoverability unblockers implemented; required local checks passed. Release-freeze was additionally attempted and failed only on local backend-unavailable E2E sidecar, not required by this task."
+        },
+        {
+          "at": "2026-05-27T18:04:54+08:00",
+          "status": "commit_created",
+          "summary": "Local commit created: 67a7562379229b95aea290f6cbf15e3f0720574a."
+        },
+        {
+          "at": "2026-05-27T18:05:03+08:00",
+          "status": "commit_amended",
+          "summary": "Commit SHA recorded after amend: a7bf10f94ad02976b4acf5ea785cafd1d6336f43."
         }
       ]
     }

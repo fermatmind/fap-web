@@ -324,11 +324,11 @@ describe("sitemap indexability contract", () => {
     expect(locs).not.toContain("/zh/help/about");
     expect(locs).not.toContain("/zh/help/team");
     expect(locs).not.toContain("/zh/help/used-and-mentioned");
-    expect(locs).not.toContain("/en/brand");
-    expect(locs).not.toContain("/en/careers");
-    expect(locs).not.toContain("/en/charter");
-    expect(locs).not.toContain("/en/foundation");
-    expect(locs).not.toContain("/en/policies");
+    expect(locs).toContain("/en/brand");
+    expect(locs).toContain("/en/careers");
+    expect(locs).toContain("/en/charter");
+    expect(locs).toContain("/en/foundation");
+    expect(locs).toContain("/en/policies");
     expect(await config.transform({}, "/zh")).toBeNull();
     expect(await config.transform({}, "/tests/mbti-personality-test-16-personality-types")).toBeNull();
     expect(await config.transform({}, "/en/tests/mbti-personality-test-16-personality-types")).not.toBeNull();
@@ -339,8 +339,8 @@ describe("sitemap indexability contract", () => {
     expect(await config.transform({}, "/en/refund")).toBeNull();
     expect(await config.transform({}, "/zh/refund")).toBeNull();
     expect(await config.transform({}, "/zh/help/about")).toBeNull();
-    expect(await config.transform({}, "/en/brand")).toBeNull();
-    expect(await config.transform({}, "/en/careers")).toBeNull();
+    expect(await config.transform({}, "/en/brand")).not.toBeNull();
+    expect(await config.transform({}, "/en/careers")).not.toBeNull();
     expect(await config.transform({}, "/en/datasets/occupations")).toBeNull();
     expect(await config.transform({}, "/zh/datasets/occupations/method")).toBeNull();
     expect(await config.transform({}, "/en/career/jobs/backend-engineer")).toBeNull();

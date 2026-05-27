@@ -15,11 +15,6 @@ const KNOWN_MISSING_CONTENT_HELP_POLICY_PATHS = [
   "/zh/help/contact",
   "/zh/help/faq",
   "/zh/help/for-business-and-research",
-  "/en/brand",
-  "/en/careers",
-  "/en/charter",
-  "/en/foundation",
-  "/en/policies",
   "/zh/policies",
 ];
 
@@ -49,6 +44,11 @@ describe("GLOBAL-EN-ZH-PARITY-FOOTER-NAV-PARITY-01", () => {
     expect(screen.getByTestId("site-footer-group-company")).toBeInTheDocument();
     expect(screen.getByTestId("site-footer-group-policies")).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "About" })).toHaveAttribute("href", "/en/about");
+    expect(screen.getByRole("link", { name: "Brand" })).toHaveAttribute("href", "/en/brand");
+    expect(screen.getByRole("link", { name: "Charter" })).toHaveAttribute("href", "/en/charter");
+    expect(screen.getByRole("link", { name: "Public benefit" })).toHaveAttribute("href", "/en/foundation");
+    expect(screen.getByRole("link", { name: "Careers" })).toHaveAttribute("href", "/en/careers");
+    expect(screen.getByRole("link", { name: "Policy overview" })).toHaveAttribute("href", "/en/policies");
   });
 
   it("does not expose known content help policy hard-404 paths from footer links", () => {

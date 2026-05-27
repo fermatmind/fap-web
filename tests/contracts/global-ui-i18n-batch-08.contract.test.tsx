@@ -31,11 +31,6 @@ const UNAVAILABLE_CONTENT_HELP_POLICY_PATHS = [
   "/zh/help/contact",
   "/zh/help/faq",
   "/zh/help/for-business-and-research",
-  "/en/brand",
-  "/en/careers",
-  "/en/charter",
-  "/en/foundation",
-  "/en/policies",
   "/zh/policies",
 ];
 
