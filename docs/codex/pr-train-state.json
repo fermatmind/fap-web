@@ -11262,9 +11262,9 @@
       "branch": "codex/mbti-result-desktop-clone-storage-hydration-01",
       "base": "main",
       "depends_on": [],
-      "status": "local_checks_passed",
-      "pr_url": null,
-      "commit_sha": null,
+      "status": "pr_opened",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/918",
+      "commit_sha": "a7e21bc0e49393fa9f769c9569f70c41bd3b3ac9",
       "merge_sha": null,
       "title": "fix(mbti): hydrate desktop clone content on locked results",
       "artifacts": [
@@ -11316,6 +11316,11 @@
           "at": "2026-05-27T23:44:37+08:00",
           "status": "local_checks_passed",
           "summary": "Focused MBTI shell contract, rich result contract, typecheck, production API/site URL build, full contract suite, lint, manifest/state parse, scope validation, and git diff checks passed. Build-generated public/sitemap.xml drift was restored out of scope."
+        },
+        {
+          "at": "2026-05-27T23:50:18+08:00",
+          "status": "pr_opened",
+          "summary": "Opened fap-web PR #918 for scoped MBTI locked result desktop clone storage hydration after successful local validation; waiting for GitHub required checks."
         }
       ]
     }
