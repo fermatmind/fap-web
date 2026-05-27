@@ -12,6 +12,7 @@ function read(relPath: string): string {
 describe("api proxy routing contract", () => {
   afterEach(() => {
     vi.unstubAllGlobals();
+    vi.unstubAllEnvs();
   });
 
   it("routes browser-side API calls through same-origin /api", () => {
@@ -21,8 +22,18 @@ describe("api proxy routing contract", () => {
     expect(buildApiUrl("/api/v0.3/auth/guest")).toBe("/api/v0.3/auth/guest");
   });
 
-  it("keeps server-side API calls absolute for SSR fetches", () => {
+  it("keeps server-side API calls on apex public API when production API env is absent", () => {
     vi.stubGlobal("window", undefined);
+    vi.stubEnv("NEXT_PUBLIC_API_URL", "");
+
+    expect(buildApiUrl("/v0.5/content-pages/brand?locale=en&org_id=0")).toBe(
+      "https://fermatmind.com/api/v0.5/content-pages/brand?locale=en&org_id=0"
+    );
+  });
+
+  it("honors an explicit server-side API origin for SSR fetches", () => {
+    vi.stubGlobal("window", undefined);
+    vi.stubEnv("NEXT_PUBLIC_API_URL", "https://api.fermatmind.com");
 
     expect(buildApiUrl("/v0.3/scales/lookup?slug=mbti&locale=zh")).toBe(
       "https://api.fermatmind.com/api/v0.3/scales/lookup?slug=mbti&locale=zh"

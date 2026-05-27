@@ -482,6 +482,14 @@ const GLOBAL_EN_ZH_GLOBAL_UI_I18N_BATCH_08_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const GLOBAL_EN_ZH_CONTENT_PAGES_FRONTEND_RUNTIME_REPAIR_01_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "lib/api-base.ts",
+  "tests/contracts/api-proxy-routing.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 const FRONTEND_CI_BUILD_TIMEOUT_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/professions/[code]/page.tsx",
   "lib/cms/career-guides.ts",
@@ -491,6 +499,10 @@ const FRONTEND_CI_BUILD_TIMEOUT_ALLOWED_FILES = new Set([
 ]);
 
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH === "codex/global-en-zh-content-pages-frontend-runtime-repair-01") {
+    return GLOBAL_EN_ZH_CONTENT_PAGES_FRONTEND_RUNTIME_REPAIR_01_ALLOWED_FILES.has(file);
+  }
+
   if (CURRENT_BRANCH === "codex/global-en-zh-footer-nav-parity-01") {
     return GLOBAL_EN_ZH_FOOTER_NAV_PARITY_01_ALLOWED_FILES.has(file);
   }
