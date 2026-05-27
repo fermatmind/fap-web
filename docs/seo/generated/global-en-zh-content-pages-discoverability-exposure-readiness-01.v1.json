@@ -1,0 +1,194 @@
+{
+  "schema_version": "1.0",
+  "task": "GLOBAL-EN-ZH-CONTENT-PAGES-DISCOVERABILITY-EXPOSURE-READINESS-01",
+  "final_decision": "content_pages_discoverability_exposure_readiness_completed_with_exposure_blockers",
+  "target_pages": [
+    "brand",
+    "charter",
+    "foundation",
+    "careers",
+    "policies"
+  ],
+  "public_runtime_state": {
+    "brand": {
+      "url": "https://fermatmind.com/en/brand",
+      "http_status": 200,
+      "canonical": "https://fermatmind.com/en/brand",
+      "robots": "noindex, nofollow, noarchive, nocache",
+      "title": "Brand and Usage Guidelines | FermatMind",
+      "h1": "Brand and Usage Guidelines",
+      "staging_canonical_detected": false,
+      "private_flow_marker_detected": false
+    },
+    "charter": {
+      "url": "https://fermatmind.com/en/charter",
+      "http_status": 200,
+      "canonical": "https://fermatmind.com/en/charter",
+      "robots": "noindex, nofollow, noarchive, nocache",
+      "title": "FermatMind Editorial Charter | FermatMind",
+      "h1": "FermatMind Editorial Charter",
+      "staging_canonical_detected": false,
+      "private_flow_marker_detected": false
+    },
+    "foundation": {
+      "url": "https://fermatmind.com/en/foundation",
+      "http_status": 200,
+      "canonical": "https://fermatmind.com/en/foundation",
+      "robots": "noindex, nofollow, noarchive, nocache",
+      "title": "Public-Benefit Mission and Governance | FermatMind",
+      "h1": "Public-Benefit Mission and Governance",
+      "staging_canonical_detected": false,
+      "private_flow_marker_detected": false
+    },
+    "careers": {
+      "url": "https://fermatmind.com/en/careers",
+      "http_status": 200,
+      "canonical": "https://fermatmind.com/en/careers",
+      "robots": "noindex, nofollow, noarchive, nocache",
+      "title": "Work With FermatMind | FermatMind",
+      "h1": "Work With FermatMind",
+      "staging_canonical_detected": false,
+      "private_flow_marker_detected": false
+    },
+    "policies": {
+      "url": "https://fermatmind.com/en/policies",
+      "http_status": 200,
+      "canonical": "https://fermatmind.com/en/policies",
+      "robots": "noindex, nofollow, noarchive, nocache",
+      "title": "Policy Overview | FermatMind",
+      "h1": "Policy Overview",
+      "staging_canonical_detected": false,
+      "private_flow_marker_detected": false
+    }
+  },
+  "cms_api_state": {
+    "brand": {
+      "status": 200,
+      "ok": true,
+      "is_public": true,
+      "is_indexable": false,
+      "published_at": "2026-05-27"
+    },
+    "charter": {
+      "status": 200,
+      "ok": true,
+      "is_public": true,
+      "is_indexable": false,
+      "published_at": "2026-05-27"
+    },
+    "foundation": {
+      "status": 200,
+      "ok": true,
+      "is_public": true,
+      "is_indexable": false,
+      "published_at": "2026-05-27",
+      "foundation_fact_state": "planned_public_benefit_shareholding"
+    },
+    "careers": {
+      "status": 200,
+      "ok": true,
+      "is_public": true,
+      "is_indexable": false,
+      "published_at": "2026-05-27"
+    },
+    "policies": {
+      "status": 200,
+      "ok": true,
+      "is_public": true,
+      "is_indexable": false,
+      "published_at": "2026-05-27"
+    }
+  },
+  "canonical_robots_check": {
+    "all_canonicals_exact_apex": true,
+    "staging_canonical_detected": false,
+    "all_pages_currently_noindex": true,
+    "index_follow_ready": false,
+    "blocking_reason": "CMS API reports is_indexable=false for all five pages, and contentPageRoute renders noindex from backend page.isIndexable."
+  },
+  "sitemap_exposure_check": {
+    "surface_url": "https://fermatmind.com/sitemap.xml",
+    "http_status": 200,
+    "target_url_hits": {
+      "/en/brand": 0,
+      "/en/charter": 0,
+      "/en/foundation": 0,
+      "/en/careers": 0,
+      "/en/policies": 0
+    },
+    "exposed": false,
+    "frontend_hard_deny_detected": true,
+    "source_files": [
+      "lib/seo/sitemapAuthorityAdapters.cjs",
+      "next-sitemap.config.js"
+    ]
+  },
+  "llms_exposure_check": {
+    "llms_txt": {
+      "surface_url": "https://fermatmind.com/llms.txt",
+      "http_status": 200,
+      "target_url_hits": {
+        "/en/brand": 0,
+        "/en/charter": 0,
+        "/en/foundation": 0,
+        "/en/careers": 0,
+        "/en/policies": 0
+      }
+    },
+    "llms_full_txt": {
+      "surface_url": "https://fermatmind.com/llms-full.txt",
+      "http_status": 200,
+      "target_url_hits": {
+        "/en/brand": 0,
+        "/en/charter": 0,
+        "/en/foundation": 0,
+        "/en/careers": 0,
+        "/en/policies": 0
+      }
+    },
+    "exposed": false,
+    "frontend_hard_deny_detected": true,
+    "source_files": [
+      "app/llms.txt/route.ts",
+      "app/llms-full.txt/route.ts"
+    ]
+  },
+  "footer_nav_exposure_check": {
+    "checked_url": "https://fermatmind.com/en",
+    "http_status": 200,
+    "target_url_hits": {
+      "/en/brand": 0,
+      "/en/charter": 0,
+      "/en/foundation": 0,
+      "/en/careers": 0,
+      "/en/policies": 0
+    },
+    "exposed": false,
+    "source_file": "components/layout/SiteFooter.tsx"
+  },
+  "source_boundary_check": {
+    "cms_authority_preserved": true,
+    "frontend_fallback_content_added": false,
+    "content_page_metadata_source": "app/(localized)/[locale]/contentPageRoute.tsx",
+    "cms_fetch_source": "lib/cms/content-pages.ts"
+  },
+  "readiness_blockers": [
+    "CMS content_pages records are public but not indexable.",
+    "HTML robots remains noindex/nofollow for all five target pages.",
+    "fap-web sitemap hard deny patterns still exclude the five English target pages.",
+    "fap-web llms hard deny patterns still exclude the five English target pages.",
+    "Footer/nav does not expose the five pages."
+  ],
+  "recommended_next_task": "GLOBAL-EN-ZH-CONTENT-PAGES-DISCOVERABILITY-EXPOSURE-IMPLEMENTATION-01",
+  "future_approval_scope": "Coordinate backend CMS indexability authority and fap-web sitemap/llms/footer exposure gates for the five approved English content pages. Keep URL submission and Search Channel deferred until post-exposure smoke passes.",
+  "no_cms_mutation": true,
+  "no_publish": true,
+  "no_deploy": true,
+  "no_search_channel_action": true,
+  "no_url_submission": true,
+  "no_external_search_api_call": true,
+  "no_sitemap_llms_footer_nav_change": true,
+  "no_env_dns_nginx_edit": true,
+  "no_frontend_fallback_content": true,
+  "next_task": "GLOBAL-EN-ZH-CONTENT-PAGES-DISCOVERABILITY-EXPOSURE-IMPLEMENTATION-01"
+}
