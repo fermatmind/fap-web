@@ -153,11 +153,11 @@ const REQUIRED_QUICK_START_ITEMS: Record<Locale, HomeLinkItem[]> = {
       meta: "人格测试",
     },
     {
-      title: "抑郁焦虑综合症测试",
-      description: "同时查看抑郁与焦虑两个维度，获得更完整的近期状态参考",
-      href: "/tests/clinical-depression-anxiety-assessment-professional-edition",
+      title: "情商测试",
+      description: "看清情绪调节、沟通表达与关系协作中的关键能力",
+      href: "/tests/eq-test-emotional-intelligence-assessment",
       label: "开始测试",
-      meta: "学术专业版",
+      meta: "情绪能力",
     },
   ],
   en: [
@@ -197,11 +197,11 @@ const REQUIRED_QUICK_START_ITEMS: Record<Locale, HomeLinkItem[]> = {
       meta: "Personality test",
     },
     {
-      title: "Depression and Anxiety Assessment",
-      description: "Review depression and anxiety dimensions together for a fuller recent-state reference.",
-      href: "/tests/clinical-depression-anxiety-assessment-professional-edition",
+      title: "EQ Test",
+      description: "Map emotional regulation, communication, and relationship skills.",
+      href: "/tests/eq-test-emotional-intelligence-assessment",
       label: "Start test",
-      meta: "Professional version",
+      meta: "Emotional skills",
     },
   ],
 };
