@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-27T17:14:07+08:00",
+  "updated_at": "2026-05-27T17:16:14+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -11130,10 +11130,10 @@
       "branch": "codex/global-en-zh-content-pages-discoverability-exposure-readiness-01",
       "base": "main",
       "depends_on": [],
-      "status": "local_checks_passed",
+      "status": "pr_opened",
       "title": "docs(seo): add content pages discoverability exposure readiness",
-      "commit_sha": "3cdcf2e084d72b409bfdb470139935dd1c7e385a",
-      "pr_url": null,
+      "commit_sha": "e0d1ee798d9fdcb64bc5e0438cfcc73c386d7c88",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/910",
       "checks": {
         "focused_contract": "passed",
         "typecheck": "passed",
@@ -11160,6 +11160,11 @@
           "at": "2026-05-27T17:14:07+08:00",
           "status": "local_checks_passed",
           "summary": "Focused readiness contract, typecheck, production API env build, full contract suite, Big Five freeze, Enneagram freeze, lint, JSON/YAML parse, scope validation, and git diff checks passed. Build-generated public/sitemap.xml drift was restored out of scope."
+        },
+        {
+          "at": "2026-05-27T17:16:14+08:00",
+          "status": "pr_opened",
+          "summary": "Opened fap-web PR #910 after successful local validation; waiting for GitHub required checks."
         }
       ]
     }
