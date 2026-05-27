@@ -6,6 +6,7 @@ import { useLocale } from "@/components/i18n/LocaleContext";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { toggleLocalePath, type Locale } from "@/lib/i18n/locales";
 import { LOCALE_COOKIE_NAME } from "@/lib/i18n/localeNegotiation";
+import { shouldDisableLocaleSwitchLinks } from "@/lib/seo/seoHoldlistRoutes";
 
 function nextLocale(locale: Locale): Locale {
   return locale === "zh" ? "en" : "zh";
@@ -17,6 +18,8 @@ export function LocaleSwitcher() {
   const locale = useLocale();
   const targetLocale = nextLocale(locale);
   const dict = getDictSync(locale);
+
+  if (shouldDisableLocaleSwitchLinks(pathname)) return null;
 
   const targetPath = toggleLocalePath(pathname, targetLocale);
 

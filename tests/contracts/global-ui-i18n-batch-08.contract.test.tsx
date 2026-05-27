@@ -36,13 +36,7 @@ const UNAVAILABLE_CONTENT_HELP_POLICY_PATHS = [
   "/en/charter",
   "/en/foundation",
   "/en/policies",
-  "/en/privacy",
-  "/en/support",
-  "/en/terms",
   "/zh/policies",
-  "/zh/privacy",
-  "/zh/support",
-  "/zh/terms",
 ];
 
 function keyPaths(value: unknown, prefix = ""): string[] {

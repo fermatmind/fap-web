@@ -3,6 +3,7 @@ import { Container } from "@/components/layout/Container";
 import { buttonVariants } from "@/components/ui/button";
 import type { Locale } from "@/lib/i18n/locales";
 import type { HubTestCardItem, TestsHubContent } from "@/lib/marketing/testsHubContent";
+import { filterVisiblePublicTestEntries } from "@/lib/tests/publicTestEntryVisibility";
 
 function listTests(items: HubTestCardItem[][]): HubTestCardItem[] {
   const seen = new Set<string>();
@@ -16,7 +17,7 @@ function listTests(items: HubTestCardItem[][]): HubTestCardItem[] {
     }
   }
 
-  return ordered;
+  return filterVisiblePublicTestEntries(ordered);
 }
 
 function TestListCard({ item, locale }: { item: HubTestCardItem; locale: Locale }) {

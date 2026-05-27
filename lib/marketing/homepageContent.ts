@@ -235,7 +235,9 @@ function normalizeHomeContent(value: unknown, locale: Locale): HomePageContent {
     ...content,
     quickStart: {
       ...content.quickStart,
-      items: completeQuickStartItems(Array.isArray(content.quickStart.items) ? content.quickStart.items : [], locale),
+      items: filterVisiblePublicTestEntries(
+        completeQuickStartItems(Array.isArray(content.quickStart.items) ? content.quickStart.items : [], locale)
+      ),
     },
     families: {
       ...content.families,

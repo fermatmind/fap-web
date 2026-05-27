@@ -60,11 +60,11 @@ const homePayload = vi.hoisted(() => ({
         meta: "能力测评",
       },
       {
-        title: "抑郁焦虑综合症测试",
-        description: "同时查看抑郁与焦虑两个维度，获得更完整的近期状态参考",
-        href: "/tests/clinical-depression-anxiety-assessment-professional-edition",
+        title: "EQ 情商测试",
+        description: "快速了解你的情绪识别与关系沟通能力",
+        href: "/tests/eq-test-emotional-intelligence-assessment",
         label: "开始测试",
-        meta: "学术专业版",
+        meta: "情绪能力",
       },
     ],
   },
@@ -179,10 +179,10 @@ const EXPECTED_ZH_CARDS = [
     href: "/zh/tests/enneagram-personality-test-nine-types",
   },
   {
-    title: "抑郁焦虑综合症测试",
-    copy: "同时查看抑郁与焦虑两个维度，获得更完整的近期状态参考",
-    meta: "学术专业版",
-    href: "/zh/tests/clinical-depression-anxiety-assessment-professional-edition",
+    title: "EQ 情商测试",
+    copy: "快速了解你的情绪识别与关系沟通能力",
+    meta: "情绪能力",
+    href: "/zh/tests/eq-test-emotional-intelligence-assessment",
   },
 ];
 

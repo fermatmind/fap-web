@@ -48,7 +48,6 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
       { href: "/career/tests", label: "Career tests" },
     ],
     help: [
-      { href: "/results/lookup", label: "Find saved results" },
       { href: "/email/preferences", label: "Email & data management" },
     ],
     business: [
@@ -88,7 +87,6 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
       { href: "/career/tests", label: "职业测试" },
     ],
     help: [
-      { href: "/results/lookup", label: "邮箱找回结果" },
       { href: "/email/preferences", label: "邮箱与数据管理" },
     ],
     business: [

@@ -198,6 +198,31 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/privacy",
+        destination: "/zh/privacy",
+        permanent: true,
+      },
+      {
+        source: "/terms",
+        destination: "/zh/terms",
+        permanent: true,
+      },
+      {
+        source: "/help",
+        destination: "/zh/support",
+        permanent: true,
+      },
+      {
+        source: "/en/help",
+        destination: "/en/support",
+        permanent: true,
+      },
+      {
+        source: "/zh/help",
+        destination: "/zh/support",
+        permanent: true,
+      },
+      {
         source: "/help/about",
         destination: "/en/support",
         permanent: true,
