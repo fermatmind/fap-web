@@ -16,7 +16,7 @@ describe("site footer routing contract", () => {
     expect(screen.getByTestId("site-footer-group-company")).toHaveTextContent("Company");
     expect(screen.getByTestId("site-footer-group-policies")).toHaveTextContent("Terms & policies");
     expect(screen.getByRole("link", { name: "About" })).toHaveAttribute("href", "/en/about");
-    expect(screen.queryByRole("link", { name: "Careers" })).not.toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Careers" })).toHaveAttribute("href", "/en/careers");
     expect(screen.queryByRole("link", { name: "Terms of use" })).not.toBeInTheDocument();
     expect(screen.queryByRole("link", { name: "Privacy policy" })).not.toBeInTheDocument();
   });

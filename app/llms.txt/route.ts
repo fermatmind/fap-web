@@ -24,6 +24,7 @@ import { TOPIC_LLMS_COMPATIBILITY_FALLBACK_SLUGS } from "@/lib/seo/topicLlmsAuth
 import { getSiteUrlOrThrow } from "@/lib/site";
 
 const TOPIC_FALLBACK_SLUGS = TOPIC_LLMS_COMPATIBILITY_FALLBACK_SLUGS;
+const WAVE_1_EN_CONTENT_PAGE_KEYS = new Set(["brand", "charter", "foundation", "careers", "policies"]);
 const LLMS_FINAL_PATH_DENY_PATTERNS: RegExp[] = [
   /^\/zh$/i,
   /^\/tests(?:\/|$)/i,
@@ -34,7 +35,6 @@ const LLMS_FINAL_PATH_DENY_PATTERNS: RegExp[] = [
   /^\/(?:en|zh)\/method-boundaries$/i,
   /^\/zh\/policies$/i,
   /^\/(?:en|zh)\/(?:privacy|support|terms)$/i,
-  /^\/en\/(?:brand|careers|charter|foundation|policies)$/i,
   /^\/datasets\/occupations(?:\/method)?$/i,
   /^\/(?:en|zh)\/datasets\/occupations(?:\/method)?$/i,
   /^\/career\/jobs$/i,
@@ -170,6 +170,7 @@ export async function GET() {
     backendTestEntries,
     enHelpPages,
     zhHelpPages,
+    enContentPages,
     careerJobEntries,
   ] = await Promise.all([
     withLlmsRouteBudget(
@@ -242,6 +243,13 @@ export async function GET() {
       []
     ),
     withLlmsRouteBudget(
+      () =>
+        listContentPagesWithLastKnownGood("en").then((result) =>
+          limitLlmsRouteEntries(result.value, LLMS_ROUTE_LIMITS.helpPages)
+        ),
+      []
+    ),
+    withLlmsRouteBudget(
       (signal) => listBackendSitemapCareerJobPaths({ limit: LLMS_ROUTE_LIMITS.careerJobs, signal }),
       []
     ),
@@ -251,6 +259,12 @@ export async function GET() {
     ...enHelpPages.map((page) => `/en${page.path}`),
     ...zhHelpPages.map((page) => `/zh${page.path}`),
   ]);
+  const contentPageEntries = dedupePaths(
+    enContentPages
+      .filter((page) => WAVE_1_EN_CONTENT_PAGE_KEYS.has(page.slug))
+      .filter((page) => page.isPublic && page.isIndexable)
+      .map((page) => `/en/${page.slug}`)
+  );
   const testEntries = dedupePaths(backendTestEntries.map((entry) => entry.path));
 
   const articleEntries = dedupePaths(
@@ -305,6 +319,9 @@ export async function GET() {
     "",
     "Indexable Help:",
     ...helpEntries.map((path) => `- ${toCanonical(siteUrl, path)}`),
+    "",
+    "Indexable Content Pages:",
+    ...contentPageEntries.map((path) => `- ${toCanonical(siteUrl, path)}`),
     "",
     "Indexable Tests:",
     ...testEntries.map((path) => `- ${toCanonical(siteUrl, path)}`),

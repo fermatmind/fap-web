@@ -35,6 +35,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
 
 const TOPIC_FALLBACKS = TOPIC_LLMS_COMPATIBILITY_FALLBACKS;
+const WAVE_1_EN_CONTENT_PAGE_KEYS = new Set(["brand", "charter", "foundation", "careers", "policies"]);
 const LLMS_FINAL_PATH_DENY_PATTERNS: RegExp[] = [
   /^\/zh$/i,
   /^\/tests(?:\/|$)/i,
@@ -45,7 +46,6 @@ const LLMS_FINAL_PATH_DENY_PATTERNS: RegExp[] = [
   /^\/(?:en|zh)\/method-boundaries$/i,
   /^\/zh\/policies$/i,
   /^\/(?:en|zh)\/(?:privacy|support|terms)$/i,
-  /^\/en\/(?:brand|careers|charter|foundation|policies)$/i,
   /^\/datasets\/occupations(?:\/method)?$/i,
   /^\/(?:en|zh)\/datasets\/occupations(?:\/method)?$/i,
   /^\/career\/jobs$/i,
@@ -548,6 +548,7 @@ export async function GET() {
     backendTestEntries,
     enHelpPages,
     zhHelpPages,
+    enContentPages,
     careerJobPaths,
   ] = await Promise.all([
     withLlmsRouteBudget(
@@ -620,6 +621,13 @@ export async function GET() {
       []
     ),
     withLlmsRouteBudget(
+      () =>
+        listContentPagesWithLastKnownGood("en").then((result) =>
+          limitLlmsRouteEntries(result.value, LLMS_ROUTE_LIMITS.helpPages)
+        ),
+      []
+    ),
+    withLlmsRouteBudget(
       (signal) => listBackendSitemapCareerJobPaths({ limit: LLMS_ROUTE_LIMITS.careerJobs, signal }),
       []
     ),
@@ -641,6 +649,19 @@ export async function GET() {
       summary: summaryFromRecord(page),
     })),
   ].filter((entry) => shouldKeep(entry.path));
+
+  const contentPageEntries = enContentPages
+    .filter((page) => WAVE_1_EN_CONTENT_PAGE_KEYS.has(page.slug))
+    .filter((page) => page.isPublic && page.isIndexable)
+    .map((page) => ({
+      locale: "en" as const,
+      path: `/en/${page.slug}`,
+      title: page.title,
+      type: "content_page",
+      summary: summaryFromRecord(page),
+      updatedAt: page.updatedAt ?? page.publishedAt ?? "",
+    }))
+    .filter((entry) => shouldKeep(entry.path));
 
   const tests = backendTestEntries
     .map((test) => ({
@@ -787,6 +808,9 @@ export async function GET() {
     "",
     "## Help",
     ...helpEntries.flatMap((entry) => formatEntry(entry, siteUrl)),
+    "",
+    "## Content Pages",
+    ...contentPageEntries.flatMap((entry) => formatEntry(entry, siteUrl)),
     "",
     "## Tests",
     ...tests.flatMap((entry) => formatEntry(entry, siteUrl)),

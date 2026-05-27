@@ -60,7 +60,13 @@ export function SiteFooter() {
           { href: "/about", label: "关于我们" },
           { href: "/careers", label: "工作机会" },
         ]
-      : [{ href: "/about", label: "About" }];
+      : [
+          { href: "/about", label: "About" },
+          { href: "/brand", label: "Brand" },
+          { href: "/charter", label: "Charter" },
+          { href: "/foundation", label: "Public benefit" },
+          { href: "/careers", label: "Careers" },
+        ];
   const policyLinks: FooterLinkItem[] =
     locale === "zh"
       ? [
@@ -73,6 +79,7 @@ export function SiteFooter() {
           { href: "/support", label: dict.footer.support },
           { href: "/privacy", label: dict.footer.privacy },
           { href: "/terms", label: dict.footer.terms },
+          { href: "/policies", label: "Policy overview" },
           { href: "/method-boundaries", label: "Method boundaries" },
         ];
   const footerGroups: FooterGroup[] = [

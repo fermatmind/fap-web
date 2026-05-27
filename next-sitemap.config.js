@@ -23,6 +23,7 @@ const {
 const SOFTWARE_DEVELOPERS_DETAIL_RE = /^\/(?:en|zh)\/career\/jobs\/software-developers$/i;
 const CAREER_JOB_DETAIL_PARTS_RE = /^\/(en|zh)\/career\/jobs\/([^/]+)$/i;
 const PERSONALITY_DETAIL_PARTS_RE = /^\/(en|zh)\/personality\/([ie][ns][ft][jp]-[at])$/i;
+const WAVE_1_EN_CONTENT_PAGE_KEYS = ["brand", "charter", "foundation", "careers", "policies"];
 
 const siteUrl = resolveSitemapSiteUrl(process.env.NEXT_PUBLIC_SITE_URL);
 const apiOrigin = (process.env.NEXT_PUBLIC_API_URL || "https://api.fermatmind.com").replace(/\/$/, "");
@@ -570,6 +571,31 @@ async function buildTopicDetailPathsFromApi() {
   );
 }
 
+async function buildWave1EnglishContentPagePaths() {
+  try {
+    const paths = new Set();
+
+    for (const key of WAVE_1_EN_CONTENT_PAGE_KEYS) {
+      const params = new URLSearchParams({ locale: "en", org_id: "0" });
+      const payload = await fetchJsonWithTimeout(
+        buildApiUrl(`/v0.5/content-pages/${encodeURIComponent(key)}?${params.toString()}`)
+      );
+      const page = payload?.page;
+      if (!isPublicIndexable(page)) continue;
+
+      const slug = normalizeSlug(page?.slug) || key;
+      const path = normalizePath(`/en/${slug}`);
+      if (shouldIncludeGeneratedSitemapPath(path)) {
+        paths.add(path);
+      }
+    }
+
+    return [...paths];
+  } catch {
+    return [];
+  }
+}
+
 async function buildPersonalityDetailPathsFromAuthority() {
   try {
     return await fetchBackendSitemapSourcePersonalityPaths();
@@ -622,6 +648,7 @@ module.exports = {
       careerRecommendationApiPaths,
       personalityPaths,
       topicApiPaths,
+      wave1ContentPagePaths,
       testApiPaths,
     ] = await Promise.all([
       buildValidatedCmsPaths("/v0.5/articles", buildArticlePaths),
@@ -632,6 +659,7 @@ module.exports = {
       buildCareerRecommendationDetailPathsFromAuthority(),
       buildPersonalityDetailPathsFromAuthority(),
       buildValidatedCmsPaths("/v0.5/topics", buildTopicDetailPathsFromApi),
+      buildValidatedCmsPaths("/v0.5/content-pages", buildWave1EnglishContentPagePaths),
       buildTestPathsFromApi(),
     ]);
 
@@ -646,6 +674,7 @@ module.exports = {
       ...careerRecommendationApiPaths,
       ...personalityPaths,
       ...topicApiPaths,
+      ...wave1ContentPagePaths,
     ])]
       .map((path) => normalizePath(path))
       .filter((path) =>

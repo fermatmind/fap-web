@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "task": "GLOBAL-EN-ZH-CONTENT-PAGES-DISCOVERABILITY-EXPOSURE-IMPLEMENTATION-01",
+  "final_decision": "content_pages_discoverability_exposure_implementation_completed_ready_for_deploy_readiness",
+  "target_pages": [
+    "brand",
+    "charter",
+    "foundation",
+    "careers",
+    "policies"
+  ],
+  "blockers_identified": [
+    "cms_is_indexable_false",
+    "content_page_renderer_noindex_rule",
+    "frontend_sitemap_denylist",
+    "frontend_llms_denylist",
+    "footer_nav_eligibility_false"
+  ],
+  "repo_level_blockers_addressed": [
+    "frontend_sitemap_denylist",
+    "frontend_llms_denylist",
+    "footer_nav_eligibility_false"
+  ],
+  "cms_indexability_authority": "backend_content_pages.is_indexable",
+  "cms_indexability_update_performed_before_pr": true,
+  "content_page_renderer_noindex_rule_preserved": true,
+  "sitemap_gate": "include only CMS public/indexable Wave 1 English content pages",
+  "llms_gate": "include only CMS public/indexable Wave 1 English content pages",
+  "footer_nav_exposure_enabled": true,
+  "foundation_forbidden_phrase_hits": 0,
+  "no_cms_mutation_by_fap_web_pr": true,
+  "no_page_body_copy_modified": true,
+  "no_frontend_fallback_content": true,
+  "no_deploy": true,
+  "no_search_channel_action": true,
+  "no_url_submission": true,
+  "no_external_search_api_call": true,
+  "no_env_dns_nginx_edit": true,
+  "next_task": "FRONTEND-DEPLOY-READINESS｜Deploy content pages discoverability exposure implementation"
+}
