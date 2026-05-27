@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-27T16:13:45+08:00",
+  "updated_at": "2026-05-27T17:14:07+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -11121,6 +11121,45 @@
           "at": "2026-05-27T16:24:20+08:00",
           "status": "pr_opened",
           "summary": "Opened fap-web PR #909 for GLOBAL-EN-ZH-CONTENT-PAGES-FRONTEND-RUNTIME-REPAIR-01 after successful local validation; waiting for GitHub required checks."
+        }
+      ]
+    },
+    {
+      "id": "GLOBAL-EN-ZH-CONTENT-PAGES-DISCOVERABILITY-EXPOSURE-READINESS-01",
+      "repo": "fap-web",
+      "branch": "codex/global-en-zh-content-pages-discoverability-exposure-readiness-01",
+      "base": "main",
+      "depends_on": [],
+      "status": "local_checks_passed",
+      "title": "docs(seo): add content pages discoverability exposure readiness",
+      "commit_sha": "3cdcf2e084d72b409bfdb470139935dd1c7e385a",
+      "pr_url": null,
+      "checks": {
+        "focused_contract": "passed",
+        "typecheck": "passed",
+        "build": "passed",
+        "test_contract": "passed",
+        "verify_big5_contract_freeze": "passed",
+        "verify_enneagram_contract_freeze": "passed",
+        "lint": "passed_with_existing_warnings",
+        "manifest_state_parse": "passed",
+        "scope_validation": "passed",
+        "diff_check": "passed"
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-05-27T17:14:07+08:00",
+          "status": "in_progress",
+          "summary": "User authorized fap-web manifest/state updates and scoped read-only discoverability exposure readiness report for the five Wave 1 English content pages. Scope excludes CMS mutation, publish, deploy, sitemap/llms/footer/nav exposure changes, Search Channel action, URL submission, external search API calls, env/DNS/nginx edits, and frontend fallback content."
+        },
+        {
+          "at": "2026-05-27T17:14:07+08:00",
+          "status": "local_checks_passed",
+          "summary": "Focused readiness contract, typecheck, production API env build, full contract suite, Big Five freeze, Enneagram freeze, lint, JSON/YAML parse, scope validation, and git diff checks passed. Build-generated public/sitemap.xml drift was restored out of scope."
         }
       ]
     }
