@@ -11254,6 +11254,75 @@
           "summary": "Opened PR #912 for scoped fap-web discoverability exposure implementation."
         }
       ]
+    },
+    {
+      "id": "MBTI-RESULT-DESKTOP-CLONE-STORAGE-HYDRATION-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/mbti-result-desktop-clone-storage-hydration-01",
+      "base": "main",
+      "depends_on": [],
+      "status": "pr_opened",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/918",
+      "commit_sha": "a7e21bc0e49393fa9f769c9569f70c41bd3b3ac9",
+      "merge_sha": null,
+      "title": "fix(mbti): hydrate desktop clone content on locked results",
+      "artifacts": [
+        "components/result/mbti/MbtiResultShell.tsx",
+        "tests/contracts/mbti-shell-ui.contract.test.tsx",
+        "tests/contracts/rich-result-report.contract.test.tsx",
+        "tests/contracts/helpers/currentPrScope.ts"
+      ],
+      "checks": {
+        "focused_contract": {
+          "command": "pnpm exec vitest run tests/contracts/mbti-shell-ui.contract.test.tsx",
+          "status": "passed"
+        },
+        "rich_result_contract": {
+          "command": "pnpm exec vitest run tests/contracts/rich-result-report.contract.test.tsx",
+          "status": "passed"
+        },
+        "typecheck": {
+          "command": "pnpm typecheck",
+          "status": "passed"
+        },
+        "build": {
+          "command": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build",
+          "status": "passed"
+        },
+        "test_contract": {
+          "command": "pnpm test:contract",
+          "status": "passed"
+        },
+        "lint": {
+          "command": "pnpm lint .",
+          "status": "passed_with_existing_warnings"
+        },
+        "manifest_state_parse": "passed",
+        "scope_validation": "passed",
+        "diff_check": "passed"
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-05-27T23:23:54+08:00",
+          "status": "in_progress",
+          "summary": "User authorized current PR manifest/state updates. Started scoped fap-web MBTI result desktop clone storage hydration fix; scope excludes backend/CMS mutation, content or media authoring, deploy, Search Channel action, URL submission, external search APIs, env/DNS/nginx edits, paid content exposure changes, and frontend editorial fallback content."
+        },
+        {
+          "at": "2026-05-27T23:44:37+08:00",
+          "status": "local_checks_passed",
+          "summary": "Focused MBTI shell contract, rich result contract, typecheck, production API/site URL build, full contract suite, lint, manifest/state parse, scope validation, and git diff checks passed. Build-generated public/sitemap.xml drift was restored out of scope."
+        },
+        {
+          "at": "2026-05-27T23:50:18+08:00",
+          "status": "pr_opened",
+          "summary": "Opened fap-web PR #918 for scoped MBTI locked result desktop clone storage hydration after successful local validation; waiting for GitHub required checks."
+        }
+      ]
     }
   ],
   "sidecar_issues": [

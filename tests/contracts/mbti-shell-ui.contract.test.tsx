@@ -4,6 +4,10 @@ import { RichResultReport } from "@/components/result/RichResultReport";
 import type { ReportResponse } from "@/lib/api/v0_3";
 import type { MbtiAccessHubV1Raw } from "@/lib/mbti/accessHub";
 import { getMbtiDesktopAnchorHash } from "@/components/result/mbti/mbtiDesktopAnchorTargets";
+import {
+  fetchPersonalityDesktopCloneContent,
+  type PersonalityDesktopCloneContentPayload,
+} from "@/lib/cms/personality-desktop-clone";
 import { applyMbtiPhase2Fixture } from "@/tests/helpers/mbtiPhase2Fixture";
 import reportReadyMbtiFreeFixture from "@/tests/fixtures/report_ready.mbti.free.json";
 import reportReadyMbtiProjectionFixture from "@/tests/fixtures/report_ready.mbti.projection.json";
@@ -20,6 +24,13 @@ vi.mock("next/navigation", () => ({
 vi.mock("@/lib/analytics", () => ({
   trackEvent: hoisted.trackEvent,
   trackObservableFunnelEvent: hoisted.trackObservableFunnelEvent,
+}));
+vi.mock("@/lib/cms/personality-desktop-clone", () => ({
+  fetchPersonalityDesktopCloneContent: vi.fn(async () => null),
+  normalizeDesktopCloneTypeSlug: (fullCode: string | null | undefined) => {
+    const normalized = String(fullCode ?? "").trim().toUpperCase();
+    return /^[IE][NS][TF][JP]-[AT]$/.test(normalized) ? normalized.toLowerCase() : null;
+  },
 }));
 
 function getPrimaryByTestId(testId: string): HTMLElement {
@@ -50,6 +61,168 @@ function createLockedProjectionFixture(): ReportResponse {
   };
 
   return reportData;
+}
+
+function createLockedIsfpTProjectionFixture(): ReportResponse {
+  const reportData = createLockedProjectionFixture();
+  if (!reportData.mbti_public_projection_v1) {
+    throw new Error("Expected MBTI public projection fixture");
+  }
+
+  reportData.mbti_public_projection_v1.canonical_type_code = "ISFP";
+  reportData.mbti_public_projection_v1.display_type = "ISFP-T";
+  reportData.mbti_public_projection_v1.runtime_type_code = "ISFP-T";
+  reportData.mbti_public_projection_v1.variant_code = "T";
+  reportData.mbti_public_projection_v1.profile = {
+    ...(reportData.mbti_public_projection_v1.profile ?? {}),
+    type_name: "探险家型",
+    nickname: "温柔感受者",
+  };
+
+  return reportData;
+}
+
+function createListItems(prefix: string) {
+  return [
+    { title: `${prefix} 1`, body: `${prefix} body 1` },
+    { title: `${prefix} 2`, body: `${prefix} body 2` },
+    { title: `${prefix} 3`, body: `${prefix} body 3` },
+    { title: `${prefix} 4`, body: `${prefix} body 4` },
+    { title: `${prefix} 5`, body: `${prefix} body 5` },
+    { title: `${prefix} 6`, body: `${prefix} body 6` },
+  ] as [
+    { title: string; body: string },
+    { title: string; body: string },
+    { title: string; body: string },
+    { title: string; body: string },
+    { title: string; body: string },
+    { title: string; body: string },
+  ];
+}
+
+function createStrengthItems(prefix: string) {
+  return [1, 2, 3, 4, 5, 6].map((index) => ({
+    title: `${prefix} ${index}`,
+    description: `${prefix} description ${index}`,
+  }));
+}
+
+function createLockedBlocks(prefix: string) {
+  return [
+    {
+      title: `${prefix} locked primary`,
+      overlayTitle: "解锁完整报告",
+      overlayBody: "解锁后查看完整内容。",
+      overlayCtaLabel: "解锁完整报告",
+      blurredItems: createListItems(`${prefix} locked primary redacted`),
+    },
+    {
+      title: `${prefix} locked secondary`,
+      overlayTitle: "解锁完整报告",
+      overlayBody: "解锁后查看完整内容。",
+      overlayCtaLabel: "解锁完整报告",
+      blurredItems: createListItems(`${prefix} locked secondary redacted`),
+    },
+  ] as [
+    {
+      title: string;
+      overlayTitle: string;
+      overlayBody: string;
+      overlayCtaLabel: string;
+      blurredItems: ReturnType<typeof createListItems>;
+    },
+    {
+      title: string;
+      overlayTitle: string;
+      overlayBody: string;
+      overlayCtaLabel: string;
+      blurredItems: ReturnType<typeof createListItems>;
+    },
+  ];
+}
+
+function createPublicIsfpTDesktopClonePayload(): PersonalityDesktopCloneContentPayload {
+  const chapter = (prefix: string) => ({
+    intro: [`${prefix} public intro one`, `${prefix} public intro two`] as [string, string],
+    influentialTraits: [
+      { label: `${prefix} trait one`, body: "public trait body one", colorKey: "blue" },
+      { label: `${prefix} trait two`, body: "public trait body two", colorKey: "gold" },
+      { label: `${prefix} trait three`, body: "public trait body three", colorKey: "green" },
+      { label: `${prefix} trait four`, body: "public trait body four", colorKey: "purple" },
+    ] as [
+      { label: string; body: string; colorKey: "blue" },
+      { label: string; body: string; colorKey: "gold" },
+      { label: string; body: string; colorKey: "green" },
+      { label: string; body: string; colorKey: "purple" },
+    ],
+    visibleBlocks: [
+      {
+        title: `${prefix} visible block`,
+        items: createListItems(`${prefix} visible item`),
+      },
+    ] as [{ title: string; items: ReturnType<typeof createListItems> }],
+    lockedBlocks: createLockedBlocks(prefix),
+  });
+
+  return {
+    templateKey: "mbti_desktop_clone_v1",
+    schemaVersion: "v1",
+    fullCode: "ISFP-T",
+    baseCode: "ISFP",
+    locale: "zh-CN",
+    content: {
+      hero: {
+        summary: "ISFP-T public storage hero summary",
+        profileIdentity: {
+          code: "ISFP-T",
+          name: "探险家型",
+          nickname: "温柔感受者",
+          rarity: "约 4-9%",
+          keywords: ["感受力", "自由", "当下体验", "审美", "共情", "随性"],
+        },
+      },
+      intro: {
+        paragraphs: [
+          "ISFP-T public storage intro one",
+          "ISFP-T public storage intro two",
+        ],
+      },
+      traits: {
+        summaryPane: {
+          eyebrow: "能力方向",
+          title: "ISFP-T public storage traits title",
+          value: "72%",
+          body: "ISFP-T public storage traits body",
+        },
+        body: ["ISFP-T public trait body one", "ISFP-T public trait body two"],
+      },
+      chapters: {
+        career: {
+          ...chapter("career"),
+          careerIdeas: {
+            title: "paid-only career ideas should stay hidden while locked",
+            items: createStrengthItems("paid-only career idea"),
+          },
+        },
+        growth: chapter("growth"),
+        relationships: chapter("relationships"),
+      },
+      finalOffer: {
+        eyebrow: "完整报告",
+        headline: "继续解锁完整报告",
+        body: "查看完整报告后获得更细的结果。",
+        priceLabel: "¥199",
+        ctaLabel: "解锁完整报告",
+        guarantee: "安全支付",
+      },
+    },
+    assetSlots: [],
+    meta: {
+      authority_source: "personality_profile_variant_clone_contents",
+      route_mode: "full_code_exact",
+      public_route_type: "32-type",
+    },
+  };
 }
 
 function createMbtiAccessHubRaw(attemptId: string, orderNo: string): MbtiAccessHubV1Raw {
@@ -104,6 +277,7 @@ function createUnlockedFixture(): ReportResponse {
 describe("MBTI shell UI contract", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    vi.mocked(fetchPersonalityDesktopCloneContent).mockReturnValue(new Promise(() => {}));
     window.sessionStorage.clear();
   });
 
@@ -133,6 +307,33 @@ describe("MBTI shell UI contract", () => {
     expect(
       within(stickyRail).getByRole("link", { name: "解锁完整报告" })
     ).toHaveAttribute("href", "#mbti-desktop-offer-full");
+  });
+
+  it("loads public desktop clone storage on locked MBTI results without leaking paid-only blocks", async () => {
+    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createPublicIsfpTDesktopClonePayload());
+
+    render(<RichResultReport locale="zh" reportData={createLockedIsfpTProjectionFixture()} />);
+
+    await waitFor(() => {
+      expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("ISFP-T", "zh");
+    });
+
+    expect(await screen.findByText("ISFP-T public storage intro one")).toBeInTheDocument();
+    expect(screen.getByText("career public intro one")).toBeInTheDocument();
+    expect(screen.getByText("growth public intro one")).toBeInTheDocument();
+    expect(screen.getByText("relationships public intro one")).toBeInTheDocument();
+    expect(screen.getByText("career trait one")).toBeInTheDocument();
+    expect(screen.getByText("growth trait one")).toBeInTheDocument();
+    expect(screen.getByText("relationships trait one")).toBeInTheDocument();
+
+    expect(screen.queryByText(/第一段简介用于保留桌面概览位/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/职业章节第一段/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/成长章节第一段/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/关系章节第一段/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/Placeholder trait slot/)).not.toBeInTheDocument();
+    expect(screen.queryByText("paid-only career ideas should stay hidden while locked")).not.toBeInTheDocument();
+    expect(screen.queryByText("paid-only career idea 1")).not.toBeInTheDocument();
+    expect(getPrimaryByTestId("mbti-offer-comparison")).toBeInTheDocument();
   });
 
   it("renders the unlocked workspace in the main offer slot", () => {
