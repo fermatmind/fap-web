@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useSyncExternalStore } from "react";
 import { useLocale } from "@/components/i18n/LocaleContext";
 import { COOKIE_BANNER_ENABLED } from "@/components/layout/siteChromeRules";
 import { Button } from "@/components/ui/button";
@@ -8,17 +8,37 @@ import { getConsent, setAnalyticsConsent, type AnalyticsConsent } from "@/lib/co
 import { getDictSync } from "@/lib/i18n/getDict";
 
 type BannerConsent = AnalyticsConsent;
+type BannerSnapshot = BannerConsent | "pending";
+
+const CONSENT_UPDATED_EVENT = "fm:analytics-consent-updated";
+
+function subscribeConsentStore(onStoreChange: () => void) {
+  window.addEventListener(CONSENT_UPDATED_EVENT, onStoreChange);
+  window.addEventListener("storage", onStoreChange);
+
+  return () => {
+    window.removeEventListener(CONSENT_UPDATED_EVENT, onStoreChange);
+    window.removeEventListener("storage", onStoreChange);
+  };
+}
+
+function getConsentSnapshot(): BannerSnapshot {
+  return getConsent().analytics;
+}
+
+function getServerConsentSnapshot(): BannerSnapshot {
+  return "pending";
+}
 
 export function CookieBanner() {
   const locale = useLocale();
   const dict = getDictSync(locale);
-  const [consent, setConsent] = useState<BannerConsent>(() => getConsent().analytics);
+  const consent = useSyncExternalStore(subscribeConsentStore, getConsentSnapshot, getServerConsentSnapshot);
 
   const updateConsent = (next: Extract<BannerConsent, "granted" | "denied">) => {
     setAnalyticsConsent(next);
-    setConsent(next);
     window.dispatchEvent(
-      new CustomEvent("fm:analytics-consent-updated", {
+      new CustomEvent(CONSENT_UPDATED_EVENT, {
         detail: { analytics: next },
       })
     );

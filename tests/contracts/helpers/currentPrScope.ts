@@ -540,6 +540,14 @@ export function isGlobalEnZhContentPagesDiscoverabilityExposureImplementation01A
   return GLOBAL_EN_ZH_CONTENT_PAGES_DISCOVERABILITY_EXPOSURE_IMPLEMENTATION_01_ALLOWED_FILES.has(file);
 }
 
+const COOKIE_BANNER_HYDRATION_01_ALLOWED_FILES = new Set([
+  "components/legal/CookieBanner.tsx",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "tests/contracts/cookie-banner-gate.contract.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 const GLOBAL_EN_ZH_CONTENT_PAGES_DISCOVERABILITY_READINESS_TEST_FIX_ALLOWED_FILES = new Set([
   "tests/contracts/global-en-zh-content-pages-discoverability-exposure-readiness-01.contract.test.ts",
   "tests/contracts/helpers/currentPrScope.ts",
@@ -572,6 +580,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/global-en-zh-content-pages-frontend-runtime-repair-01") {
     return GLOBAL_EN_ZH_CONTENT_PAGES_FRONTEND_RUNTIME_REPAIR_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/cookie-banner-hydration-01") {
+    return COOKIE_BANNER_HYDRATION_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/global-en-zh-footer-nav-parity-01") {

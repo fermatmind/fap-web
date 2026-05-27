@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-28T01:18:25+08:00",
+  "updated_at": "2026-05-28T07:44:52+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -11384,6 +11384,77 @@
           "at": "2026-05-28T01:18:25+08:00",
           "status": "pr_opened",
           "summary": "Opened fap-web PR #919 after successful local validation; waiting for GitHub required checks."
+        }
+      ]
+    },
+    {
+      "id": "COOKIE-BANNER-HYDRATION-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/cookie-banner-hydration-01",
+      "base": "main",
+      "depends_on": [],
+      "status": "pr_opened",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/920",
+      "commit_sha": "e23da929",
+      "merge_sha": null,
+      "title": "fix(consent): make cookie banner hydration-safe",
+      "artifacts": [
+        "components/legal/CookieBanner.tsx",
+        "tests/contracts/cookie-banner-gate.contract.test.tsx",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "focused_contract": {
+          "command": "pnpm exec vitest run tests/contracts/cookie-banner-gate.contract.test.tsx",
+          "status": "passed"
+        },
+        "typecheck": {
+          "command": "pnpm typecheck",
+          "status": "passed"
+        },
+        "build": {
+          "command": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+          "status": "passed"
+        },
+        "test_contract": {
+          "command": "pnpm test:contract",
+          "status": "passed"
+        },
+        "manifest_state_parse": "passed",
+        "scope_validation": "passed",
+        "diff_check": "passed",
+        "lint": {
+          "command": "pnpm lint .",
+          "status": "passed_with_pre_existing_warnings"
+        }
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-05-28T07:26:54+08:00",
+          "status": "in_progress",
+          "summary": "User authorized COOKIE-BANNER-HYDRATION-01 as a scoped fap-web PR. Scope is limited to cookie banner hydration-safe rendering, focused consent contract coverage, current PR scope helper, and PR-train metadata. Footer/nav parity is deferred to GLOBAL-EN-ZH-FOOTER-NAV-PARITY-02."
+        },
+        {
+          "at": "2026-05-28T07:34:29+08:00",
+          "status": "local_checks_passed",
+          "summary": "Cookie banner now renders only after client hydration reads browser consent state. Focused contract, typecheck, production API build, full contract suite, JSON/YAML parse, scope validation, and git diff checks passed. Build-generated public/sitemap.xml drift was restored out of scope."
+        },
+        {
+          "at": "2026-05-28T07:38:10+08:00",
+          "status": "pr_opened",
+          "summary": "Opened fap-web PR #920 after successful local validation; waiting for GitHub required checks."
+        },
+        {
+          "at": "2026-05-28T07:44:52+08:00",
+          "status": "ci_fix_local_checks_passed",
+          "summary": "Reworked the hydration guard to use useSyncExternalStore after GitHub build lint rejected synchronous setState in an effect. Focused contract, lint, typecheck, production API build, full contract suite, JSON/YAML parse, scope validation, and diff checks passed locally."
         }
       ]
     }
