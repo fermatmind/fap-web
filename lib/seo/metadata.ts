@@ -26,6 +26,8 @@ type BuildPageMetadataInput = {
   description: string;
   imagePath?: string;
   noindex?: boolean;
+  noindexFollow?: boolean;
+  omitLanguageAlternates?: boolean;
   seoSurface?: SeoSurfaceViewModel | null;
   explicitIndexGate?: ExplicitIndexGate | null;
   alternatesByLocale: {
@@ -260,27 +262,31 @@ export function buildPageMetadata(input: BuildPageMetadataInput): Metadata {
     input.seoSurface?.twitter?.image,
     image ? toAbsoluteUrl(image) : undefined,
   );
+  const languageAlternates = input.omitLanguageAlternates
+    ? undefined
+    : {
+        en: toAbsoluteUrl(alternates.en || input.alternatesByLocale.en),
+        "zh-CN": toAbsoluteUrl(alternates["zh-CN"] || input.alternatesByLocale.zh),
+        "x-default": toAbsoluteUrl(xDefaultPath),
+      };
+  const noindexFollow = input.noindexFollow === true;
 
   return {
     title,
     description,
     alternates: {
       canonical,
-      languages: {
-        en: toAbsoluteUrl(alternates.en || input.alternatesByLocale.en),
-        "zh-CN": toAbsoluteUrl(alternates["zh-CN"] || input.alternatesByLocale.zh),
-        "x-default": toAbsoluteUrl(xDefaultPath),
-      },
+      languages: languageAlternates,
     },
     robots: noindex
       ? {
           index: false,
-          follow: false,
+          follow: noindexFollow,
           nocache: true,
           noarchive: true,
           googleBot: {
             index: false,
-            follow: false,
+            follow: noindexFollow,
             noarchive: true,
             nocache: true,
           },

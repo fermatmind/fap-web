@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDown, Menu, Search, UserRound, X } from "lucide-react";
+import { ChevronDown, Menu, Search, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -18,6 +18,7 @@ import {
   type HeaderNavKey,
 } from "@/lib/navigation/headerDropdownMenus";
 import type { ProductPriorityEnvSnapshot } from "@/lib/rollout/scaleRollout";
+import { shouldDisableLocaleSwitchLinks } from "@/lib/seo/seoHoldlistRoutes";
 import { cn } from "@/lib/utils";
 
 function shouldHideNavItem(
@@ -61,6 +62,7 @@ export function SiteHeader({
   const targetLocale = locale === "zh" ? "en" : "zh";
   const localeHref = toggleLocalePath(pathname, targetLocale);
   const localeLabel = targetLocale === "zh" ? dict.lang.zh_label : dict.lang.en_label;
+  const disableLocaleSwitchLinks = shouldDisableLocaleSwitchLinks(pathname);
   const priorityFlags: ProductPriorityEnvSnapshot = useMemo(
     () =>
       productPriority ?? {
@@ -347,15 +349,6 @@ export function SiteHeader({
               >
                 <Search className="h-4 w-4" />
               </Link>
-              <Link
-                href={withLocale("/results/lookup")}
-                prefetch={false}
-                className="inline-flex h-11 min-h-[44px] min-w-[112px] shrink-0 items-center justify-center gap-1 rounded-full border border-white/25 bg-white/10 px-3.5 text-[13px] font-semibold text-white transition hover:bg-white/20 whitespace-nowrap xl:min-w-[120px] xl:px-4 xl:text-sm"
-              >
-                <UserRound className="h-4 w-4" />
-                <span>{dict.header.profile}</span>
-              </Link>
-
               <LocaleSwitcher />
 
               <Link
@@ -470,17 +463,19 @@ export function SiteHeader({
                   <span>{dict.header.search}</span>
                 </Link>
 
-                <Link
-                  href={localeHref}
-                  prefetch={false}
-                  onClick={() => {
-                    persistLocalePreference();
-                    handleMobileLinkClick();
-                  }}
-                  className="flex min-h-[44px] items-center rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
-                >
-                  {localeLabel}
-                </Link>
+                {disableLocaleSwitchLinks ? null : (
+                  <Link
+                    href={localeHref}
+                    prefetch={false}
+                    onClick={() => {
+                      persistLocalePreference();
+                      handleMobileLinkClick();
+                    }}
+                    className="flex min-h-[44px] items-center rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
+                  >
+                    {localeLabel}
+                  </Link>
+                )}
               </nav>
             </div>
 
@@ -493,15 +488,6 @@ export function SiteHeader({
                   onClick={handleMobileLinkClick}
                 >
                   {dict.header.start}
-                </Link>
-                <Link
-                  href={withLocale("/results/lookup")}
-                  prefetch={false}
-                  onClick={handleMobileLinkClick}
-                  className="inline-flex h-11 min-h-[44px] flex-1 items-center justify-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 text-sm font-semibold text-white transition hover:bg-white/20"
-                >
-                  <UserRound className="h-4 w-4" />
-                  <span>{dict.header.profile}</span>
                 </Link>
               </div>
             </div>

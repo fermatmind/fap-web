@@ -90,6 +90,7 @@ import {
   buildWebPageJsonLd,
 } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
+import { isClinicalDepressionPendingSlug } from "@/lib/seo/seoHoldlistRoutes";
 import { resolveTestDetailAuthority } from "@/lib/seo/testDetailAuthority";
 import { formatCardTitleForUi } from "@/lib/ui/testTitleDisplay";
 
@@ -627,6 +628,7 @@ export async function generateMetadata({
   const seoTitle = toStringValue(lookup?.seo_title);
   const seoDescription = toStringValue(lookup?.seo_description);
   const ogImageAuthority = toStringValue(lookup?.og_image_url);
+  const isClinicalDepressionPending = isClinicalDepressionPendingSlug(test.slug);
   const metadataAuthority = resolveTestDetailAuthority({
     slug: test.slug,
     hasSeoTitle: seoTitle.length > 0,
@@ -641,7 +643,8 @@ export async function generateMetadata({
   const title = seoTitle || (metadataAuthority.metadata.allowed ? localizedTestTitle : test.slug);
   const description = seoDescription || (metadataAuthority.metadata.allowed ? test.description : "");
   const ogImage = ogImageAuthority || (metadataAuthority.metadata.allowed ? test.cover_image : "");
-  const forcedNoindex = lookup?.is_indexable === false || metadataAuthority.shouldNoindexMissingMetadataAuthority;
+  const forcedNoindex =
+    isClinicalDepressionPending || lookup?.is_indexable === false || metadataAuthority.shouldNoindexMissingMetadataAuthority;
 
   return buildPageMetadata({
     locale,
@@ -652,6 +655,8 @@ export async function generateMetadata({
     description,
     imagePath: ogImage,
     noindex: forcedNoindex,
+    noindexFollow: isClinicalDepressionPending,
+    omitLanguageAlternates: isClinicalDepressionPending,
     alternatesByLocale: {
       en: alternates.en,
       zh: alternates.zh,

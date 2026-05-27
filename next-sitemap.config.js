@@ -13,6 +13,7 @@ const {
   CMS_LOCALES,
   HIDDEN_PUBLIC_TEST_ENTRY_SLUGS,
   NON_PAGE_ROUTE_EXCLUDES,
+  isP0SitemapAllowlistedPath,
   SITEMAP_FINAL_PATH_DENY_PATTERNS,
   SITEMAP_ROUTE_EXCLUDES,
   buildStaticGeneratedPaths,
@@ -167,6 +168,7 @@ function shouldKeepBackendSitemapPersonalityDetailPath(path) {
 
 function shouldIncludeGeneratedSitemapPath(path, explicitGate) {
   const normalized = normalizePath(path);
+  if (!isP0SitemapAllowlistedPath(normalized)) return false;
   if (isForbiddenFinalSitemapPath(normalized) && !(isCareerJobDetailPath(normalized) && explicitGate?.indexEligible === true)) {
     return false;
   }

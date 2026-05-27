@@ -33,30 +33,45 @@ export function SiteFooter() {
   const footerGroupTitles = dict.footer.groupTitles;
 
   const testLinks = filterVisiblePublicTestEntries([
+    { href: "/tests", label: dict.footer.allTestsTitle },
     { href: "/tests/mbti-personality-test-16-personality-types", label: "MBTI" },
     { href: "/tests/big-five-personality-test-ocean-model", label: "Big Five" },
-    { href: "/tests/clinical-depression-anxiety-assessment-professional-edition", label: "Clinical Combo" },
-    { href: "/tests/depression-screening-test-standard-edition", label: "SDS-20" },
+    { href: "/tests/enneagram-personality-test-nine-types", label: locale === "zh" ? "九型人格" : "Enneagram" },
+    { href: "/tests/holland-career-interest-test-riasec", label: locale === "zh" ? "霍兰德 RIASEC" : "RIASEC" },
     { href: "/tests/iq-test-intelligence-quotient-assessment", label: "IQ" },
     { href: "/tests/eq-test-emotional-intelligence-assessment", label: "EQ" },
   ]);
 
   const articleLinks =
     locale === "zh"
-      ? [{ href: "/articles", label: "全部文章" }]
-      : [{ href: "/articles", label: "All articles" }];
+      ? [
+          { href: "/articles", label: "全部文章" },
+          { href: "/personality", label: "人格" },
+          { href: "/career", label: "职业" },
+        ]
+      : [
+          { href: "/articles", label: "All articles" },
+          { href: "/personality", label: "Personality" },
+          { href: "/career", label: "Career" },
+        ];
   const companyLinks: FooterLinkItem[] =
     locale === "zh"
-      ? [
-          { href: "/about", label: "关于我们" },
-          { href: "/charter", label: "我们的宪章" },
-          { href: "/foundation", label: "基金会" },
-          { href: "/careers", label: "工作机会" },
-          { href: "/brand", label: "品牌" },
-        ]
+      ? [{ href: "/about", label: "关于我们" }]
       : [{ href: "/about", label: "About" }];
   const policyLinks: FooterLinkItem[] =
-    [];
+    locale === "zh"
+      ? [
+          { href: "/support", label: dict.footer.support },
+          { href: "/privacy", label: dict.footer.privacy },
+          { href: "/terms", label: dict.footer.terms },
+          { href: "/method-boundaries", label: "方法边界" },
+        ]
+      : [
+          { href: "/support", label: dict.footer.support },
+          { href: "/privacy", label: dict.footer.privacy },
+          { href: "/terms", label: dict.footer.terms },
+          { href: "/method-boundaries", label: "Method boundaries" },
+        ];
   const footerGroups: FooterGroup[] = [
     { key: "tests", title: footerGroupTitles.tests, links: testLinks },
     { key: "articles", title: footerGroupTitles.articles, links: articleLinks },

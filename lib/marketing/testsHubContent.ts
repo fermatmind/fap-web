@@ -191,6 +191,14 @@ function assertCategoryContent(value: unknown, slug: TestsCategorySlug): Categor
   return {
     ...content,
     slug,
+    featured: {
+      ...content.featured,
+      items: filterVisiblePublicTestEntries(content.featured.items ?? []),
+    },
+    allTests: {
+      ...content.allTests,
+      items: filterVisiblePublicTestEntries(content.allTests.items ?? []),
+    },
   };
 }
 
@@ -215,7 +223,22 @@ export function listTestsCategorySlugs(): TestsCategorySlug[] {
 
 export async function getTestsHubContent(locale: Locale): Promise<TestsHubContent> {
   const surface = await getCmsLandingSurfaceWithLastKnownGood<TestsHubContent>("tests", locale);
-  return assertHubContent(surface.value.payloadJson);
+  const content = assertHubContent(surface.value.payloadJson);
+
+  return {
+    ...content,
+    quickStart: {
+      ...content.quickStart,
+      items: filterVisiblePublicTestEntries(content.quickStart.items ?? []),
+    },
+    families: {
+      ...content.families,
+      items: content.families.items.map((family) => ({
+        ...family,
+        tests: filterVisiblePublicTestEntries(family.tests ?? []),
+      })),
+    },
+  };
 }
 
 export async function getTestsCategoryContent(locale: Locale, slug: TestsCategorySlug): Promise<CategoryContent> {

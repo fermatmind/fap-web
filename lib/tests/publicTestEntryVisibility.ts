@@ -1,9 +1,9 @@
+import { isClinicalDepressionPendingSlug } from "@/lib/seo/seoHoldlistRoutes";
+
 export const HIDDEN_PUBLIC_TEST_ENTRY_SLUGS = [
   "clinical-depression-anxiety-assessment-professional-edition",
   "depression-screening-test-standard-edition",
 ] as const;
-
-const hiddenPublicTestEntrySlugSet = new Set<string>(HIDDEN_PUBLIC_TEST_ENTRY_SLUGS);
 
 function normalizeSlug(value: string | null | undefined): string | null {
   const normalized = String(value ?? "").trim().toLowerCase();
@@ -29,7 +29,7 @@ export function isPublicTestEntryVisible(input: {
     return true;
   }
 
-  return !hiddenPublicTestEntrySlugSet.has(slug);
+  return !isClinicalDepressionPendingSlug(slug);
 }
 
 export function filterVisiblePublicTestEntries<T extends { href?: string | null; slug?: string | null; key?: string | null }>(
