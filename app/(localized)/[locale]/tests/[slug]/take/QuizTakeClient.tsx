@@ -661,7 +661,7 @@ function QuizTakeInner({
               scaleCode,
               formCode: resolvedFormCode,
               anonId,
-              ...(isRiasecScale ? { locale: toApiLocale(locale) } : {}),
+              locale: toApiLocale(locale),
             })
           );
 
@@ -760,7 +760,7 @@ function QuizTakeInner({
                 scaleCode,
                 formCode: resolvedFormCode,
                 anonId,
-                ...(isRiasecScale ? { locale: toApiLocale(locale) } : {}),
+                locale: toApiLocale(locale),
                 meta: {
                   ...(entryContext.entrySurface ? { entry_surface: entryContext.entrySurface } : {}),
                   ...(entryContext.sourcePageType ? { source_page_type: entryContext.sourcePageType } : {}),

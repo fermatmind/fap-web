@@ -291,6 +291,7 @@ describe("MBTI take attribution contract", () => {
         scaleCode: "MBTI",
         formCode: "mbti_144",
         anonId: "anon_take_test",
+        locale: "en",
       });
     });
 
@@ -301,6 +302,7 @@ describe("MBTI take attribution contract", () => {
         scaleCode: "MBTI",
         formCode: "mbti_144",
         anonId: "anon_take_test",
+        locale: "en",
         meta: {
           entry_surface: "mbti_personality_detail",
           source_page_type: "personality_detail",
@@ -334,6 +336,7 @@ describe("MBTI take attribution contract", () => {
         scaleCode: "MBTI",
         formCode: "mbti_144",
         anonId: "anon_take_test",
+        locale: "en",
       });
     });
 
@@ -389,6 +392,7 @@ describe("MBTI take attribution contract", () => {
         scaleCode: "MBTI",
         formCode: "mbti_93",
         anonId: "anon_take_test",
+        locale: "en",
       });
     });
 
@@ -399,6 +403,7 @@ describe("MBTI take attribution contract", () => {
         scaleCode: "MBTI",
         formCode: "mbti_93",
         anonId: "anon_take_test",
+        locale: "en",
       }));
     });
   });
@@ -523,6 +528,7 @@ describe("MBTI take attribution contract", () => {
       scaleCode: "MBTI",
       formCode: "mbti_144",
       anonId: "anon_take_test",
+      locale: "en",
       meta: {
         entry_surface: "mbti_personality_detail",
         source_page_type: "personality_detail",
@@ -587,6 +593,7 @@ describe("MBTI take attribution contract", () => {
       scaleCode: "MBTI",
       formCode: "mbti_144",
       anonId: "anon_take_test",
+      locale: "en",
     }));
   });
 

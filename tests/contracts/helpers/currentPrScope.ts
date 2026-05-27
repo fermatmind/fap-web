@@ -307,6 +307,15 @@ const MBTI_RESULT_DESKTOP_CLONE_STORAGE_HYDRATION_01_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const TAKE_FRONTEND_LOCALE_CONTRACT_04_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient.tsx",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/mbti-take-attribution.contract.test.tsx",
+  "tests/contracts/take-frontend-locale-contract.contract.test.ts",
+]);
+
 const PR_WEB_SEC_27_ALLOWED_FILES = new Set([
   "components/layout/SiteFooter.tsx",
   "docs/codex/pr-train.yaml",
@@ -710,6 +719,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
       MBTI_RESULT_DESKTOP_CLONE_STORAGE_HYDRATION_01_ALLOWED_FILES.has(file) ||
       GLOBAL_EN_ZH_CONTENT_PAGES_DISCOVERABILITY_EXPOSURE_IMPLEMENTATION_01_ALLOWED_FILES.has(file)
     );
+  }
+
+  if (CURRENT_BRANCH === "codex/take-frontend-locale-contract-04") {
+    return TAKE_FRONTEND_LOCALE_CONTRACT_04_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-web-sec-27-footer-qr-toggle") {
