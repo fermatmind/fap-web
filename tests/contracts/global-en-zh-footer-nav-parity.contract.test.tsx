@@ -15,20 +15,12 @@ const KNOWN_MISSING_CONTENT_HELP_POLICY_PATHS = [
   "/zh/help/contact",
   "/zh/help/faq",
   "/zh/help/for-business-and-research",
-  "/en/method-boundaries",
-  "/zh/method-boundaries",
   "/en/brand",
   "/en/careers",
   "/en/charter",
   "/en/foundation",
   "/en/policies",
   "/zh/policies",
-  "/en/privacy",
-  "/zh/privacy",
-  "/en/support",
-  "/zh/support",
-  "/en/terms",
-  "/zh/terms",
 ];
 
 function collectFooterHrefs(locale: "en" | "zh"): string[] {

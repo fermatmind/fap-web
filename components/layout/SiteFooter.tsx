@@ -56,7 +56,10 @@ export function SiteFooter() {
         ];
   const companyLinks: FooterLinkItem[] =
     locale === "zh"
-      ? [{ href: "/about", label: "关于我们" }]
+      ? [
+          { href: "/about", label: "关于我们" },
+          { href: "/careers", label: "工作机会" },
+        ]
       : [{ href: "/about", label: "About" }];
   const policyLinks: FooterLinkItem[] =
     locale === "zh"
