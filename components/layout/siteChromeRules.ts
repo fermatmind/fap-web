@@ -1,1 +1,1 @@
-export const COOKIE_BANNER_ENABLED = false;
+export const COOKIE_BANNER_ENABLED = true;
