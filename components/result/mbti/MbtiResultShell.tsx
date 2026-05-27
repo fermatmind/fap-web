@@ -33,6 +33,7 @@ import {
 } from "@/lib/api/v0_3";
 import {
   fetchPersonalityDesktopCloneContent,
+  normalizeDesktopCloneTypeSlug,
   type PersonalityDesktopCloneAssetSlot,
 } from "@/lib/cms/personality-desktop-clone";
 import { buildOrderWaitPath, regionFromLocale, resolveCheckoutAction } from "@/lib/commerce/checkoutAction";
@@ -734,6 +735,7 @@ export function MbtiResultShell({
     () => normalizeText(publicHeadline.typeCode, projectionViewModel?.displayType).toUpperCase() || "MBTI",
     [publicHeadline.typeCode, projectionViewModel?.displayType],
   );
+  const canLoadPublicDesktopCloneStorage = locale === "zh" && Boolean(normalizeDesktopCloneTypeSlug(fullCodeForStorage));
   const [desktopCloneSnapshot, setDesktopCloneSnapshot] = useState<{
     locale: Locale;
     fullCode: string;
@@ -741,7 +743,7 @@ export function MbtiResultShell({
     assetSlots: PersonalityDesktopCloneAssetSlot[];
   } | null>(null);
   const activeDesktopCloneSnapshot =
-    isUnlockedPostPurchase
+    canLoadPublicDesktopCloneStorage
     && desktopCloneSnapshot
     && desktopCloneSnapshot.locale === locale
     && desktopCloneSnapshot.fullCode === fullCodeForStorage
@@ -1649,7 +1651,7 @@ export function MbtiResultShell({
   useEffect(() => {
     let active = true;
 
-    if (locale !== "zh" || !isUnlockedPostPurchase) {
+    if (!canLoadPublicDesktopCloneStorage) {
       return () => {
         active = false;
       };
@@ -1670,7 +1672,7 @@ export function MbtiResultShell({
     return () => {
       active = false;
     };
-  }, [fullCodeForStorage, isUnlockedPostPurchase, locale]);
+  }, [canLoadPublicDesktopCloneStorage, fullCodeForStorage, locale]);
 
   const supplementaryNodes = auxiliaryCtaEntries.map((entry) =>
     entry.key === "career_bridge" ? (
@@ -1799,7 +1801,7 @@ export function MbtiResultShell({
         storageContentOverride={activeDesktopCloneSnapshot?.content ?? null}
         storageAssetSlotsOverride={activeDesktopCloneSnapshot?.assetSlots ?? []}
         storageManagedExternally
-        canLoadDesktopCloneStorage={isUnlockedPostPurchase}
+        canLoadDesktopCloneStorage={canLoadPublicDesktopCloneStorage}
       />
     </div>
   );

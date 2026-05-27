@@ -28,6 +28,13 @@ vi.mock("@/lib/analytics", () => ({
 
 vi.mock("@/lib/cms/personality-desktop-clone", () => ({
   fetchPersonalityDesktopCloneContent: vi.fn(async () => null),
+  normalizeDesktopCloneTypeSlug: (fullCode: string | null | undefined) => {
+    if (!fullCode || !/^[IE][NS][TF][JP]-[AT]$/i.test(fullCode)) {
+      return null;
+    }
+
+    return fullCode.toLowerCase();
+  },
 }));
 
 function getPrimaryByTestId(testId: string): HTMLElement {
@@ -452,7 +459,7 @@ describe("RichResultReport", () => {
     });
   });
 
-  it("does not request desktop clone storage for locked MBTI results", async () => {
+  it("requests public desktop clone storage for locked MBTI results without leaking paid-only blocks", async () => {
     const reportData = createProjectionReportFixture();
     const projection = reportData.mbti_public_projection_v1 as Record<string, unknown>;
 
@@ -466,10 +473,17 @@ describe("RichResultReport", () => {
       expect(screen.getByTestId("mbti-desktop-clone-shell")).toBeInTheDocument();
     });
 
-    expect(fetchPersonalityDesktopCloneContent).not.toHaveBeenCalled();
-    expect(getDesktopHero()).not.toHaveTextContent("desktop clone hero summary");
-    expect(screen.queryByText("list title 1")).not.toBeInTheDocument();
-    expect(screen.queryByText("主人公型")).not.toBeInTheDocument();
+    await waitFor(() => {
+      expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("ENFJ-T", "zh");
+    });
+
+    expect(getDesktopHero()).toHaveTextContent("desktop clone hero summary");
+    expect(getDesktopHero()).toHaveTextContent("主人公型");
+    expect(screen.getByText("career intro 1")).toBeInTheDocument();
+    expect(screen.getAllByText("trait 1").length).toBeGreaterThan(0);
+    expect(screen.queryByText("career locked 1")).not.toBeInTheDocument();
+    expect(screen.queryByText("growth locked 1")).not.toBeInTheDocument();
+    expect(screen.queryByText("relationships locked 1")).not.toBeInTheDocument();
   });
 
   it("prefers mbti_preview_v1 over raw section scraping for MBTI preview chapters", () => {

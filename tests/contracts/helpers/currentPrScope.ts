@@ -298,6 +298,15 @@ const PR_WEB_SEC_26_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const MBTI_RESULT_DESKTOP_CLONE_STORAGE_HYDRATION_01_ALLOWED_FILES = new Set([
+  "components/result/mbti/MbtiResultShell.tsx",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "tests/contracts/mbti-shell-ui.contract.test.tsx",
+  "tests/contracts/rich-result-report.contract.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 const PR_WEB_SEC_27_ALLOWED_FILES = new Set([
   "components/layout/SiteFooter.tsx",
   "docs/codex/pr-train.yaml",
@@ -690,6 +699,13 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/pr-web-sec-26-mbti-score-pct-fallback") {
     return PR_WEB_SEC_26_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/mbti-result-desktop-clone-storage-hydration-01") {
+    return (
+      MBTI_RESULT_DESKTOP_CLONE_STORAGE_HYDRATION_01_ALLOWED_FILES.has(file) ||
+      GLOBAL_EN_ZH_CONTENT_PAGES_DISCOVERABILITY_EXPOSURE_IMPLEMENTATION_01_ALLOWED_FILES.has(file)
+    );
   }
 
   if (CURRENT_BRANCH === "codex/pr-web-sec-27-footer-qr-toggle") {

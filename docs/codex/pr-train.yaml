@@ -7387,3 +7387,59 @@ prs:
       - Content page robots metadata remains tied to CMS page.isIndexable.
       - No CMS mutation, deploy, Search Channel action, URL submission, external search API call, env/DNS/nginx edit, or frontend fallback content is introduced.
     rollback_note: "Revert the frontend discoverability exposure changes if sitemap, llms, footer, or content page robots behavior regresses."
+
+  - id: MBTI-RESULT-DESKTOP-CLONE-STORAGE-HYDRATION-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/mbti-result-desktop-clone-storage-hydration-01
+    base: main
+    depends_on: []
+    mode: execute
+    train_scope: mbti_result_desktop_clone_storage_hydration
+    risk_level: scoped_result_rendering_contract
+    status: in_progress
+    title: "fix(mbti): hydrate desktop clone content on locked results"
+    goal: "Allow locked ZH MBTI result pages to load backend public/redacted desktop clone content so public chapter intro and trait slots render from authority instead of placeholder copy, while paid-only modules remain gated."
+    in_scope:
+      - components/result/mbti/MbtiResultShell.tsx
+      - tests/contracts/mbti-shell-ui.contract.test.tsx
+      - tests/contracts/rich-result-report.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - backend or CMS mutation
+      - content asset authoring or media asset replacement
+      - production deploy
+      - Search Channel enqueue or URL submission
+      - external search API calls
+      - env, DNS, or nginx edits
+      - paid content exposure or checkout behavior changes
+      - frontend editorial fallback content
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/mbti-shell-ui.contract.test.tsx
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      changed_files_must_match:
+        - components/result/mbti/MbtiResultShell.tsx
+        - tests/contracts/mbti-shell-ui.contract.test.tsx
+        - tests/contracts/rich-result-report.contract.test.tsx
+        - tests/contracts/helpers/currentPrScope.ts
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Locked ZH MBTI result pages fetch backend public/redacted desktop clone content for valid fullCode values.
+      - Public chapter intro and influential trait slots render from storage content instead of placeholder copy.
+      - Paid-only modules and post-purchase surfaces remain gated by unlock state.
+      - No backend/CMS mutation, media asset authoring, deploy, Search Channel action, URL submission, external search API call, env/DNS/nginx edit, or frontend editorial fallback content is introduced.
+    rollback_note: "Revert the MBTI result hydration and focused contract changes if locked result pages regress or paid-only content exposure changes."
