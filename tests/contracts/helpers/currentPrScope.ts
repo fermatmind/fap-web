@@ -499,6 +499,11 @@ const GLOBAL_EN_ZH_CONTENT_PAGES_DISCOVERABILITY_EXPOSURE_READINESS_01_ALLOWED_F
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const GLOBAL_EN_ZH_CONTENT_PAGES_DISCOVERABILITY_READINESS_TEST_FIX_ALLOWED_FILES = new Set([
+  "tests/contracts/global-en-zh-content-pages-discoverability-exposure-readiness-01.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 const FRONTEND_CI_BUILD_TIMEOUT_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/professions/[code]/page.tsx",
   "lib/cms/career-guides.ts",
@@ -508,6 +513,10 @@ const FRONTEND_CI_BUILD_TIMEOUT_ALLOWED_FILES = new Set([
 ]);
 
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH === "codex/global-en-zh-content-pages-discoverability-readiness-test-fix") {
+    return GLOBAL_EN_ZH_CONTENT_PAGES_DISCOVERABILITY_READINESS_TEST_FIX_ALLOWED_FILES.has(file);
+  }
+
   if (CURRENT_BRANCH === "codex/global-en-zh-content-pages-discoverability-exposure-readiness-01") {
     return GLOBAL_EN_ZH_CONTENT_PAGES_DISCOVERABILITY_EXPOSURE_READINESS_01_ALLOWED_FILES.has(file);
   }
