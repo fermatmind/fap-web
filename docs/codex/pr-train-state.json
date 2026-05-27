@@ -11082,10 +11082,10 @@
       "branch": "codex/global-en-zh-content-pages-frontend-runtime-repair-01",
       "base": "main",
       "depends_on": [],
-      "status": "local_checks_passed",
+      "status": "pr_opened",
       "title": "fix(content-pages): repair public content page SSR API base",
-      "commit_sha": null,
-      "pr_url": null,
+      "commit_sha": "579efedbcba43ad94b93bbc2f3089e9d5ed84381",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/909",
       "checks": {
         "focused_contract": "passed",
         "typecheck": "passed",
@@ -11116,6 +11116,11 @@
           "at": "2026-05-27T16:22:30+08:00",
           "status": "local_checks_passed",
           "summary": "Focused API proxy contract, typecheck, production API env build, full contract suite, Big Five freeze, Enneagram freeze, manifest/state parse, scope validation, and git diff --check passed. Build-generated public/sitemap.xml drift was restored out of scope."
+        },
+        {
+          "at": "2026-05-27T16:24:20+08:00",
+          "status": "pr_opened",
+          "summary": "Opened fap-web PR #909 for GLOBAL-EN-ZH-CONTENT-PAGES-FRONTEND-RUNTIME-REPAIR-01 after successful local validation; waiting for GitHub required checks."
         }
       ]
     }
