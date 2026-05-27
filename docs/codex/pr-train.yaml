@@ -7500,3 +7500,57 @@ prs:
       - RIASEC locale behavior remains covered and RIASEC-only channel metadata stays scoped to RIASEC.
       - No backend/CMS mutation, question/content authoring, deploy, Search Channel action, URL submission, external search API call, env/DNS/nginx edit, or frontend editorial fallback content is introduced.
     rollback_note: "Revert the take client locale payload and focused contract changes if backend locale negotiation regresses."
+
+  - id: COOKIE-BANNER-HYDRATION-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/cookie-banner-hydration-01
+    base: main
+    depends_on: []
+    mode: execute
+    train_scope: global_ui_consent_hydration
+    risk_level: scoped_ui_hydration_fix
+    status: in_progress
+    title: "fix(consent): make cookie banner hydration-safe"
+    goal: "Prevent the cookie consent banner from rendering a clickable accept/decline surface before client hydration has read browser consent state, so early clicks cannot be dropped."
+    in_scope:
+      - components/legal/CookieBanner.tsx
+      - tests/contracts/cookie-banner-gate.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - footer or navigation parity
+      - analytics provider configuration
+      - backend or CMS mutation
+      - production deploy
+      - Search Channel enqueue or URL submission
+      - external search API calls
+      - env, DNS, or nginx edits
+      - frontend editorial fallback content
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/cookie-banner-gate.contract.test.tsx
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      changed_files_must_match:
+        - components/legal/CookieBanner.tsx
+        - tests/contracts/cookie-banner-gate.contract.test.tsx
+        - tests/contracts/helpers/currentPrScope.ts
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Cookie banner does not render before client hydration reads browser consent state.
+      - Accept stores granted analytics consent and hides the banner.
+      - Existing consented visitors do not see a transient clickable banner.
+      - No footer/nav parity, backend/CMS mutation, deploy, Search Channel action, URL submission, external search API call, env/DNS/nginx edit, or frontend editorial fallback content is introduced.
+    rollback_note: "Revert the cookie banner hydration guard and focused contract changes if consent banner rendering regresses."
