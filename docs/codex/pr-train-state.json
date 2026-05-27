@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-27T18:05:03+08:00",
+  "updated_at": "2026-05-27T18:07:53+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -11176,10 +11176,10 @@
       "depends_on": [
         "GLOBAL-EN-ZH-CONTENT-PAGES-DISCOVERABILITY-EXPOSURE-READINESS-01"
       ],
-      "status": "local_checks_passed",
+      "status": "pr_open",
       "title": "fix(seo): expose approved English content pages to discoverability surfaces",
-      "commit_sha": "a7bf10f94ad02976b4acf5ea785cafd1d6336f43",
-      "pr_url": null,
+      "commit_sha": "a7aca2ef6a98b7686d09114714761d965452c0be",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/912",
       "checks": {
         "focused_contracts": {
           "command": "pnpm exec vitest run tests/contracts/global-en-zh-content-pages-discoverability-exposure-implementation-01.contract.test.tsx tests/contracts/sitemap-indexability.contract.test.ts tests/contracts/global-en-zh-footer-nav-parity.contract.test.tsx tests/contracts/global-ui-i18n-batch-08.contract.test.tsx",
@@ -11247,6 +11247,11 @@
           "at": "2026-05-27T18:05:03+08:00",
           "status": "commit_amended",
           "summary": "Commit SHA recorded after amend: a7bf10f94ad02976b4acf5ea785cafd1d6336f43."
+        },
+        {
+          "at": "2026-05-27T18:07:53+08:00",
+          "status": "pr_open",
+          "summary": "Opened PR #912 for scoped fap-web discoverability exposure implementation."
         }
       ]
     }
