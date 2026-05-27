@@ -7200,3 +7200,56 @@ prs:
     acceptance:
       - Final report lists remaining P0/P1/P2, GO/NO-GO, and next task.
       - No production mutation or Search Channel action.
+
+  - id: GLOBAL-EN-ZH-CONTENT-PAGES-FRONTEND-RUNTIME-REPAIR-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/global-en-zh-content-pages-frontend-runtime-repair-01
+    base: main
+    depends_on: []
+    mode: execute
+    train_scope: global_en_zh_content_pages_publish_runtime
+    risk_level: p0_public_runtime_repair
+    status: in_progress
+    title: "fix(content-pages): repair public content page SSR API base"
+    goal: "Repair server-side public API base selection so published CMS content pages can render from backend authority when NEXT_PUBLIC_API_URL is absent, without adding frontend fallback content."
+    in_scope:
+      - lib/api-base.ts
+      - tests/contracts/api-proxy-routing.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - frontend editorial fallback content
+      - CMS mutation or publish
+      - sitemap, llms, footer, or nav exposure changes
+      - Search Channel enqueue or URL submission
+      - production deploy
+      - env, DNS, or nginx edits
+      - fap-api changes
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/api-proxy-routing.contract.test.ts
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      changed_files_must_match:
+        - lib/api-base.ts
+        - tests/contracts/api-proxy-routing.contract.test.ts
+        - tests/contracts/helpers/currentPrScope.ts
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Server-side public API fetches default to apex /api when NEXT_PUBLIC_API_URL is absent.
+      - Explicit NEXT_PUBLIC_API_URL continues to override the server-side API origin.
+      - Browser API calls continue using same-origin /api.
+      - No frontend CMS fallback content, sitemap/llms/footer/nav exposure, Search Channel action, URL submission, deploy, or CMS mutation is introduced.
+    rollback_note: "Revert the API base and contract changes if content page SSR or API proxy routing regresses."
