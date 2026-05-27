@@ -4,7 +4,7 @@ import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { LocaleProvider } from "@/components/i18n/LocaleContext";
 import { SiteFooter } from "@/components/layout/SiteFooter";
-import { isCurrentRiasecPack12AllowedFile } from "./helpers/currentPrScope";
+import { isGlobalEnZhContentPagesDiscoverabilityExposureImplementation01AllowedFile } from "./helpers/currentPrScope";
 
 const ROOT = process.cwd();
 const TARGET_PATHS = ["/en/brand", "/en/charter", "/en/foundation", "/en/careers", "/en/policies"];
@@ -93,7 +93,7 @@ describe("Wave 1 English content page discoverability exposure implementation", 
     ];
 
     for (const file of changedFiles) {
-      expect(isCurrentRiasecPack12AllowedFile(file), file).toBe(true);
+      expect(isGlobalEnZhContentPagesDiscoverabilityExposureImplementation01AllowedFile(file), file).toBe(true);
     }
   });
 });

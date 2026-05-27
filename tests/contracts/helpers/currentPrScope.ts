@@ -518,6 +518,10 @@ const GLOBAL_EN_ZH_CONTENT_PAGES_DISCOVERABILITY_EXPOSURE_IMPLEMENTATION_01_ALLO
   "tests/contracts/sitemap-indexability.contract.test.ts",
 ]);
 
+export function isGlobalEnZhContentPagesDiscoverabilityExposureImplementation01AllowedFile(file: string): boolean {
+  return GLOBAL_EN_ZH_CONTENT_PAGES_DISCOVERABILITY_EXPOSURE_IMPLEMENTATION_01_ALLOWED_FILES.has(file);
+}
+
 const GLOBAL_EN_ZH_CONTENT_PAGES_DISCOVERABILITY_READINESS_TEST_FIX_ALLOWED_FILES = new Set([
   "tests/contracts/global-en-zh-content-pages-discoverability-exposure-readiness-01.contract.test.ts",
   "tests/contracts/helpers/currentPrScope.ts",
