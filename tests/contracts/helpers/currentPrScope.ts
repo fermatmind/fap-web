@@ -540,7 +540,11 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
     return GLOBAL_EN_ZH_CONTENT_PAGES_DISCOVERABILITY_EXPOSURE_READINESS_01_ALLOWED_FILES.has(file);
   }
 
-  if (CURRENT_BRANCH === "codex/global-en-zh-content-pages-discoverability-exposure-implementation-01") {
+  if (
+    CURRENT_BRANCH === "main" ||
+    CURRENT_BRANCH === "codex/global-en-zh-content-pages-discoverability-exposure-implementation-01" ||
+    CURRENT_BRANCH === "codex/fix-global-en-zh-discoverability-exposure-contract"
+  ) {
     return GLOBAL_EN_ZH_CONTENT_PAGES_DISCOVERABILITY_EXPOSURE_IMPLEMENTATION_01_ALLOWED_FILES.has(file);
   }
 
