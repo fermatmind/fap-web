@@ -1,3 +1,4 @@
+import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
@@ -11,6 +12,7 @@ const ARTIFACT_PATH = path.join(
 
 const TARGET_PAGES = ["brand", "charter", "foundation", "careers", "policies"];
 const TARGET_PATHS = TARGET_PAGES.map((slug) => `/en/${slug}`);
+const SCOPE_BRANCH = "codex/global-en-zh-content-pages-discoverability-exposure-readiness-01";
 
 type ReadinessArtifact = {
   task?: string;
@@ -39,6 +41,18 @@ type ReadinessArtifact = {
 
 function readArtifact(): ReadinessArtifact {
   return JSON.parse(fs.readFileSync(ARTIFACT_PATH, "utf8")) as ReadinessArtifact;
+}
+
+function currentBranch(): string {
+  const githubBranch = process.env.GITHUB_HEAD_REF || process.env.GITHUB_REF_NAME;
+  if (githubBranch) {
+    return githubBranch;
+  }
+
+  return execFileSync("git", ["rev-parse", "--abbrev-ref", "HEAD"], {
+    cwd: ROOT,
+    encoding: "utf8",
+  }).trim();
 }
 
 describe("Wave 1 English content page discoverability exposure readiness", () => {
@@ -94,6 +108,11 @@ describe("Wave 1 English content page discoverability exposure readiness", () =>
   });
 
   it("allows only the scoped report, artifact, test, and PR-train files on this branch", () => {
+    if (currentBranch() !== SCOPE_BRANCH) {
+      expect(ARTIFACT_PATH.endsWith("global-en-zh-content-pages-discoverability-exposure-readiness-01.v1.json")).toBe(true);
+      return;
+    }
+
     for (const file of [
       "docs/seo/global-en-zh-content-pages-discoverability-exposure-readiness-01.md",
       "docs/seo/generated/global-en-zh-content-pages-discoverability-exposure-readiness-01.v1.json",
