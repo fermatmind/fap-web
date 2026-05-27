@@ -142,25 +142,25 @@ describe("depression entry visibility contract", () => {
     );
   });
 
-  it("keeps the clinical depression-anxiety homepage entry while excluding the standard screening shortcut", async () => {
+  it("removes both depression-related entries from homepage public exposure", async () => {
     for (const locale of ["zh", "en"] as const) {
       const hrefs = await collectHomeEntryHrefs(locale);
 
       expect(hrefs.some((href) => href.includes("depression-screening-test-standard-edition"))).toBe(false);
       expect(
         hrefs.some((href) => href.includes("clinical-depression-anxiety-assessment-professional-edition"))
-      ).toBe(true);
+      ).toBe(false);
     }
   });
 
-  it("keeps the tests hub emotion-state family with both depression-related detail entries", async () => {
+  it("keeps the tests hub emotion-state entry without depression-related detail links", async () => {
     for (const locale of ["zh", "en"] as const) {
       const content = await getTestsHubContent(locale);
       const emotionFamily = content.families.items.find((family) => family.id === "family-emotion-state");
       const emotionQuickStart = content.quickStart.items.find((item) => item.id === "emotion-state");
 
       expect(emotionQuickStart).toBeTruthy();
-      expect(emotionFamily?.tests.map((item) => item.key)).toEqual(
+      expect(emotionFamily?.tests.map((item) => item.key)).not.toEqual(
         expect.arrayContaining([
           "depression-screening-test-standard-edition",
           "clinical-depression-anxiety-assessment-professional-edition",

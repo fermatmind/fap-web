@@ -105,7 +105,7 @@ Career/jobs remains unchanged from P0.1 and is not part of P0.2.
 | Check | Evidence | Result |
 |---|---|---|
 | Footer holdlist | `/`, `/en`, `/zh/tests`, `/en/tests`, `/zh/articles`, `/en/articles` rendered footers contain no clinical/depression, science, results, refund, business holdlist, or English trust 404 links. | PASS |
-| Sitemap forbidden inclusion | `public/sitemap.xml` has 32 URLs; `forbiddenInSitemap: []`, `not200: []`, `redirects: []`, `noindex: []`. | PASS |
+| Sitemap forbidden inclusion | `public/sitemap.xml` retains the 261 URL backend-authoritative inventory snapshot; forbidden clinical/depression, results/lookup, redirect source, science/refund/business holdlist entries are absent. | PASS |
 | Root redirects | `/privacy`, `/terms`, `/help`, `/zh/help`, `/en/help` deterministic under plain, English Accept-Language, Chinese Accept-Language, and Googlebot. | PASS |
 | Results route | `/results` redirects to lookup; `/results/lookup` is noindex, no sitemap/footer/header/language switch/hreflang. | PASS |
 | Git diff editorial copy | No new route pages, no clinical/IQ copy, no science/results/refund/business/API page, no forbidden schema. | PASS |

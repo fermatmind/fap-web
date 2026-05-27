@@ -111,31 +111,16 @@ Task mapping:
 
 ## 5. Sitemap Final State
 
-`public/sitemap.xml` contains 32 P0 allowlist URLs:
+`public/sitemap.xml` retains the existing backend-authoritative inventory snapshot and contains 261 URLs. P0.2 does not use local frontend content as authority; it preserves backend/CMS-authoritative dynamic detail URLs while applying P0 holdlist, redirect-source, private-route, robots, and high-risk pending gates.
 
-- `/`, `/en`
-- `/zh/tests`, `/en/tests`
-- `/zh/personality`, `/en/personality`
-- `/zh/career`, `/en/career`
-- `/zh/articles`, `/en/articles`
-- `/zh/about`, `/en/about`
-- `/zh/support`, `/en/support`
-- `/zh/privacy`, `/en/privacy`
-- `/zh/terms`, `/en/terms`
-- `/zh/method-boundaries`, `/en/method-boundaries`
-- `/zh/tests/mbti-personality-test-16-personality-types`, `/en/tests/mbti-personality-test-16-personality-types`
-- `/zh/tests/big-five-personality-test-ocean-model`, `/en/tests/big-five-personality-test-ocean-model`
-- `/zh/tests/enneagram-personality-test-nine-types`, `/en/tests/enneagram-personality-test-nine-types`
-- `/zh/tests/holland-career-interest-test-riasec`, `/en/tests/holland-career-interest-test-riasec`
-- `/zh/tests/iq-test-intelligence-quotient-assessment`, `/en/tests/iq-test-intelligence-quotient-assessment`
-- `/zh/tests/eq-test-emotional-intelligence-assessment`, `/en/tests/eq-test-emotional-intelligence-assessment`
+Sitemap includes P0 core public surfaces plus existing backend-authoritative dynamic surfaces such as article detail, topic detail, career guide detail, career job detail, personality detail, and approved test detail URLs.
 
 Confirmed absent from sitemap:
 
 - Redirect sources: `/privacy`, `/terms`, `/help`, `/zh/help`, `/en/help`
 - Results: `/zh/results`, `/en/results`, `/zh/results/lookup`, `/en/results/lookup`
 - Clinical/depression: `/zh/tests/clinical-depression-anxiety-assessment-professional-edition`, `/en/tests/clinical-depression-anxiety-assessment-professional-edition`, `/zh/tests/depression-screening-test-standard-edition`, `/en/tests/depression-screening-test-standard-edition`
-- Career jobs: `/zh/career/jobs`, `/en/career/jobs`
+- Career jobs index hubs: `/zh/career/jobs`, `/en/career/jobs`
 - English trust 404: `/en/charter`, `/en/brand`, `/en/foundation`, `/en/careers`, `/en/policies`
 - P1/P2 holdlist: `/science`, `/methodology`, `/reliability-validity`, `/refund-policy`, `/business/api`, `/business/team-assessment`, `/business/coaches`, `/business/research`
 

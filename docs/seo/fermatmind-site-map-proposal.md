@@ -34,7 +34,8 @@ P0 acceptance baseline：
 - 不新增前端硬编码正文。
 - 不新增 CMS 正文内容。
 - 不新增虚构作者、审稿人、评价、评分、价格、顾问、引用文献。
-- 所有新增链接必须来自 allowlist，或在 release gate 中证明 URL 已 200、indexable、canonical 正确且有 CMS/backend authority。
+- 所有新增 footer/header/global nav 链接必须来自 allowlist，或在 release gate 中证明 URL 已 200、indexable、canonical 正确且有 CMS/backend authority。
+- Sitemap 不使用前端正文作为 authority；除 P0 holdlist/noindex/redirect/private gate 外，保留既有 backend/CMS authority 枚举的动态详情页，例如 CMS 文章、topic、career guide、career job detail、personality detail。
 - noindex 页面不得进入 sitemap。
 - clinical/IQ 页面如果 indexable，必须 `review_completed=true` 才能进 sitemap。
 - clinical/IQ 页面如果 noindex 或 pending decision，不得进 sitemap，也不得进 footer/global nav。
@@ -43,7 +44,7 @@ P0 acceptance baseline：
 
 ### 1.1 P0 URL Allowlist
 
-P0 只允许把以下“已存在且 200/indexable”的页面作为 footer/global nav/sitemap 候选。实际发布前仍需逐 URL 验证 status、canonical、robots 和 sitemap 状态。
+P0 只允许把以下“已存在且 200/indexable”的页面作为 footer/global nav 候选和 sitemap seed 候选。实际发布前仍需逐 URL 验证 status、canonical、robots 和 sitemap 状态。该表不是完整 sitemap inventory；backend/CMS 已授权且非 holdlist 的动态详情页继续由 sitemap authority adapters 枚举。
 
 | URL | Locale | 类型 | P0 允许动作 | 备注 |
 |---|---|---|---|---|
@@ -71,6 +72,12 @@ P0 只允许把以下“已存在且 200/indexable”的页面作为 footer/glob
 | RIASEC test zh/en | zh,en | core test | footer/sitemap | 已存在且非高风险待审。 |
 | IQ test zh/en | zh,en | core test | footer/sitemap only if current page remains approved | IQ 属高风险能力结果页；P0 不新增强 claims。若后续扩展内容，必须 review。 |
 | EQ test zh/en | zh,en | core test | footer/sitemap | 已存在且非 clinical 待审。 |
+
+Sitemap contract note:
+
+- P0 不把 clinical/depression、results/lookup、redirect source、English trust 404、science/refund/business holdlist 放入 sitemap。
+- P0 不强行移除已有 backend-authoritative dynamic detail URLs；career job detail、personality detail、article detail、topic detail 等仍需经过 backend/CMS authority、robots/indexability 和 denylist gate。
+- `/zh/career/jobs`、`/en/career/jobs` index hub 是否进入 sitemap 仍是 pending decision；这不等同于禁止 backend-authoritative job detail URLs。
 
 ### 1.2 P0 Holdlist
 

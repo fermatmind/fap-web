@@ -17,7 +17,7 @@
 
 - `rg` 检查 footer 源码 forbidden URLs。
 - 抓取 `/`, `/en`, `/zh/tests`, `/en/tests`, `/zh/articles`, `/en/articles` rendered HTML 并解析 `<footer>` href。
-- 解析 `public/sitemap.xml` 全部 32 个 `<loc>`，逐 URL 请求本地 route，检查 status、redirect、robots、`X-Robots-Tag` 和 holdlist。
+- 解析 `public/sitemap.xml` 的 checked-in backend-authoritative URL inventory，检查 forbidden holdlist、redirect source、private route 和 clinical/depression pending inclusion。
 - 对 `/privacy`, `/terms`, `/help`, `/zh/help`, `/en/help` 在 plain、English Accept-Language、Chinese Accept-Language、Googlebot UA 下检查 redirect。
 - 对 `/zh/results`, `/en/results`, `/zh/results/lookup`, `/en/results/lookup` 检查 status、redirect、robots、`X-Robots-Tag`、canonical、sitemap、footer/header。
 - 对 clinical/depression 四个 URL 检查 status、canonical、robots、sitemap、footer/header、language switch、hreflang、tests hub card exposure、homepage/test hub JSON-LD exposure、`review_completed=true` 来源。
@@ -30,7 +30,7 @@
 | Check | Result | Evidence | Notes |
 |---|---|---|---|
 | 1. Footer 有没有误链 Holdlist 页面 | PASS | `components/layout/SiteFooter.tsx` forbidden grep 无命中；6 个抽样页面 rendered footer `forbidden: []`。 | Footer 当前只出现 allowlist + social URLs。 |
-| 2. Sitemap 有没有误收 noindex / 404 / redirect source / clinical pending 页面 | PASS | `public/sitemap.xml` 解析到 32 URLs；逐 URL 请求：`not200: []`, `redirects: []`, `noindex: []`, `forbiddenInSitemap: []`。 | No redirect source, no lookup, no clinical/depression, no English trust 404。 |
+| 2. Sitemap 有没有误收 noindex / 404 / redirect source / clinical pending 页面 | PASS | `public/sitemap.xml` 保留 261 URL backend-authoritative inventory；forbidden holdlist grep 无命中。 | No redirect source, no lookup, no clinical/depression, no English trust 404。 |
 | 3. Root redirect 是否确定性 | PASS | 5 个 redirect 在 plain、`Accept-Language: en-US`、`Accept-Language: zh-CN`、`User-Agent: Googlebot` 下均返回 expected `308 Location`。 | 未发现 Accept-Language 分支。 |
 | 4. `/results` 有没有被做成空壳 indexable 页面 | PASS | `/zh/results` 和 `/en/results` 为 `308` 到 lookup；lookup 是 noindex，不进 sitemap/footer/header，rendered header sensitive links 为 `[]`。 | 未发布 `/results` 空壳页。 |
 | 5. clinical/depression 是否被擅自加入 sitemap/footer/header | PASS | 四个 clinical/depression URL 均不在 sitemap/footer/header/language switch；robots 为 `noindex, follow, noarchive, nocache`；tests hub/homepage JSON-LD 不含 pending slugs；未发现 `review_completed=true`。 | 页面保持 200/self-canonical，但在 review 前不主动 SEO 曝光；未新增 clinical 文案。 |
@@ -89,7 +89,7 @@ Sitemap source/config evidence:
 
 - `next-sitemap.config.js` imports and uses `isP0SitemapAllowlistedPath`.
 - `next-sitemap.config.js` keeps `if (!isP0SitemapAllowlistedPath(normalized)) return false;`.
-- `lib/seo/sitemapAuthorityAdapters.cjs` contains `P0_SITEMAP_ALLOWLIST_PATHS`.
+- `lib/seo/sitemapAuthorityAdapters.cjs` contains P0 holdlist/exclusion gates and keeps backend/CMS-authoritative dynamic detail routes under existing sitemap contracts.
 - `lib/seo/sitemapAuthorityAdapters.cjs` keeps clinical/depression slugs hidden.
 - `lib/seo/sitemapAuthorityAdapters.cjs` keeps `/en/brand`, `/en/careers`, `/en/charter`, `/en/foundation`, `/en/policies`, `/en/results/lookup`, `/zh/results/lookup` in excludes.
 
@@ -269,7 +269,7 @@ Final status: **PASS**.
 Passed:
 
 - Footer has no forbidden holdlist links in source or rendered footer HTML.
-- Sitemap has 32 URLs, all 200, no redirects, no noindex, no forbidden holdlist entries.
+- Sitemap keeps the existing backend-authoritative inventory snapshot and has no forbidden holdlist entries.
 - Root redirects are deterministic across Accept-Language and Googlebot variants.
 - `/results` itself is not an indexable thin page.
 - `/results/lookup` remains noindex and no longer appears in rendered header/footer/sitemap/language switch/hreflang.
