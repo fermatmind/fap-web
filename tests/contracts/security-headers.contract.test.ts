@@ -50,4 +50,17 @@ describe("security headers baseline contract", () => {
     expect(nginxConf).not.toContain("report-uri");
     expect(nginxConf).not.toContain("report-to");
   });
+
+  it("allows consent-gated GA4 and Baidu Tongji script loaders only", () => {
+    const nextConfig = read("next.config.mjs");
+    const nginxConf = read("deploy/nginx/fap-web.conf");
+
+    for (const source of [nextConfig, nginxConf]) {
+      expect(source).toContain("https://www.googletagmanager.com");
+      expect(source).toContain("https://hm.baidu.com");
+      expect(source).not.toContain("https://www.google-analytics.com");
+      expect(source).not.toContain("https://analytics.google.com");
+      expect(source).not.toContain("https://tongji.baidu.com");
+    }
+  });
 });
