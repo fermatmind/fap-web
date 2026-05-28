@@ -7690,3 +7690,69 @@ prs:
       - Clinical/depression test slugs and private flows remain excluded.
       - No CMS mutation, deploy, Search Channel action, URL submission, external search API call, env/DNS/nginx edit, page body copy change, or frontend fallback content is introduced.
     rollback_note: "Revert the llms route/helper and focused contract changes if Wave 1 content-page llms enumeration regresses or non-authority/fallback content is exposed."
+
+  - id: DETAIL_READY_1046_FRONTEND_METADATA_REVALIDATION-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/detail-ready-1046-frontend-metadata-revalidation-01
+    base: main
+    depends_on: []
+    mode: execute
+    train_scope: detail_ready_1046_frontend_metadata_revalidation
+    risk_level: scoped_career_seo_metadata_revalidation
+    status: in_progress
+    title: "DETAIL_READY_1046_FRONTEND_METADATA_REVALIDATION-01 career detail robots metadata revalidation"
+    goal: "Allow backend runtime-published career job details to emit index,follow metadata while preserving local claim/render gates for gated content and structured data."
+    in_scope:
+      - app/(localized)/[locale]/career/jobs/[slug]/page.tsx
+      - tests/contracts/detail-ready-1046-frontend-metadata-revalidation-01.contract.test.tsx
+      - tests/contracts/career-claim-gate-render.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/seo/detail-ready-1046-frontend-metadata-revalidation-01.md
+      - docs/seo/generated/detail-ready-1046-frontend-metadata-revalidation-01.v1.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - sitemap or llms exposure changes
+      - fap-api or CMS mutation
+      - production deploy
+      - Search Channel enqueue or URL submission
+      - external search API calls
+      - env, DNS, or nginx edits
+      - frontend editorial fallback content
+      - career claim expansion or paid/gated content exposure
+      - software-developers, digital-forensics-analysts, or computer-occupations-all-other changes
+      - future task manifest entries
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/detail-ready-1046-frontend-metadata-revalidation-01.contract.test.tsx tests/contracts/career-claim-gate-render.contract.test.tsx
+      - pnpm lint .
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - pnpm exec vitest run tests/contracts/big5.contract.test.ts tests/contracts/big5-result-assembler.contract.test.ts tests/contracts/big5-secondary-surfaces.contract.test.tsx
+      - pnpm exec vitest run tests/contracts/enneagram-api.contract.test.ts tests/contracts/enneagram-take-flow.contract.test.tsx tests/contracts/enneagram-result-assembler.contract.test.ts tests/contracts/enneagram-rich-result-report.contract.test.tsx tests/contracts/enneagram-secondary-surfaces.contract.test.tsx
+      - python3 -m json.tool docs/seo/generated/detail-ready-1046-frontend-metadata-revalidation-01.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      changed_files_must_match:
+        - app/(localized)/[locale]/career/jobs/[slug]/page.tsx
+        - tests/contracts/detail-ready-1046-frontend-metadata-revalidation-01.contract.test.tsx
+        - tests/contracts/career-claim-gate-render.contract.test.tsx
+        - tests/contracts/helpers/currentPrScope.ts
+        - docs/seo/detail-ready-1046-frontend-metadata-revalidation-01.md
+        - docs/seo/generated/detail-ready-1046-frontend-metadata-revalidation-01.v1.json
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Backend runtime-published career job details with explicit indexability and runtime projection reason codes emit index,follow metadata.
+      - Candidate-only career job details remain noindex when runtime projection authority is absent.
+      - Local claim/render gates continue to hide gated career content and Occupation JSON-LD while those gates are closed.
+      - No sitemap/llms exposure, CMS mutation, deploy, Search Channel action, URL submission, external search API call, env/DNS/nginx edit, or frontend editorial fallback content is introduced.
+    rollback_note: "Revert the career job metadata helper and focused contract changes if candidate-only career pages become indexable or gated content leaks."
