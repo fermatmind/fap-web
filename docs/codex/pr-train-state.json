@@ -11653,7 +11653,7 @@
       "depends_on": [],
       "status": "committed",
       "pr_url": null,
-      "commit_sha": "59d9c1b38947583f7afd270df083e2d9a302083b",
+      "commit_sha": "768effd45855cda2cf04b7fb07edeba3b8521b3c",
       "merge_sha": null,
       "title": "DETAIL_READY_1046_FRONTEND_METADATA_REVALIDATION-01 career detail robots metadata revalidation",
       "artifacts": [
@@ -11724,6 +11724,11 @@
           "at": "2026-05-29T01:12:00+08:00",
           "status": "committed",
           "summary": "Committed scoped implementation at 59d9c1b38947583f7afd270df083e2d9a302083b."
+        },
+        {
+          "at": "2026-05-29T01:14:00+08:00",
+          "status": "ledger_commit_sha_recorded",
+          "summary": "Recorded implementation commit 768effd45855cda2cf04b7fb07edeba3b8521b3c before PR push."
         }
       ]
     }
