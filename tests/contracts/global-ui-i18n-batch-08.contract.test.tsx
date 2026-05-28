@@ -31,7 +31,6 @@ const UNAVAILABLE_CONTENT_HELP_POLICY_PATHS = [
   "/zh/help/contact",
   "/zh/help/faq",
   "/zh/help/for-business-and-research",
-  "/zh/policies",
 ];
 
 function keyPaths(value: unknown, prefix = ""): string[] {

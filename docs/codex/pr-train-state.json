@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-28T07:44:52+08:00",
+  "updated_at": "2026-05-28T08:08:18+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -11394,10 +11394,10 @@
       "branch": "codex/cookie-banner-hydration-01",
       "base": "main",
       "depends_on": [],
-      "status": "pr_opened",
+      "status": "merged",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/920",
       "commit_sha": "e23da929",
-      "merge_sha": null,
+      "merge_sha": "c342326aa20b8df896d24080bd6134c215dd4312",
       "title": "fix(consent): make cookie banner hydration-safe",
       "artifacts": [
         "components/legal/CookieBanner.tsx",
@@ -11432,9 +11432,9 @@
         }
       },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-05-27T23:48:48Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-28T07:26:54+08:00",
@@ -11455,6 +11455,96 @@
           "at": "2026-05-28T07:44:52+08:00",
           "status": "ci_fix_local_checks_passed",
           "summary": "Reworked the hydration guard to use useSyncExternalStore after GitHub build lint rejected synchronous setState in an effect. Focused contract, lint, typecheck, production API build, full contract suite, JSON/YAML parse, scope validation, and diff checks passed locally."
+        },
+        {
+          "at": "2026-05-28T07:49:52+08:00",
+          "status": "merged",
+          "summary": "Reconciled COOKIE-BANNER-HYDRATION-01 after PR #920 merged into origin/main at c342326aa20b8df896d24080bd6134c215dd4312; remote branch was deleted and local main is synced."
+        }
+      ]
+    },
+    {
+      "id": "GLOBAL-EN-ZH-FOOTER-NAV-PARITY-02",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/global-en-zh-footer-nav-parity-02",
+      "base": "main",
+      "depends_on": [
+        "COOKIE-BANNER-HYDRATION-01"
+      ],
+      "status": "pr_opened",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/921",
+      "commit_sha": "8fe8bd30070dccabbe2c38fb77acbdd47d018725",
+      "merge_sha": null,
+      "title": "fix(footer): align zh footer with published content pages",
+      "artifacts": [
+        "components/layout/SiteFooter.tsx",
+        "tests/contracts/global-en-zh-footer-nav-parity.contract.test.tsx",
+        "tests/contracts/global-ui-i18n-batch-08.contract.test.tsx",
+        "tests/contracts/site-footer-routing.contract.test.tsx",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "focused_contracts": {
+          "status": "passed",
+          "command": "pnpm exec vitest run tests/contracts/global-en-zh-footer-nav-parity.contract.test.tsx tests/contracts/site-footer-routing.contract.test.tsx tests/contracts/global-ui-i18n-batch-08.contract.test.tsx"
+        },
+        "typecheck": {
+          "status": "passed",
+          "command": "pnpm typecheck"
+        },
+        "build": {
+          "status": "passed",
+          "command": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build"
+        },
+        "contracts": {
+          "status": "passed",
+          "command": "pnpm test:contract",
+          "summary": "398 files passed; 2262 tests passed."
+        },
+        "json_parse": {
+          "status": "passed",
+          "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+        },
+        "yaml_parse": {
+          "status": "passed",
+          "command": "python3 - <<'PY'\nimport yaml, pathlib\nyaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text())\nprint('yaml ok')\nPY"
+        },
+        "diff_check": {
+          "status": "passed",
+          "command": "git diff --check && git diff --cached --check"
+        },
+        "scope_validation": {
+          "status": "passed",
+          "summary": "Changed files match the authorized GLOBAL-EN-ZH-FOOTER-NAV-PARITY-02 scope, including the added global-ui-i18n guard contract."
+        }
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-05-28T07:49:52+08:00",
+          "status": "in_progress",
+          "summary": "User authorized GLOBAL-EN-ZH-FOOTER-NAV-PARITY-02 as a scoped fap-web PR. Scope is limited to ZH footer link parity for published content-page targets, focused footer contracts, current PR scope helper, and PR-train metadata. Cookie banner changes are out of scope and already merged in PR #920."
+        },
+        {
+          "at": "2026-05-28T08:02:53+08:00",
+          "status": "in_progress",
+          "summary": "User authorized adding tests/contracts/global-ui-i18n-batch-08.contract.test.tsx to the current footer parity scope after pnpm test:contract showed the prior unavailable-content guard still blocked /zh/policies."
+        },
+        {
+          "at": "2026-05-28T08:05:09+08:00",
+          "status": "local_checks_passed",
+          "summary": "Focused footer/global-ui contracts, typecheck, production-API build, full contract suite, JSON/YAML parse, diff checks, and scope validation passed."
+        },
+        {
+          "at": "2026-05-28T08:08:18+08:00",
+          "status": "pr_opened",
+          "summary": "Opened PR #921 for GLOBAL-EN-ZH-FOOTER-NAV-PARITY-02 after local validation passed."
         }
       ]
     }

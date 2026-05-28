@@ -15,7 +15,6 @@ const KNOWN_MISSING_CONTENT_HELP_POLICY_PATHS = [
   "/zh/help/contact",
   "/zh/help/faq",
   "/zh/help/for-business-and-research",
-  "/zh/policies",
 ];
 
 function collectFooterHrefs(locale: "en" | "zh"): string[] {
@@ -49,6 +48,19 @@ describe("GLOBAL-EN-ZH-PARITY-FOOTER-NAV-PARITY-01", () => {
     expect(screen.getByRole("link", { name: "Public benefit" })).toHaveAttribute("href", "/en/foundation");
     expect(screen.getByRole("link", { name: "Careers" })).toHaveAttribute("href", "/en/careers");
     expect(screen.getByRole("link", { name: "Policy overview" })).toHaveAttribute("href", "/en/policies");
+
+    render(
+      <LocaleProvider locale="zh">
+        <SiteFooter />
+      </LocaleProvider>
+    );
+
+    expect(screen.getByRole("link", { name: "关于我们" })).toHaveAttribute("href", "/zh/about");
+    expect(screen.getByRole("link", { name: "品牌" })).toHaveAttribute("href", "/zh/brand");
+    expect(screen.getByRole("link", { name: "宪章" })).toHaveAttribute("href", "/zh/charter");
+    expect(screen.getByRole("link", { name: "公共利益" })).toHaveAttribute("href", "/zh/foundation");
+    expect(screen.getByRole("link", { name: "工作机会" })).toHaveAttribute("href", "/zh/careers");
+    expect(screen.getByRole("link", { name: "政策概览" })).toHaveAttribute("href", "/zh/policies");
   });
 
   it("does not expose known content help policy hard-404 paths from footer links", () => {
