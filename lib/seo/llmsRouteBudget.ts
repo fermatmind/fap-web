@@ -1,4 +1,5 @@
 export const LLMS_ROUTE_SOURCE_TIMEOUT_MS = 1500;
+export const LLMS_ROUTE_CAREER_JOB_TIMEOUT_MS = 30_000;
 
 export const LLMS_ROUTE_ARTICLE_MAX_PAGES = 1;
 
@@ -6,7 +7,7 @@ export const LLMS_ROUTE_LIMITS = {
   articles: 40,
   careerFamilies: 24,
   careerGuides: 24,
-  careerJobs: 80,
+  careerJobs: 2200,
   careerRecommendations: 32,
   helpPages: 60,
   personalityProfiles: 64,

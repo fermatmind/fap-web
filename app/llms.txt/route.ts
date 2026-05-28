@@ -18,6 +18,7 @@ import {
   isConfiguredStagingDiscoverability,
 } from "@/lib/seo/stagingDiscoverability";
 import {
+  LLMS_ROUTE_CAREER_JOB_TIMEOUT_MS,
   LLMS_ROUTE_ARTICLE_MAX_PAGES,
   LLMS_ROUTE_LIMITS,
   limitLlmsRouteEntries,
@@ -42,6 +43,7 @@ const LLMS_FINAL_PATH_DENY_PATTERNS: RegExp[] = [
   /^\/(?:en|zh)\/datasets\/occupations(?:\/method)?$/i,
   /^\/career\/jobs$/i,
   /^\/(?:en|zh)\/career\/jobs$/i,
+  /^\/(?:en|zh)\/career\/jobs\/(?:software-developers|digital-forensics-analysts|computer-occupations-all-other)$/i,
   /^\/(?:en|zh)\/career\/recommendations$/i,
   /^\/(?:en|zh)\/career\/recommendations\/mbti\/[^/]+$/i,
   /^\/(?:en|zh)\/career\/guides\/[^/]+$/i,
@@ -254,7 +256,8 @@ export async function GET() {
     ),
     withLlmsRouteBudget(
       (signal) => listBackendSitemapCareerJobPaths({ limit: LLMS_ROUTE_LIMITS.careerJobs, signal }),
-      []
+      [],
+      { timeoutMs: LLMS_ROUTE_CAREER_JOB_TIMEOUT_MS }
     ),
   ]);
 

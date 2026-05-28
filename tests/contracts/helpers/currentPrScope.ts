@@ -576,6 +576,23 @@ const DETAIL_READY_1046_FRONTEND_METADATA_REVALIDATION_01_ALLOWED_FILES = new Se
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const DETAIL_READY_1046_DISCOVERABILITY_EXPOSURE_REPAIR_01_ALLOWED_FILES = new Set([
+  "app/llms-full.txt/route.ts",
+  "app/llms.txt/route.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/seo/detail-ready-1046-discoverability-exposure-repair-01.md",
+  "docs/seo/generated/detail-ready-1046-discoverability-exposure-repair-01.v1.json",
+  "lib/seo/backendSitemapSource.ts",
+  "lib/seo/llmsRouteBudget.ts",
+  "next-sitemap.config.js",
+  "tests/contracts/career-llms-alignment.contract.test.ts",
+  "tests/contracts/detail-ready-1046-discoverability-exposure-repair-01.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/llms-route-fanout.contract.test.ts",
+  "tests/contracts/sitemap-indexability.contract.test.ts",
+]);
+
 const COOKIE_BANNER_HYDRATION_01_ALLOWED_FILES = new Set([
   "components/legal/CookieBanner.tsx",
   "docs/codex/pr-train.yaml",
@@ -620,6 +637,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/detail-ready-1046-frontend-metadata-revalidation-01") {
     return DETAIL_READY_1046_FRONTEND_METADATA_REVALIDATION_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/detail-ready-1046-discoverability-exposure-repair-01") {
+    return DETAIL_READY_1046_DISCOVERABILITY_EXPOSURE_REPAIR_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/global-en-zh-content-pages-frontend-runtime-repair-01") {

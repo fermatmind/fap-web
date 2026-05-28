@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "task": "DETAIL_READY_1046_DISCOVERABILITY_EXPOSURE_REPAIR-01",
+  "final_decision": "detail_ready_1046_discoverability_exposure_repair_ready_for_frontend_deploy_readiness",
+  "target_public_career_detail_count": 1046,
+  "target_public_career_detail_locale_url_count": 2092,
+  "discoverability_surfaces": {
+    "sitemap": {
+      "source": "backend /api/v0.5/career/jobs seo_contract authority, with /api/v0.5/seo/sitemap-source plus per-detail /api/v0.5/career-jobs/{slug}/seo fallback",
+      "exposure_enabled": true
+    },
+    "llms_txt": {
+      "source": "backend /api/v0.5/career/jobs seo_contract authority, with /api/v0.5/seo/sitemap-source plus per-detail /api/v0.5/career-jobs/{slug}/seo fallback",
+      "career_job_budget": 2200,
+      "exposure_enabled": true
+    },
+    "llms_full_txt": {
+      "source": "backend /api/v0.5/career/jobs seo_contract authority, with /api/v0.5/seo/sitemap-source plus per-detail /api/v0.5/career-jobs/{slug}/seo fallback",
+      "career_job_budget": 2200,
+      "exposure_enabled": true
+    }
+  },
+  "authority_gates": {
+    "requires_backend_career_jobs_index_authority": true,
+    "requires_backend_sitemap_source_fallback": true,
+    "requires_backend_seo_authority_fallback": true,
+    "requires_robots_index_follow": true,
+    "requires_indexability_state_indexable": true,
+    "requires_sitemap_state_included": true,
+    "requires_llms_exposure_state_allow": true,
+    "frontend_fallback_authority_used": false
+  },
+  "excluded_slugs": [
+    "software-developers",
+    "digital-forensics-analysts",
+    "computer-occupations-all-other"
+  ],
+  "safety_flags": {
+    "no_backend_change": true,
+    "no_cms_mutation": true,
+    "no_deploy": true,
+    "no_search_channel_action": true,
+    "no_url_submission": true,
+    "no_external_search_api_call": true,
+    "no_frontend_fallback_content": true,
+    "no_claim_expansion": true
+  },
+  "validation_contracts": [
+    "tests/contracts/detail-ready-1046-discoverability-exposure-repair-01.contract.test.ts",
+    "tests/contracts/career-llms-alignment.contract.test.ts",
+    "tests/contracts/sitemap-indexability.contract.test.ts"
+  ],
+  "next_task": "FRONTEND-DEPLOY-READINESS｜Deploy DETAIL_READY_1046 discoverability exposure repair"
+}

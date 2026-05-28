@@ -7700,7 +7700,7 @@ prs:
     mode: execute
     train_scope: detail_ready_1046_frontend_metadata_revalidation
     risk_level: scoped_career_seo_metadata_revalidation
-    status: in_progress
+    status: merged
     title: "DETAIL_READY_1046_FRONTEND_METADATA_REVALIDATION-01 career detail robots metadata revalidation"
     goal: "Allow backend runtime-published career job details to emit index,follow metadata while preserving local claim/render gates for gated content and structured data."
     in_scope:
@@ -7756,3 +7756,81 @@ prs:
       - Local claim/render gates continue to hide gated career content and Occupation JSON-LD while those gates are closed.
       - No sitemap/llms exposure, CMS mutation, deploy, Search Channel action, URL submission, external search API call, env/DNS/nginx edit, or frontend editorial fallback content is introduced.
     rollback_note: "Revert the career job metadata helper and focused contract changes if candidate-only career pages become indexable or gated content leaks."
+
+  - id: DETAIL_READY_1046_DISCOVERABILITY_EXPOSURE_REPAIR-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/detail-ready-1046-discoverability-exposure-repair-01
+    base: main
+    depends_on:
+      - DETAIL_READY_1046_FRONTEND_METADATA_REVALIDATION-01
+    mode: execute
+    train_scope: detail_ready_1046_discoverability_exposure_repair
+    risk_level: scoped_career_seo_discoverability_exposure
+    status: in_progress
+    title: "DETAIL_READY_1046_DISCOVERABILITY_EXPOSURE_REPAIR-01 career detail sitemap and llms exposure repair"
+    goal: "Expose backend-authorized 1046 Career job detail URLs in sitemap and llms surfaces using backend Career jobs index seo_contract authority, with sitemap-source plus per-detail SEO fallback, without frontend fallback authority or Search Channel action."
+    in_scope:
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - lib/seo/backendSitemapSource.ts
+      - lib/seo/llmsRouteBudget.ts
+      - next-sitemap.config.js
+      - tests/contracts/detail-ready-1046-discoverability-exposure-repair-01.contract.test.ts
+      - tests/contracts/career-llms-alignment.contract.test.ts
+      - tests/contracts/llms-route-fanout.contract.test.ts
+      - tests/contracts/sitemap-indexability.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/seo/detail-ready-1046-discoverability-exposure-repair-01.md
+      - docs/seo/generated/detail-ready-1046-discoverability-exposure-repair-01.v1.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - fap-api or CMS mutation
+      - production deploy
+      - Search Channel enqueue or URL submission
+      - external search API calls
+      - env, DNS, or nginx edits
+      - frontend editorial fallback content
+      - career claim expansion or paid/gated content exposure
+      - software-developers, digital-forensics-analysts, or computer-occupations-all-other publication changes
+      - future task manifest entries
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/detail-ready-1046-discoverability-exposure-repair-01.contract.test.ts tests/contracts/career-llms-alignment.contract.test.ts tests/contracts/sitemap-indexability.contract.test.ts tests/contracts/llms-route-fanout.contract.test.ts
+      - pnpm lint .
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - pnpm exec vitest run tests/contracts/big5.contract.test.ts tests/contracts/big5-result-assembler.contract.test.ts tests/contracts/big5-secondary-surfaces.contract.test.tsx
+      - pnpm exec vitest run tests/contracts/enneagram-api.contract.test.ts tests/contracts/enneagram-take-flow.contract.test.tsx tests/contracts/enneagram-result-assembler.contract.test.ts tests/contracts/enneagram-rich-result-report.contract.test.tsx tests/contracts/enneagram-secondary-surfaces.contract.test.tsx
+      - python3 -m json.tool docs/seo/generated/detail-ready-1046-discoverability-exposure-repair-01.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      changed_files_must_match:
+        - app/llms.txt/route.ts
+        - app/llms-full.txt/route.ts
+        - lib/seo/backendSitemapSource.ts
+        - lib/seo/llmsRouteBudget.ts
+        - next-sitemap.config.js
+        - tests/contracts/detail-ready-1046-discoverability-exposure-repair-01.contract.test.ts
+        - tests/contracts/career-llms-alignment.contract.test.ts
+        - tests/contracts/llms-route-fanout.contract.test.ts
+        - tests/contracts/sitemap-indexability.contract.test.ts
+        - tests/contracts/helpers/currentPrScope.ts
+        - docs/seo/detail-ready-1046-discoverability-exposure-repair-01.md
+        - docs/seo/generated/detail-ready-1046-discoverability-exposure-repair-01.v1.json
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Sitemap generation includes backend-authorized Career job detail URLs only after backend Career jobs index seo_contract authority or sitemap-source/per-detail SEO fallback authority passes.
+      - llms.txt and llms-full.txt can enumerate the 1046 bilingual Career detail cohort within bounded route budget.
+      - software-developers, digital-forensics-analysts, and computer-occupations-all-other remain excluded.
+      - No CMS mutation, deploy, Search Channel action, URL submission, external search API call, env/DNS/nginx edit, or frontend editorial fallback content is introduced.
+    rollback_note: "Revert Career sitemap/llms exposure helper and route budget changes if non-authority career URLs or held/conflict slugs enter sitemap or llms surfaces."

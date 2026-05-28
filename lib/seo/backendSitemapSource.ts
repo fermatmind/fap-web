@@ -22,6 +22,18 @@ type CareerSeoAuthorityPayload = {
   };
 };
 
+type CareerJobIndexItem = {
+  identity?: {
+    canonical_slug?: unknown;
+  };
+  seo_contract?: {
+    canonical_path?: unknown;
+    index_eligible?: unknown;
+    index_state?: unknown;
+    robots_policy?: unknown;
+  };
+};
+
 type BackendSitemapCareerJobPathOptions = {
   limit?: number;
   signal?: AbortSignal;
@@ -29,10 +41,14 @@ type BackendSitemapCareerJobPathOptions = {
 
 const BACKEND_SITEMAP_SOURCE_TIMEOUT_MS = 20_000;
 const CAREER_SEO_AUTHORITY_CONCURRENCY = 8;
-const SOFTWARE_DEVELOPERS_DETAIL_RE = /^\/(?:en|zh)\/career\/jobs\/software-developers$/i;
 const CAREER_JOB_DETAIL_RE = /^\/(?:en|zh)\/career\/jobs\/[^/]+$/i;
 const CAREER_JOB_DETAIL_PARTS_RE = /^\/(en|zh)\/career\/jobs\/([^/]+)$/i;
 const BACKEND_SITEMAP_CANONICAL_HOSTS = new Set(["fermatmind.com", "www.fermatmind.com"]);
+const EXCLUDED_CAREER_JOB_DETAIL_SLUGS = new Set([
+  "software-developers",
+  "digital-forensics-analysts",
+  "computer-occupations-all-other",
+]);
 
 let careerJobPathCache: string[] | null = null;
 const careerJobSeoAuthorityCache = new Map<string, Promise<CareerSeoAuthorityPayload | null>>();
@@ -86,10 +102,12 @@ function parseCareerJobDetailPath(path: string): { locale: "en" | "zh"; slug: st
 
 function shouldKeepCareerJobDetailPath(path: string): boolean {
   const normalized = normalizePath(path);
+  const parsed = parseCareerJobDetailPath(normalized);
 
   return (
     isCareerJobDetailPath(normalized) &&
-    !SOFTWARE_DEVELOPERS_DETAIL_RE.test(normalized) &&
+    Boolean(parsed) &&
+    !EXCLUDED_CAREER_JOB_DETAIL_SLUGS.has(parsed?.slug ?? "") &&
     shouldIncludeInSitemap(normalized, {
       indexEligible: true,
       indexState: "indexed",
@@ -98,7 +116,11 @@ function shouldKeepCareerJobDetailPath(path: string): boolean {
 }
 
 function toSeoAuthorityApiLocale(locale: "en" | "zh"): string {
-  return locale === "zh" ? "zh-CN" : "en-US";
+  return locale === "zh" ? "zh-CN" : "en";
+}
+
+function toCareerJobIndexApiLocale(locale: "en" | "zh"): string {
+  return locale === "zh" ? "zh-CN" : "en";
 }
 
 function normalizeText(value: unknown): string {
@@ -128,6 +150,20 @@ function limitCareerJobCandidatePaths(paths: string[], limit: number | undefined
   }
 
   return paths.slice(0, normalizedLimit);
+}
+
+function isIndexableCareerIndexState(value: unknown): boolean | null {
+  const normalized = normalizeText(value).toLowerCase();
+  if (!normalized) {
+    return null;
+  }
+  if (normalized === "indexable" || normalized === "indexed" || normalized === "promotion_candidate") {
+    return true;
+  }
+  if (normalized === "noindex" || normalized === "blocked" || normalized === "excluded") {
+    return false;
+  }
+  return null;
 }
 
 function createTimeoutSignal(parentSignal: AbortSignal | undefined): { signal: AbortSignal; cleanup: () => void } {
@@ -170,6 +206,77 @@ async function fetchBackendSitemapSource(signal?: AbortSignal): Promise<BackendS
   } finally {
     timeoutSignal.cleanup();
   }
+}
+
+async function fetchCareerJobIndex(locale: "en" | "zh", signal?: AbortSignal): Promise<CareerJobIndexItem[]> {
+  const timeoutSignal = createTimeoutSignal(signal);
+
+  try {
+    const params = new URLSearchParams({
+      locale: toCareerJobIndexApiLocale(locale),
+      org_id: "0",
+    });
+    const response = await fetch(buildApiUrl(`/v0.5/career/jobs?${params.toString()}`), {
+      headers: {
+        Accept: "application/json",
+      },
+      signal: timeoutSignal.signal,
+    });
+
+    if (!response.ok) {
+      return [];
+    }
+
+    const payload = await response.json();
+    return Array.isArray(payload?.items) ? payload.items as CareerJobIndexItem[] : [];
+  } catch {
+    return [];
+  } finally {
+    timeoutSignal.cleanup();
+  }
+}
+
+function pathFromCareerJobIndexItem(locale: "en" | "zh", item: CareerJobIndexItem): string | null {
+  const slug = normalizeCareerJobSlug(item.identity?.canonical_slug);
+  if (!slug || EXCLUDED_CAREER_JOB_DETAIL_SLUGS.has(slug)) {
+    return null;
+  }
+
+  const seoContract = item.seo_contract;
+  const indexEligible = typeof seoContract?.index_eligible === "boolean" ? seoContract.index_eligible : null;
+  const indexState = normalizeText(seoContract?.index_state);
+  const robotsPolicy = normalizeText(seoContract?.robots_policy);
+  const explicitIndexableState = isIndexableCareerIndexState(indexState);
+  if (indexEligible !== true || explicitIndexableState === false || hasToken(robotsPolicy, "noindex")) {
+    return null;
+  }
+
+  const path = `/${locale}/career/jobs/${slug}`;
+  return shouldKeepCareerJobDetailPath(path) ? path : null;
+}
+
+async function fetchCareerJobIndexAuthorityPaths(signal?: AbortSignal): Promise<string[]> {
+  const paths = new Set<string>();
+  const [enItems, zhItems] = await Promise.all([
+    fetchCareerJobIndex("en", signal),
+    fetchCareerJobIndex("zh", signal),
+  ]);
+
+  for (const item of enItems) {
+    const path = pathFromCareerJobIndexItem("en", item);
+    if (path) {
+      paths.add(path);
+    }
+  }
+
+  for (const item of zhItems) {
+    const path = pathFromCareerJobIndexItem("zh", item);
+    if (path) {
+      paths.add(path);
+    }
+  }
+
+  return [...paths].sort((left, right) => left.localeCompare(right));
 }
 
 async function fetchCareerJobSeoAuthority(
@@ -302,9 +409,16 @@ export async function listBackendSitemapCareerJobPaths(
     return careerJobPathCache;
   }
 
-  const payload = await fetchBackendSitemapSource(options.signal);
-  const candidatePaths = limitCareerJobCandidatePaths(extractBackendSitemapCareerJobPaths(payload), options.limit);
-  const filteredPaths = await filterCareerJobPathsBySeoAuthority(candidatePaths, options.signal);
+  let filteredPaths = limitCareerJobCandidatePaths(
+    await fetchCareerJobIndexAuthorityPaths(options.signal),
+    options.limit
+  );
+
+  if (filteredPaths.length === 0) {
+    const payload = await fetchBackendSitemapSource(options.signal);
+    const candidatePaths = limitCareerJobCandidatePaths(extractBackendSitemapCareerJobPaths(payload), options.limit);
+    filteredPaths = await filterCareerJobPathsBySeoAuthority(candidatePaths, options.signal);
+  }
 
   if (shouldUseCache) {
     careerJobPathCache = filteredPaths;
