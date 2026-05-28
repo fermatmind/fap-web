@@ -97,8 +97,8 @@ describe("sitemap indexability contract", () => {
                 },
                 seo_contract: {
                   canonical_path: "/career/jobs/data-engineer",
-                  index_state: "indexed",
-                  index_eligible: true,
+                  index_state: "blocked",
+                  index_eligible: false,
                 },
               },
             ],

@@ -3,6 +3,7 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 import {
   LLMS_ROUTE_ARTICLE_MAX_PAGES,
+  LLMS_ROUTE_CAREER_JOB_TIMEOUT_MS,
   LLMS_ROUTE_LIMITS,
   LLMS_ROUTE_SOURCE_TIMEOUT_MS,
   limitLlmsRouteEntries,
@@ -36,7 +37,9 @@ describe("llms route fanout budget contract", () => {
     expect(LLMS_ROUTE_ARTICLE_MAX_PAGES).toBe(1);
     expect(LLMS_ROUTE_LIMITS.articles).toBeLessThanOrEqual(40);
     expect(LLMS_ROUTE_LIMITS.careerGuides).toBeLessThanOrEqual(24);
-    expect(LLMS_ROUTE_LIMITS.careerJobs).toBeLessThanOrEqual(80);
+    expect(LLMS_ROUTE_LIMITS.careerJobs).toBeGreaterThanOrEqual(1046 * 2);
+    expect(LLMS_ROUTE_LIMITS.careerJobs).toBeLessThanOrEqual(2200);
+    expect(LLMS_ROUTE_CAREER_JOB_TIMEOUT_MS).toBeLessThanOrEqual(30_000);
     expect(limitLlmsRouteEntries([1, 2, 3], 2)).toEqual([1, 2]);
   });
 
@@ -47,6 +50,7 @@ describe("llms route fanout budget contract", () => {
       expect(source).toContain("withLlmsRouteBudget");
       expect(source).toContain("limitLlmsRouteEntries");
       expect(source).toContain("LLMS_ROUTE_LIMITS");
+      expect(source).toContain("LLMS_ROUTE_CAREER_JOB_TIMEOUT_MS");
       expect(source).toContain("LLMS_ROUTE_ARTICLE_MAX_PAGES");
       expect(source).toContain("maxPages: LLMS_ROUTE_ARTICLE_MAX_PAGES");
       expect(source).toContain("perPage: LLMS_ROUTE_LIMITS.articles");

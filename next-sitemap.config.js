@@ -20,10 +20,14 @@ const {
   normalizeSlug,
   resolveSitemapSiteUrl,
 } = require("./lib/seo/sitemapAuthorityAdapters.cjs");
-const SOFTWARE_DEVELOPERS_DETAIL_RE = /^\/(?:en|zh)\/career\/jobs\/software-developers$/i;
 const CAREER_JOB_DETAIL_PARTS_RE = /^\/(en|zh)\/career\/jobs\/([^/]+)$/i;
 const PERSONALITY_DETAIL_PARTS_RE = /^\/(en|zh)\/personality\/([ie][ns][ft][jp]-[at])$/i;
 const WAVE_1_EN_CONTENT_PAGE_KEYS = ["brand", "charter", "foundation", "careers", "policies"];
+const EXCLUDED_CAREER_JOB_DETAIL_SLUGS = new Set([
+  "software-developers",
+  "digital-forensics-analysts",
+  "computer-occupations-all-other",
+]);
 
 const siteUrl = resolveSitemapSiteUrl(process.env.NEXT_PUBLIC_SITE_URL);
 const apiOrigin = (process.env.NEXT_PUBLIC_API_URL || "https://api.fermatmind.com").replace(/\/$/, "");
@@ -150,10 +154,12 @@ function parsePersonalityDetailPath(path) {
 
 function shouldKeepBackendSitemapCareerJobDetailPath(path) {
   const normalized = normalizePath(path);
+  const parsed = parseCareerJobDetailPath(normalized);
 
   return (
     isCareerJobDetailPath(normalized) &&
-    !SOFTWARE_DEVELOPERS_DETAIL_RE.test(normalized) &&
+    Boolean(parsed) &&
+    !EXCLUDED_CAREER_JOB_DETAIL_SLUGS.has(parsed.slug) &&
     shouldIncludeGeneratedSitemapPath(normalized, {
       indexEligible: true,
       indexState: "indexed",
@@ -280,7 +286,25 @@ function extractBackendSitemapSourceCareerJobPaths(payload) {
 }
 
 function toCareerSeoAuthorityLocale(locale) {
-  return locale === "zh" ? "zh-CN" : "en-US";
+  return locale === "zh" ? "zh-CN" : "en";
+}
+
+function toCareerJobIndexApiLocale(locale) {
+  return locale === "zh" ? "zh-CN" : "en";
+}
+
+function isIndexableCareerIndexState(value) {
+  const normalized = normalizeSlug(value).toLowerCase();
+  if (!normalized) {
+    return null;
+  }
+  if (normalized === "indexable" || normalized === "indexed" || normalized === "promotion_candidate") {
+    return true;
+  }
+  if (normalized === "noindex" || normalized === "blocked" || normalized === "excluded") {
+    return false;
+  }
+  return null;
 }
 
 function hasPolicyToken(value, token) {
@@ -398,13 +422,73 @@ async function fetchBackendSitemapSourcePayload() {
   return backendSitemapSourcePayloadCache;
 }
 
+async function fetchCareerJobIndex(locale) {
+  const params = new URLSearchParams({
+    locale: toCareerJobIndexApiLocale(locale),
+    org_id: "0",
+  });
+  try {
+    const payload = await fetchJsonWithTimeout(
+      `${buildApiUrl("/v0.5/career/jobs")}?${params.toString()}`,
+      careerSitemapTimeoutMs
+    );
+    return Array.isArray(payload?.items) ? payload.items : [];
+  } catch {
+    return [];
+  }
+}
+
+function pathFromCareerJobIndexItem(locale, item) {
+  const slug = normalizeSlug(item?.identity?.canonical_slug).toLowerCase();
+  if (!slug || EXCLUDED_CAREER_JOB_DETAIL_SLUGS.has(slug)) {
+    return null;
+  }
+
+  const seoContract = item?.seo_contract && typeof item.seo_contract === "object" ? item.seo_contract : {};
+  const indexEligible = typeof seoContract.index_eligible === "boolean" ? seoContract.index_eligible : null;
+  const indexState = normalizeSlug(seoContract.index_state);
+  const robotsPolicy = normalizeSlug(seoContract.robots_policy);
+  const explicitIndexableState = isIndexableCareerIndexState(indexState);
+  if (indexEligible !== true || explicitIndexableState === false || hasPolicyToken(robotsPolicy, "noindex")) {
+    return null;
+  }
+
+  const path = `/${locale}/career/jobs/${slug}`;
+  return shouldKeepBackendSitemapCareerJobDetailPath(path) ? path : null;
+}
+
+async function fetchCareerJobIndexAuthorityPaths() {
+  const paths = new Set();
+  const [enItems, zhItems] = await Promise.all([
+    fetchCareerJobIndex("en"),
+    fetchCareerJobIndex("zh"),
+  ]);
+
+  for (const item of enItems) {
+    const path = pathFromCareerJobIndexItem("en", item);
+    if (path) paths.add(path);
+  }
+
+  for (const item of zhItems) {
+    const path = pathFromCareerJobIndexItem("zh", item);
+    if (path) paths.add(path);
+  }
+
+  return [...paths].sort((left, right) => left.localeCompare(right));
+}
+
 async function fetchBackendSitemapSourceCareerJobPaths() {
   if (backendSitemapSourceCareerJobPathCache) {
     return backendSitemapSourceCareerJobPathCache;
   }
 
-  const payload = await fetchBackendSitemapSourcePayload();
-  const paths = await filterCareerJobPathsBySeoAuthority(extractBackendSitemapSourceCareerJobPaths(payload));
+  let paths = await fetchCareerJobIndexAuthorityPaths();
+
+  if (paths.length === 0) {
+    const payload = await fetchBackendSitemapSourcePayload();
+    paths = await filterCareerJobPathsBySeoAuthority(extractBackendSitemapSourceCareerJobPaths(payload));
+  }
+
   backendSitemapSourceCareerJobPathCache = paths;
 
   return paths;

@@ -24,6 +24,8 @@ describe("career llms alignment contract", () => {
         items: [
           { loc: "https://fermatmind.com/en/career/jobs/backend-architect" },
           { loc: "https://fermatmind.com/zh/career/jobs/backend-architect" },
+          { loc: "https://fermatmind.com/en/career/jobs/digital-forensics-analysts" },
+          { loc: "https://fermatmind.com/zh/career/jobs/computer-occupations-all-other" },
           { loc: "https://attacker.example/en/career/jobs/poisoned" },
           { loc: "javascript:/en/career/jobs/poisoned" },
           { loc: "http://fermatmind.com/en/career/jobs/insecure" },
@@ -69,6 +71,18 @@ describe("career llms alignment contract", () => {
           });
         }
 
+        if (url.includes("/api/v0.5/career-jobs/actors/seo?") && url.includes("locale=en")) {
+          return jsonResponse({
+            meta: { robots: "index,follow" },
+            seo_surface_v1: {
+              robots_policy: "index,follow",
+              indexability_state: "indexable",
+              sitemap_state: "included",
+              llms_exposure_state: "allow",
+            },
+          });
+        }
+
         if (url.includes("/api/v0.5/career-jobs/noindex-role/seo?")) {
           return jsonResponse({
             meta: { robots: "noindex,follow" },
@@ -85,7 +99,10 @@ describe("career llms alignment contract", () => {
       })
     );
 
-    await expect(listBackendSitemapCareerJobPaths()).resolves.toEqual(["/zh/career/jobs/actors"]);
+    await expect(listBackendSitemapCareerJobPaths()).resolves.toEqual([
+      "/en/career/jobs/actors",
+      "/zh/career/jobs/actors",
+    ]);
   });
 
   it("applies the llms career job limit before per-path SEO authority fetches", async () => {
