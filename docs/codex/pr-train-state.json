@@ -11555,10 +11555,10 @@
       "branch": "codex/global-en-zh-content-pages-llms-exposure-repair-01",
       "base": "main",
       "depends_on": [],
-      "status": "pr_opened",
+      "status": "merged",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/922",
-      "commit_sha": "928612e9",
-      "merge_sha": null,
+      "commit_sha": "97f28affa144bea52dd39d6a25d12a05c50b631d",
+      "merge_sha": "de67e5c5e8fec0fa87146e5954984ff3d817be8d",
       "title": "GLOBAL-EN-ZH-CONTENT-PAGES-LLMS-EXPOSURE-REPAIR-01 include approved English content pages in llms surfaces",
       "artifacts": [
         "app/llms.txt/route.ts",
@@ -11613,9 +11613,9 @@
         "diff_check": "passed"
       },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-05-28T00:31:28Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-28T08:17:25+08:00",
@@ -11636,6 +11636,11 @@
           "at": "2026-05-28T08:28:00+08:00",
           "status": "rebased_ledger_reconciled",
           "summary": "Rebased PR branch onto origin/main after GLOBAL-EN-ZH-FOOTER-NAV-PARITY-02 merged; preserved that ledger state and reconciled this PR entry to the rebased implementation commit 928612e9."
+        },
+        {
+          "at": "2026-05-28T08:43:00+08:00",
+          "status": "merged_reconciled",
+          "summary": "Reconciled PR #922 after GitHub reported MERGED at de67e5c5e8fec0fa87146e5954984ff3d817be8d; required checks were green, remote branch was deleted, local post-merge cleanup executed, and main was synced."
         }
       ]
     }
