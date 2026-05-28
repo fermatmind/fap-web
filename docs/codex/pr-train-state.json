@@ -11651,9 +11651,9 @@
       "branch": "codex/detail-ready-1046-frontend-metadata-revalidation-01",
       "base": "main",
       "depends_on": [],
-      "status": "committed",
-      "pr_url": null,
-      "commit_sha": "768effd45855cda2cf04b7fb07edeba3b8521b3c",
+      "status": "pr_opened",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/924",
+      "commit_sha": "0ef79200bfa317da3ae380c2509262c5d2f617f1",
       "merge_sha": null,
       "title": "DETAIL_READY_1046_FRONTEND_METADATA_REVALIDATION-01 career detail robots metadata revalidation",
       "artifacts": [
@@ -11729,6 +11729,11 @@
           "at": "2026-05-29T01:14:00+08:00",
           "status": "ledger_commit_sha_recorded",
           "summary": "Recorded implementation commit 768effd45855cda2cf04b7fb07edeba3b8521b3c before PR push."
+        },
+        {
+          "at": "2026-05-29T01:16:00+08:00",
+          "status": "pr_opened",
+          "summary": "Opened fap-web PR #924 and pushed branch for GitHub checks."
         }
       ]
     }
