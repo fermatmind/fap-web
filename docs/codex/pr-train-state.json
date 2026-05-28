@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-28T08:05:09+08:00",
+  "updated_at": "2026-05-28T08:08:18+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -11472,9 +11472,9 @@
       "depends_on": [
         "COOKIE-BANNER-HYDRATION-01"
       ],
-      "status": "local_checks_passed",
-      "pr_url": null,
-      "commit_sha": null,
+      "status": "pr_opened",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/921",
+      "commit_sha": "8fe8bd30070dccabbe2c38fb77acbdd47d018725",
       "merge_sha": null,
       "title": "fix(footer): align zh footer with published content pages",
       "artifacts": [
@@ -11540,6 +11540,11 @@
           "at": "2026-05-28T08:05:09+08:00",
           "status": "local_checks_passed",
           "summary": "Focused footer/global-ui contracts, typecheck, production-API build, full contract suite, JSON/YAML parse, diff checks, and scope validation passed."
+        },
+        {
+          "at": "2026-05-28T08:08:18+08:00",
+          "status": "pr_opened",
+          "summary": "Opened PR #921 for GLOBAL-EN-ZH-FOOTER-NAV-PARITY-02 after local validation passed."
         }
       ]
     }
