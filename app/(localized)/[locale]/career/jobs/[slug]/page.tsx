@@ -127,8 +127,21 @@ function hasLocalCareerIndexTrust(job: CareerJobBundleAdapter): boolean {
   );
 }
 
+function hasRuntimeProjectionIndexAuthority(job: CareerJobBundleAdapter): boolean {
+  const reasonCodes = new Set(job.seoContract.reasonCodes.map((item) => item.trim().toLowerCase()));
+
+  return (
+    hasPublishedIndexAuthority(job) &&
+    reasonCodes.has("runtime_publish_projection") &&
+    reasonCodes.has("validated_display_asset_backed_release")
+  );
+}
+
 function hasTrustedPublishedIndexAuthority(job: CareerJobBundleAdapter): boolean {
-  return hasPublishedIndexAuthority(job) && (job.renderState.canIndexPage || hasLocalCareerIndexTrust(job));
+  return (
+    hasPublishedIndexAuthority(job) &&
+    (job.renderState.canIndexPage || hasLocalCareerIndexTrust(job) || hasRuntimeProjectionIndexAuthority(job))
+  );
 }
 
 function hasBackendStructuredDataKey(job: CareerJobBundleAdapter, key: string): boolean {
@@ -756,7 +769,7 @@ export async function generateMetadata({
     description: fallbackDescription,
     seoSurface,
     explicitIndexGate: {
-      indexEligible: effectiveIndexEligible && (job.renderState.canIndexPage || hasLocalCareerIndexTrust(job)),
+      indexEligible: effectiveIndexEligible && backendSeoAllowsIndex,
       indexState: effectiveIndexState,
     },
     noindex: !backendSeoAllowsIndex,

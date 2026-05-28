@@ -1,0 +1,33 @@
+{
+  "schema_version": "seo.frontend_metadata_revalidation.v1",
+  "task": "DETAIL_READY_1046_FRONTEND_METADATA_REVALIDATION-01",
+  "final_decision": "frontend_metadata_revalidation_ready_for_pr",
+  "authority_source": "backend_public_career_job_bundle_v0.5",
+  "target_surface": "career_job_detail_metadata",
+  "career_rollout_target_public_total": 1046,
+  "metadata_policy": {
+    "backend_runtime_projection_can_authorize_index_follow": true,
+    "required_reason_codes": [
+      "runtime_publish_projection",
+      "validated_display_asset_backed_release"
+    ],
+    "candidate_only_pages_remain_noindex": true,
+    "local_claim_render_gates_preserved": true,
+    "structured_data_gates_preserved": true
+  },
+  "scope_boundaries": {
+    "content_body_change_performed": false,
+    "frontend_fallback_content_added": false,
+    "sitemap_llms_exposure_performed": false,
+    "search_channel_action_performed": false,
+    "url_submission_performed": false,
+    "deploy_performed": false,
+    "cms_mutation_performed": false,
+    "fap_api_mutation_performed": false
+  },
+  "validation_targets": [
+    "tests/contracts/detail-ready-1046-frontend-metadata-revalidation-01.contract.test.tsx",
+    "tests/contracts/career-claim-gate-render.contract.test.tsx"
+  ],
+  "next_task": "DETAIL_READY_1046_DISCOVERABILITY_EXPOSURE_REPAIR-01"
+}

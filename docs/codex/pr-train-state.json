@@ -11643,6 +11643,99 @@
           "summary": "Reconciled PR #922 after GitHub reported MERGED at de67e5c5e8fec0fa87146e5954984ff3d817be8d; required checks were green, remote branch was deleted, local post-merge cleanup executed, and main was synced."
         }
       ]
+    },
+    {
+      "id": "DETAIL_READY_1046_FRONTEND_METADATA_REVALIDATION-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/detail-ready-1046-frontend-metadata-revalidation-01",
+      "base": "main",
+      "depends_on": [],
+      "status": "pr_opened",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/924",
+      "commit_sha": "0ef79200bfa317da3ae380c2509262c5d2f617f1",
+      "merge_sha": null,
+      "title": "DETAIL_READY_1046_FRONTEND_METADATA_REVALIDATION-01 career detail robots metadata revalidation",
+      "artifacts": [
+        "app/(localized)/[locale]/career/jobs/[slug]/page.tsx",
+        "tests/contracts/detail-ready-1046-frontend-metadata-revalidation-01.contract.test.tsx",
+        "tests/contracts/career-claim-gate-render.contract.test.tsx",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/seo/detail-ready-1046-frontend-metadata-revalidation-01.md",
+        "docs/seo/generated/detail-ready-1046-frontend-metadata-revalidation-01.v1.json",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "focused_contract": {
+          "command": "pnpm exec vitest run tests/contracts/detail-ready-1046-frontend-metadata-revalidation-01.contract.test.tsx tests/contracts/career-claim-gate-render.contract.test.tsx",
+          "status": "passed"
+        },
+        "scope_boundary_regression": {
+          "command": "pnpm exec vitest run tests/contracts/detail-ready-1046-frontend-metadata-revalidation-01.contract.test.tsx tests/contracts/career-claim-gate-render.contract.test.tsx tests/contracts/link-anon-login.contract.test.ts tests/contracts/api-edge-gateway-hardening-quarantine-plan.contract.test.ts tests/contracts/search-intelligence-data-contract.contract.test.ts tests/contracts/preview-fixture-validation.contract.test.ts tests/contracts/staging-cms-baseline-validator.contract.test.ts",
+          "status": "passed"
+        },
+        "lint": {
+          "command": "pnpm lint .",
+          "status": "passed_with_pre_existing_warnings"
+        },
+        "typecheck": {
+          "command": "pnpm typecheck",
+          "status": "passed"
+        },
+        "build": {
+          "command": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build",
+          "status": "passed",
+          "note": "postbuild regenerated public/sitemap.xml; generated sitemap drift was restored because sitemap/llms exposure is out of scope for this PR."
+        },
+        "test_contract": {
+          "command": "pnpm test:contract",
+          "status": "passed"
+        },
+        "big5_contract_freeze": {
+          "command": "pnpm exec vitest run tests/contracts/big5.contract.test.ts tests/contracts/big5-result-assembler.contract.test.ts tests/contracts/big5-secondary-surfaces.contract.test.tsx",
+          "status": "passed"
+        },
+        "enneagram_contract_freeze": {
+          "command": "pnpm exec vitest run tests/contracts/enneagram-api.contract.test.ts tests/contracts/enneagram-take-flow.contract.test.tsx tests/contracts/enneagram-result-assembler.contract.test.ts tests/contracts/enneagram-rich-result-report.contract.test.tsx tests/contracts/enneagram-secondary-surfaces.contract.test.tsx",
+          "status": "passed"
+        },
+        "json_yaml_parse": "passed",
+        "scope_validation": "passed",
+        "diff_check": "passed",
+        "cached_diff_check": "passed"
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-05-29T00:00:00+08:00",
+          "status": "in_progress",
+          "summary": "User authorized DETAIL_READY_1046_FRONTEND_METADATA_REVALIDATION-01 as a scoped fap-web PR and authorized current manifest/state entry only."
+        },
+        {
+          "at": "2026-05-29T01:10:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Implemented backend runtime-projection career metadata revalidation. Focused contracts, scope-boundary regression subset, lint, typecheck, build, full contract suite, Big Five/Enneagram freeze commands, JSON/YAML parse, and diff checks passed."
+        },
+        {
+          "at": "2026-05-29T01:12:00+08:00",
+          "status": "committed",
+          "summary": "Committed scoped implementation at 59d9c1b38947583f7afd270df083e2d9a302083b."
+        },
+        {
+          "at": "2026-05-29T01:14:00+08:00",
+          "status": "ledger_commit_sha_recorded",
+          "summary": "Recorded implementation commit 768effd45855cda2cf04b7fb07edeba3b8521b3c before PR push."
+        },
+        {
+          "at": "2026-05-29T01:16:00+08:00",
+          "status": "pr_opened",
+          "summary": "Opened fap-web PR #924 and pushed branch for GitHub checks."
+        }
+      ]
     }
   ],
   "sidecar_issues": [
