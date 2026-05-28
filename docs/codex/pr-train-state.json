@@ -11789,9 +11789,9 @@
       "depends_on": [
         "DETAIL_READY_1046_FRONTEND_METADATA_REVALIDATION-01"
       ],
-      "status": "in_progress",
+      "status": "committed",
       "pr_url": null,
-      "commit_sha": null,
+      "commit_sha": "21a95a3645dada3a2ad185574fe05e3f8e034fb0",
       "merge_sha": null,
       "title": "DETAIL_READY_1046_DISCOVERABILITY_EXPOSURE_REPAIR-01 career detail sitemap and llms exposure repair",
       "artifacts": [
@@ -11825,6 +11825,11 @@
           "at": "2026-05-29T01:53:00+08:00",
           "status": "local_checks_passed",
           "summary": "Implemented backend-authority career detail sitemap/llms exposure repair. Focused contracts, lint, typecheck, build, generated sitemap authority probe, full contract suite, Big Five/Enneagram freeze commands, JSON/YAML parse, and diff checks passed."
+        },
+        {
+          "at": "2026-05-29T01:55:00+08:00",
+          "status": "committed",
+          "summary": "Committed scoped implementation at 21a95a3645dada3a2ad185574fe05e3f8e034fb0."
         }
       ]
     }
