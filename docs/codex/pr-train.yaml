@@ -7554,3 +7554,63 @@ prs:
       - Existing consented visitors do not see a transient clickable banner.
       - No footer/nav parity, backend/CMS mutation, deploy, Search Channel action, URL submission, external search API call, env/DNS/nginx edit, or frontend editorial fallback content is introduced.
     rollback_note: "Revert the cookie banner hydration guard and focused contract changes if consent banner rendering regresses."
+
+  - id: GLOBAL-EN-ZH-FOOTER-NAV-PARITY-02
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/global-en-zh-footer-nav-parity-02
+    base: main
+    depends_on:
+      - COOKIE-BANNER-HYDRATION-01
+    mode: execute
+    train_scope: global_en_zh_footer_nav_parity
+    risk_level: scoped_footer_navigation_parity
+    status: in_progress
+    title: "fix(footer): align zh footer with published content pages"
+    goal: "Align the Chinese footer company/policy links with the published English/Chinese content-page set while keeping footer links authority-backed and avoiding frontend content ownership."
+    in_scope:
+      - components/layout/SiteFooter.tsx
+      - tests/contracts/global-en-zh-footer-nav-parity.contract.test.tsx
+      - tests/contracts/global-ui-i18n-batch-08.contract.test.tsx
+      - tests/contracts/site-footer-routing.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - cookie banner or analytics consent behavior
+      - header navigation changes
+      - backend or CMS mutation
+      - production deploy
+      - sitemap or llms changes
+      - Search Channel enqueue or URL submission
+      - external search API calls
+      - env, DNS, or nginx edits
+      - frontend editorial fallback content
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/global-en-zh-footer-nav-parity.contract.test.tsx tests/contracts/site-footer-routing.contract.test.tsx tests/contracts/global-ui-i18n-batch-08.contract.test.tsx
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      changed_files_must_match:
+        - components/layout/SiteFooter.tsx
+        - tests/contracts/global-en-zh-footer-nav-parity.contract.test.tsx
+        - tests/contracts/global-ui-i18n-batch-08.contract.test.tsx
+        - tests/contracts/site-footer-routing.contract.test.tsx
+        - tests/contracts/helpers/currentPrScope.ts
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - ZH footer company group exposes the same published content-page targets as EN with localized labels.
+      - ZH footer policies group includes the published policy overview target with localized label.
+      - Footer links remain limited to published/runtime-valid content page targets.
+      - No cookie banner behavior, CMS mutation, deploy, sitemap/llms change, Search Channel action, URL submission, external search API call, env/DNS/nginx edit, or frontend editorial fallback content is introduced.
+    rollback_note: "Revert the footer link and focused contract changes if footer navigation parity regresses."

@@ -58,6 +58,9 @@ export function SiteFooter() {
     locale === "zh"
       ? [
           { href: "/about", label: "关于我们" },
+          { href: "/brand", label: "品牌" },
+          { href: "/charter", label: "宪章" },
+          { href: "/foundation", label: "公共利益" },
           { href: "/careers", label: "工作机会" },
         ]
       : [
@@ -73,6 +76,7 @@ export function SiteFooter() {
           { href: "/support", label: dict.footer.support },
           { href: "/privacy", label: dict.footer.privacy },
           { href: "/terms", label: dict.footer.terms },
+          { href: "/policies", label: "政策概览" },
           { href: "/method-boundaries", label: "方法边界" },
         ]
       : [

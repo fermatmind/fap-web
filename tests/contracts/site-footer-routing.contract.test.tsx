@@ -33,7 +33,11 @@ describe("site footer routing contract", () => {
     expect(screen.getByTestId("site-footer-group-company")).toHaveTextContent("公司");
     expect(screen.getByTestId("site-footer-group-policies")).toHaveTextContent("条款与政策");
     expect(screen.getByRole("link", { name: "关于我们" })).toHaveAttribute("href", "/zh/about");
+    expect(screen.getByRole("link", { name: "品牌" })).toHaveAttribute("href", "/zh/brand");
+    expect(screen.getByRole("link", { name: "宪章" })).toHaveAttribute("href", "/zh/charter");
+    expect(screen.getByRole("link", { name: "公共利益" })).toHaveAttribute("href", "/zh/foundation");
     expect(screen.getByRole("link", { name: "工作机会" })).toHaveAttribute("href", "/zh/careers");
+    expect(screen.getByRole("link", { name: "政策概览" })).toHaveAttribute("href", "/zh/policies");
     expect(screen.queryByRole("link", { name: "使用条款" })).not.toBeInTheDocument();
     expect(screen.queryByRole("link", { name: "隐私政策" })).not.toBeInTheDocument();
     expect(screen.queryByRole("link", { name: "其他政策" })).not.toBeInTheDocument();
