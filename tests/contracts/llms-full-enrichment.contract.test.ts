@@ -178,6 +178,7 @@ function mockLlmsFullDependencies({ includeSurfaces = true }: { includeSurfaces?
             ]
           : [],
     })),
+    listApprovedEnglishContentPagesWithLastKnownGood: vi.fn(async () => ({ value: [] })),
   }));
   vi.doMock("@/lib/seo/backendTestDiscoverabilitySource", () => ({
     listBackendDiscoverabilityTestEntries: vi.fn(async () =>

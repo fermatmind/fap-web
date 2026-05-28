@@ -3,7 +3,10 @@ import { listCmsArticlesForLlmsWithLastKnownGood } from "@/lib/cms/articles";
 import { listCareerGuidesFromCms } from "@/lib/cms/career-guides";
 import { adaptCareerRecommendationIndex } from "@/lib/career/adapters/adaptCareerRecommendationIndex";
 import { fetchCareerRecommendationIndex } from "@/lib/career/api/fetchCareerRecommendationIndex";
-import { listContentPagesWithLastKnownGood } from "@/lib/cms/content-pages";
+import {
+  listApprovedEnglishContentPagesWithLastKnownGood,
+  listContentPagesWithLastKnownGood,
+} from "@/lib/cms/content-pages";
 import { buildDefaultPublicPersonalitySlug, listPersonalityProfiles } from "@/lib/cms/personality";
 import { listTopics } from "@/lib/cms/topics";
 import { isSharedDiscoverabilityDeniedPath } from "@/lib/seo/discoverabilityExposurePolicy";
@@ -24,10 +27,10 @@ import { TOPIC_LLMS_COMPATIBILITY_FALLBACK_SLUGS } from "@/lib/seo/topicLlmsAuth
 import { getSiteUrlOrThrow } from "@/lib/site";
 
 const TOPIC_FALLBACK_SLUGS = TOPIC_LLMS_COMPATIBILITY_FALLBACK_SLUGS;
-const WAVE_1_EN_CONTENT_PAGE_KEYS = new Set(["brand", "charter", "foundation", "careers", "policies"]);
 const LLMS_FINAL_PATH_DENY_PATTERNS: RegExp[] = [
   /^\/zh$/i,
   /^\/tests(?:\/|$)/i,
+  /^\/(?:en|zh)\/tests\/(?:clinical-depression-anxiety-assessment-professional-edition|depression-screening-test-standard-edition)$/i,
   /^\/(?:en|zh)\/blog$/i,
   /^\/(?:en|zh)\/help$/i,
   /^\/(?:en|zh)\/refund$/i,
@@ -170,7 +173,7 @@ export async function GET() {
     backendTestEntries,
     enHelpPages,
     zhHelpPages,
-    enContentPages,
+    enApprovedContentPages,
     careerJobEntries,
   ] = await Promise.all([
     withLlmsRouteBudget(
@@ -244,7 +247,7 @@ export async function GET() {
     ),
     withLlmsRouteBudget(
       () =>
-        listContentPagesWithLastKnownGood("en").then((result) =>
+        listApprovedEnglishContentPagesWithLastKnownGood().then((result) =>
           limitLlmsRouteEntries(result.value, LLMS_ROUTE_LIMITS.helpPages)
         ),
       []
@@ -260,8 +263,7 @@ export async function GET() {
     ...zhHelpPages.map((page) => `/zh${page.path}`),
   ]);
   const contentPageEntries = dedupePaths(
-    enContentPages
-      .filter((page) => WAVE_1_EN_CONTENT_PAGE_KEYS.has(page.slug))
+    enApprovedContentPages
       .filter((page) => page.isPublic && page.isIndexable)
       .map((page) => `/en/${page.slug}`)
   );

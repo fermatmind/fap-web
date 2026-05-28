@@ -7614,3 +7614,79 @@ prs:
       - Footer links remain limited to published/runtime-valid content page targets.
       - No cookie banner behavior, CMS mutation, deploy, sitemap/llms change, Search Channel action, URL submission, external search API call, env/DNS/nginx edit, or frontend editorial fallback content is introduced.
     rollback_note: "Revert the footer link and focused contract changes if footer navigation parity regresses."
+
+  - id: GLOBAL-EN-ZH-CONTENT-PAGES-LLMS-EXPOSURE-REPAIR-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/global-en-zh-content-pages-llms-exposure-repair-01
+    base: main
+    depends_on: []
+    mode: execute
+    train_scope: global_en_zh_content_pages_llms_exposure_repair
+    risk_level: scoped_seo_geo_enumeration_repair
+    status: in_progress
+    title: "GLOBAL-EN-ZH-CONTENT-PAGES-LLMS-EXPOSURE-REPAIR-01 include approved English content pages in llms surfaces"
+    goal: "Include five already published/indexable Wave 1 English content pages in llms.txt and llms-full.txt by reading backend public content-page detail API authority, without adding frontend fallback content."
+    in_scope:
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - lib/cms/content-pages.ts
+      - tests/contracts/global-en-zh-content-pages-llms-exposure-repair-01.contract.test.ts
+      - tests/contracts/llms-parity-contract.contract.test.ts
+      - tests/contracts/llms-full-enrichment.contract.test.ts
+      - tests/contracts/career-llms-alignment.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/seo/global-en-zh-content-pages-llms-exposure-repair-01.md
+      - docs/seo/generated/global-en-zh-content-pages-llms-exposure-repair-01.v1.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - CMS mutation or content publishing
+      - page body copy changes
+      - frontend fallback content
+      - backend deploy
+      - production deploy
+      - Search Channel enqueue or URL submission
+      - IndexNow, GSC, Baidu, Bing, 360, Sogou, or Shenma calls
+      - env, DNS, or nginx edits
+      - support page exposure
+      - clinical/depression test exposure
+      - future task manifest entries
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/global-en-zh-content-pages-llms-exposure-repair-01.contract.test.ts
+      - pnpm lint .
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - pnpm exec vitest run tests/contracts/big5.contract.test.ts tests/contracts/big5-result-assembler.contract.test.ts tests/contracts/big5-secondary-surfaces.contract.test.tsx
+      - pnpm exec vitest run tests/contracts/enneagram-api.contract.test.ts tests/contracts/enneagram-take-flow.contract.test.tsx tests/contracts/enneagram-result-assembler.contract.test.ts tests/contracts/enneagram-rich-result-report.contract.test.tsx tests/contracts/enneagram-secondary-surfaces.contract.test.tsx
+      - python3 -m json.tool docs/seo/generated/global-en-zh-content-pages-llms-exposure-repair-01.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      changed_files_must_match:
+        - app/llms.txt/route.ts
+        - app/llms-full.txt/route.ts
+        - lib/cms/content-pages.ts
+        - tests/contracts/global-en-zh-content-pages-llms-exposure-repair-01.contract.test.ts
+        - tests/contracts/llms-parity-contract.contract.test.ts
+        - tests/contracts/llms-full-enrichment.contract.test.ts
+        - tests/contracts/career-llms-alignment.contract.test.ts
+        - tests/contracts/helpers/currentPrScope.ts
+        - docs/seo/global-en-zh-content-pages-llms-exposure-repair-01.md
+        - docs/seo/generated/global-en-zh-content-pages-llms-exposure-repair-01.v1.json
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - llms.txt includes /en/brand, /en/charter, /en/foundation, /en/careers, and /en/policies when public detail API marks them public and indexable.
+      - llms-full.txt includes the same five pages using backend public detail API authority.
+      - /en/support and /zh/support remain excluded.
+      - Clinical/depression test slugs and private flows remain excluded.
+      - No CMS mutation, deploy, Search Channel action, URL submission, external search API call, env/DNS/nginx edit, page body copy change, or frontend fallback content is introduced.
+    rollback_note: "Revert the llms route/helper and focused contract changes if Wave 1 content-page llms enumeration regresses or non-authority/fallback content is exposed."

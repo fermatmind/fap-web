@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "task": "GLOBAL-EN-ZH-CONTENT-PAGES-LLMS-EXPOSURE-REPAIR-01",
+  "final_decision": "llms_exposure_repair_completed_ready_for_frontend_deploy_readiness",
+  "target_pages": [
+    "/en/brand",
+    "/en/charter",
+    "/en/foundation",
+    "/en/careers",
+    "/en/policies"
+  ],
+  "authority_source": "public CMS content page detail API via getContentPageWithLastKnownGood(slug, \"en\")",
+  "implementation": {
+    "llms_txt_uses_public_detail_authority": true,
+    "llms_full_txt_uses_public_detail_authority": true,
+    "explicit_wave_1_allowlist": true,
+    "requires_is_public": true,
+    "requires_is_indexable": true,
+    "frontend_fallback_content_added": false
+  },
+  "excluded_surfaces": {
+    "support_exposed": false,
+    "clinical_depression_tests_exposed": false,
+    "private_flows_exposed": false,
+    "draft_import_pages_exposed": false,
+    "fallback_only_pages_exposed": false
+  },
+  "safety_boundaries": {
+    "cms_mutation_performed": false,
+    "deploy_performed": false,
+    "search_channel_action_performed": false,
+    "url_submission_performed": false,
+    "external_search_api_call_performed": false,
+    "page_body_copy_changed": false,
+    "frontend_fallback_authority_used": false,
+    "backend_deploy_performed": false
+  },
+  "validation": {
+    "focused_contract": "passed",
+    "lint": "passed_with_pre_existing_warnings",
+    "typecheck": "passed",
+    "build": "passed_with_explicit_public_site_url",
+    "test_contract": "passed",
+    "big5_contract_freeze": "passed_via_ci_equivalent_command",
+    "enneagram_contract_freeze": "passed_via_ci_equivalent_command",
+    "json_parse": "passed",
+    "yaml_parse": "passed",
+    "diff_check": "passed"
+  },
+  "next_task": "FRONTEND-DEPLOY-READINESS｜Deploy LLMS exposure repair"
+}

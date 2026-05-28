@@ -205,6 +205,7 @@ describe("career llms alignment contract", () => {
     vi.doMock("@/lib/cms/content-pages", () => ({
       listContentPages: vi.fn(async () => []),
       listContentPagesWithLastKnownGood: vi.fn(async () => ({ value: [] })),
+      listApprovedEnglishContentPagesWithLastKnownGood: vi.fn(async () => ({ value: [] })),
     }));
     vi.doMock("@/lib/seo/backendTestDiscoverabilitySource", () => ({
       listBackendDiscoverabilityTestEntries: vi.fn(async () => []),
@@ -355,6 +356,7 @@ describe("career llms alignment contract", () => {
     vi.doMock("@/lib/cms/content-pages", () => ({
       listContentPages: vi.fn(async () => []),
       listContentPagesWithLastKnownGood: vi.fn(async () => ({ value: [] })),
+      listApprovedEnglishContentPagesWithLastKnownGood: vi.fn(async () => ({ value: [] })),
     }));
     vi.doMock("@/lib/seo/backendTestDiscoverabilitySource", () => ({
       listBackendDiscoverabilityTestEntries: vi.fn(async () => []),
