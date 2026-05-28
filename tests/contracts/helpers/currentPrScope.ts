@@ -550,6 +550,21 @@ export function isGlobalEnZhContentPagesDiscoverabilityExposureImplementation01A
   return GLOBAL_EN_ZH_CONTENT_PAGES_DISCOVERABILITY_EXPOSURE_IMPLEMENTATION_01_ALLOWED_FILES.has(file);
 }
 
+const GLOBAL_EN_ZH_CONTENT_PAGES_LLMS_EXPOSURE_REPAIR_01_ALLOWED_FILES = new Set([
+  "app/llms-full.txt/route.ts",
+  "app/llms.txt/route.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/seo/global-en-zh-content-pages-llms-exposure-repair-01.md",
+  "docs/seo/generated/global-en-zh-content-pages-llms-exposure-repair-01.v1.json",
+  "lib/cms/content-pages.ts",
+  "tests/contracts/career-llms-alignment.contract.test.ts",
+  "tests/contracts/global-en-zh-content-pages-llms-exposure-repair-01.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/llms-full-enrichment.contract.test.ts",
+  "tests/contracts/llms-parity-contract.contract.test.ts",
+]);
+
 const COOKIE_BANNER_HYDRATION_01_ALLOWED_FILES = new Set([
   "components/legal/CookieBanner.tsx",
   "docs/codex/pr-train.yaml",
@@ -586,6 +601,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
     CURRENT_BRANCH === "codex/fix-global-en-zh-discoverability-exposure-contract"
   ) {
     return GLOBAL_EN_ZH_CONTENT_PAGES_DISCOVERABILITY_EXPOSURE_IMPLEMENTATION_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/global-en-zh-content-pages-llms-exposure-repair-01") {
+    return GLOBAL_EN_ZH_CONTENT_PAGES_LLMS_EXPOSURE_REPAIR_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/global-en-zh-content-pages-frontend-runtime-repair-01") {

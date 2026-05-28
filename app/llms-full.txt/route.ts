@@ -3,7 +3,10 @@ import { getCmsArticleWithLastKnownGood, listCmsArticlesForLlmsWithLastKnownGood
 import { getCareerGuideFromCmsBySlug, listCareerGuidesFromCms } from "@/lib/cms/career-guides";
 import { adaptCareerRecommendationIndex } from "@/lib/career/adapters/adaptCareerRecommendationIndex";
 import { fetchCareerRecommendationIndex } from "@/lib/career/api/fetchCareerRecommendationIndex";
-import { listContentPagesWithLastKnownGood } from "@/lib/cms/content-pages";
+import {
+  listApprovedEnglishContentPagesWithLastKnownGood,
+  listContentPagesWithLastKnownGood,
+} from "@/lib/cms/content-pages";
 import {
   buildDefaultPublicPersonalitySlug,
   getPersonalityProjectionDetailBySlugOrType,
@@ -35,10 +38,10 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
 
 const TOPIC_FALLBACKS = TOPIC_LLMS_COMPATIBILITY_FALLBACKS;
-const WAVE_1_EN_CONTENT_PAGE_KEYS = new Set(["brand", "charter", "foundation", "careers", "policies"]);
 const LLMS_FINAL_PATH_DENY_PATTERNS: RegExp[] = [
   /^\/zh$/i,
   /^\/tests(?:\/|$)/i,
+  /^\/(?:en|zh)\/tests\/(?:clinical-depression-anxiety-assessment-professional-edition|depression-screening-test-standard-edition)$/i,
   /^\/(?:en|zh)\/blog$/i,
   /^\/(?:en|zh)\/help$/i,
   /^\/(?:en|zh)\/refund$/i,
@@ -548,7 +551,7 @@ export async function GET() {
     backendTestEntries,
     enHelpPages,
     zhHelpPages,
-    enContentPages,
+    enApprovedContentPages,
     careerJobPaths,
   ] = await Promise.all([
     withLlmsRouteBudget(
@@ -622,7 +625,7 @@ export async function GET() {
     ),
     withLlmsRouteBudget(
       () =>
-        listContentPagesWithLastKnownGood("en").then((result) =>
+        listApprovedEnglishContentPagesWithLastKnownGood().then((result) =>
           limitLlmsRouteEntries(result.value, LLMS_ROUTE_LIMITS.helpPages)
         ),
       []
@@ -650,8 +653,7 @@ export async function GET() {
     })),
   ].filter((entry) => shouldKeep(entry.path));
 
-  const contentPageEntries = enContentPages
-    .filter((page) => WAVE_1_EN_CONTENT_PAGE_KEYS.has(page.slug))
+  const contentPageEntries = enApprovedContentPages
     .filter((page) => page.isPublic && page.isIndexable)
     .map((page) => ({
       locale: "en" as const,

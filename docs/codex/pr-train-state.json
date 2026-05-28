@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-28T08:08:18+08:00",
+  "updated_at": "2026-05-28T08:17:25+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -11545,6 +11545,92 @@
           "at": "2026-05-28T08:08:18+08:00",
           "status": "pr_opened",
           "summary": "Opened PR #921 for GLOBAL-EN-ZH-FOOTER-NAV-PARITY-02 after local validation passed."
+        }
+      ]
+    },
+    {
+      "id": "GLOBAL-EN-ZH-CONTENT-PAGES-LLMS-EXPOSURE-REPAIR-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/global-en-zh-content-pages-llms-exposure-repair-01",
+      "base": "main",
+      "depends_on": [],
+      "status": "pr_opened",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/922",
+      "commit_sha": "f0881236",
+      "merge_sha": null,
+      "title": "GLOBAL-EN-ZH-CONTENT-PAGES-LLMS-EXPOSURE-REPAIR-01 include approved English content pages in llms surfaces",
+      "artifacts": [
+        "app/llms.txt/route.ts",
+        "app/llms-full.txt/route.ts",
+        "lib/cms/content-pages.ts",
+        "tests/contracts/global-en-zh-content-pages-llms-exposure-repair-01.contract.test.ts",
+        "tests/contracts/llms-parity-contract.contract.test.ts",
+        "tests/contracts/llms-full-enrichment.contract.test.ts",
+        "tests/contracts/career-llms-alignment.contract.test.ts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/seo/global-en-zh-content-pages-llms-exposure-repair-01.md",
+        "docs/seo/generated/global-en-zh-content-pages-llms-exposure-repair-01.v1.json",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "focused_contract": {
+          "command": "pnpm exec vitest run tests/contracts/global-en-zh-content-pages-llms-exposure-repair-01.contract.test.ts",
+          "status": "passed"
+        },
+        "lint": {
+          "command": "pnpm lint .",
+          "status": "passed_with_pre_existing_warnings"
+        },
+        "typecheck": {
+          "command": "pnpm typecheck",
+          "status": "passed"
+        },
+        "build": {
+          "command": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build",
+          "status": "passed"
+        },
+        "test_contract": {
+          "command": "pnpm test:contract",
+          "status": "passed"
+        },
+        "big5_contract_freeze": {
+          "command": "pnpm exec vitest run tests/contracts/big5.contract.test.ts tests/contracts/big5-result-assembler.contract.test.ts tests/contracts/big5-secondary-surfaces.contract.test.tsx",
+          "status": "passed"
+        },
+        "enneagram_contract_freeze": {
+          "command": "pnpm exec vitest run tests/contracts/enneagram-api.contract.test.ts tests/contracts/enneagram-take-flow.contract.test.tsx tests/contracts/enneagram-result-assembler.contract.test.ts tests/contracts/enneagram-rich-result-report.contract.test.tsx tests/contracts/enneagram-secondary-surfaces.contract.test.tsx",
+          "status": "passed"
+        },
+        "requested_freeze_globs": {
+          "command": "pnpm exec vitest run tests/contracts/verify-big5-contract-freeze* && pnpm exec vitest run tests/contracts/verify-enneagram-contract-freeze*",
+          "status": "unavailable_no_matching_local_test_files",
+          "ci_equivalent_commands_passed": true
+        },
+        "manifest_state_parse": "passed",
+        "scope_validation": "passed",
+        "diff_check": "passed"
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-05-28T08:17:25+08:00",
+          "status": "in_progress",
+          "summary": "User authorized GLOBAL-EN-ZH-CONTENT-PAGES-LLMS-EXPOSURE-REPAIR-01 as a scoped fap-web PR."
+        },
+        {
+          "at": "2026-05-28T08:17:25+08:00",
+          "status": "local_checks_passed",
+          "summary": "Implemented Wave 1 EN content-page llms exposure via backend public detail API authority. Focused contract, lint, typecheck, build with explicit public site URL, full contract suite, and CI-equivalent Big Five/Enneagram freeze commands passed."
+        },
+        {
+          "at": "2026-05-28T08:17:25+08:00",
+          "status": "pr_opened",
+          "summary": "Opened fap-web PR #922; branch was rebased onto latest origin/main after footer-nav parity merge."
         }
       ]
     }

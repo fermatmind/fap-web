@@ -134,6 +134,21 @@ const CONTENT_PAGE_SLUGS = [
 
 export type ContentPageSlug = (typeof CONTENT_PAGE_SLUGS)[number];
 
+export const APPROVED_EN_CONTENT_PAGE_LLMS_SLUGS = [
+  "brand",
+  "charter",
+  "foundation",
+  "careers",
+  "policies",
+] as const;
+
+const GUARDED_CONTENT_PAGE_METADATA_PATTERNS = [
+  /\bfiduciary\b/i,
+  /\bequity\s+transfer\b/i,
+  /\bnon[-\s]?profit\b/i,
+  /\b501\s*\(?c\)?\s*\(?3\)?\b/i,
+];
+
 function buildQuery(params: Record<string, string | number | undefined>): string {
   const query = new URLSearchParams();
 
@@ -255,6 +270,31 @@ function toSummary(page: ContentPage): ContentPageSummary {
   };
 }
 
+function hasGuardedContentPageMetadata(page: ContentPage): boolean {
+  if (page.slug !== "foundation" && page.slug !== "charter") {
+    return false;
+  }
+
+  const metadata = [page.title, page.kicker, page.summary, page.seoTitle, page.metaDescription]
+    .filter(Boolean)
+    .join(" ");
+
+  return GUARDED_CONTENT_PAGE_METADATA_PATTERNS.some((pattern) => pattern.test(metadata));
+}
+
+function isApprovedEnglishContentPage(page: ContentPage | null | undefined): page is ContentPage {
+  return Boolean(
+    page &&
+      APPROVED_EN_CONTENT_PAGE_LLMS_SLUGS.includes(
+        page.slug as (typeof APPROVED_EN_CONTENT_PAGE_LLMS_SLUGS)[number]
+      ) &&
+      page.locale === "en" &&
+      page.isPublic &&
+      page.isIndexable &&
+      !hasGuardedContentPageMetadata(page)
+  );
+}
+
 export function listContentPageSlugs(): ContentPageSlug[] {
   return [...CONTENT_PAGE_SLUGS];
 }
@@ -330,6 +370,29 @@ export async function listContentPagesWithLastKnownGood(
     key: `content-pages:list:${normalizedLocale}:${kindKey}`,
     load: () => listContentPages(normalizedLocale, kind),
     isUsable: (pages) => pages.length > 0,
+    useStaleOnUnusable: true,
+  });
+}
+
+export async function listApprovedEnglishContentPagesWithLastKnownGood(): Promise<
+  LastKnownGoodResult<ContentPage[]>
+> {
+  return withLastKnownGood({
+    key: "content-pages:approved-english-llms:wave1",
+    load: async () => {
+      const pages = await Promise.all(
+        APPROVED_EN_CONTENT_PAGE_LLMS_SLUGS.map(async (slug) => {
+          try {
+            return (await getContentPageWithLastKnownGood(slug, "en")).value;
+          } catch {
+            return null;
+          }
+        })
+      );
+
+      return pages.filter(isApprovedEnglishContentPage);
+    },
+    isUsable: (pages) => pages.length === APPROVED_EN_CONTENT_PAGE_LLMS_SLUGS.length,
     useStaleOnUnusable: true,
   });
 }

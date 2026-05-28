@@ -204,6 +204,7 @@ function mockLlmsDependencies() {
     listContentPagesWithLastKnownGood: vi.fn(async (locale: "en" | "zh") => ({
       value: locale === "en" ? [{ path: "/support", title: "Support", summary: "Support summary." }] : [],
     })),
+    listApprovedEnglishContentPagesWithLastKnownGood: vi.fn(async () => ({ value: [] })),
   }));
   vi.doMock("@/lib/cms/personality", () => ({
     buildDefaultPublicPersonalitySlug: vi.fn((value: string) => `${String(value).toLowerCase()}-a`),
