@@ -11557,7 +11557,7 @@
       "depends_on": [],
       "status": "pr_opened",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/922",
-      "commit_sha": "f0881236",
+      "commit_sha": "928612e9",
       "merge_sha": null,
       "title": "GLOBAL-EN-ZH-CONTENT-PAGES-LLMS-EXPOSURE-REPAIR-01 include approved English content pages in llms surfaces",
       "artifacts": [
@@ -11631,6 +11631,11 @@
           "at": "2026-05-28T08:17:25+08:00",
           "status": "pr_opened",
           "summary": "Opened fap-web PR #922; branch was rebased onto latest origin/main after footer-nav parity merge."
+        },
+        {
+          "at": "2026-05-28T08:28:00+08:00",
+          "status": "rebased_ledger_reconciled",
+          "summary": "Rebased PR branch onto origin/main after GLOBAL-EN-ZH-FOOTER-NAV-PARITY-02 merged; preserved that ledger state and reconciled this PR entry to the rebased implementation commit 928612e9."
         }
       ]
     }
