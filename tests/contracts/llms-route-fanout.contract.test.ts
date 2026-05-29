@@ -6,6 +6,9 @@ import {
   LLMS_ROUTE_CAREER_JOB_TIMEOUT_MS,
   LLMS_ROUTE_LIMITS,
   LLMS_ROUTE_SOURCE_TIMEOUT_MS,
+  LLMS_FULL_DEGRADED_CAREER_JOB_TIMEOUT_MS,
+  LLMS_FULL_ENRICHMENT_TIMEOUT_MS,
+  LLMS_FULL_RESPONSE_DEADLINE_MS,
   limitLlmsRouteEntries,
   withLlmsRouteBudget,
 } from "@/lib/seo/llmsRouteBudget";
@@ -40,6 +43,9 @@ describe("llms route fanout budget contract", () => {
     expect(LLMS_ROUTE_LIMITS.careerJobs).toBeGreaterThanOrEqual(1046 * 2);
     expect(LLMS_ROUTE_LIMITS.careerJobs).toBeLessThanOrEqual(2200);
     expect(LLMS_ROUTE_CAREER_JOB_TIMEOUT_MS).toBeLessThanOrEqual(30_000);
+    expect(LLMS_FULL_RESPONSE_DEADLINE_MS).toBeLessThan(30_000);
+    expect(LLMS_FULL_DEGRADED_CAREER_JOB_TIMEOUT_MS).toBeLessThan(LLMS_FULL_RESPONSE_DEADLINE_MS);
+    expect(LLMS_FULL_ENRICHMENT_TIMEOUT_MS).toBeLessThanOrEqual(500);
     expect(limitLlmsRouteEntries([1, 2, 3], 2)).toEqual([1, 2]);
   });
 
@@ -62,10 +68,13 @@ describe("llms route fanout budget contract", () => {
     const source = readSource("app/llms-full.txt/route.ts");
 
     expect(source).toContain("const ENRICHMENT_CONCURRENCY = 4");
+    expect(source).toContain("getCachedLlmsFullText");
+    expect(source).toContain("buildDegradedLlmsFullText");
+    expect(source).toContain("X-FermatMind-LLMS-Full-Mode");
     expect(source).toContain("limitLlmsRouteEntries(articles, LLMS_ROUTE_LIMITS.articles)");
-    expect(source).toContain("withLlmsRouteBudget(() => enrichArticleEntry(entry, siteUrl), entry)");
-    expect(source).toContain("withLlmsRouteBudget(() => enrichPersonalityEntry(entry, siteUrl), entry)");
-    expect(source).toContain("withLlmsRouteBudget(() => enrichTopicEntry(entry, siteUrl), entry)");
-    expect(source).toContain("withLlmsRouteBudget(() => enrichCareerGuideEntry(entry, siteUrl), entry)");
+    expect(source).toContain("withLlmsRouteBudget(() => enrichArticleEntry(entry, siteUrl), entry, { timeoutMs: LLMS_FULL_ENRICHMENT_TIMEOUT_MS })");
+    expect(source).toContain("withLlmsRouteBudget(() => enrichPersonalityEntry(entry, siteUrl), entry, { timeoutMs: LLMS_FULL_ENRICHMENT_TIMEOUT_MS })");
+    expect(source).toContain("withLlmsRouteBudget(() => enrichTopicEntry(entry, siteUrl), entry, { timeoutMs: LLMS_FULL_ENRICHMENT_TIMEOUT_MS })");
+    expect(source).toContain("withLlmsRouteBudget(() => enrichCareerGuideEntry(entry, siteUrl), entry, { timeoutMs: LLMS_FULL_ENRICHMENT_TIMEOUT_MS })");
   });
 });

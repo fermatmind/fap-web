@@ -129,11 +129,15 @@ function hasLocalCareerIndexTrust(job: CareerJobBundleAdapter): boolean {
 
 function hasRuntimeProjectionIndexAuthority(job: CareerJobBundleAdapter): boolean {
   const reasonCodes = new Set(job.seoContract.reasonCodes.map((item) => item.trim().toLowerCase()));
+  const hasRuntimePublicationAuthority =
+    reasonCodes.has("validated_display_asset_backed_release") ||
+    reasonCodes.has("release_gate_pass") ||
+    reasonCodes.has("runtime_published_navigation_shell");
 
   return (
     hasPublishedIndexAuthority(job) &&
     reasonCodes.has("runtime_publish_projection") &&
-    reasonCodes.has("validated_display_asset_backed_release")
+    hasRuntimePublicationAuthority
   );
 }
 

@@ -3822,7 +3822,7 @@ prs:
     mode: execute
     train_scope: search_intelligence_tracking_transport_fields
     risk_level: medium
-    status: in_progress
+    status: merged
     title: "feat(tracking): add search intelligence attribution fields"
     goal: "Add Search Intelligence-safe tracking transport fields for source engine, consent state, traffic quality, and internal/QA/bot labels without changing event taxonomy or purchase semantics."
     in_scope:
@@ -7834,3 +7834,75 @@ prs:
       - software-developers, digital-forensics-analysts, and computer-occupations-all-other remain excluded.
       - No CMS mutation, deploy, Search Channel action, URL submission, external search API call, env/DNS/nginx edit, or frontend editorial fallback content is introduced.
     rollback_note: "Revert Career sitemap/llms exposure helper and route budget changes if non-authority career URLs or held/conflict slugs enter sitemap or llms surfaces."
+
+  - id: DETAIL_READY_1046_CAREER_DETAIL_METADATA_AND_LLMS_FULL_STABILITY_REPAIR-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/detail-ready-1046-career-detail-metadata-and-llms-full-stability-repair-01
+    base: main
+    depends_on:
+      - DETAIL_READY_1046_DISCOVERABILITY_EXPOSURE_REPAIR-01
+    mode: execute
+    train_scope: detail_ready_1046_career_detail_metadata_and_llms_full_stability_repair
+    risk_level: scoped_career_seo_metadata_and_llms_full_stability_repair
+    status: in_progress
+    title: "DETAIL_READY_1046_CAREER_DETAIL_METADATA_AND_LLMS_FULL_STABILITY_REPAIR-01 career detail metadata and llms-full stability repair"
+    goal: "Fix post-1046 career detail frontend metadata drift and make llms-full.txt cache-first/degraded-safe without removing approved career detail URLs or exposing excluded slugs."
+    in_scope:
+      - app/(localized)/[locale]/career/jobs/[slug]/page.tsx
+      - app/llms-full.txt/route.ts
+      - lib/seo/llmsRouteBudget.ts
+      - tests/contracts/detail-ready-1046-career-detail-metadata-and-llms-full-stability-repair-01.contract.test.ts
+      - tests/contracts/llms-route-fanout.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/seo/detail-ready-1046-career-detail-metadata-and-llms-full-stability-repair-01.md
+      - docs/seo/generated/detail-ready-1046-career-detail-metadata-and-llms-full-stability-repair-01.v1.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - fap-api, backend DB, CMS, career cohort, or runtime promotion mutation
+      - production deploy
+      - Search Channel enqueue or URL submission
+      - external search API calls
+      - env, DNS, or nginx edits
+      - frontend editorial fallback content
+      - career claim expansion or paid/gated content exposure
+      - software-developers, digital-forensics-analysts, or computer-occupations-all-other publication changes
+      - future task manifest entries
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/detail-ready-1046-career-detail-metadata-and-llms-full-stability-repair-01.contract.test.ts
+      - pnpm lint .
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - pnpm exec vitest run tests/contracts/big5.contract.test.ts tests/contracts/big5-result-assembler.contract.test.ts tests/contracts/big5-secondary-surfaces.contract.test.tsx
+      - pnpm exec vitest run tests/contracts/enneagram-api.contract.test.ts tests/contracts/enneagram-take-flow.contract.test.tsx tests/contracts/enneagram-result-assembler.contract.test.ts tests/contracts/enneagram-rich-result-report.contract.test.tsx tests/contracts/enneagram-secondary-surfaces.contract.test.tsx
+      - python3 -m json.tool docs/seo/generated/detail-ready-1046-career-detail-metadata-and-llms-full-stability-repair-01.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      changed_files_must_match:
+        - app/(localized)/[locale]/career/jobs/[slug]/page.tsx
+        - app/llms-full.txt/route.ts
+        - lib/seo/llmsRouteBudget.ts
+        - tests/contracts/detail-ready-1046-career-detail-metadata-and-llms-full-stability-repair-01.contract.test.ts
+        - tests/contracts/llms-route-fanout.contract.test.ts
+        - tests/contracts/helpers/currentPrScope.ts
+        - docs/seo/detail-ready-1046-career-detail-metadata-and-llms-full-stability-repair-01.md
+        - docs/seo/generated/detail-ready-1046-career-detail-metadata-and-llms-full-stability-repair-01.v1.json
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Backend runtime-published Career job details with explicit index/follow authority emit index,follow frontend metadata even when local display-asset gates remain closed.
+      - Candidate-only, excluded, noindex, 404, draft, manual-hold, or conflict Career job details remain noindex or notFound.
+      - llms-full.txt is cache-first, refreshes full content in a bounded path, and returns a bounded degraded 200 response when no full artifact/cache is available.
+      - Approved 1046 bilingual Career detail URLs remain included when llms-full cache/generation is healthy.
+      - software-developers, digital-forensics-analysts, and computer-occupations-all-other remain excluded.
+      - No CMS mutation, deploy, Search Channel action, URL submission, external search API call, env/DNS/nginx edit, or frontend editorial fallback content is introduced.
+    rollback_note: "Revert the career metadata helper and llms-full cache/degraded route changes if excluded slugs become discoverable, candidate-only pages become indexable, or llms-full drops approved career URLs in healthy mode."
