@@ -24,7 +24,7 @@ afterEach(() => {
 });
 
 describe("public CMS surface LKG coverage", () => {
-  it("keeps article public surfaces on LKG wrappers while content pages read the published CMS surface directly", () => {
+  it("keeps article and trust/content public surfaces on LKG wrappers while help detail stays on the direct CMS surface", () => {
     const articleIndex = read("app/(localized)/[locale]/articles/page.tsx");
     const articleDetail = read("app/(localized)/[locale]/articles/[slug]/page.tsx");
     const testDetail = read("app/(localized)/[locale]/tests/[slug]/page.tsx");
@@ -37,8 +37,7 @@ describe("public CMS surface LKG coverage", () => {
     expect(articleDetail).toContain("getCmsArticleWithLastKnownGood");
     expect(articleDetail).toContain("getCmsArticleSeoWithLastKnownGood");
     expect(testDetail).toContain("getCmsArticlesWithLastKnownGood");
-    expect(contentPageRoute).toContain("getContentPage(");
-    expect(contentPageRoute).not.toContain("getContentPageWithLastKnownGood");
+    expect(contentPageRoute).toContain("getContentPageWithLastKnownGood");
     expect(helpDetail).toContain("getContentPage(");
     expect(helpDetail).not.toContain("getContentPageWithLastKnownGood");
     expect(llms).toContain("listCmsArticlesForLlmsWithLastKnownGood");
