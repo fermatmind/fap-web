@@ -25,6 +25,7 @@ describe("sitemap authority adapters", () => {
     expect(staticPaths).toContain("/zh/tests");
     expect(staticPaths).toContain("/en/topics/mbti");
     expect(staticPaths).toContain("/zh/topics/mbti");
+    expect(staticPaths).toContain("/zh/policies");
     expect(staticPaths).not.toContain("/en/help/about");
     expect(staticPaths).not.toContain("/en/help/contact");
     expect(staticPaths).not.toContain("/en/help/faq");

@@ -219,7 +219,7 @@ describe("sitemap indexability contract", () => {
     expect(locs).not.toContain("/zh/help/for-business-and-research");
     expect(locs).not.toContain("/en/method-boundaries");
     expect(locs).not.toContain("/zh/method-boundaries");
-    expect(locs).not.toContain("/zh/policies");
+    expect(locs).toContain("/zh/policies");
     expect(locs).not.toContain("/en/privacy");
     expect(locs).not.toContain("/zh/privacy");
     expect(locs).not.toContain("/en/support");
