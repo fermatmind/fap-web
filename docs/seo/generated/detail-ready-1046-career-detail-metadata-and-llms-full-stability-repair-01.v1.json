@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "task": "DETAIL_READY_1046_CAREER_DETAIL_METADATA_AND_LLMS_FULL_STABILITY_REPAIR-01",
+  "final_decision": "detail_ready_1046_metadata_and_llms_full_repair_completed_ready_for_frontend_deploy_readiness",
+  "backend_authority_basis": {
+    "career_public_detail_total": 1046,
+    "bilingual_career_detail_url_total": 2092,
+    "metadata_authority_source": "backend career detail seo_contract / seoSurface robots_policy",
+    "runtime_publication_reason_codes_accepted": [
+      "runtime_publish_projection",
+      "release_gate_pass",
+      "runtime_published_navigation_shell",
+      "validated_display_asset_backed_release"
+    ]
+  },
+  "career_detail_metadata_repair": {
+    "drift_observed_for": [
+      "/en/career/jobs/aerospace-engineers",
+      "/zh/career/jobs/aerospace-engineers",
+      "/en/career/jobs/agricultural-and-food-scientists",
+      "/zh/career/jobs/agricultural-and-food-scientists"
+    ],
+    "repair": "frontend robots metadata now treats backend runtime_publish_projection plus release gate/runtime shell publication authority as sufficient for index,follow while preserving content and JSON-LD gates",
+    "json_ld_gate_weakened": false,
+    "claim_gate_weakened": false,
+    "frontend_fallback_content_added": false
+  },
+  "llms_full_stability_repair": {
+    "mode": "cache_first_with_background_refresh_and_degraded_200",
+    "fresh_cache_ttl_seconds": 3600,
+    "stale_cache_ttl_seconds": 86400,
+    "response_deadline_ms": 12000,
+    "degraded_career_job_timeout_ms": 8000,
+    "enrichment_timeout_ms": 350,
+    "healthy_mode_preserves_career_detail_urls": true,
+    "degraded_mode_returns_200": true,
+    "degraded_mode_may_be_reduced": true
+  },
+  "excluded_slug_safety": {
+    "excluded_slugs": [
+      "software-developers",
+      "digital-forensics-analysts",
+      "computer-occupations-all-other"
+    ],
+    "remain_excluded_from_llms_full": true,
+    "release_excluded_slugs": false
+  },
+  "search_channel_action_performed": false,
+  "url_submission_performed": false,
+  "external_search_api_call_performed": false,
+  "backend_db_mutation_performed": false,
+  "cms_mutation_performed": false,
+  "career_cohort_mutation_performed": false,
+  "runtime_promotion_performed": false,
+  "deploy_performed": false,
+  "no_frontend_fallback_content": true,
+  "next_task": "FRONTEND-DEPLOY-READINESS｜Deploy DETAIL_READY_1046 career metadata and llms-full stability repair"
+}

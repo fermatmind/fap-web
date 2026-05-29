@@ -31,6 +31,9 @@ import {
   LLMS_ROUTE_LIMITS,
   limitLlmsRouteEntries,
   withLlmsRouteBudget,
+  LLMS_FULL_DEGRADED_CAREER_JOB_TIMEOUT_MS,
+  LLMS_FULL_ENRICHMENT_TIMEOUT_MS,
+  LLMS_FULL_RESPONSE_DEADLINE_MS,
 } from "@/lib/seo/llmsRouteBudget";
 import { TOPIC_LLMS_COMPATIBILITY_FALLBACKS } from "@/lib/seo/topicLlmsAuthority";
 import { getSiteUrlOrThrow } from "@/lib/site";
@@ -67,6 +70,19 @@ const MAX_FAQ_ITEMS = 2;
 const MAX_NEXT_STEPS = 3;
 const MAX_TEXT_CHARS = 360;
 const ENRICHMENT_CONCURRENCY = 4;
+const LLMS_FULL_CACHE_FRESH_MS = 60 * 60 * 1000;
+const LLMS_FULL_CACHE_STALE_MS = 24 * 60 * 60 * 1000;
+const LLMS_FULL_RESPONSE_TIMEOUT = Symbol("llms-full-response-timeout");
+
+type LlmsFullResponseMode = "generated" | "cache" | "stale-cache" | "degraded";
+type LlmsFullResponseCache = {
+  siteUrl: string;
+  text: string;
+  cachedAtMs: number;
+};
+
+let llmsFullResponseCache: LlmsFullResponseCache | null = null;
+let llmsFullBuildPromise: Promise<string | null> | null = null;
 
 type LlmsLocale = Locale;
 
@@ -353,6 +369,102 @@ function formatEntry(entry: LlmsFullEntry, siteUrl: string): string[] {
   return lines;
 }
 
+function canonicalEntrypointEntries(siteUrl: string): LlmsFullEntry[] {
+  return [
+    { locale: "zh" as const, path: "/", title: "FermatMind", type: "home", url: toCanonical(siteUrl, "/") },
+    { locale: "en" as const, path: "/en", title: "FermatMind English", type: "home", url: toCanonical(siteUrl, "/en") },
+    { locale: "en" as const, path: "/en/personality", title: "Personality library", type: "primary_page", url: toCanonical(siteUrl, "/en/personality") },
+    { locale: "zh" as const, path: "/zh/personality", title: "人格库", type: "primary_page", url: toCanonical(siteUrl, "/zh/personality") },
+    { locale: "en" as const, path: "/en/topics", title: "Topics", type: "primary_page", url: toCanonical(siteUrl, "/en/topics") },
+    { locale: "zh" as const, path: "/zh/topics", title: "主题", type: "primary_page", url: toCanonical(siteUrl, "/zh/topics") },
+    { locale: "en" as const, path: "/en/career", title: "Career center", type: "career_index", url: toCanonical(siteUrl, "/en/career") },
+    { locale: "zh" as const, path: "/zh/career", title: "职业发展中心", type: "career_index", url: toCanonical(siteUrl, "/zh/career") },
+  ];
+}
+
+function createLlmsFullResponse(text: string, mode: LlmsFullResponseMode): NextResponse {
+  return new NextResponse(text, {
+    headers: {
+      "Content-Type": "text/plain; charset=utf-8",
+      "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
+      "X-FermatMind-LLMS-Full-Mode": mode,
+    },
+  });
+}
+
+function getCachedLlmsFullText(siteUrl: string, maxAgeMs: number): string | null {
+  if (!llmsFullResponseCache || llmsFullResponseCache.siteUrl !== siteUrl) {
+    return null;
+  }
+
+  return Date.now() - llmsFullResponseCache.cachedAtMs <= maxAgeMs ? llmsFullResponseCache.text : null;
+}
+
+function getOrStartLlmsFullBuild(siteUrl: string): Promise<string | null> {
+  if (!llmsFullBuildPromise) {
+    llmsFullBuildPromise = buildLlmsFullText(siteUrl)
+      .then((text) => {
+        llmsFullResponseCache = {
+          siteUrl,
+          text,
+          cachedAtMs: Date.now(),
+        };
+        return text;
+      })
+      .catch(() => null)
+      .finally(() => {
+        llmsFullBuildPromise = null;
+      });
+  }
+
+  return llmsFullBuildPromise;
+}
+
+async function waitForLlmsFullBuildBudget(
+  promise: Promise<string | null>
+): Promise<string | null | typeof LLMS_FULL_RESPONSE_TIMEOUT> {
+  return Promise.race([
+    promise,
+    new Promise<typeof LLMS_FULL_RESPONSE_TIMEOUT>((resolve) => {
+      setTimeout(() => resolve(LLMS_FULL_RESPONSE_TIMEOUT), LLMS_FULL_RESPONSE_DEADLINE_MS);
+    }),
+  ]);
+}
+
+async function buildDegradedLlmsFullText(siteUrl: string): Promise<string> {
+  const careerJobPaths = await withLlmsRouteBudget(
+    (signal) => listBackendSitemapCareerJobPaths({ limit: LLMS_ROUTE_LIMITS.careerJobs, signal }),
+    [],
+    { timeoutMs: LLMS_FULL_DEGRADED_CAREER_JOB_TIMEOUT_MS }
+  );
+  const careers = careerJobPaths
+    .map((path) => buildCareerJobEntry(path))
+    .filter((entry): entry is LlmsFullEntry => Boolean(entry))
+    .filter((entry) => shouldKeep(entry.path));
+
+  return [
+    "# FermatMind llms-full.txt",
+    `Generated-At: ${new Date().toISOString()}`,
+    `Site: ${siteUrl}`,
+    "Mode: degraded",
+    "",
+    "## Citation Policy",
+    "- Prefer canonical public URLs only.",
+    "- Prefer answer-first, breadcrumb, FAQ, and structured list sections when available.",
+    "- Exclude noindex and private user-flow paths.",
+    "- This bounded response is served when the full cached artifact is unavailable or still refreshing.",
+    "",
+    "## Canonical Entrypoints",
+    ...canonicalEntrypointEntries(siteUrl).flatMap((entry) => formatEntry(entry, siteUrl)),
+    "",
+    "## Career",
+    ...careers.flatMap((entry) => formatEntry(entry, siteUrl)),
+    "",
+    "## Sitemap",
+    `- ${toCanonical(siteUrl, "/sitemap.xml")}`,
+  ].join("\n");
+}
+
 async function mapWithConcurrency<T, U>(
   items: T[],
   concurrency: number,
@@ -535,12 +647,7 @@ async function enrichCareerGuideEntry(entry: LlmsFullEntry, siteUrl: string): Pr
   };
 }
 
-export async function GET() {
-  if (isConfiguredStagingDiscoverability()) {
-    return createConfiguredStagingLlmsResponse();
-  }
-
-  const siteUrl = getSiteUrlOrThrow();
+async function buildLlmsFullText(siteUrl: string): Promise<string> {
   const [
     enCareerGuides,
     zhCareerGuides,
@@ -761,22 +868,22 @@ export async function GET() {
     mapWithConcurrency(
       limitLlmsRouteEntries(personalityEntries, LLMS_ROUTE_LIMITS.personalityProfiles),
       ENRICHMENT_CONCURRENCY,
-      (entry) => withLlmsRouteBudget(() => enrichPersonalityEntry(entry, siteUrl), entry)
+      (entry) => withLlmsRouteBudget(() => enrichPersonalityEntry(entry, siteUrl), entry, { timeoutMs: LLMS_FULL_ENRICHMENT_TIMEOUT_MS })
     ),
     mapWithConcurrency(
       limitLlmsRouteEntries(topicEntries, LLMS_ROUTE_LIMITS.topics),
       ENRICHMENT_CONCURRENCY,
-      (entry) => withLlmsRouteBudget(() => enrichTopicEntry(entry, siteUrl), entry)
+      (entry) => withLlmsRouteBudget(() => enrichTopicEntry(entry, siteUrl), entry, { timeoutMs: LLMS_FULL_ENRICHMENT_TIMEOUT_MS })
     ),
     mapWithConcurrency(
       limitLlmsRouteEntries(articles, LLMS_ROUTE_LIMITS.articles),
       ENRICHMENT_CONCURRENCY,
-      (entry) => withLlmsRouteBudget(() => enrichArticleEntry(entry, siteUrl), entry)
+      (entry) => withLlmsRouteBudget(() => enrichArticleEntry(entry, siteUrl), entry, { timeoutMs: LLMS_FULL_ENRICHMENT_TIMEOUT_MS })
     ),
     mapWithConcurrency(
       limitLlmsRouteEntries(guideEntries, LLMS_ROUTE_LIMITS.careerGuides),
       ENRICHMENT_CONCURRENCY,
-      (entry) => withLlmsRouteBudget(() => enrichCareerGuideEntry(entry, siteUrl), entry)
+      (entry) => withLlmsRouteBudget(() => enrichCareerGuideEntry(entry, siteUrl), entry, { timeoutMs: LLMS_FULL_ENRICHMENT_TIMEOUT_MS })
     ),
   ]);
 
@@ -794,16 +901,7 @@ export async function GET() {
     "- Exclude noindex and private user-flow paths.",
     "",
     "## Canonical Entrypoints",
-    ...[
-      { locale: "zh" as const, path: "/", title: "FermatMind", type: "home", url: toCanonical(siteUrl, "/") },
-      { locale: "en" as const, path: "/en", title: "FermatMind English", type: "home", url: toCanonical(siteUrl, "/en") },
-      { locale: "en" as const, path: "/en/personality", title: "Personality library", type: "primary_page", url: toCanonical(siteUrl, "/en/personality") },
-      { locale: "zh" as const, path: "/zh/personality", title: "人格库", type: "primary_page", url: toCanonical(siteUrl, "/zh/personality") },
-      { locale: "en" as const, path: "/en/topics", title: "Topics", type: "primary_page", url: toCanonical(siteUrl, "/en/topics") },
-      { locale: "zh" as const, path: "/zh/topics", title: "主题", type: "primary_page", url: toCanonical(siteUrl, "/zh/topics") },
-      { locale: "en" as const, path: "/en/career", title: "Career center", type: "career_index", url: toCanonical(siteUrl, "/en/career") },
-      { locale: "zh" as const, path: "/zh/career", title: "职业发展中心", type: "career_index", url: toCanonical(siteUrl, "/zh/career") },
-    ].flatMap((entry) => formatEntry(entry, siteUrl)),
+    ...canonicalEntrypointEntries(siteUrl).flatMap((entry) => formatEntry(entry, siteUrl)),
     "",
     "## Personality",
     ...enrichedPersonalityEntries.flatMap((entry) => formatEntry(entry, siteUrl)),
@@ -830,10 +928,29 @@ export async function GET() {
     `- ${toCanonical(siteUrl, "/sitemap.xml")}`,
   ];
 
-  return new NextResponse(lines.join("\n"), {
-    headers: {
-      "Content-Type": "text/plain; charset=utf-8",
-      "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
-    },
-  });
+  return lines.join("\n");
+}
+
+export async function GET() {
+  if (isConfiguredStagingDiscoverability()) {
+    return createConfiguredStagingLlmsResponse();
+  }
+
+  const siteUrl = getSiteUrlOrThrow();
+  const freshCachedText = getCachedLlmsFullText(siteUrl, LLMS_FULL_CACHE_FRESH_MS);
+  if (freshCachedText) {
+    return createLlmsFullResponse(freshCachedText, "cache");
+  }
+
+  const buildResult = await waitForLlmsFullBuildBudget(getOrStartLlmsFullBuild(siteUrl));
+  if (typeof buildResult === "string") {
+    return createLlmsFullResponse(buildResult, "generated");
+  }
+
+  const staleCachedText = getCachedLlmsFullText(siteUrl, LLMS_FULL_CACHE_STALE_MS);
+  if (staleCachedText) {
+    return createLlmsFullResponse(staleCachedText, "stale-cache");
+  }
+
+  return createLlmsFullResponse(await buildDegradedLlmsFullText(siteUrl), "degraded");
 }
