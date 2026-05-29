@@ -11869,8 +11869,8 @@
       "depends_on": [
         "DETAIL_READY_1046_DISCOVERABILITY_EXPOSURE_REPAIR-01"
       ],
-      "status": "in_progress",
-      "pr_url": null,
+      "status": "pr_opened",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/926",
       "commit_sha": "08c7fd4557ded85975bd1bc46042304884df2e34",
       "merge_sha": null,
       "title": "DETAIL_READY_1046_CAREER_DETAIL_METADATA_AND_LLMS_FULL_STABILITY_REPAIR-01 career detail metadata and llms-full stability repair",
@@ -11949,6 +11949,11 @@
           "at": "2026-05-29T11:12:00+08:00",
           "status": "committed",
           "summary": "Committed scoped implementation at 08c7fd4557ded85975bd1bc46042304884df2e34."
+        },
+        {
+          "at": "2026-05-29T11:14:00+08:00",
+          "status": "pr_opened",
+          "summary": "Opened fap-web PR #926 for DETAIL_READY_1046_CAREER_DETAIL_METADATA_AND_LLMS_FULL_STABILITY_REPAIR-01."
         }
       ]
     }
