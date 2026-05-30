@@ -1,6 +1,7 @@
 import { createHash, timingSafeEqual } from "node:crypto";
 import { revalidatePath } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
+import { clearLlmsFullResponseCache } from "@/lib/seo/llmsFullResponseCache";
 
 type ContentReleasePayload = {
   content?: {
@@ -20,6 +21,7 @@ type PathDecision = {
 };
 
 const DEFAULT_PUBLIC_FRONTEND_ORIGINS = ["https://fermatmind.com", "https://www.fermatmind.com"];
+const PUBLIC_CONTENT_PAGE_SLUGS = new Set(["about", "brand", "charter", "foundation", "careers", "policies"]);
 
 function normalizeLocaleToSegment(locale: string | null | undefined): "en" | "zh" {
   return String(locale ?? "").toLowerCase().startsWith("zh") ? "zh" : "en";
@@ -116,6 +118,7 @@ function isAllowedPublicPath(path: string): boolean {
     /^\/(?:zh|en)\/career\/jobs\/[a-z0-9][a-z0-9-]*$/,
     /^\/(?:zh|en)\/tests\/[a-z0-9][a-z0-9-]*$/,
     /^\/(?:zh|en)\/personality(?:\/[a-z0-9][a-z0-9-]*)?$/,
+    /^\/(?:zh|en)\/(?:about|brand|charter|foundation|careers|policies)$/,
     /^\/(?:zh|en)\/help\/[a-z0-9][a-z0-9-]*$/,
     /^\/(?:zh|en)\/support(?:\/[a-z0-9][a-z0-9-]*)?$/,
     /^\/support(?:\/[a-z0-9][a-z0-9-]*)?$/,
@@ -194,8 +197,22 @@ export function collectPathDecisions(payload: ContentReleasePayload, requestOrig
     localized.push(localizedPath("/support", locale));
   }
 
-  if (type === "content_page" && String(payload.content?.slug ?? "").startsWith("help-")) {
-    localized.push(localizedPath("/support", locale));
+  if (type === "content_page") {
+    let derivesPublicContentPagePath = false;
+
+    if (slug && PUBLIC_CONTENT_PAGE_SLUGS.has(slug)) {
+      localized.push(localizedPath(`/${slug}`, locale));
+      derivesPublicContentPagePath = true;
+    }
+
+    if (String(payload.content?.slug ?? "").startsWith("help-")) {
+      localized.push(localizedPath("/support", locale));
+      derivesPublicContentPagePath = true;
+    }
+
+    if (derivesPublicContentPagePath) {
+      localized.push("/llms.txt", "/llms-full.txt");
+    }
   }
 
   const accepted: string[] = [];
@@ -245,6 +262,10 @@ export async function POST(request: NextRequest) {
 
   for (const path of accepted) {
     revalidatePath(path);
+  }
+
+  if (accepted.includes("/llms-full.txt")) {
+    clearLlmsFullResponseCache();
   }
 
   return NextResponse.json({

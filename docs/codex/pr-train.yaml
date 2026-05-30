@@ -7691,6 +7691,72 @@ prs:
       - No CMS mutation, deploy, Search Channel action, URL submission, external search API call, env/DNS/nginx edit, page body copy change, or frontend fallback content is introduced.
     rollback_note: "Revert the llms route/helper and focused contract changes if Wave 1 content-page llms enumeration regresses or non-authority/fallback content is exposed."
 
+  - id: PR-FDN-01-LLMS-FULL-RECHECK-OR-REPAIR
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-fdn-01-llms-full-recheck-or-repair
+    base: main
+    depends_on: []
+    mode: execute
+    train_scope: pr_fdn_01_llms_full_recheck_or_repair
+    risk_level: scoped_seo_geo_cache_revalidation_repair
+    status: in_progress
+    title: "PR-FDN-01-LLMS-FULL-RECHECK-OR-REPAIR repair foundation content-page llms-full cache revalidation"
+    goal: "Repair content_page release revalidation so foundation/content page updates refresh localized public content-page paths and llms surfaces while clearing the llms-full in-process response cache, without CMS mutation or frontend fallback content."
+    in_scope:
+      - app/api/content-release/revalidate/route.ts
+      - app/llms-full.txt/route.ts
+      - lib/seo/llmsFullResponseCache.ts
+      - tests/contracts/pr-fdn-01-llms-full-recheck-or-repair.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/seo/pr-fdn-01-llms-full-recheck-or-repair.md
+      - docs/seo/generated/pr-fdn-01-llms-full-recheck-or-repair.v1.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - CMS mutation or content publishing
+      - page body copy changes
+      - frontend fallback content
+      - backend deploy
+      - production deploy
+      - Search Channel enqueue or URL submission
+      - IndexNow, GSC, Baidu, Bing, 360, Sogou, or Shenma calls
+      - env, DNS, or nginx edits
+      - sitemap/llms/footer/nav exposure policy expansion
+      - future task manifest entries
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/pr-fdn-01-llms-full-recheck-or-repair.contract.test.ts tests/contracts/content-release-revalidate-allowlist.contract.test.ts
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - python3 -m json.tool docs/seo/generated/pr-fdn-01-llms-full-recheck-or-repair.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      changed_files_must_match:
+        - app/api/content-release/revalidate/route.ts
+        - app/llms-full.txt/route.ts
+        - lib/seo/llmsFullResponseCache.ts
+        - tests/contracts/pr-fdn-01-llms-full-recheck-or-repair.contract.test.ts
+        - tests/contracts/helpers/currentPrScope.ts
+        - docs/seo/pr-fdn-01-llms-full-recheck-or-repair.md
+        - docs/seo/generated/pr-fdn-01-llms-full-recheck-or-repair.v1.json
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - content_page release metadata for foundation derives the localized public content-page path such as /en/foundation.
+      - content_page releases derive /llms.txt and /llms-full.txt revalidation paths.
+      - /llms-full.txt accepted revalidation clears the llms-full in-process response cache.
+      - Existing private/API path rejection and public path allowlist behavior remain intact.
+      - No CMS mutation, deploy, Search Channel action, URL submission, external search API call, env/DNS/nginx edit, page body copy change, or frontend fallback content is introduced.
+    rollback_note: "Revert the content-release revalidation and llms-full cache helper changes if content-page revalidation widens private surfaces or llms-full cache behavior regresses."
+
   - id: DETAIL_READY_1046_FRONTEND_METADATA_REVALIDATION-01
     repo: fap-web
     repo_path: <workspace>/fap-web

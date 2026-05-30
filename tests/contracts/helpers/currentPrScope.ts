@@ -565,6 +565,18 @@ const GLOBAL_EN_ZH_CONTENT_PAGES_LLMS_EXPOSURE_REPAIR_01_ALLOWED_FILES = new Set
   "tests/contracts/llms-parity-contract.contract.test.ts",
 ]);
 
+const PR_FDN_01_LLMS_FULL_RECHECK_OR_REPAIR_ALLOWED_FILES = new Set([
+  "app/api/content-release/revalidate/route.ts",
+  "app/llms-full.txt/route.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/seo/generated/pr-fdn-01-llms-full-recheck-or-repair.v1.json",
+  "docs/seo/pr-fdn-01-llms-full-recheck-or-repair.md",
+  "lib/seo/llmsFullResponseCache.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/pr-fdn-01-llms-full-recheck-or-repair.contract.test.ts",
+]);
+
 const DETAIL_READY_1046_FRONTEND_METADATA_REVALIDATION_01_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/career/jobs/[slug]/page.tsx",
   "docs/codex/pr-train.yaml",
@@ -646,6 +658,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/global-en-zh-content-pages-llms-exposure-repair-01") {
     return GLOBAL_EN_ZH_CONTENT_PAGES_LLMS_EXPOSURE_REPAIR_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/pr-fdn-01-llms-full-recheck-or-repair") {
+    return PR_FDN_01_LLMS_FULL_RECHECK_OR_REPAIR_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/detail-ready-1046-frontend-metadata-revalidation-01") {

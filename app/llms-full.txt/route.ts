@@ -35,6 +35,7 @@ import {
   LLMS_FULL_ENRICHMENT_TIMEOUT_MS,
   LLMS_FULL_RESPONSE_DEADLINE_MS,
 } from "@/lib/seo/llmsRouteBudget";
+import { getCachedLlmsFullText, getOrStartLlmsFullBuild } from "@/lib/seo/llmsFullResponseCache";
 import { TOPIC_LLMS_COMPATIBILITY_FALLBACKS } from "@/lib/seo/topicLlmsAuthority";
 import { getSiteUrlOrThrow } from "@/lib/site";
 import type { AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
@@ -75,14 +76,6 @@ const LLMS_FULL_CACHE_STALE_MS = 24 * 60 * 60 * 1000;
 const LLMS_FULL_RESPONSE_TIMEOUT = Symbol("llms-full-response-timeout");
 
 type LlmsFullResponseMode = "generated" | "cache" | "stale-cache" | "degraded";
-type LlmsFullResponseCache = {
-  siteUrl: string;
-  text: string;
-  cachedAtMs: number;
-};
-
-let llmsFullResponseCache: LlmsFullResponseCache | null = null;
-let llmsFullBuildPromise: Promise<string | null> | null = null;
 
 type LlmsLocale = Locale;
 
@@ -390,34 +383,6 @@ function createLlmsFullResponse(text: string, mode: LlmsFullResponseMode): NextR
       "X-FermatMind-LLMS-Full-Mode": mode,
     },
   });
-}
-
-function getCachedLlmsFullText(siteUrl: string, maxAgeMs: number): string | null {
-  if (!llmsFullResponseCache || llmsFullResponseCache.siteUrl !== siteUrl) {
-    return null;
-  }
-
-  return Date.now() - llmsFullResponseCache.cachedAtMs <= maxAgeMs ? llmsFullResponseCache.text : null;
-}
-
-function getOrStartLlmsFullBuild(siteUrl: string): Promise<string | null> {
-  if (!llmsFullBuildPromise) {
-    llmsFullBuildPromise = buildLlmsFullText(siteUrl)
-      .then((text) => {
-        llmsFullResponseCache = {
-          siteUrl,
-          text,
-          cachedAtMs: Date.now(),
-        };
-        return text;
-      })
-      .catch(() => null)
-      .finally(() => {
-        llmsFullBuildPromise = null;
-      });
-  }
-
-  return llmsFullBuildPromise;
 }
 
 async function waitForLlmsFullBuildBudget(
@@ -942,7 +907,7 @@ export async function GET() {
     return createLlmsFullResponse(freshCachedText, "cache");
   }
 
-  const buildResult = await waitForLlmsFullBuildBudget(getOrStartLlmsFullBuild(siteUrl));
+  const buildResult = await waitForLlmsFullBuildBudget(getOrStartLlmsFullBuild(siteUrl, buildLlmsFullText));
   if (typeof buildResult === "string") {
     return createLlmsFullResponse(buildResult, "generated");
   }
