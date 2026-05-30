@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "task": "PR-FDN-01-LLMS-FULL-RECHECK-OR-REPAIR",
+  "final_decision": "llms_full_recheck_or_repair_completed_ready_for_frontend_deploy_readiness",
+  "target_page": "/en/foundation",
+  "target_surfaces": [
+    "/llms.txt",
+    "/llms-full.txt"
+  ],
+  "root_cause": {
+    "cms_content_clean": true,
+    "public_foundation_runtime_clean": true,
+    "llms_txt_clean": true,
+    "llms_full_stale_process_cache_detected": true,
+    "content_page_revalidation_missing_llms_full_cache_clear": true
+  },
+  "implementation": {
+    "llms_full_process_cache_clear_entrypoint_added": true,
+    "content_page_release_derives_public_page_path": true,
+    "content_page_release_derives_llms_txt": true,
+    "content_page_release_derives_llms_full_txt": true,
+    "llms_full_cache_cleared_when_llms_full_revalidated": true,
+    "frontend_fallback_content_added": false
+  },
+  "safety_boundaries": {
+    "cms_mutation_performed": false,
+    "deploy_performed": false,
+    "search_channel_action_performed": false,
+    "url_submission_performed": false,
+    "external_search_api_call_performed": false,
+    "env_dns_nginx_edit_performed": false,
+    "page_body_copy_changed": false
+  },
+  "validation": {
+    "focused_contract": "passed",
+    "content_release_contract": "passed",
+    "lint": "passed_with_pre_existing_warnings",
+    "typecheck": "passed",
+    "build": "passed_with_explicit_public_site_url",
+    "test_contract": "passed",
+    "big5_contract_freeze": "passed_via_ci_equivalent_command",
+    "enneagram_contract_freeze": "passed_via_ci_equivalent_command",
+    "json_parse": "passed",
+    "yaml_parse": "passed",
+    "diff_check": "passed"
+  },
+  "next_task": "FRONTEND-DEPLOY-READINESS｜Deploy PR-FDN-01 llms-full recheck or repair"
+}

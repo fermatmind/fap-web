@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-29T01:30:00+08:00",
+  "updated_at": "2026-05-31T06:18:00+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -11679,6 +11679,89 @@
           "at": "2026-05-28T08:43:00+08:00",
           "status": "merged_reconciled",
           "summary": "Reconciled PR #922 after GitHub reported MERGED at de67e5c5e8fec0fa87146e5954984ff3d817be8d; required checks were green, remote branch was deleted, local post-merge cleanup executed, and main was synced."
+        }
+      ]
+    },
+    {
+      "id": "PR-FDN-01-LLMS-FULL-RECHECK-OR-REPAIR",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/pr-fdn-01-llms-full-recheck-or-repair",
+      "base": "main",
+      "depends_on": [],
+      "status": "committed",
+      "pr_url": null,
+      "commit_sha": "2111a7d6fbc69d87fdd00f84605f8b836884b0c4",
+      "merge_sha": null,
+      "title": "PR-FDN-01-LLMS-FULL-RECHECK-OR-REPAIR repair foundation content-page llms-full cache revalidation",
+      "artifacts": [
+        "app/api/content-release/revalidate/route.ts",
+        "app/llms-full.txt/route.ts",
+        "lib/seo/llmsFullResponseCache.ts",
+        "tests/contracts/pr-fdn-01-llms-full-recheck-or-repair.contract.test.ts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/seo/pr-fdn-01-llms-full-recheck-or-repair.md",
+        "docs/seo/generated/pr-fdn-01-llms-full-recheck-or-repair.v1.json",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "focused_contract": {
+          "command": "pnpm exec vitest run tests/contracts/pr-fdn-01-llms-full-recheck-or-repair.contract.test.ts tests/contracts/content-release-revalidate-allowlist.contract.test.ts",
+          "status": "passed"
+        },
+        "lint": {
+          "command": "pnpm lint .",
+          "status": "passed_with_pre_existing_warnings"
+        },
+        "typecheck": {
+          "command": "pnpm typecheck",
+          "status": "passed"
+        },
+        "build": {
+          "command": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build",
+          "status": "passed"
+        },
+        "test_contract": {
+          "command": "pnpm test:contract",
+          "status": "passed"
+        },
+        "big5_contract_freeze": {
+          "command": "pnpm exec vitest run tests/contracts/big5.contract.test.ts tests/contracts/big5-result-assembler.contract.test.ts tests/contracts/big5-secondary-surfaces.contract.test.tsx",
+          "status": "passed"
+        },
+        "enneagram_contract_freeze": {
+          "command": "pnpm exec vitest run tests/contracts/enneagram-api.contract.test.ts tests/contracts/enneagram-take-flow.contract.test.tsx tests/contracts/enneagram-result-assembler.contract.test.ts tests/contracts/enneagram-rich-result-report.contract.test.tsx tests/contracts/enneagram-secondary-surfaces.contract.test.tsx",
+          "status": "passed"
+        },
+        "manifest_state_parse": "passed",
+        "scope_validation": "passed",
+        "diff_check": "passed"
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-05-31T06:09:20+08:00",
+          "status": "in_progress",
+          "summary": "User authorized PR-FDN-01-LLMS-FULL-RECHECK-OR-REPAIR as a scoped fap-web PR to repair content_page revalidation and llms-full cache invalidation without CMS mutation, deploy, Search Channel action, URL submission, external search API calls, env/DNS/nginx edits, or frontend fallback content."
+        },
+        {
+          "at": "2026-05-31T06:16:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Implemented content_page release revalidation for foundation/content pages and llms-full process cache invalidation. Focused contracts, lint, typecheck, production-API build, full contract suite, and Big Five/Enneagram freeze equivalent commands passed; diff checks pending final staging."
+        },
+        {
+          "at": "2026-05-31T06:17:00+08:00",
+          "status": "scope_diff_checks_passed",
+          "summary": "JSON/YAML parse, path scope validation, git diff --check, and git diff --cached --check passed. Changed files are limited to the approved revalidation/cache helper, focused test, docs/report, scope helper, and PR train metadata."
+        },
+        {
+          "at": "2026-05-31T06:18:00+08:00",
+          "status": "committed",
+          "summary": "Committed scoped implementation at 2111a7d6fbc69d87fdd00f84605f8b836884b0c4; PR creation pending."
         }
       ]
     },
