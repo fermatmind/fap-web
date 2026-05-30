@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-31T06:18:00+08:00",
+  "updated_at": "2026-05-31T06:20:00+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -11689,8 +11689,8 @@
       "branch": "codex/pr-fdn-01-llms-full-recheck-or-repair",
       "base": "main",
       "depends_on": [],
-      "status": "committed",
-      "pr_url": null,
+      "status": "pr_opened",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/928",
       "commit_sha": "4f0c939f7b3fc5eee9479b2c55904bd99595501d",
       "merge_sha": null,
       "title": "PR-FDN-01-LLMS-FULL-RECHECK-OR-REPAIR repair foundation content-page llms-full cache revalidation",
@@ -11762,6 +11762,11 @@
           "at": "2026-05-31T06:18:00+08:00",
           "status": "committed",
           "summary": "Committed scoped implementation at 2111a7d6fbc69d87fdd00f84605f8b836884b0c4; PR creation pending."
+        },
+        {
+          "at": "2026-05-31T06:20:00+08:00",
+          "status": "pr_opened",
+          "summary": "Opened fap-web PR #928 for PR-FDN-01-LLMS-FULL-RECHECK-OR-REPAIR after local validation passed."
         }
       ]
     },
