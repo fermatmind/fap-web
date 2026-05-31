@@ -13305,7 +13305,7 @@
       "depends_on": [],
       "status": "pr_opened_with_sidecar",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/941",
-      "commit_sha": "a52a85db3a54062c770c164f352511f1ae0ddd01",
+      "commit_sha": "d274696c06ccdc8f9747fc6467310bd1c11c6b4c",
       "merge_sha": null,
       "title": "RESULT-EMAIL-LOOKUP-TOKEN-OPEN-04 render result email lookup token links",
       "artifacts": [
@@ -13371,7 +13371,7 @@
         {
           "at": "2026-05-31T14:47:01Z",
           "status": "pr_opened_with_sidecar",
-          "summary": "Opened PR #941 from implementation commit a52a85db3a54062c770c164f352511f1ae0ddd01. GitHub reported no checks yet; PR is waiting for merge conflict cleanup after rebase."
+          "summary": "Opened PR #941 and rebased onto latest origin/main from implementation commit d274696c06ccdc8f9747fc6467310bd1c11c6b4c. GitHub reported no checks at initial polling; checks must be re-polled after force-push."
         }
       ]
     }
