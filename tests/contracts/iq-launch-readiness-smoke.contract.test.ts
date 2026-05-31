@@ -4,10 +4,15 @@ import {
   IQ_FORBIDDEN_PUBLIC_FIELDS,
   IQ_LAUNCH_SLUG,
   IQ_LAUNCH_SMOKE_PLAN,
+  IQ_OPERATOR_FIXTURE_ENV_KEYS,
+  IQ_OPERATOR_FIXTURE_MUTATION_APPROVAL,
   assertNoAnswerKeyLeakage,
   assertNoCommerceLeakage,
   assertSmokePlanComplete,
+  buildAuthenticatedFixturePlan,
   collectForbiddenFieldPaths,
+  parseOperatorSubmitPayload,
+  redactOperatorSecret,
 } from "../../scripts/iq/iq-launch-readiness-smoke.mjs";
 
 describe("IQ launch readiness smoke contract", () => {
@@ -65,5 +70,24 @@ describe("IQ launch readiness smoke contract", () => {
     expect(canonical?.validates).toEqual(expect.arrayContaining(["canonical_self_reference", "no_software_application_schema"]));
     expect(noindex?.validates).toEqual(expect.arrayContaining(["x_robots_noindex", "robots_noindex"]));
     expect(submit).toMatchObject({ method: "POST", requiresAuth: true });
+  });
+
+  it("adds an env-only authenticated operator fixture gate without committed secrets or answer keys", () => {
+    expect(IQ_OPERATOR_FIXTURE_ENV_KEYS).toEqual([
+      "IQ_OPERATOR_FIXTURE_BEARER_TOKEN",
+      "IQ_OPERATOR_FIXTURE_ATTEMPT_ID",
+      "IQ_OPERATOR_FIXTURE_SUBMIT_PAYLOAD_JSON",
+    ]);
+    expect(IQ_OPERATOR_FIXTURE_MUTATION_APPROVAL).toContain("operator IQ fixture attempt");
+
+    const plan = buildAuthenticatedFixturePlan({ attemptId: "attempt_live_fixture_123456" });
+    expect(plan.map((item) => item.id)).toEqual(["submit", "result", "report"]);
+    expect(plan.every((item) => item.auth === "bearer_token_from_environment_only")).toBe(true);
+    expect(plan.map((item) => item.path).join("\n")).not.toContain("{attempt_id}");
+    expect(redactOperatorSecret("attempt_live_fixture_123456")).toBe("atte...3456");
+    expect(parseOperatorSubmitPayload(JSON.stringify({ answers: [{ question_id: "q1", option_code: "A" }] }))).toEqual({
+      answers: [{ question_id: "q1", option_code: "A" }],
+    });
+    expect(() => parseOperatorSubmitPayload(JSON.stringify({ answer_key: { q1: "A" } }))).toThrow(/private fields/);
   });
 });
