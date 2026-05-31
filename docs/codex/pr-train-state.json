@@ -13129,10 +13129,10 @@
       "depends_on": [
         "CAREER-1046-INTERNAL-LINKING-AUTHORITY-01"
       ],
-      "status": "committed",
-      "pr_url": null,
+      "status": "pr_open",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/939",
       "merge_sha": null,
-      "commit_sha": "2cc4e8e8379aa5a7bb9a0debd6500bd305c8f33b",
+      "commit_sha": "f170face3f7508506fa171f8826f78ac57d92b0f",
       "title": "CAREER-1046-FRONTEND-DISCOVERY-UX-01 career discovery UX",
       "train_scope": "career_1046_growth_foundation",
       "checks": {
@@ -13173,6 +13173,11 @@
           "status": "pass",
           "command": "python3 -m json.tool docs/seo/generated/career-1046-frontend-discovery-ux-01.v1.json && python3 -m json.tool docs/codex/pr-train-state.json && yaml.safe_load(...)",
           "evidence": "Generated artifact, train state, and manifest parse successfully."
+        },
+        "github": {
+          "status": "pending",
+          "command": "gh pr checks 939 --watch",
+          "evidence": "PR opened; GitHub checks pending."
         }
       },
       "failure_reason": null,
@@ -13209,6 +13214,11 @@
           "at": "2026-05-31T12:42:00Z",
           "status": "committed",
           "summary": "Committed scoped frontend discovery UX changes locally as 2cc4e8e8379aa5a7bb9a0debd6500bd305c8f33b."
+        },
+        {
+          "at": "2026-05-31T12:45:30Z",
+          "status": "pr_open",
+          "summary": "Pushed branch and opened https://github.com/fermatmind/fap-web/pull/939. GitHub checks are pending."
         }
       ]
     }
