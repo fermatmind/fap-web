@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-31T17:19:07.048409Z",
+  "updated_at": "2026-05-31T17:28:32.111047Z",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -13686,8 +13686,8 @@
         "IQ-SEO-RAMP-01"
       ],
       "title": "IQ-SEO-RAMP-02 gate SEO indexation through backend authority",
-      "status": "pr_open_github_checks_pending",
-      "commit_sha": "478dfcba",
+      "status": "merged",
+      "commit_sha": "db312b74cf954c6b3f2bac4d9e9d024b10d230ce",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/946",
       "pr_number": 946,
       "checks": {
@@ -13699,9 +13699,9 @@
         "scope_validation": "passed: changed files limited to IQ-SEO-RAMP-02 allowed scope"
       },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-05-31T17:23:03Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "scope_validation": {
         "allowed_paths_only": true,
         "changed_files": [
@@ -13719,8 +13719,8 @@
           "tests/contracts/llms-test-authority.contract.test.ts"
         ],
         "local_validation_passed": true,
-        "github_checks_green": null,
-        "post_merge_revalidated": null
+        "github_checks_green": true,
+        "post_merge_revalidated": true
       },
       "events": [
         {
@@ -13737,9 +13737,74 @@
           "at": "2026-05-31T17:19:07.048409Z",
           "status": "pr_open_github_checks_pending",
           "summary": "Opened GitHub PR #946 after local scope validation passed."
+        },
+        {
+          "at": "2026-05-31T17:26:38.320428Z",
+          "status": "merged_reconciled",
+          "summary": "Reconciled IQ-SEO-RAMP-02 merge before starting IQ-LIVE-RAMP-01."
         }
       ],
-      "updated_at": "2026-05-31T17:19:07.048409Z"
+      "updated_at": "2026-05-31T17:26:38.320428Z"
+    },
+    {
+      "id": "IQ-LIVE-RAMP-01",
+      "repo": "fap-web",
+      "branch": "codex/iq-live-ramp-01-authenticated-smoke",
+      "base": "main",
+      "depends_on": [
+        "IQ-SEO-RAMP-02",
+        "IQ-PAID-REPORT-02"
+      ],
+      "title": "IQ-LIVE-RAMP-01 add authenticated production smoke fixture gate",
+      "status": "pr_open_github_checks_pending",
+      "commit_sha": "1577883c",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/947",
+      "pr_number": 947,
+      "checks": {
+        "dependency_iq_seo_ramp_02": "passed: fermatmind/fap-web#946 merged at 2026-05-31T17:23:03Z",
+        "dependency_iq_paid_report_02": "passed: fermatmind/fap-web#943 merged earlier in train",
+        "workspace_safety": "using isolated worktree /private/tmp/fap-web-iq-live-ramp-01; primary worktree untouched",
+        "node scripts/iq/iq-launch-readiness-smoke.mjs": "passed: plan-only, no production token required",
+        "pnpm exec vitest run tests/contracts/iq-launch-readiness-smoke.contract.test.ts": "passed: 1 file, 5 tests",
+        "pnpm exec tsc --noEmit --pretty false": "passed",
+        "python3 json/yaml parse + git diff --check": "passed",
+        "scope_validation": "passed: changed files limited to IQ-LIVE-RAMP-01 allowed scope"
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "scope_validation": {
+        "allowed_paths_only": true,
+        "changed_files": [
+          "docs/codex/pr-train-state.json",
+          "docs/codex/pr-train.yaml",
+          "scripts/iq/iq-launch-readiness-smoke.mjs",
+          "tests/contracts/helpers/currentPrScope.ts",
+          "tests/contracts/iq-launch-readiness-smoke.contract.test.ts"
+        ],
+        "local_validation_passed": true,
+        "github_checks_green": null,
+        "post_merge_revalidated": null
+      },
+      "events": [
+        {
+          "at": "2026-05-31T17:26:38.320428Z",
+          "status": "implementation_in_progress",
+          "summary": "Initialized IQ-LIVE-RAMP-01 from user-authorized IQ production train and fap-api manifest scope."
+        },
+        {
+          "at": "2026-05-31T17:27:28.922146Z",
+          "status": "local_checks_passed",
+          "summary": "Authenticated operator fixture smoke gate implemented with env-only token/payload handling; local checks passed."
+        },
+        {
+          "at": "2026-05-31T17:28:32.111047Z",
+          "status": "pr_open_github_checks_pending",
+          "summary": "Opened GitHub PR #947 after local scope validation passed."
+        }
+      ],
+      "updated_at": "2026-05-31T17:28:32.111047Z"
     }
   ],
   "sidecar_issues": [

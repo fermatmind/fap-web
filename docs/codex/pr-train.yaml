@@ -9010,3 +9010,54 @@ prs:
       - IQ JSON-LD expansion is gated by backend jsonld_eligible and unsafe claim checks.
       - No frontend editorial fallback content, public static media fallback, or norm authority is introduced.
     rollback_note: "Revert IQ SEO ramp frontend gates if backend authority, claim policy, or norm authority checks regress."
+
+  - id: IQ-LIVE-RAMP-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/iq-live-ramp-01-authenticated-smoke
+    base: main
+    depends_on:
+      - IQ-SEO-RAMP-02
+      - IQ-PAID-REPORT-02
+    mode: execute
+    train_scope: iq_production_launch
+    status: in_progress
+    title: "IQ-LIVE-RAMP-01 add authenticated production smoke fixture gate"
+    goal: "Extend IQ live smoke for operator fixture validation of submit, result, paid report, canonical, and leakage checks."
+    in_scope:
+      - scripts/iq/iq-launch-readiness-smoke.mjs
+      - tests/contracts/iq-launch-readiness-smoke.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - real tokens, user data, answer keys, or private report payloads
+      - production execution in CI
+      - payment/order implementation changes
+      - SEO sitemap, llms, or JSON-LD expansion
+    required_local_checks:
+      - node scripts/iq/iq-launch-readiness-smoke.mjs
+      - pnpm exec vitest run tests/contracts/iq-launch-readiness-smoke.contract.test.ts
+      - pnpm exec tsc --noEmit --pretty false
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      changed_files_must_match:
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+        - scripts/iq/iq-launch-readiness-smoke.mjs
+        - tests/contracts/helpers/currentPrScope.ts
+        - tests/contracts/iq-launch-readiness-smoke.contract.test.ts
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: IQ-OBS-01
+    acceptance:
+      - Smoke script supports env-only authenticated operator fixture checks for submit/result/report.
+      - Default CI/local mode remains plan-only without live production mutation.
+      - Script redacts operator identifiers and never commits or prints bearer tokens.
+      - Public and authenticated payload scans block answer keys, private fields, and commerce leakage.
+    rollback_note: "Revert IQ live smoke fixture gate if operator fixture execution or redaction safety regresses."

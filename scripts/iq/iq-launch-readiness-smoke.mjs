@@ -26,6 +26,15 @@ export const IQ_FORBIDDEN_COMMERCE_TERMS = [
   'purchase_required',
 ];
 
+export const IQ_OPERATOR_FIXTURE_ENV_KEYS = [
+  'IQ_OPERATOR_FIXTURE_BEARER_TOKEN',
+  'IQ_OPERATOR_FIXTURE_ATTEMPT_ID',
+  'IQ_OPERATOR_FIXTURE_SUBMIT_PAYLOAD_JSON',
+];
+
+export const IQ_OPERATOR_FIXTURE_MUTATION_APPROVAL =
+  'I understand this will submit the operator IQ fixture attempt';
+
 export const IQ_LAUNCH_SMOKE_PLAN = [
   {
     id: 'lookup',
@@ -133,6 +142,33 @@ export function assertNoCommerceLeakage(value) {
   assert.deepEqual(leaks, [], `IQ public payload leaked commerce terms: ${leaks.join(', ')}`);
 }
 
+export function redactOperatorSecret(value) {
+  const text = String(value ?? '');
+  if (!text) return '';
+  if (text.length <= 8) return '<redacted>';
+  return `${text.slice(0, 4)}...${text.slice(-4)}`;
+}
+
+export function parseOperatorSubmitPayload(value) {
+  if (!value) return null;
+  const payload = JSON.parse(value);
+  assertNoAnswerKeyLeakage(payload);
+  assertNoCommerceLeakage(payload);
+  return payload;
+}
+
+export function buildAuthenticatedFixturePlan({ attemptId }) {
+  const safeAttemptId = String(attemptId ?? '').trim() || '{attempt_id}';
+
+  return IQ_LAUNCH_SMOKE_PLAN
+    .filter((item) => item.requiresAuth)
+    .map((item) => ({
+      ...item,
+      path: item.path.replace('{attempt_id}', safeAttemptId),
+      auth: 'bearer_token_from_environment_only',
+    }));
+}
+
 async function fetchText(baseUrl, path) {
   const response = await fetch(new URL(path, baseUrl));
   const text = await response.text();
@@ -158,18 +194,97 @@ export async function runReadOnlyLiveSmoke({ baseUrl }) {
   return { ok: true, checked: results };
 }
 
+async function fetchJson(baseUrl, path, init = {}) {
+  const response = await fetch(new URL(path, baseUrl), {
+    ...init,
+    headers: {
+      Accept: 'application/json',
+      ...(init.body ? { 'Content-Type': 'application/json' } : {}),
+      ...(init.headers || {}),
+    },
+  });
+  const text = await response.text();
+  const payload = text ? JSON.parse(text) : null;
+  return { response, payload };
+}
+
+export async function runAuthenticatedFixtureSmoke({
+  baseUrl,
+  token,
+  attemptId,
+  submitPayload,
+  mutationApproval,
+}) {
+  assertSmokePlanComplete();
+  assert.equal(Boolean(token), true, 'missing IQ_OPERATOR_FIXTURE_BEARER_TOKEN');
+  assert.equal(Boolean(attemptId), true, 'missing IQ_OPERATOR_FIXTURE_ATTEMPT_ID');
+
+  const plan = buildAuthenticatedFixturePlan({ attemptId });
+  const headers = { Authorization: `Bearer ${token}` };
+  const checked = [];
+
+  if (submitPayload) {
+    assert.equal(
+      mutationApproval,
+      IQ_OPERATOR_FIXTURE_MUTATION_APPROVAL,
+      'submit fixture requires exact IQ_OPERATOR_FIXTURE_MUTATION_APPROVAL'
+    );
+    const submit = plan.find((item) => item.id === 'submit');
+    const { response, payload } = await fetchJson(baseUrl, submit.path, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify(submitPayload),
+    });
+    assert.equal(response.ok, true, `submit returned HTTP ${response.status}`);
+    assertNoAnswerKeyLeakage(payload);
+    checked.push({ id: 'submit', status: response.status });
+  }
+
+  for (const id of ['result', 'report']) {
+    const item = plan.find((candidate) => candidate.id === id);
+    const { response, payload } = await fetchJson(baseUrl, item.path, { headers });
+    assert.equal(response.ok, true, `${id} returned HTTP ${response.status}`);
+    assertNoAnswerKeyLeakage(payload);
+    assertNoCommerceLeakage(payload);
+    checked.push({ id, status: response.status });
+  }
+
+  return {
+    ok: true,
+    mode: 'authenticated-fixture',
+    attempt: redactOperatorSecret(attemptId),
+    checked,
+  };
+}
+
 async function main() {
   const baseUrlArg = process.argv.find((arg) => arg.startsWith('--base-url='));
   const baseUrl = baseUrlArg ? baseUrlArg.slice('--base-url='.length) : process.env.IQ_LIVE_BASE_URL;
+  const token = process.env.IQ_OPERATOR_FIXTURE_BEARER_TOKEN;
+  const attemptId = process.env.IQ_OPERATOR_FIXTURE_ATTEMPT_ID;
+  const submitPayload = parseOperatorSubmitPayload(process.env.IQ_OPERATOR_FIXTURE_SUBMIT_PAYLOAD_JSON);
 
   assertSmokePlanComplete();
 
   if (!baseUrl) {
-    console.log(JSON.stringify({ ok: true, mode: 'plan-only', plan: IQ_LAUNCH_SMOKE_PLAN }, null, 2));
+    console.log(JSON.stringify({
+      ok: true,
+      mode: 'plan-only',
+      plan: IQ_LAUNCH_SMOKE_PLAN,
+      operatorFixtureEnvKeys: IQ_OPERATOR_FIXTURE_ENV_KEYS,
+    }, null, 2));
     return;
   }
 
-  const result = await runReadOnlyLiveSmoke({ baseUrl });
+  const result = token && attemptId
+    ? await runAuthenticatedFixtureSmoke({
+        baseUrl,
+        token,
+        attemptId,
+        submitPayload,
+        mutationApproval: process.env.IQ_OPERATOR_FIXTURE_MUTATION_APPROVAL,
+      })
+    : await runReadOnlyLiveSmoke({ baseUrl });
   console.log(JSON.stringify(result, null, 2));
 }
 
