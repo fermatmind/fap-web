@@ -12374,9 +12374,9 @@
       "branch": "codex/iq-train-ledger-reconcile-register",
       "base": "main",
       "depends_on": [],
-      "status": "local_checks_passed",
-      "pr_url": null,
-      "commit_sha": null,
+      "status": "pr_opened",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/932",
+      "commit_sha": "97f734600484210fe1420402d5ef6c3954058288",
       "merge_sha": null,
       "title": "docs(iq): reconcile IQ frontend train ledger and register launch train",
       "artifacts": [
@@ -12418,6 +12418,11 @@
           "at": "2026-05-31T07:14:17.294412Z",
           "status": "local_checks_passed",
           "summary": "Reconciled IQ-FE-1 through IQ-FE-6 to real merged PRs, kept IQ-FE-7 deferred, registered remaining IQ 123test launch train items, and passed JSON/YAML parse plus diff/scope validation."
+        },
+        {
+          "at": "2026-05-31T07:15:21.973758Z",
+          "status": "pr_opened",
+          "summary": "Opened fap-web PR #932 for IQ train ledger reconciliation and remaining launch train registration."
         }
       ]
     },
