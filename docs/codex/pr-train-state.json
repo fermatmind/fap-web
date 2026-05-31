@@ -433,29 +433,37 @@
         "tests/contracts/iq-frontend-api-contracts.contract.test.ts",
         "docs/audits/iq-fe/10_iq_fe_1_api_contract_notes.md"
       ],
-      "checks": [
-        {
-          "name": "yaml_json_validity",
-          "status": "passed",
-          "command": "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"ok\"'"
+      "checks": {
+        "github_build": {
+          "status": "passed"
         },
-        {
-          "name": "diff_check",
-          "status": "passed",
-          "command": "git diff --check"
+        "github_contracts": {
+          "status": "passed"
         },
-        {
-          "name": "scope_validation",
-          "status": "passed",
-          "details": "Changed files are limited to docs/codex/pr-train.yaml and docs/codex/pr-train-state.json."
-        }
-      ],
+        "github_verify_big5_contract_freeze": {
+          "status": "passed"
+        },
+        "github_verify_enneagram_contract_freeze": {
+          "status": "passed"
+        },
+        "reconciliation_origin_main_contains_merge_commit": "passed",
+        "reconciliation_remote_branch_deleted": "passed",
+        "reconciliation_local_cleanup": "recorded_as_executed_before_current_train"
+      },
       "failure_reason": null,
-      "pr_url": "https://github.com/fermatmind/fap-web/pull/784",
-      "commit_sha": "8049dc9af91924d933be975c6aa608cedb730f99",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/766",
+      "commit_sha": "042077aa231f61f27b27aae6e58c924bf6d3ab5c",
+      "merged_at": "2026-05-12T11:09:45Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
+      "merge_sha": "042077aa231f61f27b27aae6e58c924bf6d3ab5c",
+      "history": [
+        {
+          "at": "2026-05-31T07:13:52.056076Z",
+          "status": "merged_reconciled",
+          "summary": "Reconciled IQ-FE-1 to real merged PR https://github.com/fermatmind/fap-web/pull/766; GitHub state is MERGED, required checks passed, origin/main contains merge commit 042077aa231f61f27b27aae6e58c924bf6d3ab5c, and remote branch is deleted."
+        }
+      ]
     },
     {
       "id": "IQ-FE-2",
@@ -466,21 +474,45 @@
       "depends_on": [
         "IQ-FE-1"
       ],
-      "status": "planned",
-      "title": "feat(iq): add question SVG renderer and option grid contracts",
+      "status": "merged",
+      "title": "feat(iq): add question SVG renderer and option grid",
       "artifacts": [
         "components/quiz/iq/**",
         "lib/quiz/**",
         "tests/a11y/iq-option-board.a11y.test.tsx",
         "tests/e2e/visual/iq-take.visual.spec.ts"
       ],
-      "checks": [],
+      "checks": {
+        "github_build": {
+          "status": "passed"
+        },
+        "github_contracts": {
+          "status": "passed"
+        },
+        "github_verify_big5_contract_freeze": {
+          "status": "passed"
+        },
+        "github_verify_enneagram_contract_freeze": {
+          "status": "passed"
+        },
+        "reconciliation_origin_main_contains_merge_commit": "passed",
+        "reconciliation_remote_branch_deleted": "passed",
+        "reconciliation_local_cleanup": "recorded_as_executed_before_current_train"
+      },
       "failure_reason": null,
-      "pr_url": "https://github.com/fermatmind/fap-web/pull/785",
-      "commit_sha": "53a12b76b3884980fc71a816e8fc8ad4bea35bc8",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/767",
+      "commit_sha": "9b23ba2dbaf311380c05318c7e5c41abaecbd145",
+      "merged_at": "2026-05-12T11:39:32Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
+      "merge_sha": "9b23ba2dbaf311380c05318c7e5c41abaecbd145",
+      "history": [
+        {
+          "at": "2026-05-31T07:13:52.056076Z",
+          "status": "merged_reconciled",
+          "summary": "Reconciled IQ-FE-2 to real merged PR https://github.com/fermatmind/fap-web/pull/767; GitHub state is MERGED, required checks passed, origin/main contains merge commit 9b23ba2dbaf311380c05318c7e5c41abaecbd145, and remote branch is deleted."
+        }
+      ]
     },
     {
       "id": "IQ-FE-3",
@@ -491,20 +523,44 @@
       "depends_on": [
         "IQ-FE-2"
       ],
-      "status": "planned",
-      "title": "feat(iq): add take page shell and attempt lifecycle",
+      "status": "merged",
+      "title": "feat(iq): add take page attempt lifecycle",
       "artifacts": [
         "app/(localized)/[locale]/tests/[slug]/take/page.tsx",
         "app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient.tsx",
         "tests/e2e/iq-eq-result-regression.spec.ts"
       ],
-      "checks": [],
+      "checks": {
+        "github_build": {
+          "status": "passed"
+        },
+        "github_contracts": {
+          "status": "passed"
+        },
+        "github_verify_big5_contract_freeze": {
+          "status": "passed"
+        },
+        "github_verify_enneagram_contract_freeze": {
+          "status": "passed"
+        },
+        "reconciliation_origin_main_contains_merge_commit": "passed",
+        "reconciliation_remote_branch_deleted": "passed",
+        "reconciliation_local_cleanup": "recorded_as_executed_before_current_train"
+      },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": "e70155297de99ff72899ba52737d647a10fa04eb",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/768",
+      "commit_sha": "0668d195db3bde3a306eac41314af9a1589049b2",
+      "merged_at": "2026-05-12T12:53:14Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
+      "merge_sha": "0668d195db3bde3a306eac41314af9a1589049b2",
+      "history": [
+        {
+          "at": "2026-05-31T07:13:52.056076Z",
+          "status": "merged_reconciled",
+          "summary": "Reconciled IQ-FE-3 to real merged PR https://github.com/fermatmind/fap-web/pull/768; GitHub state is MERGED, required checks passed, origin/main contains merge commit 0668d195db3bde3a306eac41314af9a1589049b2, and remote branch is deleted."
+        }
+      ]
     },
     {
       "id": "IQ-FE-4",
@@ -515,20 +571,44 @@
       "depends_on": [
         "IQ-FE-1"
       ],
-      "status": "planned",
-      "title": "feat(iq): add result page shell and IQ dimension cards",
+      "status": "merged",
+      "title": "feat(iq): add result page dimension cards",
       "artifacts": [
         "app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx",
         "components/result/iq/**",
         "tests/contracts/iq-result-contracts.contract.test.tsx"
       ],
-      "checks": [],
+      "checks": {
+        "github_build": {
+          "status": "passed"
+        },
+        "github_contracts": {
+          "status": "passed"
+        },
+        "github_verify_big5_contract_freeze": {
+          "status": "passed"
+        },
+        "github_verify_enneagram_contract_freeze": {
+          "status": "passed"
+        },
+        "reconciliation_origin_main_contains_merge_commit": "passed",
+        "reconciliation_remote_branch_deleted": "passed",
+        "reconciliation_local_cleanup": "recorded_as_executed_before_current_train"
+      },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": "35b619326cb1bfbc66449b71fdb64fae5db37773",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/769",
+      "commit_sha": "d70dade1d5a6fce8c9b3ea0bc54c29ec9fc16d38",
+      "merged_at": "2026-05-12T13:42:24Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
+      "merge_sha": "d70dade1d5a6fce8c9b3ea0bc54c29ec9fc16d38",
+      "history": [
+        {
+          "at": "2026-05-31T07:13:52.056076Z",
+          "status": "merged_reconciled",
+          "summary": "Reconciled IQ-FE-4 to real merged PR https://github.com/fermatmind/fap-web/pull/769; GitHub state is MERGED, required checks passed, origin/main contains merge commit d70dade1d5a6fce8c9b3ea0bc54c29ec9fc16d38, and remote branch is deleted."
+        }
+      ]
     },
     {
       "id": "IQ-FE-5",
@@ -539,20 +619,44 @@
       "depends_on": [
         "IQ-FE-4"
       ],
-      "status": "planned",
-      "title": "feat(iq): add report module shell and deferred commerce state",
+      "status": "merged",
+      "title": "feat(iq): add report module deferred commerce shell",
       "artifacts": [
         "components/result/RichResultReport.tsx",
         "components/result/iq/**",
         "tests/contracts/iq-report-contracts.contract.test.tsx"
       ],
-      "checks": [],
+      "checks": {
+        "github_build": {
+          "status": "passed"
+        },
+        "github_contracts": {
+          "status": "passed"
+        },
+        "github_verify_big5_contract_freeze": {
+          "status": "passed"
+        },
+        "github_verify_enneagram_contract_freeze": {
+          "status": "passed"
+        },
+        "reconciliation_origin_main_contains_merge_commit": "passed",
+        "reconciliation_remote_branch_deleted": "passed",
+        "reconciliation_local_cleanup": "recorded_as_executed_before_current_train"
+      },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": "806c21a2840a8244d50ed3c1862e3bfe6a417484",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/771",
+      "commit_sha": "c1fcfd59efafc804186fa19c3f283b5c62f83f8e",
+      "merged_at": "2026-05-12T14:14:19Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
+      "merge_sha": "c1fcfd59efafc804186fa19c3f283b5c62f83f8e",
+      "history": [
+        {
+          "at": "2026-05-31T07:13:52.056076Z",
+          "status": "merged_reconciled",
+          "summary": "Reconciled IQ-FE-5 to real merged PR https://github.com/fermatmind/fap-web/pull/771; GitHub state is MERGED, required checks passed, origin/main contains merge commit c1fcfd59efafc804186fa19c3f283b5c62f83f8e, and remote branch is deleted."
+        }
+      ]
     },
     {
       "id": "IQ-FE-6",
@@ -564,20 +668,44 @@
         "IQ-FE-3",
         "IQ-FE-5"
       ],
-      "status": "planned",
+      "status": "merged",
       "title": "feat(iq): polish mobile loading and error states",
       "artifacts": [
         "components/quiz/iq/**",
         "components/result/iq/**",
         "tests/e2e/visual/iq-take.visual.spec.ts"
       ],
-      "checks": [],
+      "checks": {
+        "github_build": {
+          "status": "passed"
+        },
+        "github_contracts": {
+          "status": "passed"
+        },
+        "github_verify_big5_contract_freeze": {
+          "status": "passed"
+        },
+        "github_verify_enneagram_contract_freeze": {
+          "status": "passed"
+        },
+        "reconciliation_origin_main_contains_merge_commit": "passed",
+        "reconciliation_remote_branch_deleted": "passed",
+        "reconciliation_local_cleanup": "recorded_as_executed_before_current_train"
+      },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": "5eb323dcf6f05cbd82233cf1712124b78b910bc7",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/773",
+      "commit_sha": "f19d0e9e0c17df5ec3b87bb7d290fba78e07e6ca",
+      "merged_at": "2026-05-12T14:48:18Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
+      "merge_sha": "f19d0e9e0c17df5ec3b87bb7d290fba78e07e6ca",
+      "history": [
+        {
+          "at": "2026-05-31T07:13:52.056076Z",
+          "status": "merged_reconciled",
+          "summary": "Reconciled IQ-FE-6 to real merged PR https://github.com/fermatmind/fap-web/pull/773; GitHub state is MERGED, required checks passed, origin/main contains merge commit f19d0e9e0c17df5ec3b87bb7d290fba78e07e6ca, and remote branch is deleted."
+        }
+      ]
     },
     {
       "id": "IQ-FE-7",
@@ -591,7 +719,7 @@
       "status": "deferred",
       "title": "feat(iq): add frontend IQ commerce unlock",
       "execution_policy": "deferred_until_backend_commerce",
-      "failure_reason": "Backend iq-commerce-unlock-199-500 is intentionally deferred.",
+      "failure_reason": "Backend IQ commerce unlock contract is intentionally deferred; do not execute until backend commerce authority exists.",
       "artifacts": [
         "components/commerce/**",
         "app/(localized)/[locale]/orders/**",
@@ -599,10 +727,11 @@
       ],
       "checks": [],
       "pr_url": null,
-      "commit_sha": "81583ffd4a5c1191e96d88a2da945a8fc364bcd1",
+      "commit_sha": null,
       "merged_at": null,
       "remote_branch_deleted": false,
-      "local_cleanup_executed": false
+      "local_cleanup_executed": false,
+      "merge_sha": null
     },
     {
       "id": "RIASEC-TRAIN-00",
@@ -12237,6 +12366,295 @@
           "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/931 after local validation passed; no deploy or production mutation performed."
         }
       ]
+    },
+    {
+      "id": "IQ-TRAIN-00",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/iq-train-ledger-reconcile-register",
+      "base": "main",
+      "depends_on": [],
+      "status": "local_checks_passed",
+      "pr_url": null,
+      "commit_sha": null,
+      "merge_sha": null,
+      "title": "docs(iq): reconcile IQ frontend train ledger and register launch train",
+      "artifacts": [
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "json_parse": {
+          "command": "python3 -c json.loads(... pr-train-state.json ...)",
+          "status": "passed"
+        },
+        "yaml_parse": {
+          "command": "python3 yaml.safe_load(... pr-train.yaml ...)",
+          "status": "passed"
+        },
+        "diff_check": {
+          "command": "git diff --check",
+          "status": "passed"
+        },
+        "scope_validation": {
+          "status": "passed",
+          "changed_files": [
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ]
+        }
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-05-31T07:13:52.056076Z",
+          "status": "planned",
+          "summary": "Initialized by authorized IQ 123test launch train registration."
+        },
+        {
+          "at": "2026-05-31T07:14:17.294412Z",
+          "status": "local_checks_passed",
+          "summary": "Reconciled IQ-FE-1 through IQ-FE-6 to real merged PRs, kept IQ-FE-7 deferred, registered remaining IQ 123test launch train items, and passed JSON/YAML parse plus diff/scope validation."
+        }
+      ]
+    },
+    {
+      "id": "IQ-BANK-30-01",
+      "repo": "fap-api",
+      "repo_path": "<workspace>/fap-api",
+      "branch": "codex/iq-bank-30-01-original-bank-spec",
+      "base": "main",
+      "depends_on": [
+        "IQ-TRAIN-00"
+      ],
+      "status": "planned",
+      "pr_url": null,
+      "commit_sha": null,
+      "merge_sha": null,
+      "title": "docs(iq): define original 30-item beta bank specification",
+      "artifacts": [
+        "backend/docs/iq/**",
+        "backend/content_packages/default/CN_MAINLAND/zh-CN/IQ_BETA_30_ORIGINAL*/manifest.json",
+        "backend/tests/Feature/Content/*Iq*"
+      ],
+      "checks": {},
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-05-31T07:13:52.056076Z",
+          "status": "planned",
+          "summary": "Initialized by authorized IQ 123test launch train registration."
+        }
+      ]
+    },
+    {
+      "id": "IQ-BANK-30-02",
+      "repo": "fap-api",
+      "repo_path": "<workspace>/fap-api",
+      "branch": "codex/iq-bank-30-02-original-svg-bank",
+      "base": "main",
+      "depends_on": [
+        "IQ-BANK-30-01"
+      ],
+      "status": "planned",
+      "pr_url": null,
+      "commit_sha": null,
+      "merge_sha": null,
+      "title": "feat(iq): generate original structured SVG 30-item bank",
+      "artifacts": [
+        "backend/scripts/iq/**",
+        "backend/content_packages/default/CN_MAINLAND/zh-CN/IQ_BETA_30_ORIGINAL*/**",
+        "backend/tests/Feature/Content/*Iq*"
+      ],
+      "checks": {},
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-05-31T07:13:52.056076Z",
+          "status": "planned",
+          "summary": "Initialized by authorized IQ 123test launch train registration."
+        }
+      ]
+    },
+    {
+      "id": "IQ-BANK-30-03",
+      "repo": "fap-api",
+      "repo_path": "<workspace>/fap-api",
+      "branch": "codex/iq-bank-30-03-import-provenance-redaction",
+      "base": "main",
+      "depends_on": [
+        "IQ-BANK-30-02"
+      ],
+      "status": "planned",
+      "pr_url": null,
+      "commit_sha": null,
+      "merge_sha": null,
+      "title": "test(iq): add original bank import provenance and redaction gate",
+      "artifacts": [
+        "backend/app/Services/Assessment/**",
+        "backend/app/Services/Iq/**",
+        "backend/tests/Feature/V0_3/*Iq*",
+        "backend/tests/Feature/Content/*Iq*"
+      ],
+      "checks": {},
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-05-31T07:13:52.056076Z",
+          "status": "planned",
+          "summary": "Initialized by authorized IQ 123test launch train registration."
+        }
+      ]
+    },
+    {
+      "id": "IQ-SCORE-30-01",
+      "repo": "fap-api",
+      "repo_path": "<workspace>/fap-api",
+      "branch": "codex/iq-score-30-01-quality-stability",
+      "base": "main",
+      "depends_on": [
+        "IQ-BANK-30-03"
+      ],
+      "status": "planned",
+      "pr_url": null,
+      "commit_sha": null,
+      "merge_sha": null,
+      "title": "feat(iq): harden 30-item scoring quality and stability",
+      "artifacts": [
+        "backend/app/Services/Assessment/Drivers/IqTestDriver.php",
+        "backend/app/Services/Report/IqReportBuilder.php",
+        "backend/tests/Unit/Assessment/IqTestDriverTest.php",
+        "backend/tests/Unit/Services/Report/IqReportBuilderTest.php",
+        "backend/tests/Feature/V0_3/IqReportContractTest.php"
+      ],
+      "checks": {},
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-05-31T07:13:52.056076Z",
+          "status": "planned",
+          "summary": "Initialized by authorized IQ 123test launch train registration."
+        }
+      ]
+    },
+    {
+      "id": "IQ-CLAIM-SEO-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/iq-claim-seo-01-launch-guard",
+      "base": "main",
+      "depends_on": [
+        "IQ-SCORE-30-01",
+        "IQ-FE-6"
+      ],
+      "status": "planned",
+      "pr_url": null,
+      "commit_sha": null,
+      "merge_sha": null,
+      "title": "test(iq): add claim and SEO launch guards",
+      "artifacts": [
+        "app/(localized)/[locale]/tests/[slug]/page.tsx",
+        "lib/seo/testDetailAuthority.ts",
+        "lib/seo/**",
+        "tests/contracts/*iq*",
+        "tests/contracts/*seo*",
+        "docs/audits/iq-fe/**"
+      ],
+      "checks": {},
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-05-31T07:13:52.056076Z",
+          "status": "planned",
+          "summary": "Initialized by authorized IQ 123test launch train registration."
+        }
+      ]
+    },
+    {
+      "id": "IQ-CMS-LANDING-01",
+      "repo": "fap-api",
+      "repo_path": "<workspace>/fap-api",
+      "branch": "codex/iq-cms-landing-01-authority",
+      "base": "main",
+      "depends_on": [
+        "IQ-CLAIM-SEO-01"
+      ],
+      "status": "planned",
+      "pr_url": null,
+      "commit_sha": null,
+      "merge_sha": null,
+      "title": "feat(iq): publish CMS-authoritative IQ landing placement",
+      "artifacts": [
+        "backend/app/Services/Cms/**",
+        "backend/app/Filament/Ops/Resources/**",
+        "backend/content_baselines/**",
+        "backend/tests/**/Cms/**",
+        "backend/tests/**/LandingSurface*"
+      ],
+      "checks": {},
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-05-31T07:13:52.056076Z",
+          "status": "planned",
+          "summary": "Initialized by authorized IQ 123test launch train registration."
+        }
+      ]
+    },
+    {
+      "id": "IQ-LIVE-SMOKE-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/iq-live-smoke-01-launch-readiness",
+      "base": "main",
+      "depends_on": [
+        "IQ-CMS-LANDING-01"
+      ],
+      "status": "planned",
+      "pr_url": null,
+      "commit_sha": null,
+      "merge_sha": null,
+      "title": "test(iq): add production-like launch readiness smoke",
+      "artifacts": [
+        "scripts/iq/**",
+        "scripts/seo/**",
+        "tests/contracts/*iq*",
+        "tests/e2e/*iq*",
+        "docs/audits/iq-fe/**"
+      ],
+      "checks": {},
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-05-31T07:13:52.056076Z",
+          "status": "planned",
+          "summary": "Initialized by authorized IQ 123test launch train registration."
+        }
+      ]
     }
   ],
   "sidecar_issues": [
@@ -12265,6 +12683,19 @@
         "Backend commerce unlock remains deferred in fap-api IQ train.",
         "Frontend scan PR #763 recommended suppressing IQ commerce until backend unlock contract exists.",
         "State entry IQ-FE-7 is marked deferred."
+      ]
+    },
+    {
+      "title": "External PR #931 remains open with green checks during IQ train registration",
+      "severity": "P2",
+      "scope_impact": "OPS-API-PUBLIC-TLS-PATH-FIX-01A is unrelated to the IQ train. GitHub required checks are green, so the IQ train may continue under the user-approved sidecar policy without merging or modifying that PR.",
+      "introduced_by_current_pr": false,
+      "recommended_future_phase": "Resolve or merge OPS-API-PUBLIC-TLS-PATH-FIX-01A independently of the IQ train.",
+      "blocks_merge": false,
+      "evidence": [
+        "GitHub PR #931 state is OPEN.",
+        "build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, and CodeQL are SUCCESS as of 2026-05-31T07:10Z.",
+        "Current IQ train registration modifies only docs/codex metadata."
       ]
     }
   ]
