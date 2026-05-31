@@ -684,6 +684,19 @@ const DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR_01_ALLOWED_FILES =
   "tests/contracts/llms-route-fanout.contract.test.ts",
 ]);
 
+const CAREER_1046_FRONTEND_DISCOVERY_UX_01_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/career/jobs/page.tsx",
+  "components/career/CareerOccupationDirectory.tsx",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/seo/career-1046-frontend-discovery-ux-01.md",
+  "docs/seo/generated/career-1046-frontend-discovery-ux-01.v1.json",
+  "lib/career/datasetDirectory.ts",
+  "tests/contracts/career-1046-frontend-discovery-ux-01.contract.test.tsx",
+  "tests/contracts/career-jobs-search-ux.contract.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 const COOKIE_BANNER_HYDRATION_01_ALLOWED_FILES = new Set([
   "components/legal/CookieBanner.tsx",
   "docs/codex/pr-train.yaml",
@@ -748,6 +761,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/detail-ready-1046-llms-full-artifact-consistency-repair-01") {
     return DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/career-1046-frontend-discovery-ux-01") {
+    return CAREER_1046_FRONTEND_DISCOVERY_UX_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/global-en-zh-content-pages-frontend-runtime-repair-01") {

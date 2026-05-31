@@ -283,6 +283,8 @@ export function buildRenderableCareerDatasetMembers(input: {
   datasetMembers: CareerDatasetMemberAdapter[];
   detailReadySlugs?: Set<string>;
   detailReadyJobs?: Map<string, CareerJobIndexCardAdapter>;
+  allowStaticFallback?: boolean;
+  excludeNonPublicDatasetMembers?: boolean;
 }): CareerDatasetMemberAdapter[] {
   const staticMemberBySlug = new Map(CAREER_STATIC_OCCUPATION_MEMBERS.map((member) => [member.canonicalSlug, member]));
   const detailReadySlugs =
@@ -299,6 +301,9 @@ export function buildRenderableCareerDatasetMembers(input: {
           detailReadyJob?.titles.canonicalZh ?? member.canonicalTitleZh ?? staticMember?.canonicalTitleZh ?? null
         );
 
+      if (input.excludeNonPublicDatasetMembers && !hasDetailPage && !isCareerDatasetMemberPublic(member)) {
+        return [];
+      }
       if (!hasDetailPage && !canonicalTitleZh && canonicalTitleEn === member.canonicalSlug) {
         return [];
       }
@@ -326,6 +331,10 @@ export function buildRenderableCareerDatasetMembers(input: {
     });
 
     return appendDetailReadyJobMembers(renderedMembers, input.detailReadyJobs);
+  }
+
+  if (input.allowStaticFallback === false) {
+    return appendDetailReadyJobMembers([], input.detailReadyJobs);
   }
 
   const renderedStaticMembers = CAREER_STATIC_OCCUPATION_MEMBERS.map((member) => {

@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-31T08:29:06.000Z",
+  "updated_at": "2026-05-31T09:19:00.000Z",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -13117,6 +13117,98 @@
           "at": "2026-05-31T08:29:06.000Z",
           "status": "pr_open",
           "summary": "Rebased PR #938 onto latest origin/main after GitHub reported merge conflicts; conflict was limited to PR train state updated_at. Re-ran pnpm typecheck, pnpm test:contract, pnpm exec playwright test tests/e2e/iq-eq-result-regression.spec.ts, git diff --check, and explicit scope validation successfully."
+        }
+      ]
+    },
+    {
+      "id": "CAREER-1046-FRONTEND-DISCOVERY-UX-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/career-1046-frontend-discovery-ux-01",
+      "base": "main",
+      "depends_on": [
+        "CAREER-1046-INTERNAL-LINKING-AUTHORITY-01"
+      ],
+      "status": "committed",
+      "pr_url": null,
+      "merge_sha": null,
+      "commit_sha": "2cc4e8e8379aa5a7bb9a0debd6500bd305c8f33b",
+      "title": "CAREER-1046-FRONTEND-DISCOVERY-UX-01 career discovery UX",
+      "train_scope": "career_1046_growth_foundation",
+      "checks": {
+        "focused_contract": {
+          "status": "pass",
+          "command": "pnpm exec vitest run tests/contracts/career-1046-frontend-discovery-ux-01.contract.test.tsx",
+          "evidence": "1 test file passed, 3 tests passed."
+        },
+        "lint": {
+          "status": "pass_with_existing_warnings",
+          "command": "pnpm lint .",
+          "evidence": "0 errors, 8 warnings in files outside current PR diff."
+        },
+        "typecheck": {
+          "status": "pass",
+          "command": "pnpm typecheck",
+          "evidence": "tsc --noEmit passed."
+        },
+        "build": {
+          "status": "pass_after_retry",
+          "command": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build",
+          "evidence": [
+            "Attempts 1 and 2 hit production CMS/API REQUEST_TIMEOUT 408 while prerendering unrelated content pages /zh/careers and /en/foundation.",
+            "Rerun completed successfully with NEXT_PUBLIC_API_URL=https://api.fermatmind.com and NEXT_PUBLIC_SITE_URL=https://fermatmind.com."
+          ]
+        },
+        "affected_contracts": {
+          "status": "pass",
+          "command": "pnpm exec vitest run tests/contracts/career-1046-frontend-discovery-ux-01.contract.test.tsx tests/contracts/career-jobs-search-ux.contract.test.tsx tests/contracts/ci-validator-hygiene.contract.test.ts tests/contracts/clinical-consent-gates.contract.test.tsx tests/contracts/link-anon-login.contract.test.ts tests/contracts/preview-fixture-validation.contract.test.ts tests/contracts/scale-rollout.contract.test.ts tests/contracts/staging-cms-baseline-validator.contract.test.ts tests/contracts/api-edge-gateway-backend-authority-contract.contract.test.ts tests/contracts/api-edge-gateway-hardening-quarantine-plan.contract.test.ts tests/contracts/api-gateway-evidence-completion.contract.test.ts tests/contracts/api-gateway-smoke-rollback-runbook.contract.test.ts tests/contracts/public-api-authority-acceptance-gate.contract.test.ts tests/contracts/search-intelligence-data-contract.contract.test.ts tests/contracts/seo-intelligence-asset-map.contract.test.ts",
+          "evidence": "15 targeted/affected contract files passed, 105 tests passed."
+        },
+        "contract": {
+          "status": "pass",
+          "command": "pnpm test:contract",
+          "evidence": "408 test files passed, 2298 tests passed."
+        },
+        "json_yaml_parse": {
+          "status": "pass",
+          "command": "python3 -m json.tool docs/seo/generated/career-1046-frontend-discovery-ux-01.v1.json && python3 -m json.tool docs/codex/pr-train-state.json && yaml.safe_load(...)",
+          "evidence": "Generated artifact, train state, and manifest parse successfully."
+        }
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "pre_existing_unrelated_dirty_files": [
+        "docs/audits/iq-fe/16_iq_full_stack_technical_audit_report.md",
+        "docs/audits/iq-fe/17_iq_english_free_test_competitor_research.md"
+      ],
+      "scope_validation": {
+        "allowed_paths_only": true,
+        "local_validation_passed": true,
+        "github_checks_green": null,
+        "post_merge_revalidated": null
+      },
+      "history": [
+        {
+          "at": "2026-05-31T09:11:32.000Z",
+          "status": "in_progress",
+          "summary": "Started from isolated fap-web worktree on origin/main after verifying fap-api PR #1798 is merged; main fap-web worktree has unrelated IQ audit docs that are isolated and not staged."
+        },
+        {
+          "at": "2026-05-31T09:19:00.000Z",
+          "status": "blocked_local_check_failed",
+          "summary": "Focused contract, lint, typecheck, and JSON/YAML parse passed, but required production-API build failed twice on unrelated content-page prerender API timeouts. Per repo rules, PR was not pushed or opened."
+        },
+        {
+          "at": "2026-05-31T12:40:51Z",
+          "status": "local_validation_passed",
+          "summary": "Reran production-API build successfully and reran full pnpm test:contract successfully after scoped contract/scope-helper fixes; current PR is ready for scope validation, commit, push, and PR creation."
+        },
+        {
+          "at": "2026-05-31T12:42:00Z",
+          "status": "committed",
+          "summary": "Committed scoped frontend discovery UX changes locally as 2cc4e8e8379aa5a7bb9a0debd6500bd305c8f33b."
         }
       ]
     }

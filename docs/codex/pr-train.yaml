@@ -8491,3 +8491,68 @@ prs:
       - No raw route IDs, report tags, paywall/SKU/locked/blur terms, or clickable SJT entry are user-visible.
       - Backend canonical EQ fixtures remain the frontend contract source.
     rollback_note: "Revert the EQ v5.1 route consumption adapter, focused renderer tests, fixture sync, and e2e assertions if EQ result rendering regresses."
+
+  - id: CAREER-1046-FRONTEND-DISCOVERY-UX-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/career-1046-frontend-discovery-ux-01
+    base: main
+    depends_on:
+      - CAREER-1046-INTERNAL-LINKING-AUTHORITY-01
+    mode: execute
+    train_scope: career_1046_growth_foundation
+    risk_level: scoped_career_jobs_discovery_renderer
+    status: in_progress
+    title: "CAREER-1046-FRONTEND-DISCOVERY-UX-01 career discovery UX"
+    goal: "Improve Career jobs index/detail discovery UX while consuming backend authority only, with contract coverage for the 1046 cohort, excluded slug safety, and no fallback-only Career cards."
+    in_scope:
+      - app/(localized)/[locale]/career/jobs/page.tsx
+      - components/career/CareerOccupationDirectory.tsx
+      - lib/career/datasetDirectory.ts
+      - tests/contracts/career-1046-frontend-discovery-ux-01.contract.test.tsx
+      - tests/contracts/career-jobs-search-ux.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/seo/career-1046-frontend-discovery-ux-01.md
+      - docs/seo/generated/career-1046-frontend-discovery-ux-01.v1.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - backend authority changes
+      - local career JSON or frontend-authored occupation content
+      - CMS content mutations
+      - sitemap or llms URL set changes
+      - Search Channel or URL submission
+      - deploy work
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/career-1046-frontend-discovery-ux-01.contract.test.tsx
+      - pnpm lint .
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - python3 -m json.tool docs/seo/generated/career-1046-frontend-discovery-ux-01.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      changed_files_must_match:
+        - app/(localized)/[locale]/career/jobs/page.tsx
+        - components/career/CareerOccupationDirectory.tsx
+        - lib/career/datasetDirectory.ts
+        - tests/contracts/career-1046-frontend-discovery-ux-01.contract.test.tsx
+        - tests/contracts/career-jobs-search-ux.contract.test.tsx
+        - tests/contracts/helpers/currentPrScope.ts
+        - docs/seo/career-1046-frontend-discovery-ux-01.md
+        - docs/seo/generated/career-1046-frontend-discovery-ux-01.v1.json
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Career jobs index consumes backend dataset/job-index authority and does not render local static fallback cards when backend authority is unavailable.
+      - 1046 backend-published career details are render-eligible and discoverable in the jobs directory.
+      - Excluded slugs remain absent from discovery unless backend detail-ready authority includes them.
+      - No frontend content authority, Search Channel action, URL submission, deploy, or CMS mutation is introduced.
+    rollback_note: "Revert jobs index fallback gating, directory test selectors, focused contract, and report artifacts if Career jobs discovery regresses."

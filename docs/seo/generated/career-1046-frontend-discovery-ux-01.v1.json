@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "task": "CAREER-1046-FRONTEND-DISCOVERY-UX-01",
+  "generated_at": "2026-05-31T09:11:32Z",
+  "final_decision": "career_1046_frontend_discovery_ux_completed_ready_for_validation",
+  "authority_source": "backend public career dataset hub and lightweight career job index APIs",
+  "frontend_scope": [
+    "career jobs index rendering",
+    "career occupation directory test selectors",
+    "contract coverage for 1046 discovery UX"
+  ],
+  "backend_authority_preserved": true,
+  "local_static_fallback_disabled_for_jobs_index": true,
+  "non_public_dataset_only_members_filtered": true,
+  "target_public_detail_count": 1046,
+  "excluded_slug_safety": {
+    "slugs": [
+      "software-developers",
+      "digital-forensics-analysts",
+      "computer-occupations-all-other"
+    ],
+    "expected_behavior": "absent from jobs discovery unless backend detail-ready index authority includes them"
+  },
+  "no_frontend_content_authority_added": true,
+  "no_cms_mutation": true,
+  "no_deploy": true,
+  "no_search_channel_action": true,
+  "no_url_submission": true,
+  "validation_commands": [
+    "pnpm exec vitest run tests/contracts/career-1046-frontend-discovery-ux-01.contract.test.tsx",
+    "pnpm lint .",
+    "pnpm typecheck",
+    "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build",
+    "pnpm test:contract",
+    "git diff --check",
+    "git diff --cached --check"
+  ],
+  "next_task": "CAREER-L3-DYNAMIC-SLOT-ARCHITECTURE-01"
+}

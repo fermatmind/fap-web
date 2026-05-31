@@ -39,10 +39,20 @@ export function CareerOccupationDirectory({ locale, members, emptyLabel }: Caree
           const displayTitle = locale === "zh" && member.canonicalTitleZh ? member.canonicalTitleZh : member.canonicalTitleEn;
 
           return (
-            <article key={member.canonicalSlug} className="grid gap-3 px-5 py-4 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)_140px] md:items-center">
+            <article
+              key={member.canonicalSlug}
+              className="grid gap-3 px-5 py-4 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)_140px] md:items-center"
+              data-testid="career-occupation-row"
+              data-career-slug={member.canonicalSlug}
+              data-detail-ready={detailReady ? "true" : "false"}
+            >
               <div className="min-w-0">
                 {detailReady ? (
-                  <Link href={jobHref} className="text-base font-semibold text-slate-950 underline-offset-4 hover:text-orange-600 hover:underline">
+                  <Link
+                    href={jobHref}
+                    className="text-base font-semibold text-slate-950 underline-offset-4 hover:text-orange-600 hover:underline"
+                    data-testid="career-occupation-detail-link"
+                  >
                     {displayTitle}
                   </Link>
                 ) : (
