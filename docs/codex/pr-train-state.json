@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-01T00:30:00+08:00",
+  "updated_at": "2026-06-01T00:45:00+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -13480,7 +13480,7 @@
     },
     {
       "id": "IQ-PAID-REPORT-02",
-      "status": "pr_opened",
+      "status": "ci_fix_pushed",
       "branch": "codex/iq-paid-report-02-render-entitlement-states",
       "commit_sha": "f36e37d1377d405e9ddeabf9039c364d5b7163ab",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/943",
@@ -13490,7 +13490,11 @@
         "pnpm exec tsc --noEmit --pretty false": "passed",
         "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null": "passed",
         "python3 -c yaml.safe_load docs/codex/pr-train.yaml": "passed",
-        "git diff --check": "passed"
+        "git diff --check": "passed",
+        "github": {
+          "status": "retry_pending_after_scope_fix"
+        },
+        "pnpm exec vitest run tests/contracts/iq-report-module.contract.test.tsx tests/contracts/iq-result-renderer.contract.test.tsx": "passed"
       },
       "failure_reason": null,
       "merged_at": null,
@@ -13504,10 +13508,11 @@
           "tests/contracts/iq-report-module.contract.test.tsx",
           "tests/contracts/helpers/currentPrScope.ts",
           "docs/codex/pr-train.yaml",
-          "docs/codex/pr-train-state.json"
+          "docs/codex/pr-train-state.json",
+          "tests/contracts/iq-result-renderer.contract.test.tsx"
         ]
       },
-      "updated_at": "2026-06-01T00:30:00+08:00"
+      "updated_at": "2026-06-01T00:45:00+08:00"
     }
   ],
   "sidecar_issues": [

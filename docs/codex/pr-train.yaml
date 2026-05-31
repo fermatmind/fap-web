@@ -5384,6 +5384,7 @@ prs:
       - lib/iq/result.ts
       - tests/contracts/iq-result-renderer.contract.test.tsx
       - tests/contracts/iq-report-module.contract.test.tsx
+      - tests/contracts/iq-result-renderer.contract.test.tsx
       - tests/contracts/helpers/currentPrScope.ts
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
@@ -8775,6 +8776,7 @@ prs:
       - components/result/iq/IqReportModule.tsx
       - lib/iq/result.ts
       - tests/contracts/iq-report-module.contract.test.tsx
+      - tests/contracts/iq-result-renderer.contract.test.tsx
       - tests/contracts/helpers/currentPrScope.ts
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
@@ -8785,7 +8787,7 @@ prs:
       - CMS media or SEO changes
       - backend contract changes
     required_local_checks:
-      - pnpm exec vitest run tests/contracts/iq-report-module.contract.test.tsx
+      - pnpm exec vitest run tests/contracts/iq-report-module.contract.test.tsx tests/contracts/iq-result-renderer.contract.test.tsx
       - pnpm exec tsc --noEmit --pretty false
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
@@ -8796,6 +8798,7 @@ prs:
         - components/result/iq/IqReportModule.tsx
         - lib/iq/result.ts
         - tests/contracts/iq-report-module.contract.test.tsx
+        - tests/contracts/iq-result-renderer.contract.test.tsx
         - tests/contracts/helpers/currentPrScope.ts
         - docs/codex/pr-train.yaml
         - docs/codex/pr-train-state.json

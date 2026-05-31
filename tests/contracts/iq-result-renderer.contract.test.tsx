@@ -163,7 +163,7 @@ describe("IQ result renderer contract", () => {
     );
 
     expect(screen.getByTestId("iq-report-locked-notice")).toHaveTextContent(
-      "完整报告解锁功能暂未开放。当前可查看已生成的基础结果。"
+      "当前为免费预览。完整 IQ 报告详情需后端授权解锁后展示。"
     );
     expect(screen.queryByRole("button", { name: /unlock|购买|解锁/i })).not.toBeInTheDocument();
     expect(screen.queryByText(/¥1\.99|¥5/)).not.toBeInTheDocument();
