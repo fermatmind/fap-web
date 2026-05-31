@@ -328,6 +328,35 @@ prs:
       - Current repository rules and review checklists no longer list SBTI as an active product-code exception or priority tier.
       - Required local checks pass.
 
+  - id: IQ-TRAIN-00
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/iq-train-ledger-reconcile-register
+    base: main
+    depends_on: []
+    mode: execute
+    status: planned
+    title: "docs(iq): reconcile IQ frontend train ledger and register launch train"
+    goal: "Reconcile already-merged IQ-FE-1 through IQ-FE-6 ledger entries to their real merged GitHub PRs and register the remaining IQ 123test launch train items without runtime behavior changes."
+    in_scope:
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - runtime code
+      - frontend IQ implementation changes
+      - backend IQ implementation changes
+      - content package generation
+      - CMS publish changes
+      - SEO runtime behavior changes
+    artifacts:
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    acceptance:
+      - IQ-FE-1 through IQ-FE-6 state entries point to the real merged PRs.
+      - IQ-BANK-30-01 through IQ-LIVE-SMOKE-01 are registered.
+      - IQ-FE-7 remains deferred until backend commerce is ready.
+      - No runtime files are modified.
+
   - id: IQ-FE-1
     repo: fap-web
     repo_path: <workspace>/fap-web
@@ -429,6 +458,190 @@ prs:
       - components/commerce/**
       - app/(localized)/[locale]/orders/**
       - tests/contracts/iq-commerce-unlock.contract.test.tsx
+
+  - id: IQ-BANK-30-01
+    repo: fap-api
+    repo_path: <workspace>/fap-api
+    branch: codex/iq-bank-30-01-original-bank-spec
+    base: main
+    depends_on: [IQ-TRAIN-00]
+    mode: execute
+    status: planned
+    title: "docs(iq): define original 30-item beta bank specification"
+    goal: "Define the backend-authoritative IQ_BETA_30_ORIGINAL bank specification, item metadata schema, dimension distribution, copyright/provenance gates, and review workflow without importing final items."
+    in_scope:
+      - backend/docs/iq/**
+      - backend/content_packages/default/CN_MAINLAND/zh-CN/IQ_BETA_30_ORIGINAL*/manifest.json
+      - backend/tests/Feature/Content/*Iq*
+    out_of_scope:
+      - final question import
+      - frontend runtime changes
+      - commerce unlock
+      - normed IQ estimate claims
+    artifacts:
+      - backend/docs/iq/**
+      - backend/content_packages/default/CN_MAINLAND/zh-CN/IQ_BETA_30_ORIGINAL*/manifest.json
+      - backend/tests/Feature/Content/*Iq*
+
+  - id: IQ-BANK-30-02
+    repo: fap-api
+    repo_path: <workspace>/fap-api
+    branch: codex/iq-bank-30-02-original-svg-bank
+    base: main
+    depends_on: [IQ-BANK-30-01]
+    mode: execute
+    status: planned
+    title: "feat(iq): generate original structured SVG 30-item bank"
+    goal: "Generate 30 fully original structured SVG IQ items for IQ_BETA_30_ORIGINAL with six options each, backend-only answer keys, and no copied or traced third-party questions."
+    in_scope:
+      - backend/scripts/iq/**
+      - backend/content_packages/default/CN_MAINLAND/zh-CN/IQ_BETA_30_ORIGINAL*/**
+      - backend/tests/Feature/Content/*Iq*
+    out_of_scope:
+      - third-party item reuse
+      - raw SVG string rendering
+      - frontend runtime changes
+      - commerce unlock
+    artifacts:
+      - backend/scripts/iq/**
+      - backend/content_packages/default/CN_MAINLAND/zh-CN/IQ_BETA_30_ORIGINAL*/**
+      - backend/tests/Feature/Content/*Iq*
+
+  - id: IQ-BANK-30-03
+    repo: fap-api
+    repo_path: <workspace>/fap-api
+    branch: codex/iq-bank-30-03-import-provenance-redaction
+    base: main
+    depends_on: [IQ-BANK-30-02]
+    mode: execute
+    status: planned
+    title: "test(iq): add original bank import provenance and redaction gate"
+    goal: "Add import, provenance, asset hash, generator metadata, and public payload redaction gates for IQ_BETA_30_ORIGINAL."
+    in_scope:
+      - backend/app/Services/Assessment/**
+      - backend/app/Services/Iq/**
+      - backend/tests/Feature/V0_3/*Iq*
+      - backend/tests/Feature/Content/*Iq*
+    out_of_scope:
+      - scoring model changes beyond import/redaction safety
+      - frontend runtime changes
+      - commerce unlock
+    artifacts:
+      - backend/app/Services/Assessment/**
+      - backend/app/Services/Iq/**
+      - backend/tests/Feature/V0_3/*Iq*
+      - backend/tests/Feature/Content/*Iq*
+
+  - id: IQ-SCORE-30-01
+    repo: fap-api
+    repo_path: <workspace>/fap-api
+    branch: codex/iq-score-30-01-quality-stability
+    base: main
+    depends_on: [IQ-BANK-30-03]
+    mode: execute
+    status: planned
+    title: "feat(iq): harden 30-item scoring quality and stability"
+    goal: "Harden IQ_BETA_30_ORIGINAL raw score, dimension score, quality flags, and stability status while keeping normed IQ estimates nullable unless backend norm authority exists."
+    in_scope:
+      - backend/app/Services/Assessment/Drivers/IqTestDriver.php
+      - backend/app/Services/Report/IqReportBuilder.php
+      - backend/tests/Unit/Assessment/IqTestDriverTest.php
+      - backend/tests/Unit/Services/Report/IqReportBuilderTest.php
+      - backend/tests/Feature/V0_3/IqReportContractTest.php
+    out_of_scope:
+      - norm table production claims
+      - frontend runtime changes
+      - commerce unlock
+    artifacts:
+      - backend/app/Services/Assessment/Drivers/IqTestDriver.php
+      - backend/app/Services/Report/IqReportBuilder.php
+      - backend/tests/Unit/Assessment/IqTestDriverTest.php
+      - backend/tests/Unit/Services/Report/IqReportBuilderTest.php
+      - backend/tests/Feature/V0_3/IqReportContractTest.php
+
+  - id: IQ-CLAIM-SEO-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/iq-claim-seo-01-launch-guard
+    base: main
+    depends_on: [IQ-SCORE-30-01, IQ-FE-6]
+    mode: execute
+    status: planned
+    title: "test(iq): add claim and SEO launch guards"
+    goal: "Add IQ landing SEO, canonical, schema, noindex, sitemap/llms exposure, and unsafe-claim launch guards without widening public discoverability beyond backend authority."
+    in_scope:
+      - app/(localized)/[locale]/tests/[slug]/page.tsx
+      - lib/seo/testDetailAuthority.ts
+      - lib/seo/**
+      - tests/contracts/*iq*
+      - tests/contracts/*seo*
+      - docs/audits/iq-fe/**
+    out_of_scope:
+      - question bank generation
+      - scoring changes
+      - CMS publishing
+      - commerce unlock
+    artifacts:
+      - app/(localized)/[locale]/tests/[slug]/page.tsx
+      - lib/seo/testDetailAuthority.ts
+      - lib/seo/**
+      - tests/contracts/*iq*
+      - tests/contracts/*seo*
+      - docs/audits/iq-fe/**
+
+  - id: IQ-CMS-LANDING-01
+    repo: fap-api
+    repo_path: <workspace>/fap-api
+    branch: codex/iq-cms-landing-01-authority
+    base: main
+    depends_on: [IQ-CLAIM-SEO-01]
+    mode: execute
+    status: planned
+    title: "feat(iq): publish CMS-authoritative IQ landing placement"
+    goal: "Make IQ homepage, tests hub, landing placement, media metadata, and safe claim copy backend CMS/Ops authoritative without adding frontend fallback content."
+    in_scope:
+      - backend/app/Services/Cms/**
+      - backend/app/Filament/Ops/Resources/**
+      - backend/content_baselines/**
+      - backend/tests/**/Cms/**
+      - backend/tests/**/LandingSurface*
+    out_of_scope:
+      - frontend fallback content
+      - scoring changes
+      - commerce unlock
+    artifacts:
+      - backend/app/Services/Cms/**
+      - backend/app/Filament/Ops/Resources/**
+      - backend/content_baselines/**
+      - backend/tests/**/Cms/**
+      - backend/tests/**/LandingSurface*
+
+  - id: IQ-LIVE-SMOKE-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/iq-live-smoke-01-launch-readiness
+    base: main
+    depends_on: [IQ-CMS-LANDING-01]
+    mode: execute
+    status: planned
+    title: "test(iq): add production-like launch readiness smoke"
+    goal: "Add production-like IQ launch readiness smoke coverage for lookup, questions, take, submit, result, report, canonical/noindex, answer-key leakage, and commerce leakage."
+    in_scope:
+      - scripts/iq/**
+      - scripts/seo/**
+      - tests/contracts/*iq*
+      - tests/e2e/*iq*
+      - docs/audits/iq-fe/**
+    out_of_scope:
+      - commerce unlock
+      - CMS publishing
+      - scoring changes
+    artifacts:
+      - scripts/iq/**
+      - scripts/seo/**
+      - tests/contracts/*iq*
+      - tests/e2e/*iq*
+      - docs/audits/iq-fe/**
 
   - id: RIASEC-TRAIN-00
     repo: fap-web
