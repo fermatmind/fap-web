@@ -73,6 +73,17 @@ export function IqReportModule({
           <CardTitle>{locale === "zh" ? "详细报告模块" : "Detailed report module"}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
+          <div
+            className="flex flex-col gap-2 rounded-[12px] border border-[var(--fm-border)] bg-[var(--fm-surface-subtle,#f8fafc)] p-4 sm:flex-row sm:items-center sm:justify-between"
+            data-testid="iq-paid-report-state"
+            data-state={viewModel.entitlementState}
+          >
+            <span className="text-sm font-semibold text-[var(--fm-text)]">{viewModel.stateLabel}</span>
+            <span className="text-sm leading-6 text-[var(--fm-text-muted)]" data-testid={`iq-paid-report-state-${viewModel.entitlementState}`}>
+              {viewModel.stateMessage}
+            </span>
+          </div>
+
           {viewModel.lockedMessage ? (
             <Alert>
               <span data-testid="iq-report-module-locked">{viewModel.lockedMessage}</span>

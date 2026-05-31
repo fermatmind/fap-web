@@ -37,8 +37,13 @@ export type IqReportNarrativeSectionViewModel = {
   bullets: string[];
 };
 
+export type IqReportEntitlementState = "free" | "paid" | "unauthorized" | "error";
+
 export type IqReportModuleViewModel = {
   unlockStage: "locked" | "unlocked_adaptive" | "unlocked_pro" | "unknown";
+  entitlementState: IqReportEntitlementState;
+  stateLabel: string;
+  stateMessage: string;
   locked: boolean;
   lockedMessage: string | null;
   boundaryMessage: string;
@@ -380,8 +385,8 @@ function buildDimensionCard(
 
 export function getIqDeferredCommerceMessage(locale: Locale): string {
   return locale === "zh"
-    ? "完整报告解锁功能暂未开放。当前可查看已生成的基础结果。"
-    : "Full report unlock is not available yet. You can view the available result summary.";
+    ? "当前为免费预览。完整 IQ 报告详情需后端授权解锁后展示。"
+    : "Free preview is active. Full IQ report details stay hidden until the backend entitlement unlocks this attempt.";
 }
 
 function resolveLockedMessage(
@@ -393,6 +398,110 @@ function resolveLockedMessage(
   }
 
   return getIqDeferredCommerceMessage(locale);
+}
+
+function normalizeModuleCode(value: string): string {
+  return value.trim().toLowerCase();
+}
+
+function reportModulesAllowed(reportData: ReportResponse | null): string[] {
+  return Array.isArray(reportData?.modules_allowed) ? reportData.modules_allowed : [];
+}
+
+function hasIqFullEntitlement(accessView: AttemptReportAccessView | null, reportData: ReportResponse | null): boolean {
+  const modules = [
+    ...(accessView?.modulesAllowed ?? []),
+    ...reportModulesAllowed(reportData),
+  ].map(normalizeModuleCode);
+
+  return modules.includes("iq_full");
+}
+
+function resolveIqPaidReportEntitlementState(
+  accessView: AttemptReportAccessView | null,
+  reportData: ReportResponse | null
+): IqReportEntitlementState {
+  if (!accessView) {
+    return "error";
+  }
+
+  const reasonCode = (accessView.reasonCode ?? "").toLowerCase();
+  if (/(unauthori[sz]ed|forbidden|ownership|owner|mismatch|permission)/.test(reasonCode)) {
+    return "unauthorized";
+  }
+
+  if (
+    accessView.accessState === "unavailable"
+    || accessView.accessState === "expired"
+    || accessView.accessState === "deleted"
+    || accessView.reportState === "unavailable"
+    || accessView.reportState === "expired"
+    || accessView.reportState === "deleted"
+  ) {
+    return "error";
+  }
+
+  if (
+    reportData?.locked === false
+    && (
+      accessView.unlockStage === "full"
+      || accessView.accessLevel === "full"
+      || accessView.variant === "full"
+      || reportData.access_level === "full"
+      || reportData.variant === "full"
+      || hasIqFullEntitlement(accessView, reportData)
+    )
+  ) {
+    return "paid";
+  }
+
+  if (accessView.accessState === "locked" || reportData?.locked === true || accessView.unlockStage === "locked") {
+    return "free";
+  }
+
+  return "free";
+}
+
+function getIqReportStateCopy(locale: Locale, state: IqReportEntitlementState): { label: string; message: string } {
+  if (locale === "zh") {
+    return {
+      free: {
+        label: "免费预览",
+        message: getIqDeferredCommerceMessage(locale),
+      },
+      paid: {
+        label: "完整报告已解锁",
+        message: "后端授权已确认，本页仅展示报告合约返回的完整报告内容。",
+      },
+      unauthorized: {
+        label: "当前会话无权查看",
+        message: "当前会话未获得该测评的完整报告授权，付费报告详情已隐藏。",
+      },
+      error: {
+        label: "授权状态不可用",
+        message: "报告授权状态暂不可用。恢复后才会展示完整报告详情。",
+      },
+    }[state];
+  }
+
+  return {
+    free: {
+      label: "Free preview",
+      message: getIqDeferredCommerceMessage(locale),
+    },
+    paid: {
+      label: "Full report unlocked",
+      message: "Backend entitlement is active for this attempt. This page only renders full report content returned by the report contract.",
+    },
+    unauthorized: {
+      label: "Not authorized for this session",
+      message: "This session is not authorized for this attempt. Paid IQ report details are hidden.",
+    },
+    error: {
+      label: "Entitlement state unavailable",
+      message: "Report entitlement state is unavailable. Full IQ report details stay hidden until the backend contract recovers.",
+    },
+  }[state];
 }
 
 function resolveIqUnlockStage(
@@ -560,16 +669,22 @@ function buildReportModuleViewModel({
   stabilityStatus: string | null;
   stabilityReason: string | null;
 }): IqReportModuleViewModel {
-  const sections = resolveNarrativeSections(reportData);
-  const locked = accessView?.accessState === "locked" || reportData?.locked === true;
+  const entitlementState = resolveIqPaidReportEntitlementState(accessView, reportData);
+  const stateCopy = getIqReportStateCopy(locale, entitlementState);
+  const paidEntitlementActive = entitlementState === "paid";
+  const sections = paidEntitlementActive ? resolveNarrativeSections(reportData) : [];
+  const locked = entitlementState === "free" || entitlementState === "unauthorized" || entitlementState === "error";
   const unlockStage = resolveIqUnlockStage(accessView, reportData);
-  const pdfReady = hasPdfPayload(reportData);
-  const certificateReady = hasCertificatePayload(reportData);
+  const pdfReady = paidEntitlementActive && hasPdfPayload(reportData);
+  const certificateReady = paidEntitlementActive && hasCertificatePayload(reportData);
 
   return {
     unlockStage,
+    entitlementState,
+    stateLabel: stateCopy.label,
+    stateMessage: stateCopy.message,
     locked,
-    lockedMessage: locked ? getIqDeferredCommerceMessage(locale) : null,
+    lockedMessage: locked ? stateCopy.message : null,
     boundaryMessage: getIqMethodBoundaryMessage(locale),
     interpretationMessage: getIqInterpretationMessage({
       locale,
@@ -583,7 +698,16 @@ function buildReportModuleViewModel({
         ? null
         : getDetailedReportUnavailableMessage(locale),
     sections,
-    dimensions,
+    dimensions: paidEntitlementActive ? dimensions : dimensions.map((dimension) => ({
+      ...dimension,
+      rawScore: null,
+      scaledScore: null,
+      normalizedScore: null,
+      percentile: null,
+      band: null,
+      insight: null,
+      missing: true,
+    })),
     pdfPlaceholder: pdfReady
       ? locale === "zh"
         ? "PDF 报告能力已生成，但当前前端版本暂不支持下载。"
