@@ -16,6 +16,9 @@ describe("test slug alias contracts", () => {
       ["iq_raven", SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN],
       ["eq-test", SCALE_CANONICAL_SLUG_MAP.EQ_60],
       ["emotional-intelligence-test", SCALE_CANONICAL_SLUG_MAP.EQ_60],
+      ["eq-sjt", SCALE_CANONICAL_SLUG_MAP.EQ_SJT_16],
+      ["eq-scenario-test", SCALE_CANONICAL_SLUG_MAP.EQ_SJT_16],
+      ["emotional-judgment-test", SCALE_CANONICAL_SLUG_MAP.EQ_SJT_16],
     ];
 
     for (const [legacy, canonical] of cases) {
@@ -38,6 +41,7 @@ describe("test slug alias contracts", () => {
     expect(normalizeSupportedScaleCode("sds_20")).toBe("SDS_20");
     expect(normalizeSupportedScaleCode("IQ_RAVEN")).toBe("IQ_RAVEN");
     expect(normalizeSupportedScaleCode("eq_60")).toBe("EQ_60");
+    expect(normalizeSupportedScaleCode("eq_sjt_16")).toBe("EQ_SJT_16");
     expect(normalizeSupportedScaleCode("DISC")).toBeNull();
   });
 

@@ -7,6 +7,7 @@ export const SCALE_CANONICAL_SLUG_MAP = {
   SDS_20: "depression-screening-test-standard-edition",
   IQ_RAVEN: "iq-test-intelligence-quotient-assessment",
   EQ_60: "eq-test-emotional-intelligence-assessment",
+  EQ_SJT_16: "eq-sjt-scenario-emotional-judgment-test",
 } as const;
 
 export type SupportedScaleCode = keyof typeof SCALE_CANONICAL_SLUG_MAP;
@@ -57,6 +58,11 @@ export const TEST_SLUG_ALIAS_MAP: Record<string, string> = {
   [SCALE_CANONICAL_SLUG_MAP.EQ_60]: SCALE_CANONICAL_SLUG_MAP.EQ_60,
   "eq-test": SCALE_CANONICAL_SLUG_MAP.EQ_60,
   "emotional-intelligence-test": SCALE_CANONICAL_SLUG_MAP.EQ_60,
+
+  [SCALE_CANONICAL_SLUG_MAP.EQ_SJT_16]: SCALE_CANONICAL_SLUG_MAP.EQ_SJT_16,
+  "eq-sjt": SCALE_CANONICAL_SLUG_MAP.EQ_SJT_16,
+  "eq-scenario-test": SCALE_CANONICAL_SLUG_MAP.EQ_SJT_16,
+  "emotional-judgment-test": SCALE_CANONICAL_SLUG_MAP.EQ_SJT_16,
 };
 
 const SUPPORTED_SCALE_CODES = new Set<SupportedScaleCode>(

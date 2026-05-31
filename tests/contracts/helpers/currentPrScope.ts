@@ -70,6 +70,21 @@ const PR_EQ_PER_03_ALLOWED_FILES = new Set([
   "docs/codex/pr-train-state.json",
 ]);
 
+const PR_EQ_SJT_03_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/tests/[slug]/take/EqSjtTakeClient.tsx",
+  "app/(localized)/[locale]/tests/[slug]/take/page.tsx",
+  "components/result/eq/EQSJTBridgeCTA.tsx",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "lib/assessmentSlugMap.ts",
+  "lib/rollout/scaleRollout.ts",
+  "tests/contracts/eq-result-v5-renderer.contract.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/scale-rollout.contract.test.ts",
+  "tests/contracts/test-detail-landing.contract.test.ts",
+  "tests/contracts/test-slug-aliases.contract.test.ts",
+]);
+
 const PR_WEB_SEC_02_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/research/[slug]/page.tsx",
   "docs/codex/pr-train.yaml",
@@ -898,6 +913,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/pr-eq-per-03-frontend-eq-v51-personalization") {
     return PR_EQ_PER_03_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/pr-eq-sjt-03-frontend-take-flow") {
+    return PR_EQ_SJT_03_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-web-sec-02-research-publication-guard") {

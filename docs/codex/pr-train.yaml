@@ -2189,7 +2189,7 @@ prs:
       - pnpm vitest run tests/contracts/content-release-revalidate-allowlist.contract.test.ts
       - pnpm typecheck
       - pnpm exec vitest run tests/contracts/help-faq-schema.contract.test.ts
-      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
       - git diff --check
     acceptance:
       - Revalidate endpoint rejects private/API/result/order/payment/share/take paths.
@@ -8494,6 +8494,71 @@ prs:
       - No raw route IDs, report tags, paywall/SKU/locked/blur terms, or clickable SJT entry are user-visible.
       - Backend canonical EQ fixtures remain the frontend contract source.
     rollback_note: "Revert the EQ v5.1 route consumption adapter, focused renderer tests, fixture sync, and e2e assertions if EQ result rendering regresses."
+
+  - id: PR-EQ-SJT-03
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-eq-sjt-03-frontend-take-flow
+    base: main
+    depends_on:
+      - PR-EQ-SJT-02
+    mode: execute
+    train_scope: eq_sjt_16_module
+    risk_level: scoped_frontend_take_flow
+    status: in_progress
+    title: "PR-EQ-SJT-03 Frontend EQ-SJT take flow"
+    goal: "Prepare the frontend take-flow path for backend-authoritative EQ_SJT_16 while preserving SJT availability gates and avoiding integrated report visibility."
+    in_scope:
+      - app/(localized)/[locale]/tests/[slug]/take/EqSjtTakeClient.tsx
+      - app/(localized)/[locale]/tests/[slug]/take/page.tsx
+      - components/result/eq/EQSJTBridgeCTA.tsx
+      - lib/assessmentSlugMap.ts
+      - lib/rollout/scaleRollout.ts
+      - tests/contracts/eq-result-v5-renderer.contract.test.tsx
+      - tests/contracts/test-detail-landing.contract.test.ts
+      - tests/contracts/test-slug-aliases.contract.test.ts
+      - tests/contracts/scale-rollout.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - backend changes
+      - local SJT question copy, local CMS fallback, or frontend-authored public report prose
+      - integrated EQ report visibility
+      - SJT result rendering
+      - paywall, locked, blur, SKU, premium, or upgrade CTA behavior
+      - non-EQ result renderer behavior changes
+    required_local_checks:
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - pnpm exec playwright test tests/e2e/iq-eq-result-regression.spec.ts
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      changed_files_must_match:
+        - app/(localized)/[locale]/tests/[slug]/take/EqSjtTakeClient.tsx
+        - app/(localized)/[locale]/tests/[slug]/take/page.tsx
+        - components/result/eq/EQSJTBridgeCTA.tsx
+        - lib/assessmentSlugMap.ts
+        - lib/rollout/scaleRollout.ts
+        - tests/contracts/eq-result-v5-renderer.contract.test.tsx
+        - tests/contracts/test-detail-landing.contract.test.ts
+        - tests/contracts/test-slug-aliases.contract.test.ts
+        - tests/contracts/scale-rollout.contract.test.ts
+        - tests/contracts/helpers/currentPrScope.ts
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - EQ_SJT_16 can be routed through a backend-authoritative take-flow branch when the backend exposes the scale.
+      - EQ result SJT bridge renders a clickable entry only when backend next_module and bridge assets both mark EQ_SJT_16 available and not planned.
+      - Existing planned/unavailable EQ fixtures still show no clickable SJT entry.
+      - No local SJT question copy, integrated report, or ability/MSCEIT/certified claim is introduced.
+    rollback_note: "Revert the EQ_SJT_16 slug/rollout/take-flow wiring and SJT bridge available-state link if SJT availability gates regress."
 
   - id: CAREER-1046-FRONTEND-DISCOVERY-UX-01
     repo: fap-web

@@ -1,12 +1,23 @@
 import { Lock } from "lucide-react";
+import Link from "next/link";
+import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
+import { localizedPath } from "@/lib/i18n/locales";
 import type { EqV5ViewModel } from "./types";
 import { SectionHeading } from "./EQEvidenceSnapshot";
 
 export function EQSJTBridgeCTA({ viewModel }: { viewModel: EqV5ViewModel }) {
   const bridge = viewModel.assets.sjt_bridge;
-  const available = viewModel.nextModule.available === true && bridge.available === true;
+  const nextModuleStatus = String(viewModel.nextModule.status ?? "").trim().toLowerCase();
+  const available =
+    viewModel.nextModule.available === true &&
+    bridge.available === true &&
+    viewModel.nextModule.module_code === "EQ_SJT_16" &&
+    nextModuleStatus !== "planned";
   const complements = bridge.complements || bridge.what_it_adds;
   const notThis = bridge.not_this || bridge.what_it_is_not;
+  const takeHref = localizedPath(`/tests/${SCALE_CANONICAL_SLUG_MAP.EQ_SJT_16}/take`, viewModel.locale);
+  const buttonLabel =
+    bridge.button_label || (viewModel.locale === "zh" ? "继续情境判断模块" : "Continue scenario module");
 
   return (
     <section data-testid="eq-sjt-bridge" className="space-y-4">
@@ -27,7 +38,15 @@ export function EQSJTBridgeCTA({ viewModel }: { viewModel: EqV5ViewModel }) {
             <Lock className="h-4 w-4" aria-hidden="true" />
             {viewModel.locale === "zh" ? "计划中，暂未开放" : "Planned, not available yet"}
           </div>
-        ) : null}
+        ) : (
+          <Link
+            data-testid="eq-sjt-bridge-link"
+            href={takeHref}
+            className="mt-4 inline-flex rounded-[8px] bg-slate-900 px-3 py-2 text-sm font-semibold text-white transition hover:bg-slate-800"
+          >
+            {buttonLabel}
+          </Link>
+        )}
       </div>
     </section>
   );

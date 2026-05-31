@@ -22,6 +22,7 @@ import { isImmersiveSingleFlowEnabled } from "@/lib/quiz/uxFlags";
 import Big5TakeClient from "./Big5TakeClient";
 import ClinicalTakeClient from "./ClinicalTakeClient";
 import EnneagramTakeClient from "./EnneagramTakeClient";
+import EqSjtTakeClient from "./EqSjtTakeClient";
 import QuizTakeClient from "./QuizTakeClient";
 
 function appendQuery(path: string, query: Record<string, string | string[] | undefined>): string {
@@ -194,6 +195,13 @@ export default async function TakePage({
           formCode={riasecFormCode ?? undefined}
           estimatedMinutes={riasecFormMeta?.estimatedMinutes}
           questionCount={riasecFormMeta?.questionCount ?? test.questions_count}
+        />
+      ) : test.scale_code === "EQ_SJT_16" ? (
+        <EqSjtTakeClient
+          slug={slug}
+          testTitle={localizedTestTitle}
+          estimatedMinutes={test.time_minutes}
+          questionCount={test.questions_count}
         />
       ) : test.scale_code === "SDS_20" || test.scale_code === "CLINICAL_COMBO_68" ? (
         <ClinicalTakeClient slug={slug} scaleCode={test.scale_code} />
