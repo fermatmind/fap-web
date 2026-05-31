@@ -8632,6 +8632,53 @@ prs:
       - No frontend-authored content fallback, CMS mutation, deploy, Search Channel action, or URL submission is introduced.
     rollback_note: "Revert PR-03 sitemap/llms authority alignment and focused contract changes if discoverability exposure regresses."
 
+  - id: RESULT-EMAIL-LOOKUP-TOKEN-OPEN-04
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/result-email-lookup-token-open-04
+    base: main
+    depends_on: []
+    mode: execute
+    train_scope: email_first_result_access
+    risk_level: scoped_result_email_lookup_ui
+    status: in_progress
+    title: "RESULT-EMAIL-LOOKUP-TOKEN-OPEN-04 render result email lookup token links"
+    goal: "Allow the result email lookup UI to open backend-issued first-party result access links without exposing token text or accepting external links."
+    in_scope:
+      - components/support/ResultEmailLookupForm.tsx
+      - tests/contracts/result-email-lookup.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - backend token semantics
+      - payment, checkout, Alipay, or order lifecycle changes
+      - sending real email
+      - CMS/content authority or sitemap/llms changes
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/result-email-lookup.contract.test.tsx
+      - pnpm typecheck
+      - pnpm test:contract
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      changed_files_must_match:
+        - components/support/ResultEmailLookupForm.tsx
+        - tests/contracts/result-email-lookup.contract.test.tsx
+        - tests/contracts/helpers/currentPrScope.ts
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Email lookup renders a first-party result link when backend returns result_access_token in the URL.
+      - Email lookup appends split backend result_access_token to first-party result URLs.
+      - Token text is not rendered visibly.
+      - External result URLs remain unavailable.
+    rollback_note: "Revert the ResultEmailLookupForm token-link resolution and focused contract assertions if email lookup opens unsafe URLs or leaks token text."
+
   - id: PR-03-FOLLOWUP-LLMS-CONTENT-PAGE-DETAIL-AUTHORITY-01
     repo: fap-web
     repo_path: <workspace>/fap-web

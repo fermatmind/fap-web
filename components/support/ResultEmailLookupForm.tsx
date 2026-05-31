@@ -66,14 +66,29 @@ function hasBearerResultToken(value: unknown): boolean {
   }
 }
 
-function resolveResultHref(item: ResultEmailLookupItem, locale: Locale): string | null {
-  if (normalizeText(item.result_access_token) || hasBearerResultToken(item.result_url)) {
-    return null;
+function appendResultAccessToken(path: string, token: string): string {
+  if (!token || hasBearerResultToken(path)) {
+    return path;
   }
 
+  const fragmentIndex = path.indexOf("#");
+  const base = fragmentIndex >= 0 ? path.slice(0, fragmentIndex) : path;
+  const fragment = fragmentIndex >= 0 ? path.slice(fragmentIndex) : "";
+  const separator = base.includes("?") ? "&" : "?";
+
+  return `${base}${separator}access_token=${encodeURIComponent(token)}${fragment}`;
+}
+
+function resolveResultHref(item: ResultEmailLookupItem, locale: Locale): string | null {
+  const resultAccessToken = normalizeText(item.result_access_token);
   const directHref = normalizeCommerceReportPath(item.result_url);
   if (directHref) {
-    return withLocaleIfNeeded(directHref, locale);
+    return withLocaleIfNeeded(appendResultAccessToken(directHref, resultAccessToken), locale);
+  }
+
+  const attemptId = normalizeText(item.attempt_id);
+  if (resultAccessToken && attemptId) {
+    return localizedPath(`/result/${encodeURIComponent(attemptId)}?access_token=${encodeURIComponent(resultAccessToken)}`, locale);
   }
 
   return null;
