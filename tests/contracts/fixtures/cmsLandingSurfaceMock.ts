@@ -4,6 +4,20 @@ import type { HomePageContent } from "@/lib/marketing/homepageContent";
 import type { HubTestCardItem, TestsHubContent } from "@/lib/marketing/testsHubContent";
 import type { Locale } from "@/lib/i18n/locales";
 
+const IQ_MEDIA_AUTHORITY = {
+  asset_key: "iq-beta30-original-card",
+  source: "media_library_required",
+  authority: "backend_cms_media_library",
+  status: "metadata_only_no_frontend_asset",
+  fallback_allowed: false,
+  alt: "Original IQ reasoning practice card",
+  variants: {
+    card_asset_key: "iq-beta30-original-card",
+    og_asset_key: "iq-beta30-original-og",
+    report_cover_asset_key: "iq-full-report-cover",
+  },
+};
+
 const homeZh: HomePageContent = {
   hero: {
     eyebrow: "FermatMind / 费马测试",
@@ -44,6 +58,7 @@ const homeZh: HomePageContent = {
         href: "/tests/iq-test-intelligence-quotient-assessment/take",
         label: "开始测试",
         meta: "能力测评",
+        media: IQ_MEDIA_AUTHORITY,
       },
       {
         title: "霍兰德职业兴趣测试",
@@ -166,6 +181,7 @@ function testCard(key: string, title: string): HubTestCardItem {
     detailsHref: `/zh/tests/${key}`,
     secondaryLabel: "查看详情",
     previewVariant: "summary",
+    ...(key === "iq-test-intelligence-quotient-assessment" ? { media: IQ_MEDIA_AUTHORITY } : {}),
   };
 }
 

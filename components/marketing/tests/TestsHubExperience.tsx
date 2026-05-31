@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
+import { CmsMediaAuthorityShell } from "@/components/marketing/CmsMediaAuthorityShell";
 import { buttonVariants } from "@/components/ui/button";
 import type { Locale } from "@/lib/i18n/locales";
+import { IQ_PUBLIC_SLUG } from "@/lib/iq/constants";
 import type { HubTestCardItem, TestsHubContent } from "@/lib/marketing/testsHubContent";
 import { filterVisiblePublicTestEntries } from "@/lib/tests/publicTestEntryVisibility";
 
@@ -37,6 +39,13 @@ function TestListCard({ item, locale }: { item: HubTestCardItem; locale: Locale 
         <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs text-slate-300">{item.durationLabel}</span>
         <span className="rounded-full border border-orange-300/20 bg-orange-300/10 px-3 py-1 text-xs text-orange-100">{item.outputLabel}</span>
       </div>
+
+      <CmsMediaAuthorityShell
+        media={item.media ?? null}
+        locale={locale}
+        surface="tests_hub_card"
+        visible={item.key === IQ_PUBLIC_SLUG}
+      />
 
       <div className="mt-auto flex flex-wrap gap-3 pt-7">
         <Link href={primaryHref} prefetch={false} className={buttonVariants({ size: "sm", className: "px-4" })}>

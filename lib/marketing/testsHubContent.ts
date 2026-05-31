@@ -1,4 +1,5 @@
 import { getCmsLandingSurfaceWithLastKnownGood } from "@/lib/cms/landing-surfaces";
+import type { CmsMediaAuthorityMetadata } from "@/lib/cms/media";
 import type { Locale } from "@/lib/i18n/locales";
 import { filterVisiblePublicTestEntries } from "@/lib/tests/publicTestEntryVisibility";
 
@@ -31,6 +32,7 @@ export type HubTestCardItem = {
   secondaryLabel?: string;
   scientificBasis?: string;
   previewVariant: "summary" | "radar" | "bars" | "matrix";
+  media?: CmsMediaAuthorityMetadata;
 };
 
 export type TestFamilyItem = {

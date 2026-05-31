@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import { CmsMediaAuthorityShell } from "@/components/marketing/CmsMediaAuthorityShell";
 import { buttonVariants } from "@/components/ui/button";
+import type { Locale } from "@/lib/i18n/locales";
+import { IQ_PUBLIC_SLUG } from "@/lib/iq/constants";
 import type {
   HubQuestionItem,
   HubTestCardItem,
@@ -144,10 +147,12 @@ export function HubTestCard({
   item,
   showPreview = false,
   showSecondary = true,
+  locale = "en",
 }: {
   item: HubTestCardItem;
   showPreview?: boolean;
   showSecondary?: boolean;
+  locale?: Locale;
 }) {
   return (
     <article className="rounded-[1.8rem] border border-slate-200/80 bg-white/95 p-5 shadow-[0_24px_70px_rgba(15,23,42,0.07)]">
@@ -168,6 +173,13 @@ export function HubTestCard({
               <span className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-500">{item.scientificBasis}</span>
             ) : null}
           </div>
+
+          <CmsMediaAuthorityShell
+            media={item.media ?? null}
+            locale={locale}
+            surface="tests_family_card"
+            visible={item.key === IQ_PUBLIC_SLUG}
+          />
 
           <div className="flex flex-wrap gap-3">
             {item.primaryActions && item.primaryActions.length > 0 ? (

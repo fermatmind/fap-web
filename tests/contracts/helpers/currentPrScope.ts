@@ -280,6 +280,23 @@ const PR_WEB_SEC_21_ALLOWED_FILES = new Set([
 ]);
 
 
+const IQ_CMS_MEDIA_02_ALLOWED_FILES = new Set([
+  "components/marketing/CmsMediaAuthorityShell.tsx",
+  "components/marketing/HomePageExperience.tsx",
+  "components/marketing/tests/TestsFamilyExplorer.tsx",
+  "components/marketing/tests/TestsHubExperience.tsx",
+  "components/marketing/tests/TestsShared.tsx",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "lib/cms/media.ts",
+  "lib/marketing/homepageContent.ts",
+  "lib/marketing/testsHubContent.ts",
+  "tests/contracts/fixtures/cmsLandingSurfaceMock.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/iq-cms-media-rendering-guard.contract.test.tsx",
+  "tests/contracts/media-asset-contract.test.tsx",
+]);
+
 const IQ_PAID_REPORT_02_ALLOWED_FILES = new Set([
   "components/result/iq/IqReportModule.tsx",
   "docs/codex/pr-train.yaml",
@@ -971,6 +988,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
     return PR_WEB_SEC_21_ALLOWED_FILES.has(file);
   }
 
+
+  if (CURRENT_BRANCH === "codex/iq-cms-media-02-rendering-guard") {
+    return IQ_CMS_MEDIA_02_ALLOWED_FILES.has(file);
+  }
 
   if (CURRENT_BRANCH === "codex/iq-paid-report-02-render-entitlement-states") {
     return IQ_PAID_REPORT_02_ALLOWED_FILES.has(file);

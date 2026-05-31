@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-01T00:52:00+08:00",
+  "updated_at": "2026-05-31T16:36:24.796173Z",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -13480,7 +13480,7 @@
     },
     {
       "id": "IQ-PAID-REPORT-02",
-      "status": "github_checks_green",
+      "status": "merged",
       "branch": "codex/iq-paid-report-02-render-entitlement-states",
       "commit_sha": "6864113b45cdd56d36b09e5c20f25724482e512b",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/943",
@@ -13495,9 +13495,9 @@
         "pnpm exec vitest run tests/contracts/iq-report-module.contract.test.tsx tests/contracts/iq-result-renderer.contract.test.tsx": "passed"
       },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-05-31T16:12:12Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "scope_validation": {
         "allowed_paths_only": true,
         "changed_files": [
@@ -13510,7 +13510,84 @@
           "tests/contracts/iq-result-renderer.contract.test.tsx"
         ]
       },
-      "updated_at": "2026-06-01T00:52:00+08:00"
+      "updated_at": "2026-05-31T16:34:23.715602Z",
+      "merge_sha": "48793784c1d5c55b0271fa85322fd1b190d306b2",
+      "history": [
+        {
+          "at": "2026-05-31T16:34:23.715602Z",
+          "status": "merged",
+          "summary": "Reconciled from GitHub PR #943 merge commit 48793784c1d5c55b0271fa85322fd1b190d306b2 before starting IQ-CMS-MEDIA-02."
+        }
+      ]
+    },
+    {
+      "id": "IQ-CMS-MEDIA-02",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/iq-cms-media-02-rendering-guard",
+      "base": "main",
+      "depends_on": [
+        "IQ-CMS-MEDIA-01"
+      ],
+      "status": "pr_opened",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/944",
+      "pr_number": 944,
+      "commit_sha": "594c5ab49ac1b517cae79d3ff17aab020f58a5ee",
+      "merge_sha": null,
+      "title": "IQ-CMS-MEDIA-02 render CMS media without frontend fallbacks",
+      "train_scope": "iq_production_launch",
+      "checks": {
+        "dependency_iq_cms_media_01": "passed: fermatmind/fap-api#1817 merged at 2026-05-31T16:27:40Z",
+        "workspace_safety": "using isolated worktree /private/tmp/fap-web-iq-cms-media-02; primary worktree untouched",
+        "pnpm exec vitest run tests/contracts/iq-cms-media-rendering-guard.contract.test.tsx tests/contracts/media-asset-contract.test.tsx": "passed",
+        "pnpm exec tsc --noEmit --pretty false": "passed",
+        "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null": "passed",
+        "python3 -c yaml.safe_load docs/codex/pr-train.yaml": "passed",
+        "git diff --check": "passed"
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "scope_validation": {
+        "allowed_paths_only": true,
+        "changed_files": [
+          "components/marketing/CmsMediaAuthorityShell.tsx",
+          "components/marketing/HomePageExperience.tsx",
+          "components/marketing/tests/TestsFamilyExplorer.tsx",
+          "components/marketing/tests/TestsHubExperience.tsx",
+          "components/marketing/tests/TestsShared.tsx",
+          "docs/codex/pr-train-state.json",
+          "docs/codex/pr-train.yaml",
+          "lib/cms/media.ts",
+          "lib/marketing/homepageContent.ts",
+          "lib/marketing/testsHubContent.ts",
+          "tests/contracts/fixtures/cmsLandingSurfaceMock.ts",
+          "tests/contracts/helpers/currentPrScope.ts",
+          "tests/contracts/iq-cms-media-rendering-guard.contract.test.tsx"
+        ],
+        "local_validation_passed": true,
+        "github_checks_green": null,
+        "post_merge_revalidated": null
+      },
+      "updated_at": "2026-05-31T16:36:24.796173Z",
+      "history": [
+        {
+          "at": "2026-05-31T16:34:23.715602Z",
+          "status": "implementation_in_progress",
+          "summary": "Initialized after user authorization and fap-api IQ-CMS-MEDIA-01 merge verification."
+        },
+        {
+          "at": "2026-05-31T16:35:31.801514Z",
+          "status": "local_checks_passed",
+          "summary": "Scoped IQ CMS media renderer shell implemented; focused vitest, typecheck, JSON/YAML parsing, and diff check passed."
+        },
+        {
+          "at": "2026-05-31T16:36:24.796173Z",
+          "status": "pr_opened",
+          "summary": "Opened GitHub PR #944 after local validation passed."
+        }
+      ]
     }
   ],
   "sidecar_issues": [

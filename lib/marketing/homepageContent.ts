@@ -1,13 +1,16 @@
 import { getCmsLandingSurfaceWithLastKnownGood } from "@/lib/cms/landing-surfaces";
+import type { CmsMediaAuthorityMetadata } from "@/lib/cms/media";
 import type { Locale } from "@/lib/i18n/locales";
 import { filterVisiblePublicTestEntries } from "@/lib/tests/publicTestEntryVisibility";
 
 export type HomeLinkItem = {
+  key?: string;
   title: string;
   description?: string;
   href: string;
   label?: string;
   meta?: string;
+  media?: CmsMediaAuthorityMetadata;
 };
 
 export type HomeFamily = {

@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { ArticleResponsiveImage } from "@/components/content/ArticleResponsiveImage";
+import { CmsMediaAuthorityShell } from "@/components/marketing/CmsMediaAuthorityShell";
 import { Container } from "@/components/layout/Container";
 import { HomepageSocialProofCarousel } from "@/components/marketing/HomepageSocialProofCarousel";
 import type { CmsArticle } from "@/lib/cms/articles";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import type { HomePageContent } from "@/lib/marketing/homepageContent";
 import { EVIDENCE_LOGS, SCENARIO_VALIDATIONS } from "@/lib/marketing/socialProof";
+import { IQ_PUBLIC_SLUG } from "@/lib/iq/constants";
 import { cn } from "@/lib/utils";
 
 type HomeLink = HomePageContent["quickStart"]["items"][number];
@@ -183,6 +185,12 @@ function TestFeatureCard({ locale, item, index }: { locale: Locale; item: HomeLi
           </span>
         </div>
         <p className="m-0 mt-5 text-base leading-7 text-slate-600">{item.description}</p>
+        <CmsMediaAuthorityShell
+          media={item.media ?? null}
+          locale={locale}
+          surface="home_quick_start"
+          visible={item.href.includes(IQ_PUBLIC_SLUG) || item.key === IQ_PUBLIC_SLUG}
+        />
         <Link
           href={href}
           prefetch={false}
