@@ -8678,3 +8678,82 @@ prs:
       - Token text is not rendered visibly.
       - External result URLs remain unavailable.
     rollback_note: "Revert the ResultEmailLookupForm token-link resolution and focused contract assertions if email lookup opens unsafe URLs or leaks token text."
+
+  - id: PR-03-FOLLOWUP-LLMS-CONTENT-PAGE-DETAIL-AUTHORITY-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-03-followup-llms-content-page-detail-authority-01
+    base: main
+    depends_on:
+      - PR-03-DISCOVERABILITY-SITEMAP-LLMS-AUTHORITY-ALIGNMENT-01
+    mode: execute
+    train_scope: pr_03_llms_content_page_detail_authority_followup
+    risk_level: scoped_llms_content_page_enumeration_repair
+    status: in_progress
+    title: "PR-03-FOLLOWUP-LLMS-CONTENT-PAGE-DETAIL-AUTHORITY-01 llms content-page detail authority fallback"
+    goal: "Make llms.txt and llms-full.txt enumerate approved public content/help pages from known content-page key detail authority when production list endpoints return empty, while preserving private and clinical exclusions."
+    in_scope:
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - lib/cms/content-pages.ts
+      - tests/contracts/career-llms-alignment.contract.test.ts
+      - tests/contracts/detail-ready-1046-career-detail-metadata-and-llms-full-stability-repair-01.contract.test.ts
+      - tests/contracts/detail-ready-1046-discoverability-exposure-repair-01.contract.test.ts
+      - tests/contracts/detail-ready-1046-llms-full-artifact-consistency-repair-01.contract.test.ts
+      - tests/contracts/global-en-zh-content-pages-llms-exposure-repair-01.contract.test.ts
+      - tests/contracts/llms-full-enrichment.contract.test.ts
+      - tests/contracts/llms-parity-contract.contract.test.ts
+      - tests/contracts/llms-url-hygiene.contract.test.ts
+      - tests/contracts/public-surface-lkg-coverage.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - CMS mutation or content publishing
+      - sitemap output or sitemap generation behavior changes
+      - frontend fallback editorial content
+      - page body copy changes
+      - backend authority changes
+      - production deploy
+      - Search Channel enqueue or URL submission
+      - IndexNow, GSC, Baidu, Bing, 360, Sogou, or Shenma calls
+      - private/result/order/payment/share/take exposure
+      - clinical/depression/anxiety page exposure
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/global-en-zh-content-pages-llms-exposure-repair-01.contract.test.ts tests/contracts/llms-url-hygiene.contract.test.ts tests/contracts/llms-full-enrichment.contract.test.ts tests/contracts/llms-parity-contract.contract.test.ts tests/contracts/public-surface-lkg-coverage.contract.test.ts
+      - pnpm lint .
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      changed_files_must_match:
+        - app/llms.txt/route.ts
+        - app/llms-full.txt/route.ts
+        - lib/cms/content-pages.ts
+        - tests/contracts/career-llms-alignment.contract.test.ts
+        - tests/contracts/detail-ready-1046-career-detail-metadata-and-llms-full-stability-repair-01.contract.test.ts
+        - tests/contracts/detail-ready-1046-discoverability-exposure-repair-01.contract.test.ts
+        - tests/contracts/detail-ready-1046-llms-full-artifact-consistency-repair-01.contract.test.ts
+        - tests/contracts/global-en-zh-content-pages-llms-exposure-repair-01.contract.test.ts
+        - tests/contracts/llms-full-enrichment.contract.test.ts
+        - tests/contracts/llms-parity-contract.contract.test.ts
+        - tests/contracts/llms-url-hygiene.contract.test.ts
+        - tests/contracts/public-surface-lkg-coverage.contract.test.ts
+        - tests/contracts/helpers/currentPrScope.ts
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - llms.txt and llms-full.txt no longer depend on empty production content-page list results for trust/help/legal/method page exposure.
+      - Content/help pages are enumerated from public content-page detail authority and filtered by public/indexable flags.
+      - Private/result/order/payment/share/take routes remain excluded from llms surfaces.
+      - Clinical/depression/anxiety test URLs remain excluded from llms surfaces.
+      - No CMS mutation, sitemap change, deploy, Search Channel action, URL submission, or frontend-authored content fallback is introduced.
+    rollback_note: "Revert PR-03 follow-up llms content-page detail authority fallback and focused contract updates if llms content-page exposure regresses."

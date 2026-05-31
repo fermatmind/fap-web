@@ -166,6 +166,22 @@ function mockLlmsFullDependencies({ includeSurfaces = true }: { includeSurfaces?
     })),
   }));
   vi.doMock("@/lib/cms/content-pages", () => ({
+    listDiscoverableContentPagesWithLastKnownGood: vi.fn(async (locale: "en" | "zh") => ({
+      value:
+        locale === "en"
+          ? [
+              {
+                path: "/support",
+                title: "Support",
+                summary: "Support page summary.",
+                kind: "help",
+                locale,
+                isPublic: true,
+                isIndexable: true,
+              },
+            ]
+          : [],
+    })),
     listContentPagesWithLastKnownGood: vi.fn(async (locale: "en" | "zh") => ({
       value:
         locale === "en"

@@ -201,6 +201,9 @@ function mockLlmsDependencies() {
     getCareerGuideFromCmsBySlug: vi.fn(async () => ({ answerSurface: null, landingSurface: null })),
   }));
   vi.doMock("@/lib/cms/content-pages", () => ({
+    listDiscoverableContentPagesWithLastKnownGood: vi.fn(async (locale: "en" | "zh") => ({
+      value: locale === "en" ? [{ path: "/support", title: "Support", summary: "Support summary.", kind: "help" }] : [],
+    })),
     listContentPagesWithLastKnownGood: vi.fn(async (locale: "en" | "zh") => ({
       value: locale === "en" ? [{ path: "/support", title: "Support", summary: "Support summary." }] : [],
     })),

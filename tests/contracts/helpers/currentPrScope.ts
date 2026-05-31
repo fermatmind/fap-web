@@ -523,6 +523,24 @@ const PR_03_DISCOVERABILITY_SITEMAP_LLMS_AUTHORITY_ALIGNMENT_01_ALLOWED_FILES = 
   "tests/contracts/sitemap-llms-lastmod-authority.contract.test.ts",
 ]);
 
+const PR_03_FOLLOWUP_LLMS_CONTENT_PAGE_DETAIL_AUTHORITY_01_ALLOWED_FILES = new Set([
+  "app/llms-full.txt/route.ts",
+  "app/llms.txt/route.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "lib/cms/content-pages.ts",
+  "tests/contracts/career-llms-alignment.contract.test.ts",
+  "tests/contracts/detail-ready-1046-career-detail-metadata-and-llms-full-stability-repair-01.contract.test.ts",
+  "tests/contracts/detail-ready-1046-discoverability-exposure-repair-01.contract.test.ts",
+  "tests/contracts/detail-ready-1046-llms-full-artifact-consistency-repair-01.contract.test.ts",
+  "tests/contracts/global-en-zh-content-pages-llms-exposure-repair-01.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/llms-full-enrichment.contract.test.ts",
+  "tests/contracts/llms-parity-contract.contract.test.ts",
+  "tests/contracts/llms-url-hygiene.contract.test.ts",
+  "tests/contracts/public-surface-lkg-coverage.contract.test.ts",
+]);
+
 const GLOBAL_EN_ZH_FOOTER_NAV_PARITY_01_ALLOWED_FILES = new Set([
   "components/layout/SiteFooter.tsx",
   "docs/codex/pr-train.yaml",
@@ -821,6 +839,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/pr-03-discoverability-sitemap-llms-authority-alignment-01") {
     return PR_03_DISCOVERABILITY_SITEMAP_LLMS_AUTHORITY_ALIGNMENT_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/pr-03-followup-llms-content-page-detail-authority-01") {
+    return PR_03_FOLLOWUP_LLMS_CONTENT_PAGE_DETAIL_AUTHORITY_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/fix-frontend-ci-build-timeout") {

@@ -53,6 +53,7 @@ function mockSharedLlmsDependencies() {
   }));
   vi.doMock("@/lib/cms/content-pages", () => ({
     listApprovedEnglishContentPagesWithLastKnownGood: vi.fn(async () => ({ value: [] })),
+    listDiscoverableContentPagesWithLastKnownGood: vi.fn(async () => ({ value: [] })),
     listContentPagesWithLastKnownGood: vi.fn(async () => ({ value: [] })),
   }));
   vi.doMock("@/lib/cms/personality", () => ({

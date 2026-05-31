@@ -4,7 +4,7 @@ import { listCareerGuidesFromCms } from "@/lib/cms/career-guides";
 import { adaptCareerRecommendationIndex } from "@/lib/career/adapters/adaptCareerRecommendationIndex";
 import { fetchCareerRecommendationIndex } from "@/lib/career/api/fetchCareerRecommendationIndex";
 import {
-  listContentPagesWithLastKnownGood,
+  listDiscoverableContentPagesWithLastKnownGood,
   type ContentPage,
 } from "@/lib/cms/content-pages";
 import type { Locale } from "@/lib/i18n/locales";
@@ -186,10 +186,8 @@ export async function GET() {
     enArticles,
     zhArticles,
     backendTestEntries,
-    enHelpPages,
-    zhHelpPages,
-    enContentPages,
-    zhContentPages,
+    enDiscoverableContentPages,
+    zhDiscoverableContentPages,
     careerJobEntries,
   ] = await Promise.all([
     withLlmsRouteBudget(
@@ -249,28 +247,14 @@ export async function GET() {
     ),
     withLlmsRouteBudget(
       () =>
-        listContentPagesWithLastKnownGood("en", "help").then((result) =>
+        listDiscoverableContentPagesWithLastKnownGood("en").then((result) =>
           limitLlmsRouteEntries(result.value, LLMS_ROUTE_LIMITS.helpPages)
         ),
       []
     ),
     withLlmsRouteBudget(
       () =>
-        listContentPagesWithLastKnownGood("zh", "help").then((result) =>
-          limitLlmsRouteEntries(result.value, LLMS_ROUTE_LIMITS.helpPages)
-        ),
-      []
-    ),
-    withLlmsRouteBudget(
-      () =>
-        listContentPagesWithLastKnownGood("en").then((result) =>
-          limitLlmsRouteEntries(result.value, LLMS_ROUTE_LIMITS.helpPages)
-        ),
-      []
-    ),
-    withLlmsRouteBudget(
-      () =>
-        listContentPagesWithLastKnownGood("zh").then((result) =>
+        listDiscoverableContentPagesWithLastKnownGood("zh").then((result) =>
           limitLlmsRouteEntries(result.value, LLMS_ROUTE_LIMITS.helpPages)
         ),
       []
@@ -283,13 +267,13 @@ export async function GET() {
   ]);
 
   const helpEntries = dedupePaths([
-    ...enHelpPages.map((page) => localizedContentPagePath(page, "en")),
-    ...zhHelpPages.map((page) => localizedContentPagePath(page, "zh")),
+    ...enDiscoverableContentPages.filter((page) => page.kind === "help").map((page) => localizedContentPagePath(page, "en")),
+    ...zhDiscoverableContentPages.filter((page) => page.kind === "help").map((page) => localizedContentPagePath(page, "zh")),
   ]);
   const contentPageEntries = dedupePaths(
     [
-      ...enContentPages.map((page) => ({ page, locale: "en" as const })),
-      ...zhContentPages.map((page) => ({ page, locale: "zh" as const })),
+      ...enDiscoverableContentPages.map((page) => ({ page, locale: "en" as const })),
+      ...zhDiscoverableContentPages.map((page) => ({ page, locale: "zh" as const })),
     ]
       .filter(({ page }) => page.kind !== "help" && page.isPublic && page.isIndexable)
       .map(({ page, locale }) => localizedContentPagePath(page, locale))
