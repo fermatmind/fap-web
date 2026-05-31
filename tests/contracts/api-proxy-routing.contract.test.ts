@@ -64,6 +64,21 @@ describe("api proxy routing contract", () => {
     expect(nextConfig).not.toContain('"/api/v0.5/internal/career/crosswalk/:path*"');
   });
 
+  it("proxies public Foundation Daily Giving API paths through same-origin rewrites", () => {
+    const nextConfig = read("next.config.mjs");
+
+    for (const source of [
+      "/api/v0.5/foundation/giving-records",
+      "/api/v0.5/foundation/giving-records/:recordCode",
+      "/api/v0.5/foundation/giving-records/months",
+      "/api/v0.5/foundation/giving-records/months/:yearMonth",
+    ] as const) {
+      expect(nextConfig).toContain(`"${source}"`);
+    }
+
+    expect(nextConfig).not.toContain('"/api/v0.5/foundation/:path*"');
+  });
+
   it("keeps the careers content page separate from the career hub", () => {
     const nextConfig = read("next.config.mjs");
 

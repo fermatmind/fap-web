@@ -8042,3 +8042,58 @@ prs:
       - software-developers, digital-forensics-analysts, and computer-occupations-all-other remain excluded.
       - No CMS mutation, deploy, Search Channel action, URL submission, external search API call, env/DNS/nginx edit, or frontend editorial fallback content is introduced.
     rollback_note: "Revert llms-full response cache helper and route quality gate changes if complete llms-full artifacts stop being served or excluded/private URLs enter the artifact."
+
+  - id: OPS-API-PUBLIC-TLS-PATH-FIX-01A-FRONTEND-SAME-ORIGIN-FOUNDATION-API-PROXY
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/ops-api-public-tls-path-fix-01a-frontend-same-origin-foundation-api-proxy
+    base: main
+    depends_on: []
+    mode: execute
+    train_scope: ops_api_public_tls_path_fix_01a_frontend_same_origin_foundation_api_proxy
+    risk_level: scoped_public_api_proxy_rewrite
+    status: in_progress
+    title: "OPS-API-PUBLIC-TLS-PATH-FIX-01A: Add Foundation Daily Giving same-origin API proxy"
+    goal: "Add frontend same-origin rewrites for public Foundation Daily Giving API paths so apex /api can reach backend authority while api.fermatmind.com SNI/TLS edge repair remains separate."
+    in_scope:
+      - next.config.mjs
+      - tests/contracts/api-proxy-routing.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - fap-api or backend changes
+      - CMS mutation or publish
+      - production deploy
+      - Search Channel enqueue or URL submission
+      - external search API calls
+      - env, DNS, or nginx edits
+      - frontend editorial fallback content
+      - broad /api/v0.5 wildcard proxy expansion
+      - api.fermatmind.com SNI/TLS edge repair
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/api-proxy-routing.contract.test.ts
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      changed_files_must_match:
+        - next.config.mjs
+        - tests/contracts/api-proxy-routing.contract.test.ts
+        - tests/contracts/helpers/currentPrScope.ts
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Apex same-origin rewrites include only the public Foundation Daily Giving index, detail, months, and month archive API paths.
+      - Existing v0.3 and allowlisted v0.5 same-origin rewrites remain intact.
+      - No broad /api/v0.5 wildcard proxy is introduced.
+      - No CMS mutation, deploy, Search Channel action, URL submission, external search API call, env/DNS/nginx edit, backend change, or frontend editorial fallback content is introduced.
+    rollback_note: "Revert the Foundation Daily Giving rewrite entries and contract assertions if same-origin API routing regresses or a broader API proxy policy is approved separately."
