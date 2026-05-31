@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-31T09:15:00+08:00",
+  "updated_at": "2026-05-31T09:31:00+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -12140,6 +12140,11 @@
           "at": "2026-05-31T09:22:00+08:00",
           "status": "pr_opened",
           "summary": "Opened fap-web PR #929 for DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01 after scoped local validation passed."
+        },
+        {
+          "at": "2026-05-31T09:31:00+08:00",
+          "status": "codeql_fix_validated",
+          "summary": "Addressed PR #929 CodeQL findings by using mkdtemp plus exclusive write for the shared artifact temp file and anchoring the test URL regex. Focused tests, lint, typecheck, production API build, full contract suite, Big Five/Enneagram freeze checks, JSON/YAML parse, and diff checks passed after the fix."
         }
       ]
     }

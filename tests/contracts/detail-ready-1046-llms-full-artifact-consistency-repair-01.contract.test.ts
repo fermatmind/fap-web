@@ -32,7 +32,7 @@ function fullCohortPaths(): string[] {
 }
 
 function careerUrlCount(text: string): number {
-  return new Set(text.match(/https:\/\/fermatmind\.com\/(?:en|zh)\/career\/jobs\/[a-z0-9-]+/g) ?? []).size;
+  return new Set(text.match(/^- URL: https:\/\/fermatmind\.com\/(?:en|zh)\/career\/jobs\/[a-z0-9-]+$/gm) ?? []).size;
 }
 
 function mockLlmsFullDependencies(paths: () => string[]) {

@@ -1,4 +1,4 @@
-import { mkdir, readFile, rename, unlink, writeFile } from "node:fs/promises";
+import { mkdir, mkdtemp, readFile, rename, rm, unlink, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
 
@@ -63,14 +63,25 @@ async function writeSharedCache(cache: LlmsFullResponseCache): Promise<void> {
     return;
   }
 
+  let temporaryDirectory: string | null = null;
+
   try {
     const target = sharedCachePath();
     await mkdir(path.dirname(target), { recursive: true });
-    const temporary = `${target}.${process.pid}.${Date.now()}.tmp`;
-    await writeFile(temporary, `${JSON.stringify(cache)}\n`, "utf8");
+    temporaryDirectory = await mkdtemp(path.join(path.dirname(target), ".fermatmind-llms-full-cache-"));
+    const temporary = path.join(temporaryDirectory, "cache.json");
+    await writeFile(temporary, `${JSON.stringify(cache)}\n`, {
+      encoding: "utf8",
+      flag: "wx",
+      mode: 0o600,
+    });
     await rename(temporary, target);
   } catch {
     // The in-process cache remains valid if the shared artifact cannot be written.
+  } finally {
+    if (temporaryDirectory) {
+      void rm(temporaryDirectory, { force: true, recursive: true }).catch(() => undefined);
+    }
   }
 }
 
