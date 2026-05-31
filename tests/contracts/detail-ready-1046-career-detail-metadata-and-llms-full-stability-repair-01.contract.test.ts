@@ -64,7 +64,11 @@ function mockCareerJobBundle({
 }
 
 function mockLlmsFullDependencies() {
-  const validPaths = TARGET_SLUGS.flatMap((slug) => [
+  const fillerSlugs = Array.from(
+    { length: 1046 - TARGET_SLUGS.length },
+    (_, index) => `metadata-stability-career-${index + 1}`
+  );
+  const validPaths = [...TARGET_SLUGS, ...fillerSlugs].flatMap((slug) => [
     `/en/career/jobs/${slug}`,
     `/zh/career/jobs/${slug}`,
   ]);

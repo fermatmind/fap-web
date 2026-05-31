@@ -7833,7 +7833,7 @@ prs:
     mode: execute
     train_scope: detail_ready_1046_discoverability_exposure_repair
     risk_level: scoped_career_seo_discoverability_exposure
-    status: in_progress
+    status: merged
     title: "DETAIL_READY_1046_DISCOVERABILITY_EXPOSURE_REPAIR-01 career detail sitemap and llms exposure repair"
     goal: "Expose backend-authorized 1046 Career job detail URLs in sitemap and llms surfaces using backend Career jobs index seo_contract authority, with sitemap-source plus per-detail SEO fallback, without frontend fallback authority or Search Channel action."
     in_scope:
@@ -7911,7 +7911,7 @@ prs:
     mode: execute
     train_scope: detail_ready_1046_career_detail_metadata_and_llms_full_stability_repair
     risk_level: scoped_career_seo_metadata_and_llms_full_stability_repair
-    status: in_progress
+    status: merged
     title: "DETAIL_READY_1046_CAREER_DETAIL_METADATA_AND_LLMS_FULL_STABILITY_REPAIR-01 career detail metadata and llms-full stability repair"
     goal: "Fix post-1046 career detail frontend metadata drift and make llms-full.txt cache-first/degraded-safe without removing approved career detail URLs or exposing excluded slugs."
     in_scope:
@@ -7972,3 +7972,73 @@ prs:
       - software-developers, digital-forensics-analysts, and computer-occupations-all-other remain excluded.
       - No CMS mutation, deploy, Search Channel action, URL submission, external search API call, env/DNS/nginx edit, or frontend editorial fallback content is introduced.
     rollback_note: "Revert the career metadata helper and llms-full cache/degraded route changes if excluded slugs become discoverable, candidate-only pages become indexable, or llms-full drops approved career URLs in healthy mode."
+
+  - id: DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/detail-ready-1046-llms-full-artifact-consistency-repair-01
+    base: main
+    depends_on:
+      - DETAIL_READY_1046_CAREER_DETAIL_METADATA_AND_LLMS_FULL_STABILITY_REPAIR-01
+    mode: execute
+    train_scope: detail_ready_1046_llms_full_artifact_consistency_repair
+    risk_level: scoped_llms_full_artifact_consistency_repair
+    status: in_progress
+    title: "DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01 llms-full artifact consistency repair"
+    goal: "Make llms-full.txt stable across PM2 workers by sharing a last-known-good artifact and caching only full 1046 Career-detail cohort artifacts, without changing URL authority or Search Channel state."
+    in_scope:
+      - app/llms-full.txt/route.ts
+      - lib/seo/llmsFullResponseCache.ts
+      - tests/contracts/detail-ready-1046-career-detail-metadata-and-llms-full-stability-repair-01.contract.test.ts
+      - tests/contracts/detail-ready-1046-llms-full-artifact-consistency-repair-01.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/seo/detail-ready-1046-llms-full-artifact-consistency-repair-01.md
+      - docs/seo/generated/detail-ready-1046-llms-full-artifact-consistency-repair-01.v1.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - fap-api, backend DB, CMS, career cohort, or runtime promotion mutation
+      - production deploy
+      - Search Channel enqueue or URL submission
+      - external search API calls
+      - env, DNS, or nginx edits
+      - frontend editorial fallback content
+      - career claim expansion or paid/gated content exposure
+      - software-developers, digital-forensics-analysts, or computer-occupations-all-other publication changes
+      - future task manifest entries
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/detail-ready-1046-llms-full-artifact-consistency-repair-01.contract.test.ts
+      - pnpm exec vitest run tests/contracts/detail-ready-1046-llms-full-artifact-consistency-repair-01.contract.test.ts tests/contracts/llms-route-fanout.contract.test.ts
+      - pnpm lint .
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - pnpm exec vitest run tests/contracts/big5.contract.test.ts tests/contracts/big5-result-assembler.contract.test.ts tests/contracts/big5-secondary-surfaces.contract.test.tsx
+      - pnpm exec vitest run tests/contracts/enneagram-api.contract.test.ts tests/contracts/enneagram-take-flow.contract.test.tsx tests/contracts/enneagram-result-assembler.contract.test.ts tests/contracts/enneagram-rich-result-report.contract.test.tsx tests/contracts/enneagram-secondary-surfaces.contract.test.tsx
+      - python3 -m json.tool docs/seo/generated/detail-ready-1046-llms-full-artifact-consistency-repair-01.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      changed_files_must_match:
+        - app/llms-full.txt/route.ts
+        - lib/seo/llmsFullResponseCache.ts
+        - tests/contracts/detail-ready-1046-career-detail-metadata-and-llms-full-stability-repair-01.contract.test.ts
+        - tests/contracts/detail-ready-1046-llms-full-artifact-consistency-repair-01.contract.test.ts
+        - tests/contracts/helpers/currentPrScope.ts
+        - docs/seo/detail-ready-1046-llms-full-artifact-consistency-repair-01.md
+        - docs/seo/generated/detail-ready-1046-llms-full-artifact-consistency-repair-01.v1.json
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - llms-full.txt does not cache generated full artifacts that omit the approved 1046 bilingual Career detail cohort.
+      - A complete llms-full artifact is shared as last-known-good across PM2 worker/module instances.
+      - Degraded responses remain explicit and cannot overwrite the complete artifact cache.
+      - software-developers, digital-forensics-analysts, and computer-occupations-all-other remain excluded.
+      - No CMS mutation, deploy, Search Channel action, URL submission, external search API call, env/DNS/nginx edit, or frontend editorial fallback content is introduced.
+    rollback_note: "Revert llms-full response cache helper and route quality gate changes if complete llms-full artifacts stop being served or excluded/private URLs enter the artifact."

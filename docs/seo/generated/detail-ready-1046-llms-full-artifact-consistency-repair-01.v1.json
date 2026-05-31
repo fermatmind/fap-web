@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "task": "DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01",
+  "final_decision": "llms_full_artifact_consistency_repair_ready_for_frontend_deploy_readiness",
+  "expected_career_detail_url_count": 2092,
+  "required_sample_slugs": [
+    "accountants-and-auditors",
+    "actors",
+    "actuaries",
+    "aerospace-engineers",
+    "agricultural-and-food-scientists",
+    "administrative-law-judges-adjudicators-and-hearing-officers",
+    "acupuncturists",
+    "acute-care-nurses"
+  ],
+  "excluded_slugs": [
+    "software-developers",
+    "digital-forensics-analysts",
+    "computer-occupations-all-other"
+  ],
+  "artifact_consistency_controls": {
+    "shared_last_known_good_artifact": true,
+    "full_artifact_quality_gate": true,
+    "reject_zero_career_url_full_artifact": true,
+    "reject_excluded_slug_artifact": true,
+    "reject_private_or_staging_url_artifact": true,
+    "degraded_response_may_not_overwrite_full_cache": true
+  },
+  "no_backend_db_mutation": true,
+  "no_cms_mutation": true,
+  "no_career_cohort_mutation": true,
+  "no_deploy": true,
+  "no_search_channel_action": true,
+  "no_url_submission": true,
+  "no_external_search_api_call": true,
+  "no_frontend_fallback_content": true,
+  "next_task": "FRONTEND-DEPLOY-READINESS｜Deploy DETAIL_READY_1046 llms-full artifact consistency repair"
+}
