@@ -30,6 +30,28 @@ export type TestDetailAuthorityResolution = {
   shouldNoindexMissingMetadataAuthority: boolean;
 };
 
+export type IqLaunchSeoGuardInput = {
+  slug: string;
+  scaleCode?: string | null;
+  hasSeoTitle: boolean;
+  hasSeoDescription: boolean;
+  title?: string | null;
+  description?: string | null;
+  featureList?: string[];
+};
+
+export type IqLaunchSeoGuardResolution = {
+  applies: boolean;
+  canonicalSlug: string;
+  canonicalPath: string;
+  hasBackendSeoAuthority: boolean;
+  shouldNoindex: boolean;
+  blocksSoftwareApplicationSchema: boolean;
+  blocksSitemapLlmsExpansion: boolean;
+  unsafeClaimBlocked: boolean;
+  reason: string;
+};
+
 export const TEST_DETAIL_COMPATIBILITY_FALLBACK_SLUGS = [
   SCALE_CANONICAL_SLUG_MAP.MBTI,
   SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN,
@@ -42,6 +64,22 @@ export const TEST_DETAIL_COMPATIBILITY_FALLBACK_SLUGS = [
 ] as const;
 
 const TEST_DETAIL_COMPATIBILITY_FALLBACK_SET = new Set<string>(TEST_DETAIL_COMPATIBILITY_FALLBACK_SLUGS);
+
+export const IQ_LAUNCH_CANONICAL_SLUG = SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN;
+
+export const IQ_LAUNCH_FORBIDDEN_CLAIM_PHRASES = [
+  "official iq score",
+  "certified iq",
+  "diagnose intelligence",
+  "diagnostic iq",
+  "percentile ranking",
+  "population percentile",
+  "智商分数",
+  "官方智商",
+  "认证智商",
+  "智商排名",
+  "人群百分位",
+] as const;
 
 function decision(
   surface: TestDetailAuthoritySurface,
@@ -60,6 +98,42 @@ function decision(
 
 export function isTestDetailCompatibilityFallbackApproved(slug: string): boolean {
   return TEST_DETAIL_COMPATIBILITY_FALLBACK_SET.has(slug);
+}
+
+export function isIqLaunchSlug(input: { slug: string; scaleCode?: string | null }): boolean {
+  const scaleCode = String(input.scaleCode ?? "").trim().toUpperCase();
+
+  return input.slug === IQ_LAUNCH_CANONICAL_SLUG
+    || scaleCode === "IQ_RAVEN"
+    || scaleCode === "IQ_INTELLIGENCE_QUOTIENT";
+}
+
+export function hasUnsafeIqLaunchClaim(value: string): boolean {
+  const normalized = value.toLowerCase();
+
+  return IQ_LAUNCH_FORBIDDEN_CLAIM_PHRASES.some((phrase) => normalized.includes(phrase.toLowerCase()));
+}
+
+export function resolveIqLaunchSeoGuard(input: IqLaunchSeoGuardInput): IqLaunchSeoGuardResolution {
+  const applies = isIqLaunchSlug(input);
+  const hasBackendSeoAuthority = input.hasSeoTitle && input.hasSeoDescription;
+  const claimText = [input.title, input.description, ...(input.featureList ?? [])].filter(Boolean).join(" ");
+  const unsafeClaimBlocked = applies && hasUnsafeIqLaunchClaim(claimText);
+  const shouldNoindex = applies && (!hasBackendSeoAuthority || unsafeClaimBlocked);
+
+  return {
+    applies,
+    canonicalSlug: IQ_LAUNCH_CANONICAL_SLUG,
+    canonicalPath: `/tests/${IQ_LAUNCH_CANONICAL_SLUG}`,
+    hasBackendSeoAuthority,
+    shouldNoindex,
+    blocksSoftwareApplicationSchema: applies,
+    blocksSitemapLlmsExpansion: applies,
+    unsafeClaimBlocked,
+    reason: applies
+      ? "IQ launch SEO requires backend SEO authority, no unsafe IQ claims, no SoftwareApplication schema, and no sitemap/llms expansion in this PR"
+      : "not an IQ launch surface",
+  };
 }
 
 export function resolveTestDetailAuthority(input: TestDetailAuthorityInput): TestDetailAuthorityResolution {
