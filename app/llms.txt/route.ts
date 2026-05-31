@@ -4,9 +4,10 @@ import { listCareerGuidesFromCms } from "@/lib/cms/career-guides";
 import { adaptCareerRecommendationIndex } from "@/lib/career/adapters/adaptCareerRecommendationIndex";
 import { fetchCareerRecommendationIndex } from "@/lib/career/api/fetchCareerRecommendationIndex";
 import {
-  listApprovedEnglishContentPagesWithLastKnownGood,
   listContentPagesWithLastKnownGood,
+  type ContentPage,
 } from "@/lib/cms/content-pages";
+import type { Locale } from "@/lib/i18n/locales";
 import { buildDefaultPublicPersonalitySlug, listPersonalityProfiles } from "@/lib/cms/personality";
 import { listTopics } from "@/lib/cms/topics";
 import { isSharedDiscoverabilityDeniedPath } from "@/lib/seo/discoverabilityExposurePolicy";
@@ -35,10 +36,7 @@ const LLMS_FINAL_PATH_DENY_PATTERNS: RegExp[] = [
   /^\/(?:en|zh)\/blog$/i,
   /^\/(?:en|zh)\/help$/i,
   /^\/(?:en|zh)\/refund$/i,
-  /^\/(?:en|zh)\/help\/(?:about|contact|faq|for-business-and-research|team|used-and-mentioned)$/i,
-  /^\/(?:en|zh)\/method-boundaries$/i,
-  /^\/zh\/policies$/i,
-  /^\/(?:en|zh)\/(?:privacy|support|terms)$/i,
+  /^\/(?:en|zh)\/help\/(?:about|for-business-and-research|team|used-and-mentioned)$/i,
   /^\/datasets\/occupations(?:\/method)?$/i,
   /^\/(?:en|zh)\/datasets\/occupations(?:\/method)?$/i,
   /^\/career\/jobs$/i,
@@ -78,6 +76,21 @@ function shouldKeep(path: string): boolean {
 
 function dedupePaths(paths: string[]): string[] {
   return [...new Set(paths.map((path) => normalizePath(path)))].filter((path) => shouldKeep(path));
+}
+
+function localizedContentPagePath(page: ContentPage, fallbackLocale: Locale): string {
+  const normalizedPath = normalizePath(page.path || `/${page.slug}`);
+  const locale = page.locale === "zh" || page.locale === "en" ? page.locale : fallbackLocale;
+
+  if (/^\/(en|zh)(\/|$)/i.test(normalizedPath)) {
+    return normalizedPath;
+  }
+
+  if (normalizedPath === "/") {
+    return locale === "zh" ? "/" : "/en";
+  }
+
+  return normalizePath(`/${locale}${normalizedPath}`);
 }
 
 function shouldKeepCareerAuthorityRoute(item: {
@@ -175,7 +188,8 @@ export async function GET() {
     backendTestEntries,
     enHelpPages,
     zhHelpPages,
-    enApprovedContentPages,
+    enContentPages,
+    zhContentPages,
     careerJobEntries,
   ] = await Promise.all([
     withLlmsRouteBudget(
@@ -249,7 +263,14 @@ export async function GET() {
     ),
     withLlmsRouteBudget(
       () =>
-        listApprovedEnglishContentPagesWithLastKnownGood().then((result) =>
+        listContentPagesWithLastKnownGood("en").then((result) =>
+          limitLlmsRouteEntries(result.value, LLMS_ROUTE_LIMITS.helpPages)
+        ),
+      []
+    ),
+    withLlmsRouteBudget(
+      () =>
+        listContentPagesWithLastKnownGood("zh").then((result) =>
           limitLlmsRouteEntries(result.value, LLMS_ROUTE_LIMITS.helpPages)
         ),
       []
@@ -262,13 +283,16 @@ export async function GET() {
   ]);
 
   const helpEntries = dedupePaths([
-    ...enHelpPages.map((page) => `/en${page.path}`),
-    ...zhHelpPages.map((page) => `/zh${page.path}`),
+    ...enHelpPages.map((page) => localizedContentPagePath(page, "en")),
+    ...zhHelpPages.map((page) => localizedContentPagePath(page, "zh")),
   ]);
   const contentPageEntries = dedupePaths(
-    enApprovedContentPages
-      .filter((page) => page.isPublic && page.isIndexable)
-      .map((page) => `/en/${page.slug}`)
+    [
+      ...enContentPages.map((page) => ({ page, locale: "en" as const })),
+      ...zhContentPages.map((page) => ({ page, locale: "zh" as const })),
+    ]
+      .filter(({ page }) => page.kind !== "help" && page.isPublic && page.isIndexable)
+      .map(({ page, locale }) => localizedContentPagePath(page, locale))
   );
   const testEntries = dedupePaths(backendTestEntries.map((entry) => entry.path));
 

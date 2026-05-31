@@ -12,7 +12,8 @@ function expectLlmsRouteHygiene(source: string): void {
   expect(source).toContain("LLMS_FINAL_PATH_DENY_PATTERNS");
   expect(source).not.toContain("LLMS_FINAL_PATH_ALLOW_PATTERNS");
   expect(source).toContain("isForbiddenFinalLlmsPath");
-  expect(source).toContain("privacy|support|terms");
+  expect(source).toContain("listContentPagesWithLastKnownGood");
+  expect(source).toContain("localizedContentPagePath");
   expect(source).not.toContain('toCanonical(siteUrl, "/en/support")');
   expect(source).not.toContain('toCanonical(siteUrl, "/zh/support")');
   expect(source).not.toContain('toCanonical(siteUrl, "/en/privacy")');
