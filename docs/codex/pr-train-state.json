@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-31T07:07:29.951990Z",
+  "updated_at": "2026-05-31T07:39:09.871Z",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -12284,10 +12284,10 @@
       "branch": "codex/ops-api-public-tls-path-fix-01a-frontend-same-origin-foundation-api-proxy",
       "base": "main",
       "depends_on": [],
-      "status": "pr_opened",
+      "status": "merged",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/931",
       "commit_sha": "088af297d9d12023296d962dea5cb749c669a4dc",
-      "merge_sha": null,
+      "merge_sha": "b427d2b9650846bafa6304f2ef85cfb25b36a6f6",
       "title": "OPS-API-PUBLIC-TLS-PATH-FIX-01A: Add Foundation Daily Giving same-origin API proxy",
       "artifacts": [
         "next.config.mjs",
@@ -12341,9 +12341,9 @@
         }
       },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-05-31T07:10:57Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-31T06:59:19.827417Z",
@@ -12364,6 +12364,11 @@
           "at": "2026-05-31T07:07:29.951990Z",
           "status": "pr_opened",
           "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/931 after local validation passed; no deploy or production mutation performed."
+        },
+        {
+          "at": "2026-05-31T07:27:15.851Z",
+          "status": "ledger_reconciled_merged",
+          "summary": "Reconciled PR #931 after GitHub showed it merged into origin/main with merge commit b427d2b9650846bafa6304f2ef85cfb25b36a6f6; remote branch was deleted and local cleanup was completed before PR-FDN-02B."
         }
       ]
     },
@@ -12658,6 +12663,96 @@
           "at": "2026-05-31T07:13:52.056076Z",
           "status": "planned",
           "summary": "Initialized by authorized IQ 123test launch train registration."
+        }
+      ]
+    },
+    {
+      "id": "PR-FDN-02B",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/pr-fdn-02b-daily-giving-frontend-pages",
+      "base": "main",
+      "depends_on": [
+        "OPS-API-PUBLIC-TLS-PATH-FIX-01A-FRONTEND-SAME-ORIGIN-FOUNDATION-API-PROXY"
+      ],
+      "status": "pr_opened",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/933",
+      "commit_sha": "ce6bd57ee981552f6ca14034b2bb6d6ae7cd06fd",
+      "merge_sha": null,
+      "title": "PR-FDN-02B: Add Foundation Daily Giving frontend pages",
+      "artifacts": [
+        "app/(localized)/[locale]/foundation/daily-giving/page.tsx",
+        "app/(localized)/[locale]/foundation/daily-giving/[yearMonth]/page.tsx",
+        "components/foundation/DailyGivingLedgerPage.tsx",
+        "lib/foundation/dailyGiving.ts",
+        "docs/seo/generated/metadata-surface-inventory.v1.json",
+        "docs/seo/generated/metadata-surface-inventory.v1.csv",
+        "tests/contracts/pr-fdn-02b-daily-giving-frontend-pages.contract.test.tsx",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "pnpm exec vitest run tests/contracts/pr-fdn-02b-daily-giving-frontend-pages.contract.test.tsx": {
+          "status": "passed",
+          "completed_at": "2026-05-31T07:37:58.319Z",
+          "summary": "5 tests passed"
+        },
+        "pnpm typecheck": {
+          "status": "passed",
+          "completed_at": "2026-05-31T07:37:58.319Z"
+        },
+        "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build": {
+          "status": "passed",
+          "completed_at": "2026-05-31T07:37:58.319Z",
+          "summary": "Build passed; generated metadata surface inventory updated for two noindex dynamic routes. public/sitemap.xml postbuild drift restored because sitemap exposure is out of scope."
+        },
+        "pnpm test:contract": {
+          "status": "passed",
+          "completed_at": "2026-05-31T07:37:58.319Z",
+          "summary": "405 files passed, 2284 tests passed"
+        },
+        "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null": {
+          "status": "passed",
+          "completed_at": "2026-05-31T07:37:58.319Z"
+        },
+        "python3 -c yaml.safe_load docs/codex/pr-train.yaml": {
+          "status": "passed",
+          "completed_at": "2026-05-31T07:37:58.319Z"
+        },
+        "git diff --check": {
+          "status": "passed",
+          "completed_at": "2026-05-31T07:37:58.319Z"
+        },
+        "git diff --cached --check": {
+          "status": "passed",
+          "completed_at": "2026-05-31T07:37:58.319Z"
+        }
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-05-31T07:27:15.851Z",
+          "status": "in_progress",
+          "summary": "User authorized fap-web manifest/state update and scoped implementation for backend-authoritative Foundation Daily Giving frontend pages and monthly archives; no CMS mutation, deploy, Search Channel, URL submission, external search API, env/DNS/nginx edit, or frontend fallback content."
+        },
+        {
+          "at": "2026-05-31T07:37:58.319Z",
+          "status": "local_checks_passed",
+          "summary": "Implemented backend-authoritative Foundation Daily Giving frontend pages/month archive pages, kept them noindex and out of sitemap/llms/footer/Search Channel, and passed all required local checks."
+        },
+        {
+          "at": "2026-05-31T07:38:35.255Z",
+          "status": "commit_created",
+          "summary": "Created scoped implementation commit 356df0756c4e62890b82838dc6ba049186107b8d for PR-FDN-02B after local checks passed."
+        },
+        {
+          "at": "2026-05-31T07:39:09.871Z",
+          "status": "pr_opened",
+          "summary": "Opened PR #933 for PR-FDN-02B after required local checks passed."
         }
       ]
     }

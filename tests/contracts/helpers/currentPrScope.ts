@@ -526,6 +526,23 @@ const OPS_API_PUBLIC_TLS_PATH_FIX_01A_FRONTEND_SAME_ORIGIN_FOUNDATION_API_PROXY_
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const PR_FDN_02B_DAILY_GIVING_FRONTEND_PAGES_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/foundation/daily-giving/page.tsx",
+  "app/(localized)/[locale]/foundation/daily-giving/[yearMonth]/page.tsx",
+  "components/foundation/DailyGivingLedgerPage.tsx",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/seo/generated/metadata-surface-inventory.v1.csv",
+  "docs/seo/generated/metadata-surface-inventory.v1.json",
+  "lib/foundation/dailyGiving.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/pr-fdn-02b-daily-giving-frontend-pages.contract.test.tsx",
+]);
+
+export function isPrFdn02bDailyGivingFrontendPagesAllowedFile(file: string): boolean {
+  return PR_FDN_02B_DAILY_GIVING_FRONTEND_PAGES_ALLOWED_FILES.has(file);
+}
+
 const GLOBAL_EN_ZH_CONTENT_PAGES_DISCOVERABILITY_EXPOSURE_READINESS_01_ALLOWED_FILES = new Set([
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -906,6 +923,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/ops-api-public-tls-path-fix-01a-frontend-same-origin-foundation-api-proxy") {
     return OPS_API_PUBLIC_TLS_PATH_FIX_01A_FRONTEND_SAME_ORIGIN_FOUNDATION_API_PROXY_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/pr-fdn-02b-daily-giving-frontend-pages") {
+    return PR_FDN_02B_DAILY_GIVING_FRONTEND_PAGES_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/research-report-metadata") {

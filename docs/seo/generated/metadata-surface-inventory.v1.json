@@ -8,10 +8,10 @@
     "scanner": "scripts/seo/generate-metadata-surface-inventory.mjs"
   },
   "summary": {
-    "totalSurfaces": 72,
+    "totalSurfaces": 74,
     "byClassification": {
       "private_noindex": 22,
-      "product_code_only": 15,
+      "product_code_only": 17,
       "safe_static": 12,
       "migration_required": 2,
       "cms_backed": 14,
@@ -20,13 +20,13 @@
     },
     "byOwnership": {
       "private_noindex": 22,
-      "product_code_only": 17,
+      "product_code_only": 19,
       "cms_backed": 28,
       "backend_owned": 5
     },
     "byRouteFamily": {
       "private_flow": 21,
-      "other": 7,
+      "other": 9,
       "static_content_page": 10,
       "article_detail": 2,
       "articles_hub": 1,
@@ -571,6 +571,36 @@
     {
       "file": "app/(localized)/[locale]/email/unsubscribe/page.tsx",
       "routePattern": "/email/unsubscribe",
+      "routeFamily": "other",
+      "exportKind": "generateMetadata",
+      "usesBuildPageMetadata": true,
+      "usesSeoSurface": false,
+      "rendersJsonLd": false,
+      "hasFrontendJsonLdBuilderFallback": false,
+      "noindexSignal": true,
+      "ownership": "product_code_only",
+      "classification": "product_code_only",
+      "risk": "P2",
+      "reason": "Deterministic product-code metadata; keep out of CMS-backed SEO authority unless intentionally migrated."
+    },
+    {
+      "file": "app/(localized)/[locale]/foundation/daily-giving/[yearMonth]/page.tsx",
+      "routePattern": "/foundation/daily-giving/:yearMonth",
+      "routeFamily": "other",
+      "exportKind": "generateMetadata",
+      "usesBuildPageMetadata": true,
+      "usesSeoSurface": false,
+      "rendersJsonLd": false,
+      "hasFrontendJsonLdBuilderFallback": false,
+      "noindexSignal": true,
+      "ownership": "product_code_only",
+      "classification": "product_code_only",
+      "risk": "P2",
+      "reason": "Deterministic product-code metadata; keep out of CMS-backed SEO authority unless intentionally migrated."
+    },
+    {
+      "file": "app/(localized)/[locale]/foundation/daily-giving/page.tsx",
+      "routePattern": "/foundation/daily-giving",
       "routeFamily": "other",
       "exportKind": "generateMetadata",
       "usesBuildPageMetadata": true,

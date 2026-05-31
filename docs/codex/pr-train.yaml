@@ -8310,3 +8310,71 @@ prs:
       - No broad /api/v0.5 wildcard proxy is introduced.
       - No CMS mutation, deploy, Search Channel action, URL submission, external search API call, env/DNS/nginx edit, backend change, or frontend editorial fallback content is introduced.
     rollback_note: "Revert the Foundation Daily Giving rewrite entries and contract assertions if same-origin API routing regresses or a broader API proxy policy is approved separately."
+
+  - id: PR-FDN-02B
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-fdn-02b-daily-giving-frontend-pages
+    base: main
+    depends_on:
+      - OPS-API-PUBLIC-TLS-PATH-FIX-01A-FRONTEND-SAME-ORIGIN-FOUNDATION-API-PROXY
+    mode: execute
+    train_scope: pr_fdn_02b_daily_giving_frontend_pages
+    risk_level: scoped_public_foundation_runtime_pages
+    status: in_progress
+    title: "PR-FDN-02B: Add Foundation Daily Giving frontend pages"
+    goal: "Add backend-authoritative Foundation Daily Giving frontend pages and monthly archive pages that consume the public Foundation API without frontend fallback records or discoverability exposure changes."
+    in_scope:
+      - app/(localized)/[locale]/foundation/daily-giving/page.tsx
+      - app/(localized)/[locale]/foundation/daily-giving/[yearMonth]/page.tsx
+      - components/foundation/DailyGivingLedgerPage.tsx
+      - lib/foundation/dailyGiving.ts
+      - docs/seo/generated/metadata-surface-inventory.v1.csv
+      - docs/seo/generated/metadata-surface-inventory.v1.json
+      - tests/contracts/pr-fdn-02b-daily-giving-frontend-pages.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - fap-api or backend changes
+      - CMS mutation, publish, or page body copy changes
+      - production deploy
+      - Search Channel enqueue or URL submission
+      - external search API calls
+      - env, DNS, or nginx edits
+      - sitemap, llms, llms-full, footer, or nav exposure changes
+      - frontend fallback donation or ledger records
+      - Daily Giving admin/backend ledger database work
+      - ItemList schema or broader Foundation SEO integration
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/pr-fdn-02b-daily-giving-frontend-pages.contract.test.tsx
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      changed_files_must_match:
+        - app/(localized)/[locale]/foundation/daily-giving/page.tsx
+        - app/(localized)/[locale]/foundation/daily-giving/[yearMonth]/page.tsx
+        - components/foundation/DailyGivingLedgerPage.tsx
+        - lib/foundation/dailyGiving.ts
+        - docs/seo/generated/metadata-surface-inventory.v1.csv
+        - docs/seo/generated/metadata-surface-inventory.v1.json
+        - tests/contracts/pr-fdn-02b-daily-giving-frontend-pages.contract.test.tsx
+        - tests/contracts/helpers/currentPrScope.ts
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Public localized Daily Giving index pages render from the backend public Foundation API.
+      - Public localized monthly archive pages render from the backend public Foundation API and reject malformed year-month routes.
+      - Empty API responses render an explicit empty state without frontend fallback ledger records.
+      - Daily Giving pages remain noindex and are not added to sitemap, llms, llms-full, footer, nav, Search Channel, or URL submission.
+      - No CMS mutation, deploy, backend change, external search API call, env/DNS/nginx edit, or frontend editorial fallback content is introduced.
+    rollback_note: "Revert the Daily Giving route, component, API adapter, and focused contract if Foundation Daily Giving page rendering regresses or the backend API contract changes."
