@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-01T00:25:00+08:00",
+  "updated_at": "2026-06-01T00:30:00+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -13480,11 +13480,11 @@
     },
     {
       "id": "IQ-PAID-REPORT-02",
-      "status": "local_scope_validation_passed",
+      "status": "pr_opened",
       "branch": "codex/iq-paid-report-02-render-entitlement-states",
-      "commit_sha": null,
-      "pr_url": null,
-      "pr_number": null,
+      "commit_sha": "f36e37d1377d405e9ddeabf9039c364d5b7163ab",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/943",
+      "pr_number": 943,
       "checks": {
         "pnpm exec vitest run tests/contracts/iq-report-module.contract.test.tsx": "passed",
         "pnpm exec tsc --noEmit --pretty false": "passed",
@@ -13507,7 +13507,7 @@
           "docs/codex/pr-train-state.json"
         ]
       },
-      "updated_at": "2026-06-01T00:25:00+08:00"
+      "updated_at": "2026-06-01T00:30:00+08:00"
     }
   ],
   "sidecar_issues": [
