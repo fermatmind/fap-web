@@ -91,7 +91,11 @@ import {
 } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 import { isClinicalDepressionPendingSlug } from "@/lib/seo/seoHoldlistRoutes";
-import { resolveTestDetailAuthority } from "@/lib/seo/testDetailAuthority";
+import {
+  hasUnsafeIqLaunchClaim,
+  resolveIqLaunchSeoGuard,
+  resolveTestDetailAuthority,
+} from "@/lib/seo/testDetailAuthority";
 import { formatCardTitleForUi } from "@/lib/ui/testTitleDisplay";
 
 type LookupResponse = {
@@ -643,8 +647,19 @@ export async function generateMetadata({
   const title = seoTitle || (metadataAuthority.metadata.allowed ? localizedTestTitle : test.slug);
   const description = seoDescription || (metadataAuthority.metadata.allowed ? test.description : "");
   const ogImage = ogImageAuthority || (metadataAuthority.metadata.allowed ? test.cover_image : "");
+  const iqLaunchSeoGuard = resolveIqLaunchSeoGuard({
+    slug: test.slug,
+    scaleCode: test.scale_code,
+    hasSeoTitle: seoTitle.length > 0,
+    hasSeoDescription: seoDescription.length > 0,
+    title,
+    description,
+  });
   const forcedNoindex =
-    isClinicalDepressionPending || lookup?.is_indexable === false || metadataAuthority.shouldNoindexMissingMetadataAuthority;
+    isClinicalDepressionPending
+    || lookup?.is_indexable === false
+    || metadataAuthority.shouldNoindexMissingMetadataAuthority
+    || iqLaunchSeoGuard.shouldNoindex;
 
   return buildPageMetadata({
     locale,
@@ -1002,6 +1017,15 @@ export default async function TestLandingPage({
     softwareApplicationDescription,
     ...softwareApplicationFeatureList,
   ].join(" ");
+  const iqLaunchSeoGuard = resolveIqLaunchSeoGuard({
+    slug: test.slug,
+    scaleCode: test.scale_code,
+    hasSeoTitle: toStringValue(lookup?.seo_title).length > 0,
+    hasSeoDescription: toStringValue(lookup?.seo_description).length > 0,
+    title: softwareApplicationName,
+    description: softwareApplicationDescription,
+    featureList: softwareApplicationFeatureList,
+  });
   const softwareApplicationJsonLd =
     test.is_public !== false &&
     test.is_active !== false &&
@@ -1010,6 +1034,8 @@ export default async function TestLandingPage({
     canonicalPath.length > 0 &&
     softwareApplicationName.length > 0 &&
     softwareApplicationDescription.length > 0 &&
+    !iqLaunchSeoGuard.blocksSoftwareApplicationSchema &&
+    !hasUnsafeIqLaunchClaim(softwareApplicationClaimText) &&
     isSoftwareApplicationSchemaScaleEligible({ slug: test.slug, scaleCode: test.scale_code }) &&
     !hasBlockedSoftwareApplicationClaim(softwareApplicationClaimText)
       ? buildTestSoftwareAppJsonLd({
