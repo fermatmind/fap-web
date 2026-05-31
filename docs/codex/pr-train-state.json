@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-31T07:39:09.871Z",
+  "updated_at": "2026-05-31T08:19:42Z",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -12440,26 +12440,57 @@
       "depends_on": [
         "IQ-TRAIN-00"
       ],
-      "status": "planned",
-      "pr_url": null,
-      "commit_sha": null,
-      "merge_sha": null,
+      "status": "merged",
+      "pr_url": "https://github.com/fermatmind/fap-api/pull/1782",
+      "commit_sha": "9b14576d",
+      "merge_sha": "adef6e885f3a815b13bd50b7a9ba66f881f2d799",
       "title": "docs(iq): define original 30-item beta bank specification",
       "artifacts": [
         "backend/docs/iq/**",
         "backend/content_packages/default/CN_MAINLAND/zh-CN/IQ_BETA_30_ORIGINAL*/manifest.json",
         "backend/tests/Feature/Content/*Iq*"
       ],
-      "checks": {},
+      "checks": {
+        "local": [
+          {
+            "command": "python3 json parse manifest",
+            "status": "passed"
+          },
+          {
+            "command": "php -l backend/tests/Feature/Content/IqBeta30OriginalBankSpecTest.php",
+            "status": "passed"
+          },
+          {
+            "command": "cd backend && php artisan test --filter=IqBeta30OriginalBankSpecTest",
+            "status": "passed"
+          },
+          {
+            "command": "git diff --check",
+            "status": "passed"
+          }
+        ],
+        "github": {
+          "status": "passed",
+          "required_checks": "passed"
+        },
+        "post_merge_revalidate": {
+          "status": "passed"
+        }
+      },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-05-31T07:27:50Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-31T07:13:52.056076Z",
           "status": "planned",
           "summary": "Initialized by authorized IQ 123test launch train registration."
+        },
+        {
+          "at": "2026-05-31T08:19:42Z",
+          "status": "merged",
+          "summary": "Reconciled after successful IQ launch PR-train execution; local checks, GitHub required checks, merge, branch cleanup, and post-merge revalidation completed."
         }
       ]
     },
@@ -12472,26 +12503,65 @@
       "depends_on": [
         "IQ-BANK-30-01"
       ],
-      "status": "planned",
-      "pr_url": null,
-      "commit_sha": null,
-      "merge_sha": null,
+      "status": "merged",
+      "pr_url": "https://github.com/fermatmind/fap-api/pull/1787",
+      "commit_sha": "4c59119d",
+      "merge_sha": "065ce419126f7a76d0640e2e424041877bdeb90c",
       "title": "feat(iq): generate original structured SVG 30-item bank",
       "artifacts": [
         "backend/scripts/iq/**",
         "backend/content_packages/default/CN_MAINLAND/zh-CN/IQ_BETA_30_ORIGINAL*/**",
         "backend/tests/Feature/Content/*Iq*"
       ],
-      "checks": {},
+      "checks": {
+        "local": [
+          {
+            "command": "php -l backend/scripts/iq/iq_beta30_original_bank_lib.php backend/scripts/iq/build_iq_beta30_original_bank.php backend/scripts/iq/verify_iq_beta30_original_bank.php backend/tests/Feature/Content/IqBeta30OriginalBankImportTest.php backend/tests/Feature/Content/IqBeta30OriginalBankSpecTest.php",
+            "status": "passed"
+          },
+          {
+            "command": "python3 json parse manifest/items/answer_key/scoring_spec",
+            "status": "passed"
+          },
+          {
+            "command": "php backend/scripts/iq/build_iq_beta30_original_bank.php --check",
+            "status": "passed"
+          },
+          {
+            "command": "php backend/scripts/iq/verify_iq_beta30_original_bank.php",
+            "status": "passed"
+          },
+          {
+            "command": "cd backend && php artisan test --filter=IqBeta30OriginalBank",
+            "status": "passed"
+          },
+          {
+            "command": "git diff --check",
+            "status": "passed"
+          }
+        ],
+        "github": {
+          "status": "passed",
+          "required_checks": "passed"
+        },
+        "post_merge_revalidate": {
+          "status": "passed"
+        }
+      },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-05-31T07:39:46Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-31T07:13:52.056076Z",
           "status": "planned",
           "summary": "Initialized by authorized IQ 123test launch train registration."
+        },
+        {
+          "at": "2026-05-31T08:19:42Z",
+          "status": "merged",
+          "summary": "Reconciled after successful IQ launch PR-train execution; local checks, GitHub required checks, merge, branch cleanup, and post-merge revalidation completed."
         }
       ]
     },
@@ -12504,10 +12574,10 @@
       "depends_on": [
         "IQ-BANK-30-02"
       ],
-      "status": "planned",
-      "pr_url": null,
-      "commit_sha": null,
-      "merge_sha": null,
+      "status": "merged",
+      "pr_url": "https://github.com/fermatmind/fap-api/pull/1788",
+      "commit_sha": "d52b5507",
+      "merge_sha": "f0d61361b86cf0e441bf0ec115a7d9a65425c5d1",
       "title": "test(iq): add original bank import provenance and redaction gate",
       "artifacts": [
         "backend/app/Services/Assessment/**",
@@ -12515,16 +12585,47 @@
         "backend/tests/Feature/V0_3/*Iq*",
         "backend/tests/Feature/Content/*Iq*"
       ],
-      "checks": {},
+      "checks": {
+        "local": [
+          {
+            "command": "php -l backend/app/Services/Iq/IqResultPayloadRedactor.php backend/tests/Feature/Content/IqBeta30OriginalBankImportTest.php",
+            "status": "passed"
+          },
+          {
+            "command": "cd backend && php artisan test --filter=IqBeta30OriginalBank",
+            "status": "passed"
+          },
+          {
+            "command": "cd backend && php artisan test --filter=IqReportContractTest",
+            "status": "passed"
+          },
+          {
+            "command": "git diff --check",
+            "status": "passed"
+          }
+        ],
+        "github": {
+          "status": "passed",
+          "required_checks": "passed"
+        },
+        "post_merge_revalidate": {
+          "status": "passed"
+        }
+      },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-05-31T07:49:22Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-31T07:13:52.056076Z",
           "status": "planned",
           "summary": "Initialized by authorized IQ 123test launch train registration."
+        },
+        {
+          "at": "2026-05-31T08:19:42Z",
+          "status": "merged",
+          "summary": "Reconciled after successful IQ launch PR-train execution; local checks, GitHub required checks, merge, branch cleanup, and post-merge revalidation completed."
         }
       ]
     },
@@ -12537,10 +12638,10 @@
       "depends_on": [
         "IQ-BANK-30-03"
       ],
-      "status": "planned",
-      "pr_url": null,
-      "commit_sha": null,
-      "merge_sha": null,
+      "status": "merged",
+      "pr_url": "https://github.com/fermatmind/fap-api/pull/1789",
+      "commit_sha": "2893778a",
+      "merge_sha": "4b229616c691cb9713d06692082e352b478ca4a1",
       "title": "feat(iq): harden 30-item scoring quality and stability",
       "artifacts": [
         "backend/app/Services/Assessment/Drivers/IqTestDriver.php",
@@ -12549,16 +12650,51 @@
         "backend/tests/Unit/Services/Report/IqReportBuilderTest.php",
         "backend/tests/Feature/V0_3/IqReportContractTest.php"
       ],
-      "checks": {},
+      "checks": {
+        "local": [
+          {
+            "command": "php -l backend/app/Services/Report/IqReportBuilder.php backend/tests/Unit/Assessment/IqTestDriverTest.php backend/tests/Unit/Services/Report/IqReportBuilderTest.php",
+            "status": "passed"
+          },
+          {
+            "command": "cd backend && php artisan test --filter=IqTestDriverTest",
+            "status": "passed"
+          },
+          {
+            "command": "cd backend && php artisan test --filter=IqReportBuilderTest",
+            "status": "passed"
+          },
+          {
+            "command": "cd backend && php artisan test --filter=IqReportContractTest",
+            "status": "passed"
+          },
+          {
+            "command": "git diff --check",
+            "status": "passed"
+          }
+        ],
+        "github": {
+          "status": "passed",
+          "required_checks": "passed"
+        },
+        "post_merge_revalidate": {
+          "status": "passed"
+        }
+      },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-05-31T07:56:41Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-31T07:13:52.056076Z",
           "status": "planned",
           "summary": "Initialized by authorized IQ 123test launch train registration."
+        },
+        {
+          "at": "2026-05-31T08:19:42Z",
+          "status": "merged",
+          "summary": "Reconciled after successful IQ launch PR-train execution; local checks, GitHub required checks, merge, branch cleanup, and post-merge revalidation completed."
         }
       ]
     },
@@ -12572,10 +12708,10 @@
         "IQ-SCORE-30-01",
         "IQ-FE-6"
       ],
-      "status": "planned",
-      "pr_url": null,
-      "commit_sha": null,
-      "merge_sha": null,
+      "status": "merged",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/935",
+      "commit_sha": "a7c1aa2c",
+      "merge_sha": "1ee921a228cf3cc52a0732b0bb9a62ab7cee34f9",
       "title": "test(iq): add claim and SEO launch guards",
       "artifacts": [
         "app/(localized)/[locale]/tests/[slug]/page.tsx",
@@ -12585,16 +12721,43 @@
         "tests/contracts/*seo*",
         "docs/audits/iq-fe/**"
       ],
-      "checks": {},
+      "checks": {
+        "local": [
+          {
+            "command": "./node_modules/.bin/vitest run tests/contracts/iq-claim-seo-launch-guard.contract.test.ts tests/contracts/test-detail-authority-convergence.contract.test.ts",
+            "status": "passed"
+          },
+          {
+            "command": "./node_modules/.bin/tsc --noEmit --pretty false",
+            "status": "passed"
+          },
+          {
+            "command": "git diff --check",
+            "status": "passed"
+          }
+        ],
+        "github": {
+          "status": "passed",
+          "required_checks": "passed"
+        },
+        "post_merge_revalidate": {
+          "status": "passed"
+        }
+      },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-05-31T08:03:24Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-31T07:13:52.056076Z",
           "status": "planned",
           "summary": "Initialized by authorized IQ 123test launch train registration."
+        },
+        {
+          "at": "2026-05-31T08:19:42Z",
+          "status": "merged",
+          "summary": "Reconciled after successful IQ launch PR-train execution; local checks, GitHub required checks, merge, branch cleanup, and post-merge revalidation completed."
         }
       ]
     },
@@ -12607,10 +12770,10 @@
       "depends_on": [
         "IQ-CLAIM-SEO-01"
       ],
-      "status": "planned",
-      "pr_url": null,
-      "commit_sha": null,
-      "merge_sha": null,
+      "status": "merged",
+      "pr_url": "https://github.com/fermatmind/fap-api/pull/1790",
+      "commit_sha": "6212198f",
+      "merge_sha": "685d517232185797f19832c18b322cddb614f4a5",
       "title": "feat(iq): publish CMS-authoritative IQ landing placement",
       "artifacts": [
         "backend/app/Services/Cms/**",
@@ -12619,16 +12782,47 @@
         "backend/tests/**/Cms/**",
         "backend/tests/**/LandingSurface*"
       ],
-      "checks": {},
+      "checks": {
+        "local": [
+          {
+            "command": "python3 json parse content_baselines/landing_surfaces/home.en.json home.zh-CN.json tests.en.json tests.zh-CN.json",
+            "status": "passed"
+          },
+          {
+            "command": "php -l backend/tests/Feature/LandingSurfaces/LandingSurfacePublicApiTest.php",
+            "status": "passed"
+          },
+          {
+            "command": "cd backend && php artisan test --filter=LandingSurfacePublicApiTest",
+            "status": "passed"
+          },
+          {
+            "command": "git diff --check",
+            "status": "passed"
+          }
+        ],
+        "github": {
+          "status": "passed",
+          "required_checks": "passed"
+        },
+        "post_merge_revalidate": {
+          "status": "passed"
+        }
+      },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-05-31T08:11:10Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-31T07:13:52.056076Z",
           "status": "planned",
           "summary": "Initialized by authorized IQ 123test launch train registration."
+        },
+        {
+          "at": "2026-05-31T08:19:42Z",
+          "status": "merged",
+          "summary": "Reconciled after successful IQ launch PR-train execution; local checks, GitHub required checks, merge, branch cleanup, and post-merge revalidation completed."
         }
       ]
     },
@@ -12641,10 +12835,10 @@
       "depends_on": [
         "IQ-CMS-LANDING-01"
       ],
-      "status": "planned",
-      "pr_url": null,
-      "commit_sha": null,
-      "merge_sha": null,
+      "status": "merged",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/936",
+      "commit_sha": "24d14323",
+      "merge_sha": "b458a2b05b45434bba676c65ad6982965b1f334c",
       "title": "test(iq): add production-like launch readiness smoke",
       "artifacts": [
         "scripts/iq/**",
@@ -12653,16 +12847,47 @@
         "tests/e2e/*iq*",
         "docs/audits/iq-fe/**"
       ],
-      "checks": {},
+      "checks": {
+        "local": [
+          {
+            "command": "node scripts/iq/iq-launch-readiness-smoke.mjs >/tmp/iq-launch-readiness-smoke-plan.json && python3 -m json.tool /tmp/iq-launch-readiness-smoke-plan.json >/dev/null",
+            "status": "passed"
+          },
+          {
+            "command": "./node_modules/.bin/vitest run tests/contracts/iq-launch-readiness-smoke.contract.test.ts tests/contracts/iq-claim-seo-launch-guard.contract.test.ts",
+            "status": "passed"
+          },
+          {
+            "command": "./node_modules/.bin/tsc --noEmit --pretty false",
+            "status": "passed"
+          },
+          {
+            "command": "git diff --check",
+            "status": "passed"
+          }
+        ],
+        "github": {
+          "status": "passed",
+          "required_checks": "passed"
+        },
+        "post_merge_revalidate": {
+          "status": "passed"
+        }
+      },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-05-31T08:16:30Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-31T07:13:52.056076Z",
           "status": "planned",
           "summary": "Initialized by authorized IQ 123test launch train registration."
+        },
+        {
+          "at": "2026-05-31T08:19:42Z",
+          "status": "merged",
+          "summary": "Reconciled after successful IQ launch PR-train execution; local checks, GitHub required checks, merge, branch cleanup, and post-merge revalidation completed."
         }
       ]
     },
