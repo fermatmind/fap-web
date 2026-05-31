@@ -13231,10 +13231,10 @@
       "id": "PR-03-DISCOVERABILITY-SITEMAP-LLMS-AUTHORITY-ALIGNMENT-01",
       "repo": "fap-web",
       "branch": "codex/pr-03-discoverability-sitemap-llms-authority-alignment-01",
-      "status": "in_progress",
+      "status": "pr_opened",
       "depends_on": [],
-      "commit_sha": null,
-      "pr_url": null,
+      "commit_sha": "3adb864a",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/940",
       "checks": {
         "scope_boundary": {
           "status": "passed",
@@ -13257,11 +13257,11 @@
         },
         "github_required_checks": {
           "status": "pending",
-          "evidence": null
+          "evidence": "PR opened; GitHub checks pending."
         },
         "github_pr_opened": {
-          "status": "pending",
-          "evidence": null
+          "status": "passed",
+          "evidence": "https://github.com/fermatmind/fap-web/pull/940"
         }
       },
       "failure_reason": null,
@@ -13288,6 +13288,11 @@
           "at": "2026-05-31T15:00:00Z",
           "status": "local_validation_passed",
           "summary": "PR-03 sitemap/llms authority alignment implemented; focused contracts, full contract suite, lint, typecheck, build, JSON/YAML parse, and diff check passed with unrelated untracked IQ audit drafts excluded only for local contract parity with clean CI checkout."
+        },
+        {
+          "at": "2026-05-31T15:10:00Z",
+          "status": "pr_opened",
+          "summary": "Opened PR #940 for PR-03 sitemap and llms authority alignment."
         }
       ]
     }
