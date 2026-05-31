@@ -9061,3 +9061,53 @@ prs:
       - Script redacts operator identifiers and never commits or prints bearer tokens.
       - Public and authenticated payload scans block answer keys, private fields, and commerce leakage.
     rollback_note: "Revert IQ live smoke fixture gate if operator fixture execution or redaction safety regresses."
+
+  - id: IQ-RELEASE-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/iq-release-01-launch-readiness-ledger
+    base: main
+    depends_on:
+      - IQ-OBS-01
+    mode: execute
+    train_scope: iq_production_launch
+    status: in_progress
+    title: "IQ-RELEASE-01 finalize production launch readiness ledger"
+    goal: "Finalize the IQ production launch readiness ledger, gate evidence, deferred risks, and release checklist without runtime behavior or deployment changes."
+    in_scope:
+      - docs/audits/iq-fe/20_iq_production_launch_readiness_ledger.md
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - tests/contracts/helpers/currentPrScope.ts
+      - tests/contracts/iq-release-readiness-ledger.contract.test.ts
+    out_of_scope:
+      - runtime behavior changes
+      - production deploys, rollbacks, or environment mutation
+      - frontend editorial fallback content
+      - public static media fallback assets
+      - copied third-party IQ questions or copied item wording
+      - real user data, bearer tokens, answer keys, or paid report private fields
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/iq-release-readiness-ledger.contract.test.ts
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      changed_files_must_match:
+        - docs/audits/iq-fe/20_iq_production_launch_readiness_ledger.md
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+        - tests/contracts/helpers/currentPrScope.ts
+        - tests/contracts/iq-release-readiness-ledger.contract.test.ts
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: null
+    acceptance:
+      - Ledger lists all IQ production train PRs and their merged evidence.
+      - Release checklist keeps norm authority backend-only and SEO exposure gated by backend claim_policy/norm authority.
+      - Ledger documents deferred risks without changing runtime behavior or deploying production.
+      - No third-party IQ question replication, frontend editorial fallback, public static media fallback, secrets, answer keys, or paid report private fields are introduced.
+    rollback_note: "Revert the IQ release ledger and train metadata only; no runtime behavior is changed by this PR."

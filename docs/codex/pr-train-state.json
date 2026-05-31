@@ -2,9 +2,9 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-31T17:28:32.111047Z",
-  "status": "initialized",
-  "phase": "public-runtime-authority-convergence",
+  "updated_at": "2026-05-31T23:10:41.752346Z",
+  "status": "in_progress",
+  "phase": "iq_production_launch_release",
   "pr_namespace": "PR-PRAC-*",
   "branch_naming_convention": "codex/pr-prac-<nn>-<short-scope>",
   "mode": "local_clone_preferred",
@@ -13756,8 +13756,8 @@
         "IQ-PAID-REPORT-02"
       ],
       "title": "IQ-LIVE-RAMP-01 add authenticated production smoke fixture gate",
-      "status": "pr_open_github_checks_pending",
-      "commit_sha": "1577883c",
+      "status": "merged_reconciled",
+      "commit_sha": "9767723ca43c9d949d7d6b775bcfcf6fde7ae675",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/947",
       "pr_number": 947,
       "checks": {
@@ -13768,12 +13768,13 @@
         "pnpm exec vitest run tests/contracts/iq-launch-readiness-smoke.contract.test.ts": "passed: 1 file, 5 tests",
         "pnpm exec tsc --noEmit --pretty false": "passed",
         "python3 json/yaml parse + git diff --check": "passed",
-        "scope_validation": "passed: changed files limited to IQ-LIVE-RAMP-01 allowed scope"
+        "scope_validation": "passed: changed files limited to IQ-LIVE-RAMP-01 allowed scope",
+        "github_reconciliation": "passed: PR #947 is MERGED at 2026-05-31T17:32:31Z with commit 9767723ca43c9d949d7d6b775bcfcf6fde7ae675."
       },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-05-31T17:32:31Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "scope_validation": {
         "allowed_paths_only": true,
         "changed_files": [
@@ -13784,8 +13785,8 @@
           "tests/contracts/iq-launch-readiness-smoke.contract.test.ts"
         ],
         "local_validation_passed": true,
-        "github_checks_green": null,
-        "post_merge_revalidated": null
+        "github_checks_green": true,
+        "post_merge_revalidated": true
       },
       "events": [
         {
@@ -13802,9 +13803,110 @@
           "at": "2026-05-31T17:28:32.111047Z",
           "status": "pr_open_github_checks_pending",
           "summary": "Opened GitHub PR #947 after local scope validation passed."
+        },
+        {
+          "at": "2026-05-31T23:09:04.979526Z",
+          "status": "merged_reconciled",
+          "summary": "Reconciled IQ-LIVE-RAMP-01 before final IQ release ledger."
         }
       ],
-      "updated_at": "2026-05-31T17:28:32.111047Z"
+      "updated_at": "2026-05-31T23:09:04.979526Z"
+    },
+    {
+      "id": "IQ-OBS-01",
+      "repo": "fap-api",
+      "branch": "codex/iq-obs-01-production-guards",
+      "base": "main",
+      "depends_on": [
+        "IQ-LIVE-RAMP-01"
+      ],
+      "title": "IQ-OBS-01 add production observability guards",
+      "status": "merged_reconciled_cross_repo",
+      "commit_sha": "1e8a6ebb10a4e21a0e50b6764916f75cda9d385b",
+      "pr_url": "https://github.com/fermatmind/fap-api/pull/1823",
+      "pr_number": 1823,
+      "merged_at": "2026-05-31T17:59:09Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
+      "failure_reason": null,
+      "updated_at": "2026-05-31T23:09:04.979526Z",
+      "checks": {
+        "cross_repo_reconciliation": "passed: fap-api PR #1823 is MERGED at 2026-05-31T17:59:09Z with commit 1e8a6ebb10a4e21a0e50b6764916f75cda9d385b; post-merge revalidation passed for IqObservability and freeze classifier guard."
+      },
+      "scope_validation": {
+        "allowed_paths_only": true,
+        "local_validation_passed": true,
+        "github_checks_green": true,
+        "post_merge_revalidated": true
+      },
+      "events": [
+        {
+          "at": "2026-05-31T23:09:04.979526Z",
+          "status": "merged_reconciled_cross_repo",
+          "summary": "Recorded cross-repo IQ-OBS-01 dependency evidence for IQ-RELEASE-01."
+        }
+      ]
+    },
+    {
+      "id": "IQ-RELEASE-01",
+      "repo": "fap-web",
+      "branch": "codex/iq-release-01-launch-readiness-ledger",
+      "base": "main",
+      "depends_on": [
+        "IQ-OBS-01"
+      ],
+      "title": "IQ-RELEASE-01 finalize production launch readiness ledger",
+      "commit_sha": null,
+      "pr_url": null,
+      "pr_number": null,
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "checks": {
+        "dependency_iq_obs_01": "passed: fap-api PR #1823 merged at 2026-05-31T17:59:09Z and post-merge revalidated.",
+        "workspace_safety": "using isolated worktree /private/tmp/fap-web-iq-release-01; primary worktree untouched",
+        "pnpm exec vitest run tests/contracts/iq-release-readiness-ledger.contract.test.ts": "passed: 3 tests via local node_modules symlink in isolated worktree",
+        "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null": "passed",
+        "python3 YAML/manifest validation": "passed",
+        "git diff --check": "passed",
+        "scope_validation": "passed: changed files limited to IQ-RELEASE-01 docs, train metadata, scope helper, and contract test",
+        "local_dependency_note": "isolated worktree used symlink to primary fap-web node_modules for Vitest only; node_modules ignored and not staged"
+      },
+      "scope_validation": {
+        "allowed_paths_only": true,
+        "local_validation_passed": true,
+        "github_checks_green": null,
+        "post_merge_revalidated": null,
+        "changed_files_expected": [
+          "docs/audits/iq-fe/20_iq_production_launch_readiness_ledger.md",
+          "docs/codex/pr-train.yaml",
+          "docs/codex/pr-train-state.json",
+          "tests/contracts/helpers/currentPrScope.ts",
+          "tests/contracts/iq-release-readiness-ledger.contract.test.ts"
+        ],
+        "changed_files": [
+          "docs/audits/iq-fe/20_iq_production_launch_readiness_ledger.md",
+          "docs/codex/pr-train.yaml",
+          "docs/codex/pr-train-state.json",
+          "tests/contracts/helpers/currentPrScope.ts",
+          "tests/contracts/iq-release-readiness-ledger.contract.test.ts"
+        ]
+      },
+      "events": [
+        {
+          "at": "2026-05-31T23:09:04.979526Z",
+          "status": "implementation_in_progress",
+          "summary": "Initialized IQ-RELEASE-01 final launch readiness ledger after IQ-OBS-01 dependency merge reconciliation."
+        },
+        {
+          "at": "2026-05-31T23:10:41.752346Z",
+          "status": "local_scope_validation_passed",
+          "summary": "Release ledger, manifest/state, and contract test passed local scope validation."
+        }
+      ],
+      "status": "local_scope_validation_passed",
+      "updated_at": "2026-05-31T23:10:41.752346Z"
     }
   ],
   "sidecar_issues": [
