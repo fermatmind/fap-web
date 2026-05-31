@@ -134,21 +134,41 @@ describe("IQ report module contract", () => {
         accessState: "locked",
         unlockStage: "locked",
         unlockSource: "none",
+        accessLevel: "free",
+        variant: "free",
+        modulesAllowed: ["iq_core"],
+      }),
+      reportData: createReportData({
+        locked: true,
+        access_level: "free",
+        variant: "free",
       }),
     });
 
     expect(screen.getByTestId("iq-method-boundary")).toHaveTextContent(
       "本结果是在线认知能力估测，不是临床诊断。请结合置信区间和作答质量理解结果。"
     );
+    expect(screen.getByTestId("iq-paid-report-state-free")).toHaveTextContent(
+      "当前为免费预览。完整 IQ 报告详情需后端授权解锁后展示。"
+    );
     expect(screen.getByTestId("iq-report-module-locked")).toHaveTextContent(
-      "完整报告解锁功能暂未开放。当前可查看已生成的基础结果。"
+      "当前为免费预览。完整 IQ 报告详情需后端授权解锁后展示。"
     );
     expect(screen.queryByRole("button", { name: /购买|解锁|unlock|buy|checkout/i })).not.toBeInTheDocument();
     expect(screen.queryByText(/¥1\.99|¥5|checkout|buy now|unlock now/i)).not.toBeInTheDocument();
   });
 
-  it("renders narrative sections and preserves VSPR/VSI/NPR detail blocks when the backend provides them", () => {
-    renderReportModule({});
+  it("renders narrative sections and preserves VSPR/VSI/NPR detail blocks when backend entitlement is full", () => {
+    renderReportModule({
+      accessView: createAccessView({
+        unlockStage: "full",
+        accessLevel: "full",
+        variant: "full",
+        modulesAllowed: ["iq_core", "iq_full"],
+      }),
+    });
+
+    expect(screen.getByTestId("iq-paid-report-state-paid")).toHaveTextContent("Backend entitlement is active");
 
     expect(screen.getByTestId("iq-report-sections")).toHaveTextContent("How to read this score");
     expect(screen.getByTestId("iq-report-section-summary")).toHaveTextContent(
@@ -161,6 +181,12 @@ describe("IQ report module contract", () => {
 
   it("ignores null IQ dimension array entries before rendering report detail blocks", () => {
     renderReportModule({
+      accessView: createAccessView({
+        unlockStage: "full",
+        accessLevel: "full",
+        variant: "full",
+        modulesAllowed: ["iq_core", "iq_full"],
+      }),
       reportData: createReportData({
         dimensions: [
           null,
@@ -192,12 +218,68 @@ describe("IQ report module contract", () => {
     expect(screen.getByTestId("iq-report-dimension-detail-npr")).toHaveTextContent("88");
   });
 
+  it("hides paid report payloads in the free state even if iq_pro is present", () => {
+    renderReportModule({
+      accessView: createAccessView({
+        accessState: "locked",
+        unlockStage: "locked",
+        accessLevel: "free",
+        variant: "free",
+        modulesAllowed: ["iq_core"],
+      }),
+      reportData: createReportData({ locked: true, access_level: "free", variant: "free" }),
+    });
+
+    expect(screen.getByTestId("iq-paid-report-state-free")).toBeInTheDocument();
+    expect(screen.queryByTestId("iq-report-sections")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("iq-pdf-placeholder")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("iq-certificate-placeholder")).not.toBeInTheDocument();
+    expect(screen.getByTestId("iq-report-dimension-detail-vsi")).toHaveTextContent("Detailed interpretation for this dimension is not available yet.");
+  });
+
+  it("renders unauthorized state from backend reason code and hides paid report payloads", () => {
+    renderReportModule({
+      accessView: createAccessView({
+        accessState: "locked",
+        unlockStage: "locked",
+        reasonCode: "ownership_mismatch",
+        modulesAllowed: ["iq_core"],
+      }),
+      reportData: createReportData({ locked: true, access_level: "free", variant: "free" }),
+    });
+
+    expect(screen.getByTestId("iq-paid-report-state-unauthorized")).toHaveTextContent("not authorized");
+    expect(screen.queryByTestId("iq-report-sections")).not.toBeInTheDocument();
+  });
+
+  it("renders error state when backend report access is unavailable", () => {
+    renderReportModule({
+      accessView: createAccessView({
+        accessState: "unavailable",
+        reportState: "unavailable",
+        reasonCode: "projection_read_failed",
+      }),
+      reportData: null,
+    });
+
+    expect(screen.getByTestId("iq-paid-report-state-error")).toHaveTextContent("unavailable");
+    expect(screen.queryByTestId("iq-report-sections")).not.toBeInTheDocument();
+  });
+
   it("does not fabricate narrative sections when they are absent and instead shows a safe unavailable state", () => {
     const reportData = createReportData({
       iq_pro: {},
     });
 
-    renderReportModule({ reportData });
+    renderReportModule({
+      reportData,
+      accessView: createAccessView({
+        unlockStage: "full",
+        accessLevel: "full",
+        variant: "full",
+        modulesAllowed: ["iq_core", "iq_full"],
+      }),
+    });
 
     expect(screen.queryByTestId("iq-report-sections")).not.toBeInTheDocument();
     expect(screen.getByTestId("iq-report-module-unavailable")).toHaveTextContent(
@@ -206,7 +288,14 @@ describe("IQ report module contract", () => {
   });
 
   it("renders PDF and certificate placeholders only when the payloads exist", () => {
-    const { rerender } = renderReportModule({});
+    const { rerender } = renderReportModule({
+      accessView: createAccessView({
+        unlockStage: "full",
+        accessLevel: "full",
+        variant: "full",
+        modulesAllowed: ["iq_core", "iq_full"],
+      }),
+    });
 
     expect(screen.getByTestId("iq-pdf-placeholder")).toHaveTextContent(
       "A PDF report payload is available, but this frontend version does not support downloads yet."
@@ -223,7 +312,12 @@ describe("IQ report module contract", () => {
         },
       }),
       resultData: null,
-      accessView: createAccessView(),
+      accessView: createAccessView({
+        unlockStage: "full",
+        accessLevel: "full",
+        variant: "full",
+        modulesAllowed: ["iq_core", "iq_full"],
+      }),
     });
 
     rerender(<IqReportModule locale="en" viewModel={withoutDownloads.reportModule} />);

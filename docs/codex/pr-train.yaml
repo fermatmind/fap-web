@@ -5384,6 +5384,7 @@ prs:
       - lib/iq/result.ts
       - tests/contracts/iq-result-renderer.contract.test.tsx
       - tests/contracts/iq-report-module.contract.test.tsx
+      - tests/contracts/iq-result-renderer.contract.test.tsx
       - tests/contracts/helpers/currentPrScope.ts
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
@@ -8757,3 +8758,58 @@ prs:
       - Clinical/depression/anxiety test URLs remain excluded from llms surfaces.
       - No CMS mutation, sitemap change, deploy, Search Channel action, URL submission, or frontend-authored content fallback is introduced.
     rollback_note: "Revert PR-03 follow-up llms content-page detail authority fallback and focused contract updates if llms content-page exposure regresses."
+
+
+  - id: IQ-PAID-REPORT-02
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/iq-paid-report-02-render-entitlement-states
+    base: main
+    depends_on:
+      - IQ-PAID-REPORT-01
+    mode: execute
+    train_scope: iq_production_launch
+    status: in_progress
+    title: "IQ-PAID-REPORT-02 render paid report entitlement states"
+    goal: "Render IQ paid-report free, paid, unauthorized, and error states from backend contract only."
+    in_scope:
+      - components/result/iq/IqReportModule.tsx
+      - lib/iq/result.ts
+      - tests/contracts/iq-report-module.contract.test.tsx
+      - tests/contracts/iq-result-renderer.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - local report conclusions or local IQ claims
+      - frontend entitlement inference
+      - checkout/payment/order mutation
+      - CMS media or SEO changes
+      - backend contract changes
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/iq-report-module.contract.test.tsx tests/contracts/iq-result-renderer.contract.test.tsx
+      - pnpm exec tsc --noEmit --pretty false
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      changed_files_must_match:
+        - components/result/iq/IqReportModule.tsx
+        - lib/iq/result.ts
+        - tests/contracts/iq-report-module.contract.test.tsx
+        - tests/contracts/iq-result-renderer.contract.test.tsx
+        - tests/contracts/helpers/currentPrScope.ts
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: IQ-CMS-MEDIA-01
+    acceptance:
+      - IQ report module renders free, paid, unauthorized, and error states from backend access/report contract fields.
+      - Frontend does not infer entitlement from local payment, checkout, order, CMS, or static state.
+      - Paid IQ report sections, PDF placeholders, certificate placeholders, and detailed dimension payloads are hidden unless backend contract indicates full entitlement.
+      - No local IQ claims or report conclusions are added.
+    rollback_note: "Revert IQ paid report frontend entitlement-state rendering if backend contract interpretation or paid-field redaction regresses."
