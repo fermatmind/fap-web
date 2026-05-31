@@ -12061,7 +12061,7 @@
       ],
       "status": "local_checks_passed",
       "pr_url": null,
-      "commit_sha": "baf194c8df795ebe9246a7e739454781b97b84c4",
+      "commit_sha": "00c27e67d5bd99cd47dcc7f4603b7e24f09a1514",
       "merge_sha": null,
       "title": "DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01 llms-full artifact consistency repair",
       "artifacts": [
@@ -12134,7 +12134,7 @@
         {
           "at": "2026-05-31T09:18:00+08:00",
           "status": "committed",
-          "summary": "Committed scoped implementation at baf194c8df795ebe9246a7e739454781b97b84c4."
+          "summary": "Committed scoped implementation at 00c27e67d5bd99cd47dcc7f4603b7e24f09a1514."
         }
       ]
     }
