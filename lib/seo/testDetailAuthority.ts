@@ -38,6 +38,7 @@ export type IqLaunchSeoGuardInput = {
   title?: string | null;
   description?: string | null;
   featureList?: string[];
+  seoRampAuthority?: IqSeoRampAuthority | null;
 };
 
 export type IqLaunchSeoGuardResolution = {
@@ -45,11 +46,52 @@ export type IqLaunchSeoGuardResolution = {
   canonicalSlug: string;
   canonicalPath: string;
   hasBackendSeoAuthority: boolean;
+  hasBackendSeoRampAuthority: boolean;
+  normAuthorityGatePassed: boolean;
+  claimPolicyGatePassed: boolean;
+  mediaAuthorityGatePassed: boolean;
+  sitemapLlmsExpansionAllowed: boolean;
+  llmsFullExpansionAllowed: boolean;
+  jsonLdExpansionAllowed: boolean;
   shouldNoindex: boolean;
   blocksSoftwareApplicationSchema: boolean;
   blocksSitemapLlmsExpansion: boolean;
   unsafeClaimBlocked: boolean;
   reason: string;
+};
+
+export type IqSeoRampAuthority = {
+  schema: string;
+  authoritySource: string;
+  locale: string;
+  testSlug: string;
+  scaleCode: string;
+  formCode: string;
+  canonicalPath: string;
+  localizedPaths: Record<string, string>;
+  robots: string;
+  isIndexable: boolean | null;
+  sitemapEligible: boolean | null;
+  llmsEligible: boolean | null;
+  llmsFullEligible: boolean | null;
+  jsonLdEligible: boolean | null;
+  media: {
+    cardAssetKey: string;
+    ogAssetKey: string;
+    reportCoverAssetKey: string;
+    authority: string;
+    source: string;
+    fallbackAllowed: boolean | null;
+  };
+  claimPolicy: {
+    normAuthorityRequired: boolean | null;
+    normAuthorityPr: string;
+    publicCopyIqEstimateClaimsEnabled: boolean | null;
+    publicCopyPercentileClaimsEnabled: boolean | null;
+    resultContextIqEstimateRequiresBackendReport: boolean | null;
+    paidReportClaimsRequireBackendEntitlement: boolean | null;
+    copyBoundary: string;
+  };
 };
 
 export const TEST_DETAIL_COMPATIBILITY_FALLBACK_SLUGS = [
@@ -114,24 +156,119 @@ export function hasUnsafeIqLaunchClaim(value: string): boolean {
   return IQ_LAUNCH_FORBIDDEN_CLAIM_PHRASES.some((phrase) => normalized.includes(phrase.toLowerCase()));
 }
 
+function hasPolicyToken(value: string, token: string): boolean {
+  return value
+    .toLowerCase()
+    .split(",")
+    .map((part) => part.trim())
+    .includes(token);
+}
+
+function isExpectedIqCanonicalPath(authority: IqSeoRampAuthority | null | undefined): boolean {
+  if (!authority) {
+    return false;
+  }
+
+  return [
+    `/en/tests/${IQ_LAUNCH_CANONICAL_SLUG}`,
+    `/zh/tests/${IQ_LAUNCH_CANONICAL_SLUG}`,
+    `/tests/${IQ_LAUNCH_CANONICAL_SLUG}`,
+  ].includes(authority.canonicalPath);
+}
+
+function hasBackendSeoRampAuthority(authority: IqSeoRampAuthority | null | undefined): boolean {
+  if (!authority) {
+    return false;
+  }
+
+  return (
+    authority.schema === "iq.seo_ramp_authority.v1" &&
+    authority.authoritySource === "backend_cms_landing_surface" &&
+    authority.testSlug === IQ_LAUNCH_CANONICAL_SLUG &&
+    authority.scaleCode === "IQ_INTELLIGENCE_QUOTIENT" &&
+    authority.formCode === "IQ_BETA_30_ORIGINAL" &&
+    isExpectedIqCanonicalPath(authority) &&
+    hasPolicyToken(authority.robots, "index") &&
+    !hasPolicyToken(authority.robots, "noindex") &&
+    authority.isIndexable === true
+  );
+}
+
+function hasNormAuthorityGate(authority: IqSeoRampAuthority | null | undefined): boolean {
+  return (
+    authority?.claimPolicy.normAuthorityRequired === true &&
+    authority.claimPolicy.normAuthorityPr === "IQ-NORM-03"
+  );
+}
+
+function hasClaimPolicyGate(authority: IqSeoRampAuthority | null | undefined): boolean {
+  return (
+    authority?.claimPolicy.publicCopyIqEstimateClaimsEnabled === false &&
+    authority.claimPolicy.publicCopyPercentileClaimsEnabled === false &&
+    authority.claimPolicy.resultContextIqEstimateRequiresBackendReport === true &&
+    authority.claimPolicy.paidReportClaimsRequireBackendEntitlement === true
+  );
+}
+
+function hasMediaAuthorityGate(authority: IqSeoRampAuthority | null | undefined): boolean {
+  return (
+    authority?.media.authority === "backend_cms_media_library" &&
+    authority.media.source === "media_library_required" &&
+    authority.media.fallbackAllowed === false &&
+    Boolean(authority.media.cardAssetKey) &&
+    Boolean(authority.media.ogAssetKey)
+  );
+}
+
 export function resolveIqLaunchSeoGuard(input: IqLaunchSeoGuardInput): IqLaunchSeoGuardResolution {
   const applies = isIqLaunchSlug(input);
   const hasBackendSeoAuthority = input.hasSeoTitle && input.hasSeoDescription;
   const claimText = [input.title, input.description, ...(input.featureList ?? [])].filter(Boolean).join(" ");
   const unsafeClaimBlocked = applies && hasUnsafeIqLaunchClaim(claimText);
-  const shouldNoindex = applies && (!hasBackendSeoAuthority || unsafeClaimBlocked);
+  const hasRampAuthority = applies && hasBackendSeoRampAuthority(input.seoRampAuthority);
+  const normAuthorityGatePassed = applies && hasNormAuthorityGate(input.seoRampAuthority);
+  const claimPolicyGatePassed = applies && hasClaimPolicyGate(input.seoRampAuthority);
+  const mediaAuthorityGatePassed = applies && hasMediaAuthorityGate(input.seoRampAuthority);
+  const baseRampGate =
+    hasBackendSeoAuthority &&
+    hasRampAuthority &&
+    normAuthorityGatePassed &&
+    claimPolicyGatePassed &&
+    mediaAuthorityGatePassed &&
+    !unsafeClaimBlocked;
+  const sitemapLlmsExpansionAllowed =
+    applies &&
+    baseRampGate &&
+    input.seoRampAuthority?.sitemapEligible === true &&
+    input.seoRampAuthority.llmsEligible === true;
+  const llmsFullExpansionAllowed =
+    applies &&
+    sitemapLlmsExpansionAllowed &&
+    input.seoRampAuthority?.llmsFullEligible === true;
+  const jsonLdExpansionAllowed =
+    applies &&
+    baseRampGate &&
+    input.seoRampAuthority?.jsonLdEligible === true;
+  const shouldNoindex = applies && (!baseRampGate || input.seoRampAuthority?.isIndexable !== true);
 
   return {
     applies,
     canonicalSlug: IQ_LAUNCH_CANONICAL_SLUG,
     canonicalPath: `/tests/${IQ_LAUNCH_CANONICAL_SLUG}`,
     hasBackendSeoAuthority,
+    hasBackendSeoRampAuthority: hasRampAuthority,
+    normAuthorityGatePassed,
+    claimPolicyGatePassed,
+    mediaAuthorityGatePassed,
+    sitemapLlmsExpansionAllowed,
+    llmsFullExpansionAllowed,
+    jsonLdExpansionAllowed,
     shouldNoindex,
-    blocksSoftwareApplicationSchema: applies,
-    blocksSitemapLlmsExpansion: applies,
+    blocksSoftwareApplicationSchema: applies && !jsonLdExpansionAllowed,
+    blocksSitemapLlmsExpansion: applies && !sitemapLlmsExpansionAllowed,
     unsafeClaimBlocked,
     reason: applies
-      ? "IQ launch SEO requires backend SEO authority, no unsafe IQ claims, no SoftwareApplication schema, and no sitemap/llms expansion in this PR"
+      ? "IQ launch SEO requires backend SEO authority, IQ-NORM-03, CMS media authority, backend claim_policy, and no unsafe IQ claims before sitemap/llms/jsonld expansion"
       : "not an IQ launch surface",
   };
 }

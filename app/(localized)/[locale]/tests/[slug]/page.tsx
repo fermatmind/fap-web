@@ -96,6 +96,7 @@ import {
   resolveIqLaunchSeoGuard,
   resolveTestDetailAuthority,
 } from "@/lib/seo/testDetailAuthority";
+import { getIqSeoRampAuthorityForLocale } from "@/lib/seo/iqSeoRampAuthority";
 import { formatCardTitleForUi } from "@/lib/ui/testTitleDisplay";
 
 type LookupResponse = {
@@ -632,6 +633,7 @@ export async function generateMetadata({
   const seoTitle = toStringValue(lookup?.seo_title);
   const seoDescription = toStringValue(lookup?.seo_description);
   const ogImageAuthority = toStringValue(lookup?.og_image_url);
+  const iqSeoRampAuthority = await getIqSeoRampAuthorityForLocale(locale);
   const isClinicalDepressionPending = isClinicalDepressionPendingSlug(test.slug);
   const metadataAuthority = resolveTestDetailAuthority({
     slug: test.slug,
@@ -654,6 +656,7 @@ export async function generateMetadata({
     hasSeoDescription: seoDescription.length > 0,
     title,
     description,
+    seoRampAuthority: iqSeoRampAuthority,
   });
   const forcedNoindex =
     isClinicalDepressionPending
@@ -1003,6 +1006,7 @@ export default async function TestLandingPage({
     surface: "tests_detail_hero",
   });
   const relatedArticles = await fetchRelatedArticles(test.slug, locale);
+  const iqSeoRampAuthority = await getIqSeoRampAuthorityForLocale(locale);
   const canonicalPath = localizedPath(`/tests/${test.slug}`, locale);
   const mbtiLandingContinuityItems = showsMbtiActions ? buildMbtiTestLandingContinuityItems(locale) : [];
   const softwareApplicationName = localizedTestTitle;
@@ -1025,6 +1029,7 @@ export default async function TestLandingPage({
     title: softwareApplicationName,
     description: softwareApplicationDescription,
     featureList: softwareApplicationFeatureList,
+    seoRampAuthority: iqSeoRampAuthority,
   });
   const softwareApplicationJsonLd =
     test.is_public !== false &&
@@ -1036,7 +1041,8 @@ export default async function TestLandingPage({
     softwareApplicationDescription.length > 0 &&
     !iqLaunchSeoGuard.blocksSoftwareApplicationSchema &&
     !hasUnsafeIqLaunchClaim(softwareApplicationClaimText) &&
-    isSoftwareApplicationSchemaScaleEligible({ slug: test.slug, scaleCode: test.scale_code }) &&
+    (isSoftwareApplicationSchemaScaleEligible({ slug: test.slug, scaleCode: test.scale_code }) ||
+      iqLaunchSeoGuard.jsonLdExpansionAllowed) &&
     !hasBlockedSoftwareApplicationClaim(softwareApplicationClaimText)
       ? buildTestSoftwareAppJsonLd({
           path: canonicalPath,

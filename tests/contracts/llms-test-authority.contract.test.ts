@@ -103,11 +103,12 @@ describe("llms test authority contract", () => {
     const { listBackendDiscoverabilityTestEntries } = await import("@/lib/seo/backendTestDiscoverabilitySource");
     const entries = await listBackendDiscoverabilityTestEntries();
 
-    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(fetchMock).toHaveBeenCalledTimes(4);
     expect(fetchMock.mock.calls.map(([input]) => String(input))).toEqual(
       expect.arrayContaining([
         expect.stringContaining("/v0.3/scales/catalog?locale=en"),
         expect.stringContaining("/v0.3/scales/catalog?locale=zh-CN"),
+        expect.stringContaining("/v0.5/landing-surfaces/tests"),
       ])
     );
     expect(entries.map((entry) => entry.path)).toEqual([

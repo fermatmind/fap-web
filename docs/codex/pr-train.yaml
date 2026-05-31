@@ -8946,3 +8946,67 @@ prs:
       - Renderer does not emit img tags or local public/static media URLs for IQ CMS media metadata.
       - No SEO ramp, sitemap, llms, or backend media baseline changes are introduced.
     rollback_note: "Revert IQ CMS media renderer shell if CMS authority metadata consumption regresses or frontend fallback behavior appears."
+
+  - id: IQ-SEO-RAMP-02
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/iq-seo-ramp-02-indexation-gate
+    base: main
+    depends_on:
+      - IQ-SEO-RAMP-01
+    mode: execute
+    train_scope: iq_production_launch
+    status: in_progress
+    title: "IQ-SEO-RAMP-02 gate SEO indexation through backend authority"
+    goal: "Gate IQ sitemap, llms, canonical, and JSON-LD expansion on backend SEO, norm authority, and claim policy."
+    in_scope:
+      - app/(localized)/[locale]/tests/[slug]/page.tsx
+      - app/llms-full.txt/route.ts
+      - lib/seo/backendTestDiscoverabilitySource.ts
+      - lib/seo/iqSeoRampAuthority.ts
+      - lib/seo/testDetailAuthority.ts
+      - next-sitemap.config.js
+      - tests/contracts/helpers/currentPrScope.ts
+      - tests/contracts/iq-claim-seo-launch-guard.contract.test.ts
+      - tests/contracts/iq-seo-ramp-indexation-gate.contract.test.ts
+      - tests/contracts/llms-test-authority.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - backend norm authority or CMS baseline mutation
+      - frontend editorial fallback content
+      - public static IQ media assets or fallback images
+      - paid report entitlement semantics
+      - live smoke, observability, or release ledger work
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/iq-claim-seo-launch-guard.contract.test.ts tests/contracts/iq-seo-ramp-indexation-gate.contract.test.ts tests/contracts/llms-test-authority.contract.test.ts tests/contracts/sitemap-authority-adapters.contract.test.ts
+      - pnpm exec tsc --noEmit --pretty false
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      changed_files_must_match:
+        - app/(localized)/[locale]/tests/[slug]/page.tsx
+        - app/llms-full.txt/route.ts
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+        - lib/seo/backendTestDiscoverabilitySource.ts
+        - lib/seo/iqSeoRampAuthority.ts
+        - lib/seo/testDetailAuthority.ts
+        - next-sitemap.config.js
+        - tests/contracts/helpers/currentPrScope.ts
+        - tests/contracts/iq-claim-seo-launch-guard.contract.test.ts
+        - tests/contracts/iq-seo-ramp-indexation-gate.contract.test.ts
+        - tests/contracts/llms-test-authority.contract.test.ts
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: IQ-LIVE-RAMP-01
+    acceptance:
+      - IQ sitemap and llms exposure require backend CMS iq_ramp_authority, IQ-NORM-03, CMS media authority, and backend claim_policy.
+      - IQ llms-full remains closed while backend llms_full_eligible is false.
+      - IQ JSON-LD expansion is gated by backend jsonld_eligible and unsafe claim checks.
+      - No frontend editorial fallback content, public static media fallback, or norm authority is introduced.
+    rollback_note: "Revert IQ SEO ramp frontend gates if backend authority, claim policy, or norm authority checks regress."
