@@ -37,4 +37,16 @@ describe("root not-found layout contract", () => {
       expect(source).toContain("/zh/support");
     }
   });
+
+  it("does not put soft-404 wording into route-group not-found component bodies", () => {
+    const rootSource = read("app/(root)/not-found.tsx");
+    const localizedSource = read("app/(localized)/[locale]/not-found.tsx");
+
+    for (const source of [rootSource, localizedSource]) {
+      expect(source).not.toContain("Page Not Found");
+      expect(source).not.toContain("Page not found");
+      expect(source).not.toContain(">404<");
+      expect(source).not.toContain("This link is no longer available");
+    }
+  });
 });

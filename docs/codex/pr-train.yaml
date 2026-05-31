@@ -8378,3 +8378,61 @@ prs:
       - Daily Giving pages remain noindex and are not added to sitemap, llms, llms-full, footer, nav, Search Channel, or URL submission.
       - No CMS mutation, deploy, backend change, external search API call, env/DNS/nginx edit, or frontend editorial fallback content is introduced.
     rollback_note: "Revert the Daily Giving route, component, API adapter, and focused contract if Foundation Daily Giving page rendering regresses or the backend API contract changes."
+
+  - id: PR-02-FOLLOWUP-NOTFOUND-RSC-PAYLOAD-CLEANUP-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-02-followup-notfound-rsc-payload-cleanup-01
+    base: main
+    depends_on: []
+    mode: execute
+    train_scope: pr_02_followup_notfound_rsc_payload_cleanup_01
+    risk_level: scoped_not_found_boundary_payload_cleanup
+    status: in_progress
+    title: "PR-02 Follow-up: Clean not-found boundary payload copy"
+    goal: "Remove crawl-sensitive not-found body copy from route-group not-found boundaries so successful indexable pages do not serialize embedded Page Not Found / 404 payload text."
+    in_scope:
+      - app/(root)/not-found.tsx
+      - app/(localized)/[locale]/not-found.tsx
+      - tests/contracts/not-found.contract.test.ts
+      - tests/contracts/root-not-found-layout.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - CMS mutation or content page body copy
+      - frontend editorial fallback content
+      - sitemap, llms, footer, or nav changes
+      - contentPageRoute runtime authority changes
+      - backend changes
+      - deploy
+      - Search Channel action or URL submission
+      - env, DNS, or nginx edits
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/not-found.contract.test.ts tests/contracts/root-not-found-layout.contract.test.ts
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      changed_files_must_match:
+        - app/(root)/not-found.tsx
+        - app/(localized)/[locale]/not-found.tsx
+        - tests/contracts/not-found.contract.test.ts
+        - tests/contracts/root-not-found-layout.contract.test.ts
+        - tests/contracts/helpers/currentPrScope.ts
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: false
+    acceptance:
+      - Route-group not-found boundaries retain noindex metadata and public recovery links.
+      - Route-group not-found component bodies do not contain Page Not Found, Page not found, 404 body text, or the previous no-longer-available recovery sentence.
+      - Successful trust/content pages are not changed, and no CMS/content/sitemap/llms/footer/nav behavior is changed.
+      - No frontend editorial fallback content is introduced.
+    rollback_note: "Revert the not-found boundary copy and focused contract assertions if actual 404 recovery pages regress or Next.js no longer serializes not-found boundary payloads into successful pages."
