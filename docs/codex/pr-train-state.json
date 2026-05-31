@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-31T23:10:57.472160Z",
+  "updated_at": "2026-05-31T23:11:32.777835Z",
   "status": "in_progress",
   "phase": "iq_production_launch_release",
   "pr_namespace": "PR-PRAC-*",
@@ -13856,9 +13856,9 @@
         "IQ-OBS-01"
       ],
       "title": "IQ-RELEASE-01 finalize production launch readiness ledger",
-      "commit_sha": "08ba8e5f",
-      "pr_url": null,
-      "pr_number": null,
+      "commit_sha": "9b7d9325",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/948",
+      "pr_number": 948,
       "failure_reason": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -13909,10 +13909,15 @@
           "at": "2026-05-31T23:10:57.472160Z",
           "status": "committed",
           "summary": "Committed scoped IQ-RELEASE-01 release ledger at 08ba8e5f."
+        },
+        {
+          "at": "2026-05-31T23:11:32.777835Z",
+          "status": "pr_open_github_checks_pending",
+          "summary": "Opened GitHub PR #948 after local scope validation passed."
         }
       ],
-      "status": "committed",
-      "updated_at": "2026-05-31T23:10:57.472160Z"
+      "status": "pr_open_github_checks_pending",
+      "updated_at": "2026-05-31T23:11:32.777835Z"
     }
   ],
   "sidecar_issues": [
