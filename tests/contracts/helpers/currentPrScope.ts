@@ -321,6 +321,21 @@ const IQ_PAID_REPORT_02_ALLOWED_FILES = new Set([
   "tests/contracts/iq-report-module.contract.test.tsx",
 ]);
 
+const IQ_SEO_RAMP_02_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/tests/[slug]/page.tsx",
+  "app/llms-full.txt/route.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "lib/seo/backendTestDiscoverabilitySource.ts",
+  "lib/seo/iqSeoRampAuthority.ts",
+  "lib/seo/testDetailAuthority.ts",
+  "next-sitemap.config.js",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/iq-claim-seo-launch-guard.contract.test.ts",
+  "tests/contracts/iq-seo-ramp-indexation-gate.contract.test.ts",
+  "tests/contracts/llms-test-authority.contract.test.ts",
+]);
+
 const PR_WEB_SEC_22_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx",
   "docs/codex/pr-train.yaml",
@@ -1014,6 +1029,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/iq-paid-report-02-render-entitlement-states") {
     return IQ_PAID_REPORT_02_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/iq-seo-ramp-02-indexation-gate") {
+    return IQ_SEO_RAMP_02_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-web-sec-22-result-retry-credentials") {

@@ -1,6 +1,10 @@
 import { buildApiUrl } from "@/lib/api-base";
 import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
+import {
+  getIqSeoRampAuthorityForLocale,
+  isIqSeoRampDiscoverable,
+} from "@/lib/seo/iqSeoRampAuthority";
 import { filterVisiblePublicTestEntries } from "@/lib/tests/publicTestEntryVisibility";
 import type { Locale } from "@/lib/i18n/locales";
 
@@ -24,6 +28,10 @@ export type BackendDiscoverabilityTestEntry = {
   description: string;
   scaleCode: string;
   highlightExcerptI18n: Record<string, string>;
+  sitemapEligible?: boolean;
+  llmsEligible?: boolean;
+  llmsFullEligible?: boolean;
+  jsonLdEligible?: boolean;
 };
 
 const TEST_CATALOG_LOCALES: Array<{ locale: Locale; apiLocale: string }> = [
@@ -62,7 +70,11 @@ function localizedTitle(item: BackendScaleCatalogItem, locale: Locale): string {
   return titleI18n.en || titleI18n.zh || titleI18n["zh-CN"] || fallbackTitle;
 }
 
-function normalizeCatalogItem(item: BackendScaleCatalogItem, locale: Locale): BackendDiscoverabilityTestEntry | null {
+function normalizeCatalogItem(
+  item: BackendScaleCatalogItem,
+  locale: Locale,
+  iqSeoRampAuthority: Awaited<ReturnType<typeof getIqSeoRampAuthorityForLocale>>
+): BackendDiscoverabilityTestEntry | null {
   const slug = cleanString(item.slug).toLowerCase();
   if (!slug || !isPublicIndexableCatalogItem(item)) {
     return null;
@@ -73,14 +85,32 @@ function normalizeCatalogItem(item: BackendScaleCatalogItem, locale: Locale): Ba
     return null;
   }
 
+  const scaleCode = cleanString(item.scale_code);
+  const title = localizedTitle(item, locale);
+  const description = cleanString(item.description);
+  if (!isIqSeoRampDiscoverable({
+    slug,
+    scaleCode,
+    title,
+    description,
+    authority: iqSeoRampAuthority,
+    surface: "llms",
+  })) {
+    return null;
+  }
+
   return {
     locale,
     slug,
     path,
-    title: localizedTitle(item, locale),
-    description: cleanString(item.description),
-    scaleCode: cleanString(item.scale_code),
+    title,
+    description,
+    scaleCode,
     highlightExcerptI18n: cleanStringRecord(item.highlight_excerpt_i18n),
+    sitemapEligible: iqSeoRampAuthority?.testSlug === slug ? iqSeoRampAuthority.sitemapEligible === true : undefined,
+    llmsEligible: iqSeoRampAuthority?.testSlug === slug ? iqSeoRampAuthority.llmsEligible === true : undefined,
+    llmsFullEligible: iqSeoRampAuthority?.testSlug === slug ? iqSeoRampAuthority.llmsFullEligible === true : undefined,
+    jsonLdEligible: iqSeoRampAuthority?.testSlug === slug ? iqSeoRampAuthority.jsonLdEligible === true : undefined,
   };
 }
 
@@ -106,11 +136,14 @@ async function fetchBackendCatalogItems(apiLocale: string): Promise<BackendScale
 export async function listBackendDiscoverabilityTestEntries(): Promise<BackendDiscoverabilityTestEntry[]> {
   const entries = await Promise.all(
     TEST_CATALOG_LOCALES.map(async ({ locale, apiLocale }) => {
-      const items = await fetchBackendCatalogItems(apiLocale).catch(() => []);
+      const [items, iqSeoRampAuthority] = await Promise.all([
+        fetchBackendCatalogItems(apiLocale).catch(() => []),
+        getIqSeoRampAuthorityForLocale(locale).catch(() => null),
+      ]);
 
       return filterVisiblePublicTestEntries(
         items
-          .map((item) => normalizeCatalogItem(item, locale))
+          .map((item) => normalizeCatalogItem(item, locale, iqSeoRampAuthority))
           .filter((item): item is BackendDiscoverabilityTestEntry => item !== null)
       );
     })

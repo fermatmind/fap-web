@@ -41,6 +41,7 @@ const EXCLUDED_CAREER_JOB_DETAIL_SLUGS = new Set([
   "digital-forensics-analysts",
   "computer-occupations-all-other",
 ]);
+const IQ_SEO_RAMP_CANONICAL_SLUG = "iq-test-intelligence-quotient-assessment";
 
 const siteUrl = resolveSitemapSiteUrl(process.env.NEXT_PUBLIC_SITE_URL);
 const apiOrigin = (process.env.NEXT_PUBLIC_API_URL || "https://api.fermatmind.com").replace(/\/$/, "");
@@ -61,6 +62,75 @@ function hasIndexableFlagFalse(item) {
 
 function isPublicIndexable(item) {
   return item && item.is_public !== false && item.is_indexable !== false;
+}
+
+function isIqCatalogItem(item) {
+  const slug = normalizeSlug(item?.slug).toLowerCase();
+  const scaleCode = normalizeSlug(item?.scale_code).toUpperCase();
+
+  return slug === IQ_SEO_RAMP_CANONICAL_SLUG || scaleCode === "IQ_RAVEN" || scaleCode === "IQ_INTELLIGENCE_QUOTIENT";
+}
+
+function readRecord(value) {
+  return value && typeof value === "object" && !Array.isArray(value) ? value : {};
+}
+
+function readPolicyToken(value, token) {
+  return normalizeSlug(value)
+    .toLowerCase()
+    .split(",")
+    .map((part) => part.trim())
+    .includes(token);
+}
+
+function readIqSeoRampAuthority(payload) {
+  const authority = readRecord(readRecord(readRecord(payload?.surface).payload_json).seo).iq_ramp_authority;
+  const record = readRecord(authority);
+  if (!record.schema && !record.authority_source) return null;
+
+  return {
+    schema: normalizeSlug(record.schema),
+    authoritySource: normalizeSlug(record.authority_source),
+    testSlug: normalizeSlug(record.test_slug).toLowerCase(),
+    scaleCode: normalizeSlug(record.scale_code).toUpperCase(),
+    formCode: normalizeSlug(record.form_code).toUpperCase(),
+    canonicalPath: normalizePath(record.canonical_path || ""),
+    robots: normalizeSlug(record.robots),
+    isIndexable: record.is_indexable === true,
+    sitemapEligible: record.sitemap_eligible === true,
+    llmsEligible: record.llms_eligible === true,
+    media: readRecord(record.media),
+    claimPolicy: readRecord(record.claim_policy),
+  };
+}
+
+function isIqSeoRampSitemapEligible(authority) {
+  if (!authority) return false;
+  const claimPolicy = authority.claimPolicy;
+  const media = authority.media;
+
+  return (
+    authority.schema === "iq.seo_ramp_authority.v1" &&
+    authority.authoritySource === "backend_cms_landing_surface" &&
+    authority.testSlug === IQ_SEO_RAMP_CANONICAL_SLUG &&
+    authority.scaleCode === "IQ_INTELLIGENCE_QUOTIENT" &&
+    authority.formCode === "IQ_BETA_30_ORIGINAL" &&
+    /^\/(?:en|zh)\/tests\/iq-test-intelligence-quotient-assessment$/i.test(authority.canonicalPath) &&
+    readPolicyToken(authority.robots, "index") &&
+    !readPolicyToken(authority.robots, "noindex") &&
+    authority.isIndexable === true &&
+    authority.sitemapEligible === true &&
+    authority.llmsEligible === true &&
+    claimPolicy.norm_authority_required === true &&
+    claimPolicy.norm_authority_pr === "IQ-NORM-03" &&
+    claimPolicy.public_copy_iq_estimate_claims_enabled === false &&
+    claimPolicy.public_copy_percentile_claims_enabled === false &&
+    claimPolicy.result_context_iq_estimate_requires_backend_report === true &&
+    claimPolicy.paid_report_claims_require_backend_entitlement === true &&
+    media.authority === "backend_cms_media_library" &&
+    media.source === "media_library_required" &&
+    media.fallback_allowed === false
+  );
 }
 
 function extractPathFromCanonicalUrl(value) {
@@ -262,12 +332,21 @@ async function buildTestPathsFromApi() {
 
     for (const { localePrefix, apiLocale } of CMS_LOCALES) {
       const params = new URLSearchParams({ locale: apiLocale });
-      const payload = await fetchJsonWithTimeout(`${buildApiUrl("/v0.3/scales/catalog")}?${params.toString()}`);
+      const [payload, iqSeoRampPayload] = await Promise.all([
+        fetchJsonWithTimeout(`${buildApiUrl("/v0.3/scales/catalog")}?${params.toString()}`),
+        fetchJsonWithTimeout(`${buildApiUrl("/v0.5/landing-surfaces/tests")}?${new URLSearchParams({
+          locale: apiLocale,
+          org_id: "0",
+        }).toString()}`).catch(() => null),
+      ]);
       const items = Array.isArray(payload?.items) ? payload.items : [];
+      const iqSeoRampAuthority = readIqSeoRampAuthority(iqSeoRampPayload);
+      const iqSitemapEligible = isIqSeoRampSitemapEligible(iqSeoRampAuthority);
 
       for (const item of items) {
         const slug = normalizeSlug(item?.slug);
         if (!slug || isHiddenPublicTestEntrySlug(slug) || hasIndexableFlagFalse(item) || !isPublicIndexable(item)) continue;
+        if (isIqCatalogItem(item) && !iqSitemapEligible) continue;
         paths.add(`/${localePrefix}/tests/${slug}`);
       }
     }

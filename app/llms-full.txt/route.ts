@@ -808,6 +808,7 @@ async function buildLlmsFullText(siteUrl: string): Promise<string> {
     .filter((entry) => shouldKeep(entry.path));
 
   const tests = backendTestEntries
+    .filter((test) => test.llmsFullEligible !== false)
     .map((test) => ({
       locale: test.locale,
       path: test.path,
