@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-31T15:21:30Z",
+  "updated_at": "2026-05-31T15:24:30Z",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -13305,12 +13305,12 @@
       "id": "PR-03-FOLLOWUP-LLMS-CONTENT-PAGE-DETAIL-AUTHORITY-01",
       "repo": "fap-web",
       "branch": "codex/pr-03-followup-llms-content-page-detail-authority-01",
-      "status": "local_validation_passed",
+      "status": "pr_opened",
       "depends_on": [
         "PR-03-DISCOVERABILITY-SITEMAP-LLMS-AUTHORITY-ALIGNMENT-01"
       ],
-      "commit_sha": "43a072067bd024f14bfca46fac6f8fc1f0fb81c2",
-      "pr_url": null,
+      "commit_sha": "be8c67d0cf47050c2a48cd7dedfebc271626253e",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/942",
       "checks": {
         "focused_contracts": {
           "status": "passed",
@@ -13352,6 +13352,14 @@
             "git diff --cached --check"
           ],
           "evidence": "No whitespace errors in unstaged or staged PR diff."
+        },
+        "github_pr_opened": {
+          "status": "passed",
+          "evidence": "https://github.com/fermatmind/fap-web/pull/942"
+        },
+        "github_required_checks": {
+          "status": "pending",
+          "evidence": "PR opened; GitHub checks pending."
         }
       },
       "failure_reason": null,
@@ -13383,6 +13391,11 @@
           "at": "2026-05-31T15:21:30Z",
           "status": "committed",
           "summary": "Committed PR-03 follow-up implementation at 43a072067bd024f14bfca46fac6f8fc1f0fb81c2."
+        },
+        {
+          "at": "2026-05-31T15:24:30Z",
+          "status": "pr_opened",
+          "summary": "Opened fap-web PR #942 for PR-03 follow-up llms content-page detail authority fallback."
         }
       ]
     }
