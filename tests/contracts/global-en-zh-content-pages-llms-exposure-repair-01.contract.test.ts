@@ -2,6 +2,20 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 
 const SITE_URL = "https://fermatmind.com";
 const TARGET_SLUGS = ["brand", "charter", "foundation", "careers", "policies"] as const;
+const DISCOVERABLE_KEYS = [
+  "about",
+  "brand",
+  "charter",
+  "foundation",
+  "careers",
+  "policies",
+  "privacy",
+  "terms",
+  "support",
+  "method-boundaries",
+  "help-faq",
+  "help-contact",
+] as const;
 const TARGET_URLS = TARGET_SLUGS.map((slug) => `${SITE_URL}/en/${slug}`);
 
 type ContentPageFixture = {
@@ -27,16 +41,19 @@ type ContentPageFixture = {
   metaDescription: string | null;
 };
 
-function contentPage(slug: (typeof TARGET_SLUGS)[number]): ContentPageFixture {
+function contentPage(slug: string): ContentPageFixture {
+  const isHelp = slug === "support" || slug.startsWith("help-");
+  const isPolicy = slug === "policies" || slug === "privacy" || slug === "terms";
+
   return {
     slug,
-    path: `/${slug}`,
-    kind: slug === "policies" ? "policy" : "company",
+    path: slug.startsWith("help-") ? `/help/${slug.slice(5)}` : `/${slug}`,
+    kind: isHelp ? "help" : isPolicy ? "policy" : "company",
     title: `${slug} authority title`,
-    kicker: slug === "policies" ? "Terms & policies" : "Company",
+    kicker: isHelp ? "Help" : isPolicy ? "Terms & policies" : "Company",
     summary: `${slug} authority summary from public CMS detail API.`,
-    template: slug,
-    animationProfile: slug === "policies" ? "policy" : "editorial",
+    template: isHelp ? "help" : isPolicy ? "policy" : slug,
+    animationProfile: isPolicy ? "policy" : "editorial",
     locale: "en",
     publishedAt: "2026-05-28T00:00:00Z",
     updatedAt: "2026-05-28T00:00:00Z",
@@ -64,8 +81,9 @@ function mockRouteDependencies() {
     }),
   }));
   vi.doMock("@/lib/cms/content-pages", () => ({
-    listContentPagesWithLastKnownGood: vi.fn(async (locale: "en" | "zh", kind?: "help") => ({
-      value: kind === "help" ? [
+    listContentPagesWithLastKnownGood: vi.fn(async () => ({ value: [] })),
+    listDiscoverableContentPagesWithLastKnownGood: vi.fn(async (locale: "en" | "zh") => ({
+      value: [
         {
           path: "/support",
           title: "Support",
@@ -75,7 +93,8 @@ function mockRouteDependencies() {
           isPublic: true,
           isIndexable: true,
         },
-      ] : locale === "en" ? TARGET_SLUGS.map(contentPage) : [],
+        ...(locale === "en" ? TARGET_SLUGS.map(contentPage) : []),
+      ],
     })),
     listApprovedEnglishContentPagesWithLastKnownGood: vi.fn(async () => ({
       value: TARGET_SLUGS.map(contentPage),
@@ -177,17 +196,25 @@ describe("GLOBAL-EN-ZH-CONTENT-PAGES-LLMS-EXPOSURE-REPAIR-01", () => {
       expect(url).not.toContain("/v0.5/internal/content-pages");
 
       const slug = decodeURIComponent(url.match(/\/content-pages\/([^?]+)/)?.[1] ?? "");
-      expect(TARGET_SLUGS).toContain(slug as (typeof TARGET_SLUGS)[number]);
+      expect(DISCOVERABLE_KEYS).toContain(slug as (typeof DISCOVERABLE_KEYS)[number]);
 
       return {
         page: {
           slug,
-          path: `/${slug}`,
-          kind: slug === "policies" ? "policy" : "company",
+          path: slug.startsWith("help-") ? `/help/${slug.slice(5)}` : `/${slug}`,
+          kind: slug === "support" || slug.startsWith("help-")
+            ? "help"
+            : ["policies", "privacy", "terms"].includes(slug)
+              ? "policy"
+              : "company",
           title: `${slug} authority title`,
           summary: `${slug} authority summary`,
-          template: slug,
-          animation_profile: slug === "policies" ? "policy" : "editorial",
+          template: slug === "support" || slug.startsWith("help-")
+            ? "help"
+            : ["policies", "privacy", "terms"].includes(slug)
+              ? "policy"
+              : slug,
+          animation_profile: ["policies", "privacy", "terms"].includes(slug) ? "policy" : "editorial",
           locale: "en",
           published_at: "2026-05-28T00:00:00Z",
           updated_at: "2026-05-28T00:00:00Z",
@@ -215,12 +242,12 @@ describe("GLOBAL-EN-ZH-CONTENT-PAGES-LLMS-EXPOSURE-REPAIR-01", () => {
 
     const { clearLastKnownGoodForTests } = await import("@/lib/cms/last-known-good");
     clearLastKnownGoodForTests();
-    const { listApprovedEnglishContentPagesWithLastKnownGood } = await import("@/lib/cms/content-pages");
+    const { listDiscoverableContentPagesWithLastKnownGood } = await import("@/lib/cms/content-pages");
 
-    const result = await listApprovedEnglishContentPagesWithLastKnownGood();
+    const result = await listDiscoverableContentPagesWithLastKnownGood("en");
 
-    expect(result.value.map((page) => page.slug).sort()).toEqual([...TARGET_SLUGS].sort());
-    expect(get).toHaveBeenCalledTimes(TARGET_SLUGS.length);
+    expect(result.value.map((page) => page.slug).sort()).toEqual([...DISCOVERABLE_KEYS].sort());
+    expect(get).toHaveBeenCalledTimes(DISCOVERABLE_KEYS.length);
   });
 
   it("enumerates the five approved English content pages in both llms surfaces", async () => {

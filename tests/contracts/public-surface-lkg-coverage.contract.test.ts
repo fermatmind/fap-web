@@ -41,9 +41,9 @@ describe("public CMS surface LKG coverage", () => {
     expect(helpDetail).toContain("getContentPage(");
     expect(helpDetail).not.toContain("getContentPageWithLastKnownGood");
     expect(llms).toContain("listCmsArticlesForLlmsWithLastKnownGood");
-    expect(llms).toContain("listContentPagesWithLastKnownGood");
+    expect(llms).toContain("listDiscoverableContentPagesWithLastKnownGood");
     expect(llmsFull).toContain("listCmsArticlesForLlmsWithLastKnownGood");
-    expect(llmsFull).toContain("listContentPagesWithLastKnownGood");
+    expect(llmsFull).toContain("listDiscoverableContentPagesWithLastKnownGood");
   });
 
   it("does not use stale article list data when a later fresh response is empty", async () => {

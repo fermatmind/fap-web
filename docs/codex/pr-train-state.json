@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-31T09:19:00.000Z",
+  "updated_at": "2026-05-31T15:21:30Z",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -13231,9 +13231,9 @@
       "id": "PR-03-DISCOVERABILITY-SITEMAP-LLMS-AUTHORITY-ALIGNMENT-01",
       "repo": "fap-web",
       "branch": "codex/pr-03-discoverability-sitemap-llms-authority-alignment-01",
-      "status": "pr_opened",
+      "status": "merged",
       "depends_on": [],
-      "commit_sha": "3adb864a",
+      "commit_sha": "c0a505e02446fead46d3e836de3149ae3d177b4f",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/940",
       "checks": {
         "scope_boundary": {
@@ -13256,8 +13256,8 @@
           "evidence": "Focused vitest, lint, typecheck, production build, full contract suite in clean-checkout-equivalent mode, JSON/YAML parse, and git diff --check passed. Full contract used temporary local exclude for pre-existing unrelated IQ audit drafts, then restored .git/info/exclude."
         },
         "github_required_checks": {
-          "status": "pending",
-          "evidence": "PR opened; GitHub checks pending."
+          "status": "passed",
+          "evidence": "GitHub PR #940 is MERGED; merge commit c0a505e02446fead46d3e836de3149ae3d177b4f is current origin/main."
         },
         "github_pr_opened": {
           "status": "passed",
@@ -13265,9 +13265,9 @@
         }
       },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-05-31T14:46:56Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "pre_existing_unrelated_dirty_files": [
         "docs/audits/iq-fe/16_iq_full_stack_technical_audit_report.md",
         "docs/audits/iq-fe/17_iq_english_free_test_competitor_research.md"
@@ -13293,6 +13293,96 @@
           "at": "2026-05-31T15:10:00Z",
           "status": "pr_opened",
           "summary": "Opened PR #940 for PR-03 sitemap and llms authority alignment."
+        },
+        {
+          "at": "2026-05-31T15:12:40Z",
+          "status": "reconciled_merged",
+          "summary": "Reconciled PR #940 before PR-03 follow-up: GitHub shows MERGED at c0a505e02446fead46d3e836de3149ae3d177b4f, origin/main contains the merge commit, and local main had already been synced."
+        }
+      ]
+    },
+    {
+      "id": "PR-03-FOLLOWUP-LLMS-CONTENT-PAGE-DETAIL-AUTHORITY-01",
+      "repo": "fap-web",
+      "branch": "codex/pr-03-followup-llms-content-page-detail-authority-01",
+      "status": "local_validation_passed",
+      "depends_on": [
+        "PR-03-DISCOVERABILITY-SITEMAP-LLMS-AUTHORITY-ALIGNMENT-01"
+      ],
+      "commit_sha": "43a072067bd024f14bfca46fac6f8fc1f0fb81c2",
+      "pr_url": null,
+      "checks": {
+        "focused_contracts": {
+          "status": "passed",
+          "command": "pnpm exec vitest run tests/contracts/global-en-zh-content-pages-llms-exposure-repair-01.contract.test.ts tests/contracts/llms-url-hygiene.contract.test.ts tests/contracts/llms-full-enrichment.contract.test.ts tests/contracts/llms-parity-contract.contract.test.ts tests/contracts/public-surface-lkg-coverage.contract.test.ts",
+          "evidence": "5 files passed, 12 tests passed."
+        },
+        "lint": {
+          "status": "passed_with_existing_warnings",
+          "command": "pnpm lint .",
+          "evidence": "0 errors; 8 existing warnings outside this PR scope."
+        },
+        "typecheck": {
+          "status": "passed",
+          "command": "pnpm typecheck",
+          "evidence": "tsc --noEmit passed."
+        },
+        "build": {
+          "status": "passed",
+          "command": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build",
+          "evidence": "Next.js production build passed. Postbuild sitemap generation drift was restored because sitemap changes are out of scope."
+        },
+        "contract": {
+          "status": "passed_after_clean_checkout_equivalent_rerun",
+          "command": "pnpm test:contract",
+          "evidence": "408 files passed, 2298 tests passed. Initial run failed only because two pre-existing unrelated untracked IQ audit drafts were included by scope-guard tests; rerun temporarily excluded those local untracked drafts via .git/info/exclude and then restored the exclude file."
+        },
+        "json_yaml_parse": {
+          "status": "passed",
+          "commands": [
+            "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "python3 -c yaml.safe_load docs/codex/pr-train.yaml"
+          ],
+          "evidence": "Train state JSON and manifest YAML parse successfully."
+        },
+        "diff_check": {
+          "status": "passed",
+          "commands": [
+            "git diff --check",
+            "git diff --cached --check"
+          ],
+          "evidence": "No whitespace errors in unstaged or staged PR diff."
+        }
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "pre_existing_unrelated_dirty_files": [
+        "docs/audits/iq-fe/16_iq_full_stack_technical_audit_report.md",
+        "docs/audits/iq-fe/17_iq_english_free_test_competitor_research.md"
+      ],
+      "scope_validation": {
+        "allowed_paths_only": true,
+        "local_validation_passed": true,
+        "github_checks_green": null,
+        "post_merge_revalidated": null
+      },
+      "history": [
+        {
+          "at": "2026-05-31T15:12:40Z",
+          "status": "in_progress",
+          "summary": "User authorized PR-03 follow-up manifest/state entry and branch codex/pr-03-followup-llms-content-page-detail-authority-01 to make llms surfaces use content-page detail authority fallback without CMS, sitemap, deploy, Search Channel, or URL submission changes."
+        },
+        {
+          "at": "2026-05-31T15:20:33Z",
+          "status": "local_validation_passed",
+          "summary": "Implemented llms content-page detail authority fallback; focused contracts, lint, typecheck, build, full contract suite, JSON/YAML parse, and scope validation passed. public/sitemap.xml postbuild drift was restored because sitemap changes are out of scope."
+        },
+        {
+          "at": "2026-05-31T15:21:30Z",
+          "status": "committed",
+          "summary": "Committed PR-03 follow-up implementation at 43a072067bd024f14bfca46fac6f8fc1f0fb81c2."
         }
       ]
     }

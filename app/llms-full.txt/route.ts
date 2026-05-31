@@ -4,7 +4,7 @@ import { getCareerGuideFromCmsBySlug, listCareerGuidesFromCms } from "@/lib/cms/
 import { adaptCareerRecommendationIndex } from "@/lib/career/adapters/adaptCareerRecommendationIndex";
 import { fetchCareerRecommendationIndex } from "@/lib/career/api/fetchCareerRecommendationIndex";
 import {
-  listContentPagesWithLastKnownGood,
+  listDiscoverableContentPagesWithLastKnownGood,
   type ContentPage,
 } from "@/lib/cms/content-pages";
 import {
@@ -695,10 +695,8 @@ async function buildLlmsFullText(siteUrl: string): Promise<string> {
     enArticles,
     zhArticles,
     backendTestEntries,
-    enHelpPages,
-    zhHelpPages,
-    enContentPages,
-    zhContentPages,
+    enDiscoverableContentPages,
+    zhDiscoverableContentPages,
     careerJobPaths,
   ] = await Promise.all([
     withLlmsRouteBudget(
@@ -758,28 +756,14 @@ async function buildLlmsFullText(siteUrl: string): Promise<string> {
     ),
     withLlmsRouteBudget(
       () =>
-        listContentPagesWithLastKnownGood("en", "help").then((result) =>
+        listDiscoverableContentPagesWithLastKnownGood("en").then((result) =>
           limitLlmsRouteEntries(result.value, LLMS_ROUTE_LIMITS.helpPages)
         ),
       []
     ),
     withLlmsRouteBudget(
       () =>
-        listContentPagesWithLastKnownGood("zh", "help").then((result) =>
-          limitLlmsRouteEntries(result.value, LLMS_ROUTE_LIMITS.helpPages)
-        ),
-      []
-    ),
-    withLlmsRouteBudget(
-      () =>
-        listContentPagesWithLastKnownGood("en").then((result) =>
-          limitLlmsRouteEntries(result.value, LLMS_ROUTE_LIMITS.helpPages)
-        ),
-      []
-    ),
-    withLlmsRouteBudget(
-      () =>
-        listContentPagesWithLastKnownGood("zh").then((result) =>
+        listDiscoverableContentPagesWithLastKnownGood("zh").then((result) =>
           limitLlmsRouteEntries(result.value, LLMS_ROUTE_LIMITS.helpPages)
         ),
       []
@@ -792,14 +776,14 @@ async function buildLlmsFullText(siteUrl: string): Promise<string> {
   ]);
 
   const helpEntries = [
-    ...enHelpPages.map((page) => ({
+    ...enDiscoverableContentPages.filter((page) => page.kind === "help").map((page) => ({
       locale: "en" as const,
       path: localizedContentPagePath(page, "en"),
       title: page.title,
       type: "help",
       summary: summaryFromRecord(page),
     })),
-    ...zhHelpPages.map((page) => ({
+    ...zhDiscoverableContentPages.filter((page) => page.kind === "help").map((page) => ({
       locale: "zh" as const,
       path: localizedContentPagePath(page, "zh"),
       title: page.title,
@@ -809,8 +793,8 @@ async function buildLlmsFullText(siteUrl: string): Promise<string> {
   ].filter((entry) => shouldKeep(entry.path));
 
   const contentPageEntries = [
-    ...enContentPages.map((page) => ({ page, locale: "en" as const })),
-    ...zhContentPages.map((page) => ({ page, locale: "zh" as const })),
+    ...enDiscoverableContentPages.map((page) => ({ page, locale: "en" as const })),
+    ...zhDiscoverableContentPages.map((page) => ({ page, locale: "zh" as const })),
   ]
     .filter(({ page }) => page.kind !== "help" && page.isPublic && page.isIndexable)
     .map(({ page, locale }) => ({

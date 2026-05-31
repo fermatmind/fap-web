@@ -134,6 +134,23 @@ const CONTENT_PAGE_SLUGS = [
 
 export type ContentPageSlug = (typeof CONTENT_PAGE_SLUGS)[number];
 
+export const DISCOVERABLE_CONTENT_PAGE_KEYS = [
+  "about",
+  "brand",
+  "charter",
+  "foundation",
+  "careers",
+  "policies",
+  "privacy",
+  "terms",
+  "support",
+  "method-boundaries",
+  "help-faq",
+  "help-contact",
+] as const;
+
+export type DiscoverableContentPageKey = (typeof DISCOVERABLE_CONTENT_PAGE_KEYS)[number];
+
 export const APPROVED_EN_CONTENT_PAGE_LLMS_SLUGS = [
   "brand",
   "charter",
@@ -369,6 +386,36 @@ export async function listContentPagesWithLastKnownGood(
   return withLastKnownGood({
     key: `content-pages:list:${normalizedLocale}:${kindKey}`,
     load: () => listContentPages(normalizedLocale, kind),
+    isUsable: (pages) => pages.length > 0,
+    useStaleOnUnusable: true,
+  });
+}
+
+export async function listDiscoverableContentPagesWithLastKnownGood(
+  locale: Locale | string,
+  kind?: ContentPageKind
+): Promise<LastKnownGoodResult<ContentPage[]>> {
+  const normalizedLocale = normalizeLocale(locale);
+  const kindKey = kind ?? "all";
+
+  return withLastKnownGood({
+    key: `content-pages:discoverable-detail:${normalizedLocale}:${kindKey}`,
+    load: async () => {
+      const pages = await Promise.all(
+        DISCOVERABLE_CONTENT_PAGE_KEYS.map(async (slug) => {
+          try {
+            return (await getContentPageWithLastKnownGood(slug, normalizedLocale)).value;
+          } catch {
+            return null;
+          }
+        })
+      );
+
+      return pages
+        .filter((page): page is ContentPage => Boolean(page))
+        .filter((page) => page.isPublic && page.isIndexable)
+        .filter((page) => !kind || page.kind === kind);
+    },
     isUsable: (pages) => pages.length > 0,
     useStaleOnUnusable: true,
   });
