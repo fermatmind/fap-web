@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-31T07:06:26.688381Z",
+  "updated_at": "2026-05-31T07:07:29.951990Z",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -12155,9 +12155,9 @@
       "branch": "codex/ops-api-public-tls-path-fix-01a-frontend-same-origin-foundation-api-proxy",
       "base": "main",
       "depends_on": [],
-      "status": "committed",
-      "pr_url": null,
-      "commit_sha": "6e1ebc8c140031f8655cdb03112b5a30431d94fa",
+      "status": "pr_opened",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/931",
+      "commit_sha": "088af297d9d12023296d962dea5cb749c669a4dc",
       "merge_sha": null,
       "title": "OPS-API-PUBLIC-TLS-PATH-FIX-01A: Add Foundation Daily Giving same-origin API proxy",
       "artifacts": [
@@ -12230,6 +12230,11 @@
           "at": "2026-05-31T07:06:26.688381Z",
           "status": "committed",
           "summary": "Committed scoped frontend same-origin Foundation Daily Giving API proxy fix."
+        },
+        {
+          "at": "2026-05-31T07:07:29.951990Z",
+          "status": "pr_opened",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/931 after local validation passed; no deploy or production mutation performed."
         }
       ]
     }
