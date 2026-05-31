@@ -180,6 +180,53 @@ describe("EQ v5 result renderer contract", () => {
     expect(screen.queryByText(/unlock|purchase|premium|SKU_EQ_60_FULL_299|EQ_60_FULL|paywall|blur_others|locked/i)).not.toBeInTheDocument();
   });
 
+  it("renders the SJT take entry only when backend marks the next module available", () => {
+    const reportData = responseFromFixture(highEmpathyEn as EqV5Fixture);
+    const report = reportPayload(reportData);
+    const assets = report.assets as Record<string, unknown>;
+    const bridge = assets.sjt_bridge as Record<string, unknown>;
+
+    report.next_module = {
+      available: true,
+      module_code: "EQ_SJT_16",
+      status: "available",
+      cta_asset_id: "eq.sjt_bridge.available",
+    };
+    bridge.available = true;
+    bridge.status = "available";
+    bridge.button_label = "Continue scenario module";
+
+    render(<EQResultV5 locale="en" reportData={reportData} />);
+
+    const link = screen.getByTestId("eq-sjt-bridge-link");
+    expect(link).toHaveAttribute("href", "/en/tests/eq-sjt-scenario-emotional-judgment-test/take");
+    expect(link).toHaveTextContent("Continue scenario module");
+    expect(screen.queryByText("Planned, not available yet")).not.toBeInTheDocument();
+    expect(screen.queryByText(/unlock|purchase|premium|SKU_EQ_60_FULL_299|EQ_60_FULL|paywall|blur_others|locked/i)).not.toBeInTheDocument();
+  });
+
+  it("keeps SJT planned unavailable if backend status remains planned", () => {
+    const reportData = responseFromFixture(highEmpathyEn as EqV5Fixture);
+    const report = reportPayload(reportData);
+    const assets = report.assets as Record<string, unknown>;
+    const bridge = assets.sjt_bridge as Record<string, unknown>;
+
+    report.next_module = {
+      available: true,
+      module_code: "EQ_SJT_16",
+      status: "planned",
+      cta_asset_id: "eq.sjt_bridge.planned",
+    };
+    bridge.available = true;
+    bridge.status = "planned";
+    bridge.button_label = "Continue scenario module";
+
+    render(<EQResultV5 locale="en" reportData={reportData} />);
+
+    expect(screen.getByTestId("eq-sjt-bridge")).toHaveTextContent("Planned, not available yet");
+    expect(screen.queryByTestId("eq-sjt-bridge-link")).not.toBeInTheDocument();
+  });
+
   it("fails closed when root report access says the EQ v5 payload is locked or commerce restricted", () => {
     const reportData = responseFromFixture(highEmpathyEn as EqV5Fixture, {
       locked: true,

@@ -47,6 +47,11 @@ const SCALE_ROLLOUT_ENV: Record<SupportedScaleCode, ScaleRolloutEnvConfig> = {
     percentEnv: "ROLLOUT_PERCENT_EQ_60",
     commerceEnv: "ENABLE_EQ_60_COMMERCE",
   },
+  EQ_SJT_16: {
+    enabledEnv: "ENABLE_EQ_SJT_16",
+    percentEnv: "ROLLOUT_PERCENT_EQ_SJT_16",
+    commerceEnv: "ENABLE_EQ_SJT_16_COMMERCE",
+  },
 };
 export type { SupportedScaleCode } from "@/lib/assessmentSlugMap";
 

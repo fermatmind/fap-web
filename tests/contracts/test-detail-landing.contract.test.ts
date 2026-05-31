@@ -111,6 +111,9 @@ describe("test detail landing contract", () => {
     expect(takeSource).toContain('formCode={riasecFormCode ?? undefined}');
     expect(takeSource).toContain('test.scale_code === "RIASEC" ? (');
     expect(takeSource).toContain('questionCount={riasecFormMeta?.questionCount ?? test.questions_count}');
+    expect(takeSource).toContain('import EqSjtTakeClient from "./EqSjtTakeClient"');
+    expect(takeSource).toContain('test.scale_code === "EQ_SJT_16" ? (');
+    expect(takeSource).toContain("<EqSjtTakeClient");
     expect(takeSource).not.toContain('import RiasecTakeClient from "./RiasecTakeClient"');
     expect(takeSource).not.toContain("<RiasecTakeClient");
   });

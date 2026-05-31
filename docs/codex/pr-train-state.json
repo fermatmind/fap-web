@@ -9666,7 +9666,7 @@
       "depends_on": [
         "PR-WEB-SEC-28"
       ],
-      "status": "local_checks_passed",
+      "status": "committed_pending_push",
       "train_scope": "security_findings_remediation",
       "risk_level": "informational",
       "title": "fix(audit): whitelist result load failure tracking",
@@ -9700,7 +9700,7 @@
       },
       "failure_reason": null,
       "pr_url": null,
-      "commit_sha": null,
+      "commit_sha": "pending_post_push",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -13586,6 +13586,87 @@
           "at": "2026-05-31T16:36:24.796173Z",
           "status": "pr_opened",
           "summary": "Opened GitHub PR #944 after local validation passed."
+        }
+      ]
+    },
+    {
+      "id": "PR-EQ-SJT-03",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/pr-eq-sjt-03-frontend-take-flow",
+      "base": "main",
+      "depends_on": [
+        "PR-EQ-SJT-02"
+      ],
+      "status": "pr_open_github_checks_pending",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/945",
+      "commit_sha": "pending_post_push",
+      "title": "PR-EQ-SJT-03 Frontend EQ-SJT take flow",
+      "checks": {
+        "local": {
+          "status": "pending",
+          "commands": [
+            "pnpm typecheck",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build",
+            "pnpm test:contract",
+            "pnpm exec playwright test tests/e2e/iq-eq-result-regression.spec.ts",
+            "git diff --check",
+            "git diff --cached --check"
+          ],
+          "results": {
+            "typecheck": "passed",
+            "build": "passed",
+            "contract": "passed",
+            "e2e_iq_eq_result_regression": "passed",
+            "diff_check": "passed",
+            "cached_diff_check": "passed"
+          }
+        }
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": null,
+      "local_cleanup_executed": null,
+      "scope_validation": {
+        "allowed_files": [
+          "app/(localized)/[locale]/tests/[slug]/take/EqSjtTakeClient.tsx",
+          "app/(localized)/[locale]/tests/[slug]/take/page.tsx",
+          "components/result/eq/EQSJTBridgeCTA.tsx",
+          "docs/codex/pr-train-state.json",
+          "docs/codex/pr-train.yaml",
+          "lib/assessmentSlugMap.ts",
+          "lib/rollout/scaleRollout.ts",
+          "tests/contracts/eq-result-v5-renderer.contract.test.tsx",
+          "tests/contracts/helpers/currentPrScope.ts",
+          "tests/contracts/scale-rollout.contract.test.ts",
+          "tests/contracts/test-detail-landing.contract.test.ts",
+          "tests/contracts/test-slug-aliases.contract.test.ts"
+        ],
+        "local_validation_passed": true,
+        "github_checks_green": null,
+        "post_merge_revalidated": null
+      },
+      "updated_at": "2026-05-31T16:57:18Z",
+      "history": [
+        {
+          "at": "2026-05-31T16:45:00Z",
+          "status": "implementation_in_progress",
+          "summary": "Initialized after user authorization for manifest/state updates and PR-EQ-SJT-02 merge verification."
+        },
+        {
+          "at": "2026-05-31T16:57:18Z",
+          "status": "local_checks_passed",
+          "summary": "Implemented scoped EQ-SJT frontend take-flow wiring; typecheck, build with production site URL, full contract suite, and IQ/EQ e2e regression passed."
+        },
+        {
+          "at": "2026-05-31T16:59:00Z",
+          "status": "committed_pending_push",
+          "summary": "Committed scoped PR-EQ-SJT-03 implementation; final pushed head SHA will be recorded after PR creation."
+        },
+        {
+          "at": "2026-05-31T17:01:00Z",
+          "status": "pr_open_github_checks_pending",
+          "summary": "Opened GitHub PR #945 after local validation passed."
         }
       ]
     }

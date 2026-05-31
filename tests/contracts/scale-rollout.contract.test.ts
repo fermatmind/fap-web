@@ -65,6 +65,28 @@ describe("scale rollout identity bucketing contract", () => {
     expect(fallbackIdentity.bucket).toBe(26);
   });
 
+  it("supports backend-gated EQ-SJT rollout without frontend content authority", () => {
+    const envSnapshot = createScaleRolloutEnvSnapshot({
+      ENABLE_EQ_SJT_16: "true",
+      ROLLOUT_PERCENT_EQ_SJT_16: "100",
+    });
+
+    const decision = resolveScaleRollout({
+      scaleCode: "EQ_SJT_16",
+      capabilities: {
+        enabled_in_prod: true,
+        paywall_mode: "free_only",
+      },
+      identitySeed: "eq-sjt-available-seed",
+      envSnapshot,
+    });
+
+    expect(decision.scaleCode).toBe("EQ_SJT_16");
+    expect(decision.assessmentEnabled).toBe(true);
+    expect(decision.commerceEnabled).toBe(false);
+    expect(decision.paywallMode).toBe("free_only");
+  });
+
   it("passes the proxy-provided anonymous request identity into landing and take rollout gates", () => {
     const landingSource = readSource("app/(localized)/[locale]/tests/[slug]/page.tsx");
     const takeSource = readSource("app/(localized)/[locale]/tests/[slug]/take/page.tsx");
