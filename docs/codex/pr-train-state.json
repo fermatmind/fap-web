@@ -13295,6 +13295,85 @@
           "summary": "Opened PR #940 for PR-03 sitemap and llms authority alignment."
         }
       ]
+    },
+    {
+      "id": "RESULT-EMAIL-LOOKUP-TOKEN-OPEN-04",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/result-email-lookup-token-open-04",
+      "base": "main",
+      "depends_on": [],
+      "status": "pr_opened_with_sidecar",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/941",
+      "commit_sha": "d274696c06ccdc8f9747fc6467310bd1c11c6b4c",
+      "merge_sha": null,
+      "title": "RESULT-EMAIL-LOOKUP-TOKEN-OPEN-04 render result email lookup token links",
+      "artifacts": [
+        "components/support/ResultEmailLookupForm.tsx",
+        "tests/contracts/result-email-lookup.contract.test.tsx",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "manifest_registration": {
+          "status": "passed",
+          "summary": "User explicitly authorized adding RESULT-EMAIL-LOOKUP-TOKEN-OPEN-04 to fap-web pr-train manifest/state."
+        },
+        "scope_guard": {
+          "status": "passed",
+          "summary": "Scope is limited to email lookup token-link UI, focused contract coverage, current PR scope helper, and pr-train metadata."
+        },
+        "pnpm exec vitest run tests/contracts/result-email-lookup.contract.test.tsx": {
+          "status": "passed",
+          "summary": "Focused email lookup contract passed: token-backed first-party result links become navigable, token text is not visibly rendered, and external URLs remain blocked."
+        },
+        "pnpm typecheck": {
+          "status": "passed",
+          "summary": "TypeScript validation passed."
+        },
+        "pnpm test:contract": {
+          "status": "passed",
+          "summary": "Full contract suite passed after adding current PR scope helper coverage."
+        },
+        "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build": {
+          "status": "passed",
+          "summary": "Production API build passed; generated sitemap drift was restored because sitemap changes are out of scope."
+        },
+        "pnpm verify:release-freeze": {
+          "status": "sidecar_external_failure",
+          "summary": "Contract freeze passed, but two existing MBTI e2e checks failed in result shell/share UI surfaces unrelated to email lookup: mbti-locked-unlock and mbti-share. The current PR touches only result email lookup and scoped contracts."
+        },
+        "github_checks": {
+          "status": "not_reported",
+          "summary": "GitHub reported no checks for PR #941 at initial polling."
+        },
+        "json_yaml_diff_checks": {
+          "status": "passed",
+          "summary": "pr-train-state JSON parsed, pr-train YAML parsed, git diff --check passed, and git diff --cached --check passed."
+        }
+      },
+      "failure_reason": "Sidecar only: unrelated MBTI release-freeze e2e failures; scoped email lookup checks passed.",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-05-31T12:47:08Z",
+          "status": "in_progress",
+          "summary": "Initialized after user authorization; using isolated worktree from latest origin/main."
+        },
+        {
+          "at": "2026-05-31T14:47:01Z",
+          "status": "local_checks_passed_with_sidecar",
+          "summary": "Implemented token-preserving first-party result email lookup links while keeping token text hidden and external result URLs blocked. Focused contract, typecheck, full contract suite, production API build, JSON/YAML parsing, and diff checks passed. release-freeze contract portion passed; two unrelated existing MBTI e2e checks remain recorded as sidecar."
+        },
+        {
+          "at": "2026-05-31T14:47:01Z",
+          "status": "pr_opened_with_sidecar",
+          "summary": "Opened PR #941 and rebased onto latest origin/main from implementation commit d274696c06ccdc8f9747fc6467310bd1c11c6b4c. GitHub reported no checks at initial polling; checks must be re-polled after force-push."
+        }
+      ]
     }
   ],
   "sidecar_issues": [

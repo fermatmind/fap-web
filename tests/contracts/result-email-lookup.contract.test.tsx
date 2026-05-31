@@ -32,7 +32,7 @@ describe("ResultEmailLookupForm contract", () => {
     expect(screen.getByText("输入邮箱即可找回该邮箱下保存的结果，请使用你自己的邮箱。")).toBeInTheDocument();
   });
 
-  it("looks up normalized email without rendering backend-issued result access token links", async () => {
+  it("looks up normalized email and renders backend-issued result access token links without exposing token text", async () => {
     hoisted.lookupResultsByEmail.mockResolvedValueOnce({
       ok: true,
       items: [
@@ -66,13 +66,15 @@ describe("ResultEmailLookupForm contract", () => {
     expect(screen.getByTestId("result-email-lookup-results")).toHaveTextContent("Saved results found");
     expect(screen.getByTestId("result-email-lookup-item")).toHaveTextContent("MBTI");
     expect(screen.getByTestId("result-email-lookup-item")).toHaveTextContent("INTJ-A");
-    expect(screen.getByTestId("result-email-lookup-item")).toHaveTextContent("Result link unavailable");
+    expect(screen.getByTestId("result-email-lookup-open")).toHaveAttribute(
+      "href",
+      "/en/result/attempt-email-lookup-1?access_token=result_lookup_token_1"
+    );
     expect(screen.queryByText("Access link expires")).not.toBeInTheDocument();
     expect(screen.queryByText("result_lookup_token_1")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("result-email-lookup-open")).not.toBeInTheDocument();
   });
 
-  it("does not render result links when token data is split from the URL", async () => {
+  it("appends split result access token data to first-party result URLs", async () => {
     hoisted.lookupResultsByEmail.mockResolvedValueOnce({
       ok: true,
       items: [
@@ -93,11 +95,13 @@ describe("ResultEmailLookupForm contract", () => {
     fireEvent.click(screen.getByTestId("result-email-lookup-submit"));
 
     await waitFor(() => {
-      expect(screen.getByTestId("result-email-lookup-item")).toHaveTextContent("Result link unavailable");
+      expect(screen.getByTestId("result-email-lookup-open")).toHaveAttribute(
+        "href",
+        "/en/result/attempt-email-lookup-split-token?access_token=result_lookup_token_split"
+      );
     });
 
     expect(screen.queryByText("result_lookup_token_split")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("result-email-lookup-open")).not.toBeInTheDocument();
   });
 
   it("returns a blind empty state for unmatched emails", async () => {
