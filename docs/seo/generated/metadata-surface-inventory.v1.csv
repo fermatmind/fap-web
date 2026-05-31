@@ -34,6 +34,8 @@ file,routePattern,routeFamily,exportKind,ownership,classification,risk,usesBuild
 "app/(localized)/[locale]/datasets/occupations/page.tsx","/datasets/occupations","dataset","generateMetadata","backend_owned","backend_owned","P2","true","false","true","false","false"
 "app/(localized)/[locale]/email/preferences/page.tsx","/email/preferences","other","generateMetadata","product_code_only","product_code_only","P2","true","false","false","false","true"
 "app/(localized)/[locale]/email/unsubscribe/page.tsx","/email/unsubscribe","other","generateMetadata","product_code_only","product_code_only","P2","true","false","false","false","true"
+"app/(localized)/[locale]/foundation/daily-giving/[yearMonth]/page.tsx","/foundation/daily-giving/:yearMonth","other","generateMetadata","product_code_only","product_code_only","P2","true","false","false","false","true"
+"app/(localized)/[locale]/foundation/daily-giving/page.tsx","/foundation/daily-giving","other","generateMetadata","product_code_only","product_code_only","P2","true","false","false","false","true"
 "app/(localized)/[locale]/foundation/page.tsx","/foundation","static_content_page","generateMetadata","cms_backed","safe_static","P2","false","false","false","false","false"
 "app/(localized)/[locale]/help/[slug]/page.tsx","/help/:slug","help_detail","generateMetadata","cms_backed","cms_backed","P2","true","false","true","true","true"
 "app/(localized)/[locale]/layout.tsx","/","home","direct_metadata","cms_backed","cms_backed","P2","false","false","false","false","true"
