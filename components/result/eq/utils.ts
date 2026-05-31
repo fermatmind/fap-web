@@ -4,6 +4,7 @@ import type {
   EqActionPrescriptionAsset,
   EqCareerEnvironmentAsset,
   EqCoreFormulationAsset,
+  EqV5AssetRefs,
   EqMechanismAsset,
   EqRealitySceneAsset,
   EqScientificContractAsset,
@@ -12,6 +13,8 @@ import type {
   EqV5DimensionScore,
   EqV5ReportPayload,
   EqV5ResolvedAssets,
+  EqV5SelectedAssetIds,
+  EqV5SignalSignature,
   EqV5ViewModel,
 } from "./types";
 import type { Locale } from "@/lib/i18n/locales";
@@ -86,6 +89,58 @@ function normalizeAssetArray<T extends Record<string, unknown>>(value: unknown):
     : [];
 }
 
+function assetRefs(payload: EqV5ReportPayload): EqV5AssetRefs {
+  return normalizeAssetObject<EqV5AssetRefs>(payload.asset_refs);
+}
+
+function normalizeSelectedAssetIds(value: unknown): Required<EqV5SelectedAssetIds> {
+  const record = asRecord(value);
+
+  return {
+    core_formulation_id: text(record?.core_formulation_id),
+    mechanism_ids: stringArray(record?.mechanism_ids),
+    scene_ids: stringArray(record?.scene_ids),
+    career_environment_ids: stringArray(record?.career_environment_ids),
+    action_prescription_id: text(record?.action_prescription_id),
+  };
+}
+
+function normalizeSignalSignature(value: unknown): EqV5SignalSignature {
+  const record = asRecord(value);
+  const dimensionStates = asRecord(record?.dimension_states);
+
+  return {
+    schema: text(record?.schema),
+    route_id: text(record?.route_id),
+    formulation_id: text(record?.formulation_id),
+    quality_level: text(record?.quality_level),
+    confidence_label: text(record?.confidence_label),
+    dimension_states: dimensionStates
+      ? Object.fromEntries(Object.entries(dimensionStates).map(([key, item]) => [key, text(item)]))
+      : {},
+    strongest_dimension: text(record?.strongest_dimension),
+    development_lever: text(record?.development_lever),
+    match_pattern: text(record?.match_pattern),
+  };
+}
+
+function orderAssetsByIds<T extends { id?: string }>(items: T[], ids: string[]): T[] {
+  if (items.length === 0 || ids.length === 0) return items;
+
+  const byId = new Map<string, T>();
+  for (const item of items) {
+    const id = text(item.id);
+    if (id) {
+      byId.set(id, item);
+    }
+  }
+  const ordered = ids.map((id) => byId.get(id)).filter((item): item is T => Boolean(item));
+  const used = new Set(ordered.map((item) => text(item.id)));
+  const rest = items.filter((item) => !used.has(text(item.id)));
+
+  return [...ordered, ...rest];
+}
+
 export function resolveEqV5Payload(reportData: ReportResponse | null | undefined): EqV5ReportPayload | null {
   const reportPayload = asRecord(reportData?.report);
   const rootPayload = asRecord(reportData);
@@ -155,6 +210,33 @@ export function normalizeEqV5Report(reportData: ReportResponse, locale: Locale):
   if (!payload) return null;
 
   const assets = normalizeAssetObject<EqV5ResolvedAssets>(payload.assets);
+  const refs = assetRefs(payload);
+  const routeAsset = normalizeAssetObject<NonNullable<EqV5ResolvedAssets["personalization_route"]>>(
+    assets.personalization_route
+  );
+  const selectedAssetIds = normalizeSelectedAssetIds(
+    payload.interpretation?.selected_asset_ids ?? refs.selected_asset_ids ?? routeAsset.selected_asset_ids
+  );
+  const signalSignature = normalizeSignalSignature(
+    payload.interpretation?.signal_signature ?? refs.signal_signature ?? routeAsset.signal_signature
+  );
+  const routeId =
+    text(payload.interpretation?.route_id) ||
+    text(refs.personalization_route_id) ||
+    text(routeAsset.id) ||
+    text(payload.interpretation?.core_formulation_id);
+  const resolvedMechanisms = orderAssetsByIds(
+    normalizeAssetArray<EqMechanismAsset>(assets.mechanisms),
+    selectedAssetIds.mechanism_ids
+  );
+  const resolvedScenes = orderAssetsByIds(
+    normalizeAssetArray<EqRealitySceneAsset>(assets.reality_scenes),
+    selectedAssetIds.scene_ids
+  );
+  const resolvedCareer = orderAssetsByIds(
+    normalizeAssetArray<EqCareerEnvironmentAsset>(assets.career_environment),
+    selectedAssetIds.career_environment_ids
+  );
 
   return {
     locale,
@@ -169,6 +251,8 @@ export function normalizeEqV5Report(reportData: ReportResponse, locale: Locale):
       explanation_asset_id: text(payload.quality?.explanation_asset_id) || text(assets.quality?.explanation_asset_id),
     },
     interpretation: {
+      route_id: routeId,
+      signal_signature: signalSignature,
       core_formulation_id: text(payload.interpretation?.core_formulation_id),
       strongest_dimension: text(payload.interpretation?.strongest_dimension),
       development_lever: text(payload.interpretation?.development_lever),
@@ -176,6 +260,12 @@ export function normalizeEqV5Report(reportData: ReportResponse, locale: Locale):
       primary_scene_ids: stringArray(payload.interpretation?.primary_scene_ids),
       career_environment_ids: stringArray(payload.interpretation?.career_environment_ids),
       action_prescription_id: text(payload.interpretation?.action_prescription_id) || null,
+      selected_asset_ids: selectedAssetIds,
+    },
+    route: {
+      routeId,
+      signalSignature,
+      selectedAssetIds,
     },
     nextModule: {
       available: payload.next_module?.available === true,
@@ -193,12 +283,17 @@ export function normalizeEqV5Report(reportData: ReportResponse, locale: Locale):
       scientific_contract: normalizeAssetObject<EqScientificContractAsset>(assets.scientific_contract),
       score_system: normalizeAssetObject<EqScoreSystemAsset>(assets.score_system),
       core_formulation: normalizeAssetObject<EqCoreFormulationAsset>(assets.core_formulation),
-      mechanisms: normalizeAssetArray<EqMechanismAsset>(assets.mechanisms),
-      reality_scenes: normalizeAssetArray<EqRealitySceneAsset>(assets.reality_scenes),
-      career_environment: normalizeAssetArray<EqCareerEnvironmentAsset>(assets.career_environment),
+      mechanisms: resolvedMechanisms,
+      reality_scenes: resolvedScenes,
+      career_environment: resolvedCareer,
       action_prescription: normalizeAssetObject<EqActionPrescriptionAsset>(assets.action_prescription),
       sjt_bridge: normalizeAssetObject<EqSjtBridgeAsset>(assets.sjt_bridge),
       quality: normalizeAssetObject<{ explanation_asset_id?: string; confidence_label?: string }>(assets.quality),
+      personalization_route: {
+        id: routeId,
+        signal_signature: signalSignature,
+        selected_asset_ids: selectedAssetIds,
+      },
     },
   };
 }

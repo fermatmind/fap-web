@@ -71,11 +71,17 @@ describe("EQ v5 result renderer contract", () => {
     const reportData = responseFromFixture(highEmpathyEn as EqV5Fixture);
 
     expect(isEqV5ReportResponse(reportData)).toBe(true);
+    expect(normalizeEqV5Report(reportData, "en")?.route.routeId).toBe("high_empathy_low_recovery");
+    expect(normalizeEqV5Report(reportData, "en")?.route.signalSignature.match_pattern).toBe("EM_high_ER_low");
+    expect(normalizeEqV5Report(reportData, "en")?.route.selectedAssetIds.action_prescription_id).toBe(
+      "empathy_boundary"
+    );
     render(<EQResultV5 locale="en" reportData={reportData} attemptId="eq-result-001" />);
 
     expect(screen.getByTestId("eq-result-v5")).toBeInTheDocument();
     expect(screen.getByTestId("eq-result-hero")).toHaveTextContent("High Empathy, Low Recovery");
     expect(screen.getByTestId("eq-evidence-snapshot")).toHaveTextContent("Evidence Snapshot");
+    expect(screen.getByTestId("eq-evidence-snapshot")).toHaveTextContent("Selected by backend route matrix");
     expect(screen.getByTestId("eq-quality-banner")).toHaveTextContent("Interpretation Confidence");
     expect(screen.getByTestId("eq-emotional-matrix")).toHaveTextContent("Emotional Matrix");
     expect(screen.getByTestId("eq-emotional-matrix")).toHaveTextContent("Self-Awareness");
@@ -87,6 +93,7 @@ describe("EQ v5 result renderer contract", () => {
     expect(screen.getByTestId("eq-sjt-bridge")).toHaveTextContent("It supplements self-report");
     expect(screen.getByTestId("eq-scientific-boundary")).toHaveTextContent("Scientific Boundary");
     expect(screen.getByTestId("eq-save-share-related")).toHaveTextContent("Big Five");
+    expect(screen.queryByText(/high_empathy_low_recovery|EM_ER_high_low|emotional_labor_high|eq60\.signal_signature\.v1/i)).not.toBeInTheDocument();
   });
 
   it("covers balanced_integrated canonical payload in zh-CN and en", () => {
@@ -95,6 +102,10 @@ describe("EQ v5 result renderer contract", () => {
 
     expect(normalizeEqV5Report(zhReport, "zh")?.interpretation.core_formulation_id).toBe("balanced_integrated");
     expect(normalizeEqV5Report(enReport, "en")?.interpretation.core_formulation_id).toBe("balanced_integrated");
+    expect(normalizeEqV5Report(enReport, "en")?.route.selectedAssetIds.mechanism_ids).toEqual([
+      "SA_ER_high_high",
+      "EM_RM_high_high",
+    ]);
 
     const { rerender } = render(<EQResultV5 locale="zh" reportData={zhReport} />);
     expect(screen.getByTestId("eq-result-hero")).toHaveTextContent("均衡整合型");
@@ -105,11 +116,37 @@ describe("EQ v5 result renderer contract", () => {
     expect(screen.getByTestId("eq-action-prescription")).toHaveTextContent("Emotion Labeling");
   });
 
+  it("orders resolved assets by backend selected_asset_ids", () => {
+    const reportData = responseFromFixture(balancedEn as EqV5Fixture);
+    const report = reportPayload(reportData);
+    const assets = report.assets as Record<string, unknown>;
+    assets.mechanisms = [...((assets.mechanisms as unknown[]) ?? [])].reverse();
+    assets.reality_scenes = [...((assets.reality_scenes as unknown[]) ?? [])].reverse();
+    assets.career_environment = [...((assets.career_environment as unknown[]) ?? [])].reverse();
+
+    const viewModel = normalizeEqV5Report(reportData, "en");
+
+    expect(viewModel?.route.routeId).toBe("balanced_integrated");
+    expect(viewModel?.assets.mechanisms.map((item) => item.id)).toEqual(["SA_ER_high_high", "EM_RM_high_high"]);
+    expect(viewModel?.assets.reality_scenes.map((item) => item.id)).toEqual([
+      "feedback",
+      "team_collaboration",
+      "career_environment",
+    ]);
+    expect(viewModel?.assets.career_environment.map((item) => item.id)).toEqual([
+      "interpersonal_density_medium",
+      "feedback_intensity_medium",
+      "autonomy_recovery_medium",
+    ]);
+  });
+
   it("keeps low_confidence_result cautious and does not render strong formulation claims", () => {
     const reportData = responseFromFixture(lowConfidenceEn as EqV5Fixture);
     const viewModel = normalizeEqV5Report(reportData, "en");
 
     expect(viewModel?.interpretation.core_formulation_id).toBe("low_confidence_result");
+    expect(viewModel?.route.routeId).toBe("low_confidence_result");
+    expect(viewModel?.route.signalSignature.match_pattern).toBe("quality_low_overrides_dimension_pattern");
     expect(viewModel?.interpretation.action_prescription_id).toBe("retest_reflection");
 
     render(<EQResultV5 locale="en" reportData={reportData} />);

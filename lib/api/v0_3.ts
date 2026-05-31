@@ -290,6 +290,18 @@ export type EqV5ReportPayload = {
     explanation_asset_id?: string;
   };
   interpretation?: {
+    route_id?: string;
+    signal_signature?: {
+      schema?: string;
+      route_id?: string;
+      formulation_id?: string;
+      quality_level?: string;
+      confidence_label?: string;
+      dimension_states?: Record<string, string>;
+      strongest_dimension?: string;
+      development_lever?: string;
+      match_pattern?: string;
+    };
     core_formulation_id?: string;
     strongest_dimension?: string;
     development_lever?: string;
@@ -297,6 +309,13 @@ export type EqV5ReportPayload = {
     primary_scene_ids?: string[];
     career_environment_ids?: string[];
     action_prescription_id?: string | null;
+    selected_asset_ids?: {
+      core_formulation_id?: string;
+      mechanism_ids?: string[];
+      scene_ids?: string[];
+      career_environment_ids?: string[];
+      action_prescription_id?: string;
+    };
   };
   next_module?: {
     available?: boolean;

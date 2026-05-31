@@ -10,7 +10,7 @@ export function EQEvidenceSnapshot({ viewModel }: { viewModel: EqV5ViewModel }) 
         title={locale === "zh" ? "证据快照" : "Evidence Snapshot"}
         subtitle={assets.score_system.global_index?.meaning}
       />
-      <div className="grid gap-3 md:grid-cols-4">
+      <div className="grid gap-3 md:grid-cols-5">
         <SnapshotMetric
           label={globalScore?.label || assets.score_system.global_index?.label || (locale === "zh" ? "综合指数" : "Global index")}
           value={formatEqScore(globalScore?.standard_score)}
@@ -28,6 +28,11 @@ export function EQEvidenceSnapshot({ viewModel }: { viewModel: EqV5ViewModel }) 
           label={locale === "zh" ? "常模状态" : "Norm status"}
           value={methodology.norm_status || "—"}
           meta={methodology.norm_status === "provisional" ? (locale === "zh" ? "阶段性常模" : "Provisional norms") : undefined}
+        />
+        <SnapshotMetric
+          label={locale === "zh" ? "阅读路径" : "Reading path"}
+          value={assets.core_formulation.title || labelForCode(interpretation.route_id, dimensions, viewModel)}
+          meta={viewModel.route.signalSignature.match_pattern ? (locale === "zh" ? "由后端路径矩阵选择" : "Selected by backend route matrix") : undefined}
         />
       </div>
     </section>

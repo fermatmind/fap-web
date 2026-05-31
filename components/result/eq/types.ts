@@ -35,6 +35,8 @@ export type EqV5ReportPayload = {
     explanation_asset_id?: string;
   };
   interpretation?: {
+    route_id?: string;
+    signal_signature?: EqV5SignalSignature;
     core_formulation_id?: string;
     strongest_dimension?: string;
     development_lever?: string;
@@ -42,6 +44,7 @@ export type EqV5ReportPayload = {
     primary_scene_ids?: string[];
     career_environment_ids?: string[];
     action_prescription_id?: string | null;
+    selected_asset_ids?: EqV5SelectedAssetIds;
   };
   next_module?: {
     available?: boolean;
@@ -58,6 +61,38 @@ export type EqV5ReportPayload = {
   asset_refs?: unknown;
   assets?: EqV5ResolvedAssets;
   report_tags?: string[];
+  [key: string]: unknown;
+};
+
+export type EqV5SignalSignature = {
+  schema?: string;
+  route_id?: string;
+  formulation_id?: string;
+  quality_level?: string;
+  confidence_label?: string;
+  dimension_states?: Record<string, string>;
+  strongest_dimension?: string;
+  development_lever?: string;
+  match_pattern?: string;
+};
+
+export type EqV5SelectedAssetIds = {
+  core_formulation_id?: string;
+  mechanism_ids?: string[];
+  scene_ids?: string[];
+  career_environment_ids?: string[];
+  action_prescription_id?: string;
+};
+
+export type EqV5AssetRefs = {
+  personalization_route_id?: string;
+  signal_signature?: EqV5SignalSignature;
+  selected_asset_ids?: EqV5SelectedAssetIds;
+  core_formulation_id?: string;
+  mechanism_ids?: string[];
+  scene_ids?: string[];
+  career_environment_ids?: string[];
+  action_prescription_id?: string;
   [key: string]: unknown;
 };
 
@@ -174,6 +209,17 @@ export type EqV5ResolvedAssets = {
     explanation_asset_id?: string;
     confidence_label?: string;
   };
+  personalization_route?: {
+    id?: string;
+    signal_signature?: EqV5SignalSignature;
+    selected_asset_ids?: EqV5SelectedAssetIds;
+  };
+};
+
+export type EqV5PersonalizationRoute = {
+  routeId: string;
+  signalSignature: EqV5SignalSignature;
+  selectedAssetIds: Required<EqV5SelectedAssetIds>;
 };
 
 export type EqV5ViewModel = {
@@ -184,6 +230,7 @@ export type EqV5ViewModel = {
   dimensions: EqV5DimensionScore[];
   quality: NonNullable<EqV5ReportPayload["quality"]>;
   interpretation: NonNullable<EqV5ReportPayload["interpretation"]>;
+  route: EqV5PersonalizationRoute;
   nextModule: NonNullable<EqV5ReportPayload["next_module"]>;
   methodology: NonNullable<EqV5ReportPayload["methodology"]>;
   assets: Required<EqV5ResolvedAssets>;

@@ -251,8 +251,9 @@ test("EQ uses option anchors when question options are empty", async ({ page }) 
   await expect(page.getByRole("radio", { name: "Strongly Agree" })).toHaveAttribute("aria-checked", "true");
   await page.goto(`/en/result/${attemptId}`);
   await expect(page.getByTestId("eq-result-v5")).toBeVisible();
-  await expect(page.getByText("High Empathy, Low Recovery")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "High Empathy, Low Recovery" })).toBeVisible();
   await expect(page.getByText("Evidence Snapshot")).toBeVisible();
+  await expect(page.getByText("Selected by backend route matrix")).toBeVisible();
   await expect(page.getByRole("heading", { name: "Interpretation Confidence" })).toBeVisible();
   await expect(page.getByText("Emotional Matrix")).toBeVisible();
   await expect(page.getByText("Empathy Boundary")).toBeVisible();
@@ -261,6 +262,7 @@ test("EQ uses option anchors when question options are empty", async ({ page }) 
   await expect(page.getByText("Scientific Boundary")).toBeVisible();
   await expect(page.getByText(/Unlock|Purchase|SKU_EQ_60_FULL_299|EQ_60_FULL|locked|blur_others|paywall/i)).toHaveCount(0);
   await expect(page.getByText(/profile:|quality_level:|focus:|bucket:/i)).toHaveCount(0);
+  await expect(page.getByText(/high_empathy_low_recovery|EM_ER_high_low|emotional_labor_high|eq60\.signal_signature\.v1/i)).toHaveCount(0);
 });
 
 test("IQ renders stem prompt/svg and submits with visual options", async ({ page }) => {
