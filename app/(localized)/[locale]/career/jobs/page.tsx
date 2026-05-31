@@ -91,6 +91,8 @@ export default async function CareerJobsPage({
   const members = buildRenderableCareerDatasetMembers({
     datasetMembers: dataset?.members ?? [],
     detailReadyJobs,
+    allowStaticFallback: false,
+    excludeNonPublicDatasetMembers: true,
   });
   const families = buildCareerFamilyDirectory(members, locale);
   const visibleMembers = filterCareerDatasetMembers({
@@ -120,6 +122,11 @@ export default async function CareerJobsPage({
             <h1 className="m-0 whitespace-nowrap text-2xl font-semibold tracking-tight text-slate-950 sm:text-3xl md:text-5xl">
               {locale === "zh" ? "测量自己，看见职业，训练未来" : `${occupationCount} occupations, organized by industry`}
             </h1>
+            <p className="m-0 text-sm leading-6 text-slate-500" data-testid="career-library-result-summary">
+              {locale === "zh"
+                ? `当前显示 ${visibleMembers.length} 个职业；${detailReadyCount} 个详情页由后端发布门控确认。`
+                : `Showing ${visibleMembers.length} occupations; ${detailReadyCount} detail pages are confirmed by backend publication gates.`}
+            </p>
           </div>
 
           <div className="grid gap-3 md:grid-cols-4" data-testid="career-library-summary">

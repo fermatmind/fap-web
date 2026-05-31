@@ -110,9 +110,9 @@ describe("career all occupations library contract", () => {
     expect(html).toContain("career-all-occupations-hero");
     expect(html).toContain("career-occupation-directory");
     expect(html).toContain("Accountants and auditors");
-    expect(html).toContain("Actors");
+    expect(html).not.toContain(">Actors<");
     expect(html).toContain("Detail ready");
-    expect(html).toContain("Directory only");
+    expect(html).not.toContain("Directory only");
     expect(html).not.toContain("career-job-search-resolve-handoff-assist");
   });
 
