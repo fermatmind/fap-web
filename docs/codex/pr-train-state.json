@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-31T07:38:35.255Z",
+  "updated_at": "2026-05-31T07:39:09.871Z",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -12675,9 +12675,9 @@
       "depends_on": [
         "OPS-API-PUBLIC-TLS-PATH-FIX-01A-FRONTEND-SAME-ORIGIN-FOUNDATION-API-PROXY"
       ],
-      "status": "local_checks_passed",
-      "pr_url": null,
-      "commit_sha": "356df0756c4e62890b82838dc6ba049186107b8d",
+      "status": "pr_opened",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/933",
+      "commit_sha": "ce6bd57ee981552f6ca14034b2bb6d6ae7cd06fd",
       "merge_sha": null,
       "title": "PR-FDN-02B: Add Foundation Daily Giving frontend pages",
       "artifacts": [
@@ -12748,6 +12748,11 @@
           "at": "2026-05-31T07:38:35.255Z",
           "status": "commit_created",
           "summary": "Created scoped implementation commit 356df0756c4e62890b82838dc6ba049186107b8d for PR-FDN-02B after local checks passed."
+        },
+        {
+          "at": "2026-05-31T07:39:09.871Z",
+          "status": "pr_opened",
+          "summary": "Opened PR #933 for PR-FDN-02B after required local checks passed."
         }
       ]
     }
