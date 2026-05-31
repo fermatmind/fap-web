@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-31T23:10:41.752346Z",
+  "updated_at": "2026-05-31T23:10:57.472160Z",
   "status": "in_progress",
   "phase": "iq_production_launch_release",
   "pr_namespace": "PR-PRAC-*",
@@ -13856,7 +13856,7 @@
         "IQ-OBS-01"
       ],
       "title": "IQ-RELEASE-01 finalize production launch readiness ledger",
-      "commit_sha": null,
+      "commit_sha": "08ba8e5f",
       "pr_url": null,
       "pr_number": null,
       "failure_reason": null,
@@ -13871,7 +13871,8 @@
         "python3 YAML/manifest validation": "passed",
         "git diff --check": "passed",
         "scope_validation": "passed: changed files limited to IQ-RELEASE-01 docs, train metadata, scope helper, and contract test",
-        "local_dependency_note": "isolated worktree used symlink to primary fap-web node_modules for Vitest only; node_modules ignored and not staged"
+        "local_dependency_note": "isolated worktree used symlink to primary fap-web node_modules for Vitest only; node_modules ignored and not staged",
+        "commit_sha": "recorded: 08ba8e5fddeb4cd837852f5e04050c884bf553ba"
       },
       "scope_validation": {
         "allowed_paths_only": true,
@@ -13903,10 +13904,15 @@
           "at": "2026-05-31T23:10:41.752346Z",
           "status": "local_scope_validation_passed",
           "summary": "Release ledger, manifest/state, and contract test passed local scope validation."
+        },
+        {
+          "at": "2026-05-31T23:10:57.472160Z",
+          "status": "committed",
+          "summary": "Committed scoped IQ-RELEASE-01 release ledger at 08ba8e5f."
         }
       ],
-      "status": "local_scope_validation_passed",
-      "updated_at": "2026-05-31T23:10:41.752346Z"
+      "status": "committed",
+      "updated_at": "2026-05-31T23:10:57.472160Z"
     }
   ],
   "sidecar_issues": [
