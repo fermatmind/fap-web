@@ -74,6 +74,26 @@ const ENRICHMENT_CONCURRENCY = 4;
 const LLMS_FULL_CACHE_FRESH_MS = 60 * 60 * 1000;
 const LLMS_FULL_CACHE_STALE_MS = 24 * 60 * 60 * 1000;
 const LLMS_FULL_RESPONSE_TIMEOUT = Symbol("llms-full-response-timeout");
+const LLMS_FULL_EXPECTED_CAREER_JOB_URL_COUNT = 1046 * 2;
+const LLMS_FULL_REQUIRED_CAREER_JOB_SLUGS = [
+  "accountants-and-auditors",
+  "actors",
+  "actuaries",
+  "aerospace-engineers",
+  "agricultural-and-food-scientists",
+  "administrative-law-judges-adjudicators-and-hearing-officers",
+  "acupuncturists",
+  "acute-care-nurses",
+] as const;
+const LLMS_FULL_EXCLUDED_CAREER_JOB_SLUGS = [
+  "software-developers",
+  "digital-forensics-analysts",
+  "computer-occupations-all-other",
+] as const;
+
+function shouldRequireCompleteCareerJobCohort(): boolean {
+  return process.env.NODE_ENV !== "test" || process.env.FERMATMIND_LLMS_FULL_REQUIRE_CAREER_COHORT === "true";
+}
 
 type LlmsFullResponseMode = "generated" | "cache" | "stale-cache" | "degraded";
 
@@ -383,6 +403,46 @@ function createLlmsFullResponse(text: string, mode: LlmsFullResponseMode): NextR
       "X-FermatMind-LLMS-Full-Mode": mode,
     },
   });
+}
+
+function canonicalCareerJobUrlSet(text: string, siteUrl: string): Set<string> {
+  const escapedSiteUrl = siteUrl.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const pattern = new RegExp(`${escapedSiteUrl}/(?:en|zh)/career/jobs/[a-z0-9-]+`, "g");
+
+  return new Set(text.match(pattern) ?? []);
+}
+
+function isCompleteLlmsFullText(text: string, siteUrl: string): boolean {
+  if (!text.includes("# FermatMind llms-full.txt") || text.includes("Mode: degraded")) {
+    return false;
+  }
+
+  for (const slug of LLMS_FULL_EXCLUDED_CAREER_JOB_SLUGS) {
+    if (text.includes(`${siteUrl}/en/career/jobs/${slug}`) || text.includes(`${siteUrl}/zh/career/jobs/${slug}`)) {
+      return false;
+    }
+  }
+
+  if (/(staging\.fermatmind\.com|\/(?:take|result|share|orders?|pay|payment)(?:\/|$))/i.test(text)) {
+    return false;
+  }
+
+  if (!shouldRequireCompleteCareerJobCohort()) {
+    return true;
+  }
+
+  const careerUrls = canonicalCareerJobUrlSet(text, siteUrl);
+  if (careerUrls.size < LLMS_FULL_EXPECTED_CAREER_JOB_URL_COUNT) {
+    return false;
+  }
+
+  for (const slug of LLMS_FULL_REQUIRED_CAREER_JOB_SLUGS) {
+    if (!careerUrls.has(`${siteUrl}/en/career/jobs/${slug}`) || !careerUrls.has(`${siteUrl}/zh/career/jobs/${slug}`)) {
+      return false;
+    }
+  }
+
+  return true;
 }
 
 async function waitForLlmsFullBuildBudget(
@@ -902,17 +962,18 @@ export async function GET() {
   }
 
   const siteUrl = getSiteUrlOrThrow();
-  const freshCachedText = getCachedLlmsFullText(siteUrl, LLMS_FULL_CACHE_FRESH_MS);
+  const cacheOptions = { isCacheable: (text: string) => isCompleteLlmsFullText(text, siteUrl) };
+  const freshCachedText = await getCachedLlmsFullText(siteUrl, LLMS_FULL_CACHE_FRESH_MS, cacheOptions);
   if (freshCachedText) {
     return createLlmsFullResponse(freshCachedText, "cache");
   }
 
-  const buildResult = await waitForLlmsFullBuildBudget(getOrStartLlmsFullBuild(siteUrl, buildLlmsFullText));
+  const buildResult = await waitForLlmsFullBuildBudget(getOrStartLlmsFullBuild(siteUrl, buildLlmsFullText, cacheOptions));
   if (typeof buildResult === "string") {
     return createLlmsFullResponse(buildResult, "generated");
   }
 
-  const staleCachedText = getCachedLlmsFullText(siteUrl, LLMS_FULL_CACHE_STALE_MS);
+  const staleCachedText = await getCachedLlmsFullText(siteUrl, LLMS_FULL_CACHE_STALE_MS, cacheOptions);
   if (staleCachedText) {
     return createLlmsFullResponse(staleCachedText, "stale-cache");
   }

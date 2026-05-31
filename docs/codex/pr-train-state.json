@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-31T06:20:00+08:00",
+  "updated_at": "2026-05-31T09:15:00+08:00",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -11957,10 +11957,10 @@
       "depends_on": [
         "DETAIL_READY_1046_DISCOVERABILITY_EXPOSURE_REPAIR-01"
       ],
-      "status": "pr_opened",
+      "status": "merged",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/926",
       "commit_sha": "08c7fd4557ded85975bd1bc46042304884df2e34",
-      "merge_sha": null,
+      "merge_sha": "9f3f4d2c2836223438dc3919220c4f8d490b46b2",
       "title": "DETAIL_READY_1046_CAREER_DETAIL_METADATA_AND_LLMS_FULL_STABILITY_REPAIR-01 career detail metadata and llms-full stability repair",
       "artifacts": [
         "app/(localized)/[locale]/career/jobs/[slug]/page.tsx",
@@ -12014,9 +12014,9 @@
         "diff_check": "passed"
       },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-05-29T03:19:49Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-29T11:00:00+08:00",
@@ -12042,6 +12042,99 @@
           "at": "2026-05-29T11:14:00+08:00",
           "status": "pr_opened",
           "summary": "Opened fap-web PR #926 for DETAIL_READY_1046_CAREER_DETAIL_METADATA_AND_LLMS_FULL_STABILITY_REPAIR-01."
+        },
+        {
+          "at": "2026-05-31T08:45:00+08:00",
+          "status": "merged_reconciled",
+          "summary": "Reconciled fap-web PR #926 as merged at 9f3f4d2c2836223438dc3919220c4f8d490b46b2; remote branch is deleted and local cleanup had been executed before DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01 started."
+        }
+      ]
+    },
+    {
+      "id": "DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/detail-ready-1046-llms-full-artifact-consistency-repair-01",
+      "base": "main",
+      "depends_on": [
+        "DETAIL_READY_1046_CAREER_DETAIL_METADATA_AND_LLMS_FULL_STABILITY_REPAIR-01"
+      ],
+      "status": "local_checks_passed",
+      "pr_url": null,
+      "commit_sha": "baf194c8df795ebe9246a7e739454781b97b84c4",
+      "merge_sha": null,
+      "title": "DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01 llms-full artifact consistency repair",
+      "artifacts": [
+        "app/llms-full.txt/route.ts",
+        "lib/seo/llmsFullResponseCache.ts",
+        "tests/contracts/detail-ready-1046-career-detail-metadata-and-llms-full-stability-repair-01.contract.test.ts",
+        "tests/contracts/detail-ready-1046-llms-full-artifact-consistency-repair-01.contract.test.ts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/seo/detail-ready-1046-llms-full-artifact-consistency-repair-01.md",
+        "docs/seo/generated/detail-ready-1046-llms-full-artifact-consistency-repair-01.v1.json",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "focused_contract": {
+          "command": "pnpm exec vitest run tests/contracts/detail-ready-1046-llms-full-artifact-consistency-repair-01.contract.test.ts tests/contracts/detail-ready-1046-career-detail-metadata-and-llms-full-stability-repair-01.contract.test.ts tests/contracts/llms-route-fanout.contract.test.ts",
+          "status": "passed"
+        },
+        "focused_contract_regression": {
+          "command": "pnpm exec vitest run tests/contracts/detail-ready-1046-llms-full-artifact-consistency-repair-01.contract.test.ts tests/contracts/global-en-zh-content-pages-llms-exposure-repair-01.contract.test.ts tests/contracts/llms-full-enrichment.contract.test.ts tests/contracts/llms-parity-contract.contract.test.ts tests/contracts/detail-ready-1046-career-detail-metadata-and-llms-full-stability-repair-01.contract.test.ts tests/contracts/llms-route-fanout.contract.test.ts",
+          "status": "passed"
+        },
+        "lint": {
+          "command": "pnpm lint .",
+          "status": "passed_with_pre_existing_warnings",
+          "warnings": 8
+        },
+        "typecheck": {
+          "command": "pnpm typecheck",
+          "status": "passed"
+        },
+        "build": {
+          "command": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build",
+          "status": "passed",
+          "note": "postbuild regenerated public/sitemap.xml; generated sitemap drift was restored because sitemap mutation is out of scope for this PR."
+        },
+        "test_contract": {
+          "command": "pnpm test:contract",
+          "status": "passed",
+          "summary": "404 contract files and 2278 tests passed."
+        },
+        "big5_contract_freeze": {
+          "command": "pnpm exec vitest run tests/contracts/big5.contract.test.ts tests/contracts/big5-result-assembler.contract.test.ts tests/contracts/big5-secondary-surfaces.contract.test.tsx",
+          "status": "passed"
+        },
+        "enneagram_contract_freeze": {
+          "command": "pnpm exec vitest run tests/contracts/enneagram-api.contract.test.ts tests/contracts/enneagram-take-flow.contract.test.tsx tests/contracts/enneagram-result-assembler.contract.test.ts tests/contracts/enneagram-rich-result-report.contract.test.tsx tests/contracts/enneagram-secondary-surfaces.contract.test.tsx",
+          "status": "passed"
+        },
+        "json_yaml_parse": "passed",
+        "scope_validation": "passed",
+        "diff_check": "passed",
+        "cached_diff_check": "passed"
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-05-31T08:45:00+08:00",
+          "status": "in_progress",
+          "summary": "User authorized DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01 as a scoped fap-web PR and authorized current manifest/state entry only."
+        },
+        {
+          "at": "2026-05-31T09:15:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Implemented complete-artifact cache validation, shared last-known-good llms-full response caching, and test isolation controls. Focused contracts, full contract suite, lint, typecheck, production API build, Big Five/Enneagram freeze checks, and JSON/YAML parse passed."
+        },
+        {
+          "at": "2026-05-31T09:18:00+08:00",
+          "status": "committed",
+          "summary": "Committed scoped implementation at baf194c8df795ebe9246a7e739454781b97b84c4."
         }
       ]
     }

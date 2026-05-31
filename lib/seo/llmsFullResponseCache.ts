@@ -1,3 +1,7 @@
+import { mkdir, readFile, rename, unlink, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import path from "node:path";
+
 type LlmsFullResponseCache = {
   siteUrl: string;
   text: string;
@@ -7,35 +11,116 @@ type LlmsFullResponseCache = {
 let llmsFullResponseCache: LlmsFullResponseCache | null = null;
 let llmsFullBuildPromise: Promise<string | null> | null = null;
 
-export function clearLlmsFullResponseCache(): void {
-  llmsFullResponseCache = null;
-  llmsFullBuildPromise = null;
+type LlmsFullCacheOptions = {
+  isCacheable?: (text: string) => boolean;
+};
+
+function sharedCachePath(): string {
+  return path.join(process.env.FERMATMIND_LLMS_FULL_CACHE_DIR || tmpdir(), "fermatmind-llms-full-response-cache.v1.json");
 }
 
-export function getCachedLlmsFullText(siteUrl: string, maxAgeMs: number): string | null {
-  if (!llmsFullResponseCache || llmsFullResponseCache.siteUrl !== siteUrl) {
+function isSharedLlmsFullCacheEnabled(): boolean {
+  return process.env.NODE_ENV !== "test" || process.env.FERMATMIND_LLMS_FULL_ENABLE_SHARED_CACHE === "true";
+}
+
+async function readSharedCache(siteUrl: string, maxAgeMs: number, options: LlmsFullCacheOptions = {}): Promise<string | null> {
+  if (!isSharedLlmsFullCacheEnabled()) {
     return null;
   }
 
-  return Date.now() - llmsFullResponseCache.cachedAtMs <= maxAgeMs ? llmsFullResponseCache.text : null;
+  try {
+    const raw = await readFile(sharedCachePath(), "utf8");
+    const payload = JSON.parse(raw) as Partial<LlmsFullResponseCache>;
+    const text = typeof payload.text === "string" ? payload.text : "";
+    const cachedAtMs = Number(payload.cachedAtMs);
+
+    if (payload.siteUrl !== siteUrl || !text || !Number.isFinite(cachedAtMs)) {
+      return null;
+    }
+
+    if (Date.now() - cachedAtMs > maxAgeMs) {
+      return null;
+    }
+
+    if (options.isCacheable && !options.isCacheable(text)) {
+      return null;
+    }
+
+    llmsFullResponseCache = {
+      siteUrl,
+      text,
+      cachedAtMs,
+    };
+
+    return text;
+  } catch {
+    return null;
+  }
+}
+
+async function writeSharedCache(cache: LlmsFullResponseCache): Promise<void> {
+  if (!isSharedLlmsFullCacheEnabled()) {
+    return;
+  }
+
+  try {
+    const target = sharedCachePath();
+    await mkdir(path.dirname(target), { recursive: true });
+    const temporary = `${target}.${process.pid}.${Date.now()}.tmp`;
+    await writeFile(temporary, `${JSON.stringify(cache)}\n`, "utf8");
+    await rename(temporary, target);
+  } catch {
+    // The in-process cache remains valid if the shared artifact cannot be written.
+  }
+}
+
+export function clearLlmsFullResponseCache(): void {
+  llmsFullResponseCache = null;
+  llmsFullBuildPromise = null;
+  if (isSharedLlmsFullCacheEnabled()) {
+    void unlink(sharedCachePath()).catch(() => undefined);
+  }
+}
+
+export async function getCachedLlmsFullText(
+  siteUrl: string,
+  maxAgeMs: number,
+  options: LlmsFullCacheOptions = {}
+): Promise<string | null> {
+  if (llmsFullResponseCache?.siteUrl === siteUrl) {
+    const text = llmsFullResponseCache.text;
+    const isFresh = Date.now() - llmsFullResponseCache.cachedAtMs <= maxAgeMs;
+    const isCacheable = !options.isCacheable || options.isCacheable(text);
+
+    if (isFresh && isCacheable) {
+      return text;
+    }
+  }
+
+  return readSharedCache(siteUrl, maxAgeMs, options);
 }
 
 export function getOrStartLlmsFullBuild(
   siteUrl: string,
-  buildText: (siteUrl: string) => Promise<string | null>
+  buildText: (siteUrl: string) => Promise<string | null>,
+  options: LlmsFullCacheOptions = {}
 ): Promise<string | null> {
   if (!llmsFullBuildPromise) {
     llmsFullBuildPromise = buildText(siteUrl)
       .then((text) => {
-        if (text !== null) {
-          llmsFullResponseCache = {
+        if (text !== null && (!options.isCacheable || options.isCacheable(text))) {
+          const cache = {
             siteUrl,
             text,
             cachedAtMs: Date.now(),
           };
+          llmsFullResponseCache = cache;
+          void writeSharedCache(cache);
+
+          return text;
         }
 
-        return text;
+        return null;
       })
       .catch(() => null)
       .finally(() => {
