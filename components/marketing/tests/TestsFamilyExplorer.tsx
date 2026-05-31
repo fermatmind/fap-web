@@ -84,7 +84,7 @@ export function TestsFamilyExplorer({
 
         <div className="mt-6 grid gap-4">
           {activeFamily.tests.map((item) => (
-            <HubTestCard key={`${activeFamily.id}-${item.key}`} item={item} />
+            <HubTestCard key={`${activeFamily.id}-${item.key}`} item={item} locale={locale} />
           ))}
         </div>
 

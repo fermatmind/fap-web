@@ -3,6 +3,29 @@ import { normalizeMediaAssetUrl } from "@/lib/url/safeContentUrls";
 
 export const CANONICAL_MEDIA_ASSET_ORIGIN = "https://assets.fermatmind.com";
 
+export type CmsMediaAuthorityMetadata = {
+  asset_key?: string | null;
+  source?: string | null;
+  authority?: string | null;
+  status?: string | null;
+  fallback_allowed?: boolean | null;
+  alt?: string | null;
+  variants?: Record<string, string | null | undefined> | null;
+};
+
+export function hasUsableCmsMediaAuthority(media: CmsMediaAuthorityMetadata | null | undefined): boolean {
+  const assetKey = typeof media?.asset_key === "string" ? media.asset_key.trim() : "";
+  if (!assetKey) {
+    return false;
+  }
+
+  const source = typeof media?.source === "string" ? media.source.trim() : "";
+  const authority = typeof media?.authority === "string" ? media.authority.trim() : "";
+  const mediaLibraryOwned = source === "media_library_required" || authority === "backend_cms_media_library";
+
+  return mediaLibraryOwned && media?.fallback_allowed === false;
+}
+
 const LEGACY_MUTABLE_MEDIA_HOST_PATTERNS = [
   /(?:^|\.)myqcloud\.com$/i,
   /(?:^|\.)qcloud\.com$/i,

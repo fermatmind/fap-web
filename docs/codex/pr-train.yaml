@@ -8813,3 +8813,71 @@ prs:
       - Paid IQ report sections, PDF placeholders, certificate placeholders, and detailed dimension payloads are hidden unless backend contract indicates full entitlement.
       - No local IQ claims or report conclusions are added.
     rollback_note: "Revert IQ paid report frontend entitlement-state rendering if backend contract interpretation or paid-field redaction regresses."
+
+
+  - id: IQ-CMS-MEDIA-02
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/iq-cms-media-02-rendering-guard
+    base: main
+    depends_on:
+      - IQ-CMS-MEDIA-01
+    mode: execute
+    train_scope: iq_production_launch
+    status: in_progress
+    title: "IQ-CMS-MEDIA-02 render CMS media without frontend fallbacks"
+    goal: "Render IQ CMS media metadata with minimal shell behavior when media authority is missing."
+    in_scope:
+      - components/marketing/CmsMediaAuthorityShell.tsx
+      - components/marketing/HomePageExperience.tsx
+      - components/marketing/tests/TestsFamilyExplorer.tsx
+      - components/marketing/tests/TestsHubExperience.tsx
+      - components/marketing/tests/TestsShared.tsx
+      - lib/cms/media.ts
+      - lib/marketing/homepageContent.ts
+      - lib/marketing/testsHubContent.ts
+      - tests/contracts/fixtures/cmsLandingSurfaceMock.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - tests/contracts/iq-cms-media-rendering-guard.contract.test.tsx
+      - tests/contracts/media-asset-contract.test.tsx
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - local public assets or editorial media fallbacks
+      - frontend-owned IQ media URLs
+      - SEO ramp, sitemap, llms, or metadata expansion
+      - backend media baseline mutation
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/iq-cms-media-rendering-guard.contract.test.tsx tests/contracts/media-asset-contract.test.tsx
+      - pnpm exec tsc --noEmit --pretty false
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      changed_files_must_match:
+        - components/marketing/CmsMediaAuthorityShell.tsx
+        - components/marketing/HomePageExperience.tsx
+        - components/marketing/tests/TestsFamilyExplorer.tsx
+        - components/marketing/tests/TestsHubExperience.tsx
+        - components/marketing/tests/TestsShared.tsx
+        - lib/cms/media.ts
+        - lib/marketing/homepageContent.ts
+        - lib/marketing/testsHubContent.ts
+        - tests/contracts/fixtures/cmsLandingSurfaceMock.ts
+        - tests/contracts/helpers/currentPrScope.ts
+        - tests/contracts/iq-cms-media-rendering-guard.contract.test.tsx
+        - tests/contracts/media-asset-contract.test.tsx
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: IQ-SEO-RAMP-01
+    acceptance:
+      - IQ homepage and tests hub cards consume CMS media metadata as backend authority only.
+      - Missing or unsafe media authority renders a minimal shell instead of a frontend static fallback.
+      - Renderer does not emit img tags or local public/static media URLs for IQ CMS media metadata.
+      - No SEO ramp, sitemap, llms, or backend media baseline changes are introduced.
+    rollback_note: "Revert IQ CMS media renderer shell if CMS authority metadata consumption regresses or frontend fallback behavior appears."
