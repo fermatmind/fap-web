@@ -8436,3 +8436,58 @@ prs:
       - Successful trust/content pages are not changed, and no CMS/content/sitemap/llms/footer/nav behavior is changed.
       - No frontend editorial fallback content is introduced.
     rollback_note: "Revert the not-found boundary copy and focused contract assertions if actual 404 recovery pages regress or Next.js no longer serializes not-found boundary payloads into successful pages."
+
+  - id: PR-EQ-PER-03
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-eq-per-03-frontend-eq-v51-personalization
+    base: main
+    depends_on:
+      - PR-EQ-PER-02
+    mode: execute
+    train_scope: eq_personalization_english_first_tier
+    risk_level: scoped_eq_result_renderer_personalization
+    status: in_progress
+    title: "PR-EQ-PER-03 Frontend EQ v5.1 personalization renderer"
+    goal: "Upgrade EQResultV5 to consume backend route_id, signal_signature, and selected_asset_ids while preserving backend content authority and no-paywall/SJT planned boundaries."
+    in_scope:
+      - components/result/eq/**
+      - lib/api/v0_3.ts
+      - tests/contracts/eq-result-v5-renderer.contract.test.tsx
+      - tests/e2e/iq-eq-result-regression.spec.ts
+      - tests/fixtures/eq/v5/**
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - backend changes
+      - hardcoded official EQ report copy in frontend
+      - SJT route, take entry, scorer, or integrated report visibility
+      - paid, locked, blur, SKU, premium, or upgrade CTA behavior
+      - non-EQ result renderer behavior changes
+    required_local_checks:
+      - pnpm typecheck
+      - pnpm test:contract
+      - pnpm exec playwright test tests/e2e/iq-eq-result-regression.spec.ts
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      changed_files_must_match:
+        - components/result/eq/**
+        - lib/api/v0_3.ts
+        - tests/contracts/eq-result-v5-renderer.contract.test.tsx
+        - tests/e2e/iq-eq-result-regression.spec.ts
+        - tests/fixtures/eq/v5/**
+        - tests/contracts/helpers/currentPrScope.ts
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - EQResultV5 consumes backend route_id, signal_signature, and selected_asset_ids.
+      - Route-selected assets render deterministically without frontend-authored report prose.
+      - No raw route IDs, report tags, paywall/SKU/locked/blur terms, or clickable SJT entry are user-visible.
+      - Backend canonical EQ fixtures remain the frontend contract source.
+    rollback_note: "Revert the EQ v5.1 route consumption adapter, focused renderer tests, fixture sync, and e2e assertions if EQ result rendering regresses."
