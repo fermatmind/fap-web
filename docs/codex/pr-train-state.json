@@ -12763,8 +12763,8 @@
       "branch": "codex/pr-02-followup-notfound-rsc-payload-cleanup-01",
       "base": "main",
       "depends_on": [],
-      "status": "commit_created",
-      "pr_url": null,
+      "status": "pr_opened",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/934",
       "commit_sha": "150411a67c749d208df1875db7c0933254761fea",
       "merge_sha": null,
       "title": "PR-02 Follow-up: Clean not-found boundary payload copy",
@@ -12833,6 +12833,11 @@
           "at": "2026-05-31T07:51:00.000Z",
           "status": "commit_created",
           "summary": "Created scoped implementation commit 150411a67c749d208df1875db7c0933254761fea for PR-02-FOLLOWUP-NOTFOUND-RSC-PAYLOAD-CLEANUP-01 after required local checks passed."
+        },
+        {
+          "at": "2026-05-31T07:52:00.000Z",
+          "status": "pr_opened",
+          "summary": "Opened PR #934 for PR-02-FOLLOWUP-NOTFOUND-RSC-PAYLOAD-CLEANUP-01 after scoped local validation passed."
         }
       ]
     }
