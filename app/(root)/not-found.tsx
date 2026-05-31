@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Page Not Found",
+  title: "Unavailable page",
   robots: {
     index: false,
     follow: true,
@@ -34,12 +34,12 @@ const zhLinks = [
 export default function RootNotFound() {
   return (
     <main className="mx-auto flex min-h-[70vh] w-full max-w-5xl flex-col justify-center px-[var(--fm-container-gutter)] py-[var(--fm-space-10)]">
-      <p className="m-0 font-mono text-sm uppercase tracking-[0.16em] text-slate-500">404</p>
+      <p className="m-0 font-mono text-sm uppercase tracking-[0.16em] text-slate-500">Unavailable</p>
       <h1 className="m-0 mt-[var(--fm-space-3)] max-w-2xl text-3xl font-semibold tracking-normal text-slate-950 md:text-5xl">
-        Page not found
+        Choose another page
       </h1>
       <p className="mt-[var(--fm-space-4)] max-w-2xl text-base leading-7 text-slate-600">
-        This link is no longer available. Choose a public entry point below to continue.
+        Use a public entry point below to continue.
       </p>
 
       <section aria-label="English links" className="mt-[var(--fm-space-7)]">

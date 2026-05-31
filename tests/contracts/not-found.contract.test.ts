@@ -38,4 +38,18 @@ describe("default not-found contract", () => {
       }
     }
   });
+
+  it("keeps serialized not-found boundaries free of soft-404 body phrases", () => {
+    const sources = [
+      read("app/(root)/not-found.tsx"),
+      read("app/(localized)/[locale]/not-found.tsx"),
+    ];
+
+    for (const source of sources) {
+      expect(source).not.toContain("Page Not Found");
+      expect(source).not.toContain("Page not found");
+      expect(source).not.toContain(">404<");
+      expect(source).not.toContain("This link is no longer available");
+    }
+  });
 });
