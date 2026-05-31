@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-31T17:27:28.922146Z",
+  "updated_at": "2026-05-31T17:28:32.111047Z",
   "status": "initialized",
   "phase": "public-runtime-authority-convergence",
   "pr_namespace": "PR-PRAC-*",
@@ -13756,10 +13756,10 @@
         "IQ-PAID-REPORT-02"
       ],
       "title": "IQ-LIVE-RAMP-01 add authenticated production smoke fixture gate",
-      "status": "local_checks_passed",
-      "commit_sha": null,
-      "pr_url": null,
-      "pr_number": null,
+      "status": "pr_open_github_checks_pending",
+      "commit_sha": "1577883c",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/947",
+      "pr_number": 947,
       "checks": {
         "dependency_iq_seo_ramp_02": "passed: fermatmind/fap-web#946 merged at 2026-05-31T17:23:03Z",
         "dependency_iq_paid_report_02": "passed: fermatmind/fap-web#943 merged earlier in train",
@@ -13797,9 +13797,14 @@
           "at": "2026-05-31T17:27:28.922146Z",
           "status": "local_checks_passed",
           "summary": "Authenticated operator fixture smoke gate implemented with env-only token/payload handling; local checks passed."
+        },
+        {
+          "at": "2026-05-31T17:28:32.111047Z",
+          "status": "pr_open_github_checks_pending",
+          "summary": "Opened GitHub PR #947 after local scope validation passed."
         }
       ],
-      "updated_at": "2026-05-31T17:27:28.922146Z"
+      "updated_at": "2026-05-31T17:28:32.111047Z"
     }
   ],
   "sidecar_issues": [
