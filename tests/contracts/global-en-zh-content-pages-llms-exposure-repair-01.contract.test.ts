@@ -13,7 +13,7 @@ type ContentPageFixture = {
   summary: string;
   template: string;
   animationProfile: string;
-  locale: "en";
+  locale: "en" | "zh";
   publishedAt: string;
   updatedAt: string;
   effectiveAt: string | null;
@@ -64,16 +64,18 @@ function mockRouteDependencies() {
     }),
   }));
   vi.doMock("@/lib/cms/content-pages", () => ({
-    listContentPagesWithLastKnownGood: vi.fn(async () => ({
-      value: [
+    listContentPagesWithLastKnownGood: vi.fn(async (locale: "en" | "zh", kind?: "help") => ({
+      value: kind === "help" ? [
         {
           path: "/support",
           title: "Support",
-          summary: "Support should remain excluded.",
+          summary: "Support should be included when public and indexable.",
+          kind: "help",
+          locale,
           isPublic: true,
           isIndexable: true,
         },
-      ],
+      ] : locale === "en" ? TARGET_SLUGS.map(contentPage) : [],
     })),
     listApprovedEnglishContentPagesWithLastKnownGood: vi.fn(async () => ({
       value: TARGET_SLUGS.map(contentPage),
@@ -233,12 +235,12 @@ describe("GLOBAL-EN-ZH-CONTENT-PAGES-LLMS-EXPOSURE-REPAIR-01", () => {
     expect(llmsFullText).toContain("policies authority summary from public CMS detail API.");
   });
 
-  it("keeps support, clinical/depression tests, and private flows out of llms surfaces", async () => {
+  it("keeps clinical/depression tests and private flows out while preserving public support pages", async () => {
     const { llmsText, llmsFullText } = await renderLlmsRoutes();
     const combined = `${llmsText}\n${llmsFullText}`;
 
-    expect(combined).not.toContain(`${SITE_URL}/en/support`);
-    expect(combined).not.toContain(`${SITE_URL}/zh/support`);
+    expect(combined).toContain(`${SITE_URL}/en/support`);
+    expect(combined).toContain(`${SITE_URL}/zh/support`);
     expect(combined).not.toContain("clinical-depression-anxiety-assessment-professional-edition");
     expect(combined).not.toContain("depression-screening-test-standard-edition");
     expect(combined).not.toMatch(/\/(?:take|result|orders?|share|api|pay|payment)(?:\/|$)/i);

@@ -13226,6 +13226,70 @@
           "summary": "GitHub checks passed and PR #939 mergeStateStatus was CLEAN on head 8b4cd3d867d78eb0bcbf4bfadd270766cac1ccc8."
         }
       ]
+    },
+    {
+      "id": "PR-03-DISCOVERABILITY-SITEMAP-LLMS-AUTHORITY-ALIGNMENT-01",
+      "repo": "fap-web",
+      "branch": "codex/pr-03-discoverability-sitemap-llms-authority-alignment-01",
+      "status": "in_progress",
+      "depends_on": [],
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": {
+        "scope_boundary": {
+          "status": "passed",
+          "evidence": "Tracked diff contains only PR-03 manifest-scoped sitemap/llms authority files; pre-existing IQ audit drafts remain untracked and unstaged."
+        },
+        "local_validation": {
+          "status": "passed",
+          "commands": [
+            "pnpm exec vitest run tests/contracts/sitemap-authority-adapters.contract.test.ts tests/contracts/llms-url-hygiene.contract.test.ts tests/contracts/llms-full-enrichment.contract.test.ts tests/contracts/global-en-zh-content-pages-llms-exposure-repair-01.contract.test.ts tests/contracts/sitemap-indexability.contract.test.ts tests/contracts/sitemap-llms-lastmod-authority.contract.test.ts",
+            "pnpm lint .",
+            "pnpm typecheck",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build",
+            "pnpm test:contract",
+            "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "python3 yaml parse for docs/codex/pr-train.yaml",
+            "git diff --check",
+            "git diff --cached --check"
+          ],
+          "evidence": "Focused vitest, lint, typecheck, production build, full contract suite in clean-checkout-equivalent mode, JSON/YAML parse, and git diff --check passed. Full contract used temporary local exclude for pre-existing unrelated IQ audit drafts, then restored .git/info/exclude."
+        },
+        "github_required_checks": {
+          "status": "pending",
+          "evidence": null
+        },
+        "github_pr_opened": {
+          "status": "pending",
+          "evidence": null
+        }
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "pre_existing_unrelated_dirty_files": [
+        "docs/audits/iq-fe/16_iq_full_stack_technical_audit_report.md",
+        "docs/audits/iq-fe/17_iq_english_free_test_competitor_research.md"
+      ],
+      "scope_validation": {
+        "allowed_paths_only": true,
+        "local_validation_passed": true,
+        "github_checks_green": null,
+        "post_merge_revalidated": null
+      },
+      "history": [
+        {
+          "at": "2026-05-31T13:45:00Z",
+          "status": "in_progress",
+          "summary": "User authorized PR-03 discoverability sitemap/llms authority alignment manifest/state entry and implementation from latest main."
+        },
+        {
+          "at": "2026-05-31T15:00:00Z",
+          "status": "local_validation_passed",
+          "summary": "PR-03 sitemap/llms authority alignment implemented; focused contracts, full contract suite, lint, typecheck, build, JSON/YAML parse, and diff check passed with unrelated untracked IQ audit drafts excluded only for local contract parity with clean CI checkout."
+        }
+      ]
     }
   ],
   "sidecar_issues": [

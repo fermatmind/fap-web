@@ -4,8 +4,8 @@ import { getCareerGuideFromCmsBySlug, listCareerGuidesFromCms } from "@/lib/cms/
 import { adaptCareerRecommendationIndex } from "@/lib/career/adapters/adaptCareerRecommendationIndex";
 import { fetchCareerRecommendationIndex } from "@/lib/career/api/fetchCareerRecommendationIndex";
 import {
-  listApprovedEnglishContentPagesWithLastKnownGood,
   listContentPagesWithLastKnownGood,
+  type ContentPage,
 } from "@/lib/cms/content-pages";
 import {
   buildDefaultPublicPersonalitySlug,
@@ -50,10 +50,7 @@ const LLMS_FINAL_PATH_DENY_PATTERNS: RegExp[] = [
   /^\/(?:en|zh)\/blog$/i,
   /^\/(?:en|zh)\/help$/i,
   /^\/(?:en|zh)\/refund$/i,
-  /^\/(?:en|zh)\/help\/(?:about|contact|faq|for-business-and-research|team|used-and-mentioned)$/i,
-  /^\/(?:en|zh)\/method-boundaries$/i,
-  /^\/zh\/policies$/i,
-  /^\/(?:en|zh)\/(?:privacy|support|terms)$/i,
+  /^\/(?:en|zh)\/help\/(?:about|for-business-and-research|team|used-and-mentioned)$/i,
   /^\/datasets\/occupations(?:\/method)?$/i,
   /^\/(?:en|zh)\/datasets\/occupations(?:\/method)?$/i,
   /^\/career\/jobs$/i,
@@ -127,6 +124,21 @@ function normalizePath(path: string): string {
   if (value === "/") return "/";
   const withLeadingSlash = value.startsWith("/") ? value : `/${value}`;
   return withLeadingSlash.replace(/\/+$/, "");
+}
+
+function localizedContentPagePath(page: ContentPage, fallbackLocale: LlmsLocale): string {
+  const normalizedPath = normalizePath(page.path || `/${page.slug}`);
+  const locale = page.locale === "zh" || page.locale === "en" ? page.locale : fallbackLocale;
+
+  if (/^\/(en|zh)(\/|$)/i.test(normalizedPath)) {
+    return normalizedPath;
+  }
+
+  if (normalizedPath === "/") {
+    return locale === "zh" ? "/" : "/en";
+  }
+
+  return normalizePath(`/${locale}${normalizedPath}`);
 }
 
 function isForbiddenFinalLlmsPath(path: string): boolean {
@@ -685,7 +697,8 @@ async function buildLlmsFullText(siteUrl: string): Promise<string> {
     backendTestEntries,
     enHelpPages,
     zhHelpPages,
-    enApprovedContentPages,
+    enContentPages,
+    zhContentPages,
     careerJobPaths,
   ] = await Promise.all([
     withLlmsRouteBudget(
@@ -759,7 +772,14 @@ async function buildLlmsFullText(siteUrl: string): Promise<string> {
     ),
     withLlmsRouteBudget(
       () =>
-        listApprovedEnglishContentPagesWithLastKnownGood().then((result) =>
+        listContentPagesWithLastKnownGood("en").then((result) =>
+          limitLlmsRouteEntries(result.value, LLMS_ROUTE_LIMITS.helpPages)
+        ),
+      []
+    ),
+    withLlmsRouteBudget(
+      () =>
+        listContentPagesWithLastKnownGood("zh").then((result) =>
           limitLlmsRouteEntries(result.value, LLMS_ROUTE_LIMITS.helpPages)
         ),
       []
@@ -774,25 +794,28 @@ async function buildLlmsFullText(siteUrl: string): Promise<string> {
   const helpEntries = [
     ...enHelpPages.map((page) => ({
       locale: "en" as const,
-      path: `/en${page.path}`,
+      path: localizedContentPagePath(page, "en"),
       title: page.title,
       type: "help",
       summary: summaryFromRecord(page),
     })),
     ...zhHelpPages.map((page) => ({
       locale: "zh" as const,
-      path: `/zh${page.path}`,
+      path: localizedContentPagePath(page, "zh"),
       title: page.title,
       type: "help",
       summary: summaryFromRecord(page),
     })),
   ].filter((entry) => shouldKeep(entry.path));
 
-  const contentPageEntries = enApprovedContentPages
-    .filter((page) => page.isPublic && page.isIndexable)
-    .map((page) => ({
-      locale: "en" as const,
-      path: `/en/${page.slug}`,
+  const contentPageEntries = [
+    ...enContentPages.map((page) => ({ page, locale: "en" as const })),
+    ...zhContentPages.map((page) => ({ page, locale: "zh" as const })),
+  ]
+    .filter(({ page }) => page.kind !== "help" && page.isPublic && page.isIndexable)
+    .map(({ page, locale }) => ({
+      locale,
+      path: localizedContentPagePath(page, locale),
       title: page.title,
       type: "content_page",
       summary: summaryFromRecord(page),

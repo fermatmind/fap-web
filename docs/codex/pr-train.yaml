@@ -7070,6 +7070,7 @@ prs:
       - tests/contracts/sitemap-authority-adapters.contract.test.ts
       - tests/contracts/llms-url-hygiene.contract.test.ts
       - tests/contracts/llms-full-enrichment.contract.test.ts
+      - tests/contracts/global-en-zh-content-pages-llms-exposure-repair-01.contract.test.ts
       - tests/contracts/sitemap-indexability.contract.test.ts
       - tests/contracts/sitemap-llms-lastmod-authority.contract.test.ts
       - tests/contracts/helpers/currentPrScope.ts
@@ -7083,7 +7084,7 @@ prs:
       - career job sitemap exposure cleanup for GLOBAL-EN-ZH-PARITY-P0-02
       - frontend fallback editorial content
     required_local_checks:
-      - pnpm exec vitest run tests/contracts/sitemap-authority-adapters.contract.test.ts tests/contracts/llms-url-hygiene.contract.test.ts tests/contracts/llms-full-enrichment.contract.test.ts tests/contracts/sitemap-indexability.contract.test.ts tests/contracts/sitemap-llms-lastmod-authority.contract.test.ts
+      - pnpm exec vitest run tests/contracts/sitemap-authority-adapters.contract.test.ts tests/contracts/llms-url-hygiene.contract.test.ts tests/contracts/llms-full-enrichment.contract.test.ts tests/contracts/global-en-zh-content-pages-llms-exposure-repair-01.contract.test.ts tests/contracts/sitemap-indexability.contract.test.ts tests/contracts/sitemap-llms-lastmod-authority.contract.test.ts
       - pnpm lint .
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
@@ -7100,6 +7101,7 @@ prs:
         - tests/contracts/sitemap-authority-adapters.contract.test.ts
         - tests/contracts/llms-url-hygiene.contract.test.ts
         - tests/contracts/llms-full-enrichment.contract.test.ts
+        - tests/contracts/global-en-zh-content-pages-llms-exposure-repair-01.contract.test.ts
         - tests/contracts/sitemap-indexability.contract.test.ts
         - tests/contracts/sitemap-llms-lastmod-authority.contract.test.ts
         - tests/contracts/helpers/currentPrScope.ts
@@ -8556,3 +8558,76 @@ prs:
       - Excluded slugs remain absent from discovery unless backend detail-ready authority includes them.
       - No frontend content authority, Search Channel action, URL submission, deploy, or CMS mutation is introduced.
     rollback_note: "Revert jobs index fallback gating, directory test selectors, focused contract, and report artifacts if Career jobs discovery regresses."
+
+  - id: PR-03-DISCOVERABILITY-SITEMAP-LLMS-AUTHORITY-ALIGNMENT-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-03-discoverability-sitemap-llms-authority-alignment-01
+    base: main
+    depends_on: []
+    mode: execute
+    train_scope: pr_03_discoverability_sitemap_llms_authority_alignment
+    risk_level: scoped_seo_geo_enumeration_repair
+    status: in_progress
+    title: "PR-03-DISCOVERABILITY-SITEMAP-LLMS-AUTHORITY-ALIGNMENT-01 sitemap and llms authority alignment"
+    goal: "Reconcile sitemap, llms.txt, and llms-full.txt exposure with backend/CMS public indexability authority while preserving private/result/order/payment/share/take and clinical/depression/anxiety exclusions."
+    in_scope:
+      - next-sitemap.config.js
+      - lib/seo/sitemapAuthorityAdapters.cjs
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - tests/contracts/sitemap-authority-adapters.contract.test.ts
+      - tests/contracts/llms-url-hygiene.contract.test.ts
+      - tests/contracts/llms-full-enrichment.contract.test.ts
+      - tests/contracts/global-en-zh-content-pages-llms-exposure-repair-01.contract.test.ts
+      - tests/contracts/sitemap-indexability.contract.test.ts
+      - tests/contracts/sitemap-llms-lastmod-authority.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - CMS mutation or content publishing
+      - frontend fallback editorial content
+      - page body copy changes
+      - backend authority changes
+      - production deploy
+      - Search Channel enqueue or URL submission
+      - IndexNow, GSC, Baidu, Bing, 360, Sogou, or Shenma calls
+      - career job cohort expansion or held slug release
+      - clinical/depression/anxiety page exposure
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/sitemap-authority-adapters.contract.test.ts tests/contracts/llms-url-hygiene.contract.test.ts tests/contracts/llms-full-enrichment.contract.test.ts tests/contracts/global-en-zh-content-pages-llms-exposure-repair-01.contract.test.ts tests/contracts/sitemap-indexability.contract.test.ts tests/contracts/sitemap-llms-lastmod-authority.contract.test.ts
+      - pnpm lint .
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      changed_files_must_match:
+        - next-sitemap.config.js
+        - lib/seo/sitemapAuthorityAdapters.cjs
+        - app/llms.txt/route.ts
+        - app/llms-full.txt/route.ts
+        - tests/contracts/sitemap-authority-adapters.contract.test.ts
+        - tests/contracts/llms-url-hygiene.contract.test.ts
+        - tests/contracts/llms-full-enrichment.contract.test.ts
+        - tests/contracts/global-en-zh-content-pages-llms-exposure-repair-01.contract.test.ts
+        - tests/contracts/sitemap-indexability.contract.test.ts
+        - tests/contracts/sitemap-llms-lastmod-authority.contract.test.ts
+        - tests/contracts/helpers/currentPrScope.ts
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Sitemap includes approved public indexable legal, help, method, and trust pages.
+      - llms.txt and llms-full.txt enumerate public indexable content/help pages from backend/CMS authority.
+      - Private/result/order/payment/share/take routes remain excluded from sitemap and llms surfaces.
+      - Clinical/depression/anxiety test URLs remain excluded from sitemap and llms surfaces.
+      - No frontend-authored content fallback, CMS mutation, deploy, Search Channel action, or URL submission is introduced.
+    rollback_note: "Revert PR-03 sitemap/llms authority alignment and focused contract changes if discoverability exposure regresses."
