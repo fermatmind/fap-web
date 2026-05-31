@@ -12059,8 +12059,8 @@
       "depends_on": [
         "DETAIL_READY_1046_CAREER_DETAIL_METADATA_AND_LLMS_FULL_STABILITY_REPAIR-01"
       ],
-      "status": "local_checks_passed",
-      "pr_url": null,
+      "status": "pr_opened",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/929",
       "commit_sha": "00c27e67d5bd99cd47dcc7f4603b7e24f09a1514",
       "merge_sha": null,
       "title": "DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01 llms-full artifact consistency repair",
@@ -12135,6 +12135,11 @@
           "at": "2026-05-31T09:18:00+08:00",
           "status": "committed",
           "summary": "Committed scoped implementation at 00c27e67d5bd99cd47dcc7f4603b7e24f09a1514."
+        },
+        {
+          "at": "2026-05-31T09:22:00+08:00",
+          "status": "pr_opened",
+          "summary": "Opened fap-web PR #929 for DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01 after scoped local validation passed."
         }
       ]
     }
