@@ -13,6 +13,7 @@ import { FAQAccordion, type FAQItem } from "@/components/business/FAQAccordion";
 import { MbtiSceneEntrySection } from "@/components/content/MbtiSceneEntrySection";
 import { CiteableSection } from "@/components/seo/CiteableSection";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { MbtiLandingSurfaceSections } from "@/components/tests/MbtiLandingSurfaceSections";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
@@ -1263,6 +1264,7 @@ export default async function TestLandingPage({
               </div>
             </section>
           ) : null}
+          {showsMbtiActions ? <MbtiLandingSurfaceSections surface={landingSurface} /> : null}
 
           {rollout.paywallMode === "free_only" || !rollout.commerceEnabled ? (
             <Card>

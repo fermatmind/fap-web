@@ -509,6 +509,15 @@ const ANALYTICS_SEO_P1_08_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const ANALYTICS_SEO_P1_06_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/tests/[slug]/page.tsx",
+  "components/tests/MbtiLandingSurfaceSections.tsx",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/mbti-landing-structure.contract.test.tsx",
+]);
+
 const PR_WEB_SEC_32_ALLOWED_FILES = new Set([
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -1213,6 +1222,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/analytics-seo-p1-08-metadata-sitemap-canonical") {
     return ANALYTICS_SEO_P1_08_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/analytics-seo-p1-06-mbti-landing-structure") {
+    return ANALYTICS_SEO_P1_06_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-web-sec-32-landing-rollout-seed") {
