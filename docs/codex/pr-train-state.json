@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-01T04:40:04Z",
+  "updated_at": "2026-06-01T04:50:13Z",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -12983,6 +12983,97 @@
           "at": "2026-06-01T02:33:33Z",
           "status": "merged",
           "summary": "Reconciled dependency state during PR-FDN-SOCIAL-LINK-DISPLAY-REVIEW-01: GitHub shows PR #933 merged at 63198640ff1132e6bea46a128ea5ede5bea08075 and remote branch deleted."
+        }
+      ]
+    },
+    {
+      "id": "PR-FDN-02B-POST-DEPLOY-RUNTIME-SMOKE",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/pr-fdn-02b-post-deploy-runtime-smoke",
+      "base": "main",
+      "depends_on": [
+        "PR-FDN-02B"
+      ],
+      "status": "pr_opened",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/965",
+      "commit_sha": "60ab22396e1519920093f85393c39f309507520d",
+      "merge_sha": null,
+      "title": "PR-FDN-02B-POST-DEPLOY-RUNTIME-SMOKE: Verify Daily Giving frontend runtime",
+      "artifacts": [
+        "docs/seo/pr-fdn-02b-post-deploy-runtime-smoke.md",
+        "docs/seo/generated/pr-fdn-02b-post-deploy-runtime-smoke.v1.json",
+        "tests/contracts/pr-fdn-02b-post-deploy-runtime-smoke.contract.test.ts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "dependency_verification": {
+          "status": "passed",
+          "completed_at": "2026-06-01T04:45:30Z",
+          "summary": "PR-FDN-02B is merged in fap-web at 63198640ff1132e6bea46a128ea5ede5bea08075; PR-FDN-SOCIAL-LINK-DISPLAY-IMPLEMENTATION-01 is merged at bebb03919b1f5bf4645840672b7250c0d39bd3f6; fap-api PR-FDN-02A post-deploy validation is merged at 3a7e29175f1e759c74e43a8c305a0ba3b534c05e."
+        },
+        "production_runtime_observation": {
+          "status": "passed",
+          "completed_at": "2026-06-01T04:45:30Z",
+          "summary": "Production /en/foundation/daily-giving, /zh/foundation/daily-giving, and 2026-06 monthly archives return HTTP 200 with exact apex canonicals, no staging canonical, and noindex robots. Apex same-origin public Foundation API records and months endpoints return HTTP 200."
+        },
+        "discoverability_boundary_observation": {
+          "status": "passed",
+          "completed_at": "2026-06-01T04:45:30Z",
+          "summary": "Daily Giving routes have zero hits in sitemap.xml, llms.txt, llms-full.txt, homepage, and foundation pages, preserving PR-FDN-02B's no-discoverability-exposure boundary."
+        },
+        "scope_boundaries": {
+          "status": "passed",
+          "completed_at": "2026-06-01T04:45:30Z",
+          "summary": "Scope is limited to read-only report, generated JSON, focused contract, and train metadata. No runtime code change, frontend fallback content, CMS mutation, deploy, Search Channel action, URL submission, external API call, or env/DNS/nginx edit is performed."
+        },
+        "pnpm exec vitest run tests/contracts/pr-fdn-02b-post-deploy-runtime-smoke.contract.test.ts": {
+          "status": "passed",
+          "completed_at": "2026-06-01T04:48:31Z",
+          "summary": "Focused post-deploy runtime smoke contract passed: 1 file, 3 tests."
+        },
+        "pnpm typecheck": {
+          "status": "passed",
+          "completed_at": "2026-06-01T04:48:40Z"
+        },
+        "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build": {
+          "status": "passed",
+          "completed_at": "2026-06-01T04:49:45Z",
+          "summary": "Production API build passed. Postbuild sitemap drift was restored because sitemap exposure changes are out of scope."
+        },
+        "pnpm test:contract": {
+          "status": "passed",
+          "completed_at": "2026-06-01T04:50:13Z",
+          "summary": "Full contract suite passed: 416 files, 2343 tests."
+        },
+        "json_yaml_parse": {
+          "status": "passed",
+          "completed_at": "2026-06-01T04:47:30Z",
+          "summary": "Generated JSON, PR train state JSON, and PR train YAML parsed successfully."
+        }
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "next_task": "PR-FDN-SEO-01-READINESS",
+      "history": [
+        {
+          "at": "2026-06-01T04:45:30Z",
+          "status": "in_progress",
+          "summary": "Started read-only post-deploy runtime smoke for Foundation Daily Giving frontend pages from an isolated fap-web worktree on latest origin/main."
+        },
+        {
+          "at": "2026-06-01T04:50:13Z",
+          "status": "local_checks_passed",
+          "summary": "Focused contract, typecheck, production API build, full contract suite, JSON/YAML parsing, and diff checks passed. Build-generated sitemap drift was restored as out-of-scope."
+        },
+        {
+          "at": "2026-06-01T04:50:13Z",
+          "status": "pr_opened",
+          "summary": "Opened fap-web PR #965 for the read-only PR-FDN-02B post-deploy runtime smoke."
         }
       ]
     },
