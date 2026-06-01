@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-01T04:15:42Z",
+  "updated_at": "2026-06-01T04:18:50Z",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -14421,21 +14421,21 @@
       ],
       "title": "fix(seo): audit sitemap metadata canonical dynamic routes",
       "status": "local_checks_passed",
-      "commit_sha": "",
+      "commit_sha": "ebe13911e4ae9c132c1356ffb7a3c1ee1da3700f",
       "pr_url": "",
       "failure_reason": null,
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
       "checks": {
-        "preflight": "passed: dependency ANALYTICS-SEO-P0-05 is merged into origin/main at 6155b5355748453f3831fd7bd37ba55cdcdc72e5; origin/main later advanced externally to 8d610aaf and will be incorporated before push.",
+        "preflight": "passed: dependency ANALYTICS-SEO-P0-05 is merged into origin/main at 6155b5355748453f3831fd7bd37ba55cdcdc72e5; branch rebased onto latest origin/main 8d610aaf before push.",
         "focused_contracts": "passed: pnpm exec vitest run tests/contracts/analytics-seo-metadata-sitemap-canonical.contract.test.ts, 1 file, 5 tests.",
-        "pnpm typecheck": "passed.",
-        "pnpm seo:check-sitemap": "passed: 261 urls.",
-        "pnpm test:contract": "passed: 414 files, 2336 tests.",
-        "git diff --check": "pending: will run after ledger update and final rebase.",
-        "manifest_state_parse": "pending: will run after ledger update.",
-        "scope_validation": "pending: will run after ledger update."
+        "pnpm typecheck": "passed after rebase.",
+        "pnpm seo:check-sitemap": "passed after rebase: 261 urls.",
+        "pnpm test:contract": "passed after rebase: 414 files, 2337 tests.",
+        "git diff --check": "passed after rebase.",
+        "manifest_state_parse": "passed: ruby YAML parse for docs/codex/pr-train.yaml and node JSON parse for docs/codex/pr-train-state.json.",
+        "scope_validation": "passed: changed files limited to P1-08 contract coverage, current PR scope helper, and authorized train metadata."
       },
       "events": [
         {
@@ -14447,9 +14447,19 @@
           "at": "2026-06-01T04:15:42Z",
           "status": "local_checks_passed",
           "summary": "Added focused metadata, sitemap, canonical, hreflang, breadcrumb schema, noindex, and private-route exclusion contracts; focused contract, typecheck, sitemap check, and full contract suite passed before rebase."
+        },
+        {
+          "at": "2026-06-01T04:18:50Z",
+          "status": "rebased_latest_main",
+          "summary": "Rebased ANALYTICS-SEO-P1-08 onto origin/main 8d610aaf after external PR #961 advanced main; reran typecheck, sitemap check, full contract suite, diff check, manifest/state parse, and scope validation."
+        },
+        {
+          "at": "2026-06-01T04:18:50Z",
+          "status": "committed",
+          "summary": "Created scoped implementation commit ebe13911e4ae9c132c1356ffb7a3c1ee1da3700f for ANALYTICS-SEO-P1-08."
         }
       ],
-      "updated_at": "2026-06-01T04:15:42Z"
+      "updated_at": "2026-06-01T04:18:50Z"
     },
     {
       "id": "ANALYTICS-SEO-P1-06",
