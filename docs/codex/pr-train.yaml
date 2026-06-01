@@ -7426,7 +7426,7 @@ prs:
     mode: execute
     train_scope: global_en_zh_content_pages_publish_runtime
     risk_level: p0_public_runtime_repair
-    status: committed
+    status: pr_opened
     title: "fix(content-pages): repair public content page SSR API base"
     goal: "Repair server-side public API base selection so published CMS content pages can render from backend authority when NEXT_PUBLIC_API_URL is absent, without adding frontend fallback content."
     in_scope:
