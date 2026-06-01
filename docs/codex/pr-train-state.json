@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-01T04:39:12Z",
+  "updated_at": "2026-06-01T04:40:04Z",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -14544,9 +14544,9 @@
         "ANALYTICS-SEO-P1-06"
       ],
       "title": "feat(seo): thicken Holland RIASEC landing structure",
-      "status": "local_checks_passed",
-      "commit_sha": "2b6eaa33b283a31e52c9eff7df85f02de6505959",
-      "pr_url": "",
+      "status": "pr_open_github_checks_pending",
+      "commit_sha": "944dfd55df789e4b7f0867d58c9659b8429f3500",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/964",
       "failure_reason": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -14581,9 +14581,14 @@
           "at": "2026-06-01T04:39:12Z",
           "status": "committed",
           "summary": "Created scoped implementation commit 2b6eaa33b283a31e52c9eff7df85f02de6505959 for ANALYTICS-SEO-P1-07."
+        },
+        {
+          "at": "2026-06-01T04:40:04Z",
+          "status": "pr_open_github_checks_pending",
+          "summary": "Opened https://github.com/fermatmind/fap-web/pull/964 after local checks and scope validation passed."
         }
       ],
-      "updated_at": "2026-06-01T04:39:12Z"
+      "updated_at": "2026-06-01T04:40:04Z"
     },
     {
       "id": "RESULT-EMAIL-FIRST-BINDING-UX-05",
