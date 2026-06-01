@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-01T11:32:44Z",
+  "updated_at": "2026-06-01T11:51:24Z",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -15020,13 +15020,13 @@
         "ANALYTICS-SEO-P1-07"
       ],
       "title": "fix(analytics): suppress third-party pageview scripts on private routes",
-      "status": "open",
-      "commit_sha": "be7606a5f4fd28b7ebc0c8c91b62bec265c37ba3",
+      "status": "merged",
+      "commit_sha": "31fbc19765703db32e4158a0bd2f8f5fdfa4bf62",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/976",
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-01T11:35:58Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "checks": {
         "preflight": "passed: branch fast-forwarded from latest main; dependency ANALYTICS-SEO-P1-07 is merged; implementation scope isolated.",
         "pnpm typecheck": "passed",
@@ -15077,9 +15077,50 @@
           "at": "2026-06-01T11:32:44Z",
           "status": "open",
           "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/976 from branch codex/analytics-seo-p0-10-private-route-analytics-suppression."
+        },
+        {
+          "at": "2026-06-01T11:50:48Z",
+          "status": "merged_reconciled",
+          "summary": "Reconciled GitHub PR #976 as merged; origin/main contains merge commit and post-merge cleanup deleted/pruned the task branch."
         }
       ],
-      "updated_at": "2026-06-01T11:32:44Z"
+      "updated_at": "2026-06-01T11:50:48Z"
+    },
+    {
+      "id": "ANALYTICS-SEO-P0-11",
+      "repo": "fap-web",
+      "branch": "codex/analytics-seo-p0-11-baidu-conversion-docs-correction",
+      "base": "main",
+      "depends_on": [
+        "ANALYTICS-SEO-P0-10"
+      ],
+      "title": "docs(analytics): clarify Baidu conversion limits and public CTA tracking",
+      "status": "local_checks_passed",
+      "commit_sha": "",
+      "pr_url": "",
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "checks": {
+        "preflight": "passed: user authorized docs-only follow-up; dependency ANALYTICS-SEO-P0-10 reconciled as merged; branch created from latest main.",
+        "git diff --check": "passed",
+        "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null": "passed",
+        "python3 -c import yaml pathlib pr-train": "passed"
+      },
+      "events": [
+        {
+          "at": "2026-06-01T11:50:48Z",
+          "status": "in_progress",
+          "summary": "Started docs-only Baidu conversion documentation correction follow-up."
+        },
+        {
+          "at": "2026-06-01T11:51:24Z",
+          "status": "local_checks_passed",
+          "summary": "Updated Baidu conversion documentation and passed docs-only diff, JSON, and YAML checks."
+        }
+      ],
+      "updated_at": "2026-06-01T11:51:24Z"
     },
     {
       "id": "RESULT-EMAIL-FIRST-BINDING-UX-05",

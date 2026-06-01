@@ -199,7 +199,7 @@ prs:
     base: main
     depends_on: [PR-PRAC-02]
     mode: execute
-    status: planned
+    status: merged
     title: "test(runtime): add frontend fallback authority lockdown inventory"
     artifacts:
       - docs/runtime/frontend-fallback-authority-inventory.md
@@ -9483,7 +9483,7 @@ prs:
       github_checks_required: true
       squash: true
       auto_merge: true
-    next_task: null
+    next_task: ANALYTICS-SEO-P0-11
     acceptance:
       - Ledger lists all IQ production train PRs and their merged evidence.
       - Release checklist keeps norm authority backend-only and SEO exposure gated by backend claim_policy/norm authority.
@@ -9890,6 +9890,56 @@ prs:
       - First-party tracking sanitizers remain intact and no duplicate conversion dispatch is introduced.
       - Docs describe the private/noindex route third-party analytics suppression boundary.
     rollback_note: "Revert private-route browser analytics suppression helper, bootstrap gate, contracts, docs, and train metadata for ANALYTICS-SEO-P0-10."
+
+  - id: ANALYTICS-SEO-P0-11
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/analytics-seo-p0-11-baidu-conversion-docs-correction
+    base: main
+    depends_on:
+      - ANALYTICS-SEO-P0-10
+    mode: execute
+    train_scope: analytics_seo_p0_p1
+    status: planned
+    title: "docs(analytics): clarify Baidu conversion limits and public CTA tracking"
+    goal: "Correct analytics conversion setup docs to reflect current Baidu Tongji dashboard limits, keep GA4 as the business funnel source of truth, and restrict Baidu conversion consideration to public CTA element selection."
+    in_scope:
+      - docs/analytics/**
+      - docs/audits/analytics-seo-postmerge-audit.md
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - app/**
+      - components/**
+      - lib/**
+      - tests/**
+      - package.json
+      - SEO runtime code
+      - analytics runtime code
+      - CMS content
+      - production configuration
+    required_local_checks:
+      - git diff --check
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
+    scope_validation:
+      changed_files_must_match:
+        - docs/analytics/**
+        - docs/audits/analytics-seo-postmerge-audit.md
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: false
+    next_task: null
+    acceptance:
+      - GA4 Key Events and purchase_success are documented as the primary business funnel and purchase-success source of truth.
+      - Baidu Tongji docs no longer claim new _trackEvent category/action conversion goals are supported by the current dashboard.
+      - Baidu Tongji is limited to PV/UV, acquisition/search/page analysis, and optional public CTA element click analysis.
+      - Private/noindex routes and sensitive URL values remain outside Baidu Tongji conversion tracking scope.
+      - The follow-up is docs-only and does not modify runtime code, tests, package metadata, CMS content, or production configuration.
+    rollback_note: "Revert Baidu conversion documentation correction and train metadata for ANALYTICS-SEO-P0-11."
 
   - id: RESULT-EMAIL-FIRST-BINDING-UX-05
     repo: fap-web
