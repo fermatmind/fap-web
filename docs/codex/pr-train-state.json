@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-01T02:43:09Z",
+  "updated_at": "2026-06-01T02:44:51Z",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -13939,9 +13939,9 @@
       "base": "main",
       "depends_on": [],
       "title": "fix(seo): harden private result order share indexing",
-      "status": "local_checks_passed",
+      "status": "pr_open_github_checks_pending",
       "commit_sha": "651eb24b8bdf2f1ebbcb12011f700662a4f4516d",
-      "pr_url": "",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/953",
       "failure_reason": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -13971,9 +13971,14 @@
           "at": "2026-06-01T02:43:09Z",
           "status": "committed",
           "summary": "Created scoped implementation commit 651eb24b8bdf2f1ebbcb12011f700662a4f4516d for ANALYTICS-SEO-P0-04."
+        },
+        {
+          "at": "2026-06-01T02:44:51Z",
+          "status": "pr_open_github_checks_pending",
+          "summary": "Opened https://github.com/fermatmind/fap-web/pull/953 after required local checks and scope validation passed."
         }
       ],
-      "updated_at": "2026-06-01T02:43:09Z"
+      "updated_at": "2026-06-01T02:44:51Z"
     },
     {
       "id": "ANALYTICS-SEO-P0-01",
