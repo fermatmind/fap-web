@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-01T04:29:15Z",
+  "updated_at": "2026-06-01T04:29:46Z",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -14483,7 +14483,7 @@
       ],
       "title": "feat(seo): thicken MBTI landing structure",
       "status": "local_checks_passed",
-      "commit_sha": "",
+      "commit_sha": "a97ceb2e44268baf0f429d50c6088ae2ed5f9d21",
       "pr_url": "",
       "failure_reason": null,
       "merged_at": null,
@@ -14514,9 +14514,14 @@
           "at": "2026-06-01T04:29:15Z",
           "status": "local_checks_passed",
           "summary": "Rendered MBTI landing_surface_v1 modules for type overview, career direction, comparisons, and internal links without frontend-authored fallback content; required local checks and scope validation passed."
+        },
+        {
+          "at": "2026-06-01T04:29:46Z",
+          "status": "committed",
+          "summary": "Created scoped implementation commit a97ceb2e44268baf0f429d50c6088ae2ed5f9d21 for ANALYTICS-SEO-P1-06."
         }
       ],
-      "updated_at": "2026-06-01T04:29:15Z"
+      "updated_at": "2026-06-01T04:29:46Z"
     },
     {
       "id": "ANALYTICS-SEO-P1-07",
