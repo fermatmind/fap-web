@@ -92,7 +92,7 @@ describe("PR-FDN-02B Foundation Daily Giving frontend pages", () => {
     expect(screen.queryAllByTestId("daily-giving-record")).toHaveLength(0);
   });
 
-  it("adds the daily giving routes as noindex pages and does not alter sitemap, llms, or footer exposure", () => {
+  it("keeps the daily giving routes backend-gated and does not alter sitemap or footer exposure", () => {
     const indexRoute = read("app/(localized)/[locale]/foundation/daily-giving/page.tsx");
     const monthRoute = read("app/(localized)/[locale]/foundation/daily-giving/[yearMonth]/page.tsx");
     const sitemapSource = read("next-sitemap.config.js");
@@ -100,11 +100,13 @@ describe("PR-FDN-02B Foundation Daily Giving frontend pages", () => {
     const footerSource = read("components/layout/SiteFooter.tsx");
 
     expect(indexRoute).toContain('pathname: locale === "zh" ? "/zh/foundation/daily-giving"');
-    expect(indexRoute).toContain("noindex: true");
+    expect(indexRoute).toContain("hasDailyGivingPublicRecords");
+    expect(indexRoute).toContain("noindex: !hasRecords");
     expect(monthRoute).toContain("normalizeYearMonth");
-    expect(monthRoute).toContain("noindex: true");
+    expect(monthRoute).toContain("hasDailyGivingPublicRecords");
+    expect(monthRoute).toContain("noindex: !hasRecords");
     expect(sitemapSource).not.toContain("foundation/daily-giving");
-    expect(llmsSource).not.toContain("foundation/daily-giving");
+    expect(llmsSource).toContain("listDailyGivingDiscoverabilityEntries");
     expect(footerSource).not.toContain("daily-giving");
   });
 

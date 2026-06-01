@@ -185,7 +185,7 @@ prs:
     base: main
     depends_on: [PR-PRAC-01]
     mode: execute
-    status: in_progress
+    status: merged
     title: "test(runtime): add page family runtime contract coverage matrix"
     artifacts:
       - docs/runtime/page-family-runtime-coverage.md
@@ -4682,7 +4682,7 @@ prs:
     mode: execute
     train_scope: riasec_feedback_action_lab_visible_renderer
     risk_level: L1
-    status: in_progress
+    status: local_checks_passed
     title: "Frontend fail-closed renderer for Action Lab and next exploration nodes"
     goal: "Consume backend-authoritative Action Lab / next exploration nodes payload only when a visible frontend module is explicitly required."
     in_scope:
@@ -8501,6 +8501,79 @@ prs:
       - Future implementation remains backend-authoritative and requires public records before ItemList/month archive exposure.
       - No runtime code change, JSON-LD implementation, frontend fallback content, CMS mutation, deploy, external API call, env/DNS/nginx edit, Search Channel action, URL submission, or discoverability exposure change is introduced.
     rollback_note: "Revert the readiness report, generated JSON, focused contract, and train metadata only; no runtime behavior is changed by this PR."
+
+  - id: PR-FDN-SEO-01-IMPLEMENTATION
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-fdn-seo-01-implementation
+    base: main
+    depends_on:
+      - PR-FDN-SEO-01-READINESS
+    mode: implementation
+    train_scope: pr_fdn_seo_01_implementation
+    risk_level: guarded_foundation_seo_schema_llms
+    status: in_progress
+    title: "PR-FDN-SEO-01-IMPLEMENTATION: Foundation Daily Giving SEO/schema/llms integration"
+    goal: "Add guarded Foundation Daily Giving SEO/schema/llms integration sourced from backend public API authority, without frontend fallback content, CMS mutation, deploy, Search Channel action, URL submission, external API calls, env/DNS/nginx edits, or unconditional discoverability exposure."
+    in_scope:
+      - app/(localized)/[locale]/foundation/daily-giving/page.tsx
+      - app/(localized)/[locale]/foundation/daily-giving/[yearMonth]/page.tsx
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - lib/foundation/dailyGivingSeo.ts
+      - docs/seo/pr-fdn-seo-01-implementation.md
+      - docs/seo/generated/pr-fdn-seo-01-implementation.v1.json
+      - tests/contracts/pr-fdn-02b-daily-giving-frontend-pages.contract.test.tsx
+      - tests/contracts/pr-fdn-seo-01-implementation.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - frontend fallback donation or ledger records
+      - CMS mutation or publish
+      - production deploy
+      - Search Channel enqueue or URL submission
+      - external search or social API calls
+      - env, DNS, or nginx edits
+      - fap-api or backend changes
+      - sitemap static artifact edits
+      - footer or nav exposure changes
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/pr-fdn-seo-01-implementation.contract.test.ts
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - python3 -m json.tool docs/seo/generated/pr-fdn-seo-01-implementation.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      changed_files_must_match:
+        - app/(localized)/[locale]/foundation/daily-giving/page.tsx
+        - app/(localized)/[locale]/foundation/daily-giving/[yearMonth]/page.tsx
+        - app/llms.txt/route.ts
+        - app/llms-full.txt/route.ts
+        - lib/foundation/dailyGivingSeo.ts
+        - docs/seo/pr-fdn-seo-01-implementation.md
+        - docs/seo/generated/pr-fdn-seo-01-implementation.v1.json
+        - tests/contracts/pr-fdn-02b-daily-giving-frontend-pages.contract.test.tsx
+        - tests/contracts/pr-fdn-seo-01-implementation.contract.test.ts
+        - tests/contracts/helpers/currentPrScope.ts
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: FRONTEND-DEPLOY-READINESS
+    acceptance:
+      - WebPage and BreadcrumbList JSON-LD are rendered from visible Daily Giving page state.
+      - ItemList JSON-LD is emitted only when backend public records exist.
+      - Daily Giving llms exposure is gated by backend public months with record_count > 0.
+      - Empty or unavailable backend public API remains noindex/no llms exposure.
+      - No frontend fallback records, CMS mutation, deploy, Search Channel action, URL submission, external API call, env/DNS/nginx edit, sitemap artifact edit, footer/nav exposure, or fap-api change is introduced.
+    rollback_note: "Revert the guarded Daily Giving SEO helper, page JSON-LD rendering, llms route integration, report, generated JSON, focused contract, and train metadata."
 
   - id: PR-FDN-SOCIAL-LINK-DISPLAY-REVIEW-01
     repo: fap-web

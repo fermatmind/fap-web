@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { DailyGivingLedgerPage } from "@/components/foundation/DailyGivingLedgerPage";
 import { fetchDailyGivingMonths, fetchDailyGivingRecords } from "@/lib/foundation/dailyGiving";
+import { buildDailyGivingJsonLd, hasDailyGivingPublicRecords } from "@/lib/foundation/dailyGivingSeo";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
@@ -19,7 +21,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: localeParam, yearMonth: rawYearMonth } = await params;
   const locale = resolveLocale(localeParam);
-  const yearMonth = normalizeYearMonth(rawYearMonth) ?? rawYearMonth;
+  const normalizedYearMonth = normalizeYearMonth(rawYearMonth);
+  const yearMonth = normalizedYearMonth ?? rawYearMonth;
+  const hasRecords = normalizedYearMonth ? await hasDailyGivingPublicRecords(locale, normalizedYearMonth) : false;
 
   return buildPageMetadata({
     locale,
@@ -32,7 +36,7 @@ export async function generateMetadata({
       locale === "zh"
         ? "通过后端公开 API 展示指定月份的费马测试日常公益投入记录。"
         : "Backend-authoritative monthly archive of FermatMind daily giving activity.",
-    noindex: true,
+    noindex: !hasRecords,
     alternatesByLocale: {
       en: `/en/foundation/daily-giving/${yearMonth}`,
       zh: `/zh/foundation/daily-giving/${yearMonth}`,
@@ -58,6 +62,14 @@ export default async function DailyGivingMonthPage({
     fetchDailyGivingRecords({ locale, yearMonth }),
     fetchDailyGivingMonths(locale),
   ]);
+  const jsonLd = buildDailyGivingJsonLd({ locale, records: records.records, yearMonth });
 
-  return <DailyGivingLedgerPage locale={locale} records={records.records} months={months} selectedMonth={yearMonth} />;
+  return (
+    <>
+      <JsonLd id={`daily-giving-webpage-${locale}-${yearMonth}`} data={jsonLd.webPage} />
+      <JsonLd id={`daily-giving-breadcrumb-${locale}-${yearMonth}`} data={jsonLd.breadcrumb} />
+      {jsonLd.itemList ? <JsonLd id={`daily-giving-itemlist-${locale}-${yearMonth}`} data={jsonLd.itemList} /> : null}
+      <DailyGivingLedgerPage locale={locale} records={records.records} months={months} selectedMonth={yearMonth} />
+    </>
+  );
 }

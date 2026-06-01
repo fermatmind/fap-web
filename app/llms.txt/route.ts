@@ -14,6 +14,7 @@ import { isSharedDiscoverabilityDeniedPath } from "@/lib/seo/discoverabilityExpo
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
 import { listBackendSitemapCareerJobPaths } from "@/lib/seo/backendSitemapSource";
 import { listBackendDiscoverabilityTestEntries } from "@/lib/seo/backendTestDiscoverabilitySource";
+import { listDailyGivingDiscoverabilityEntries } from "@/lib/foundation/dailyGivingSeo";
 import {
   createConfiguredStagingLlmsResponse,
   isConfiguredStagingDiscoverability,
@@ -189,6 +190,8 @@ export async function GET() {
     enDiscoverableContentPages,
     zhDiscoverableContentPages,
     careerJobEntries,
+    enDailyGivingEntries,
+    zhDailyGivingEntries,
   ] = await Promise.all([
     withLlmsRouteBudget(
       () => listCareerGuidesFromCms("en", { page: 1, perPage: LLMS_ROUTE_LIMITS.careerGuides }),
@@ -264,6 +267,8 @@ export async function GET() {
       [],
       { timeoutMs: LLMS_ROUTE_CAREER_JOB_TIMEOUT_MS }
     ),
+    withLlmsRouteBudget(() => listDailyGivingDiscoverabilityEntries("en"), []),
+    withLlmsRouteBudget(() => listDailyGivingDiscoverabilityEntries("zh"), []),
   ]);
 
   const helpEntries = dedupePaths([
@@ -305,6 +310,10 @@ export async function GET() {
     ...zhCareerRecommendations.filter(shouldKeepCareerAuthorityRoute).map((item) => item.href),
     ...careerJobEntries,
   ]);
+  const dailyGivingEntries = dedupePaths([
+    ...enDailyGivingEntries.map((entry) => entry.path),
+    ...zhDailyGivingEntries.map((entry) => entry.path),
+  ]);
 
   const lines = [
     "# FermatMind llms.txt",
@@ -335,6 +344,9 @@ export async function GET() {
     "",
     "Indexable Content Pages:",
     ...contentPageEntries.map((path) => `- ${toCanonical(siteUrl, path)}`),
+    "",
+    "Foundation Daily Giving:",
+    ...dailyGivingEntries.map((path) => `- ${toCanonical(siteUrl, path)}`),
     "",
     "Indexable Tests:",
     ...testEntries.map((path) => `- ${toCanonical(siteUrl, path)}`),
