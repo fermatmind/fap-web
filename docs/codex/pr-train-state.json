@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-01T04:50:13Z",
+  "updated_at": "2026-06-01T04:54:14Z",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -14635,13 +14635,13 @@
         "ANALYTICS-SEO-P1-06"
       ],
       "title": "feat(seo): thicken Holland RIASEC landing structure",
-      "status": "pr_open_github_checks_pending",
-      "commit_sha": "944dfd55df789e4b7f0867d58c9659b8429f3500",
+      "status": "merged",
+      "commit_sha": "856ae7211c37f37e9d03d4847250b87783a20cd0",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/964",
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-01T04:43:36Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "checks": {
         "preflight": "passed: dependency ANALYTICS-SEO-P1-06 is merged into origin/main at 82e3a507739b8e9e8acf85e1099f305ca6ee775b; branch created from current origin/main.",
         "focused_contracts": "passed: pnpm exec vitest run tests/contracts/riasec-landing-structure.contract.test.tsx, 1 file, 3 tests.",
@@ -14650,7 +14650,10 @@
         "pnpm test:contract": "passed: 416 files, 2343 tests.",
         "git diff --check": "passed.",
         "manifest_state_parse": "passed: docs/codex/pr-train.yaml YAML parse and docs/codex/pr-train-state.json JSON parse.",
-        "scope_validation": "passed: tracked and untracked diff is limited to Holland/RIASEC landing renderer, test detail page wiring, contract coverage, current PR scope helper, and authorized train metadata."
+        "scope_validation": "passed: tracked and untracked diff is limited to Holland/RIASEC landing renderer, test detail page wiring, contract coverage, current PR scope helper, and authorized train metadata.",
+        "github_required_checks": "passed: build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze were green before merge; CodeQL also passed.",
+        "post_merge_cleanup": "passed: origin/main contains merge commit 856ae7211c37f37e9d03d4847250b87783a20cd0; main synced; local task branch deleted; remote branch already absent.",
+        "metadata_reconciliation": "passed: ANALYTICS-SEO-META-09 reconciled the P1-07 ledger from pr_open_github_checks_pending to merged without business code changes."
       },
       "events": [
         {
@@ -14677,9 +14680,19 @@
           "at": "2026-06-01T04:40:04Z",
           "status": "pr_open_github_checks_pending",
           "summary": "Opened https://github.com/fermatmind/fap-web/pull/964 after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-06-01T04:43:36Z",
+          "status": "merged",
+          "summary": "GitHub required checks passed; PR #964 was squash-merged at 856ae7211c37f37e9d03d4847250b87783a20cd0 and post-merge cleanup completed."
+        },
+        {
+          "at": "2026-06-01T04:54:14Z",
+          "status": "metadata_reconciled",
+          "summary": "ANALYTICS-SEO-META-09 reconciled P1-07 train ledger after code, checks, merge, and branch cleanup were already complete."
         }
       ],
-      "updated_at": "2026-06-01T04:40:04Z"
+      "updated_at": "2026-06-01T04:54:14Z"
     },
     {
       "id": "RESULT-EMAIL-FIRST-BINDING-UX-05",
