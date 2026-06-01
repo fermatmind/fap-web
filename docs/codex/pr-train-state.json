@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-01T04:04:14Z",
+  "updated_at": "2026-06-01T04:15:42Z",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -14364,13 +14364,13 @@
         "ANALYTICS-SEO-P0-03"
       ],
       "title": "feat(tracking): add UTM channel governance",
-      "status": "pr_open_github_checks_pending",
-      "commit_sha": "c4bab43283c53fecc22693149262b6b62c7c1387",
+      "status": "merged",
+      "commit_sha": "6155b5355748453f3831fd7bd37ba55cdcdc72e5",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/960",
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-01T04:08:03Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "checks": {
         "preflight": "passed: dependency ANALYTICS-SEO-P0-03 is merged into origin/main; branch created from origin/main 8ff60e48aad68bbe6d2cc4ff18693ec80fb91559.",
         "focused_contracts": "passed: pnpm exec vitest run tests/contracts/utm-continuity.contract.test.ts tests/contracts/site-footer-social.contract.test.tsx, 2 files, 7 tests.",
@@ -14378,7 +14378,9 @@
         "pnpm test:contract": "passed after current PR scope helper registration: 413 files, 2331 tests.",
         "git diff --check": "passed.",
         "manifest_state_parse": "passed: docs/codex/pr-train.yaml YAML parse and docs/codex/pr-train-state.json JSON parse.",
-        "scope_validation": "passed: tracked and untracked diff is limited to P0-05 UTM governance scope and authorized train metadata."
+        "scope_validation": "passed: tracked and untracked diff is limited to P0-05 UTM governance scope and authorized train metadata.",
+        "github_required_checks": "passed: GitHub required checks were green before merge.",
+        "post_merge_cleanup": "passed: origin/main contains merge commit 6155b5355748453f3831fd7bd37ba55cdcdc72e5; main synced; local and remote task branches cleaned."
       },
       "events": [
         {
@@ -14400,9 +14402,14 @@
           "at": "2026-06-01T04:04:14Z",
           "status": "pr_open_github_checks_pending",
           "summary": "Opened https://github.com/fermatmind/fap-web/pull/960 after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-06-01T04:08:03Z",
+          "status": "merged",
+          "summary": "GitHub required checks passed; PR #960 was squash-merged at 6155b5355748453f3831fd7bd37ba55cdcdc72e5 and post-merge cleanup completed."
         }
       ],
-      "updated_at": "2026-06-01T04:04:14Z"
+      "updated_at": "2026-06-01T04:08:03Z"
     },
     {
       "id": "ANALYTICS-SEO-P1-08",
@@ -14413,22 +14420,36 @@
         "ANALYTICS-SEO-P0-05"
       ],
       "title": "fix(seo): audit sitemap metadata canonical dynamic routes",
-      "status": "planned",
+      "status": "local_checks_passed",
       "commit_sha": "",
       "pr_url": "",
       "failure_reason": null,
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "checks": {},
+      "checks": {
+        "preflight": "passed: dependency ANALYTICS-SEO-P0-05 is merged into origin/main at 6155b5355748453f3831fd7bd37ba55cdcdc72e5; origin/main later advanced externally to 8d610aaf and will be incorporated before push.",
+        "focused_contracts": "passed: pnpm exec vitest run tests/contracts/analytics-seo-metadata-sitemap-canonical.contract.test.ts, 1 file, 5 tests.",
+        "pnpm typecheck": "passed.",
+        "pnpm seo:check-sitemap": "passed: 261 urls.",
+        "pnpm test:contract": "passed: 414 files, 2336 tests.",
+        "git diff --check": "pending: will run after ledger update and final rebase.",
+        "manifest_state_parse": "pending: will run after ledger update.",
+        "scope_validation": "pending: will run after ledger update."
+      },
       "events": [
         {
           "at": "2026-06-01T02:30:08Z",
           "status": "planned",
           "summary": "Initialized planned entry per user-authorized execution order."
+        },
+        {
+          "at": "2026-06-01T04:15:42Z",
+          "status": "local_checks_passed",
+          "summary": "Added focused metadata, sitemap, canonical, hreflang, breadcrumb schema, noindex, and private-route exclusion contracts; focused contract, typecheck, sitemap check, and full contract suite passed before rebase."
         }
       ],
-      "updated_at": "2026-06-01T02:30:08Z"
+      "updated_at": "2026-06-01T04:15:42Z"
     },
     {
       "id": "ANALYTICS-SEO-P1-06",
