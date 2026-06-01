@@ -445,6 +445,9 @@ export default function OrdersClient({
         const responseOrderBoundAttemptId =
           normalizeQueryValue(response.exact_result_entry?.attempt_id ?? null)
           ?? normalizeQueryValue(response.attempt_id ?? null);
+        const responseExactResultEntryReady =
+          response.exact_result_entry?.access_state === "ready"
+          && response.exact_result_entry?.report_state === "ready";
         const responseOrderBoundResultHref = normalizeCommerceReportPath(
           typeof response.exact_result_entry?.actions?.page_href === "string"
             ? response.exact_result_entry.actions.page_href
@@ -503,8 +506,12 @@ export default function OrdersClient({
 
         if (nextStatus === "paid") {
           clearPendingOrder();
-          const exactResultHref = normalizeCommerceReportPath(nextAccessView?.actions.pageHref ?? null);
-          const exactResultReady = canEnterReportPage(nextAccessView) && Boolean(exactResultHref);
+          const exactResultHref = normalizeCommerceReportPath(
+            nextAccessView?.actions.pageHref ?? responseOrderBoundResultHref ?? null
+          );
+          const exactResultReady =
+            (canEnterReportPage(nextAccessView) || responseExactResultEntryReady)
+            && Boolean(exactResultHref);
           if (reportedStatusRef.current !== "paid") {
             const maskedOrder = `${orderNo.slice(0, 6)}...${orderNo.slice(-4)}`;
             const maskedAttempt = response.attempt_id

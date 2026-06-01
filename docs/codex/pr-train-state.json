@@ -15145,6 +15145,72 @@
         }
       ],
       "updated_at": "2026-06-01T05:42:39Z"
+    },
+    {
+      "id": "PAYMENT-WAIT-PAID-REDIRECT-CONTRACT-06",
+      "repo": "fap-web",
+      "branch": "codex/payment-wait-paid-redirect-contract-06",
+      "base": "main",
+      "depends_on": [
+        "PAYMENT-ALIPAY-RETURN-IMMEDIATE-COMPENSATION-05"
+      ],
+      "title": "PAYMENT-WAIT-PAID-REDIRECT-CONTRACT-06 paid wait redirect contract",
+      "status": "committed",
+      "commit_sha": "pending_rebase_final_sha",
+      "pr_url": "",
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "checks": {
+        "pnpm exec vitest run tests/contracts/orders-client-delivery.contract.test.tsx": {
+          "status": "passed",
+          "summary": "Focused orders client contract passed, including paid exact_result_entry redirect when projection hydration fails."
+        },
+        "pnpm typecheck": {
+          "status": "passed",
+          "summary": "TypeScript passed after using the ready exact_result_entry as a paid wait redirect source."
+        },
+        "pnpm test:contract": {
+          "status": "passed",
+          "summary": "Full contract suite passed after allowing current-branch validation side effects for generated metadata inventory."
+        },
+        "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build": {
+          "status": "passed",
+          "summary": "Production API build passed; generated sitemap side effect was reverted because it is outside this PR scope."
+        },
+        "json_yaml_parse": {
+          "status": "passed",
+          "summary": "docs/codex/pr-train-state.json parses and docs/codex/pr-train.yaml loads with PyYAML."
+        },
+        "git diff --check && git diff --cached --check": {
+          "status": "passed",
+          "summary": "Whitespace checks passed after reverting generated validation drift."
+        }
+      },
+      "events": [
+        {
+          "at": "2026-06-01T05:08:00Z",
+          "status": "in_progress",
+          "summary": "Initialized user-authorized paid wait redirect contract PR from latest origin/main in isolated worktree."
+        },
+        {
+          "at": "2026-06-01T05:28:05Z",
+          "status": "validated",
+          "summary": "Implemented paid wait redirect fallback from ready order-bound exact_result_entry, added focused contract coverage, and passed local validation."
+        },
+        {
+          "at": "2026-06-01T05:29:00Z",
+          "status": "committed",
+          "summary": "Committed scoped paid wait redirect contract changes."
+        },
+        {
+          "at": "2026-06-01T06:00:00Z",
+          "status": "validated_after_rebase",
+          "summary": "Reran focused contract, typecheck, full contract suite, and production API build after rebase. Reverted generated sitemap/metadata inventory side effects from final diff."
+        }
+      ],
+      "updated_at": "2026-06-01T06:00:00Z"
     }
   ],
   "sidecar_issues": [
