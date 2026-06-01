@@ -42,53 +42,44 @@ function installCareerLibraryMocks() {
     };
   });
 
-  vi.doMock("@/lib/career/api/fetchCareerDatasetHub", () => ({
-    fetchCareerDatasetHub: vi.fn(async () => ({
-      contract_kind: "career_public_dataset_hub",
-      dataset_key: "career_all_342_occupations_dataset",
-      dataset_scope: "career_all_342",
-      dataset_name: "FermatMind Career Occupations Dataset (All 342 Tracked Occupations)",
-      dataset_name_zh: "费马测试职业数据库（342 全量职业范围）",
-      collection_summary: {
-        member_count: 342,
-        included_count: 34,
-        excluded_count: 308,
-        public_detail_indexable_count: 1,
-        public_detail_conservative_count: 1,
-        public_index_state_counts: { indexable: 1, noindex: 341 },
+  vi.doMock("@/lib/career/api/fetchCareerDirectory", () => ({
+    fetchCareerDirectory: vi.fn(async () => ({
+      authority_version: "career.directory_authority.v1",
+      bundle_kind: "career_directory",
+      public_truth: {
+        public_detail_indexable_count: 342,
+        directory_member_count: 342,
+        future_scale_ready: true,
+        excluded_slugs: [],
       },
-      filters: { family: true, publish_track: true, index_posture: true },
-      members: [
-        {
-          member_kind: "career_tracked_occupation",
-          canonical_slug: "accountants-and-auditors",
-          canonical_title_en: "Accountants and auditors",
-          family_slug: "business-and-financial",
-          release_cohort: "public_detail_indexable",
-          public_index_state: "indexable",
-          included_in_public_dataset: true,
-        },
-        {
-          member_kind: "career_tracked_occupation",
-          canonical_slug: "actors",
-          canonical_title_en: "Actors",
-          family_slug: "entertainment-and-sports",
-          release_cohort: "review_needed",
-          public_index_state: "noindex",
-          included_in_public_dataset: false,
-        },
-      ],
-      structured_data: { dataset: { "@type": "Dataset" } },
-    })),
-  }));
-
-  vi.doMock("@/lib/career/api/fetchCareerJobIndex", () => ({
-    fetchCareerJobIndex: vi.fn(async () => ({
+      pagination: {
+        page: 1,
+        per_page: 50,
+        total: 1,
+        total_pages: 1,
+        has_next_page: false,
+        has_previous_page: false,
+      },
+      filters: { locale: "en", family: null, q: null },
+      facets: {
+        families: [
+          {
+            slug: "business-and-financial",
+            title_en: "Business and financial",
+            count: 1,
+          },
+        ],
+      },
       items: [
         {
-          identity: { canonical_slug: "accountants-and-auditors" },
-          titles: { canonical_en: "Accountants and auditors" },
-          seo_contract: { index_state: "indexable", index_eligible: true },
+          slug: "accountants-and-auditors",
+          title_en: "Accountants and auditors",
+          family: {
+            slug: "business-and-financial",
+            title_en: "Business and financial",
+          },
+          indexable: true,
+          detail_ready: true,
         },
       ],
     })),
@@ -96,7 +87,7 @@ function installCareerLibraryMocks() {
 }
 
 describe("career all occupations library contract", () => {
-  it("renders the full occupation library from dataset members instead of the six-item job index", async () => {
+  it("renders the paginated occupation directory from backend directory authority", async () => {
     installCareerLibraryMocks();
 
     const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
@@ -107,6 +98,7 @@ describe("career all occupations library contract", () => {
     const html = renderToStaticMarkup(page as ReactNode);
 
     expect(html).toContain("342 occupations, organized by industry");
+    expect(html).toContain("Showing 1-1 of 1 matching occupations; 342 detail pages are confirmed by backend publication gates.");
     expect(html).toContain("career-all-occupations-hero");
     expect(html).toContain("career-occupation-directory");
     expect(html).toContain("Accountants and auditors");

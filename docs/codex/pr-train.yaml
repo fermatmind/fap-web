@@ -9610,3 +9610,62 @@ prs:
       - Saving an email uses the existing attempt email bind API with a result recovery surface.
       - Free result preview remains visible and is not blocked by the email module.
     rollback_note: "Revert the optional result email recovery card and focused contract if result previews become blocked or email binding regresses."
+
+  - id: CAREER-JOBS-PAGINATED-DIRECTORY-SHELL-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/career-jobs-paginated-directory-shell-01
+    base: main
+    depends_on:
+      - CAREER-SITEMAP-EXPOSURE-DIRECTORY-AUTHORITY-01
+    mode: execute
+    train_scope: career_directory_10k_scale
+    status: in_progress
+    title: "CAREER-JOBS-PAGINATED-DIRECTORY-SHELL-01 career jobs paginated directory shell"
+    goal: "Migrate /career/jobs to the backend career directory authority endpoint so the index renders only one paginated page instead of SSR-rendering the full career collection."
+    in_scope:
+      - app/(localized)/[locale]/career/jobs/page.tsx
+      - lib/career/api/fetchCareerDirectory.ts
+      - lib/career/api/types.ts
+      - lib/career/adapters/adaptCareerDirectory.ts
+      - tests/contracts/career-1046-frontend-discovery-ux-01.contract.test.tsx
+      - tests/contracts/career-job-index-backend.contract.test.tsx
+      - tests/contracts/career-jobs-cms.contract.test.tsx
+      - tests/contracts/career-jobs-search-ux.contract.test.tsx
+      - tests/contracts/career-launch-smoke.contract.test.ts
+      - tests/contracts/career-search-backend.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - tests/contracts/schema-present.contract.test.ts
+      - docs/seo/career-jobs-paginated-directory-shell-01.md
+      - docs/seo/generated/career-jobs-paginated-directory-shell-01.v1.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - Backend API implementation
+      - Sitemap or llms enumeration changes
+      - Career job detail page changes
+      - Frontend fallback career content
+      - Search Channel, URL submission, deploy, CMS, DB, or cohort mutation
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/career-job-index-backend.contract.test.tsx
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - pnpm exec vitest run tests/contracts/verify-big5-contract-freeze*
+      - pnpm exec vitest run tests/contracts/verify-enneagram-contract-freeze*
+      - python3 -m json.tool docs/seo/generated/career-jobs-paginated-directory-shell-01.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: CAREER-LLMS-DIRECTORY-SITEMAP-AUTHORITY-01
+    acceptance:
+      - /career/jobs consumes /api/v0.5/career/directory instead of SSR-fetching the full jobs index and dataset hub.
+      - The page renders only the current directory page with query/family/page controls.
+      - Query, family, and page>1 views remain noindex with canonical pointing to /career/jobs.
+      - No frontend career fallback content or discoverability widening is introduced.
+    rollback_note: "Revert the career directory API client, adapter, jobs page pagination shell, and focused contracts."

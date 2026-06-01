@@ -880,6 +880,27 @@ const CAREER_1046_FRONTEND_DISCOVERY_UX_01_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const CAREER_JOBS_PAGINATED_DIRECTORY_SHELL_01_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/career/jobs/page.tsx",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/seo/career-jobs-paginated-directory-shell-01.md",
+  "docs/seo/generated/career-jobs-paginated-directory-shell-01.v1.json",
+  "docs/seo/generated/metadata-surface-inventory.v1.csv",
+  "docs/seo/generated/metadata-surface-inventory.v1.json",
+  "lib/career/adapters/adaptCareerDirectory.ts",
+  "lib/career/api/fetchCareerDirectory.ts",
+  "lib/career/api/types.ts",
+  "tests/contracts/career-1046-frontend-discovery-ux-01.contract.test.tsx",
+  "tests/contracts/career-job-index-backend.contract.test.tsx",
+  "tests/contracts/career-jobs-cms.contract.test.tsx",
+  "tests/contracts/career-jobs-search-ux.contract.test.tsx",
+  "tests/contracts/career-launch-smoke.contract.test.ts",
+  "tests/contracts/career-search-backend.contract.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/schema-present.contract.test.ts",
+]);
+
 const COOKIE_BANNER_HYDRATION_01_ALLOWED_FILES = new Set([
   "components/legal/CookieBanner.tsx",
   "docs/codex/pr-train.yaml",
@@ -965,6 +986,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/career-1046-frontend-discovery-ux-01") {
     return CAREER_1046_FRONTEND_DISCOVERY_UX_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/career-jobs-paginated-directory-shell-01") {
+    return CAREER_JOBS_PAGINATED_DIRECTORY_SHELL_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/global-en-zh-content-pages-frontend-runtime-repair-01") {

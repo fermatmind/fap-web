@@ -43,67 +43,60 @@ function installBaseMocks() {
   });
 }
 
-function buildDatasetMember(slug: string, indexable = true) {
+function buildDirectoryItem(slug: string, indexable = true) {
   return {
-    member_kind: "career_tracked_occupation",
-    canonical_slug: slug,
-    canonical_title_en: slug
+    slug,
+    title_en: slug
       .split("-")
       .map((part) => `${part.charAt(0).toUpperCase()}${part.slice(1)}`)
       .join(" "),
-    family_slug: "computer-and-information-technology",
-    release_cohort: indexable ? "public_detail_indexable" : "manual_hold",
-    public_index_state: indexable ? "indexable" : "noindex",
-    included_in_public_dataset: indexable,
-  };
-}
-
-function buildJobIndexItem(slug: string) {
-  return {
-    identity: { canonical_slug: slug },
-    titles: {
-      canonical_en: slug
-        .split("-")
-        .map((part) => `${part.charAt(0).toUpperCase()}${part.slice(1)}`)
-        .join(" "),
+    family: {
+      slug: "computer-and-information-technology",
+      title_en: "Computer and information technology",
     },
-    seo_contract: {
-      canonical_path: `/career/jobs/${slug}`,
-      index_state: "indexable",
-      index_eligible: true,
-    },
+    canonical_path: `/en/career/jobs/${slug}`,
+    indexability_state: indexable ? "indexable" : "noindex",
+    robots_policy: indexable ? "index,follow" : "noindex,nofollow",
+    indexable,
+    detail_ready: indexable,
   };
 }
 
 function installCareerAuthorityMocks(input: {
-  datasetSlugs: string[];
-  jobIndexSlugs: string[];
-  excludedDatasetSlugs?: string[];
+  pageSlugs: string[];
+  excludedSlugs?: string[];
   memberCount?: number;
+  total?: number;
 }) {
-  vi.doMock("@/lib/career/api/fetchCareerDatasetHub", () => ({
-    fetchCareerDatasetHub: vi.fn(async () => ({
-      contract_kind: "career_public_dataset_hub",
-      dataset_key: "career_public_1046",
-      dataset_scope: "career_public_1046",
-      collection_summary: {
-        member_count: input.memberCount ?? input.datasetSlugs.length,
-        included_count: input.jobIndexSlugs.length,
-        public_detail_indexable_count: input.jobIndexSlugs.length,
-        excluded_count: input.excludedDatasetSlugs?.length ?? 0,
+  vi.doMock("@/lib/career/api/fetchCareerDirectory", () => ({
+    fetchCareerDirectory: vi.fn(async () => ({
+      authority_version: "career.directory_authority.v1",
+      bundle_kind: "career_directory",
+      public_truth: {
+        public_detail_indexable_count: input.memberCount ?? input.total ?? input.pageSlugs.length,
+        directory_member_count: input.memberCount ?? input.total ?? input.pageSlugs.length,
+        future_scale_ready: true,
+        excluded_slugs: input.excludedSlugs ?? [],
       },
-      members: [
-        ...input.datasetSlugs.map((slug) => buildDatasetMember(slug, true)),
-        ...(input.excludedDatasetSlugs ?? []).map((slug) => buildDatasetMember(slug, false)),
-      ],
-      structured_data: { dataset: { "@type": "Dataset" } },
-    })),
-  }));
-
-  vi.doMock("@/lib/career/api/fetchCareerJobIndex", () => ({
-    fetchCareerJobIndex: vi.fn(async () => ({
-      bundle_kind: "career_job_index",
-      items: input.jobIndexSlugs.map(buildJobIndexItem),
+      pagination: {
+        page: 1,
+        per_page: 50,
+        total: input.total ?? input.pageSlugs.length,
+        total_pages: input.total && input.total > 50 ? Math.ceil(input.total / 50) : input.pageSlugs.length > 0 ? 1 : 0,
+        has_next_page: Boolean(input.total && input.total > 50),
+        has_previous_page: false,
+      },
+      filters: { locale: "en", family: null, q: null },
+      facets: {
+        families: [
+          {
+            slug: "computer-and-information-technology",
+            title_en: "Computer and information technology",
+            count: input.total ?? input.pageSlugs.length,
+          },
+        ],
+      },
+      items: input.pageSlugs.map((slug) => buildDirectoryItem(slug, true)),
     })),
   }));
 }
@@ -127,27 +120,26 @@ afterEach(() => {
 describe("CAREER-1046-FRONTEND-DISCOVERY-UX-01", () => {
   it("renders 1046 backend-authority detail-ready occupations with a discoverable result summary", async () => {
     installBaseMocks();
-    const slugs = Array.from({ length: 1046 }, (_, index) => `career-public-role-${index + 1}`);
+    const slugs = Array.from({ length: 50 }, (_, index) => `career-public-role-${index + 1}`);
     installCareerAuthorityMocks({
-      datasetSlugs: slugs,
-      jobIndexSlugs: slugs,
       memberCount: 1046,
+      pageSlugs: slugs,
+      total: 1046,
     });
 
     const html = await renderCareerJobsPage();
 
     expect(html).toContain("1046 occupations, organized by industry");
     expect(html).toContain("data-testid=\"career-library-result-summary\"");
-    expect(html).toContain("Showing 1046 occupations; 1046 detail pages are confirmed by backend publication gates.");
-    expect((html.match(/data-testid="career-occupation-row"/g) ?? [])).toHaveLength(1046);
-    expect((html.match(/data-testid="career-occupation-detail-link"/g) ?? [])).toHaveLength(1046);
+    expect(html).toContain("Showing 1-50 of 1046 matching occupations; 1046 detail pages are confirmed by backend publication gates.");
+    expect((html.match(/data-testid="career-occupation-row"/g) ?? [])).toHaveLength(50);
+    expect((html.match(/data-testid="career-occupation-detail-link"/g) ?? [])).toHaveLength(50);
   });
 
   it("does not render local fallback-only career cards when backend authority is unavailable", async () => {
     installBaseMocks();
     installCareerAuthorityMocks({
-      datasetSlugs: [],
-      jobIndexSlugs: [],
+      pageSlugs: [],
       memberCount: 0,
     });
 
@@ -162,9 +154,8 @@ describe("CAREER-1046-FRONTEND-DISCOVERY-UX-01", () => {
   it("keeps excluded slugs out of discovery while preserving backend-indexable detail links", async () => {
     installBaseMocks();
     installCareerAuthorityMocks({
-      datasetSlugs: ["accountants-and-auditors", "actors"],
-      jobIndexSlugs: ["accountants-and-auditors", "actors"],
-      excludedDatasetSlugs: EXCLUDED_SLUGS,
+      pageSlugs: ["accountants-and-auditors", "actors"],
+      excludedSlugs: EXCLUDED_SLUGS,
       memberCount: 1049,
     });
 

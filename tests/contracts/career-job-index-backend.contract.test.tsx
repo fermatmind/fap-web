@@ -3,7 +3,9 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import { renderToStaticMarkup } from "react-dom/server";
 import { afterEach, describe, expect, it, vi } from "vitest";
+import { adaptCareerDirectory } from "@/lib/career/adapters/adaptCareerDirectory";
 import { adaptCareerJobIndex } from "@/lib/career/adapters/adaptCareerJobIndex";
+import { fetchCareerDirectory } from "@/lib/career/api/fetchCareerDirectory";
 import { fetchCareerJobIndex } from "@/lib/career/api/fetchCareerJobIndex";
 
 function jsonResponse(payload: unknown, status = 200): Response {
@@ -21,33 +23,67 @@ afterEach(() => {
   vi.resetModules();
 });
 
-function mockCareerDatasetHub(members: Array<Record<string, unknown>> = [
-  {
-    canonical_slug: "data-scientists",
-    canonical_title_en: "Data Scientists",
-    family_slug: "computer-and-information-technology",
-    included_in_public_dataset: true,
-    public_index_state: "indexable",
-  },
-]) {
-  vi.doMock("@/lib/career/api/fetchCareerDatasetHub", () => ({
-    fetchCareerDatasetHub: vi.fn(async () => ({
-      dataset_key: "career_occupations_public",
-      dataset_name: "Career occupations dataset",
-      collection_summary: {
-        member_count: members.length,
-        included_count: members.length,
-        public_detail_indexable_count: members.length,
-      },
-      members,
-      structured_data: {
-        dataset: { "@type": "Dataset", name: "Career occupations dataset" },
-      },
-    })),
-  }));
+function careerDirectoryPayload(items: Array<Record<string, unknown>>, overrides: Record<string, unknown> = {}) {
+  return {
+    authority_version: "career.directory_authority.v1",
+    bundle_kind: "career_directory",
+    public_truth: {
+      public_detail_indexable_count: 1046,
+      directory_member_count: 1046,
+      future_scale_ready: true,
+      excluded_slugs: ["software-developers", "digital-forensics-analysts", "computer-occupations-all-other"],
+    },
+    pagination: {
+      page: 1,
+      per_page: 50,
+      total: items.length,
+      total_pages: 1,
+      has_next_page: false,
+      has_previous_page: false,
+    },
+    filters: {
+      locale: "en",
+      family: null,
+      q: null,
+    },
+    facets: {
+      families: [
+        {
+          slug: "computer-and-information-technology",
+          title_en: "Computer and information technology",
+          title_zh: "计算机与信息技术",
+          count: items.length,
+        },
+      ],
+    },
+    items,
+    ...overrides,
+  };
 }
 
 describe("career job index backend contract", () => {
+  it("requests the backend paginated career directory endpoint", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async (input: RequestInfo | URL) => {
+        const url = String(input);
+
+        expect(url).toContain("/api/v0.5/career/directory?");
+        expect(url).toContain("locale=zh-CN");
+        expect(url).toContain("page=2");
+        expect(url).toContain("per_page=50");
+        expect(url).toContain("family=healthcare");
+        expect(url).toContain("q=nurse");
+
+        return jsonResponse(careerDirectoryPayload([]));
+      })
+    );
+
+    const payload = await fetchCareerDirectory({ locale: "zh", page: 2, perPage: 50, family: "healthcare", query: "nurse" });
+
+    expect(payload).not.toBeNull();
+  });
+
   it("requests the backend lightweight job index endpoint", async () => {
     vi.stubGlobal(
       "fetch",
@@ -125,7 +161,39 @@ describe("career job index backend contract", () => {
     expect(items[0]?.authoritySource).toBe("career_backend_lightweight_index.v0.5");
   });
 
-  it("renders the jobs page from the backend lightweight path without cms authority fallback", async () => {
+  it("adapts the backend directory into frontend-safe paginated members without CMS fallback truth", () => {
+    const directory = adaptCareerDirectory({
+      locale: "en",
+      payload: careerDirectoryPayload([
+        {
+          slug: "data-scientists",
+          title_en: "Data Scientists",
+          title_zh: "数据科学家",
+          title: "Data Scientists",
+          family: {
+            slug: "computer-and-information-technology",
+            title_en: "Computer and information technology",
+            title_zh: "计算机与信息技术",
+          },
+          canonical_path: "/en/career/jobs/data-scientists",
+          indexability_state: "indexable",
+          robots_policy: "index,follow",
+          indexable: true,
+          detail_ready: true,
+        },
+      ]),
+    });
+
+    expect(directory.authorityVersion).toBe("career.directory_authority.v1");
+    expect(directory.publicTruth.publicDetailIndexableCount).toBe(1046);
+    expect(directory.members).toHaveLength(1);
+    expect(directory.members[0]?.canonicalSlug).toBe("data-scientists");
+    expect(directory.members[0]?.canonicalTitleEn).toBe("Data Scientists");
+    expect(directory.members[0]?.publicIndexState).toBe("indexable");
+    expect(directory.members[0]?.includedInPublicDataset).toBe(true);
+  });
+
+  it("renders the jobs page from the backend paginated directory without cms authority fallback", async () => {
     vi.doMock("next/link", () => ({
       default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
         <a href={href} {...props}>
@@ -136,66 +204,28 @@ describe("career job index backend contract", () => {
     vi.doMock("@/lib/i18n/getDict", () => ({
       resolveLocale: vi.fn(() => "en"),
     }));
-    vi.doMock("@/lib/career/api/fetchCareerJobIndex", () => ({
-      fetchCareerJobIndex: vi.fn(async () => ({
-        bundle_kind: "career_job_index",
-        items: [
+    vi.doMock("@/lib/career/api/fetchCareerDirectory", () => ({
+      fetchCareerDirectory: vi.fn(async () =>
+        careerDirectoryPayload([
           {
-            identity: {
-              canonical_slug: "data-scientists",
+            slug: "data-scientists",
+            title_en: "Data Scientists",
+            title_zh: "数据科学家",
+            title: "Data Scientists",
+            family: {
+              slug: "computer-and-information-technology",
+              title_en: "Computer and information technology",
+              title_zh: "计算机与信息技术",
             },
-            titles: {
-              canonical_en: "Data Scientists",
-            },
-            truth_summary: {
-              median_pay_usd_annual: 182000,
-              outlook_pct_2024_2034: 14,
-              outlook_description: "High-trust systems work.",
-            },
-            trust_summary: {
-              reviewer_status: "approved",
-            },
-            score_summary: {
-              fit_score: { value: 84, integrity_state: "full", degradation_factor: 1.0 },
-              confidence_score: { value: 79, integrity_state: "full", degradation_factor: 1.0 },
-            },
-            seo_contract: {
-              canonical_path: "/career/jobs/data-scientists",
-              index_state: "indexable",
-              index_eligible: true,
-            },
-            provenance_meta: {
-              compiler_version: "v2.2",
-            },
+            canonical_path: "/en/career/jobs/data-scientists",
+            indexability_state: "indexable",
+            robots_policy: "index,follow",
+            indexable: true,
+            detail_ready: true,
           },
-        ],
-      })),
+        ])
+      ),
     }));
-    vi.doMock("@/lib/career/api/fetchCareerLaunchGovernanceClosure", () => ({
-      fetchCareerLaunchGovernanceClosure: vi.fn(async () => ({
-        governance_kind: "career_launch_governance_closure",
-        governance_version: "career.governance.v1",
-        scope: "career_all_342",
-        counts: {
-          tracking_counts: { expected_total_occupations: 342, tracked_total_occupations: 342, tracking_complete: true },
-          summary: {},
-        },
-        members: [
-          {
-            canonical_slug: "data-scientists",
-            release_state: "public_detail_indexable",
-            strong_index_state: "strong_index_ready",
-            operations_state: "strong_operations_ready",
-            governance_state: "mature_public_launch",
-            strong_index_ready: true,
-            strong_operations_ready: true,
-            blocking_reasons: [],
-          },
-        ],
-        public_statement: { allowed_external_statement: "cohort-qualified only" },
-      })),
-    }));
-    mockCareerDatasetHub();
 
     const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
     const page = await CareerJobsPage({
@@ -210,7 +240,7 @@ describe("career job index backend contract", () => {
     expect(html).not.toContain("CMS did not return any public career jobs");
   });
 
-  it("filters non-stable job cards out of the public jobs index", async () => {
+  it("renders only the current paginated directory page returned by backend authority", async () => {
     vi.doMock("next/link", () => ({
       default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
         <a href={href} {...props}>
@@ -221,114 +251,64 @@ describe("career job index backend contract", () => {
     vi.doMock("@/lib/i18n/getDict", () => ({
       resolveLocale: vi.fn(() => "en"),
     }));
-    vi.doMock("@/lib/career/api/fetchCareerJobIndex", () => ({
-      fetchCareerJobIndex: vi.fn(async () => ({
-        bundle_kind: "career_job_index",
-        items: [
+    vi.doMock("@/lib/career/api/fetchCareerDirectory", () => ({
+      fetchCareerDirectory: vi.fn(async () =>
+        careerDirectoryPayload(
+          [
+            {
+              slug: "financial-analysts",
+              title_en: "Financial Analysts",
+              title: "Financial Analysts",
+              family: {
+                slug: "business-and-financial",
+                title_en: "Business and financial",
+              },
+              indexable: true,
+              detail_ready: true,
+            },
+          ],
           {
-            identity: {
-              canonical_slug: "financial-analysts",
+            pagination: {
+              page: 2,
+              per_page: 50,
+              total: 1046,
+              total_pages: 21,
+              has_next_page: true,
+              has_previous_page: true,
             },
-            titles: {
-              canonical_en: "Financial Analysts",
-            },
-            truth_summary: {
-              median_pay_usd_annual: 182000,
-              outlook_pct_2024_2034: 14,
-            },
-            trust_summary: {
-              reviewer_status: "reviewed",
-            },
-            score_summary: {
-              fit_score: { value: 84, integrity_state: "full", degradation_factor: 1.0 },
-              confidence_score: { value: 79, integrity_state: "full", degradation_factor: 1.0 },
-            },
-            seo_contract: {
-              canonical_path: "/career/jobs/financial-analysts",
-              index_state: "indexable",
-              index_eligible: true,
-            },
-          },
-        ],
-      })),
+          }
+        )
+      ),
     }));
-    vi.doMock("@/lib/career/api/fetchCareerLaunchGovernanceClosure", () => ({
-      fetchCareerLaunchGovernanceClosure: vi.fn(async () => ({
-        governance_kind: "career_launch_governance_closure",
-        governance_version: "career.governance.v1",
-        scope: "career_all_342",
-        counts: {
-          tracking_counts: { expected_total_occupations: 342, tracked_total_occupations: 342, tracking_complete: true },
-          summary: {},
-        },
-        members: [
-          {
-            canonical_slug: "financial-analysts",
-            release_state: "review_needed",
-            strong_index_state: "manual_only",
-            operations_state: "not_strong_operations_ready",
-            governance_state: "not_yet_mature",
-            strong_index_ready: false,
-            strong_operations_ready: false,
-            blocking_reasons: ["crosswalk_backlog_not_converged"],
-          },
-        ],
-        public_statement: { allowed_external_statement: "cohort-qualified only" },
-      })),
-    }));
-    mockCareerDatasetHub([
-      {
-        canonical_slug: "financial-analysts",
-        canonical_title_en: "Financial Analysts",
-        family_slug: "business-and-financial",
-        included_in_public_dataset: true,
-        public_index_state: "noindex",
-      },
-    ]);
 
     const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
     const page = await CareerJobsPage({
       params: Promise.resolve({ locale: "en" }),
-      searchParams: Promise.resolve({}),
+      searchParams: Promise.resolve({ page: "2" }),
     });
     const html = renderToStaticMarkup(page as ReactNode);
 
     expect(html).toContain("career-occupation-directory");
     expect(html).toContain("Financial Analysts");
+    expect(html).toContain("Page 2 of 21");
   });
 
-  it("treats whitespace-only q as no query and keeps the default backend job index path", async () => {
-    const fetchCareerJobIndexMock = vi.fn(async () => ({
-      bundle_kind: "career_job_index",
-      items: [
+  it("treats whitespace-only q as no query and keeps the default backend directory path", async () => {
+    const fetchCareerDirectoryMock = vi.fn(async () =>
+      careerDirectoryPayload([
         {
-          identity: {
-            canonical_slug: "backend-architect",
+          slug: "backend-architect",
+          title_en: "Backend Architect",
+          title: "Backend Architect",
+          family: {
+            slug: "computer-and-information-technology",
+            title_en: "Computer and information technology",
           },
-          titles: {
-            canonical_en: "Backend Architect",
-          },
-          truth_summary: {
-            median_pay_usd_annual: 182000,
-            outlook_pct_2024_2034: 14,
-            outlook_description: "High-trust systems work.",
-          },
-          trust_summary: {
-            reviewer_status: "approved",
-          },
-          score_summary: {
-            fit_score: { value: 84, integrity_state: "full", degradation_factor: 1.0 },
-            confidence_score: { value: 79, integrity_state: "full", degradation_factor: 1.0 },
-          },
-            seo_contract: {
-            canonical_path: "/career/jobs/backend-architect",
-            index_state: "indexable",
-            index_eligible: true,
-          },
+          indexable: true,
+          detail_ready: true,
         },
-      ],
-    }));
-
+      ])
+    );
     vi.doMock("next/link", () => ({
       default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
         <a href={href} {...props}>
@@ -339,36 +319,14 @@ describe("career job index backend contract", () => {
     vi.doMock("@/lib/i18n/getDict", () => ({
       resolveLocale: vi.fn(() => "en"),
     }));
-    vi.doMock("@/lib/career/api/fetchCareerJobIndex", () => ({
-      fetchCareerJobIndex: fetchCareerJobIndexMock,
-    }));
-    vi.doMock("@/lib/career/api/fetchCareerLaunchGovernanceClosure", () => ({
-      fetchCareerLaunchGovernanceClosure: vi.fn(async () => ({
-        governance_kind: "career_launch_governance_closure",
-        governance_version: "career.governance.v1",
-        scope: "career_all_342",
-        counts: {
-          tracking_counts: { expected_total_occupations: 342, tracked_total_occupations: 342, tracking_complete: true },
-          summary: {},
-        },
-        members: [],
-        public_statement: { allowed_external_statement: "cohort-qualified only" },
-      })),
+    vi.doMock("@/lib/career/api/fetchCareerDirectory", () => ({
+      fetchCareerDirectory: fetchCareerDirectoryMock,
     }));
     vi.doMock("@/lib/career/api/fetchCareerSearch", () => ({
       fetchCareerSearch: vi.fn(async () => {
         throw new Error("search fetch should not run for whitespace-only q");
       }),
     }));
-    mockCareerDatasetHub([
-      {
-        canonical_slug: "backend-architect",
-        canonical_title_en: "Backend Architect",
-        family_slug: "computer-and-information-technology",
-        included_in_public_dataset: true,
-        public_index_state: "indexable",
-      },
-    ]);
 
     const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
     const page = await CareerJobsPage({
@@ -377,7 +335,14 @@ describe("career job index backend contract", () => {
     });
     const html = renderToStaticMarkup(page as ReactNode);
 
-    expect(fetchCareerJobIndexMock).toHaveBeenCalledTimes(1);
+    expect(fetchCareerDirectoryMock).toHaveBeenCalledTimes(1);
+    expect(fetchCareerDirectoryMock).toHaveBeenCalledWith(
+      expect.objectContaining({
+        page: 1,
+        perPage: 50,
+        query: null,
+      })
+    );
     expect(html).toContain("career-occupation-directory");
     expect(html).not.toContain("career-job-search-card");
   });
@@ -393,21 +358,20 @@ describe("career job index backend contract", () => {
     vi.doMock("@/lib/i18n/getDict", () => ({
       resolveLocale: vi.fn(() => "en"),
     }));
-    vi.doMock("@/lib/career/api/fetchCareerJobIndex", () => ({
-      fetchCareerJobIndex: vi.fn(async () => ({
-        bundle_kind: "career_job_index",
-        items: [],
-      })),
+    vi.doMock("@/lib/career/api/fetchCareerDirectory", () => ({
+      fetchCareerDirectory: vi.fn(async () =>
+        careerDirectoryPayload([], {
+          pagination: {
+            page: 1,
+            per_page: 50,
+            total: 0,
+            total_pages: 0,
+            has_next_page: false,
+            has_previous_page: false,
+          },
+        })
+      ),
     }));
-    mockCareerDatasetHub([
-      {
-        canonical_slug: "data-scientists",
-        canonical_title_en: "Data Scientists",
-        family_slug: "computer-and-information-technology",
-        included_in_public_dataset: true,
-        public_index_state: "indexable",
-      },
-    ]);
 
     const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
     const page = await CareerJobsPage({
