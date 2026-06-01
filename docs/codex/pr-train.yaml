@@ -171,7 +171,7 @@ prs:
     base: main
     depends_on: []
     mode: execute
-    status: planned
+    status: merged
     title: "docs(runtime): lock production frontend source of truth"
     artifacts:
       - docs/runtime/public-frontend-source-of-truth.md
@@ -185,7 +185,7 @@ prs:
     base: main
     depends_on: [PR-PRAC-01]
     mode: execute
-    status: planned
+    status: in_progress
     title: "test(runtime): add page family runtime contract coverage matrix"
     artifacts:
       - docs/runtime/page-family-runtime-coverage.md
@@ -9245,7 +9245,7 @@ prs:
     depends_on: []
     mode: execute
     train_scope: analytics_seo_p0_p1
-    status: in_progress
+    status: merged
     title: "fix(seo): harden private result order share indexing"
     goal: "Harden noindex, canonical, sitemap exclusion, and analytics redaction for result, order, and share routes without changing payment state, public share SEO content, analytics event naming, UTM helpers, backend code, or production configuration."
     in_scope:
@@ -9308,7 +9308,7 @@ prs:
       - ANALYTICS-SEO-P0-04
     mode: execute
     train_scope: analytics_seo_p0_p1
-    status: planned
+    status: merged
     title: "feat(analytics): standardize GA4 and Baidu funnel events"
     goal: "Standardize GA4 and Baidu conversion events and payloads for start_test, complete_test, view_result, click_deep_report, begin_checkout, and purchase_success without GTM, Baidu Ads, backend, or unrelated SEO changes."
     in_scope:
@@ -9354,7 +9354,7 @@ prs:
       - ANALYTICS-SEO-P0-01
     mode: execute
     train_scope: analytics_seo_p0_p1
-    status: planned
+    status: in_progress
     title: "docs(analytics): add conversion setup QA checklist"
     goal: "Document GA4 Key Events, Google Ads purchase conversion, Baidu Tongji conversion goals, and QA verification boundaries."
     in_scope:
