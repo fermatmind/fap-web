@@ -417,11 +417,29 @@ function createLlmsFullResponse(text: string, mode: LlmsFullResponseMode): NextR
   });
 }
 
-function canonicalCareerJobUrlSet(text: string, siteUrl: string): Set<string> {
-  const escapedSiteUrl = siteUrl.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  const pattern = new RegExp(`${escapedSiteUrl}/(?:en|zh)/career/jobs/[a-z0-9-]+`, "g");
+const CAREER_JOB_CANONICAL_PATH_RE = /^\/(?:en|zh)\/career\/jobs\/[a-z0-9-]+$/;
 
-  return new Set(text.match(pattern) ?? []);
+function canonicalCareerJobUrlSet(text: string, siteUrl: string): Set<string> {
+  let siteOrigin: string;
+  try {
+    siteOrigin = new URL(siteUrl).origin;
+  } catch {
+    return new Set();
+  }
+
+  const urls = text.match(/https?:\/\/[^\s)]+/g) ?? [];
+  const canonicalUrls = urls.flatMap((url) => {
+    try {
+      const parsed = new URL(url);
+      return parsed.origin === siteOrigin && CAREER_JOB_CANONICAL_PATH_RE.test(parsed.pathname)
+        ? [`${siteOrigin}${parsed.pathname}`]
+        : [];
+    } catch {
+      return [];
+    }
+  });
+
+  return new Set(canonicalUrls);
 }
 
 function isCompleteLlmsFullText(text: string, siteUrl: string): boolean {

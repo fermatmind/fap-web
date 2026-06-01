@@ -37,6 +37,10 @@ function expectLlmsRouteHygiene(source: string): void {
   expect(source).not.toContain("fetchCareerJobIndex");
   expect(source).not.toContain("adaptCareerJobIndex");
   expect(source).not.toContain("\\/career\\/jobs\\/[^/]+");
+  if (source.includes("canonicalCareerJobUrlSet")) {
+    expect(source).not.toContain("new RegExp(`${escapedSiteUrl}");
+    expect(source).toContain("new URL(url)");
+  }
 }
 
 describe("llms final URL hygiene contract", () => {
