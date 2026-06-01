@@ -966,6 +966,22 @@ const CAREER_JOBS_PAGINATED_DIRECTORY_SHELL_01_ALLOWED_FILES = new Set([
   "tests/contracts/schema-present.contract.test.ts",
 ]);
 
+const CAREER_LLMS_DIRECTORY_SITEMAP_AUTHORITY_01_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/seo/career-llms-directory-sitemap-authority-01.md",
+  "docs/seo/generated/career-llms-directory-sitemap-authority-01.v1.json",
+  "docs/seo/generated/metadata-surface-inventory.v1.csv",
+  "docs/seo/generated/metadata-surface-inventory.v1.json",
+  "lib/seo/backendSitemapSource.ts",
+  "tests/contracts/career-llms-alignment.contract.test.ts",
+  "tests/contracts/detail-ready-1046-discoverability-exposure-repair-01.contract.test.ts",
+  "tests/contracts/fixtures/discoverability-foundation/cms-seo-completeness-matrix.v1.json",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/llms-route-fanout.contract.test.ts",
+  "tests/contracts/llms-url-hygiene.contract.test.ts",
+]);
+
 const COOKIE_BANNER_HYDRATION_01_ALLOWED_FILES = new Set([
   "components/legal/CookieBanner.tsx",
   "docs/codex/pr-train.yaml",
@@ -1055,6 +1071,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/career-jobs-paginated-directory-shell-01") {
     return CAREER_JOBS_PAGINATED_DIRECTORY_SHELL_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/career-llms-directory-sitemap-authority-01") {
+    return CAREER_LLMS_DIRECTORY_SITEMAP_AUTHORITY_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/global-en-zh-content-pages-frontend-runtime-repair-01") {
