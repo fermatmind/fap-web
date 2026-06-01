@@ -1072,6 +1072,15 @@ const CAREER_DETAIL_CACHE_BUDGET_REPAIR_01_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const CAREER_LLMS_FULL_10K_BUDGET_GATE_01_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/seo/career-llms-full-10k-budget-gate-01.md",
+  "docs/seo/generated/career-llms-full-10k-budget-gate-01.v1.json",
+  "tests/contracts/career-llms-full-10k-budget-gate-01.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 const COOKIE_BANNER_HYDRATION_01_ALLOWED_FILES = new Set([
   "components/legal/CookieBanner.tsx",
   "docs/codex/pr-train.yaml",
@@ -1192,6 +1201,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/career-detail-cache-budget-repair-01") {
     return CAREER_DETAIL_CACHE_BUDGET_REPAIR_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/career-llms-full-10k-budget-gate-01") {
+    return CAREER_LLMS_FULL_10K_BUDGET_GATE_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/global-en-zh-content-pages-frontend-runtime-repair-01") {
