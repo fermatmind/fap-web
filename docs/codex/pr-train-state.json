@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-01T11:52:32Z",
+  "updated_at": "2026-06-01T12:59:00Z",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -15611,6 +15611,99 @@
         }
       ],
       "updated_at": "2026-06-01T12:02:00Z"
+    },
+    {
+      "id": "LEGACY-SEO-RECONCILIATION-SCAN",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/legacy-seo-reconciliation-scan",
+      "base": "main",
+      "depends_on": [],
+      "status": "pr_open",
+      "title": "LEGACY-SEO-RECONCILIATION-SCAN legacy SEO coverage reconciliation",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/979",
+      "commit_sha": "pending_remote_pr_head_after_pr_url_ledger_amend",
+      "merge_sha": null,
+      "checks": [
+        {
+          "name": "manifest_registration",
+          "status": "passed",
+          "summary": "User explicitly authorized fap-web manifest/state updates for LEGACY-SEO-RECONCILIATION-SCAN only."
+        },
+        {
+          "name": "read_only_reconciliation",
+          "status": "passed",
+          "summary": "PR-08 and PR-01 are covered by existing source/contracts; PR-07 is deferred by page family rather than broad legacy implementation."
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/legacy-seo-reconciliation-scan.contract.test.ts tests/contracts/analytics-seo-metadata-sitemap-canonical.contract.test.ts tests/contracts/shared-exposure-policy.contract.test.ts tests/contracts/evidence-container-readiness-gate.contract.test.ts tests/contracts/seo-geo-llms-claim-guards.contract.test.ts",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm typecheck",
+          "status": "passed"
+        },
+        {
+          "name": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build",
+          "status": "passed",
+          "summary": "Build passed; generated public/sitemap.xml validation side effect was restored from git because it is outside this report-only PR scope."
+        },
+        {
+          "name": "pnpm test:contract",
+          "status": "passed",
+          "summary": "422 files / 2369 tests passed. Existing React act/jsdom/prefetch warnings were non-fatal."
+        },
+        {
+          "name": "pnpm lint .",
+          "status": "passed_with_warnings",
+          "summary": "0 errors and 8 existing warnings outside current PR scope."
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/verify-big5-contract-freeze*",
+          "status": "external_no_matching_files_sidecar",
+          "summary": "Vitest found no matching files for the requested freeze glob; full contract suite passed."
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/verify-enneagram-contract-freeze*",
+          "status": "external_no_matching_files_sidecar",
+          "summary": "Vitest found no matching files for the requested freeze glob; full contract suite passed."
+        },
+        {
+          "name": "json/yaml parse and git diff checks",
+          "status": "passed"
+        }
+      ],
+      "failure_reason": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "events": [
+        {
+          "at": "2026-06-01T12:42:58Z",
+          "status": "authorized",
+          "summary": "User authorized a report-only reconciliation PR for the three legacy SEO items with no runtime/content/deploy/CMS/Search Channel/URL submission/external API/env/DNS/nginx/frontend fallback changes."
+        },
+        {
+          "at": "2026-06-01T12:42:58Z",
+          "status": "in_progress",
+          "summary": "Started scoped fap-web report PR from origin/main on codex/legacy-seo-reconciliation-scan."
+        },
+        {
+          "at": "2026-06-01T12:52:00Z",
+          "status": "local_validation_passed",
+          "summary": "Added read-only reconciliation report/generated JSON/focused contract/state, passed focused contracts, typecheck, production API build, full contract suite, lint, JSON/YAML parse, and diff checks. Freeze glob commands remain an external no-matching-files sidecar."
+        },
+        {
+          "at": "2026-06-01T12:56:00Z",
+          "status": "committed",
+          "summary": "Committed scoped read-only reconciliation report changes. The final branch head is reported after PR URL ledger amendment to avoid self-referential hash churn."
+        },
+        {
+          "at": "2026-06-01T12:59:00Z",
+          "status": "pr_open",
+          "summary": "Opened https://github.com/fermatmind/fap-web/pull/979 after local validation and scope validation passed."
+        }
+      ],
+      "updated_at": "2026-06-01T12:59:00Z"
     }
   ],
   "sidecar_issues": [

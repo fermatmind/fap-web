@@ -10245,3 +10245,55 @@ prs:
       - Redirects remain limited to safe local result URLs.
       - Paid-but-not-ready orders remain on the wait flow.
     rollback_note: "Revert the paid wait redirect fallback and focused contract if paid wait pages redirect before exact result readiness."
+
+  - id: LEGACY-SEO-RECONCILIATION-SCAN
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/legacy-seo-reconciliation-scan
+    base: main
+    depends_on: []
+    mode: execute
+    train_scope: legacy_seo_reconciliation
+    status: in_progress
+    title: "LEGACY-SEO-RECONCILIATION-SCAN legacy SEO coverage reconciliation"
+    goal: "Record a read-only reconciliation for legacy private-flow, i18n canonical, and GEO/schema/FAQ SEO items, marking them as covered or deferred by page family without runtime changes."
+    in_scope:
+      - docs/seo/legacy-seo-reconciliation-scan.md
+      - docs/seo/generated/legacy-seo-reconciliation-scan.v1.json
+      - tests/contracts/legacy-seo-reconciliation-scan.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - Runtime code changes
+      - Public content changes
+      - Deployment
+      - CMS mutation
+      - Search Channel action
+      - URL submission
+      - External API calls
+      - Env, DNS, or nginx edits
+      - Frontend fallback content
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/legacy-seo-reconciliation-scan.contract.test.ts tests/contracts/analytics-seo-metadata-sitemap-canonical.contract.test.ts tests/contracts/shared-exposure-policy.contract.test.ts tests/contracts/evidence-container-readiness-gate.contract.test.ts tests/contracts/seo-geo-llms-claim-guards.contract.test.ts
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - pnpm exec vitest run tests/contracts/verify-big5-contract-freeze*
+      - pnpm exec vitest run tests/contracts/verify-enneagram-contract-freeze*
+      - python3 -m json.tool docs/seo/generated/legacy-seo-reconciliation-scan.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: null
+    acceptance:
+      - PR-08-RESULT-PRIVATE-FLOW-ISOLATION is recorded as covered by current private-flow discoverability and metadata contracts.
+      - PR-01-NEXT-I18N-ROUTING-CANONICAL-GUARD is recorded as covered by current canonical authority contracts.
+      - PR-07-GEO-SCHEMA-FAQ-EVIDENCE is recorded as deferred by page family, not as a broad legacy implementation.
+      - No runtime, content, CMS, Search Channel, URL submission, external API, env, DNS, nginx, deploy, or frontend fallback content change is introduced.
+    rollback_note: "Revert the report, generated JSON, focused contract, and PR train metadata if the reconciliation needs to be restated."
