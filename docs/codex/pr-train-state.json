@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-01T04:29:46Z",
+  "updated_at": "2026-06-01T04:30:31Z",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -14482,9 +14482,9 @@
         "ANALYTICS-SEO-P1-08"
       ],
       "title": "feat(seo): thicken MBTI landing structure",
-      "status": "local_checks_passed",
-      "commit_sha": "a97ceb2e44268baf0f429d50c6088ae2ed5f9d21",
-      "pr_url": "",
+      "status": "pr_open_github_checks_pending",
+      "commit_sha": "cad01656bdda0064f1837e81943612ae17f7e8e1",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/963",
       "failure_reason": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -14519,9 +14519,14 @@
           "at": "2026-06-01T04:29:46Z",
           "status": "committed",
           "summary": "Created scoped implementation commit a97ceb2e44268baf0f429d50c6088ae2ed5f9d21 for ANALYTICS-SEO-P1-06."
+        },
+        {
+          "at": "2026-06-01T04:30:31Z",
+          "status": "pr_open_github_checks_pending",
+          "summary": "Opened https://github.com/fermatmind/fap-web/pull/963 after local checks and scope validation passed."
         }
       ],
-      "updated_at": "2026-06-01T04:29:46Z"
+      "updated_at": "2026-06-01T04:30:31Z"
     },
     {
       "id": "ANALYTICS-SEO-P1-07",
