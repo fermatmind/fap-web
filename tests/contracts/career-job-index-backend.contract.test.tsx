@@ -62,6 +62,15 @@ function careerDirectoryPayload(items: Array<Record<string, unknown>>, overrides
 }
 
 describe("career job index backend contract", () => {
+  it("proxies the production same-origin career directory endpoint", () => {
+    const configSource = readFileSync(path.join(process.cwd(), "next.config.mjs"), "utf8");
+
+    expect(configSource).toContain('"/api/v0.5/career/directory"');
+    expect(configSource.indexOf('"/api/v0.5/career/directory"')).toBeLessThan(
+      configSource.indexOf('"/api/v0.5/career/jobs"')
+    );
+  });
+
   it("requests the backend paginated career directory endpoint", async () => {
     vi.stubGlobal(
       "fetch",

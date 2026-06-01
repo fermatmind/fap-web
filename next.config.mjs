@@ -34,6 +34,7 @@ const publicV05ApiProxySources = [
   "/api/v0.5/topics/:slug/seo",
   "/api/v0.5/career/datasets/occupations",
   "/api/v0.5/career/datasets/occupations/method",
+  "/api/v0.5/career/directory",
   "/api/v0.5/career/family/:slug",
   "/api/v0.5/career/first-wave/discoverability-manifest",
   "/api/v0.5/career/first-wave/jobs/:slug/next-step-links",
