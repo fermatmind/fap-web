@@ -50,6 +50,13 @@ const LLMS_FINAL_PATH_DENY_PATTERNS: RegExp[] = [
   /^\/ops(?:\/|$)/i,
   /^\/(?:en|zh)\/ops(?:\/|$)/i,
 ];
+const CAREER_JOB_DETAIL_PATH_RE = /^\/(?:en|zh)\/career\/jobs\/[^/?#]+$/i;
+const CAREER_JOB_DETAIL_PARTS_RE = /^\/(?:en|zh)\/career\/jobs\/([^/?#]+)$/i;
+const EXCLUDED_CAREER_JOB_DETAIL_SLUGS = new Set([
+  "software-developers",
+  "digital-forensics-analysts",
+  "computer-occupations-all-other",
+]);
 
 function toCanonical(siteUrl: string, path: string): string {
   const normalized = path.startsWith("/") ? path : `/${path}`;
@@ -77,6 +84,28 @@ function shouldKeep(path: string): boolean {
 
 function dedupePaths(paths: string[]): string[] {
   return [...new Set(paths.map((path) => normalizePath(path)))].filter((path) => shouldKeep(path));
+}
+
+function shouldKeepCareerJobAuthorityPath(path: string): boolean {
+  const normalized = normalizePath(path);
+  const slug = normalized.match(CAREER_JOB_DETAIL_PARTS_RE)?.[1]?.toLowerCase();
+
+  return (
+    CAREER_JOB_DETAIL_PATH_RE.test(normalized) &&
+    Boolean(slug) &&
+    !EXCLUDED_CAREER_JOB_DETAIL_SLUGS.has(slug ?? "") &&
+    !isSharedDiscoverabilityDeniedPath(normalized) &&
+    shouldIncludeInSitemap(normalized, {
+      indexEligible: true,
+      indexState: "indexed",
+    })
+  );
+}
+
+function dedupeCareerJobAuthorityPaths(paths: string[]): string[] {
+  return [...new Set(paths.map((path) => normalizePath(path)))]
+    .filter((path) => shouldKeepCareerJobAuthorityPath(path))
+    .sort((left, right) => left.localeCompare(right));
 }
 
 function localizedContentPagePath(page: ContentPage, fallbackLocale: Locale): string {
@@ -308,8 +337,9 @@ export async function GET() {
     ...guideEntries,
     ...enCareerRecommendations.filter(shouldKeepCareerAuthorityRoute).map((item) => item.href),
     ...zhCareerRecommendations.filter(shouldKeepCareerAuthorityRoute).map((item) => item.href),
-    ...careerJobEntries,
   ]);
+  const careerJobAuthorityEntries = dedupeCareerJobAuthorityPaths(careerJobEntries);
+  const allCareerEntries = [...careerEntries, ...careerJobAuthorityEntries];
   const dailyGivingEntries = dedupePaths([
     ...enDailyGivingEntries.map((entry) => entry.path),
     ...zhDailyGivingEntries.map((entry) => entry.path),
@@ -355,7 +385,7 @@ export async function GET() {
     ...articleEntries.map((path) => `- ${toCanonical(siteUrl, path)}`),
     "",
     "Career Entries:",
-    ...careerEntries.map((path) => `- ${toCanonical(siteUrl, path)}`),
+    ...allCareerEntries.map((path) => `- ${toCanonical(siteUrl, path)}`),
     "",
     `Sitemap: ${toCanonical(siteUrl, "/sitemap.xml")}`,
   ];

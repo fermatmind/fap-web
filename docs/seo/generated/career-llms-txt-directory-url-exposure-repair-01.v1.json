@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "task": "CAREER-LLMS-TXT-DIRECTORY-URL-EXPOSURE-REPAIR-01",
+  "final_decision": "career_llms_txt_directory_url_exposure_repair_completed_ready_for_frontend_deploy_readiness",
+  "authority_source": "backend_sitemap_source",
+  "expected_public_career_detail_total": 1046,
+  "expected_bilingual_career_detail_url_count": 2092,
+  "llms_txt_exposure_source": "listBackendSitemapCareerJobPaths",
+  "full_career_index_fanout_used": false,
+  "per_detail_seo_fanout_used": false,
+  "llms_full_changed": false,
+  "sitemap_changed": false,
+  "excluded_slugs": [
+    "software-developers",
+    "digital-forensics-analysts",
+    "computer-occupations-all-other"
+  ],
+  "private_url_exposure_allowed": false,
+  "frontend_fallback_content_used": false,
+  "cms_mutation_performed": false,
+  "db_mutation_performed": false,
+  "deploy_performed": false,
+  "search_channel_action_performed": false,
+  "url_submission_performed": false,
+  "external_search_api_call_performed": false,
+  "next_task": "FRONTEND-DEPLOY-READINESS"
+}

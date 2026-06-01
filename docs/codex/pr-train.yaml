@@ -10102,6 +10102,60 @@ prs:
       - No frontend career fallback content or Search Channel action is introduced.
     rollback_note: "Revert the directory proxy entry and focused contract/report if career directory production consumption regresses."
 
+  - id: CAREER-LLMS-TXT-DIRECTORY-URL-EXPOSURE-REPAIR-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/career-llms-txt-directory-url-exposure-repair-01
+    base: main
+    depends_on:
+      - CAREER-DIRECTORY-PRODUCTION-CONSUMPTION-REPAIR-01
+    mode: execute
+    train_scope: career_directory_10k_scale
+    status: in_progress
+    title: "CAREER-LLMS-TXT-DIRECTORY-URL-EXPOSURE-REPAIR-01 career llms txt directory URL exposure repair"
+    goal: "Restore llms.txt exposure for the approved 1046 bilingual career detail cohort by consuming backend sitemap/directory authority without runtime full-index fanout or llms-full changes."
+    in_scope:
+      - app/llms.txt/route.ts
+      - tests/contracts/career-llms-txt-directory-url-exposure-repair-01.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/seo/career-llms-txt-directory-url-exposure-repair-01.md
+      - docs/seo/generated/career-llms-txt-directory-url-exposure-repair-01.v1.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - llms-full.txt changes
+      - Sitemap generation changes
+      - Career directory page rendering
+      - Backend API implementation
+      - Career cohort changes
+      - Frontend fallback career content
+      - Held slug policy changes
+      - Search Channel, URL submission, deploy, CMS, DB, or cohort mutation
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/career-llms-txt-directory-url-exposure-repair-01.contract.test.ts tests/contracts/detail-ready-1046-discoverability-exposure-repair-01.contract.test.ts tests/contracts/llms-route-fanout.contract.test.ts
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - pnpm exec vitest run tests/contracts/verify-big5-contract-freeze*
+      - pnpm exec vitest run tests/contracts/verify-enneagram-contract-freeze*
+      - python3 -m json.tool docs/seo/generated/career-llms-txt-directory-url-exposure-repair-01.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: FRONTEND-DEPLOY-READINESS
+    acceptance:
+      - llms.txt includes approved career detail URLs from backend sitemap authority.
+      - llms.txt does not expose software-developers, digital-forensics-analysts, computer-occupations-all-other, private paths, draft paths, or fallback-only paths.
+      - llms.txt does not fan out through the full career jobs index or per-detail SEO endpoints.
+      - llms-full.txt and sitemap behavior are unchanged.
+      - No frontend career fallback content or Search Channel action is introduced.
+    rollback_note: "Revert the llms.txt career authority filter and focused contract/report if llms.txt URL hygiene or stability regresses."
+
   - id: PAYMENT-WAIT-PAID-REDIRECT-CONTRACT-06
     repo: fap-web
     repo_path: <workspace>/fap-web
