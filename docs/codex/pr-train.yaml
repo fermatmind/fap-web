@@ -9603,7 +9603,7 @@ prs:
       - ANALYTICS-SEO-P1-06
     mode: execute
     train_scope: analytics_seo_p0_p1
-    status: in_progress
+    status: merged
     title: "feat(seo): thicken Holland RIASEC landing structure"
     goal: "Render CMS/backend-authoritative Holland/RIASEC landing modules for six-type explanation, career direction, major selection, transition scenarios, FAQ, and career internal links."
     in_scope:
