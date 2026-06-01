@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-01T04:03:11Z",
+  "updated_at": "2026-06-01T04:04:14Z",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -14364,9 +14364,9 @@
         "ANALYTICS-SEO-P0-03"
       ],
       "title": "feat(tracking): add UTM channel governance",
-      "status": "local_checks_passed",
+      "status": "pr_open_github_checks_pending",
       "commit_sha": "c4bab43283c53fecc22693149262b6b62c7c1387",
-      "pr_url": "",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/960",
       "failure_reason": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -14395,9 +14395,14 @@
           "at": "2026-06-01T04:03:11Z",
           "status": "committed",
           "summary": "Created scoped implementation commit c4bab43283c53fecc22693149262b6b62c7c1387 for ANALYTICS-SEO-P0-05."
+        },
+        {
+          "at": "2026-06-01T04:04:14Z",
+          "status": "pr_open_github_checks_pending",
+          "summary": "Opened https://github.com/fermatmind/fap-web/pull/960 after local checks and scope validation passed."
         }
       ],
-      "updated_at": "2026-06-01T04:03:11Z"
+      "updated_at": "2026-06-01T04:04:14Z"
     },
     {
       "id": "ANALYTICS-SEO-P1-08",
