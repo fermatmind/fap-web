@@ -171,7 +171,7 @@ prs:
     base: main
     depends_on: []
     mode: execute
-    status: in_progress
+    status: merged
     title: "docs(runtime): lock production frontend source of truth"
     artifacts:
       - docs/runtime/public-frontend-source-of-truth.md
@@ -7426,7 +7426,7 @@ prs:
     mode: execute
     train_scope: global_en_zh_content_pages_publish_runtime
     risk_level: p0_public_runtime_repair
-    status: in_progress
+    status: pr_opened
     title: "fix(content-pages): repair public content page SSR API base"
     goal: "Repair server-side public API base selection so published CMS content pages can render from backend authority when NEXT_PUBLIC_API_URL is absent, without adding frontend fallback content."
     in_scope:
@@ -8566,7 +8566,7 @@ prs:
       github_checks_required: true
       squash: true
       auto_merge: true
-    next_task: FRONTEND-DEPLOY-READINESS
+    next_task: PR-FDN-SEO-01-POST-DEPLOY-SMOKE
     acceptance:
       - WebPage and BreadcrumbList JSON-LD are rendered from visible Daily Giving page state.
       - ItemList JSON-LD is emitted only when backend public records exist.
@@ -8574,6 +8574,67 @@ prs:
       - Empty or unavailable backend public API remains noindex/no llms exposure.
       - No frontend fallback records, CMS mutation, deploy, Search Channel action, URL submission, external API call, env/DNS/nginx edit, sitemap artifact edit, footer/nav exposure, or fap-api change is introduced.
     rollback_note: "Revert the guarded Daily Giving SEO helper, page JSON-LD rendering, llms route integration, report, generated JSON, focused contract, and train metadata."
+
+  - id: PR-FDN-SEO-01-POST-DEPLOY-SMOKE
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-fdn-seo-01-post-deploy-smoke
+    base: main
+    depends_on:
+      - PR-FDN-SEO-01-IMPLEMENTATION
+    mode: smoke
+    train_scope: pr_fdn_seo_01_post_deploy_smoke
+    risk_level: read_only_foundation_seo_runtime_smoke
+    status: in_progress
+    title: "PR-FDN-SEO-01-POST-DEPLOY-SMOKE: Verify Daily Giving SEO/schema/llms runtime"
+    goal: "Read-only production smoke after PR-FDN-SEO-01 deployment, verifying Daily Giving runtime 200, exact canonical, robots, JSON-LD, llms gating, no frontend fallback content, and no Search Channel action."
+    in_scope:
+      - docs/seo/pr-fdn-seo-01-post-deploy-smoke.md
+      - docs/seo/generated/pr-fdn-seo-01-post-deploy-smoke.v1.json
+      - tests/contracts/pr-fdn-seo-01-post-deploy-smoke.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - runtime code changes
+      - frontend fallback donation or ledger records
+      - CMS mutation or publish
+      - production deploy
+      - Search Channel enqueue or URL submission
+      - external search or social API calls
+      - env, DNS, or nginx edits
+      - fap-api or backend changes
+      - sitemap, llms, llms-full, footer, or nav exposure changes
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/pr-fdn-seo-01-post-deploy-smoke.contract.test.ts
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - python3 -m json.tool docs/seo/generated/pr-fdn-seo-01-post-deploy-smoke.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      changed_files_must_match:
+        - docs/seo/pr-fdn-seo-01-post-deploy-smoke.md
+        - docs/seo/generated/pr-fdn-seo-01-post-deploy-smoke.v1.json
+        - tests/contracts/pr-fdn-seo-01-post-deploy-smoke.contract.test.ts
+        - tests/contracts/helpers/currentPrScope.ts
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: OPS-API-PUBLIC-TLS-PATH-FIX-01B-API-DOMAIN-SNI-EDGE-FIX
+    acceptance:
+      - Daily Giving EN/ZH production pages return HTTP 200 with exact apex canonicals and no staging canonical.
+      - WebPage and BreadcrumbList JSON-LD are present after deployment.
+      - Empty backend public ledger keeps pages noindex and suppresses ItemList JSON-LD.
+      - Empty backend public months keeps sitemap/llms/llms-full Daily Giving exposure at zero.
+      - No runtime code change, frontend fallback content, CMS mutation, deploy, Search Channel action, URL submission, external API call, env/DNS/nginx edit, fap-api change, or discoverability exposure change is introduced.
+    rollback_note: "Revert the read-only smoke report, generated JSON, focused contract, and train metadata only; no runtime behavior is changed by this PR."
 
   - id: PR-FDN-SOCIAL-LINK-DISPLAY-REVIEW-01
     repo: fap-web

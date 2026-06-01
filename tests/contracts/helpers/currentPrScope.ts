@@ -791,6 +791,19 @@ export function isPrFdnSeo01ImplementationAllowedFile(file: string): boolean {
   return PR_FDN_SEO_01_IMPLEMENTATION_ALLOWED_FILES.has(file);
 }
 
+const PR_FDN_SEO_01_POST_DEPLOY_SMOKE_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/seo/generated/pr-fdn-seo-01-post-deploy-smoke.v1.json",
+  "docs/seo/pr-fdn-seo-01-post-deploy-smoke.md",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/pr-fdn-seo-01-post-deploy-smoke.contract.test.ts",
+]);
+
+export function isPrFdnSeo01PostDeploySmokeAllowedFile(file: string): boolean {
+  return PR_FDN_SEO_01_POST_DEPLOY_SMOKE_ALLOWED_FILES.has(file);
+}
+
 const PR_FDN_SOCIAL_LINK_DISPLAY_REVIEW_01_ALLOWED_FILES = new Set([
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -1388,6 +1401,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/pr-fdn-seo-01-implementation") {
     return PR_FDN_SEO_01_IMPLEMENTATION_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/pr-fdn-seo-01-post-deploy-smoke") {
+    return PR_FDN_SEO_01_POST_DEPLOY_SMOKE_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-fdn-social-link-display-review-01") {

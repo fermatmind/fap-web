@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-01T05:34:59Z",
+  "updated_at": "2026-06-01T10:02:00Z",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -10708,7 +10708,7 @@
       "branch": "codex/search-channel-live-zh-mbti-01a-indexnow-keylocation-fix",
       "base": "main",
       "depends_on": [],
-      "status": "pr_opened",
+      "status": "merged",
       "title": "fix(seo): restore IndexNow keyLocation file",
       "artifacts": [
         "public/<indexnow-key>.txt",
@@ -11501,7 +11501,7 @@
       "status": "pr_opened",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/919",
       "commit_sha": "c84b5eafb85dd1987dfe234bb7c8e37ac9f12d60",
-      "merge_sha": null,
+      "merge_sha": "4300470c39de49e3ad21d79a4bb90ffcad70a55c",
       "title": "fix(take): pass locale for generic scale take requests",
       "artifacts": [
         "app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient.tsx",
@@ -13178,10 +13178,10 @@
       "depends_on": [
         "PR-FDN-SEO-01-READINESS"
       ],
-      "status": "pr_opened",
+      "status": "merged",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/969",
       "commit_sha": "6f0840249025ffbd21b73c7ac681fc7c39672971",
-      "merge_sha": null,
+      "merge_sha": "4300470c39de49e3ad21d79a4bb90ffcad70a55c",
       "title": "PR-FDN-SEO-01-IMPLEMENTATION: Foundation Daily Giving SEO/schema/llms integration",
       "artifacts": [
         "app/(localized)/[locale]/foundation/daily-giving/page.tsx",
@@ -13253,10 +13253,10 @@
         }
       },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
-      "next_task": "FRONTEND-DEPLOY-READINESS",
+      "merged_at": "2026-06-01T05:39:57Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
+      "next_task": "PR-FDN-SEO-01-POST-DEPLOY-SMOKE",
       "history": [
         {
           "at": "2026-06-01T05:19:44Z",
@@ -13277,6 +13277,120 @@
           "at": "2026-06-01T05:34:59Z",
           "status": "pr_opened",
           "summary": "Opened fap-web PR #969 for guarded Foundation Daily Giving SEO/schema/llms integration."
+        },
+        {
+          "at": "2026-06-01T05:39:57Z",
+          "status": "merged",
+          "summary": "Reconciled during PR-FDN-SEO-01-POST-DEPLOY-SMOKE: GitHub shows PR #969 merged at 4300470c39de49e3ad21d79a4bb90ffcad70a55c and remote branch deleted."
+        }
+      ]
+    },
+    {
+      "id": "PR-FDN-SEO-01-POST-DEPLOY-SMOKE",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/pr-fdn-seo-01-post-deploy-smoke",
+      "base": "main",
+      "depends_on": [
+        "PR-FDN-SEO-01-IMPLEMENTATION"
+      ],
+      "status": "pr_opened",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/973",
+      "commit_sha": "ceeeccbd0336dc6344df70bc4610a6083731571f",
+      "merge_sha": null,
+      "title": "PR-FDN-SEO-01-POST-DEPLOY-SMOKE: Verify Daily Giving SEO/schema/llms runtime",
+      "artifacts": [
+        "docs/seo/pr-fdn-seo-01-post-deploy-smoke.md",
+        "docs/seo/generated/pr-fdn-seo-01-post-deploy-smoke.v1.json",
+        "tests/contracts/pr-fdn-seo-01-post-deploy-smoke.contract.test.ts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "dependency_verification": {
+          "status": "passed",
+          "completed_at": "2026-06-01T09:53:23Z",
+          "summary": "PR-FDN-SEO-01-IMPLEMENTATION is merged in fap-web at 4300470c39de49e3ad21d79a4bb90ffcad70a55c and the user reported the server deployment is complete."
+        },
+        "production_runtime_observation": {
+          "status": "passed",
+          "completed_at": "2026-06-01T09:53:23Z",
+          "summary": "Production /en/foundation/daily-giving and /zh/foundation/daily-giving return HTTP 200 with exact apex canonicals, no staging canonical, noindex robots, and WebPage/BreadcrumbList JSON-LD."
+        },
+        "guarded_empty_ledger_observation": {
+          "status": "passed",
+          "completed_at": "2026-06-01T09:53:23Z",
+          "summary": "Same-origin public Foundation API records/months endpoints return HTTP 200 with zero public records and zero public months, so ItemList JSON-LD is absent and sitemap/llms/llms-full Daily Giving exposure remains zero."
+        },
+        "scope_boundaries": {
+          "status": "passed_with_sidecar",
+          "completed_at": "2026-06-01T09:53:23Z",
+          "summary": "Scope is limited to read-only report, generated JSON, focused contract, and train metadata. No runtime code change, frontend fallback content, CMS mutation, deploy, Search Channel action, URL submission, external API call, or env/DNS/nginx edit is performed. Production Search Channel DB verification was not performed because this fap-web smoke did not include SSH/backend DB access."
+        },
+        "pnpm exec vitest run tests/contracts/pr-fdn-seo-01-post-deploy-smoke.contract.test.ts": {
+          "status": "passed",
+          "completed_at": "2026-06-01T10:00:07Z",
+          "summary": "Focused post-deploy SEO smoke contract passed: 1 file, 3 tests."
+        },
+        "pnpm typecheck": {
+          "status": "passed",
+          "completed_at": "2026-06-01T10:00:07Z"
+        },
+        "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build": {
+          "status": "passed",
+          "completed_at": "2026-06-01T10:00:07Z",
+          "summary": "Production API build passed. Build-generated sitemap drift was restored because sitemap exposure changes are out of scope."
+        },
+        "pnpm test:contract": {
+          "status": "passed",
+          "completed_at": "2026-06-01T10:00:07Z",
+          "summary": "Full contract suite passed: 420 files, 2359 tests."
+        },
+        "json_yaml_parse": {
+          "status": "passed",
+          "completed_at": "2026-06-01T10:00:07Z",
+          "summary": "Generated JSON, PR train state JSON, and PR train YAML parsed successfully."
+        },
+        "diff_checks": {
+          "status": "passed",
+          "completed_at": "2026-06-01T10:00:07Z",
+          "commands": [
+            "git diff --check",
+            "git diff --cached --check"
+          ]
+        },
+        "scope_validation": {
+          "status": "passed",
+          "completed_at": "2026-06-01T10:00:07Z",
+          "summary": "Changed files are limited to the PR-FDN-SEO-01-POST-DEPLOY-SMOKE manifest scope."
+        }
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "next_task": "OPS-API-PUBLIC-TLS-PATH-FIX-01B-API-DOMAIN-SNI-EDGE-FIX",
+      "history": [
+        {
+          "at": "2026-06-01T09:53:23Z",
+          "status": "in_progress",
+          "summary": "Started read-only post-deploy SEO/schema/llms smoke for Foundation Daily Giving after the user reported the server deployment is complete."
+        },
+        {
+          "at": "2026-06-01T10:00:07Z",
+          "status": "local_checks_passed",
+          "summary": "Focused contract, typecheck, production API build, full contract suite, JSON/YAML parsing, diff checks, and scope validation passed. Build-generated sitemap drift was restored as out-of-scope."
+        },
+        {
+          "at": "2026-06-01T10:01:01Z",
+          "status": "committed",
+          "summary": "Committed PR-FDN-SEO-01-POST-DEPLOY-SMOKE report at ab3412b087ef9de6da06bbed91129379e0c6218d."
+        },
+        {
+          "at": "2026-06-01T10:02:00Z",
+          "status": "pr_opened",
+          "summary": "Opened fap-web PR #973 for the read-only PR-FDN-SEO-01 post-deploy smoke report."
         }
       ]
     },

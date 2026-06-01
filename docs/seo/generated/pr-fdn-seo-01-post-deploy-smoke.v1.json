@@ -1,0 +1,91 @@
+{
+  "schema_version": "pr-fdn-seo-01-post-deploy-smoke.v1",
+  "task": "PR-FDN-SEO-01-POST-DEPLOY-SMOKE",
+  "final_decision": "pr_fdn_seo_01_post_deploy_smoke_completed_with_guarded_empty_ledger_state",
+  "checked_at": "2026-06-01T09:53:23Z",
+  "target_pages": [
+    "https://fermatmind.com/en/foundation/daily-giving",
+    "https://fermatmind.com/zh/foundation/daily-giving"
+  ],
+  "public_frontend_runtime": {
+    "pages": [
+      {
+        "url": "https://fermatmind.com/en/foundation/daily-giving",
+        "status": 200,
+        "canonical": "https://fermatmind.com/en/foundation/daily-giving",
+        "robots": "noindex, nofollow, noarchive, nocache",
+        "staging_canonical_detected": false,
+        "json_ld_types": [
+          "WebPage",
+          "BreadcrumbList"
+        ],
+        "item_list_json_ld_present": false
+      },
+      {
+        "url": "https://fermatmind.com/zh/foundation/daily-giving",
+        "status": 200,
+        "canonical": "https://fermatmind.com/zh/foundation/daily-giving",
+        "robots": "noindex, nofollow, noarchive, nocache",
+        "staging_canonical_detected": false,
+        "json_ld_types": [
+          "WebPage",
+          "BreadcrumbList"
+        ],
+        "item_list_json_ld_present": false
+      }
+    ]
+  },
+  "public_api_runtime": {
+    "records_endpoints": [
+      {
+        "url": "https://fermatmind.com/api/v0.5/foundation/giving-records?locale=en",
+        "status": 200,
+        "public_item_count": 0
+      },
+      {
+        "url": "https://fermatmind.com/api/v0.5/foundation/giving-records?locale=zh-CN",
+        "status": 200,
+        "public_item_count": 0
+      }
+    ],
+    "months_endpoints": [
+      {
+        "url": "https://fermatmind.com/api/v0.5/foundation/giving-records/months?locale=en",
+        "status": 200,
+        "public_month_count": 0
+      },
+      {
+        "url": "https://fermatmind.com/api/v0.5/foundation/giving-records/months?locale=zh-CN",
+        "status": 200,
+        "public_month_count": 0
+      }
+    ],
+    "backend_authority_available": true,
+    "frontend_fallback_records_used": false
+  },
+  "discoverability_gating": {
+    "empty_public_ledger_detected": true,
+    "daily_giving_pages_remain_noindex": true,
+    "item_list_gated_off_without_public_records": true,
+    "llms_exposure_gated_off_without_public_months": true,
+    "sitemap_hit_count": 0,
+    "llms_hit_count": 0,
+    "llms_full_hit_count": 0,
+    "staging_host_leak_detected": false
+  },
+  "search_channel_safety": {
+    "search_channel_action_performed": false,
+    "url_submission_performed": false,
+    "external_search_api_call_performed": false,
+    "production_queue_db_checked": false,
+    "sidecar": "No production Search Channel DB or SSH check was performed in this fap-web read-only smoke; the report verifies no frontend Search Channel action, no URL submission, and no external search API call in this task."
+  },
+  "no_runtime_code_change": true,
+  "no_frontend_fallback_content": true,
+  "no_cms_mutation": true,
+  "no_deploy": true,
+  "no_search_channel_action": true,
+  "no_url_submission": true,
+  "no_external_api_call": true,
+  "next_task": "OPS-API-PUBLIC-TLS-PATH-FIX-01B-API-DOMAIN-SNI-EDGE-FIX"
+}
