@@ -13,7 +13,8 @@ UTM channel governance lives in [UTM Channel Governance](./utm-channel-governanc
 - Google Ads purchase conversion bridge: env gated by `NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID` and `NEXT_PUBLIC_GOOGLE_ADS_PURCHASE_CONVERSION_LABEL`.
 - GTM: not used.
 - Baidu Ads: not used.
-- Baidu Tongji event tracking keeps the existing `_hmt.push(["_trackEvent", ...])` bridge and standardizes conversion category/action/label values. This PR does not add Baidu Ads `bp.js` or Baidu marketing conversion tracking.
+- Baidu Tongji event tracking may keep the existing `_hmt.push(["_trackEvent", ...])` bridge for event analysis, debug, and legacy event taxonomy. Current Baidu Tongji dashboard setup no longer supports promising new `_trackEvent` category/action conversion goals; new event conversions are limited to public element selection or manual element ID setup.
+- Private/noindex routes suppress third-party browser analytics scripts after ANALYTICS-SEO-P0-10. Baidu Tongji automatic pageview collection must not see raw order, result, share, payment, transaction, or token-bearing URLs.
 
 ## Production Environment
 
@@ -37,17 +38,19 @@ NEXT_PUBLIC_GOOGLE_ADS_BEGIN_CHECKOUT_CONVERSION_LABEL=
 
 ## Event Mapping
 
-| Internal event | GA4 event | Google Ads purchase conversion |
-| --- | --- | --- |
-| `start_attempt` | `start_test` | no |
-| `submit_attempt` | `complete_test` | no |
-| `view_result` | `view_result` | no |
-| `click_unlock` | `click_deep_report` | no |
-| `create_order` | `begin_checkout` | no |
-| `payment_confirmed` | `add_payment_info` | no |
-| `purchase_success` | `purchase_success` | yes |
+| Internal event | GA4 event | Business conversion role | Google Ads purchase conversion |
+| --- | --- | --- | --- |
+| `start_attempt` | `start_test` | primary funnel step | no |
+| `submit_attempt` | `complete_test` | primary funnel step | no |
+| `view_result` | `view_result` | primary funnel step | no |
+| `click_unlock` | `click_deep_report` | primary funnel step | no |
+| `create_order` | `begin_checkout` | primary funnel step | no |
+| `payment_confirmed` | `add_payment_info` | not primary purchase | no |
+| `purchase_success` | `purchase_success` | primary purchase success | yes |
 
-Baidu Tongji conversion events use `_hmt.push(["_trackEvent", category, action, label])` with:
+GA4 is the business-funnel source of truth. The business purchase-success metric is `purchase_success`. Do not add a separate frontend `purchase` dispatch for the same paid success flow; using both `purchase` and `purchase_success` as business purchase success would double count.
+
+Baidu Tongji event-analysis/debug taxonomy may use `_hmt.push(["_trackEvent", category, action, label])` with:
 
 | GA4 key event | Baidu category | Baidu action |
 | --- | --- | --- |
@@ -59,6 +62,8 @@ Baidu Tongji conversion events use `_hmt.push(["_trackEvent", category, action, 
 | `purchase_success` | `purchase` | `success` |
 
 The Baidu label is derived from safe test context such as `test_type`, `scale_code`, `form_code`, `test_slug`, or `slug`.
+
+These Baidu values are not a current-dashboard conversion setup promise. If Baidu event conversion is used, configure only public CTA elements through `预览圈选元素` or `手动添加 ID`; do not configure private result, order, share, pay, payment, or history route elements.
 
 Legacy scale-specific events are accepted only as aliases and are normalized before browser/network dispatch:
 
@@ -88,17 +93,22 @@ Google Ads purchase conversion payload:
 
 ## Verification
 
-1. In Chrome Network, confirm `https://www.googletagmanager.com/gtag/js` loads after analytics consent.
-2. In Chrome Network, confirm `https://hm.baidu.com/hm.js?<id>` loads after analytics consent when Baidu Tongji is configured.
+1. In Chrome Network, confirm `https://www.googletagmanager.com/gtag/js` loads on public production routes after analytics consent.
+2. In Chrome Network, confirm `https://hm.baidu.com/hm.js?<id>` loads on public production routes after analytics consent when Baidu Tongji is configured.
 3. In GA4 Realtime or DebugView, confirm funnel events appear.
 4. In Google Ads conversion diagnostics, confirm the Google tag is detected.
-5. In Baidu Tongji realtime visitors, confirm a page visit appears.
-6. Complete a paid purchase flow and confirm GA4 `purchase_success` plus Google Ads `conversion` are observable.
+5. In Baidu Tongji realtime visitors, confirm public page visits appear.
+6. Confirm public CTA elements can be selected or manually addressed by ID in Baidu Tongji only on allowed public pages.
+7. Confirm private/noindex routes do not load `hm.baidu.com`, `_hmt`, or Baidu Tongji automatic pageview scripts.
+8. Complete only an authorized paid test flow and confirm GA4 `purchase_success` plus Google Ads `conversion` are observable.
 
 ## Prohibitions
 
 - Do not commit real GA4, Google Ads, Baidu Tongji, Baidu verification, or conversion label values.
 - Do not replace the existing bridge with GTM.
 - Do not use Ads conversion tracking for non-purchase events as the primary conversion.
+- Do not emit both `purchase` and `purchase_success` as business purchase success.
 - Do not add Baidu Ads `bp.js`.
+- Do not document `_trackEvent` category/action as a currently supported new Baidu conversion-goal setup path.
+- Do not configure Baidu element conversions on private/noindex route families such as `/result`, `/orders`, `/share`, `/pay`, `/payment`, or `/history`, including `/zh` and `/en` variants.
 - Do not add Facebook, TikTok, or other third-party pixels.
