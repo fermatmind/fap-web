@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
+import { cache } from "react";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { ClaimGuard } from "@/components/career/ClaimGuard";
 import { CareerDisplaySurface } from "@/components/career/display/CareerDisplaySurface";
@@ -187,10 +188,10 @@ function shouldRedirectEnglishJobDetailToChinese(job: CareerJobBundleAdapter, lo
   );
 }
 
-async function loadCareerJobBundle(locale: Locale, slug: string): Promise<CareerJobBundleAdapter | null> {
+const loadCareerJobBundle = cache(async (locale: Locale, slug: string): Promise<CareerJobBundleAdapter | null> => {
   const payload = await fetchCareerJobBundle({ locale, slug, includeSeoAuthority: true });
   return adaptCareerJobBundle({ locale, requestedSlug: slug, payload });
-}
+});
 
 async function resolveCareerJobSearchParams(
   searchParams?: CareerJobSearchParams | Promise<CareerJobSearchParams>

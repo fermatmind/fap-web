@@ -10,6 +10,7 @@ type FetchCareerJobBundleInput = {
 };
 
 const DEFAULT_ORG_ID = "0";
+const CAREER_JOB_DETAIL_FETCH_TIMEOUT_MS = 12_000;
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
@@ -36,6 +37,7 @@ async function fetchCareerJobSeoAuthority(
       `/v0.5/career-jobs/${encodeURIComponent(input.normalizedSlug)}/seo${buildSeoAuthorityQuery(input.locale)}`,
       {
         locale: input.locale,
+        timeoutMs: CAREER_JOB_DETAIL_FETCH_TIMEOUT_MS,
         skipAuth: true,
         ...PUBLIC_API_CACHE_OPTIONS,
       }
@@ -83,10 +85,13 @@ export async function fetchCareerJobBundle(
   }
 
   try {
+    const seoAuthorityPromise =
+      input.includeSeoAuthority === true ? fetchCareerJobSeoAuthority({ ...input, normalizedSlug }) : Promise.resolve(null);
     const bundle = await apiClient.get<CareerJobBundleResponseRaw>(
       `/v0.5/career/jobs/${encodeURIComponent(normalizedSlug)}${buildQuery(input.locale)}`,
       {
         locale: input.locale,
+        timeoutMs: CAREER_JOB_DETAIL_FETCH_TIMEOUT_MS,
         skipAuth: true,
         ...PUBLIC_API_CACHE_OPTIONS,
       }
@@ -95,7 +100,7 @@ export async function fetchCareerJobBundle(
       return bundle;
     }
 
-    const seoAuthority = await fetchCareerJobSeoAuthority({ ...input, normalizedSlug });
+    const seoAuthority = await seoAuthorityPromise;
     return attachSeoAuthorityToBundle(bundle, seoAuthority);
   } catch (error) {
     if (error instanceof ApiError && error.status === 404) {

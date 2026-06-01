@@ -11129,7 +11129,15 @@
       "title": "GLOBAL-EN-ZH-PARITY-ARTICLE-COUNTERPART-BATCH-01 article counterpart controlled batch",
       "commit_sha": null,
       "pr_url": null,
-      "checks": {},
+      "checks": {
+        "focused_contract": "passed",
+        "typecheck": "passed",
+        "build": "passed",
+        "test_contract": "passed",
+        "lint": "passed_with_existing_warnings",
+        "json_yaml_parse": "passed",
+        "diff_check": "passed"
+      },
       "failure_reason": null,
       "history": [
         {
@@ -15774,15 +15782,31 @@
         "CAREER-DETAIL-P95-LATENCY-SCAN-01"
       ],
       "title": "CAREER-DETAIL-CACHE-BUDGET-REPAIR-01 career detail cache budget repair",
-      "status": "planned",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "pr_open",
+      "commit_sha": "e54fd065b112c4f419fa67d231eb7f76e2eebfae",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/984",
       "failure_reason": null,
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
       "checks": {},
-      "events": []
+      "events": [
+        {
+          "at": "2026-06-01T16:24:00Z",
+          "event": "started",
+          "note": "Started scoped cache/fetch budget repair after PR #982 and post-merge contract fix #983 were merged and focused revalidation passed."
+        },
+        {
+          "at": "2026-06-01T16:33:00Z",
+          "event": "local_validated",
+          "note": "Focused contract, typecheck, production API build, full contract suite, lint, JSON/YAML parse, and diff checks passed. Lint reported only existing unrelated warnings."
+        },
+        {
+          "at": "2026-06-01T16:35:00Z",
+          "event": "pr_open",
+          "pr_url": "https://github.com/fermatmind/fap-web/pull/984"
+        }
+      ]
     },
     {
       "id": "CAREER-LLMS-FULL-10K-BUDGET-GATE-01",
