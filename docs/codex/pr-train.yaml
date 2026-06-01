@@ -9464,7 +9464,7 @@ prs:
       - ANALYTICS-SEO-P0-05
     mode: execute
     train_scope: analytics_seo_p0_p1
-    status: in_progress
+    status: merged
     title: "fix(seo): audit sitemap metadata canonical dynamic routes"
     goal: "Add focused contracts and fixes for robots, sitemap, canonical, metadata, dynamic routes, hreflang, and Breadcrumb schema without changing content authority."
     in_scope:
@@ -9504,7 +9504,7 @@ prs:
       - ANALYTICS-SEO-P1-08
     mode: execute
     train_scope: analytics_seo_p0_p1
-    status: planned
+    status: in_progress
     title: "feat(seo): thicken MBTI landing structure"
     goal: "Render CMS/backend-authoritative MBTI landing modules for 16 types overview, career direction, FAQ, comparisons, and personality-type internal links."
     in_scope:
