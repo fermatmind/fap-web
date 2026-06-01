@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-01T11:51:24Z",
+  "updated_at": "2026-06-01T11:51:52Z",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -15096,7 +15096,7 @@
       ],
       "title": "docs(analytics): clarify Baidu conversion limits and public CTA tracking",
       "status": "local_checks_passed",
-      "commit_sha": "",
+      "commit_sha": "5ce2e37ece3c52a2fcbf5c0aca525b97ee164022",
       "pr_url": "",
       "failure_reason": null,
       "merged_at": null,
@@ -15118,9 +15118,14 @@
           "at": "2026-06-01T11:51:24Z",
           "status": "local_checks_passed",
           "summary": "Updated Baidu conversion documentation and passed docs-only diff, JSON, and YAML checks."
+        },
+        {
+          "at": "2026-06-01T11:51:52Z",
+          "status": "committed",
+          "summary": "Recorded docs implementation commit 5ce2e37ece3c52a2fcbf5c0aca525b97ee164022."
         }
       ],
-      "updated_at": "2026-06-01T11:51:24Z"
+      "updated_at": "2026-06-01T11:51:52Z"
     },
     {
       "id": "RESULT-EMAIL-FIRST-BINDING-UX-05",
