@@ -2,6 +2,8 @@
 
 Scope: PR-TRACK-01, GA4 + Baidu Tongji + Google Ads purchase conversion activation.
 
+Dashboard setup and operator QA live in [Analytics Conversion Setup QA Checklist](./conversion-setup-qa-checklist.md).
+
 ## Current State
 
 - GA4 loader: env gated by `NEXT_PUBLIC_ANALYTICS_ENABLED=true` and `NEXT_PUBLIC_GA_MEASUREMENT_ID`.
