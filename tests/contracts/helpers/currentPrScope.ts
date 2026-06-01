@@ -744,6 +744,19 @@ export function isPrFdn02bDailyGivingFrontendPagesAllowedFile(file: string): boo
   return PR_FDN_02B_DAILY_GIVING_FRONTEND_PAGES_ALLOWED_FILES.has(file);
 }
 
+const PR_FDN_02B_POST_DEPLOY_RUNTIME_SMOKE_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/seo/generated/pr-fdn-02b-post-deploy-runtime-smoke.v1.json",
+  "docs/seo/pr-fdn-02b-post-deploy-runtime-smoke.md",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/pr-fdn-02b-post-deploy-runtime-smoke.contract.test.ts",
+]);
+
+export function isPrFdn02bPostDeployRuntimeSmokeAllowedFile(file: string): boolean {
+  return PR_FDN_02B_POST_DEPLOY_RUNTIME_SMOKE_ALLOWED_FILES.has(file);
+}
+
 const PR_FDN_SOCIAL_LINK_DISPLAY_REVIEW_01_ALLOWED_FILES = new Set([
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -1267,6 +1280,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/pr-fdn-02b-daily-giving-frontend-pages") {
     return PR_FDN_02B_DAILY_GIVING_FRONTEND_PAGES_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/pr-fdn-02b-post-deploy-runtime-smoke") {
+    return PR_FDN_02B_POST_DEPLOY_RUNTIME_SMOKE_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-fdn-social-link-display-review-01") {

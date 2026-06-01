@@ -1,0 +1,115 @@
+{
+  "schema_version": "pr-fdn-02b-post-deploy-runtime-smoke.v1",
+  "task": "PR-FDN-02B-POST-DEPLOY-RUNTIME-SMOKE",
+  "final_decision": "pr_fdn_02b_post_deploy_runtime_smoke_completed_ready_for_pr_fdn_seo_readiness",
+  "validated_at": "2026-06-01T04:45:30Z",
+  "frontend_dependency": {
+    "pr_fdn_02b_pr": 933,
+    "pr_fdn_02b_merge_sha": "63198640ff1132e6bea46a128ea5ede5bea08075",
+    "social_link_display_pr": 954,
+    "social_link_display_merge_sha": "bebb03919b1f5bf4645840672b7250c0d39bd3f6"
+  },
+  "backend_dependency": {
+    "pr_fdn_02a_post_deploy_validation_pr": 1833,
+    "pr_fdn_02a_post_deploy_validation_merge_sha": "3a7e29175f1e759c74e43a8c305a0ba3b534c05e",
+    "same_origin_api_healthy": true
+  },
+  "public_frontend_runtime": {
+    "pages": [
+      {
+        "url": "https://fermatmind.com/en/foundation/daily-giving",
+        "status": 200,
+        "canonical": "https://fermatmind.com/en/foundation/daily-giving",
+        "robots": "noindex",
+        "title": "Daily Giving Ledger | FermatMind",
+        "staging_canonical_detected": false
+      },
+      {
+        "url": "https://fermatmind.com/zh/foundation/daily-giving",
+        "status": 200,
+        "canonical": "https://fermatmind.com/zh/foundation/daily-giving",
+        "robots": "noindex",
+        "title": "日常公益记录 | FermatMind",
+        "staging_canonical_detected": false
+      },
+      {
+        "url": "https://fermatmind.com/en/foundation/daily-giving/2026-06",
+        "status": 200,
+        "canonical": "https://fermatmind.com/en/foundation/daily-giving/2026-06",
+        "robots": "noindex",
+        "title": "Daily Giving Ledger 2026-06 | FermatMind",
+        "staging_canonical_detected": false
+      },
+      {
+        "url": "https://fermatmind.com/zh/foundation/daily-giving/2026-06",
+        "status": 200,
+        "canonical": "https://fermatmind.com/zh/foundation/daily-giving/2026-06",
+        "robots": "noindex",
+        "title": "日常公益记录 2026-06 | FermatMind",
+        "staging_canonical_detected": false
+      }
+    ],
+    "www_redirect": {
+      "url": "https://www.fermatmind.com/en/foundation/daily-giving",
+      "status": 308,
+      "location": "https://fermatmind.com/en/foundation/daily-giving"
+    }
+  },
+  "public_api_runtime": {
+    "records_endpoint": {
+      "url": "https://fermatmind.com/api/v0.5/foundation/giving-records",
+      "status": 200,
+      "keys": [
+        "ok",
+        "items",
+        "pagination"
+      ],
+      "public_item_count": 0
+    },
+    "months_endpoint": {
+      "url": "https://fermatmind.com/api/v0.5/foundation/giving-records/months",
+      "status": 200,
+      "keys": [
+        "ok",
+        "months"
+      ],
+      "public_month_count": 0
+    },
+    "empty_state_expected": true,
+    "frontend_fallback_records_used": false
+  },
+  "discoverability_boundary": {
+    "daily_giving_pages_remain_noindex": true,
+    "sitemap_hit_count": 0,
+    "llms_hit_count": 0,
+    "llms_full_hit_count": 0,
+    "footer_nav_hit_count": 0,
+    "homepage_hit_count": 0,
+    "foundation_page_hit_count": 0,
+    "search_channel_eligible": false
+  },
+  "search_channel_safety": {
+    "search_channel_action_performed": false,
+    "url_submission_performed": false,
+    "external_search_api_call_performed": false,
+    "backend_queue_state_not_mutated": true
+  },
+  "sidecars": [
+    {
+      "id": "api_direct_curl_tls_path",
+      "status": "open_external_ops_sidecar",
+      "introduced_by_current_pr": false,
+      "blocks_current_smoke": false
+    }
+  ],
+  "no_runtime_code_change": true,
+  "no_frontend_fallback_content": true,
+  "no_cms_mutation": true,
+  "no_deploy": true,
+  "no_sitemap_llms_footer_nav_exposure_change": true,
+  "no_search_channel_action": true,
+  "no_url_submission": true,
+  "no_external_api_call": true,
+  "no_env_dns_nginx_edit": true,
+  "next_task": "PR-FDN-SEO-01-READINESS"
+}

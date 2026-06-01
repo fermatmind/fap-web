@@ -8382,6 +8382,67 @@ prs:
       - No CMS mutation, deploy, backend change, external search API call, env/DNS/nginx edit, or frontend editorial fallback content is introduced.
     rollback_note: "Revert the Daily Giving route, component, API adapter, and focused contract if Foundation Daily Giving page rendering regresses or the backend API contract changes."
 
+  - id: PR-FDN-02B-POST-DEPLOY-RUNTIME-SMOKE
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-fdn-02b-post-deploy-runtime-smoke
+    base: main
+    depends_on:
+      - PR-FDN-02B
+    mode: audit
+    train_scope: pr_fdn_02b_post_deploy_runtime_smoke
+    risk_level: read_only_public_runtime_smoke
+    status: in_progress
+    title: "PR-FDN-02B-POST-DEPLOY-RUNTIME-SMOKE: Verify Daily Giving frontend runtime"
+    goal: "Record a read-only post-deploy runtime smoke for Foundation Daily Giving frontend pages and public same-origin API paths without runtime code changes, CMS mutation, deploy, Search Channel action, URL submission, external API calls, or discoverability exposure changes."
+    in_scope:
+      - docs/seo/pr-fdn-02b-post-deploy-runtime-smoke.md
+      - docs/seo/generated/pr-fdn-02b-post-deploy-runtime-smoke.v1.json
+      - tests/contracts/pr-fdn-02b-post-deploy-runtime-smoke.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - Runtime code changes
+      - Frontend fallback donation or ledger records
+      - CMS mutation or publish
+      - production deploy
+      - Search Channel enqueue or URL submission
+      - external search or social API calls
+      - env, DNS, or nginx edits
+      - sitemap, llms, llms-full, footer, or nav exposure changes
+      - fap-api or backend changes
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/pr-fdn-02b-post-deploy-runtime-smoke.contract.test.ts
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - python3 -m json.tool docs/seo/generated/pr-fdn-02b-post-deploy-runtime-smoke.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      changed_files_must_match:
+        - docs/seo/pr-fdn-02b-post-deploy-runtime-smoke.md
+        - docs/seo/generated/pr-fdn-02b-post-deploy-runtime-smoke.v1.json
+        - tests/contracts/pr-fdn-02b-post-deploy-runtime-smoke.contract.test.ts
+        - tests/contracts/helpers/currentPrScope.ts
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: PR-FDN-SEO-01-READINESS
+    acceptance:
+      - Public localized Daily Giving index and monthly archive pages return HTTP 200.
+      - Apex same-origin public Foundation Daily Giving API paths return HTTP 200.
+      - Daily Giving pages remain noindex and have exact apex canonicals with no staging canonical.
+      - Daily Giving pages remain absent from sitemap, llms, llms-full, footer, nav, Search Channel, and URL submission.
+      - No runtime code change, frontend fallback content, CMS mutation, deploy, external API call, env/DNS/nginx edit, or discoverability exposure change is introduced.
+    rollback_note: "Revert the smoke report, generated JSON, focused contract, and train metadata only; no runtime behavior is changed by this PR."
+
   - id: PR-FDN-SOCIAL-LINK-DISPLAY-REVIEW-01
     repo: fap-web
     repo_path: <workspace>/fap-web
