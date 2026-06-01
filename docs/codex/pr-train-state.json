@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-01T03:18:28Z",
+  "updated_at": "2026-06-01T03:19:06Z",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -14182,7 +14182,7 @@
       ],
       "title": "feat(analytics): standardize GA4 and Baidu funnel events",
       "status": "local_checks_passed",
-      "commit_sha": "",
+      "commit_sha": "49075638fe5399acaf9cf6afe81ce7a3e5e4ef88",
       "pr_url": "",
       "failure_reason": null,
       "merged_at": null,
@@ -14214,9 +14214,14 @@
           "at": "2026-06-01T03:18:28Z",
           "status": "local_checks_passed",
           "summary": "Standardized GA4/Baidu conversion taxonomy and payloads; required local checks, production build, full contract suite, and scope validation passed."
+        },
+        {
+          "at": "2026-06-01T03:19:06Z",
+          "status": "committed",
+          "summary": "Created scoped implementation commit 49075638fe5399acaf9cf6afe81ce7a3e5e4ef88 for ANALYTICS-SEO-P0-01."
         }
       ],
-      "updated_at": "2026-06-01T03:18:28Z"
+      "updated_at": "2026-06-01T03:19:06Z"
     },
     {
       "id": "ANALYTICS-SEO-P0-02",
