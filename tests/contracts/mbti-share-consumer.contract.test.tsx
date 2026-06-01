@@ -961,7 +961,7 @@ describe("MBTI share consumer contract", () => {
     expect(metadata.description).toBe(
       "This public MBTI share page keeps only the lightweight result summary and never exposes paid content."
     );
-    expect(metadata.alternates?.canonical).toBe("http://localhost:3000/zh/share/share-123");
+    expect(metadata.alternates?.canonical).toBe("http://localhost:3000/zh/share");
     expect(metadata.robots).toMatchObject({
       index: false,
       follow: false,
@@ -971,14 +971,16 @@ describe("MBTI share consumer contract", () => {
     expect(metadata.openGraph).toMatchObject({
       title: "ENFP-T · Campaigner｜FermatMind",
       description: "This public MBTI share page keeps only the lightweight result summary and never exposes paid content.",
-      url: "http://localhost:3000/zh/share/share-123",
-      images: ["http://localhost:3000/og/share/share-123"],
+      url: "http://localhost:3000/zh/share",
+      images: ["https://api.fermatmind.com/static/share/mbti_wide_1200x630.png"],
     });
     expect(metadata.twitter).toMatchObject({
       title: "ENFP-T · Campaigner｜FermatMind",
       description: "This public MBTI share page keeps only the lightweight result summary and never exposes paid content.",
-      images: ["http://localhost:3000/og/share/share-123"],
+      images: ["https://api.fermatmind.com/static/share/mbti_wide_1200x630.png"],
     });
+    expect(JSON.stringify(metadata)).not.toContain("/share/share-123");
+    expect(JSON.stringify(metadata)).not.toContain("/og/share/share-123");
   });
 
   it("normalizes the top-level read contract on the share view model", () => {

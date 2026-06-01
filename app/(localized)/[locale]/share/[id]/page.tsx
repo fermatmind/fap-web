@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getShareSummary } from "@/lib/api/v0_3";
+import { DEFAULT_SHARE_IMAGE_URL } from "@/lib/cms/media";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { buildSharePageViewModel } from "@/lib/mbti/publicProjection";
@@ -40,19 +41,36 @@ export async function generateMetadata({
   });
   const viewModel = buildSharePageViewModel(shareSummary);
   const copy = buildShareMetadataCopy(viewModel);
-  const pathname = viewModel.seoSurface?.canonicalUrl || viewModel.publicSurface?.canonicalUrl || `/${locale}/share/${id}`;
+  const pathname = `/${locale}/share`;
+  const seoSurface = viewModel.seoSurface
+    ? {
+        ...viewModel.seoSurface,
+        canonicalUrl: pathname,
+        canonicalPath: pathname,
+        alternates: {},
+        og: {
+          ...viewModel.seoSurface.og,
+          image: null,
+          url: null,
+        },
+        twitter: {
+          ...viewModel.seoSurface.twitter,
+          image: null,
+        },
+      }
+    : null;
 
   return buildPageMetadata({
     locale,
     pathname,
     title: viewModel.seoSurface?.title || copy.title,
     description: viewModel.seoSurface?.description || copy.description,
-    imagePath: `/og/share/${id}`,
-    seoSurface: viewModel.seoSurface,
+    imagePath: DEFAULT_SHARE_IMAGE_URL,
+    seoSurface,
     noindex: true,
     alternatesByLocale: {
-      en: `/en/share/${id}`,
-      zh: `/zh/share/${id}`,
+      en: "/en/share",
+      zh: "/zh/share",
       xDefault: pathname,
     },
   });
