@@ -9826,6 +9826,71 @@ prs:
       - RIASEC remains one flagship scale with riasec_60 and riasec_140 forms.
     rollback_note: "Revert Holland/RIASEC landing structure renderer and contracts."
 
+  - id: ANALYTICS-SEO-P0-10
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/analytics-seo-p0-10-private-route-analytics-suppression
+    base: main
+    depends_on:
+      - ANALYTICS-SEO-P1-07
+    mode: execute
+    train_scope: analytics_seo_p0_p1
+    status: planned
+    title: "fix(analytics): suppress third-party pageview scripts on private routes"
+    goal: "Suppress third-party browser analytics scripts on private/noindex route families so Baidu Tongji, GA4, and Google Ads cannot automatically collect raw order, result, share, payment, or token-bearing URLs."
+    in_scope:
+      - components/analytics/AnalyticsScripts.tsx
+      - lib/tracking/**
+      - lib/seo/noindex.ts
+      - app/providers.tsx
+      - tests/contracts/**
+      - docs/analytics/**
+      - docs/audits/analytics-seo-postmerge-audit.md
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - MBTI or Holland content changes
+      - CMS payload changes
+      - sitemap URL set changes
+      - payment state machine changes
+      - real order creation or real payment flows
+      - real result, order, or share ID access
+      - GTM or Baidu Ads
+      - production environment variables
+      - hardcoded team IPs
+      - unrelated formatting
+    required_local_checks:
+      - pnpm typecheck
+      - pnpm test:contract
+      - pnpm seo:check-sitemap
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
+      - git diff --check
+    scope_validation:
+      changed_files_must_match:
+        - components/analytics/AnalyticsScripts.tsx
+        - lib/tracking/**
+        - lib/seo/noindex.ts
+        - app/providers.tsx
+        - tests/contracts/**
+        - docs/analytics/**
+        - docs/audits/analytics-seo-postmerge-audit.md
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: false
+    next_task: null
+    acceptance:
+      - Result, order, share, pay, payment, and history route families do not load third-party browser analytics scripts.
+      - Localized private routes such as /zh/orders/lookup and /en/share/example are suppressed.
+      - Sensitive query-key routes suppress scripts before any third-party pageview can observe raw URLs.
+      - Public indexable routes continue rendering the analytics bootstrap when production env IDs are configured and consent allows runtime loading.
+      - First-party tracking sanitizers remain intact and no duplicate conversion dispatch is introduced.
+      - Docs describe the private/noindex route third-party analytics suppression boundary.
+    rollback_note: "Revert private-route browser analytics suppression helper, bootstrap gate, contracts, docs, and train metadata for ANALYTICS-SEO-P0-10."
+
   - id: RESULT-EMAIL-FIRST-BINDING-UX-05
     repo: fap-web
     repo_path: <workspace>/fap-web
