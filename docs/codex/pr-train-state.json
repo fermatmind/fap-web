@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-01T03:38:32Z",
+  "updated_at": "2026-06-01T03:39:45Z",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -14250,9 +14250,9 @@
         "ANALYTICS-SEO-P0-01"
       ],
       "title": "docs(analytics): add conversion setup QA checklist",
-      "status": "local_checks_passed",
+      "status": "pr_open_github_checks_pending",
       "commit_sha": "57aa52df63ef2f983f2a2972b1174a3f0adf46e9",
-      "pr_url": "",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/958",
       "failure_reason": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -14284,9 +14284,14 @@
           "at": "2026-06-01T03:38:32Z",
           "status": "committed",
           "summary": "Created scoped documentation commit 57aa52df63ef2f983f2a2972b1174a3f0adf46e9 for ANALYTICS-SEO-P0-02."
+        },
+        {
+          "at": "2026-06-01T03:39:45Z",
+          "status": "pr_open_github_checks_pending",
+          "summary": "Opened https://github.com/fermatmind/fap-web/pull/958 after local checks and scope validation passed."
         }
       ],
-      "updated_at": "2026-06-01T03:38:32Z"
+      "updated_at": "2026-06-01T03:39:45Z"
     },
     {
       "id": "ANALYTICS-SEO-P0-03",
