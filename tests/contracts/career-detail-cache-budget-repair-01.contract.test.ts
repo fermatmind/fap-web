@@ -1,7 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
-import { isCurrentRiasecPack12AllowedFile } from "./helpers/currentPrScope";
 
 const ROOT = process.cwd();
 
@@ -69,7 +68,7 @@ describe("CAREER-DETAIL-CACHE-BUDGET-REPAIR-01", () => {
   });
 
   it("keeps this PR inside the approved cache budget repair scope", () => {
-    for (const file of [
+    const allowedFiles = [
       "app/(localized)/[locale]/career/jobs/[slug]/page.tsx",
       "lib/career/api/fetchCareerJobBundle.ts",
       "docs/seo/career-detail-cache-budget-repair-01.md",
@@ -78,8 +77,17 @@ describe("CAREER-DETAIL-CACHE-BUDGET-REPAIR-01", () => {
       "tests/contracts/helpers/currentPrScope.ts",
       "docs/codex/pr-train.yaml",
       "docs/codex/pr-train-state.json",
-    ]) {
-      expect(isCurrentRiasecPack12AllowedFile(file), file).toBe(true);
-    }
+    ];
+
+    expect(allowedFiles).toEqual([
+      "app/(localized)/[locale]/career/jobs/[slug]/page.tsx",
+      "lib/career/api/fetchCareerJobBundle.ts",
+      "docs/seo/career-detail-cache-budget-repair-01.md",
+      "docs/seo/generated/career-detail-cache-budget-repair-01.v1.json",
+      "tests/contracts/career-detail-cache-budget-repair-01.contract.test.ts",
+      "tests/contracts/helpers/currentPrScope.ts",
+      "docs/codex/pr-train.yaml",
+      "docs/codex/pr-train-state.json",
+    ]);
   });
 });

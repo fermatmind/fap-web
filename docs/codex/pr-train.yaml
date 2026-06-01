@@ -7536,7 +7536,7 @@ prs:
     mode: execute
     train_scope: global_en_zh_content_pages_discoverability_exposure
     risk_level: controlled_frontend_discoverability_exposure
-    status: in_progress
+    status: merged
     title: "fix(seo): expose approved English content pages to discoverability surfaces"
     goal: "Remove frontend hard blocks for sitemap, llms, and footer exposure of the five published/indexable Wave 1 English content pages while preserving CMS indexability authority and avoiding frontend fallback content."
     in_scope:
