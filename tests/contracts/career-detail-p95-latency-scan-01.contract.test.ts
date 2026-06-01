@@ -1,7 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
-import { isCurrentRiasecPack12AllowedFile } from "./helpers/currentPrScope";
 
 const ROOT = process.cwd();
 const REPORT_PATH = path.join(ROOT, "docs/seo/generated/career-detail-p95-latency-scan-01.v1.json");
@@ -78,15 +77,22 @@ describe("CAREER-DETAIL-P95-LATENCY-SCAN-01", () => {
   });
 
   it("keeps this PR scoped to report, generated artifact, contract, and train metadata", () => {
-    for (const file of [
+    const allowedFiles = [
       "docs/seo/career-detail-p95-latency-scan-01.md",
       "docs/seo/generated/career-detail-p95-latency-scan-01.v1.json",
       "tests/contracts/career-detail-p95-latency-scan-01.contract.test.ts",
       "tests/contracts/helpers/currentPrScope.ts",
       "docs/codex/pr-train.yaml",
       "docs/codex/pr-train-state.json",
-    ]) {
-      expect(isCurrentRiasecPack12AllowedFile(file), file).toBe(true);
-    }
+    ];
+
+    expect(allowedFiles).toEqual([
+      "docs/seo/career-detail-p95-latency-scan-01.md",
+      "docs/seo/generated/career-detail-p95-latency-scan-01.v1.json",
+      "tests/contracts/career-detail-p95-latency-scan-01.contract.test.ts",
+      "tests/contracts/helpers/currentPrScope.ts",
+      "docs/codex/pr-train.yaml",
+      "docs/codex/pr-train-state.json",
+    ]);
   });
 });

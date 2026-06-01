@@ -15713,13 +15713,13 @@
       "base": "main",
       "depends_on": [],
       "title": "CAREER-DETAIL-P95-LATENCY-SCAN-01 career detail P95 latency scan",
-      "status": "committed",
-      "commit_sha": "final_branch_head_recorded_after_pr_open",
+      "status": "merged",
+      "commit_sha": "9d1a0a2aa683b7d6a1e7f019c873c7cbc8ae67f6",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/982",
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-01T16:12:46Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "checks": {
         "focused_contract": "passed",
         "typecheck": "passed",
@@ -15750,6 +15750,17 @@
           "at": "2026-06-01T16:09:00Z",
           "event": "pr_open",
           "pr_url": "https://github.com/fermatmind/fap-web/pull/982"
+        },
+        {
+          "at": "2026-06-01T16:12:46Z",
+          "event": "merged",
+          "merge_commit": "3907e7aaa09ac63cc9153e36fa4492f169e80879",
+          "note": "PR #982 squash merged after all GitHub checks passed and mergeStateStatus was CLEAN."
+        },
+        {
+          "at": "2026-06-01T16:15:00Z",
+          "event": "post_merge_revalidate_failed",
+          "note": "Focused contract failed on main because the scope assertion depended on the task branch name. A scoped post-merge contract fix removes that branch-dependent assertion."
         }
       ]
     },
