@@ -14346,6 +14346,65 @@
         }
       ],
       "updated_at": "2026-06-01T02:30:08Z"
+    },
+    {
+      "id": "RESULT-EMAIL-FIRST-BINDING-UX-05",
+      "repo": "fap-web",
+      "branch": "codex/result-email-first-binding-ux-05",
+      "base": "main",
+      "depends_on": [],
+      "title": "RESULT-EMAIL-FIRST-BINDING-UX-05 non-blocking result email binding UX",
+      "status": "committed",
+      "commit_sha": "22425217e785c88bdda585e61ef36733753033a1",
+      "pr_url": "",
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "checks": {
+        "pnpm exec vitest run tests/contracts/result-client-view-state.contract.test.tsx": {
+          "status": "passed",
+          "summary": "Focused result client contract passed for non-blocking email recovery card and existing email gate reload behavior."
+        },
+        "pnpm typecheck": {
+          "status": "passed",
+          "summary": "TypeScript passed after adding result_recovery to the bindAttemptEmail surface union."
+        },
+        "pnpm test:contract": {
+          "status": "passed",
+          "summary": "Full contract suite passed: 413 files, 2326 tests."
+        },
+        "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build": {
+          "status": "passed",
+          "summary": "Production API build passed; generated sitemap side effect was reverted because it is outside this PR scope."
+        },
+        "json_yaml_parse": {
+          "status": "passed",
+          "summary": "docs/codex/pr-train-state.json parses and docs/codex/pr-train.yaml loads with PyYAML."
+        },
+        "git diff --check && git diff --cached --check": {
+          "status": "passed",
+          "summary": "Whitespace checks passed."
+        }
+      },
+      "events": [
+        {
+          "at": "2026-06-01T03:35:47Z",
+          "status": "in_progress",
+          "summary": "Initialized user-authorized result email first-binding UX PR from latest origin/main in isolated worktree."
+        },
+        {
+          "at": "2026-06-01T03:35:47Z",
+          "status": "validated",
+          "summary": "Implemented optional result email recovery card, extended bindAttemptEmail surface typing, added focused contract coverage, and passed local validation."
+        },
+        {
+          "at": "2026-06-01T03:35:47Z",
+          "status": "committed",
+          "summary": "Committed scoped result email first-binding UX changes."
+        }
+      ],
+      "updated_at": "2026-06-01T03:35:47Z"
     }
   ],
   "sidecar_issues": [
