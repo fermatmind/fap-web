@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-01T04:54:14Z",
+  "updated_at": "2026-06-01T05:08:40Z",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -13074,6 +13074,93 @@
           "at": "2026-06-01T04:50:13Z",
           "status": "pr_opened",
           "summary": "Opened fap-web PR #965 for the read-only PR-FDN-02B post-deploy runtime smoke."
+        }
+      ]
+    },
+    {
+      "id": "PR-FDN-SEO-01-READINESS",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/pr-fdn-seo-01-readiness",
+      "base": "main",
+      "depends_on": [
+        "PR-FDN-02B-POST-DEPLOY-RUNTIME-SMOKE"
+      ],
+      "status": "pr_opened",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/968",
+      "commit_sha": "0bb54b03e3397b7031a56ddaa71193be70077648",
+      "merge_sha": null,
+      "title": "PR-FDN-SEO-01-READINESS: Foundation Daily Giving SEO readiness",
+      "artifacts": [
+        "docs/seo/pr-fdn-seo-01-readiness.md",
+        "docs/seo/generated/pr-fdn-seo-01-readiness.v1.json",
+        "tests/contracts/pr-fdn-seo-01-readiness.contract.test.ts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "dependency_verification": {
+          "status": "passed",
+          "completed_at": "2026-06-01T05:00:56Z",
+          "summary": "PR-FDN-02B-POST-DEPLOY-RUNTIME-SMOKE is merged in fap-web at 3c2735a6cd57bb0dd92d0962fe62732be5dca66c."
+        },
+        "production_runtime_observation": {
+          "status": "passed",
+          "completed_at": "2026-06-01T05:00:56Z",
+          "summary": "Daily Giving index and 2026-06 archive pages return HTTP 200 with exact apex canonicals, no staging canonical, noindex robots, and no JSON-LD. Same-origin public Foundation API records/months endpoints return HTTP 200."
+        },
+        "readiness_boundary": {
+          "status": "passed_with_empty_ledger_gate",
+          "completed_at": "2026-06-01T05:00:56Z",
+          "summary": "Public API is healthy but currently returns zero public records and zero public months, so future ItemList/month archive discoverability must be gated by backend public record authority."
+        },
+        "scope_boundaries": {
+          "status": "passed",
+          "completed_at": "2026-06-01T05:00:56Z",
+          "summary": "Scope is limited to read-only report, generated JSON, focused contract, and train metadata. No JSON-LD implementation, runtime code change, frontend fallback content, CMS mutation, deploy, Search Channel action, URL submission, external API call, or env/DNS/nginx edit is performed."
+        },
+        "pnpm exec vitest run tests/contracts/pr-fdn-seo-01-readiness.contract.test.ts": {
+          "status": "passed",
+          "completed_at": "2026-06-01T05:06:50Z",
+          "summary": "Focused readiness contract passed."
+        },
+        "pnpm typecheck": {
+          "status": "passed",
+          "completed_at": "2026-06-01T05:06:50Z",
+          "summary": "TypeScript typecheck passed."
+        },
+        "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build": {
+          "status": "passed",
+          "completed_at": "2026-06-01T05:06:50Z",
+          "summary": "Production API build passed. Build-generated sitemap drift was restored as out-of-scope."
+        },
+        "pnpm test:contract": {
+          "status": "passed",
+          "completed_at": "2026-06-01T05:06:50Z",
+          "summary": "Full contract suite passed: 418 files, 2349 tests."
+        }
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "next_task": "PR-FDN-SEO-01-IMPLEMENTATION",
+      "history": [
+        {
+          "at": "2026-06-01T05:00:56Z",
+          "status": "in_progress",
+          "summary": "Started read-only Foundation Daily Giving SEO readiness audit from an isolated fap-web worktree on latest origin/main."
+        },
+        {
+          "at": "2026-06-01T05:06:50Z",
+          "status": "local_checks_passed",
+          "summary": "Focused contract, typecheck, production API build, full contract suite, JSON/YAML parsing, and diff checks are ready to finalize. Build-generated sitemap drift was restored as out-of-scope."
+        },
+        {
+          "at": "2026-06-01T05:08:40Z",
+          "status": "pr_opened",
+          "summary": "Opened fap-web PR #968 for the read-only PR-FDN-SEO-01 readiness report."
         }
       ]
     },

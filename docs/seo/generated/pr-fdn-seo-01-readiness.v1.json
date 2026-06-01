@@ -1,0 +1,133 @@
+{
+  "schema_version": "pr-fdn-seo-01-readiness.v1",
+  "task": "PR-FDN-SEO-01-READINESS",
+  "final_decision": "pr_fdn_seo_01_readiness_completed_ready_for_guarded_implementation",
+  "validated_at": "2026-06-01T05:00:56Z",
+  "dependencies": {
+    "pr_fdn_02a_post_deploy_runtime_validation": {
+      "repo": "fap-api",
+      "pr": 1833,
+      "merge_sha": "3a7e29175f1e759c74e43a8c305a0ba3b534c05e",
+      "status": "merged"
+    },
+    "pr_fdn_02b_post_deploy_runtime_smoke": {
+      "repo": "fap-web",
+      "pr": 965,
+      "merge_sha": "3c2735a6cd57bb0dd92d0962fe62732be5dca66c",
+      "status": "merged"
+    }
+  },
+  "runtime_state": {
+    "pages": [
+      {
+        "url": "https://fermatmind.com/en/foundation/daily-giving",
+        "status": 200,
+        "canonical": "https://fermatmind.com/en/foundation/daily-giving",
+        "robots": "noindex, nofollow, noarchive, nocache",
+        "json_ld_count": 0,
+        "staging_canonical_detected": false
+      },
+      {
+        "url": "https://fermatmind.com/zh/foundation/daily-giving",
+        "status": 200,
+        "canonical": "https://fermatmind.com/zh/foundation/daily-giving",
+        "robots": "noindex, nofollow, noarchive, nocache",
+        "json_ld_count": 0,
+        "staging_canonical_detected": false
+      },
+      {
+        "url": "https://fermatmind.com/en/foundation/daily-giving/2026-06",
+        "status": 200,
+        "canonical": "https://fermatmind.com/en/foundation/daily-giving/2026-06",
+        "robots": "noindex, nofollow, noarchive, nocache",
+        "json_ld_count": 0,
+        "staging_canonical_detected": false
+      },
+      {
+        "url": "https://fermatmind.com/zh/foundation/daily-giving/2026-06",
+        "status": 200,
+        "canonical": "https://fermatmind.com/zh/foundation/daily-giving/2026-06",
+        "robots": "noindex, nofollow, noarchive, nocache",
+        "json_ld_count": 0,
+        "staging_canonical_detected": false
+      }
+    ]
+  },
+  "api_state": {
+    "records_endpoint": {
+      "url": "https://fermatmind.com/api/v0.5/foundation/giving-records",
+      "status": 200,
+      "keys": [
+        "ok",
+        "items",
+        "pagination"
+      ],
+      "public_record_count": 0
+    },
+    "months_endpoint": {
+      "url": "https://fermatmind.com/api/v0.5/foundation/giving-records/months",
+      "status": 200,
+      "keys": [
+        "ok",
+        "months"
+      ],
+      "public_month_count": 0
+    },
+    "backend_authority_available": true,
+    "frontend_fallback_authority_used": false
+  },
+  "current_seo_state": {
+    "daily_giving_pages_noindex": true,
+    "daily_giving_json_ld_present": false,
+    "sitemap_hit_count": 0,
+    "llms_hit_count": 0,
+    "llms_full_hit_count": 0,
+    "footer_nav_hit_count": 0,
+    "search_channel_action_detected": false
+  },
+  "recommended_implementation": {
+    "task": "PR-FDN-SEO-01-IMPLEMENTATION",
+    "allowed_schema_types": [
+      "WebPage",
+      "BreadcrumbList",
+      "ItemList"
+    ],
+    "item_list_requires_public_records": true,
+    "month_archive_discoverability_requires_public_month": true,
+    "no_frontend_fallback_records": true,
+    "no_cms_mutation": true,
+    "no_search_channel_action": true,
+    "no_url_submission": true,
+    "no_external_search_api_call": true
+  },
+  "forbidden_future_scope": [
+    "frontend fallback donation records",
+    "DonateAction schema",
+    "Offer schema",
+    "Product schema",
+    "AggregateOffer schema",
+    "Dataset schema",
+    "unconditional sitemap exposure",
+    "unconditional llms exposure",
+    "Search Channel enqueue",
+    "URL submission"
+  ],
+  "sidecars": [
+    {
+      "id": "api_direct_curl_tls_path",
+      "status": "open_external_ops_sidecar",
+      "introduced_by_current_pr": false,
+      "blocks_readiness": false
+    }
+  ],
+  "no_runtime_code_change": true,
+  "no_frontend_fallback_content": true,
+  "no_cms_mutation": true,
+  "no_deploy": true,
+  "no_sitemap_llms_footer_nav_exposure_change": true,
+  "no_search_channel_action": true,
+  "no_url_submission": true,
+  "no_external_api_call": true,
+  "no_env_dns_nginx_edit": true,
+  "next_task": "PR-FDN-SEO-01-IMPLEMENTATION"
+}
