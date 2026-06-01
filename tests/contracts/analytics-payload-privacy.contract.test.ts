@@ -1,9 +1,17 @@
+import fs from "node:fs";
+import path from "node:path";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { trackObservableFunnelEvent as trackAnalyticsObservableFunnelEvent } from "@/lib/analytics";
 import { trackClientEvent, trackNetworkObservableFunnelEvent } from "@/lib/tracking/client";
 import { TRACKING_EVENTS, filterTrackingPayload } from "@/lib/tracking/events";
+import { sanitizeTrackingUrl } from "@/lib/tracking/privacy";
 
 const CONSENT_KEY = "fm_consent_v1";
+const ROOT = process.cwd();
+
+function read(relPath: string): string {
+  return fs.readFileSync(path.join(ROOT, relPath), "utf8");
+}
 
 function grantAnalyticsConsent() {
   window.localStorage.setItem(
@@ -44,6 +52,28 @@ describe("analytics payload privacy contract", () => {
     expect(JSON.stringify(payload)).not.toContain("recovery_secret");
     expect(JSON.stringify(payload)).not.toContain("Bearer%20secret");
     expect(JSON.stringify(payload)).not.toContain("/ord_raw_1");
+  });
+
+  it("keeps order lookup route shape while redacting order identifiers from page locations", () => {
+    expect(sanitizeTrackingUrl("/zh/orders/lookup?orderNo=ord_clear_123456&utm_source=wechat")).toBe(
+      "/zh/orders/lookup?orderNo=redacted&utm_source=wechat"
+    );
+    expect(sanitizeTrackingUrl("/zh/orders/ord_clear_123456?payment_recovery_token=secret")).toBe(
+      "/zh/orders/redacted?payment_recovery_token=redacted"
+    );
+    expect(sanitizeTrackingUrl("/zh/result/attempt-clear-123456?report_url=https%3A%2F%2Fevil.example%2Fprivate")).toBe(
+      "/zh/result/redacted?report_url=redacted"
+    );
+  });
+
+  it("does not construct cleartext order numbers for purchase analytics in the order status client", () => {
+    const source = read("app/(localized)/[locale]/orders/[orderNo]/OrdersClient.tsx");
+    const purchasePayloadBlock = source.match(/trackEvent\("purchase_success", \{[\s\S]*?\n\s*\}\);/)?.[0] ?? "";
+
+    expect(purchasePayloadBlock).toContain('trackEvent("purchase_success"');
+    expect(purchasePayloadBlock).not.toContain("order_no: orderNo");
+    expect(purchasePayloadBlock).not.toContain("transaction_id: orderNo");
+    expect(purchasePayloadBlock).toContain("transaction_id: maskedOrder");
   });
 
   it("masks full attempt identifiers while preserving safe attribution fields", () => {

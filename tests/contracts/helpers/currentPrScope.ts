@@ -461,6 +461,20 @@ const PR_WEB_SEC_31_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const ANALYTICS_SEO_P0_04_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/orders/[orderNo]/OrdersClient.tsx",
+  "app/(localized)/[locale]/orders/[orderNo]/page.tsx",
+  "app/(localized)/[locale]/share/[id]/page.tsx",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "lib/tracking/privacy.ts",
+  "tests/contracts/analytics-payload-privacy.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/orders-client-delivery.contract.test.tsx",
+  "tests/contracts/robots.contract.test.ts",
+  "tests/contracts/sitemap-indexability.contract.test.ts",
+]);
+
 const PR_WEB_SEC_32_ALLOWED_FILES = new Set([
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -1108,6 +1122,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/pr-web-sec-31-clinical-session-storage-guard") {
     return PR_WEB_SEC_31_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/analytics-seo-p0-04-private-indexing-privacy") {
+    return ANALYTICS_SEO_P0_04_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-web-sec-32-landing-rollout-seed") {

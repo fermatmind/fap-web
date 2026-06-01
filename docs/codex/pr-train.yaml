@@ -9111,3 +9111,338 @@ prs:
       - Ledger documents deferred risks without changing runtime behavior or deploying production.
       - No third-party IQ question replication, frontend editorial fallback, public static media fallback, secrets, answer keys, or paid report private fields are introduced.
     rollback_note: "Revert the IQ release ledger and train metadata only; no runtime behavior is changed by this PR."
+
+  - id: ANALYTICS-SEO-P0-04
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/analytics-seo-p0-04-private-indexing-privacy
+    base: main
+    depends_on: []
+    mode: execute
+    train_scope: analytics_seo_p0_p1
+    status: in_progress
+    title: "fix(seo): harden private result order share indexing"
+    goal: "Harden noindex, canonical, sitemap exclusion, and analytics redaction for result, order, and share routes without changing payment state, public share SEO content, analytics event naming, UTM helpers, backend code, or production configuration."
+    in_scope:
+      - app/(localized)/[locale]/(app)/result/**
+      - app/(localized)/[locale]/orders/**
+      - app/(localized)/[locale]/share/**
+      - lib/seo/**
+      - lib/tracking/privacy.ts
+      - tests/contracts/**
+      - docs/analytics/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - payment state machine changes
+      - public share page SEO content creation
+      - MBTI or Holland landing content
+      - GA4 or Baidu event naming changes
+      - UTM helper changes
+      - GTM or Baidu Ads
+      - backend changes
+      - production environment variables
+      - real payment or order creation
+    required_local_checks:
+      - pnpm test:contract
+      - pnpm seo:check-sitemap
+      - pnpm typecheck
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
+      - git diff --check
+    scope_validation:
+      changed_files_must_match:
+        - app/(localized)/[locale]/(app)/result/**
+        - app/(localized)/[locale]/orders/**
+        - app/(localized)/[locale]/share/**
+        - lib/seo/**
+        - lib/tracking/privacy.ts
+        - tests/contracts/**
+        - docs/analytics/**
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: false
+    next_task: ANALYTICS-SEO-P0-01
+    acceptance:
+      - Result, order, and share routes are noindex and excluded from sitemap generation.
+      - Order canonical metadata never contains cleartext order numbers or orderNo query values.
+      - Analytics page location and checkout or purchase payloads do not construct or forward cleartext order numbers.
+      - Tracking privacy contracts prove order identifiers are redacted or masked.
+      - No payment state, public share SEO content, GA4/Baidu naming, UTM, backend, or production config changes are included.
+    rollback_note: "Revert private indexing metadata, tracking redaction, tests, docs, and train metadata for ANALYTICS-SEO-P0-04."
+
+  - id: ANALYTICS-SEO-P0-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/analytics-seo-p0-01-standardize-events
+    base: main
+    depends_on:
+      - ANALYTICS-SEO-P0-04
+    mode: execute
+    train_scope: analytics_seo_p0_p1
+    status: planned
+    title: "feat(analytics): standardize GA4 and Baidu funnel events"
+    goal: "Standardize GA4 and Baidu conversion events and payloads for start_test, complete_test, view_result, click_deep_report, begin_checkout, and purchase_success without GTM, Baidu Ads, backend, or unrelated SEO changes."
+    in_scope:
+      - lib/tracking/client.ts
+      - lib/tracking/events.ts
+      - lib/analytics.ts
+      - components/analytics/**
+      - app/(localized)/[locale]/tests/[slug]/take/**
+      - components/result/**
+      - app/(localized)/[locale]/orders/**
+      - tests/contracts/**
+      - docs/analytics/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - backend changes
+      - GTM or Baidu Ads
+      - payment provider behavior
+      - sitemap URL set
+      - landing editorial content
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/analytics-scripts.contract.test.ts
+      - pnpm exec vitest run tests/contracts/tracking-activation-contract.contract.test.ts
+      - pnpm typecheck
+      - git diff --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: false
+    next_task: ANALYTICS-SEO-P0-02
+    acceptance:
+      - GA4 and Baidu event names and payloads match the conversion taxonomy.
+      - The same user action does not emit duplicate conversion events.
+      - Sensitive identifiers are masked or hashed before browser analytics dispatch.
+    rollback_note: "Revert analytics funnel event standardization and related contracts."
+
+  - id: ANALYTICS-SEO-P0-02
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/analytics-seo-p0-02-conversion-docs
+    base: main
+    depends_on:
+      - ANALYTICS-SEO-P0-01
+    mode: execute
+    train_scope: analytics_seo_p0_p1
+    status: planned
+    title: "docs(analytics): add conversion setup QA checklist"
+    goal: "Document GA4 Key Events, Google Ads purchase conversion, Baidu Tongji conversion goals, and QA verification boundaries."
+    in_scope:
+      - docs/analytics/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - runtime code
+      - production configuration changes
+    required_local_checks:
+      - git diff --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: false
+    next_task: ANALYTICS-SEO-P0-03
+    acceptance:
+      - Non-engineering operators can configure GA4 Key Events and Baidu conversion goals from the document.
+      - The document distinguishes code events from dashboard-only configuration.
+    rollback_note: "Revert conversion setup documentation and train metadata for ANALYTICS-SEO-P0-02."
+
+  - id: ANALYTICS-SEO-P0-03
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/analytics-seo-p0-03-internal-referral-guards
+    base: main
+    depends_on:
+      - ANALYTICS-SEO-P0-02
+    mode: execute
+    train_scope: analytics_seo_p0_p1
+    status: planned
+    title: "fix(analytics): guard internal traffic and referral pollution"
+    goal: "Prevent local, preview, staging, admin, analytics-dashboard, and team traffic from polluting production analytics without hardcoding team IPs."
+    in_scope:
+      - components/analytics/**
+      - lib/tracking/**
+      - app/providers.tsx
+      - tests/contracts/**
+      - docs/analytics/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - production dashboard setting changes
+      - hardcoded team IPs
+      - payment or SEO content changes
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/analytics-scripts.contract.test.ts
+      - pnpm typecheck
+      - git diff --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: false
+    next_task: ANALYTICS-SEO-P0-05
+    acceptance:
+      - Local, preview, staging, and dashboard/admin traffic is not sent to production analytics or is clearly labeled as internal.
+      - Analytics dashboard referrers such as tongji.baidu.com do not pollute acquisition attribution.
+      - Team IP filtering is documented for dashboard/env configuration without hardcoding IPs.
+    rollback_note: "Revert internal traffic and referral guard changes."
+
+  - id: ANALYTICS-SEO-P0-05
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/analytics-seo-p0-05-utm-governance
+    base: main
+    depends_on:
+      - ANALYTICS-SEO-P0-03
+    mode: execute
+    train_scope: analytics_seo_p0_p1
+    status: planned
+    title: "feat(tracking): add UTM channel governance"
+    goal: "Add shared UTM channel configuration and apply it to footer, social, share, and external propagation links."
+    in_scope:
+      - lib/tracking/**
+      - lib/ui/footerSocialIcons.ts
+      - components/**/share*
+      - components/cta/**
+      - tests/contracts/**
+      - docs/analytics/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - CMS article body rewrites
+      - sitemap changes
+      - backend changes
+    required_local_checks:
+      - pnpm typecheck
+      - pnpm test:contract
+      - git diff --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: false
+    next_task: ANALYTICS-SEO-P1-08
+    acceptance:
+      - External propagation links use the shared UTM taxonomy.
+      - Existing safe UTM propagation remains intact.
+      - No arbitrary chatgpt.com or qr-only source values remain in owned link config.
+    rollback_note: "Revert UTM channel governance helper and link updates."
+
+  - id: ANALYTICS-SEO-P1-08
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/analytics-seo-p1-08-metadata-sitemap-canonical
+    base: main
+    depends_on:
+      - ANALYTICS-SEO-P0-05
+    mode: execute
+    train_scope: analytics_seo_p0_p1
+    status: planned
+    title: "fix(seo): audit sitemap metadata canonical dynamic routes"
+    goal: "Add focused contracts and fixes for robots, sitemap, canonical, metadata, dynamic routes, hreflang, and Breadcrumb schema without changing content authority."
+    in_scope:
+      - app/robots.ts
+      - next-sitemap.config.js
+      - lib/seo/**
+      - app/**/page.tsx
+      - tests/contracts/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - CMS editorial content
+      - private route indexation
+      - unrelated URL set expansion
+    required_local_checks:
+      - pnpm typecheck
+      - pnpm test:contract
+      - pnpm seo:check-sitemap
+      - git diff --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: false
+    next_task: ANALYTICS-SEO-P1-06
+    acceptance:
+      - Core public test pages remain in sitemap.
+      - Private result, order, and share routes remain out of sitemap.
+      - Parameterized routes canonicalize to safe URLs and localized hreflang remains valid where supported.
+    rollback_note: "Revert metadata, sitemap, canonical, and contract changes for ANALYTICS-SEO-P1-08."
+
+  - id: ANALYTICS-SEO-P1-06
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/analytics-seo-p1-06-mbti-landing-structure
+    base: main
+    depends_on:
+      - ANALYTICS-SEO-P1-08
+    mode: execute
+    train_scope: analytics_seo_p0_p1
+    status: planned
+    title: "feat(seo): thicken MBTI landing structure"
+    goal: "Render CMS/backend-authoritative MBTI landing modules for 16 types overview, career direction, FAQ, comparisons, and personality-type internal links."
+    in_scope:
+      - app/(localized)/[locale]/tests/[slug]/page.tsx
+      - components/tests/**
+      - lib/seo/**
+      - tests/contracts/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - frontend-authored editorial copy
+      - CMS publication changes in fap-web
+      - non-MBTI landing pages
+    required_local_checks:
+      - pnpm typecheck
+      - pnpm test:contract
+      - pnpm seo:check-sitemap
+      - git diff --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: false
+    next_task: ANALYTICS-SEO-P1-07
+    acceptance:
+      - MBTI landing page renders backend/CMS-authoritative modules for 16 types overview, careers, comparisons, FAQ, and internal links.
+      - No frontend editorial fallback becomes content authority.
+    rollback_note: "Revert MBTI landing structure renderer and contracts."
+
+  - id: ANALYTICS-SEO-P1-07
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/analytics-seo-p1-07-riasec-landing-structure
+    base: main
+    depends_on:
+      - ANALYTICS-SEO-P1-06
+    mode: execute
+    train_scope: analytics_seo_p0_p1
+    status: planned
+    title: "feat(seo): thicken Holland RIASEC landing structure"
+    goal: "Render CMS/backend-authoritative Holland/RIASEC landing modules for six-type explanation, career direction, major selection, transition scenarios, FAQ, and career internal links."
+    in_scope:
+      - app/(localized)/[locale]/tests/[slug]/page.tsx
+      - components/tests/**
+      - lib/riasec/**
+      - lib/seo/**
+      - tests/contracts/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - parallel RIASEC stack
+      - legacy 36Q local product surface
+      - frontend-authored editorial copy
+    required_local_checks:
+      - pnpm typecheck
+      - pnpm test:contract
+      - pnpm seo:check-sitemap
+      - git diff --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: false
+    next_task: null
+    acceptance:
+      - Holland/RIASEC landing page renders backend/CMS-authoritative six-type, career direction, major selection, transition, FAQ, and internal link modules.
+      - RIASEC remains one flagship scale with riasec_60 and riasec_140 forms.
+    rollback_note: "Revert Holland/RIASEC landing structure renderer and contracts."
