@@ -18,7 +18,12 @@ function convergeCanonicalSiteUrl(value: string): string {
 }
 
 function isLocalhostUrl(value: string): boolean {
-  return /localhost|127\.0\.0\.1/i.test(value);
+  try {
+    const hostname = new URL(value).hostname.toLowerCase();
+    return hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1";
+  } catch {
+    return false;
+  }
 }
 
 export function getSiteUrlOrThrow(): string {
