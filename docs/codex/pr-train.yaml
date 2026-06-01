@@ -8443,6 +8443,65 @@ prs:
       - No runtime code change, frontend fallback content, CMS mutation, deploy, external API call, env/DNS/nginx edit, or discoverability exposure change is introduced.
     rollback_note: "Revert the smoke report, generated JSON, focused contract, and train metadata only; no runtime behavior is changed by this PR."
 
+  - id: PR-FDN-SEO-01-READINESS
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-fdn-seo-01-readiness
+    base: main
+    depends_on:
+      - PR-FDN-02B-POST-DEPLOY-RUNTIME-SMOKE
+    mode: audit
+    train_scope: pr_fdn_seo_01_readiness
+    risk_level: read_only_foundation_seo_readiness
+    status: in_progress
+    title: "PR-FDN-SEO-01-READINESS: Foundation Daily Giving SEO readiness"
+    goal: "Record read-only readiness for a guarded Foundation Daily Giving SEO/schema/llms implementation, without adding JSON-LD, discoverability exposure, CMS mutation, deploy, Search Channel action, URL submission, external API calls, frontend fallback content, or env/DNS/nginx edits."
+    in_scope:
+      - docs/seo/pr-fdn-seo-01-readiness.md
+      - docs/seo/generated/pr-fdn-seo-01-readiness.v1.json
+      - tests/contracts/pr-fdn-seo-01-readiness.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - JSON-LD/schema implementation
+      - sitemap, llms, llms-full, footer, or nav exposure changes
+      - Search Channel enqueue or URL submission
+      - CMS mutation or publish
+      - production deploy
+      - frontend fallback donation or ledger records
+      - external search or social API calls
+      - env, DNS, or nginx edits
+      - fap-api or backend changes
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/pr-fdn-seo-01-readiness.contract.test.ts
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - python3 -m json.tool docs/seo/generated/pr-fdn-seo-01-readiness.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      changed_files_must_match:
+        - docs/seo/pr-fdn-seo-01-readiness.md
+        - docs/seo/generated/pr-fdn-seo-01-readiness.v1.json
+        - tests/contracts/pr-fdn-seo-01-readiness.contract.test.ts
+        - tests/contracts/helpers/currentPrScope.ts
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: PR-FDN-SEO-01-IMPLEMENTATION
+    acceptance:
+      - Readiness records current Daily Giving runtime, API, noindex, JSON-LD, sitemap, llms, and Search Channel state.
+      - Future implementation remains backend-authoritative and requires public records before ItemList/month archive exposure.
+      - No runtime code change, JSON-LD implementation, frontend fallback content, CMS mutation, deploy, external API call, env/DNS/nginx edit, Search Channel action, URL submission, or discoverability exposure change is introduced.
+    rollback_note: "Revert the readiness report, generated JSON, focused contract, and train metadata only; no runtime behavior is changed by this PR."
+
   - id: PR-FDN-SOCIAL-LINK-DISPLAY-REVIEW-01
     repo: fap-web
     repo_path: <workspace>/fap-web
