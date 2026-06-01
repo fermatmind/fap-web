@@ -9354,7 +9354,7 @@ prs:
       - ANALYTICS-SEO-P0-01
     mode: execute
     train_scope: analytics_seo_p0_p1
-    status: in_progress
+    status: merged
     title: "docs(analytics): add conversion setup QA checklist"
     goal: "Document GA4 Key Events, Google Ads purchase conversion, Baidu Tongji conversion goals, and QA verification boundaries."
     in_scope:
@@ -9385,7 +9385,7 @@ prs:
       - ANALYTICS-SEO-P0-02
     mode: execute
     train_scope: analytics_seo_p0_p1
-    status: planned
+    status: in_progress
     title: "fix(analytics): guard internal traffic and referral pollution"
     goal: "Prevent local, preview, staging, admin, analytics-dashboard, and team traffic from polluting production analytics without hardcoding team IPs."
     in_scope:

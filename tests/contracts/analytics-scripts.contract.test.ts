@@ -9,6 +9,11 @@ import {
 } from "@/components/analytics/AnalyticsScripts";
 import { mapTrackingEventToGa4Name } from "@/lib/tracking/client";
 import { TRACKING_EVENTS } from "@/lib/tracking/events";
+import {
+  isBlockedAnalyticsRoute,
+  isPollutingAnalyticsReferrer,
+  shouldAllowAnalyticsRuntime,
+} from "@/lib/tracking/internalTraffic";
 
 describe("analytics scripts contract", () => {
   const originalEnv = process.env;
@@ -33,6 +38,23 @@ describe("analytics scripts contract", () => {
     }
   }
 
+  function buildTestBootstrapScript(config: {
+    gaMeasurementId?: string;
+    googleAdsConversionId?: string;
+    baiduTongjiId?: string;
+    deploymentEnvironment?: string;
+    allowedHosts?: string[];
+  }) {
+    return buildAnalyticsBootstrapScript({
+      enabled: true,
+      gaMeasurementId: config.gaMeasurementId ?? "",
+      googleAdsConversionId: config.googleAdsConversionId ?? "",
+      baiduTongjiId: config.baiduTongjiId ?? "",
+      deploymentEnvironment: config.deploymentEnvironment ?? "production",
+      allowedHosts: config.allowedHosts ?? ["fermatmind.com", "www.fermatmind.com"],
+    });
+  }
+
   it("does not expose GA4 or Baidu scripts when analytics env is missing", () => {
     expect(
       getAnalyticsScriptConfig({
@@ -43,12 +65,13 @@ describe("analytics scripts contract", () => {
       gaMeasurementId: "",
       googleAdsConversionId: "",
       baiduTongjiId: "",
+      deploymentEnvironment: "unknown",
+      allowedHosts: ["fermatmind.com", "www.fermatmind.com"],
     });
   });
 
   it("renders a consent-aware GA4 and Baidu bootstrap when env IDs are set", () => {
-    const script = buildAnalyticsBootstrapScript({
-      enabled: true,
+    const script = buildTestBootstrapScript({
       gaMeasurementId: "G-TEST1234",
       googleAdsConversionId: "AW-TEST1234",
       baiduTongjiId: "BAIDU_TEST_ID",
@@ -64,13 +87,15 @@ describe("analytics scripts contract", () => {
     expect(script).toContain("hm.baidu.com/hm.js");
     expect(script).toContain("fm:analytics-consent-updated");
     expect(script).toContain('parsed.analytics === "granted"');
+    expect(script).toContain('deploymentEnvironment !== "production"');
+    expect(script).toContain('allowedHosts.indexOf(hostname) === -1');
+    expect(script).toContain('referrerHostname === "tongji.baidu.com"');
     expect(script).not.toContain("GTM-");
     expect(script).not.toContain("bp.js");
   });
 
   it("configures GA4 and Google Ads destinations while loading gtag once", () => {
-    const script = buildAnalyticsBootstrapScript({
-      enabled: true,
+    const script = buildTestBootstrapScript({
       gaMeasurementId: "G-TEST1234",
       googleAdsConversionId: "AW-TEST1234",
       baiduTongjiId: "",
@@ -133,6 +158,69 @@ describe("analytics scripts contract", () => {
         NEXT_PUBLIC_BAIDU_TONGJI_ID: "",
       })
     ).toBe("");
+  });
+
+  it("blocks production analytics runtime on local, preview, dashboard, and analytics-dashboard referrers", () => {
+    expect(
+      shouldAllowAnalyticsRuntime({
+        analyticsEnabled: true,
+        deploymentEnvironment: "production",
+        hostname: "fermatmind.com",
+        pathname: "/zh/tests/mbti-personality-test-16-personality-types",
+        referrer: "https://www.baidu.com/s?wd=mbti",
+      })
+    ).toEqual({ allowed: true, reason: "allowed" });
+
+    expect(
+      shouldAllowAnalyticsRuntime({
+        analyticsEnabled: true,
+        deploymentEnvironment: "development",
+        hostname: "localhost",
+        pathname: "/zh/tests/mbti-personality-test-16-personality-types",
+      })
+    ).toMatchObject({ allowed: false, reason: "non_production_environment" });
+
+    expect(
+      shouldAllowAnalyticsRuntime({
+        analyticsEnabled: true,
+        deploymentEnvironment: "production",
+        hostname: "preview-fermatmind.vercel.app",
+        pathname: "/zh/tests/mbti-personality-test-16-personality-types",
+      })
+    ).toMatchObject({ allowed: false, reason: "host_not_allowed" });
+
+    expect(
+      shouldAllowAnalyticsRuntime({
+        analyticsEnabled: true,
+        deploymentEnvironment: "production",
+        hostname: "fermatmind.com",
+        pathname: "/zh/dashboard",
+      })
+    ).toMatchObject({ allowed: false, reason: "blocked_route" });
+
+    expect(
+      shouldAllowAnalyticsRuntime({
+        analyticsEnabled: true,
+        deploymentEnvironment: "production",
+        hostname: "fermatmind.com",
+        pathname: "/zh/tests/mbti-personality-test-16-personality-types",
+        referrer: "https://tongji.baidu.com/web/welcome/login",
+      })
+    ).toMatchObject({ allowed: false, reason: "polluting_referrer" });
+  });
+
+  it("detects analytics governance routes and referrers without hardcoded team IPs", () => {
+    expect(isBlockedAnalyticsRoute("/zh/admin/reports")).toBe(true);
+    expect(isBlockedAnalyticsRoute("/en/internal/tools")).toBe(true);
+    expect(isBlockedAnalyticsRoute("/dashboard")).toBe(true);
+    expect(isBlockedAnalyticsRoute("/zh/tests/mbti-personality-test-16-personality-types")).toBe(false);
+    expect(isPollutingAnalyticsReferrer("https://tongji.baidu.com/main/overview")).toBe(true);
+    expect(isPollutingAnalyticsReferrer("https://www.baidu.com/s?wd=mbti")).toBe(false);
+
+    const source = readFileSync("lib/tracking/internalTraffic.ts", "utf8");
+    expect(source).not.toContain("TEAM_IP");
+    expect(source).not.toContain("office_ip");
+    expect(source).toContain("NEXT_PUBLIC_ANALYTICS_ALLOWED_HOSTS");
   });
 
   it("keeps analytics mounted for root and localized layout trees", () => {
