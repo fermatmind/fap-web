@@ -80,8 +80,10 @@ describe("career launch smoke contract", () => {
     expect(landingPage).toContain('data-authority-owner="editorial_local_wrapper"');
     expect(landingPage).toContain('data-authority-owner="editorial_ia_shell"');
     expect(landingPage).toContain('data-authority-owner="editorial_support_links"');
-    expect(jobsPage).toContain("fetchCareerJobIndex");
-    expect(jobsPage).toContain("fetchCareerDatasetHub");
+    expect(jobsPage).toContain("fetchCareerDirectory");
+    expect(jobsPage).toContain("adaptCareerDirectory");
+    expect(jobsPage).not.toContain("fetchCareerJobIndex");
+    expect(jobsPage).not.toContain("fetchCareerDatasetHub");
     expect(recommendationsPage).toContain("fetchCareerRecommendationIndex");
     expect(recommendationsPage).not.toContain("listBig5RecommendationTraits");
     expect(recommendationsPage).not.toContain("/career/recommendations/big5/");

@@ -77,6 +77,17 @@ export type CareerJobIndexResponseRaw = {
   data?: unknown;
 };
 
+export type CareerDirectoryResponseRaw = {
+  authority_version?: unknown;
+  bundle_kind?: unknown;
+  bundle_version?: unknown;
+  public_truth?: unknown;
+  pagination?: unknown;
+  filters?: unknown;
+  facets?: unknown;
+  items?: unknown;
+};
+
 export type CareerRecommendationBundleResponseRaw = {
   data?: unknown;
   identity?: unknown;

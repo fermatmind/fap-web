@@ -492,12 +492,14 @@ describe("career alias route contract", () => {
 });
 
 describe("career jobs page authority contract", () => {
-  it("moves jobs list to the lightweight backend index while keeping job detail on the backend bundle path", () => {
+  it("moves jobs list to the paginated backend directory while keeping job detail on the backend bundle path", () => {
     const listSource = read("app/(localized)/[locale]/career/jobs/page.tsx");
     const detailSource = read("app/(localized)/[locale]/career/jobs/[slug]/page.tsx");
 
-    expect(listSource).toContain("fetchCareerJobIndex");
-    expect(listSource).toContain("adaptCareerJobIndex");
+    expect(listSource).toContain("fetchCareerDirectory");
+    expect(listSource).toContain("adaptCareerDirectory");
+    expect(listSource).not.toContain("fetchCareerJobIndex");
+    expect(listSource).not.toContain("adaptCareerJobIndex");
     expect(listSource).not.toContain("listCareerJobsFromCms");
     expect(detailSource).toContain("fetchCareerJobBundle");
     expect(detailSource).toContain("adaptCareerJobBundle");

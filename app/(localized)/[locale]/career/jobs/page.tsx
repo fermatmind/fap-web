@@ -3,26 +3,19 @@ import Link from "next/link";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { CareerOccupationDirectory } from "@/components/career/CareerOccupationDirectory";
 import { Container } from "@/components/layout/Container";
-import { JsonLd } from "@/components/seo/JsonLd";
 import { buttonVariants } from "@/components/ui/button";
-import { adaptCareerDatasetHub } from "@/lib/career/adapters/adaptCareerDatasetHub";
-import { adaptCareerJobIndex } from "@/lib/career/adapters/adaptCareerJobIndex";
+import { adaptCareerDirectory } from "@/lib/career/adapters/adaptCareerDirectory";
 import {
-  buildRenderableCareerDatasetMembers,
-  buildCareerFamilyDirectory,
-  filterCareerDatasetMembers,
   formatCareerFamilyTitle,
-  isCareerDatasetMemberDetailReady,
-  isCareerDatasetMemberPublic,
   normalizeFamilySlug,
 } from "@/lib/career/datasetDirectory";
-import { fetchCareerDatasetHub } from "@/lib/career/api/fetchCareerDatasetHub";
-import { fetchCareerJobIndex } from "@/lib/career/api/fetchCareerJobIndex";
+import { fetchCareerDirectory } from "@/lib/career/api/fetchCareerDirectory";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const dynamic = "force-dynamic";
+const CAREER_DIRECTORY_PAGE_SIZE = 50;
 
 function firstQueryValue(value: string | string[] | undefined): string {
   return Array.isArray(value) ? String(value[0] ?? "") : String(value ?? "");
@@ -30,6 +23,38 @@ function firstQueryValue(value: string | string[] | undefined): string {
 
 function normalizeSearchParam(value: string | string[] | undefined): string {
   return firstQueryValue(value).trim();
+}
+
+function normalizePageParam(value: string | string[] | undefined): number {
+  const parsed = Number(firstQueryValue(value));
+  if (!Number.isFinite(parsed)) {
+    return 1;
+  }
+
+  return Math.max(1, Math.floor(parsed));
+}
+
+function buildJobsQueryPath(
+  basePath: string,
+  input: { query?: string | null; family?: string | null; page?: number | null }
+): string {
+  const query = new URLSearchParams();
+  const submittedQuery = String(input.query ?? "").trim();
+  const family = String(input.family ?? "").trim();
+  const page = input.page && input.page > 1 ? input.page : null;
+
+  if (submittedQuery) {
+    query.set("q", submittedQuery);
+  }
+  if (family) {
+    query.set("family", family);
+  }
+  if (page) {
+    query.set("page", String(page));
+  }
+
+  const queryString = query.toString();
+  return queryString ? `${basePath}?${queryString}` : basePath;
 }
 
 export async function generateMetadata({
@@ -44,18 +69,19 @@ export async function generateMetadata({
   const locale = resolveLocale(localeParam);
   const submittedQuery = normalizeSearchParam(resolvedSearchParams.q);
   const family = normalizeSearchParam(resolvedSearchParams.family);
+  const page = normalizePageParam(resolvedSearchParams.page);
   const pathname = locale === "zh" ? "/zh/career/jobs" : "/en/career/jobs";
 
   return buildPageMetadata({
     locale,
-    pathname: submittedQuery || family ? `${pathname}?${new URLSearchParams({ ...(submittedQuery ? { q: submittedQuery } : {}), ...(family ? { family } : {}) }).toString()}` : pathname,
+    pathname: buildJobsQueryPath(pathname, { query: submittedQuery, family, page }),
     canonicalPathname: pathname,
     title: locale === "zh" ? "全部职业库" : "All Occupations Library",
     description:
       locale === "zh"
         ? "浏览 FermatMind 职业数据库，按行业筛选职业，并进入已开放的职业详情页。"
         : "Browse the FermatMind occupation library, filter by industry, and open available role profiles.",
-    noindex: submittedQuery.length > 0 || family.length > 0,
+    noindex: submittedQuery.length > 0 || family.length > 0 || page > 1,
     alternatesByLocale: {
       en: "/en/career/jobs",
       zh: "/zh/career/jobs",
@@ -76,39 +102,44 @@ export default async function CareerJobsPage({
   const locale = resolveLocale(localeParam);
   const submittedQuery = normalizeSearchParam(resolvedSearchParams.q);
   const selectedFamily = normalizeSearchParam(resolvedSearchParams.family);
+  const page = normalizePageParam(resolvedSearchParams.page);
   const jobsPath = localizedPath("/career/jobs", locale);
   const industriesPath = localizedPath("/career/industries", locale);
-  const [datasetPayload, jobIndexPayload] = await Promise.all([
-    fetchCareerDatasetHub({ locale }),
-    fetchCareerJobIndex({ locale }),
-  ]);
-  const dataset = adaptCareerDatasetHub({ payload: datasetPayload });
-  const detailReadyJobs = new Map(
-    adaptCareerJobIndex({ locale, payload: jobIndexPayload })
-      .filter((job) => job.seoContract.indexState === "indexable" && job.seoContract.indexEligible !== false)
-      .map((job) => [job.identity.canonicalSlug, job])
-  );
-  const members = buildRenderableCareerDatasetMembers({
-    datasetMembers: dataset?.members ?? [],
-    detailReadyJobs,
-    allowStaticFallback: false,
-    excludeNonPublicDatasetMembers: true,
+  const directory = adaptCareerDirectory({
+    locale,
+    payload: await fetchCareerDirectory({
+      locale,
+      page,
+      perPage: CAREER_DIRECTORY_PAGE_SIZE,
+      family: selectedFamily || null,
+      query: submittedQuery || null,
+    }),
   });
-  const families = buildCareerFamilyDirectory(members, locale);
-  const visibleMembers = filterCareerDatasetMembers({
-    members,
-    familySlug: selectedFamily || null,
+  const visibleMembers = directory.members;
+  const families = directory.facets.families;
+  const selectedFamilyTitle =
+    selectedFamily
+      ? families.find((family) => normalizeFamilySlug(family.slug) === normalizeFamilySlug(selectedFamily))?.title ??
+        formatCareerFamilyTitle(normalizeFamilySlug(selectedFamily), locale)
+      : null;
+  const publicDetailCount = directory.publicTruth.publicDetailIndexableCount || directory.pagination.total || visibleMembers.length;
+  const occupationCount = directory.publicTruth.directoryMemberCount || publicDetailCount;
+  const pageStart = directory.pagination.total === 0 ? 0 : (directory.pagination.page - 1) * directory.pagination.perPage + 1;
+  const pageEnd = Math.min(directory.pagination.page * directory.pagination.perPage, directory.pagination.total);
+  const previousPageHref = buildJobsQueryPath(jobsPath, {
     query: submittedQuery,
+    family: selectedFamily,
+    page: Math.max(1, directory.pagination.page - 1),
   });
-  const selectedFamilyTitle = selectedFamily ? formatCareerFamilyTitle(normalizeFamilySlug(selectedFamily), locale) : null;
-  const detailReadyCount = members.filter(isCareerDatasetMemberDetailReady).length;
-  const publicDetailCount = members.filter(isCareerDatasetMemberPublic).length;
-  const occupationCount = Math.max(dataset?.collectionSummary.memberCount ?? 0, members.length);
+  const nextPageHref = buildJobsQueryPath(jobsPath, {
+    query: submittedQuery,
+    family: selectedFamily,
+    page: directory.pagination.page + 1,
+  });
 
   return (
     <main className="min-h-screen bg-slate-50">
       <Container as="div" className="space-y-10 py-10 md:space-y-12 md:py-16">
-        {dataset?.structuredData.dataset ? <JsonLd id="career-occupation-library-jsonld" data={dataset.structuredData.dataset} /> : null}
         <Breadcrumb
           items={[
             { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
@@ -124,8 +155,8 @@ export default async function CareerJobsPage({
             </h1>
             <p className="m-0 text-sm leading-6 text-slate-500" data-testid="career-library-result-summary">
               {locale === "zh"
-                ? `当前显示 ${visibleMembers.length} 个职业；${detailReadyCount} 个详情页由后端发布门控确认。`
-                : `Showing ${visibleMembers.length} occupations; ${detailReadyCount} detail pages are confirmed by backend publication gates.`}
+                ? `当前显示第 ${pageStart}-${pageEnd} 条，共 ${directory.pagination.total} 个匹配职业；${publicDetailCount} 个详情页由后端发布门控确认。`
+                : `Showing ${pageStart}-${pageEnd} of ${directory.pagination.total} matching occupations; ${publicDetailCount} detail pages are confirmed by backend publication gates.`}
             </p>
           </div>
 
@@ -133,7 +164,7 @@ export default async function CareerJobsPage({
             <Metric label={locale === "zh" ? "全部职业" : "All occupations"} value={String(occupationCount)} />
             <Metric label={locale === "zh" ? "行业分类" : "Industries"} value={String(families.length)} />
             <Metric label={locale === "zh" ? "公开条目" : "Public entries"} value={String(publicDetailCount)} />
-            <Metric label={locale === "zh" ? "可看详情" : "Detail pages"} value={String(detailReadyCount)} />
+            <Metric label={locale === "zh" ? "每页显示" : "Page size"} value={String(directory.pagination.perPage)} />
           </div>
         </section>
 
@@ -171,11 +202,63 @@ export default async function CareerJobsPage({
               </Link>
             </div>
 
+            {families.length > 0 ? (
+              <nav className="flex flex-wrap gap-2" aria-label={locale === "zh" ? "职业行业筛选" : "Occupation family filters"}>
+                <Link
+                  href={buildJobsQueryPath(jobsPath, { query: submittedQuery })}
+                  className={[
+                    "rounded-full border px-3 py-1.5 text-xs font-semibold",
+                    selectedFamily ? "border-slate-200 bg-white text-slate-500" : "border-emerald-200 bg-emerald-50 text-emerald-700",
+                  ].join(" ")}
+                >
+                  {locale === "zh" ? "全部" : "All"}
+                </Link>
+                {families.map((family) => (
+                  <Link
+                    key={family.slug}
+                    href={buildJobsQueryPath(jobsPath, { query: submittedQuery, family: family.slug })}
+                    className={[
+                      "rounded-full border px-3 py-1.5 text-xs font-semibold",
+                      normalizeFamilySlug(selectedFamily) === normalizeFamilySlug(family.slug)
+                        ? "border-emerald-200 bg-emerald-50 text-emerald-700"
+                        : "border-slate-200 bg-white text-slate-500",
+                    ].join(" ")}
+                  >
+                    {family.title} ({family.count})
+                  </Link>
+                ))}
+              </nav>
+            ) : null}
+
             <CareerOccupationDirectory
               locale={locale}
               members={visibleMembers}
               emptyLabel={locale === "zh" ? "没有找到匹配的职业。" : "No matching occupations found."}
             />
+
+            {directory.pagination.totalPages > 1 ? (
+              <nav className="flex items-center justify-between gap-3" aria-label={locale === "zh" ? "职业分页" : "Occupation pagination"}>
+                {directory.pagination.hasPreviousPage ? (
+                  <Link href={previousPageHref} className={buttonVariants({ variant: "outline" })}>
+                    {locale === "zh" ? "上一页" : "Previous"}
+                  </Link>
+                ) : (
+                  <span />
+                )}
+                <span className="text-sm font-medium text-slate-500">
+                  {locale === "zh"
+                    ? `第 ${directory.pagination.page} / ${directory.pagination.totalPages} 页`
+                    : `Page ${directory.pagination.page} of ${directory.pagination.totalPages}`}
+                </span>
+                {directory.pagination.hasNextPage ? (
+                  <Link href={nextPageHref} className={buttonVariants({ variant: "outline" })}>
+                    {locale === "zh" ? "下一页" : "Next"}
+                  </Link>
+                ) : (
+                  <span />
+                )}
+              </nav>
+            ) : null}
           </div>
         </section>
       </Container>

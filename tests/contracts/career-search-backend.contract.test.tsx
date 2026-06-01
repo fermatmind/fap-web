@@ -20,28 +20,40 @@ afterEach(() => {
   vi.unmock("next/navigation");
 });
 
-function mockCareerDatasetDirectory(members: Array<Record<string, unknown>> = [
+function mockCareerDirectory(items: Array<Record<string, unknown>> = [
   {
-    canonical_slug: "backend-architect",
-    canonical_title_en: "Backend Architect",
-    family_slug: "computer-and-information-technology",
-    included_in_public_dataset: true,
-    public_index_state: "indexable",
+    slug: "backend-architect",
+    title_en: "Backend Architect",
+    title: "Backend Architect",
+    family: {
+      slug: "computer-and-information-technology",
+      title_en: "Computer and information technology",
+    },
+    indexable: true,
+    detail_ready: true,
   },
 ]) {
-  vi.doMock("@/lib/career/api/fetchCareerDatasetHub", () => ({
-    fetchCareerDatasetHub: vi.fn(async () => ({
-      dataset_key: "career_occupations_public",
-      dataset_name: "Career occupations dataset",
-      collection_summary: {
-        member_count: members.length,
-        included_count: members.length,
-        public_detail_indexable_count: members.length,
+  vi.doMock("@/lib/career/api/fetchCareerDirectory", () => ({
+    fetchCareerDirectory: vi.fn(async () => ({
+      authority_version: "career.directory_authority.v1",
+      bundle_kind: "career_directory",
+      public_truth: {
+        public_detail_indexable_count: items.length,
+        directory_member_count: items.length,
+        future_scale_ready: true,
+        excluded_slugs: [],
       },
-      members,
-      structured_data: {
-        dataset: { "@type": "Dataset", name: "Career occupations dataset" },
+      pagination: {
+        page: 1,
+        per_page: 50,
+        total: items.length,
+        total_pages: items.length > 0 ? 1 : 0,
+        has_next_page: false,
+        has_previous_page: false,
       },
+      filters: { locale: "en", family: null, q: null },
+      facets: { families: [] },
+      items,
     })),
   }));
 }
@@ -231,23 +243,7 @@ describe("career search backend contract", () => {
         public_statement: { allowed_external_statement: "cohort-qualified only" },
       })),
     }));
-    vi.doMock("@/lib/career/api/fetchCareerJobIndex", () => ({
-      fetchCareerJobIndex: vi.fn(async () => ({
-        bundle_kind: "career_job_index",
-        items: [
-          {
-            identity: { canonical_slug: "backend-architect" },
-            titles: { canonical_en: "Backend Architect" },
-            seo_contract: {
-              canonical_path: "/career/jobs/backend-architect",
-              index_state: "indexable",
-              index_eligible: true,
-            },
-          },
-        ],
-      })),
-    }));
-    mockCareerDatasetDirectory();
+    mockCareerDirectory();
 
     const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
     const page = await CareerJobsPage({
@@ -330,13 +326,7 @@ describe("career search backend contract", () => {
         public_statement: { allowed_external_statement: "cohort-qualified only" },
       })),
     }));
-    vi.doMock("@/lib/career/api/fetchCareerJobIndex", () => ({
-      fetchCareerJobIndex: vi.fn(async () => ({
-        bundle_kind: "career_job_index",
-        items: [],
-      })),
-    }));
-    mockCareerDatasetDirectory();
+    mockCareerDirectory([]);
 
     const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
     const page = await CareerJobsPage({

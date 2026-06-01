@@ -14752,6 +14752,101 @@
         }
       ],
       "updated_at": "2026-06-01T03:35:47Z"
+    },
+    {
+      "id": "CAREER-JOBS-PAGINATED-DIRECTORY-SHELL-01",
+      "repo": "fap-web",
+      "branch": "codex/career-jobs-paginated-directory-shell-01",
+      "base": "main",
+      "depends_on": [
+        "CAREER-SITEMAP-EXPOSURE-DIRECTORY-AUTHORITY-01"
+      ],
+      "title": "CAREER-JOBS-PAGINATED-DIRECTORY-SHELL-01 career jobs paginated directory shell",
+      "status": "open",
+      "commit_sha": "pending_remote_pr_head",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/967",
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "checks": {
+        "manifest_registration": {
+          "status": "passed",
+          "summary": "User authorized the five-PR career directory 10k-scale train; this entry adds only the current PR3 scope in fap-web."
+        },
+        "dependency": {
+          "status": "passed",
+          "summary": "CAREER-SITEMAP-EXPOSURE-DIRECTORY-AUTHORITY-01 is merged in fap-api PR #1832 with merge commit dd68b36ef2e6bcf577ab6110858a702f67a32a38."
+        },
+        "focused_contract": {
+          "status": "passed",
+          "command": "pnpm exec vitest run tests/contracts/career-job-index-backend.contract.test.tsx"
+        },
+        "updated_contracts": {
+          "status": "passed",
+          "command": "pnpm exec vitest run tests/contracts/career-job-index-backend.contract.test.tsx tests/contracts/schema-present.contract.test.ts tests/contracts/career-search-backend.contract.test.tsx tests/contracts/career-1046-frontend-discovery-ux-01.contract.test.tsx tests/contracts/career-launch-smoke.contract.test.ts tests/contracts/career-jobs-search-ux.contract.test.tsx tests/contracts/career-jobs-cms.contract.test.tsx"
+        },
+        "full_contract": {
+          "status": "passed",
+          "command": "pnpm test:contract",
+          "summary": "414 files / 2339 tests passed. Existing React act/jsdom warnings were non-fatal."
+        },
+        "typecheck": {
+          "status": "passed",
+          "command": "pnpm typecheck"
+        },
+        "lint": {
+          "status": "passed_with_existing_warnings",
+          "command": "pnpm lint .",
+          "summary": "0 errors, 8 pre-existing warnings outside current PR scope."
+        },
+        "build": {
+          "status": "passed",
+          "command": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build"
+        },
+        "json_yaml_parse": {
+          "status": "passed",
+          "summary": "Generated report JSON, train state JSON, and train YAML parse successfully."
+        },
+        "freeze_globs": {
+          "status": "sidecar_external_missing_files",
+          "command": "pnpm exec vitest run 'tests/contracts/verify-big5-contract-freeze*' 'tests/contracts/verify-enneagram-contract-freeze*'",
+          "summary": "Requested freeze glob files do not exist in this checkout; full pnpm test:contract passed relevant contract coverage."
+        },
+        "scope_validation": {
+          "status": "passed",
+          "command": "git diff --check && git diff --cached --check",
+          "summary": "No whitespace errors; generated build/test outputs reverted from final diff."
+        }
+      },
+      "events": [
+        {
+          "at": "2026-06-01T04:32:00Z",
+          "status": "in_progress",
+          "summary": "Initialized PR3 in an isolated fap-web worktree from origin/main because the main branch is occupied by another local worktree."
+        },
+        {
+          "at": "2026-06-01T05:08:00Z",
+          "status": "local_validation_passed",
+          "summary": "Implemented paginated directory shell and completed local validation. Freeze glob command is recorded as an external missing-file sidecar; full contract suite passed."
+        },
+        {
+          "at": "2026-06-01T05:11:00Z",
+          "status": "committed",
+          "summary": "Created local commit 88166bb7105088710beab5030b9b8f55df67e76a."
+        },
+        {
+          "at": "2026-06-01T05:12:00Z",
+          "status": "commit_sha_pending",
+          "summary": "Commit SHA is reported in PR body/final output because embedding the final amended commit hash in the committed ledger would change the hash."
+        },
+        {
+          "at": "2026-06-01T05:14:00Z",
+          "status": "pr_open",
+          "summary": "Opened PR #967."
+        }
+      ],
+      "updated_at": "2026-06-01T05:14:00Z"
     }
   ],
   "sidecar_issues": [

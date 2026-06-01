@@ -135,10 +135,12 @@ describe("schema injection contract", () => {
     const listSource = read("app/(localized)/[locale]/career/jobs/page.tsx");
     const aliasSource = read("app/(localized)/[locale]/career/[slug]/page.tsx");
 
-    expect(listSource).toContain("fetchCareerJobIndex");
-    expect(listSource).toContain("adaptCareerJobIndex");
-    expect(listSource).toContain("fetchCareerDatasetHub");
-    expect(listSource).toContain("filterCareerDatasetMembers");
+    expect(listSource).toContain("fetchCareerDirectory");
+    expect(listSource).toContain("adaptCareerDirectory");
+    expect(listSource).not.toContain("fetchCareerJobIndex");
+    expect(listSource).not.toContain("adaptCareerJobIndex");
+    expect(listSource).not.toContain("fetchCareerDatasetHub");
+    expect(listSource).not.toContain("filterCareerDatasetMembers");
     expect(listSource).not.toContain("listCareerJobs(");
     expect(listSource).not.toContain("personalityQuickLocate");
     expect(aliasSource).toContain("fetchCareerJobBundle");
