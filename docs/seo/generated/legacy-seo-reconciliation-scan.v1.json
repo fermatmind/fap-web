@@ -1,0 +1,84 @@
+{
+  "schema_version": "legacy-seo-reconciliation-scan.v1",
+  "task": "LEGACY-SEO-RECONCILIATION-SCAN",
+  "final_decision": "legacy_seo_reconciliation_scan_completed_no_broad_legacy_implementation_needed",
+  "legacy_items": {
+    "PR-08-RESULT-PRIVATE-FLOW-ISOLATION": {
+      "status": "covered",
+      "decision": "no_new_implementation_needed",
+      "coverage_summary": "Private result/order/share/payment/take flows are already centralized in the shared discoverability deny policy, excluded from sitemap/llms exposure, and rendered with noindex metadata where applicable.",
+      "evidence_files": [
+        "lib/seo/discoverabilityExposurePolicy.ts",
+        "lib/seo/indexingPolicy.ts",
+        "lib/seo/sitemapAuthorityAdapters.cjs",
+        "tests/contracts/analytics-seo-metadata-sitemap-canonical.contract.test.ts",
+        "tests/contracts/shared-exposure-policy.contract.test.ts",
+        "app/(localized)/[locale]/(app)/result/[id]/page.tsx",
+        "app/(localized)/[locale]/share/[id]/page.tsx",
+        "app/(localized)/[locale]/orders/[orderNo]/page.tsx",
+        "app/(localized)/[locale]/orders/lookup/page.tsx"
+      ]
+    },
+    "PR-01-NEXT-I18N-ROUTING-CANONICAL-GUARD": {
+      "status": "covered",
+      "decision": "no_new_implementation_needed",
+      "coverage_summary": "Canonical authority already rejects query/hash, staging, cross-host, locale-mismatched, private-flow, and non-self detail canonical candidates while preserving safe localized canonical and hreflang behavior.",
+      "evidence_files": [
+        "lib/seo/metadata.ts",
+        "tests/contracts/analytics-seo-metadata-sitemap-canonical.contract.test.ts"
+      ]
+    },
+    "PR-07-GEO-SCHEMA-FAQ-EVIDENCE": {
+      "status": "deferred_by_page_family",
+      "decision": "no_broad_legacy_implementation",
+      "coverage_summary": "The repo already has a GEO evidence readiness and claim guard baseline. Broad FAQ/schema expansion should not be repeated as a legacy PR; any runtime expansion should be page-family-specific after visible evidence, schema, and private-flow gates pass.",
+      "evidence_files": [
+        "docs/geo/evidence-container-readiness-gate.md",
+        "docs/claims/seo-geo-llms-claim-guards.md",
+        "tests/contracts/evidence-container-readiness-gate.contract.test.ts",
+        "tests/contracts/seo-geo-llms-claim-guards.contract.test.ts"
+      ],
+      "deferred_page_family_work": [
+        "test_detail",
+        "article_detail",
+        "topic_detail",
+        "personality_detail",
+        "career_guide",
+        "career_job_detail",
+        "mental_health_test"
+      ]
+    }
+  },
+  "observed_validation": [
+    {
+      "command": "pnpm vitest run tests/contracts/analytics-seo-metadata-sitemap-canonical.contract.test.ts",
+      "status": "passed"
+    },
+    {
+      "command": "pnpm vitest run tests/contracts/shared-exposure-policy.contract.test.ts",
+      "status": "passed"
+    },
+    {
+      "command": "pnpm vitest run tests/contracts/evidence-container-readiness-gate.contract.test.ts tests/contracts/seo-geo-llms-claim-guards.contract.test.ts",
+      "status": "passed"
+    }
+  ],
+  "sidecar_issues": [
+    {
+      "id": "initial_vitest_config_command_form",
+      "summary": "An initial exploratory command used a non-existent vitest.config.mts path; rerunning with the repo's standard Vitest invocation passed the targeted contracts.",
+      "introduced_by_current_pr": false,
+      "blocks_merge": false
+    }
+  ],
+  "no_runtime_change": true,
+  "no_content_change": true,
+  "no_deploy": true,
+  "no_cms_mutation": true,
+  "no_search_channel_action": true,
+  "no_url_submission": true,
+  "no_external_api_call": true,
+  "no_env_dns_nginx_edit": true,
+  "no_frontend_fallback_content": true,
+  "next_task": "none_legacy_seo_reconciliation_complete"
+}

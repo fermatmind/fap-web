@@ -845,6 +845,19 @@ export function isPrFdnSocialLinkDisplayImplementation01AllowedFile(file: string
   return PR_FDN_SOCIAL_LINK_DISPLAY_IMPLEMENTATION_01_ALLOWED_FILES.has(file);
 }
 
+const LEGACY_SEO_RECONCILIATION_SCAN_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/seo/generated/legacy-seo-reconciliation-scan.v1.json",
+  "docs/seo/legacy-seo-reconciliation-scan.md",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/legacy-seo-reconciliation-scan.contract.test.ts",
+]);
+
+export function isLegacySeoReconciliationScanAllowedFile(file: string): boolean {
+  return LEGACY_SEO_RECONCILIATION_SCAN_ALLOWED_FILES.has(file);
+}
+
 const GLOBAL_EN_ZH_CONTENT_PAGES_DISCOVERABILITY_EXPOSURE_READINESS_01_ALLOWED_FILES = new Set([
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -1458,6 +1471,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/pr-fdn-social-link-display-implementation-01") {
     return PR_FDN_SOCIAL_LINK_DISPLAY_IMPLEMENTATION_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/legacy-seo-reconciliation-scan") {
+    return LEGACY_SEO_RECONCILIATION_SCAN_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/research-report-metadata") {
