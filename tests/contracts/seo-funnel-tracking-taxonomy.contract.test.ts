@@ -98,8 +98,8 @@ describe("SEO funnel tracking taxonomy parity", () => {
       path: "/en/tests/big-five-personality-test/take",
     });
 
-    expect(gtagMock).toHaveBeenCalledWith("event", "start_attempt", expect.any(Object));
-    expect(gtagMock).toHaveBeenCalledWith("event", "submit_attempt", expect.any(Object));
+    expect(gtagMock).toHaveBeenCalledWith("event", "start_test", expect.any(Object));
+    expect(gtagMock).toHaveBeenCalledWith("event", "complete_test", expect.any(Object));
 
     const startBody = JSON.parse(String(fetchMock.mock.calls[0]?.[1]?.body ?? "{}")) as {
       eventName?: string;

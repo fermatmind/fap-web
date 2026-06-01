@@ -18,13 +18,47 @@
     "NEXT_PUBLIC_GOOGLE_ADS_BEGIN_CHECKOUT_CONVERSION_LABEL"
   ],
   "eventMapping": {
-    "start_attempt": "ga4_start_attempt",
-    "submit_attempt": "ga4_submit_attempt",
+    "start_attempt": "ga4_start_test",
+    "submit_attempt": "ga4_complete_test",
     "view_result": "ga4_view_result",
-    "click_unlock": "ga4_click_unlock",
+    "click_unlock": "ga4_click_deep_report",
     "create_order": "ga4_begin_checkout",
     "payment_confirmed": "ga4_add_payment_info",
-    "purchase_success": "ga4_purchase_and_google_ads_purchase_conversion"
+    "purchase_success": "ga4_purchase_success_and_google_ads_purchase_conversion"
+  },
+  "ga4KeyEventTaxonomy": {
+    "start_attempt": "start_test",
+    "submit_attempt": "complete_test",
+    "view_result": "view_result",
+    "click_unlock": "click_deep_report",
+    "create_order": "begin_checkout",
+    "purchase_success": "purchase_success"
+  },
+  "baiduTongjiConversionTaxonomy": {
+    "start_test": {
+      "category": "test",
+      "action": "start"
+    },
+    "complete_test": {
+      "category": "test",
+      "action": "complete"
+    },
+    "view_result": {
+      "category": "result",
+      "action": "view"
+    },
+    "click_deep_report": {
+      "category": "report",
+      "action": "click"
+    },
+    "begin_checkout": {
+      "category": "checkout",
+      "action": "begin"
+    },
+    "purchase_success": {
+      "category": "purchase",
+      "action": "success"
+    }
   },
   "canonicalFunnelEvents": [
     "start_attempt",
@@ -60,7 +94,7 @@
     "send_to": "NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID/NEXT_PUBLIC_GOOGLE_ADS_PURCHASE_CONVERSION_LABEL",
     "value": "amount_then_value_then_price_when_present",
     "currency": "payload_currency_only_no_default",
-    "transaction_id": "order_no_then_orderNo_then_order_id_then_transaction_id_when_present"
+    "transaction_id": "not_sent_by_google_ads_bridge"
   },
   "realIdsCommitted": false,
   "runtimeBehaviorChanged": true,
