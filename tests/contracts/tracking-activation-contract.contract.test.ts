@@ -23,6 +23,7 @@ function withGoogleAdsEnv() {
 }
 
 afterEach(() => {
+  vi.useRealTimers();
   window.localStorage.clear();
   vi.unstubAllEnvs();
   vi.unstubAllGlobals();
@@ -180,6 +181,45 @@ describe("tracking activation contract", () => {
     expect(gtagMock).toHaveBeenCalledWith("event", "conversion", {
       send_to: "AW-TEST1234/purchase_label_test",
       value: 88,
+      currency: "CNY",
+    });
+  });
+
+  it("deduplicates repeated purchase_success conversion dispatches in the same browser tick window", async () => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date("2026-06-01T00:00:00.000Z"));
+    grantAnalyticsConsent();
+    withGoogleAdsEnv();
+    const fetchMock = vi.fn().mockResolvedValue(new Response(JSON.stringify({ ok: true })));
+    const gtagMock = vi.fn();
+    vi.stubGlobal("fetch", fetchMock);
+    Object.defineProperty(window, "gtag", {
+      configurable: true,
+      value: gtagMock,
+    });
+
+    const event = {
+      eventName: TRACKING_EVENTS.PURCHASE_SUCCESS,
+      payload: {
+        amount: 66,
+        currency: "CNY",
+        test_type: "dedupe_contract",
+        order_no: "ord_ads_purchase_dedupe_001",
+        locale: "zh",
+      },
+      anonymousId: "anon-session-dedupe",
+      path: "/zh/orders/ord_ads_purchase_dedupe_001",
+    };
+
+    await trackClientEvent(event);
+    await trackClientEvent(event);
+
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(gtagMock).toHaveBeenCalledTimes(2);
+    expect(gtagMock).toHaveBeenCalledWith("event", "purchase_success", expect.any(Object));
+    expect(gtagMock).toHaveBeenCalledWith("event", "conversion", {
+      send_to: "AW-TEST1234/purchase_label_test",
+      value: 66,
       currency: "CNY",
     });
   });

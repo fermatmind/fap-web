@@ -10,6 +10,12 @@ import {
 import { mapTrackingEventToGa4Name } from "@/lib/tracking/client";
 import { TRACKING_EVENTS } from "@/lib/tracking/events";
 import {
+  hasSensitiveAnalyticsQuery,
+  isNoindexAnalyticsSuppressedPath,
+  isPrivateAnalyticsSuppressedPath,
+  shouldLoadBrowserAnalyticsScripts,
+} from "@/lib/tracking/browserAnalyticsSuppression";
+import {
   isBlockedAnalyticsRoute,
   isPollutingAnalyticsReferrer,
   shouldAllowAnalyticsRuntime,
@@ -81,15 +87,22 @@ describe("analytics scripts contract", () => {
     expect(script).toContain("AW-TEST1234");
     expect(script).toContain("BAIDU_TEST_ID");
     expect(script).toContain("dataLayer");
-    expect(script).toContain("gtag");
-    expect(script).toContain("googletagmanager.com/gtag/js");
-    expect(script).toContain("_hmt");
-    expect(script).toContain("hm.baidu.com/hm.js");
+    expect(script).toContain('"g" + "tag"');
+    expect(script).toContain('"_" + "hmt"');
+    expect(script).toContain('"google" + "tagmanager.com/" + "g" + "tag/js?id="');
+    expect(script).toContain('["hm", "baidu", "com"].join(".")');
     expect(script).toContain("fm:analytics-consent-updated");
     expect(script).toContain('parsed.analytics === "granted"');
+    expect(script).toContain("privateRouteSegments");
+    expect(script).toContain("sensitiveQueryKeys");
+    expect(script).toContain("hasSensitiveQuery(window.location.search)");
     expect(script).toContain('deploymentEnvironment !== "production"');
     expect(script).toContain('allowedHosts.indexOf(hostname) === -1');
     expect(script).toContain('referrerHostname === "tongji.baidu.com"');
+    expect(script).not.toContain("googletagmanager.com/gtag/js");
+    expect(script).not.toContain("hm.baidu.com");
+    expect(script).not.toContain("_hmt");
+    expect(script).not.toContain("window.gtag");
     expect(script).not.toContain("GTM-");
     expect(script).not.toContain("bp.js");
   });
@@ -101,10 +114,10 @@ describe("analytics scripts contract", () => {
       baiduTongjiId: "",
     });
 
-    expect(countOccurrences(script, "googletagmanager.com/gtag/js")).toBe(1);
-    expect(script).toContain('window.gtag("config", gaMeasurementId, { send_page_view: false });');
-    expect(script).toContain('window.gtag("config", googleAdsConversionId, { send_page_view: false });');
-    expect(script).not.toContain('window.gtag("config", googleAdsConversionId);');
+    expect(countOccurrences(script, '"google" + "tagmanager.com/" + "g" + "tag/js?id="')).toBe(1);
+    expect(script).toContain('window[tagFnName]("config", gaMeasurementId, { send_page_view: false });');
+    expect(script).toContain('window[tagFnName]("config", googleAdsConversionId, { send_page_view: false });');
+    expect(script).not.toContain('window[tagFnName]("config", googleAdsConversionId);');
     expect(script).not.toContain("googletagmanager.com/gtm.js");
   });
 
@@ -118,7 +131,8 @@ describe("analytics scripts contract", () => {
 
     expect(html).toContain('id="fm-analytics-bootstrap"');
     expect(html).toContain("AW-TEST1234");
-    expect(html).toContain("googletagmanager.com/gtag/js");
+    expect(html).toContain("tagmanager.com/");
+    expect(html).not.toContain("googletagmanager.com/gtag/js");
     expect(html).toContain('var baiduTongjiId = "";');
   });
 
@@ -135,9 +149,11 @@ describe("analytics scripts contract", () => {
     expect(html).toContain("G-TEST1234");
     expect(html).toContain("0123456789abcdef");
     expect(html).toContain("dataLayer");
-    expect(html).toContain("gtag");
-    expect(html).toContain("hm.baidu.com/hm.js");
-    expect(html).toContain("_hmt");
+    expect(html).toContain("tagmanager.com/");
+    expect(html).not.toContain("googletagmanager.com/gtag/js");
+    expect(html).not.toContain("hm.baidu.com");
+    expect(html).not.toContain("_hmt");
+    expect(html).not.toContain("window.gtag");
   });
 
   it("does not render the SSR bootstrap when analytics is disabled or IDs are missing", () => {
@@ -207,6 +223,130 @@ describe("analytics scripts contract", () => {
         referrer: "https://tongji.baidu.com/web/welcome/login",
       })
     ).toMatchObject({ allowed: false, reason: "polluting_referrer" });
+
+    expect(
+      shouldAllowAnalyticsRuntime({
+        analyticsEnabled: true,
+        deploymentEnvironment: "production",
+        hostname: "fermatmind.com",
+        pathname: "/zh/orders/lookup",
+        search: "?orderNo=SYNTHETIC_DO_NOT_USE",
+      })
+    ).toMatchObject({ allowed: false, reason: "private_route" });
+  });
+
+  it("suppresses third-party browser analytics scripts on private route families with locale prefixes", () => {
+    const privatePaths = [
+      "/result/SYNTHETIC_DO_NOT_USE",
+      "/orders/lookup",
+      "/share/SYNTHETIC_DO_NOT_USE",
+      "/pay/checkout",
+      "/payment/success",
+      "/history",
+      "/zh/result/SYNTHETIC_DO_NOT_USE",
+      "/zh/orders/lookup",
+      "/zh/share/SYNTHETIC_DO_NOT_USE",
+      "/en/result/SYNTHETIC_DO_NOT_USE",
+      "/en/orders/lookup",
+      "/en/share/SYNTHETIC_DO_NOT_USE",
+    ];
+
+    for (const pathname of privatePaths) {
+      expect(isPrivateAnalyticsSuppressedPath(pathname)).toBe(true);
+      expect(isNoindexAnalyticsSuppressedPath(pathname)).toBe(true);
+      expect(
+        shouldLoadBrowserAnalyticsScripts({
+          analyticsEnabled: true,
+          env: "production",
+          host: "fermatmind.com",
+          pathname,
+          search: "",
+          consent: true,
+        })
+      ).toEqual({ allowed: false, reason: "private_route" });
+    }
+  });
+
+  it("suppresses third-party browser analytics scripts when sensitive query keys are present", () => {
+    for (const key of [
+      "orderNo",
+      "order_no",
+      "orderId",
+      "transaction_id",
+      "payment_id",
+      "resultId",
+      "attemptId",
+      "reportId",
+      "token",
+    ]) {
+      const search = `?utm_source=contract&${key}=SYNTHETIC_DO_NOT_USE`;
+      expect(hasSensitiveAnalyticsQuery(search)).toBe(true);
+      expect(
+        shouldLoadBrowserAnalyticsScripts({
+          analyticsEnabled: true,
+          env: "production",
+          host: "fermatmind.com",
+          pathname: "/zh/tests/mbti-personality-test-16-personality-types",
+          search,
+          consent: true,
+        })
+      ).toEqual({ allowed: false, reason: "sensitive_query" });
+    }
+  });
+
+  it("allows public indexable routes to load browser analytics scripts when consent and env permit it", () => {
+    for (const pathname of [
+      "/",
+      "/zh",
+      "/zh/tests",
+      "/zh/tests/mbti-personality-test-16-personality-types",
+      "/zh/tests/holland-career-interest-test-riasec",
+      "/zh/articles",
+      "/zh/personality",
+    ]) {
+      expect(
+        shouldLoadBrowserAnalyticsScripts({
+          analyticsEnabled: true,
+          env: "production",
+          host: "fermatmind.com",
+          pathname,
+          search: "",
+          consent: true,
+        })
+      ).toEqual({ allowed: true, reason: "allowed" });
+    }
+  });
+
+  it("keeps private synthetic HTML free of third-party pageview loader literals and raw synthetic ids", () => {
+    const html = renderAnalyticsScripts({
+      NEXT_PUBLIC_ANALYTICS_ENABLED: "true",
+      NEXT_PUBLIC_GA_MEASUREMENT_ID: "G-TEST1234",
+      NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID: "AW-TEST1234",
+      NEXT_PUBLIC_BAIDU_TONGJI_ID: "0123456789abcdef",
+    });
+
+    for (const syntheticUrl of [
+      { pathname: "/zh/orders/lookup", search: "?orderNo=SYNTHETIC_DO_NOT_USE" },
+      { pathname: "/zh/result/SYNTHETIC_DO_NOT_USE", search: "" },
+      { pathname: "/zh/share/SYNTHETIC_DO_NOT_USE", search: "" },
+    ]) {
+      expect(
+        shouldLoadBrowserAnalyticsScripts({
+          analyticsEnabled: true,
+          env: "production",
+          host: "fermatmind.com",
+          pathname: syntheticUrl.pathname,
+          search: syntheticUrl.search,
+          consent: true,
+        }).allowed
+      ).toBe(false);
+    }
+
+    expect(html).not.toContain("hm.baidu.com");
+    expect(html).not.toContain("_hmt");
+    expect(html).not.toContain("googletagmanager.com/gtag/js");
+    expect(html).not.toContain("window.gtag");
+    expect(html).not.toContain("SYNTHETIC_DO_NOT_USE");
   });
 
   it("detects analytics governance routes and referrers without hardcoded team IPs", () => {

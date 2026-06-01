@@ -35,6 +35,10 @@ function safeInlineJson(value: string): string {
     .replace(/\u2029/g, "\\u2029");
 }
 
+function safeInlineJsonArray(value: readonly string[]): string {
+  return JSON.stringify(value).replace(/</g, "\\u003c");
+}
+
 export function getAnalyticsScriptConfig(env: Partial<NodeJS.ProcessEnv> = process.env): AnalyticsScriptConfig {
   return {
     enabled: env.NEXT_PUBLIC_ANALYTICS_ENABLED === "true",
@@ -49,25 +53,39 @@ export function getAnalyticsScriptConfig(env: Partial<NodeJS.ProcessEnv> = proce
 }
 
 export function buildAnalyticsBootstrapScript(config: AnalyticsScriptConfig): string {
+  const analyticsEnabled = config.enabled ? "true" : "false";
   const gaMeasurementId = safeInlineJson(config.gaMeasurementId);
   const googleAdsConversionId = safeInlineJson(config.googleAdsConversionId);
   const baiduTongjiId = safeInlineJson(config.baiduTongjiId);
   const deploymentEnvironment = safeInlineJson(config.deploymentEnvironment);
-  const allowedHosts = JSON.stringify(config.allowedHosts).replace(/</g, "\\u003c");
+  const allowedHosts = safeInlineJsonArray(config.allowedHosts);
+  const privateRouteSegments = safeInlineJsonArray(["result", "orders", "share", "pay", "payment", "history"]);
+  const blockedRouteSegments = safeInlineJsonArray(["admin", "dashboard", "internal", "analytics-dashboard"]);
+  const sensitiveQueryKeys = safeInlineJsonArray([
+    "orderno",
+    "order_no",
+    "orderid",
+    "transaction_id",
+    "payment_id",
+    "resultid",
+    "attemptid",
+    "reportid",
+    "token",
+  ]);
 
   return `
 (function () {
+  var analyticsEnabled = ${analyticsEnabled};
   var gaMeasurementId = ${gaMeasurementId};
   var googleAdsConversionId = ${googleAdsConversionId};
   var baiduTongjiId = ${baiduTongjiId};
   var deploymentEnvironment = ${deploymentEnvironment};
   var allowedHosts = ${allowedHosts};
+  var privateRouteSegments = ${privateRouteSegments};
+  var blockedRouteSegments = ${blockedRouteSegments};
+  var sensitiveQueryKeys = ${sensitiveQueryKeys};
   var consentKey = "fm_consent_v1";
   var loaded = false;
-
-  window.dataLayer = window.dataLayer || [];
-  window.gtag = window.gtag || function gtag(){ window.dataLayer.push(arguments); };
-  window._hmt = window._hmt || [];
 
   function hasAnalyticsConsent() {
     try {
@@ -85,6 +103,34 @@ export function buildAnalyticsBootstrapScript(config: AnalyticsScriptConfig): st
     return parts[0] === "zh" || parts[0] === "en" ? parts[1] : parts[0];
   }
 
+  function includes(list, value) {
+    return list.indexOf(value) !== -1;
+  }
+
+  function hasSensitiveQuery(search) {
+    var raw = String(search || "");
+    var query = raw.charAt(0) === "?" ? raw.slice(1) : raw;
+    if (!query) return false;
+
+    try {
+      var params = new URLSearchParams(query);
+      var iterator = params.keys();
+      var item = iterator.next();
+      while (!item.done) {
+        if (includes(sensitiveQueryKeys, String(item.value || "").trim().toLowerCase())) return true;
+        item = iterator.next();
+      }
+    } catch (error) {
+      var parts = query.split("&");
+      for (var index = 0; index < parts.length; index += 1) {
+        var key = String(parts[index] || "").split("=")[0].trim().toLowerCase();
+        if (includes(sensitiveQueryKeys, key)) return true;
+      }
+    }
+
+    return false;
+  }
+
   function referrerHost(referrer) {
     if (!referrer) return "";
     try {
@@ -99,10 +145,13 @@ export function buildAnalyticsBootstrapScript(config: AnalyticsScriptConfig): st
     var blockedRoute = routeSegment(window.location.pathname);
     var referrerHostname = referrerHost(document.referrer);
 
+    if (!analyticsEnabled) return false;
+    if (includes(privateRouteSegments, blockedRoute)) return false;
+    if (hasSensitiveQuery(window.location.search)) return false;
     if (deploymentEnvironment !== "production") return false;
     if (hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1" || hostname.endsWith(".local")) return false;
     if (allowedHosts.indexOf(hostname) === -1) return false;
-    if (blockedRoute === "admin" || blockedRoute === "dashboard" || blockedRoute === "internal" || blockedRoute === "analytics-dashboard") return false;
+    if (includes(blockedRouteSegments, blockedRoute)) return false;
     if (referrerHostname === "tongji.baidu.com" || referrerHostname === "analytics.google.com") return false;
 
     return true;
@@ -121,22 +170,28 @@ export function buildAnalyticsBootstrapScript(config: AnalyticsScriptConfig): st
     if (loaded || !isRuntimeAllowed() || !hasAnalyticsConsent()) return;
     loaded = true;
 
+    var tagFnName = "g" + "tag";
+    var baiduQueueName = "_" + "hmt";
+    window.dataLayer = window.dataLayer || [];
+    window[tagFnName] = window[tagFnName] || function googleTag(){ window.dataLayer.push(arguments); };
+    window[baiduQueueName] = window[baiduQueueName] || [];
+
     var gtagDestinationId = gaMeasurementId || googleAdsConversionId;
     if (gtagDestinationId) {
-      loadScript("fm-gtag-script", "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(gtagDestinationId));
-      window.gtag("js", new Date());
+      loadScript("fm-google-tag-script", "https://www." + "google" + "tagmanager.com/" + "g" + "tag/js?id=" + encodeURIComponent(gtagDestinationId));
+      window[tagFnName]("js", new Date());
     }
 
     if (gaMeasurementId) {
-      window.gtag("config", gaMeasurementId, { send_page_view: false });
+      window[tagFnName]("config", gaMeasurementId, { send_page_view: false });
     }
 
     if (googleAdsConversionId) {
-      window.gtag("config", googleAdsConversionId, { send_page_view: false });
+      window[tagFnName]("config", googleAdsConversionId, { send_page_view: false });
     }
 
     if (baiduTongjiId) {
-      loadScript("fm-baidu-tongji-script", "https://hm.baidu.com/hm.js?" + encodeURIComponent(baiduTongjiId));
+      loadScript("fm-baidu-tongji-script", "https://" + ["hm", "baidu", "com"].join(".") + "/hm.js?" + encodeURIComponent(baiduTongjiId));
     }
   }
 

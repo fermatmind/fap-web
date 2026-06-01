@@ -13,6 +13,8 @@ Production browser analytics are allowed only when all of these are true:
 - browser hostname is in the allowed host list
 - browser hostname is not local development
 - route is not an admin, dashboard, internal, or analytics-dashboard surface
+- route is not a private or noindex product surface
+- URL query does not contain sensitive order, payment, result, attempt, report, or token identifiers
 - referrer is not a known analytics dashboard host such as `tongji.baidu.com`
 - analytics consent is granted
 
@@ -28,6 +30,37 @@ NEXT_PUBLIC_ANALYTICS_ALLOWED_HOSTS=fermatmind.com,www.fermatmind.com
 ```
 
 This override is for deployment host governance only. It must not contain team IP addresses.
+
+## Private and Noindex Route Suppression
+
+Private/noindex route families must not load third-party browser analytics scripts that can automatically read `window.location.href` and send a pageview before application sanitization runs.
+
+Suppressed route families:
+
+- `/result`
+- `/orders`
+- `/share`
+- `/pay`
+- `/payment`
+- `/history`
+
+The suppression applies with supported locale prefixes, including `/zh/result`, `/zh/orders`, `/zh/share`, `/en/result`, `/en/orders`, and `/en/share`.
+
+Any route is also suppressed when its query string contains one of these sensitive keys:
+
+- `orderNo`
+- `order_no`
+- `orderId`
+- `transaction_id`
+- `payment_id`
+- `resultId`
+- `attemptId`
+- `reportId`
+- `token`
+
+Business conversion events on private routes may still use the first-party `/api/track` path after the client payload and URL are sanitized. They must not rely on Baidu Tongji, GA4, Google Ads, GTM, Baidu Ads, or any other third-party automatic pageview script seeing the raw order, result, payment, or share URL.
+
+Baidu Tongji automatic pageview collection must never receive raw private URLs such as `/zh/orders/lookup?orderNo=...`, `/zh/result/...`, or `/zh/share/...`. If these URLs appear in Baidu entrance page, pageview, referral, or conversion reports, treat it as a P0 analytics governance regression.
 
 ## Dashboard Configuration Required
 
@@ -58,6 +91,8 @@ Operations:
 4. A browser session entered from `https://tongji.baidu.com/...` must not dispatch production browser analytics.
 5. Public production pages on `fermatmind.com` may load analytics only after consent.
 6. No raw team IP list exists in frontend source.
+7. Private/noindex synthetic routes must not include `hm.baidu.com`, `_hmt`, `gtag/js`, or raw synthetic order/result/share identifiers in SSR HTML.
+8. Public MBTI and Holland landing routes may still load analytics scripts when production host, environment, and consent gates all allow it.
 
 ## Deferred Backend or Dashboard Work
 
