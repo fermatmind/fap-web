@@ -15155,9 +15155,9 @@
         "PAYMENT-ALIPAY-RETURN-IMMEDIATE-COMPENSATION-05"
       ],
       "title": "PAYMENT-WAIT-PAID-REDIRECT-CONTRACT-06 paid wait redirect contract",
-      "status": "committed",
+      "status": "open",
       "commit_sha": "pending_rebase_final_sha",
-      "pr_url": "",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/971",
       "failure_reason": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -15208,9 +15208,14 @@
           "at": "2026-06-01T06:00:00Z",
           "status": "validated_after_rebase",
           "summary": "Reran focused contract, typecheck, full contract suite, and production API build after rebase. Reverted generated sitemap/metadata inventory side effects from final diff."
+        },
+        {
+          "at": "2026-06-01T06:36:00Z",
+          "status": "pr_open",
+          "summary": "Opened https://github.com/fermatmind/fap-web/pull/971 after local checks and scope validation passed."
         }
       ],
-      "updated_at": "2026-06-01T06:00:00Z"
+      "updated_at": "2026-06-01T06:36:00Z"
     }
   ],
   "sidecar_issues": [
