@@ -498,6 +498,41 @@ describe("ResultClient view-state contract", () => {
     expect(hoisted.fetchAttemptReportAccess).toHaveBeenCalledTimes(2);
   });
 
+  it("shows a non-blocking email recovery card on ready results and keeps the preview visible after binding", async () => {
+    hoisted.fetchAttemptReport.mockResolvedValue(cloneFixture(reportReadyMbtiProjectionFixture) as ReportResponse);
+
+    render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("rich-result-report")).toBeInTheDocument();
+    });
+
+    expect(screen.getByTestId("result-email-recovery-card")).toHaveTextContent(
+      "Save an email to recover this result"
+    );
+    expect(screen.queryByTestId("result-email-gate")).not.toBeInTheDocument();
+
+    fireEvent.change(screen.getByTestId("result-email-recovery-input"), {
+      target: { value: "Owner@Example.Test" },
+    });
+    fireEvent.submit(screen.getByTestId("result-email-recovery-submit").closest("form") as HTMLFormElement);
+
+    await waitFor(() => {
+      expect(hoisted.bindAttemptEmail).toHaveBeenCalledWith({
+        attemptId: "attempt-123",
+        email: "owner@example.test",
+        anonId: "anon_result_test",
+        locale: "en",
+        surface: "result_recovery",
+      });
+    });
+
+    expect(screen.getByTestId("result-email-recovery-feedback")).toHaveTextContent(
+      "Email saved. An access link will be sent there"
+    );
+    expect(screen.getByTestId("rich-result-report")).toBeInTheDocument();
+  });
+
   it("keeps MBTI continue-test attribution params for recommendation scene links", () => {
     const recommendationAttribution = buildMbtiEntryTrackingPayload({
       locale: "en",

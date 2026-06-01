@@ -9571,3 +9571,42 @@ prs:
       - Holland/RIASEC landing page renders backend/CMS-authoritative six-type, career direction, major selection, transition, FAQ, and internal link modules.
       - RIASEC remains one flagship scale with riasec_60 and riasec_140 forms.
     rollback_note: "Revert Holland/RIASEC landing structure renderer and contracts."
+
+  - id: RESULT-EMAIL-FIRST-BINDING-UX-05
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/result-email-first-binding-ux-05
+    base: main
+    depends_on: []
+    mode: execute
+    train_scope: result_email_access
+    status: in_progress
+    title: "RESULT-EMAIL-FIRST-BINDING-UX-05 non-blocking result email binding UX"
+    goal: "Show an optional email binding module after result generation so users can save an email for recovery/access links without blocking the free result preview."
+    in_scope:
+      - app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx
+      - lib/api/v0_3.ts
+      - tests/contracts/result-client-view-state.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - backend email delivery or token generation changes
+      - payment state or entitlement changes
+      - blocking free result preview behind email
+      - production env, deploy, DNS, or DirectMail configuration
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/result-client-view-state.contract.test.tsx
+      - pnpm typecheck
+      - pnpm test:contract
+      - git diff --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: PAYMENT-ALIPAY-RETURN-IMMEDIATE-COMPENSATION-05
+    acceptance:
+      - Ready result pages show an optional email recovery/access-link binding module.
+      - Saving an email uses the existing attempt email bind API with a result recovery surface.
+      - Free result preview remains visible and is not blocked by the email module.
+    rollback_note: "Revert the optional result email recovery card and focused contract if result previews become blocked or email binding regresses."

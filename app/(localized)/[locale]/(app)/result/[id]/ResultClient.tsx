@@ -544,6 +544,7 @@ export default function ResultClient({
   const [emailGateError, setEmailGateError] = useState<string | null>(null);
   const [emailBindFeedback, setEmailBindFeedback] = useState<string | null>(null);
   const [emailSubmitting, setEmailSubmitting] = useState(false);
+  const [emailRecoverySaved, setEmailRecoverySaved] = useState(false);
   const [reloadNonce, setReloadNonce] = useState(0);
   const resultAccessToken = useMemo(
     () => normalizeText(searchParams.get("access_token"), searchParams.get("result_access_token")),
@@ -656,6 +657,52 @@ export default function ResultClient({
         attempt_id: attemptId,
         route: "/result/[id]",
         locale,
+      });
+    } finally {
+      setEmailSubmitting(false);
+    }
+  }, [anonId, attemptId, email, locale, runWithAuthRetry]);
+
+  const handleEmailRecoverySubmit = useCallback(async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const normalizedEmail = email.trim().toLowerCase();
+    if (!normalizedEmail) {
+      setEmailGateError(locale === "zh" ? "请输入邮箱。" : "Enter an email address.");
+      return;
+    }
+
+    setEmailSubmitting(true);
+    setEmailGateError(null);
+    setEmailBindFeedback(null);
+
+    try {
+      await runWithAuthRetry(() => bindAttemptEmail({
+        attemptId,
+        email: normalizedEmail,
+        anonId,
+        locale,
+        surface: "result_recovery",
+      }));
+      setEmailRecoverySaved(true);
+      setEmailBindFeedback(
+        locale === "zh"
+          ? "邮箱已保存，访问链接会发送到该邮箱。你可以继续查看当前结果。"
+          : "Email saved. An access link will be sent there, and this result remains available here."
+      );
+      trackEvent("result_email_bind_saved", {
+        attempt_id: attemptId,
+        route: "/result/[id]",
+        locale,
+        surface: "result_recovery",
+      });
+    } catch (cause) {
+      const message = cause instanceof Error ? cause.message : String(cause);
+      setEmailGateError(message || (locale === "zh" ? "邮箱保存失败，请稍后再试。" : "Could not save this email. Try again later."));
+      trackEvent("result_email_bind_failed", {
+        attempt_id: attemptId,
+        route: "/result/[id]",
+        locale,
+        surface: "result_recovery",
       });
     } finally {
       setEmailSubmitting(false);
@@ -1198,6 +1245,73 @@ export default function ResultClient({
     || Boolean(reportData?.mbti_access_hub_v1)
     || (hasReadyResultPayload(resultData) && normalizeText(resultData.meta?.scale_code).toUpperCase() === "MBTI")
     || resolveScaleCodeForTelemetry(reportData, resultData) === "MBTI";
+  const renderEmailRecoveryCard = () => (
+    <section
+      className="rounded-[8px] border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)] sm:p-6"
+      data-testid="result-email-recovery-card"
+    >
+      <div className="space-y-2">
+        <p className="text-xs font-semibold uppercase text-[var(--fm-text-muted)]">
+          {locale === "zh" ? "结果找回" : "Result recovery"}
+        </p>
+        <h2 className="text-xl font-semibold text-[var(--fm-text)]">
+          {locale === "zh" ? "保存邮箱，随时找回这份结果" : "Save an email to recover this result"}
+        </h2>
+        <p className="text-sm leading-6 text-[var(--fm-text-muted)]">
+          {locale === "zh"
+            ? "这不会阻塞当前免费结果预览。保存后，我们会把访问链接发送到你的邮箱，方便换设备或稍后继续查看。"
+            : "This does not block the free result preview. After saving, we send an access link so you can reopen the result later or on another device."}
+        </p>
+      </div>
+
+      <form className="mt-4 grid gap-3 sm:grid-cols-[1fr_auto]" onSubmit={handleEmailRecoverySubmit}>
+        <label className="sr-only" htmlFor="result-email-recovery-input">
+          {locale === "zh" ? "邮箱" : "Email"}
+        </label>
+        <input
+          id="result-email-recovery-input"
+          data-testid="result-email-recovery-input"
+          type="email"
+          value={email}
+          autoComplete="email"
+          inputMode="email"
+          required
+          disabled={emailRecoverySaved}
+          onChange={(event) => setEmail(event.target.value)}
+          className="h-12 w-full rounded-[8px] border border-[var(--fm-border)] bg-white px-4 text-base text-[var(--fm-text)] outline-none transition focus:border-[var(--fm-trust-blue)] focus:ring-2 focus:ring-[var(--fm-focus)] disabled:bg-slate-50 disabled:text-slate-500"
+          placeholder="you@example.com"
+        />
+        <Button
+          type="submit"
+          disabled={emailSubmitting || emailRecoverySaved}
+          data-testid="result-email-recovery-submit"
+        >
+          {emailSubmitting
+            ? locale === "zh"
+              ? "保存中..."
+              : "Saving..."
+            : emailRecoverySaved
+              ? locale === "zh"
+                ? "已保存"
+                : "Saved"
+              : locale === "zh"
+                ? "保存并发送链接"
+                : "Save and send link"}
+        </Button>
+      </form>
+
+      {emailGateError ? (
+        <div className="mt-3" data-testid="result-email-recovery-error">
+          <Alert>{emailGateError}</Alert>
+        </div>
+      ) : null}
+      {emailBindFeedback ? (
+        <p className="mt-3 text-sm text-[var(--fm-trust-blue)]" role="status" data-testid="result-email-recovery-feedback">
+          {emailBindFeedback}
+        </p>
+      ) : null}
+    </section>
+  );
 
   if (status === "email_required") {
     return (
@@ -1340,27 +1454,38 @@ export default function ResultClient({
 
   if (isIqScaleCode(resolvedScaleCode)) {
     return (
-      <IqResultShell
-        locale={locale}
-        reportData={reportData}
-        resultData={hasReadyResultPayload(resultData) ? resultData : null}
-        accessView={accessView}
-      />
+      <div className="space-y-[var(--fm-gap-md)]">
+        {renderEmailRecoveryCard()}
+        <IqResultShell
+          locale={locale}
+          reportData={reportData}
+          resultData={hasReadyResultPayload(resultData) ? resultData : null}
+          accessView={accessView}
+        />
+      </div>
     );
   }
 
   if (hasEqV5Report && reportData) {
-    return <EQResultV5 locale={locale} reportData={reportData} attemptId={attemptId} />;
+    return (
+      <div className="space-y-[var(--fm-gap-md)]">
+        {renderEmailRecoveryCard()}
+        <EQResultV5 locale={locale} reportData={reportData} attemptId={attemptId} />
+      </div>
+    );
   }
 
   if (hasRichReport && reportData) {
     return (
-      <RichResultReport
-        locale={locale}
-        reportData={reportData}
-        accessProjection={accessView}
-        inviteUnlockProgress={inviteUnlockProgress}
-      />
+      <div className="space-y-[var(--fm-gap-md)]">
+        {renderEmailRecoveryCard()}
+        <RichResultReport
+          locale={locale}
+          reportData={reportData}
+          accessProjection={accessView}
+          inviteUnlockProgress={inviteUnlockProgress}
+        />
+      </div>
     );
   }
 
@@ -1370,11 +1495,14 @@ export default function ResultClient({
 
   if (hasRiasecProjection(resultData)) {
     return (
-      <RiasecResultShell
-        locale={locale}
-        viewModel={assembleRiasecResultViewModel(resultData)}
-        attemptId={attemptId}
-      />
+      <div className="space-y-[var(--fm-gap-md)]">
+        {renderEmailRecoveryCard()}
+        <RiasecResultShell
+          locale={locale}
+          viewModel={assembleRiasecResultViewModel(resultData)}
+          attemptId={attemptId}
+        />
+      </div>
     );
   }
 
@@ -1395,6 +1523,7 @@ export default function ResultClient({
 
   return (
     <div className="space-y-[var(--fm-gap-md)]">
+      {renderEmailRecoveryCard()}
       <ResultSummary
         title={
           mbtiPersonalityHref

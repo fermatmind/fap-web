@@ -889,6 +889,15 @@ const RESULT_EMAIL_LOOKUP_TOKEN_OPEN_04_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const RESULT_EMAIL_FIRST_BINDING_UX_05_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx",
+  "lib/api/v0_3.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "tests/contracts/result-client-view-state.contract.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 const GLOBAL_EN_ZH_CONTENT_PAGES_DISCOVERABILITY_READINESS_TEST_FIX_ALLOWED_FILES = new Set([
   "tests/contracts/global-en-zh-content-pages-discoverability-exposure-readiness-01.contract.test.ts",
   "tests/contracts/helpers/currentPrScope.ts",
@@ -961,6 +970,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/result-email-lookup-token-open-04") {
     return RESULT_EMAIL_LOOKUP_TOKEN_OPEN_04_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/result-email-first-binding-ux-05") {
+    return RESULT_EMAIL_FIRST_BINDING_UX_05_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/global-en-zh-footer-nav-parity-01") {

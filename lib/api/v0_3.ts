@@ -3990,7 +3990,7 @@ export async function bindAttemptEmail({
   email: string;
   anonId?: string;
   locale?: string;
-  surface?: "result_gate" | "result" | "report";
+  surface?: "result_gate" | "result_recovery" | "result" | "report";
 }): Promise<AttemptEmailBindResponse> {
   const resolvedAnonId = resolveAnonId(anonId);
   const response = await apiClient.post<AttemptEmailBindResponse>(
