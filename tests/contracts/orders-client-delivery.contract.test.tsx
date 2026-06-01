@@ -354,6 +354,46 @@ describe("OrdersClient delivery contract", () => {
     expect(hoisted.fetchAttemptReportAccess).not.toHaveBeenCalled();
   });
 
+  it("auto-enters a paid report from an order-bound ready exact result entry when projection hydration fails", async () => {
+    const exactResultEntry = createAccessProjection({
+      access_state: "ready",
+      report_state: "ready",
+      actions: {
+        page_href: "/result/attempt-paid-order-bound-ready-1",
+        pdf_href: "/api/v0.3/attempts/attempt-paid-order-bound-ready-1/report.pdf",
+        history_href: "/history/mbti",
+        lookup_href: "/orders/lookup",
+      },
+    });
+    delete (exactResultEntry as { attempt_id?: string }).attempt_id;
+    hoisted.fetchAttemptReportAccess.mockRejectedValueOnce(new Error("projection not ready yet"));
+    hoisted.getOrderStatus.mockResolvedValue({
+      ok: true,
+      order_no: "ord_paid_order_bound_ready_1",
+      status: "paid",
+      attempt_id: "attempt-paid-order-bound-ready-1",
+      exact_result_entry: exactResultEntry,
+      delivery: {
+        can_view_report: true,
+        report_url: "/result/attempt-paid-order-bound-ready-1",
+        can_download_pdf: false,
+        can_resend: false,
+        can_request_claim_email: false,
+        contact_email_present: true,
+      },
+    });
+
+    render(<OrdersClient orderNo="ord_paid_order_bound_ready_1" />);
+
+    await waitFor(() => {
+      expect(hoisted.routerReplace).toHaveBeenCalledWith("/en/result/attempt-paid-order-bound-ready-1");
+    });
+    expect(hoisted.fetchAttemptReportAccess).toHaveBeenCalledWith({
+      attemptId: "attempt-paid-order-bound-ready-1",
+      locale: "en",
+    });
+  });
+
   it("does not auto-enter externally projected report URLs", async () => {
     const exactResultEntry = createAccessProjection({
       attempt_id: "attempt-paid-external-result-1",

@@ -9920,3 +9920,43 @@ prs:
       - Approved career detail URLs remain exposed; excluded held/conflict slugs remain absent.
       - No frontend career fallback content or Search Channel action is introduced.
     rollback_note: "Revert backend sitemap source fanout simplification and focused llms contracts."
+
+  - id: PAYMENT-WAIT-PAID-REDIRECT-CONTRACT-06
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/payment-wait-paid-redirect-contract-06
+    base: main
+    depends_on:
+      - PAYMENT-ALIPAY-RETURN-IMMEDIATE-COMPENSATION-05
+    mode: execute
+    train_scope: payment_result_access
+    status: in_progress
+    title: "PAYMENT-WAIT-PAID-REDIRECT-CONTRACT-06 paid wait redirect contract"
+    goal: "Ensure /pay/wait automatically redirects to the full paid result page once the order is paid and the exact result entry is ready."
+    in_scope:
+      - app/(localized)/[locale]/orders/[orderNo]/OrdersClient.tsx
+      - tests/contracts/orders-client-delivery.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - backend payment compensation or grant repair
+      - result email binding or delivery changes
+      - payment provider configuration
+      - production env, deploy, DNS, or DirectMail configuration
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/orders-client-delivery.contract.test.tsx
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - git diff --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: null
+    acceptance:
+      - Paid wait flow uses a ready exact result entry as a redirect source when projection hydration is temporarily unavailable.
+      - Redirects remain limited to safe local result URLs.
+      - Paid-but-not-ready orders remain on the wait flow.
+    rollback_note: "Revert the paid wait redirect fallback and focused contract if paid wait pages redirect before exact result readiness."
