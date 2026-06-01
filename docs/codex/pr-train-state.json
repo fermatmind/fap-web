@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-01T05:31:53Z",
+  "updated_at": "2026-06-01T05:34:12Z",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -13178,9 +13178,9 @@
       "depends_on": [
         "PR-FDN-SEO-01-READINESS"
       ],
-      "status": "local_checks_passed",
+      "status": "committed",
       "pr_url": null,
-      "commit_sha": null,
+      "commit_sha": "644dc08260a7be62f752c6fac3afd575fefbe079",
       "merge_sha": null,
       "title": "PR-FDN-SEO-01-IMPLEMENTATION: Foundation Daily Giving SEO/schema/llms integration",
       "artifacts": [
@@ -13267,6 +13267,11 @@
           "at": "2026-06-01T05:31:53Z",
           "status": "local_checks_passed",
           "summary": "Implemented backend-gated Daily Giving JSON-LD and llms integration. Focused contract, typecheck, production-API build, full contract suite, JSON/YAML parse, diff check, and scope validation passed."
+        },
+        {
+          "at": "2026-06-01T05:34:12Z",
+          "status": "committed",
+          "summary": "Committed PR-FDN-SEO-01-IMPLEMENTATION implementation at 644dc08260a7be62f752c6fac3afd575fefbe079."
         }
       ]
     },
