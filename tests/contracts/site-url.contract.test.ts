@@ -18,6 +18,12 @@ describe("site url hard gate contract", () => {
     expect(() => getSiteUrlOrThrow()).toThrow();
   });
 
+  it("does not treat domains containing localhost as localhost", () => {
+    vi.stubEnv("NODE_ENV", "production");
+    vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://localhost.example.com");
+    expect(getSiteUrlOrThrow()).toBe("https://localhost.example.com");
+  });
+
   it("accepts a production absolute domain url", () => {
     vi.stubEnv("NODE_ENV", "production");
     vi.stubEnv("NEXT_PUBLIC_SITE_URL", CANONICAL_SITE_URL);
