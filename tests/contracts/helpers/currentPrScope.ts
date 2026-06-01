@@ -678,6 +678,19 @@ export function isPrFdn02bDailyGivingFrontendPagesAllowedFile(file: string): boo
   return PR_FDN_02B_DAILY_GIVING_FRONTEND_PAGES_ALLOWED_FILES.has(file);
 }
 
+const PR_FDN_SOCIAL_LINK_DISPLAY_REVIEW_01_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/seo/generated/pr-fdn-social-link-display-review-01.v1.json",
+  "docs/seo/pr-fdn-social-link-display-review-01.md",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/pr-fdn-social-link-display-review-01.contract.test.ts",
+]);
+
+export function isPrFdnSocialLinkDisplayReview01AllowedFile(file: string): boolean {
+  return PR_FDN_SOCIAL_LINK_DISPLAY_REVIEW_01_ALLOWED_FILES.has(file);
+}
+
 const GLOBAL_EN_ZH_CONTENT_PAGES_DISCOVERABILITY_EXPOSURE_READINESS_01_ALLOWED_FILES = new Set([
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -1136,6 +1149,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/pr-fdn-02b-daily-giving-frontend-pages") {
     return PR_FDN_02B_DAILY_GIVING_FRONTEND_PAGES_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/pr-fdn-social-link-display-review-01") {
+    return PR_FDN_SOCIAL_LINK_DISPLAY_REVIEW_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/research-report-metadata") {

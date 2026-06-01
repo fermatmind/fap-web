@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "task": "PR-FDN-SOCIAL-LINK-DISPLAY-REVIEW-01",
+  "final_decision": "pr_fdn_social_link_display_review_completed_with_display_gap",
+  "review_mode": "read_only_frontend_display_review",
+  "dependency_state": {
+    "pr_fdn_02b": {
+      "repo": "fap-web",
+      "pr": 933,
+      "state": "merged",
+      "merge_commit": "63198640ff1132e6bea46a128ea5ede5bea08075"
+    },
+    "pr_fdn_social_sync_mvp_01": {
+      "repo": "fap-api",
+      "pr": 1827,
+      "state": "merged",
+      "merge_commit": "74b2639141dc9e1e7f40a15718913d7447e37f93"
+    }
+  },
+  "target_pages": [
+    "https://fermatmind.com/en/foundation/daily-giving",
+    "https://fermatmind.com/zh/foundation/daily-giving"
+  ],
+  "production_runtime_observation": {
+    "en_daily_giving_status": 200,
+    "zh_daily_giving_status": 200,
+    "api_status": 200,
+    "api_items_count_at_review_time": 0,
+    "production_social_link_sample_observed": false
+  },
+  "frontend_adapter_state": {
+    "file": "lib/foundation/dailyGiving.ts",
+    "parses_existing_social_url_fields": false,
+    "missing_backend_fields": [
+      "social_x_url",
+      "social_linkedin_url",
+      "social_weibo_url",
+      "social_xiaohongshu_url",
+      "social_other_links"
+    ]
+  },
+  "display_component_state": {
+    "file": "components/foundation/DailyGivingLedgerPage.tsx",
+    "renders_social_links": false,
+    "renders_evidence_link": true,
+    "renders_recipient_link": true
+  },
+  "recommended_next_scope": {
+    "task": "PR-FDN-SOCIAL-LINK-DISPLAY-IMPLEMENTATION-01",
+    "summary": "Normalize existing backend social URL fields into a socialLinks array and render them only when present.",
+    "no_frontend_fallback_content": true,
+    "no_cms_mutation": true,
+    "no_deploy": true,
+    "no_search_channel_action": true,
+    "no_url_submission": true,
+    "no_external_social_api_call": true,
+    "no_credentials_handled": true,
+    "no_automatic_posting": true
+  },
+  "no_runtime_code_change": true,
+  "no_frontend_fallback_content": true,
+  "no_cms_mutation": true,
+  "no_deploy": true,
+  "no_search_channel_action": true,
+  "no_url_submission": true,
+  "no_external_api_call": true,
+  "no_credentials_handled": true,
+  "no_automatic_posting": true,
+  "next_task": "PR-FDN-SOCIAL-LINK-DISPLAY-IMPLEMENTATION-01"
+}
