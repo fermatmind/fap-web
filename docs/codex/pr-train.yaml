@@ -8442,6 +8442,71 @@ prs:
       - No frontend fallback content, CMS mutation, deploy, Search Channel action, URL submission, external social API call, credential handling, automatic posting, or discoverability exposure change is introduced.
     rollback_note: "Revert the review report, generated JSON, focused contract, and train metadata only; no runtime behavior is changed by this PR."
 
+  - id: PR-FDN-SOCIAL-LINK-DISPLAY-IMPLEMENTATION-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-fdn-social-link-display-implementation-01
+    base: main
+    depends_on:
+      - PR-FDN-SOCIAL-LINK-DISPLAY-REVIEW-01
+    mode: execute
+    train_scope: pr_fdn_social_link_display_implementation_01
+    risk_level: scoped_public_foundation_runtime_display
+    status: in_progress
+    title: "PR-FDN-SOCIAL-LINK-DISPLAY-IMPLEMENTATION-01: Display Daily Giving manual social links"
+    goal: "Display backend-authoritative Foundation Daily Giving manual social links from existing public API fields without fallback content, automatic posting, external social API calls, or discoverability exposure changes."
+    in_scope:
+      - lib/foundation/dailyGiving.ts
+      - components/foundation/DailyGivingLedgerPage.tsx
+      - docs/seo/pr-fdn-social-link-display-implementation-01.md
+      - docs/seo/generated/pr-fdn-social-link-display-implementation-01.v1.json
+      - tests/contracts/pr-fdn-social-link-display-implementation-01.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - Frontend fallback donation or social content
+      - CMS mutation or publish
+      - production deploy
+      - Search Channel enqueue or URL submission
+      - external social API calls or automatic posting
+      - credential handling
+      - env, DNS, or nginx edits
+      - sitemap, llms, llms-full, footer, or nav exposure changes
+      - fap-api or backend changes
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/pr-fdn-social-link-display-implementation-01.contract.test.tsx
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - python3 -m json.tool docs/seo/generated/pr-fdn-social-link-display-implementation-01.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      changed_files_must_match:
+        - lib/foundation/dailyGiving.ts
+        - components/foundation/DailyGivingLedgerPage.tsx
+        - docs/seo/pr-fdn-social-link-display-implementation-01.md
+        - docs/seo/generated/pr-fdn-social-link-display-implementation-01.v1.json
+        - tests/contracts/pr-fdn-social-link-display-implementation-01.contract.test.tsx
+        - tests/contracts/helpers/currentPrScope.ts
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: FRONTEND-DEPLOY-READINESS｜Deploy PR-FDN-SOCIAL-LINK-DISPLAY-IMPLEMENTATION-01
+    acceptance:
+      - Existing backend social URL fields are normalized into a frontend socialLinks array.
+      - Daily Giving record cards render manual social links only when backend links are present.
+      - Empty API responses and records without social links do not render fallback social links.
+      - Non-http social URLs are not rendered.
+      - No frontend fallback content, CMS mutation, deploy, Search Channel action, URL submission, external social API call, credential handling, automatic posting, or sitemap/llms/footer/nav exposure change is introduced.
+    rollback_note: "Revert the Daily Giving social link normalization, record-card display, report, and focused contract if backend social links render incorrectly or fallback content is introduced."
+
   - id: PR-02-FOLLOWUP-NOTFOUND-RSC-PAYLOAD-CLEANUP-01
     repo: fap-web
     repo_path: <workspace>/fap-web

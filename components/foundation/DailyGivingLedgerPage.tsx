@@ -38,6 +38,7 @@ function copy(locale: Locale) {
     recipient: locale === "zh" ? "接收方" : "Recipient",
     date: locale === "zh" ? "日期" : "Date",
     evidence: locale === "zh" ? "凭证" : "Evidence",
+    socialPosts: locale === "zh" ? "社交记录" : "Social posts",
     allRecords: locale === "zh" ? "全部记录" : "All records",
     source: locale === "zh" ? "数据来源：后端公开 API" : "Source: backend public API",
   };
@@ -127,6 +128,25 @@ function RecordCard({ locale, record }: { locale: Locale; record: DailyGivingRec
           </dd>
         </div>
       </dl>
+
+      {record.socialLinks.length ? (
+        <div className="mt-5 border-t border-[var(--fm-border)] pt-4" data-testid="daily-giving-social-links">
+          <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-text-muted)]">{c.socialPosts}</p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {record.socialLinks.map((link) => (
+              <a
+                key={`${link.platform}:${link.url}`}
+                href={link.url}
+                className="rounded-full border border-[var(--fm-border)] px-3 py-1 text-sm font-medium text-[var(--fm-text)] transition hover:border-[var(--fm-accent)] hover:text-[var(--fm-accent)]"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      ) : null}
     </article>
   );
 }

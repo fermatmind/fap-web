@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-01T02:44:51Z",
+  "updated_at": "2026-06-01T03:08:32Z",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -12995,10 +12995,10 @@
       "depends_on": [
         "PR-FDN-02B"
       ],
-      "status": "in_progress",
-      "pr_url": null,
-      "commit_sha": null,
-      "merge_sha": null,
+      "status": "merged",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/952",
+      "commit_sha": "38424a6e8f9e9e779dfda7ea1b76df1940c16fac",
+      "merge_sha": "1faada27d28d765363b0e3579aff1199188fe0e4",
       "title": "PR-FDN-SOCIAL-LINK-DISPLAY-REVIEW-01: Review Daily Giving manual social link display",
       "artifacts": [
         "docs/seo/pr-fdn-social-link-display-review-01.md",
@@ -13058,9 +13058,9 @@
         }
       },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-01T02:45:19Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-06-01T02:33:33Z",
@@ -13071,6 +13071,98 @@
           "at": "2026-06-01T02:41:00Z",
           "status": "local_checks_passed",
           "summary": "Review report identifies the current frontend display gap: social URL fields are not normalized or rendered. Focused contract, typecheck, production API build, full contract suite, JSON/YAML parsing, and diff checks passed."
+        },
+        {
+          "at": "2026-06-01T02:51:19Z",
+          "status": "merged",
+          "summary": "Reconciled before PR-FDN-SOCIAL-LINK-DISPLAY-IMPLEMENTATION-01: GitHub shows PR #952 merged at 1faada27d28d765363b0e3579aff1199188fe0e4 and remote branch deleted."
+        }
+      ]
+    },
+    {
+      "id": "PR-FDN-SOCIAL-LINK-DISPLAY-IMPLEMENTATION-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/pr-fdn-social-link-display-implementation-01",
+      "base": "main",
+      "depends_on": [
+        "PR-FDN-SOCIAL-LINK-DISPLAY-REVIEW-01"
+      ],
+      "status": "pr_opened",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/954",
+      "commit_sha": "a1a7cf9a3b3a1339490a8f4d0ae02b81e227b916",
+      "merge_sha": null,
+      "title": "PR-FDN-SOCIAL-LINK-DISPLAY-IMPLEMENTATION-01: Display Daily Giving manual social links",
+      "artifacts": [
+        "lib/foundation/dailyGiving.ts",
+        "components/foundation/DailyGivingLedgerPage.tsx",
+        "docs/seo/pr-fdn-social-link-display-implementation-01.md",
+        "docs/seo/generated/pr-fdn-social-link-display-implementation-01.v1.json",
+        "tests/contracts/pr-fdn-social-link-display-implementation-01.contract.test.tsx",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "authorization": {
+          "status": "passed",
+          "completed_at": "2026-06-01T02:51:19Z",
+          "summary": "User explicitly authorized fap-web manifest/state updates for PR-FDN-SOCIAL-LINK-DISPLAY-IMPLEMENTATION-01 with no fallback content, CMS mutation, deploy, Search Channel action, URL submission, external social API call, credential handling, automatic posting, sitemap/llms/footer/nav exposure change, or env/DNS/nginx edit."
+        },
+        "dependency_verification": {
+          "status": "passed",
+          "completed_at": "2026-06-01T02:51:19Z",
+          "summary": "PR-FDN-SOCIAL-LINK-DISPLAY-REVIEW-01 is merged in fap-web at 1faada27d28d765363b0e3579aff1199188fe0e4."
+        },
+        "pnpm exec vitest run tests/contracts/pr-fdn-social-link-display-implementation-01.contract.test.tsx": {
+          "status": "passed",
+          "completed_at": "2026-06-01T03:01:46Z",
+          "summary": "Focused implementation contract passed: 1 file, 4 tests."
+        },
+        "pnpm typecheck": {
+          "status": "passed",
+          "completed_at": "2026-06-01T03:01:46Z"
+        },
+        "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build": {
+          "status": "passed",
+          "completed_at": "2026-06-01T03:01:46Z",
+          "summary": "Production API build passed. Postbuild sitemap drift was restored because sitemap exposure changes are out of scope."
+        },
+        "pnpm test:contract": {
+          "status": "passed_after_retry",
+          "completed_at": "2026-06-01T03:01:46Z",
+          "summary": "Full contract suite passed on rerun: 413 files, 2325 tests. The first run had all tests pass but exited on an out-of-scope Vitest teardown unhandled-error flake from MBTI post-purchase retention; that specific file passed when run alone before the full rerun."
+        },
+        "json_yaml_parse": {
+          "status": "passed",
+          "completed_at": "2026-06-01T03:01:46Z",
+          "summary": "Generated JSON, PR train state JSON, and PR train YAML parsed successfully."
+        }
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-06-01T02:51:19Z",
+          "status": "in_progress",
+          "summary": "Started scoped implementation to normalize and render backend-authoritative Foundation Daily Giving manual social links from existing public API fields only."
+        },
+        {
+          "at": "2026-06-01T03:01:46Z",
+          "status": "local_checks_passed",
+          "summary": "Implemented social link normalization/rendering from existing backend fields only. Focused contract, typecheck, production API build, full contract rerun, JSON/YAML parsing, and diff checks passed."
+        },
+        {
+          "at": "2026-06-01T03:06:20Z",
+          "status": "pr_opened",
+          "summary": "Opened fap-web PR #954 for PR-FDN-SOCIAL-LINK-DISPLAY-IMPLEMENTATION-01 after scoped local validation."
+        },
+        {
+          "at": "2026-06-01T03:08:32Z",
+          "status": "pr_state_reconciled",
+          "summary": "Updated PR train state after amending and force-pushing the implementation branch so the recorded implementation commit matches the pushed PR head."
         }
       ]
     },
