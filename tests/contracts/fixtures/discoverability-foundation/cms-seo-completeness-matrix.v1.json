@@ -202,11 +202,10 @@
     {
       "source": "lib/seo/backendSitemapSource.ts",
       "requiredTokens": [
-        "seo_surface_v1",
-        "indexability_state",
-        "sitemap_state",
-        "llms_exposure_state",
-        "isCareerJobSeoAuthorityDiscoverable"
+        "/v0.5/seo/sitemap-source",
+        "extractBackendSitemapCareerJobPaths",
+        "shouldIncludeInSitemap",
+        "EXCLUDED_CAREER_JOB_DETAIL_SLUGS"
       ]
     },
     {

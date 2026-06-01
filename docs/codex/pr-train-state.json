@@ -14849,13 +14849,13 @@
         "CAREER-SITEMAP-EXPOSURE-DIRECTORY-AUTHORITY-01"
       ],
       "title": "CAREER-JOBS-PAGINATED-DIRECTORY-SHELL-01 career jobs paginated directory shell",
-      "status": "open",
-      "commit_sha": "pending_remote_pr_head",
+      "status": "merged",
+      "commit_sha": "a218ace5b76f2c1eb13028200d957f0853bfdaee",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/967",
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-01T05:12:51Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "checks": {
         "manifest_registration": {
           "status": "passed",
@@ -14931,9 +14931,104 @@
           "at": "2026-06-01T05:14:00Z",
           "status": "pr_open",
           "summary": "Opened PR #967."
+        },
+        {
+          "at": "2026-06-01T05:24:06Z",
+          "status": "merged_reconciled",
+          "summary": "GitHub reports PR #967 merged at a218ace5b76f2c1eb13028200d957f0853bfdaee; remote branch is deleted and isolated worktree cleanup was completed."
         }
       ],
-      "updated_at": "2026-06-01T05:14:00Z"
+      "updated_at": "2026-06-01T05:24:06Z"
+    },
+    {
+      "id": "CAREER-LLMS-DIRECTORY-SITEMAP-AUTHORITY-01",
+      "repo": "fap-web",
+      "branch": "codex/career-llms-directory-sitemap-authority-01",
+      "base": "main",
+      "depends_on": [
+        "CAREER-JOBS-PAGINATED-DIRECTORY-SHELL-01"
+      ],
+      "title": "CAREER-LLMS-DIRECTORY-SITEMAP-AUTHORITY-01 career llms directory sitemap authority",
+      "status": "open",
+      "commit_sha": "pending_remote_pr_head",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/970",
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "checks": {
+        "manifest_registration": {
+          "status": "passed",
+          "summary": "User authorized the five-PR career directory 10k-scale train; this entry adds only the current PR4 scope in fap-web."
+        },
+        "dependency": {
+          "status": "passed",
+          "summary": "CAREER-JOBS-PAGINATED-DIRECTORY-SHELL-01 is merged in fap-web PR #967 with merge commit a218ace5b76f2c1eb13028200d957f0853bfdaee."
+        },
+        "focused_contract": {
+          "status": "passed",
+          "command": "pnpm exec vitest run tests/contracts/career-llms-alignment.contract.test.ts tests/contracts/llms-route-fanout.contract.test.ts tests/contracts/llms-url-hygiene.contract.test.ts"
+        },
+        "updated_contracts": {
+          "status": "passed",
+          "command": "pnpm exec vitest run tests/contracts/career-llms-alignment.contract.test.ts tests/contracts/llms-route-fanout.contract.test.ts tests/contracts/llms-url-hygiene.contract.test.ts tests/contracts/detail-ready-1046-discoverability-exposure-repair-01.contract.test.ts tests/contracts/cms-seo-completeness-matrix.contract.test.ts tests/contracts/scale-rollout.contract.test.ts tests/contracts/staging-cms-baseline-validator.contract.test.ts tests/contracts/preview-fixture-validation.contract.test.ts"
+        },
+        "full_contract": {
+          "status": "passed",
+          "command": "pnpm test:contract",
+          "summary": "418 files / 2352 tests passed. Existing React act/jsdom navigation/prefetch warnings were non-fatal."
+        },
+        "typecheck": {
+          "status": "passed",
+          "command": "pnpm typecheck"
+        },
+        "lint": {
+          "status": "passed_with_existing_warnings",
+          "command": "pnpm lint .",
+          "summary": "0 errors, 8 pre-existing warnings outside current PR scope."
+        },
+        "build": {
+          "status": "passed",
+          "command": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build"
+        },
+        "json_yaml_parse": {
+          "status": "passed",
+          "summary": "Generated report JSON, train state JSON, and train YAML parse successfully."
+        },
+        "freeze_globs": {
+          "status": "sidecar_external_missing_files",
+          "command": "pnpm exec vitest run tests/contracts/verify-big5-contract-freeze* && pnpm exec vitest run tests/contracts/verify-enneagram-contract-freeze*",
+          "summary": "Requested local freeze glob files do not exist in this checkout; full pnpm test:contract passed relevant contract coverage."
+        },
+        "scope_validation": {
+          "status": "passed",
+          "command": "git diff --check && git diff --cached --check",
+          "summary": "Whitespace checks passed after generated metadata validation artifacts were reverted from the final diff."
+        }
+      },
+      "events": [
+        {
+          "at": "2026-06-01T05:24:06Z",
+          "status": "in_progress",
+          "summary": "Initialized PR4 in an isolated fap-web worktree from origin/main after reconciling PR3 merge state."
+        },
+        {
+          "at": "2026-06-01T05:42:39Z",
+          "status": "local_validation_passed",
+          "summary": "Implemented backend sitemap-authority career llms enumeration, updated focused contracts and SEO completeness fixture, and passed local validation. Freeze glob command is recorded as an external missing-file sidecar; full contract suite passed."
+        },
+        {
+          "at": "2026-06-01T05:42:39Z",
+          "status": "commit_sha_pending",
+          "summary": "Local commit before PR URL ledger amendment was 71ce8ca3cbe05f6ed973c16faccf260abf5edab5; final amended commit hash is reported outside the committed ledger to avoid self-referential hash churn."
+        },
+        {
+          "at": "2026-06-01T05:42:39Z",
+          "status": "pr_open",
+          "summary": "Opened PR #970."
+        }
+      ],
+      "updated_at": "2026-06-01T05:42:39Z"
     }
   ],
   "sidecar_issues": [
@@ -14976,6 +15071,24 @@
         "build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, and CodeQL are SUCCESS as of 2026-05-31T07:10Z.",
         "Current IQ train registration modifies only docs/codex metadata."
       ]
+    },
+    {
+      "title": "Local freeze glob commands have no matching files in fap-web checkout",
+      "severity": "P2",
+      "source_pr": "CAREER-LLMS-DIRECTORY-SITEMAP-AUTHORITY-01",
+      "repo": "fap-web",
+      "branch": "codex/career-llms-directory-sitemap-authority-01",
+      "command_or_check": "pnpm exec vitest run tests/contracts/verify-big5-contract-freeze* / pnpm exec vitest run tests/contracts/verify-enneagram-contract-freeze*",
+      "evidence": "zsh reported no matches found for both requested freeze glob paths. The full contract suite passed 418 files / 2352 tests.",
+      "failure_summary": "Local shell glob expansion failed before Vitest because the requested freeze files are not present in this checkout.",
+      "why_external_to_current_pr": "The current PR does not add, remove, or rename freeze test files; this is an existing local command/glob mismatch.",
+      "impact_on_current_pr": "No impact on scoped llms/directory authority behavior; full contract coverage passed.",
+      "owner": "fap-web test infrastructure",
+      "follow_up_recommendation": "Normalize local freeze commands to existing file names or make missing glob handling explicit in the repo scripts.",
+      "required_checks_status": "pending_github_checks",
+      "scope_validation_status": "passed",
+      "continue_train_decision": "continue_if_required_github_checks_green_and_scope_validation_passes",
+      "blocks_merge": false
     }
   ]
 }

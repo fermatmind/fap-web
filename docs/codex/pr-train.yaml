@@ -171,7 +171,7 @@ prs:
     base: main
     depends_on: []
     mode: execute
-    status: merged
+    status: in_progress
     title: "docs(runtime): lock production frontend source of truth"
     artifacts:
       - docs/runtime/public-frontend-source-of-truth.md
@@ -185,7 +185,7 @@ prs:
     base: main
     depends_on: [PR-PRAC-01]
     mode: execute
-    status: in_progress
+    status: merged
     title: "test(runtime): add page family runtime contract coverage matrix"
     artifacts:
       - docs/runtime/page-family-runtime-coverage.md
@@ -9789,3 +9789,61 @@ prs:
       - Query, family, and page>1 views remain noindex with canonical pointing to /career/jobs.
       - No frontend career fallback content or discoverability widening is introduced.
     rollback_note: "Revert the career directory API client, adapter, jobs page pagination shell, and focused contracts."
+
+  - id: CAREER-LLMS-DIRECTORY-SITEMAP-AUTHORITY-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/career-llms-directory-sitemap-authority-01
+    base: main
+    depends_on:
+      - CAREER-JOBS-PAGINATED-DIRECTORY-SHELL-01
+    mode: execute
+    train_scope: career_directory_10k_scale
+    status: in_progress
+    title: "CAREER-LLMS-DIRECTORY-SITEMAP-AUTHORITY-01 career llms directory sitemap authority"
+    goal: "Make llms.txt and llms-full.txt consume backend sitemap authority for career detail URLs without realtime fanout across the full career collection or per-detail SEO endpoints."
+    in_scope:
+      - lib/seo/backendSitemapSource.ts
+      - tests/contracts/career-llms-alignment.contract.test.ts
+      - tests/contracts/detail-ready-1046-discoverability-exposure-repair-01.contract.test.ts
+      - tests/contracts/fixtures/discoverability-foundation/cms-seo-completeness-matrix.v1.json
+      - tests/contracts/llms-route-fanout.contract.test.ts
+      - tests/contracts/llms-url-hygiene.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/seo/career-llms-directory-sitemap-authority-01.md
+      - docs/seo/generated/career-llms-directory-sitemap-authority-01.v1.json
+      - docs/seo/generated/metadata-surface-inventory.v1.csv
+      - docs/seo/generated/metadata-surface-inventory.v1.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - Backend API implementation
+      - Career directory page rendering
+      - Sitemap generation changes
+      - Career cohort changes
+      - Frontend fallback career content
+      - Search Channel, URL submission, deploy, CMS, DB, or cohort mutation
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/career-llms-alignment.contract.test.ts tests/contracts/llms-route-fanout.contract.test.ts tests/contracts/llms-url-hygiene.contract.test.ts
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - pnpm exec vitest run tests/contracts/verify-big5-contract-freeze*
+      - pnpm exec vitest run tests/contracts/verify-enneagram-contract-freeze*
+      - python3 -m json.tool docs/seo/generated/career-llms-directory-sitemap-authority-01.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: CAREER-DIRECTORY-10K-OPS-WARM-VALIDATE-01
+    acceptance:
+      - llms and llms-full career detail URL enumeration is sourced from backend sitemap authority.
+      - No /api/v0.5/career/jobs full-index fanout is used for llms career URL enumeration.
+      - No per-career-detail SEO endpoint fanout is used during llms career URL enumeration.
+      - Approved career detail URLs remain exposed; excluded held/conflict slugs remain absent.
+      - No frontend career fallback content or Search Channel action is introduced.
+    rollback_note: "Revert backend sitemap source fanout simplification and focused llms contracts."

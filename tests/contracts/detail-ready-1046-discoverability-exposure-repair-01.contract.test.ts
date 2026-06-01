@@ -85,11 +85,13 @@ describe("DETAIL_READY_1046_DISCOVERABILITY_EXPOSURE_REPAIR-01", () => {
     expect(read("app/llms-full.txt/route.ts")).toContain("LLMS_ROUTE_CAREER_JOB_TIMEOUT_MS");
   });
 
-  it("uses backend public SEO authority locale parameters that match EN and ZH production routes", () => {
+  it("keeps sitemap SEO locale parameters while llms career enumeration avoids per-detail SEO fanout", () => {
     const helperSource = read("lib/seo/backendSitemapSource.ts");
     const sitemapSource = read("next-sitemap.config.js");
 
-    expect(helperSource).toContain('return locale === "zh" ? "zh-CN" : "en";');
+    expect(helperSource).toContain("buildApiUrl(\"/v0.5/seo/sitemap-source\")");
+    expect(helperSource).not.toContain("/v0.5/career-jobs/");
+    expect(helperSource).not.toContain('return locale === "zh" ? "zh-CN" : "en";');
     expect(sitemapSource).toContain('return locale === "zh" ? "zh-CN" : "en";');
   });
 

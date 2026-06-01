@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "task": "CAREER-LLMS-DIRECTORY-SITEMAP-AUTHORITY-01",
+  "final_decision": "career_llms_directory_sitemap_authority_repair_ready_for_validation",
+  "source_of_truth": "backend_sitemap_source",
+  "career_url_enumeration": {
+    "llms_txt": "listBackendSitemapCareerJobPaths",
+    "llms_full_txt": "listBackendSitemapCareerJobPaths",
+    "authority_endpoint": "/api/v0.5/seo/sitemap-source",
+    "full_job_index_fanout_used": false,
+    "per_detail_seo_fanout_used": false,
+    "frontend_fallback_content_used": false
+  },
+  "excluded_slugs": [
+    "software-developers",
+    "digital-forensics-analysts",
+    "computer-occupations-all-other"
+  ],
+  "runtime_mutation_performed": false,
+  "cms_mutation_performed": false,
+  "db_mutation_performed": false,
+  "deploy_performed": false,
+  "search_channel_action_performed": false,
+  "url_submission_performed": false,
+  "external_search_api_call_performed": false,
+  "next_task": "CAREER-DIRECTORY-10K-OPS-WARM-VALIDATE-01"
+}

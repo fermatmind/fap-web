@@ -77,4 +77,15 @@ describe("llms route fanout budget contract", () => {
     expect(source).toContain("withLlmsRouteBudget(() => enrichTopicEntry(entry, siteUrl), entry, { timeoutMs: LLMS_FULL_ENRICHMENT_TIMEOUT_MS })");
     expect(source).toContain("withLlmsRouteBudget(() => enrichCareerGuideEntry(entry, siteUrl), entry, { timeoutMs: LLMS_FULL_ENRICHMENT_TIMEOUT_MS })");
   });
+
+  it("keeps career llms enumeration on backend sitemap authority without full-index or per-detail fanout", () => {
+    const source = readSource("lib/seo/backendSitemapSource.ts");
+
+    expect(source).toContain("buildApiUrl(\"/v0.5/seo/sitemap-source\")");
+    expect(source).toContain("extractBackendSitemapCareerJobPaths");
+    expect(source).not.toContain("/v0.5/career/jobs?");
+    expect(source).not.toContain("/v0.5/career-jobs/");
+    expect(source).not.toContain("fetchCareerJobIndex");
+    expect(source).not.toContain("fetchCareerJobSeoAuthority");
+  });
 });

@@ -42,56 +42,26 @@ describe("career llms alignment contract", () => {
     ]);
   });
 
-  it("keeps only SEO-authority indexable Career job details for sitemap and llms coverage", async () => {
+  it("uses backend sitemap authority directly for Career job llms coverage without full-index or per-detail fanout", async () => {
+    const fetches: string[] = [];
+
     vi.stubGlobal(
       "fetch",
       vi.fn(async (input: RequestInfo | URL) => {
         const url = String(input);
+        fetches.push(url);
 
         if (url.includes("/api/v0.5/seo/sitemap-source")) {
           return jsonResponse({
             items: [
               { loc: "https://fermatmind.com/en/career/jobs/actors" },
               { loc: "https://fermatmind.com/zh/career/jobs/actors" },
-              { loc: "https://fermatmind.com/zh/career/jobs/noindex-role" },
               { loc: "https://fermatmind.com/zh/career/jobs/software-developers" },
+              { loc: "https://fermatmind.com/en/career/jobs/digital-forensics-analysts" },
+              { loc: "https://fermatmind.com/zh/career/jobs/computer-occupations-all-other" },
+              { loc: "https://staging.fermatmind.com/en/career/jobs/staging-role" },
+              { loc: "https://fermatmind.com/en/career/jobs/actors?preview=1" },
             ],
-          });
-        }
-
-        if (url.includes("/api/v0.5/career-jobs/actors/seo?") && url.includes("locale=zh-CN")) {
-          return jsonResponse({
-            meta: { robots: "index,follow" },
-            seo_surface_v1: {
-              robots_policy: "index,follow",
-              indexability_state: "indexable",
-              sitemap_state: "included",
-              llms_exposure_state: "allow",
-            },
-          });
-        }
-
-        if (url.includes("/api/v0.5/career-jobs/actors/seo?") && url.includes("locale=en")) {
-          return jsonResponse({
-            meta: { robots: "index,follow" },
-            seo_surface_v1: {
-              robots_policy: "index,follow",
-              indexability_state: "indexable",
-              sitemap_state: "included",
-              llms_exposure_state: "allow",
-            },
-          });
-        }
-
-        if (url.includes("/api/v0.5/career-jobs/noindex-role/seo?")) {
-          return jsonResponse({
-            meta: { robots: "noindex,follow" },
-            seo_surface_v1: {
-              robots_policy: "noindex,follow",
-              indexability_state: "trust_limited",
-              sitemap_state: "excluded",
-              llms_exposure_state: "blocked",
-            },
           });
         }
 
@@ -103,35 +73,27 @@ describe("career llms alignment contract", () => {
       "/en/career/jobs/actors",
       "/zh/career/jobs/actors",
     ]);
+    expect(fetches).toHaveLength(1);
+    expect(fetches[0]).toContain("/api/v0.5/seo/sitemap-source");
+    expect(fetches.join("\n")).not.toContain("/api/v0.5/career/jobs");
+    expect(fetches.join("\n")).not.toContain("/api/v0.5/career-jobs/");
   });
 
-  it("applies the llms career job limit before per-path SEO authority fetches", async () => {
+  it("applies the llms career job limit to backend sitemap authority paths without per-path SEO fetches", async () => {
     const limit = 3;
-    const seoAuthorityFetches: string[] = [];
+    const fetches: string[] = [];
 
     vi.stubGlobal(
       "fetch",
       vi.fn(async (input: RequestInfo | URL) => {
         const url = String(input);
+        fetches.push(url);
 
         if (url.includes("/api/v0.5/seo/sitemap-source")) {
           return jsonResponse({
             items: Array.from({ length: LLMS_ROUTE_LIMITS.careerJobs + 5 }, (_, index) => ({
               loc: `https://fermatmind.com/en/career/jobs/role-${String(index).padStart(2, "0")}`,
             })),
-          });
-        }
-
-        if (url.includes("/api/v0.5/career-jobs/")) {
-          seoAuthorityFetches.push(url);
-          return jsonResponse({
-            meta: { robots: "index,follow" },
-            seo_surface_v1: {
-              robots_policy: "index,follow",
-              indexability_state: "indexable",
-              sitemap_state: "included",
-              llms_exposure_state: "allow",
-            },
           });
         }
 
@@ -146,8 +108,11 @@ describe("career llms alignment contract", () => {
       "/en/career/jobs/role-01",
       "/en/career/jobs/role-02",
     ]);
-    expect(seoAuthorityFetches).toHaveLength(limit);
-    expect(seoAuthorityFetches.join("\n")).not.toContain("role-03");
+    expect(fetches).toHaveLength(1);
+    expect(fetches[0]).toContain("/api/v0.5/seo/sitemap-source");
+    expect(fetches.join("\n")).not.toContain("/api/v0.5/career/jobs");
+    expect(fetches.join("\n")).not.toContain("/api/v0.5/career-jobs/");
+    expect(paths.join("\n")).not.toContain("role-03");
   });
 
   it("llms.txt reflects current live Career authority routes and excludes query search urls", async () => {
