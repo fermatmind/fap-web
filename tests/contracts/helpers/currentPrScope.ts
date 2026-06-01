@@ -836,6 +836,8 @@ const GLOBAL_EN_ZH_CONTENT_PAGES_DISCOVERABILITY_EXPOSURE_IMPLEMENTATION_01_ALLO
   "docs/codex/pr-train-state.json",
   "docs/seo/global-en-zh-content-pages-discoverability-exposure-implementation-01.md",
   "docs/seo/generated/global-en-zh-content-pages-discoverability-exposure-implementation-01.v1.json",
+  "docs/seo/generated/metadata-surface-inventory.v1.csv",
+  "docs/seo/generated/metadata-surface-inventory.v1.json",
   "lib/seo/cmsRoutePolicy.cjs",
   "lib/seo/sitemapAuthorityAdapters.cjs",
   "next-sitemap.config.js",
@@ -1045,6 +1047,7 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (
     CURRENT_BRANCH === "main" ||
+    CURRENT_BRANCH === "codex/fix-main-contract-scope-metadata-inventory" ||
     CURRENT_BRANCH === "codex/global-en-zh-content-pages-discoverability-exposure-implementation-01" ||
     CURRENT_BRANCH === "codex/fix-global-en-zh-discoverability-exposure-contract"
   ) {

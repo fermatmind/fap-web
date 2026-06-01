@@ -55,7 +55,7 @@
     "migrationRequiredSurfaces": 2,
     "watchlistSurfaces": 2,
     "privateNoindexSurfaces": 22,
-    "frontendJsonLdFallbackSurfaces": 19
+    "frontendJsonLdFallbackSurfaces": 21
   },
   "rows": [
     {
@@ -395,7 +395,7 @@
       "exportKind": "generateMetadata",
       "usesBuildPageMetadata": true,
       "usesSeoSurface": false,
-      "rendersJsonLd": true,
+      "rendersJsonLd": false,
       "hasFrontendJsonLdBuilderFallback": false,
       "noindexSignal": true,
       "ownership": "product_code_only",
@@ -590,8 +590,8 @@
       "exportKind": "generateMetadata",
       "usesBuildPageMetadata": true,
       "usesSeoSurface": false,
-      "rendersJsonLd": false,
-      "hasFrontendJsonLdBuilderFallback": false,
+      "rendersJsonLd": true,
+      "hasFrontendJsonLdBuilderFallback": true,
       "noindexSignal": true,
       "ownership": "product_code_only",
       "classification": "product_code_only",
@@ -605,8 +605,8 @@
       "exportKind": "generateMetadata",
       "usesBuildPageMetadata": true,
       "usesSeoSurface": false,
-      "rendersJsonLd": false,
-      "hasFrontendJsonLdBuilderFallback": false,
+      "rendersJsonLd": true,
+      "hasFrontendJsonLdBuilderFallback": true,
       "noindexSignal": true,
       "ownership": "product_code_only",
       "classification": "product_code_only",
