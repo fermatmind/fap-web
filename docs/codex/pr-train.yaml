@@ -8382,6 +8382,66 @@ prs:
       - No CMS mutation, deploy, backend change, external search API call, env/DNS/nginx edit, or frontend editorial fallback content is introduced.
     rollback_note: "Revert the Daily Giving route, component, API adapter, and focused contract if Foundation Daily Giving page rendering regresses or the backend API contract changes."
 
+  - id: PR-FDN-SOCIAL-LINK-DISPLAY-REVIEW-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-fdn-social-link-display-review-01
+    base: main
+    depends_on:
+      - PR-FDN-02B
+    mode: review
+    train_scope: pr_fdn_social_link_display_review_01
+    risk_level: read_only_frontend_display_gap_review
+    status: in_progress
+    title: "PR-FDN-SOCIAL-LINK-DISPLAY-REVIEW-01: Review Daily Giving manual social link display"
+    goal: "Review whether fap-web consumes and displays backend-authored Foundation Daily Giving manual social URLs after the backend manual social sync MVP deployment."
+    in_scope:
+      - docs/seo/pr-fdn-social-link-display-review-01.md
+      - docs/seo/generated/pr-fdn-social-link-display-review-01.v1.json
+      - tests/contracts/pr-fdn-social-link-display-review-01.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - Runtime social link display implementation
+      - Frontend fallback donation/social content
+      - CMS mutation or publish
+      - production deploy
+      - Search Channel enqueue or URL submission
+      - external social API calls or automatic posting
+      - credential handling
+      - env, DNS, or nginx edits
+      - sitemap, llms, llms-full, footer, or nav exposure changes
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/pr-fdn-social-link-display-review-01.contract.test.ts
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - python3 -m json.tool docs/seo/generated/pr-fdn-social-link-display-review-01.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      changed_files_must_match:
+        - docs/seo/pr-fdn-social-link-display-review-01.md
+        - docs/seo/generated/pr-fdn-social-link-display-review-01.v1.json
+        - tests/contracts/pr-fdn-social-link-display-review-01.contract.test.ts
+        - tests/contracts/helpers/currentPrScope.ts
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: PR-FDN-SOCIAL-LINK-DISPLAY-IMPLEMENTATION-01
+    acceptance:
+      - The review records whether current fap-web normalizes existing Daily Giving social URL fields.
+      - The review records whether current Daily Giving record cards render manual social links.
+      - The review remains documentation/test/ledger only and performs no runtime implementation.
+      - No frontend fallback content, CMS mutation, deploy, Search Channel action, URL submission, external social API call, credential handling, automatic posting, or discoverability exposure change is introduced.
+    rollback_note: "Revert the review report, generated JSON, focused contract, and train metadata only; no runtime behavior is changed by this PR."
+
   - id: PR-02-FOLLOWUP-NOTFOUND-RSC-PAYLOAD-CLEANUP-01
     repo: fap-web
     repo_path: <workspace>/fap-web
