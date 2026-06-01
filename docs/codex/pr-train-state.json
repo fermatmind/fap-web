@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-01T04:30:31Z",
+  "updated_at": "2026-06-01T04:38:47Z",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -14482,13 +14482,13 @@
         "ANALYTICS-SEO-P1-08"
       ],
       "title": "feat(seo): thicken MBTI landing structure",
-      "status": "pr_open_github_checks_pending",
-      "commit_sha": "cad01656bdda0064f1837e81943612ae17f7e8e1",
+      "status": "merged",
+      "commit_sha": "82e3a507739b8e9e8acf85e1099f305ca6ee775b",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/963",
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-01T04:33:52Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "checks": {
         "preflight": "passed: dependency ANALYTICS-SEO-P1-08 is merged into origin/main at d8d04182d28f0f4e50801519800f3e4828ed6231; branch created from current origin/main.",
         "focused_contracts": "passed: pnpm exec vitest run tests/contracts/mbti-landing-structure.contract.test.tsx, 1 file, 3 tests.",
@@ -14497,7 +14497,9 @@
         "pnpm test:contract": "passed: 415 files, 2340 tests.",
         "git diff --check": "passed.",
         "manifest_state_parse": "passed: docs/codex/pr-train.yaml YAML parse and docs/codex/pr-train-state.json JSON parse.",
-        "scope_validation": "passed: tracked and untracked diff is limited to MBTI landing renderer, test detail page wiring, contract coverage, current PR scope helper, and authorized train metadata."
+        "scope_validation": "passed: tracked and untracked diff is limited to MBTI landing renderer, test detail page wiring, contract coverage, current PR scope helper, and authorized train metadata.",
+        "github_required_checks": "passed: build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze were green before merge; CodeQL also passed.",
+        "post_merge_cleanup": "passed: origin/main contains merge commit 82e3a507739b8e9e8acf85e1099f305ca6ee775b; main synced; local task branch deleted; remote branch already absent."
       },
       "events": [
         {
@@ -14524,9 +14526,14 @@
           "at": "2026-06-01T04:30:31Z",
           "status": "pr_open_github_checks_pending",
           "summary": "Opened https://github.com/fermatmind/fap-web/pull/963 after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-06-01T04:33:52Z",
+          "status": "merged",
+          "summary": "GitHub required checks passed; PR #963 was squash-merged at 82e3a507739b8e9e8acf85e1099f305ca6ee775b and post-merge cleanup completed."
         }
       ],
-      "updated_at": "2026-06-01T04:30:31Z"
+      "updated_at": "2026-06-01T04:33:52Z"
     },
     {
       "id": "ANALYTICS-SEO-P1-07",
@@ -14537,22 +14544,41 @@
         "ANALYTICS-SEO-P1-06"
       ],
       "title": "feat(seo): thicken Holland RIASEC landing structure",
-      "status": "planned",
+      "status": "local_checks_passed",
       "commit_sha": "",
       "pr_url": "",
       "failure_reason": null,
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "checks": {},
+      "checks": {
+        "preflight": "passed: dependency ANALYTICS-SEO-P1-06 is merged into origin/main at 82e3a507739b8e9e8acf85e1099f305ca6ee775b; branch created from current origin/main.",
+        "focused_contracts": "passed: pnpm exec vitest run tests/contracts/riasec-landing-structure.contract.test.tsx, 1 file, 3 tests.",
+        "pnpm typecheck": "passed.",
+        "pnpm seo:check-sitemap": "passed: 261 urls.",
+        "pnpm test:contract": "passed: 416 files, 2343 tests.",
+        "git diff --check": "passed.",
+        "manifest_state_parse": "passed: docs/codex/pr-train.yaml YAML parse and docs/codex/pr-train-state.json JSON parse.",
+        "scope_validation": "passed: tracked and untracked diff is limited to Holland/RIASEC landing renderer, test detail page wiring, contract coverage, current PR scope helper, and authorized train metadata."
+      },
       "events": [
         {
           "at": "2026-06-01T02:30:08Z",
           "status": "planned",
           "summary": "Initialized planned entry per user-authorized execution order."
+        },
+        {
+          "at": "2026-06-01T04:36:40Z",
+          "status": "in_progress",
+          "summary": "Started ANALYTICS-SEO-P1-07 from origin/main after P1-06 cleanup; scope is limited to Holland/RIASEC landing renderer, contracts, scope helper, and train metadata."
+        },
+        {
+          "at": "2026-06-01T04:38:47Z",
+          "status": "local_checks_passed",
+          "summary": "Rendered Holland/RIASEC landing_surface_v1 modules for six-type explanation, career direction, major selection, transition scenarios, and career internal links without frontend-authored fallback content; required local checks and scope validation passed."
         }
       ],
-      "updated_at": "2026-06-01T02:30:08Z"
+      "updated_at": "2026-06-01T04:38:47Z"
     },
     {
       "id": "RESULT-EMAIL-FIRST-BINDING-UX-05",

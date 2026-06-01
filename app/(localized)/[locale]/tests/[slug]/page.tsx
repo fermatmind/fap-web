@@ -14,6 +14,7 @@ import { MbtiSceneEntrySection } from "@/components/content/MbtiSceneEntrySectio
 import { CiteableSection } from "@/components/seo/CiteableSection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { MbtiLandingSurfaceSections } from "@/components/tests/MbtiLandingSurfaceSections";
+import { RiasecLandingSurfaceSections } from "@/components/tests/RiasecLandingSurfaceSections";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
@@ -1265,6 +1266,7 @@ export default async function TestLandingPage({
             </section>
           ) : null}
           {showsMbtiActions ? <MbtiLandingSurfaceSections surface={landingSurface} /> : null}
+          {showsRiasecActions ? <RiasecLandingSurfaceSections surface={landingSurface} /> : null}
 
           {rollout.paywallMode === "free_only" || !rollout.commerceEnabled ? (
             <Card>
