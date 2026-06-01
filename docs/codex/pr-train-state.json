@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-01T10:00:07Z",
+  "updated_at": "2026-06-01T10:01:01Z",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -13294,9 +13294,9 @@
       "depends_on": [
         "PR-FDN-SEO-01-IMPLEMENTATION"
       ],
-      "status": "local_checks_passed",
+      "status": "committed",
       "pr_url": null,
-      "commit_sha": null,
+      "commit_sha": "ab3412b087ef9de6da06bbed91129379e0c6218d",
       "merge_sha": null,
       "title": "PR-FDN-SEO-01-POST-DEPLOY-SMOKE: Verify Daily Giving SEO/schema/llms runtime",
       "artifacts": [
@@ -13381,6 +13381,11 @@
           "at": "2026-06-01T10:00:07Z",
           "status": "local_checks_passed",
           "summary": "Focused contract, typecheck, production API build, full contract suite, JSON/YAML parsing, diff checks, and scope validation passed. Build-generated sitemap drift was restored as out-of-scope."
+        },
+        {
+          "at": "2026-06-01T10:01:01Z",
+          "status": "committed",
+          "summary": "Committed PR-FDN-SEO-01-POST-DEPLOY-SMOKE report at ab3412b087ef9de6da06bbed91129379e0c6218d."
         }
       ]
     },
