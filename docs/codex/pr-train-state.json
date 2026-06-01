@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-01T11:51:52Z",
+  "updated_at": "2026-06-01T11:52:32Z",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -15095,9 +15095,9 @@
         "ANALYTICS-SEO-P0-10"
       ],
       "title": "docs(analytics): clarify Baidu conversion limits and public CTA tracking",
-      "status": "local_checks_passed",
-      "commit_sha": "5ce2e37ece3c52a2fcbf5c0aca525b97ee164022",
-      "pr_url": "",
+      "status": "open",
+      "commit_sha": "7dd3794eb9e18559946545c7bf43d25732c63531",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/978",
       "failure_reason": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -15123,9 +15123,14 @@
           "at": "2026-06-01T11:51:52Z",
           "status": "committed",
           "summary": "Recorded docs implementation commit 5ce2e37ece3c52a2fcbf5c0aca525b97ee164022."
+        },
+        {
+          "at": "2026-06-01T11:52:32Z",
+          "status": "open",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/978 from docs-only branch codex/analytics-seo-p0-11-baidu-conversion-docs-correction."
         }
       ],
-      "updated_at": "2026-06-01T11:51:52Z"
+      "updated_at": "2026-06-01T11:52:32Z"
     },
     {
       "id": "RESULT-EMAIL-FIRST-BINDING-UX-05",
