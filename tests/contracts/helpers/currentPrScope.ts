@@ -490,6 +490,18 @@ const ANALYTICS_SEO_P0_01_ALLOWED_FILES = new Set([
   "tests/contracts/tracking-activation-contract.contract.test.ts",
 ]);
 
+const ANALYTICS_SEO_P0_05_ALLOWED_FILES = new Set([
+  "docs/analytics/tracking-activation-runbook.md",
+  "docs/analytics/utm-channel-governance.md",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "lib/tracking/utmGovernance.ts",
+  "lib/ui/footerSocialIcons.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/site-footer-social.contract.test.tsx",
+  "tests/contracts/utm-continuity.contract.test.ts",
+]);
+
 const PR_WEB_SEC_32_ALLOWED_FILES = new Set([
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -1173,6 +1185,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/analytics-seo-p0-01-standardize-events") {
     return ANALYTICS_SEO_P0_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/analytics-seo-p0-05-utm-governance") {
+    return ANALYTICS_SEO_P0_05_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-web-sec-32-landing-rollout-seed") {

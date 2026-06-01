@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-01T03:50:57Z",
+  "updated_at": "2026-06-01T04:04:14Z",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -14309,20 +14309,22 @@
         "ANALYTICS-SEO-P0-02"
       ],
       "title": "fix(analytics): guard internal traffic and referral pollution",
-      "status": "pr_open_github_checks_pending",
-      "commit_sha": "88f128fca5b75a77248bda4394d89af8e6a8d624",
+      "status": "merged",
+      "commit_sha": "8ff60e48aad68bbe6d2cc4ff18693ec80fb91559",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/959",
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-01T03:54:44Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "checks": {
         "preflight": "passed: dependency ANALYTICS-SEO-P0-02 is merged into origin/main; branch created from origin/main 4fed3ba4dff8eca352d90d5144644cde414fe487.",
         "pnpm exec vitest run tests/contracts/analytics-scripts.contract.test.ts": "passed: 1 file, 10 tests.",
         "pnpm typecheck": "passed.",
         "git diff --check": "passed.",
         "manifest_state_parse": "passed: docs/codex/pr-train.yaml YAML parse and docs/codex/pr-train-state.json JSON parse.",
-        "scope_validation": "passed: tracked and untracked diff is limited to P0-03 analytics/tracking/docs/contracts scope and authorized train metadata."
+        "scope_validation": "passed: tracked and untracked diff is limited to P0-03 analytics/tracking/docs/contracts scope and authorized train metadata.",
+        "github_required_checks": "passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, and CodeQL all succeeded before merge.",
+        "post_merge_cleanup": "passed: PR #959 merged at 8ff60e48aad68bbe6d2cc4ff18693ec80fb91559; origin/main contains merge; local main fast-forwarded in its owning worktree; local and remote task branches deleted or absent; current worktree clean."
       },
       "events": [
         {
@@ -14344,9 +14346,14 @@
           "at": "2026-06-01T03:50:57Z",
           "status": "pr_open_github_checks_pending",
           "summary": "Opened https://github.com/fermatmind/fap-web/pull/959 after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-06-01T04:02:10Z",
+          "status": "merged",
+          "summary": "GitHub required checks passed; PR #959 was squash-merged at 8ff60e48aad68bbe6d2cc4ff18693ec80fb91559 and post-merge cleanup completed."
         }
       ],
-      "updated_at": "2026-06-01T03:50:57Z"
+      "updated_at": "2026-06-01T04:02:10Z"
     },
     {
       "id": "ANALYTICS-SEO-P0-05",
@@ -14357,22 +14364,45 @@
         "ANALYTICS-SEO-P0-03"
       ],
       "title": "feat(tracking): add UTM channel governance",
-      "status": "planned",
-      "commit_sha": "",
-      "pr_url": "",
+      "status": "pr_open_github_checks_pending",
+      "commit_sha": "c4bab43283c53fecc22693149262b6b62c7c1387",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/960",
       "failure_reason": null,
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "checks": {},
+      "checks": {
+        "preflight": "passed: dependency ANALYTICS-SEO-P0-03 is merged into origin/main; branch created from origin/main 8ff60e48aad68bbe6d2cc4ff18693ec80fb91559.",
+        "focused_contracts": "passed: pnpm exec vitest run tests/contracts/utm-continuity.contract.test.ts tests/contracts/site-footer-social.contract.test.tsx, 2 files, 7 tests.",
+        "pnpm typecheck": "passed.",
+        "pnpm test:contract": "passed after current PR scope helper registration: 413 files, 2331 tests.",
+        "git diff --check": "passed.",
+        "manifest_state_parse": "passed: docs/codex/pr-train.yaml YAML parse and docs/codex/pr-train-state.json JSON parse.",
+        "scope_validation": "passed: tracked and untracked diff is limited to P0-05 UTM governance scope and authorized train metadata."
+      },
       "events": [
         {
           "at": "2026-06-01T02:30:08Z",
           "status": "planned",
           "summary": "Initialized planned entry per user-authorized execution order."
+        },
+        {
+          "at": "2026-06-01T04:02:10Z",
+          "status": "local_checks_passed",
+          "summary": "Added shared UTM channel governance, applied it to footer social links, documented the taxonomy, and passed focused contracts, typecheck, full contract suite, and scope validation."
+        },
+        {
+          "at": "2026-06-01T04:03:11Z",
+          "status": "committed",
+          "summary": "Created scoped implementation commit c4bab43283c53fecc22693149262b6b62c7c1387 for ANALYTICS-SEO-P0-05."
+        },
+        {
+          "at": "2026-06-01T04:04:14Z",
+          "status": "pr_open_github_checks_pending",
+          "summary": "Opened https://github.com/fermatmind/fap-web/pull/960 after local checks and scope validation passed."
         }
       ],
-      "updated_at": "2026-06-01T02:30:08Z"
+      "updated_at": "2026-06-01T04:04:14Z"
     },
     {
       "id": "ANALYTICS-SEO-P1-08",

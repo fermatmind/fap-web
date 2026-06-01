@@ -5,6 +5,12 @@ import {
   extractAttributionParamsFromRecord,
   toAttemptAttributionPayload,
 } from "@/lib/tracking/attribution";
+import {
+  DISALLOWED_UTM_SOURCE_VALUES,
+  UTM_CHANNEL_CONFIG,
+  appendGovernedUtmParamsToHref,
+  buildUtmParams,
+} from "@/lib/tracking/utmGovernance";
 import { buildMbtiEntryHref, buildMbtiEntryTrackingPayload } from "@/lib/mbti/entryTracking";
 
 describe("UTM continuity contract", () => {
@@ -102,5 +108,54 @@ describe("UTM continuity contract", () => {
         content: null,
       },
     });
+  });
+
+  it("defines governed channel values for owned external propagation", () => {
+    expect(buildUtmParams("wechat_private")).toEqual({
+      utm_source: "wechat",
+      utm_medium: "private",
+      utm_campaign: "mbti",
+    });
+    expect(buildUtmParams("xiaohongshu_social")).toEqual({
+      utm_source: "xiaohongshu",
+      utm_medium: "social",
+      utm_campaign: "career_test",
+    });
+    expect(buildUtmParams("zhihu_answer")).toEqual({
+      utm_source: "zhihu",
+      utm_medium: "answer",
+      utm_campaign: "mbti_holland",
+    });
+    expect(buildUtmParams("chatgpt_referral")).toEqual({
+      utm_source: "chatgpt",
+      utm_medium: "referral",
+      utm_campaign: "seo_review",
+    });
+    expect(buildUtmParams("bilibili_video")).toEqual({
+      utm_source: "bilibili",
+      utm_medium: "video",
+      utm_campaign: "career_test",
+    });
+    expect(buildUtmParams("website_share")).toEqual({
+      utm_source: "website",
+      utm_medium: "share",
+      utm_campaign: "result_share",
+    });
+    expect(Object.values(UTM_CHANNEL_CONFIG).map((config) => config.utm_source)).not.toContain("chatgpt.com");
+    expect(Object.values(UTM_CHANNEL_CONFIG).map((config) => config.utm_source)).not.toContain("qr");
+    expect(DISALLOWED_UTM_SOURCE_VALUES).toEqual(["chatgpt.com", "qr"]);
+  });
+
+  it("overwrites arbitrary existing UTM values while preserving non-UTM platform params", () => {
+    const href = appendGovernedUtmParamsToHref(
+      "https://www.instagram.com/fermatmind?igsh=abc&utm_source=qr",
+      "instagram_social"
+    );
+    const parsed = new URL(href);
+
+    expect(parsed.searchParams.get("igsh")).toBe("abc");
+    expect(parsed.searchParams.get("utm_source")).toBe("instagram");
+    expect(parsed.searchParams.get("utm_medium")).toBe("social");
+    expect(parsed.searchParams.get("utm_campaign")).toBe("career_test");
   });
 });
