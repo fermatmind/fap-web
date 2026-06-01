@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-01T12:59:00Z",
+  "updated_at": "2026-06-01T15:59:45.192525+00:00",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -15139,7 +15139,7 @@
       "base": "main",
       "depends_on": [],
       "title": "RESULT-EMAIL-FIRST-BINDING-UX-05 non-blocking result email binding UX",
-      "status": "committed",
+      "status": "pr_open",
       "commit_sha": "22425217e785c88bdda585e61ef36733753033a1",
       "pr_url": "",
       "failure_reason": null,
@@ -15704,6 +15704,114 @@
         }
       ],
       "updated_at": "2026-06-01T12:59:00Z"
+    },
+    {
+      "id": "CAREER-DETAIL-P95-LATENCY-SCAN-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/career-detail-p95-latency-scan-01",
+      "base": "main",
+      "depends_on": [],
+      "title": "CAREER-DETAIL-P95-LATENCY-SCAN-01 career detail P95 latency scan",
+      "status": "committed",
+      "commit_sha": "final_branch_head_recorded_after_pr_open",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/982",
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "checks": {
+        "focused_contract": "passed",
+        "typecheck": "passed",
+        "build": "passed",
+        "test_contract": "passed",
+        "lint": "passed_with_existing_warnings",
+        "json_yaml_parse": "passed",
+        "diff_check": "passed",
+        "local_freeze_glob": "not_run_no_local_glob_matches_github_required_checks_expected"
+      },
+      "events": [
+        {
+          "at": "2026-06-01T15:44:21.145085+00:00",
+          "event": "started",
+          "note": "Started read-only latency scan PR after explicit eight-PR train manifest/state authorization."
+        },
+        {
+          "at": "2026-06-01T15:58:03.894916+00:00",
+          "event": "local_validated",
+          "note": "Focused contract, typecheck, build, full contracts, lint, JSON/YAML parse, and diff checks passed; local freeze globs had no zsh matches."
+        },
+        {
+          "at": "2026-06-01T15:59:45.192525+00:00",
+          "event": "committed",
+          "commit_sha": "final_branch_head_recorded_after_pr_open"
+        },
+        {
+          "at": "2026-06-01T16:09:00Z",
+          "event": "pr_open",
+          "pr_url": "https://github.com/fermatmind/fap-web/pull/982"
+        }
+      ]
+    },
+    {
+      "id": "CAREER-DETAIL-CACHE-BUDGET-REPAIR-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/career-detail-cache-budget-repair-01",
+      "base": "main",
+      "depends_on": [
+        "CAREER-DETAIL-P95-LATENCY-SCAN-01"
+      ],
+      "title": "CAREER-DETAIL-CACHE-BUDGET-REPAIR-01 career detail cache budget repair",
+      "status": "planned",
+      "commit_sha": null,
+      "pr_url": null,
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "checks": {},
+      "events": []
+    },
+    {
+      "id": "CAREER-LLMS-FULL-10K-BUDGET-GATE-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/career-llms-full-10k-budget-gate-01",
+      "base": "main",
+      "depends_on": [
+        "CAREER-DIRECTORY-AUTHORITY-DRIFT-GATE-01"
+      ],
+      "title": "CAREER-LLMS-FULL-10K-BUDGET-GATE-01 llms-full 10k budget gate",
+      "status": "planned",
+      "commit_sha": null,
+      "pr_url": null,
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "checks": {},
+      "events": []
+    },
+    {
+      "id": "CAREER-DIRECTORY-UX-FACETS-PARITY-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/career-directory-ux-facets-parity-01",
+      "base": "main",
+      "depends_on": [
+        "CAREER-LLMS-FULL-10K-BUDGET-GATE-01"
+      ],
+      "title": "CAREER-DIRECTORY-UX-FACETS-PARITY-01 career directory UX facets parity",
+      "status": "planned",
+      "commit_sha": null,
+      "pr_url": null,
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "checks": {},
+      "events": []
     }
   ],
   "sidecar_issues": [

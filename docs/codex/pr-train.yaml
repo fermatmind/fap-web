@@ -10297,3 +10297,189 @@ prs:
       - PR-07-GEO-SCHEMA-FAQ-EVIDENCE is recorded as deferred by page family, not as a broad legacy implementation.
       - No runtime, content, CMS, Search Channel, URL submission, external API, env, DNS, nginx, deploy, or frontend fallback content change is introduced.
     rollback_note: "Revert the report, generated JSON, focused contract, and PR train metadata if the reconciliation needs to be restated."
+
+  - id: CAREER-DETAIL-P95-LATENCY-SCAN-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/career-detail-p95-latency-scan-01
+    base: main
+    depends_on: []
+    mode: execute
+    train_scope: career_10k_scale_architecture
+    status: in_progress
+    title: "CAREER-DETAIL-P95-LATENCY-SCAN-01 career detail P95 latency scan"
+    goal: "Run a read-only 100 slug x EN/ZH career detail latency scan, classify P95/P99 outlier root cause, and produce report/test artifacts without runtime behavior changes."
+    in_scope:
+      - docs/seo/career-detail-p95-latency-scan-01.md
+      - docs/seo/generated/career-detail-p95-latency-scan-01.v1.json
+      - tests/contracts/career-detail-p95-latency-scan-01.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - Runtime code changes
+      - Backend, CMS, DB, Search Channel, URL submission, external search API, or deploy
+      - Career content authority changes
+      - Held slug policy changes
+      - Frontend fallback career content
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/career-detail-p95-latency-scan-01.contract.test.ts
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - pnpm exec vitest run tests/contracts/verify-big5-contract-freeze*
+      - pnpm exec vitest run tests/contracts/verify-enneagram-contract-freeze*
+      - python3 -m json.tool docs/seo/generated/career-detail-p95-latency-scan-01.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: CAREER-DETAIL-CACHE-BUDGET-REPAIR-01
+    acceptance:
+      - 100 career slugs x EN/ZH are sampled through read-only production observation.
+      - Outlier slug list, latency source classification, and next fix recommendation are recorded.
+      - No runtime behavior, content authority, Search Channel, URL submission, CMS, DB, or deploy action is introduced.
+    rollback_note: "Revert the report, generated JSON, focused contract, and PR train metadata if the scan needs to be restated."
+
+  - id: CAREER-DETAIL-CACHE-BUDGET-REPAIR-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/career-detail-cache-budget-repair-01
+    base: main
+    depends_on:
+      - CAREER-DETAIL-P95-LATENCY-SCAN-01
+    mode: execute
+    train_scope: career_10k_scale_architecture
+    status: planned
+    title: "CAREER-DETAIL-CACHE-BUDGET-REPAIR-01 career detail cache budget repair"
+    goal: "Repair career detail fetch/cache/render budget while preserving backend authority, noindex safety, and held slug exclusion."
+    in_scope:
+      - app/(localized)/[locale]/career/jobs/[slug]/page.tsx
+      - lib/career/api/**
+      - lib/publicApiCache.ts
+      - tests/contracts/**career-detail-cache-budget**
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/seo/career-detail-cache-budget-repair-01.md
+      - docs/seo/generated/career-detail-cache-budget-repair-01.v1.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - Career content authority changes
+      - Backend API or cohort changes
+      - Sitemap or llms URL-set changes
+      - Held slug release
+      - Frontend fallback career content
+      - Search Channel, URL submission, external search API, CMS, DB, or deploy
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/career-detail-cache-budget-repair-01.contract.test.ts
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: CAREER-LEGACY-FULL-JOBS-INDEX-CONSUMER-AUDIT-01
+    acceptance:
+      - Sampled career detail pages are more stable under the focused cache/fetch budget test.
+      - No noindex drift is introduced.
+      - Held slugs remain unexposed.
+      - No frontend fallback content is introduced.
+    rollback_note: "Revert scoped cache/fetch budget changes if career detail metadata or held slug safety regresses."
+
+  - id: CAREER-LLMS-FULL-10K-BUDGET-GATE-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/career-llms-full-10k-budget-gate-01
+    base: main
+    depends_on:
+      - CAREER-DIRECTORY-AUTHORITY-DRIFT-GATE-01
+    mode: execute
+    train_scope: career_10k_scale_architecture
+    status: planned
+    title: "CAREER-LLMS-FULL-10K-BUDGET-GATE-01 llms-full 10k budget gate"
+    goal: "Add a 10k-scale llms-full synthetic budget gate proving artifact-first behavior, no runtime fanout, and degraded 200 fallback without requesting 20k detail APIs."
+    in_scope:
+      - app/llms-full.txt/route.ts
+      - lib/seo/**
+      - tests/contracts/career-llms-full-10k-budget-gate-01.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/seo/career-llms-full-10k-budget-gate-01.md
+      - docs/seo/generated/career-llms-full-10k-budget-gate-01.v1.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - Sitemap URL-set changes
+      - Career cohort changes
+      - Backend authority changes
+      - Held slug release
+      - Search Channel, URL submission, external search API, CMS, DB, or deploy
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/career-llms-full-10k-budget-gate-01.contract.test.ts tests/contracts/llms-route-fanout.contract.test.ts
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: CAREER-DIRECTORY-UX-FACETS-PARITY-01
+    acceptance:
+      - A synthetic 20k career URL fixture does not cause llms-full request-time fanout.
+      - llms-full remains artifact-first and can return bounded degraded 200.
+      - Held/private/staging URLs remain excluded.
+    rollback_note: "Revert the budget gate/report if it misstates llms-full authority or weakens URL hygiene."
+
+  - id: CAREER-DIRECTORY-UX-FACETS-PARITY-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/career-directory-ux-facets-parity-01
+    base: main
+    depends_on:
+      - CAREER-LLMS-FULL-10K-BUDGET-GATE-01
+    mode: execute
+    train_scope: career_10k_scale_architecture
+    status: planned
+    title: "CAREER-DIRECTORY-UX-FACETS-PARITY-01 career directory UX facets parity"
+    goal: "Improve EN/ZH career directory facet, pagination, count, empty/error, and mobile UX without changing backend authority or indexability policy."
+    in_scope:
+      - app/(localized)/[locale]/career/jobs/page.tsx
+      - components/career/**
+      - lib/career/**
+      - tests/contracts/career-directory-ux-facets-parity-01.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/seo/career-directory-ux-facets-parity-01.md
+      - docs/seo/generated/career-directory-ux-facets-parity-01.v1.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - Career content authority changes
+      - Backend API changes
+      - Sitemap or llms changes
+      - Held slug release
+      - Search Channel, URL submission, external search API, CMS, DB, or deploy
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/career-directory-ux-facets-parity-01.contract.test.tsx tests/contracts/career-query-canonical.contract.test.tsx
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: CAREER-SEARCH-CHANNEL-READINESS-GATE-01
+    acceptance:
+      - EN/ZH directory UX is structurally aligned.
+      - Query/filter pages remain noindex and canonicalized to the main directory.
+      - No frontend career fallback content is introduced.
+    rollback_note: "Revert scoped directory UX changes if canonical/noindex policy or authority consumption regresses."
