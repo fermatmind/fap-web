@@ -15782,14 +15782,23 @@
         "CAREER-DETAIL-P95-LATENCY-SCAN-01"
       ],
       "title": "CAREER-DETAIL-CACHE-BUDGET-REPAIR-01 career detail cache budget repair",
-      "status": "pr_open",
-      "commit_sha": "e54fd065b112c4f419fa67d231eb7f76e2eebfae",
+      "status": "merged",
+      "commit_sha": "af06f506a475b4f73f73614b4ab0a2a7621794fa",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/984",
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
-      "checks": {},
+      "merged_at": "2026-06-01T16:38:37Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
+      "checks": {
+        "focused_contract": "passed",
+        "typecheck": "passed",
+        "build": "passed",
+        "test_contract": "passed",
+        "lint": "passed_with_existing_warnings",
+        "json_yaml_parse": "passed",
+        "diff_check": "passed",
+        "github_checks": "passed"
+      },
       "events": [
         {
           "at": "2026-06-01T16:24:00Z",
@@ -15805,6 +15814,17 @@
           "at": "2026-06-01T16:35:00Z",
           "event": "pr_open",
           "pr_url": "https://github.com/fermatmind/fap-web/pull/984"
+        },
+        {
+          "at": "2026-06-01T16:38:37Z",
+          "event": "merged",
+          "merge_commit": "bf6bc6d426642c09e152ba335ff91ead06758681",
+          "note": "PR #984 squash merged after all GitHub checks passed and mergeStateStatus was CLEAN."
+        },
+        {
+          "at": "2026-06-01T16:39:00Z",
+          "event": "post_merge_revalidate_failed",
+          "note": "Focused contract failed on main because the scope assertion depended on the task branch name. A scoped post-merge contract fix removes that branch-dependent assertion."
         }
       ]
     },
