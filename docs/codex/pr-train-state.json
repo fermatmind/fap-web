@@ -14586,9 +14586,9 @@
         "CAREER-SITEMAP-EXPOSURE-DIRECTORY-AUTHORITY-01"
       ],
       "title": "CAREER-JOBS-PAGINATED-DIRECTORY-SHELL-01 career jobs paginated directory shell",
-      "status": "committed",
+      "status": "open",
       "commit_sha": "pending_remote_pr_head",
-      "pr_url": "",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/967",
       "failure_reason": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -14663,9 +14663,14 @@
           "at": "2026-06-01T05:12:00Z",
           "status": "commit_sha_pending",
           "summary": "Commit SHA is reported in PR body/final output because embedding the final amended commit hash in the committed ledger would change the hash."
+        },
+        {
+          "at": "2026-06-01T05:14:00Z",
+          "status": "pr_open",
+          "summary": "Opened PR #967."
         }
       ],
-      "updated_at": "2026-06-01T05:12:00Z"
+      "updated_at": "2026-06-01T05:14:00Z"
     }
   ],
   "sidecar_issues": [
