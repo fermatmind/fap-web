@@ -9424,7 +9424,7 @@ prs:
       - ANALYTICS-SEO-P0-03
     mode: execute
     train_scope: analytics_seo_p0_p1
-    status: in_progress
+    status: merged
     title: "feat(tracking): add UTM channel governance"
     goal: "Add shared UTM channel configuration and apply it to footer, social, share, and external propagation links."
     in_scope:
@@ -9464,7 +9464,7 @@ prs:
       - ANALYTICS-SEO-P0-05
     mode: execute
     train_scope: analytics_seo_p0_p1
-    status: planned
+    status: in_progress
     title: "fix(seo): audit sitemap metadata canonical dynamic routes"
     goal: "Add focused contracts and fixes for robots, sitemap, canonical, metadata, dynamic routes, hreflang, and Breadcrumb schema without changing content authority."
     in_scope:
