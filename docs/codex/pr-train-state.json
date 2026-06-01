@@ -15945,9 +15945,9 @@
         "CAREER-LLMS-FULL-10K-BUDGET-GATE-01"
       ],
       "title": "CAREER-DIRECTORY-UX-FACETS-PARITY-01 career directory UX facets parity",
-      "status": "committed_pending_pr",
+      "status": "open_pending_checks",
       "commit_sha": "pending_pr_head",
-      "pr_url": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/987",
       "failure_reason": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -16011,6 +16011,11 @@
           "at": "2026-06-01T17:53:23Z",
           "event": "committed_pending_pr",
           "note": "Committed scoped career directory UX facets parity changes."
+        },
+        {
+          "at": "2026-06-01T17:54:20Z",
+          "event": "open_pending_checks",
+          "note": "Opened GitHub PR https://github.com/fermatmind/fap-web/pull/987."
         }
       ]
     }
