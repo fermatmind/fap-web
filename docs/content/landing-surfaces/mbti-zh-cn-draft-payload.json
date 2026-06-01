@@ -1,0 +1,138 @@
+{
+  "proposal_metadata": {
+    "proposal_id": "landing-surface-mbti-zh-cn-2026-06-01",
+    "resource": "landing_surface_v1",
+    "locale": "zh-CN",
+    "canonical_path": "/zh/tests/mbti-personality-test-16-personality-types",
+    "target_slug": "mbti-personality-test-16-personality-types",
+    "status": "draft_proposal_only",
+    "publish_policy": "do_not_publish_without_human_review",
+    "content_authority": "cms_landing_surfaces_or_page_blocks",
+    "frontend_runtime_copy": false
+  },
+  "landing_surface_v1": {
+    "version": "landing.surface.v1",
+    "landing_contract_version": "landing.surface.v1",
+    "landing_scope": "public_indexable_test_detail",
+    "entry_surface": "test_detail",
+    "entry_type": "mbti_test",
+    "locale": "zh-CN",
+    "canonical_path": "/zh/tests/mbti-personality-test-16-personality-types",
+    "seo": {
+      "title": "MBTI人格测试｜16型人格与职业方向参考",
+      "description": "通过 MBTI 16 型人格测试了解能量来源、信息处理、决策偏好和生活方式倾向，并结合职业方向、类型解读与 FAQ 做辅助参考。"
+    },
+    "blocks": [
+      {
+        "id": "mbti-landing-types-overview",
+        "type": "types_overview",
+        "title": "16型人格总览",
+        "body": "MBTI 将人格偏好组合为 16 种类型，用来描述一个人更习惯如何获得能量、观察信息、做决定和组织生活。它适合用于自我理解、沟通复盘和职业探索的起点，但不是医学诊断，也不应被当作固定标签。",
+        "internal_links": [
+          { "label": "人格类型总览", "href": "/zh/personality", "canonical_status": "existing_route" },
+          { "label": "INTJ", "href": "/zh/personality/intj", "canonical_status": "existing_dynamic_route" },
+          { "label": "INTP", "href": "/zh/personality/intp", "canonical_status": "existing_dynamic_route" },
+          { "label": "ENTJ", "href": "/zh/personality/entj", "canonical_status": "existing_dynamic_route" },
+          { "label": "ENTP", "href": "/zh/personality/entp", "canonical_status": "existing_dynamic_route" },
+          { "label": "INFJ", "href": "/zh/personality/infj", "canonical_status": "existing_dynamic_route" },
+          { "label": "INFP", "href": "/zh/personality/infp", "canonical_status": "existing_dynamic_route" },
+          { "label": "ENFJ", "href": "/zh/personality/enfj", "canonical_status": "existing_dynamic_route" },
+          { "label": "ENFP", "href": "/zh/personality/enfp", "canonical_status": "existing_dynamic_route" },
+          { "label": "ISTJ", "href": "/zh/personality/istj", "canonical_status": "existing_dynamic_route" },
+          { "label": "ISFJ", "href": "/zh/personality/isfj", "canonical_status": "existing_dynamic_route" },
+          { "label": "ESTJ", "href": "/zh/personality/estj", "canonical_status": "existing_dynamic_route" },
+          { "label": "ESFJ", "href": "/zh/personality/esfj", "canonical_status": "existing_dynamic_route" },
+          { "label": "ISTP", "href": "/zh/personality/istp", "canonical_status": "existing_dynamic_route" },
+          { "label": "ISFP", "href": "/zh/personality/isfp", "canonical_status": "existing_dynamic_route" },
+          { "label": "ESTP", "href": "/zh/personality/estp", "canonical_status": "existing_dynamic_route" },
+          { "label": "ESFP", "href": "/zh/personality/esfp", "canonical_status": "existing_dynamic_route" }
+        ],
+        "cta": { "id": "mbti-types-overview-cta", "label": "开始MBTI测试", "href": "/zh/tests/mbti-personality-test-16-personality-types/take", "analytics_key": "start_test" },
+        "items": [
+          { "id": "analysts", "title": "分析型", "body": "INTJ、INTP、ENTJ、ENTP 通常更关注概念、结构和长期问题拆解。" },
+          { "id": "diplomats", "title": "外交型", "body": "INFJ、INFP、ENFJ、ENFP 更容易从价值、关系和可能性角度理解问题。" },
+          { "id": "sentinels", "title": "守护型", "body": "ISTJ、ISFJ、ESTJ、ESFJ 通常重视秩序、责任、流程和可执行结果。" },
+          { "id": "explorers", "title": "探索型", "body": "ISTP、ISFP、ESTP、ESFP 更容易被现实反馈、行动体验和灵活机会驱动。" }
+        ],
+        "faq": []
+      },
+      {
+        "id": "mbti-landing-career-direction",
+        "type": "career_direction",
+        "title": "把MBTI结果用于职业方向参考",
+        "body": "MBTI 不会直接告诉你唯一适合的职业，但可以帮助你观察自己在工作中的偏好：你更适合独立研究还是频繁协作，更喜欢抽象规划还是现场解决问题，更看重逻辑一致还是关系影响。职业选择仍需要结合能力、经验、行业机会和现实约束。",
+        "internal_links": [
+          { "label": "职业探索中心", "href": "/zh/career", "canonical_status": "existing_route" },
+          { "label": "职业测试", "href": "/zh/career/tests", "canonical_status": "existing_route" },
+          { "label": "职业库", "href": "/zh/career/jobs", "canonical_status": "existing_route" },
+          { "label": "霍兰德职业兴趣测试", "href": "/zh/tests/holland-career-interest-test-riasec", "canonical_status": "existing_route" }
+        ],
+        "cta": { "id": "mbti-career-direction-cta", "label": "查看职业兴趣测试", "href": "/zh/tests/holland-career-interest-test-riasec" },
+        "items": [
+          { "id": "work_energy", "title": "工作能量", "body": "观察你更容易在独处深思还是高频互动中恢复精力。" },
+          { "id": "decision_context", "title": "决策偏好", "body": "区分你更依赖逻辑一致、客观标准，还是更关注人的感受与关系影响。" },
+          { "id": "execution_style", "title": "执行方式", "body": "理解你更喜欢清晰计划、稳定流程，还是保留调整空间、边做边优化。" }
+        ],
+        "faq": []
+      },
+      {
+        "id": "mbti-landing-comparisons",
+        "type": "comparison",
+        "title": "MBTI、大五人格与霍兰德有什么区别",
+        "body": "MBTI 更偏向描述人格偏好组合；大五人格更常用于连续维度上的人格特质理解；霍兰德 RIASEC 更聚焦职业兴趣与工作环境匹配。三者可以互相补充，但不能互相替代，也不能单独决定一个人的职业或发展路径。",
+        "internal_links": [
+          { "label": "大五人格测试", "href": "/zh/tests/big-five-personality-test-ocean-model", "canonical_status": "existing_route" },
+          { "label": "霍兰德职业兴趣测试", "href": "/zh/tests/holland-career-interest-test-riasec", "canonical_status": "existing_route" },
+          { "label": "人格类型总览", "href": "/zh/personality", "canonical_status": "existing_route" }
+        ],
+        "cta": { "id": "mbti-comparisons-cta", "label": "对照大五人格测试", "href": "/zh/tests/big-five-personality-test-ocean-model" },
+        "items": [
+          { "id": "mbti", "title": "MBTI", "body": "适合快速理解偏好组合、沟通模式和自我叙事。" },
+          { "id": "big_five", "title": "大五人格", "body": "适合从开放性、尽责性、外向性、宜人性、神经质等连续维度理解特质。" },
+          { "id": "riasec", "title": "霍兰德 RIASEC", "body": "适合把兴趣偏好与职业活动、工作环境进行初步对照。" }
+        ],
+        "faq": []
+      },
+      {
+        "id": "mbti-landing-type-internal-links",
+        "type": "internal_links",
+        "title": "继续阅读你的MBTI人格类型",
+        "body": "完成测试后，可以进入对应人格类型页查看更完整的沟通风格、优势盲区和职业参考。类型页适合作为复盘入口，不建议把单次结果当作永久结论。",
+        "internal_links": [
+          { "label": "人格类型总览", "href": "/zh/personality", "canonical_status": "existing_route" },
+          { "label": "INTJ", "href": "/zh/personality/intj", "canonical_status": "existing_dynamic_route" },
+          { "label": "INFJ", "href": "/zh/personality/infj", "canonical_status": "existing_dynamic_route" },
+          { "label": "ENFP", "href": "/zh/personality/enfp", "canonical_status": "existing_dynamic_route" },
+          { "label": "ISFJ", "href": "/zh/personality/isfj", "canonical_status": "existing_dynamic_route" },
+          { "label": "ESTP", "href": "/zh/personality/estp", "canonical_status": "existing_dynamic_route" }
+        ],
+        "cta": { "id": "mbti-type-links-cta", "label": "浏览人格类型", "href": "/zh/personality" },
+        "items": [
+          { "id": "read_after_test", "title": "测试后阅读", "body": "先完成测试，再结合类型页解释具体偏好。" },
+          { "id": "compare_close_types", "title": "对照相近类型", "body": "如果结果接近边界，可以阅读相邻类型，观察哪种描述更贴近日常行为。" }
+        ],
+        "faq": []
+      },
+      {
+        "id": "mbti-landing-faq-updates",
+        "type": "faq",
+        "title": "MBTI测试常见问题",
+        "body": "以下 FAQ 用于补充测试前后的关键疑问，帮助用户理解 MBTI 的适用边界、结果阅读方式和与其他测评的关系。",
+        "internal_links": [
+          { "label": "大五人格测试", "href": "/zh/tests/big-five-personality-test-ocean-model", "canonical_status": "existing_route" },
+          { "label": "霍兰德职业兴趣测试", "href": "/zh/tests/holland-career-interest-test-riasec", "canonical_status": "existing_route" },
+          { "label": "人格类型总览", "href": "/zh/personality", "canonical_status": "existing_route" }
+        ],
+        "cta": { "id": "mbti-faq-cta", "label": "开始测试", "href": "/zh/tests/mbti-personality-test-16-personality-types/take", "analytics_key": "start_test" },
+        "items": [],
+        "faq": [
+          { "id": "faq-mbti-diagnostic-boundary", "question": "MBTI测试是心理诊断吗？", "answer": "不是。MBTI 用于辅助理解人格偏好和沟通方式，不是医学诊断，也不能替代心理咨询、临床评估或职业咨询。" },
+          { "id": "faq-mbti-result-change", "question": "MBTI结果会改变吗？", "answer": "有可能。人的行为会受到年龄、环境、压力和经验影响。建议把结果作为当前阶段的自我观察材料，而不是永久标签。" },
+          { "id": "faq-mbti-career", "question": "MBTI能决定我适合什么职业吗？", "answer": "不能直接决定。它可以提供工作偏好线索，但职业选择还需要结合能力、兴趣、教育背景、机会和现实条件。" },
+          { "id": "faq-mbti-big-five", "question": "MBTI和大五人格应该先做哪个？", "answer": "如果你想快速了解人格类型和沟通偏好，可以先做 MBTI；如果你想从连续维度理解特质，可以补充大五人格。" },
+          { "id": "faq-mbti-riasec", "question": "MBTI和霍兰德职业兴趣测试有什么关系？", "answer": "MBTI 更关注人格偏好，霍兰德 RIASEC 更关注职业兴趣。两者结合阅读，可以更全面地理解自我与职业方向。" }
+        ]
+      }
+    ]
+  }
+}
