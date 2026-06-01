@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-01T11:31:15Z",
+  "updated_at": "2026-06-01T11:31:30Z",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -15021,7 +15021,7 @@
       ],
       "title": "fix(analytics): suppress third-party pageview scripts on private routes",
       "status": "local_checks_passed",
-      "commit_sha": "4388127597ca87fff2adfdce882ec6229164088e",
+      "commit_sha": "111d5265728d1a87065fab08048bd6ef50baf650",
       "pr_url": "",
       "failure_reason": null,
       "merged_at": null,
@@ -15067,9 +15067,14 @@
           "at": "2026-06-01T11:31:15Z",
           "status": "commit_sha_refreshed",
           "summary": "Refreshed ledger commit SHA after amend: 4388127597ca87fff2adfdce882ec6229164088e."
+        },
+        {
+          "at": "2026-06-01T11:31:30Z",
+          "status": "ledger_commit_sha_recorded",
+          "summary": "Recorded implementation commit SHA 111d5265728d1a87065fab08048bd6ef50baf650 before ledger-only follow-up commit."
         }
       ],
-      "updated_at": "2026-06-01T11:31:15Z"
+      "updated_at": "2026-06-01T11:31:30Z"
     },
     {
       "id": "RESULT-EMAIL-FIRST-BINDING-UX-05",
