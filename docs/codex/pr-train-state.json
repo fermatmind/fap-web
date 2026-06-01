@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-01T04:18:50Z",
+  "updated_at": "2026-06-01T04:20:09Z",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -14420,9 +14420,9 @@
         "ANALYTICS-SEO-P0-05"
       ],
       "title": "fix(seo): audit sitemap metadata canonical dynamic routes",
-      "status": "local_checks_passed",
-      "commit_sha": "ebe13911e4ae9c132c1356ffb7a3c1ee1da3700f",
-      "pr_url": "",
+      "status": "pr_open_github_checks_pending",
+      "commit_sha": "7b08344a542b6514efea7e06ae0173e4baa55188",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/962",
       "failure_reason": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -14457,9 +14457,14 @@
           "at": "2026-06-01T04:18:50Z",
           "status": "committed",
           "summary": "Created scoped implementation commit ebe13911e4ae9c132c1356ffb7a3c1ee1da3700f for ANALYTICS-SEO-P1-08."
+        },
+        {
+          "at": "2026-06-01T04:20:09Z",
+          "status": "pr_open_github_checks_pending",
+          "summary": "Opened https://github.com/fermatmind/fap-web/pull/962 after local checks and scope validation passed."
         }
       ],
-      "updated_at": "2026-06-01T04:18:50Z"
+      "updated_at": "2026-06-01T04:20:09Z"
     },
     {
       "id": "ANALYTICS-SEO-P1-06",
