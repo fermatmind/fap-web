@@ -12,7 +12,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: string; orderNo: string }>;
 }): Promise<Metadata> {
-  const { locale: localeParam, orderNo } = await params;
+  const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
   const dict = getDictSync(locale);
 
@@ -20,7 +20,7 @@ export async function generateMetadata({
     title: dict.orders.title,
     robots: NOINDEX_ROBOTS,
     alternates: {
-      canonical: localizedPath(`/orders/${orderNo}`, locale),
+      canonical: localizedPath("/orders/lookup", locale),
     },
   };
 }

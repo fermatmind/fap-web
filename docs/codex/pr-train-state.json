@@ -2,9 +2,9 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-05-31T23:21:38.634632Z",
-  "status": "complete",
-  "phase": "iq_production_launch_closeout",
+  "updated_at": "2026-06-01T02:44:51Z",
+  "status": "active",
+  "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
   "branch_naming_convention": "codex/pr-prac-<nn>-<short-scope>",
   "mode": "local_clone_preferred",
@@ -14024,6 +14024,236 @@
       ],
       "status": "merged",
       "updated_at": "2026-05-31T23:21:38.634632Z"
+    },
+    {
+      "id": "ANALYTICS-SEO-P0-04",
+      "repo": "fap-web",
+      "branch": "codex/analytics-seo-p0-04-private-indexing-privacy",
+      "base": "main",
+      "depends_on": [],
+      "title": "fix(seo): harden private result order share indexing",
+      "status": "pr_open_github_checks_pending",
+      "commit_sha": "651eb24b8bdf2f1ebbcb12011f700662a4f4516d",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/953",
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "checks": {
+        "preflight": "passed: user authorized manifest/state entries and execution order; branch created from latest origin/main.",
+        "workspace_safety": "untracked docs/audits/analytics-seo-p0-p1-scan.md is unrelated and will not be staged.",
+        "pnpm test:contract": "passed: 411 files, 2318 tests.",
+        "pnpm seo:check-sitemap": "passed: sitemap indexability check passed for 261 urls.",
+        "pnpm typecheck": "passed.",
+        "git diff --check": "passed.",
+        "manifest_state_parse": "passed: docs/codex/pr-train.yaml YAML parse and docs/codex/pr-train-state.json JSON parse.",
+        "scope_validation": "passed: tracked diff is limited to ANALYTICS-SEO-P0-04 authorized scope plus user-authorized PR train files."
+      },
+      "events": [
+        {
+          "at": "2026-06-01T02:30:08Z",
+          "status": "implementation_in_progress",
+          "summary": "Initialized ANALYTICS-SEO-P0-04 as the first authorized Analytics/SEO P0-P1 PR train item."
+        },
+        {
+          "at": "2026-06-01T02:43:09Z",
+          "status": "local_checks_passed",
+          "summary": "Hardened private result/order/share indexing and order tracking redaction; required local checks passed and work is ready for user review before the next train item."
+        },
+        {
+          "at": "2026-06-01T02:43:09Z",
+          "status": "committed",
+          "summary": "Created scoped implementation commit 651eb24b8bdf2f1ebbcb12011f700662a4f4516d for ANALYTICS-SEO-P0-04."
+        },
+        {
+          "at": "2026-06-01T02:44:51Z",
+          "status": "pr_open_github_checks_pending",
+          "summary": "Opened https://github.com/fermatmind/fap-web/pull/953 after required local checks and scope validation passed."
+        }
+      ],
+      "updated_at": "2026-06-01T02:44:51Z"
+    },
+    {
+      "id": "ANALYTICS-SEO-P0-01",
+      "repo": "fap-web",
+      "branch": "codex/analytics-seo-p0-01-standardize-events",
+      "base": "main",
+      "depends_on": [
+        "ANALYTICS-SEO-P0-04"
+      ],
+      "title": "feat(analytics): standardize GA4 and Baidu funnel events",
+      "status": "planned",
+      "commit_sha": "",
+      "pr_url": "",
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "checks": {},
+      "events": [
+        {
+          "at": "2026-06-01T02:30:08Z",
+          "status": "planned",
+          "summary": "Initialized planned entry per user-authorized execution order."
+        }
+      ],
+      "updated_at": "2026-06-01T02:30:08Z"
+    },
+    {
+      "id": "ANALYTICS-SEO-P0-02",
+      "repo": "fap-web",
+      "branch": "codex/analytics-seo-p0-02-conversion-docs",
+      "base": "main",
+      "depends_on": [
+        "ANALYTICS-SEO-P0-01"
+      ],
+      "title": "docs(analytics): add conversion setup QA checklist",
+      "status": "planned",
+      "commit_sha": "",
+      "pr_url": "",
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "checks": {},
+      "events": [
+        {
+          "at": "2026-06-01T02:30:08Z",
+          "status": "planned",
+          "summary": "Initialized planned entry per user-authorized execution order."
+        }
+      ],
+      "updated_at": "2026-06-01T02:30:08Z"
+    },
+    {
+      "id": "ANALYTICS-SEO-P0-03",
+      "repo": "fap-web",
+      "branch": "codex/analytics-seo-p0-03-internal-referral-guards",
+      "base": "main",
+      "depends_on": [
+        "ANALYTICS-SEO-P0-02"
+      ],
+      "title": "fix(analytics): guard internal traffic and referral pollution",
+      "status": "planned",
+      "commit_sha": "",
+      "pr_url": "",
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "checks": {},
+      "events": [
+        {
+          "at": "2026-06-01T02:30:08Z",
+          "status": "planned",
+          "summary": "Initialized planned entry per user-authorized execution order."
+        }
+      ],
+      "updated_at": "2026-06-01T02:30:08Z"
+    },
+    {
+      "id": "ANALYTICS-SEO-P0-05",
+      "repo": "fap-web",
+      "branch": "codex/analytics-seo-p0-05-utm-governance",
+      "base": "main",
+      "depends_on": [
+        "ANALYTICS-SEO-P0-03"
+      ],
+      "title": "feat(tracking): add UTM channel governance",
+      "status": "planned",
+      "commit_sha": "",
+      "pr_url": "",
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "checks": {},
+      "events": [
+        {
+          "at": "2026-06-01T02:30:08Z",
+          "status": "planned",
+          "summary": "Initialized planned entry per user-authorized execution order."
+        }
+      ],
+      "updated_at": "2026-06-01T02:30:08Z"
+    },
+    {
+      "id": "ANALYTICS-SEO-P1-08",
+      "repo": "fap-web",
+      "branch": "codex/analytics-seo-p1-08-metadata-sitemap-canonical",
+      "base": "main",
+      "depends_on": [
+        "ANALYTICS-SEO-P0-05"
+      ],
+      "title": "fix(seo): audit sitemap metadata canonical dynamic routes",
+      "status": "planned",
+      "commit_sha": "",
+      "pr_url": "",
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "checks": {},
+      "events": [
+        {
+          "at": "2026-06-01T02:30:08Z",
+          "status": "planned",
+          "summary": "Initialized planned entry per user-authorized execution order."
+        }
+      ],
+      "updated_at": "2026-06-01T02:30:08Z"
+    },
+    {
+      "id": "ANALYTICS-SEO-P1-06",
+      "repo": "fap-web",
+      "branch": "codex/analytics-seo-p1-06-mbti-landing-structure",
+      "base": "main",
+      "depends_on": [
+        "ANALYTICS-SEO-P1-08"
+      ],
+      "title": "feat(seo): thicken MBTI landing structure",
+      "status": "planned",
+      "commit_sha": "",
+      "pr_url": "",
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "checks": {},
+      "events": [
+        {
+          "at": "2026-06-01T02:30:08Z",
+          "status": "planned",
+          "summary": "Initialized planned entry per user-authorized execution order."
+        }
+      ],
+      "updated_at": "2026-06-01T02:30:08Z"
+    },
+    {
+      "id": "ANALYTICS-SEO-P1-07",
+      "repo": "fap-web",
+      "branch": "codex/analytics-seo-p1-07-riasec-landing-structure",
+      "base": "main",
+      "depends_on": [
+        "ANALYTICS-SEO-P1-06"
+      ],
+      "title": "feat(seo): thicken Holland RIASEC landing structure",
+      "status": "planned",
+      "commit_sha": "",
+      "pr_url": "",
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "checks": {},
+      "events": [
+        {
+          "at": "2026-06-01T02:30:08Z",
+          "status": "planned",
+          "summary": "Initialized planned entry per user-authorized execution order."
+        }
+      ],
+      "updated_at": "2026-06-01T02:30:08Z"
     }
   ],
   "sidecar_issues": [

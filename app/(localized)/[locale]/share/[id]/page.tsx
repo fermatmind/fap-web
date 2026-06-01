@@ -41,7 +41,6 @@ export async function generateMetadata({
   const viewModel = buildSharePageViewModel(shareSummary);
   const copy = buildShareMetadataCopy(viewModel);
   const pathname = viewModel.seoSurface?.canonicalUrl || viewModel.publicSurface?.canonicalUrl || `/${locale}/share/${id}`;
-  const fallbackRobotsPolicy = viewModel.publicSurface?.robotsPolicy || "";
 
   return buildPageMetadata({
     locale,
@@ -50,9 +49,7 @@ export async function generateMetadata({
     description: viewModel.seoSurface?.description || copy.description,
     imagePath: `/og/share/${id}`,
     seoSurface: viewModel.seoSurface,
-    noindex: !viewModel.seoSurface
-      ? (fallbackRobotsPolicy ? fallbackRobotsPolicy.includes("noindex") : true)
-      : undefined,
+    noindex: true,
     alternatesByLocale: {
       en: `/en/share/${id}`,
       zh: `/zh/share/${id}`,

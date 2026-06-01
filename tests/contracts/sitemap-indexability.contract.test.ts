@@ -295,12 +295,19 @@ describe("sitemap indexability contract", () => {
     expect(locs.some((loc: string) => loc.includes("/types/") || loc.endsWith("/types"))).toBe(false);
     expect(locs.some((loc: string) => loc.includes("/share/"))).toBe(false);
     expect(locs.some((loc: string) => loc.includes("/result/"))).toBe(false);
+    expect(locs.some((loc: string) => loc.includes("/orders/"))).toBe(false);
     expect(locs.some((loc: string) => loc.includes("/compare/"))).toBe(false);
     expect(locs.some((loc: string) => loc.includes("/history/"))).toBe(false);
     expect(locs.some((loc: string) => /\/relationships(\/|$)/.test(loc))).toBe(false);
     expect(locs.some((loc: string) => /\/take(\/|$)/.test(loc))).toBe(false);
     expect(policy.shouldIncludeInSitemap("/en/relationships/mbti")).toBe(false);
     expect(policy.shouldIncludeInSitemap("/zh/relationships/mbti")).toBe(false);
+    expect(policy.shouldIncludeInSitemap("/en/result/attempt-123")).toBe(false);
+    expect(policy.shouldIncludeInSitemap("/zh/result/attempt-123")).toBe(false);
+    expect(policy.shouldIncludeInSitemap("/en/orders/order-123")).toBe(false);
+    expect(policy.shouldIncludeInSitemap("/zh/orders/order-123")).toBe(false);
+    expect(policy.shouldIncludeInSitemap("/en/share/share-123")).toBe(false);
+    expect(policy.shouldIncludeInSitemap("/zh/share/share-123")).toBe(false);
   });
 
   it("frontend sitemap config excludes known redirect, 404, ops, and private final paths", async () => {
@@ -347,6 +354,12 @@ describe("sitemap indexability contract", () => {
     expect(await config.transform({}, "/zh/career/jobs/product-manager")).toBeNull();
     expect(await config.transform({}, "/en/results/lookup")).toBeNull();
     expect(await config.transform({}, "/zh/results/lookup")).toBeNull();
+    expect(await config.transform({}, "/en/result/attempt-123")).toBeNull();
+    expect(await config.transform({}, "/zh/result/attempt-123")).toBeNull();
+    expect(await config.transform({}, "/en/orders/order-123")).toBeNull();
+    expect(await config.transform({}, "/zh/orders/order-123")).toBeNull();
+    expect(await config.transform({}, "/en/share/share-123")).toBeNull();
+    expect(await config.transform({}, "/zh/share/share-123")).toBeNull();
     expect(await config.transform({}, "/en/ops/content-pages")).toBeNull();
   });
 });

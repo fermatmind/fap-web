@@ -29,6 +29,10 @@ const SENSITIVE_PATH_CONTAINER_SEGMENTS = new Set([
   "results",
 ]);
 
+const SAFE_SENSITIVE_CONTAINER_CHILD_SEGMENTS = new Set([
+  "lookup",
+]);
+
 const SENSITIVE_PATH_VALUE_PATTERNS = [
   /^attempt[-_]/i,
   /^ord(?:er)?[-_]/i,
@@ -89,6 +93,11 @@ function redactPathname(pathname: string): string {
     if (!segment) return segment;
 
     const decodedSegment = safeDecodeURIComponent(segment);
+    if (redactNextSegment && SAFE_SENSITIVE_CONTAINER_CHILD_SEGMENTS.has(decodedSegment.toLowerCase())) {
+      redactNextSegment = false;
+      return segment;
+    }
+
     if (redactNextSegment || SENSITIVE_PATH_VALUE_PATTERNS.some((pattern) => pattern.test(decodedSegment))) {
       redactNextSegment = false;
       return REDACTED_TRACKING_VALUE;
