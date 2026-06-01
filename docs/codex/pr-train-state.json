@@ -15012,6 +15012,34 @@
       "updated_at": "2026-06-01T04:54:14Z"
     },
     {
+      "id": "ANALYTICS-SEO-P0-10",
+      "repo": "fap-web",
+      "branch": "codex/analytics-seo-p0-10-private-route-analytics-suppression",
+      "base": "main",
+      "depends_on": [
+        "ANALYTICS-SEO-P1-07"
+      ],
+      "title": "fix(analytics): suppress third-party pageview scripts on private routes",
+      "status": "pending",
+      "commit_sha": "",
+      "pr_url": "",
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "checks": {
+        "preflight": "not_started: user authorized manifest/state initialization for ANALYTICS-SEO-P0-10 only; implementation branch execution is intentionally deferred."
+      },
+      "events": [
+        {
+          "at": "2026-06-01T10:13:11Z",
+          "status": "pending",
+          "summary": "Added user-authorized P0 follow-up manifest/state entry for private/noindex route third-party analytics script suppression; implementation intentionally not started in this metadata-only update."
+        }
+      ],
+      "updated_at": "2026-06-01T10:13:11Z"
+    },
+    {
       "id": "RESULT-EMAIL-FIRST-BINDING-UX-05",
       "repo": "fap-web",
       "branch": "codex/result-email-first-binding-ux-05",
