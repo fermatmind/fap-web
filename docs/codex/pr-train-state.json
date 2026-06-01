@@ -13940,7 +13940,7 @@
       "depends_on": [],
       "title": "fix(seo): harden private result order share indexing",
       "status": "local_checks_passed",
-      "commit_sha": "",
+      "commit_sha": "651eb24b8bdf2f1ebbcb12011f700662a4f4516d",
       "pr_url": "",
       "failure_reason": null,
       "merged_at": null,
@@ -13966,6 +13966,11 @@
           "at": "2026-06-01T02:43:09Z",
           "status": "local_checks_passed",
           "summary": "Hardened private result/order/share indexing and order tracking redaction; required local checks passed and work is ready for user review before the next train item."
+        },
+        {
+          "at": "2026-06-01T02:43:09Z",
+          "status": "committed",
+          "summary": "Created scoped implementation commit 651eb24b8bdf2f1ebbcb12011f700662a4f4516d for ANALYTICS-SEO-P0-04."
         }
       ],
       "updated_at": "2026-06-01T02:43:09Z"
