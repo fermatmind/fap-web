@@ -15838,13 +15838,13 @@
         "CAREER-DIRECTORY-AUTHORITY-DRIFT-GATE-01"
       ],
       "title": "CAREER-LLMS-FULL-10K-BUDGET-GATE-01 llms-full 10k budget gate",
-      "status": "github_checks_passed_merge_ready",
-      "commit_sha": "37b0159be10bd97da7fe82f1a5aa4fa8fd7c14e5",
+      "status": "merged",
+      "commit_sha": "ecff8f45557349c52255d5a01f2643a81e4acbdb",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/986",
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-01T17:38:54Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "checks": {
         "manifest_registration": {
           "status": "pass",
@@ -15895,6 +15895,11 @@
         "merge_state": {
           "status": "pass",
           "evidence": "GitHub mergeStateStatus=CLEAN for PR #986."
+        },
+        "post_merge_revalidate": {
+          "status": "pass",
+          "command": "pnpm exec vitest run tests/contracts/career-llms-full-10k-budget-gate-01.contract.test.ts tests/contracts/llms-route-fanout.contract.test.ts",
+          "evidence": "2 files, 7 tests passed after merge commit a237fa67e1cf32f40a9fe5f4d79ccdd9e46d289d."
         }
       },
       "events": [
@@ -15922,6 +15927,11 @@
           "at": "2026-06-01T17:35:02Z",
           "event": "github_checks_passed_merge_ready",
           "note": "GitHub checks passed and PR #986 mergeStateStatus is CLEAN."
+        },
+        {
+          "at": "2026-06-01T17:39:45Z",
+          "event": "merged",
+          "note": "PR #986 squash merged as a237fa67e1cf32f40a9fe5f4d79ccdd9e46d289d; remote branch deleted; local main synced; post-merge focused test passed."
         }
       ]
     },
@@ -15935,15 +15945,74 @@
         "CAREER-LLMS-FULL-10K-BUDGET-GATE-01"
       ],
       "title": "CAREER-DIRECTORY-UX-FACETS-PARITY-01 career directory UX facets parity",
-      "status": "planned",
-      "commit_sha": null,
+      "status": "committed_pending_pr",
+      "commit_sha": "pending_pr_head",
       "pr_url": null,
       "failure_reason": null,
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "checks": {},
-      "events": []
+      "checks": {
+        "manifest_registration": {
+          "status": "pass",
+          "evidence": "User authorized all eight career 10k scale train entries; this fap-web entry exists in manifest/state."
+        },
+        "dependency": {
+          "status": "pass",
+          "evidence": "CAREER-LLMS-FULL-10K-BUDGET-GATE-01 merged in fap-web PR #986, merge commit a237fa67e1cf32f40a9fe5f4d79ccdd9e46d289d."
+        },
+        "scope_boundaries": {
+          "status": "pass",
+          "evidence": "Scope is limited to career jobs directory UX/facets/pagination/empty state, focused contracts, report artifacts, and train metadata."
+        },
+        "focused_contract": {
+          "status": "pass",
+          "command": "pnpm exec vitest run tests/contracts/career-directory-ux-facets-parity-01.contract.test.tsx tests/contracts/career-query-canonical.contract.test.tsx",
+          "evidence": "2 files, 7 tests passed."
+        },
+        "lint": {
+          "status": "pass",
+          "command": "pnpm lint .",
+          "evidence": "Exited 0 with existing warnings only."
+        },
+        "typecheck": {
+          "status": "pass",
+          "command": "pnpm typecheck",
+          "evidence": "Exited 0."
+        },
+        "build": {
+          "status": "pass",
+          "command": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build",
+          "evidence": "Next.js build and sitemap postbuild completed successfully; generated sitemap side effect was restored out of scope."
+        },
+        "contract_suite": {
+          "status": "pass",
+          "command": "pnpm test:contract",
+          "evidence": "426 files, 2382 tests passed."
+        },
+        "json_yaml_diff": {
+          "status": "pass",
+          "command": "python3 -m json.tool docs/seo/generated/career-directory-ux-facets-parity-01.v1.json >/dev/null && python3 -m json.tool docs/codex/pr-train-state.json >/dev/null && python3 - <<'PY'\nimport yaml, pathlib\nyaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text())\nprint('yaml ok')\nPY\ngit diff --check",
+          "evidence": "Generated JSON, state JSON, manifest YAML, and diff whitespace checks passed."
+        }
+      },
+      "events": [
+        {
+          "at": "2026-06-01T17:42:00Z",
+          "event": "implementation_in_progress",
+          "note": "Started career directory UX facets parity after PR #986 merged and post-merge focused test passed."
+        },
+        {
+          "at": "2026-06-01T17:52:08Z",
+          "event": "local_checks_passed",
+          "note": "Focused contract, lint, typecheck, production-API build, full contract suite, JSON/YAML parse, and diff checks passed."
+        },
+        {
+          "at": "2026-06-01T17:53:23Z",
+          "event": "committed_pending_pr",
+          "note": "Committed scoped career directory UX facets parity changes."
+        }
+      ]
     }
   ],
   "sidecar_issues": [

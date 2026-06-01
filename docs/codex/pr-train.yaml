@@ -10402,7 +10402,7 @@ prs:
       - CAREER-DIRECTORY-AUTHORITY-DRIFT-GATE-01
     mode: execute
     train_scope: career_10k_scale_architecture
-    status: in_progress
+    status: merged
     title: "CAREER-LLMS-FULL-10K-BUDGET-GATE-01 llms-full 10k budget gate"
     goal: "Add a 10k-scale llms-full synthetic budget gate proving artifact-first behavior, no runtime fanout, and degraded 200 fallback without requesting 20k detail APIs."
     in_scope:
@@ -10447,7 +10447,7 @@ prs:
       - CAREER-LLMS-FULL-10K-BUDGET-GATE-01
     mode: execute
     train_scope: career_10k_scale_architecture
-    status: planned
+    status: in_progress
     title: "CAREER-DIRECTORY-UX-FACETS-PARITY-01 career directory UX facets parity"
     goal: "Improve EN/ZH career directory facet, pagination, count, empty/error, and mobile UX without changing backend authority or indexability policy."
     in_scope:
