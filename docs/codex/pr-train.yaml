@@ -9385,7 +9385,7 @@ prs:
       - ANALYTICS-SEO-P0-02
     mode: execute
     train_scope: analytics_seo_p0_p1
-    status: in_progress
+    status: merged
     title: "fix(analytics): guard internal traffic and referral pollution"
     goal: "Prevent local, preview, staging, admin, analytics-dashboard, and team traffic from polluting production analytics without hardcoding team IPs."
     in_scope:
@@ -9424,7 +9424,7 @@ prs:
       - ANALYTICS-SEO-P0-03
     mode: execute
     train_scope: analytics_seo_p0_p1
-    status: planned
+    status: in_progress
     title: "feat(tracking): add UTM channel governance"
     goal: "Add shared UTM channel configuration and apply it to footer, social, share, and external propagation links."
     in_scope:

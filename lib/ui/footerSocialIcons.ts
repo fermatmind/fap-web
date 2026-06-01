@@ -1,6 +1,7 @@
 import * as simpleIcons from "simple-icons";
 import type { SimpleIcon } from "simple-icons";
 import { backendStaticMediaUrl } from "@/lib/cms/media";
+import { appendGovernedUtmParamsToHref } from "@/lib/tracking/utmGovernance";
 
 type FooterIcon = Pick<SimpleIcon, "title" | "slug" | "path">;
 
@@ -28,31 +29,34 @@ function requireSimpleIcon(exportName: string): FooterIcon {
 export const FOOTER_SOCIAL_ITEMS: FooterSocialItem[] = [
   {
     key: "fb",
-    href: "https://www.facebook.com/share/187MVbQteV/?mibextid=wwXIfr",
+    href: appendGovernedUtmParamsToHref("https://www.facebook.com/share/187MVbQteV/?mibextid=wwXIfr", "facebook_social"),
     icon: requireSimpleIcon("siFacebook"),
     labels: { zh: "Facebook", en: "Facebook" },
   },
   {
     key: "x",
-    href: "https://x.com/fermatmind?s=21",
+    href: appendGovernedUtmParamsToHref("https://x.com/fermatmind?s=21", "x_social"),
     icon: requireSimpleIcon("siX"),
     labels: { zh: "X", en: "X" },
   },
   {
     key: "yt",
-    href: "https://youtube.com/@fermatmind?si=ey5H_jcts0qcvgha",
+    href: appendGovernedUtmParamsToHref("https://youtube.com/@fermatmind?si=ey5H_jcts0qcvgha", "youtube_video"),
     icon: requireSimpleIcon("siYoutube"),
     labels: { zh: "YouTube", en: "YouTube" },
   },
   {
     key: "ig",
-    href: "https://www.instagram.com/fermatmind?igsh=MWZkYmMzbDUwMG5lbA%3D%3D&utm_source=qr",
+    href: appendGovernedUtmParamsToHref(
+      "https://www.instagram.com/fermatmind?igsh=MWZkYmMzbDUwMG5lbA%3D%3D&utm_source=qr",
+      "instagram_social"
+    ),
     icon: requireSimpleIcon("siInstagram"),
     labels: { zh: "Instagram", en: "Instagram" },
   },
   {
     key: "reddit",
-    href: "https://www.reddit.com/u/Fermatmind/s/Crmp7aBDwl",
+    href: appendGovernedUtmParamsToHref("https://www.reddit.com/u/Fermatmind/s/Crmp7aBDwl", "reddit_social"),
     icon: requireSimpleIcon("siReddit"),
     labels: { zh: "Reddit", en: "Reddit" },
   },
@@ -66,31 +70,37 @@ export const FOOTER_SOCIAL_ITEMS: FooterSocialItem[] = [
   },
   {
     key: "weibo",
-    href: "https://weibo.com/u/8337437164",
+    href: appendGovernedUtmParamsToHref("https://weibo.com/u/8337437164", "weibo_social"),
     icon: requireSimpleIcon("siSinaweibo"),
     labels: { zh: "微博", en: "Weibo" },
   },
   {
     key: "xhs",
-    href: "https://xhslink.com/m/2U3LsFiOnJp",
+    href: appendGovernedUtmParamsToHref("https://xhslink.com/m/2U3LsFiOnJp", "xiaohongshu_social"),
     icon: requireSimpleIcon("siXiaohongshu"),
     labels: { zh: "小红书", en: "Xiaohongshu" },
   },
   {
     key: "b",
-    href: "https://space.bilibili.com/3690991607351687?spm_id_from=333.1007.0.0",
+    href: appendGovernedUtmParamsToHref(
+      "https://space.bilibili.com/3690991607351687?spm_id_from=333.1007.0.0",
+      "bilibili_video"
+    ),
     icon: requireSimpleIcon("siBilibili"),
     labels: { zh: "B站", en: "Bilibili" },
   },
   {
     key: "dy",
-    href: "https://www.douyin.com/user/self?from_tab_name=main&modal_id=7592567325989074811&showTab=post",
+    href: appendGovernedUtmParamsToHref(
+      "https://www.douyin.com/user/self?from_tab_name=main&modal_id=7592567325989074811&showTab=post",
+      "douyin_social"
+    ),
     icon: requireSimpleIcon("siTiktok"),
     labels: { zh: "抖音", en: "Douyin" },
   },
   {
     key: "tt",
-    href: "https://www.tiktok.com/@fermatmind?_r=1&_t=ZS-94ywEJb7ofZ",
+    href: appendGovernedUtmParamsToHref("https://www.tiktok.com/@fermatmind?_r=1&_t=ZS-94ywEJb7ofZ", "tiktok_social"),
     icon: requireSimpleIcon("siTiktok"),
     labels: { zh: "TikTok", en: "TikTok" },
   },
