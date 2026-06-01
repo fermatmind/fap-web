@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-01T03:08:32Z",
+  "updated_at": "2026-06-01T03:28:20Z",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -14124,12 +14124,12 @@
       "base": "main",
       "depends_on": [],
       "title": "fix(seo): harden private result order share indexing",
-      "status": "pr_open_github_checks_pending",
-      "commit_sha": "651eb24b8bdf2f1ebbcb12011f700662a4f4516d",
+      "status": "merged",
+      "commit_sha": "dd3dc311db5ca6c5e8c89cbe56323e9a5a0ac637",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/953",
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
+      "merged_at": "2026-06-01T02:48:29Z",
+      "remote_branch_deleted": true,
       "local_cleanup_executed": false,
       "checks": {
         "preflight": "passed: user authorized manifest/state entries and execution order; branch created from latest origin/main.",
@@ -14139,7 +14139,9 @@
         "pnpm typecheck": "passed.",
         "git diff --check": "passed.",
         "manifest_state_parse": "passed: docs/codex/pr-train.yaml YAML parse and docs/codex/pr-train-state.json JSON parse.",
-        "scope_validation": "passed: tracked diff is limited to ANALYTICS-SEO-P0-04 authorized scope plus user-authorized PR train files."
+        "scope_validation": "passed: tracked diff is limited to ANALYTICS-SEO-P0-04 authorized scope plus user-authorized PR train files.",
+        "github_required_checks": "passed before merge: PR #953 merged successfully.",
+        "post_merge_cleanup": "passed: origin/main contains dd3dc311db5ca6c5e8c89cbe56323e9a5a0ac637; local task branch deleted; remote task branch absent."
       },
       "events": [
         {
@@ -14161,9 +14163,14 @@
           "at": "2026-06-01T02:44:51Z",
           "status": "pr_open_github_checks_pending",
           "summary": "Opened https://github.com/fermatmind/fap-web/pull/953 after required local checks and scope validation passed."
+        },
+        {
+          "at": "2026-06-01T03:11:40Z",
+          "status": "merged",
+          "summary": "Reconciled ANALYTICS-SEO-P0-04 as merged at dd3dc311db5ca6c5e8c89cbe56323e9a5a0ac637 before starting ANALYTICS-SEO-P0-01."
         }
       ],
-      "updated_at": "2026-06-01T02:44:51Z"
+      "updated_at": "2026-06-01T03:11:40Z"
     },
     {
       "id": "ANALYTICS-SEO-P0-01",
@@ -14174,22 +14181,58 @@
         "ANALYTICS-SEO-P0-04"
       ],
       "title": "feat(analytics): standardize GA4 and Baidu funnel events",
-      "status": "planned",
-      "commit_sha": "",
-      "pr_url": "",
+      "status": "pr_open_github_checks_pending",
+      "commit_sha": "63197a424b28603101815c1c606a270272448de9",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/957",
       "failure_reason": null,
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "checks": {},
+      "checks": {
+        "preflight": "passed: dependency ANALYTICS-SEO-P0-04 is merged into origin/main; branch created from origin/main dd3dc311db5ca6c5e8c89cbe56323e9a5a0ac637.",
+        "focused_contracts": "passed: pnpm exec vitest run tests/contracts/analytics-scripts.contract.test.ts tests/contracts/tracking-activation-contract.contract.test.ts tests/contracts/seo-funnel-tracking-taxonomy.contract.test.ts.",
+        "focused_regression_contracts": "passed: analytics payload privacy, MBTI funnel observability, and scope-boundary regression subset.",
+        "pnpm typecheck": "passed.",
+        "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build": "passed; generated public/sitemap.xml drift restored as out of scope.",
+        "pnpm test:contract": "passed after rebase: 413 files, 2326 tests.",
+        "rebase_on_origin_main": "passed: branch rebased onto origin/main bebb0391c before force-with-lease push; state ledger conflict resolved without changing implementation scope.",
+        "manifest_state_parse": "passed: docs/codex/pr-train.yaml YAML parse and docs/codex/pr-train-state.json JSON parse.",
+        "git diff --check": "passed.",
+        "scope_validation": "passed: tracked diff is limited to ANALYTICS-SEO-P0-01 authorized scope."
+      },
       "events": [
         {
           "at": "2026-06-01T02:30:08Z",
           "status": "planned",
           "summary": "Initialized planned entry per user-authorized execution order."
+        },
+        {
+          "at": "2026-06-01T03:11:40Z",
+          "status": "implementation_in_progress",
+          "summary": "Started GA4/Baidu conversion taxonomy implementation on codex/analytics-seo-p0-01-standardize-events."
+        },
+        {
+          "at": "2026-06-01T03:18:28Z",
+          "status": "local_checks_passed",
+          "summary": "Standardized GA4/Baidu conversion taxonomy and payloads; required local checks, production build, full contract suite, and scope validation passed."
+        },
+        {
+          "at": "2026-06-01T03:19:06Z",
+          "status": "committed",
+          "summary": "Created scoped implementation commit 49075638fe5399acaf9cf6afe81ce7a3e5e4ef88 for ANALYTICS-SEO-P0-01."
+        },
+        {
+          "at": "2026-06-01T03:20:01Z",
+          "status": "pr_open_github_checks_pending",
+          "summary": "Opened https://github.com/fermatmind/fap-web/pull/957 after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-06-01T03:28:20Z",
+          "status": "rebased_local_checks_passed",
+          "summary": "Rebased onto latest origin/main bebb0391c; reran typecheck, production build, focused contracts, full contract suite, manifest/state parsing, git diff --check, and scope validation successfully."
         }
       ],
-      "updated_at": "2026-06-01T02:30:08Z"
+      "updated_at": "2026-06-01T03:28:20Z"
     },
     {
       "id": "ANALYTICS-SEO-P0-02",

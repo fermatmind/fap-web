@@ -475,6 +475,21 @@ const ANALYTICS_SEO_P0_04_ALLOWED_FILES = new Set([
   "tests/contracts/sitemap-indexability.contract.test.ts",
 ]);
 
+const ANALYTICS_SEO_P0_01_ALLOWED_FILES = new Set([
+  "docs/analytics/generated/tracking-activation-contract.v1.json",
+  "docs/analytics/tracking-activation-runbook.md",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "lib/tracking/client.ts",
+  "lib/tracking/events.ts",
+  "tests/contracts/analytics-scripts.contract.test.ts",
+  "tests/contracts/analytics-payload-privacy.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/mbti-funnel-unlock-observability.contract.test.ts",
+  "tests/contracts/seo-funnel-tracking-taxonomy.contract.test.ts",
+  "tests/contracts/tracking-activation-contract.contract.test.ts",
+]);
+
 const PR_WEB_SEC_32_ALLOWED_FILES = new Set([
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -1154,6 +1169,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/analytics-seo-p0-04-private-indexing-privacy") {
     return ANALYTICS_SEO_P0_04_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/analytics-seo-p0-01-standardize-events") {
+    return ANALYTICS_SEO_P0_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-web-sec-32-landing-rollout-seed") {

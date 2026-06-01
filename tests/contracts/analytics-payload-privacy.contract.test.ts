@@ -208,7 +208,7 @@ describe("analytics payload privacy contract", () => {
       path: "/zh/orders/ord_not_observable_without_consent",
     });
 
-    expect(gtagMock).toHaveBeenCalledWith("event", "start_attempt", expect.any(Object));
+    expect(gtagMock).toHaveBeenCalledWith("event", "start_test", expect.any(Object));
     expect(gtagMock).toHaveBeenCalledWith("event", "begin_checkout", expect.any(Object));
     expect(fetchMock).toHaveBeenCalledTimes(2);
     const body = JSON.parse(String(fetchMock.mock.calls[0]?.[1]?.body ?? "{}")) as {
@@ -224,6 +224,8 @@ describe("analytics payload privacy contract", () => {
       test_slug: "holland-career-interest-test-riasec",
       scale_code: "RIASEC",
       form_code: "riasec_60",
+      test_type: "holland",
+      test_version: "riasec_60",
       locale: "zh",
     });
     expect(JSON.stringify(body)).not.toContain("person@example.com");

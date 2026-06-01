@@ -33,8 +33,13 @@ describe("MBTI funnel and unlock observability contract", () => {
     expect(trackingClient).toContain('"click_unlock"');
     expect(trackingClient).toContain('"create_order"');
     expect(trackingClient).toContain('if (eventName !== "purchase_success") return;');
-    expect(trackingClient).not.toContain('eventName === "create_order"');
-    expect(trackingClient).not.toContain('eventName === "click_unlock"');
+
+    const googleAdsBridge = trackingClient.slice(
+      trackingClient.indexOf("function dispatchGoogleAdsPurchaseConversion"),
+      trackingClient.indexOf("function dispatchBrowserAnalyticsEvent")
+    );
+    expect(googleAdsBridge).not.toContain('"create_order"');
+    expect(googleAdsBridge).not.toContain('"click_unlock"');
   });
 
   it("preserves safe SEO attribution for MBTI unlock and order events while dropping PII", () => {

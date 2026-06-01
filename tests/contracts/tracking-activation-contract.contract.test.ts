@@ -1,7 +1,9 @@
 import { readFileSync } from "node:fs";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import {
+  buildBaiduTongjiConversionEvent,
   buildGoogleAdsPurchaseConversionPayload,
+  enrichStandardConversionPayload,
   trackClientEvent,
 } from "@/lib/tracking/client";
 import { TRACKING_EVENTS } from "@/lib/tracking/events";
@@ -78,7 +80,14 @@ describe("tracking activation contract", () => {
     expect(contract.profileMemoryChanged).toBe(false);
     expect(contract.checkoutChanged).toBe(false);
     expect(contract.reportEntitlementChanged).toBe(false);
-    expect(contract.eventMapping?.purchase_success).toBe("ga4_purchase_and_google_ads_purchase_conversion");
+    expect(contract.eventMapping).toMatchObject({
+      start_attempt: "ga4_start_test",
+      submit_attempt: "ga4_complete_test",
+      view_result: "ga4_view_result",
+      click_unlock: "ga4_click_deep_report",
+      create_order: "ga4_begin_checkout",
+      purchase_success: "ga4_purchase_success_and_google_ads_purchase_conversion",
+    });
     expect(contract.canonicalFunnelEvents).toEqual([
       "start_attempt",
       "submit_attempt",
@@ -167,11 +176,51 @@ describe("tracking activation contract", () => {
       path: "/zh/orders/ord_ads_purchase_001",
     });
 
-    expect(gtagMock).toHaveBeenCalledWith("event", "purchase", expect.any(Object));
+    expect(gtagMock).toHaveBeenCalledWith("event", "purchase_success", expect.any(Object));
     expect(gtagMock).toHaveBeenCalledWith("event", "conversion", {
       send_to: "AW-TEST1234/purchase_label_test",
       value: 88,
       currency: "CNY",
+    });
+  });
+
+  it("builds standardized GA4 and Baidu conversion payload fields", () => {
+    const rawPayload = enrichStandardConversionPayload(TRACKING_EVENTS.CREATE_ORDER, {
+      scale_code: "RIASEC",
+      form_code: "riasec_60",
+      amount: 68,
+      currency: "CNY",
+      locale: "zh",
+    });
+
+    expect(rawPayload).toMatchObject({
+      test_type: "holland",
+      test_version: "riasec_60",
+      value: 68,
+      currency: "CNY",
+      locale: "zh",
+    });
+
+    expect(
+      buildBaiduTongjiConversionEvent(TRACKING_EVENTS.START_ATTEMPT, {
+        test_type: "mbti",
+        locale: "zh",
+      })
+    ).toEqual({
+      category: "test",
+      action: "start",
+      label: "mbti",
+    });
+    expect(
+      buildBaiduTongjiConversionEvent(TRACKING_EVENTS.CLICK_UNLOCK, {
+        test_type: "big_five",
+        report_type: "deep",
+        locale: "zh",
+      })
+    ).toEqual({
+      category: "report",
+      action: "click",
+      label: "big_five",
     });
   });
 

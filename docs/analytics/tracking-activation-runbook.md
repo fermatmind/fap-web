@@ -9,7 +9,7 @@ Scope: PR-TRACK-01, GA4 + Baidu Tongji + Google Ads purchase conversion activati
 - Google Ads purchase conversion bridge: env gated by `NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID` and `NEXT_PUBLIC_GOOGLE_ADS_PURCHASE_CONVERSION_LABEL`.
 - GTM: not used.
 - Baidu Ads: not used.
-- Baidu Tongji event tracking keeps the existing `_hmt.push(["_trackEvent", ...])` bridge. This PR does not add Baidu Ads `bp.js` or Baidu marketing conversion tracking.
+- Baidu Tongji event tracking keeps the existing `_hmt.push(["_trackEvent", ...])` bridge and standardizes conversion category/action/label values. This PR does not add Baidu Ads `bp.js` or Baidu marketing conversion tracking.
 
 ## Production Environment
 
@@ -35,13 +35,26 @@ NEXT_PUBLIC_GOOGLE_ADS_BEGIN_CHECKOUT_CONVERSION_LABEL=
 
 | Internal event | GA4 event | Google Ads purchase conversion |
 | --- | --- | --- |
-| `start_attempt` | `start_attempt` | no |
-| `submit_attempt` | `submit_attempt` | no |
+| `start_attempt` | `start_test` | no |
+| `submit_attempt` | `complete_test` | no |
 | `view_result` | `view_result` | no |
-| `click_unlock` | `click_unlock` | no |
+| `click_unlock` | `click_deep_report` | no |
 | `create_order` | `begin_checkout` | no |
 | `payment_confirmed` | `add_payment_info` | no |
-| `purchase_success` | `purchase` | yes |
+| `purchase_success` | `purchase_success` | yes |
+
+Baidu Tongji conversion events use `_hmt.push(["_trackEvent", category, action, label])` with:
+
+| GA4 key event | Baidu category | Baidu action |
+| --- | --- | --- |
+| `start_test` | `test` | `start` |
+| `complete_test` | `test` | `complete` |
+| `view_result` | `result` | `view` |
+| `click_deep_report` | `report` | `click` |
+| `begin_checkout` | `checkout` | `begin` |
+| `purchase_success` | `purchase` | `success` |
+
+The Baidu label is derived from safe test context such as `test_type`, `scale_code`, `form_code`, `test_slug`, or `slug`.
 
 Legacy scale-specific events are accepted only as aliases and are normalized before browser/network dispatch:
 
@@ -65,7 +78,7 @@ Google Ads purchase conversion payload:
 - `send_to`: `${NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID}/${NEXT_PUBLIC_GOOGLE_ADS_PURCHASE_CONVERSION_LABEL}`
 - `value`: first finite value from `amount`, `value`, or `price`; omitted when absent.
 - `currency`: from `payload.currency`; no default currency is invented by this bridge.
-- `transaction_id`: first available value from `order_no`, `orderNo`, `order_id`, or `transaction_id`; omitted when absent.
+- `transaction_id`: not sent by the Google Ads bridge; ordinary analytics payloads use the shared tracking redaction policy before dispatch.
 
 `create_order` and `payment_confirmed` must never dispatch Google Ads purchase conversion. `pay_success` may remain in older product paths, but it is normalized to `purchase_success` before dispatch. Email and other PII fields are filtered before GA4, Google Ads, Baidu Tongji, `/api/track`, URL query payloads, and public HTML.
 
@@ -76,7 +89,7 @@ Google Ads purchase conversion payload:
 3. In GA4 Realtime or DebugView, confirm funnel events appear.
 4. In Google Ads conversion diagnostics, confirm the Google tag is detected.
 5. In Baidu Tongji realtime visitors, confirm a page visit appears.
-6. Complete a paid purchase flow and confirm GA4 `purchase` plus Google Ads `conversion` are observable.
+6. Complete a paid purchase flow and confirm GA4 `purchase_success` plus Google Ads `conversion` are observable.
 
 ## Prohibitions
 

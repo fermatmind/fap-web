@@ -4631,7 +4631,7 @@ prs:
     mode: execute
     train_scope: research_asset_runtime_mvp
     risk_level: L2
-    status: in_progress
+    status: merged
     title: "feat(research): add Research Asset runtime MVP"
     goal: "Add a backend/CMS-authoritative Research Asset detail rendering shell without publishing Research content or widening sitemap/llms exposure."
     in_scope:
@@ -4682,7 +4682,7 @@ prs:
     mode: execute
     train_scope: riasec_feedback_action_lab_visible_renderer
     risk_level: L1
-    status: planned
+    status: in_progress
     title: "Frontend fail-closed renderer for Action Lab and next exploration nodes"
     goal: "Consume backend-authoritative Action Lab / next exploration nodes payload only when a visible frontend module is explicitly required."
     in_scope:

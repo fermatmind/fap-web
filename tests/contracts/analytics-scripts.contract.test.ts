@@ -143,10 +143,14 @@ describe("analytics scripts contract", () => {
     }
   });
 
-  it("maps purchase funnel events to GA4 ecommerce event names", () => {
+  it("maps funnel events to GA4 key-event taxonomy names", () => {
+    expect(mapTrackingEventToGa4Name(TRACKING_EVENTS.START_ATTEMPT)).toBe("start_test");
+    expect(mapTrackingEventToGa4Name(TRACKING_EVENTS.SUBMIT_ATTEMPT)).toBe("complete_test");
+    expect(mapTrackingEventToGa4Name(TRACKING_EVENTS.VIEW_RESULT)).toBe("view_result");
+    expect(mapTrackingEventToGa4Name(TRACKING_EVENTS.CLICK_UNLOCK)).toBe("click_deep_report");
     expect(mapTrackingEventToGa4Name(TRACKING_EVENTS.CREATE_ORDER)).toBe("begin_checkout");
     expect(mapTrackingEventToGa4Name(TRACKING_EVENTS.PAYMENT_CONFIRMED)).toBe("add_payment_info");
-    expect(mapTrackingEventToGa4Name(TRACKING_EVENTS.PURCHASE_SUCCESS)).toBe("purchase");
-    expect(mapTrackingEventToGa4Name(TRACKING_EVENTS.PAY_SUCCESS)).toBe("purchase");
+    expect(mapTrackingEventToGa4Name(TRACKING_EVENTS.PURCHASE_SUCCESS)).toBe("purchase_success");
+    expect(mapTrackingEventToGa4Name(TRACKING_EVENTS.PAY_SUCCESS)).toBe("purchase_success");
   });
 });
