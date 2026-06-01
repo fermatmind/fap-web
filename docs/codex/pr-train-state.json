@@ -15838,9 +15838,9 @@
         "CAREER-DIRECTORY-AUTHORITY-DRIFT-GATE-01"
       ],
       "title": "CAREER-LLMS-FULL-10K-BUDGET-GATE-01 llms-full 10k budget gate",
-      "status": "committed_pending_pr",
+      "status": "open_pending_checks",
       "commit_sha": "pending_pr_head",
-      "pr_url": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/986",
       "failure_reason": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -15904,6 +15904,11 @@
           "at": "2026-06-01T17:31:18Z",
           "event": "committed_pending_pr",
           "note": "Committed scoped llms-full 10k budget gate changes."
+        },
+        {
+          "at": "2026-06-01T17:34:10Z",
+          "event": "open_pending_checks",
+          "note": "Opened GitHub PR https://github.com/fermatmind/fap-web/pull/986."
         }
       ]
     },
