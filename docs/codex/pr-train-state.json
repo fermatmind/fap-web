@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-01T03:06:20Z",
+  "updated_at": "2026-06-01T03:08:32Z",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -13090,7 +13090,7 @@
       ],
       "status": "pr_opened",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/954",
-      "commit_sha": "4bbf0b0a1519890090eb1c3a71d507d9258e8c39",
+      "commit_sha": "a1a7cf9a3b3a1339490a8f4d0ae02b81e227b916",
       "merge_sha": null,
       "title": "PR-FDN-SOCIAL-LINK-DISPLAY-IMPLEMENTATION-01: Display Daily Giving manual social links",
       "artifacts": [
@@ -13158,6 +13158,11 @@
           "at": "2026-06-01T03:06:20Z",
           "status": "pr_opened",
           "summary": "Opened fap-web PR #954 for PR-FDN-SOCIAL-LINK-DISPLAY-IMPLEMENTATION-01 after scoped local validation."
+        },
+        {
+          "at": "2026-06-01T03:08:32Z",
+          "status": "pr_state_reconciled",
+          "summary": "Updated PR train state after amending and force-pushing the implementation branch so the recorded implementation commit matches the pushed PR head."
         }
       ]
     },
