@@ -136,6 +136,7 @@ export default async function CareerJobsPage({
     family: selectedFamily,
     page: directory.pagination.page + 1,
   });
+  const hasActiveFilters = Boolean(submittedQuery || selectedFamily);
 
   return (
     <main className="min-h-screen bg-slate-50">
@@ -150,7 +151,7 @@ export default async function CareerJobsPage({
 
         <section className="space-y-7 text-center" data-testid="career-all-occupations-hero">
           <div className="mx-auto w-full space-y-4">
-            <h1 className="m-0 whitespace-nowrap text-2xl font-semibold tracking-tight text-slate-950 sm:text-3xl md:text-5xl">
+            <h1 className="m-0 mx-auto max-w-4xl text-2xl font-semibold leading-tight tracking-tight text-slate-950 sm:text-3xl md:text-5xl">
               {locale === "zh" ? "测量自己，看见职业，训练未来" : `${occupationCount} occupations, organized by industry`}
             </h1>
             <p className="m-0 text-sm leading-6 text-slate-500" data-testid="career-library-result-summary">
@@ -191,6 +192,27 @@ export default async function CareerJobsPage({
               </div>
             </form>
 
+            {hasActiveFilters ? (
+              <div
+                className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-emerald-100 bg-emerald-50 px-4 py-3 text-sm text-emerald-900"
+                data-testid="career-directory-active-filters"
+              >
+                <p className="m-0">
+                  {locale === "zh" ? "当前筛选：" : "Active filters:"}{" "}
+                  {submittedQuery ? (
+                    <span className="font-semibold">
+                      {locale === "zh" ? "关键词" : "Search"} “{submittedQuery}”
+                    </span>
+                  ) : null}
+                  {submittedQuery && selectedFamilyTitle ? <span> · </span> : null}
+                  {selectedFamilyTitle ? <span className="font-semibold">{selectedFamilyTitle}</span> : null}
+                </p>
+                <Link href={jobsPath} className="text-sm font-semibold underline-offset-4 hover:underline">
+                  {locale === "zh" ? "清除筛选" : "Clear filters"}
+                </Link>
+              </div>
+            ) : null}
+
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
                 <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950">
@@ -203,7 +225,11 @@ export default async function CareerJobsPage({
             </div>
 
             {families.length > 0 ? (
-              <nav className="flex flex-wrap gap-2" aria-label={locale === "zh" ? "职业行业筛选" : "Occupation family filters"}>
+              <nav
+                className="flex flex-wrap gap-2"
+                aria-label={locale === "zh" ? "职业行业筛选" : "Occupation family filters"}
+                data-testid="career-directory-family-facets"
+              >
                 <Link
                   href={buildJobsQueryPath(jobsPath, { query: submittedQuery })}
                   className={[
@@ -234,28 +260,48 @@ export default async function CareerJobsPage({
               locale={locale}
               members={visibleMembers}
               emptyLabel={locale === "zh" ? "没有找到匹配的职业。" : "No matching occupations found."}
+              emptyActionHref={jobsPath}
+              emptyActionLabel={locale === "zh" ? "查看全部职业" : "View all occupations"}
             />
 
             {directory.pagination.totalPages > 1 ? (
-              <nav className="flex items-center justify-between gap-3" aria-label={locale === "zh" ? "职业分页" : "Occupation pagination"}>
+              <nav
+                className="grid grid-cols-[1fr_auto_1fr] items-center gap-3"
+                aria-label={locale === "zh" ? "职业分页" : "Occupation pagination"}
+                data-testid="career-directory-pagination"
+              >
                 {directory.pagination.hasPreviousPage ? (
-                  <Link href={previousPageHref} className={buttonVariants({ variant: "outline" })}>
+                  <Link href={previousPageHref} className={buttonVariants({ variant: "outline" })} data-testid="career-directory-prev-page">
                     {locale === "zh" ? "上一页" : "Previous"}
                   </Link>
                 ) : (
-                  <span />
+                  <span
+                    className="inline-flex h-10 items-center rounded-full border border-slate-100 px-4 text-sm font-semibold text-slate-300"
+                    aria-disabled="true"
+                  >
+                    {locale === "zh" ? "上一页" : "Previous"}
+                  </span>
                 )}
-                <span className="text-sm font-medium text-slate-500">
+                <span className="text-center text-sm font-medium text-slate-500" data-testid="career-directory-page-status">
                   {locale === "zh"
                     ? `第 ${directory.pagination.page} / ${directory.pagination.totalPages} 页`
                     : `Page ${directory.pagination.page} of ${directory.pagination.totalPages}`}
                 </span>
                 {directory.pagination.hasNextPage ? (
-                  <Link href={nextPageHref} className={buttonVariants({ variant: "outline" })}>
+                  <Link
+                    href={nextPageHref}
+                    className={`${buttonVariants({ variant: "outline" })} justify-self-end`}
+                    data-testid="career-directory-next-page"
+                  >
                     {locale === "zh" ? "下一页" : "Next"}
                   </Link>
                 ) : (
-                  <span />
+                  <span
+                    className="inline-flex h-10 items-center justify-self-end rounded-full border border-slate-100 px-4 text-sm font-semibold text-slate-300"
+                    aria-disabled="true"
+                  >
+                    {locale === "zh" ? "下一页" : "Next"}
+                  </span>
                 )}
               </nav>
             ) : null}

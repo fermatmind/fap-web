@@ -11,13 +11,29 @@ type CareerOccupationDirectoryProps = {
   locale: Locale;
   members: CareerDatasetMemberAdapter[];
   emptyLabel: string;
+  emptyActionHref?: string;
+  emptyActionLabel?: string;
 };
 
-export function CareerOccupationDirectory({ locale, members, emptyLabel }: CareerOccupationDirectoryProps) {
+export function CareerOccupationDirectory({
+  locale,
+  members,
+  emptyLabel,
+  emptyActionHref,
+  emptyActionLabel,
+}: CareerOccupationDirectoryProps) {
   if (members.length === 0) {
     return (
-      <div className="rounded-2xl border border-dashed border-slate-200 bg-white p-6 text-sm text-slate-500">
-        {emptyLabel}
+      <div
+        className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-dashed border-slate-200 bg-white p-6 text-sm text-slate-500"
+        data-testid="career-occupation-empty-state"
+      >
+        <span>{emptyLabel}</span>
+        {emptyActionHref && emptyActionLabel ? (
+          <Link href={emptyActionHref} className="font-semibold text-orange-600 underline-offset-4 hover:underline">
+            {emptyActionLabel}
+          </Link>
+        ) : null}
       </div>
     );
   }
@@ -41,7 +57,7 @@ export function CareerOccupationDirectory({ locale, members, emptyLabel }: Caree
           return (
             <article
               key={member.canonicalSlug}
-              className="grid gap-3 px-5 py-4 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)_140px] md:items-center"
+              className="grid gap-3 px-4 py-4 sm:px-5 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)_140px] md:items-center"
               data-testid="career-occupation-row"
               data-career-slug={member.canonicalSlug}
               data-detail-ready={detailReady ? "true" : "false"}
@@ -62,14 +78,22 @@ export function CareerOccupationDirectory({ locale, members, emptyLabel }: Caree
                   {locale === "zh" && member.canonicalTitleZh ? member.canonicalTitleEn : member.canonicalSlug}
                 </p>
               </div>
-              <Link href={familyHref} className="text-sm font-medium text-slate-600 underline-offset-4 hover:text-orange-600 hover:underline">
-                {familyTitle}
-              </Link>
-              <div>
+              <div className="min-w-0" data-testid="career-occupation-family">
+                <span className="mb-1 block text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-400 md:hidden">
+                  {locale === "zh" ? "行业" : "Industry"}
+                </span>
+                <Link href={familyHref} className="break-words text-sm font-medium text-slate-600 underline-offset-4 hover:text-orange-600 hover:underline">
+                  {familyTitle}
+                </Link>
+              </div>
+              <div data-testid="career-occupation-status">
+                <span className="mb-1 block text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-400 md:hidden">
+                  {locale === "zh" ? "状态" : "Status"}
+                </span>
                 {detailReady ? (
                   <Link
                     href={jobHref}
-                    className="inline-flex rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 underline-offset-4 hover:bg-emerald-100 hover:underline"
+                    className="inline-flex max-w-full rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 underline-offset-4 hover:bg-emerald-100 hover:underline"
                   >
                     {locale === "zh" ? "可看详情" : "Detail ready"}
                   </Link>

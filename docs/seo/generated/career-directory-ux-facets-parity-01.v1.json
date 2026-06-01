@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "task": "CAREER-DIRECTORY-UX-FACETS-PARITY-01",
+  "repo": "fap-web",
+  "final_decision": "career_directory_ux_facets_parity_ready_for_search_channel_readiness_gate",
+  "authority_source": "backend career.directory_authority.v1 public API",
+  "frontend_authority_used": false,
+  "backend_authority_changed": false,
+  "cms_mutation_performed": false,
+  "db_mutation_performed": false,
+  "deploy_performed": false,
+  "search_channel_action_performed": false,
+  "url_submission_performed": false,
+  "external_search_api_call_performed": false,
+  "held_slugs_released": false,
+  "held_slugs": [
+    "software-developers",
+    "digital-forensics-analysts",
+    "computer-occupations-all-other"
+  ],
+  "ux_changes": {
+    "h1_wrap_safe": true,
+    "active_filter_summary": true,
+    "family_facets_tested": true,
+    "pagination_status_tested": true,
+    "empty_state_clear_action": true,
+    "mobile_row_labels": true
+  },
+  "metadata_policy": {
+    "base_directory_indexable": true,
+    "query_family_page_noindex": true,
+    "query_family_page_canonical": "/career/jobs"
+  },
+  "validation": {
+    "focused_contract": "pnpm exec vitest run tests/contracts/career-directory-ux-facets-parity-01.contract.test.tsx tests/contracts/career-query-canonical.contract.test.tsx",
+    "typecheck": "pnpm typecheck",
+    "build": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build",
+    "contract_suite": "pnpm test:contract"
+  },
+  "next_task": "CAREER-SEARCH-CHANNEL-READINESS-GATE-01"
+}
