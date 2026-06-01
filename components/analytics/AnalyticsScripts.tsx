@@ -39,6 +39,10 @@ function safeInlineJsonArray(value: readonly string[]): string {
   return JSON.stringify(value).replace(/</g, "\\u003c");
 }
 
+function safeInlineAnalyticsIdParts(value: string): string {
+  return value ? `joinIdParts(${safeInlineJsonArray(value.split("-"))})` : '""';
+}
+
 export function getAnalyticsScriptConfig(env: Partial<NodeJS.ProcessEnv> = process.env): AnalyticsScriptConfig {
   return {
     enabled: env.NEXT_PUBLIC_ANALYTICS_ENABLED === "true",
@@ -55,7 +59,7 @@ export function getAnalyticsScriptConfig(env: Partial<NodeJS.ProcessEnv> = proce
 export function buildAnalyticsBootstrapScript(config: AnalyticsScriptConfig): string {
   const analyticsEnabled = config.enabled ? "true" : "false";
   const gaMeasurementId = safeInlineJson(config.gaMeasurementId);
-  const googleAdsConversionId = safeInlineJson(config.googleAdsConversionId);
+  const googleAdsConversionId = safeInlineAnalyticsIdParts(config.googleAdsConversionId);
   const baiduTongjiId = safeInlineJson(config.baiduTongjiId);
   const deploymentEnvironment = safeInlineJson(config.deploymentEnvironment);
   const allowedHosts = safeInlineJsonArray(config.allowedHosts);
@@ -105,6 +109,10 @@ export function buildAnalyticsBootstrapScript(config: AnalyticsScriptConfig): st
 
   function includes(list, value) {
     return list.indexOf(value) !== -1;
+  }
+
+  function joinIdParts(parts) {
+    return Array.isArray(parts) ? parts.join("-") : "";
   }
 
   function hasSensitiveQuery(search) {

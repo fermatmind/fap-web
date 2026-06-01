@@ -68,7 +68,12 @@ describe("robots contract", () => {
     const orderSource = read("app/(localized)/[locale]/orders/[orderNo]/page.tsx");
     const compareSource = read("app/(localized)/[locale]/compare/mbti/[inviteId]/page.tsx");
 
-    expect(shareSource).toContain("seoSurface: viewModel.seoSurface");
+    expect(shareSource).toContain("seoSurface,");
+    expect(shareSource).toContain("imagePath: DEFAULT_SHARE_IMAGE_URL");
+    expect(shareSource).toContain('en: "/en/share"');
+    expect(shareSource).toContain('zh: "/zh/share"');
+    expect(shareSource).not.toContain("`/og/share/${id}`");
+    expect(shareSource).not.toContain("`/${locale}/share/${id}`");
     expect(shareSource).toContain("noindex: true");
     expect(resultSource).toContain("robots: NOINDEX_ROBOTS");
     expect(orderLookupSource).toContain("robots: NOINDEX_ROBOTS");

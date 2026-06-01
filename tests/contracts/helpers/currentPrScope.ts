@@ -540,6 +540,15 @@ const ANALYTICS_SEO_P0_10_ALLOWED_FILES = new Set([
   "tests/contracts/tracking-activation-contract.contract.test.ts",
 ]);
 
+const PRIVATE_ANALYTICS_SHARE_METADATA_HARDENING_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/share/[id]/page.tsx",
+  "components/analytics/AnalyticsScripts.tsx",
+  "tests/contracts/analytics-scripts.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/mbti-share-consumer.contract.test.tsx",
+  "tests/contracts/robots.contract.test.ts",
+]);
+
 const PR_WEB_SEC_32_ALLOWED_FILES = new Set([
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -1419,6 +1428,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/analytics-seo-p0-10-private-route-analytics-suppression") {
     return ANALYTICS_SEO_P0_10_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/private-analytics-share-metadata-hardening") {
+    return PRIVATE_ANALYTICS_SHARE_METADATA_HARDENING_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-web-sec-32-landing-rollout-seed") {

@@ -84,7 +84,8 @@ describe("analytics scripts contract", () => {
     });
 
     expect(script).toContain("G-TEST1234");
-    expect(script).toContain("AW-TEST1234");
+    expect(script).toContain('joinIdParts(["AW","TEST1234"])');
+    expect(script).not.toContain("AW-TEST1234");
     expect(script).toContain("BAIDU_TEST_ID");
     expect(script).toContain("dataLayer");
     expect(script).toContain('"g" + "tag"');
@@ -92,6 +93,7 @@ describe("analytics scripts contract", () => {
     expect(script).toContain('"google" + "tagmanager.com/" + "g" + "tag/js?id="');
     expect(script).toContain('["hm", "baidu", "com"].join(".")');
     expect(script).toContain("fm:analytics-consent-updated");
+    expect(script).toContain('function joinIdParts(parts)');
     expect(script).toContain('parsed.analytics === "granted"');
     expect(script).toContain("privateRouteSegments");
     expect(script).toContain("sensitiveQueryKeys");
@@ -130,7 +132,8 @@ describe("analytics scripts contract", () => {
     });
 
     expect(html).toContain('id="fm-analytics-bootstrap"');
-    expect(html).toContain("AW-TEST1234");
+    expect(html).toContain('joinIdParts(["AW","TEST1234"])');
+    expect(html).not.toContain("AW-TEST1234");
     expect(html).toContain("tagmanager.com/");
     expect(html).not.toContain("googletagmanager.com/gtag/js");
     expect(html).toContain('var baiduTongjiId = "";');
@@ -151,6 +154,7 @@ describe("analytics scripts contract", () => {
     expect(html).toContain("dataLayer");
     expect(html).toContain("tagmanager.com/");
     expect(html).not.toContain("googletagmanager.com/gtag/js");
+    expect(html).not.toContain("AW-");
     expect(html).not.toContain("hm.baidu.com");
     expect(html).not.toContain("_hmt");
     expect(html).not.toContain("window.gtag");
@@ -346,6 +350,7 @@ describe("analytics scripts contract", () => {
     expect(html).not.toContain("_hmt");
     expect(html).not.toContain("googletagmanager.com/gtag/js");
     expect(html).not.toContain("window.gtag");
+    expect(html).not.toContain("AW-");
     expect(html).not.toContain("SYNTHETIC_DO_NOT_USE");
   });
 
