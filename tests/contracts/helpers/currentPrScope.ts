@@ -1061,6 +1061,17 @@ const CAREER_DETAIL_P95_LATENCY_SCAN_01_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const CAREER_DETAIL_CACHE_BUDGET_REPAIR_01_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/career/jobs/[slug]/page.tsx",
+  "lib/career/api/fetchCareerJobBundle.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/seo/career-detail-cache-budget-repair-01.md",
+  "docs/seo/generated/career-detail-cache-budget-repair-01.v1.json",
+  "tests/contracts/career-detail-cache-budget-repair-01.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 const COOKIE_BANNER_HYDRATION_01_ALLOWED_FILES = new Set([
   "components/legal/CookieBanner.tsx",
   "docs/codex/pr-train.yaml",
@@ -1177,6 +1188,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/career-detail-p95-latency-scan-01") {
     return CAREER_DETAIL_P95_LATENCY_SCAN_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/career-detail-cache-budget-repair-01") {
+    return CAREER_DETAIL_CACHE_BUDGET_REPAIR_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/global-en-zh-content-pages-frontend-runtime-repair-01") {

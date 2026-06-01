@@ -7479,7 +7479,7 @@ prs:
     mode: execute
     train_scope: global_en_zh_content_pages_discoverability_exposure
     risk_level: read_only_readiness_report
-    status: in_progress
+    status: merged
     title: "docs(seo): add content pages discoverability exposure readiness"
     goal: "Produce a read-only discoverability exposure readiness report for the five Wave 1 English content pages without CMS mutation, deploy, Search Channel action, URL submission, sitemap/llms/footer/nav exposure changes, or frontend fallback content."
     in_scope:
@@ -9835,7 +9835,7 @@ prs:
       - ANALYTICS-SEO-P1-07
     mode: execute
     train_scope: analytics_seo_p0_p1
-    status: planned
+    status: in_progress
     title: "fix(analytics): suppress third-party pageview scripts on private routes"
     goal: "Suppress third-party browser analytics scripts on private/noindex route families so Baidu Tongji, GA4, and Google Ads cannot automatically collect raw order, result, share, payment, or token-bearing URLs."
     in_scope:

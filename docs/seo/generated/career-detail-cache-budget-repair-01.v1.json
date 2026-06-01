@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "task": "CAREER-DETAIL-CACHE-BUDGET-REPAIR-01",
+  "mode": "scoped_fap_web_implementation_pr",
+  "final_decision": "career_detail_cache_budget_repair_completed_ready_for_legacy_full_jobs_index_consumer_audit",
+  "previous_scan_artifact": "docs/seo/generated/career-detail-p95-latency-scan-01.v1.json",
+  "implemented_repairs": [
+    {
+      "id": "server_render_bundle_memoization",
+      "file": "app/(localized)/[locale]/career/jobs/[slug]/page.tsx",
+      "description": "Wraps the career detail bundle loader with React cache() so generateMetadata and page render can reuse the same locale/slug load in a server render pass."
+    },
+    {
+      "id": "parallel_seo_authority_fetch",
+      "file": "lib/career/api/fetchCareerJobBundle.ts",
+      "description": "Starts the SEO authority request before awaiting the main career detail bundle when SEO authority is requested."
+    },
+    {
+      "id": "explicit_detail_fetch_budget",
+      "file": "lib/career/api/fetchCareerJobBundle.ts",
+      "description": "Applies an explicit 12000ms fetch budget to career detail and SEO authority requests."
+    }
+  ],
+  "safety_assertions": {
+    "backend_authority_preserved": true,
+    "frontend_fallback_content_added": false,
+    "held_slug_policy_changed": false,
+    "sitemap_url_set_changed": false,
+    "llms_url_set_changed": false,
+    "search_channel_action_performed": false,
+    "url_submission_performed": false,
+    "cms_mutation_performed": false,
+    "db_mutation_performed": false,
+    "deploy_performed": false
+  },
+  "expected_runtime_effect": {
+    "reduces_duplicate_bundle_loads": true,
+    "reduces_serial_backend_wait": true,
+    "keeps_noindex_gates_authority_backed": true,
+    "keeps_held_slugs_unexposed": true
+  },
+  "validation_commands": [
+    "pnpm exec vitest run tests/contracts/career-detail-cache-budget-repair-01.contract.test.ts",
+    "pnpm typecheck",
+    "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build",
+    "pnpm test:contract",
+    "git diff --check",
+    "git diff --cached --check"
+  ],
+  "next_task": "CAREER-LEGACY-FULL-JOBS-INDEX-CONSUMER-AUDIT-01"
+}
