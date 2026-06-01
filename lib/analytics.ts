@@ -6,6 +6,7 @@ import {
   captureAttributionFromLocation,
   readStoredTrackingAttributionPayload,
 } from "@/lib/tracking/attribution";
+import { shouldAllowBrowserAnalyticsRuntime } from "@/lib/tracking/internalTraffic";
 
 const ANALYTICS_ENABLED = process.env.NEXT_PUBLIC_ANALYTICS_ENABLED === "true";
 
@@ -30,7 +31,7 @@ export function clearAnalyticsQueue(): void {
 
 export function initAnalytics(): void {
   if (!isBrowser()) return;
-  if (ANALYTICS_ENABLED && hasAnalyticsConsent()) {
+  if (ANALYTICS_ENABLED && shouldAllowBrowserAnalyticsRuntime({ analyticsEnabled: ANALYTICS_ENABLED }).allowed && hasAnalyticsConsent()) {
     captureAttributionFromLocation({
       pathname: window.location.pathname,
       search: window.location.search,
@@ -44,6 +45,7 @@ export function initAnalytics(): void {
 
 export function trackEvent(eventName: string, properties: AnalyticsProperties = {}): void {
   if (!ANALYTICS_ENABLED || !isBrowser() || !eventName) return;
+  if (!shouldAllowBrowserAnalyticsRuntime({ analyticsEnabled: ANALYTICS_ENABLED }).allowed) return;
   if (!hasAnalyticsConsent()) return;
 
   const locale = getLocaleFromPathname(window.location.pathname);
@@ -68,6 +70,7 @@ export function trackEvent(eventName: string, properties: AnalyticsProperties = 
 
 export function trackObservableFunnelEvent(eventName: string, properties: AnalyticsProperties = {}): void {
   if (!ANALYTICS_ENABLED || !isBrowser() || !eventName) return;
+  if (!shouldAllowBrowserAnalyticsRuntime({ analyticsEnabled: ANALYTICS_ENABLED }).allowed) return;
   if (!hasAnalyticsConsent()) return;
 
   const locale = getLocaleFromPathname(window.location.pathname);

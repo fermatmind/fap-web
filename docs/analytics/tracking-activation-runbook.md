@@ -3,6 +3,7 @@
 Scope: PR-TRACK-01, GA4 + Baidu Tongji + Google Ads purchase conversion activation.
 
 Dashboard setup and operator QA live in [Analytics Conversion Setup QA Checklist](./conversion-setup-qa-checklist.md).
+Internal traffic and referral pollution governance lives in [Internal Traffic and Referral Governance](./internal-traffic-referral-governance.md).
 
 ## Current State
 

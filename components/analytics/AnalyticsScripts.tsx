@@ -1,8 +1,15 @@
+import {
+  getAnalyticsDeploymentEnvironment,
+  parseAnalyticsAllowedHosts,
+} from "@/lib/tracking/internalTraffic";
+
 type AnalyticsScriptConfig = {
   enabled: boolean;
   gaMeasurementId: string;
   googleAdsConversionId: string;
   baiduTongjiId: string;
+  deploymentEnvironment: string;
+  allowedHosts: string[];
 };
 
 function normalizeEnvValue(value: string | undefined): string {
@@ -36,6 +43,8 @@ export function getAnalyticsScriptConfig(env: Partial<NodeJS.ProcessEnv> = proce
       normalizeEnvValue(env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID)
     ),
     baiduTongjiId: normalizeBaiduTongjiId(normalizeEnvValue(env.NEXT_PUBLIC_BAIDU_TONGJI_ID)),
+    deploymentEnvironment: getAnalyticsDeploymentEnvironment(env),
+    allowedHosts: parseAnalyticsAllowedHosts(env.NEXT_PUBLIC_ANALYTICS_ALLOWED_HOSTS),
   };
 }
 
@@ -43,12 +52,16 @@ export function buildAnalyticsBootstrapScript(config: AnalyticsScriptConfig): st
   const gaMeasurementId = safeInlineJson(config.gaMeasurementId);
   const googleAdsConversionId = safeInlineJson(config.googleAdsConversionId);
   const baiduTongjiId = safeInlineJson(config.baiduTongjiId);
+  const deploymentEnvironment = safeInlineJson(config.deploymentEnvironment);
+  const allowedHosts = JSON.stringify(config.allowedHosts).replace(/</g, "\\u003c");
 
   return `
 (function () {
   var gaMeasurementId = ${gaMeasurementId};
   var googleAdsConversionId = ${googleAdsConversionId};
   var baiduTongjiId = ${baiduTongjiId};
+  var deploymentEnvironment = ${deploymentEnvironment};
+  var allowedHosts = ${allowedHosts};
   var consentKey = "fm_consent_v1";
   var loaded = false;
 
@@ -67,6 +80,34 @@ export function buildAnalyticsBootstrapScript(config: AnalyticsScriptConfig): st
     }
   }
 
+  function routeSegment(pathname) {
+    var parts = String(pathname || "").split("?")[0].split("/").filter(Boolean);
+    return parts[0] === "zh" || parts[0] === "en" ? parts[1] : parts[0];
+  }
+
+  function referrerHost(referrer) {
+    if (!referrer) return "";
+    try {
+      return new URL(referrer).hostname.toLowerCase();
+    } catch (error) {
+      return String(referrer).toLowerCase();
+    }
+  }
+
+  function isRuntimeAllowed() {
+    var hostname = window.location.hostname.toLowerCase();
+    var blockedRoute = routeSegment(window.location.pathname);
+    var referrerHostname = referrerHost(document.referrer);
+
+    if (deploymentEnvironment !== "production") return false;
+    if (hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1" || hostname.endsWith(".local")) return false;
+    if (allowedHosts.indexOf(hostname) === -1) return false;
+    if (blockedRoute === "admin" || blockedRoute === "dashboard" || blockedRoute === "internal" || blockedRoute === "analytics-dashboard") return false;
+    if (referrerHostname === "tongji.baidu.com" || referrerHostname === "analytics.google.com") return false;
+
+    return true;
+  }
+
   function loadScript(id, src) {
     if (!src || document.getElementById(id)) return;
     var script = document.createElement("script");
@@ -77,7 +118,7 @@ export function buildAnalyticsBootstrapScript(config: AnalyticsScriptConfig): st
   }
 
   function loadAnalytics() {
-    if (loaded || !hasAnalyticsConsent()) return;
+    if (loaded || !isRuntimeAllowed() || !hasAnalyticsConsent()) return;
     loaded = true;
 
     var gtagDestinationId = gaMeasurementId || googleAdsConversionId;
