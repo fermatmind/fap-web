@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-01T10:02:00Z",
+  "updated_at": "2026-06-01T11:31:15Z",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -15020,24 +15020,56 @@
         "ANALYTICS-SEO-P1-07"
       ],
       "title": "fix(analytics): suppress third-party pageview scripts on private routes",
-      "status": "pending",
-      "commit_sha": "",
+      "status": "local_checks_passed",
+      "commit_sha": "4388127597ca87fff2adfdce882ec6229164088e",
       "pr_url": "",
       "failure_reason": null,
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
       "checks": {
-        "preflight": "not_started: user authorized manifest/state initialization for ANALYTICS-SEO-P0-10 only; implementation branch execution is intentionally deferred."
+        "preflight": "passed: branch fast-forwarded from latest main; dependency ANALYTICS-SEO-P1-07 is merged; implementation scope isolated.",
+        "pnpm typecheck": "passed",
+        "focused contracts": "passed: analytics scripts, tracking activation, and changed-file scope contracts",
+        "pnpm test:contract": "passed: 420 files, 2365 tests",
+        "pnpm seo:check-sitemap": "passed: 261 urls",
+        "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null": "passed",
+        "python3 -c import yaml pathlib pr-train": "passed",
+        "git diff --check": "passed"
       },
       "events": [
         {
           "at": "2026-06-01T10:13:11Z",
           "status": "pending",
           "summary": "Added user-authorized P0 follow-up manifest/state entry for private/noindex route third-party analytics script suppression; implementation intentionally not started in this metadata-only update."
+        },
+        {
+          "at": "2026-06-01T11:24:22Z",
+          "status": "in_progress",
+          "summary": "Started implementation for private/noindex route third-party browser analytics script suppression."
+        },
+        {
+          "at": "2026-06-01T11:29:46Z",
+          "status": "local_checks_passed",
+          "summary": "Implemented private/noindex route third-party browser analytics suppression and passed typecheck, focused contracts, full contract suite, and sitemap check."
+        },
+        {
+          "at": "2026-06-01T11:30:07Z",
+          "status": "validation_complete",
+          "summary": "Validated PR train JSON, PR train YAML, and whitespace diff checks after ledger update."
+        },
+        {
+          "at": "2026-06-01T11:31:05Z",
+          "status": "committed",
+          "summary": "Created local implementation commit ba02ac96d2b0561336c3d4ee69feb28b3cbd8939."
+        },
+        {
+          "at": "2026-06-01T11:31:15Z",
+          "status": "commit_sha_refreshed",
+          "summary": "Refreshed ledger commit SHA after amend: 4388127597ca87fff2adfdce882ec6229164088e."
         }
       ],
-      "updated_at": "2026-06-01T10:13:11Z"
+      "updated_at": "2026-06-01T11:31:15Z"
     },
     {
       "id": "RESULT-EMAIL-FIRST-BINDING-UX-05",
