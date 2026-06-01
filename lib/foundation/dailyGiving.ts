@@ -14,6 +14,13 @@ export type DailyGivingRecord = {
   recipientUrl: string | null;
   evidenceUrl: string | null;
   status: string;
+  socialLinks: DailyGivingSocialLink[];
+};
+
+export type DailyGivingSocialLink = {
+  platform: "x" | "linkedin" | "weibo" | "xiaohongshu" | "other";
+  label: string;
+  url: string;
 };
 
 export type DailyGivingMonth = {
@@ -85,6 +92,90 @@ function firstNumber(source: ApiObject, keys: string[], fallback: number | null 
   return fallback;
 }
 
+function normalizeExternalUrl(value: unknown): string | null {
+  if (typeof value !== "string" || !value.trim()) {
+    return null;
+  }
+
+  try {
+    const url = new URL(value.trim());
+    return url.protocol === "https:" || url.protocol === "http:" ? url.toString() : null;
+  } catch {
+    return null;
+  }
+}
+
+function socialLinkFromObject(value: unknown): Pick<DailyGivingSocialLink, "label" | "url"> | null {
+  const source = asObject(value);
+  if (!source) {
+    return null;
+  }
+
+  const url = normalizeExternalUrl(source.url ?? source.href ?? source.link);
+  if (!url) {
+    return null;
+  }
+
+  return {
+    label: firstString(source, ["label", "title", "platform", "name"], "Other"),
+    url,
+  };
+}
+
+function normalizeOtherSocialLinks(value: unknown): DailyGivingSocialLink[] {
+  if (Array.isArray(value)) {
+    return value.flatMap((item) => {
+      if (typeof item === "string") {
+        const url = normalizeExternalUrl(item);
+        return url ? [{ platform: "other" as const, label: "Other", url }] : [];
+      }
+
+      const link = socialLinkFromObject(item);
+      return link ? [{ platform: "other" as const, ...link }] : [];
+    });
+  }
+
+  const source = asObject(value);
+  if (!source) {
+    const url = normalizeExternalUrl(value);
+    return url ? [{ platform: "other", label: "Other", url }] : [];
+  }
+
+  const directLink = socialLinkFromObject(source);
+  if (directLink) {
+    return [{ platform: "other", ...directLink }];
+  }
+
+  return Object.entries(source).flatMap(([label, urlValue]) => {
+    const url = normalizeExternalUrl(urlValue);
+    return url ? [{ platform: "other" as const, label, url }] : [];
+  });
+}
+
+function normalizeSocialLinks(source: ApiObject): DailyGivingSocialLink[] {
+  const fixedSocialLinks: DailyGivingSocialLink[] = [
+    { platform: "x", label: "X", url: normalizeExternalUrl(source.social_x_url ?? source.socialXUrl) ?? "" },
+    { platform: "linkedin", label: "LinkedIn", url: normalizeExternalUrl(source.social_linkedin_url ?? source.socialLinkedinUrl) ?? "" },
+    { platform: "weibo", label: "Weibo", url: normalizeExternalUrl(source.social_weibo_url ?? source.socialWeiboUrl) ?? "" },
+    {
+      platform: "xiaohongshu",
+      label: "Xiaohongshu",
+      url: normalizeExternalUrl(source.social_xiaohongshu_url ?? source.socialXiaohongshuUrl) ?? "",
+    },
+  ];
+  const socialLinks = [...fixedSocialLinks, ...normalizeOtherSocialLinks(source.social_other_links ?? source.socialOtherLinks)].filter((link) => link.url);
+
+  const seenUrls = new Set<string>();
+
+  return socialLinks.filter((link) => {
+    if (seenUrls.has(link.url)) {
+      return false;
+    }
+    seenUrls.add(link.url);
+    return true;
+  });
+}
+
 function normalizeRecords(value: unknown): DailyGivingRecord[] {
   const rows = Array.isArray(value) ? value : [];
 
@@ -111,6 +202,7 @@ function normalizeRecords(value: unknown): DailyGivingRecord[] {
         recipientUrl: firstString(source, ["recipient_url", "recipientUrl", "organization_url", "organizationUrl"], "") || null,
         evidenceUrl: firstString(source, ["evidence_url", "evidenceUrl", "receipt_url", "receiptUrl", "source_url", "sourceUrl"], "") || null,
         status: firstString(source, ["status", "state"], "published"),
+        socialLinks: normalizeSocialLinks(source),
       },
     ];
   });
