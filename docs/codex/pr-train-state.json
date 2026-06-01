@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-01T05:08:40Z",
+  "updated_at": "2026-06-01T05:34:59Z",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -10605,7 +10605,7 @@
       "depends_on": [
         "DISCOVERABILITY-STAGING-DEINDEX-FIX-01"
       ],
-      "status": "pr_opened",
+      "status": "merged",
       "title": "fix(discoverability): align staging meta robots with noindex header",
       "artifacts": [
         "lib/seo/metadata.ts",
@@ -11432,7 +11432,7 @@
       "status": "pr_opened",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/918",
       "commit_sha": "a7e21bc0e49393fa9f769c9569f70c41bd3b3ac9",
-      "merge_sha": null,
+      "merge_sha": "1e9c714535bc046390f2f359f0401ce46516e826",
       "title": "fix(mbti): hydrate desktop clone content on locked results",
       "artifacts": [
         "components/result/mbti/MbtiResultShell.tsx",
@@ -11470,9 +11470,9 @@
         "diff_check": "passed"
       },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-01T05:14:30Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-05-27T23:23:54+08:00",
@@ -13161,6 +13161,122 @@
           "at": "2026-06-01T05:08:40Z",
           "status": "pr_opened",
           "summary": "Opened fap-web PR #968 for the read-only PR-FDN-SEO-01 readiness report."
+        },
+        {
+          "at": "2026-06-01T05:14:30Z",
+          "status": "merged",
+          "summary": "PR #968 required checks passed, mergeStateStatus was CLEAN, and the PR was squash-merged. Remote branch was deleted and local cleanup/post-merge focused test completed."
+        }
+      ]
+    },
+    {
+      "id": "PR-FDN-SEO-01-IMPLEMENTATION",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/pr-fdn-seo-01-implementation",
+      "base": "main",
+      "depends_on": [
+        "PR-FDN-SEO-01-READINESS"
+      ],
+      "status": "pr_opened",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/969",
+      "commit_sha": "6f0840249025ffbd21b73c7ac681fc7c39672971",
+      "merge_sha": null,
+      "title": "PR-FDN-SEO-01-IMPLEMENTATION: Foundation Daily Giving SEO/schema/llms integration",
+      "artifacts": [
+        "app/(localized)/[locale]/foundation/daily-giving/page.tsx",
+        "app/(localized)/[locale]/foundation/daily-giving/[yearMonth]/page.tsx",
+        "app/llms.txt/route.ts",
+        "app/llms-full.txt/route.ts",
+        "lib/foundation/dailyGivingSeo.ts",
+        "docs/seo/pr-fdn-seo-01-implementation.md",
+        "docs/seo/generated/pr-fdn-seo-01-implementation.v1.json",
+        "tests/contracts/pr-fdn-02b-daily-giving-frontend-pages.contract.test.tsx",
+        "tests/contracts/pr-fdn-seo-01-implementation.contract.test.ts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "dependency_verification": {
+          "status": "passed",
+          "completed_at": "2026-06-01T05:19:44Z",
+          "summary": "PR-FDN-SEO-01-READINESS is merged in fap-web at 1e9c714535bc046390f2f359f0401ce46516e826."
+        },
+        "implementation_boundary": {
+          "status": "passed",
+          "completed_at": "2026-06-01T05:19:44Z",
+          "summary": "Implementation is limited to backend-authoritative Daily Giving JSON-LD and llms integration. ItemList and llms exposure are gated by backend public records/months; no frontend fallback content, CMS mutation, deploy, Search Channel action, URL submission, external API call, env/DNS/nginx edit, or fap-api change is performed."
+        },
+        "focused_contract": {
+          "status": "passed",
+          "completed_at": "2026-06-01T05:31:53Z",
+          "command": "pnpm exec vitest run tests/contracts/pr-fdn-seo-01-implementation.contract.test.ts"
+        },
+        "typecheck": {
+          "status": "passed",
+          "completed_at": "2026-06-01T05:31:53Z",
+          "command": "pnpm typecheck"
+        },
+        "production_api_build": {
+          "status": "passed",
+          "completed_at": "2026-06-01T05:31:53Z",
+          "command": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build"
+        },
+        "contract_suite": {
+          "status": "passed",
+          "completed_at": "2026-06-01T05:31:53Z",
+          "command": "pnpm test:contract",
+          "summary": "419 contract files and 2354 tests passed. Earlier stale assertions in the previous PR-FDN-02B contract and generated metadata inventory drift were corrected within current scope; generated metadata artifacts were restored and are not committed."
+        },
+        "json_yaml_parse": {
+          "status": "passed",
+          "completed_at": "2026-06-01T05:31:53Z",
+          "commands": [
+            "python3 -m json.tool docs/seo/generated/pr-fdn-seo-01-implementation.v1.json >/dev/null",
+            "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "python3 - <<'PY'\nimport yaml, pathlib\nyaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text())\nprint('yaml ok')\nPY"
+          ]
+        },
+        "diff_checks": {
+          "status": "passed",
+          "completed_at": "2026-06-01T05:31:53Z",
+          "commands": [
+            "git diff --check",
+            "git diff --cached --check"
+          ]
+        },
+        "scope_validation": {
+          "status": "passed",
+          "completed_at": "2026-06-01T05:31:53Z",
+          "summary": "Changed files are limited to the PR-FDN-SEO-01-IMPLEMENTATION manifest scope."
+        }
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "next_task": "FRONTEND-DEPLOY-READINESS",
+      "history": [
+        {
+          "at": "2026-06-01T05:19:44Z",
+          "status": "in_progress",
+          "summary": "Started guarded Foundation Daily Giving SEO/schema/llms implementation from latest origin/main."
+        },
+        {
+          "at": "2026-06-01T05:31:53Z",
+          "status": "local_checks_passed",
+          "summary": "Implemented backend-gated Daily Giving JSON-LD and llms integration. Focused contract, typecheck, production-API build, full contract suite, JSON/YAML parse, diff check, and scope validation passed."
+        },
+        {
+          "at": "2026-06-01T05:34:12Z",
+          "status": "committed",
+          "summary": "Committed PR-FDN-SEO-01-IMPLEMENTATION implementation at 644dc08260a7be62f752c6fac3afd575fefbe079."
+        },
+        {
+          "at": "2026-06-01T05:34:59Z",
+          "status": "pr_opened",
+          "summary": "Opened fap-web PR #969 for guarded Foundation Daily Giving SEO/schema/llms integration."
         }
       ]
     },

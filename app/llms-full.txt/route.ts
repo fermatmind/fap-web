@@ -21,6 +21,7 @@ import { isSharedDiscoverabilityDeniedPath } from "@/lib/seo/discoverabilityExpo
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
 import { listBackendSitemapCareerJobPaths } from "@/lib/seo/backendSitemapSource";
 import { listBackendDiscoverabilityTestEntries } from "@/lib/seo/backendTestDiscoverabilitySource";
+import { listDailyGivingDiscoverabilityEntries } from "@/lib/foundation/dailyGivingSeo";
 import {
   createConfiguredStagingLlmsResponse,
   isConfiguredStagingDiscoverability,
@@ -716,6 +717,8 @@ async function buildLlmsFullText(siteUrl: string): Promise<string> {
     enDiscoverableContentPages,
     zhDiscoverableContentPages,
     careerJobPaths,
+    enDailyGivingEntries,
+    zhDailyGivingEntries,
   ] = await Promise.all([
     withLlmsRouteBudget(
       () => listCareerGuidesFromCms("en", { page: 1, perPage: LLMS_ROUTE_LIMITS.careerGuides }),
@@ -791,6 +794,8 @@ async function buildLlmsFullText(siteUrl: string): Promise<string> {
       [],
       { timeoutMs: LLMS_ROUTE_CAREER_JOB_TIMEOUT_MS }
     ),
+    withLlmsRouteBudget(() => listDailyGivingDiscoverabilityEntries("en"), []),
+    withLlmsRouteBudget(() => listDailyGivingDiscoverabilityEntries("zh"), []),
   ]);
 
   const helpEntries = [
@@ -914,6 +919,16 @@ async function buildLlmsFullText(siteUrl: string): Promise<string> {
       .map((path) => buildCareerJobEntry(path))
       .filter((entry): entry is LlmsFullEntry => Boolean(entry)),
   ].filter((entry) => shouldKeep(entry.path));
+  const dailyGivingEntries = [...enDailyGivingEntries, ...zhDailyGivingEntries]
+    .map((entry) => ({
+      locale: entry.locale,
+      path: entry.path,
+      title: entry.title,
+      type: entry.type,
+      summary: entry.summary,
+      updatedAt: entry.updatedAt,
+    }))
+    .filter((entry) => shouldKeep(entry.path));
 
   const [enrichedPersonalityEntries, enrichedTopicEntries, enrichedArticles, enrichedGuideEntries] = await Promise.all([
     mapWithConcurrency(
@@ -965,6 +980,9 @@ async function buildLlmsFullText(siteUrl: string): Promise<string> {
     "",
     "## Content Pages",
     ...contentPageEntries.flatMap((entry) => formatEntry(entry, siteUrl)),
+    "",
+    "## Foundation Daily Giving",
+    ...dailyGivingEntries.flatMap((entry) => formatEntry(entry, siteUrl)),
     "",
     "## Tests",
     ...tests.flatMap((entry) => formatEntry(entry, siteUrl)),

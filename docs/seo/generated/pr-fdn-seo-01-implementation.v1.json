@@ -1,0 +1,56 @@
+{
+  "schema_version": "pr-fdn-seo-01-implementation.v1",
+  "task": "PR-FDN-SEO-01-IMPLEMENTATION",
+  "final_decision": "pr_fdn_seo_01_implementation_completed_ready_for_deploy_readiness",
+  "implemented_at": "2026-06-01T05:20:00Z",
+  "authority_source": {
+    "daily_giving_records": "backend_public_api",
+    "daily_giving_months": "backend_public_api",
+    "frontend_fallback_records_used": false
+  },
+  "schema_behavior": {
+    "webpage_json_ld": true,
+    "breadcrumb_json_ld": true,
+    "item_list_json_ld": "backend_public_records_only",
+    "allowed_schema_types": [
+      "WebPage",
+      "BreadcrumbList",
+      "ItemList"
+    ],
+    "forbidden_schema_types_absent": [
+      "DonateAction",
+      "Offer",
+      "Product",
+      "AggregateOffer",
+      "Dataset"
+    ]
+  },
+  "indexability_behavior": {
+    "indexable_requires_public_records": true,
+    "empty_or_unavailable_api_remains_noindex": true
+  },
+  "llms_behavior": {
+    "llms_integration_added": true,
+    "llms_exposure_requires_public_months": true,
+    "monthly_archive_exposure_requires_record_count_gt_zero": true,
+    "current_empty_ledger_expected_exposure": 0
+  },
+  "item_list_requires_public_records": true,
+  "llms_exposure_requires_public_months": true,
+  "no_frontend_fallback_content": true,
+  "no_cms_mutation": true,
+  "no_deploy": true,
+  "no_search_channel_action": true,
+  "no_url_submission": true,
+  "no_external_api_call": true,
+  "no_env_dns_nginx_edit": true,
+  "sidecars": [
+    {
+      "id": "api_direct_curl_tls_path",
+      "status": "open_external_ops_sidecar",
+      "introduced_by_current_pr": false,
+      "blocks_current_pr": false
+    }
+  ],
+  "next_task": "FRONTEND-DEPLOY-READINESS"
+}
