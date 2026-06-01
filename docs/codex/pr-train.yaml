@@ -9982,6 +9982,61 @@ prs:
       - No frontend career fallback content or Search Channel action is introduced.
     rollback_note: "Revert backend sitemap source fanout simplification and focused llms contracts."
 
+  - id: CAREER-DIRECTORY-PRODUCTION-CONSUMPTION-REPAIR-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/career-directory-production-consumption-repair-01
+    base: main
+    depends_on:
+      - CAREER-JOBS-PAGINATED-DIRECTORY-SHELL-01
+      - CAREER-LLMS-DIRECTORY-SITEMAP-AUTHORITY-01
+    mode: execute
+    train_scope: career_directory_10k_scale
+    status: in_progress
+    title: "CAREER-DIRECTORY-PRODUCTION-CONSUMPTION-REPAIR-01 career directory production consumption repair"
+    goal: "Repair the production same-origin API proxy path for the backend career directory endpoint so /career/jobs consumes backend authority and renders the 1046 total with the first 50 occupations."
+    in_scope:
+      - next.config.mjs
+      - tests/contracts/career-job-index-backend.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/seo/career-directory-production-consumption-repair-01.md
+      - docs/seo/generated/career-directory-production-consumption-repair-01.v1.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - Sitemap generation or URL set changes
+      - llms.txt or llms-full.txt changes
+      - Career job detail page changes
+      - Backend API implementation
+      - Career cohort changes
+      - Frontend fallback career content
+      - Held slug policy changes
+      - Search Channel, URL submission, deploy, CMS, DB, or cohort mutation
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/career-job-index-backend.contract.test.tsx
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - pnpm exec vitest run tests/contracts/verify-big5-contract-freeze*
+      - pnpm exec vitest run tests/contracts/verify-enneagram-contract-freeze*
+      - python3 -m json.tool docs/seo/generated/career-directory-production-consumption-repair-01.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: FRONTEND-DEPLOY-READINESS
+    acceptance:
+      - next.config.mjs proxies /api/v0.5/career/directory to the backend API origin.
+      - /career/jobs continues to consume /api/v0.5/career/directory with page size 50.
+      - /en/career/jobs and /zh/career/jobs are expected to show 1046 total and the first 50 occupations after frontend deploy.
+      - Sitemap, llms, llms-full, and held slug behavior are unchanged.
+      - No frontend career fallback content or Search Channel action is introduced.
+    rollback_note: "Revert the directory proxy entry and focused contract/report if career directory production consumption regresses."
+
   - id: PAYMENT-WAIT-PAID-REDIRECT-CONTRACT-06
     repo: fap-web
     repo_path: <workspace>/fap-web

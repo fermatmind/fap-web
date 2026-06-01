@@ -15330,6 +15330,87 @@
         }
       ],
       "updated_at": "2026-06-01T06:36:00Z"
+    },
+    {
+      "id": "CAREER-DIRECTORY-PRODUCTION-CONSUMPTION-REPAIR-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/career-directory-production-consumption-repair-01",
+      "base": "main",
+      "depends_on": [
+        "CAREER-JOBS-PAGINATED-DIRECTORY-SHELL-01",
+        "CAREER-LLMS-DIRECTORY-SITEMAP-AUTHORITY-01"
+      ],
+      "status": "in_progress",
+      "title": "CAREER-DIRECTORY-PRODUCTION-CONSUMPTION-REPAIR-01 career directory production consumption repair",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/974",
+      "commit_sha": "pending_remote_pr_head",
+      "merge_sha": null,
+      "checks": [
+        {
+          "name": "pnpm exec vitest run tests/contracts/career-job-index-backend.contract.test.tsx",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm typecheck",
+          "status": "passed"
+        },
+        {
+          "name": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm test:contract",
+          "status": "passed"
+        },
+        {
+          "name": "pnpm lint .",
+          "status": "passed_with_warnings"
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/verify-big5-contract-freeze*",
+          "status": "external_no_matching_files_sidecar"
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/verify-enneagram-contract-freeze*",
+          "status": "external_no_matching_files_sidecar"
+        },
+        {
+          "name": "json/yaml parse and git diff --check",
+          "status": "passed"
+        }
+      ],
+      "failure_reason": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "events": [
+        {
+          "at": "2026-06-01T07:30:00Z",
+          "status": "authorized",
+          "summary": "User explicitly authorized current PR manifest/state updates only."
+        },
+        {
+          "at": "2026-06-01T07:35:00Z",
+          "status": "in_progress",
+          "summary": "Started scoped repair for production career directory same-origin API proxy consumption."
+        },
+        {
+          "at": "2026-06-01T10:15:00Z",
+          "status": "scope_contract_updated",
+          "summary": "Added currentPrScope allowlist for this runtime proxy repair after full contract scope-boundary tests rejected the new PR file set."
+        },
+        {
+          "at": "2026-06-01T10:45:00Z",
+          "status": "local_validation_passed",
+          "summary": "Focused contract, typecheck, production API build, full contract suite, lint, JSON/YAML parse, and diff checks passed. Freeze glob commands remain an external no-matching-files sidecar."
+        },
+        {
+          "at": "2026-06-01T10:55:00Z",
+          "status": "pr_open",
+          "summary": "Opened https://github.com/fermatmind/fap-web/pull/974 after local validation and scope validation passed."
+        }
+      ],
+      "updated_at": "2026-06-01T10:55:00Z"
     }
   ],
   "sidecar_issues": [
@@ -15386,6 +15467,24 @@
       "impact_on_current_pr": "No impact on scoped llms/directory authority behavior; full contract coverage passed.",
       "owner": "fap-web test infrastructure",
       "follow_up_recommendation": "Normalize local freeze commands to existing file names or make missing glob handling explicit in the repo scripts.",
+      "required_checks_status": "pending_github_checks",
+      "scope_validation_status": "passed",
+      "continue_train_decision": "continue_if_required_github_checks_green_and_scope_validation_passes",
+      "blocks_merge": false
+    },
+    {
+      "title": "Local freeze glob commands still have no matching files during career directory production consumption repair",
+      "severity": "P2",
+      "source_pr": "CAREER-DIRECTORY-PRODUCTION-CONSUMPTION-REPAIR-01",
+      "repo": "fap-web",
+      "branch": "codex/career-directory-production-consumption-repair-01",
+      "command_or_check": "pnpm exec vitest run tests/contracts/verify-big5-contract-freeze* / pnpm exec vitest run tests/contracts/verify-enneagram-contract-freeze*",
+      "evidence": "Vitest reported no test files found for both freeze globs. The current PR does not add, remove, or rename freeze files. Focused career directory contract, typecheck, production API build, full contract suite, lint, JSON/YAML parse, and diff checks passed.",
+      "failure_summary": "Local freeze glob commands cannot execute because matching files are absent in this checkout.",
+      "why_external_to_current_pr": "This PR changes the career directory API proxy, focused contract scope, and docs/ledger only; it does not touch freeze contract files or test discovery configuration.",
+      "impact_on_current_pr": "No impact on the scoped production career directory proxy repair; full contract coverage passed.",
+      "owner": "fap-web test infrastructure",
+      "follow_up_recommendation": "Normalize freeze validation commands to existing contract file names or make absent globs non-failing through a repository script.",
       "required_checks_status": "pending_github_checks",
       "scope_validation_status": "passed",
       "continue_train_decision": "continue_if_required_github_checks_green_and_scope_validation_passes",

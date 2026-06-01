@@ -997,6 +997,16 @@ const CAREER_LLMS_DIRECTORY_SITEMAP_AUTHORITY_01_ALLOWED_FILES = new Set([
   "tests/contracts/llms-url-hygiene.contract.test.ts",
 ]);
 
+const CAREER_DIRECTORY_PRODUCTION_CONSUMPTION_REPAIR_01_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/seo/career-directory-production-consumption-repair-01.md",
+  "docs/seo/generated/career-directory-production-consumption-repair-01.v1.json",
+  "next.config.mjs",
+  "tests/contracts/career-job-index-backend.contract.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 const COOKIE_BANNER_HYDRATION_01_ALLOWED_FILES = new Set([
   "components/legal/CookieBanner.tsx",
   "docs/codex/pr-train.yaml",
@@ -1101,6 +1111,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/career-llms-directory-sitemap-authority-01") {
     return CAREER_LLMS_DIRECTORY_SITEMAP_AUTHORITY_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/career-directory-production-consumption-repair-01") {
+    return CAREER_DIRECTORY_PRODUCTION_CONSUMPTION_REPAIR_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/global-en-zh-content-pages-frontend-runtime-repair-01") {
