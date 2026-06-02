@@ -43,7 +43,7 @@ export function HeroHudArtwork({ locale }: { locale: Locale }) {
       className="pointer-events-none relative ml-6 mt-[7px] hidden aspect-[887/520] w-[calc(100%+0.625rem)] self-start overflow-visible [mask-image:linear-gradient(to_bottom,transparent_0%,rgba(0,0,0,0.5)_4%,black_10%,black_88%,rgba(0,0,0,0.5)_96%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent_0%,rgba(0,0,0,0.5)_4%,black_10%,black_88%,rgba(0,0,0,0.5)_96%,transparent_100%)] lg:block xl:-ml-[39px] xl:mt-[calc(4.842vw-65px)] xl:w-[59.65vw]"
     >
       <Image
-        src="/images/home/hero-assessment-hud.png?v=callouts-dom"
+        src="/images/home/hero-assessment-hud.png?v=callouts-dom-soft-bg"
         alt=""
         fill
         priority
