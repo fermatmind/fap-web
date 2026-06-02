@@ -101,6 +101,41 @@ describe("proxy boundary contract", () => {
     expect(response.headers.get("x-robots-tag")?.toLowerCase()).toContain("noindex");
   });
 
+  it("marks private route requests for server-side analytics bootstrap suppression", () => {
+    for (const url of [
+      "https://example.com/zh/orders/lookup?orderNo=SYNTHETIC_DO_NOT_USE",
+      "https://example.com/zh/orders/SYNTHETIC_DO_NOT_USE",
+      "https://example.com/zh/result/SYNTHETIC_DO_NOT_USE",
+      "https://example.com/zh/share/SYNTHETIC_DO_NOT_USE",
+      "https://example.com/en/result/SYNTHETIC_DO_NOT_USE",
+      "https://example.com/en/orders/lookup?orderNo=SYNTHETIC_DO_NOT_USE",
+      "https://example.com/en/share/SYNTHETIC_DO_NOT_USE",
+    ]) {
+      const response = proxy(new NextRequest(url));
+
+      expect(response.headers.get("x-middleware-request-x-fm-private-analytics-suppressed"), url).toBe("true");
+      expect(response.headers.get("x-robots-tag")?.toLowerCase(), url).toContain("noindex");
+      expect(response.headers.get("x-robots-tag")?.toLowerCase(), url).toContain("nocache");
+      expect(response.headers.get("cache-control")?.toLowerCase(), url).toContain("no-store");
+      expect(response.headers.get("referrer-policy"), url).toBe("no-referrer");
+    }
+  });
+
+  it("does not mark public indexable pages for analytics bootstrap suppression", () => {
+    for (const url of [
+      "https://example.com/",
+      "https://example.com/zh/tests",
+      "https://example.com/zh/tests/mbti-personality-test-16-personality-types",
+      "https://example.com/zh/tests/holland-career-interest-test-riasec",
+      "https://example.com/zh/articles",
+      "https://example.com/zh/personality",
+    ]) {
+      const response = proxy(new NextRequest(url));
+
+      expect(response.headers.get("x-middleware-request-x-fm-private-analytics-suppressed"), url).toBeNull();
+    }
+  });
+
   it("reuses cookie anon-id on exact test landing pages for rollout consistency", () => {
     const response = proxy(
       new NextRequest("https://example.com/en/tests/mbti-personality-test-16-personality-types", {

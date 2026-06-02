@@ -62,6 +62,10 @@ Business conversion events on private routes may still use the first-party `/api
 
 Baidu Tongji automatic pageview collection must never receive raw private URLs such as `/zh/orders/lookup?orderNo=...`, `/zh/result/...`, or `/zh/share/...`. If these URLs appear in Baidu entrance page, pageview, referral, or conversion reports, treat it as a P0 analytics governance regression.
 
+After ANALYTICS-SEO-P0-12, private/noindex routes also suppress the server-rendered first-party analytics bootstrap. The localized layout reads the private-route suppression header set by the Next proxy and does not render `fm-analytics-bootstrap` or `data-analytics-bootstrap` on result, orders, share, pay, payment, or history route families.
+
+This removes the analytics bootstrap exposure path from private HTML. Next App Router can still serialize route params and component props into internal flight scripts for dynamic routes. If a route must completely avoid exposing a private identifier in HTML, redesign it so the browser enters a stable lookup path without the raw identifier in the pathname or client props, then resolves the identifier through a server-side reviewed flow.
+
 ## Dashboard Configuration Required
 
 GA4:
@@ -93,6 +97,7 @@ Operations:
 6. No raw team IP list exists in frontend source.
 7. Private/noindex synthetic routes must not include `hm.baidu.com`, `_hmt`, `gtag/js`, or raw synthetic order/result/share identifiers in SSR HTML.
 8. Public MBTI and Holland landing routes may still load analytics scripts when production host, environment, and consent gates all allow it.
+9. Private/noindex synthetic routes must not include `fm-analytics-bootstrap` or `data-analytics-bootstrap` in SSR HTML.
 
 ## Deferred Backend or Dashboard Work
 

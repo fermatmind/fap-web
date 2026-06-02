@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 import { SiteChrome } from "@/components/layout/SiteChrome";
 import { AnalyticsScripts } from "@/components/analytics/AnalyticsScripts";
@@ -10,6 +11,7 @@ import { isSupportedLocale, type Locale } from "@/lib/i18n/locales";
 import { DEFAULT_SHARE_IMAGE_URL } from "@/lib/cms/media";
 import { createProductPriorityEnvSnapshot } from "@/lib/rollout/scaleRollout";
 import { SITE_URL, isConfiguredStagingSiteUrl } from "@/lib/site";
+import { PRIVATE_ANALYTICS_SUPPRESSION_HEADER } from "@/lib/tracking/browserAnalyticsSuppression";
 import "../../globals.css";
 
 const fmSans = localFont({
@@ -87,13 +89,15 @@ export default async function LocalizedRootLayout({
   if (!isSupportedLocale(locale)) {
     notFound();
   }
+  const requestHeaders = await headers();
+  const suppressAnalyticsBootstrap = requestHeaders.get(PRIVATE_ANALYTICS_SUPPRESSION_HEADER) === "true";
   const resolvedLocale: Locale = locale;
   const productPriority = createProductPriorityEnvSnapshot();
 
   return (
     <html lang={resolvedLocale}>
       <body className={`${fmSans.variable} ${fmSerif.variable} ${fmMono.variable} antialiased`}>
-        <AnalyticsScripts />
+        <AnalyticsScripts suppressServerBootstrap={suppressAnalyticsBootstrap} />
         <Providers>
           <LocaleProvider locale={resolvedLocale}>
             <SiteChrome productPriority={productPriority}>{children}</SiteChrome>

@@ -78,6 +78,11 @@ const securityHeaders = [
   { key: "Content-Security-Policy", value: cspValue },
   { key: "Content-Security-Policy-Report-Only", value: cspValue },
 ];
+const privateNoindexHeaders = [
+  { key: "X-Robots-Tag", value: "noindex, nofollow, noarchive, nocache" },
+  { key: "Cache-Control", value: "private, no-store, max-age=0, must-revalidate" },
+  { key: "Referrer-Policy", value: "no-referrer" },
+];
 
 const nextConfig = {
   output: "standalone",
@@ -102,63 +107,75 @@ const nextConfig = {
       },
       {
         source: "/result/:path*",
-        headers: [{ key: "X-Robots-Tag", value }],
+        headers: privateNoindexHeaders,
       },
       {
         source: "/en/result/:path*",
-        headers: [{ key: "X-Robots-Tag", value }],
+        headers: privateNoindexHeaders,
       },
       {
         source: "/zh/result/:path*",
-        headers: [{ key: "X-Robots-Tag", value }],
+        headers: privateNoindexHeaders,
       },
       {
         source: "/orders/:path*",
-        headers: [{ key: "X-Robots-Tag", value }],
+        headers: privateNoindexHeaders,
       },
       {
         source: "/en/orders/:path*",
-        headers: [{ key: "X-Robots-Tag", value }],
+        headers: privateNoindexHeaders,
       },
       {
         source: "/zh/orders/:path*",
-        headers: [{ key: "X-Robots-Tag", value }],
+        headers: privateNoindexHeaders,
+      },
+      {
+        source: "/history/:path*",
+        headers: privateNoindexHeaders,
+      },
+      {
+        source: "/en/history/:path*",
+        headers: privateNoindexHeaders,
+      },
+      {
+        source: "/zh/history/:path*",
+        headers: privateNoindexHeaders,
       },
       {
         source: "/pay/:path*",
-        headers: [{ key: "X-Robots-Tag", value }],
+        headers: privateNoindexHeaders,
       },
       {
         source: "/en/pay/:path*",
-        headers: [{ key: "X-Robots-Tag", value }],
+        headers: privateNoindexHeaders,
       },
       {
         source: "/zh/pay/:path*",
-        headers: [{ key: "X-Robots-Tag", value }],
+        headers: privateNoindexHeaders,
       },
       {
         source: "/payment/:path*",
-        headers: [{ key: "X-Robots-Tag", value }],
+        headers: privateNoindexHeaders,
       },
       {
         source: "/en/payment/:path*",
-        headers: [{ key: "X-Robots-Tag", value }],
+        headers: privateNoindexHeaders,
       },
       {
         source: "/zh/payment/:path*",
-        headers: [{ key: "X-Robots-Tag", value }],
+        headers: privateNoindexHeaders,
       },
       {
         source: "/share/:path*",
-        headers: [{ key: "X-Robots-Tag", value }],
+        headers: privateNoindexHeaders,
       },
       {
         source: "/en/share/:path*",
-        headers: [{ key: "X-Robots-Tag", value }],
+        headers: privateNoindexHeaders,
       },
       {
         source: "/zh/share/:path*",
-        headers: [{ key: "X-Robots-Tag", value }],
+        headers: privateNoindexHeaders,
       },
       {
         source: "/tests/:slug/take",

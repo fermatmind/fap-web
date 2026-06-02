@@ -10,6 +10,11 @@ import { localizedPath, stripLocalePrefix } from "@/lib/i18n/locales";
 import { isLegacyPath, resolveLegacyPathMode } from "@/lib/legacyCompatibility";
 import { shouldNoindex } from "@/lib/seo/indexingPolicy";
 import {
+  PRIVATE_ANALYTICS_SUPPRESSION_HEADER,
+  getBrowserAnalyticsSuppressionDecision,
+  isPrivateAnalyticsSuppressedPath,
+} from "@/lib/tracking/browserAnalyticsSuppression";
+import {
   createStagingDiscoverabilityGoneResponse,
   createStagingRobotsResponse,
   isStagingMachineDiscoverabilityPath,
@@ -18,6 +23,8 @@ import {
 } from "@/lib/seo/stagingDiscoverability";
 
 const NOINDEX_VALUE = "noindex, nofollow, noarchive";
+const PRIVATE_NOINDEX_VALUE = "noindex, nofollow, noarchive, nocache";
+const PRIVATE_CACHE_CONTROL_VALUE = "private, no-store, max-age=0, must-revalidate";
 const ANON_COOKIE_NAME = "fap_anonymous_id_v1";
 const ANON_COOKIE_MAX_AGE_SECONDS = 31536000;
 const ANON_ID_PATTERN = /^[A-Za-z0-9_-]{8,128}$/;
@@ -176,6 +183,18 @@ export function proxy(request: NextRequest) {
 
   const requestHeaders = new Headers(request.headers);
   requestHeaders.delete("x-anon-id");
+  requestHeaders.delete(PRIVATE_ANALYTICS_SUPPRESSION_HEADER);
+  const analyticsSuppression = getBrowserAnalyticsSuppressionDecision({
+    pathname,
+    search: request.nextUrl.search,
+  });
+  const suppressAnalyticsBootstrap = analyticsSuppression.suppressed;
+  const hardenPrivateResponse = isPrivateAnalyticsSuppressedPath(pathname) || shouldNoindex(strippedPath, null);
+
+  if (suppressAnalyticsBootstrap) {
+    requestHeaders.set(PRIVATE_ANALYTICS_SUPPRESSION_HEADER, "true");
+  }
+
   const cookieAnonId = normalizeCookieAnonId(request.cookies.get(ANON_COOKIE_NAME)?.value);
   const shouldAttachAnon = shouldAttachAnonIdentity(strippedPath);
   const resolvedAnonId = shouldAttachAnon ? (cookieAnonId || generateAnonId()) : "";
@@ -201,8 +220,14 @@ export function proxy(request: NextRequest) {
     });
   }
 
-  if (isStagingHost || shouldNoindex(strippedPath, null)) {
+  if (isStagingHost) {
     response.headers.set("X-Robots-Tag", NOINDEX_VALUE);
+  }
+
+  if (hardenPrivateResponse) {
+    response.headers.set("X-Robots-Tag", PRIVATE_NOINDEX_VALUE);
+    response.headers.set("Cache-Control", PRIVATE_CACHE_CONTROL_VALUE);
+    response.headers.set("Referrer-Policy", "no-referrer");
   }
 
   return response;

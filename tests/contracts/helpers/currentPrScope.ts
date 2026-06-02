@@ -549,6 +549,21 @@ const PRIVATE_ANALYTICS_SHARE_METADATA_HARDENING_ALLOWED_FILES = new Set([
   "tests/contracts/robots.contract.test.ts",
 ]);
 
+const ANALYTICS_SEO_P0_12_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/layout.tsx",
+  "components/analytics/AnalyticsScripts.tsx",
+  "docs/analytics/internal-traffic-referral-governance.md",
+  "docs/analytics/tracking-activation-runbook.md",
+  "docs/audits/analytics-seo-private-html-hardening.md",
+  "lib/tracking/browserAnalyticsSuppression.ts",
+  "next.config.mjs",
+  "proxy.ts",
+  "tests/contracts/analytics-scripts.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/private-noindex.contract.test.ts",
+  "tests/contracts/proxy-boundary.contract.test.ts",
+]);
+
 const PR_WEB_SEC_32_ALLOWED_FILES = new Set([
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -1488,6 +1503,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/private-analytics-share-metadata-hardening") {
     return PRIVATE_ANALYTICS_SHARE_METADATA_HARDENING_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/analytics-seo-p0-12-private-html-hardening") {
+    return ANALYTICS_SEO_P0_12_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-web-sec-32-landing-rollout-seed") {

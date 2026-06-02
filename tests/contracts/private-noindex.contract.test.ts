@@ -23,6 +23,10 @@ function noindexHeaderFor(rule: HeaderRule | undefined): string {
   return rule?.headers.find((header) => header.key.toLowerCase() === "x-robots-tag")?.value.toLowerCase() ?? "";
 }
 
+function headerFor(rule: HeaderRule | undefined, key: string): string {
+  return rule?.headers.find((header) => header.key.toLowerCase() === key.toLowerCase())?.value.toLowerCase() ?? "";
+}
+
 describe("private noindex boundary contract", () => {
   it("declares X-Robots-Tag noindex headers for private localized and root flows", async () => {
     const headers = await loadHeaders();
@@ -43,11 +47,45 @@ describe("private noindex boundary contract", () => {
       "/share/:path*",
       "/en/share/:path*",
       "/zh/share/:path*",
+      "/history/:path*",
+      "/en/history/:path*",
+      "/zh/history/:path*",
       "/tests/:slug/take",
       "/en/tests/:slug/take",
       "/zh/tests/:slug/take",
     ]) {
       expect(noindexHeaderFor(headers.find((rule) => rule.source === source))).toContain("noindex");
+    }
+  });
+
+  it("applies strict private response headers to private route families", async () => {
+    const headers = await loadHeaders();
+
+    for (const source of [
+      "/result/:path*",
+      "/en/result/:path*",
+      "/zh/result/:path*",
+      "/orders/:path*",
+      "/en/orders/:path*",
+      "/zh/orders/:path*",
+      "/share/:path*",
+      "/en/share/:path*",
+      "/zh/share/:path*",
+      "/pay/:path*",
+      "/en/pay/:path*",
+      "/zh/pay/:path*",
+      "/payment/:path*",
+      "/en/payment/:path*",
+      "/zh/payment/:path*",
+      "/history/:path*",
+      "/en/history/:path*",
+      "/zh/history/:path*",
+    ]) {
+      const rule = headers.find((item) => item.source === source);
+      expect(noindexHeaderFor(rule), source).toContain("noindex");
+      expect(noindexHeaderFor(rule), source).toContain("nocache");
+      expect(headerFor(rule, "Cache-Control"), source).toContain("no-store");
+      expect(headerFor(rule, "Referrer-Policy"), source).toBe("no-referrer");
     }
   });
 

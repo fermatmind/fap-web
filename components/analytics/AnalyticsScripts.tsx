@@ -12,6 +12,10 @@ type AnalyticsScriptConfig = {
   allowedHosts: string[];
 };
 
+export type AnalyticsScriptsProps = {
+  suppressServerBootstrap?: boolean;
+};
+
 function normalizeEnvValue(value: string | undefined): string {
   return typeof value === "string" ? value.trim() : "";
 }
@@ -213,9 +217,15 @@ export function buildAnalyticsBootstrapScript(config: AnalyticsScriptConfig): st
 })();`.trim();
 }
 
-export function AnalyticsScripts() {
+export function AnalyticsScripts({
+  suppressServerBootstrap = false,
+}: AnalyticsScriptsProps = {}) {
   const config = getAnalyticsScriptConfig();
-  if (!config.enabled || (!config.gaMeasurementId && !config.googleAdsConversionId && !config.baiduTongjiId)) {
+  if (
+    suppressServerBootstrap
+    || !config.enabled
+    || (!config.gaMeasurementId && !config.googleAdsConversionId && !config.baiduTongjiId)
+  ) {
     return null;
   }
 

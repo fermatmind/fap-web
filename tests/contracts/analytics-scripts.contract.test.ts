@@ -180,6 +180,19 @@ describe("analytics scripts contract", () => {
     ).toBe("");
   });
 
+  it("does not render the SSR analytics bootstrap when server-side private route suppression is active", () => {
+    const html = renderToStaticMarkup(AnalyticsScripts({ suppressServerBootstrap: true }));
+
+    expect(html).toBe("");
+    expect(html).not.toContain("fm-analytics-bootstrap");
+    expect(html).not.toContain("data-analytics-bootstrap");
+    expect(html).not.toContain("hm.baidu.com");
+    expect(html).not.toContain("_hmt");
+    expect(html).not.toContain("googletagmanager");
+    expect(html).not.toContain("gtag(");
+    expect(html).not.toContain("AW-");
+  });
+
   it("blocks production analytics runtime on local, preview, dashboard, and analytics-dashboard referrers", () => {
     expect(
       shouldAllowAnalyticsRuntime({
@@ -321,8 +334,9 @@ describe("analytics scripts contract", () => {
     }
   });
 
-  it("keeps private synthetic HTML free of third-party pageview loader literals and raw synthetic ids", () => {
-    const html = renderAnalyticsScripts({
+  it("keeps private synthetic HTML free of analytics bootstrap and third-party pageview loader literals", () => {
+    const html = renderToStaticMarkup(AnalyticsScripts({ suppressServerBootstrap: true }));
+    const publicHtml = renderAnalyticsScripts({
       NEXT_PUBLIC_ANALYTICS_ENABLED: "true",
       NEXT_PUBLIC_GA_MEASUREMENT_ID: "G-TEST1234",
       NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID: "AW-TEST1234",
@@ -346,9 +360,16 @@ describe("analytics scripts contract", () => {
       ).toBe(false);
     }
 
+    expect(publicHtml).toContain("fm-analytics-bootstrap");
+    expect(html).not.toContain("fm-analytics-bootstrap");
+    expect(html).not.toContain("data-analytics-bootstrap");
     expect(html).not.toContain("hm.baidu.com");
     expect(html).not.toContain("_hmt");
+    expect(html).not.toContain("googletagmanager");
     expect(html).not.toContain("googletagmanager.com/gtag/js");
+    expect(html).not.toContain("gtag(");
+    expect(html).not.toContain("googleadservices");
+    expect(html).not.toContain("doubleclick");
     expect(html).not.toContain("window.gtag");
     expect(html).not.toContain("AW-");
     expect(html).not.toContain("SYNTHETIC_DO_NOT_USE");
@@ -369,11 +390,14 @@ describe("analytics scripts contract", () => {
   });
 
   it("keeps analytics mounted for root and localized layout trees", () => {
-    for (const layoutPath of ["app/(root)/layout.tsx", "app/(localized)/[locale]/layout.tsx"]) {
-      const source = readFileSync(layoutPath, "utf8");
-      expect(source).toContain('from "@/components/analytics/AnalyticsScripts"');
-      expect(source).toContain("<AnalyticsScripts />");
-    }
+    const rootLayout = readFileSync("app/(root)/layout.tsx", "utf8");
+    const localizedLayout = readFileSync("app/(localized)/[locale]/layout.tsx", "utf8");
+
+    expect(rootLayout).toContain('from "@/components/analytics/AnalyticsScripts"');
+    expect(rootLayout).toContain("<AnalyticsScripts />");
+    expect(localizedLayout).toContain('from "@/components/analytics/AnalyticsScripts"');
+    expect(localizedLayout).toContain('PRIVATE_ANALYTICS_SUPPRESSION_HEADER');
+    expect(localizedLayout).toContain('suppressServerBootstrap={suppressAnalyticsBootstrap}');
   });
 
   it("maps funnel events to GA4 key-event taxonomy names", () => {
