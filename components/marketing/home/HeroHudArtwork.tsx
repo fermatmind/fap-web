@@ -49,7 +49,7 @@ export function HeroHudArtwork({ locale }: { locale: Locale }) {
         priority
         unoptimized
         sizes="(min-width: 1280px) 56vw, 52vw"
-        className="object-contain object-right opacity-100 mix-blend-screen brightness-110 contrast-110 [mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.1)_8%,rgba(0,0,0,0.72)_21%,black_32%,black_100%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.1)_8%,rgba(0,0,0,0.72)_21%,black_32%,black_100%)]"
+        className="object-contain object-right opacity-100 mix-blend-screen brightness-110 contrast-110 [mask-image:linear-gradient(to_right,transparent_0%,transparent_18%,rgba(0,0,0,0.18)_28%,rgba(0,0,0,0.78)_39%,black_49%,black_100%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,transparent_18%,rgba(0,0,0,0.18)_28%,rgba(0,0,0,0.78)_39%,black_49%,black_100%)]"
       />
       <div className="absolute inset-0">
         {HUD_CALLOUTS.map((item) => (
