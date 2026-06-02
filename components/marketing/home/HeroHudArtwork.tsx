@@ -5,44 +5,44 @@ const HUD_CALLOUTS = [
   {
     label: { zh: "人格核心维度", en: "Personality core" },
     value: "28+",
-    top: "9.8%",
-    line: "600 116 688 63 721 63",
-    dot: [721, 63],
+    top: "9.5%",
+    line: "611 113 690 58 727 58",
+    dot: [727, 58],
   },
   {
     label: { zh: "潜在能力因子", en: "Potential ability" },
     value: "48+",
-    top: "21.9%",
-    line: "615 168 688 126 721 126",
-    dot: [721, 126],
+    top: "22.8%",
+    line: "650 148 690 129 727 129",
+    dot: [727, 129],
   },
   {
     label: { zh: "性格倾向因子", en: "Trait tendency" },
     value: "32+",
-    top: "35%",
-    line: "590 265 688 194 721 194",
-    dot: [721, 194],
+    top: "36.1%",
+    line: "638 258 690 199 727 199",
+    dot: [727, 199],
   },
   {
     label: { zh: "职业匹配因子", en: "Career matching" },
     value: "120+",
-    top: "48.8%",
-    line: "545 392 688 266 721 266",
-    dot: [721, 266],
+    top: "49.5%",
+    line: "491 390 690 269 727 269",
+    dot: [727, 269],
   },
   {
     label: { zh: "沟通与关系因子", en: "Communication factors" },
     value: "18+",
-    top: "63.1%",
-    line: "548 388 688 340 721 340",
-    dot: [721, 340],
+    top: "63.4%",
+    line: "525 374 612 374 690 341 727 341",
+    dot: [727, 341],
   },
   {
     label: { zh: "数据标注维度", en: "Data labels" },
     value: "200+",
-    top: "76.9%",
-    line: "622 412 721 412",
-    dot: [721, 412],
+    top: "77.4%",
+    line: "612 415 690 415 727 415",
+    dot: [727, 415],
   },
 ] as const;
 
@@ -55,7 +55,7 @@ export function HeroHudArtwork({ locale }: { locale: Locale }) {
       className="pointer-events-none relative ml-6 mt-[7px] hidden aspect-[887/520] w-[calc(100%+0.625rem)] self-start overflow-visible [mask-image:linear-gradient(to_bottom,transparent_0%,rgba(0,0,0,0.5)_4%,black_10%,black_88%,rgba(0,0,0,0.5)_96%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent_0%,rgba(0,0,0,0.5)_4%,black_10%,black_88%,rgba(0,0,0,0.5)_96%,transparent_100%)] lg:block xl:-ml-[39px] xl:mt-[calc(4.842vw-65px)] xl:w-[59.65vw]"
     >
       <Image
-        src="/images/home/hero-assessment-hud.png?v=vector-callouts"
+        src="/images/home/hero-assessment-hud.png?v=exact-vector-callouts"
         alt=""
         fill
         priority
