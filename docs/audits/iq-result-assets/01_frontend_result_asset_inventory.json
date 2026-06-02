@@ -1,0 +1,1549 @@
+{
+  "generated_at": "2026-06-02T17:03:49Z",
+  "primary_repo": "/Users/rainie/Desktop/GitHub/fap-web",
+  "worktree": "/private/tmp/fap-web-iq-result-assets-scan-20260603",
+  "assets": [
+    {
+      "file_path": "app/(localized)/[locale]/(app)/result/[id]/page.tsx",
+      "exists": true,
+      "component_or_function": "ResultPage metadata/noindex route shell",
+      "purpose": "IQ result/report surface asset",
+      "current_status": "present",
+      "inputs": [
+        "locale",
+        "attemptId"
+      ],
+      "outputs": [
+        "summary metrics",
+        "dimension cards",
+        "report module",
+        "contract assertions",
+        "noindex metadata"
+      ],
+      "renders_result_summary": false,
+      "renders_dimensions": false,
+      "renders_report_content": false,
+      "renders_paid_locked_states": false,
+      "premature_payment_risk": "none_found_in_scan",
+      "design_relevance": "supporting_or_contract_input",
+      "evidence_hits": []
+    },
+    {
+      "file_path": "app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx",
+      "exists": true,
+      "component_or_function": "ResultClient IQ scale branch",
+      "purpose": "IQ result/report surface asset",
+      "current_status": "present",
+      "inputs": [
+        "reportData",
+        "resultData",
+        "accessView",
+        "locale",
+        "attemptId",
+        "scale_code",
+        "summary",
+        "dimensions"
+      ],
+      "outputs": [],
+      "renders_result_summary": false,
+      "renders_dimensions": false,
+      "renders_report_content": false,
+      "renders_paid_locked_states": true,
+      "premature_payment_risk": "none_found_in_scan",
+      "design_relevance": "supporting_or_contract_input",
+      "evidence_hits": [
+        {
+          "line": 8,
+          "text": "import { IqResultShell } from \"@/components/result/iq/IqResultShell\";"
+        },
+        {
+          "line": 417,
+          "text": "unlockStage: \"locked\" | \"partial\" | \"full\" | null;"
+        },
+        {
+          "line": 424,
+          "text": "if (stage === \"locked\") return 1;"
+        },
+        {
+          "line": 1067,
+          "text": "locked: nextAccessView?.accessState !== \"ready\","
+        },
+        {
+          "line": 1459,
+          "text": "<IqResultShell"
+        }
+      ]
+    },
+    {
+      "file_path": "components/result/iq/IqResultShell.tsx",
+      "exists": true,
+      "component_or_function": "IqResultShell",
+      "purpose": "IQ result/report surface asset",
+      "current_status": "present",
+      "inputs": [
+        "reportData",
+        "resultData",
+        "accessView",
+        "locale",
+        "summary",
+        "dimensions"
+      ],
+      "outputs": [],
+      "renders_result_summary": true,
+      "renders_dimensions": true,
+      "renders_report_content": false,
+      "renders_paid_locked_states": true,
+      "premature_payment_risk": "none_found_in_scan",
+      "design_relevance": "primary_design_input",
+      "evidence_hits": [
+        {
+          "line": 5,
+          "text": "import { IqReportModule } from \"@/components/result/iq/IqReportModule\";"
+        },
+        {
+          "line": 87,
+          "text": "export function IqResultShell({"
+        },
+        {
+          "line": 110,
+          "text": "const percentileText = formatPercentValue(viewModel.percentile);"
+        },
+        {
+          "line": 114,
+          "text": "{viewModel.lockedMessage ? ("
+        },
+        {
+          "line": 116,
+          "text": "<span data-testid=\"iq-report-locked-notice\">{viewModel.lockedMessage}</span>"
+        },
+        {
+          "line": 171,
+          "text": "value: percentileText,"
+        },
+        {
+          "line": 172,
+          "text": "testId: \"iq-percentile\","
+        },
+        {
+          "line": 181,
+          "text": "value: viewModel.qualityLevel,"
+        },
+        {
+          "line": 182,
+          "text": "testId: \"iq-quality-level\","
+        },
+        {
+          "line": 186,
+          "text": "value: viewModel.stabilityStatus,"
+        },
+        {
+          "line": 187,
+          "text": "testId: \"iq-stability-status\","
+        },
+        {
+          "line": 191,
+          "text": "value: viewModel.stabilityReason,"
+        },
+        {
+          "line": 192,
+          "text": "testId: \"iq-stability-reason\","
+        },
+        {
+          "line": 196,
+          "text": "{viewModel.qualityFlags.length > 0 ? ("
+        },
+        {
+          "line": 197,
+          "text": "<div className=\"space-y-2\" data-testid=\"iq-quality-flags\">"
+        },
+        {
+          "line": 202,
+          "text": "{viewModel.qualityFlags.map((flag) => ("
+        },
+        {
+          "line": 221,
+          "text": "const percentile = formatPercentValue(dimension.percentile);"
+        },
+        {
+          "line": 247,
+          "text": "value: percentile,"
+        },
+        {
+          "line": 272,
+          "text": "<IqReportModule locale={locale} viewModel={viewModel.reportModule} />"
+        }
+      ]
+    },
+    {
+      "file_path": "components/result/iq/IqReportModule.tsx",
+      "exists": true,
+      "component_or_function": "IqReportModule",
+      "purpose": "IQ result/report surface asset",
+      "current_status": "present",
+      "inputs": [
+        "locale",
+        "dimensions"
+      ],
+      "outputs": [
+        "report module"
+      ],
+      "renders_result_summary": false,
+      "renders_dimensions": false,
+      "renders_report_content": true,
+      "renders_paid_locked_states": true,
+      "premature_payment_risk": "none_found_in_scan",
+      "design_relevance": "primary_design_input",
+      "evidence_hits": [
+        {
+          "line": 5,
+          "text": "import type { IqReportModuleViewModel, IqResultMetricValue } from \"@/lib/iq/result\";"
+        },
+        {
+          "line": 59,
+          "text": "export function IqReportModule({"
+        },
+        {
+          "line": 64,
+          "text": "viewModel: IqReportModuleViewModel;"
+        },
+        {
+          "line": 79,
+          "text": "data-state={viewModel.entitlementState}"
+        },
+        {
+          "line": 82,
+          "text": "<span className=\"text-sm leading-6 text-[var(--fm-text-muted)]\" data-testid={`iq-paid-report-state-${viewModel.entitlementState}`}>"
+        },
+        {
+          "line": 87,
+          "text": "{viewModel.lockedMessage ? ("
+        },
+        {
+          "line": 89,
+          "text": "<span data-testid=\"iq-report-module-locked\">{viewModel.lockedMessage}</span>"
+        },
+        {
+          "line": 174,
+          "text": "value: formatPercentValue(dimension.percentile),"
+        },
+        {
+          "line": 195,
+          "text": "{viewModel.certificatePlaceholder ? ("
+        },
+        {
+          "line": 197,
+          "text": "<span data-testid=\"iq-certificate-placeholder\">{viewModel.certificatePlaceholder}</span>"
+        }
+      ]
+    },
+    {
+      "file_path": "lib/iq/constants.ts",
+      "exists": true,
+      "component_or_function": "IQ canonical/legacy constants and dimension fields",
+      "purpose": "IQ result/report surface asset",
+      "current_status": "present",
+      "inputs": [],
+      "outputs": [],
+      "renders_result_summary": false,
+      "renders_dimensions": true,
+      "renders_report_content": false,
+      "renders_paid_locked_states": false,
+      "premature_payment_risk": "none_found_in_scan",
+      "design_relevance": "supporting_or_contract_input",
+      "evidence_hits": [
+        {
+          "line": 1,
+          "text": "export const IQ_CANONICAL_SCALE_CODE = \"IQ_INTELLIGENCE_QUOTIENT\" as const;"
+        },
+        {
+          "line": 2,
+          "text": "export const IQ_LEGACY_SCALE_CODE = \"IQ_RAVEN\" as const;"
+        },
+        {
+          "line": 14,
+          "text": "| \"visual_spatial_insight\""
+        },
+        {
+          "line": 15,
+          "text": "| \"visual_spatial_pattern_reasoning\""
+        },
+        {
+          "line": 16,
+          "text": "| \"numerical_pattern_reasoning\";"
+        },
+        {
+          "line": 19,
+          "text": "VSPR: \"视觉空间模式推理\","
+        },
+        {
+          "line": 20,
+          "text": "VSI: \"视觉空间洞察\","
+        },
+        {
+          "line": 21,
+          "text": "NPR: \"数字规律推理\","
+        },
+        {
+          "line": 25,
+          "text": "VSPR: \"visual_spatial_pattern_reasoning\","
+        },
+        {
+          "line": 26,
+          "text": "VSI: \"visual_spatial_insight\","
+        },
+        {
+          "line": 27,
+          "text": "NPR: \"numerical_pattern_reasoning\","
+        }
+      ]
+    },
+    {
+      "file_path": "lib/iq/contracts.ts",
+      "exists": true,
+      "component_or_function": "IQ Zod payload schemas",
+      "purpose": "IQ result/report surface asset",
+      "current_status": "present",
+      "inputs": [
+        "locale",
+        "scale_code",
+        "iq_pro",
+        "summary",
+        "dimensions"
+      ],
+      "outputs": [],
+      "renders_result_summary": true,
+      "renders_dimensions": true,
+      "renders_report_content": true,
+      "renders_paid_locked_states": true,
+      "premature_payment_risk": "none_found_in_scan",
+      "design_relevance": "supporting_or_contract_input",
+      "evidence_hits": [
+        {
+          "line": 119,
+          "text": "quality_level: z.string().nullable().optional(),"
+        },
+        {
+          "line": 189,
+          "text": "percentile: z.union([z.number(), z.string()]).nullable().optional(),"
+        },
+        {
+          "line": 196,
+          "text": "visual_spatial_insight: z.record(z.string(), z.unknown()).optional(),"
+        },
+        {
+          "line": 197,
+          "text": "visual_spatial_pattern_reasoning: z.record(z.string(), z.unknown()).optional(),"
+        },
+        {
+          "line": 198,
+          "text": "numerical_pattern_reasoning: z.record(z.string(), z.unknown()).optional(),"
+        },
+        {
+          "line": 224,
+          "text": "iq_estimate: z.union([z.number(), z.string()]).nullable().optional(),"
+        },
+        {
+          "line": 225,
+          "text": "percentile: z.union([z.number(), z.string()]).nullable().optional(),"
+        },
+        {
+          "line": 226,
+          "text": "confidence_interval: z"
+        },
+        {
+          "line": 234,
+          "text": "quality: iqQualitySchema.nullable().optional(),"
+        },
+        {
+          "line": 235,
+          "text": "stability: iqStabilitySchema.nullable().optional(),"
+        },
+        {
+          "line": 247,
+          "text": "locked: z.boolean().optional(),"
+        },
+        {
+          "line": 251,
+          "text": "unlock_stage: z.union([z.enum([\"locked\", \"unlocked_adaptive\", \"unlocked_pro\"]), z.string()]).nullable().optional(),"
+        },
+        {
+          "line": 268,
+          "text": "locked: z.boolean().optional(),"
+        },
+        {
+          "line": 274,
+          "text": "iq_estimate: z.union([z.number(), z.string()]).nullable().optional(),"
+        },
+        {
+          "line": 275,
+          "text": "percentile: z.union([z.number(), z.string()]).nullable().optional(),"
+        },
+        {
+          "line": 276,
+          "text": "confidence_interval: z"
+        },
+        {
+          "line": 288,
+          "text": "quality: iqQualitySchema.nullable().optional(),"
+        },
+        {
+          "line": 289,
+          "text": "stability: iqStabilitySchema.nullable().optional(),"
+        },
+        {
+          "line": 293,
+          "text": "pdf_payload: z.record(z.string(), z.unknown()).nullable().optional(),"
+        },
+        {
+          "line": 294,
+          "text": "certificate_payload: z.record(z.string(), z.unknown()).nullable().optional(),"
+        }
+      ]
+    },
+    {
+      "file_path": "lib/iq/api.ts",
+      "exists": true,
+      "component_or_function": "IQ result/report/access API adapters",
+      "purpose": "IQ result/report surface asset",
+      "current_status": "present",
+      "inputs": [
+        "locale",
+        "attemptId",
+        "scale_code"
+      ],
+      "outputs": [],
+      "renders_result_summary": false,
+      "renders_dimensions": false,
+      "renders_report_content": false,
+      "renders_paid_locked_states": false,
+      "premature_payment_risk": "none_found_in_scan",
+      "design_relevance": "supporting_or_contract_input",
+      "evidence_hits": []
+    },
+    {
+      "file_path": "lib/iq/result.ts",
+      "exists": true,
+      "component_or_function": "buildIqResultViewModel and IQ result/report view-model helpers",
+      "purpose": "IQ result/report surface asset",
+      "current_status": "present",
+      "inputs": [
+        "reportData",
+        "resultData",
+        "accessView",
+        "locale",
+        "scale_code",
+        "iq_pro",
+        "summary",
+        "dimensions"
+      ],
+      "outputs": [],
+      "renders_result_summary": true,
+      "renders_dimensions": true,
+      "renders_report_content": true,
+      "renders_paid_locked_states": true,
+      "premature_payment_risk": "none_found_in_scan",
+      "design_relevance": "primary_design_input",
+      "evidence_hits": [
+        {
+          "line": 32,
+          "text": "percentile: IqResultMetricValue;"
+        },
+        {
+          "line": 61,
+          "text": "export type IqReportModuleViewModel = {"
+        },
+        {
+          "line": 62,
+          "text": "unlockStage: \"locked\" | \"unlocked_adaptive\" | \"unlocked_pro\" | \"unknown\";"
+        },
+        {
+          "line": 63,
+          "text": "entitlementState: IqReportEntitlementState;"
+        },
+        {
+          "line": 66,
+          "text": "locked: boolean;"
+        },
+        {
+          "line": 67,
+          "text": "lockedMessage: string | null;"
+        },
+        {
+          "line": 75,
+          "text": "certificatePlaceholder: string | null;"
+        },
+        {
+          "line": 84,
+          "text": "percentile: IqResultMetricValue;"
+        },
+        {
+          "line": 86,
+          "text": "qualityLevel: string | null;"
+        },
+        {
+          "line": 87,
+          "text": "qualityFlags: string[];"
+        },
+        {
+          "line": 88,
+          "text": "stabilityStatus: string | null;"
+        },
+        {
+          "line": 89,
+          "text": "stabilityReason: string | null;"
+        },
+        {
+          "line": 93,
+          "text": "locked: boolean;"
+        },
+        {
+          "line": 94,
+          "text": "lockedMessage: string | null;"
+        },
+        {
+          "line": 95,
+          "text": "reportModule: IqReportModuleViewModel;"
+        },
+        {
+          "line": 107,
+          "text": "key: \"visual_spatial_insight\","
+        },
+        {
+          "line": 110,
+          "text": "zh: \"视觉空间洞察\","
+        },
+        {
+          "line": 115,
+          "text": "key: \"visual_spatial_pattern_reasoning\","
+        },
+        {
+          "line": 118,
+          "text": "zh: \"视觉空间模式推理\","
+        },
+        {
+          "line": 123,
+          "text": "key: \"numerical_pattern_reasoning\","
+        }
+      ]
+    },
+    {
+      "file_path": "lib/iq/bankDisplay.ts",
+      "exists": true,
+      "component_or_function": "IQ beta30/beta50 bank display model",
+      "purpose": "IQ result/report surface asset",
+      "current_status": "present",
+      "inputs": [
+        "locale"
+      ],
+      "outputs": [],
+      "renders_result_summary": false,
+      "renders_dimensions": false,
+      "renders_report_content": false,
+      "renders_paid_locked_states": false,
+      "premature_payment_risk": "none_found_in_scan",
+      "design_relevance": "supporting_or_contract_input",
+      "evidence_hits": []
+    },
+    {
+      "file_path": "tests/contracts/iq-result-renderer.contract.test.tsx",
+      "exists": true,
+      "component_or_function": "contract/docs evidence",
+      "purpose": "IQ result/report surface asset",
+      "current_status": "present",
+      "inputs": [
+        "reportData",
+        "resultData",
+        "accessView",
+        "locale",
+        "attemptId",
+        "scale_code",
+        "iq_pro",
+        "summary",
+        "dimensions"
+      ],
+      "outputs": [
+        "summary metrics",
+        "dimension cards"
+      ],
+      "renders_result_summary": true,
+      "renders_dimensions": true,
+      "renders_report_content": true,
+      "renders_paid_locked_states": true,
+      "premature_payment_risk": "guarded_low",
+      "design_relevance": "supporting_or_contract_input",
+      "evidence_hits": [
+        {
+          "line": 5,
+          "text": "import { IqResultShell } from \"@/components/result/iq/IqResultShell\";"
+        },
+        {
+          "line": 41,
+          "text": "scale_code: \"IQ_INTELLIGENCE_QUOTIENT\","
+        },
+        {
+          "line": 42,
+          "text": "locked: false,"
+        },
+        {
+          "line": 46,
+          "text": "iq_estimate: 118,"
+        },
+        {
+          "line": 47,
+          "text": "percentile: 84,"
+        },
+        {
+          "line": 48,
+          "text": "confidence_interval: {"
+        },
+        {
+          "line": 55,
+          "text": "visual_spatial_insight: {"
+        },
+        {
+          "line": 59,
+          "text": "percentile: 82,"
+        },
+        {
+          "line": 63,
+          "text": "visual_spatial_pattern_reasoning: {"
+        },
+        {
+          "line": 67,
+          "text": "percentile: 78,"
+        },
+        {
+          "line": 70,
+          "text": "numerical_pattern_reasoning: {"
+        },
+        {
+          "line": 74,
+          "text": "percentile: 88,"
+        },
+        {
+          "line": 78,
+          "text": "quality: {"
+        },
+        {
+          "line": 82,
+          "text": "stability: {"
+        },
+        {
+          "line": 87,
+          "text": "scale_code: \"IQ_INTELLIGENCE_QUOTIENT\","
+        },
+        {
+          "line": 94,
+          "text": "body: \"Use the interval and quality markers together when interpreting the estimate.\","
+        },
+        {
+          "line": 99,
+          "text": "scale_code: \"IQ_INTELLIGENCE_QUOTIENT\","
+        },
+        {
+          "line": 107,
+          "text": "<IqResultShell"
+        },
+        {
+          "line": 116,
+          "text": "expect(screen.queryByText(\"IQ_RAVEN\")).not.toBeInTheDocument();"
+        },
+        {
+          "line": 119,
+          "text": "expect(screen.getByTestId(\"iq-quality-flags\")).toHaveTextContent(\"norm_table_pending\");"
+        }
+      ]
+    },
+    {
+      "file_path": "tests/contracts/iq-report-module.contract.test.tsx",
+      "exists": true,
+      "component_or_function": "contract/docs evidence",
+      "purpose": "IQ result/report surface asset",
+      "current_status": "present",
+      "inputs": [
+        "reportData",
+        "resultData",
+        "accessView",
+        "locale",
+        "attemptId",
+        "scale_code",
+        "iq_pro",
+        "summary",
+        "dimensions"
+      ],
+      "outputs": [
+        "report module"
+      ],
+      "renders_result_summary": true,
+      "renders_dimensions": true,
+      "renders_report_content": true,
+      "renders_paid_locked_states": true,
+      "premature_payment_risk": "guarded_low",
+      "design_relevance": "supporting_or_contract_input",
+      "evidence_hits": [
+        {
+          "line": 5,
+          "text": "import { IqReportModule } from \"@/components/result/iq/IqReportModule\";"
+        },
+        {
+          "line": 41,
+          "text": "scale_code: \"IQ_INTELLIGENCE_QUOTIENT\","
+        },
+        {
+          "line": 42,
+          "text": "locked: false,"
+        },
+        {
+          "line": 46,
+          "text": "iq_estimate: 118,"
+        },
+        {
+          "line": 47,
+          "text": "percentile: 84,"
+        },
+        {
+          "line": 48,
+          "text": "confidence_interval: {"
+        },
+        {
+          "line": 55,
+          "text": "visual_spatial_insight: {"
+        },
+        {
+          "line": 58,
+          "text": "percentile: 82,"
+        },
+        {
+          "line": 62,
+          "text": "visual_spatial_pattern_reasoning: {"
+        },
+        {
+          "line": 65,
+          "text": "percentile: 78,"
+        },
+        {
+          "line": 69,
+          "text": "numerical_pattern_reasoning: {"
+        },
+        {
+          "line": 72,
+          "text": "percentile: 88,"
+        },
+        {
+          "line": 77,
+          "text": "quality: {"
+        },
+        {
+          "line": 81,
+          "text": "stability: {"
+        },
+        {
+          "line": 90,
+          "text": "body: \"Interpret the estimate alongside the interval and response quality.\","
+        },
+        {
+          "line": 94,
+          "text": "pdf_payload: {"
+        },
+        {
+          "line": 97,
+          "text": "certificate_payload: {"
+        },
+        {
+          "line": 98,
+          "text": "schema_version: \"iq.certificate.v0\","
+        },
+        {
+          "line": 102,
+          "text": "scale_code: \"IQ_INTELLIGENCE_QUOTIENT\","
+        },
+        {
+          "line": 105,
+          "text": "scale_code: \"IQ_INTELLIGENCE_QUOTIENT\","
+        }
+      ]
+    },
+    {
+      "file_path": "tests/contracts/iq-frontend-api-contracts.contract.test.ts",
+      "exists": true,
+      "component_or_function": "contract/docs evidence",
+      "purpose": "IQ result/report surface asset",
+      "current_status": "present",
+      "inputs": [
+        "locale",
+        "attemptId",
+        "scale_code",
+        "summary",
+        "dimensions"
+      ],
+      "outputs": [],
+      "renders_result_summary": true,
+      "renders_dimensions": true,
+      "renders_report_content": false,
+      "renders_paid_locked_states": true,
+      "premature_payment_risk": "guarded_low",
+      "design_relevance": "supporting_or_contract_input",
+      "evidence_hits": [
+        {
+          "line": 124,
+          "text": "iq_estimate: null,"
+        },
+        {
+          "line": 125,
+          "text": "percentile: null,"
+        },
+        {
+          "line": 127,
+          "text": "visual_spatial_insight: { score: 8 },"
+        },
+        {
+          "line": 128,
+          "text": "visual_spatial_pattern_reasoning: { score: 9 },"
+        },
+        {
+          "line": 129,
+          "text": "numerical_pattern_reasoning: { score: 7 },"
+        },
+        {
+          "line": 136,
+          "text": "locked: true,"
+        },
+        {
+          "line": 137,
+          "text": "access_state: \"locked\","
+        },
+        {
+          "line": 138,
+          "text": "report_state: \"locked\","
+        },
+        {
+          "line": 139,
+          "text": "pdf_state: \"locked\","
+        },
+        {
+          "line": 140,
+          "text": "unlock_stage: \"locked\","
+        },
+        {
+          "line": 149,
+          "text": "iq_estimate: null,"
+        },
+        {
+          "line": 150,
+          "text": "percentile: null,"
+        },
+        {
+          "line": 151,
+          "text": "confidence_interval: {"
+        },
+        {
+          "line": 157,
+          "text": "visual_spatial_insight: { score: 8 },"
+        },
+        {
+          "line": 158,
+          "text": "visual_spatial_pattern_reasoning: { score: 9 },"
+        },
+        {
+          "line": 159,
+          "text": "numerical_pattern_reasoning: { score: 7 },"
+        },
+        {
+          "line": 161,
+          "text": "quality: {"
+        },
+        {
+          "line": 165,
+          "text": "stability: {"
+        },
+        {
+          "line": 172,
+          "text": "expect(IQ_CANONICAL_SCALE_CODE).toBe(\"IQ_INTELLIGENCE_QUOTIENT\");"
+        },
+        {
+          "line": 173,
+          "text": "expect(IQ_LEGACY_SCALE_CODE).toBe(\"IQ_RAVEN\");"
+        }
+      ]
+    },
+    {
+      "file_path": "tests/contracts/result-client-view-state.contract.test.tsx",
+      "exists": true,
+      "component_or_function": "contract/docs evidence",
+      "purpose": "IQ result/report surface asset",
+      "current_status": "present",
+      "inputs": [
+        "reportData",
+        "resultData",
+        "locale",
+        "attemptId",
+        "scale_code",
+        "summary",
+        "dimensions"
+      ],
+      "outputs": [],
+      "renders_result_summary": true,
+      "renders_dimensions": true,
+      "renders_report_content": false,
+      "renders_paid_locked_states": true,
+      "premature_payment_risk": "guarded_low",
+      "design_relevance": "supporting_or_contract_input",
+      "evidence_hits": [
+        {
+          "line": 41,
+          "text": "type IqResultShellProps = {"
+        },
+        {
+          "line": 44,
+          "text": "iq_estimate?: number | null;"
+        },
+        {
+          "line": 48,
+          "text": "iq_estimate?: number | null;"
+        },
+        {
+          "line": 150,
+          "text": "vi.mock(\"@/components/result/iq/IqResultShell\", () => ({"
+        },
+        {
+          "line": 151,
+          "text": "IqResultShell: ({ reportData, resultData }: IqResultShellProps) => ("
+        },
+        {
+          "line": 153,
+          "text": "{String(reportData?.summary?.iq_estimate ?? resultData?.iq_estimate ?? \"iq-shell\")}"
+        },
+        {
+          "line": 201,
+          "text": "unlock_stage: \"locked\","
+        },
+        {
+          "line": 336,
+          "text": "const [reportAccessParams] = hoisted.fetchAttemptReportAccess.mock.calls[0] ?? [];"
+        },
+        {
+          "line": 337,
+          "text": "expect(reportAccessParams).toEqual(expect.objectContaining({ attemptId: \"attempt-123\" }));"
+        },
+        {
+          "line": 338,
+          "text": "expect(reportAccessParams).toEqual(expect.objectContaining({ accessToken: \"result_lookup_token_123\" }));"
+        },
+        {
+          "line": 429,
+          "text": "expect(screen.getByTestId(\"rich-result-report\")).toHaveAttribute(\"data-unlock-stage\", \"locked\");"
+        },
+        {
+          "line": 557,
+          "text": "it(\"keeps the page on the rich report path when report access is locked but the report page is ready\", async () => {"
+        },
+        {
+          "line": 562,
+          "text": "access_state: \"locked\","
+        },
+        {
+          "line": 592,
+          "text": "locked: false,"
+        },
+        {
+          "line": 594,
+          "text": "quality: { level: \"A\" },"
+        },
+        {
+          "line": 829,
+          "text": "it(\"retries report-access without auth but preserves anon ownership when ATTEMPT_NOT_FOUND is returned\", async () => {"
+        },
+        {
+          "line": 865,
+          "text": "locked: false,"
+        },
+        {
+          "line": 868,
+          "text": "scale_code: \"IQ_INTELLIGENCE_QUOTIENT\","
+        },
+        {
+          "line": 872,
+          "text": "scale_code: \"IQ_INTELLIGENCE_QUOTIENT\","
+        },
+        {
+          "line": 875,
+          "text": "iq_estimate: 118,"
+        }
+      ]
+    },
+    {
+      "file_path": "tests/contracts/iq-cms-media-rendering-guard.contract.test.tsx",
+      "exists": true,
+      "component_or_function": "contract/docs evidence",
+      "purpose": "IQ result/report surface asset",
+      "current_status": "present",
+      "inputs": [
+        "locale"
+      ],
+      "outputs": [],
+      "renders_result_summary": false,
+      "renders_dimensions": false,
+      "renders_report_content": false,
+      "renders_paid_locked_states": false,
+      "premature_payment_risk": "guarded_low",
+      "design_relevance": "supporting_or_contract_input",
+      "evidence_hits": [
+        {
+          "line": 31,
+          "text": "const title = screen.getByRole(\"heading\", { level: 3, name: \"IQ 智商测试\" });"
+        },
+        {
+          "line": 39,
+          "text": "expect(within(card as HTMLElement).queryByRole(\"img\", { name: /IQ|智商/i })).not.toBeInTheDocument();"
+        },
+        {
+          "line": 49,
+          "text": "const title = screen.getByRole(\"heading\", { level: 2, name: \"IQ 智商测试\" });"
+        },
+        {
+          "line": 56,
+          "text": "expect(within(card as HTMLElement).queryByRole(\"img\", { name: /IQ|智商/i })).not.toBeInTheDocument();"
+        }
+      ]
+    },
+    {
+      "file_path": "tests/contracts/iq-claim-seo-launch-guard.contract.test.ts",
+      "exists": true,
+      "component_or_function": "contract/docs evidence",
+      "purpose": "IQ result/report surface asset",
+      "current_status": "present",
+      "inputs": [
+        "locale"
+      ],
+      "outputs": [],
+      "renders_result_summary": false,
+      "renders_dimensions": false,
+      "renders_report_content": false,
+      "renders_paid_locked_states": true,
+      "premature_payment_risk": "none_found_in_scan",
+      "design_relevance": "supporting_or_contract_input",
+      "evidence_hits": [
+        {
+          "line": 20,
+          "text": "scaleCode: \"IQ_INTELLIGENCE_QUOTIENT\","
+        },
+        {
+          "line": 56,
+          "text": "scaleCode: \"IQ_INTELLIGENCE_QUOTIENT\","
+        },
+        {
+          "line": 76,
+          "text": "scaleCode: \"IQ_RAVEN\","
+        },
+        {
+          "line": 92,
+          "text": "scaleCode: \"IQ_INTELLIGENCE_QUOTIENT\","
+        },
+        {
+          "line": 115,
+          "text": "it(\"blocks unsafe IQ score and percentile claims\", () => {"
+        },
+        {
+          "line": 116,
+          "text": "expect(hasUnsafeIqLaunchClaim(\"Get your official IQ score and population percentile ranking\")).toBe(true);"
+        },
+        {
+          "line": 117,
+          "text": "expect(hasUnsafeIqLaunchClaim(\"查看官方智商和人群百分位\")).toBe(true);"
+        },
+        {
+          "line": 122,
+          "text": "scaleCode: \"IQ_INTELLIGENCE_QUOTIENT\","
+        },
+        {
+          "line": 126,
+          "text": "description: \"Population percentile ranking\","
+        },
+        {
+          "line": 129,
+          "text": "expect(guard.unsafeClaimBlocked).toBe(true);"
+        }
+      ]
+    },
+    {
+      "file_path": "tests/contracts/iq-launch-readiness-smoke.contract.test.ts",
+      "exists": true,
+      "component_or_function": "contract/docs evidence",
+      "purpose": "IQ result/report surface asset",
+      "current_status": "present",
+      "inputs": [
+        "attemptId"
+      ],
+      "outputs": [],
+      "renders_result_summary": false,
+      "renders_dimensions": false,
+      "renders_report_content": false,
+      "renders_paid_locked_states": false,
+      "premature_payment_risk": "guarded_low",
+      "design_relevance": "supporting_or_contract_input",
+      "evidence_hits": []
+    },
+    {
+      "file_path": "tests/contracts/iq-seo-ramp-indexation-gate.contract.test.ts",
+      "exists": true,
+      "component_or_function": "contract/docs evidence",
+      "purpose": "IQ result/report surface asset",
+      "current_status": "present",
+      "inputs": [
+        "locale"
+      ],
+      "outputs": [],
+      "renders_result_summary": false,
+      "renders_dimensions": false,
+      "renders_report_content": false,
+      "renders_paid_locked_states": false,
+      "premature_payment_risk": "none_found_in_scan",
+      "design_relevance": "supporting_or_contract_input",
+      "evidence_hits": []
+    },
+    {
+      "file_path": "docs/audits/iq-fe/05_result_report_renderer_audit.md",
+      "exists": true,
+      "component_or_function": "contract/docs evidence",
+      "purpose": "IQ result/report surface asset",
+      "current_status": "present",
+      "inputs": [
+        "locale",
+        "attemptId",
+        "scale_code",
+        "summary",
+        "dimensions"
+      ],
+      "outputs": [
+        "summary metrics"
+      ],
+      "renders_result_summary": true,
+      "renders_dimensions": true,
+      "renders_report_content": false,
+      "renders_paid_locked_states": true,
+      "premature_payment_risk": "none_found_in_scan",
+      "design_relevance": "supporting_or_contract_input",
+      "evidence_hits": [
+        {
+          "line": 14,
+          "text": "| Dedicated IQ report page client | not found | not found | no |"
+        },
+        {
+          "line": 24,
+          "text": "- `summary.iq_estimate`"
+        },
+        {
+          "line": 25,
+          "text": "- `summary.percentile`"
+        },
+        {
+          "line": 26,
+          "text": "- `summary.confidence_interval`"
+        },
+        {
+          "line": 27,
+          "text": "- `dimensions.visual_spatial_insight`"
+        },
+        {
+          "line": 28,
+          "text": "- `dimensions.visual_spatial_pattern_reasoning`"
+        },
+        {
+          "line": 29,
+          "text": "- `dimensions.numerical_pattern_reasoning`"
+        },
+        {
+          "line": 30,
+          "text": "- `quality.level`"
+        },
+        {
+          "line": 31,
+          "text": "- `quality.flags`"
+        },
+        {
+          "line": 32,
+          "text": "- `stability.status`"
+        },
+        {
+          "line": 36,
+          "text": "| `scale_code` | partial | result/report logic still recognizes `IQ_RAVEN` | add canonical `IQ_INTELLIGENCE_QUOTIENT` view-model handling |"
+        },
+        {
+          "line": 38,
+          "text": "| `unlock.stage` | partial | shared access model uses `unlockStage` = `locked/partial/full` | map to deferred-commerce-safe IQ UI |"
+        },
+        {
+          "line": 40,
+          "text": "| `summary.iq_estimate` | not found | same | add IQ summary card |"
+        },
+        {
+          "line": 41,
+          "text": "| `summary.percentile` | not found | same | add IQ summary card |"
+        },
+        {
+          "line": 42,
+          "text": "| `summary.confidence_interval` | not found | same | add IQ summary card |"
+        },
+        {
+          "line": 44,
+          "text": "| `quality.level` | partial | shared report systems render some quality concepts for other scales | no explicit IQ quality block |"
+        },
+        {
+          "line": 45,
+          "text": "| `quality.flags` | not found | not found | add explicit list/flags renderer |"
+        },
+        {
+          "line": 46,
+          "text": "| `stability.status` | not found | not found | add explicit stability badge/copy |"
+        },
+        {
+          "line": 52,
+          "text": "| Result page already polls `report-access`, `report`, and `result` | `ResultClient.tsx` | good base for IQ lifecycle |"
+        },
+        {
+          "line": 53,
+          "text": "| Generic rich report allows IQ under legacy scale code | `RichResultReport.tsx` includes `IQ_RAVEN` | good base, but canonicalization gap remains |"
+        }
+      ]
+    },
+    {
+      "file_path": "docs/audits/iq-fe/13_iq_fe_4_result_page_notes.md",
+      "exists": true,
+      "component_or_function": "contract/docs evidence",
+      "purpose": "IQ result/report surface asset",
+      "current_status": "present",
+      "inputs": [
+        "locale",
+        "summary"
+      ],
+      "outputs": [
+        "report module"
+      ],
+      "renders_result_summary": false,
+      "renders_dimensions": true,
+      "renders_report_content": false,
+      "renders_paid_locked_states": true,
+      "premature_payment_risk": "guarded_low",
+      "design_relevance": "supporting_or_contract_input",
+      "evidence_hits": [
+        {
+          "line": 10,
+          "text": "- `RichResultReport` is geared toward MBTI / Big Five / Enneagram / RIASEC rich-report flows and can surface commerce-oriented locked states that this IQ PR must not reuse."
+        },
+        {
+          "line": 15,
+          "text": "- Added an IQ-specific shell in `components/result/iq/IqResultShell.tsx`."
+        },
+        {
+          "line": 17,
+          "text": "- canonical `IQ_INTELLIGENCE_QUOTIENT`"
+        },
+        {
+          "line": 18,
+          "text": "- legacy alias `IQ_RAVEN`"
+        },
+        {
+          "line": 27,
+          "text": "- percentile when present"
+        },
+        {
+          "line": 29,
+          "text": "- quality level / quality flags when present"
+        },
+        {
+          "line": 30,
+          "text": "- stability status / reason when present"
+        },
+        {
+          "line": 32,
+          "text": "1. `visual_spatial_insight` / `VSI`"
+        },
+        {
+          "line": 33,
+          "text": "2. `visual_spatial_pattern_reasoning` / `VSPR`"
+        },
+        {
+          "line": 34,
+          "text": "3. `numerical_pattern_reasoning` / `NPR`"
+        },
+        {
+          "line": 36,
+          "text": "## Null / blocked behavior"
+        },
+        {
+          "line": 38,
+          "text": "- If `iq_estimate` is null, the UI renders:"
+        },
+        {
+          "line": 42,
+          "text": "- No fake scores, fake percentiles, or fake confidence intervals are introduced."
+        },
+        {
+          "line": 46,
+          "text": "- If report access is locked, the IQ shell shows neutral non-payment copy only:"
+        },
+        {
+          "line": 58,
+          "text": "- `IQ-FE-5 report module shell + deferred-commerce locked state`"
+        }
+      ]
+    },
+    {
+      "file_path": "docs/audits/iq-fe/14_iq_fe_5_report_module_notes.md",
+      "exists": true,
+      "component_or_function": "contract/docs evidence",
+      "purpose": "IQ result/report surface asset",
+      "current_status": "present",
+      "inputs": [
+        "summary"
+      ],
+      "outputs": [
+        "dimension cards",
+        "report module"
+      ],
+      "renders_result_summary": false,
+      "renders_dimensions": false,
+      "renders_report_content": false,
+      "renders_paid_locked_states": true,
+      "premature_payment_risk": "guarded_low",
+      "design_relevance": "supporting_or_contract_input",
+      "evidence_hits": [
+        {
+          "line": 6,
+          "text": "- Did not add any payment, checkout, order, webhook, PDF download, or certificate download behavior."
+        },
+        {
+          "line": 9,
+          "text": "- `components/result/iq/IqReportModule.tsx`"
+        },
+        {
+          "line": 10,
+          "text": "- `components/result/iq/IqResultShell.tsx`"
+        },
+        {
+          "line": 16,
+          "text": "- `ResultClient` already fetched `report-access` and `report`, so IQ-FE-5 stayed inside the IQ renderer layer."
+        },
+        {
+          "line": 17,
+          "text": "- `IqResultShell` still renders the IQ summary and the three dimension cards from IQ-FE-4."
+        },
+        {
+          "line": 18,
+          "text": "- `IqReportModule` now renders:"
+        },
+        {
+          "line": 19,
+          "text": "- deferred-commerce locked copy"
+        },
+        {
+          "line": 24,
+          "text": "- PDF / certificate placeholders only when payloads exist"
+        },
+        {
+          "line": 27,
+          "text": "- `locked` stays conservative and renders neutral deferred-commerce copy."
+        },
+        {
+          "line": 28,
+          "text": "- Generic frontend access states still normalize to `locked / partial / full`; IQ helpers map those to:"
+        },
+        {
+          "line": 29,
+          "text": "- `locked`"
+        },
+        {
+          "line": 30,
+          "text": "- `unlocked_adaptive`"
+        },
+        {
+          "line": 31,
+          "text": "- `unlocked_pro`"
+        },
+        {
+          "line": 42,
+          "text": "- shows a neutral unavailable message if `pdf_payload` exists"
+        },
+        {
+          "line": 43,
+          "text": "- shows a neutral unavailable message if `certificate_payload` exists"
+        },
+        {
+          "line": 44,
+          "text": "- No download link or certificate claim flow is implemented."
+        }
+      ]
+    },
+    {
+      "file_path": "docs/audits/iq-fe/18_iq_claim_seo_launch_guard.md",
+      "exists": true,
+      "component_or_function": "contract/docs evidence",
+      "purpose": "IQ result/report surface asset",
+      "current_status": "present",
+      "inputs": [],
+      "outputs": [],
+      "renders_result_summary": false,
+      "renders_dimensions": false,
+      "renders_report_content": false,
+      "renders_paid_locked_states": true,
+      "premature_payment_risk": "none_found_in_scan",
+      "design_relevance": "supporting_or_contract_input",
+      "evidence_hits": [
+        {
+          "line": 10,
+          "text": "- SoftwareApplication JSON-LD remains blocked for IQ until backend norm authority exists."
+        },
+        {
+          "line": 14,
+          "text": "Forbidden launch claims include official IQ score, certified IQ, diagnostic IQ, population percentile, and equivalent Chinese claims such as 官方智商 and 人群百分位."
+        }
+      ]
+    },
+    {
+      "file_path": "docs/audits/iq-fe/19_iq_live_smoke_launch_readiness.md",
+      "exists": true,
+      "component_or_function": "contract/docs evidence",
+      "purpose": "IQ result/report surface asset",
+      "current_status": "present",
+      "inputs": [],
+      "outputs": [],
+      "renders_result_summary": false,
+      "renders_dimensions": false,
+      "renders_report_content": false,
+      "renders_paid_locked_states": true,
+      "premature_payment_risk": "guarded_low",
+      "design_relevance": "supporting_or_contract_input",
+      "evidence_hits": [
+        {
+          "line": 36,
+          "text": "- Formal IQ estimate and percentile claims remain blocked until backend norm authority exists."
+        }
+      ]
+    },
+    {
+      "file_path": "docs/audits/iq-fe/20_iq_production_launch_readiness_ledger.md",
+      "exists": true,
+      "component_or_function": "contract/docs evidence",
+      "purpose": "IQ result/report surface asset",
+      "current_status": "present",
+      "inputs": [],
+      "outputs": [],
+      "renders_result_summary": false,
+      "renders_dimensions": false,
+      "renders_report_content": false,
+      "renders_paid_locked_states": true,
+      "premature_payment_risk": "guarded_low",
+      "design_relevance": "supporting_or_contract_input",
+      "evidence_hits": [
+        {
+          "line": 13,
+          "text": "| `IQ-NORM-03` | fap-api PR #1810, merged 2026-05-31T15:13:21Z, commit `fa144c9207c062c38238afc709ebb7f1e45274ba` | IQ score claims are unlocked only through backend norm authority gates. |"
+        },
+        {
+          "line": 14,
+          "text": "| `IQ-PAID-REPORT-01` | fap-api PR #1812, merged 2026-05-31T15:48:58Z, commit `60eabe326f7e24e71a1bef555493dc9a1d6e6f13` | Paid report entitlement contract is backend-defined. |"
+        },
+        {
+          "line": 15,
+          "text": "| `IQ-PAID-REPORT-02` | fap-web PR #943, merged 2026-05-31T16:12:12Z, commit `48793784c1d5c55b0271fa85322fd1b190d306b2` | Frontend renders entitlement states without taking payment authority. |"
+        },
+        {
+          "line": 21,
+          "text": "| `IQ-OBS-01` | fap-api PR #1823, merged 2026-05-31T17:59:09Z, commit `1e8a6ebb10a4e21a0e50b6764916f75cda9d385b` | Production observability guards cover completion, norm miss, entitlement miss, scoring anomaly, and version drift without log"
+        },
+        {
+          "line": 27,
+          "text": "| Norm authority | Norm authority remains backend-only. Frontend and CMS must not infer formal IQ estimates or population percentiles. | Satisfied by `IQ-NORM-01` through `IQ-NORM-03`. |"
+        },
+        {
+          "line": 28,
+          "text": "| Claim policy | Public IQ estimate and percentile claims require backend claim-eligible norm authority. | Satisfied; SEO expansion remains gated. |"
+        },
+        {
+          "line": 30,
+          "text": "| Paid report | Entitlement is backend-defined; frontend only renders locked/full states from API payloads. | Satisfied; no checkout or payment implementation added in release ledger. |"
+        },
+        {
+          "line": 40,
+          "text": "| Real production norm data import | fap-api backend norm authority | Dry-run validation, locked source metadata, license verification, and sample-size gate. |"
+        },
+        {
+          "line": 43,
+          "text": "| Paid report file generation | Backend report service and commerce entitlement | PDF/certificate generation must not expose answer keys or private paid fields and must remain entitlement-gated. |"
+        }
+      ]
+    }
+  ],
+  "additional_iq_files": [
+    "docs/audits/iq-fe/01_frontend_structure_scan.json",
+    "docs/audits/iq-fe/01_frontend_structure_scan.md",
+    "docs/audits/iq-fe/02_route_surface_audit.json",
+    "docs/audits/iq-fe/02_route_surface_audit.md",
+    "docs/audits/iq-fe/03_api_contract_audit.json",
+    "docs/audits/iq-fe/03_api_contract_audit.md",
+    "docs/audits/iq-fe/04_question_renderer_audit.json",
+    "docs/audits/iq-fe/04_question_renderer_audit.md",
+    "docs/audits/iq-fe/05_result_report_renderer_audit.json",
+    "docs/audits/iq-fe/05_result_report_renderer_audit.md",
+    "docs/audits/iq-fe/06_deferred_commerce_surface_audit.json",
+    "docs/audits/iq-fe/06_deferred_commerce_surface_audit.md",
+    "docs/audits/iq-fe/07_test_build_strategy.json",
+    "docs/audits/iq-fe/07_test_build_strategy.md",
+    "docs/audits/iq-fe/08_iq_frontend_pr_split_plan.json",
+    "docs/audits/iq-fe/08_iq_frontend_pr_split_plan.md",
+    "docs/audits/iq-fe/09_iq_frontend_sidecar_issues.md",
+    "docs/audits/iq-fe/10_iq_fe_1_api_contract_notes.md",
+    "docs/audits/iq-fe/11_iq_fe_2_renderer_notes.md",
+    "docs/audits/iq-fe/12_iq_fe_3_take_page_notes.md",
+    "docs/audits/iq-fe/13_iq_fe_4_result_page_notes.md",
+    "docs/audits/iq-fe/14_iq_fe_5_report_module_notes.md",
+    "docs/audits/iq-fe/15_iq_fe_6_mobile_loading_error_notes.md",
+    "docs/audits/iq-fe/18_iq_claim_seo_launch_guard.md",
+    "docs/audits/iq-fe/19_iq_live_smoke_launch_readiness.md",
+    "docs/audits/iq-fe/20_iq_production_launch_readiness_ledger.md",
+    "lib/seo/iqSeoRampAuthority.ts",
+    "lib/seo/testDetailAuthority.ts",
+    "lib/seo/topicLlmsAuthority.ts",
+    "public/static/sbti/illustrations/DRUNK.png",
+    "public/static/sbti/illustrations/MUM.png",
+    "public/static/sbti/illustrations/POOR.png",
+    "scripts/iq/iq-launch-readiness-smoke.mjs",
+    "tests/contracts/depression-entry-visibility.contract.test.tsx",
+    "tests/contracts/fixtures/cmsLandingSurfaceMock.ts",
+    "tests/contracts/helpers/currentPrScope.ts",
+    "tests/contracts/homepage-articles-empty-state.contract.test.tsx",
+    "tests/contracts/homepage-v1-core-grid.contract.test.tsx",
+    "tests/contracts/homepage-v1-density.contract.test.tsx",
+    "tests/contracts/iq-bank-display-model.contract.test.ts",
+    "tests/contracts/iq-claim-seo-launch-guard.contract.test.ts",
+    "tests/contracts/iq-cms-media-rendering-guard.contract.test.tsx",
+    "tests/contracts/iq-frontend-api-contracts.contract.test.ts",
+    "tests/contracts/iq-launch-readiness-smoke.contract.test.ts",
+    "tests/contracts/iq-question-renderer.contract.test.tsx",
+    "tests/contracts/iq-release-readiness-ledger.contract.test.ts",
+    "tests/contracts/iq-report-module.contract.test.tsx",
+    "tests/contracts/iq-result-renderer.contract.test.tsx",
+    "tests/contracts/iq-seo-ramp-indexation-gate.contract.test.ts",
+    "tests/contracts/iq-take-lifecycle.contract.test.tsx",
+    "tests/contracts/quiz-normalization.contract.test.ts",
+    "tests/contracts/result-client-view-state.contract.test.tsx",
+    "tests/contracts/search-intelligence-data-contract.contract.test.ts",
+    "tests/contracts/test-detail-softwareapplication-schema.contract.test.ts",
+    "tests/contracts/test-slug-aliases.contract.test.ts",
+    "tests/contracts/test-title-display.contract.test.ts",
+    "tests/contracts/tests-hub-pr-ux-01-render.contract.test.tsx",
+    "tests/contracts/uasp-existing-scale-signal-registry.contract.test.ts",
+    "tests/contracts/uasp-profile-sensitivity-policy.contract.test.ts",
+    "tests/contracts/uasp-profile-write-blocker-memory-readiness-ledger.contract.test.ts",
+    "tests/contracts/uasp-readiness-dashboard.contract.test.ts",
+    "tests/e2e/home-visual.spec.ts",
+    "tests/e2e/iq-eq-result-regression.spec.ts",
+    "tests/e2e/visual/home.visual.spec.ts-snapshots/home-footer-en-chromium-linux.png",
+    "tests/e2e/visual/home.visual.spec.ts-snapshots/home-hero-en-chromium-linux.png",
+    "tests/e2e/visual/iq-take.visual.spec.ts",
+    "tests/e2e/visual/iq-take.visual.spec.ts-snapshots/iq-take-desktop-options-en-chromium-linux.png",
+    "tests/e2e/visual/iq-take.visual.spec.ts-snapshots/iq-take-mobile-options-en-chromium-linux.png",
+    "tests/e2e/visual/support.visual.spec.ts-snapshots/help-en-chromium-linux.png",
+    "tests/e2e/visual/tests-list.visual.spec.ts-snapshots/tests-list-footer-en-chromium-linux.png"
+  ]
+}

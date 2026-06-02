@@ -1,0 +1,149 @@
+{
+  "generated_at": "2026-06-02T17:03:49Z",
+  "sections": [
+    {
+      "section": "Hero IQ Score section",
+      "purpose": "Communicate overall result quickly",
+      "current_assets": "iq_estimate/raw_score/percentile/CI fields; IqResultShell",
+      "missing_assets": "score band, claim eligibility, norm version, bank/form metadata",
+      "backend_fields_needed": "summary.iq_estimate, summary.percentile, confidence_interval, claim_policy, norm_version",
+      "frontend_components": "IqResultShell, buildIqResultViewModel",
+      "copy_requirements": "Short title, safe estimate qualifier",
+      "design_risk": "High if overclaims",
+      "claim_safety_risk": "High",
+      "priority": "P1"
+    },
+    {
+      "section": "Score reliability section",
+      "purpose": "Explain quality/stability/confidence",
+      "current_assets": "quality/stability fields and boundary copy",
+      "missing_assets": "plain-language quality mapping",
+      "backend_fields_needed": "quality.level, quality.flags, stability.status, stability.reason",
+      "frontend_components": "IqResultShell/result.ts",
+      "copy_requirements": "Reviewed reliability copy",
+      "design_risk": "Medium",
+      "claim_safety_risk": "High",
+      "priority": "P0"
+    },
+    {
+      "section": "Percentile / CI explanation",
+      "purpose": "Make percentile and CI understandable",
+      "current_assets": "fields render today",
+      "missing_assets": "distribution chart metadata and reviewed explanation",
+      "backend_fields_needed": "percentile, confidence_interval, population_reference, norm_version",
+      "frontend_components": "new score explanation component",
+      "copy_requirements": "Reviewed norm copy",
+      "design_risk": "Medium",
+      "claim_safety_risk": "High",
+      "priority": "P0"
+    },
+    {
+      "section": "Three dimension overview",
+      "purpose": "Show VSI/VSPR/NPR at a glance",
+      "current_assets": "dimension labels and cards exist",
+      "missing_assets": "visual hierarchy and comparison copy",
+      "backend_fields_needed": "dimension scores, bands, insights",
+      "frontend_components": "IqResultShell",
+      "copy_requirements": "Dimension one-liners",
+      "design_risk": "Medium",
+      "claim_safety_risk": "Medium",
+      "priority": "P1"
+    },
+    {
+      "section": "Dimension deep-dive cards",
+      "purpose": "Map PDF pages 5-10 to web",
+      "current_assets": "dimension fields and paid detail blocks",
+      "missing_assets": "band tables, descriptions, visualizations",
+      "backend_fields_needed": "dimension band_table, interpretation_copy, comparison_level",
+      "frontend_components": "IqReportModule or new component",
+      "copy_requirements": "Backend/report-owned explanations",
+      "design_risk": "Medium",
+      "claim_safety_risk": "Medium",
+      "priority": "P1"
+    },
+    {
+      "section": "Result quality and stability",
+      "purpose": "Prevent overtrust",
+      "current_assets": "quality/stability render",
+      "missing_assets": "better user-friendly display",
+      "backend_fields_needed": "quality/stability plus reason codes",
+      "frontend_components": "IqResultShell",
+      "copy_requirements": "Caution copy",
+      "design_risk": "Low",
+      "claim_safety_risk": "High",
+      "priority": "P0"
+    },
+    {
+      "section": "Method boundary",
+      "purpose": "State online estimate limits",
+      "current_assets": "method boundary copy exists",
+      "missing_assets": "reviewed CMS/backend authority version",
+      "backend_fields_needed": "method_copy_version, review_status",
+      "frontend_components": "IqReportModule/result.ts",
+      "copy_requirements": "Reviewed method copy",
+      "design_risk": "Low",
+      "claim_safety_risk": "High",
+      "priority": "P0"
+    },
+    {
+      "section": "Report preview teaser",
+      "purpose": "Preview value without checkout",
+      "current_assets": "report module state machine exists",
+      "missing_assets": "real backend preview content",
+      "backend_fields_needed": "iq_pro.preview_sections, entitlement_state",
+      "frontend_components": "IqReportModule",
+      "copy_requirements": "Deferred-commerce-safe teaser",
+      "design_risk": "Medium",
+      "claim_safety_risk": "Medium",
+      "priority": "P1"
+    },
+    {
+      "section": "PDF / certificate placeholder",
+      "purpose": "Show delivery status safely",
+      "current_assets": "placeholders exist",
+      "missing_assets": "download links and certificate claim policy",
+      "backend_fields_needed": "pdf_payload, certificate_payload, claim_eligible",
+      "frontend_components": "IqReportModule",
+      "copy_requirements": "Delivery copy",
+      "design_risk": "High",
+      "claim_safety_risk": "High",
+      "priority": "sidecar"
+    },
+    {
+      "section": "Retest / next steps",
+      "purpose": "Guide user after result",
+      "current_assets": "generic routes/actions possible",
+      "missing_assets": "backend/CMS next-step copy",
+      "backend_fields_needed": "recommended_next_steps, retest_window",
+      "frontend_components": "new action section",
+      "copy_requirements": "Reviewed next-step copy",
+      "design_risk": "Low",
+      "claim_safety_risk": "Medium",
+      "priority": "P2"
+    },
+    {
+      "section": "Share/save section",
+      "purpose": "Support user retention",
+      "current_assets": "result route/access actions exist",
+      "missing_assets": "IQ-specific safe share copy and media",
+      "backend_fields_needed": "share_url, saved_state, privacy flags",
+      "frontend_components": "result action component",
+      "copy_requirements": "Privacy-safe copy",
+      "design_risk": "Medium",
+      "claim_safety_risk": "Medium",
+      "priority": "P2"
+    },
+    {
+      "section": "Deferred-commerce or entitlement state",
+      "purpose": "Keep paid logic backend-owned",
+      "current_assets": "accessView and entitlement state exist",
+      "missing_assets": "backend unlock integration",
+      "backend_fields_needed": "access_state, unlock_stage, modulesAllowed",
+      "frontend_components": "IqReportModule",
+      "copy_requirements": "No checkout until authorized",
+      "design_risk": "Medium",
+      "claim_safety_risk": "High",
+      "priority": "P1"
+    }
+  ]
+}

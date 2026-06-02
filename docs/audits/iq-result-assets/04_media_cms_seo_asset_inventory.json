@@ -1,0 +1,28 @@
+{
+  "generated_at": "2026-06-02T17:03:49Z",
+  "public_iq_static_assets": [],
+  "seo_or_claim_guard_files": [
+    "docs/audits/iq-fe/18_iq_claim_seo_launch_guard.md",
+    "lib/seo/iqSeoRampAuthority.ts",
+    "lib/seo/testDetailAuthority.ts",
+    "lib/seo/topicLlmsAuthority.ts",
+    "tests/contracts/iq-claim-seo-launch-guard.contract.test.ts",
+    "tests/contracts/iq-seo-ramp-indexation-gate.contract.test.ts"
+  ],
+  "result_route_noindex": {
+    "file_path": "app/(localized)/[locale]/(app)/result/[id]/page.tsx",
+    "status": "present"
+  },
+  "cms_media_refs": {
+    "status": "guarded_or_missing",
+    "evidence": "tests/contracts/iq-cms-media-rendering-guard.contract.test.tsx and CMS media docs referenced in IQ train; no frontend static fallback should be introduced."
+  },
+  "missing_assets": [
+    "IQ result hero visual system",
+    "dimension icons/illustrations",
+    "score distribution web-native chart asset",
+    "certificate cover media",
+    "report cover media",
+    "share image specifically for IQ result"
+  ]
+}
