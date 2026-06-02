@@ -16403,9 +16403,9 @@
       "base": "main",
       "depends_on": [],
       "title": "feat(iq): add beta bank display model",
-      "status": "in_progress",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "pr_opened",
+      "commit_sha": "1f4e48a357f30b367459755cffe558b533ec08ec",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/999",
       "checks": {
         "pnpm exec vitest run tests/contracts/iq-bank-display-model.contract.test.ts": "passed",
         "pnpm typecheck": "passed",
@@ -16426,6 +16426,11 @@
           "at": "2026-06-02T00:00:00+08:00",
           "status": "local_checks_passed",
           "summary": "Focused IQ bank display contract, typecheck, diff check, and scope validation passed."
+        },
+        {
+          "at": "2026-06-02T00:00:00+08:00",
+          "status": "pr_opened",
+          "summary": "Opened PR for IQ-FE-BANK-SWITCH-01."
         }
       ]
     }
