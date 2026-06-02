@@ -1,0 +1,162 @@
+{
+  "proposal_metadata": {
+    "proposal_id": "landing-surface-riasec-zh-cn-2026-06-01",
+    "resource": "landing_surface_v1",
+    "locale": "zh-CN",
+    "canonical_path": "/zh/tests/holland-career-interest-test-riasec",
+    "target_slug": "holland-career-interest-test-riasec",
+    "status": "draft_proposal_only",
+    "publish_policy": "do_not_publish_without_human_review",
+    "content_authority": "cms_landing_surfaces_or_page_blocks",
+    "frontend_runtime_copy": false
+  },
+  "landing_surface_v1": {
+    "version": "landing.surface.v1",
+    "landing_contract_version": "landing.surface.v1",
+    "landing_scope": "public_indexable_test_detail",
+    "entry_surface": "test_detail",
+    "entry_type": "riasec_test",
+    "locale": "zh-CN",
+    "canonical_path": "/zh/tests/holland-career-interest-test-riasec",
+    "seo": {
+      "title": "霍兰德职业兴趣测试 RIASEC｜职业方向与选专业参考",
+      "description": "通过霍兰德 RIASEC 职业兴趣测试了解现实型、研究型、艺术型、社会型、企业型、常规型六类兴趣倾向，用于辅助选专业、转行和职业探索。"
+    },
+    "blocks": [
+      {
+        "id": "riasec-landing-primary-cta",
+        "type": "primary_cta",
+        "title": "从职业兴趣开始理解你的方向",
+        "body": "霍兰德 RIASEC 测试关注你更容易被哪些工作活动、问题类型和环境吸引。它适合作为选专业、转行、职业探索的辅助工具，但不保证给出唯一正确职业，也不能替代真实行业调研、实践体验或专业咨询。",
+        "internal_links": [
+          { "label": "开始霍兰德职业兴趣测试", "href": "/zh/tests/holland-career-interest-test-riasec/take?form=riasec_60", "canonical_status": "existing_route_with_query_form" },
+          { "label": "职业测试", "href": "/zh/career/tests", "canonical_status": "existing_route" },
+          { "label": "职业探索中心", "href": "/zh/career", "canonical_status": "existing_route" }
+        ],
+        "cta": { "id": "riasec-primary-cta-action", "label": "开始职业兴趣测试", "href": "/zh/tests/holland-career-interest-test-riasec/take?form=riasec_60", "analytics_key": "start_test" },
+        "items": [
+          { "id": "use_case_major", "title": "选专业", "body": "用兴趣倾向辅助筛选值得进一步了解的专业方向。" },
+          { "id": "use_case_transition", "title": "转行", "body": "对照自己偏好的工作活动，识别转行前需要验证的行业和岗位。" },
+          { "id": "use_case_first_job", "title": "第一份工作", "body": "把结果作为实习、岗位探索和职业访谈的提问线索。" }
+        ],
+        "faq": []
+      },
+      {
+        "id": "riasec-landing-six-types",
+        "type": "six_types",
+        "title": "RIASEC六型解释",
+        "body": "RIASEC 将职业兴趣分为现实型、研究型、艺术型、社会型、企业型和常规型。多数人不是单一类型，而是几个兴趣维度共同构成更有参考价值的兴趣轮廓。",
+        "internal_links": [
+          { "label": "职业库", "href": "/zh/career/jobs", "canonical_status": "existing_route" },
+          { "label": "职业领域", "href": "/zh/career/industries", "canonical_status": "existing_route" },
+          { "label": "职业方向", "href": "/zh/career/recommendations", "canonical_status": "existing_route" }
+        ],
+        "cta": { "id": "riasec-six-types-cta", "label": "查看职业库", "href": "/zh/career/jobs" },
+        "items": [
+          { "id": "realistic", "code": "R", "title": "现实型 Realistic", "body": "偏好动手、设备、工具、现场操作和看得见的结果。" },
+          { "id": "investigative", "code": "I", "title": "研究型 Investigative", "body": "偏好分析、探索、实验、模型和问题求解。" },
+          { "id": "artistic", "code": "A", "title": "艺术型 Artistic", "body": "偏好表达、创作、开放任务和较高自主度。" },
+          { "id": "social", "code": "S", "title": "社会型 Social", "body": "偏好支持、沟通、教育、助人和协作影响。" },
+          { "id": "enterprising", "code": "E", "title": "企业型 Enterprising", "body": "偏好推动目标、说服、组织资源和承担影响结果的角色。" },
+          { "id": "conventional", "code": "C", "title": "常规型 Conventional", "body": "偏好结构、数据、流程、秩序和稳定执行。" }
+        ],
+        "faq": []
+      },
+      {
+        "id": "riasec-landing-career-direction",
+        "type": "career_direction",
+        "title": "把RIASEC结果转化为职业方向",
+        "body": "RIASEC 结果更适合帮助你缩小探索范围，而不是直接替你选择职业。建议关注你的前三个兴趣维度，结合职业库、岗位要求和实际体验，逐步验证哪些工作内容更能持续吸引你。",
+        "internal_links": [
+          { "label": "职业库", "href": "/zh/career/jobs", "canonical_status": "existing_route" },
+          { "label": "职业推荐", "href": "/zh/career/recommendations", "canonical_status": "existing_route" },
+          { "label": "职业指南", "href": "/zh/career/guides", "canonical_status": "existing_route" },
+          { "label": "MBTI人格测试", "href": "/zh/tests/mbti-personality-test-16-personality-types", "canonical_status": "existing_route" }
+        ],
+        "cta": { "id": "riasec-career-direction-cta", "label": "浏览职业方向", "href": "/zh/career/recommendations" },
+        "items": [
+          { "id": "top_codes", "title": "看前三个兴趣维度", "body": "不要只看最高分，组合往往比单个类型更接近真实选择。" },
+          { "id": "activity_fit", "title": "对照工作活动", "body": "优先验证日常任务是否匹配，而不只看职业名称是否吸引人。" },
+          { "id": "environment_fit", "title": "观察环境偏好", "body": "同一个职业在不同组织中可能有完全不同的工作节奏和协作方式。" }
+        ],
+        "faq": []
+      },
+      {
+        "id": "riasec-landing-major-selection",
+        "type": "major_selection",
+        "title": "用于选专业时怎么读",
+        "body": "选专业时，RIASEC 可以帮助你把兴趣翻译成学习活动和未来工作场景：你更喜欢实验、表达、助人、组织、数据还是动手操作。专业选择仍需要结合课程设置、升学路径、就业市场和个人能力基础。",
+        "internal_links": [
+          { "label": "职业指南", "href": "/zh/career/guides", "canonical_status": "existing_route" },
+          { "label": "职业领域", "href": "/zh/career/industries", "canonical_status": "existing_route" },
+          { "label": "职业测试", "href": "/zh/career/tests", "canonical_status": "existing_route" }
+        ],
+        "cta": { "id": "riasec-major-selection-cta", "label": "继续看职业指南", "href": "/zh/career/guides" },
+        "items": [
+          { "id": "course_fit", "title": "课程匹配", "body": "查看专业核心课程是否与你愿意长期投入的活动相近。" },
+          { "id": "project_fit", "title": "项目体验", "body": "通过社团、竞赛、实习或公开课验证兴趣是否能转化为持续行动。" },
+          { "id": "path_check", "title": "路径核对", "body": "同时核对升学、就业、城市、成本和家庭沟通等现实条件。" }
+        ],
+        "faq": []
+      },
+      {
+        "id": "riasec-landing-transition-scenarios",
+        "type": "transition_scenarios",
+        "title": "用于转行时怎么读",
+        "body": "转行时，RIASEC 可以帮助你识别想换掉的是行业、岗位任务、组织环境，还是当前工作压力。建议把测试结果和简历能力、可迁移技能、目标岗位要求一起看，先做低成本验证，再决定是否投入长期转型。",
+        "internal_links": [
+          { "label": "职业探索中心", "href": "/zh/career", "canonical_status": "existing_route" },
+          { "label": "职业库", "href": "/zh/career/jobs", "canonical_status": "existing_route" },
+          { "label": "职业推荐", "href": "/zh/career/recommendations", "canonical_status": "existing_route" }
+        ],
+        "cta": { "id": "riasec-transition-scenarios-cta", "label": "查看职业库", "href": "/zh/career/jobs" },
+        "items": [
+          { "id": "current_pain", "title": "区分不喜欢什么", "body": "先判断你不满意的是工作内容、协作方式、发展空间还是短期压力。" },
+          { "id": "transferable_skills", "title": "盘点可迁移技能", "body": "把过往经验拆成可复用能力，再匹配目标岗位要求。" },
+          { "id": "small_experiments", "title": "做小规模验证", "body": "通过访谈、作品、兼职项目或课程，降低一次性转行的风险。" }
+        ],
+        "faq": []
+      },
+      {
+        "id": "riasec-landing-career-internal-links",
+        "type": "internal_links",
+        "title": "继续探索职业与人格测评",
+        "body": "完成 RIASEC 后，可以结合职业库、职业指南和人格测评一起阅读。职业兴趣解释你被什么活动吸引，人格测评帮助你理解偏好和沟通方式，两者都应服务于现实验证。",
+        "internal_links": [
+          { "label": "职业库", "href": "/zh/career/jobs", "canonical_status": "existing_route" },
+          { "label": "职业指南", "href": "/zh/career/guides", "canonical_status": "existing_route" },
+          { "label": "职业测试", "href": "/zh/career/tests", "canonical_status": "existing_route" },
+          { "label": "MBTI人格测试", "href": "/zh/tests/mbti-personality-test-16-personality-types", "canonical_status": "existing_route" },
+          { "label": "大五人格测试", "href": "/zh/tests/big-five-personality-test-ocean-model", "canonical_status": "existing_route" }
+        ],
+        "cta": { "id": "riasec-career-links-cta", "label": "进入职业探索中心", "href": "/zh/career" },
+        "items": [
+          { "id": "career_jobs", "title": "职业库", "body": "用职业名称、活动和要求进一步验证兴趣方向。" },
+          { "id": "career_guides", "title": "职业指南", "body": "从路径、技能和场景理解职业选择。" },
+          { "id": "personality_tests", "title": "人格测评", "body": "补充理解沟通、决策和工作偏好。" }
+        ],
+        "faq": []
+      },
+      {
+        "id": "riasec-landing-faq-updates",
+        "type": "faq",
+        "title": "霍兰德职业兴趣测试常见问题",
+        "body": "以下 FAQ 用于说明 RIASEC 的适用范围、选专业和转行时的阅读方式，以及它与人格测试的区别。",
+        "internal_links": [
+          { "label": "职业测试", "href": "/zh/career/tests", "canonical_status": "existing_route" },
+          { "label": "MBTI人格测试", "href": "/zh/tests/mbti-personality-test-16-personality-types", "canonical_status": "existing_route" },
+          { "label": "大五人格测试", "href": "/zh/tests/big-five-personality-test-ocean-model", "canonical_status": "existing_route" }
+        ],
+        "cta": { "id": "riasec-faq-cta", "label": "开始测试", "href": "/zh/tests/holland-career-interest-test-riasec/take?form=riasec_60", "analytics_key": "start_test" },
+        "items": [],
+        "faq": [
+          { "id": "faq-riasec-diagnostic-boundary", "question": "霍兰德职业兴趣测试是职业诊断吗？", "answer": "不是。它用于辅助理解职业兴趣倾向，不会诊断能力，也不能保证某个职业一定适合你。" },
+          { "id": "faq-riasec-six-types", "question": "RIASEC六型分别代表什么？", "answer": "RIASEC 包括现实型、研究型、艺术型、社会型、企业型和常规型，分别描述人们对不同工作活动和环境的兴趣偏好。" },
+          { "id": "faq-riasec-major", "question": "选专业可以只看RIASEC结果吗？", "answer": "不建议。结果可以帮助你缩小探索范围，但仍要结合课程内容、能力基础、学校资源、就业市场和个人条件。" },
+          { "id": "faq-riasec-transition", "question": "转行时RIASEC结果怎么用？", "answer": "可以用它识别你想靠近的工作活动，再用职业访谈、项目体验、技能盘点和岗位要求验证方向。" },
+          { "id": "faq-riasec-mbti", "question": "霍兰德和MBTI有什么区别？", "answer": "霍兰德更关注职业兴趣和工作环境，MBTI 更关注人格偏好和沟通方式。两者可以结合阅读，但都不是决定论工具。" }
+        ]
+      }
+    ]
+  }
+}
