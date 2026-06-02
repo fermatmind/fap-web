@@ -18,46 +18,42 @@
     "NEXT_PUBLIC_GOOGLE_ADS_BEGIN_CHECKOUT_CONVERSION_LABEL"
   ],
   "eventMapping": {
-    "start_attempt": "ga4_start_test",
-    "submit_attempt": "ga4_complete_test",
-    "view_result": "ga4_view_result",
-    "click_unlock": "ga4_click_deep_report",
-    "create_order": "ga4_begin_checkout",
-    "payment_confirmed": "ga4_add_payment_info",
-    "purchase_success": "ga4_purchase_success_and_google_ads_purchase_conversion"
+    "start_attempt": "ga4_test_start",
+    "submit_attempt": "ga4_test_submit",
+    "view_result": "ga4_result_view",
+    "click_unlock": "ga4_checkout_start",
+    "create_order": "ga4_order_created",
+    "payment_confirmed": "ga4_payment_success",
+    "purchase_success": "ga4_payment_success_and_google_ads_purchase_conversion"
   },
   "ga4KeyEventTaxonomy": {
-    "start_attempt": "start_test",
-    "submit_attempt": "complete_test",
-    "view_result": "view_result",
-    "click_unlock": "click_deep_report",
-    "create_order": "begin_checkout",
-    "purchase_success": "purchase_success"
+    "start_attempt": "test_start",
+    "submit_attempt": "test_submit",
+    "view_result": "result_view",
+    "click_unlock": "checkout_start",
+    "create_order": "order_created",
+    "purchase_success": "payment_success"
   },
   "baiduTongjiConversionTaxonomy": {
-    "start_test": {
+    "test_start": {
       "category": "test",
       "action": "start"
     },
-    "complete_test": {
+    "test_submit": {
       "category": "test",
       "action": "complete"
     },
-    "view_result": {
+    "result_view": {
       "category": "result",
       "action": "view"
     },
-    "click_deep_report": {
-      "category": "report",
-      "action": "click"
-    },
-    "begin_checkout": {
+    "checkout_start": {
       "category": "checkout",
       "action": "begin"
     },
-    "purchase_success": {
-      "category": "purchase",
-      "action": "success"
+    "order_created": {
+      "category": "checkout",
+      "action": "order"
     }
   },
   "canonicalFunnelEvents": [

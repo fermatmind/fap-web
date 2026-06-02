@@ -19,6 +19,14 @@ const CURRENT_BRANCH = (() => {
 const RIASEC_PACK12_ALLOWED_FILES = new Set([
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
+  "docs/analytics/conversion-setup-qa-checklist.md",
+  "docs/analytics/generated/tracking-activation-contract.v1.json",
+  "docs/analytics/tracking-activation-runbook.md",
+  "lib/tracking/client.ts",
+  "tests/contracts/analytics-payload-privacy.contract.test.ts",
+  "tests/contracts/analytics-scripts.contract.test.ts",
+  "tests/contracts/seo-funnel-tracking-taxonomy.contract.test.ts",
+  "tests/contracts/tracking-activation-contract.contract.test.ts",
   "lib/riasec/resultAssembler.ts",
   "tests/contracts/helpers/currentPrScope.ts",
   "tests/contracts/api-gateway-smoke-rollback-runbook.contract.test.ts",
@@ -1156,6 +1164,10 @@ const FRONTEND_CI_BUILD_TIMEOUT_ALLOWED_FILES = new Set([
 ]);
 
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH === "codex/analytics-funnel-web-event-name-alignment-02") {
+    return RIASEC_PACK12_ALLOWED_FILES.has(file);
+  }
+
   if (CURRENT_BRANCH === "codex/pr-02-followup-notfound-rsc-payload-cleanup-01") {
     return PR_02_FOLLOWUP_NOTFOUND_RSC_PAYLOAD_CLEANUP_01_ALLOWED_FILES.has(file);
   }

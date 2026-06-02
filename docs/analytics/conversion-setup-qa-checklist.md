@@ -6,31 +6,30 @@ Do not paste real IDs, labels, order numbers, transaction IDs, customer data, co
 
 ## 1. Business Funnel Source of Truth
 
-GA4 is the primary business-funnel conversion reporting surface.
+Backend `analytics_funnel_daily` is the primary business-funnel conversion truth for payment, report unlock, and report-ready stages. GA4 is the public-funnel reporting surface.
 
 GA4 Key Events configured for the production property:
 
-- `start_test`
-- `complete_test`
-- `view_result`
-- `click_deep_report`
-- `begin_checkout`
-- `purchase_success`
+- `test_start`
+- `test_submit`
+- `result_view`
+- `checkout_start`
+- `order_created`
 
-Business purchase-success reporting uses `purchase_success`.
+Business purchase-success reporting uses backend/Ops `payment_success`. GA4 `payment_success`, `report_unlock`, and `report_ready` should not be treated as browser-only truth unless a later privacy-safe bridge is explicitly approved.
 
 GA4 may still show the built-in `purchase` key event, and the dashboard star can be non-removable for that built-in event. Do not add frontend code that also emits `purchase` for the same paid success flow. Treating both `purchase` and `purchase_success` as business purchase success would double count purchases.
 
 | Funnel action | Frontend canonical event | GA4 event / Key Event | Business conversion role | Google Ads conversion |
 | --- | --- | --- | --- | --- |
-| Start test | `start_attempt` | `start_test` | primary funnel step | no |
-| Complete test | `submit_attempt` | `complete_test` | primary funnel step | no |
-| View result | `view_result` | `view_result` | primary funnel step | no |
-| Click deep report | `click_unlock` | `click_deep_report` | primary funnel step | no |
-| Begin checkout | `create_order` | `begin_checkout` | primary funnel step | no |
-| Purchase success | `purchase_success` | `purchase_success` | primary purchase success | yes, purchase only |
+| Start test | `start_attempt` | `test_start` | primary public funnel step | no |
+| Complete test | `submit_attempt` | `test_submit` | primary public funnel step | no |
+| View result | `view_result` | `result_view` | primary public funnel step | no |
+| Click deep report | `click_unlock` | `checkout_start` | public checkout intent | no |
+| Begin checkout/order created | `create_order` | `order_created` | backend order-created reporting | no |
+| Purchase success | `purchase_success` | `payment_success` | backend/Ops truth; browser bridge is auxiliary | yes, purchase only |
 
-`payment_confirmed` is tracked as GA4 `add_payment_info`. It is not the primary purchase conversion.
+`payment_confirmed` is tracked as GA4 `payment_success` only as an auxiliary browser event. It is not the primary purchase conversion truth.
 
 Privacy rule: dashboard reports and exports must not rely on raw `orderNo`, raw result identifiers, email, phone, token, cookie, or full private URLs as dimensions.
 
@@ -62,9 +61,9 @@ Dashboard owner:
 
 1. Open GA4 Admin for the production property.
 2. Confirm Data Stream uses the production web stream for `fermatmind.com`.
-3. Confirm the six GA4 events above exist in Events or Key Events.
-4. Confirm each of the six is marked as a Key Event.
-5. Confirm `purchase_success` is the business purchase-success reporting metric.
+3. Confirm the five public GA4 events above exist in Events or Key Events.
+4. Confirm each of the five public funnel events is marked as a Key Event.
+5. Confirm backend/Ops `payment_success`, not Baidu or browser-only GA4, is the business purchase-success reporting metric.
 6. Do not mark legacy aliases such as `start_click`, `submit_click`, `checkout_start`, or `pay_success` as separate Key Events. They should normalize before dispatch.
 7. Confirm the event parameter allowlist is sufficient for reporting:
    - `test_type`
@@ -84,7 +83,7 @@ Dashboard owner:
 2. Confirm the conversion ID is configured as `NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID`.
 3. Confirm the purchase label is configured as `NEXT_PUBLIC_GOOGLE_ADS_PURCHASE_CONVERSION_LABEL`.
 4. Confirm only `purchase_success` sends the Google Ads `conversion` event.
-5. Do not configure `start_test`, `complete_test`, `view_result`, `click_deep_report`, or `begin_checkout` as Google Ads purchase conversions.
+5. Do not configure `test_start`, `test_submit`, `result_view`, `checkout_start`, or `order_created` as Google Ads purchase conversions.
 6. Confirm conversion diagnostics show the Google tag on production public pages after deployment.
 
 QA boundary: do not create a real order or trigger a real payment from this checklist. Use production diagnostics only for passive tag detection unless a separate payment test plan authorizes a sandbox or test transaction.
@@ -148,14 +147,13 @@ The frontend may keep `_hmt.push(["_trackEvent", category, action, label])` as a
 
 Current bridge values:
 
-| GA4 key event | Baidu category | Baidu action |
+| GA4 public event | Baidu category | Baidu action |
 | --- | --- | --- |
-| `start_test` | `test` | `start` |
-| `complete_test` | `test` | `complete` |
+| `test_start` | `test` | `start` |
+| `test_submit` | `test` | `complete` |
 | `view_result` | `result` | `view` |
-| `click_deep_report` | `report` | `click` |
-| `begin_checkout` | `checkout` | `begin` |
-| `purchase_success` | `purchase` | `success` |
+| `checkout_start` | `checkout` | `begin` |
+| `order_created` | `checkout` | `order` |
 
 These values are not a promise that the current Baidu Tongji dashboard can create new conversion goals from `_trackEvent` category/action. Treat them as analysis/debug taxonomy only unless Baidu restores or explicitly supports that setup path for the account.
 
@@ -191,8 +189,8 @@ Engineering or QA:
 
 1. Use a non-production analytics account when testing locally, preview, or staging.
 2. Confirm `NEXT_PUBLIC_ANALYTICS_ENABLED` is not accidentally pointing local or preview traffic at production measurement IDs.
-3. In GA4 Realtime or DebugView, confirm `start_test`, `complete_test`, `view_result`, `click_deep_report`, and `begin_checkout` appear once for one authorized user action.
-4. Confirm `purchase_success` is visible only from an authorized paid-success test path.
+3. In GA4 Realtime or DebugView, confirm `test_start`, `test_submit`, `result_view`, `checkout_start`, and `order_created` appear once for one authorized user action.
+4. Confirm browser `payment_success` is treated as auxiliary only, with backend/Ops remaining the business payment truth.
 5. Do not complete a real payment for this QA checklist.
 6. In Baidu Tongji, verify public CTA elements can be selected or addressed by element ID only on public routes.
 7. Confirm private/noindex routes do not load `hm.baidu.com`, `_hmt`, or the Baidu Tongji loader.
@@ -202,11 +200,11 @@ Engineering or QA:
 
 GA4:
 
-- Realtime or DebugView shows the six Key Events after an authorized test session.
+- Realtime or DebugView shows the five public funnel Key Events after an authorized test session.
 - The same action does not produce duplicate Key Events.
-- `purchase_success` is the business purchase-success metric.
-- `purchase` and `purchase_success` are not both used as business purchase success.
-- `purchase_success` includes `currency`, `value`, and a redacted or stable transaction identifier only when available.
+- Backend/Ops `payment_success` is the business purchase-success metric.
+- `purchase`, `purchase_success`, and browser `payment_success` are not used together as duplicate business purchase success.
+- Browser `payment_success`, if observed, includes `currency`, `value`, and a redacted or stable transaction identifier only when available.
 - Private result, order, share, pay, payment, and history URLs do not appear with raw identifiers in page-location based reports.
 
 Baidu Tongji:
@@ -227,12 +225,12 @@ Google Ads:
 24h:
 
 - Confirm GA4 Key Events have started receiving data.
-- Confirm `purchase_success` is the purchase-success metric used in reporting notes.
+- Confirm backend/Ops `payment_success` is the purchase-success metric used in reporting notes.
 - Confirm Baidu entrance-page and visited-page reports do not contain raw private URLs.
 
 72h:
 
-- Confirm no duplicate purchase-success reporting is caused by mixing `purchase` and `purchase_success`.
+- Confirm no duplicate purchase-success reporting is caused by mixing `purchase`, `purchase_success`, and browser `payment_success`.
 - Confirm Baidu public CTA element conversion data, if configured, is limited to allowed public CTA elements.
 - Confirm private/noindex routes still do not load Baidu Tongji scripts.
 
@@ -247,8 +245,8 @@ Google Ads:
 Before marking dashboard setup complete:
 
 - Production environment variables are configured outside the repository.
-- GA4 Key Events are enabled for all six funnel events.
-- GA4 business purchase success is `purchase_success`.
+- GA4 Key Events are enabled for the five public funnel events.
+- Backend/Ops business purchase success is `payment_success`.
 - Google Ads purchase conversion is configured only for `purchase_success`.
 - Baidu Tongji is limited to PV/UV, source, search-term, entrance-page, visited-page, and public CTA auxiliary click analysis.
 - Baidu Tongji conversion docs do not claim new `_trackEvent` category/action conversion goals are configurable in the current dashboard.
