@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-02T10:51:58.000Z",
+  "updated_at": "2026-06-02T00:00:00+08:00",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -16392,6 +16392,40 @@
           "at": "2026-06-02T10:49:36.000Z",
           "event": "blocked_dependency",
           "note": "Registered draft-only canary content task as blocked. No CMS draft, publish action, GPT-5.5 package edit, generated copy, or content asset mutation is allowed in this execution."
+        }
+      ]
+    },
+    {
+      "id": "IQ-FE-BANK-SWITCH-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/iq-fe-bank-switch-01",
+      "base": "main",
+      "depends_on": [],
+      "title": "feat(iq): add beta bank display model",
+      "status": "in_progress",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": {
+        "pnpm exec vitest run tests/contracts/iq-bank-display-model.contract.test.ts": "passed",
+        "pnpm typecheck": "passed",
+        "git diff --check": "passed",
+        "scope_validation": "passed: changed files limited to IQ bank display model, constants, focused contract test, and train metadata"
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "events": [
+        {
+          "at": "2026-06-02T00:00:00+08:00",
+          "status": "started",
+          "summary": "User authorized manifest/state updates and started IQ-FE-BANK-SWITCH-01 in an isolated fap-web worktree."
+        },
+        {
+          "at": "2026-06-02T00:00:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Focused IQ bank display contract, typecheck, diff check, and scope validation passed."
         }
       ]
     }
