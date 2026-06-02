@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-02T10:50:30.000Z",
+  "updated_at": "2026-06-02T10:51:58.000Z",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -16262,9 +16262,9 @@
       "base": "main",
       "depends_on": [],
       "title": "chore(codex): add SEO CMS canary PR train entries",
-      "status": "in_progress",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "pr_open",
+      "commit_sha": "38cb49c2990b32fc657eda25d47511c70e3bcdb4",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/997",
       "checks": {
         "manifest_authorization": {
           "status": "passed",
@@ -16305,6 +16305,16 @@
           "at": "2026-06-02T10:50:30.000Z",
           "event": "local_validation_passed",
           "note": "Stage 0 metadata validation passed: docs/codex whitespace diff check, YAML parse, JSON parse, and path scope limited to docs/codex/pr-train.yaml and docs/codex/pr-train-state.json."
+        },
+        {
+          "at": "2026-06-02T10:51:58.000Z",
+          "event": "commit_created",
+          "note": "Created metadata-only commit 38cb49c2990b32fc657eda25d47511c70e3bcdb4 for SEO-CMS-CANARY-TRAIN-00."
+        },
+        {
+          "at": "2026-06-02T10:51:58.000Z",
+          "event": "pr_open",
+          "note": "Opened https://github.com/fermatmind/fap-web/pull/997 after local metadata validation passed."
         }
       ]
     },
