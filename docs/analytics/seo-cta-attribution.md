@@ -1,6 +1,7 @@
 # SEO CTA Attribution
 
 `SEO-OPS-02` preserves safe article CTA attribution from the article page into test navigation and `attempts/start`.
+`SEO-CMS-CANARY-WEB-01` adds a separate `article_to_test_click` event for structured article CTA clicks so article click intent is no longer reported as `start_attempt`.
 
 ## Model
 
@@ -8,7 +9,8 @@
 - Article CTAs also hydrate from stored first-touch attribution when App Router search params are not available to the client wrapper.
 - Test detail pages preserve the same safe context when linking into `/take`.
 - RIASEC take pages copy the safe context into `attempts/start` metadata after guest-token readiness.
-- Backend remains the receiver of attempt attribution; this PR does not change backend ingest or event allow-lists.
+- Structured article CTAs emit `article_to_test_click` with locale, article slug, translation group, CTA id/priority, target test slug, source path, and destination path.
+- Backend remains the receiver of attempt attribution; `start_attempt` remains reserved for real test starts.
 
 ## Safe Params
 
@@ -49,6 +51,23 @@ RIASEC `attempts/start` receives:
 - top-level backend-supported attribution: `landing_path`, `referrer`, and `utm`
 - `meta` fields for source context: source route family, source slug, CTA id, target test slug, target action, safe UTM fields, and safe click ids
 
+## Article-to-Test Click Payload
+
+`article_to_test_click` is a browser/first-party analytics event for structured article CTA clicks only. It maps to GA4 as `article_to_test_click` and is not configured as a GA4 Key Event by default; operations can add it to funnel exploration without counting it as `test_start`.
+
+Required fields:
+
+- `locale`
+- `article_slug`
+- `translation_group_id`
+- `cta_id`
+- `cta_priority`
+- `target_test_slug`
+- `source_path`
+- `destination_path`
+
+`destination_path` must be a localized public test detail route, `/{locale}/tests/{slug}`, without tokenized query params. Private result, order, share, pay, payment, history, and test-taking routes are not tracked as article CTA destinations.
+
 ## SEO-OPS-02B Live Gap Closure
 
 Production verification after `SEO-OPS-02` showed the code was deployed but article CTA `href` could still render without UTM on the live article route. `SEO-OPS-02B` closes that gap by reading the stored safe attribution payload after hydration and using it to rebuild the CTA href before click. The same safe UTM keys are kept explicit in RIASEC `attempts/start.meta` when present.
@@ -67,5 +86,5 @@ Production verification after `SEO-OPS-02D` showed the target pilot article was 
 
 ## Deferred
 
-- Backend attribution ingest expansion for first-class `source_slug`, `cta_id`, and `target_test_slug` fields remains a backend-owned follow-up.
-- Additional live acceptance for non-RIASEC article-to-test funnels remains a follow-up.
+- Full `view_result` article source retention remains a WEB-02 follow-up.
+- Rich content / Markdown links keep safe navigation attribution; first-class click tracking for every hydrated CMS body link remains deferred unless separately scoped.

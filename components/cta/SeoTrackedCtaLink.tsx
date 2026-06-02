@@ -31,9 +31,11 @@ export function SeoTrackedCtaLink({
   sourceSlug,
   contentId,
   topicId,
+  translationGroupId,
   sourcePath,
   href,
   ctaId,
+  ctaPriority,
   targetAction,
   targetTestSlug,
   formCode,
@@ -82,9 +84,11 @@ export function SeoTrackedCtaLink({
       sourceSlug,
       contentId,
       topicId,
+      translationGroupId,
       sourcePath: sourcePathWithAttribution,
       href,
       ctaId,
+      ctaPriority,
       targetAction,
       targetTestSlug,
       attributionParams,
@@ -92,6 +96,7 @@ export function SeoTrackedCtaLink({
     [
       attributionParams,
       contentId,
+      ctaPriority,
       ctaId,
       href,
       locale,
@@ -100,6 +105,7 @@ export function SeoTrackedCtaLink({
       sourceSlug,
       targetAction,
       targetTestSlug,
+      translationGroupId,
       topicId,
     ]
   );
@@ -119,9 +125,11 @@ export function SeoTrackedCtaLink({
     sourceSlug,
     contentId,
     topicId,
+    translationGroupId,
     sourcePath: sourcePathWithAttribution,
-    href: resolvedHref,
+    href,
     ctaId,
+    ctaPriority,
     targetAction,
     targetTestSlug,
     formCode,
@@ -148,7 +156,7 @@ export function SeoTrackedCtaLink({
     <TrackedEntryCtaLink
       {...props}
       href={resolvedHref}
-      eventName="start_attempt"
+      eventName={sourceRouteFamily === "article_detail" ? "article_to_test_click" : "start_attempt"}
       eventProperties={eventProperties}
       onClick={handleClick}
     />

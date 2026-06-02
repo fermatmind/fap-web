@@ -48,6 +48,8 @@ type CmsArticleApiRecord = {
   related_test_slug?: string | null;
   related_test_slugs?: unknown;
   test_edges?: unknown;
+  translation_group_id?: string | number | null;
+  translationGroupId?: string | number | null;
   voice?: string | null;
   voice_order?: number | string | null;
   status?: string;
@@ -166,6 +168,7 @@ export type CmsArticle = {
   relatedTestSlug: string | null;
   relatedTestSlugs?: string[];
   testEdges?: CmsArticleTestEdge[];
+  translationGroupId?: string | null;
   voice: string | null;
   voiceOrder: number | null;
   status: string;
@@ -852,6 +855,7 @@ function normalizeArticle(article: CmsArticleApiRecord): CmsArticle {
     relatedTestSlug,
     relatedTestSlugs,
     testEdges,
+    translationGroupId: normalizeIsoValue(article.translation_group_id) ?? normalizeIsoValue(article.translationGroupId),
     voice: normalizeIsoValue(article.voice),
     voiceOrder: normalizePositiveInteger(article.voice_order),
     status: normalizeStatus(article.status),

@@ -22,6 +22,7 @@ GA4 may still show the built-in `purchase` key event, and the dashboard star can
 
 | Funnel action | Frontend canonical event | GA4 event / Key Event | Business conversion role | Google Ads conversion |
 | --- | --- | --- | --- | --- |
+| Article CTA click | `article_to_test_click` | `article_to_test_click`; not a Key Event until Ops confirms | article-to-test intent for funnel exploration | no |
 | Start test | `start_attempt` | `test_start` | primary public funnel step | no |
 | Complete test | `submit_attempt` | `test_submit` | primary public funnel step | no |
 | View result | `view_result` | `result_view` | primary public funnel step | no |
@@ -32,6 +33,8 @@ GA4 may still show the built-in `purchase` key event, and the dashboard star can
 `payment_confirmed` is tracked as GA4 `payment_success` only as an auxiliary browser event. It is not the primary purchase conversion truth.
 
 Privacy rule: dashboard reports and exports must not rely on raw `orderNo`, raw result identifiers, email, phone, token, cookie, or full private URLs as dimensions.
+
+`article_to_test_click` must be interpreted separately from `test_start`: article click intent is not proof that the user started a test. Baidu may observe public CTA interaction only as auxiliary traffic analysis and must not be used as a private funnel source.
 
 ## 2. Required Production Environment
 

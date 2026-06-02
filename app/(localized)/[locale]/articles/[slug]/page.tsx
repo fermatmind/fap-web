@@ -28,6 +28,10 @@ import {
   buildBreadcrumbJsonLd,
   buildFAQPageJsonLd,
 } from "@/lib/seo/generateSchema";
+import {
+  extractPublicTestDetailPathFromHref,
+  extractTargetTestSlugFromHref,
+} from "@/lib/tracking/seoCtaAttribution";
 import { resolveArticleJsonLdAuthority } from "@/lib/seo/articlePersonalityAuthority";
 import { buildI18nSeoPassport } from "@/lib/seo/i18nPassport";
 import { buildPageMetadata, normalizeTwitterImages, resolveTwitterCard } from "@/lib/seo/metadata";
@@ -294,9 +298,11 @@ export default async function ArticleDetailPage({
 
   const backToArticlesCta = findLandingCta(article.landingSurface, "back_to_articles");
   const topicHubCta = findLandingCta(article.landingSurface, "topic_hub");
-  const startTestCta = findLandingCta(article.landingSurface, "start_test");
+  const articleTestCtas = article.landingSurface?.ctaBundle.filter((cta) => (
+    Boolean(extractPublicTestDetailPathFromHref(cta.href, locale))
+  )) ?? [];
   const articleRuntimeContract = resolveArticleRuntimeContract(article);
-  const hasCmsSidebarCtas = Boolean(backToArticlesCta || topicHubCta || startTestCta);
+  const hasCmsSidebarCtas = Boolean(backToArticlesCta || topicHubCta || articleTestCtas.length);
 
   const relatedArticles: RelatedContentItem[] = [];
   const relatedCareerGuides: RelatedContentItem[] = [];
@@ -376,6 +382,7 @@ export default async function ArticleDetailPage({
           sourceSlug: article.slug,
           sourcePath: canonicalPath,
           contentId: article.id,
+          translationGroupId: article.translationGroupId,
         }}
       />
 
@@ -410,21 +417,24 @@ export default async function ArticleDetailPage({
                   </Link>
                 ) : null}
 
-                {startTestCta ? (
+                {articleTestCtas.map((cta) => (
                   <SeoTrackedCtaLink
-                    href={startTestCta.href}
+                    key={cta.key}
+                    href={cta.href}
                     sourceRouteFamily="article_detail"
                     sourceSlug={article.slug}
                     sourcePath={canonicalPath}
                     contentId={article.id}
-                    ctaId={startTestCta.key}
-                    targetTestSlug={article.relatedTestSlug}
+                    translationGroupId={article.translationGroupId}
+                    ctaId={cta.key}
+                    ctaPriority={cta.priority}
+                    targetTestSlug={extractTargetTestSlugFromHref(cta.href) ?? article.relatedTestSlug}
                     locale={locale}
                     className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
                   >
-                    {startTestCta.label}
+                    {cta.label}
                   </SeoTrackedCtaLink>
-                ) : null}
+                ))}
               </div>
             </section>
           ) : null}

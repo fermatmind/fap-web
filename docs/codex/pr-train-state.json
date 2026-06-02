@@ -16352,10 +16352,51 @@
         "SEO-CMS-CANARY-BE-01"
       ],
       "title": "feat(analytics): add article-to-test CTA tracking contract",
-      "status": "planned",
+      "status": "local_checks_passed",
       "commit_sha": null,
       "pr_url": null,
-      "checks": {},
+      "checks": {
+        "dependency_reconciliation": {
+          "status": "passed",
+          "summary": "GitHub shows fermatmind/fap-api#1852 merged at 2026-06-02T11:46:03Z with merge commit dc96157c0c226ed39c2036a27670c092bc54013f, and fap-api origin/main contains that merge commit."
+        },
+        "branch_preflight": {
+          "status": "passed",
+          "summary": "Target WEB-01 branch was absent locally and remotely; isolated fap-web worktree was created from latest main."
+        },
+        "targeted_article_cta_tracking_contracts": {
+          "status": "passed",
+          "summary": "./node_modules/.bin/vitest run tests/contracts/seo-cms-canary-web01-article-to-test-click.contract.test.tsx tests/contracts/seo-page-cta-attribution.contract.test.ts tests/contracts/seo-ops-02-article-cta-attribution.contract.test.ts tests/contracts/seo-ops-02d-article-rich-content-cta-attribution.contract.test.tsx tests/contracts/article-answer-surface.contract.test.ts tests/contracts/tracking-whitelist.contract.test.ts tests/contracts/analytics-payload-privacy.contract.test.ts passed."
+        },
+        "targeted_riasec_attribution_contracts": {
+          "status": "passed",
+          "summary": "./node_modules/.bin/vitest run tests/contracts/riasec-standard-funnel-events.contract.test.tsx tests/contracts/riasec-take-flow-shared-quizstore.contract.test.tsx tests/contracts/mbti-take-attribution.contract.test.tsx passed."
+        },
+        "typecheck": {
+          "status": "passed",
+          "summary": "pnpm typecheck passed."
+        },
+        "full_contract_suite": {
+          "status": "passed",
+          "summary": "pnpm test:contract passed with 429 files and 2400 tests."
+        },
+        "production_build": {
+          "status": "passed",
+          "summary": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build passed; generated sitemap drift was reverted because it is outside WEB-01 scope."
+        },
+        "lint": {
+          "status": "passed_with_existing_warnings",
+          "summary": "pnpm lint . passed with 0 errors and 8 existing warnings outside the WEB-01 diff."
+        },
+        "release_freeze": {
+          "status": "sidecar_blocked_by_local_port",
+          "summary": "pnpm verify:release-freeze contract freeze subset passed, then smoke/e2e subset stopped because local 127.0.0.1:3000 was already in use by an existing node process. WEB-01 required local checks do not include release-freeze e2e."
+        },
+        "metadata_parse_and_diff": {
+          "status": "passed",
+          "summary": "PR train JSON parse, PR train YAML parse, and git diff --check passed."
+        }
+      },
       "failure_reason": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -16365,6 +16406,16 @@
           "at": "2026-06-02T10:49:36.000Z",
           "event": "planned",
           "note": "Registered frontend tracking contract follow-up, but user explicitly prohibited executing WEB-01 in the current instruction."
+        },
+        {
+          "at": "2026-06-02T12:20:00.000Z",
+          "event": "implementation_in_progress",
+          "note": "Started user-authorized SEO-CMS-CANARY-WEB-01 from an isolated fap-web worktree. User prohibited SEO-CMS-CANARY-PREFLIGHT, CMS draft creation, publishing, GPT-5.5 package edits, content asset edits, and backend/GA4/Baidu config mutations."
+        },
+        {
+          "at": "2026-06-02T12:45:19.000Z",
+          "event": "local_checks_passed",
+          "note": "Implemented article_to_test_click tracking contract and passed targeted article CTA contracts, targeted RIASEC attribution contracts, typecheck, full contract suite, production build, lint, JSON/YAML parsing, and diff whitespace checks. release-freeze e2e remains a local port sidecar because 127.0.0.1:3000 was occupied."
         }
       ]
     },

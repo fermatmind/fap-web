@@ -47,6 +47,7 @@ const GA4_EVENT_NAME_MAP: Partial<Record<TrackingEventName, string>> = {
   view_landing: "page_view",
   view_test: "view_item",
   view_test_landing: "view_item",
+  article_to_test_click: "article_to_test_click",
   start_click: "select_content",
   start_attempt: "test_start",
   submit_attempt: "test_submit",

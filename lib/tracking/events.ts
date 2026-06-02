@@ -14,6 +14,7 @@ export const TRACKING_EVENTS = {
   VIEW_LANDING: "view_landing",
   VIEW_TEST: "view_test",
   VIEW_TEST_LANDING: "view_test_landing",
+  ARTICLE_TO_TEST_CLICK: "article_to_test_click",
   START_ATTEMPT: "start_attempt",
   SUBMIT_ATTEMPT: "submit_attempt",
   VIEW_RESULT: "view_result",
@@ -230,6 +231,22 @@ const COMMON_SEO_CTA_ATTRIBUTION_FIELDS = [
   "cta_id",
 ] as const;
 
+const COMMON_ARTICLE_TO_TEST_CLICK_FIELDS = [
+  "locale",
+  "article_slug",
+  "translation_group_id",
+  "cta_id",
+  "cta_priority",
+  "target_test_slug",
+  "source_path",
+  "destination_path",
+  "slug",
+  "test_slug",
+  "form_code",
+  "scale_code",
+  ...COMMON_SEO_CTA_ATTRIBUTION_FIELDS,
+] as const;
+
 const COMMON_CONVERSION_FIELDS = [
   "test_type",
   "test_version",
@@ -241,6 +258,7 @@ const EVENT_FIELD_WHITELIST: Record<TrackingEventName, readonly string[]> = {
   view_landing: ["locale"],
   view_test: ["slug", "locale"],
   view_test_landing: ["slug", "locale"],
+  article_to_test_click: [...COMMON_ARTICLE_TO_TEST_CLICK_FIELDS],
   start_attempt: ["slug", "test_slug", "scaleCode", "scale_code", "attemptIdMasked", "attempt_id", "form_code", "entry_surface", "source_page_type", "target_action", "landing_path", "locale", ...COMMON_BIG5_FIELDS, ...COMMON_SEO_CTA_ATTRIBUTION_FIELDS, ...COMMON_CONVERSION_FIELDS],
   submit_attempt: ["slug", "test_slug", "scale_code", "attemptIdMasked", "attempt_id", "answered_count", "durationMs", "duration_ms", "duration_bucket", "form_code", "locale", ...COMMON_BIG5_FIELDS, ...COMMON_SEO_CTA_ATTRIBUTION_FIELDS, ...COMMON_CONVERSION_FIELDS],
   view_result: ["attemptIdMasked", "attempt_id", "locked", "typeCode", "identity", "variantKey", "variantKeys", "sceneFingerprint", "boundaryFlags", "axisBands", "packId", "engineVersion", "userState", "feedbackSentiment", "feedbackCoverage", "actionCompletionTendency", "lastDeepReadSection", "currentIntentCluster", "primaryFocusKey", "secondaryFocusKeys", "orderedSectionKeys", "orderedRecommendationKeys", "orderedActionKeys", "recommendationPriorityKeys", "actionPriorityKeys", "readingFocusKey", "actionFocusKey", "ctaPriorityKeys", "carryoverFocusKey", "carryoverReason", "recommendedResumeKeys", "carryoverSceneKeys", "carryoverActionKeys", "memoryContractVersion", "memoryFingerprint", "memoryScope", "memoryState", "memoryProgressionState", "sectionHistoryKeys", "behaviorDeltaKeys", "dominantInterestKeys", "resumeBiasKeys", "memoryRewriteKeys", "memoryRewriteReason", ...COMMON_MBTI_ADAPTIVE_FIELDS, "journeyContractVersion", "journeyFingerprint", "journeyScope", "journeyState", "progressState", "completedActionKeys", "recommendedNextPulseKeys", "revisitReorderReason", "pulseState", "pulsePromptKeys", "form_code", "locale", "result_type", "top_code", ...COMMON_BIG5_FIELDS, ...COMMON_CLINICAL_REPORT_FIELDS, ...COMMON_RIASEC_TRUSTED_RESULT_FIELDS, ...COMMON_SEO_CTA_ATTRIBUTION_FIELDS, ...COMMON_CONVERSION_FIELDS],

@@ -41,6 +41,7 @@ NEXT_PUBLIC_GOOGLE_ADS_BEGIN_CHECKOUT_CONVERSION_LABEL=
 
 | Internal event | GA4 event | Business conversion role | Google Ads purchase conversion |
 | --- | --- | --- | --- |
+| `article_to_test_click` | `article_to_test_click` | article CTA click intent; funnel exploration only unless Ops later promotes it | no |
 | `start_attempt` | `test_start` | primary public funnel step | no |
 | `submit_attempt` | `test_submit` | primary public funnel step | no |
 | `view_result` | `result_view` | primary public funnel step | no |
@@ -80,7 +81,7 @@ Legacy scale-specific events are accepted only as aliases and are normalized bef
 | `clinical_checkout_start` | `create_order` |
 | `pay_success` | `purchase_success` |
 
-SEO page CTA attribution uses backend-safe `start_attempt` payloads for existing article/topic/test-detail test-start CTAs. Source context is encoded through `source_page_type`, `entry_surface`, `landing_path`, and `current_path`; target tests use `test_slug`. Generic fields such as `content_id`, `topic_id`, `source_slug`, `cta_id`, and `campaign` remain deferred until backend attribution ingest owns them explicitly.
+Structured article CTA clicks use `article_to_test_click` and stay separate from real `start_attempt` test starts. The article click event carries `locale`, `article_slug`, `translation_group_id`, `cta_id`, `cta_priority`, `target_test_slug`, `source_path`, and `destination_path`. Topic/test-detail CTA starts may continue to use existing start semantics. Baidu remains public CTA auxiliary only; do not configure private result, order, share, pay, payment, history, or test-taking routes as Baidu funnel conversions.
 
 Google Ads purchase conversion payload:
 
