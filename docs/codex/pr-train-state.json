@@ -726,7 +726,7 @@
         "tests/contracts/iq-commerce-unlock.contract.test.tsx"
       ],
       "checks": [],
-      "pr_url": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/994",
       "commit_sha": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -16199,7 +16199,7 @@
       "id": "ANALYTICS-FUNNEL-WEB-EVENT-NAME-ALIGNMENT-02",
       "repo": "fap-web",
       "branch": "codex/analytics-funnel-web-event-name-alignment-02",
-      "status": "committed",
+      "status": "pr_open",
       "commit_sha": "d81054d1f26ab53255c2c9700625eb029f922ddf",
       "pr_url": null,
       "checks": {
@@ -16246,6 +16246,11 @@
           "at": "2026-06-02T05:08:00Z",
           "event": "committed",
           "note": "Committed scoped PR2 changes at d81054d1f26ab53255c2c9700625eb029f922ddf."
+        },
+        {
+          "at": "2026-06-02T05:12:00Z",
+          "event": "pr_open",
+          "note": "Opened https://github.com/fermatmind/fap-web/pull/994 after local checks and scope validation passed."
         }
       ]
     }
