@@ -159,9 +159,9 @@
     },
     {
       "id": "homepage_forced_items",
-      "surface": "homepage product-code forced items",
+      "surface": "homepage CMS-filtered product shell items",
       "sources": ["lib/marketing/homepageContent.ts"],
-      "requiredSourceTokens": ["getCmsLandingSurfaceWithLastKnownGood", "REQUIRED_QUICK_START_ITEMS"],
+      "requiredSourceTokens": ["getCmsLandingSurfaceWithLastKnownGood", "filterVisiblePublicTestEntries"],
       "classification": "product_code_only",
       "canBecomePublicTruth": true,
       "seoGeoRisk": false,
@@ -170,8 +170,8 @@
       "claimBoundaryRisk": false,
       "expansionGate": "do_not_reclassify_as_seo_or_graph_authority",
       "requiredFinalAuthority": "cms_landing_surface_for_editorial_truth",
-      "currentAllowance": "Product shell compatibility.",
-      "blocksWhen": "Product shell content is treated as SEO, graph, or recommendation truth."
+      "currentAllowance": "Product shell compatibility with CMS-authored items only; frontend forced quick-start completion has been removed.",
+      "blocksWhen": "Product shell filtering or canonical href normalization is treated as SEO, graph, recommendation, or editorial truth."
     },
     {
       "id": "test_catalog_seed_fallback",

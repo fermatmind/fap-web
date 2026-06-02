@@ -171,7 +171,7 @@
       "source": "lib/marketing/homepageContent.ts",
       "requiredTokens": [
         "getCmsLandingSurfaceWithLastKnownGood",
-        "REQUIRED_QUICK_START_ITEMS"
+        "filterVisiblePublicTestEntries"
       ],
       "coveredByFallbackId": "homepage_forced_items"
     },
@@ -412,7 +412,7 @@
     },
     {
       "id": "homepage_forced_items",
-      "surface": "homepage product-code forced items",
+      "surface": "homepage CMS-filtered product shell items",
       "currentOwner": "frontend product shell",
       "desiredOwner": "CMS landing surface for editorial truth",
       "classification": "product_code_only",
@@ -426,16 +426,16 @@
           "path": "lib/marketing/homepageContent.ts",
           "requiredTokens": [
             "getCmsLandingSurfaceWithLastKnownGood",
-            "REQUIRED_QUICK_START_ITEMS"
+            "filterVisiblePublicTestEntries"
           ]
         }
       ],
       "expansionGate": "do_not_reclassify_as_seo_or_graph_authority",
-      "blocksWhen": "Product shell content is treated as SEO, graph, recommendation, or public claim truth.",
+      "blocksWhen": "Product shell filtering or canonical href normalization is treated as SEO, graph, recommendation, editorial, or public claim truth.",
       "canBecomePublicTruth": false,
       "blocksUniversalAssessmentSignalPlatform": false,
       "runtimeBehaviorChangeRequired": false,
-      "risk": "Homepage shell items can be misread as editorial/discoverability authority if reclassified."
+      "risk": "Homepage shell filtering can be misread as editorial/discoverability authority if reclassified."
     },
     {
       "id": "test_catalog_seed_fallback",

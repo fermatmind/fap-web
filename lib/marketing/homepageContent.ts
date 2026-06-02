@@ -3,6 +3,9 @@ import type { CmsMediaAuthorityMetadata } from "@/lib/cms/media";
 import type { Locale } from "@/lib/i18n/locales";
 import { filterVisiblePublicTestEntries } from "@/lib/tests/publicTestEntryVisibility";
 
+const RIASEC_CANONICAL_TEST_PATH = "/tests/holland-career-interest-test-riasec";
+const RIASEC_LEGACY_TEST_PATH = "/tests/career-riasec";
+
 export type HomeLinkItem = {
   key?: string;
   title: string;
@@ -118,6 +121,17 @@ export type HomePageContent = {
   };
 };
 
+function normalizeCanonicalTestHref(href: string): string {
+  return href === RIASEC_LEGACY_TEST_PATH ? RIASEC_CANONICAL_TEST_PATH : href;
+}
+
+function normalizeHomeLinkItems(items: HomeLinkItem[]): HomeLinkItem[] {
+  return filterVisiblePublicTestEntries(items).map((item) => ({
+    ...item,
+    href: normalizeCanonicalTestHref(item.href),
+  }));
+}
+
 function normalizeHomeContent(value: unknown): HomePageContent {
   const content = value as HomePageContent;
   if (!content?.hero?.title || !content?.seo?.title || !Array.isArray(content?.families?.items)) {
@@ -128,20 +142,20 @@ function normalizeHomeContent(value: unknown): HomePageContent {
     ...content,
     quickStart: {
       ...content.quickStart,
-      items: filterVisiblePublicTestEntries(Array.isArray(content.quickStart.items) ? content.quickStart.items : []),
+      items: normalizeHomeLinkItems(Array.isArray(content.quickStart.items) ? content.quickStart.items : []),
     },
     families: {
       ...content.families,
       items: content.families.items.map((family) => ({
         ...family,
-        links: filterVisiblePublicTestEntries(family.links ?? []),
+        links: normalizeHomeLinkItems(family.links ?? []),
       })),
     },
     header: {
       ...content.header,
       groups: (content.header.groups ?? []).map((group) => ({
         ...group,
-        links: filterVisiblePublicTestEntries(group.links ?? []),
+        links: normalizeHomeLinkItems(group.links ?? []),
       })),
     },
     footer: {

@@ -10549,6 +10549,9 @@ prs:
       - tests/contracts/homepage-v1-density.contract.test.tsx
       - tests/contracts/homepage-v1-hero.contract.test.tsx
       - tests/contracts/tests-hub-pr-ux-01-render.contract.test.tsx
+      - docs/runtime/generated/frontend-fallback-authority-inventory.v1.json
+      - docs/runtime/generated/fallback-owner-gates.v1.json
+      - docs/runtime/fallback-owner-gates.md
       - docs/ux/pr-ux-01-homepage-tests-hub-specialized-scan.md
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json

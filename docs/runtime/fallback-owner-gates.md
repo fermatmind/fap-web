@@ -47,7 +47,7 @@ duration before they can be treated as an accepted compatibility risk.
 | `static_sitemap_layer` | `compatibility_wrapper` | `partial` | `P1` | frontend sitemap generation compatibility layer | backend sitemap-source plus fixtures | `no_static_sitemap_expansion_without_backend_fixture` |
 | `local_recommendation_engine_placeholder` | `forbidden` | `dangerous_if_expanded` | `P0` | frontend placeholder | backend recommendation snapshot or future governed runtime | `must_not_become_public_authority` |
 | `frontend_graph_hardcode` | `forbidden` | `dangerous_if_expanded` | `P0` | documentation-only examples | backend/CMS graph edge authority | `must_not_invent_frontend_graph_authority` |
-| `homepage_forced_items` | `product_code_only` | `safe_to_defer` | `P2` | frontend product shell | CMS landing surface for editorial truth | `do_not_reclassify_as_seo_or_graph_authority` |
+| `homepage_forced_items` | `product_code_only` | `safe_to_defer` | `P2` | frontend CMS-filtered product shell | CMS landing surface for editorial truth | `do_not_reclassify_as_seo_or_graph_authority` |
 | `test_catalog_seed_fallback` | `watchlist` | `ready_for_remediation` | `P1` | frontend public test catalog seed | backend scale catalog and lookup | `no_new_scale_or_test_from_frontend_seed` |
 
 ## Source Anchors
