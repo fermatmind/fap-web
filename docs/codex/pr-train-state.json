@@ -16352,9 +16352,9 @@
         "SEO-CMS-CANARY-BE-01"
       ],
       "title": "feat(analytics): add article-to-test CTA tracking contract",
-      "status": "local_checks_passed",
+      "status": "pr_open_github_checks_pending",
       "commit_sha": null,
-      "pr_url": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1002",
       "checks": {
         "dependency_reconciliation": {
           "status": "passed",
@@ -16421,6 +16421,11 @@
           "at": "2026-06-02T12:47:00.000Z",
           "event": "implementation_commit_created",
           "note": "Created implementation commit 8a70f2e7c1a0afff66a434bfffcf359a757ece8e."
+        },
+        {
+          "at": "2026-06-02T12:50:00.000Z",
+          "event": "pr_open_github_checks_pending",
+          "note": "Opened https://github.com/fermatmind/fap-web/pull/1002 after local checks and scope validation passed. GitHub required checks are pending."
         }
       ]
     },
