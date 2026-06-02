@@ -727,7 +727,7 @@
       ],
       "checks": [],
       "pr_url": "https://github.com/fermatmind/fap-web/pull/994",
-      "commit_sha": null,
+      "commit_sha": "8a70f2e7c1a0afff66a434bfffcf359a757ece8e",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -16416,6 +16416,11 @@
           "at": "2026-06-02T12:45:19.000Z",
           "event": "local_checks_passed",
           "note": "Implemented article_to_test_click tracking contract and passed targeted article CTA contracts, targeted RIASEC attribution contracts, typecheck, full contract suite, production build, lint, JSON/YAML parsing, and diff whitespace checks. release-freeze e2e remains a local port sidecar because 127.0.0.1:3000 was occupied."
+        },
+        {
+          "at": "2026-06-02T12:47:00.000Z",
+          "event": "implementation_commit_created",
+          "note": "Created implementation commit 8a70f2e7c1a0afff66a434bfffcf359a757ece8e."
         }
       ]
     },
