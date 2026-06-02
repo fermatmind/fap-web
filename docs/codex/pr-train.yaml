@@ -10635,3 +10635,181 @@ prs:
       - Google Ads purchase conversion remains scoped to the existing purchase bridge.
       - No backend, payment, CMS, route, sitemap, llms, or content authority behavior changes are introduced.
     rollback_note: "Revert analytics tracking name mappings, docs/analytics updates, focused contracts, and current PR train metadata if event taxonomy alignment regresses."
+
+  - id: SEO-CMS-CANARY-TRAIN-00
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/seo-cms-canary-train-00-manifest
+    base: main
+    depends_on: []
+    mode: execute
+    train_scope: seo_cms_canary_platform_readiness
+    status: in_progress
+    title: "chore(codex): add SEO CMS canary PR train entries"
+    goal: "Register the SEO CMS canary platform-repair train entries without changing runtime code, tests, sitemap, analytics, CMS data, or content assets."
+    in_scope:
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - app/**
+      - components/**
+      - lib/**
+      - tests/**
+      - package.json
+      - next.config.*
+      - sitemap runtime
+      - analytics runtime
+      - CMS content
+      - content assets
+      - any non-docs/codex file
+    required_local_checks:
+      - git diff --check -- docs/codex
+      - YAML parse
+      - JSON parse
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: SEO-CMS-CANARY-BE-01
+    acceptance:
+      - SEO-CMS-CANARY-BE-01 is registered as the first executable platform repair.
+      - SEO-CMS-CANARY-WEB-01 is registered but not executed in this task.
+      - SEO-CONTENT-P1-08 is registered as blocked until BE-01 and WEB-01 complete.
+      - No frontend runtime, backend runtime, tests, analytics, sitemap, CMS data, or content assets are changed.
+    rollback_note: "Remove the SEO CMS canary train metadata entries if the canary repair sequence is withdrawn."
+
+  - id: SEO-CMS-CANARY-BE-01
+    repo: fap-api
+    repo_path: <workspace>/fap-api
+    branch: codex/seo-cms-canary-be-01-hreflang-cta-surfaces
+    base: main
+    depends_on: []
+    mode: execute
+    train_scope: seo_cms_canary_platform_readiness
+    status: planned
+    title: "fix(cms): support canary article hreflang and CMS CTA surfaces"
+    goal: "Fix backend/CMS platform blockers before canary article draft/preflight: different-slug zh/en article hreflang by translation_group_id, CMS CTA and FAQ projection into public article surfaces, no MBTI default override for canary CTA/next step, draft fail-closed public exposure behavior, and an explicit translation_group_id setting path."
+    in_scope:
+      - backend/app/Services/Cms/ArticleSeoService.php
+      - backend/app/Http/Controllers/API/V0_5/Cms/ArticleController.php
+      - backend/app/Filament/Ops/Resources/ArticleResource.php
+      - backend/app/Services/Cms/EditorialPackage/**
+      - backend/app/Models/Article*.php
+      - backend/tests/Feature/V0_5/ArticlePublicApiTest.php
+      - backend/tests/Feature/Console/ArticleImportEditorialPackageCommandTest.php
+      - backend/tests/Feature/Console/ArticlePublishControlledCommandTest.php
+      - backend/tests/Feature/Ops/ArticleTranslationContractTest.php
+      - backend/docs/seo/**
+    out_of_scope:
+      - CMS draft creation
+      - Publishing
+      - Real article creation
+      - Production CMS writes
+      - GPT-5.5 Pro content package edits
+      - Generated titles, H1, metadata, body, FAQ, or CTA copy
+      - fap-web runtime changes
+      - Analytics runtime changes
+      - GSC, Baidu API, or IndexNow calls
+      - Orders, payment, result/order/share private IDs, cookies, env, tokens, destructive migrations, or production config
+    required_local_checks:
+      - targeted backend Article public API tests
+      - targeted editorial package import tests
+      - targeted controlled publish dry-run tests
+      - targeted translation contract tests
+      - git diff --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: SEO-CMS-CANARY-WEB-01
+    acceptance:
+      - Different-slug zh/en article alternates resolve by translation_group_id.
+      - Draft and noindex siblings are excluded from public alternates.
+      - CMS CTA slots enter the public article surface and are not overwritten by MBTI fallback.
+      - CMS FAQ enters visible public article answer surface when present.
+      - Draft article creation is fail-closed and public article/sitemap gates match public readability.
+      - Exact canary translation_group_id setting path is documented or tested.
+    rollback_note: "Revert scoped backend/CMS platform changes if article alternates, CTA/FAQ projection, or draft exposure gates regress."
+
+  - id: SEO-CMS-CANARY-WEB-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/seo-cms-canary-web-01-article-to-test-tracking
+    base: main
+    depends_on:
+      - SEO-CMS-CANARY-BE-01
+    mode: execute
+    train_scope: seo_cms_canary_platform_readiness
+    status: planned
+    title: "feat(analytics): add article-to-test CTA tracking contract"
+    goal: "Add or freeze article_to_test_click tracking so article CTA clicks carry locale, article_slug, translation_group_id, cta_id, cta_priority, target_test_slug, source_path, and destination_path without changing CMS content assets."
+    in_scope:
+      - lib/tracking/events.ts
+      - lib/tracking/seoCtaAttribution.ts
+      - components/cta/SeoTrackedCtaLink.tsx
+      - tests/contracts/*article*cta*
+      - tests/contracts/*riasec*attribution*
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - CMS draft creation
+      - Publishing
+      - Content asset edits
+      - Generated titles, H1, metadata, body, FAQ, or CTA copy
+      - Backend runtime changes
+      - Payment/order/result/share private routes
+      - GA4, Baidu, GSC, Search Channel, or production config mutations
+    required_local_checks:
+      - targeted article CTA tracking contracts
+      - targeted RIASEC attribution contracts
+      - pnpm typecheck
+      - git diff --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: SEO-CONTENT-P1-08
+    acceptance:
+      - Article CTA click tracking is distinguishable from attempt start.
+      - Payload includes locale, article_slug, translation_group_id, cta_id, cta_priority, target_test_slug, source_path, and destination_path.
+      - Downstream attribution handoff remains safe for public test routes.
+    rollback_note: "Revert scoped tracking event and contract changes if attribution taxonomy regresses."
+
+  - id: SEO-CONTENT-P1-08
+    repo: fap-api
+    repo_path: <workspace>/fap-api
+    branch: seo-content-p1-08-cms-canary-draft
+    base: main
+    depends_on:
+      - SEO-CMS-CANARY-BE-01
+      - SEO-CMS-CANARY-WEB-01
+    mode: manual_or_controlled
+    train_scope: seo_cms_canary_content_draft
+    status: blocked
+    title: "create bilingual CMS canary draft without publish"
+    goal: "Create the bilingual CMS canary draft only after BE-01 and WEB-01 complete; keep draft unpublished and do not mutate frontend content assets."
+    in_scope:
+      - CMS draft creation by authorized operator or controlled importer only after dependencies complete
+      - Draft-only validation artifacts
+    out_of_scope:
+      - Publishing
+      - Frontend editorial content
+      - Runtime code changes
+      - Sitemap/search submission
+      - GSC, Baidu API, IndexNow, GA4, or production config changes
+    required_local_checks:
+      - BE-01 merged
+      - WEB-01 merged
+      - draft hidden from public API
+      - draft absent from sitemap, llms.txt, and llms-full.txt
+      - preview/noindex verification if preview exists
+    merge_policy:
+      github_checks_required: false
+      squash: true
+      auto_merge: false
+      note: "Manual or controlled CMS draft task; remains blocked until platform repair dependencies are merged."
+    acceptance:
+      - zh/en canary drafts exist only in CMS as unpublished drafts.
+      - No publish, sitemap submission, search submission, or frontend content asset change occurs.
+      - Draft exposure remains fail-closed.
+    rollback_note: "Delete or archive the draft through the authorized CMS process if the draft-only canary is withdrawn."
