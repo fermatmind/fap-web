@@ -10644,7 +10644,7 @@ prs:
     depends_on: []
     mode: execute
     train_scope: seo_cms_canary_platform_readiness
-    status: in_progress
+    status: merged
     title: "chore(codex): add SEO CMS canary PR train entries"
     goal: "Register the SEO CMS canary platform-repair train entries without changing runtime code, tests, sitemap, analytics, CMS data, or content assets."
     in_scope:
@@ -10686,7 +10686,7 @@ prs:
     depends_on: []
     mode: execute
     train_scope: seo_cms_canary_platform_readiness
-    status: planned
+    status: merged
     title: "fix(cms): support canary article hreflang and CMS CTA surfaces"
     goal: "Fix backend/CMS platform blockers before canary article draft/preflight: different-slug zh/en article hreflang by translation_group_id, CMS CTA and FAQ projection into public article surfaces, no MBTI default override for canary CTA/next step, draft fail-closed public exposure behavior, and an explicit translation_group_id setting path."
     in_scope:
@@ -10740,7 +10740,7 @@ prs:
       - SEO-CMS-CANARY-BE-01
     mode: execute
     train_scope: seo_cms_canary_platform_readiness
-    status: planned
+    status: merged
     title: "feat(analytics): add article-to-test CTA tracking contract"
     goal: "Add or freeze article_to_test_click tracking so article CTA clicks carry locale, article_slug, translation_group_id, cta_id, cta_priority, target_test_slug, source_path, and destination_path without changing CMS content assets."
     in_scope:
@@ -10779,12 +10779,184 @@ prs:
       github_checks_required: true
       squash: true
       auto_merge: true
-    next_task: SEO-CONTENT-P1-08
+    next_task: SEO-CMS-CANARY-PREFLIGHT-SCAN
     acceptance:
       - Article CTA click tracking is distinguishable from attempt start.
       - Payload includes locale, article_slug, translation_group_id, cta_id, cta_priority, target_test_slug, source_path, and destination_path.
       - Downstream attribution handoff remains safe for public test routes.
     rollback_note: "Revert scoped tracking event and contract changes if attribution taxonomy regresses."
+
+  - id: SEO-CMS-CANARY-PREFLIGHT-SCAN
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/seo-cms-canary-preflight-scan-report
+    base: main
+    depends_on:
+      - SEO-CMS-CANARY-BE-01
+      - SEO-CMS-CANARY-WEB-01
+    mode: completed_scan
+    train_scope: seo_cms_canary_platform_readiness
+    status: merged
+    title: "docs: add SEO CMS canary preflight scan report"
+    goal: "Record the completed SEO CMS canary preflight scan and its NO-GO conclusion before any CMS draft task is attempted."
+    in_scope:
+      - docs/audits/seo-cms-canary-preflight-scan-2026-06-02.md
+    out_of_scope:
+      - CMS draft creation
+      - Publishing
+      - Runtime code changes
+      - Tests
+      - GPT-5.5 Pro content package edits
+      - Generated titles, H1, metadata, body, FAQ, or CTA copy
+      - Sitemap, Baidu, GSC, IndexNow, GA4, or production config mutations
+    required_local_checks:
+      - preflight report created
+      - focused frontend contracts passed during scan
+      - CI checks passed before merge
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: false
+    next_task: SEO-CMS-CANARY-PREFLIGHT-LEDGER-01
+    acceptance:
+      - Preflight scan report is merged.
+      - NO-GO conclusion is recorded.
+      - CMS draft and publish remain forbidden.
+    rollback_note: "Revert the preflight scan report if the scan artifact is withdrawn."
+
+  - id: SEO-CMS-CANARY-PREFLIGHT-LEDGER-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/seo-cms-canary-preflight-ledger-01
+    base: main
+    depends_on:
+      - SEO-CMS-CANARY-BE-01
+      - SEO-CMS-CANARY-WEB-01
+      - SEO-CMS-CANARY-PREFLIGHT-SCAN
+    mode: execute
+    train_scope: seo_cms_canary_platform_readiness
+    status: in_progress
+    title: "chore(codex): reconcile SEO CMS canary train state"
+    goal: "Reconcile the fap-web PR train manifest and state ledger after the SEO CMS canary preflight scan reports NO-GO, without creating CMS drafts, publishing, editing GPT content packages, generating article copy, changing runtime code, or touching tests."
+    in_scope:
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - app/**
+      - components/**
+      - lib/**
+      - tests/**
+      - package.json
+      - next.config.*
+      - sitemap runtime
+      - analytics runtime
+      - CMS content
+      - GPT content assets
+      - docs/content/article payload
+      - any non-docs/codex business file
+      - CMS draft creation
+      - Publishing
+    required_local_checks:
+      - JSON parse
+      - YAML parse
+      - git diff --check -- docs/codex
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: false
+    next_task: SEO-CMS-CANARY-DRAFT-PATH-01
+    acceptance:
+      - SEO-CMS-CANARY-TRAIN-00 is recorded as merged/completed.
+      - SEO-CMS-CANARY-BE-01 is recorded as merged/completed.
+      - SEO-CMS-CANARY-WEB-01 is recorded as merged/completed.
+      - SEO-CMS-CANARY-PREFLIGHT-SCAN is recorded as complete with a NO-GO conclusion.
+      - SEO-CONTENT-P1-08 remains blocked and CMS draft/publish remain forbidden.
+      - Follow-up draft path and conditional preview tasks are registered for later authorization.
+      - No runtime code, tests, CMS content, GPT content assets, analytics runtime, sitemap runtime, or article payload files are changed.
+    rollback_note: "Revert this docs/codex-only reconciliation if the preflight ledger split is withdrawn."
+
+  - id: SEO-CMS-CANARY-DRAFT-PATH-01
+    repo: fap-api
+    repo_path: <workspace>/fap-api
+    branch: codex/seo-cms-canary-draft-path-01
+    base: main
+    depends_on:
+      - SEO-CMS-CANARY-PREFLIGHT-LEDGER-01
+    mode: planned_after_authorization
+    train_scope: seo_cms_canary_content_draft
+    status: planned
+    title: "docs(cms): verify canary draft creation path and preview alternative"
+    goal: "Verify the authorized path for creating the bilingual CMS canary draft without publish, including CMS operator role, hidden slug collision check, translation_group_id collision check, controlled importer dry-run path, and accepted preview/noindex alternative."
+    in_scope:
+      - backend/docs/seo/**
+      - backend/docs/operations/**
+      - controlled importer dry-run docs if explicitly authorized later
+    out_of_scope:
+      - CMS draft creation without explicit later authorization
+      - Publishing
+      - GPT-5.5 Pro content package edits
+      - Generated titles, H1, metadata, body, FAQ, or CTA copy
+      - fap-web runtime changes
+      - Sitemap, Baidu, GSC, IndexNow, GA4, or production config mutations
+    required_local_checks:
+      - hidden slug collision verification by authorized read-only CMS/DB path if explicitly authorized
+      - CMS operator role confirmation
+      - controlled importer dry-run path documentation if explicitly authorized
+      - git diff --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: false
+    next_task: SEO-CMS-CANARY-PREVIEW-01
+    acceptance:
+      - Authorized draft creation path is verified or explicitly blocked.
+      - Hidden slug and translation_group_id collision checks are completed or explicitly blocked.
+      - Controlled importer dry-run path is documented if authorized.
+      - Preview/noindex alternative is accepted or SEO-CMS-CANARY-PREVIEW-01 remains required.
+      - No CMS draft or publish occurs in this task.
+    rollback_note: "Revert draft-path documentation if the canary draft workflow is withdrawn."
+
+  - id: SEO-CMS-CANARY-PREVIEW-01
+    repo: fap-api
+    repo_path: <workspace>/fap-api
+    branch: codex/seo-cms-canary-preview-01
+    base: main
+    depends_on:
+      - SEO-CMS-CANARY-DRAFT-PATH-01
+    mode: conditional_execute_after_authorization
+    train_scope: seo_cms_canary_platform_readiness
+    status: blocked_or_planned_after_draft_path
+    title: "fix(cms): add safe article draft preview gate"
+    goal: "Only if DRAFT-PATH-01 proves no safe preview alternative exists, add token/auth-gated article draft preview that is noindex, excluded from sitemap/llms/public API, and safe for pre-publish rendering validation."
+    in_scope:
+      - backend/app/Http/Controllers/**
+      - backend/app/Services/Cms/**
+      - backend/app/Policies/**
+      - backend/tests/Feature/**
+    out_of_scope:
+      - CMS draft creation
+      - Publishing
+      - GPT-5.5 Pro content package edits
+      - Generated titles, H1, metadata, body, FAQ, or CTA copy
+      - fap-web runtime changes unless separately authorized
+      - Sitemap, Baidu, GSC, IndexNow, GA4, or production config mutations
+    required_local_checks:
+      - token/auth-gated preview tests if implemented
+      - noindex preview verification
+      - sitemap/llms/public API exclusion tests
+      - backend feature tests
+      - git diff --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: false
+      note: "Execute only if DRAFT-PATH-01 proves no safe preview alternative exists."
+    acceptance:
+      - Draft preview is token/auth-gated.
+      - Draft preview is noindex and excluded from sitemap, llms.txt, llms-full.txt, and public article APIs.
+      - Draft preview is safe for pre-publish rendering validation.
+      - No CMS draft or publish occurs in this task.
+    rollback_note: "Revert safe preview gate if draft preview is withdrawn or an accepted non-runtime preview alternative replaces it."
 
   - id: SEO-CONTENT-P1-08
     repo: fap-api
@@ -10794,11 +10966,12 @@ prs:
     depends_on:
       - SEO-CMS-CANARY-BE-01
       - SEO-CMS-CANARY-WEB-01
+      - SEO-CMS-CANARY-DRAFT-PATH-01
     mode: manual_or_controlled
     train_scope: seo_cms_canary_content_draft
     status: blocked
     title: "create bilingual CMS canary draft without publish"
-    goal: "Create the bilingual CMS canary draft only after BE-01 and WEB-01 complete; keep draft unpublished and do not mutate frontend content assets."
+    goal: "Create the bilingual CMS canary draft only after BE-01, WEB-01, and draft-path verification complete; keep draft unpublished and do not mutate frontend content assets."
     in_scope:
       - CMS draft creation by authorized operator or controlled importer only after dependencies complete
       - Draft-only validation artifacts
@@ -10811,6 +10984,9 @@ prs:
     required_local_checks:
       - BE-01 merged
       - WEB-01 merged
+      - DRAFT-PATH-01 verifies authorized CMS operator permissions
+      - DRAFT-PATH-01 verifies hidden slug and translation_group_id collision state
+      - DRAFT-PATH-01 accepts a safe preview/noindex alternative or PREVIEW-01 is completed if required
       - draft hidden from public API
       - draft absent from sitemap, llms.txt, and llms-full.txt
       - preview/noindex verification if preview exists
@@ -10818,7 +10994,7 @@ prs:
       github_checks_required: false
       squash: true
       auto_merge: false
-      note: "Manual or controlled CMS draft task; remains blocked until platform repair dependencies are merged."
+      note: "Manual or controlled CMS draft task; remains blocked after the NO-GO preflight scan until DRAFT-PATH-01 verifies operator permissions, hidden collisions, and preview/noindex validation path."
     acceptance:
       - zh/en canary drafts exist only in CMS as unpublished drafts.
       - No publish, sitemap submission, search submission, or frontend content asset change occurs.
