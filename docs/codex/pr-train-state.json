@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-02T03:19:29.093Z",
+  "updated_at": "2026-06-02T03:20:24.902Z",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -16102,8 +16102,8 @@
         "PR-UX-00"
       ],
       "title": "feat(ux): improve homepage and tests hub conversion layout",
-      "status": "local_checks_passed",
-      "commit_sha": null,
+      "status": "local_checks_passed_commit_created",
+      "commit_sha": "193d04ce9ab2ec916f6faaf3518b3216f9d7e009",
       "pr_url": null,
       "failure_reason": null,
       "merged_at": null,
@@ -16168,6 +16168,11 @@
           "at": "2026-06-02T03:19:29.093Z",
           "event": "local_checks_passed",
           "note": "PR-UX-01 homepage/tests hub conversion layout implementation passed focused contracts, typecheck, lint, production build, rendered HTML smoke, diff check, guarded phrase scan, and scope validation."
+        },
+        {
+          "at": "2026-06-02T03:20:24.902Z",
+          "event": "commit_created",
+          "note": "Created implementation commit 193d04ce9ab2ec916f6faaf3518b3216f9d7e009 for PR-UX-01 after local validation passed."
         }
       ]
     }
