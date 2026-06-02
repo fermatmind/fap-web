@@ -278,9 +278,9 @@ function HomepageHeroV1({ locale, copy, coreTests = [] }: { locale: Locale; copy
   const trustRail = (copy.hero.trustRail ?? []).slice(0, 4);
 
   return (
-    <section className="relative overflow-hidden bg-[#071019] px-0 py-8 text-white md:py-10 lg:min-h-[34rem] lg:py-0">
-      <div aria-hidden className="absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.1)_1px,transparent_1px)] bg-[size:28px_28px]" />
-      <div aria-hidden className="absolute inset-0 bg-[radial-gradient(circle_at_74%_48%,rgba(134,239,172,0.18),transparent_34%),radial-gradient(circle_at_18%_28%,rgba(148,163,184,0.1),transparent_32%)]" />
+    <section className="relative overflow-hidden bg-[#020b12] px-0 py-8 text-white md:py-10 lg:min-h-[34rem] lg:py-0">
+      <div aria-hidden className="absolute inset-0 bg-[linear-gradient(rgba(86,111,126,0.16)_1px,transparent_1px),linear-gradient(90deg,rgba(86,111,126,0.14)_1px,transparent_1px)] bg-[size:28px_28px]" />
+      <div aria-hidden className="absolute inset-0 bg-[radial-gradient(circle_at_74%_48%,rgba(134,239,172,0.09),transparent_35%),radial-gradient(circle_at_18%_28%,rgba(86,111,126,0.07),transparent_32%)]" />
       <div aria-hidden className="absolute left-6 top-6 h-6 w-6 border-l-2 border-t-2 border-lime-300/80" />
       <div aria-hidden className="absolute right-6 top-6 h-6 w-6 border-r-2 border-t-2 border-lime-300/80" />
       <div aria-hidden className="absolute bottom-6 left-6 h-6 w-6 border-b-2 border-l-2 border-lime-300/80" />
