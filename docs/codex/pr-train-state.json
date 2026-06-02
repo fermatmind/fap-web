@@ -16440,9 +16440,9 @@
       "branch": "codex/iq-fe-beta50-teaser-01",
       "base": "main",
       "title": "IQ-FE-BETA50-TEASER-01 render beta50 teaser placeholder",
-      "status": "committed",
-      "commit_sha": "f751bdd40cc0f3b376a59c44dc5138de83989aea",
-      "pr_url": null,
+      "status": "pr_open",
+      "commit_sha": "8936c236f9695430644ce2b0195d5f17f0521101",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1000",
       "checks": {
         "pnpm exec vitest run tests/contracts/iq-bank-display-model.contract.test.ts tests/contracts/iq-result-renderer.contract.test.tsx tests/contracts/iq-report-module.contract.test.tsx": {
           "status": "passed",
@@ -16489,6 +16489,11 @@
           "at": "2026-06-02T20:04:49+08:00",
           "status": "committed",
           "summary": "Committed frontend beta50 teaser placeholder implementation."
+        },
+        {
+          "at": "2026-06-02T20:05:10+08:00",
+          "status": "pr_open",
+          "summary": "Opened fap-web PR #1000 for IQ-FE-BETA50-TEASER-01."
         }
       ]
     }
