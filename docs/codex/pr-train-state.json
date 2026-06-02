@@ -16018,6 +16018,69 @@
           "note": "Opened GitHub PR https://github.com/fermatmind/fap-web/pull/987."
         }
       ]
+    },
+    {
+      "id": "PR-UX-00",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/ux-00-conversion-readiness-docs",
+      "base": "main",
+      "depends_on": [],
+      "title": "docs(ux): add FermatMind conversion readiness plan",
+      "status": "open_pending_checks",
+      "commit_sha": "pending_pr_head",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/988",
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "checks": {
+        "manifest_registration": {
+          "status": "pass",
+          "evidence": "User explicitly authorized adding PR-UX-00 to docs/codex/pr-train.yaml and docs/codex/pr-train-state.json after the missing manifest preflight block."
+        },
+        "scope_boundaries": {
+          "status": "pass",
+          "evidence": "Scope is limited to three docs/ux readiness artifacts plus PR-train manifest/state metadata."
+        },
+        "guarded_phrase_scan": {
+          "status": "pass",
+          "command": "rg \"最适合职业|精准匹配|保证成功|真实 IQ|权威认证|确诊|治疗建议|招聘筛选准确预测\" docs/ux || true",
+          "evidence": "No guarded phrases found in docs/ux."
+        },
+        "diff_check": {
+          "status": "pass",
+          "command": "git diff --check -- docs/ux/fermatmind-ux-conversion-surface-map.md docs/ux/fermatmind-ux-component-inventory.md docs/ux/fermatmind-ux-safe-pr-plan.md docs/codex/pr-train.yaml docs/codex/pr-train-state.json",
+          "evidence": "Whitespace diff check passed after intent-to-add included new docs/ux files."
+        },
+        "json_yaml_parse": {
+          "status": "pass",
+          "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null && python3 - <<'PY'\nimport yaml, pathlib\npath = pathlib.Path('docs/codex/pr-train.yaml')\nyaml.safe_load(path.read_text())\nprint('yaml ok')\nPY",
+          "evidence": "State JSON parsed and manifest YAML loaded successfully."
+        }
+      },
+      "events": [
+        {
+          "at": "2026-06-02T02:00:05Z",
+          "event": "implementation_in_progress",
+          "note": "Started user-authorized PR-UX-00 docs-only readiness PR after adding train manifest/state scope."
+        },
+        {
+          "at": "2026-06-02T02:00:05Z",
+          "event": "local_checks_passed",
+          "note": "Docs/UX guarded phrase scan, scoped diff check, and JSON/YAML parse passed."
+        },
+        {
+          "at": "2026-06-02T02:00:05Z",
+          "event": "committed_pending_pr",
+          "note": "Committed scoped docs-only PR-UX-00 readiness changes; final branch head is reported by git and GitHub PR metadata."
+        },
+        {
+          "at": "2026-06-02T02:00:05Z",
+          "event": "open_pending_checks",
+          "note": "Opened draft GitHub PR https://github.com/fermatmind/fap-web/pull/988."
+        }
+      ]
     }
   ],
   "sidecar_issues": [
