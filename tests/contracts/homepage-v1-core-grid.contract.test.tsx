@@ -3,6 +3,7 @@ import { render, screen, within } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import { HomePageExperience } from "@/components/marketing/HomePageExperience";
 import { getHomePageContent } from "@/lib/marketing/homepageContent";
+import type { HubTestCardItem } from "@/lib/marketing/testsHubContent";
 
 const homePayload = vi.hoisted(() => ({
   hero: {
@@ -207,7 +208,9 @@ describe("homepage v1 core grid contract", () => {
 
     expect(within(section as HTMLElement).getAllByRole("heading", { level: 3 })).toHaveLength(6);
     expect(section?.innerHTML).not.toContain("/take");
-    expect(section?.innerHTML).not.toContain('href="/zh/tests"');
+    for (const article of Array.from((section as HTMLElement).querySelectorAll("article"))) {
+      expect(article.innerHTML).not.toContain('href="/zh/tests"');
+    }
   });
 
   it("keeps the core grid in a three-column desktop layout contract", async () => {
@@ -216,7 +219,44 @@ describe("homepage v1 core grid contract", () => {
     const gridHeading = screen.getByRole("heading", { level: 2, name: "从一个清楚的问题开始。" });
     const section = gridHeading.closest("section");
 
-    expect(section?.innerHTML).toContain("lg:grid-cols-3");
+    expect(section?.innerHTML).toContain("xl:grid-cols-3");
     expect(section?.innerHTML).not.toContain("lg:grid-cols-6");
+  });
+
+  it("backfills missing homepage quick-start cards from the CMS tests hub", async () => {
+    const copy = await getHomePageContent("zh");
+    const supplementalTests: HubTestCardItem[] = [
+      {
+        key: "eq-test-emotional-intelligence-assessment",
+        title: "情商测试",
+        description: "看清情绪调节、沟通表达与关系协作中的关键能力",
+        questionsLabel: "30 题",
+        durationLabel: "约 8 分钟",
+        outputLabel: "情绪能力",
+        href: "/zh/tests/eq-test-emotional-intelligence-assessment",
+        detailsHref: "/zh/tests/eq-test-emotional-intelligence-assessment",
+        primaryLabel: "开始测试",
+        previewVariant: "summary",
+      },
+    ];
+
+    render(
+      <HomePageExperience
+        locale="zh"
+        copy={{ ...copy, quickStart: { ...copy.quickStart, items: copy.quickStart.items.slice(0, 5) } }}
+        supplementalTests={supplementalTests}
+      />
+    );
+    const gridHeading = screen.getByRole("heading", { level: 2, name: "从一个清楚的问题开始。" });
+    const section = gridHeading.closest("section");
+
+    expect(within(section as HTMLElement).getAllByRole("heading", { level: 3 })).toHaveLength(6);
+    expect(within(section as HTMLElement).getByRole("heading", { level: 3, name: "情商测试" })).toBeInTheDocument();
+    expect(
+      within(section as HTMLElement)
+        .getAllByRole("link", { name: /开始测试/ })
+        .some((link) => link.getAttribute("href") === "/zh/tests/eq-test-emotional-intelligence-assessment")
+    ).toBe(true);
+    expect(section?.innerHTML).not.toContain("/zh/zh/tests");
   });
 });

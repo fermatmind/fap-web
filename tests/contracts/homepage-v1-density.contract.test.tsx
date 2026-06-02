@@ -129,7 +129,9 @@ describe("homepage v1 density contract", () => {
     expect(source).toContain("copy.hero.secondaryCta");
     expect(source).toContain("copy.hero.tertiaryCta");
     expect(source).toContain("function HomepageHighlightedTestsBanner");
-    expect(source).toContain("orderPriorityFirst(filterVisiblePublicTestEntries(copy.quickStart.items ?? []))");
+    expect(source).toContain("function listCoreHomepageTests");
+    expect(source).toContain("supplementalTests.map(homeLinkFromHubCard)");
+    expect(source).toContain("if (items.length >= 6) break");
     expect(source).toContain("function HomepageFamilyMatrix");
     expect(source).toContain("function HomepageResultPreview");
     expect(source).toContain("function TrustCard");
@@ -140,9 +142,9 @@ describe("homepage v1 density contract", () => {
     expect(source).not.toContain("function HomepageSocialProofBanner");
     expect(source).not.toContain("SCENARIO_VALIDATIONS.slice(0, 5)");
     expect(source).not.toContain("EVIDENCE_LOGS.map");
-    expect(source).toContain("relative overflow-hidden bg-teal-800 py-20 text-white md:py-24");
-    expect(source).toContain("mx-auto max-w-2xl text-center");
-    expect(source).toContain("mt-10 grid gap-x-6 gap-y-9 md:grid-cols-2 lg:grid-cols-3");
+    expect(source).toContain("relative overflow-hidden border-y border-slate-200 bg-slate-50 py-14");
+    expect(source).toContain("grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:items-end");
+    expect(source).toContain("mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3");
     expect(source).not.toContain("function HomepageAboutBanner");
     expect(source).toContain("function HomepageSecondaryExplore");
     expect(source).toContain("function HomepageArticlesBanner");
@@ -171,7 +173,7 @@ describe("homepage v1 density contract", () => {
     const source = read("components/marketing/HomePageExperience.tsx");
     const order = [
       "HomepageHeroV1 locale={locale} copy={copy}",
-      "HomepageHighlightedTestsBanner locale={locale} copy={copy}",
+      "HomepageHighlightedTestsBanner locale={locale} copy={copy} supplementalTests={supplementalTests}",
       "HomepageFamilyMatrix locale={locale} copy={copy}",
       "HomepageResultPreview locale={locale} copy={copy}",
       "HomepageTrustStripV1 copy={copy}",
@@ -235,10 +237,11 @@ describe("homepage v1 density contract", () => {
 
     render(<HomePageExperience locale="zh" copy={homeCopy} articles={articles} />);
 
-    expect(screen.getByRole("link", { name: "开始测评" })).toHaveAttribute(
-      "href",
-      "/zh/tests/mbti-personality-test-16-personality-types"
-    );
+    expect(
+      screen
+        .getAllByRole("link", { name: "开始测评" })
+        .some((link) => link.getAttribute("href") === "/zh/tests/mbti-personality-test-16-personality-types")
+    ).toBe(true);
     expect(
       screen.getAllByRole("link", { name: /开始测试/ }).some((link) => link.getAttribute("href") === "/zh/tests")
     ).toBe(true);

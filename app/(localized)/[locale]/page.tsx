@@ -8,6 +8,7 @@ import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { getHomePageContent } from "@/lib/marketing/homepageContent";
 import { getHomepageRecommendedArticles } from "@/lib/marketing/homepageRecommendedArticles";
+import { listVisibleTestsHubCards } from "@/lib/marketing/testsHubContent";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 import {
   buildItemListJsonLd,
@@ -117,7 +118,10 @@ export default async function Home({
   }
 
   const jsonLd = buildHomeJsonLd(locale, copy);
-  const articles = await getHomepageRecommendedArticles(locale).catch(() => []);
+  const [articles, supplementalTests] = await Promise.all([
+    getHomepageRecommendedArticles(locale).catch(() => []),
+    listVisibleTestsHubCards(locale).catch(() => []),
+  ]);
 
   return (
     <main className="fm-homepage">
@@ -126,7 +130,7 @@ export default async function Home({
       <JsonLd id={`home-quickstart-${locale}`} data={jsonLd.quickStart} />
       <JsonLd id={`home-families-${locale}`} data={jsonLd.families} />
       <JsonLd id={`home-organization-${locale}`} data={jsonLd.organization} />
-      <HomePageExperience locale={locale} copy={copy} articles={articles} />
+      <HomePageExperience locale={locale} copy={copy} articles={articles} supplementalTests={supplementalTests} />
     </main>
   );
 }

@@ -7,6 +7,7 @@ import { DEFAULT_SHARE_IMAGE_URL } from "@/lib/cms/media";
 import { localizedPath } from "@/lib/i18n/locales";
 import { getHomePageContent } from "@/lib/marketing/homepageContent";
 import { getHomepageRecommendedArticles } from "@/lib/marketing/homepageRecommendedArticles";
+import { listVisibleTestsHubCards } from "@/lib/marketing/testsHubContent";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 import {
   buildItemListJsonLd,
@@ -101,7 +102,10 @@ export default async function RootHomePage() {
   }
 
   const jsonLd = buildRootHomeJsonLd(copy);
-  const articles = await getHomepageRecommendedArticles(ROOT_LOCALE).catch(() => []);
+  const [articles, supplementalTests] = await Promise.all([
+    getHomepageRecommendedArticles(ROOT_LOCALE).catch(() => []),
+    listVisibleTestsHubCards(ROOT_LOCALE).catch(() => []),
+  ]);
 
   return (
     <main className="fm-homepage">
@@ -110,7 +114,7 @@ export default async function RootHomePage() {
       <JsonLd id="home-quickstart-root" data={jsonLd.quickStart} />
       <JsonLd id="home-families-root" data={jsonLd.families} />
       <JsonLd id="home-organization-root" data={jsonLd.organization} />
-      <HomePageExperience locale={ROOT_LOCALE} copy={copy} articles={articles} />
+      <HomePageExperience locale={ROOT_LOCALE} copy={copy} articles={articles} supplementalTests={supplementalTests} />
     </main>
   );
 }
