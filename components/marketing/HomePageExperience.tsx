@@ -3,9 +3,10 @@ import { ArticleResponsiveImage } from "@/components/content/ArticleResponsiveIm
 import { CmsMediaAuthorityShell } from "@/components/marketing/CmsMediaAuthorityShell";
 import { Container } from "@/components/layout/Container";
 import type { CmsArticle } from "@/lib/cms/articles";
-import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import { localizedPath, stripLocalePrefix, type Locale } from "@/lib/i18n/locales";
 import type { HomePageContent } from "@/lib/marketing/homepageContent";
-import { filterVisiblePublicTestEntries } from "@/lib/tests/publicTestEntryVisibility";
+import type { HubTestCardItem } from "@/lib/marketing/testsHubContent";
+import { extractTestSlugFromEntryHref, filterVisiblePublicTestEntries } from "@/lib/tests/publicTestEntryVisibility";
 import { IQ_PUBLIC_SLUG } from "@/lib/iq/constants";
 import { cn } from "@/lib/utils";
 
@@ -19,6 +20,8 @@ const PRIORITY_TEST_SLUG_GROUPS = [
   ["big-five-personality-test-ocean-model"],
   ["holland-career-interest-test-riasec", "career-riasec"],
 ] as const;
+const RIASEC_CANONICAL_TEST_PATH = "/tests/holland-career-interest-test-riasec";
+const RIASEC_LEGACY_TEST_PATHS = ["/tests/career-riasec", "/zh/tests/career-riasec", "/en/tests/career-riasec"] as const;
 const UNVERIFIED_SOCIAL_PROOF_PATTERNS = [
   /\d+\s*(?:万|百万|千万|亿)/i,
   /(?:百万|千万|上万|数万)\s*(?:用户|人|次)/i,
@@ -27,7 +30,7 @@ const UNVERIFIED_SOCIAL_PROOF_PATTERNS = [
 ] as const;
 
 function withLocale(locale: Locale, path: string): string {
-  return localizedPath(path, locale);
+  return localizedPath(stripLocalePrefix(path), locale);
 }
 
 function hasText(value: string | null | undefined): value is string {
@@ -42,6 +45,72 @@ function getPriorityIndex(item: { href?: string | null; key?: string | null }): 
 
 function orderPriorityFirst<T extends { href?: string | null; key?: string | null }>(items: T[]): T[] {
   return [...items].sort((a, b) => getPriorityIndex(a) - getPriorityIndex(b));
+}
+
+function normalizeCoreTestHref(href: string): string {
+  if (RIASEC_LEGACY_TEST_PATHS.includes(href as (typeof RIASEC_LEGACY_TEST_PATHS)[number])) {
+    return RIASEC_CANONICAL_TEST_PATH;
+  }
+
+  const stripped = stripLocalePrefix(href);
+  const takePathMatch = stripped.match(/^\/tests\/([^/?#]+)\/take(?:[/?#].*)?$/);
+
+  if (takePathMatch?.[1]) {
+    return `/tests/${takePathMatch[1]}`;
+  }
+
+  return stripped;
+}
+
+function getCoreTestKey(item: { href?: string | null; key?: string | null; title?: string | null }): string {
+  const href = normalizeCoreTestHref(item.href ?? "");
+  const slug = extractTestSlugFromEntryHref(href);
+
+  if (slug === "career-riasec") return "holland-career-interest-test-riasec";
+  return slug ?? item.key ?? item.title ?? href;
+}
+
+function getHubCardAction(item: HubTestCardItem): { href: string; label: string } | null {
+  const href = item.detailsHref ?? item.href;
+  const label = item.primaryLabel || item.primaryActions?.[0]?.label;
+
+  if (!hasText(href) || !hasText(label)) return null;
+  return { href: normalizeCoreTestHref(href), label };
+}
+
+function homeLinkFromHubCard(item: HubTestCardItem): HomeLink | null {
+  const action = getHubCardAction(item);
+
+  if (!action) return null;
+
+  return {
+    key: item.key,
+    title: item.title,
+    description: item.description,
+    href: action.href,
+    label: action.label,
+    meta: item.outputLabel || item.durationLabel || item.questionsLabel,
+    media: item.media,
+  };
+}
+
+function listCoreHomepageTests(copy: HomePageContent, supplementalTests: HubTestCardItem[]): HomeLink[] {
+  const seen = new Set<string>();
+  const items: HomeLink[] = [];
+  const candidates = [
+    ...(copy.quickStart.items ?? []).map((item) => ({ ...item, href: normalizeCoreTestHref(item.href) })),
+    ...supplementalTests.map(homeLinkFromHubCard).filter((item): item is HomeLink => Boolean(item)),
+  ];
+
+  for (const item of orderPriorityFirst(filterVisiblePublicTestEntries(candidates))) {
+    const key = getCoreTestKey(item);
+    if (seen.has(key)) continue;
+    seen.add(key);
+    items.push(item);
+    if (items.length >= 6) break;
+  }
+
+  return items;
 }
 
 function containsUnverifiedSocialProofText(...values: Array<string | null | undefined>): boolean {
@@ -204,28 +273,33 @@ function HomepageTrustStripV1({ copy }: { copy: HomePageContent }) {
   );
 }
 
-function TestFeatureCard({ locale, item, priority }: { locale: Locale; item: HomeLink; priority: boolean }) {
+function TestFeatureCard({ locale, item, priority, index }: { locale: Locale; item: HomeLink; priority: boolean; index: number }) {
   const href = withLocale(locale, item.href);
 
   return (
     <article className="group">
       <div
         className={cn(
-          "flex h-full min-h-[12rem] flex-col rounded-xl bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md",
-          priority && "ring-2 ring-orange-300"
+          "flex h-full min-h-[10.5rem] flex-col rounded-lg border border-slate-200 bg-white p-5 text-slate-950 shadow-sm transition hover:-translate-y-0.5 hover:border-teal-200 hover:shadow-md",
+          priority && "border-orange-200 ring-1 ring-orange-200"
         )}
       >
-        <div className="flex items-start justify-between gap-4">
-          <h3 className="m-0 text-xl font-semibold tracking-[-0.035em] text-teal-800 underline decoration-teal-200 underline-offset-4">
+        <div className="flex items-start gap-4">
+          <span className="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-teal-50 text-xs font-semibold text-teal-800">
+            {String(index + 1).padStart(2, "0")}
+          </span>
+          <h3 className="m-0 text-lg font-semibold leading-snug tracking-normal text-teal-900">
             {item.title}
           </h3>
+        </div>
+        <div className="mt-4 flex flex-wrap gap-2">
           {hasText(item.meta) ? (
-            <span className="shrink-0 rounded-full border border-teal-100 px-3 py-1 text-xs font-medium text-teal-800">
+            <span className="rounded-full border border-teal-100 bg-teal-50 px-3 py-1 text-xs font-medium text-teal-800">
               {item.meta}
             </span>
           ) : null}
         </div>
-        {hasText(item.description) ? <p className="m-0 mt-5 text-base leading-7 text-slate-600">{item.description}</p> : null}
+        {hasText(item.description) ? <p className="m-0 mt-4 text-sm leading-6 text-slate-600">{item.description}</p> : null}
         <CmsMediaAuthorityShell
           media={item.media ?? null}
           locale={locale}
@@ -236,7 +310,7 @@ function TestFeatureCard({ locale, item, priority }: { locale: Locale; item: Hom
           <Link
             href={href}
             prefetch={false}
-            className="mt-auto inline-flex items-center pt-5 text-sm font-semibold text-teal-800 transition group-hover:text-orange-700"
+            className="mt-auto inline-flex min-h-10 items-center justify-between gap-3 pt-5 text-sm font-semibold text-teal-800 transition group-hover:text-orange-700"
           >
             {item.label}
             <span aria-hidden className="ml-1">→</span>
@@ -247,28 +321,62 @@ function TestFeatureCard({ locale, item, priority }: { locale: Locale; item: Hom
   );
 }
 
-function HomepageHighlightedTestsBanner({ locale, copy }: { locale: Locale; copy: HomePageContent }) {
-  const items = orderPriorityFirst(filterVisiblePublicTestEntries(copy.quickStart.items ?? [])).slice(0, 6);
+function HomepageHighlightedTestsBanner({
+  locale,
+  copy,
+  supplementalTests,
+}: {
+  locale: Locale;
+  copy: HomePageContent;
+  supplementalTests: HubTestCardItem[];
+}) {
+  const items = listCoreHomepageTests(copy, supplementalTests);
 
   if (items.length === 0) return null;
 
   return (
-    <section className="relative overflow-hidden bg-teal-800 py-20 text-white md:py-24" aria-labelledby="homepage-core-tests-title">
-      <Container className="max-w-6xl px-6 md:px-8 lg:px-10">
-        <div className="mx-auto max-w-2xl text-center">
-          {hasText(copy.quickStart.kicker) ? <p className="m-0 text-sm font-semibold uppercase tracking-[0.18em] text-orange-100">{copy.quickStart.kicker}</p> : null}
-          <h2
-            id="homepage-core-tests-title"
-            className="m-0 mt-3 text-3xl font-semibold tracking-normal text-white md:text-4xl"
-          >
-            {copy.quickStart.title}
-          </h2>
-          {hasText(copy.quickStart.body) ? <p className="m-0 mt-4 text-base leading-7 text-teal-50">{copy.quickStart.body}</p> : null}
+    <section className="relative overflow-hidden border-y border-slate-200 bg-slate-50 py-14 text-slate-950 md:py-16" aria-labelledby="homepage-core-tests-title">
+      <Container className="max-w-7xl px-5 md:px-8 xl:px-10">
+        <div className="grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:items-end">
+          <div>
+            {hasText(copy.quickStart.kicker) ? <p className="m-0 text-sm font-semibold uppercase tracking-[0.18em] text-teal-800">{copy.quickStart.kicker}</p> : null}
+            <h2
+              id="homepage-core-tests-title"
+              className="m-0 mt-3 text-3xl font-semibold tracking-normal text-slate-950 md:text-4xl"
+            >
+              {copy.quickStart.title}
+            </h2>
+            {hasText(copy.quickStart.body) ? <p className="m-0 mt-4 max-w-2xl text-base leading-7 text-slate-600">{copy.quickStart.body}</p> : null}
+          </div>
+          <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
+            <Link
+              href={withLocale(locale, "/tests")}
+              prefetch={false}
+              className="inline-flex min-h-11 items-center justify-center rounded-full bg-teal-800 px-5 text-sm font-semibold text-white transition hover:bg-teal-900"
+            >
+              {copy.header.browseAllLabel}
+            </Link>
+            {hasText(copy.hero.primaryCta) && hasText(copy.hero.primaryHref) ? (
+              <Link
+                href={withLocale(locale, copy.hero.primaryHref)}
+                prefetch={false}
+                className="inline-flex min-h-11 items-center justify-center rounded-full border border-slate-300 bg-white px-5 text-sm font-semibold text-slate-800 transition hover:border-teal-700 hover:text-teal-800"
+              >
+                {copy.hero.primaryCta}
+              </Link>
+            ) : null}
+          </div>
         </div>
 
-        <div className="mt-10 grid gap-x-6 gap-y-9 md:grid-cols-2 lg:grid-cols-3">
-          {items.map((item) => (
-            <TestFeatureCard key={item.title} locale={locale} item={item} priority={getPriorityIndex(item) !== Number.POSITIVE_INFINITY} />
+        <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          {items.map((item, index) => (
+            <TestFeatureCard
+              key={getCoreTestKey(item)}
+              locale={locale}
+              item={item}
+              index={index}
+              priority={getPriorityIndex(item) !== Number.POSITIVE_INFINITY}
+            />
           ))}
         </div>
       </Container>
@@ -517,11 +625,21 @@ function HomepageArticlesBanner({ locale, articles }: { locale: Locale; articles
   );
 }
 
-export function HomePageExperience({ locale, copy, articles = [] }: { locale: Locale; copy: HomePageContent; articles?: HomeArticle[] }) {
+export function HomePageExperience({
+  locale,
+  copy,
+  articles = [],
+  supplementalTests = [],
+}: {
+  locale: Locale;
+  copy: HomePageContent;
+  articles?: HomeArticle[];
+  supplementalTests?: HubTestCardItem[];
+}) {
   return (
     <div className="bg-white text-slate-950">
       <HomepageHeroV1 locale={locale} copy={copy} />
-      <HomepageHighlightedTestsBanner locale={locale} copy={copy} />
+      <HomepageHighlightedTestsBanner locale={locale} copy={copy} supplementalTests={supplementalTests} />
       <HomepageFamilyMatrix locale={locale} copy={copy} />
       <HomepageResultPreview locale={locale} copy={copy} />
       <HomepageTrustStripV1 copy={copy} />

@@ -38,7 +38,9 @@ describe("wider public family contract", () => {
     expect(home).toContain("function buildHomeJsonLd(locale: Locale, copy:");
     expect(home).toContain('idSuffix: "quickstart-itemlist"');
     expect(home).toContain('idSuffix: "family-itemlist"');
-    expect(home).toContain("<HomePageExperience locale={locale} copy={copy} articles={articles} />");
+    expect(home).toContain('import { listVisibleTestsHubCards } from "@/lib/marketing/testsHubContent"');
+    expect(home).toContain("listVisibleTestsHubCards(locale).catch(() => [])");
+    expect(home).toContain("<HomePageExperience locale={locale} copy={copy} articles={articles} supplementalTests={supplementalTests} />");
 
     expect(testsIndex).toContain('import { TestsHubExperience } from "@/components/marketing/tests/TestsHubExperience"');
     expect(testsIndex).toContain('import { getTestsHubContent } from "@/lib/marketing/testsHubContent"');
