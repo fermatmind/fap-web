@@ -10813,3 +10813,41 @@ prs:
       - No publish, sitemap submission, search submission, or frontend content asset change occurs.
       - Draft exposure remains fail-closed.
     rollback_note: "Delete or archive the draft through the authorized CMS process if the draft-only canary is withdrawn."
+
+  - id: IQ-FE-BANK-SWITCH-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/iq-fe-bank-switch-01
+    base: main
+    depends_on: []
+    mode: execute
+    train_scope: iq_beta_bank_display_model
+    status: planned
+    title: "feat(iq): add beta bank display model"
+    goal: "Add a frontend IQ bank/form display model where beta_30 is the current available form and beta_50 is a future placeholder, without introducing a second IQ scale identity or a beta50 take entry."
+    in_scope:
+      - lib/iq/constants.ts
+      - lib/iq/bankDisplay.ts
+      - tests/contracts/iq-bank-display-model.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - backend beta50 bank specification or import
+      - beta50 take route enablement
+      - payment, order, report entitlement, or checkout changes
+      - CMS editorial content or public static media assets
+      - SEO sitemap, llms, or JSON-LD expansion
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/iq-bank-display-model.contract.test.ts
+      - pnpm typecheck
+      - git diff --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: IQ-BANK-50-01
+    acceptance:
+      - `beta_30` maps to `IQ_BETA_30_ORIGINAL` and remains take-enabled.
+      - `beta_50` maps to a future bank placeholder and remains take-disabled.
+      - Both display models use `IQ_INTELLIGENCE_QUOTIENT`; `IQ_RAVEN` is not promoted as a new model.
+    rollback_note: "Revert the IQ bank display model constants/test if beta bank selection should remain backend-only."
