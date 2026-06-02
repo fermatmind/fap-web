@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 import type { AttemptReportAccessView } from "@/lib/access/unifiedAccess";
 import type { ReportResponse } from "@/lib/api/v0_3";
 import { IqReportModule } from "@/components/result/iq/IqReportModule";
+import { IQ_BETA_50_BANK_ID } from "@/lib/iq/constants";
 import { buildIqResultViewModel } from "@/lib/iq/result";
 
 function createAccessView(overrides: Partial<AttemptReportAccessView> = {}): AttemptReportAccessView {
@@ -324,5 +325,24 @@ describe("IQ report module contract", () => {
 
     expect(screen.queryByTestId("iq-pdf-placeholder")).not.toBeInTheDocument();
     expect(screen.queryByTestId("iq-certificate-placeholder")).not.toBeInTheDocument();
+  });
+
+  it("renders beta50 report placeholder without exposing a take or checkout action", () => {
+    const reportData = createReportData({
+      bank_id: IQ_BETA_50_BANK_ID,
+      meta: {
+        scale_code: "IQ_INTELLIGENCE_QUOTIENT",
+        bank_id: IQ_BETA_50_BANK_ID,
+      },
+    });
+
+    renderReportModule({
+      reportData,
+      accessView: createAccessView(),
+    });
+
+    expect(screen.getByTestId("iq-report-bank-placeholder")).toHaveTextContent("future 50-item beta placeholder");
+    expect(screen.queryByRole("link", { name: /start|take|checkout|buy|unlock/i })).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: /start|take|checkout|buy|unlock/i })).not.toBeInTheDocument();
   });
 });

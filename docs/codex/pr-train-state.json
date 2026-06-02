@@ -16433,6 +16433,59 @@
           "summary": "Opened PR for IQ-FE-BANK-SWITCH-01."
         }
       ]
+    },
+    {
+      "id": "IQ-FE-BETA50-TEASER-01",
+      "repo": "fap-web",
+      "branch": "codex/iq-fe-beta50-teaser-01",
+      "base": "main",
+      "title": "IQ-FE-BETA50-TEASER-01 render beta50 teaser placeholder",
+      "status": "local_checks_passed",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": {
+        "pnpm exec vitest run tests/contracts/iq-bank-display-model.contract.test.ts tests/contracts/iq-result-renderer.contract.test.tsx tests/contracts/iq-report-module.contract.test.tsx": {
+          "status": "passed",
+          "tests": "20 passed"
+        },
+        "pnpm typecheck": {
+          "status": "passed"
+        },
+        "pnpm exec vitest run tests/contracts/iq-frontend-api-contracts.contract.test.ts": {
+          "status": "passed",
+          "tests": "11 passed"
+        },
+        "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null": {
+          "status": "passed"
+        },
+        "python3 -c yaml.safe_load docs/codex/pr-train.yaml": {
+          "status": "passed"
+        },
+        "git diff --check": {
+          "status": "passed"
+        }
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "events": [
+        {
+          "at": "2026-06-02T20:03:00+08:00",
+          "status": "started",
+          "summary": "Started frontend beta50 teaser placeholder PR after backend beta50 spec merge."
+        },
+        {
+          "at": "2026-06-02T20:03:38+08:00",
+          "status": "local_check_failed_retrying",
+          "summary": "Recorded initial validation failure, fixed train YAML quoting, and prepared dependency install retry."
+        },
+        {
+          "at": "2026-06-02T20:04:28+08:00",
+          "status": "local_checks_passed",
+          "summary": "Frontend beta50 teaser placeholder checks passed after dependency install and manifest YAML quote fix."
+        }
+      ]
     }
   ],
   "sidecar_issues": [

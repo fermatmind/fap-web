@@ -67,6 +67,8 @@ import {
   isMbtiScaleCode,
   listMbtiFormMetas,
 } from "@/lib/mbti/forms";
+import { getIqBankLandingChoices, type IqBankLandingChoice } from "@/lib/iq/bankDisplay";
+import { isIqScaleCode } from "@/lib/iq/constants";
 import { buildMbtiEntryHref, buildMbtiEntryTrackingPayload } from "@/lib/mbti/entryTracking";
 import { buildMbtiTestLandingContinuityItems } from "@/lib/mbti/sceneDeepContent";
 import {
@@ -554,6 +556,10 @@ type FlagshipVariantChoice = {
   eventProperties?: Record<string, string>;
 };
 
+type IqBankLandingChoiceWithTracking = IqBankLandingChoice & {
+  eventProperties?: Record<string, string>;
+};
+
 function FlagshipVariantChooser({
   title,
   subtitle,
@@ -598,6 +604,75 @@ function FlagshipVariantChooser({
               >
                 {choice.ctaLabel}
               </Link>
+            )}
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function IqBankLandingChooser({
+  locale,
+  choices,
+}: {
+  locale: "en" | "zh";
+  choices: IqBankLandingChoiceWithTracking[];
+}) {
+  return (
+    <section
+      className="rounded-[1.7rem] border border-[var(--fm-border)] bg-[rgba(248,250,252,0.92)] p-4 shadow-[var(--fm-shadow-sm)] md:p-5"
+      data-testid="iq-bank-landing-chooser"
+    >
+      <div className="space-y-2">
+        <h2 className="m-0 text-[1.15rem] font-semibold tracking-[-0.03em] text-slate-950">
+          {locale === "zh" ? "选择 IQ 测试表单" : "Choose an IQ form"}
+        </h2>
+        <p className="m-0 max-w-[42rem] text-sm leading-7 text-slate-600">
+          {locale === "zh"
+            ? "当前只开放 30 题 beta；50 题 beta 是未来占位，后端 gate 未完成前不提供答题入口。"
+            : "Only the 30-item beta is available now. The 50-item beta is a future placeholder and has no take entry until backend gates are complete."}
+        </p>
+      </div>
+
+      <div className="mt-5 grid gap-3 md:grid-cols-2">
+        {choices.map((choice) => (
+          <article
+            key={choice.key}
+            className="flex h-full flex-col rounded-[1.35rem] border border-slate-200 bg-white p-4 shadow-[0_16px_44px_rgba(15,23,42,0.05)]"
+            data-testid={`iq-bank-card-${choice.key}`}
+          >
+            <div className="space-y-2">
+              <div className="flex flex-wrap items-center gap-2">
+                <h3 className="m-0 text-[1rem] font-semibold tracking-[-0.02em] text-slate-950">{choice.label}</h3>
+                <span
+                  className="rounded-full border border-[var(--fm-border)] px-2.5 py-1 text-xs font-semibold text-slate-600"
+                  data-testid={`iq-bank-status-${choice.key}`}
+                >
+                  {choice.statusLabel}
+                </span>
+              </div>
+              <p className="m-0 text-sm leading-7 text-slate-600">{choice.description}</p>
+            </div>
+
+            {choice.href && choice.eventProperties ? (
+              <TrackedEntryCtaLink
+                href={choice.href}
+                prefetch={false}
+                data-testid={choice.testId}
+                eventProperties={choice.eventProperties}
+                className={buttonVariants({ size: "sm", className: "mt-auto w-full justify-center" })}
+              >
+                {choice.ctaLabel}
+              </TrackedEntryCtaLink>
+            ) : (
+              <span
+                aria-disabled="true"
+                data-testid={choice.testId}
+                className={buttonVariants({ size: "sm", variant: "secondary", className: "mt-auto w-full justify-center cursor-not-allowed opacity-70" })}
+              >
+                {choice.ctaLabel}
+              </span>
             )}
           </article>
         ))}
@@ -776,6 +851,7 @@ export default async function TestLandingPage({
   const showsBig5Actions = isBig5ScaleCode(test.scale_code);
   const showsEnneagramActions = isEnneagramScaleCode(test.scale_code);
   const showsRiasecActions = isRiasecScaleCode(test.scale_code);
+  const showsIqActions = isIqScaleCode(test.scale_code) || test.slug === SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN;
   const isSelfUnderstanding = showsMbtiActions || showsBig5Actions || showsEnneagramActions;
   const domainRole = showsMbtiActions ? "primary" : showsBig5Actions ? "primary" : showsEnneagramActions ? "supporting" : null;
   const questionSummary = showsMbtiActions
@@ -896,6 +972,20 @@ export default async function TestLandingPage({
           }),
         },
       ]
+    : [];
+  const iqBankChoices: IqBankLandingChoiceWithTracking[] = showsIqActions
+    ? getIqBankLandingChoices({
+        locale,
+        takeHref: startTestHref,
+      }).map((choice) => ({
+        ...choice,
+        eventProperties: choice.href
+          ? buildStartClickTrackingProps({
+              formCode: choice.formCode,
+              targetAction: choice.targetAction,
+            })
+          : undefined,
+      }))
     : [];
   const mbtiPrimaryChoice = showsMbtiActions
     ? flagshipVariantChoices.find((choice) => choice.key === DEFAULT_MBTI_FORM_CODE) ?? flagshipVariantChoices[0] ?? null
@@ -1207,6 +1297,10 @@ export default async function TestLandingPage({
                   }
                   choices={flagshipVariantChoices}
                 />
+              </div>
+            ) : showsIqActions ? (
+              <div className="space-y-4 pt-2">
+                <IqBankLandingChooser locale={locale} choices={iqBankChoices} />
               </div>
             ) : showsDepressionVersionActions ? (
               <div className="space-y-4 pt-2">

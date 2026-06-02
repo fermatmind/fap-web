@@ -4,6 +4,7 @@ import {
   IQ_CANONICAL_SCALE_CODE,
   IQ_PUBLIC_SLUG,
 } from "@/lib/iq/constants";
+import type { Locale } from "@/lib/i18n/locales";
 
 export type IqBankDisplayKey = "beta_30" | "beta_50";
 export type IqBankAvailability = "available" | "future_placeholder";
@@ -31,6 +32,20 @@ export type IqBankDisplayModel = {
     en: string;
     zh: string;
   };
+};
+
+export type IqBankDisplayText = {
+  label: string;
+  shortLabel: string;
+  description: string;
+  ctaLabel: string;
+  statusLabel: string;
+};
+
+export type IqBankLandingChoice = IqBankDisplayModel & IqBankDisplayText & {
+  href: string | null;
+  testId: string;
+  targetAction: string;
 };
 
 export const IQ_BANK_DISPLAY_MODELS: readonly IqBankDisplayModel[] = [
@@ -99,4 +114,44 @@ export function getIqBankDisplayModel(value: string | null | undefined): IqBankD
 
 export function isIqBankTakeEnabled(value: string | null | undefined): boolean {
   return getIqBankDisplayModel(value)?.isTakeEnabled === true;
+}
+
+export function getIqBankDisplayText(model: IqBankDisplayModel, locale: Locale): IqBankDisplayText {
+  const isZh = locale === "zh";
+
+  return {
+    label: model.labels[locale],
+    shortLabel: model.shortLabels[locale],
+    description: model.descriptions[locale],
+    ctaLabel: model.ctaState === "start"
+      ? isZh
+        ? "开始当前 30 题"
+        : "Start current 30-item form"
+      : isZh
+        ? "即将开放"
+        : "Coming soon",
+    statusLabel: model.availability === "available"
+      ? isZh
+        ? "当前可用"
+        : "Available now"
+      : isZh
+        ? "未来占位"
+        : "Future placeholder",
+  };
+}
+
+export function getIqBankLandingChoices({
+  locale,
+  takeHref,
+}: {
+  locale: Locale;
+  takeHref: string;
+}): IqBankLandingChoice[] {
+  return IQ_BANK_DISPLAY_MODELS.map((model) => ({
+    ...model,
+    ...getIqBankDisplayText(model, locale),
+    href: model.isTakeEnabled ? takeHref : null,
+    testId: `test-detail-landing-cta-${model.key}`,
+    targetAction: model.isTakeEnabled ? `start_${model.key}` : `preview_${model.key}`,
+  }));
 }

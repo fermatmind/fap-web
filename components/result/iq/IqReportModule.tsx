@@ -90,6 +90,14 @@ export function IqReportModule({
             </Alert>
           ) : null}
 
+          {viewModel.bankStatus ? (
+            <Alert>
+              <span data-testid="iq-report-bank-placeholder">
+                {viewModel.bankStatus.notice}
+              </span>
+            </Alert>
+          ) : null}
+
           {viewModel.detailedReportMessage ? (
             <p className="text-sm leading-6 text-[var(--fm-text-muted)]" data-testid="iq-report-module-unavailable">
               {viewModel.detailedReportMessage}
