@@ -5,7 +5,9 @@ import type { AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
 import type { EvidencePageFamily } from "@/lib/geo/evidenceContainer";
 import type { Locale } from "@/lib/i18n/locales";
 import {
+  deriveSeoCtaPriorityFromKey,
   extractTargetTestSlugFromHref,
+  type SeoCtaPriority,
   type SeoCtaSourceRouteFamily,
 } from "@/lib/tracking/seoCtaAttribution";
 
@@ -16,6 +18,7 @@ type AnswerSurfaceSeoCtaAttribution = {
   sourcePath: string;
   contentId?: string | number | null;
   topicId?: string | number | null;
+  translationGroupId?: string | number | null;
 };
 
 function sectionTitle(key: string, locale: Locale): string {
@@ -60,12 +63,14 @@ function renderAnswerSurfaceLink({
   label,
   className,
   ctaId,
+  ctaPriority,
   seoCtaAttribution,
 }: {
   href: string;
   label: string;
   className: string;
   ctaId: string;
+  ctaPriority?: SeoCtaPriority;
   seoCtaAttribution?: AnswerSurfaceSeoCtaAttribution;
 }) {
   const targetTestSlug = extractTargetTestSlugFromHref(href);
@@ -76,6 +81,7 @@ function renderAnswerSurfaceLink({
         href={href}
         {...seoCtaAttribution}
         ctaId={ctaId}
+        ctaPriority={ctaPriority}
         targetTestSlug={targetTestSlug}
         className={className}
       >
@@ -195,7 +201,7 @@ export function AnswerSurfaceSection({
             {sectionTitle("scene", locale)}
           </p>
           <div className="grid gap-3 md:grid-cols-2">
-            {surface.sceneSummaryBlocks.map((block) => (
+            {surface.sceneSummaryBlocks.map((block, index) => (
               <article key={block.key} className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
                 {block.href ? (
                   renderAnswerSurfaceLink({
@@ -203,6 +209,7 @@ export function AnswerSurfaceSection({
                     label: block.title || block.href,
                     className: "m-0 text-sm font-medium text-[var(--fm-text)] hover:text-[var(--fm-accent)]",
                     ctaId: block.key || "answer_surface_scene",
+                    ctaPriority: deriveSeoCtaPriorityFromKey(block.key, index),
                     seoCtaAttribution,
                   })
                 ) : block.title ? (
@@ -221,7 +228,7 @@ export function AnswerSurfaceSection({
             {sectionTitle("next", locale)}
           </p>
           <div className="grid gap-3 md:grid-cols-2">
-            {surface.nextStepBlocks.map((block) => (
+            {surface.nextStepBlocks.map((block, index) => (
               <article key={block.key} className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
                 {block.href ? (
                   renderAnswerSurfaceLink({
@@ -229,6 +236,7 @@ export function AnswerSurfaceSection({
                     label: block.title || block.href,
                     className: "text-sm font-medium text-[var(--fm-text)] hover:text-[var(--fm-accent)]",
                     ctaId: block.key || "answer_surface_next_step",
+                    ctaPriority: deriveSeoCtaPriorityFromKey(block.key, index),
                     seoCtaAttribution,
                   })
                 ) : (

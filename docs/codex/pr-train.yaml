@@ -10744,11 +10744,22 @@ prs:
     title: "feat(analytics): add article-to-test CTA tracking contract"
     goal: "Add or freeze article_to_test_click tracking so article CTA clicks carry locale, article_slug, translation_group_id, cta_id, cta_priority, target_test_slug, source_path, and destination_path without changing CMS content assets."
     in_scope:
+      - app/(localized)/[locale]/articles/[slug]/page.tsx
+      - components/content/AnswerSurfaceSection.tsx
       - lib/tracking/events.ts
+      - lib/tracking/client.ts
       - lib/tracking/seoCtaAttribution.ts
       - components/cta/SeoTrackedCtaLink.tsx
+      - lib/cms/articles.ts
+      - lib/landing/landingSurface.ts
       - tests/contracts/*article*cta*
+      - tests/contracts/seo-page-cta-attribution.contract.test.ts
       - tests/contracts/*riasec*attribution*
+      - tests/contracts/seo-cms-canary-web01-article-to-test-click.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - tests/contracts/tracking-whitelist.contract.test.ts
+      - tests/contracts/analytics-payload-privacy.contract.test.ts
+      - docs/analytics/**
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
     out_of_scope:

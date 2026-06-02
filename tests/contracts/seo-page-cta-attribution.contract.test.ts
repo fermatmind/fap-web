@@ -30,8 +30,15 @@ describe("SEO page CTA attribution contract", () => {
       utm_campaign: "june_seo_pilot",
       slug: "mbti-personality-test-16-personality-types",
       test_slug: "mbti-personality-test-16-personality-types",
+      article_slug: "mbti-career-guide",
+      cta_id: "start_test",
+      cta_priority: "contextual",
       entry_surface: "article_detail_seo_cta",
       source_page_type: "article_detail",
+      source_route_family: "article",
+      source_slug: "mbti-career-guide",
+      target_test_slug: "mbti-personality-test-16-personality-types",
+      source_path: "/zh/articles/mbti-career-guide",
       target_action: "seo_cta_start_test",
       landing_path: "/zh/articles/mbti-career-guide",
       current_path: "/zh/articles/mbti-career-guide",
@@ -41,7 +48,23 @@ describe("SEO page CTA attribution contract", () => {
     expect(filterTrackingPayload(TRACKING_EVENTS.START_ATTEMPT, {
       ...payload,
       email: "person@example.com",
-    })).toEqual(payload);
+    })).toEqual({
+      utm_source: "google",
+      utm_medium: "cpc",
+      utm_campaign: "june_seo_pilot",
+      slug: "mbti-personality-test-16-personality-types",
+      test_slug: "mbti-personality-test-16-personality-types",
+      cta_id: "start_test",
+      entry_surface: "article_detail_seo_cta",
+      source_page_type: "article_detail",
+      source_route_family: "article",
+      source_slug: "mbti-career-guide",
+      target_test_slug: "mbti-personality-test-16-personality-types",
+      target_action: "seo_cta_start_test",
+      landing_path: "/zh/articles/mbti-career-guide",
+      current_path: "/zh/articles/mbti-career-guide",
+      locale: "zh",
+    });
   });
 
   it("extracts target test slugs without changing public CTA destinations", () => {

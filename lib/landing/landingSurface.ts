@@ -1,4 +1,9 @@
 import type { LandingSurfaceRaw } from "@/lib/api/v0_3";
+import {
+  deriveSeoCtaPriorityFromKey,
+  normalizeSeoCtaPriority,
+  type SeoCtaPriority,
+} from "@/lib/tracking/seoCtaAttribution";
 import { normalizeInternalHref } from "@/lib/url/safeContentUrls";
 
 export type LandingSummaryBlockViewModel = {
@@ -13,6 +18,7 @@ export type LandingCtaViewModel = {
   label: string;
   href: string;
   kind: string | null;
+  priority?: SeoCtaPriority;
 };
 
 export type LandingDiscoverabilityItemViewModel = {
@@ -101,22 +107,24 @@ export function normalizeLandingSurface(raw: LandingSurfaceRaw | null | undefine
 
   const ctaBundle = Array.isArray(raw.cta_bundle)
     ? raw.cta_bundle
-        .map((item) => {
+        .map((item, index) => {
           const record = item && typeof item === "object" && !Array.isArray(item) ? item : {};
           const label = normalizeText(record.label);
           const href = normalizeInternalHref(record.href);
           if (!label || !href) {
             return null;
           }
+          const key = normalizeText(record.key) || href;
 
           return {
-            key: normalizeText(record.key) || href,
+            key,
             label,
             href,
             kind: normalizeNullableText(record.kind),
+            priority: normalizeSeoCtaPriority(record.priority ?? record.cta_priority, deriveSeoCtaPriorityFromKey(key, index)),
           };
         })
-        .filter((item): item is LandingCtaViewModel => item !== null)
+        .filter((item): item is Exclude<typeof item, null> => item !== null)
     : [];
 
   const discoverabilityItems = Array.isArray(raw.discoverability_items)

@@ -590,6 +590,25 @@ const PR_WEB_SEC_33_ALLOWED_FILES = new Set([
   "tests/e2e/enneagram-phase3b-1rd-partial-resonance-rendered-preview.spec.ts",
 ]);
 
+const SEO_CMS_CANARY_WEB_01_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/articles/[slug]/page.tsx",
+  "components/content/AnswerSurfaceSection.tsx",
+  "components/cta/SeoTrackedCtaLink.tsx",
+  "docs/analytics/conversion-setup-qa-checklist.md",
+  "docs/analytics/seo-cta-attribution.md",
+  "docs/analytics/tracking-activation-runbook.md",
+  "docs/codex/pr-train-state.json",
+  "docs/codex/pr-train.yaml",
+  "lib/cms/articles.ts",
+  "lib/landing/landingSurface.ts",
+  "lib/tracking/client.ts",
+  "lib/tracking/events.ts",
+  "lib/tracking/seoCtaAttribution.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/seo-cms-canary-web01-article-to-test-click.contract.test.tsx",
+  "tests/contracts/seo-page-cta-attribution.contract.test.ts",
+]);
+
 const PR_AUDIT_FE_01_ALLOWED_FILES = new Set([
   ".github/workflows/ci.yml",
   "components/career/CareerShortlistAction.tsx",
@@ -1164,6 +1183,10 @@ const FRONTEND_CI_BUILD_TIMEOUT_ALLOWED_FILES = new Set([
 ]);
 
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH === "codex/seo-cms-canary-web-01-article-to-test-tracking") {
+    return SEO_CMS_CANARY_WEB_01_ALLOWED_FILES.has(file);
+  }
+
   if (CURRENT_BRANCH === "codex/analytics-funnel-web-event-name-alignment-02") {
     return RIASEC_PACK12_ALLOWED_FILES.has(file);
   }
@@ -1527,6 +1550,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/pr-web-sec-33-preview-fixture-hard-fail") {
     return PR_WEB_SEC_33_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/seo-cms-canary-web-01-article-to-test-tracking") {
+    return SEO_CMS_CANARY_WEB_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-audit-fe-01-lint-ci-baseline") {

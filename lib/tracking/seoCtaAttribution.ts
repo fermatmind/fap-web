@@ -66,15 +66,19 @@ export type SeoCtaAttributionInput = {
   sourceSlug: string;
   contentId?: string | number | null;
   topicId?: string | number | null;
+  translationGroupId?: string | number | null;
   sourcePath: string;
   href: string;
   ctaId: string;
+  ctaPriority?: SeoCtaPriority | null;
   targetAction?: string;
   targetTestSlug?: string | null;
   formCode?: string | null;
   scaleCode?: string | null;
   attributionPayload?: TrackingAttributionPayload;
 };
+
+export type SeoCtaPriority = "primary" | "secondary" | "tertiary" | "contextual";
 
 export type SeoAttemptStartAttribution = {
   meta: Record<string, string>;
@@ -111,6 +115,19 @@ function normalizeId(value: unknown): string | undefined {
 
 function normalizeRouteFamily(sourceRouteFamily: SeoCtaSourceRouteFamily): string {
   return sourceRouteFamily.replace(/_detail$/, "");
+}
+
+function sanitizeSeoPath(value: unknown): string | undefined {
+  const sanitized = sanitizeTrackingUrl(value);
+  if (!sanitized) {
+    return undefined;
+  }
+
+  try {
+    return new URL(sanitized, "https://tracking.local").pathname || "/";
+  } catch {
+    return sanitized.split("?")[0] || undefined;
+  }
 }
 
 function normalizeContextValue(key: SeoCtaContextQueryKey, value: unknown): string | undefined {
@@ -175,6 +192,73 @@ export function extractTargetTestSlugFromHref(href: string): string | null {
 
   const slug = segments[testsIndex + 1] ?? "";
   return /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug) ? slug : null;
+}
+
+export function normalizeSeoCtaPriority(value: unknown, fallback: SeoCtaPriority = "contextual"): SeoCtaPriority {
+  const normalized = normalizeOptionalToken(value);
+  if (normalized === "primary" || normalized === "secondary" || normalized === "tertiary") {
+    return normalized;
+  }
+  return fallback;
+}
+
+export function deriveSeoCtaPriorityFromKey(
+  key: unknown,
+  index = 0,
+): SeoCtaPriority {
+  const normalized = normalizeOptionalToken(key) ?? "";
+  if (normalized.includes("primary")) return "primary";
+  if (normalized.includes("secondary")) return "secondary";
+  if (normalized.includes("tertiary")) return "tertiary";
+  if (index === 0) return "primary";
+  if (index === 1) return "secondary";
+  if (index === 2) return "tertiary";
+  return "contextual";
+}
+
+export function extractPublicTestDetailPathFromHref(
+  href: string,
+  locale?: Locale | string | null,
+): string | null {
+  if (!href || /[\s\u0000-\u001f]/.test(href)) {
+    return null;
+  }
+
+  let parsed: URL;
+  try {
+    parsed = new URL(href, "https://fermatmind.com");
+  } catch {
+    return null;
+  }
+
+  if (!["http:", "https:"].includes(parsed.protocol)) {
+    return null;
+  }
+
+  if (parsed.origin !== "https://fermatmind.com") {
+    return null;
+  }
+
+  if (parsed.search || parsed.hash) {
+    return null;
+  }
+
+  const segments = parsed.pathname.split("/").filter(Boolean);
+  const routeLocale = segments[0];
+  const slug = segments[2];
+  if (locale && routeLocale !== locale) {
+    return null;
+  }
+
+  if (routeLocale !== "en" && routeLocale !== "zh") {
+    return null;
+  }
+
+  if (segments[1] !== "tests" || segments.length !== 3) {
+    return null;
+  }
+
+  return /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug ?? "") ? `/${segments.join("/")}` : null;
 }
 
 export function extractSeoCtaContextParamsFromRecord(
@@ -327,33 +411,40 @@ export function buildSeoCtaTrackingPayload({
   locale,
   sourceRouteFamily,
   sourceSlug,
-  contentId,
-  topicId,
+  translationGroupId,
   sourcePath,
   href,
   ctaId,
+  ctaPriority,
   targetAction,
   targetTestSlug,
   formCode,
   scaleCode,
   attributionPayload,
 }: SeoCtaAttributionInput): Record<string, string> {
-  void sourceSlug;
-  void contentId;
-  void topicId;
-
+  const destinationPath = extractPublicTestDetailPathFromHref(href, locale);
   const resolvedTargetTestSlug = targetTestSlug || extractTargetTestSlugFromHref(href);
   const normalizedCtaId = normalizeToken(ctaId, "seo_cta");
   const normalizedTargetAction = normalizeToken(targetAction, `seo_cta_${normalizedCtaId}`);
+  const sourcePathname = sanitizeSeoPath(sourcePath);
   const entrySurface = `${sourceRouteFamily}_seo_cta`;
 
   return {
     ...(attributionPayload ?? {}),
     ...(resolvedTargetTestSlug ? { slug: resolvedTargetTestSlug, test_slug: resolvedTargetTestSlug } : {}),
+    ...(sourceRouteFamily === "article_detail" ? { article_slug: sourceSlug } : {}),
+    ...(translationGroupId !== null && translationGroupId !== undefined ? { translation_group_id: String(translationGroupId).slice(0, 96) } : {}),
+    ...(resolvedTargetTestSlug ? { target_test_slug: resolvedTargetTestSlug } : {}),
+    cta_id: normalizedCtaId,
+    cta_priority: normalizeSeoCtaPriority(ctaPriority),
+    ...(sourcePathname ? { source_path: sourcePathname } : {}),
+    ...(destinationPath ? { destination_path: destinationPath } : {}),
     ...(formCode ? { form_code: formCode } : {}),
     ...(scaleCode ? { scale_code: scaleCode } : {}),
     entry_surface: entrySurface,
     source_page_type: sourceRouteFamily,
+    source_route_family: normalizeRouteFamily(sourceRouteFamily),
+    source_slug: sourceSlug,
     target_action: normalizedTargetAction,
     landing_path: sourcePath,
     current_path: sourcePath,
