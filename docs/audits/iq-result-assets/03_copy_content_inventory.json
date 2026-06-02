@@ -1,0 +1,165 @@
+{
+  "generated_at": "2026-06-02T17:03:49Z",
+  "copy_assets": [
+    {
+      "text": "测评结果 / Assessment result",
+      "locale": "zh/en",
+      "file_path": "components/result/iq/IqResultShell.tsx",
+      "context": "result summary eyebrow",
+      "current_quality": "usable_basic",
+      "design_reuse_recommendation": "reuse but redesign hierarchy",
+      "backend_or_cms_should_own": "frontend label okay; long explanatory copy should be backend/CMS owned",
+      "risk_notes": "low"
+    },
+    {
+      "text": "IQ 估计值 / IQ estimate",
+      "locale": "zh/en",
+      "file_path": "components/result/iq/IqResultShell.tsx",
+      "context": "overall score metric label",
+      "current_quality": "usable_basic",
+      "design_reuse_recommendation": "use in hero score section",
+      "backend_or_cms_should_own": "frontend label okay; score value backend-owned",
+      "risk_notes": "must not imply certified IQ without norm authority"
+    },
+    {
+      "text": "当前结果暂未生成完整 IQ 估计值 / The IQ estimate is not available for this result yet",
+      "locale": "zh/en",
+      "file_path": "components/result/iq/IqResultShell.tsx",
+      "context": "null iq_estimate state",
+      "current_quality": "safe",
+      "design_reuse_recommendation": "reuse as norm/scoring unavailable fallback",
+      "backend_or_cms_should_own": "frontend fallback okay",
+      "risk_notes": "low"
+    },
+    {
+      "text": "原始分 / Raw score",
+      "locale": "zh/en",
+      "file_path": "components/result/iq/IqResultShell.tsx",
+      "context": "summary and dimension metric label",
+      "current_quality": "usable",
+      "design_reuse_recommendation": "retain but explain relationship to IQ estimate",
+      "backend_or_cms_should_own": "frontend label okay",
+      "risk_notes": "raw score can confuse users without scale explanation"
+    },
+    {
+      "text": "百分位 / Percentile",
+      "locale": "zh/en",
+      "file_path": "components/result/iq/IqResultShell.tsx",
+      "context": "summary and dimension metric label",
+      "current_quality": "usable",
+      "design_reuse_recommendation": "pair with CI and norm authority explanation",
+      "backend_or_cms_should_own": "backend value and eligibility; frontend label",
+      "risk_notes": "claim gated"
+    },
+    {
+      "text": "置信区间 / Confidence interval",
+      "locale": "zh/en",
+      "file_path": "components/result/iq/IqResultShell.tsx",
+      "context": "summary metric label",
+      "current_quality": "usable",
+      "design_reuse_recommendation": "needs explanation card",
+      "backend_or_cms_should_own": "backend value; explanatory copy CMS/backend reviewed",
+      "risk_notes": "claim gated"
+    },
+    {
+      "text": "结果质量 / Quality level; 质量标记 / Quality flags",
+      "locale": "zh/en",
+      "file_path": "components/result/iq/IqResultShell.tsx",
+      "context": "quality display",
+      "current_quality": "safe but technical",
+      "design_reuse_recommendation": "translate into user-readable reliability section",
+      "backend_or_cms_should_own": "backend flags; frontend explanatory mapping can be product code if fixed",
+      "risk_notes": "avoid hiding beta/norm pending flags"
+    },
+    {
+      "text": "稳定性状态 / Stability status; 稳定性说明 / Stability note",
+      "locale": "zh/en",
+      "file_path": "components/result/iq/IqResultShell.tsx",
+      "context": "stability display",
+      "current_quality": "safe but technical",
+      "design_reuse_recommendation": "make reliability section",
+      "backend_or_cms_should_own": "backend status/reason",
+      "risk_notes": "must not override backend caution"
+    },
+    {
+      "text": "视觉空间洞察 / Visual-Spatial Insight",
+      "locale": "zh/en",
+      "file_path": "lib/iq/result.ts",
+      "context": "VSI dimension label",
+      "current_quality": "required target dimension",
+      "design_reuse_recommendation": "primary dimension deep-dive section",
+      "backend_or_cms_should_own": "label can stay frontend; dimension interpretation backend/report owned",
+      "risk_notes": "low"
+    },
+    {
+      "text": "视觉空间模式推理 / Visual-Spatial Pattern Reasoning",
+      "locale": "zh/en",
+      "file_path": "lib/iq/result.ts",
+      "context": "VSPR dimension label",
+      "current_quality": "required target dimension",
+      "design_reuse_recommendation": "primary dimension deep-dive section",
+      "backend_or_cms_should_own": "label can stay frontend; interpretation backend/report owned",
+      "risk_notes": "low"
+    },
+    {
+      "text": "数字规律推理 / Numerical Pattern Reasoning",
+      "locale": "zh/en",
+      "file_path": "lib/iq/result.ts",
+      "context": "NPR dimension label",
+      "current_quality": "required target dimension",
+      "design_reuse_recommendation": "primary dimension deep-dive section",
+      "backend_or_cms_should_own": "label can stay frontend; interpretation backend/report owned",
+      "risk_notes": "low"
+    },
+    {
+      "text": "本结果是在线认知能力估测，不是临床诊断。请结合置信区间和作答质量理解结果。 / This result is an online cognitive ability estimate, not a clinical diagnosis. Interpret it together with the confidence interval and response quality.",
+      "locale": "zh/en",
+      "file_path": "lib/iq/result.ts",
+      "context": "method boundary copy",
+      "current_quality": "safe",
+      "design_reuse_recommendation": "reuse but move into more visible boundary card",
+      "backend_or_cms_should_own": "reviewed method-boundary content should eventually be backend/CMS authority",
+      "risk_notes": "important claim-safety guard"
+    },
+    {
+      "text": "各维度结果描述的是本次测验中的表现结构，不代表全部能力。 / Dimension results describe the structure of performance in this test, not total human ability.",
+      "locale": "zh/en",
+      "file_path": "lib/iq/result.ts",
+      "context": "interpretation boundary copy",
+      "current_quality": "safe",
+      "design_reuse_recommendation": "reuse in reliability/method section",
+      "backend_or_cms_should_own": "reviewed content should eventually be backend/CMS authority",
+      "risk_notes": "important claim-safety guard"
+    },
+    {
+      "text": "详细报告内容暂未开放。 / Detailed report content is not available yet.",
+      "locale": "zh/en",
+      "file_path": "lib/iq/result.ts",
+      "context": "paid report missing sections",
+      "current_quality": "safe placeholder",
+      "design_reuse_recommendation": "replace with backend-owned teaser once report content exists",
+      "backend_or_cms_should_own": "backend/report/CMS should own full narrative",
+      "risk_notes": "low"
+    },
+    {
+      "text": "PDF 报告能力已生成，但当前前端版本暂不支持下载。 / A PDF report payload is available, but this frontend version does not support downloads yet.",
+      "locale": "zh/en",
+      "file_path": "lib/iq/result.ts",
+      "context": "PDF placeholder",
+      "current_quality": "safe placeholder",
+      "design_reuse_recommendation": "retain until download flow PR",
+      "backend_or_cms_should_own": "backend owns payload; frontend owns download UI after gate",
+      "risk_notes": "delivery deferred"
+    },
+    {
+      "text": "证书能力已生成，但当前前端版本暂不支持下载。 / A certificate payload is available, but this frontend version does not support downloads yet.",
+      "locale": "zh/en",
+      "file_path": "lib/iq/result.ts",
+      "context": "certificate placeholder",
+      "current_quality": "safe placeholder",
+      "design_reuse_recommendation": "retain until certificate claim policy and delivery PR",
+      "backend_or_cms_should_own": "backend owns payload/claim eligibility",
+      "risk_notes": "certificate can overclaim if ungated"
+    }
+  ]
+}

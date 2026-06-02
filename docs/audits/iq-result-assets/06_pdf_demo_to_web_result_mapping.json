@@ -1,0 +1,162 @@
+{
+  "generated_at": "2026-06-02T17:03:49Z",
+  "mapping": [
+    {
+      "page": 1,
+      "reference": "certificate/report cover with three skills",
+      "possible_web_section": "hero + report identity summary",
+      "current_asset_support": "IQ title, score fields, dimension labels exist; certificate payload placeholder only",
+      "needed_backend_fields": [
+        "attempt_id",
+        "scale_code",
+        "bank_id/form_code",
+        "claim_eligible",
+        "certificate_payload optional",
+        "three dimension labels/levels"
+      ],
+      "needed_frontend_component": "IQ result hero score section plus certificate teaser",
+      "notes": "Do not copy cover layout; use web-native hero and compact skill chips."
+    },
+    {
+      "page": 2,
+      "reference": "about IQ/fluid intelligence + ring diagram",
+      "possible_web_section": "method explainer / what this test measures",
+      "current_asset_support": "method boundary copy exists; no ring diagram/media asset",
+      "needed_backend_fields": [
+        "method_copy_version",
+        "dimension_model_copy",
+        "review_status"
+      ],
+      "needed_frontend_component": "reviewed method explainer card or CMS-backed block",
+      "notes": "CMS/backend should own reviewed educational copy."
+    },
+    {
+      "page": 3,
+      "reference": "score distribution bell curve",
+      "possible_web_section": "percentile and CI explanation",
+      "current_asset_support": "percentile and confidence_interval fields render when present",
+      "needed_backend_fields": [
+        "norm_version",
+        "population_reference",
+        "standard_deviation",
+        "claim_eligible",
+        "percentile",
+        "confidence_interval"
+      ],
+      "needed_frontend_component": "score distribution explainer chart",
+      "notes": "Blocked from strong claims until norm authority."
+    },
+    {
+      "page": 4,
+      "reference": "overall IQ score + band table",
+      "possible_web_section": "overall score hero and performance band table",
+      "current_asset_support": "iq_estimate/raw_score/percentile render; no band table for overall score",
+      "needed_backend_fields": [
+        "iq_estimate",
+        "overall_band",
+        "band_table",
+        "claim_policy"
+      ],
+      "needed_frontend_component": "hero score ring + band table",
+      "notes": "Band labels must be backend/review owned."
+    },
+    {
+      "page": 5,
+      "reference": "VSI explanation + band table",
+      "possible_web_section": "VSI deep-dive explanation",
+      "current_asset_support": "VSI card renders score/band/insight when backend sends it",
+      "needed_backend_fields": [
+        "dimensions.visual_spatial_insight.band",
+        "insight",
+        "band_table",
+        "interpretation_copy"
+      ],
+      "needed_frontend_component": "dimension deep-dive card",
+      "notes": "Use current label 视觉空间洞察."
+    },
+    {
+      "page": 6,
+      "reference": "VSI score visualization",
+      "possible_web_section": "VSI score visual module",
+      "current_asset_support": "numeric fields render; no score circle/cylinder visual",
+      "needed_backend_fields": [
+        "VSI normalized_score",
+        "percentile",
+        "band",
+        "comparison_level"
+      ],
+      "needed_frontend_component": "dimension score visualization",
+      "notes": "Prefer accessible bars/rings over decorative cylinders."
+    },
+    {
+      "page": 7,
+      "reference": "VSPR explanation + band table",
+      "possible_web_section": "VSPR deep-dive explanation",
+      "current_asset_support": "VSPR card renders score/band/insight when backend sends it",
+      "needed_backend_fields": [
+        "dimensions.visual_spatial_pattern_reasoning.band",
+        "insight",
+        "band_table",
+        "interpretation_copy"
+      ],
+      "needed_frontend_component": "dimension deep-dive card",
+      "notes": "Use current label 视觉空间模式推理."
+    },
+    {
+      "page": 8,
+      "reference": "VSPR score visualization",
+      "possible_web_section": "VSPR score visual module",
+      "current_asset_support": "numeric fields render; no dedicated visual",
+      "needed_backend_fields": [
+        "VSPR normalized_score",
+        "percentile",
+        "band",
+        "comparison_level"
+      ],
+      "needed_frontend_component": "dimension score visualization",
+      "notes": "Keep comparison claims gated."
+    },
+    {
+      "page": 9,
+      "reference": "NPR explanation + band table",
+      "possible_web_section": "NPR deep-dive explanation",
+      "current_asset_support": "NPR card renders score/band/insight when backend sends it",
+      "needed_backend_fields": [
+        "dimensions.numerical_pattern_reasoning.band",
+        "insight",
+        "band_table",
+        "interpretation_copy"
+      ],
+      "needed_frontend_component": "dimension deep-dive card",
+      "notes": "Use current label 数字规律推理."
+    },
+    {
+      "page": 10,
+      "reference": "NPR score visualization",
+      "possible_web_section": "NPR score visual module",
+      "current_asset_support": "numeric fields render; no dedicated visual",
+      "needed_backend_fields": [
+        "NPR normalized_score",
+        "percentile",
+        "band",
+        "comparison_level"
+      ],
+      "needed_frontend_component": "dimension score visualization",
+      "notes": "Avoid implying math achievement or occupational diagnosis."
+    },
+    {
+      "page": 11,
+      "reference": "final summary table",
+      "possible_web_section": "summary matrix + next steps",
+      "current_asset_support": "dimension list exists; no final summary table/next steps",
+      "needed_backend_fields": [
+        "dimension_summary_table",
+        "recommended_next_steps",
+        "retest_guidance",
+        "share/save eligibility"
+      ],
+      "needed_frontend_component": "summary table and action row",
+      "notes": "Actions should be no-payment unless commerce is authorized."
+    }
+  ]
+}

@@ -1,0 +1,337 @@
+{
+  "generated_at": "2026-06-02T17:03:49Z",
+  "tests": [
+    {
+      "test_path": "tests/contracts/iq-bank-display-model.contract.test.ts",
+      "exists": true,
+      "behavior_covered": [],
+      "behavior_not_covered": [
+        "visual redesign screenshot QA",
+        "live authenticated result/report flow",
+        "PDF/certificate download",
+        "commerce unlock purchase flow",
+        "norm authority end-to-end claim eligibility"
+      ],
+      "future_design_tests_needed": [
+        "hero score rendering",
+        "score reliability/CI explanation",
+        "dimension deep-dive content",
+        "mobile layout screenshot QA",
+        "no payment CTA in deferred-commerce states"
+      ]
+    },
+    {
+      "test_path": "tests/contracts/iq-claim-seo-launch-guard.contract.test.ts",
+      "exists": true,
+      "behavior_covered": [
+        "claim/SEO guard"
+      ],
+      "behavior_not_covered": [
+        "visual redesign screenshot QA",
+        "live authenticated result/report flow",
+        "PDF/certificate download",
+        "commerce unlock purchase flow",
+        "norm authority end-to-end claim eligibility"
+      ],
+      "future_design_tests_needed": [
+        "hero score rendering",
+        "score reliability/CI explanation",
+        "dimension deep-dive content",
+        "mobile layout screenshot QA",
+        "no payment CTA in deferred-commerce states"
+      ]
+    },
+    {
+      "test_path": "tests/contracts/iq-cms-media-rendering-guard.contract.test.tsx",
+      "exists": true,
+      "behavior_covered": [
+        "CMS media guard"
+      ],
+      "behavior_not_covered": [
+        "visual redesign screenshot QA",
+        "live authenticated result/report flow",
+        "PDF/certificate download",
+        "commerce unlock purchase flow",
+        "norm authority end-to-end claim eligibility"
+      ],
+      "future_design_tests_needed": [
+        "hero score rendering",
+        "score reliability/CI explanation",
+        "dimension deep-dive content",
+        "mobile layout screenshot QA",
+        "no payment CTA in deferred-commerce states"
+      ]
+    },
+    {
+      "test_path": "tests/contracts/iq-frontend-api-contracts.contract.test.ts",
+      "exists": true,
+      "behavior_covered": [
+        "API contracts",
+        "take lifecycle"
+      ],
+      "behavior_not_covered": [
+        "visual redesign screenshot QA",
+        "live authenticated result/report flow",
+        "PDF/certificate download",
+        "commerce unlock purchase flow",
+        "norm authority end-to-end claim eligibility"
+      ],
+      "future_design_tests_needed": [
+        "hero score rendering",
+        "score reliability/CI explanation",
+        "dimension deep-dive content",
+        "mobile layout screenshot QA",
+        "no payment CTA in deferred-commerce states"
+      ]
+    },
+    {
+      "test_path": "tests/contracts/iq-launch-readiness-smoke.contract.test.ts",
+      "exists": true,
+      "behavior_covered": [
+        "launch smoke"
+      ],
+      "behavior_not_covered": [
+        "visual redesign screenshot QA",
+        "live authenticated result/report flow",
+        "PDF/certificate download",
+        "commerce unlock purchase flow",
+        "norm authority end-to-end claim eligibility"
+      ],
+      "future_design_tests_needed": [
+        "hero score rendering",
+        "score reliability/CI explanation",
+        "dimension deep-dive content",
+        "mobile layout screenshot QA",
+        "no payment CTA in deferred-commerce states"
+      ]
+    },
+    {
+      "test_path": "tests/contracts/iq-question-renderer.contract.test.tsx",
+      "exists": true,
+      "behavior_covered": [],
+      "behavior_not_covered": [
+        "visual redesign screenshot QA",
+        "live authenticated result/report flow",
+        "PDF/certificate download",
+        "commerce unlock purchase flow",
+        "norm authority end-to-end claim eligibility"
+      ],
+      "future_design_tests_needed": [
+        "hero score rendering",
+        "score reliability/CI explanation",
+        "dimension deep-dive content",
+        "mobile layout screenshot QA",
+        "no payment CTA in deferred-commerce states"
+      ]
+    },
+    {
+      "test_path": "tests/contracts/iq-release-readiness-ledger.contract.test.ts",
+      "exists": true,
+      "behavior_covered": [],
+      "behavior_not_covered": [
+        "visual redesign screenshot QA",
+        "live authenticated result/report flow",
+        "PDF/certificate download",
+        "commerce unlock purchase flow",
+        "norm authority end-to-end claim eligibility"
+      ],
+      "future_design_tests_needed": [
+        "hero score rendering",
+        "score reliability/CI explanation",
+        "dimension deep-dive content",
+        "mobile layout screenshot QA",
+        "no payment CTA in deferred-commerce states"
+      ]
+    },
+    {
+      "test_path": "tests/contracts/iq-report-module.contract.test.tsx",
+      "exists": true,
+      "behavior_covered": [
+        "report module"
+      ],
+      "behavior_not_covered": [
+        "visual redesign screenshot QA",
+        "live authenticated result/report flow",
+        "PDF/certificate download",
+        "commerce unlock purchase flow",
+        "norm authority end-to-end claim eligibility"
+      ],
+      "future_design_tests_needed": [
+        "hero score rendering",
+        "score reliability/CI explanation",
+        "dimension deep-dive content",
+        "mobile layout screenshot QA",
+        "no payment CTA in deferred-commerce states"
+      ]
+    },
+    {
+      "test_path": "tests/contracts/iq-result-renderer.contract.test.tsx",
+      "exists": true,
+      "behavior_covered": [
+        "report module",
+        "result renderer"
+      ],
+      "behavior_not_covered": [
+        "visual redesign screenshot QA",
+        "live authenticated result/report flow",
+        "PDF/certificate download",
+        "commerce unlock purchase flow",
+        "norm authority end-to-end claim eligibility"
+      ],
+      "future_design_tests_needed": [
+        "hero score rendering",
+        "score reliability/CI explanation",
+        "dimension deep-dive content",
+        "mobile layout screenshot QA",
+        "no payment CTA in deferred-commerce states"
+      ]
+    },
+    {
+      "test_path": "tests/contracts/iq-seo-ramp-indexation-gate.contract.test.ts",
+      "exists": true,
+      "behavior_covered": [
+        "claim/SEO guard"
+      ],
+      "behavior_not_covered": [
+        "visual redesign screenshot QA",
+        "live authenticated result/report flow",
+        "PDF/certificate download",
+        "commerce unlock purchase flow",
+        "norm authority end-to-end claim eligibility"
+      ],
+      "future_design_tests_needed": [
+        "hero score rendering",
+        "score reliability/CI explanation",
+        "dimension deep-dive content",
+        "mobile layout screenshot QA",
+        "no payment CTA in deferred-commerce states"
+      ]
+    },
+    {
+      "test_path": "tests/contracts/iq-take-lifecycle.contract.test.tsx",
+      "exists": true,
+      "behavior_covered": [
+        "result renderer",
+        "take lifecycle"
+      ],
+      "behavior_not_covered": [
+        "visual redesign screenshot QA",
+        "live authenticated result/report flow",
+        "PDF/certificate download",
+        "commerce unlock purchase flow",
+        "norm authority end-to-end claim eligibility"
+      ],
+      "future_design_tests_needed": [
+        "hero score rendering",
+        "score reliability/CI explanation",
+        "dimension deep-dive content",
+        "mobile layout screenshot QA",
+        "no payment CTA in deferred-commerce states"
+      ]
+    },
+    {
+      "test_path": "tests/contracts/result-client-view-state.contract.test.tsx",
+      "exists": true,
+      "behavior_covered": [
+        "result client branch",
+        "result renderer"
+      ],
+      "behavior_not_covered": [
+        "visual redesign screenshot QA",
+        "live authenticated result/report flow",
+        "PDF/certificate download",
+        "commerce unlock purchase flow",
+        "norm authority end-to-end claim eligibility"
+      ],
+      "future_design_tests_needed": [
+        "hero score rendering",
+        "score reliability/CI explanation",
+        "dimension deep-dive content",
+        "mobile layout screenshot QA",
+        "no payment CTA in deferred-commerce states"
+      ]
+    },
+    {
+      "test_path": "tests/e2e/iq-eq-result-regression.spec.ts",
+      "exists": true,
+      "behavior_covered": [],
+      "behavior_not_covered": [
+        "visual redesign screenshot QA",
+        "live authenticated result/report flow",
+        "PDF/certificate download",
+        "commerce unlock purchase flow",
+        "norm authority end-to-end claim eligibility"
+      ],
+      "future_design_tests_needed": [
+        "hero score rendering",
+        "score reliability/CI explanation",
+        "dimension deep-dive content",
+        "mobile layout screenshot QA",
+        "no payment CTA in deferred-commerce states"
+      ]
+    },
+    {
+      "test_path": "tests/e2e/visual/iq-take.visual.spec.ts",
+      "exists": true,
+      "behavior_covered": [
+        "take lifecycle"
+      ],
+      "behavior_not_covered": [
+        "visual redesign screenshot QA",
+        "live authenticated result/report flow",
+        "PDF/certificate download",
+        "commerce unlock purchase flow",
+        "norm authority end-to-end claim eligibility"
+      ],
+      "future_design_tests_needed": [
+        "hero score rendering",
+        "score reliability/CI explanation",
+        "dimension deep-dive content",
+        "mobile layout screenshot QA",
+        "no payment CTA in deferred-commerce states"
+      ]
+    },
+    {
+      "test_path": "tests/e2e/visual/iq-take.visual.spec.ts-snapshots/iq-take-desktop-options-en-chromium-linux.png",
+      "exists": true,
+      "behavior_covered": [
+        "take lifecycle"
+      ],
+      "behavior_not_covered": [
+        "visual redesign screenshot QA",
+        "live authenticated result/report flow",
+        "PDF/certificate download",
+        "commerce unlock purchase flow",
+        "norm authority end-to-end claim eligibility"
+      ],
+      "future_design_tests_needed": [
+        "hero score rendering",
+        "score reliability/CI explanation",
+        "dimension deep-dive content",
+        "mobile layout screenshot QA",
+        "no payment CTA in deferred-commerce states"
+      ]
+    },
+    {
+      "test_path": "tests/e2e/visual/iq-take.visual.spec.ts-snapshots/iq-take-mobile-options-en-chromium-linux.png",
+      "exists": true,
+      "behavior_covered": [
+        "take lifecycle"
+      ],
+      "behavior_not_covered": [
+        "visual redesign screenshot QA",
+        "live authenticated result/report flow",
+        "PDF/certificate download",
+        "commerce unlock purchase flow",
+        "norm authority end-to-end claim eligibility"
+      ],
+      "future_design_tests_needed": [
+        "hero score rendering",
+        "score reliability/CI explanation",
+        "dimension deep-dive content",
+        "mobile layout screenshot QA",
+        "no payment CTA in deferred-commerce states"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "generated_at": "2026-06-02T17:03:49Z",
+  "gaps": [
+    {
+      "area": "First-screen impact",
+      "classification": "P1 required before paid report",
+      "rationale": "Current shell is safe but card-basic; no strong hero hierarchy."
+    },
+    {
+      "area": "Overall score hero",
+      "classification": "P1 required before paid report",
+      "rationale": "iq_estimate renders as simple metric block; needs authoritative hero design after backend claim gate."
+    },
+    {
+      "area": "IQ estimate explanation",
+      "classification": "P0 required before public promotion",
+      "rationale": "Needs backend/CMS reviewed explanation of online estimate and limitations."
+    },
+    {
+      "area": "Percentile / confidence interval explanation",
+      "classification": "P0 required before public promotion",
+      "rationale": "Fields exist but explanatory copy and norm authority are not productized."
+    },
+    {
+      "area": "Stability / quality explanation",
+      "classification": "P0 required before public promotion",
+      "rationale": "Flags render but are technical; users need readable reliability interpretation without hiding caution."
+    },
+    {
+      "area": "Three-dimension depth",
+      "classification": "P1 required before paid report",
+      "rationale": "Cards exist, but no deep-dive content architecture or web-native visualization."
+    },
+    {
+      "area": "Method boundary",
+      "classification": "P0 required before public promotion",
+      "rationale": "Safe copy exists; should become visible section and reviewed source of truth."
+    },
+    {
+      "area": "Beta/form model explanation",
+      "classification": "P1 required before paid report",
+      "rationale": "beta30/beta50 display model exists elsewhere; result page does not explain bank/form."
+    },
+    {
+      "area": "Bank/form metadata display",
+      "classification": "P1 required before paid report",
+      "rationale": "No result-page section for bank_id/form_code/norm_version/claim eligibility."
+    },
+    {
+      "area": "Report preview",
+      "classification": "P1 required before paid report",
+      "rationale": "Report module exists, but preview teaser is placeholder/state-machine oriented."
+    },
+    {
+      "area": "Paid report narrative depth",
+      "classification": "P1 required before paid report",
+      "rationale": "Frontend can render sections, but backend content depth remains limited/gated."
+    },
+    {
+      "area": "PDF/certificate action",
+      "classification": "sidecar only",
+      "rationale": "Payload placeholders exist; delivery and claim policy deferred."
+    },
+    {
+      "area": "Share/save result",
+      "classification": "P2 polish",
+      "rationale": "Generic result access/share ecosystem exists, but IQ-specific action section not mapped."
+    },
+    {
+      "area": "Mobile readability",
+      "classification": "P2 polish",
+      "rationale": "Contracts exist; visual/mobile screenshot QA not done in this scan."
+    },
+    {
+      "area": "Claim-safety",
+      "classification": "P0 required before public promotion",
+      "rationale": "Guards exist; future design must not frontend-infer IQ/percentile/eligibility."
+    },
+    {
+      "area": "Norm authority",
+      "classification": "P0 required before public promotion",
+      "rationale": "Backend-owned; frontend must wait."
+    },
+    {
+      "area": "CMS media",
+      "classification": "P1 required before paid report",
+      "rationale": "No IQ result media pack/cover assets found as frontend static authority."
+    },
+    {
+      "area": "SEO/JSON-LD readiness",
+      "classification": "sidecar only",
+      "rationale": "Private result page noindex; public /results/iq is P1 review-gated and not current result route."
+    }
+  ]
+}

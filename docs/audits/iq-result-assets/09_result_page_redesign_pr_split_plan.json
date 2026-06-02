@@ -1,0 +1,236 @@
+{
+  "generated_at": "2026-06-02T17:05:07Z",
+  "prs": [
+    {
+      "id": "IQ-RESULT-DOC-1",
+      "goal": "Current-state closeout and design source-of-truth docs",
+      "scope": "Make the asset scan the canonical design source and reconcile stale IQ result audit docs.",
+      "likely_files": [
+        "docs/audits/iq-result-assets/**",
+        "docs/audits/iq-fe/05_result_report_renderer_audit.md"
+      ],
+      "dependencies": [
+        "IQ-RESULT-ASSET-SCAN-1 merged"
+      ],
+      "tests": [
+        "jq empty generated JSON",
+        "git diff --check"
+      ],
+      "acceptance_commands": [
+        "jq empty docs/audits/iq-result-assets/*.json",
+        "git diff --check"
+      ],
+      "forbidden_changes": [
+        "app/**",
+        "components/**",
+        "lib/**",
+        "tests/**",
+        "backend/**",
+        "payment/checkout/order/webhook files"
+      ],
+      "sidecar_risks": [
+        "stale docs drift"
+      ],
+      "backend_required": false,
+      "deployment_required": false
+    },
+    {
+      "id": "IQ-RESULT-CONTENT-1",
+      "goal": "Backend report payload content fields for enhanced IQ result sections",
+      "scope": "Add backend-owned reviewed fields for score explanation, dimension copy, band tables, norm/claim metadata, and preview sections.",
+      "likely_files": [
+        "fap-api backend report builder/services/tests/docs as separately authorized"
+      ],
+      "dependencies": [
+        "backend norm/claim policy decision",
+        "IQ-RESULT-ASSET-SCAN-1"
+      ],
+      "tests": [
+        "backend report builder unit/feature tests",
+        "frontend contract fixture update"
+      ],
+      "acceptance_commands": [
+        "backend focused report builder tests",
+        "backend IQ report contract tests",
+        "frontend focused IQ API contract if fixture changes"
+      ],
+      "forbidden_changes": [
+        "frontend inference of score/claims",
+        "payment/checkout",
+        "content package scoring changes without authority"
+      ],
+      "sidecar_risks": [
+        "norm authority incomplete",
+        "claim policy incomplete"
+      ],
+      "backend_required": true,
+      "deployment_required": true
+    },
+    {
+      "id": "IQ-RESULT-UI-1",
+      "goal": "Frontend hero score + reliability section",
+      "scope": "Use backend payload fields to render web-native score hero, CI, percentile, quality, and stability explanation.",
+      "likely_files": [
+        "components/result/iq/**",
+        "lib/iq/result.ts",
+        "tests/contracts/iq-result-renderer.contract.test.tsx"
+      ],
+      "dependencies": [
+        "IQ-RESULT-CONTENT-1 or confirmed existing backend fields"
+      ],
+      "tests": [
+        "focused IQ result renderer contract",
+        "typecheck",
+        "diff check"
+      ],
+      "acceptance_commands": [
+        "pnpm exec vitest run tests/contracts/iq-result-renderer.contract.test.tsx",
+        "pnpm typecheck",
+        "git diff --check"
+      ],
+      "forbidden_changes": [
+        "backend",
+        "payment",
+        "checkout",
+        "content_packages",
+        "frontend-invented claims"
+      ],
+      "sidecar_risks": [
+        "claim-safety if backend fields absent"
+      ],
+      "backend_required": false,
+      "deployment_required": true
+    },
+    {
+      "id": "IQ-RESULT-UI-2",
+      "goal": "Frontend dimension deep-dive sections",
+      "scope": "Render VSI/VSPR/NPR deep dives with backend-owned copy, band fields, and accessible visualizations.",
+      "likely_files": [
+        "components/result/iq/**",
+        "lib/iq/result.ts",
+        "tests/contracts/iq-report-module.contract.test.tsx"
+      ],
+      "dependencies": [
+        "IQ-RESULT-CONTENT-1",
+        "IQ-RESULT-UI-1"
+      ],
+      "tests": [
+        "focused report module contract",
+        "result renderer contract",
+        "typecheck"
+      ],
+      "acceptance_commands": [
+        "pnpm exec vitest run tests/contracts/iq-report-module.contract.test.tsx tests/contracts/iq-result-renderer.contract.test.tsx",
+        "pnpm typecheck",
+        "git diff --check"
+      ],
+      "forbidden_changes": [
+        "frontend editorial fallback content",
+        "payment",
+        "backend scoring"
+      ],
+      "sidecar_risks": [
+        "missing backend dimension copy"
+      ],
+      "backend_required": false,
+      "deployment_required": true
+    },
+    {
+      "id": "IQ-RESULT-UI-3",
+      "goal": "Report preview teaser + deferred-commerce-safe paid report preview",
+      "scope": "Render backend preview sections without checkout until entitlement/commerce exists.",
+      "likely_files": [
+        "components/result/iq/IqReportModule.tsx",
+        "lib/iq/result.ts",
+        "tests/contracts/iq-report-module.contract.test.tsx"
+      ],
+      "dependencies": [
+        "backend preview payload fields",
+        "commerce still deferred unless explicitly authorized"
+      ],
+      "tests": [
+        "report module contract no payment CTA",
+        "result client branch tests"
+      ],
+      "acceptance_commands": [
+        "pnpm exec vitest run tests/contracts/iq-report-module.contract.test.tsx tests/contracts/result-client-view-state.contract.test.tsx",
+        "pnpm typecheck",
+        "git diff --check"
+      ],
+      "forbidden_changes": [
+        "checkout/order/webhook/payment provider calls",
+        "frontend invented SKU/price"
+      ],
+      "sidecar_risks": [
+        "commerce unlock deferred"
+      ],
+      "backend_required": false,
+      "deployment_required": true
+    },
+    {
+      "id": "IQ-RESULT-UI-4",
+      "goal": "Mobile/result-page polish and screenshot QA",
+      "scope": "Responsive layout, accessibility, visual regression, and browser screenshot QA after UI sections exist.",
+      "likely_files": [
+        "components/result/iq/**",
+        "tests/e2e/visual/**",
+        "docs/audits/iq-result-assets/**"
+      ],
+      "dependencies": [
+        "IQ-RESULT-UI-1",
+        "IQ-RESULT-UI-2"
+      ],
+      "tests": [
+        "Playwright visual/mobile",
+        "a11y smoke",
+        "typecheck"
+      ],
+      "acceptance_commands": [
+        "pnpm exec playwright test tests/e2e/visual/iq-result.visual.spec.ts",
+        "pnpm typecheck",
+        "git diff --check"
+      ],
+      "forbidden_changes": [
+        "backend/payment/scoring"
+      ],
+      "sidecar_risks": [
+        "runtime browser not available"
+      ],
+      "backend_required": false,
+      "deployment_required": true
+    },
+    {
+      "id": "IQ-RESULT-COMMERCE-1",
+      "goal": "Commerce unlock integration after backend commerce unlock exists",
+      "scope": "Render checkout/unlock only from backend-owned entitlement/actions after explicit authorization.",
+      "likely_files": [
+        "components/result/iq/IqReportModule.tsx",
+        "lib/access/**",
+        "tests/contracts/**"
+      ],
+      "dependencies": [
+        "backend commerce unlock and entitlement grants live",
+        "policy approval"
+      ],
+      "tests": [
+        "commerce contract tests",
+        "no unauthorized checkout leakage",
+        "sandbox E2E if authorized"
+      ],
+      "acceptance_commands": [
+        "focused commerce/report contracts",
+        "pnpm typecheck",
+        "git diff --check"
+      ],
+      "forbidden_changes": [
+        "frontend-invented SKU/price/checkout",
+        "production payment without authorization"
+      ],
+      "sidecar_risks": [
+        "payment provider risk"
+      ],
+      "backend_required": true,
+      "deployment_required": true
+    }
+  ]
+}
