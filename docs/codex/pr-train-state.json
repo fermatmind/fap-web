@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-02T13:55:00Z",
+  "updated_at": "2026-06-02T16:52:01Z",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -16782,6 +16782,32 @@
           "at": "2026-06-02T20:05:10+08:00",
           "status": "pr_open",
           "summary": "Opened fap-web PR #1000 for IQ-FE-BETA50-TEASER-01."
+        }
+      ]
+    },
+    {
+      "id": "IQ-RESULT-ASSET-SCAN-1",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/iq-result-assets-scan",
+      "base": "main",
+      "depends_on": [
+        "IQ-FE-6"
+      ],
+      "title": "docs(iq): scan result page content assets",
+      "status": "planned",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": {},
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "events": [
+        {
+          "at": "2026-06-02T16:52:01Z",
+          "status": "planned",
+          "summary": "Registered docs-only IQ result/report content asset scan PR train entry. Scope is limited to docs/audits/iq-result-assets plus train metadata bootstrap."
         }
       ]
     }

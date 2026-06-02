@@ -11086,3 +11086,46 @@ prs:
     deploy_allowed: false
     frontend_fallback_authority: false
     next_task: null
+  - id: IQ-RESULT-ASSET-SCAN-1
+    repo: fap-web
+    branch: codex/iq-result-assets-scan
+    base: main
+    title: "docs(iq): scan result page content assets"
+    depends_on:
+      - IQ-FE-6
+    mode: scan_plan_only
+    train_scope: iq_result_page_content_asset_audit
+    status: planned
+    goal: "Inventory IQ result/report frontend assets, backend payload fields, copy/content, media/CMS/SEO authority, test coverage, PDF-demo-to-web section mapping, gaps, design inputs, sidecar issues, and next PR split plan without changing implementation."
+    in_scope:
+      - docs/audits/iq-result-assets/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - app/**
+      - components/**
+      - lib/**
+      - tests/**
+      - public/**
+      - package.json
+      - lockfiles
+      - backend implementation files
+      - fap-api files
+      - content_packages/**
+      - scoring changes
+      - payment, checkout, order, webhook, entitlement grant changes
+      - deployment, SSH, production commands, DB mutation, screenshots, PDF or certificate generation
+    required_local_checks:
+      - jq empty docs/audits/iq-result-assets/*.json
+      - git diff --check
+      - git status --short --untracked-files=all
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - "Produces docs-only IQ result/report asset inventory across fap-web and read-only fap-api evidence."
+      - "Maps the provided 11-page IQ report demo structure to web-native result-page sections without copying visual design."
+      - "Recommends next PR split for IQ result-page productization."
+      - "Touches no frontend implementation, backend implementation, content package, scoring, commerce, payment, checkout, order, webhook, deployment, SSH, DB, secret, PDF, certificate, or screenshot files."
+    rollback_note: "Remove docs/audits/iq-result-assets and this train metadata entry if the scan should be re-authored."
