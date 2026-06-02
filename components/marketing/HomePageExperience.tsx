@@ -2,11 +2,10 @@ import Link from "next/link";
 import { ArticleResponsiveImage } from "@/components/content/ArticleResponsiveImage";
 import { CmsMediaAuthorityShell } from "@/components/marketing/CmsMediaAuthorityShell";
 import { Container } from "@/components/layout/Container";
-import { HomepageSocialProofCarousel } from "@/components/marketing/HomepageSocialProofCarousel";
 import type { CmsArticle } from "@/lib/cms/articles";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import type { HomePageContent } from "@/lib/marketing/homepageContent";
-import { EVIDENCE_LOGS, SCENARIO_VALIDATIONS } from "@/lib/marketing/socialProof";
+import { filterVisiblePublicTestEntries } from "@/lib/tests/publicTestEntryVisibility";
 import { IQ_PUBLIC_SLUG } from "@/lib/iq/constants";
 import { cn } from "@/lib/utils";
 
@@ -15,17 +14,50 @@ type TrustItem = HomePageContent["trust"]["items"][number];
 type HomeArticle = CmsArticle;
 
 const ARTICLE_AUTHOR_NAME = "Fermat Institute";
+const PRIORITY_TEST_SLUG_GROUPS = [
+  ["mbti-personality-test-16-personality-types"],
+  ["big-five-personality-test-ocean-model"],
+  ["holland-career-interest-test-riasec", "career-riasec"],
+] as const;
+const UNVERIFIED_SOCIAL_PROOF_PATTERNS = [
+  /\d+\s*(?:万|百万|千万|亿)/i,
+  /(?:百万|千万|上万|数万)\s*(?:用户|人|次)/i,
+  /(?:用户|人)\s*(?:进行了|完成了|使用了)\s*(?:多次|测试|测评)/i,
+  /(?:媒体|专家|博士|权威|评分|review|rating|stars?)/i,
+] as const;
+
 function withLocale(locale: Locale, path: string): string {
   return localizedPath(path, locale);
 }
 
-function localize<T extends { en: string; zh: string }>(value: T, locale: Locale): string {
-  return locale === "zh" ? value.zh : value.en;
+function hasText(value: string | null | undefined): value is string {
+  return Boolean(value?.trim());
 }
 
-function HomepageHeroV1({ copy }: { copy: HomePageContent }) {
+function getPriorityIndex(item: { href?: string | null; key?: string | null }): number {
+  const raw = `${item.key ?? ""} ${item.href ?? ""}`.toLowerCase();
+  const index = PRIORITY_TEST_SLUG_GROUPS.findIndex((aliases) => aliases.some((slug) => raw.includes(slug)));
+  return index === -1 ? Number.POSITIVE_INFINITY : index;
+}
+
+function orderPriorityFirst<T extends { href?: string | null; key?: string | null }>(items: T[]): T[] {
+  return [...items].sort((a, b) => getPriorityIndex(a) - getPriorityIndex(b));
+}
+
+function containsUnverifiedSocialProofText(...values: Array<string | null | undefined>): boolean {
+  const text = values.filter(hasText).join(" ");
+  return UNVERIFIED_SOCIAL_PROOF_PATTERNS.some((pattern) => pattern.test(text));
+}
+
+function HomepageHeroV1({ locale, copy }: { locale: Locale; copy: HomePageContent }) {
+  const ctas = [
+    { label: copy.hero.primaryCta, href: copy.hero.primaryHref, variant: "primary" },
+    { label: copy.hero.secondaryCta, href: copy.hero.secondaryHref, variant: "secondary" },
+    { label: copy.hero.tertiaryCta, href: copy.hero.tertiaryHref, variant: "tertiary" },
+  ].filter((item) => hasText(item.label) && hasText(item.href));
+
   return (
-    <section className="relative flex min-h-[34rem] overflow-hidden bg-orange-50 px-0 py-24 text-slate-950 sm:py-28 md:min-h-[46.75rem] md:py-32 lg:py-36">
+    <section className="relative flex min-h-[34rem] overflow-hidden bg-orange-50 px-0 py-20 text-slate-950 sm:py-24 md:min-h-[42rem] md:py-28 lg:py-32">
       <div
         aria-hidden
         className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.92),rgba(255,253,246,0.72)_48%,rgba(255,237,213,0.18))]"
@@ -36,12 +68,46 @@ function HomepageHeroV1({ copy }: { copy: HomePageContent }) {
       />
       <Container className="relative z-10 flex w-full max-w-5xl items-center justify-center px-6 md:px-8">
         <div className="mx-auto w-full text-center">
+          {hasText(copy.hero.eyebrow) ? (
+            <p className="m-0 text-sm font-semibold uppercase tracking-[0.18em] text-teal-800">{copy.hero.eyebrow}</p>
+          ) : null}
           <h1 className="m-0 text-balance break-words text-[2.85rem] font-black leading-[1.04] tracking-normal text-slate-950 sm:text-[3.6rem] md:text-[4.75rem] md:leading-[1] lg:text-[5.25rem]">
             {copy.hero.title}
           </h1>
           <p className="m-0 mx-auto mt-9 max-w-[42rem] text-[1.08rem] font-normal leading-[1.72] tracking-normal text-slate-500 sm:text-lg md:max-w-none md:whitespace-nowrap md:text-[1.35rem] md:leading-relaxed lg:text-2xl">
             {copy.hero.subhead}
           </p>
+          {hasText(copy.hero.body) ? (
+            <p className="m-0 mx-auto mt-5 max-w-3xl text-base leading-7 text-slate-600 md:text-lg">{copy.hero.body}</p>
+          ) : null}
+          {ctas.length > 0 ? (
+            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              {ctas.map((item) => (
+                <Link
+                  key={`${item.variant}-${item.href}`}
+                  href={withLocale(locale, item.href)}
+                  prefetch={false}
+                  className={cn(
+                    "inline-flex min-h-12 items-center justify-center rounded-full px-6 text-sm font-semibold transition",
+                    item.variant === "primary" && "bg-teal-800 text-white hover:bg-teal-900",
+                    item.variant === "secondary" && "border border-teal-800/25 bg-white text-teal-900 hover:border-teal-800",
+                    item.variant === "tertiary" && "text-teal-900 underline underline-offset-4 hover:text-orange-700"
+                  )}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          ) : null}
+          {(copy.hero.trustRail ?? []).length > 0 ? (
+            <div className="mx-auto mt-6 flex max-w-3xl flex-wrap justify-center gap-2">
+              {(copy.hero.trustRail ?? []).map((item) => (
+                <span key={item} className="rounded-full border border-orange-200 bg-white/70 px-3 py-1 text-xs font-medium text-slate-600">
+                  {item}
+                </span>
+              ))}
+            </div>
+          ) : null}
         </div>
       </Container>
     </section>
@@ -111,11 +177,25 @@ function TrustCard({ item, index }: { item: TrustItem; index: number }) {
 }
 
 function HomepageTrustStripV1({ copy }: { copy: HomePageContent }) {
+  const trustItems = (copy.trust.items ?? []).filter((item) => !containsUnverifiedSocialProofText(item.title, item.summary));
+
+  if (trustItems.length === 0) return null;
+
   return (
-    <section className="relative z-20 bg-white pb-8 pt-10 md:pb-10 md:pt-0" aria-label={copy.trust.title}>
+    <section className="relative z-20 bg-white py-12 md:py-16" aria-label={copy.trust.title}>
       <Container className="max-w-[1140px] px-6 min-[1400px]:max-w-[1320px]">
+        <div className="mx-auto mb-10 max-w-3xl text-center">
+          {hasText(copy.trust.kicker) ? <p className="m-0 text-sm font-semibold uppercase tracking-[0.18em] text-teal-800">{copy.trust.kicker}</p> : null}
+          <h2 className="m-0 mt-3 text-3xl font-semibold tracking-normal text-slate-950 md:text-4xl">{copy.trust.title}</h2>
+          {hasText(copy.trust.body) ? <p className="m-0 mt-4 text-base leading-7 text-slate-600">{copy.trust.body}</p> : null}
+          {hasText(copy.trust.methodHref) && hasText(copy.trust.methodLabel) ? (
+            <Link href={copy.trust.methodHref} prefetch={false} className="mt-5 inline-flex text-sm font-semibold text-teal-800 underline underline-offset-4">
+              {copy.trust.methodLabel}
+            </Link>
+          ) : null}
+        </div>
         <div className="grid gap-6 md:grid-cols-3">
-          {copy.trust.items.map((item, index) => (
+          {trustItems.map((item, index) => (
             <TrustCard key={item.title} item={item} index={index} />
           ))}
         </div>
@@ -124,106 +204,71 @@ function HomepageTrustStripV1({ copy }: { copy: HomePageContent }) {
   );
 }
 
-function HomepageSocialProofBanner({ locale }: { locale: Locale }) {
-  const labels = {
-    title: locale === "zh" ? "使用场景与引用" : "Users and use cases",
-  };
-  const logs = EVIDENCE_LOGS.map((item) => ({
-    id: item.id,
-    quote: localize(item.quote, locale),
-    author: item.author,
-    role: localize(item.role, locale),
-  }));
-
-  return (
-    <section className="bg-white py-20 md:py-24" aria-labelledby="homepage-social-proof-title">
-      <Container className="max-w-6xl px-6 md:px-8 lg:px-10">
-        <div className="text-center">
-          <h2
-            id="homepage-social-proof-title"
-            className="m-0 text-3xl font-semibold tracking-[-0.045em] text-slate-950 md:text-4xl"
-          >
-            {labels.title}
-          </h2>
-        </div>
-
-        <div className="mx-auto mt-10 flex max-w-5xl flex-wrap items-center justify-center gap-x-7 gap-y-4 text-center">
-          {SCENARIO_VALIDATIONS.slice(0, 5).map((item) => (
-            <span
-              key={item.id}
-              className="text-lg font-semibold tracking-[-0.035em] text-slate-300 md:text-2xl"
-            >
-              {localize(item.label, locale)}
-            </span>
-          ))}
-        </div>
-
-        <HomepageSocialProofCarousel items={logs} />
-      </Container>
-    </section>
-  );
-}
-
-function TestFeatureCard({ locale, item, index }: { locale: Locale; item: HomeLink; index: number }) {
+function TestFeatureCard({ locale, item, priority }: { locale: Locale; item: HomeLink; priority: boolean }) {
   const href = withLocale(locale, item.href);
-  const isPrimary = index === 0;
 
   return (
     <article className="group">
       <div
         className={cn(
           "flex h-full min-h-[12rem] flex-col rounded-xl bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md",
-          isPrimary && "ring-2 ring-orange-300"
+          priority && "ring-2 ring-orange-300"
         )}
       >
         <div className="flex items-start justify-between gap-4">
           <h3 className="m-0 text-xl font-semibold tracking-[-0.035em] text-teal-800 underline decoration-teal-200 underline-offset-4">
             {item.title}
           </h3>
-          <span className="shrink-0 rounded-full border border-teal-100 px-3 py-1 text-xs font-medium text-teal-800">
-            {item.meta}
-          </span>
+          {hasText(item.meta) ? (
+            <span className="shrink-0 rounded-full border border-teal-100 px-3 py-1 text-xs font-medium text-teal-800">
+              {item.meta}
+            </span>
+          ) : null}
         </div>
-        <p className="m-0 mt-5 text-base leading-7 text-slate-600">{item.description}</p>
+        {hasText(item.description) ? <p className="m-0 mt-5 text-base leading-7 text-slate-600">{item.description}</p> : null}
         <CmsMediaAuthorityShell
           media={item.media ?? null}
           locale={locale}
           surface="home_quick_start"
           visible={item.href.includes(IQ_PUBLIC_SLUG) || item.key === IQ_PUBLIC_SLUG}
         />
-        <Link
-          href={href}
-          prefetch={false}
-          className="mt-auto inline-flex items-center pt-5 text-sm font-semibold text-teal-800 transition group-hover:text-orange-700"
-        >
-          {item.label}
-          <span aria-hidden className="ml-1">→</span>
-        </Link>
+        {hasText(item.label) ? (
+          <Link
+            href={href}
+            prefetch={false}
+            className="mt-auto inline-flex items-center pt-5 text-sm font-semibold text-teal-800 transition group-hover:text-orange-700"
+          >
+            {item.label}
+            <span aria-hidden className="ml-1">→</span>
+          </Link>
+        ) : null}
       </div>
     </article>
   );
 }
 
 function HomepageHighlightedTestsBanner({ locale, copy }: { locale: Locale; copy: HomePageContent }) {
+  const items = orderPriorityFirst(filterVisiblePublicTestEntries(copy.quickStart.items ?? [])).slice(0, 6);
+
+  if (items.length === 0) return null;
+
   return (
     <section className="relative overflow-hidden bg-teal-800 py-20 text-white md:py-24" aria-labelledby="homepage-core-tests-title">
-      <div
-        aria-hidden
-        className="absolute -top-24 left-1/2 h-40 w-[95vw] -translate-x-1/2 rounded-[100%] bg-white"
-      />
       <Container className="max-w-6xl px-6 md:px-8 lg:px-10">
         <div className="mx-auto max-w-2xl text-center">
+          {hasText(copy.quickStart.kicker) ? <p className="m-0 text-sm font-semibold uppercase tracking-[0.18em] text-orange-100">{copy.quickStart.kicker}</p> : null}
           <h2
             id="homepage-core-tests-title"
-            className="m-0 text-3xl font-semibold tracking-[-0.045em] text-white md:text-4xl"
+            className="m-0 mt-3 text-3xl font-semibold tracking-normal text-white md:text-4xl"
           >
             {copy.quickStart.title}
           </h2>
+          {hasText(copy.quickStart.body) ? <p className="m-0 mt-4 text-base leading-7 text-teal-50">{copy.quickStart.body}</p> : null}
         </div>
 
         <div className="mt-10 grid gap-x-6 gap-y-9 md:grid-cols-2 lg:grid-cols-3">
-          {copy.quickStart.items.slice(0, 6).map((item, index) => (
-            <TestFeatureCard key={item.title} locale={locale} item={item} index={index} />
+          {items.map((item) => (
+            <TestFeatureCard key={item.title} locale={locale} item={item} priority={getPriorityIndex(item) !== Number.POSITIVE_INFINITY} />
           ))}
         </div>
       </Container>
@@ -231,70 +276,118 @@ function HomepageHighlightedTestsBanner({ locale, copy }: { locale: Locale; copy
   );
 }
 
-const ABOUT_CARD_LINKS = [
-  { key: "result", href: "/personality" },
-  { key: "method", href: "/help" },
-  { key: "career", href: "/career" },
-] as const;
+function HomepageFamilyMatrix({ locale, copy }: { locale: Locale; copy: HomePageContent }) {
+  const families = (copy.families.items ?? [])
+    .map((family) => ({
+      ...family,
+      links: filterVisiblePublicTestEntries(family.links ?? []),
+    }))
+    .filter((family) => hasText(family.title) && hasText(family.exploreHref));
 
-function HomepageAboutBanner({ locale, copy }: { locale: Locale; copy: HomePageContent }) {
-  const labels =
-    locale === "zh"
-      ? {
-          title: "关于 费马测试",
-          body: "我们通过高分辨率测量、真实职业记录与能力训练，帮助用户形成更清晰的自我认知、更现实的职业判断和更持续的成长能力。",
-          readMore: "继续了解",
-          cards: ["结果可复用", "方法边界透明", "连接职业方向"],
-        }
-      : {
-          title: "About FermatMind",
-          body: "We turn assessments into reusable result structures instead of one-off labels.",
-          readMore: "Read more",
-          cards: ["Reusable result", "Transparent boundaries", "Career direction"],
-        };
-  const descriptions = [
-    copy.results.body,
-    copy.trust.items[1]?.summary,
-    locale === "zh"
-      ? "把类型、兴趣与能力线索整理成可比较的职业方向，帮助你判断下一步先探索什么。"
-      : "Turn type, interest, and ability signals into comparable career directions for your next exploration step.",
-  ];
+  if (families.length === 0) return null;
 
   return (
-    <section className="bg-white py-20 md:py-24" aria-labelledby="homepage-about-title">
+    <section className="bg-white py-20 md:py-24" aria-labelledby="homepage-family-title">
       <Container className="max-w-6xl px-6 md:px-8 lg:px-10">
-        <div className="relative overflow-hidden rounded-none bg-orange-500 px-6 py-16 text-center text-white md:px-12 md:py-20">
-          <div
-            aria-hidden
-            className="absolute inset-0 bg-[linear-gradient(90deg,rgba(124,45,18,0.22),rgba(234,88,12,0.82),rgba(124,45,18,0.18)),radial-gradient(circle_at_15%_20%,rgba(255,255,255,0.28),transparent_24%),radial-gradient(circle_at_86%_28%,rgba(255,255,255,0.2),transparent_23%)]"
-          />
-          <div className="relative mx-auto max-w-3xl">
-            <h2 id="homepage-about-title" className="m-0 text-3xl font-semibold tracking-[-0.045em] md:text-4xl">
-              {labels.title}
-            </h2>
-            <p className="m-0 mt-5 text-lg leading-8 text-white/90">{labels.body}</p>
-          </div>
+        <div className="mx-auto max-w-3xl text-center">
+          {hasText(copy.families.kicker) ? <p className="m-0 text-sm font-semibold uppercase tracking-[0.18em] text-teal-800">{copy.families.kicker}</p> : null}
+          <h2 id="homepage-family-title" className="m-0 mt-3 text-3xl font-semibold tracking-normal text-slate-950 md:text-4xl">
+            {copy.families.title}
+          </h2>
+          {hasText(copy.families.body) ? <p className="m-0 mt-4 text-base leading-7 text-slate-600">{copy.families.body}</p> : null}
         </div>
-        <div className="relative z-10 -mt-12 grid gap-6 px-4 md:grid-cols-3 md:px-14">
-          {ABOUT_CARD_LINKS.map((item, index) => (
-            <article key={item.key} className="flex h-full flex-col rounded-xl bg-white p-8 text-center shadow-xl shadow-slate-900/10">
-              <div>
-                <div className="mx-auto grid h-16 w-16 place-items-center rounded-2xl border-2 border-teal-600 text-2xl font-semibold text-teal-700">
-                  {String(index + 1).padStart(2, "0")}
+        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {families.map((family) => (
+            <article key={family.title} className="flex h-full flex-col rounded-xl border border-slate-200 bg-slate-50 p-6">
+              <h3 className="m-0 text-xl font-semibold text-slate-950">{family.title}</h3>
+              <p className="m-0 mt-3 text-sm leading-6 text-slate-600">{family.description}</p>
+              {(family.links ?? []).length > 0 ? (
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {(family.links ?? []).slice(0, 4).map((item) => (
+                    <Link key={`${family.title}-${item.title}`} href={withLocale(locale, item.href)} prefetch={false} className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-600 hover:text-teal-800">
+                      {item.title}
+                    </Link>
+                  ))}
                 </div>
-                <h3 className="m-0 mt-6 text-xl font-semibold tracking-[-0.03em] text-slate-950">
-                  {labels.cards[index]}
-                </h3>
-                <p className="m-0 mt-3 text-base leading-7 text-slate-600">{descriptions[index]}</p>
-              </div>
+              ) : null}
               <Link
-                href={withLocale(locale, item.href)}
+                href={withLocale(locale, family.exploreHref)}
                 prefetch={false}
-                className="mx-auto mt-auto inline-flex pt-6 text-sm font-semibold text-teal-700 underline underline-offset-4 hover:text-orange-700"
+                className="mt-auto inline-flex pt-6 text-sm font-semibold text-teal-800 underline underline-offset-4 hover:text-orange-700"
               >
-                {labels.readMore}
+                {family.exploreLabel}
               </Link>
             </article>
+          ))}
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+function HomepageResultPreview({ locale, copy }: { locale: Locale; copy: HomePageContent }) {
+  const previews = copy.results.previews ?? [];
+
+  if (previews.length === 0) return null;
+
+  return (
+    <section className="bg-slate-950 py-20 text-white md:py-24" aria-labelledby="homepage-results-title">
+      <Container className="max-w-6xl px-6 md:px-8 lg:px-10">
+        <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+          <div>
+            {hasText(copy.results.kicker) ? <p className="m-0 text-sm font-semibold uppercase tracking-[0.18em] text-orange-200">{copy.results.kicker}</p> : null}
+            <h2 id="homepage-results-title" className="m-0 mt-3 text-3xl font-semibold tracking-normal md:text-4xl">
+              {copy.results.title}
+            </h2>
+            {hasText(copy.results.body) ? <p className="m-0 mt-5 text-base leading-7 text-slate-300">{copy.results.body}</p> : null}
+            {hasText(copy.results.exampleHref) && hasText(copy.results.exampleLabel) ? (
+              <Link href={withLocale(locale, copy.results.exampleHref)} prefetch={false} className="mt-6 inline-flex text-sm font-semibold text-orange-100 underline underline-offset-4">
+                {copy.results.exampleLabel}
+              </Link>
+            ) : null}
+          </div>
+          <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-1">
+            {previews.map((preview) => (
+              <article key={preview.title} data-tone={preview.tone} className="rounded-xl border border-white/10 bg-white/[0.06] p-5">
+                <h3 className="m-0 text-lg font-semibold text-white">{preview.title}</h3>
+                {(preview.metrics ?? []).length > 0 ? (
+                  <ul className="m-0 mt-4 space-y-2 p-0">
+                    {(preview.metrics ?? []).map((metric) => (
+                      <li key={metric} className="list-none rounded-lg bg-white/[0.06] px-3 py-2 text-sm text-slate-200">
+                        {metric}
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
+              </article>
+            ))}
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+function HomepageSecondaryExplore({ locale, copy }: { locale: Locale; copy: HomePageContent }) {
+  const items = copy.secondaryExplore.items ?? [];
+
+  if (items.length === 0) return null;
+
+  return (
+    <section className="bg-white py-20 md:py-24" aria-labelledby="homepage-secondary-title">
+      <Container className="max-w-6xl px-6 md:px-8 lg:px-10">
+        <div className="mx-auto max-w-3xl text-center">
+          {hasText(copy.secondaryExplore.kicker) ? <p className="m-0 text-sm font-semibold uppercase tracking-[0.18em] text-teal-800">{copy.secondaryExplore.kicker}</p> : null}
+          <h2 id="homepage-secondary-title" className="m-0 mt-3 text-3xl font-semibold tracking-normal text-slate-950 md:text-4xl">
+            {copy.secondaryExplore.title}
+          </h2>
+        </div>
+        <div className="mt-10 grid gap-5 md:grid-cols-3">
+          {items.map((item) => (
+            <Link key={item.title} href={withLocale(locale, item.href)} prefetch={false} className="block rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+              <h3 className="m-0 text-xl font-semibold text-slate-950">{item.title}</h3>
+              <p className="m-0 mt-3 text-sm leading-6 text-slate-600">{item.description}</p>
+            </Link>
           ))}
         </div>
       </Container>
@@ -427,11 +520,12 @@ function HomepageArticlesBanner({ locale, articles }: { locale: Locale; articles
 export function HomePageExperience({ locale, copy, articles = [] }: { locale: Locale; copy: HomePageContent; articles?: HomeArticle[] }) {
   return (
     <div className="bg-white text-slate-950">
-      <HomepageHeroV1 copy={copy} />
-      <HomepageTrustStripV1 copy={copy} />
-      <HomepageSocialProofBanner locale={locale} />
+      <HomepageHeroV1 locale={locale} copy={copy} />
       <HomepageHighlightedTestsBanner locale={locale} copy={copy} />
-      <HomepageAboutBanner locale={locale} copy={copy} />
+      <HomepageFamilyMatrix locale={locale} copy={copy} />
+      <HomepageResultPreview locale={locale} copy={copy} />
+      <HomepageTrustStripV1 copy={copy} />
+      <HomepageSecondaryExplore locale={locale} copy={copy} />
       <HomepageArticlesBanner locale={locale} articles={articles} />
     </div>
   );
