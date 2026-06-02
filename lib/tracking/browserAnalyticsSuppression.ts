@@ -58,6 +58,8 @@ const SENSITIVE_QUERY_KEYS = new Set([
 const DEFAULT_ANALYTICS_ALLOWED_HOSTS = ["fermatmind.com", "www.fermatmind.com"] as const;
 const POLLUTING_REFERRER_HOSTS = new Set(["tongji.baidu.com", "analytics.google.com"]);
 
+export const PRIVATE_ANALYTICS_SUPPRESSION_HEADER = "x-fm-private-analytics-suppressed";
+
 function normalizeToken(value: string | null | undefined): string {
   return typeof value === "string" ? value.trim().toLowerCase() : "";
 }
@@ -127,6 +129,16 @@ export function getBrowserAnalyticsSuppressionDecision({
     return { suppressed: true, reason: "sensitive_query" };
   }
   return { suppressed: false, reason: "not_suppressed" };
+}
+
+export function shouldSuppressServerAnalyticsBootstrap({
+  pathname,
+  search,
+}: {
+  pathname?: string | null;
+  search?: string | null;
+}): boolean {
+  return getBrowserAnalyticsSuppressionDecision({ pathname, search }).suppressed;
 }
 
 export function parseBrowserAnalyticsAllowedHosts(value?: string | readonly string[] | null): string[] {

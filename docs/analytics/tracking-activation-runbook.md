@@ -15,6 +15,7 @@ UTM channel governance lives in [UTM Channel Governance](./utm-channel-governanc
 - Baidu Ads: not used.
 - Baidu Tongji event tracking may keep the existing `_hmt.push(["_trackEvent", ...])` bridge for event analysis, debug, and legacy event taxonomy. Current Baidu Tongji dashboard setup no longer supports promising new `_trackEvent` category/action conversion goals; new event conversions are limited to public element selection or manual element ID setup.
 - Private/noindex routes suppress third-party browser analytics scripts after ANALYTICS-SEO-P0-10. Baidu Tongji automatic pageview collection must not see raw order, result, share, payment, transaction, or token-bearing URLs.
+- Private/noindex routes suppress the server-rendered analytics bootstrap after ANALYTICS-SEO-P0-12. These pages should not contain `fm-analytics-bootstrap`, `data-analytics-bootstrap`, Baidu Tongji, GA, or Google Ads bootstrap tokens in SSR HTML.
 
 ## Production Environment
 
@@ -100,7 +101,8 @@ Google Ads purchase conversion payload:
 5. In Baidu Tongji realtime visitors, confirm public page visits appear.
 6. Confirm public CTA elements can be selected or manually addressed by ID in Baidu Tongji only on allowed public pages.
 7. Confirm private/noindex routes do not load `hm.baidu.com`, `_hmt`, or Baidu Tongji automatic pageview scripts.
-8. Complete only an authorized paid test flow and confirm GA4 `purchase_success` plus Google Ads `conversion` are observable.
+8. Confirm private/noindex route HTML does not include `fm-analytics-bootstrap` or `data-analytics-bootstrap`.
+9. Complete only an authorized paid test flow and confirm GA4 `purchase_success` plus Google Ads `conversion` are observable.
 
 ## Prohibitions
 
@@ -111,4 +113,5 @@ Google Ads purchase conversion payload:
 - Do not add Baidu Ads `bp.js`.
 - Do not document `_trackEvent` category/action as a currently supported new Baidu conversion-goal setup path.
 - Do not configure Baidu element conversions on private/noindex route families such as `/result`, `/orders`, `/share`, `/pay`, `/payment`, or `/history`, including `/zh` and `/en` variants.
+- Do not rely on frontend route params for fully private identifiers. Next App Router may serialize dynamic pathname params in internal flight scripts; fully private result/order/share identifiers require a server-side lookup or token-exchange route redesign.
 - Do not add Facebook, TikTok, or other third-party pixels.
