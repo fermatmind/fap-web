@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-02T13:52:00Z",
+  "updated_at": "2026-06-02T13:55:00Z",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -16518,9 +16518,9 @@
         "SEO-CMS-CANARY-PREFLIGHT-SCAN"
       ],
       "title": "chore(codex): reconcile SEO CMS canary train state",
-      "status": "implementation_in_progress",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "pr_open_github_checks_pending",
+      "commit_sha": "2f5249ee",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1004",
       "checks": {
         "scope_boundaries": {
           "status": "passed",
@@ -16549,6 +16549,10 @@
         "changed_files_scope": {
           "status": "passed",
           "summary": "Changed files are limited to docs/codex/pr-train.yaml and docs/codex/pr-train-state.json."
+        },
+        "github_pr": {
+          "status": "pending",
+          "summary": "Opened fap-web#1004 after JSON parse, YAML parse, docs/codex diff check, and scope validation passed."
         }
       },
       "failure_reason": null,
@@ -16565,6 +16569,11 @@
           "at": "2026-06-02T13:52:00Z",
           "event": "local_validation_passed",
           "note": "JSON parse, YAML parse, docs/codex diff whitespace check, and changed-file scope validation passed."
+        },
+        {
+          "at": "2026-06-02T13:55:00Z",
+          "event": "pr_open_github_checks_pending",
+          "note": "Opened https://github.com/fermatmind/fap-web/pull/1004 after local docs/codex validation passed. GitHub checks are pending."
         }
       ]
     },
