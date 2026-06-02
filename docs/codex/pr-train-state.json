@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-02T00:00:00+08:00",
+  "updated_at": "2026-06-02T13:52:00Z",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -16262,8 +16262,8 @@
       "base": "main",
       "depends_on": [],
       "title": "chore(codex): add SEO CMS canary PR train entries",
-      "status": "pr_open",
-      "commit_sha": "38cb49c2990b32fc657eda25d47511c70e3bcdb4",
+      "status": "merged",
+      "commit_sha": "7a55681fbea6dcc74db18fbe13e82c53b1fc2fc7",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/997",
       "checks": {
         "manifest_authorization": {
@@ -16289,12 +16289,16 @@
         "json_parse": {
           "status": "passed",
           "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+        },
+        "github_merge_reconciliation": {
+          "status": "passed",
+          "summary": "GitHub shows fap-web#997 merged at 2026-06-02T10:56:00Z with merge commit 7a55681fbea6dcc74db18fbe13e82c53b1fc2fc7."
         }
       },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-02T10:56:00Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "events": [
         {
           "at": "2026-06-02T10:49:36.000Z",
@@ -16315,6 +16319,11 @@
           "at": "2026-06-02T10:51:58.000Z",
           "event": "pr_open",
           "note": "Opened https://github.com/fermatmind/fap-web/pull/997 after local metadata validation passed."
+        },
+        {
+          "at": "2026-06-02T13:50:10Z",
+          "event": "merged_reconciled",
+          "note": "Reconciled TRAIN-00 as merged/completed during SEO-CMS-CANARY-PREFLIGHT-LEDGER-01. Remote branch is no longer present."
         }
       ]
     },
@@ -16326,19 +16335,33 @@
       "base": "main",
       "depends_on": [],
       "title": "fix(cms): support canary article hreflang and CMS CTA surfaces",
-      "status": "planned",
-      "commit_sha": null,
-      "pr_url": null,
-      "checks": {},
+      "status": "merged",
+      "commit_sha": "dc96157c0c226ed39c2036a27670c092bc54013f",
+      "pr_url": "https://github.com/fermatmind/fap-api/pull/1852",
+      "checks": {
+        "github_merge_reconciliation": {
+          "status": "passed",
+          "summary": "GitHub shows fermatmind/fap-api#1852 merged at 2026-06-02T11:46:03Z with merge commit dc96157c0c226ed39c2036a27670c092bc54013f, and the remote task branch is no longer present."
+        },
+        "dependency_for_web01_and_preflight": {
+          "status": "passed",
+          "summary": "Backend platform repair dependency completed before WEB-01 and the preflight scan."
+        }
+      },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-02T11:46:03Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "events": [
         {
           "at": "2026-06-02T10:49:36.000Z",
           "event": "planned",
           "note": "Registered backend platform repair as the first executable follow-up after SEO-CMS-CANARY-TRAIN-00 merges and local cleanup completes."
+        },
+        {
+          "at": "2026-06-02T13:50:10Z",
+          "event": "merged_reconciled",
+          "note": "Reconciled BE-01 as merged/completed during SEO-CMS-CANARY-PREFLIGHT-LEDGER-01. CMS draft creation and publishing remain forbidden."
         }
       ]
     },
@@ -16352,8 +16375,8 @@
         "SEO-CMS-CANARY-BE-01"
       ],
       "title": "feat(analytics): add article-to-test CTA tracking contract",
-      "status": "pr_open_github_checks_pending",
-      "commit_sha": null,
+      "status": "merged",
+      "commit_sha": "fa1e850b9faeee932c6b67f833422910b3e8a9bf",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1002",
       "checks": {
         "dependency_reconciliation": {
@@ -16395,12 +16418,16 @@
         "metadata_parse_and_diff": {
           "status": "passed",
           "summary": "PR train JSON parse, PR train YAML parse, and git diff --check passed."
+        },
+        "github_merge_reconciliation": {
+          "status": "passed",
+          "summary": "GitHub shows fap-web#1002 merged at 2026-06-02T12:51:32Z with merge commit fa1e850b9faeee932c6b67f833422910b3e8a9bf, and the remote task branch is no longer present."
         }
       },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-02T12:51:32Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "events": [
         {
           "at": "2026-06-02T10:49:36.000Z",
@@ -16426,6 +16453,170 @@
           "at": "2026-06-02T12:50:00.000Z",
           "event": "pr_open_github_checks_pending",
           "note": "Opened https://github.com/fermatmind/fap-web/pull/1002 after local checks and scope validation passed. GitHub required checks are pending."
+        },
+        {
+          "at": "2026-06-02T13:50:10Z",
+          "event": "merged_reconciled",
+          "note": "Reconciled WEB-01 as merged/completed during SEO-CMS-CANARY-PREFLIGHT-LEDGER-01. Article-to-test tracking contract is complete; CMS draft/publish remain forbidden."
+        }
+      ]
+    },
+    {
+      "id": "SEO-CMS-CANARY-PREFLIGHT-SCAN",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/seo-cms-canary-preflight-scan-report",
+      "base": "main",
+      "depends_on": [
+        "SEO-CMS-CANARY-BE-01",
+        "SEO-CMS-CANARY-WEB-01"
+      ],
+      "title": "docs: add SEO CMS canary preflight scan report",
+      "status": "merged",
+      "commit_sha": "5762bdc457ae79f061ab3a0d08d8c5dd042f282e",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1003",
+      "checks": {
+        "preflight_scan": {
+          "status": "completed_no_go",
+          "summary": "docs/audits/seo-cms-canary-preflight-scan-2026-06-02.md is merged and records a NO-GO conclusion."
+        },
+        "blockers": {
+          "status": "blocking",
+          "summary": "CMS operator permissions are not verified. Hidden CMS/DB slug collision is not verified. Safe draft preview / noindex validation path is not verified. Standard Article UI cannot directly set the full canary translation_group_id, CTA slots, and FAQ package fields. Controlled editorial package importer is the likely recommended draft creation path, but dry-run and operator confirmation still require explicit authorization."
+        },
+        "github_checks": {
+          "status": "passed",
+          "summary": "GitHub checks passed for fap-web#1003 after rerun."
+        }
+      },
+      "failure_reason": "NO-GO preflight: CMS operator permissions, hidden slug collision checks, safe preview/noindex validation path, full Article UI canary field path, and controlled importer dry-run/operator confirmation remain unresolved.",
+      "merged_at": "2026-06-02T13:44:38Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
+      "events": [
+        {
+          "at": "2026-06-02T13:44:38Z",
+          "event": "merged",
+          "note": "Preflight scan report merged in fap-web#1003 with NO-GO conclusion. No CMS draft, publish action, runtime code change, GPT content package edit, or generated article copy occurred."
+        },
+        {
+          "at": "2026-06-02T13:50:10Z",
+          "event": "no_go_recorded",
+          "note": "NO-GO blockers: CMS operator permissions are not verified. Hidden CMS/DB slug collision is not verified. Safe draft preview / noindex validation path is not verified. Standard Article UI cannot directly set the full canary translation_group_id, CTA slots, and FAQ package fields. Controlled editorial package importer is the likely recommended draft creation path, but dry-run and operator confirmation still require explicit authorization."
+        }
+      ]
+    },
+    {
+      "id": "SEO-CMS-CANARY-PREFLIGHT-LEDGER-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/seo-cms-canary-preflight-ledger-01",
+      "base": "main",
+      "depends_on": [
+        "SEO-CMS-CANARY-BE-01",
+        "SEO-CMS-CANARY-WEB-01",
+        "SEO-CMS-CANARY-PREFLIGHT-SCAN"
+      ],
+      "title": "chore(codex): reconcile SEO CMS canary train state",
+      "status": "implementation_in_progress",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": {
+        "scope_boundaries": {
+          "status": "passed",
+          "summary": "User-authorized scope is limited to docs/codex/pr-train.yaml and docs/codex/pr-train-state.json."
+        },
+        "prohibited_actions": {
+          "status": "passed",
+          "summary": "No SEO-CONTENT-P1-08 execution, CMS draft creation, publish action, GPT-5.5 Pro content package edit, generated article copy, runtime code change, sitemap runtime change, analytics runtime change, or test change is allowed."
+        },
+        "dependency_reconciliation": {
+          "status": "passed",
+          "summary": "TRAIN-00, BE-01, WEB-01, and PREFLIGHT-SCAN are all merged before this ledger reconciliation."
+        },
+        "json_parse": {
+          "status": "passed",
+          "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+        },
+        "yaml_parse": {
+          "status": "passed",
+          "command": "ruby -e 'require \"yaml\"; YAML.load_file(\"docs/codex/pr-train.yaml\")'"
+        },
+        "diff_check": {
+          "status": "passed",
+          "command": "git diff --check -- docs/codex"
+        },
+        "changed_files_scope": {
+          "status": "passed",
+          "summary": "Changed files are limited to docs/codex/pr-train.yaml and docs/codex/pr-train-state.json."
+        }
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "events": [
+        {
+          "at": "2026-06-02T13:50:10Z",
+          "event": "implementation_in_progress",
+          "note": "Started user-authorized SEO-CMS-CANARY-PREFLIGHT-LEDGER-01 from latest fap-web main. Scope is docs/codex only; CMS draft creation and publish remain forbidden."
+        },
+        {
+          "at": "2026-06-02T13:52:00Z",
+          "event": "local_validation_passed",
+          "note": "JSON parse, YAML parse, docs/codex diff whitespace check, and changed-file scope validation passed."
+        }
+      ]
+    },
+    {
+      "id": "SEO-CMS-CANARY-DRAFT-PATH-01",
+      "repo": "fap-api",
+      "repo_path": "<workspace>/fap-api",
+      "branch": "codex/seo-cms-canary-draft-path-01",
+      "base": "main",
+      "depends_on": [
+        "SEO-CMS-CANARY-PREFLIGHT-LEDGER-01"
+      ],
+      "title": "docs(cms): verify canary draft creation path and preview alternative",
+      "status": "planned",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": {},
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "events": [
+        {
+          "at": "2026-06-02T13:50:10Z",
+          "event": "planned",
+          "note": "Registered follow-up to verify authorized CMS operator role, hidden slug collision, translation_group_id collision, controlled importer dry-run path, and accepted preview/noindex alternative. Execution requires later explicit authorization."
+        }
+      ]
+    },
+    {
+      "id": "SEO-CMS-CANARY-PREVIEW-01",
+      "repo": "fap-api",
+      "repo_path": "<workspace>/fap-api",
+      "branch": "codex/seo-cms-canary-preview-01",
+      "base": "main",
+      "depends_on": [
+        "SEO-CMS-CANARY-DRAFT-PATH-01"
+      ],
+      "title": "fix(cms): add safe article draft preview gate",
+      "status": "blocked_or_planned_after_draft_path",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": {},
+      "failure_reason": "Execute only if SEO-CMS-CANARY-DRAFT-PATH-01 proves no safe preview/noindex alternative exists.",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "events": [
+        {
+          "at": "2026-06-02T13:50:10Z",
+          "event": "conditional_follow_up_registered",
+          "note": "Registered conditional safe draft preview gate. It must not execute unless DRAFT-PATH-01 proves no safe preview alternative exists and the user explicitly authorizes implementation."
         }
       ]
     },
@@ -16437,14 +16628,36 @@
       "base": "main",
       "depends_on": [
         "SEO-CMS-CANARY-BE-01",
-        "SEO-CMS-CANARY-WEB-01"
+        "SEO-CMS-CANARY-WEB-01",
+        "SEO-CMS-CANARY-DRAFT-PATH-01"
       ],
       "title": "create bilingual CMS canary draft without publish",
       "status": "blocked",
       "commit_sha": null,
       "pr_url": null,
-      "checks": {},
-      "failure_reason": "Blocked until SEO-CMS-CANARY-BE-01 and SEO-CMS-CANARY-WEB-01 are merged; user explicitly prohibited CMS draft creation and publishing in the current instruction.",
+      "checks": {
+        "preflight_scan": {
+          "status": "completed_no_go",
+          "summary": "docs/audits/seo-cms-canary-preflight-scan-2026-06-02.md records NO-GO."
+        },
+        "be01_dependency": {
+          "status": "passed",
+          "summary": "SEO-CMS-CANARY-BE-01 is merged/completed."
+        },
+        "web01_dependency": {
+          "status": "passed",
+          "summary": "SEO-CMS-CANARY-WEB-01 is merged/completed."
+        },
+        "remaining_blockers": {
+          "status": "blocking",
+          "summary": "CMS operator permissions are not verified. Hidden CMS/DB slug collision is not verified. Safe draft preview / noindex validation path is not verified. Standard Article UI cannot directly set the full canary translation_group_id, CTA slots, and FAQ package fields. Controlled editorial package importer is the likely recommended draft creation path, but dry-run and operator confirmation still require explicit authorization."
+        },
+        "cms_draft_publish_gate": {
+          "status": "forbidden",
+          "summary": "Do not execute SEO-CONTENT-P1-08, do not create CMS drafts, and do not publish until DRAFT-PATH-01 and any required PREVIEW-01 gate are complete and explicitly authorized."
+        }
+      },
+      "failure_reason": "Blocked after SEO-CMS-CANARY-PREFLIGHT-SCAN NO-GO. CMS operator permissions, hidden CMS/DB slug collision, safe draft preview/noindex validation path, complete standard Article UI canary field path, and controlled importer dry-run/operator confirmation remain unresolved. CMS draft creation and publishing remain forbidden.",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -16453,6 +16666,11 @@
           "at": "2026-06-02T10:49:36.000Z",
           "event": "blocked_dependency",
           "note": "Registered draft-only canary content task as blocked. No CMS draft, publish action, GPT-5.5 package edit, generated copy, or content asset mutation is allowed in this execution."
+        },
+        {
+          "at": "2026-06-02T13:50:10Z",
+          "event": "blocked_preflight_no_go",
+          "note": "SEO-CONTENT-P1-08 remains blocked after preflight NO-GO. CMS operator permissions are not verified. Hidden CMS/DB slug collision is not verified. Safe draft preview / noindex validation path is not verified. Standard Article UI cannot directly set the full canary translation_group_id, CTA slots, and FAQ package fields. Controlled editorial package importer is the likely recommended draft creation path, but dry-run and operator confirmation still require explicit authorization. CMS draft creation and publishing remain forbidden."
         }
       ]
     },
