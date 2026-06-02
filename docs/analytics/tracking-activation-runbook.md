@@ -41,26 +41,25 @@ NEXT_PUBLIC_GOOGLE_ADS_BEGIN_CHECKOUT_CONVERSION_LABEL=
 
 | Internal event | GA4 event | Business conversion role | Google Ads purchase conversion |
 | --- | --- | --- | --- |
-| `start_attempt` | `start_test` | primary funnel step | no |
-| `submit_attempt` | `complete_test` | primary funnel step | no |
-| `view_result` | `view_result` | primary funnel step | no |
-| `click_unlock` | `click_deep_report` | primary funnel step | no |
-| `create_order` | `begin_checkout` | primary funnel step | no |
-| `payment_confirmed` | `add_payment_info` | not primary purchase | no |
-| `purchase_success` | `purchase_success` | primary purchase success | yes |
+| `start_attempt` | `test_start` | primary public funnel step | no |
+| `submit_attempt` | `test_submit` | primary public funnel step | no |
+| `view_result` | `result_view` | primary public funnel step | no |
+| `click_unlock` | `checkout_start` | public checkout intent | no |
+| `create_order` | `order_created` | backend order-created reporting | no |
+| `payment_confirmed` | `payment_success` | backend/Ops truth only unless a privacy-safe bridge is approved | no |
+| `purchase_success` | `payment_success` | backend/Ops truth; browser event remains Google Ads purchase bridge trigger when configured | yes |
 
-GA4 is the business-funnel source of truth. The business purchase-success metric is `purchase_success`. Do not add a separate frontend `purchase` dispatch for the same paid success flow; using both `purchase` and `purchase_success` as business purchase success would double count.
+Backend `analytics_funnel_daily` is the business-funnel source of truth for payment, report unlock, and report-ready stages. GA4 is a reporting surface for public funnel events, and paid/report truth must not depend on browser-only GA4 events. Do not add a separate frontend `purchase` dispatch for the same paid success flow; using both `purchase` and `payment_success` as business purchase success would double count.
 
 Baidu Tongji event-analysis/debug taxonomy may use `_hmt.push(["_trackEvent", category, action, label])` with:
 
 | GA4 key event | Baidu category | Baidu action |
 | --- | --- | --- |
-| `start_test` | `test` | `start` |
-| `complete_test` | `test` | `complete` |
-| `view_result` | `result` | `view` |
-| `click_deep_report` | `report` | `click` |
-| `begin_checkout` | `checkout` | `begin` |
-| `purchase_success` | `purchase` | `success` |
+| `test_start` | `test` | `start` |
+| `test_submit` | `test` | `complete` |
+| `result_view` | `result` | `view` |
+| `checkout_start` | `checkout` | `begin` |
+| `order_created` | `checkout` | `order` |
 
 The Baidu label is derived from safe test context such as `test_type`, `scale_code`, `form_code`, `test_slug`, or `slug`.
 
@@ -102,14 +101,14 @@ Google Ads purchase conversion payload:
 6. Confirm public CTA elements can be selected or manually addressed by ID in Baidu Tongji only on allowed public pages.
 7. Confirm private/noindex routes do not load `hm.baidu.com`, `_hmt`, or Baidu Tongji automatic pageview scripts.
 8. Confirm private/noindex route HTML does not include `fm-analytics-bootstrap` or `data-analytics-bootstrap`.
-9. Complete only an authorized paid test flow and confirm GA4 `purchase_success` plus Google Ads `conversion` are observable.
+9. Complete only an authorized paid test flow and confirm backend Ops reports `payment_success`, while the optional Google Ads `conversion` fires only from the configured purchase bridge.
 
 ## Prohibitions
 
 - Do not commit real GA4, Google Ads, Baidu Tongji, Baidu verification, or conversion label values.
 - Do not replace the existing bridge with GTM.
 - Do not use Ads conversion tracking for non-purchase events as the primary conversion.
-- Do not emit both `purchase` and `purchase_success` as business purchase success.
+- Do not emit or report `purchase`, `purchase_success`, and browser `payment_success` as duplicate business purchase success.
 - Do not add Baidu Ads `bp.js`.
 - Do not document `_trackEvent` category/action as a currently supported new Baidu conversion-goal setup path.
 - Do not configure Baidu element conversions on private/noindex route families such as `/result`, `/orders`, `/share`, `/pay`, `/payment`, or `/history`, including `/zh` and `/en` variants.

@@ -726,7 +726,7 @@
         "tests/contracts/iq-commerce-unlock.contract.test.tsx"
       ],
       "checks": [],
-      "pr_url": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/994",
       "commit_sha": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -16192,6 +16192,65 @@
           "at": "2026-06-02T03:36:47.245Z",
           "event": "ci_fix_validated",
           "note": "Fixed PR-UX-01 contracts CI failure by aligning homepage fallback contract anchors with CMS-filtered items and preserving RIASEC canonical homepageContent token without restoring frontend fallback editorial content. Local pnpm test:contract, typecheck, lint, build, and diff check passed."
+        }
+      ]
+    },
+    {
+      "id": "ANALYTICS-FUNNEL-WEB-EVENT-NAME-ALIGNMENT-02",
+      "repo": "fap-web",
+      "branch": "codex/analytics-funnel-web-event-name-alignment-02",
+      "status": "pr_open",
+      "commit_sha": "d81054d1f26ab53255c2c9700625eb029f922ddf",
+      "pr_url": null,
+      "checks": {
+        "focused_contracts": {
+          "status": "passed",
+          "command": "pnpm exec vitest run tests/contracts/tracking-activation-contract.contract.test.ts tests/contracts/seo-funnel-tracking-taxonomy.contract.test.ts tests/contracts/analytics-scripts.contract.test.ts tests/contracts/analytics-payload-privacy.contract.test.ts",
+          "summary": "Focused analytics contracts passed after aligning GA4/Baidu event names and preserving Google Ads purchase bridge dedupe."
+        },
+        "typecheck": {
+          "status": "passed",
+          "command": "pnpm typecheck"
+        },
+        "build": {
+          "status": "passed_after_env_fix",
+          "command": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+          "summary": "Initial build without NEXT_PUBLIC_SITE_URL failed in llms.txt metadata generation; rerun with production site URL passed. Generated public/sitemap.xml drift was reverted from final diff."
+        },
+        "contracts": {
+          "status": "passed",
+          "command": "pnpm test:contract",
+          "summary": "Full contract suite passed: 427 files, 2385 tests."
+        },
+        "diff_check": {
+          "status": "passed",
+          "command": "git diff --check && git diff --cached --check"
+        }
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "events": [
+        {
+          "at": "2026-06-02T00:00:00Z",
+          "event": "implementation_in_progress",
+          "note": "Started user-authorized analytics event-name alignment PR from isolated worktree; scope limited to tracking client mapping, analytics docs/contracts, and current train metadata."
+        },
+        {
+          "at": "2026-06-02T05:02:00Z",
+          "event": "local_validation_passed",
+          "note": "Focused contracts, typecheck, production-API build with NEXT_PUBLIC_SITE_URL, full contract suite, JSON/YAML parsing, scope validation, and whitespace diff checks passed."
+        },
+        {
+          "at": "2026-06-02T05:08:00Z",
+          "event": "committed",
+          "note": "Committed scoped PR2 changes at d81054d1f26ab53255c2c9700625eb029f922ddf."
+        },
+        {
+          "at": "2026-06-02T05:12:00Z",
+          "event": "pr_open",
+          "note": "Opened https://github.com/fermatmind/fap-web/pull/994 after local checks and scope validation passed."
         }
       ]
     }

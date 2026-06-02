@@ -82,12 +82,12 @@ describe("tracking activation contract", () => {
     expect(contract.checkoutChanged).toBe(false);
     expect(contract.reportEntitlementChanged).toBe(false);
     expect(contract.eventMapping).toMatchObject({
-      start_attempt: "ga4_start_test",
-      submit_attempt: "ga4_complete_test",
-      view_result: "ga4_view_result",
-      click_unlock: "ga4_click_deep_report",
-      create_order: "ga4_begin_checkout",
-      purchase_success: "ga4_purchase_success_and_google_ads_purchase_conversion",
+      start_attempt: "ga4_test_start",
+      submit_attempt: "ga4_test_submit",
+      view_result: "ga4_result_view",
+      click_unlock: "ga4_checkout_start",
+      create_order: "ga4_order_created",
+      purchase_success: "ga4_payment_success_and_google_ads_purchase_conversion",
     });
     expect(contract.canonicalFunnelEvents).toEqual([
       "start_attempt",
@@ -177,7 +177,7 @@ describe("tracking activation contract", () => {
       path: "/zh/orders/ord_ads_purchase_001",
     });
 
-    expect(gtagMock).toHaveBeenCalledWith("event", "purchase_success", expect.any(Object));
+    expect(gtagMock).toHaveBeenCalledWith("event", "payment_success", expect.any(Object));
     expect(gtagMock).toHaveBeenCalledWith("event", "conversion", {
       send_to: "AW-TEST1234/purchase_label_test",
       value: 88,
@@ -216,7 +216,7 @@ describe("tracking activation contract", () => {
 
     expect(fetchMock).toHaveBeenCalledTimes(1);
     expect(gtagMock).toHaveBeenCalledTimes(2);
-    expect(gtagMock).toHaveBeenCalledWith("event", "purchase_success", expect.any(Object));
+    expect(gtagMock).toHaveBeenCalledWith("event", "payment_success", expect.any(Object));
     expect(gtagMock).toHaveBeenCalledWith("event", "conversion", {
       send_to: "AW-TEST1234/purchase_label_test",
       value: 66,
@@ -258,8 +258,8 @@ describe("tracking activation contract", () => {
         locale: "zh",
       })
     ).toEqual({
-      category: "report",
-      action: "click",
+      category: "checkout",
+      action: "begin",
       label: "big_five",
     });
   });

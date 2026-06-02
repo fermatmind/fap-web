@@ -208,8 +208,8 @@ describe("analytics payload privacy contract", () => {
       path: "/zh/orders/ord_not_observable_without_consent",
     });
 
-    expect(gtagMock).toHaveBeenCalledWith("event", "start_test", expect.any(Object));
-    expect(gtagMock).toHaveBeenCalledWith("event", "begin_checkout", expect.any(Object));
+    expect(gtagMock).toHaveBeenCalledWith("event", "test_start", expect.any(Object));
+    expect(gtagMock).toHaveBeenCalledWith("event", "order_created", expect.any(Object));
     expect(fetchMock).toHaveBeenCalledTimes(2);
     const body = JSON.parse(String(fetchMock.mock.calls[0]?.[1]?.body ?? "{}")) as {
       eventName?: string;
@@ -270,7 +270,7 @@ describe("analytics payload privacy contract", () => {
 
     expect(gtagMock).toHaveBeenCalledWith(
       "event",
-      "add_payment_info",
+      "payment_success",
       expect.objectContaining({
         current_path: "/en/pay/wait?payment_recovery_token=redacted&utm_source=ads",
         attemptIdMasked: "attemp...3456",

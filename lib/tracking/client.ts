@@ -30,7 +30,7 @@ type GoogleAdsPurchaseConversionPayload = {
 
 type BaiduTongjiConversionEvent = {
   category: "test" | "result" | "report" | "checkout" | "purchase";
-  action: "start" | "complete" | "view" | "click" | "begin" | "success";
+  action: "start" | "complete" | "view" | "click" | "begin" | "order" | "success";
   label: string;
 };
 
@@ -48,25 +48,24 @@ const GA4_EVENT_NAME_MAP: Partial<Record<TrackingEventName, string>> = {
   view_test: "view_item",
   view_test_landing: "view_item",
   start_click: "select_content",
-  start_attempt: "start_test",
-  submit_attempt: "complete_test",
-  view_result: "view_result",
-  checkout_start: "begin_checkout",
-  create_order: "begin_checkout",
-  payment_confirmed: "add_payment_info",
-  click_unlock: "click_deep_report",
-  purchase_success: "purchase_success",
-  pay_success: "purchase_success",
-  unlock_success: "unlock_success",
+  start_attempt: "test_start",
+  submit_attempt: "test_submit",
+  view_result: "result_view",
+  checkout_start: "checkout_start",
+  create_order: "order_created",
+  payment_confirmed: "payment_success",
+  click_unlock: "checkout_start",
+  purchase_success: "payment_success",
+  pay_success: "payment_success",
+  unlock_success: "report_unlock",
 };
 
 const BAIDU_TONGJI_CONVERSION_MAP: Record<string, Omit<BaiduTongjiConversionEvent, "label">> = {
-  start_test: { category: "test", action: "start" },
-  complete_test: { category: "test", action: "complete" },
-  view_result: { category: "result", action: "view" },
-  click_deep_report: { category: "report", action: "click" },
-  begin_checkout: { category: "checkout", action: "begin" },
-  purchase_success: { category: "purchase", action: "success" },
+  test_start: { category: "test", action: "start" },
+  test_submit: { category: "test", action: "complete" },
+  result_view: { category: "result", action: "view" },
+  checkout_start: { category: "checkout", action: "begin" },
+  order_created: { category: "checkout", action: "order" },
 };
 
 const CONVERSION_EVENT_DEDUPE_TTL_MS = 2000;
@@ -293,13 +292,13 @@ function shouldSuppressDuplicateConversionDispatch(
   safePath: string,
   payload: Record<string, string | number | boolean | null>
 ): boolean {
-  if (!isStandardConversionEvent(eventName)) return false;
+  if (!isStandardConversionEvent(eventName) && eventName !== "purchase_success") return false;
 
   const now = Date.now();
   pruneRecentConversionDispatches(now);
 
   const key = JSON.stringify([
-    mapTrackingEventToGa4Name(eventName),
+    eventName === "purchase_success" ? eventName : mapTrackingEventToGa4Name(eventName),
     safePath,
     payload.test_type,
     payload.test_version,

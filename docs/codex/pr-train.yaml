@@ -10585,3 +10585,53 @@ prs:
       - IQ remains a secondary existing test without expanded claims or paid/certificate framing.
       - No Review, AggregateRating, Product schema, route, sitemap, robots, llms, metadata, canonical, payment, quiz, result, paywall, analytics, CMS, or backend behavior changes are introduced.
     rollback_note: "Revert PR-UX-01 homepage/tests hub rendering changes, scan doc addition, and PR-UX-01 train metadata if the conversion layout or safety boundaries regress."
+
+  - id: ANALYTICS-FUNNEL-WEB-EVENT-NAME-ALIGNMENT-02
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/analytics-funnel-web-event-name-alignment-02
+    base: main
+    depends_on:
+      - ANALYTICS-FUNNEL-GA4-BAIDU-MAPPING-SCAN-01
+    mode: execute
+    train_scope: analytics_funnel_ga4_baidu_alignment
+    status: in_progress
+    title: "ANALYTICS-FUNNEL-WEB-EVENT-NAME-ALIGNMENT-02 align web analytics event names"
+    goal: "Align frontend outbound analytics names with the backend funnel taxonomy while keeping backend/Ops as payment, unlock, and report-ready truth."
+    in_scope:
+      - lib/tracking/client.ts
+      - docs/analytics/conversion-setup-qa-checklist.md
+      - docs/analytics/tracking-activation-runbook.md
+      - docs/analytics/generated/tracking-activation-contract.v1.json
+      - tests/contracts/tracking-activation-contract.contract.test.ts
+      - tests/contracts/seo-funnel-tracking-taxonomy.contract.test.ts
+      - tests/contracts/analytics-scripts.contract.test.ts
+      - tests/contracts/analytics-payload-privacy.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - Backend or fap-api changes
+      - GA4, Google Ads, or Baidu dashboard mutations
+      - Payment, order, result, email, attempt, or scoring behavior changes
+      - Route, sitemap, robots, llms, schema, metadata, or canonical changes
+      - CMS/content authority changes
+      - Third-party pixel additions
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/tracking-activation-contract.contract.test.ts tests/contracts/seo-funnel-tracking-taxonomy.contract.test.ts tests/contracts/analytics-scripts.contract.test.ts tests/contracts/analytics-payload-privacy.contract.test.ts
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: ANALYTICS-FUNNEL-PURCHASE-REPORT-TRUTH-BRIDGE-03
+    acceptance:
+      - GA4 outbound names use stable backend-aligned public funnel names.
+      - Baidu bridge remains limited to public observation and excludes paid/report truth.
+      - Google Ads purchase conversion remains scoped to the existing purchase bridge.
+      - No backend, payment, CMS, route, sitemap, llms, or content authority behavior changes are introduced.
+    rollback_note: "Revert analytics tracking name mappings, docs/analytics updates, focused contracts, and current PR train metadata if event taxonomy alignment regresses."
