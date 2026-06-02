@@ -10529,3 +10529,56 @@ prs:
       - Clinical/depression, IQ, schema, payment, route, CMS, and frontend content authority boundaries remain explicit.
       - No runtime application files are changed.
     rollback_note: "Revert the three docs/ux artifacts and PR-UX-00 train metadata if the readiness plan or scope boundary is incorrect."
+
+  - id: PR-UX-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-ux-01-homepage-tests-hub-layout
+    base: main
+    depends_on:
+      - PR-UX-00
+    mode: execute
+    train_scope: ux_conversion_homepage_tests_hub
+    status: in_progress
+    title: "feat(ux): improve homepage and tests hub conversion layout"
+    goal: "Improve FermatMind homepage and tests hub conversion layout by rendering existing backend/CMS CTA and discovery fields earlier, prioritizing MBTI, Big Five, and RIASEC, and preserving all content-authority, safety, route, schema, payment, quiz, result, and analytics boundaries."
+    in_scope:
+      - components/marketing/HomePageExperience.tsx
+      - components/marketing/tests/TestsHubExperience.tsx
+      - lib/marketing/homepageContent.ts
+      - tests/contracts/homepage-v1-density.contract.test.tsx
+      - tests/contracts/homepage-v1-hero.contract.test.tsx
+      - tests/contracts/tests-hub-pr-ux-01-render.contract.test.tsx
+      - docs/ux/pr-ux-01-homepage-tests-hub-specialized-scan.md
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - CMS data mutation
+      - Backend or fap-api changes
+      - Payment, checkout, order, report, auth, attempt, scoring, quiz, result, paywall, or analytics changes
+      - Route, sitemap, robots, llms, schema, metadata, or canonical changes
+      - Clinical/depression commercialization or discoverability expansion
+      - IQ claim, paid guide, certificate, authority, or commerce expansion
+      - Review, AggregateRating, Product schema, ratings, user counts, media mentions, expert review, or unverifiable social proof
+      - Frontend editorial fallback content for CMS-backed public sections
+    required_local_checks:
+      - pnpm typecheck
+      - pnpm lint
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - git diff --check
+      - rendered HTML smoke for /, /en, /zh/tests, /en/tests confirming priority tests and no clinical/depression slug
+      - scope validation for no route/schema/sitemap/robots/llms/metadata/canonical/payment/quiz/result/analytics diffs
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: false
+    next_task: PR-UX-02
+    acceptance:
+      - Homepage renders existing backend/CMS hero CTA fields above the fold when present.
+      - Homepage moves MBTI, Big Five, and RIASEC test selection ahead of local social proof and about narrative.
+      - Tests hub renders a priority strip for MBTI, Big Five, and RIASEC from filtered public test entries.
+      - Tests hub restores CMS/backend family/category browsing and optional quick-start/how-to-choose/trust/resources sections when present.
+      - Clinical/depression pending slugs remain hidden in every rendered section.
+      - IQ remains a secondary existing test without expanded claims or paid/certificate framing.
+      - No Review, AggregateRating, Product schema, route, sitemap, robots, llms, metadata, canonical, payment, quiz, result, paywall, analytics, CMS, or backend behavior changes are introduced.
+    rollback_note: "Revert PR-UX-01 homepage/tests hub rendering changes, scan doc addition, and PR-UX-01 train metadata if the conversion layout or safety boundaries regress."

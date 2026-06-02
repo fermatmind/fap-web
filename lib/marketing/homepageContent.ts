@@ -118,117 +118,7 @@ export type HomePageContent = {
   };
 };
 
-const REQUIRED_QUICK_START_ITEMS: Record<Locale, HomeLinkItem[]> = {
-  zh: [
-    {
-      title: "MBTI 性格测试",
-      description: "快速了解你的类型偏好与决策风格",
-      href: "/tests/mbti-personality-test-16-personality-types",
-      label: "开始测试",
-      meta: "人格测试",
-    },
-    {
-      title: "Big Five 大五人格测试",
-      description: "从五个维度看清你的稳定特质",
-      href: "/tests/big-five-personality-test-ocean-model",
-      label: "开始测试",
-      meta: "人格测试",
-    },
-    {
-      title: "IQ 智商测试",
-      description: "快速了解你的认知能力基线",
-      href: "/tests/iq-test-intelligence-quotient-assessment",
-      label: "开始测试",
-      meta: "能力测评",
-    },
-    {
-      title: "霍兰德职业兴趣测试",
-      description: "先得到兴趣结构与职业方向判断",
-      href: "/tests/holland-career-interest-test-riasec",
-      label: "开始测试",
-      meta: "职业兴趣",
-    },
-    {
-      title: "九型人格测试",
-      description: "从核心动机与压力反应理解你的行为模式",
-      href: "/tests/enneagram-personality-test-nine-types",
-      label: "开始测试",
-      meta: "人格测试",
-    },
-    {
-      title: "情商测试",
-      description: "看清情绪调节、沟通表达与关系协作中的关键能力",
-      href: "/tests/eq-test-emotional-intelligence-assessment",
-      label: "开始测试",
-      meta: "情绪能力",
-    },
-  ],
-  en: [
-    {
-      title: "MBTI Personality Test",
-      description: "Understand your type preference and decision style quickly.",
-      href: "/tests/mbti-personality-test-16-personality-types",
-      label: "Start test",
-      meta: "Personality test",
-    },
-    {
-      title: "Big Five Personality Test",
-      description: "Read your stable traits across five dimensions.",
-      href: "/tests/big-five-personality-test-ocean-model",
-      label: "Start test",
-      meta: "Personality test",
-    },
-    {
-      title: "IQ Test",
-      description: "Get a quick baseline for cognitive ability.",
-      href: "/tests/iq-test-intelligence-quotient-assessment",
-      label: "Start test",
-      meta: "Ability assessment",
-    },
-    {
-      title: "Holland Career Interest Test",
-      description: "Start from interest structure and career direction.",
-      href: "/tests/holland-career-interest-test-riasec",
-      label: "Start test",
-      meta: "Career interest",
-    },
-    {
-      title: "Enneagram Test",
-      description: "Understand behavior patterns through motivation and stress response.",
-      href: "/tests/enneagram-personality-test-nine-types",
-      label: "Start test",
-      meta: "Personality test",
-    },
-    {
-      title: "EQ Test",
-      description: "Map emotional regulation, communication, and relationship skills.",
-      href: "/tests/eq-test-emotional-intelligence-assessment",
-      label: "Start test",
-      meta: "Emotional skills",
-    },
-  ],
-};
-
-function completeQuickStartItems(items: HomeLinkItem[], locale: Locale): HomeLinkItem[] {
-  const byTitle = new Map(items.map((item) => [item.title, item]));
-  const required = REQUIRED_QUICK_START_ITEMS[locale];
-
-  return [
-    ...required.map((item) => {
-      const existing = byTitle.get(item.title);
-      return {
-        ...item,
-        ...existing,
-        href: item.href,
-        label: existing?.label || item.label,
-        meta: existing?.meta || item.meta,
-      };
-    }),
-    ...items.filter((item) => !required.some((requiredItem) => requiredItem.title === item.title)),
-  ];
-}
-
-function normalizeHomeContent(value: unknown, locale: Locale): HomePageContent {
+function normalizeHomeContent(value: unknown): HomePageContent {
   const content = value as HomePageContent;
   if (!content?.hero?.title || !content?.seo?.title || !Array.isArray(content?.families?.items)) {
     throw new Error("Invalid CMS homepage payload.");
@@ -238,9 +128,7 @@ function normalizeHomeContent(value: unknown, locale: Locale): HomePageContent {
     ...content,
     quickStart: {
       ...content.quickStart,
-      items: filterVisiblePublicTestEntries(
-        completeQuickStartItems(Array.isArray(content.quickStart.items) ? content.quickStart.items : [], locale)
-      ),
+      items: filterVisiblePublicTestEntries(Array.isArray(content.quickStart.items) ? content.quickStart.items : []),
     },
     families: {
       ...content.families,
@@ -265,5 +153,5 @@ function normalizeHomeContent(value: unknown, locale: Locale): HomePageContent {
 
 export async function getHomePageContent(locale: Locale): Promise<HomePageContent> {
   const surface = await getCmsLandingSurfaceWithLastKnownGood<HomePageContent>("home", locale);
-  return normalizeHomeContent(surface.value.payloadJson, locale);
+  return normalizeHomeContent(surface.value.payloadJson);
 }

@@ -39,9 +39,9 @@ describe("homepage v1 hero contract", () => {
   it("renders trust points as a compact strip instead of a heavy accordion", async () => {
     render(<HomePageExperience locale="zh" copy={await getHomePageContent("zh")} />);
 
-    expect(screen.getByText("结果结构清晰")).toBeInTheDocument();
+    expect(screen.getAllByText("结果结构清晰").length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByText("方法边界透明").length).toBeGreaterThanOrEqual(1);
-    expect(screen.getByText("可匿名开始")).toBeInTheDocument();
+    expect(screen.getAllByText("可匿名开始").length).toBeGreaterThanOrEqual(1);
     expect(screen.queryByText("Trust & Boundaries")).not.toBeInTheDocument();
   });
 });

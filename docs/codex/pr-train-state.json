@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-01T15:59:45.192525+00:00",
+  "updated_at": "2026-06-02T03:19:29.093Z",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -16027,13 +16027,13 @@
       "base": "main",
       "depends_on": [],
       "title": "docs(ux): add FermatMind conversion readiness plan",
-      "status": "open_pending_checks",
-      "commit_sha": "pending_pr_head",
+      "status": "merged",
+      "commit_sha": "9492f6088e8d1ad96b8809c036b43b22b76b072e",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/988",
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-02T02:08:53Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "checks": {
         "manifest_registration": {
           "status": "pass",
@@ -16057,6 +16057,11 @@
           "status": "pass",
           "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null && python3 - <<'PY'\nimport yaml, pathlib\npath = pathlib.Path('docs/codex/pr-train.yaml')\nyaml.safe_load(path.read_text())\nprint('yaml ok')\nPY",
           "evidence": "State JSON parsed and manifest YAML loaded successfully."
+        },
+        "github_merge_reconciliation": {
+          "status": "pass",
+          "command": "gh pr view 988 --json number,state,mergedAt,mergeCommit,headRefName,baseRefName,url,isDraft && git merge-base --is-ancestor 9492f6088e8d1ad96b8809c036b43b22b76b072e origin/main && git ls-remote --heads origin codex/ux-00-conversion-readiness-docs",
+          "evidence": "GitHub PR #988 is MERGED, origin/main contains merge commit 9492f6088e8d1ad96b8809c036b43b22b76b072e, the remote task branch is absent, and local post-merge cleanup already ran."
         }
       },
       "events": [
@@ -16079,6 +16084,90 @@
           "at": "2026-06-02T02:00:05Z",
           "event": "open_pending_checks",
           "note": "Opened draft GitHub PR https://github.com/fermatmind/fap-web/pull/988."
+        },
+        {
+          "at": "2026-06-02T02:50:03Z",
+          "event": "merged_reconciled",
+          "note": "Reconciled PR-UX-00 before starting PR-UX-01: GitHub PR #988 is merged, origin/main contains merge commit 9492f6088e8d1ad96b8809c036b43b22b76b072e, remote branch is absent, and local cleanup already executed."
+        }
+      ]
+    },
+    {
+      "id": "PR-UX-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/pr-ux-01-homepage-tests-hub-layout",
+      "base": "main",
+      "depends_on": [
+        "PR-UX-00"
+      ],
+      "title": "feat(ux): improve homepage and tests hub conversion layout",
+      "status": "local_checks_passed",
+      "commit_sha": null,
+      "pr_url": null,
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "checks": {
+        "manifest_registration": {
+          "status": "pass",
+          "evidence": "User explicitly authorized updating docs/codex/pr-train.yaml and docs/codex/pr-train-state.json to register PR-UX-01 and include the specialized scan doc."
+        },
+        "dependency_pr_ux_00": {
+          "status": "pass",
+          "evidence": "PR-UX-00 was reconciled as merged into origin/main before PR-UX-01 implementation started."
+        },
+        "scope_boundaries": {
+          "status": "pass",
+          "evidence": "git diff --name-only only includes PR-UX-01 scoped homepage/tests hub rendering files, focused contracts, PR train metadata, and docs/ux scan doc; forbidden route/schema/sitemap/robots/llms/metadata/canonical/payment/quiz/result/analytics diff check returned no files."
+        },
+        "typecheck": {
+          "status": "pass",
+          "command": "pnpm typecheck",
+          "evidence": "Passed: tsc --noEmit."
+        },
+        "lint": {
+          "status": "pass",
+          "command": "pnpm lint",
+          "evidence": "Passed with 0 errors and 8 existing warnings in unrelated files."
+        },
+        "build": {
+          "status": "pass",
+          "command": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+          "evidence": "Passed. postbuild regenerated public/sitemap.xml; generated sitemap side effect was restored because sitemap changes are outside PR-UX-01 scope."
+        },
+        "rendered_html_smoke": {
+          "status": "pass",
+          "command": "local rendered HTML smoke for /, /en, /zh/tests, /en/tests",
+          "evidence": "Passed using next start on 127.0.0.1:3031 and curl: priority test markers present; pending clinical/depression slugs absent; unsafe homepage user-count/expert/media social proof absent."
+        },
+        "diff_check": {
+          "status": "pass",
+          "command": "git diff --check",
+          "evidence": "Passed."
+        },
+        "focused_contracts": {
+          "status": "pass",
+          "command": "pnpm exec vitest run tests/contracts/homepage-v1-hero.contract.test.tsx tests/contracts/homepage-v1-density.contract.test.tsx tests/contracts/homepage-v1-core-grid.contract.test.tsx tests/contracts/homepage-articles-empty-state.contract.test.tsx tests/contracts/tests-hub-empty-catalog.contract.test.ts tests/contracts/tests-hub-category.contract.test.ts tests/contracts/tests-hub-minimal-shell.contract.test.tsx tests/contracts/tests-hub-pr-ux-01-render.contract.test.tsx",
+          "evidence": "Passed: 8 files, 18 tests. Covers homepage hero/density/articles and tests hub priority/clinical hiding contracts."
+        },
+        "guarded_phrase_scan": {
+          "status": "pass",
+          "command": "rg \"最适合职业|精准匹配|保证成功|真实 IQ|权威认证|确诊|治疗建议|招聘筛选准确预测\" docs/ux/pr-ux-01-homepage-tests-hub-specialized-scan.md || true",
+          "evidence": "No exact guarded phrase matches in PR-UX-01 scan doc."
+        }
+      },
+      "events": [
+        {
+          "at": "2026-06-02T02:50:03Z",
+          "event": "implementation_in_progress",
+          "note": "Started user-authorized PR-UX-01 implementation from latest main after registering manifest/state and reconciling PR-UX-00 merge state."
+        },
+        {
+          "at": "2026-06-02T03:19:29.093Z",
+          "event": "local_checks_passed",
+          "note": "PR-UX-01 homepage/tests hub conversion layout implementation passed focused contracts, typecheck, lint, production build, rendered HTML smoke, diff check, guarded phrase scan, and scope validation."
         }
       ]
     }
