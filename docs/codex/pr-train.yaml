@@ -10483,3 +10483,49 @@ prs:
       - Query/filter pages remain noindex and canonicalized to the main directory.
       - No frontend career fallback content is introduced.
     rollback_note: "Revert scoped directory UX changes if canonical/noindex policy or authority consumption regresses."
+
+  - id: PR-UX-00
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/ux-00-conversion-readiness-docs
+    base: main
+    depends_on: []
+    mode: execute
+    train_scope: ux_conversion_readiness
+    status: in_progress
+    title: "docs(ux): add FermatMind conversion readiness plan"
+    goal: "Add docs-only UX conversion readiness artifacts for homepage, tests hub, MBTI/Big Five/RIASEC landing pages, result privacy, unlock grid planning, Quiz Focus Mode sequencing, and analytics/A-B planning without changing runtime behavior."
+    in_scope:
+      - docs/ux/fermatmind-ux-conversion-surface-map.md
+      - docs/ux/fermatmind-ux-component-inventory.md
+      - docs/ux/fermatmind-ux-safe-pr-plan.md
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - Application code changes
+      - CMS data mutation
+      - Backend or fap-api changes
+      - Payment, checkout, order, report, auth, attempt, or scoring changes
+      - Route, sitemap, robots, llms, schema, metadata, or canonical changes
+      - UI implementation
+      - Frontend editorial copy outside docs/ux
+      - Clinical/depression commercialization or discoverability expansion
+      - IQ expansion before review
+    required_local_checks:
+      - git diff --check -- docs/ux/fermatmind-ux-conversion-surface-map.md docs/ux/fermatmind-ux-component-inventory.md docs/ux/fermatmind-ux-safe-pr-plan.md docs/codex/pr-train.yaml docs/codex/pr-train-state.json
+      - rg "最适合职业|精准匹配|保证成功|真实 IQ|权威认证|确诊|治疗建议|招聘筛选准确预测" docs/ux || true
+      - git status --short
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: false
+      note: "Docs-only PR; no extra custom runtime checks beyond repository defaults."
+    next_task: PR-UX-01
+    acceptance:
+      - UX readiness docs exist under docs/ux.
+      - PR order is PR-UX-00 through PR-UX-06 with homepage/tests hub first and Quiz Focus Mode deferred.
+      - Result privacy cleanup is deferred to PR-UX-03.
+      - Unlock grid implementation is deferred to PR-UX-04.
+      - Clinical/depression, IQ, schema, payment, route, CMS, and frontend content authority boundaries remain explicit.
+      - No runtime application files are changed.
+    rollback_note: "Revert the three docs/ux artifacts and PR-UX-00 train metadata if the readiness plan or scope boundary is incorrect."
