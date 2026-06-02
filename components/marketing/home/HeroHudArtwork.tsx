@@ -51,6 +51,10 @@ export function HeroHudArtwork({ locale }: { locale: Locale }) {
         sizes="(min-width: 1280px) 56vw, 52vw"
         className="object-contain object-right opacity-100 mix-blend-screen brightness-110 contrast-110 [mask-image:linear-gradient(to_right,transparent_0%,transparent_18%,rgba(0,0,0,0.18)_28%,rgba(0,0,0,0.78)_39%,black_49%,black_100%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,transparent_18%,rgba(0,0,0,0.18)_28%,rgba(0,0,0,0.78)_39%,black_49%,black_100%)]"
       />
+      <div className="absolute bottom-[5%] right-0 top-[4%] w-[28%] bg-[#0b1c24]/36 [mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.68)_18%,black_36%,black_100%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.68)_18%,black_36%,black_100%)]">
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(86,111,126,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(86,111,126,0.18)_1px,transparent_1px)] bg-[size:28px_28px] opacity-80" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_24%_47%,rgba(134,239,172,0.11),transparent_58%)]" />
+      </div>
       <div className="absolute inset-0">
         {HUD_CALLOUTS.map((item) => (
           <div
