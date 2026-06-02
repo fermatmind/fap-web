@@ -129,6 +129,17 @@ export function IqResultShell({
             <p className="text-sm leading-6 text-[var(--fm-text-muted)]">{viewModel.summary}</p>
           ) : null}
 
+          {viewModel.bankStatus ? (
+            <div
+              className="rounded-[12px] border border-dashed border-[var(--fm-border)] bg-[var(--fm-surface-subtle,#f8fafc)] p-4 text-sm leading-6 text-[var(--fm-text-muted)]"
+              data-testid="iq-bank-placeholder-notice"
+              data-bank-id={viewModel.bankStatus.bankId}
+            >
+              <p className="font-semibold text-[var(--fm-text)]">{viewModel.bankStatus.label}</p>
+              <p className="mt-1">{viewModel.bankStatus.notice}</p>
+            </div>
+          ) : null}
+
           {iqEstimateText ? (
             <div className="rounded-[12px] border border-[var(--fm-border)] bg-[var(--fm-surface-subtle,#f8fafc)] p-4 sm:p-5">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--fm-text-muted)]">

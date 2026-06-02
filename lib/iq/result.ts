@@ -3,6 +3,11 @@
 import type { AttemptReportAccessView } from "@/lib/access/unifiedAccess";
 import type { ReportResponse, ResultResponse } from "@/lib/api/v0_3";
 import {
+  getIqBankDisplayModel,
+  getIqBankDisplayText,
+  type IqBankDisplayKey,
+} from "@/lib/iq/bankDisplay";
+import {
   IQ_CANONICAL_SCALE_CODE,
   IQ_LEGACY_SCALE_CODE,
   type IqReportDimensionField,
@@ -39,6 +44,20 @@ export type IqReportNarrativeSectionViewModel = {
 
 export type IqReportEntitlementState = "free" | "paid" | "unauthorized" | "error";
 
+export type IqBankStatusViewModel = {
+  key: IqBankDisplayKey;
+  bankId: string;
+  label: string;
+  shortLabel: string;
+  description: string;
+  itemCount: number;
+  availability: "future_placeholder";
+  isTakeEnabled: false;
+  ctaLabel: string;
+  statusLabel: string;
+  notice: string;
+};
+
 export type IqReportModuleViewModel = {
   unlockStage: "locked" | "unlocked_adaptive" | "unlocked_pro" | "unknown";
   entitlementState: IqReportEntitlementState;
@@ -51,6 +70,7 @@ export type IqReportModuleViewModel = {
   detailedReportMessage: string | null;
   sections: IqReportNarrativeSectionViewModel[];
   dimensions: IqDimensionCardViewModel[];
+  bankStatus: IqBankStatusViewModel | null;
   pdfPlaceholder: string | null;
   certificatePlaceholder: string | null;
 };
@@ -69,6 +89,7 @@ export type IqResultViewModel = {
   stabilityReason: string | null;
   reasonCode: string | null;
   dimensions: IqDimensionCardViewModel[];
+  bankStatus: IqBankStatusViewModel | null;
   locked: boolean;
   lockedMessage: string | null;
   reportModule: IqReportModuleViewModel;
@@ -302,6 +323,55 @@ function resolveReasonCode(
     resultPayload?.reason_code,
     reportData?.meta?.reason_code
   );
+}
+
+function resolveIqBankStatus(
+  locale: Locale,
+  reportData: ReportResponse | null,
+  resultData: ResultResponse | null
+): IqBankStatusViewModel | null {
+  const reportPayload = asRecord(reportData?.report);
+  const resultPayload = asRecord(resultData?.result);
+  const topResult = asRecord(resultData);
+  const candidates = [
+    normalizeText((reportData as Record<string, unknown> | null)?.bank_id),
+    normalizeText((reportData as Record<string, unknown> | null)?.bankId),
+    normalizeText((reportData as Record<string, unknown> | null)?.form_code),
+    normalizeText((reportData as Record<string, unknown> | null)?.formCode),
+    normalizeText(reportData?.meta?.bank_id),
+    normalizeText(reportData?.meta?.form_code),
+    normalizeText(reportPayload?.bank_id),
+    normalizeText(reportPayload?.form_code),
+    normalizeText(topResult?.bank_id),
+    normalizeText(topResult?.form_code),
+    normalizeText(resultData?.meta?.bank_id),
+    normalizeText(resultData?.meta?.form_code),
+    normalizeText(resultPayload?.bank_id),
+    normalizeText(resultPayload?.form_code),
+  ].filter((value): value is string => Boolean(value));
+
+  const model = candidates.map((candidate) => getIqBankDisplayModel(candidate)).find(Boolean);
+  if (!model || model.availability !== "future_placeholder" || model.isTakeEnabled) {
+    return null;
+  }
+
+  const text = getIqBankDisplayText(model, locale);
+
+  return {
+    key: model.key,
+    bankId: model.bankId,
+    label: text.label,
+    shortLabel: text.shortLabel,
+    description: text.description,
+    itemCount: model.itemCount,
+    availability: "future_placeholder",
+    isTakeEnabled: false,
+    ctaLabel: text.ctaLabel,
+    statusLabel: text.statusLabel,
+    notice: locale === "zh"
+      ? "该结果属于未来 50 题 beta 占位表单。后端题库、评分与常模 gate 完成前，前端不得开放答题入口。"
+      : "This result belongs to the future 50-item beta placeholder. The frontend must not expose a take entry until backend item, scoring, and norm gates are complete.",
+  };
 }
 
 function resolveDimensionRecordByKey(
@@ -659,6 +729,7 @@ function buildReportModuleViewModel({
   qualityFlags,
   stabilityStatus,
   stabilityReason,
+  bankStatus,
 }: {
   locale: Locale;
   reportData: ReportResponse | null;
@@ -668,6 +739,7 @@ function buildReportModuleViewModel({
   qualityFlags: string[];
   stabilityStatus: string | null;
   stabilityReason: string | null;
+  bankStatus: IqBankStatusViewModel | null;
 }): IqReportModuleViewModel {
   const entitlementState = resolveIqPaidReportEntitlementState(accessView, reportData);
   const stateCopy = getIqReportStateCopy(locale, entitlementState);
@@ -708,6 +780,7 @@ function buildReportModuleViewModel({
       insight: null,
       missing: true,
     })),
+    bankStatus,
     pdfPlaceholder: pdfReady
       ? locale === "zh"
         ? "PDF 报告能力已生成，但当前前端版本暂不支持下载。"
@@ -737,6 +810,7 @@ export function buildIqResultViewModel({
   const dimensions = IQ_DIMENSION_ORDER.map((descriptor) =>
     buildDimensionCard(locale, descriptor, reportData, resultData)
   );
+  const bankStatus = resolveIqBankStatus(locale, reportData, resultData);
 
   return {
     scaleCode: resolveScaleCode(reportData, resultData),
@@ -752,6 +826,7 @@ export function buildIqResultViewModel({
     stabilityReason: stability.reason,
     reasonCode: resolveReasonCode(reportData, resultData),
     dimensions,
+    bankStatus,
     locked: accessView?.accessState === "locked",
     lockedMessage: resolveLockedMessage(locale, accessView),
     reportModule: buildReportModuleViewModel({
@@ -763,6 +838,7 @@ export function buildIqResultViewModel({
       qualityFlags: quality.flags,
       stabilityStatus: stability.status,
       stabilityReason: stability.reason,
+      bankStatus,
     }),
   };
 }

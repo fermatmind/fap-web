@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 import type { AttemptReportAccessView } from "@/lib/access/unifiedAccess";
 import type { ReportResponse } from "@/lib/api/v0_3";
 import { IqResultShell } from "@/components/result/iq/IqResultShell";
+import { IQ_BETA_50_BANK_ID } from "@/lib/iq/constants";
 import { buildIqResultViewModel } from "@/lib/iq/result";
 
 function createAccessView(overrides: Partial<AttemptReportAccessView> = {}): AttemptReportAccessView {
@@ -267,5 +268,30 @@ describe("IQ result renderer contract", () => {
     expect(canonical.title).toBe("IQ Test");
     expect(legacy.title).toBe("IQ Test");
     expect(legacy.scaleCode).toBe("IQ_RAVEN");
+  });
+
+  it("renders beta50 as a future placeholder without exposing a take entry", () => {
+    const reportData = createReportData() as unknown as ReportResponse & {
+      bank_id: string;
+      meta: Record<string, unknown>;
+    };
+    reportData.bank_id = IQ_BETA_50_BANK_ID;
+    reportData.meta = {
+      ...(reportData.meta ?? {}),
+      bank_id: IQ_BETA_50_BANK_ID,
+    };
+
+    render(
+      <IqResultShell
+        locale="en"
+        reportData={reportData}
+        resultData={null}
+        accessView={createAccessView()}
+      />
+    );
+
+    expect(screen.getByTestId("iq-bank-placeholder-notice")).toHaveTextContent("future 50-item beta placeholder");
+    expect(screen.getByTestId("iq-bank-placeholder-notice")).toHaveAttribute("data-bank-id", IQ_BETA_50_BANK_ID);
+    expect(screen.queryByRole("link", { name: /start|take/i })).not.toBeInTheDocument();
   });
 });
