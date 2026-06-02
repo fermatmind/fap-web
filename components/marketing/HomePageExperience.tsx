@@ -259,12 +259,11 @@ function getCoreMetaItems(item: HomeCoreTestItem): string[] {
 }
 
 function HeroQuickStartPanel({ locale, copy, coreTests }: { locale: Locale; copy: HomePageContent; coreTests: HomeCoreTestItem[] }) {
-  void locale;
   void copy;
   void coreTests;
 
   return (
-    <HeroHudArtwork />
+    <HeroHudArtwork locale={locale} />
   );
 }
 
