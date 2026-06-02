@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArticleResponsiveImage } from "@/components/content/ArticleResponsiveImage";
 import { CmsMediaAuthorityShell } from "@/components/marketing/CmsMediaAuthorityShell";
+import { HeroHudArtwork } from "@/components/marketing/home/HeroHudArtwork";
 import { Container } from "@/components/layout/Container";
 import type { CmsArticle } from "@/lib/cms/articles";
 import { localizedPath, stripLocalePrefix, type Locale } from "@/lib/i18n/locales";
@@ -11,6 +12,11 @@ import { IQ_PUBLIC_SLUG } from "@/lib/iq/constants";
 import { cn } from "@/lib/utils";
 
 type HomeLink = HomePageContent["quickStart"]["items"][number];
+type HomeCoreTestItem = HomeLink & {
+  questionsLabel?: string;
+  durationLabel?: string;
+  outputLabel?: string;
+};
 type TrustItem = HomePageContent["trust"]["items"][number];
 type HomeArticle = CmsArticle;
 
@@ -28,6 +34,7 @@ const UNVERIFIED_SOCIAL_PROOF_PATTERNS = [
   /(?:用户|人)\s*(?:进行了|完成了|使用了)\s*(?:多次|测试|测评)/i,
   /(?:媒体|专家|博士|权威|评分|review|rating|stars?)/i,
 ] as const;
+const HERO_METRICS = ["模型视图", "维度映射", "结果结构", "隐私保护"] as const;
 
 function withLocale(locale: Locale, path: string): string {
   return localizedPath(stripLocalePrefix(path), locale);
@@ -78,7 +85,7 @@ function getHubCardAction(item: HubTestCardItem): { href: string; label: string 
   return { href: normalizeCoreTestHref(href), label };
 }
 
-function homeLinkFromHubCard(item: HubTestCardItem): HomeLink | null {
+function homeLinkFromHubCard(item: HubTestCardItem): HomeCoreTestItem | null {
   const action = getHubCardAction(item);
 
   if (!action) return null;
@@ -90,16 +97,37 @@ function homeLinkFromHubCard(item: HubTestCardItem): HomeLink | null {
     href: action.href,
     label: action.label,
     meta: item.outputLabel || item.durationLabel || item.questionsLabel,
+    questionsLabel: item.questionsLabel,
+    durationLabel: item.durationLabel,
+    outputLabel: item.outputLabel,
     media: item.media,
   };
 }
 
-function listCoreHomepageTests(copy: HomePageContent, supplementalTests: HubTestCardItem[]): HomeLink[] {
+function listCoreHomepageTests(copy: HomePageContent, supplementalTests: HubTestCardItem[]): HomeCoreTestItem[] {
   const seen = new Set<string>();
-  const items: HomeLink[] = [];
-  const candidates = [
-    ...(copy.quickStart.items ?? []).map((item) => ({ ...item, href: normalizeCoreTestHref(item.href) })),
-    ...supplementalTests.map(homeLinkFromHubCard).filter((item): item is HomeLink => Boolean(item)),
+  const items: HomeCoreTestItem[] = [];
+  const supplementalByKey = new Map<string, HomeCoreTestItem>();
+  const supplementalLinks = supplementalTests.map(homeLinkFromHubCard).filter((item): item is HomeCoreTestItem => Boolean(item));
+
+  for (const item of supplementalLinks) {
+    supplementalByKey.set(getCoreTestKey(item), item);
+  }
+
+  const candidates: HomeCoreTestItem[] = [
+    ...(copy.quickStart.items ?? []).map((item) => {
+      const normalized = { ...item, href: normalizeCoreTestHref(item.href) };
+      const supplemental = supplementalByKey.get(getCoreTestKey(normalized));
+
+      return {
+        ...normalized,
+        questionsLabel: supplemental?.questionsLabel,
+        durationLabel: supplemental?.durationLabel,
+        outputLabel: supplemental?.outputLabel ?? item.meta,
+        media: item.media ?? supplemental?.media,
+      };
+    }),
+    ...supplementalLinks,
   ];
 
   for (const item of orderPriorityFirst(filterVisiblePublicTestEntries(candidates))) {
@@ -118,99 +146,213 @@ function containsUnverifiedSocialProofText(...values: Array<string | null | unde
   return UNVERIFIED_SOCIAL_PROOF_PATTERNS.some((pattern) => pattern.test(text));
 }
 
-function HomepageHeroV1({ locale, copy, coreTests = [] }: { locale: Locale; copy: HomePageContent; coreTests?: HomeLink[] }) {
+function getCoreTestTone(item: { href?: string | null; key?: string | null }, index: number): string {
+  const key = getCoreTestKey(item);
+
+  if (key.includes("mbti")) return "bg-teal-700 text-white";
+  if (key.includes("big-five")) return "bg-sky-700 text-white";
+  if (key.includes("holland") || key.includes("riasec")) return "bg-amber-600 text-white";
+  if (key.includes("enneagram")) return "bg-rose-700 text-white";
+  if (key.includes("iq")) return "bg-slate-900 text-white";
+  if (key.includes("eq")) return "bg-violet-700 text-white";
+  return index % 2 === 0 ? "bg-teal-700 text-white" : "bg-slate-900 text-white";
+}
+
+function CoreTestIcon({ item }: { item: HomeCoreTestItem }) {
+  const key = getCoreTestKey(item);
+  const common = {
+    viewBox: "0 0 48 48",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: 2.2,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
+    className: "h-7 w-7",
+    "aria-hidden": true,
+  };
+
+  if (key.includes("big-five")) {
+    return (
+      <svg {...common}>
+        <path d="M10 12h28" />
+        <path d="M10 20h28" />
+        <path d="M10 28h28" />
+        <path d="M10 36h28" />
+        <circle cx="17" cy="12" r="3" fill="currentColor" stroke="none" />
+        <circle cx="29" cy="20" r="3" fill="currentColor" stroke="none" />
+        <circle cx="22" cy="28" r="3" fill="currentColor" stroke="none" />
+        <circle cx="34" cy="36" r="3" fill="currentColor" stroke="none" />
+      </svg>
+    );
+  }
+
+  if (key.includes("holland") || key.includes("riasec")) {
+    return (
+      <svg {...common}>
+        <path d="M24 8v8" />
+        <path d="M24 32v8" />
+        <path d="M8 24h8" />
+        <path d="M32 24h8" />
+        <path d="m13 13 6 6" />
+        <path d="m35 13-6 6" />
+        <path d="m13 35 6-6" />
+        <path d="m35 35-6-6" />
+        <circle cx="24" cy="24" r="7" />
+      </svg>
+    );
+  }
+
+  if (key.includes("enneagram")) {
+    return (
+      <svg {...common}>
+        <circle cx="24" cy="24" r="15" />
+        <path d="M24 9 11 31h26L24 9Z" />
+        <path d="M15 16 33 32" />
+        <path d="M33 16 15 32" />
+      </svg>
+    );
+  }
+
+  if (key.includes("iq")) {
+    return (
+      <svg {...common}>
+        <path d="M14 12h16l4 8-10 18-10-18 4-8Z" />
+        <path d="M18 20h16" />
+        <path d="M20 12 24 38" />
+        <path d="M30 12 24 38" />
+      </svg>
+    );
+  }
+
+  if (key.includes("eq")) {
+    return (
+      <svg {...common}>
+        <path d="M24 39s-14-8-14-20a8 8 0 0 1 14-5 8 8 0 0 1 14 5c0 12-14 20-14 20Z" />
+        <path d="M16 24h5l3-7 4 14 3-7h5" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg {...common}>
+      <path d="M18 10h12l8 8v12l-8 8H18l-8-8V18l8-8Z" />
+      <path d="M17 18h16" />
+      <path d="M17 24h16" />
+      <path d="M17 30h10" />
+    </svg>
+  );
+}
+
+function getCoreMetaItems(item: HomeCoreTestItem): string[] {
+  const values = [item.questionsLabel, item.durationLabel, item.outputLabel, item.meta].filter(hasText);
+  const seen = new Set<string>();
+  const result: string[] = [];
+
+  for (const value of values) {
+    if (seen.has(value)) continue;
+    seen.add(value);
+    result.push(value);
+    if (result.length >= 3) break;
+  }
+
+  return result;
+}
+
+function HeroQuickStartPanel({ locale, copy, coreTests }: { locale: Locale; copy: HomePageContent; coreTests: HomeCoreTestItem[] }) {
+  void locale;
+  void copy;
+  void coreTests;
+
+  return (
+    <HeroHudArtwork />
+  );
+}
+
+function HomepageHeroV1({ locale, copy, coreTests = [] }: { locale: Locale; copy: HomePageContent; coreTests?: HomeCoreTestItem[] }) {
+  void coreTests;
   const ctas = [
     { label: copy.hero.primaryCta, href: copy.hero.primaryHref, variant: "primary" },
     { label: copy.hero.secondaryCta, href: copy.hero.secondaryHref, variant: "secondary" },
     { label: copy.hero.tertiaryCta, href: copy.hero.tertiaryHref, variant: "tertiary" },
   ].filter((item) => hasText(item.label) && hasText(item.href));
-  const priorityTests = coreTests.slice(0, 3);
+  const trustRail = (copy.hero.trustRail ?? []).slice(0, 4);
 
   return (
-    <section className="relative overflow-hidden border-b border-slate-200 bg-[#f7f5ef] px-0 py-12 text-slate-950 sm:py-14 lg:py-16">
-      <div
-        aria-hidden
-        className="absolute inset-0 bg-[linear-gradient(rgba(15,23,42,0.045)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.045)_1px,transparent_1px)] bg-[size:32px_32px]"
-      />
-      <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-slate-950/10" />
-      <Container className="relative z-10 w-full max-w-7xl px-5 md:px-8 xl:px-10">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(28rem,0.72fr)] lg:items-end">
-          <div>
+    <section className="relative overflow-hidden bg-[#071019] px-0 py-8 text-white md:py-10 lg:min-h-[34rem] lg:py-0">
+      <div aria-hidden className="absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.1)_1px,transparent_1px)] bg-[size:28px_28px]" />
+      <div aria-hidden className="absolute inset-0 bg-[radial-gradient(circle_at_74%_48%,rgba(134,239,172,0.18),transparent_34%),radial-gradient(circle_at_18%_28%,rgba(148,163,184,0.1),transparent_32%)]" />
+      <div aria-hidden className="absolute left-6 top-6 h-6 w-6 border-l-2 border-t-2 border-lime-300/80" />
+      <div aria-hidden className="absolute right-6 top-6 h-6 w-6 border-r-2 border-t-2 border-lime-300/80" />
+      <div aria-hidden className="absolute bottom-6 left-6 h-6 w-6 border-b-2 border-l-2 border-lime-300/80" />
+      <div aria-hidden className="absolute bottom-6 right-6 h-6 w-6 border-b-2 border-r-2 border-lime-300/80" />
+
+      <Container className="relative z-10 w-full max-w-[92rem] px-6 md:px-8 xl:px-12">
+        <div className="grid min-h-[31rem] gap-10 lg:grid-cols-[minmax(24rem,0.78fr)_minmax(32rem,1.22fr)] lg:items-center">
+          <div className="py-4 lg:py-9">
             {hasText(copy.hero.eyebrow) ? (
-              <p className="m-0 text-xs font-semibold uppercase tracking-[0.18em] text-teal-800">{copy.hero.eyebrow}</p>
+              <p className="m-0 font-mono text-xs font-semibold uppercase tracking-[0.22em] text-lime-300">{copy.hero.eyebrow}</p>
             ) : null}
-            <h1 className="m-0 mt-4 max-w-4xl text-balance break-words text-[2.6rem] font-black leading-[1.03] tracking-normal text-slate-950 sm:text-[3.35rem] lg:text-[4.45rem]">
+            <h1 className="m-0 mt-6 max-w-[42rem] text-balance break-words text-[3.1rem] font-black leading-[1.02] tracking-normal text-white drop-shadow-[0_3px_0_rgba(255,255,255,0.16)] sm:text-[4.2rem] lg:text-[4.05rem] xl:text-[5rem]">
               {copy.hero.title}
             </h1>
-            <p className="m-0 mt-6 max-w-3xl text-base leading-7 text-slate-600 sm:text-lg lg:text-xl">
+            <div aria-hidden className="mt-4 h-px w-32 bg-lime-300/50" />
+            <p className="m-0 mt-4 max-w-xl text-base leading-7 text-slate-200 sm:text-lg sm:leading-8">
               {copy.hero.subhead}
             </p>
             {hasText(copy.hero.body) ? (
-              <p className="m-0 mt-4 max-w-2xl text-sm leading-6 text-slate-600 md:text-base">{copy.hero.body}</p>
+              <p className="m-0 mt-3 max-w-xl text-sm leading-6 text-slate-300 md:text-base">{copy.hero.body}</p>
             ) : null}
+
+            <div className="mt-6 grid max-w-2xl grid-cols-2 gap-0 border border-lime-300/55 bg-slate-950/42 shadow-[0_0_24px_rgba(190,242,100,0.08)] xl:grid-cols-4">
+              {HERO_METRICS.map((item, index) => (
+                <div key={item} className={cn("flex min-h-16 items-center gap-3 px-4 py-3", index % 2 === 1 && "border-l border-lime-300/35", index > 1 && "border-t border-lime-300/35 xl:border-t-0", index > 0 && "xl:border-l")}>
+                  <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-lime-300/70 text-lime-300">
+                    <CoreTestIcon item={{ title: item, href: item, label: item }} />
+                  </span>
+                  <span>
+                    <span className="block font-mono text-[0.62rem] uppercase tracking-[0.12em] text-slate-400">HUD</span>
+                    <span className="text-sm font-semibold leading-tight text-lime-200">{item}</span>
+                  </span>
+                </div>
+              ))}
+            </div>
+
             {ctas.length > 0 ? (
-              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+              <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
                 {ctas.map((item) => (
                   <Link
                     key={`${item.variant}-${item.href}`}
                     href={withLocale(locale, item.href)}
                     prefetch={false}
                     className={cn(
-                      "inline-flex min-h-11 items-center justify-center rounded-md px-5 text-sm font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-700",
-                      item.variant === "primary" && "bg-teal-800 text-white hover:bg-teal-900",
-                      item.variant === "secondary" && "border border-slate-300 bg-white text-slate-900 hover:border-teal-800 hover:text-teal-900",
-                      item.variant === "tertiary" && "border border-transparent text-teal-900 underline underline-offset-4 hover:text-orange-700"
+                      "inline-flex min-h-[3.25rem] items-center justify-center whitespace-nowrap border px-8 text-base font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-300",
+                      item.variant === "primary" && "min-w-40 border-lime-300 bg-lime-300 text-slate-950 shadow-[0_0_22px_rgba(190,242,100,0.25)] hover:bg-lime-200",
+                      item.variant === "secondary" && "min-w-40 border-slate-400/70 bg-slate-950/30 text-white hover:border-lime-300 hover:text-lime-200",
+                      item.variant === "tertiary" && "min-w-40 border-slate-400/70 bg-slate-950/20 text-white hover:border-lime-300 hover:text-lime-200"
                     )}
                   >
                     {item.label}
+                    {item.variant === "primary" ? <span aria-hidden className="ml-4">→</span> : null}
                   </Link>
                 ))}
               </div>
             ) : null}
-            {(copy.hero.trustRail ?? []).length > 0 ? (
-              <div className="mt-5 flex max-w-3xl flex-wrap gap-2">
-                {(copy.hero.trustRail ?? []).map((item) => (
-                  <span key={item} className="border border-slate-200 bg-white/70 px-2.5 py-1 text-xs font-medium text-slate-600">
-                    {item}
-                  </span>
+
+            {trustRail.length > 0 ? (
+              <div className="mt-6 grid max-w-2xl grid-cols-2 gap-0 border border-lime-300/55 bg-slate-950/42 shadow-[0_0_24px_rgba(190,242,100,0.08)] xl:grid-cols-4">
+                {trustRail.map((item, index) => (
+                  <div key={item} className={cn("flex min-h-9 items-center gap-2 px-3 py-2", index > 0 && "border-l border-lime-300/25")}>
+                    <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-lime-300" />
+                    <span className="text-xs font-medium leading-tight text-slate-300">
+                      {item}
+                    </span>
+                  </div>
                 ))}
               </div>
             ) : null}
           </div>
 
-          {priorityTests.length > 0 ? (
-            <div className="border border-slate-300 bg-white/82 shadow-[0_18px_55px_rgba(15,23,42,0.08)]">
-              <div className="grid border-b border-slate-200 bg-slate-950 text-white sm:grid-cols-[1fr_auto]">
-                <div className="px-4 py-3">
-                  {hasText(copy.quickStart.kicker) ? (
-                    <p className="m-0 text-xs font-semibold uppercase tracking-[0.18em] text-teal-100">{copy.quickStart.kicker}</p>
-                  ) : null}
-                </div>
-                {hasText(copy.header.browseAllLabel) ? (
-                  <Link href={withLocale(locale, "/tests")} prefetch={false} className="border-t border-white/10 px-4 py-3 text-sm font-semibold text-white hover:bg-white/10 sm:border-l sm:border-t-0">
-                    {copy.header.browseAllLabel}
-                  </Link>
-                ) : null}
-              </div>
-              <div>
-                {priorityTests.map((item, index) => (
-                  <Link
-                    key={`hero-${getCoreTestKey(item)}`}
-                    href={withLocale(locale, item.href)}
-                    prefetch={false}
-                    className="grid grid-cols-[2.75rem_1fr_auto] items-center gap-3 border-b border-slate-200 px-4 py-4 transition last:border-b-0 hover:bg-slate-50"
-                  >
-                    <span className="font-mono text-xs font-semibold text-slate-500">{String(index + 1).padStart(2, "0")}</span>
-                    <span>
-                      <span className="block text-sm font-semibold leading-5 text-slate-950">{item.title}</span>
-                      {hasText(item.meta) ? <span className="mt-1 block text-xs text-slate-500">{item.meta}</span> : null}
-                    </span>
-                    <span aria-hidden className="text-sm font-semibold text-teal-800">→</span>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          ) : null}
+          <HeroQuickStartPanel locale={locale} copy={copy} coreTests={coreTests} />
         </div>
       </Container>
       {/* legacy contract marker only, not rendered: min-h-[34rem] overflow-hidden bg-orange-50 / rounded-[100%] bg-white */}
@@ -308,34 +450,41 @@ function HomepageTrustStripV1({ copy }: { copy: HomePageContent }) {
   );
 }
 
-function TestFeatureCard({ locale, item, priority, index }: { locale: Locale; item: HomeLink; priority: boolean; index: number }) {
+function TestFeatureCard({ locale, item, priority, index }: { locale: Locale; item: HomeCoreTestItem; priority: boolean; index: number }) {
   const href = withLocale(locale, item.href);
+  const metaItems = getCoreMetaItems(item);
+  const tone = getCoreTestTone(item, index);
 
   return (
     <article className="group">
       <div
         className={cn(
-          "relative flex h-full min-h-[11rem] flex-col overflow-hidden rounded-md border border-slate-200 bg-white p-5 text-slate-950 shadow-sm transition hover:-translate-y-0.5 hover:border-teal-300 hover:shadow-md",
-          priority && "border-teal-700/30 ring-1 ring-teal-700/15"
+          "relative flex h-full min-h-[18rem] flex-col overflow-hidden rounded-lg border border-slate-300/70 bg-white/86 p-4 text-center text-slate-950 shadow-[0_16px_34px_rgba(15,23,42,0.1)] backdrop-blur transition hover:-translate-y-1 hover:border-lime-300 hover:shadow-[0_20px_42px_rgba(15,23,42,0.14)]",
+          priority && "border-slate-400/70 ring-1 ring-lime-300/30"
         )}
       >
-        <div aria-hidden className={cn("absolute left-0 top-0 h-full w-1 bg-slate-200", priority && "bg-teal-700")} />
-        <div className="flex items-start gap-4">
-          <span className="mt-0.5 inline-flex h-7 w-8 shrink-0 items-center justify-center border border-slate-200 bg-slate-50 font-mono text-xs font-semibold text-slate-600">
-            {String(index + 1).padStart(2, "0")}
+        <div aria-hidden className="absolute inset-x-5 top-4 h-px bg-gradient-to-r from-transparent via-lime-300/50 to-transparent" />
+        <div className="mx-auto mt-8 grid h-20 w-20 place-items-center drop-shadow-[0_8px_12px_rgba(15,23,42,0.18)]">
+          <span className={cn("inline-flex h-16 w-16 shrink-0 items-center justify-center border border-slate-950/20 shadow-inner", tone)}>
+            <CoreTestIcon item={item} />
           </span>
-          <h3 className="m-0 text-lg font-semibold leading-snug tracking-normal text-slate-950">
+        </div>
+        <div className="mt-4 flex items-start justify-center gap-2">
+          <h3 className="m-0 text-lg font-bold leading-snug tracking-normal text-slate-950">
             {item.title}
           </h3>
+          <span className="mt-0.5 shrink-0 font-mono text-xs font-semibold text-slate-400">
+            {String(index + 1).padStart(2, "0")}
+          </span>
         </div>
-        <div className="mt-4 flex flex-wrap gap-2">
-          {hasText(item.meta) ? (
-            <span className="border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-medium text-slate-600">
-              {item.meta}
+        <div className="mt-3 flex flex-wrap justify-center gap-1.5">
+          {metaItems.slice(0, 2).map((meta) => (
+            <span key={meta} className="border border-slate-300/80 bg-slate-50/90 px-2 py-0.5 text-[0.68rem] font-medium text-slate-600">
+              {meta}
             </span>
-          ) : null}
+          ))}
         </div>
-        {hasText(item.description) ? <p className="m-0 mt-4 text-sm leading-6 text-slate-600">{item.description}</p> : null}
+        {hasText(item.description) ? <p className="m-0 mt-3 line-clamp-3 text-sm leading-6 text-slate-700">{item.description}</p> : null}
         <CmsMediaAuthorityShell
           media={item.media ?? null}
           locale={locale}
@@ -346,10 +495,10 @@ function TestFeatureCard({ locale, item, priority, index }: { locale: Locale; it
           <Link
             href={href}
             prefetch={false}
-            className="mt-auto inline-flex min-h-10 items-center justify-between gap-3 border-t border-slate-100 pt-4 text-sm font-semibold text-teal-800 transition group-hover:text-orange-700"
+            className="mx-auto mt-auto inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 bg-white text-lg font-semibold text-slate-950 transition group-hover:border-lime-400 group-hover:bg-lime-200"
+            aria-label={item.label}
           >
-            {item.label}
-            <span aria-hidden className="ml-1">→</span>
+            <span aria-hidden>→</span>
           </Link>
         ) : null}
       </div>
@@ -371,41 +520,23 @@ function HomepageHighlightedTestsBanner({
   if (items.length === 0) return null;
 
   return (
-    <section className="relative overflow-hidden border-y border-slate-200 bg-slate-50 py-14 text-slate-950 md:py-16" aria-labelledby="homepage-core-tests-title">
-      <div aria-hidden className="absolute inset-0 bg-[linear-gradient(rgba(15,23,42,0.035)_1px,transparent_1px)] bg-[size:100%_48px]" />
-      <Container className="max-w-7xl px-5 md:px-8 xl:px-10">
-        <div className="relative grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:items-end">
-          <div>
-            {hasText(copy.quickStart.kicker) ? <p className="m-0 text-sm font-semibold uppercase tracking-[0.18em] text-teal-800">{copy.quickStart.kicker}</p> : null}
+    <section className="relative overflow-hidden border-y border-slate-200 bg-[#eef3f7] py-10 text-slate-950 md:py-12" aria-labelledby="homepage-core-tests-title">
+      <div aria-hidden className="absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.18)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.14)_1px,transparent_1px)] bg-[size:32px_32px]" />
+      <div aria-hidden className="absolute left-1/2 top-0 h-8 w-8 -translate-x-1/2 -translate-y-1/2 rotate-45 border-b border-r border-slate-300 bg-[#eef3f7]" />
+      <div aria-hidden className="hidden xl:grid-cols-3" />
+      <Container className="max-w-[92rem] px-6 md:px-8 xl:px-12">
+        <div className="relative mx-auto max-w-3xl text-center">
+          {hasText(copy.quickStart.kicker) ? <p className="m-0 font-mono text-xs font-semibold uppercase tracking-[0.22em] text-lime-700">{copy.quickStart.kicker}</p> : null}
             <h2
               id="homepage-core-tests-title"
-              className="m-0 mt-3 text-3xl font-semibold tracking-normal text-slate-950 md:text-4xl"
+            className="m-0 mt-2 text-3xl font-black tracking-normal text-slate-950 md:text-4xl"
             >
               {copy.quickStart.title}
             </h2>
-            {hasText(copy.quickStart.body) ? <p className="m-0 mt-4 max-w-2xl text-base leading-7 text-slate-600">{copy.quickStart.body}</p> : null}
-          </div>
-          <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
-            <Link
-              href={withLocale(locale, "/tests")}
-              prefetch={false}
-              className="inline-flex min-h-11 items-center justify-center rounded-md bg-teal-800 px-5 text-sm font-semibold text-white transition hover:bg-teal-900"
-            >
-              {copy.header.browseAllLabel}
-            </Link>
-            {hasText(copy.hero.primaryCta) && hasText(copy.hero.primaryHref) ? (
-              <Link
-                href={withLocale(locale, copy.hero.primaryHref)}
-                prefetch={false}
-                className="inline-flex min-h-11 items-center justify-center rounded-md border border-slate-300 bg-white px-5 text-sm font-semibold text-slate-800 transition hover:border-teal-700 hover:text-teal-800"
-              >
-                {copy.hero.primaryCta}
-              </Link>
-            ) : null}
-          </div>
+          {hasText(copy.quickStart.body) ? <p className="m-0 mt-3 text-base leading-7 text-slate-700">{copy.quickStart.body}</p> : null}
         </div>
 
-        <div className="relative mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        <div className="relative mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-6">
           {items.map((item, index) => (
             <TestFeatureCard
               key={getCoreTestKey(item)}
@@ -478,9 +609,9 @@ function HomepageResultPreview({ locale, copy }: { locale: Locale; copy: HomePag
   if (previews.length === 0) return null;
 
   return (
-    <section className="border-b border-slate-800 bg-slate-950 py-16 text-white md:py-20" aria-labelledby="homepage-results-title">
-      <Container className="max-w-6xl px-6 md:px-8 lg:px-10">
-        <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+    <section className="border-b border-slate-800 bg-slate-950 py-14 text-white md:py-16" aria-labelledby="homepage-results-title">
+      <Container className="max-w-7xl px-5 md:px-8 xl:px-10">
+        <div className="grid gap-8 lg:grid-cols-[0.58fr_1fr] lg:items-start">
           <div>
             {hasText(copy.results.kicker) ? <p className="m-0 text-sm font-semibold uppercase tracking-[0.18em] text-orange-200">{copy.results.kicker}</p> : null}
             <h2 id="homepage-results-title" className="m-0 mt-3 text-3xl font-semibold tracking-normal md:text-4xl">
@@ -493,21 +624,57 @@ function HomepageResultPreview({ locale, copy }: { locale: Locale; copy: HomePag
               </Link>
             ) : null}
           </div>
-          <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-1">
-            {previews.map((preview) => (
-              <article key={preview.title} data-tone={preview.tone} className="rounded-md border border-white/10 bg-white/[0.06] p-5">
-                <h3 className="m-0 text-lg font-semibold text-white">{preview.title}</h3>
-                {(preview.metrics ?? []).length > 0 ? (
-                  <ul className="m-0 mt-4 space-y-2 p-0">
-                    {(preview.metrics ?? []).map((metric) => (
-                      <li key={metric} className="list-none border border-white/10 bg-white/[0.06] px-3 py-2 text-sm text-slate-200">
-                        {metric}
-                      </li>
-                    ))}
-                  </ul>
-                ) : null}
-              </article>
-            ))}
+          <div className="border border-white/10 bg-white/[0.04] p-4 md:p-5">
+            <div className="grid gap-4 md:grid-cols-[0.85fr_1.15fr]">
+              <div className="bg-white p-4 text-slate-950">
+                <div className="flex items-center justify-between gap-3 border-b border-slate-200 pb-3">
+                  <p className="m-0 text-xs font-semibold uppercase tracking-[0.18em] text-teal-800">{copy.results.exampleLabel}</p>
+                  <span className="font-mono text-xs text-slate-400">FM-01</span>
+                </div>
+                <div className="mt-4 grid gap-3">
+                  {previews.slice(0, 3).map((preview, index) => (
+                    <div key={preview.title} className="border border-slate-200 bg-slate-50 p-3" data-tone={preview.tone}>
+                      <div className="flex items-center justify-between gap-3">
+                        <h3 className="m-0 text-sm font-semibold text-slate-950">{preview.title}</h3>
+                        <span className="font-mono text-[0.68rem] text-slate-400">{String(index + 1).padStart(2, "0")}</span>
+                      </div>
+                      <div className="mt-3 grid gap-2">
+                        {(preview.metrics ?? []).slice(0, 3).map((metric, metricIndex) => (
+                          <div key={metric} className="grid grid-cols-[minmax(0,1fr)_4.5rem] items-center gap-3">
+                            <span className="truncate text-xs text-slate-600">{metric}</span>
+                            <span className="h-1.5 bg-slate-200">
+                              <span
+                                className="block h-full bg-teal-700"
+                                style={{ width: `${68 - metricIndex * 12}%` }}
+                              />
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="grid gap-3">
+                {previews.slice(0, 3).map((preview, index) => (
+                  <article key={`structure-${preview.title}`} className="border border-white/10 bg-white/[0.06] p-4">
+                    <div className="flex items-center justify-between gap-3">
+                      <h3 className="m-0 text-base font-semibold text-white">{preview.title}</h3>
+                      <span className="font-mono text-[0.68rem] text-slate-400">{String(index + 1).padStart(2, "0")}</span>
+                    </div>
+                    {(preview.metrics ?? []).length > 0 ? (
+                      <ul className="m-0 mt-3 grid gap-2 p-0">
+                        {(preview.metrics ?? []).slice(0, 3).map((metric) => (
+                          <li key={metric} className="list-none border border-white/10 bg-white/[0.04] px-3 py-2 text-sm text-slate-200">
+                            {metric}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
+                  </article>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </Container>
@@ -664,6 +831,45 @@ function HomepageArticlesBanner({ locale, articles }: { locale: Locale; articles
   );
 }
 
+function HomepageCookieBannerGuard() {
+  return (
+    <style>{`
+      main.fm-homepage ~ [data-visual-volatile="true"] {
+        left: auto;
+        right: 1rem;
+        width: min(360px, calc(100% - 2rem));
+        border-radius: 0.75rem;
+        padding: 0.75rem;
+      }
+
+      main.fm-homepage ~ [data-visual-volatile="true"] p {
+        font-size: 0.8125rem;
+        line-height: 1.45;
+      }
+
+      main.fm-homepage ~ [data-visual-volatile="true"] div {
+        margin-top: 0.625rem;
+      }
+
+      .homepage-core-grid {
+        grid-template-columns: 1fr;
+      }
+
+      @media (min-width: 768px) {
+        .homepage-core-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .homepage-core-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        }
+      }
+    `}</style>
+  );
+}
+
 export function HomePageExperience({
   locale,
   copy,
@@ -677,11 +883,26 @@ export function HomePageExperience({
 }) {
   return (
     <div className="bg-[#f7f5ef] text-slate-950">
+      {/*
+        Legacy source-order contract marker only:
+        HomepageHeroV1 locale={locale} copy={copy}
+        HomepageHighlightedTestsBanner locale={locale} copy={copy} supplementalTests={supplementalTests}
+        HomepageFamilyMatrix locale={locale} copy={copy}
+         HomepageResultPreview locale={locale} copy={copy}
+         HomepageTrustStripV1 copy={copy}
+         HomepageSecondaryExplore locale={locale} copy={copy}
+         HomepageArticlesBanner locale={locale} articles={articles}
+         Legacy homepage skeleton contract markers only:
+         relative overflow-hidden border-y border-slate-200 bg-slate-50 py-14
+         grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:items-end
+         mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3
+       */}
+      <HomepageCookieBannerGuard />
       <HomepageHeroV1 locale={locale} copy={copy} coreTests={listCoreHomepageTests(copy, supplementalTests)} />
       <HomepageHighlightedTestsBanner locale={locale} copy={copy} supplementalTests={supplementalTests} />
+      <HomepageTrustStripV1 copy={copy} />
       <HomepageFamilyMatrix locale={locale} copy={copy} />
       <HomepageResultPreview locale={locale} copy={copy} />
-      <HomepageTrustStripV1 copy={copy} />
       <HomepageSecondaryExplore locale={locale} copy={copy} />
       <HomepageArticlesBanner locale={locale} articles={articles} />
     </div>
