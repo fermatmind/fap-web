@@ -4461,6 +4461,105 @@ prs:
       auto_merge: true
     rollback_note: "Remove the read-only SEO issue queue generator script, generated CSV, generated queue additions, focused generator contract test, scope helper entry, doc update, and SEO-ISSUE-QUEUE-01 train metadata."
 
+  - id: SEO-ISSUE-QUEUE-02
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/seo-issue-queue-02-dashboard-artifact-shell
+    base: main
+    depends_on:
+      - SEO-ISSUE-QUEUE-01
+      - SEO-DASH-00B
+      - CMS-OPS-RELEASE-02
+    mode: execute
+    risk_level: L1
+    status: in_progress
+    title: "feat(ops): connect SEO dashboard shell to issue queue artifact"
+    goal: "Connect the existing /ops/seo-operations dashboard shell to the checked-in SEO issue queue artifact as a contract-backed mock read model, while preserving fap-web as a read-only ops shell and avoiding CMS writes, API integration, search submission, content generation, sitemap/llms mutation, deployment, env reads, cookie reads, or token reads."
+    in_scope:
+      - components/ops/seo/IssueQueueTable.tsx
+      - components/ops/seo/SeoOperationsDashboard.tsx
+      - components/ops/seo/mockSeoOperations.ts
+      - components/ops/seo/seoIssueQueueArtifactAdapter.ts
+      - tests/contracts/seo-issue-queue-dashboard-shell.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - <workspace>/fap-api changes
+      - backend runtime files
+      - migrations
+      - API routes
+      - Filament resources
+      - CMS schema changes
+      - CMS content mutation
+      - CMS draft creation
+      - article/page publication
+      - app/api/**
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - app/api/content-release/revalidate/route.ts
+      - scripts/seo/**
+      - docs/seo/generated/**
+      - public/**
+      - lib/api/**
+      - lib/cms/**
+      - collectors
+      - GSC/Baidu/GA4/IndexNow/DataForSEO/Apify integrations
+      - search channel submission
+      - auto content generation
+      - sitemap mutation
+      - llms mutation
+      - env files
+      - cookie reads
+      - token reads
+      - deploy scripts
+      - production changes
+      - package.json
+      - pnpm-lock.yaml
+      - next.config.mjs
+      - next-sitemap.config.js
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/seo-issue-queue-dashboard-shell.contract.test.ts tests/contracts/seo-issue-queue.contract.test.ts tests/contracts/seo-issue-queue-generator.contract.test.ts
+      - pnpm test:contract
+      - pnpm seo:check-sitemap
+      - pnpm seo:check-mobile
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - git diff --check
+      - git diff --cached --check
+    acceptance:
+      - /ops/seo-operations consumes docs/seo/generated/seo-issue-queue.v1.json through a typed adapter or equivalent contract-backed mock.
+      - Issue queue rows are derived from checked-in sample issues and expose source, severity, focus, status, owner, path, and page type for existing filters and tables.
+      - KPI cards reflect the artifact issue count and blocked queue count while trend, keyword, and page performance panels may remain mock shell data.
+      - UI labels clearly identify the source as contract-backed mock/sample-only artifact data, not production seo_intel or CMS truth.
+      - Batch actions remain non-mutating frontend intents and do not write CMS content, publish, revalidate, or submit URLs.
+      - No runtime API integration, CMS schema/API/Filament work, collector, search platform submission, sitemap/llms mutation, content generation, deployment, production access, env reads, cookie reads, or token reads.
+    must_not_touch:
+      - <workspace>/fap-api
+      - app/api/**
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - app/api/content-release/revalidate/route.ts
+      - scripts/seo/**
+      - docs/seo/generated/**
+      - public/**
+      - lib/api/**
+      - lib/cms/**
+      - env files
+      - deploy scripts
+      - package.json
+      - pnpm-lock.yaml
+      - next.config.mjs
+      - next-sitemap.config.js
+      - payment/order/report/email/recommendation/scoring/profile code
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    rollback_note: "Remove the SEO issue queue artifact adapter, dashboard shell wiring, focused contract test, scope helper entry, and SEO-ISSUE-QUEUE-02 train metadata."
+
   - id: AUDIT-WEB-CMS-LINK-XSS
     repo: fap-web
     repo_path: <workspace>/fap-web

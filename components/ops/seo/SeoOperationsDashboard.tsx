@@ -18,7 +18,6 @@ import { OpsShell } from "@/components/ops/shared/OpsShell";
 import { StatusBadge, type StatusTone } from "@/components/ops/shared/StatusBadge";
 import { IssueQueueTable } from "@/components/ops/seo/IssueQueueTable";
 import {
-  mockSeoOperationsData,
   type KeywordRow,
   type PagePerformanceRow,
   type SeoContentType,
@@ -26,6 +25,7 @@ import {
   type SeoIssueTask,
   type TrafficPoint,
 } from "@/components/ops/seo/mockSeoOperations";
+import { seoIssueQueueArtifactOperationsData } from "@/components/ops/seo/seoIssueQueueArtifactAdapter";
 import type { Locale } from "@/lib/i18n/locales";
 import { cn } from "@/lib/utils";
 
@@ -190,6 +190,7 @@ function TrafficTrendPanel({ points }: { points: TrafficPoint[] }) {
 }
 
 export function SeoOperationsDashboard({ locale }: { locale: Locale }) {
+  const operationsData = seoIssueQueueArtifactOperationsData;
   const [search, setSearch] = useState("");
   const [contentType, setContentType] = useState<SeoContentType>("all");
   const [issueFocus, setIssueFocus] = useState<SeoIssueFocus>("all");
@@ -198,14 +199,14 @@ export function SeoOperationsDashboard({ locale }: { locale: Locale }) {
   const [notice, setNotice] = useState<string | null>(null);
 
   const filteredKeywords = useMemo(() => {
-    return mockSeoOperationsData.keywords.filter((keyword) => {
+    return operationsData.keywords.filter((keyword) => {
       const typeOk = contentType === "all" || keyword.type === contentType;
       return typeOk && matchesSearch([keyword.term, keyword.intent, keyword.primaryUrl], search);
     });
-  }, [contentType, search]);
+  }, [contentType, operationsData.keywords, search]);
 
   const filteredPages = useMemo(() => {
-    const rows = mockSeoOperationsData.pages.filter((page) => {
+    const rows = operationsData.pages.filter((page) => {
       const typeOk = contentType === "all" || page.type === contentType;
       const issueOk = issueFocus === "all" || page.issues.includes(issueFocus);
       return typeOk && issueOk && matchesSearch([page.title, page.path, page.type], search);
@@ -216,10 +217,10 @@ export function SeoOperationsDashboard({ locale }: { locale: Locale }) {
       if (sort === "freshness") return a.lastSeen.localeCompare(b.lastSeen);
       return a.readiness - b.readiness;
     });
-  }, [contentType, issueFocus, search, sort]);
+  }, [contentType, issueFocus, operationsData.pages, search, sort]);
 
   const filteredTasks = useMemo(() => {
-    const rows = mockSeoOperationsData.tasks.filter((task) => {
+    const rows = operationsData.tasks.filter((task) => {
       const typeOk = contentType === "all" || task.type === contentType;
       const issueOk = issueFocus === "all" || task.focus === issueFocus;
       return typeOk && issueOk && matchesSearch([task.title, task.path, task.owner, task.surface], search);
@@ -230,7 +231,7 @@ export function SeoOperationsDashboard({ locale }: { locale: Locale }) {
       if (sort === "freshness") return a.due.localeCompare(b.due);
       return severityRank[a.severity] - severityRank[b.severity];
     });
-  }, [contentType, issueFocus, search, sort]);
+  }, [contentType, issueFocus, operationsData.tasks, search, sort]);
 
   const selectedVisibleCount = filteredTasks.filter((task) => selectedIds.has(task.id)).length;
 
@@ -318,8 +319,8 @@ export function SeoOperationsDashboard({ locale }: { locale: Locale }) {
       <OpsHeader
         eyebrow="SEO 与增长"
         title="SEO 运营看板"
-        description="面向运营的只读 dashboard shell。当前使用 mock 数据，后续接入 seo_intel 观测层和 CMS API 资源摘要。"
-        meta={<StatusBadge tone="warning">Mock 数据</StatusBadge>}
+        description="面向运营的只读 dashboard shell。任务队列读取本地 issue queue artifact；关键词、趋势、页面表现仍保留 mock，后续接入 seo_intel 观测层和 CMS API 资源摘要。"
+        meta={<StatusBadge tone="info">Contract-backed mock</StatusBadge>}
         actions={
           <>
             <button
@@ -356,7 +357,7 @@ export function SeoOperationsDashboard({ locale }: { locale: Locale }) {
         />
 
         <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          {mockSeoOperationsData.kpis.map((kpi) => (
+          {operationsData.kpis.map((kpi) => (
             <KpiCard
               key={kpi.id}
               label={kpi.label}
@@ -381,7 +382,7 @@ export function SeoOperationsDashboard({ locale }: { locale: Locale }) {
         </div>
 
         <div className="grid gap-4 xl:grid-cols-[minmax(0,1.05fr)_minmax(360px,0.95fr)]">
-          <TrafficTrendPanel points={mockSeoOperationsData.traffic} />
+          <TrafficTrendPanel points={operationsData.traffic} />
 
           <section className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
             <div className="flex items-start justify-between gap-3">
@@ -415,7 +416,7 @@ export function SeoOperationsDashboard({ locale }: { locale: Locale }) {
               <h2 className="text-sm font-semibold text-slate-950">关键词</h2>
               <p className="mt-1 text-xs text-slate-500">按意图、排名和主要 URL 扫描增长机会。</p>
             </div>
-            <StatusBadge tone="neutral">更新 {mockSeoOperationsData.generatedAt}</StatusBadge>
+            <StatusBadge tone="neutral">更新 {operationsData.generatedAt}</StatusBadge>
           </div>
           <DataTable rows={filteredKeywords} columns={keywordColumns} rowKey={(row) => row.term} emptyState="当前筛选没有关键词。" />
         </section>
@@ -431,7 +432,7 @@ export function SeoOperationsDashboard({ locale }: { locale: Locale }) {
         <section className="space-y-3">
           <div>
             <h2 className="text-sm font-semibold text-slate-950">问题队列</h2>
-            <p className="mt-1 text-xs text-slate-500">这些任务未来来自 seo_intel issue summary 与 CMS publish checklist。</p>
+            <p className="mt-1 text-xs text-slate-500">这些任务来自 SEO-ISSUE-QUEUE-01 sample-only artifact；未来替换为 seo_intel issue summary 与 CMS publish checklist。</p>
           </div>
           <IssueQueueTable
             tasks={filteredTasks}

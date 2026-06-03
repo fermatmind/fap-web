@@ -26,6 +26,12 @@ const statusLabel: Record<SeoTaskStatus, string> = {
   ready: "可执行",
 };
 
+const sourceLabel: Record<SeoIssueTask["source"], string> = {
+  seo_intel_mock: "seo_intel mock",
+  cms_api_mock: "CMS API mock",
+  issue_queue_artifact: "Issue queue artifact",
+};
+
 function TaskIcon({ status }: { status: SeoTaskStatus }) {
   const className = "h-4 w-4";
   if (status === "blocked") return <ShieldAlert className={className} aria-hidden="true" />;
@@ -110,7 +116,7 @@ export function IssueQueueTable({
                       <div className="font-medium text-slate-800">{task.owner}</div>
                       <div className="mt-1 text-xs text-slate-500">{task.due}</div>
                     </td>
-                    <td className="px-4 py-3 text-xs text-slate-500">{task.source}</td>
+                    <td className="px-4 py-3 text-xs text-slate-500">{sourceLabel[task.source]}</td>
                   </tr>
                 );
               })

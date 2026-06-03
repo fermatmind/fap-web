@@ -6480,6 +6480,117 @@
       "merge_sha": "cae0a98c24c5894478b80b4809f78239068f7705"
     },
     {
+      "id": "SEO-ISSUE-QUEUE-02",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/seo-issue-queue-02-dashboard-artifact-shell",
+      "base": "main",
+      "depends_on": [
+        "SEO-ISSUE-QUEUE-01",
+        "SEO-DASH-00B",
+        "CMS-OPS-RELEASE-02"
+      ],
+      "status": "pr_open",
+      "train_scope": "seo_issue_queue_dashboard_artifact_shell",
+      "risk_level": "L1",
+      "title": "feat(ops): connect SEO dashboard shell to issue queue artifact",
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized adding SEO-ISSUE-QUEUE-02 to docs/codex/pr-train.yaml and docs/codex/pr-train-state.json, then executing the dashboard shell artifact PR."
+        },
+        "dependency": {
+          "status": "pass",
+          "evidence": "Dependencies are merged in GitHub/main: SEO-ISSUE-QUEUE-01 PR #1017 merge cae0a98c24c5894478b80b4809f78239068f7705; SEO-DASH-00B PR #831 merge db2a8e8cf53dc6668dfc507484c3a0b214daf3ad; CMS-OPS-RELEASE-02 PR #1011 merge d842a1a021013b09fb56e9ce84d0c7d959ba239b."
+        },
+        "branch_preflight": {
+          "status": "pass",
+          "evidence": "Created codex/seo-issue-queue-02-dashboard-artifact-shell from synced main after SEO-ISSUE-QUEUE-01 ledger reconciliation and CMS-OPS-IA scope revalidate repair PRs were merged; worktree was clean."
+        },
+        "scope_initialization": {
+          "status": "pass",
+          "evidence": "Implemented dashboard artifact adapter, UI wiring, focused contract, scope helper entry, and PR train metadata without API integration, CMS writes, content generation, search submission, sitemap/llms mutation, deployment, production access, env reads, cookie reads, or token reads."
+        },
+        "focused_contract": {
+          "status": "pass",
+          "evidence": "pnpm exec vitest run tests/contracts/seo-issue-queue-dashboard-shell.contract.test.ts tests/contracts/seo-issue-queue.contract.test.ts tests/contracts/seo-issue-queue-generator.contract.test.ts passed: 3 files, 22 tests."
+        },
+        "full_contract": {
+          "status": "pass",
+          "evidence": "pnpm test:contract passed: 437 files, 2468 tests."
+        },
+        "typecheck": {
+          "status": "pass",
+          "evidence": "pnpm typecheck"
+        },
+        "sitemap_check": {
+          "status": "pass",
+          "evidence": "pnpm seo:check-sitemap passed: 261 urls."
+        },
+        "mobile_seo_check": {
+          "status": "pass",
+          "evidence": "pnpm seo:check-mobile passed: mobile SEO gate ok; routeSamples=8; privateFlowDenySamples=7; runtimeFetches=0; runtimeBehaviorChanged=false; urlSetChanged=false; sitemapChanged=false; llmsChanged=false."
+        },
+        "build": {
+          "status": "pass",
+          "evidence": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build passed. Postbuild regenerated public/sitemap.xml, which was restored because public/** is out of scope."
+        },
+        "browser_preview": {
+          "status": "pass",
+          "evidence": "In-app Browser checked http://127.0.0.1:3007/zh/ops/seo-operations on desktop and mobile viewport: title, Contract-backed mock badge, issue queue, and Issue queue artifact source rendered; no page-level horizontal overflow detected on mobile."
+        },
+        "json_yaml_parse": {
+          "status": "pass",
+          "evidence": "python3 -m json.tool docs/codex/pr-train-state.json and PyYAML parse of docs/codex/pr-train.yaml passed."
+        },
+        "diff_check": {
+          "status": "pass",
+          "evidence": "git diff --check passed before staging."
+        },
+        "cached_diff_check": {
+          "status": "pass",
+          "evidence": "git diff --cached --check passed before commit with only the SEO-ISSUE-QUEUE-02 allowed files staged."
+        },
+        "scope_validation": {
+          "status": "pass",
+          "evidence": "Changed files are confined to SEO-ISSUE-QUEUE-02 dashboard shell artifact adapter, focused contract, scope helper, and PR train metadata scope; no backend, API, CMS schema, content, public sitemap/llms, search platform, env, cookie, token, deploy, or production files remain modified."
+        },
+        "pr_created": {
+          "status": "pass",
+          "evidence": "Opened GitHub PR #1020 at https://github.com/fermatmind/fap-web/pull/1020."
+        }
+      },
+      "failure_reason": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1020",
+      "commit_sha": "d4ae20cd",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [],
+      "history": [
+        {
+          "at": "2026-06-03T20:43:24+08:00",
+          "status": "in_progress",
+          "summary": "Started user-authorized SEO-ISSUE-QUEUE-02 dashboard shell artifact PR to connect /ops/seo-operations to the checked-in SEO issue queue artifact as contract-backed mock data, with no runtime API integration, CMS writes, content generation, search submission, sitemap/llms mutation, deployment, production access, env reads, cookie reads, or token reads."
+        },
+        {
+          "at": "2026-06-03T20:58:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Implemented the artifact-backed dashboard shell adapter and passed focused contracts, full contract suite, sitemap/mobile SEO gates, typecheck, production-parameter build, JSON/YAML parse, and desktop/mobile in-app Browser preview."
+        },
+        {
+          "at": "2026-06-03T21:03:00+08:00",
+          "status": "committed",
+          "summary": "Recorded implementation commit 7e1994b8 for SEO-ISSUE-QUEUE-02 before push."
+        },
+        {
+          "at": "2026-06-03T21:05:00+08:00",
+          "status": "pr_open",
+          "summary": "Pushed SEO-ISSUE-QUEUE-02 and opened GitHub PR #1020; waiting for GitHub checks before merge review."
+        }
+      ]
+    },
+    {
       "id": "SEO-DASH-03A",
       "repo": "fap-web",
       "repo_path": "<workspace>/fap-web",
