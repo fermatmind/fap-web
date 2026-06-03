@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-04T00:31:00+08:00",
+  "updated_at": "2026-06-04T00:42:00+08:00",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -18166,7 +18166,7 @@
       "base": "main",
       "depends_on": [],
       "title": "chore(codex): add commercial readiness sprint train",
-      "status": "pr_open",
+      "status": "merged",
       "commit_sha": "1a4fd7c0da45feee7532d839d57d61947ac9e198",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1023",
       "checks": {
@@ -18189,9 +18189,9 @@
         }
       },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-03T16:35:09Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "events": [
         {
           "at": "2026-06-04T00:23:51+08:00",
@@ -18212,6 +18212,11 @@
           "at": "2026-06-04T00:31:00+08:00",
           "status": "pr_open",
           "summary": "Opened GitHub PR #1023 for COMMERCIAL-READINESS-TRAIN-00."
+        },
+        {
+          "at": "2026-06-04T00:35:09+08:00",
+          "status": "merged",
+          "summary": "Reconciled PR #1023 as merged with squash merge commit 7cbf3e5cfccb87cd4ab79ce96ba13356039c05e0; origin/main contains the merge commit, main equals origin/main, worktree is clean, and local/remote task branches are deleted."
         }
       ]
     },
@@ -18225,10 +18230,26 @@
         "COMMERCIAL-READINESS-TRAIN-00"
       ],
       "title": "docs(privacy): scan private route and order result safety",
-      "status": "planned",
+      "status": "local_checks_passed",
       "commit_sha": null,
       "pr_url": null,
-      "checks": {},
+      "checks": {
+        "dependency": {
+          "status": "pass",
+          "evidence": "COMMERCIAL-READINESS-TRAIN-00 merged as fap-web PR #1023 with merge commit 7cbf3e5cfccb87cd4ab79ce96ba13356039c05e0."
+        },
+        "scan_report": {
+          "status": "pass",
+          "evidence": "Created docs/audits/privacy-order-result-safety-scan-2026-06-03.md with GO/NO-GO, inventory, exposure matrix, analytics leakage matrix, historical dashboard-risk reconciliation, P0 blockers, follow-up scope, stop conditions, and validation commands."
+        },
+        "pnpm exec vitest run tests/contracts/private-noindex.contract.test.ts tests/contracts/analytics-payload-privacy.contract.test.ts tests/contracts/tracking-whitelist.contract.test.ts": {
+          "status": "pass",
+          "tests": "20 passed"
+        },
+        "pnpm typecheck": {
+          "status": "pass"
+        }
+      },
       "failure_reason": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -18238,6 +18259,11 @@
           "at": "2026-06-04T00:23:51+08:00",
           "status": "planned",
           "summary": "Registered Day 1 docs-only privacy/order/result safety scan. No runtime, tests, CMS, private URL access, search submission, or deployment is authorized by this entry."
+        },
+        {
+          "at": "2026-06-04T00:42:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Completed docs-only privacy/order/result safety scan. Focused private noindex, analytics payload privacy, tracking whitelist contracts, and typecheck passed; no runtime or tests changed."
         }
       ]
     },
