@@ -30,15 +30,17 @@ This is a docs and contract PR only. It does not implement backend schema, Filam
 5. `publish_executed`
 6. `revalidate_requested`
 7. `revalidate_completed`
-8. `post_publish_smoke_passed`
-9. `observe_24h`
-10. `closed`
+8. `sitemap_convergence_verified`
+9. `post_publish_smoke_passed`
+10. `observe_24h`
+11. `closed`
 
 Failure phases:
 
 - `release_preflight_failed`
 - `publish_failed`
 - `revalidate_failed`
+- `sitemap_convergence_failed`
 - `post_publish_smoke_failed`
 - `rollback_required`
 - `rollback_completed`
@@ -97,6 +99,29 @@ The `fap-web` revalidate consumer must:
 - clear only approved public cache signals;
 - not publish content, mutate CMS records, submit search URLs, rewrite sitemap eligibility, or change robots policy.
 
+## Sitemap Static Artifact Convergence Gate
+
+`sitemap.xml` is currently a `fap-web` static build artifact generated during `postbuild`. Content release revalidation can refresh article pages, list pages, `/llms.txt`, and `/llms-full.txt`, but it cannot rewrite the already-deployed static sitemap artifact.
+
+For any CMS publish that makes a resource public, indexable, and sitemap-eligible, the release checklist must add a sitemap convergence gate after revalidation and before search submission:
+
+| Gate | Required evidence |
+| --- | --- |
+| Backend authority | Backend public detail/API and backend sitemap source include the published canonical URL, or explicitly exclude it with the approved discoverability decision. |
+| Static artifact plan | The release plan records whether the current production `sitemap.xml` already contains the URL, whether a `fap-web` rebuild/deploy is required, or whether an approved dynamic sitemap route has replaced the static artifact. |
+| Frontend regeneration | Until dynamic sitemap exists, run a controlled `fap-web` rebuild/deploy so `postbuild` regenerates `public/sitemap.xml` from CMS/API authority. |
+| Live convergence | Production `https://fermatmind.com/sitemap.xml` includes every newly published sitemap-eligible canonical URL and excludes draft, noindex, private, tokenized, result, order, payment, share, and preview URLs. |
+| Search hold | GSC URL submission, Baidu push, IndexNow, and sitemap submission remain blocked until live sitemap convergence passes. |
+
+If the live sitemap is missing a published sitemap-eligible URL after article/page/API/llms smoke passes, record `sitemap_convergence_failed` and choose one of:
+
+- `frontend_rebuild_deploy_required` when the current static artifact is stale;
+- `runtime_sitemap_fix_required` when regeneration still omits an eligible backend/CMS URL;
+- `backend_discoverability_fix_required` when backend authority incorrectly marks the URL ineligible;
+- `no_submit_expected` when the backend/CMS decision intentionally excludes the URL.
+
+Do not hand-edit `public/sitemap.xml` as a production fix. The artifact must come from the configured generator or an approved dynamic sitemap route.
+
 ## Post-Publish Smoke
 
 Minimum smoke checks:
@@ -108,13 +133,14 @@ Minimum smoke checks:
 | Canonical | Canonical self-points or points to approved localized canonical. |
 | Robots | Robots/indexability matches backend CMS decision. |
 | Hreflang | Published counterpart links are present only when counterpart is published and eligible. |
-| Sitemap | Inclusion/exclusion matches backend discoverability eligibility. |
+| Sitemap | Backend source and live `sitemap.xml` inclusion/exclusion match backend discoverability eligibility; static artifact convergence is verified when applicable. |
 | llms | Inclusion/exclusion matches backend llms eligibility. |
 | Structured data | Schema is grounded in visible content and allowed resource type. |
 | Related modules | Related tests/topics/articles/careers are backend/CMS sourced only. |
 | Private URL leak | No result/order/payment/checkout/report/share/auth/account URL appears in public content. |
 | Tracking | Release-safe CTA/tracking IDs are present without PII/raw order/raw attempt/payment payloads. |
 | Cache | Revalidated paths include expected public paths and rejected paths are investigated. |
+| Search submission hold | Search submission surfaces remain blocked until live sitemap convergence passes. |
 
 ## Failure And Rollback Policy
 
@@ -125,6 +151,7 @@ Minimum smoke checks:
 | Private/noindex URL in release plan | `release_preflight_failed` | Remove URL and rerun release plan. |
 | Publish command failure | `publish_failed` | Keep previous public state; record backend exception summary. |
 | Revalidate rejection | `revalidate_failed` | Keep publish state; investigate rejected paths; rerun allowed paths only. |
+| Static sitemap artifact stale after publish | `sitemap_convergence_failed` | Keep publish state; run controlled frontend rebuild/deploy or approved dynamic sitemap fix before search submission. |
 | Smoke status/canonical/robots/body failure | `post_publish_smoke_failed` | Mark `rollback_required` or `forward_fix_required` based on severity. |
 | Search/SEO issue after publish | `observe_24h` or `forward_fix_required` | Create human task; no automatic content mutation. |
 | High-risk claim leak | `rollback_required` | Unpublish or noindex through backend/CMS authority and audit. |
@@ -146,6 +173,8 @@ Each release plan must record:
 - checklist result;
 - release approval timestamp;
 - revalidation request and response summary;
+- sitemap convergence summary;
+- search submission decision;
 - post-publish smoke summary;
 - rollback/forward-fix decision;
 - sanitized SEO issue evidence ids when used.
@@ -161,6 +190,8 @@ Release Ops should expose these read/write affordances in the backend/CMS implem
 - reviewer decision and timestamp;
 - release plan diff;
 - revalidate accepted/rejected paths;
+- sitemap convergence status;
+- search submission hold/release status;
 - post-publish smoke results;
 - rollback/forward-fix queue;
 - sanitized linked SEO issue summaries.
@@ -177,6 +208,7 @@ This contract intentionally defers:
 - release job/queue workers;
 - `fap-web` revalidate route changes;
 - sitemap/llms generation changes;
+- dynamic sitemap route implementation;
 - search-channel submission;
 - production cache purge;
 - content publish/unpublish execution;
