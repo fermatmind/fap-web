@@ -11001,6 +11001,69 @@ prs:
       - Draft exposure remains fail-closed.
     rollback_note: "Delete or archive the draft through the authorized CMS process if the draft-only canary is withdrawn."
 
+  - id: SEO-SITEMAP-P0-05
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/seo-sitemap-p0-05-url-truth-policy
+    base: main
+    depends_on: []
+    mode: execute
+    train_scope: seo_sitemap_url_truth_governance
+    status: in_progress
+    title: "docs(seo): lock sitemap URL truth and career hub policy"
+    goal: "Explain production sitemap 2270 vs local public/sitemap.xml 261, lock production sitemap/API URL truth, decide /zh/career/jobs and /zh sitemap policy, and add focused contracts without changing runtime, CMS content, career jobs behavior, sitemap generation, llms generation, search submission, collectors, or SEO dashboard data integration."
+    in_scope:
+      - docs/operations/sitemap-url-policy-decision-2026-06-02.md
+      - docs/seo/url-inventory-governance.md
+      - docs/seo/generated/url-inventory.v1.json
+      - docs/seo/generated/url-inventory.v1.csv
+      - tests/contracts/url-inventory-generator.contract.test.ts
+      - tests/contracts/core-topic-graph-inventory.contract.test.ts
+      - tests/contracts/duplicate-seo-entities.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - tests/contracts/internal-link-orphan-detector.contract.test.ts
+      - tests/contracts/sitemap-url-policy-decision.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - app/**
+      - components/**
+      - lib/**
+      - public/sitemap.xml
+      - sitemap runtime
+      - llms runtime
+      - CMS content
+      - CMS draft creation
+      - publishing
+      - career jobs runtime
+      - GSC, Baidu API, IndexNow, or search platform submissions
+      - collector or SEO dashboard data integration
+      - adding /zh, /en/career/jobs, or /zh/career/jobs to sitemap
+    required_local_checks:
+      - node scripts/seo/generate-url-inventory.mjs --sitemap=https://fermatmind.com/sitemap.xml --site-url=https://fermatmind.com --json
+      - pnpm exec vitest run tests/contracts/internal-link-orphan-detector.contract.test.ts tests/contracts/core-topic-graph-inventory.contract.test.ts tests/contracts/duplicate-seo-entities.contract.test.ts
+      - pnpm exec vitest run tests/contracts/url-inventory-generator.contract.test.ts tests/contracts/url-exposure-policy.contract.test.ts tests/contracts/sitemap-authority-adapters.contract.test.ts tests/contracts/sitemap-url-policy-decision.contract.test.ts
+      - pnpm test:contract
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - ruby -e 'require "yaml"; YAML.load_file("docs/codex/pr-train.yaml"); puts "YAML parse ok"'
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: false
+    next_task: BACKEND-RUNTIME
+    acceptance:
+      - Production sitemap 2270 vs local public/sitemap.xml 261 is explained without changing runtime.
+      - /zh remains intentionally excluded from sitemap under the current root canonical strategy.
+      - /en/career/jobs and /zh/career/jobs remain intentionally excluded from sitemap while the career jobs index shell is launch-quarantined.
+      - Production sitemap plus backend/CMS public APIs are documented as URL truth.
+      - Generated URL inventory is regenerated from production sitemap for review.
+      - No CMS content, career jobs runtime, sitemap runtime, llms runtime, search submission, collector, or SEO dashboard data integration is changed.
+    rollback_note: "Revert the sitemap URL policy docs, generated URL inventory artifacts, focused contract test, and SEO-SITEMAP-P0-05 train metadata if this URL truth policy is withdrawn."
+
   - id: IQ-FE-BANK-SWITCH-01
     repo: fap-web
     repo_path: <workspace>/fap-web

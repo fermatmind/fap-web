@@ -5,6 +5,7 @@ import { execFileSync } from "node:child_process";
 import { describe, expect, it } from "vitest";
 
 const ROOT = process.cwd();
+const INVENTORY_MAX_BUFFER = 64 * 1024 * 1024;
 
 type CoreTopicGraphInventory = {
   version: string;
@@ -38,6 +39,7 @@ function runInventory(...args: string[]): CoreTopicGraphInventory {
   const output = execFileSync("node", ["scripts/seo/generate-core-topic-graph-inventory.mjs", ...args], {
     cwd: ROOT,
     encoding: "utf8",
+    maxBuffer: INVENTORY_MAX_BUFFER,
   });
   return JSON.parse(output) as CoreTopicGraphInventory;
 }
