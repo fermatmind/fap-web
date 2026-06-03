@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-04T00:58:00+08:00",
+  "updated_at": "2026-06-04T01:01:00+08:00",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -18295,9 +18295,9 @@
         "PRIVACY-ORDER-RESULT-SAFETY-SCAN-01"
       ],
       "title": "docs(analytics): scan commercial event taxonomy",
-      "status": "local_checks_passed",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "pr_open",
+      "commit_sha": "9b4d4e6eee52edf9e6fcf05fce01e923a9d0574c",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1025",
       "checks": {
         "dependency": {
           "status": "pass",
@@ -18337,6 +18337,11 @@
           "at": "2026-06-04T00:58:00+08:00",
           "status": "local_checks_passed",
           "summary": "Completed docs-only commercial event taxonomy scan. Focused tracking whitelist, analytics payload privacy, SEO CMS article-to-test click contracts, and typecheck passed; runtime and tests are unchanged."
+        },
+        {
+          "at": "2026-06-04T01:01:00+08:00",
+          "status": "pr_open",
+          "summary": "Opened GitHub PR #1025 for ANALYTICS-COMMERCIAL-EVENTS-SCAN-01; required GitHub checks are pending."
         }
       ]
     },

@@ -4260,7 +4260,7 @@ prs:
       - SEO-COMPETITOR-URL-01
     mode: execute
     risk_level: L1
-    status: in_progress
+    status: pr_open
     title: "docs(seo): define SEO issue queue read model"
     goal: "Define the sanitized SEO issue queue read model for URL truth, sitemap/llms, GSC, Baidu, GA4, CMS release/draft, competitor inventory, and manual review signals, including source hierarchy, issue keys, field schema, issue types, severity, lifecycle, role boundaries, release integration, sample issues, risk boundaries, and deferred runtime work without changing runtime, backend, CMS schema, APIs, Filament resources, migrations, collectors, dashboard UI, content, sitemap/llms generation, search channels, env, deploy, or production behavior."
     in_scope:
