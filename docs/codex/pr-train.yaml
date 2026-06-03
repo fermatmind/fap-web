@@ -4569,7 +4569,7 @@ prs:
       - SEO-ISSUE-QUEUE-02
     mode: execute
     risk_level: L1
-    status: in_progress
+    status: merged
     title: "docs(seo): reconcile issue queue dashboard artifact state"
     goal: "Reconcile SEO-ISSUE-QUEUE-02 after PR #1020 merged, remove stale dashboard-adapter next-step text from docs/generated artifacts, and point the next phase to real data readiness while keeping fap-web as an artifact-backed ops shell."
     in_scope:
@@ -4629,6 +4629,61 @@ prs:
       squash: true
       auto_merge: true
     rollback_note: "Revert SEO-ISSUE-QUEUE-02 ledger reconciliation, generated artifact next-step update, read-model follow-up text, and focused contract expectation changes."
+
+  - id: SEO-ISSUE-QUEUE-02-RECONCILE-02
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/seo-issue-queue-02-reconcile-02
+    base: main
+    depends_on:
+      - SEO-ISSUE-QUEUE-02-RECONCILE-01
+    mode: execute
+    risk_level: L1
+    status: in_progress
+    title: "docs(seo): reconcile issue queue reconcile ledger"
+    goal: "Record SEO-ISSUE-QUEUE-02-RECONCILE-01 / PR #1021 as merged/completed after post-merge cleanup, without changing docs/seo, generated artifacts, runtime, CMS, search submission, or deployment behavior."
+    in_scope:
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - docs/seo/**
+      - docs/seo/generated/**
+      - app/**
+      - components/**
+      - lib/**
+      - runtime code
+      - tests/**
+      - CMS writes, draft creation, publish, or unpublish
+      - search platform submission
+      - deployment
+    required_local_checks:
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - git diff --check -- docs/codex
+      - git diff --cached --check
+    acceptance:
+      - SEO-ISSUE-QUEUE-02-RECONCILE-01 is recorded as merged/completed with PR #1021 merge commit 03afce1f2d476edb415a0b6d0d06976386dbc59b.
+      - PR #1021 merged_at is recorded as 2026-06-03T14:57:53Z.
+      - Remote branch deletion, local task branch deletion, local main sync, clean worktree, and post-merge cleanup are recorded.
+      - No files outside docs/codex/pr-train.yaml and docs/codex/pr-train-state.json are changed.
+    must_not_touch:
+      - docs/seo/**
+      - docs/seo/generated/**
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - tests/**
+      - package.json
+      - pnpm-lock.yaml
+      - next.config.mjs
+      - next-sitemap.config.js
+      - fap-api repository files
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    rollback_note: "Revert the SEO-ISSUE-QUEUE-02-RECONCILE-01 ledger completion entry and this follow-up metadata item."
 
   - id: AUDIT-WEB-CMS-LINK-XSS
     repo: fap-web

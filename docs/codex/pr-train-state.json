@@ -6614,7 +6614,7 @@
       "depends_on": [
         "SEO-ISSUE-QUEUE-02"
       ],
-      "status": "pr_open",
+      "status": "merged",
       "train_scope": "seo_issue_queue_dashboard_artifact_state_reconcile",
       "risk_level": "L1",
       "title": "docs(seo): reconcile issue queue dashboard artifact state",
@@ -6674,14 +6674,22 @@
         "pr_created": {
           "status": "pass",
           "evidence": "Opened GitHub PR #1021 at https://github.com/fermatmind/fap-web/pull/1021."
+        },
+        "github_pr_merged": {
+          "status": "pass",
+          "evidence": "GitHub PR #1021 is MERGED; merge commit 03afce1f2d476edb415a0b6d0d06976386dbc59b is contained in origin/main."
+        },
+        "post_merge_cleanup": {
+          "status": "pass",
+          "evidence": "After PR #1021 merge, origin/main contained the merge commit, local main was fast-forwarded to origin/main, worktree was clean, and local/remote task branches were deleted."
         }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1021",
-      "commit_sha": "94f65cb7",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "03afce1f2d476edb415a0b6d0d06976386dbc59b",
+      "merged_at": "2026-06-03T14:57:53Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "sidecar_issues": [],
       "history": [
         {
@@ -6703,6 +6711,76 @@
           "at": "2026-06-03T22:56:00+08:00",
           "status": "pr_open",
           "summary": "Pushed SEO-ISSUE-QUEUE-02-RECONCILE-01 and opened GitHub PR #1021; waiting for GitHub checks before merge."
+        },
+        {
+          "at": "2026-06-03T23:06:00+08:00",
+          "status": "merged_reconciled",
+          "summary": "Reconciled SEO-ISSUE-QUEUE-02-RECONCILE-01 after PR #1021 was squash-merged into origin/main with merge commit 03afce1f2d476edb415a0b6d0d06976386dbc59b; post-merge cleanup completed and branches were deleted."
+        }
+      ],
+      "merge_commit_sha": "03afce1f2d476edb415a0b6d0d06976386dbc59b",
+      "merge_sha": "03afce1f2d476edb415a0b6d0d06976386dbc59b"
+    },
+    {
+      "id": "SEO-ISSUE-QUEUE-02-RECONCILE-02",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/seo-issue-queue-02-reconcile-02",
+      "base": "main",
+      "depends_on": [
+        "SEO-ISSUE-QUEUE-02-RECONCILE-01"
+      ],
+      "status": "local_checks_passed",
+      "train_scope": "seo_issue_queue_reconcile_ledger_completion",
+      "risk_level": "L1",
+      "title": "docs(seo): reconcile issue queue reconcile ledger",
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized SEO-ISSUE-QUEUE-02-RECONCILE-02 to update only docs/codex/pr-train.yaml and docs/codex/pr-train-state.json."
+        },
+        "dependency": {
+          "status": "pass",
+          "evidence": "PR #1021 / SEO-ISSUE-QUEUE-02-RECONCILE-01 is MERGED with merge commit 03afce1f2d476edb415a0b6d0d06976386dbc59b in origin/main."
+        },
+        "scope": {
+          "status": "pass",
+          "evidence": "Scope is limited to docs/codex/pr-train.yaml and docs/codex/pr-train-state.json; no docs/seo, generated artifact, runtime, CMS, search submission, or deployment changes are allowed."
+        },
+        "json_parse_pr_train_state": {
+          "status": "pass",
+          "evidence": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null passed."
+        },
+        "yaml_parse_pr_train": {
+          "status": "pass",
+          "evidence": "python3 yaml.safe_load docs/codex/pr-train.yaml passed."
+        },
+        "diff_check_docs_codex": {
+          "status": "pass",
+          "evidence": "git diff --check -- docs/codex passed."
+        },
+        "changed_files_scope": {
+          "status": "pass",
+          "evidence": "Changed files are limited to docs/codex/pr-train.yaml and docs/codex/pr-train-state.json."
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [],
+      "history": [
+        {
+          "at": "2026-06-03T23:06:00+08:00",
+          "status": "in_progress",
+          "summary": "Started SEO-ISSUE-QUEUE-02-RECONCILE-02 to record SEO-ISSUE-QUEUE-02-RECONCILE-01 / PR #1021 as merged and post-merge-cleaned with docs/codex-only scope."
+        },
+        {
+          "at": "2026-06-03T23:10:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Recorded SEO-ISSUE-QUEUE-02-RECONCILE-01 / PR #1021 as merged and post-merge-cleaned; local JSON/YAML parse and docs/codex diff check passed with docs/codex-only scope."
         }
       ]
     },
