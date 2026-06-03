@@ -3735,7 +3735,7 @@ prs:
       - BACKEND-RUNTIME-02D
     mode: execute
     risk_level: L1
-    status: local_checks_passed
+    status: pr_open
     title: "docs(architecture): reconcile backend runtime authority closure"
     goal: "Reconcile the ARCH-SEO-CMS-02 final architecture charter with BACKEND-RUNTIME-02D accepted gateway authority evidence, mark stale backend authority conflict wording as superseded, update generated architecture artifact and scoped contract, and reconcile BACKEND-RUNTIME-02D train metadata without changing frontend runtime, backend runtime, API behavior, OpenResty, DNS/CDN/cloud, sitemap/llms, tracking, commerce, report, email, recommendation, scoring, env, deploy, SSH, CMS data, or production behavior."
     in_scope:

@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-03T04:40:00Z",
+  "updated_at": "2026-06-03T04:45:00Z",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -5066,7 +5066,7 @@
       "depends_on": [
         "BACKEND-RUNTIME-02D"
       ],
-      "status": "local_checks_passed",
+      "status": "pr_open",
       "title": "docs(architecture): reconcile backend runtime authority closure",
       "mode": "execute",
       "risk_level": "L1",
@@ -5147,10 +5147,15 @@
           "name": "git diff --cached --check",
           "status": "passed",
           "details": "No staged whitespace errors before staging."
+        },
+        {
+          "name": "pr_created",
+          "status": "passed",
+          "details": "Opened GitHub PR #1009: https://github.com/fermatmind/fap-web/pull/1009."
         }
       ],
       "failure_reason": null,
-      "pr_url": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1009",
       "commit_sha": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -5184,6 +5189,11 @@
           "at": "2026-06-03T12:40:00+08:00",
           "status": "committed",
           "summary": "Created local implementation commit d93719ea88b2a9b69ccd225534e4331cafdc6cd3 for BACKEND-RUNTIME-02D-RECONCILE."
+        },
+        {
+          "at": "2026-06-03T12:45:00+08:00",
+          "status": "pr_open",
+          "summary": "Opened GitHub PR #1009 for BACKEND-RUNTIME-02D-RECONCILE."
         }
       ]
     },
