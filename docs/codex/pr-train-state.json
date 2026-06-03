@@ -6730,7 +6730,7 @@
       "depends_on": [
         "SEO-ISSUE-QUEUE-02-RECONCILE-01"
       ],
-      "status": "local_checks_passed",
+      "status": "pr_open",
       "train_scope": "seo_issue_queue_reconcile_ledger_completion",
       "risk_level": "L1",
       "title": "docs(seo): reconcile issue queue reconcile ledger",
@@ -6762,11 +6762,23 @@
         "changed_files_scope": {
           "status": "pass",
           "evidence": "Changed files are limited to docs/codex/pr-train.yaml and docs/codex/pr-train-state.json."
+        },
+        "cached_diff_check": {
+          "status": "pass",
+          "evidence": "git diff --cached --check passed before commit."
+        },
+        "commit_created": {
+          "status": "pass",
+          "evidence": "Created local commit 86c4699a for SEO-ISSUE-QUEUE-02-RECONCILE-02."
+        },
+        "pr_created": {
+          "status": "pass",
+          "evidence": "Opened GitHub PR #1022 at https://github.com/fermatmind/fap-web/pull/1022."
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1022",
+      "commit_sha": "86c4699a",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -6781,6 +6793,11 @@
           "at": "2026-06-03T23:10:00+08:00",
           "status": "local_checks_passed",
           "summary": "Recorded SEO-ISSUE-QUEUE-02-RECONCILE-01 / PR #1021 as merged and post-merge-cleaned; local JSON/YAML parse and docs/codex diff check passed with docs/codex-only scope."
+        },
+        {
+          "at": "2026-06-03T23:12:00+08:00",
+          "status": "pr_open",
+          "summary": "Pushed SEO-ISSUE-QUEUE-02-RECONCILE-02 and opened GitHub PR #1022; waiting for GitHub checks before merge."
         }
       ]
     },
