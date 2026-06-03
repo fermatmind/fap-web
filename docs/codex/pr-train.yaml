@@ -3897,7 +3897,7 @@ prs:
       - SEO-DASH-00B
     mode: execute
     risk_level: L1
-    status: in_progress
+    status: merged
     title: "docs(cms): define ops IA and permission matrix"
     goal: "Define the CMS operations information architecture, role matrix, resource action matrix, workflow state model, field ownership boundaries, sanitized SEO issue summary boundary, audit events, and next release-checklist task without changing frontend runtime, backend runtime, CMS schema, APIs, Filament resources, migrations, content, sitemap/llms generation, seo_intel runtime, collectors, search channels, deployment, or production behavior."
     in_scope:
@@ -3973,6 +3973,94 @@ prs:
       squash: true
       auto_merge: true
     rollback_note: "Remove the CMS Ops IA permission matrix document, generated artifact, scoped contract test, scope helper entry, and CMS-OPS-IA-00 train metadata."
+
+  - id: CMS-OPS-RELEASE-02
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/cms-ops-release-02-checklist
+    base: main
+    depends_on:
+      - CMS-OPS-IA-00
+    mode: execute
+    risk_level: L1
+    status: in_progress
+    title: "docs(cms): define release checklist and smoke contract"
+    goal: "Define the CMS release checklist, revalidate path plan, post-publish smoke, rollback/failure policy, release audit fields, operator views, and backend implementation follow-up without changing frontend runtime, backend runtime, CMS schema, APIs, Filament resources, migrations, content, sitemap/llms generation, revalidate route behavior, search channels, deployment, or production behavior."
+    in_scope:
+      - docs/operations/cms-ops-release-checklist.md
+      - docs/operations/generated/cms-ops-release-checklist.v1.json
+      - tests/contracts/cms-ops-release-checklist.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - <workspace>/fap-api changes
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - backend runtime files
+      - migrations
+      - API routes
+      - Filament resources
+      - CMS schema changes
+      - env files
+      - deploy scripts
+      - next-sitemap.config.js
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - app/api/content-release/revalidate/route.ts
+      - seo_intel physical schema
+      - collectors
+      - Metabase deployment
+      - search channel submission
+      - CMS content mutation
+      - article/page publication
+      - media uploads
+      - production changes
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/cms-ops-release-checklist.contract.test.ts
+      - pnpm test:contract
+      - pnpm seo:check-sitemap
+      - pnpm seo:check-mobile
+      - python3 -m json.tool docs/operations/generated/cms-ops-release-checklist.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - git diff --check
+      - git diff --cached --check
+    acceptance:
+      - Artifact records backend/CMS workflow as publish permission and checklist authority.
+      - Artifact keeps fap-web as an allowlisted revalidation consumer only.
+      - Artifact defines successful release phases and failure states.
+      - Artifact defines pre-publish gates for identity, body readiness, SEO metadata, review, media, relations, localization, discoverability, private URL exclusion, preview, and release operator approval.
+      - Artifact defines resource-family release requirements and no-go rules for articles, landing surfaces, content pages, career guides/jobs, support content, and media metadata.
+      - Artifact defines backend release planner output and fap-web revalidation consumer rejection rules.
+      - Artifact defines post-publish smoke checks and private data exclusions.
+      - Artifact maps failure cases to preflight failure, publish failure, revalidate failure, smoke failure, rollback, or forward-fix states.
+      - Artifact defines release audit required fields and sensitive audit payload exclusions.
+      - Artifact records operator views and deferred runtime implementation.
+      - Repository rule impact states that backend/CMS publication state remains authoritative and fap-web is not release authority.
+      - No frontend runtime, backend runtime, API, CMS schema, Filament, migration, content, sitemap/llms, revalidate route, seo_intel runtime, collector, search channel, deploy, or production behavior changes.
+    must_not_touch:
+      - <workspace>/fap-api
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - backend runtime files
+      - migrations
+      - env files
+      - deploy scripts
+      - next-sitemap.config.js
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - app/api/content-release/revalidate/route.ts
+      - payment/order/report/email/recommendation/scoring/profile code
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    rollback_note: "Remove the CMS Ops release checklist document, generated artifact, scoped contract test, scope helper entry, and CMS-OPS-RELEASE-02 train metadata."
 
   - id: AUDIT-WEB-CMS-LINK-XSS
     repo: fap-web
