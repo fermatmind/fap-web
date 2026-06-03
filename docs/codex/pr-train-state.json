@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-03T03:13:30Z",
+  "updated_at": "2026-06-03T03:16:30Z",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -16691,9 +16691,9 @@
       "base": "main",
       "depends_on": [],
       "title": "docs(seo): lock sitemap URL truth and career hub policy",
-      "status": "in_progress",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "open",
+      "commit_sha": "b3811347315894be55c0a0af938befb6d8b031ab",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1008",
       "checks": {
         "manifest_authorization": {
           "status": "passed",
@@ -16741,6 +16741,10 @@
           "status": "passed",
           "command": "git diff --cached --check",
           "summary": "Path-limited staged diff whitespace check passed."
+        },
+        "pr_opened": {
+          "status": "passed",
+          "summary": "Opened https://github.com/fermatmind/fap-web/pull/1008 after local validation and path-limited staging passed."
         }
       },
       "failure_reason": null,
@@ -16762,6 +16766,11 @@
           "at": "2026-06-03T03:13:30Z",
           "event": "staged_scope_validated",
           "note": "Staged only SEO-SITEMAP-P0-05 scoped docs, generated inventory, focused contract test, and PR train metadata; cached diff whitespace check passed."
+        },
+        {
+          "at": "2026-06-03T03:16:30Z",
+          "event": "pr_open",
+          "note": "Opened https://github.com/fermatmind/fap-web/pull/1008 after local validation passed. GitHub required checks are pending."
         }
       ]
     },
