@@ -4166,7 +4166,7 @@ prs:
       - SEO-COMPETITOR-URL-00
     mode: execute
     risk_level: L1
-    status: in_progress
+    status: merged
     title: "docs(seo): add read-only competitor URL inventory generator"
     goal: "Implement a read-only competitor URL inventory generator that consumes the SEO-COMPETITOR-URL-00 contract, defaults to offline sample mode, supports operator-provided local sitemap XML inputs, fails closed for HTTP sitemap sources unless --allow-network is explicit, writes local JSON/CSV artifacts only when requested, and preserves boundaries against CMS writes, content generation, search submission, sitemap/llms mutation, runtime changes, API integrations, deployment, env reads, cookie reads, and token reads."
     in_scope:
@@ -4329,6 +4329,7 @@ prs:
       - Artifact defines release integration as sanitized evidence only with no auto-approval, publish, unpublish, rollback, revalidation, or search submission.
       - Artifact sample issues are sample-only and non-mutating.
       - Artifact records deferred runtime work and repository rule impact.
+      - Post-merge ledger reconciliation may update only train metadata after GitHub merge truth is confirmed.
       - No runtime, backend, API, CMS schema, Filament, migration, collector, dashboard UI, content, public sitemap, llms, search platform, env, cookie, token, deploy, or production behavior changes.
     must_not_touch:
       - <workspace>/fap-api

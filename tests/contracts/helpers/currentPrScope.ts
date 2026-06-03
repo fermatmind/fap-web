@@ -1269,7 +1269,19 @@ const SEO_ISSUE_QUEUE_00_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const SEO_ISSUE_QUEUE_00_LEDGER_RECONCILE_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "tests/contracts/cms-ops-ia-permission-matrix.contract.test.ts",
+  "tests/contracts/seo-issue-queue.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH === "codex/seo-issue-queue-00-ledger-reconcile") {
+    return SEO_ISSUE_QUEUE_00_LEDGER_RECONCILE_ALLOWED_FILES.has(file);
+  }
+
   if (CURRENT_BRANCH === "codex/seo-issue-queue-00-read-model") {
     return SEO_ISSUE_QUEUE_00_ALLOWED_FILES.has(file);
   }

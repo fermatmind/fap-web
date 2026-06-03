@@ -336,6 +336,33 @@ describe("SEO issue queue read model contract", () => {
       return;
     }
 
+    const ledgerReconciliationFiles = new Set([
+      "docs/codex/pr-train.yaml",
+      "docs/codex/pr-train-state.json",
+      "tests/contracts/cms-ops-ia-permission-matrix.contract.test.ts",
+      "tests/contracts/seo-issue-queue.contract.test.ts",
+      "tests/contracts/helpers/currentPrScope.ts",
+    ]);
+
+    if (
+      files.includes("docs/codex/pr-train-state.json") &&
+      files.every((file) => ledgerReconciliationFiles.has(file))
+    ) {
+      const state = JSON.parse(fs.readFileSync(path.join(ROOT, "docs/codex/pr-train-state.json"), "utf8")) as {
+        prs: Array<Record<string, unknown>>;
+      };
+      const entry = state.prs.find((item) => item.id === "SEO-ISSUE-QUEUE-00");
+
+      expect(entry).toMatchObject({
+        status: "merged",
+        pr_url: "https://github.com/fermatmind/fap-web/pull/1015",
+        merge_sha: "60c6d9cf700a6aac604f2db9e296f2fd6ad5c37e",
+        remote_branch_deleted: true,
+        local_cleanup_executed: true,
+      });
+      return;
+    }
+
     expect(files).toEqual(expect.arrayContaining(["docs/codex/pr-train.yaml", "docs/codex/pr-train-state.json"]));
     expect(files.every(isAllowedFile), files.join("\n")).toBe(true);
   });
