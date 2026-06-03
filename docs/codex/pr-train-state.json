@@ -6490,7 +6490,7 @@
         "SEO-DASH-00B",
         "CMS-OPS-RELEASE-02"
       ],
-      "status": "in_progress",
+      "status": "pr_open",
       "train_scope": "seo_issue_queue_dashboard_artifact_shell",
       "risk_level": "L1",
       "title": "feat(ops): connect SEO dashboard shell to issue queue artifact",
@@ -6554,11 +6554,15 @@
         "scope_validation": {
           "status": "pass",
           "evidence": "Changed files are confined to SEO-ISSUE-QUEUE-02 dashboard shell artifact adapter, focused contract, scope helper, and PR train metadata scope; no backend, API, CMS schema, content, public sitemap/llms, search platform, env, cookie, token, deploy, or production files remain modified."
+        },
+        "pr_created": {
+          "status": "pass",
+          "evidence": "Opened GitHub PR #1020 at https://github.com/fermatmind/fap-web/pull/1020."
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": "7e1994b8",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1020",
+      "commit_sha": "d4ae20cd",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -6578,6 +6582,11 @@
           "at": "2026-06-03T21:03:00+08:00",
           "status": "committed",
           "summary": "Recorded implementation commit 7e1994b8 for SEO-ISSUE-QUEUE-02 before push."
+        },
+        {
+          "at": "2026-06-03T21:05:00+08:00",
+          "status": "pr_open",
+          "summary": "Pushed SEO-ISSUE-QUEUE-02 and opened GitHub PR #1020; waiting for GitHub checks before merge review."
         }
       ]
     },
