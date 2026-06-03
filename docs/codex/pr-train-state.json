@@ -6371,7 +6371,7 @@
         "CMS-OPS-RELEASE-02",
         "SEO-DASH-00B"
       ],
-      "status": "pr_open",
+      "status": "merged",
       "train_scope": "seo_issue_queue_readonly_generator",
       "risk_level": "L1",
       "title": "docs(seo): add read-only SEO issue queue generator",
@@ -6435,14 +6435,30 @@
         "pr_created": {
           "status": "pass",
           "evidence": "Opened GitHub PR #1017 at https://github.com/fermatmind/fap-web/pull/1017."
+        },
+        "github_checks": {
+          "status": "pass",
+          "evidence": "GitHub checks for PR #1017 passed before merge: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL, and analyze (javascript-typescript)."
+        },
+        "merge_reconciliation": {
+          "status": "pass",
+          "evidence": "GitHub PR #1017 is MERGED with merge commit cae0a98c24c5894478b80b4809f78239068f7705, and origin/main contains that merge commit."
+        },
+        "branch_cleanup": {
+          "status": "pass",
+          "evidence": "Task branch codex/seo-issue-queue-01-readonly-generator is absent locally and remotely after post-merge cleanup."
+        },
+        "post_merge_revalidate": {
+          "status": "pass",
+          "evidence": "Post-merge revalidate passed on main: generator rerun produced no checked-in JSON/CSV diff, focused issue queue contracts passed 18 tests, JSON/YAML parse passed, main equals origin/main, and worktree is clean."
         }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1017",
-      "commit_sha": "f3461b4f23852ca69550c160bb051b41dcbff3ad",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "efb2d6778abf9968c61b79157f25ea43f8dc6b3e",
+      "merged_at": "2026-06-03T11:52:38Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "sidecar_issues": [],
       "history": [
         {
@@ -6454,8 +6470,14 @@
           "at": "2026-06-03T20:20:00+08:00",
           "status": "pr_open",
           "summary": "Opened PR #1017 after local validation passed and recorded PR URL plus scoped commit SHA."
+        },
+        {
+          "at": "2026-06-03T20:53:00+08:00",
+          "status": "merged",
+          "summary": "Reconciled SEO-ISSUE-QUEUE-01 after GitHub PR #1017 was squash-merged into main with merge commit cae0a98c24c5894478b80b4809f78239068f7705; remote branch is deleted, local cleanup is confirmed, and targeted post-merge revalidate passed."
         }
-      ]
+      ],
+      "merge_sha": "cae0a98c24c5894478b80b4809f78239068f7705"
     },
     {
       "id": "SEO-DASH-03A",
