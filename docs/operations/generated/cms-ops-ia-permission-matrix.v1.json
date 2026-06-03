@@ -1,0 +1,212 @@
+{
+  "version": "cms_ops_ia_permission_matrix.v1",
+  "scope": "CMS-OPS-IA-00",
+  "status": "contract_design",
+  "source_documents": [
+    "ARCH-SEO-CMS-02",
+    "BACKEND-RUNTIME-02D-RECONCILE",
+    "SEO-DASH-00B",
+    "fermatmind-cms-seo-ops-requirements"
+  ],
+  "authority_boundary": {
+    "cms_content_authority": "fap_api_cms_backend",
+    "public_renderer": "fap_web",
+    "fap_web_may_invent_cms_fields": false,
+    "fap_web_may_publish_content": false,
+    "seo_intel_role": "read_only_observation_issue_summary",
+    "seo_intel_may_mutate_cms": false,
+    "search_channels_are_content_truth": false,
+    "release_authority": "backend_cms_workflow"
+  },
+  "navigation_groups": [
+    {
+      "id": "content_ops",
+      "label": "Content Ops",
+      "resources": ["articles", "content_pages", "landing_surfaces", "support_articles", "topic_entries"],
+      "write_roles": ["owner", "ops_admin", "content_editor"]
+    },
+    {
+      "id": "seo_growth",
+      "label": "SEO and Growth",
+      "resources": ["url_truth", "seo_issue_queue", "search_channel_status", "content_decay_queue", "attribution_summaries"],
+      "write_roles": []
+    },
+    {
+      "id": "release_ops",
+      "label": "Release Ops",
+      "resources": ["publish_checklist", "release_plans", "revalidate_path_plan", "post_publish_smoke", "rollback_log"],
+      "write_roles": ["owner", "ops_admin", "publisher", "sre"]
+    },
+    {
+      "id": "governance",
+      "label": "Governance",
+      "resources": ["role_matrix", "permission_audit", "review_policy", "claim_boundary_policy", "exception_ledger"],
+      "write_roles": ["owner", "ops_admin"]
+    },
+    {
+      "id": "support_ops",
+      "label": "Support Ops",
+      "resources": ["support_content", "support_page_status", "support_issue_triage"],
+      "write_roles": ["owner", "ops_admin", "support"]
+    }
+  ],
+  "roles": {
+    "owner": {
+      "capabilities": ["full_read", "full_write", "release", "governance", "audit"],
+      "forbidden": ["unapproved_production_change"]
+    },
+    "ops_admin": {
+      "capabilities": ["content_read", "content_write", "release_queue", "permission_audit_read", "issue_summary_read"],
+      "forbidden": ["silent_review_bypass", "publish_from_seo_issue_row", "production_infra_change"]
+    },
+    "content_editor": {
+      "capabilities": ["content_read", "content_write", "draft_metadata_edit", "relation_edit", "preview_request"],
+      "forbidden": ["publish", "rollback", "approve_own_high_risk_review", "direct_search_url_submit"]
+    },
+    "content_reviewer": {
+      "capabilities": ["content_read", "review_state_change", "checklist_signoff", "issue_summary_read"],
+      "forbidden": ["reviewer_only_body_edit", "deploy", "seo_intel_mutation"]
+    },
+    "publisher": {
+      "capabilities": ["publish_approved_record", "trigger_release_plan", "trigger_allowed_revalidation", "record_post_publish_smoke"],
+      "forbidden": ["draft_content_edit", "missing_review_override", "pseo_creation", "private_or_noindex_url_submission"]
+    },
+    "seo_operator": {
+      "capabilities": ["url_truth_read", "issue_queue_read", "issue_triage", "recommendation_draft", "attribution_summary_read"],
+      "forbidden": ["cms_mutation", "publish", "rollback", "manual_seo_intel_detail_write", "search_telemetry_as_content_truth"]
+    },
+    "analyst": {
+      "capabilities": ["aggregate_dashboard_read", "sanitized_export", "url_content_status_read"],
+      "forbidden": ["raw_pii", "raw_order", "raw_attempt", "payment_payload", "cms_mutation", "unrestricted_sql"]
+    },
+    "sre": {
+      "capabilities": ["revalidate_visibility", "smoke_visibility", "rollback_operational_visibility", "infrastructure_health"],
+      "forbidden": ["editorial_approval", "content_body_edit", "search_content_decision"]
+    },
+    "security_auditor": {
+      "capabilities": ["permission_audit", "publish_audit", "high_risk_exception_read"],
+      "forbidden": ["cms_content_mutation", "publish", "role_grant_without_owner_or_admin"]
+    },
+    "support": {
+      "capabilities": ["support_draft_read", "support_draft_write", "support_status_read", "support_issue_triage"],
+      "forbidden": ["article_publish", "landing_publish", "career_publish", "seo_issue_mutation", "governance_edit"]
+    }
+  },
+  "resource_action_matrix": {
+    "articles": {
+      "draft_edit": ["content_editor", "ops_admin", "owner"],
+      "review": ["content_reviewer", "ops_admin", "owner"],
+      "approve": ["content_reviewer", "ops_admin", "owner"],
+      "publish": ["publisher", "ops_admin", "owner"],
+      "rollback": ["publisher", "ops_admin", "owner"],
+      "seo_issue_link_mode": "read_only_summary_explicit_task_link"
+    },
+    "landing_surfaces": {
+      "draft_edit": ["content_editor", "ops_admin", "owner"],
+      "review": ["content_reviewer", "ops_admin", "owner"],
+      "approve": ["content_reviewer", "ops_admin", "owner"],
+      "publish": ["publisher", "ops_admin", "owner"],
+      "rollback": ["publisher", "ops_admin", "owner"],
+      "seo_issue_link_mode": "read_only_summary_no_automatic_module_reorder"
+    },
+    "content_pages": {
+      "draft_edit": ["content_editor", "ops_admin", "owner"],
+      "review": ["content_reviewer", "ops_admin", "owner"],
+      "approve": ["content_reviewer", "ops_admin", "owner"],
+      "publish": ["publisher", "ops_admin", "owner"],
+      "rollback": ["publisher", "ops_admin", "owner"],
+      "seo_issue_link_mode": "read_only_summary"
+    },
+    "career_guides_jobs": {
+      "draft_edit": ["content_editor", "ops_admin", "owner"],
+      "review": ["content_reviewer", "ops_admin", "owner"],
+      "approve": ["content_reviewer", "ops_admin", "owner"],
+      "publish": ["publisher", "ops_admin", "owner"],
+      "rollback": ["publisher", "ops_admin", "owner"],
+      "seo_issue_link_mode": "read_only_summary_claim_gates_backend_owned"
+    },
+    "seo_issue_queue": {
+      "draft_edit": [],
+      "review": ["seo_operator", "content_reviewer", "ops_admin", "owner"],
+      "approve": [],
+      "publish": [],
+      "rollback": [],
+      "seo_issue_link_mode": "sanitized_seo_intel_summary_only"
+    }
+  },
+  "workflow_states": [
+    "draft",
+    "review_pending",
+    "review_approved",
+    "release_ready",
+    "published",
+    "post_publish_smoke_pending",
+    "post_publish_smoke_passed",
+    "rollback_required",
+    "needs_revision",
+    "unpublished",
+    "archived"
+  ],
+  "required_gates": {
+    "draft_to_review_pending": ["content_family", "locale", "slug", "canonical_intent", "owner", "preview_target"],
+    "review_pending_to_review_approved": ["reviewer_identity", "review_timestamp", "sensitive_topic_decision", "claim_decision", "evidence_level"],
+    "review_approved_to_release_ready": ["publish_checklist_complete", "discoverability_flags_explicit", "no_private_or_noindex_public_submission"],
+    "release_ready_to_published": ["backend_cms_release_permission", "release_audit_written"],
+    "published_to_post_publish_smoke_passed": ["runtime_smoke", "canonical", "robots", "sitemap_llms_eligibility", "revalidation_result", "visible_body"]
+  },
+  "field_ownership": {
+    "cms_owned": ["slug", "locale", "title", "excerpt", "body", "canonical", "robots", "publish_state", "content_family", "evidence_level", "review_required", "reviewer", "review_timestamp"],
+    "cms_relation_owned": ["related_tests", "related_topics", "related_articles", "related_career_guides"],
+    "discoverability_owned_by_backend_release_contract": ["sitemap_eligibility", "llms_eligibility", "footer_eligibility", "homepage_eligibility"],
+    "seo_intel_sanitized_summary": ["issue_type", "severity", "affected_url", "status", "recommendation_summary"],
+    "forbidden_in_ops_summaries": ["pii", "raw_order", "raw_attempt", "payment_payload", "private_url", "checkout_url", "report_url", "auth_token", "cookie"]
+  },
+  "seo_issue_summary_boundary": {
+    "allowed": ["sanitized_url", "locale", "entity_type", "issue_type", "severity", "lifecycle_status", "detection_time", "recommendation_summary", "cms_task_link"],
+    "forbidden": ["direct_cms_mutation", "auto_draft", "auto_publish", "module_reorder", "pseo_creation", "search_as_content_truth", "raw_logs", "pii", "raw_order_id", "raw_attempt_id", "payment_payload", "private_result_url", "checkout_url", "report_url", "auth_token", "cookie"]
+  },
+  "audit_events": [
+    "cms_resource_draft_created",
+    "cms_resource_metadata_updated",
+    "cms_resource_submitted_for_review",
+    "cms_resource_review_approved",
+    "cms_resource_review_rejected",
+    "cms_release_checklist_completed",
+    "cms_resource_published",
+    "cms_resource_unpublished",
+    "cms_resource_rollback_requested",
+    "cms_resource_rollback_completed",
+    "cms_release_revalidate_requested",
+    "cms_release_revalidate_completed",
+    "cms_post_publish_smoke_completed",
+    "seo_issue_summary_linked_to_cms_task",
+    "permission_matrix_changed"
+  ],
+  "deferred_runtime_work": [
+    "backend_migrations",
+    "backend_model_fields",
+    "filament_resources",
+    "policies_middleware",
+    "api_changes",
+    "seo_intel_physical_schema",
+    "collectors",
+    "release_checklist_runtime_enforcement",
+    "production_deploy",
+    "revalidation_execution",
+    "search_channel_submission",
+    "cache_purge",
+    "frontend_ops_pages",
+    "content_creation",
+    "content_import",
+    "article_publication",
+    "media_upload"
+  ],
+  "forbidden_current_pr_changes": ["app", "components", "lib", "public", "backend_runtime", "migrations", "api_routes", "env", "deploy", "cms_data", "production"],
+  "repository_rule_impact": {
+    "fap_web_is_cms_authority": false,
+    "cms_fields_backend_authoritative": true,
+    "seo_intel_auto_publish_allowed": false,
+    "runtime_implementation_deferred": true
+  },
+  "next_task": "CMS-OPS-RELEASE-02"
+}

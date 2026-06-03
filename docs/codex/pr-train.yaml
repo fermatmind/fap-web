@@ -3735,7 +3735,7 @@ prs:
       - BACKEND-RUNTIME-02D
     mode: execute
     risk_level: L1
-    status: pr_open
+    status: merged
     title: "docs(architecture): reconcile backend runtime authority closure"
     goal: "Reconcile the ARCH-SEO-CMS-02 final architecture charter with BACKEND-RUNTIME-02D accepted gateway authority evidence, mark stale backend authority conflict wording as superseded, update generated architecture artifact and scoped contract, and reconcile BACKEND-RUNTIME-02D train metadata without changing frontend runtime, backend runtime, API behavior, OpenResty, DNS/CDN/cloud, sitemap/llms, tracking, commerce, report, email, recommendation, scoring, env, deploy, SSH, CMS data, or production behavior."
     in_scope:
@@ -3886,6 +3886,93 @@ prs:
       - app/llms-full.txt/route.ts
       - payment/order/report/email/recommendation/scoring/profile code
     rollback_note: "Remove the Search Intelligence data contract document, generated artifact, scoped contract test, and SEO-DASH-00B train metadata."
+
+  - id: CMS-OPS-IA-00
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/cms-ops-ia-00-permission-matrix
+    base: main
+    depends_on:
+      - BACKEND-RUNTIME-02D-RECONCILE
+      - SEO-DASH-00B
+    mode: execute
+    risk_level: L1
+    status: in_progress
+    title: "docs(cms): define ops IA and permission matrix"
+    goal: "Define the CMS operations information architecture, role matrix, resource action matrix, workflow state model, field ownership boundaries, sanitized SEO issue summary boundary, audit events, and next release-checklist task without changing frontend runtime, backend runtime, CMS schema, APIs, Filament resources, migrations, content, sitemap/llms generation, seo_intel runtime, collectors, search channels, deployment, or production behavior."
+    in_scope:
+      - docs/operations/cms-ops-ia-permission-matrix.md
+      - docs/operations/generated/cms-ops-ia-permission-matrix.v1.json
+      - tests/contracts/cms-ops-ia-permission-matrix.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - <workspace>/fap-api changes
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - backend runtime files
+      - migrations
+      - API routes
+      - Filament resources
+      - CMS schema changes
+      - env files
+      - deploy scripts
+      - next-sitemap.config.js
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - seo_intel physical schema
+      - collectors
+      - Metabase deployment
+      - search channel submission
+      - CMS content mutation
+      - article/page publication
+      - media uploads
+      - production changes
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/cms-ops-ia-permission-matrix.contract.test.ts
+      - pnpm test:contract
+      - pnpm seo:check-sitemap
+      - pnpm seo:check-mobile
+      - python3 -m json.tool docs/operations/generated/cms-ops-ia-permission-matrix.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - git diff --check
+      - git diff --cached --check
+    acceptance:
+      - Artifact records fap-api/CMS backend as CMS content authority and fap-web as public renderer only.
+      - Artifact forbids fap-web from inventing CMS fields, publishing content, or becoming CMS fallback authority.
+      - Artifact defines Content Ops, SEO and Growth, Release Ops, Governance, and Support Ops navigation groups.
+      - Artifact defines owner, ops_admin, content_editor, content_reviewer, publisher, seo_operator, analyst, sre, security_auditor, and support role capabilities and forbidden actions.
+      - Artifact defines resource action matrix for articles, landing surfaces, content pages, career guides/jobs, media metadata, SEO issue queue, and release plans.
+      - Artifact defines lifecycle states from draft through review, release, post-publish smoke, rollback, revision, unpublished, and archived.
+      - Artifact assigns CMS fields, relations, and discoverability eligibility to backend/CMS and backend release contracts.
+      - Artifact keeps SEO issue summaries sanitized, read-only, and unable to mutate CMS or auto-publish.
+      - Artifact defines minimum audit events for later backend implementation.
+      - Repository rule impact states that this PR reinforces backend/CMS authority and defers runtime implementation.
+      - Next task is CMS-OPS-RELEASE-02.
+      - No frontend runtime, backend runtime, API, CMS schema, Filament, migration, content, sitemap/llms, seo_intel runtime, collector, search channel, deploy, or production behavior changes.
+    must_not_touch:
+      - <workspace>/fap-api
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - backend runtime files
+      - migrations
+      - env files
+      - deploy scripts
+      - next-sitemap.config.js
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - payment/order/report/email/recommendation/scoring/profile code
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    rollback_note: "Remove the CMS Ops IA permission matrix document, generated artifact, scoped contract test, scope helper entry, and CMS-OPS-IA-00 train metadata."
 
   - id: AUDIT-WEB-CMS-LINK-XSS
     repo: fap-web
