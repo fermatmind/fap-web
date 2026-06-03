@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-03T13:00:00+08:00",
+  "updated_at": "2026-06-03T13:05:00+08:00",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -5756,7 +5756,7 @@
         "BACKEND-RUNTIME-02D-RECONCILE",
         "SEO-DASH-00B"
       ],
-      "status": "pr_open",
+      "status": "local_checks_passed",
       "train_scope": "cms_ops_ia_permission_matrix",
       "risk_level": "L1",
       "title": "docs(cms): define ops IA and permission matrix",
@@ -5775,7 +5775,7 @@
         },
         "targeted_contract": {
           "status": "pass",
-          "evidence": "pnpm exec vitest run tests/contracts/cms-ops-ia-permission-matrix.contract.test.ts passed: 11 tests."
+          "evidence": "pnpm exec vitest run tests/contracts/cms-ops-ia-permission-matrix.contract.test.ts passed after the CI scope-diff fix: 11 tests."
         },
         "json_yaml_parse": {
           "status": "pass",
@@ -5783,7 +5783,7 @@
         },
         "test_contract": {
           "status": "pass",
-          "evidence": "pnpm test:contract passed: 431 files, 2415 tests."
+          "evidence": "pnpm test:contract passed after the CI scope-diff fix: 431 files, 2415 tests."
         },
         "seo_check_sitemap": {
           "status": "pass",
@@ -5820,6 +5820,10 @@
         "pr_created": {
           "status": "pass",
           "evidence": "Opened GitHub PR #1010 for codex/cms-ops-ia-00-permission-matrix."
+        },
+        "github_contracts_first_run": {
+          "status": "failed_fixed",
+          "evidence": "GitHub contracts failed on PR #1010 because the scope test inspected only unstaged/cached diff; CI had no working-tree diff, so it returned []. Fixed by checking the union of current diff and origin/main...HEAD / HEAD~1..HEAD committed PR diff."
         }
       },
       "failure_reason": null,
@@ -5848,6 +5852,11 @@
           "at": "2026-06-03T13:00:00+08:00",
           "status": "pr_open",
           "summary": "Created GitHub PR #1010 after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-06-03T13:05:00+08:00",
+          "status": "github_checks_failed_fixed",
+          "summary": "Fixed PR #1010 contracts failure by making the scope test use committed PR diff when CI has no working-tree diff; focused contract and full contract suite pass locally after the fix."
         }
       ],
       "commit_sha": "6ce7d77c9eb2efb5cbdaec8bd7cd2feb1a41b23c"

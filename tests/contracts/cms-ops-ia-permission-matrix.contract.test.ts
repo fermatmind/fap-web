@@ -75,6 +75,33 @@ function currentChangedFiles(): string[] {
   return [...files].sort();
 }
 
+function prChangedFiles(): string[] {
+  const changedFiles = new Set(currentChangedFiles());
+
+  for (const args of [
+    ["diff", "--name-only", "origin/main...HEAD"],
+    ["diff", "--name-only", "HEAD~1..HEAD"],
+  ]) {
+    try {
+      const output = execFileSync("git", args, { cwd: ROOT, encoding: "utf8" });
+      const diffFiles = output
+        .split("\n")
+        .map((line) => line.trim())
+        .filter(Boolean);
+      if (diffFiles.length > 0) {
+        for (const file of diffFiles) {
+          changedFiles.add(file);
+        }
+        return [...changedFiles].sort();
+      }
+    } catch {
+      // CI and local clones can differ in fetch depth. Try the next scoped diff source.
+    }
+  }
+
+  return [...changedFiles].sort();
+}
+
 function isAllowedFile(file: string): boolean {
   return [
     "docs/operations/cms-ops-ia-permission-matrix.md",
@@ -250,7 +277,9 @@ describe("CMS Ops IA permission matrix contract", () => {
   });
 
   it("keeps current PR scope limited to docs, generated artifact, contract tests, and train metadata", () => {
-    expect(currentChangedFiles()).toEqual(expect.arrayContaining(["docs/codex/pr-train.yaml"]));
-    expect(currentChangedFiles().every(isAllowedFile)).toBe(true);
+    const files = prChangedFiles();
+
+    expect(files).toEqual(expect.arrayContaining(["docs/codex/pr-train.yaml"]));
+    expect(files.every(isAllowedFile)).toBe(true);
   });
 });
