@@ -28,6 +28,7 @@
     "publish_executed",
     "revalidate_requested",
     "revalidate_completed",
+    "sitemap_convergence_verified",
     "post_publish_smoke_passed",
     "observe_24h",
     "closed"
@@ -36,6 +37,7 @@
     "release_preflight_failed",
     "publish_failed",
     "revalidate_failed",
+    "sitemap_convergence_failed",
     "post_publish_smoke_failed",
     "rollback_required",
     "rollback_completed",
@@ -86,8 +88,29 @@
     "fap_web_consumer_must_reject": ["private_paths", "api_paths", "payment_paths", "order_paths", "result_paths", "take_paths", "share_paths", "report_paths", "auth_paths", "account_paths", "checkout_paths", "webhook_paths", "traversal_paths", "external_origins"],
     "forbidden_side_effects": ["publish_content", "mutate_cms_records", "submit_search_urls", "rewrite_sitemap_eligibility", "change_robots_policy"]
   },
+  "sitemap_static_artifact_convergence_gate": {
+    "current_behavior": "sitemap.xml_is_fap_web_static_build_artifact_generated_during_postbuild",
+    "revalidation_can_rewrite_sitemap": false,
+    "trigger_condition": "cms_resource_is_published_public_indexable_and_sitemap_eligible",
+    "required_evidence": [
+      "backend_public_detail_or_api_contains_canonical_url",
+      "backend_sitemap_source_contains_or_intentionally_excludes_canonical_url",
+      "static_artifact_plan_records_existing_inclusion_or_frontend_rebuild_deploy_or_dynamic_sitemap_route",
+      "live_sitemap_xml_contains_newly_published_sitemap_eligible_urls",
+      "live_sitemap_xml_excludes_draft_noindex_private_tokenized_result_order_payment_share_preview_urls",
+      "search_submission_surfaces_remain_blocked_until_live_sitemap_convergence_passes"
+    ],
+    "allowed_resolutions": [
+      "frontend_rebuild_deploy_required",
+      "runtime_sitemap_fix_required",
+      "backend_discoverability_fix_required",
+      "no_submit_expected"
+    ],
+    "forbidden_resolution": "hand_edit_public_sitemap_xml",
+    "search_submission_blocked_until_sitemap_converged": true
+  },
   "post_publish_smoke": {
-    "required_checks": ["http_status", "title_h1_body", "canonical", "robots", "hreflang", "sitemap", "llms", "structured_data", "related_modules", "private_url_leak", "tracking", "cache"],
+    "required_checks": ["http_status", "title_h1_body", "canonical", "robots", "hreflang", "sitemap", "sitemap_static_artifact_convergence", "llms", "structured_data", "related_modules", "private_url_leak", "tracking", "cache", "search_submission_hold"],
     "private_url_leak_forbidden": ["result", "order", "payment", "checkout", "report", "share", "auth", "account"],
     "tracking_forbidden": ["pii", "raw_order", "raw_attempt", "payment_payload"]
   },
@@ -97,6 +120,7 @@
     "private_noindex_url_in_release_plan": "release_preflight_failed",
     "publish_command_failure": "publish_failed",
     "revalidate_rejection": "revalidate_failed",
+    "static_sitemap_artifact_stale_after_publish": "sitemap_convergence_failed",
     "smoke_status_canonical_robots_body_failure": "post_publish_smoke_failed",
     "search_seo_issue_after_publish": "forward_fix_required",
     "high_risk_claim_leak": "rollback_required"
@@ -118,13 +142,15 @@
     "release_approval_timestamp",
     "revalidation_request_summary",
     "revalidation_response_summary",
+    "sitemap_convergence_summary",
+    "search_submission_decision",
     "post_publish_smoke_summary",
     "rollback_or_forward_fix_decision",
     "sanitized_seo_issue_evidence_ids"
   ],
   "audit_forbidden_fields": ["secrets", "raw_order_id", "raw_attempt_id", "raw_payment_payload", "private_url", "cookie", "token", "raw_pii"],
-  "required_operator_views": ["checklist_status", "blocked_reason", "reviewer_decision", "release_plan_diff", "revalidate_accepted_rejected_paths", "post_publish_smoke_results", "rollback_forward_fix_queue", "sanitized_linked_seo_issue_summaries"],
-  "deferred_runtime_work": ["backend_release_plan_migration", "filament_release_checklist_ui", "backend_publish_service_changes", "release_job_queue_workers", "fap_web_revalidate_route_changes", "sitemap_llms_generation_changes", "search_channel_submission", "production_cache_purge", "content_publish_execution", "collector_or_seo_intel_write_path_changes", "deployment"],
+  "required_operator_views": ["checklist_status", "blocked_reason", "reviewer_decision", "release_plan_diff", "revalidate_accepted_rejected_paths", "sitemap_convergence_status", "search_submission_hold_release_status", "post_publish_smoke_results", "rollback_forward_fix_queue", "sanitized_linked_seo_issue_summaries"],
+  "deferred_runtime_work": ["backend_release_plan_migration", "filament_release_checklist_ui", "backend_publish_service_changes", "release_job_queue_workers", "fap_web_revalidate_route_changes", "sitemap_llms_generation_changes", "dynamic_sitemap_route_implementation", "search_channel_submission", "production_cache_purge", "content_publish_execution", "collector_or_seo_intel_write_path_changes", "deployment"],
   "repository_rule_impact": {
     "backend_cms_publication_state_authoritative": true,
     "fap_web_release_authority": false,

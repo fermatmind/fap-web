@@ -24,6 +24,15 @@ type Artifact = {
     fap_web_consumer_must_reject: string[];
     forbidden_side_effects: string[];
   };
+  sitemap_static_artifact_convergence_gate: {
+    current_behavior: string;
+    revalidation_can_rewrite_sitemap: boolean;
+    trigger_condition: string;
+    required_evidence: string[];
+    allowed_resolutions: string[];
+    forbidden_resolution: string;
+    search_submission_blocked_until_sitemap_converged: boolean;
+  };
   post_publish_smoke: {
     required_checks: string[];
     private_url_leak_forbidden: string[];
@@ -114,13 +123,14 @@ describe("CMS Ops release checklist contract", () => {
         "publish_executed",
         "revalidate_requested",
         "revalidate_completed",
+        "sitemap_convergence_verified",
         "post_publish_smoke_passed",
         "observe_24h",
         "closed",
       ])
     );
     expect(artifact.failure_states).toEqual(
-      expect.arrayContaining(["release_preflight_failed", "publish_failed", "revalidate_failed", "post_publish_smoke_failed", "rollback_required", "forward_fix_required"])
+      expect.arrayContaining(["release_preflight_failed", "publish_failed", "revalidate_failed", "sitemap_convergence_failed", "post_publish_smoke_failed", "rollback_required", "forward_fix_required"])
     );
   });
 
@@ -177,11 +187,52 @@ describe("CMS Ops release checklist contract", () => {
     );
   });
 
+  it("requires sitemap static artifact convergence before search submission", () => {
+    const artifact = readArtifact();
+    const gate = artifact.sitemap_static_artifact_convergence_gate;
+
+    expect(gate.current_behavior).toBe("sitemap.xml_is_fap_web_static_build_artifact_generated_during_postbuild");
+    expect(gate.revalidation_can_rewrite_sitemap).toBe(false);
+    expect(gate.trigger_condition).toBe("cms_resource_is_published_public_indexable_and_sitemap_eligible");
+    expect(gate.required_evidence).toEqual(
+      expect.arrayContaining([
+        "backend_public_detail_or_api_contains_canonical_url",
+        "backend_sitemap_source_contains_or_intentionally_excludes_canonical_url",
+        "static_artifact_plan_records_existing_inclusion_or_frontend_rebuild_deploy_or_dynamic_sitemap_route",
+        "live_sitemap_xml_contains_newly_published_sitemap_eligible_urls",
+        "search_submission_surfaces_remain_blocked_until_live_sitemap_convergence_passes",
+      ])
+    );
+    expect(gate.allowed_resolutions).toEqual(
+      expect.arrayContaining([
+        "frontend_rebuild_deploy_required",
+        "runtime_sitemap_fix_required",
+        "backend_discoverability_fix_required",
+        "no_submit_expected",
+      ])
+    );
+    expect(gate.forbidden_resolution).toBe("hand_edit_public_sitemap_xml");
+    expect(gate.search_submission_blocked_until_sitemap_converged).toBe(true);
+  });
+
   it("defines post-publish smoke checks and private data exclusions", () => {
     const artifact = readArtifact();
 
     expect(artifact.post_publish_smoke.required_checks).toEqual(
-      expect.arrayContaining(["http_status", "title_h1_body", "canonical", "robots", "hreflang", "sitemap", "llms", "structured_data", "private_url_leak", "cache"])
+      expect.arrayContaining([
+        "http_status",
+        "title_h1_body",
+        "canonical",
+        "robots",
+        "hreflang",
+        "sitemap",
+        "sitemap_static_artifact_convergence",
+        "llms",
+        "structured_data",
+        "private_url_leak",
+        "cache",
+        "search_submission_hold",
+      ])
     );
     expect(artifact.post_publish_smoke.private_url_leak_forbidden).toEqual(
       expect.arrayContaining(["result", "order", "payment", "checkout", "report", "share", "auth", "account"])
@@ -198,6 +249,7 @@ describe("CMS Ops release checklist contract", () => {
     expect(artifact.failure_policy.private_noindex_url_in_release_plan).toBe("release_preflight_failed");
     expect(artifact.failure_policy.publish_command_failure).toBe("publish_failed");
     expect(artifact.failure_policy.revalidate_rejection).toBe("revalidate_failed");
+    expect(artifact.failure_policy.static_sitemap_artifact_stale_after_publish).toBe("sitemap_convergence_failed");
     expect(artifact.failure_policy.smoke_status_canonical_robots_body_failure).toBe("post_publish_smoke_failed");
     expect(artifact.failure_policy.high_risk_claim_leak).toBe("rollback_required");
   });
@@ -206,7 +258,20 @@ describe("CMS Ops release checklist contract", () => {
     const artifact = readArtifact();
 
     expect(artifact.release_audit_required_fields).toEqual(
-      expect.arrayContaining(["release_id", "resource_family", "actor_id", "actor_role", "reviewer_id", "previous_state", "next_state", "checklist_version", "revalidation_response_summary", "post_publish_smoke_summary"])
+      expect.arrayContaining([
+        "release_id",
+        "resource_family",
+        "actor_id",
+        "actor_role",
+        "reviewer_id",
+        "previous_state",
+        "next_state",
+        "checklist_version",
+        "revalidation_response_summary",
+        "sitemap_convergence_summary",
+        "search_submission_decision",
+        "post_publish_smoke_summary",
+      ])
     );
     expect(artifact.audit_forbidden_fields).toEqual(
       expect.arrayContaining(["secrets", "raw_order_id", "raw_attempt_id", "raw_payment_payload", "private_url", "cookie", "token", "raw_pii"])
@@ -217,7 +282,14 @@ describe("CMS Ops release checklist contract", () => {
     const artifact = readArtifact();
 
     expect(artifact.deferred_runtime_work).toEqual(
-      expect.arrayContaining(["backend_release_plan_migration", "filament_release_checklist_ui", "backend_publish_service_changes", "fap_web_revalidate_route_changes", "deployment"])
+      expect.arrayContaining([
+        "backend_release_plan_migration",
+        "filament_release_checklist_ui",
+        "backend_publish_service_changes",
+        "fap_web_revalidate_route_changes",
+        "dynamic_sitemap_route_implementation",
+        "deployment",
+      ])
     );
     expect(artifact.repository_rule_impact.backend_cms_publication_state_authoritative).toBe(true);
     expect(artifact.repository_rule_impact.sitemap_llms_backend_release_contract_driven).toBe(true);
@@ -230,6 +302,8 @@ describe("CMS Ops release checklist contract", () => {
     expect(doc).toContain("Scope: `CMS-OPS-RELEASE-02`");
     expect(doc).toContain("Backend/CMS workflow");
     expect(doc).toContain("Revalidate Path Plan");
+    expect(doc).toContain("Sitemap Static Artifact Convergence Gate");
+    expect(doc).toContain("GSC URL submission, Baidu push, IndexNow, and sitemap submission remain blocked");
     expect(doc).toContain("Post-Publish Smoke");
     expect(doc).toContain("Rollback must be backend/CMS-owned");
   });
