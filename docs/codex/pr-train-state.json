@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-04T00:45:00+08:00",
+  "updated_at": "2026-06-04T01:01:00+08:00",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -18230,7 +18230,7 @@
         "COMMERCIAL-READINESS-TRAIN-00"
       ],
       "title": "docs(privacy): scan private route and order result safety",
-      "status": "pr_open",
+      "status": "merged",
       "commit_sha": "5c0700a3478c31ae5c081eda32a95a68189a739d",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1024",
       "checks": {
@@ -18248,12 +18248,20 @@
         },
         "pnpm typecheck": {
           "status": "pass"
+        },
+        "github_checks": {
+          "status": "pass",
+          "evidence": "GitHub required checks passed before PR #1024 merge."
+        },
+        "post_merge_cleanup": {
+          "status": "pass",
+          "evidence": "PR #1024 merged with squash merge commit ae8d1999d12cb4b9e83976b8e4192eb0e2d408c0; origin/main contains the merge commit, local main was synced to origin/main, worktree was clean, and local/remote task branches were deleted."
         }
       },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-03T16:47:43Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "events": [
         {
           "at": "2026-06-04T00:23:51+08:00",
@@ -18269,6 +18277,11 @@
           "at": "2026-06-04T00:45:00+08:00",
           "status": "pr_open",
           "summary": "Opened GitHub PR #1024 for PRIVACY-ORDER-RESULT-SAFETY-SCAN-01."
+        },
+        {
+          "at": "2026-06-04T00:47:43+08:00",
+          "status": "merged",
+          "summary": "Reconciled PR #1024 as merged with squash merge commit ae8d1999d12cb4b9e83976b8e4192eb0e2d408c0; origin/main contains the merge commit and local/remote branch cleanup is complete."
         }
       ]
     },
@@ -18282,10 +18295,34 @@
         "PRIVACY-ORDER-RESULT-SAFETY-SCAN-01"
       ],
       "title": "docs(analytics): scan commercial event taxonomy",
-      "status": "planned",
-      "commit_sha": null,
-      "pr_url": null,
-      "checks": {},
+      "status": "pr_open",
+      "commit_sha": "9b4d4e6eee52edf9e6fcf05fce01e923a9d0574c",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1025",
+      "checks": {
+        "dependency": {
+          "status": "pass",
+          "evidence": "PRIVACY-ORDER-RESULT-SAFETY-SCAN-01 merged as fap-web PR #1024 with merge commit ae8d1999d12cb4b9e83976b8e4192eb0e2d408c0."
+        },
+        "scan_report": {
+          "status": "pass",
+          "evidence": "Created docs/audits/analytics-commercial-events-scan-2026-06-03.md with GO/NO-GO, current event registry, standard commercial event mapping, GA4/Baidu readiness, first-party /api/track readiness, payload privacy matrix, dedupe risks, follow-up PR scope, and backend truth boundary."
+        },
+        "rg commercial event terms": {
+          "status": "pass",
+          "evidence": "Read-only rg scan found current legacy/canonical event names and docs/test mappings for article_to_test_click, start_attempt, submit_attempt, view_result, click_unlock, create_order, purchase_success, report_unlock, and report_ready."
+        },
+        "rg analytics transport terms": {
+          "status": "pass",
+          "evidence": "Read-only rg scan found gtag, _hmt, trackEvent, /api/track, EVENT_FIELD_WHITELIST, and TRACKING_EVENTS call sites."
+        },
+        "pnpm exec vitest run tests/contracts/tracking-whitelist.contract.test.ts tests/contracts/analytics-payload-privacy.contract.test.ts tests/contracts/seo-cms-canary-web01-article-to-test-click.contract.test.tsx": {
+          "status": "pass",
+          "tests": "22 passed"
+        },
+        "pnpm typecheck": {
+          "status": "pass"
+        }
+      },
       "failure_reason": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -18295,6 +18332,16 @@
           "at": "2026-06-04T00:23:51+08:00",
           "status": "planned",
           "summary": "Registered Day 1 docs-only commercial event taxonomy scan. No tracking runtime, analytics backend, order, payment, CMS, deployment, or secret access is authorized by this entry."
+        },
+        {
+          "at": "2026-06-04T00:58:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Completed docs-only commercial event taxonomy scan. Focused tracking whitelist, analytics payload privacy, SEO CMS article-to-test click contracts, and typecheck passed; runtime and tests are unchanged."
+        },
+        {
+          "at": "2026-06-04T01:01:00+08:00",
+          "status": "pr_open",
+          "summary": "Opened GitHub PR #1025 for ANALYTICS-COMMERCIAL-EVENTS-SCAN-01; required GitHub checks are pending."
         }
       ]
     },

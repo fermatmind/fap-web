@@ -4260,7 +4260,7 @@ prs:
       - SEO-COMPETITOR-URL-01
     mode: execute
     risk_level: L1
-    status: in_progress
+    status: pr_open
     title: "docs(seo): define SEO issue queue read model"
     goal: "Define the sanitized SEO issue queue read model for URL truth, sitemap/llms, GSC, Baidu, GA4, CMS release/draft, competitor inventory, and manual review signals, including source hierarchy, issue keys, field schema, issue types, severity, lifecycle, role boundaries, release integration, sample issues, risk boundaries, and deferred runtime work without changing runtime, backend, CMS schema, APIs, Filament resources, migrations, collectors, dashboard UI, content, sitemap/llms generation, search channels, env, deploy, or production behavior."
     in_scope:
@@ -12123,7 +12123,7 @@ prs:
       - COMMERCIAL-READINESS-TRAIN-00
     mode: scan_report_only
     train_scope: commercial_readiness_day_1
-    status: pr_open
+    status: merged
     goal: "Produce a docs-only private route and order/result safety scan covering result, order, share, payment, history, canonical, sitemap, llms, GA4/Baidu, and /api/track leakage risk without runtime, tests, CMS, search submission, deploy, secret, or private URL access."
     allowed_paths:
       - docs/audits/privacy-order-result-safety-scan-2026-06-03.md
@@ -12151,7 +12151,7 @@ prs:
       - PRIVACY-ORDER-RESULT-SAFETY-SCAN-01
     mode: scan_report_only
     train_scope: commercial_readiness_day_1
-    status: planned
+    status: in_progress
     goal: "Produce a docs-only commercial event taxonomy scan across landing, article CTA, test start/complete, result view, checkout, purchase, unlock, and report-ready events without tracking runtime, analytics platform, order, payment, deploy, secret, or CMS changes."
     allowed_paths:
       - docs/audits/analytics-commercial-events-scan-2026-06-03.md
