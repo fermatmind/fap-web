@@ -11018,6 +11018,10 @@ prs:
       - docs/seo/generated/url-inventory.v1.json
       - docs/seo/generated/url-inventory.v1.csv
       - tests/contracts/url-inventory-generator.contract.test.ts
+      - tests/contracts/core-topic-graph-inventory.contract.test.ts
+      - tests/contracts/duplicate-seo-entities.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - tests/contracts/internal-link-orphan-detector.contract.test.ts
       - tests/contracts/sitemap-url-policy-decision.contract.test.ts
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
@@ -11037,8 +11041,11 @@ prs:
       - adding /zh, /en/career/jobs, or /zh/career/jobs to sitemap
     required_local_checks:
       - node scripts/seo/generate-url-inventory.mjs --sitemap=https://fermatmind.com/sitemap.xml --site-url=https://fermatmind.com --json
+      - pnpm exec vitest run tests/contracts/internal-link-orphan-detector.contract.test.ts tests/contracts/core-topic-graph-inventory.contract.test.ts tests/contracts/duplicate-seo-entities.contract.test.ts
       - pnpm exec vitest run tests/contracts/url-inventory-generator.contract.test.ts tests/contracts/url-exposure-policy.contract.test.ts tests/contracts/sitemap-authority-adapters.contract.test.ts tests/contracts/sitemap-url-policy-decision.contract.test.ts
+      - pnpm test:contract
       - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - ruby -e 'require "yaml"; YAML.load_file("docs/codex/pr-train.yaml"); puts "YAML parse ok"'
       - git diff --check

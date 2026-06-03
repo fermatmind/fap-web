@@ -5,6 +5,7 @@ import { execFileSync } from "node:child_process";
 import { describe, expect, it } from "vitest";
 
 const ROOT = process.cwd();
+const DETECTOR_MAX_BUFFER = 64 * 1024 * 1024;
 
 type InternalLinkGraphReport = {
   version: string;
@@ -30,6 +31,7 @@ function runDetector(...args: string[]): InternalLinkGraphReport {
   const output = execFileSync("node", ["scripts/seo/detect-internal-link-orphans.mjs", ...args], {
     cwd: ROOT,
     encoding: "utf8",
+    maxBuffer: DETECTOR_MAX_BUFFER,
   });
   return JSON.parse(output) as InternalLinkGraphReport;
 }

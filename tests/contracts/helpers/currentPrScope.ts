@@ -1200,7 +1200,25 @@ const FRONTEND_CI_BUILD_TIMEOUT_ALLOWED_FILES = new Set([
   "tests/contracts/public-api-cache.contract.test.ts",
 ]);
 
+const SEO_SITEMAP_P0_05_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/operations/sitemap-url-policy-decision-2026-06-02.md",
+  "docs/seo/generated/url-inventory.v1.csv",
+  "docs/seo/generated/url-inventory.v1.json",
+  "docs/seo/url-inventory-governance.md",
+  "tests/contracts/core-topic-graph-inventory.contract.test.ts",
+  "tests/contracts/duplicate-seo-entities.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/internal-link-orphan-detector.contract.test.ts",
+  "tests/contracts/sitemap-url-policy-decision.contract.test.ts",
+]);
+
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH === "codex/seo-sitemap-p0-05-url-truth-policy") {
+    return SEO_SITEMAP_P0_05_ALLOWED_FILES.has(file);
+  }
+
   if (CURRENT_BRANCH === "codex/seo-cms-canary-web-01-article-to-test-tracking") {
     return SEO_CMS_CANARY_WEB_01_ALLOWED_FILES.has(file);
   }

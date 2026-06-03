@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-03T03:16:30Z",
+  "updated_at": "2026-06-03T03:35:30Z",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -16691,7 +16691,7 @@
       "base": "main",
       "depends_on": [],
       "title": "docs(seo): lock sitemap URL truth and career hub policy",
-      "status": "open",
+      "status": "ci_fix_validated",
       "commit_sha": "b3811347315894be55c0a0af938befb6d8b031ab",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1008",
       "checks": {
@@ -16725,7 +16725,7 @@
         "typecheck": {
           "status": "passed",
           "command": "pnpm typecheck",
-          "summary": "TypeScript noEmit typecheck passed."
+          "summary": "TypeScript noEmit typecheck passed after the CI fix."
         },
         "metadata_parse": {
           "status": "passed",
@@ -16735,7 +16735,7 @@
         "diff_check": {
           "status": "passed",
           "command": "git diff --check",
-          "summary": "Whitespace diff check passed before staging."
+          "summary": "Unstaged diff whitespace check passed after the CI fix and build artifact cleanup."
         },
         "cached_diff_check": {
           "status": "passed",
@@ -16745,6 +16745,35 @@
         "pr_opened": {
           "status": "passed",
           "summary": "Opened https://github.com/fermatmind/fap-web/pull/1008 after local validation and path-limited staging passed."
+        },
+        "github_contracts_failure": {
+          "status": "failed",
+          "command": "GitHub Actions CI / contracts on PR #1008",
+          "summary": "Required contracts check failed with spawnSync node ENOBUFS in tests/contracts/internal-link-orphan-detector.contract.test.ts after the generated inventory grew to the production 2270-row sitemap snapshot."
+        },
+        "internal_link_orphan_detector_contract": {
+          "status": "passed",
+          "command": "pnpm exec vitest run tests/contracts/internal-link-orphan-detector.contract.test.ts",
+          "summary": "Focused contract passed after increasing the detector child-process stdout maxBuffer for the larger production inventory."
+        },
+        "ci_fix_scope_update": {
+          "status": "passed",
+          "summary": "Scope expanded to include the affected contract harness files: internal-link orphan detector, core topic graph inventory, duplicate SEO entities, and currentPrScope helper. No runtime sitemap, llms, CMS content, or public route behavior changes were made."
+        },
+        "ci_fix_failed_subset": {
+          "status": "passed",
+          "command": "pnpm exec vitest run tests/contracts/core-topic-graph-inventory.contract.test.ts tests/contracts/duplicate-seo-entities.contract.test.ts tests/contracts/api-edge-gateway-backend-authority-contract.contract.test.ts tests/contracts/api-edge-gateway-hardening-quarantine-plan.contract.test.ts tests/contracts/api-gateway-evidence-completion.contract.test.ts tests/contracts/api-gateway-smoke-rollback-runbook.contract.test.ts tests/contracts/ci-validator-hygiene.contract.test.ts tests/contracts/clinical-consent-gates.contract.test.tsx tests/contracts/link-anon-login.contract.test.ts tests/contracts/preview-fixture-validation.contract.test.ts tests/contracts/public-api-authority-acceptance-gate.contract.test.ts tests/contracts/scale-rollout.contract.test.ts tests/contracts/search-intelligence-data-contract.contract.test.ts tests/contracts/seo-intelligence-asset-map.contract.test.ts tests/contracts/staging-cms-baseline-validator.contract.test.ts",
+          "summary": "Previously failing ENOBUFS and scope-boundary subset passed with 15 files and 108 tests."
+        },
+        "full_contract_suite": {
+          "status": "passed",
+          "command": "pnpm test:contract",
+          "summary": "Full contract suite passed with 430 files and 2403 tests after the CI fix."
+        },
+        "production_build": {
+          "status": "passed",
+          "command": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build",
+          "summary": "Production build passed after adding NEXT_PUBLIC_SITE_URL. The build-generated public/sitemap.xml change was reverted because runtime sitemap artifacts are outside SEO-SITEMAP-P0-05 scope."
         }
       },
       "failure_reason": null,
@@ -16771,6 +16800,16 @@
           "at": "2026-06-03T03:16:30Z",
           "event": "pr_open",
           "note": "Opened https://github.com/fermatmind/fap-web/pull/1008 after local validation passed. GitHub required checks are pending."
+        },
+        {
+          "at": "2026-06-03T03:25:10Z",
+          "event": "ci_fix_in_progress",
+          "note": "Fixing required GitHub contracts failure for PR #1008. The failure was ENOBUFS in the internal-link orphan detector contract caused by the production 2270-row generated inventory. Scope expanded to include the affected contract harness test."
+        },
+        {
+          "at": "2026-06-03T03:35:30Z",
+          "event": "ci_fix_validated",
+          "note": "CI fix validated locally. ENOBUFS was fixed by increasing stdout maxBuffer in SEO inventory detector contract tests. Duplicate SEO entity default-inventory assertions were aligned with the production 2270-row sitemap snapshot. Scope guard helper and train metadata now include the affected contract harness files. Full pnpm test:contract, typecheck, production build with NEXT_PUBLIC_SITE_URL, JSON/YAML parse, and diff check passed."
         }
       ]
     },
