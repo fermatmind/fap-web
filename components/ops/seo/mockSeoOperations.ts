@@ -56,7 +56,7 @@ export type SeoIssueTask = {
   status: SeoTaskStatus;
   owner: string;
   due: string;
-  source: "seo_intel_mock" | "cms_api_mock";
+  source: "seo_intel_mock" | "cms_api_mock" | "issue_queue_artifact";
 };
 
 export type SeoOperationsData = {

@@ -1299,6 +1299,17 @@ const SEO_ISSUE_QUEUE_01_LEDGER_RECONCILE_ALLOWED_FILES = new Set([
   "tests/contracts/seo-issue-queue-generator.contract.test.ts",
 ]);
 
+const SEO_ISSUE_QUEUE_02_ALLOWED_FILES = new Set([
+  "components/ops/seo/IssueQueueTable.tsx",
+  "components/ops/seo/SeoOperationsDashboard.tsx",
+  "components/ops/seo/mockSeoOperations.ts",
+  "components/ops/seo/seoIssueQueueArtifactAdapter.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/seo-issue-queue-dashboard-shell.contract.test.ts",
+]);
+
 const CMS_OPS_IA_MAIN_SCOPE_REVALIDATE_FIX_ALLOWED_FILES = new Set([
   "tests/contracts/cms-ops-ia-permission-matrix.contract.test.ts",
   "tests/contracts/helpers/currentPrScope.ts",
@@ -1306,6 +1317,10 @@ const CMS_OPS_IA_MAIN_SCOPE_REVALIDATE_FIX_ALLOWED_FILES = new Set([
 ]);
 
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH === "codex/seo-issue-queue-02-dashboard-artifact-shell") {
+    return SEO_ISSUE_QUEUE_02_ALLOWED_FILES.has(file);
+  }
+
   if (CURRENT_BRANCH === "codex/cms-ops-ia-main-scope-revalidate-fix") {
     return CMS_OPS_IA_MAIN_SCOPE_REVALIDATE_FIX_ALLOWED_FILES.has(file);
   }
