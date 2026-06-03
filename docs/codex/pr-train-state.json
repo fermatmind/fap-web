@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-02T16:52:01Z",
+  "updated_at": "2026-06-03T03:13:30Z",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -16680,6 +16680,88 @@
           "at": "2026-06-02T13:50:10Z",
           "event": "blocked_preflight_no_go",
           "note": "SEO-CONTENT-P1-08 remains blocked after preflight NO-GO. CMS operator permissions are not verified. Hidden CMS/DB slug collision is not verified. Safe draft preview / noindex validation path is not verified. Standard Article UI cannot directly set the full canary translation_group_id, CTA slots, and FAQ package fields. Controlled editorial package importer is the likely recommended draft creation path, but dry-run and operator confirmation still require explicit authorization. CMS draft creation and publishing remain forbidden."
+        }
+      ]
+    },
+    {
+      "id": "SEO-SITEMAP-P0-05",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/seo-sitemap-p0-05-url-truth-policy",
+      "base": "main",
+      "depends_on": [],
+      "title": "docs(seo): lock sitemap URL truth and career hub policy",
+      "status": "in_progress",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": {
+        "manifest_authorization": {
+          "status": "passed",
+          "summary": "User explicitly authorized adding SEO-SITEMAP-P0-05 to docs/codex/pr-train.yaml and docs/codex/pr-train-state.json before execution."
+        },
+        "branch_preflight": {
+          "status": "passed",
+          "summary": "Target branch was absent locally and remotely; task branch was created from latest main in an isolated clean fap-web worktree."
+        },
+        "scope_boundaries": {
+          "status": "passed",
+          "summary": "Scope is limited to sitemap URL truth docs, generated URL inventory artifacts, focused contract tests, and PR train metadata. Runtime sitemap, llms, CMS content, career jobs runtime, and search submissions are out of scope."
+        },
+        "initial_policy_contract_attempt": {
+          "status": "failed_then_fixed",
+          "command": "pnpm exec vitest run tests/contracts/sitemap-url-policy-decision.contract.test.ts",
+          "summary": "Initial focused contract used the wrong fixture shape for url-exposure-policy.v1.json. The test was corrected to use routeFamilies/name/samples, then the same focused contract passed."
+        },
+        "production_inventory_generation": {
+          "status": "passed",
+          "command": "node scripts/seo/generate-url-inventory.mjs --sitemap=https://fermatmind.com/sitemap.xml --site-url=https://fermatmind.com --json",
+          "summary": "Generated production sitemap inventory with 2270 total URLs and 2092 career_job_detail URLs."
+        },
+        "focused_contracts": {
+          "status": "passed",
+          "command": "pnpm exec vitest run tests/contracts/url-inventory-generator.contract.test.ts tests/contracts/url-exposure-policy.contract.test.ts tests/contracts/sitemap-authority-adapters.contract.test.ts tests/contracts/sitemap-url-policy-decision.contract.test.ts",
+          "summary": "4 contract files passed with 14 tests."
+        },
+        "typecheck": {
+          "status": "passed",
+          "command": "pnpm typecheck",
+          "summary": "TypeScript noEmit typecheck passed."
+        },
+        "metadata_parse": {
+          "status": "passed",
+          "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null && ruby -e 'require \"yaml\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); puts \"YAML parse ok\"'",
+          "summary": "PR train JSON and YAML parse checks passed before final ledger update."
+        },
+        "diff_check": {
+          "status": "passed",
+          "command": "git diff --check",
+          "summary": "Whitespace diff check passed before staging."
+        },
+        "cached_diff_check": {
+          "status": "passed",
+          "command": "git diff --cached --check",
+          "summary": "Path-limited staged diff whitespace check passed."
+        }
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "events": [
+        {
+          "at": "2026-06-03T00:00:00Z",
+          "event": "implementation_in_progress",
+          "note": "Started user-authorized SEO-SITEMAP-P0-05 docs/contract PR. This task explains production sitemap 2270 vs local public/sitemap.xml 261, locks /zh and career jobs index sitemap policy, and does not change runtime, CMS content, career jobs runtime, search submission, collectors, or SEO dashboard data integration."
+        },
+        {
+          "at": "2026-06-03T03:12:30Z",
+          "event": "local_validation_in_progress",
+          "note": "Production inventory generation, focused contracts, typecheck, metadata parse, and unstaged diff whitespace checks passed. One initial contract schema assumption failed and was fixed before validation passed."
+        },
+        {
+          "at": "2026-06-03T03:13:30Z",
+          "event": "staged_scope_validated",
+          "note": "Staged only SEO-SITEMAP-P0-05 scoped docs, generated inventory, focused contract test, and PR train metadata; cached diff whitespace check passed."
         }
       ]
     },
