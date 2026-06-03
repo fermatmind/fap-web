@@ -6490,7 +6490,7 @@
         "SEO-DASH-00B",
         "CMS-OPS-RELEASE-02"
       ],
-      "status": "pr_open",
+      "status": "merged",
       "train_scope": "seo_issue_queue_dashboard_artifact_shell",
       "risk_level": "L1",
       "title": "feat(ops): connect SEO dashboard shell to issue queue artifact",
@@ -6558,14 +6558,22 @@
         "pr_created": {
           "status": "pass",
           "evidence": "Opened GitHub PR #1020 at https://github.com/fermatmind/fap-web/pull/1020."
+        },
+        "github_pr_merged": {
+          "status": "pass",
+          "evidence": "GitHub PR #1020 is MERGED; merge commit 07506458f09f6c74b876c62d613810ae1bc67a1c is contained in origin/main."
+        },
+        "dashboard_artifact_state": {
+          "status": "pass",
+          "evidence": "/ops/seo-operations reads docs/seo/generated/seo-issue-queue.v1.json through components/ops/seo/seoIssueQueueArtifactAdapter.ts; it remains an artifact-backed shell, not live GSC/Baidu/GA4/CMS truth."
         }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1020",
-      "commit_sha": "d4ae20cd",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "07506458f09f6c74b876c62d613810ae1bc67a1c",
+      "merged_at": "2026-06-03T12:57:20Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "sidecar_issues": [],
       "history": [
         {
@@ -6587,6 +6595,92 @@
           "at": "2026-06-03T21:05:00+08:00",
           "status": "pr_open",
           "summary": "Pushed SEO-ISSUE-QUEUE-02 and opened GitHub PR #1020; waiting for GitHub checks before merge review."
+        },
+        {
+          "at": "2026-06-03T21:35:00+08:00",
+          "status": "merged_reconciled",
+          "summary": "Reconciled SEO-ISSUE-QUEUE-02 after GitHub PR #1020 was squash-merged into origin/main with merge commit 07506458f09f6c74b876c62d613810ae1bc67a1c; dashboard state is artifact-backed shell only, and real data integration is deferred to SEO-DASH-REAL-DATA-READINESS-01."
+        }
+      ],
+      "merge_commit_sha": "07506458f09f6c74b876c62d613810ae1bc67a1c",
+      "merge_sha": "07506458f09f6c74b876c62d613810ae1bc67a1c"
+    },
+    {
+      "id": "SEO-ISSUE-QUEUE-02-RECONCILE-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/seo-issue-queue-02-reconcile-01",
+      "base": "main",
+      "depends_on": [
+        "SEO-ISSUE-QUEUE-02"
+      ],
+      "status": "local_checks_passed",
+      "train_scope": "seo_issue_queue_dashboard_artifact_state_reconcile",
+      "risk_level": "L1",
+      "title": "docs(seo): reconcile issue queue dashboard artifact state",
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized SEO-ISSUE-QUEUE-02-RECONCILE-01 with metadata/docs/generated artifact scope and no runtime, CMS, search, content, or deployment changes."
+        },
+        "dependency": {
+          "status": "pass",
+          "evidence": "GitHub PR #1020 for SEO-ISSUE-QUEUE-02 is MERGED with merge commit 07506458f09f6c74b876c62d613810ae1bc67a1c in origin/main."
+        },
+        "json_parse_pr_train_state": {
+          "status": "pass",
+          "evidence": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null passed."
+        },
+        "json_parse_issue_queue_artifact": {
+          "status": "pass",
+          "evidence": "python3 -m json.tool docs/seo/generated/seo-issue-queue.v1.json >/dev/null passed."
+        },
+        "yaml_parse_pr_train": {
+          "status": "pass",
+          "evidence": "python3 yaml.safe_load docs/codex/pr-train.yaml passed."
+        },
+        "focused_contract": {
+          "status": "pass",
+          "evidence": "pnpm exec vitest run tests/contracts/seo-issue-queue.contract.test.ts passed: 13 tests."
+        },
+        "full_contract_suite": {
+          "status": "pass",
+          "evidence": "pnpm test:contract passed: 437 files, 2468 tests."
+        },
+        "typecheck": {
+          "status": "pass",
+          "evidence": "pnpm typecheck passed."
+        },
+        "sitemap_gate": {
+          "status": "pass",
+          "evidence": "pnpm seo:check-sitemap passed: sitemap indexability check passed for 261 urls."
+        },
+        "mobile_seo_gate": {
+          "status": "pass",
+          "evidence": "pnpm seo:check-mobile passed with runtimeBehaviorChanged=false, sitemapChanged=false, llmsChanged=false."
+        },
+        "diff_check": {
+          "status": "pass",
+          "evidence": "git diff --check passed."
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [],
+      "history": [
+        {
+          "at": "2026-06-03T21:35:00+08:00",
+          "status": "in_progress",
+          "summary": "Started SEO-ISSUE-QUEUE-02-RECONCILE-01 to reconcile merged dashboard artifact state, stale recommended follow-up text, and next-step metadata without runtime or integration changes."
+        },
+        {
+          "at": "2026-06-03T22:52:56+08:00",
+          "status": "local_checks_passed",
+          "summary": "Reconciled SEO-ISSUE-QUEUE-02 ledger/docs/generated artifact state and passed JSON/YAML parse, focused contract, full contract suite, typecheck, sitemap/mobile SEO gates, and git diff --check before commit."
         }
       ]
     },

@@ -1310,6 +1310,16 @@ const SEO_ISSUE_QUEUE_02_ALLOWED_FILES = new Set([
   "tests/contracts/seo-issue-queue-dashboard-shell.contract.test.ts",
 ]);
 
+const SEO_ISSUE_QUEUE_02_RECONCILE_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/seo/seo-issue-queue-read-model.md",
+  "docs/seo/generated/seo-issue-queue.v1.json",
+  "docs/seo/generated/seo-issue-queue.v1.csv",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/seo-issue-queue.contract.test.ts",
+]);
+
 const CMS_OPS_IA_MAIN_SCOPE_REVALIDATE_FIX_ALLOWED_FILES = new Set([
   "tests/contracts/cms-ops-ia-permission-matrix.contract.test.ts",
   "tests/contracts/helpers/currentPrScope.ts",
@@ -1317,6 +1327,10 @@ const CMS_OPS_IA_MAIN_SCOPE_REVALIDATE_FIX_ALLOWED_FILES = new Set([
 ]);
 
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH === "codex/seo-issue-queue-02-reconcile-01") {
+    return SEO_ISSUE_QUEUE_02_RECONCILE_ALLOWED_FILES.has(file);
+  }
+
   if (CURRENT_BRANCH === "codex/seo-issue-queue-02-dashboard-artifact-shell") {
     return SEO_ISSUE_QUEUE_02_ALLOWED_FILES.has(file);
   }
