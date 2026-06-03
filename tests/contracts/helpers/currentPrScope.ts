@@ -1223,9 +1223,22 @@ const BACKEND_RUNTIME_02D_RECONCILE_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const CMS_OPS_IA_00_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/operations/cms-ops-ia-permission-matrix.md",
+  "docs/operations/generated/cms-ops-ia-permission-matrix.v1.json",
+  "tests/contracts/cms-ops-ia-permission-matrix.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (CURRENT_BRANCH === "codex/backend-runtime-02d-reconcile") {
     return BACKEND_RUNTIME_02D_RECONCILE_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/cms-ops-ia-00-permission-matrix") {
+    return CMS_OPS_IA_00_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/seo-sitemap-p0-05-url-truth-policy") {
