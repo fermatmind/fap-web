@@ -6371,7 +6371,7 @@
         "CMS-OPS-RELEASE-02",
         "SEO-DASH-00B"
       ],
-      "status": "in_progress",
+      "status": "pr_open",
       "train_scope": "seo_issue_queue_readonly_generator",
       "risk_level": "L1",
       "title": "docs(seo): add read-only SEO issue queue generator",
@@ -6431,11 +6431,15 @@
         "scope_validation": {
           "status": "pass",
           "evidence": "Changed files are confined to SEO-ISSUE-QUEUE-01 docs/generated/script/contract/helper/pr-train metadata scope; no app, components, lib, public, runtime, CMS/API, content, sitemap/llms, deploy, env, cookie, or token files remain modified."
+        },
+        "pr_created": {
+          "status": "pass",
+          "evidence": "Opened GitHub PR #1017 at https://github.com/fermatmind/fap-web/pull/1017."
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1017",
+      "commit_sha": "f3461b4f23852ca69550c160bb051b41dcbff3ad",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -6445,6 +6449,11 @@
           "at": "2026-06-03T19:55:00+08:00",
           "status": "in_progress",
           "summary": "Started user-authorized SEO-ISSUE-QUEUE-01 read-only generator PR using existing URL truth, sitemap inventory, competitor URL inventory, and mock CMS/search/analytics signals with no API integration, CMS writes, content generation, search submission, sitemap/llms mutation, deployment, production access, env reads, cookie reads, or token reads."
+        },
+        {
+          "at": "2026-06-03T20:20:00+08:00",
+          "status": "pr_open",
+          "summary": "Opened PR #1017 after local validation passed and recorded PR URL plus scoped commit SHA."
         }
       ]
     },
