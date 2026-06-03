@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-03T15:16:00+08:00",
+  "updated_at": "2026-06-03T15:22:00+08:00",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -6129,7 +6129,7 @@
       "depends_on": [
         "SEO-COMPETITOR-URL-00"
       ],
-      "status": "local_checks_passed",
+      "status": "github_checks_pending",
       "train_scope": "competitor_url_inventory_readonly_generator",
       "risk_level": "L1",
       "title": "docs(seo): add read-only competitor URL inventory generator",
@@ -6185,11 +6185,19 @@
         "scope_validation": {
           "status": "pass",
           "evidence": "Scope validation showed only the seven authorized files: docs/codex/pr-train.yaml, docs/codex/pr-train-state.json, docs/seo/competitor-url-inventory-tracker.md, docs/seo/generated/competitor-url-inventory-generator.v1.json, scripts/seo/generate-competitor-url-inventory.mjs, tests/contracts/competitor-url-inventory-generator.contract.test.ts, and tests/contracts/helpers/currentPrScope.ts."
+        },
+        "pr_created": {
+          "status": "pass",
+          "evidence": "Opened GitHub PR #1014: https://github.com/fermatmind/fap-web/pull/1014."
+        },
+        "github_checks": {
+          "status": "pending",
+          "evidence": "Waiting for GitHub required checks on PR #1014."
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": "ddddf63b",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1014",
+      "commit_sha": "e3232c0d599de64acf0f79ca7b9b55b97ad8c8fd",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -6204,6 +6212,11 @@
           "at": "2026-06-03T15:16:00+08:00",
           "status": "local_checks_passed",
           "summary": "Passed generator smoke, JSON/YAML parsing, focused contract, typecheck, sitemap check, full contract suite, production build with NEXT_PUBLIC_SITE_URL, diff checks, and explicit scope validation. Restored build-generated public/sitemap.xml because sitemap mutation is outside scope."
+        },
+        {
+          "at": "2026-06-03T15:22:00+08:00",
+          "status": "github_checks_pending",
+          "summary": "Pushed SEO-COMPETITOR-URL-01 and opened GitHub PR #1014; waiting for GitHub checks."
         }
       ]
     },
