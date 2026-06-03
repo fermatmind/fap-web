@@ -3293,6 +3293,7 @@ prs:
       - docs/seo/cms-seo-middle-platform-final-architecture.md
       - docs/seo/generated/cms-seo-middle-platform-final-architecture.v1.json
       - tests/contracts/cms-seo-middle-platform-final-architecture.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
     out_of_scope:
@@ -3658,7 +3659,7 @@ prs:
       - BACKEND-RUNTIME-02C
     mode: execute
     risk_level: L2
-    status: planned
+    status: merged
     title: "docs(architecture): add gateway evidence completion report"
     goal: "Add fresh read-only Node2 OpenResty gateway evidence completion based on BACKEND-RUNTIME-02C partial status, including /api proxy evidence, public API smoke recheck, side-effect boundary, Node2 local runtime quarantine status, acceptance decision, and go/no-go for SEO-DASH-00 without changing runtime, backend, deploy, DNS/CDN/cloud, sitemap/llms, tracking, commerce, report, email, recommendation, or scoring behavior."
     in_scope:
@@ -3724,6 +3725,89 @@ prs:
       - app/llms-full.txt/route.ts
       - payment/order/report/recommendation/scoring/profile code
     rollback_note: "Remove the API gateway evidence completion document, generated artifact, scoped contract test, and BACKEND-RUNTIME-02D train metadata."
+
+  - id: BACKEND-RUNTIME-02D-RECONCILE
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/backend-runtime-02d-reconcile
+    base: main
+    depends_on:
+      - BACKEND-RUNTIME-02D
+    mode: execute
+    risk_level: L1
+    status: pr_open
+    title: "docs(architecture): reconcile backend runtime authority closure"
+    goal: "Reconcile the ARCH-SEO-CMS-02 final architecture charter with BACKEND-RUNTIME-02D accepted gateway authority evidence, mark stale backend authority conflict wording as superseded, update generated architecture artifact and scoped contract, and reconcile BACKEND-RUNTIME-02D train metadata without changing frontend runtime, backend runtime, API behavior, OpenResty, DNS/CDN/cloud, sitemap/llms, tracking, commerce, report, email, recommendation, scoring, env, deploy, SSH, CMS data, or production behavior."
+    in_scope:
+      - docs/seo/cms-seo-middle-platform-final-architecture.md
+      - docs/seo/generated/cms-seo-middle-platform-final-architecture.v1.json
+      - tests/contracts/cms-seo-middle-platform-final-architecture.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - <workspace>/fap-api changes
+      - <workspace>/fap-api/fap-web as production runtime
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - backend runtime files
+      - migrations
+      - env files
+      - deploy scripts
+      - DNS/CDN/cloud config
+      - OpenResty changes
+      - SSH
+      - production API calls beyond GitHub metadata
+      - next-sitemap.config.js
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - payment/order/report/email/recommendation/scoring/profile code
+      - collector jobs
+      - Metabase deployment
+      - seo_intel DB creation
+      - CMS content mutation
+      - deployment
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/cms-seo-middle-platform-final-architecture.contract.test.ts
+      - pnpm test:contract
+      - pnpm seo:check-sitemap
+      - pnpm seo:check-mobile
+      - python3 -m json.tool docs/seo/generated/cms-seo-middle-platform-final-architecture.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - git diff --check
+      - git diff --cached --check
+    acceptance:
+      - Architecture charter explicitly states BACKEND-RUNTIME-02D supersedes the earlier unresolved public API authority blocker.
+      - Generated artifact records api.fermatmind.com as Node2 OpenResty API edge gateway proxying /api/ to Node3 / fap-api-prod.
+      - Generated artifact keeps Node2 local Laravel, local DB, and queue non-authority and quarantined.
+      - Generated artifact keeps collector deployment, seo_intel production migration, Metabase production deployment, OpenResty changes, DNS/CDN changes, Node2 shutdown, backend deploys, and runtime behavior changes forbidden without separate approval.
+      - Scoped contract validates the reconciled authority closure and no-runtime-change guardrails.
+      - Current PR scope helper registers only this metadata/docs/test file set for full-contract scope-boundary tests.
+      - BACKEND-RUNTIME-02D manifest/state metadata is reconciled without changing its evidence artifact.
+      - No frontend runtime, backend runtime, API behavior, OpenResty, DNS, CDN, COS/OSS, database, sitemap/llms, tracking, commerce, report, email, recommendation, scoring, deployment, env, SSH, CMS data, cloud, collector, Metabase, or production behavior changes.
+    must_not_touch:
+      - <workspace>/fap-api
+      - <workspace>/fap-api/fap-web
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - backend runtime files
+      - migrations
+      - env files
+      - deploy scripts
+      - DNS/CDN/cloud config
+      - next-sitemap.config.js
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - payment/order/report/email/recommendation/scoring/profile code
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    rollback_note: "Revert the BACKEND-RUNTIME-02D-RECONCILE architecture reconciliation edits and train metadata if the closure should remain represented only by BACKEND-RUNTIME-02D."
 
   - id: SEO-DASH-00B
     repo: fap-web

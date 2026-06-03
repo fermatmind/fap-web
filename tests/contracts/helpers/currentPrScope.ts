@@ -1214,7 +1214,20 @@ const SEO_SITEMAP_P0_05_ALLOWED_FILES = new Set([
   "tests/contracts/sitemap-url-policy-decision.contract.test.ts",
 ]);
 
+const BACKEND_RUNTIME_02D_RECONCILE_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/seo/cms-seo-middle-platform-final-architecture.md",
+  "docs/seo/generated/cms-seo-middle-platform-final-architecture.v1.json",
+  "tests/contracts/cms-seo-middle-platform-final-architecture.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH === "codex/backend-runtime-02d-reconcile") {
+    return BACKEND_RUNTIME_02D_RECONCILE_ALLOWED_FILES.has(file);
+  }
+
   if (CURRENT_BRANCH === "codex/seo-sitemap-p0-05-url-truth-policy") {
     return SEO_SITEMAP_P0_05_ALLOWED_FILES.has(file);
   }
