@@ -12083,7 +12083,7 @@ prs:
     depends_on: []
     mode: train_registration
     train_scope: commercial_readiness_day_1
-    status: in_progress
+    status: pr_open
     goal: "Register the June 1 to July 1 Commercial Readiness Sprint ledger, Day 1 scan entries, and P0 follow-up placeholders without changing runtime, CMS, content assets, tests, public files, search submissions, or deployment state."
     allowed_paths:
       - docs/codex/pr-train.yaml

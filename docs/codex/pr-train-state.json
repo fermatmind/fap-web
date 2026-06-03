@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-04T00:23:51+08:00",
+  "updated_at": "2026-06-04T00:31:00+08:00",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -18166,9 +18166,9 @@
       "base": "main",
       "depends_on": [],
       "title": "chore(codex): add commercial readiness sprint train",
-      "status": "in_progress",
+      "status": "pr_open",
       "commit_sha": "1a4fd7c0da45feee7532d839d57d61947ac9e198",
-      "pr_url": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1023",
       "checks": {
         "authorization": {
           "status": "pass",
@@ -18207,6 +18207,11 @@
           "at": "2026-06-04T00:28:00+08:00",
           "status": "committed",
           "summary": "Committed Commercial Readiness Sprint train registration as 1a4fd7c0da45feee7532d839d57d61947ac9e198."
+        },
+        {
+          "at": "2026-06-04T00:31:00+08:00",
+          "status": "pr_open",
+          "summary": "Opened GitHub PR #1023 for COMMERCIAL-READINESS-TRAIN-00."
         }
       ]
     },
