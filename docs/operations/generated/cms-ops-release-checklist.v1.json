@@ -1,0 +1,135 @@
+{
+  "version": "cms_ops_release_checklist.v1",
+  "scope": "CMS-OPS-RELEASE-02",
+  "status": "contract_design",
+  "source_documents": [
+    "CMS-OPS-IA-00",
+    "PR-CMS-02",
+    "fermatmind-cms-seo-ops-requirements",
+    "seo-cms-readiness-checklist-2026-06-02"
+  ],
+  "authority_boundary": {
+    "publish_permission_authority": "backend_cms_workflow",
+    "checklist_truth": "backend_cms_release_plan",
+    "revalidation_planner": "backend_release_planner",
+    "revalidation_consumer": "fap_web_allowlisted_consumer",
+    "post_publish_smoke_owner": "backend_cms_release_audit",
+    "sitemap_llms_eligibility_authority": "backend_cms_discoverability_fields_and_release_contract",
+    "seo_issue_evidence_source": "sanitized_seo_intel_summary",
+    "fap_web_may_publish_content": false,
+    "fap_web_may_hide_failed_publish_with_fallback_content": false,
+    "seo_issue_may_auto_publish": false
+  },
+  "release_phases": [
+    "draft_ready_check",
+    "review_signoff",
+    "release_plan_created",
+    "release_preflight_passed",
+    "publish_executed",
+    "revalidate_requested",
+    "revalidate_completed",
+    "post_publish_smoke_passed",
+    "observe_24h",
+    "closed"
+  ],
+  "failure_states": [
+    "release_preflight_failed",
+    "publish_failed",
+    "revalidate_failed",
+    "post_publish_smoke_failed",
+    "rollback_required",
+    "rollback_completed",
+    "forward_fix_required"
+  ],
+  "pre_publish_gates": {
+    "identity": ["locale", "slug", "title", "content_family", "owner", "resource_family"],
+    "body_readiness": ["visible_body_or_blocks", "no_placeholder_content"],
+    "seo_metadata": ["meta_title", "meta_description", "canonical_intent", "robots_indexability", "schema_type_when_eligible"],
+    "review": ["reviewer_identity", "review_timestamp", "review_decision", "sensitive_topic_decision", "claim_decision"],
+    "media": ["cms_media_reference", "alt_text_when_visible"],
+    "relations": ["backend_owned_related_tests", "backend_owned_related_topics", "backend_owned_related_articles", "backend_owned_related_career_guides"],
+    "localization": ["locale_policy", "translation_group", "hreflang_expectation", "source_language", "counterpart_status"],
+    "discoverability": ["sitemap_eligibility", "llms_eligibility", "footer_eligibility", "homepage_eligibility", "search_channel_eligibility"],
+    "private_url_exclusion": ["result", "order", "checkout", "payment", "report", "share_token", "auth", "account", "preview_only"],
+    "preview": ["rendered_preview_or_api_preview_evidence"],
+    "release_operator": ["publisher_or_ops_admin_or_owner_approval", "forbidden_self_approval_absent"]
+  },
+  "resource_family_requirements": {
+    "articles": {
+      "required": ["editorial_review", "seo_metadata", "canonical", "robots", "related_modules", "cta_faq_eligibility", "visible_body_smoke"],
+      "no_go": ["unsupported_clinical_claim", "unsupported_ability_claim", "unsupported_outcome_claim", "unsupported_salary_claim", "unsupported_employment_screening_claim", "unsupported_iq_authority_claim"]
+    },
+    "landing_surfaces": {
+      "required": ["block_completeness", "module_order", "cta_targets", "seo_metadata", "route_preview", "cache_paths"],
+      "no_go": ["frontend_fallback_copy", "local_asset_substitution_for_cms_content"]
+    },
+    "content_pages": {
+      "required": ["page_identity", "canonical", "robots", "visible_body", "footer_eligibility"],
+      "no_go": ["footer_exposure_before_route_and_metadata_pass"]
+    },
+    "career_guides_jobs": {
+      "required": ["claim_gates", "canonical", "robots", "sitemap_llms_eligibility", "related_test_career_links"],
+      "no_go": ["strong_career_outcome_claim_when_backend_gate_closed"]
+    },
+    "support_content": {
+      "required": ["support_owner", "visible_body", "canonical", "robots", "support_navigation_eligibility"],
+      "no_go": ["support_only_role_article_landing_career_publish"]
+    },
+    "media_metadata": {
+      "required": ["media_authority", "alt_text", "dimensions", "content_type", "owning_resource_link"],
+      "no_go": ["mutable_cms_public_image_committed_to_fap_web"]
+    }
+  },
+  "revalidate_path_plan": {
+    "backend_must_emit": ["release_id", "resource_family", "locale", "resource_id_or_slug", "canonical_url", "accepted_public_paths", "derived_public_paths", "cache_signal_paths", "rejected_paths"],
+    "fap_web_consumer_must": ["require_content_release_token", "accept_allowlisted_public_paths_only", "return_revalidated_paths", "return_rejected_paths", "clear_approved_public_cache_signals_only"],
+    "fap_web_consumer_must_reject": ["private_paths", "api_paths", "payment_paths", "order_paths", "result_paths", "take_paths", "share_paths", "report_paths", "auth_paths", "account_paths", "checkout_paths", "webhook_paths", "traversal_paths", "external_origins"],
+    "forbidden_side_effects": ["publish_content", "mutate_cms_records", "submit_search_urls", "rewrite_sitemap_eligibility", "change_robots_policy"]
+  },
+  "post_publish_smoke": {
+    "required_checks": ["http_status", "title_h1_body", "canonical", "robots", "hreflang", "sitemap", "llms", "structured_data", "related_modules", "private_url_leak", "tracking", "cache"],
+    "private_url_leak_forbidden": ["result", "order", "payment", "checkout", "report", "share", "auth", "account"],
+    "tracking_forbidden": ["pii", "raw_order", "raw_attempt", "payment_payload"]
+  },
+  "failure_policy": {
+    "missing_checklist_evidence": "release_preflight_failed",
+    "missing_review_or_forbidden_self_approval": "release_preflight_failed",
+    "private_noindex_url_in_release_plan": "release_preflight_failed",
+    "publish_command_failure": "publish_failed",
+    "revalidate_rejection": "revalidate_failed",
+    "smoke_status_canonical_robots_body_failure": "post_publish_smoke_failed",
+    "search_seo_issue_after_publish": "forward_fix_required",
+    "high_risk_claim_leak": "rollback_required"
+  },
+  "release_audit_required_fields": [
+    "release_id",
+    "resource_family",
+    "resource_id",
+    "slug",
+    "locale",
+    "actor_id",
+    "actor_role",
+    "reviewer_id",
+    "reviewer_role",
+    "previous_state",
+    "next_state",
+    "checklist_version",
+    "checklist_result",
+    "release_approval_timestamp",
+    "revalidation_request_summary",
+    "revalidation_response_summary",
+    "post_publish_smoke_summary",
+    "rollback_or_forward_fix_decision",
+    "sanitized_seo_issue_evidence_ids"
+  ],
+  "audit_forbidden_fields": ["secrets", "raw_order_id", "raw_attempt_id", "raw_payment_payload", "private_url", "cookie", "token", "raw_pii"],
+  "required_operator_views": ["checklist_status", "blocked_reason", "reviewer_decision", "release_plan_diff", "revalidate_accepted_rejected_paths", "post_publish_smoke_results", "rollback_forward_fix_queue", "sanitized_linked_seo_issue_summaries"],
+  "deferred_runtime_work": ["backend_release_plan_migration", "filament_release_checklist_ui", "backend_publish_service_changes", "release_job_queue_workers", "fap_web_revalidate_route_changes", "sitemap_llms_generation_changes", "search_channel_submission", "production_cache_purge", "content_publish_execution", "collector_or_seo_intel_write_path_changes", "deployment"],
+  "repository_rule_impact": {
+    "backend_cms_publication_state_authoritative": true,
+    "fap_web_release_authority": false,
+    "sitemap_llms_backend_release_contract_driven": true,
+    "seo_issue_auto_publish_allowed": false
+  },
+  "recommended_follow_up": "fap-api CMS release checklist runtime implementation after explicit authorization"
+}

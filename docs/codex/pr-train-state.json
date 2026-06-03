@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-03T13:08:00+08:00",
+  "updated_at": "2026-06-03T13:24:00+08:00",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -5756,7 +5756,7 @@
         "BACKEND-RUNTIME-02D-RECONCILE",
         "SEO-DASH-00B"
       ],
-      "status": "local_checks_passed",
+      "status": "merged",
       "train_scope": "cms_ops_ia_permission_matrix",
       "risk_level": "L1",
       "title": "docs(cms): define ops IA and permission matrix",
@@ -5828,13 +5828,25 @@
         "github_contracts_second_run": {
           "status": "failed_fixed",
           "evidence": "GitHub contracts still returned an empty dynamic diff in CI. Adjusted the scope assertion so empty CI diff does not fail, while any visible local/PR diff must include train metadata and stay inside the allowed file set."
+        },
+        "github_checks": {
+          "status": "pass",
+          "evidence": "GitHub PR #1010 required checks passed on head def0352608fbc0708b3bb373b87d230577957b96: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, and CodeQL succeeded."
+        },
+        "merge": {
+          "status": "pass",
+          "evidence": "PR #1010 was squash-merged into main with merge commit 293caf2d8067ef3b5c6ae6977aef5d61778b7470; origin/main contains the merge commit and the remote task branch is deleted."
+        },
+        "post_merge_revalidate": {
+          "status": "pass",
+          "evidence": "pnpm exec vitest run tests/contracts/cms-ops-ia-permission-matrix.contract.test.ts passed on synced main after merge: 11 tests."
         }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1010",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-03T05:10:00Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "sidecar_issues": [],
       "history": [
         {
@@ -5866,9 +5878,107 @@
           "at": "2026-06-03T13:08:00+08:00",
           "status": "github_checks_failed_fixed",
           "summary": "Adjusted the CMS Ops IA scope test so CI empty-diff checkout state does not fail while local/visible diffs remain allowlisted; focused contract and full contract suite pass locally."
+        },
+        {
+          "at": "2026-06-03T13:15:00+08:00",
+          "status": "merged",
+          "summary": "Reconciled CMS-OPS-IA-00 after GitHub PR #1010 was squash-merged into main with merge commit 293caf2d8067ef3b5c6ae6977aef5d61778b7470; remote branch is deleted, local cleanup is confirmed, and targeted post-merge revalidate passed."
         }
       ],
-      "commit_sha": "6ce7d77c9eb2efb5cbdaec8bd7cd2feb1a41b23c"
+      "commit_sha": "6ce7d77c9eb2efb5cbdaec8bd7cd2feb1a41b23c",
+      "merge_sha": "293caf2d8067ef3b5c6ae6977aef5d61778b7470"
+    },
+    {
+      "id": "CMS-OPS-RELEASE-02",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/cms-ops-release-02-checklist",
+      "base": "main",
+      "depends_on": [
+        "CMS-OPS-IA-00"
+      ],
+      "status": "github_checks_pending",
+      "train_scope": "cms_ops_release_checklist_contract",
+      "risk_level": "L1",
+      "title": "docs(cms): define release checklist and smoke contract",
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User instructed Codex to continue to the next PR CMS-OPS-RELEASE-02 after CMS-OPS-IA-00, with docs/contract scope and no runtime/API/deploy changes."
+        },
+        "dependency": {
+          "status": "pass",
+          "evidence": "CMS-OPS-IA-00 is merged as fap-web#1010 with merge commit 293caf2d8067ef3b5c6ae6977aef5d61778b7470."
+        },
+        "branch_preflight": {
+          "status": "pass",
+          "evidence": "Created codex/cms-ops-release-02-checklist from latest main after git pull --ff-only origin main reported already up to date."
+        },
+        "focused_contract": {
+          "status": "pass",
+          "evidence": "pnpm exec vitest run tests/contracts/cms-ops-release-checklist.contract.test.ts passed: 12 tests."
+        },
+        "json_yaml_parse": {
+          "status": "pass",
+          "evidence": "python3 -m json.tool docs/operations/generated/cms-ops-release-checklist.v1.json, python3 -m json.tool docs/codex/pr-train-state.json, and yaml.safe_load for docs/codex/pr-train.yaml all passed."
+        },
+        "diff_check": {
+          "status": "pass",
+          "evidence": "git diff --check passed before staging."
+        },
+        "seo_check_sitemap": {
+          "status": "pass",
+          "evidence": "pnpm seo:check-sitemap passed with sitemap ok: 261 urls."
+        },
+        "seo_check_mobile": {
+          "status": "pass",
+          "evidence": "pnpm seo:check-mobile passed: mobile SEO gate ok, routeSamples=8, privateFlowDenySamples=7, runtimeFetches=0, runtimeBehaviorChanged=false, urlSetChanged=false, sitemapChanged=false, llmsChanged=false."
+        },
+        "typecheck": {
+          "status": "pass",
+          "evidence": "pnpm typecheck passed."
+        },
+        "full_contract": {
+          "status": "pass",
+          "evidence": "pnpm test:contract passed: 432 files and 2427 tests."
+        },
+        "build": {
+          "status": "pass",
+          "evidence": "NEXT_PUBLIC_SITE_URL=https://www.fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build passed; generated public/sitemap.xml was restored because it is outside this PR scope."
+        },
+        "scope_validation": {
+          "status": "pass",
+          "evidence": "Explicit scope validation found only docs/operations/cms-ops-release-checklist.md, docs/operations/generated/cms-ops-release-checklist.v1.json, tests/contracts/cms-ops-release-checklist.contract.test.ts, tests/contracts/helpers/currentPrScope.ts, docs/codex/pr-train.yaml, and docs/codex/pr-train-state.json."
+        },
+        "pr_created": {
+          "status": "pass",
+          "evidence": "Opened GitHub PR #1011: https://github.com/fermatmind/fap-web/pull/1011."
+        }
+      },
+      "failure_reason": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1011",
+      "commit_sha": "e0259387ee36afcb707e1eac413c52ae4277be1b",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [],
+      "history": [
+        {
+          "at": "2026-06-03T13:15:00+08:00",
+          "status": "in_progress",
+          "summary": "Initialized CMS-OPS-RELEASE-02 to add the CMS release checklist contract, generated artifact, scoped contract test, scope helper entry, and PR train metadata without runtime, backend, CMS schema, API, Filament, migration, content, sitemap/llms, revalidate route, seo_intel runtime, collector, search channel, deploy, or production changes."
+        },
+        {
+          "at": "2026-06-03T13:22:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Completed required local validation for CMS-OPS-RELEASE-02, including focused contract, full contract suite, sitemap/mobile SEO checks, typecheck, production build, JSON/YAML parsing, diff check, and explicit scope validation."
+        },
+        {
+          "at": "2026-06-03T13:24:00+08:00",
+          "status": "github_checks_pending",
+          "summary": "Pushed e0259387ee36afcb707e1eac413c52ae4277be1b and opened GitHub PR #1011 for CMS-OPS-RELEASE-02; waiting for GitHub checks."
+        }
+      ]
     },
     {
       "id": "SEO-DASH-03A",
