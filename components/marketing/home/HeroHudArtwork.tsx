@@ -6,35 +6,35 @@ const HUD_CALLOUTS = [
     label: { zh: "人格核心维度", en: "Personality core" },
     value: "28+",
     top: "9.5%",
-    line: "611 113 690 58 727 58",
+    line: "611 113 649 94 690 58 727 58",
     dot: [727, 58],
   },
   {
     label: { zh: "潜在能力因子", en: "Potential ability" },
     value: "48+",
     top: "22.8%",
-    line: "650 148 690 129 727 129",
+    line: "650 148 671 138 690 129 727 129",
     dot: [727, 129],
   },
   {
     label: { zh: "性格倾向因子", en: "Trait tendency" },
     value: "32+",
     top: "36.1%",
-    line: "638 258 690 199 727 199",
+    line: "638 258 659 234 690 199 727 199",
     dot: [727, 199],
   },
   {
     label: { zh: "职业匹配因子", en: "Career matching" },
     value: "120+",
     top: "49.5%",
-    line: "491 390 690 269 727 269",
+    line: "491 390 556 350 690 269 727 269",
     dot: [727, 269],
   },
   {
     label: { zh: "沟通与关系因子", en: "Communication factors" },
     value: "18+",
     top: "63.4%",
-    line: "525 374 612 374 690 341 727 341",
+    line: "525 374 612 374 656 357 690 341 727 341",
     dot: [727, 341],
   },
   {
@@ -55,7 +55,7 @@ export function HeroHudArtwork({ locale }: { locale: Locale }) {
       className="pointer-events-none relative ml-6 mt-[7px] hidden aspect-[887/520] w-[calc(100%+0.625rem)] self-start overflow-visible [mask-image:linear-gradient(to_bottom,transparent_0%,rgba(0,0,0,0.5)_4%,black_10%,black_88%,rgba(0,0,0,0.5)_96%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent_0%,rgba(0,0,0,0.5)_4%,black_10%,black_88%,rgba(0,0,0,0.5)_96%,transparent_100%)] lg:block xl:-ml-[39px] xl:mt-[calc(4.842vw-65px)] xl:w-[59.65vw]"
     >
       <Image
-        src="/images/home/hero-assessment-hud.png?v=exact-vector-callouts"
+        src="/images/home/hero-assessment-hud.png?v=callout-svg-clean-v3"
         alt=""
         fill
         priority
