@@ -590,6 +590,24 @@ const PR_WEB_SEC_33_ALLOWED_FILES = new Set([
   "tests/e2e/enneagram-phase3b-1rd-partial-resonance-rendered-preview.spec.ts",
 ]);
 
+const SEO_OPERATIONS_DASHBOARD_SHELL_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/ops/seo-operations/page.tsx",
+  "components/ops/seo/IssueQueueTable.tsx",
+  "components/ops/seo/SeoOperationsDashboard.tsx",
+  "components/ops/seo/mockSeoOperations.ts",
+  "components/ops/shared/DataTable.tsx",
+  "components/ops/shared/FilterBar.tsx",
+  "components/ops/shared/KpiCard.tsx",
+  "components/ops/shared/OpsHeader.tsx",
+  "components/ops/shared/OpsShell.tsx",
+  "components/ops/shared/OpsSidebar.tsx",
+  "components/ops/shared/SegmentedControl.tsx",
+  "components/ops/shared/StatusBadge.tsx",
+  "docs/seo/generated/metadata-surface-inventory.v1.csv",
+  "docs/seo/generated/metadata-surface-inventory.v1.json",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 const SEO_CMS_CANARY_WEB_01_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/articles/[slug]/page.tsx",
   "components/content/AnswerSurfaceSection.tsx",
@@ -1550,6 +1568,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/pr-web-sec-33-preview-fixture-hard-fail") {
     return PR_WEB_SEC_33_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/seo-operations-dashboard-shell") {
+    return SEO_OPERATIONS_DASHBOARD_SHELL_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/seo-cms-canary-web-01-article-to-test-tracking") {

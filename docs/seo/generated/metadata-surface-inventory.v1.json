@@ -8,10 +8,10 @@
     "scanner": "scripts/seo/generate-metadata-surface-inventory.mjs"
   },
   "summary": {
-    "totalSurfaces": 74,
+    "totalSurfaces": 75,
     "byClassification": {
       "private_noindex": 22,
-      "product_code_only": 17,
+      "product_code_only": 18,
       "safe_static": 12,
       "migration_required": 2,
       "cms_backed": 14,
@@ -20,13 +20,13 @@
     },
     "byOwnership": {
       "private_noindex": 22,
-      "product_code_only": 19,
+      "product_code_only": 20,
       "cms_backed": 28,
       "backend_owned": 5
     },
     "byRouteFamily": {
       "private_flow": 21,
-      "other": 9,
+      "other": 10,
       "static_content_page": 10,
       "article_detail": 2,
       "articles_hub": 1,
@@ -687,6 +687,21 @@
       "classification": "safe_static",
       "risk": "P2",
       "reason": "Static or framework shell metadata with no CMS-backed public SEO expansion role."
+    },
+    {
+      "file": "app/(localized)/[locale]/ops/seo-operations/page.tsx",
+      "routePattern": "/ops/seo-operations",
+      "routeFamily": "other",
+      "exportKind": "direct_metadata",
+      "usesBuildPageMetadata": false,
+      "usesSeoSurface": false,
+      "rendersJsonLd": false,
+      "hasFrontendJsonLdBuilderFallback": false,
+      "noindexSignal": true,
+      "ownership": "product_code_only",
+      "classification": "product_code_only",
+      "risk": "P2",
+      "reason": "Deterministic product-code metadata; keep out of CMS-backed SEO authority unless intentionally migrated."
     },
     {
       "file": "app/(localized)/[locale]/orders/[orderNo]/page.tsx",
