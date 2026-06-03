@@ -6614,7 +6614,7 @@
       "depends_on": [
         "SEO-ISSUE-QUEUE-02"
       ],
-      "status": "local_checks_passed",
+      "status": "committed",
       "train_scope": "seo_issue_queue_dashboard_artifact_state_reconcile",
       "risk_level": "L1",
       "title": "docs(seo): reconcile issue queue dashboard artifact state",
@@ -6662,11 +6662,19 @@
         "diff_check": {
           "status": "pass",
           "evidence": "git diff --check passed."
+        },
+        "cached_diff_check": {
+          "status": "pass",
+          "evidence": "git diff --cached --check passed before commit."
+        },
+        "commit_created": {
+          "status": "pass",
+          "evidence": "Created local commit 724c3bfb for SEO-ISSUE-QUEUE-02-RECONCILE-01."
         }
       },
       "failure_reason": null,
       "pr_url": null,
-      "commit_sha": null,
+      "commit_sha": "724c3bfb",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -6681,6 +6689,11 @@
           "at": "2026-06-03T22:52:56+08:00",
           "status": "local_checks_passed",
           "summary": "Reconciled SEO-ISSUE-QUEUE-02 ledger/docs/generated artifact state and passed JSON/YAML parse, focused contract, full contract suite, typecheck, sitemap/mobile SEO gates, and git diff --check before commit."
+        },
+        {
+          "at": "2026-06-03T22:54:00+08:00",
+          "status": "committed",
+          "summary": "Created local commit 724c3bfb for SEO-ISSUE-QUEUE-02-RECONCILE-01 after staged diff validation passed."
         }
       ]
     },
