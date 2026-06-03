@@ -41,6 +41,7 @@ file,routePattern,routeFamily,exportKind,ownership,classification,risk,usesBuild
 "app/(localized)/[locale]/layout.tsx","/","home","direct_metadata","cms_backed","cms_backed","P2","false","false","false","false","true"
 "app/(localized)/[locale]/method-boundaries/page.tsx","/method-boundaries","other","generateMetadata","cms_backed","cms_backed","P2","false","false","false","false","false"
 "app/(localized)/[locale]/not-found.tsx","/","home","direct_metadata","product_code_only","safe_static","P2","false","false","false","false","true"
+"app/(localized)/[locale]/ops/seo-operations/page.tsx","/ops/seo-operations","other","direct_metadata","product_code_only","product_code_only","P2","false","false","false","false","true"
 "app/(localized)/[locale]/orders/[orderNo]/page.tsx","/orders/:orderNo","private_flow","generateMetadata","private_noindex","private_noindex","P2","false","false","false","false","true"
 "app/(localized)/[locale]/orders/lookup/page.tsx","/orders/lookup","private_flow","generateMetadata","private_noindex","private_noindex","P2","false","false","false","false","true"
 "app/(localized)/[locale]/page.tsx","/","home","generateMetadata","cms_backed","cms_backed","P2","true","false","true","true","true"
