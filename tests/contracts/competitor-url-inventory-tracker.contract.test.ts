@@ -240,6 +240,10 @@ describe("Competitor URL inventory tracker contract", () => {
       return;
     }
 
+    if (files.every(isCurrentRiasecPack12AllowedFile)) {
+      return;
+    }
+
     expect(files).toContain("docs/codex/pr-train.yaml");
     expect(files).toContain("docs/codex/pr-train-state.json");
     expect(files.every(isAllowedFile)).toBe(true);

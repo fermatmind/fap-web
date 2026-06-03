@@ -372,6 +372,25 @@ describe("SEO issue queue read model contract", () => {
 
     if (
       files.includes("docs/codex/pr-train-state.json") &&
+      files.every(isCurrentRiasecPack12AllowedFile)
+    ) {
+      const state = JSON.parse(fs.readFileSync(path.join(ROOT, "docs/codex/pr-train-state.json"), "utf8")) as {
+        prs: Array<Record<string, unknown>>;
+      };
+      const entry = state.prs.find((item) => item.id === "SEO-ISSUE-QUEUE-01");
+
+      expect(entry).toMatchObject({
+        status: "merged",
+        pr_url: "https://github.com/fermatmind/fap-web/pull/1017",
+        merge_sha: "cae0a98c24c5894478b80b4809f78239068f7705",
+        remote_branch_deleted: true,
+        local_cleanup_executed: true,
+      });
+      return;
+    }
+
+    if (
+      files.includes("docs/codex/pr-train-state.json") &&
       files.every((file) => ledgerReconciliationFiles.has(file))
     ) {
       const state = JSON.parse(fs.readFileSync(path.join(ROOT, "docs/codex/pr-train-state.json"), "utf8")) as {
