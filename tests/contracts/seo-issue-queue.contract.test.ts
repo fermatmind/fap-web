@@ -44,6 +44,15 @@ type SeoIssueQueueArtifact = {
     forbidden_actions: string[];
   };
   release_integration: Record<string, string[] | boolean>;
+  generated_queue?: {
+    version: string;
+    scope: string;
+    read_only: boolean;
+    live_data_collected: boolean;
+    network_access_enabled: boolean;
+    summary: Record<string, unknown>;
+    risk_boundary: Record<string, boolean>;
+  };
   sample_issues: Array<Record<string, unknown>>;
   risk_boundary: Record<string, boolean>;
   deferred_runtime_work: string[];
@@ -85,7 +94,10 @@ function isAllowedFile(file: string): boolean {
     "docs/codex/pr-train-state.json",
     "docs/seo/seo-issue-queue-read-model.md",
     "docs/seo/generated/seo-issue-queue.v1.json",
+    "docs/seo/generated/seo-issue-queue.v1.csv",
+    "scripts/seo/generate-seo-issue-queue.mjs",
     "tests/contracts/seo-issue-queue.contract.test.ts",
+    "tests/contracts/seo-issue-queue-generator.contract.test.ts",
     "tests/contracts/helpers/currentPrScope.ts",
   ].includes(file) || isCurrentRiasecPack12AllowedFile(file);
 }
@@ -325,7 +337,16 @@ describe("SEO issue queue read model contract", () => {
     expect(artifact.repository_rule_impact.cms_backend_remains_content_authority).toBe(true);
     expect(artifact.repository_rule_impact.seo_issue_queue_auto_publish_allowed).toBe(false);
     expect(artifact.repository_rule_impact.seo_issue_queue_auto_content_generation_allowed).toBe(false);
-    expect(artifact.recommended_follow_up).toBe("SEO-ISSUE-QUEUE-01 backend/data implementation design after explicit authorization");
+    expect(artifact.generated_queue).toMatchObject({
+      version: "seo_issue_queue_generator.v1",
+      scope: "SEO-ISSUE-QUEUE-01",
+      read_only: true,
+      live_data_collected: false,
+      network_access_enabled: false,
+    });
+    expect(artifact.generated_queue?.risk_boundary.cms_writes).toBe(false);
+    expect(artifact.generated_queue?.risk_boundary.search_submission).toBe(false);
+    expect(artifact.recommended_follow_up).toBe("SEO-ISSUE-QUEUE-02 wire read-only dashboard adapter after explicit authorization");
   });
 
   it("keeps current PR scope limited to docs, generated artifact, contract test, helper, and train metadata", () => {
@@ -339,6 +360,11 @@ describe("SEO issue queue read model contract", () => {
     const ledgerReconciliationFiles = new Set([
       "docs/codex/pr-train.yaml",
       "docs/codex/pr-train-state.json",
+      "docs/seo/seo-issue-queue-read-model.md",
+      "docs/seo/generated/seo-issue-queue.v1.json",
+      "docs/seo/generated/seo-issue-queue.v1.csv",
+      "scripts/seo/generate-seo-issue-queue.mjs",
+      "tests/contracts/seo-issue-queue-generator.contract.test.ts",
       "tests/contracts/cms-ops-ia-permission-matrix.contract.test.ts",
       "tests/contracts/seo-issue-queue.contract.test.ts",
       "tests/contracts/helpers/currentPrScope.ts",

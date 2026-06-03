@@ -4356,6 +4356,111 @@ prs:
       auto_merge: true
     rollback_note: "Remove the SEO issue queue read model document, generated artifact, focused contract test, scope helper entry, and SEO-ISSUE-QUEUE-00 train metadata; preserve the SEO-COMPETITOR-URL-01 ledger reconciliation if it still reflects merged GitHub truth."
 
+  - id: SEO-ISSUE-QUEUE-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/seo-issue-queue-01-readonly-generator
+    base: main
+    depends_on:
+      - SEO-ISSUE-QUEUE-00
+      - SEO-COMPETITOR-URL-01
+      - SEO-SITEMAP-P0-05
+      - CMS-OPS-RELEASE-02
+      - SEO-DASH-00B
+    mode: execute
+    risk_level: L1
+    status: in_progress
+    title: "docs(seo): add read-only SEO issue queue generator"
+    goal: "Add a read-only offline SEO issue queue generator that consumes existing URL truth, sitemap inventory, competitor URL inventory, and mock CMS draft/release, GSC, Baidu, and GA4 signals to produce local JSON/CSV issue queue artifacts without connecting to CMS/API/search platforms, writing CMS data, generating content, mutating sitemap/llms, deploying, or reading env/cookie/token data."
+    in_scope:
+      - docs/seo/seo-issue-queue-read-model.md
+      - docs/seo/generated/seo-issue-queue.v1.json
+      - docs/seo/generated/seo-issue-queue.v1.csv
+      - scripts/seo/generate-seo-issue-queue.mjs
+      - tests/contracts/seo-issue-queue.contract.test.ts
+      - tests/contracts/seo-issue-queue-generator.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - <workspace>/fap-api changes
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - backend runtime files
+      - migrations
+      - API routes
+      - Filament resources
+      - CMS schema changes
+      - env files
+      - deploy scripts
+      - package.json
+      - pnpm-lock.yaml
+      - next.config.mjs
+      - next-sitemap.config.js
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - app/api/content-release/revalidate/route.ts
+      - seo_intel physical schema
+      - collectors
+      - Metabase deployment
+      - frontend dashboard adapter implementation
+      - GSC/Baidu/GA4/IndexNow/DataForSEO/Apify integrations
+      - search channel submission
+      - CMS content mutation
+      - CMS draft creation
+      - content generation
+      - article/page publication
+      - rollback or revalidation execution
+      - media uploads
+      - production changes
+      - env, cookie, or token reads
+    required_local_checks:
+      - node scripts/seo/generate-seo-issue-queue.mjs --output docs/seo/generated/seo-issue-queue.v1.json --csv docs/seo/generated/seo-issue-queue.v1.csv --pretty
+      - pnpm exec vitest run tests/contracts/seo-issue-queue.contract.test.ts tests/contracts/seo-issue-queue-generator.contract.test.ts
+      - pnpm test:contract
+      - pnpm seo:check-sitemap
+      - pnpm seo:check-mobile
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - python3 -m json.tool docs/seo/generated/seo-issue-queue.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - git diff --check
+      - git diff --cached --check
+    acceptance:
+      - Generator defaults to offline sample mode and does not perform network access.
+      - Generator reads existing URL truth, sitemap inventory, competitor URL inventory, and mock CMS draft/release, GSC, Baidu, and GA4 signals.
+      - Generator writes local JSON and CSV artifacts only when output paths are explicitly provided.
+      - Generated issues are sanitized, sample-only, stable-keyed, and exclude private URLs and forbidden raw/private/publishable content fields.
+      - Generated queue includes source_signal, issue_type, severity, status, owner_role, release evidence, and risk boundary fields aligned to SEO-ISSUE-QUEUE-00.
+      - Risk boundary explicitly forbids CMS writes, draft creation, publish, rollback, revalidate execution, search submission, sitemap/llms mutation, content generation, deploy, env reads, cookie reads, and token reads.
+      - No runtime, backend, API, CMS schema, Filament, migration, collector, dashboard adapter, content, public sitemap, llms, search platform, env, cookie, token, deploy, or production behavior changes.
+    must_not_touch:
+      - <workspace>/fap-api
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - backend runtime files
+      - migrations
+      - env files
+      - deploy scripts
+      - package.json
+      - pnpm-lock.yaml
+      - next.config.mjs
+      - next-sitemap.config.js
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - app/api/content-release/revalidate/route.ts
+      - payment/order/report/email/recommendation/scoring/profile code
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    rollback_note: "Remove the read-only SEO issue queue generator script, generated CSV, generated queue additions, focused generator contract test, scope helper entry, doc update, and SEO-ISSUE-QUEUE-01 train metadata."
+
   - id: AUDIT-WEB-CMS-LINK-XSS
     repo: fap-web
     repo_path: <workspace>/fap-web

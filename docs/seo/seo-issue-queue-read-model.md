@@ -274,6 +274,8 @@ This PR changes architecture documentation and contract tests only. It reinforce
 
 ## Recommended Follow-Up
 
-Next task: `SEO-ISSUE-QUEUE-01` backend/data implementation design after explicit authorization.
+Next task: `SEO-ISSUE-QUEUE-02` read-only dashboard adapter after explicit authorization.
 
-The follow-up should remain design-first unless separately authorized to create backend migrations, collectors, permissions, or dashboards.
+`SEO-ISSUE-QUEUE-01` adds a read-only offline generator only. It reads existing URL truth, sitemap inventory, competitor inventory, and mock CMS/search/analytics signals, then writes local JSON/CSV artifacts. It does not connect to CMS, create drafts, generate article copy, submit search URLs, mutate sitemap/llms, deploy, or read env/cookie/token data.
+
+Future follow-up work should remain design-first unless separately authorized to create backend migrations, collectors, permissions, or dashboards.

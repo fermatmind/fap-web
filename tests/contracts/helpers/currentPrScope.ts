@@ -1277,7 +1277,23 @@ const SEO_ISSUE_QUEUE_00_LEDGER_RECONCILE_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const SEO_ISSUE_QUEUE_01_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/seo/seo-issue-queue-read-model.md",
+  "docs/seo/generated/seo-issue-queue.v1.json",
+  "docs/seo/generated/seo-issue-queue.v1.csv",
+  "scripts/seo/generate-seo-issue-queue.mjs",
+  "tests/contracts/seo-issue-queue.contract.test.ts",
+  "tests/contracts/seo-issue-queue-generator.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH === "codex/seo-issue-queue-01-readonly-generator") {
+    return SEO_ISSUE_QUEUE_01_ALLOWED_FILES.has(file);
+  }
+
   if (CURRENT_BRANCH === "codex/seo-issue-queue-00-ledger-reconcile") {
     return SEO_ISSUE_QUEUE_00_LEDGER_RECONCILE_ALLOWED_FILES.has(file);
   }

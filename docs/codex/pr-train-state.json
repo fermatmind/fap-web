@@ -6359,6 +6359,105 @@
       "merge_sha": "60c6d9cf700a6aac604f2db9e296f2fd6ad5c37e"
     },
     {
+      "id": "SEO-ISSUE-QUEUE-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/seo-issue-queue-01-readonly-generator",
+      "base": "main",
+      "depends_on": [
+        "SEO-ISSUE-QUEUE-00",
+        "SEO-COMPETITOR-URL-01",
+        "SEO-SITEMAP-P0-05",
+        "CMS-OPS-RELEASE-02",
+        "SEO-DASH-00B"
+      ],
+      "status": "pr_open",
+      "train_scope": "seo_issue_queue_readonly_generator",
+      "risk_level": "L1",
+      "title": "docs(seo): add read-only SEO issue queue generator",
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly requested SEO-ISSUE-QUEUE-01 as a read-only generator using existing artifacts/mock inputs and outputting docs/seo/generated/seo-issue-queue.v1.json/csv while preserving boundaries against CMS writes, automatic content generation, search submission, API integration, and deployment."
+        },
+        "dependency": {
+          "status": "pass",
+          "evidence": "Dependencies are merged in GitHub/main: SEO-ISSUE-QUEUE-00 PR #1015 merge 60c6d9cf700a6aac604f2db9e296f2fd6ad5c37e; SEO-COMPETITOR-URL-01 PR #1014 merge c04305fce2deeb50c4180e26975515ea37c250a5; SEO-SITEMAP-P0-05 PR #1008 merge c158997eebc198691b5b40b93f380d3fbbd0e58c; CMS-OPS-RELEASE-02 PR #1011 merge d842a1a021013b09fb56e9ce84d0c7d959ba239b; SEO-DASH-00B PR #831 merge db2a8e8cf53dc6668dfc507484c3a0b214daf3ad."
+        },
+        "branch_preflight": {
+          "status": "pass",
+          "evidence": "Created codex/seo-issue-queue-01-readonly-generator from synced main after SEO-ISSUE-QUEUE-00 ledger reconciliation PR #1016 was merged and post-merge revalidated; no local or remote task branch existed."
+        },
+        "scope_initialization": {
+          "status": "pass",
+          "evidence": "Initialized a read-only offline SEO issue queue generator, CSV artifact, generated queue additions, focused contract test, scope helper entry, doc update, and PR train metadata without runtime, backend, CMS schema, API, Filament, migration, content, sitemap/llms mutation, collectors, dashboard adapter, search channel, deploy, production, env, cookie, or token changes."
+        },
+        "generator": {
+          "status": "pass",
+          "evidence": "node scripts/seo/generate-seo-issue-queue.mjs --output docs/seo/generated/seo-issue-queue.v1.json --csv docs/seo/generated/seo-issue-queue.v1.csv --pretty"
+        },
+        "focused_contract": {
+          "status": "pass",
+          "evidence": "pnpm exec vitest run tests/contracts/seo-issue-queue.contract.test.ts tests/contracts/seo-issue-queue-generator.contract.test.ts passed: 2 files, 18 tests."
+        },
+        "full_contract": {
+          "status": "pass",
+          "evidence": "pnpm test:contract passed: 436 files, 2464 tests."
+        },
+        "typecheck": {
+          "status": "pass",
+          "evidence": "pnpm typecheck"
+        },
+        "sitemap_check": {
+          "status": "pass",
+          "evidence": "pnpm seo:check-sitemap passed: 261 urls."
+        },
+        "mobile_seo_check": {
+          "status": "pass",
+          "evidence": "pnpm seo:check-mobile passed: mobile SEO gate ok; routeSamples=8; privateFlowDenySamples=7; runtimeFetches=0; runtimeBehaviorChanged=false; urlSetChanged=false; sitemapChanged=false; llmsChanged=false."
+        },
+        "build": {
+          "status": "pass",
+          "evidence": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build passed. Postbuild regenerated public/sitemap.xml, which was restored because public/** is out of scope."
+        },
+        "json_yaml_parse": {
+          "status": "pass",
+          "evidence": "python3 -m json.tool docs/seo/generated/seo-issue-queue.v1.json; python3 -m json.tool docs/codex/pr-train-state.json; PyYAML parse of docs/codex/pr-train.yaml."
+        },
+        "diff_check": {
+          "status": "pass",
+          "evidence": "git diff --check"
+        },
+        "scope_validation": {
+          "status": "pass",
+          "evidence": "Changed files are confined to SEO-ISSUE-QUEUE-01 docs/generated/script/contract/helper/pr-train metadata scope; no app, components, lib, public, runtime, CMS/API, content, sitemap/llms, deploy, env, cookie, or token files remain modified."
+        },
+        "pr_created": {
+          "status": "pass",
+          "evidence": "Opened GitHub PR #1017 at https://github.com/fermatmind/fap-web/pull/1017."
+        }
+      },
+      "failure_reason": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1017",
+      "commit_sha": "f3461b4f23852ca69550c160bb051b41dcbff3ad",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [],
+      "history": [
+        {
+          "at": "2026-06-03T19:55:00+08:00",
+          "status": "in_progress",
+          "summary": "Started user-authorized SEO-ISSUE-QUEUE-01 read-only generator PR using existing URL truth, sitemap inventory, competitor URL inventory, and mock CMS/search/analytics signals with no API integration, CMS writes, content generation, search submission, sitemap/llms mutation, deployment, production access, env reads, cookie reads, or token reads."
+        },
+        {
+          "at": "2026-06-03T20:20:00+08:00",
+          "status": "pr_open",
+          "summary": "Opened PR #1017 after local validation passed and recorded PR URL plus scoped commit SHA."
+        }
+      ]
+    },
+    {
       "id": "SEO-DASH-03A",
       "repo": "fap-web",
       "repo_path": "<workspace>/fap-web",
