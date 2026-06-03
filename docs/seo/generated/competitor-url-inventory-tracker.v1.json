@@ -1,0 +1,353 @@
+{
+  "version": "competitor_url_inventory_tracker.v1",
+  "scope": "SEO-COMPETITOR-URL-00",
+  "status": "contract_design",
+  "generated_at": "contract_sample_static",
+  "run_mode": "contract_sample",
+  "live_data_collected": false,
+  "source": {
+    "type": "schema_sample_config",
+    "description": "Contract sample only. No live competitor sitemap data was fetched or stored.",
+    "fermatmind_url_truth_version": "url_truth.inventory.v1",
+    "next_task": "SEO-COMPETITOR-URL-01 read-only generator"
+  },
+  "markets": ["en", "zh"],
+  "page_family_priority": ["tests", "career", "articles_topics", "support_help"],
+  "competitors": [
+    {
+      "domain": "16personalities.com",
+      "display_name": "16Personalities",
+      "market_focus": "global",
+      "priority": "P0",
+      "known_content_families": ["tests", "personality", "articles", "support"],
+      "sitemap_discovery_mode": "configured_or_standard",
+      "notes": "Observe type-library and test-entry coverage only; do not copy claims or deterministic identity framing."
+    },
+    {
+      "domain": "truity.com",
+      "display_name": "Truity",
+      "market_focus": "en",
+      "priority": "P0",
+      "known_content_families": ["tests", "career", "articles", "tools", "support"],
+      "sitemap_discovery_mode": "configured_or_standard",
+      "notes": "Useful for test directory and career/personality commercial architecture."
+    },
+    {
+      "domain": "verywellmind.com",
+      "display_name": "Verywell Mind",
+      "market_focus": "en",
+      "priority": "P1",
+      "known_content_families": ["articles", "topics", "support"],
+      "sitemap_discovery_mode": "configured_or_standard",
+      "notes": "Editorial/topic coverage signal only; sensitive claims require review."
+    },
+    {
+      "domain": "personalitymax.com",
+      "display_name": "Personality Max",
+      "market_focus": "en",
+      "priority": "P1",
+      "known_content_families": ["tests", "articles", "tools"],
+      "sitemap_discovery_mode": "configured_or_standard",
+      "notes": "Observe test and result-education patterns."
+    },
+    {
+      "domain": "careerexplorer.com",
+      "display_name": "CareerExplorer",
+      "market_focus": "en",
+      "priority": "P0",
+      "known_content_families": ["career", "tools", "articles"],
+      "sitemap_discovery_mode": "configured_or_standard",
+      "notes": "Observe career and occupation cluster coverage."
+    },
+    {
+      "domain": "123test.com",
+      "display_name": "123test",
+      "market_focus": "global",
+      "priority": "P0",
+      "known_content_families": ["tests", "career", "tools", "support"],
+      "sitemap_discovery_mode": "configured_or_standard",
+      "notes": "Observe all-tests and category-directory patterns."
+    },
+    {
+      "domain": "iqtest.club",
+      "display_name": "IQTest Club",
+      "market_focus": "mixed",
+      "priority": "P2",
+      "known_content_families": ["tests", "tools"],
+      "sitemap_discovery_mode": "configured_or_standard",
+      "notes": "Observe IQ-test URL patterns with higher claim-risk caution."
+    },
+    {
+      "domain": "iqtest.com",
+      "display_name": "IQTest.com",
+      "market_focus": "en",
+      "priority": "P2",
+      "known_content_families": ["tests", "tools"],
+      "sitemap_discovery_mode": "configured_or_standard",
+      "notes": "Observe IQ-test entry architecture only; do not copy authority claims."
+    },
+    {
+      "domain": "brain-testing.org",
+      "display_name": "Brain Testing",
+      "market_focus": "mixed",
+      "priority": "P2",
+      "known_content_families": ["tests", "articles"],
+      "sitemap_discovery_mode": "configured_or_standard",
+      "notes": "Observe ability-test surface patterns with review-gated caution."
+    },
+    {
+      "domain": "enneagraminstitute.com",
+      "display_name": "The Enneagram Institute",
+      "market_focus": "en",
+      "priority": "P1",
+      "known_content_families": ["tests", "topics", "articles"],
+      "sitemap_discovery_mode": "configured_or_standard",
+      "notes": "Observe Enneagram topic/test organization."
+    }
+  ],
+  "discovery_policy": {
+    "order": [
+      "explicit_configured_sitemap_url",
+      "robots_txt_sitemap_directive",
+      "standard_sitemap_xml",
+      "sitemap_index_expansion",
+      "gzip_sitemap_parsing",
+      "fail_closed_unavailable"
+    ],
+    "explicit_sitemap_supported": true,
+    "robots_sitemap_supported": true,
+    "standard_sitemap_xml_supported": true,
+    "sitemap_index_supported": true,
+    "gzip_sitemap_supported": true,
+    "fail_closed_if_unavailable": true,
+    "full_site_crawler_allowed": false,
+    "robots_bypass_allowed": false,
+    "hidden_sitemap_guessing_allowed": false
+  },
+  "normalization_policy": {
+    "strip_query": true,
+    "strip_hash": true,
+    "strip_tracking_params": true,
+    "tracking_params": ["utm_*", "gclid", "fbclid", "msclkid"],
+    "normalize_protocol": "https",
+    "normalize_host": true,
+    "lowercase_host": true,
+    "trailing_slash_rule": "remove_except_root",
+    "preserve_meaningful_path_case": true,
+    "same_domain_only": true,
+    "reject_cross_domain_urls": true,
+    "store_raw_url_separately": true,
+    "store_normalized_url_separately": true
+  },
+  "taxonomy": {
+    "test_detail": {
+      "definition": "A page whose primary intent is taking, starting, or explaining one assessment/test.",
+      "common_url_patterns": ["/test/", "/tests/", "/personality-test", "/iq-test", "/enneagram-test", "/career-test"],
+      "example_paths": ["/test/example-personality-test", "/tests/example-iq-test"],
+      "confidence_rule": "high when test noun and singular test intent both appear; medium when only category path appears",
+      "false_positive_notes": "Editorial pages about tests can be misclassified without future visible-page evidence."
+    },
+    "career_job": {
+      "definition": "A specific occupation/job profile page.",
+      "common_url_patterns": ["/career/", "/careers/", "/jobs/", "/occupation/", "/career-profiles/"],
+      "example_paths": ["/careers/example-occupation", "/jobs/example-role"],
+      "confidence_rule": "high when path indicates a specific occupation; medium for broad career category pages",
+      "false_positive_notes": "Career advice pages are not job profiles."
+    },
+    "career_guide": {
+      "definition": "A career advice, guide, or decision-support page that is not a specific occupation.",
+      "common_url_patterns": ["/career-advice/", "/career-guide/", "/careers/article/"],
+      "example_paths": ["/career-guide/example-topic", "/career-advice/example-guide"],
+      "confidence_rule": "high when guide/advice term appears; medium when career path plus article format appears",
+      "false_positive_notes": "Job listings and occupation pages must not be grouped here."
+    },
+    "article": {
+      "definition": "Editorial or educational article page.",
+      "common_url_patterns": ["/article/", "/articles/", "/blog/", "/learn/", "/health/"],
+      "example_paths": ["/articles/example-topic", "/blog/example-note"],
+      "confidence_rule": "high when article/blog path exists; medium when content hub path is broad",
+      "false_positive_notes": "Tool landing pages and test pages often contain educational copy but are not articles."
+    },
+    "topic": {
+      "definition": "A glossary, hub, type, category, or conceptual topic page.",
+      "common_url_patterns": ["/topics/", "/types/", "/personality-types/", "/enneagram-types/", "/category/"],
+      "example_paths": ["/topics/example-topic", "/personality-types/example-type"],
+      "confidence_rule": "high when path is a stable topic/type hub; medium when category may be editorial",
+      "false_positive_notes": "Topic hubs can overlap article lists; future HTML/title checks may refine."
+    },
+    "tool": {
+      "definition": "A calculator, quiz launcher, comparison tool, or utility that is not a core assessment detail page.",
+      "common_url_patterns": ["/tool/", "/tools/", "/calculator/", "/quiz/", "/compare/"],
+      "example_paths": ["/tools/example-calculator", "/compare/example"],
+      "confidence_rule": "high when utility term appears; medium when quiz may also be a test",
+      "false_positive_notes": "Some tools are tests; prefer test_detail when assessment intent is primary."
+    },
+    "support": {
+      "definition": "Help, FAQ, contact, policy, about, or support content.",
+      "common_url_patterns": ["/help/", "/support/", "/faq/", "/about/", "/contact/", "/privacy", "/terms"],
+      "example_paths": ["/help/example", "/faq"],
+      "confidence_rule": "high for support/help/legal paths; medium for about/trust pages",
+      "false_positive_notes": "Institutional trust pages may deserve separate future taxonomy."
+    },
+    "unknown": {
+      "definition": "URL cannot be safely classified from URL shape alone.",
+      "common_url_patterns": ["unmatched"],
+      "example_paths": ["/example-path"],
+      "confidence_rule": "low",
+      "false_positive_notes": "Unknown must stay unknown rather than forcing an opportunity."
+    }
+  },
+  "locale_policy": {
+    "allowed_locales": ["en", "zh", "mixed", "unknown"],
+    "detection_methods": ["path", "subdomain", "host", "html_lang", "hreflang", "unknown"],
+    "html_lang_observed_in_this_pr": false,
+    "hreflang_observed_in_this_pr": false
+  },
+  "canonical_hreflang_observation_schema": {
+    "canonical_observed": "unknown",
+    "canonical_url": null,
+    "hreflang_observed": "unknown",
+    "hreflang_targets": [],
+    "observation_source": "future_observable",
+    "confidence": "low"
+  },
+  "records_sample": [
+    {
+      "sample_only": true,
+      "competitor_domain": "16personalities.com",
+      "raw_url": "https://16personalities.com/example-test-path?utm_source=sample#section",
+      "normalized_url": "https://16personalities.com/example-test-path",
+      "url_family": "test_detail",
+      "url_family_confidence": "medium",
+      "locale": "unknown",
+      "locale_detection_method": "unknown",
+      "directory": "/example-test-path",
+      "canonical_observed": "unknown",
+      "canonical_url": null,
+      "hreflang_observed": "unknown",
+      "sitemap_source": "contract_sample",
+      "first_seen_month": null,
+      "last_seen_month": null,
+      "status": "sample_only",
+      "notes": "Schema sample only; not a real crawl result.",
+      "opportunity_type": "missing_test_family",
+      "target_route_family": "test_detail"
+    },
+    {
+      "sample_only": true,
+      "competitor_domain": "careerexplorer.com",
+      "raw_url": "https://careerexplorer.com/example-career-cluster",
+      "normalized_url": "https://careerexplorer.com/example-career-cluster",
+      "url_family": "career_guide",
+      "url_family_confidence": "low",
+      "locale": "unknown",
+      "locale_detection_method": "unknown",
+      "directory": "/example-career-cluster",
+      "canonical_observed": "unknown",
+      "canonical_url": null,
+      "hreflang_observed": "unknown",
+      "sitemap_source": "contract_sample",
+      "first_seen_month": null,
+      "last_seen_month": null,
+      "status": "sample_only",
+      "notes": "Schema sample only; not a real crawl result.",
+      "opportunity_type": "missing_career_cluster",
+      "target_route_family": "career_guide"
+    }
+  ],
+  "monthly_diff_schema": {
+    "buckets": [
+      "added_urls",
+      "removed_urls",
+      "persisted_urls",
+      "reclassified_urls",
+      "directory_delta",
+      "family_delta",
+      "locale_delta",
+      "new_topic_clusters",
+      "dropped_topic_clusters"
+    ],
+    "key": ["competitor_domain", "normalized_url"],
+    "content_generation_allowed": false
+  },
+  "fermatmind_alignment": {
+    "reads_fermatmind_url_truth_version": "url_truth.inventory.v1",
+    "competitor_inventory_is_fermatmind_sitemap_truth": false,
+    "may_modify_fermatmind_url_truth": false,
+    "may_modify_sitemap": false,
+    "may_modify_llms": false,
+    "may_create_cms_content": false,
+    "may_create_cms_draft": false,
+    "may_publish": false,
+    "may_search_submit": false,
+    "allowed_outputs": ["gap", "opportunity", "issue_candidate", "brief_input_candidate"],
+    "opportunity_types": [
+      "missing_test_family",
+      "missing_career_cluster",
+      "missing_article_topic",
+      "missing_support_page",
+      "thin_internal_coverage",
+      "hreflang_gap",
+      "locale_gap",
+      "internal_link_gap",
+      "schema_gap",
+      "unknown"
+    ]
+  },
+  "output_schema": {
+    "json_top_level_fields": [
+      "version",
+      "generated_at",
+      "run_mode",
+      "live_data_collected",
+      "source",
+      "competitors",
+      "taxonomy",
+      "normalization_policy",
+      "discovery_policy",
+      "records_sample",
+      "monthly_diff_schema",
+      "fermatmind_alignment",
+      "risk_boundary"
+    ],
+    "csv_fields": [
+      "competitor_domain",
+      "raw_url",
+      "normalized_url",
+      "url_family",
+      "url_family_confidence",
+      "locale",
+      "locale_detection_method",
+      "directory",
+      "canonical_observed",
+      "canonical_url",
+      "hreflang_observed",
+      "sitemap_source",
+      "first_seen_month",
+      "last_seen_month",
+      "status",
+      "notes"
+    ],
+    "article_title_field_allowed": false,
+    "h1_field_allowed": false,
+    "faq_field_allowed": false,
+    "cta_copy_field_allowed": false
+  },
+  "risk_boundary": {
+    "live_scraping_in_this_pr": false,
+    "runtime_changes": false,
+    "cms_writes": false,
+    "cms_draft_creation": false,
+    "publish_actions": false,
+    "search_submission": false,
+    "sitemap_mutation": false,
+    "llms_mutation": false,
+    "auto_content_generation": false,
+    "gsc_integration": false,
+    "baidu_integration": false,
+    "ga4_integration": false,
+    "dataforseo_integration": false,
+    "apify_integration": false,
+    "production_deploy": false
+  }
+}
