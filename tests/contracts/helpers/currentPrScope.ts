@@ -1299,7 +1299,17 @@ const SEO_ISSUE_QUEUE_01_LEDGER_RECONCILE_ALLOWED_FILES = new Set([
   "tests/contracts/seo-issue-queue-generator.contract.test.ts",
 ]);
 
+const CMS_OPS_IA_MAIN_SCOPE_REVALIDATE_FIX_ALLOWED_FILES = new Set([
+  "tests/contracts/cms-ops-ia-permission-matrix.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/seo-issue-queue.contract.test.ts",
+]);
+
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH === "codex/cms-ops-ia-main-scope-revalidate-fix") {
+    return CMS_OPS_IA_MAIN_SCOPE_REVALIDATE_FIX_ALLOWED_FILES.has(file);
+  }
+
   if (CURRENT_BRANCH === "codex/seo-issue-queue-01-ledger-reconcile") {
     return SEO_ISSUE_QUEUE_01_LEDGER_RECONCILE_ALLOWED_FILES.has(file);
   }

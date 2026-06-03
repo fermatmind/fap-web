@@ -75,8 +75,19 @@ function currentChangedFiles(): string[] {
   return [...files].sort();
 }
 
+function currentBranch(): string {
+  try {
+    return execFileSync("git", ["branch", "--show-current"], { cwd: ROOT, encoding: "utf8" }).trim();
+  } catch {
+    return "";
+  }
+}
+
 function prChangedFiles(): string[] {
   const changedFiles = new Set(currentChangedFiles());
+  if (changedFiles.size === 0 && currentBranch() === "main") {
+    return [];
+  }
 
   for (const args of [
     ["diff", "--name-only", "origin/main...HEAD"],

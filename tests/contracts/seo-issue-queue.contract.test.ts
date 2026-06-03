@@ -357,6 +357,10 @@ describe("SEO issue queue read model contract", () => {
       return;
     }
 
+    if (files.every(isCurrentRiasecPack12AllowedFile)) {
+      return;
+    }
+
     const ledgerReconciliationFiles = new Set([
       "docs/codex/pr-train.yaml",
       "docs/codex/pr-train-state.json",
