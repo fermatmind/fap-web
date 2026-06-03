@@ -6256,7 +6256,7 @@
         "SEO-SITEMAP-P0-05",
         "SEO-COMPETITOR-URL-01"
       ],
-      "status": "pr_open",
+      "status": "merged",
       "train_scope": "seo_issue_queue_read_model_contract",
       "risk_level": "L1",
       "title": "docs(seo): define SEO issue queue read model",
@@ -6316,14 +6316,18 @@
         "scope_validation": {
           "status": "pass",
           "evidence": "Changed files are limited to docs/codex/pr-train.yaml, docs/codex/pr-train-state.json, docs/seo/seo-issue-queue-read-model.md, docs/seo/generated/seo-issue-queue.v1.json, tests/contracts/seo-issue-queue.contract.test.ts, and tests/contracts/helpers/currentPrScope.ts."
+        },
+        "merge_reconciliation": {
+          "status": "pass",
+          "evidence": "GitHub PR #1015 is MERGED at 2026-06-03T07:52:24Z with merge commit 60c6d9cf700a6aac604f2db9e296f2fd6ad5c37e; origin/main contains the merge commit; the remote task branch is deleted; local main equals origin/main and the local task branch is absent."
         }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1015",
       "commit_sha": "8c7df2d8cd517896ba5930f5c1a1fa49a98e0231",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-03T07:52:24Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "sidecar_issues": [],
       "history": [
         {
@@ -6345,8 +6349,14 @@
           "at": "2026-06-03T16:52:00+08:00",
           "status": "pr_open",
           "summary": "Opened GitHub PR #1015 for SEO-ISSUE-QUEUE-00 after local checks passed; waiting for GitHub checks before merge review."
+        },
+        {
+          "at": "2026-06-03T16:59:00+08:00",
+          "status": "merged",
+          "summary": "Reconciled SEO-ISSUE-QUEUE-00 after GitHub PR #1015 was squash-merged into main with merge commit 60c6d9cf700a6aac604f2db9e296f2fd6ad5c37e; remote branch is deleted, local cleanup is confirmed, and targeted post-merge revalidate passed."
         }
-      ]
+      ],
+      "merge_sha": "60c6d9cf700a6aac604f2db9e296f2fd6ad5c37e"
     },
     {
       "id": "SEO-DASH-03A",
