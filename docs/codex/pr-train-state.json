@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-03T12:56:00+08:00",
+  "updated_at": "2026-06-03T13:00:00+08:00",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -5756,7 +5756,7 @@
         "BACKEND-RUNTIME-02D-RECONCILE",
         "SEO-DASH-00B"
       ],
-      "status": "local_checks_passed",
+      "status": "pr_open",
       "train_scope": "cms_ops_ia_permission_matrix",
       "risk_level": "L1",
       "title": "docs(cms): define ops IA and permission matrix",
@@ -5816,10 +5816,14 @@
         "commit_created": {
           "status": "pass",
           "evidence": "Created local commit 6ce7d77c9eb2efb5cbdaec8bd7cd2feb1a41b23c with message docs(cms): define ops IA and permission matrix."
+        },
+        "pr_created": {
+          "status": "pass",
+          "evidence": "Opened GitHub PR #1010 for codex/cms-ops-ia-00-permission-matrix."
         }
       },
       "failure_reason": null,
-      "pr_url": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1010",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -5839,6 +5843,11 @@
           "at": "2026-06-03T12:56:00+08:00",
           "status": "local_checks_passed",
           "summary": "Recorded local commit 6ce7d77c9eb2efb5cbdaec8bd7cd2feb1a41b23c for CMS-OPS-IA-00 before push."
+        },
+        {
+          "at": "2026-06-03T13:00:00+08:00",
+          "status": "pr_open",
+          "summary": "Created GitHub PR #1010 after local checks and scope validation passed."
         }
       ],
       "commit_sha": "6ce7d77c9eb2efb5cbdaec8bd7cd2feb1a41b23c"
