@@ -12,7 +12,38 @@ type Artifact = {
   version: string;
   source_documents: Array<{ id: string; status: string }>;
   current_runtime_topology: { nodes: Array<{ id: string; role: string; status: string[]; runtime: Record<string, unknown> }> };
-  dual_backend_runtime_conflict: Record<string, unknown>;
+  dual_backend_runtime_conflict: {
+    status: string[];
+    public_api_runtime: string;
+    cms_ops_runtime: string;
+    resolved_by?: string;
+  };
+  backend_authority_closure: {
+    source: string;
+    status: string;
+    api_domain: string;
+    edge_gateway: {
+      node: string;
+      runtime: string;
+      server_name_present: boolean;
+      api_location_present: boolean;
+      proxy_pass_target: string;
+    };
+    backend_authority: {
+      node: string;
+      runtime: string;
+      domain: string;
+      source_of_truth: string;
+    };
+    node2_local_runtime: {
+      laravel_authority: boolean;
+      local_db_authority: boolean;
+      queue_authority: boolean;
+      status: string;
+    };
+    seo_dash_unblocked_for_docs_schema: boolean;
+    still_forbidden_without_separate_approval: string[];
+  };
   cloud_media_chain: {
     chain: string[];
     domain: string;
@@ -76,6 +107,7 @@ function isAllowedFile(file: string): boolean {
     "docs/seo/cms-seo-middle-platform-final-architecture.md",
     "docs/seo/generated/cms-seo-middle-platform-final-architecture.v1.json",
     "tests/contracts/cms-seo-middle-platform-final-architecture.contract.test.ts",
+    "tests/contracts/helpers/currentPrScope.ts",
     "docs/codex/pr-train.yaml",
     "docs/codex/pr-train-state.json",
   ].includes(file) || isCurrentRiasecPack12AllowedFile(file);
@@ -88,7 +120,13 @@ describe("CMS and SEO middle platform final architecture", () => {
 
     expect(artifact.version).toBe("cms_seo_middle_platform_final_architecture.v1");
     expect(sourceIds).toEqual(
-      expect.arrayContaining(["ARCH-SEO-CMS-00", "ARCH-SEO-CMS-01", "cloud_asset_scan", "runtime_ssh_readonly_scan"])
+      expect.arrayContaining([
+        "ARCH-SEO-CMS-00",
+        "ARCH-SEO-CMS-01",
+        "cloud_asset_scan",
+        "runtime_ssh_readonly_scan",
+        "BACKEND-RUNTIME-02D",
+      ])
     );
   });
 
@@ -118,10 +156,50 @@ describe("CMS and SEO middle platform final architecture", () => {
     expect(artifact.dual_backend_runtime_conflict).toMatchObject({
       public_api_runtime: "fap-node2 legacy Docker API runtime",
       cms_ops_runtime: "fap-api-prod standard Laravel/CMS/queue runtime",
+      resolved_by: "BACKEND-RUNTIME-02D",
     });
   });
 
-  it("defines target architecture without marking blocked assets ready", () => {
+  it("reconciles backend authority closure from BACKEND-RUNTIME-02D", () => {
+    const artifact = readArtifact();
+
+    expect(artifact.dual_backend_runtime_conflict.status).toEqual(
+      expect.arrayContaining([
+        "historical_conflict",
+        "closed_for_public_api_authority_by_BACKEND_RUNTIME_02D",
+        "node2_local_runtime_quarantined",
+      ])
+    );
+    expect(artifact.backend_authority_closure).toMatchObject({
+      source: "BACKEND-RUNTIME-02D",
+      status: "accepted",
+      api_domain: "api.fermatmind.com",
+      edge_gateway: {
+        node: "fap-node2",
+        runtime: "OpenResty",
+        server_name_present: true,
+        api_location_present: true,
+        proxy_pass_target: "http://122.152.221.126",
+      },
+      backend_authority: {
+        node: "Node3",
+        runtime: "fap-api-prod",
+        domain: "ops.fermatmind.com",
+      },
+      node2_local_runtime: {
+        laravel_authority: false,
+        local_db_authority: false,
+        queue_authority: false,
+        status: "non_authority_quarantined",
+      },
+      seo_dash_unblocked_for_docs_schema: true,
+    });
+    expect(artifact.backend_authority_closure.still_forbidden_without_separate_approval).toEqual(
+      expect.arrayContaining(["collector deployment", "production seo_intel migration", "OpenResty changes", "Node2 shutdown"])
+    );
+  });
+
+  it("defines target architecture without marking rollout-only assets ready", () => {
     const artifact = readArtifact();
 
     expect(artifact.target_architecture.doctrine).toEqual(
@@ -135,8 +213,10 @@ describe("CMS and SEO middle platform final architecture", () => {
 
     const server2 = targetById(artifact, "Server 2");
     expect(server2.role).toBe("single backend/CMS/commerce authority runtime");
-    expect(server2.ready).toBe(false);
-    expect(server2.status).toEqual(expect.arrayContaining(["conflict", "human_confirm_required"]));
+    expect(server2.ready).toBe(true);
+    expect(server2.status).toEqual(
+      expect.arrayContaining(["accepted_for_public_api_authority", "gateway_pattern", "node2_local_runtime_quarantined"])
+    );
 
     const server3 = targetById(artifact, "Server 3");
     expect(server3.seo_intel_db?.ready).toBe(false);
@@ -153,10 +233,10 @@ describe("CMS and SEO middle platform final architecture", () => {
 
     expect(options).toEqual(expect.arrayContaining(["Option A", "Option B", "Option C"]));
     expect(artifact.recommended_backend_decision).toMatchObject({
-      option: "Option A",
+      option: "accepted_gateway_authority_closure",
     });
     expect(artifact.recommended_backend_decision.status).toEqual(
-      expect.arrayContaining(["recommended", "not_implemented", "blocked_until_gates_pass"])
+      expect.arrayContaining(["accepted", "implemented_by_BACKEND_RUNTIME_02D", "no_runtime_change_in_this_pr"])
     );
     expect(artifact.pre_migration_gates).toEqual(
       expect.arrayContaining([
@@ -180,7 +260,7 @@ describe("CMS and SEO middle platform final architecture", () => {
 
     expect(artifact.seo_middle_platform_gates).toEqual(
       expect.arrayContaining([
-        "backend runtime authority decision",
+        "backend runtime authority accepted by BACKEND-RUNTIME-02D",
         "seo_intel DB target",
         "Server 4 target",
         "Metabase isolation policy",
@@ -251,7 +331,8 @@ describe("CMS and SEO middle platform final architecture", () => {
 
     expect(doc).toContain("not a migration plan");
     expect(doc).toContain("No Runtime Change Statement");
-    expect(doc).toContain("Recommendation: choose Option A");
+    expect(doc).toContain("BACKEND-RUNTIME-02D Authority Closure");
+    expect(doc).toContain("Post-`BACKEND-RUNTIME-02D` accepted decision");
     expect(doc).toContain("Do not start:");
     expect(artifact.deployment_guardrails).toMatchObject({
       no_runtime_code_changes: true,
@@ -272,6 +353,7 @@ describe("CMS and SEO middle platform final architecture", () => {
         "docs/seo/cms-seo-middle-platform-final-architecture.md",
         "docs/seo/generated/cms-seo-middle-platform-final-architecture.v1.json",
         "tests/contracts/cms-seo-middle-platform-final-architecture.contract.test.ts",
+        "tests/contracts/helpers/currentPrScope.ts",
         "docs/codex/pr-train.yaml",
         "docs/codex/pr-train-state.json",
       ])

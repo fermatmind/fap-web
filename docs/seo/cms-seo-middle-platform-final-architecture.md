@@ -2,7 +2,7 @@
 
 Version: `cms_seo_middle_platform_final_architecture.v1`
 Scope: `ARCH-SEO-CMS-02`
-Status: `decision_ready`
+Status: `reconciled_by_BACKEND-RUNTIME-02D`
 
 ## Purpose
 
@@ -14,6 +14,7 @@ This charter locks:
 
 - current runtime truth
 - the dual backend runtime conflict
+- the post-`BACKEND-RUNTIME-02D` backend authority closure
 - backend convergence options
 - the recommended backend authority direction
 - target 4-server topology
@@ -40,9 +41,9 @@ Current cloud/media truth:
 - Current media chain is `DNSPod -> Alibaba CDN -> Alibaba OSS`.
 - Tencent COS is not confirmed usable and must not be treated as active media authority.
 
-## Critical Architecture Debt
+## Historical Critical Architecture Debt
 
-The current production architecture has dual backend runtime drift:
+At the time of `ARCH-SEO-CMS-02`, production architecture had dual backend runtime drift:
 
 ```text
 api.fermatmind.com
@@ -60,7 +61,7 @@ ops.fermatmind.com
   -> 4 queue workers RUNNING
 ```
 
-This blocks SEO 中台 production rollout because collectors, attribution, issue queues, URL truth, sitemap/llms observation, CMS metadata checks, and funnel mirrors need a single backend authority or an explicitly documented split authority.
+This blocked SEO 中台 production rollout because collectors, attribution, issue queues, URL truth, sitemap/llms observation, CMS metadata checks, and funnel mirrors needed a single backend authority or an explicitly documented split authority.
 
 Specific blockers:
 
@@ -72,7 +73,23 @@ Specific blockers:
 - Redis is missing in `fap-node2` env but present in `fap-api-prod` runtime classification.
 - Public API and CMS/ops backend may not have the same data, queue, scheduler, cache, or release contract.
 
-No SEO 中台 production collector should be started until this conflict is resolved or explicitly documented.
+This historical blocker was resolved for public API authority by `BACKEND-RUNTIME-02D`.
+
+## BACKEND-RUNTIME-02D Authority Closure
+
+`BACKEND-RUNTIME-02D` supersedes the unresolved authority status in this charter for public API and SEO-DASH design gating.
+
+Accepted closure:
+
+- `api.fermatmind.com` is an API edge gateway on Node2 OpenResty.
+- Node2 OpenResty has `server_name api.fermatmind.com`.
+- Node2 OpenResty has `location ^~ /api/`.
+- Node2 OpenResty proxies `/api/` to Node3 / `fap-api-prod` at `http://122.152.221.126`.
+- Node3 / `fap-api-prod` is accepted as the backend/CMS/commerce authority source for public API reads.
+- Node2 local Laravel, local DB, queue, and `php84` remain non-authority and quarantined.
+- SEO Collector and Metabase must not read Node2 local Laravel or local DB as authority.
+
+This closure does not mean Node2 can be shut down, DNS can be changed, OpenResty can be edited, collectors can be deployed, `seo_intel` can be created in production, or Metabase can be deployed. Those remain separate explicitly approved tasks.
 
 ## Target Architecture Doctrine
 
@@ -93,7 +110,7 @@ Target 4-server topology:
 | Target server | Target role | Current state |
 | --- | --- | --- |
 | Server 1 | `fap-web` public frontend runtime | `observed`, `ready` on `fap-node1` |
-| Server 2 | Single backend/CMS/commerce authority runtime | `conflict`, decision required |
+| Server 2 | Single backend/CMS/commerce authority runtime | `accepted` for public API authority via Node2 edge gateway to Node3 / `fap-api-prod`; Node2 local runtime remains quarantined |
 | Server 3 | Data layer with business DB/Redis and logically isolated `seo_intel` DB | `partial`; managed MySQL/Redis observed, `seo_intel` missing |
 | Server 4 | SEO Intelligence Node | `missing`; not deployed |
 
@@ -223,9 +240,11 @@ SEO 中台 impact:
 
 ## Recommended Decision
 
-Recommendation: choose Option A as the target direction, unless read-only parity reports show live API compatibility blockers.
+Original recommendation: choose Option A as the target direction, unless read-only parity reports show live API compatibility blockers.
 
-This charter does not implement Option A. It only recommends the target direction and locks the required gates.
+Post-`BACKEND-RUNTIME-02D` accepted decision: keep `api.fermatmind.com` as a Node2 OpenResty API edge gateway for now, with `/api/` proxied to Node3 / `fap-api-prod` as the backend/CMS/commerce authority source. Node2 local Laravel, local DB, and queue are not authority.
+
+This reconciliation does not implement any runtime change. Direct DNS/proxy migration, Node2 retirement, OpenResty edits, or backend deploys remain out of scope.
 
 Pre-migration gates before any DNS/proxy/API migration:
 
@@ -245,24 +264,24 @@ If any gate fails, do not migrate DNS or proxy. Record the blocker and either re
 
 ## SEO 中台 Gating
 
-SEO 中台 production rollout must not start until:
+SEO 中台 production rollout must not start until the remaining gates are closed:
 
-- backend runtime authority decision is made
 - `seo_intel` DB target is confirmed
 - Server 4 target is confirmed
 - Metabase isolation policy is confirmed
 - Collector input source is decided
 - PII/consent boundary is locked
 
-Allowed before convergence:
+Backend runtime authority for public API reads is accepted by `BACKEND-RUNTIME-02D`; production collectors, migrations, and Metabase deployment still require separate approval.
+
+Allowed after authority closure but before production rollout:
 
 - docs and contracts
-- read-only route parity reports
 - schema design without production migration
 - PII/consent boundary design
 - collector interface design without deployment
 
-Blocked before convergence:
+Still blocked before explicit implementation approval:
 
 - production `seo_intel` migration
 - production collector deployment
@@ -370,17 +389,15 @@ Do not start:
 
 ## First Implementation Train After Charter
 
-Recommended sequence:
+Reconciled sequence:
 
-1. `BACKEND-RUNTIME-00`: read-only route parity report between `fap-node2` and `fap-api-prod`.
-2. `BACKEND-RUNTIME-01`: backend convergence decision implementation plan.
-3. `SEO-DASH-00`: schema, attribution, PII, and consent boundary.
-4. `SEO-DASH-01`: `seo_intel` DB design, no production migration until approved.
-5. `SEO-DASH-02`: collector skeleton.
-6. `SEO-DASH-03`: URL truth and drift collector.
-7. `SEO-DASH-04`: funnel attribution mirror.
-8. `SEO-DASH-05`: Metabase deployment plan.
-9. `SEO-DASH-06`: CMS issue queue summary.
+1. `BACKEND-RUNTIME-01C`: API edge gateway and backend authority contract completed.
+2. `BACKEND-RUNTIME-02A`: API edge gateway hardening and local runtime quarantine plan completed.
+3. `BACKEND-RUNTIME-02B`: API gateway smoke and rollback runbook completed.
+4. `BACKEND-RUNTIME-02C`: public API authority acceptance gate completed with partial status.
+5. `BACKEND-RUNTIME-02D`: gateway evidence completion accepted public API authority.
+6. `SEO-DASH-00B`: Search Intelligence data contract completed.
+7. `SEO-DASH-01+`: physical `seo_intel`, collector, Metabase, and CMS issue summary implementation require separate scoped approvals and must not be pulled into this reconciliation.
 
 ## No Runtime Change Statement
 

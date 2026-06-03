@@ -25,6 +25,16 @@
       "id": "runtime_ssh_readonly_scan",
       "type": "readonly_server_runtime_scan",
       "status": "observed"
+    },
+    {
+      "id": "BACKEND-RUNTIME-02D",
+      "type": "api_gateway_evidence_completion",
+      "status": "accepted",
+      "paths": [
+        "docs/seo/api-gateway-evidence-completion.md",
+        "docs/seo/generated/api-gateway-evidence-completion.v1.json",
+        "tests/contracts/api-gateway-evidence-completion.contract.test.ts"
+      ]
     }
   ],
   "current_runtime_topology": {
@@ -115,17 +125,19 @@
   },
   "dual_backend_runtime_conflict": {
     "status": [
-      "conflict",
-      "architecture_debt",
-      "human_confirm_required"
+      "historical_conflict",
+      "closed_for_public_api_authority_by_BACKEND_RUNTIME_02D",
+      "node2_local_runtime_quarantined"
     ],
     "public_api_runtime": "fap-node2 legacy Docker API runtime",
     "cms_ops_runtime": "fap-api-prod standard Laravel/CMS/queue runtime",
-    "why_it_blocks_seo_middle_platform": [
-      "Collectors need a single backend authority or explicitly documented split authority.",
-      "Attribution and issue queue writes must join against the correct backend truth.",
-      "Sitemap/llms observation must not compare public API output against a different CMS truth source.",
-      "Queue and scheduler drift can hide release/revalidate and report/email behavior differences."
+    "resolved_by": "BACKEND-RUNTIME-02D",
+    "current_public_api_authority": "api.fermatmind.com Node2 OpenResty edge gateway proxies /api/ to Node3 / fap-api-prod",
+    "why_it_was_historical_blocker": [
+      "Collectors needed a single backend authority or explicitly documented split authority.",
+      "Attribution and issue queue writes had to join against the correct backend truth.",
+      "Sitemap/llms observation could not compare public API output against a different CMS truth source.",
+      "Queue and scheduler drift could hide release/revalidate and report/email behavior differences."
     ],
     "differences": [
       "deployment shape",
@@ -133,6 +145,41 @@
       "database topology",
       "Redis setup",
       "queue state"
+    ]
+  },
+  "backend_authority_closure": {
+    "source": "BACKEND-RUNTIME-02D",
+    "status": "accepted",
+    "api_domain": "api.fermatmind.com",
+    "edge_gateway": {
+      "node": "fap-node2",
+      "runtime": "OpenResty",
+      "server_name_present": true,
+      "api_location_present": true,
+      "proxy_pass_target": "http://122.152.221.126"
+    },
+    "backend_authority": {
+      "node": "Node3",
+      "runtime": "fap-api-prod",
+      "domain": "ops.fermatmind.com",
+      "source_of_truth": "backend/CMS/commerce authority for public API reads"
+    },
+    "node2_local_runtime": {
+      "laravel_authority": false,
+      "local_db_authority": false,
+      "queue_authority": false,
+      "status": "non_authority_quarantined"
+    },
+    "seo_dash_unblocked_for_docs_schema": true,
+    "still_forbidden_without_separate_approval": [
+      "collector deployment",
+      "production seo_intel migration",
+      "Metabase production deployment",
+      "OpenResty changes",
+      "DNS/CDN changes",
+      "Node2 shutdown",
+      "backend deploys",
+      "runtime behavior changes"
     ]
   },
   "cloud_media_chain": {
@@ -154,7 +201,7 @@
     "mixed_cloud_structure": "Tencent DNS/server/DB/Redis plus Alibaba OSS/CDN/TLS"
   },
   "target_architecture": {
-    "status": "decision_ready",
+    "status": "reconciled_by_BACKEND_RUNTIME_02D",
     "doctrine": [
       "fap-web is public frontend runtime",
       "single backend/CMS/commerce authority runtime",
@@ -177,12 +224,14 @@
       {
         "id": "Server 2",
         "role": "single backend/CMS/commerce authority runtime",
-        "current_candidate": "unresolved between fap-node2 and fap-api-prod",
+        "current_candidate": "Node3 / fap-api-prod behind api.fermatmind.com Node2 OpenResty edge gateway",
         "status": [
-          "conflict",
-          "human_confirm_required"
+          "accepted_for_public_api_authority",
+          "gateway_pattern",
+          "node2_local_runtime_quarantined"
         ],
-        "ready": false
+        "ready": true,
+        "ready_for_seo_dash_docs_schema": true
       },
       {
         "id": "Server 3",
@@ -300,12 +349,12 @@
     }
   ],
   "recommended_backend_decision": {
-    "option": "Option A",
-    "decision": "Migrate api.fermatmind.com to fap-api-prod / standard backend authority unless blocked by live API compatibility.",
+    "option": "accepted_gateway_authority_closure",
+    "decision": "Keep api.fermatmind.com as a Node2 OpenResty API edge gateway for now, proxy /api/ to Node3 / fap-api-prod as backend/CMS/commerce authority, and keep Node2 local Laravel/DB/queue non-authority and quarantined.",
     "status": [
-      "recommended",
-      "not_implemented",
-      "blocked_until_gates_pass"
+      "accepted",
+      "implemented_by_BACKEND_RUNTIME_02D",
+      "no_runtime_change_in_this_pr"
     ]
   },
   "pre_migration_gates": [
@@ -322,7 +371,7 @@
     "staged smoke"
   ],
   "seo_middle_platform_gates": [
-    "backend runtime authority decision",
+    "backend runtime authority accepted by BACKEND-RUNTIME-02D",
     "seo_intel DB target",
     "Server 4 target",
     "Metabase isolation policy",
@@ -420,15 +469,13 @@
     "heavy SEO workers inside fap-api web request process"
   ],
   "first_implementation_train": [
-    "BACKEND-RUNTIME-00 read-only route parity report between fap-node2 and fap-api-prod",
-    "BACKEND-RUNTIME-01 backend convergence decision implementation plan",
-    "SEO-DASH-00 schema/attribution/PII/consent boundary",
-    "SEO-DASH-01 seo_intel DB design, no production migration until approved",
-    "SEO-DASH-02 collector skeleton",
-    "SEO-DASH-03 URL truth/drift collector",
-    "SEO-DASH-04 funnel attribution mirror",
-    "SEO-DASH-05 Metabase deployment plan",
-    "SEO-DASH-06 CMS issue queue summary"
+    "BACKEND-RUNTIME-01C completed API edge gateway and backend authority contract",
+    "BACKEND-RUNTIME-02A completed API edge gateway hardening and local runtime quarantine plan",
+    "BACKEND-RUNTIME-02B completed API gateway smoke and rollback runbook",
+    "BACKEND-RUNTIME-02C completed public API authority acceptance gate with partial status",
+    "BACKEND-RUNTIME-02D accepted gateway evidence completion and public API authority",
+    "SEO-DASH-00B completed Search Intelligence data contract",
+    "SEO-DASH-01+ requires separate scoped approval for physical seo_intel, collector, Metabase, and CMS issue summary implementation"
   ],
   "deployment_guardrails": {
     "no_runtime_code_changes": true,
@@ -445,6 +492,7 @@
       "docs/seo/cms-seo-middle-platform-final-architecture.md",
       "docs/seo/generated/cms-seo-middle-platform-final-architecture.v1.json",
       "tests/contracts/cms-seo-middle-platform-final-architecture.contract.test.ts",
+      "tests/contracts/helpers/currentPrScope.ts",
       "docs/codex/pr-train.yaml",
       "docs/codex/pr-train-state.json"
     ],
