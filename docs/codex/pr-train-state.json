@@ -6547,6 +6547,10 @@
           "status": "pass",
           "evidence": "git diff --check passed before staging."
         },
+        "cached_diff_check": {
+          "status": "pass",
+          "evidence": "git diff --cached --check passed before commit with only the SEO-ISSUE-QUEUE-02 allowed files staged."
+        },
         "scope_validation": {
           "status": "pass",
           "evidence": "Changed files are confined to SEO-ISSUE-QUEUE-02 dashboard shell artifact adapter, focused contract, scope helper, and PR train metadata scope; no backend, API, CMS schema, content, public sitemap/llms, search platform, env, cookie, token, deploy, or production files remain modified."
@@ -6554,7 +6558,7 @@
       },
       "failure_reason": null,
       "pr_url": null,
-      "commit_sha": null,
+      "commit_sha": "7e1994b8",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -6569,6 +6573,11 @@
           "at": "2026-06-03T20:58:00+08:00",
           "status": "local_checks_passed",
           "summary": "Implemented the artifact-backed dashboard shell adapter and passed focused contracts, full contract suite, sitemap/mobile SEO gates, typecheck, production-parameter build, JSON/YAML parse, and desktop/mobile in-app Browser preview."
+        },
+        {
+          "at": "2026-06-03T21:03:00+08:00",
+          "status": "committed",
+          "summary": "Recorded implementation commit 7e1994b8 for SEO-ISSUE-QUEUE-02 before push."
         }
       ]
     },
