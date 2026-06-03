@@ -12074,3 +12074,244 @@ prs:
       - "Recommends next PR split for IQ result-page productization."
       - "Touches no frontend implementation, backend implementation, content package, scoring, commerce, payment, checkout, order, webhook, deployment, SSH, DB, secret, PDF, certificate, or screenshot files."
     rollback_note: "Remove docs/audits/iq-result-assets and this train metadata entry if the scan should be re-authored."
+  - id: COMMERCIAL-READINESS-TRAIN-00
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/commercial-readiness-train-00
+    base: main
+    title: "chore(codex): add commercial readiness sprint train"
+    depends_on: []
+    mode: train_registration
+    train_scope: commercial_readiness_day_1
+    status: pr_open
+    goal: "Register the June 1 to July 1 Commercial Readiness Sprint ledger, Day 1 scan entries, and P0 follow-up placeholders without changing runtime, CMS, content assets, tests, public files, search submissions, or deployment state."
+    allowed_paths:
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - docs/operations/commercial-readiness-sprint-2026-06-03.md
+    forbidden_paths:
+      - app/**
+      - components/**
+      - lib/**
+      - tests/**
+      - public/**
+      - package.json
+      - pnpm-lock.yaml
+    required_local_checks:
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - git diff --check -- docs/codex docs/operations
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: PRIVACY-ORDER-RESULT-SAFETY-SCAN-01
+    acceptance:
+      - Day 1 commercial readiness scan entries are registered.
+      - Follow-up P0 repair placeholders are registered but not executed.
+      - Sprint document records content, CMS, search submission, Daily Giving, and private URL stop boundaries.
+      - Runtime, tests, public files, CMS, content assets, search platforms, and deployment are unchanged.
+    rollback_note: "Remove the Commercial Readiness Sprint document and train metadata entries if this sprint registration is withdrawn."
+  - id: PRIVACY-ORDER-RESULT-SAFETY-SCAN-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/privacy-order-result-safety-scan-01
+    base: main
+    title: "docs(privacy): scan private route and order result safety"
+    depends_on:
+      - COMMERCIAL-READINESS-TRAIN-00
+    mode: scan_report_only
+    train_scope: commercial_readiness_day_1
+    status: planned
+    goal: "Produce a docs-only private route and order/result safety scan covering result, order, share, payment, history, canonical, sitemap, llms, GA4/Baidu, and /api/track leakage risk without runtime, tests, CMS, search submission, deploy, secret, or private URL access."
+    allowed_paths:
+      - docs/audits/privacy-order-result-safety-scan-2026-06-03.md
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/private-noindex.contract.test.ts tests/contracts/analytics-payload-privacy.contract.test.ts tests/contracts/tracking-whitelist.contract.test.ts
+      - pnpm typecheck
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - git diff --check -- docs/audits docs/codex
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: ANALYTICS-COMMERCIAL-EVENTS-SCAN-01
+  - id: ANALYTICS-COMMERCIAL-EVENTS-SCAN-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/analytics-commercial-events-scan-01
+    base: main
+    title: "docs(analytics): scan commercial event taxonomy"
+    depends_on:
+      - PRIVACY-ORDER-RESULT-SAFETY-SCAN-01
+    mode: scan_report_only
+    train_scope: commercial_readiness_day_1
+    status: planned
+    goal: "Produce a docs-only commercial event taxonomy scan across landing, article CTA, test start/complete, result view, checkout, purchase, unlock, and report-ready events without tracking runtime, analytics platform, order, payment, deploy, secret, or CMS changes."
+    allowed_paths:
+      - docs/audits/analytics-commercial-events-scan-2026-06-03.md
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/tracking-whitelist.contract.test.ts tests/contracts/analytics-payload-privacy.contract.test.ts tests/contracts/seo-cms-canary-web01-article-to-test-click.contract.test.tsx
+      - pnpm typecheck
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - git diff --check -- docs/audits docs/codex
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: FREEMIUM-LOCALE-POLICY-SCAN-01
+  - id: FREEMIUM-LOCALE-POLICY-SCAN-01
+    repo: fap-api
+    repo_path: <workspace>/fap-api
+    branch: codex/freemium-locale-policy-scan-01
+    base: main
+    title: "docs(monetization): scan locale freemium policy readiness"
+    depends_on:
+      - ANALYTICS-COMMERCIAL-EVENTS-SCAN-01:fap-web
+    mode: scan_report_only
+    train_scope: commercial_readiness_day_1
+    status: planned
+    goal: "Produce a docs-only freemium locale policy readiness scan for EN free-full and ZH partial-plus-unlock strategy evidence without backend, frontend, seed, migration, order, payment, CMS, deploy, secret, or runtime changes."
+    allowed_paths:
+      - backend/docs/operations/freemium-locale-policy-scan-2026-06-03.md
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: DAILY-GIVING-OPS-READINESS-SCAN-01
+  - id: DAILY-GIVING-OPS-READINESS-SCAN-01
+    repo: fap-api
+    repo_path: <workspace>/fap-api
+    branch: codex/daily-giving-ops-readiness-scan-01
+    base: main
+    title: "docs(benefit): scan daily giving operations readiness"
+    depends_on:
+      - FREEMIUM-LOCALE-POLICY-SCAN-01:fap-api
+    mode: scan_report_only
+    train_scope: commercial_readiness_day_1
+    status: planned
+    goal: "Produce a docs-only Daily Giving operations readiness scan across model, resource, API, storage, proof, noindex, claim, and public amplification boundaries without records, uploads, storage changes, frontend changes, CMS, publish, deploy, proof reads, secrets, or marketing copy."
+    allowed_paths:
+      - backend/docs/operations/daily-giving-ops-readiness-scan-2026-06-03.md
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: null
+  - id: PRIVACY-ORDER-RESULT-SAFETY-01
+    repo: fap-web
+    branch: codex/privacy-order-result-safety-01
+    base: main
+    title: "fix(privacy): harden private order result URL safety"
+    depends_on:
+      - PRIVACY-ORDER-RESULT-SAFETY-SCAN-01
+    mode: placeholder
+    train_scope: commercial_readiness_follow_up
+    status: planned
+  - id: ANALYTICS-COMMERCIAL-EVENTS-01
+    repo: fap-web
+    branch: codex/analytics-commercial-events-01
+    base: main
+    title: "fix(analytics): align commercial event taxonomy"
+    depends_on:
+      - ANALYTICS-COMMERCIAL-EVENTS-SCAN-01
+    mode: placeholder
+    train_scope: commercial_readiness_follow_up
+    status: planned
+  - id: UTM-CHANNEL-GOVERNANCE-01
+    repo: fap-web
+    branch: codex/utm-channel-governance-01
+    base: main
+    title: "docs(analytics): define UTM channel governance"
+    depends_on:
+      - ANALYTICS-COMMERCIAL-EVENTS-SCAN-01
+    mode: placeholder
+    train_scope: commercial_readiness_follow_up
+    status: planned
+  - id: FREEMIUM-LOCALE-POLICY-01
+    repo: fap-api
+    branch: codex/freemium-locale-policy-01
+    base: main
+    title: "fix(monetization): enforce locale freemium policy"
+    depends_on:
+      - FREEMIUM-LOCALE-POLICY-SCAN-01
+    mode: placeholder
+    train_scope: commercial_readiness_follow_up
+    status: planned
+  - id: CHECKOUT-UNLOCK-FUNNEL-SMOKE-01
+    repo: fap-api
+    branch: codex/checkout-unlock-funnel-smoke-01
+    base: main
+    title: "test(monetization): add checkout unlock funnel smoke coverage"
+    depends_on:
+      - FREEMIUM-LOCALE-POLICY-SCAN-01
+    mode: placeholder
+    train_scope: commercial_readiness_follow_up
+    status: planned
+  - id: ADS-ATTRIBUTION-PREFLIGHT-01
+    repo: fap-web
+    branch: codex/ads-attribution-preflight-01
+    base: main
+    title: "docs(ads): run attribution preflight"
+    depends_on:
+      - ANALYTICS-COMMERCIAL-EVENTS-SCAN-01
+      - FREEMIUM-LOCALE-POLICY-SCAN-01:fap-api
+    mode: placeholder
+    train_scope: commercial_readiness_follow_up
+    status: planned
+  - id: CLAIM-BOUNDARY-ADS-GATE-01
+    repo: fap-web
+    branch: codex/claim-boundary-ads-gate-01
+    base: main
+    title: "docs(claims): define ads claim boundary gate"
+    depends_on:
+      - ANALYTICS-COMMERCIAL-EVENTS-SCAN-01
+    mode: placeholder
+    train_scope: commercial_readiness_follow_up
+    status: planned
+  - id: DAILY-GIVING-OPS-READINESS-01
+    repo: fap-api
+    branch: codex/daily-giving-ops-readiness-01
+    base: main
+    title: "fix(benefit): harden daily giving operations readiness"
+    depends_on:
+      - DAILY-GIVING-OPS-READINESS-SCAN-01
+    mode: placeholder
+    train_scope: commercial_readiness_follow_up
+    status: planned
+  - id: COMMERCIAL-READINESS-REVIEW-01
+    repo: fap-web
+    branch: codex/commercial-readiness-review-01
+    base: main
+    title: "docs(ops): review commercial readiness blockers"
+    depends_on:
+      - PRIVACY-ORDER-RESULT-SAFETY-SCAN-01
+      - ANALYTICS-COMMERCIAL-EVENTS-SCAN-01
+      - FREEMIUM-LOCALE-POLICY-SCAN-01:fap-api
+      - DAILY-GIVING-OPS-READINESS-SCAN-01:fap-api
+    mode: placeholder
+    train_scope: commercial_readiness_follow_up
+    status: planned
+  - id: ADS-PILOT-GO-NOGO-01
+    repo: fap-web
+    branch: codex/ads-pilot-go-nogo-01
+    base: main
+    title: "docs(ads): decide paid ads pilot go no-go"
+    depends_on:
+      - COMMERCIAL-READINESS-REVIEW-01
+    mode: placeholder
+    train_scope: commercial_readiness_follow_up
+    status: planned
