@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-03T15:08:00+08:00",
+  "updated_at": "2026-06-03T15:16:00+08:00",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -6129,7 +6129,7 @@
       "depends_on": [
         "SEO-COMPETITOR-URL-00"
       ],
-      "status": "in_progress",
+      "status": "local_checks_passed",
       "train_scope": "competitor_url_inventory_readonly_generator",
       "risk_level": "L1",
       "title": "docs(seo): add read-only competitor URL inventory generator",
@@ -6149,11 +6149,47 @@
         "scope_initialization": {
           "status": "pass",
           "evidence": "Initialized read-only generator script, generated sample artifact, focused contract test, scope helper entry, doc update, and PR train metadata without runtime, CMS, API integration, search submission, sitemap/llms mutation, env, deploy, or production behavior changes."
+        },
+        "generator_smoke": {
+          "status": "pass",
+          "evidence": "node scripts/seo/generate-competitor-url-inventory.mjs --pretty produced valid offline_sample JSON without network access."
+        },
+        "json_yaml_parse": {
+          "status": "pass",
+          "evidence": "python3 -m json.tool passed for docs/seo/generated/competitor-url-inventory-generator.v1.json and docs/codex/pr-train-state.json; PyYAML parse passed for docs/codex/pr-train.yaml."
+        },
+        "focused_contract": {
+          "status": "pass",
+          "evidence": "pnpm exec vitest run tests/contracts/competitor-url-inventory-generator.contract.test.ts passed: 6 tests."
+        },
+        "typecheck": {
+          "status": "pass",
+          "evidence": "pnpm typecheck passed."
+        },
+        "sitemap_check": {
+          "status": "pass",
+          "evidence": "pnpm seo:check-sitemap passed: sitemap indexability check passed for 261 urls."
+        },
+        "full_contract": {
+          "status": "pass",
+          "evidence": "pnpm test:contract passed after the implementation commit: 434 test files and 2446 tests. A pre-commit run failed only because an older scope test fell back to HEAD~1..HEAD before the current PR had a commit; the submitted-commit run passed."
+        },
+        "build": {
+          "status": "pass",
+          "evidence": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build passed. A first build attempt without NEXT_PUBLIC_SITE_URL failed on existing /llms.txt production URL validation; rerun with the required production site URL passed. The build-generated public/sitemap.xml change was restored because sitemap mutation is outside SEO-COMPETITOR-URL-01 scope."
+        },
+        "diff_check": {
+          "status": "pass",
+          "evidence": "git diff --check and git diff --cached --check passed."
+        },
+        "scope_validation": {
+          "status": "pass",
+          "evidence": "Scope validation showed only the seven authorized files: docs/codex/pr-train.yaml, docs/codex/pr-train-state.json, docs/seo/competitor-url-inventory-tracker.md, docs/seo/generated/competitor-url-inventory-generator.v1.json, scripts/seo/generate-competitor-url-inventory.mjs, tests/contracts/competitor-url-inventory-generator.contract.test.ts, and tests/contracts/helpers/currentPrScope.ts."
         }
       },
       "failure_reason": null,
       "pr_url": null,
-      "commit_sha": null,
+      "commit_sha": "ddddf63b",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -6163,6 +6199,11 @@
           "at": "2026-06-03T15:08:00+08:00",
           "status": "in_progress",
           "summary": "Initialized SEO-COMPETITOR-URL-01 to implement a read-only competitor URL inventory generator with offline default mode, local sitemap input support, explicit --allow-network boundary, JSON/CSV outputs, monthly diff, scope guard, and contract tests."
+        },
+        {
+          "at": "2026-06-03T15:16:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Passed generator smoke, JSON/YAML parsing, focused contract, typecheck, sitemap check, full contract suite, production build with NEXT_PUBLIC_SITE_URL, diff checks, and explicit scope validation. Restored build-generated public/sitemap.xml because sitemap mutation is outside scope."
         }
       ]
     },
