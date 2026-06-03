@@ -1,0 +1,429 @@
+{
+  "version": "seo_issue_queue.v1",
+  "scope": "SEO-ISSUE-QUEUE-00",
+  "status": "contract_design",
+  "source_documents": [
+    "SEO-DASH-00B",
+    "CMS-OPS-IA-00",
+    "CMS-OPS-RELEASE-02",
+    "SEO-SITEMAP-P0-05",
+    "SEO-COMPETITOR-URL-01"
+  ],
+  "authority_boundary": {
+    "read_model_only": true,
+    "queue_authority": "seo_intel_sanitized_read_model",
+    "url_truth_authority": "production_sitemap_and_backend_cms_public_apis",
+    "cms_content_authority": "fap_api_cms_backend",
+    "release_authority": "backend_cms_release_plan",
+    "search_channels_are_content_truth": false,
+    "ga4_purchase_truth": false,
+    "issue_queue_may_mutate_cms": false,
+    "issue_queue_may_publish": false,
+    "issue_queue_may_submit_search_urls": false
+  },
+  "source_inputs": [
+    {
+      "source_signal": "url_truth",
+      "role": "canonical public URL identity and exposure expectation",
+      "authority_rule": "follow production sitemap plus backend/CMS public API authority"
+    },
+    {
+      "source_signal": "sitemap",
+      "role": "live sitemap and backend sitemap-source inclusion observation",
+      "authority_rule": "observation only; cannot rewrite sitemap eligibility"
+    },
+    {
+      "source_signal": "llms",
+      "role": "llms.txt and llms-full.txt inclusion observation",
+      "authority_rule": "observation only; cannot rewrite llms eligibility"
+    },
+    {
+      "source_signal": "gsc",
+      "role": "Google search visibility and indexing signal",
+      "authority_rule": "channel adapter; not content truth"
+    },
+    {
+      "source_signal": "baidu",
+      "role": "Baidu verification, push, landing, or indexing signal",
+      "authority_rule": "channel adapter; not content truth"
+    },
+    {
+      "source_signal": "ga4",
+      "role": "browser behavior telemetry and funnel anomaly signal",
+      "authority_rule": "telemetry only; not purchase or content truth"
+    },
+    {
+      "source_signal": "cms_release",
+      "role": "release checklist, revalidation, smoke, rollback evidence",
+      "authority_rule": "backend/CMS release plan remains authority"
+    },
+    {
+      "source_signal": "cms_draft",
+      "role": "draft absence or public leak checks",
+      "authority_rule": "draft state remains CMS authority"
+    },
+    {
+      "source_signal": "competitor_url_inventory",
+      "role": "read-only competitor gap or opportunity candidate",
+      "authority_rule": "advisory input only; no draft or content generation"
+    },
+    {
+      "source_signal": "manual_review",
+      "role": "human-created sanitized observation",
+      "authority_rule": "must name source and reviewer role"
+    }
+  ],
+  "issue_key": {
+    "stable_key": [
+      "canonical_url",
+      "locale",
+      "issue_type",
+      "source_signal"
+    ],
+    "page_entity_key": [
+      "page_entity_type",
+      "entity_id_or_slug",
+      "locale"
+    ],
+    "canonical_url_normalized": true,
+    "private_urls_as_normal_issue_urls_allowed": false,
+    "private_url_leak_storage": "sanitized_public_safe_pattern_and_evidence_summary_only"
+  },
+  "fields": {
+    "required": [
+      "issue_id",
+      "canonical_url",
+      "locale",
+      "page_entity_type",
+      "entity_id_or_slug",
+      "source_signal",
+      "issue_type",
+      "severity",
+      "status",
+      "detected_at",
+      "last_seen_at",
+      "evidence_summary",
+      "recommendation_summary",
+      "owner_role",
+      "cms_resource_link",
+      "release_evidence_id",
+      "suppression_reason",
+      "risk_boundary"
+    ],
+    "forbidden": [
+      "raw_log_body",
+      "email",
+      "raw_cookie",
+      "raw_order_id",
+      "raw_attempt_id",
+      "payment_payload",
+      "checkout_url",
+      "report_url",
+      "auth_token",
+      "bearer_token",
+      "raw_private_url",
+      "article_title",
+      "h1",
+      "meta_description_copy",
+      "faq_copy",
+      "cta_copy",
+      "body_copy"
+    ],
+    "csv_export_fields": [
+      "issue_id",
+      "canonical_url",
+      "locale",
+      "page_entity_type",
+      "entity_id_or_slug",
+      "source_signal",
+      "issue_type",
+      "severity",
+      "status",
+      "detected_at",
+      "last_seen_at",
+      "owner_role",
+      "cms_resource_link",
+      "release_evidence_id",
+      "suppression_reason"
+    ]
+  },
+  "page_entity_types": [
+    "home",
+    "test_hub",
+    "test_detail",
+    "article",
+    "topic",
+    "personality",
+    "career_job",
+    "career_recommendation",
+    "methodology",
+    "dataset",
+    "report_preview",
+    "landing_page"
+  ],
+  "issue_types": [
+    "missing_from_sitemap",
+    "unexpected_in_sitemap",
+    "draft_public_leak",
+    "noindex_public_mismatch",
+    "canonical_mismatch",
+    "hreflang_gap",
+    "llms_exposure_gap",
+    "schema_gap",
+    "private_url_leak",
+    "content_decay",
+    "competitor_gap_candidate",
+    "tracking_gap",
+    "post_publish_smoke_failure"
+  ],
+  "severity": {
+    "allowed_values": [
+      "critical",
+      "high",
+      "medium",
+      "low",
+      "info"
+    ],
+    "release_visibility": {
+      "critical": "visible_to_release_operator_before_publish_or_search_submission",
+      "high": "visible_to_release_operator_before_publish_or_search_submission",
+      "medium": "triage_input_unless_escalated_by_release_checklist",
+      "low": "triage_input",
+      "info": "observation_only"
+    }
+  },
+  "lifecycle": {
+    "states": [
+      "open",
+      "triaged",
+      "assigned",
+      "blocked",
+      "suppressed",
+      "linked_to_cms_task",
+      "waiting_release",
+      "resolved_observed",
+      "closed"
+    ],
+    "transitions": [
+      {
+        "from": "open",
+        "to": "triaged",
+        "requires": [
+          "owner_role",
+          "severity_review",
+          "sanitized_evidence"
+        ]
+      },
+      {
+        "from": "triaged",
+        "to": "linked_to_cms_task",
+        "requires": [
+          "explicit_user_action",
+          "backend_owned_task_or_release_note"
+        ]
+      },
+      {
+        "from": "linked_to_cms_task",
+        "to": "waiting_release",
+        "requires": [
+          "cms_or_release_owner_acceptance"
+        ]
+      },
+      {
+        "from": "waiting_release",
+        "to": "resolved_observed",
+        "requires": [
+          "public_runtime_or_channel_observation_confirms_resolution"
+        ]
+      },
+      {
+        "from": "resolved_observed",
+        "to": "closed",
+        "requires": [
+          "operator_closure",
+          "sanitized_closure_evidence"
+        ]
+      }
+    ],
+    "suppression_requires": [
+      "suppression_reason",
+      "reviewer_role",
+      "expiration_or_review_date"
+    ],
+    "state_changes_may_mutate_cms_fields": false,
+    "state_changes_may_mutate_publish_state": false,
+    "state_changes_may_mutate_sitemap_or_llms": false
+  },
+  "roles": {
+    "read_roles": [
+      "owner",
+      "ops_admin",
+      "seo_operator",
+      "analyst",
+      "content_reviewer",
+      "publisher",
+      "sre"
+    ],
+    "triage_roles": [
+      "owner",
+      "ops_admin",
+      "seo_operator",
+      "content_reviewer"
+    ],
+    "allowed_actions": [
+      "read_sanitized_rows",
+      "triage_severity",
+      "set_owner_role",
+      "suppress_with_reason",
+      "link_backend_owned_cms_task",
+      "link_release_evidence",
+      "export_sanitized_aggregate_summary"
+    ],
+    "forbidden_actions": [
+      "cms_mutation",
+      "cms_draft_creation",
+      "article_copy_generation",
+      "publish",
+      "unpublish",
+      "rollback",
+      "release_approval",
+      "search_submission",
+      "sitemap_mutation",
+      "llms_mutation",
+      "canonical_or_robots_runtime_mutation",
+      "raw_pii_export"
+    ]
+  },
+  "release_integration": {
+    "may_display_sanitized_issue_evidence": true,
+    "display_fields": [
+      "issue_id",
+      "canonical_url",
+      "locale",
+      "issue_type",
+      "severity",
+      "status",
+      "evidence_summary",
+      "recommendation_summary",
+      "linked_cms_task_id",
+      "release_evidence_id"
+    ],
+    "may_block_or_inform_human_release_decision": true,
+    "may_auto_approve_release": false,
+    "may_auto_publish": false,
+    "may_auto_unpublish": false,
+    "may_auto_rollback": false,
+    "may_auto_revalidate": false,
+    "may_auto_submit_search_urls": false,
+    "search_submission_remains_blocked_by_sitemap_convergence_and_release_policy": true
+  },
+  "sample_issues": [
+    {
+      "issue_id": "seo_issue_sample_missing_sitemap_zh_mbti",
+      "canonical_url": "https://fermatmind.com/tests/mbti-personality-test",
+      "locale": "zh",
+      "page_entity_type": "test_detail",
+      "entity_id_or_slug": "mbti-personality-test",
+      "source_signal": "sitemap",
+      "issue_type": "missing_from_sitemap",
+      "severity": "high",
+      "status": "open",
+      "detected_at": "2026-06-03T00:00:00Z",
+      "last_seen_at": "2026-06-03T00:00:00Z",
+      "evidence_summary": "Sample only: expected sitemap-eligible public URL missing from live sitemap observation.",
+      "recommendation_summary": "Review backend/CMS discoverability eligibility and sitemap convergence; do not hand-edit sitemap.",
+      "owner_role": "seo_operator",
+      "cms_resource_link": null,
+      "release_evidence_id": null,
+      "suppression_reason": null,
+      "risk_boundary": {
+        "sample_only": true,
+        "cms_writes": false,
+        "search_submission": false
+      }
+    },
+    {
+      "issue_id": "seo_issue_sample_competitor_gap_career",
+      "canonical_url": "https://fermatmind.com/en/career",
+      "locale": "en",
+      "page_entity_type": "landing_page",
+      "entity_id_or_slug": "career",
+      "source_signal": "competitor_url_inventory",
+      "issue_type": "competitor_gap_candidate",
+      "severity": "low",
+      "status": "triaged",
+      "detected_at": "2026-06-03T00:00:00Z",
+      "last_seen_at": "2026-06-03T00:00:00Z",
+      "evidence_summary": "Sample only: competitor inventory suggests a career cluster coverage gap candidate.",
+      "recommendation_summary": "Route to human review as an advisory opportunity; do not generate content or create a CMS draft automatically.",
+      "owner_role": "seo_operator",
+      "cms_resource_link": null,
+      "release_evidence_id": null,
+      "suppression_reason": null,
+      "risk_boundary": {
+        "sample_only": true,
+        "cms_writes": false,
+        "auto_content_generation": false
+      }
+    }
+  ],
+  "risk_boundary": {
+    "read_only": true,
+    "docs_contract_only": true,
+    "migrations_created": false,
+    "physical_schema_created": false,
+    "collector_created": false,
+    "api_routes_created": false,
+    "frontend_runtime_changed": false,
+    "cms_writes": false,
+    "cms_draft_creation": false,
+    "publish_actions": false,
+    "rollback_actions": false,
+    "revalidate_execution": false,
+    "search_submission": false,
+    "sitemap_mutation": false,
+    "llms_mutation": false,
+    "auto_content_generation": false,
+    "gsc_integration": false,
+    "baidu_integration": false,
+    "ga4_integration": false,
+    "indexnow_integration": false,
+    "dataforseo_integration": false,
+    "apify_integration": false,
+    "env_reads": false,
+    "cookie_reads": false,
+    "token_reads": false,
+    "production_deploy": false
+  },
+  "deferred_runtime_work": [
+    "seo_intel_physical_schema",
+    "migrations",
+    "collectors",
+    "cron_or_queue_workers",
+    "gsc_integration",
+    "baidu_integration",
+    "ga4_integration",
+    "indexnow_integration",
+    "dataforseo_integration",
+    "apify_integration",
+    "cms_filament_ui",
+    "frontend_ops_dashboard",
+    "search_submission_adapters",
+    "content_generation",
+    "cms_draft_creation",
+    "publishing",
+    "rollback",
+    "revalidation_execution",
+    "sitemap_llms_runtime_changes",
+    "deployment"
+  ],
+  "repository_rule_impact": {
+    "fap_web_is_cms_authority": false,
+    "cms_backend_remains_content_authority": true,
+    "seo_issue_queue_is_advisory": true,
+    "seo_issue_queue_auto_publish_allowed": false,
+    "seo_issue_queue_auto_content_generation_allowed": false,
+    "runtime_implementation_deferred": true
+  },
+  "recommended_follow_up": "SEO-ISSUE-QUEUE-01 backend/data implementation design after explicit authorization"
+}

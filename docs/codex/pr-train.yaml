@@ -4247,6 +4247,114 @@ prs:
       auto_merge: true
     rollback_note: "Remove the read-only competitor URL inventory generator script, generated sample artifact, contract test, scope helper entry, doc update, and SEO-COMPETITOR-URL-01 train metadata; restore SEO-COMPETITOR-URL-00 state only if this PR is reverted before reconciliation is otherwise recorded."
 
+  - id: SEO-ISSUE-QUEUE-00
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/seo-issue-queue-00-read-model
+    base: main
+    depends_on:
+      - SEO-DASH-00B
+      - CMS-OPS-IA-00
+      - CMS-OPS-RELEASE-02
+      - SEO-SITEMAP-P0-05
+      - SEO-COMPETITOR-URL-01
+    mode: execute
+    risk_level: L1
+    status: in_progress
+    title: "docs(seo): define SEO issue queue read model"
+    goal: "Define the sanitized SEO issue queue read model for URL truth, sitemap/llms, GSC, Baidu, GA4, CMS release/draft, competitor inventory, and manual review signals, including source hierarchy, issue keys, field schema, issue types, severity, lifecycle, role boundaries, release integration, sample issues, risk boundaries, and deferred runtime work without changing runtime, backend, CMS schema, APIs, Filament resources, migrations, collectors, dashboard UI, content, sitemap/llms generation, search channels, env, deploy, or production behavior."
+    in_scope:
+      - docs/seo/seo-issue-queue-read-model.md
+      - docs/seo/generated/seo-issue-queue.v1.json
+      - tests/contracts/seo-issue-queue.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - <workspace>/fap-api changes
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - scripts/seo/**
+      - backend runtime files
+      - migrations
+      - API routes
+      - Filament resources
+      - CMS schema changes
+      - env files
+      - deploy scripts
+      - package.json
+      - pnpm-lock.yaml
+      - next.config.mjs
+      - next-sitemap.config.js
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - app/api/content-release/revalidate/route.ts
+      - seo_intel physical schema
+      - collectors
+      - Metabase deployment
+      - frontend dashboard implementation
+      - GSC/Baidu/GA4/IndexNow/DataForSEO/Apify integrations
+      - search channel submission
+      - CMS content mutation
+      - CMS draft creation
+      - content generation
+      - article/page publication
+      - rollback or revalidation execution
+      - media uploads
+      - production changes
+      - env, cookie, or token reads
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/seo-issue-queue.contract.test.ts
+      - pnpm test:contract
+      - pnpm seo:check-sitemap
+      - pnpm seo:check-mobile
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - python3 -m json.tool docs/seo/generated/seo-issue-queue.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - git diff --check
+      - git diff --cached --check
+    acceptance:
+      - Artifact records SEO-DASH-00B, CMS-OPS-IA-00, CMS-OPS-RELEASE-02, SEO-SITEMAP-P0-05, and SEO-COMPETITOR-URL-01 as source documents.
+      - Artifact keeps the issue queue as a read-only sanitized seo_intel read model, not CMS content authority, release authority, purchase truth, or search submission authority.
+      - Artifact defines source inputs for url_truth, sitemap, llms, GSC, Baidu, GA4, CMS release, CMS draft, competitor URL inventory, and manual review.
+      - Artifact defines stable issue key canonical_url + locale + issue_type + source_signal and excludes private URLs from normal issue rows.
+      - Artifact defines required fields, CSV export fields, and forbidden raw/private/publishable content fields.
+      - Artifact defines issue types for sitemap, draft leak, noindex mismatch, canonical, hreflang, llms, schema, private URL leak, content decay, competitor gap candidate, tracking gap, and post-publish smoke failure.
+      - Artifact defines severity values, lifecycle states, suppression requirements, and state transitions without CMS/publish/sitemap/llms side effects.
+      - Artifact defines read and triage roles while forbidding CMS mutation, CMS draft creation, article copy generation, publish, rollback, search submission, sitemap mutation, llms mutation, and raw PII export.
+      - Artifact defines release integration as sanitized evidence only with no auto-approval, publish, unpublish, rollback, revalidation, or search submission.
+      - Artifact sample issues are sample-only and non-mutating.
+      - Artifact records deferred runtime work and repository rule impact.
+      - No runtime, backend, API, CMS schema, Filament, migration, collector, dashboard UI, content, public sitemap, llms, search platform, env, cookie, token, deploy, or production behavior changes.
+    must_not_touch:
+      - <workspace>/fap-api
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - scripts/seo/**
+      - backend runtime files
+      - migrations
+      - env files
+      - deploy scripts
+      - package.json
+      - pnpm-lock.yaml
+      - next.config.mjs
+      - next-sitemap.config.js
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - app/api/content-release/revalidate/route.ts
+      - payment/order/report/email/recommendation/scoring/profile code
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    rollback_note: "Remove the SEO issue queue read model document, generated artifact, focused contract test, scope helper entry, and SEO-ISSUE-QUEUE-00 train metadata; preserve the SEO-COMPETITOR-URL-01 ledger reconciliation if it still reflects merged GitHub truth."
+
   - id: AUDIT-WEB-CMS-LINK-XSS
     repo: fap-web
     repo_path: <workspace>/fap-web
