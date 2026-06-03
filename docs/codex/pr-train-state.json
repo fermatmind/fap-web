@@ -6614,7 +6614,7 @@
       "depends_on": [
         "SEO-ISSUE-QUEUE-02"
       ],
-      "status": "committed",
+      "status": "pr_open",
       "train_scope": "seo_issue_queue_dashboard_artifact_state_reconcile",
       "risk_level": "L1",
       "title": "docs(seo): reconcile issue queue dashboard artifact state",
@@ -6670,11 +6670,15 @@
         "commit_created": {
           "status": "pass",
           "evidence": "Created local commit 724c3bfb for SEO-ISSUE-QUEUE-02-RECONCILE-01."
+        },
+        "pr_created": {
+          "status": "pass",
+          "evidence": "Opened GitHub PR #1021 at https://github.com/fermatmind/fap-web/pull/1021."
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": "724c3bfb",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1021",
+      "commit_sha": "94f65cb7",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -6694,6 +6698,11 @@
           "at": "2026-06-03T22:54:00+08:00",
           "status": "committed",
           "summary": "Created local commit 724c3bfb for SEO-ISSUE-QUEUE-02-RECONCILE-01 after staged diff validation passed."
+        },
+        {
+          "at": "2026-06-03T22:56:00+08:00",
+          "status": "pr_open",
+          "summary": "Pushed SEO-ISSUE-QUEUE-02-RECONCILE-01 and opened GitHub PR #1021; waiting for GitHub checks before merge."
         }
       ]
     },
