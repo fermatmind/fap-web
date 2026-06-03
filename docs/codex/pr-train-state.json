@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-04T00:42:00+08:00",
+  "updated_at": "2026-06-04T00:45:00+08:00",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -18230,9 +18230,9 @@
         "COMMERCIAL-READINESS-TRAIN-00"
       ],
       "title": "docs(privacy): scan private route and order result safety",
-      "status": "local_checks_passed",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "pr_open",
+      "commit_sha": "5c0700a3478c31ae5c081eda32a95a68189a739d",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1024",
       "checks": {
         "dependency": {
           "status": "pass",
@@ -18264,6 +18264,11 @@
           "at": "2026-06-04T00:42:00+08:00",
           "status": "local_checks_passed",
           "summary": "Completed docs-only privacy/order/result safety scan. Focused private noindex, analytics payload privacy, tracking whitelist contracts, and typecheck passed; no runtime or tests changed."
+        },
+        {
+          "at": "2026-06-04T00:45:00+08:00",
+          "status": "pr_open",
+          "summary": "Opened GitHub PR #1024 for PRIVACY-ORDER-RESULT-SAFETY-SCAN-01."
         }
       ]
     },
