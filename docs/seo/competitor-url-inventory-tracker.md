@@ -272,3 +272,23 @@ Repository rule impact:
 Next suggested task: `SEO-COMPETITOR-URL-01` read-only generator.
 
 The follow-up may implement an offline, rate-limited, fail-closed generator only after this contract is accepted. It must not run a crawler, mutate CMS, publish content, or submit search URLs without a later explicit contract and approval.
+
+## SEO-COMPETITOR-URL-01 Read-Only Generator
+
+`SEO-COMPETITOR-URL-01` implements the first generator against this contract.
+
+Allowed modes:
+
+- `offline_sample`: default mode, derived only from the checked-in contract sample.
+- `offline_local_sitemap`: reads operator-provided local sitemap XML files.
+- `read_only_network`: reads explicit HTTP sitemap URLs only when `--allow-network` is passed.
+
+Generator constraints:
+
+- Default execution must not access the network.
+- HTTP sitemap sources must fail closed unless `--allow-network` is explicit.
+- The generator may write local JSON/CSV artifacts only when `--output` or `--csv` is provided.
+- The generator must not create CMS drafts, write CMS data, publish, submit search URLs, mutate FermatMind sitemap or `llms.txt`, read environment secrets, or deploy.
+- The generator must not emit article title, H1, FAQ, CTA copy, or publishable body-content fields.
+- Private/account/payment/result/share/token routes are excluded from opportunity targets.
+- Opportunity outputs remain advisory and require human review before any CMS issue, brief, or release workflow.

@@ -1,0 +1,180 @@
+{
+  "version": "competitor_url_inventory_generator.v1",
+  "contract_version": "competitor_url_inventory_tracker.v1",
+  "scope": "SEO-COMPETITOR-URL-01",
+  "generated_at": "offline-reproducible",
+  "run_mode": "offline_sample",
+  "month": "offline-sample",
+  "read_only": true,
+  "live_data_collected": false,
+  "network_access_enabled": false,
+  "source": {
+    "config": "docs/seo/generated/competitor-url-inventory-tracker.v1.json",
+    "sitemap_map": null,
+    "previous": null
+  },
+  "competitors": [
+    {
+      "domain": "16personalities.com",
+      "status": "sample_only",
+      "source": "contract_sample",
+      "records": 1
+    },
+    {
+      "domain": "truity.com",
+      "status": "sample_only",
+      "source": "contract_sample",
+      "records": 0
+    },
+    {
+      "domain": "verywellmind.com",
+      "status": "sample_only",
+      "source": "contract_sample",
+      "records": 0
+    },
+    {
+      "domain": "personalitymax.com",
+      "status": "sample_only",
+      "source": "contract_sample",
+      "records": 0
+    },
+    {
+      "domain": "careerexplorer.com",
+      "status": "sample_only",
+      "source": "contract_sample",
+      "records": 1
+    },
+    {
+      "domain": "123test.com",
+      "status": "sample_only",
+      "source": "contract_sample",
+      "records": 0
+    },
+    {
+      "domain": "iqtest.club",
+      "status": "sample_only",
+      "source": "contract_sample",
+      "records": 0
+    },
+    {
+      "domain": "iqtest.com",
+      "status": "sample_only",
+      "source": "contract_sample",
+      "records": 0
+    },
+    {
+      "domain": "brain-testing.org",
+      "status": "sample_only",
+      "source": "contract_sample",
+      "records": 0
+    },
+    {
+      "domain": "enneagraminstitute.com",
+      "status": "sample_only",
+      "source": "contract_sample",
+      "records": 0
+    }
+  ],
+  "summary": {
+    "total_competitors": 10,
+    "total_records": 2,
+    "records_by_family": {
+      "test_detail": 1,
+      "career_guide": 1
+    },
+    "records_by_locale": {
+      "unknown": 2
+    },
+    "records_by_status": {
+      "sample_only": 2
+    },
+    "eligible_opportunity_records": 2,
+    "excluded_private_records": 0
+  },
+  "monthly_diff": {
+    "added_urls": [
+      "16personalities.com https://16personalities.com/example-test-path",
+      "careerexplorer.com https://careerexplorer.com/example-career-cluster"
+    ],
+    "removed_urls": [],
+    "persisted_urls": [],
+    "reclassified_urls": [],
+    "directory_delta": {
+      "/example-test-path": 1,
+      "/example-career-cluster": 1
+    },
+    "family_delta": {
+      "test_detail": 1,
+      "career_guide": 1
+    },
+    "locale_delta": {
+      "unknown": 2
+    },
+    "new_topic_clusters": [],
+    "dropped_topic_clusters": []
+  },
+  "records": [
+    {
+      "sample_only": true,
+      "competitor_domain": "16personalities.com",
+      "raw_url": "https://16personalities.com/example-test-path?utm_source=sample#section",
+      "normalized_url": "https://16personalities.com/example-test-path",
+      "url_family": "test_detail",
+      "url_family_confidence": "medium",
+      "locale": "unknown",
+      "locale_detection_method": "unknown",
+      "directory": "/example-test-path",
+      "canonical_observed": "unknown",
+      "canonical_url": null,
+      "hreflang_observed": "unknown",
+      "sitemap_source": "contract_sample",
+      "first_seen_month": null,
+      "last_seen_month": null,
+      "status": "sample_only",
+      "notes": "Schema sample only; not a real crawl result.",
+      "opportunity_type": "missing_test_family",
+      "target_route_family": "test_detail",
+      "eligible_for_opportunity": true,
+      "source_mode": "contract_sample"
+    },
+    {
+      "sample_only": true,
+      "competitor_domain": "careerexplorer.com",
+      "raw_url": "https://careerexplorer.com/example-career-cluster",
+      "normalized_url": "https://careerexplorer.com/example-career-cluster",
+      "url_family": "career_guide",
+      "url_family_confidence": "low",
+      "locale": "unknown",
+      "locale_detection_method": "unknown",
+      "directory": "/example-career-cluster",
+      "canonical_observed": "unknown",
+      "canonical_url": null,
+      "hreflang_observed": "unknown",
+      "sitemap_source": "contract_sample",
+      "first_seen_month": null,
+      "last_seen_month": null,
+      "status": "sample_only",
+      "notes": "Schema sample only; not a real crawl result.",
+      "opportunity_type": "missing_career_cluster",
+      "target_route_family": "career_guide",
+      "eligible_for_opportunity": true,
+      "source_mode": "contract_sample"
+    }
+  ],
+  "risk_boundary": {
+    "read_only": true,
+    "cms_writes": false,
+    "cms_draft_creation": false,
+    "publish_actions": false,
+    "search_submission": false,
+    "sitemap_mutation": false,
+    "llms_mutation": false,
+    "auto_content_generation": false,
+    "gsc_integration": false,
+    "baidu_integration": false,
+    "ga4_integration": false,
+    "dataforseo_integration": false,
+    "apify_integration": false,
+    "production_deploy": false
+  }
+}

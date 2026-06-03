@@ -4074,7 +4074,7 @@ prs:
       - CMS-OPS-RELEASE-02
     mode: execute
     risk_level: L1
-    status: in_progress
+    status: merged
     title: "docs(seo): define competitor URL inventory tracker"
     goal: "Define a competitor URL inventory tracker contract and sample schema for fixed competitor domains, sitemap discovery, URL normalization, URL family taxonomy, locale/canonical/hreflang observation, monthly diff schema, read-only FermatMind URL truth alignment, JSON/CSV outputs, risk boundaries, and a focused contract test without live competitor scraping, runtime changes, CMS writes, CMS drafts, publishing, search submission, sitemap/llms mutation, API integrations, content generation, deployment, or production behavior changes."
     in_scope:
@@ -4156,6 +4156,96 @@ prs:
       squash: true
       auto_merge: true
     rollback_note: "Remove the competitor URL inventory tracker contract document, generated sample artifact, scoped contract test, scope helper entry, and SEO-COMPETITOR-URL-00 train metadata."
+
+  - id: SEO-COMPETITOR-URL-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/seo-competitor-url-01-readonly-generator
+    base: main
+    depends_on:
+      - SEO-COMPETITOR-URL-00
+    mode: execute
+    risk_level: L1
+    status: in_progress
+    title: "docs(seo): add read-only competitor URL inventory generator"
+    goal: "Implement a read-only competitor URL inventory generator that consumes the SEO-COMPETITOR-URL-00 contract, defaults to offline sample mode, supports operator-provided local sitemap XML inputs, fails closed for HTTP sitemap sources unless --allow-network is explicit, writes local JSON/CSV artifacts only when requested, and preserves boundaries against CMS writes, content generation, search submission, sitemap/llms mutation, runtime changes, API integrations, deployment, env reads, cookie reads, and token reads."
+    in_scope:
+      - docs/seo/competitor-url-inventory-tracker.md
+      - docs/seo/generated/competitor-url-inventory-generator.v1.json
+      - scripts/seo/generate-competitor-url-inventory.mjs
+      - tests/contracts/competitor-url-inventory-generator.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - app/**
+      - components/**
+      - lib/**
+      - <workspace>/fap-api changes
+      - backend runtime files
+      - CMS data
+      - runtime code
+      - production config
+      - package.json
+      - pnpm-lock.yaml
+      - next.config.mjs
+      - public/sitemap.xml
+      - sitemap runtime
+      - llms runtime
+      - GA4 / Baidu / GSC config
+      - DataForSEO integration
+      - Apify integration
+      - CMS drafts
+      - article title, H1, meta, body, FAQ, or CTA content generation
+      - publishing
+      - search submission
+      - Baidu push
+      - IndexNow
+      - deployment
+      - env, cookie, or token reads
+    required_local_checks:
+      - node scripts/seo/generate-competitor-url-inventory.mjs --pretty
+      - pnpm exec vitest run tests/contracts/competitor-url-inventory-generator.contract.test.ts
+      - pnpm typecheck
+      - python3 -m json.tool docs/seo/generated/competitor-url-inventory-generator.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - git diff --check
+      - git diff --cached --check
+    acceptance:
+      - Generator default mode is offline_sample and does not access the network.
+      - Generator can read operator-provided local sitemap XML through --sitemap-map and produce normalized JSON/CSV output.
+      - HTTP sitemap sources fail closed unless --allow-network is explicit.
+      - Generator output declares read_only true, live_data_collected false in default/local modes, and risk_boundary forbids CMS writes, CMS draft creation, content generation, search submission, sitemap/llms mutation, API integrations, env reads, token reads, deployment, and publish actions.
+      - Generator strips query/hash/tracking parameters while preserving raw_url separately.
+      - Generator classifies URL family, locale, directory, opportunity type, and target route family using the SEO-COMPETITOR-URL-00 taxonomy.
+      - Private/account/payment/result/share/token routes are excluded from opportunity targets.
+      - Generator can compute monthly diff buckets against a previous local artifact.
+      - Contract test validates generator behavior, generated sample artifact, fail-closed network boundary, JSON/CSV local writes, and scoped changed files.
+      - No runtime, backend, CMS data, public sitemap, llms, search platform, API integration, content artifact beyond generated sample, env, deploy, or production behavior changes.
+    must_not_touch:
+      - app/**
+      - components/**
+      - lib/**
+      - <workspace>/fap-api
+      - backend runtime files
+      - CMS data
+      - public/sitemap.xml
+      - package.json
+      - pnpm-lock.yaml
+      - next.config.mjs
+      - env files
+      - deploy scripts
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - payment/order/report/email/recommendation/scoring/profile code
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    rollback_note: "Remove the read-only competitor URL inventory generator script, generated sample artifact, contract test, scope helper entry, doc update, and SEO-COMPETITOR-URL-01 train metadata; restore SEO-COMPETITOR-URL-00 state only if this PR is reverted before reconciliation is otherwise recorded."
 
   - id: AUDIT-WEB-CMS-LINK-XSS
     repo: fap-web
