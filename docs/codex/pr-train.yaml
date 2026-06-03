@@ -12083,7 +12083,7 @@ prs:
     depends_on: []
     mode: train_registration
     train_scope: commercial_readiness_day_1
-    status: pr_open
+    status: merged
     goal: "Register the June 1 to July 1 Commercial Readiness Sprint ledger, Day 1 scan entries, and P0 follow-up placeholders without changing runtime, CMS, content assets, tests, public files, search submissions, or deployment state."
     allowed_paths:
       - docs/codex/pr-train.yaml
@@ -12123,7 +12123,7 @@ prs:
       - COMMERCIAL-READINESS-TRAIN-00
     mode: scan_report_only
     train_scope: commercial_readiness_day_1
-    status: planned
+    status: pr_open
     goal: "Produce a docs-only private route and order/result safety scan covering result, order, share, payment, history, canonical, sitemap, llms, GA4/Baidu, and /api/track leakage risk without runtime, tests, CMS, search submission, deploy, secret, or private URL access."
     allowed_paths:
       - docs/audits/privacy-order-result-safety-scan-2026-06-03.md
