@@ -6256,7 +6256,7 @@
         "SEO-SITEMAP-P0-05",
         "SEO-COMPETITOR-URL-01"
       ],
-      "status": "local_checks_passed",
+      "status": "pr_open",
       "train_scope": "seo_issue_queue_read_model_contract",
       "risk_level": "L1",
       "title": "docs(seo): define SEO issue queue read model",
@@ -6319,8 +6319,8 @@
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": "bc3321a28ffeafeb3b3d66976ed24f30ff3fe52a",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1015",
+      "commit_sha": "8c7df2d8cd517896ba5930f5c1a1fa49a98e0231",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -6340,6 +6340,11 @@
           "at": "2026-06-03T16:48:00+08:00",
           "status": "scope_validated",
           "summary": "Confirmed JSON/YAML parse, whitespace diff checks, and changed-file scope remain within the authorized docs/generated/contract-test/pr-train metadata boundary."
+        },
+        {
+          "at": "2026-06-03T16:52:00+08:00",
+          "status": "pr_open",
+          "summary": "Opened GitHub PR #1015 for SEO-ISSUE-QUEUE-00 after local checks passed; waiting for GitHub checks before merge review."
         }
       ]
     },
