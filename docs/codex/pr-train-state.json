@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-03T15:28:00+08:00",
+  "updated_at": "2026-06-04T00:23:51+08:00",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -18155,6 +18155,416 @@
           "at": "2026-06-02T16:52:01Z",
           "status": "planned",
           "summary": "Registered docs-only IQ result/report content asset scan PR train entry. Scope is limited to docs/audits/iq-result-assets plus train metadata bootstrap."
+        }
+      ]
+    },
+    {
+      "id": "COMMERCIAL-READINESS-TRAIN-00",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/commercial-readiness-train-00",
+      "base": "main",
+      "depends_on": [],
+      "title": "chore(codex): add commercial readiness sprint train",
+      "status": "in_progress",
+      "commit_sha": "1a4fd7c0da45feee7532d839d57d61947ac9e198",
+      "pr_url": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly requested Day 1 Commercial Readiness train registration and allowed docs/codex/pr-train.yaml, docs/codex/pr-train-state.json, and docs/operations/commercial-readiness-sprint-2026-06-03.md."
+        },
+        "scope": {
+          "status": "pass",
+          "evidence": "Changed files are limited to docs/codex/pr-train.yaml, docs/codex/pr-train-state.json, and docs/operations/commercial-readiness-sprint-2026-06-03.md."
+        },
+        "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null": {
+          "status": "pass"
+        },
+        "python3 -c yaml.safe_load docs/codex/pr-train.yaml": {
+          "status": "pass"
+        },
+        "git diff --check -- docs/codex docs/operations": {
+          "status": "pass"
+        }
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "events": [
+        {
+          "at": "2026-06-04T00:23:51+08:00",
+          "status": "in_progress",
+          "summary": "Started Commercial Readiness Sprint train registration from latest origin/main in a clean fap-web worktree."
+        },
+        {
+          "at": "2026-06-04T00:27:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "JSON parse, YAML parse, scoped diff check, and scope validation passed for docs/codex plus docs/operations changes."
+        },
+        {
+          "at": "2026-06-04T00:28:00+08:00",
+          "status": "committed",
+          "summary": "Committed Commercial Readiness Sprint train registration as 1a4fd7c0da45feee7532d839d57d61947ac9e198."
+        }
+      ]
+    },
+    {
+      "id": "PRIVACY-ORDER-RESULT-SAFETY-SCAN-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/privacy-order-result-safety-scan-01",
+      "base": "main",
+      "depends_on": [
+        "COMMERCIAL-READINESS-TRAIN-00"
+      ],
+      "title": "docs(privacy): scan private route and order result safety",
+      "status": "planned",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": {},
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "events": [
+        {
+          "at": "2026-06-04T00:23:51+08:00",
+          "status": "planned",
+          "summary": "Registered Day 1 docs-only privacy/order/result safety scan. No runtime, tests, CMS, private URL access, search submission, or deployment is authorized by this entry."
+        }
+      ]
+    },
+    {
+      "id": "ANALYTICS-COMMERCIAL-EVENTS-SCAN-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/analytics-commercial-events-scan-01",
+      "base": "main",
+      "depends_on": [
+        "PRIVACY-ORDER-RESULT-SAFETY-SCAN-01"
+      ],
+      "title": "docs(analytics): scan commercial event taxonomy",
+      "status": "planned",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": {},
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "events": [
+        {
+          "at": "2026-06-04T00:23:51+08:00",
+          "status": "planned",
+          "summary": "Registered Day 1 docs-only commercial event taxonomy scan. No tracking runtime, analytics backend, order, payment, CMS, deployment, or secret access is authorized by this entry."
+        }
+      ]
+    },
+    {
+      "id": "FREEMIUM-LOCALE-POLICY-SCAN-01",
+      "repo": "fap-api",
+      "repo_path": "<workspace>/fap-api",
+      "branch": "codex/freemium-locale-policy-scan-01",
+      "base": "main",
+      "depends_on": [
+        "ANALYTICS-COMMERCIAL-EVENTS-SCAN-01:fap-web"
+      ],
+      "title": "docs(monetization): scan locale freemium policy readiness",
+      "status": "planned",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": {},
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "events": [
+        {
+          "at": "2026-06-04T00:23:51+08:00",
+          "status": "planned",
+          "summary": "Registered Day 1 fap-api docs-only freemium locale policy readiness scan. No backend, frontend, seed, migration, order, payment, CMS, deployment, or secret changes are authorized by this fap-web ledger entry."
+        }
+      ]
+    },
+    {
+      "id": "DAILY-GIVING-OPS-READINESS-SCAN-01",
+      "repo": "fap-api",
+      "repo_path": "<workspace>/fap-api",
+      "branch": "codex/daily-giving-ops-readiness-scan-01",
+      "base": "main",
+      "depends_on": [
+        "FREEMIUM-LOCALE-POLICY-SCAN-01:fap-api"
+      ],
+      "title": "docs(benefit): scan daily giving operations readiness",
+      "status": "planned",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": {},
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "events": [
+        {
+          "at": "2026-06-04T00:23:51+08:00",
+          "status": "planned",
+          "summary": "Registered Day 1 fap-api docs-only Daily Giving operations readiness scan. No DailyGiving record, proof upload/read, storage change, frontend change, CMS change, publish, deployment, secret read, or public-benefit copy generation is authorized."
+        }
+      ]
+    },
+    {
+      "id": "PRIVACY-ORDER-RESULT-SAFETY-01",
+      "repo": "fap-web",
+      "branch": "codex/privacy-order-result-safety-01",
+      "base": "main",
+      "depends_on": [
+        "PRIVACY-ORDER-RESULT-SAFETY-SCAN-01"
+      ],
+      "title": "fix(privacy): harden private order result URL safety",
+      "status": "planned",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": {},
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "events": [
+        {
+          "at": "2026-06-04T00:23:51+08:00",
+          "status": "planned",
+          "summary": "Registered follow-up placeholder only. Repair execution requires separate authorization after scan output."
+        }
+      ]
+    },
+    {
+      "id": "ANALYTICS-COMMERCIAL-EVENTS-01",
+      "repo": "fap-web",
+      "branch": "codex/analytics-commercial-events-01",
+      "base": "main",
+      "depends_on": [
+        "ANALYTICS-COMMERCIAL-EVENTS-SCAN-01"
+      ],
+      "title": "fix(analytics): align commercial event taxonomy",
+      "status": "planned",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": {},
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "events": [
+        {
+          "at": "2026-06-04T00:23:51+08:00",
+          "status": "planned",
+          "summary": "Registered follow-up placeholder only. Repair execution requires separate authorization after scan output."
+        }
+      ]
+    },
+    {
+      "id": "UTM-CHANNEL-GOVERNANCE-01",
+      "repo": "fap-web",
+      "branch": "codex/utm-channel-governance-01",
+      "base": "main",
+      "depends_on": [
+        "ANALYTICS-COMMERCIAL-EVENTS-SCAN-01"
+      ],
+      "title": "docs(analytics): define UTM channel governance",
+      "status": "planned",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": {},
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "events": [
+        {
+          "at": "2026-06-04T00:23:51+08:00",
+          "status": "planned",
+          "summary": "Registered follow-up placeholder only. Execution requires separate authorization after scan output."
+        }
+      ]
+    },
+    {
+      "id": "FREEMIUM-LOCALE-POLICY-01",
+      "repo": "fap-api",
+      "branch": "codex/freemium-locale-policy-01",
+      "base": "main",
+      "depends_on": [
+        "FREEMIUM-LOCALE-POLICY-SCAN-01"
+      ],
+      "title": "fix(monetization): enforce locale freemium policy",
+      "status": "planned",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": {},
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "events": [
+        {
+          "at": "2026-06-04T00:23:51+08:00",
+          "status": "planned",
+          "summary": "Registered follow-up placeholder only. Repair execution requires separate authorization after scan output."
+        }
+      ]
+    },
+    {
+      "id": "CHECKOUT-UNLOCK-FUNNEL-SMOKE-01",
+      "repo": "fap-api",
+      "branch": "codex/checkout-unlock-funnel-smoke-01",
+      "base": "main",
+      "depends_on": [
+        "FREEMIUM-LOCALE-POLICY-SCAN-01"
+      ],
+      "title": "test(monetization): add checkout unlock funnel smoke coverage",
+      "status": "planned",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": {},
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "events": [
+        {
+          "at": "2026-06-04T00:23:51+08:00",
+          "status": "planned",
+          "summary": "Registered follow-up placeholder only. Execution requires separate authorization after scan output."
+        }
+      ]
+    },
+    {
+      "id": "ADS-ATTRIBUTION-PREFLIGHT-01",
+      "repo": "fap-web",
+      "branch": "codex/ads-attribution-preflight-01",
+      "base": "main",
+      "depends_on": [
+        "ANALYTICS-COMMERCIAL-EVENTS-SCAN-01",
+        "FREEMIUM-LOCALE-POLICY-SCAN-01:fap-api"
+      ],
+      "title": "docs(ads): run attribution preflight",
+      "status": "planned",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": {},
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "events": [
+        {
+          "at": "2026-06-04T00:23:51+08:00",
+          "status": "planned",
+          "summary": "Registered follow-up placeholder only. Paid ads remain forbidden until scan and preflight evidence explicitly allow a pilot."
+        }
+      ]
+    },
+    {
+      "id": "CLAIM-BOUNDARY-ADS-GATE-01",
+      "repo": "fap-web",
+      "branch": "codex/claim-boundary-ads-gate-01",
+      "base": "main",
+      "depends_on": [
+        "ANALYTICS-COMMERCIAL-EVENTS-SCAN-01"
+      ],
+      "title": "docs(claims): define ads claim boundary gate",
+      "status": "planned",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": {},
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "events": [
+        {
+          "at": "2026-06-04T00:23:51+08:00",
+          "status": "planned",
+          "summary": "Registered follow-up placeholder only. Execution requires separate authorization after scan output."
+        }
+      ]
+    },
+    {
+      "id": "DAILY-GIVING-OPS-READINESS-01",
+      "repo": "fap-api",
+      "branch": "codex/daily-giving-ops-readiness-01",
+      "base": "main",
+      "depends_on": [
+        "DAILY-GIVING-OPS-READINESS-SCAN-01"
+      ],
+      "title": "fix(benefit): harden daily giving operations readiness",
+      "status": "planned",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": {},
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "events": [
+        {
+          "at": "2026-06-04T00:23:51+08:00",
+          "status": "planned",
+          "summary": "Registered follow-up placeholder only. DailyGiving public amplification remains forbidden until readiness passes."
+        }
+      ]
+    },
+    {
+      "id": "COMMERCIAL-READINESS-REVIEW-01",
+      "repo": "fap-web",
+      "branch": "codex/commercial-readiness-review-01",
+      "base": "main",
+      "depends_on": [
+        "PRIVACY-ORDER-RESULT-SAFETY-SCAN-01",
+        "ANALYTICS-COMMERCIAL-EVENTS-SCAN-01",
+        "FREEMIUM-LOCALE-POLICY-SCAN-01:fap-api",
+        "DAILY-GIVING-OPS-READINESS-SCAN-01:fap-api"
+      ],
+      "title": "docs(ops): review commercial readiness blockers",
+      "status": "planned",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": {},
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "events": [
+        {
+          "at": "2026-06-04T00:23:51+08:00",
+          "status": "planned",
+          "summary": "Registered follow-up placeholder only. Execution requires separate authorization after all Day 1 scans land."
+        }
+      ]
+    },
+    {
+      "id": "ADS-PILOT-GO-NOGO-01",
+      "repo": "fap-web",
+      "branch": "codex/ads-pilot-go-nogo-01",
+      "base": "main",
+      "depends_on": [
+        "COMMERCIAL-READINESS-REVIEW-01"
+      ],
+      "title": "docs(ads): decide paid ads pilot go no-go",
+      "status": "planned",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": {},
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "events": [
+        {
+          "at": "2026-06-04T00:23:51+08:00",
+          "status": "planned",
+          "summary": "Registered follow-up placeholder only. Paid ads remain forbidden until explicit GO after readiness review."
         }
       ]
     }
