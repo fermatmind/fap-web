@@ -53,6 +53,17 @@ type SeoIssueQueueArtifact = {
     summary: Record<string, unknown>;
     risk_boundary: Record<string, boolean>;
   };
+  dashboard_artifact_state?: {
+    status: string;
+    source: string;
+    implemented_by: string;
+    merged_pr: string;
+    merge_commit: string;
+    live_truth_sources_connected: boolean;
+    live_truth_sources_deferred: string[];
+    next_readiness_task: string;
+    boundary: string;
+  };
   sample_issues: Array<Record<string, unknown>>;
   risk_boundary: Record<string, boolean>;
   deferred_runtime_work: string[];
@@ -346,7 +357,22 @@ describe("SEO issue queue read model contract", () => {
     });
     expect(artifact.generated_queue?.risk_boundary.cms_writes).toBe(false);
     expect(artifact.generated_queue?.risk_boundary.search_submission).toBe(false);
-    expect(artifact.recommended_follow_up).toBe("SEO-ISSUE-QUEUE-02 wire read-only dashboard adapter after explicit authorization");
+    expect(artifact.recommended_follow_up).toBe(
+      "SEO-DASH-REAL-DATA-READINESS-01 plan read-only seo_intel/CMS/GSC/Baidu/GA4 data integration readiness before replacing the artifact-backed dashboard shell"
+    );
+    expect(artifact.dashboard_artifact_state).toMatchObject({
+      status: "artifact_backed_shell",
+      source: "docs/seo/generated/seo-issue-queue.v1.json",
+      implemented_by: "SEO-ISSUE-QUEUE-02",
+      merged_pr: "https://github.com/fermatmind/fap-web/pull/1020",
+      merge_commit: "07506458f09f6c74b876c62d613810ae1bc67a1c",
+      live_truth_sources_connected: false,
+      next_readiness_task: "SEO-DASH-REAL-DATA-READINESS-01",
+    });
+    expect(artifact.dashboard_artifact_state?.live_truth_sources_deferred).toEqual(
+      expect.arrayContaining(["seo_intel", "CMS API", "GSC", "Baidu", "GA4"])
+    );
+    expect(artifact.dashboard_artifact_state?.boundary).toContain("fap-web remains a read-only ops shell");
   });
 
   it("keeps current PR scope limited to docs, generated artifact, contract test, helper, and train metadata", () => {

@@ -274,7 +274,9 @@ This PR changes architecture documentation and contract tests only. It reinforce
 
 ## Recommended Follow-Up
 
-Next task: `SEO-ISSUE-QUEUE-02` read-only dashboard adapter after explicit authorization.
+`SEO-ISSUE-QUEUE-02` is merged. `/ops/seo-operations` now consumes `docs/seo/generated/seo-issue-queue.v1.json` through an artifact adapter, but the dashboard remains an artifact-backed shell. It is not live `seo_intel`, CMS, GSC, Baidu, or GA4 truth.
+
+Next task: `SEO-DASH-REAL-DATA-READINESS-01` or an equivalent real-data readiness scan/planning item before replacing the artifact-backed shell with live read models.
 
 `SEO-ISSUE-QUEUE-01` adds a read-only offline generator only. It reads existing URL truth, sitemap inventory, competitor inventory, and mock CMS/search/analytics signals, then writes local JSON/CSV artifacts. It does not connect to CMS, create drafts, generate article copy, submit search URLs, mutate sitemap/llms, deploy, or read env/cookie/token data.
 
