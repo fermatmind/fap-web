@@ -1241,7 +1241,20 @@ const CMS_OPS_RELEASE_02_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const SEO_COMPETITOR_URL_00_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/seo/competitor-url-inventory-tracker.md",
+  "docs/seo/generated/competitor-url-inventory-tracker.v1.json",
+  "tests/contracts/competitor-url-inventory-tracker.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH === "codex/seo-competitor-url-00-inventory-contract") {
+    return SEO_COMPETITOR_URL_00_ALLOWED_FILES.has(file);
+  }
+
   if (CURRENT_BRANCH === "codex/backend-runtime-02d-reconcile") {
     return BACKEND_RUNTIME_02D_RECONCILE_ALLOWED_FILES.has(file);
   }

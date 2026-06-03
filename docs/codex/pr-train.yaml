@@ -3818,7 +3818,7 @@ prs:
       - BACKEND-RUNTIME-02D
     mode: execute
     risk_level: L2
-    status: planned
+    status: merged
     title: "docs(architecture): add search intelligence data contract"
     goal: "Add a versioned Search Intelligence data contract based on SEO-DASH-00A and BACKEND-RUNTIME-02D, locking data source hierarchy, key model, page entity taxonomy, canonical funnel event taxonomy, attribution model, search channel model, revenue truth, PII and consent boundaries, internal/QA/bot filtering, semantic claim boundaries, logical seo_intel table plan, forbidden assumptions, and next implementation path without changing runtime, backend, tracking, sitemap/llms, payment, report, email, recommendation, scoring, env, deploy, cloud, SSH, or production behavior."
     in_scope:
@@ -3983,7 +3983,7 @@ prs:
       - CMS-OPS-IA-00
     mode: execute
     risk_level: L1
-    status: in_progress
+    status: merged
     title: "docs(cms): define release checklist and smoke contract"
     goal: "Define the CMS release checklist, revalidate path plan, post-publish smoke, rollback/failure policy, release audit fields, operator views, and backend implementation follow-up without changing frontend runtime, backend runtime, CMS schema, APIs, Filament resources, migrations, content, sitemap/llms generation, revalidate route behavior, search channels, deployment, or production behavior."
     in_scope:
@@ -4061,6 +4061,101 @@ prs:
       squash: true
       auto_merge: true
     rollback_note: "Remove the CMS Ops release checklist document, generated artifact, scoped contract test, scope helper entry, and CMS-OPS-RELEASE-02 train metadata."
+
+  - id: SEO-COMPETITOR-URL-00
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/seo-competitor-url-00-inventory-contract
+    base: main
+    depends_on:
+      - SEO-SITEMAP-P0-05
+      - SEO-DASH-00B
+      - CMS-OPS-IA-00
+      - CMS-OPS-RELEASE-02
+    mode: execute
+    risk_level: L1
+    status: in_progress
+    title: "docs(seo): define competitor URL inventory tracker"
+    goal: "Define a competitor URL inventory tracker contract and sample schema for fixed competitor domains, sitemap discovery, URL normalization, URL family taxonomy, locale/canonical/hreflang observation, monthly diff schema, read-only FermatMind URL truth alignment, JSON/CSV outputs, risk boundaries, and a focused contract test without live competitor scraping, runtime changes, CMS writes, CMS drafts, publishing, search submission, sitemap/llms mutation, API integrations, content generation, deployment, or production behavior changes."
+    in_scope:
+      - docs/seo/competitor-url-inventory-tracker.md
+      - docs/seo/generated/competitor-url-inventory-tracker.v1.json
+      - tests/contracts/competitor-url-inventory-tracker.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - scripts/seo/generate-url-inventory.mjs
+      - public/sitemap.xml
+      - app/**
+      - components/**
+      - lib/**
+      - <workspace>/fap-api changes
+      - backend runtime files
+      - CMS data
+      - runtime code
+      - production config
+      - package.json
+      - pnpm-lock.yaml
+      - next.config.mjs
+      - sitemap runtime
+      - llms runtime
+      - GA4 / Baidu / GSC config
+      - content article packages
+      - GPT-5.5 Pro content artifacts
+      - live competitor sitemap fetches
+      - GSC, Baidu, GA4, DataForSEO, or Apify integrations
+      - CMS drafts
+      - article title, H1, meta, body, FAQ, or CTA content generation
+      - publishing
+      - search submission
+      - Baidu push
+      - IndexNow
+      - deployment
+      - env, cookie, or token reads
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/competitor-url-inventory-tracker.contract.test.ts
+      - pnpm typecheck
+      - python3 -m json.tool docs/seo/generated/competitor-url-inventory-tracker.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - git diff --check
+      - git diff --cached --check
+      - pnpm test:contract
+      - pnpm seo:check-sitemap
+    acceptance:
+      - Artifact run_mode is contract_sample and live_data_collected is false.
+      - Artifact includes the fixed 10 competitor domains.
+      - Artifact defines sitemap discovery through explicit sitemap, robots Sitemap, /sitemap.xml, sitemap index, gzip sitemap, and fail-closed unavailable state.
+      - Artifact defines URL normalization rules for stripping query/hash/tracking parameters and enforcing same-domain normalized URLs.
+      - Artifact defines URL family taxonomy for test_detail, career_job, career_guide, article, topic, tool, support, and unknown.
+      - Artifact defines locale detection and canonical/hreflang observation fields without pretending HTML or hreflang was observed in this PR.
+      - Artifact defines monthly diff buckets for added, removed, persisted, reclassified, directory, family, locale, new topic cluster, and dropped topic cluster changes.
+      - Artifact aligns read-only against FermatMind url_truth.inventory.v1 and can output gap/opportunity/issue candidate/brief input only.
+      - Artifact forbids CMS writes, CMS drafts, publishing, search submission, sitemap mutation, llms mutation, runtime deploy, and automatic content generation.
+      - Contract test validates schema, scope, no live data, no generated article/H1/FAQ/CTA fields, and no private target route recommendations.
+      - No runtime, backend, CMS data, public sitemap, llms, search platform, API integration, content artifact, env, deploy, competitor live data, or production behavior changes.
+    must_not_touch:
+      - scripts/seo/generate-url-inventory.mjs
+      - public/sitemap.xml
+      - app/**
+      - components/**
+      - lib/**
+      - <workspace>/fap-api
+      - backend runtime files
+      - package.json
+      - pnpm-lock.yaml
+      - next.config.mjs
+      - env files
+      - deploy scripts
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - payment/order/report/email/recommendation/scoring/profile code
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    rollback_note: "Remove the competitor URL inventory tracker contract document, generated sample artifact, scoped contract test, scope helper entry, and SEO-COMPETITOR-URL-00 train metadata."
 
   - id: AUDIT-WEB-CMS-LINK-XSS
     repo: fap-web
@@ -11268,7 +11363,7 @@ prs:
     depends_on: []
     mode: execute
     train_scope: seo_sitemap_url_truth_governance
-    status: in_progress
+    status: merged
     title: "docs(seo): lock sitemap URL truth and career hub policy"
     goal: "Explain production sitemap 2270 vs local public/sitemap.xml 261, lock production sitemap/API URL truth, decide /zh/career/jobs and /zh sitemap policy, and add focused contracts without changing runtime, CMS content, career jobs behavior, sitemap generation, llms generation, search submission, collectors, or SEO dashboard data integration."
     in_scope:
