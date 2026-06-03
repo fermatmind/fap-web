@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-03T14:21:00+08:00",
+  "updated_at": "2026-06-03T14:39:00+08:00",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -6010,7 +6010,7 @@
         "CMS-OPS-IA-00",
         "CMS-OPS-RELEASE-02"
       ],
-      "status": "in_progress",
+      "status": "local_checks_passed",
       "train_scope": "competitor_url_inventory_tracker_contract",
       "risk_level": "L1",
       "title": "docs(seo): define competitor URL inventory tracker",
@@ -6030,11 +6030,43 @@
         "scope_initialization": {
           "status": "pass",
           "evidence": "Initialized docs, generated sample artifact, focused contract test, scope helper entry, and PR train metadata without runtime, scripts, public sitemap, CMS, search channel, content, API integration, env, deploy, competitor live data, or production changes."
+        },
+        "precommit_full_contract_note": {
+          "status": "not_blocking",
+          "evidence": "A pre-commit pnpm test:contract run failed only because an older CMS-OPS-IA-00 scope test fell back to HEAD~1..HEAD before the current PR had a commit, thereby reading the previously merged CMS-OPS-RELEASE-02 commit. No source files were changed for this; the submitted-commit run passed."
+        },
+        "json_yaml_parse": {
+          "status": "pass",
+          "evidence": "python3 -m json.tool docs/seo/generated/competitor-url-inventory-tracker.v1.json, python3 -m json.tool docs/codex/pr-train-state.json, and PyYAML parse for docs/codex/pr-train.yaml passed."
+        },
+        "focused_contract": {
+          "status": "pass",
+          "evidence": "pnpm exec vitest run tests/contracts/competitor-url-inventory-tracker.contract.test.ts passed: 12 tests."
+        },
+        "sitemap_check": {
+          "status": "pass",
+          "evidence": "pnpm seo:check-sitemap passed: sitemap indexability check passed for 261 urls."
+        },
+        "typecheck": {
+          "status": "pass",
+          "evidence": "pnpm typecheck passed."
+        },
+        "full_contract": {
+          "status": "pass",
+          "evidence": "pnpm test:contract passed after the implementation commit: 433 test files and 2440 tests."
+        },
+        "diff_check": {
+          "status": "pass",
+          "evidence": "git diff --check and git diff --cached --check passed."
+        },
+        "scope_validation": {
+          "status": "pass",
+          "evidence": "Scope validation showed exactly the six authorized files: docs/seo/competitor-url-inventory-tracker.md, docs/seo/generated/competitor-url-inventory-tracker.v1.json, tests/contracts/competitor-url-inventory-tracker.contract.test.ts, tests/contracts/helpers/currentPrScope.ts, docs/codex/pr-train.yaml, docs/codex/pr-train-state.json."
         }
       },
       "failure_reason": null,
       "pr_url": null,
-      "commit_sha": null,
+      "commit_sha": "085bbf78f830f26fb2591816b99086efa2141f73",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -6044,6 +6076,11 @@
           "at": "2026-06-03T14:21:00+08:00",
           "status": "in_progress",
           "summary": "Initialized SEO-COMPETITOR-URL-00 to define the competitor URL inventory tracker contract/spec and sample schema for fixed competitor domains, sitemap discovery, URL normalization, URL taxonomy, locale/canonical/hreflang observation, monthly diff, read-only FermatMind URL truth alignment, output schema, risk boundary, and focused contract test."
+        },
+        {
+          "at": "2026-06-03T14:39:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Committed SEO-COMPETITOR-URL-00 contract and passed focused contract, JSON/YAML parsing, sitemap indexability check, typecheck, full contract suite, diff checks, and explicit scope validation. The only earlier failed contract attempt was a pre-commit scope fallback artifact and passed after committing."
         }
       ]
     },
