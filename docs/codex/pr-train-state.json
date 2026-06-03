@@ -6129,7 +6129,7 @@
       "depends_on": [
         "SEO-COMPETITOR-URL-00"
       ],
-      "status": "github_checks_passed",
+      "status": "merged",
       "train_scope": "competitor_url_inventory_readonly_generator",
       "risk_level": "L1",
       "title": "docs(seo): add read-only competitor URL inventory generator",
@@ -6197,14 +6197,22 @@
         "merge_readiness_review": {
           "status": "pass",
           "evidence": "PR title/body, changed files, scope, local checks, and GitHub required checks reviewed as safe for squash merge under SEO-COMPETITOR-URL-01."
+        },
+        "merge": {
+          "status": "pass",
+          "evidence": "PR #1014 was squash-merged into main with merge commit c04305fce2deeb50c4180e26975515ea37c250a5; origin/main contains the merge commit and the remote task branch is deleted."
+        },
+        "post_merge_revalidate": {
+          "status": "pass",
+          "evidence": "pnpm exec vitest run tests/contracts/competitor-url-inventory-generator.contract.test.ts passed on synced main after merge: 6 tests."
         }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1014",
       "commit_sha": "ba9c57bc83a054a33cda609ef34c18defc11ff89",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-03T07:13:22Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "sidecar_issues": [],
       "history": [
         {
@@ -6226,6 +6234,66 @@
           "at": "2026-06-03T15:28:00+08:00",
           "status": "github_checks_passed",
           "summary": "GitHub checks passed for PR #1014 and scope/title/body were re-reviewed as safe for merge."
+        },
+        {
+          "at": "2026-06-03T15:40:00+08:00",
+          "status": "merged",
+          "summary": "Reconciled SEO-COMPETITOR-URL-01 after PR #1014 was squash-merged into main with merge commit c04305fce2deeb50c4180e26975515ea37c250a5; remote branch is deleted, local cleanup is confirmed, and targeted post-merge revalidate passed."
+        }
+      ],
+      "merge_sha": "c04305fce2deeb50c4180e26975515ea37c250a5"
+    },
+    {
+      "id": "SEO-ISSUE-QUEUE-00",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/seo-issue-queue-00-read-model",
+      "base": "main",
+      "depends_on": [
+        "SEO-DASH-00B",
+        "CMS-OPS-IA-00",
+        "CMS-OPS-RELEASE-02",
+        "SEO-SITEMAP-P0-05",
+        "SEO-COMPETITOR-URL-01"
+      ],
+      "status": "in_progress",
+      "train_scope": "seo_issue_queue_read_model_contract",
+      "risk_level": "L1",
+      "title": "docs(seo): define SEO issue queue read model",
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized adding SEO-ISSUE-QUEUE-00 to docs/codex/pr-train.yaml and docs/codex/pr-train-state.json, executing the docs/contract PR, and reconciling SEO-COMPETITOR-URL-01 merged ledger status in the same PR."
+        },
+        "dependency": {
+          "status": "pass",
+          "evidence": "Dependencies are merged in GitHub/main: SEO-DASH-00B PR #831 merge db2a8e8cf53dc6668dfc507484c3a0b214daf3ad; CMS-OPS-IA-00 PR #1010 merge 293caf2d8067ef3b5c6ae6977aef5d61778b7470; CMS-OPS-RELEASE-02 PR #1011 merge d842a1a021013b09fb56e9ce84d0c7d959ba239b; SEO-SITEMAP-P0-05 PR #1008 merge c158997eebc198691b5b40b93f380d3fbbd0e58c; SEO-COMPETITOR-URL-01 PR #1014 merge c04305fce2deeb50c4180e26975515ea37c250a5."
+        },
+        "branch_preflight": {
+          "status": "pass",
+          "evidence": "Created codex/seo-issue-queue-00-read-model from synced main after git pull --ff-only origin main reported already up to date; no local or remote task branch existed."
+        },
+        "scope_initialization": {
+          "status": "pass",
+          "evidence": "Initialized SEO issue queue read model document, generated artifact, focused contract test, scope helper entry, and PR train metadata without runtime, backend, CMS schema, API, Filament, migration, content, sitemap/llms, collector, search channel, dashboard UI, deploy, or production changes."
+        },
+        "precommit_full_contract_note": {
+          "status": "not_blocking",
+          "evidence": "A pre-commit pnpm test:contract run failed only because an older CMS-OPS-IA-00 scope test fell back to HEAD~1..HEAD before the current PR had a commit, thereby reading the previously merged SEO-COMPETITOR-URL-01 commit. No source files were changed for this; the submitted-commit run must pass before push."
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [],
+      "history": [
+        {
+          "at": "2026-06-03T16:05:00+08:00",
+          "status": "in_progress",
+          "summary": "Started user-authorized SEO-ISSUE-QUEUE-00 docs/contract PR to define the sanitized SEO issue queue read model and reconcile SEO-COMPETITOR-URL-01 merged ledger status, with no runtime, backend, CMS, search, sitemap/llms, content, deploy, or production changes."
         }
       ]
     },
