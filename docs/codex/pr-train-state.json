@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-04T11:46:00+08:00",
+  "updated_at": "2026-06-04T11:49:00+08:00",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -6832,7 +6832,7 @@
         "SEO-ISSUE-QUEUE-02-RECONCILE-02",
         "CMS-OPS-RELEASE-02"
       ],
-      "status": "committed",
+      "status": "pr_open",
       "train_scope": "seo_content_brief_generator_contract",
       "risk_level": "L1",
       "title": "docs(seo): define SERP content brief generator contract",
@@ -6904,10 +6904,14 @@
         "commit_created": {
           "status": "pass",
           "evidence": "Created local implementation commit 93bbece34651c2a314373d7afd6b5c73ad40788f for SEO-BRIEF-00 before the ledger state follow-up commit."
+        },
+        "pr_created": {
+          "status": "pass",
+          "evidence": "Opened GitHub PR #1030 at https://github.com/fermatmind/fap-web/pull/1030."
         }
       },
       "failure_reason": null,
-      "pr_url": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1030",
       "commit_sha": "93bbece34651c2a314373d7afd6b5c73ad40788f",
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -6938,6 +6942,11 @@
           "at": "2026-06-04T11:46:00+08:00",
           "status": "commit_state_reconciled",
           "summary": "Recorded implementation commit 93bbece34651c2a314373d7afd6b5c73ad40788f in the ledger before push; later PR squash merge remains the final merged artifact."
+        },
+        {
+          "at": "2026-06-04T11:49:00+08:00",
+          "status": "pr_open",
+          "summary": "Pushed SEO-BRIEF-00 and opened GitHub PR #1030; waiting for GitHub checks before merge review."
         }
       ]
     },
