@@ -69,6 +69,25 @@
 - Ordinary scoped PRs, such as repository rule updates, documentation summaries, cleanup-only changes, CI fixes, and small emergency repairs, may be opened without a train id.
 - Ad-hoc PRs must not modify `docs/codex/pr-train.yaml` or `docs/codex/pr-train-state.json` unless the user explicitly asks for PR-train metadata updates.
 
+## Audit PR execution workflow
+- When the user asks Codex to execute the current AUDIT PR, use this order unless the task gives a stricter order:
+  1. Create or switch to the scoped task branch from latest `main`.
+  2. Implement only the current AUDIT PR scope.
+  3. Run the required local tests.
+  4. Run scope validation.
+  5. Commit.
+  6. Push.
+  7. Create the PR.
+  8. Wait for and poll GitHub checks.
+  9. If checks fail, inspect first, then fix only within the current PR scope.
+  10. After checks are green, revalidate the PR scope and changed files.
+  11. Auto-merge only when repo policy allows and all required checks/reviews are satisfied.
+  12. Sync local `main` with `origin/main`.
+  13. Clean up the current task branch locally and remotely when allowed.
+  14. Run post-merge revalidation.
+  15. Continue to the next PR only after the current PR is merged, synced, clean, and revalidated.
+- Do not start the next PR while the current AUDIT PR has failed local checks, failed required GitHub checks, unresolved review requirements, ambiguous scope drift, or incomplete cleanup.
+
 ## Merge discipline
 - Merge only when the current PR satisfies its `merge_policy`.
 - Use squash merge unless the manifest explicitly says otherwise.
