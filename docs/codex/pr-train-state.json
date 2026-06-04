@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-04T11:49:00+08:00",
+  "updated_at": "2026-06-04T11:52:00+08:00",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -6908,11 +6908,35 @@
         "pr_created": {
           "status": "pass",
           "evidence": "Opened GitHub PR #1030 at https://github.com/fermatmind/fap-web/pull/1030."
+        },
+        "rebase_origin_main": {
+          "status": "pass",
+          "evidence": "Rebased SEO-BRIEF-00 onto origin/main commit dbb31302 after PR #1030 initially reported mergeStateStatus DIRTY due to a main-side contract scope guard fix."
+        },
+        "focused_contract_after_rebase": {
+          "status": "pass",
+          "evidence": "After rebase, pnpm exec vitest run tests/contracts/seo-content-brief-generator.contract.test.ts tests/contracts/commercial-readiness-contracts.contract.test.ts passed: 21 tests."
+        },
+        "full_contract_after_rebase": {
+          "status": "pass",
+          "evidence": "After rebase, pnpm test:contract passed: 440 files and 2494 tests."
+        },
+        "typecheck_after_rebase": {
+          "status": "pass",
+          "evidence": "After rebase, pnpm typecheck passed."
+        },
+        "seo_gates_after_rebase": {
+          "status": "pass",
+          "evidence": "After rebase, pnpm seo:check-sitemap and pnpm seo:check-mobile passed."
+        },
+        "build_after_rebase": {
+          "status": "pass",
+          "evidence": "After rebase, NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build passed. Postbuild public/sitemap.xml was restored because it is out of scope."
         }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1030",
-      "commit_sha": "93bbece34651c2a314373d7afd6b5c73ad40788f",
+      "commit_sha": "6493b350",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -6947,6 +6971,11 @@
           "at": "2026-06-04T11:49:00+08:00",
           "status": "pr_open",
           "summary": "Pushed SEO-BRIEF-00 and opened GitHub PR #1030; waiting for GitHub checks before merge review."
+        },
+        {
+          "at": "2026-06-04T11:52:00+08:00",
+          "status": "rebased_revalidated",
+          "summary": "Rebased onto origin/main dbb31302, resolved the commercial scope guard conflict by keeping main guard behavior plus SEO-BRIEF scope helper entries, and re-ran focused contracts, full contract suite, SEO gates, typecheck, and production-parameter build successfully."
         }
       ]
     },
