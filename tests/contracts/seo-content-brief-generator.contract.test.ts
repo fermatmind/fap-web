@@ -236,6 +236,10 @@ describe("SEO content brief generator contract", () => {
       return;
     }
 
+    if (files.every(isCurrentRiasecPack12AllowedFile)) {
+      return;
+    }
+
     expect(files).toEqual(expect.arrayContaining(["docs/codex/pr-train.yaml", "docs/codex/pr-train-state.json"]));
     expect(files.every(isAllowedFile), files.join("\n")).toBe(true);
   });

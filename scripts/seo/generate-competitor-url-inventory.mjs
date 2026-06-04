@@ -11,6 +11,8 @@ const DEFAULT_MONTH = "offline-sample";
 const PRIVATE_PATH_FRAGMENT_PATTERN =
   /(?:^|\/)(account|auth|checkout|order|orders|payment|pay|result|results|share|token|login|signup|admin)(?:\/|$)/i;
 const TRACKING_PARAMS = [/^utm_/i, /^gclid$/i, /^fbclid$/i, /^msclkid$/i];
+const SAFE_REMOTE_SITEMAP_PATH_PATTERN = /^\/[A-Za-z0-9._~!$&'()*+,;=:@/%-]*$/;
+const REMOTE_SITEMAP_NAME_PATTERN = /(?:^|\/)[^/]*sitemap[^/]*(?:\.xml|\.xml\.gz|\.gz)?$/i;
 
 function parseArgs(argv) {
   const args = {
@@ -81,22 +83,48 @@ function isHttpUrl(value) {
   return /^https?:\/\//i.test(String(value || ""));
 }
 
-async function readSourceText(source, { allowNetwork }) {
+function buildSafeRemoteSitemapRequest(source, domain) {
+  const parsed = new URL(String(source || ""));
+  const normalizedDomain = String(domain || "").toLowerCase();
+  const hostname = parsed.hostname.toLowerCase();
+  const allowedHosts = new Set([normalizedDomain, `www.${normalizedDomain}`]);
+
+  if (parsed.protocol !== "https:") {
+    throw new Error(`Remote sitemap source must use HTTPS: ${domain}`);
+  }
+  if (!allowedHosts.has(hostname)) {
+    throw new Error(`Remote sitemap source host must match competitor domain: ${domain}`);
+  }
+  if (parsed.username || parsed.password || parsed.port || parsed.search || parsed.hash) {
+    throw new Error(`Remote sitemap source must not include credentials, ports, queries, or fragments: ${domain}`);
+  }
+  if (!SAFE_REMOTE_SITEMAP_PATH_PATTERN.test(parsed.pathname) || !REMOTE_SITEMAP_NAME_PATTERN.test(parsed.pathname)) {
+    throw new Error(`Remote sitemap source must be a safe sitemap path: ${domain}`);
+  }
+
+  const requestUrl = new URL(`https://${hostname}`);
+  requestUrl.pathname = parsed.pathname;
+  return requestUrl;
+}
+
+async function readSourceText(source, { allowNetwork, domain }) {
   if (isHttpUrl(source)) {
     if (!allowNetwork) {
       throw new Error(`Network sitemap source requires --allow-network: ${source}`);
     }
-    const response = await fetch(source, {
+    const requestUrl = buildSafeRemoteSitemapRequest(source, domain);
+    // lgtm[js/file-access-to-http] Network sources are disabled by default and rebuilt only after HTTPS host/path allowlist validation.
+    const response = await fetch(requestUrl, {
       headers: {
         Accept: "application/xml,text/xml,text/plain,application/x-gzip",
         "User-Agent": "FermatMind-SEO-Competitor-Inventory-ReadOnly/1.0",
       },
     });
     if (!response.ok) {
-      throw new Error(`Failed to fetch ${source}: ${response.status}`);
+      throw new Error(`Failed to fetch ${requestUrl.hostname}${requestUrl.pathname}: ${response.status}`);
     }
     const buffer = Buffer.from(await response.arrayBuffer());
-    if (/\.gz(?:$|\?)/i.test(source)) {
+    if (/\.gz$/i.test(requestUrl.pathname)) {
       return zlib.gunzipSync(buffer).toString("utf8");
     }
     return buffer.toString("utf8");
@@ -243,7 +271,7 @@ function recordFromUrl({ rawUrl, domain, taxonomy, source, month, sampleOnly = f
 }
 
 async function recordsFromSitemapSource({ source, domain, taxonomy, month, allowNetwork, maxUrlsPerCompetitor }) {
-  const xml = await readSourceText(source, { allowNetwork });
+  const xml = await readSourceText(source, { allowNetwork, domain });
   const locs = readXmlLocs(xml).slice(0, maxUrlsPerCompetitor);
   const records = [];
 
