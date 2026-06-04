@@ -82,34 +82,37 @@ describe("tracking activation contract", () => {
     expect(contract.checkoutChanged).toBe(false);
     expect(contract.reportEntitlementChanged).toBe(false);
     expect(contract.eventMapping).toMatchObject({
-      start_attempt: "ga4_test_start",
-      submit_attempt: "ga4_test_submit",
+      start_test: "ga4_test_start",
+      complete_test: "ga4_test_complete",
       view_result: "ga4_result_view",
-      click_unlock: "ga4_checkout_start",
-      create_order: "ga4_order_created",
+      click_deep_report: "ga4_report_click",
+      begin_checkout: "ga4_checkout_begin",
       purchase_success: "ga4_payment_success_and_google_ads_purchase_conversion",
     });
     expect(contract.canonicalFunnelEvents).toEqual([
-      "start_attempt",
-      "submit_attempt",
+      "start_test",
+      "complete_test",
       "view_result",
-      "click_unlock",
-      "create_order",
-      "payment_confirmed",
+      "click_deep_report",
+      "begin_checkout",
       "purchase_success",
     ]);
     expect(contract.legacyAliasMapping).toMatchObject({
-      start_click: "start_attempt",
-      submit_click: "submit_attempt",
+      start_attempt: "start_test",
+      submit_attempt: "complete_test",
+      click_unlock: "click_deep_report",
+      create_order: "begin_checkout",
+      start_click: "start_test",
+      submit_click: "complete_test",
       pay_success: "purchase_success",
     });
     expect(contract.adsDisabledEvents).toEqual(
       expect.arrayContaining([
-        "start_attempt",
-        "submit_attempt",
+        "start_test",
+        "complete_test",
         "view_result",
-        "click_unlock",
-        "create_order",
+        "click_deep_report",
+        "begin_checkout",
         "payment_confirmed",
       ])
     );
@@ -225,7 +228,7 @@ describe("tracking activation contract", () => {
   });
 
   it("builds standardized GA4 and Baidu conversion payload fields", () => {
-    const rawPayload = enrichStandardConversionPayload(TRACKING_EVENTS.CREATE_ORDER, {
+    const rawPayload = enrichStandardConversionPayload(TRACKING_EVENTS.BEGIN_CHECKOUT, {
       scale_code: "RIASEC",
       form_code: "riasec_60",
       amount: 68,
@@ -242,7 +245,7 @@ describe("tracking activation contract", () => {
     });
 
     expect(
-      buildBaiduTongjiConversionEvent(TRACKING_EVENTS.START_ATTEMPT, {
+      buildBaiduTongjiConversionEvent(TRACKING_EVENTS.START_TEST, {
         test_type: "mbti",
         locale: "zh",
       })
@@ -252,14 +255,14 @@ describe("tracking activation contract", () => {
       label: "mbti",
     });
     expect(
-      buildBaiduTongjiConversionEvent(TRACKING_EVENTS.CLICK_UNLOCK, {
+      buildBaiduTongjiConversionEvent(TRACKING_EVENTS.CLICK_DEEP_REPORT, {
         test_type: "big_five",
         report_type: "deep",
         locale: "zh",
       })
     ).toEqual({
-      category: "checkout",
-      action: "begin",
+      category: "report",
+      action: "click",
       label: "big_five",
     });
   });

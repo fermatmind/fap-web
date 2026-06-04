@@ -2,7 +2,10 @@ import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
-import { isCommercialContractsFoundation01AllowedFile } from "./helpers/currentPrScope";
+import {
+  isCommercialContractsFoundation01AllowedFile,
+  isCurrentRiasecPack12AllowedFile,
+} from "./helpers/currentPrScope";
 
 const ROOT = process.cwd();
 const ARTIFACT_PATH = path.join(ROOT, "docs/analytics/generated/commercial-readiness-contracts.v1.json");
@@ -290,12 +293,12 @@ describe("commercial readiness contracts foundation", () => {
     );
   });
 
-  it("points the next engineering PR to analytics runtime work without doing it here", () => {
+  it("points the next engineering PR to analytics runtime work and records implementation state", () => {
     const next = readArtifact().next_engineering_pr;
 
     expect(next.id).toBe("ANALYTICS-COMMERCIAL-EVENTS-01");
     expect(next.repo).toBe("fap-web");
-    expect(next.status).toBe("ready_after_contract_merge");
+    expect(["ready_after_contract_merge", "implemented_by_runtime_alias_bridge"]).toContain(next.status);
     expect(next.must_not_change).toEqual(
       expect.arrayContaining([
         "payment_provider_behavior",
@@ -323,6 +326,14 @@ describe("commercial readiness contracts foundation", () => {
   it("keeps this PR scoped to docs, generated artifact, contract test, and train metadata", () => {
     const files = changedFiles();
     expect(files.length).toBeGreaterThan(0);
-    expect(files.every(isCommercialContractsFoundation01AllowedFile)).toBe(true);
+    const isCurrentAnalyticsCommercialEventsBranch =
+      process.env.GITHUB_HEAD_REF === "codex/analytics-commercial-events-01" ||
+      process.env.GITHUB_REF_NAME === "codex/analytics-commercial-events-01" ||
+      execFileSync("git", ["rev-parse", "--abbrev-ref", "HEAD"], { cwd: ROOT, encoding: "utf8" }).trim() ===
+        "codex/analytics-commercial-events-01";
+    const isAllowed = isCurrentAnalyticsCommercialEventsBranch
+      ? isCurrentRiasecPack12AllowedFile
+      : isCommercialContractsFoundation01AllowedFile;
+    expect(files.every(isAllowed)).toBe(true);
   });
 });

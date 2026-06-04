@@ -35,38 +35,54 @@ type BaiduTongjiConversionEvent = {
 };
 
 const NETWORK_OBSERVABLE_FUNNEL_EVENTS = new Set<TrackingEventName>([
-  "start_attempt",
-  "submit_attempt",
+  "start_test",
+  "complete_test",
   "view_result",
-  "click_unlock",
-  "create_order",
+  "click_deep_report",
+  "begin_checkout",
 ]);
 
 const GA4_EVENT_NAME_MAP: Partial<Record<TrackingEventName, string>> = {
+  landing_pv: "page_view",
   landing_view: "page_view",
   view_landing: "page_view",
   view_test: "view_item",
   view_test_landing: "view_item",
   article_to_test_click: "article_to_test_click",
   start_click: "select_content",
+  start_test: "test_start",
   start_attempt: "test_start",
+  complete_test: "test_complete",
   submit_attempt: "test_submit",
   view_result: "result_view",
+  click_deep_report: "report_click",
+  begin_checkout: "checkout_begin",
   checkout_start: "checkout_start",
   create_order: "order_created",
   payment_confirmed: "payment_success",
   click_unlock: "checkout_start",
+  purchase: "payment_success",
   purchase_success: "payment_success",
   pay_success: "payment_success",
+  report_unlock: "report_unlock",
   unlock_success: "report_unlock",
+  report_ready: "report_ready",
+  report_loaded: "report_ready",
+  private_url_seen: "private_url_seen",
 };
 
 const BAIDU_TONGJI_CONVERSION_MAP: Record<string, Omit<BaiduTongjiConversionEvent, "label">> = {
   test_start: { category: "test", action: "start" },
+  test_complete: { category: "test", action: "complete" },
   test_submit: { category: "test", action: "complete" },
   result_view: { category: "result", action: "view" },
+  report_click: { category: "report", action: "click" },
+  checkout_begin: { category: "checkout", action: "begin" },
   checkout_start: { category: "checkout", action: "begin" },
   order_created: { category: "checkout", action: "order" },
+  payment_success: { category: "purchase", action: "success" },
+  report_unlock: { category: "report", action: "success" },
+  report_ready: { category: "report", action: "view" },
 };
 
 const CONVERSION_EVENT_DEDUPE_TTL_MS = 2000;
@@ -169,14 +185,14 @@ export function enrichStandardConversionPayload(
   const next: Record<string, unknown> = { ...payload };
   const testType = inferTestType(next);
   const testVersion = inferTestVersion(next);
-  const resultId = firstNonEmptyString(next, ["result_id", "attemptIdMasked", "attempt_id"]);
   const value = firstFiniteNumber(next, ["value", "amount", "price"]);
+  const paymentProvider = firstNonEmptyString(next, ["payment_provider", "provider"]);
 
   if (testType) next.test_type = testType;
   if (testVersion) next.test_version = testVersion;
-  if (resultId && (eventName === "view_result" || eventName === "click_unlock")) next.result_id = resultId;
-  if (eventName === "click_unlock" && !next.report_type) next.report_type = "deep";
-  if (value !== undefined && (eventName === "create_order" || eventName === "purchase_success")) next.value = value;
+  if (eventName === "click_deep_report" && !next.report_type) next.report_type = "deep";
+  if (value !== undefined && (eventName === "begin_checkout" || eventName === "purchase_success")) next.value = value;
+  if (paymentProvider) next.payment_provider = paymentProvider;
 
   return next;
 }
@@ -303,10 +319,10 @@ function shouldSuppressDuplicateConversionDispatch(
     safePath,
     payload.test_type,
     payload.test_version,
-    payload.result_id,
-    payload.attempt_id,
+    payload.result_id_hash,
+    payload.attempt_id_hash,
     payload.attemptIdMasked,
-    payload.transaction_id,
+    payload.transaction_id_hash,
     payload.orderNoMasked,
   ]);
   const lastSeen = recentConversionDispatches.get(key);

@@ -510,7 +510,7 @@ describe("tracking whitelist contract", () => {
     });
   });
 
-  it("keeps mbti entry attribution fields for view/click/start_attempt events", () => {
+  it("keeps mbti entry attribution fields for view/click/start_test events without raw ids", () => {
     const payload = {
       slug: "mbti-personality-test-16-personality-types",
       test_slug: "mbti-personality-test-16-personality-types",
@@ -529,7 +529,6 @@ describe("tracking whitelist contract", () => {
       gclid: "test-gclid",
       msclkid: "test-msclkid",
       fbclid: "test-fbclid",
-      session_id: "anon-session-1",
       locale: "zh",
       scaleCode: "MBTI",
       attempt_id: "attempt-start-123",
@@ -558,7 +557,6 @@ describe("tracking whitelist contract", () => {
       gclid: "test-gclid",
       msclkid: "test-msclkid",
       fbclid: "test-fbclid",
-      session_id: "anon-session-1",
       locale: "zh",
     });
 
@@ -580,16 +578,14 @@ describe("tracking whitelist contract", () => {
       gclid: "test-gclid",
       msclkid: "test-msclkid",
       fbclid: "test-fbclid",
-      session_id: "anon-session-1",
       locale: "zh",
       disclaimer_version: "v1",
     });
 
-    expect(filterTrackingPayload(TRACKING_EVENTS.START_ATTEMPT, payload)).toEqual({
+    expect(filterTrackingPayload(TRACKING_EVENTS.START_TEST, payload)).toEqual({
       slug: "mbti-personality-test-16-personality-types",
       test_slug: "mbti-personality-test-16-personality-types",
       scaleCode: "MBTI",
-      attempt_id: "attemp...-123",
       attemptIdMasked: "abc123...xyz9",
       form_code: "mbti_144",
       entry_surface: "mbti_personality_detail",
@@ -606,7 +602,6 @@ describe("tracking whitelist contract", () => {
       gclid: "test-gclid",
       msclkid: "test-msclkid",
       fbclid: "test-fbclid",
-      session_id: "anon-session-1",
       locale: "zh",
     });
   });

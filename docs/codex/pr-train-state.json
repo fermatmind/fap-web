@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-04T08:51:00+08:00",
+  "updated_at": "2026-06-04T03:01:15.642815Z",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -18548,11 +18548,45 @@
       "depends_on": [
         "ANALYTICS-COMMERCIAL-EVENTS-SCAN-01"
       ],
-      "title": "fix(analytics): align commercial event taxonomy",
-      "status": "planned",
-      "commit_sha": null,
-      "pr_url": null,
-      "checks": {},
+      "title": "feat(analytics): standardize commercial funnel event aliases",
+      "status": "pr_open",
+      "commit_sha": "8c879712ede9d64432dee0670572179c244cf05d",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1027",
+      "checks": {
+        "pnpm_test_contract": {
+          "status": "passed",
+          "command": "pnpm test:contract",
+          "summary": "439 files / 2485 tests passed"
+        },
+        "pnpm_typecheck": {
+          "status": "passed",
+          "command": "pnpm typecheck"
+        },
+        "pnpm_build": {
+          "status": "passed",
+          "command": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build"
+        },
+        "json_parse_pr_train_state": {
+          "status": "passed",
+          "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+        },
+        "json_parse_commercial_readiness_contracts": {
+          "status": "passed",
+          "command": "python3 -m json.tool docs/analytics/generated/commercial-readiness-contracts.v1.json >/dev/null"
+        },
+        "json_parse_tracking_activation_contract": {
+          "status": "passed",
+          "command": "python3 -m json.tool docs/analytics/generated/tracking-activation-contract.v1.json >/dev/null"
+        },
+        "yaml_parse_pr_train": {
+          "status": "passed",
+          "command": "python3 -c \"import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')\""
+        },
+        "git_diff_check": {
+          "status": "passed",
+          "command": "git diff --check"
+        }
+      },
       "failure_reason": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -18562,6 +18596,26 @@
           "at": "2026-06-04T00:23:51+08:00",
           "status": "planned",
           "summary": "Registered follow-up placeholder only. Repair execution requires separate authorization after scan output."
+        },
+        {
+          "at": "2026-06-04T02:44:39.550Z",
+          "status": "in_progress",
+          "summary": "Started ANALYTICS-COMMERCIAL-EVENTS-01 from latest origin/main with user-authorized runtime alias bridge scope. Paid ads, CMS, fap-api, search submission, publish, and deploy remain forbidden."
+        },
+        {
+          "at": "2026-06-04T02:58:46.010092Z",
+          "status": "local_checks_passed",
+          "summary": "Implemented standard commercial funnel event aliases, payload whitelist/privacy gates, and generated dashboard-readable contracts. Local contract, typecheck, build, JSON/YAML, and diff checks passed."
+        },
+        {
+          "at": "2026-06-04T02:59:50.763310Z",
+          "status": "committed",
+          "summary": "Committed local implementation at 2959090f841a4d3a75e0e6b94d05f2d4f26dbbc8."
+        },
+        {
+          "at": "2026-06-04T03:01:15.642815Z",
+          "status": "pr_open",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1027."
         }
       ]
     },

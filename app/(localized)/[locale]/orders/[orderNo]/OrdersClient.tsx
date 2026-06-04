@@ -532,7 +532,7 @@ export default function OrdersClient({
             trackEvent("purchase_success", {
               orderNoMasked: maskedOrder,
               attemptIdMasked: maskedAttempt,
-              transaction_id: maskedOrder,
+              transaction_id_hash: maskedOrder,
               ...(Number.isFinite(amount) ? { amount } : {}),
               ...(currency ? { currency } : {}),
               form_code: normalizePublicFormSummary(responseFormSummaryRaw)?.formCode ?? undefined,

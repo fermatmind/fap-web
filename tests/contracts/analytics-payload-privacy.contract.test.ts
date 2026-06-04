@@ -73,11 +73,12 @@ describe("analytics payload privacy contract", () => {
     expect(purchasePayloadBlock).toContain('trackEvent("purchase_success"');
     expect(purchasePayloadBlock).not.toContain("order_no: orderNo");
     expect(purchasePayloadBlock).not.toContain("transaction_id: orderNo");
-    expect(purchasePayloadBlock).toContain("transaction_id: maskedOrder");
+    expect(purchasePayloadBlock).not.toContain("transaction_id:");
+    expect(purchasePayloadBlock).toContain("transaction_id_hash: maskedOrder");
   });
 
-  it("masks full attempt identifiers while preserving safe attribution fields", () => {
-    const payload = filterTrackingPayload(TRACKING_EVENTS.START_ATTEMPT, {
+  it("drops raw attempt identifiers while preserving safe attribution fields", () => {
+    const payload = filterTrackingPayload(TRACKING_EVENTS.START_TEST, {
       slug: "mbti-personality-test-16-personality-types",
       test_slug: "mbti-personality-test-16-personality-types",
       scaleCode: "MBTI",
@@ -91,20 +92,19 @@ describe("analytics payload privacy contract", () => {
       current_path: "/zh/personality/intj-a?utm_source=zhihu&utm_campaign=launch",
       utm_source: "zhihu",
       utm_campaign: "launch",
-      session_id: "anon-session-1",
       locale: "zh",
     });
 
     expect(payload).toMatchObject({
-      attempt_id: "attemp...3456",
       attemptIdMasked: "abc123...xyz9",
       landing_path: "/zh/personality/intj-a?utm_source=zhihu&utm_campaign=launch",
       current_path: "/zh/personality/intj-a?utm_source=zhihu&utm_campaign=launch",
       utm_source: "zhihu",
       utm_campaign: "launch",
-      session_id: "anon-session-1",
       locale: "zh",
     });
+    expect(payload).not.toHaveProperty("attempt_id");
+    expect(payload).not.toHaveProperty("session_id");
   });
 
   it("keeps consent denial as a hard stop before browser or network dispatch", async () => {
@@ -209,14 +209,14 @@ describe("analytics payload privacy contract", () => {
     });
 
     expect(gtagMock).toHaveBeenCalledWith("event", "test_start", expect.any(Object));
-    expect(gtagMock).toHaveBeenCalledWith("event", "order_created", expect.any(Object));
+    expect(gtagMock).toHaveBeenCalledWith("event", "checkout_begin", expect.any(Object));
     expect(fetchMock).toHaveBeenCalledTimes(2);
     const body = JSON.parse(String(fetchMock.mock.calls[0]?.[1]?.body ?? "{}")) as {
       eventName?: string;
       path?: string;
       payload?: Record<string, unknown>;
     };
-    expect(body.eventName).toBe("start_attempt");
+    expect(body.eventName).toBe("start_test");
     expect(body.path).toBe(
       "/zh/tests/holland-career-interest-test-riasec/take?payment_recovery_token=redacted&utm_source=seo"
     );
@@ -234,11 +234,11 @@ describe("analytics payload privacy contract", () => {
       path?: string;
       payload?: Record<string, unknown>;
     };
-    expect(createOrderBody.eventName).toBe("create_order");
+    expect(createOrderBody.eventName).toBe("begin_checkout");
     expect(createOrderBody.path).toBe("/zh/orders/redacted");
-    expect(createOrderBody.payload?.order_no).toBe("ord_no...sent");
-    expect(createOrderBody.payload?.order_id).toBe("ord_or..._raw");
-    expect(createOrderBody.payload?.transaction_id).toBe("ord_tr..._raw");
+    expect(createOrderBody.payload).not.toHaveProperty("order_no");
+    expect(createOrderBody.payload).not.toHaveProperty("order_id");
+    expect(createOrderBody.payload).not.toHaveProperty("transaction_id");
     expect(JSON.stringify(createOrderBody)).not.toContain("person@example.com");
     expect(JSON.stringify(createOrderBody)).not.toContain("ord_not_observable_without_consent");
     expect(JSON.stringify(createOrderBody)).not.toContain("ord_order_id_raw");

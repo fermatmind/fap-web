@@ -18,28 +18,38 @@
     "NEXT_PUBLIC_GOOGLE_ADS_BEGIN_CHECKOUT_CONVERSION_LABEL"
   ],
   "eventMapping": {
-    "start_attempt": "ga4_test_start",
-    "submit_attempt": "ga4_test_submit",
+    "landing_pv": "ga4_page_view",
+    "article_to_test_click": "ga4_article_to_test_click",
+    "start_test": "ga4_test_start",
+    "complete_test": "ga4_test_complete",
     "view_result": "ga4_result_view",
-    "click_unlock": "ga4_checkout_start",
-    "create_order": "ga4_order_created",
+    "click_deep_report": "ga4_report_click",
+    "begin_checkout": "ga4_checkout_begin",
     "payment_confirmed": "ga4_payment_success",
-    "purchase_success": "ga4_payment_success_and_google_ads_purchase_conversion"
+    "purchase_success": "ga4_payment_success_and_google_ads_purchase_conversion",
+    "report_unlock": "ga4_report_unlock",
+    "report_ready": "ga4_report_ready",
+    "private_url_seen": "ga4_private_url_seen_safety_anomaly"
   },
   "ga4KeyEventTaxonomy": {
-    "start_attempt": "test_start",
-    "submit_attempt": "test_submit",
+    "landing_pv": "page_view",
+    "article_to_test_click": "article_to_test_click",
+    "start_test": "test_start",
+    "complete_test": "test_complete",
     "view_result": "result_view",
-    "click_unlock": "checkout_start",
-    "create_order": "order_created",
-    "purchase_success": "payment_success"
+    "click_deep_report": "report_click",
+    "begin_checkout": "checkout_begin",
+    "purchase_success": "payment_success",
+    "report_unlock": "report_unlock",
+    "report_ready": "report_ready",
+    "private_url_seen": "private_url_seen"
   },
   "baiduTongjiConversionTaxonomy": {
     "test_start": {
       "category": "test",
       "action": "start"
     },
-    "test_submit": {
+    "test_complete": {
       "category": "test",
       "action": "complete"
     },
@@ -47,43 +57,64 @@
       "category": "result",
       "action": "view"
     },
-    "checkout_start": {
+    "report_click": {
+      "category": "report",
+      "action": "click"
+    },
+    "checkout_begin": {
       "category": "checkout",
       "action": "begin"
     },
-    "order_created": {
-      "category": "checkout",
-      "action": "order"
+    "payment_success": {
+      "category": "purchase",
+      "action": "success"
+    },
+    "report_unlock": {
+      "category": "report",
+      "action": "success"
+    },
+    "report_ready": {
+      "category": "report",
+      "action": "view"
     }
   },
   "canonicalFunnelEvents": [
-    "start_attempt",
-    "submit_attempt",
+    "start_test",
+    "complete_test",
     "view_result",
-    "click_unlock",
-    "create_order",
-    "payment_confirmed",
+    "click_deep_report",
+    "begin_checkout",
     "purchase_success"
   ],
   "legacyAliasMapping": {
-    "start_click": "start_attempt",
-    "clinical_start": "start_attempt",
-    "submit_click": "submit_attempt",
-    "clinical_submit": "submit_attempt",
+    "view_landing": "landing_pv",
+    "landing_view": "landing_pv",
+    "start_attempt": "start_test",
+    "start_click": "start_test",
+    "clinical_start": "start_test",
+    "submit_attempt": "complete_test",
+    "submit_click": "complete_test",
+    "clinical_submit": "complete_test",
     "report_view_free": "view_result",
     "clinical_report_view": "view_result",
     "riasec_result_view": "view_result",
-    "checkout_start": "create_order",
-    "clinical_checkout_start": "create_order",
-    "pay_success": "purchase_success"
+    "click_unlock": "click_deep_report",
+    "create_order": "begin_checkout",
+    "checkout_start": "begin_checkout",
+    "clinical_checkout_start": "begin_checkout",
+    "purchase": "purchase_success",
+    "pay_success": "purchase_success",
+    "unlock_success": "report_unlock",
+    "clinical_unlock_success": "report_unlock",
+    "report_loaded": "report_ready"
   },
   "adsPrimaryConversion": "purchase_success",
   "adsDisabledEvents": [
-    "start_attempt",
-    "submit_attempt",
+    "start_test",
+    "complete_test",
     "view_result",
-    "click_unlock",
-    "create_order",
+    "click_deep_report",
+    "begin_checkout",
     "payment_confirmed"
   ],
   "googleAdsPayloadPolicy": {

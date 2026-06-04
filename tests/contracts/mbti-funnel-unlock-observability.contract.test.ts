@@ -27,19 +27,19 @@ describe("MBTI funnel and unlock observability contract", () => {
     expect(resultShell).toContain("writePendingOrder({");
   });
 
-  it("allows click_unlock and create_order as network-visible funnel events without changing purchase conversion triggers", () => {
+  it("allows standard deep report and checkout events as network-visible funnel events without changing purchase conversion triggers", () => {
     const trackingClient = readSource("lib/tracking/client.ts");
 
-    expect(trackingClient).toContain('"click_unlock"');
-    expect(trackingClient).toContain('"create_order"');
+    expect(trackingClient).toContain('"click_deep_report"');
+    expect(trackingClient).toContain('"begin_checkout"');
     expect(trackingClient).toContain('if (eventName !== "purchase_success") return;');
 
     const googleAdsBridge = trackingClient.slice(
       trackingClient.indexOf("function dispatchGoogleAdsPurchaseConversion"),
       trackingClient.indexOf("function dispatchBrowserAnalyticsEvent")
     );
-    expect(googleAdsBridge).not.toContain('"create_order"');
-    expect(googleAdsBridge).not.toContain('"click_unlock"');
+    expect(googleAdsBridge).not.toContain('"begin_checkout"');
+    expect(googleAdsBridge).not.toContain('"click_deep_report"');
   });
 
   it("preserves safe SEO attribution for MBTI unlock and order events while dropping PII", () => {

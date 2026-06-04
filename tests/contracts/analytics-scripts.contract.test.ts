@@ -401,9 +401,13 @@ describe("analytics scripts contract", () => {
   });
 
   it("maps funnel events to GA4 key-event taxonomy names", () => {
+    expect(mapTrackingEventToGa4Name(TRACKING_EVENTS.START_TEST)).toBe("test_start");
+    expect(mapTrackingEventToGa4Name(TRACKING_EVENTS.COMPLETE_TEST)).toBe("test_complete");
     expect(mapTrackingEventToGa4Name(TRACKING_EVENTS.START_ATTEMPT)).toBe("test_start");
     expect(mapTrackingEventToGa4Name(TRACKING_EVENTS.SUBMIT_ATTEMPT)).toBe("test_submit");
     expect(mapTrackingEventToGa4Name(TRACKING_EVENTS.VIEW_RESULT)).toBe("result_view");
+    expect(mapTrackingEventToGa4Name(TRACKING_EVENTS.CLICK_DEEP_REPORT)).toBe("report_click");
+    expect(mapTrackingEventToGa4Name(TRACKING_EVENTS.BEGIN_CHECKOUT)).toBe("checkout_begin");
     expect(mapTrackingEventToGa4Name(TRACKING_EVENTS.CLICK_UNLOCK)).toBe("checkout_start");
     expect(mapTrackingEventToGa4Name(TRACKING_EVENTS.CREATE_ORDER)).toBe("order_created");
     expect(mapTrackingEventToGa4Name(TRACKING_EVENTS.PAYMENT_CONFIRMED)).toBe("payment_success");
