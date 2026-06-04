@@ -19380,8 +19380,8 @@
         "PRIVACY-ORDER-RESULT-LIVE-REVIEW-02"
       ],
       "title": "fix(privacy): block history URLs from analytics payloads",
-      "status": "pr_open",
-      "commit_sha": "4e1c436c1dd6e2ad414b57824bdda658cb7045cd",
+      "status": "merged",
+      "commit_sha": "3ee4fc113b937fc162b96cae1f538d12447fa7aa",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1041",
       "checks": {
         "focused_privacy_tracking_contracts": {
@@ -19419,12 +19419,16 @@
         "git_diff_check": {
           "status": "passed",
           "command": "git diff --check"
+        },
+        "github_checks": {
+          "status": "passed",
+          "summary": "CodeQL, analyze (javascript-typescript), build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze passed on PR #1041."
         }
       },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-04T10:25:56Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "fix_result": {
         "blocked_private_url_families": [
           "history",
@@ -19469,6 +19473,11 @@
           "at": "2026-06-04T18:22:00+08:00",
           "status": "pr_open",
           "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1041 after local validation passed. Paid ads remain NO-GO pending deploy and PRIVACY-ORDER-RESULT-LIVE-REVIEW-03."
+        },
+        {
+          "at": "2026-06-04T18:26:00+08:00",
+          "status": "merged",
+          "summary": "PR #1041 was squash-merged at 3ee4fc113b937fc162b96cae1f538d12447fa7aa, remote task branch was deleted, local post-merge cleanup executed, and paid ads remain NO-GO pending deploy and PRIVACY-ORDER-RESULT-LIVE-REVIEW-03."
         }
       ]
     },
