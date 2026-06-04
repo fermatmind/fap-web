@@ -525,6 +525,19 @@ export function isCommercialContractsFoundation01AllowedFile(file: string): bool
   return COMMERCIAL_CONTRACTS_FOUNDATION_01_ALLOWED_FILES.has(file);
 }
 
+const TEST_LANDING_PROOF_SURFACE_01_ALLOWED_FILES = new Set([
+  "docs/seo/test-landing-proof-surfaces.md",
+  "docs/seo/generated/test-landing-proof-surfaces.v1.json",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "tests/contracts/test-landing-proof-surfaces.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
+export function isTestLandingProofSurface01AllowedFile(file: string): boolean {
+  return TEST_LANDING_PROOF_SURFACE_01_ALLOWED_FILES.has(file);
+}
+
 const ANALYTICS_COMMERCIAL_EVENTS_01_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/orders/[orderNo]/OrdersClient.tsx",
   "docs/analytics/commercial-events-business-dictionary.md",
@@ -1403,6 +1416,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/commercial-contracts-foundation-01") {
     return COMMERCIAL_CONTRACTS_FOUNDATION_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/test-landing-proof-surface-01") {
+    return TEST_LANDING_PROOF_SURFACE_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/seo-issue-queue-02-reconcile-01") {
