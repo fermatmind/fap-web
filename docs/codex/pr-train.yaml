@@ -12840,3 +12840,100 @@ prs:
       squash: true
       auto_merge: false
     next_task: "After merge, request explicit manifest/state authorization before starting any proposed thin-content, schema, internal-link, or hub sitemap-policy follow-up."
+  - id: HELP-CONTENT-INVENTORY-01
+    repo: fap-web
+    branch: codex/help-content-inventory-01
+    base: main
+    title: "docs(help): inventory service help assets and gaps"
+    depends_on:
+      - COMMERCIAL-READINESS-CONTROL-TOWER-01
+    mode: docs_contract_inventory
+    train_scope: commercial_readiness_help_service_trust
+    status: pr_open
+    goal: "Create a machine-readable Help, FAQ, Support, policy, result-recovery, and payment-support asset inventory plus contract coverage without writing publishable content, changing runtime, mutating CMS, publishing, deploying, submitting search URLs, or accessing private result/order/share/pay/payment/history URLs."
+    artifacts:
+      - docs/operations/help-content-inventory.md
+      - docs/operations/generated/help-content-inventory.v1.json
+      - tests/contracts/help-content-inventory.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+    allowed_paths:
+      - docs/operations/help-content-inventory.md
+      - docs/operations/generated/help-content-inventory.v1.json
+      - tests/contracts/help-content-inventory.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - fap-api runtime
+      - CMS data
+      - payment/order/result/share/pay/payment/history routes
+      - support form runtime
+      - footer runtime
+      - FAQ body copy
+      - refund policy body copy
+      - payment explanation body copy
+      - unlock failure help body copy
+      - privacy policy body copy
+      - content publish
+      - search submission
+      - deployment
+      - private URLs
+      - env/cookie/token/secrets
+      - raw order/payment identifiers
+      - competitor copy
+    required_local_checks:
+      - python3 -m json.tool docs/operations/generated/help-content-inventory.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - pnpm exec vitest run tests/contracts/help-content-inventory.contract.test.ts
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: "After merge, request explicit scope authorization before executing HELP-CMS-AUTHORITY-01, HELP-SCHEMA-GATE-01, SUPPORT-FLOW-SMOKE-01, HELP-FOOTER-LINK-QA-01, HELP-CONTENTPAGE-DRAFT-READINESS-01, or SUPPORT-PII-MINIMIZATION-GATE-01."
+  - id: HELP-CMS-AUTHORITY-01
+    repo: fap-web
+    branch: codex/help-cms-authority-01
+    base: main
+    title: "docs(help): define CMS authority for service help assets"
+    depends_on:
+      - HELP-CONTENT-INVENTORY-01
+    mode: planned
+    train_scope: commercial_readiness_help_service_trust
+    status: planned
+  - id: HELP-SCHEMA-GATE-01
+    repo: fap-web
+    branch: codex/help-schema-gate-01
+    base: main
+    title: "test(help): gate FAQ schema to CMS-visible help content"
+    depends_on:
+      - HELP-CONTENT-INVENTORY-01
+    mode: planned
+    train_scope: commercial_readiness_help_service_trust
+    status: planned
+  - id: SUPPORT-FLOW-SMOKE-01
+    repo: fap-web
+    branch: codex/support-flow-smoke-01
+    base: main
+    title: "test(support): smoke service support flow boundaries"
+    depends_on:
+      - HELP-CONTENT-INVENTORY-01
+    mode: planned
+    train_scope: commercial_readiness_help_service_trust
+    status: planned
+  - id: HELP-FOOTER-LINK-QA-01
+    repo: fap-web
+    branch: codex/help-footer-link-qa-01
+    base: main
+    title: "test(help): verify footer help discoverability"
+    depends_on:
+      - HELP-CONTENT-INVENTORY-01
+    mode: planned
+    train_scope: commercial_readiness_help_service_trust
+    status: planned
