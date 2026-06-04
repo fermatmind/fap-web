@@ -19284,8 +19284,8 @@
         "PRIVACY-ORDER-RESULT-LIVE-REVIEW-01"
       ],
       "title": "docs(privacy): verify live private URL analytics safety",
-      "status": "pr_open",
-      "commit_sha": "e7af32f5ac1779074100e523dc7e03dd9cecf262",
+      "status": "merged",
+      "commit_sha": "8eafc8eb2771ff0d541993060f3c897074c80a96",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1038",
       "checks": {
         "public_surface_private_url_scan": {
@@ -19323,9 +19323,9 @@
         }
       },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-04T09:09:23Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "review_result": {
         "private_url_seen": "Yes",
         "GA4_private_url_seen": "Yes",
@@ -19363,6 +19363,11 @@
           "at": "2026-06-04T17:06:20+08:00",
           "status": "pr_open",
           "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1038 after local validation passed. Paid ads remain NO-GO because private_url_seen=Yes."
+        },
+        {
+          "at": "2026-06-04T17:12:00+08:00",
+          "status": "merged",
+          "summary": "PR #1038 was squash-merged at 8eafc8eb2771ff0d541993060f3c897074c80a96, the remote task branch was deleted, local post-merge cleanup executed, and paid ads remain NO-GO because private_url_seen=Yes."
         }
       ]
     },
