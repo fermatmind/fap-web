@@ -19380,9 +19380,9 @@
         "PRIVACY-ORDER-RESULT-LIVE-REVIEW-02"
       ],
       "title": "fix(privacy): block history URLs from analytics payloads",
-      "status": "executing",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "pr_open",
+      "commit_sha": "4e1c436c1dd6e2ad414b57824bdda658cb7045cd",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1041",
       "checks": {
         "focused_privacy_tracking_contracts": {
           "status": "passed",
@@ -19464,6 +19464,11 @@
           "at": "2026-06-04T18:19:54+08:00",
           "status": "local_checks_passed",
           "summary": "Full contracts passed after current PR scope allowlist registration: pnpm test:contract completed with 441 files and 2503 tests passed."
+        },
+        {
+          "at": "2026-06-04T18:22:00+08:00",
+          "status": "pr_open",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1041 after local validation passed. Paid ads remain NO-GO pending deploy and PRIVACY-ORDER-RESULT-LIVE-REVIEW-03."
         }
       ]
     },
