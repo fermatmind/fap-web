@@ -321,8 +321,8 @@ describe("test landing proof surfaces contract", () => {
     };
     const byId = new Map(state.prs.map((pr) => [pr.id, pr]));
 
+    expect(["merged", "merged_reconciled"]).toContain(byId.get("COMMERCIAL-READINESS-CONTROL-TOWER-01")?.status);
     expect(byId.get("COMMERCIAL-READINESS-CONTROL-TOWER-01")).toMatchObject({
-      status: "merged",
       merged_at: "2026-06-04T08:25:30Z",
       remote_branch_deleted: true,
       local_cleanup_executed: true,

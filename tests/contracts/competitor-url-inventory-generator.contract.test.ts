@@ -161,6 +161,34 @@ describe("Competitor URL inventory read-only generator", () => {
     ).toThrow(/Network sitemap source requires --allow-network/);
   });
 
+  it("rejects network sitemap sources that do not match the configured competitor host", () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), "competitor-url-inventory-network-host-"));
+    const sitemapMapPath = path.join(dir, "sitemap-map.json");
+    fs.writeFileSync(sitemapMapPath, JSON.stringify({ "16personalities.com": "https://example.com/sitemap.xml" }));
+
+    expect(() =>
+      execFileSync("node", [SCRIPT, "--sitemap-map", sitemapMapPath, "--allow-network"], {
+        cwd: ROOT,
+        encoding: "utf8",
+        stdio: "pipe",
+      })
+    ).toThrow(/Remote sitemap source host must match competitor domain/);
+  });
+
+  it("rejects unsafe network sitemap source shapes before any outbound request", () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), "competitor-url-inventory-network-shape-"));
+    const sitemapMapPath = path.join(dir, "sitemap-map.json");
+    fs.writeFileSync(sitemapMapPath, JSON.stringify({ "16personalities.com": "https://16personalities.com/admin.xml?next=sitemap" }));
+
+    expect(() =>
+      execFileSync("node", [SCRIPT, "--sitemap-map", sitemapMapPath, "--allow-network"], {
+        cwd: ROOT,
+        encoding: "utf8",
+        stdio: "pipe",
+      })
+    ).toThrow(/Remote sitemap source must not include credentials, ports, queries, or fragments/);
+  });
+
   it("can write JSON and CSV artifacts locally without mutating runtime surfaces", () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), "competitor-url-inventory-output-"));
     const jsonPath = path.join(dir, "inventory.json");

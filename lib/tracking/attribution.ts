@@ -1,4 +1,4 @@
-import { sanitizeTrackingUrl } from "@/lib/tracking/privacy";
+import { sanitizeAnalyticsTrackingUrl, sanitizeTrackingUrl } from "@/lib/tracking/privacy";
 
 export const ATTRIBUTION_QUERY_KEYS = [
   "utm_source",
@@ -16,6 +16,8 @@ export const TRACKING_ATTRIBUTION_FIELDS = [
   "referrer",
   "landing_path",
   "current_path",
+  "page_location",
+  "canonical_url",
   "session_id",
 ] as const;
 
@@ -147,6 +149,16 @@ function firstRecordValue(value: string | string[] | undefined): string | undefi
   return normalizeText(value);
 }
 
+function sanitizeAttributionUrlFields(payload: Record<string, unknown>): Record<string, unknown> {
+  const next = { ...payload };
+  for (const key of ["referrer", "landing_path", "current_path", "source_path", "destination_path", "canonical_url", "page_location"]) {
+    if (typeof next[key] === "string") {
+      next[key] = sanitizeAnalyticsTrackingUrl(next[key]) ?? "";
+    }
+  }
+  return next;
+}
+
 export function deriveSearchIntelligenceSourceEngine(
   payload: Record<string, unknown>
 ): SearchIntelligenceSourceEngine {
@@ -249,9 +261,9 @@ export function buildSearchIntelligenceTrackingPayload({
   consentState?: SearchIntelligenceConsentState;
 }): SearchIntelligenceTrackingPayload {
   const attributionPayload = {
-    ...payload,
-    ...(referrer ? { referrer } : {}),
-    ...(currentPath ? { current_path: currentPath } : {}),
+    ...sanitizeAttributionUrlFields(payload),
+    ...(referrer ? { referrer: sanitizeAnalyticsTrackingUrl(referrer) ?? "" } : {}),
+    ...(currentPath ? { current_path: sanitizeAnalyticsTrackingUrl(currentPath) ?? "" } : {}),
   };
 
   return {
@@ -438,7 +450,7 @@ export function captureAttributionFromLocation({
 
   return {
     ...(stored?.last_touch ?? {}),
-    current_path: currentPath,
+    current_path: sanitizeTrackingUrl(currentPath) ?? "",
   };
 }
 
