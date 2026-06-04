@@ -64,10 +64,17 @@
 - If a PR for the current task is already open and checks are pending, do not start a different PR unless the manifest permits local-verify-only progression and the user explicitly overrides pending remote checks.
 - Codex may continue working only on that same PR when the user explicitly asks for a scoped follow-up, review fix, or CI fix.
 
+## Ad-hoc PR discipline
+- Not every PR needs a PR-train id.
+- Ordinary scoped PRs, such as repository rule updates, documentation summaries, cleanup-only changes, CI fixes, and small emergency repairs, may be opened without a train id.
+- Ad-hoc PRs must not modify `docs/codex/pr-train.yaml` or `docs/codex/pr-train-state.json` unless the user explicitly asks for PR-train metadata updates.
+
 ## Merge discipline
 - Merge only when the current PR satisfies its `merge_policy`.
 - Use squash merge unless the manifest explicitly says otherwise.
 - After merge, delete the remote branch.
+- Before merging a PR-train PR, record its state as `ready_to_merge` or `pending_external_merge`; do not claim `merged` until GitHub reports the merged PR and merge commit.
+- After merging a PR-train PR, run post-merge verification and cleanup, but do not create a new PR-train item solely to record `merged` / cleanup facts for that same PR.
 - If running in a local clone, run `scripts/post_merge_cleanup.sh <branch> [base]`.
 - If running outside a local clone, do not claim local cleanup was executed.
 
@@ -83,6 +90,7 @@
   - merged_at
   - remote_branch_deleted
   - local_cleanup_executed
+- If the merge has not happened yet, use `merged_at: null`, `remote_branch_deleted: false`, and `local_cleanup_executed: false`, plus a clear pending closeout status. Do not pre-fill final merge facts.
 - Never continue after a failed local check unless the manifest explicitly allows retry.
 - For remote GitHub check failures that are explicitly user-overridden, record the status as `github_checks_failed_user_overridden`, keep the failed GitHub check details, and set `failure_reason` to include the override instruction and date.
 
@@ -95,6 +103,8 @@
   - local cleanup status when operating in a local clone
 - Reconciliation is bookkeeping, not a retry of the failed PR.
 - If reconciliation touches only PR train metadata needed to unblock the current train item, it may be included with the current PR and called out in the PR body.
+- If stale post-merge ledger state does not block the next requested task, do not open a standalone reconciliation PR. Leave the previous item as pending closeout and include the verified merge/cleanup facts in the final response.
+- If stale post-merge ledger state blocks dependency resolution, prefer reconciling it inside the next same-repository PR that already modifies `docs/codex`. If no natural PR exists, use one ledger-only ad-hoc PR; do not create a new `*-RECONCILE-*` PR-train item unless the user explicitly asks to track reconciliation as a train item.
 - Cross-repository ledger reconciliation must be done in the repository that owns that ledger.
 
 ## Failure policy
