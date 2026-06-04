@@ -7,7 +7,7 @@ import {
   type TrackingEventName,
 } from "@/lib/tracking/events";
 import { buildPublicTrackingServerLabels } from "@/lib/tracking/attribution";
-import { sanitizeTrackingUrl } from "@/lib/tracking/privacy";
+import { sanitizeAnalyticsTrackingUrl, shouldSuppressAnalyticsForUrl } from "@/lib/tracking/privacy";
 
 const MAX_BODY_BYTES = 8 * 1024;
 
@@ -53,7 +53,12 @@ export async function POST(request: NextRequest) {
 
   const requestId = crypto.randomUUID();
   const anonymousId = safeText((body as { anonymousId?: unknown }).anonymousId);
-  const path = sanitizeTrackingUrl(safeText((body as { path?: unknown }).path)) ?? "";
+  const rawPath = safeText((body as { path?: unknown }).path);
+  if (shouldSuppressAnalyticsForUrl(rawPath)) {
+    return NextResponse.json({ ok: true, requestId, forwarded: 0, suppressed: true });
+  }
+
+  const path = sanitizeAnalyticsTrackingUrl(rawPath) ?? "";
   const timestamp = safeText((body as { timestamp?: unknown }).timestamp, new Date().toISOString());
   const locale = localeFromPath(path);
   const payloadWithLocale = {
