@@ -18443,7 +18443,7 @@
       ],
       "title": "docs(commercial): define Day 1 commercial readiness contracts",
       "status": "pr_open",
-      "commit_sha": "368b18accc6f7c289215c085249ae9ef59e4ad7c",
+      "commit_sha": "91b39da540d48faf1e6c45a0abc0f15c01d0c93f",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1026",
       "checks": {
         "authorization": {
@@ -18471,11 +18471,11 @@
             "pnpm test:contract",
             "pnpm typecheck"
           ],
-          "evidence": "All required local checks passed before commit and after the GitHub contracts retry fix; pnpm test:contract passed 438 files and 2480 tests, and the targeted commercial readiness contract test passed 12 tests."
+          "evidence": "All required local checks passed before commit and after the GitHub contracts retry fixes; pnpm test:contract passed 438 files and 2480 tests, and the targeted commercial readiness contract test passed 12 tests."
         },
         "github_checks": {
           "status": "retrying",
-          "evidence": "Initial GitHub contracts job failed because the PR scope test saw zero changed files in GitHub's shallow pull/merge checkout; added a PR-branch-only expected-scope fallback and reran targeted/full local contracts plus typecheck successfully."
+          "evidence": "Initial GitHub contracts job failed because the PR scope test saw zero changed files in GitHub's shallow pull/merge checkout. The first retry exposed that git show HEAD enumerates too much in shallow merge refs; removed that source, kept the PR-branch-only expected-scope fallback, and reran targeted/full local contracts plus typecheck successfully."
         }
       },
       "failure_reason": null,
@@ -18502,6 +18502,11 @@
           "at": "2026-06-04T09:39:00+08:00",
           "status": "github_checks_retrying",
           "summary": "Fixed GitHub contracts failure caused by shallow pull/merge checkout returning no changed files for the scope test; local targeted contract, full contract suite, and typecheck pass after the fix."
+        },
+        {
+          "at": "2026-06-04T09:45:00+08:00",
+          "status": "github_checks_retrying",
+          "summary": "Removed unreliable git show HEAD scope source after the second GitHub contracts run treated the shallow merge ref as a full-tree diff; local targeted contract, full contract suite, and typecheck pass."
         }
       ]
     },

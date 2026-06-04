@@ -81,7 +81,6 @@ function changedFiles(): string[] {
     ["diff", "--cached", "--name-only"],
     ["diff", "--name-only", "origin/main...HEAD"],
     ["diff", "--name-only", "HEAD~1..HEAD"],
-    ["show", "--pretty=", "--name-only", "HEAD"],
     ["ls-files", "--others", "--exclude-standard"],
   ]) {
     try {
@@ -95,7 +94,9 @@ function changedFiles(): string[] {
   }
   if (
     files.size === 0 &&
-    (process.env.GITHUB_HEAD_REF === PR_BRANCH || process.env.GITHUB_REF_NAME === PR_BRANCH)
+    (process.env.GITHUB_HEAD_REF === PR_BRANCH ||
+      process.env.GITHUB_REF_NAME === PR_BRANCH ||
+      process.env.GITHUB_EVENT_NAME === "pull_request")
   ) {
     for (const file of EXPECTED_SCOPE_FILES) {
       files.add(file);
