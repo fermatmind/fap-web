@@ -1375,6 +1375,17 @@ const SEO_BRIEF_00_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const SEO_BRIEF_01_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/seo/seo-content-brief-generator-contract.md",
+  "docs/seo/generated/seo-content-briefs.v1.json",
+  "docs/seo/generated/seo-content-briefs.v1.md",
+  "scripts/seo/generate-seo-content-briefs.mjs",
+  "tests/contracts/seo-content-brief-generator-readonly.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 const CMS_OPS_IA_MAIN_SCOPE_REVALIDATE_FIX_ALLOWED_FILES = new Set([
   "tests/contracts/cms-ops-ia-permission-matrix.contract.test.ts",
   "tests/contracts/helpers/currentPrScope.ts",
@@ -1400,6 +1411,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/seo-brief-00-content-brief-contract") {
     return SEO_BRIEF_00_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/seo-brief-01-readonly-generator") {
+    return SEO_BRIEF_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/seo-issue-queue-02-dashboard-artifact-shell") {

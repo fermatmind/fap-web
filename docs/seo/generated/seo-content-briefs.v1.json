@@ -1,0 +1,257 @@
+{
+  "version": "seo_content_briefs.v1",
+  "scope": "SEO-BRIEF-01",
+  "generated_at": "offline-reproducible",
+  "run_mode": "offline_sample",
+  "read_only": true,
+  "live_data_collected": false,
+  "network_access_enabled": false,
+  "source_artifacts": {
+    "contract": "docs/seo/generated/seo-content-brief-generator.v1.json",
+    "issue_queue": "docs/seo/generated/seo-issue-queue.v1.json",
+    "competitor_url_inventory": "docs/seo/generated/competitor-url-inventory-generator.v1.json",
+    "url_inventory": "docs/seo/generated/url-inventory.v1.json",
+    "internal_link_graph": "docs/seo/generated/internal-link-graph.v1.json",
+    "manual_serp_sample": "embedded_sanitized_mock_sample",
+    "cms_status_sample": "mock_sample_from_issue_queue"
+  },
+  "summary": {
+    "total_briefs": 4,
+    "briefs_by_locale": {
+      "en": 3,
+      "zh": 1
+    },
+    "briefs_by_target_page_family": {
+      "career_guide": 1,
+      "test_detail": 3
+    },
+    "sample_only_briefs": 4,
+    "editorial_review_required": 4
+  },
+  "briefs": [
+    {
+      "brief_id": "seo_brief_e7a057d6c367bd73",
+      "target_keyword": "career interest test content gap",
+      "locale": "en",
+      "intent": "career_exploration",
+      "target_page_family": "career_guide",
+      "target_url_or_path": "/ops/seo-opportunities/career_guide",
+      "source_issue_ids": [
+        "seo_issue_14dd85c3c644128b"
+      ],
+      "competitor_source_domains": [
+        "careerexplorer.com"
+      ],
+      "serp_sample_source": "manual_mock_career_guide_en",
+      "table_stakes": [
+        "Cover SERP-observed theme: career decision support.",
+        "Cover SERP-observed theme: interest versus skill framing.",
+        "Cover SERP-observed theme: next-step checklist.",
+        "Reference source issue seo_issue_14dd85c3c644128b without resolving or mutating it.",
+        "State operational and assessment safety boundaries before any CMS handoff."
+      ],
+      "value_add_opportunities": [
+        "Connect URL Truth, sitemap, and issue queue evidence in one editorial planning view.",
+        "Add locale parity notes before any backend-owned CMS draft path is considered.",
+        "Frame career guidance as decision support rather than a deterministic recommendation.",
+        "Use competitor observation as a gap signal only, not as source copy."
+      ],
+      "internal_link_suggestions": [
+        {
+          "target_path": "/en/career",
+          "reason": "Fallback read-only URL Truth candidate; internal-link graph had no rows.",
+          "source": "url_truth_fallback"
+        },
+        {
+          "target_path": "/en/career/guides",
+          "reason": "Fallback read-only URL Truth candidate; internal-link graph had no rows.",
+          "source": "url_truth_fallback"
+        }
+      ],
+      "schema_hints": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "risk_flags": [
+        "cms_authority_required",
+        "psychology_or_assessment_boundary"
+      ],
+      "editorial_review_required": true,
+      "sample_only": true
+    },
+    {
+      "brief_id": "seo_brief_f8d19abb0274fb96",
+      "target_keyword": "personality test comparison",
+      "locale": "en",
+      "intent": "pre_test_education",
+      "target_page_family": "test_detail",
+      "target_url_or_path": "/ops/seo-opportunities/test_detail",
+      "source_issue_ids": [
+        "seo_issue_62ffb0ee0d5ed6fd"
+      ],
+      "competitor_source_domains": [
+        "16personalities.com"
+      ],
+      "serp_sample_source": "manual_mock_test_detail_en",
+      "table_stakes": [
+        "Cover SERP-observed theme: plain-language test overview.",
+        "Cover SERP-observed theme: method boundary.",
+        "Cover SERP-observed theme: result interpretation limits.",
+        "Reference source issue seo_issue_62ffb0ee0d5ed6fd without resolving or mutating it.",
+        "State operational and assessment safety boundaries before any CMS handoff."
+      ],
+      "value_add_opportunities": [
+        "Connect URL Truth, sitemap, and issue queue evidence in one editorial planning view.",
+        "Add locale parity notes before any backend-owned CMS draft path is considered.",
+        "Use competitor observation as a gap signal only, not as source copy."
+      ],
+      "internal_link_suggestions": [
+        {
+          "target_path": "/en/tests",
+          "reason": "Fallback read-only URL Truth candidate; internal-link graph had no rows.",
+          "source": "url_truth_fallback"
+        },
+        {
+          "target_path": "/en/topics/mbti",
+          "reason": "Fallback read-only URL Truth candidate; internal-link graph had no rows.",
+          "source": "url_truth_fallback"
+        }
+      ],
+      "schema_hints": [
+        "WebPage",
+        "BreadcrumbList",
+        "SoftwareApplication"
+      ],
+      "risk_flags": [
+        "cms_authority_required",
+        "psychology_or_assessment_boundary"
+      ],
+      "editorial_review_required": true,
+      "sample_only": true
+    },
+    {
+      "brief_id": "seo_brief_1dc21c075240b2a1",
+      "target_keyword": "personality-test indexability review",
+      "locale": "en",
+      "intent": "pre_test_education",
+      "target_page_family": "test_detail",
+      "target_url_or_path": "/en/tests/personality-test",
+      "source_issue_ids": [
+        "seo_issue_366cc4493ae9d8da"
+      ],
+      "competitor_source_domains": [],
+      "serp_sample_source": "manual_mock_test_detail_en",
+      "table_stakes": [
+        "Cover SERP-observed theme: plain-language test overview.",
+        "Cover SERP-observed theme: method boundary.",
+        "Cover SERP-observed theme: result interpretation limits.",
+        "Reference source issue seo_issue_366cc4493ae9d8da without resolving or mutating it.",
+        "State operational and assessment safety boundaries before any CMS handoff."
+      ],
+      "value_add_opportunities": [
+        "Connect URL Truth, sitemap, and issue queue evidence in one editorial planning view.",
+        "Add locale parity notes before any backend-owned CMS draft path is considered."
+      ],
+      "internal_link_suggestions": [
+        {
+          "target_path": "/en/tests",
+          "reason": "Fallback read-only URL Truth candidate; internal-link graph had no rows.",
+          "source": "url_truth_fallback"
+        },
+        {
+          "target_path": "/en/topics/mbti",
+          "reason": "Fallback read-only URL Truth candidate; internal-link graph had no rows.",
+          "source": "url_truth_fallback"
+        }
+      ],
+      "schema_hints": [
+        "WebPage",
+        "BreadcrumbList",
+        "SoftwareApplication"
+      ],
+      "risk_flags": [
+        "ability_or_iq_sensitive",
+        "cms_authority_required",
+        "psychology_or_assessment_boundary"
+      ],
+      "editorial_review_required": true,
+      "sample_only": true
+    },
+    {
+      "brief_id": "seo_brief_9de14ba6f5cf5db2",
+      "target_keyword": "mbti-personality-test sitemap inclusion review",
+      "locale": "zh",
+      "intent": "pre_test_education",
+      "target_page_family": "test_detail",
+      "target_url_or_path": "/zh/tests/mbti-personality-test",
+      "source_issue_ids": [
+        "seo_issue_352f3241c3e65fb3"
+      ],
+      "competitor_source_domains": [],
+      "serp_sample_source": "manual_mock_test_detail_en",
+      "table_stakes": [
+        "Cover SERP-observed theme: plain-language test overview.",
+        "Cover SERP-observed theme: method boundary.",
+        "Cover SERP-observed theme: result interpretation limits.",
+        "Reference source issue seo_issue_352f3241c3e65fb3 without resolving or mutating it.",
+        "State operational and assessment safety boundaries before any CMS handoff."
+      ],
+      "value_add_opportunities": [
+        "Connect URL Truth, sitemap, and issue queue evidence in one editorial planning view.",
+        "Add locale parity notes before any backend-owned CMS draft path is considered."
+      ],
+      "internal_link_suggestions": [
+        {
+          "target_path": "/zh/tests",
+          "reason": "Fallback read-only URL Truth candidate; internal-link graph had no rows.",
+          "source": "url_truth_fallback"
+        },
+        {
+          "target_path": "/zh/topics/mbti",
+          "reason": "Fallback read-only URL Truth candidate; internal-link graph had no rows.",
+          "source": "url_truth_fallback"
+        }
+      ],
+      "schema_hints": [
+        "WebPage",
+        "BreadcrumbList",
+        "SoftwareApplication"
+      ],
+      "risk_flags": [
+        "cms_authority_required",
+        "psychology_or_assessment_boundary"
+      ],
+      "editorial_review_required": true,
+      "sample_only": true
+    }
+  ],
+  "risk_boundary": {
+    "read_only": true,
+    "sample_only": true,
+    "cms_writes": false,
+    "cms_draft_creation": false,
+    "publish_actions": false,
+    "rollback_actions": false,
+    "revalidation_execution": false,
+    "search_submission": false,
+    "sitemap_mutation": false,
+    "llms_mutation": false,
+    "live_serp_api": false,
+    "scraping": false,
+    "gsc_integration": false,
+    "baidu_integration": false,
+    "ga4_integration": false,
+    "dataforseo_integration": false,
+    "apify_integration": false,
+    "production_deploy": false,
+    "env_reads": false,
+    "cookie_reads": false,
+    "token_reads": false,
+    "final_article_body_generation": false
+  },
+  "deferred_work": [
+    "backend brief-to-CMS handoff contract",
+    "approval-gated live SERP provider integration",
+    "human editorial workflow"
+  ]
+}

@@ -141,3 +141,23 @@ brief output.
 
 `SEO-BRIEF-01` must remain offline by default and must not write CMS, call live
 SERP APIs, generate final article copy, submit search URLs, or deploy.
+
+## SEO-BRIEF-01 Read-Only Generator
+
+`SEO-BRIEF-01` implements the offline generator as a local operator artifact
+tool:
+
+```bash
+node scripts/seo/generate-seo-content-briefs.mjs \
+  --output docs/seo/generated/seo-content-briefs.v1.json \
+  --markdown docs/seo/generated/seo-content-briefs.v1.md \
+  --pretty
+```
+
+The generator reads only checked-in URL Truth, competitor URL inventory, SEO
+issue queue, internal-link graph, and embedded sanitized mock SERP samples. The
+checked-in output remains `sample_only`, `read_only`, and advisory. Markdown is
+an outline export only and is not publishable article copy.
+
+Future live SERP, CMS handoff, CMS draft influence, or editorial workflow
+automation must be approved in separate backend/CMS-owned PRs.

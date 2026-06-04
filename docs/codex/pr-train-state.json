@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-04T04:43:30.059210Z",
+  "updated_at": "2026-06-04T12:54:00+08:00",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -6832,7 +6832,7 @@
         "SEO-ISSUE-QUEUE-02-RECONCILE-02",
         "CMS-OPS-RELEASE-02"
       ],
-      "status": "github_checks_passed",
+      "status": "merged",
       "train_scope": "seo_content_brief_generator_contract",
       "risk_level": "L1",
       "title": "docs(seo): define SERP content brief generator contract",
@@ -6940,14 +6940,18 @@
         "merge_readiness_review": {
           "status": "pass",
           "evidence": "PR title/body, changed files, local checks, required GitHub checks, mergeability, and scope were reviewed as safe for squash merge under SEO-BRIEF-00."
+        },
+        "post_merge_reconciliation": {
+          "status": "pass",
+          "evidence": "Reconciled during SEO-BRIEF-01 after confirming GitHub PR #1030 is MERGED, merged_at 2026-06-04T03:58:16Z, merge commit 80c861da3b6073b1fdbc9508b54fff7bed3f0bea is contained in origin/main, and the task branch is already cleaned up."
         }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1030",
-      "commit_sha": "6493b350",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "80c861da3b6073b1fdbc9508b54fff7bed3f0bea",
+      "merged_at": "2026-06-04T03:58:16Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "sidecar_issues": [],
       "history": [
         {
@@ -6989,6 +6993,124 @@
           "at": "2026-06-04T11:56:00+08:00",
           "status": "github_checks_passed",
           "summary": "GitHub checks passed for PR #1030 and scope/title/body were re-reviewed as safe for merge."
+        },
+        {
+          "at": "2026-06-04T12:38:00+08:00",
+          "status": "merged",
+          "summary": "Reconciled SEO-BRIEF-00 as merged inside SEO-BRIEF-01 after verifying GitHub PR #1030 merge truth and origin/main containment."
+        }
+      ],
+      "merge_commit_sha": "80c861da3b6073b1fdbc9508b54fff7bed3f0bea",
+      "merge_sha": "80c861da3b6073b1fdbc9508b54fff7bed3f0bea"
+    },
+    {
+      "id": "SEO-BRIEF-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/seo-brief-01-readonly-generator",
+      "base": "main",
+      "depends_on": [
+        "SEO-BRIEF-00",
+        "SEO-ISSUE-QUEUE-01",
+        "SEO-COMPETITOR-URL-01",
+        "SEO-SITEMAP-P0-05"
+      ],
+      "status": "local_checks_passed",
+      "train_scope": "seo_content_brief_readonly_generator",
+      "risk_level": "L1",
+      "title": "docs(seo): add read-only SERP content brief generator",
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized adding SEO-BRIEF-01 to docs/codex/pr-train.yaml and docs/codex/pr-train-state.json, reconciling SEO-BRIEF-00 as merged in the same PR, and executing a read-only generator PR with no external API, CMS write, formal article generation, search submission, or deployment."
+        },
+        "dependency": {
+          "status": "pass",
+          "evidence": "Dependencies are merged or reconciled in main: SEO-BRIEF-00 PR #1030, SEO-ISSUE-QUEUE-01 PR #1017, SEO-COMPETITOR-URL-01 PR #1014, and SEO-SITEMAP-P0-05 PR #1008."
+        },
+        "branch_preflight": {
+          "status": "pass",
+          "evidence": "Created codex/seo-brief-01-readonly-generator from synced origin/main after confirming no local or remote branch with that name existed."
+        },
+        "scope_initialization": {
+          "status": "pass",
+          "evidence": "Initialized SEO-BRIEF-01 read-only generator docs/generated/script/focused contract test/scope helper/pr-train metadata only; no runtime, CMS, external API, content publication, search submission, sitemap/llms, deploy, env, cookie, token, or production files were touched."
+        },
+        "generator": {
+          "status": "pass",
+          "evidence": "node scripts/seo/generate-seo-content-briefs.mjs --output docs/seo/generated/seo-content-briefs.v1.json --markdown docs/seo/generated/seo-content-briefs.v1.md --pretty passed and produced 4 offline sample briefs with read_only true and network_access_enabled false."
+        },
+        "focused_contract": {
+          "status": "pass",
+          "evidence": "pnpm exec vitest run tests/contracts/seo-content-brief-generator.contract.test.ts tests/contracts/seo-content-brief-generator-readonly.contract.test.ts passed: 15 tests."
+        },
+        "full_contract_first_run": {
+          "status": "pass_with_retry",
+          "evidence": "Initial pnpm test:contract run had one unrelated order-lookup-recovery assertion miss; focused rerun of tests/contracts/order-lookup-recovery.contract.test.tsx passed: 16 tests."
+        },
+        "full_contract": {
+          "status": "pass",
+          "evidence": "Second pnpm test:contract run passed: 441 files and 2500 tests."
+        },
+        "sitemap_check": {
+          "status": "pass",
+          "evidence": "pnpm seo:check-sitemap passed: sitemap indexability check passed for 261 urls."
+        },
+        "mobile_seo_check": {
+          "status": "pass",
+          "evidence": "pnpm seo:check-mobile passed with runtimeBehaviorChanged=false, urlSetChanged=false, sitemapChanged=false, and llmsChanged=false."
+        },
+        "typecheck": {
+          "status": "pass",
+          "evidence": "pnpm typecheck passed."
+        },
+        "build": {
+          "status": "pass",
+          "evidence": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build passed. Postbuild regenerated public/sitemap.xml, which was restored because public/** is outside SEO-BRIEF-01 scope."
+        },
+        "json_yaml_parse": {
+          "status": "pass",
+          "evidence": "python3 -m json.tool passed for docs/seo/generated/seo-content-briefs.v1.json and docs/codex/pr-train-state.json; PyYAML parse passed for docs/codex/pr-train.yaml."
+        },
+        "focused_contract_after_trim_fix": {
+          "status": "pass",
+          "evidence": "After markdown trim fix, pnpm exec vitest run tests/contracts/seo-content-brief-generator.contract.test.ts tests/contracts/seo-content-brief-generator-readonly.contract.test.ts passed: 15 tests."
+        },
+        "scope_validation": {
+          "status": "pass",
+          "evidence": "Changed files are confined to SEO-BRIEF-01 docs/generated/script/focused contract test/scope helper/pr-train metadata, plus same-PR reconciliation of SEO-BRIEF-00. No runtime, CMS, external API, public sitemap, llms, content publication, search submission, deployment, env, cookie, token, or production files remain modified."
+        },
+        "diff_check": {
+          "status": "pass",
+          "evidence": "git diff --check passed before staging."
+        },
+        "cached_diff_check": {
+          "status": "pass",
+          "evidence": "git diff --cached --check passed after explicitly staging the eight SEO-BRIEF-01 allowed files."
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecar_issues": [],
+      "history": [
+        {
+          "at": "2026-06-04T12:38:00+08:00",
+          "status": "in_progress",
+          "summary": "Started user-authorized SEO-BRIEF-01 read-only generator PR and reconciled SEO-BRIEF-00 as merged, with no runtime, CMS, external API, content publication, search submission, deployment, or production changes."
+        },
+        {
+          "at": "2026-06-04T12:42:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Passed generator, focused SEO brief contracts, full contract suite on retry after an unrelated focused-pass flake, sitemap/mobile SEO gates, typecheck, production-parameter build, JSON/YAML parse, and restored postbuild public/sitemap.xml to preserve scope."
+        },
+        {
+          "at": "2026-06-04T12:43:00+08:00",
+          "status": "staged",
+          "summary": "Staged exactly the SEO-BRIEF-01 allowed docs/generated/script/test/helper/pr-train files after cached diff validation passed."
         }
       ]
     },
