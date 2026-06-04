@@ -12151,7 +12151,7 @@ prs:
       - PRIVACY-ORDER-RESULT-SAFETY-SCAN-01
     mode: scan_report_only
     train_scope: commercial_readiness_day_1
-    status: in_progress
+    status: merged
     goal: "Produce a docs-only commercial event taxonomy scan across landing, article CTA, test start/complete, result view, checkout, purchase, unlock, and report-ready events without tracking runtime, analytics platform, order, payment, deploy, secret, or CMS changes."
     allowed_paths:
       - docs/audits/analytics-commercial-events-scan-2026-06-03.md
@@ -12179,7 +12179,7 @@ prs:
       - ANALYTICS-COMMERCIAL-EVENTS-SCAN-01:fap-web
     mode: scan_report_only
     train_scope: commercial_readiness_day_1
-    status: planned
+    status: merged
     goal: "Produce a docs-only freemium locale policy readiness scan for EN free-full and ZH partial-plus-unlock strategy evidence without backend, frontend, seed, migration, order, payment, CMS, deploy, secret, or runtime changes."
     allowed_paths:
       - backend/docs/operations/freemium-locale-policy-scan-2026-06-03.md
@@ -12200,7 +12200,7 @@ prs:
       - FREEMIUM-LOCALE-POLICY-SCAN-01:fap-api
     mode: scan_report_only
     train_scope: commercial_readiness_day_1
-    status: planned
+    status: merged
     goal: "Produce a docs-only Daily Giving operations readiness scan across model, resource, API, storage, proof, noindex, claim, and public amplification boundaries without records, uploads, storage changes, frontend changes, CMS, publish, deploy, proof reads, secrets, or marketing copy."
     allowed_paths:
       - backend/docs/operations/daily-giving-ops-readiness-scan-2026-06-03.md
@@ -12210,7 +12210,64 @@ prs:
       github_checks_required: true
       squash: true
       auto_merge: true
-    next_task: null
+    next_task: COMMERCIAL-CONTRACTS-FOUNDATION-01
+  - id: COMMERCIAL-CONTRACTS-FOUNDATION-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/commercial-contracts-foundation-01
+    base: main
+    title: "docs(commercial): define Day 1 commercial readiness contracts"
+    depends_on:
+      - ANALYTICS-COMMERCIAL-EVENTS-SCAN-01
+      - FREEMIUM-LOCALE-POLICY-SCAN-01:fap-api
+      - DAILY-GIVING-OPS-READINESS-SCAN-01:fap-api
+    mode: execute
+    train_scope: commercial_readiness_day_1
+    status: executing
+    goal: "Define Day 1 commercial readiness contracts for event taxonomy, UTM governance, freemium locale policy, dashboard metrics, stop conditions, and the next ANALYTICS-COMMERCIAL-EVENTS-01 engineering input without runtime, CMS, paid ads, search, publish, payment, or content-copy changes."
+    scope:
+      - docs/analytics/**
+      - docs/operations/**
+      - docs/analytics/generated/**
+      - tests/contracts/commercial-readiness-contracts.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - docs/analytics/commercial-events-business-dictionary.md
+      - docs/analytics/utm-channel-governance.md
+      - docs/analytics/generated/commercial-readiness-contracts.v1.json
+      - docs/operations/freemium-locale-policy-spec.md
+      - tests/contracts/commercial-readiness-contracts.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - runtime code
+      - CMS data
+      - publish
+      - search submission
+      - paid ads
+      - content copy
+      - payment provider behavior
+      - deploy
+      - env/cookie/token/secrets
+    required_local_checks:
+      - git status --short --branch
+      - git log -n 5 --oneline
+      - pnpm exec vitest run tests/contracts/commercial-readiness-contracts.contract.test.ts
+      - pnpm test:contract
+      - pnpm typecheck
+      - python3 -m json.tool docs/analytics/generated/commercial-readiness-contracts.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: ANALYTICS-COMMERCIAL-EVENTS-01 after separate user authorization
   - id: PRIVACY-ORDER-RESULT-SAFETY-01
     repo: fap-web
     branch: codex/privacy-order-result-safety-01

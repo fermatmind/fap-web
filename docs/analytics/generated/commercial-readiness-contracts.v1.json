@@ -1,0 +1,435 @@
+{
+  "version": "commercial_readiness_contracts.v1",
+  "run_mode": "contract",
+  "pr_id": "COMMERCIAL-CONTRACTS-FOUNDATION-01",
+  "publishable_copy_included": false,
+  "codex_writes_publishable_content": false,
+  "runtime_changes_included": false,
+  "paid_ads_allowed": false,
+  "daily_giving_public_amplification_allowed": false,
+  "commercial_events_business_dictionary_status": "revised",
+  "source_evidence": [
+    "docs/audits/privacy-order-result-safety-scan-2026-06-03.md",
+    "docs/audits/analytics-commercial-events-scan-2026-06-03.md",
+    "docs/operations/seo-baseline-template-2026-06-02.md",
+    "docs/analytics/seo-cta-attribution.md",
+    "docs/analytics/utm-channel-governance.md",
+    "docs/operations/freemium-locale-policy-spec.md",
+    "fap-api:backend/docs/operations/freemium-locale-policy-scan-2026-06-03.md",
+    "fap-api:backend/docs/operations/daily-giving-ops-readiness-scan-2026-06-03.md"
+  ],
+  "commercial_events": [
+    {
+      "name": "landing_pv",
+      "category": "traffic_observation",
+      "current_runtime_status": "alias_required",
+      "current_runtime_events": ["view_landing", "landing_view"],
+      "truth_source": "analytics_observation",
+      "dashboard_missing_value": "Unknown",
+      "purchase_truth": false
+    },
+    {
+      "name": "article_to_test_click",
+      "category": "content_intent",
+      "current_runtime_status": "present",
+      "current_runtime_events": ["article_to_test_click"],
+      "truth_source": "first_party_observation",
+      "dashboard_missing_value": "Unknown",
+      "purchase_truth": false
+    },
+    {
+      "name": "start_test",
+      "category": "assessment_funnel",
+      "current_runtime_status": "alias_required",
+      "current_runtime_events": ["start_attempt"],
+      "truth_source": "first_party_or_backend_attempt",
+      "dashboard_missing_value": "Unknown",
+      "purchase_truth": false
+    },
+    {
+      "name": "complete_test",
+      "category": "assessment_funnel",
+      "current_runtime_status": "alias_required",
+      "current_runtime_events": ["submit_attempt"],
+      "truth_source": "first_party_or_backend_attempt",
+      "dashboard_missing_value": "Unknown",
+      "purchase_truth": false
+    },
+    {
+      "name": "view_result",
+      "category": "result_funnel",
+      "current_runtime_status": "present",
+      "current_runtime_events": ["view_result"],
+      "truth_source": "first_party_observation",
+      "dashboard_missing_value": "Unknown",
+      "purchase_truth": false
+    },
+    {
+      "name": "click_deep_report",
+      "category": "commercial_intent",
+      "current_runtime_status": "alias_required",
+      "current_runtime_events": ["click_unlock"],
+      "truth_source": "first_party_observation",
+      "dashboard_missing_value": "Unknown",
+      "purchase_truth": false
+    },
+    {
+      "name": "begin_checkout",
+      "category": "checkout_funnel",
+      "current_runtime_status": "alias_required",
+      "current_runtime_events": ["create_order", "checkout_start"],
+      "truth_source": "backend_order_plus_first_party_observation",
+      "dashboard_missing_value": "Unknown",
+      "purchase_truth": false
+    },
+    {
+      "name": "purchase_success",
+      "category": "payment_funnel",
+      "current_runtime_status": "present_as_analytics_mirror",
+      "current_runtime_events": ["purchase_success", "pay_success"],
+      "truth_source": "backend_orders_payment",
+      "dashboard_missing_value": "Unknown",
+      "purchase_truth": true
+    },
+    {
+      "name": "report_unlock",
+      "category": "fulfillment",
+      "current_runtime_status": "backend_truth_required",
+      "current_runtime_events": ["unlock_success"],
+      "truth_source": "backend_entitlement",
+      "dashboard_missing_value": "Unknown",
+      "purchase_truth": false
+    },
+    {
+      "name": "report_ready",
+      "category": "fulfillment",
+      "current_runtime_status": "backend_or_read_model_truth_required",
+      "current_runtime_events": ["report_loaded"],
+      "truth_source": "backend_report_read_model",
+      "dashboard_missing_value": "Unknown",
+      "purchase_truth": false
+    },
+    {
+      "name": "private_url_seen",
+      "category": "safety",
+      "current_runtime_status": "operational_review_required",
+      "current_runtime_events": [],
+      "truth_source": "ga4_baidu_logs_sitemap_llms_issue_queue_review",
+      "dashboard_missing_value": "Unknown",
+      "purchase_truth": false,
+      "severity": "P0"
+    }
+  ],
+  "legacy_aliases": [
+    { "legacy": "view_landing", "standard": "landing_pv", "status": "compatibility" },
+    { "legacy": "landing_view", "standard": "landing_pv", "status": "compatibility" },
+    { "legacy": "start_attempt", "standard": "start_test", "status": "required" },
+    { "legacy": "start_click", "standard": "start_test", "status": "compatibility" },
+    { "legacy": "submit_attempt", "standard": "complete_test", "status": "required" },
+    { "legacy": "submit_click", "standard": "complete_test", "status": "compatibility" },
+    { "legacy": "click_unlock", "standard": "click_deep_report", "status": "required" },
+    { "legacy": "create_order", "standard": "begin_checkout", "status": "required" },
+    { "legacy": "checkout_start", "standard": "begin_checkout", "status": "compatibility" },
+    { "legacy": "purchase", "standard": "purchase_success", "status": "required" },
+    { "legacy": "pay_success", "standard": "purchase_success", "status": "compatibility" },
+    { "legacy": "unlock_success", "standard": "report_unlock", "status": "compatibility" },
+    { "legacy": "report_loaded", "standard": "report_ready", "status": "proposed" }
+  ],
+  "payload_allowlist": [
+    "event_name",
+    "event_version",
+    "event_time",
+    "locale",
+    "route_family",
+    "page_type",
+    "source_path",
+    "destination_path",
+    "canonical_url",
+    "utm_source",
+    "utm_medium",
+    "utm_campaign",
+    "utm_content",
+    "utm_term",
+    "referrer_host",
+    "entry_surface",
+    "device_type",
+    "browser_family",
+    "country_or_region",
+    "article_slug",
+    "translation_group_id",
+    "cta_id",
+    "cta_priority",
+    "target_test_slug",
+    "target_action",
+    "content_id",
+    "topic_id",
+    "test_slug",
+    "test_type",
+    "scale_code",
+    "form_code",
+    "test_version",
+    "attempt_id_hash",
+    "result_id_hash",
+    "duration_ms",
+    "question_count",
+    "sku",
+    "currency",
+    "value",
+    "payment_provider",
+    "order_id_hash",
+    "transaction_id_hash",
+    "checkout_session_id_hash",
+    "entitlement_id_hash",
+    "report_type"
+  ],
+  "payload_denylist": [
+    "orderNo",
+    "raw_order_id",
+    "raw_resultId",
+    "raw_attemptId",
+    "raw_payment_id",
+    "raw_transaction_id",
+    "raw_checkout_session_id",
+    "token",
+    "email",
+    "phone",
+    "name",
+    "id_card",
+    "private_url",
+    "full_result_url",
+    "full_order_url",
+    "full_payment_url",
+    "cookie",
+    "session_id"
+  ],
+  "utm_channels": [
+    { "channel": "google_organic", "source": "google", "default_medium": "organic", "paid": false },
+    { "channel": "google_ads", "source": "google_ads", "default_medium": "paid_search", "paid": true },
+    { "channel": "baidu_organic", "source": "baidu", "default_medium": "organic", "paid": false },
+    { "channel": "baidu_ads", "source": "baidu_ads", "default_medium": "paid_search", "paid": true },
+    { "channel": "wechat", "source": "wechat", "default_medium": "social", "paid": false },
+    { "channel": "xiaohongshu", "source": "xiaohongshu", "default_medium": "social", "paid": false },
+    { "channel": "douyin", "source": "douyin", "default_medium": "short_video", "paid": false },
+    { "channel": "bilibili", "source": "bilibili", "default_medium": "video", "paid": false },
+    { "channel": "zhihu", "source": "zhihu", "default_medium": "answer", "paid": false },
+    { "channel": "facebook", "source": "facebook", "default_medium": "social", "paid": false },
+    { "channel": "x", "source": "x", "default_medium": "social", "paid": false },
+    { "channel": "linkedin", "source": "linkedin", "default_medium": "social", "paid": false },
+    { "channel": "medium", "source": "medium", "default_medium": "article", "paid": false },
+    { "channel": "youtube_shorts", "source": "youtube_shorts", "default_medium": "short_video", "paid": false },
+    { "channel": "tiktok", "source": "tiktok", "default_medium": "short_video", "paid": false },
+    { "channel": "reddit", "source": "reddit", "default_medium": "community", "paid": false },
+    { "channel": "direct_manual", "source": "direct_manual", "default_medium": "manual", "paid": false },
+    { "channel": "internal_test", "source": "internal_test", "default_medium": "manual", "paid": false }
+  ],
+  "utm_mediums": [
+    "organic",
+    "paid_search",
+    "paid_social",
+    "social",
+    "video",
+    "short_video",
+    "answer",
+    "article",
+    "referral",
+    "private",
+    "manual",
+    "qr",
+    "community",
+    "email"
+  ],
+  "utm_rules": {
+    "external_links_must_land_on_public_canonical_routes": true,
+    "private_route_landing_allowed": false,
+    "raw_referral_host_as_campaign_channel_allowed": false,
+    "standalone_qr_source_allowed": false,
+    "manual_natural_distribution_requires_utm": true,
+    "unknown_channel_display": "Unknown",
+    "direct_unassigned_success_inference_allowed": false
+  },
+  "dashboard_metrics": [
+    { "metric": "landing_pv", "layer": "traffic_observation", "source": "ga4_baidu_first_party", "missing_value": "Unknown" },
+    { "metric": "article_to_test_click", "layer": "funnel_observation", "source": "first_party_ga4", "missing_value": "Unknown" },
+    { "metric": "start_test", "layer": "funnel_observation", "source": "first_party", "missing_value": "Unknown" },
+    { "metric": "complete_test", "layer": "funnel_observation", "source": "first_party", "missing_value": "Unknown" },
+    { "metric": "view_result", "layer": "funnel_observation", "source": "first_party_ga4", "missing_value": "Unknown" },
+    { "metric": "click_deep_report", "layer": "funnel_observation", "source": "first_party", "missing_value": "Unknown" },
+    { "metric": "begin_checkout", "layer": "funnel_observation", "source": "backend_first_party", "missing_value": "Unknown" },
+    { "metric": "purchase_success", "layer": "payment_truth", "source": "backend_orders_payment", "missing_value": "Unknown" },
+    { "metric": "report_unlock", "layer": "payment_truth", "source": "backend_entitlement", "missing_value": "Unknown" },
+    { "metric": "report_ready", "layer": "fulfillment_truth", "source": "backend_report_read_model", "missing_value": "Unknown" },
+    { "metric": "private_url_seen", "layer": "safety", "source": "ga4_baidu_logs_search_surfaces", "missing_value": "Unknown" }
+  ],
+  "stop_conditions": [
+    {
+      "condition_id": "private_url_seen_yes",
+      "severity": "P0",
+      "detection_source": ["GA4", "Baidu Tongji", "logs", "sitemap", "llms", "issue_queue"],
+      "stop_action": "stop_paid_ads_search_submission_publish_expansion_and_distribution",
+      "owner": "privacy_ops",
+      "follow_up_pr_type": "privacy_repair"
+    },
+    {
+      "condition_id": "raw_order_id_in_analytics",
+      "severity": "P0",
+      "detection_source": ["analytics_payload", "page_location", "logs"],
+      "stop_action": "stop_paid_ads_and_repair_tracking_redaction",
+      "owner": "analytics_ops",
+      "follow_up_pr_type": "privacy_repair"
+    },
+    {
+      "condition_id": "raw_result_or_attempt_id_in_analytics",
+      "severity": "P0",
+      "detection_source": ["analytics_payload", "page_location", "logs"],
+      "stop_action": "stop_paid_ads_and_repair_tracking_redaction",
+      "owner": "analytics_ops",
+      "follow_up_pr_type": "privacy_repair"
+    },
+    {
+      "condition_id": "purchase_success_duplicate",
+      "severity": "P0",
+      "detection_source": ["backend_orders", "payment_logs", "analytics_mirror"],
+      "stop_action": "stop_purchase_optimization_until_dedupe_is_proven",
+      "owner": "commerce_ops",
+      "follow_up_pr_type": "checkout_unlock_smoke"
+    },
+    {
+      "condition_id": "locale_mismatch_en_sees_chinese_paywall",
+      "severity": "P0",
+      "detection_source": ["locale_qa", "backend_policy_smoke"],
+      "stop_action": "stop_english_distribution_and_paid_ads",
+      "owner": "commerce_ops",
+      "follow_up_pr_type": "freemium_policy"
+    },
+    {
+      "condition_id": "locale_mismatch_zh_payment_cannot_unlock",
+      "severity": "P0",
+      "detection_source": ["checkout_smoke", "entitlement_smoke"],
+      "stop_action": "stop_checkout_promotion",
+      "owner": "commerce_ops",
+      "follow_up_pr_type": "checkout_unlock_smoke"
+    },
+    {
+      "condition_id": "dailygiving_proof_leak",
+      "severity": "P0",
+      "detection_source": ["DailyGiving API", "storage_audit", "public_page", "logs"],
+      "stop_action": "stop_public_benefit_amplification_and_trust_badges",
+      "owner": "benefit_ops",
+      "follow_up_pr_type": "daily_giving_readiness"
+    },
+    {
+      "condition_id": "dailygiving_unsupported_public_claim",
+      "severity": "P0",
+      "detection_source": ["claim_scan", "public_copy_review"],
+      "stop_action": "stop_public_benefit_amplification",
+      "owner": "benefit_ops",
+      "follow_up_pr_type": "claim_boundary"
+    },
+    {
+      "condition_id": "forbidden_claim_words",
+      "severity": "P0",
+      "detection_source": ["claim_scan", "ads_material_review"],
+      "stop_action": "stop_material_release",
+      "owner": "claims_ops",
+      "follow_up_pr_type": "claim_boundary"
+    },
+    {
+      "condition_id": "unknown_treated_as_zero",
+      "severity": "P0",
+      "detection_source": ["dashboard_qa", "report_review"],
+      "stop_action": "stop_commercial_interpretation",
+      "owner": "analytics_ops",
+      "follow_up_pr_type": "dashboard_contract"
+    },
+    {
+      "condition_id": "search_channel_unsafe_queue",
+      "severity": "P0",
+      "detection_source": ["search_channel_queue_audit"],
+      "stop_action": "stop_automatic_search_submission",
+      "owner": "seo_ops",
+      "follow_up_pr_type": "search_channel_repair"
+    },
+    {
+      "condition_id": "draft_noindex_url_in_sitemap_or_submission",
+      "severity": "P0",
+      "detection_source": ["sitemap", "llms", "search_submission_logs"],
+      "stop_action": "stop_search_submission",
+      "owner": "seo_ops",
+      "follow_up_pr_type": "sitemap_search_repair"
+    },
+    {
+      "condition_id": "non_canonical_url_submitted",
+      "severity": "P0",
+      "detection_source": ["GSC", "Baidu", "IndexNow", "Search Channel logs"],
+      "stop_action": "stop_search_submission",
+      "owner": "seo_ops",
+      "follow_up_pr_type": "search_submission_repair"
+    }
+  ],
+  "freemium_locale_policy": {
+    "desired_policy": {
+      "english": {
+        "free_tests": true,
+        "free_full_result_until": "2026-12-31",
+        "cny_199_paywall_allowed": false,
+        "chinese_only_sku_exposure_allowed": false
+      },
+      "chinese": {
+        "free_tests": true,
+        "free_basic_result": true,
+        "selected_high_value_unlock_cny_199": true,
+        "payment_success_must_grant_unlock": true
+      }
+    },
+    "current_runtime_status": "unknown_or_partial",
+    "current_repo_supported_facts": [
+      "MBTI_REPORT_FULL_199 exists as a CNY 1.99 SKU in fap-api scan evidence",
+      "backend order and entitlement chain exists in fap-api scan evidence",
+      "English free-full-until policy was not found as backend authority",
+      "Chinese-only SKU enforcement was not proven"
+    ],
+    "backend_authority_required": true,
+    "frontend_as_policy_truth_allowed": false,
+    "follow_up_pr": {
+      "id": "FREEMIUM-LOCALE-POLICY-01",
+      "repo": "fap-api",
+      "goal": "add backend-authoritative locale monetization policy contract"
+    }
+  },
+  "truth_source_layers": {
+    "analytics": "observation",
+    "ga4": "observation",
+    "baidu": "observation",
+    "first_party_tracking": "observation",
+    "backend_orders": "purchase_truth",
+    "backend_payment": "purchase_truth",
+    "backend_entitlement": "unlock_truth",
+    "backend_report_read_model": "report_ready_truth",
+    "cms_backend": "content_authority"
+  },
+  "forbidden_actions": [
+    "paid_ads_launch",
+    "daily_giving_public_amplification",
+    "paid_page_trust_badge",
+    "search_submission",
+    "cms_publish",
+    "cms_draft_creation",
+    "runtime_tracking_change",
+    "payment_provider_change",
+    "publishable_copy_generation"
+  ],
+  "next_engineering_pr": {
+    "id": "ANALYTICS-COMMERCIAL-EVENTS-01",
+    "repo": "fap-web",
+    "branch": "codex/analytics-commercial-events-01",
+    "title": "fix(analytics): align commercial event taxonomy",
+    "status": "ready_after_contract_merge",
+    "must_not_change": [
+      "payment_provider_behavior",
+      "cms_content",
+      "search_submission",
+      "paid_ads",
+      "daily_giving_public_amplification"
+    ]
+  }
+}
