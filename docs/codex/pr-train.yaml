@@ -13111,7 +13111,9 @@ prs:
       - HELP-CMS-DRAFT-PREFLIGHT-01
     mode: docs_contract_schema_gate
     train_scope: commercial_readiness_help_service_trust
-    status: in_progress
+    status: merged
+    pr_url: https://github.com/fermatmind/fap-web/pull/1052
+    merge_sha: 4ea9453036e8b99126948d4b1ad9182543b8efcd
     goal: "Define and test FAQPage/WebPage schema rules for future Help pages without runtime schema changes, CMS mutation, content generation, or publish."
     artifacts:
       - docs/operations/help-schema-gate.md
@@ -13161,9 +13163,44 @@ prs:
     repo: fap-web
     branch: codex/help-footer-link-qa-01
     base: main
-    title: "test(help): verify footer help discoverability"
+    title: "test(help): verify footer and support link discoverability"
     depends_on:
-      - HELP-CONTENT-INVENTORY-01
-    mode: planned
+      - HELP-SCHEMA-GATE-01
+    mode: docs_contract_footer_link_qa
     train_scope: commercial_readiness_help_service_trust
-    status: planned
+    status: in_progress
+    goal: "Verify footer discoverability for public support and policy routes without runtime footer changes, CMS mutation, content generation, publish, private URL access, or raw private identifiers."
+    artifacts:
+      - docs/operations/help-footer-link-qa.md
+      - docs/operations/generated/help-footer-link-qa.v1.json
+      - tests/contracts/help-footer-link-qa.contract.test.ts
+    allowed_paths:
+      - docs/operations/help-footer-link-qa.md
+      - docs/operations/generated/help-footer-link-qa.v1.json
+      - tests/contracts/help-footer-link-qa.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - runtime footer changes
+      - CMS mutation
+      - content generation
+      - publish
+      - private URLs
+      - raw order/payment/result identifiers
+    required_local_checks:
+      - python3 -m json.tool docs/operations/generated/help-footer-link-qa.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - pnpm exec vitest run tests/contracts/help-footer-link-qa.contract.test.ts
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: "After merge, continue with SUPPORT-FLOW-SMOKE-01 only after syncing latest main and confirming scope isolation."
