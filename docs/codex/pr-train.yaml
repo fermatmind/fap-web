@@ -4792,6 +4792,111 @@ prs:
       auto_merge: true
     rollback_note: "Remove the SEO content brief generator contract document, generated contract artifact, focused contract test, scope helper entry, commercial scope guard delegation fix, and SEO-BRIEF-00 train metadata; preserve SEO-ISSUE-QUEUE-02-RECONCILE-02 reconciliation if it still reflects merged GitHub truth."
 
+  - id: SEO-BRIEF-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/seo-brief-01-readonly-generator
+    base: main
+    depends_on:
+      - SEO-BRIEF-00
+      - SEO-ISSUE-QUEUE-01
+      - SEO-COMPETITOR-URL-01
+      - SEO-SITEMAP-P0-05
+    mode: execute
+    risk_level: L1
+    status: in_progress
+    title: "docs(seo): add read-only SERP content brief generator"
+    goal: "Add a read-only offline SERP/content brief generator that consumes existing URL Truth, competitor URL inventory, SEO issue queue, internal-link graph, and embedded sanitized mock SERP samples to produce local JSON and Markdown advisory brief artifacts without connecting to external APIs, writing CMS data, creating CMS drafts, generating publishable article copy, submitting search URLs, mutating sitemap/llms, deploying, or changing runtime behavior."
+    in_scope:
+      - docs/seo/seo-content-brief-generator-contract.md
+      - docs/seo/generated/seo-content-briefs.v1.json
+      - docs/seo/generated/seo-content-briefs.v1.md
+      - scripts/seo/generate-seo-content-briefs.mjs
+      - tests/contracts/seo-content-brief-generator-readonly.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - <workspace>/fap-api changes
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - backend runtime files
+      - migrations
+      - API routes
+      - Filament resources
+      - CMS schema changes
+      - CMS content mutation
+      - CMS draft creation
+      - article/page publication
+      - final article body generation
+      - generated final article title, H1, FAQ, or CTA copy
+      - live SERP APIs
+      - DataForSEO integration
+      - Apify integration
+      - GSC/Baidu/GA4 integrations
+      - search channel submission
+      - Baidu push
+      - IndexNow
+      - sitemap mutation
+      - llms mutation
+      - env files
+      - cookie reads
+      - token reads
+      - deploy scripts
+      - production changes
+      - package.json
+      - pnpm-lock.yaml
+      - next.config.mjs
+      - next-sitemap.config.js
+    required_local_checks:
+      - node scripts/seo/generate-seo-content-briefs.mjs --output docs/seo/generated/seo-content-briefs.v1.json --markdown docs/seo/generated/seo-content-briefs.v1.md --pretty
+      - pnpm exec vitest run tests/contracts/seo-content-brief-generator.contract.test.ts tests/contracts/seo-content-brief-generator-readonly.contract.test.ts
+      - pnpm test:contract
+      - pnpm seo:check-sitemap
+      - pnpm seo:check-mobile
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - python3 -m json.tool docs/seo/generated/seo-content-briefs.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - git diff --check
+      - git diff --cached --check
+    acceptance:
+      - Generator defaults to offline_sample and performs no network access.
+      - Generator consumes existing URL Truth, competitor URL inventory, SEO issue queue, internal-link graph, and embedded sanitized mock SERP samples.
+      - Generator writes local JSON and Markdown artifacts only when output paths are explicitly provided.
+      - Generated briefs are sample-only, read-only, editorial-review-required, and reference sanitized source issue ids.
+      - Generated briefs include target keyword, locale, intent, target page family, target URL/path, competitor domains, SERP sample source, table stakes, value-add opportunities, internal links, schema hints, risk flags, and sample_only state.
+      - Markdown output is advisory outline only and does not include publishable article body, final title, H1, FAQ copy, CTA copy, CMS payload, publish action, or search submission URL.
+      - Risk boundary explicitly forbids CMS writes, CMS draft creation, publish, rollback, revalidation execution, search submission, sitemap/llms mutation, live SERP API calls, scraping, GSC/Baidu/GA4/DataForSEO/Apify integrations, content generation, deploy, env reads, cookie reads, and token reads.
+      - SEO-BRIEF-00 may be reconciled as merged in the same PR after GitHub PR #1030 merge truth is confirmed.
+      - No runtime, backend, API, CMS schema, Filament, migration, collector, dashboard adapter, content publication, public sitemap, llms, search platform, env, cookie, token, deploy, or production behavior changes.
+    must_not_touch:
+      - <workspace>/fap-api
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - backend runtime files
+      - migrations
+      - env files
+      - deploy scripts
+      - package.json
+      - pnpm-lock.yaml
+      - next.config.mjs
+      - next-sitemap.config.js
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - app/api/content-release/revalidate/route.ts
+      - payment/order/report/email/recommendation/scoring/profile code
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    rollback_note: "Remove the read-only SEO content brief generator script, generated JSON and Markdown artifacts, contract doc update, focused contract test, scope helper entry, SEO-BRIEF-01 train metadata, and SEO-BRIEF-00 ledger reconciliation if it is reverted before another reconciliation records merged GitHub truth."
+
   - id: AUDIT-WEB-CMS-LINK-XSS
     repo: fap-web
     repo_path: <workspace>/fap-web
