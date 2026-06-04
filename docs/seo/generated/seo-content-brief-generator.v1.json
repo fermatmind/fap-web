@@ -1,0 +1,287 @@
+{
+  "version": "seo_content_brief_generator.v1",
+  "scope": "SEO-BRIEF-00",
+  "status": "contract_design",
+  "run_mode": "contract_sample",
+  "generated_at": "offline-reproducible",
+  "live_data_collected": false,
+  "network_access_enabled": false,
+  "source_documents": [
+    "SEO-SITEMAP-P0-05",
+    "SEO-COMPETITOR-URL-01",
+    "SEO-ISSUE-QUEUE-01",
+    "SEO-ISSUE-QUEUE-02",
+    "seo-url-issue-brief-program-summary-2026-06-04"
+  ],
+  "authority_boundary": {
+    "brief_is_advisory_only": true,
+    "cms_content_authority": "fap_api_cms_backend",
+    "url_truth_authority": "backend_public_api_and_sitemap_contract",
+    "may_create_cms_draft": false,
+    "may_mutate_cms": false,
+    "may_publish": false,
+    "may_submit_search_urls": false,
+    "may_generate_publishable_article_copy": false,
+    "may_call_live_serp_api": false
+  },
+  "allowed_inputs": [
+    {
+      "source": "url_truth",
+      "artifact": "docs/seo/generated/url-inventory.v1.json",
+      "authority_rule": "Read-only URL Truth and sitemap inventory context; brief may not modify URL Truth, sitemap, canonical, or llms eligibility."
+    },
+    {
+      "source": "competitor_url_inventory",
+      "artifact": "docs/seo/generated/competitor-url-inventory-generator.v1.json",
+      "authority_rule": "Advisory competitor observation only; brief may not create CMS drafts or final content from competitor signals."
+    },
+    {
+      "source": "seo_issue_queue",
+      "artifact": "docs/seo/generated/seo-issue-queue.v1.json",
+      "authority_rule": "Sanitized issue queue input only; brief may reference issue ids but may not resolve, suppress, or mutate issues."
+    },
+    {
+      "source": "internal_link_graph",
+      "artifact": "docs/seo/generated/internal-link-graph.v1.json",
+      "authority_rule": "Read-only internal link candidate input; brief may suggest links but may not change pages."
+    },
+    {
+      "source": "cms_status_sample",
+      "artifact": "mock_sample",
+      "authority_rule": "Mock or manually supplied CMS draft/release status only; no CMS API reads or writes in this PR."
+    },
+    {
+      "source": "manual_serp_sample",
+      "artifact": "mock_sample",
+      "authority_rule": "Sanitized manual SERP sample only; no live provider calls, scraping, cookies, or account-specific data."
+    }
+  ],
+  "brief_record_schema": {
+    "required": [
+      "brief_id",
+      "target_keyword",
+      "locale",
+      "intent",
+      "target_page_family",
+      "target_url_or_path",
+      "source_issue_ids",
+      "competitor_source_domains",
+      "serp_sample_source",
+      "table_stakes",
+      "value_add_opportunities",
+      "internal_link_suggestions",
+      "schema_hints",
+      "risk_flags",
+      "editorial_review_required",
+      "sample_only"
+    ],
+    "forbidden": [
+      "article_body",
+      "final_article_title",
+      "final_h1",
+      "faq_copy",
+      "cta_copy",
+      "cms_draft_payload",
+      "cms_resource_id_to_mutate",
+      "publish_action",
+      "search_submit_url",
+      "raw_cookie",
+      "raw_header",
+      "raw_ip",
+      "raw_email",
+      "token",
+      "api_key",
+      "secret",
+      "raw_serp_html",
+      "copied_competitor_body"
+    ],
+    "allowed_intents": [
+      "informational",
+      "comparison",
+      "pre_test_education",
+      "post_test_guidance",
+      "career_exploration",
+      "support",
+      "unknown"
+    ],
+    "allowed_target_page_families": [
+      "article",
+      "topic",
+      "test_detail",
+      "career_guide",
+      "career_job",
+      "support",
+      "tool",
+      "unknown"
+    ]
+  },
+  "manual_serp_sample_policy": {
+    "allowed_fields": [
+      "rank",
+      "result_domain",
+      "normalized_result_path",
+      "result_type",
+      "observed_heading_theme",
+      "snippet_theme",
+      "visible_schema_signal"
+    ],
+    "forbidden_fields": [
+      "raw_cookie",
+      "raw_header",
+      "account_specific_url",
+      "raw_private_url",
+      "unredacted_personal_data",
+      "ad_click_identifier",
+      "copied_article_body",
+      "final_title_to_publish",
+      "final_h1_to_publish"
+    ],
+    "live_serp_api_allowed": false,
+    "scraping_allowed": false,
+    "network_access_allowed": false
+  },
+  "output_policy": {
+    "json_artifact": "docs/seo/generated/seo-content-briefs.v1.json",
+    "markdown_artifact_optional": "docs/seo/generated/seo-content-briefs.v1.md",
+    "csv_artifact_optional": "docs/seo/generated/seo-content-briefs.v1.csv",
+    "markdown_may_include_outline": true,
+    "markdown_may_include_publishable_body": false,
+    "final_article_copy_allowed": false,
+    "cms_import_payload_allowed": false
+  },
+  "risk_flags": [
+    "claim_safety_review",
+    "psychology_or_assessment_boundary",
+    "medical_or_clinical_boundary",
+    "pii_or_consent_boundary",
+    "youth_or_sensitive_audience",
+    "ability_or_iq_sensitive",
+    "cms_authority_required",
+    "locale_parity_required"
+  ],
+  "sample_briefs": [
+    {
+      "brief_id": "seo_brief_sample_mbti_basics_en",
+      "target_keyword": "mbti test meaning",
+      "locale": "en",
+      "intent": "pre_test_education",
+      "target_page_family": "article",
+      "target_url_or_path": "/en/articles/sample-mbti-basics-brief",
+      "source_issue_ids": [
+        "sample_issue_competitor_gap_candidate"
+      ],
+      "competitor_source_domains": [
+        "16personalities.com",
+        "truity.com"
+      ],
+      "serp_sample_source": "manual_mock_sample",
+      "table_stakes": [
+        "Explain the assessment model in plain language.",
+        "Clarify what the result can and cannot decide.",
+        "Link to the relevant test and method boundary page."
+      ],
+      "value_add_opportunities": [
+        "Add bilingual internal navigation guidance.",
+        "Connect the topic to result-reading safety and career exploration."
+      ],
+      "internal_link_suggestions": [
+        {
+          "target_path": "/tests/mbti-personality-test",
+          "reason": "Primary related test."
+        },
+        {
+          "target_path": "/topics/mbti",
+          "reason": "Topic hub context."
+        }
+      ],
+      "schema_hints": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "risk_flags": [
+        "psychology_or_assessment_boundary",
+        "cms_authority_required",
+        "locale_parity_required"
+      ],
+      "editorial_review_required": true,
+      "sample_only": true
+    },
+    {
+      "brief_id": "seo_brief_sample_career_choice_zh",
+      "target_keyword": "career interest test how to use zh",
+      "locale": "zh",
+      "intent": "career_exploration",
+      "target_page_family": "article",
+      "target_url_or_path": "/zh/articles/sample-career-interest-brief",
+      "source_issue_ids": [
+        "sample_issue_internal_link_gap"
+      ],
+      "competitor_source_domains": [
+        "careerexplorer.com",
+        "123test.com"
+      ],
+      "serp_sample_source": "manual_mock_sample",
+      "table_stakes": [
+        "Explain the difference between interests, skills, and job fit.",
+        "State that a test result is decision support rather than a final answer.",
+        "Provide links to the RIASEC test and career exploration surfaces."
+      ],
+      "value_add_opportunities": [
+        "Add safe decision checklist framing.",
+        "Surface related career guide paths instead of broad generic advice."
+      ],
+      "internal_link_suggestions": [
+        {
+          "target_path": "/zh/tests/holland-career-interest-test-riasec",
+          "reason": "Primary career interest test."
+        },
+        {
+          "target_path": "/zh/career",
+          "reason": "Career hub context."
+        }
+      ],
+      "schema_hints": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "risk_flags": [
+        "psychology_or_assessment_boundary",
+        "youth_or_sensitive_audience",
+        "cms_authority_required"
+      ],
+      "editorial_review_required": true,
+      "sample_only": true
+    }
+  ],
+  "risk_boundary": {
+    "read_only": true,
+    "sample_only": true,
+    "cms_writes": false,
+    "cms_draft_creation": false,
+    "publish_actions": false,
+    "rollback_actions": false,
+    "revalidation_execution": false,
+    "search_submission": false,
+    "sitemap_mutation": false,
+    "llms_mutation": false,
+    "live_serp_api": false,
+    "scraping": false,
+    "gsc_integration": false,
+    "baidu_integration": false,
+    "ga4_integration": false,
+    "dataforseo_integration": false,
+    "apify_integration": false,
+    "production_deploy": false,
+    "env_reads": false,
+    "cookie_reads": false,
+    "token_reads": false,
+    "final_article_body_generation": false
+  },
+  "deferred_work": [
+    "SEO-BRIEF-01 read-only offline generator",
+    "backend handoff contract for brief-to-CMS boundaries",
+    "approval-gated live SERP provider integration",
+    "human editorial review workflow"
+  ],
+  "recommended_follow_up": "SEO-BRIEF-01 add read-only offline SERP content brief generator after explicit authorization"
+}

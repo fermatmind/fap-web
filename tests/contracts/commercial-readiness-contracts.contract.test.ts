@@ -98,6 +98,21 @@ function changedFiles(): string[] {
     files.size === 0 &&
     (process.env.GITHUB_HEAD_REF === PR_BRANCH ||
       process.env.GITHUB_REF_NAME === PR_BRANCH ||
+      execFileSync("git", ["rev-parse", "--abbrev-ref", "HEAD"], { cwd: ROOT, encoding: "utf8" }).trim() === PR_BRANCH)
+  ) {
+    try {
+      const output = execFileSync("git", ["diff", "--name-only", "HEAD~1..HEAD"], { cwd: ROOT, encoding: "utf8" });
+      for (const line of output.split("\n")) {
+        if (line.trim()) files.add(line.trim());
+      }
+    } catch {
+      // HEAD~1 is only a fallback for the original commercial-contract branch shape.
+    }
+  }
+  if (
+    files.size === 0 &&
+    (process.env.GITHUB_HEAD_REF === PR_BRANCH ||
+      process.env.GITHUB_REF_NAME === PR_BRANCH ||
       process.env.GITHUB_EVENT_NAME === "pull_request")
   ) {
     for (const file of EXPECTED_SCOPE_FILES) {
