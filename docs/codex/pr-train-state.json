@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-04T21:06:00+08:00",
+  "updated_at": "2026-06-04T21:10:00+08:00",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -19611,9 +19611,9 @@
         "COMMERCIAL-READINESS-CONTROL-TOWER-01"
       ],
       "title": "docs(help): inventory service help assets and gaps",
-      "status": "local_checks_passed",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "pr_open",
+      "commit_sha": "5734775b",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1045",
       "checks": {
         "python3 -m json.tool docs/operations/generated/help-content-inventory.v1.json >/dev/null": "passed",
         "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null": "passed",
@@ -19639,6 +19639,11 @@
           "at": "2026-06-04T21:06:00+08:00",
           "status": "local_checks_passed",
           "summary": "Required JSON/YAML parse, focused help-content inventory contract, git diff check, and full pnpm test:contract passed. Public route checks stayed read-only; no runtime, CMS, publish, private URL, search submission, deploy, secret, token, or raw private identifier action was performed."
+        },
+        {
+          "at": "2026-06-04T21:10:00+08:00",
+          "status": "pr_open",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1045 after required local checks passed. Follow-up tasks remain planned only and require separate scoped authorization."
         }
       ]
     },
