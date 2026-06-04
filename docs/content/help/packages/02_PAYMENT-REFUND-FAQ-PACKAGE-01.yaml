@@ -1,0 +1,67 @@
+asset_id: PAYMENT-REFUND-FAQ-PACKAGE-01
+asset_type: payment_refund_faq_package
+priority: P0
+reason: Defines the service boundary for paid users before commercial promotion.
+status: draft_input_only
+publish_allowed: false
+locale_policy: zh/en same policy
+recommended_routes:
+- /zh/help/payment-refund
+- /en/help/payment-refund
+operator_policy:
+  refund_allowed: true
+  refund_window_days: 7
+  refund_condition: user cannot obtain the complete purchased report
+  support_channel: email
+operator_decisions_still_needed:
+- support_email
+- refund handling time
+- refund exclusions
+- whether duplicate payments are automatically refunded
+- whether partial report access affects eligibility
+safe_user_info:
+- purchase_email
+- test_name
+- locale
+- approximate_payment_time
+- payment_amount
+- masked_order_code_optional
+forbidden_public_info:
+- full_orderNo
+- payment provider transaction id
+- bank/card data
+- full result URL
+- token
+cms_fields:
+- slug
+- locale
+- title
+- summary
+- body
+- faq_items
+- payment_region
+- currency
+- payment_method
+- sku
+- free_boundary
+- paid_boundary
+- refund_eligibility
+- refund_exclusions
+- refund_request_path
+- refund_handling_time
+- policy_effective_date
+- policy_version
+- reviewer
+- updated_at
+- schema_enabled
+- robots
+- is_indexable
+seo_schema_position:
+  indexability: indexable after legal/operator review
+  schema: FAQPage
+  canonical: self canonical public help route
+  links_from:
+  - paywall
+  - checkout
+  - support hub
+  - footer help

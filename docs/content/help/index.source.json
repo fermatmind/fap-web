@@ -1,0 +1,42 @@
+{
+  "package": "fermatmind_help_content_assets",
+  "date": "2026-06-04",
+  "status": "draft_input_only_not_publishable",
+  "operator_policy_summary": {
+    "refund": "allowed within 7 days if user cannot obtain complete purchased report",
+    "unlock_failure": "24h handling via email",
+    "support_channel": "email",
+    "result_retention": "2 years",
+    "result_recovery": "email",
+    "data_deletion": "allowed",
+    "account_deletion": "allowed",
+    "locale_policy": "zh/en same"
+  },
+  "order_identifier_policy": {
+    "public_help_pages": "do not request raw orderNo",
+    "primary_identity": "purchase email",
+    "optional": "masked order code or last 6 characters",
+    "private_email_thread": "raw orderNo only if explicitly requested by support",
+    "forbidden_public_surfaces": [
+      "page body",
+      "FAQ schema",
+      "URL",
+      "analytics payload",
+      "public examples"
+    ]
+  },
+  "assets": [
+    "01_UNLOCK-FAILURE-HELP-CARD-01.md",
+    "01_UNLOCK-FAILURE-HELP-CARD-01.yaml",
+    "02_PAYMENT-REFUND-FAQ-PACKAGE-01.md",
+    "02_PAYMENT-REFUND-FAQ-PACKAGE-01.yaml",
+    "03_RESULT-RECOVERY-FAQ-01.md",
+    "03_RESULT-RECOVERY-FAQ-01.yaml",
+    "04_PRIVACY-FAQ-PACKAGE-01.md",
+    "04_PRIVACY-FAQ-PACKAGE-01.yaml",
+    "05_NONDIAGNOSTIC-HELP-COPY-01.md",
+    "05_NONDIAGNOSTIC-HELP-COPY-01.yaml",
+    "06_DATA-DELETION-REQUEST-FAQ-01.md",
+    "06_DATA-DELETION-REQUEST-FAQ-01.yaml"
+  ]
+}

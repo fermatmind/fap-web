@@ -1,0 +1,56 @@
+asset_id: PRIVACY-FAQ-PACKAGE-01
+asset_type: privacy_faq_package
+priority: P0
+reason: Reduces fear that test results, order data, or analytics payloads expose private
+  information.
+status: draft_input_only
+publish_allowed: false
+locale_policy: zh/en same policy
+recommended_routes:
+- /zh/help/privacy-data
+- /en/help/privacy-data
+operator_policy:
+  data_deletion_allowed: true
+  account_deletion_allowed: true
+  private_url_policy: private result/order/payment/history URLs must not be shared
+    publicly or sent to analytics/search surfaces
+required_facts:
+- data_categories_collected
+- analytics_tools_used
+- what_is_not_sent_to_analytics
+- private_url_policy
+- data_deletion_request_path
+- account_deletion_path
+- retention_periods
+- support_email
+forbidden_claims:
+- no analytics at all if analytics exists
+- absolute security guarantee
+- GA4/Baidu as payment truth
+cms_fields:
+- slug
+- locale
+- title
+- summary
+- body
+- faq_items
+- privacy_policy_version
+- analytics_usage_note
+- private_url_policy
+- deletion_request_path
+- account_deletion_path
+- support_contact
+- updated_at
+- reviewer
+- schema_enabled
+- robots
+- is_indexable
+seo_schema_position:
+  indexability: indexable Help page
+  schema: FAQPage after approval
+  canonical: self canonical public help route
+  links_from:
+  - privacy policy
+  - support hub
+  - footer
+  - result page help

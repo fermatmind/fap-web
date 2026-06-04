@@ -1,0 +1,56 @@
+asset_id: RESULT-RECOVERY-FAQ-01
+asset_type: result_recovery_faq_package
+priority: P0
+reason: Email-based recovery is a core trust asset for testing products.
+status: draft_input_only
+publish_allowed: false
+locale_policy: zh/en same policy
+recommended_routes:
+- /zh/help/result-recovery
+- /en/help/result-recovery
+operator_policy:
+  result_retention_period: 2 years
+  recovery_method: email
+  support_channel: email
+required_facts:
+- which result types are recoverable
+- whether email is required at test completion
+- what happens if email was not provided
+- result retention period
+- privacy boundary for result URLs
+- support email
+safe_user_info:
+- email
+- test_name
+- approximate_completion_time
+- locale
+forbidden_public_info:
+- full result URL
+- resultId
+- attemptId
+- history URL
+- share token
+- orderNo
+cms_fields:
+- slug
+- locale
+- title
+- summary
+- body
+- faq_items
+- result_retention_period
+- recovery_method
+- support_contact
+- privacy_notice
+- noindex_private_result_boundary
+- policy_version
+- updated_at
+- reviewer
+- schema_enabled
+- robots
+- is_indexable
+seo_schema_position:
+  indexability: indexable Help page
+  schema: FAQPage after approval
+  canonical: self canonical public help route
+  lookup_tool_policy: lookup utilities remain noindex/no-store and are linked carefully

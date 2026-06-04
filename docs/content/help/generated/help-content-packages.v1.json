@@ -1,0 +1,413 @@
+{
+  "schema_version": "help_content_packages.v1",
+  "generated_at": "2026-06-05T00:20:00+08:00",
+  "source_package": "fermatmind_help_content_assets",
+  "source_date": "2026-06-04",
+  "run_mode": "archive_contract_only",
+  "decision": "NO_GO_TO_PUBLISH",
+  "publish_allowed": false,
+  "cms_draft_created": false,
+  "runtime_changed": false,
+  "cms_mutation": false,
+  "content_generated_by_codex": false,
+  "operator_policy_applied": true,
+  "requires_operator_review": true,
+  "requires_cms_authority": true,
+  "operator_policy": {
+    "refund_allowed": true,
+    "refund_window_days": 7,
+    "refund_condition": "无法获得完整报告",
+    "unlock_failure_sla": "24h",
+    "support_channel": "email",
+    "result_retention": "2 years",
+    "result_recovery_method": "email",
+    "data_deletion_allowed": true,
+    "account_deletion_allowed": true,
+    "locale_policy": "zh/en same",
+    "order_identifier_policy": "email-first; public Help 不要求 raw orderNo；support email 可选 masked order code / order number last 6；禁止 raw orderNo/payment_id/result URL 出现在公开页面、统计 payload、示例文案中"
+  },
+  "package_count": 6,
+  "packages": [
+    {
+      "asset_id": "UNLOCK-FAILURE-HELP-CARD-01",
+      "asset_type": "help_service_asset",
+      "priority": "P0",
+      "status": "draft_input_only",
+      "publish_allowed": false,
+      "cms_draft_created": false,
+      "runtime_changed": false,
+      "content_generated_by_codex": false,
+      "operator_policy_applied": true,
+      "requires_operator_review": true,
+      "requires_cms_authority": true,
+      "recommended_routes": [
+        "/zh/help/unlock-failure",
+        "/en/help/unlock-failure"
+      ],
+      "cms_fields": [
+        "slug",
+        "locale",
+        "title",
+        "summary",
+        "body",
+        "faq_items",
+        "support_intent",
+        "handling_time",
+        "required_user_info",
+        "forbidden_user_info",
+        "pii_minimization_notice",
+        "support_contact",
+        "policy_version",
+        "updated_at",
+        "reviewer",
+        "schema_enabled",
+        "robots",
+        "is_indexable"
+      ],
+      "seo_schema_position": {
+        "indexability": "indexable after review",
+        "schema": "FAQPage only after approved visible FAQ exists",
+        "canonical": "self canonical public help route",
+        "links_from": [
+          "result page help link",
+          "checkout help link",
+          "support hub",
+          "footer help"
+        ]
+      },
+      "operator_unknowns": [
+        "support_email",
+        "exact escalation path",
+        "whether support form will exist"
+      ],
+      "source_files": {
+        "markdown": "docs/content/help/packages/01_UNLOCK-FAILURE-HELP-CARD-01.md",
+        "yaml": "docs/content/help/packages/01_UNLOCK-FAILURE-HELP-CARD-01.yaml"
+      },
+      "sha256": {
+        "markdown": "33116b81783376cd14ba7e948364dc53816ca07c823fdcd40a194f8466a011ab",
+        "yaml": "36773011a30001b8e4dbbb0b59e6ebb15d31e5f4a02cb2fa746e50eb7e5e9776"
+      }
+    },
+    {
+      "asset_id": "PAYMENT-REFUND-FAQ-PACKAGE-01",
+      "asset_type": "payment_refund_faq_package",
+      "priority": "P0",
+      "status": "draft_input_only",
+      "publish_allowed": false,
+      "cms_draft_created": false,
+      "runtime_changed": false,
+      "content_generated_by_codex": false,
+      "operator_policy_applied": true,
+      "requires_operator_review": true,
+      "requires_cms_authority": true,
+      "recommended_routes": [
+        "/zh/help/payment-refund",
+        "/en/help/payment-refund"
+      ],
+      "cms_fields": [
+        "slug",
+        "locale",
+        "title",
+        "summary",
+        "body",
+        "faq_items",
+        "payment_region",
+        "currency",
+        "payment_method",
+        "sku",
+        "free_boundary",
+        "paid_boundary",
+        "refund_eligibility",
+        "refund_exclusions",
+        "refund_request_path",
+        "refund_handling_time",
+        "policy_effective_date",
+        "policy_version",
+        "reviewer",
+        "updated_at",
+        "schema_enabled",
+        "robots",
+        "is_indexable"
+      ],
+      "seo_schema_position": {
+        "indexability": "indexable after legal/operator review",
+        "schema": "FAQPage",
+        "canonical": "self canonical public help route",
+        "links_from": [
+          "paywall",
+          "checkout",
+          "support hub",
+          "footer help"
+        ]
+      },
+      "operator_unknowns": [
+        "support_email",
+        "refund handling time",
+        "refund exclusions",
+        "whether duplicate payments are automatically refunded",
+        "whether partial report access affects eligibility"
+      ],
+      "source_files": {
+        "markdown": "docs/content/help/packages/02_PAYMENT-REFUND-FAQ-PACKAGE-01.md",
+        "yaml": "docs/content/help/packages/02_PAYMENT-REFUND-FAQ-PACKAGE-01.yaml"
+      },
+      "sha256": {
+        "markdown": "ed81c242678fd03e6829a18c25caa55f725d4c1f59c0525864f6b84de578a30e",
+        "yaml": "fa3ae7731655d9fccb714272ba6ac08b2d307304b658aaa498f5673d1a50f2d3"
+      }
+    },
+    {
+      "asset_id": "RESULT-RECOVERY-FAQ-01",
+      "asset_type": "result_recovery_faq_package",
+      "priority": "P0",
+      "status": "draft_input_only",
+      "publish_allowed": false,
+      "cms_draft_created": false,
+      "runtime_changed": false,
+      "content_generated_by_codex": false,
+      "operator_policy_applied": true,
+      "requires_operator_review": true,
+      "requires_cms_authority": true,
+      "recommended_routes": [
+        "/zh/help/result-recovery",
+        "/en/help/result-recovery"
+      ],
+      "cms_fields": [
+        "slug",
+        "locale",
+        "title",
+        "summary",
+        "body",
+        "faq_items",
+        "result_retention_period",
+        "recovery_method",
+        "support_contact",
+        "privacy_notice",
+        "noindex_private_result_boundary",
+        "policy_version",
+        "updated_at",
+        "reviewer",
+        "schema_enabled",
+        "robots",
+        "is_indexable"
+      ],
+      "seo_schema_position": {
+        "indexability": "indexable Help page",
+        "schema": "FAQPage after approval",
+        "canonical": "self canonical public help route",
+        "lookup_tool_policy": "lookup utilities remain noindex/no-store and are linked carefully"
+      },
+      "operator_unknowns": [
+        "which result types are recoverable",
+        "whether email is required at test completion",
+        "what happens if email was not provided",
+        "result retention period",
+        "privacy boundary for result URLs",
+        "support email"
+      ],
+      "source_files": {
+        "markdown": "docs/content/help/packages/03_RESULT-RECOVERY-FAQ-01.md",
+        "yaml": "docs/content/help/packages/03_RESULT-RECOVERY-FAQ-01.yaml"
+      },
+      "sha256": {
+        "markdown": "3257ce89e7186cacf3a61e59df58099812f32d7428dc1744c56168ad14f1e184",
+        "yaml": "fe54678156ca4ed46115a0dc617fcbf2999d263d74dcbc2b578e0557a767ecd5"
+      }
+    },
+    {
+      "asset_id": "PRIVACY-FAQ-PACKAGE-01",
+      "asset_type": "privacy_faq_package",
+      "priority": "P0",
+      "status": "draft_input_only",
+      "publish_allowed": false,
+      "cms_draft_created": false,
+      "runtime_changed": false,
+      "content_generated_by_codex": false,
+      "operator_policy_applied": true,
+      "requires_operator_review": true,
+      "requires_cms_authority": true,
+      "recommended_routes": [
+        "/zh/help/privacy-data",
+        "/en/help/privacy-data"
+      ],
+      "cms_fields": [
+        "slug",
+        "locale",
+        "title",
+        "summary",
+        "body",
+        "faq_items",
+        "privacy_policy_version",
+        "analytics_usage_note",
+        "private_url_policy",
+        "deletion_request_path",
+        "account_deletion_path",
+        "support_contact",
+        "updated_at",
+        "reviewer",
+        "schema_enabled",
+        "robots",
+        "is_indexable"
+      ],
+      "seo_schema_position": {
+        "indexability": "indexable Help page",
+        "schema": "FAQPage after approval",
+        "canonical": "self canonical public help route",
+        "links_from": [
+          "privacy policy",
+          "support hub",
+          "footer",
+          "result page help"
+        ]
+      },
+      "operator_unknowns": [
+        "data_categories_collected",
+        "analytics_tools_used",
+        "what_is_not_sent_to_analytics",
+        "private_url_policy",
+        "data_deletion_request_path",
+        "account_deletion_path",
+        "retention_periods",
+        "support_email"
+      ],
+      "source_files": {
+        "markdown": "docs/content/help/packages/04_PRIVACY-FAQ-PACKAGE-01.md",
+        "yaml": "docs/content/help/packages/04_PRIVACY-FAQ-PACKAGE-01.yaml"
+      },
+      "sha256": {
+        "markdown": "57077349ef456cffe3988b345321e03cd76bc96c2e88f1d7e74a7b65815983ac",
+        "yaml": "7b1ae4efa54c0d501b0fa4e9aae78822d0833509821d1ed06fe87b2be683bf9b"
+      }
+    },
+    {
+      "asset_id": "NONDIAGNOSTIC-HELP-COPY-01",
+      "asset_type": "non_diagnostic_boundary_package",
+      "priority": "P0",
+      "status": "draft_input_only",
+      "publish_allowed": false,
+      "cms_draft_created": false,
+      "runtime_changed": false,
+      "content_generated_by_codex": false,
+      "operator_policy_applied": true,
+      "requires_operator_review": true,
+      "requires_cms_authority": true,
+      "recommended_routes": [
+        "/zh/help/non-diagnostic",
+        "/en/help/non-diagnostic"
+      ],
+      "cms_fields": [
+        "slug",
+        "locale",
+        "title",
+        "summary",
+        "body",
+        "faq_items",
+        "boundary_type",
+        "applicable_surfaces",
+        "claim_boundary_version",
+        "reviewer",
+        "updated_at",
+        "schema_enabled",
+        "robots",
+        "is_indexable"
+      ],
+      "seo_schema_position": {
+        "indexability": "indexable Help page",
+        "schema": "FAQPage after approval",
+        "canonical": "self canonical public help route",
+        "links_from": [
+          "test landing pages",
+          "result pages",
+          "article pages",
+          "support hub"
+        ]
+      },
+      "operator_unknowns": [],
+      "source_files": {
+        "markdown": "docs/content/help/packages/05_NONDIAGNOSTIC-HELP-COPY-01.md",
+        "yaml": "docs/content/help/packages/05_NONDIAGNOSTIC-HELP-COPY-01.yaml"
+      },
+      "sha256": {
+        "markdown": "fa134d385ba907a6b1c3cf5a426166182c3c4580b01b297d39aeae1b4bd562df",
+        "yaml": "45d57de96583fdb0c4befe5124da3000ed65e5f0cd6ef2f9d81d627eded9205e"
+      }
+    },
+    {
+      "asset_id": "DATA-DELETION-REQUEST-FAQ-01",
+      "asset_type": "data_deletion_request_faq",
+      "priority": "P1",
+      "status": "draft_input_only",
+      "publish_allowed": false,
+      "cms_draft_created": false,
+      "runtime_changed": false,
+      "content_generated_by_codex": false,
+      "operator_policy_applied": true,
+      "requires_operator_review": true,
+      "requires_cms_authority": true,
+      "recommended_routes": [
+        "/zh/help/data-deletion",
+        "/en/help/data-deletion"
+      ],
+      "cms_fields": [
+        "slug",
+        "locale",
+        "title",
+        "summary",
+        "body",
+        "faq_items",
+        "request_type",
+        "handling_time",
+        "retained_data_exceptions",
+        "identity_verification_method",
+        "support_contact",
+        "policy_version",
+        "updated_at",
+        "reviewer",
+        "schema_enabled",
+        "robots",
+        "is_indexable"
+      ],
+      "seo_schema_position": {
+        "indexability": "indexable Help page",
+        "schema": "FAQPage after approval",
+        "canonical": "self canonical public help route",
+        "links_from": [
+          "privacy policy",
+          "privacy-data help page",
+          "support hub"
+        ]
+      },
+      "operator_unknowns": [
+        "deletion handling SLA",
+        "identity verification method",
+        "what payment/compliance records must be retained",
+        "whether deletion is hard delete or anonymization for analytics/reporting"
+      ],
+      "source_files": {
+        "markdown": "docs/content/help/packages/06_DATA-DELETION-REQUEST-FAQ-01.md",
+        "yaml": "docs/content/help/packages/06_DATA-DELETION-REQUEST-FAQ-01.yaml"
+      },
+      "sha256": {
+        "markdown": "9a9cd0e3e4734a621cbcf95863ae8861053a97939b77aea79f17703a552e8ae6",
+        "yaml": "7fa8461ed2dd3a64476555a79b20e3201fdd7e33ceed8e6ea79051366cbd9c91"
+      }
+    }
+  ],
+  "forbidden_actions": [
+    "no publishable FAQ copy",
+    "no CMS draft",
+    "no runtime edits",
+    "no private URL access",
+    "no raw identifiers",
+    "no competitor copy"
+  ],
+  "next_prs": [
+    "HELP-CMS-AUTHORITY-01",
+    "HELP-CONTENT-PACKAGE-VALIDATION-01",
+    "HELP-CMS-DRAFT-PREFLIGHT-01",
+    "HELP-SCHEMA-GATE-01",
+    "HELP-FOOTER-LINK-QA-01",
+    "SUPPORT-FLOW-SMOKE-01"
+  ]
+}

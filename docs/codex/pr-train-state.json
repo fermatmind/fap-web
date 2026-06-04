@@ -19666,6 +19666,48 @@
       "merge_sha": "0ce33fad7491f2f090186d02d868920e04329d73"
     },
     {
+      "id": "HELP-CONTENT-PACKAGES-ARCHIVE-01",
+      "repo": "fap-web",
+      "branch": "codex/help-content-packages-archive-01",
+      "base": "main",
+      "depends_on": [
+        "HELP-CONTENT-INVENTORY-01"
+      ],
+      "title": "docs(help): archive service help content packages",
+      "status": "pr_open",
+      "commit_sha": "2a16735bbd6130abc50e6c411616ef38c9f92400",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1048",
+      "checks": {
+        "python3 -m json.tool docs/content/help/generated/help-content-packages.v1.json >/dev/null": "passed",
+        "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null": "passed",
+        "YAML parse docs/codex/pr-train.yaml": "passed",
+        "pnpm exec vitest run tests/contracts/help-content-packages.contract.test.ts": "passed (1 file, 7 tests)",
+        "git diff --check": "passed",
+        "pnpm test:contract": "not run; currentPrScope helper was left unchanged after local scope adjustment"
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "events": [
+        {
+          "at": "2026-06-05T00:20:00+08:00",
+          "status": "in_progress",
+          "summary": "Started HELP-CONTENT-PACKAGES-ARCHIVE-01 from latest origin/main in an isolated worktree. Scope is limited to docs/content/help archive assets, generated package index JSON, focused contract test, currentPrScope helper, and PR-train metadata. No runtime, CMS draft, CMS mutation, publish, search submission, deploy, private URL, secret, token, competitor copy, or raw private identifier action is authorized."
+        },
+        {
+          "at": "2026-06-05T00:30:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Required JSON/YAML parse, focused help-content packages contract, and git diff check passed. A full contract run was intentionally not required after currentPrScope changes were removed from this PR. No runtime, CMS draft, CMS mutation, publish, private URL, search submission, deploy, secret, token, competitor copy, or raw private identifier action was performed."
+        },
+        {
+          "at": "2026-06-05T00:33:00+08:00",
+          "status": "pr_open",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1048 after required local checks passed. The branch archives package inputs only; CMS draft creation, publish, runtime route changes, schema publication, footer changes, and support-flow changes remain deferred."
+        }
+      ]
+    },
+    {
       "id": "HELP-CMS-AUTHORITY-01",
       "repo": "fap-web",
       "branch": "codex/help-cms-authority-01",
