@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-04T01:01:00+08:00",
+  "updated_at": "2026-06-04T08:51:00+08:00",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -18295,7 +18295,7 @@
         "PRIVACY-ORDER-RESULT-SAFETY-SCAN-01"
       ],
       "title": "docs(analytics): scan commercial event taxonomy",
-      "status": "pr_open",
+      "status": "merged",
       "commit_sha": "9b4d4e6eee52edf9e6fcf05fce01e923a9d0574c",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1025",
       "checks": {
@@ -18321,12 +18321,20 @@
         },
         "pnpm typecheck": {
           "status": "pass"
+        },
+        "github_checks": {
+          "status": "pass",
+          "evidence": "GitHub required checks passed before PR #1025 merge."
+        },
+        "post_merge_cleanup": {
+          "status": "pass",
+          "evidence": "PR #1025 merged with squash merge commit af750e702de1fba783f2a98a064ff300864f390a; origin/main contains the merge commit."
         }
       },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-03T17:05:25Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "events": [
         {
           "at": "2026-06-04T00:23:51+08:00",
@@ -18342,6 +18350,11 @@
           "at": "2026-06-04T01:01:00+08:00",
           "status": "pr_open",
           "summary": "Opened GitHub PR #1025 for ANALYTICS-COMMERCIAL-EVENTS-SCAN-01; required GitHub checks are pending."
+        },
+        {
+          "at": "2026-06-04T08:51:00+08:00",
+          "status": "merged",
+          "summary": "Reconciled PR #1025 as merged with squash merge commit af750e702de1fba783f2a98a064ff300864f390a; origin/main contains the merge commit."
         }
       ]
     },
@@ -18355,19 +18368,29 @@
         "ANALYTICS-COMMERCIAL-EVENTS-SCAN-01:fap-web"
       ],
       "title": "docs(monetization): scan locale freemium policy readiness",
-      "status": "planned",
-      "commit_sha": null,
-      "pr_url": null,
-      "checks": {},
+      "status": "merged",
+      "commit_sha": "7f788e39fbbbe3bc1ebb4f6865e024ab5548f648",
+      "pr_url": "https://github.com/fermatmind/fap-api/pull/1878",
+      "checks": {
+        "cross_repo_reconciliation": {
+          "status": "pass",
+          "evidence": "fap-api PR #1878 merged and was cleaned up during the Day 1 Commercial Readiness run."
+        }
+      },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-03T17:26:34Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "events": [
         {
           "at": "2026-06-04T00:23:51+08:00",
           "status": "planned",
           "summary": "Registered Day 1 fap-api docs-only freemium locale policy readiness scan. No backend, frontend, seed, migration, order, payment, CMS, deployment, or secret changes are authorized by this fap-web ledger entry."
+        },
+        {
+          "at": "2026-06-04T08:51:00+08:00",
+          "status": "merged",
+          "summary": "Reconciled cross-repo fap-api PR #1878 as merged for Day 1 Commercial Readiness dependency tracking."
         }
       ]
     },
@@ -18381,19 +18404,114 @@
         "FREEMIUM-LOCALE-POLICY-SCAN-01:fap-api"
       ],
       "title": "docs(benefit): scan daily giving operations readiness",
-      "status": "planned",
-      "commit_sha": null,
-      "pr_url": null,
-      "checks": {},
+      "status": "merged",
+      "commit_sha": "c023804a498b3d496888a176c6840d4779189a3c",
+      "pr_url": "https://github.com/fermatmind/fap-api/pull/1879",
+      "checks": {
+        "cross_repo_reconciliation": {
+          "status": "pass",
+          "evidence": "fap-api PR #1879 merged and was cleaned up during the Day 1 Commercial Readiness run."
+        }
+      },
+      "failure_reason": null,
+      "merged_at": "2026-06-03T17:43:27Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
+      "events": [
+        {
+          "at": "2026-06-04T00:23:51+08:00",
+          "status": "planned",
+          "summary": "Registered Day 1 fap-api docs-only Daily Giving operations readiness scan. No DailyGiving record, proof upload/read, storage change, frontend change, CMS change, publish, deployment, secret read, or public-benefit copy generation is authorized."
+        },
+        {
+          "at": "2026-06-04T08:51:00+08:00",
+          "status": "merged",
+          "summary": "Reconciled cross-repo fap-api PR #1879 as merged for Day 1 Commercial Readiness dependency tracking."
+        }
+      ]
+    },
+    {
+      "id": "COMMERCIAL-CONTRACTS-FOUNDATION-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/commercial-contracts-foundation-01",
+      "base": "main",
+      "depends_on": [
+        "ANALYTICS-COMMERCIAL-EVENTS-SCAN-01",
+        "FREEMIUM-LOCALE-POLICY-SCAN-01:fap-api",
+        "DAILY-GIVING-OPS-READINESS-SCAN-01:fap-api"
+      ],
+      "title": "docs(commercial): define Day 1 commercial readiness contracts",
+      "status": "pr_open",
+      "commit_sha": "29de9dc5f12f72cbc5042453fb7daaa3e89721a0",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1026",
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized COMMERCIAL-CONTRACTS-FOUNDATION-01 with docs/contract, generated artifact, contract test, and docs/codex updates only."
+        },
+        "dependency": {
+          "status": "pass",
+          "evidence": "ANALYTICS-COMMERCIAL-EVENTS-SCAN-01, FREEMIUM-LOCALE-POLICY-SCAN-01, and DAILY-GIVING-OPS-READINESS-SCAN-01 are reconciled as merged."
+        },
+        "scope": {
+          "status": "pass",
+          "evidence": "Changed files are limited to docs/analytics, docs/operations, generated analytics contract artifact, one contract test, currentPrScope helper, and docs/codex metadata."
+        },
+        "local_checks": {
+          "status": "pass",
+          "commands": [
+            "git status --short --branch",
+            "git log -n 5 --oneline",
+            "python3 -m json.tool docs/analytics/generated/commercial-readiness-contracts.v1.json >/dev/null",
+            "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "python3 -c \"import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')\"",
+            "git diff --check",
+            "pnpm exec vitest run tests/contracts/commercial-readiness-contracts.contract.test.ts",
+            "pnpm test:contract",
+            "pnpm typecheck"
+          ],
+          "evidence": "All required local checks passed before commit and after the GitHub contracts retry fixes; pnpm test:contract passed 438 files and 2480 tests, and the targeted commercial readiness contract test passed 12 tests."
+        },
+        "github_checks": {
+          "status": "pass",
+          "evidence": "GitHub checks passed on head 29de9dc5f12f72cbc5042453fb7daaa3e89721a0: CodeQL, analyze (javascript-typescript), build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze."
+        }
+      },
       "failure_reason": null,
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
       "events": [
         {
-          "at": "2026-06-04T00:23:51+08:00",
-          "status": "planned",
-          "summary": "Registered Day 1 fap-api docs-only Daily Giving operations readiness scan. No DailyGiving record, proof upload/read, storage change, frontend change, CMS change, publish, deployment, secret read, or public-benefit copy generation is authorized."
+          "at": "2026-06-04T08:51:00+08:00",
+          "status": "in_progress",
+          "summary": "Started docs/contract-only commercial readiness contract harmonization from latest origin/main in a clean fap-web worktree."
+        },
+        {
+          "at": "2026-06-04T09:24:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Defined Day 1 commercial readiness contract docs, generated contract artifact, and contract test; required local JSON/YAML, contract, typecheck, scope, and diff checks passed."
+        },
+        {
+          "at": "2026-06-04T09:31:00+08:00",
+          "status": "pr_open",
+          "summary": "Opened GitHub PR #1026 for COMMERCIAL-CONTRACTS-FOUNDATION-01 after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-06-04T09:39:00+08:00",
+          "status": "github_checks_retrying",
+          "summary": "Fixed GitHub contracts failure caused by shallow pull/merge checkout returning no changed files for the scope test; local targeted contract, full contract suite, and typecheck pass after the fix."
+        },
+        {
+          "at": "2026-06-04T09:45:00+08:00",
+          "status": "github_checks_retrying",
+          "summary": "Removed unreliable git show HEAD scope source after the second GitHub contracts run treated the shallow merge ref as a full-tree diff; local targeted contract, full contract suite, and typecheck pass."
+        },
+        {
+          "at": "2026-06-04T09:52:00+08:00",
+          "status": "github_checks_passed",
+          "summary": "GitHub checks passed for PR #1026 on head 29de9dc5f12f72cbc5042453fb7daaa3e89721a0."
         }
       ]
     },

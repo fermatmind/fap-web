@@ -510,6 +510,21 @@ const ANALYTICS_SEO_P0_05_ALLOWED_FILES = new Set([
   "tests/contracts/utm-continuity.contract.test.ts",
 ]);
 
+const COMMERCIAL_CONTRACTS_FOUNDATION_01_ALLOWED_FILES = new Set([
+  "docs/analytics/commercial-events-business-dictionary.md",
+  "docs/analytics/utm-channel-governance.md",
+  "docs/analytics/generated/commercial-readiness-contracts.v1.json",
+  "docs/operations/freemium-locale-policy-spec.md",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "tests/contracts/commercial-readiness-contracts.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
+export function isCommercialContractsFoundation01AllowedFile(file: string): boolean {
+  return COMMERCIAL_CONTRACTS_FOUNDATION_01_ALLOWED_FILES.has(file);
+}
+
 const ANALYTICS_SEO_P1_08_ALLOWED_FILES = new Set([
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -1327,6 +1342,10 @@ const CMS_OPS_IA_MAIN_SCOPE_REVALIDATE_FIX_ALLOWED_FILES = new Set([
 ]);
 
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH === "codex/commercial-contracts-foundation-01") {
+    return COMMERCIAL_CONTRACTS_FOUNDATION_01_ALLOWED_FILES.has(file);
+  }
+
   if (CURRENT_BRANCH === "codex/seo-issue-queue-02-reconcile-01") {
     return SEO_ISSUE_QUEUE_02_RECONCILE_ALLOWED_FILES.has(file);
   }
