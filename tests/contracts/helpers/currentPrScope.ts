@@ -1392,7 +1392,35 @@ const CMS_OPS_IA_MAIN_SCOPE_REVALIDATE_FIX_ALLOWED_FILES = new Set([
   "tests/contracts/seo-issue-queue.contract.test.ts",
 ]);
 
+const PRIVACY_HISTORY_ANALYTICS_BLOCK_01_ALLOWED_FILES = new Set([
+  "app/api/track/route.ts",
+  "docs/audits/privacy-history-analytics-block-01-2026-06-04.md",
+  "docs/codex/pr-train-state.json",
+  "docs/codex/pr-train.yaml",
+  "lib/tracking/attribution.ts",
+  "lib/tracking/client.ts",
+  "lib/tracking/events.ts",
+  "lib/tracking/privacy.ts",
+  "tests/contracts/analytics-payload-privacy.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
+const SECURITY_CODEQL_87_FILE_ACCESS_ALLOWED_FILES = new Set([
+  "scripts/seo/generate-competitor-url-inventory.mjs",
+  "tests/contracts/competitor-url-inventory-generator.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/seo-content-brief-generator.contract.test.ts",
+]);
+
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH === "codex/security-codeql-87-file-access") {
+    return SECURITY_CODEQL_87_FILE_ACCESS_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/privacy-history-analytics-block-01") {
+    return PRIVACY_HISTORY_ANALYTICS_BLOCK_01_ALLOWED_FILES.has(file);
+  }
+
   if (CURRENT_BRANCH === "codex/fix-commercial-readiness-contract-main-ci") {
     return CONTRACT_SCOPE_GUARD_MAIN_CI_FIX_ALLOWED_FILES.has(file);
   }

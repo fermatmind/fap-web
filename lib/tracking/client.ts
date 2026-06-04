@@ -9,7 +9,7 @@ import {
   normalizeTrackingEventName,
   type TrackingEventName,
 } from "@/lib/tracking/events";
-import { sanitizeTrackingUrl } from "@/lib/tracking/privacy";
+import { sanitizeAnalyticsTrackingUrl, shouldSuppressAnalyticsForUrl } from "@/lib/tracking/privacy";
 
 type AnalyticsWindow = Window & {
   dataLayer?: unknown[];
@@ -374,7 +374,8 @@ export async function trackClientEvent({
   if (!isTrackingEvent(eventName)) return;
 
   const normalizedEventName = normalizeTrackingEventName(eventName as TrackingEventName);
-  const safePath = sanitizeTrackingUrl(path) ?? "";
+  if (shouldSuppressAnalyticsForUrl(path)) return;
+  const safePath = sanitizeAnalyticsTrackingUrl(path) ?? "";
   const rawPayload = enrichStandardConversionPayload(
     normalizedEventName,
     enrichPayloadForSearchIntelligence(payload ?? {}, safePath)
@@ -423,7 +424,8 @@ export async function trackNetworkObservableFunnelEvent({
     return;
   }
 
-  const safePath = sanitizeTrackingUrl(path) ?? "";
+  if (shouldSuppressAnalyticsForUrl(path)) return;
+  const safePath = sanitizeAnalyticsTrackingUrl(path) ?? "";
   const rawPayload = enrichStandardConversionPayload(
     normalizedEventName,
     enrichPayloadForSearchIntelligence(payload ?? {}, safePath)
