@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-04T21:16:00+08:00",
+  "updated_at": "2026-06-05T00:07:00+08:00",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -19611,8 +19611,8 @@
         "COMMERCIAL-READINESS-CONTROL-TOWER-01"
       ],
       "title": "docs(help): inventory service help assets and gaps",
-      "status": "pr_open",
-      "commit_sha": "5734775b",
+      "status": "merged",
+      "commit_sha": "f5fe75024ecb4cb585eb1ffce4952eecd7dc2660",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1045",
       "checks": {
         "python3 -m json.tool docs/operations/generated/help-content-inventory.v1.json >/dev/null": "passed",
@@ -19626,12 +19626,16 @@
         "support article and guide inventory": "observed empty: public support articles/guides returned 0 items in both locales",
         "github contracts first run": "failed: scoped contract expected changedFiles() to be non-empty in CI clean checkout",
         "CI failure fix": "passed locally: scope contract now validates declared allowed files when CI diff is empty",
-        "pnpm test:contract after CI fix": "passed (444 files, 2528 tests)"
+        "pnpm test:contract after CI fix": "passed (444 files, 2528 tests)",
+        "github_checks": {
+          "status": "passed",
+          "summary": "CodeQL, analyze (javascript-typescript), build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze passed before merge."
+        }
       },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-04T16:04:12Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "events": [
         {
           "at": "2026-06-04T21:02:00+08:00",
@@ -19652,8 +19656,14 @@
           "at": "2026-06-04T21:16:00+08:00",
           "status": "ci_fix_pushed_pending_checks",
           "summary": "Fixed GitHub contracts failure introduced by the scope contract assuming non-empty local diff. The test now validates the declared allowed file list as well as any detected diff files, so CI clean checkouts are supported. Focused contract and full pnpm test:contract passed locally after the fix."
+        },
+        {
+          "at": "2026-06-05T00:07:00+08:00",
+          "status": "merged",
+          "summary": "PR #1045 was squash-merged at 0ce33fad7491f2f090186d02d868920e04329d73. Remote branch was deleted and scripts/post_merge_cleanup.sh codex/help-content-inventory-01 main completed from the main-owning local worktree."
         }
-      ]
+      ],
+      "merge_sha": "0ce33fad7491f2f090186d02d868920e04329d73"
     },
     {
       "id": "HELP-CMS-AUTHORITY-01",
