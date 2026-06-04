@@ -1,20 +1,19 @@
 # Commercial Events Business Dictionary
 
-Scope: `COMMERCIAL-CONTRACTS-FOUNDATION-01`
+Scope: `COMMERCIAL-CONTRACTS-FOUNDATION-01`, updated by `ANALYTICS-COMMERCIAL-EVENTS-01`
 
-Mode: contract and specification only. This document does not implement runtime tracking, create publishable copy, change CMS content, start paid ads, submit search URLs, mutate orders/payments, or deploy.
+Mode: runtime contract plus specification. This document records the commercial event alias bridge and safe payload mapping implemented in `fap-web`; it does not configure GA4/Baidu dashboards, create publishable copy, change CMS content, start paid ads, submit search URLs, mutate orders/payments, or deploy.
 
 ## 1. Audit Conclusion
 
-Status: revised.
+Status: runtime alias bridge implemented; paid ads remain NO-GO.
 
-The Day 1 commercial event draft is directionally accepted, but it cannot be treated as the current runtime contract. Current `fap-web` code still uses legacy and SEO-funnel event names such as `start_attempt`, `submit_attempt`, `click_unlock`, and `create_order`. The standard commercial event vocabulary below is the target contract for the next engineering PR, not evidence that every standard name is already emitted by runtime.
+The Day 1 commercial event contract is now represented in runtime by first-class standard event names plus a legacy alias bridge. Existing product call sites may continue emitting legacy names such as `start_attempt`, `submit_attempt`, `click_unlock`, and `create_order`; the tracking client and `/api/track` normalize those to dashboard-readable standard names before filtering and transport.
 
 Current paid ads decision: NO-GO.
 
 Primary reasons:
 
-- Standard commercial event names are not fully first-class in runtime.
 - Live private URL analytics review remains incomplete.
 - Freemium locale policy is not backend-authoritative.
 - DailyGiving proof/readiness gate is not passed.
@@ -65,17 +64,24 @@ Current registry facts:
 
 | Existing event or layer | Current status | Contract interpretation |
 | --- | --- | --- |
-| `view_landing` | present | Legacy landing view event. |
-| `landing_view` | present | Big Five landing event mapped to GA4 `page_view`. |
+| `landing_pv` | present | Standard landing page view event; legacy views normalize here. |
+| `view_landing` | present | Legacy landing view event; normalizes to `landing_pv`. |
+| `landing_view` | present | Big Five landing event; normalizes to `landing_pv`. |
 | `article_to_test_click` | present | Accepted as the standard article CTA intent event. |
-| `start_attempt` | present | Legacy/current runtime start event; maps to standard `start_test`. |
-| `submit_attempt` | present | Legacy/current runtime completion event; maps to standard `complete_test`. |
+| `start_test` | present | Standard test start event. |
+| `start_attempt` | present | Legacy/current runtime start event; normalizes to `start_test`. |
+| `complete_test` | present | Standard test completion event. |
+| `submit_attempt` | present | Legacy/current runtime completion event; normalizes to `complete_test`. |
 | `view_result` | present | Accepted as the standard result view event. |
-| `click_unlock` | present | Legacy/current deep-report or checkout-intent click; maps to standard `click_deep_report`. |
-| `create_order` | present | Legacy/current order creation event; maps to standard `begin_checkout`. |
+| `click_deep_report` | present | Standard deep report intent event. |
+| `click_unlock` | present | Legacy/current deep-report or checkout-intent click; normalizes to `click_deep_report`. |
+| `begin_checkout` | present | Standard checkout begin event. |
+| `create_order` | present | Legacy/current order creation event; normalizes to `begin_checkout`. |
 | `purchase_success` | present | Analytics mirror only; backend remains purchase truth. |
-| `unlock_success` | present | Runtime-adjacent unlock event; maps to standard `report_unlock` only when backend entitlement truth is available. |
-| `report_ready` | not first-class in frontend commercial runtime | Must remain backend/Ops or read-model truth until implemented. |
+| `report_unlock` | present | Standard unlock signal; backend entitlement truth remains authoritative. |
+| `unlock_success` | present | Runtime-adjacent unlock event; normalizes to `report_unlock`. |
+| `report_ready` | present as standard event name and safe mapping | Must remain backend/Ops or read-model truth until a source-backed bridge is approved. |
+| `private_url_seen` | present as safety event name | P0 safety anomaly / ops review signal, not a growth conversion. |
 
 ## 4. Standard Event Definitions
 
@@ -95,7 +101,7 @@ Current registry facts:
 
 ## 5. Legacy Alias Mapping
 
-The next engineering PR must preserve compatibility. Existing events should not be deleted without a migration window.
+The runtime preserves compatibility. Existing events should not be deleted without a migration window.
 
 | Legacy/current event | Standard event | Contract rule |
 | --- | --- | --- |
@@ -199,13 +205,13 @@ The following must not be sent to analytics, generated artifacts, issue queues, 
 
 | Metric | Standard event | Current runtime evidence | Display when missing | Purchase truth? |
 | --- | --- | --- | --- | --- |
-| landing page views | `landing_pv` | `view_landing`, `landing_view`, GA4 `page_view` | Unknown | No |
+| landing page views | `landing_pv` | first-class standard event plus `view_landing`, `landing_view`, GA4 `page_view` aliases | Unknown | No |
 | article CTA clicks | `article_to_test_click` | `article_to_test_click` | Unknown | No |
-| test starts | `start_test` | `start_attempt` alias required | Unknown | No |
-| test completions | `complete_test` | `submit_attempt` alias required | Unknown | No |
+| test starts | `start_test` | first-class standard event plus `start_attempt` alias | Unknown | No |
+| test completions | `complete_test` | first-class standard event plus `submit_attempt` alias | Unknown | No |
 | result views | `view_result` | `view_result` | Unknown | No |
-| deep report clicks | `click_deep_report` | `click_unlock` alias required | Unknown | No |
-| checkout begins | `begin_checkout` | `create_order` alias required | Unknown | No |
+| deep report clicks | `click_deep_report` | first-class standard event plus `click_unlock` alias | Unknown | No |
+| checkout begins | `begin_checkout` | first-class standard event plus `create_order` / `checkout_start` aliases | Unknown | No |
 | purchases | `purchase_success` | analytics mirror exists, backend truth required | Unknown | Yes, backend only |
 | report unlocks | `report_unlock` | backend entitlement truth required | Unknown | Backend entitlement |
 | report ready | `report_ready` | backend/read-model truth required | Unknown | Backend/read-model |
@@ -256,20 +262,20 @@ Paid ads remain forbidden until all are true:
 | `draft_noindex_url_in_sitemap_or_submission` | P0 | sitemap, llms, search submission logs | Stop search submission. | SEO/Ops | sitemap/search repair |
 | `non_canonical_url_submitted` | P0 | GSC, Baidu, IndexNow, Search Channel logs | Stop search submission. | SEO/Ops | search submission repair |
 
-## 12. Engineering Input For `ANALYTICS-COMMERCIAL-EVENTS-01`
+## 12. Runtime Implementation Notes For `ANALYTICS-COMMERCIAL-EVENTS-01`
 
-Proposed PR:
+Implemented PR:
 
 - PR id: `ANALYTICS-COMMERCIAL-EVENTS-01`
 - Repo: `fap-web`
 - Branch: `codex/analytics-commercial-events-01`
-- PR title: `fix(analytics): align commercial event taxonomy`
+- PR title: `feat(analytics): standardize commercial funnel event aliases`
 
 Goal:
 
-Standardize commercial funnel event names, legacy aliases, payload whitelist, dashboard-readable fields, and stop conditions. Do not change payment provider behavior, CMS content, publish/search state, paid ads, or DailyGiving public amplification.
+Standardize commercial funnel event names, legacy aliases, payload whitelist, dashboard-readable fields, and stop conditions. This PR does not change payment provider behavior, CMS content, publish/search state, paid ads, or DailyGiving public amplification.
 
-Likely allowed paths:
+Touched runtime contract paths:
 
 - `lib/tracking/events.ts`
 - `lib/tracking/client.ts`
@@ -283,7 +289,7 @@ Likely allowed paths:
 - `docs/codex/pr-train.yaml`
 - `docs/codex/pr-train-state.json`
 
-Required tests:
+Contract tests cover:
 
 - standard event registry exists
 - legacy alias bridge is stable
@@ -301,3 +307,4 @@ Deferred:
 - No CMS/content changes
 - No search submission
 - No paid ads launch
+- No claim that live `private_url_seen` review is complete

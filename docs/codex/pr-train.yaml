@@ -12282,12 +12282,12 @@ prs:
     repo: fap-web
     branch: codex/analytics-commercial-events-01
     base: main
-    title: "fix(analytics): align commercial event taxonomy"
+    title: "feat(analytics): standardize commercial funnel event aliases"
     depends_on:
       - ANALYTICS-COMMERCIAL-EVENTS-SCAN-01
     mode: placeholder
     train_scope: commercial_readiness_follow_up
-    status: planned
+    status: in_progress
   - id: UTM-CHANNEL-GOVERNANCE-01
     repo: fap-web
     branch: codex/utm-channel-governance-01

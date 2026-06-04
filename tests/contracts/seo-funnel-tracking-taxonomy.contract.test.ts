@@ -36,32 +36,35 @@ afterEach(() => {
 describe("SEO funnel tracking taxonomy parity", () => {
   it("declares the canonical funnel event list used for SEO growth reporting", () => {
     expect(CANONICAL_SEO_FUNNEL_EVENTS).toEqual([
-      "start_attempt",
-      "submit_attempt",
+      "start_test",
+      "complete_test",
       "view_result",
-      "click_unlock",
-      "create_order",
-      "payment_confirmed",
+      "click_deep_report",
+      "begin_checkout",
       "purchase_success",
     ]);
   });
 
   it("keeps legacy scale events as aliases rather than primary funnel events", () => {
     expect(SEO_FUNNEL_EVENT_ALIAS_MAP).toMatchObject({
-      start_click: "start_attempt",
-      clinical_start: "start_attempt",
-      submit_click: "submit_attempt",
-      clinical_submit: "submit_attempt",
+      start_attempt: "start_test",
+      start_click: "start_test",
+      clinical_start: "start_test",
+      submit_attempt: "complete_test",
+      submit_click: "complete_test",
+      clinical_submit: "complete_test",
       report_view_free: "view_result",
       clinical_report_view: "view_result",
       riasec_result_view: "view_result",
-      checkout_start: "create_order",
-      clinical_checkout_start: "create_order",
+      click_unlock: "click_deep_report",
+      create_order: "begin_checkout",
+      checkout_start: "begin_checkout",
+      clinical_checkout_start: "begin_checkout",
       pay_success: "purchase_success",
     });
 
-    expect(normalizeTrackingEventName(TRACKING_EVENTS.START_CLICK)).toBe(TRACKING_EVENTS.START_ATTEMPT);
-    expect(normalizeTrackingEventName(TRACKING_EVENTS.SUBMIT_CLICK)).toBe(TRACKING_EVENTS.SUBMIT_ATTEMPT);
+    expect(normalizeTrackingEventName(TRACKING_EVENTS.START_CLICK)).toBe(TRACKING_EVENTS.START_TEST);
+    expect(normalizeTrackingEventName(TRACKING_EVENTS.SUBMIT_CLICK)).toBe(TRACKING_EVENTS.COMPLETE_TEST);
     expect(normalizeTrackingEventName(TRACKING_EVENTS.PAY_SUCCESS)).toBe(TRACKING_EVENTS.PURCHASE_SUCCESS);
   });
 
@@ -99,7 +102,7 @@ describe("SEO funnel tracking taxonomy parity", () => {
     });
 
     expect(gtagMock).toHaveBeenCalledWith("event", "test_start", expect.any(Object));
-    expect(gtagMock).toHaveBeenCalledWith("event", "test_submit", expect.any(Object));
+    expect(gtagMock).toHaveBeenCalledWith("event", "test_complete", expect.any(Object));
 
     const startBody = JSON.parse(String(fetchMock.mock.calls[0]?.[1]?.body ?? "{}")) as {
       eventName?: string;
@@ -110,14 +113,14 @@ describe("SEO funnel tracking taxonomy parity", () => {
       payload?: Record<string, unknown>;
     };
 
-    expect(startBody.eventName).toBe("start_attempt");
-    expect(submitBody.eventName).toBe("submit_attempt");
+    expect(startBody.eventName).toBe("start_test");
+    expect(submitBody.eventName).toBe("complete_test");
     expect(submitBody.payload).toMatchObject({
-      attempt_id: "attemp...3456",
       answered_count: 60,
       duration_ms: 121000,
       locale: "en",
     });
+    expect(submitBody.payload).not.toHaveProperty("attempt_id");
     expect(JSON.stringify([startBody, submitBody])).not.toContain("person@example.com");
   });
 
@@ -171,9 +174,9 @@ describe("SEO funnel tracking taxonomy parity", () => {
       payload?: Record<string, unknown>;
     };
     expect(paySuccessBody.eventName).toBe("purchase_success");
-    expect(paySuccessBody.payload?.order_no).toBe("ord_pu...as_1");
-    expect(paySuccessBody.payload?.order_id).toBe("ord_pu...id_1");
-    expect(paySuccessBody.payload?.transaction_id).toBe("ord_pu...on_1");
+    expect(paySuccessBody.payload).not.toHaveProperty("order_no");
+    expect(paySuccessBody.payload).not.toHaveProperty("order_id");
+    expect(paySuccessBody.payload).not.toHaveProperty("transaction_id");
     expect(JSON.stringify(paySuccessBody)).not.toContain("person@example.com");
     expect(JSON.stringify(paySuccessBody)).not.toContain("ord_purchase_alias_1");
     expect(JSON.stringify(paySuccessBody)).not.toContain("ord_purchase_order_id_1");

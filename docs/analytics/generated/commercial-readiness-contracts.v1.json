@@ -22,8 +22,12 @@
     {
       "name": "landing_pv",
       "category": "traffic_observation",
-      "current_runtime_status": "alias_required",
-      "current_runtime_events": ["view_landing", "landing_view"],
+      "current_runtime_status": "standard_alias_bridge_present",
+      "current_runtime_events": [
+        "landing_pv",
+        "view_landing",
+        "landing_view"
+      ],
       "truth_source": "analytics_observation",
       "dashboard_missing_value": "Unknown",
       "purchase_truth": false
@@ -32,7 +36,9 @@
       "name": "article_to_test_click",
       "category": "content_intent",
       "current_runtime_status": "present",
-      "current_runtime_events": ["article_to_test_click"],
+      "current_runtime_events": [
+        "article_to_test_click"
+      ],
       "truth_source": "first_party_observation",
       "dashboard_missing_value": "Unknown",
       "purchase_truth": false
@@ -40,8 +46,11 @@
     {
       "name": "start_test",
       "category": "assessment_funnel",
-      "current_runtime_status": "alias_required",
-      "current_runtime_events": ["start_attempt"],
+      "current_runtime_status": "standard_alias_bridge_present",
+      "current_runtime_events": [
+        "start_test",
+        "start_attempt"
+      ],
       "truth_source": "first_party_or_backend_attempt",
       "dashboard_missing_value": "Unknown",
       "purchase_truth": false
@@ -49,8 +58,11 @@
     {
       "name": "complete_test",
       "category": "assessment_funnel",
-      "current_runtime_status": "alias_required",
-      "current_runtime_events": ["submit_attempt"],
+      "current_runtime_status": "standard_alias_bridge_present",
+      "current_runtime_events": [
+        "complete_test",
+        "submit_attempt"
+      ],
       "truth_source": "first_party_or_backend_attempt",
       "dashboard_missing_value": "Unknown",
       "purchase_truth": false
@@ -59,7 +71,9 @@
       "name": "view_result",
       "category": "result_funnel",
       "current_runtime_status": "present",
-      "current_runtime_events": ["view_result"],
+      "current_runtime_events": [
+        "view_result"
+      ],
       "truth_source": "first_party_observation",
       "dashboard_missing_value": "Unknown",
       "purchase_truth": false
@@ -67,8 +81,11 @@
     {
       "name": "click_deep_report",
       "category": "commercial_intent",
-      "current_runtime_status": "alias_required",
-      "current_runtime_events": ["click_unlock"],
+      "current_runtime_status": "standard_alias_bridge_present",
+      "current_runtime_events": [
+        "click_deep_report",
+        "click_unlock"
+      ],
       "truth_source": "first_party_observation",
       "dashboard_missing_value": "Unknown",
       "purchase_truth": false
@@ -76,8 +93,12 @@
     {
       "name": "begin_checkout",
       "category": "checkout_funnel",
-      "current_runtime_status": "alias_required",
-      "current_runtime_events": ["create_order", "checkout_start"],
+      "current_runtime_status": "standard_alias_bridge_present",
+      "current_runtime_events": [
+        "begin_checkout",
+        "create_order",
+        "checkout_start"
+      ],
       "truth_source": "backend_order_plus_first_party_observation",
       "dashboard_missing_value": "Unknown",
       "purchase_truth": false
@@ -86,7 +107,10 @@
       "name": "purchase_success",
       "category": "payment_funnel",
       "current_runtime_status": "present_as_analytics_mirror",
-      "current_runtime_events": ["purchase_success", "pay_success"],
+      "current_runtime_events": [
+        "purchase_success",
+        "pay_success"
+      ],
       "truth_source": "backend_orders_payment",
       "dashboard_missing_value": "Unknown",
       "purchase_truth": true
@@ -94,8 +118,11 @@
     {
       "name": "report_unlock",
       "category": "fulfillment",
-      "current_runtime_status": "backend_truth_required",
-      "current_runtime_events": ["unlock_success"],
+      "current_runtime_status": "standard_alias_bridge_present_backend_truth_required",
+      "current_runtime_events": [
+        "report_unlock",
+        "unlock_success"
+      ],
       "truth_source": "backend_entitlement",
       "dashboard_missing_value": "Unknown",
       "purchase_truth": false
@@ -103,8 +130,11 @@
     {
       "name": "report_ready",
       "category": "fulfillment",
-      "current_runtime_status": "backend_or_read_model_truth_required",
-      "current_runtime_events": ["report_loaded"],
+      "current_runtime_status": "standard_name_present_backend_or_read_model_truth_required",
+      "current_runtime_events": [
+        "report_ready",
+        "report_loaded"
+      ],
       "truth_source": "backend_report_read_model",
       "dashboard_missing_value": "Unknown",
       "purchase_truth": false
@@ -112,8 +142,10 @@
     {
       "name": "private_url_seen",
       "category": "safety",
-      "current_runtime_status": "operational_review_required",
-      "current_runtime_events": [],
+      "current_runtime_status": "safety_signal_supported_operational_review_required",
+      "current_runtime_events": [
+        "private_url_seen"
+      ],
       "truth_source": "ga4_baidu_logs_sitemap_llms_issue_queue_review",
       "dashboard_missing_value": "Unknown",
       "purchase_truth": false,
@@ -121,19 +153,71 @@
     }
   ],
   "legacy_aliases": [
-    { "legacy": "view_landing", "standard": "landing_pv", "status": "compatibility" },
-    { "legacy": "landing_view", "standard": "landing_pv", "status": "compatibility" },
-    { "legacy": "start_attempt", "standard": "start_test", "status": "required" },
-    { "legacy": "start_click", "standard": "start_test", "status": "compatibility" },
-    { "legacy": "submit_attempt", "standard": "complete_test", "status": "required" },
-    { "legacy": "submit_click", "standard": "complete_test", "status": "compatibility" },
-    { "legacy": "click_unlock", "standard": "click_deep_report", "status": "required" },
-    { "legacy": "create_order", "standard": "begin_checkout", "status": "required" },
-    { "legacy": "checkout_start", "standard": "begin_checkout", "status": "compatibility" },
-    { "legacy": "purchase", "standard": "purchase_success", "status": "required" },
-    { "legacy": "pay_success", "standard": "purchase_success", "status": "compatibility" },
-    { "legacy": "unlock_success", "standard": "report_unlock", "status": "compatibility" },
-    { "legacy": "report_loaded", "standard": "report_ready", "status": "proposed" }
+    {
+      "legacy": "view_landing",
+      "standard": "landing_pv",
+      "status": "compatibility"
+    },
+    {
+      "legacy": "landing_view",
+      "standard": "landing_pv",
+      "status": "compatibility"
+    },
+    {
+      "legacy": "start_attempt",
+      "standard": "start_test",
+      "status": "required"
+    },
+    {
+      "legacy": "start_click",
+      "standard": "start_test",
+      "status": "compatibility"
+    },
+    {
+      "legacy": "submit_attempt",
+      "standard": "complete_test",
+      "status": "required"
+    },
+    {
+      "legacy": "submit_click",
+      "standard": "complete_test",
+      "status": "compatibility"
+    },
+    {
+      "legacy": "click_unlock",
+      "standard": "click_deep_report",
+      "status": "required"
+    },
+    {
+      "legacy": "create_order",
+      "standard": "begin_checkout",
+      "status": "required"
+    },
+    {
+      "legacy": "checkout_start",
+      "standard": "begin_checkout",
+      "status": "compatibility"
+    },
+    {
+      "legacy": "purchase",
+      "standard": "purchase_success",
+      "status": "required"
+    },
+    {
+      "legacy": "pay_success",
+      "standard": "purchase_success",
+      "status": "compatibility"
+    },
+    {
+      "legacy": "unlock_success",
+      "standard": "report_unlock",
+      "status": "compatibility"
+    },
+    {
+      "legacy": "report_loaded",
+      "standard": "report_ready",
+      "status": "proposed"
+    }
   ],
   "payload_allowlist": [
     "event_name",
@@ -203,24 +287,114 @@
     "session_id"
   ],
   "utm_channels": [
-    { "channel": "google_organic", "source": "google", "default_medium": "organic", "paid": false },
-    { "channel": "google_ads", "source": "google_ads", "default_medium": "paid_search", "paid": true },
-    { "channel": "baidu_organic", "source": "baidu", "default_medium": "organic", "paid": false },
-    { "channel": "baidu_ads", "source": "baidu_ads", "default_medium": "paid_search", "paid": true },
-    { "channel": "wechat", "source": "wechat", "default_medium": "social", "paid": false },
-    { "channel": "xiaohongshu", "source": "xiaohongshu", "default_medium": "social", "paid": false },
-    { "channel": "douyin", "source": "douyin", "default_medium": "short_video", "paid": false },
-    { "channel": "bilibili", "source": "bilibili", "default_medium": "video", "paid": false },
-    { "channel": "zhihu", "source": "zhihu", "default_medium": "answer", "paid": false },
-    { "channel": "facebook", "source": "facebook", "default_medium": "social", "paid": false },
-    { "channel": "x", "source": "x", "default_medium": "social", "paid": false },
-    { "channel": "linkedin", "source": "linkedin", "default_medium": "social", "paid": false },
-    { "channel": "medium", "source": "medium", "default_medium": "article", "paid": false },
-    { "channel": "youtube_shorts", "source": "youtube_shorts", "default_medium": "short_video", "paid": false },
-    { "channel": "tiktok", "source": "tiktok", "default_medium": "short_video", "paid": false },
-    { "channel": "reddit", "source": "reddit", "default_medium": "community", "paid": false },
-    { "channel": "direct_manual", "source": "direct_manual", "default_medium": "manual", "paid": false },
-    { "channel": "internal_test", "source": "internal_test", "default_medium": "manual", "paid": false }
+    {
+      "channel": "google_organic",
+      "source": "google",
+      "default_medium": "organic",
+      "paid": false
+    },
+    {
+      "channel": "google_ads",
+      "source": "google_ads",
+      "default_medium": "paid_search",
+      "paid": true
+    },
+    {
+      "channel": "baidu_organic",
+      "source": "baidu",
+      "default_medium": "organic",
+      "paid": false
+    },
+    {
+      "channel": "baidu_ads",
+      "source": "baidu_ads",
+      "default_medium": "paid_search",
+      "paid": true
+    },
+    {
+      "channel": "wechat",
+      "source": "wechat",
+      "default_medium": "social",
+      "paid": false
+    },
+    {
+      "channel": "xiaohongshu",
+      "source": "xiaohongshu",
+      "default_medium": "social",
+      "paid": false
+    },
+    {
+      "channel": "douyin",
+      "source": "douyin",
+      "default_medium": "short_video",
+      "paid": false
+    },
+    {
+      "channel": "bilibili",
+      "source": "bilibili",
+      "default_medium": "video",
+      "paid": false
+    },
+    {
+      "channel": "zhihu",
+      "source": "zhihu",
+      "default_medium": "answer",
+      "paid": false
+    },
+    {
+      "channel": "facebook",
+      "source": "facebook",
+      "default_medium": "social",
+      "paid": false
+    },
+    {
+      "channel": "x",
+      "source": "x",
+      "default_medium": "social",
+      "paid": false
+    },
+    {
+      "channel": "linkedin",
+      "source": "linkedin",
+      "default_medium": "social",
+      "paid": false
+    },
+    {
+      "channel": "medium",
+      "source": "medium",
+      "default_medium": "article",
+      "paid": false
+    },
+    {
+      "channel": "youtube_shorts",
+      "source": "youtube_shorts",
+      "default_medium": "short_video",
+      "paid": false
+    },
+    {
+      "channel": "tiktok",
+      "source": "tiktok",
+      "default_medium": "short_video",
+      "paid": false
+    },
+    {
+      "channel": "reddit",
+      "source": "reddit",
+      "default_medium": "community",
+      "paid": false
+    },
+    {
+      "channel": "direct_manual",
+      "source": "direct_manual",
+      "default_medium": "manual",
+      "paid": false
+    },
+    {
+      "channel": "internal_test",
+      "source": "internal_test",
+      "default_medium": "manual",
+      "paid": false
+    }
   ],
   "utm_mediums": [
     "organic",
@@ -248,23 +422,85 @@
     "direct_unassigned_success_inference_allowed": false
   },
   "dashboard_metrics": [
-    { "metric": "landing_pv", "layer": "traffic_observation", "source": "ga4_baidu_first_party", "missing_value": "Unknown" },
-    { "metric": "article_to_test_click", "layer": "funnel_observation", "source": "first_party_ga4", "missing_value": "Unknown" },
-    { "metric": "start_test", "layer": "funnel_observation", "source": "first_party", "missing_value": "Unknown" },
-    { "metric": "complete_test", "layer": "funnel_observation", "source": "first_party", "missing_value": "Unknown" },
-    { "metric": "view_result", "layer": "funnel_observation", "source": "first_party_ga4", "missing_value": "Unknown" },
-    { "metric": "click_deep_report", "layer": "funnel_observation", "source": "first_party", "missing_value": "Unknown" },
-    { "metric": "begin_checkout", "layer": "funnel_observation", "source": "backend_first_party", "missing_value": "Unknown" },
-    { "metric": "purchase_success", "layer": "payment_truth", "source": "backend_orders_payment", "missing_value": "Unknown" },
-    { "metric": "report_unlock", "layer": "payment_truth", "source": "backend_entitlement", "missing_value": "Unknown" },
-    { "metric": "report_ready", "layer": "fulfillment_truth", "source": "backend_report_read_model", "missing_value": "Unknown" },
-    { "metric": "private_url_seen", "layer": "safety", "source": "ga4_baidu_logs_search_surfaces", "missing_value": "Unknown" }
+    {
+      "metric": "landing_pv",
+      "layer": "traffic_observation",
+      "source": "ga4_baidu_first_party",
+      "missing_value": "Unknown"
+    },
+    {
+      "metric": "article_to_test_click",
+      "layer": "funnel_observation",
+      "source": "first_party_ga4",
+      "missing_value": "Unknown"
+    },
+    {
+      "metric": "start_test",
+      "layer": "funnel_observation",
+      "source": "first_party",
+      "missing_value": "Unknown"
+    },
+    {
+      "metric": "complete_test",
+      "layer": "funnel_observation",
+      "source": "first_party",
+      "missing_value": "Unknown"
+    },
+    {
+      "metric": "view_result",
+      "layer": "funnel_observation",
+      "source": "first_party_ga4",
+      "missing_value": "Unknown"
+    },
+    {
+      "metric": "click_deep_report",
+      "layer": "funnel_observation",
+      "source": "first_party",
+      "missing_value": "Unknown"
+    },
+    {
+      "metric": "begin_checkout",
+      "layer": "funnel_observation",
+      "source": "backend_first_party",
+      "missing_value": "Unknown"
+    },
+    {
+      "metric": "purchase_success",
+      "layer": "payment_truth",
+      "source": "backend_orders_payment",
+      "missing_value": "Unknown"
+    },
+    {
+      "metric": "report_unlock",
+      "layer": "payment_truth",
+      "source": "backend_entitlement",
+      "missing_value": "Unknown"
+    },
+    {
+      "metric": "report_ready",
+      "layer": "fulfillment_truth",
+      "source": "backend_report_read_model",
+      "missing_value": "Unknown"
+    },
+    {
+      "metric": "private_url_seen",
+      "layer": "safety",
+      "source": "ga4_baidu_logs_search_surfaces",
+      "missing_value": "Unknown"
+    }
   ],
   "stop_conditions": [
     {
       "condition_id": "private_url_seen_yes",
       "severity": "P0",
-      "detection_source": ["GA4", "Baidu Tongji", "logs", "sitemap", "llms", "issue_queue"],
+      "detection_source": [
+        "GA4",
+        "Baidu Tongji",
+        "logs",
+        "sitemap",
+        "llms",
+        "issue_queue"
+      ],
       "stop_action": "stop_paid_ads_search_submission_publish_expansion_and_distribution",
       "owner": "privacy_ops",
       "follow_up_pr_type": "privacy_repair"
@@ -272,7 +508,11 @@
     {
       "condition_id": "raw_order_id_in_analytics",
       "severity": "P0",
-      "detection_source": ["analytics_payload", "page_location", "logs"],
+      "detection_source": [
+        "analytics_payload",
+        "page_location",
+        "logs"
+      ],
       "stop_action": "stop_paid_ads_and_repair_tracking_redaction",
       "owner": "analytics_ops",
       "follow_up_pr_type": "privacy_repair"
@@ -280,7 +520,11 @@
     {
       "condition_id": "raw_result_or_attempt_id_in_analytics",
       "severity": "P0",
-      "detection_source": ["analytics_payload", "page_location", "logs"],
+      "detection_source": [
+        "analytics_payload",
+        "page_location",
+        "logs"
+      ],
       "stop_action": "stop_paid_ads_and_repair_tracking_redaction",
       "owner": "analytics_ops",
       "follow_up_pr_type": "privacy_repair"
@@ -288,7 +532,11 @@
     {
       "condition_id": "purchase_success_duplicate",
       "severity": "P0",
-      "detection_source": ["backend_orders", "payment_logs", "analytics_mirror"],
+      "detection_source": [
+        "backend_orders",
+        "payment_logs",
+        "analytics_mirror"
+      ],
       "stop_action": "stop_purchase_optimization_until_dedupe_is_proven",
       "owner": "commerce_ops",
       "follow_up_pr_type": "checkout_unlock_smoke"
@@ -296,7 +544,10 @@
     {
       "condition_id": "locale_mismatch_en_sees_chinese_paywall",
       "severity": "P0",
-      "detection_source": ["locale_qa", "backend_policy_smoke"],
+      "detection_source": [
+        "locale_qa",
+        "backend_policy_smoke"
+      ],
       "stop_action": "stop_english_distribution_and_paid_ads",
       "owner": "commerce_ops",
       "follow_up_pr_type": "freemium_policy"
@@ -304,7 +555,10 @@
     {
       "condition_id": "locale_mismatch_zh_payment_cannot_unlock",
       "severity": "P0",
-      "detection_source": ["checkout_smoke", "entitlement_smoke"],
+      "detection_source": [
+        "checkout_smoke",
+        "entitlement_smoke"
+      ],
       "stop_action": "stop_checkout_promotion",
       "owner": "commerce_ops",
       "follow_up_pr_type": "checkout_unlock_smoke"
@@ -312,7 +566,12 @@
     {
       "condition_id": "dailygiving_proof_leak",
       "severity": "P0",
-      "detection_source": ["DailyGiving API", "storage_audit", "public_page", "logs"],
+      "detection_source": [
+        "DailyGiving API",
+        "storage_audit",
+        "public_page",
+        "logs"
+      ],
       "stop_action": "stop_public_benefit_amplification_and_trust_badges",
       "owner": "benefit_ops",
       "follow_up_pr_type": "daily_giving_readiness"
@@ -320,7 +579,10 @@
     {
       "condition_id": "dailygiving_unsupported_public_claim",
       "severity": "P0",
-      "detection_source": ["claim_scan", "public_copy_review"],
+      "detection_source": [
+        "claim_scan",
+        "public_copy_review"
+      ],
       "stop_action": "stop_public_benefit_amplification",
       "owner": "benefit_ops",
       "follow_up_pr_type": "claim_boundary"
@@ -328,7 +590,10 @@
     {
       "condition_id": "forbidden_claim_words",
       "severity": "P0",
-      "detection_source": ["claim_scan", "ads_material_review"],
+      "detection_source": [
+        "claim_scan",
+        "ads_material_review"
+      ],
       "stop_action": "stop_material_release",
       "owner": "claims_ops",
       "follow_up_pr_type": "claim_boundary"
@@ -336,7 +601,10 @@
     {
       "condition_id": "unknown_treated_as_zero",
       "severity": "P0",
-      "detection_source": ["dashboard_qa", "report_review"],
+      "detection_source": [
+        "dashboard_qa",
+        "report_review"
+      ],
       "stop_action": "stop_commercial_interpretation",
       "owner": "analytics_ops",
       "follow_up_pr_type": "dashboard_contract"
@@ -344,7 +612,9 @@
     {
       "condition_id": "search_channel_unsafe_queue",
       "severity": "P0",
-      "detection_source": ["search_channel_queue_audit"],
+      "detection_source": [
+        "search_channel_queue_audit"
+      ],
       "stop_action": "stop_automatic_search_submission",
       "owner": "seo_ops",
       "follow_up_pr_type": "search_channel_repair"
@@ -352,7 +622,11 @@
     {
       "condition_id": "draft_noindex_url_in_sitemap_or_submission",
       "severity": "P0",
-      "detection_source": ["sitemap", "llms", "search_submission_logs"],
+      "detection_source": [
+        "sitemap",
+        "llms",
+        "search_submission_logs"
+      ],
       "stop_action": "stop_search_submission",
       "owner": "seo_ops",
       "follow_up_pr_type": "sitemap_search_repair"
@@ -360,7 +634,12 @@
     {
       "condition_id": "non_canonical_url_submitted",
       "severity": "P0",
-      "detection_source": ["GSC", "Baidu", "IndexNow", "Search Channel logs"],
+      "detection_source": [
+        "GSC",
+        "Baidu",
+        "IndexNow",
+        "Search Channel logs"
+      ],
       "stop_action": "stop_search_submission",
       "owner": "seo_ops",
       "follow_up_pr_type": "search_submission_repair"
@@ -422,8 +701,8 @@
     "id": "ANALYTICS-COMMERCIAL-EVENTS-01",
     "repo": "fap-web",
     "branch": "codex/analytics-commercial-events-01",
-    "title": "fix(analytics): align commercial event taxonomy",
-    "status": "ready_after_contract_merge",
+    "title": "feat(analytics): standardize commercial funnel event aliases",
+    "status": "implemented_by_runtime_alias_bridge",
     "must_not_change": [
       "payment_provider_behavior",
       "cms_content",

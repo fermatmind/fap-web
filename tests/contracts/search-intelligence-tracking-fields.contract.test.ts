@@ -178,14 +178,13 @@ describe("Search Intelligence tracking transport fields", () => {
     });
   });
 
-  it("keeps funnel taxonomy and purchase conversion semantics unchanged", () => {
+  it("keeps funnel taxonomy standardized while preserving purchase conversion semantics", () => {
     expect(CANONICAL_SEO_FUNNEL_EVENTS).toEqual([
-      "start_attempt",
-      "submit_attempt",
+      "start_test",
+      "complete_test",
       "view_result",
-      "click_unlock",
-      "create_order",
-      "payment_confirmed",
+      "click_deep_report",
+      "begin_checkout",
       "purchase_success",
     ]);
     expect(SEO_FUNNEL_EVENT_ALIAS_MAP.pay_success).toBe("purchase_success");

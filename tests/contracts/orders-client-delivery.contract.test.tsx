@@ -314,7 +314,7 @@ describe("OrdersClient delivery contract", () => {
       expect.objectContaining({
         form_code: "big5_90",
         orderNoMasked: "ord_bi...ry_1",
-        transaction_id: "ord_bi...ry_1",
+        transaction_id_hash: "ord_bi...ry_1",
       })
     );
   });

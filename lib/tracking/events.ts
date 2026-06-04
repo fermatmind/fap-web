@@ -10,14 +10,25 @@ import {
 } from "@/lib/tracking/privacy";
 
 export const TRACKING_EVENTS = {
+  // Standard commercial funnel events (COMMERCIAL-CONTRACTS-FOUNDATION-01)
+  LANDING_PV: "landing_pv",
+  ARTICLE_TO_TEST_CLICK: "article_to_test_click",
+  START_TEST: "start_test",
+  COMPLETE_TEST: "complete_test",
+  VIEW_RESULT: "view_result",
+  CLICK_DEEP_REPORT: "click_deep_report",
+  BEGIN_CHECKOUT: "begin_checkout",
+  PURCHASE_SUCCESS: "purchase_success",
+  REPORT_UNLOCK: "report_unlock",
+  REPORT_READY: "report_ready",
+  PRIVATE_URL_SEEN: "private_url_seen",
+
   // Legacy events (keep for backward compatibility)
   VIEW_LANDING: "view_landing",
   VIEW_TEST: "view_test",
   VIEW_TEST_LANDING: "view_test_landing",
-  ARTICLE_TO_TEST_CLICK: "article_to_test_click",
   START_ATTEMPT: "start_attempt",
   SUBMIT_ATTEMPT: "submit_attempt",
-  VIEW_RESULT: "view_result",
   REVISIT_RESULT: "revisit_result",
   SHARE_RESULT: "share_result",
   ACCURACY_FEEDBACK: "accuracy_feedback",
@@ -27,7 +38,7 @@ export const TRACKING_EVENTS = {
   PAYMENT_CONFIRMED: "payment_confirmed",
   PAYMENT_FAILED: "payment_failed",
   ABANDONED_PAYWALL: "abandoned_paywall",
-  PURCHASE_SUCCESS: "purchase_success",
+  PURCHASE: "purchase",
 
   // BIG5 funnel events
   LANDING_VIEW: "landing_view",
@@ -39,6 +50,7 @@ export const TRACKING_EVENTS = {
   CHECKOUT_START: "checkout_start",
   PAY_SUCCESS: "pay_success",
   UNLOCK_SUCCESS: "unlock_success",
+  REPORT_LOADED: "report_loaded",
   PDF_DOWNLOAD: "pdf_download",
   RETAKE_BLOCKED: "retake_blocked",
 
@@ -114,34 +126,70 @@ export const TRACKING_EVENTS = {
 
 export type TrackingEventName = (typeof TRACKING_EVENTS)[keyof typeof TRACKING_EVENTS];
 
-export const CANONICAL_SEO_FUNNEL_EVENTS = [
-  TRACKING_EVENTS.START_ATTEMPT,
-  TRACKING_EVENTS.SUBMIT_ATTEMPT,
+export const STANDARD_COMMERCIAL_EVENTS = [
+  TRACKING_EVENTS.LANDING_PV,
+  TRACKING_EVENTS.ARTICLE_TO_TEST_CLICK,
+  TRACKING_EVENTS.START_TEST,
+  TRACKING_EVENTS.COMPLETE_TEST,
   TRACKING_EVENTS.VIEW_RESULT,
-  TRACKING_EVENTS.CLICK_UNLOCK,
-  TRACKING_EVENTS.CREATE_ORDER,
-  TRACKING_EVENTS.PAYMENT_CONFIRMED,
+  TRACKING_EVENTS.CLICK_DEEP_REPORT,
+  TRACKING_EVENTS.BEGIN_CHECKOUT,
   TRACKING_EVENTS.PURCHASE_SUCCESS,
+  TRACKING_EVENTS.REPORT_UNLOCK,
+  TRACKING_EVENTS.REPORT_READY,
+  TRACKING_EVENTS.PRIVATE_URL_SEEN,
 ] as const satisfies readonly TrackingEventName[];
+
+export type StandardCommercialEventName = (typeof STANDARD_COMMERCIAL_EVENTS)[number];
+
+export const CANONICAL_SEO_FUNNEL_EVENTS = [
+  TRACKING_EVENTS.START_TEST,
+  TRACKING_EVENTS.COMPLETE_TEST,
+  TRACKING_EVENTS.VIEW_RESULT,
+  TRACKING_EVENTS.CLICK_DEEP_REPORT,
+  TRACKING_EVENTS.BEGIN_CHECKOUT,
+  TRACKING_EVENTS.PURCHASE_SUCCESS,
+] as const satisfies readonly StandardCommercialEventName[];
 
 export type CanonicalSeoFunnelEventName = (typeof CANONICAL_SEO_FUNNEL_EVENTS)[number];
 
+export const COMMERCIAL_EVENT_ALIASES = {
+  [TRACKING_EVENTS.VIEW_LANDING]: TRACKING_EVENTS.LANDING_PV,
+  [TRACKING_EVENTS.LANDING_VIEW]: TRACKING_EVENTS.LANDING_PV,
+  [TRACKING_EVENTS.START_ATTEMPT]: TRACKING_EVENTS.START_TEST,
+  [TRACKING_EVENTS.START_CLICK]: TRACKING_EVENTS.START_TEST,
+  [TRACKING_EVENTS.CLINICAL_START]: TRACKING_EVENTS.START_TEST,
+  [TRACKING_EVENTS.SUBMIT_ATTEMPT]: TRACKING_EVENTS.COMPLETE_TEST,
+  [TRACKING_EVENTS.SUBMIT_CLICK]: TRACKING_EVENTS.COMPLETE_TEST,
+  [TRACKING_EVENTS.CLINICAL_SUBMIT]: TRACKING_EVENTS.COMPLETE_TEST,
+  [TRACKING_EVENTS.CLICK_UNLOCK]: TRACKING_EVENTS.CLICK_DEEP_REPORT,
+  [TRACKING_EVENTS.CREATE_ORDER]: TRACKING_EVENTS.BEGIN_CHECKOUT,
+  [TRACKING_EVENTS.CHECKOUT_START]: TRACKING_EVENTS.BEGIN_CHECKOUT,
+  [TRACKING_EVENTS.CLINICAL_CHECKOUT_START]: TRACKING_EVENTS.BEGIN_CHECKOUT,
+  [TRACKING_EVENTS.PURCHASE]: TRACKING_EVENTS.PURCHASE_SUCCESS,
+  [TRACKING_EVENTS.PAY_SUCCESS]: TRACKING_EVENTS.PURCHASE_SUCCESS,
+  [TRACKING_EVENTS.UNLOCK_SUCCESS]: TRACKING_EVENTS.REPORT_UNLOCK,
+  [TRACKING_EVENTS.CLINICAL_UNLOCK_SUCCESS]: TRACKING_EVENTS.REPORT_UNLOCK,
+  [TRACKING_EVENTS.REPORT_LOADED]: TRACKING_EVENTS.REPORT_READY,
+} as const satisfies Partial<Record<TrackingEventName, StandardCommercialEventName>>;
+
 export const SEO_FUNNEL_EVENT_ALIAS_MAP = {
-  [TRACKING_EVENTS.START_CLICK]: TRACKING_EVENTS.START_ATTEMPT,
-  [TRACKING_EVENTS.CLINICAL_START]: TRACKING_EVENTS.START_ATTEMPT,
-  [TRACKING_EVENTS.SUBMIT_CLICK]: TRACKING_EVENTS.SUBMIT_ATTEMPT,
-  [TRACKING_EVENTS.CLINICAL_SUBMIT]: TRACKING_EVENTS.SUBMIT_ATTEMPT,
   [TRACKING_EVENTS.REPORT_VIEW_FREE]: TRACKING_EVENTS.VIEW_RESULT,
   [TRACKING_EVENTS.CLINICAL_REPORT_VIEW]: TRACKING_EVENTS.VIEW_RESULT,
   [TRACKING_EVENTS.RIASEC_RESULT_VIEW]: TRACKING_EVENTS.VIEW_RESULT,
-  [TRACKING_EVENTS.CHECKOUT_START]: TRACKING_EVENTS.CREATE_ORDER,
-  [TRACKING_EVENTS.CLINICAL_CHECKOUT_START]: TRACKING_EVENTS.CREATE_ORDER,
-  [TRACKING_EVENTS.PAY_SUCCESS]: TRACKING_EVENTS.PURCHASE_SUCCESS,
-} as const satisfies Partial<Record<TrackingEventName, CanonicalSeoFunnelEventName>>;
+  ...COMMERCIAL_EVENT_ALIASES,
+} as const satisfies Partial<Record<TrackingEventName, TrackingEventName>>;
 
 export function normalizeTrackingEventName(eventName: TrackingEventName): TrackingEventName {
-  const alias = SEO_FUNNEL_EVENT_ALIAS_MAP[eventName as keyof typeof SEO_FUNNEL_EVENT_ALIAS_MAP];
+  const alias = COMMERCIAL_EVENT_ALIASES[eventName as keyof typeof COMMERCIAL_EVENT_ALIASES];
   return alias ?? eventName;
+}
+
+export function normalizeCommercialEventName(eventName: TrackingEventName): StandardCommercialEventName | null {
+  const normalized = normalizeTrackingEventName(eventName);
+  return STANDARD_COMMERCIAL_EVENTS.includes(normalized as StandardCommercialEventName)
+    ? (normalized as StandardCommercialEventName)
+    : null;
 }
 
 export function isCanonicalSeoFunnelEvent(eventName: string): eventName is CanonicalSeoFunnelEventName {
@@ -247,31 +295,122 @@ const COMMON_ARTICLE_TO_TEST_CLICK_FIELDS = [
   ...COMMON_SEO_CTA_ATTRIBUTION_FIELDS,
 ] as const;
 
+const COMMON_COMMERCIAL_STANDARD_FIELDS = [
+  "event_name",
+  "event_version",
+  "event_time",
+  "locale",
+  "route_family",
+  "page_type",
+  "source_path",
+  "destination_path",
+  "canonical_url",
+  "utm_source",
+  "utm_medium",
+  "utm_campaign",
+  "utm_content",
+  "utm_term",
+  "referrer_host",
+  "entry_surface",
+  "device_type",
+  "browser_family",
+  "country_or_region",
+] as const;
+
+const COMMON_COMMERCIAL_CONTENT_FIELDS = [
+  "article_slug",
+  "translation_group_id",
+  "cta_id",
+  "cta_priority",
+  "target_test_slug",
+  "target_action",
+  "content_id",
+  "topic_id",
+] as const;
+
+const COMMON_COMMERCIAL_ASSESSMENT_FIELDS = [
+  "slug",
+  "test_slug",
+  "test_type",
+  "scale_code",
+  "scaleCode",
+  "form_code",
+  "test_version",
+  "attempt_id_hash",
+  "result_id_hash",
+  "attemptIdMasked",
+  "duration_ms",
+  "durationMs",
+  "duration_bucket",
+  "answered_count",
+  "question_count",
+] as const;
+
+const COMMON_COMMERCIAL_PAYMENT_FIELDS = [
+  "sku",
+  "currency",
+  "value",
+  "payment_provider",
+  "order_id_hash",
+  "transaction_id_hash",
+  "checkout_session_id_hash",
+  "entitlement_id_hash",
+  "orderNoMasked",
+  "report_type",
+] as const;
+
+const COMMON_COMMERCIAL_EVENT_FIELDS = [
+  ...COMMON_COMMERCIAL_STANDARD_FIELDS,
+  ...COMMON_COMMERCIAL_CONTENT_FIELDS,
+  ...COMMON_COMMERCIAL_ASSESSMENT_FIELDS,
+  ...COMMON_COMMERCIAL_PAYMENT_FIELDS,
+  ...COMMON_SEO_CTA_ATTRIBUTION_FIELDS,
+] as const;
+
 const COMMON_CONVERSION_FIELDS = [
   "test_type",
   "test_version",
-  "result_id",
+  "result_id_hash",
   "report_type",
 ] as const;
 
 const EVENT_FIELD_WHITELIST: Record<TrackingEventName, readonly string[]> = {
+  landing_pv: [...COMMON_COMMERCIAL_STANDARD_FIELDS, "landing_path"],
   view_landing: ["locale"],
   view_test: ["slug", "locale"],
   view_test_landing: ["slug", "locale"],
   article_to_test_click: [...COMMON_ARTICLE_TO_TEST_CLICK_FIELDS],
+  start_test: [...COMMON_COMMERCIAL_EVENT_FIELDS],
   start_attempt: ["slug", "test_slug", "scaleCode", "scale_code", "attemptIdMasked", "attempt_id", "form_code", "entry_surface", "source_page_type", "target_action", "landing_path", "locale", ...COMMON_BIG5_FIELDS, ...COMMON_SEO_CTA_ATTRIBUTION_FIELDS, ...COMMON_CONVERSION_FIELDS],
+  complete_test: [...COMMON_COMMERCIAL_EVENT_FIELDS],
   submit_attempt: ["slug", "test_slug", "scale_code", "attemptIdMasked", "attempt_id", "answered_count", "durationMs", "duration_ms", "duration_bucket", "form_code", "locale", ...COMMON_BIG5_FIELDS, ...COMMON_SEO_CTA_ATTRIBUTION_FIELDS, ...COMMON_CONVERSION_FIELDS],
   view_result: ["attemptIdMasked", "attempt_id", "locked", "typeCode", "identity", "variantKey", "variantKeys", "sceneFingerprint", "boundaryFlags", "axisBands", "packId", "engineVersion", "userState", "feedbackSentiment", "feedbackCoverage", "actionCompletionTendency", "lastDeepReadSection", "currentIntentCluster", "primaryFocusKey", "secondaryFocusKeys", "orderedSectionKeys", "orderedRecommendationKeys", "orderedActionKeys", "recommendationPriorityKeys", "actionPriorityKeys", "readingFocusKey", "actionFocusKey", "ctaPriorityKeys", "carryoverFocusKey", "carryoverReason", "recommendedResumeKeys", "carryoverSceneKeys", "carryoverActionKeys", "memoryContractVersion", "memoryFingerprint", "memoryScope", "memoryState", "memoryProgressionState", "sectionHistoryKeys", "behaviorDeltaKeys", "dominantInterestKeys", "resumeBiasKeys", "memoryRewriteKeys", "memoryRewriteReason", ...COMMON_MBTI_ADAPTIVE_FIELDS, "journeyContractVersion", "journeyFingerprint", "journeyScope", "journeyState", "progressState", "completedActionKeys", "recommendedNextPulseKeys", "revisitReorderReason", "pulseState", "pulsePromptKeys", "form_code", "locale", "result_type", "top_code", ...COMMON_BIG5_FIELDS, ...COMMON_CLINICAL_REPORT_FIELDS, ...COMMON_RIASEC_TRUSTED_RESULT_FIELDS, ...COMMON_SEO_CTA_ATTRIBUTION_FIELDS, ...COMMON_CONVERSION_FIELDS],
   revisit_result: ["attemptIdMasked", "attempt_id", "locked", "typeCode", "identity", "variantKey", "variantKeys", "sceneFingerprint", "boundaryFlags", "axisBands", "packId", "engineVersion", "userState", "feedbackSentiment", "feedbackCoverage", "actionCompletionTendency", "lastDeepReadSection", "currentIntentCluster", "primaryFocusKey", "secondaryFocusKeys", "orderedSectionKeys", "orderedRecommendationKeys", "orderedActionKeys", "recommendationPriorityKeys", "actionPriorityKeys", "readingFocusKey", "actionFocusKey", "ctaPriorityKeys", "carryoverFocusKey", "carryoverReason", "recommendedResumeKeys", "carryoverSceneKeys", "carryoverActionKeys", "memoryContractVersion", "memoryFingerprint", "memoryScope", "memoryState", "memoryProgressionState", "sectionHistoryKeys", "behaviorDeltaKeys", "dominantInterestKeys", "resumeBiasKeys", "memoryRewriteKeys", "memoryRewriteReason", ...COMMON_MBTI_ADAPTIVE_FIELDS, "journeyContractVersion", "journeyFingerprint", "journeyScope", "journeyState", "progressState", "completedActionKeys", "recommendedNextPulseKeys", "revisitReorderReason", "pulseState", "pulsePromptKeys", "form_code", "locale"],
   share_result: ["attemptIdMasked", "attempt_id", "typeCode", "identity", "variantKey", "variantKeys", "sceneFingerprint", "boundaryFlags", "axisBands", "packId", "engineVersion", "userState", "feedbackSentiment", "feedbackCoverage", "actionCompletionTendency", "lastDeepReadSection", "currentIntentCluster", "primaryFocusKey", "secondaryFocusKeys", "orderedSectionKeys", "orderedRecommendationKeys", "orderedActionKeys", "recommendationPriorityKeys", "actionPriorityKeys", "readingFocusKey", "actionFocusKey", "ctaPriorityKeys", "carryoverFocusKey", "carryoverReason", "recommendedResumeKeys", "carryoverSceneKeys", "carryoverActionKeys", "memoryContractVersion", "memoryFingerprint", "memoryScope", "memoryState", "memoryProgressionState", "sectionHistoryKeys", "behaviorDeltaKeys", "dominantInterestKeys", "resumeBiasKeys", "memoryRewriteKeys", "memoryRewriteReason", ...COMMON_MBTI_ADAPTIVE_FIELDS, "journeyContractVersion", "journeyFingerprint", "journeyScope", "journeyState", "progressState", "completedActionKeys", "recommendedNextPulseKeys", "revisitReorderReason", "pulseState", "pulsePromptKeys", "shareMethod", "ctaKey", "ctaRank", "continueTarget", "form_code", "locale"],
   accuracy_feedback: ["attempt_id", "feedback", "sectionKey", "actionKey", "contrastKey", "synthesisKey", "supportingScale", "crossAssessmentVersion", "neighborTypeKeys", "closeCallAxes", "typeCode", "identity", "variantKeys", "sceneFingerprint", "boundaryFlags", "axisBands", "packId", "engineVersion", "userState", "feedbackSentiment", "feedbackCoverage", "actionCompletionTendency", "lastDeepReadSection", "currentIntentCluster", "primaryFocusKey", "secondaryFocusKeys", "orderedSectionKeys", "orderedRecommendationKeys", "orderedActionKeys", "recommendationPriorityKeys", "actionPriorityKeys", "readingFocusKey", "actionFocusKey", "ctaPriorityKeys", "carryoverFocusKey", "carryoverReason", "recommendedResumeKeys", "carryoverSceneKeys", "carryoverActionKeys", "memoryContractVersion", "memoryFingerprint", "memoryScope", "memoryState", "memoryProgressionState", "sectionHistoryKeys", "behaviorDeltaKeys", "dominantInterestKeys", "resumeBiasKeys", "memoryRewriteKeys", "memoryRewriteReason", ...COMMON_MBTI_ADAPTIVE_FIELDS, "journeyContractVersion", "journeyFingerprint", "journeyScope", "journeyState", "progressState", "completedActionKeys", "recommendedNextPulseKeys", "revisitReorderReason", "pulseState", "pulsePromptKeys", "displayOrder", "isPrimaryFocus", "locale"],
   view_paywall: ["attemptIdMasked", "sku", "priceShown", "locale"],
+  click_deep_report: [...COMMON_COMMERCIAL_EVENT_FIELDS],
   click_unlock: ["attemptIdMasked", "attempt_id", "sku", "priceShown", "typeCode", "identity", "variantKey", "variantKeys", "sceneFingerprint", "boundaryFlags", "axisBands", "packId", "engineVersion", "userState", "feedbackSentiment", "feedbackCoverage", "actionCompletionTendency", "lastDeepReadSection", "currentIntentCluster", "primaryFocusKey", "secondaryFocusKeys", "orderedSectionKeys", "orderedRecommendationKeys", "orderedActionKeys", "recommendationPriorityKeys", "actionPriorityKeys", "readingFocusKey", "actionFocusKey", "ctaPriorityKeys", "carryoverFocusKey", "carryoverReason", "recommendedResumeKeys", "carryoverSceneKeys", "carryoverActionKeys", "memoryContractVersion", "memoryFingerprint", "memoryScope", "memoryState", "memoryProgressionState", "sectionHistoryKeys", "behaviorDeltaKeys", "dominantInterestKeys", "resumeBiasKeys", "memoryRewriteKeys", "memoryRewriteReason", ...COMMON_MBTI_ADAPTIVE_FIELDS, "ctaKey", "ctaRank", "form_code", "locale", ...COMMON_SEO_CTA_ATTRIBUTION_FIELDS, ...COMMON_CONVERSION_FIELDS],
+  begin_checkout: [...COMMON_COMMERCIAL_EVENT_FIELDS],
   create_order: ["attemptIdMasked", "attempt_id", "orderNoMasked", "order_no", "orderNo", "order_id", "transaction_id", "sku", "price", "value", "currency", "typeCode", "identity", "variantKey", "variantKeys", "sceneFingerprint", "boundaryFlags", "axisBands", "packId", "engineVersion", "userState", "feedbackSentiment", "feedbackCoverage", "actionCompletionTendency", "lastDeepReadSection", "currentIntentCluster", "primaryFocusKey", "secondaryFocusKeys", "orderedSectionKeys", "orderedRecommendationKeys", "orderedActionKeys", "recommendationPriorityKeys", "actionPriorityKeys", "readingFocusKey", "actionFocusKey", "ctaPriorityKeys", "carryoverFocusKey", "carryoverReason", "recommendedResumeKeys", "carryoverSceneKeys", "carryoverActionKeys", "memoryContractVersion", "memoryFingerprint", "memoryScope", "memoryState", "memoryProgressionState", "sectionHistoryKeys", "behaviorDeltaKeys", "dominantInterestKeys", "resumeBiasKeys", "memoryRewriteKeys", "memoryRewriteReason", ...COMMON_MBTI_ADAPTIVE_FIELDS, "ctaKey", "ctaRank", "form_code", "locale", ...COMMON_BIG5_FIELDS, ...COMMON_CLINICAL_REPORT_FIELDS, ...COMMON_SEO_CTA_ATTRIBUTION_FIELDS, ...COMMON_CONVERSION_FIELDS],
   payment_confirmed: ["orderNoMasked", "attemptIdMasked", "provider", "form_code", "locale"],
   payment_failed: ["orderNoMasked", "attemptIdMasked", "reason", "provider", "form_code", "locale"],
   abandoned_paywall: ["attemptIdMasked", "locked", "stayMs", "locale"],
-  purchase_success: ["orderNoMasked", "attemptIdMasked", "sku", "amount", "value", "price", "currency", "provider", "order_no", "orderNo", "order_id", "transaction_id", "form_code", "locale", ...COMMON_BIG5_FIELDS, ...COMMON_CONVERSION_FIELDS],
+  purchase_success: [...COMMON_COMMERCIAL_EVENT_FIELDS],
+  report_unlock: [...COMMON_COMMERCIAL_EVENT_FIELDS],
+  report_ready: [...COMMON_COMMERCIAL_EVENT_FIELDS, "phase", "stage_detail", "locked"],
+  private_url_seen: [
+    "event_version",
+    "event_time",
+    "locale",
+    "route_family",
+    "page_type",
+    "source_path",
+    "canonical_url",
+    "detection_source",
+    "severity",
+    "evidence_surface",
+  ],
 
   landing_view: ["slug", "test_slug", "form_code", "entry_surface", "source_page_type", "target_action", "landing_path", "locale", ...COMMON_BIG5_FIELDS],
   start_click: ["slug", "test_slug", "form_code", "entry_surface", "source_page_type", "target_action", "landing_path", "locale", "disclaimer_version", "disclaimer_hash", ...COMMON_BIG5_FIELDS],
@@ -280,8 +419,10 @@ const EVENT_FIELD_WHITELIST: Record<TrackingEventName, readonly string[]> = {
   report_view_free: ["attempt_id", "locale", ...COMMON_BIG5_FIELDS],
   paywall_view: ["attempt_id", "offers_count", "locale", ...COMMON_BIG5_FIELDS],
   checkout_start: ["attempt_id", "order_no", "price", "value", "currency", "locale", ...COMMON_BIG5_FIELDS, ...COMMON_CONVERSION_FIELDS],
+  purchase: ["attemptIdMasked", "orderNoMasked", "sku", "value", "currency", "payment_provider", "locale"],
   pay_success: ["attempt_id", "order_no", "orderNo", "order_id", "transaction_id", "amount", "value", "price", "currency", "locale", ...COMMON_BIG5_FIELDS, ...COMMON_CONVERSION_FIELDS],
   unlock_success: ["attempt_id", "order_no", "locale", ...COMMON_BIG5_FIELDS],
+  report_loaded: ["attemptIdMasked", "scale_code", "form_code", "locale", "phase", "stage_detail", "locked"],
   pdf_download: ["attempt_id", "pdf_variant", "locale", ...COMMON_BIG5_FIELDS],
   retake_blocked: ["reason", "retry_after_seconds", "locale", ...COMMON_BIG5_FIELDS],
   clinical_start: ["scale_code", "locale"],
@@ -384,6 +525,12 @@ export type CareerTrackingEventName = (typeof CAREER_ATTRIBUTION_EVENTS)[number]
 const FORBIDDEN_FIELD_PATTERNS = [
   /^answers?($|_)/,
   /^reports?($|_)/,
+  /^raw_(order|result|attempt|payment|transaction|checkout)/,
+  /^private_?url$/,
+  /^full_(result|order|payment)_url$/,
+  /^id_?card$/,
+  /^phone$/,
+  /^name$/,
   /email/,
   /cookie/,
   /token/,
@@ -398,6 +545,10 @@ const FORBIDDEN_FIELD_PATTERNS = [
   /recovery/,
   /report_?url/,
   /resume/,
+];
+
+const STANDARD_COMMERCIAL_FORBIDDEN_FIELD_PATTERNS = [
+  /^session_?id$/,
 ];
 
 const RIASEC_RESULT_CODE_FIELDS = new Set(["result_type", "top_code", "typeCode", "identity"]);
@@ -450,7 +601,10 @@ export function filterTrackingPayload(
 
   return allowed.reduce<Record<string, string | number | boolean | null>>((acc, key) => {
     const normalizedKey = key.toLowerCase();
-    const forbidden = FORBIDDEN_FIELD_PATTERNS.some((pattern) => pattern.test(normalizedKey));
+    const forbidden =
+      FORBIDDEN_FIELD_PATTERNS.some((pattern) => pattern.test(normalizedKey)) ||
+      (STANDARD_COMMERCIAL_EVENTS.includes(eventName as StandardCommercialEventName) &&
+        STANDARD_COMMERCIAL_FORBIDDEN_FIELD_PATTERNS.some((pattern) => pattern.test(normalizedKey)));
     if (forbidden) return acc;
     if (isRiasecResultCodeField(payload, key)) return acc;
 

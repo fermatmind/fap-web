@@ -525,6 +525,30 @@ export function isCommercialContractsFoundation01AllowedFile(file: string): bool
   return COMMERCIAL_CONTRACTS_FOUNDATION_01_ALLOWED_FILES.has(file);
 }
 
+const ANALYTICS_COMMERCIAL_EVENTS_01_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/orders/[orderNo]/OrdersClient.tsx",
+  "docs/analytics/commercial-events-business-dictionary.md",
+  "docs/analytics/utm-channel-governance.md",
+  "docs/analytics/generated/commercial-readiness-contracts.v1.json",
+  "docs/analytics/generated/tracking-activation-contract.v1.json",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/operations/freemium-locale-policy-spec.md",
+  "lib/tracking/client.ts",
+  "lib/tracking/events.ts",
+  "tests/contracts/analytics-commercial-events-runtime.contract.test.ts",
+  "tests/contracts/analytics-payload-privacy.contract.test.ts",
+  "tests/contracts/analytics-scripts.contract.test.ts",
+  "tests/contracts/commercial-readiness-contracts.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/mbti-funnel-unlock-observability.contract.test.ts",
+  "tests/contracts/orders-client-delivery.contract.test.tsx",
+  "tests/contracts/search-intelligence-tracking-fields.contract.test.ts",
+  "tests/contracts/seo-funnel-tracking-taxonomy.contract.test.ts",
+  "tests/contracts/tracking-activation-contract.contract.test.ts",
+  "tests/contracts/tracking-whitelist.contract.test.ts",
+]);
+
 const ANALYTICS_SEO_P1_08_ALLOWED_FILES = new Set([
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -1342,6 +1366,10 @@ const CMS_OPS_IA_MAIN_SCOPE_REVALIDATE_FIX_ALLOWED_FILES = new Set([
 ]);
 
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH === "codex/analytics-commercial-events-01") {
+    return ANALYTICS_COMMERCIAL_EVENTS_01_ALLOWED_FILES.has(file);
+  }
+
   if (CURRENT_BRANCH === "codex/commercial-contracts-foundation-01") {
     return COMMERCIAL_CONTRACTS_FOUNDATION_01_ALLOWED_FILES.has(file);
   }
