@@ -19674,9 +19674,9 @@
         "HELP-CONTENT-INVENTORY-01"
       ],
       "title": "docs(help): archive service help content packages",
-      "status": "local_checks_passed",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "pr_open",
+      "commit_sha": "2a16735bbd6130abc50e6c411616ef38c9f92400",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1048",
       "checks": {
         "python3 -m json.tool docs/content/help/generated/help-content-packages.v1.json >/dev/null": "passed",
         "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null": "passed",
@@ -19699,6 +19699,11 @@
           "at": "2026-06-05T00:30:00+08:00",
           "status": "local_checks_passed",
           "summary": "Required JSON/YAML parse, focused help-content packages contract, and git diff check passed. A full contract run was intentionally not required after currentPrScope changes were removed from this PR. No runtime, CMS draft, CMS mutation, publish, private URL, search submission, deploy, secret, token, competitor copy, or raw private identifier action was performed."
+        },
+        {
+          "at": "2026-06-05T00:33:00+08:00",
+          "status": "pr_open",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1048 after required local checks passed. The branch archives package inputs only; CMS draft creation, publish, runtime route changes, schema publication, footer changes, and support-flow changes remain deferred."
         }
       ]
     },
