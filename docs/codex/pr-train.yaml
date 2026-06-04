@@ -12682,7 +12682,7 @@ prs:
       - COMMERCIAL-READINESS-CONTROL-TOWER-01
     mode: planned_docs_readiness
     train_scope: commercial_readiness_parallel_window
-    status: in_progress
+    status: pr_open
     goal: "Define source-backed proof fields for homepage, MBTI, RIASEC, and Big Five landing commercial readiness without writing homepage copy, test page body copy, fake reviews, fake completions, runtime changes, CMS changes, publishing, or deployment."
     artifacts:
       - docs/seo/test-landing-proof-surfaces.md

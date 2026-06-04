@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-04T16:59:05+08:00",
+  "updated_at": "2026-06-04T17:00:48+08:00",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -19304,9 +19304,9 @@
         "COMMERCIAL-READINESS-CONTROL-TOWER-01"
       ],
       "title": "docs(seo): define source-backed test landing proof surfaces",
-      "status": "in_progress",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "pr_open",
+      "commit_sha": "68e7f235204ab919e22b54380d6bf19b5b119b9b",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1037",
       "checks": {
         "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null": "passed",
         "python3 -m json.tool docs/seo/generated/test-landing-proof-surfaces.v1.json >/dev/null": "passed",
@@ -19335,6 +19335,11 @@
           "at": "2026-06-04T16:59:05+08:00",
           "status": "local_checks_passed",
           "summary": "Required JSON/YAML, focused contract, and diff checks passed. Full contract suite also passed as an extra guard after frozen-lockfile dependency install in the clean worktree."
+        },
+        {
+          "at": "2026-06-04T17:00:48+08:00",
+          "status": "pr_open",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1037 from branch codex/test-landing-proof-surface-01. GitHub checks are pending."
         }
       ]
     },
