@@ -19372,6 +19372,107 @@
       ]
     },
     {
+      "id": "PRIVACY-HISTORY-ANALYTICS-BLOCK-01",
+      "repo": "fap-web",
+      "branch": "codex/privacy-history-analytics-block-01",
+      "base": "main",
+      "depends_on": [
+        "PRIVACY-ORDER-RESULT-LIVE-REVIEW-02"
+      ],
+      "title": "fix(privacy): block history URLs from analytics payloads",
+      "status": "pr_open",
+      "commit_sha": "4e1c436c1dd6e2ad414b57824bdda658cb7045cd",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1041",
+      "checks": {
+        "focused_privacy_tracking_contracts": {
+          "status": "passed",
+          "command": "pnpm exec vitest run tests/contracts/*privacy* tests/contracts/*tracking* tests/contracts/*analytics* tests/contracts/*private*",
+          "summary": "13 files passed, 89 tests passed."
+        },
+        "public_surface_private_url_scan": {
+          "status": "passed",
+          "command": "python3 public surface scan for sitemap.xml, llms.txt, llms-full.txt, and robots.txt",
+          "summary": "sitemap.xml, llms.txt, llms-full.txt, and robots.txt returned 200 with zero requested forbidden private URL/token matches."
+        },
+        "full_contracts": {
+          "status": "passed",
+          "command": "pnpm test:contract",
+          "summary": "441 files passed, 2503 tests passed."
+        },
+        "typecheck": {
+          "status": "passed",
+          "command": "pnpm typecheck"
+        },
+        "seo_sitemap_check": {
+          "status": "passed",
+          "command": "pnpm seo:check-sitemap",
+          "summary": "Sitemap indexability check passed: 261 urls."
+        },
+        "json_parse": {
+          "status": "passed",
+          "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+        },
+        "yaml_parse": {
+          "status": "passed",
+          "command": "python3 -c \"import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')\""
+        },
+        "git_diff_check": {
+          "status": "passed",
+          "command": "git diff --check"
+        }
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "fix_result": {
+        "blocked_private_url_families": [
+          "history",
+          "result",
+          "orders",
+          "share",
+          "pay",
+          "payment"
+        ],
+        "history_route_policy": "suppressed before GA4, Baidu Tongji, and first-party /api/track dispatch",
+        "non_history_private_route_policy": "redacted to private_route:<family> markers before GA4, Baidu Tongji, first-party /api/track, attribution path fields, and dashboard-readable payload fields",
+        "paid_ads_gate": "NO-GO",
+        "requires_follow_up_live_review": "PRIVACY-ORDER-RESULT-LIVE-REVIEW-03 after deploy"
+      },
+      "events": [
+        {
+          "at": "2026-06-04T18:10:23+08:00",
+          "status": "executing",
+          "summary": "Initialized user-authorized privacy fix PR-train entry after PRIVACY-ORDER-RESULT-LIVE-REVIEW-02 found GA4 /zh/history/<redacted>. Paid ads remain NO-GO."
+        },
+        {
+          "at": "2026-06-04T18:09:58+08:00",
+          "status": "focused_contracts_passed",
+          "summary": "Focused privacy/tracking/analytics/private contracts passed after adding route-family redaction markers and history-route dispatch suppression."
+        },
+        {
+          "at": "2026-06-04T18:10:23+08:00",
+          "status": "public_surface_scan_passed",
+          "summary": "Read-only public scan found zero requested private URL/token matches in sitemap.xml, llms.txt, llms-full.txt, and robots.txt."
+        },
+        {
+          "at": "2026-06-04T18:16:11+08:00",
+          "status": "local_checks_partial_passed",
+          "summary": "Passed JSON parse, YAML parse, git diff --check, focused privacy/tracking/analytics/private contracts, typecheck, and sitemap check. Full contracts will be rerun after committing to avoid unrelated historical scope tests reading uncommitted diff."
+        },
+        {
+          "at": "2026-06-04T18:19:54+08:00",
+          "status": "local_checks_passed",
+          "summary": "Full contracts passed after current PR scope allowlist registration: pnpm test:contract completed with 441 files and 2503 tests passed."
+        },
+        {
+          "at": "2026-06-04T18:22:00+08:00",
+          "status": "pr_open",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1041 after local validation passed. Paid ads remain NO-GO pending deploy and PRIVACY-ORDER-RESULT-LIVE-REVIEW-03."
+        }
+      ]
+    },
+    {
       "id": "TEST-LANDING-PROOF-SURFACE-01",
       "repo": "fap-web",
       "branch": "codex/test-landing-proof-surface-01",

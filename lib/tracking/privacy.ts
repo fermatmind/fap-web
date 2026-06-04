@@ -1,4 +1,13 @@
 const REDACTED_TRACKING_VALUE = "redacted";
+const PRIVATE_ANALYTICS_ROUTE_MARKER_PREFIX = "private_route:";
+
+export type PrivateAnalyticsRouteFamily =
+  | "history"
+  | "result"
+  | "orders"
+  | "share"
+  | "pay"
+  | "payment";
 
 const SENSITIVE_QUERY_KEY_PATTERNS = [
   /(^|[_-])tokens?($|[_-])/i,
@@ -43,6 +52,17 @@ const SENSITIVE_PATH_VALUE_PATTERNS = [
   /token/i,
 ];
 
+const PRIVATE_ANALYTICS_ROUTE_FAMILIES_BY_SEGMENT: Record<string, PrivateAnalyticsRouteFamily> = {
+  history: "history",
+  order: "orders",
+  orders: "orders",
+  pay: "pay",
+  payment: "payment",
+  result: "result",
+  results: "result",
+  share: "share",
+};
+
 function normalizeTrackingText(value: unknown, maxLength = 512): string | null {
   if (typeof value !== "string") return null;
   const normalized = value.trim();
@@ -70,7 +90,58 @@ function looksLikeUrlOrPath(value: string): boolean {
   return URL_LIKE_PATTERN.test(value) || value.includes("?");
 }
 
-function redactSearchParams(searchParams: URLSearchParams): URLSearchParams {
+function privateRouteMarker(family: PrivateAnalyticsRouteFamily): string {
+  return `${PRIVATE_ANALYTICS_ROUTE_MARKER_PREFIX}${family}`;
+}
+
+function privateRouteFamilyFromMarker(value: string): PrivateAnalyticsRouteFamily | null {
+  if (!value.startsWith(PRIVATE_ANALYTICS_ROUTE_MARKER_PREFIX)) return null;
+  const family = value.slice(PRIVATE_ANALYTICS_ROUTE_MARKER_PREFIX.length);
+  return Object.values(PRIVATE_ANALYTICS_ROUTE_FAMILIES_BY_SEGMENT).includes(family as PrivateAnalyticsRouteFamily)
+    ? (family as PrivateAnalyticsRouteFamily)
+    : null;
+}
+
+function routeSegments(pathname: string): string[] {
+  const segments = pathname
+    .split("/")
+    .map((segment) => safeDecodeURIComponent(segment).trim().toLowerCase())
+    .filter(Boolean);
+  if (segments[0] === "zh" || segments[0] === "en") return segments.slice(1);
+  return segments;
+}
+
+function privateRouteFamilyFromPathname(pathname: string): PrivateAnalyticsRouteFamily | null {
+  const [segment] = routeSegments(pathname);
+  return segment ? PRIVATE_ANALYTICS_ROUTE_FAMILIES_BY_SEGMENT[segment] ?? null : null;
+}
+
+export function getPrivateAnalyticsRouteFamily(value: unknown): PrivateAnalyticsRouteFamily | null {
+  const normalized = normalizeTrackingText(value, 2048);
+  if (!normalized) return null;
+
+  const markerFamily = privateRouteFamilyFromMarker(normalized);
+  if (markerFamily) return markerFamily;
+  if (!looksLikeUrlOrPath(normalized)) return null;
+
+  try {
+    const parsed = new URL(normalized, "https://tracking.local");
+    return privateRouteFamilyFromPathname(parsed.pathname || "/");
+  } catch {
+    const [pathname] = normalized.split("?");
+    return privateRouteFamilyFromPathname(pathname || "");
+  }
+}
+
+export function shouldSuppressAnalyticsForUrl(value: unknown): boolean {
+  return getPrivateAnalyticsRouteFamily(value) === "history";
+}
+
+type SanitizeTrackingUrlOptions = {
+  redactPrivateRouteFamily?: boolean;
+};
+
+function redactSearchParams(searchParams: URLSearchParams, options: SanitizeTrackingUrlOptions = {}): URLSearchParams {
   const next = new URLSearchParams(searchParams);
 
   for (const [key, value] of searchParams.entries()) {
@@ -80,7 +151,7 @@ function redactSearchParams(searchParams: URLSearchParams): URLSearchParams {
     }
 
     if (looksLikeUrlOrPath(value)) {
-      next.set(key, sanitizeTrackingUrl(value) ?? "");
+      next.set(key, sanitizeTrackingUrl(value, options) ?? "");
     }
   }
 
@@ -110,15 +181,17 @@ function redactPathname(pathname: string): string {
   return segments.join("/") || "/";
 }
 
-export function sanitizeTrackingUrl(value: unknown): string | null {
+export function sanitizeTrackingUrl(value: unknown, options: SanitizeTrackingUrlOptions = {}): string | null {
   const normalized = normalizeTrackingText(value, 2048);
   if (!normalized) return null;
+  const privateRouteFamily = getPrivateAnalyticsRouteFamily(normalized);
+  if (options.redactPrivateRouteFamily && privateRouteFamily) return privateRouteMarker(privateRouteFamily);
   if (!looksLikeUrlOrPath(normalized)) return normalized;
 
   try {
     const isAbsolute = /^[a-z][a-z\d+\-.]*:\/\//i.test(normalized);
     const parsed = new URL(normalized, "https://tracking.local");
-    const search = redactSearchParams(parsed.searchParams).toString();
+    const search = redactSearchParams(parsed.searchParams, options).toString();
     const pathname = redactPathname(parsed.pathname || "/");
     const sanitizedPath = search ? `${pathname}?${search}` : pathname;
 
@@ -134,6 +207,10 @@ export function sanitizeTrackingUrl(value: unknown): string | null {
   } catch {
     return shouldRedactUrlValue(normalized) ? REDACTED_TRACKING_VALUE : normalized;
   }
+}
+
+export function sanitizeAnalyticsTrackingUrl(value: unknown): string | null {
+  return sanitizeTrackingUrl(value, { redactPrivateRouteFamily: true });
 }
 
 export function maskTrackingIdentifier(value: unknown): string | null {
@@ -162,6 +239,10 @@ export function isUrlValuedTrackingField(key: string): boolean {
   return (
     normalized === "current_path" ||
     normalized === "landing_path" ||
+    normalized === "page_location" ||
+    normalized === "source_path" ||
+    normalized === "destination_path" ||
+    normalized === "canonical_url" ||
     normalized === "referrer" ||
     normalized === "continuetarget" ||
     normalized.endsWith("_url") ||

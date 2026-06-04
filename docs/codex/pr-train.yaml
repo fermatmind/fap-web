@@ -12701,6 +12701,54 @@ prs:
       squash: true
       auto_merge: true
     next_task: "Do not start paid ads. If private_url_seen is Yes, authorize and execute PRIVACY-HISTORY-ANALYTICS-BLOCK-01 before any repeat live review."
+  - id: PRIVACY-HISTORY-ANALYTICS-BLOCK-01
+    repo: fap-web
+    branch: codex/privacy-history-analytics-block-01
+    base: main
+    title: "fix(privacy): block history URLs from analytics payloads"
+    depends_on:
+      - PRIVACY-ORDER-RESULT-LIVE-REVIEW-02
+    mode: execute
+    train_scope: commercial_readiness_privacy_fix
+    status: executing
+    goal: "Block history/private route-family URLs from browser analytics, Baidu Tongji payloads, first-party tracking ingest, attribution path fields, and dashboard-readable analytics payload fields while preserving user access and purchase conversion semantics with redacted route-family markers."
+    allowed_paths:
+      - lib/tracking/privacy.ts
+      - lib/tracking/client.ts
+      - lib/tracking/attribution.ts
+      - components/analytics/**
+      - app/api/track/**
+      - app/(localized)/[locale]/(app)/history/**
+      - app/(localized)/[locale]/orders/**
+      - app/(localized)/[locale]/share/**
+      - app/(localized)/[locale]/(app)/result/**
+      - tests/contracts/**
+      - docs/audits/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - real private history/result/order/share/payment URL visits
+      - raw orderNo/resultId/attemptId/payment id/token output
+      - CMS changes
+      - payment provider behavior changes
+      - order creation
+      - real payment
+      - GSC/Baidu/IndexNow submission
+      - deployment
+      - paid ads GO
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/*privacy* tests/contracts/*tracking* tests/contracts/*analytics* tests/contracts/*private*
+      - pnpm test:contract
+      - pnpm typecheck
+      - pnpm seo:check-sitemap
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - git diff --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: "Keep paid ads NO-GO. Deploy the privacy fix if approved, then execute PRIVACY-ORDER-RESULT-LIVE-REVIEW-03 before any paid ads, freemium launch amplification, TEST-LANDING, or CAREER progression."
   - id: TEST-LANDING-PROOF-SURFACE-01
     repo: fap-web
     branch: codex/test-landing-proof-surface-01

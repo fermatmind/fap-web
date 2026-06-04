@@ -6,7 +6,7 @@ import {
   isSensitiveTrackingIdentifierField,
   isUrlValuedTrackingField,
   maskTrackingIdentifier,
-  sanitizeTrackingUrl,
+  sanitizeAnalyticsTrackingUrl,
 } from "@/lib/tracking/privacy";
 
 export const TRACKING_EVENTS = {
@@ -567,7 +567,7 @@ function sanitizeValue(key: string, value: unknown): string | number | boolean |
   }
 
   if (typeof value === "string") {
-    const safeValue = isUrlValuedTrackingField(key) || value.includes("?") ? sanitizeTrackingUrl(value) : value;
+    const safeValue = isUrlValuedTrackingField(key) || value.includes("?") ? sanitizeAnalyticsTrackingUrl(value) : value;
     return sanitizeString(safeValue ?? "");
   }
   if (typeof value === "number") return Number.isFinite(value) ? value : 0;
