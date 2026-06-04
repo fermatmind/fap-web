@@ -1,0 +1,162 @@
+{
+  "schema_version": "support_flow_smoke.v1",
+  "pr_id": "SUPPORT-FLOW-SMOKE-01",
+  "decision": "CONDITIONAL_PUBLIC_SUPPORT_HUB_EXISTS_BUT_SERVICE_SUPPORT_FLOW_NOT_READY",
+  "runtime_changed": false,
+  "cms_mutation": false,
+  "content_generated": false,
+  "private_url_accessed": false,
+  "raw_identifier_added": false,
+  "source_files_reviewed": [
+    "app/(localized)/[locale]/support/page.tsx",
+    "app/(localized)/[locale]/help/page.tsx",
+    "app/(localized)/[locale]/help/[slug]/page.tsx",
+    "app/(localized)/[locale]/support/articles/[slug]/page.tsx",
+    "app/(localized)/[locale]/support/guides/[slug]/page.tsx",
+    "components/support/SupportTrustDetailTemplate.tsx",
+    "lib/publicGateway.ts",
+    "lib/cms/supportTrust.ts",
+    "docs/operations/generated/help-cms-authority.v1.json",
+    "docs/operations/generated/help-cms-draft-preflight.v1.json",
+    "docs/operations/generated/help-footer-link-qa.v1.json"
+  ],
+  "public_support_routes": [
+    "/en/support",
+    "/zh/support",
+    "/en/help",
+    "/zh/help",
+    "/en/help/faq",
+    "/zh/help/faq",
+    "/en/help/contact",
+    "/zh/help/contact",
+    "/en/support/articles/[slug]",
+    "/zh/support/articles/[slug]",
+    "/en/support/guides/[slug]",
+    "/zh/support/guides/[slug]"
+  ],
+  "route_behaviors": [
+    {
+      "route_family": "support_hub",
+      "routes": [
+        "/en/support",
+        "/zh/support"
+      ],
+      "source_of_truth": "Help public gateway plus SupportArticle and InterpretationGuide lists",
+      "status": "conditional_pass",
+      "gap": "requires published gateway content; missing gateway returns notFound"
+    },
+    {
+      "route_family": "help_root",
+      "routes": [
+        "/en/help",
+        "/zh/help"
+      ],
+      "source_of_truth": "localized redirect to support",
+      "status": "pass",
+      "gap": "none for route hygiene"
+    },
+    {
+      "route_family": "help_detail",
+      "routes": [
+        "/en/help/faq",
+        "/zh/help/faq",
+        "/en/help/contact",
+        "/zh/help/contact"
+      ],
+      "source_of_truth": "ContentPage",
+      "status": "conditional_pass",
+      "gap": "CMS content and schema authority remain gated"
+    },
+    {
+      "route_family": "support_article",
+      "routes": [
+        "/en/support/articles/[slug]",
+        "/zh/support/articles/[slug]"
+      ],
+      "source_of_truth": "SupportArticle",
+      "status": "conditional_pass",
+      "gap": "primary_cta_url safety and service workflow fields require backend/CMS gate"
+    },
+    {
+      "route_family": "interpretation_guide",
+      "routes": [
+        "/en/support/guides/[slug]",
+        "/zh/support/guides/[slug]"
+      ],
+      "source_of_truth": "InterpretationGuide",
+      "status": "conditional_pass",
+      "gap": "result explanation only; result recovery remains separate"
+    }
+  ],
+  "service_support_readiness": [
+    {
+      "theme": "unlock_failure",
+      "status": "no_go",
+      "missing_fields": [
+        "unlock_failure",
+        "handling_time",
+        "required_user_info",
+        "forbidden_user_info",
+        "support_contact"
+      ]
+    },
+    {
+      "theme": "payment_refund",
+      "status": "no_go",
+      "missing_fields": [
+        "eligibility",
+        "exclusions",
+        "handling_time",
+        "policy_version",
+        "support_contact"
+      ]
+    },
+    {
+      "theme": "data_deletion",
+      "status": "no_go",
+      "missing_fields": [
+        "handling_time",
+        "identity_verification",
+        "retained_data_exceptions",
+        "support_contact"
+      ]
+    }
+  ],
+  "support_submission_boundary": {
+    "public_form_present": false,
+    "exact_support_contact_known": false,
+    "safe_submission_contract_present": false,
+    "raw_private_identifier_required": false,
+    "overcollection_risk": "Unknown"
+  },
+  "private_surface_guard": {
+    "forbidden_route_fragments": [
+      "/result",
+      "/orders",
+      "/share",
+      "/pay",
+      "/payment",
+      "/history",
+      "token"
+    ],
+    "forbidden_identifier_fields": [
+      "orderNo",
+      "payment_id",
+      "transaction_id",
+      "resultId",
+      "attemptId",
+      "access_token"
+    ],
+    "private_urls_accessed": false,
+    "raw_identifiers_added": false
+  },
+  "deferred": [
+    "support form implementation",
+    "runtime support flow changes",
+    "CMS draft creation",
+    "CMS mutation",
+    "content publish",
+    "service Help route launch",
+    "private URL access"
+  ]
+}

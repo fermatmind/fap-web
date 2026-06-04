@@ -13155,10 +13155,45 @@ prs:
     base: main
     title: "test(support): smoke service support flow boundaries"
     depends_on:
-      - HELP-CONTENT-INVENTORY-01
-    mode: planned
+      - HELP-FOOTER-LINK-QA-01
+    mode: docs_contract_support_flow_smoke
     train_scope: commercial_readiness_help_service_trust
-    status: planned
+    status: in_progress
+    goal: "Smoke public support route-family boundaries without runtime support changes, CMS mutation, content generation, publish, private URL access, or raw private identifiers."
+    artifacts:
+      - docs/operations/support-flow-smoke.md
+      - docs/operations/generated/support-flow-smoke.v1.json
+      - tests/contracts/support-flow-smoke.contract.test.ts
+    allowed_paths:
+      - docs/operations/support-flow-smoke.md
+      - docs/operations/generated/support-flow-smoke.v1.json
+      - tests/contracts/support-flow-smoke.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - runtime support changes
+      - CMS mutation
+      - content generation
+      - publish
+      - private URLs
+      - raw order/payment/result identifiers
+    required_local_checks:
+      - python3 -m json.tool docs/operations/generated/support-flow-smoke.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - pnpm exec vitest run tests/contracts/support-flow-smoke.contract.test.ts
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: "After merge, close HELP Window 9 PR-train state with a ledger-only follow-up if branch protection prevents same-PR closeout."
   - id: HELP-FOOTER-LINK-QA-01
     repo: fap-web
     branch: codex/help-footer-link-qa-01
@@ -13168,7 +13203,9 @@ prs:
       - HELP-SCHEMA-GATE-01
     mode: docs_contract_footer_link_qa
     train_scope: commercial_readiness_help_service_trust
-    status: in_progress
+    status: merged
+    pr_url: https://github.com/fermatmind/fap-web/pull/1053
+    merge_sha: 28b42b4530c7b3c232a77651228a28335674c9c7
     goal: "Verify footer discoverability for public support and policy routes without runtime footer changes, CMS mutation, content generation, publish, private URL access, or raw private identifiers."
     artifacts:
       - docs/operations/help-footer-link-qa.md
