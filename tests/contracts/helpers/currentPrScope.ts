@@ -549,6 +549,12 @@ const ANALYTICS_COMMERCIAL_EVENTS_01_ALLOWED_FILES = new Set([
   "tests/contracts/tracking-whitelist.contract.test.ts",
 ]);
 
+const CONTRACT_SCOPE_GUARD_MAIN_CI_FIX_ALLOWED_FILES = new Set([
+  "tests/contracts/commercial-readiness-contracts.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/seo-issue-queue.contract.test.ts",
+]);
+
 const ANALYTICS_SEO_P1_08_ALLOWED_FILES = new Set([
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -1366,6 +1372,10 @@ const CMS_OPS_IA_MAIN_SCOPE_REVALIDATE_FIX_ALLOWED_FILES = new Set([
 ]);
 
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH === "codex/fix-commercial-readiness-contract-main-ci") {
+    return CONTRACT_SCOPE_GUARD_MAIN_CI_FIX_ALLOWED_FILES.has(file);
+  }
+
   if (CURRENT_BRANCH === "codex/analytics-commercial-events-01") {
     return ANALYTICS_COMMERCIAL_EVENTS_01_ALLOWED_FILES.has(file);
   }
