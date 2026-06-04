@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-04T14:28:07+08:00",
+  "updated_at": "2026-06-04T14:30:38+08:00",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -19237,10 +19237,16 @@
         "ANALYTICS-COMMERCIAL-EVENTS-01"
       ],
       "title": "docs(ops): define commercial readiness control tower",
-      "status": "executing",
-      "commit_sha": null,
-      "pr_url": null,
-      "checks": {},
+      "status": "pr_open",
+      "commit_sha": "48624ec8db1ea02a54f818ae60eda2b4858b847a",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1036",
+      "checks": {
+        "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null": "passed",
+        "YAML parse docs/codex/pr-train.yaml": "passed",
+        "git diff --check -- docs/operations docs/codex tests/contracts": "passed",
+        "git diff --cached --check": "passed",
+        "control tower content check": "passed"
+      },
       "failure_reason": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -19250,6 +19256,11 @@
           "at": "2026-06-04T14:28:07+08:00",
           "status": "executing",
           "summary": "Started docs/PR-train coordination-only control tower. Runtime, CMS, content, search submission, and deploy changes remain forbidden."
+        },
+        {
+          "at": "2026-06-04T14:30:38+08:00",
+          "status": "pr_open",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1036 after local docs/ledger validation passed."
         }
       ]
     },

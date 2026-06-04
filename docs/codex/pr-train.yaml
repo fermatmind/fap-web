@@ -12635,7 +12635,7 @@ prs:
       - ANALYTICS-COMMERCIAL-EVENTS-01
     mode: docs_ledger_coordination_only
     train_scope: commercial_readiness_control_tower
-    status: executing
+    status: pr_open
     goal: "Define one control tower plus ten specialist windows for pre-commercial promotion readiness, register global stop conditions, keep Codex/GPT/CMS authority boundaries explicit, and record the first planned parallel tasks without runtime, CMS, content, search submission, or deploy changes."
     allowed_paths:
       - docs/operations/commercial-readiness-control-tower.md
