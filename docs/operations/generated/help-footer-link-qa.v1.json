@@ -1,0 +1,88 @@
+{
+  "schema_version": "help_footer_link_qa.v1",
+  "pr_id": "HELP-FOOTER-LINK-QA-01",
+  "decision": "CONDITIONAL_EXISTING_FOOTER_REACHES_SUPPORT_POLICY_BUT_SERVICE_HELP_ROUTES_PENDING",
+  "runtime_changed": false,
+  "cms_mutation": false,
+  "content_generated": false,
+  "source_files_reviewed": [
+    "components/layout/SiteFooter.tsx",
+    "tests/contracts/site-footer-routing.contract.test.tsx",
+    "tests/contracts/global-en-zh-footer-nav-parity.contract.test.tsx",
+    "tests/contracts/redirects.contract.test.ts"
+  ],
+  "footer_policy_links": {
+    "en": [
+      "/en/support",
+      "/en/privacy",
+      "/en/terms",
+      "/en/policies",
+      "/en/method-boundaries"
+    ],
+    "zh": [
+      "/zh/support",
+      "/zh/privacy",
+      "/zh/terms",
+      "/zh/policies",
+      "/zh/method-boundaries"
+    ]
+  },
+  "known_public_help_routes": [
+    "/en/help",
+    "/zh/help",
+    "/en/help/faq",
+    "/zh/help/faq",
+    "/en/help/contact",
+    "/zh/help/contact"
+  ],
+  "service_help_destinations": [
+    {
+      "theme": "payment_refund",
+      "status": "pending_cms_backend_authority",
+      "footer_link_status": "not_linked"
+    },
+    {
+      "theme": "unlock_failure",
+      "status": "pending_cms_backend_authority",
+      "footer_link_status": "not_linked"
+    },
+    {
+      "theme": "result_recovery",
+      "status": "pending_cms_backend_authority",
+      "footer_link_status": "not_linked"
+    },
+    {
+      "theme": "data_deletion",
+      "status": "pending_cms_backend_authority",
+      "footer_link_status": "not_linked"
+    }
+  ],
+  "private_surface_guard": {
+    "forbidden_route_fragments": [
+      "/result",
+      "/orders",
+      "/share",
+      "/pay",
+      "/payment",
+      "/history",
+      "token"
+    ],
+    "raw_identifier_examples_added": false,
+    "private_urls_accessed": false
+  },
+  "qa_result": {
+    "footer_support_reachable": true,
+    "footer_privacy_reachable": true,
+    "footer_terms_reachable": true,
+    "footer_private_routes_exposed": false,
+    "service_help_routes_ready_for_footer": false
+  },
+  "deferred": [
+    "runtime footer link changes",
+    "CMS draft creation",
+    "CMS mutation",
+    "content publish",
+    "service Help page route launch",
+    "private URL access"
+  ]
+}
