@@ -19733,10 +19733,18 @@
         "HELP-CONTENT-PACKAGES-ARCHIVE-01"
       ],
       "title": "docs(help): define CMS authority for help and support assets",
-      "status": "in_progress",
-      "commit_sha": null,
-      "pr_url": null,
-      "checks": {},
+      "status": "pr_open",
+      "commit_sha": "e00f87e09ea372f257d061a3f4bf7d83f765acae",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1049",
+      "checks": {
+        "python3 -m json.tool docs/operations/generated/help-cms-authority.v1.json >/dev/null": "passed",
+        "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null": "passed",
+        "YAML parse docs/codex/pr-train.yaml": "passed",
+        "pnpm exec vitest run tests/contracts/help-cms-authority.contract.test.ts": "passed (1 file, 8 tests)",
+        "git diff --check": "passed",
+        "git diff --cached --check": "passed",
+        "pnpm test:contract": "not run; currentPrScope helper was not touched"
+      },
       "failure_reason": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -19756,6 +19764,11 @@
           "at": "2026-06-05T00:41:00+08:00",
           "status": "local_checks_passed",
           "summary": "Required JSON/YAML parse, focused help-cms-authority contract, and git diff check passed. currentPrScope helper was not touched, so full pnpm test:contract was not required for this docs-only PR. No runtime, fap-api modification, CMS draft, CMS mutation, publish, private URL, deploy, content generation, final policy copy, secret, token, or raw private identifier action was performed."
+        },
+        {
+          "at": "2026-06-05T00:43:00+08:00",
+          "status": "pr_open",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1049 after required local checks passed. Runtime changes, fap-api modifications, CMS drafts, CMS mutations, publish, schema runtime, footer changes, and support-flow changes remain deferred."
         }
       ]
     },
