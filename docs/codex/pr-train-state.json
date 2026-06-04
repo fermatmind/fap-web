@@ -18442,9 +18442,9 @@
         "DAILY-GIVING-OPS-READINESS-SCAN-01:fap-api"
       ],
       "title": "docs(commercial): define Day 1 commercial readiness contracts",
-      "status": "local_checks_passed",
-      "commit_sha": "50e538f17a10e99e82481d6e86566a0a9da141b7",
-      "pr_url": null,
+      "status": "pr_open",
+      "commit_sha": "c90ad08fe0fe3d6848aba7dfb5b374eb6a7e1af7",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1026",
       "checks": {
         "authorization": {
           "status": "pass",
@@ -18488,6 +18488,11 @@
           "at": "2026-06-04T09:24:00+08:00",
           "status": "local_checks_passed",
           "summary": "Defined Day 1 commercial readiness contract docs, generated contract artifact, and contract test; required local JSON/YAML, contract, typecheck, scope, and diff checks passed."
+        },
+        {
+          "at": "2026-06-04T09:31:00+08:00",
+          "status": "pr_open",
+          "summary": "Opened GitHub PR #1026 for COMMERCIAL-CONTRACTS-FOUNDATION-01 after local checks and scope validation passed."
         }
       ]
     },
