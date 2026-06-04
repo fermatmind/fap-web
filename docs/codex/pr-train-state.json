@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-04T14:30:38+08:00",
+  "updated_at": "2026-06-04T17:00:48+08:00",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -19489,11 +19489,19 @@
       "depends_on": [
         "COMMERCIAL-READINESS-CONTROL-TOWER-01"
       ],
-      "title": "docs(growth): define source-backed test landing proof surfaces",
-      "status": "planned",
-      "commit_sha": null,
-      "pr_url": null,
-      "checks": {},
+      "title": "docs(seo): define source-backed test landing proof surfaces",
+      "status": "pr_open",
+      "commit_sha": "68e7f235204ab919e22b54380d6bf19b5b119b9b",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1037",
+      "checks": {
+        "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null": "passed",
+        "python3 -m json.tool docs/seo/generated/test-landing-proof-surfaces.v1.json >/dev/null": "passed",
+        "YAML parse docs/codex/pr-train.yaml": "passed",
+        "pnpm vitest run tests/contracts/test-landing-proof-surfaces.contract.test.ts": "passed (11 tests)",
+        "git diff --check -- docs/seo docs/codex tests/contracts": "passed",
+        "git diff --cached --check": "passed",
+        "pnpm test:contract": "passed (442 files, 2511 tests; extra guard)"
+      },
       "failure_reason": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -19503,6 +19511,21 @@
           "at": "2026-06-04T14:28:07+08:00",
           "status": "planned",
           "summary": "Registered as an allowed parallel control tower task. Execution requires separate scoped authorization; Codex must not generate publishable landing-page copy."
+        },
+        {
+          "at": "2026-06-04T16:51:11+08:00",
+          "status": "in_progress",
+          "summary": "Started docs/contract/readiness execution from latest main. Scope is limited to source-backed homepage, MBTI, RIASEC, and Big Five proof fields, FAQ/schema source, internal links, mobile CTA contract, GPT-5.5 Pro CMS fields, and Codex QA/rendering gates."
+        },
+        {
+          "at": "2026-06-04T16:59:05+08:00",
+          "status": "local_checks_passed",
+          "summary": "Required JSON/YAML, focused contract, and diff checks passed. Full contract suite also passed as an extra guard after frozen-lockfile dependency install in the clean worktree."
+        },
+        {
+          "at": "2026-06-04T17:00:48+08:00",
+          "status": "pr_open",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1037 from branch codex/test-landing-proof-surface-01. GitHub checks are pending."
         }
       ]
     },

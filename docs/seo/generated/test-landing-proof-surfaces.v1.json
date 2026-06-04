@@ -1,0 +1,354 @@
+{
+  "version": "test_landing_proof_surfaces.v1",
+  "task_id": "TEST-LANDING-PROOF-SURFACE-01",
+  "title": "docs(seo): define source-backed test landing proof surfaces",
+  "run_mode": "docs_contract_readiness",
+  "runtime_behavior_changed": false,
+  "cms_changes_included": false,
+  "publishable_copy_included": false,
+  "reviews_or_ratings_invented": false,
+  "deployment_allowed": false,
+  "authority_boundaries": {
+    "content_authority": "backend_cms_content_fields",
+    "proof_authority": "backend_or_analytics_read_models",
+    "schema_authority": "visible_page_content_or_backend_cms_fields",
+    "codex_role": "qa_and_rendering_contract_only",
+    "gpt55_role": "fill_approved_cms_content_fields_after_source_data_exists"
+  },
+  "source_backing_rules": [
+    "Public proof fields must include source_system, source_record_id_or_query, collected_at, owner, and review_status before rendering.",
+    "Unknown proof values must stay Unknown or hidden and must not be converted to 0.",
+    "Review, AggregateRating, Product, Offer, rating, review count, user count, completion count, media proof, and testimonial fields are blocked unless a source-backed public-safe read model exists.",
+    "FAQPage schema may use only visible FAQ entries returned by CMS/page blocks or public APIs.",
+    "SoftwareApplication schema may use only visible page facts or backend/CMS fields already rendered on the page."
+  ],
+  "first_viewport_explainer": {
+    "surface": "homepage",
+    "required_explainer_slots": [
+      "priority_test_selection",
+      "user_outcome_preview",
+      "method_boundary",
+      "duration_and_forms",
+      "free_paid_boundary",
+      "proof_availability_state",
+      "mobile_primary_cta"
+    ],
+    "publishable_copy_allowed": false
+  },
+  "common_required_page_fields": [
+    "canonical_slug",
+    "scale_code",
+    "form_inventory",
+    "question_count_range",
+    "estimated_minutes_range",
+    "method_summary_source",
+    "free_result_scope",
+    "paid_report_scope",
+    "faq_source",
+    "schema_source",
+    "internal_link_slots",
+    "mobile_primary_cta",
+    "optional_proof_metric_slots"
+  ],
+  "blocked_claim_fields": [
+    {
+      "field": "rating_value",
+      "blocked_until": "verified_public_review_read_model"
+    },
+    {
+      "field": "review_count",
+      "blocked_until": "verified_public_review_read_model"
+    },
+    {
+      "field": "aggregate_rating_schema",
+      "blocked_until": "visible_source_backed_reviews_and_schema_approval"
+    },
+    {
+      "field": "completion_count",
+      "blocked_until": "backend_or_analytics_public_safe_aggregate"
+    },
+    {
+      "field": "user_count",
+      "blocked_until": "backend_or_analytics_public_safe_aggregate"
+    },
+    {
+      "field": "media_mention",
+      "blocked_until": "approved_cms_media_reference"
+    },
+    {
+      "field": "expert_review",
+      "blocked_until": "approved_cms_expert_reference"
+    },
+    {
+      "field": "testimonial",
+      "blocked_until": "approved_public_safe_cms_testimonial"
+    }
+  ],
+  "surfaces": [
+    {
+      "id": "homepage_first_viewport",
+      "surface_kind": "homepage",
+      "canonical_route": "/",
+      "must_explain": [
+        "which priority tests are available",
+        "what the user gets before starting",
+        "how method facts are bounded",
+        "expected time and available forms",
+        "what is free and what is paid",
+        "whether proof metrics are available or intentionally hidden",
+        "primary mobile CTA and secondary comparison links"
+      ],
+      "proof_fields": [
+        {
+          "field": "priority_test_cards",
+          "required": true,
+          "source_of_truth": "landing_surfaces/page_blocks plus public test registry",
+          "fake_or_manual_value_allowed": false
+        },
+        {
+          "field": "proof_metric_summary",
+          "required": false,
+          "source_of_truth": "backend_or_analytics_public_safe_aggregate",
+          "fake_or_manual_value_allowed": false,
+          "missing_behavior": "hide_or_unknown"
+        },
+        {
+          "field": "free_paid_boundary",
+          "required": true,
+          "source_of_truth": "CMS field plus backend offer truth when price or entitlement appears",
+          "fake_or_manual_value_allowed": false
+        }
+      ],
+      "faq_schema_source": "No FAQPage schema unless visible homepage FAQ is returned by CMS/page_blocks.",
+      "internal_link_slots": [
+        "/tests/mbti-personality-test-16-personality-types",
+        "/tests/holland-career-interest-test-riasec",
+        "/tests/big-five-personality-test-ocean-model",
+        "/tests",
+        "approved_cms_article_or_topic_routes"
+      ],
+      "mobile_first_cta": {
+        "required": true,
+        "href_source": "route_helper_or_backend_canonical_route",
+        "label_source": "approved_cms_field",
+        "private_flow_links_allowed": false
+      },
+      "gpt55_cms_fields": [
+        "hero_value_summary",
+        "priority_test_card_labels",
+        "method_summary",
+        "free_result_scope",
+        "paid_report_scope",
+        "proof_metric_labels",
+        "empty_proof_state",
+        "primary_cta_label"
+      ],
+      "codex_qa_contract": [
+        "verify no local editorial fallback",
+        "verify proof metrics hide without source backing",
+        "verify private URLs are not linked",
+        "verify mobile first viewport keeps primary CTA reachable"
+      ]
+    },
+    {
+      "id": "mbti_landing",
+      "surface_kind": "test_landing",
+      "scale_code": "MBTI",
+      "canonical_route": "/tests/mbti-personality-test-16-personality-types",
+      "forms": [
+        {
+          "form_code": "mbti_144",
+          "question_count": 144,
+          "estimated_minutes": 15
+        },
+        {
+          "form_code": "mbti_93",
+          "question_count": 93,
+          "estimated_minutes": 10
+        }
+      ],
+      "proof_fields": [
+        "method_summary_source",
+        "form_inventory",
+        "duration",
+        "free_result_scope",
+        "paid_report_scope",
+        "optional_completion_count",
+        "optional_review_summary",
+        "faq_items",
+        "schema_source",
+        "internal_link_slots",
+        "mobile_primary_cta"
+      ],
+      "boundary_field": "type_pattern_self_understanding_boundary",
+      "faq_schema_source": "visible CMS/API FAQ only",
+      "internal_link_slots": [
+        "take_route",
+        "related_priority_tests",
+        "approved_mbti_content_routes",
+        "approved_result_or_help_surfaces"
+      ],
+      "gpt55_cms_fields": [
+        "hero_value_summary",
+        "method_summary",
+        "form_selector_summary",
+        "free_result_scope",
+        "paid_report_scope",
+        "faq_items",
+        "primary_cta_label",
+        "internal_link_labels"
+      ]
+    },
+    {
+      "id": "riasec_landing",
+      "surface_kind": "test_landing",
+      "scale_code": "RIASEC",
+      "canonical_route": "/tests/holland-career-interest-test-riasec",
+      "forms": [
+        {
+          "form_code": "riasec_60",
+          "question_count": 60,
+          "estimated_minutes": 8
+        },
+        {
+          "form_code": "riasec_140",
+          "question_count": 140,
+          "estimated_minutes": 18
+        }
+      ],
+      "proof_fields": [
+        "career_interest_boundary_source",
+        "form_inventory",
+        "duration",
+        "free_result_scope",
+        "paid_report_scope",
+        "optional_completion_count",
+        "optional_review_summary",
+        "faq_items",
+        "schema_source",
+        "internal_link_slots",
+        "mobile_primary_cta"
+      ],
+      "boundary_field": "career_interest_direction_not_precise_recommendation",
+      "faq_schema_source": "visible CMS/API FAQ only",
+      "internal_link_slots": [
+        "take_route",
+        "related_priority_tests",
+        "approved_career_center_routes",
+        "approved_result_or_help_surfaces"
+      ],
+      "gpt55_cms_fields": [
+        "hero_value_summary",
+        "method_summary",
+        "form_selector_summary",
+        "career_interest_boundary",
+        "free_result_scope",
+        "paid_report_scope",
+        "faq_items",
+        "primary_cta_label",
+        "internal_link_labels"
+      ]
+    },
+    {
+      "id": "big5_landing",
+      "surface_kind": "test_landing",
+      "scale_code": "BIG5_OCEAN",
+      "canonical_route": "/tests/big-five-personality-test-ocean-model",
+      "forms": [
+        {
+          "form_code": "big5_120",
+          "question_count": 120,
+          "estimated_minutes": 20
+        },
+        {
+          "form_code": "big5_90",
+          "question_count": 90,
+          "estimated_minutes": 15
+        }
+      ],
+      "proof_fields": [
+        "five_factor_boundary_source",
+        "form_inventory",
+        "duration",
+        "free_result_scope",
+        "paid_report_scope",
+        "optional_completion_count",
+        "optional_review_summary",
+        "faq_items",
+        "schema_source",
+        "internal_link_slots",
+        "mobile_primary_cta"
+      ],
+      "boundary_field": "personality_trait_understanding_not_clinical_or_legal",
+      "faq_schema_source": "visible CMS/API FAQ only",
+      "internal_link_slots": [
+        "take_route",
+        "related_priority_tests",
+        "approved_big5_content_routes",
+        "approved_result_or_help_surfaces"
+      ],
+      "gpt55_cms_fields": [
+        "hero_value_summary",
+        "method_summary",
+        "form_selector_summary",
+        "trait_boundary",
+        "free_result_scope",
+        "paid_report_scope",
+        "faq_items",
+        "primary_cta_label",
+        "internal_link_labels"
+      ]
+    }
+  ],
+  "free_paid_boundary": {
+    "display_allowed_without_copy": true,
+    "copy_generation_allowed_for_codex": false,
+    "required_fields": [
+      "free_result_scope",
+      "paid_report_scope",
+      "offer_source",
+      "entitlement_source",
+      "cta_label_source",
+      "cta_href_source"
+    ],
+    "price_source": "backend_commerce_offer_read_model",
+    "entitlement_source": "backend_entitlement_truth",
+    "missing_offer_behavior": "hide_price_and_paid_claims"
+  },
+  "faq_and_schema_rules": {
+    "faq_source": "visible_cms_or_public_api_faq",
+    "faq_page_schema_hidden_content_allowed": false,
+    "software_application_schema_allowed_from_visible_facts": true,
+    "review_schema_allowed": false,
+    "aggregate_rating_schema_allowed": false,
+    "product_schema_allowed": false,
+    "offer_schema_allowed_without_backend_offer": false
+  },
+  "internal_link_rules": {
+    "private_flow_links_allowed": false,
+    "required_link_metadata": [
+      "source_owner",
+      "locale",
+      "canonical_url",
+      "noindex_private_flow_exclusion_check"
+    ],
+    "forbidden_route_fragments": [
+      "/result/",
+      "/results/",
+      "/orders/",
+      "/share/",
+      "/pay/",
+      "/payment/",
+      "/checkout/",
+      "/take/"
+    ],
+    "take_route_exception": "CTA href may point to the public canonical take route, but proof and internal-link slots must not expose private attempt URLs."
+  },
+  "mobile_first_cta_rules": {
+    "one_primary_cta_required": true,
+    "primary_cta_source": "approved_cms_label_plus_route_helper",
+    "free_paid_boundary_near_cta_when_paid_unlock_exists": true,
+    "secondary_ctas_must_not_push_primary_below_first_viewport": true
+  },
+  "repository_rule_impact": "docs/contract/readiness only; reinforces CMS/backend authority for landing content and source-backed proof fields; no runtime ownership change."
+}
