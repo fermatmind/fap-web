@@ -12849,7 +12849,7 @@ prs:
       - COMMERCIAL-READINESS-CONTROL-TOWER-01
     mode: docs_contract_inventory
     train_scope: commercial_readiness_help_service_trust
-    status: pr_open
+    status: merged
     goal: "Create a machine-readable Help, FAQ, Support, policy, result-recovery, and payment-support asset inventory plus contract coverage without writing publishable content, changing runtime, mutating CMS, publishing, deploying, submitting search URLs, or accessing private result/order/share/pay/payment/history URLs."
     artifacts:
       - docs/operations/help-content-inventory.md
