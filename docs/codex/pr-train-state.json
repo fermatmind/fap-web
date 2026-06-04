@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-04T11:56:00+08:00",
+  "updated_at": "2026-06-04T04:43:30.059210Z",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -18740,8 +18740,8 @@
         "ANALYTICS-COMMERCIAL-EVENTS-SCAN-01"
       ],
       "title": "feat(analytics): standardize commercial funnel event aliases",
-      "status": "pr_open",
-      "commit_sha": "8c879712ede9d64432dee0670572179c244cf05d",
+      "status": "merged",
+      "commit_sha": "609f6ad37ac8f0790eb221776803043350539f8d",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1027",
       "checks": {
         "pnpm_test_contract": {
@@ -18776,12 +18776,16 @@
         "git_diff_check": {
           "status": "passed",
           "command": "git diff --check"
+        },
+        "github_checks": {
+          "status": "passed",
+          "summary": "PR #1027 CodeQL, analyze, build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze passed before merge."
         }
       },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-04T03:04:59Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "events": [
         {
           "at": "2026-06-04T00:23:51+08:00",
@@ -18807,6 +18811,68 @@
           "at": "2026-06-04T03:01:15.642815Z",
           "status": "pr_open",
           "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1027."
+        },
+        {
+          "at": "2026-06-04T04:35:49.596205Z",
+          "status": "merged_reconciled",
+          "summary": "Reconciled PR #1027 as merged after GitHub verified MERGED, origin/main contains merge commit 609f6ad37ac8f0790eb221776803043350539f8d, and remote/local task branches were absent."
+        }
+      ]
+    },
+    {
+      "id": "PRIVACY-ORDER-RESULT-LIVE-REVIEW-01",
+      "repo": "fap-web",
+      "branch": "codex/privacy-order-result-live-review-01",
+      "base": "main",
+      "depends_on": [
+        "ANALYTICS-COMMERCIAL-EVENTS-01"
+      ],
+      "title": "docs(privacy): review live private URL analytics surfaces",
+      "status": "pr_open",
+      "commit_sha": "b6cd7202b1de8a4181fad688f88b611e394f0db3",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1033",
+      "checks": {
+        "json_parse": {
+          "status": "passed",
+          "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+        },
+        "yaml_parse": {
+          "status": "passed",
+          "command": "python3 -c \"import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')\""
+        },
+        "public_surface_private_url_scan": {
+          "status": "passed_with_caveat",
+          "summary": "sitemap.xml, llms.txt, llms-full.txt, and robots.txt returned 200 with no forbidden private URL/token matches; canary article pages returned 200 with self canonical/index-follow and static guard field names but no raw private ID or tokenized private URL captured."
+        },
+        "focused_contracts": {
+          "status": "passed",
+          "command": "pnpm exec vitest run tests/contracts/analytics-payload-privacy.contract.test.ts tests/contracts/private-noindex.contract.test.ts tests/contracts/tracking-whitelist.contract.test.ts",
+          "summary": "3 files passed, 20 tests passed."
+        },
+        "git_diff_check": {
+          "status": "passed",
+          "command": "git diff --check -- docs/audits docs/analytics docs/codex"
+        }
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "events": [
+        {
+          "at": "2026-06-04T04:35:49.596205Z",
+          "status": "in_progress",
+          "summary": "Started docs-only live privacy review from latest origin/main after backend d8b619ff and frontend dbb31302 deployments. Runtime, CMS, payment, analytics platform settings, search submission, and deploy remain forbidden."
+        },
+        {
+          "at": "2026-06-04T04:41:54.336140Z",
+          "status": "local_checks_passed",
+          "summary": "Docs-only live privacy review completed with private_url_seen=Unknown because authenticated GA4/Baidu dashboard evidence was unavailable without opening new browser pages; public surfaces and focused contracts passed."
+        },
+        {
+          "at": "2026-06-04T04:43:30.059210Z",
+          "status": "pr_open",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1033."
         }
       ]
     },

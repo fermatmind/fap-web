@@ -12394,7 +12394,48 @@ prs:
       - ANALYTICS-COMMERCIAL-EVENTS-SCAN-01
     mode: placeholder
     train_scope: commercial_readiness_follow_up
+    status: merged
+  - id: PRIVACY-ORDER-RESULT-LIVE-REVIEW-01
+    repo: fap-web
+    branch: codex/privacy-order-result-live-review-01
+    base: main
+    title: "docs(privacy): review live private URL analytics surfaces"
+    depends_on:
+      - ANALYTICS-COMMERCIAL-EVENTS-01
+    mode: live_review_report_only
+    train_scope: commercial_readiness_follow_up
     status: in_progress
+    goal: "Perform a docs-only, read-only production privacy review after ANALYTICS-COMMERCIAL-EVENTS-01 deployment to determine private_url_seen as No, Yes, or Unknown across live GA4/Baidu dashboard evidence, public discoverability surfaces, and code-level privacy guards without runtime, analytics platform, CMS, payment, search submission, or deploy changes."
+    allowed_paths:
+      - docs/audits/privacy-order-result-live-review-2026-06-04.md
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - runtime code
+      - analytics dashboard settings
+      - dashboard data deletion or edits
+      - env/cookie/token/secrets
+      - raw private IDs
+      - CMS data
+      - publish
+      - search submission
+      - Search Channel records
+      - payment/order mutation
+      - deploy
+    required_local_checks:
+      - git status --short --branch
+      - git log -n 5 --oneline
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - python3 public_surface_private_url_scan.py equivalent inline command documented in report
+      - pnpm exec vitest run tests/contracts/analytics-payload-privacy.contract.test.ts tests/contracts/private-noindex.contract.test.ts tests/contracts/tracking-whitelist.contract.test.ts
+      - git diff --check -- docs/audits docs/analytics docs/codex
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: "repeat live review or P0 privacy fix depending on private_url_seen decision"
   - id: UTM-CHANNEL-GOVERNANCE-01
     repo: fap-web
     branch: codex/utm-channel-governance-01
