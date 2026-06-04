@@ -12687,9 +12687,45 @@ prs:
     repo: fap-web
     branch: codex/career-quality-tiering-01
     base: main
-    title: "docs(career): tier career graph quality before pseo expansion"
+    title: "docs(seo): tier career graph for controlled search readiness"
     depends_on:
       - COMMERCIAL-READINESS-CONTROL-TOWER-01
-    mode: planned_docs_readiness
+    mode: docs_readiness_read_only_quality_tiering
     train_scope: commercial_readiness_parallel_window
-    status: planned
+    status: in_progress
+    scope:
+      - Read-only tiering of the 1046 career job inventory.
+      - Classify which career job pages can be controlled search-entry candidates, internal auxiliary pages, or risk/hold pages.
+      - Check sitemap career URLs, career API samples, bilingual content thickness samples, canonical/indexability, schema, FAQ/Breadcrumb, internal links, RIASEC CTA, reviewer/claim status, salary/career-fit claim risk, and /zh/career/jobs hub suitability.
+      - Do not generate career page body copy, submit URLs, change CMS/backend/runtime, publish, or deploy.
+    allowed_paths:
+      - docs/seo/**
+      - docs/seo/generated/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - scripts/seo/**
+      - tests/contracts/**
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - career body copy generation
+      - 1046 pSEO blast
+      - GSC/Baidu/IndexNow/Search Channel submission
+      - CMS mutation
+      - backend mutation
+      - publish
+      - deploy
+      - strong fit/salary guarantee claims
+    required_local_checks:
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - python3 -m json.tool docs/seo/generated/career-quality-tiering-01.v1.json >/dev/null
+      - pnpm exec vitest run tests/contracts/career-quality-tiering-01.contract.test.ts
+      - git diff --check -- docs/seo docs/codex scripts/seo tests/contracts
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: false
+    next_task: "After merge, request explicit manifest/state authorization before starting any proposed thin-content, schema, internal-link, or hub sitemap-policy follow-up."

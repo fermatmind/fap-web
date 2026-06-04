@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-04T14:30:38+08:00",
+  "updated_at": "2026-06-04T09:04:29.070Z",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -19237,7 +19237,7 @@
         "ANALYTICS-COMMERCIAL-EVENTS-01"
       ],
       "title": "docs(ops): define commercial readiness control tower",
-      "status": "pr_open",
+      "status": "merged",
       "commit_sha": "48624ec8db1ea02a54f818ae60eda2b4858b847a",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1036",
       "checks": {
@@ -19248,9 +19248,9 @@
         "control tower content check": "passed"
       },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-04T08:25:30Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "events": [
         {
           "at": "2026-06-04T14:28:07+08:00",
@@ -19261,8 +19261,14 @@
           "at": "2026-06-04T14:30:38+08:00",
           "status": "pr_open",
           "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1036 after local docs/ledger validation passed."
+        },
+        {
+          "at": "2026-06-04T09:01:37.339Z",
+          "status": "merged",
+          "summary": "Ledger reconciled before CAREER-QUALITY-TIERING-01: GitHub PR #1036 is MERGED, origin/main contains merge commit 9149e4873010af9b747da2262b7253d3630dda4d, remote branch is deleted, and local post-merge cleanup was run for codex/commercial-readiness-control-tower-01."
         }
-      ]
+      ],
+      "merge_sha": "9149e4873010af9b747da2262b7253d3630dda4d"
     },
     {
       "id": "PRIVACY-ORDER-RESULT-LIVE-REVIEW-02",
@@ -19323,11 +19329,20 @@
       "depends_on": [
         "COMMERCIAL-READINESS-CONTROL-TOWER-01"
       ],
-      "title": "docs(career): tier career graph quality before pseo expansion",
-      "status": "planned",
+      "title": "docs(seo): tier career graph for controlled search readiness",
+      "status": "local_checks_passed",
       "commit_sha": null,
       "pr_url": null,
-      "checks": {},
+      "checks": {
+        "generator artifact": "passed: node scripts/seo/generate-career-quality-tiering.mjs --pretty --sample-per-group=3",
+        "state json parse": "passed: python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+        "manifest yaml parse": "passed: python3 -c \"import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')\"",
+        "career tier artifact json parse": "passed: python3 -m json.tool docs/seo/generated/career-quality-tiering-01.v1.json >/dev/null",
+        "focused contract": "passed: pnpm exec vitest run tests/contracts/career-quality-tiering-01.contract.test.ts",
+        "generator syntax": "passed: node --check scripts/seo/generate-career-quality-tiering.mjs",
+        "diff check": "passed: git diff --check -- docs/seo docs/codex scripts/seo tests/contracts",
+        "cached diff check": "passed: git diff --cached --check"
+      },
       "failure_reason": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -19337,6 +19352,21 @@
           "at": "2026-06-04T14:28:07+08:00",
           "status": "planned",
           "summary": "Registered as an allowed parallel control tower task. 1046 career pSEO blast remains forbidden until quality tiering passes."
+        },
+        {
+          "at": "2026-06-04T09:01:37.339Z",
+          "status": "in_progress",
+          "summary": "Started scoped read-only career quality tiering from latest main on branch codex/career-quality-tiering-01. Scope is docs/seo, docs/codex, scripts/seo generator, and focused contract only; no CMS/backend/runtime/search submission/deploy actions authorized."
+        },
+        {
+          "at": "2026-06-04T09:04:07.992Z",
+          "status": "local_checks_in_progress",
+          "summary": "Generator artifact parse, state JSON parse, manifest YAML parse, focused contract, generator syntax check, and unstaged scoped diff check passed. Cached diff check pending after path-limited staging."
+        },
+        {
+          "at": "2026-06-04T09:04:29.070Z",
+          "status": "local_checks_passed",
+          "summary": "All manifest-required local checks passed for CAREER-QUALITY-TIERING-01. No runtime, CMS, backend, search submission, publish, or deploy action was performed."
         }
       ]
     }
