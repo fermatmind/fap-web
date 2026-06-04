@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-04T12:55:00+08:00",
+  "updated_at": "2026-06-04T14:28:07+08:00",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -19224,6 +19224,108 @@
           "at": "2026-06-04T00:23:51+08:00",
           "status": "planned",
           "summary": "Registered follow-up placeholder only. Paid ads remain forbidden until explicit GO after readiness review."
+        }
+      ]
+    },
+    {
+      "id": "COMMERCIAL-READINESS-CONTROL-TOWER-01",
+      "repo": "fap-web",
+      "branch": "codex/commercial-readiness-control-tower-01",
+      "base": "main",
+      "depends_on": [
+        "COMMERCIAL-READINESS-TRAIN-00",
+        "ANALYTICS-COMMERCIAL-EVENTS-01"
+      ],
+      "title": "docs(ops): define commercial readiness control tower",
+      "status": "executing",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": {},
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "events": [
+        {
+          "at": "2026-06-04T14:28:07+08:00",
+          "status": "executing",
+          "summary": "Started docs/PR-train coordination-only control tower. Runtime, CMS, content, search submission, and deploy changes remain forbidden."
+        }
+      ]
+    },
+    {
+      "id": "PRIVACY-ORDER-RESULT-LIVE-REVIEW-02",
+      "repo": "fap-web",
+      "branch": "codex/privacy-order-result-live-review-02",
+      "base": "main",
+      "depends_on": [
+        "COMMERCIAL-READINESS-CONTROL-TOWER-01",
+        "PRIVACY-ORDER-RESULT-LIVE-REVIEW-01"
+      ],
+      "title": "docs(privacy): repeat live private URL analytics review",
+      "status": "planned",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": {},
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "events": [
+        {
+          "at": "2026-06-04T14:28:07+08:00",
+          "status": "planned",
+          "summary": "Registered as an allowed parallel control tower task. Execution requires separate scoped authorization and authenticated read-only live dashboard evidence."
+        }
+      ]
+    },
+    {
+      "id": "TEST-LANDING-PROOF-SURFACE-01",
+      "repo": "fap-web",
+      "branch": "codex/test-landing-proof-surface-01",
+      "base": "main",
+      "depends_on": [
+        "COMMERCIAL-READINESS-CONTROL-TOWER-01"
+      ],
+      "title": "docs(growth): define source-backed test landing proof surfaces",
+      "status": "planned",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": {},
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "events": [
+        {
+          "at": "2026-06-04T14:28:07+08:00",
+          "status": "planned",
+          "summary": "Registered as an allowed parallel control tower task. Execution requires separate scoped authorization; Codex must not generate publishable landing-page copy."
+        }
+      ]
+    },
+    {
+      "id": "CAREER-QUALITY-TIERING-01",
+      "repo": "fap-web",
+      "branch": "codex/career-quality-tiering-01",
+      "base": "main",
+      "depends_on": [
+        "COMMERCIAL-READINESS-CONTROL-TOWER-01"
+      ],
+      "title": "docs(career): tier career graph quality before pseo expansion",
+      "status": "planned",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": {},
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "events": [
+        {
+          "at": "2026-06-04T14:28:07+08:00",
+          "status": "planned",
+          "summary": "Registered as an allowed parallel control tower task. 1046 career pSEO blast remains forbidden until quality tiering passes."
         }
       ]
     }
