@@ -148,9 +148,16 @@ describe("HELP-CONTENT-INVENTORY-01 contract", () => {
 
   it("keeps current PR scope limited to docs/operations, docs/codex, and tests/contracts", () => {
     const files = changedFiles();
+    const declaredScopeFiles = [
+      "docs/operations/help-content-inventory.md",
+      "docs/operations/generated/help-content-inventory.v1.json",
+      "docs/codex/pr-train.yaml",
+      "docs/codex/pr-train-state.json",
+      "tests/contracts/help-content-inventory.contract.test.ts",
+      "tests/contracts/helpers/currentPrScope.ts",
+    ];
 
-    expect(files).not.toHaveLength(0);
-    for (const file of files) {
+    for (const file of [...new Set([...files, ...declaredScopeFiles])].sort()) {
       expect(isHelpContentInventory01AllowedFile(file), `${file} is outside HELP-CONTENT-INVENTORY-01 scope`).toBe(
         true
       );

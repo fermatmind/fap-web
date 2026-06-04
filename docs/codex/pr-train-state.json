@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-04T21:10:00+08:00",
+  "updated_at": "2026-06-04T21:16:00+08:00",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -19623,7 +19623,10 @@
         "git diff --check": "passed",
         "public route checks": "passed: requested routes returned 200 after redirects; /help and /refund redirect to /support",
         "sitemap/llms private route-family grep": "passed: no private route-family URLs matched in sitemap.xml, llms.txt, or llms-full.txt",
-        "support article and guide inventory": "observed empty: public support articles/guides returned 0 items in both locales"
+        "support article and guide inventory": "observed empty: public support articles/guides returned 0 items in both locales",
+        "github contracts first run": "failed: scoped contract expected changedFiles() to be non-empty in CI clean checkout",
+        "CI failure fix": "passed locally: scope contract now validates declared allowed files when CI diff is empty",
+        "pnpm test:contract after CI fix": "passed (444 files, 2528 tests)"
       },
       "failure_reason": null,
       "merged_at": null,
@@ -19644,6 +19647,11 @@
           "at": "2026-06-04T21:10:00+08:00",
           "status": "pr_open",
           "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1045 after required local checks passed. Follow-up tasks remain planned only and require separate scoped authorization."
+        },
+        {
+          "at": "2026-06-04T21:16:00+08:00",
+          "status": "ci_fix_pushed_pending_checks",
+          "summary": "Fixed GitHub contracts failure introduced by the scope contract assuming non-empty local diff. The test now validates the declared allowed file list as well as any detected diff files, so CI clean checkouts are supported. Focused contract and full pnpm test:contract passed locally after the fix."
         }
       ]
     },
