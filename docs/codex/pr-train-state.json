@@ -18443,7 +18443,7 @@
       ],
       "title": "docs(commercial): define Day 1 commercial readiness contracts",
       "status": "pr_open",
-      "commit_sha": "91b39da540d48faf1e6c45a0abc0f15c01d0c93f",
+      "commit_sha": "29de9dc5f12f72cbc5042453fb7daaa3e89721a0",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1026",
       "checks": {
         "authorization": {
@@ -18474,8 +18474,8 @@
           "evidence": "All required local checks passed before commit and after the GitHub contracts retry fixes; pnpm test:contract passed 438 files and 2480 tests, and the targeted commercial readiness contract test passed 12 tests."
         },
         "github_checks": {
-          "status": "retrying",
-          "evidence": "Initial GitHub contracts job failed because the PR scope test saw zero changed files in GitHub's shallow pull/merge checkout. The first retry exposed that git show HEAD enumerates too much in shallow merge refs; removed that source, kept the PR-branch-only expected-scope fallback, and reran targeted/full local contracts plus typecheck successfully."
+          "status": "pass",
+          "evidence": "GitHub checks passed on head 29de9dc5f12f72cbc5042453fb7daaa3e89721a0: CodeQL, analyze (javascript-typescript), build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze."
         }
       },
       "failure_reason": null,
@@ -18507,6 +18507,11 @@
           "at": "2026-06-04T09:45:00+08:00",
           "status": "github_checks_retrying",
           "summary": "Removed unreliable git show HEAD scope source after the second GitHub contracts run treated the shallow merge ref as a full-tree diff; local targeted contract, full contract suite, and typecheck pass."
+        },
+        {
+          "at": "2026-06-04T09:52:00+08:00",
+          "status": "github_checks_passed",
+          "summary": "GitHub checks passed for PR #1026 on head 29de9dc5f12f72cbc5042453fb7daaa3e89721a0."
         }
       ]
     },
