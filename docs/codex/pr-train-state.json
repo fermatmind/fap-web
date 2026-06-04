@@ -19791,9 +19791,9 @@
         "HELP-CMS-AUTHORITY-01"
       ],
       "title": "test(help): validate service help content package boundaries",
-      "status": "local_checks_passed",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "pr_open",
+      "commit_sha": "da0106d20de25f99cd1350df6d61f1f92347fb92",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1050",
       "checks": {
         "python3 -m json.tool docs/content/help/generated/help-content-package-validation.v1.json >/dev/null": "passed",
         "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null": "passed",
@@ -19816,6 +19816,11 @@
           "at": "2026-06-05T00:50:00+08:00",
           "status": "local_checks_passed",
           "summary": "Required JSON/YAML parse, focused package-validation contract, and git diff check passed. currentPrScope helper was not touched, so full pnpm test:contract was not required for this docs-only PR. No package rewrite into publish copy, runtime change, CMS draft, CMS mutation, publish, private URL access, real order/result/payment data, competitor copy, or raw identifier action was performed."
+        },
+        {
+          "at": "2026-06-05T00:52:00+08:00",
+          "status": "pr_open",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1050 after required local checks passed. CMS draft creation, package rewriting, operator review, publish, schema runtime, footer changes, and support-flow runtime remain deferred."
         }
       ]
     },
