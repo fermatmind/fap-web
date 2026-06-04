@@ -18443,7 +18443,7 @@
       ],
       "title": "docs(commercial): define Day 1 commercial readiness contracts",
       "status": "local_checks_passed",
-      "commit_sha": "4d5ce542029294be407374be3b555bc55e0542d6",
+      "commit_sha": "50e538f17a10e99e82481d6e86566a0a9da141b7",
       "pr_url": null,
       "checks": {
         "authorization": {
