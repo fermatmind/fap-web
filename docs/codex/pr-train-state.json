@@ -19895,9 +19895,9 @@
         "HELP-CMS-DRAFT-PREFLIGHT-01"
       ],
       "title": "test(help): gate FAQ schema for service help assets",
-      "status": "local_checks_passed",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "pr_open",
+      "commit_sha": "fade5ebf7314bd59d00cee936a09d35e11ae84dd",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1052",
       "checks": {
         "python3 -m json.tool docs/operations/generated/help-schema-gate.v1.json >/dev/null": "passed",
         "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null": "passed",
@@ -19925,6 +19925,11 @@
           "at": "2026-06-05T01:07:00+08:00",
           "status": "local_checks_passed",
           "summary": "Required JSON/YAML parse, focused schema-gate contract, and git diff check passed after correcting a case-sensitive test assertion. currentPrScope helper was not touched, so full pnpm test:contract was not required. No runtime schema change, CMS mutation, content generation, publish, private URL access, or raw private identifier action was performed."
+        },
+        {
+          "at": "2026-06-05T01:09:00+08:00",
+          "status": "pr_open",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1052 after required local checks passed. Runtime schema changes, CMS field implementation, CMS draft creation, operator review, publish, footer changes, and support-flow runtime remain deferred."
         }
       ]
     },
