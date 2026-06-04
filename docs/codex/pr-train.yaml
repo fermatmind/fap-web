@@ -12672,7 +12672,7 @@ prs:
       - PRIVACY-ORDER-RESULT-LIVE-REVIEW-01
     mode: planned_read_only_live_review
     train_scope: commercial_readiness_parallel_window
-    status: in_progress
+    status: pr_open
     goal: "Repeat the docs-only, read-only production privacy review after COMMERCIAL-READINESS-CONTROL-TOWER-01 to determine private_url_seen as No, Yes, or Unknown across live GA4/Baidu dashboard evidence, public discoverability surfaces, and code-level privacy guards without runtime, analytics platform, CMS, payment, search submission, or deploy changes."
     allowed_paths:
       - docs/audits/privacy-order-result-live-review-02-2026-06-04.md

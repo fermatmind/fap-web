@@ -19284,9 +19284,9 @@
         "PRIVACY-ORDER-RESULT-LIVE-REVIEW-01"
       ],
       "title": "docs(privacy): verify live private URL analytics safety",
-      "status": "local_checks_passed",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "pr_open",
+      "commit_sha": "e7af32f5ac1779074100e523dc7e03dd9cecf262",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1038",
       "checks": {
         "public_surface_private_url_scan": {
           "status": "passed",
@@ -19358,6 +19358,11 @@
           "at": "2026-06-04T17:02:50+08:00",
           "status": "local_checks_passed",
           "summary": "Local validation passed: JSON parse, YAML parse, docs/codex diff check, and focused tracking/noindex/privacy contracts (3 files, 20 tests). The privacy gate result remains private_url_seen=Yes."
+        },
+        {
+          "at": "2026-06-04T17:06:20+08:00",
+          "status": "pr_open",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1038 after local validation passed. Paid ads remain NO-GO because private_url_seen=Yes."
         }
       ]
     },
