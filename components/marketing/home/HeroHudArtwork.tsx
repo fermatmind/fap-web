@@ -1,48 +1,51 @@
 import Image from "next/image";
 import type { Locale } from "@/lib/i18n/locales";
 
+const HUD_WIDTH = 647;
+const HUD_HEIGHT = 520;
+
 const HUD_CALLOUTS = [
   {
     label: { zh: "人格核心维度", en: "Personality core" },
     value: "28+",
-    top: "9.5%",
-    line: "611 113 649 94 690 58 727 58",
-    dot: [727, 58],
+    labelBox: { x: 501, y: 44, width: 92 },
+    line: "401 111 426 84 455 58 487 58",
+    dot: [487, 58],
   },
   {
     label: { zh: "潜在能力因子", en: "Potential ability" },
     value: "48+",
-    top: "22.8%",
-    line: "650 148 671 138 690 129 727 129",
-    dot: [727, 129],
+    labelBox: { x: 501, y: 115, width: 92 },
+    line: "439 145 458 129 487 129",
+    dot: [487, 129],
   },
   {
     label: { zh: "性格倾向因子", en: "Trait tendency" },
     value: "32+",
-    top: "36.1%",
-    line: "638 258 659 234 690 199 727 199",
-    dot: [727, 199],
+    labelBox: { x: 501, y: 185, width: 92 },
+    line: "396 258 417 240 458 199 487 199",
+    dot: [487, 199],
   },
   {
     label: { zh: "职业匹配因子", en: "Career matching" },
     value: "120+",
-    top: "49.5%",
-    line: "491 390 556 350 690 269 727 269",
-    dot: [727, 269],
+    labelBox: { x: 501, y: 255, width: 92 },
+    line: "354 370 398 324 455 269 487 269",
+    dot: [487, 269],
   },
   {
     label: { zh: "沟通与关系因子", en: "Communication factors" },
     value: "18+",
-    top: "63.4%",
-    line: "525 374 612 374 656 357 690 341 727 341",
-    dot: [727, 341],
+    labelBox: { x: 501, y: 327, width: 110 },
+    line: "389 374 416 357 456 341 487 341",
+    dot: [487, 341],
   },
   {
     label: { zh: "数据标注维度", en: "Data labels" },
     value: "200+",
-    top: "77.4%",
-    line: "612 415 690 415 727 415",
-    dot: [727, 415],
+    labelBox: { x: 501, y: 401, width: 92 },
+    line: "342 415 455 415 487 415",
+    dot: [487, 415],
   },
 ] as const;
 
@@ -52,45 +55,48 @@ export function HeroHudArtwork({ locale }: { locale: Locale }) {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none relative ml-6 mt-[7px] hidden aspect-[887/520] w-[calc(100%+0.625rem)] self-start overflow-visible [mask-image:linear-gradient(to_bottom,transparent_0%,rgba(0,0,0,0.5)_4%,black_10%,black_88%,rgba(0,0,0,0.5)_96%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent_0%,rgba(0,0,0,0.5)_4%,black_10%,black_88%,rgba(0,0,0,0.5)_96%,transparent_100%)] lg:block xl:-ml-[39px] xl:mt-[calc(4.842vw-65px)] xl:w-[59.65vw]"
+      className="pointer-events-none relative ml-6 mt-[7px] hidden aspect-[647/520] w-[43.51vw] self-start overflow-visible lg:block xl:ml-[223.5px] xl:mt-[calc(4.842vw-47px)] xl:w-[43.51vw]"
     >
       <Image
-        src="/images/home/hero-assessment-hud.png?v=callout-svg-clean-v3"
+        src="/images/home/hero-assessment-hud.png?v=opaque-x840-v1"
         alt=""
         fill
         priority
         unoptimized
-        sizes="(min-width: 1280px) 56vw, 52vw"
-        className="object-contain object-right opacity-100 mix-blend-screen brightness-110 contrast-110 [mask-image:linear-gradient(to_right,transparent_0%,transparent_12%,rgba(0,0,0,0.34)_24%,rgba(0,0,0,0.82)_34%,black_43%,black_100%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,transparent_12%,rgba(0,0,0,0.34)_24%,rgba(0,0,0,0.82)_34%,black_43%,black_100%)]"
+        sizes="(min-width: 1280px) 44vw, 48vw"
+        className="object-contain object-right opacity-100"
       />
-      <div className="absolute bottom-[5%] right-0 top-[4%] w-[28%] bg-[#0b1c24]/36 [mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.68)_18%,black_36%,black_100%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.68)_18%,black_36%,black_100%)]">
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(86,111,126,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(86,111,126,0.18)_1px,transparent_1px)] bg-[size:28px_28px] opacity-80" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_24%_47%,rgba(134,239,172,0.11),transparent_58%)]" />
-      </div>
       <svg
         aria-hidden="true"
         className="absolute inset-0 h-full w-full overflow-visible"
-        viewBox="0 0 887 520"
+        viewBox={`0 0 ${HUD_WIDTH} ${HUD_HEIGHT}`}
         preserveAspectRatio="none"
       >
         <g fill="none" strokeLinecap="round" strokeLinejoin="round">
           {HUD_CALLOUTS.map((item) => (
-            <polyline
-              key={`line-${item.value}`}
-              points={item.line}
-              stroke="#a3e635"
-              strokeOpacity="0.58"
-              strokeWidth="1.15"
-            />
+            <g key={`line-${item.value}`}>
+              <polyline
+                points={item.line}
+                stroke="#b8d85a"
+                strokeOpacity="0.1"
+                strokeWidth="1.9"
+              />
+              <polyline
+                points={item.line}
+                stroke="#a6c447"
+                strokeOpacity="0.48"
+                strokeWidth="0.84"
+              />
+            </g>
           ))}
         </g>
         {HUD_CALLOUTS.map((item) => (
           <g key={`dot-${item.value}`}>
-            <circle cx={item.dot[0]} cy={item.dot[1]} r="5.2" fill="rgba(190,242,100,0.16)" />
+            <circle cx={item.dot[0]} cy={item.dot[1]} r="4.7" fill="rgba(190,242,100,0.11)" />
             <circle
               cx={item.dot[0]}
               cy={item.dot[1]}
-              r="3.1"
+              r="2.65"
               fill="#d9ff5f"
               opacity="0.95"
             />
@@ -101,11 +107,19 @@ export function HeroHudArtwork({ locale }: { locale: Locale }) {
         {HUD_CALLOUTS.map((item) => (
           <div
             key={item.value}
-            className="absolute right-[3%] w-[9.5rem] text-left text-[0.8rem] font-bold leading-tight text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.35)]"
-            style={{ top: item.top }}
+            className="absolute text-left text-[12px] font-bold leading-[13px] text-white"
+            style={{
+              left: `${(item.labelBox.x / HUD_WIDTH) * 100}%`,
+              top: `${(item.labelBox.y / HUD_HEIGHT) * 100}%`,
+              width: `${(item.labelBox.width / HUD_WIDTH) * 100}%`,
+              textShadow:
+                "0 0 2px rgba(255,255,255,0.24), 0 0 6px rgba(255,255,255,0.1)",
+            }}
           >
             <span className="block whitespace-nowrap">{item.label[language]}</span>
-            <span className="mt-1 block text-[0.92rem] text-white">{item.value}</span>
+            <span className="mt-[8px] block text-[13px] leading-[14px] text-white">
+              {item.value}
+            </span>
           </div>
         ))}
       </div>
