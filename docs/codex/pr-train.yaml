@@ -13158,7 +13158,9 @@ prs:
       - HELP-FOOTER-LINK-QA-01
     mode: docs_contract_support_flow_smoke
     train_scope: commercial_readiness_help_service_trust
-    status: in_progress
+    status: merged
+    pr_url: https://github.com/fermatmind/fap-web/pull/1054
+    merge_sha: 7d4d414ab6ddf8e294d0008cf625a49e7d565b46
     goal: "Smoke public support route-family boundaries without runtime support changes, CMS mutation, content generation, publish, private URL access, or raw private identifiers."
     artifacts:
       - docs/operations/support-flow-smoke.md
