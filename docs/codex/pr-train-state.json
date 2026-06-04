@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-04T12:54:00+08:00",
+  "updated_at": "2026-06-04T12:55:00+08:00",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -7015,7 +7015,7 @@
         "SEO-COMPETITOR-URL-01",
         "SEO-SITEMAP-P0-05"
       ],
-      "status": "local_checks_passed",
+      "status": "rebased_revalidated",
       "train_scope": "seo_content_brief_readonly_generator",
       "risk_level": "L1",
       "title": "docs(seo): add read-only SERP content brief generator",
@@ -7087,11 +7087,31 @@
         "cached_diff_check": {
           "status": "pass",
           "evidence": "git diff --cached --check passed after explicitly staging the eight SEO-BRIEF-01 allowed files."
+        },
+        "rebase_origin_main": {
+          "status": "pass",
+          "evidence": "Rebased SEO-BRIEF-01 onto origin/main commit 31ef38fb after PR #1034 reported mergeStateStatus DIRTY due to main-side docs/ledger updates."
+        },
+        "focused_contract_after_rebase": {
+          "status": "pass",
+          "evidence": "After rebase, pnpm exec vitest run tests/contracts/seo-content-brief-generator.contract.test.ts tests/contracts/seo-content-brief-generator-readonly.contract.test.ts passed: 15 tests."
+        },
+        "generator_after_rebase": {
+          "status": "pass",
+          "evidence": "After rebase, node scripts/seo/generate-seo-content-briefs.mjs --output docs/seo/generated/seo-content-briefs.v1.json --markdown docs/seo/generated/seo-content-briefs.v1.md --pretty passed and output remained aligned."
+        },
+        "json_yaml_parse_after_rebase": {
+          "status": "pass",
+          "evidence": "After rebase, JSON parse passed for docs/seo/generated/seo-content-briefs.v1.json and docs/codex/pr-train-state.json; PyYAML parse passed for docs/codex/pr-train.yaml."
+        },
+        "diff_check_after_rebase": {
+          "status": "pass",
+          "evidence": "After rebase, git diff --check passed."
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1034",
+      "commit_sha": "74bdf95dc842d3593f19fffbcc52106e9abfa11e",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -7111,6 +7131,11 @@
           "at": "2026-06-04T12:43:00+08:00",
           "status": "staged",
           "summary": "Staged exactly the SEO-BRIEF-01 allowed docs/generated/script/test/helper/pr-train files after cached diff validation passed."
+        },
+        {
+          "at": "2026-06-04T12:55:00+08:00",
+          "status": "rebased_revalidated",
+          "summary": "Rebased onto origin/main 31ef38fb after PR #1034 became dirty, then re-ran generator, focused contracts, JSON/YAML parse, and diff check successfully."
         }
       ]
     },
