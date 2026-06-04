@@ -19843,7 +19843,7 @@
         "HELP-CONTENT-PACKAGE-VALIDATION-01"
       ],
       "title": "docs(help): run CMS draft preflight for service help assets",
-      "status": "pr_open",
+      "status": "merged",
       "commit_sha": "383f39d7b82b05beb76d66d481f9ce6c9175b788",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1051",
       "checks": {
@@ -19852,12 +19852,16 @@
         "YAML parse docs/codex/pr-train.yaml": "passed",
         "pnpm exec vitest run tests/contracts/help-cms-draft-preflight.contract.test.ts": "passed (1 file, 6 tests)",
         "git diff --check": "passed",
-        "pnpm test:contract": "not run; currentPrScope helper was not touched"
+        "pnpm test:contract": "not run; currentPrScope helper was not touched",
+        "github_checks": {
+          "status": "passed",
+          "summary": "CodeQL, analyze (javascript-typescript), build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze passed before merge."
+        }
       },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-04T17:02:54Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "events": [
         {
           "at": "2026-06-05T00:57:00+08:00",
@@ -19873,8 +19877,14 @@
           "at": "2026-06-05T01:00:00+08:00",
           "status": "pr_open",
           "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1051 after required local checks passed. CMS draft creation, CMS field implementation, operator review, publish, schema runtime, footer changes, and support-flow runtime remain deferred."
+        },
+        {
+          "at": "2026-06-05T01:03:00+08:00",
+          "status": "merged",
+          "summary": "PR #1051 was squash-merged at 0a2c21235c116460ad8193e4d0e1a0c62e1685af after required GitHub checks passed. Remote branch was deleted; local main was fast-forwarded and the local task branch/worktree were cleaned."
         }
-      ]
+      ],
+      "merge_sha": "0a2c21235c116460ad8193e4d0e1a0c62e1685af"
     },
     {
       "id": "HELP-SCHEMA-GATE-01",
@@ -19882,13 +19892,20 @@
       "branch": "codex/help-schema-gate-01",
       "base": "main",
       "depends_on": [
-        "HELP-CONTENT-INVENTORY-01"
+        "HELP-CMS-DRAFT-PREFLIGHT-01"
       ],
-      "title": "test(help): gate FAQ schema to CMS-visible help content",
-      "status": "planned",
+      "title": "test(help): gate FAQ schema for service help assets",
+      "status": "local_checks_passed",
       "commit_sha": null,
       "pr_url": null,
-      "checks": {},
+      "checks": {
+        "python3 -m json.tool docs/operations/generated/help-schema-gate.v1.json >/dev/null": "passed",
+        "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null": "passed",
+        "YAML parse docs/codex/pr-train.yaml": "passed",
+        "pnpm exec vitest run tests/contracts/help-schema-gate.contract.test.ts": "passed (1 file, 7 tests)",
+        "git diff --check": "passed",
+        "pnpm test:contract": "not run; currentPrScope helper was not touched"
+      },
       "failure_reason": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -19898,6 +19915,16 @@
           "at": "2026-06-04T21:02:00+08:00",
           "status": "planned",
           "summary": "Planned only by HELP-CONTENT-INVENTORY-01 authorization. Requires separate scoped execution approval before implementation."
+        },
+        {
+          "at": "2026-06-05T01:05:00+08:00",
+          "status": "in_progress",
+          "summary": "Started HELP-SCHEMA-GATE-01 from latest origin/main in an isolated worktree. Scope is limited to docs/operations schema gate report, generated schema gate JSON, focused contract test, and PR-train metadata. No runtime schema change, CMS mutation, content generation, publish, private URL access, or raw private identifier action is authorized."
+        },
+        {
+          "at": "2026-06-05T01:07:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Required JSON/YAML parse, focused schema-gate contract, and git diff check passed after correcting a case-sensitive test assertion. currentPrScope helper was not touched, so full pnpm test:contract was not required. No runtime schema change, CMS mutation, content generation, publish, private URL access, or raw private identifier action was performed."
         }
       ]
     },

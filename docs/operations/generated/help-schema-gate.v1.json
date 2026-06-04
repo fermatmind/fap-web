@@ -1,0 +1,94 @@
+{
+  "schema_version": "help_schema_gate.v1",
+  "generated_at": "2026-06-05T01:08:00+08:00",
+  "pr_id": "HELP-SCHEMA-GATE-01",
+  "decision": "CONDITIONAL_SCHEMA_BLOCKED_UNTIL_VISIBLE_CMS_FIELDS",
+  "run_mode": "schema_gate_contract_only",
+  "runtime_changed": false,
+  "cms_mutation": false,
+  "content_generated": false,
+  "rules": [
+    {
+      "id": "faq_schema_visible_content_only",
+      "status": "required",
+      "rule": "FAQPage schema is allowed only when the same FAQ items are visibly rendered from CMS/backend authority."
+    },
+    {
+      "id": "no_hidden_faq_items",
+      "status": "required",
+      "rule": "FAQPage must not contain hidden-only items."
+    },
+    {
+      "id": "no_private_url_examples",
+      "status": "required",
+      "rule": "FAQPage and WebPage schema must not include private result/order/share/pay/payment/history URLs."
+    },
+    {
+      "id": "no_raw_identifiers",
+      "status": "required",
+      "rule": "Schema must not include raw orderNo, payment_id, transaction_id, resultId, attemptId, access_token, or tokenized URL examples."
+    },
+    {
+      "id": "policy_fields_required",
+      "status": "required",
+      "applies_to": [
+        "payment_refund",
+        "unlock_failure",
+        "result_recovery",
+        "privacy",
+        "data_deletion"
+      ],
+      "required_fields": [
+        "policy_version",
+        "updated_at",
+        "reviewer"
+      ]
+    },
+    {
+      "id": "unknown_fields_stay_unknown",
+      "status": "required",
+      "rule": "Unknown source fields must remain Unknown and must not be inferred from Markdown."
+    }
+  ],
+  "current_state": {
+    "help_faq_schema_source": "Markdown-derived visible FAQ only for help-faq slug",
+    "faq_items_first_class": false,
+    "schema_enabled_field_available": false,
+    "policy_version_available": false,
+    "updated_at_available": "source_updated_at/updated_at available but policy-specific updated_at mapping not first-class"
+  },
+  "page_schema_positions": [
+    {
+      "page": "Payment/refund FAQ",
+      "schema": "FAQPage blocked until visible approved FAQ, policy_version, updated_at, reviewer, and schema_enabled exist"
+    },
+    {
+      "page": "Unlock failure",
+      "schema": "FAQPage blocked until visible approved FAQ, policy_version, updated_at, reviewer, handling_time, safe identifier fields, and schema_enabled exist"
+    },
+    {
+      "page": "Result recovery",
+      "schema": "FAQPage blocked until visible approved FAQ, retention/recovery/private URL fields and schema_enabled exist"
+    },
+    {
+      "page": "Privacy",
+      "schema": "FAQPage blocked until visible approved FAQ, privacy policy version, analytics/private URL/deletion fields and schema_enabled exist"
+    },
+    {
+      "page": "Non-diagnostic",
+      "schema": "FAQPage blocked until visible approved FAQ and claim boundary version exist"
+    },
+    {
+      "page": "Data deletion",
+      "schema": "FAQPage blocked until visible approved FAQ, handling/verification/retention-exception fields and schema_enabled exist"
+    }
+  ],
+  "forbidden_actions": [
+    "no runtime schema change",
+    "no CMS mutation",
+    "no content generation",
+    "no publish",
+    "no private URL examples",
+    "no raw order/payment/result identifiers"
+  ]
+}
