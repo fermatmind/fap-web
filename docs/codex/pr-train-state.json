@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-04T19:36:00+08:00",
+  "updated_at": "2026-06-04T21:06:00+08:00",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -19599,6 +19599,146 @@
           "at": "2026-06-04T19:36:00+08:00",
           "status": "merged",
           "summary": "PR #1039 was squash-merged at 333842def4d11919e4978bcdacdc64409388e474, remote branch was deleted, and local temp worktree cleanup executed."
+        }
+      ]
+    },
+    {
+      "id": "HELP-CONTENT-INVENTORY-01",
+      "repo": "fap-web",
+      "branch": "codex/help-content-inventory-01",
+      "base": "main",
+      "depends_on": [
+        "COMMERCIAL-READINESS-CONTROL-TOWER-01"
+      ],
+      "title": "docs(help): inventory service help assets and gaps",
+      "status": "local_checks_passed",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": {
+        "python3 -m json.tool docs/operations/generated/help-content-inventory.v1.json >/dev/null": "passed",
+        "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null": "passed",
+        "YAML parse docs/codex/pr-train.yaml": "passed",
+        "pnpm exec vitest run tests/contracts/help-content-inventory.contract.test.ts": "passed (1 file, 7 tests)",
+        "pnpm test:contract": "passed (444 files, 2528 tests)",
+        "git diff --check": "passed",
+        "public route checks": "passed: requested routes returned 200 after redirects; /help and /refund redirect to /support",
+        "sitemap/llms private route-family grep": "passed: no private route-family URLs matched in sitemap.xml, llms.txt, or llms-full.txt",
+        "support article and guide inventory": "observed empty: public support articles/guides returned 0 items in both locales"
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "events": [
+        {
+          "at": "2026-06-04T21:02:00+08:00",
+          "status": "in_progress",
+          "summary": "Started HELP-CONTENT-INVENTORY-01 from latest origin/main in an isolated worktree. Scope is limited to docs/operations inventory, generated JSON, focused contract test, currentPrScope helper, and PR-train metadata. No runtime, CMS, publish, search submission, deploy, private URL, secret, token, or raw private identifier action is authorized."
+        },
+        {
+          "at": "2026-06-04T21:06:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Required JSON/YAML parse, focused help-content inventory contract, git diff check, and full pnpm test:contract passed. Public route checks stayed read-only; no runtime, CMS, publish, private URL, search submission, deploy, secret, token, or raw private identifier action was performed."
+        }
+      ]
+    },
+    {
+      "id": "HELP-CMS-AUTHORITY-01",
+      "repo": "fap-web",
+      "branch": "codex/help-cms-authority-01",
+      "base": "main",
+      "depends_on": [
+        "HELP-CONTENT-INVENTORY-01"
+      ],
+      "title": "docs(help): define CMS authority for service help assets",
+      "status": "planned",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": {},
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "events": [
+        {
+          "at": "2026-06-04T21:02:00+08:00",
+          "status": "planned",
+          "summary": "Planned only by HELP-CONTENT-INVENTORY-01 authorization. Requires separate scoped execution approval before implementation."
+        }
+      ]
+    },
+    {
+      "id": "HELP-SCHEMA-GATE-01",
+      "repo": "fap-web",
+      "branch": "codex/help-schema-gate-01",
+      "base": "main",
+      "depends_on": [
+        "HELP-CONTENT-INVENTORY-01"
+      ],
+      "title": "test(help): gate FAQ schema to CMS-visible help content",
+      "status": "planned",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": {},
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "events": [
+        {
+          "at": "2026-06-04T21:02:00+08:00",
+          "status": "planned",
+          "summary": "Planned only by HELP-CONTENT-INVENTORY-01 authorization. Requires separate scoped execution approval before implementation."
+        }
+      ]
+    },
+    {
+      "id": "SUPPORT-FLOW-SMOKE-01",
+      "repo": "fap-web",
+      "branch": "codex/support-flow-smoke-01",
+      "base": "main",
+      "depends_on": [
+        "HELP-CONTENT-INVENTORY-01"
+      ],
+      "title": "test(support): smoke service support flow boundaries",
+      "status": "planned",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": {},
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "events": [
+        {
+          "at": "2026-06-04T21:02:00+08:00",
+          "status": "planned",
+          "summary": "Planned only by HELP-CONTENT-INVENTORY-01 authorization. Requires separate scoped execution approval before implementation."
+        }
+      ]
+    },
+    {
+      "id": "HELP-FOOTER-LINK-QA-01",
+      "repo": "fap-web",
+      "branch": "codex/help-footer-link-qa-01",
+      "base": "main",
+      "depends_on": [
+        "HELP-CONTENT-INVENTORY-01"
+      ],
+      "title": "test(help): verify footer help discoverability",
+      "status": "planned",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": {},
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "events": [
+        {
+          "at": "2026-06-04T21:02:00+08:00",
+          "status": "planned",
+          "summary": "Planned only by HELP-CONTENT-INVENTORY-01 authorization. Requires separate scoped execution approval before implementation."
         }
       ]
     }

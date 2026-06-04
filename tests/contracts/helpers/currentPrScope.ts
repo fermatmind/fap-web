@@ -538,6 +538,19 @@ export function isTestLandingProofSurface01AllowedFile(file: string): boolean {
   return TEST_LANDING_PROOF_SURFACE_01_ALLOWED_FILES.has(file);
 }
 
+const HELP_CONTENT_INVENTORY_01_ALLOWED_FILES = new Set([
+  "docs/operations/help-content-inventory.md",
+  "docs/operations/generated/help-content-inventory.v1.json",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "tests/contracts/help-content-inventory.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
+export function isHelpContentInventory01AllowedFile(file: string): boolean {
+  return HELP_CONTENT_INVENTORY_01_ALLOWED_FILES.has(file);
+}
+
 const ANALYTICS_COMMERCIAL_EVENTS_01_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/orders/[orderNo]/OrdersClient.tsx",
   "docs/analytics/commercial-events-business-dictionary.md",
@@ -1428,6 +1441,10 @@ const SECURITY_CODEQL_87_FILE_ACCESS_ALLOWED_FILES = new Set([
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (CURRENT_BRANCH === "codex/security-codeql-87-file-access") {
     return SECURITY_CODEQL_87_FILE_ACCESS_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/help-content-inventory-01") {
+    return HELP_CONTENT_INVENTORY_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/privacy-history-analytics-block-01") {
