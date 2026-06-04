@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-04T17:00:48+08:00",
+  "updated_at": "2026-06-04T19:36:00+08:00",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -19491,8 +19491,8 @@
         "COMMERCIAL-READINESS-CONTROL-TOWER-01"
       ],
       "title": "docs(seo): define source-backed test landing proof surfaces",
-      "status": "pr_open",
-      "commit_sha": "68e7f235204ab919e22b54380d6bf19b5b119b9b",
+      "status": "merged",
+      "commit_sha": "f7b4e69d5cd156d2740f5705e0efcfa228c33b71",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1037",
       "checks": {
         "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null": "passed",
@@ -19501,12 +19501,16 @@
         "pnpm vitest run tests/contracts/test-landing-proof-surfaces.contract.test.ts": "passed (11 tests)",
         "git diff --check -- docs/seo docs/codex tests/contracts": "passed",
         "git diff --cached --check": "passed",
-        "pnpm test:contract": "passed (442 files, 2511 tests; extra guard)"
+        "pnpm test:contract": "passed (442 files, 2511 tests; extra guard)",
+        "github_checks": {
+          "status": "passed",
+          "summary": "CodeQL, analyze (javascript-typescript), build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze passed before merge."
+        }
       },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-04T11:30:09Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "events": [
         {
           "at": "2026-06-04T14:28:07+08:00",
@@ -19527,6 +19531,11 @@
           "at": "2026-06-04T17:00:48+08:00",
           "status": "pr_open",
           "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1037 from branch codex/test-landing-proof-surface-01. GitHub checks are pending."
+        },
+        {
+          "at": "2026-06-04T19:36:00+08:00",
+          "status": "merged",
+          "summary": "PR #1037 was squash-merged at f7b4e69d5cd156d2740f5705e0efcfa228c33b71, remote branch was deleted, and local temp worktree cleanup executed."
         }
       ]
     },
@@ -19539,8 +19548,8 @@
         "COMMERCIAL-READINESS-CONTROL-TOWER-01"
       ],
       "title": "docs(seo): tier career graph for controlled search readiness",
-      "status": "pr_open",
-      "commit_sha": "e5cecb32d5aa09805833c8c04cc96f3ce54e2f96",
+      "status": "merged",
+      "commit_sha": "333842def4d11919e4978bcdacdc64409388e474",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1039",
       "checks": {
         "generator artifact": "passed: node scripts/seo/generate-career-quality-tiering.mjs --pretty --sample-per-group=3",
@@ -19550,12 +19559,16 @@
         "focused contract": "passed: pnpm exec vitest run tests/contracts/career-quality-tiering-01.contract.test.ts",
         "generator syntax": "passed: node --check scripts/seo/generate-career-quality-tiering.mjs",
         "diff check": "passed: git diff --check -- docs/seo docs/codex scripts/seo tests/contracts",
-        "cached diff check": "passed: git diff --cached --check"
+        "cached diff check": "passed: git diff --cached --check",
+        "github_checks": {
+          "status": "passed",
+          "summary": "CodeQL, analyze (javascript-typescript), build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze passed before merge."
+        }
       },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-04T11:35:15Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "events": [
         {
           "at": "2026-06-04T14:28:07+08:00",
@@ -19581,6 +19594,11 @@
           "at": "2026-06-04T09:05:44.706Z",
           "status": "pr_open",
           "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1039 after local generator, parse, focused contract, syntax, and scoped diff checks passed. No search submission, CMS/backend mutation, publish, or deploy was performed."
+        },
+        {
+          "at": "2026-06-04T19:36:00+08:00",
+          "status": "merged",
+          "summary": "PR #1039 was squash-merged at 333842def4d11919e4978bcdacdc64409388e474, remote branch was deleted, and local temp worktree cleanup executed."
         }
       ]
     }
