@@ -4369,7 +4369,9 @@ prs:
       - SEO-DASH-00B
     mode: execute
     risk_level: L1
-    status: in_progress
+    status: merged
+    pr_url: "https://github.com/fermatmind/fap-web/pull/1048"
+    merge_sha: "17726dc1f1eab7acc7696a1809341cc1ac0b0a6d"
     title: "docs(seo): add read-only SEO issue queue generator"
     goal: "Add a read-only offline SEO issue queue generator that consumes existing URL truth, sitemap inventory, competitor URL inventory, and mock CMS draft/release, GSC, Baidu, and GA4 signals to produce local JSON/CSV issue queue artifacts without connecting to CMS/API/search platforms, writing CMS data, generating content, mutating sitemap/llms, deploying, or reading env/cookie/token data."
     in_scope:
@@ -12954,12 +12956,54 @@ prs:
     repo: fap-web
     branch: codex/help-cms-authority-01
     base: main
-    title: "docs(help): define CMS authority for service help assets"
+    title: "docs(help): define CMS authority for help and support assets"
     depends_on:
-      - HELP-CONTENT-INVENTORY-01
-    mode: planned
+      - HELP-CONTENT-PACKAGES-ARCHIVE-01
+    mode: docs_contract_authority
     train_scope: commercial_readiness_help_service_trust
-    status: planned
+    status: in_progress
+    goal: "Define how Help/service content should be owned by CMS/backend rather than frontend hardcoded pages, using fap-api ContentPage, SupportArticle, InterpretationGuide, and related field evidence as read-only reference."
+    artifacts:
+      - docs/operations/help-cms-authority.md
+      - docs/operations/generated/help-cms-authority.v1.json
+      - tests/contracts/help-cms-authority.contract.test.ts
+    allowed_paths:
+      - docs/operations/help-cms-authority.md
+      - docs/operations/generated/help-cms-authority.v1.json
+      - tests/contracts/help-cms-authority.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    read_only_reference:
+      - fap-api ContentPage model/resource/API
+      - fap-api SupportArticle model/resource/API
+      - fap-api InterpretationGuide model/resource/API
+      - existing policy/help docs
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - fap-api modifications
+      - runtime changes
+      - CMS mutation
+      - CMS draft creation
+      - content generation
+      - final policy copy
+      - private URLs
+      - raw order/payment/result identifiers
+    required_local_checks:
+      - python3 -m json.tool docs/operations/generated/help-cms-authority.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - pnpm exec vitest run tests/contracts/help-cms-authority.contract.test.ts
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: "After merge, continue with HELP-CONTENT-PACKAGE-VALIDATION-01 only after syncing latest main and confirming scope isolation."
   - id: HELP-SCHEMA-GATE-01
     repo: fap-web
     branch: codex/help-schema-gate-01

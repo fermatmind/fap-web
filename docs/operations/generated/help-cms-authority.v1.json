@@ -1,0 +1,258 @@
+{
+  "schema_version": "help_cms_authority.v1",
+  "generated_at": "2026-06-05T00:46:00+08:00",
+  "pr_id": "HELP-CMS-AUTHORITY-01",
+  "decision": "CONDITIONAL",
+  "run_mode": "docs_contract_authority_only",
+  "runtime_changed": false,
+  "cms_mutation": false,
+  "content_generated": false,
+  "fap_api_modified": false,
+  "source_evidence": [
+    "fap-web/app/(localized)/[locale]/help/[slug]/page.tsx",
+    "fap-web/lib/cms/content-pages.ts",
+    "fap-api/backend/app/Models/ContentPage.php",
+    "fap-api/backend/app/Models/SupportArticle.php",
+    "fap-api/backend/app/Models/InterpretationGuide.php",
+    "fap-api/backend/app/Http/Controllers/API/V0_5/Cms/ContentPageController.php",
+    "fap-api/backend/app/Http/Controllers/API/V0_5/Cms/SupportArticleController.php",
+    "fap-api/backend/app/Http/Controllers/API/V0_5/Cms/InterpretationGuideController.php",
+    "fap-api/backend/routes/api.php",
+    "fap-api/backend/AGENTS.md",
+    "docs/content/help/generated/help-content-packages.v1.json"
+  ],
+  "authorities": {
+    "ContentPage": {
+      "owns": [
+        "public_help_pages",
+        "policy_pages",
+        "privacy_pages",
+        "terms_pages",
+        "refund_static_pages",
+        "support_static_pages",
+        "boundary_pages"
+      ],
+      "supported_fields": [
+        "slug",
+        "path",
+        "kind",
+        "page_type",
+        "title",
+        "summary",
+        "content_md",
+        "content_html",
+        "locale",
+        "status",
+        "review_state",
+        "owner",
+        "last_reviewed_at",
+        "published_at",
+        "source_updated_at",
+        "effective_at",
+        "is_public",
+        "is_indexable",
+        "seo_title",
+        "meta_description",
+        "seo_description",
+        "canonical_path"
+      ],
+      "missing_for_help_service": [
+        "faq_items",
+        "schema_enabled",
+        "policy_version",
+        "reviewer",
+        "support_contact",
+        "handling_time",
+        "required_user_info",
+        "forbidden_user_info",
+        "pii_minimization_notice"
+      ]
+    },
+    "SupportArticle": {
+      "owns": [
+        "support_workflow_articles",
+        "order_report_payment_refund_email_account_privacy_troubleshooting_support"
+      ],
+      "supported_fields": [
+        "slug",
+        "title",
+        "summary",
+        "body_md",
+        "body_html",
+        "support_category",
+        "support_intent",
+        "locale",
+        "status",
+        "review_state",
+        "primary_cta_label",
+        "primary_cta_url",
+        "related_support_article_ids",
+        "related_content_page_ids",
+        "last_reviewed_at",
+        "published_at",
+        "seo_title",
+        "seo_description",
+        "canonical_path"
+      ],
+      "supported_categories": [
+        "orders",
+        "reports",
+        "payments",
+        "refunds",
+        "email",
+        "account",
+        "privacy_data",
+        "troubleshooting"
+      ],
+      "supported_intents": [
+        "lookup_order",
+        "recover_report",
+        "understand_refund",
+        "manage_email_preferences",
+        "unsubscribe_email",
+        "request_data",
+        "delete_data_request_info",
+        "contact_support"
+      ],
+      "missing_for_help_service": [
+        "unlock_failure",
+        "handling_time",
+        "required_user_info",
+        "forbidden_user_info",
+        "pii_minimization_notice",
+        "policy_version",
+        "support_contact"
+      ]
+    },
+    "InterpretationGuide": {
+      "owns": [
+        "result_interpretation",
+        "result_limitations",
+        "free_vs_full_explanation"
+      ],
+      "supported_fields": [
+        "slug",
+        "title",
+        "summary",
+        "body_md",
+        "body_html",
+        "test_family",
+        "result_context",
+        "audience",
+        "locale",
+        "status",
+        "review_state",
+        "related_guide_ids",
+        "related_methodology_page_ids",
+        "last_reviewed_at",
+        "published_at",
+        "seo_title",
+        "seo_description",
+        "canonical_path"
+      ],
+      "supported_contexts": [
+        "how_to_read",
+        "score_meaning",
+        "dimension_explanation",
+        "type_profile",
+        "free_vs_full",
+        "report_section",
+        "limitations"
+      ],
+      "missing_for_help_service": [
+        "result_recovery_method",
+        "result_retention_period",
+        "private_url_policy",
+        "support_contact"
+      ]
+    }
+  },
+  "asset_mapping": [
+    {
+      "asset": "Payment FAQ",
+      "primary_authority": "ContentPage",
+      "secondary_authority": "SupportArticle",
+      "status": "Partial",
+      "gap": "no first-class payment_method/currency/free_boundary/paid_boundary/policy_version fields"
+    },
+    {
+      "asset": "Refund FAQ",
+      "primary_authority": "ContentPage",
+      "secondary_authority": "SupportArticle",
+      "status": "Partial",
+      "gap": "refund category and understand_refund intent exist, but eligibility/exclusions/handling_time are not structured"
+    },
+    {
+      "asset": "Unlock failure help",
+      "primary_authority": "ContentPage",
+      "secondary_authority": "SupportArticle",
+      "status": "Partial",
+      "gap": "no unlock_failure support_intent or structured SLA/safe identifier fields"
+    },
+    {
+      "asset": "Result recovery",
+      "primary_authority": "ContentPage",
+      "secondary_authority": "SupportArticle",
+      "tertiary_authority": "InterpretationGuide for result explanation only",
+      "status": "Partial",
+      "gap": "recover_report intent exists, but retention/private URL/recovery method fields are not structured"
+    },
+    {
+      "asset": "Privacy Help",
+      "primary_authority": "ContentPage",
+      "secondary_authority": "SupportArticle",
+      "status": "Partial",
+      "gap": "privacy and delete/request data intents exist, but analytics/private URL/deletion fields are not structured"
+    },
+    {
+      "asset": "Non-diagnostic boundary",
+      "primary_authority": "ContentPage",
+      "secondary_authority": "InterpretationGuide",
+      "status": "Partial",
+      "gap": "boundary page_type and limitations context exist, but claim_boundary_version/applicable_surfaces are not structured"
+    },
+    {
+      "asset": "Data deletion request",
+      "primary_authority": "ContentPage",
+      "secondary_authority": "SupportArticle",
+      "status": "Partial",
+      "gap": "delete_data_request_info intent exists, but handling SLA, identity verification, and retained-data exception fields are missing"
+    }
+  ],
+  "faq_schema_authority": {
+    "current_fap_web_behavior": "help detail derives FAQPage from visible Markdown only for the faq slug",
+    "faq_items_first_class": false,
+    "markdown_derived": true,
+    "schema_enabled_field_available": false,
+    "rule": "FAQPage schema must match visible CMS/backend content and must not include hidden items, private URLs, or raw order/payment/result identifiers"
+  },
+  "field_needs": [
+    "slug",
+    "locale",
+    "title",
+    "summary",
+    "body",
+    "faq_items",
+    "updated_at",
+    "reviewer",
+    "support_contact",
+    "policy_version",
+    "schema_enabled",
+    "robots",
+    "is_indexable",
+    "support_intent",
+    "handling_time",
+    "required_user_info",
+    "forbidden_user_info",
+    "pii_minimization_notice"
+  ],
+  "forbidden_actions": [
+    "no runtime changes",
+    "no CMS mutation",
+    "no CMS draft",
+    "no content generation",
+    "no private URL access",
+    "no raw order/payment/result identifiers",
+    "no fap-api modification"
+  ]
+}

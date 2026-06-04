@@ -17015,7 +17015,7 @@
         "CAREER-JOBS-PAGINATED-DIRECTORY-SHELL-01",
         "CAREER-LLMS-DIRECTORY-SITEMAP-AUTHORITY-01"
       ],
-      "status": "in_progress",
+      "status": "local_checks_passed",
       "title": "CAREER-DIRECTORY-PRODUCTION-CONSUMPTION-REPAIR-01 career directory production consumption repair",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/974",
       "commit_sha": "pending_remote_pr_head",
@@ -18135,7 +18135,14 @@
       "status": "planned",
       "commit_sha": null,
       "pr_url": null,
-      "checks": {},
+      "checks": {
+        "python3 -m json.tool docs/operations/generated/help-cms-authority.v1.json >/dev/null": "passed",
+        "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null": "passed",
+        "YAML parse docs/codex/pr-train.yaml": "passed",
+        "pnpm exec vitest run tests/contracts/help-cms-authority.contract.test.ts": "passed (1 file, 8 tests)",
+        "git diff --check": "passed",
+        "pnpm test:contract": "not run; currentPrScope helper was not touched"
+      },
       "failure_reason": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -19674,7 +19681,7 @@
         "HELP-CONTENT-INVENTORY-01"
       ],
       "title": "docs(help): archive service help content packages",
-      "status": "pr_open",
+      "status": "merged",
       "commit_sha": "2a16735bbd6130abc50e6c411616ef38c9f92400",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1048",
       "checks": {
@@ -19683,12 +19690,16 @@
         "YAML parse docs/codex/pr-train.yaml": "passed",
         "pnpm exec vitest run tests/contracts/help-content-packages.contract.test.ts": "passed (1 file, 7 tests)",
         "git diff --check": "passed",
-        "pnpm test:contract": "not run; currentPrScope helper was left unchanged after local scope adjustment"
+        "pnpm test:contract": "not run; currentPrScope helper was left unchanged after local scope adjustment",
+        "github_checks": {
+          "status": "passed",
+          "summary": "CodeQL, analyze (javascript-typescript), build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze passed before merge."
+        }
       },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-04T16:35:56Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "events": [
         {
           "at": "2026-06-05T00:20:00+08:00",
@@ -19704,8 +19715,14 @@
           "at": "2026-06-05T00:33:00+08:00",
           "status": "pr_open",
           "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1048 after required local checks passed. The branch archives package inputs only; CMS draft creation, publish, runtime route changes, schema publication, footer changes, and support-flow changes remain deferred."
+        },
+        {
+          "at": "2026-06-05T00:36:00+08:00",
+          "status": "merged",
+          "summary": "PR #1048 was squash-merged at 17726dc1f1eab7acc7696a1809341cc1ac0b0a6d after required GitHub checks passed. Remote branch was deleted; local main was fast-forwarded and the local task branch/worktree were cleaned."
         }
-      ]
+      ],
+      "merge_sha": "17726dc1f1eab7acc7696a1809341cc1ac0b0a6d"
     },
     {
       "id": "HELP-CMS-AUTHORITY-01",
@@ -19713,10 +19730,10 @@
       "branch": "codex/help-cms-authority-01",
       "base": "main",
       "depends_on": [
-        "HELP-CONTENT-INVENTORY-01"
+        "HELP-CONTENT-PACKAGES-ARCHIVE-01"
       ],
-      "title": "docs(help): define CMS authority for service help assets",
-      "status": "planned",
+      "title": "docs(help): define CMS authority for help and support assets",
+      "status": "in_progress",
       "commit_sha": null,
       "pr_url": null,
       "checks": {},
@@ -19729,6 +19746,16 @@
           "at": "2026-06-04T21:02:00+08:00",
           "status": "planned",
           "summary": "Planned only by HELP-CONTENT-INVENTORY-01 authorization. Requires separate scoped execution approval before implementation."
+        },
+        {
+          "at": "2026-06-05T00:39:00+08:00",
+          "status": "in_progress",
+          "summary": "Started HELP-CMS-AUTHORITY-01 from latest origin/main in an isolated worktree. Scope is limited to docs/operations authority report, generated authority JSON, focused contract test, and PR-train metadata. fap-api ContentPage, SupportArticle, and InterpretationGuide were used as read-only references only. No runtime, CMS draft, CMS mutation, publish, deploy, private URL, secret, token, content generation, final policy copy, or raw private identifier action is authorized."
+        },
+        {
+          "at": "2026-06-05T00:41:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Required JSON/YAML parse, focused help-cms-authority contract, and git diff check passed. currentPrScope helper was not touched, so full pnpm test:contract was not required for this docs-only PR. No runtime, fap-api modification, CMS draft, CMS mutation, publish, private URL, deploy, content generation, final policy copy, secret, token, or raw private identifier action was performed."
         }
       ]
     },
