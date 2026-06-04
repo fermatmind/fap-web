@@ -19791,7 +19791,7 @@
         "HELP-CMS-AUTHORITY-01"
       ],
       "title": "test(help): validate service help content package boundaries",
-      "status": "pr_open",
+      "status": "merged",
       "commit_sha": "da0106d20de25f99cd1350df6d61f1f92347fb92",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1050",
       "checks": {
@@ -19800,12 +19800,16 @@
         "YAML parse docs/codex/pr-train.yaml": "passed",
         "pnpm exec vitest run tests/contracts/help-content-package-validation.contract.test.ts": "passed (1 file, 8 tests)",
         "git diff --check": "passed",
-        "pnpm test:contract": "not run; currentPrScope helper was not touched"
+        "pnpm test:contract": "not run; currentPrScope helper was not touched",
+        "github_checks": {
+          "status": "passed",
+          "summary": "CodeQL, analyze (javascript-typescript), build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze passed before merge."
+        }
       },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-04T16:55:07Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "events": [
         {
           "at": "2026-06-05T00:48:00+08:00",
@@ -19821,6 +19825,49 @@
           "at": "2026-06-05T00:52:00+08:00",
           "status": "pr_open",
           "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1050 after required local checks passed. CMS draft creation, package rewriting, operator review, publish, schema runtime, footer changes, and support-flow runtime remain deferred."
+        },
+        {
+          "at": "2026-06-05T00:56:00+08:00",
+          "status": "merged",
+          "summary": "PR #1050 was squash-merged at 356523bdc0df576a145078d23cafa4f8b83bd540 after required GitHub checks passed. Remote branch was deleted; local main was fast-forwarded and the local task branch/worktree were cleaned."
+        }
+      ],
+      "merge_sha": "356523bdc0df576a145078d23cafa4f8b83bd540"
+    },
+    {
+      "id": "HELP-CMS-DRAFT-PREFLIGHT-01",
+      "repo": "fap-web",
+      "branch": "codex/help-cms-draft-preflight-01",
+      "base": "main",
+      "depends_on": [
+        "HELP-CONTENT-PACKAGE-VALIDATION-01"
+      ],
+      "title": "docs(help): run CMS draft preflight for service help assets",
+      "status": "local_checks_passed",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": {
+        "python3 -m json.tool docs/operations/generated/help-cms-draft-preflight.v1.json >/dev/null": "passed",
+        "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null": "passed",
+        "YAML parse docs/codex/pr-train.yaml": "passed",
+        "pnpm exec vitest run tests/contracts/help-cms-draft-preflight.contract.test.ts": "passed (1 file, 6 tests)",
+        "git diff --check": "passed",
+        "pnpm test:contract": "not run; currentPrScope helper was not touched"
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "events": [
+        {
+          "at": "2026-06-05T00:57:00+08:00",
+          "status": "in_progress",
+          "summary": "Started HELP-CMS-DRAFT-PREFLIGHT-01 from latest origin/main in an isolated worktree. Scope is limited to docs/operations draft preflight report, generated preflight JSON, focused contract test, and PR-train metadata. No CMS write, CMS draft creation, publish, runtime change, private URL access, or raw private identifier action is authorized."
+        },
+        {
+          "at": "2026-06-05T00:58:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Required JSON/YAML parse, focused draft-preflight contract, and git diff check passed. currentPrScope helper was not touched, so full pnpm test:contract was not required for this docs-only PR. No CMS write, CMS draft creation, publish, runtime change, private URL access, or raw private identifier action was performed."
         }
       ]
     },
