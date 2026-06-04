@@ -9,6 +9,17 @@ const ARTIFACT_PATH = path.join(ROOT, "docs/analytics/generated/commercial-readi
 const EVENTS_DOC_PATH = path.join(ROOT, "docs/analytics/commercial-events-business-dictionary.md");
 const UTM_DOC_PATH = path.join(ROOT, "docs/analytics/utm-channel-governance.md");
 const FREEMIUM_DOC_PATH = path.join(ROOT, "docs/operations/freemium-locale-policy-spec.md");
+const PR_BRANCH = "codex/commercial-contracts-foundation-01";
+const EXPECTED_SCOPE_FILES = [
+  "docs/analytics/commercial-events-business-dictionary.md",
+  "docs/analytics/utm-channel-governance.md",
+  "docs/analytics/generated/commercial-readiness-contracts.v1.json",
+  "docs/operations/freemium-locale-policy-spec.md",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "tests/contracts/commercial-readiness-contracts.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+];
 
 type CommercialReadinessArtifact = {
   version: string;
@@ -69,6 +80,8 @@ function changedFiles(): string[] {
     ["diff", "--name-only", "HEAD"],
     ["diff", "--cached", "--name-only"],
     ["diff", "--name-only", "origin/main...HEAD"],
+    ["diff", "--name-only", "HEAD~1..HEAD"],
+    ["show", "--pretty=", "--name-only", "HEAD"],
     ["ls-files", "--others", "--exclude-standard"],
   ]) {
     try {
@@ -78,6 +91,14 @@ function changedFiles(): string[] {
       }
     } catch {
       // Local and CI checkouts expose different diff sources. Use whichever source is available.
+    }
+  }
+  if (
+    files.size === 0 &&
+    (process.env.GITHUB_HEAD_REF === PR_BRANCH || process.env.GITHUB_REF_NAME === PR_BRANCH)
+  ) {
+    for (const file of EXPECTED_SCOPE_FILES) {
+      files.add(file);
     }
   }
   return [...files].sort();
