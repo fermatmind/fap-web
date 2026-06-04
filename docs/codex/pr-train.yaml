@@ -12753,12 +12753,47 @@ prs:
     repo: fap-web
     branch: codex/test-landing-proof-surface-01
     base: main
-    title: "docs(growth): define source-backed test landing proof surfaces"
+    title: "docs(seo): define source-backed test landing proof surfaces"
     depends_on:
       - COMMERCIAL-READINESS-CONTROL-TOWER-01
     mode: planned_docs_readiness
     train_scope: commercial_readiness_parallel_window
-    status: planned
+    status: pr_open
+    goal: "Define source-backed proof fields for homepage, MBTI, RIASEC, and Big Five landing commercial readiness without writing homepage copy, test page body copy, fake reviews, fake completions, runtime changes, CMS changes, publishing, or deployment."
+    artifacts:
+      - docs/seo/test-landing-proof-surfaces.md
+      - docs/seo/generated/test-landing-proof-surfaces.v1.json
+      - tests/contracts/test-landing-proof-surfaces.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+    allowed_paths:
+      - docs/operations/**
+      - docs/seo/**
+      - docs/analytics/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - tests/contracts/**
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - runtime code
+      - CMS data
+      - homepage copy
+      - test landing body copy
+      - fake reviews, ratings, completions, user counts, or proof metrics
+      - publish
+      - deployment
+    required_local_checks:
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -m json.tool docs/seo/generated/test-landing-proof-surfaces.v1.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - pnpm vitest run tests/contracts/test-landing-proof-surfaces.contract.test.ts
+      - git diff --check -- docs/seo docs/codex tests/contracts
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
   - id: CAREER-QUALITY-TIERING-01
     repo: fap-web
     branch: codex/career-quality-tiering-01
