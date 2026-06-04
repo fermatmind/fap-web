@@ -19733,7 +19733,7 @@
         "HELP-CONTENT-PACKAGES-ARCHIVE-01"
       ],
       "title": "docs(help): define CMS authority for help and support assets",
-      "status": "pr_open",
+      "status": "merged",
       "commit_sha": "e00f87e09ea372f257d061a3f4bf7d83f765acae",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1049",
       "checks": {
@@ -19743,12 +19743,16 @@
         "pnpm exec vitest run tests/contracts/help-cms-authority.contract.test.ts": "passed (1 file, 8 tests)",
         "git diff --check": "passed",
         "git diff --cached --check": "passed",
-        "pnpm test:contract": "not run; currentPrScope helper was not touched"
+        "pnpm test:contract": "not run; currentPrScope helper was not touched",
+        "github_checks": {
+          "status": "passed",
+          "summary": "CodeQL, analyze (javascript-typescript), build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze passed before merge."
+        }
       },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-04T16:46:12Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "events": [
         {
           "at": "2026-06-04T21:02:00+08:00",
@@ -19769,6 +19773,49 @@
           "at": "2026-06-05T00:43:00+08:00",
           "status": "pr_open",
           "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1049 after required local checks passed. Runtime changes, fap-api modifications, CMS drafts, CMS mutations, publish, schema runtime, footer changes, and support-flow changes remain deferred."
+        },
+        {
+          "at": "2026-06-05T00:47:00+08:00",
+          "status": "merged",
+          "summary": "PR #1049 was squash-merged at 21d6a348a2965e2d9dcab066193882c5712ab6c2 after required GitHub checks passed. Remote branch was deleted; local main was fast-forwarded and the local task branch/worktree were cleaned."
+        }
+      ],
+      "merge_sha": "21d6a348a2965e2d9dcab066193882c5712ab6c2"
+    },
+    {
+      "id": "HELP-CONTENT-PACKAGE-VALIDATION-01",
+      "repo": "fap-web",
+      "branch": "codex/help-content-package-validation-01",
+      "base": "main",
+      "depends_on": [
+        "HELP-CMS-AUTHORITY-01"
+      ],
+      "title": "test(help): validate service help content package boundaries",
+      "status": "local_checks_passed",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": {
+        "python3 -m json.tool docs/content/help/generated/help-content-package-validation.v1.json >/dev/null": "passed",
+        "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null": "passed",
+        "YAML parse docs/codex/pr-train.yaml": "passed",
+        "pnpm exec vitest run tests/contracts/help-content-package-validation.contract.test.ts": "passed (1 file, 8 tests)",
+        "git diff --check": "passed",
+        "pnpm test:contract": "not run; currentPrScope helper was not touched"
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "events": [
+        {
+          "at": "2026-06-05T00:48:00+08:00",
+          "status": "in_progress",
+          "summary": "Started HELP-CONTENT-PACKAGE-VALIDATION-01 from latest origin/main in an isolated worktree. Scope is limited to docs/content/help validation report, generated validation JSON, focused contract test, and PR-train metadata. No package rewrite into publish copy, runtime change, CMS draft, CMS mutation, publish, private URL access, real order/result/payment data, competitor copy, or raw identifier action is authorized."
+        },
+        {
+          "at": "2026-06-05T00:50:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Required JSON/YAML parse, focused package-validation contract, and git diff check passed. currentPrScope helper was not touched, so full pnpm test:contract was not required for this docs-only PR. No package rewrite into publish copy, runtime change, CMS draft, CMS mutation, publish, private URL access, real order/result/payment data, competitor copy, or raw identifier action was performed."
         }
       ]
     },

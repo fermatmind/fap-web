@@ -4699,7 +4699,9 @@ prs:
       - CMS-OPS-RELEASE-02
     mode: execute
     risk_level: L1
-    status: in_progress
+    status: merged
+    pr_url: "https://github.com/fermatmind/fap-web/pull/1049"
+    merge_sha: "21d6a348a2965e2d9dcab066193882c5712ab6c2"
     title: "docs(seo): define SERP content brief generator contract"
     goal: "Define the SERP/content brief generator contract as an offline, read-only planning artifact that consumes existing URL Truth, competitor URL inventory, SEO issue queue, internal-link graph, CMS status samples, and manual SERP samples to produce advisory brief fields without connecting to external APIs, writing CMS data, creating CMS drafts, generating publishable article copy, submitting search URLs, mutating sitemap/llms, deploying, or changing runtime behavior."
     in_scope:
@@ -13004,6 +13006,54 @@ prs:
       squash: true
       auto_merge: true
     next_task: "After merge, continue with HELP-CONTENT-PACKAGE-VALIDATION-01 only after syncing latest main and confirming scope isolation."
+  - id: HELP-CONTENT-PACKAGE-VALIDATION-01
+    repo: fap-web
+    branch: codex/help-content-package-validation-01
+    base: main
+    title: "test(help): validate service help content package boundaries"
+    depends_on:
+      - HELP-CMS-AUTHORITY-01
+    mode: docs_contract_validation
+    train_scope: commercial_readiness_help_service_trust
+    status: in_progress
+    goal: "Validate the six archived Help packages against privacy, CMS, SEO/schema, and service-boundary rules without rewriting package content, changing runtime, creating CMS drafts, publishing content, or accessing private URLs."
+    artifacts:
+      - docs/content/help/help-content-package-validation.md
+      - docs/content/help/generated/help-content-package-validation.v1.json
+      - tests/contracts/help-content-package-validation.contract.test.ts
+    allowed_paths:
+      - docs/content/help/**
+      - docs/content/help/generated/**
+      - tests/contracts/help-content-package-validation.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - runtime changes
+      - CMS draft creation
+      - CMS mutation
+      - content publish
+      - package rewrite into publish copy
+      - private URLs
+      - real order/result/payment data
+      - raw order/payment/result identifiers
+      - competitor copy
+    required_local_checks:
+      - python3 -m json.tool docs/content/help/generated/help-content-package-validation.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - pnpm exec vitest run tests/contracts/help-content-package-validation.contract.test.ts
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: "After merge, continue with HELP-CMS-DRAFT-PREFLIGHT-01 only after syncing latest main and confirming scope isolation."
   - id: HELP-SCHEMA-GATE-01
     repo: fap-web
     branch: codex/help-schema-gate-01

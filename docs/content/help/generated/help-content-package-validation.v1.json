@@ -1,0 +1,123 @@
+{
+  "schema_version": "help_content_package_validation.v1",
+  "generated_at": "2026-06-05T00:52:00+08:00",
+  "pr_id": "HELP-CONTENT-PACKAGE-VALIDATION-01",
+  "decision": "PASS_WITH_NON_PUBLISHABLE_GATES",
+  "run_mode": "docs_contract_validation_only",
+  "runtime_changed": false,
+  "cms_mutation": false,
+  "cms_draft_created": false,
+  "content_rewritten": false,
+  "package_count": 6,
+  "package_files": [
+    "docs/content/help/packages/01_UNLOCK-FAILURE-HELP-CARD-01.md",
+    "docs/content/help/packages/01_UNLOCK-FAILURE-HELP-CARD-01.yaml",
+    "docs/content/help/packages/02_PAYMENT-REFUND-FAQ-PACKAGE-01.md",
+    "docs/content/help/packages/02_PAYMENT-REFUND-FAQ-PACKAGE-01.yaml",
+    "docs/content/help/packages/03_RESULT-RECOVERY-FAQ-01.md",
+    "docs/content/help/packages/03_RESULT-RECOVERY-FAQ-01.yaml",
+    "docs/content/help/packages/04_PRIVACY-FAQ-PACKAGE-01.md",
+    "docs/content/help/packages/04_PRIVACY-FAQ-PACKAGE-01.yaml",
+    "docs/content/help/packages/05_NONDIAGNOSTIC-HELP-COPY-01.md",
+    "docs/content/help/packages/05_NONDIAGNOSTIC-HELP-COPY-01.yaml",
+    "docs/content/help/packages/06_DATA-DELETION-REQUEST-FAQ-01.md",
+    "docs/content/help/packages/06_DATA-DELETION-REQUEST-FAQ-01.yaml"
+  ],
+  "validation_rules": [
+    {
+      "id": "no_raw_orderNo_examples",
+      "status": "passed",
+      "notes": "Policy mentions of raw orderNo are allowed only as prohibition text; raw assignments/examples are not present."
+    },
+    {
+      "id": "no_raw_payment_id_examples",
+      "status": "passed",
+      "notes": "No raw payment_id assignment or example value found."
+    },
+    {
+      "id": "no_raw_transaction_id_examples",
+      "status": "passed",
+      "notes": "No raw transaction_id assignment or example value found."
+    },
+    {
+      "id": "no_raw_result_or_attempt_id_examples",
+      "status": "passed",
+      "notes": "No raw resultId/attemptId assignment or example value found."
+    },
+    {
+      "id": "no_full_private_url_examples",
+      "status": "passed",
+      "notes": "Only public canonical /zh/help and /en/help routes are used as route recommendations."
+    },
+    {
+      "id": "no_tokenized_url_examples",
+      "status": "passed",
+      "notes": "No tokenized URL found."
+    },
+    {
+      "id": "no_fake_sla_beyond_operator_policy",
+      "status": "passed",
+      "allowed_policy": {
+        "unlock_failure_sla": "24h"
+      }
+    },
+    {
+      "id": "no_fake_refund_guarantee",
+      "status": "passed",
+      "allowed_policy": {
+        "refund_allowed": true,
+        "refund_window_days": 7,
+        "refund_condition": "无法获得完整报告"
+      }
+    },
+    {
+      "id": "no_unsupported_medical_or_diagnostic_claim",
+      "status": "passed",
+      "notes": "Diagnostic/medical phrases appear only in forbidden-claim boundary lists."
+    },
+    {
+      "id": "no_competitor_copy_markers",
+      "status": "passed",
+      "notes": "No 123test or Truity markers found in archived packages."
+    },
+    {
+      "id": "publish_allowed_must_stay_false",
+      "status": "passed"
+    },
+    {
+      "id": "operator_review_required",
+      "status": "passed"
+    },
+    {
+      "id": "cms_authority_required",
+      "status": "passed"
+    },
+    {
+      "id": "seo_schema_position_required",
+      "status": "passed"
+    }
+  ],
+  "scan_violations": [],
+  "allowed_policy_mentions": [
+    "raw order/payment/result identifiers mentioned as prohibited fields",
+    "private URLs mentioned as prohibited examples",
+    "medical/diagnostic terms mentioned as forbidden claims",
+    "public canonical /zh/help and /en/help route recommendations"
+  ],
+  "non_publishable_gates": {
+    "publish_allowed": false,
+    "requires_operator_review": true,
+    "requires_cms_authority": true,
+    "schema_requires_visible_cms_content": true,
+    "cms_draft_created": false
+  },
+  "forbidden_actions": [
+    "no package rewrite into publish copy",
+    "no runtime changes",
+    "no CMS draft",
+    "no CMS mutation",
+    "no private URL access",
+    "no real order/result/payment data",
+    "no competitor copy"
+  ]
+}
