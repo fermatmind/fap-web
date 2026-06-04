@@ -18975,7 +18975,7 @@
         "ANALYTICS-COMMERCIAL-EVENTS-01"
       ],
       "title": "docs(privacy): review live private URL analytics surfaces",
-      "status": "pr_open",
+      "status": "merged_reconciled",
       "commit_sha": "b6cd7202b1de8a4181fad688f88b611e394f0db3",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1033",
       "checks": {
@@ -19002,9 +19002,9 @@
         }
       },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-04T04:47:01Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "events": [
         {
           "at": "2026-06-04T04:35:49.596205Z",
@@ -19020,6 +19020,11 @@
           "at": "2026-06-04T04:43:30.059210Z",
           "status": "pr_open",
           "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1033."
+        },
+        {
+          "at": "2026-06-04T16:57:32+08:00",
+          "status": "merged_reconciled",
+          "summary": "Reconciled PR #1033 as merged after GitHub reported MERGED, origin/main contained merge commit 31ef38fb230f6ef54bd8bb26467a454bcf36732e, and local/remote task branches were absent."
         }
       ]
     },
@@ -19237,7 +19242,7 @@
         "ANALYTICS-COMMERCIAL-EVENTS-01"
       ],
       "title": "docs(ops): define commercial readiness control tower",
-      "status": "pr_open",
+      "status": "merged_reconciled",
       "commit_sha": "48624ec8db1ea02a54f818ae60eda2b4858b847a",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1036",
       "checks": {
@@ -19248,9 +19253,9 @@
         "control tower content check": "passed"
       },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-04T08:25:30Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "events": [
         {
           "at": "2026-06-04T14:28:07+08:00",
@@ -19261,6 +19266,11 @@
           "at": "2026-06-04T14:30:38+08:00",
           "status": "pr_open",
           "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1036 after local docs/ledger validation passed."
+        },
+        {
+          "at": "2026-06-04T16:57:32+08:00",
+          "status": "merged_reconciled",
+          "summary": "Reconciled PR #1036 as merged after GitHub reported MERGED, origin/main contained merge commit 9149e4873010af9b747da2262b7253d3630dda4d, and local/remote task branches were absent."
         }
       ]
     },
@@ -19273,20 +19283,86 @@
         "COMMERCIAL-READINESS-CONTROL-TOWER-01",
         "PRIVACY-ORDER-RESULT-LIVE-REVIEW-01"
       ],
-      "title": "docs(privacy): repeat live private URL analytics review",
-      "status": "planned",
-      "commit_sha": null,
-      "pr_url": null,
-      "checks": {},
+      "title": "docs(privacy): verify live private URL analytics safety",
+      "status": "pr_open",
+      "commit_sha": "e7af32f5ac1779074100e523dc7e03dd9cecf262",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1038",
+      "checks": {
+        "public_surface_private_url_scan": {
+          "status": "passed",
+          "summary": "sitemap.xml, llms.txt, llms-full.txt, and robots.txt returned 200 with zero requested forbidden private URL/token matches."
+        },
+        "ga4_read_only_live_review": {
+          "status": "failed_privacy_gate",
+          "summary": "GA4 Events report with Landing page + query string showed /zh/history/<redacted> once on 2026-06-04; no raw identifiers were copied."
+        },
+        "baidu_tongji_read_only_live_review": {
+          "status": "passed",
+          "summary": "Baidu Tongji overview, entry pages, visited pages, all sources, search terms, external links, and internal sources showed zero requested forbidden private URL/token matches in the readable current dashboard reports."
+        },
+        "repo_guard_review": {
+          "status": "failed_privacy_gate",
+          "summary": "Redaction/noindex/sitemap guards are present, but live GA4 evidence proves browser analytics suppression is incomplete for /history/."
+        },
+        "json_parse": {
+          "status": "passed",
+          "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+        },
+        "yaml_parse": {
+          "status": "passed",
+          "command": "python3 -c \"import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')\""
+        },
+        "git_diff_check": {
+          "status": "passed",
+          "command": "git diff --check -- docs/audits docs/operations docs/codex"
+        },
+        "focused_contracts": {
+          "status": "passed",
+          "command": "pnpm exec vitest run tests/contracts/analytics-payload-privacy.contract.test.ts tests/contracts/private-noindex.contract.test.ts tests/contracts/tracking-whitelist.contract.test.ts",
+          "summary": "3 files passed, 20 tests passed."
+        }
+      },
       "failure_reason": null,
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
+      "review_result": {
+        "private_url_seen": "Yes",
+        "GA4_private_url_seen": "Yes",
+        "Baidu_private_url_seen": "No",
+        "public_surface_private_url_seen": "No",
+        "repo_guard_status": "FAIL",
+        "paid_ads_gate": "NO-GO",
+        "redacted_patterns": [
+          {
+            "source": "GA4 Events report, Landing page + query string",
+            "pattern": "/zh/history/<redacted>",
+            "count": 1,
+            "severity": "P0 privacy launch gate",
+            "next_fix_pr": "PRIVACY-HISTORY-ANALYTICS-BLOCK-01"
+          }
+        ]
+      },
       "events": [
         {
           "at": "2026-06-04T14:28:07+08:00",
           "status": "planned",
           "summary": "Registered as an allowed parallel control tower task. Execution requires separate scoped authorization and authenticated read-only live dashboard evidence."
+        },
+        {
+          "at": "2026-06-04T16:57:32+08:00",
+          "status": "local_checks_pending",
+          "summary": "Completed read-only live review evidence collection. GA4 showed /zh/history/<redacted> once in Landing page + query string, so private_url_seen=Yes and paid ads remain NO-GO. Runtime, CMS, analytics settings, search submission, and deploy were not changed."
+        },
+        {
+          "at": "2026-06-04T17:02:50+08:00",
+          "status": "local_checks_passed",
+          "summary": "Local validation passed: JSON parse, YAML parse, docs/codex diff check, and focused tracking/noindex/privacy contracts (3 files, 20 tests). The privacy gate result remains private_url_seen=Yes."
+        },
+        {
+          "at": "2026-06-04T17:06:20+08:00",
+          "status": "pr_open",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1038 after local validation passed. Paid ads remain NO-GO because private_url_seen=Yes."
         }
       ]
     },

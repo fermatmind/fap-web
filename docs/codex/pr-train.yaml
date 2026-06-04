@@ -12509,7 +12509,7 @@ prs:
       - ANALYTICS-COMMERCIAL-EVENTS-01
     mode: live_review_report_only
     train_scope: commercial_readiness_follow_up
-    status: in_progress
+    status: merged
     goal: "Perform a docs-only, read-only production privacy review after ANALYTICS-COMMERCIAL-EVENTS-01 deployment to determine private_url_seen as No, Yes, or Unknown across live GA4/Baidu dashboard evidence, public discoverability surfaces, and code-level privacy guards without runtime, analytics platform, CMS, payment, search submission, or deploy changes."
     allowed_paths:
       - docs/audits/privacy-order-result-live-review-2026-06-04.md
@@ -12635,7 +12635,7 @@ prs:
       - ANALYTICS-COMMERCIAL-EVENTS-01
     mode: docs_ledger_coordination_only
     train_scope: commercial_readiness_control_tower
-    status: pr_open
+    status: merged
     goal: "Define one control tower plus ten specialist windows for pre-commercial promotion readiness, register global stop conditions, keep Codex/GPT/CMS authority boundaries explicit, and record the first planned parallel tasks without runtime, CMS, content, search submission, or deploy changes."
     allowed_paths:
       - docs/operations/commercial-readiness-control-tower.md
@@ -12666,13 +12666,41 @@ prs:
     repo: fap-web
     branch: codex/privacy-order-result-live-review-02
     base: main
-    title: "docs(privacy): repeat live private URL analytics review"
+    title: "docs(privacy): verify live private URL analytics safety"
     depends_on:
       - COMMERCIAL-READINESS-CONTROL-TOWER-01
       - PRIVACY-ORDER-RESULT-LIVE-REVIEW-01
     mode: planned_read_only_live_review
     train_scope: commercial_readiness_parallel_window
-    status: planned
+    status: pr_open
+    goal: "Repeat the docs-only, read-only production privacy review after COMMERCIAL-READINESS-CONTROL-TOWER-01 to determine private_url_seen as No, Yes, or Unknown across live GA4/Baidu dashboard evidence, public discoverability surfaces, and code-level privacy guards without runtime, analytics platform, CMS, payment, search submission, or deploy changes."
+    allowed_paths:
+      - docs/audits/privacy-order-result-live-review-02-2026-06-04.md
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - runtime code
+      - analytics dashboard settings
+      - dashboard data deletion or edits
+      - env/cookie/token/secrets
+      - raw private IDs
+      - CMS data
+      - publish
+      - search submission
+      - Search Channel records
+      - payment/order mutation
+      - deploy
+      - paid ads enablement
+    required_local_checks:
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - git diff --check -- docs/audits docs/operations docs/codex
+      - pnpm exec vitest run tests/contracts/analytics-payload-privacy.contract.test.ts tests/contracts/private-noindex.contract.test.ts tests/contracts/tracking-whitelist.contract.test.ts
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: "Do not start paid ads. If private_url_seen is Yes, authorize and execute PRIVACY-HISTORY-ANALYTICS-BLOCK-01 before any repeat live review."
   - id: TEST-LANDING-PROOF-SURFACE-01
     repo: fap-web
     branch: codex/test-landing-proof-surface-01
