@@ -1,0 +1,74 @@
+asset_id: UNLOCK-FAILURE-HELP-CARD-01
+asset_type: help_service_asset
+priority: P0
+reason: Most directly protects paid-user trust when payment succeeds but report unlock
+  fails.
+status: draft_input_only
+publish_allowed: false
+locale_policy: zh/en same policy
+recommended_routes:
+- /zh/help/unlock-failure
+- /en/help/unlock-failure
+operator_policy:
+  support_channel: email
+  unlock_failure_handling_time: 24 hours
+  order_identifier_policy:
+    public_help_pages: do not request raw orderNo
+    primary_identity: purchase_email
+    optional_private_support_identifier: masked order code or order number last 6
+      characters
+    raw_orderNo_allowed_only_if: support explicitly requests it in private email thread
+    never_allowed_in:
+    - public page
+    - public form examples
+    - URL
+    - analytics payload
+    - FAQ schema examples
+required_user_info_safe:
+- purchase_email
+- test_name
+- locale
+- approximate_payment_time
+- payment_amount
+- issue_description
+- masked_order_code_optional
+forbidden_user_info_public:
+- full_orderNo
+- full_payment_id
+- full_transaction_id
+- full_result_url
+- full_history_url
+- screenshot_showing_private_url
+- token
+cms_fields:
+- slug
+- locale
+- title
+- summary
+- body
+- faq_items
+- support_intent
+- handling_time
+- required_user_info
+- forbidden_user_info
+- pii_minimization_notice
+- support_contact
+- policy_version
+- updated_at
+- reviewer
+- schema_enabled
+- robots
+- is_indexable
+seo_schema_position:
+  indexability: indexable after review
+  schema: FAQPage only after approved visible FAQ exists
+  canonical: self canonical public help route
+  links_from:
+  - result page help link
+  - checkout help link
+  - support hub
+  - footer help
+operator_unknowns:
+- support_email
+- exact escalation path
+- whether support form will exist

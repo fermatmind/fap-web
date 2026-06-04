@@ -12897,6 +12897,59 @@ prs:
       squash: true
       auto_merge: true
     next_task: "After merge, request explicit scope authorization before executing HELP-CMS-AUTHORITY-01, HELP-SCHEMA-GATE-01, SUPPORT-FLOW-SMOKE-01, HELP-FOOTER-LINK-QA-01, HELP-CONTENTPAGE-DRAFT-READINESS-01, or SUPPORT-PII-MINIMIZATION-GATE-01."
+  - id: HELP-CONTENT-PACKAGES-ARCHIVE-01
+    repo: fap-web
+    branch: codex/help-content-packages-archive-01
+    base: main
+    title: "docs(help): archive service help content packages"
+    depends_on:
+      - HELP-CONTENT-INVENTORY-01
+    mode: docs_contract_archive
+    train_scope: commercial_readiness_help_service_trust
+    status: in_progress
+    goal: "Archive the six GPT-5.5 Pro / operator-approved Help content package inputs as non-publishable draft assets for future CMS drafts without creating CMS drafts, publishing content, changing runtime, accessing private URLs, or recording raw private identifiers."
+    artifacts:
+      - docs/content/help/**
+      - docs/content/help/generated/help-content-packages.v1.json
+      - tests/contracts/help-content-packages.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+    allowed_paths:
+      - docs/content/help/**
+      - docs/content/help/generated/**
+      - tests/contracts/help-content-packages.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - CMS draft creation
+      - CMS mutation
+      - content publish
+      - payment provider changes
+      - result/order/payment runtime changes
+      - deploy
+      - search submission
+      - private result/order/share/pay/payment/history URLs
+      - env/cookie/token/secrets
+      - raw order/payment/result identifiers
+      - competitor copy
+      - publishable FAQ body copy
+    required_local_checks:
+      - python3 -m json.tool docs/content/help/generated/help-content-packages.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - pnpm exec vitest run tests/contracts/help-content-packages.contract.test.ts
+      - git diff --check
+      - git diff --cached --check
+      - pnpm test:contract if currentPrScope is touched
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: "After merge, continue with HELP-CMS-AUTHORITY-01 only after syncing latest main and confirming scope isolation."
   - id: HELP-CMS-AUTHORITY-01
     repo: fap-web
     branch: codex/help-cms-authority-01
