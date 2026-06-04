@@ -19843,9 +19843,9 @@
         "HELP-CONTENT-PACKAGE-VALIDATION-01"
       ],
       "title": "docs(help): run CMS draft preflight for service help assets",
-      "status": "local_checks_passed",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "pr_open",
+      "commit_sha": "383f39d7b82b05beb76d66d481f9ce6c9175b788",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1051",
       "checks": {
         "python3 -m json.tool docs/operations/generated/help-cms-draft-preflight.v1.json >/dev/null": "passed",
         "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null": "passed",
@@ -19868,6 +19868,11 @@
           "at": "2026-06-05T00:58:00+08:00",
           "status": "local_checks_passed",
           "summary": "Required JSON/YAML parse, focused draft-preflight contract, and git diff check passed. currentPrScope helper was not touched, so full pnpm test:contract was not required for this docs-only PR. No CMS write, CMS draft creation, publish, runtime change, private URL access, or raw private identifier action was performed."
+        },
+        {
+          "at": "2026-06-05T01:00:00+08:00",
+          "status": "pr_open",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1051 after required local checks passed. CMS draft creation, CMS field implementation, operator review, publish, schema runtime, footer changes, and support-flow runtime remain deferred."
         }
       ]
     },
