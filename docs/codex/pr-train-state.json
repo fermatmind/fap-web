@@ -17015,7 +17015,7 @@
         "CAREER-JOBS-PAGINATED-DIRECTORY-SHELL-01",
         "CAREER-LLMS-DIRECTORY-SITEMAP-AUTHORITY-01"
       ],
-      "status": "local_checks_passed",
+      "status": "pr_open_github_checks_pending",
       "title": "CAREER-DIRECTORY-PRODUCTION-CONSUMPTION-REPAIR-01 career directory production consumption repair",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/974",
       "commit_sha": "pending_remote_pr_head",
@@ -20210,7 +20210,7 @@
         },
         "github": {
           "status": "pending",
-          "evidence": null
+          "evidence": "Opened GitHub PR #1059 at https://github.com/fermatmind/fap-web/pull/1059. Required GitHub checks are pending."
         }
       },
       "result": {
@@ -20227,8 +20227,8 @@
         "next_pr_supported": "DAILY-GIVING-FIRST-RECORD-REVIEW-TEMPLATE-01"
       },
       "failure_reason": null,
-      "commit_sha": null,
-      "pr_url": null,
+      "commit_sha": "36965bdde45a01efc878fe4ef5732865c73c001c",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1059",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -20244,6 +20244,12 @@
           "from": "in_progress",
           "to": "local_checks_passed",
           "notes": "Local JSON/YAML, focused vitest contracts, and diff checks passed."
+        },
+        {
+          "at": "2026-06-05T04:19:17Z",
+          "from": "local_checks_passed",
+          "to": "pr_open_github_checks_pending",
+          "notes": "Opened https://github.com/fermatmind/fap-web/pull/1059 from branch codex/daily-giving-indexability-gate-01. GitHub required checks are pending."
         }
       ]
     }
