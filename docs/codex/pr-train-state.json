@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-05T08:40:00+08:00",
+  "updated_at": "2026-06-05T08:42:00+08:00",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -20129,9 +20129,9 @@
         "HELP-SERVICE-CONTENT-DRAFTS-ARCHIVE-01"
       ],
       "title": "test(help): validate service content draft boundaries",
-      "status": "in_progress",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "pr_open",
+      "commit_sha": "931d7ebd84c2ef898255757756376bfede3b78f1",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1057",
       "checks": {
         "python3 -m json.tool docs/operations/generated/help-service-content-validation.v1.json >/dev/null": "passed",
         "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null": "passed",
@@ -20154,6 +20154,11 @@
           "at": "2026-06-05T08:40:00+08:00",
           "status": "local_checks_passed",
           "summary": "Required JSON/YAML parse, focused Help service draft validation contract, and git diff checks passed. currentPrScope helper was not touched, so full pnpm test:contract was not required. Validation result is PASS_WITH_OPERATOR_REVIEW_GATES and ready_for_cms_import_package_generation=true; operator review and publish remain blocked."
+        },
+        {
+          "at": "2026-06-05T08:42:00+08:00",
+          "status": "pr_open",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1057 after required local checks passed. Validation result is PASS_WITH_OPERATOR_REVIEW_GATES and ready_for_cms_import_package_generation=true. CMS import package creation, CMS draft creation, CMS mutation, publish, runtime changes, editorial approval, private URL access, and raw private identifiers remain deferred."
         }
       ]
     }
