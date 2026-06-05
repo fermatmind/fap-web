@@ -8,25 +8,25 @@
     "scanner": "scripts/seo/generate-metadata-surface-inventory.mjs"
   },
   "summary": {
-    "totalSurfaces": 75,
+    "totalSurfaces": 80,
     "byClassification": {
       "private_noindex": 22,
       "product_code_only": 18,
       "safe_static": 12,
       "migration_required": 2,
-      "cms_backed": 14,
+      "cms_backed": 19,
       "backend_owned": 5,
       "watchlist": 2
     },
     "byOwnership": {
       "private_noindex": 22,
       "product_code_only": 20,
-      "cms_backed": 28,
+      "cms_backed": 33,
       "backend_owned": 5
     },
     "byRouteFamily": {
       "private_flow": 21,
-      "other": 10,
+      "other": 15,
       "static_content_page": 10,
       "article_detail": 2,
       "articles_hub": 1,
@@ -509,6 +509,21 @@
       "reason": "Static content pages should remain backend content-page authoritative."
     },
     {
+      "file": "app/(localized)/[locale]/common-misconceptions/page.tsx",
+      "routePattern": "/common-misconceptions",
+      "routeFamily": "other",
+      "exportKind": "generateMetadata",
+      "usesBuildPageMetadata": false,
+      "usesSeoSurface": false,
+      "rendersJsonLd": false,
+      "hasFrontendJsonLdBuilderFallback": false,
+      "noindexSignal": false,
+      "ownership": "cms_backed",
+      "classification": "cms_backed",
+      "risk": "P2",
+      "reason": "Route metadata is derived from CMS/public API data."
+    },
+    {
       "file": "app/(localized)/[locale]/compare/mbti/[inviteId]/page.tsx",
       "routePattern": "/compare/mbti/:inviteId",
       "routeFamily": "private_flow",
@@ -522,6 +537,21 @@
       "classification": "private_noindex",
       "risk": "P2",
       "reason": "Private or transactional route family must remain noindex and excluded from sitemap/llms/JSON-LD."
+    },
+    {
+      "file": "app/(localized)/[locale]/data-privacy/page.tsx",
+      "routePattern": "/data-privacy",
+      "routeFamily": "other",
+      "exportKind": "generateMetadata",
+      "usesBuildPageMetadata": false,
+      "usesSeoSurface": false,
+      "rendersJsonLd": false,
+      "hasFrontendJsonLdBuilderFallback": false,
+      "noindexSignal": false,
+      "ownership": "cms_backed",
+      "classification": "cms_backed",
+      "risk": "P2",
+      "reason": "Route metadata is derived from CMS/public API data."
     },
     {
       "file": "app/(localized)/[locale]/datasets/occupations/method/page.tsx",
@@ -642,6 +672,21 @@
       "classification": "cms_backed",
       "risk": "P2",
       "reason": "Help detail metadata and visible FAQ are governed by backend content pages."
+    },
+    {
+      "file": "app/(localized)/[locale]/item-design-notes/page.tsx",
+      "routePattern": "/item-design-notes",
+      "routeFamily": "other",
+      "exportKind": "generateMetadata",
+      "usesBuildPageMetadata": false,
+      "usesSeoSurface": false,
+      "rendersJsonLd": false,
+      "hasFrontendJsonLdBuilderFallback": false,
+      "noindexSignal": false,
+      "ownership": "cms_backed",
+      "classification": "cms_backed",
+      "risk": "P2",
+      "reason": "Route metadata is derived from CMS/public API data."
     },
     {
       "file": "app/(localized)/[locale]/layout.tsx",
@@ -929,6 +974,21 @@
       "reason": "Route metadata is derived from CMS/public API data."
     },
     {
+      "file": "app/(localized)/[locale]/reliability-validity/page.tsx",
+      "routePattern": "/reliability-validity",
+      "routeFamily": "other",
+      "exportKind": "generateMetadata",
+      "usesBuildPageMetadata": false,
+      "usesSeoSurface": false,
+      "rendersJsonLd": false,
+      "hasFrontendJsonLdBuilderFallback": false,
+      "noindexSignal": false,
+      "ownership": "cms_backed",
+      "classification": "cms_backed",
+      "risk": "P2",
+      "reason": "Route metadata is derived from CMS/public API data."
+    },
+    {
       "file": "app/(localized)/[locale]/research/[slug]/page.tsx",
       "routePattern": "/research/:slug",
       "routeFamily": "other",
@@ -957,6 +1017,21 @@
       "classification": "private_noindex",
       "risk": "P2",
       "reason": "Private or transactional route family must remain noindex and excluded from sitemap/llms/JSON-LD."
+    },
+    {
+      "file": "app/(localized)/[locale]/science/page.tsx",
+      "routePattern": "/science",
+      "routeFamily": "other",
+      "exportKind": "generateMetadata",
+      "usesBuildPageMetadata": false,
+      "usesSeoSurface": false,
+      "rendersJsonLd": false,
+      "hasFrontendJsonLdBuilderFallback": false,
+      "noindexSignal": false,
+      "ownership": "cms_backed",
+      "classification": "cms_backed",
+      "risk": "P2",
+      "reason": "Route metadata is derived from CMS/public API data."
     },
     {
       "file": "app/(localized)/[locale]/share/[id]/page.tsx",
