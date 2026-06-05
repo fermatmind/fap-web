@@ -1,6 +1,11 @@
 import type { CareerDirectoryResponseRaw } from "@/lib/career/api/types";
 import type { CareerDatasetMemberAdapter } from "@/lib/career/adapters/types";
+import {
+  formatCareerFamilyTitle,
+  normalizeFamilySlug,
+} from "@/lib/career/datasetDirectory";
 import { normalizeCareerJobSlug } from "@/lib/career/slugSafety";
+import { CAREER_STATIC_OCCUPATION_MEMBERS } from "@/lib/career/staticOccupationMembers";
 import { type Locale } from "@/lib/i18n/locales";
 
 export type CareerDirectoryFamilyFacetAdapter = {
@@ -42,6 +47,10 @@ type AdaptCareerDirectoryInput = {
   locale: Locale;
   payload: CareerDirectoryResponseRaw | null;
 };
+
+const STATIC_OCCUPATION_TITLE_BY_SLUG = new Map(
+  CAREER_STATIC_OCCUPATION_MEMBERS.map((member) => [member.canonicalSlug, member.canonicalTitleZh])
+);
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
@@ -101,14 +110,38 @@ function adaptFamilyFacet(raw: unknown, locale: Locale): CareerDirectoryFamilyFa
 
   const titleEn = normalizeString(raw.title_en);
   const titleZh = normalizeString(raw.title_zh);
+  const normalizedSlug = normalizeFamilySlug(slug);
 
   return {
-    slug,
-    title: locale === "zh" ? titleZh ?? titleEn ?? humanizeSlug(slug) : titleEn ?? titleZh ?? humanizeSlug(slug),
+    slug: normalizedSlug,
+    title: locale === "zh" ? titleZh ?? formatCareerFamilyTitle(normalizedSlug, locale) : titleEn ?? titleZh ?? formatCareerFamilyTitle(normalizedSlug, locale),
     titleEn,
     titleZh,
     count: normalizeNumber(raw.count),
   };
+}
+
+function coalesceFamilyFacets(facets: CareerDirectoryFamilyFacetAdapter[]): CareerDirectoryFamilyFacetAdapter[] {
+  const bySlug = new Map<string, CareerDirectoryFamilyFacetAdapter>();
+
+  for (const facet of facets) {
+    const existing = bySlug.get(facet.slug);
+
+    if (!existing) {
+      bySlug.set(facet.slug, facet);
+      continue;
+    }
+
+    bySlug.set(facet.slug, {
+      ...existing,
+      title: existing.title || facet.title,
+      titleEn: existing.titleEn ?? facet.titleEn,
+      titleZh: existing.titleZh ?? facet.titleZh,
+      count: existing.count + facet.count,
+    });
+  }
+
+  return Array.from(bySlug.values());
 }
 
 function adaptMember(raw: unknown): CareerDatasetMemberAdapter | null {
@@ -122,12 +155,13 @@ function adaptMember(raw: unknown): CareerDatasetMemberAdapter | null {
   }
 
   const family = isRecord(raw.family) ? raw.family : {};
+  const titleZh = normalizeString(raw.title_zh) ?? STATIC_OCCUPATION_TITLE_BY_SLUG.get(slug) ?? null;
 
   return {
     memberKind: "career_directory_authority",
     canonicalSlug: slug,
     canonicalTitleEn: normalizeString(raw.title_en) ?? normalizeString(raw.title) ?? humanizeSlug(slug),
-    canonicalTitleZh: normalizeString(raw.title_zh),
+    canonicalTitleZh: titleZh,
     familySlug: normalizeString(family.slug),
     publishTrack: "career_directory_authority",
     batchOrigin: "career_directory_authority.v1",
@@ -170,9 +204,11 @@ export function adaptCareerDirectory(input: AdaptCareerDirectoryInput): CareerDi
       query: normalizeString(filters.q),
     },
     facets: {
-      families: familyFacets
-        .map((facet) => adaptFamilyFacet(facet, input.locale))
-        .filter((facet): facet is CareerDirectoryFamilyFacetAdapter => facet !== null),
+      families: coalesceFamilyFacets(
+        familyFacets
+          .map((facet) => adaptFamilyFacet(facet, input.locale))
+          .filter((facet): facet is CareerDirectoryFamilyFacetAdapter => facet !== null)
+      ),
     },
     members: rawItems.map(adaptMember).filter((member): member is CareerDatasetMemberAdapter => member !== null),
   };

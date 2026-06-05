@@ -202,6 +202,48 @@ describe("career job index backend contract", () => {
     expect(directory.members[0]?.includedInPublicDataset).toBe(true);
   });
 
+  it("uses existing Chinese occupation and family labels when the directory API only returns English labels", () => {
+    const directory = adaptCareerDirectory({
+      locale: "zh",
+      payload: careerDirectoryPayload(
+        [
+          {
+            slug: "accountants-and-auditors",
+            title_en: "Accountants and auditors",
+            family: {
+              slug: "business-and-financial",
+              title_en: "Business and financial",
+            },
+            indexable: true,
+            detail_ready: true,
+          },
+        ],
+        {
+          facets: {
+            families: [
+              {
+                slug: "business-and-financial",
+                title_en: "Business and financial",
+                count: 1,
+              },
+              {
+                slug: "finance",
+                title_en: "Finance",
+                count: 2,
+              },
+            ],
+          },
+        }
+      ),
+    });
+
+    expect(directory.members[0]?.canonicalTitleZh).toBe("会计师和审计师");
+    expect(directory.members[0]?.canonicalTitleEn).toBe("Accountants and auditors");
+    expect(directory.facets.families[0]?.title).toBe("商业与金融");
+    expect(directory.facets.families[0]?.count).toBe(3);
+    expect(directory.facets.families.filter((family) => family.slug === "business-and-financial")).toHaveLength(1);
+  });
+
   it("renders the jobs page from the backend paginated directory without cms authority fallback", async () => {
     vi.doMock("next/link", () => ({
       default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
