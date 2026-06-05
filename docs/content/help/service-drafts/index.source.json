@@ -1,0 +1,134 @@
+{
+  "schema_version": "help_service_content_drafts.v1",
+  "generated_at": "2026-06-04",
+  "content_mode": "draft_only",
+  "publish_allowed": false,
+  "requires_operator_review": true,
+  "cms_draft_created": false,
+  "runtime_changed": false,
+  "operator_policy": {
+    "refund": {
+      "allowed": true,
+      "window_days": 7,
+      "condition": "用户无法获得完整报告"
+    },
+    "unlock_failure": {
+      "handling_time": "24 hours",
+      "support_channel": "email"
+    },
+    "support": {
+      "primary_channel": "email",
+      "public_help_pages": "不要求 raw orderNo",
+      "identity_policy": "email-first",
+      "optional_identifier": "订单号后 6 位或脱敏订单码",
+      "forbidden_public_info": [
+        "full orderNo",
+        "full payment id",
+        "full transaction id",
+        "full result URL",
+        "full history URL",
+        "screenshot containing private URL"
+      ],
+      "support_email": "support@fermatmind.com"
+    },
+    "result_recovery": {
+      "retention_period": "2 years",
+      "recovery_method": "email"
+    },
+    "data_rights": {
+      "data_deletion_allowed": true,
+      "account_deletion_allowed": true
+    },
+    "locale_policy": {
+      "zh": "same_as_en",
+      "en": "same_as_zh"
+    }
+  },
+  "packages": [
+    {
+      "asset_id": "UNLOCK-FAILURE-HELP-CARD-01",
+      "markdown": "01_UNLOCK-FAILURE-HELP-CARD-01.md",
+      "yaml": "01_UNLOCK-FAILURE-HELP-CARD-01.yaml",
+      "zh_slug": "/zh/help/unlock-failure",
+      "en_slug": "/en/help/unlock-failure",
+      "publish_allowed": false,
+      "requires_operator_review": true,
+      "cms_draft_created": false,
+      "support_email": "support@fermatmind.com",
+      "content_status": "draft_only",
+      "content_owner": "GPT-5.5 Pro",
+      "final_authority": "CMS/backend"
+    },
+    {
+      "asset_id": "PAYMENT-REFUND-FAQ-PACKAGE-01",
+      "markdown": "02_PAYMENT-REFUND-FAQ-PACKAGE-01.md",
+      "yaml": "02_PAYMENT-REFUND-FAQ-PACKAGE-01.yaml",
+      "zh_slug": "/zh/help/payment-refund",
+      "en_slug": "/en/help/payment-refund",
+      "publish_allowed": false,
+      "requires_operator_review": true,
+      "cms_draft_created": false,
+      "support_email": "support@fermatmind.com",
+      "content_status": "draft_only",
+      "content_owner": "GPT-5.5 Pro",
+      "final_authority": "CMS/backend"
+    },
+    {
+      "asset_id": "RESULT-RECOVERY-FAQ-01",
+      "markdown": "03_RESULT-RECOVERY-FAQ-01.md",
+      "yaml": "03_RESULT-RECOVERY-FAQ-01.yaml",
+      "zh_slug": "/zh/help/result-recovery",
+      "en_slug": "/en/help/result-recovery",
+      "publish_allowed": false,
+      "requires_operator_review": true,
+      "cms_draft_created": false,
+      "support_email": "support@fermatmind.com",
+      "content_status": "draft_only",
+      "content_owner": "GPT-5.5 Pro",
+      "final_authority": "CMS/backend"
+    },
+    {
+      "asset_id": "PRIVACY-FAQ-PACKAGE-01",
+      "markdown": "04_PRIVACY-FAQ-PACKAGE-01.md",
+      "yaml": "04_PRIVACY-FAQ-PACKAGE-01.yaml",
+      "zh_slug": "/zh/help/privacy-data",
+      "en_slug": "/en/help/privacy-data",
+      "publish_allowed": false,
+      "requires_operator_review": true,
+      "cms_draft_created": false,
+      "support_email": "support@fermatmind.com",
+      "content_status": "draft_only",
+      "content_owner": "GPT-5.5 Pro",
+      "final_authority": "CMS/backend"
+    },
+    {
+      "asset_id": "NONDIAGNOSTIC-HELP-COPY-01",
+      "markdown": "05_NONDIAGNOSTIC-HELP-COPY-01.md",
+      "yaml": "05_NONDIAGNOSTIC-HELP-COPY-01.yaml",
+      "zh_slug": "/zh/help/use-boundaries",
+      "en_slug": "/en/help/use-boundaries",
+      "publish_allowed": false,
+      "requires_operator_review": true,
+      "cms_draft_created": false,
+      "support_email": "support@fermatmind.com",
+      "content_status": "draft_only",
+      "content_owner": "GPT-5.5 Pro",
+      "final_authority": "CMS/backend"
+    },
+    {
+      "asset_id": "DATA-DELETION-REQUEST-FAQ-01",
+      "markdown": "06_DATA-DELETION-REQUEST-FAQ-01.md",
+      "yaml": "06_DATA-DELETION-REQUEST-FAQ-01.yaml",
+      "zh_slug": "/zh/help/data-deletion",
+      "en_slug": "/en/help/data-deletion",
+      "publish_allowed": false,
+      "requires_operator_review": true,
+      "cms_draft_created": false,
+      "support_email": "support@fermatmind.com",
+      "content_status": "draft_only",
+      "content_owner": "GPT-5.5 Pro",
+      "final_authority": "CMS/backend"
+    }
+  ],
+  "support_email": "support@fermatmind.com"
+}
