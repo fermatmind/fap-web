@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-05T08:24:00+08:00",
+  "updated_at": "2026-06-05T08:27:00+08:00",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -20070,9 +20070,9 @@
         "SUPPORT-FLOW-SMOKE-01"
       ],
       "title": "docs(help): archive service content drafts",
-      "status": "in_progress",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "pr_open",
+      "commit_sha": "934fc1d9fc4391885b34c053fae3afeebb69cc60",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1056",
       "checks": {
         "python3 -m json.tool docs/content/help/generated/help-service-content-drafts.v1.json >/dev/null": "passed",
         "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null": "passed",
@@ -20095,6 +20095,11 @@
           "at": "2026-06-05T08:24:00+08:00",
           "status": "local_checks_passed",
           "summary": "Required JSON/YAML parse, focused Help service content drafts contract, and git diff checks passed. currentPrScope helper was not touched, so full pnpm test:contract was not required. No runtime change, CMS mutation, CMS draft creation, content rewrite, publish, private URL access, or raw private identifier action was performed."
+        },
+        {
+          "at": "2026-06-05T08:27:00+08:00",
+          "status": "pr_open",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1056 after required local checks passed. The uploaded zip was archived as draft-only content with support_email=support@fermatmind.com. CMS draft creation, CMS mutation, publish, runtime changes, editorial approval, private URL access, and raw private identifiers remain deferred."
         }
       ]
     }
