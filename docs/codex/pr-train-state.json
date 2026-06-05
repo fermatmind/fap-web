@@ -20268,9 +20268,9 @@
       "depends_on": [
         "DAILY-GIVING-REDACTED-PUBLIC-PROOF-01"
       ],
-      "status": "local_checks_passed_with_sidecar",
-      "pr_url": null,
-      "commit_sha": null,
+      "status": "pr_open_github_checks_pending",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1063",
+      "commit_sha": "ac786c02327c5b34d4b770c11a968b2e3cb1b2cc",
       "merge_sha": null,
       "title": "test(benefit): adapt DailyGiving proof_public_url evidence link",
       "artifacts": [
@@ -20371,6 +20371,11 @@
           "at": "2026-06-05T13:06:30Z",
           "status": "local_checks_passed_with_sidecar",
           "summary": "Mapped proof_public_url/proofPublicUrl to evidenceUrl. Focused contract, typecheck, production API build, JSON/YAML parse, diff check, and scope validation passed. Full contract scope-boundary failures were registered as external sidecar issues."
+        },
+        {
+          "at": "2026-06-05T13:11:00Z",
+          "status": "pr_open_github_checks_pending",
+          "summary": "Opened https://github.com/fermatmind/fap-web/pull/1063 from codex/daily-giving-proof-public-url-adapter-01. GitHub required checks are pending."
         }
       ]
     }
