@@ -933,20 +933,6 @@ export function HomePageExperience({
 }) {
   return (
     <div className="bg-[#f7f5ef] text-slate-950">
-      {/*
-        Legacy source-order contract marker only:
-        HomepageHeroV1 locale={locale} copy={copy}
-        HomepageHighlightedTestsBanner locale={locale} copy={copy} supplementalTests={supplementalTests}
-        HomepageFamilyMatrix locale={locale} copy={copy}
-         HomepageResultPreview locale={locale} copy={copy}
-         HomepageTrustStripV1 locale={locale} copy={copy}
-         HomepageSecondaryExplore locale={locale} copy={copy}
-         HomepageArticlesBanner locale={locale} articles={articles}
-         Legacy homepage skeleton contract markers only:
-         relative overflow-hidden border-y border-slate-200 bg-slate-50 py-14
-         grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:items-end
-         mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3
-       */}
       <HomepageCookieBannerGuard />
       <HomepageHeroV1 locale={locale} copy={copy} coreTests={listCoreHomepageTests(copy, supplementalTests)} />
       <HomepageHighlightedTestsBanner locale={locale} copy={copy} supplementalTests={supplementalTests} />

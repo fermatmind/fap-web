@@ -133,20 +133,21 @@ describe("homepage v1 density contract", () => {
     expect(source).toContain("supplementalTests.map(homeLinkFromHubCard)");
     expect(source).toContain("if (items.length >= 6) break");
     expect(source).toContain("function HomepageFamilyMatrix");
-    expect(source).toContain("function HomepageResultPreview");
-    expect(source).toContain("function TrustCard");
+    expect(source).toContain("function HomepageTrustStripV1");
+    expect(source).toContain("function TrustIcon");
+    expect(source).toContain("function TestFeatureCard");
+    expect(source).toContain("function RecommendationStars");
     expect(source).toContain("containsUnverifiedSocialProofText");
-    expect(source).toContain("relative z-20 bg-white py-12 md:py-16");
-    expect(source).toContain("grid gap-6 md:grid-cols-3");
-    expect(source).toContain("rounded-lg bg-white px-4 pb-4 pt-10 text-center shadow");
+    expect(source).toContain("relative z-20 border-b border-slate-100 bg-white py-20 md:py-24");
+    expect(source).toContain("grid gap-7 md:grid-cols-3");
+    expect(source).toContain("rounded-md bg-white px-8 py-10 text-center shadow");
     expect(source).not.toContain("function HomepageSocialProofBanner");
     expect(source).not.toContain("SCENARIO_VALIDATIONS.slice(0, 5)");
     expect(source).not.toContain("EVIDENCE_LOGS.map");
-    expect(source).toContain("relative overflow-hidden border-y border-slate-200 bg-slate-50 py-14");
-    expect(source).toContain("grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:items-end");
-    expect(source).toContain("mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3");
+    expect(source).toContain("relative overflow-hidden bg-[#d88a2e] px-8 pb-20 pt-16");
+    expect(source).toContain("relative z-10 mx-auto -mt-12 grid");
+    expect(source).toContain("flex min-h-[18rem] flex-col items-center rounded-md bg-white");
     expect(source).not.toContain("function HomepageAboutBanner");
-    expect(source).toContain("function HomepageSecondaryExplore");
     expect(source).toContain("function HomepageArticlesBanner");
     expect(source).not.toContain("listBlogPosts(locale)");
     expect(source).toContain("type HomeArticle = CmsArticle");
@@ -174,10 +175,8 @@ describe("homepage v1 density contract", () => {
     const order = [
       "HomepageHeroV1 locale={locale} copy={copy}",
       "HomepageHighlightedTestsBanner locale={locale} copy={copy} supplementalTests={supplementalTests}",
+      "HomepageTrustStripV1 locale={locale} copy={copy}",
       "HomepageFamilyMatrix locale={locale} copy={copy}",
-      "HomepageResultPreview locale={locale} copy={copy}",
-      "HomepageTrustStripV1 copy={copy}",
-      "HomepageSecondaryExplore locale={locale} copy={copy}",
       "HomepageArticlesBanner locale={locale} articles={articles}",
     ];
 
@@ -189,6 +188,8 @@ describe("homepage v1 density contract", () => {
     expect(source).not.toContain("ResultsPreviewShowcase");
     expect(source).not.toContain("HomepageSocialProofBanner locale={locale}");
     expect(source).not.toContain("HomepageAboutBanner locale={locale}");
+    expect(source).not.toContain("HomepageResultPreview locale={locale}");
+    expect(source).not.toContain("HomepageSecondaryExplore locale={locale}");
   });
 
   it("renders priority paths, filters clinical entries, and keeps CMS-driven article grid", async () => {
@@ -245,20 +246,16 @@ describe("homepage v1 density contract", () => {
     expect(
       screen.getAllByRole("link", { name: /开始测试/ }).some((link) => link.getAttribute("href") === "/zh/tests")
     ).toBe(true);
-    expect(
-      screen.getAllByRole("link", { name: /探索职业/ }).some((link) => link.getAttribute("href") === "/zh/career")
-    ).toBe(true);
-    expect(
-      screen.getAllByRole("link", { name: /查看全部测评/ }).some((link) => link.getAttribute("href") === "/zh/tests")
-    ).toBe(true);
+    expect(screen.getByRole("link", { name: "了解团队" })).toHaveAttribute("href", "/zh/about");
+    expect(screen.getByRole("link", { name: "查看公共利益" })).toHaveAttribute("href", "/zh/foundation");
     expect(document.body.textContent ?? "").not.toContain("抑郁焦虑综合症测试");
     expect(document.body.innerHTML).not.toContain("clinical-depression-anxiety-assessment-professional-edition");
 
     expect(screen.queryByRole("heading", { level: 2, name: "使用场景与引用" })).not.toBeInTheDocument();
     expect(screen.queryByRole("heading", { level: 2, name: "关于 费马测试" })).not.toBeInTheDocument();
-    expect(document.body.textContent ?? "").not.toContain("百万用户");
+    expect(screen.getByRole("heading", { level: 2, name: "热门测评" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 3, name: "百万人测试" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 2, name: "继续探索，但不打断开始。" })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { level: 2, name: "先开始，需要时再深入。" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 2, name: "推荐阅读" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /你的性格如何塑造你对人工智能的态度？/ })).toHaveAttribute(
       "href",

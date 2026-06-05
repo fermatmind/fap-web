@@ -41,8 +41,9 @@ describe("tests hub minimal shell contract", () => {
     expect(route).toContain(".catch(() => null)");
     expect(route).toContain("noindex: true");
     expect(route).toContain("<TestsHubExperience content={content} locale={locale} />");
-    expect(experience).toContain("content.hero.title");
-    expect(experience).toContain("content.hero.body");
+    expect(experience).toContain("content.families.items");
+    expect(experience).toContain("listCoreTests");
+    expect(experience).toContain("filterVisiblePublicTestEntries");
     expect(experience).not.toContain("Life architecture starts with measurement");
   });
 });
