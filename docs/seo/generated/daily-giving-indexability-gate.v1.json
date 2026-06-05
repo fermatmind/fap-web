@@ -1,0 +1,18 @@
+{
+  "version": "daily_giving_indexability_gate.v1",
+  "generated_at": "2026-06-05T00:00:00+08:00",
+  "mode": "frontend_indexability_gate",
+  "daily_giving_indexability_enabled": false,
+  "daily_giving_page_noindex": true,
+  "daily_giving_month_page_noindex": true,
+  "sitemap_inclusion_allowed": false,
+  "llms_inclusion_allowed": false,
+  "llms_full_inclusion_allowed": false,
+  "trust_badge_allowed_now": false,
+  "public_amplification_allowed_now": false,
+  "cms_mutation_performed": false,
+  "publish_performed": false,
+  "search_submission_performed": false,
+  "deploy_performed": false,
+  "next_pr": "DAILY-GIVING-FIRST-RECORD-REVIEW-TEMPLATE-01"
+}

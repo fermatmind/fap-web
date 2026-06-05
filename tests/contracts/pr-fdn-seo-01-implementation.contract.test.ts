@@ -67,7 +67,7 @@ describe("PR-FDN-SEO-01-IMPLEMENTATION", () => {
     expect(new Set(schemaTypes(populatedJsonLd))).toEqual(new Set(["BreadcrumbList", "ItemList", "ListItem", "WebPage"]));
   });
 
-  it("keeps llms Daily Giving exposure gated by backend public month authority", async () => {
+  it("keeps llms Daily Giving exposure disabled until the indexability gate is reopened", async () => {
     vi.mocked(fetchDailyGivingMonths).mockResolvedValueOnce([]);
     await expect(listDailyGivingDiscoverabilityEntries("en")).resolves.toEqual([]);
 
@@ -76,10 +76,7 @@ describe("PR-FDN-SEO-01-IMPLEMENTATION", () => {
       { yearMonth: "2026-07", recordCount: 0, amountMinor: null, currency: "USD" },
     ]);
 
-    await expect(listDailyGivingDiscoverabilityEntries("en")).resolves.toMatchObject([
-      { locale: "en", path: "/en/foundation/daily-giving", type: "foundation_daily_giving" },
-      { locale: "en", path: "/en/foundation/daily-giving/2026-06", type: "foundation_daily_giving_month" },
-    ]);
+    await expect(listDailyGivingDiscoverabilityEntries("en")).resolves.toEqual([]);
   });
 
   it("records implementation boundaries and limits changed files to the declared scope", () => {

@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { DailyGivingLedgerPage } from "@/components/foundation/DailyGivingLedgerPage";
 import { fetchDailyGivingMonths, fetchDailyGivingRecords } from "@/lib/foundation/dailyGiving";
-import { buildDailyGivingJsonLd, hasDailyGivingPublicRecords } from "@/lib/foundation/dailyGivingSeo";
+import { buildDailyGivingJsonLd } from "@/lib/foundation/dailyGivingSeo";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
@@ -23,7 +23,6 @@ export async function generateMetadata({
   const locale = resolveLocale(localeParam);
   const normalizedYearMonth = normalizeYearMonth(rawYearMonth);
   const yearMonth = normalizedYearMonth ?? rawYearMonth;
-  const hasRecords = normalizedYearMonth ? await hasDailyGivingPublicRecords(locale, normalizedYearMonth) : false;
 
   return buildPageMetadata({
     locale,
@@ -36,7 +35,7 @@ export async function generateMetadata({
       locale === "zh"
         ? "通过后端公开 API 展示指定月份的费马测试日常公益投入记录。"
         : "Backend-authoritative monthly archive of FermatMind daily giving activity.",
-    noindex: !hasRecords,
+    noindex: true,
     alternatesByLocale: {
       en: `/en/foundation/daily-giving/${yearMonth}`,
       zh: `/zh/foundation/daily-giving/${yearMonth}`,
