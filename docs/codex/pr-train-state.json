@@ -20258,9 +20258,142 @@
           "notes": "GitHub checks passed and merge state was CLEAN. Pre-merge scope validation remained limited to DailyGiving indexability routes/helper, generated SEO artifact, focused contract tests, and docs/codex metadata."
         }
       ]
+    },
+    {
+      "id": "DAILY-GIVING-PROOF-PUBLIC-URL-FRONTEND-ADAPTER-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/daily-giving-proof-public-url-adapter-01",
+      "base": "main",
+      "depends_on": [
+        "DAILY-GIVING-REDACTED-PUBLIC-PROOF-01"
+      ],
+      "status": "local_checks_passed_with_sidecar",
+      "pr_url": null,
+      "commit_sha": null,
+      "merge_sha": null,
+      "title": "test(benefit): adapt DailyGiving proof_public_url evidence link",
+      "artifacts": [
+        "lib/foundation/dailyGiving.ts",
+        "tests/contracts/daily-giving-proof-public-url-frontend-adapter-01.contract.test.ts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "authorization": {
+          "status": "passed",
+          "completed_at": "2026-06-05T13:06:00Z",
+          "summary": "User authorized DAILY-GIVING-PROOF-PUBLIC-URL-FRONTEND-ADAPTER-01 after fap-api redacted proof gate, limited to mapping backend proof_public_url into the DailyGiving Evidence link without proof processing, publish, index, trust badge, social/search, CMS mutation, production record activation, or deploy."
+        },
+        "dependency_verification": {
+          "status": "passed",
+          "completed_at": "2026-06-05T13:06:00Z",
+          "summary": "fap-api DAILY-GIVING-REDACTED-PUBLIC-PROOF-01 merged as PR #1932 at 7fa42da0d047733fedda5777e9aea23e5ed7c6c1."
+        },
+        "focused_contract": {
+          "status": "passed",
+          "completed_at": "2026-06-05T13:05:12Z",
+          "command": "pnpm exec vitest run tests/contracts/daily-giving-proof-public-url-frontend-adapter-01.contract.test.ts",
+          "summary": "Focused adapter contract passed: 1 file, 3 tests."
+        },
+        "typecheck": {
+          "status": "passed",
+          "completed_at": "2026-06-05T13:05:40Z",
+          "command": "pnpm typecheck"
+        },
+        "production_api_build": {
+          "status": "passed",
+          "completed_at": "2026-06-05T13:06:30Z",
+          "command": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build",
+          "summary": "Production API build passed. Postbuild sitemap drift was restored because sitemap/discoverability changes are out of scope."
+        },
+        "contract_suite": {
+          "status": "failed_external_sidecar",
+          "command": "pnpm test:contract",
+          "summary": "Full contract suite failed on existing scope-boundary contracts that apply current changed files to older PR-specific scopes, plus URL inventory ENOBUFS. Focused adapter contract, typecheck, production API build, JSON/YAML parse, diff check, and scope validation passed. These failures are registered as sidecars under the user-approved external-blocker policy."
+        },
+        "json_yaml_parse": {
+          "status": "passed",
+          "completed_at": "2026-06-05T13:06:30Z",
+          "summary": "docs/codex/pr-train-state.json and docs/codex/pr-train.yaml parsed successfully."
+        },
+        "diff_checks": {
+          "status": "passed",
+          "completed_at": "2026-06-05T13:06:30Z",
+          "commands": [
+            "git diff --check",
+            "git diff --cached --check"
+          ]
+        },
+        "scope_validation": {
+          "status": "passed",
+          "summary": "Changed files are limited to lib/foundation/dailyGiving.ts, the focused adapter contract, currentPrScope, and docs/codex metadata. No sitemap, llms, llms-full, footer, nav, CMS, publish, proof processing, production record activation, trust badge, search/social, or deploy change remains in the diff."
+        }
+      },
+      "result": {
+        "proof_public_url_mapped_to_evidence_url": true,
+        "proof_public_url_camel_case_supported": true,
+        "frontend_fallback_records_created": false,
+        "private_proof_fields_rendered": false,
+        "cms_mutation_performed": false,
+        "publish_performed": false,
+        "search_submission_performed": false,
+        "social_distribution_performed": false,
+        "deploy_performed": false,
+        "trust_badge_allowed_now": false,
+        "daily_giving_indexability_changed": false,
+        "next_pr_supported": "DAILY-GIVING-FIRST-RECORD-PUBLIC-ACTIVATION-01"
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecars": [
+        {
+          "id": "REDACTED_PUBLIC_MEDIA_URL",
+          "status": "blocked_external_operator_input",
+          "note": "Reviewed redacted public media URL remains required before production record activation. This is external to the adapter PR and must be handled before DAILY-GIVING-FIRST-RECORD-PUBLIC-ACTIVATION-01."
+        },
+        {
+          "id": "FAP_WEB_FULL_CONTRACT_SCOPE_BOUNDARY_DRIFT",
+          "status": "external_local_contract_failure",
+          "note": "pnpm test:contract failed on existing old PR-specific scope-boundary contracts and URL inventory ENOBUFS when current changed files are present. Focused adapter contract, typecheck, production API build, JSON/YAML parse, diff check, and current scope validation passed. Continue only if GitHub required checks are green."
+        }
+      ],
+      "history": [
+        {
+          "at": "2026-06-05T13:06:00Z",
+          "status": "in_progress",
+          "summary": "Started scoped frontend adapter in an isolated fap-web worktree from latest origin/main. No proof upload, production record activation, CMS mutation, publish, index, trust badge, search/social, or deploy action is authorized."
+        },
+        {
+          "at": "2026-06-05T13:06:30Z",
+          "status": "local_checks_passed_with_sidecar",
+          "summary": "Mapped proof_public_url/proofPublicUrl to evidenceUrl. Focused contract, typecheck, production API build, JSON/YAML parse, diff check, and scope validation passed. Full contract scope-boundary failures were registered as external sidecar issues."
+        }
+      ]
     }
   ],
   "sidecar_issues": [
+    {
+      "title": "Full contract scope-boundary contracts fail on unrelated old PR scopes during DailyGiving proof_public_url adapter",
+      "severity": "P2",
+      "source_pr": "DAILY-GIVING-PROOF-PUBLIC-URL-FRONTEND-ADAPTER-01",
+      "repo": "fap-web",
+      "branch": "codex/daily-giving-proof-public-url-adapter-01",
+      "command_or_check": "pnpm test:contract",
+      "evidence": "Focused adapter contract, typecheck, production API build, JSON/YAML parse, diff check, and scope validation passed. Full contract failed on old PR-specific scope-boundary tests that compare current changed files against their historical allowed scopes, plus URL inventory ENOBUFS.",
+      "failure_summary": "Local full contract is not clean for this branch, but the failures are not introduced by the proof_public_url adapter behavior.",
+      "why_external_to_current_pr": "The adapter changes only lib/foundation/dailyGiving.ts, one focused contract, currentPrScope, and docs/codex metadata; it does not touch the old scope-boundary contracts or URL inventory generator.",
+      "impact_on_current_pr": "No impact on backend-authoritative proof_public_url mapping. Continue only if GitHub required checks are green and scope validation remains passed.",
+      "owner": "fap-web contract infrastructure",
+      "follow_up_recommendation": "Make old PR-specific scope-boundary contracts branch-aware or exclude them from full-suite current-diff validation.",
+      "required_checks_status": "pending_github_checks",
+      "scope_validation_status": "passed",
+      "continue_train_decision": "continue_if_required_github_checks_green_and_scope_validation_passes",
+      "blocks_merge": false
+    },
     {
       "title": "Generated sitemap drift on validation rebuild",
       "severity": "P1",

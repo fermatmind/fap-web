@@ -200,7 +200,12 @@ function normalizeRecords(value: unknown): DailyGivingRecord[] {
         currency: firstString(source, ["currency"], "USD").toUpperCase(),
         recipientName: firstString(source, ["recipient_name", "recipientName", "recipient", "organization"], ""),
         recipientUrl: firstString(source, ["recipient_url", "recipientUrl", "organization_url", "organizationUrl"], "") || null,
-        evidenceUrl: firstString(source, ["evidence_url", "evidenceUrl", "receipt_url", "receiptUrl", "source_url", "sourceUrl"], "") || null,
+        evidenceUrl:
+          firstString(
+            source,
+            ["proof_public_url", "proofPublicUrl", "evidence_url", "evidenceUrl", "receipt_url", "receiptUrl", "source_url", "sourceUrl"],
+            ""
+          ) || null,
         status: firstString(source, ["status", "state"], "published"),
         socialLinks: normalizeSocialLinks(source),
       },

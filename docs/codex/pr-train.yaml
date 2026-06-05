@@ -13384,3 +13384,61 @@ prs:
       squash: true
       auto_merge: true
     next_task: "After merge, continue with DAILY-GIVING-FIRST-RECORD-REVIEW-TEMPLATE-01 in fap-api. Do not create records or proof."
+
+  - id: DAILY-GIVING-PROOF-PUBLIC-URL-FRONTEND-ADAPTER-01
+    repo: fap-web
+    branch: codex/daily-giving-proof-public-url-adapter-01
+    base: main
+    title: "test(benefit): adapt DailyGiving proof_public_url evidence link"
+    depends_on:
+      - DAILY-GIVING-REDACTED-PUBLIC-PROOF-01
+    external_prerequisites:
+      - repo: fap-api
+        id: DAILY-GIVING-REDACTED-PUBLIC-PROOF-01
+        pr_url: https://github.com/fermatmind/fap-api/pull/1932
+        merge_commit_sha: 7fa42da0d047733fedda5777e9aea23e5ed7c6c1
+    mode: frontend_api_adapter
+    train_scope: window_7_public_benefit_trust_gate
+    status: in_progress
+    goal: "Map backend-authoritative DailyGiving proof_public_url to the frontend Evidence link field without adding fallback records, proof processing, indexability, trust badge, social/search, CMS mutation, or deploy actions."
+    artifacts:
+      - lib/foundation/dailyGiving.ts
+      - tests/contracts/daily-giving-proof-public-url-frontend-adapter-01.contract.test.ts
+    allowed_paths:
+      - lib/foundation/dailyGiving.ts
+      - tests/contracts/daily-giving-proof-public-url-frontend-adapter-01.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - fap-api or backend changes
+      - CMS mutation
+      - content publish
+      - search submission
+      - trust badge
+      - social distribution
+      - private URLs
+      - proof upload or processing
+      - production record creation or activation
+      - DailyGiving indexability changes
+      - sitemap llms llms-full footer or nav exposure changes
+      - frontend fallback donation or ledger records
+      - deploy
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/daily-giving-proof-public-url-frontend-adapter-01.contract.test.ts
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    sidecar_issues:
+      - id: REDACTED_PUBLIC_MEDIA_URL
+        status: blocked_external_operator_input
+        note: Reviewed redacted public media URL is still required before production record activation; this adapter does not create it.
+    next_task: DAILY-GIVING-FIRST-RECORD-PUBLIC-ACTIVATION-01

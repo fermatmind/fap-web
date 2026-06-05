@@ -897,6 +897,18 @@ export function isPrFdn02bDailyGivingFrontendPagesAllowedFile(file: string): boo
   return PR_FDN_02B_DAILY_GIVING_FRONTEND_PAGES_ALLOWED_FILES.has(file);
 }
 
+const DAILY_GIVING_PROOF_PUBLIC_URL_FRONTEND_ADAPTER_01_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "lib/foundation/dailyGiving.ts",
+  "tests/contracts/daily-giving-proof-public-url-frontend-adapter-01.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
+export function isDailyGivingProofPublicUrlFrontendAdapter01AllowedFile(file: string): boolean {
+  return DAILY_GIVING_PROOF_PUBLIC_URL_FRONTEND_ADAPTER_01_ALLOWED_FILES.has(file);
+}
+
 const PR_FDN_02B_POST_DEPLOY_RUNTIME_SMOKE_ALLOWED_FILES = new Set([
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -1922,6 +1934,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/pr-fdn-02b-daily-giving-frontend-pages") {
     return PR_FDN_02B_DAILY_GIVING_FRONTEND_PAGES_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/daily-giving-proof-public-url-adapter-01") {
+    return DAILY_GIVING_PROOF_PUBLIC_URL_FRONTEND_ADAPTER_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-fdn-02b-post-deploy-runtime-smoke") {
