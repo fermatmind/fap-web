@@ -95,6 +95,6 @@ describe("homepage recommended reading empty state", () => {
     expect(screen.queryByRole("heading", { level: 2, name: "推荐阅读" })).not.toBeInTheDocument();
     expect(screen.queryByRole("link", { name: "查看全部文章" })).not.toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 1, name: "看清自己，走好每一步" })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { level: 2, name: "从一个清楚的问题开始。" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 2, name: "热门测评" })).toBeInTheDocument();
   });
 });

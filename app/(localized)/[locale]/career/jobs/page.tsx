@@ -124,8 +124,6 @@ export default async function CareerJobsPage({
       : null;
   const publicDetailCount = directory.publicTruth.publicDetailIndexableCount || directory.pagination.total || visibleMembers.length;
   const occupationCount = directory.publicTruth.directoryMemberCount || publicDetailCount;
-  const pageStart = directory.pagination.total === 0 ? 0 : (directory.pagination.page - 1) * directory.pagination.perPage + 1;
-  const pageEnd = Math.min(directory.pagination.page * directory.pagination.perPage, directory.pagination.total);
   const previousPageHref = buildJobsQueryPath(jobsPath, {
     query: submittedQuery,
     family: selectedFamily,
@@ -154,11 +152,6 @@ export default async function CareerJobsPage({
             <h1 className="m-0 mx-auto max-w-4xl text-2xl font-semibold leading-tight tracking-tight text-slate-950 sm:text-3xl md:text-5xl">
               {locale === "zh" ? "测量自己，看见职业，训练未来" : `${occupationCount} occupations, organized by industry`}
             </h1>
-            <p className="m-0 text-sm leading-6 text-slate-500" data-testid="career-library-result-summary">
-              {locale === "zh"
-                ? `当前显示第 ${pageStart}-${pageEnd} 条，共 ${directory.pagination.total} 个匹配职业；${publicDetailCount} 个详情页由后端发布门控确认。`
-                : `Showing ${pageStart}-${pageEnd} of ${directory.pagination.total} matching occupations; ${publicDetailCount} detail pages are confirmed by backend publication gates.`}
-            </p>
           </div>
 
           <div className="grid gap-3 md:grid-cols-4" data-testid="career-library-summary">

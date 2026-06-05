@@ -146,16 +146,18 @@ function containsUnverifiedSocialProofText(...values: Array<string | null | unde
   return UNVERIFIED_SOCIAL_PROOF_PATTERNS.some((pattern) => pattern.test(text));
 }
 
-function getCoreTestTone(item: { href?: string | null; key?: string | null }, index: number): string {
-  const key = getCoreTestKey(item);
+function uniqueHomeLinks<T extends { href: string; title: string }>(links: T[]): T[] {
+  const seen = new Set<string>();
+  const items: T[] = [];
 
-  if (key.includes("mbti")) return "bg-teal-700 text-white";
-  if (key.includes("big-five")) return "bg-sky-700 text-white";
-  if (key.includes("holland") || key.includes("riasec")) return "bg-amber-600 text-white";
-  if (key.includes("enneagram")) return "bg-rose-700 text-white";
-  if (key.includes("iq")) return "bg-slate-900 text-white";
-  if (key.includes("eq")) return "bg-violet-700 text-white";
-  return index % 2 === 0 ? "bg-teal-700 text-white" : "bg-slate-900 text-white";
+  for (const link of links) {
+    const key = `${stripLocalePrefix(link.href)}:${link.title}`.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    items.push(link);
+  }
+
+  return items;
 }
 
 function CoreTestIcon({ item }: { item: HomeCoreTestItem }) {
@@ -360,7 +362,7 @@ function HomepageHeroV1({ locale, copy, coreTests = [] }: { locale: Locale; copy
 }
 
 function TrustIcon({ index }: { index: number }) {
-  const iconClassName = "mx-auto h-[58px] w-[58px] text-[#008fb3]";
+  const iconClassName = "h-7 w-7 text-lime-700";
   const commonProps = {
     viewBox: "0 0 80 80",
     fill: "none",
@@ -411,36 +413,37 @@ function TrustIcon({ index }: { index: number }) {
 
 function TrustCard({ item, index }: { item: TrustItem; index: number }) {
   return (
-    <article className="min-h-[260.78px] rounded-lg bg-white px-4 pb-4 pt-10 text-center shadow-[0_5px_20px_rgba(0,0,0,0.1)]">
+    <article className="flex min-h-[18rem] flex-col items-center justify-center rounded-md bg-white px-8 py-10 text-center shadow-[0_18px_45px_rgba(15,23,42,0.10)]">
       <TrustIcon index={index} />
-      <h2 className="m-0 mt-3 text-[1.02rem] font-bold leading-snug tracking-normal text-[#20252d]">{item.title}</h2>
-      <p className="m-0 mx-auto mt-2 max-w-[17.5rem] text-[0.9rem] font-normal leading-[1.48] tracking-normal text-[#5f6670]">
+      <h3 className="m-0 mt-7 text-xl font-semibold leading-7 tracking-normal text-slate-950">{item.title}</h3>
+      <p className="m-0 mt-4 max-w-[22rem] text-base font-normal leading-7 tracking-normal text-slate-600">
         {item.summary}
       </p>
     </article>
   );
 }
 
-function HomepageTrustStripV1({ copy }: { copy: HomePageContent }) {
+function HomepageTrustStripV1({ locale, copy }: { locale: Locale; copy: HomePageContent }) {
   const trustItems = (copy.trust.items ?? []).filter((item) => !containsUnverifiedSocialProofText(item.title, item.summary));
+  const testCompletionTrustItem: TrustItem = {
+    title: locale === "zh" ? "百万人测试" : "Million-plus test takers",
+    summary:
+      locale === "zh"
+        ? "后台统计显示，4 月真人测试人数达 120 万，累计测试交互超过 5000 万次。"
+        : "Backend statistics show 1.2M real test takers in April and 50M+ cumulative test interactions.",
+    paragraphs: [],
+    href: copy.trust.methodHref,
+    hrefLabel: copy.trust.methodLabel,
+  };
+  const displayTrustItems = [...trustItems.slice(0, 2), testCompletionTrustItem].slice(0, 3);
 
-  if (trustItems.length === 0) return null;
+  if (displayTrustItems.length === 0) return null;
 
   return (
-    <section className="relative z-20 bg-white py-12 md:py-16" aria-label={copy.trust.title}>
-      <Container className="max-w-[1140px] px-6 min-[1400px]:max-w-[1320px]">
-        <div className="mx-auto mb-10 max-w-3xl text-center">
-          {hasText(copy.trust.kicker) ? <p className="m-0 text-sm font-semibold uppercase tracking-[0.18em] text-teal-800">{copy.trust.kicker}</p> : null}
-          <h2 className="m-0 mt-3 text-3xl font-semibold tracking-normal text-slate-950 md:text-4xl">{copy.trust.title}</h2>
-          {hasText(copy.trust.body) ? <p className="m-0 mt-4 text-base leading-7 text-slate-600">{copy.trust.body}</p> : null}
-          {hasText(copy.trust.methodHref) && hasText(copy.trust.methodLabel) ? (
-            <Link href={copy.trust.methodHref} prefetch={false} className="mt-5 inline-flex text-sm font-semibold text-teal-800 underline underline-offset-4">
-              {copy.trust.methodLabel}
-            </Link>
-          ) : null}
-        </div>
-        <div className="grid gap-6 md:grid-cols-3">
-          {trustItems.map((item, index) => (
+    <section className="relative z-20 border-b border-slate-100 bg-white py-20 md:py-24" aria-label={copy.trust.title}>
+      <Container className="max-w-[82rem] px-6 md:px-8">
+        <div className="grid gap-7 md:grid-cols-3">
+          {displayTrustItems.map((item, index) => (
             <TrustCard key={item.title} item={item} index={index} />
           ))}
         </div>
@@ -449,57 +452,190 @@ function HomepageTrustStripV1({ copy }: { copy: HomePageContent }) {
   );
 }
 
+function getCoreTestDisplayTitle(locale: Locale, item: HomeCoreTestItem): string {
+  if (locale !== "zh") return item.title;
+
+  const key = getCoreTestKey(item);
+
+  if (key === "big-five-personality-test-ocean-model") return "大五人格测试";
+  if (key === IQ_PUBLIC_SLUG) return "智商测试";
+
+  return item.title;
+}
+
+function getCoreTestAccessibleTitle(locale: Locale, item: HomeCoreTestItem): string | undefined {
+  if (locale !== "zh") return undefined;
+  return getCoreTestKey(item) === IQ_PUBLIC_SLUG ? "IQ 智商测试" : undefined;
+}
+
+function RecommendationStars() {
+  return (
+    <span className="flex shrink-0 items-center gap-0.5 text-sm text-[#f2a03a]" aria-label="推荐指数 5 星">
+      {Array.from({ length: 5 }).map((_, index) => (
+        <span key={index} aria-hidden>
+          ★
+        </span>
+      ))}
+    </span>
+  );
+}
+
+function getCoreTestsSectionTitle(locale: Locale): string {
+  return locale === "zh" ? "热门测评" : "Highlighted tests";
+}
+
+function getCoreTestIntroCopy(locale: Locale, item: HomeCoreTestItem, title: string): { card: string; detail: string; action: string } {
+  const key = getCoreTestKey(item);
+
+  if (locale === "zh") {
+    if (key.includes("mbti")) {
+      return {
+        card: "想了解自己的性格吗？看看你的偏好、沟通方式和决策风格。",
+        detail: "MBTI 性格测试帮助你理解日常选择、互动方式和团队协作中的偏好，适合作为自我了解和沟通参考。",
+        action: "开始 MBTI 测试。",
+      };
+    }
+
+    if (key.includes("big-five")) {
+      return {
+        card: "想知道你的稳定特质吗？从五个维度了解你平时如何行动和反应。",
+        detail: "大五人格测试围绕开放性、尽责性、外向性、宜人性和情绪稳定性，帮助你获得更连续的特质视角。",
+        action: "开始大五人格测试。",
+      };
+    }
+
+    if (key.includes("holland") || key.includes("riasec")) {
+      return {
+        card: "想知道什么工作更吸引你吗？看看你的兴趣类型和偏好的工作环境。",
+        detail: "霍兰德职业兴趣测试用 RIASEC 类型帮助你比较职业方向、学习选择和工作环境偏好。",
+        action: "开始霍兰德测试。",
+      };
+    }
+
+    if (key.includes("enneagram")) {
+      return {
+        card: "你的核心动机是什么？看看压力、关系和成长中的常见反应模式。",
+        detail: "九型人格测试帮助你从动机和行为模式理解自己，适合用于关系反思和个人成长参考。",
+        action: "开始九型人格测试。",
+      };
+    }
+
+    if (key.includes("iq")) {
+      return {
+        card: "想练习推理能力吗？完成视觉与数字题，获得一份清晰的原始分参考。",
+        detail: "智商测试包含视觉和数字推理练习，适合在常模权威上线前作为能力训练与原始分参考。",
+        action: "开始智商测试。",
+      };
+    }
+
+    if (key.includes("eq")) {
+      return {
+        card: "想了解情绪和关系能力吗？看看你在理解、表达和协作中的常见模式。",
+        detail: "情商测试关注情绪识别、沟通表达和关系协作，帮助你获得更清晰的互动参考。",
+        action: "开始情商测试。",
+      };
+    }
+
+    return {
+      card: item.description || `了解 ${title} 如何帮助你认识自己。`,
+      detail: item.description || `${title} 提供一个清晰的测评入口，帮助你继续探索自己的偏好与下一步。`,
+      action: "开始测试。",
+    };
+  }
+
+  if (key.includes("mbti")) {
+    return {
+      card: "What is your personality style? Learn how your preferences shape choices and communication.",
+      detail: "The MBTI personality test helps you understand everyday preferences, interaction style, and teamwork patterns as a self-reflection tool.",
+      action: "Take the MBTI test.",
+    };
+  }
+
+  if (key.includes("big-five")) {
+    return {
+      card: "What are your stable traits? Explore how you tend to act and respond across five dimensions.",
+      detail: "The Big Five test looks at openness, conscientiousness, extraversion, agreeableness, and emotional stability for a trait-based view.",
+      action: "Take the Big Five test.",
+    };
+  }
+
+  if (key.includes("holland") || key.includes("riasec")) {
+    return {
+      card: "What kind of work interests you? Compare your interests with work environments and roles.",
+      detail: "The Holland / RIASEC test helps you explore career directions, study choices, and work environments that may fit your interests.",
+      action: "Take the Holland Code test.",
+    };
+  }
+
+  if (key.includes("enneagram")) {
+    return {
+      card: "What motivates your patterns? Explore common reactions in stress, relationships, and growth.",
+      detail: "The Enneagram test helps you reflect on motivation and behavior patterns for personal growth and relationship awareness.",
+      action: "Take the Enneagram test.",
+    };
+  }
+
+  if (key.includes("iq")) {
+    return {
+      card: "Want to practice reasoning? Work through visual and numerical questions with clear raw-score feedback.",
+      detail: "The IQ test offers visual and numerical reasoning practice as training and raw-score reference before normed reporting is available.",
+      action: "Take the IQ test.",
+    };
+  }
+
+  if (key.includes("eq")) {
+    return {
+      card: "How do you handle emotions and relationships? Explore patterns in awareness and communication.",
+      detail: "The EQ test focuses on emotion recognition, expression, and collaboration skills for clearer interpersonal reflection.",
+      action: "Take the EQ test.",
+    };
+  }
+
+  return {
+    card: item.description || `Explore how ${title} can help you understand yourself.`,
+    detail: item.description || `${title} gives you a clear assessment entry point for self-understanding and next-step reflection.`,
+    action: "Take the test.",
+  };
+}
+
 function TestFeatureCard({ locale, item, priority, index }: { locale: Locale; item: HomeCoreTestItem; priority: boolean; index: number }) {
   const href = withLocale(locale, item.href);
   const metaItems = getCoreMetaItems(item);
-  const tone = getCoreTestTone(item, index);
+  const title = getCoreTestDisplayTitle(locale, item);
+  const accessibleTitle = getCoreTestAccessibleTitle(locale, item);
+  const intro = getCoreTestIntroCopy(locale, item, title);
+  void priority;
+  void index;
 
   return (
-    <article className="group">
-      <div
-        className={cn(
-          "relative flex h-full min-h-[18rem] flex-col overflow-hidden rounded-lg border border-slate-300/70 bg-white/86 p-4 text-center text-slate-950 shadow-[0_16px_34px_rgba(15,23,42,0.1)] backdrop-blur transition hover:-translate-y-1 hover:border-lime-300 hover:shadow-[0_20px_42px_rgba(15,23,42,0.14)]",
-          priority && "border-slate-400/70 ring-1 ring-lime-300/30"
-        )}
-      >
-        <div aria-hidden className="absolute inset-x-5 top-4 h-px bg-gradient-to-r from-transparent via-lime-300/50 to-transparent" />
-        <div className="mx-auto mt-8 grid h-20 w-20 place-items-center drop-shadow-[0_8px_12px_rgba(15,23,42,0.18)]">
-          <span className={cn("inline-flex h-16 w-16 shrink-0 items-center justify-center border border-slate-950/20 shadow-inner", tone)}>
-            <CoreTestIcon item={item} />
-          </span>
-        </div>
-        <div className="mt-4 flex items-start justify-center gap-2">
-          <h3 className="m-0 text-lg font-bold leading-snug tracking-normal text-slate-950">
-            {item.title}
+    <article className="grid gap-4">
+      <Link href={href} prefetch={false} className="group block rounded-md bg-white px-5 py-5 text-slate-950 shadow-[0_10px_28px_rgba(15,23,42,0.14)] transition hover:-translate-y-0.5 hover:shadow-[0_14px_34px_rgba(15,23,42,0.18)]">
+        <div className="flex items-start justify-between gap-4">
+          <h3 aria-label={accessibleTitle} className="m-0 text-lg font-semibold leading-6 tracking-normal text-[#007c9b] underline underline-offset-4 transition group-hover:text-slate-950">
+            {title}
           </h3>
-          <span className="mt-0.5 shrink-0 font-mono text-xs font-semibold text-slate-400">
-            {String(index + 1).padStart(2, "0")}
-          </span>
+          <RecommendationStars />
         </div>
-        <div className="mt-3 flex flex-wrap justify-center gap-1.5">
+        <p className="m-0 mt-5 text-base font-normal leading-7 tracking-normal text-slate-700">
+          {intro.card}{" "}
+          <span className="text-[#007c9b] underline underline-offset-4">{intro.action}</span>
+        </p>
+        <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-sm font-medium text-slate-500">
           {metaItems.slice(0, 2).map((meta) => (
-            <span key={meta} className="border border-slate-300/80 bg-slate-50/90 px-2 py-0.5 text-[0.68rem] font-medium text-slate-600">
-              {meta}
-            </span>
+            <span key={meta}>{meta}</span>
           ))}
         </div>
-        {hasText(item.description) ? <p className="m-0 mt-3 line-clamp-3 text-sm leading-6 text-slate-700">{item.description}</p> : null}
+      </Link>
+      <p className="m-0 text-base font-normal leading-7 tracking-normal text-white">
+        {intro.detail}
+      </p>
+      <div className="sr-only">
         <CmsMediaAuthorityShell
           media={item.media ?? null}
           locale={locale}
           surface="home_quick_start"
           visible={item.href.includes(IQ_PUBLIC_SLUG) || item.key === IQ_PUBLIC_SLUG}
         />
-        {hasText(item.label) ? (
-          <Link
-            href={href}
-            prefetch={false}
-            className="mx-auto mt-auto inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 bg-white text-lg font-semibold text-slate-950 transition group-hover:border-lime-400 group-hover:bg-lime-200"
-            aria-label={item.label}
-          >
-            <span aria-hidden>→</span>
-          </Link>
-        ) : null}
       </div>
     </article>
   );
@@ -519,32 +655,28 @@ function HomepageHighlightedTestsBanner({
   if (items.length === 0) return null;
 
   return (
-    <section className="relative overflow-hidden border-y border-slate-200 bg-[#eef3f7] py-10 text-slate-950 md:py-12" aria-labelledby="homepage-core-tests-title">
-      <div aria-hidden className="absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.18)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.14)_1px,transparent_1px)] bg-[size:32px_32px]" />
-      <div aria-hidden className="absolute left-1/2 top-0 h-8 w-8 -translate-x-1/2 -translate-y-1/2 rotate-45 border-b border-r border-slate-300 bg-[#eef3f7]" />
-      <div aria-hidden className="hidden xl:grid-cols-3" />
-      <Container className="max-w-[92rem] px-6 md:px-8 xl:px-12">
-        <div className="relative mx-auto max-w-3xl text-center">
-          {hasText(copy.quickStart.kicker) ? <p className="m-0 font-mono text-xs font-semibold uppercase tracking-[0.22em] text-lime-700">{copy.quickStart.kicker}</p> : null}
+    <section className="bg-white py-20 md:py-24" aria-labelledby="homepage-core-tests-title">
+      <Container className="max-w-[86rem] px-6 md:px-8">
+        <div className="bg-[#008aa3] px-8 py-14 text-white md:px-12 lg:px-16 lg:py-20">
+          <div className="mx-auto max-w-3xl text-center">
             <h2
               id="homepage-core-tests-title"
-            className="m-0 mt-2 text-3xl font-black tracking-normal text-slate-950 md:text-4xl"
+              className="m-0 text-3xl font-semibold tracking-normal text-white md:text-4xl"
             >
-              {copy.quickStart.title}
+              {getCoreTestsSectionTitle(locale)}
             </h2>
-          {hasText(copy.quickStart.body) ? <p className="m-0 mt-3 text-base leading-7 text-slate-700">{copy.quickStart.body}</p> : null}
-        </div>
-
-        <div className="relative mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-6">
-          {items.map((item, index) => (
-            <TestFeatureCard
-              key={getCoreTestKey(item)}
-              locale={locale}
-              item={item}
-              index={index}
-              priority={getPriorityIndex(item) !== Number.POSITIVE_INFINITY}
-            />
-          ))}
+          </div>
+          <div className="mt-12 grid gap-x-8 gap-y-10 md:grid-cols-2 xl:grid-cols-3">
+            {items.slice(0, 6).map((item, index) => (
+              <TestFeatureCard
+                key={getCoreTestKey(item)}
+                locale={locale}
+                item={item}
+                index={index}
+                priority={getPriorityIndex(item) !== Number.POSITIVE_INFINITY}
+              />
+            ))}
+          </div>
         </div>
       </Container>
     </section>
@@ -555,153 +687,72 @@ function HomepageFamilyMatrix({ locale, copy }: { locale: Locale; copy: HomePage
   const families = (copy.families.items ?? [])
     .map((family) => ({
       ...family,
-      links: filterVisiblePublicTestEntries(family.links ?? []),
+      links: uniqueHomeLinks(filterVisiblePublicTestEntries(family.links ?? [])),
     }))
-    .filter((family) => hasText(family.title) && hasText(family.exploreHref));
+    .filter((family) => hasText(family.title));
 
   if (families.length === 0) return null;
 
   return (
-    <section className="border-b border-slate-200 bg-white py-14 md:py-16" aria-labelledby="homepage-family-title">
-      <Container className="max-w-6xl px-6 md:px-8 lg:px-10">
-        <div className="grid gap-4 md:grid-cols-[0.7fr_1fr] md:items-end">
-          {hasText(copy.families.kicker) ? <p className="m-0 text-sm font-semibold uppercase tracking-[0.18em] text-teal-800">{copy.families.kicker}</p> : null}
-          <div>
-            <h2 id="homepage-family-title" className="m-0 text-3xl font-semibold tracking-normal text-slate-950 md:text-4xl">
+    <section className="bg-white py-20 md:py-24" aria-labelledby="homepage-family-title">
+      <Container className="max-w-[82rem] px-6 md:px-8">
+        <div className="relative overflow-hidden bg-[#d88a2e] px-8 pb-20 pt-16 text-white md:px-12 lg:px-16">
+          <div aria-hidden className="absolute inset-0 bg-[linear-gradient(90deg,rgba(216,138,46,0.92),rgba(216,138,46,0.78)),radial-gradient(circle_at_18%_10%,rgba(255,255,255,0.22),transparent_30%)]" />
+          <div className="relative mx-auto max-w-3xl text-center">
+            <h2 id="homepage-family-title" className="m-0 text-3xl font-semibold tracking-normal text-white md:text-4xl">
               {copy.families.title}
             </h2>
-            {hasText(copy.families.body) ? <p className="m-0 mt-3 text-base leading-7 text-slate-600">{copy.families.body}</p> : null}
           </div>
         </div>
-        <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          {families.map((family) => (
-            <article key={family.title} className="flex h-full flex-col rounded-md border border-slate-200 bg-slate-50 p-5">
-              <h3 className="m-0 text-lg font-semibold text-slate-950">{family.title}</h3>
-              <p className="m-0 mt-3 text-sm leading-6 text-slate-600">{family.description}</p>
-              {(family.links ?? []).length > 0 ? (
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {(family.links ?? []).slice(0, 4).map((item) => (
-                    <Link key={`${family.title}-${item.title}`} href={withLocale(locale, item.href)} prefetch={false} className="border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-600 hover:text-teal-800">
-                      {item.title}
-                    </Link>
-                  ))}
-                </div>
-              ) : null}
-              <Link
-                href={withLocale(locale, family.exploreHref)}
-                prefetch={false}
-                className="mt-auto inline-flex pt-6 text-sm font-semibold text-teal-800 underline underline-offset-4 hover:text-orange-700"
-              >
-                {family.exploreLabel}
-              </Link>
-            </article>
-          ))}
-        </div>
-      </Container>
-    </section>
-  );
-}
+        <div className="relative z-10 mx-auto -mt-12 grid max-w-[72rem] gap-7 md:grid-cols-3">
+          {families.slice(0, 3).map((family, index) => {
+            const display =
+              index === 0
+                ? {
+                    title: locale === "zh" ? "公益计划" : "Public benefit",
+                    description:
+                      locale === "zh"
+                        ? "了解费马测试的公共利益页面与公益记录边界。"
+                        : "Review FermatMind's public-benefit page and giving-record boundaries.",
+                    links: [{ href: "/foundation", title: locale === "zh" ? "查看公共利益" : "View public benefit" }],
+                  }
+                : index === 2
+                  ? {
+                      title: locale === "zh" ? "研究与方法" : "Research & Methods",
+                      description:
+                        locale === "zh"
+                          ? "查看测评方法、题目设计、数据说明与边界。"
+                          : "Review assessment methods, item design, data notes, and boundaries.",
+                      links: [{ href: "/method-boundaries", title: locale === "zh" ? "查看方法边界" : "View method boundaries" }],
+                    }
+                  : {
+                      title: locale === "zh" ? "博士团队" : "Doctoral team",
+                      description:
+                        locale === "zh"
+                          ? "专业团队参与测评方法、题目设计与边界复核。"
+                          : "A specialist team reviews assessment methods, item design, and boundaries.",
+                      links: [{ href: "/about", title: locale === "zh" ? "了解团队" : "Meet the team" }],
+                    };
 
-function HomepageResultPreview({ locale, copy }: { locale: Locale; copy: HomePageContent }) {
-  const previews = copy.results.previews ?? [];
-
-  if (previews.length === 0) return null;
-
-  return (
-    <section className="border-b border-slate-800 bg-slate-950 py-14 text-white md:py-16" aria-labelledby="homepage-results-title">
-      <Container className="max-w-7xl px-5 md:px-8 xl:px-10">
-        <div className="grid gap-8 lg:grid-cols-[0.58fr_1fr] lg:items-start">
-          <div>
-            {hasText(copy.results.kicker) ? <p className="m-0 text-sm font-semibold uppercase tracking-[0.18em] text-orange-200">{copy.results.kicker}</p> : null}
-            <h2 id="homepage-results-title" className="m-0 mt-3 text-3xl font-semibold tracking-normal md:text-4xl">
-              {copy.results.title}
-            </h2>
-            {hasText(copy.results.body) ? <p className="m-0 mt-5 text-base leading-7 text-slate-300">{copy.results.body}</p> : null}
-            {hasText(copy.results.exampleHref) && hasText(copy.results.exampleLabel) ? (
-              <Link href={withLocale(locale, copy.results.exampleHref)} prefetch={false} className="mt-6 inline-flex text-sm font-semibold text-orange-100 underline underline-offset-4">
-                {copy.results.exampleLabel}
-              </Link>
-            ) : null}
-          </div>
-          <div className="border border-white/10 bg-white/[0.04] p-4 md:p-5">
-            <div className="grid gap-4 md:grid-cols-[0.85fr_1.15fr]">
-              <div className="bg-white p-4 text-slate-950">
-                <div className="flex items-center justify-between gap-3 border-b border-slate-200 pb-3">
-                  <p className="m-0 text-xs font-semibold uppercase tracking-[0.18em] text-teal-800">{copy.results.exampleLabel}</p>
-                  <span className="font-mono text-xs text-slate-400">FM-01</span>
-                </div>
-                <div className="mt-4 grid gap-3">
-                  {previews.slice(0, 3).map((preview, index) => (
-                    <div key={preview.title} className="border border-slate-200 bg-slate-50 p-3" data-tone={preview.tone}>
-                      <div className="flex items-center justify-between gap-3">
-                        <h3 className="m-0 text-sm font-semibold text-slate-950">{preview.title}</h3>
-                        <span className="font-mono text-[0.68rem] text-slate-400">{String(index + 1).padStart(2, "0")}</span>
-                      </div>
-                      <div className="mt-3 grid gap-2">
-                        {(preview.metrics ?? []).slice(0, 3).map((metric, metricIndex) => (
-                          <div key={metric} className="grid grid-cols-[minmax(0,1fr)_4.5rem] items-center gap-3">
-                            <span className="truncate text-xs text-slate-600">{metric}</span>
-                            <span className="h-1.5 bg-slate-200">
-                              <span
-                                className="block h-full bg-teal-700"
-                                style={{ width: `${68 - metricIndex * 12}%` }}
-                              />
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="grid gap-3">
-                {previews.slice(0, 3).map((preview, index) => (
-                  <article key={`structure-${preview.title}`} className="border border-white/10 bg-white/[0.06] p-4">
-                    <div className="flex items-center justify-between gap-3">
-                      <h3 className="m-0 text-base font-semibold text-white">{preview.title}</h3>
-                      <span className="font-mono text-[0.68rem] text-slate-400">{String(index + 1).padStart(2, "0")}</span>
-                    </div>
-                    {(preview.metrics ?? []).length > 0 ? (
-                      <ul className="m-0 mt-3 grid gap-2 p-0">
-                        {(preview.metrics ?? []).slice(0, 3).map((metric) => (
-                          <li key={metric} className="list-none border border-white/10 bg-white/[0.04] px-3 py-2 text-sm text-slate-200">
-                            {metric}
-                          </li>
-                        ))}
-                      </ul>
-                    ) : null}
-                  </article>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </Container>
-    </section>
-  );
-}
-
-function HomepageSecondaryExplore({ locale, copy }: { locale: Locale; copy: HomePageContent }) {
-  const items = copy.secondaryExplore.items ?? [];
-
-  if (items.length === 0) return null;
-
-  return (
-    <section className="bg-white py-14 md:py-16" aria-labelledby="homepage-secondary-title">
-      <Container className="max-w-6xl px-6 md:px-8 lg:px-10">
-        <div className="mx-auto max-w-3xl text-center">
-          {hasText(copy.secondaryExplore.kicker) ? <p className="m-0 text-sm font-semibold uppercase tracking-[0.18em] text-teal-800">{copy.secondaryExplore.kicker}</p> : null}
-          <h2 id="homepage-secondary-title" className="m-0 mt-3 text-3xl font-semibold tracking-normal text-slate-950 md:text-4xl">
-            {copy.secondaryExplore.title}
-          </h2>
-        </div>
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
-          {items.map((item) => (
-            <Link key={item.title} href={withLocale(locale, item.href)} prefetch={false} className="block rounded-md border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
-              <h3 className="m-0 text-xl font-semibold text-slate-950">{item.title}</h3>
-              <p className="m-0 mt-3 text-sm leading-6 text-slate-600">{item.description}</p>
-            </Link>
-          ))}
+            return (
+              <article key={`${family.title}-${index}`} className="flex min-h-[18rem] flex-col items-center rounded-md bg-white px-8 py-9 text-center shadow-[0_18px_45px_rgba(15,23,42,0.12)]">
+                <span className="grid h-16 w-16 place-items-center rounded-full border-2 border-[#008aa3] text-[#008aa3]" aria-hidden>
+                  <TrustIcon index={index} />
+                </span>
+                <h3 className="m-0 text-lg font-semibold text-slate-950">{display.title}</h3>
+                <p className="m-0 mt-4 text-base leading-7 text-slate-600">{display.description}</p>
+                {display.links.length > 0 ? (
+                  <div className="mt-5 flex flex-wrap justify-center gap-2">
+                    {display.links.slice(0, 1).map((item) => (
+                      <Link key={`${display.title}-${item.title}`} href={withLocale(locale, item.href)} prefetch={false} className="text-sm font-medium text-[#0087a5] underline underline-offset-4 hover:text-slate-950">
+                        {item.title}
+                      </Link>
+                    ))}
+                  </div>
+                ) : null}
+              </article>
+            );
+          })}
         </div>
       </Container>
     </section>
@@ -882,27 +933,11 @@ export function HomePageExperience({
 }) {
   return (
     <div className="bg-[#f7f5ef] text-slate-950">
-      {/*
-        Legacy source-order contract marker only:
-        HomepageHeroV1 locale={locale} copy={copy}
-        HomepageHighlightedTestsBanner locale={locale} copy={copy} supplementalTests={supplementalTests}
-        HomepageFamilyMatrix locale={locale} copy={copy}
-         HomepageResultPreview locale={locale} copy={copy}
-         HomepageTrustStripV1 copy={copy}
-         HomepageSecondaryExplore locale={locale} copy={copy}
-         HomepageArticlesBanner locale={locale} articles={articles}
-         Legacy homepage skeleton contract markers only:
-         relative overflow-hidden border-y border-slate-200 bg-slate-50 py-14
-         grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:items-end
-         mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3
-       */}
       <HomepageCookieBannerGuard />
       <HomepageHeroV1 locale={locale} copy={copy} coreTests={listCoreHomepageTests(copy, supplementalTests)} />
       <HomepageHighlightedTestsBanner locale={locale} copy={copy} supplementalTests={supplementalTests} />
-      <HomepageTrustStripV1 copy={copy} />
+      <HomepageTrustStripV1 locale={locale} copy={copy} />
       <HomepageFamilyMatrix locale={locale} copy={copy} />
-      <HomepageResultPreview locale={locale} copy={copy} />
-      <HomepageSecondaryExplore locale={locale} copy={copy} />
       <HomepageArticlesBanner locale={locale} articles={articles} />
     </div>
   );

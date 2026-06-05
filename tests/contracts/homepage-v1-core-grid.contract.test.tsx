@@ -151,38 +151,39 @@ vi.mock("next/link", () => ({
 const EXPECTED_ZH_CARDS = [
   {
     title: "MBTI 性格测试",
-    copy: "快速了解你的类型偏好与决策风格",
-    meta: "人格测试",
+    copy: "想了解自己的性格吗？看看你的偏好、沟通方式和决策风格。 开始 MBTI 测试。",
+    detail: "MBTI 性格测试帮助你理解日常选择、互动方式和团队协作中的偏好，适合作为自我了解和沟通参考。",
     href: "/zh/tests/mbti-personality-test-16-personality-types",
   },
   {
-    title: "Big Five 大五人格测试",
-    copy: "从五个维度看清你的稳定特质",
-    meta: "人格测试",
+    title: "大五人格测试",
+    copy: "想知道你的稳定特质吗？从五个维度了解你平时如何行动和反应。 开始大五人格测试。",
+    detail: "大五人格测试围绕开放性、尽责性、外向性、宜人性和情绪稳定性，帮助你获得更连续的特质视角。",
     href: "/zh/tests/big-five-personality-test-ocean-model",
   },
   {
-    title: "IQ 智商测试",
-    copy: "快速了解你的认知能力基线",
-    meta: "能力测评",
+    title: "智商测试",
+    accessibleTitle: "IQ 智商测试",
+    copy: "想练习推理能力吗？完成视觉与数字题，获得一份清晰的原始分参考。 开始智商测试。",
+    detail: "智商测试包含视觉和数字推理练习，适合在常模权威上线前作为能力训练与原始分参考。",
     href: "/zh/tests/iq-test-intelligence-quotient-assessment",
   },
   {
     title: "霍兰德职业兴趣测试",
-    copy: "先得到兴趣结构与职业方向判断",
-    meta: "职业兴趣",
+    copy: "想知道什么工作更吸引你吗？看看你的兴趣类型和偏好的工作环境。 开始霍兰德测试。",
+    detail: "霍兰德职业兴趣测试用 RIASEC 类型帮助你比较职业方向、学习选择和工作环境偏好。",
     href: "/zh/tests/holland-career-interest-test-riasec",
   },
   {
     title: "九型人格测试",
-    copy: "从核心动机与压力反应理解你的行为模式",
-    meta: "人格测试",
+    copy: "你的核心动机是什么？看看压力、关系和成长中的常见反应模式。 开始九型人格测试。",
+    detail: "九型人格测试帮助你从动机和行为模式理解自己，适合用于关系反思和个人成长参考。",
     href: "/zh/tests/enneagram-personality-test-nine-types",
   },
   {
     title: "情商测试",
-    copy: "看清情绪调节、沟通表达与关系协作中的关键能力",
-    meta: "情绪能力",
+    copy: "想了解情绪和关系能力吗？看看你在理解、表达和协作中的常见模式。 开始情商测试。",
+    detail: "情商测试关注情绪识别、沟通表达和关系协作，帮助你获得更清晰的互动参考。",
     href: "/zh/tests/eq-test-emotional-intelligence-assessment",
   },
 ];
@@ -190,20 +191,19 @@ const EXPECTED_ZH_CARDS = [
 describe("homepage v1 core grid contract", () => {
   it("renders exactly six core test cards with four fields each", async () => {
     render(<HomePageExperience locale="zh" copy={await getHomePageContent("zh")} />);
-    const gridHeading = screen.getByRole("heading", { level: 2, name: "从一个清楚的问题开始。" });
+    const gridHeading = screen.getByRole("heading", { level: 2, name: "热门测评" });
     const section = gridHeading.closest("section");
 
     for (const card of EXPECTED_ZH_CARDS) {
-      const title = within(section as HTMLElement).getByRole("heading", { level: 3, name: card.title });
+      const title = within(section as HTMLElement).getByRole("heading", { level: 3, name: card.accessibleTitle ?? card.title });
       const article = title.closest("article");
+      const link = title.closest("a");
 
       expect(article).toBeTruthy();
-      expect(within(article as HTMLElement).getByText(card.copy)).toBeInTheDocument();
-      expect(within(article as HTMLElement).getByText(card.meta)).toBeInTheDocument();
-      expect(within(article as HTMLElement).getByRole("link", { name: /开始测试/ })).toHaveAttribute(
-        "href",
-        card.href
-      );
+      expect(link).toHaveAttribute("href", card.href);
+      expect(link).toHaveTextContent(card.copy);
+      expect(within(article as HTMLElement).getByText(card.detail)).toBeInTheDocument();
+      expect(within(article as HTMLElement).getByLabelText("推荐指数 5 星")).toBeInTheDocument();
     }
 
     expect(within(section as HTMLElement).getAllByRole("heading", { level: 3 })).toHaveLength(6);
@@ -216,7 +216,7 @@ describe("homepage v1 core grid contract", () => {
   it("keeps the core grid in a three-column desktop layout contract", async () => {
     render(<HomePageExperience locale="zh" copy={await getHomePageContent("zh")} />);
 
-    const gridHeading = screen.getByRole("heading", { level: 2, name: "从一个清楚的问题开始。" });
+    const gridHeading = screen.getByRole("heading", { level: 2, name: "热门测评" });
     const section = gridHeading.closest("section");
 
     expect(section?.innerHTML).toContain("xl:grid-cols-3");
@@ -247,16 +247,12 @@ describe("homepage v1 core grid contract", () => {
         supplementalTests={supplementalTests}
       />
     );
-    const gridHeading = screen.getByRole("heading", { level: 2, name: "从一个清楚的问题开始。" });
+    const gridHeading = screen.getByRole("heading", { level: 2, name: "热门测评" });
     const section = gridHeading.closest("section");
 
     expect(within(section as HTMLElement).getAllByRole("heading", { level: 3 })).toHaveLength(6);
-    expect(within(section as HTMLElement).getByRole("heading", { level: 3, name: "情商测试" })).toBeInTheDocument();
-    expect(
-      within(section as HTMLElement)
-        .getAllByRole("link", { name: /开始测试/ })
-        .some((link) => link.getAttribute("href") === "/zh/tests/eq-test-emotional-intelligence-assessment")
-    ).toBe(true);
+    const eqTitle = within(section as HTMLElement).getByRole("heading", { level: 3, name: "情商测试" });
+    expect(eqTitle.closest("a")).toHaveAttribute("href", "/zh/tests/eq-test-emotional-intelligence-assessment");
     expect(section?.innerHTML).not.toContain("/zh/zh/tests");
   });
 });

@@ -98,8 +98,8 @@ describe("career all occupations library contract", () => {
     const html = renderToStaticMarkup(page as ReactNode);
 
     expect(html).toContain("342 occupations, organized by industry");
-    expect(html).toContain("Showing 1-1 of 1 matching occupations; 342 detail pages are confirmed by backend publication gates.");
     expect(html).toContain("career-all-occupations-hero");
+    expect(html).toContain("career-library-summary");
     expect(html).toContain("career-occupation-directory");
     expect(html).toContain("Accountants and auditors");
     expect(html).not.toContain(">Actors<");

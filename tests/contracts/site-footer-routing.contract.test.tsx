@@ -12,7 +12,8 @@ describe("site footer routing contract", () => {
     );
 
     expect(screen.getByTestId("site-footer-group-tests")).toHaveTextContent("Top tests");
-    expect(screen.getByTestId("site-footer-group-articles")).toHaveTextContent("Reading & guides");
+    expect(screen.getByTestId("site-footer-group-articles")).toHaveTextContent("Articles & Insights");
+    expect(screen.getByTestId("site-footer-group-methods")).toHaveTextContent("Research & Methods");
     expect(screen.getByTestId("site-footer-group-company")).toHaveTextContent("Company");
     expect(screen.getByTestId("site-footer-group-policies")).toHaveTextContent("Terms & policies");
     expect(screen.getByRole("link", { name: "About" })).toHaveAttribute("href", "/en/about");
@@ -29,7 +30,8 @@ describe("site footer routing contract", () => {
     );
 
     expect(screen.getByTestId("site-footer-group-tests")).toHaveTextContent("热门测评");
-    expect(screen.getByTestId("site-footer-group-articles")).toHaveTextContent("内容与指南");
+    expect(screen.getByTestId("site-footer-group-articles")).toHaveTextContent("文章与洞察");
+    expect(screen.getByTestId("site-footer-group-methods")).toHaveTextContent("研究与方法");
     expect(screen.getByTestId("site-footer-group-company")).toHaveTextContent("公司");
     expect(screen.getByTestId("site-footer-group-policies")).toHaveTextContent("条款与政策");
     expect(screen.getByRole("link", { name: "关于我们" })).toHaveAttribute("href", "/zh/about");

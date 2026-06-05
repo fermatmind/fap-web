@@ -130,8 +130,8 @@ describe("CAREER-1046-FRONTEND-DISCOVERY-UX-01", () => {
     const html = await renderCareerJobsPage();
 
     expect(html).toContain("1046 occupations, organized by industry");
-    expect(html).toContain("data-testid=\"career-library-result-summary\"");
-    expect(html).toContain("Showing 1-50 of 1046 matching occupations; 1046 detail pages are confirmed by backend publication gates.");
+    expect(html).toContain("data-testid=\"career-library-summary\"");
+    expect(html).not.toContain("Showing 1-50 of 1046 matching occupations");
     expect((html.match(/data-testid="career-occupation-row"/g) ?? [])).toHaveLength(50);
     expect((html.match(/data-testid="career-occupation-detail-link"/g) ?? [])).toHaveLength(50);
   });

@@ -18,7 +18,7 @@ type FooterLinkItem = {
 };
 
 type FooterGroup = {
-  key: "tests" | "articles" | "company" | "policies";
+  key: "tests" | "articles" | "methods" | "company" | "policies";
   title: string;
   links: FooterLinkItem[];
 };
@@ -33,26 +33,47 @@ export function SiteFooter() {
   const footerGroupTitles = dict.footer.groupTitles;
 
   const testLinks = filterVisiblePublicTestEntries([
-    { href: "/tests", label: dict.footer.allTestsTitle },
     { href: "/tests/mbti-personality-test-16-personality-types", label: "MBTI" },
-    { href: "/tests/big-five-personality-test-ocean-model", label: "Big Five" },
+    { href: "/tests/big-five-personality-test-ocean-model", label: locale === "zh" ? "大五人格" : "Big Five" },
     { href: "/tests/enneagram-personality-test-nine-types", label: locale === "zh" ? "九型人格" : "Enneagram" },
-    { href: "/tests/holland-career-interest-test-riasec", label: locale === "zh" ? "霍兰德 RIASEC" : "RIASEC" },
-    { href: "/tests/iq-test-intelligence-quotient-assessment", label: "IQ" },
-    { href: "/tests/eq-test-emotional-intelligence-assessment", label: "EQ" },
+    { href: "/tests/holland-career-interest-test-riasec", label: locale === "zh" ? "霍兰德职业兴趣测试" : "RIASEC" },
+    { href: "/tests/iq-test-intelligence-quotient-assessment", label: locale === "zh" ? "智商测试" : "IQ" },
+    { href: "/tests/eq-test-emotional-intelligence-assessment", label: locale === "zh" ? "情商测试" : "EQ" },
   ]);
 
   const articleLinks =
     locale === "zh"
       ? [
           { href: "/articles", label: "全部文章" },
-          { href: "/personality", label: "人格" },
-          { href: "/career", label: "职业" },
+          { href: "/topics", label: "主题" },
+          { href: "/career/guides", label: "测评指南" },
+          { href: "/articles", label: "博客" },
+          { href: "/articles", label: "月度洞察" },
         ]
       : [
           { href: "/articles", label: "All articles" },
-          { href: "/personality", label: "Personality" },
-          { href: "/career", label: "Career" },
+          { href: "/topics", label: "Topics" },
+          { href: "/career/guides", label: "Assessment Guides" },
+          { href: "/articles", label: "Journal" },
+          { href: "/articles", label: "Monthly Insights" },
+        ];
+  const methodLinks: FooterLinkItem[] =
+    locale === "zh"
+      ? [
+          { href: "/articles", label: "测评科学" },
+          { href: "/method-boundaries", label: "方法边界" },
+          { href: "/articles", label: "题目设计说明" },
+          { href: "/method-boundaries", label: "信度效度" },
+          { href: "/privacy", label: "数据说明" },
+          { href: "/articles", label: "常见误区" },
+        ]
+      : [
+          { href: "/articles", label: "Assessment science" },
+          { href: "/method-boundaries", label: "Method boundaries" },
+          { href: "/articles", label: "Item design notes" },
+          { href: "/method-boundaries", label: "Reliability & validity" },
+          { href: "/privacy", label: "Data notes" },
+          { href: "/articles", label: "Common misconceptions" },
         ];
   const companyLinks: FooterLinkItem[] =
     locale === "zh"
@@ -77,18 +98,17 @@ export function SiteFooter() {
           { href: "/privacy", label: dict.footer.privacy },
           { href: "/terms", label: dict.footer.terms },
           { href: "/policies", label: "政策概览" },
-          { href: "/method-boundaries", label: "方法边界" },
         ]
       : [
           { href: "/support", label: dict.footer.support },
           { href: "/privacy", label: dict.footer.privacy },
           { href: "/terms", label: dict.footer.terms },
           { href: "/policies", label: "Policy overview" },
-          { href: "/method-boundaries", label: "Method boundaries" },
         ];
   const footerGroups: FooterGroup[] = [
     { key: "tests", title: footerGroupTitles.tests, links: testLinks },
     { key: "articles", title: footerGroupTitles.articles, links: articleLinks },
+    { key: "methods", title: locale === "zh" ? "研究与方法" : "Research & Methods", links: methodLinks },
     { key: "company", title: footerGroupTitles.company, links: companyLinks },
     { key: "policies", title: footerGroupTitles.policies, links: policyLinks },
   ];
@@ -99,7 +119,7 @@ export function SiteFooter() {
         href={item.href}
         target="_blank"
         rel="noopener noreferrer"
-        className="block text-slate-300 hover:text-white"
+        className="block w-fit text-[0.98rem] font-medium leading-7 text-slate-950 transition-colors duration-150 hover:text-lime-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-500"
       >
         {item.label}
       </a>
@@ -108,25 +128,25 @@ export function SiteFooter() {
         key={`${item.href}-${item.label}`}
         href={withLocale(item.href)}
         prefetch={false}
-        className="block text-slate-300 hover:text-white"
+        className="block w-fit text-[0.98rem] font-medium leading-7 text-slate-950 transition-colors duration-150 hover:text-lime-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-500"
       >
         {item.label}
       </Link>
     );
 
   return (
-    <footer className="fm-section-dark border-t border-white/10 text-white">
-      <Container className="space-y-8 py-12">
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4 md:gap-10">
+    <footer className="fm-site-footer-light border-t border-slate-200 bg-[#f7f7f4] text-slate-950">
+      <Container className="max-w-7xl space-y-16 py-20 md:py-28">
+        <div className="grid grid-cols-2 gap-x-14 gap-y-14 md:grid-cols-5 lg:gap-x-18 xl:gap-x-24">
           {footerGroups.map((group) => (
-            <div key={group.key} className="space-y-3" data-testid={`site-footer-group-${group.key}`}>
-              <p className="m-0 font-mono text-sm uppercase tracking-[0.16em] text-white/82">{group.title}</p>
-              <div className="min-h-5 space-y-2 text-sm">{group.links.map(renderFooterLink)}</div>
+            <div key={group.key} className="space-y-5" data-testid={`site-footer-group-${group.key}`}>
+              <p className="m-0 text-sm font-medium leading-6 text-slate-500">{group.title}</p>
+              <div className="min-h-5 space-y-2.5">{group.links.map(renderFooterLink)}</div>
             </div>
           ))}
         </div>
 
-        <div className="fm-social-rail border-t border-white/15 pt-6">
+        <div className="fm-social-rail border-t border-slate-300/70 pt-8">
           <div className="fm-social-list">
             {socialItems.map((item) => (
               <div
@@ -142,7 +162,7 @@ export function SiteFooter() {
                       title={locale === "zh" ? item.labels.zh : item.labels.en}
                       aria-label={locale === "zh" ? item.labels.zh : item.labels.en}
                       aria-expanded={activeSocialKey === item.key}
-                      className="fm-social-badge cursor-pointer border-0 bg-transparent p-0"
+                      className="fm-social-badge fm-social-badge--footer cursor-pointer border-0 bg-transparent p-0"
                       onClick={() => setActiveSocialKey(item.key)}
                       onFocus={() => setActiveSocialKey(item.key)}
                       onBlur={() => setActiveSocialKey((current) => (current === item.key ? null : current))}
@@ -182,7 +202,7 @@ export function SiteFooter() {
                     rel="noopener noreferrer"
                     title={locale === "zh" ? item.labels.zh : item.labels.en}
                     aria-label={locale === "zh" ? item.labels.zh : item.labels.en}
-                    className="fm-social-badge"
+                    className="fm-social-badge fm-social-badge--footer"
                   >
                     <svg viewBox="0 0 24 24" aria-hidden="true" className="fm-social-logo">
                       <path d={item.icon.path} />
@@ -195,9 +215,9 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-5 text-center">
-          <p className="m-0 font-mono text-[0.72rem] uppercase tracking-[0.22em] text-white/62">{dict.footer.tailnote}</p>
-          <p data-visual-volatile="true" className="m-0 mt-3 text-xs text-slate-400">
+        <div className="border-t border-slate-300/70 pt-7 text-center">
+          <p className="m-0 text-sm font-medium leading-6 text-slate-500">{dict.footer.tailnote}</p>
+          <p data-visual-volatile="true" className="m-0 mt-3 text-sm text-slate-500">
             © {new Date().getFullYear()} FermatMind. {dict.footer.copyright}
           </p>
         </div>

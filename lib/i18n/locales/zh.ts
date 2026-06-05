@@ -192,7 +192,7 @@ const zh: SiteDictionary = {
     contactLabel: "联系",
     groupTitles: {
       tests: "热门测评",
-      articles: "内容与指南",
+      articles: "文章与洞察",
       company: "公司",
       policies: "条款与政策",
     },
