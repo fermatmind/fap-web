@@ -1,0 +1,151 @@
+{
+  "schema_version": "help_service_content_validation.v1",
+  "generated_at": "2026-06-05T08:34:00+08:00",
+  "pr_id": "HELP-SERVICE-CONTENT-DRAFTS-VALIDATION-01",
+  "decision": "PASS_WITH_OPERATOR_REVIEW_GATES",
+  "support_email": "support@fermatmind.com",
+  "runtime_changed": false,
+  "cms_mutation": false,
+  "content_rewritten": false,
+  "publish_allowed": false,
+  "requires_operator_review": true,
+  "cms_draft_created": false,
+  "ready_for_cms_import_package_generation": true,
+  "operator_review_still_required": true,
+  "schema_enabled": false,
+  "package_count": 6,
+  "packages": [
+    {
+      "asset_id": "UNLOCK-FAILURE-HELP-CARD-01",
+      "markdown": "docs/content/help/service-drafts/packages/01_UNLOCK-FAILURE-HELP-CARD-01.md",
+      "yaml": "docs/content/help/service-drafts/packages/01_UNLOCK-FAILURE-HELP-CARD-01.yaml",
+      "support_email": "support@fermatmind.com",
+      "publish_allowed": false,
+      "requires_operator_review": true,
+      "cms_draft_created": false,
+      "bilingual_markers_present": true,
+      "schema_eligibility_conditional": true
+    },
+    {
+      "asset_id": "PAYMENT-REFUND-FAQ-PACKAGE-01",
+      "markdown": "docs/content/help/service-drafts/packages/02_PAYMENT-REFUND-FAQ-PACKAGE-01.md",
+      "yaml": "docs/content/help/service-drafts/packages/02_PAYMENT-REFUND-FAQ-PACKAGE-01.yaml",
+      "support_email": "support@fermatmind.com",
+      "publish_allowed": false,
+      "requires_operator_review": true,
+      "cms_draft_created": false,
+      "bilingual_markers_present": true,
+      "schema_eligibility_conditional": true
+    },
+    {
+      "asset_id": "RESULT-RECOVERY-FAQ-01",
+      "markdown": "docs/content/help/service-drafts/packages/03_RESULT-RECOVERY-FAQ-01.md",
+      "yaml": "docs/content/help/service-drafts/packages/03_RESULT-RECOVERY-FAQ-01.yaml",
+      "support_email": "support@fermatmind.com",
+      "publish_allowed": false,
+      "requires_operator_review": true,
+      "cms_draft_created": false,
+      "bilingual_markers_present": true,
+      "schema_eligibility_conditional": true
+    },
+    {
+      "asset_id": "PRIVACY-FAQ-PACKAGE-01",
+      "markdown": "docs/content/help/service-drafts/packages/04_PRIVACY-FAQ-PACKAGE-01.md",
+      "yaml": "docs/content/help/service-drafts/packages/04_PRIVACY-FAQ-PACKAGE-01.yaml",
+      "support_email": "support@fermatmind.com",
+      "publish_allowed": false,
+      "requires_operator_review": true,
+      "cms_draft_created": false,
+      "bilingual_markers_present": true,
+      "schema_eligibility_conditional": true
+    },
+    {
+      "asset_id": "NONDIAGNOSTIC-HELP-COPY-01",
+      "markdown": "docs/content/help/service-drafts/packages/05_NONDIAGNOSTIC-HELP-COPY-01.md",
+      "yaml": "docs/content/help/service-drafts/packages/05_NONDIAGNOSTIC-HELP-COPY-01.yaml",
+      "support_email": "support@fermatmind.com",
+      "publish_allowed": false,
+      "requires_operator_review": true,
+      "cms_draft_created": false,
+      "bilingual_markers_present": true,
+      "schema_eligibility_conditional": true
+    },
+    {
+      "asset_id": "DATA-DELETION-REQUEST-FAQ-01",
+      "markdown": "docs/content/help/service-drafts/packages/06_DATA-DELETION-REQUEST-FAQ-01.md",
+      "yaml": "docs/content/help/service-drafts/packages/06_DATA-DELETION-REQUEST-FAQ-01.yaml",
+      "support_email": "support@fermatmind.com",
+      "publish_allowed": false,
+      "requires_operator_review": true,
+      "cms_draft_created": false,
+      "bilingual_markers_present": true,
+      "schema_eligibility_conditional": true
+    }
+  ],
+  "checks": [
+    {
+      "id": "all_six_packages_exist",
+      "status": "pass",
+      "evidence": "6 packages"
+    },
+    {
+      "id": "draft_only_flags",
+      "status": "pass",
+      "evidence": "publish_allowed=false, requires_operator_review=true, cms_draft_created=false"
+    },
+    {
+      "id": "support_email",
+      "status": "pass",
+      "evidence": "support@fermatmind.com"
+    },
+    {
+      "id": "no_raw_private_identifier_examples",
+      "status": "pass",
+      "matches": []
+    },
+    {
+      "id": "no_full_private_urls",
+      "status": "pass",
+      "matches": []
+    },
+    {
+      "id": "no_tokenized_urls",
+      "status": "pass",
+      "matches": []
+    },
+    {
+      "id": "no_competitor_copy_markers",
+      "status": "pass",
+      "matches": []
+    },
+    {
+      "id": "schema_conditional_not_enabled",
+      "status": "pass",
+      "evidence": "schema eligibility remains conditional; schema_enabled is not set true"
+    },
+    {
+      "id": "bilingual_policy_consistency",
+      "status": "pass",
+      "evidence": "zh/en route and content markers present for all packages"
+    },
+    {
+      "id": "claims_and_refund_promises",
+      "status": "pass",
+      "evidence": "risky phrases appear as forbidden/boundary terms, not unconditional policy approval"
+    }
+  ],
+  "allowed_boundary_mentions": {
+    "private_route_globs": 36,
+    "forbidden_phrase_lists": 25
+  },
+  "blockers": [],
+  "forbidden_actions": [
+    "no publish",
+    "no CMS mutation",
+    "no CMS draft creation",
+    "no content rewrite",
+    "no private URL access",
+    "no raw order/payment/result identifiers",
+    "no competitor copy"
+  ]
+}
