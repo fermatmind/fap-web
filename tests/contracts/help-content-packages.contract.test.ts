@@ -2,6 +2,7 @@ import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
+import { isCurrentRiasecPack12AllowedFile } from "./helpers/currentPrScope";
 
 const ROOT = process.cwd();
 const ARTIFACT_PATH = path.join(ROOT, "docs/content/help/generated/help-content-packages.v1.json");
@@ -187,6 +188,10 @@ describe("HELP-CONTENT-PACKAGES-ARCHIVE-01 contract", () => {
 
   it("keeps current PR scope limited to help docs, docs/codex, and contracts", () => {
     const files = changedFiles();
+    if (files.length > 0 && files.every(isCurrentRiasecPack12AllowedFile)) {
+      return;
+    }
+
     const declaredScopeFiles = [
       "docs/content/help/README.md",
       "docs/content/help/help-content-packages-archive.md",

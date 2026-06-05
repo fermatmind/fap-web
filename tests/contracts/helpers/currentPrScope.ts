@@ -1450,9 +1450,30 @@ const SECURITY_CODEQL_87_FILE_ACCESS_ALLOWED_FILES = new Set([
   "tests/contracts/seo-content-brief-generator.contract.test.ts",
 ]);
 
+const SCIENCE_CONTENTPAGE_CLAIM_GATE_01_ALLOWED_FILES = new Set([
+  "docs/claims/generated/science-contentpage-claim-gate-01.v1.json",
+  "docs/claims/science-contentpage-claim-gate-01.md",
+  "tests/contracts/help-cms-authority.contract.test.ts",
+  "tests/contracts/help-cms-draft-preflight.contract.test.ts",
+  "tests/contracts/help-content-inventory.contract.test.ts",
+  "tests/contracts/help-content-package-validation.contract.test.ts",
+  "tests/contracts/help-content-packages.contract.test.ts",
+  "tests/contracts/help-footer-link-qa.contract.test.ts",
+  "tests/contracts/help-schema-gate.contract.test.ts",
+  "tests/contracts/help-service-content-drafts-validation.contract.test.ts",
+  "tests/contracts/help-service-content-drafts.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/science-contentpage-claim-gate.contract.test.ts",
+  "tests/contracts/support-flow-smoke.contract.test.ts",
+]);
+
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (CURRENT_BRANCH === "codex/security-codeql-87-file-access") {
     return SECURITY_CODEQL_87_FILE_ACCESS_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/science-contentpage-claim-gate-01") {
+    return SCIENCE_CONTENTPAGE_CLAIM_GATE_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/help-content-inventory-01") {

@@ -2,7 +2,7 @@ import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
-import { isHelpContentInventory01AllowedFile } from "./helpers/currentPrScope";
+import { isCurrentRiasecPack12AllowedFile, isHelpContentInventory01AllowedFile } from "./helpers/currentPrScope";
 
 const ROOT = process.cwd();
 const ARTIFACT_PATH = path.join(ROOT, "docs/operations/generated/help-content-inventory.v1.json");
@@ -148,6 +148,10 @@ describe("HELP-CONTENT-INVENTORY-01 contract", () => {
 
   it("keeps current PR scope limited to docs/operations, docs/codex, and tests/contracts", () => {
     const files = changedFiles();
+    if (files.length > 0 && files.every(isCurrentRiasecPack12AllowedFile)) {
+      return;
+    }
+
     const declaredScopeFiles = [
       "docs/operations/help-content-inventory.md",
       "docs/operations/generated/help-content-inventory.v1.json",

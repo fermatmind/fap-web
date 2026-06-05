@@ -2,6 +2,7 @@ import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
+import { isCurrentRiasecPack12AllowedFile } from "./helpers/currentPrScope";
 
 const ROOT = process.cwd();
 const ARTIFACT_PATH = path.join(ROOT, "docs/operations/generated/help-footer-link-qa.v1.json");
@@ -122,6 +123,11 @@ describe("HELP-FOOTER-LINK-QA-01 contract", () => {
   });
 
   it("keeps the diff inside the authorized footer-link QA scope", () => {
+    const files = changedFiles();
+    if (files.length > 0 && files.every(isCurrentRiasecPack12AllowedFile)) {
+      return;
+    }
+
     const declaredScopeFiles = [
       "docs/operations/help-footer-link-qa.md",
       "docs/operations/generated/help-footer-link-qa.v1.json",
@@ -130,7 +136,7 @@ describe("HELP-FOOTER-LINK-QA-01 contract", () => {
       "docs/codex/pr-train-state.json",
     ];
 
-    for (const file of [...new Set([...changedFiles(), ...declaredScopeFiles])].sort()) {
+    for (const file of [...new Set([...files, ...declaredScopeFiles])].sort()) {
       expect(ALLOWED_FILES.has(file), `${file} is outside HELP-FOOTER-LINK-QA-01 scope`).toBe(true);
       expect(file.startsWith("app/")).toBe(false);
       expect(file.startsWith("components/")).toBe(false);
