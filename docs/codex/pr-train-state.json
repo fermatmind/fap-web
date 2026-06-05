@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-05T08:42:00+08:00",
+  "updated_at": "2026-06-05T08:47:00+08:00",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -20129,7 +20129,7 @@
         "HELP-SERVICE-CONTENT-DRAFTS-ARCHIVE-01"
       ],
       "title": "test(help): validate service content draft boundaries",
-      "status": "pr_open",
+      "status": "merged",
       "commit_sha": "931d7ebd84c2ef898255757756376bfede3b78f1",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1057",
       "checks": {
@@ -20138,12 +20138,18 @@
         "YAML parse docs/codex/pr-train.yaml": "passed",
         "pnpm exec vitest run tests/contracts/help-service-content-drafts-validation.contract.test.ts": "passed (1 file, 6 tests)",
         "git diff --check": "passed",
-        "pnpm test:contract": "not run; currentPrScope helper was not touched"
+        "pnpm test:contract": "not run; currentPrScope helper was not touched",
+        "GitHub build": "passed",
+        "GitHub contracts": "passed",
+        "GitHub verify-big5-contract-freeze": "passed",
+        "GitHub verify-enneagram-contract-freeze": "passed",
+        "GitHub analyze (javascript-typescript)": "passed",
+        "GitHub CodeQL": "passed"
       },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-05T00:38:58Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "events": [
         {
           "at": "2026-06-05T08:38:00+08:00",
@@ -20159,8 +20165,14 @@
           "at": "2026-06-05T08:42:00+08:00",
           "status": "pr_open",
           "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1057 after required local checks passed. Validation result is PASS_WITH_OPERATOR_REVIEW_GATES and ready_for_cms_import_package_generation=true. CMS import package creation, CMS draft creation, CMS mutation, publish, runtime changes, editorial approval, private URL access, and raw private identifiers remain deferred."
+        },
+        {
+          "at": "2026-06-05T08:47:00+08:00",
+          "status": "merged",
+          "summary": "PR https://github.com/fermatmind/fap-web/pull/1057 merged after required GitHub checks passed. Remote branch was deleted and local cleanup was executed from the main checkout. Next train task moves to fap-api for HELP-CMS-IMPORT-PACKAGE-01."
         }
-      ]
+      ],
+      "merge_sha": "3b14551769b7f71bf83c90dbbba35f6c484d7a35"
     }
   ],
   "sidecar_issues": [

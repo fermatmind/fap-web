@@ -13300,7 +13300,9 @@ prs:
       - HELP-SERVICE-CONTENT-DRAFTS-ARCHIVE-01
     mode: docs_contract_service_content_drafts_validation
     train_scope: commercial_readiness_help_service_content
-    status: in_progress
+    status: merged
+    pr_url: https://github.com/fermatmind/fap-web/pull/1057
+    merge_sha: 3b14551769b7f71bf83c90dbbba35f6c484d7a35
     goal: "Validate archived Help service drafts against privacy, policy, schema, CMS, support email, and publish-boundary requirements without content rewrite, CMS mutation, or publish."
     artifacts:
       - docs/operations/generated/help-service-content-validation.v1.json
