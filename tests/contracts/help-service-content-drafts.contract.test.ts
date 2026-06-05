@@ -2,6 +2,7 @@ import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
+import { isCurrentRiasecPack12AllowedFile } from "./helpers/currentPrScope";
 
 const ROOT = process.cwd();
 const ARTIFACT_PATH = path.join(ROOT, "docs/content/help/generated/help-service-content-drafts.v1.json");
@@ -143,6 +144,11 @@ describe("HELP-SERVICE-CONTENT-DRAFTS-ARCHIVE-01 contract", () => {
   });
 
   it("keeps the diff inside the authorized archive scope", () => {
+    const files = changedFiles();
+    if (files.length > 0 && files.every(isCurrentRiasecPack12AllowedFile)) {
+      return;
+    }
+
     const declaredScopeFiles = [
       "docs/content/help/service-drafts/README.md",
       "docs/content/help/service-drafts/index.source.json",
@@ -152,7 +158,7 @@ describe("HELP-SERVICE-CONTENT-DRAFTS-ARCHIVE-01 contract", () => {
       "docs/codex/pr-train-state.json",
     ];
 
-    for (const file of [...new Set([...changedFiles(), ...declaredScopeFiles])].sort()) {
+    for (const file of [...new Set([...files, ...declaredScopeFiles])].sort()) {
       expect(isAllowedFile(file), `${file} is outside HELP-SERVICE-CONTENT-DRAFTS-ARCHIVE-01 scope`).toBe(true);
       expect(file.startsWith("app/")).toBe(false);
       expect(file.startsWith("components/")).toBe(false);

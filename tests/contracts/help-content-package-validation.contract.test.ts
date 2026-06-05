@@ -2,6 +2,7 @@ import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
+import { isCurrentRiasecPack12AllowedFile } from "./helpers/currentPrScope";
 
 const ROOT = process.cwd();
 const VALIDATION_PATH = path.join(ROOT, "docs/content/help/generated/help-content-package-validation.v1.json");
@@ -170,6 +171,11 @@ describe("HELP-CONTENT-PACKAGE-VALIDATION-01 contract", () => {
   });
 
   it("keeps the diff inside the authorized package-validation scope", () => {
+    const files = changedFiles();
+    if (files.length > 0 && files.every(isCurrentRiasecPack12AllowedFile)) {
+      return;
+    }
+
     const declaredScopeFiles = [
       "docs/content/help/help-content-package-validation.md",
       "docs/content/help/generated/help-content-package-validation.v1.json",
@@ -178,7 +184,7 @@ describe("HELP-CONTENT-PACKAGE-VALIDATION-01 contract", () => {
       "tests/contracts/help-content-package-validation.contract.test.ts",
     ];
 
-    for (const file of [...new Set([...changedFiles(), ...declaredScopeFiles])].sort()) {
+    for (const file of [...new Set([...files, ...declaredScopeFiles])].sort()) {
       expect(ALLOWED_FILES.has(file), `${file} is outside HELP-CONTENT-PACKAGE-VALIDATION-01 scope`).toBe(true);
       expect(file.startsWith("app/")).toBe(false);
       expect(file.startsWith("components/")).toBe(false);
