@@ -1467,6 +1467,13 @@ const SCIENCE_CONTENTPAGE_CLAIM_GATE_01_ALLOWED_FILES = new Set([
   "tests/contracts/support-flow-smoke.contract.test.ts",
 ]);
 
+const SCIENCE_CONTENTPAGE_FAQ_SCHEMA_GATE_01_ALLOWED_FILES = new Set([
+  "docs/seo/generated/science-contentpage-faq-schema-gate-01.v1.json",
+  "docs/seo/science-contentpage-faq-schema-gate-01.md",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/science-contentpage-faq-schema-gate.contract.test.ts",
+]);
+
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (CURRENT_BRANCH === "codex/security-codeql-87-file-access") {
     return SECURITY_CODEQL_87_FILE_ACCESS_ALLOWED_FILES.has(file);
@@ -1474,6 +1481,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/science-contentpage-claim-gate-01") {
     return SCIENCE_CONTENTPAGE_CLAIM_GATE_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/science-contentpage-faq-schema-gate-01") {
+    return SCIENCE_CONTENTPAGE_FAQ_SCHEMA_GATE_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/help-content-inventory-01") {
