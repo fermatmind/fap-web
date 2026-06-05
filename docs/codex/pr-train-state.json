@@ -12463,7 +12463,7 @@
       "id": "GLOBAL-EN-ZH-PARITY-P0-01",
       "repo": "fap-web",
       "branch": "codex/global-en-zh-parity-p0-01-content-help-policy-discoverability",
-      "status": "pr_open_github_checks_pending",
+      "status": "ready_to_merge",
       "depends_on": [],
       "commit_sha": "b4595c763163a1a41782d389dc1e0e0f83858c12",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/903",
@@ -20209,8 +20209,8 @@
           "notes": "All local checks passed in isolated fap-web worktree. node_modules was symlinked from the main fap-web checkout for dependency resolution only."
         },
         "github": {
-          "status": "pending",
-          "evidence": "Opened GitHub PR #1059 at https://github.com/fermatmind/fap-web/pull/1059. Required GitHub checks are pending."
+          "status": "pass",
+          "evidence": "GitHub checks passed for PR #1059 on head 800c3b83a9623ef75c060d99c10a74328716b798: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL. Merge state was CLEAN before ready_to_merge ledger update."
         }
       },
       "result": {
@@ -20250,6 +20250,12 @@
           "from": "local_checks_passed",
           "to": "pr_open_github_checks_pending",
           "notes": "Opened https://github.com/fermatmind/fap-web/pull/1059 from branch codex/daily-giving-indexability-gate-01. GitHub required checks are pending."
+        },
+        {
+          "at": "2026-06-05T04:23:38Z",
+          "from": "pr_open_github_checks_pending",
+          "to": "ready_to_merge",
+          "notes": "GitHub checks passed and merge state was CLEAN. Pre-merge scope validation remained limited to DailyGiving indexability routes/helper, generated SEO artifact, focused contract tests, and docs/codex metadata."
         }
       ]
     }
