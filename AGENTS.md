@@ -160,6 +160,8 @@
 - Do not introduce new MDX/content JSON/static public image assets for publishable content unless the change is explicitly a backend baseline importer fixture.
 - Do not add frontend fallback content for CMS-backed surfaces. Empty CMS responses should render an empty/error state, not local editorial copy.
 - Sitemap, `llms.txt`, SEO metadata, article enumeration, help pages, topics, personality, and career content must enumerate from CMS/public APIs, not local files.
+- DailyGiving proof media is backend-authoritative. The frontend may render the operator-approved original charity donation proof image only through the public `proof_public_url`/evidence URL returned by the backend public API; it must not store proof files, hardcode proof URLs, infer proof status, expose private proof paths, or override backend proof decisions.
+- DailyGiving pages must stay `noindex` and out of sitemap/llms until the backend indexability gate explicitly allows inclusion. Frontend changes must not introduce trust badges, official partnership/endorsement implications, guaranteed-impact claims, or social/search amplification for DailyGiving.
 
 ## Final V4 upgrade protocols
 - Baseline content may exist only for new environment initialization, DB recovery, baseline imports, disaster recovery, and dry-run validation. Baseline content must not become runtime page-rendering authority.
