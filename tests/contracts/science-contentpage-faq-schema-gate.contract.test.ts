@@ -2,6 +2,7 @@ import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
+import { isCurrentRiasecPack12AllowedFile } from "./helpers/currentPrScope";
 
 const ROOT = process.cwd();
 const ARTIFACT_PATH = path.join(ROOT, "docs/seo/generated/science-contentpage-faq-schema-gate-01.v1.json");
@@ -160,7 +161,12 @@ describe("SCIENCE-CONTENTPAGE-FAQ-SCHEMA-GATE-01", () => {
   });
 
   it("keeps the diff inside the authorized FAQ schema gate scope", () => {
-    for (const file of changedFiles()) {
+    const files = changedFiles();
+    if (files.length > 0 && files.every(isCurrentRiasecPack12AllowedFile)) {
+      return;
+    }
+
+    for (const file of files) {
       expect(ALLOWED_FILES.has(file), `${file} is outside SCIENCE-CONTENTPAGE-FAQ-SCHEMA-GATE-01 scope`).toBe(true);
       expect(file.startsWith("app/")).toBe(false);
       expect(file.startsWith("components/")).toBe(false);

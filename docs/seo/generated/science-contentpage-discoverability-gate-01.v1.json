@@ -1,0 +1,100 @@
+{
+  "version": "seo.science_contentpage_discoverability_gate.v1",
+  "id": "SCIENCE-CONTENTPAGE-DISCOVERABILITY-GATE-01",
+  "mode": "contract_discoverability_gate_only",
+  "runtime_behavior_changed": false,
+  "publish_allowed": false,
+  "default_decision": "blocked_until_dependency_gates_pass",
+  "source_assets": [
+    "<fap-api>/backend/docs/seo/science-contentpage-cms-field-mapping-01.md",
+    "docs/claims/science-contentpage-claim-gate-01.md",
+    "docs/claims/generated/science-contentpage-claim-gate-01.v1.json",
+    "docs/seo/science-contentpage-faq-schema-gate-01.md",
+    "docs/seo/generated/science-contentpage-faq-schema-gate-01.v1.json"
+  ],
+  "candidate_public_routes": [
+    "/science",
+    "/item-design-notes",
+    "/reliability-validity",
+    "/data-privacy",
+    "/common-misconceptions",
+    "/method-boundaries"
+  ],
+  "dependency_gates": [
+    {
+      "id": "SCIENCE-CONTENTPAGE-CMS-FIELD-MAPPING-01",
+      "required_status": "complete_before_discoverability"
+    },
+    {
+      "id": "SCIENCE-CONTENTPAGE-CLAIM-GATE-01",
+      "required_status": "passed"
+    },
+    {
+      "id": "SCIENCE-CONTENTPAGE-FAQ-SCHEMA-GATE-01",
+      "required_status": "passed_when_faq_schema_requested"
+    },
+    {
+      "id": "operator_review",
+      "required_status": "approved"
+    },
+    {
+      "id": "production_route_smoke",
+      "required_status": "public_canonical_200"
+    },
+    {
+      "id": "private_url_scan",
+      "required_status": "no_private_or_tokenized_routes"
+    }
+  ],
+  "eligibility_fields": {
+    "sitemap_eligible": false,
+    "llms_eligible": false,
+    "footer_eligible": false,
+    "header_eligible": false,
+    "search_submission_eligible": false,
+    "social_distribution_eligible": false,
+    "daily_giving_tail_allowed": false,
+    "paid_ads_allowed": false,
+    "natural_distribution_allowed": false,
+    "draft_generation_allowed": true
+  },
+  "forbidden_route_patterns": [
+    "/result",
+    "/results/",
+    "/orders",
+    "/pay",
+    "/payment",
+    "/share/",
+    "/history",
+    "token=",
+    "orderNo=",
+    "payment_intent="
+  ],
+  "blocked_actions": [
+    "no_sitemap_addition_from_draft",
+    "no_llms_addition_from_draft",
+    "no_footer_or_header_link_before_operator_approval",
+    "no_search_submission_before_public_smoke",
+    "no_private_url_reference",
+    "no_daily_giving_amplification",
+    "no_paid_ads",
+    "no_batch_community_posting",
+    "no_fake_user_voice",
+    "no_competitor_imitation"
+  ],
+  "non_runtime_change_guarantees": {
+    "cms_mutation_performed": false,
+    "content_import_performed": false,
+    "publish_performed": false,
+    "schema_changed": false,
+    "sitemap_changed": false,
+    "llms_changed": false,
+    "footer_changed": false,
+    "header_changed": false,
+    "tracking_changed": false,
+    "paid_ads_changed": false,
+    "private_url_accessed": false,
+    "deployment_performed": false
+  },
+  "follow_up_implementation_required": true
+}
