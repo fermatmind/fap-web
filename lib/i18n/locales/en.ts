@@ -193,7 +193,7 @@ const en: SiteDictionary = {
     contactLabel: "Contact",
     groupTitles: {
       tests: "Top tests",
-      articles: "Reading & guides",
+      articles: "Articles & Insights",
       company: "Company",
       policies: "Terms & policies",
     },

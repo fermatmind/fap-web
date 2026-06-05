@@ -107,7 +107,7 @@ export function SiteFooter() {
         ];
   const footerGroups: FooterGroup[] = [
     { key: "tests", title: footerGroupTitles.tests, links: testLinks },
-    { key: "articles", title: locale === "zh" ? "文章与洞察" : "Articles & Insights", links: articleLinks },
+    { key: "articles", title: footerGroupTitles.articles, links: articleLinks },
     { key: "methods", title: locale === "zh" ? "研究与方法" : "Research & Methods", links: methodLinks },
     { key: "company", title: footerGroupTitles.company, links: companyLinks },
     { key: "policies", title: footerGroupTitles.policies, links: policyLinks },

@@ -1,39 +1,39 @@
 import Image from "next/image";
 import type { Locale } from "@/lib/i18n/locales";
 
-const HUD_WIDTH = 687;
+const HUD_WIDTH = 657;
 const HUD_HEIGHT = 528;
 
 const HUD_CALLOUTS = [
   {
     label: { zh: "人格核心维度", en: "Personality core" },
     value: "28+",
-    labelBox: { x: 541, y: 43, width: 110 },
+    labelBox: { x: 511, y: 43, width: 110 },
   },
   {
     label: { zh: "潜在能力因子", en: "Potential ability" },
     value: "48+",
-    labelBox: { x: 541, y: 114, width: 110 },
+    labelBox: { x: 511, y: 114, width: 110 },
   },
   {
     label: { zh: "性格倾向因子", en: "Trait tendency" },
     value: "32+",
-    labelBox: { x: 541, y: 184, width: 110 },
+    labelBox: { x: 511, y: 184, width: 110 },
   },
   {
     label: { zh: "职业匹配因子", en: "Career matching" },
     value: "120+",
-    labelBox: { x: 541, y: 254, width: 110 },
+    labelBox: { x: 511, y: 254, width: 110 },
   },
   {
     label: { zh: "沟通与关系因子", en: "Communication factors" },
     value: "18+",
-    labelBox: { x: 541, y: 326, width: 128 },
+    labelBox: { x: 511, y: 326, width: 128 },
   },
   {
     label: { zh: "数据标注维度", en: "Data labels" },
     value: "200+",
-    labelBox: { x: 541, y: 400, width: 110 },
+    labelBox: { x: 511, y: 400, width: 110 },
   },
 ] as const;
 
@@ -43,15 +43,15 @@ export function HeroHudArtwork({ locale }: { locale: Locale }) {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none relative ml-6 mt-[7px] hidden aspect-[687/528] w-[46.2vw] self-start overflow-visible lg:block xl:ml-[163.5px] xl:mt-[calc(4.842vw-53px)] xl:w-[46.2vw]"
+      className="pointer-events-none relative ml-6 mt-[7px] hidden aspect-[657/528] w-[44.18vw] self-start overflow-visible lg:block xl:ml-[193.5px] xl:mt-[calc(4.842vw-53px)] xl:w-[44.18vw]"
     >
       <Image
-        src="/images/home/hero-assessment-hud.png?v=redcircle-visual-x800-v1"
+        src="/images/home/hero-assessment-hud.png?v=redcircle-visual-x830-v1"
         alt=""
         fill
         priority
         unoptimized
-        sizes="(min-width: 1280px) 47vw, 50vw"
+        sizes="(min-width: 1280px) 45vw, 49vw"
         className="object-contain object-right opacity-100"
       />
       <div className="absolute inset-0">
