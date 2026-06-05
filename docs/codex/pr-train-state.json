@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-05T08:27:00+08:00",
+  "updated_at": "2026-06-05T08:32:00+08:00",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -20089,7 +20089,7 @@
         {
           "at": "2026-06-05T08:23:00+08:00",
           "status": "in_progress",
-          "summary": "Started HELP-SERVICE-CONTENT-DRAFTS-ARCHIVE-01 from latest origin/main on a clean main checkout. Scope is limited to docs/content/help/service-drafts archive files, generated service draft index JSON, focused contract test, and PR-train metadata. Source zip /Users/rainie/Desktop/fermatmind-help-service-content-drafts-01.zip exists and was used. No runtime change, CMS mutation, CMS draft creation, content rewrite, publish, private URL access, or raw private identifier action is authorized."
+          "summary": "Started HELP-SERVICE-CONTENT-DRAFTS-ARCHIVE-01 from latest origin/main on a clean main checkout. Scope is limited to docs/content/help/service-drafts archive files, generated service draft index JSON, focused contract test, and PR-train metadata. Source zip <uploaded_zip>/fermatmind-help-service-content-drafts-01.zip exists and was used. No runtime change, CMS mutation, CMS draft creation, content rewrite, publish, private URL access, or raw private identifier action is authorized."
         },
         {
           "at": "2026-06-05T08:24:00+08:00",
@@ -20100,6 +20100,11 @@
           "at": "2026-06-05T08:27:00+08:00",
           "status": "pr_open",
           "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1056 after required local checks passed. The uploaded zip was archived as draft-only content with support_email=support@fermatmind.com. CMS draft creation, CMS mutation, publish, runtime changes, editorial approval, private URL access, and raw private identifiers remain deferred."
+        },
+        {
+          "at": "2026-06-05T08:32:00+08:00",
+          "status": "github_contracts_failed_fixed",
+          "summary": "GitHub contracts initially failed because semantic path-redaction baseline detected a local workstation path in docs/codex/pr-train-state.json. Fixed within PR scope by replacing source zip references in repo artifacts with <uploaded_zip>/fermatmind-help-service-content-drafts-01.zip while preserving use of the actual uploaded zip during generation."
         }
       ]
     }

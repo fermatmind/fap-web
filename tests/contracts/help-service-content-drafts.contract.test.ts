@@ -91,7 +91,7 @@ describe("HELP-SERVICE-CONTENT-DRAFTS-ARCHIVE-01 contract", () => {
     expect(artifact.schema_version).toBe("help_service_content_drafts.v1");
     expect(artifact.pr_id).toBe("HELP-SERVICE-CONTENT-DRAFTS-ARCHIVE-01");
     expect(artifact.decision).toBe("ARCHIVED_DRAFT_ONLY_NON_PUBLISHABLE");
-    expect(artifact.source_zip).toBe("/Users/rainie/Desktop/fermatmind-help-service-content-drafts-01.zip");
+    expect(artifact.source_zip).toBe("<uploaded_zip>/fermatmind-help-service-content-drafts-01.zip");
     expect(artifact.support_email).toBe("support@fermatmind.com");
     expect(artifact.publish_allowed).toBe(false);
     expect(artifact.requires_operator_review).toBe(true);
