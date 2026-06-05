@@ -1,0 +1,98 @@
+{
+  "version": "seo.science_contentpage_faq_schema_gate.v1",
+  "id": "SCIENCE-CONTENTPAGE-FAQ-SCHEMA-GATE-01",
+  "mode": "contract_qa_gate_only",
+  "runtime_behavior_changed": false,
+  "publish_allowed": false,
+  "schema_enabled_default": false,
+  "source_assets": [
+    "docs/claims/science-contentpage-claim-gate-01.md",
+    "docs/claims/generated/science-contentpage-claim-gate-01.v1.json",
+    "<fap-api>/backend/docs/seo/science-contentpage-cms-field-mapping-01.md"
+  ],
+  "eligible_route_candidates": [
+    "/science",
+    "/item-design-notes",
+    "/reliability-validity",
+    "/data-privacy",
+    "/common-misconceptions",
+    "/method-boundaries"
+  ],
+  "faq_schema_requirements": [
+    {
+      "id": "visible_faq_required",
+      "status": "required",
+      "rule": "FAQPage JSON-LD may only be emitted from FAQ items visibly rendered on the same public canonical page."
+    },
+    {
+      "id": "cms_backend_authority_required",
+      "status": "required",
+      "rule": "FAQ items must come from CMS/backend-authoritative ContentPage fields after review, not frontend fallback content."
+    },
+    {
+      "id": "claim_gate_required",
+      "status": "required",
+      "rule": "Every FAQ item must pass SCIENCE-CONTENTPAGE-CLAIM-GATE-01 before schema eligibility."
+    },
+    {
+      "id": "unknown_preserved_as_unknown",
+      "status": "required",
+      "rule": "Missing CMS, review, visibility, or publication evidence remains Unknown and cannot be coerced to false or zero."
+    }
+  ],
+  "blocked_sources": [
+    "hidden_metadata_only_faq",
+    "draft_package_only_faq",
+    "non_visible_import_field_faq",
+    "frontend_fallback_faq",
+    "competitor_imitation_faq",
+    "unsupported_claim_faq",
+    "private_or_tokenized_url_faq"
+  ],
+  "blocked_claim_categories": [
+    "medical_diagnostic_blocked",
+    "career_guarantee_blocked",
+    "official_endorsement_blocked",
+    "competitor_imitation_blocked",
+    "unsupported_proof_blocked",
+    "item_bank_leakage_blocked",
+    "privacy_overclaim_blocked"
+  ],
+  "forbidden_route_patterns": [
+    "/result",
+    "/results/",
+    "/orders",
+    "/pay",
+    "/payment",
+    "/share/",
+    "/history",
+    "token=",
+    "orderNo=",
+    "payment_intent="
+  ],
+  "review_fields": {
+    "Codex_QA_required": true,
+    "Operator_approval_required": true,
+    "claim_gate_required": true,
+    "visible_render_required": true,
+    "schema_enabled": false,
+    "publish_allowed": false,
+    "approved_at": null,
+    "published_at": null
+  },
+  "non_runtime_change_guarantees": {
+    "cms_mutation_performed": false,
+    "content_import_performed": false,
+    "publish_performed": false,
+    "schema_changed": false,
+    "sitemap_changed": false,
+    "llms_changed": false,
+    "footer_changed": false,
+    "header_changed": false,
+    "tracking_changed": false,
+    "paid_ads_changed": false,
+    "private_url_accessed": false,
+    "deployment_performed": false
+  },
+  "next_gate": "SCIENCE-CONTENTPAGE-DISCOVERABILITY-GATE-01"
+}
