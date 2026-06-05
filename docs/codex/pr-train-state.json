@@ -12536,7 +12536,7 @@
       "depends_on": [
         "GLOBAL-EN-ZH-PARITY-P0-01"
       ],
-      "status": "pr_open_github_checks_pending",
+      "status": "ready_to_merge",
       "title": "GLOBAL-EN-ZH-PARITY-FOOTER-NAV-PARITY-01 footer nav bilingual parity",
       "commit_sha": "5f8284d9a38d45bd1d59e9b8cf246454b16acdff",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/904",
@@ -20329,6 +20329,11 @@
         "scope_validation": {
           "status": "passed",
           "summary": "Changed files are limited to lib/foundation/dailyGiving.ts, the focused adapter contract, currentPrScope, and docs/codex metadata. No sitemap, llms, llms-full, footer, nav, CMS, publish, proof processing, production record activation, trust badge, search/social, or deploy change remains in the diff."
+        },
+        "github": {
+          "status": "passed",
+          "completed_at": "2026-06-05T13:15:00Z",
+          "summary": "GitHub checks passed for PR #1063: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL."
         }
       },
       "result": {
@@ -20376,6 +20381,11 @@
           "at": "2026-06-05T13:11:00Z",
           "status": "pr_open_github_checks_pending",
           "summary": "Opened https://github.com/fermatmind/fap-web/pull/1063 from codex/daily-giving-proof-public-url-adapter-01. GitHub required checks are pending."
+        },
+        {
+          "at": "2026-06-05T13:15:00Z",
+          "status": "ready_to_merge",
+          "summary": "GitHub required checks passed and pre-merge scope validation remained limited to the adapter PR scope."
         }
       ]
     }
