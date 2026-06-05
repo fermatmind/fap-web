@@ -11,6 +11,8 @@ export type DailyGivingDiscoverabilityEntry = {
   updatedAt: string;
 };
 
+export const DAILY_GIVING_INDEXABILITY_ENABLED = false;
+
 function dailyGivingCopy(locale: Locale, yearMonth?: string) {
   const title = yearMonth
     ? locale === "zh"
@@ -87,6 +89,10 @@ export function buildDailyGivingJsonLd({
 }
 
 export async function listDailyGivingDiscoverabilityEntries(locale: Locale): Promise<DailyGivingDiscoverabilityEntry[]> {
+  if (!DAILY_GIVING_INDEXABILITY_ENABLED) {
+    return [];
+  }
+
   try {
     const months = (await fetchDailyGivingMonths(locale)).filter((month) => month.recordCount > 0);
     if (months.length === 0) {

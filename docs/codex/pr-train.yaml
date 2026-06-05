@@ -13339,3 +13339,48 @@ prs:
       squash: true
       auto_merge: true
     next_task: "After merge, continue with HELP-CMS-IMPORT-PACKAGE-01 in fap-api only after syncing latest main and confirming scope isolation."
+  - id: DAILY-GIVING-INDEXABILITY-GATE-01
+    repo: fap-web
+    branch: codex/daily-giving-indexability-gate-01
+    base: main
+    title: "test(benefit): keep DailyGiving noindex and out of llms"
+    depends_on:
+      - DAILY-GIVING-PUBLIC-API-SMOKE-01
+    mode: frontend_indexability_gate
+    train_scope: window_7_public_benefit_trust_gate
+    status: in_progress
+    goal: "Keep DailyGiving noindex and excluded from llms/llms-full discoverability while first real records and proof review remain pending."
+    artifacts:
+      - docs/seo/generated/daily-giving-indexability-gate.v1.json
+      - tests/contracts/daily-giving-indexability-gate.contract.test.ts
+    allowed_paths:
+      - app/(localized)/[locale]/foundation/daily-giving/page.tsx
+      - app/(localized)/[locale]/foundation/daily-giving/[yearMonth]/page.tsx
+      - lib/foundation/dailyGivingSeo.ts
+      - docs/seo/generated/daily-giving-indexability-gate.v1.json
+      - tests/contracts/daily-giving-indexability-gate.contract.test.ts
+      - tests/contracts/pr-fdn-02b-daily-giving-frontend-pages.contract.test.tsx
+      - tests/contracts/pr-fdn-seo-01-implementation.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - CMS mutation
+      - content publish
+      - search submission
+      - trust badge
+      - social distribution
+      - private URLs
+      - proof upload
+      - production record creation
+    required_local_checks:
+      - python3 -m json.tool docs/seo/generated/daily-giving-indexability-gate.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - pnpm exec vitest run tests/contracts/daily-giving-indexability-gate.contract.test.ts tests/contracts/pr-fdn-02b-daily-giving-frontend-pages.contract.test.tsx tests/contracts/pr-fdn-seo-01-implementation.contract.test.ts
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: "After merge, continue with DAILY-GIVING-FIRST-RECORD-REVIEW-TEMPLATE-01 in fap-api. Do not create records or proof."

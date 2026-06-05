@@ -100,11 +100,11 @@ describe("PR-FDN-02B Foundation Daily Giving frontend pages", () => {
     const footerSource = read("components/layout/SiteFooter.tsx");
 
     expect(indexRoute).toContain('pathname: locale === "zh" ? "/zh/foundation/daily-giving"');
-    expect(indexRoute).toContain("hasDailyGivingPublicRecords");
-    expect(indexRoute).toContain("noindex: !hasRecords");
+    expect(indexRoute).not.toContain("hasDailyGivingPublicRecords");
+    expect(indexRoute).toContain("noindex: true");
     expect(monthRoute).toContain("normalizeYearMonth");
-    expect(monthRoute).toContain("hasDailyGivingPublicRecords");
-    expect(monthRoute).toContain("noindex: !hasRecords");
+    expect(monthRoute).not.toContain("hasDailyGivingPublicRecords");
+    expect(monthRoute).toContain("noindex: true");
     expect(sitemapSource).not.toContain("foundation/daily-giving");
     expect(llmsSource).toContain("listDailyGivingDiscoverabilityEntries");
     expect(footerSource).not.toContain("daily-giving");

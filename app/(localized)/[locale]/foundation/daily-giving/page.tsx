@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { DailyGivingLedgerPage } from "@/components/foundation/DailyGivingLedgerPage";
 import { fetchDailyGivingMonths, fetchDailyGivingRecords } from "@/lib/foundation/dailyGiving";
-import { buildDailyGivingJsonLd, hasDailyGivingPublicRecords } from "@/lib/foundation/dailyGivingSeo";
+import { buildDailyGivingJsonLd } from "@/lib/foundation/dailyGivingSeo";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
@@ -11,7 +11,6 @@ export const dynamic = "force-dynamic";
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
-  const hasRecords = await hasDailyGivingPublicRecords(locale);
 
   return buildPageMetadata({
     locale,
@@ -21,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       locale === "zh"
         ? "通过后端公开 API 展示费马测试日常公益投入记录。"
         : "Backend-authoritative public record of FermatMind daily giving activity.",
-    noindex: !hasRecords,
+    noindex: true,
     alternatesByLocale: {
       en: "/en/foundation/daily-giving",
       zh: "/zh/foundation/daily-giving",
