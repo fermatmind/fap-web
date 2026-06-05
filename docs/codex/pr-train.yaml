@@ -13252,7 +13252,9 @@ prs:
       - SUPPORT-FLOW-SMOKE-01
     mode: docs_contract_service_content_drafts_archive
     train_scope: commercial_readiness_help_service_content
-    status: in_progress
+    status: merged
+    pr_url: https://github.com/fermatmind/fap-web/pull/1056
+    merge_sha: 5fa994ad6a614a9e69fdb7306d2f9ce68918c0c2
     goal: "Archive six GPT-5.5 Pro Help service content drafts from the uploaded zip as non-publishable draft-only assets with support_email=support@fermatmind.com."
     artifacts:
       - docs/content/help/service-drafts/**
@@ -13289,3 +13291,49 @@ prs:
       squash: true
       auto_merge: true
     next_task: "After merge, continue with HELP-SERVICE-CONTENT-DRAFTS-VALIDATION-01 only after syncing latest main and confirming scope isolation."
+  - id: HELP-SERVICE-CONTENT-DRAFTS-VALIDATION-01
+    repo: fap-web
+    branch: codex/help-service-content-drafts-validation-01
+    base: main
+    title: "test(help): validate service content draft boundaries"
+    depends_on:
+      - HELP-SERVICE-CONTENT-DRAFTS-ARCHIVE-01
+    mode: docs_contract_service_content_drafts_validation
+    train_scope: commercial_readiness_help_service_content
+    status: in_progress
+    goal: "Validate archived Help service drafts against privacy, policy, schema, CMS, support email, and publish-boundary requirements without content rewrite, CMS mutation, or publish."
+    artifacts:
+      - docs/operations/generated/help-service-content-validation.v1.json
+      - tests/contracts/help-service-content-drafts-validation.contract.test.ts
+    allowed_paths:
+      - docs/content/help/service-drafts/**
+      - docs/content/help/generated/help-service-content-drafts.v1.json
+      - docs/operations/generated/help-service-content-validation.v1.json
+      - tests/contracts/help-service-content-drafts-validation.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - runtime changes
+      - CMS mutation
+      - CMS draft creation
+      - content rewrite
+      - publish
+      - private URLs
+      - raw order/payment/result identifiers
+    required_local_checks:
+      - python3 -m json.tool docs/operations/generated/help-service-content-validation.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - pnpm exec vitest run tests/contracts/help-service-content-drafts-validation.contract.test.ts
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: "After merge, continue with HELP-CMS-IMPORT-PACKAGE-01 in fap-api only after syncing latest main and confirming scope isolation."
