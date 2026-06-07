@@ -20398,8 +20398,8 @@
       "depends_on": [
         "SCIENCE-CONTENTPAGE-REAL-IMPORT-DRY-RUN-LOCK-01"
       ],
-      "status": "local_checks_passed_with_sidecar",
-      "pr_url": null,
+      "status": "pr_open_github_checks_pending",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1068",
       "commit_sha": null,
       "merge_sha": null,
       "title": "SCIENCE-CONTENTPAGE-DISCOVERABILITY-GATE-01: gate science discoverability",
@@ -20492,6 +20492,11 @@
           "at": "2026-06-08T07:02:00+08:00",
           "status": "local_checks_passed_with_sidecar",
           "summary": "Removed draft-only Science footer links while preserving existing /method-boundaries authority, updated gate docs/artifact/contract, and passed focused contracts, typecheck, production API build, JSON/YAML parse, and diff checks. Postbuild sitemap drift was restored as an external generated-artifact sidecar."
+        },
+        {
+          "at": "2026-06-08T07:08:00+08:00",
+          "status": "pr_open_github_checks_pending",
+          "summary": "Opened https://github.com/fermatmind/fap-web/pull/1068 after required local checks passed. Waiting for GitHub required checks before merge."
         }
       ]
     }
