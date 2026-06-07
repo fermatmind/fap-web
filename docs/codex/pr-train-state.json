@@ -1775,7 +1775,7 @@
       "checks": [],
       "failure_reason": null,
       "pr_url": null,
-      "commit_sha": null,
+      "commit_sha": "992a17a1",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
