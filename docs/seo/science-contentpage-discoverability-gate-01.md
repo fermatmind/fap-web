@@ -35,6 +35,12 @@ This PR does not add URLs to sitemap or llms, does not add footer/header links, 
 | `search_submission_eligible` | false | Not allowed before sitemap eligibility and production smoke pass. |
 | `social_distribution_eligible` | false | Not allowed in this gate. |
 
+## Footer Eligibility
+
+Draft Science pages are not footer-eligible in this gate. `/science`, `/item-design-notes`, `/reliability-validity`, `/data-privacy`, and `/common-misconceptions` remain blocked from footer/header links until CMS publication, operator approval, claim gate, FAQ schema gate when relevant, private URL scan, and production route smoke all pass.
+
+`/method-boundaries` is treated separately as an existing public authority route from the reconciliation PR. This gate allows the existing footer link to remain, but does not authorize replacing it with draft package content or using it to approve the other five Science pages.
+
 ## Blocked Actions
 
 - Adding Science ContentPage URLs to sitemap or llms from draft packages.
@@ -48,4 +54,3 @@ This PR does not add URLs to sitemap or llms, does not add footer/header links, 
 ## Non-Expansion Statement
 
 This PR is a gate definition only. It preserves current public discoverability state and records the conditions for a later implementation PR. It does not change routes, sitemap generation, llms generation, robots, canonical metadata, schema, footer, header, tracking, CMS, or production deployment.
-

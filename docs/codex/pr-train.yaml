@@ -13442,3 +13442,59 @@ prs:
         status: blocked_external_operator_input
         note: Reviewed redacted public media URL is still required before production record activation; this adapter does not create it.
     next_task: DAILY-GIVING-FIRST-RECORD-PUBLIC-ACTIVATION-01
+
+  - id: SCIENCE-CONTENTPAGE-DISCOVERABILITY-GATE-01
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/science-contentpage-discoverability-gate-01
+    base: main
+    title: "SCIENCE-CONTENTPAGE-DISCOVERABILITY-GATE-01: gate science discoverability"
+    depends_on:
+      - SCIENCE-CONTENTPAGE-REAL-IMPORT-DRY-RUN-LOCK-01
+    mode: frontend_discoverability_gate
+    train_scope: science_contentpage_asset_readiness
+    status: in_progress
+    goal: "Keep Science ContentPage draft routes out of sitemap, llms, footer/header, search submission, paid/social distribution, and DailyGiving amplification until CMS content, operator review, claim, FAQ schema, private URL, and public route gates pass."
+    artifacts:
+      - components/layout/SiteFooter.tsx
+      - docs/seo/science-contentpage-discoverability-gate-01.md
+      - docs/seo/generated/science-contentpage-discoverability-gate-01.v1.json
+      - tests/contracts/science-contentpage-discoverability-gate.contract.test.ts
+    allowed_paths:
+      - components/layout/SiteFooter.tsx
+      - docs/seo/science-contentpage-discoverability-gate-01.md
+      - docs/seo/generated/science-contentpage-discoverability-gate-01.v1.json
+      - tests/contracts/science-contentpage-discoverability-gate.contract.test.ts
+      - tests/contracts/site-footer-routing.contract.test.tsx
+      - tests/contracts/global-en-zh-footer-nav-parity.contract.test.tsx
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - fap-api or backend changes
+      - CMS mutation
+      - content import
+      - content publish
+      - sitemap URL addition
+      - llms or llms-full URL addition
+      - search submission
+      - paid ads
+      - social distribution
+      - DailyGiving amplification
+      - private URLs
+      - competitor imitation
+      - fake user voice
+      - deploy
+    required_local_checks:
+      - python3 -m json.tool docs/seo/generated/science-contentpage-discoverability-gate-01.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - pnpm exec vitest run tests/contracts/science-contentpage-discoverability-gate.contract.test.ts tests/contracts/site-footer-routing.contract.test.tsx tests/contracts/global-en-zh-footer-nav-parity.contract.test.tsx
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: "Science ContentPage public exposure can only be reconsidered after backend CMS import remains safe, operator approval is recorded, claim/FAQ gates pass, and production route smoke is green."

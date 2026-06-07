@@ -20,6 +20,16 @@
     "/common-misconceptions",
     "/method-boundaries"
   ],
+  "draft_routes_blocked_from_footer": [
+    "/science",
+    "/item-design-notes",
+    "/reliability-validity",
+    "/data-privacy",
+    "/common-misconceptions"
+  ],
+  "footer_allowed_existing_authority_routes": [
+    "/method-boundaries"
+  ],
   "dependency_gates": [
     {
       "id": "SCIENCE-CONTENTPAGE-CMS-FIELD-MAPPING-01",

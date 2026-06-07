@@ -1,15 +1,22 @@
 import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
+import React from "react";
+import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
+import { LocaleProvider } from "@/components/i18n/LocaleContext";
+import { SiteFooter } from "@/components/layout/SiteFooter";
 
 const ROOT = process.cwd();
 const ARTIFACT_PATH = path.join(ROOT, "docs/seo/generated/science-contentpage-discoverability-gate-01.v1.json");
 const DOC_PATH = path.join(ROOT, "docs/seo/science-contentpage-discoverability-gate-01.md");
 
 const ALLOWED_FILES = new Set([
+  "components/layout/SiteFooter.tsx",
   "docs/seo/generated/science-contentpage-discoverability-gate-01.v1.json",
   "docs/seo/science-contentpage-discoverability-gate-01.md",
+  "docs/codex/pr-train-state.json",
+  "docs/codex/pr-train.yaml",
   "tests/contracts/helpers/currentPrScope.ts",
   "tests/contracts/science-contentpage-faq-schema-gate.contract.test.ts",
   "tests/contracts/science-contentpage-discoverability-gate.contract.test.ts",
@@ -23,6 +30,8 @@ type DiscoverabilityGateArtifact = {
   publish_allowed: boolean;
   default_decision: string;
   candidate_public_routes: string[];
+  draft_routes_blocked_from_footer: string[];
+  footer_allowed_existing_authority_routes: string[];
   dependency_gates: Array<{ id: string; required_status: string }>;
   eligibility_fields: Record<string, boolean>;
   forbidden_route_patterns: string[];
@@ -134,6 +143,31 @@ describe("SCIENCE-CONTENTPAGE-DISCOVERABILITY-GATE-01", () => {
     expect(artifact.follow_up_implementation_required).toBe(true);
   });
 
+  it("keeps draft-only Science ContentPages out of the footer while preserving existing method-boundaries authority", () => {
+    const artifact = readJson<DiscoverabilityGateArtifact>(ARTIFACT_PATH);
+
+    expect(artifact.draft_routes_blocked_from_footer).toEqual([
+      "/science",
+      "/item-design-notes",
+      "/reliability-validity",
+      "/data-privacy",
+      "/common-misconceptions",
+    ]);
+    expect(artifact.footer_allowed_existing_authority_routes).toEqual(["/method-boundaries"]);
+
+    render(React.createElement(LocaleProvider, { locale: "zh", children: React.createElement(SiteFooter) }));
+    expect(screen.getByRole("link", { name: "方法边界" })).toHaveAttribute("href", "/zh/method-boundaries");
+    for (const label of ["测评科学", "题目设计说明", "信度效度", "数据说明", "常见误区"]) {
+      expect(screen.queryByRole("link", { name: label })).not.toBeInTheDocument();
+    }
+
+    render(React.createElement(LocaleProvider, { locale: "en", children: React.createElement(SiteFooter) }));
+    expect(screen.getByRole("link", { name: "Method boundaries" })).toHaveAttribute("href", "/en/method-boundaries");
+    for (const label of ["Assessment science", "Item design notes", "Reliability & validity", "Data notes", "Common misconceptions"]) {
+      expect(screen.queryByRole("link", { name: label })).not.toBeInTheDocument();
+    }
+  });
+
   it("does not include discoverability implementation instructions or publishable copy", () => {
     const doc = fs.readFileSync(DOC_PATH, "utf8");
 
@@ -149,7 +183,7 @@ describe("SCIENCE-CONTENTPAGE-DISCOVERABILITY-GATE-01", () => {
     for (const file of changedFiles()) {
       expect(ALLOWED_FILES.has(file), `${file} is outside SCIENCE-CONTENTPAGE-DISCOVERABILITY-GATE-01 scope`).toBe(true);
       expect(file.startsWith("app/")).toBe(false);
-      expect(file.startsWith("components/")).toBe(false);
+      expect(file.startsWith("components/") && file !== "components/layout/SiteFooter.tsx").toBe(false);
       expect(file.startsWith("lib/")).toBe(false);
       expect(file.startsWith("public/")).toBe(false);
     }
