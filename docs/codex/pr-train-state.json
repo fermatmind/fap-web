@@ -1775,7 +1775,7 @@
       "checks": [],
       "failure_reason": null,
       "pr_url": null,
-      "commit_sha": null,
+      "commit_sha": "992a17a1",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -15751,7 +15751,7 @@
       "depends_on": [
         "PR-EQ-SJT-02"
       ],
-      "status": "pr_open_github_checks_pending",
+      "status": "ready_to_merge",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/945",
       "commit_sha": "pending_post_push",
       "title": "PR-EQ-SJT-03 Frontend EQ-SJT take flow",
@@ -20386,6 +20386,153 @@
           "at": "2026-06-05T13:15:00Z",
           "status": "ready_to_merge",
           "summary": "GitHub required checks passed and pre-merge scope validation remained limited to the adapter PR scope."
+        }
+      ]
+    },
+    {
+      "id": "SCIENCE-CONTENTPAGE-DISCOVERABILITY-GATE-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/science-contentpage-discoverability-gate-01",
+      "base": "main",
+      "depends_on": [
+        "SCIENCE-CONTENTPAGE-REAL-IMPORT-DRY-RUN-LOCK-01"
+      ],
+      "status": "pr_open_github_checks_pending",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1068",
+      "commit_sha": null,
+      "merge_sha": null,
+      "title": "SCIENCE-CONTENTPAGE-DISCOVERABILITY-GATE-01: gate science discoverability",
+      "artifacts": [
+        "components/layout/SiteFooter.tsx",
+        "docs/seo/science-contentpage-discoverability-gate-01.md",
+        "docs/seo/generated/science-contentpage-discoverability-gate-01.v1.json",
+        "tests/contracts/science-contentpage-discoverability-gate.contract.test.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "authorization": {
+          "status": "passed",
+          "completed_at": "2026-06-08T06:55:00+08:00",
+          "summary": "User authorized adding SCIENCE-CONTENTPAGE-DISCOVERABILITY-GATE-01 to the fap-web PR train and executing it after the fap-api real-import dry-run lock PR merged."
+        },
+        "dependency_verification": {
+          "status": "passed",
+          "completed_at": "2026-06-08T06:55:00+08:00",
+          "summary": "fap-api SCIENCE-CONTENTPAGE-REAL-IMPORT-DRY-RUN-LOCK-01 merged as PR #1960 with merge commit d8550f1c689d051445b6ae1b67624222dda5ca1a; post-merge dry-run/pre-import QA remained no-write and real import blocked."
+        },
+        "focused_contract": {
+          "status": "passed",
+          "completed_at": "2026-06-08T07:00:00+08:00",
+          "command": "pnpm exec vitest run tests/contracts/science-contentpage-discoverability-gate.contract.test.ts tests/contracts/site-footer-routing.contract.test.tsx tests/contracts/global-en-zh-footer-nav-parity.contract.test.tsx",
+          "summary": "Focused discoverability/footer contracts passed: 3 files, 13 tests."
+        },
+        "typecheck": {
+          "status": "passed",
+          "completed_at": "2026-06-08T07:00:00+08:00",
+          "command": "pnpm typecheck"
+        },
+        "production_api_build": {
+          "status": "passed_with_generated_sitemap_restored",
+          "completed_at": "2026-06-08T07:02:00+08:00",
+          "command": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build",
+          "summary": "Build passed. Postbuild rewrote public/sitemap.xml; the generated sitemap diff was restored because sitemap mutation is forbidden in this PR."
+        },
+        "json_yaml_parse": {
+          "status": "passed",
+          "completed_at": "2026-06-08T07:00:00+08:00",
+          "summary": "Science discoverability artifact, PR-train state JSON, and PR-train YAML parsed successfully."
+        },
+        "diff_checks": {
+          "status": "passed",
+          "completed_at": "2026-06-08T07:00:00+08:00",
+          "commands": [
+            "git diff --check",
+            "git diff --cached --check"
+          ]
+        },
+        "lint": {
+          "status": "passed",
+          "completed_at": "2026-06-08T07:12:00+08:00",
+          "command": "pnpm lint .",
+          "summary": "Lint passed after replacing explicit children prop usage in the focused contract test; remaining output is pre-existing warnings."
+        },
+        "github_build_fix": {
+          "status": "fix_applied_pending_github",
+          "completed_at": "2026-06-08T07:12:00+08:00",
+          "summary": "Inspected GitHub build failure. The only blocking errors were react/no-children-prop in tests/contracts/science-contentpage-discoverability-gate.contract.test.ts; fixed within PR scope and verified lint/typecheck/focused contracts locally."
+        },
+        "github_contracts_fix": {
+          "status": "fix_applied_pending_github",
+          "completed_at": "2026-06-08T07:16:00+08:00",
+          "summary": "Inspected GitHub contracts failure. The semantic claim scanner blocked a local /Users absolute repo_path in docs/codex/pr-train.yaml; replaced PR4 repo_path values with <workspace>/fap-web and verified the semantic claim scanner locally."
+        },
+        "github": {
+          "status": "passed",
+          "completed_at": "2026-06-08T07:22:00+08:00",
+          "summary": "GitHub required checks passed for PR #1068: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL."
+        },
+        "scope_validation": {
+          "status": "passed",
+          "summary": "Changed files are limited to SiteFooter Science draft footer gating, focused discoverability docs/artifact/contract, and docs/codex metadata. No sitemap, llms, llms-full, CMS, publish, search, paid/social, DailyGiving, private URL, or deploy diff remains."
+        }
+      },
+      "result": {
+        "sitemap_url_addition_performed": false,
+        "llms_url_addition_performed": false,
+        "footer_draft_science_links_removed": true,
+        "method_boundaries_existing_authority_link_preserved": true,
+        "cms_mutation_performed": false,
+        "content_import_performed": false,
+        "publish_performed": false,
+        "search_submission_performed": false,
+        "social_distribution_performed": false,
+        "paid_ads_performed": false,
+        "daily_giving_amplification_performed": false,
+        "deploy_performed": false
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "sidecars": [
+        {
+          "id": "FAP_WEB_POSTBUILD_SITEMAP_DRIFT",
+          "status": "external_generated_artifact_drift_restored",
+          "note": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build passed but postbuild rewrote public/sitemap.xml. The generated diff was restored and is not included because this PR forbids sitemap URL-set changes."
+        }
+      ],
+      "history": [
+        {
+          "at": "2026-06-08T06:55:00+08:00",
+          "status": "in_progress",
+          "summary": "Started scoped fap-web discoverability gate in an isolated worktree from latest origin/main. Scope is limited to Science draft footer exposure gating, docs/artifact/contract, and PR-train metadata; no sitemap, llms, CMS, publish, search, paid/social, DailyGiving, or deploy action is authorized."
+        },
+        {
+          "at": "2026-06-08T07:02:00+08:00",
+          "status": "local_checks_passed_with_sidecar",
+          "summary": "Removed draft-only Science footer links while preserving existing /method-boundaries authority, updated gate docs/artifact/contract, and passed focused contracts, typecheck, production API build, JSON/YAML parse, and diff checks. Postbuild sitemap drift was restored as an external generated-artifact sidecar."
+        },
+        {
+          "at": "2026-06-08T07:08:00+08:00",
+          "status": "pr_open_github_checks_pending",
+          "summary": "Opened https://github.com/fermatmind/fap-web/pull/1068 after required local checks passed. Waiting for GitHub required checks before merge."
+        },
+        {
+          "at": "2026-06-08T07:12:00+08:00",
+          "status": "github_build_failed_fix_applied",
+          "summary": "Inspected GitHub build failure and fixed react/no-children-prop errors in the focused contract test. Local lint, typecheck, and focused contracts passed after the scoped fix."
+        },
+        {
+          "at": "2026-06-08T07:16:00+08:00",
+          "status": "github_contracts_failed_fix_applied",
+          "summary": "Inspected GitHub contracts failure and replaced PR4 absolute repo_path metadata with <workspace>/fap-web. Local semantic claim scanner, JSON/YAML parse, and path scan passed."
+        },
+        {
+          "at": "2026-06-08T07:22:00+08:00",
+          "status": "ready_to_merge",
+          "summary": "GitHub required checks passed after scoped fixes. Pre-merge scope remains limited to footer draft Science exposure gating, docs/artifact/contract, and PR-train metadata."
         }
       ]
     }

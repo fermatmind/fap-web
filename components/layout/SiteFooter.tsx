@@ -60,20 +60,10 @@ export function SiteFooter() {
   const methodLinks: FooterLinkItem[] =
     locale === "zh"
       ? [
-          { href: "/articles", label: "测评科学" },
           { href: "/method-boundaries", label: "方法边界" },
-          { href: "/articles", label: "题目设计说明" },
-          { href: "/method-boundaries", label: "信度效度" },
-          { href: "/privacy", label: "数据说明" },
-          { href: "/articles", label: "常见误区" },
         ]
       : [
-          { href: "/articles", label: "Assessment science" },
           { href: "/method-boundaries", label: "Method boundaries" },
-          { href: "/articles", label: "Item design notes" },
-          { href: "/method-boundaries", label: "Reliability & validity" },
-          { href: "/privacy", label: "Data notes" },
-          { href: "/articles", label: "Common misconceptions" },
         ];
   const companyLinks: FooterLinkItem[] =
     locale === "zh"
