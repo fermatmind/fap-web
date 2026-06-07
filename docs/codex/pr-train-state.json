@@ -15751,7 +15751,7 @@
       "depends_on": [
         "PR-EQ-SJT-02"
       ],
-      "status": "pr_open_github_checks_pending",
+      "status": "ready_to_merge",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/945",
       "commit_sha": "pending_post_push",
       "title": "PR-EQ-SJT-03 Frontend EQ-SJT take flow",
@@ -20468,6 +20468,11 @@
           "completed_at": "2026-06-08T07:16:00+08:00",
           "summary": "Inspected GitHub contracts failure. The semantic claim scanner blocked a local /Users absolute repo_path in docs/codex/pr-train.yaml; replaced PR4 repo_path values with <workspace>/fap-web and verified the semantic claim scanner locally."
         },
+        "github": {
+          "status": "passed",
+          "completed_at": "2026-06-08T07:22:00+08:00",
+          "summary": "GitHub required checks passed for PR #1068: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL."
+        },
         "scope_validation": {
           "status": "passed",
           "summary": "Changed files are limited to SiteFooter Science draft footer gating, focused discoverability docs/artifact/contract, and docs/codex metadata. No sitemap, llms, llms-full, CMS, publish, search, paid/social, DailyGiving, private URL, or deploy diff remains."
@@ -20523,6 +20528,11 @@
           "at": "2026-06-08T07:16:00+08:00",
           "status": "github_contracts_failed_fix_applied",
           "summary": "Inspected GitHub contracts failure and replaced PR4 absolute repo_path metadata with <workspace>/fap-web. Local semantic claim scanner, JSON/YAML parse, and path scan passed."
+        },
+        {
+          "at": "2026-06-08T07:22:00+08:00",
+          "status": "ready_to_merge",
+          "summary": "GitHub required checks passed after scoped fixes. Pre-merge scope remains limited to footer draft Science exposure gating, docs/artifact/contract, and PR-train metadata."
         }
       ]
     }
