@@ -10,6 +10,7 @@ import { SiteFooter } from "@/components/layout/SiteFooter";
 const ROOT = process.cwd();
 const ARTIFACT_PATH = path.join(ROOT, "docs/seo/generated/science-contentpage-discoverability-gate-01.v1.json");
 const DOC_PATH = path.join(ROOT, "docs/seo/science-contentpage-discoverability-gate-01.md");
+const TestLocaleProvider = LocaleProvider as React.ComponentType<{ locale: "en" | "zh" }>;
 
 const ALLOWED_FILES = new Set([
   "components/layout/SiteFooter.tsx",
@@ -155,13 +156,13 @@ describe("SCIENCE-CONTENTPAGE-DISCOVERABILITY-GATE-01", () => {
     ]);
     expect(artifact.footer_allowed_existing_authority_routes).toEqual(["/method-boundaries"]);
 
-    render(React.createElement(LocaleProvider, { locale: "zh", children: React.createElement(SiteFooter) }));
+    render(React.createElement(TestLocaleProvider, { locale: "zh" }, React.createElement(SiteFooter)));
     expect(screen.getByRole("link", { name: "方法边界" })).toHaveAttribute("href", "/zh/method-boundaries");
     for (const label of ["测评科学", "题目设计说明", "信度效度", "数据说明", "常见误区"]) {
       expect(screen.queryByRole("link", { name: label })).not.toBeInTheDocument();
     }
 
-    render(React.createElement(LocaleProvider, { locale: "en", children: React.createElement(SiteFooter) }));
+    render(React.createElement(TestLocaleProvider, { locale: "en" }, React.createElement(SiteFooter)));
     expect(screen.getByRole("link", { name: "Method boundaries" })).toHaveAttribute("href", "/en/method-boundaries");
     for (const label of ["Assessment science", "Item design notes", "Reliability & validity", "Data notes", "Common misconceptions"]) {
       expect(screen.queryByRole("link", { name: label })).not.toBeInTheDocument();

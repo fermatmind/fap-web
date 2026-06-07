@@ -20452,6 +20452,17 @@
             "git diff --cached --check"
           ]
         },
+        "lint": {
+          "status": "passed",
+          "completed_at": "2026-06-08T07:12:00+08:00",
+          "command": "pnpm lint .",
+          "summary": "Lint passed after replacing explicit children prop usage in the focused contract test; remaining output is pre-existing warnings."
+        },
+        "github_build_fix": {
+          "status": "fix_applied_pending_github",
+          "completed_at": "2026-06-08T07:12:00+08:00",
+          "summary": "Inspected GitHub build failure. The only blocking errors were react/no-children-prop in tests/contracts/science-contentpage-discoverability-gate.contract.test.ts; fixed within PR scope and verified lint/typecheck/focused contracts locally."
+        },
         "scope_validation": {
           "status": "passed",
           "summary": "Changed files are limited to SiteFooter Science draft footer gating, focused discoverability docs/artifact/contract, and docs/codex metadata. No sitemap, llms, llms-full, CMS, publish, search, paid/social, DailyGiving, private URL, or deploy diff remains."
@@ -20497,6 +20508,11 @@
           "at": "2026-06-08T07:08:00+08:00",
           "status": "pr_open_github_checks_pending",
           "summary": "Opened https://github.com/fermatmind/fap-web/pull/1068 after required local checks passed. Waiting for GitHub required checks before merge."
+        },
+        {
+          "at": "2026-06-08T07:12:00+08:00",
+          "status": "github_build_failed_fix_applied",
+          "summary": "Inspected GitHub build failure and fixed react/no-children-prop errors in the focused contract test. Local lint, typecheck, and focused contracts passed after the scoped fix."
         }
       ]
     }
