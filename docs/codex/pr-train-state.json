@@ -20392,7 +20392,7 @@
     {
       "id": "SCIENCE-CONTENTPAGE-DISCOVERABILITY-GATE-01",
       "repo": "fap-web",
-      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "repo_path": "<workspace>/fap-web",
       "branch": "codex/science-contentpage-discoverability-gate-01",
       "base": "main",
       "depends_on": [
@@ -20463,6 +20463,11 @@
           "completed_at": "2026-06-08T07:12:00+08:00",
           "summary": "Inspected GitHub build failure. The only blocking errors were react/no-children-prop in tests/contracts/science-contentpage-discoverability-gate.contract.test.ts; fixed within PR scope and verified lint/typecheck/focused contracts locally."
         },
+        "github_contracts_fix": {
+          "status": "fix_applied_pending_github",
+          "completed_at": "2026-06-08T07:16:00+08:00",
+          "summary": "Inspected GitHub contracts failure. The semantic claim scanner blocked a local /Users absolute repo_path in docs/codex/pr-train.yaml; replaced PR4 repo_path values with <workspace>/fap-web and verified the semantic claim scanner locally."
+        },
         "scope_validation": {
           "status": "passed",
           "summary": "Changed files are limited to SiteFooter Science draft footer gating, focused discoverability docs/artifact/contract, and docs/codex metadata. No sitemap, llms, llms-full, CMS, publish, search, paid/social, DailyGiving, private URL, or deploy diff remains."
@@ -20513,6 +20518,11 @@
           "at": "2026-06-08T07:12:00+08:00",
           "status": "github_build_failed_fix_applied",
           "summary": "Inspected GitHub build failure and fixed react/no-children-prop errors in the focused contract test. Local lint, typecheck, and focused contracts passed after the scoped fix."
+        },
+        {
+          "at": "2026-06-08T07:16:00+08:00",
+          "status": "github_contracts_failed_fix_applied",
+          "summary": "Inspected GitHub contracts failure and replaced PR4 absolute repo_path metadata with <workspace>/fap-web. Local semantic claim scanner, JSON/YAML parse, and path scan passed."
         }
       ]
     }

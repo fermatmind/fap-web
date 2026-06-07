@@ -13445,7 +13445,7 @@ prs:
 
   - id: SCIENCE-CONTENTPAGE-DISCOVERABILITY-GATE-01
     repo: fap-web
-    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    repo_path: <workspace>/fap-web
     branch: codex/science-contentpage-discoverability-gate-01
     base: main
     title: "SCIENCE-CONTENTPAGE-DISCOVERABILITY-GATE-01: gate science discoverability"
