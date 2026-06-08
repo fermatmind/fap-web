@@ -1,0 +1,146 @@
+{
+  "schema_version": "riasec_v2_post_publish_smoke_02.v1",
+  "task": "SEO-ARTICLE-RIASEC-V2-POST-PUBLISH-SMOKE-02",
+  "final_decision": "passed_ready_for_search_submission_preflight_only",
+  "checked_at": "2026-06-08T04:54:55Z",
+  "scope": {
+    "content_package": "RIASEC explanation V2",
+    "published_article_ids": [40, 41],
+    "locales": ["zh", "en"],
+    "cms_mutation_performed": false,
+    "article_content_changed": false,
+    "publish_action_performed": false,
+    "search_submission_performed": false,
+    "deploy_performed_by_this_task": false
+  },
+  "target_articles": [
+    {
+      "locale": "zh",
+      "article_id": 40,
+      "url": "https://fermatmind.com/zh/articles/riasec-holland-career-interest-test-explained",
+      "status": 200,
+      "canonical": "https://fermatmind.com/zh/articles/riasec-holland-career-interest-test-explained",
+      "robots": "index, follow",
+      "content_type": "text/html; charset=utf-8",
+      "cache_control": "public, s-maxage=60, stale-while-revalidate=300",
+      "json_ld_types": ["Article", "BreadcrumbList", "FAQPage"],
+      "article_schema_present": true,
+      "faq_schema_entries": 6,
+      "cta": {
+        "public_canonical_route": "/zh/tests/holland-career-interest-test-riasec",
+        "unsafe_private_route_detected": false,
+        "attribution_query_params_present": [
+          "entry_surface",
+          "source_page_type",
+          "source_route_family",
+          "source_slug",
+          "content_id",
+          "target_action",
+          "test_slug",
+          "target_test_slug",
+          "cta_id",
+          "landing_path",
+          "entrypoint"
+        ],
+        "observed_target_test_slug": "holland-career-interest-test-riasec",
+        "observed_content_id": "40"
+      }
+    },
+    {
+      "locale": "en",
+      "article_id": 41,
+      "url": "https://fermatmind.com/en/articles/what-is-riasec-holland-code-career-interest-test",
+      "status": 200,
+      "canonical": "https://fermatmind.com/en/articles/what-is-riasec-holland-code-career-interest-test",
+      "robots": "index, follow",
+      "content_type": "text/html; charset=utf-8",
+      "cache_control": "public, s-maxage=60, stale-while-revalidate=300",
+      "json_ld_types": ["Article", "BreadcrumbList", "FAQPage"],
+      "article_schema_present": true,
+      "faq_schema_entries": 6,
+      "cta": {
+        "public_canonical_route": "/en/tests/holland-career-interest-test-riasec",
+        "unsafe_private_route_detected": false,
+        "attribution_query_params_present": [
+          "entry_surface",
+          "source_page_type",
+          "source_route_family",
+          "source_slug",
+          "content_id",
+          "target_action",
+          "test_slug",
+          "target_test_slug",
+          "cta_id",
+          "landing_path",
+          "entrypoint"
+        ],
+        "observed_target_test_slug": "holland-career-interest-test-riasec",
+        "observed_content_id": "41"
+      }
+    }
+  ],
+  "tracking_evidence": {
+    "live_html_attribution_params_present": true,
+    "literal_article_to_test_click_marker_in_html": false,
+    "source_component_event_contract": "components/cta/SeoTrackedCtaLink.tsx uses article_to_test_click when sourceRouteFamily is article_detail.",
+    "focused_contract": "tests/contracts/seo-cms-canary-web01-article-to-test-click.contract.test.tsx verifies article_to_test_click event mapping and /api/track acceptance.",
+    "tracking_pass_decision": "passed_with_source_contract_and_live_attribution_params"
+  },
+  "discoverability_surfaces": {
+    "sitemap": {
+      "url": "https://fermatmind.com/sitemap.xml",
+      "status": 200,
+      "content_type": "application/xml",
+      "cache_control": "public, max-age=0",
+      "last_modified": "Mon, 08 Jun 2026 03:54:16 GMT",
+      "bytes": 334079,
+      "loc_count": 2274,
+      "zh_article_hit_count": 1,
+      "en_article_hit_count": 1,
+      "private_route_hits": []
+    },
+    "llms_txt": {
+      "url": "https://fermatmind.com/llms.txt",
+      "bytes": 161390,
+      "zh_article_hit_count": 1,
+      "en_article_hit_count": 1,
+      "private_route_hit_detected": false
+    },
+    "llms_full_txt": {
+      "url": "https://fermatmind.com/llms-full.txt",
+      "bytes": 536466,
+      "zh_article_hit_count": 2,
+      "en_article_hit_count": 2,
+      "private_route_hit_detected": false
+    }
+  },
+  "private_url_boundary": {
+    "result_url_seen": false,
+    "orders_url_seen": false,
+    "share_url_seen": false,
+    "pay_url_seen": false,
+    "payment_url_seen": false,
+    "history_url_seen": false,
+    "private_url_seen": false,
+    "tokenized_url_seen": false,
+    "private_route_check_scope": "public sitemap, public article HTML, llms.txt, and llms-full.txt only"
+  },
+  "search_channel_safety": {
+    "gsc_submission_performed": false,
+    "baidu_submission_performed": false,
+    "indexnow_submission_performed": false,
+    "sitemap_submission_performed": false,
+    "external_search_api_call_performed": false,
+    "next_allowed_step": "SEO-ARTICLE-RIASEC-V2-SEARCH-SUBMISSION-PREFLIGHT-01"
+  },
+  "no_runtime_code_change": true,
+  "no_frontend_fallback_content": true,
+  "no_cms_mutation": true,
+  "no_article_content_change": true,
+  "no_publish_action": true,
+  "no_search_channel_action": true,
+  "no_url_submission": true,
+  "no_private_url_access": true,
+  "repository_rule_impact": "No content authority change. This PR records read-only post-publish smoke evidence for CMS-authored articles and adds a focused contract.",
+  "next_task": "SEO-ARTICLE-RIASEC-V2-SEARCH-SUBMISSION-PREFLIGHT-01"
+}
