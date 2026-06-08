@@ -13498,3 +13498,53 @@ prs:
       squash: true
       auto_merge: true
     next_task: "Science ContentPage public exposure can only be reconsidered after backend CMS import remains safe, operator approval is recorded, claim/FAQ gates pass, and production route smoke is green."
+
+  - id: HELP-SERVICE-FAQ-SCHEMA-RUNTIME-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/help-service-faq-schema-runtime-01
+    base: main
+    title: "HELP-SERVICE-FAQ-SCHEMA-RUNTIME-01: wire Help FAQ schema to CMS fields"
+    depends_on:
+      - HELP-CONTENT-DRAFT-BLOCKER-CMS-SYNC-01
+    mode: frontend_runtime_contract
+    train_scope: window_9_help_service_content
+    status: in_progress
+    goal: "Use backend/CMS ContentPage faq_items and schema_enabled as the Help FAQPage schema authority while preserving visible FAQ and JSON-LD parity."
+    artifacts:
+      - app/(localized)/[locale]/help/[slug]/page.tsx
+      - lib/cms/content-pages.ts
+      - tests/contracts/cms-rich-content-sanitization.contract.test.tsx
+      - tests/contracts/help-faq-schema.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+    allowed_paths:
+      - app/(localized)/[locale]/help/[slug]/page.tsx
+      - lib/cms/content-pages.ts
+      - tests/contracts/cms-rich-content-sanitization.contract.test.tsx
+      - tests/contracts/help-faq-schema.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - CMS mutation
+      - content publish
+      - deploy
+      - search submission
+      - private result/order/share/pay/payment/history URL access
+      - secret env cookie token reads
+      - payment or refund action
+      - frontend hardcoded FAQ copy authority
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/help-faq-schema.contract.test.ts
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: HELP-CONTENT-PAGES-CONTROLLED-PUBLISH-RUNTIME-01

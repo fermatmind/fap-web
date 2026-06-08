@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ContentPageTemplate } from "@/components/content-pages/ContentPageTemplate";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { buildContentPagePath, getContentPage } from "@/lib/cms/content-pages";
+import { buildContentPagePath, getContentPage, type ContentPage } from "@/lib/cms/content-pages";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import {
@@ -29,66 +29,27 @@ function normalizeVisibleText(value: string): string {
   return value.replace(/\s+/g, " ").trim();
 }
 
-function cleanMarkdownAnswerLine(value: string): string {
-  return value
-    .replace(/^\s*[-*+]\s+/, "")
-    .replace(/^\s*\d+\.\s+/, "")
-    .trim();
+function normalizeForFaqParity(value: string): string {
+  return normalizeVisibleText(
+    value
+      .replace(/<[^>]+>/g, " ")
+      .replace(/[#*_`>[\]()+.!?,:;'"-]+/g, " ")
+  ).toLowerCase();
 }
 
-function isFaqSectionHeading(value: string): boolean {
-  const normalized = normalizeVisibleText(value).toLowerCase();
-  return normalized.includes("faq") || normalized.includes("frequently asked questions") || normalized.includes("常见问题");
-}
-
-function extractVisibleFaqItemsFromMarkdown(markdown: string): FAQItem[] {
-  const lines = markdown.replace(/\r\n?/g, "\n").split("\n");
-  const items: FAQItem[] = [];
-  let inFaqSection = false;
-
-  for (let index = 0; index < lines.length; index += 1) {
-    const sectionMatch = lines[index]?.match(/^##\s+(.+)$/);
-    if (sectionMatch) {
-      inFaqSection = isFaqSectionHeading(sectionMatch[1] ?? "");
-      continue;
-    }
-
-    if (!inFaqSection) {
-      continue;
-    }
-
-    const questionMatch = lines[index]?.match(/^###\s+(.+)$/);
-    if (!questionMatch) {
-      continue;
-    }
-
-    const question = normalizeVisibleText(questionMatch[1] ?? "");
-    const answerLines: string[] = [];
-    let cursor = index + 1;
-
-    while (cursor < lines.length && !/^#{2,3}\s+/.test(lines[cursor] ?? "")) {
-      const line = cleanMarkdownAnswerLine(lines[cursor] ?? "");
-      if (line) {
-        answerLines.push(line);
-      }
-      cursor += 1;
-    }
-
-    const answer = normalizeVisibleText(answerLines.join(" "));
-    if (question && answer) {
-      items.push({ question, answer });
-    }
+function buildCmsHelpFaqItems(page: ContentPage): FAQItem[] {
+  if (page.kind !== "help" || !page.schemaEnabled || page.faqItems.length === 0) {
+    return [];
   }
 
-  return items;
-}
+  const visibleText = normalizeForFaqParity(`${page.contentMd}\n${page.contentHtml}`);
 
-function extractVisibleFaqItems(page: { contentHtml: string; contentMd: string }): FAQItem[] {
-  if (page.contentMd.trim()) {
-    return extractVisibleFaqItemsFromMarkdown(page.contentMd);
-  }
+  return page.faqItems.filter((item) => {
+    const question = normalizeForFaqParity(item.question);
+    const answer = normalizeForFaqParity(item.answer);
 
-  return [];
+    return Boolean(question && answer && visibleText.includes(question) && visibleText.includes(answer));
+  });
 }
 
 function buildVisibleHelpFaqJsonLd(faq: FAQItem[]) {
@@ -167,7 +128,7 @@ export default async function HelpDetailPage({
     description: page.summary,
     locale: locale as Locale,
   });
-  const faqItems = slug === "faq" ? extractVisibleFaqItems(page) : [];
+  const faqItems = buildCmsHelpFaqItems(page);
   const faqJsonLd = faqItems.length > 0 ? buildVisibleHelpFaqJsonLd(faqItems) : null;
 
   return (

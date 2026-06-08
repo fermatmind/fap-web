@@ -51,6 +51,16 @@ const RESEARCH_REPORT_METADATA_ALLOWED_FILES = new Set([
   "tests/contracts/research-runtime-mvp.contract.test.tsx",
 ]);
 
+const HELP_SERVICE_FAQ_SCHEMA_RUNTIME_01_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/help/[slug]/page.tsx",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "lib/cms/content-pages.ts",
+  "tests/contracts/cms-rich-content-sanitization.contract.test.tsx",
+  "tests/contracts/help-faq-schema.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 const PR_WEB_SEC_01_ALLOWED_FILES = new Set([
   "components/result/eq/EQResultV5.tsx",
   "components/result/eq/utils.ts",
@@ -2051,6 +2061,14 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/research-report-metadata") {
     return RESEARCH_REPORT_METADATA_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/help-service-faq-schema-runtime-01") {
+    return (
+      HELP_SERVICE_FAQ_SCHEMA_RUNTIME_01_ALLOWED_FILES.has(file) ||
+      RIASEC_V2_POST_PUBLISH_SMOKE_02_ALLOWED_FILES.has(file) ||
+      RIASEC_V2_SEARCH_SUBMISSION_PREFLIGHT_01_ALLOWED_FILES.has(file)
+    );
   }
 
   return CURRENT_BRANCH === "codex/riasec-full-content-pack-12" && RIASEC_PACK12_ALLOWED_FILES.has(file);

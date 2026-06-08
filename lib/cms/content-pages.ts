@@ -9,6 +9,11 @@ export type ContentPageKind = "company" | "policy" | "help";
 export type ContentPageTemplate = "company" | "charter" | "foundation" | "careers" | "brand" | "policy" | "help";
 export type ContentPageAnimationProfile = "mission" | "principles" | "editorial" | "brand" | "policy" | "none";
 
+export type ContentPageFAQItem = {
+  question: string;
+  answer: string;
+};
+
 export type ContentPage = {
   slug: string;
   path: string;
@@ -30,6 +35,8 @@ export type ContentPage = {
   contentHtml: string;
   seoTitle: string | null;
   metaDescription: string | null;
+  faqItems: ContentPageFAQItem[];
+  schemaEnabled: boolean;
 };
 
 export type ContentPageSummary = Pick<
@@ -103,6 +110,10 @@ type ContentPageApiRecord = {
   seoTitle?: string | null;
   meta_description?: string | null;
   metaDescription?: string | null;
+  faq_items?: unknown;
+  faqItems?: unknown;
+  schema_enabled?: boolean | number | string | null;
+  schemaEnabled?: boolean | number | string | null;
 };
 
 type ContentPageApiResponse = {
@@ -233,6 +244,39 @@ function normalizeHeadings(value: unknown, contentMd: string): string[] {
     .filter(Boolean);
 }
 
+function normalizeBoolean(value: unknown): boolean {
+  if (typeof value === "boolean") {
+    return value;
+  }
+
+  if (typeof value === "number") {
+    return value === 1;
+  }
+
+  const normalized = normalizeText(value).toLowerCase();
+  return normalized === "1" || normalized === "true";
+}
+
+function normalizeFaqItems(value: unknown): ContentPageFAQItem[] {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+
+  return value
+    .map((item) => {
+      if (!item || typeof item !== "object") {
+        return null;
+      }
+
+      const record = item as Record<string, unknown>;
+      const question = normalizeText(record.question);
+      const answer = normalizeText(record.answer);
+
+      return question && answer ? { question, answer } : null;
+    })
+    .filter((item): item is ContentPageFAQItem => Boolean(item));
+}
+
 function normalizeContentPage(record: ContentPageApiRecord): ContentPage | null {
   const slug = normalizeText(record.slug);
   const title = normalizeText(record.title);
@@ -265,6 +309,8 @@ function normalizeContentPage(record: ContentPageApiRecord): ContentPage | null 
     contentHtml,
     seoTitle: normalizeText(record.seo_title ?? record.seoTitle) || null,
     metaDescription: normalizeText(record.meta_description ?? record.metaDescription) || null,
+    faqItems: normalizeFaqItems(record.faq_items ?? record.faqItems),
+    schemaEnabled: normalizeBoolean(record.schema_enabled ?? record.schemaEnabled),
   };
 }
 
