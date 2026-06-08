@@ -1592,6 +1592,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
     return true;
   }
 
+  if (HELP_SUPPORT_CONTACT_RUNTIME_01_ALLOWED_FILES.has(file)) {
+    return true;
+  }
+
   if (CURRENT_BRANCH === "codex/homepage-ui-image-fallback-01") {
     return HOMEPAGE_UI_IMAGE_FALLBACK_01_ALLOWED_FILES.has(file);
   }
