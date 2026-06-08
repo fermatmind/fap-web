@@ -20966,7 +20966,7 @@
       "repo": "fap-web",
       "branch": "codex/seo-sitemap-stability-04",
       "base": "origin/main",
-      "status": "pr_opened",
+      "status": "github_checks_passed_pending_external_merge",
       "train_scope": "sitemap_stability",
       "title": "SEO-SITEMAP-STABILITY-04: fix(deploy): gate frontend release on sitemap.xml health",
       "depends_on": [
@@ -21006,11 +21006,23 @@
             "python3 - <<scope validation: changed files equal manifest artifacts>>"
           ],
           "evidence": "Manifest checks passed. typecheck passed. Production API/site URL build passed and postbuild sitemap generation completed without out-of-scope generated diffs. Full pnpm test:contract passed with 465 files and 2644 tests after registering PR04 in the current scope helper. Big Five freeze focused vitest passed with 3 files and 29 tests. Enneagram freeze focused vitest passed with 5 files and 23 tests. pnpm lint . passed with existing warnings only. pnpm test:a11y passed with 5 files and 8 tests. JSON/YAML parse and git diff --check passed."
+        },
+        "github": {
+          "status": "pass",
+          "checks": [
+            "CodeQL",
+            "analyze (javascript-typescript)",
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze"
+          ],
+          "evidence": "gh pr checks 1081 passed for head 1b12b0b14203154445cb5db6e562cd31f9487790. Manifest merge_policy.auto_merge is false, so merge remains pending external authorization."
         }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1081",
-      "commit_sha": "3b24bf8fcc05d5f1f658399cc8e787593a7a25ad",
+      "commit_sha": "1b12b0b14203154445cb5db6e562cd31f9487790",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -21044,6 +21056,11 @@
           "at": "2026-06-08",
           "status": "pr_opened",
           "note": "Opened fap-web PR #1081 for SEO-SITEMAP-STABILITY-04 after successful local validation; waiting for GitHub required checks. commit_sha records the implementation commit before this PR metadata ledger update."
+        },
+        {
+          "at": "2026-06-08",
+          "status": "github_checks_passed_pending_external_merge",
+          "note": "GitHub checks passed for PR #1081 head 1b12b0b14203154445cb5db6e562cd31f9487790: CodeQL, analyze, build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze. auto_merge is false, so no merge was performed."
         }
       ]
     }
