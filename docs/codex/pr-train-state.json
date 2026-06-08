@@ -20642,7 +20642,7 @@
       "repo": "fap-web",
       "branch": "codex/help-service-faq-schema-runtime-r2-01",
       "base": "origin/main",
-      "status": "local_checks_passed_with_sidecar",
+      "status": "github_checks_pending",
       "train_scope": "window_9_help_service_content",
       "title": "HELP-SERVICE-FAQ-SCHEMA-RUNTIME-R2-01: record Help FAQ schema blocker",
       "depends_on": [
@@ -20682,16 +20682,16 @@
         },
         "github": {
           "status": "pending",
-          "head_sha": null,
+          "head_sha": "db85324ef25a6f50e9de3d4d4e190e1a6100b6a6",
           "passed_checks": [],
-          "merge_state": null,
+          "merge_state": "UNSTABLE",
           "failure_reason": null,
           "merge_commit": null
         }
       },
       "failure_reason": null,
-      "commit_sha": null,
-      "pr_url": null,
+      "commit_sha": "db85324ef25a6f50e9de3d4d4e190e1a6100b6a6",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1076",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -20723,6 +20723,11 @@
           "at": "2026-06-08",
           "status": "local_checks_passed_with_sidecar",
           "note": "Manifest-required local checks passed: JSON/YAML parse, focused R2 contract, typecheck, full contract suite, production-env build, and git diff --check. Optional pnpm verify:release-freeze was not accepted as evidence because its Playwright webServer could not start while an unrelated primary-checkout next-server occupied 127.0.0.1:3000."
+        },
+        {
+          "at": "2026-06-08",
+          "status": "github_checks_pending",
+          "note": "Opened fap-web PR #1076 for HELP-SERVICE-FAQ-SCHEMA-RUNTIME-R2-01 after scoped local validation passed. GitHub mergeStateStatus is UNSTABLE while checks are pending."
         }
       ]
     }
