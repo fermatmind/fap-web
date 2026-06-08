@@ -42,7 +42,7 @@ describe("sitemap generation fallback contract", () => {
     expect(locs[0]).toBe("https://fermatmind.com");
     expect(locs).toContain("https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types");
     expect(locs).toContain("https://fermatmind.com/zh/tests/holland-career-interest-test-riasec");
-    expect(locs.every((loc) => loc.startsWith("https://fermatmind.com"))).toBe(true);
+    expect(locs.every((loc) => new URL(loc).origin === "https://fermatmind.com")).toBe(true);
     expect(locs.some((loc) => PRIVATE_PATH_RE.test(new URL(loc).pathname))).toBe(false);
   });
 

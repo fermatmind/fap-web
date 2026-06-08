@@ -20781,8 +20781,16 @@
           "evidence": "Final rerun after private-sitemap reuse guard: focused sitemap fallback contract passed (3 tests), seo:generate-sitemap passed, seo:check-sitemap passed with 2274 urls, typecheck passed, production-API Next build and postbuild sitemap passed, full pnpm test:contract passed with 463 files and 2636 tests, JSON/YAML parse passed, git diff --check passed, and git diff --cached --check passed before commit."
         },
         "github": {
-          "status": "pending",
-          "evidence": "PR #1077 opened from codex/seo-sitemap-stability-01 after local validation passed; GitHub checks pending after initial push."
+          "status": "pending_after_fix",
+          "failure": {
+            "check": "CodeQL",
+            "conclusion": "failure",
+            "evidence": "Initial PR run reported one high CodeQL alert in tests/contracts/sitemap-generation-fallback.contract.test.ts for incomplete URL substring sanitization on a startsWith(\"https://fermatmind.com\") assertion."
+          },
+          "fix": {
+            "status": "applied",
+            "evidence": "Replaced substring host validation with exact URL origin comparison in the focused sitemap fallback contract test. Local focused contract, full pnpm test:contract, and git diff --check passed after the fix."
+          }
         }
       },
       "failure_reason": null,
@@ -20811,6 +20819,11 @@
           "at": "2026-06-08",
           "status": "github_checks_pending",
           "note": "Opened fap-web PR #1077 for SEO-SITEMAP-STABILITY-01 after scoped local validation passed."
+        },
+        {
+          "at": "2026-06-08",
+          "status": "github_checks_failed_fix_applied",
+          "note": "Fixed CodeQL incomplete URL substring sanitization alert in the sitemap fallback contract test by using exact URL origin validation; focused and full contract tests passed locally after the fix."
         }
       ]
     },
