@@ -20,6 +20,7 @@ const {
   normalizeSlug,
   resolveSitemapSiteUrl,
 } = require("./lib/seo/sitemapAuthorityAdapters.cjs");
+const { buildSafeSitemapFallbackEntries } = require("./lib/seo/sitemapFallback.cjs");
 const CAREER_JOB_DETAIL_PARTS_RE = /^\/(en|zh)\/career\/jobs\/([^/]+)$/i;
 const PERSONALITY_DETAIL_PARTS_RE = /^\/(en|zh)\/personality\/([ie][ns][ft][jp]-[at])$/i;
 const DISCOVERABLE_CONTENT_PAGE_KEYS = [
@@ -808,6 +809,59 @@ async function buildValidatedCmsPaths(apiRoute, builder) {
   }
 }
 
+function toSitemapEntries(paths) {
+  return [...new Set(paths)]
+    .map((path) => normalizePath(path))
+    .filter((path) =>
+      shouldIncludeGeneratedSitemapPath(path, isCareerJobDetailPath(path) ? { indexEligible: true, indexState: "indexed" } : null)
+    )
+    .map((loc) => ({
+      loc,
+      changefreq: "weekly",
+      priority: loc === "/" ? 1.0 : 0.7,
+    }));
+}
+
+async function buildAdditionalSitemapEntries() {
+  const [
+    articlePaths,
+    careerGuidePaths,
+    methodPaths,
+    dataPaths,
+    careerJobApiPaths,
+    careerRecommendationApiPaths,
+    personalityPaths,
+    topicApiPaths,
+    contentPagePaths,
+    testApiPaths,
+  ] = await Promise.all([
+    buildValidatedCmsPaths("/v0.5/articles", buildArticlePaths),
+    buildValidatedCmsPaths("/v0.5/career-guides", buildCareerGuideDetailPaths),
+    buildValidatedCmsPaths("/v0.5/methods", buildMethodDetailPaths),
+    buildValidatedCmsPaths("/v0.5/data", buildDataDetailPaths),
+    buildCareerJobDetailPathsFromAuthority(),
+    buildCareerRecommendationDetailPathsFromAuthority(),
+    buildPersonalityDetailPathsFromAuthority(),
+    buildValidatedCmsPaths("/v0.5/topics", buildTopicDetailPathsFromApi),
+    buildValidatedCmsPaths("/v0.5/content-pages", buildDiscoverableContentPagePaths),
+    buildTestPathsFromApi(),
+  ]);
+
+  return toSitemapEntries([
+    ...staticGeneratedPaths,
+    ...testApiPaths,
+    ...articlePaths,
+    ...careerGuidePaths,
+    ...methodPaths,
+    ...dataPaths,
+    ...careerJobApiPaths,
+    ...careerRecommendationApiPaths,
+    ...personalityPaths,
+    ...topicApiPaths,
+    ...contentPagePaths,
+  ]);
+}
+
 module.exports = {
   siteUrl,
   generateRobotsTxt: false,
@@ -831,51 +885,12 @@ module.exports = {
     };
   },
   additionalPaths: async () => {
-    const [
-      articlePaths,
-      careerGuidePaths,
-      methodPaths,
-      dataPaths,
-      careerJobApiPaths,
-      careerRecommendationApiPaths,
-      personalityPaths,
-      topicApiPaths,
-      contentPagePaths,
-      testApiPaths,
-    ] = await Promise.all([
-      buildValidatedCmsPaths("/v0.5/articles", buildArticlePaths),
-      buildValidatedCmsPaths("/v0.5/career-guides", buildCareerGuideDetailPaths),
-      buildValidatedCmsPaths("/v0.5/methods", buildMethodDetailPaths),
-      buildValidatedCmsPaths("/v0.5/data", buildDataDetailPaths),
-      buildCareerJobDetailPathsFromAuthority(),
-      buildCareerRecommendationDetailPathsFromAuthority(),
-      buildPersonalityDetailPathsFromAuthority(),
-      buildValidatedCmsPaths("/v0.5/topics", buildTopicDetailPathsFromApi),
-      buildValidatedCmsPaths("/v0.5/content-pages", buildDiscoverableContentPagePaths),
-      buildTestPathsFromApi(),
-    ]);
-
-    return [...new Set([
-      ...staticGeneratedPaths,
-      ...testApiPaths,
-      ...articlePaths,
-      ...careerGuidePaths,
-      ...methodPaths,
-      ...dataPaths,
-      ...careerJobApiPaths,
-      ...careerRecommendationApiPaths,
-      ...personalityPaths,
-      ...topicApiPaths,
-      ...contentPagePaths,
-    ])]
-      .map((path) => normalizePath(path))
-      .filter((path) =>
-        shouldIncludeGeneratedSitemapPath(path, isCareerJobDetailPath(path) ? { indexEligible: true, indexState: "indexed" } : null)
-      )
-      .map((loc) => ({
-        loc,
-        changefreq: "weekly",
-        priority: loc === "/" ? 1.0 : 0.7,
-      }));
+    try {
+      return await buildAdditionalSitemapEntries();
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn(`[seo] sitemap additionalPaths failed; using safe fallback entries: ${message}`);
+      return buildSafeSitemapFallbackEntries();
+    }
   },
 };
