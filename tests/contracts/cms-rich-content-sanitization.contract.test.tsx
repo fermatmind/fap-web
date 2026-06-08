@@ -60,6 +60,7 @@ function makeContentPage(contentHtml: string): ContentPage {
     metaDescription: null,
     faqItems: [],
     schemaEnabled: false,
+    supportContact: null,
   };
 }
 
