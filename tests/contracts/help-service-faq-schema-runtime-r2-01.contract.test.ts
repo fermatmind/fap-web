@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { execFileSync } from "node:child_process";
 import { describe, expect, it } from "vitest";
 import { isCurrentRiasecPack12AllowedFile } from "./helpers/currentPrScope";
 
@@ -14,8 +15,7 @@ function read(relPath: string): string {
 function changedFiles(): string[] {
   const head = process.env.GITHUB_SHA ? "origin/main" : "origin/main...HEAD";
   try {
-    return require("node:child_process")
-      .execFileSync("git", ["diff", "--name-only", head], { cwd: ROOT, encoding: "utf8" })
+    return execFileSync("git", ["diff", "--name-only", head], { cwd: ROOT, encoding: "utf8" })
       .split("\n")
       .map((file: string) => file.trim())
       .filter(Boolean);

@@ -20541,7 +20541,7 @@
       "repo": "fap-web",
       "branch": "codex/help-service-faq-schema-runtime-01",
       "base": "origin/main",
-      "status": "github_checks_pending",
+      "status": "github_checks_failed_fix_applied",
       "train_scope": "window_9_help_service_content",
       "title": "HELP-SERVICE-FAQ-SCHEMA-RUNTIME-01: wire Help FAQ schema to CMS fields",
       "depends_on": [
@@ -20678,18 +20678,18 @@
             "git diff --check",
             "git diff --cached --check"
           ],
-          "evidence": "JSON/YAML parse passed; focused R2 contract passed; pnpm typecheck passed; pnpm test:contract passed with 462 files and 2633 tests; production-env build passed; git diff --check passed. The optional unified pnpm verify:release-freeze contract subset passed but smoke/e2e startup was blocked by an unrelated local Node process from /Users/rainie/Desktop/GitHub/fap-web already listening on 127.0.0.1:3000."
+          "evidence": "JSON/YAML parse passed; focused R2 contract passed; pnpm typecheck passed; pnpm test:contract passed with 462 files and 2633 tests; production-env build passed; git diff --check passed. The optional unified pnpm verify:release-freeze contract subset passed but smoke/e2e startup was blocked by an unrelated local Node process from <primary-fap-web-checkout> already listening on 127.0.0.1:3000."
         },
         "github": {
-          "status": "pending",
+          "status": "failed_fix_applied",
           "head_sha": "db85324ef25a6f50e9de3d4d4e190e1a6100b6a6",
           "passed_checks": [],
           "merge_state": "UNSTABLE",
-          "failure_reason": null,
+          "failure_reason": "GitHub build failed on lint because the new focused contract used require(); GitHub contracts failed because the PR-train state sidecar included local /Users absolute paths. Both were fixed in current PR scope by using an ESM child_process import and replacing local paths with placeholders.",
           "merge_commit": null
         }
       },
-      "failure_reason": null,
+      "failure_reason": "GitHub checks failed on current PR lint/path-sanitization issues; scoped fix has been applied and local lint plus focused contracts pass.",
       "commit_sha": "db85324ef25a6f50e9de3d4d4e190e1a6100b6a6",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1076",
       "merged_at": null,
@@ -20728,6 +20728,11 @@
           "at": "2026-06-08",
           "status": "github_checks_pending",
           "note": "Opened fap-web PR #1076 for HELP-SERVICE-FAQ-SCHEMA-RUNTIME-R2-01 after scoped local validation passed. GitHub mergeStateStatus is UNSTABLE while checks are pending."
+        },
+        {
+          "at": "2026-06-08",
+          "status": "github_checks_failed_fix_applied",
+          "note": "Inspected GitHub build/contracts failures. Fixed the R2 contract lint error by replacing require() with an ESM child_process import, and redacted local /Users paths in the state sidecar. Local pnpm lint ., focused R2 contract, semantic claim scanner, state JSON parse, and /Users path scan passed after the fix."
         }
       ]
     }
@@ -20736,7 +20741,7 @@
     {
       "title": "Optional release-freeze smoke blocked by unrelated local port 3000 server",
       "severity": "P2",
-      "scope_impact": "The R2 PR is docs/evidence/contract only and does not change runtime behavior. Manifest-required local checks passed. The optional unified release-freeze script could not complete its Playwright smoke phase because 127.0.0.1:3000 was already occupied by a Node next-server whose cwd is /Users/rainie/Desktop/GitHub/fap-web, outside the isolated worktree.",
+      "scope_impact": "The R2 PR is docs/evidence/contract only and does not change runtime behavior. Manifest-required local checks passed. The optional unified release-freeze script could not complete its Playwright smoke phase because 127.0.0.1:3000 was already occupied by a Node next-server whose cwd is <primary-fap-web-checkout>, outside the isolated worktree.",
       "introduced_by_current_pr": false,
       "recommended_future_phase": "Free port 3000 or teach release_freeze_verify.sh/playwright config to use an isolated port before using pnpm verify:release-freeze as local acceptance evidence.",
       "blocks_merge": false,
@@ -20745,8 +20750,8 @@
         "Contract freeze set inside the script passed: 6 files / 56 tests.",
         "Failure: http://127.0.0.1:3000 is already used.",
         "lsof: node PID 83056 listens on TCP *:3000.",
-        "lsof cwd for PID 83056: /Users/rainie/Desktop/GitHub/fap-web.",
-        "The current PR worktree is /private/tmp/fap-web-help-noindex-runtime."
+        "lsof cwd for PID 83056: <primary-fap-web-checkout>.",
+        "The current PR worktree is <isolated-fap-web-help-noindex-runtime-worktree>."
       ]
     },
     {
