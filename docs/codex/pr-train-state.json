@@ -20735,6 +20735,187 @@
           "note": "Inspected GitHub build/contracts failures. Fixed the R2 contract lint error by replacing require() with an ESM child_process import, and redacted local /Users paths in the state sidecar. Local pnpm lint ., focused R2 contract, semantic claim scanner, state JSON parse, and /Users path scan passed after the fix."
         }
       ]
+    },
+    {
+      "id": "SEO-SITEMAP-STABILITY-01",
+      "repo": "fap-web",
+      "branch": "codex/seo-sitemap-stability-01",
+      "base": "origin/main",
+      "status": "ready_to_merge",
+      "train_scope": "sitemap_stability",
+      "title": "SEO-SITEMAP-STABILITY-01: fix(seo): harden frontend sitemap generation fallback",
+      "depends_on": [],
+      "checks": {
+        "dependency": {
+          "status": "pass",
+          "evidence": "User authorized the sitemap stability train on 2026-06-08; this first item has no manifest dependencies."
+        },
+        "scope": {
+          "status": "pass",
+          "allowed_paths": [
+            "lib/seo/sitemapFallback.cjs",
+            "next-sitemap.config.js",
+            "scripts/seo/generate-sitemap.mjs",
+            "tests/contracts/sitemap-generation-fallback.contract.test.ts",
+            "tests/contracts/helpers/currentPrScope.ts",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ],
+          "evidence": "git status --short in isolated worktree shows only SEO-SITEMAP-STABILITY-01 allowed paths changed; no app routes, backend code, CMS content, deploy, or search submission files changed."
+        },
+        "local": {
+          "status": "pass",
+          "commands": [
+            "pnpm install --frozen-lockfile",
+            "pnpm exec vitest run tests/contracts/sitemap-generation-fallback.contract.test.ts",
+            "pnpm seo:generate-sitemap",
+            "pnpm seo:check-sitemap",
+            "pnpm typecheck",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build",
+            "pnpm test:contract",
+            "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "python3 -c \"import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')\"",
+            "git diff --check",
+            "git diff --cached --check"
+          ],
+          "evidence": "Final rerun after private-sitemap reuse guard: focused sitemap fallback contract passed (3 tests), seo:generate-sitemap passed, seo:check-sitemap passed with 2274 urls, typecheck passed, production-API Next build and postbuild sitemap passed, full pnpm test:contract passed with 463 files and 2636 tests, JSON/YAML parse passed, git diff --check passed, and git diff --cached --check passed before commit."
+        },
+        "github": {
+          "status": "pass",
+          "checks": [
+            "CodeQL",
+            "analyze (javascript-typescript)",
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze"
+          ],
+          "evidence": "gh pr checks 1077 passed after CodeQL URL-origin fix; PR mergeStateStatus is CLEAN at head ebd1c87da27763bdf177e9371c92eb2d6375047e."
+        }
+      },
+      "failure_reason": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1077",
+      "commit_sha": "ebd1c87da27763bdf177e9371c92eb2d6375047e",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-06-08",
+          "status": "in_progress",
+          "note": "Created isolated fap-web worktree from latest origin/main and started SEO-SITEMAP-STABILITY-01 only."
+        },
+        {
+          "at": "2026-06-08",
+          "status": "local_checks_passed",
+          "note": "Implemented safe frontend sitemap fallback, no-build generation guard, fallback contract coverage, and branch-aware scope helper. Required local checks passed before staging."
+        },
+        {
+          "at": "2026-06-08",
+          "status": "local_checks_passed",
+          "note": "Revalidated after adding a private URL family guard for existing sitemap reuse; staged diff passed git diff --cached --check."
+        },
+        {
+          "at": "2026-06-08",
+          "status": "github_checks_pending",
+          "note": "Opened fap-web PR #1077 for SEO-SITEMAP-STABILITY-01 after scoped local validation passed."
+        },
+        {
+          "at": "2026-06-08",
+          "status": "github_checks_failed_fix_applied",
+          "note": "Fixed CodeQL incomplete URL substring sanitization alert in the sitemap fallback contract test by using exact URL origin validation; focused and full contract tests passed locally after the fix."
+        },
+        {
+          "at": "2026-06-08",
+          "status": "ready_to_merge",
+          "note": "User authorized merging PR #1077. GitHub checks passed and mergeStateStatus was CLEAN at head ebd1c87da27763bdf177e9371c92eb2d6375047e before merge."
+        }
+      ]
+    },
+    {
+      "id": "SEO-SITEMAP-STABILITY-02",
+      "repo": "fap-api",
+      "branch": "codex/seo-sitemap-stability-02",
+      "base": "origin/main",
+      "status": "planned",
+      "train_scope": "sitemap_stability",
+      "title": "SEO-SITEMAP-STABILITY-02: fix(seo): make backend sitemap source fail closed with fallback payload",
+      "depends_on": [],
+      "checks": {
+        "dependency": {
+          "status": "pending"
+        },
+        "scope": {
+          "status": "pending"
+        },
+        "local": {
+          "status": "pending"
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    {
+      "id": "SEO-SITEMAP-STABILITY-03",
+      "repo": "fap-web",
+      "branch": "codex/seo-sitemap-stability-03",
+      "base": "origin/main",
+      "status": "planned",
+      "train_scope": "sitemap_stability",
+      "title": "SEO-SITEMAP-STABILITY-03: test(seo): add live sitemap stability verifier",
+      "depends_on": [
+        "SEO-SITEMAP-STABILITY-01"
+      ],
+      "checks": {
+        "dependency": {
+          "status": "pending"
+        },
+        "scope": {
+          "status": "pending"
+        },
+        "local": {
+          "status": "pending"
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    {
+      "id": "SEO-SITEMAP-STABILITY-04",
+      "repo": "fap-web",
+      "branch": "codex/seo-sitemap-stability-04",
+      "base": "origin/main",
+      "status": "planned",
+      "train_scope": "sitemap_stability",
+      "title": "SEO-SITEMAP-STABILITY-04: fix(deploy): gate frontend release on sitemap.xml health",
+      "depends_on": [
+        "SEO-SITEMAP-STABILITY-03"
+      ],
+      "checks": {
+        "dependency": {
+          "status": "pending"
+        },
+        "scope": {
+          "status": "pending"
+        },
+        "local": {
+          "status": "pending"
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
     }
   ],
   "sidecar_issues": [
