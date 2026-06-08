@@ -20541,7 +20541,7 @@
       "repo": "fap-web",
       "branch": "codex/help-service-faq-schema-runtime-01",
       "base": "origin/main",
-      "status": "in_progress",
+      "status": "github_checks_pending",
       "train_scope": "window_9_help_service_content",
       "title": "HELP-SERVICE-FAQ-SCHEMA-RUNTIME-01: wire Help FAQ schema to CMS fields",
       "depends_on": [
@@ -20581,7 +20581,7 @@
         },
         "github": {
           "status": "pending",
-          "head_sha": null,
+          "head_sha": "11545a7ad128b7c8bcc41575fadffc194369489e",
           "passed_checks": [],
           "merge_state": null,
           "failure_reason": null,
@@ -20589,8 +20589,8 @@
         }
       },
       "failure_reason": null,
-      "commit_sha": null,
-      "pr_url": null,
+      "commit_sha": "11545a7ad128b7c8bcc41575fadffc194369489e",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1072",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -20629,6 +20629,11 @@
           "at": "2026-06-08",
           "status": "local_checks_passed",
           "note": "Focused Help FAQ schema contract, typecheck, production-env build, full contract suite, JSON/YAML parse, git diff --check, and git diff --cached --check passed. No CMS mutation, publish, deploy, search submission, private URL access, secret/env/cookie/token read, payment/refund action, or payment provider change was performed."
+        },
+        {
+          "at": "2026-06-08",
+          "status": "github_checks_pending",
+          "note": "Opened fap-web PR #1072 for HELP-SERVICE-FAQ-SCHEMA-RUNTIME-01."
         }
       ]
     }
