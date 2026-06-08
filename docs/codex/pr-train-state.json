@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-08",
+  "updated_at": "2026-06-09",
   "status": "active",
   "phase": "analytics_seo_p0_p1",
   "pr_namespace": "PR-PRAC-*",
@@ -21063,6 +21063,120 @@
           "note": "GitHub checks passed for PR #1081 head 1b12b0b14203154445cb5db6e562cd31f9487790: CodeQL, analyze, build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze. auto_merge is false, so no merge was performed."
         }
       ]
+    },
+    {
+      "id": "SEO-SITEMAP-DIFF-01",
+      "repo": "fap-web",
+      "branch": "codex/seo-sitemap-diff-01",
+      "base": "origin/main",
+      "status": "ready_to_merge",
+      "train_scope": "sitemap_diff",
+      "title": "SEO-SITEMAP-DIFF-01: test(seo): report backend source vs live sitemap diff",
+      "depends_on": [],
+      "checks": {
+        "dependency": {
+          "status": "pass",
+          "evidence": "User explicitly authorized the SEO-SITEMAP-DIFF PR train on 2026-06-09; this first fap-web observation PR has no manifest dependencies."
+        },
+        "scope": {
+          "status": "pass",
+          "allowed_paths": [
+            "scripts/seo/diff-sitemap-source-vs-live.mjs",
+            "docs/seo/sitemap_diff_report.md",
+            "docs/seo/generated/sitemap-diff-report.v1.json",
+            "tests/contracts/sitemap-source-live-diff-report.contract.test.ts",
+            "tests/contracts/helpers/currentPrScope.ts",
+            "package.json",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ],
+          "evidence": "git status --short shows only SEO-SITEMAP-DIFF-01 allowed paths changed after the CodeQL escape fix; scope validation reported scope-ok."
+        },
+        "local": {
+          "status": "pass",
+          "commands": [
+            "pnpm install --frozen-lockfile",
+            "pnpm exec vitest run tests/contracts/sitemap-source-live-diff-report.contract.test.ts",
+            "pnpm seo:diff-sitemap-source-live",
+            "pnpm seo:check-sitemap",
+            "pnpm test:contract",
+            "python3 -m json.tool docs/seo/generated/sitemap-diff-report.v1.json >/dev/null",
+            "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "python3 -c \"import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')\"",
+            "python3 - <<scope validation: changed files equal manifest artifacts>>",
+            "git diff --check",
+            "pnpm typecheck",
+            "pnpm lint .",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build"
+          ],
+          "evidence": "After CodeQL escape fix: live diff script passed with source=2391, live=2274, backend_only=148, live_only=31, net_source_minus_live=117, unknown=0, private_live=0. Focused sitemap diff contract passed with 3 tests. pnpm typecheck passed. pnpm lint . passed with existing warnings only. pnpm seo:check-sitemap passed with 2274 urls. Full pnpm test:contract passed with 466 files and 2647 tests after one unrelated MBTI P1 flaky failure was reproduced as passing in the single-file rerun and the final full rerun. Production build passed including postbuild sitemap generation. JSON/YAML parse, git diff --check, and scoped file validation passed."
+        },
+        "github": {
+          "status": "pass",
+          "checks": [
+            "CodeQL",
+            "analyze (javascript-typescript)",
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze"
+          ],
+          "evidence": "fap-web PR #1082 checks passed at head 6c4524c178c2b56affdcc31e2085a6ea20df800b: CodeQL, analyze, build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze. mergeStateStatus was CLEAN before ready_to_merge metadata update."
+        }
+      },
+      "failure_reason": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1082",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-06-09",
+          "status": "in_progress",
+          "note": "Created isolated fap-web worktree from latest main and started SEO-SITEMAP-DIFF-01 only. Scope is observation-only diff script/report, contract, package script, scope helper, and docs/codex metadata."
+        },
+        {
+          "at": "2026-06-09",
+          "status": "local_checks_passed",
+          "note": "Implemented observation-only sitemap source/live diff script, generated markdown/JSON report, package script, focused contract, scope helper, and metadata. Required local checks passed; live report records 2391 source URLs, 2274 live URLs, 148 backend-only, 31 live-only, unknown=0, and private_live=0."
+        },
+        {
+          "at": "2026-06-09",
+          "status": "artifact_compacted_and_revalidated",
+          "note": "Reduced generated JSON to summary plus 179 difference rows instead of persisting all included sitemap rows; focused contract, live diff, sitemap check, full contracts, JSON/YAML parse, and diff check still passed."
+        },
+        {
+          "at": "2026-06-09",
+          "status": "commit_created",
+          "note": "Local commit created for SEO-SITEMAP-DIFF-01: undefined."
+        },
+        {
+          "at": "2026-06-09",
+          "status": "ledger_sha_recorded",
+          "note": "Recorded implementation commit SHA before final metadata amend: 73bb77f794a5861b458852d9df6ec0c2d7d3b7cc."
+        },
+        {
+          "at": "2026-06-09",
+          "status": "github_checks_pending",
+          "note": "Opened fap-web PR #1082 for SEO-SITEMAP-DIFF-01 after scoped local validation passed; GitHub checks pending."
+        },
+        {
+          "at": "2026-06-09",
+          "status": "github_checks_failed_fix_applied",
+          "note": "Inspected PR #1082 build failure. Fixed current-PR TypeScript inference by adding default values for buildSitemapDiffReport sourcePayload and sitemapXml. Local typecheck, focused contract, live diff, sitemap check, full contracts, lint, production build, JSON/YAML parse, and diff check passed after the fix."
+        },
+        {
+          "at": "2026-06-09",
+          "status": "codeql_fix_applied",
+          "note": "Fixed CodeQL js/incomplete-sanitization alert by replacing Markdown backslash pipe escaping with HTML entity table-cell escaping. Local focused contract, typecheck, lint, live diff, sitemap check, final full contracts, production build, JSON/YAML parse, diff check, and scope validation passed."
+        },
+        {
+          "at": "2026-06-09",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed for PR #1082 at head 6c4524c178c2b56affdcc31e2085a6ea20df800b and mergeStateStatus was CLEAN. Recording ready_to_merge before merge per train policy."
+        }
+      ],
+      "commit_sha": "6c4524c178c2b56affdcc31e2085a6ea20df800b"
     }
   ],
   "sidecar_issues": [
