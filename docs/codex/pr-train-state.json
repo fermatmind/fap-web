@@ -20966,7 +20966,7 @@
       "repo": "fap-web",
       "branch": "codex/seo-sitemap-stability-04",
       "base": "origin/main",
-      "status": "local_checks_passed",
+      "status": "pr_opened",
       "train_scope": "sitemap_stability",
       "title": "SEO-SITEMAP-STABILITY-04: fix(deploy): gate frontend release on sitemap.xml health",
       "depends_on": [
@@ -21009,8 +21009,8 @@
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": "f844d781e49a8939566feff042454e38fa71a675",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1081",
+      "commit_sha": "3b24bf8fcc05d5f1f658399cc8e787593a7a25ad",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -21039,6 +21039,11 @@
           "at": "2026-06-08",
           "status": "commit_amended",
           "note": "Commit amended after ledger SHA recording; current commit is f844d781e49a8939566feff042454e38fa71a675."
+        },
+        {
+          "at": "2026-06-08",
+          "status": "pr_opened",
+          "note": "Opened fap-web PR #1081 for SEO-SITEMAP-STABILITY-04 after successful local validation; waiting for GitHub required checks. commit_sha records the implementation commit before this PR metadata ledger update."
         }
       ]
     }
