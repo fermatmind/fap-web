@@ -13797,3 +13797,63 @@ prs:
       squash: true
       auto_merge: true
     next_task: SEO-SITEMAP-DIFF-02
+
+  - id: SEO-SITEMAP-DIFF-04
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/seo-sitemap-diff-04
+    base: main
+    title: "SEO-SITEMAP-DIFF-04: test(seo): gate sitemap source live parity"
+    depends_on: [SEO-SITEMAP-DIFF-01]
+    mode: execute
+    train_scope: sitemap_diff
+    status: in_progress
+    goal: "Add the final fap-web live parity gate for backend sitemap-source versus live sitemap.xml after fap-api SEO-SITEMAP-DIFF-02 and SEO-SITEMAP-DIFF-03 are merged, requiring no missing_unexpectedly URLs, no unknown URLs, and no private URL inclusion."
+    artifacts:
+      - scripts/seo/diff-sitemap-source-vs-live.mjs
+      - docs/seo/sitemap_diff_report.md
+      - docs/seo/generated/sitemap-diff-report.v1.json
+      - tests/contracts/sitemap-source-live-diff-report.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - package.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - scripts/seo/diff-sitemap-source-vs-live.mjs
+      - docs/seo/sitemap_diff_report.md
+      - docs/seo/generated/sitemap-diff-report.v1.json
+      - tests/contracts/sitemap-source-live-diff-report.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - package.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - runtime sitemap behavior changes
+      - next-sitemap.config.js changes
+      - backend code changes
+      - CMS mutation
+      - content publish
+      - deploy
+      - search submission
+      - private result/order/share/pay/payment/history URL exposure
+      - local editorial fallback content
+      - app route or page behavior changes
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/sitemap-source-live-diff-report.contract.test.ts
+      - pnpm seo:diff-sitemap-source-live
+      - pnpm seo:assert-live-sitemap-stability
+      - pnpm seo:check-sitemap
+      - pnpm test:contract
+      - python3 -m json.tool docs/seo/generated/sitemap-diff-report.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - "python3 - <<scope validation: changed files equal manifest artifacts>>"
+      - git diff --check
+      - git diff --cached --check
+    cross_repo_prerequisites:
+      - "fap-api PR #2008 SEO-SITEMAP-DIFF-02 merged before this PR started."
+      - "fap-api PR #2009 SEO-SITEMAP-DIFF-03 merged before this PR started."
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true

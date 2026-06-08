@@ -21069,7 +21069,7 @@
       "repo": "fap-web",
       "branch": "codex/seo-sitemap-diff-01",
       "base": "origin/main",
-      "status": "ready_to_merge",
+      "status": "merged",
       "train_scope": "sitemap_diff",
       "title": "SEO-SITEMAP-DIFF-01: test(seo): report backend source vs live sitemap diff",
       "depends_on": [],
@@ -21126,9 +21126,9 @@
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1082",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-08T16:40:47Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-06-09",
@@ -21174,9 +21174,113 @@
           "at": "2026-06-09",
           "status": "ready_to_merge",
           "note": "GitHub checks passed for PR #1082 at head 6c4524c178c2b56affdcc31e2085a6ea20df800b and mergeStateStatus was CLEAN. Recording ready_to_merge before merge per train policy."
+        },
+        {
+          "at": "2026-06-09",
+          "status": "reconciled_merged_for_seo_sitemap_diff_04",
+          "note": "Verified fap-web PR #1082 is MERGED, origin/main contains merge commit ffb345eec01439fa0c789c05a8b3d96a1165a99b, remote branch codex/seo-sitemap-diff-01 is absent, and prior post-merge cleanup/revalidation completed before SEO-SITEMAP-DIFF-04 began."
         }
       ],
-      "commit_sha": "6c4524c178c2b56affdcc31e2085a6ea20df800b"
+      "commit_sha": "ffb345eec01439fa0c789c05a8b3d96a1165a99b"
+    },
+    {
+      "id": "SEO-SITEMAP-DIFF-04",
+      "repo": "fap-web",
+      "branch": "codex/seo-sitemap-diff-04",
+      "base": "origin/main",
+      "status": "ready_to_merge",
+      "train_scope": "sitemap_diff",
+      "title": "SEO-SITEMAP-DIFF-04: test(seo): gate sitemap source live parity",
+      "depends_on": [
+        "SEO-SITEMAP-DIFF-01"
+      ],
+      "checks": {
+        "dependency": {
+          "status": "pass",
+          "evidence": "fap-web PR #1082 SEO-SITEMAP-DIFF-01 is merged into origin/main. Cross-repo prerequisites fap-api PR #2008 SEO-SITEMAP-DIFF-02 and PR #2009 SEO-SITEMAP-DIFF-03 were merged before this fap-web PR started."
+        },
+        "scope": {
+          "status": "pass",
+          "allowed_paths": [
+            "scripts/seo/diff-sitemap-source-vs-live.mjs",
+            "docs/seo/sitemap_diff_report.md",
+            "docs/seo/generated/sitemap-diff-report.v1.json",
+            "tests/contracts/sitemap-source-live-diff-report.contract.test.ts",
+            "tests/contracts/helpers/currentPrScope.ts",
+            "package.json",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ],
+          "evidence": "git diff --name-only matches the SEO-SITEMAP-DIFF-04 manifest artifacts exactly: docs/codex/pr-train-state.json, docs/codex/pr-train.yaml, docs/seo/generated/sitemap-diff-report.v1.json, docs/seo/sitemap_diff_report.md, package.json, scripts/seo/diff-sitemap-source-vs-live.mjs, tests/contracts/helpers/currentPrScope.ts, and tests/contracts/sitemap-source-live-diff-report.contract.test.ts."
+        },
+        "local": {
+          "status": "pass",
+          "commands": [
+            "pnpm exec vitest run tests/contracts/sitemap-source-live-diff-report.contract.test.ts",
+            "pnpm seo:diff-sitemap-source-live",
+            "pnpm seo:assert-live-sitemap-stability",
+            "pnpm seo:check-sitemap",
+            "pnpm test:contract",
+            "python3 -m json.tool docs/seo/generated/sitemap-diff-report.v1.json >/dev/null",
+            "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "python3 -c \"import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')\"",
+            "python3 - <<scope validation: changed files equal manifest artifacts>>",
+            "git diff --check",
+            "git diff --cached --check"
+          ],
+          "evidence": "Required local checks passed: focused sitemap diff contract passed 4 tests; pnpm seo:diff-sitemap-source-live passed and generated source=2391, live=2274, backend_only=148, live_only=31, unknown=0, private_live=0; pnpm seo:assert-live-sitemap-stability passed 8 consecutive 200 responses with 2274 locs; pnpm seo:check-sitemap passed with 2274 urls; full pnpm test:contract passed 466 files / 2648 tests; JSON/YAML parse and git diff --check passed. Additional pnpm typecheck passed and pnpm lint . passed with 9 existing warnings and 0 errors. Optional pnpm seo:assert-sitemap-source-live-parity failed fail-closed on missing_unexpectedly=31 and is recorded as an external production backend deploy/cache sidecar, not a PR04 local required-check failure."
+        },
+        "github": {
+          "status": "pass",
+          "checks": [
+            "CodeQL",
+            "analyze (javascript-typescript)",
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze"
+          ],
+          "evidence": "fap-web PR #1083 checks passed at head b28e2b042fce18685867d9ac643bd8d00ef0a328: CodeQL, analyze, build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze."
+        }
+      },
+      "failure_reason": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1083",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-06-09",
+          "status": "in_progress",
+          "note": "Created isolated fap-web worktree from latest origin/main for SEO-SITEMAP-DIFF-04. Implementing final sitemap source/live parity gate only in the diff script, contract, package script, scope helper, report artifacts, and docs/codex metadata."
+        },
+        {
+          "at": "2026-06-09",
+          "status": "external_live_parity_probe_failed",
+          "note": "Optional live parity probe pnpm seo:assert-sitemap-source-live-parity failed with source=2391, live=2274, backend_only=148, live_only=31, unknown=0, private_live=0, missing_unexpectedly=31. This reflects production backend sitemap-source/cache not yet showing the merged fap-api PR #2008/#2009 authority changes, not a frontend PR04 code regression."
+        },
+        {
+          "at": "2026-06-09",
+          "status": "local_checks_passed",
+          "note": "Implemented final sitemap source/live parity gate, focused contract coverage, package script, live report refresh, scope helper, and docs/codex metadata. Manifest-required local checks, typecheck, lint, JSON/YAML, and scope validation passed. Optional live parity assertion fails on production missing_unexpectedly=31 and is tracked as external backend deployment/cache sidecar."
+        },
+        {
+          "at": "2026-06-09",
+          "status": "commit_created",
+          "note": "Local commit created for SEO-SITEMAP-DIFF-04: 98a824f0074592591bdff3918abebd3126ca3b51."
+        },
+        {
+          "at": "2026-06-09",
+          "status": "github_checks_pending",
+          "note": "Opened fap-web PR #1083 for SEO-SITEMAP-DIFF-04 after scoped local validation passed; GitHub checks pending."
+        },
+        {
+          "at": "2026-06-09",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed for PR #1083 at head b28e2b042fce18685867d9ac643bd8d00ef0a328. Recording ready_to_merge before merge per train policy."
+        }
+      ],
+      "commit_sha": "98a824f0074592591bdff3918abebd3126ca3b51"
     }
   ],
   "sidecar_issues": [
@@ -21305,6 +21409,24 @@
       "follow_up_recommendation": "Normalize freeze validation commands to existing contract file names or make absent globs non-failing through a repository script.",
       "required_checks_status": "pending_github_checks",
       "scope_validation_status": "passed_local_diff_check",
+      "continue_train_decision": "continue_if_required_github_checks_green_and_scope_validation_passes",
+      "blocks_merge": false
+    },
+    {
+      "title": "Production sitemap-source live parity awaits backend deployment/cache refresh",
+      "severity": "P1",
+      "source_pr": "SEO-SITEMAP-DIFF-04",
+      "repo": "fap-web",
+      "branch": "codex/seo-sitemap-diff-04",
+      "command_or_check": "pnpm seo:assert-sitemap-source-live-parity",
+      "evidence": "The optional PR04 readiness probe failed on live production data: source=2391, live=2274, backend_only=148, live_only=31, unknown=0, private_live=0, missing_unexpectedly=31. fap-api PR #2008 and PR #2009 are merged but production sitemap-source still appears to serve the pre-deploy/pre-refresh authority set.",
+      "failure_summary": "The new fap-web fail-closed gate works, but live production parity is still blocked by backend deployment or cache refresh outside this frontend PR scope.",
+      "why_external_to_current_pr": "PR04 changes only the fap-web diff/report gate, contract, package script, scope helper, generated report, and docs/codex metadata. It does not modify backend sitemap-source generation, deployment, or production cache state.",
+      "impact_on_current_pr": "No impact on the scoped fap-web gate implementation. Continue only if manifest-required local checks, GitHub required checks, and scope validation pass; re-run the parity probe after backend deploy/cache refresh.",
+      "owner": "fap-api deployment/cache owner",
+      "follow_up_recommendation": "Deploy merged fap-api SEO-SITEMAP-DIFF-02/#2008 and SEO-SITEMAP-DIFF-03/#2009 to the environment used by https://api.fermatmind.com/api/v0.5/seo/sitemap-source, clear or expire sitemap-source cache, then rerun pnpm seo:assert-sitemap-source-live-parity.",
+      "required_checks_status": "required_local_checks_passed",
+      "scope_validation_status": "passed",
       "continue_train_decision": "continue_if_required_github_checks_green_and_scope_validation_passes",
       "blocks_merge": false
     }
