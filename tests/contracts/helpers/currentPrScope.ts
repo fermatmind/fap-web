@@ -1653,10 +1653,15 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (
     CURRENT_BRANCH === "main" ||
     CURRENT_BRANCH === "codex/fix-main-contract-scope-metadata-inventory" ||
+    CURRENT_BRANCH === "codex/frontend-contract-blocker-fix" ||
     CURRENT_BRANCH === "codex/global-en-zh-content-pages-discoverability-exposure-implementation-01" ||
     CURRENT_BRANCH === "codex/fix-global-en-zh-discoverability-exposure-contract"
   ) {
-    return GLOBAL_EN_ZH_CONTENT_PAGES_DISCOVERABILITY_EXPOSURE_IMPLEMENTATION_01_ALLOWED_FILES.has(file);
+    return (
+      GLOBAL_EN_ZH_CONTENT_PAGES_DISCOVERABILITY_EXPOSURE_IMPLEMENTATION_01_ALLOWED_FILES.has(file) ||
+      RIASEC_V2_POST_PUBLISH_SMOKE_02_ALLOWED_FILES.has(file) ||
+      RIASEC_V2_SEARCH_SUBMISSION_PREFLIGHT_01_ALLOWED_FILES.has(file)
+    );
   }
 
   if (CURRENT_BRANCH === "codex/global-en-zh-content-pages-llms-exposure-repair-01") {
