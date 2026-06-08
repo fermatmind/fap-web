@@ -20179,7 +20179,7 @@
       "repo": "fap-web",
       "branch": "codex/daily-giving-indexability-gate-01",
       "base": "main",
-      "status": "local_checks_passed",
+      "status": "github_checks_pending",
       "title": "test(benefit): keep DailyGiving noindex and out of llms",
       "depends_on": [
         "DAILY-GIVING-PUBLIC-API-SMOKE-01"
@@ -20853,8 +20853,8 @@
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1080",
+      "commit_sha": "5620aa24ba589cec2149f5cfe9597f27302a866b",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false
@@ -20930,6 +20930,11 @@
           "at": "2026-06-08",
           "status": "local_checks_passed",
           "note": "Live verifier, sitemap indexability, focused contract, full contract, typecheck, and production API build all passed locally. Live stability result: 8 consecutive https://fermatmind.com/sitemap.xml requests returned 200 with stable 2274 loc entries and no private URL family issues."
+        },
+        {
+          "at": "2026-06-08",
+          "status": "github_checks_pending",
+          "note": "Opened fap-web PR #1080 at https://github.com/fermatmind/fap-web/pull/1080 from implementation commit 5620aa24ba589cec2149f5cfe9597f27302a866b; GitHub checks pending."
         }
       ]
     },
