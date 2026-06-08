@@ -1305,6 +1305,13 @@ const SITEMAP_FRONTEND_CONVERGENCE_ALLOWED_FILES = new Set([
   "tests/contracts/url-inventory-generator.contract.test.ts",
 ]);
 
+const RIASEC_V2_POST_PUBLISH_SMOKE_02_ALLOWED_FILES = new Set([
+  "docs/seo/generated/riasec-v2-post-publish-smoke-02.v1.json",
+  "docs/seo/riasec-v2-post-publish-smoke-02.md",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/riasec-v2-post-publish-smoke-02.contract.test.ts",
+]);
+
 const BACKEND_RUNTIME_02D_RECONCILE_ALLOWED_FILES = new Set([
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -1593,6 +1600,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/sitemap-frontend-convergence") {
     return SITEMAP_FRONTEND_CONVERGENCE_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/riasec-post-publish-smoke-02") {
+    return RIASEC_V2_POST_PUBLISH_SMOKE_02_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/seo-cms-canary-web-01-article-to-test-tracking") {
