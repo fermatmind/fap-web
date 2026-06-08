@@ -1,0 +1,176 @@
+{
+  "schema_version": "riasec_v2_search_submission_preflight_01.v1",
+  "task": "SEO-ARTICLE-RIASEC-V2-SEARCH-SUBMISSION-PREFLIGHT-01",
+  "final_decision": "passed_ready_for_operator_controlled_search_submission_only",
+  "checked_at": "2026-06-08T05:20:00Z",
+  "input_gate": {
+    "source_task": "SEO-ARTICLE-RIASEC-V2-POST-PUBLISH-SMOKE-02",
+    "source_artifact": "docs/seo/generated/riasec-v2-post-publish-smoke-02.v1.json",
+    "source_decision": "passed_ready_for_search_submission_preflight_only",
+    "source_pr": "https://github.com/fermatmind/fap-web/pull/1070",
+    "source_merge_commit": "538c329a5165c46dc52beceece343e8a8745edba"
+  },
+  "scope": {
+    "mode": "search_submission_preflight_only",
+    "cms_mutation_performed": false,
+    "article_content_changed": false,
+    "publish_action_performed": false,
+    "search_submission_performed": false,
+    "search_api_call_performed": false,
+    "search_dashboard_mutation_performed": false,
+    "deploy_performed_by_this_task": false,
+    "private_url_access_performed": false
+  },
+  "canonical_submission_candidates": [
+    {
+      "locale": "zh",
+      "article_id": 40,
+      "url": "https://fermatmind.com/zh/articles/riasec-holland-career-interest-test-explained",
+      "status": 200,
+      "canonical": "https://fermatmind.com/zh/articles/riasec-holland-career-interest-test-explained",
+      "robots": "index, follow",
+      "sitemap_hit_count": 1,
+      "llms_txt_hit_count": 1,
+      "llms_full_txt_hit_count": 2,
+      "allowed_for_manual_search_submission_after_exact_authorization": true
+    },
+    {
+      "locale": "en",
+      "article_id": 41,
+      "url": "https://fermatmind.com/en/articles/what-is-riasec-holland-code-career-interest-test",
+      "status": 200,
+      "canonical": "https://fermatmind.com/en/articles/what-is-riasec-holland-code-career-interest-test",
+      "robots": "index, follow",
+      "sitemap_hit_count": 1,
+      "llms_txt_hit_count": 1,
+      "llms_full_txt_hit_count": 2,
+      "allowed_for_manual_search_submission_after_exact_authorization": true
+    }
+  ],
+  "discoverability_preflight": {
+    "robots_txt": {
+      "url": "https://fermatmind.com/robots.txt",
+      "status": 200,
+      "content_type": "text/plain",
+      "sitemap_directive": "Sitemap: https://fermatmind.com/sitemap.xml",
+      "private_url_detected_in_extracted_urls": false
+    },
+    "sitemap": {
+      "url": "https://fermatmind.com/sitemap.xml",
+      "status": 200,
+      "content_type": "application/xml",
+      "cache_control": "public, max-age=0",
+      "last_modified": "Mon, 08 Jun 2026 03:54:16 GMT",
+      "loc_count": 2274,
+      "zh_article_hit_count": 1,
+      "en_article_hit_count": 1,
+      "private_url_detected_in_extracted_urls": false
+    },
+    "llms_txt": {
+      "url": "https://fermatmind.com/llms.txt",
+      "status": 200,
+      "zh_article_hit_count": 1,
+      "en_article_hit_count": 1,
+      "private_url_detected_in_extracted_urls": false
+    },
+    "llms_full_txt": {
+      "url": "https://fermatmind.com/llms-full.txt",
+      "status": 200,
+      "zh_article_hit_count": 2,
+      "en_article_hit_count": 2,
+      "private_url_detected_in_extracted_urls": false
+    }
+  },
+  "article_runtime_preflight": {
+    "required_json_ld_types": ["Article", "BreadcrumbList", "FAQPage"],
+    "faq_schema_entries_per_article": 6,
+    "cta_target_routes": [
+      "/zh/tests/holland-career-interest-test-riasec",
+      "/en/tests/holland-career-interest-test-riasec"
+    ],
+    "cta_routes_public_canonical_only": true,
+    "tracking_contract": "tests/contracts/seo-cms-canary-web01-article-to-test-click.contract.test.tsx",
+    "private_url_detected_in_extracted_article_urls": false
+  },
+  "search_channel_preflight": {
+    "gsc": {
+      "channel": "Google Search Console",
+      "preflight_decision": "eligible_after_exact_search_submission_authorization",
+      "allowed_candidate_urls": [
+        "https://fermatmind.com/zh/articles/riasec-holland-career-interest-test-explained",
+        "https://fermatmind.com/en/articles/what-is-riasec-holland-code-career-interest-test",
+        "https://fermatmind.com/sitemap.xml"
+      ],
+      "credential_status": "Unknown",
+      "current_index_status": "Unknown",
+      "submission_performed": false,
+      "api_call_performed": false,
+      "operator_action_required": "Use only public canonical URLs above after separate exact search submission authorization."
+    },
+    "baidu": {
+      "channel": "Baidu Webmaster",
+      "preflight_decision": "eligible_for_zh_canonical_after_exact_search_submission_authorization",
+      "allowed_candidate_urls": [
+        "https://fermatmind.com/zh/articles/riasec-holland-career-interest-test-explained",
+        "https://fermatmind.com/sitemap.xml"
+      ],
+      "en_article_submission_priority": "Unknown",
+      "credential_status": "Unknown",
+      "current_index_status": "Unknown",
+      "submission_performed": false,
+      "api_call_performed": false,
+      "operator_action_required": "Submit only the zh public canonical article URL and/or canonical sitemap after separate exact search submission authorization."
+    },
+    "indexnow": {
+      "channel": "IndexNow",
+      "preflight_decision": "eligible_after_exact_search_submission_authorization",
+      "allowed_candidate_urls": [
+        "https://fermatmind.com/zh/articles/riasec-holland-career-interest-test-explained",
+        "https://fermatmind.com/en/articles/what-is-riasec-holland-code-career-interest-test"
+      ],
+      "keylocation_url": "https://fermatmind.com/<indexnow-key>.txt",
+      "keylocation_status": 200,
+      "keylocation_body_length": 32,
+      "keylocation_sha256_matches_expected": true,
+      "raw_key_printed": false,
+      "credential_status": "public_keylocation_verified_only",
+      "current_index_status": "Unknown",
+      "submission_performed": false,
+      "api_call_performed": false,
+      "operator_action_required": "Do not call IndexNow until separate exact search submission authorization is provided."
+    }
+  },
+  "hard_blocks_remaining": [
+    "No GSC, Baidu, IndexNow, sitemap, or URL submission may be performed without separate exact search submission authorization.",
+    "Do not submit non-canonical, draft, noindex, private, tokenized, result, orders, share, pay, payment, or history URLs.",
+    "Do not use search console observations as content authority; CMS/backend canonical truth remains authoritative."
+  ],
+  "private_url_boundary": {
+    "checked_surfaces": [
+      "public article HTML URL attributes",
+      "robots.txt",
+      "sitemap.xml loc entries",
+      "llms.txt extracted URLs",
+      "llms-full.txt extracted URLs"
+    ],
+    "result_url_seen": false,
+    "orders_url_seen": false,
+    "share_url_seen": false,
+    "pay_url_seen": false,
+    "payment_url_seen": false,
+    "history_url_seen": false,
+    "private_url_seen": false,
+    "tokenized_url_seen": false
+  },
+  "search_submission_status": {
+    "gsc_submission_performed": false,
+    "baidu_submission_performed": false,
+    "indexnow_submission_performed": false,
+    "sitemap_submission_performed": false,
+    "url_submission_performed": false,
+    "external_search_api_call_performed": false,
+    "manual_dashboard_write_performed": false
+  },
+  "next_allowed_step": "Operator may provide separate exact search submission authorization for a named channel and candidate URL set.",
+  "repository_rule_impact": "No content authority, sitemap generation, llms generation, runtime route, CMS, or search-channel behavior changed. This PR records preflight evidence only."
+}
