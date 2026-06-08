@@ -20741,7 +20741,7 @@
       "repo": "fap-web",
       "branch": "codex/seo-sitemap-stability-01",
       "base": "origin/main",
-      "status": "local_checks_passed",
+      "status": "github_checks_pending",
       "train_scope": "sitemap_stability",
       "title": "SEO-SITEMAP-STABILITY-01: fix(seo): harden frontend sitemap generation fallback",
       "depends_on": [],
@@ -20779,11 +20779,15 @@
             "git diff --cached --check"
           ],
           "evidence": "Final rerun after private-sitemap reuse guard: focused sitemap fallback contract passed (3 tests), seo:generate-sitemap passed, seo:check-sitemap passed with 2274 urls, typecheck passed, production-API Next build and postbuild sitemap passed, full pnpm test:contract passed with 463 files and 2636 tests, JSON/YAML parse passed, git diff --check passed, and git diff --cached --check passed before commit."
+        },
+        "github": {
+          "status": "pending",
+          "evidence": "PR #1077 opened from codex/seo-sitemap-stability-01 after local validation passed; GitHub checks pending after initial push."
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1077",
+      "commit_sha": "e6ad6459da7708f99930b49b5f52b90f53f63291",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -20802,6 +20806,11 @@
           "at": "2026-06-08",
           "status": "local_checks_passed",
           "note": "Revalidated after adding a private URL family guard for existing sitemap reuse; staged diff passed git diff --cached --check."
+        },
+        {
+          "at": "2026-06-08",
+          "status": "github_checks_pending",
+          "note": "Opened fap-web PR #1077 for SEO-SITEMAP-STABILITY-01 after scoped local validation passed."
         }
       ]
     },
