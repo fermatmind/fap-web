@@ -20179,7 +20179,7 @@
       "repo": "fap-web",
       "branch": "codex/daily-giving-indexability-gate-01",
       "base": "main",
-      "status": "github_checks_pending",
+      "status": "github_checks_passed_pending_external_merge",
       "title": "test(benefit): keep DailyGiving noindex and out of llms",
       "depends_on": [
         "DAILY-GIVING-PUBLIC-API-SMOKE-01"
@@ -20854,7 +20854,7 @@
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1080",
-      "commit_sha": "5620aa24ba589cec2149f5cfe9597f27302a866b",
+      "commit_sha": "d44826d84447b80521a72bdedc09fe8b31a6d4c3",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false
@@ -20935,6 +20935,11 @@
           "at": "2026-06-08",
           "status": "github_checks_pending",
           "note": "Opened fap-web PR #1080 at https://github.com/fermatmind/fap-web/pull/1080 from implementation commit 5620aa24ba589cec2149f5cfe9597f27302a866b; GitHub checks pending."
+        },
+        {
+          "at": "2026-06-08",
+          "status": "github_checks_passed_pending_external_merge",
+          "note": "GitHub checks passed for PR #1080 head d44826d84447b80521a72bdedc09fe8b31a6d4c3: CodeQL, analyze, build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze. Manifest merge_policy.auto_merge is false, so merge remains pending external authorization."
         }
       ]
     },
