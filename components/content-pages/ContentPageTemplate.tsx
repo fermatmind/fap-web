@@ -217,6 +217,26 @@ function buildRelatedLinks(page: ContentPage, locale: Locale) {
   }));
 }
 
+function SupportContactCard({ page, locale }: { page: ContentPage; locale: Locale }) {
+  if (page.kind !== "help" || !page.supportContact) {
+    return null;
+  }
+
+  return (
+    <div className="space-y-3 border-t border-[var(--fm-border)] pt-5" data-testid="help-support-contact">
+      <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-text-muted)]">
+        {locale === "zh" ? "联系支持" : "Contact support"}
+      </p>
+      <a
+        href={`mailto:${page.supportContact}`}
+        className="break-all text-sm font-medium text-[var(--fm-text)] hover:text-[var(--fm-accent)]"
+      >
+        {page.supportContact}
+      </a>
+    </div>
+  );
+}
+
 export function ContentPageTemplate({ page, locale }: { page: ContentPage; locale: Locale }) {
   const toc = buildToc(page);
   const relatedLinks = buildRelatedLinks(page, locale);
@@ -314,6 +334,8 @@ export function ContentPageTemplate({ page, locale }: { page: ContentPage; local
                 </div>
               </nav>
             ) : null}
+
+            <SupportContactCard page={page} locale={locale} />
 
             <div className="space-y-3 border-t border-[var(--fm-border)] pt-5">
               <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-text-muted)]">

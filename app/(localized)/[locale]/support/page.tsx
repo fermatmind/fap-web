@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/layout/Container";
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
+import { getContentPage } from "@/lib/cms/content-pages";
 import { getHelpGatewaySurface } from "@/lib/publicGateway";
 import { buildInterpretationGuidePath, buildSupportArticlePath, listInterpretationGuides, listSupportArticles } from "@/lib/cms/supportTrust";
 import { resolveLocale } from "@/lib/i18n/getDict";
@@ -21,6 +22,7 @@ function labels(locale: Locale) {
       methodBoundariesBadge: "信任",
       supportArticlesTitle: "支持文章",
       guidesTitle: "结果解读指南",
+      contactTitle: "联系支持",
       viewAll: "查看详情",
       emptySupportArticles: "当前还没有公开的支持文章。",
       emptyGuides: "当前还没有公开的结果解读指南。",
@@ -40,6 +42,7 @@ function labels(locale: Locale) {
     methodBoundariesBadge: "Trust",
     supportArticlesTitle: "Support articles",
     guidesTitle: "Interpretation guides",
+    contactTitle: "Contact support",
     viewAll: "View details",
     emptySupportArticles: "No public support articles are published yet.",
     emptyGuides: "No public interpretation guides are published yet.",
@@ -102,6 +105,24 @@ function SectionCard({
   );
 }
 
+const SUPPORT_CONTACT_SOURCE_SLUGS = [
+  "help-contact",
+  "help-payment-refund",
+  "help-unlock-failure",
+  "help-result-recovery",
+] as const;
+
+async function getSupportContact(locale: Locale): Promise<string | null> {
+  for (const slug of SUPPORT_CONTACT_SOURCE_SLUGS) {
+    const page = await getContentPage(slug, locale).catch(() => null);
+    if (page?.supportContact) {
+      return page.supportContact;
+    }
+  }
+
+  return null;
+}
+
 export default async function SupportPage({
   params,
 }: {
@@ -111,10 +132,11 @@ export default async function SupportPage({
   const locale = resolveLocale(localeParam);
   const copy = labels(locale);
 
-  const [gateway, supportArticles, guides] = await Promise.all([
+  const [gateway, supportArticles, guides, supportContact] = await Promise.all([
     getHelpGatewaySurface(locale),
     listSupportArticles(locale).catch(() => []),
     listInterpretationGuides(locale).catch(() => []),
+    getSupportContact(locale),
   ]);
 
   if (!gateway?.landingSurface) {
@@ -212,6 +234,22 @@ export default async function SupportPage({
           </div>
 
           <aside className="space-y-5 lg:sticky lg:top-24">
+            {supportContact ? (
+              <section
+                className="rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5"
+                data-testid="support-contact-card"
+              >
+                <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-text-muted)]">
+                  {copy.contactTitle}
+                </p>
+                <a
+                  href={`mailto:${supportContact}`}
+                  className="mt-3 block break-all text-sm font-semibold text-[var(--fm-text)] hover:text-[var(--fm-accent)]"
+                >
+                  {supportContact}
+                </a>
+              </section>
+            ) : null}
             <AnswerSurfaceSection
               surface={gateway.answerSurface}
               locale={locale}

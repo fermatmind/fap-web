@@ -37,6 +37,7 @@ export type ContentPage = {
   metaDescription: string | null;
   faqItems: ContentPageFAQItem[];
   schemaEnabled: boolean;
+  supportContact: string | null;
 };
 
 export type ContentPageSummary = Pick<
@@ -114,6 +115,8 @@ type ContentPageApiRecord = {
   faqItems?: unknown;
   schema_enabled?: boolean | number | string | null;
   schemaEnabled?: boolean | number | string | null;
+  support_contact?: string | null;
+  supportContact?: string | null;
 };
 
 type ContentPageApiResponse = {
@@ -311,6 +314,7 @@ function normalizeContentPage(record: ContentPageApiRecord): ContentPage | null 
     metaDescription: normalizeText(record.meta_description ?? record.metaDescription) || null,
     faqItems: normalizeFaqItems(record.faq_items ?? record.faqItems),
     schemaEnabled: normalizeBoolean(record.schema_enabled ?? record.schemaEnabled),
+    supportContact: normalizeText(record.support_contact ?? record.supportContact) || null,
   };
 }
 

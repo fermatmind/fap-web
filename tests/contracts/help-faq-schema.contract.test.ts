@@ -60,6 +60,7 @@ function makeContentPage(overrides: Partial<ContentPage> = {}): ContentPage {
     metaDescription: null,
     faqItems,
     schemaEnabled: true,
+    supportContact: null,
     ...overrides,
   };
 }

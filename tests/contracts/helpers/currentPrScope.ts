@@ -76,6 +76,17 @@ const HELP_SERVICE_FAQ_SCHEMA_RUNTIME_R2_01_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const HELP_SUPPORT_CONTACT_RUNTIME_01_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/support/page.tsx",
+  "components/content-pages/ContentPageTemplate.tsx",
+  "lib/cms/content-pages.ts",
+  "tests/contracts/cms-rich-content-sanitization.contract.test.tsx",
+  "tests/contracts/help-faq-schema.contract.test.ts",
+  "tests/contracts/help-pages-noindex-runtime.contract.test.ts",
+  "tests/contracts/help-support-contact-runtime-01.contract.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 const ORDER_LOOKUP_RECOVERY_CONTRACT_STABILIZE_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
   "tests/contracts/order-lookup-recovery.contract.test.tsx",
@@ -2117,6 +2128,14 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (CURRENT_BRANCH === "codex/help-service-faq-schema-runtime-r2-01") {
     return (
       HELP_SERVICE_FAQ_SCHEMA_RUNTIME_R2_01_ALLOWED_FILES.has(file) ||
+      RIASEC_V2_POST_PUBLISH_SMOKE_02_ALLOWED_FILES.has(file) ||
+      RIASEC_V2_SEARCH_SUBMISSION_PREFLIGHT_01_ALLOWED_FILES.has(file)
+    );
+  }
+
+  if (CURRENT_BRANCH === "codex/help-support-contact-runtime-01") {
+    return (
+      HELP_SUPPORT_CONTACT_RUNTIME_01_ALLOWED_FILES.has(file) ||
       RIASEC_V2_POST_PUBLISH_SMOKE_02_ALLOWED_FILES.has(file) ||
       RIASEC_V2_SEARCH_SUBMISSION_PREFLIGHT_01_ALLOWED_FILES.has(file)
     );

@@ -32,6 +32,7 @@ function makeHelpPage(overrides: Partial<ContentPage> = {}): ContentPage {
     metaDescription: null,
     faqItems: [],
     schemaEnabled: false,
+    supportContact: null,
     ...overrides,
   };
 }
