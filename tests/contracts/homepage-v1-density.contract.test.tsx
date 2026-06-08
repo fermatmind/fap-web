@@ -1,8 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
 import type { ReactNode } from "react";
-import { render, screen } from "@testing-library/react";
-import { describe, expect, it, vi } from "vitest";
+import { render, screen, waitFor } from "@testing-library/react";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { HomePageExperience } from "@/components/marketing/HomePageExperience";
 import type { CmsArticle } from "@/lib/cms/articles";
 import type { HomePageContent } from "@/lib/marketing/homepageContent";
@@ -91,11 +91,36 @@ vi.mock("next/link", () => ({
   }) => <a href={href} data-prefetch={prefetch ? "true" : undefined} {...props}>{children}</a>,
 }));
 
+class MockProbeImage {
+  complete = false;
+  naturalWidth = 0;
+  onload: (() => void) | null = null;
+  onerror: (() => void) | null = null;
+
+  set src(value: string) {
+    queueMicrotask(() => {
+      this.complete = true;
+      this.naturalWidth = value.includes("missing-cover") || value.includes("broken") ? 0 : 800;
+
+      if (this.naturalWidth > 0) {
+        this.onload?.();
+        return;
+      }
+
+      this.onerror?.();
+    });
+  }
+}
+
 function read(relPath: string): string {
   return fs.readFileSync(path.join(process.cwd(), relPath), "utf8");
 }
 
 describe("homepage v1 density contract", () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
   it("removes homepage version selection and heavy legacy surfaces", async () => {
     render(<HomePageExperience locale="zh" copy={homeCopy} />);
 
@@ -126,8 +151,8 @@ describe("homepage v1 density contract", () => {
     expect(source).toContain("min-h-[34rem] overflow-hidden bg-orange-50");
     expect(source).toContain("rounded-[100%] bg-white");
     expect(source).toContain("copy.hero.primaryCta");
-    expect(source).toContain("copy.hero.secondaryCta");
-    expect(source).toContain("copy.hero.tertiaryCta");
+    expect(source).not.toContain("copy.hero.secondaryCta");
+    expect(source).not.toContain("copy.hero.tertiaryCta");
     expect(source).toContain("function HomepageHighlightedTestsBanner");
     expect(source).toContain("function listCoreHomepageTests");
     expect(source).toContain("supplementalTests.map(homeLinkFromHubCard)");
@@ -153,8 +178,9 @@ describe("homepage v1 density contract", () => {
     expect(source).toContain("type HomeArticle = CmsArticle");
     expect(source).toContain("ArticleResponsiveImage");
     expect(source).toContain("function ArticleCoverVisual");
-    expect(source).toContain("function ArticleVisual");
-    expect(source).toContain("bg-gradient-to-br");
+    expect(source).toContain("src={article.coverImageUrl ?? null}");
+    expect(source).not.toContain("function ArticleVisual");
+    expect(source).not.toContain("bg-gradient-to-br");
 
     expect(source).not.toContain("py-16 text-slate-950 md:py-24");
     expect(source).not.toContain("HeroLandingIllustration");
@@ -193,6 +219,8 @@ describe("homepage v1 density contract", () => {
   });
 
   it("renders priority paths, filters clinical entries, and keeps CMS-driven article grid", async () => {
+    vi.stubGlobal("Image", MockProbeImage);
+
     const articles: CmsArticle[] = [
       {
         id: 1,
@@ -261,10 +289,16 @@ describe("homepage v1 density contract", () => {
       "href",
       "/zh/articles/how-personality-shapes-attitude-toward-ai"
     );
-    expect(screen.getByRole("img", { name: "抽象职业罗盘与六个方向节点" })).toHaveAttribute(
-      "src",
-      "https://assets.fermatmind.com/storage/media-library/holland-career-interest-test-riasec-card.jpg"
-    );
+    await waitFor(() => {
+      const renderedCovers = Array.from(document.querySelectorAll('[data-cms-image-rendered="background"]'));
+
+      expect(
+        renderedCovers.some((cover) =>
+          cover.getAttribute("style")?.includes("holland-career-interest-test-riasec-card.jpg")
+        )
+      ).toBe(true);
+    });
+    expect(screen.queryByRole("img", { name: "抽象职业罗盘与六个方向节点" })).not.toBeInTheDocument();
     expect(screen.getByRole("link", { name: /查看全部文章/ })).toHaveAttribute("href", "/zh/articles");
   });
 });

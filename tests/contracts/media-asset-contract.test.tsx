@@ -45,8 +45,8 @@ describe("media asset contract", () => {
       />
     );
 
-    const fallback = screen.getByRole("img", { name: "Article cover" });
-    expect(fallback.tagName.toLowerCase()).toBe("div");
+    const fallback = document.querySelector('[data-cms-image-fallback="true"]');
+    expect(fallback).not.toBeNull();
     expect(screen.queryByAltText("Article cover")).not.toBeInTheDocument();
   });
 });

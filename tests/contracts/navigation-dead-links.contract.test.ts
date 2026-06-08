@@ -30,6 +30,12 @@ describe("navigation dead link contract", () => {
     for (const href of KNOWN_EN_ARTICLE_404_LINKS) {
       expect(footer).not.toContain(`href: "${href}"`);
     }
-    expect(footer).toContain('{ href: "/articles", label: "All articles" }');
+    expect(footer).not.toContain('{ href: "/articles", label: "All articles" }');
+    expect(footer).toContain('{ href: "/topics", label: "Topics" }');
+    expect(footer).toContain('{ href: "/career/guides", label: "Assessment Guides" }');
+    expect(footer).toContain('{ href: "/articles", label: "Journal" }');
+    expect(footer).toContain('{ href: "/articles", label: "Research reports" }');
+    expect(footer).toContain('{ href: "/science", label: "Assessment science" }');
+    expect(footer).toContain('{ href: "/data-privacy", label: "Data notes" }');
   });
 });
