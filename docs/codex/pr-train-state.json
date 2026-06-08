@@ -20864,7 +20864,7 @@
       "repo": "fap-web",
       "branch": "codex/seo-sitemap-stability-03",
       "base": "origin/main",
-      "status": "planned",
+      "status": "local_checks_passed",
       "train_scope": "sitemap_stability",
       "title": "SEO-SITEMAP-STABILITY-03: test(seo): add live sitemap stability verifier",
       "depends_on": [
@@ -20872,13 +20872,36 @@
       ],
       "checks": {
         "dependency": {
-          "status": "pending"
+          "status": "pass",
+          "evidence": "fap-web PR #1077 / SEO-SITEMAP-STABILITY-01 was squash-merged at 2026-06-08T14:22:15Z with merge commit 916300d7a895439b2d0f707aa5285b0b5fbec46b. fap-api PR #2007 / SEO-SITEMAP-STABILITY-02 was also merged at 2026-06-08T14:54:11Z with merge commit ac2af02543c6956b5bce8d03a65a2aa7969c98a4; the fap-web mirror ledger for PR02 is stale sidecar metadata and is not a current-PR blocker under the user-provided execution protocol."
         },
         "scope": {
-          "status": "pending"
+          "status": "pass",
+          "allowed_paths": [
+            "scripts/seo/assert-live-sitemap-stability.mjs",
+            "package.json",
+            "tests/contracts/sitemap-live-stability.contract.test.ts",
+            "tests/contracts/helpers/currentPrScope.ts",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ],
+          "evidence": "git status --short shows only SEO-SITEMAP-STABILITY-03 allowed paths changed. Build/postbuild did not leave public/sitemap.xml or other generated artifact diffs."
         },
         "local": {
-          "status": "pending"
+          "status": "pass",
+          "commands": [
+            "pnpm install --frozen-lockfile",
+            "pnpm exec vitest run tests/contracts/sitemap-live-stability.contract.test.ts",
+            "pnpm seo:assert-live-sitemap-stability",
+            "pnpm seo:check-sitemap",
+            "pnpm test:contract",
+            "pnpm typecheck",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build",
+            "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "python3 -c \"import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')\"",
+            "git diff --check"
+          ],
+          "evidence": "Focused sitemap stability contract passed. Live sitemap stability verifier passed with 8/8 requests returning HTTP 200, stable loc_count=2274, and issue_count=0. seo:check-sitemap passed with 2274 urls. Full pnpm test:contract passed after scope-helper sidecar repair: 465 files and 2644 tests. pnpm typecheck passed. Production API build passed and postbuild sitemap generation completed."
         }
       },
       "failure_reason": null,
@@ -20886,7 +20909,29 @@
       "commit_sha": null,
       "merged_at": null,
       "remote_branch_deleted": false,
-      "local_cleanup_executed": false
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-06-08",
+          "status": "in_progress",
+          "note": "Created isolated fap-web worktree from latest origin/main for SEO-SITEMAP-STABILITY-03. Added live sitemap repeat-request verifier, package script, focused contract test, and branch-aware scope helper entry."
+        },
+        {
+          "at": "2026-06-08",
+          "status": "sidecar_issue_recorded",
+          "note": "Full pnpm test:contract initially failed because existing branch-aware scope tests did not recognize codex/seo-sitemap-stability-03; tests/contracts/helpers/currentPrScope.ts was added to the PR03 manifest scope to fix the current-PR scope-helper gap."
+        },
+        {
+          "at": "2026-06-08",
+          "status": "sidecar_issue_recorded",
+          "note": "After the PR03 scope helper entry, one merged-main sidecar contract for HELP-SUPPORT-CONTACT-RUNTIME-01 still required its already-merged allowlist to be recognized on this branch. Added that sidecar allowlist under the PR03 branch helper; this was not a sitemap runtime behavior change."
+        },
+        {
+          "at": "2026-06-08",
+          "status": "local_checks_passed",
+          "note": "Live verifier, sitemap indexability, focused contract, full contract, typecheck, and production API build all passed locally. Live stability result: 8 consecutive https://fermatmind.com/sitemap.xml requests returned 200 with stable 2274 loc entries and no private URL family issues."
+        }
+      ]
     },
     {
       "id": "SEO-SITEMAP-STABILITY-04",

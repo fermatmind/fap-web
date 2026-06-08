@@ -13697,6 +13697,7 @@ prs:
       - scripts/seo/assert-live-sitemap-stability.mjs
       - package.json
       - tests/contracts/sitemap-live-stability.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
     required_local_checks:

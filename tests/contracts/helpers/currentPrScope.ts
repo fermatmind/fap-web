@@ -102,6 +102,15 @@ const SEO_SITEMAP_STABILITY_01_ALLOWED_FILES = new Set([
   "tests/contracts/sitemap-generation-fallback.contract.test.ts",
 ]);
 
+const SEO_SITEMAP_STABILITY_03_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train-state.json",
+  "docs/codex/pr-train.yaml",
+  "package.json",
+  "scripts/seo/assert-live-sitemap-stability.mjs",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/sitemap-live-stability.contract.test.ts",
+]);
+
 const PR_WEB_SEC_01_ALLOWED_FILES = new Set([
   "components/result/eq/EQResultV5.tsx",
   "components/result/eq/utils.ts",
@@ -2152,6 +2161,15 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (CURRENT_BRANCH === "codex/seo-sitemap-stability-01") {
     return (
       SEO_SITEMAP_STABILITY_01_ALLOWED_FILES.has(file) ||
+      RIASEC_V2_POST_PUBLISH_SMOKE_02_ALLOWED_FILES.has(file) ||
+      RIASEC_V2_SEARCH_SUBMISSION_PREFLIGHT_01_ALLOWED_FILES.has(file)
+    );
+  }
+
+  if (CURRENT_BRANCH === "codex/seo-sitemap-stability-03") {
+    return (
+      SEO_SITEMAP_STABILITY_03_ALLOWED_FILES.has(file) ||
+      HELP_SUPPORT_CONTACT_RUNTIME_01_ALLOWED_FILES.has(file) ||
       RIASEC_V2_POST_PUBLISH_SMOKE_02_ALLOWED_FILES.has(file) ||
       RIASEC_V2_SEARCH_SUBMISSION_PREFLIGHT_01_ALLOWED_FILES.has(file)
     );
