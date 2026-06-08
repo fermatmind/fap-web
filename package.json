@@ -27,6 +27,7 @@
     "seo:check-sitemap": "node scripts/seo/check-sitemap-indexability.mjs",
     "seo:check-mobile": "node scripts/seo/check-mobile-seo-gate.mjs",
     "seo:assert-live-sitemap": "node scripts/seo/assert-live-sitemap-clean.mjs https://fermatmind.com/sitemap.xml",
+    "seo:assert-live-sitemap-stability": "node scripts/seo/assert-live-sitemap-stability.mjs https://fermatmind.com/sitemap.xml",
     "seo:assert-live-llms": "node scripts/seo/assert-live-llms-clean.mjs https://fermatmind.com/llms.txt",
     "seo:assert-live-llms-full": "node scripts/seo/assert-live-llms-clean.mjs https://fermatmind.com/llms-full.txt",
     "seo:push-baidu": "node scripts/seo/push-baidu.mjs",
