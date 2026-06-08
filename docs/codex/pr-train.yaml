@@ -13727,6 +13727,7 @@ prs:
     goal: "Add deployment smoke coverage for sitemap.xml so a release cannot pass with missing, empty, or 5xx sitemap output."
     artifacts:
       - scripts/deploy_web_pm2.sh
+      - tests/contracts/helpers/currentPrScope.ts
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
     required_local_checks:
