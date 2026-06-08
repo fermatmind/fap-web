@@ -301,9 +301,11 @@ describe("OrderLookupForm recovery contract", () => {
     await waitFor(() => {
       expect(screen.getByTestId("order-lookup-form-summary")).toHaveTextContent("MBTI · 144-question full version");
     });
-    expect(hoisted.fetchAttemptReportAccess).toHaveBeenCalledWith({
-      attemptId: "attempt-lookup-hub-1",
-      locale: "en",
+    await waitFor(() => {
+      expect(hoisted.fetchAttemptReportAccess).toHaveBeenCalledWith({
+        attemptId: "attempt-lookup-hub-1",
+        locale: "en",
+      });
     });
   });
 
