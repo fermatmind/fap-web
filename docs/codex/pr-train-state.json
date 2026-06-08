@@ -20636,9 +20636,114 @@
           "note": "Opened fap-web PR #1072 for HELP-SERVICE-FAQ-SCHEMA-RUNTIME-01."
         }
       ]
+    },
+    {
+      "id": "HELP-SERVICE-FAQ-SCHEMA-RUNTIME-R2-01",
+      "repo": "fap-web",
+      "branch": "codex/help-service-faq-schema-runtime-r2-01",
+      "base": "origin/main",
+      "status": "local_checks_passed_with_sidecar",
+      "train_scope": "window_9_help_service_content",
+      "title": "HELP-SERVICE-FAQ-SCHEMA-RUNTIME-R2-01: record Help FAQ schema blocker",
+      "depends_on": [
+        "HELP-CONTENT-DRAFT-POST-PUBLISH-SMOKE-R2-01"
+      ],
+      "checks": {
+        "dependency": {
+          "status": "pass",
+          "evidence": "User authorized R2 after HELP-CONTENT-DRAFT-POST-PUBLISH-SMOKE-R2-01 recorded that Help pages are published/noindex while FAQ schema remains blocked."
+        },
+        "scope": {
+          "status": "pass",
+          "allowed_paths": [
+            "docs/seo/help-service-faq-schema-runtime-r2-01.md",
+            "docs/seo/generated/help-service-faq-schema-runtime-r2-01.v1.json",
+            "tests/contracts/help-service-faq-schema-runtime-r2-01.contract.test.ts",
+            "tests/contracts/helpers/currentPrScope.ts",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ],
+          "evidence": "Changed files are limited to the R2 evidence report/artifact, focused contract, currentPrScope helper, and user-authorized PR-train manifest/state entries."
+        },
+        "local": {
+          "status": "pass_with_environment_sidecar",
+          "commands": [
+            "python3 -m json.tool docs/seo/generated/help-service-faq-schema-runtime-r2-01.v1.json >/dev/null",
+            "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "python3 -c \"import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')\"",
+            "pnpm exec vitest run tests/contracts/help-service-faq-schema-runtime-r2-01.contract.test.ts",
+            "pnpm typecheck",
+            "pnpm test:contract",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build",
+            "git diff --check",
+            "git diff --cached --check"
+          ],
+          "evidence": "JSON/YAML parse passed; focused R2 contract passed; pnpm typecheck passed; pnpm test:contract passed with 462 files and 2633 tests; production-env build passed; git diff --check passed. The optional unified pnpm verify:release-freeze contract subset passed but smoke/e2e startup was blocked by an unrelated local Node process from /Users/rainie/Desktop/GitHub/fap-web already listening on 127.0.0.1:3000."
+        },
+        "github": {
+          "status": "pending",
+          "head_sha": null,
+          "passed_checks": [],
+          "merge_state": null,
+          "failure_reason": null,
+          "merge_commit": null
+        }
+      },
+      "failure_reason": null,
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "scope_validation": {
+        "cms_mutation_performed": false,
+        "publish_performed": false,
+        "deploy_performed": false,
+        "search_submission_performed": false,
+        "private_url_access_performed": false,
+        "secret_env_cookie_token_read": false,
+        "payment_or_refund_performed": false,
+        "payment_provider_changed": false,
+        "operator_approval_claimed": false,
+        "frontend_hardcoded_faq_authority_added": false,
+        "frontend_bypassed_schema_enabled": false
+      },
+      "result": {
+        "decision": "blocked_by_cms_schema_disabled_and_visible_parity",
+        "frontend_runtime_repair_applied": false,
+        "next_task_recommendation": "HELP-CONTENT-DRAFT-SCHEMA-CMS-SYNC-01"
+      },
+      "transitions": [
+        {
+          "at": "2026-06-08",
+          "status": "in_progress",
+          "note": "Initialized the user-authorized read-only R2 blocker PR in an isolated fap-web worktree. Scope is limited to evidence docs/artifact, focused contract, scope helper, and PR-train metadata."
+        },
+        {
+          "at": "2026-06-08",
+          "status": "local_checks_passed_with_sidecar",
+          "note": "Manifest-required local checks passed: JSON/YAML parse, focused R2 contract, typecheck, full contract suite, production-env build, and git diff --check. Optional pnpm verify:release-freeze was not accepted as evidence because its Playwright webServer could not start while an unrelated primary-checkout next-server occupied 127.0.0.1:3000."
+        }
+      ]
     }
   ],
   "sidecar_issues": [
+    {
+      "title": "Optional release-freeze smoke blocked by unrelated local port 3000 server",
+      "severity": "P2",
+      "scope_impact": "The R2 PR is docs/evidence/contract only and does not change runtime behavior. Manifest-required local checks passed. The optional unified release-freeze script could not complete its Playwright smoke phase because 127.0.0.1:3000 was already occupied by a Node next-server whose cwd is /Users/rainie/Desktop/GitHub/fap-web, outside the isolated worktree.",
+      "introduced_by_current_pr": false,
+      "recommended_future_phase": "Free port 3000 or teach release_freeze_verify.sh/playwright config to use an isolated port before using pnpm verify:release-freeze as local acceptance evidence.",
+      "blocks_merge": false,
+      "evidence": [
+        "Command: pnpm verify:release-freeze",
+        "Contract freeze set inside the script passed: 6 files / 56 tests.",
+        "Failure: http://127.0.0.1:3000 is already used.",
+        "lsof: node PID 83056 listens on TCP *:3000.",
+        "lsof cwd for PID 83056: /Users/rainie/Desktop/GitHub/fap-web.",
+        "The current PR worktree is /private/tmp/fap-web-help-noindex-runtime."
+      ]
+    },
     {
       "title": "Full contract scope-boundary contracts fail on unrelated old PR scopes during DailyGiving proof_public_url adapter",
       "severity": "P2",

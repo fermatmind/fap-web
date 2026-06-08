@@ -1,0 +1,138 @@
+{
+  "schema_version": "help-service-faq-schema-runtime-r2-01.v1",
+  "generated_at": "2026-06-08",
+  "task": {
+    "id": "HELP-SERVICE-FAQ-SCHEMA-RUNTIME-R2-01",
+    "type": "frontend_schema_runtime_blocker_evidence",
+    "scope": "window_9_help_service_content"
+  },
+  "decision": {
+    "status": "BLOCKED_BY_CMS_SCHEMA_DISABLED_AND_VISIBLE_PARITY",
+    "frontend_runtime_repair_applied": false,
+    "reason": "The deployed frontend already gates Help FAQPage JSON-LD on backend/CMS schemaEnabled and visible FAQ parity. Public ContentPage API evidence shows schema_enabled=false and visible parity count 0 for all 12 Help service pages, so frontend must not bypass CMS/backend authority.",
+    "next_task_recommendation": "HELP-CONTENT-DRAFT-SCHEMA-CMS-SYNC-01"
+  },
+  "authority": {
+    "source": "backend_public_content_pages_api",
+    "frontend_must_not_override_schema_enabled": true,
+    "faqpage_requires_visible_faq_text": true,
+    "frontend_editorial_fallback_added": false
+  },
+  "production_public_api_evidence": {
+    "checked_pages": 12,
+    "http_200_count": 12,
+    "schema_enabled_true_count": 0,
+    "schema_enabled_false_count": 12,
+    "faq_items_count_per_page": 4,
+    "faq_items_total": 48,
+    "visible_parity_count_total": 0,
+    "content_html_present_count": 0,
+    "content_md_present_count": 12,
+    "private_tokenized_pattern_hits": 0,
+    "routes": [
+      {
+        "locale": "en",
+        "slug": "help-unlock-failure",
+        "schema_enabled": false,
+        "faq_items_count": 4,
+        "visible_parity_count": 0
+      },
+      {
+        "locale": "en",
+        "slug": "help-payment-refund",
+        "schema_enabled": false,
+        "faq_items_count": 4,
+        "visible_parity_count": 0
+      },
+      {
+        "locale": "en",
+        "slug": "help-result-recovery",
+        "schema_enabled": false,
+        "faq_items_count": 4,
+        "visible_parity_count": 0
+      },
+      {
+        "locale": "en",
+        "slug": "help-privacy-data",
+        "schema_enabled": false,
+        "faq_items_count": 4,
+        "visible_parity_count": 0
+      },
+      {
+        "locale": "en",
+        "slug": "help-use-boundaries",
+        "schema_enabled": false,
+        "faq_items_count": 4,
+        "visible_parity_count": 0
+      },
+      {
+        "locale": "en",
+        "slug": "help-data-deletion",
+        "schema_enabled": false,
+        "faq_items_count": 4,
+        "visible_parity_count": 0
+      },
+      {
+        "locale": "zh-CN",
+        "slug": "help-unlock-failure",
+        "schema_enabled": false,
+        "faq_items_count": 4,
+        "visible_parity_count": 0
+      },
+      {
+        "locale": "zh-CN",
+        "slug": "help-payment-refund",
+        "schema_enabled": false,
+        "faq_items_count": 4,
+        "visible_parity_count": 0
+      },
+      {
+        "locale": "zh-CN",
+        "slug": "help-result-recovery",
+        "schema_enabled": false,
+        "faq_items_count": 4,
+        "visible_parity_count": 0
+      },
+      {
+        "locale": "zh-CN",
+        "slug": "help-privacy-data",
+        "schema_enabled": false,
+        "faq_items_count": 4,
+        "visible_parity_count": 0
+      },
+      {
+        "locale": "zh-CN",
+        "slug": "help-use-boundaries",
+        "schema_enabled": false,
+        "faq_items_count": 4,
+        "visible_parity_count": 0
+      },
+      {
+        "locale": "zh-CN",
+        "slug": "help-data-deletion",
+        "schema_enabled": false,
+        "faq_items_count": 4,
+        "visible_parity_count": 0
+      }
+    ]
+  },
+  "frontend_source_evidence": {
+    "help_detail_route": "app/(localized)/[locale]/help/[slug]/page.tsx",
+    "uses_backend_content_page": true,
+    "schema_enabled_gate_present": true,
+    "visible_faq_parity_gate_present": true,
+    "faqpage_jsonld_builder_present": true,
+    "local_editorial_fallback_absent": true
+  },
+  "scope_validation": {
+    "cms_mutation_performed": false,
+    "publish_performed": false,
+    "deploy_performed": false,
+    "search_submission_performed": false,
+    "private_url_access_performed": false,
+    "secret_env_cookie_token_read": false,
+    "payment_or_refund_performed": false,
+    "payment_provider_changed": false,
+    "operator_approval_claimed": false
+  }
+}
