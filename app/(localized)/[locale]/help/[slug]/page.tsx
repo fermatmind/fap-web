@@ -95,6 +95,7 @@ export async function generateMetadata({
     pathname: buildContentPagePath(page.slug, locale),
     title: page.seoTitle || page.title,
     description: page.metaDescription || page.summary,
+    noindex: !page.isIndexable,
     alternatesByLocale: {
       en: buildContentPagePath(page.slug, "en"),
       zh: buildContentPagePath(page.slug, "zh"),
