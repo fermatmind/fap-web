@@ -58,6 +58,8 @@ function makeContentPage(contentHtml: string): ContentPage {
     contentHtml,
     seoTitle: null,
     metaDescription: null,
+    faqItems: [],
+    schemaEnabled: false,
   };
 }
 

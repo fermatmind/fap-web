@@ -25,6 +25,17 @@ Use the formal recovery paths first.
 
 Open Order lookup with your order number and purchase email.`;
 
+const faqItems = [
+  {
+    question: "How do I get my report after payment?",
+    answer: "Open Order lookup with your order number and purchase email.",
+  },
+  {
+    question: "Can I request a refund?",
+    answer: "Refund requests are handled according to our Refund Policy.",
+  },
+];
+
 function makeContentPage(overrides: Partial<ContentPage> = {}): ContentPage {
   return {
     slug: "help-faq",
@@ -47,6 +58,8 @@ function makeContentPage(overrides: Partial<ContentPage> = {}): ContentPage {
     contentHtml: "",
     seoTitle: null,
     metaDescription: null,
+    faqItems,
+    schemaEnabled: true,
     ...overrides,
   };
 }
@@ -79,7 +92,7 @@ async function renderHelpPage(slug: string, page: ContentPage) {
 }
 
 describe("help FAQ JSON-LD semantic baseline", () => {
-  it("emits FAQPage JSON-LD for help FAQ from the same questions visible in rendered HTML", async () => {
+  it("emits FAQPage JSON-LD for help FAQ from CMS faq_items when the same questions are visible", async () => {
     const html = await renderHelpPage("faq", makeContentPage());
 
     expect(html).toContain('id="help-faq-help-faq"');
@@ -94,8 +107,20 @@ describe("help FAQ JSON-LD semantic baseline", () => {
     expect(html).toContain("Refund requests are handled according to our Refund Policy.");
   });
 
-  it("limits markdown FAQPage extraction to the visible FAQ section", async () => {
-    const html = await renderHelpPage("faq", makeContentPage({ contentMd: mixedMarkdown }));
+  it("filters CMS faq_items that are not present in the rendered page body", async () => {
+    const html = await renderHelpPage(
+      "faq",
+      makeContentPage({
+        contentMd: mixedMarkdown,
+        faqItems: [
+          faqItems[0]!,
+          {
+            question: "This visible heading is not a FAQ item",
+            answer: "This answer is not visible in the page body.",
+          },
+        ],
+      })
+    );
 
     expect(html).toContain("This visible heading is not a FAQ item");
     expect(html).toContain('"@type":"FAQPage"');
@@ -112,36 +137,39 @@ describe("help FAQ JSON-LD semantic baseline", () => {
     expect(html).toContain('"@type":"BreadcrumbList"');
   });
 
-  it("does not infer FAQPage from HTML-only content without markdown authority", async () => {
+  it("can emit FAQPage from CMS faq_items for HTML-only content when visible parity holds", async () => {
     const html = await renderHelpPage(
       "faq",
       makeContentPage({
         contentMd: "",
         contentHtml:
           "<h2>Before you contact support</h2><h3>This visible heading is not a FAQ item</h3><p>Use formal recovery paths first.</p><h2>Frequently asked questions</h2><h3>How do I recover an order?</h3><p>Use Order lookup.</p><h2>Contact support</h2><p>This visible section is not part of the FAQ answer.</p>",
+        faqItems: [
+          {
+            question: "How do I recover an order?",
+            answer: "Use Order lookup.",
+          },
+        ],
       })
     );
 
-    expect(html).not.toContain('"@type":"FAQPage"');
-    expect(html).not.toContain('id="help-faq-help-faq"');
+    expect(html).toContain('"@type":"FAQPage"');
+    expect(html).toContain('id="help-faq-help-faq"');
     expect(html).toContain("This visible heading is not a FAQ item");
     expect(html).toContain("How do I recover an order?");
     expect(html).toContain("Use Order lookup.");
     expect(html).toContain("This visible section is not part of the FAQ answer.");
   });
 
-  it("does not emit FAQPage JSON-LD for non-FAQ help pages", async () => {
+  it("does not emit FAQPage JSON-LD when CMS schema_enabled is false", async () => {
     const html = await renderHelpPage(
-      "about",
+      "faq",
       makeContentPage({
-        slug: "help-about",
-        path: "/help/about",
-        title: "About help",
-        contentMd: "## About help\n\n### Is this a FAQ shaped heading?\n\nIt is visible content but not the FAQ page.",
+        schemaEnabled: false,
       })
     );
 
     expect(html).not.toContain('"@type":"FAQPage"');
-    expect(html).not.toContain('id="help-faq-help-about"');
+    expect(html).not.toContain('id="help-faq-help-faq"');
   });
 });
