@@ -35,6 +35,7 @@ function runInventory(...args: string[]): Inventory {
   const output = execFileSync("node", ["scripts/seo/generate-url-inventory.mjs", ...args], {
     cwd: ROOT,
     encoding: "utf8",
+    maxBuffer: 16 * 1024 * 1024,
   });
   return JSON.parse(output) as Inventory;
 }

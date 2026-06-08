@@ -25,7 +25,6 @@ const FORBIDDEN_FINAL_PATH_PATTERNS = [
   /^\/(?:en|zh)\/help$/i,
   /^\/(?:en|zh)\/refund$/i,
   /^\/zh\/help\/(?:about|team|used-and-mentioned)$/i,
-  /^\/en\/(?:brand|careers|charter|foundation|policies)$/i,
   /^\/datasets\/occupations(?:\/method)?$/i,
   /^\/(?:en|zh)\/datasets\/occupations(?:\/method)?$/i,
   /^\/ops(?:\/|$)/i,

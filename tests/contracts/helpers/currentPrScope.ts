@@ -1297,6 +1297,14 @@ const SEO_SITEMAP_P0_05_ALLOWED_FILES = new Set([
   "tests/contracts/sitemap-url-policy-decision.contract.test.ts",
 ]);
 
+const SITEMAP_FRONTEND_CONVERGENCE_ALLOWED_FILES = new Set([
+  "public/sitemap.xml",
+  "scripts/seo/check-sitemap-indexability.mjs",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/sitemap-indexability.contract.test.ts",
+  "tests/contracts/url-inventory-generator.contract.test.ts",
+]);
+
 const BACKEND_RUNTIME_02D_RECONCILE_ALLOWED_FILES = new Set([
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -1581,6 +1589,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/seo-sitemap-p0-05-url-truth-policy") {
     return SEO_SITEMAP_P0_05_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/sitemap-frontend-convergence") {
+    return SITEMAP_FRONTEND_CONVERGENCE_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/seo-cms-canary-web-01-article-to-test-tracking") {
