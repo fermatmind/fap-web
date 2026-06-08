@@ -1,0 +1,1305 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-06-08T16:28:13.669Z",
+  "source": {
+    "url": "https://api.fermatmind.com/api/v0.5/seo/sitemap-source",
+    "status": 200,
+    "count_field": 2391,
+    "url_count": 2391,
+    "cache_state": "stale",
+    "generated_at": null
+  },
+  "live_sitemap": {
+    "url": "https://fermatmind.com/sitemap.xml",
+    "status": 200,
+    "url_count": 2274,
+    "last_modified": "Mon, 08 Jun 2026 14:28:50 GMT"
+  },
+  "summary": {
+    "included_count": 2243,
+    "backend_only_count": 148,
+    "live_only_count": 31,
+    "net_source_minus_live": 117,
+    "private_live_url_count": 0,
+    "label_counts": {
+      "included": 2243,
+      "excluded_by_rule": 146,
+      "excluded_by_noindex": 2,
+      "excluded_by_private_path": 0,
+      "missing_unexpectedly": 31,
+      "cache_stale": 0,
+      "unknown": 0
+    },
+    "difference_label_counts": {
+      "excluded_by_rule": 146,
+      "excluded_by_noindex": 2,
+      "excluded_by_private_path": 0,
+      "missing_unexpectedly": 31,
+      "cache_stale": 0,
+      "unknown": 0
+    }
+  },
+  "rule_sources": {
+    "sitemapAuthorityAdapters": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES",
+    "indexingPolicy": "lib/seo/indexingPolicy.cjs:getNoindexReasonForPath",
+    "discoverabilityExposurePolicy": "lib/seo/discoverabilityExposurePolicy.cjs:DISCOVERABILITY_PRIVATE_PATH_PATTERNS",
+    "nextSitemapCatalog": "next-sitemap.config.js:scale catalog localized test URLs",
+    "backendSitemapGenerator": "fap-api/backend/app/Services/SEO/SitemapGenerator.php:getScaleUrls/static URLs"
+  },
+  "private_live_urls": [],
+  "differences": [
+    {
+      "url": "https://fermatmind.com/datasets/occupations",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Frontend sitemap authority adapters explicitly deny or exclude this static/help/dataset URL.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/datasets/occupations/method",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Frontend sitemap authority adapters explicitly deny or exclude this static/help/dataset URL.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/en/career/jobs",
+      "side": "backend_only",
+      "label": "excluded_by_noindex",
+      "explanation": "Frontend indexing policy marks this index page noindex, so it is intentionally absent live.",
+      "rule_source": "lib/seo/indexingPolicy.cjs:getNoindexReasonForPath"
+    },
+    {
+      "url": "https://fermatmind.com/en/help/about",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Frontend sitemap authority adapters explicitly deny or exclude this static/help/dataset URL.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/en/help/for-business-and-research",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Frontend sitemap authority adapters explicitly deny or exclude this static/help/dataset URL.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/en/help/team",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Frontend sitemap authority adapters explicitly deny or exclude this static/help/dataset URL.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/en/help/used-and-mentioned",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Frontend sitemap authority adapters explicitly deny or exclude this static/help/dataset URL.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/big-five-personality-test",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/big-five-personality-test-ocean-model",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/big5",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/big5-ocean",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/big5-ocean-test",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/big5-personality-test",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/career-interest-test",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/career-tests-riasec",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/clinical-combo-68",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/clinical-depression-anxiety-assessment-professional-edition",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/depression-anxiety-combo",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/depression-screening-test-standard-edition",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/emotional-intelligence-test",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/enneagram",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/enneagram-personality-test",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/enneagram-personality-test-nine-types",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/enneagram-test",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/eq-test",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/eq-test-emotional-intelligence-assessment",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/holland-career-interest-test-riasec",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/holland-code-career-test",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/iq_raven",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/iq-test",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/iq-test-intelligence-quotient-assessment",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/mbti",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/mbti-personality-test",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/mbti-personality-test-16-personality-types",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/mbti-test",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/nine-types-personality-test",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/personality-mbti-test",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-01",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-02",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-03",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-04",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-05",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-06",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-07",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-08",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-09",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-10",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-11",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-12",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-13",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-14",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-15",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-16",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-17",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-18",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-19",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-20",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-21",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-22",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-23",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-24",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-25",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-26",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-27",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-28",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-29",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-30",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-31",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-32",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-33",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-34",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-35",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-36",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-37",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-38",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-39",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-40",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-41",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-42",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-43",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-44",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-45",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-46",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-47",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-48",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-49",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-alias-50",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-01",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-02",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-03",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-04",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-05",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-06",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-07",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-08",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-09",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-10",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-11",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-12",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-13",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-14",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-15",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-16",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-17",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-18",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-19",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-20",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-21",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-22",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-23",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-24",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-25",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-26",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-27",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-28",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-29",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-30",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-31",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-32",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-33",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-34",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-35",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-36",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-37",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-38",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-39",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-40",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-41",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-42",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-43",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-44",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-45",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-46",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-47",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-48",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-49",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/pr24-primary-50",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/raven-iq-test",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/raven-matrices",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/riasec",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/riasec-test",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/sds-20",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/tests/zung-self-rating-depression-scale",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Backend source emits a root /tests/* alias while live sitemap uses localized canonical test URLs.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs",
+      "side": "backend_only",
+      "label": "excluded_by_noindex",
+      "explanation": "Frontend indexing policy marks this index page noindex, so it is intentionally absent live.",
+      "rule_source": "lib/seo/indexingPolicy.cjs:getNoindexReasonForPath"
+    },
+    {
+      "url": "https://fermatmind.com/zh/help/about",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Frontend sitemap authority adapters explicitly deny or exclude this static/help/dataset URL.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/zh/help/for-business-and-research",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Frontend sitemap authority adapters explicitly deny or exclude this static/help/dataset URL.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/zh/help/team",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Frontend sitemap authority adapters explicitly deny or exclude this static/help/dataset URL.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/zh/help/used-and-mentioned",
+      "side": "backend_only",
+      "label": "excluded_by_rule",
+      "explanation": "Frontend sitemap authority adapters explicitly deny or exclude this static/help/dataset URL.",
+      "rule_source": "lib/seo/sitemapAuthorityAdapters.cjs:SITEMAP_FINAL_PATH_DENY_PATTERNS,SITEMAP_ROUTE_EXCLUDES"
+    },
+    {
+      "url": "https://fermatmind.com/",
+      "side": "live_only",
+      "label": "missing_unexpectedly",
+      "explanation": "Public live sitemap URL is not represented in backend sitemap-source authority.",
+      "rule_source": "fap-api/backend/app/Services/SEO/SitemapGenerator.php:getScaleUrls/static URLs"
+    },
+    {
+      "url": "https://fermatmind.com/en",
+      "side": "live_only",
+      "label": "missing_unexpectedly",
+      "explanation": "Public live sitemap URL is not represented in backend sitemap-source authority.",
+      "rule_source": "fap-api/backend/app/Services/SEO/SitemapGenerator.php:getScaleUrls/static URLs"
+    },
+    {
+      "url": "https://fermatmind.com/en/business",
+      "side": "live_only",
+      "label": "missing_unexpectedly",
+      "explanation": "Public live sitemap URL is not represented in backend sitemap-source authority.",
+      "rule_source": "fap-api/backend/app/Services/SEO/SitemapGenerator.php:getScaleUrls/static URLs"
+    },
+    {
+      "url": "https://fermatmind.com/en/career",
+      "side": "live_only",
+      "label": "missing_unexpectedly",
+      "explanation": "Public live sitemap URL is not represented in backend sitemap-source authority.",
+      "rule_source": "fap-api/backend/app/Services/SEO/SitemapGenerator.php:getScaleUrls/static URLs"
+    },
+    {
+      "url": "https://fermatmind.com/en/career/guides",
+      "side": "live_only",
+      "label": "missing_unexpectedly",
+      "explanation": "Public live sitemap URL is not represented in backend sitemap-source authority.",
+      "rule_source": "fap-api/backend/app/Services/SEO/SitemapGenerator.php:getScaleUrls/static URLs"
+    },
+    {
+      "url": "https://fermatmind.com/en/career/recommendations",
+      "side": "live_only",
+      "label": "missing_unexpectedly",
+      "explanation": "Public live sitemap URL is not represented in backend sitemap-source authority.",
+      "rule_source": "fap-api/backend/app/Services/SEO/SitemapGenerator.php:getScaleUrls/static URLs"
+    },
+    {
+      "url": "https://fermatmind.com/en/career/tests",
+      "side": "live_only",
+      "label": "missing_unexpectedly",
+      "explanation": "Public live sitemap URL is not represented in backend sitemap-source authority.",
+      "rule_source": "fap-api/backend/app/Services/SEO/SitemapGenerator.php:getScaleUrls/static URLs"
+    },
+    {
+      "url": "https://fermatmind.com/en/support",
+      "side": "live_only",
+      "label": "missing_unexpectedly",
+      "explanation": "Public live sitemap URL is not represented in backend sitemap-source authority.",
+      "rule_source": "fap-api/backend/app/Services/SEO/SitemapGenerator.php:getScaleUrls/static URLs"
+    },
+    {
+      "url": "https://fermatmind.com/en/tests",
+      "side": "live_only",
+      "label": "missing_unexpectedly",
+      "explanation": "Public live sitemap URL is not represented in backend sitemap-source authority.",
+      "rule_source": "fap-api/backend/app/Services/SEO/SitemapGenerator.php:getScaleUrls/static URLs"
+    },
+    {
+      "url": "https://fermatmind.com/en/tests/big-five-personality-test-ocean-model",
+      "side": "live_only",
+      "label": "missing_unexpectedly",
+      "explanation": "Public live sitemap URL is not represented in backend sitemap-source authority.",
+      "rule_source": "next-sitemap.config.js:scale catalog localized test URLs"
+    },
+    {
+      "url": "https://fermatmind.com/en/tests/category/career",
+      "side": "live_only",
+      "label": "missing_unexpectedly",
+      "explanation": "Public live sitemap URL is not represented in backend sitemap-source authority.",
+      "rule_source": "next-sitemap.config.js:scale catalog localized test URLs"
+    },
+    {
+      "url": "https://fermatmind.com/en/tests/category/personality",
+      "side": "live_only",
+      "label": "missing_unexpectedly",
+      "explanation": "Public live sitemap URL is not represented in backend sitemap-source authority.",
+      "rule_source": "next-sitemap.config.js:scale catalog localized test URLs"
+    },
+    {
+      "url": "https://fermatmind.com/en/tests/enneagram-personality-test-nine-types",
+      "side": "live_only",
+      "label": "missing_unexpectedly",
+      "explanation": "Public live sitemap URL is not represented in backend sitemap-source authority.",
+      "rule_source": "next-sitemap.config.js:scale catalog localized test URLs"
+    },
+    {
+      "url": "https://fermatmind.com/en/tests/eq-test-emotional-intelligence-assessment",
+      "side": "live_only",
+      "label": "missing_unexpectedly",
+      "explanation": "Public live sitemap URL is not represented in backend sitemap-source authority.",
+      "rule_source": "next-sitemap.config.js:scale catalog localized test URLs"
+    },
+    {
+      "url": "https://fermatmind.com/en/tests/holland-career-interest-test-riasec",
+      "side": "live_only",
+      "label": "missing_unexpectedly",
+      "explanation": "Public live sitemap URL is not represented in backend sitemap-source authority.",
+      "rule_source": "next-sitemap.config.js:scale catalog localized test URLs"
+    },
+    {
+      "url": "https://fermatmind.com/en/tests/iq-test-intelligence-quotient-assessment",
+      "side": "live_only",
+      "label": "missing_unexpectedly",
+      "explanation": "Public live sitemap URL is not represented in backend sitemap-source authority.",
+      "rule_source": "next-sitemap.config.js:scale catalog localized test URLs"
+    },
+    {
+      "url": "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types",
+      "side": "live_only",
+      "label": "missing_unexpectedly",
+      "explanation": "Public live sitemap URL is not represented in backend sitemap-source authority.",
+      "rule_source": "next-sitemap.config.js:scale catalog localized test URLs"
+    },
+    {
+      "url": "https://fermatmind.com/zh/business",
+      "side": "live_only",
+      "label": "missing_unexpectedly",
+      "explanation": "Public live sitemap URL is not represented in backend sitemap-source authority.",
+      "rule_source": "fap-api/backend/app/Services/SEO/SitemapGenerator.php:getScaleUrls/static URLs"
+    },
+    {
+      "url": "https://fermatmind.com/zh/career",
+      "side": "live_only",
+      "label": "missing_unexpectedly",
+      "explanation": "Public live sitemap URL is not represented in backend sitemap-source authority.",
+      "rule_source": "fap-api/backend/app/Services/SEO/SitemapGenerator.php:getScaleUrls/static URLs"
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/recommendations",
+      "side": "live_only",
+      "label": "missing_unexpectedly",
+      "explanation": "Public live sitemap URL is not represented in backend sitemap-source authority.",
+      "rule_source": "fap-api/backend/app/Services/SEO/SitemapGenerator.php:getScaleUrls/static URLs"
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/tests",
+      "side": "live_only",
+      "label": "missing_unexpectedly",
+      "explanation": "Public live sitemap URL is not represented in backend sitemap-source authority.",
+      "rule_source": "fap-api/backend/app/Services/SEO/SitemapGenerator.php:getScaleUrls/static URLs"
+    },
+    {
+      "url": "https://fermatmind.com/zh/support",
+      "side": "live_only",
+      "label": "missing_unexpectedly",
+      "explanation": "Public live sitemap URL is not represented in backend sitemap-source authority.",
+      "rule_source": "fap-api/backend/app/Services/SEO/SitemapGenerator.php:getScaleUrls/static URLs"
+    },
+    {
+      "url": "https://fermatmind.com/zh/tests",
+      "side": "live_only",
+      "label": "missing_unexpectedly",
+      "explanation": "Public live sitemap URL is not represented in backend sitemap-source authority.",
+      "rule_source": "fap-api/backend/app/Services/SEO/SitemapGenerator.php:getScaleUrls/static URLs"
+    },
+    {
+      "url": "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model",
+      "side": "live_only",
+      "label": "missing_unexpectedly",
+      "explanation": "Public live sitemap URL is not represented in backend sitemap-source authority.",
+      "rule_source": "next-sitemap.config.js:scale catalog localized test URLs"
+    },
+    {
+      "url": "https://fermatmind.com/zh/tests/category/career",
+      "side": "live_only",
+      "label": "missing_unexpectedly",
+      "explanation": "Public live sitemap URL is not represented in backend sitemap-source authority.",
+      "rule_source": "next-sitemap.config.js:scale catalog localized test URLs"
+    },
+    {
+      "url": "https://fermatmind.com/zh/tests/category/personality",
+      "side": "live_only",
+      "label": "missing_unexpectedly",
+      "explanation": "Public live sitemap URL is not represented in backend sitemap-source authority.",
+      "rule_source": "next-sitemap.config.js:scale catalog localized test URLs"
+    },
+    {
+      "url": "https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types",
+      "side": "live_only",
+      "label": "missing_unexpectedly",
+      "explanation": "Public live sitemap URL is not represented in backend sitemap-source authority.",
+      "rule_source": "next-sitemap.config.js:scale catalog localized test URLs"
+    },
+    {
+      "url": "https://fermatmind.com/zh/tests/eq-test-emotional-intelligence-assessment",
+      "side": "live_only",
+      "label": "missing_unexpectedly",
+      "explanation": "Public live sitemap URL is not represented in backend sitemap-source authority.",
+      "rule_source": "next-sitemap.config.js:scale catalog localized test URLs"
+    },
+    {
+      "url": "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
+      "side": "live_only",
+      "label": "missing_unexpectedly",
+      "explanation": "Public live sitemap URL is not represented in backend sitemap-source authority.",
+      "rule_source": "next-sitemap.config.js:scale catalog localized test URLs"
+    },
+    {
+      "url": "https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment",
+      "side": "live_only",
+      "label": "missing_unexpectedly",
+      "explanation": "Public live sitemap URL is not represented in backend sitemap-source authority.",
+      "rule_source": "next-sitemap.config.js:scale catalog localized test URLs"
+    },
+    {
+      "url": "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
+      "side": "live_only",
+      "label": "missing_unexpectedly",
+      "explanation": "Public live sitemap URL is not represented in backend sitemap-source authority.",
+      "rule_source": "next-sitemap.config.js:scale catalog localized test URLs"
+    }
+  ]
+}

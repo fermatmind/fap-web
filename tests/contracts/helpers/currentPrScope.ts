@@ -118,6 +118,17 @@ const SEO_SITEMAP_STABILITY_04_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const SEO_SITEMAP_DIFF_01_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train-state.json",
+  "docs/codex/pr-train.yaml",
+  "docs/seo/generated/sitemap-diff-report.v1.json",
+  "docs/seo/sitemap_diff_report.md",
+  "package.json",
+  "scripts/seo/diff-sitemap-source-vs-live.mjs",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/sitemap-source-live-diff-report.contract.test.ts",
+]);
+
 const PR_WEB_SEC_01_ALLOWED_FILES = new Set([
   "components/result/eq/EQResultV5.tsx",
   "components/result/eq/utils.ts",
@@ -2185,6 +2196,15 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (CURRENT_BRANCH === "codex/seo-sitemap-stability-04") {
     return (
       SEO_SITEMAP_STABILITY_04_ALLOWED_FILES.has(file) ||
+      HELP_SUPPORT_CONTACT_RUNTIME_01_ALLOWED_FILES.has(file) ||
+      RIASEC_V2_POST_PUBLISH_SMOKE_02_ALLOWED_FILES.has(file) ||
+      RIASEC_V2_SEARCH_SUBMISSION_PREFLIGHT_01_ALLOWED_FILES.has(file)
+    );
+  }
+
+  if (CURRENT_BRANCH === "codex/seo-sitemap-diff-01") {
+    return (
+      SEO_SITEMAP_DIFF_01_ALLOWED_FILES.has(file) ||
       HELP_SUPPORT_CONTACT_RUNTIME_01_ALLOWED_FILES.has(file) ||
       RIASEC_V2_POST_PUBLISH_SMOKE_02_ALLOWED_FILES.has(file) ||
       RIASEC_V2_SEARCH_SUBMISSION_PREFLIGHT_01_ALLOWED_FILES.has(file)

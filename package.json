@@ -25,6 +25,7 @@
     "verify:pr": "pnpm lint . && pnpm typecheck && pnpm build && pnpm test:contract",
     "seo:generate-sitemap": "node scripts/seo/generate-sitemap.mjs",
     "seo:check-sitemap": "node scripts/seo/check-sitemap-indexability.mjs",
+    "seo:diff-sitemap-source-live": "node scripts/seo/diff-sitemap-source-vs-live.mjs",
     "seo:check-mobile": "node scripts/seo/check-mobile-seo-gate.mjs",
     "seo:assert-live-sitemap": "node scripts/seo/assert-live-sitemap-clean.mjs https://fermatmind.com/sitemap.xml",
     "seo:assert-live-sitemap-stability": "node scripts/seo/assert-live-sitemap-stability.mjs https://fermatmind.com/sitemap.xml",
