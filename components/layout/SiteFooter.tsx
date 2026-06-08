@@ -57,20 +57,8 @@ export function SiteFooter() {
         ];
   const methodLinks: FooterLinkItem[] =
     locale === "zh"
-      ? [
-          { href: "/science", label: "测评科学" },
-          { href: "/method-boundaries", label: "方法边界" },
-          { href: "/item-design-notes", label: "题目设计说明" },
-          { href: "/reliability-validity", label: "信度效度" },
-          { href: "/data-privacy", label: "数据说明" },
-        ]
-      : [
-          { href: "/science", label: "Assessment science" },
-          { href: "/method-boundaries", label: "Method boundaries" },
-          { href: "/item-design-notes", label: "Item design notes" },
-          { href: "/reliability-validity", label: "Reliability & validity" },
-          { href: "/data-privacy", label: "Data notes" },
-        ];
+      ? [{ href: "/method-boundaries", label: "方法边界" }]
+      : [{ href: "/method-boundaries", label: "Method boundaries" }];
   const companyLinks: FooterLinkItem[] =
     locale === "zh"
       ? [
