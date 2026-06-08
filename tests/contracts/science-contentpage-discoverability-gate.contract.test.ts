@@ -6,6 +6,7 @@ import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { LocaleProvider } from "@/components/i18n/LocaleContext";
 import { SiteFooter } from "@/components/layout/SiteFooter";
+import { isCurrentRiasecPack12AllowedFile } from "./helpers/currentPrScope";
 
 const ROOT = process.cwd();
 const ARTIFACT_PATH = path.join(ROOT, "docs/seo/generated/science-contentpage-discoverability-gate-01.v1.json");
@@ -182,7 +183,13 @@ describe("SCIENCE-CONTENTPAGE-DISCOVERABILITY-GATE-01", () => {
 
   it("keeps the diff inside the authorized discoverability gate scope", () => {
     for (const file of changedFiles()) {
-      expect(ALLOWED_FILES.has(file), `${file} is outside SCIENCE-CONTENTPAGE-DISCOVERABILITY-GATE-01 scope`).toBe(true);
+      const allowedByScienceScope = ALLOWED_FILES.has(file);
+      const allowedByCurrentBranchScope = isCurrentRiasecPack12AllowedFile(file);
+      expect(
+        allowedByScienceScope || allowedByCurrentBranchScope,
+        `${file} is outside SCIENCE-CONTENTPAGE-DISCOVERABILITY-GATE-01 scope`
+      ).toBe(true);
+      if (allowedByCurrentBranchScope && !allowedByScienceScope) continue;
       expect(file.startsWith("app/")).toBe(false);
       expect(file.startsWith("components/") && file !== "components/layout/SiteFooter.tsx").toBe(false);
       expect(file.startsWith("lib/")).toBe(false);

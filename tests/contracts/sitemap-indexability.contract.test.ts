@@ -1,3 +1,4 @@
+import fs from "node:fs";
 import path from "node:path";
 import { createRequire } from "node:module";
 import { afterEach, describe, expect, it, vi } from "vitest";
@@ -27,6 +28,12 @@ function loadSitemapConfig() {
 }
 
 describe("sitemap indexability contract", () => {
+  it("keeps approved English content pages out of stale command-line sitemap deny rules", () => {
+    const checkScript = fs.readFileSync(path.join(ROOT, "scripts/seo/check-sitemap-indexability.mjs"), "utf8");
+
+    expect(checkScript).not.toContain("^\\/en\\/(?:brand|careers|charter|foundation|policies)$");
+  });
+
   it("frontend sitemap config uses apex as the owned production host", () => {
     vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://www.fermatmind.com");
     expect(loadSitemapConfig().siteUrl).toBe("https://fermatmind.com");
