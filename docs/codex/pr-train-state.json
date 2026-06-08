@@ -20864,7 +20864,7 @@
       "repo": "fap-web",
       "branch": "codex/seo-sitemap-stability-03",
       "base": "origin/main",
-      "status": "local_checks_passed",
+      "status": "merged",
       "train_scope": "sitemap_stability",
       "title": "SEO-SITEMAP-STABILITY-03: test(seo): add live sitemap stability verifier",
       "depends_on": [
@@ -20902,14 +20902,26 @@
             "git diff --check"
           ],
           "evidence": "Focused sitemap stability contract passed. Live sitemap stability verifier passed with 8/8 requests returning HTTP 200, stable loc_count=2274, and issue_count=0. seo:check-sitemap passed with 2274 urls. Full pnpm test:contract passed after scope-helper sidecar repair: 465 files and 2644 tests. pnpm typecheck passed. Production API build passed and postbuild sitemap generation completed."
+        },
+        "github": {
+          "status": "pass",
+          "checks": [
+            "CodeQL",
+            "analyze (javascript-typescript)",
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze"
+          ],
+          "evidence": "fap-web PR #1080 merged at 2026-06-08T15:20:09Z with merge commit 58a23c947eb16afe140a14ca0cefa33038d60c78; origin/main contains the merge commit and post-merge cleanup completed before SEO-SITEMAP-STABILITY-04 began."
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1080",
+      "commit_sha": "ab17f18f313c43d63dd237a9debe500224df5f0d",
+      "merged_at": "2026-06-08T15:20:09Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-06-08",
@@ -20940,15 +20952,21 @@
           "at": "2026-06-08",
           "status": "github_checks_passed_pending_external_merge",
           "note": "GitHub checks passed for PR #1080 head d44826d84447b80521a72bdedc09fe8b31a6d4c3: CodeQL, analyze, build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze. Manifest merge_policy.auto_merge is false, so merge remains pending external authorization."
+        },
+        {
+          "at": "2026-06-08",
+          "status": "merged",
+          "note": "Reconciled stale ledger state for dependency resolution: GitHub reports PR #1080 merged; origin/main contains merge commit 58a23c947eb16afe140a14ca0cefa33038d60c78; local post-merge cleanup completed and both local/remote task branches were absent before PR04 started."
         }
-      ]
+      ],
+      "merge_sha": "58a23c947eb16afe140a14ca0cefa33038d60c78"
     },
     {
       "id": "SEO-SITEMAP-STABILITY-04",
       "repo": "fap-web",
       "branch": "codex/seo-sitemap-stability-04",
       "base": "origin/main",
-      "status": "planned",
+      "status": "local_checks_passed",
       "train_scope": "sitemap_stability",
       "title": "SEO-SITEMAP-STABILITY-04: fix(deploy): gate frontend release on sitemap.xml health",
       "depends_on": [
@@ -20956,21 +20974,73 @@
       ],
       "checks": {
         "dependency": {
-          "status": "pending"
+          "status": "pass",
+          "evidence": "Dependency SEO-SITEMAP-STABILITY-03 is merged in fap-web PR #1080 at 2026-06-08T15:20:09Z; origin/main contains merge commit 58a23c947eb16afe140a14ca0cefa33038d60c78."
         },
         "scope": {
-          "status": "pending"
+          "status": "pass",
+          "allowed_paths": [
+            "scripts/deploy_web_pm2.sh",
+            "tests/contracts/helpers/currentPrScope.ts",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ],
+          "evidence": "git diff --name-only matches the SEO-SITEMAP-STABILITY-04 manifest artifacts exactly: scripts/deploy_web_pm2.sh, tests/contracts/helpers/currentPrScope.ts, docs/codex/pr-train.yaml, and docs/codex/pr-train-state.json."
         },
         "local": {
-          "status": "pending"
+          "status": "pass",
+          "commands": [
+            "pnpm install --frozen-lockfile",
+            "bash -n scripts/deploy_web_pm2.sh",
+            "pnpm seo:check-sitemap",
+            "pnpm typecheck",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build",
+            "pnpm test:contract",
+            "pnpm exec vitest run tests/contracts/big5.contract.test.ts tests/contracts/big5-result-assembler.contract.test.ts tests/contracts/big5-secondary-surfaces.contract.test.tsx",
+            "pnpm exec vitest run tests/contracts/enneagram-api.contract.test.ts tests/contracts/enneagram-take-flow.contract.test.tsx tests/contracts/enneagram-result-assembler.contract.test.ts tests/contracts/enneagram-rich-result-report.contract.test.tsx tests/contracts/enneagram-secondary-surfaces.contract.test.tsx",
+            "pnpm lint .",
+            "pnpm test:a11y",
+            "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "python3 -c \"import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')\"",
+            "git diff --check",
+            "python3 - <<scope validation: changed files equal manifest artifacts>>"
+          ],
+          "evidence": "Manifest checks passed. typecheck passed. Production API/site URL build passed and postbuild sitemap generation completed without out-of-scope generated diffs. Full pnpm test:contract passed with 465 files and 2644 tests after registering PR04 in the current scope helper. Big Five freeze focused vitest passed with 3 files and 29 tests. Enneagram freeze focused vitest passed with 5 files and 23 tests. pnpm lint . passed with existing warnings only. pnpm test:a11y passed with 5 files and 8 tests. JSON/YAML parse and git diff --check passed."
         }
       },
       "failure_reason": null,
       "pr_url": null,
-      "commit_sha": null,
+      "commit_sha": "f844d781e49a8939566feff042454e38fa71a675",
       "merged_at": null,
       "remote_branch_deleted": false,
-      "local_cleanup_executed": false
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-06-08",
+          "status": "in_progress",
+          "note": "Created isolated fap-web worktree from latest origin/main for SEO-SITEMAP-STABILITY-04. Implementing deploy-time sitemap.xml health gate only in scripts/deploy_web_pm2.sh plus scoped train ledger updates."
+        },
+        {
+          "at": "2026-06-08",
+          "status": "scope_helper_registered",
+          "note": "Full contract suite initially failed because the current branch was not registered in tests/contracts/helpers/currentPrScope.ts. Added only SEO-SITEMAP-STABILITY-04 allowed files and updated manifest/state scope to include that helper."
+        },
+        {
+          "at": "2026-06-08",
+          "status": "local_checks_passed",
+          "note": "Deploy-time sitemap.xml health gate and PR04 scope helper registration completed. Manifest checks, typecheck, build, full contracts, focused Big Five/Enneagram freeze checks, lint, a11y, JSON/YAML parse, diff check, and manifest artifact scope validation passed."
+        },
+        {
+          "at": "2026-06-08",
+          "status": "commit_created",
+          "note": "Local commit created for SEO-SITEMAP-STABILITY-04: 7f63a65386cb7a2578f1c818090e8f682e1f0abe."
+        },
+        {
+          "at": "2026-06-08",
+          "status": "commit_amended",
+          "note": "Commit amended after ledger SHA recording; current commit is f844d781e49a8939566feff042454e38fa71a675."
+        }
+      ]
     }
   ],
   "sidecar_issues": [

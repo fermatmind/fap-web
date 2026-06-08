@@ -8,6 +8,9 @@ APP_HOST="${APP_HOST:-127.0.0.1}"
 APP_PORT="${APP_PORT:-3000}"
 PUBLIC_BASE_URL="${PUBLIC_BASE_URL:-https://fermatmind.com}"
 CORE_PUBLIC_PATH="${CORE_PUBLIC_PATH:-/zh/tests/clinical-depression-anxiety-assessment-professional-edition/take}"
+SITEMAP_PATH="${SITEMAP_PATH:-/sitemap.xml}"
+SITEMAP_URL="${SITEMAP_URL:-${PUBLIC_BASE_URL%/}${SITEMAP_PATH}}"
+SITEMAP_CURL_TIMEOUT_SEC="${SITEMAP_CURL_TIMEOUT_SEC:-20}"
 GIT_BRANCH="${GIT_BRANCH:-main}"
 EXPECTED_NODE_MAJOR="${EXPECTED_NODE_MAJOR:-24}"
 EXPECTED_NODE_BIN="${EXPECTED_NODE_BIN:-/usr/bin/node}"
@@ -97,6 +100,46 @@ probe_headers() {
   printf '%s\n' "$headers" | head -n 20
 }
 
+require_sitemap_health() {
+  local url="$1"
+  local body_file
+  local status
+  local loc_count
+
+  body_file="$(mktemp "${TMPDIR:-/tmp}/fap-web-sitemap.XXXXXX")"
+  trap 'rm -f "$body_file"' RETURN
+
+  if ! status="$(curl -sS --max-time "$SITEMAP_CURL_TIMEOUT_SEC" -o "$body_file" -w '%{http_code}' "$url")"; then
+    log "sitemap health failed: curl request failed url=${url}"
+    exit 1
+  fi
+
+  if [[ "$status" != "200" ]]; then
+    log "sitemap health failed: expected status=200 actual=${status} url=${url}"
+    exit 1
+  fi
+
+  if ! grep -Eiq '<loc>[[:space:]]*[^<]+' "$body_file"; then
+    log "sitemap health failed: no <loc> entries url=${url}"
+    exit 1
+  fi
+
+  if grep -Eiq '<loc>[[:space:]]*https?://[^<]+(/(en|zh))?/(result|results|order|orders|share|pay|payment|payments|history)(/|[?#]|<)' "$body_file"; then
+    log "sitemap health failed: private result/order/share/pay/history URL family found url=${url}"
+    exit 1
+  fi
+
+  if grep -Eiq '<loc>[[:space:]]*https?://[^<]+(/(en|zh))?/tests/[^/<]+/take(/|[?#]|<)' "$body_file"; then
+    log "sitemap health failed: private test take URL found url=${url}"
+    exit 1
+  fi
+
+  loc_count="$(grep -Eio '<loc>' "$body_file" | wc -l | tr -d '[:space:]')"
+  log "sitemap health passed: url=${url} status=${status} loc_count=${loc_count}"
+  rm -f "$body_file"
+  trap - RETURN
+}
+
 require_bin node
 require_bin git
 require_bin pnpm
@@ -174,6 +217,7 @@ probe_headers "${PUBLIC_BASE_URL}/en" 1
 probe_headers "${PUBLIC_BASE_URL}/zh" 1
 probe_headers "${PUBLIC_BASE_URL}/en/pay/wait" 1
 probe_headers "${PUBLIC_BASE_URL}${CORE_PUBLIC_PATH}" 1
+require_sitemap_health "$SITEMAP_URL"
 
 if [[ "$RUN_CMS_BASELINE_STAGING_SMOKE" == "1" ]]; then
   log "run staging CMS baseline smoke"
