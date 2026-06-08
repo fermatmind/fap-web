@@ -13548,3 +13548,55 @@ prs:
       squash: true
       auto_merge: true
     next_task: HELP-CONTENT-PAGES-CONTROLLED-PUBLISH-RUNTIME-01
+
+  - id: HELP-SERVICE-FAQ-SCHEMA-RUNTIME-R2-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/help-service-faq-schema-runtime-r2-01
+    base: main
+    title: "HELP-SERVICE-FAQ-SCHEMA-RUNTIME-R2-01: record Help FAQ schema blocker"
+    depends_on:
+      - HELP-CONTENT-DRAFT-POST-PUBLISH-SMOKE-R2-01
+    mode: read_only_audit_contract
+    train_scope: window_9_help_service_content
+    status: in_progress
+    goal: "Record that Help FAQPage JSON-LD remains blocked because the 12 Help pages have CMS FAQ items but schema_enabled is false and visible FAQ parity is not satisfied."
+    artifacts:
+      - docs/seo/help-service-faq-schema-runtime-r2-01.md
+      - docs/seo/generated/help-service-faq-schema-runtime-r2-01.v1.json
+      - tests/contracts/help-service-faq-schema-runtime-r2-01.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+    allowed_paths:
+      - docs/seo/help-service-faq-schema-runtime-r2-01.md
+      - docs/seo/generated/help-service-faq-schema-runtime-r2-01.v1.json
+      - tests/contracts/help-service-faq-schema-runtime-r2-01.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - CMS mutation
+      - content publish
+      - deploy
+      - search submission
+      - private result/order/share/pay/payment/history URL access
+      - secret env cookie token reads
+      - payment or refund action
+      - payment provider changes
+      - Operator approval claim
+      - frontend hardcoded FAQ copy authority
+      - frontend bypass of CMS schema_enabled
+    required_local_checks:
+      - python3 -m json.tool docs/seo/generated/help-service-faq-schema-runtime-r2-01.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - pnpm exec vitest run tests/contracts/help-service-faq-schema-runtime-r2-01.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: HELP-CONTENT-DRAFT-SCHEMA-CMS-SYNC-01
