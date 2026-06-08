@@ -1,7 +1,9 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  assertSitemapDiffGate,
   buildSitemapDiffReport,
+  getSitemapDiffGateViolations,
   normalizeUrl,
   parseSitemapLocs,
   parseSourceItems,
@@ -118,5 +120,68 @@ describe("sitemap source vs live diff report", () => {
       "https://fermatmind.com/zh/tests/mbti/take",
     ]);
     expect(report.differences.every((row) => row.label === "excluded_by_private_path")).toBe(true);
+    expect(getSitemapDiffGateViolations(report)).toEqual([
+      {
+        label: "private_live_url",
+        count: 2,
+        message: "Live sitemap contains private URL families.",
+      },
+      {
+        label: "excluded_by_private_path",
+        count: 2,
+        message: "Backend source or live sitemap includes private URL families that must stay out of sitemap authority.",
+      },
+    ]);
+  });
+
+  it("keeps the final live parity gate narrow and fail-closed for unexpected or unsafe differences", () => {
+    const cleanReport = buildSitemapDiffReport({
+      sourcePayload: {
+        items: [
+          { loc: "https://fermatmind.com/en/tests" },
+          { loc: "https://fermatmind.com/zh/tests" },
+        ],
+      },
+      sitemapXml: `
+        <urlset>
+          <url><loc>https://fermatmind.com/en/tests</loc></url>
+          <url><loc>https://fermatmind.com/zh/tests</loc></url>
+        </urlset>
+      `,
+    });
+    expect(getSitemapDiffGateViolations(cleanReport)).toEqual([]);
+    expect(() => assertSitemapDiffGate(cleanReport)).not.toThrow();
+
+    const missingReport = buildSitemapDiffReport({
+      sourcePayload: { items: [{ loc: "https://fermatmind.com/en/tests" }] },
+      sitemapXml: `
+        <urlset>
+          <url><loc>https://fermatmind.com/en/tests</loc></url>
+          <url><loc>https://fermatmind.com/en/business</loc></url>
+        </urlset>
+      `,
+    });
+    expect(getSitemapDiffGateViolations(missingReport)).toMatchObject([
+      { label: "missing_unexpectedly", count: 1 },
+    ]);
+    expect(() => assertSitemapDiffGate(missingReport)).toThrow(
+      "sitemap_diff_gate_failed: missing_unexpectedly=1"
+    );
+
+    const unknownReport = buildSitemapDiffReport({
+      sourcePayload: {
+        items: [
+          { loc: "https://fermatmind.com/en/tests" },
+          { loc: "https://fermatmind.com/en/not-explained-by-known-rules" },
+        ],
+      },
+      sitemapXml: `
+        <urlset>
+          <url><loc>https://fermatmind.com/en/tests</loc></url>
+        </urlset>
+      `,
+    });
+    expect(getSitemapDiffGateViolations(unknownReport)).toMatchObject([{ label: "unknown", count: 1 }]);
+    expect(() => assertSitemapDiffGate(unknownReport)).toThrow("sitemap_diff_gate_failed: unknown=1");
   });
 });

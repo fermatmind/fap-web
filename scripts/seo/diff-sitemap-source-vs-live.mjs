@@ -300,6 +300,57 @@ export function buildSitemapDiffReport({
   };
 }
 
+export function getSitemapDiffGateViolations(report) {
+  const differenceCounts = report?.summary?.difference_label_counts || {};
+  const privateDiffCount = differenceCounts.excluded_by_private_path || 0;
+  const privateLiveCount = report?.summary?.private_live_url_count || 0;
+  const missingUnexpectedlyCount = differenceCounts.missing_unexpectedly || 0;
+  const unknownCount = differenceCounts.unknown || 0;
+  const violations = [];
+
+  if (missingUnexpectedlyCount > 0) {
+    violations.push({
+      label: "missing_unexpectedly",
+      count: missingUnexpectedlyCount,
+      message: "Live sitemap contains public URLs missing from backend sitemap-source authority.",
+    });
+  }
+
+  if (unknownCount > 0) {
+    violations.push({
+      label: "unknown",
+      count: unknownCount,
+      message: "Sitemap diff contains URLs not explained by source-backed filtering rules.",
+    });
+  }
+
+  if (privateLiveCount > 0) {
+    violations.push({
+      label: "private_live_url",
+      count: privateLiveCount,
+      message: "Live sitemap contains private URL families.",
+    });
+  }
+
+  if (privateDiffCount > 0) {
+    violations.push({
+      label: "excluded_by_private_path",
+      count: privateDiffCount,
+      message: "Backend source or live sitemap includes private URL families that must stay out of sitemap authority.",
+    });
+  }
+
+  return violations;
+}
+
+export function assertSitemapDiffGate(report) {
+  const violations = getSitemapDiffGateViolations(report);
+  if (violations.length > 0) {
+    const summary = violations.map((violation) => `${violation.label}=${violation.count}`).join(", ");
+    throw new Error(`sitemap_diff_gate_failed: ${summary}`);
+  }
+}
+
 function escapeMarkdown(value) {
   return String(value ?? "").replace(/[&<>|\r\n]/g, (char) => {
     if (char === "&") return "&amp;";
@@ -395,6 +446,7 @@ function parseArgs(argv) {
     sourceFixture: "",
     sitemapFixture: "",
     timeoutMs: DEFAULT_TIMEOUT_MS,
+    assertClean: false,
   };
 
   for (let index = 0; index < argv.length; index += 1) {
@@ -424,6 +476,8 @@ function parseArgs(argv) {
     } else if (arg === "--timeout-ms") {
       config.timeoutMs = Number.parseInt(next, 10);
       index += 1;
+    } else if (arg === "--assert-clean") {
+      config.assertClean = true;
     } else if (arg === "--help") {
       config.help = true;
     } else {
@@ -510,6 +564,7 @@ Options:
   --source-fixture <path>  Local backend source JSON fixture.
   --sitemap-fixture <path> Local sitemap XML fixture.
   --timeout-ms <ms>        Request timeout in milliseconds.
+  --assert-clean           Fail when missing_unexpectedly, unknown, or private URL inclusion is present.
 `);
 }
 
@@ -540,12 +595,29 @@ export async function runCli(argv = process.argv.slice(2)) {
       `unknown=${report.summary.difference_label_counts.unknown} private_live=${report.summary.private_live_url_count}`
   );
 
+  if (config.assertClean) {
+    const violations = getSitemapDiffGateViolations(report);
+    if (violations.length > 0) {
+      console.error(
+        `sitemap diff gate failed: ${violations
+          .map((violation) => `${violation.label}=${violation.count}`)
+          .join(", ")}`
+      );
+      return { exitCode: 1, report, violations };
+    }
+    console.log("sitemap diff gate: clean");
+  }
+
   return { exitCode: 0, report };
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
-  runCli().catch((error) => {
-    console.error(error instanceof Error ? error.message : String(error));
-    process.exitCode = 1;
-  });
+  runCli()
+    .then((result) => {
+      process.exitCode = result?.exitCode ?? 0;
+    })
+    .catch((error) => {
+      console.error(error instanceof Error ? error.message : String(error));
+      process.exitCode = 1;
+    });
 }
