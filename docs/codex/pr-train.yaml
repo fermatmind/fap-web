@@ -14047,6 +14047,7 @@ prs:
       - docs/seo/article_h1_audit_report.md
       - docs/seo/generated/article-h1-audit.v1.json
       - tests/contracts/article-h1-audit.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
     allowed_paths:
@@ -14054,6 +14055,7 @@ prs:
       - docs/seo/article_h1_audit_report.md
       - docs/seo/generated/article-h1-audit.v1.json
       - tests/contracts/article-h1-audit.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
     forbidden:

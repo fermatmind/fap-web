@@ -175,6 +175,16 @@ const ARTICLE_H1_01_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const ARTICLE_H1_03_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train-state.json",
+  "docs/codex/pr-train.yaml",
+  "docs/seo/article_h1_audit_report.md",
+  "docs/seo/generated/article-h1-audit.v1.json",
+  "scripts/seo/audit-article-h1.mjs",
+  "tests/contracts/article-h1-audit.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 const PR_WEB_SEC_01_ALLOWED_FILES = new Set([
   "components/result/eq/EQResultV5.tsx",
   "components/result/eq/utils.ts",
@@ -2340,6 +2350,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
     return ARTICLE_H1_01_ALLOWED_FILES.has(file);
   }
 
+  if (CURRENT_BRANCH === "codex/article-h1-03") {
+    return ARTICLE_H1_03_ALLOWED_FILES.has(file);
+  }
+
   return CURRENT_BRANCH === "codex/riasec-full-content-pack-12" && RIASEC_PACK12_ALLOWED_FILES.has(file);
 }
 
@@ -2353,4 +2367,8 @@ export function isSeoConvRuntime03AllowedFile(file: string): boolean {
 
 export function isArticleH101AllowedFile(file: string): boolean {
   return ARTICLE_H1_01_ALLOWED_FILES.has(file);
+}
+
+export function isArticleH103AllowedFile(file: string): boolean {
+  return ARTICLE_H1_03_ALLOWED_FILES.has(file);
 }
