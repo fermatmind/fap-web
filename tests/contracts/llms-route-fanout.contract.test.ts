@@ -4,6 +4,7 @@ import { describe, expect, it } from "vitest";
 import {
   LLMS_ROUTE_ARTICLE_MAX_PAGES,
   LLMS_ROUTE_CAREER_JOB_TIMEOUT_MS,
+  LLMS_ROUTE_CONTENT_PAGE_TIMEOUT_MS,
   LLMS_ROUTE_LIMITS,
   LLMS_ROUTE_SOURCE_TIMEOUT_MS,
   LLMS_FULL_DEGRADED_CAREER_JOB_TIMEOUT_MS,
@@ -43,6 +44,8 @@ describe("llms route fanout budget contract", () => {
     expect(LLMS_ROUTE_LIMITS.careerJobs).toBeGreaterThanOrEqual(1046 * 2);
     expect(LLMS_ROUTE_LIMITS.careerJobs).toBeLessThanOrEqual(2200);
     expect(LLMS_ROUTE_CAREER_JOB_TIMEOUT_MS).toBeLessThanOrEqual(30_000);
+    expect(LLMS_ROUTE_CONTENT_PAGE_TIMEOUT_MS).toBeGreaterThan(LLMS_ROUTE_SOURCE_TIMEOUT_MS);
+    expect(LLMS_ROUTE_CONTENT_PAGE_TIMEOUT_MS).toBeLessThanOrEqual(5_000);
     expect(LLMS_FULL_RESPONSE_DEADLINE_MS).toBeLessThan(30_000);
     expect(LLMS_FULL_DEGRADED_CAREER_JOB_TIMEOUT_MS).toBeLessThan(LLMS_FULL_RESPONSE_DEADLINE_MS);
     expect(LLMS_FULL_ENRICHMENT_TIMEOUT_MS).toBeLessThanOrEqual(500);
@@ -57,10 +60,12 @@ describe("llms route fanout budget contract", () => {
       expect(source).toContain("limitLlmsRouteEntries");
       expect(source).toContain("LLMS_ROUTE_LIMITS");
       expect(source).toContain("LLMS_ROUTE_CAREER_JOB_TIMEOUT_MS");
+      expect(source).toContain("LLMS_ROUTE_CONTENT_PAGE_TIMEOUT_MS");
       expect(source).toContain("LLMS_ROUTE_ARTICLE_MAX_PAGES");
       expect(source).toContain("maxPages: LLMS_ROUTE_ARTICLE_MAX_PAGES");
       expect(source).toContain("perPage: LLMS_ROUTE_LIMITS.articles");
       expect(source).toContain("listBackendSitemapCareerJobPaths({ limit: LLMS_ROUTE_LIMITS.careerJobs, signal })");
+      expect(source).toContain("{ timeoutMs: LLMS_ROUTE_CONTENT_PAGE_TIMEOUT_MS }");
     }
   });
 
