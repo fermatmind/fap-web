@@ -1,6 +1,6 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
-import { ContentPageTemplate } from "@/components/content-pages/ContentPageTemplate";
+import { ContentPageTemplate, stripContentPageReaderMetadata } from "@/components/content-pages/ContentPageTemplate";
 import type { ContentPage } from "@/lib/cms/content-pages";
 
 function makeCareersPage(overrides: Partial<ContentPage> = {}): ContentPage {
@@ -79,7 +79,9 @@ function makeFoundationPage(overrides: Partial<ContentPage> = {}): ContentPage {
 
 describe("Careers content page rendering", () => {
   it("uses CMS job headings as the related links on Careers pages", () => {
-    const html = renderToStaticMarkup(<ContentPageTemplate page={makeCareersPage()} locale="zh" />);
+    const html = renderToStaticMarkup(
+      <ContentPageTemplate page={stripContentPageReaderMetadata(makeCareersPage())} locale="zh" />
+    );
 
     expect(html).toContain("相关页面");
     expect(html).toContain('href="#1-心理学数据工程师-2"');
@@ -95,7 +97,9 @@ describe("Careers content page rendering", () => {
   });
 
   it("removes visible markdown emphasis markers while preserving the CMS text", () => {
-    const html = renderToStaticMarkup(<ContentPageTemplate page={makeCareersPage()} locale="zh" />);
+    const html = renderToStaticMarkup(
+      <ContentPageTemplate page={stripContentPageReaderMetadata(makeCareersPage())} locale="zh" />
+    );
 
     expect(html).toContain("英文名称：Psychometrics Data Engineer 薪资范围：15K-25K RMB / 月");
     expect(html).toContain("必须发表过相关领域 Paper；可核验的正式研究成果可以作为补充材料。");
@@ -106,7 +110,9 @@ describe("Careers content page rendering", () => {
   });
 
   it("renders CMS markdown links as internal and external anchors", () => {
-    const html = renderToStaticMarkup(<ContentPageTemplate page={makeFoundationPage()} locale="zh" />);
+    const html = renderToStaticMarkup(
+      <ContentPageTemplate page={stripContentPageReaderMetadata(makeFoundationPage())} locale="zh" />
+    );
 
     expect(html).toContain('href="/zh/charter"');
     expect(html).toContain(">费马测试宪章</a>");

@@ -22,6 +22,13 @@ type RelatedLink = {
   href: string;
 };
 
+export type ContentPageReaderView = Omit<ContentPage, "sourceDoc">;
+
+export function stripContentPageReaderMetadata(page: ContentPage): ContentPageReaderView {
+  const { sourceDoc: _sourceDoc, ...readerPage } = page;
+  return readerPage;
+}
+
 function formatDate(value: string | null, locale: Locale): string | null {
   if (!value) {
     return null;
@@ -135,7 +142,7 @@ function plainInlineText(text: string): string {
   return stripMarkdownEmphasisMarkers(text.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1"));
 }
 
-function ContentPageBody({ page, blocks }: { page: ContentPage; blocks: MarkdownBlock[] }) {
+function ContentPageBody({ page, blocks }: { page: ContentPageReaderView; blocks: MarkdownBlock[] }) {
   if (page.contentHtml.trim()) {
     return <SanitizedCmsHtml className="fm-content-page-prose" html={page.contentHtml} />;
   }
@@ -195,7 +202,7 @@ function buildToc(blocks: MarkdownBlock[]) {
     .filter((block) => block.level === 2);
 }
 
-function buildCareersJobLinks(page: ContentPage, blocks: MarkdownBlock[]): RelatedLink[] {
+function buildCareersJobLinks(page: ContentPageReaderView, blocks: MarkdownBlock[]): RelatedLink[] {
   if (page.slug !== "careers" && page.template !== "careers") {
     return [];
   }
@@ -211,7 +218,7 @@ function buildCareersJobLinks(page: ContentPage, blocks: MarkdownBlock[]): Relat
     }));
 }
 
-function buildRelatedLinks(page: ContentPage, locale: Locale, blocks: MarkdownBlock[]): RelatedLink[] {
+function buildRelatedLinks(page: ContentPageReaderView, locale: Locale, blocks: MarkdownBlock[]): RelatedLink[] {
   const careersJobLinks = buildCareersJobLinks(page, blocks);
   if (careersJobLinks.length) {
     return careersJobLinks;
@@ -250,7 +257,7 @@ function buildRelatedLinks(page: ContentPage, locale: Locale, blocks: MarkdownBl
   }));
 }
 
-function SupportContactCard({ page, locale }: { page: ContentPage; locale: Locale }) {
+function SupportContactCard({ page, locale }: { page: ContentPageReaderView; locale: Locale }) {
   if (page.kind !== "help" || !page.supportContact) {
     return null;
   }
@@ -270,7 +277,7 @@ function SupportContactCard({ page, locale }: { page: ContentPage; locale: Local
   );
 }
 
-export function ContentPageTemplate({ page, locale }: { page: ContentPage; locale: Locale }) {
+export function ContentPageTemplate({ page, locale }: { page: ContentPageReaderView; locale: Locale }) {
   const markdownBlocks = parseMarkdown(page.contentMd);
   const toc = buildToc(markdownBlocks);
   const relatedLinks = buildRelatedLinks(page, locale, markdownBlocks);
@@ -279,8 +286,7 @@ export function ContentPageTemplate({ page, locale }: { page: ContentPage; local
   const isPolicy = page.kind === "policy";
   const isHelp = page.kind === "help";
   const showHeroSummary = page.slug !== "help-contact";
-  const showSourceMetadata = !isHelp;
-  const showMetadataCard = Boolean(updatedAt || effectiveAt || showSourceMetadata);
+  const showMetadataCard = Boolean(updatedAt || effectiveAt);
 
   return (
     <main className="fm-page-background text-[var(--fm-text)]" data-testid={`content-page-${page.slug}`}>
@@ -330,14 +336,6 @@ export function ContentPageTemplate({ page, locale }: { page: ContentPage; local
                 <div>
                   <dt className="text-[var(--fm-text-muted)]">{locale === "zh" ? "生效日期" : "Effective"}</dt>
                   <dd className="m-0 font-medium text-[var(--fm-text)]">{effectiveAt}</dd>
-                </div>
-              ) : null}
-              {showSourceMetadata ? (
-                <div>
-                  <dt className="text-[var(--fm-text-muted)]">{locale === "zh" ? "内容来源" : "Source"}</dt>
-                  <dd className="m-0 font-medium text-[var(--fm-text)]">
-                    {page.sourceDoc ? page.sourceDoc.replace(/^\d+_/, "") : "Content API"}
-                  </dd>
                 </div>
               ) : null}
             </dl>
