@@ -4,13 +4,13 @@ Scope: SCIENCE-CONTENTPAGE-DISCOVERABILITY-GATE-01
 
 Mode: approved footer-exposure runtime gate.
 
-Runtime behavior changed: yes. The global footer now exposes the approved Research & Methods routes.
+Runtime behavior changed: yes. Footer exposure is now locale-gated by current CMS route authority.
 
 ## Decision
 
 Science ContentPage routes are now approved for footer exposure after explicit operator/user authorization and backend CMS authority work for bilingual published records.
 
-This change restores footer links for `/science`, `/method-boundaries`, `/item-design-notes`, `/reliability-validity`, `/data-privacy`, and `/common-misconceptions`. It does not add header links, submit search URLs, start paid/community distribution, or expose private result/order/payment routes.
+This stopgap keeps the English footer links for `/science`, `/method-boundaries`, `/item-design-notes`, `/reliability-validity`, `/data-privacy`, and `/common-misconceptions`, while the Chinese footer exposes only `/method-boundaries` until the missing Chinese CMS records return stable 200 responses. It does not add header links, submit search URLs, start paid/community distribution, or expose private result/order/payment routes.
 
 ## Required Dependency Gates
 
@@ -30,14 +30,15 @@ This change restores footer links for `/science`, `/method-boundaries`, `/item-d
 | --- | --- | --- |
 | `sitemap_eligible` | false | May become true only after all dependency gates pass. |
 | `llms_eligible` | false | May become true only after visible content and claim gates pass. |
-| `footer_eligible` | true | Approved for the six public Research & Methods routes after CMS/backend authority and operator approval. |
+| `footer_eligible` | true | Approved only where the locale route has current CMS/backend route authority. |
+| `footer_eligible_by_locale` | en=true, zh=method-boundaries only | English exposes the six approved routes; Chinese exposes only `/method-boundaries` until CMS records are imported/published and live-smoked. |
 | `header_eligible` | false | Not part of this gate; requires a separate IA decision. |
 | `search_submission_eligible` | false | Not allowed before sitemap eligibility and production smoke pass. |
 | `social_distribution_eligible` | false | Not allowed in this gate. |
 
 ## Footer Eligibility
 
-The footer-eligible Research & Methods routes are:
+The English footer continues to expose the approved Research & Methods routes:
 
 - `/science`
 - `/method-boundaries`
@@ -45,6 +46,8 @@ The footer-eligible Research & Methods routes are:
 - `/reliability-validity`
 - `/data-privacy`
 - `/common-misconceptions`
+
+The Chinese footer exposes only `/method-boundaries` until the missing CMS records return stable 200 responses.
 
 These routes remain CMS/backend-authoritative. The frontend footer may link to them, but it must not provide fallback body copy if the API is unavailable.
 
@@ -60,4 +63,4 @@ These routes remain CMS/backend-authoritative. The frontend footer may link to t
 
 ## Non-Expansion Statement
 
-This gate now permits footer exposure for the approved Research & Methods route set only. It does not change sitemap generation, llms generation, robots, canonical metadata, header navigation, tracking, search submission, paid distribution, or private-route handling.
+This gate now permits footer exposure for the approved Research & Methods route set only when the locale route has current CMS/backend route authority. It does not change sitemap generation, llms generation, robots, canonical metadata, header navigation, tracking, search submission, paid distribution, or private-route handling.
