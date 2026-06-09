@@ -36,12 +36,28 @@ describe("homepage v1 hero contract", () => {
     ).toBeInTheDocument();
   });
 
-  it("renders trust points as a compact strip instead of a heavy accordion", async () => {
+  it("keeps the hero focused on the primary start action without HUD or secondary CTA clutter", async () => {
     render(<HomePageExperience locale="zh" copy={await getHomePageContent("zh")} />);
 
-    expect(screen.getAllByText("结果结构清晰").length).toBeGreaterThanOrEqual(1);
-    expect(screen.getAllByText("方法边界透明").length).toBeGreaterThanOrEqual(1);
-    expect(screen.getAllByText("可匿名开始").length).toBeGreaterThanOrEqual(1);
+    expect(screen.getByRole("link", { name: "开始测评" })).toHaveAttribute(
+      "href",
+      "/zh/tests/mbti-personality-test-16-personality-types"
+    );
+
+    for (const removedText of [
+      "FERMATMIND / 费马测试",
+      "结果结构清晰",
+      "方法边界透明",
+      "可匿名开始",
+      "模型视图",
+      "维度映射",
+      "结果结构",
+      "隐私保护",
+      "了解产品体系",
+    ]) {
+      expect(screen.queryByText(removedText)).not.toBeInTheDocument();
+    }
+
     expect(screen.queryByText("Trust & Boundaries")).not.toBeInTheDocument();
   });
 });

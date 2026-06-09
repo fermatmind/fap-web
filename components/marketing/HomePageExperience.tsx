@@ -34,8 +34,6 @@ const UNVERIFIED_SOCIAL_PROOF_PATTERNS = [
   /(?:用户|人)\s*(?:进行了|完成了|使用了)\s*(?:多次|测试|测评)/i,
   /(?:媒体|专家|博士|权威|评分|review|rating|stars?)/i,
 ] as const;
-const HERO_METRICS = ["模型视图", "维度映射", "结果结构", "隐私保护"] as const;
-
 function withLocale(locale: Locale, path: string): string {
   return localizedPath(stripLocalePrefix(path), locale);
 }
@@ -160,91 +158,6 @@ function uniqueHomeLinks<T extends { href: string; title: string }>(links: T[]):
   return items;
 }
 
-function CoreTestIcon({ item }: { item: HomeCoreTestItem }) {
-  const key = getCoreTestKey(item);
-  const common = {
-    viewBox: "0 0 48 48",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: 2.2,
-    strokeLinecap: "round" as const,
-    strokeLinejoin: "round" as const,
-    className: "h-7 w-7",
-    "aria-hidden": true,
-  };
-
-  if (key.includes("big-five")) {
-    return (
-      <svg {...common}>
-        <path d="M10 12h28" />
-        <path d="M10 20h28" />
-        <path d="M10 28h28" />
-        <path d="M10 36h28" />
-        <circle cx="17" cy="12" r="3" fill="currentColor" stroke="none" />
-        <circle cx="29" cy="20" r="3" fill="currentColor" stroke="none" />
-        <circle cx="22" cy="28" r="3" fill="currentColor" stroke="none" />
-        <circle cx="34" cy="36" r="3" fill="currentColor" stroke="none" />
-      </svg>
-    );
-  }
-
-  if (key.includes("holland") || key.includes("riasec")) {
-    return (
-      <svg {...common}>
-        <path d="M24 8v8" />
-        <path d="M24 32v8" />
-        <path d="M8 24h8" />
-        <path d="M32 24h8" />
-        <path d="m13 13 6 6" />
-        <path d="m35 13-6 6" />
-        <path d="m13 35 6-6" />
-        <path d="m35 35-6-6" />
-        <circle cx="24" cy="24" r="7" />
-      </svg>
-    );
-  }
-
-  if (key.includes("enneagram")) {
-    return (
-      <svg {...common}>
-        <circle cx="24" cy="24" r="15" />
-        <path d="M24 9 11 31h26L24 9Z" />
-        <path d="M15 16 33 32" />
-        <path d="M33 16 15 32" />
-      </svg>
-    );
-  }
-
-  if (key.includes("iq")) {
-    return (
-      <svg {...common}>
-        <path d="M14 12h16l4 8-10 18-10-18 4-8Z" />
-        <path d="M18 20h16" />
-        <path d="M20 12 24 38" />
-        <path d="M30 12 24 38" />
-      </svg>
-    );
-  }
-
-  if (key.includes("eq")) {
-    return (
-      <svg {...common}>
-        <path d="M24 39s-14-8-14-20a8 8 0 0 1 14-5 8 8 0 0 1 14 5c0 12-14 20-14 20Z" />
-        <path d="M16 24h5l3-7 4 14 3-7h5" />
-      </svg>
-    );
-  }
-
-  return (
-    <svg {...common}>
-      <path d="M18 10h12l8 8v12l-8 8H18l-8-8V18l8-8Z" />
-      <path d="M17 18h16" />
-      <path d="M17 24h16" />
-      <path d="M17 30h10" />
-    </svg>
-  );
-}
-
 function getCoreMetaItems(item: HomeCoreTestItem): string[] {
   const values = [item.questionsLabel, item.durationLabel, item.outputLabel, item.meta].filter(hasText);
   const seen = new Set<string>();
@@ -273,10 +186,7 @@ function HomepageHeroV1({ locale, copy, coreTests = [] }: { locale: Locale; copy
   void coreTests;
   const ctas = [
     { label: copy.hero.primaryCta, href: copy.hero.primaryHref, variant: "primary" },
-    { label: copy.hero.secondaryCta, href: copy.hero.secondaryHref, variant: "secondary" },
-    { label: copy.hero.tertiaryCta, href: copy.hero.tertiaryHref, variant: "tertiary" },
   ].filter((item) => hasText(item.label) && hasText(item.href));
-  const trustRail = (copy.hero.trustRail ?? []).slice(0, 4);
 
   return (
     <section className="relative overflow-hidden bg-[#020b12] px-0 py-8 text-white md:py-10 lg:min-h-[34rem] lg:py-0">
@@ -290,34 +200,13 @@ function HomepageHeroV1({ locale, copy, coreTests = [] }: { locale: Locale; copy
       <Container className="relative z-10 w-full max-w-[92rem] px-6 md:px-8 xl:px-12">
         <div className="grid min-h-[31rem] gap-10 lg:grid-cols-[minmax(24rem,0.78fr)_minmax(32rem,1.22fr)] lg:items-center">
           <div className="py-4 lg:py-9">
-            {hasText(copy.hero.eyebrow) ? (
-              <p className="m-0 font-mono text-xs font-semibold uppercase tracking-[0.22em] text-lime-300">{copy.hero.eyebrow}</p>
-            ) : null}
-            <h1 className="m-0 mt-6 max-w-[42rem] text-balance break-words text-[3.1rem] font-black leading-[1.02] tracking-normal text-white drop-shadow-[0_3px_0_rgba(255,255,255,0.16)] sm:text-[4.2rem] lg:text-[4.05rem] xl:text-[5rem]">
+            <h1 className="m-0 max-w-[42rem] text-balance break-words text-[3.1rem] font-black leading-[1.02] tracking-normal text-white drop-shadow-[0_3px_0_rgba(255,255,255,0.16)] sm:text-[4.2rem] lg:text-[4.05rem] xl:text-[5rem]">
               {copy.hero.title}
             </h1>
             <div aria-hidden className="mt-4 h-px w-32 bg-lime-300/50" />
             <p className="m-0 mt-4 max-w-xl text-base leading-7 text-slate-200 sm:text-lg sm:leading-8">
               {copy.hero.subhead}
             </p>
-            {hasText(copy.hero.body) ? (
-              <p className="m-0 mt-3 max-w-xl text-sm leading-6 text-slate-300 md:text-base">{copy.hero.body}</p>
-            ) : null}
-
-            <div className="mt-6 grid max-w-2xl grid-cols-2 gap-0 border border-lime-300/55 bg-slate-950/42 shadow-[0_0_24px_rgba(190,242,100,0.08)] xl:grid-cols-4">
-              {HERO_METRICS.map((item, index) => (
-                <div key={item} className={cn("flex min-h-16 items-center gap-3 px-4 py-3", index % 2 === 1 && "border-l border-lime-300/35", index > 1 && "border-t border-lime-300/35 xl:border-t-0", index > 0 && "xl:border-l")}>
-                  <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-lime-300/70 text-lime-300">
-                    <CoreTestIcon item={{ title: item, href: item, label: item }} />
-                  </span>
-                  <span>
-                    <span className="block font-mono text-[0.62rem] uppercase tracking-[0.12em] text-slate-400">HUD</span>
-                    <span className="text-sm font-semibold leading-tight text-lime-200">{item}</span>
-                  </span>
-                </div>
-              ))}
-            </div>
-
             {ctas.length > 0 ? (
               <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
                 {ctas.map((item) => (
@@ -339,18 +228,6 @@ function HomepageHeroV1({ locale, copy, coreTests = [] }: { locale: Locale; copy
               </div>
             ) : null}
 
-            {trustRail.length > 0 ? (
-              <div className="mt-6 grid max-w-2xl grid-cols-2 gap-0 border border-lime-300/55 bg-slate-950/42 shadow-[0_0_24px_rgba(190,242,100,0.08)] xl:grid-cols-4">
-                {trustRail.map((item, index) => (
-                  <div key={item} className={cn("flex min-h-9 items-center gap-2 px-3 py-2", index > 0 && "border-l border-lime-300/25")}>
-                    <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-lime-300" />
-                    <span className="text-xs font-medium leading-tight text-slate-300">
-                      {item}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            ) : null}
           </div>
 
           <HeroQuickStartPanel locale={locale} copy={copy} coreTests={coreTests} />
@@ -423,8 +300,62 @@ function TrustCard({ item, index }: { item: TrustItem; index: number }) {
   );
 }
 
+const removedHomepageTrustTitles = new Set([
+  "结果结构清晰",
+  "方法边界透明",
+  "可匿名开始",
+  "Clear result structure",
+  "Transparent method boundaries",
+  "Start anonymously",
+]);
+
+function isRemovedHomepageTrustItem(item: TrustItem) {
+  return removedHomepageTrustTitles.has(item.title);
+}
+
+function getDefaultHomepageTrustItems(locale: Locale, copy: HomePageContent): TrustItem[] {
+  if (locale === "zh") {
+    return [
+      {
+        title: "免费测试、免费结果",
+        summary: "核心测评围绕自我认知、职业判断与能力成长设计，并提供清晰结果。",
+        paragraphs: [],
+        href: copy.trust.methodHref,
+        hrefLabel: copy.trust.methodLabel,
+      },
+      {
+        title: "我们高度重视您的隐私。",
+        summary: "无需先注册账号，你可以先完成测试，再决定是否保存或继续深入。",
+        paragraphs: [],
+        href: copy.trust.methodHref,
+        hrefLabel: copy.trust.methodLabel,
+      },
+    ];
+  }
+
+  return [
+    {
+      title: "Free to start",
+      summary: "Core assessments support self-reflection, career judgment, and personal growth with clear result summaries.",
+      paragraphs: [],
+      href: copy.trust.methodHref,
+      hrefLabel: copy.trust.methodLabel,
+    },
+    {
+      title: "Privacy matters",
+      summary: "You can complete a test before deciding whether to save your result or continue deeper.",
+      paragraphs: [],
+      href: copy.trust.methodHref,
+      hrefLabel: copy.trust.methodLabel,
+    },
+  ];
+}
+
 function HomepageTrustStripV1({ locale, copy }: { locale: Locale; copy: HomePageContent }) {
-  const trustItems = (copy.trust.items ?? []).filter((item) => !containsUnverifiedSocialProofText(item.title, item.summary));
+  const trustItems = (copy.trust.items ?? []).filter(
+    (item) => !containsUnverifiedSocialProofText(item.title, item.summary) && !isRemovedHomepageTrustItem(item)
+  );
+  const baseTrustItems = trustItems.length >= 2 ? trustItems.slice(0, 2) : getDefaultHomepageTrustItems(locale, copy);
   const testCompletionTrustItem: TrustItem = {
     title: locale === "zh" ? "百万人测试" : "Million-plus test takers",
     summary:
@@ -435,7 +366,7 @@ function HomepageTrustStripV1({ locale, copy }: { locale: Locale; copy: HomePage
     href: copy.trust.methodHref,
     hrefLabel: copy.trust.methodLabel,
   };
-  const displayTrustItems = [...trustItems.slice(0, 2), testCompletionTrustItem].slice(0, 3);
+  const displayTrustItems = [...baseTrustItems.slice(0, 2), testCompletionTrustItem].slice(0, 3);
 
   if (displayTrustItems.length === 0) return null;
 
@@ -656,9 +587,10 @@ function HomepageHighlightedTestsBanner({
 
   return (
     <section className="bg-white py-20 md:py-24" aria-labelledby="homepage-core-tests-title">
-      <Container className="max-w-[86rem] px-6 md:px-8">
-        <div className="bg-[#008aa3] px-8 py-14 text-white md:px-12 lg:px-16 lg:py-20">
-          <div className="mx-auto max-w-3xl text-center">
+      <Container className="max-w-[82rem] px-6 md:px-8">
+        <div className="relative overflow-hidden bg-[#078c9d] px-8 py-14 text-white shadow-[0_28px_70px_rgba(15,23,42,0.12)] md:px-12 lg:px-16 lg:py-20">
+          <div aria-hidden className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0)_34%),radial-gradient(circle_at_22%_0%,rgba(255,255,255,0.14),transparent_32rem)]" />
+          <div className="relative mx-auto max-w-3xl text-center">
             <h2
               id="homepage-core-tests-title"
               className="m-0 text-3xl font-semibold tracking-normal text-white md:text-4xl"
@@ -666,7 +598,7 @@ function HomepageHighlightedTestsBanner({
               {getCoreTestsSectionTitle(locale)}
             </h2>
           </div>
-          <div className="mt-12 grid gap-x-8 gap-y-10 md:grid-cols-2 xl:grid-cols-3">
+          <div className="relative mt-12 grid gap-x-8 gap-y-10 md:grid-cols-2 xl:grid-cols-3">
             {items.slice(0, 6).map((item, index) => (
               <TestFeatureCard
                 key={getCoreTestKey(item)}
@@ -759,44 +691,10 @@ function HomepageFamilyMatrix({ locale, copy }: { locale: Locale; copy: HomePage
   );
 }
 
-function ArticleVisual({ index, title }: { index: number; title: string }) {
-  const palettes = [
-    "from-orange-100 via-slate-100 to-teal-100",
-    "from-sky-100 via-orange-50 to-slate-100",
-    "from-teal-100 via-sky-50 to-orange-100",
-    "from-rose-100 via-orange-50 to-slate-100",
-    "from-blue-100 via-teal-50 to-orange-100",
-    "from-slate-100 via-orange-50 to-sky-100",
-  ];
-
-  return (
-    <div className={cn("relative h-40 overflow-hidden bg-gradient-to-br", palettes[index % palettes.length])}>
-      <div aria-hidden className="absolute -left-8 top-8 h-28 w-28 rounded-full bg-white/55" />
-      <div aria-hidden className="absolute right-6 top-5 h-20 w-20 rounded-full border border-white/70" />
-      <div aria-hidden className="absolute bottom-0 right-0 h-20 w-40 rounded-tl-full bg-white/45" />
-      <p className="absolute bottom-5 left-5 right-5 m-0 text-sm font-semibold leading-5 text-slate-700">
-        {title}
-      </p>
-    </div>
-  );
-}
-
-function getArticleVisualTitle(article: HomeArticle, locale: Locale): string {
-  return (
-    article.tags[0]?.name ||
-    article.category?.name ||
-    (locale === "zh" ? "文章" : "Article")
-  );
-}
-
-function ArticleCoverVisual({ article, index, locale }: { article: HomeArticle; index: number; locale: Locale }) {
-  if (!article.coverImageUrl) {
-    return <ArticleVisual index={index} title={getArticleVisualTitle(article, locale)} />;
-  }
-
+function ArticleCoverVisual({ article }: { article: HomeArticle }) {
   return (
     <ArticleResponsiveImage
-      src={article.coverImageUrl}
+      src={article.coverImageUrl ?? null}
       alt={article.coverImageAlt ?? article.title}
       width={article.coverImageWidth}
       height={article.coverImageHeight}
@@ -853,7 +751,7 @@ function HomepageArticlesBanner({ locale, articles }: { locale: Locale; articles
           {visibleArticles.map((article, index) => (
             <article key={`${article.slug}-${article.locale}`} className="group">
               <Link href={withLocale(locale, `/articles/${article.slug}`)} prefetch={false} className="block">
-                <ArticleCoverVisual article={article} index={index} locale={locale} />
+                <ArticleCoverVisual article={article} />
                 <h3 className="m-0 mt-5 text-3xl font-normal leading-tight tracking-[-0.055em] text-slate-900 transition group-hover:text-teal-800">
                   {article.title}
                 </h3>

@@ -57,8 +57,10 @@ describe("homepage recommended articles page block contract", () => {
     expect(source).toContain("function ArticleCoverVisual");
     expect(source).toContain("article.coverImageUrl");
     expect(source).toContain("ArticleResponsiveImage");
+    expect(source).toContain("src={article.coverImageUrl ?? null}");
     expect(source).toContain("variants={article.coverImageVariants}");
-    expect(source).toContain("<ArticleVisual index={index} title={getArticleVisualTitle(article, locale)} />");
+    expect(source).not.toContain("function ArticleVisual");
+    expect(source).not.toContain("getArticleVisualTitle");
   });
 
   it("loads recommended articles from the home landing surface page block", async () => {

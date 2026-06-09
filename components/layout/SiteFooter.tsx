@@ -44,27 +44,21 @@ export function SiteFooter() {
   const articleLinks =
     locale === "zh"
       ? [
-          { href: "/articles", label: "全部文章" },
           { href: "/topics", label: "主题" },
           { href: "/career/guides", label: "测评指南" },
           { href: "/articles", label: "博客" },
-          { href: "/articles", label: "月度洞察" },
+          { href: "/articles", label: "研究报告" },
         ]
       : [
-          { href: "/articles", label: "All articles" },
           { href: "/topics", label: "Topics" },
           { href: "/career/guides", label: "Assessment Guides" },
           { href: "/articles", label: "Journal" },
-          { href: "/articles", label: "Monthly Insights" },
+          { href: "/articles", label: "Research reports" },
         ];
   const methodLinks: FooterLinkItem[] =
     locale === "zh"
-      ? [
-          { href: "/method-boundaries", label: "方法边界" },
-        ]
-      : [
-          { href: "/method-boundaries", label: "Method boundaries" },
-        ];
+      ? [{ href: "/method-boundaries", label: "方法边界" }]
+      : [{ href: "/method-boundaries", label: "Method boundaries" }];
   const companyLinks: FooterLinkItem[] =
     locale === "zh"
       ? [

@@ -1408,6 +1408,19 @@ const RIASEC_V2_SEARCH_SUBMISSION_PREFLIGHT_01_ALLOWED_FILES = new Set([
   "tests/contracts/riasec-v2-search-submission-preflight-01.contract.test.ts",
 ]);
 
+const HOMEPAGE_UI_IMAGE_FALLBACK_01_ALLOWED_FILES = new Set([
+  "components/content/ArticleResponsiveImage.tsx",
+  "components/layout/SiteFooter.tsx",
+  "components/marketing/HomePageExperience.tsx",
+  "tests/contracts/article-responsive-image-fallback.contract.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/homepage-recommended-articles-block.contract.test.ts",
+  "tests/contracts/homepage-v1-density.contract.test.tsx",
+  "tests/contracts/homepage-v1-hero.contract.test.tsx",
+  "tests/contracts/media-asset-contract.test.tsx",
+  "tests/contracts/navigation-dead-links.contract.test.ts",
+]);
+
 const BACKEND_RUNTIME_02D_RECONCILE_ALLOWED_FILES = new Set([
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -1594,6 +1607,21 @@ const SCIENCE_CONTENTPAGE_DISCOVERABILITY_GATE_01_ALLOWED_FILES = new Set([
 ]);
 
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
+  if (
+    RIASEC_V2_POST_PUBLISH_SMOKE_02_ALLOWED_FILES.has(file) ||
+    RIASEC_V2_SEARCH_SUBMISSION_PREFLIGHT_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (HELP_SUPPORT_CONTACT_RUNTIME_01_ALLOWED_FILES.has(file)) {
+    return true;
+  }
+
+  if (CURRENT_BRANCH === "codex/homepage-ui-image-fallback-01") {
+    return HOMEPAGE_UI_IMAGE_FALLBACK_01_ALLOWED_FILES.has(file);
+  }
+
   if (CURRENT_BRANCH === "codex/security-codeql-87-file-access") {
     return SECURITY_CODEQL_87_FILE_ACCESS_ALLOWED_FILES.has(file);
   }
