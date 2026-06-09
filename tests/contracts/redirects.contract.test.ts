@@ -25,6 +25,7 @@ describe("legacy redirect hygiene contract", () => {
 
     expect(redirects).toEqual(
       expect.arrayContaining([
+        expect.objectContaining({ source: "/support", destination: "/zh/support", permanent: true }),
         expect.objectContaining({ source: "/refund", destination: "/en/support", permanent: true }),
         expect.objectContaining({ source: "/en/refund", destination: "/en/support", permanent: true }),
         expect.objectContaining({ source: "/zh/refund", destination: "/zh/support", permanent: true }),
@@ -34,6 +35,74 @@ describe("legacy redirect hygiene contract", () => {
         expect.objectContaining({ source: "/zh/help/team", destination: "/zh/support", permanent: true }),
         expect.objectContaining({ source: "/help/used-and-mentioned", destination: "/en/support", permanent: true }),
         expect.objectContaining({ source: "/zh/help/used-and-mentioned", destination: "/zh/support", permanent: true }),
+      ])
+    );
+  });
+
+  it("keeps GSC 404 legacy redirects exact and limited to known live targets", async () => {
+    const redirects = await loadRedirects();
+
+    expect(redirects).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          source: "/en/articles/big-five-growth-guide",
+          destination: "/zh/articles/big-five-growth-guide",
+          permanent: true,
+        }),
+        expect.objectContaining({
+          source: "/en/articles/mbti-basics",
+          destination: "/zh/articles/mbti-basics",
+          permanent: true,
+        }),
+        expect.objectContaining({
+          source: "/en/articles/iq-test-growth-guide",
+          destination: "/zh/articles/iq-test-growth-guide",
+          permanent: true,
+        }),
+        expect.objectContaining({
+          source: "/en/career/guides/from-mbti-to-job-fit",
+          destination: "/zh/career/guides/from-mbti-to-job-fit",
+          permanent: true,
+        }),
+        expect.objectContaining({
+          source: "/en/career/guides/cross-industry-move-strategy",
+          destination: "/zh/career/guides/cross-industry-move-strategy",
+          permanent: true,
+        }),
+        expect.objectContaining({
+          source: "/en/career/guides/networking-that-actually-works",
+          destination: "/zh/career/guides/networking-that-actually-works",
+          permanent: true,
+        }),
+        expect.objectContaining({
+          source: "/en/career/tests/riasec",
+          destination: "/en/tests/holland-career-interest-test-riasec",
+          permanent: true,
+        }),
+        expect.objectContaining({
+          source: "/zh/career/tests/riasec",
+          destination: "/zh/tests/holland-career-interest-test-riasec",
+          permanent: true,
+        }),
+        expect.objectContaining({
+          source: "/zh/career/jobs/lawyer",
+          destination: "/zh/career/jobs/lawyers",
+          permanent: true,
+        }),
+      ])
+    );
+  });
+
+  it("does not redirect bot probe paths from GSC 404 samples", async () => {
+    const redirects = await loadRedirects();
+
+    expect(redirects).not.toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ source: "/index.php" }),
+        expect.objectContaining({ source: "/auth.php" }),
+        expect.objectContaining({ source: "/free-test.php" }),
+        expect.objectContaining({ source: "/resources.php" }),
+        expect.objectContaining({ source: "/terms.php" }),
       ])
     );
   });
