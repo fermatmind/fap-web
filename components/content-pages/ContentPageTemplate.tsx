@@ -78,6 +78,39 @@ function slugifyHeading(text: string, index: number): string {
   return normalized ? `${normalized}-${index}` : `section-${index}`;
 }
 
+const INTERNAL_CONTENT_FIELD_MARKERS = new Set(["content_md", "content_html", "visible_faq_items"]);
+
+function normalizeContentFieldMarker(text: string): string {
+  return text
+    .trim()
+    .replace(/^[`*_]+|[`*_]+$/g, "")
+    .toLowerCase()
+    .replace(/[\s-]+/g, "_");
+}
+
+function isInternalContentFieldHeading(line: string): boolean {
+  const match = line.match(/^\s*#{1,6}\s+(.+?)\s*$/);
+  if (!match) {
+    return false;
+  }
+
+  return INTERNAL_CONTENT_FIELD_MARKERS.has(normalizeContentFieldMarker(String(match[1] ?? "")));
+}
+
+function stripInternalContentFieldPrefix(line: string): string {
+  const match = line.match(/^\s*([A-Za-z][A-Za-z0-9_-]*)\s*:\s*(.*)$/);
+  if (!match) {
+    return line;
+  }
+
+  const marker = normalizeContentFieldMarker(String(match[1] ?? ""));
+  if (!INTERNAL_CONTENT_FIELD_MARKERS.has(marker)) {
+    return line;
+  }
+
+  return String(match[2] ?? "").trim();
+}
+
 function parseMarkdown(markdown: string): MarkdownBlock[] {
   const lines = markdown.replace(/\r\n?/g, "\n").split("\n");
   const blocks: MarkdownBlock[] = [];
@@ -88,6 +121,11 @@ function parseMarkdown(markdown: string): MarkdownBlock[] {
     const line = lines[index] ?? "";
 
     if (!line.trim()) {
+      index += 1;
+      continue;
+    }
+
+    if (isInternalContentFieldHeading(line)) {
       index += 1;
       continue;
     }
@@ -135,15 +173,19 @@ function parseMarkdown(markdown: string): MarkdownBlock[] {
     const paragraphLines: string[] = [];
     while (index < lines.length) {
       const current = lines[index] ?? "";
+      const paragraphLine = stripInternalContentFieldPrefix(current);
       if (
         !current.trim() ||
+        isInternalContentFieldHeading(current) ||
         /^(#{2,3})\s+/.test(current) ||
         /^\s*[-*+]\s+/.test(current) ||
         /^\s*\d+\.\s+/.test(current)
       ) {
         break;
       }
-      paragraphLines.push(current.trim());
+      if (paragraphLine) {
+        paragraphLines.push(paragraphLine);
+      }
       index += 1;
     }
 

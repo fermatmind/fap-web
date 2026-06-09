@@ -102,7 +102,6 @@ export function AnswerSurfaceSection({
   locale,
   testId,
   hideHeading = false,
-  hideSummaryLabel = false,
   pageFamily,
   evidenceSourceType = "answer_surface_v1",
   seoCtaAttribution,
@@ -147,11 +146,6 @@ export function AnswerSurfaceSection({
 
       {surface.summaryBlocks.length ? (
         <div className="space-y-3" data-evidence-block={pageFamily ? "quick_answer" : undefined}>
-          {!hideSummaryLabel ? (
-            <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-              {sectionTitle("summary", locale)}
-            </p>
-          ) : null}
           <div className="grid gap-3 md:grid-cols-2">
             {surface.summaryBlocks.map((block) => (
               <article key={block.key} className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
@@ -224,9 +218,6 @@ export function AnswerSurfaceSection({
 
       {surface.nextStepBlocks.length ? (
         <div className="space-y-3" data-evidence-block={pageFamily ? "next_step" : undefined}>
-          <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-            {sectionTitle("next", locale)}
-          </p>
           <div className="grid gap-3 md:grid-cols-2">
             {surface.nextStepBlocks.map((block, index) => (
               <article key={block.key} className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">

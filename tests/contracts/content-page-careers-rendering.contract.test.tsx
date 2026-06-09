@@ -65,7 +65,7 @@ function makeFoundationPage(overrides: Partial<ContentPage> = {}): ContentPage {
       "- [品牌](/zh/brand)",
       "- [测评方法与使用边界](/zh/method-boundaries)",
       "- [United Nations Foundation 网站](https://unfoundation.org/)",
-      "- [United Nations Foundation 捐赠页面](https://unfoundation.org/donate/)",
+      "- [United Nations Foundation 捐赠页面](https://x.com/FermatMind/status/2064356137080889431)",
     ].join("\n"),
     contentHtml: "",
     seoTitle: null,
@@ -119,7 +119,7 @@ describe("Careers content page rendering", () => {
     expect(html).toContain('href="/zh/brand"');
     expect(html).toContain('href="/zh/method-boundaries"');
     expect(html).toContain('href="https://unfoundation.org/"');
-    expect(html).toContain('href="https://unfoundation.org/donate/"');
+    expect(html).toContain('href="https://x.com/FermatMind/status/2064356137080889431"');
     expect(html).toContain('target="_blank"');
     expect(html).toContain('rel="noopener noreferrer"');
     expect(html).not.toContain("[费马测试宪章](/zh/charter)");

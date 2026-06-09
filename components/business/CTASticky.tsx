@@ -154,19 +154,6 @@ export function CTASticky({
             <CardTitle className="text-base">{locale === "zh" ? "准备开始？" : "Ready to start?"}</CardTitle>
           </CardHeader>
           <CardContent className="space-y-3">
-            <p className="text-sm leading-6 text-slate-600">
-              {title}
-              <br />
-              {showsMbtiActions
-                ? mbtiSummary
-                : showsBig5Actions
-                ? big5Summary
-                : showsEnneagramActions
-                ? enneagramSummary
-                : showsRiasecActions
-                ? riasecSummary
-                : `${questions} ${locale === "zh" ? "题" : "questions"} · ${locale === "zh" ? `约 ${minutes} 分钟` : `about ${minutes} minutes`}.`}
-            </p>
             {showsMbtiActions ? (
               <div className="space-y-2" data-testid="mbti-sticky-entry-cta-group">
                 {mbtiPrimaryForm && mbtiPrimaryHref && mbtiPrimaryTrackingProps ? (

@@ -257,8 +257,9 @@ describe("article answer surface rendering", () => {
     expect(html).toContain("FAQ");
     expect(html).toContain("When should I use the article FAQ?");
     expect(html).toContain("Use it when you need the shortest answer before the full guide.");
-    expect(html).toContain("Next steps");
     expect(html).toContain("Read the full article");
+    expect(html).not.toContain("Quick summary");
+    expect(html).not.toContain("Next steps");
   });
 
   it("emits FAQPage JSON-LD only from the visibly rendered answer surface FAQ", async () => {

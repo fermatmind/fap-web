@@ -36,6 +36,7 @@ describe("IQ CMS media rendering guard", () => {
     expect(shell).toHaveAttribute("data-asset-key", "iq-beta30-original-card");
     expect(shell).toHaveAttribute("data-media-state", "metadata-only");
     expect(shell).toHaveAttribute("data-surface", "home_quick_start");
+    expect(shell).toHaveClass("sr-only");
     expect(within(card as HTMLElement).queryByRole("img", { name: /IQ|智商/i })).not.toBeInTheDocument();
     expect((card as HTMLElement).innerHTML).not.toContain("/public/");
     expect((card as HTMLElement).innerHTML).not.toContain("/static/");
@@ -53,6 +54,7 @@ describe("IQ CMS media rendering guard", () => {
     const shell = within(card as HTMLElement).getByTestId("cms-media-authority-shell");
     expect(shell).toHaveAttribute("data-asset-key", "iq-beta30-original-card");
     expect(shell).toHaveAttribute("data-surface", "tests_hub_card");
+    expect(shell).toHaveClass("sr-only");
     expect(within(card as HTMLElement).queryByRole("img", { name: /IQ|智商/i })).not.toBeInTheDocument();
   });
 
@@ -69,7 +71,9 @@ describe("IQ CMS media rendering guard", () => {
 
     const shell = screen.getByTestId("cms-media-minimal-shell");
     expect(shell).toHaveAttribute("data-media-state", "authority-missing");
-    expect(shell).toHaveTextContent("CMS media pending backend authority");
+    expect(shell).toHaveClass("sr-only");
+    expect(shell).toHaveTextContent("");
+    expect(shell).toHaveAttribute("aria-hidden", "true");
     expect(screen.queryByRole("img")).not.toBeInTheDocument();
   });
 });

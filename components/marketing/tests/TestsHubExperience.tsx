@@ -54,15 +54,14 @@ function listCoreTests(items: HubTestCardItem[]): HubTestCardItem[] {
     .sort((a, b) => getCoreIndex(a) - getCoreIndex(b));
 }
 
-function getPrimaryAction(item: HubTestCardItem): { href: string; label: string } | null {
+function getPrimaryAction(item: HubTestCardItem, locale: Locale): { href: string; label: string } | null {
   const primaryHref = item.detailsHref ?? item.href;
-  const primaryLabel = item.primaryLabel || item.primaryActions?.[0]?.label;
 
-  if (!hasText(primaryHref) || !hasText(primaryLabel)) {
+  if (!hasText(primaryHref)) {
     return null;
   }
 
-  return { href: primaryHref, label: primaryLabel };
+  return { href: primaryHref, label: locale === "zh" ? "免费测试" : "Find free tests" };
 }
 
 function getTestDisplayTitle(item: HubTestCardItem, locale: Locale): string {
@@ -71,7 +70,7 @@ function getTestDisplayTitle(item: HubTestCardItem, locale: Locale): string {
 }
 
 function TestListCard({ item, locale, priority = false }: { item: HubTestCardItem; locale: Locale; priority?: boolean }) {
-  const primaryAction = getPrimaryAction(item);
+  const primaryAction = getPrimaryAction(item, locale);
   const title = getTestDisplayTitle(item, locale);
   const shouldPreserveIqAccessiblePrefix = locale === "zh" && getCoreIndex(item) === 4;
 
