@@ -21557,9 +21557,9 @@
       "id": "SEO-CONV-RUNTIME-03",
       "repo": "fap-web",
       "branch": "codex/seo-conv-runtime-03",
-      "status": "local_checks_passed",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "pr_open_checks_pending",
+      "commit_sha": "efc7e434ca2513cd829d7e19f88b131857d85c40",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1085",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -21599,7 +21599,7 @@
         "github": {
           "status": "pending",
           "checks": [],
-          "evidence": null
+          "evidence": "Opened fap-web PR #1085; GitHub checks are pending."
         }
       },
       "history": [
@@ -21612,6 +21612,11 @@
           "at": "2026-06-09",
           "status": "local_checks_passed",
           "note": "All manifest-required local checks passed for SEO-CONV-RUNTIME-03 before commit."
+        },
+        {
+          "at": "2026-06-09",
+          "status": "pr_open_checks_pending",
+          "note": "Opened fap-web PR #1085 for SEO-CONV-RUNTIME-03 after scoped local validation passed."
         }
       ]
     }
