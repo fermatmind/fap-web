@@ -21636,7 +21636,7 @@
       "id": "ARTICLE-H1-01",
       "repo": "fap-web",
       "branch": "codex/article-h1-01",
-      "status": "pr_open_checks_pending",
+      "status": "ready_to_merge",
       "commit_sha": "c4eca9afba407c368e4797dc838523f38b995a08",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1087",
       "merged_at": null,
@@ -21680,6 +21680,20 @@
             "git diff --cached --check"
           ],
           "evidence": "Focused cms-rich-content-sanitization contract passed 8 tests. pnpm typecheck passed. pnpm test:contract passed 470 files / 2673 tests after adding the ARTICLE-H1-01 currentPrScope allowlist. JSON/YAML parse, explicit scope validation, and git diff --check passed."
+        },
+        "github": {
+          "status": "pass",
+          "head_sha": "7e75031d8f3256560efaed2bcd9a0549d1267669",
+          "checks": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "CodeQL",
+            "analyze (javascript-typescript)"
+          ],
+          "merge_state": "CLEAN",
+          "evidence": "GitHub checks passed for fap-web PR #1087 at head 7e75031d8f3256560efaed2bcd9a0549d1267669."
         }
       },
       "history": [
@@ -21702,6 +21716,11 @@
           "at": "2026-06-09",
           "status": "pr_open_checks_pending",
           "note": "Opened fap-web PR #1087 from branch codex/article-h1-01; GitHub checks pending."
+        },
+        {
+          "at": "2026-06-09",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed for PR #1087 at head 7e75031d8f3256560efaed2bcd9a0549d1267669 and mergeStateStatus is CLEAN."
         }
       ]
     },
