@@ -13977,3 +13977,103 @@ prs:
       squash: true
       auto_merge: true
     next_task: SEO-CONV-DAILY-04
+
+  - id: ARTICLE-H1-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/article-h1-01
+    base: main
+    title: "ARTICLE-H1-01: fix(articles): enforce single article detail h1"
+    depends_on: []
+    mode: execute
+    train_scope: article_h1_stability
+    status: in_progress
+    goal: "Add frontend final-DOM defense so article detail pages keep the page title as the only h1 while CMS body HTML or Markdown headings render no higher than h2."
+    artifacts:
+      - app/(localized)/[locale]/articles/[slug]/page.tsx
+      - components/content/SanitizedCmsHtml.tsx
+      - components/content/AttributedSanitizedCmsHtml.tsx
+      - lib/cms/sanitizeCmsRichText.ts
+      - lib/content/renderSimpleMarkdown.tsx
+      - tests/contracts/cms-rich-content-sanitization.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - app/(localized)/[locale]/articles/[slug]/page.tsx
+      - components/content/SanitizedCmsHtml.tsx
+      - components/content/AttributedSanitizedCmsHtml.tsx
+      - lib/cms/sanitizeCmsRichText.ts
+      - lib/content/renderSimpleMarkdown.tsx
+      - tests/contracts/cms-rich-content-sanitization.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - CMS content mutation
+      - backend validation or Filament editor changes
+      - article title, H1, meta, body, FAQ, or CTA copy changes
+      - global removal of h1 support for non-article CMS sinks
+      - live audit report generation
+      - deploy
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/cms-rich-content-sanitization.contract.test.tsx
+      - pnpm typecheck
+      - pnpm test:contract
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - "python3 - <<scope validation: changed files within ARTICLE-H1-01 manifest scope>>"
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: ARTICLE-H1-02
+
+  - id: ARTICLE-H1-03
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/article-h1-03
+    base: main
+    title: "ARTICLE-H1-03: docs(seo): audit live article h1 parity"
+    depends_on: [ARTICLE-H1-01, ARTICLE-H1-02]
+    mode: execute
+    train_scope: article_h1_stability
+    status: pending_dependency
+    goal: "Add a live audit script and article_h1_audit_report.md covering at least 20 article detail URLs after frontend and CMS-side H1 controls are merged."
+    artifacts:
+      - scripts/seo/audit-article-h1.mjs
+      - docs/seo/article_h1_audit_report.md
+      - docs/seo/generated/article-h1-audit.v1.json
+      - tests/contracts/article-h1-audit.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - scripts/seo/audit-article-h1.mjs
+      - docs/seo/article_h1_audit_report.md
+      - docs/seo/generated/article-h1-audit.v1.json
+      - tests/contracts/article-h1-audit.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - frontend article rendering behavior changes
+      - backend CMS validation changes
+      - CMS content mutation
+      - article title, H1, meta, body, FAQ, or CTA copy changes
+      - deploy
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/article-h1-audit.contract.test.ts
+      - node scripts/seo/audit-article-h1.mjs --sample-size=20 --output docs/seo/generated/article-h1-audit.v1.json --report docs/seo/article_h1_audit_report.md
+      - pnpm typecheck
+      - pnpm test:contract
+      - python3 -m json.tool docs/seo/generated/article-h1-audit.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - "python3 - <<scope validation: changed files within ARTICLE-H1-03 manifest scope>>"
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true

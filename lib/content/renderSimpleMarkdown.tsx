@@ -3,6 +3,9 @@ import { sanitizeCmsUrl } from "@/lib/cms/sanitizeCmsRichText";
 import { renderCjkPunctuationText } from "@/lib/content/textPunctuation";
 
 type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
+type MarkdownRenderOptions = {
+  minimumHeadingLevel?: HeadingLevel;
+};
 
 type MarkdownBlock =
   | { type: "heading"; level: HeadingLevel; text: string }
@@ -342,7 +345,8 @@ function renderInlineMarkdown(text: string, keyPrefix: string): ReactNode[] {
   });
 }
 
-function renderHeading(level: HeadingLevel, text: string, key: string) {
+function renderHeading(level: HeadingLevel, text: string, key: string, options: MarkdownRenderOptions = {}) {
+  level = Math.max(level, options.minimumHeadingLevel ?? 1) as HeadingLevel;
   const content = renderInlineMarkdown(text, `${key}-inline`);
   const classNameByLevel: Record<HeadingLevel, string> = {
     1: "mt-0 font-serif text-3xl font-semibold text-[var(--fm-text)]",
@@ -369,7 +373,7 @@ function renderHeading(level: HeadingLevel, text: string, key: string) {
   }
 }
 
-export function renderSimpleMarkdown(markdown: string): ReactNode {
+export function renderSimpleMarkdown(markdown: string, options: MarkdownRenderOptions = {}): ReactNode {
   const normalized = normalizeLineBreaks(markdown).trim();
   if (!normalized) {
     return null;
@@ -385,7 +389,7 @@ export function renderSimpleMarkdown(markdown: string): ReactNode {
 
     switch (block.type) {
       case "heading":
-        return renderHeading(block.level, block.text, key);
+        return renderHeading(block.level, block.text, key, options);
       case "paragraph":
         return (
           <p key={key} className="m-0 leading-7 text-[var(--fm-text-muted)]">

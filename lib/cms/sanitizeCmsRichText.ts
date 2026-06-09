@@ -86,6 +86,20 @@ const SAFE_TARGETS = new Set(["_blank", "_parent", "_self", "_top"]);
 const SAFE_REL_TOKENS = new Set(["external", "nofollow", "noopener", "noreferrer", "ugc"]);
 const CONTROL_CHARS_RE = /[\u0000-\u001F\u007F-\u009F]/g;
 
+export type CmsHtmlSanitizeOptions = {
+  minimumHeadingLevel?: 1 | 2 | 3 | 4 | 5 | 6;
+};
+
+function normalizeHeadingTag(tagName: string, options: CmsHtmlSanitizeOptions): string {
+  const minimumHeadingLevel = options.minimumHeadingLevel ?? 1;
+  if (!/^h[1-6]$/.test(tagName)) {
+    return tagName;
+  }
+
+  const level = Number.parseInt(tagName.slice(1), 10);
+  return `h${Math.max(level, minimumHeadingLevel)}`;
+}
+
 function decodeHtmlEntities(value: string): string {
   return value.replace(/&(?:#(\d{1,7})|#x([0-9a-f]{1,6})|([a-z][a-z0-9]+));?/gi, (match, decimal, hex, named) => {
     if (decimal) {
@@ -326,7 +340,7 @@ function findTagEnd(input: string, start: number): number {
   return -1;
 }
 
-function sanitizeTag(rawTag: string, dropStack: string[]): string {
+function sanitizeTag(rawTag: string, dropStack: string[], options: CmsHtmlSanitizeOptions): string {
   if (/^<!--/.test(rawTag) || /^<!/i.test(rawTag)) {
     return "";
   }
@@ -360,15 +374,17 @@ function sanitizeTag(rawTag: string, dropStack: string[]): string {
     return "";
   }
 
+  const outputTagName = normalizeHeadingTag(tagName, options);
+
   if (isClosing) {
-    return VOID_TAGS.has(tagName) ? "" : `</${tagName}>`;
+    return VOID_TAGS.has(tagName) ? "" : `</${outputTagName}>`;
   }
 
   const attributes = sanitizeAttributes(tagName, rawAttributes);
-  return `<${tagName}${attributes}>`;
+  return `<${outputTagName}${attributes}>`;
 }
 
-export function sanitizeCmsHtml(html: string): string {
+export function sanitizeCmsHtml(html: string, options: CmsHtmlSanitizeOptions = {}): string {
   if (!html) {
     return "";
   }
@@ -398,7 +414,7 @@ export function sanitizeCmsHtml(html: string): string {
       break;
     }
 
-    output += sanitizeTag(html.slice(tagStart, tagEnd + 1), dropStack);
+    output += sanitizeTag(html.slice(tagStart, tagEnd + 1), dropStack, options);
     cursor = tagEnd + 1;
   }
 
