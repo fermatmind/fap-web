@@ -21636,9 +21636,9 @@
       "id": "ARTICLE-H1-01",
       "repo": "fap-web",
       "branch": "codex/article-h1-01",
-      "status": "committed_pending_push",
+      "status": "pr_open_checks_pending",
       "commit_sha": "c4eca9afba407c368e4797dc838523f38b995a08",
-      "pr_url": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1087",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -21697,6 +21697,11 @@
           "at": "2026-06-09",
           "status": "committed_pending_push",
           "note": "Created scoped implementation commit c4eca9afba407c368e4797dc838523f38b995a08."
+        },
+        {
+          "at": "2026-06-09",
+          "status": "pr_open_checks_pending",
+          "note": "Opened fap-web PR #1087 from branch codex/article-h1-01; GitHub checks pending."
         }
       ]
     },
