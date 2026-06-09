@@ -40,12 +40,12 @@ describe("site footer routing contract", () => {
     expect(screen.getByTestId("site-footer-group-methods")).toHaveTextContent("研究与方法");
     expect(screen.getByTestId("site-footer-group-company")).toHaveTextContent("公司");
     expect(screen.getByTestId("site-footer-group-policies")).toHaveTextContent("条款与政策");
-    expect(screen.getByRole("link", { name: "测评科学" })).toHaveAttribute("href", "/zh/science");
     expect(screen.getByRole("link", { name: "方法边界" })).toHaveAttribute("href", "/zh/method-boundaries");
-    expect(screen.getByRole("link", { name: "题目设计说明" })).toHaveAttribute("href", "/zh/item-design-notes");
-    expect(screen.getByRole("link", { name: "信度效度" })).toHaveAttribute("href", "/zh/reliability-validity");
-    expect(screen.getByRole("link", { name: "数据说明" })).toHaveAttribute("href", "/zh/data-privacy");
-    expect(screen.getByRole("link", { name: "常见误区" })).toHaveAttribute("href", "/zh/common-misconceptions");
+    expect(screen.queryByRole("link", { name: "测评科学" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: "题目设计说明" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: "信度效度" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: "数据说明" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: "常见误区" })).not.toBeInTheDocument();
     expect(screen.getByRole("link", { name: "关于我们" })).toHaveAttribute("href", "/zh/about");
     expect(screen.getByRole("link", { name: "品牌" })).toHaveAttribute("href", "/zh/brand");
     expect(screen.getByRole("link", { name: "宪章" })).toHaveAttribute("href", "/zh/charter");

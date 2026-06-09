@@ -20,7 +20,13 @@
     "/common-misconceptions",
     "/method-boundaries"
   ],
-  "draft_routes_blocked_from_footer": [],
+  "draft_routes_blocked_from_footer": [
+    "/zh/science",
+    "/zh/item-design-notes",
+    "/zh/reliability-validity",
+    "/zh/data-privacy",
+    "/zh/common-misconceptions"
+  ],
   "footer_allowed_existing_authority_routes": [
     "/science",
     "/method-boundaries",
@@ -114,6 +120,19 @@
     "/data-privacy",
     "/common-misconceptions"
   ],
+  "footer_eligible_routes_by_locale": {
+    "en": [
+      "/science",
+      "/method-boundaries",
+      "/item-design-notes",
+      "/reliability-validity",
+      "/data-privacy",
+      "/common-misconceptions"
+    ],
+    "zh": [
+      "/method-boundaries"
+    ]
+  },
   "approval_basis": {
     "operator_review": "approved",
     "claim_gate_status": "passed",
