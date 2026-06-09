@@ -21551,5 +21551,69 @@
       "continue_train_decision": "continue_if_required_github_checks_green_and_scope_validation_passes",
       "blocks_merge": false
     }
+  ],
+  "items": [
+    {
+      "id": "SEO-CONV-RUNTIME-03",
+      "repo": "fap-web",
+      "branch": "codex/seo-conv-runtime-03",
+      "status": "local_checks_passed",
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "dependency": {
+          "status": "pass",
+          "evidence": "SEO-CONV-TRACKING-01 is merged in fap-web PR #1084 with merge commit 36f6b2ce1a39da2c50ff1ee9bcdf4cbb34ad1d76. SEO-CONV-INGEST-02 is merged in fap-api PR #2010 with merge commit db2541da0af434fbb27143bdfda9cb04748d2749."
+        },
+        "scope": {
+          "status": "pass",
+          "allowed_paths": [
+            "lib/analytics.ts",
+            "app/api/track/route.ts",
+            "tests/contracts/seo-conv-runtime-contract.contract.test.ts",
+            "tests/contracts/helpers/currentPrScope.ts",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json",
+            "tests/contracts/tracking-whitelist.contract.test.ts"
+          ],
+          "evidence": "Changed files are limited to lib/analytics.ts, app/api/track/route.ts, tests/contracts/seo-conv-runtime-contract.contract.test.ts, tests/contracts/tracking-whitelist.contract.test.ts, tests/contracts/helpers/currentPrScope.ts, and docs/codex metadata."
+        },
+        "local": {
+          "status": "pass",
+          "commands": [
+            "pnpm exec vitest run tests/contracts/seo-conv-runtime-contract.contract.test.ts",
+            "pnpm exec vitest run tests/contracts/*tracking* tests/contracts/*analytics*",
+            "pnpm typecheck",
+            "pnpm test:contract",
+            "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "python3 -c \"import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')\"",
+            "python3 - <<scope validation: changed files within SEO-CONV-RUNTIME-03 manifest scope>>",
+            "git diff --check"
+          ],
+          "evidence": "Focused runtime contract passed 5 tests; tracking/analytics focused suite passed 11 files / 86 tests; pnpm typecheck passed; pnpm test:contract passed 469 files / 2666 tests; JSON/YAML parse, git diff --check, and explicit scope validation passed."
+        },
+        "github": {
+          "status": "pending",
+          "checks": [],
+          "evidence": null
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-09",
+          "status": "in_progress",
+          "note": "Created isolated worktree branch codex/seo-conv-runtime-03 from origin/main and implemented runtime SEO conversion event dispatch within scoped frontend files."
+        },
+        {
+          "at": "2026-06-09",
+          "status": "local_checks_passed",
+          "note": "All manifest-required local checks passed for SEO-CONV-RUNTIME-03 before commit."
+        }
+      ]
+    }
   ]
 }

@@ -153,6 +153,16 @@ const SEO_CONV_TRACKING_01_ALLOWED_FILES = new Set([
   "tests/contracts/tracking-activation-contract.contract.test.ts",
 ]);
 
+const SEO_CONV_RUNTIME_03_ALLOWED_FILES = new Set([
+  "app/api/track/route.ts",
+  "docs/codex/pr-train-state.json",
+  "docs/codex/pr-train.yaml",
+  "lib/analytics.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/seo-conv-runtime-contract.contract.test.ts",
+  "tests/contracts/tracking-whitelist.contract.test.ts",
+]);
+
 const PR_WEB_SEC_01_ALLOWED_FILES = new Set([
   "components/result/eq/EQResultV5.tsx",
   "components/result/eq/utils.ts",
@@ -2276,9 +2286,17 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
     return SEO_CONV_TRACKING_01_ALLOWED_FILES.has(file);
   }
 
+  if (CURRENT_BRANCH === "codex/seo-conv-runtime-03") {
+    return SEO_CONV_RUNTIME_03_ALLOWED_FILES.has(file);
+  }
+
   return CURRENT_BRANCH === "codex/riasec-full-content-pack-12" && RIASEC_PACK12_ALLOWED_FILES.has(file);
 }
 
 export function isSeoConvTracking01AllowedFile(file: string): boolean {
   return SEO_CONV_TRACKING_01_ALLOWED_FILES.has(file);
+}
+
+export function isSeoConvRuntime03AllowedFile(file: string): boolean {
+  return SEO_CONV_RUNTIME_03_ALLOWED_FILES.has(file);
 }
