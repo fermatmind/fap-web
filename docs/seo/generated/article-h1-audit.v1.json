@@ -1,0 +1,340 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-06-09T06:32:37.741Z",
+  "runner": "playwright-chromium-final-dom",
+  "source": {
+    "sitemap_url": "https://fermatmind.com/sitemap.xml",
+    "site_url": "https://fermatmind.com",
+    "sitemap_status": 200,
+    "article_detail_url_count": 32
+  },
+  "sample": {
+    "requested_size": 20,
+    "actual_size": 20,
+    "seed": "ARTICLE-H1-03",
+    "strategy": "seeded_random_from_live_sitemap_article_detail_urls",
+    "urls": [
+      "https://fermatmind.com/en/articles/big-five-personality-test-vs-mbti",
+      "https://fermatmind.com/zh/articles/are-infj-men-rare-or-socially-silenced",
+      "https://fermatmind.com/zh/articles/childhood-dream-job-still-shapes-career-choice",
+      "https://fermatmind.com/zh/articles/riasec-holland-career-interest-test-explained",
+      "https://fermatmind.com/zh/articles/which-love-script-fits-you-best",
+      "https://fermatmind.com/zh/articles/mbti-narrative-portrait",
+      "https://fermatmind.com/zh/articles/mbti-vs-holland-career-choice",
+      "https://fermatmind.com/en/articles/are-infj-men-rare-or-socially-silenced",
+      "https://fermatmind.com/en/articles/mbti-vs-holland-code-career-choice",
+      "https://fermatmind.com/zh/articles/holland-career-interest-test-can-and-cannot-tell-you",
+      "https://fermatmind.com/zh/articles/big-five-narrative-portrait",
+      "https://fermatmind.com/zh/articles/mbti-growth-guide",
+      "https://fermatmind.com/en/articles/which-love-script-fits-you-best",
+      "https://fermatmind.com/zh/articles/how-personality-shapes-attitude-toward-ai",
+      "https://fermatmind.com/en/articles/mbti-personality-test-science-vs-pseudoscience",
+      "https://fermatmind.com/en/articles/how-16-personality-types-talk-to-an-ai-coach",
+      "https://fermatmind.com/zh/articles/big-five-personality-test-vs-mbti",
+      "https://fermatmind.com/en/articles/childhood-dream-job-still-shapes-career-choice",
+      "https://fermatmind.com/en/articles/how-personality-shapes-attitude-toward-ai",
+      "https://fermatmind.com/zh/articles/mbti-personality-test-science-vs-pseudoscience"
+    ]
+  },
+  "summary": {
+    "passed": false,
+    "audited_page_count": 20,
+    "passed_page_count": 13,
+    "failed_page_count": 7,
+    "h1_count_distribution": {
+      "1": 13,
+      "2": 7
+    },
+    "issue_count": 1
+  },
+  "issues": [
+    {
+      "reason": "page_h1_failures",
+      "detail": "failed=7"
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://fermatmind.com/en/articles/big-five-personality-test-vs-mbti",
+      "final_url": "https://fermatmind.com/en/articles/big-five-personality-test-vs-mbti",
+      "status": 200,
+      "duration_ms": 5695,
+      "h1_count": 1,
+      "h1_texts": [
+        "Big Five Personality Test: Is It More Scientific Than MBTI—and What Can It Really Tell You?"
+      ],
+      "passed": true,
+      "issues": []
+    },
+    {
+      "url": "https://fermatmind.com/zh/articles/are-infj-men-rare-or-socially-silenced",
+      "final_url": "https://fermatmind.com/zh/articles/are-infj-men-rare-or-socially-silenced",
+      "status": 200,
+      "duration_ms": 5622,
+      "h1_count": 2,
+      "h1_texts": [
+        "“INFJ 男性很少见”还是“高敏感男性更容易学会沉默”？",
+        "“INFJ 男性很少见”还是“高敏感男性更容易学会沉默”？"
+      ],
+      "passed": false,
+      "issues": [
+        {
+          "reason": "h1_count_not_one",
+          "detail": "h1_count=2"
+        }
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/articles/childhood-dream-job-still-shapes-career-choice",
+      "final_url": "https://fermatmind.com/zh/articles/childhood-dream-job-still-shapes-career-choice",
+      "status": 200,
+      "duration_ms": 6330,
+      "h1_count": 2,
+      "h1_texts": [
+        "你小时候想做的工作，为什么还在影响你今天的职业判断？",
+        "你小时候想做的工作，为什么还在影响你今天的职业判断？"
+      ],
+      "passed": false,
+      "issues": [
+        {
+          "reason": "h1_count_not_one",
+          "detail": "h1_count=2"
+        }
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/articles/riasec-holland-career-interest-test-explained",
+      "final_url": "https://fermatmind.com/zh/articles/riasec-holland-career-interest-test-explained",
+      "status": 200,
+      "duration_ms": 5800,
+      "h1_count": 2,
+      "h1_texts": [
+        "RIASEC 是什么？用霍兰德职业兴趣看懂职业动力",
+        "RIASEC 是什么？霍兰德职业兴趣测试如何辅助职业探索"
+      ],
+      "passed": false,
+      "issues": [
+        {
+          "reason": "h1_count_not_one",
+          "detail": "h1_count=2"
+        }
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/articles/which-love-script-fits-you-best",
+      "final_url": "https://fermatmind.com/zh/articles/which-love-script-fits-you-best",
+      "status": 200,
+      "duration_ms": 6198,
+      "h1_count": 2,
+      "h1_texts": [
+        "你真正适合哪种亲密关系脚本？用七种爱情类型做一次更科学的匹配",
+        "你真正适合哪种亲密关系脚本？用七种爱情类型做一次更科学的匹配"
+      ],
+      "passed": false,
+      "issues": [
+        {
+          "reason": "h1_count_not_one",
+          "detail": "h1_count=2"
+        }
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/articles/mbti-narrative-portrait",
+      "final_url": "https://fermatmind.com/zh/articles/mbti-narrative-portrait",
+      "status": 200,
+      "duration_ms": 5583,
+      "h1_count": 1,
+      "h1_texts": [
+        "MBTI 性格测试（16型人格）｜叙事画像版"
+      ],
+      "passed": true,
+      "issues": []
+    },
+    {
+      "url": "https://fermatmind.com/zh/articles/mbti-vs-holland-career-choice",
+      "final_url": "https://fermatmind.com/zh/articles/mbti-vs-holland-career-choice",
+      "status": 200,
+      "duration_ms": 5795,
+      "h1_count": 2,
+      "h1_texts": [
+        "MBTI和霍兰德哪个更适合选职业？",
+        "MBTI和霍兰德哪个更适合选职业？"
+      ],
+      "passed": false,
+      "issues": [
+        {
+          "reason": "h1_count_not_one",
+          "detail": "h1_count=2"
+        }
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/en/articles/are-infj-men-rare-or-socially-silenced",
+      "final_url": "https://fermatmind.com/en/articles/are-infj-men-rare-or-socially-silenced",
+      "status": 200,
+      "duration_ms": 5696,
+      "h1_count": 1,
+      "h1_texts": [
+        "Are INFJ Men Rare, or Have Sensitive Men Learned to Stay Silent?"
+      ],
+      "passed": true,
+      "issues": []
+    },
+    {
+      "url": "https://fermatmind.com/en/articles/mbti-vs-holland-code-career-choice",
+      "final_url": "https://fermatmind.com/en/articles/mbti-vs-holland-code-career-choice",
+      "status": 200,
+      "duration_ms": 5525,
+      "h1_count": 2,
+      "h1_texts": [
+        "MBTI vs. Holland Code/RIASEC: Which Career Test Should You Take?",
+        "MBTI vs. Holland Code/RIASEC: Which Career Test Should You Take?"
+      ],
+      "passed": false,
+      "issues": [
+        {
+          "reason": "h1_count_not_one",
+          "detail": "h1_count=2"
+        }
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/zh/articles/holland-career-interest-test-can-and-cannot-tell-you",
+      "final_url": "https://fermatmind.com/zh/articles/holland-career-interest-test-can-and-cannot-tell-you",
+      "status": 200,
+      "duration_ms": 5765,
+      "h1_count": 1,
+      "h1_texts": [
+        "霍兰德职业兴趣测试能告诉你什么，不能告诉你什么？"
+      ],
+      "passed": true,
+      "issues": []
+    },
+    {
+      "url": "https://fermatmind.com/zh/articles/big-five-narrative-portrait",
+      "final_url": "https://fermatmind.com/zh/articles/big-five-narrative-portrait",
+      "status": 200,
+      "duration_ms": 5689,
+      "h1_count": 1,
+      "h1_texts": [
+        "大五人格测试（OCEAN 模型）｜叙事画像版"
+      ],
+      "passed": true,
+      "issues": []
+    },
+    {
+      "url": "https://fermatmind.com/zh/articles/mbti-growth-guide",
+      "final_url": "https://fermatmind.com/zh/articles/mbti-growth-guide",
+      "status": 200,
+      "duration_ms": 5807,
+      "h1_count": 1,
+      "h1_texts": [
+        "MBTI 性格测试（16型人格）｜成长引导版"
+      ],
+      "passed": true,
+      "issues": []
+    },
+    {
+      "url": "https://fermatmind.com/en/articles/which-love-script-fits-you-best",
+      "final_url": "https://fermatmind.com/en/articles/which-love-script-fits-you-best",
+      "status": 200,
+      "duration_ms": 6169,
+      "h1_count": 1,
+      "h1_texts": [
+        "Which Relationship Script Fits You Best? Seven Types of Love, Explained"
+      ],
+      "passed": true,
+      "issues": []
+    },
+    {
+      "url": "https://fermatmind.com/zh/articles/how-personality-shapes-attitude-toward-ai",
+      "final_url": "https://fermatmind.com/zh/articles/how-personality-shapes-attitude-toward-ai",
+      "status": 200,
+      "duration_ms": 6014,
+      "h1_count": 2,
+      "h1_texts": [
+        "你的性格如何塑造你对人工智能的态度：从好奇、焦虑到算法信任",
+        "你的性格如何塑造你对人工智能的态度：从好奇、焦虑到算法信任"
+      ],
+      "passed": false,
+      "issues": [
+        {
+          "reason": "h1_count_not_one",
+          "detail": "h1_count=2"
+        }
+      ]
+    },
+    {
+      "url": "https://fermatmind.com/en/articles/mbti-personality-test-science-vs-pseudoscience",
+      "final_url": "https://fermatmind.com/en/articles/mbti-personality-test-science-vs-pseudoscience",
+      "status": 200,
+      "duration_ms": 5623,
+      "h1_count": 1,
+      "h1_texts": [
+        "MBTI Personality Test: Scientific Tool or Cyber Fortune-Telling?"
+      ],
+      "passed": true,
+      "issues": []
+    },
+    {
+      "url": "https://fermatmind.com/en/articles/how-16-personality-types-talk-to-an-ai-coach",
+      "final_url": "https://fermatmind.com/en/articles/how-16-personality-types-talk-to-an-ai-coach",
+      "status": 200,
+      "duration_ms": 5570,
+      "h1_count": 1,
+      "h1_texts": [
+        "How the 16 Personality Types Talk to an AI Coach"
+      ],
+      "passed": true,
+      "issues": []
+    },
+    {
+      "url": "https://fermatmind.com/zh/articles/big-five-personality-test-vs-mbti",
+      "final_url": "https://fermatmind.com/zh/articles/big-five-personality-test-vs-mbti",
+      "status": 200,
+      "duration_ms": 5742,
+      "h1_count": 1,
+      "h1_texts": [
+        "大五人格测试：比 MBTI 更科学吗？五大特质能告诉你什么，不能告诉你什么？"
+      ],
+      "passed": true,
+      "issues": []
+    },
+    {
+      "url": "https://fermatmind.com/en/articles/childhood-dream-job-still-shapes-career-choice",
+      "final_url": "https://fermatmind.com/en/articles/childhood-dream-job-still-shapes-career-choice",
+      "status": 200,
+      "duration_ms": 5634,
+      "h1_count": 1,
+      "h1_texts": [
+        "Why Your Childhood Dream Job Still Shapes Your Career Decisions"
+      ],
+      "passed": true,
+      "issues": []
+    },
+    {
+      "url": "https://fermatmind.com/en/articles/how-personality-shapes-attitude-toward-ai",
+      "final_url": "https://fermatmind.com/en/articles/how-personality-shapes-attitude-toward-ai",
+      "status": 200,
+      "duration_ms": 8446,
+      "h1_count": 1,
+      "h1_texts": [
+        "How Personality Shapes Your Attitude Toward AI: Curiosity, Anxiety, and Algorithmic Trust"
+      ],
+      "passed": true,
+      "issues": []
+    },
+    {
+      "url": "https://fermatmind.com/zh/articles/mbti-personality-test-science-vs-pseudoscience",
+      "final_url": "https://fermatmind.com/zh/articles/mbti-personality-test-science-vs-pseudoscience",
+      "status": 200,
+      "duration_ms": 5587,
+      "h1_count": 1,
+      "h1_texts": [
+        "MBTI 16 型人格测试：是科学工具，还是赛博算命？"
+      ],
+      "passed": true,
+      "issues": []
+    }
+  ]
+}

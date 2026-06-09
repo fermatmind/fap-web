@@ -21728,7 +21728,7 @@
       "id": "ARTICLE-H1-03",
       "repo": "fap-web",
       "branch": "codex/article-h1-03",
-      "status": "pending_dependency",
+      "status": "local_checks_passed",
       "commit_sha": null,
       "pr_url": null,
       "merged_at": null,
@@ -21741,8 +21741,48 @@
           "evidence": "User explicitly authorized adding and executing ARTICLE-H1-01 through ARTICLE-H1-04, including fap-web docs/codex metadata updates, on 2026-06-09."
         },
         "dependency": {
-          "status": "pending",
-          "evidence": "ARTICLE-H1-03 depends on ARTICLE-H1-01 and ARTICLE-H1-02 being merged."
+          "status": "pass",
+          "evidence": "ARTICLE-H1-01 merged in fap-web PR #1087 on 2026-06-09. ARTICLE-H1-02 merged in fap-api PR #2014 on 2026-06-09 with merge commit 8a3abf353e35d57058757b513b341e97ba873144."
+        },
+        "scope_helper": {
+          "status": "pass",
+          "evidence": "Added tests/contracts/helpers/currentPrScope.ts to ARTICLE-H1-03 artifacts and allowed_paths so the full contract suite can enforce this PR scope."
+        },
+        "live_audit": {
+          "status": "pass_with_sidecar_issue",
+          "evidence": "node scripts/seo/audit-article-h1.mjs --sample-size=20 --output docs/seo/generated/article-h1-audit.v1.json --report docs/seo/article_h1_audit_report.md completed and generated the report. The live Playwright DOM audit found 20 sampled article pages, 13 single-H1 pages, and 7 double-H1 pages; report-only mode intentionally records this external live parity issue without mutating rendering, CMS content, or deploying."
+        },
+        "sidecar_issue": {
+          "status": "open_external",
+          "evidence": "Live production still has double H1 on 7 sampled article pages after code-side controls were merged, likely pending deployment and/or existing CMS body H1 cleanup. ARTICLE-H1-03 is observation-only and cannot mutate CMS content or deploy."
+        },
+        "focused_vitest": {
+          "status": "pass",
+          "evidence": "pnpm exec vitest run tests/contracts/article-h1-audit.contract.test.ts passed 4 tests."
+        },
+        "live_script_run": {
+          "status": "pass_with_sidecar_issue",
+          "evidence": "node scripts/seo/audit-article-h1.mjs --sample-size=20 --output docs/seo/generated/article-h1-audit.v1.json --report docs/seo/article_h1_audit_report.md exited 0 in report-only mode and generated a Playwright live DOM report: 20 sampled, 13 single-H1, 7 double-H1."
+        },
+        "typecheck": {
+          "status": "pass",
+          "evidence": "pnpm typecheck passed."
+        },
+        "contract": {
+          "status": "pass",
+          "evidence": "pnpm test:contract passed 471 files / 2677 tests."
+        },
+        "metadata": {
+          "status": "pass",
+          "evidence": "article-h1 audit JSON, pr-train-state JSON, and pr-train YAML parse checks passed."
+        },
+        "scope_validation": {
+          "status": "pass",
+          "evidence": "Changed files are within ARTICLE-H1-03 manifest scope; final validation includes untracked files before commit."
+        },
+        "diff_check": {
+          "status": "pass",
+          "evidence": "git diff --check and git diff --cached --check passed before staging."
         }
       },
       "history": [
@@ -21750,6 +21790,16 @@
           "at": "2026-06-09",
           "status": "pending_dependency",
           "note": "Initialized future live audit PR metadata only; implementation intentionally deferred."
+        },
+        {
+          "at": "2026-06-09",
+          "status": "in_progress",
+          "note": "Dependencies verified merged; started ARTICLE-H1-03 live article H1 audit implementation from fap-web main."
+        },
+        {
+          "at": "2026-06-09",
+          "status": "local_checks_passed",
+          "note": "Focused vitest, live report generation, typecheck, full contract suite, metadata parse, scope validation, and diff check passed. Live report records an external double-H1 sidecar issue on 7 sampled production pages."
         }
       ]
     }
