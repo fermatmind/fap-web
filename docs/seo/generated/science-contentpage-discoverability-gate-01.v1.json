@@ -20,13 +20,7 @@
     "/common-misconceptions",
     "/method-boundaries"
   ],
-  "draft_routes_blocked_from_footer": [
-    "/zh/science",
-    "/zh/item-design-notes",
-    "/zh/reliability-validity",
-    "/zh/data-privacy",
-    "/zh/common-misconceptions"
-  ],
+  "draft_routes_blocked_from_footer": [],
   "footer_allowed_existing_authority_routes": [
     "/science",
     "/method-boundaries",
@@ -130,14 +124,19 @@
       "/common-misconceptions"
     ],
     "zh": [
-      "/method-boundaries"
+      "/science",
+      "/method-boundaries",
+      "/item-design-notes",
+      "/reliability-validity",
+      "/data-privacy",
+      "/common-misconceptions"
     ]
   },
   "approval_basis": {
     "operator_review": "approved",
     "claim_gate_status": "passed",
     "faq_schema_gate": "passed",
-    "backend_public_api": "requires_deploy_and_import_smoke_for_production_200",
+    "backend_public_api": "zh_science_content_pages_published_and_live_smoked_200_2026-06-09",
     "user_authorization": "complete_exposure_authorized_2026-06-09"
   }
 }
