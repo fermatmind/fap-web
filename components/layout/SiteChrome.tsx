@@ -13,7 +13,7 @@ export function SiteChrome({
   productPriority: ProductPriorityEnvSnapshot;
 }) {
   return (
-    <div className="min-h-screen bg-[var(--fm-bg)] text-[var(--fm-text)]">
+    <div className="fm-page-background min-h-screen text-[var(--fm-text)]">
       <Suspense fallback={null}>
         <SiteHeader productPriority={productPriority} />
       </Suspense>

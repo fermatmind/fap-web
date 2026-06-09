@@ -83,7 +83,7 @@ export function SiteHeader({
     ) as Record<HeaderNavKey, Array<{ href: string; label: string }>>;
   }, [locale, priorityFlags]);
   const startButtonClass =
-    "inline-flex h-9 min-h-[36px] shrink-0 items-center justify-center whitespace-nowrap rounded-full border border-white/12 bg-[#e6ece8] px-4 text-[13px] font-semibold text-[#121923] shadow-none transition hover:bg-[#f1f5f2] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40";
+    "inline-flex h-9 min-h-[36px] shrink-0 items-center justify-center whitespace-nowrap rounded-full border border-[var(--fm-border-subtle)] bg-white px-4 text-[13px] font-semibold text-[var(--fm-text-main)] shadow-none transition hover:bg-[var(--fm-lime-soft)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-text-main)]/20";
 
   function persistLocalePreference() {
     if (typeof document === "undefined") return;
@@ -200,7 +200,7 @@ export function SiteHeader({
 
   return (
     <header
-      className="sticky top-0 z-50 border-b border-white/10 bg-[#353e49]/92 text-white shadow-[0_16px_44px_rgba(3,8,16,0.3)] backdrop-blur-xl"
+      className="sticky top-0 z-50 border-b border-[var(--fm-border-soft)] bg-white text-[var(--fm-text-main)]"
     >
       <Container
         className="max-w-[1320px] px-6 py-2.5 md:px-10 xl:px-12"
@@ -210,7 +210,7 @@ export function SiteHeader({
             <Link
               href={withLocale("/")}
               className={cn(
-                "font-serif font-semibold tracking-tight text-white",
+                "font-serif font-semibold tracking-tight text-[var(--fm-text-main)]",
                 isHomeRoute
                   ? "text-[1.22rem] leading-none xl:text-[1.28rem]"
                   : "text-[1.22rem] leading-none xl:text-[1.28rem]"
@@ -225,7 +225,7 @@ export function SiteHeader({
             aria-expanded={menuOpen}
             aria-label={dict.header.menu}
             onClick={toggleMobileMenu}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/25 bg-white/10 text-white transition hover:bg-white/20 lg:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--fm-border-subtle)] bg-white text-[var(--fm-text-main)] transition hover:bg-[var(--fm-lime-soft)] lg:hidden"
           >
             {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -323,7 +323,7 @@ export function SiteHeader({
               <Link
                 href={withLocale("/tests?q=")}
                 prefetch={false}
-                className="inline-flex h-11 min-h-[44px] min-w-[44px] shrink-0 items-center justify-center rounded-full border border-white/25 bg-white/10 text-white transition hover:bg-white/20"
+                className="inline-flex h-11 min-h-[44px] min-w-[44px] shrink-0 items-center justify-center rounded-full border border-[var(--fm-border-subtle)] bg-white text-[var(--fm-text-main)] transition hover:bg-[var(--fm-lime-soft)]"
                 aria-label={dict.header.search}
                 title={dict.header.search}
               >
@@ -332,11 +332,11 @@ export function SiteHeader({
               <LocaleSwitcher />
 
               <Link
-                href={withLocale("/tests/mbti-personality-test-16-personality-types")}
+                href={withLocale("/results/lookup")}
                 prefetch={false}
                 className={startButtonClass}
               >
-                {dict.header.start}
+                {dict.header.profile}
               </Link>
             </div>
           </div>
@@ -356,17 +356,17 @@ export function SiteHeader({
             role="dialog"
             aria-modal="true"
             aria-label={dict.header.menu}
-            className="absolute right-0 top-0 flex h-[100dvh] w-[clamp(280px,82vw,360px)] flex-col border-l border-white/18 bg-gradient-to-b from-[#101921] via-[#0d151d] to-[#0a1218] shadow-[-24px_0_56px_rgba(5,16,34,0.48)]"
+            className="absolute right-0 top-0 flex h-[100dvh] w-[clamp(280px,82vw,360px)] flex-col border-l border-[var(--fm-border-subtle)] bg-[var(--fm-bg-page)] shadow-[-24px_0_56px_rgba(21,20,15,0.18)]"
           >
-            <div className="flex items-center justify-between border-b border-white/15 px-4 py-4">
-              <Link href={withLocale("/")} prefetch={false} onClick={handleMobileLinkClick} className="font-serif text-xl font-semibold text-white">
+            <div className="flex items-center justify-between border-b border-[var(--fm-border-soft)] px-4 py-4">
+              <Link href={withLocale("/")} prefetch={false} onClick={handleMobileLinkClick} className="font-serif text-xl font-semibold text-[#15140f]">
                 {dict.header.brand}
               </Link>
               <button
                 type="button"
                 aria-label={dict.header.closeMenu}
                 onClick={closeMobileMenu}
-                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/30 bg-white/10 text-white transition hover:bg-white/20"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--fm-border-subtle)] bg-[var(--fm-bg-page)] text-[#15140f] transition hover:bg-[var(--fm-bg-soft)]"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -379,7 +379,7 @@ export function SiteHeader({
                     href={withLocale("/")}
                     prefetch={false}
                     onClick={handleMobileLinkClick}
-                    className="flex min-h-[44px] items-center rounded-lg px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/12"
+                    className="flex min-h-[44px] items-center rounded-lg px-3 py-2 text-sm font-semibold text-[#15140f] transition hover:bg-[var(--fm-bg-soft)]"
                   >
                     {dict.header.home}
                   </Link>
@@ -390,14 +390,14 @@ export function SiteHeader({
                   const menuItems = dropdownMenuMap[item.key] ?? [];
 
                   return (
-                    <div key={`mobile-group-${item.key}`} className="rounded-lg border border-white/10 bg-white/[0.03]">
+                    <div key={`mobile-group-${item.key}`} className="rounded-lg border border-[var(--fm-border-soft)] bg-[var(--fm-bg-page)]">
                       <div className="flex min-h-[44px] items-stretch">
                         <Link
                           href={withLocale(item.href)}
                           prefetch={false}
                           onClick={handleMobileLinkClick}
                           data-testid={`mobile-primary-nav-link-${item.key}`}
-                          className="flex flex-1 items-center rounded-l-lg px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
+                          className="flex flex-1 items-center rounded-l-lg px-3 py-2 text-sm font-semibold text-[#15140f] transition hover:bg-[var(--fm-bg-soft)]"
                         >
                           {item.label}
                         </Link>
@@ -407,14 +407,14 @@ export function SiteHeader({
                           aria-expanded={isExpanded}
                           aria-controls={`mobile-submenu-${item.key}`}
                           onClick={() => setMobileExpandedKey((prev) => (prev === item.key ? null : item.key))}
-                          className="flex min-h-[44px] w-12 items-center justify-center rounded-r-lg text-white transition hover:bg-white/10"
+                          className="flex min-h-[44px] w-12 items-center justify-center rounded-r-lg text-[#15140f] transition hover:bg-[var(--fm-bg-soft)]"
                         >
                           <ChevronDown className={isExpanded ? "h-4 w-4 rotate-180 transition" : "h-4 w-4 transition"} />
                         </button>
                       </div>
 
                       {isExpanded ? (
-                        <div id={`mobile-submenu-${item.key}`} role="menu" className="space-y-1 border-t border-white/10 px-2 pb-2 pt-2">
+                        <div id={`mobile-submenu-${item.key}`} role="menu" className="space-y-1 border-t border-[var(--fm-border-soft)] px-2 pb-2 pt-2">
                           {menuItems.map((menuItem, menuItemIndex) => (
                             <Link
                               key={`mobile-submenu-link-${item.key}-${menuItem.href}-${menuItemIndex}`}
@@ -422,7 +422,7 @@ export function SiteHeader({
                               prefetch={false}
                               role="menuitem"
                               onClick={handleMobileLinkClick}
-                              className="block rounded-md px-3 py-2 text-sm text-blue-100 transition hover:bg-white/10 hover:text-white"
+                              className="block rounded-md px-3 py-2 text-sm text-[#2a2620] transition hover:bg-[var(--fm-bg-soft)] hover:text-[#15140f]"
                             >
                               {menuItem.label}
                             </Link>
@@ -437,7 +437,7 @@ export function SiteHeader({
                   href={withLocale("/tests?q=")}
                   prefetch={false}
                   onClick={handleMobileLinkClick}
-                  className="mt-2 flex min-h-[44px] items-center gap-3 rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
+                  className="mt-2 flex min-h-[44px] items-center gap-3 rounded-lg border border-[var(--fm-border-soft)] bg-[var(--fm-bg-page)] px-3 py-2 text-sm font-semibold text-[#15140f] transition hover:bg-[var(--fm-bg-soft)]"
                 >
                   <Search className="h-4 w-4" />
                   <span>{dict.header.search}</span>
@@ -451,7 +451,7 @@ export function SiteHeader({
                       persistLocalePreference();
                       handleMobileLinkClick();
                     }}
-                    className="flex min-h-[44px] items-center rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
+                    className="flex min-h-[44px] items-center rounded-lg border border-[var(--fm-border-soft)] bg-[var(--fm-bg-page)] px-3 py-2 text-sm font-semibold text-[#15140f] transition hover:bg-[var(--fm-bg-soft)]"
                   >
                     {localeLabel}
                   </Link>
@@ -459,15 +459,15 @@ export function SiteHeader({
               </nav>
             </div>
 
-            <div className="shrink-0 border-t border-white/15 bg-slate-950/20 p-4">
+            <div className="shrink-0 border-t border-[var(--fm-border-soft)] bg-[var(--fm-bg-page)] p-4">
               <div className="flex items-center gap-2">
                 <Link
-                  href={withLocale("/tests/mbti-personality-test-16-personality-types")}
+                  href={withLocale("/results/lookup")}
                   prefetch={false}
                   className={`${buttonVariants({ size: "sm" })} flex-1 justify-center`}
                   onClick={handleMobileLinkClick}
                 >
-                  {dict.header.start}
+                  {dict.header.profile}
                 </Link>
               </div>
             </div>

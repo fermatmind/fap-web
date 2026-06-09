@@ -21,7 +21,7 @@ export default function GlobalError({
 
   return (
     <html lang="en">
-      <body className="bg-slate-50 text-slate-900">
+      <body className="fm-page-background text-slate-900">
         <main className="mx-auto flex min-h-screen w-full max-w-2xl items-center px-4 py-10">
           <div className="w-full rounded-2xl border border-rose-200 bg-white p-6 shadow-sm">
             <h1 className="m-0 text-2xl font-bold text-slate-900">Something went wrong</h1>

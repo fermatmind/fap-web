@@ -12,7 +12,7 @@ const zh: SiteDictionary = {
     business: "企业版",
     start: "开始",
     search: "搜索",
-    profile: "我的结果",
+    profile: "我的账户",
     menu: "菜单",
     closeMenu: "关闭菜单",
     completedPrefix: "过去30天已完成",

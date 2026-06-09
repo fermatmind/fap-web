@@ -146,7 +146,7 @@ export default async function SupportPage({
   const hero = gateway.landingSurface.summaryBlocks[0];
 
   return (
-    <main className="bg-white text-[var(--fm-text)]" data-testid="support-hub">
+    <main className="fm-page-background text-[var(--fm-text)]" data-testid="support-hub">
       <Container className="py-10 md:py-14">
         <section className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start">
           <div className="space-y-6">

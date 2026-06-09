@@ -219,7 +219,7 @@ export function SupportTrustDetailTemplate({
   const updatedLabel = formatDate(updatedAt, locale);
 
   return (
-    <main className="bg-white text-[var(--fm-text)]" data-testid={testId}>
+    <main className="fm-page-background text-[var(--fm-text)]" data-testid={testId}>
       <Container className="py-10 md:py-14">
         <Breadcrumb
           items={[
