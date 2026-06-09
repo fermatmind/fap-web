@@ -21557,8 +21557,8 @@
       "id": "SEO-CONV-RUNTIME-03",
       "repo": "fap-web",
       "branch": "codex/seo-conv-runtime-03",
-      "status": "pr_open_checks_pending",
-      "commit_sha": "efc7e434ca2513cd829d7e19f88b131857d85c40",
+      "status": "ready_to_merge",
+      "commit_sha": "2890298dc958be2b64fe9ffe8f6f6fe5b910989e",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1085",
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -21597,9 +21597,16 @@
           "evidence": "Focused runtime contract passed 5 tests; tracking/analytics focused suite passed 11 files / 86 tests; pnpm typecheck passed; pnpm test:contract passed 469 files / 2666 tests; JSON/YAML parse, git diff --check, and explicit scope validation passed."
         },
         "github": {
-          "status": "pending",
-          "checks": [],
-          "evidence": "Opened fap-web PR #1085; GitHub checks are pending."
+          "status": "pass",
+          "checks": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "CodeQL",
+            "analyze (javascript-typescript)"
+          ],
+          "evidence": "GitHub checks passed for fap-web PR #1085 at head 2890298dc958be2b64fe9ffe8f6f6fe5b910989e."
         }
       },
       "history": [
@@ -21617,6 +21624,11 @@
           "at": "2026-06-09",
           "status": "pr_open_checks_pending",
           "note": "Opened fap-web PR #1085 for SEO-CONV-RUNTIME-03 after scoped local validation passed."
+        },
+        {
+          "at": "2026-06-09",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed for PR #1085 at head 2890298dc958be2b64fe9ffe8f6f6fe5b910989e. Recording ready_to_merge before merge per train policy."
         }
       ]
     }
