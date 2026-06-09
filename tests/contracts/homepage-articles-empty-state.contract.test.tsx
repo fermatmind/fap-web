@@ -11,7 +11,7 @@ const homeCopy: HomePageContent = {
     title: "看清自己，走好每一步",
     subhead: "费马测试把自我认知、职业探索与能力成长，做成可测量、可训练、可复盘的成长系统。",
     body: "先从最常用的测评入口开始。",
-    primaryCta: "开始测评",
+    primaryCta: "免费测试",
     primaryHref: "/tests/mbti-personality-test-16-personality-types",
     secondaryCta: "了解产品体系",
     secondaryHref: "/about",
@@ -34,7 +34,7 @@ const homeCopy: HomePageContent = {
   },
   families: {
     kicker: "MORE PATHS",
-    title: "继续探索，但不打断开始。",
+    title: "关于 费马团队",
     body: "次级入口保留为轻量路径。",
     items: [
       { title: "全部测评", description: "查看当前可用的测评入口。", exploreLabel: "查看全部测评", exploreHref: "/tests", links: [{ title: "查看全部测评", href: "/tests" }] },

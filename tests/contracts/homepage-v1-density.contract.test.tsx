@@ -14,7 +14,7 @@ const homeCopy: HomePageContent = {
     title: "看清自己，走好每一步",
     subhead: "费马测试把自我认知、职业探索与能力成长，做成可测量、可训练、可复盘的成长系统。",
     body: "先从最常用的测评入口开始，再把结果用于学习、协作和职业判断。",
-    primaryCta: "开始测评",
+    primaryCta: "免费测试",
     primaryHref: "/tests/mbti-personality-test-16-personality-types",
     secondaryCta: "了解产品体系",
     secondaryHref: "/about",
@@ -37,7 +37,7 @@ const homeCopy: HomePageContent = {
   },
   families: {
     kicker: "MORE PATHS",
-    title: "继续探索，但不打断开始。",
+    title: "关于 费马团队",
     body: "次级入口保留为轻量路径，不再用大矩阵占据首页。",
     items: [
       { title: "全部测评", description: "查看当前可用的测评入口。", exploreLabel: "查看全部测评", exploreHref: "/tests", links: [{ title: "查看全部测评", href: "/tests" }] },
@@ -149,9 +149,9 @@ describe("homepage v1 density contract", () => {
 
     expect(source).toContain("function HomepageHeroV1");
     expect(source).toContain("bg-[#f7f5ef]");
-    expect(source).toContain("function HeroQuickStartPanel");
-    expect(source).toContain("featuredTests.map");
     expect(source).toContain("copy.hero.primaryCta");
+    expect(source).not.toContain("function HeroQuickStartPanel");
+    expect(source).not.toContain("featuredTests.map");
     expect(source).not.toContain("copy.hero.secondaryCta");
     expect(source).not.toContain("copy.hero.tertiaryCta");
     expect(source).toContain("function HomepageHighlightedTestsBanner");
@@ -269,7 +269,7 @@ describe("homepage v1 density contract", () => {
 
     expect(
       screen
-        .getAllByRole("link", { name: "开始测评" })
+        .getAllByRole("link", { name: "免费测试" })
         .some((link) => link.getAttribute("href") === "/zh/tests/mbti-personality-test-16-personality-types")
     ).toBe(true);
     expect(
@@ -284,7 +284,7 @@ describe("homepage v1 density contract", () => {
     expect(screen.queryByRole("heading", { level: 2, name: "关于 费马测试" })).not.toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 2, name: "热门测评" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 3, name: "百万人测试" })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { level: 2, name: "继续探索，但不打断开始。" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 2, name: "关于 费马团队" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 2, name: "推荐阅读" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /你的性格如何塑造你对人工智能的态度？/ })).toHaveAttribute(
       "href",

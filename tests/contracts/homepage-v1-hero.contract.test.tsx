@@ -36,20 +36,22 @@ describe("homepage v1 hero contract", () => {
     ).toBeInTheDocument();
   });
 
-  it("keeps the hero focused on the primary start action and CMS-backed quick-start entries", async () => {
+  it("keeps the hero focused on the primary start action without the quick-start panel", async () => {
     render(<HomePageExperience locale="zh" copy={await getHomePageContent("zh")} />);
 
-    expect(screen.getByRole("link", { name: "开始测评" })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "免费测试" })).toHaveAttribute(
       "href",
       "/zh/tests/mbti-personality-test-16-personality-types"
     );
-    expect(screen.getByRole("heading", { level: 2, name: "从一个清楚的问题开始。" })).toBeInTheDocument();
-    expect(screen.getAllByRole("link", { name: /MBTI 性格测试/ }).some((link) => (
-      link.getAttribute("href") === "/zh/tests/mbti-personality-test-16-personality-types"
-    ))).toBe(true);
 
     for (const removedText of [
       "FERMATMIND / 费马测试",
+      "CORE TESTS",
+      "从一个清楚的问题开始。",
+      "保留最常用的六个入口，题量与版本选择放到对应测试页。",
+      "快速了解你的类型偏好与决策风格",
+      "从五个维度看清你的稳定特质",
+      "先得到兴趣结构与职业方向判断",
       "结果结构清晰",
       "方法边界透明",
       "可匿名开始",

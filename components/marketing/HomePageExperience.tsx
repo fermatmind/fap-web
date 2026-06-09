@@ -172,56 +172,7 @@ function getCoreMetaItems(item: HomeCoreTestItem): string[] {
   return result;
 }
 
-function HeroQuickStartPanel({ locale, copy, coreTests }: { locale: Locale; copy: HomePageContent; coreTests: HomeCoreTestItem[] }) {
-  const featuredTests = coreTests.slice(0, 3);
-
-  return (
-    <div className="relative">
-      <div className="absolute -left-4 top-6 hidden h-40 w-px bg-slate-200 lg:block" aria-hidden />
-      <div className="space-y-5">
-        <div className="border-b border-slate-200 pb-5">
-          <p className="m-0 text-xs font-semibold uppercase tracking-[0.22em] text-[#087d8d]">{copy.quickStart.kicker}</p>
-          <h2 className="m-0 mt-3 text-2xl font-semibold leading-tight tracking-normal text-slate-950 md:text-3xl">
-            {copy.quickStart.title}
-          </h2>
-          {hasText(copy.quickStart.body) ? (
-            <p className="m-0 mt-3 max-w-xl text-base leading-7 text-slate-600">{copy.quickStart.body}</p>
-          ) : null}
-        </div>
-
-        <div className="grid gap-3">
-          {featuredTests.map((item, index) => {
-            const title = getCoreTestDisplayTitle(locale, item);
-            const metaItems = getCoreMetaItems(item);
-
-            return (
-              <Link
-                key={`${getCoreTestKey(item)}-${index}`}
-                href={withLocale(locale, item.href)}
-                prefetch={false}
-                className="group grid gap-3 border border-slate-200 bg-white px-5 py-4 text-left shadow-[0_14px_32px_rgba(15,23,42,0.06)] transition hover:-translate-y-0.5 hover:border-[#087d8d]/40 hover:shadow-[0_18px_42px_rgba(15,23,42,0.10)] sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center"
-              >
-                <span>
-                  <span className="block text-base font-semibold leading-6 text-slate-950">{title}</span>
-                  {hasText(item.description) ? (
-                    <span className="mt-1 block text-sm leading-6 text-slate-600">{item.description}</span>
-                  ) : null}
-                </span>
-                <span className="flex items-center gap-3 text-sm font-semibold text-[#087d8d]">
-                  {metaItems[0] ? <span className="hidden text-slate-500 sm:inline">{metaItems[0]}</span> : null}
-                  <span aria-hidden className="transition group-hover:translate-x-1">→</span>
-                </span>
-              </Link>
-            );
-          })}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function HomepageHeroV1({ locale, copy, coreTests = [] }: { locale: Locale; copy: HomePageContent; coreTests?: HomeCoreTestItem[] }) {
-  void coreTests;
+function HomepageHeroV1({ locale, copy }: { locale: Locale; copy: HomePageContent }) {
   const ctas = [
     { label: copy.hero.primaryCta, href: copy.hero.primaryHref, variant: "primary" },
   ].filter((item) => hasText(item.label) && hasText(item.href));
@@ -229,46 +180,36 @@ function HomepageHeroV1({ locale, copy, coreTests = [] }: { locale: Locale; copy
   return (
     <section className="relative overflow-hidden border-b border-slate-200 bg-[#f7f5ef] px-0 pb-12 pt-24 text-slate-950 md:pb-16 md:pt-28 lg:pb-20 lg:pt-32">
       <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-slate-200" />
-      <div aria-hidden className="absolute left-0 top-0 hidden h-full w-[18vw] border-r border-slate-200 bg-white/35 lg:block" />
-      <div aria-hidden className="absolute right-0 top-0 hidden h-full w-[12vw] border-l border-slate-200 bg-white/25 xl:block" />
 
       <Container className="relative z-10 w-full max-w-[88rem] px-6 md:px-8 xl:px-12">
-        <div className="grid gap-10 lg:grid-cols-[minmax(22rem,0.82fr)_minmax(28rem,1.18fr)] lg:items-center">
-          <div className="max-w-3xl">
-            {hasText(copy.hero.brand) ? (
-              <p className="m-0 text-sm font-semibold tracking-[0.18em] text-[#087d8d] uppercase">{copy.hero.brand}</p>
-            ) : null}
-            <h1 className="m-0 mt-5 max-w-[12ch] text-balance break-words text-[3.25rem] font-semibold leading-[1.02] tracking-normal text-slate-950 sm:text-[4.25rem] lg:text-[4.8rem]">
-              {copy.hero.title}
-            </h1>
-            <div aria-hidden className="mt-6 h-px w-28 bg-[#087d8d]" />
-            <p className="m-0 mt-6 max-w-2xl text-lg leading-8 text-slate-700">
-              {copy.hero.subhead}
-            </p>
-            {ctas.length > 0 ? (
-              <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-                {ctas.map((item) => (
-                  <Link
-                    key={`${item.variant}-${item.href}`}
-                    href={withLocale(locale, item.href)}
-                    prefetch={false}
-                    className={cn(
-                      "inline-flex min-h-[3.1rem] items-center justify-center whitespace-nowrap border px-7 text-base font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#087d8d]",
-                      item.variant === "primary" && "min-w-40 border-[#087d8d] bg-[#087d8d] text-white shadow-[0_14px_30px_rgba(8,125,141,0.18)] hover:bg-[#056f7c]",
-                      item.variant === "secondary" && "min-w-40 border-slate-300 bg-white text-slate-950 hover:border-[#087d8d] hover:text-[#087d8d]",
-                      item.variant === "tertiary" && "min-w-40 border-slate-300 bg-white text-slate-950 hover:border-[#087d8d] hover:text-[#087d8d]"
-                    )}
-                  >
-                    {item.label}
-                    {item.variant === "primary" ? <span aria-hidden className="ml-4">→</span> : null}
-                  </Link>
-                ))}
-              </div>
-            ) : null}
-
-          </div>
-
-          <HeroQuickStartPanel locale={locale} copy={copy} coreTests={coreTests} />
+        <div className="max-w-3xl">
+          <h1 className="m-0 max-w-[12ch] text-balance break-words text-[3.25rem] font-semibold leading-[1.02] tracking-normal text-slate-950 sm:text-[4.25rem] lg:text-[4.8rem]">
+            {copy.hero.title}
+          </h1>
+          <div aria-hidden className="mt-6 h-px w-28 bg-[#087d8d]" />
+          <p className="m-0 mt-6 max-w-2xl text-lg leading-8 text-slate-700">
+            {copy.hero.subhead}
+          </p>
+          {ctas.length > 0 ? (
+            <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+              {ctas.map((item) => (
+                <Link
+                  key={`${item.variant}-${item.href}`}
+                  href={withLocale(locale, item.href)}
+                  prefetch={false}
+                  className={cn(
+                    "inline-flex min-h-[3.1rem] items-center justify-center whitespace-nowrap border px-7 text-base font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#087d8d]",
+                    item.variant === "primary" && "min-w-40 border-[#087d8d] bg-[#087d8d] text-white shadow-[0_14px_30px_rgba(8,125,141,0.18)] hover:bg-[#056f7c]",
+                    item.variant === "secondary" && "min-w-40 border-slate-300 bg-white text-slate-950 hover:border-[#087d8d] hover:text-[#087d8d]",
+                    item.variant === "tertiary" && "min-w-40 border-slate-300 bg-white text-slate-950 hover:border-[#087d8d] hover:text-[#087d8d]"
+                  )}
+                >
+                  {item.label}
+                  {item.variant === "primary" ? <span aria-hidden className="ml-4">→</span> : null}
+                </Link>
+              ))}
+            </div>
+          ) : null}
         </div>
       </Container>
     </section>
@@ -869,7 +810,7 @@ export function HomePageExperience({
   return (
     <div className="bg-[#f7f5ef] text-slate-950">
       <HomepageCookieBannerGuard />
-      <HomepageHeroV1 locale={locale} copy={copy} coreTests={listCoreHomepageTests(copy, supplementalTests)} />
+      <HomepageHeroV1 locale={locale} copy={copy} />
       <HomepageHighlightedTestsBanner locale={locale} copy={copy} supplementalTests={supplementalTests} />
       <HomepageTrustStripV1 locale={locale} copy={copy} />
       <HomepageFamilyMatrix locale={locale} copy={copy} />
