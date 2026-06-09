@@ -2,12 +2,14 @@ import { NextResponse, type NextRequest } from "next/server";
 import {
   filterTrackingPayload,
   isCareerAttributionEvent,
+  isSeoConversionFunnelEvent,
   isTrackingEvent,
   normalizeTrackingEventName,
   type TrackingEventName,
 } from "@/lib/tracking/events";
 import { buildPublicTrackingServerLabels } from "@/lib/tracking/attribution";
 import { sanitizeAnalyticsTrackingUrl, shouldSuppressAnalyticsForUrl } from "@/lib/tracking/privacy";
+import { resolveApiOrigin } from "@/lib/api-base";
 
 const MAX_BODY_BYTES = 8 * 1024;
 
@@ -26,6 +28,14 @@ function safeText(input: unknown, fallback = ""): string {
 
 function localeFromPath(path: string): "en" | "zh" {
   return path.startsWith("/zh") ? "zh" : "en";
+}
+
+function uniqueTargets(targets: Array<string | undefined>): string[] {
+  return Array.from(new Set(targets.filter((value): value is string => Boolean(value))));
+}
+
+function resolveSeoAttributionIngestEndpoint(token?: string): string | undefined {
+  return token ? `${resolveApiOrigin()}/api/v0.5/seo/attribution/events` : undefined;
 }
 
 export async function POST(request: NextRequest) {
@@ -88,15 +98,19 @@ export async function POST(request: NextRequest) {
   };
 
   const token = process.env.TRACK_INGEST_TOKEN;
-  const targets = (
+  const seoAttributionTarget = isSeoConversionFunnelEvent(normalizedEventName)
+    ? resolveSeoAttributionIngestEndpoint(token)
+    : undefined;
+  const targets = uniqueTargets(
     isCareerAttributionEvent(normalizedEventName)
-      ? [process.env.CAREER_ATTRIBUTION_INGEST_ENDPOINT ?? process.env.ANALYTICS_ENDPOINT]
+      ? [seoAttributionTarget, process.env.CAREER_ATTRIBUTION_INGEST_ENDPOINT ?? process.env.ANALYTICS_ENDPOINT]
       : [
+          seoAttributionTarget,
           process.env.MBTI_ATTRIBUTION_INGEST_ENDPOINT,
           process.env.ANALYTICS_ENDPOINT,
           process.env.EDM_ENDPOINT,
         ]
-  ).filter((value): value is string => Boolean(value));
+  );
 
   if (targets.length === 0) {
     return NextResponse.json({ ok: true, requestId, forwarded: 0 });

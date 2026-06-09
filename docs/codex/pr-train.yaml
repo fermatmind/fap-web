@@ -13931,7 +13931,7 @@ prs:
     depends_on: [SEO-CONV-TRACKING-01, SEO-CONV-INGEST-02]
     mode: execute
     train_scope: seo_conversion_runtime
-    status: pending_dependency
+    status: in_progress
     goal: "Wire frontend runtime surfaces to send the minimum SEO conversion loop after the frontend contract and backend ingest PRs are merged."
     artifacts:
       - lib/analytics.ts

@@ -651,8 +651,12 @@ describe("tracking whitelist contract", () => {
       }));
 
       expect(response.status).toBe(200);
-      expect(fetchMock).toHaveBeenCalledTimes(1);
-      const [, init] = fetchMock.mock.calls[0];
+      expect(fetchMock).toHaveBeenCalledTimes(2);
+      expect(fetchMock.mock.calls.map(([url]) => url)).toEqual([
+        "https://api.fermatmind.com/api/v0.5/seo/attribution/events",
+        "https://analytics.example.test/ingest",
+      ]);
+      const [, init] = fetchMock.mock.calls[1];
       const forwarded = JSON.parse(String(init?.body)) as {
         payload: Record<string, unknown>;
       };
