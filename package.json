@@ -32,6 +32,7 @@
     "seo:assert-live-sitemap-stability": "node scripts/seo/assert-live-sitemap-stability.mjs https://fermatmind.com/sitemap.xml",
     "seo:assert-live-llms": "node scripts/seo/assert-live-llms-clean.mjs https://fermatmind.com/llms.txt",
     "seo:assert-live-llms-full": "node scripts/seo/assert-live-llms-clean.mjs https://fermatmind.com/llms-full.txt",
+    "seo:check-science-contentpage-live-exposure": "node scripts/seo/check-science-contentpage-live-exposure.mjs",
     "seo:push-baidu": "node scripts/seo/push-baidu.mjs",
     "content:check-translations": "node scripts/content/check-translations.mjs",
     "test:contract": "vitest run tests/contracts",
