@@ -5,8 +5,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { useLocale } from "@/components/i18n/LocaleContext";
+import { persistLocalePreferenceCookie } from "@/lib/i18n/clientLocalePreference";
 import { toggleLocalePath, type Locale } from "@/lib/i18n/locales";
-import { LOCALE_COOKIE_NAME } from "@/lib/i18n/localeNegotiation";
 import { shouldDisableLocaleSwitchLinks } from "@/lib/seo/seoHoldlistRoutes";
 
 const languageOptions: Array<{ locale: Locale; code: string; label: string }> = [
@@ -21,12 +21,6 @@ export function LocaleSwitcher() {
 
   const locale = useLocale();
   const currentOption = languageOptions.find((option) => option.locale === locale) ?? languageOptions[0];
-
-  function persistLocalePreference(targetLocale: Locale) {
-    if (typeof document === "undefined") return;
-    const oneYear = 60 * 60 * 24 * 365;
-    document.cookie = `${LOCALE_COOKIE_NAME}=${targetLocale}; Path=/; Max-Age=${oneYear}; SameSite=Lax`;
-  }
 
   useEffect(() => {
     if (!open) return;
@@ -111,7 +105,7 @@ export function LocaleSwitcher() {
                 role="menuitem"
                 className="fm-header-dropdown-link flex items-center justify-between"
                 onClick={() => {
-                  persistLocalePreference(option.locale);
+                  persistLocalePreferenceCookie(option.locale);
                   setOpen(false);
                 }}
               >

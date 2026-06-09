@@ -5,12 +5,22 @@ import { LocaleSwitcher } from "@/components/i18n/LocaleSwitcher";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 
 vi.mock("next/link", () => ({
-  default: ({ href, children, prefetch: _prefetch, ...props }: {
+  default: ({
+    href,
+    children,
+    className,
+    onClick,
+    role,
+    "aria-current": ariaCurrent,
+  }: {
     href: string;
     children: React.ReactNode;
-    prefetch?: boolean;
+    className?: string;
+    onClick?: () => void;
+    role?: string;
+    "aria-current"?: React.AriaAttributes["aria-current"];
   } & React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
-    <a href={href} {...props}>
+    <a href={href} className={className} onClick={onClick} role={role} aria-current={ariaCurrent}>
       {children}
     </a>
   ),

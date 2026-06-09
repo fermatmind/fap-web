@@ -25,8 +25,30 @@ type RelatedLink = {
 export type ContentPageReaderView = Omit<ContentPage, "sourceDoc">;
 
 export function stripContentPageReaderMetadata(page: ContentPage): ContentPageReaderView {
-  const { sourceDoc: _sourceDoc, ...readerPage } = page;
-  return readerPage;
+  return {
+    slug: page.slug,
+    path: page.path,
+    kind: page.kind,
+    title: page.title,
+    kicker: page.kicker,
+    summary: page.summary,
+    template: page.template,
+    animationProfile: page.animationProfile,
+    locale: page.locale,
+    publishedAt: page.publishedAt,
+    updatedAt: page.updatedAt,
+    effectiveAt: page.effectiveAt,
+    isPublic: page.isPublic,
+    isIndexable: page.isIndexable,
+    headings: page.headings,
+    contentMd: page.contentMd,
+    contentHtml: page.contentHtml,
+    seoTitle: page.seoTitle,
+    metaDescription: page.metaDescription,
+    faqItems: page.faqItems,
+    schemaEnabled: page.schemaEnabled,
+    supportContact: page.supportContact,
+  };
 }
 
 function formatDate(value: string | null, locale: Locale): string | null {
