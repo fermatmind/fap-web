@@ -21636,8 +21636,8 @@
       "id": "ARTICLE-H1-01",
       "repo": "fap-web",
       "branch": "codex/article-h1-01",
-      "status": "local_checks_passed",
-      "commit_sha": null,
+      "status": "committed_pending_push",
+      "commit_sha": "c4eca9afba407c368e4797dc838523f38b995a08",
       "pr_url": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -21692,6 +21692,11 @@
           "at": "2026-06-09",
           "status": "local_checks_passed",
           "note": "Article body HTML and Markdown h1 fallback contract passed; typecheck and full contract suite passed with scoped currentPrScope allowlist."
+        },
+        {
+          "at": "2026-06-09",
+          "status": "committed_pending_push",
+          "note": "Created scoped implementation commit c4eca9afba407c368e4797dc838523f38b995a08."
         }
       ]
     },
