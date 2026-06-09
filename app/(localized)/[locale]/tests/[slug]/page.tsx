@@ -121,12 +121,6 @@ type LookupResponse = {
   landing_surface_v1?: LandingSurfaceRaw | null;
 };
 
-type ArticleVoiceLabelKey = "tool" | "growth" | "narrative";
-
-function normalizeArticleVoice(value: string | null): ArticleVoiceLabelKey {
-  return value === "growth" || value === "narrative" ? value : "tool";
-}
-
 async function fetchRelatedArticles(testSlug: string, locale: "en" | "zh"): Promise<CmsArticle[]> {
   try {
     const { items } = await getCmsArticlesWithLastKnownGood({
@@ -1443,27 +1437,20 @@ export default async function TestLandingPage({
                 <p className="m-0 text-sm text-slate-600">{dict.tests.relatedArticles.empty}</p>
               ) : (
                 <ul className="space-y-3">
-                  {relatedArticles.map((article) => {
-                    const voice = normalizeArticleVoice(article.voice);
-
-                    return (
-                      <li key={article.slug} className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-4">
-                        <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-                          {dict.articles.voiceLabels[voice]}
-                        </p>
-                        <h3 className="mt-2 text-lg font-semibold text-slate-900">
-                          <Link
-                            href={withLocale(`/articles/${article.slug}`)}
-                            data-testid={`tests-related-article-${article.slug}`}
-                            className="hover:text-[var(--fm-accent)]"
-                          >
-                            {article.title}
-                          </Link>
-                        </h3>
-                        <p className="mt-1 text-sm text-slate-600">{article.excerpt}</p>
-                      </li>
-                    );
-                  })}
+                  {relatedArticles.map((article) => (
+                    <li key={article.slug} className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-4">
+                      <h3 className="m-0 text-lg font-semibold text-slate-900">
+                        <Link
+                          href={withLocale(`/articles/${article.slug}`)}
+                          data-testid={`tests-related-article-${article.slug}`}
+                          className="hover:text-[var(--fm-accent)]"
+                        >
+                          {article.title}
+                        </Link>
+                      </h3>
+                      <p className="mt-1 text-sm text-slate-600">{article.excerpt}</p>
+                    </li>
+                  ))}
                 </ul>
               )}
             </CardContent>

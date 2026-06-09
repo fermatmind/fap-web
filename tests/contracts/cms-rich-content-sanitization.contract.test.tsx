@@ -223,6 +223,47 @@ describe("CMS rich content sanitization contract", () => {
     expect(html).not.toContain("content_pages.en.method_boundaries.baseline");
   });
 
+  it("does not render internal content field headings from CMS Markdown", () => {
+    const page = stripContentPageReaderMetadata(
+      makeContentPage("", {
+        slug: "common-misconceptions",
+        path: "/common-misconceptions",
+        kind: "policy",
+        title: "Common misconceptions",
+        locale: "en",
+        contentMd: [
+          "# content_md",
+          "",
+          "## Result labels are not identity",
+          "",
+          "Assessment results can support reflection without replacing judgment.",
+          "",
+          "# content_html",
+          "",
+          "## Boundaries matter",
+          "",
+          "Use results as one input, not a final decision.",
+          "",
+          "visible_faq_items: Why do different tests feel inconsistent?",
+          "",
+          "Different models answer different questions.",
+        ].join("\n"),
+      })
+    );
+    const html = renderToStaticMarkup(
+      <ContentPageTemplate page={page} locale="en" />
+    );
+
+    expect(html).toContain("Result labels are not identity");
+    expect(html).toContain("Assessment results can support reflection");
+    expect(html).toContain("Boundaries matter");
+    expect(html).toContain("Why do different tests feel inconsistent?");
+    expect(html).toContain("Different models answer different questions.");
+    expect(html).not.toContain("content_md");
+    expect(html).not.toContain("content_html");
+    expect(html).not.toContain("visible_faq_items");
+  });
+
   it("neutralizes unsafe Markdown link URLs while preserving text", () => {
     const node = renderSimpleMarkdown(
       "[unsafe link](javascript:run()) and [safe link](/en/help?topic=reports&src=cms)"
@@ -257,6 +298,25 @@ describe("CMS rich content sanitization contract", () => {
     expect(html).not.toContain("[^1]:");
     expect(html).not.toContain("[^2]");
     expect(html).not.toContain("[^2]:");
+  });
+
+  it("renders bracket-style CMS references as separate citation rows", () => {
+    const node = renderSimpleMarkdown(
+      [
+        "## 参考文献",
+        "[1] John, O. P. (1999). The Big-Five trait taxonomy. [2] Barrick, M. R. (1991). Big Five personality and job performance.",
+      ].join("\n")
+    );
+    const html = renderToStaticMarkup(<div>{node as Parameters<typeof renderToStaticMarkup>[0]}</div>);
+
+    expect(html).toContain("【1】");
+    expect(html).toContain("【2】");
+    expect(html).toContain('value="1"');
+    expect(html).toContain('value="2"');
+    expect(html).toContain("John, O. P.");
+    expect(html).toContain("Barrick, M. R.");
+    expect(html).not.toContain("[1]");
+    expect(html).not.toContain("[2]");
   });
 
   it("wraps Chinese article punctuation with a CJK-friendly font hook", () => {

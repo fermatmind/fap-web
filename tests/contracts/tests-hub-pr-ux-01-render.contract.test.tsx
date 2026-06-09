@@ -63,7 +63,7 @@ describe("tests hub PR-UX-01 render contract", () => {
     expect(screen.getAllByText("MBTI 性格测试").length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByText(/大五人格测试/).length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByText("霍兰德职业兴趣测试").length).toBeGreaterThanOrEqual(1);
-    expect(screen.getAllByRole("link", { name: "开始测试" }).length).toBeGreaterThanOrEqual(3);
+    expect(screen.getAllByRole("link", { name: "免费测试" }).length).toBeGreaterThanOrEqual(3);
 
     expect(bodyText).not.toContain("抑郁");
     expect(bodyText).not.toContain("焦虑");

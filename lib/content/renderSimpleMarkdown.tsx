@@ -91,6 +91,36 @@ function parseFootnoteDefinition(line: string): FootnoteItem | null {
   };
 }
 
+function parseBracketReferenceItems(text: string): FootnoteItem[] {
+  const normalized = normalizeText(text);
+  if (!/^\[[0-9A-Za-z-]+\]\s+/.test(normalized)) {
+    return [];
+  }
+
+  const parts = normalized
+    .split(/\s+(?=\[[0-9A-Za-z-]+\]\s+)/g)
+    .map((part) => part.trim())
+    .filter(Boolean);
+
+  if (parts.length === 0) {
+    return [];
+  }
+
+  const items = parts.map((part) => {
+    const match = part.match(/^\[([0-9A-Za-z-]+)\]\s+(.+?)\s*$/);
+    if (!match) {
+      return null;
+    }
+
+    return {
+      label: match[1] ?? "",
+      text: normalizeText(match[2] ?? ""),
+    };
+  });
+
+  return items.every(Boolean) ? (items as FootnoteItem[]) : [];
+}
+
 function isFootnoteDefinition(line: string): boolean {
   return parseFootnoteDefinition(line) !== null;
 }
@@ -285,7 +315,12 @@ function tokenizeMarkdown(markdown: string): MarkdownBlock[] {
 
     const text = paragraphLines.join(" ").trim();
     if (text) {
-      blocks.push({ type: "paragraph", text });
+      const bracketReferenceItems = parseBracketReferenceItems(text);
+      if (bracketReferenceItems.length > 0) {
+        blocks.push({ type: "footnotes", items: bracketReferenceItems });
+      } else {
+        blocks.push({ type: "paragraph", text });
+      }
     }
   }
 
@@ -432,14 +467,19 @@ export function renderSimpleMarkdown(markdown: string, options: MarkdownRenderOp
         );
       case "footnotes":
         return (
-          <ol key={key} className="m-0 list-decimal space-y-2 pl-5 text-sm leading-7 text-[var(--fm-text-muted)]">
+          <ol key={key} className="m-0 list-none space-y-3 pl-0 text-sm leading-7 text-[var(--fm-text-muted)]">
             {block.items.map((item, itemIndex) => {
               const numericLabel = Number.parseInt(item.label, 10);
               const value = String(numericLabel) === item.label ? numericLabel : undefined;
 
               return (
-                <li key={`${key}-footnote-${item.label || itemIndex}`} value={value}>
-                  {renderInlineMarkdown(item.text, `${key}-footnote-${itemIndex}`)}
+                <li
+                  key={`${key}-footnote-${item.label || itemIndex}`}
+                  value={value}
+                  className="grid grid-cols-[auto,minmax(0,1fr)] gap-2"
+                >
+                  <span className="font-semibold text-[var(--fm-text)]">【{item.label}】</span>
+                  <span>{renderInlineMarkdown(item.text, `${key}-footnote-${itemIndex}`)}</span>
                 </li>
               );
             })}

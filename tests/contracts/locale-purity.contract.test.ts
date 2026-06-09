@@ -18,7 +18,9 @@ describe("locale purity contract", () => {
     const indexSource = read("app/(localized)/[locale]/topics/page.tsx");
     const detailSource = read("app/(localized)/[locale]/topics/[slug]/page.tsx");
 
-    expect(indexSource).toContain('locale === "zh" ? "主题中心" : "Topics CMS"');
+    expect(indexSource).toContain('isZh ? "测试文章分类" : "Test article categories"');
+    expect(indexSource).toContain('isZh ? "人格文章" : "Personality articles"');
+    expect(indexSource).toContain('isZh ? "职业文章" : "Career articles"');
     expect(detailSource).toContain('locale === "zh" ? "主题摘要" : "Topic summary"');
     expect(detailSource).toContain('locale === "zh" ? "主题代码" : "Topic code"');
     expect(detailSource).toContain('locale === "zh" ? "索引状态" : "Indexing"');
