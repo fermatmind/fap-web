@@ -21728,9 +21728,9 @@
       "id": "ARTICLE-H1-03",
       "repo": "fap-web",
       "branch": "codex/article-h1-03",
-      "status": "local_checks_passed",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "pr_opened",
+      "commit_sha": "8edf8df52700bd483078a1a0407dd0eecb006b9d",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1088",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -21800,6 +21800,11 @@
           "at": "2026-06-09",
           "status": "local_checks_passed",
           "note": "Focused vitest, live report generation, typecheck, full contract suite, metadata parse, scope validation, and diff check passed. Live report records an external double-H1 sidecar issue on 7 sampled production pages."
+        },
+        {
+          "at": "2026-06-09",
+          "status": "pr_opened",
+          "note": "Opened fap-web PR #1088 for ARTICLE-H1-03."
         }
       ]
     }
