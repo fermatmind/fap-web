@@ -140,6 +140,19 @@ const SEO_SITEMAP_DIFF_04_ALLOWED_FILES = new Set([
   "tests/contracts/sitemap-source-live-diff-report.contract.test.ts",
 ]);
 
+const SEO_CONV_TRACKING_01_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train-state.json",
+  "docs/codex/pr-train.yaml",
+  "lib/tracking/events.ts",
+  "lib/tracking/privacy.ts",
+  "lib/tracking/attribution.ts",
+  "tests/contracts/analytics-payload-privacy.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/seo-conv-tracking-contract.contract.test.ts",
+  "tests/contracts/seo-funnel-tracking-taxonomy.contract.test.ts",
+  "tests/contracts/tracking-activation-contract.contract.test.ts",
+]);
+
 const PR_WEB_SEC_01_ALLOWED_FILES = new Set([
   "components/result/eq/EQResultV5.tsx",
   "components/result/eq/utils.ts",
@@ -2259,5 +2272,13 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
     );
   }
 
+  if (CURRENT_BRANCH === "codex/seo-conv-tracking-01") {
+    return SEO_CONV_TRACKING_01_ALLOWED_FILES.has(file);
+  }
+
   return CURRENT_BRANCH === "codex/riasec-full-content-pack-12" && RIASEC_PACK12_ALLOWED_FILES.has(file);
+}
+
+export function isSeoConvTracking01AllowedFile(file: string): boolean {
+  return SEO_CONV_TRACKING_01_ALLOWED_FILES.has(file);
 }

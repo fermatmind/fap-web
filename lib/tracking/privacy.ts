@@ -9,20 +9,41 @@ export type PrivateAnalyticsRouteFamily =
   | "pay"
   | "payment";
 
+export const PRIVATE_PUBLIC_ANALYTICS_ROUTE_FAMILIES = [
+  "history",
+  "result",
+  "orders",
+  "share",
+  "pay",
+  "payment",
+] as const satisfies readonly PrivateAnalyticsRouteFamily[];
+
 const SENSITIVE_QUERY_KEY_PATTERNS = [
   /(^|[_-])tokens?($|[_-])/i,
+  /access[_-]?token/i,
   /bearer/i,
   /auth/i,
+  /^code$/i,
+  /csrf/i,
   /^fm[_-]/i,
   /attempt/i,
   /checkout/i,
   /invite/i,
+  /jwt/i,
+  /email/i,
+  /^name$/i,
   /order/i,
+  /password/i,
   /payment/i,
+  /phone/i,
   /recovery/i,
+  /refresh[_-]?token/i,
   /report/i,
   /resume/i,
   /secret/i,
+  /session/i,
+  /^state$/i,
+  /signature/i,
 ];
 
 const URL_LIKE_PATTERN = /^(?:https?:\/\/|\/|[a-z]{2}(?:-[A-Z]{2})?\/)/;
@@ -134,7 +155,11 @@ export function getPrivateAnalyticsRouteFamily(value: unknown): PrivateAnalytics
 }
 
 export function shouldSuppressAnalyticsForUrl(value: unknown): boolean {
-  return getPrivateAnalyticsRouteFamily(value) === "history";
+  return getPrivateAnalyticsRouteFamily(value) !== null;
+}
+
+export function shouldHardStopPublicAnalyticsForUrl(value: unknown): boolean {
+  return shouldSuppressAnalyticsForUrl(value);
 }
 
 type SanitizeTrackingUrlOptions = {

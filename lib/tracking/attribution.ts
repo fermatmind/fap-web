@@ -21,6 +21,19 @@ export const TRACKING_ATTRIBUTION_FIELDS = [
   "session_id",
 ] as const;
 
+export const SEO_CONVERSION_DIMENSION_FIELDS = [
+  "url",
+  "lang",
+  "page_type",
+  "source_url",
+  "source_article",
+  "target_test",
+  "scale_id",
+  "form_id",
+  "session_id",
+  "referrer",
+] as const;
+
 export const SEARCH_INTELLIGENCE_TRACKING_FIELDS = [
   "source_engine",
   "consent_state",
@@ -70,6 +83,8 @@ export type AttributionParams = Partial<Record<AttributionQueryKey, string>>;
 export type TrackingAttributionPayload = Partial<
   Record<(typeof TRACKING_ATTRIBUTION_FIELDS)[number], string>
 >;
+export type SeoConversionDimensionField = (typeof SEO_CONVERSION_DIMENSION_FIELDS)[number];
+export type SeoConversionAttributionPayload = Partial<Record<SeoConversionDimensionField, string>>;
 export type SearchIntelligenceTrackingField = (typeof SEARCH_INTELLIGENCE_TRACKING_FIELDS)[number];
 export type SearchIntelligenceSourceEngine = (typeof SEARCH_INTELLIGENCE_SOURCE_ENGINE_VALUES)[number];
 export type SearchIntelligenceConsentState = (typeof SEARCH_INTELLIGENCE_CONSENT_STATE_VALUES)[number];
@@ -95,6 +110,9 @@ type StoredAttribution = {
 };
 
 const ATTRIBUTION_STORAGE_KEY = "fm_attribution_v1";
+const SEO_CONVERSION_SESSION_STORAGE_KEY = "fm_seo_conversion_session_v1";
+const SEO_CONVERSION_SESSION_ID_PREFIX = "seo_sess_";
+const SEO_CONVERSION_SESSION_ID_PATTERN = /^seo_sess_[A-Za-z0-9_-]{16,80}$/;
 
 function isBrowser(): boolean {
   return typeof window !== "undefined";
@@ -104,6 +122,38 @@ function normalizeText(value: unknown, maxLength = 512): string | undefined {
   if (typeof value !== "string") return undefined;
   const normalized = value.trim();
   return normalized ? normalized.slice(0, maxLength) : undefined;
+}
+
+export function normalizeSeoConversionSessionId(value: unknown): string | undefined {
+  const normalized = normalizeText(value, 96);
+  if (!normalized || !SEO_CONVERSION_SESSION_ID_PATTERN.test(normalized)) return undefined;
+  return normalized;
+}
+
+function randomSessionToken(): string {
+  const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-";
+  if (isBrowser() && window.crypto?.getRandomValues) {
+    const bytes = new Uint8Array(24);
+    window.crypto.getRandomValues(bytes);
+    return Array.from(bytes, (byte) => alphabet[byte % alphabet.length]).join("");
+  }
+
+  return Array.from({ length: 24 }, () => alphabet[Math.floor(Math.random() * alphabet.length)]).join("");
+}
+
+export function getOrCreateSeoConversionSessionId(): string {
+  if (!isBrowser()) return "";
+
+  try {
+    const existing = normalizeSeoConversionSessionId(window.sessionStorage.getItem(SEO_CONVERSION_SESSION_STORAGE_KEY));
+    if (existing) return existing;
+
+    const next = `${SEO_CONVERSION_SESSION_ID_PREFIX}${randomSessionToken()}`;
+    window.sessionStorage.setItem(SEO_CONVERSION_SESSION_STORAGE_KEY, next);
+    return next;
+  } catch {
+    return `${SEO_CONVERSION_SESSION_ID_PREFIX}${randomSessionToken()}`;
+  }
 }
 
 function normalizeToken(value: unknown): string {
@@ -398,6 +448,44 @@ export function buildTrackingAttributionPayload(
   if (landingPath) payload.landing_path = landingPath;
   if (currentPath) payload.current_path = currentPath;
   if (sessionId) payload.session_id = sessionId;
+
+  return payload;
+}
+
+export function buildSeoConversionAttributionPayload(input: {
+  url?: string | null;
+  lang?: string | null;
+  pageType?: string | null;
+  sourceUrl?: string | null;
+  sourceArticle?: string | null;
+  targetTest?: string | null;
+  scaleId?: string | null;
+  formId?: string | null;
+  sessionId?: string | null;
+  referrer?: string | null;
+}): SeoConversionAttributionPayload {
+  const payload: SeoConversionAttributionPayload = {};
+  const url = sanitizeAnalyticsTrackingUrl(input.url);
+  const sourceUrl = sanitizeAnalyticsTrackingUrl(input.sourceUrl);
+  const referrer = sanitizeAnalyticsTrackingUrl(input.referrer);
+  const sessionId = normalizeSeoConversionSessionId(input.sessionId) || getOrCreateSeoConversionSessionId();
+  const lang = normalizeText(input.lang, 16);
+  const pageType = normalizeText(input.pageType, 64);
+  const sourceArticle = normalizeText(input.sourceArticle, 128);
+  const targetTest = normalizeText(input.targetTest, 128);
+  const scaleId = normalizeText(input.scaleId, 64);
+  const formId = normalizeText(input.formId, 64);
+
+  if (url) payload.url = url;
+  if (lang) payload.lang = lang;
+  if (pageType) payload.page_type = pageType;
+  if (sourceUrl) payload.source_url = sourceUrl;
+  if (sourceArticle) payload.source_article = sourceArticle;
+  if (targetTest) payload.target_test = targetTest;
+  if (scaleId) payload.scale_id = scaleId;
+  if (formId) payload.form_id = formId;
+  if (sessionId) payload.session_id = sessionId;
+  if (referrer) payload.referrer = referrer;
 
   return payload;
 }

@@ -177,7 +177,7 @@ describe("tracking activation contract", () => {
         locale: "zh",
       },
       anonymousId: "anon-session-1",
-      path: "/zh/orders/ord_ads_purchase_001",
+      path: "/zh/tests/mbti-personality-test-16-personality-types",
     });
 
     expect(gtagMock).toHaveBeenCalledWith("event", "payment_success", expect.any(Object));
@@ -211,7 +211,7 @@ describe("tracking activation contract", () => {
         locale: "zh",
       },
       anonymousId: "anon-session-dedupe",
-      path: "/zh/orders/ord_ads_purchase_dedupe_001",
+      path: "/zh/tests/mbti-personality-test-16-personality-types",
     };
 
     await trackClientEvent(event);

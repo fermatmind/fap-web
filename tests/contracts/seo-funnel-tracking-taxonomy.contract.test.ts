@@ -139,13 +139,13 @@ describe("SEO funnel tracking taxonomy parity", () => {
       eventName: TRACKING_EVENTS.CREATE_ORDER,
       payload: { order_no: "ord_not_purchase_1", amount: 88, currency: "CNY", locale: "zh" },
       anonymousId: "anon-session-1",
-      path: "/zh/orders/ord_not_purchase_1",
+      path: "/zh/tests/mbti-personality-test-16-personality-types",
     });
     await trackClientEvent({
       eventName: TRACKING_EVENTS.PAYMENT_CONFIRMED,
       payload: { order_no: "ord_not_purchase_1", amount: 88, currency: "CNY", locale: "zh" },
       anonymousId: "anon-session-1",
-      path: "/zh/orders/ord_not_purchase_1",
+      path: "/zh/tests/mbti-personality-test-16-personality-types",
     });
     await trackClientEvent({
       eventName: TRACKING_EVENTS.PAY_SUCCESS,
@@ -159,7 +159,7 @@ describe("SEO funnel tracking taxonomy parity", () => {
         locale: "zh",
       },
       anonymousId: "anon-session-1",
-      path: "/zh/orders/ord_purchase_alias_1",
+      path: "/zh/tests/mbti-personality-test-16-personality-types",
     });
 
     expect(gtagMock).toHaveBeenCalledTimes(4);
