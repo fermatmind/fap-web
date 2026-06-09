@@ -1619,6 +1619,36 @@ const SCIENCE_CONTENTPAGE_DISCOVERABILITY_GATE_01_ALLOWED_FILES = new Set([
   "tests/contracts/science-contentpage-discoverability-gate.contract.test.ts",
 ]);
 
+const HOMEPAGE_CONTENT_POLISH_BATCH_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/articles/[slug]/page.tsx",
+  "app/globals.css",
+  "components/content-pages/ContentPageTemplate.tsx",
+  "components/layout/SiteFooter.tsx",
+  "components/layout/SiteHeader.tsx",
+  "components/marketing/HomePageExperience.tsx",
+  "components/support/SupportTrustDetailTemplate.tsx",
+  "docs/claims/generated/science-contentpage-claim-gate-01.v1.json",
+  "docs/claims/science-contentpage-claim-gate-01.md",
+  "docs/seo/generated/science-contentpage-discoverability-gate-01.v1.json",
+  "docs/seo/generated/science-contentpage-faq-schema-gate-01.v1.json",
+  "docs/seo/science-contentpage-discoverability-gate-01.md",
+  "docs/seo/science-contentpage-faq-schema-gate-01.md",
+  "lib/content/markdownInline.tsx",
+  "lib/content/renderSimpleMarkdown.tsx",
+  "lib/content/textPunctuation.tsx",
+  "tests/contracts/cms-rich-content-sanitization.contract.test.tsx",
+  "tests/contracts/content-page-careers-rendering.contract.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/homepage-v1-density.contract.test.tsx",
+  "tests/contracts/homepage-v1-hero.contract.test.tsx",
+  "tests/contracts/navigation-dead-links.contract.test.ts",
+  "tests/contracts/science-contentpage-claim-gate.contract.test.ts",
+  "tests/contracts/science-contentpage-discoverability-gate.contract.test.ts",
+  "tests/contracts/science-contentpage-faq-schema-gate.contract.test.ts",
+  "tests/contracts/site-footer-routing.contract.test.tsx",
+  "tests/contracts/site-header-locale-link.contract.test.tsx",
+]);
+
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (
     RIASEC_V2_POST_PUBLISH_SMOKE_02_ALLOWED_FILES.has(file) ||
@@ -1633,6 +1663,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/homepage-ui-image-fallback-01") {
     return HOMEPAGE_UI_IMAGE_FALLBACK_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/homepage-content-polish-batch") {
+    return HOMEPAGE_CONTENT_POLISH_BATCH_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/security-codeql-87-file-access") {

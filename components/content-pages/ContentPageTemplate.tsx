@@ -1,7 +1,9 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { SanitizedCmsHtml } from "@/components/content/SanitizedCmsHtml";
 import { Container } from "@/components/layout/Container";
+import { renderCmsInlineMarkdown, stripMarkdownEmphasisMarkers } from "@/lib/content/markdownInline";
 import { cn } from "@/lib/utils";
 import type { ContentPage } from "@/lib/cms/content-pages";
 import { buildContentPagePath } from "@/lib/cms/content-pages";
@@ -13,6 +15,12 @@ type MarkdownBlock =
   | { type: "paragraph"; text: string }
   | { type: "unordered-list"; items: string[] }
   | { type: "ordered-list"; items: string[] };
+
+type RelatedLink = {
+  key: string;
+  label: string;
+  href: string;
+};
 
 function formatDate(value: string | null, locale: Locale): string | null {
   if (!value) {
@@ -119,16 +127,18 @@ function parseMarkdown(markdown: string): MarkdownBlock[] {
   return blocks;
 }
 
-function renderInline(text: string) {
-  return text;
+function renderInline(text: string, keyPrefix: string): ReactNode[] {
+  return renderCmsInlineMarkdown(text, keyPrefix);
 }
 
-function ContentPageBody({ page }: { page: ContentPage }) {
+function plainInlineText(text: string): string {
+  return stripMarkdownEmphasisMarkers(text.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1"));
+}
+
+function ContentPageBody({ page, blocks }: { page: ContentPage; blocks: MarkdownBlock[] }) {
   if (page.contentHtml.trim()) {
     return <SanitizedCmsHtml className="fm-content-page-prose" html={page.contentHtml} />;
   }
-
-  const blocks = parseMarkdown(page.contentMd);
 
   return (
     <div className="space-y-6" data-animation-profile={page.animationProfile}>
@@ -144,7 +154,7 @@ function ContentPageBody({ page }: { page: ContentPage }) {
                 block.level === 2 ? "pt-7 text-2xl md:text-3xl" : "pt-3 text-xl md:text-2xl"
               )}
             >
-              {renderInline(block.text)}
+              {renderInline(block.text, `heading-${index}`)}
             </Heading>
           );
         }
@@ -152,7 +162,7 @@ function ContentPageBody({ page }: { page: ContentPage }) {
         if (block.type === "paragraph") {
           return (
             <p key={`paragraph-${index}`} className="m-0 text-base leading-8 text-[var(--fm-text-muted)]">
-              {renderInline(block.text)}
+              {renderInline(block.text, `paragraph-${index}`)}
             </p>
           );
         }
@@ -161,7 +171,7 @@ function ContentPageBody({ page }: { page: ContentPage }) {
           return (
             <ul key={`ul-${index}`} className="m-0 list-disc space-y-2 pl-5 text-base leading-8 text-[var(--fm-text-muted)]">
               {block.items.map((item, itemIndex) => (
-                <li key={`ul-${index}-${itemIndex}`}>{renderInline(item)}</li>
+                <li key={`ul-${index}-${itemIndex}`}>{renderInline(item, `ul-${index}-${itemIndex}`)}</li>
               ))}
             </ul>
           );
@@ -170,7 +180,7 @@ function ContentPageBody({ page }: { page: ContentPage }) {
         return (
           <ol key={`ol-${index}`} className="m-0 list-decimal space-y-2 pl-5 text-base leading-8 text-[var(--fm-text-muted)]">
             {block.items.map((item, itemIndex) => (
-              <li key={`ol-${index}-${itemIndex}`}>{renderInline(item)}</li>
+              <li key={`ol-${index}-${itemIndex}`}>{renderInline(item, `ol-${index}-${itemIndex}`)}</li>
             ))}
           </ol>
         );
@@ -179,13 +189,34 @@ function ContentPageBody({ page }: { page: ContentPage }) {
   );
 }
 
-function buildToc(page: ContentPage) {
-  return parseMarkdown(page.contentMd)
+function buildToc(blocks: MarkdownBlock[]) {
+  return blocks
     .filter((block): block is Extract<MarkdownBlock, { type: "heading" }> => block.type === "heading")
     .filter((block) => block.level === 2);
 }
 
-function buildRelatedLinks(page: ContentPage, locale: Locale) {
+function buildCareersJobLinks(page: ContentPage, blocks: MarkdownBlock[]): RelatedLink[] {
+  if (page.slug !== "careers" && page.template !== "careers") {
+    return [];
+  }
+
+  return blocks
+    .filter((block): block is Extract<MarkdownBlock, { type: "heading" }> => block.type === "heading")
+    .filter((block) => block.level === 3 && /^\d+\.\s+/.test(block.text))
+    .slice(0, 3)
+    .map((block) => ({
+      key: `career-job-${block.id}`,
+      label: plainInlineText(block.text.replace(/^\d+\.\s+/, "")),
+      href: `#${block.id}`,
+    }));
+}
+
+function buildRelatedLinks(page: ContentPage, locale: Locale, blocks: MarkdownBlock[]): RelatedLink[] {
+  const careersJobLinks = buildCareersJobLinks(page, blocks);
+  if (careersJobLinks.length) {
+    return careersJobLinks;
+  }
+
   if (page.kind === "help") {
     const helpLinks = [
       { slug: "help-faq", label: locale === "zh" ? "常见问题" : "FAQ" },
@@ -193,7 +224,8 @@ function buildRelatedLinks(page: ContentPage, locale: Locale) {
     ];
 
     return helpLinks.filter((item) => item.slug !== page.slug).map((item) => ({
-      ...item,
+      key: item.slug,
+      label: item.label,
       href: buildContentPagePath(item.slug, locale),
     }));
   }
@@ -212,7 +244,8 @@ function buildRelatedLinks(page: ContentPage, locale: Locale) {
   ];
   const source = page.kind === "policy" ? policyLinks : companyLinks;
   return source.filter((item) => item.slug !== page.slug).map((item) => ({
-    ...item,
+    key: item.slug,
+    label: item.label,
     href: buildContentPagePath(item.slug, locale),
   }));
 }
@@ -238,8 +271,9 @@ function SupportContactCard({ page, locale }: { page: ContentPage; locale: Local
 }
 
 export function ContentPageTemplate({ page, locale }: { page: ContentPage; locale: Locale }) {
-  const toc = buildToc(page);
-  const relatedLinks = buildRelatedLinks(page, locale);
+  const markdownBlocks = parseMarkdown(page.contentMd);
+  const toc = buildToc(markdownBlocks);
+  const relatedLinks = buildRelatedLinks(page, locale, markdownBlocks);
   const updatedAt = formatDate(page.updatedAt, locale);
   const effectiveAt = formatDate(page.effectiveAt, locale);
   const isPolicy = page.kind === "policy";
@@ -312,7 +346,7 @@ export function ContentPageTemplate({ page, locale }: { page: ContentPage; local
 
         <div className="grid gap-10 py-12 md:grid-cols-[minmax(0,1fr)_18rem] md:py-16">
           <article className="max-w-3xl">
-            <ContentPageBody page={page} />
+            <ContentPageBody page={page} blocks={markdownBlocks} />
           </article>
 
           <aside className="h-fit space-y-6 md:sticky md:top-24">
@@ -328,7 +362,7 @@ export function ContentPageTemplate({ page, locale }: { page: ContentPage; local
                       href={`#${item.id}`}
                       className="text-sm leading-6 text-[var(--fm-text-muted)] hover:text-[var(--fm-accent)]"
                     >
-                      {item.text}
+                      {renderInline(item.text, `toc-${item.id}`)}
                     </a>
                   ))}
                 </div>
@@ -344,7 +378,7 @@ export function ContentPageTemplate({ page, locale }: { page: ContentPage; local
               <div className="grid gap-2">
                 {relatedLinks.map((item) => (
                   <Link
-                    key={item.slug}
+                    key={item.key}
                     href={item.href}
                     className="text-sm font-medium text-[var(--fm-text)] hover:text-[var(--fm-accent)]"
                   >

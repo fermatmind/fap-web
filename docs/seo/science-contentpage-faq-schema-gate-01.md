@@ -2,15 +2,15 @@
 
 Scope: SCIENCE-CONTENTPAGE-FAQ-SCHEMA-GATE-01
 
-Mode: contract-only QA gate.
+Mode: approved CMS-visible FAQ schema gate.
 
 Runtime behavior changed: no.
 
 ## Decision
 
-FAQPage schema for Science ContentPage routes remains blocked until every FAQ item is visibly rendered from CMS/backend-authoritative content and passes the Science ContentPage claim gate.
+FAQPage schema for Science ContentPage routes is eligible when every FAQ item is visibly rendered from CMS/backend-authoritative content and passes the Science ContentPage claim gate.
 
-This document does not enable schema, import content, mutate CMS records, publish content, change sitemap or llms exposure, alter footer/header navigation, or generate publishable FAQ copy.
+This gate does not create frontend FAQ fallback copy, change sitemap or llms exposure, add header navigation, or authorize private-route references. FAQ text remains CMS/backend-authoritative.
 
 ## Required Inputs
 
@@ -21,8 +21,8 @@ This document does not enable schema, import content, mutate CMS records, publis
 | `cms_review_state` | Must be operator-approved before schema eligibility. |
 | `claim_gate_status` | Must pass SCIENCE-CONTENTPAGE-CLAIM-GATE-01. |
 | `visible_faq_blocks` | Must be rendered visibly on the page before FAQPage schema is eligible. |
-| `schema_enabled` | Default false until visible FAQ and review gates pass. |
-| `publish_allowed` | Default false in this gate. |
+| `schema_enabled` | True only for approved CMS-visible FAQ items. |
+| `publish_allowed` | True for the approved CMS/backend records. |
 
 ## Blocked Sources
 
@@ -46,5 +46,4 @@ This document does not enable schema, import content, mutate CMS records, publis
 
 ## Non-Expansion Statement
 
-This PR is not a schema implementation PR. It records the gate for a later implementation decision. It does not create FAQ copy, enable FAQPage schema, publish Science ContentPages, submit URLs, widen discoverability, or amplify DailyGiving.
-
+This gate records schema eligibility for approved CMS-visible FAQ items. It does not create frontend FAQ copy, submit URLs, add header navigation, widen private-route exposure, or amplify DailyGiving.

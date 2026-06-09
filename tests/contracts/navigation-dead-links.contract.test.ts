@@ -35,8 +35,11 @@ describe("navigation dead link contract", () => {
     expect(footer).toContain('{ href: "/career/guides", label: "Assessment Guides" }');
     expect(footer).toContain('{ href: "/articles", label: "Journal" }');
     expect(footer).toContain('{ href: "/articles", label: "Research reports" }');
+    expect(footer).toContain('{ href: "/science", label: "Assessment science" }');
     expect(footer).toContain('{ href: "/method-boundaries", label: "Method boundaries" }');
-    expect(footer).not.toContain('{ href: "/science", label: "Assessment science" }');
-    expect(footer).not.toContain('{ href: "/data-privacy", label: "Data notes" }');
+    expect(footer).toContain('{ href: "/item-design-notes", label: "Item design notes" }');
+    expect(footer).toContain('{ href: "/reliability-validity", label: "Reliability & validity" }');
+    expect(footer).toContain('{ href: "/data-privacy", label: "Data notes" }');
+    expect(footer).toContain('{ href: "/common-misconceptions", label: "Common misconceptions" }');
   });
 });

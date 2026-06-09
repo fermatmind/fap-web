@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { sanitizeCmsUrl } from "@/lib/cms/sanitizeCmsRichText";
+import { renderCjkPunctuationText } from "@/lib/content/textPunctuation";
 
 type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
 
@@ -7,12 +8,18 @@ type MarkdownBlock =
   | { type: "heading"; level: HeadingLevel; text: string }
   | { type: "image"; alt: string; src: string; title?: string }
   | { type: "paragraph"; text: string }
+  | { type: "footnotes"; items: FootnoteItem[] }
   | { type: "unordered-list"; items: string[] }
   | { type: "ordered-list"; items: string[] }
   | { type: "blockquote"; text: string }
   | { type: "table"; headers: string[]; rows: string[][] }
   | { type: "code"; code: string; language: string }
   | { type: "hr" };
+
+type FootnoteItem = {
+  label: string;
+  text: string;
+};
 
 function normalizeLineBreaks(value: string): string {
   return value.replace(/\r\n?/g, "\n");
@@ -67,6 +74,22 @@ function isBlockquote(line: string): boolean {
 
 function isHr(line: string): boolean {
   return /^\s*([-*_])(?:\s*\1){2,}\s*$/.test(line);
+}
+
+function parseFootnoteDefinition(line: string): FootnoteItem | null {
+  const footnote = line.match(/^\s*\[\^([0-9A-Za-z-]+)\]:\s*(.*?)\s*$/);
+  if (!footnote) {
+    return null;
+  }
+
+  return {
+    label: footnote[1] ?? "",
+    text: normalizeText(footnote[2] ?? ""),
+  };
+}
+
+function isFootnoteDefinition(line: string): boolean {
+  return parseFootnoteDefinition(line) !== null;
 }
 
 function parseImage(line: string): { alt: string; src: string; title?: string } | null {
@@ -153,6 +176,24 @@ function tokenizeMarkdown(markdown: string): MarkdownBlock[] {
       continue;
     }
 
+    const footnote = parseFootnoteDefinition(line);
+    if (footnote) {
+      const items: FootnoteItem[] = [];
+
+      while (index < lines.length) {
+        const item = parseFootnoteDefinition(lines[index] ?? "");
+        if (!item) {
+          break;
+        }
+
+        items.push(item);
+        index += 1;
+      }
+
+      blocks.push({ type: "footnotes", items });
+      continue;
+    }
+
     const image = parseImage(line);
     if (image) {
       blocks.push({ type: "image", ...image });
@@ -228,6 +269,7 @@ function tokenizeMarkdown(markdown: string): MarkdownBlock[] {
         isBlockquote(current) ||
         parseImage(current) ||
         isHr(current) ||
+        isFootnoteDefinition(current) ||
         isTableStart(current, lines[index + 1]) ||
         /^\s*```/.test(current)
       ) {
@@ -249,21 +291,30 @@ function tokenizeMarkdown(markdown: string): MarkdownBlock[] {
 
 function renderInlineMarkdown(text: string, keyPrefix: string): ReactNode[] {
   const normalized = text.replace(/\n/g, "  ");
-  const pattern = /(\[[^\]]+\]\([^)]+\)|`[^`]+`|\*\*[^*]+\*\*|__[^_]+__)/g;
+  const pattern = /(\[[^\]]+\]\([^)]+\)|\[\^[0-9A-Za-z-]+\]|`[^`]+`|\*\*[^*]+\*\*|__[^_]+__|(?<!\w)\*[^*\n]+\*(?!\w)|(?<!\w)_[^_\n]+_(?!\w))/g;
   const parts = normalized.split(pattern).filter((part) => part.length > 0);
 
   return parts.map((part, index) => {
     const key = `${keyPrefix}-${index}`;
+    const footnote = part.match(/^\[\^([0-9A-Za-z-]+)\]$/);
+    if (footnote) {
+      return (
+        <sup key={key} className="font-sans text-[0.78em] font-semibold text-[var(--fm-accent)]">
+          【{footnote[1]}】
+        </sup>
+      );
+    }
+
     const link = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
     if (link) {
       const href = sanitizeCmsUrl(link[2] ?? "");
       if (!href) {
-        return <span key={key}>{link[1]}</span>;
+        return <span key={key}>{renderCjkPunctuationText(link[1] ?? "", `${key}-text`)}</span>;
       }
 
       return (
         <a key={key} href={href} className="text-[var(--fm-accent)] underline-offset-2 hover:underline">
-          {link[1]}
+          {renderCjkPunctuationText(link[1] ?? "", `${key}-text`)}
         </a>
       );
     }
@@ -279,10 +330,15 @@ function renderInlineMarkdown(text: string, keyPrefix: string): ReactNode[] {
 
     const strong = part.match(/^(?:\*\*|__)(.*?)(?:\*\*|__)$/);
     if (strong) {
-      return <strong key={key}>{strong[1]}</strong>;
+      return <strong key={key}>{renderCjkPunctuationText(strong[1] ?? "", `${key}-text`)}</strong>;
     }
 
-    return <span key={key}>{part}</span>;
+    const emphasis = part.match(/^(?:\*|_)(.*?)(?:\*|_)$/);
+    if (emphasis) {
+      return <em key={key}>{renderCjkPunctuationText(emphasis[1] ?? "", `${key}-text`)}</em>;
+    }
+
+    return <span key={key}>{renderCjkPunctuationText(part, `${key}-text`)}</span>;
   });
 }
 
@@ -368,6 +424,21 @@ export function renderSimpleMarkdown(markdown: string): ReactNode {
             {block.items.map((item, itemIndex) => (
               <li key={`${key}-item-${itemIndex}`}>{renderInlineMarkdown(item, `${key}-item-${itemIndex}`)}</li>
             ))}
+          </ol>
+        );
+      case "footnotes":
+        return (
+          <ol key={key} className="m-0 list-decimal space-y-2 pl-5 text-sm leading-7 text-[var(--fm-text-muted)]">
+            {block.items.map((item, itemIndex) => {
+              const numericLabel = Number.parseInt(item.label, 10);
+              const value = String(numericLabel) === item.label ? numericLabel : undefined;
+
+              return (
+                <li key={`${key}-footnote-${item.label || itemIndex}`} value={value}>
+                  {renderInlineMarkdown(item.text, `${key}-footnote-${itemIndex}`)}
+                </li>
+              );
+            })}
           </ol>
         );
       case "blockquote":

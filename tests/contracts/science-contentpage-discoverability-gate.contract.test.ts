@@ -15,13 +15,20 @@ const TestLocaleProvider = LocaleProvider as React.ComponentType<{ locale: "en" 
 
 const ALLOWED_FILES = new Set([
   "components/layout/SiteFooter.tsx",
+  "docs/claims/generated/science-contentpage-claim-gate-01.v1.json",
+  "docs/claims/science-contentpage-claim-gate-01.md",
   "docs/seo/generated/science-contentpage-discoverability-gate-01.v1.json",
+  "docs/seo/generated/science-contentpage-faq-schema-gate-01.v1.json",
   "docs/seo/science-contentpage-discoverability-gate-01.md",
+  "docs/seo/science-contentpage-faq-schema-gate-01.md",
   "docs/codex/pr-train-state.json",
   "docs/codex/pr-train.yaml",
   "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/navigation-dead-links.contract.test.ts",
+  "tests/contracts/science-contentpage-claim-gate.contract.test.ts",
   "tests/contracts/science-contentpage-faq-schema-gate.contract.test.ts",
   "tests/contracts/science-contentpage-discoverability-gate.contract.test.ts",
+  "tests/contracts/site-footer-routing.contract.test.tsx",
 ]);
 
 type DiscoverabilityGateArtifact = {
@@ -34,7 +41,9 @@ type DiscoverabilityGateArtifact = {
   candidate_public_routes: string[];
   draft_routes_blocked_from_footer: string[];
   footer_allowed_existing_authority_routes: string[];
+  footer_eligible_routes: string[];
   dependency_gates: Array<{ id: string; required_status: string }>;
+  approval_basis: Record<string, string>;
   eligibility_fields: Record<string, boolean>;
   forbidden_route_patterns: string[];
   blocked_actions: string[];
@@ -67,16 +76,20 @@ function changedFiles(): string[] {
 }
 
 describe("SCIENCE-CONTENTPAGE-DISCOVERABILITY-GATE-01", () => {
-  it("keeps discoverability blocked by default with no runtime behavior change", () => {
+  it("records approved footer exposure with runtime footer behavior changed", () => {
     const artifact = readJson<DiscoverabilityGateArtifact>(ARTIFACT_PATH);
 
     expect(artifact.version).toBe("seo.science_contentpage_discoverability_gate.v1");
     expect(artifact.id).toBe("SCIENCE-CONTENTPAGE-DISCOVERABILITY-GATE-01");
-    expect(artifact.mode).toBe("contract_discoverability_gate_only");
-    expect(artifact.runtime_behavior_changed).toBe(false);
-    expect(artifact.publish_allowed).toBe(false);
-    expect(artifact.default_decision).toBe("blocked_until_dependency_gates_pass");
-    expect(Object.values(artifact.non_runtime_change_guarantees).every((value) => value === false)).toBe(true);
+    expect(artifact.mode).toBe("approved_footer_exposure_runtime");
+    expect(artifact.runtime_behavior_changed).toBe(true);
+    expect(artifact.publish_allowed).toBe(true);
+    expect(artifact.default_decision).toBe("approved_for_footer_exposure_after_backend_cms_authority");
+    expect(artifact.approval_basis).toMatchObject({
+      operator_review: "approved",
+      claim_gate_status: "passed",
+      user_authorization: "complete_exposure_authorized_2026-06-09",
+    });
   });
 
   it("requires CMS, claim, FAQ schema, operator, route, and private URL gates before exposure", () => {
@@ -91,20 +104,20 @@ describe("SCIENCE-CONTENTPAGE-DISCOVERABILITY-GATE-01", () => {
     expect(gates.get("private_url_scan")).toBe("no_private_or_tokenized_routes");
   });
 
-  it("defaults all public exposure fields to false while allowing draft generation only", () => {
+  it("allows footer exposure while keeping header and distribution gates closed", () => {
     const fields = readJson<DiscoverabilityGateArtifact>(ARTIFACT_PATH).eligibility_fields;
 
     expect(fields).toMatchObject({
       sitemap_eligible: false,
       llms_eligible: false,
-      footer_eligible: false,
+      footer_eligible: true,
       header_eligible: false,
       search_submission_eligible: false,
       social_distribution_eligible: false,
       daily_giving_tail_allowed: false,
       paid_ads_allowed: false,
       natural_distribution_allowed: false,
-      draft_generation_allowed: true,
+      draft_generation_allowed: false,
     });
   });
 
@@ -132,7 +145,7 @@ describe("SCIENCE-CONTENTPAGE-DISCOVERABILITY-GATE-01", () => {
       expect.arrayContaining([
         "no_sitemap_addition_from_draft",
         "no_llms_addition_from_draft",
-        "no_footer_or_header_link_before_operator_approval",
+        "no_header_link_without_separate_ia_decision",
         "no_search_submission_before_public_smoke",
         "no_private_url_reference",
         "no_daily_giving_amplification",
@@ -142,43 +155,49 @@ describe("SCIENCE-CONTENTPAGE-DISCOVERABILITY-GATE-01", () => {
         "no_competitor_imitation",
       ])
     );
-    expect(artifact.follow_up_implementation_required).toBe(true);
+    expect(artifact.follow_up_implementation_required).toBe(false);
   });
 
-  it("keeps draft-only Science ContentPages out of the footer while preserving existing method-boundaries authority", () => {
+  it("exposes the approved Science ContentPages through localized footer links", () => {
     const artifact = readJson<DiscoverabilityGateArtifact>(ARTIFACT_PATH);
 
-    expect(artifact.draft_routes_blocked_from_footer).toEqual([
+    const routes = [
       "/science",
+      "/method-boundaries",
       "/item-design-notes",
       "/reliability-validity",
       "/data-privacy",
       "/common-misconceptions",
-    ]);
-    expect(artifact.footer_allowed_existing_authority_routes).toEqual(["/method-boundaries"]);
+    ];
+    expect(artifact.draft_routes_blocked_from_footer).toEqual([]);
+    expect(artifact.footer_allowed_existing_authority_routes).toEqual(routes);
+    expect(artifact.footer_eligible_routes).toEqual(routes);
 
     render(React.createElement(TestLocaleProvider, { locale: "zh" }, React.createElement(SiteFooter)));
+    expect(screen.getByRole("link", { name: "测评科学" })).toHaveAttribute("href", "/zh/science");
     expect(screen.getByRole("link", { name: "方法边界" })).toHaveAttribute("href", "/zh/method-boundaries");
-    for (const label of ["测评科学", "题目设计说明", "信度效度", "数据说明", "常见误区"]) {
-      expect(screen.queryByRole("link", { name: label })).not.toBeInTheDocument();
-    }
+    expect(screen.getByRole("link", { name: "题目设计说明" })).toHaveAttribute("href", "/zh/item-design-notes");
+    expect(screen.getByRole("link", { name: "信度效度" })).toHaveAttribute("href", "/zh/reliability-validity");
+    expect(screen.getByRole("link", { name: "数据说明" })).toHaveAttribute("href", "/zh/data-privacy");
+    expect(screen.getByRole("link", { name: "常见误区" })).toHaveAttribute("href", "/zh/common-misconceptions");
 
     render(React.createElement(TestLocaleProvider, { locale: "en" }, React.createElement(SiteFooter)));
+    expect(screen.getByRole("link", { name: "Assessment science" })).toHaveAttribute("href", "/en/science");
     expect(screen.getByRole("link", { name: "Method boundaries" })).toHaveAttribute("href", "/en/method-boundaries");
-    for (const label of ["Assessment science", "Item design notes", "Reliability & validity", "Data notes", "Common misconceptions"]) {
-      expect(screen.queryByRole("link", { name: label })).not.toBeInTheDocument();
-    }
+    expect(screen.getByRole("link", { name: "Item design notes" })).toHaveAttribute("href", "/en/item-design-notes");
+    expect(screen.getByRole("link", { name: "Reliability & validity" })).toHaveAttribute("href", "/en/reliability-validity");
+    expect(screen.getByRole("link", { name: "Data notes" })).toHaveAttribute("href", "/en/data-privacy");
+    expect(screen.getByRole("link", { name: "Common misconceptions" })).toHaveAttribute("href", "/en/common-misconceptions");
   });
 
-  it("does not include discoverability implementation instructions or publishable copy", () => {
+  it("keeps footer exposure scoped away from sitemap llms header and private routes", () => {
     const doc = fs.readFileSync(DOC_PATH, "utf8");
 
-    expect(doc).toContain("This PR is a gate definition only");
-    expect(doc).toContain("does not add URLs to sitemap or llms");
+    expect(doc).toContain("The global footer now exposes the approved Research & Methods routes.");
+    expect(doc).toContain("must not provide fallback body copy");
     expect(doc).not.toMatch(/sitemap_eligible:\s*true/i);
     expect(doc).not.toMatch(/llms_eligible:\s*true/i);
-    expect(doc).not.toMatch(/footer_eligible:\s*true/i);
-    expect(doc).not.toMatch(/publish_allowed:\s*true/i);
+    expect(doc).toMatch(/`footer_eligible`\\s*\\| true/i);
   });
 
   it("keeps the diff inside the authorized discoverability gate scope", () => {

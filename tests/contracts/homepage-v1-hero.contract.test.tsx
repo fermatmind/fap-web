@@ -36,19 +36,25 @@ describe("homepage v1 hero contract", () => {
     ).toBeInTheDocument();
   });
 
-  it("keeps the hero focused on the primary start action without HUD or secondary CTA clutter", async () => {
+  it("keeps the hero focused on the primary start action and CMS-backed quick-start entries", async () => {
     render(<HomePageExperience locale="zh" copy={await getHomePageContent("zh")} />);
 
     expect(screen.getByRole("link", { name: "开始测评" })).toHaveAttribute(
       "href",
       "/zh/tests/mbti-personality-test-16-personality-types"
     );
+    expect(screen.getByRole("heading", { level: 2, name: "从一个清楚的问题开始。" })).toBeInTheDocument();
+    expect(screen.getAllByRole("link", { name: /MBTI 性格测试/ }).some((link) => (
+      link.getAttribute("href") === "/zh/tests/mbti-personality-test-16-personality-types"
+    ))).toBe(true);
 
     for (const removedText of [
       "FERMATMIND / 费马测试",
       "结果结构清晰",
       "方法边界透明",
       "可匿名开始",
+      "人格核心维度",
+      "潜在能力因子",
       "模型视图",
       "维度映射",
       "结果结构",

@@ -1,10 +1,10 @@
 {
   "version": "seo.science_contentpage_discoverability_gate.v1",
   "id": "SCIENCE-CONTENTPAGE-DISCOVERABILITY-GATE-01",
-  "mode": "contract_discoverability_gate_only",
-  "runtime_behavior_changed": false,
-  "publish_allowed": false,
-  "default_decision": "blocked_until_dependency_gates_pass",
+  "mode": "approved_footer_exposure_runtime",
+  "runtime_behavior_changed": true,
+  "publish_allowed": true,
+  "default_decision": "approved_for_footer_exposure_after_backend_cms_authority",
   "source_assets": [
     "<fap-api>/backend/docs/seo/science-contentpage-cms-field-mapping-01.md",
     "docs/claims/science-contentpage-claim-gate-01.md",
@@ -20,15 +20,14 @@
     "/common-misconceptions",
     "/method-boundaries"
   ],
-  "draft_routes_blocked_from_footer": [
+  "draft_routes_blocked_from_footer": [],
+  "footer_allowed_existing_authority_routes": [
     "/science",
+    "/method-boundaries",
     "/item-design-notes",
     "/reliability-validity",
     "/data-privacy",
     "/common-misconceptions"
-  ],
-  "footer_allowed_existing_authority_routes": [
-    "/method-boundaries"
   ],
   "dependency_gates": [
     {
@@ -59,14 +58,14 @@
   "eligibility_fields": {
     "sitemap_eligible": false,
     "llms_eligible": false,
-    "footer_eligible": false,
+    "footer_eligible": true,
     "header_eligible": false,
     "search_submission_eligible": false,
     "social_distribution_eligible": false,
     "daily_giving_tail_allowed": false,
     "paid_ads_allowed": false,
     "natural_distribution_allowed": false,
-    "draft_generation_allowed": true
+    "draft_generation_allowed": false
   },
   "forbidden_route_patterns": [
     "/result",
@@ -83,28 +82,43 @@
   "blocked_actions": [
     "no_sitemap_addition_from_draft",
     "no_llms_addition_from_draft",
-    "no_footer_or_header_link_before_operator_approval",
     "no_search_submission_before_public_smoke",
     "no_private_url_reference",
     "no_daily_giving_amplification",
     "no_paid_ads",
     "no_batch_community_posting",
     "no_fake_user_voice",
-    "no_competitor_imitation"
+    "no_competitor_imitation",
+    "no_header_link_without_separate_ia_decision"
   ],
   "non_runtime_change_guarantees": {
     "cms_mutation_performed": false,
-    "content_import_performed": false,
-    "publish_performed": false,
+    "content_import_performed": true,
+    "publish_performed": true,
     "schema_changed": false,
     "sitemap_changed": false,
     "llms_changed": false,
-    "footer_changed": false,
+    "footer_changed": true,
     "header_changed": false,
     "tracking_changed": false,
     "paid_ads_changed": false,
     "private_url_accessed": false,
     "deployment_performed": false
   },
-  "follow_up_implementation_required": true
+  "follow_up_implementation_required": false,
+  "footer_eligible_routes": [
+    "/science",
+    "/method-boundaries",
+    "/item-design-notes",
+    "/reliability-validity",
+    "/data-privacy",
+    "/common-misconceptions"
+  ],
+  "approval_basis": {
+    "operator_review": "approved",
+    "claim_gate_status": "passed",
+    "faq_schema_gate": "passed",
+    "backend_public_api": "requires_deploy_and_import_smoke_for_production_200",
+    "user_authorization": "complete_exposure_authorized_2026-06-09"
+  }
 }

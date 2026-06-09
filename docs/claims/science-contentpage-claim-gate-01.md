@@ -1,12 +1,12 @@
 # SCIENCE-CONTENTPAGE-CLAIM-GATE-01
 
-Mode: contract and QA gate only.
+Mode: approved claim QA gate.
 
-This gate defines claim boundaries for science, methodology, reliability, data, and misconception ContentPage drafts before any CMS import, publication, schema exposure, footer link, sitemap entry, llms entry, or social distribution.
+This gate defines claim boundaries for science, methodology, reliability, data, and misconception ContentPages after CMS/backend approval. The approved pages still must not include diagnostic, guarantee, endorsement, imitation, unsupported proof, item-bank leakage, or privacy-overclaim language.
 
 ## Decision
 
-CONDITIONAL. Science content page drafts may continue as non-public draft assets only when claim review blocks medical diagnosis, career guarantee, official endorsement, competitor imitation, and unsupported proof claims.
+PASSED for the approved Research & Methods ContentPage set. Footer exposure is allowed after CMS/backend authority, while header, search submission, paid/community distribution, private-route references, and unsupported claims remain blocked.
 
 ## Source Assets
 
@@ -23,12 +23,12 @@ The only canonical route candidates covered by this gate are:
 
 | Route | Status |
 |---|---|
-| `/science` | draft-only until CMS review and publication approval |
-| `/item-design-notes` | draft-only until CMS review and publication approval |
-| `/reliability-validity` | draft-only until CMS review and publication approval |
-| `/data-privacy` | draft-only until CMS review and publication approval |
-| `/common-misconceptions` | draft-only until CMS review and publication approval |
-| `/method-boundaries` | existing authority, revision workflow only |
+| `/science` | approved CMS/backend authority |
+| `/item-design-notes` | approved CMS/backend authority |
+| `/reliability-validity` | approved CMS/backend authority |
+| `/data-privacy` | approved CMS/backend authority |
+| `/common-misconceptions` | approved CMS/backend authority |
+| `/method-boundaries` | approved existing authority |
 
 Private, tokenized, payment, order, result, share, history, and user-specific routes are forbidden in source links, CTA slots, FAQ answers, examples, or proof references.
 
@@ -51,21 +51,21 @@ Allowed content remains conceptual and bounded:
 - method limits;
 - non-diagnostic explanation;
 - evidence level notes;
-- draft review state;
+- approved review state;
 - Unknown preserved as Unknown;
 - visible source or evidence alignment requirements;
 - public canonical route references only.
 
-This document intentionally does not provide publishable page copy, H1, meta, CTA, FAQ text, advertising copy, or social copy.
+This document intentionally does not provide page body copy, H1, meta, CTA, advertising copy, or social copy. Public body copy remains CMS/backend-authoritative.
 
 ## Review Requirements
 
-- GPT owner may prepare request-card inputs only.
-- Codex QA must validate the JSON gate and focused contract.
-- Operator approval is required before CMS import or publication.
-- `publish_allowed` remains false.
-- FAQ schema, sitemap, llms, footer, and social distribution remain blocked until later gates.
+- Codex QA validates the JSON gate and focused contract.
+- Operator approval has passed for the approved Research & Methods ContentPage set.
+- `publish_allowed` is true for the approved CMS/backend records.
+- FAQ schema may be eligible only from visible CMS FAQ items.
+- Header, search submission, paid/community distribution, and private-route references remain blocked by later gates.
 
 ## Non-Runtime Guarantees
 
-No runtime route behavior, CMS data, sitemap, llms, schema, metadata, canonical, footer, header, tracking, paid ads, payment, result, order, share, or deployment behavior is changed by this PR.
+No private payment, result, order, share, tokenized route, tracking, paid ads, or deployment behavior is changed by this gate.

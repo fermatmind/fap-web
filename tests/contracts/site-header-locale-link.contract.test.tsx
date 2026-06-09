@@ -21,10 +21,6 @@ vi.mock("next/navigation", () => ({
   usePathname: () => "/zh/tests/enneagram-personality-test-nine-types/take",
 }));
 
-vi.mock("@/components/marketing/LiveCompletedCounter", () => ({
-  LiveCompletedCounter: ({ className }: { className?: string }) => <span className={className}>1,049,304</span>,
-}));
-
 describe("SiteHeader locale link contract", () => {
   it("does not inject live query params into the SSR-rendered locale switch href", () => {
     render(
@@ -39,6 +35,17 @@ describe("SiteHeader locale link contract", () => {
       expect(link).toHaveAttribute("href", "/en/tests/enneagram-personality-test-nine-types/take");
       expect(link.getAttribute("href")).not.toContain("form=");
     }
+  });
+
+  it("does not render the live completed-count social proof in the global header", () => {
+    render(
+      <LocaleProvider locale="zh">
+        <SiteHeader />
+      </LocaleProvider>
+    );
+
+    expect(screen.queryByText("过去30天已完成")).not.toBeInTheDocument();
+    expect(screen.queryByText("次测评")).not.toBeInTheDocument();
   });
 
   it("keeps the standalone desktop locale switcher SSR-safe when the current URL has query params", () => {

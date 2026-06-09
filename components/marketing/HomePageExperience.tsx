@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { ArticleResponsiveImage } from "@/components/content/ArticleResponsiveImage";
 import { CmsMediaAuthorityShell } from "@/components/marketing/CmsMediaAuthorityShell";
-import { HeroHudArtwork } from "@/components/marketing/home/HeroHudArtwork";
 import { Container } from "@/components/layout/Container";
 import type { CmsArticle } from "@/lib/cms/articles";
 import { localizedPath, stripLocalePrefix, type Locale } from "@/lib/i18n/locales";
@@ -174,11 +173,50 @@ function getCoreMetaItems(item: HomeCoreTestItem): string[] {
 }
 
 function HeroQuickStartPanel({ locale, copy, coreTests }: { locale: Locale; copy: HomePageContent; coreTests: HomeCoreTestItem[] }) {
-  void copy;
-  void coreTests;
+  const featuredTests = coreTests.slice(0, 3);
 
   return (
-    <HeroHudArtwork locale={locale} />
+    <div className="relative">
+      <div className="absolute -left-4 top-6 hidden h-40 w-px bg-slate-200 lg:block" aria-hidden />
+      <div className="space-y-5">
+        <div className="border-b border-slate-200 pb-5">
+          <p className="m-0 text-xs font-semibold uppercase tracking-[0.22em] text-[#087d8d]">{copy.quickStart.kicker}</p>
+          <h2 className="m-0 mt-3 text-2xl font-semibold leading-tight tracking-normal text-slate-950 md:text-3xl">
+            {copy.quickStart.title}
+          </h2>
+          {hasText(copy.quickStart.body) ? (
+            <p className="m-0 mt-3 max-w-xl text-base leading-7 text-slate-600">{copy.quickStart.body}</p>
+          ) : null}
+        </div>
+
+        <div className="grid gap-3">
+          {featuredTests.map((item, index) => {
+            const title = getCoreTestDisplayTitle(locale, item);
+            const metaItems = getCoreMetaItems(item);
+
+            return (
+              <Link
+                key={`${getCoreTestKey(item)}-${index}`}
+                href={withLocale(locale, item.href)}
+                prefetch={false}
+                className="group grid gap-3 border border-slate-200 bg-white px-5 py-4 text-left shadow-[0_14px_32px_rgba(15,23,42,0.06)] transition hover:-translate-y-0.5 hover:border-[#087d8d]/40 hover:shadow-[0_18px_42px_rgba(15,23,42,0.10)] sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center"
+              >
+                <span>
+                  <span className="block text-base font-semibold leading-6 text-slate-950">{title}</span>
+                  {hasText(item.description) ? (
+                    <span className="mt-1 block text-sm leading-6 text-slate-600">{item.description}</span>
+                  ) : null}
+                </span>
+                <span className="flex items-center gap-3 text-sm font-semibold text-[#087d8d]">
+                  {metaItems[0] ? <span className="hidden text-slate-500 sm:inline">{metaItems[0]}</span> : null}
+                  <span aria-hidden className="transition group-hover:translate-x-1">→</span>
+                </span>
+              </Link>
+            );
+          })}
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -189,22 +227,22 @@ function HomepageHeroV1({ locale, copy, coreTests = [] }: { locale: Locale; copy
   ].filter((item) => hasText(item.label) && hasText(item.href));
 
   return (
-    <section className="relative overflow-hidden bg-[#020b12] px-0 py-8 text-white md:py-10 lg:min-h-[34rem] lg:py-0">
-      <div aria-hidden className="absolute inset-0 bg-[linear-gradient(rgba(86,111,126,0.16)_1px,transparent_1px),linear-gradient(90deg,rgba(86,111,126,0.14)_1px,transparent_1px)] bg-[size:28px_28px]" />
-      <div aria-hidden className="absolute inset-0 bg-[radial-gradient(circle_at_74%_48%,rgba(134,239,172,0.09),transparent_35%),radial-gradient(circle_at_18%_28%,rgba(86,111,126,0.07),transparent_32%)]" />
-      <div aria-hidden className="absolute left-6 top-6 h-6 w-6 border-l-2 border-t-2 border-lime-300/80" />
-      <div aria-hidden className="absolute right-6 top-6 h-6 w-6 border-r-2 border-t-2 border-lime-300/80" />
-      <div aria-hidden className="absolute bottom-6 left-6 h-6 w-6 border-b-2 border-l-2 border-lime-300/80" />
-      <div aria-hidden className="absolute bottom-6 right-6 h-6 w-6 border-b-2 border-r-2 border-lime-300/80" />
+    <section className="relative overflow-hidden border-b border-slate-200 bg-[#f7f5ef] px-0 pb-12 pt-24 text-slate-950 md:pb-16 md:pt-28 lg:pb-20 lg:pt-32">
+      <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-slate-200" />
+      <div aria-hidden className="absolute left-0 top-0 hidden h-full w-[18vw] border-r border-slate-200 bg-white/35 lg:block" />
+      <div aria-hidden className="absolute right-0 top-0 hidden h-full w-[12vw] border-l border-slate-200 bg-white/25 xl:block" />
 
-      <Container className="relative z-10 w-full max-w-[92rem] px-6 md:px-8 xl:px-12">
-        <div className="grid min-h-[31rem] gap-10 lg:grid-cols-[minmax(24rem,0.78fr)_minmax(32rem,1.22fr)] lg:items-center">
-          <div className="py-4 lg:py-9">
-            <h1 className="m-0 max-w-[42rem] text-balance break-words text-[3.1rem] font-black leading-[1.02] tracking-normal text-white drop-shadow-[0_3px_0_rgba(255,255,255,0.16)] sm:text-[4.2rem] lg:text-[4.05rem] xl:text-[5rem]">
+      <Container className="relative z-10 w-full max-w-[88rem] px-6 md:px-8 xl:px-12">
+        <div className="grid gap-10 lg:grid-cols-[minmax(22rem,0.82fr)_minmax(28rem,1.18fr)] lg:items-center">
+          <div className="max-w-3xl">
+            {hasText(copy.hero.brand) ? (
+              <p className="m-0 text-sm font-semibold tracking-[0.18em] text-[#087d8d] uppercase">{copy.hero.brand}</p>
+            ) : null}
+            <h1 className="m-0 mt-5 max-w-[12ch] text-balance break-words text-[3.25rem] font-semibold leading-[1.02] tracking-normal text-slate-950 sm:text-[4.25rem] lg:text-[4.8rem]">
               {copy.hero.title}
             </h1>
-            <div aria-hidden className="mt-4 h-px w-32 bg-lime-300/50" />
-            <p className="m-0 mt-4 max-w-xl text-base leading-7 text-slate-200 sm:text-lg sm:leading-8">
+            <div aria-hidden className="mt-6 h-px w-28 bg-[#087d8d]" />
+            <p className="m-0 mt-6 max-w-2xl text-lg leading-8 text-slate-700">
               {copy.hero.subhead}
             </p>
             {ctas.length > 0 ? (
@@ -215,10 +253,10 @@ function HomepageHeroV1({ locale, copy, coreTests = [] }: { locale: Locale; copy
                     href={withLocale(locale, item.href)}
                     prefetch={false}
                     className={cn(
-                      "inline-flex min-h-[3.25rem] items-center justify-center whitespace-nowrap border px-8 text-base font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-300",
-                      item.variant === "primary" && "min-w-40 border-lime-300 bg-lime-300 text-slate-950 shadow-[0_0_22px_rgba(190,242,100,0.25)] hover:bg-lime-200",
-                      item.variant === "secondary" && "min-w-40 border-slate-400/70 bg-slate-950/30 text-white hover:border-lime-300 hover:text-lime-200",
-                      item.variant === "tertiary" && "min-w-40 border-slate-400/70 bg-slate-950/20 text-white hover:border-lime-300 hover:text-lime-200"
+                      "inline-flex min-h-[3.1rem] items-center justify-center whitespace-nowrap border px-7 text-base font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#087d8d]",
+                      item.variant === "primary" && "min-w-40 border-[#087d8d] bg-[#087d8d] text-white shadow-[0_14px_30px_rgba(8,125,141,0.18)] hover:bg-[#056f7c]",
+                      item.variant === "secondary" && "min-w-40 border-slate-300 bg-white text-slate-950 hover:border-[#087d8d] hover:text-[#087d8d]",
+                      item.variant === "tertiary" && "min-w-40 border-slate-300 bg-white text-slate-950 hover:border-[#087d8d] hover:text-[#087d8d]"
                     )}
                   >
                     {item.label}
@@ -233,7 +271,6 @@ function HomepageHeroV1({ locale, copy, coreTests = [] }: { locale: Locale; copy
           <HeroQuickStartPanel locale={locale} copy={copy} coreTests={coreTests} />
         </div>
       </Container>
-      {/* legacy contract marker only, not rendered: min-h-[34rem] overflow-hidden bg-orange-50 / rounded-[100%] bg-white */}
     </section>
   );
 }
