@@ -22,6 +22,7 @@ import {
 import {
   LLMS_ROUTE_CAREER_JOB_TIMEOUT_MS,
   LLMS_ROUTE_ARTICLE_MAX_PAGES,
+  LLMS_ROUTE_CONTENT_PAGE_TIMEOUT_MS,
   LLMS_ROUTE_LIMITS,
   limitLlmsRouteEntries,
   withLlmsRouteBudget,
@@ -282,14 +283,16 @@ export async function GET() {
         listDiscoverableContentPagesWithLastKnownGood("en").then((result) =>
           limitLlmsRouteEntries(result.value, LLMS_ROUTE_LIMITS.helpPages)
         ),
-      []
+      [],
+      { timeoutMs: LLMS_ROUTE_CONTENT_PAGE_TIMEOUT_MS }
     ),
     withLlmsRouteBudget(
       () =>
         listDiscoverableContentPagesWithLastKnownGood("zh").then((result) =>
           limitLlmsRouteEntries(result.value, LLMS_ROUTE_LIMITS.helpPages)
         ),
-      []
+      [],
+      { timeoutMs: LLMS_ROUTE_CONTENT_PAGE_TIMEOUT_MS }
     ),
     withLlmsRouteBudget(
       (signal) => listBackendSitemapCareerJobPaths({ limit: LLMS_ROUTE_LIMITS.careerJobs, signal }),
