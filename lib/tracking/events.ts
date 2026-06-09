@@ -1,6 +1,8 @@
 import {
+  SEO_CONVERSION_DIMENSION_FIELDS,
   SEARCH_INTELLIGENCE_TRACKING_FIELDS,
   TRACKING_ATTRIBUTION_FIELDS,
+  normalizeSeoConversionSessionId,
 } from "@/lib/tracking/attribution";
 import {
   isSensitiveTrackingIdentifierField,
@@ -153,6 +155,16 @@ export const CANONICAL_SEO_FUNNEL_EVENTS = [
 
 export type CanonicalSeoFunnelEventName = (typeof CANONICAL_SEO_FUNNEL_EVENTS)[number];
 
+export const SEO_CONVERSION_FUNNEL_EVENTS = [
+  TRACKING_EVENTS.LANDING_PV,
+  TRACKING_EVENTS.ARTICLE_TO_TEST_CLICK,
+  TRACKING_EVENTS.START_TEST,
+  TRACKING_EVENTS.COMPLETE_TEST,
+  TRACKING_EVENTS.VIEW_RESULT,
+] as const satisfies readonly StandardCommercialEventName[];
+
+export type SeoConversionFunnelEventName = (typeof SEO_CONVERSION_FUNNEL_EVENTS)[number];
+
 export const COMMERCIAL_EVENT_ALIASES = {
   [TRACKING_EVENTS.VIEW_LANDING]: TRACKING_EVENTS.LANDING_PV,
   [TRACKING_EVENTS.LANDING_VIEW]: TRACKING_EVENTS.LANDING_PV,
@@ -194,6 +206,10 @@ export function normalizeCommercialEventName(eventName: TrackingEventName): Stan
 
 export function isCanonicalSeoFunnelEvent(eventName: string): eventName is CanonicalSeoFunnelEventName {
   return CANONICAL_SEO_FUNNEL_EVENTS.includes(eventName as CanonicalSeoFunnelEventName);
+}
+
+export function isSeoConversionFunnelEvent(eventName: string): eventName is SeoConversionFunnelEventName {
+  return SEO_CONVERSION_FUNNEL_EVENTS.includes(eventName as SeoConversionFunnelEventName);
 }
 
 const COMMON_BIG5_FIELDS = [
@@ -293,6 +309,7 @@ const COMMON_ARTICLE_TO_TEST_CLICK_FIELDS = [
   "form_code",
   "scale_code",
   ...COMMON_SEO_CTA_ATTRIBUTION_FIELDS,
+  ...SEO_CONVERSION_DIMENSION_FIELDS,
 ] as const;
 
 const COMMON_COMMERCIAL_STANDARD_FIELDS = [
@@ -365,6 +382,7 @@ const COMMON_COMMERCIAL_EVENT_FIELDS = [
   ...COMMON_COMMERCIAL_ASSESSMENT_FIELDS,
   ...COMMON_COMMERCIAL_PAYMENT_FIELDS,
   ...COMMON_SEO_CTA_ATTRIBUTION_FIELDS,
+  ...SEO_CONVERSION_DIMENSION_FIELDS,
 ] as const;
 
 const COMMON_CONVERSION_FIELDS = [
@@ -375,7 +393,7 @@ const COMMON_CONVERSION_FIELDS = [
 ] as const;
 
 const EVENT_FIELD_WHITELIST: Record<TrackingEventName, readonly string[]> = {
-  landing_pv: [...COMMON_COMMERCIAL_STANDARD_FIELDS, "landing_path"],
+  landing_pv: [...COMMON_COMMERCIAL_STANDARD_FIELDS, "landing_path", ...SEO_CONVERSION_DIMENSION_FIELDS],
   view_landing: ["locale"],
   view_test: ["slug", "locale"],
   view_test_landing: ["slug", "locale"],
@@ -576,6 +594,10 @@ function sanitizeValue(key: string, value: unknown): string | number | boolean |
   return sanitizeString(String(value));
 }
 
+function sanitizeSeoConversionSessionId(value: unknown): string | null {
+  return normalizeSeoConversionSessionId(value) ?? null;
+}
+
 function isRiasecResultCodeField(payload: Record<string, unknown>, key: string): boolean {
   const scaleCode = typeof payload.scale_code === "string" ? payload.scale_code.trim().toUpperCase() : "";
   return scaleCode === "RIASEC" && RIASEC_RESULT_CODE_FIELDS.has(key);
@@ -601,15 +623,26 @@ export function filterTrackingPayload(
 
   return allowed.reduce<Record<string, string | number | boolean | null>>((acc, key) => {
     const normalizedKey = key.toLowerCase();
+    const isSafeSeoSessionId =
+      normalizedKey === "session_id" &&
+      isSeoConversionFunnelEvent(eventName) &&
+      sanitizeSeoConversionSessionId(payload[key]) !== null;
     const forbidden =
       FORBIDDEN_FIELD_PATTERNS.some((pattern) => pattern.test(normalizedKey)) ||
       (STANDARD_COMMERCIAL_EVENTS.includes(eventName as StandardCommercialEventName) &&
+        !isSafeSeoSessionId &&
         STANDARD_COMMERCIAL_FORBIDDEN_FIELD_PATTERNS.some((pattern) => pattern.test(normalizedKey)));
     if (forbidden) return acc;
     if (isRiasecResultCodeField(payload, key)) return acc;
 
     if (Object.prototype.hasOwnProperty.call(payload, key)) {
       if (isLikelyEmailPayloadValue(payload[key])) return acc;
+      if (normalizedKey === "session_id") {
+        const sessionId = sanitizeSeoConversionSessionId(payload[key]);
+        if (!sessionId) return acc;
+        acc[key] = sessionId;
+        return acc;
+      }
       acc[key] = sanitizeValue(key, payload[key]);
     }
 

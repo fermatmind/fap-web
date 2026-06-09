@@ -258,8 +258,8 @@ describe("analytics payload privacy contract", () => {
     });
 
     expect(gtagMock).toHaveBeenCalledWith("event", "test_start", expect.any(Object));
-    expect(gtagMock).toHaveBeenCalledWith("event", "checkout_begin", expect.any(Object));
-    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(gtagMock).not.toHaveBeenCalledWith("event", "checkout_begin", expect.any(Object));
+    expect(fetchMock).toHaveBeenCalledTimes(1);
     const body = JSON.parse(String(fetchMock.mock.calls[0]?.[1]?.body ?? "{}")) as {
       eventName?: string;
       path?: string;
@@ -278,24 +278,12 @@ describe("analytics payload privacy contract", () => {
       locale: "zh",
     });
     expect(JSON.stringify(body)).not.toContain("person@example.com");
-    const createOrderBody = JSON.parse(String(fetchMock.mock.calls[1]?.[1]?.body ?? "{}")) as {
-      eventName?: string;
-      path?: string;
-      payload?: Record<string, unknown>;
-    };
-    expect(createOrderBody.eventName).toBe("begin_checkout");
-    expect(createOrderBody.path).toBe("private_route:orders");
-    expect(createOrderBody.payload).not.toHaveProperty("order_no");
-    expect(createOrderBody.payload).not.toHaveProperty("order_id");
-    expect(createOrderBody.payload).not.toHaveProperty("transaction_id");
-    expect(JSON.stringify(createOrderBody)).not.toContain("person@example.com");
-    expect(JSON.stringify(createOrderBody)).not.toContain("ord_not_observable_without_consent");
-    expect(JSON.stringify(createOrderBody)).not.toContain("ord_order_id_raw");
-    expect(JSON.stringify(createOrderBody)).not.toContain("ord_transaction_id_raw");
-    expect(JSON.stringify(createOrderBody)).not.toContain("/zh/orders");
+    expect(JSON.stringify(fetchMock.mock.calls)).not.toContain("begin_checkout");
+    expect(JSON.stringify(fetchMock.mock.calls)).not.toContain("ord_not_observable_without_consent");
+    expect(JSON.stringify(fetchMock.mock.calls)).not.toContain("/zh/orders");
   });
 
-  it("sends only route-family markers for non-history private tracking after analytics consent is granted", async () => {
+  it("hard-stops non-history private tracking after analytics consent is granted", async () => {
     grantAnalyticsConsent();
     const fetchMock = vi.fn().mockResolvedValue(new Response(JSON.stringify({ ok: true })));
     const gtagMock = vi.fn();
@@ -323,24 +311,8 @@ describe("analytics payload privacy contract", () => {
       path: "/en/pay/wait?payment_recovery_token=recovery_secret&utm_source=ads",
     });
 
-    expect(gtagMock).toHaveBeenCalledWith(
-      "event",
-      "payment_success",
-      expect.objectContaining({
-        current_path: "private_route:pay",
-        attemptIdMasked: "attemp...3456",
-        orderNoMasked: "ord_ra...aw_1",
-      })
-    );
-    expect(fetchMock).toHaveBeenCalledTimes(1);
-    const body = JSON.parse(String(fetchMock.mock.calls[0]?.[1]?.body ?? "{}")) as {
-      path?: string;
-      payload?: Record<string, unknown>;
-    };
-    expect(body.path).toBe("private_route:pay");
-    expect(body.payload?.current_path).toBe("private_route:pay");
-    expect(JSON.stringify(body)).not.toContain("recovery_secret");
-    expect(JSON.stringify(body)).not.toContain("/en/pay");
+    expect(gtagMock).not.toHaveBeenCalled();
+    expect(fetchMock).not.toHaveBeenCalled();
     expect(hmtQueue.join(" ")).not.toContain("/en/pay");
   });
 

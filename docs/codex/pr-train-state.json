@@ -21281,9 +21281,130 @@
         }
       ],
       "commit_sha": "98a824f0074592591bdff3918abebd3126ca3b51"
+    },
+    {
+      "id": "SEO-CONV-TRACKING-01",
+      "repo": "fap-web",
+      "branch": "codex/seo-conv-tracking-01",
+      "status": "ready_to_merge",
+      "commit_sha": "29b3d1dc01b567e38040d75afb02188ed848bd8e",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1084",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "checks": {
+        "dependency": {
+          "status": "pass",
+          "evidence": "User explicitly authorized the SEO-CONV PR train on 2026-06-09. SEO-CONV-TRACKING-01 is the first fap-web tracking contract PR and has no manifest dependencies."
+        },
+        "scope": {
+          "status": "pass",
+          "allowed_paths": [
+            "lib/tracking/events.ts",
+            "lib/tracking/privacy.ts",
+            "lib/tracking/attribution.ts",
+            "tests/contracts/seo-conv-tracking-contract.contract.test.ts",
+            "tests/contracts/analytics-payload-privacy.contract.test.ts",
+            "tests/contracts/seo-funnel-tracking-taxonomy.contract.test.ts",
+            "tests/contracts/tracking-activation-contract.contract.test.ts",
+            "tests/contracts/helpers/currentPrScope.ts",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ],
+          "evidence": "Scope validation including tracked and untracked files reported scope-ok for docs/codex metadata, lib/tracking/events.ts, lib/tracking/privacy.ts, lib/tracking/attribution.ts, related tracking contracts, and currentPrScope only."
+        },
+        "local": {
+          "status": "pass_with_external_sidecar",
+          "commands": [
+            "pnpm exec vitest run tests/contracts/seo-conv-tracking-contract.contract.test.ts",
+            "pnpm exec vitest run tests/contracts/analytics-payload-privacy.contract.test.ts",
+            "pnpm exec vitest run tests/contracts/search-intelligence-tracking-fields.contract.test.ts",
+            "pnpm exec vitest run tests/contracts/seo-funnel-tracking-taxonomy.contract.test.ts",
+            "pnpm exec vitest run tests/contracts/tracking-activation-contract.contract.test.ts",
+            "pnpm typecheck",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build",
+            "pnpm exec vitest run tests/contracts/big5.contract.test.ts tests/contracts/big5-result-assembler.contract.test.ts tests/contracts/big5-secondary-surfaces.contract.test.tsx",
+            "pnpm exec vitest run tests/contracts/enneagram-api.contract.test.ts tests/contracts/enneagram-take-flow.contract.test.tsx tests/contracts/enneagram-result-assembler.contract.test.ts tests/contracts/enneagram-rich-result-report.contract.test.tsx tests/contracts/enneagram-secondary-surfaces.contract.test.tsx",
+            "pnpm lint .",
+            "pnpm test:contract",
+            "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "python3 -c \"import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')\"",
+            "python3 - <<scope validation: tracked and untracked changed files equal SEO-CONV-TRACKING-01 allowed paths>>",
+            "git diff --check"
+          ],
+          "evidence": "Focused SEO conversion tracking contract passed 7 tests, analytics payload privacy passed 11 tests, search-intelligence tracking fields passed 11 tests, SEO funnel taxonomy passed 7 tests, tracking activation passed 13 tests, typecheck passed, production build passed with postbuild sitemap generation and no sitemap diff, Big Five freeze focused checks passed 3 files / 29 tests, Enneagram freeze focused checks passed 5 files / 23 tests, lint passed with existing warnings only, JSON/YAML parse and git diff --check passed, and scope validation passed. Full pnpm test:contract failed only on legacy PR-specific scope-boundary contracts that compare the current diff against old PR scopes after the two current tracking semantic failures were fixed; recorded as an external sidecar under the user-approved policy."
+        },
+        "github": {
+          "status": "pass",
+          "checks": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "CodeQL",
+            "analyze (javascript-typescript)"
+          ],
+          "evidence": "GitHub checks passed for fap-web PR #1084 at head 29b3d1dc01b567e38040d75afb02188ed848bd8e after fixing CodeQL insecure-randomness finding by requiring window.crypto.getRandomValues for SEO conversion session ids."
+        }
+      },
+      "failure_reason": null,
+      "history": [
+        {
+          "at": "2026-06-09",
+          "status": "authorized",
+          "note": "User authorized adding and executing SEO-CONV-TRACKING-01 through SEO-CONV-OPS-05 with fap-web and fap-api docs/codex metadata updates."
+        },
+        {
+          "at": "2026-06-09",
+          "status": "in_progress",
+          "note": "Created branch codex/seo-conv-tracking-01 from latest main and implemented scoped frontend tracking contract changes."
+        },
+        {
+          "at": "2026-06-09",
+          "status": "committed_pending_push",
+          "note": "Created local implementation commit 480892153c0c0164537b1c5c707139def16863cb with message test(tracking): lock SEO conversion contract."
+        },
+        {
+          "at": "2026-06-09",
+          "status": "pr_open_checks_pending",
+          "note": "Opened fap-web PR #1084 for SEO-CONV-TRACKING-01 after scoped local validation passed; GitHub checks pending."
+        },
+        {
+          "at": "2026-06-09",
+          "status": "github_checks_failed_fixed",
+          "note": "CodeQL initially flagged insecure Math.random fallback in lib/tracking/attribution.ts; removed the fallback and pushed fix commit 29b3d1dc01b567e38040d75afb02188ed848bd8e."
+        },
+        {
+          "at": "2026-06-09",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed for PR #1084 at head 29b3d1dc01b567e38040d75afb02188ed848bd8e. Recording ready_to_merge before merge per train policy."
+        }
+      ]
     }
   ],
   "sidecar_issues": [
+    {
+      "title": "Full contract suite fails on legacy PR-specific scope-boundary tests during SEO-CONV-TRACKING-01",
+      "severity": "P2",
+      "source_pr": "SEO-CONV-TRACKING-01",
+      "repo": "fap-web",
+      "branch": "codex/seo-conv-tracking-01",
+      "command_or_check": "pnpm test:contract",
+      "scope_impact": "Focused tracking/privacy/search-intelligence/SEO funnel/tracking activation contracts, typecheck, production build, Big Five freeze focused checks, Enneagram freeze focused checks, lint, JSON/YAML parse, git diff check, and explicit scope validation passed. Full contract fails because many historical PR scope-boundary contracts compare the current SEO-CONV diff against their old PR-specific allowlists.",
+      "introduced_by_current_pr": false,
+      "recommended_future_phase": "Make legacy PR-specific scope-boundary contract tests branch-aware or exclude them from unrelated full-suite current-diff validation.",
+      "blocks_merge": false,
+      "evidence": [
+        "Command: pnpm test:contract",
+        "Result: 38 failed files / 39 failed tests and 430 passed files / 2622 passed tests after current tracking semantic failures were fixed in focused reruns.",
+        "Representative failures: api-edge-gateway-backend-authority-contract, help-cms-authority, seo-issue-queue, search-intelligence-data-contract, and staging-cms-baseline scope-boundary tests rejected lib/tracking/* and current docs/codex changes because they enforce historical PR scopes.",
+        "Current PR scope validation including tracked and untracked files reported scope-ok for SEO-CONV-TRACKING-01 allowed paths.",
+        "User-approved train policy allows external blockers to be recorded as sidecar issues when not introduced by current PR and scoped validation is green."
+      ],
+      "required_checks_status": "pending_github_checks",
+      "scope_validation_status": "passed",
+      "continue_train_decision": "continue_if_required_github_checks_green_and_scope_validation_passes"
+    },
     {
       "title": "Optional release-freeze smoke blocked by unrelated local port 3000 server",
       "severity": "P2",

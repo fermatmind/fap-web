@@ -13857,3 +13857,123 @@ prs:
       github_checks_required: true
       squash: true
       auto_merge: true
+
+  - id: SEO-CONV-TRACKING-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/seo-conv-tracking-01
+    base: main
+    title: "SEO-CONV-TRACKING-01: test(tracking): lock SEO conversion tracking contract"
+    depends_on: []
+    mode: execute
+    train_scope: seo_conversion_tracking
+    status: in_progress
+    goal: "Lock the frontend SEO conversion event taxonomy, safe dimension whitelist, session_id strategy, private path hard stop, and sensitive query redaction contract without sending new runtime events."
+    artifacts:
+      - lib/tracking/events.ts
+      - lib/tracking/privacy.ts
+      - lib/tracking/attribution.ts
+      - tests/contracts/seo-conv-tracking-contract.contract.test.ts
+      - tests/contracts/analytics-payload-privacy.contract.test.ts
+      - tests/contracts/seo-funnel-tracking-taxonomy.contract.test.ts
+      - tests/contracts/tracking-activation-contract.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - lib/tracking/events.ts
+      - lib/tracking/privacy.ts
+      - lib/tracking/attribution.ts
+      - tests/contracts/seo-conv-tracking-contract.contract.test.ts
+      - tests/contracts/analytics-payload-privacy.contract.test.ts
+      - tests/contracts/seo-funnel-tracking-taxonomy.contract.test.ts
+      - tests/contracts/tracking-activation-contract.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - frontend runtime event wiring
+      - article CTA runtime changes
+      - test take client runtime changes
+      - result view client runtime changes
+      - backend ingest changes
+      - backend daily read model changes
+      - Ops/CMS page changes
+      - public analytics script loading changes
+      - payment/order/result/share/history behavior changes beyond tracking suppression contract
+      - CMS content mutation
+      - deploy
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/seo-conv-tracking-contract.contract.test.ts
+      - pnpm exec vitest run tests/contracts/analytics-payload-privacy.contract.test.ts
+      - pnpm exec vitest run tests/contracts/search-intelligence-tracking-fields.contract.test.ts
+      - pnpm exec vitest run tests/contracts/seo-funnel-tracking-taxonomy.contract.test.ts
+      - pnpm exec vitest run tests/contracts/tracking-activation-contract.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - "python3 - <<scope validation: changed files equal manifest artifacts>>"
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: SEO-CONV-INGEST-02
+
+  - id: SEO-CONV-RUNTIME-03
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/seo-conv-runtime-03
+    base: main
+    title: "SEO-CONV-RUNTIME-03: feat(tracking): send SEO conversion funnel events"
+    depends_on: [SEO-CONV-TRACKING-01, SEO-CONV-INGEST-02]
+    mode: execute
+    train_scope: seo_conversion_runtime
+    status: pending_dependency
+    goal: "Wire frontend runtime surfaces to send the minimum SEO conversion loop after the frontend contract and backend ingest PRs are merged."
+    artifacts:
+      - lib/analytics.ts
+      - lib/tracking/events.ts
+      - lib/tracking/attribution.ts
+      - article CTA runtime files
+      - test take client runtime files
+      - result view client runtime files
+      - tests/contracts/**analytics**
+      - tests/contracts/**tracking**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - lib/analytics.ts
+      - lib/tracking/events.ts
+      - lib/tracking/privacy.ts
+      - lib/tracking/attribution.ts
+      - components/**
+      - app/**
+      - tests/contracts/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - backend ingest changes
+      - backend daily read model changes
+      - Ops/CMS page changes
+      - private result/order/share/pay/payment/history public analytics dispatch
+      - CMS content mutation
+      - deploy
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/*tracking* tests/contracts/*analytics*
+      - pnpm typecheck
+      - pnpm test:contract
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - "python3 - <<scope validation: changed files within SEO-CONV-RUNTIME-03 manifest scope>>"
+      - git diff --check
+      - git diff --cached --check
+    cross_repo_prerequisites:
+      - "fap-api SEO-CONV-INGEST-02 merged before this PR starts."
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: SEO-CONV-DAILY-04
