@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
+import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -8,6 +9,8 @@ import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { listTopics } from "@/lib/cms/topics";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import { DEFAULT_MBTI_FORM_CODE } from "@/lib/mbti/forms";
+import { buildMbtiEntryHref, buildMbtiEntryTrackingPayload } from "@/lib/mbti/entryTracking";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
@@ -158,6 +161,22 @@ export default async function TopicsPage({
     { name: locale === "zh" ? "首页" : "Home", path: locale === "zh" ? "/zh" : "/en" },
     { name: locale === "zh" ? "主题" : "Topics", path: canonicalPath },
   ]);
+  const mbtiIndexCtaTrackingProps = buildMbtiEntryTrackingPayload({
+    locale,
+    formCode: DEFAULT_MBTI_FORM_CODE,
+    entrySurface: "mbti_topic_index",
+    sourcePageType: "topic_index",
+    targetAction: "start_mbti_test_primary",
+    sourcePath: canonicalPath,
+  });
+  const mbtiIndexPrimaryCtaHref = buildMbtiEntryHref({
+    locale,
+    formCode: DEFAULT_MBTI_FORM_CODE,
+    entrySurface: "mbti_topic_index",
+    sourcePageType: "topic_index",
+    targetAction: "start_mbti_test_primary",
+    sourcePath: canonicalPath,
+  });
   const emptyTitle = locale === "zh" ? "暂无已发布主题" : "No published topics yet";
   const emptyDescription =
     locale === "zh"
@@ -189,6 +208,19 @@ export default async function TopicsPage({
               ? "从测试文章分类、人格文章和职业文章进入对应内容，不再把主题页做成单一测评入口。"
               : "Start from test categories, personality articles, or career articles instead of a single assessment entry."}
           </p>
+        </div>
+      </section>
+
+      <section className="topics-index-scene-entry" id="topics-index-scene-entry">
+        <div className="topics-index-landing-cta" data-testid="mbti-topics-index-entry-cta-group">
+          <TrackedEntryCtaLink
+            href={mbtiIndexPrimaryCtaHref}
+            prefetch
+            data-testid="mbti-topics-index-primary-cta"
+            eventProperties={mbtiIndexCtaTrackingProps}
+          >
+            {locale === "zh" ? "开始 MBTI 测试" : "Start MBTI test"}
+          </TrackedEntryCtaLink>
         </div>
       </section>
 
