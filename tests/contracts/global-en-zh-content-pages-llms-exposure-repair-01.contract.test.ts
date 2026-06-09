@@ -2,6 +2,13 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 
 const SITE_URL = "https://fermatmind.com";
 const TARGET_SLUGS = ["brand", "charter", "foundation", "careers", "policies"] as const;
+const SCIENCE_TARGET_SLUGS = [
+  "science",
+  "item-design-notes",
+  "reliability-validity",
+  "data-privacy",
+  "common-misconceptions",
+] as const;
 const DISCOVERABLE_KEYS = [
   "about",
   "brand",
@@ -13,10 +20,11 @@ const DISCOVERABLE_KEYS = [
   "terms",
   "support",
   "method-boundaries",
+  ...SCIENCE_TARGET_SLUGS,
   "help-faq",
   "help-contact",
 ] as const;
-const TARGET_URLS = TARGET_SLUGS.map((slug) => `${SITE_URL}/en/${slug}`);
+const TARGET_URLS = [...TARGET_SLUGS, ...SCIENCE_TARGET_SLUGS].map((slug) => `${SITE_URL}/en/${slug}`);
 
 type ContentPageFixture = {
   slug: string;
@@ -93,7 +101,7 @@ function mockRouteDependencies() {
           isPublic: true,
           isIndexable: true,
         },
-        ...(locale === "en" ? TARGET_SLUGS.map(contentPage) : []),
+        ...(locale === "en" ? [...TARGET_SLUGS, ...SCIENCE_TARGET_SLUGS].map(contentPage) : []),
       ],
     })),
     listApprovedEnglishContentPagesWithLastKnownGood: vi.fn(async () => ({
@@ -250,7 +258,7 @@ describe("GLOBAL-EN-ZH-CONTENT-PAGES-LLMS-EXPOSURE-REPAIR-01", () => {
     expect(get).toHaveBeenCalledTimes(DISCOVERABLE_KEYS.length);
   });
 
-  it("enumerates the five approved English content pages in both llms surfaces", async () => {
+  it("enumerates approved English content pages and Science pages in both llms surfaces", async () => {
     const { llmsText, llmsFullText } = await renderLlmsRoutes();
 
     for (const url of TARGET_URLS) {

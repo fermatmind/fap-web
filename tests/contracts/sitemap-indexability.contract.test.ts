@@ -27,6 +27,14 @@ function loadSitemapConfig() {
   return requireFromRoot("./next-sitemap.config.js");
 }
 
+const SCIENCE_CONTENT_PAGE_SLUGS = [
+  "science",
+  "item-design-notes",
+  "reliability-validity",
+  "data-privacy",
+  "common-misconceptions",
+] as const;
+
 describe("sitemap indexability contract", () => {
   it("keeps approved English content pages out of stale command-line sitemap deny rules", () => {
     const checkScript = fs.readFileSync(path.join(ROOT, "scripts/seo/check-sitemap-indexability.mjs"), "utf8");
@@ -43,6 +51,46 @@ describe("sitemap indexability contract", () => {
 
     vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://staging.fermatmind.com");
     expect(loadSitemapConfig().siteUrl).toBe("https://fermatmind.com");
+  });
+
+  it("keeps approved English Science content pages discoverable when another content page key fails", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async (input: RequestInfo | URL) => {
+        const url = String(input);
+
+        if (url.includes("/api/v0.5/content-pages/support?")) {
+          return jsonResponse({ ok: false, message: "not found" }, 404);
+        }
+
+        const slug = decodeURIComponent(url.match(/\/api\/v0\.5\/content-pages\/([^?]+)/)?.[1] ?? "");
+        if (SCIENCE_CONTENT_PAGE_SLUGS.includes(slug as (typeof SCIENCE_CONTENT_PAGE_SLUGS)[number])) {
+          return jsonResponse({
+            ok: true,
+            page: {
+              slug,
+              path: `/${slug}`,
+              canonical_path: `/${slug}`,
+              kind: "policy",
+              title: slug,
+              locale: url.includes("locale=zh-CN") ? "zh-CN" : "en",
+              is_public: true,
+              is_indexable: true,
+            },
+          });
+        }
+
+        return jsonResponse({ items: [] });
+      })
+    );
+
+    const config = loadSitemapConfig();
+    const additionalPaths = await config.additionalPaths();
+    const locs = additionalPaths.map((entry: { loc?: string }) => String(entry?.loc ?? ""));
+
+    for (const slug of SCIENCE_CONTENT_PAGE_SLUGS) {
+      expect(locs).toContain(`/en/${slug}`);
+    }
   });
 
   it("frontend sitemap config includes approved Career job detail routes and excludes query/search-style Career discovery", async () => {

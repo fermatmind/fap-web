@@ -34,6 +34,11 @@ const DISCOVERABLE_CONTENT_PAGE_KEYS = [
   "terms",
   "support",
   "method-boundaries",
+  "science",
+  "item-design-notes",
+  "reliability-validity",
+  "data-privacy",
+  "common-misconceptions",
   "help-faq",
   "help-contact",
 ];
@@ -763,11 +768,11 @@ function buildLocalizedContentPagePath(localePrefix, page, fallbackSlug) {
 }
 
 async function buildDiscoverableContentPagePaths() {
-  try {
-    const paths = new Set();
+  const paths = new Set();
 
-    for (const { localePrefix, apiLocale } of CMS_LOCALES) {
-      for (const key of DISCOVERABLE_CONTENT_PAGE_KEYS) {
+  for (const { localePrefix, apiLocale } of CMS_LOCALES) {
+    for (const key of DISCOVERABLE_CONTENT_PAGE_KEYS) {
+      try {
         const params = new URLSearchParams({ locale: apiLocale, org_id: "0" });
         const payload = await fetchJsonWithTimeout(
           buildApiUrl(`/v0.5/content-pages/${encodeURIComponent(key)}?${params.toString()}`)
@@ -780,13 +785,13 @@ async function buildDiscoverableContentPagePaths() {
         if (shouldIncludeGeneratedSitemapPath(path)) {
           paths.add(path);
         }
+      } catch {
+        // ContentPage discovery is CMS-authoritative; one missing page must not block other approved pages.
       }
     }
-
-    return [...paths];
-  } catch {
-    return [];
   }
+
+  return [...paths];
 }
 
 async function buildPersonalityDetailPathsFromAuthority() {

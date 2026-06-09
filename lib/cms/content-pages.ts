@@ -159,6 +159,11 @@ export const DISCOVERABLE_CONTENT_PAGE_KEYS = [
   "terms",
   "support",
   "method-boundaries",
+  "science",
+  "item-design-notes",
+  "reliability-validity",
+  "data-privacy",
+  "common-misconceptions",
   "help-faq",
   "help-contact",
 ] as const;

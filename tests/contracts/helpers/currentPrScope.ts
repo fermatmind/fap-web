@@ -1193,6 +1193,15 @@ const GLOBAL_EN_ZH_CONTENT_PAGES_LLMS_EXPOSURE_REPAIR_01_ALLOWED_FILES = new Set
   "tests/contracts/llms-parity-contract.contract.test.ts",
 ]);
 
+const SCIENCE_CONTENTPAGE_DISCOVERABILITY_RUNTIME_ALLOWED_FILES = new Set([
+  "lib/cms/content-pages.ts",
+  "next-sitemap.config.js",
+  "public/sitemap.xml",
+  "tests/contracts/global-en-zh-content-pages-llms-exposure-repair-01.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/sitemap-indexability.contract.test.ts",
+]);
+
 const PR_FDN_01_LLMS_FULL_RECHECK_OR_REPAIR_ALLOWED_FILES = new Set([
   "app/api/content-release/revalidate/route.ts",
   "app/llms-full.txt/route.ts",
@@ -1715,6 +1724,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/science-contentpage-discoverability-gate-01") {
     return SCIENCE_CONTENTPAGE_DISCOVERABILITY_GATE_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/science-contentpage-discoverability") {
+    return SCIENCE_CONTENTPAGE_DISCOVERABILITY_RUNTIME_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/help-content-inventory-01") {
