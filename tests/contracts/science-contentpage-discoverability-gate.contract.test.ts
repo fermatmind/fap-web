@@ -23,11 +23,14 @@ const ALLOWED_FILES = new Set([
   "docs/seo/science-contentpage-faq-schema-gate-01.md",
   "docs/codex/pr-train-state.json",
   "docs/codex/pr-train.yaml",
+  "package.json",
+  "scripts/seo/check-science-contentpage-zh-footer-links.mjs",
   "tests/contracts/helpers/currentPrScope.ts",
   "tests/contracts/navigation-dead-links.contract.test.ts",
   "tests/contracts/science-contentpage-claim-gate.contract.test.ts",
   "tests/contracts/science-contentpage-faq-schema-gate.contract.test.ts",
   "tests/contracts/science-contentpage-discoverability-gate.contract.test.ts",
+  "tests/contracts/science-contentpage-zh-footer-links.contract.test.ts",
   "tests/contracts/site-footer-routing.contract.test.tsx",
 ]);
 
@@ -170,27 +173,21 @@ describe("SCIENCE-CONTENTPAGE-DISCOVERABILITY-GATE-01", () => {
       "/data-privacy",
       "/common-misconceptions",
     ];
-    expect(artifact.draft_routes_blocked_from_footer).toEqual([
-      "/zh/science",
-      "/zh/item-design-notes",
-      "/zh/reliability-validity",
-      "/zh/data-privacy",
-      "/zh/common-misconceptions",
-    ]);
+    expect(artifact.draft_routes_blocked_from_footer).toEqual([]);
     expect(artifact.footer_allowed_existing_authority_routes).toEqual(routes);
     expect(artifact.footer_eligible_routes).toEqual(routes);
     expect(artifact.footer_eligible_routes_by_locale).toEqual({
       en: routes,
-      zh: ["/method-boundaries"],
+      zh: routes,
     });
 
     render(React.createElement(TestLocaleProvider, { locale: "zh" }, React.createElement(SiteFooter)));
+    expect(screen.getByRole("link", { name: "测评科学" })).toHaveAttribute("href", "/zh/science");
     expect(screen.getByRole("link", { name: "方法边界" })).toHaveAttribute("href", "/zh/method-boundaries");
-    expect(screen.queryByRole("link", { name: "测评科学" })).not.toBeInTheDocument();
-    expect(screen.queryByRole("link", { name: "题目设计说明" })).not.toBeInTheDocument();
-    expect(screen.queryByRole("link", { name: "信度效度" })).not.toBeInTheDocument();
-    expect(screen.queryByRole("link", { name: "数据说明" })).not.toBeInTheDocument();
-    expect(screen.queryByRole("link", { name: "常见误区" })).not.toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "题目设计说明" })).toHaveAttribute("href", "/zh/item-design-notes");
+    expect(screen.getByRole("link", { name: "信度效度" })).toHaveAttribute("href", "/zh/reliability-validity");
+    expect(screen.getByRole("link", { name: "数据说明" })).toHaveAttribute("href", "/zh/data-privacy");
+    expect(screen.getByRole("link", { name: "常见误区" })).toHaveAttribute("href", "/zh/common-misconceptions");
 
     render(React.createElement(TestLocaleProvider, { locale: "en" }, React.createElement(SiteFooter)));
     expect(screen.getByRole("link", { name: "Assessment science" })).toHaveAttribute("href", "/en/science");
@@ -205,11 +202,11 @@ describe("SCIENCE-CONTENTPAGE-DISCOVERABILITY-GATE-01", () => {
     const doc = fs.readFileSync(DOC_PATH, "utf8");
 
     expect(doc).toContain("The English footer continues to expose the approved Research & Methods routes:");
-    expect(doc).toContain("The Chinese footer exposes only `/method-boundaries` until the missing CMS records return stable 200 responses.");
+    expect(doc).toContain("The Chinese footer exposes the same six approved Research & Methods routes after the CMS records returned stable 200 responses.");
     expect(doc).toContain("must not provide fallback body copy");
     expect(doc).not.toMatch(/sitemap_eligible:\s*true/i);
     expect(doc).not.toMatch(/llms_eligible:\s*true/i);
-    expect(doc).toMatch(/`footer_eligible_by_locale`\\s*\\| en=true, zh=method-boundaries only/i);
+    expect(doc).toMatch(/`footer_eligible_by_locale`\\s*\\| en=true, zh=true/i);
   });
 
   it("keeps the diff inside the authorized discoverability gate scope", () => {
