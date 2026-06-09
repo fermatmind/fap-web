@@ -9,8 +9,8 @@ import { LocaleSwitcher } from "@/components/i18n/LocaleSwitcher";
 import { buttonVariants } from "@/components/ui/button";
 import { Container } from "@/components/layout/Container";
 import { getDictSync } from "@/lib/i18n/getDict";
+import { persistLocalePreferenceCookie } from "@/lib/i18n/clientLocalePreference";
 import { localizedPath, toggleLocalePath } from "@/lib/i18n/locales";
-import { LOCALE_COOKIE_NAME } from "@/lib/i18n/localeNegotiation";
 import {
   getHeaderDropdownMenus,
   type HeaderNavKey,
@@ -84,12 +84,6 @@ export function SiteHeader({
   }, [locale, priorityFlags]);
   const startButtonClass =
     "inline-flex h-9 min-h-[36px] shrink-0 items-center justify-center whitespace-nowrap rounded-full border border-[var(--fm-border-subtle)] bg-white px-4 text-[13px] font-semibold text-[var(--fm-text-main)] shadow-none transition hover:bg-[var(--fm-lime-soft)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-text-main)]/20";
-
-  function persistLocalePreference() {
-    if (typeof document === "undefined") return;
-    const oneYear = 60 * 60 * 24 * 365;
-    document.cookie = `${LOCALE_COOKIE_NAME}=${targetLocale}; Path=/; Max-Age=${oneYear}; SameSite=Lax`;
-  }
 
   function closeMobileMenu() {
     setMenuOpen(false);
@@ -448,7 +442,7 @@ export function SiteHeader({
                     href={localeHref}
                     prefetch={false}
                     onClick={() => {
-                      persistLocalePreference();
+                      persistLocalePreferenceCookie(targetLocale);
                       handleMobileLinkClick();
                     }}
                     className="flex min-h-[44px] items-center rounded-lg border border-[var(--fm-border-soft)] bg-[var(--fm-bg-page)] px-3 py-2 text-sm font-semibold text-[#15140f] transition hover:bg-[var(--fm-bg-soft)]"

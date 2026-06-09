@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ContentPageTemplate } from "@/components/content-pages/ContentPageTemplate";
+import { ContentPageTemplate, stripContentPageReaderMetadata } from "@/components/content-pages/ContentPageTemplate";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildContentPagePath, getContentPageWithLastKnownGood } from "@/lib/cms/content-pages";
 import { resolveLocale } from "@/lib/i18n/getDict";
@@ -75,7 +75,7 @@ export async function renderContentPage({
     <>
       <JsonLd id={`content-page-webpage-${page.slug}`} data={webPageJsonLd} />
       <JsonLd id={`content-page-breadcrumb-${page.slug}`} data={breadcrumbJsonLd} />
-      <ContentPageTemplate page={page} locale={locale} />
+      <ContentPageTemplate page={stripContentPageReaderMetadata(page)} locale={locale} />
     </>
   );
 }

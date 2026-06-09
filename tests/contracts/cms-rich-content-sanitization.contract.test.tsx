@@ -3,7 +3,7 @@ import path from "node:path";
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 import { SanitizedCmsHtml } from "@/components/content/SanitizedCmsHtml";
-import { ContentPageTemplate } from "@/components/content-pages/ContentPageTemplate";
+import { ContentPageTemplate, stripContentPageReaderMetadata } from "@/components/content-pages/ContentPageTemplate";
 import { SupportTrustDetailTemplate } from "@/components/support/SupportTrustDetailTemplate";
 import { sanitizeCmsHtml } from "@/lib/cms/sanitizeCmsRichText";
 import { renderPersonalitySections } from "@/lib/cms/personality-sections";
@@ -37,7 +37,7 @@ function expectNoExecutableCmsHtml(html: string) {
   expect(html).not.toMatch(/javascript:/i);
 }
 
-function makeContentPage(contentHtml: string): ContentPage {
+function makeContentPage(contentHtml: string, overrides: Partial<ContentPage> = {}): ContentPage {
   return {
     slug: "help-faq",
     path: "/help/faq",
@@ -62,6 +62,7 @@ function makeContentPage(contentHtml: string): ContentPage {
     faqItems: [],
     schemaEnabled: false,
     supportContact: null,
+    ...overrides,
   };
 }
 
@@ -135,7 +136,7 @@ describe("CMS rich content sanitization contract", () => {
 
   it("uses sanitized HTML for support, content page, topic, and personality CMS sinks", () => {
     const contentPageHtml = renderToStaticMarkup(
-      <ContentPageTemplate page={makeContentPage(CMS_RICH_HTML)} locale="en" />
+      <ContentPageTemplate page={stripContentPageReaderMetadata(makeContentPage(CMS_RICH_HTML))} locale="en" />
     );
     const supportHtml = renderToStaticMarkup(
       <SupportTrustDetailTemplate
@@ -196,6 +197,30 @@ describe("CMS rich content sanitization contract", () => {
       expect(html).toContain("<strong>bold</strong>");
       expectNoExecutableCmsHtml(html);
     }
+  });
+
+  it("does not expose internal content page source metadata to readers", () => {
+    const page = stripContentPageReaderMetadata(
+      makeContentPage("<p>Policy body.</p>", {
+        slug: "method-boundaries",
+        path: "/method-boundaries",
+        kind: "policy",
+        title: "Method boundaries",
+        locale: "en",
+        updatedAt: "2026-05-08T00:00:00Z",
+        effectiveAt: "2026-05-08T00:00:00Z",
+        sourceDoc: "content_pages.en.method_boundaries.baseline",
+      })
+    );
+    const html = renderToStaticMarkup(
+      <ContentPageTemplate page={page} locale="en" />
+    );
+
+    expect(html).toContain("Updated");
+    expect(html).toContain("Effective");
+    expect(html).not.toContain("Source");
+    expect(html).not.toContain("Content API");
+    expect(html).not.toContain("content_pages.en.method_boundaries.baseline");
   });
 
   it("neutralizes unsafe Markdown link URLs while preserving text", () => {

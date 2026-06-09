@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
-import { ContentPageTemplate } from "@/components/content-pages/ContentPageTemplate";
+import { ContentPageTemplate, stripContentPageReaderMetadata } from "@/components/content-pages/ContentPageTemplate";
 import type { ContentPage } from "@/lib/cms/content-pages";
 import { isCurrentRiasecPack12AllowedFile } from "./helpers/currentPrScope";
 
@@ -51,7 +51,9 @@ describe("HELP-SUPPORT-CONTACT-RUNTIME-01", () => {
   });
 
   it("renders the CMS support contact as a visible mailto link on Help ContentPages", () => {
-    const html = renderToStaticMarkup(<ContentPageTemplate page={makeHelpPage()} locale="en" />);
+    const html = renderToStaticMarkup(
+      <ContentPageTemplate page={stripContentPageReaderMetadata(makeHelpPage())} locale="en" />
+    );
 
     expect(html).toContain('data-testid="help-support-contact"');
     expect(html).toContain('href="mailto:support@fermatmind.com"');

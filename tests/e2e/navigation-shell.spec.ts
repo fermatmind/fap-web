@@ -93,7 +93,7 @@ test("english desktop header stays on a single row", async ({ page }) => {
     page.getByTestId("desktop-primary-nav-link-help"),
     page.getByTestId("desktop-primary-nav-link-business"),
     page.getByRole("link", { name: "My Results", exact: true }),
-    page.getByRole("link", { name: "中文", exact: true }),
+    page.getByRole("button", { name: "Language menu", exact: true }),
     page.getByRole("link", { name: "Start", exact: true }),
   ];
 
