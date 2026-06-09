@@ -148,7 +148,7 @@ describe("homepage v1 density contract", () => {
     const source = read("components/marketing/HomePageExperience.tsx");
 
     expect(source).toContain("function HomepageHeroV1");
-    expect(source).toContain("bg-[#f7f5ef]");
+    expect(source).toContain("fm-page-background relative overflow-hidden border-b border-[var(--fm-border-soft)]");
     expect(source).toContain("copy.hero.primaryCta");
     expect(source).not.toContain("function HeroQuickStartPanel");
     expect(source).not.toContain("featuredTests.map");
@@ -164,14 +164,14 @@ describe("homepage v1 density contract", () => {
     expect(source).toContain("function TestFeatureCard");
     expect(source).toContain("function RecommendationStars");
     expect(source).toContain("containsUnverifiedSocialProofText");
-    expect(source).toContain("relative z-20 border-b border-slate-100 bg-white py-20 md:py-24");
+    expect(source).toContain("fm-section-clean relative z-20 border-b border-[var(--fm-border-soft)] py-20 md:py-24");
     expect(source).toContain("grid gap-7 md:grid-cols-3");
-    expect(source).toContain("rounded-md bg-white px-8 py-10 text-center shadow");
+    expect(source).toContain("rounded-md bg-white px-8 py-10 text-center shadow-[0_18px_45px_rgba(15,23,42,0.10)]");
     expect(source).not.toContain("function HomepageSocialProofBanner");
     expect(source).not.toContain("SCENARIO_VALIDATIONS.slice(0, 5)");
     expect(source).not.toContain("EVIDENCE_LOGS.map");
-    expect(source).toContain("relative overflow-hidden bg-[#d88a2e] px-8 pb-20 pt-16");
-    expect(source).toContain("relative z-10 mx-auto -mt-12 grid");
+    expect(source).toContain("relative overflow-hidden bg-[var(--fm-bg-soft)] pb-20 pt-16");
+    expect(source).toContain("relative z-10 -mt-12 grid gap-7 md:grid-cols-3");
     expect(source).toContain("flex min-h-[18rem] flex-col items-center rounded-md bg-white");
     expect(source).not.toContain("function HomepageAboutBanner");
     expect(source).toContain("function HomepageArticlesBanner");
