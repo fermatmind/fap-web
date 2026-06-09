@@ -130,7 +130,7 @@ export function normalizeSeoConversionSessionId(value: unknown): string | undefi
   return normalized;
 }
 
-function randomSessionToken(): string {
+function randomSessionToken(): string | undefined {
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-";
   if (isBrowser() && window.crypto?.getRandomValues) {
     const bytes = new Uint8Array(24);
@@ -138,7 +138,7 @@ function randomSessionToken(): string {
     return Array.from(bytes, (byte) => alphabet[byte % alphabet.length]).join("");
   }
 
-  return Array.from({ length: 24 }, () => alphabet[Math.floor(Math.random() * alphabet.length)]).join("");
+  return undefined;
 }
 
 export function getOrCreateSeoConversionSessionId(): string {
@@ -148,11 +148,14 @@ export function getOrCreateSeoConversionSessionId(): string {
     const existing = normalizeSeoConversionSessionId(window.sessionStorage.getItem(SEO_CONVERSION_SESSION_STORAGE_KEY));
     if (existing) return existing;
 
-    const next = `${SEO_CONVERSION_SESSION_ID_PREFIX}${randomSessionToken()}`;
+    const token = randomSessionToken();
+    if (!token) return "";
+    const next = `${SEO_CONVERSION_SESSION_ID_PREFIX}${token}`;
     window.sessionStorage.setItem(SEO_CONVERSION_SESSION_STORAGE_KEY, next);
     return next;
   } catch {
-    return `${SEO_CONVERSION_SESSION_ID_PREFIX}${randomSessionToken()}`;
+    const token = randomSessionToken();
+    return token ? `${SEO_CONVERSION_SESSION_ID_PREFIX}${token}` : "";
   }
 }
 
