@@ -21728,8 +21728,8 @@
       "id": "ARTICLE-H1-03",
       "repo": "fap-web",
       "branch": "codex/article-h1-03",
-      "status": "pr_opened",
-      "commit_sha": "8edf8df52700bd483078a1a0407dd0eecb006b9d",
+      "status": "ready_to_merge",
+      "commit_sha": "93da798ca36fb14fb2fc8693150ee7aa1e24ac01",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1088",
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -21783,6 +21783,10 @@
         "diff_check": {
           "status": "pass",
           "evidence": "git diff --check and git diff --cached --check passed before staging."
+        },
+        "github_checks": {
+          "status": "pass",
+          "evidence": "GitHub checks for head 93da798ca36fb14fb2fc8693150ee7aa1e24ac01 passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analyze, CodeQL."
         }
       },
       "history": [
@@ -21805,6 +21809,11 @@
           "at": "2026-06-09",
           "status": "pr_opened",
           "note": "Opened fap-web PR #1088 for ARTICLE-H1-03."
+        },
+        {
+          "at": "2026-06-09",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed and merge state was CLEAN for head 93da798ca36fb14fb2fc8693150ee7aa1e24ac01."
         }
       ]
     }
