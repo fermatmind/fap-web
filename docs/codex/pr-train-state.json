@@ -21286,9 +21286,9 @@
       "id": "SEO-CONV-TRACKING-01",
       "repo": "fap-web",
       "branch": "codex/seo-conv-tracking-01",
-      "status": "committed_pending_push",
+      "status": "pr_open_checks_pending",
       "commit_sha": "480892153c0c0164537b1c5c707139def16863cb",
-      "pr_url": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1084",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -21335,7 +21335,7 @@
           "evidence": "Focused SEO conversion tracking contract passed 7 tests, analytics payload privacy passed 11 tests, search-intelligence tracking fields passed 11 tests, SEO funnel taxonomy passed 7 tests, tracking activation passed 13 tests, typecheck passed, production build passed with postbuild sitemap generation and no sitemap diff, Big Five freeze focused checks passed 3 files / 29 tests, Enneagram freeze focused checks passed 5 files / 23 tests, lint passed with existing warnings only, JSON/YAML parse and git diff --check passed, and scope validation passed. Full pnpm test:contract failed only on legacy PR-specific scope-boundary contracts that compare the current diff against old PR scopes after the two current tracking semantic failures were fixed; recorded as an external sidecar under the user-approved policy."
         },
         "github": {
-          "status": "not_started",
+          "status": "pending",
           "checks": []
         }
       },
@@ -21355,6 +21355,11 @@
           "at": "2026-06-09",
           "status": "committed_pending_push",
           "note": "Created local implementation commit 480892153c0c0164537b1c5c707139def16863cb with message test(tracking): lock SEO conversion contract."
+        },
+        {
+          "at": "2026-06-09",
+          "status": "pr_open_checks_pending",
+          "note": "Opened fap-web PR #1084 for SEO-CONV-TRACKING-01 after scoped local validation passed; GitHub checks pending."
         }
       ]
     }
