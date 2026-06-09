@@ -33,7 +33,7 @@ export function LocaleSwitcher() {
     <Link
       href={targetPath}
       onClick={persistLocalePreference}
-      className="fm-site-header-locale inline-flex h-9 min-h-[36px] min-w-[54px] shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/[0.03] px-3 text-[13px] font-medium text-white/78 transition hover:bg-white/[0.09] hover:text-white whitespace-nowrap xl:min-w-[56px]"
+      className="fm-site-header-locale inline-flex h-9 min-h-[36px] min-w-[54px] shrink-0 items-center justify-center rounded-full border border-[var(--fm-border-subtle)] bg-white px-3 text-[13px] font-medium text-[var(--fm-text-main)] transition hover:bg-[var(--fm-lime-soft)] whitespace-nowrap xl:min-w-[56px]"
       aria-label={targetLocale === "zh" ? dict.lang.zh_label : dict.lang.en_label}
     >
       {targetLocale === "zh" ? dict.lang.zh_label : dict.lang.en_label}

@@ -283,7 +283,7 @@ export function ContentPageTemplate({ page, locale }: { page: ContentPage; local
   const showMetadataCard = Boolean(updatedAt || effectiveAt || showSourceMetadata);
 
   return (
-    <main className="bg-white text-[var(--fm-text)]" data-testid={`content-page-${page.slug}`}>
+    <main className="fm-page-background text-[var(--fm-text)]" data-testid={`content-page-${page.slug}`}>
       <Container className="py-10 md:py-14">
         <Breadcrumb
           items={[

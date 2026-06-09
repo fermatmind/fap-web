@@ -1,3 +1,4 @@
+import { GraduationCap, HeartHandshake, Microscope } from "lucide-react";
 import Link from "next/link";
 import { ArticleResponsiveImage } from "@/components/content/ArticleResponsiveImage";
 import { CmsMediaAuthorityShell } from "@/components/marketing/CmsMediaAuthorityShell";
@@ -178,16 +179,16 @@ function HomepageHeroV1({ locale, copy }: { locale: Locale; copy: HomePageConten
   ].filter((item) => hasText(item.label) && hasText(item.href));
 
   return (
-    <section className="relative overflow-hidden border-b border-slate-200 bg-[#f7f5ef] px-0 pb-12 pt-24 text-slate-950 md:pb-16 md:pt-28 lg:pb-20 lg:pt-32">
-      <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-slate-200" />
+    <section className="fm-page-background relative overflow-hidden border-b border-[var(--fm-border-soft)] px-0 pb-12 pt-24 text-[var(--fm-text-main)] md:pb-16 md:pt-28 lg:pb-20 lg:pt-32">
+      <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-[var(--fm-border-soft)]" />
 
-      <Container className="relative z-10 w-full max-w-[88rem] px-6 md:px-8 xl:px-12">
+      <Container className="relative z-10 w-full max-w-[82rem] px-6 md:px-8">
         <div className="max-w-3xl">
-          <h1 className="m-0 max-w-[12ch] text-balance break-words text-[3.25rem] font-semibold leading-[1.02] tracking-normal text-slate-950 sm:text-[4.25rem] lg:text-[4.8rem]">
+          <h1 className="m-0 max-w-[12ch] text-balance break-words text-[3.25rem] font-semibold leading-[1.02] tracking-normal text-[var(--fm-text-main)] sm:text-[4.25rem] lg:text-[4.8rem]">
             {copy.hero.title}
           </h1>
-          <div aria-hidden className="mt-6 h-px w-28 bg-[#087d8d]" />
-          <p className="m-0 mt-6 max-w-2xl text-lg leading-8 text-slate-700">
+          <div aria-hidden className="mt-6 h-px w-28 bg-[#007c80]" />
+          <p className="m-0 mt-6 max-w-2xl text-lg leading-8 text-[var(--fm-text-secondary)]">
             {copy.hero.subhead}
           </p>
           {ctas.length > 0 ? (
@@ -199,13 +200,13 @@ function HomepageHeroV1({ locale, copy }: { locale: Locale; copy: HomePageConten
                   prefetch={false}
                   className={cn(
                     "inline-flex min-h-[3.1rem] items-center justify-center whitespace-nowrap border px-7 text-base font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#087d8d]",
-                    item.variant === "primary" && "min-w-40 border-[#087d8d] bg-[#087d8d] text-white shadow-[0_14px_30px_rgba(8,125,141,0.18)] hover:bg-[#056f7c]",
-                    item.variant === "secondary" && "min-w-40 border-slate-300 bg-white text-slate-950 hover:border-[#087d8d] hover:text-[#087d8d]",
-                    item.variant === "tertiary" && "min-w-40 border-slate-300 bg-white text-slate-950 hover:border-[#087d8d] hover:text-[#087d8d]"
+                    item.variant === "primary" && "min-w-40 border-[#007c80] bg-[#007c80] text-white shadow-[0_14px_30px_rgba(0,124,128,0.2)] hover:bg-[#005c61]",
+                    item.variant === "secondary" && "min-w-40 border-[var(--fm-border-subtle)] bg-white text-[var(--fm-text-main)] hover:border-[#007c80] hover:text-[#007c80]",
+                    item.variant === "tertiary" && "min-w-40 border-[var(--fm-border-subtle)] bg-white text-[var(--fm-text-main)] hover:border-[#007c80] hover:text-[#007c80]"
                   )}
                 >
                   {item.label}
-                  {item.variant === "primary" ? <span aria-hidden className="ml-4">→</span> : null}
+                  {item.variant === "primary" ? <span aria-hidden className="ml-4 text-[var(--fm-lime)]">→</span> : null}
                 </Link>
               ))}
             </div>
@@ -217,7 +218,7 @@ function HomepageHeroV1({ locale, copy }: { locale: Locale; copy: HomePageConten
 }
 
 function TrustIcon({ index }: { index: number }) {
-  const iconClassName = "h-7 w-7 text-lime-700";
+  const iconClassName = "h-8 w-8";
   const commonProps = {
     viewBox: "0 0 80 80",
     fill: "none",
@@ -231,38 +232,44 @@ function TrustIcon({ index }: { index: number }) {
 
   if (index === 1) {
     return (
-      <svg {...commonProps}>
-        <path d="M40 8 64 17v18c0 17.5-10.5 29.5-24 36-13.5-6.5-24-18.5-24-36V17l24-9Z" />
-        <path d="M30 37v-6c0-6 4-10 10-10s10 4 10 10v6" />
-        <rect x="28" y="36" width="24" height="20" rx="3" />
-        <path d="M40 44v6" />
-      </svg>
+      <span className="grid h-14 w-14 place-items-center rounded-full border border-[#008aa3] bg-white text-[#008aa3]" aria-hidden>
+        <svg {...commonProps}>
+          <path d="M40 8 64 17v18c0 17.5-10.5 29.5-24 36-13.5-6.5-24-18.5-24-36V17l24-9Z" />
+          <path d="M30 37v-6c0-6 4-10 10-10s10 4 10 10v6" />
+          <rect x="28" y="36" width="24" height="20" rx="3" />
+          <path d="M40 44v6" />
+        </svg>
+      </span>
     );
   }
 
   if (index === 2) {
     return (
-      <svg {...commonProps}>
-        <circle cx="40" cy="25" r="9" />
-        <path d="M25 64v-8c0-9 6-16 15-16s15 7 15 16v8" />
-        <circle cx="20" cy="32" r="7" />
-        <path d="M8 63v-6c0-7 5-12 12-12 4 0 7 1.5 9 4" />
-        <circle cx="60" cy="32" r="7" />
-        <path d="M72 63v-6c0-7-5-12-12-12-4 0-7 1.5-9 4" />
-      </svg>
+      <span className="grid h-14 w-14 place-items-center rounded-full border border-[#008aa3] bg-white text-[#008aa3]" aria-hidden>
+        <svg {...commonProps}>
+          <circle cx="40" cy="25" r="9" />
+          <path d="M25 64v-8c0-9 6-16 15-16s15 7 15 16v8" />
+          <circle cx="20" cy="32" r="7" />
+          <path d="M8 63v-6c0-7 5-12 12-12 4 0 7 1.5 9 4" />
+          <circle cx="60" cy="32" r="7" />
+          <path d="M72 63v-6c0-7-5-12-12-12-4 0-7 1.5-9 4" />
+        </svg>
+      </span>
     );
   }
 
   return (
-    <svg {...commonProps}>
-      <rect x="15" y="24" width="50" height="36" rx="2.5" />
-      <path d="M30 24v-7h20v7" />
-      <path d="M15 37h18" />
-      <path d="M47 37h18" />
-      <path d="M37 37h6" />
-      <path d="M40 34c-3 0-5 2.4-5 5.2 0 2.2 1.3 4 3.1 4.8v8h3.8v-8c1.8-.8 3.1-2.6 3.1-4.8 0-2.8-2-5.2-5-5.2Z" />
-      <path d="M20 60h40" />
-    </svg>
+    <span className="grid h-14 w-14 place-items-center rounded-full border border-[#008aa3] bg-white text-[#008aa3]" aria-hidden>
+      <svg {...commonProps}>
+        <rect x="15" y="24" width="50" height="36" rx="2.5" />
+        <path d="M30 24v-7h20v7" />
+        <path d="M15 37h18" />
+        <path d="M47 37h18" />
+        <path d="M37 37h6" />
+        <path d="M40 34c-3 0-5 2.4-5 5.2 0 2.2 1.3 4 3.1 4.8v8h3.8v-8c1.8-.8 3.1-2.6 3.1-4.8 0-2.8-2-5.2-5-5.2Z" />
+        <path d="M20 60h40" />
+      </svg>
+    </span>
   );
 }
 
@@ -270,11 +277,22 @@ function TrustCard({ item, index }: { item: TrustItem; index: number }) {
   return (
     <article className="flex min-h-[18rem] flex-col items-center justify-center rounded-md bg-white px-8 py-10 text-center shadow-[0_18px_45px_rgba(15,23,42,0.10)]">
       <TrustIcon index={index} />
-      <h3 className="m-0 mt-7 text-xl font-semibold leading-7 tracking-normal text-slate-950">{item.title}</h3>
+      <h3 className="m-0 mt-8 text-xl font-semibold leading-7 tracking-normal text-slate-950">{item.title}</h3>
       <p className="m-0 mt-4 max-w-[22rem] text-base font-normal leading-7 tracking-normal text-slate-600">
         {item.summary}
       </p>
     </article>
+  );
+}
+
+function AboutIcon({ index }: { index: number }) {
+  const icons = [HeartHandshake, GraduationCap, Microscope] as const;
+  const Icon = icons[index] ?? HeartHandshake;
+
+  return (
+    <span className="grid h-16 w-16 place-items-center rounded-full border border-[#008aa3] bg-white text-[#008aa3] shadow-[0_12px_28px_rgba(0,138,163,0.10)]" aria-hidden>
+      <Icon className="h-8 w-8" strokeWidth={1.8} />
+    </span>
   );
 }
 
@@ -349,7 +367,7 @@ function HomepageTrustStripV1({ locale, copy }: { locale: Locale; copy: HomePage
   if (displayTrustItems.length === 0) return null;
 
   return (
-    <section className="relative z-20 border-b border-slate-100 bg-white py-20 md:py-24" aria-label={copy.trust.title}>
+    <section className="fm-section-clean relative z-20 border-b border-[var(--fm-border-soft)] py-20 md:py-24" aria-label={copy.trust.title}>
       <Container className="max-w-[82rem] px-6 md:px-8">
         <div className="grid gap-7 md:grid-cols-3">
           {displayTrustItems.map((item, index) => (
@@ -535,7 +553,7 @@ function TestFeatureCard({ locale, item, priority, index }: { locale: Locale; it
           ))}
         </div>
       </Link>
-      <p className="m-0 text-base font-normal leading-7 tracking-normal text-white">
+      <p className="m-0 text-base font-normal leading-7 tracking-normal text-slate-700">
         {intro.detail}
       </p>
       <div className="sr-only">
@@ -564,14 +582,13 @@ function HomepageHighlightedTestsBanner({
   if (items.length === 0) return null;
 
   return (
-    <section className="bg-white py-20 md:py-24" aria-labelledby="homepage-core-tests-title">
+    <section className="fm-page-background py-20 md:py-24" aria-labelledby="homepage-core-tests-title">
       <Container className="max-w-[82rem] px-6 md:px-8">
-        <div className="relative overflow-hidden bg-[#078c9d] px-8 py-14 text-white shadow-[0_28px_70px_rgba(15,23,42,0.12)] md:px-12 lg:px-16 lg:py-20">
-          <div aria-hidden className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0)_34%),radial-gradient(circle_at_22%_0%,rgba(255,255,255,0.14),transparent_32rem)]" />
+        <div className="relative overflow-hidden bg-[var(--fm-bg-page)] py-14 text-slate-950 lg:py-20">
           <div className="relative mx-auto max-w-3xl text-center">
             <h2
               id="homepage-core-tests-title"
-              className="m-0 text-3xl font-semibold tracking-normal text-white md:text-4xl"
+              className="m-0 text-3xl font-semibold tracking-normal text-slate-950 md:text-4xl"
             >
               {getCoreTestsSectionTitle(locale)}
             </h2>
@@ -604,17 +621,16 @@ function HomepageFamilyMatrix({ locale, copy }: { locale: Locale; copy: HomePage
   if (families.length === 0) return null;
 
   return (
-    <section className="bg-white py-20 md:py-24" aria-labelledby="homepage-family-title">
+    <section className="fm-section-soft py-20 md:py-24" aria-labelledby="homepage-family-title">
       <Container className="max-w-[82rem] px-6 md:px-8">
-        <div className="relative overflow-hidden bg-[#d88a2e] px-8 pb-20 pt-16 text-white md:px-12 lg:px-16">
-          <div aria-hidden className="absolute inset-0 bg-[linear-gradient(90deg,rgba(216,138,46,0.92),rgba(216,138,46,0.78)),radial-gradient(circle_at_18%_10%,rgba(255,255,255,0.22),transparent_30%)]" />
+        <div className="relative overflow-hidden bg-[var(--fm-bg-soft)] pb-20 pt-16 text-slate-950">
           <div className="relative mx-auto max-w-3xl text-center">
-            <h2 id="homepage-family-title" className="m-0 text-3xl font-semibold tracking-normal text-white md:text-4xl">
-              {copy.families.title}
+            <h2 id="homepage-family-title" className="m-0 text-3xl font-semibold tracking-normal text-slate-950 md:text-4xl">
+              {locale === "zh" ? "关于 费马团队" : "About Fermatmind"}
             </h2>
           </div>
         </div>
-        <div className="relative z-10 mx-auto -mt-12 grid max-w-[72rem] gap-7 md:grid-cols-3">
+        <div className="relative z-10 -mt-12 grid gap-7 md:grid-cols-3">
           {families.slice(0, 3).map((family, index) => {
             const display =
               index === 0
@@ -646,9 +662,7 @@ function HomepageFamilyMatrix({ locale, copy }: { locale: Locale; copy: HomePage
 
             return (
               <article key={`${family.title}-${index}`} className="flex min-h-[18rem] flex-col items-center rounded-md bg-white px-8 py-9 text-center shadow-[0_18px_45px_rgba(15,23,42,0.12)]">
-                <span className="grid h-16 w-16 place-items-center rounded-full border-2 border-[#008aa3] text-[#008aa3]" aria-hidden>
-                  <TrustIcon index={index} />
-                </span>
+                <AboutIcon index={index} />
                 <h3 className="m-0 text-lg font-semibold text-slate-950">{display.title}</h3>
                 <p className="m-0 mt-4 text-base leading-7 text-slate-600">{display.description}</p>
                 {display.links.length > 0 ? (
@@ -714,8 +728,8 @@ function HomepageArticlesBanner({ locale, articles }: { locale: Locale; articles
       : { title: "Recommended reading", all: "View all articles", author: "By " };
 
   return (
-    <section className="bg-white py-20 md:py-24" aria-labelledby="homepage-articles-title">
-      <Container className="max-w-6xl px-6 md:px-8 lg:px-10">
+    <section className="fm-section-clean py-20 md:py-24" aria-labelledby="homepage-articles-title">
+      <Container className="max-w-[82rem] px-6 md:px-8">
         <div className="text-center">
           <h2
             id="homepage-articles-title"
@@ -808,7 +822,7 @@ export function HomePageExperience({
   supplementalTests?: HubTestCardItem[];
 }) {
   return (
-    <div className="bg-[#f7f5ef] text-slate-950">
+    <div className="fm-page-background text-[var(--fm-text-main)]">
       <HomepageCookieBannerGuard />
       <HomepageHeroV1 locale={locale} copy={copy} />
       <HomepageHighlightedTestsBanner locale={locale} copy={copy} supplementalTests={supplementalTests} />

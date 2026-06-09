@@ -12,7 +12,7 @@ const en: SiteDictionary = {
     business: "Business",
     start: "Start",
     search: "Search",
-    profile: "My Results",
+    profile: "My Account",
     menu: "Menu",
     closeMenu: "Close menu",
     completedPrefix: "Completed in last 30 days:",
