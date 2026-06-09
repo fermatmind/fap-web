@@ -148,8 +148,9 @@ describe("homepage v1 density contract", () => {
     const source = read("components/marketing/HomePageExperience.tsx");
 
     expect(source).toContain("function HomepageHeroV1");
-    expect(source).toContain("min-h-[34rem] overflow-hidden bg-orange-50");
-    expect(source).toContain("rounded-[100%] bg-white");
+    expect(source).toContain("bg-[#f7f5ef]");
+    expect(source).toContain("function HeroQuickStartPanel");
+    expect(source).toContain("featuredTests.map");
     expect(source).toContain("copy.hero.primaryCta");
     expect(source).not.toContain("copy.hero.secondaryCta");
     expect(source).not.toContain("copy.hero.tertiaryCta");

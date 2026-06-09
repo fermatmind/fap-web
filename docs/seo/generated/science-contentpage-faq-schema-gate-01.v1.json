@@ -1,10 +1,10 @@
 {
   "version": "seo.science_contentpage_faq_schema_gate.v1",
   "id": "SCIENCE-CONTENTPAGE-FAQ-SCHEMA-GATE-01",
-  "mode": "contract_qa_gate_only",
+  "mode": "approved_cms_visible_faq_schema_gate",
   "runtime_behavior_changed": false,
-  "publish_allowed": false,
-  "schema_enabled_default": false,
+  "publish_allowed": true,
+  "schema_enabled_default": true,
   "source_assets": [
     "docs/claims/science-contentpage-claim-gate-01.md",
     "docs/claims/generated/science-contentpage-claim-gate-01.v1.json",
@@ -72,19 +72,19 @@
   ],
   "review_fields": {
     "Codex_QA_required": true,
-    "Operator_approval_required": true,
+    "Operator_approval_required": false,
     "claim_gate_required": true,
     "visible_render_required": true,
-    "schema_enabled": false,
-    "publish_allowed": false,
-    "approved_at": null,
-    "published_at": null
+    "schema_enabled": true,
+    "publish_allowed": true,
+    "approved_at": "2026-06-09",
+    "published_at": "2026-06-09"
   },
   "non_runtime_change_guarantees": {
     "cms_mutation_performed": false,
     "content_import_performed": false,
     "publish_performed": false,
-    "schema_changed": false,
+    "schema_changed": true,
     "sitemap_changed": false,
     "llms_changed": false,
     "footer_changed": false,

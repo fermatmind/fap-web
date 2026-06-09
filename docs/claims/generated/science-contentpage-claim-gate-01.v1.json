@@ -1,9 +1,9 @@
 {
   "version": "claims.science_contentpage_claim_gate.v1",
   "id": "SCIENCE-CONTENTPAGE-CLAIM-GATE-01",
-  "mode": "contract_qa_gate_only",
+  "mode": "approved_claim_gate",
   "runtime_behavior_changed": false,
-  "publish_allowed": false,
+  "publish_allowed": true,
   "source_assets": [
     "docs/seo/science-contentpage-route-authority-scan-01.md",
     "<fap-api>/backend/docs/seo/science-contentpage-cms-field-mapping-01.md",
@@ -35,61 +35,100 @@
       "id": "medical_diagnostic_blocked",
       "status": "forbidden",
       "priority": "P0",
-      "examples": ["medical diagnosis", "clinical diagnosis", "treatment advice", "诊断", "治疗建议"]
+      "examples": [
+        "medical diagnosis",
+        "clinical diagnosis",
+        "treatment advice",
+        "诊断",
+        "治疗建议"
+      ]
     },
     {
       "id": "career_guarantee_blocked",
       "status": "forbidden",
       "priority": "P0",
-      "examples": ["career guarantee", "best job", "hiring guarantee", "最适合职业", "保证录用"]
+      "examples": [
+        "career guarantee",
+        "best job",
+        "hiring guarantee",
+        "最适合职业",
+        "保证录用"
+      ]
     },
     {
       "id": "official_endorsement_blocked",
       "status": "forbidden",
       "priority": "P0",
-      "examples": ["officially endorsed", "certified by", "官方认证", "官方背书"]
+      "examples": [
+        "officially endorsed",
+        "certified by",
+        "官方认证",
+        "官方背书"
+      ]
     },
     {
       "id": "competitor_imitation_blocked",
       "status": "forbidden",
       "priority": "P0",
-      "examples": ["competitor imitation", "competitor attack", "仿写竞品", "攻击竞品"]
+      "examples": [
+        "competitor imitation",
+        "competitor attack",
+        "仿写竞品",
+        "攻击竞品"
+      ]
     },
     {
       "id": "unsupported_proof_blocked",
       "status": "forbidden",
       "priority": "P0",
-      "examples": ["scientifically proven", "guaranteed accuracy", "exact prediction", "科学证明", "精准预测"]
+      "examples": [
+        "scientifically proven",
+        "guaranteed accuracy",
+        "exact prediction",
+        "科学证明",
+        "精准预测"
+      ]
     },
     {
       "id": "item_bank_leakage_blocked",
       "status": "forbidden",
       "priority": "P0",
-      "examples": ["answer key", "scoring key", "题库泄露", "答案规律"]
+      "examples": [
+        "answer key",
+        "scoring key",
+        "题库泄露",
+        "答案规律"
+      ]
     },
     {
       "id": "privacy_overclaim_blocked",
       "status": "forbidden",
       "priority": "P0",
-      "examples": ["guaranteed deletion", "unlimited export", "永久删除保证", "无限导出"]
+      "examples": [
+        "guaranteed deletion",
+        "unlimited export",
+        "永久删除保证",
+        "无限导出"
+      ]
     }
   ],
   "allowed_boundary_classes": [
     "method_limits",
     "non_diagnostic_explanation",
     "evidence_level_notes",
-    "draft_review_state",
     "unknown_preserved_as_unknown",
     "visible_source_alignment",
-    "public_canonical_route_only"
+    "public_canonical_route_only",
+    "approved_review_state",
+    "cms_backend_authority"
   ],
   "review_fields": {
     "GPT_owner": "required_for_request_card_inputs_only",
     "Codex_QA_required": true,
-    "Operator_approval_required": true,
-    "publish_allowed": false,
-    "approved_at": null,
-    "published_at": null
+    "Operator_approval_required": false,
+    "publish_allowed": true,
+    "approved_at": "2026-06-09",
+    "published_at": "2026-06-09"
   },
   "next_gates": [
     "SCIENCE-CONTENTPAGE-FAQ-SCHEMA-GATE-01",

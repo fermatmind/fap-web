@@ -8,11 +8,9 @@ import { useLocale } from "@/components/i18n/LocaleContext";
 import { LocaleSwitcher } from "@/components/i18n/LocaleSwitcher";
 import { buttonVariants } from "@/components/ui/button";
 import { Container } from "@/components/layout/Container";
-import { LiveCompletedCounter } from "@/components/marketing/LiveCompletedCounter";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { localizedPath, toggleLocalePath } from "@/lib/i18n/locales";
 import { LOCALE_COOKIE_NAME } from "@/lib/i18n/localeNegotiation";
-import { LIVE_COMPLETED_COUNT } from "@/lib/marketing/completionStats";
 import {
   getHeaderDropdownMenus,
   type HeaderNavKey,
@@ -51,14 +49,6 @@ export function SiteHeader({
   const dict = getDictSync(locale);
   const withLocale = (path: string) => localizedPath(path, locale);
   const isHomeRoute = pathname === "/zh" || pathname === "/en" || pathname === "/";
-  const isTestsHubRoute =
-    pathname === "/zh/tests" ||
-    pathname === "/en/tests" ||
-    pathname.startsWith("/zh/tests/category/") ||
-    pathname.startsWith("/en/tests/category/");
-  const isBrandSurfaceRoute = isHomeRoute || isTestsHubRoute;
-  const shouldRenderCompletedMetric =
-    !isBrandSurfaceRoute && typeof LIVE_COMPLETED_COUNT === "number" && LIVE_COMPLETED_COUNT > 0;
   const targetLocale = locale === "zh" ? "en" : "zh";
   const localeHref = toggleLocalePath(pathname, targetLocale);
   const localeLabel = targetLocale === "zh" ? dict.lang.zh_label : dict.lang.en_label;
@@ -228,16 +218,6 @@ export function SiteHeader({
             >
               {dict.header.brand}
             </Link>
-            {shouldRenderCompletedMetric ? (
-              <p
-                data-visual-volatile="true"
-                className="fm-tabular-nums mt-1 flex flex-wrap items-baseline gap-1 text-xs text-blue-100"
-              >
-                <span>{dict.header.completedPrefix}</span>
-                <LiveCompletedCounter className="font-semibold tracking-wide text-white" />
-                <span>{dict.header.completedSuffix}</span>
-              </p>
-            ) : null}
           </div>
 
           <button

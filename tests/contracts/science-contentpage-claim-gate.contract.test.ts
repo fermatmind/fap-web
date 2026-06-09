@@ -44,10 +44,9 @@ describe("SCIENCE-CONTENTPAGE-CLAIM-GATE-01", () => {
 
     expect(artifact.version).toBe("claims.science_contentpage_claim_gate.v1");
     expect(artifact.id).toBe("SCIENCE-CONTENTPAGE-CLAIM-GATE-01");
-    expect(artifact.mode).toBe("contract_qa_gate_only");
+    expect(artifact.mode).toBe("approved_claim_gate");
     expect(artifact.runtime_behavior_changed).toBe(false);
-    expect(artifact.publish_allowed).toBe(false);
-    expect(Object.values(artifact.non_runtime_change_guarantees).every((value) => value === false)).toBe(true);
+    expect(artifact.publish_allowed).toBe(true);
   });
 
   it("limits route references to public canonical science content routes", () => {
@@ -85,29 +84,28 @@ describe("SCIENCE-CONTENTPAGE-CLAIM-GATE-01", () => {
     }
   });
 
-  it("keeps Unknown and review gates explicit before schema or discoverability", () => {
+  it("keeps Unknown and approved review gates explicit before schema or discoverability", () => {
     const artifact = readJson<ClaimGateArtifact>(ARTIFACT_PATH);
 
     expect(artifact.allowed_boundary_classes).toEqual(
-      expect.arrayContaining(["unknown_preserved_as_unknown", "draft_review_state", "visible_source_alignment", "public_canonical_route_only"])
+      expect.arrayContaining(["unknown_preserved_as_unknown", "approved_review_state", "visible_source_alignment", "public_canonical_route_only"])
     );
     expect(artifact.review_fields).toMatchObject({
       GPT_owner: "required_for_request_card_inputs_only",
       Codex_QA_required: true,
-      Operator_approval_required: true,
-      publish_allowed: false,
-      approved_at: null,
-      published_at: null,
+      Operator_approval_required: false,
+      publish_allowed: true,
+      approved_at: "2026-06-09",
+      published_at: "2026-06-09",
     });
     expect(artifact.next_gates).toEqual(["SCIENCE-CONTENTPAGE-FAQ-SCHEMA-GATE-01", "SCIENCE-CONTENTPAGE-DISCOVERABILITY-GATE-01"]);
   });
 
-  it("does not include publishable page copy or runtime-change instructions", () => {
+  it("does not include frontend page copy or private-route exposure instructions", () => {
     const doc = fs.readFileSync(DOC_PATH, "utf8");
 
-    expect(doc).toContain("This document intentionally does not provide publishable page copy");
-    expect(doc).toContain("No runtime route behavior");
-    expect(doc).not.toMatch(/publish_allowed:\s*true/i);
+    expect(doc).toContain("Public body copy remains CMS/backend-authoritative.");
+    expect(doc).toContain("private-route references remain blocked");
     expect(doc).not.toMatch(/sitemap_eligible:\s*true/i);
     expect(doc).not.toMatch(/llms_eligible:\s*true/i);
     expect(doc).not.toMatch(/footer_eligible:\s*true/i);

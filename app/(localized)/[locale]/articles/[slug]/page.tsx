@@ -21,6 +21,7 @@ import {
 import { findLandingCta } from "@/lib/landing/landingSurface";
 import type { RelatedContentItem } from "@/lib/content";
 import { renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
+import { renderCjkPunctuationText } from "@/lib/content/textPunctuation";
 import { getDict, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import {
@@ -341,7 +342,9 @@ export default async function ArticleDetailPage({
               <Badge>{dict.articles.kicker}</Badge>
             )}
           </div>
-          <h1 className="m-0 font-serif text-4xl font-semibold leading-tight text-[var(--fm-text)]">{article.title}</h1>
+          <h1 className="m-0 font-serif text-4xl font-semibold leading-tight text-[var(--fm-text)]">
+            {renderCjkPunctuationText(article.title, "article-title")}
+          </h1>
           {heroSummary ? <p className="m-0 max-w-3xl text-lg leading-8 text-[var(--fm-text-muted)]">{heroSummary}</p> : null}
           <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-[var(--fm-text-muted)]">
             <p className="m-0">

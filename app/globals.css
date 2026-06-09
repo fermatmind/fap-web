@@ -152,6 +152,11 @@ body {
     linear-gradient(180deg, #f7fbff 0%, #eef4fd 100%);
 }
 
+.fm-cjk-punctuation {
+  font-family: var(--font-fm-sans), "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  letter-spacing: 0;
+}
+
 a {
   transition: color 180ms ease;
 }

@@ -9,6 +9,7 @@ import { sanitizeCmsHtml } from "@/lib/cms/sanitizeCmsRichText";
 import { renderPersonalitySections } from "@/lib/cms/personality-sections";
 import { renderTopicSections } from "@/lib/cms/topic-sections";
 import { renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
+import { renderCjkPunctuationText } from "@/lib/content/textPunctuation";
 import type { ContentPage } from "@/lib/cms/content-pages";
 
 const ROOT = process.cwd();
@@ -189,5 +190,40 @@ describe("CMS rich content sanitization contract", () => {
     expect(html).toContain("unsafe link");
     expect(html).toContain('href="/en/help?topic=reports&amp;src=cms"');
     expectNoExecutableCmsHtml(html);
+  });
+
+  it("renders CMS Markdown footnote references as numbered reference lists without raw caret markers", () => {
+    const node = renderSimpleMarkdown(
+      [
+        "MBTI 不是命运判决书[^1]，更适合作为自我观察入口[^2]。",
+        "",
+        "## References",
+        "[^1]: Myers, I. B. (1998). *MBTI Manual*.",
+        "[^2]: McCrae, R. R. (1989). Reinterpreting the Myers-Briggs Type Indicator.",
+      ].join("\n")
+    );
+    const html = renderToStaticMarkup(<div>{node as Parameters<typeof renderToStaticMarkup>[0]}</div>);
+
+    expect(html).toContain("【1】");
+    expect(html).toContain("【2】");
+    expect(html).toContain("<ol");
+    expect(html).toContain('value="1"');
+    expect(html).toContain('value="2"');
+    expect(html).toContain("<em>");
+    expect(html).toContain("MBTI Manual");
+    expect(html).not.toContain("[^1]");
+    expect(html).not.toContain("[^1]:");
+    expect(html).not.toContain("[^2]");
+    expect(html).not.toContain("[^2]:");
+  });
+
+  it("wraps Chinese article punctuation with a CJK-friendly font hook", () => {
+    const html = renderToStaticMarkup(
+      <h1>{renderCjkPunctuationText("MBTI 16 型人格测试：是科学工具，还是赛博算命？", "title")}</h1>
+    );
+
+    expect(html).toContain('class="fm-cjk-punctuation"');
+    expect(html).toContain("？");
+    expect(html).toContain("：");
   });
 });

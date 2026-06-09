@@ -2,15 +2,15 @@
 
 Scope: SCIENCE-CONTENTPAGE-DISCOVERABILITY-GATE-01
 
-Mode: contract-only discoverability eligibility gate.
+Mode: approved footer-exposure runtime gate.
 
-Runtime behavior changed: no.
+Runtime behavior changed: yes. The global footer now exposes the approved Research & Methods routes.
 
 ## Decision
 
-Science ContentPage routes remain blocked from new sitemap, llms, footer, header, search-submission, or social amplification exposure until the required CMS, review, claim, FAQ schema, route, and private-URL gates all pass.
+Science ContentPage routes are now approved for footer exposure after explicit operator/user authorization and backend CMS authority work for bilingual published records.
 
-This PR does not add URLs to sitemap or llms, does not add footer/header links, does not submit search URLs, does not publish content, does not mutate CMS records, and does not generate page copy.
+This change restores footer links for `/science`, `/method-boundaries`, `/item-design-notes`, `/reliability-validity`, `/data-privacy`, and `/common-misconceptions`. It does not add header links, submit search URLs, start paid/community distribution, or expose private result/order/payment routes.
 
 ## Required Dependency Gates
 
@@ -30,21 +30,28 @@ This PR does not add URLs to sitemap or llms, does not add footer/header links, 
 | --- | --- | --- |
 | `sitemap_eligible` | false | May become true only after all dependency gates pass. |
 | `llms_eligible` | false | May become true only after visible content and claim gates pass. |
-| `footer_eligible` | false | May become true only after operator approval and public IA approval. |
+| `footer_eligible` | true | Approved for the six public Research & Methods routes after CMS/backend authority and operator approval. |
 | `header_eligible` | false | Not part of this gate; requires a separate IA decision. |
 | `search_submission_eligible` | false | Not allowed before sitemap eligibility and production smoke pass. |
 | `social_distribution_eligible` | false | Not allowed in this gate. |
 
 ## Footer Eligibility
 
-Draft Science pages are not footer-eligible in this gate. `/science`, `/item-design-notes`, `/reliability-validity`, `/data-privacy`, and `/common-misconceptions` remain blocked from footer/header links until CMS publication, operator approval, claim gate, FAQ schema gate when relevant, private URL scan, and production route smoke all pass.
+The footer-eligible Research & Methods routes are:
 
-`/method-boundaries` is treated separately as an existing public authority route from the reconciliation PR. This gate allows the existing footer link to remain, but does not authorize replacing it with draft package content or using it to approve the other five Science pages.
+- `/science`
+- `/method-boundaries`
+- `/item-design-notes`
+- `/reliability-validity`
+- `/data-privacy`
+- `/common-misconceptions`
+
+These routes remain CMS/backend-authoritative. The frontend footer may link to them, but it must not provide fallback body copy if the API is unavailable.
 
 ## Blocked Actions
 
 - Adding Science ContentPage URLs to sitemap or llms from draft packages.
-- Adding footer/header links before CMS publication and operator approval.
+- Adding header links without a separate IA decision.
 - Search submission before public canonical production checks pass.
 - Using FAQ schema as a reason to expose thin or unreviewed visible content.
 - Referencing private, tokenized, payment, order, result, share, history, or user-specific URLs.
@@ -53,4 +60,4 @@ Draft Science pages are not footer-eligible in this gate. `/science`, `/item-des
 
 ## Non-Expansion Statement
 
-This PR is a gate definition only. It preserves current public discoverability state and records the conditions for a later implementation PR. It does not change routes, sitemap generation, llms generation, robots, canonical metadata, schema, footer, header, tracking, CMS, or production deployment.
+This gate now permits footer exposure for the approved Research & Methods route set only. It does not change sitemap generation, llms generation, robots, canonical metadata, header navigation, tracking, search submission, paid distribution, or private-route handling.
