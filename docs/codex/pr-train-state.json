@@ -4,7 +4,7 @@
   "started_at": "2026-05-08T00:00:00Z",
   "updated_at": "2026-06-09",
   "status": "active",
-  "phase": "analytics_seo_p0_p1",
+  "phase": "article_h1_stability",
   "pr_namespace": "PR-PRAC-*",
   "branch_naming_convention": "codex/pr-prac-<nn>-<short-scope>",
   "mode": "local_clone_preferred",
@@ -21629,6 +21629,127 @@
           "at": "2026-06-09",
           "status": "ready_to_merge",
           "note": "GitHub checks passed for PR #1085 at head 2890298dc958be2b64fe9ffe8f6f6fe5b910989e. Recording ready_to_merge before merge per train policy."
+        }
+      ]
+    },
+    {
+      "id": "ARTICLE-H1-01",
+      "repo": "fap-web",
+      "branch": "codex/article-h1-01",
+      "status": "ready_to_merge",
+      "commit_sha": "c4eca9afba407c368e4797dc838523f38b995a08",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1087",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized adding and executing ARTICLE-H1-01 through ARTICLE-H1-04, including fap-web docs/codex metadata updates, on 2026-06-09."
+        },
+        "dependency": {
+          "status": "pass",
+          "evidence": "ARTICLE-H1-01 has no dependencies and started from fap-web main aligned with origin/main."
+        },
+        "scope": {
+          "status": "pass",
+          "allowed_paths": [
+            "app/(localized)/[locale]/articles/[slug]/page.tsx",
+            "components/content/SanitizedCmsHtml.tsx",
+            "components/content/AttributedSanitizedCmsHtml.tsx",
+            "lib/cms/sanitizeCmsRichText.ts",
+            "lib/content/renderSimpleMarkdown.tsx",
+            "tests/contracts/cms-rich-content-sanitization.contract.test.tsx",
+            "tests/contracts/helpers/currentPrScope.ts",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ],
+          "evidence": "Changed files are confined to article detail body rendering, shared sanitized/Markdown render options, current PR scope helper, focused rich-content contract coverage, and docs/codex metadata."
+        },
+        "local": {
+          "status": "pass",
+          "commands": [
+            "pnpm exec vitest run tests/contracts/cms-rich-content-sanitization.contract.test.tsx",
+            "pnpm typecheck",
+            "pnpm test:contract",
+            "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "python3 -c \"import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')\"",
+            "python3 - <<scope validation: changed files within ARTICLE-H1-01 manifest scope>>",
+            "git diff --check",
+            "git diff --cached --check"
+          ],
+          "evidence": "Focused cms-rich-content-sanitization contract passed 8 tests. pnpm typecheck passed. pnpm test:contract passed 470 files / 2673 tests after adding the ARTICLE-H1-01 currentPrScope allowlist. JSON/YAML parse, explicit scope validation, and git diff --check passed."
+        },
+        "github": {
+          "status": "pass",
+          "head_sha": "7e75031d8f3256560efaed2bcd9a0549d1267669",
+          "checks": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "CodeQL",
+            "analyze (javascript-typescript)"
+          ],
+          "merge_state": "CLEAN",
+          "evidence": "GitHub checks passed for fap-web PR #1087 at head 7e75031d8f3256560efaed2bcd9a0549d1267669."
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-09",
+          "status": "in_progress",
+          "note": "Created branch codex/article-h1-01 from latest fap-web main and implemented frontend article body H1 defense within scoped files."
+        },
+        {
+          "at": "2026-06-09",
+          "status": "local_checks_passed",
+          "note": "Article body HTML and Markdown h1 fallback contract passed; typecheck and full contract suite passed with scoped currentPrScope allowlist."
+        },
+        {
+          "at": "2026-06-09",
+          "status": "committed_pending_push",
+          "note": "Created scoped implementation commit c4eca9afba407c368e4797dc838523f38b995a08."
+        },
+        {
+          "at": "2026-06-09",
+          "status": "pr_open_checks_pending",
+          "note": "Opened fap-web PR #1087 from branch codex/article-h1-01; GitHub checks pending."
+        },
+        {
+          "at": "2026-06-09",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed for PR #1087 at head 7e75031d8f3256560efaed2bcd9a0549d1267669 and mergeStateStatus is CLEAN."
+        }
+      ]
+    },
+    {
+      "id": "ARTICLE-H1-03",
+      "repo": "fap-web",
+      "branch": "codex/article-h1-03",
+      "status": "pending_dependency",
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized adding and executing ARTICLE-H1-01 through ARTICLE-H1-04, including fap-web docs/codex metadata updates, on 2026-06-09."
+        },
+        "dependency": {
+          "status": "pending",
+          "evidence": "ARTICLE-H1-03 depends on ARTICLE-H1-01 and ARTICLE-H1-02 being merged."
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-09",
+          "status": "pending_dependency",
+          "note": "Initialized future live audit PR metadata only; implementation intentionally deferred."
         }
       ]
     }

@@ -123,6 +123,7 @@ function renderArticleBody(article: CmsArticle, locale: Locale, canonicalPath: s
         sourceSlug={article.slug}
         sourcePath={canonicalPath}
         contentId={article.id}
+        minimumHeadingLevel={2}
       />
     );
   }
@@ -136,7 +137,7 @@ function renderArticleBody(article: CmsArticle, locale: Locale, canonicalPath: s
         sourcePath={canonicalPath}
         contentId={article.id}
       >
-        {renderSimpleMarkdown(article.contentMd) ?? <div className="whitespace-pre-wrap">{article.contentMd}</div>}
+        {renderSimpleMarkdown(article.contentMd, { minimumHeadingLevel: 2 }) ?? <div className="whitespace-pre-wrap">{article.contentMd}</div>}
       </AttributedCmsLinkHydrator>
     );
   }

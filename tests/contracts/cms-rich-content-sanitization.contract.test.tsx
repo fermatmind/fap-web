@@ -84,7 +84,7 @@ describe("CMS rich content sanitization contract", () => {
 
   it("uses sanitized HTML for representative article and career-guide payloads", () => {
     const articleHtml = renderToStaticMarkup(
-      <SanitizedCmsHtml className="article-body" html={CMS_RICH_HTML} />
+      <SanitizedCmsHtml className="article-body" html={CMS_RICH_HTML} minimumHeadingLevel={2} />
     );
     const careerGuideHtml = renderToStaticMarkup(
       <SanitizedCmsHtml className="career-guide-body" html={CMS_RICH_HTML} />
@@ -97,6 +97,23 @@ describe("CMS rich content sanitization contract", () => {
     expect(careerGuideHtml).toContain("career-guide-body");
     expect(careerGuideHtml).toContain("safe link");
     expectNoExecutableCmsHtml(careerGuideHtml);
+  });
+
+  it("keeps article body rendering below the page-level h1", () => {
+    const htmlBody = renderToStaticMarkup(
+      <SanitizedCmsHtml className="article-body" html="<h1>CMS title</h1><h2>Section</h2>" minimumHeadingLevel={2} />
+    );
+    const markdownBody = renderToStaticMarkup(
+      <div>{renderSimpleMarkdown("# CMS title\n\n## Section", { minimumHeadingLevel: 2 })}</div>
+    );
+    const articlePageSource = readSource("app/(localized)/[locale]/articles/[slug]/page.tsx");
+
+    expect(htmlBody).not.toContain("<h1");
+    expect(htmlBody).toContain("<h2>CMS title</h2>");
+    expect(markdownBody).not.toContain("<h1");
+    expect(markdownBody).toContain("<h2");
+    expect(articlePageSource).toContain("minimumHeadingLevel={2}");
+    expect(articlePageSource).toContain("renderSimpleMarkdown(article.contentMd, { minimumHeadingLevel: 2 })");
   });
 
   it("wires every current CMS HTML sink through the sanitized renderer", () => {

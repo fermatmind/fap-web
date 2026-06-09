@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import { sanitizeCmsHtml } from "@/lib/cms/sanitizeCmsRichText";
+import { sanitizeCmsHtml, type CmsHtmlSanitizeOptions } from "@/lib/cms/sanitizeCmsRichText";
 import { AttributedCmsLinkHydrator } from "@/components/content/AttributedCmsLinkHydrator";
 import type { Locale } from "@/lib/i18n/locales";
 import type { SeoCtaSourceRouteFamily } from "@/lib/tracking/seoCtaAttribution";
@@ -14,6 +14,7 @@ type AttributedSanitizedCmsHtmlProps = {
   sourceSlug: string;
   sourcePath: string;
   contentId?: string | number | null;
+  minimumHeadingLevel?: CmsHtmlSanitizeOptions["minimumHeadingLevel"];
 };
 
 export function AttributedSanitizedCmsHtml({
@@ -24,8 +25,9 @@ export function AttributedSanitizedCmsHtml({
   sourceSlug,
   sourcePath,
   contentId,
+  minimumHeadingLevel,
 }: AttributedSanitizedCmsHtmlProps) {
-  const sanitizedHtml = useMemo(() => sanitizeCmsHtml(html), [html]);
+  const sanitizedHtml = useMemo(() => sanitizeCmsHtml(html, { minimumHeadingLevel }), [html, minimumHeadingLevel]);
 
   return (
     <AttributedCmsLinkHydrator
