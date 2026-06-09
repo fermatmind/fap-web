@@ -83,6 +83,60 @@ const privateNoindexHeaders = [
   { key: "Cache-Control", value: "private, no-store, max-age=0, must-revalidate" },
   { key: "Referrer-Policy", value: "no-referrer" },
 ];
+// Exact legacy URLs observed in GSC 404 samples. Keep this list narrow; remove
+// entries in the same PR that introduces a real same-locale replacement page.
+const gscLegacyRedirects = [
+  {
+    source: "/support",
+    destination: "/zh/support",
+    permanent: true,
+  },
+  {
+    source: "/en/articles/big-five-growth-guide",
+    destination: "/zh/articles/big-five-growth-guide",
+    permanent: true,
+  },
+  {
+    source: "/en/articles/mbti-basics",
+    destination: "/zh/articles/mbti-basics",
+    permanent: true,
+  },
+  {
+    source: "/en/articles/iq-test-growth-guide",
+    destination: "/zh/articles/iq-test-growth-guide",
+    permanent: true,
+  },
+  {
+    source: "/en/career/guides/from-mbti-to-job-fit",
+    destination: "/zh/career/guides/from-mbti-to-job-fit",
+    permanent: true,
+  },
+  {
+    source: "/en/career/guides/cross-industry-move-strategy",
+    destination: "/zh/career/guides/cross-industry-move-strategy",
+    permanent: true,
+  },
+  {
+    source: "/en/career/guides/networking-that-actually-works",
+    destination: "/zh/career/guides/networking-that-actually-works",
+    permanent: true,
+  },
+  {
+    source: "/en/career/tests/riasec",
+    destination: "/en/tests/holland-career-interest-test-riasec",
+    permanent: true,
+  },
+  {
+    source: "/zh/career/tests/riasec",
+    destination: "/zh/tests/holland-career-interest-test-riasec",
+    permanent: true,
+  },
+  {
+    source: "/zh/career/jobs/lawyer",
+    destination: "/zh/career/jobs/lawyers",
+    permanent: true,
+  },
+];
 
 const nextConfig = {
   output: "standalone",
@@ -324,6 +378,7 @@ const nextConfig = {
         destination: "/zh/support",
         permanent: true,
       },
+      ...gscLegacyRedirects,
       ...(enableRootQuizRedirects
         ? [
             {
