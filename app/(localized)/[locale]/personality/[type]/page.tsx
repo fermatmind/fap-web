@@ -62,6 +62,107 @@ type MbtiTrackedLink = {
   eventProperties: ReturnType<typeof buildMbtiEntryTrackingPayload>;
 };
 
+type PersonalityIntentLink = {
+  key: string;
+  label: string;
+  href: string;
+  kind: "anchor" | "test";
+};
+
+function normalizeDisplayText(value: string | null | undefined): string {
+  return String(value ?? "").replace(/\s+/g, " ").trim();
+}
+
+function stripZhPersonalityTypeSuffix(value: string): string {
+  return value.replace(/型$/u, "").trim();
+}
+
+function formatPersonalityDetailHeading(detail: PersonalityProjectionViewModel, locale: Locale): string {
+  const displayType = normalizeDisplayText(detail.displayType || detail.projection.runtimeTypeCode || detail.canonicalTypeCode).toUpperCase();
+  const rawTypeName = normalizeDisplayText(detail.typeName);
+  const typeName = locale === "zh" ? stripZhPersonalityTypeSuffix(rawTypeName) : rawTypeName;
+
+  if (!displayType) {
+    return detail.title;
+  }
+
+  if (typeName && !typeName.toUpperCase().includes(displayType)) {
+    return locale === "zh" ? `${displayType} ${typeName}人格` : `${displayType} ${typeName} Personality`;
+  }
+
+  return locale === "zh" ? `${displayType} 人格` : `${displayType} Personality`;
+}
+
+function firstAvailableSectionHref(sectionKeys: Set<string>, fallbackHref: string, ...candidates: string[]): string {
+  const matched = candidates.find((key) => sectionKeys.has(key));
+
+  return matched ? `#${matched}` : fallbackHref;
+}
+
+function buildPersonalityIntentLinks(
+  locale: Locale,
+  sections: PersonalityProjection["sections"],
+  testHref: string
+): PersonalityIntentLink[] {
+  const sectionKeys = new Set(sections.map((section) => section.key).filter(Boolean));
+
+  return locale === "zh"
+    ? [
+        {
+          key: "traits",
+          label: "特点",
+          href: firstAvailableSectionHref(sectionKeys, "#answer-first", "overview", "trait_overview", "letters_intro"),
+          kind: "anchor",
+        },
+        {
+          key: "relationships",
+          label: "爱情",
+          href: firstAvailableSectionHref(sectionKeys, "#answer-first", "relationships.summary", "relationships.rel_advantages"),
+          kind: "anchor",
+        },
+        {
+          key: "career",
+          label: "职业",
+          href: firstAvailableSectionHref(sectionKeys, "#answer-first", "career.summary", "career.advantages"),
+          kind: "anchor",
+        },
+        {
+          key: "best_fit_work",
+          label: "适合工作",
+          href: firstAvailableSectionHref(sectionKeys, "#answer-first", "career.preferred_roles", "career.summary"),
+          kind: "anchor",
+        },
+        { key: "take_test", label: "立即测试", href: testHref, kind: "test" },
+      ]
+    : [
+        {
+          key: "traits",
+          label: "Traits",
+          href: firstAvailableSectionHref(sectionKeys, "#answer-first", "overview", "trait_overview", "letters_intro"),
+          kind: "anchor",
+        },
+        {
+          key: "relationships",
+          label: "Relationships",
+          href: firstAvailableSectionHref(sectionKeys, "#answer-first", "relationships.summary", "relationships.rel_advantages"),
+          kind: "anchor",
+        },
+        {
+          key: "career",
+          label: "Careers",
+          href: firstAvailableSectionHref(sectionKeys, "#answer-first", "career.summary", "career.advantages"),
+          kind: "anchor",
+        },
+        {
+          key: "best_fit_work",
+          label: "Best-fit work",
+          href: firstAvailableSectionHref(sectionKeys, "#answer-first", "career.preferred_roles", "career.summary"),
+          kind: "anchor",
+        },
+        { key: "take_test", label: "Take the test", href: testHref, kind: "test" },
+      ];
+}
+
 function buildMbtiSceneTrackedLink(
   link: { href: string; key: string; label: string },
   sourcePath: string,
@@ -364,6 +465,24 @@ export default async function PersonalityDetailPage({
     targetAction: "start_mbti_test_primary",
     sourcePath: canonicalPath,
   });
+  const mbtiIntentCtaTrackingProps = buildMbtiEntryTrackingPayload({
+    locale,
+    formCode: DEFAULT_MBTI_FORM_CODE,
+    entrySurface: "mbti_personality_detail",
+    sourcePageType: "personality_detail",
+    targetAction: "start_mbti_test_intent_chip",
+    sourcePath: canonicalPath,
+  });
+  const mbtiIntentCtaHref = buildMbtiEntryHref({
+    locale,
+    formCode: DEFAULT_MBTI_FORM_CODE,
+    entrySurface: "mbti_personality_detail",
+    sourcePageType: "personality_detail",
+    targetAction: "start_mbti_test_intent_chip",
+    sourcePath: canonicalPath,
+  });
+  const heroHeading = formatPersonalityDetailHeading(detail, locale);
+  const intentLinks = buildPersonalityIntentLinks(locale, detail.projection.sections, mbtiIntentCtaHref);
   const personalityBrowseHref = `${localizedPath("/personality", locale)}#type-groups`;
   const careerDirectionHref = fallbackProjectionGate.canRenderCareerOrRecommendationClaims
     ? localizedPath(`/career/recommendations/mbti/${detail.routeSlug}`, locale)
@@ -491,11 +610,34 @@ export default async function PersonalityDetailPage({
         id="answer-first"
         className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
       >
-        <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">{detail.title}</h1>
+        <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">{heroHeading}</h1>
         {locale !== "zh" && detail.summary ? <p className="m-0 text-[var(--fm-text-muted)]">{detail.summary}</p> : null}
         {detail.heroSummary && detail.heroSummary !== detail.summary ? (
           <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{detail.heroSummary}</p>
         ) : null}
+        <nav
+          aria-label={locale === "zh" ? "人格页面重点入口" : "Personality page intent shortcuts"}
+          className="flex flex-wrap gap-2"
+          data-testid="personality-detail-intent-links"
+        >
+          {intentLinks.map((link) =>
+            link.kind === "test" ? (
+              <TrackedEntryCtaLink
+                key={link.key}
+                href={link.href}
+                prefetch
+                eventProperties={mbtiIntentCtaTrackingProps}
+                className="fm-help-chip-link"
+              >
+                {link.label}
+              </TrackedEntryCtaLink>
+            ) : (
+              <Link key={link.key} href={link.href} className="fm-help-chip-link">
+                {link.label}
+              </Link>
+            )
+          )}
+        </nav>
         <div className="space-y-3 pt-1" data-testid="personality-detail-next-steps">
           <div
             className="flex flex-wrap items-center gap-3"
