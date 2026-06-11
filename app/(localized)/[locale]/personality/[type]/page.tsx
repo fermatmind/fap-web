@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
-import type { ReactElement } from "react";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
 import { MbtiSceneEntrySection } from "@/components/content/MbtiSceneEntrySection";
-import { MbtiScenarioDeepDiveSection } from "@/components/content/MbtiScenarioDeepDiveSection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -30,8 +28,6 @@ import {
   buildMbtiEntryHref,
   buildMbtiEntryTrackingPayload,
 } from "@/lib/mbti/entryTracking";
-import { buildMbtiPersonalityScenarioDeepModules } from "@/lib/mbti/sceneDeepContent";
-import { getMbtiPersonalityContent } from "@/lib/mbti/mbtiTypeContentPack";
 import { resolvePersonalityFallbackProjectionGate } from "@/lib/seo/articlePersonalityAuthority";
 import { buildBreadcrumbJsonLd, buildFAQPageJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata, normalizeTwitterImages, resolveTwitterCard } from "@/lib/seo/metadata";
@@ -41,32 +37,15 @@ export const dynamic = "force-static";
 export const revalidate = 300;
 const PUBLIC_PERSONALITY_VARIANT_RE = /^[ie][ns][ft][jp]-[at]$/i;
 
-type PersonalitySceneRenderBlock = {
-  summary: string;
-  bottleneck: string;
-  advice: string;
-  strengths: readonly string[];
-  risks: readonly string[];
-  why: string;
-  variantDeltaA: string;
-  variantDeltaT: string;
-  nextLinks: {
-    key: string;
-    label: string;
-    href: string;
-  }[];
-};
-
-type MbtiTrackedLink = {
-  href: string;
-  eventProperties: ReturnType<typeof buildMbtiEntryTrackingPayload>;
-};
-
 type PersonalityIntentLink = {
   key: string;
   label: string;
   href: string;
   kind: "anchor" | "test";
+};
+
+type PersonalitySectionShortcut = PersonalityIntentLink & {
+  description: string;
 };
 
 function normalizeDisplayText(value: string | null | undefined): string {
@@ -99,99 +78,41 @@ function firstAvailableSectionHref(sectionKeys: Set<string>, fallbackHref: strin
   return matched ? `#${matched}` : fallbackHref;
 }
 
-function buildPersonalityIntentLinks(
+function buildPersonalitySectionShortcuts(
   locale: Locale,
   sections: PersonalityProjection["sections"],
   testHref: string
-): PersonalityIntentLink[] {
+): PersonalitySectionShortcut[] {
   const sectionKeys = new Set(sections.map((section) => section.key).filter(Boolean));
+  const whatHref = firstAvailableSectionHref(sectionKeys, "#answer-first", "letters_intro", "overview");
+  const traitsHref = firstAvailableSectionHref(sectionKeys, "#answer-first", "trait_overview", "overview");
+  const variantHref = firstAvailableSectionHref(sectionKeys, whatHref, "letters_intro", "trait_overview");
+  const relationshipsHref = firstAvailableSectionHref(sectionKeys, "#answer-first", "relationships.summary");
+  const careerHref = firstAvailableSectionHref(sectionKeys, "#answer-first", "career.summary", "career.preferred_roles");
+  const workHref = firstAvailableSectionHref(sectionKeys, careerHref, "career.preferred_roles", "career.summary");
+  const strengthsHref = firstAvailableSectionHref(sectionKeys, "#answer-first", "growth.strengths", "growth.weaknesses");
 
   return locale === "zh"
     ? [
-        {
-          key: "traits",
-          label: "特点",
-          href: firstAvailableSectionHref(sectionKeys, "#answer-first", "overview", "trait_overview", "letters_intro"),
-          kind: "anchor",
-        },
-        {
-          key: "relationships",
-          label: "爱情",
-          href: firstAvailableSectionHref(sectionKeys, "#answer-first", "relationships.summary", "relationships.rel_advantages"),
-          kind: "anchor",
-        },
-        {
-          key: "career",
-          label: "职业",
-          href: firstAvailableSectionHref(sectionKeys, "#answer-first", "career.summary", "career.advantages"),
-          kind: "anchor",
-        },
-        {
-          key: "best_fit_work",
-          label: "适合工作",
-          href: firstAvailableSectionHref(sectionKeys, "#answer-first", "career.preferred_roles", "career.summary"),
-          kind: "anchor",
-        },
-        { key: "take_test", label: "立即测试", href: testHref, kind: "test" },
+        { key: "what", label: "是什么", description: "类型定义", href: whatHref, kind: "anchor" },
+        { key: "traits", label: "常见特征", description: "维度倾向", href: traitsHref, kind: "anchor" },
+        { key: "variant", label: "A/T 差异", description: "状态差异", href: variantHref, kind: "anchor" },
+        { key: "relationships", label: "爱情 / 关系", description: "相处模式", href: relationshipsHref, kind: "anchor" },
+        { key: "career", label: "职业", description: "职业倾向", href: careerHref, kind: "anchor" },
+        { key: "best_fit_work", label: "适合工作", description: "岗位簇", href: workHref, kind: "anchor" },
+        { key: "strengths", label: "优缺点", description: "优势与弱点", href: strengthsHref, kind: "anchor" },
+        { key: "take_test", label: "立即测试", description: "确认类型", href: testHref, kind: "test" },
       ]
     : [
-        {
-          key: "traits",
-          label: "Traits",
-          href: firstAvailableSectionHref(sectionKeys, "#answer-first", "overview", "trait_overview", "letters_intro"),
-          kind: "anchor",
-        },
-        {
-          key: "relationships",
-          label: "Relationships",
-          href: firstAvailableSectionHref(sectionKeys, "#answer-first", "relationships.summary", "relationships.rel_advantages"),
-          kind: "anchor",
-        },
-        {
-          key: "career",
-          label: "Careers",
-          href: firstAvailableSectionHref(sectionKeys, "#answer-first", "career.summary", "career.advantages"),
-          kind: "anchor",
-        },
-        {
-          key: "best_fit_work",
-          label: "Best-fit work",
-          href: firstAvailableSectionHref(sectionKeys, "#answer-first", "career.preferred_roles", "career.summary"),
-          kind: "anchor",
-        },
-        { key: "take_test", label: "Take the test", href: testHref, kind: "test" },
+        { key: "what", label: "What it means", description: "Type definition", href: whatHref, kind: "anchor" },
+        { key: "traits", label: "Common traits", description: "Trait pattern", href: traitsHref, kind: "anchor" },
+        { key: "variant", label: "A/T difference", description: "Variant state", href: variantHref, kind: "anchor" },
+        { key: "relationships", label: "Relationships", description: "Relating style", href: relationshipsHref, kind: "anchor" },
+        { key: "career", label: "Careers", description: "Career direction", href: careerHref, kind: "anchor" },
+        { key: "best_fit_work", label: "Best-fit work", description: "Role clusters", href: workHref, kind: "anchor" },
+        { key: "strengths", label: "Strengths / weak spots", description: "Growth levers", href: strengthsHref, kind: "anchor" },
+        { key: "take_test", label: "Take the test", description: "Confirm your type", href: testHref, kind: "test" },
       ];
-}
-
-function buildMbtiSceneTrackedLink(
-  link: { href: string; key: string; label: string },
-  sourcePath: string,
-  locale: Locale,
-  sourcePageType: "personality_detail",
-  targetAction: string
-): MbtiTrackedLink | null {
-  if (!link.href.startsWith(`/tests/${MBTI_ENTRY_TEST_SLUG}`)) {
-    return null;
-  }
-
-  return {
-    href: buildMbtiEntryHref({
-      locale,
-      formCode: DEFAULT_MBTI_FORM_CODE,
-      entrySurface: "mbti_scene_block",
-      sourcePageType,
-      targetAction,
-      sourcePath,
-    }),
-    eventProperties: buildMbtiEntryTrackingPayload({
-      locale,
-      formCode: DEFAULT_MBTI_FORM_CODE,
-      entrySurface: "mbti_scene_block",
-      sourcePageType,
-      targetAction,
-      sourcePath,
-    }),
-  };
 }
 
 function shouldNoindex(robotsValue: string | null | undefined): boolean {
@@ -482,107 +403,11 @@ export default async function PersonalityDetailPage({
     sourcePath: canonicalPath,
   });
   const heroHeading = formatPersonalityDetailHeading(detail, locale);
-  const intentLinks = buildPersonalityIntentLinks(locale, detail.projection.sections, mbtiIntentCtaHref);
+  const intentLinks = buildPersonalitySectionShortcuts(locale, detail.projection.sections, mbtiIntentCtaHref);
   const personalityBrowseHref = `${localizedPath("/personality", locale)}#type-groups`;
   const careerDirectionHref = fallbackProjectionGate.canRenderCareerOrRecommendationClaims
     ? localizedPath(`/career/recommendations/mbti/${detail.routeSlug}`, locale)
     : null;
-  const personalityScenarioDeepModules = fallbackProjectionGate.canRenderScenarioDeepDive
-    ? buildMbtiPersonalityScenarioDeepModules({
-        locale,
-        typeCode: detail.canonicalTypeCode,
-      })
-    : [];
-  const personalityHasGrowthScene = personalityScenarioDeepModules.some((module) => module.sceneKey === "growth_planning");
-  const personalityTypeContent =
-    locale === "zh" && fallbackProjectionGate.canRenderLocalPersonalityContentPack
-      ? getMbtiPersonalityContent(detail.routeSlug, locale)
-      : null;
-
-  const renderSceneBlock = (
-    label: string,
-    block: PersonalitySceneRenderBlock,
-    comparisonBlock: PersonalitySceneRenderBlock,
-    anchor: string,
-    sourcePath: string
-  ): ReactElement => (
-    <Card id={anchor}>
-      <CardHeader>
-        <CardTitle className="text-lg">{label}</CardTitle>
-      </CardHeader>
-      <CardContent className="space-y-3 text-sm text-[var(--fm-text-muted)]">
-        <p className="m-0">{block.summary}</p>
-        {block.bottleneck ? (
-          <p className="m-0">
-            <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "瓶颈：" : "Bottleneck:"}</span>{" "}
-            {block.bottleneck}
-          </p>
-        ) : null}
-        {block.advice ? (
-          <p className="m-0">
-            <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "建议：" : "Advice:"}</span>{" "}
-            {block.advice}
-          </p>
-        ) : null}
-        <div className="space-y-2">
-          <p className="m-0 font-medium text-[var(--fm-text)]">
-            {locale === "zh" ? "核心优势" : "Core strengths"}
-          </p>
-          <ul className="m-0 space-y-1 pl-4 list-disc">
-            {block.strengths.map((item) => (
-              <li key={`${anchor}-strength-${item}`}>{item}</li>
-            ))}
-          </ul>
-        </div>
-        <div className="space-y-2">
-          <p className="m-0 font-medium text-[var(--fm-text)]">
-            {locale === "zh" ? "主要风险" : "Top risks"}
-          </p>
-          <ul className="m-0 space-y-1 pl-4 list-disc">
-            {block.risks.map((item) => (
-              <li key={`${anchor}-risk-${item}`}>{item}</li>
-            ))}
-          </ul>
-        </div>
-        <p className="m-0">
-          <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "为何与该类型相关：" : "Type relevance:"}</span>{" "}
-          {block.why}
-        </p>
-        <p className="m-0">
-          <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "A 型：" : "A variant:"}</span>{" "}
-          {comparisonBlock.variantDeltaA || block.variantDeltaA || comparisonBlock.variantDeltaT || block.variantDeltaT}
-        </p>
-        <p className="m-0">
-          <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "T 型：" : "T variant:"}</span>{" "}
-          {comparisonBlock.variantDeltaT || block.variantDeltaT || comparisonBlock.variantDeltaA || block.variantDeltaA}
-        </p>
-        <div className="flex flex-wrap gap-2">
-          {block.nextLinks.slice(0, 3).map((link) => {
-            const targetAction = `start_mbti_test_${anchor}_continuation`;
-            const trackedLink = buildMbtiSceneTrackedLink(link, sourcePath, locale, "personality_detail", targetAction);
-            if (!trackedLink) {
-              return (
-                <Link key={link.key} href={link.href} className="fm-help-chip-link">
-                  {link.label}
-                </Link>
-              );
-            }
-
-            return (
-              <TrackedEntryCtaLink
-                key={link.key}
-                href={trackedLink.href}
-                className="fm-help-chip-link"
-                eventProperties={trackedLink.eventProperties}
-              >
-                {link.label}
-              </TrackedEntryCtaLink>
-            );
-          })}
-        </div>
-      </CardContent>
-    </Card>
-  );
 
   return (
     <main
@@ -638,6 +463,35 @@ export default async function PersonalityDetailPage({
             )
           )}
         </nav>
+        <div
+          className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4"
+          data-testid="personality-detail-section-map"
+          data-authority-source={detail.projection.meta.authoritySource ?? "cms_projection"}
+        >
+          {intentLinks.map((link) =>
+            link.kind === "test" ? (
+              <TrackedEntryCtaLink
+                key={`section-map-${link.key}`}
+                href={link.href}
+                prefetch
+                eventProperties={mbtiIntentCtaTrackingProps}
+                className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-3 text-left text-sm transition hover:border-[var(--fm-accent)] hover:bg-[var(--fm-surface)]"
+              >
+                <span className="block font-semibold text-[var(--fm-text)]">{link.label}</span>
+                <span className="mt-1 block text-xs text-[var(--fm-text-muted)]">{link.description}</span>
+              </TrackedEntryCtaLink>
+            ) : (
+              <Link
+                key={`section-map-${link.key}`}
+                href={link.href}
+                className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-3 text-left text-sm transition hover:border-[var(--fm-accent)] hover:bg-[var(--fm-surface)]"
+              >
+                <span className="block font-semibold text-[var(--fm-text)]">{link.label}</span>
+                <span className="mt-1 block text-xs text-[var(--fm-text-muted)]">{link.description}</span>
+              </Link>
+            )
+          )}
+        </div>
         <div className="space-y-3 pt-1" data-testid="personality-detail-next-steps">
           <div
             className="flex flex-wrap items-center gap-3"
@@ -704,102 +558,6 @@ export default async function PersonalityDetailPage({
             {detail.heroQuote}
           </blockquote>
         ) : null}
-        {personalityTypeContent ? (
-          <section className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]" data-testid="mbti-personality-content-pack">
-            <div className="space-y-2">
-              <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
-                {locale === "zh" ? `${detail.displayType} 人格解读` : `${detail.displayType} profile guide`}
-              </h2>
-            </div>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>{locale === "zh" ? "核心画像" : "Core profile"}</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3 text-sm leading-7 text-[var(--fm-text-muted)]">
-                <p className="m-0">{personalityTypeContent.common.hero.summary}</p>
-                <p className="m-0">{personalityTypeContent.common.hero.positioning}</p>
-                <p className="m-0">{personalityTypeContent.common.hero.coreStrength}</p>
-                <p className="m-0">{personalityTypeContent.common.hero.realWorldFriction}</p>
-                <p className="m-0">{personalityTypeContent.common.hero.nextStepHint}</p>
-                <div className="grid gap-3 md:grid-cols-3">
-                  <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
-                    <p className="m-0 font-medium text-[var(--fm-text)]">{locale === "zh" ? "A 型差异" : "A variant"}</p>
-                    <p className="m-0 mt-1">{personalityTypeContent.common.hero.variantDeltaA}</p>
-                  </div>
-                  <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
-                    <p className="m-0 font-medium text-[var(--fm-text)]">{locale === "zh" ? "T 型差异" : "T variant"}</p>
-                    <p className="m-0 mt-1">{personalityTypeContent.common.hero.variantDeltaT}</p>
-                  </div>
-                  <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
-                    <p className="m-0 font-medium text-[var(--fm-text)]">{locale === "zh" ? "下一步阅读" : "Next reading"}</p>
-                    <p className="m-0 mt-1">{personalityTypeContent.common.hero.primaryCta}</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <div className="grid gap-4 lg:grid-cols-3">
-              {renderSceneBlock(
-                locale === "zh" ? "职业方向" : "Career direction",
-                personalityTypeContent.variantCopy.careerDirection,
-                personalityTypeContent.common.careerDirection,
-                detail.canonicalTypeCode === "INTP" ? "intp-personality-scene-career" : "mbti-personality-scene-career",
-                canonicalPath
-              )}
-              {renderSceneBlock(
-                locale === "zh" ? "团队协作" : "Team collaboration",
-                personalityTypeContent.variantCopy.teamCollaboration,
-                personalityTypeContent.common.teamCollaboration,
-                detail.canonicalTypeCode === "INTP" ? "intp-personality-scene-team" : "mbti-personality-scene-team",
-                canonicalPath
-              )}
-              {renderSceneBlock(
-                locale === "zh" ? "成长建议" : "Growth planning",
-                personalityTypeContent.variantCopy.growthPlanning,
-                personalityTypeContent.common.growthPlanning,
-                detail.canonicalTypeCode === "INTP" ? "intp-personality-scene-growth" : "mbti-personality-scene-growth",
-                canonicalPath
-              )}
-            </div>
-
-            <div className="grid gap-4 md:grid-cols-2">
-              <Card>
-                <CardHeader>
-                  <CardTitle>{locale === "zh" ? "下一步阅读" : "Next reading"}</CardTitle>
-                </CardHeader>
-                <CardContent className="flex flex-wrap gap-2">
-                  <Link href={personalityTypeContent.support.recommendationBacklink.href} className="fm-help-chip-link">
-                    {personalityTypeContent.support.recommendationBacklink.label}
-                  </Link>
-                  <Link href={personalityTypeContent.support.topicBacklink.href} className="fm-help-chip-link">
-                    {personalityTypeContent.support.topicBacklink.label}
-                  </Link>
-                  <Link href={personalityTypeContent.support.testEntryLink.href} className="fm-help-chip-link">
-                    {personalityTypeContent.support.testEntryLink.label}
-                  </Link>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>{locale === "zh" ? "相关阅读" : "Related reading"}</CardTitle>
-                </CardHeader>
-                <CardContent className="flex flex-wrap gap-2">
-                  {personalityTypeContent.support.linkedGuides.map((link) => (
-                    <Link key={link.key} href={link.href} className="fm-help-chip-link">
-                      {link.label}
-                    </Link>
-                  ))}
-                  {personalityTypeContent.support.linkedArticles.map((link) => (
-                    <Link key={link.key} href={link.href} className="fm-help-chip-link">
-                      {link.label}
-                    </Link>
-                  ))}
-                </CardContent>
-              </Card>
-            </div>
-          </section>
-        ) : null}
       </section>
 
       <MbtiSceneEntrySection
@@ -807,29 +565,6 @@ export default async function PersonalityDetailPage({
         sourcePageType="personality_detail"
         blocks={detail.answerSurface?.sceneSummaryBlocks}
         testId="personality-detail-scene-entry"
-      />
-      <MbtiScenarioDeepDiveSection
-        locale={locale}
-        modules={personalityScenarioDeepModules}
-        sourcePageType="personality_detail"
-        sourcePath={canonicalPath}
-        testId="personality-detail-scene-deep-dive"
-        heading={
-          locale === "zh"
-            ? personalityHasGrowthScene
-              ? `${detail.canonicalTypeCode} 场景深化（职业 / 协作 / 专业 / 成长）`
-              : `${detail.canonicalTypeCode} 场景深化（职业 / 协作 / 专业）`
-            : personalityHasGrowthScene
-              ? `${detail.canonicalTypeCode} scene depth (career / collaboration / major / growth)`
-              : `${detail.canonicalTypeCode} scene depth (career / collaboration / major)`
-        }
-        subtitle={
-          locale === "zh"
-            ? ""
-            : personalityHasGrowthScene
-              ? "Use type detail as the primary layer for scenario explanation, next-step routing, and growth execution."
-              : "Use type detail as the primary layer for scenario explanation and next-step routing."
-        }
       />
       <div className="space-y-4">
         {hasRenderableContent ? (

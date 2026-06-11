@@ -39,18 +39,23 @@ describe("personality type browse contract", () => {
   it("keeps personality detail and MBTI result pages oriented to final content and next steps", () => {
     expect(detailSource).toContain('data-testid="personality-detail-next-steps"');
     expect(detailSource).toContain('data-testid="personality-detail-intent-links"');
+    expect(detailSource).toContain('data-testid="personality-detail-section-map"');
+    expect(detailSource).toContain("buildPersonalitySectionShortcuts(locale, detail.projection.sections, mbtiIntentCtaHref)");
     expect(detailSource).toContain("formatPersonalityDetailHeading(detail, locale)");
     expect(detailSource).toContain("start_mbti_test_intent_chip");
-    expect(detailSource).toContain("特点");
-    expect(detailSource).toContain("爱情");
+    expect(detailSource).toContain("是什么");
+    expect(detailSource).toContain("常见特征");
+    expect(detailSource).toContain("A/T 差异");
+    expect(detailSource).toContain("爱情 / 关系");
     expect(detailSource).toContain("看职业方向");
     expect(detailSource).toContain("适合工作");
+    expect(detailSource).toContain("优缺点");
     expect(detailSource).toContain("Take the test");
     expect(detailSource).toContain("返回 16 型浏览");
     expect(detailSource).toContain("MBTI免费测试");
-    expect(detailSource).toContain("人格解读");
-    expect(detailSource).toContain("核心画像");
-    expect(detailSource).toContain("下一步阅读");
+    expect(detailSource).not.toContain('data-testid="mbti-personality-content-pack"');
+    expect(detailSource).not.toContain("getMbtiPersonalityContent");
+    expect(detailSource).not.toContain("buildMbtiPersonalityScenarioDeepModules");
     expect(detailSource).not.toContain("内容包");
     expect(detailSource).not.toContain("通用页框架");
     expect(detailSource).not.toContain("继续入口");
