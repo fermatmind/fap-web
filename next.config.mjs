@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const apiOrigin = (process.env.NEXT_PUBLIC_API_URL || "https://api.fermatmind.com").replace(/\/$/, "");
+const enableSameOriginV03ApiProxy = process.env.NEXT_PUBLIC_USE_SAME_ORIGIN_API_PROXY === "true";
 const legacyPathMode = String(process.env.FAP_LEGACY_PATH_MODE || "redirect").trim().toLowerCase();
 const enableRootQuizRedirects = legacyPathMode !== "gone";
 const remotePatternHostnames = ["**.fermatmind.com"];
@@ -408,10 +409,14 @@ const nextConfig = {
   async rewrites() {
     return {
       beforeFiles: [
-        {
-          source: "/api/v0.3/:path*",
-          destination: `${apiOrigin}/api/v0.3/:path*`,
-        },
+        ...(enableSameOriginV03ApiProxy
+          ? [
+              {
+                source: "/api/v0.3/:path*",
+                destination: `${apiOrigin}/api/v0.3/:path*`,
+              },
+            ]
+          : []),
         ...publicV05ApiProxySources.map((source) => ({
           source,
           destination: `${apiOrigin}${source}`,

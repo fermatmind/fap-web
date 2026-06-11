@@ -668,7 +668,9 @@ describe("ResultClient view-state contract", () => {
     render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
 
     await waitFor(() => {
-      expect(screen.getByRole("alert")).toHaveTextContent("Report is still generating.");
+      expect(screen.getByRole("alert")).toHaveTextContent(
+        "Your result is still generating. This page refreshes automatically and usually completes in a few seconds."
+      );
     });
 
     expect(screen.getByTestId("skeleton")).toBeInTheDocument();
@@ -815,7 +817,9 @@ describe("ResultClient view-state contract", () => {
     render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
 
     await waitFor(() => {
-      expect(screen.getByRole("alert")).toHaveTextContent("Report is still generating.");
+      expect(screen.getByRole("alert")).toHaveTextContent(
+        "Your result is still generating. This page refreshes automatically and usually completes in a few seconds."
+      );
     });
 
     expect(screen.getByTestId("skeleton")).toBeInTheDocument();
