@@ -134,18 +134,18 @@ describe("mbti entry surface contract", () => {
     expect(count(source, 'data-testid="mbti-topic-detail-primary-cta"')).toBe(1);
   });
 
-  it("wires topic index with one primary mbti CTA and entry tracking", () => {
+  it("keeps the topic index as navigation-only without the removed primary mbti CTA", () => {
     const source = read("app/(localized)/[locale]/topics/page.tsx");
 
     expect(source).toContain('<AnalyticsPageViewTracker eventName="landing_view"');
-    expect(source).toContain('entrySurface: "mbti_topic_index"');
-    expect(source).toContain('sourcePageType: "topic_index"');
-    expect(source).toContain('data-testid="mbti-topics-index-entry-cta-group"');
-    expect(source).toContain('data-testid="mbti-topics-index-primary-cta"');
-    expect(source).toContain('targetAction: "start_mbti_test_primary"');
-    expect(source).toContain('TrackedEntryCtaLink');
-    expect(source).toContain('buildMbtiEntryHref({');
-    expect(count(source, 'data-testid="mbti-topics-index-primary-cta"')).toBe(1);
+    expect(source).not.toContain('entrySurface: "mbti_topic_index"');
+    expect(source).not.toContain('sourcePageType: "topic_index"');
+    expect(source).not.toContain('data-testid="mbti-topics-index-entry-cta-group"');
+    expect(source).not.toContain('data-testid="mbti-topics-index-primary-cta"');
+    expect(source).not.toContain('targetAction: "start_mbti_test_primary"');
+    expect(source).not.toContain("TrackedEntryCtaLink");
+    expect(source).not.toContain("buildMbtiEntryHref({");
+    expect(count(source, 'data-testid="mbti-topics-index-primary-cta"')).toBe(0);
   });
 
   it("wires personality index with entry tracking and the type directory", () => {

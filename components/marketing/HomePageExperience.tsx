@@ -222,7 +222,7 @@ function HomepageHeroV1({ locale, copy }: { locale: Locale; copy: HomePageConten
         <div className="mx-auto w-full max-w-[43rem] text-center lg:mx-0 lg:text-left">
           <h1
             aria-label={heroCopy.title}
-            className="m-0 text-balance text-[2.55rem] font-black leading-tight tracking-normal text-[#333] sm:text-[2.8rem] lg:text-[3rem] xl:text-[3.2rem]"
+            className="m-0 text-balance break-words text-[2.55rem] font-black leading-tight tracking-normal text-[#333] sm:text-[2.8rem] lg:text-[3rem] xl:text-[3.2rem]"
           >
             {titleSegments
               ? titleSegments.map((segment) => (
