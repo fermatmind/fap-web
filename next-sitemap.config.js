@@ -70,6 +70,10 @@ function isPublicIndexable(item) {
   return item && item.is_public !== false && item.is_indexable !== false;
 }
 
+function isPublicSitemapEligibleArticle(item) {
+  return isPublicIndexable(item) && item.sitemap_eligible !== false;
+}
+
 function isIqCatalogItem(item) {
   const slug = normalizeSlug(item?.slug).toLowerCase();
   const scaleCode = normalizeSlug(item?.scale_code).toUpperCase();
@@ -632,7 +636,7 @@ async function fetchPaginatedItems(path, queryParams = {}, timeoutMs = cmsSitema
   return items;
 }
 
-async function buildCmsDetailPaths(path, queryBuilder, toPath, timeoutMs = cmsSitemapTimeoutMs) {
+async function buildCmsDetailPaths(path, queryBuilder, toPath, timeoutMs = cmsSitemapTimeoutMs, isEligible = isPublicIndexable) {
   try {
     const paths = new Set();
 
@@ -640,7 +644,7 @@ async function buildCmsDetailPaths(path, queryBuilder, toPath, timeoutMs = cmsSi
       const items = await fetchPaginatedItems(path, queryBuilder(apiLocale), timeoutMs);
 
       for (const item of items) {
-        if (!isPublicIndexable(item)) continue;
+        if (!isEligible(item)) continue;
 
         const loc = normalizePath(toPath(item, localePrefix, apiLocale));
         if (loc && loc !== "/") {
@@ -662,7 +666,9 @@ async function buildArticlePaths() {
     (item, localePrefix) => {
       const slug = normalizeSlug(item?.slug);
       return slug ? `/${localePrefix}/articles/${slug}` : "";
-    }
+    },
+    cmsSitemapTimeoutMs,
+    isPublicSitemapEligibleArticle
   );
 }
 

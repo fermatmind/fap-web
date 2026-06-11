@@ -319,7 +319,7 @@ export async function GET() {
 
   const articleEntries = dedupePaths(
     [...enArticles, ...zhArticles]
-      .filter((article) => article.isIndexable)
+      .filter((article) => article.isIndexable && article.llmsEligible)
       .map((article) => article.href)
   );
 

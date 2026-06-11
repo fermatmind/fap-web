@@ -370,11 +370,11 @@ describe("Article Publishing Runtime Truth acceptance gate", () => {
     const llmsFull = readSource("app/llms-full.txt/route.ts");
 
     expect(sitemap).toContain('buildValidatedCmsPaths("/v0.5/articles", buildArticlePaths)');
-    expect(sitemap).toContain("isPublicIndexable");
+    expect(sitemap).toContain("isPublicSitemapEligibleArticle");
     expect(llms).toContain("listCmsArticlesForLlmsWithLastKnownGood");
-    expect(llms).toContain("article.isIndexable");
+    expect(llms).toContain("article.isIndexable && article.llmsEligible");
     expect(llmsFull).toContain("listCmsArticlesForLlmsWithLastKnownGood");
-    expect(llmsFull).toContain("article.isIndexable");
+    expect(llmsFull).toContain("article.isIndexable && article.llmsEligible");
   });
 
   it("keeps article metadata source priority on backend SEO surface before compatibility fallback", () => {

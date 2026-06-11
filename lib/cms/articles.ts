@@ -55,6 +55,8 @@ type CmsArticleApiRecord = {
   status?: string;
   is_public?: boolean;
   is_indexable?: boolean;
+  sitemap_eligible?: boolean;
+  llms_eligible?: boolean;
   published_revision_id?: number | string | null;
   publishedRevisionId?: number | string | null;
   published_revision?: unknown;
@@ -174,6 +176,8 @@ export type CmsArticle = {
   status: string;
   isPublic: boolean;
   isIndexable: boolean;
+  sitemapEligible: boolean;
+  llmsEligible: boolean;
   publishedRevisionId: number | null;
   publishedAt: string | null;
   scheduledAt: string | null;
@@ -220,6 +224,7 @@ export type CmsArticleLlmsEntry = {
   excerpt: string;
   href: string;
   isIndexable: boolean;
+  llmsEligible: boolean;
   updatedAt: string | null;
 };
 
@@ -861,6 +866,8 @@ function normalizeArticle(article: CmsArticleApiRecord): CmsArticle {
     status: normalizeStatus(article.status),
     isPublic: Boolean(article.is_public),
     isIndexable: Boolean(article.is_indexable),
+    sitemapEligible: article.sitemap_eligible !== false,
+    llmsEligible: article.llms_eligible !== false,
     publishedRevisionId: normalizeArticlePublishedRevisionId(article),
     publishedAt: article.published_at ?? null,
     scheduledAt: article.scheduled_at ?? null,
@@ -1025,6 +1032,7 @@ export async function listCmsArticlesForLlms(
         excerpt: article.excerpt,
         href: buildArticleFrontendUrl(locale, slug),
         isIndexable: article.isIndexable,
+        llmsEligible: article.llmsEligible,
         updatedAt: article.updatedAt ?? article.publishedAt ?? article.createdAt,
       });
     }

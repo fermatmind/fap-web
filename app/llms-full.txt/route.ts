@@ -855,7 +855,7 @@ async function buildLlmsFullText(siteUrl: string): Promise<string> {
     .filter((entry) => shouldKeep(entry.path));
 
   const articles = [...enArticles, ...zhArticles]
-    .filter((article) => article.isIndexable)
+    .filter((article) => article.isIndexable && article.llmsEligible)
     .map((article) => {
       if (!shouldKeep(article.href)) return null;
       return {

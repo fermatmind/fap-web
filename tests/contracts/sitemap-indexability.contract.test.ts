@@ -93,6 +93,46 @@ describe("sitemap indexability contract", () => {
     }
   });
 
+  it("keeps indexable articles out of sitemap until sitemap eligibility is explicitly allowed", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async (input: RequestInfo | URL) => {
+        const url = String(input);
+
+        if (url.includes("/api/v0.5/articles?")) {
+          return jsonResponse({
+            items: [
+              {
+                slug: "indexable-held-article",
+                locale: "en",
+                is_public: true,
+                is_indexable: true,
+                sitemap_eligible: false,
+              },
+              {
+                slug: "indexable-eligible-article",
+                locale: "en",
+                is_public: true,
+                is_indexable: true,
+                sitemap_eligible: true,
+              },
+            ],
+            pagination: { last_page: 1 },
+          });
+        }
+
+        return jsonResponse({ items: [], pagination: { last_page: 1 } });
+      })
+    );
+
+    const config = loadSitemapConfig();
+    const additionalPaths = await config.additionalPaths();
+    const locs = additionalPaths.map((entry: { loc?: string }) => String(entry?.loc ?? ""));
+
+    expect(locs).not.toContain("/en/articles/indexable-held-article");
+    expect(locs).toContain("/en/articles/indexable-eligible-article");
+  });
+
   it("frontend sitemap config includes approved Career job detail routes and excludes query/search-style Career discovery", async () => {
     vi.stubGlobal(
       "fetch",

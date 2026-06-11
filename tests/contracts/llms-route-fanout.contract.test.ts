@@ -64,6 +64,7 @@ describe("llms route fanout budget contract", () => {
       expect(source).toContain("LLMS_ROUTE_ARTICLE_MAX_PAGES");
       expect(source).toContain("maxPages: LLMS_ROUTE_ARTICLE_MAX_PAGES");
       expect(source).toContain("perPage: LLMS_ROUTE_LIMITS.articles");
+      expect(source).toContain("article.isIndexable && article.llmsEligible");
       expect(source).toContain("listBackendSitemapCareerJobPaths({ limit: LLMS_ROUTE_LIMITS.careerJobs, signal })");
       expect(source).toContain("{ timeoutMs: LLMS_ROUTE_CONTENT_PAGE_TIMEOUT_MS }");
     }
