@@ -101,7 +101,9 @@ describe("articles cleanup contract", () => {
     expect(source).toContain("seo?.surface?.canonicalUrl ?? seo?.meta.canonical");
     expect(source).toContain("seoSurface: seo?.surface");
     expect(source).toContain("const noindex = !article.isIndexable || shouldNoindex(seo?.meta.robots);");
-    expect(source).toContain("const alternates = noindex");
+    expect(source).toContain("resolveArticleHreflangGate");
+    expect(source).toContain("const articleHreflangGate = resolveArticleHreflangGate({");
+    expect(source).toContain("const alternates = !articleHreflangGate.canRenderHreflang");
     expect(source).toContain("canonical: passport.canonical");
     expect(source).toContain("languages: passport.languages");
     expect(source).toContain("resolveArticleSchemaGate");
