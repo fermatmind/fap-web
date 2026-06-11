@@ -385,11 +385,12 @@ describe("Article Publishing Runtime Truth acceptance gate", () => {
     expect(source).toContain("seo?.surface?.description || seo?.meta.description || article.excerpt");
     expect(source).toContain("seo?.surface?.canonicalUrl ?? seo?.meta.canonical");
     expect(source).toContain("const noindex = !article.isIndexable || shouldNoindex(seo?.meta.robots);");
-    expect(source).toContain("const allowSearchStructuredData = !noindex;");
-    expect(source).toContain("const cmsArticleSeoJsonLd = allowSearchStructuredData ? normalizeArticleJsonLdAuthor(seo?.jsonld) : null;");
+    expect(source).toContain("const cmsArticleSeoJsonLd = normalizeArticleJsonLdAuthor(seo?.jsonld);");
     expect(source).toContain("resolveArticleJsonLdAuthority({");
-    expect(source).toContain("articleJsonLdAuthority?.canRenderJsonLd");
-    expect(source).toContain("const breadcrumbJsonLd = allowSearchStructuredData");
-    expect(source).toContain("{allowSearchStructuredData && faqItems.length > 0 ? <JsonLd id={`article-faq-${slug}`} data={buildFAQPageJsonLd(faqItems)} /> : null}");
+    expect(source).toContain("resolveArticleSchemaGate({");
+    expect(source).toContain("articleSchemaGate.canRenderArticleJsonLd");
+    expect(source).toContain("articleJsonLdAuthority.canRenderJsonLd");
+    expect(source).toContain("const breadcrumbJsonLd = articleSchemaGate.canRenderBreadcrumbJsonLd");
+    expect(source).toContain("{articleSchemaGate.canRenderFAQPageJsonLd && faqItems.length > 0 ? <JsonLd id={`article-faq-${slug}`} data={buildFAQPageJsonLd(faqItems)} /> : null}");
   });
 });

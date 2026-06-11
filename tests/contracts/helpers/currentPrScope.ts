@@ -194,6 +194,27 @@ const ARTICLE_NOINDEX_SCHEMA_HREFLANG_HOLD_00_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const ARTICLE_SCHEMA_HOLD_DECOUPLE_00_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/articles/[slug]/page.tsx",
+  "docs/seo/article-jsonld-fallback-authority.md",
+  "docs/seo/generated/article-personality-jsonld-projection-gates.v1.json",
+  "docs/seo/generated/discoverability-authority-matrix.v1.json",
+  "generated/seo-ops-article-schema-hold-decouple-pr-00/ARTICLE_SCHEMA_BACKWARD_COMPATIBILITY_REVIEW.md",
+  "generated/seo-ops-article-schema-hold-decouple-pr-00/ARTICLE_SCHEMA_HOLD_DECOUPLE_DESIGN.md",
+  "generated/seo-ops-article-schema-hold-decouple-pr-00/ARTICLE_SCHEMA_HOLD_IMPLEMENTATION_REPORT.md",
+  "generated/seo-ops-article-schema-hold-decouple-pr-00/ARTICLE_SCHEMA_HOLD_TEST_REPORT.md",
+  "generated/seo-ops-article-schema-hold-decouple-pr-00/ARTICLE_SCHEMA_RUNTIME_POLICY.md",
+  "generated/seo-ops-article-schema-hold-decouple-pr-00/NEXT_INDEXABILITY_RELEASE_RERUN_INSTRUCTIONS.md",
+  "lib/seo/articlePersonalityAuthority.ts",
+  "tests/contracts/article-answer-surface.contract.test.ts",
+  "tests/contracts/article-jsonld-fallback-authority.contract.test.ts",
+  "tests/contracts/article-publishing-runtime-truth.contract.test.ts",
+  "tests/contracts/article-personality-jsonld-projection-gates.contract.test.ts",
+  "tests/contracts/articles-cleanup.contract.test.ts",
+  "tests/contracts/fixtures/seo-foundation/article-jsonld-fallback-authority.v1.json",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 const PR_WEB_SEC_01_ALLOWED_FILES = new Set([
   "components/result/eq/EQResultV5.tsx",
   "components/result/eq/utils.ts",
@@ -2433,6 +2454,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/article-noindex-schema-hreflang-hold-00") {
     return ARTICLE_NOINDEX_SCHEMA_HREFLANG_HOLD_00_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/article-schema-hold-decouple-00") {
+    return ARTICLE_SCHEMA_HOLD_DECOUPLE_00_ALLOWED_FILES.has(file);
   }
 
   return CURRENT_BRANCH === "codex/riasec-full-content-pack-12" && RIASEC_PACK12_ALLOWED_FILES.has(file);

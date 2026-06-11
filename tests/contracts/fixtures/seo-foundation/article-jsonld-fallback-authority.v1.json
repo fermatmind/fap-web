@@ -1,7 +1,7 @@
 {
   "version": "seo_foundation.article_jsonld_fallback_authority.v1",
   "scope": "PR-SEOF-02",
-  "runtimeBehaviorChanged": false,
+  "runtimeBehaviorChanged": true,
   "authorityStates": {
     "backend_cms_complete": {
       "description": "CMS Article SEO or backend seo.surface.v1 supplies complete Article JSON-LD aligned with canonical URL, visible content, author policy, dates, and publication state.",
@@ -14,7 +14,7 @@
       "allowedForExpansion": false
     },
     "migration_required": {
-      "description": "Fallback is temporarily allowed for compatibility but blocks Topic Graph, GEO, article SEO expansion, and large content rollout until backend/CMS completeness exists.",
+      "description": "Fallback remains migration_required and is now held behind an explicit schema gate or legacy compatibility allowlist until backend/CMS completeness exists.",
       "finalAuthority": false,
       "allowedForExpansion": false
     }
@@ -34,8 +34,9 @@
       "risk": "P1",
       "currentAuthority": "seo_jsonld_preferred_frontend_article_fallback",
       "requiredFinalAuthority": "backend_cms_complete",
-      "temporaryAllowance": "Compatibility only; do not treat fallback as final authority.",
+      "temporaryAllowance": "Compatibility only behind explicit schema gate or legacy allowlist; do not treat fallback as final authority.",
       "requiredTokens": [
+        "resolveArticleSchemaGate",
         "normalizeArticleJsonLdAuthor(seo?.jsonld)",
         "buildArticleJsonLd({",
         "article.title",
