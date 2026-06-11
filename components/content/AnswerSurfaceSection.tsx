@@ -58,9 +58,19 @@ function isTrackableTestDetailHref(href: string): boolean {
   return Boolean(testSlug) && !["take", "result", "orders", "share", "pay"].includes(childSegment ?? "");
 }
 
+function formatAnswerSurfaceLinkLabel(href: string, label: string, locale: Locale): string {
+  const pathname = pathFromHref(href);
+  if (extractTargetTestSlugFromHref(pathname) === "mbti-personality-test-16-personality-types") {
+    return locale === "zh" ? "MBTI免费测试" : "Free MBTI test";
+  }
+
+  return label;
+}
+
 function renderAnswerSurfaceLink({
   href,
   label,
+  locale,
   className,
   ctaId,
   ctaPriority,
@@ -68,12 +78,14 @@ function renderAnswerSurfaceLink({
 }: {
   href: string;
   label: string;
+  locale: Locale;
   className: string;
   ctaId: string;
   ctaPriority?: SeoCtaPriority;
   seoCtaAttribution?: AnswerSurfaceSeoCtaAttribution;
 }) {
   const targetTestSlug = extractTargetTestSlugFromHref(href);
+  const displayLabel = formatAnswerSurfaceLinkLabel(href, label, locale);
 
   if (seoCtaAttribution && targetTestSlug && isTrackableTestDetailHref(href)) {
     return (
@@ -85,14 +97,14 @@ function renderAnswerSurfaceLink({
         targetTestSlug={targetTestSlug}
         className={className}
       >
-        {label}
+        {displayLabel}
       </SeoTrackedCtaLink>
     );
   }
 
   return (
     <Link href={href} className={className}>
-      {label}
+      {displayLabel}
     </Link>
   );
 }
@@ -201,6 +213,7 @@ export function AnswerSurfaceSection({
                   renderAnswerSurfaceLink({
                     href: block.href,
                     label: block.title || block.href,
+                    locale,
                     className: "m-0 text-sm font-medium text-[var(--fm-text)] hover:text-[var(--fm-accent)]",
                     ctaId: block.key || "answer_surface_scene",
                     ctaPriority: deriveSeoCtaPriorityFromKey(block.key, index),
@@ -225,6 +238,7 @@ export function AnswerSurfaceSection({
                   renderAnswerSurfaceLink({
                     href: block.href,
                     label: block.title || block.href,
+                    locale,
                     className: "text-sm font-medium text-[var(--fm-text)] hover:text-[var(--fm-accent)]",
                     ctaId: block.key || "answer_surface_next_step",
                     ctaPriority: deriveSeoCtaPriorityFromKey(block.key, index),

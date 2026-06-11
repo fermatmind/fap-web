@@ -14,6 +14,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import {
   buildTopicFrontendUrl,
+  formatTopicDisplayCode,
   getTopicBySlug,
   getTopicSeoBySlug,
   normalizeTopicSeoPayload,
@@ -414,8 +415,8 @@ export default async function TopicDetailPage({
             </CardHeader>
             <CardContent className="space-y-3 text-sm text-[var(--fm-text-muted)]">
               <p className="m-0">
-                <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "主题代码" : "Topic code"}:</span>{" "}
-                {topic.topicCode || topic.slug}
+                <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "主题" : "Topic"}:</span>{" "}
+                {formatTopicDisplayCode(topic.topicCode || topic.slug)}
               </p>
               <p className="m-0">
                 <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "语言" : "Locale"}:</span>{" "}

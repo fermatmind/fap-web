@@ -1690,6 +1690,57 @@ const HOMEPAGE_CONTENT_POLISH_BATCH_ALLOWED_FILES = new Set([
   "tests/contracts/site-header-locale-link.contract.test.tsx",
 ]);
 
+const FRONTEND_UI_POLISH_BATCH_02_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/career/guides/[slug]/page.tsx",
+  "app/(localized)/[locale]/career/guides/page.tsx",
+  "app/(localized)/[locale]/career/page.tsx",
+  "app/(localized)/[locale]/personality/[type]/page.tsx",
+  "app/(localized)/[locale]/support/page.tsx",
+  "app/(localized)/[locale]/topics/[slug]/page.tsx",
+  "app/(localized)/[locale]/topics/page.tsx",
+  "components/content/AnswerSurfaceSection.tsx",
+  "components/content/MbtiScenarioDeepDiveSection.tsx",
+  "components/content/MbtiSceneEntrySection.tsx",
+  "components/i18n/LocaleSwitcher.tsx",
+  "components/marketing/HomePageExperience.tsx",
+  "lib/cms/topics.ts",
+  "lib/mbti/intpContentPack.ts",
+  "lib/mbti/mbtiTypeContentPack.ts",
+  "lib/mbti/mbtiTypeContentPacks.generated.ts",
+  "lib/mbti/sceneDeepContent.ts",
+  "tests/contracts/career-guides-cms.contract.test.tsx",
+  "tests/contracts/en-parity-08-visual-overflow.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/homepage-v1-density.contract.test.tsx",
+  "tests/contracts/locale-purity.contract.test.ts",
+  "tests/contracts/mbti-ads-whitelist.contract.test.ts",
+  "tests/contracts/mbti-entry-surface.contract.test.ts",
+  "tests/contracts/personality-type-browse.contract.test.tsx",
+  "tests/contracts/site-header-locale-link.contract.test.tsx",
+  "tests/contracts/topics-cms.contract.test.tsx",
+]);
+
+function isFrontendUiPolishBatch02ScopeActive(): boolean {
+  if (CURRENT_BRANCH === "codex/frontend-ui-polish-batch-02") {
+    return true;
+  }
+
+  try {
+    const output = execFileSync("git", ["diff", "--name-only", "origin/main...HEAD"], {
+      cwd: process.cwd(),
+      encoding: "utf8",
+    });
+    const files = output
+      .split("\n")
+      .map((line) => line.trim())
+      .filter(Boolean);
+
+    return files.length > 0 && files.every((file) => FRONTEND_UI_POLISH_BATCH_02_ALLOWED_FILES.has(file));
+  } catch {
+    return false;
+  }
+}
+
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (
     RIASEC_V2_POST_PUBLISH_SMOKE_02_ALLOWED_FILES.has(file) ||
@@ -1708,6 +1759,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/homepage-content-polish-batch") {
     return HOMEPAGE_CONTENT_POLISH_BATCH_ALLOWED_FILES.has(file);
+  }
+
+  if (isFrontendUiPolishBatch02ScopeActive()) {
+    return FRONTEND_UI_POLISH_BATCH_02_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/security-codeql-87-file-access") {

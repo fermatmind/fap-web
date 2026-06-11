@@ -177,8 +177,8 @@ describe("mbti ads whitelist contract", () => {
 
     expect(personalityIndex).toContain('entrySurface: "mbti_personality_index"');
     expect(personalityIndex).toContain("sourcePath: canonicalPath");
-    expect(topicIndex).toContain('entrySurface: "mbti_topic_index"');
-    expect(topicIndex).toContain("sourcePath: canonicalPath");
+    expect(topicIndex).not.toContain('entrySurface: "mbti_topic_index"');
+    expect(topicIndex).not.toContain("sourcePath: canonicalPath");
     expect(topicDetail).toContain('entrySurface: "mbti_topic_detail"');
     expect(topicDetail).toContain("sourcePath: canonicalPath");
   });

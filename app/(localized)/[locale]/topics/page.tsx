@@ -1,16 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
-import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
-import { listTopics } from "@/lib/cms/topics";
+import { formatTopicDisplayCode, listTopics } from "@/lib/cms/topics";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
-import { DEFAULT_MBTI_FORM_CODE } from "@/lib/mbti/forms";
-import { buildMbtiEntryHref, buildMbtiEntryTrackingPayload } from "@/lib/mbti/entryTracking";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
@@ -161,22 +158,6 @@ export default async function TopicsPage({
     { name: locale === "zh" ? "首页" : "Home", path: locale === "zh" ? "/zh" : "/en" },
     { name: locale === "zh" ? "主题" : "Topics", path: canonicalPath },
   ]);
-  const mbtiIndexCtaTrackingProps = buildMbtiEntryTrackingPayload({
-    locale,
-    formCode: DEFAULT_MBTI_FORM_CODE,
-    entrySurface: "mbti_topic_index",
-    sourcePageType: "topic_index",
-    targetAction: "start_mbti_test_primary",
-    sourcePath: canonicalPath,
-  });
-  const mbtiIndexPrimaryCtaHref = buildMbtiEntryHref({
-    locale,
-    formCode: DEFAULT_MBTI_FORM_CODE,
-    entrySurface: "mbti_topic_index",
-    sourcePageType: "topic_index",
-    targetAction: "start_mbti_test_primary",
-    sourcePath: canonicalPath,
-  });
   const emptyTitle = locale === "zh" ? "暂无已发布主题" : "No published topics yet";
   const emptyDescription =
     locale === "zh"
@@ -194,35 +175,6 @@ export default async function TopicsPage({
           { label: locale === "zh" ? "主题" : "Topics" },
         ]}
       />
-
-      <section className="border-b border-[var(--fm-border)] pb-10">
-        <div className="max-w-3xl space-y-4">
-          <p className="m-0 text-sm font-semibold text-[var(--fm-accent)]">
-            {locale === "zh" ? "主题中心" : "Topics"}
-          </p>
-          <h1 className="m-0 font-serif text-4xl font-semibold leading-tight text-[var(--fm-text)] md:text-5xl">
-            {locale === "zh" ? "按内容类型浏览文章" : "Browse by content type"}
-          </h1>
-          <p className="m-0 text-base leading-8 text-[var(--fm-text-muted)]">
-            {locale === "zh"
-              ? "从测试文章分类、人格文章和职业文章进入对应内容，不再把主题页做成单一测评入口。"
-              : "Start from test categories, personality articles, or career articles instead of a single assessment entry."}
-          </p>
-        </div>
-      </section>
-
-      <section className="topics-index-scene-entry" id="topics-index-scene-entry">
-        <div className="topics-index-landing-cta" data-testid="mbti-topics-index-entry-cta-group">
-          <TrackedEntryCtaLink
-            href={mbtiIndexPrimaryCtaHref}
-            prefetch
-            data-testid="mbti-topics-index-primary-cta"
-            eventProperties={mbtiIndexCtaTrackingProps}
-          >
-            {locale === "zh" ? "开始 MBTI 测试" : "Start MBTI test"}
-          </TrackedEntryCtaLink>
-        </div>
-      </section>
 
       <section className="grid gap-6 lg:grid-cols-3" aria-label={locale === "zh" ? "主题分类入口" : "Topic category entry points"}>
         {navigationGroups.map((group) => (
@@ -253,9 +205,6 @@ export default async function TopicsPage({
             <h2 className="m-0 text-2xl font-semibold text-[var(--fm-text)]">
               {locale === "zh" ? "已发布主题" : "Published topics"}
             </h2>
-            <p className="m-0 mt-1 text-sm text-[var(--fm-text-muted)]">
-              {locale === "zh" ? "来自 CMS 的主题页面会显示在这里。" : "CMS-backed topic pages appear here."}
-            </p>
           </div>
         </div>
 
@@ -268,9 +217,7 @@ export default async function TopicsPage({
                   <p className="m-0 text-sm text-[var(--fm-text-muted)]">{topic.excerpt || topic.subtitle || "-"}</p>
                 </CardHeader>
                 <CardContent className="space-y-3 text-sm text-[var(--fm-text-muted)]">
-                  <p className="m-0">
-                    {locale === "zh" ? "主题代码" : "Topic code"}: {topic.topicCode || topic.slug}
-                  </p>
+                  <p className="m-0">{formatTopicDisplayCode(topic.topicCode || topic.slug)}</p>
                   <Link
                     href={withLocale(`/topics/${topic.slug}`)}
                     className="text-sm font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"

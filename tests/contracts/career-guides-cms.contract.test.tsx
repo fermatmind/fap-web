@@ -328,10 +328,9 @@ describe("career guides frontend boundary contract", () => {
     expect(detailSource).toContain("getCareerGuideSeoFromCmsBySlug");
     expect(detailSource).toContain("normalizeCareerGuideSeoPayload");
     expect(detailSource).toContain("seoSurface: normalizedSeo.surface");
-    expect(detailSource).toContain("guide.landingSurface");
     expect(detailSource).toContain("guide.answerSurface");
     expect(detailSource).toContain("career-guide-answer-surface");
-    expect(detailSource).toContain("career-guide-landing-cta");
+    expect(detailSource).not.toContain("career-guide-landing-cta");
     expect(detailSource).toContain("renderSimpleMarkdown");
     expect(detailSource).toContain("SanitizedCmsHtml");
     expect(detailSource).not.toContain("getCareerGuideBySlug");

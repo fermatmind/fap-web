@@ -118,6 +118,10 @@ function normalizePublicPersonalityVariantSlug(value: string): string | null {
   return PUBLIC_PERSONALITY_VARIANT_RE.test(normalized) ? normalized : null;
 }
 
+function formatMbtiTestCtaLabel(locale: Locale): string {
+  return locale === "zh" ? "MBTI免费测试" : "Free MBTI test";
+}
+
 function buildFallbackProjection(type: string, locale: Locale): PersonalityProjection {
   const displayType = type.toUpperCase();
   const summary =
@@ -513,7 +517,7 @@ export default async function PersonalityDetailPage({
               eventProperties={mbtiPrimaryCtaTrackingProps}
               className={buttonVariants({ variant: "outline", size: "sm" })}
             >
-              {locale === "zh" ? "重新做 MBTI" : "Retake MBTI"}
+              {formatMbtiTestCtaLabel(locale)}
             </TrackedEntryCtaLink>
           </div>
         </div>
@@ -707,8 +711,8 @@ export default async function PersonalityDetailPage({
             <CardContent className="text-sm text-[var(--fm-text-muted)]">
               <p className="m-0">
                 {locale === "zh"
-                  ? "当前语言下还没有可展示的正文内容，你可以先返回 16 型浏览或重新做 MBTI。"
-                  : "No body content is available for this locale yet. You can return to the 16-type browser or retake MBTI."}
+                  ? "当前语言下还没有可展示的正文内容，你可以先返回 16 型浏览，或通过 MBTI免费测试确认自己的类型。"
+                  : "No body content is available for this locale yet. You can return to the 16-type browser or use the Free MBTI test to confirm your type."}
               </p>
             </CardContent>
           </Card>

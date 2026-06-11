@@ -92,7 +92,6 @@ export function LocaleSwitcher() {
                   className="fm-header-dropdown-link flex cursor-default items-center justify-between bg-[var(--fm-bg-soft)] text-[var(--fm-text-main)]"
                 >
                   <span>{option.label}</span>
-                  <span className="text-xs font-semibold text-[var(--fm-text-secondary)]">{option.code}</span>
                 </span>
               );
             }
@@ -110,7 +109,6 @@ export function LocaleSwitcher() {
                 }}
               >
                 <span>{option.label}</span>
-                <span className="text-xs font-semibold text-[var(--fm-text-secondary)]">{option.code}</span>
               </Link>
             );
           })}

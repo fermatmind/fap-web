@@ -22,7 +22,8 @@ describe("locale purity contract", () => {
     expect(indexSource).toContain('isZh ? "人格文章" : "Personality articles"');
     expect(indexSource).toContain('isZh ? "职业文章" : "Career articles"');
     expect(detailSource).toContain('locale === "zh" ? "主题摘要" : "Topic summary"');
-    expect(detailSource).toContain('locale === "zh" ? "主题代码" : "Topic code"');
+    expect(detailSource).toContain('locale === "zh" ? "主题" : "Topic"');
+    expect(detailSource).toContain("formatTopicDisplayCode(topic.topicCode || topic.slug)");
     expect(detailSource).toContain('locale === "zh" ? "索引状态" : "Indexing"');
   });
 });

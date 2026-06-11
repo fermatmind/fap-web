@@ -78,6 +78,11 @@ export default async function CareerCenterPage({
     { name: locale === "zh" ? "首页" : "Home", path: locale === "zh" ? "/zh" : "/en" },
     { name: locale === "zh" ? "职业" : "Career", path: canonicalPath },
   ]);
+  const jobsPathwayTitle = content.pathways[0]
+    ? locale === "zh"
+      ? "浏览全部职业"
+      : "Browse all occupations"
+    : undefined;
 
   return (
     <main className="min-h-screen bg-slate-50">
@@ -115,7 +120,7 @@ export default async function CareerCenterPage({
           <article className="flex flex-col rounded-3xl border border-slate-200 bg-white p-5 shadow-sm md:p-6" data-testid="career-pathway-jobs">
             <p className="m-0 text-xs font-medium uppercase tracking-[0.18em] text-slate-400">{content.pathways[0]?.eyebrow}</p>
             <h3 className="m-0 mt-3 text-xl font-semibold tracking-tight text-slate-950">
-              {content.pathways[0]?.title}
+              {jobsPathwayTitle}
             </h3>
             <p className="m-0 mt-3 text-sm leading-6 text-slate-600">
               {content.pathways[0]?.description}

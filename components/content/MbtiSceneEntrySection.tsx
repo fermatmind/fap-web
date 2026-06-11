@@ -21,6 +21,16 @@ type MbtiSceneEntrySectionProps = {
   testId?: string;
 };
 
+function formatMbtiSceneEntryLabel(href: string, locale: Locale): string {
+  return href.includes("/tests/mbti-personality-test-16-personality-types")
+    ? locale === "zh"
+      ? "MBTI免费测试"
+      : "Free MBTI test"
+    : locale === "zh"
+      ? "查看入口"
+      : "Open entry";
+}
+
 export function MbtiSceneEntrySection({
   locale,
   sourcePageType,
@@ -74,7 +84,7 @@ export function MbtiSceneEntrySection({
                 targetAction: `open_scene_${block.key}`,
               })}
             >
-              {locale === "zh" ? "查看入口" : "Open entry"}
+              {formatMbtiSceneEntryLabel(block.href, locale)}
             </TrackedEntryCtaLink>
           </article>
         ))}

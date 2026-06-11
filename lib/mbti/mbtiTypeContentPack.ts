@@ -163,6 +163,10 @@ function localizeLabel(locale: Locale, zh: string, en: string): string {
   return locale === "zh" ? zh : en;
 }
 
+function localizeMbtiFreeTestLabel(locale: Locale): string {
+  return localizeLabel(locale, "MBTI免费测试", "Free MBTI test");
+}
+
 function localizeLink(locale: Locale, key: string, zh: string, en: string, href: string): RenderedLink {
   return {
     key,
@@ -201,8 +205,8 @@ function buildSupportLinks(typeCode: string, variant: MbtiVariant, locale: Local
     testEntryLink: localizeLink(
       locale,
       "mbti-test-landing",
-      "开始 MBTI 深度测试",
-      "Start MBTI deep test",
+      "MBTI免费测试",
+      "Free MBTI test",
       localizedPath("/tests/mbti-personality-test-16-personality-types", locale)
     ),
     linkedGuides: buildSharedGuideLinks(locale),
@@ -251,7 +255,7 @@ function buildSceneNextLinks(
 function buildHeroCtas(typeCode: string, variant: MbtiVariant, locale: Locale): { primary: string; secondary1: string; secondary2: string } {
   const variantLabel = `${typeCode}-${variant.toUpperCase()}`;
   return {
-    primary: localizeLabel(locale, "开始 MBTI 深度测试", "Start MBTI deep test"),
+    primary: localizeMbtiFreeTestLabel(locale),
     secondary1: localizeLabel(
       locale,
       `查看 ${variantLabel} 职业建议`,
@@ -263,7 +267,7 @@ function buildHeroCtas(typeCode: string, variant: MbtiVariant, locale: Locale): 
 
 function buildCommonHeroCtas(typeCode: string, locale: Locale): { primary: string; secondary1: string; secondary2: string } {
   return {
-    primary: localizeLabel(locale, "开始 MBTI 深度测试", "Start MBTI deep test"),
+    primary: localizeMbtiFreeTestLabel(locale),
     secondary1: localizeLabel(locale, `查看 ${typeCode} 职业建议`, `View ${typeCode} career recommendations`),
     secondary2: localizeLabel(locale, `比较 ${typeCode}-A 与 ${typeCode}-T`, `Compare ${typeCode}-A and ${typeCode}-T`),
   };
@@ -377,7 +381,7 @@ function renderRecommendationCopy(
     variantRisk: `${variant === "a" ? localizeLabel(locale, "A 型风险：", "A-variant risk:") : localizeLabel(locale, "T 型风险：", "T-variant risk:")} ${variantRisk}`,
     nextStep: source.nextStep,
     ctaGroup: {
-      primary: localizeLabel(locale, "开始 MBTI 深度测试", "Start MBTI deep test"),
+      primary: localizeMbtiFreeTestLabel(locale),
       secondary1: localizeLabel(locale, "查看职业推荐", "View career recommendations"),
       secondary2: localizeLabel(locale, "进入 MBTI 主题中心", "Back to MBTI topic"),
     },
@@ -398,7 +402,7 @@ function adaptLegacyIntpPersonalityContent(
     nextStepHint: legacy.heroNextStepHint,
     variantDeltaA: legacy.variantDelta,
     variantDeltaT: legacy.variantDelta,
-    primaryCta: localizeLabel(locale, "开始 MBTI 深度测试", "Start MBTI deep test"),
+    primaryCta: localizeMbtiFreeTestLabel(locale),
     secondaryCta1: localizeLabel(locale, "查看 INTP 职业建议", "View INTP career recommendations"),
     secondaryCta2: localizeLabel(locale, "比较 INTP-A 与 INTP-T", "Compare INTP-A and INTP-T"),
   };
@@ -428,7 +432,7 @@ function adaptLegacyIntpPersonalityContent(
       teamCollaboration: toScene(legacy.teamCollaboration, "team"),
       growthPlanning: toScene(legacy.growthPlanning, "growth"),
       ctaGroup: {
-        primary: localizeLabel(locale, "开始 MBTI 深度测试", "Start MBTI deep test"),
+        primary: localizeMbtiFreeTestLabel(locale),
         secondary1: localizeLabel(locale, "查看 INTP 职业建议", "View INTP career recommendations"),
         secondary2: localizeLabel(locale, "比较 INTP-A 与 INTP-T", "Compare INTP-A and INTP-T"),
       },
@@ -439,7 +443,7 @@ function adaptLegacyIntpPersonalityContent(
       teamCollaboration: toScene(legacy.teamCollaboration, "team"),
       growthPlanning: toScene(legacy.growthPlanning, "growth"),
       ctaGroup: {
-        primary: localizeLabel(locale, "开始 MBTI 深度测试", "Start MBTI deep test"),
+        primary: localizeMbtiFreeTestLabel(locale),
         secondary1: localizeLabel(locale, `查看 INTP-${variant.toUpperCase()} 职业建议`, `View INTP-${variant.toUpperCase()} career recommendations`),
         secondary2: localizeLabel(locale, "进入 MBTI 主题中心", "Back to MBTI topic"),
       },
@@ -478,7 +482,7 @@ function adaptLegacyIntpRecommendationContent(
       "Read career deep guidance; re-validate results; review collaboration / growth guidance; start the 144-question deep version."
     ),
     ctaGroup: {
-      primary: localizeLabel(locale, "开始 MBTI 深度测试", "Start MBTI deep test"),
+      primary: localizeMbtiFreeTestLabel(locale),
       secondary1: localizeLabel(locale, "查看职业推荐", "View career recommendations"),
       secondary2: localizeLabel(locale, "进入 MBTI 主题中心", "Back to MBTI topic"),
     },
