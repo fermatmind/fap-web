@@ -38,7 +38,14 @@ describe("personality type browse contract", () => {
 
   it("keeps personality detail and MBTI result pages oriented to final content and next steps", () => {
     expect(detailSource).toContain('data-testid="personality-detail-next-steps"');
+    expect(detailSource).toContain('data-testid="personality-detail-intent-links"');
+    expect(detailSource).toContain("formatPersonalityDetailHeading(detail, locale)");
+    expect(detailSource).toContain("start_mbti_test_intent_chip");
+    expect(detailSource).toContain("特点");
+    expect(detailSource).toContain("爱情");
     expect(detailSource).toContain("看职业方向");
+    expect(detailSource).toContain("适合工作");
+    expect(detailSource).toContain("Take the test");
     expect(detailSource).toContain("返回 16 型浏览");
     expect(detailSource).toContain("MBTI免费测试");
     expect(detailSource).toContain("人格解读");
