@@ -756,16 +756,17 @@ test("mbti career recommendation route exposes answer-first, table, faq, and pub
   expect(html).toContain("/en/career/guides/from-mbti-to-job-fit");
 });
 
-test("INTJ personality pages render the generic content pack and keep source entry anchors", async ({ request }) => {
+test("INTJ personality pages render CMS projection sections and keep source entry anchors", async ({ request }) => {
   const response = await request.get("/en/personality/intj-a");
   expect(response.status()).toBe(200);
   const html = await response.text();
 
   expect(html).toContain('id="answer-first"');
-  expect(html).toContain('data-testid="mbti-personality-content-pack"');
-  expect(html).toContain('id="mbti-personality-scene-career"');
-  expect(html).toContain('id="mbti-personality-scene-team"');
-  expect(html).toContain('id="mbti-personality-scene-growth"');
+  expect(html).toContain('data-testid="personality-detail-section-map"');
+  expect(html).toContain('id="letters_intro"');
+  expect(html).toContain('id="trait_overview"');
+  expect(html).toContain('id="career.preferred_roles"');
+  expect(html).not.toContain('data-testid="mbti-personality-content-pack"');
 });
 
 test("INTP recommendation pages render interpretation block instead of list-only view", async ({ request }) => {

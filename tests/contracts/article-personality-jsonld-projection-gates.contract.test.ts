@@ -257,6 +257,9 @@ describe("Article / Personality JSON-LD and projection gates", () => {
     expect(doc).toContain("no public JSON-LD");
     expect(doc).toContain("no career direction CTA");
     expect(personalityPage).toContain("careerDirectionHref ? (");
-    expect(personalityPage).toContain("fallbackProjectionGate.canRenderScenarioDeepDive");
+    expect(personalityPage).toContain("renderProjectionSections(detail.projection.sections, locale)");
+    expect(personalityPage).toContain('data-testid="personality-detail-section-map"');
+    expect(personalityPage).toContain('testId="personality-detail-scene-entry"');
+    expect(personalityPage).not.toContain('data-testid="mbti-personality-content-pack"');
   });
 });

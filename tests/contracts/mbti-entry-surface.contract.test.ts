@@ -193,8 +193,11 @@ describe("mbti entry surface contract", () => {
     expect(source).toContain('entrySurface: "mbti_personality_detail"');
     expect(source).toContain('data-testid="mbti-personality-entry-cta-group"');
     expect(source).toContain('data-testid="mbti-personality-primary-cta"');
-    expect(source).toContain('data-testid="mbti-personality-content-pack"');
-    expect(source).toContain('mbti-personality-scene-career');
+    expect(source).toContain('data-testid="personality-detail-section-map"');
+    expect(source).toContain("buildPersonalitySectionShortcuts(locale, detail.projection.sections, mbtiIntentCtaHref)");
+    expect(source).not.toContain('data-testid="mbti-personality-content-pack"');
+    expect(source).not.toContain("getMbtiPersonalityContent");
+    expect(source).not.toContain("buildMbtiPersonalityScenarioDeepModules");
     expect(source).toContain('targetAction: "start_mbti_test_primary"');
     expect(source).toContain('TrackedEntryCtaLink');
     expect(source).toContain('buildMbtiEntryHref({');

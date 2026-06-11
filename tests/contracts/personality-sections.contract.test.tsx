@@ -58,7 +58,7 @@ describe("personality projection section renderer contract", () => {
     );
 
     expect(screen.getByText("How the four letters create the public profile.")).toBeInTheDocument();
-    expect(screen.getByText("字母拆解")).toBeInTheDocument();
+    expect(screen.getByText("这个类型是什么")).toBeInTheDocument();
     expect(screen.getByText("Introversion")).toBeInTheDocument();
     expect(screen.getByText("Tracks abstractions and future patterns.")).toBeInTheDocument();
   });
@@ -106,7 +106,7 @@ describe("personality projection section renderer contract", () => {
       </div>
     );
 
-    expect(screen.getByText("核心总览")).toBeInTheDocument();
+    expect(screen.getByText("这个类型是什么")).toBeInTheDocument();
     expect(screen.getByText("能量消耗")).toBeInTheDocument();
     expect(screen.queryByText("Overview")).not.toBeInTheDocument();
     expect(screen.queryByText("Growth drainers")).not.toBeInTheDocument();
@@ -142,7 +142,7 @@ describe("personality projection section renderer contract", () => {
       </div>
     );
 
-    expect(screen.getByText("维度总览")).toBeInTheDocument();
+    expect(screen.getByText("常见特征")).toBeInTheDocument();
     expect(screen.queryByText("Five canonical MBTI dimensions.")).not.toBeInTheDocument();
     expect(screen.getByText("Information")).toBeInTheDocument();
     expect(screen.queryByText("Sensing / Intuition")).not.toBeInTheDocument();
@@ -177,7 +177,7 @@ describe("personality projection section renderer contract", () => {
       </div>
     );
 
-    expect(screen.getByText("偏好岗位簇")).toBeInTheDocument();
+    expect(screen.getByText("适合工作")).toBeInTheDocument();
     expect(screen.getByText("Roles that reward long-cycle strategy.")).toBeInTheDocument();
     expect(screen.getByText("Strategic systems roles")).toBeInTheDocument();
     expect(screen.getByText("Product strategist")).toBeInTheDocument();
@@ -211,5 +211,32 @@ describe("personality projection section renderer contract", () => {
     expect(screen.getByText("Preview: recognition, purpose, and intellectual momentum.")).toBeInTheDocument();
     expect(screen.queryByText("Premium section preview")).not.toBeInTheDocument();
     expect(screen.queryByText("Unlock the full section in the premium experience.")).not.toBeInTheDocument();
+  });
+
+  it("maps the backend MBTI variant section skeleton to search-intent headings", () => {
+    render(
+      <div>
+        {renderProjectionSections(
+          [
+            section({ key: "letters_intro", title: "Letter introduction", render: "letters_intro", bodyMd: "Letters." }),
+            section({ key: "trait_overview", title: "Trait overview", render: "rich_text", bodyMd: "Traits." }),
+            section({ key: "relationships.summary", title: "Relationships summary", bodyMd: "Relationships." }),
+            section({ key: "career.summary", title: "Career summary", bodyMd: "Career." }),
+            section({ key: "career.preferred_roles", title: "Preferred roles", bodyMd: "Roles." }),
+            section({ key: "growth.strengths", title: "Growth strengths", bodyMd: "Strengths." }),
+            section({ key: "growth.weaknesses", title: "Growth weaknesses", bodyMd: "Weaknesses." }),
+          ],
+          "zh"
+        )}
+      </div>
+    );
+
+    expect(screen.getByText("这个类型是什么")).toBeInTheDocument();
+    expect(screen.getByText("常见特征")).toBeInTheDocument();
+    expect(screen.getByText("爱情 / 关系")).toBeInTheDocument();
+    expect(screen.getByText("职业倾向")).toBeInTheDocument();
+    expect(screen.getByText("适合工作")).toBeInTheDocument();
+    expect(screen.getByText("优势")).toBeInTheDocument();
+    expect(screen.getByText("弱点")).toBeInTheDocument();
   });
 });
