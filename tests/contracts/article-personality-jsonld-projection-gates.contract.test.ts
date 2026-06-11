@@ -3,6 +3,7 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 import {
   resolveArticleJsonLdAuthority,
+  resolveArticleSchemaGate,
   resolvePersonalityFallbackProjectionGate,
 } from "@/lib/seo/articlePersonalityAuthority";
 
@@ -116,6 +117,57 @@ describe("Article / Personality JSON-LD and projection gates", () => {
       canRenderJsonLd: false,
       classification: "blocked",
       blocksExpansion: true,
+    });
+  });
+
+  it("decouples article schema output from indexability until an explicit schema gate allows it", () => {
+    const noindexGate = resolveArticleSchemaGate({
+      noindex: true,
+      cmsArticleSeoJsonLd: { "@type": "Article" },
+      article: { slug: "what-is-riasec-holland-code-career-interest-test", seoMeta: null },
+    });
+    const indexableDefaultHold = resolveArticleSchemaGate({
+      noindex: false,
+      cmsArticleSeoJsonLd: { "@type": "Article" },
+      article: { slug: "why-mbti-and-holland-code-results-dont-match", seoMeta: null },
+    });
+    const explicitCmsGate = resolveArticleSchemaGate({
+      noindex: false,
+      cmsArticleSeoJsonLd: null,
+      article: {
+        slug: "future-schema-approved-article",
+        seoMeta: { schema_json: { article_schema_gate_v1: { enabled: true } } },
+      },
+    });
+    const legacyCompatibilityGate = resolveArticleSchemaGate({
+      noindex: false,
+      cmsArticleSeoJsonLd: { "@type": "Article" },
+      article: { slug: "what-is-riasec-holland-code-career-interest-test", seoMeta: null },
+    });
+
+    expect(noindexGate).toMatchObject({
+      source: "noindex_hold",
+      canRenderArticleJsonLd: false,
+      canRenderBreadcrumbJsonLd: false,
+      canRenderFAQPageJsonLd: false,
+    });
+    expect(indexableDefaultHold).toMatchObject({
+      source: "schema_hold_default",
+      canRenderArticleJsonLd: false,
+      canRenderBreadcrumbJsonLd: false,
+      canRenderFAQPageJsonLd: false,
+    });
+    expect(explicitCmsGate).toMatchObject({
+      source: "explicit_cms_schema_gate",
+      canRenderArticleJsonLd: true,
+      canRenderBreadcrumbJsonLd: true,
+      canRenderFAQPageJsonLd: true,
+    });
+    expect(legacyCompatibilityGate).toMatchObject({
+      source: "legacy_schema_compatibility_allowlist",
+      canRenderArticleJsonLd: true,
+      canRenderBreadcrumbJsonLd: true,
+      canRenderFAQPageJsonLd: true,
     });
   });
 

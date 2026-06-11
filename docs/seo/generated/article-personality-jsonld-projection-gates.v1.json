@@ -25,7 +25,7 @@
       "priority": "P1",
       "currentOwner": "CMS article SEO JSON-LD preferred; visible-content compatibility fallback remains in frontend",
       "desiredOwner": "CMS article SEO JSON-LD or backend seo.surface.v1",
-      "runtimeGuard": "resolveArticleJsonLdAuthority",
+      "runtimeGuard": "resolveArticleJsonLdAuthority + resolveArticleSchemaGate",
       "authorityRule": "Article JSON-LD fallback may render only from visible article content and remains a compatibility wrapper that blocks article SEO/GEO expansion.",
       "sourceFiles": [
         {
@@ -33,7 +33,7 @@
           "requiredTokens": [
             "resolveArticleJsonLdAuthority({",
             "cmsArticleSeoJsonLd",
-            "articleJsonLdAuthority?.canRenderJsonLd",
+            "articleSchemaGate.canRenderArticleJsonLd",
             "buildArticleJsonLd({"
           ]
         },
@@ -41,6 +41,7 @@
           "path": "lib/seo/articlePersonalityAuthority.ts",
           "requiredTokens": [
             "resolveArticleJsonLdAuthority",
+            "resolveArticleSchemaGate",
             "visible_content_compatibility_fallback",
             "blocksExpansion: true"
           ]

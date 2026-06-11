@@ -3,8 +3,9 @@
 Scope: PR-SEOF-02, SEO Foundation Authority Convergence.
 
 This is a governance gate for Article structured data fallback authority. It
-does not change runtime article HTML, metadata, JSON-LD rendering, sitemap
-output, llms output, public URLs, or CMS content.
+now records the schema-hold decoupling change: Article schema output now
+requires an explicit schema gate or a documented legacy compatibility allowlist.
+It does not change sitemap output, llms output, public URLs, or CMS content.
 
 ## Current State
 
@@ -12,8 +13,9 @@ Article detail currently prefers CMS Article SEO JSON-LD:
 
 - `seo?.jsonld`
 
-When that payload is absent, the frontend deterministically builds Article
-JSON-LD from visible CMS article fields:
+When that payload is absent, the frontend no longer emits Article JSON-LD by
+default. The visible-content fallback remains in source only behind an explicit
+schema gate or a documented legacy compatibility allowlist:
 
 - article title
 - article excerpt
@@ -21,16 +23,17 @@ JSON-LD from visible CMS article fields:
 - canonical article path
 - fixed author policy
 
-That fallback is acceptable only as temporary compatibility. It is not final SEO
-authority.
+That fallback is acceptable only as temporary compatibility when the schema gate
+allows it. It is not final SEO authority.
 
 ## Authority States
 
 - `backend_cms_complete`: CMS Article SEO or backend `seo.surface.v1` provides
   complete Article JSON-LD. This is the required final authority before article
   SEO/GEO expansion.
-- `frontend_fallback`: frontend builds Article JSON-LD from visible article
-  fields. This remains temporary compatibility.
+- `frontend_fallback`: frontend can build Article JSON-LD from visible article
+  fields only after an explicit schema gate or documented legacy compatibility
+  allowlist allows output. This remains temporary compatibility.
 - `migration_required`: fallback exists and blocks article SEO/GEO expansion
   until backend/CMS completeness is available.
 
@@ -48,8 +51,8 @@ article rollout, the platform must prove:
 
 ## Non-Goals
 
-- No fallback removal in this PR.
-- No Article schema output changes in this PR.
+- No full fallback removal in this PR.
+- Article schema output now requires an explicit schema gate.
 - No article metadata changes in this PR.
 - No article content changes in this PR.
 - No Topic Graph rollout in this PR.

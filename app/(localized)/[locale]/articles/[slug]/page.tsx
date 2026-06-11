@@ -33,7 +33,7 @@ import {
   extractPublicTestDetailPathFromHref,
   extractTargetTestSlugFromHref,
 } from "@/lib/tracking/seoCtaAttribution";
-import { resolveArticleJsonLdAuthority } from "@/lib/seo/articlePersonalityAuthority";
+import { resolveArticleJsonLdAuthority, resolveArticleSchemaGate } from "@/lib/seo/articlePersonalityAuthority";
 import { buildI18nSeoPassport } from "@/lib/seo/i18nPassport";
 import { buildPageMetadata, normalizeTwitterImages, resolveTwitterCard } from "@/lib/seo/metadata";
 
@@ -263,16 +263,18 @@ export default async function ArticleDetailPage({
 
   const canonicalPath = buildCanonicalPath(article.slug, locale);
   const noindex = !article.isIndexable || shouldNoindex(seo?.meta.robots);
-  const allowSearchStructuredData = !noindex;
-  const cmsArticleSeoJsonLd = allowSearchStructuredData ? normalizeArticleJsonLdAuthor(seo?.jsonld) : null;
-  const articleJsonLdAuthority = allowSearchStructuredData
-    ? resolveArticleJsonLdAuthority({
-        cmsArticleSeoJsonLd,
-        article,
-      })
-    : null;
-  const articleJsonLd = cmsArticleSeoJsonLd || (
-    articleJsonLdAuthority?.canRenderJsonLd
+  const cmsArticleSeoJsonLd = normalizeArticleJsonLdAuthor(seo?.jsonld);
+  const articleJsonLdAuthority = resolveArticleJsonLdAuthority({
+    cmsArticleSeoJsonLd,
+    article,
+  });
+  const articleSchemaGate = resolveArticleSchemaGate({
+    noindex,
+    cmsArticleSeoJsonLd,
+    article,
+  });
+  const articleJsonLd = articleSchemaGate.canRenderArticleJsonLd ? (cmsArticleSeoJsonLd || (
+    articleJsonLdAuthority.canRenderJsonLd
       ? buildArticleJsonLd({
         path: canonicalPath,
         title: article.title,
@@ -283,9 +285,9 @@ export default async function ArticleDetailPage({
         authorName: ARTICLE_AUTHOR_NAME,
       })
       : null
-  );
+  )) : null;
 
-  const breadcrumbJsonLd = allowSearchStructuredData
+  const breadcrumbJsonLd = articleSchemaGate.canRenderBreadcrumbJsonLd
     ? buildBreadcrumbJsonLd([
         { name: locale === "zh" ? "首页" : "Home", path: localizedPath("/", locale) },
         { name: locale === "zh" ? "文章" : "Articles", path: localizedPath("/articles", locale) },
@@ -325,7 +327,7 @@ export default async function ArticleDetailPage({
     <Container as="main" className="space-y-8 py-10">
       {articleJsonLd ? <JsonLd id={`article-jsonld-${slug}`} data={articleJsonLd} /> : null}
       {breadcrumbJsonLd ? <JsonLd id={`article-breadcrumb-${slug}`} data={breadcrumbJsonLd} /> : null}
-      {allowSearchStructuredData && faqItems.length > 0 ? <JsonLd id={`article-faq-${slug}`} data={buildFAQPageJsonLd(faqItems)} /> : null}
+      {articleSchemaGate.canRenderFAQPageJsonLd && faqItems.length > 0 ? <JsonLd id={`article-faq-${slug}`} data={buildFAQPageJsonLd(faqItems)} /> : null}
 
       <Breadcrumb
         items={[

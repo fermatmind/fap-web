@@ -58,7 +58,7 @@ describe("Article JSON-LD fallback authority contract", () => {
 
     expect(fixture.version).toBe("seo_foundation.article_jsonld_fallback_authority.v1");
     expect(fixture.scope).toBe("PR-SEOF-02");
-    expect(fixture.runtimeBehaviorChanged).toBe(false);
+    expect(fixture.runtimeBehaviorChanged).toBe(true);
     expect(fixture.authorityStates.backend_cms_complete).toMatchObject({
       finalAuthority: true,
       allowedForExpansion: true,
@@ -121,7 +121,7 @@ describe("Article JSON-LD fallback authority contract", () => {
     const fixture = readFixture();
     const doc = fs.readFileSync(DOC_PATH, "utf8");
 
-    expect(doc).toContain("No Article schema output changes");
+    expect(doc).toContain("Article schema output now requires an explicit schema gate");
     expect(doc).toContain("backend/CMS complete");
     expect(doc).toContain("migration_required");
     expect(doc).toContain("Topic Graph");

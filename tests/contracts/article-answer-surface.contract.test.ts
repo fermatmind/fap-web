@@ -262,24 +262,59 @@ describe("article answer surface rendering", () => {
     expect(html).not.toContain("Next steps");
   });
 
-  it("emits FAQPage JSON-LD only from the visibly rendered answer surface FAQ", async () => {
+  it("holds FAQPage JSON-LD by default even when the answer surface FAQ is visible", async () => {
     const html = await renderArticleDetail(makeArticle());
 
-    expect(html).toContain('id="article-faq-answer-surface-article"');
-    expect(html).toContain('"@type":"FAQPage"');
-    expect(html).toContain('"name":"When should I use the article FAQ?"');
-    expect(html).toContain('"text":"Use it when you need the shortest answer before the full guide."');
+    expect(html).not.toContain('id="article-faq-answer-surface-article"');
+    expect(html).not.toContain('"@type":"FAQPage"');
     expect(html).toContain("When should I use the article FAQ?");
     expect(html).toContain("Use it when you need the shortest answer before the full guide.");
   });
 
-  it("preserves Article and Breadcrumb JSON-LD on article detail", async () => {
+  it("holds Article and Breadcrumb JSON-LD by default for indexable article detail", async () => {
     const html = await renderArticleDetail(makeArticle());
+
+    expect(html).not.toContain('id="article-jsonld-answer-surface-article"');
+    expect(html).not.toContain('"@type":"Article"');
+    expect(html).not.toContain('id="article-breadcrumb-answer-surface-article"');
+    expect(html).not.toContain('"@type":"BreadcrumbList"');
+  });
+
+  it("does not emit article JSON-LD for noindex article detail", async () => {
+    const html = await renderArticleDetail({
+      ...makeArticle(),
+      isIndexable: false,
+    });
+
+    expect(html).not.toContain('id="article-jsonld-answer-surface-article"');
+    expect(html).not.toContain('id="article-breadcrumb-answer-surface-article"');
+    expect(html).not.toContain('id="article-faq-answer-surface-article"');
+    expect(html).not.toContain('"@type":"Article"');
+    expect(html).not.toContain('"@type":"BreadcrumbList"');
+    expect(html).not.toContain('"@type":"FAQPage"');
+  });
+
+  it("emits Article, Breadcrumb, and FAQPage JSON-LD only when an explicit article schema gate allows it", async () => {
+    const article = {
+      ...makeArticle(),
+      seoMeta: {
+        schema_json: {
+          article_schema_gate_v1: {
+            enabled: true,
+          },
+        },
+      },
+    };
+    const html = await renderArticleDetail(article);
 
     expect(html).toContain('id="article-jsonld-answer-surface-article"');
     expect(html).toContain('"@type":"Article"');
     expect(html).toContain('id="article-breadcrumb-answer-surface-article"');
     expect(html).toContain('"@type":"BreadcrumbList"');
+    expect(html).toContain('id="article-faq-answer-surface-article"');
+    expect(html).toContain('"@type":"FAQPage"');
+    expect(html).toContain('"name":"When should I use the article FAQ?"');
+    expect(html).toContain('"text":"Use it when you need the shortest answer before the full guide."');
   });
 
   it("does not emit FAQPage JSON-LD when no visible answer-surface FAQ exists", async () => {
