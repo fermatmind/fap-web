@@ -1,6 +1,7 @@
 const DEFAULT_API_ORIGIN = "https://api.fermatmind.com";
 const DEFAULT_SERVER_API_ORIGIN = "https://fermatmind.com";
 const API_PUBLIC_PREFIX = "/api";
+const ENABLE_SAME_ORIGIN_API_PROXY = process.env.NEXT_PUBLIC_USE_SAME_ORIGIN_API_PROXY === "true";
 
 function normalizeOrigin(value: string): string {
   const normalized = String(value ?? "").trim().replace(/\/$/, "");
@@ -37,6 +38,14 @@ export function resolveApiBaseUrl(): string {
 }
 
 function buildClientApiUrl(normalizedPath: string): string {
+  if (!ENABLE_SAME_ORIGIN_API_PROXY) {
+    if (normalizedPath === API_PUBLIC_PREFIX || normalizedPath.startsWith(`${API_PUBLIC_PREFIX}/`)) {
+      return `${resolveApiOrigin()}${normalizedPath}`;
+    }
+
+    return `${resolveApiOrigin()}${API_PUBLIC_PREFIX}${normalizedPath}`;
+  }
+
   if (normalizedPath === API_PUBLIC_PREFIX || normalizedPath.startsWith(`${API_PUBLIC_PREFIX}/`)) {
     return normalizedPath;
   }

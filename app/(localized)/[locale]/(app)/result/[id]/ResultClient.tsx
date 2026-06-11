@@ -359,6 +359,26 @@ function resolveMbtiLoadingStatusText(locale: Locale, state: "processing" | "fai
   return error ?? (locale === "zh" ? "结果暂时无法读取，请返回后再试。" : "The result is temporarily unavailable, please try again.");
 }
 
+function resolveReportGeneratingMessage(locale: Locale, scaleCode: string): string {
+  const normalized = scaleCode.toUpperCase();
+
+  if (normalized === "EQ_60") {
+    return locale === "zh"
+      ? "情商测试结果正在生成中，系统会自动刷新；通常只需要几秒钟。"
+      : "Your EQ result is still generating. This page refreshes automatically and usually completes in a few seconds.";
+  }
+
+  if (normalized === "RIASEC") {
+    return locale === "zh"
+      ? "霍兰德职业兴趣测试结果正在生成中，系统会自动刷新；通常只需要几秒钟。"
+      : "Your Holland/RIASEC result is still generating. This page refreshes automatically and usually completes in a few seconds.";
+  }
+
+  return locale === "zh"
+    ? "结果正在生成中，系统会自动刷新；通常只需要几秒钟。"
+    : "Your result is still generating. This page refreshes automatically and usually completes in a few seconds.";
+}
+
 function isAttemptResubmitConflictMessage(message: string | null | undefined): boolean {
   const normalized = normalizeText(message).toLowerCase();
   if (!normalized) {
@@ -1406,7 +1426,7 @@ export default function ResultClient({
   if (viewState === "processing") {
     return (
       <div className="space-y-[var(--fm-gap-md)]">
-        <Alert>{dict.orders.reportGenerating}</Alert>
+        <Alert>{resolveReportGeneratingMessage(locale, resolvedScaleCode)}</Alert>
         <AnticipationSkeleton phases={dict.loading.phases} />
       </div>
     );

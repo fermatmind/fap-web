@@ -1,0 +1,32 @@
+name: Live result smoke
+
+on:
+  schedule:
+    - cron: "17 20 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  submit-result-report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      RESULT_SMOKE_API_ORIGIN: https://api.fermatmind.com
+      RESULT_SMOKE_LOCALE: zh-CN
+      RESULT_SMOKE_REPORT_TIMEOUT_MS: "90000"
+      RESULT_SMOKE_REPORT_POLL_MS: "5000"
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+
+      - run: corepack enable
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm ops:result-smoke -- --execute --json

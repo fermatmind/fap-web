@@ -1759,6 +1759,18 @@ const FRONTEND_UI_POLISH_BATCH_02_ALLOWED_FILES = new Set([
   "tests/contracts/topics-cms.contract.test.tsx",
 ]);
 
+const RESULT_SMOKE_PROXY_GENERATION_HINTS_ALLOWED_FILES = new Set([
+  ".github/workflows/live-result-smoke.yml",
+  "app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx",
+  "lib/api-base.ts",
+  "next.config.mjs",
+  "package.json",
+  "scripts/ops/check-live-result-smoke.mjs",
+  "tests/contracts/api-proxy-routing.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/result-client-view-state.contract.test.tsx",
+]);
+
 function isFrontendUiPolishBatch02ScopeActive(): boolean {
   if (CURRENT_BRANCH === "codex/frontend-ui-polish-batch-02") {
     return true;
@@ -1802,6 +1814,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (isFrontendUiPolishBatch02ScopeActive()) {
     return FRONTEND_UI_POLISH_BATCH_02_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/result-smoke-proxy-generation-hints") {
+    return RESULT_SMOKE_PROXY_GENERATION_HINTS_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/security-codeql-87-file-access") {

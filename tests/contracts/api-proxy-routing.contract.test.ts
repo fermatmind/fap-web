@@ -15,11 +15,23 @@ describe("api proxy routing contract", () => {
     vi.unstubAllEnvs();
   });
 
-  it("routes browser-side API calls through same-origin /api", () => {
+  it("routes browser-side API calls to the configured API origin by default", () => {
+    vi.stubGlobal("window", {} as Window & typeof globalThis);
+    vi.stubEnv("NEXT_PUBLIC_API_URL", "https://api.fermatmind.com");
+
+    expect(buildApiUrl("/v0.3/auth/guest")).toBe("https://api.fermatmind.com/api/v0.3/auth/guest");
+    expect(buildApiUrl("/api/v0.3/auth/guest")).toBe("https://api.fermatmind.com/api/v0.3/auth/guest");
+  });
+
+  it("keeps the same-origin browser API proxy behind an explicit opt-in flag", async () => {
+    vi.stubEnv("NEXT_PUBLIC_USE_SAME_ORIGIN_API_PROXY", "true");
+    vi.resetModules();
+
+    const { buildApiUrl: buildOptInApiUrl } = await import("@/lib/api-base");
     vi.stubGlobal("window", {} as Window & typeof globalThis);
 
-    expect(buildApiUrl("/v0.3/auth/guest")).toBe("/api/v0.3/auth/guest");
-    expect(buildApiUrl("/api/v0.3/auth/guest")).toBe("/api/v0.3/auth/guest");
+    expect(buildOptInApiUrl("/v0.3/auth/guest")).toBe("/api/v0.3/auth/guest");
+    expect(buildOptInApiUrl("/api/v0.3/auth/guest")).toBe("/api/v0.3/auth/guest");
   });
 
   it("keeps server-side API calls on apex public API when production API env is absent", () => {
@@ -40,9 +52,11 @@ describe("api proxy routing contract", () => {
     );
   });
 
-  it("defines a same-origin v0.3 rewrite in next config", () => {
+  it("keeps the same-origin v0.3 rewrite behind an explicit opt-in flag", () => {
     const nextConfig = read("next.config.mjs");
 
+    expect(nextConfig).toContain("enableSameOriginV03ApiProxy");
+    expect(nextConfig).toContain('process.env.NEXT_PUBLIC_USE_SAME_ORIGIN_API_PROXY === "true"');
     expect(nextConfig).toContain('source: "/api/v0.3/:path*"');
     expect(nextConfig).toContain('destination: `${apiOrigin}/api/v0.3/:path*`');
   });
