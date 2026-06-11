@@ -129,14 +129,15 @@ describe("mbti scene depth contract", () => {
     expect(items.some((item) => item.key === "to_recommendation_intp")).toBe(true);
   });
 
-  it("keeps deep-dive sections on topic/personality while recommendation detail switches to protocol-guarded rendering and continuity strip on test landing", () => {
+  it("keeps scene summaries on topic/personality while recommendation detail switches to protocol-guarded rendering and continuity strip on test landing", () => {
     const topicDetail = read("app/(localized)/[locale]/topics/[slug]/page.tsx");
     const personalityDetail = read("app/(localized)/[locale]/personality/[type]/page.tsx");
     const recommendationDetail = read("app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx");
     const testLanding = read("app/(localized)/[locale]/tests/[slug]/page.tsx");
 
     expect(topicDetail).toContain('testId="topic-detail-scene-deep-dive"');
-    expect(personalityDetail).toContain('testId="personality-detail-scene-deep-dive"');
+    expect(personalityDetail).toContain('testId="personality-detail-scene-entry"');
+    expect(personalityDetail).not.toContain('testId="personality-detail-scene-deep-dive"');
     expect(recommendationDetail).toContain('testId="career-recommendation-scene-entry"');
     expect(recommendationDetail).toContain('data-testid="career-recommendation-protocol-status"');
     expect(recommendationDetail).not.toContain('testId="career-recommendation-scene-deep-dive"');

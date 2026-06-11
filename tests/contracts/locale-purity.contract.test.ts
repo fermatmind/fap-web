@@ -7,11 +7,13 @@ function read(relPath: string): string {
 }
 
 describe("locale purity contract", () => {
-  it("keeps the zh-only MBTI local content pack off English personality detail pages", () => {
+  it("keeps the MBTI local content pack off personality detail pages", () => {
     const source = read("app/(localized)/[locale]/personality/[type]/page.tsx");
 
-    expect(source).toContain('locale === "zh" && fallbackProjectionGate.canRenderLocalPersonalityContentPack');
-    expect(source).toContain("getMbtiPersonalityContent(detail.routeSlug, locale)");
+    expect(source).toContain("renderProjectionSections(detail.projection.sections, locale)");
+    expect(source).toContain('data-testid="personality-detail-section-map"');
+    expect(source).not.toContain("getMbtiPersonalityContent(detail.routeSlug, locale)");
+    expect(source).not.toContain('data-testid="mbti-personality-content-pack"');
   });
 
   it("keeps topic operational labels localized for Chinese pages", () => {
