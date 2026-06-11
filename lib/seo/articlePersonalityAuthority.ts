@@ -11,6 +11,11 @@ const LEGACY_ARTICLE_SCHEMA_COMPATIBILITY_ALLOWLIST = new Set([
   "what-is-riasec-holland-code-career-interest-test",
 ]);
 
+const LEGACY_ARTICLE_HREFLANG_COMPATIBILITY_ALLOWLIST = new Set([
+  // Pre-existing indexable RIASEC article whose hreflang launch was already verified before article hreflang hold decoupling.
+  "what-is-riasec-holland-code-career-interest-test",
+]);
+
 export type ArticleJsonLdAuthorityGate = {
   source: ArticleJsonLdAuthoritySource;
   canRenderJsonLd: boolean;
@@ -29,6 +34,18 @@ export type ArticleSchemaGate = {
   canRenderArticleJsonLd: boolean;
   canRenderBreadcrumbJsonLd: boolean;
   canRenderFAQPageJsonLd: boolean;
+  reason: string;
+};
+
+export type ArticleHreflangGateSource =
+  | "noindex_hold"
+  | "explicit_cms_hreflang_gate"
+  | "legacy_hreflang_compatibility_allowlist"
+  | "hreflang_hold_default";
+
+export type ArticleHreflangGate = {
+  source: ArticleHreflangGateSource;
+  canRenderHreflang: boolean;
   reason: string;
 };
 
@@ -60,6 +77,34 @@ function readSchemaGateValue(source: unknown): boolean {
   return false;
 }
 
+function readHreflangGateValue(source: unknown): boolean {
+  if (!source || typeof source !== "object" || Array.isArray(source)) {
+    return false;
+  }
+
+  const record = source as Record<string, unknown>;
+  if (record.hreflang_allowed === true || record.hreflangAllowed === true) {
+    return true;
+  }
+
+  const hreflangGate = record.hreflang_gate_v1 ?? record.hreflangGateV1;
+  if (readSchemaGateValue(hreflangGate) || readHreflangGateValue(hreflangGate)) {
+    return true;
+  }
+
+  const i18nGate = record.i18n_hreflang_gate_v1 ?? record.i18nHreflangGateV1;
+  if (readSchemaGateValue(i18nGate) || readHreflangGateValue(i18nGate)) {
+    return true;
+  }
+
+  const schemaJson = record.schema_json ?? record.schemaJson;
+  if (readHreflangGateValue(schemaJson)) {
+    return true;
+  }
+
+  return false;
+}
+
 function articleSchemaGate(
   source: ArticleSchemaGateSource,
   allowed: boolean,
@@ -70,6 +115,18 @@ function articleSchemaGate(
     canRenderArticleJsonLd: allowed,
     canRenderBreadcrumbJsonLd: allowed,
     canRenderFAQPageJsonLd: allowed,
+    reason,
+  };
+}
+
+function articleHreflangGate(
+  source: ArticleHreflangGateSource,
+  allowed: boolean,
+  reason: string
+): ArticleHreflangGate {
+  return {
+    source,
+    canRenderHreflang: allowed,
     reason,
   };
 }
@@ -99,6 +156,33 @@ export function resolveArticleSchemaGate(input: {
     "schema_hold_default",
     false,
     "Article schema defaults off unless CMS explicitly allows it or a legacy compatibility entry applies."
+  );
+}
+
+export function resolveArticleHreflangGate(input: {
+  noindex: boolean;
+  article: Pick<CmsArticle, "slug" | "seoMeta">;
+}): ArticleHreflangGate {
+  if (input.noindex) {
+    return articleHreflangGate("noindex_hold", false, "Noindex articles must not emit hreflang or x-default alternates.");
+  }
+
+  if (readHreflangGateValue(input.article.seoMeta)) {
+    return articleHreflangGate("explicit_cms_hreflang_gate", true, "CMS article hreflang gate explicitly allows alternate output.");
+  }
+
+  if (LEGACY_ARTICLE_HREFLANG_COMPATIBILITY_ALLOWLIST.has(input.article.slug)) {
+    return articleHreflangGate(
+      "legacy_hreflang_compatibility_allowlist",
+      true,
+      "Pre-existing indexable article remains hreflang-compatible while new CMS articles default to hreflang hold."
+    );
+  }
+
+  return articleHreflangGate(
+    "hreflang_hold_default",
+    false,
+    "Article hreflang defaults off unless CMS explicitly allows it or a legacy compatibility entry applies."
   );
 }
 

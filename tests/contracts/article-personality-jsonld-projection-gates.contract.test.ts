@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 import {
+  resolveArticleHreflangGate,
   resolveArticleJsonLdAuthority,
   resolveArticleSchemaGate,
   resolvePersonalityFallbackProjectionGate,
@@ -168,6 +169,45 @@ describe("Article / Personality JSON-LD and projection gates", () => {
       canRenderArticleJsonLd: true,
       canRenderBreadcrumbJsonLd: true,
       canRenderFAQPageJsonLd: true,
+    });
+  });
+
+  it("decouples article hreflang output from indexability until an explicit hreflang gate allows it", () => {
+    const noindexGate = resolveArticleHreflangGate({
+      noindex: true,
+      article: { slug: "what-is-riasec-holland-code-career-interest-test", seoMeta: null },
+    });
+    const indexableDefaultHold = resolveArticleHreflangGate({
+      noindex: false,
+      article: { slug: "why-mbti-and-holland-code-results-dont-match", seoMeta: null },
+    });
+    const explicitCmsGate = resolveArticleHreflangGate({
+      noindex: false,
+      article: {
+        slug: "future-hreflang-approved-article",
+        seoMeta: { schema_json: { hreflang_gate_v1: { enabled: true } } },
+      },
+    });
+    const legacyCompatibilityGate = resolveArticleHreflangGate({
+      noindex: false,
+      article: { slug: "what-is-riasec-holland-code-career-interest-test", seoMeta: null },
+    });
+
+    expect(noindexGate).toMatchObject({
+      source: "noindex_hold",
+      canRenderHreflang: false,
+    });
+    expect(indexableDefaultHold).toMatchObject({
+      source: "hreflang_hold_default",
+      canRenderHreflang: false,
+    });
+    expect(explicitCmsGate).toMatchObject({
+      source: "explicit_cms_hreflang_gate",
+      canRenderHreflang: true,
+    });
+    expect(legacyCompatibilityGate).toMatchObject({
+      source: "legacy_hreflang_compatibility_allowlist",
+      canRenderHreflang: true,
     });
   });
 

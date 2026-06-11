@@ -146,8 +146,10 @@ afterEach(() => {
 });
 
 describe("article CMS metadata consumption gate", () => {
-  it("uses CMS SEO title, description, canonical, hreflang, x-default, and OG image alt", async () => {
-    const metadata = await loadArticleMetadata();
+  it("uses CMS SEO title, description, canonical, hreflang, x-default, and OG image alt when the hreflang gate allows it", async () => {
+    const metadata = await loadArticleMetadata({
+      article: makeArticle({ seoMeta: { schema_json: { hreflang_gate_v1: { enabled: true } } } }),
+    });
     const openGraphImages = getImages(metadata, "openGraph");
     const twitterImages = getImages(metadata, "twitter");
 
@@ -161,6 +163,13 @@ describe("article CMS metadata consumption gate", () => {
     });
     expect(openGraphImages[0]).toEqual({ url: COVER_URL, alt: COVER_ALT });
     expect(twitterImages[0]).toEqual({ url: COVER_URL, alt: COVER_ALT });
+  });
+
+  it("holds article hreflang by default even when CMS alternates exist", async () => {
+    const metadata = await loadArticleMetadata();
+
+    expect(String(metadata.alternates?.canonical)).toBe("https://fermatmind.com/zh/articles/cms-metadata-gate");
+    expect(metadata.alternates?.languages).toBeUndefined();
   });
 
   it("uses article excerpt only as description fallback when CMS SEO description is absent", async () => {

@@ -33,7 +33,7 @@ import {
   extractPublicTestDetailPathFromHref,
   extractTargetTestSlugFromHref,
 } from "@/lib/tracking/seoCtaAttribution";
-import { resolveArticleJsonLdAuthority, resolveArticleSchemaGate } from "@/lib/seo/articlePersonalityAuthority";
+import { resolveArticleHreflangGate, resolveArticleJsonLdAuthority, resolveArticleSchemaGate } from "@/lib/seo/articlePersonalityAuthority";
 import { buildI18nSeoPassport } from "@/lib/seo/i18nPassport";
 import { buildPageMetadata, normalizeTwitterImages, resolveTwitterCard } from "@/lib/seo/metadata";
 
@@ -204,12 +204,16 @@ export async function generateMetadata({
     existingLanguages: metadata.alternates?.languages,
     fallbackXDefault: "/",
   });
+  const articleHreflangGate = resolveArticleHreflangGate({
+    noindex,
+    article,
+  });
 
   const twitterImages = normalizeTwitterImages(
     buildArticleMetadataImage(seo?.surface?.twitter.image ?? seo?.meta.twitter.image ?? ogImage, article.coverImageAlt),
     metadata.twitter?.images,
   );
-  const alternates = noindex
+  const alternates = !articleHreflangGate.canRenderHreflang
     ? {
         canonical: passport.canonical,
       }
