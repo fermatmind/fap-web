@@ -69,6 +69,8 @@ describe("editorial article CMS contract", () => {
           status: "published",
           is_public: true,
           is_indexable: true,
+          sitemap_eligible: false,
+          llms_eligible: false,
           published_revision_id: 17,
           published_at: "2026-04-18T00:00:00Z",
           category: {
@@ -96,6 +98,9 @@ describe("editorial article CMS contract", () => {
     expect(article?.authorName).toBe("Fermat Institute");
     expect(article?.reviewerName).toBe("FermatMind Research");
     expect(article?.readingMinutes).toBe(6);
+    expect(article?.isIndexable).toBe(true);
+    expect(article?.sitemapEligible).toBe(false);
+    expect(article?.llmsEligible).toBe(false);
     expect(article?.category?.name).toBe("人工智能与人格");
     expect(article?.tags.map((tag) => tag.name)).toEqual(expect.arrayContaining(["AI", "算法信任"]));
 
