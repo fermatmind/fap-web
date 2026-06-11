@@ -311,6 +311,15 @@ export function normalizeTopicSlug(value: string): string {
   return String(value ?? "").trim().toLowerCase();
 }
 
+export function formatTopicDisplayCode(value: string | null | undefined): string {
+  const normalized = normalizeTopicSlug(String(value ?? ""));
+  if (normalized === "mbti") return "MBTI";
+  if (normalized === "big-five") return "Big Five";
+  if (normalized === "iq-eq") return "IQ / EQ";
+
+  return String(value ?? "").trim();
+}
+
 export function normalizeTopicProfileSummary(profile: CmsTopicApiProfile): CmsTopicProfileSummary {
   return {
     id: typeof profile.id === "number" ? profile.id : null,

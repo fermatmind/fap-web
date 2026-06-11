@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
+import { ArrowRight, BookOpenText, FileQuestion, LifeBuoy, Mail, ReceiptText, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/layout/Container";
@@ -24,8 +26,11 @@ function labels(locale: Locale) {
       guidesTitle: "结果解读指南",
       contactTitle: "联系支持",
       viewAll: "查看详情",
-      emptySupportArticles: "当前还没有公开的支持文章。",
-      emptyGuides: "当前还没有公开的结果解读指南。",
+      supportPathTitle: "常用帮助路径",
+      officialEntry: "自助入口",
+      topicBadge: "帮助主题",
+      articleBadge: "支持文章",
+      guideBadge: "解读指南",
       helpFallbackTitle: "帮助中心",
     };
   }
@@ -44,8 +49,11 @@ function labels(locale: Locale) {
     guidesTitle: "Interpretation guides",
     contactTitle: "Contact support",
     viewAll: "View details",
-    emptySupportArticles: "No public support articles are published yet.",
-    emptyGuides: "No public interpretation guides are published yet.",
+    supportPathTitle: "Common support paths",
+    officialEntry: "Self-serve",
+    topicBadge: "Help topic",
+    articleBadge: "Support article",
+    guideBadge: "Guide",
     helpFallbackTitle: "Help center",
   };
 }
@@ -79,30 +87,50 @@ function SectionCard({
   summary,
   href,
   badge,
+  icon,
 }: {
   title: string;
   summary: string;
   href: string;
   badge?: string | null;
+  icon?: ReactNode;
 }) {
   return (
     <Link
       href={href}
-      className="group rounded-2xl border border-[var(--fm-border)] bg-white p-5 transition hover:border-[var(--fm-accent)] hover:shadow-[var(--fm-shadow-sm)]"
+      className="group flex min-h-[9.5rem] flex-col justify-between rounded-lg border border-[var(--fm-border-soft)] bg-white p-5 transition hover:-translate-y-0.5 hover:border-[var(--fm-accent)] hover:shadow-[0_18px_44px_rgba(15,23,42,0.08)]"
     >
       <div className="flex items-start justify-between gap-3">
-        <h3 className="m-0 font-serif text-xl font-semibold text-[var(--fm-text)] transition group-hover:text-[var(--fm-accent)]">
-          {title}
-        </h3>
+        <div className="flex min-w-0 items-start gap-3">
+          {icon ? (
+            <span className="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[var(--fm-bg-soft)] text-[var(--fm-accent)]">
+              {icon}
+            </span>
+          ) : null}
+          <h3 className="m-0 text-lg font-semibold leading-7 text-[var(--fm-text)] transition group-hover:text-[var(--fm-accent)]">
+            {title}
+          </h3>
+        </div>
         {badge ? (
-          <span className="rounded-full border border-[var(--fm-border)] px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-subtle)]">
+          <span className="shrink-0 rounded-full border border-[var(--fm-border-soft)] bg-[var(--fm-bg-page)] px-2.5 py-1 text-[11px] font-semibold text-[var(--fm-text-subtle)]">
             {badge}
           </span>
         ) : null}
       </div>
       {summary ? <p className="mt-3 text-sm leading-7 text-[var(--fm-text-muted)]">{summary}</p> : null}
+      <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[var(--fm-accent)]">
+        <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden />
+      </span>
     </Link>
   );
+}
+
+function quickToolIcon(index: number) {
+  const className = "h-4 w-4";
+  if (index === 0) return <ReceiptText className={className} aria-hidden />;
+  if (index === 1) return <Mail className={className} aria-hidden />;
+  if (index === 2) return <LifeBuoy className={className} aria-hidden />;
+  return <ShieldCheck className={className} aria-hidden />;
 }
 
 const SUPPORT_CONTACT_SOURCE_SLUGS = [
@@ -148,33 +176,57 @@ export default async function SupportPage({
   return (
     <main className="fm-page-background text-[var(--fm-text)]" data-testid="support-hub">
       <Container className="py-10 md:py-14">
-        <section className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start">
-          <div className="space-y-6">
-            <div className="space-y-4">
-              <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
-                {copy.helpFallbackTitle}
-              </p>
-              <h1 className="m-0 max-w-4xl font-serif text-4xl font-semibold tracking-tight text-[var(--fm-text)] md:text-5xl">
-                {hero?.title || copy.headingFallback}
-              </h1>
-              <p className="max-w-3xl text-lg leading-8 text-[var(--fm-text-muted)]">
-                {hero?.body || copy.summaryFallback}
-              </p>
-            </div>
+        <section className="grid gap-8 rounded-lg border border-[var(--fm-border-soft)] bg-white px-6 py-8 shadow-[0_18px_50px_rgba(15,23,42,0.05)] md:px-8 md:py-10 lg:grid-cols-[minmax(0,1fr)_340px] lg:items-center">
+          <div className="space-y-5">
+            <h1 className="m-0 max-w-4xl font-serif text-4xl font-semibold tracking-normal text-[var(--fm-text)] md:text-5xl">
+              {hero?.title || copy.headingFallback}
+            </h1>
+          </div>
 
-            <section className="space-y-4" data-testid="support-quick-tools">
+          <div className="rounded-lg border border-[var(--fm-border-soft)] bg-[var(--fm-bg-page)] p-5">
+            <div className="flex items-center gap-3">
+              <span className="grid h-10 w-10 place-items-center rounded-full bg-white text-[var(--fm-accent)]">
+                <LifeBuoy className="h-5 w-5" aria-hidden />
+              </span>
+              <div>
+                <p className="m-0 text-sm font-semibold text-[var(--fm-text)]">{copy.contactTitle}</p>
+                {supportContact ? (
+                  <a
+                    href={`mailto:${supportContact}`}
+                    className="mt-1 block break-all text-sm text-[var(--fm-text-muted)] hover:text-[var(--fm-accent)]"
+                  >
+                    {supportContact}
+                  </a>
+                ) : null}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_340px] lg:items-start">
+          <div className="space-y-10">
+            <section className="space-y-5" data-testid="support-quick-tools">
               <div className="space-y-2">
                 <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">{copy.toolsTitle}</h2>
               </div>
               <div className="grid gap-4 md:grid-cols-2">
-                {gateway.landingSurface.ctaBundle.map((cta) => (
-                  <SectionCard key={cta.key} title={cta.label} summary="" href={cta.href} badge={cta.kind} />
+                {gateway.landingSurface.ctaBundle.map((cta, index) => (
+                  <SectionCard
+                    key={cta.key}
+                    title={cta.label}
+                    summary=""
+                    href={cta.href}
+                    badge={copy.officialEntry}
+                    icon={quickToolIcon(index)}
+                  />
                 ))}
               </div>
             </section>
 
-            <section className="space-y-4" data-testid="support-topic-groups">
-              <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">{copy.helpTitle}</h2>
+            <section className="space-y-5" data-testid="support-topic-groups">
+              <div className="space-y-2">
+                <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">{copy.supportPathTitle}</h2>
+              </div>
               <div className="grid gap-4 md:grid-cols-2">
                 {gateway.landingSurface.discoverabilityItems.map((item) => (
                   <SectionCard
@@ -182,7 +234,8 @@ export default async function SupportPage({
                     title={item.title}
                     summary={item.summary}
                     href={item.href}
-                    badge={item.badgeLabel}
+                    badge={item.badgeLabel || copy.topicBadge}
+                    icon={<FileQuestion className="h-4 w-4" aria-hidden />}
                   />
                 ))}
                 <SectionCard
@@ -190,13 +243,14 @@ export default async function SupportPage({
                   summary={copy.methodBoundariesSummary}
                   href={localizedPath("/method-boundaries", locale)}
                   badge={copy.methodBoundariesBadge}
+                  icon={<ShieldCheck className="h-4 w-4" aria-hidden />}
                 />
               </div>
             </section>
 
-            <section className="space-y-4" data-testid="support-article-groups">
-              <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">{copy.supportArticlesTitle}</h2>
-              {supportArticles.length ? (
+            {supportArticles.length ? (
+              <section className="space-y-5" data-testid="support-article-groups">
+                <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">{copy.supportArticlesTitle}</h2>
                 <div className="grid gap-4 md:grid-cols-2">
                   {supportArticles.map((article) => (
                     <SectionCard
@@ -204,18 +258,17 @@ export default async function SupportPage({
                       title={article.title}
                       summary={article.summary}
                       href={buildSupportArticlePath(article.slug, locale)}
-                      badge={article.supportCategory}
+                      badge={article.supportCategory || copy.articleBadge}
+                      icon={<BookOpenText className="h-4 w-4" aria-hidden />}
                     />
                   ))}
                 </div>
-              ) : (
-                <p className="text-sm leading-7 text-[var(--fm-text-muted)]">{copy.emptySupportArticles}</p>
-              )}
-            </section>
+              </section>
+            ) : null}
 
-            <section className="space-y-4" data-testid="support-guide-groups">
-              <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">{copy.guidesTitle}</h2>
-              {guides.length ? (
+            {guides.length ? (
+              <section className="space-y-5" data-testid="support-guide-groups">
+                <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">{copy.guidesTitle}</h2>
                 <div className="grid gap-4 md:grid-cols-2">
                   {guides.map((guide) => (
                     <SectionCard
@@ -223,28 +276,25 @@ export default async function SupportPage({
                       title={guide.title}
                       summary={guide.summary}
                       href={buildInterpretationGuidePath(guide.slug, locale)}
-                      badge={guide.testFamily}
+                      badge={guide.testFamily || copy.guideBadge}
+                      icon={<BookOpenText className="h-4 w-4" aria-hidden />}
                     />
                   ))}
                 </div>
-              ) : (
-                <p className="text-sm leading-7 text-[var(--fm-text-muted)]">{copy.emptyGuides}</p>
-              )}
-            </section>
+              </section>
+            ) : null}
           </div>
 
           <aside className="space-y-5 lg:sticky lg:top-24">
             {supportContact ? (
               <section
-                className="rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5"
+                className="rounded-lg border border-[var(--fm-border-soft)] bg-white p-5 shadow-[0_16px_38px_rgba(15,23,42,0.05)]"
                 data-testid="support-contact-card"
               >
-                <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-text-muted)]">
-                  {copy.contactTitle}
-                </p>
+                <p className="m-0 text-sm font-semibold text-[var(--fm-text)]">{copy.contactTitle}</p>
                 <a
                   href={`mailto:${supportContact}`}
-                  className="mt-3 block break-all text-sm font-semibold text-[var(--fm-text)] hover:text-[var(--fm-accent)]"
+                  className="mt-3 block break-all text-sm font-semibold text-[var(--fm-accent)]"
                 >
                   {supportContact}
                 </a>

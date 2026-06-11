@@ -19,6 +19,10 @@ type MbtiScenarioDeepDiveSectionProps = {
   subtitle?: string;
 };
 
+function formatMbtiTestLinkLabel(href: string, label: string, locale: Locale): string {
+  return href.includes("/tests/mbti-personality-test-16-personality-types") ? (locale === "zh" ? "MBTI免费测试" : "Free MBTI test") : label;
+}
+
 export function MbtiScenarioDeepDiveSection({
   locale,
   modules,
@@ -106,7 +110,7 @@ export function MbtiScenarioDeepDiveSection({
                       sourcePath,
                     })}
                   >
-                    {link.label}
+                    {formatMbtiTestLinkLabel(trackedHref, link.label, locale)}
                   </TrackedEntryCtaLink>
                 );
               })}

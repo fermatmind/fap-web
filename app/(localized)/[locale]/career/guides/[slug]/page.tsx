@@ -157,7 +157,6 @@ export default async function CareerGuideDetailPage({ params }: { params: Promis
 
   const normalizedSeo = normalizeCareerGuideSeoPayload(seo, guide, locale);
   const canonicalPath = buildCanonicalPath(guide.slug, locale);
-  const landingSurface = guide.landingSurface;
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
     { name: locale === "zh" ? "首页" : "Home", path: locale === "zh" ? "/zh" : "/en" },
     { name: locale === "zh" ? "职业" : "Career", path: locale === "zh" ? "/zh/career" : "/en/career" },
@@ -245,21 +244,6 @@ export default async function CareerGuideDetailPage({ params }: { params: Promis
           items={guide.relatedPersonalityProfiles}
         />
       </div>
-
-      {landingSurface?.ctaBundle.length ? (
-        <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]" data-testid="career-guide-landing-cta">
-          <h2 className="m-0 font-serif text-xl font-semibold text-[var(--fm-text)]">
-            {locale === "zh" ? "继续探索" : "Continue exploring"}
-          </h2>
-          <div className="flex flex-wrap gap-2">
-            {landingSurface.ctaBundle.map((cta) => (
-              <Link key={cta.key} href={cta.href} className="fm-help-chip-link">
-                {cta.label}
-              </Link>
-            ))}
-          </div>
-        </section>
-      ) : null}
 
       <Link href={localizedPath("/career/guides", locale)} className="text-sm font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
         {locale === "zh" ? "返回职业发展" : "Back to career guides"}

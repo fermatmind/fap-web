@@ -132,8 +132,8 @@ const INTP_SCENARIO_LINKS = {
       href: "/career/recommendations/mbti/intp-a",
     },
     testEntryLink: {
-      zh: "开始 MBTI 深度测试",
-      en: "Start MBTI deep test",
+      zh: "MBTI免费测试",
+      en: "Free MBTI test",
       href: "/tests/mbti-personality-test-16-personality-types",
     },
     guides: [

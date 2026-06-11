@@ -221,7 +221,7 @@ export function buildMbtiTopicScenarioDeepModules(locale: Locale): MbtiSceneDeep
         },
         {
           key: "start_mbti_test",
-          label: isZh ? "开始测试获取个性化成长路径" : "Start test to unlock personalized growth path",
+          label: isZh ? "MBTI免费测试" : "Free MBTI test",
           href: testPath,
           kind: "start_test",
           targetAction: "start_mbti_test_scene_growth_planning",
@@ -394,7 +394,7 @@ export function buildMbtiPersonalityScenarioDeepModules(input: {
         { key: "to_guide", label: isZh ? "阅读职业匹配指南" : "Read job-fit guide", href: routeBundle.guidePath },
         {
           key: "to_test",
-          label: isZh ? "重新测试验证类型" : "Retake test to validate",
+          label: isZh ? "MBTI免费测试" : "Free MBTI test",
           href: routeBundle.testPath,
           kind: "start_test",
           targetAction: "start_mbti_test_scene_career_direction",
@@ -430,7 +430,7 @@ export function buildMbtiPersonalityScenarioDeepModules(input: {
         { key: "to_basics_article", label: isZh ? "阅读 MBTI 基础指南" : "Read MBTI basics", href: routeBundle.basicsArticlePath },
         {
           key: "to_test",
-          label: isZh ? "先测后选" : "Test before choosing",
+          label: isZh ? "MBTI免费测试" : "Free MBTI test",
           href: routeBundle.testPath,
           kind: "start_test",
           targetAction: "start_mbti_test_scene_major_selection",
@@ -458,7 +458,7 @@ export function buildMbtiPersonalityScenarioDeepModules(input: {
         },
         {
           key: "to_test",
-          label: isZh ? "开始测试校准成长路径" : "Start test to calibrate growth path",
+          label: isZh ? "MBTI免费测试" : "Free MBTI test",
           href: routeBundle.testPath,
           kind: "start_test",
           targetAction: "start_mbti_test_scene_growth_planning",
@@ -498,7 +498,7 @@ export function buildMbtiRecommendationScenarioDeepModules(input: {
         { key: "to_guide", label: isZh ? "阅读职业匹配指南" : "Read job-fit guide", href: routeBundle.guidePath },
         {
           key: "to_test",
-          label: isZh ? "重新测试验证路径" : "Retake test to verify",
+          label: isZh ? "MBTI免费测试" : "Free MBTI test",
           href: routeBundle.testPath,
           kind: "start_test",
           targetAction: "start_mbti_test_scene_career_direction",
@@ -534,7 +534,7 @@ export function buildMbtiRecommendationScenarioDeepModules(input: {
         { key: "to_narrative_article", label: isZh ? "阅读类型叙事画像" : "Read narrative portrait", href: routeBundle.narrativeArticlePath },
         {
           key: "to_test",
-          label: isZh ? "开始测试补齐判断" : "Start test to complete decision",
+          label: isZh ? "MBTI免费测试" : "Free MBTI test",
           href: routeBundle.testPath,
           kind: "start_test",
           targetAction: "start_mbti_test_scene_major_selection",
@@ -562,7 +562,7 @@ export function buildMbtiRecommendationScenarioDeepModules(input: {
         },
         {
           key: "to_test",
-          label: isZh ? "开始测试确认成长路径" : "Start test to confirm growth path",
+          label: isZh ? "MBTI免费测试" : "Free MBTI test",
           href: routeBundle.testPath,
           kind: "start_test",
           targetAction: "start_mbti_test_scene_growth_planning",

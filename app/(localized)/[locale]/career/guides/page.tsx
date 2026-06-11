@@ -182,11 +182,6 @@ export default async function CareerGuidesPage({ params }: { params: Promise<{ l
         <h1 className="m-0 text-4xl font-semibold tracking-tight text-slate-950 md:text-6xl">
           {locale === "zh" ? "把职业选择变成可验证的判断" : "Turn career choice into a testable decision"}
         </h1>
-        <p className="m-0 max-w-3xl text-base leading-7 text-slate-600">
-          {locale === "zh"
-            ? "这里不重复职业库，也不替代测评结果。它提供职业选择、转型、能力建设、人格匹配和 AI 风险判断的实操框架。"
-            : "This section does not duplicate the occupation library or replace assessment results. It gives practical frameworks for choice, transition, capability building, personality fit, and AI risk."}
-        </p>
         <div className="flex flex-wrap gap-3">
           <Link href={allOccupationsPath} className="rounded-full bg-slate-950 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800">
             {locale === "zh" ? "打开全部职业库" : "Open occupation library"}

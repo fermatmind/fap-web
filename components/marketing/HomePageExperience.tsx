@@ -34,6 +34,33 @@ const UNVERIFIED_SOCIAL_PROOF_PATTERNS = [
   /(?:用户|人)\s*(?:进行了|完成了|使用了)\s*(?:多次|测试|测评)/i,
   /(?:媒体|专家|博士|权威|评分|review|rating|stars?)/i,
 ] as const;
+
+const HOMEPAGE_HERO_ASSETS = {
+  brain: "https://static.lingcecdn.com/www/myfunquizcom/assets/img/home/top.png",
+  users: [
+    "https://static.lingcecdn.com/www/myfunquizcom/_nuxt/user-group-1.DxbeeUB9.png",
+    "https://static.lingcecdn.com/www/myfunquizcom/_nuxt/user-group-2.BTUn3P5c.png",
+    "https://static.lingcecdn.com/www/myfunquizcom/_nuxt/user-group-3.B4iLBcTY.png",
+  ],
+} as const;
+
+const HOMEPAGE_HERO_COPY = {
+  zh: {
+    title: "看清自己，走好每一步",
+    subhead: "费马测试把自我认知、职业探索与能力成长，做成可测量、可训练、可复盘的成长系统。",
+    primaryCta: "免费测试",
+    socialProofCount: "1200000+",
+    socialProof: "累计测试人数",
+  },
+  en: {
+    title: "Know yourself, move with clarity",
+    subhead: "FermatMind turns self-understanding, career exploration, and ability growth into a measurable, trainable, reviewable system.",
+    primaryCta: "Find free tests",
+    socialProofCount: "1200000+",
+    socialProof: "total tests completed",
+  },
+} as const;
+
 function withLocale(locale: Locale, path: string): string {
   return localizedPath(stripLocalePrefix(path), locale);
 }
@@ -174,43 +201,90 @@ function getCoreMetaItems(item: HomeCoreTestItem): string[] {
 }
 
 function HomepageHeroV1({ locale, copy }: { locale: Locale; copy: HomePageContent }) {
+  const heroCopy = HOMEPAGE_HERO_COPY[locale];
+  const titleSegments =
+    locale === "zh" && heroCopy.title.includes("，")
+      ? heroCopy.title.split("，").map((segment, index, segments) => (index < segments.length - 1 ? `${segment}，` : segment))
+      : null;
   const ctas = [
-    { label: copy.hero.primaryCta, href: copy.hero.primaryHref, variant: "primary" },
+    { label: heroCopy.primaryCta || copy.hero.primaryCta, href: copy.hero.primaryHref, variant: "primary" },
   ].filter((item) => hasText(item.label) && hasText(item.href));
 
   return (
-    <section className="fm-page-background relative overflow-hidden border-b border-[var(--fm-border-soft)] px-0 pb-12 pt-24 text-[var(--fm-text-main)] md:pb-16 md:pt-28 lg:pb-20 lg:pt-32">
-      <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-[var(--fm-border-soft)]" />
-
-      <Container className="relative z-10 w-full max-w-[82rem] px-6 md:px-8">
-        <div className="max-w-3xl">
-          <h1 className="m-0 max-w-[12ch] text-balance break-words text-[3.25rem] font-semibold leading-[1.02] tracking-normal text-[var(--fm-text-main)] sm:text-[4.25rem] lg:text-[4.8rem]">
-            {copy.hero.title}
+    <section
+      className="relative overflow-hidden border-b border-[var(--fm-border-soft)] text-[#333]"
+      style={{
+        background:
+          "radial-gradient(circle at 76% 34%, rgba(180,151,255,0.16) 0%, rgba(180,151,255,0.08) 30%, rgba(247,248,245,0) 56%), linear-gradient(112deg, #f7f8f5 0%, #faf8f1 54%, #f7f3fb 100%)",
+      }}
+    >
+      <Container className="relative z-10 grid min-h-[41rem] w-full max-w-[82rem] items-center gap-10 px-6 py-14 md:px-8 lg:grid-cols-[minmax(0,1fr)_minmax(24rem,34rem)] lg:py-20">
+        <div className="mx-auto w-full max-w-[43rem] text-center lg:mx-0 lg:text-left">
+          <h1 className="m-0 text-balance text-[2.55rem] font-black leading-tight tracking-normal text-[#333] sm:text-[2.8rem] lg:text-[3rem] xl:text-[3.2rem]">
+            {titleSegments
+              ? titleSegments.map((segment) => (
+                  <span key={segment} className="inline-block whitespace-nowrap">
+                    {segment}
+                  </span>
+                ))
+              : heroCopy.title}
           </h1>
-          <div aria-hidden className="mt-6 h-px w-28 bg-[#007c80]" />
-          <p className="m-0 mt-6 max-w-2xl text-lg leading-8 text-[var(--fm-text-secondary)]">
-            {copy.hero.subhead}
+          <p className="m-0 mt-7 max-w-2xl text-[1.1rem] font-medium leading-9 text-[#5f6066] lg:text-[1.18rem]">
+            {heroCopy.subhead || copy.hero.subhead}
           </p>
+
+          <div className="mt-9 flex items-center justify-center gap-3 lg:justify-start">
+            <div className="flex -space-x-3">
+              {HOMEPAGE_HERO_ASSETS.users.map((src, index) => (
+                <img
+                  key={src}
+                  src={src}
+                  alt=""
+                  aria-hidden="true"
+                  className="h-10 w-10 rounded-full border-2 border-white object-cover shadow-sm"
+                  style={{ zIndex: HOMEPAGE_HERO_ASSETS.users.length - index }}
+                  loading="eager"
+                />
+              ))}
+            </div>
+            <div className="text-left">
+              <p className="m-0 text-base font-bold leading-none text-[#5b5c62]">
+                {heroCopy.socialProofCount} <span className="text-[#ff9c2f]">★</span>
+              </p>
+              <p className="m-0 mt-1 text-xs text-[#9a9aa3]">{heroCopy.socialProof}</p>
+            </div>
+          </div>
+
           {ctas.length > 0 ? (
-            <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+            <div className="mt-9 grid gap-4 sm:grid-cols-2">
               {ctas.map((item) => (
                 <Link
                   key={`${item.variant}-${item.href}`}
                   href={withLocale(locale, item.href)}
                   prefetch={false}
                   className={cn(
-                    "inline-flex min-h-[3.1rem] items-center justify-center whitespace-nowrap border px-7 text-base font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#087d8d]",
-                    item.variant === "primary" && "min-w-40 border-[#007c80] bg-[#007c80] text-white shadow-[0_14px_30px_rgba(0,124,128,0.2)] hover:bg-[#005c61]",
-                    item.variant === "secondary" && "min-w-40 border-[var(--fm-border-subtle)] bg-white text-[var(--fm-text-main)] hover:border-[#007c80] hover:text-[#007c80]",
-                    item.variant === "tertiary" && "min-w-40 border-[var(--fm-border-subtle)] bg-white text-[var(--fm-text-main)] hover:border-[#007c80] hover:text-[#007c80]"
+                    "inline-flex min-h-[3.4rem] items-center justify-center whitespace-nowrap rounded-full px-8 text-base font-bold tracking-normal transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8c77e4]",
+                    item.variant === "primary" && "bg-[#8c77e4] text-white shadow-[0_14px_26px_rgba(140,119,228,0.35)] hover:bg-[#7a63df]",
+                    item.variant === "secondary" && "bg-white text-[#333] shadow-[0_10px_22px_rgba(59,45,105,0.14)] hover:text-[#8c77e4]"
                   )}
                 >
                   {item.label}
-                  {item.variant === "primary" ? <span aria-hidden className="ml-4 text-[var(--fm-lime)]">→</span> : null}
+                  <span aria-hidden className="ml-4 text-[1.35rem] leading-none">→</span>
                 </Link>
               ))}
             </div>
           ) : null}
+        </div>
+
+        <div className="relative mx-auto hidden w-full max-w-[34rem] lg:block">
+          <div aria-hidden className="absolute inset-8 rounded-full bg-white/45 blur-3xl" />
+          <img
+            src={HOMEPAGE_HERO_ASSETS.brain}
+            alt=""
+            aria-hidden="true"
+            className="relative mx-auto h-[31rem] w-auto max-w-full object-contain drop-shadow-[0_25px_55px_rgba(133,113,218,0.20)]"
+            loading="eager"
+          />
         </div>
       </Container>
     </section>
