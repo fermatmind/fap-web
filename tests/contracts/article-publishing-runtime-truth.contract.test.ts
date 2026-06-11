@@ -372,9 +372,9 @@ describe("Article Publishing Runtime Truth acceptance gate", () => {
     expect(sitemap).toContain('buildValidatedCmsPaths("/v0.5/articles", buildArticlePaths)');
     expect(sitemap).toContain("isPublicSitemapEligibleArticle");
     expect(llms).toContain("listCmsArticlesForLlmsWithLastKnownGood");
-    expect(llms).toContain("article.isIndexable && article.llmsEligible");
+    expect(llms).toContain("article.isIndexable && article.llmsEligible !== false");
     expect(llmsFull).toContain("listCmsArticlesForLlmsWithLastKnownGood");
-    expect(llmsFull).toContain("article.isIndexable && article.llmsEligible");
+    expect(llmsFull).toContain("article.isIndexable && article.llmsEligible !== false");
   });
 
   it("keeps article metadata source priority on backend SEO surface before compatibility fallback", () => {

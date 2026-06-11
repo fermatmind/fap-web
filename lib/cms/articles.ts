@@ -176,8 +176,8 @@ export type CmsArticle = {
   status: string;
   isPublic: boolean;
   isIndexable: boolean;
-  sitemapEligible: boolean;
-  llmsEligible: boolean;
+  sitemapEligible?: boolean;
+  llmsEligible?: boolean;
   publishedRevisionId: number | null;
   publishedAt: string | null;
   scheduledAt: string | null;
@@ -224,7 +224,7 @@ export type CmsArticleLlmsEntry = {
   excerpt: string;
   href: string;
   isIndexable: boolean;
-  llmsEligible: boolean;
+  llmsEligible?: boolean;
   updatedAt: string | null;
 };
 
@@ -866,8 +866,8 @@ function normalizeArticle(article: CmsArticleApiRecord): CmsArticle {
     status: normalizeStatus(article.status),
     isPublic: Boolean(article.is_public),
     isIndexable: Boolean(article.is_indexable),
-    sitemapEligible: article.sitemap_eligible !== false,
-    llmsEligible: article.llms_eligible !== false,
+    ...(article.sitemap_eligible === false ? { sitemapEligible: false } : {}),
+    ...(article.llms_eligible === false ? { llmsEligible: false } : {}),
     publishedRevisionId: normalizeArticlePublishedRevisionId(article),
     publishedAt: article.published_at ?? null,
     scheduledAt: article.scheduled_at ?? null,
@@ -1032,7 +1032,7 @@ export async function listCmsArticlesForLlms(
         excerpt: article.excerpt,
         href: buildArticleFrontendUrl(locale, slug),
         isIndexable: article.isIndexable,
-        llmsEligible: article.llmsEligible,
+        ...(article.llmsEligible === false ? { llmsEligible: false } : {}),
         updatedAt: article.updatedAt ?? article.publishedAt ?? article.createdAt,
       });
     }
