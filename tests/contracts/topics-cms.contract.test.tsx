@@ -373,9 +373,9 @@ describe("topics cms helpers", () => {
     expect(source).not.toContain("normalizedSeo.surface?.canonicalUrl || canonicalUrl(canonicalPath)");
     expect(source).not.toContain("normalizedSeo.surface?.og.url || canonical");
     const indexSource = read("app/(localized)/[locale]/topics/page.tsx");
-    expect(indexSource).toContain("topics-index-landing-cta");
-    expect(indexSource).toContain("topics-index-scene-entry");
-    expect(indexSource).toContain('data-testid="mbti-topics-index-primary-cta"');
+    expect(indexSource).not.toContain("topics-index-landing-cta");
+    expect(indexSource).not.toContain("topics-index-scene-entry");
+    expect(indexSource).not.toContain('data-testid="mbti-topics-index-primary-cta"');
     expect(shouldIncludeInSitemap("/en/topics/mbti")).toBe(true);
     expect(shouldIncludeInSitemap("/zh/topics/mbti")).toBe(true);
   });

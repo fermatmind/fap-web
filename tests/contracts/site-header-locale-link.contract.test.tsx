@@ -40,7 +40,7 @@ describe("SiteHeader locale link contract", () => {
 
     fireEvent.click(screen.getByRole("button", { name: "语言菜单" }));
 
-    const localeLinks = screen.getAllByRole("menuitem", { name: "English EN" });
+    const localeLinks = screen.getAllByRole("menuitem", { name: "English" });
     expect(localeLinks.length).toBeGreaterThan(0);
     for (const link of localeLinks) {
       expect(link).toHaveAttribute("href", "/en/tests/enneagram-personality-test-nine-types/take");
@@ -70,7 +70,7 @@ describe("SiteHeader locale link contract", () => {
 
     fireEvent.click(screen.getByRole("button", { name: "语言菜单" }));
 
-    const link = screen.getByRole("menuitem", { name: "English EN" });
+    const link = screen.getByRole("menuitem", { name: "English" });
     expect(link).toHaveAttribute("href", "/en/tests/enneagram-personality-test-nine-types/take");
     expect(link.getAttribute("href")).not.toContain("form=");
   });

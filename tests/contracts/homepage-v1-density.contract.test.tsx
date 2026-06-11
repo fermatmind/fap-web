@@ -148,8 +148,14 @@ describe("homepage v1 density contract", () => {
     const source = read("components/marketing/HomePageExperience.tsx");
 
     expect(source).toContain("function HomepageHeroV1");
-    expect(source).toContain("fm-page-background relative overflow-hidden border-b border-[var(--fm-border-soft)]");
-    expect(source).toContain("copy.hero.primaryCta");
+    expect(source).toContain("linear-gradient(112deg, #f7f8f5 0%, #faf8f1 54%, #f7f3fb 100%)");
+    expect(source).toContain("const HOMEPAGE_HERO_ASSETS");
+    expect(source).toContain("const HOMEPAGE_HERO_COPY");
+    expect(source).toContain("heroCopy.primaryCta || copy.hero.primaryCta");
+    expect(source).toContain("heroCopy.socialProofCount");
+    expect(source).toContain("heroCopy.socialProof");
+    expect(source).toContain('aria-label={heroCopy.title}');
+    expect(source).toContain('aria-hidden="true"');
     expect(source).not.toContain("function HeroQuickStartPanel");
     expect(source).not.toContain("featuredTests.map");
     expect(source).not.toContain("copy.hero.secondaryCta");

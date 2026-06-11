@@ -40,7 +40,7 @@ describe("personality type browse contract", () => {
     expect(detailSource).toContain('data-testid="personality-detail-next-steps"');
     expect(detailSource).toContain("看职业方向");
     expect(detailSource).toContain("返回 16 型浏览");
-    expect(detailSource).toContain("重新做 MBTI");
+    expect(detailSource).toContain("MBTI免费测试");
     expect(detailSource).toContain("人格解读");
     expect(detailSource).toContain("核心画像");
     expect(detailSource).toContain("下一步阅读");

@@ -220,10 +220,13 @@ function HomepageHeroV1({ locale, copy }: { locale: Locale; copy: HomePageConten
     >
       <Container className="relative z-10 grid min-h-[41rem] w-full max-w-[82rem] items-center gap-10 px-6 py-14 md:px-8 lg:grid-cols-[minmax(0,1fr)_minmax(24rem,34rem)] lg:py-20">
         <div className="mx-auto w-full max-w-[43rem] text-center lg:mx-0 lg:text-left">
-          <h1 className="m-0 text-balance text-[2.55rem] font-black leading-tight tracking-normal text-[#333] sm:text-[2.8rem] lg:text-[3rem] xl:text-[3.2rem]">
+          <h1
+            aria-label={heroCopy.title}
+            className="m-0 text-balance text-[2.55rem] font-black leading-tight tracking-normal text-[#333] sm:text-[2.8rem] lg:text-[3rem] xl:text-[3.2rem]"
+          >
             {titleSegments
               ? titleSegments.map((segment) => (
-                  <span key={segment} className="inline-block whitespace-nowrap">
+                  <span key={segment} aria-hidden="true" className="inline-block whitespace-nowrap">
                     {segment}
                   </span>
                 ))
