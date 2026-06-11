@@ -185,6 +185,15 @@ const ARTICLE_H1_03_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const ARTICLE_NOINDEX_SCHEMA_HREFLANG_HOLD_00_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/articles/[slug]/page.tsx",
+  "docs/seo/generated/article-personality-jsonld-projection-gates.v1.json",
+  "tests/contracts/article-publishing-runtime-truth.contract.test.ts",
+  "tests/contracts/article-personality-jsonld-projection-gates.contract.test.ts",
+  "tests/contracts/articles-cleanup.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 const PR_WEB_SEC_01_ALLOWED_FILES = new Set([
   "components/result/eq/EQResultV5.tsx",
   "components/result/eq/utils.ts",
@@ -2420,6 +2429,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/article-h1-03") {
     return ARTICLE_H1_03_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/article-noindex-schema-hreflang-hold-00") {
+    return ARTICLE_NOINDEX_SCHEMA_HREFLANG_HOLD_00_ALLOWED_FILES.has(file);
   }
 
   return CURRENT_BRANCH === "codex/riasec-full-content-pack-12" && RIASEC_PACK12_ALLOWED_FILES.has(file);

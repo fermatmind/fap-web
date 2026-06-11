@@ -209,14 +209,19 @@ export async function generateMetadata({
     buildArticleMetadataImage(seo?.surface?.twitter.image ?? seo?.meta.twitter.image ?? ogImage, article.coverImageAlt),
     metadata.twitter?.images,
   );
+  const alternates = noindex
+    ? {
+        canonical: passport.canonical,
+      }
+    : {
+        ...metadata.alternates,
+        canonical: passport.canonical,
+        languages: passport.languages,
+      };
 
   return {
     ...metadata,
-    alternates: {
-      ...metadata.alternates,
-      canonical: passport.canonical,
-      languages: passport.languages,
-    },
+    alternates,
     openGraph: {
       type: "article",
       url: canonical,
@@ -257,13 +262,17 @@ export default async function ArticleDetailPage({
   }
 
   const canonicalPath = buildCanonicalPath(article.slug, locale);
-  const cmsArticleSeoJsonLd = normalizeArticleJsonLdAuthor(seo?.jsonld);
-  const articleJsonLdAuthority = resolveArticleJsonLdAuthority({
-    cmsArticleSeoJsonLd,
-    article,
-  });
+  const noindex = !article.isIndexable || shouldNoindex(seo?.meta.robots);
+  const allowSearchStructuredData = !noindex;
+  const cmsArticleSeoJsonLd = allowSearchStructuredData ? normalizeArticleJsonLdAuthor(seo?.jsonld) : null;
+  const articleJsonLdAuthority = allowSearchStructuredData
+    ? resolveArticleJsonLdAuthority({
+        cmsArticleSeoJsonLd,
+        article,
+      })
+    : null;
   const articleJsonLd = cmsArticleSeoJsonLd || (
-    articleJsonLdAuthority.canRenderJsonLd
+    articleJsonLdAuthority?.canRenderJsonLd
       ? buildArticleJsonLd({
         path: canonicalPath,
         title: article.title,
@@ -276,11 +285,13 @@ export default async function ArticleDetailPage({
       : null
   );
 
-  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
-    { name: locale === "zh" ? "首页" : "Home", path: localizedPath("/", locale) },
-    { name: locale === "zh" ? "文章" : "Articles", path: localizedPath("/articles", locale) },
-    { name: article.title, path: canonicalPath },
-  ]);
+  const breadcrumbJsonLd = allowSearchStructuredData
+    ? buildBreadcrumbJsonLd([
+        { name: locale === "zh" ? "首页" : "Home", path: localizedPath("/", locale) },
+        { name: locale === "zh" ? "文章" : "Articles", path: localizedPath("/articles", locale) },
+        { name: article.title, path: canonicalPath },
+      ])
+    : null;
   const faqItems = article.answerSurface?.faqBlocks.length
     ? article.answerSurface.faqBlocks
       .filter((item) => item.question && item.answer)
@@ -313,8 +324,8 @@ export default async function ArticleDetailPage({
   return (
     <Container as="main" className="space-y-8 py-10">
       {articleJsonLd ? <JsonLd id={`article-jsonld-${slug}`} data={articleJsonLd} /> : null}
-      <JsonLd id={`article-breadcrumb-${slug}`} data={breadcrumbJsonLd} />
-      {faqItems.length > 0 ? <JsonLd id={`article-faq-${slug}`} data={buildFAQPageJsonLd(faqItems)} /> : null}
+      {breadcrumbJsonLd ? <JsonLd id={`article-breadcrumb-${slug}`} data={breadcrumbJsonLd} /> : null}
+      {allowSearchStructuredData && faqItems.length > 0 ? <JsonLd id={`article-faq-${slug}`} data={buildFAQPageJsonLd(faqItems)} /> : null}
 
       <Breadcrumb
         items={[

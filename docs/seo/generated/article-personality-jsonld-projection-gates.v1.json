@@ -33,7 +33,7 @@
           "requiredTokens": [
             "resolveArticleJsonLdAuthority({",
             "cmsArticleSeoJsonLd",
-            "articleJsonLdAuthority.canRenderJsonLd",
+            "articleJsonLdAuthority?.canRenderJsonLd",
             "buildArticleJsonLd({"
           ]
         },
