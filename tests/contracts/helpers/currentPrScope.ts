@@ -543,6 +543,18 @@ const PR_WEB_SEC_22_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const RESULT_PDF_PRINT_PRIVATE_URL_GUARD_01_ALLOWED_FILES = new Set([
+  "components/big5/pdf/PdfDownloadButton.tsx",
+  "components/result/big5/Big5ResultShell.tsx",
+  "components/result/enneagram/EnneagramResultShell.tsx",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "tests/contracts/big5-shell-polish.contract.test.tsx",
+  "tests/contracts/enneagram-pdf-surface.contract.test.tsx",
+  "tests/contracts/rich-result-report.contract.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 const PR_WEB_SEC_23_ALLOWED_FILES = new Set([
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -2220,6 +2232,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/pr-web-sec-22-result-retry-credentials") {
     return PR_WEB_SEC_22_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/result-pdf-print-private-url-guard-01") {
+    return RESULT_PDF_PRINT_PRIVATE_URL_GUARD_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-web-sec-23-big5-comparative-fallback") {

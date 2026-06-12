@@ -467,7 +467,9 @@ export function Big5ResultShell({
           <div data-testid="big5-pdf-entry" className="rounded-xl border border-slate-200 bg-slate-50 p-4">
             <p className="m-0 text-sm font-semibold text-slate-950">{isZh ? "保存报告" : "Save report"}</p>
             <p className="m-0 mt-1 min-h-10 text-sm leading-6 text-slate-600">
-              {isZh ? "下载当前结果的 PDF 版本，便于复盘和转发。" : "Download the current result as a PDF for review."}
+              {isZh
+                ? "PDF 导出已安全暂停，避免私有结果链接进入文件页脚。"
+                : "PDF export is paused to keep private result links out of file footers."}
             </p>
             {pdfAttemptId ? (
               <div className="mt-3">
@@ -476,6 +478,13 @@ export function Big5ResultShell({
                   locked={reportLocked}
                   accessProjection={accessProjection}
                   locale={locale}
+                  safetyDisabled
+                  safetyDisabledLabel={isZh ? "PDF 暂不可用" : "PDF unavailable"}
+                  safetyDisabledReason={
+                    isZh
+                      ? "我们会在安全 PDF 导出路径恢复后重新开放下载。"
+                      : "Download will return after the safe PDF export path is restored."
+                  }
                 />
               </div>
             ) : null}
@@ -587,7 +596,7 @@ export function Big5ResultShell({
           <Link href={toolsHref} className="rounded-xl border border-slate-200 bg-slate-50 p-4 text-slate-900 transition hover:border-slate-300 hover:bg-white">
             <span className="text-sm font-semibold">{isZh ? "保存与复测" : "Save and retake"}</span>
             <span className="mt-2 block text-sm leading-6 text-slate-600">
-              {isZh ? "回到工具区下载 PDF，或在阶段变化后重新测试。" : "Return to tools for PDF download or a later retake."}
+              {isZh ? "回到工具区查看报告操作，或在阶段变化后重新测试。" : "Return to tools for report actions or a later retake."}
             </span>
           </Link>
         </div>

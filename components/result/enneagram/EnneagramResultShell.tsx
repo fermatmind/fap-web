@@ -1679,6 +1679,13 @@ function LegacyEnneagramResultShell({
                 accessProjection={accessProjection}
                 locale={locale}
                 filenamePrefix="enneagram-report"
+                safetyDisabled
+                safetyDisabledLabel={isZh ? "PDF 暂不可用" : "PDF unavailable"}
+                safetyDisabledReason={
+                  isZh
+                    ? "PDF 导出已安全暂停，避免私有结果链接进入文件页脚。"
+                    : "PDF export is paused to keep private result links out of file footers."
+                }
               />
             </div>
           ) : null}
@@ -1879,6 +1886,13 @@ export function EnneagramResultShell({
                 accessProjection={accessProjection}
                 locale={locale}
                 filenamePrefix="enneagram-report"
+                safetyDisabled
+                safetyDisabledLabel={isZh ? "PDF 暂不可用" : "PDF unavailable"}
+                safetyDisabledReason={
+                  isZh
+                    ? "PDF 导出已安全暂停，避免私有结果链接进入文件页脚。"
+                    : "PDF export is paused to keep private result links out of file footers."
+                }
               />
             </div>
           ) : null}

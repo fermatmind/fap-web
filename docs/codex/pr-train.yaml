@@ -13961,3 +13961,233 @@ prs:
       squash: true
       auto_merge: false
     next_task: SEO-OPS-ENGLISH-HOMEPAGE-RUNTIME-REFRESH-VERIFY-00
+
+  - id: RESULT-PDF-PRINT-PRIVATE-URL-GUARD-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/result-pdf-print-private-url-guard-01
+    base: main
+    title: "fix(result): prevent private result URL leakage in PDF export"
+    depends_on: []
+    mode: execute
+    train_scope: result_p0_private_debug_pdf_leak_fix
+    status: in_progress
+    goal: "Disable or safely gate private result-page PDF download CTAs until the export path cannot leak private result URLs, result IDs, or browser URL footers."
+    artifacts:
+      - components/big5/pdf/PdfDownloadButton.tsx
+      - components/result/big5/Big5ResultShell.tsx
+      - components/result/enneagram/EnneagramResultShell.tsx
+      - tests/contracts/big5-shell-polish.contract.test.tsx
+      - tests/contracts/enneagram-pdf-surface.contract.test.tsx
+      - tests/contracts/rich-result-report.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - components/big5/pdf/PdfDownloadButton.tsx
+      - components/result/big5/Big5ResultShell.tsx
+      - components/result/enneagram/EnneagramResultShell.tsx
+      - tests/contracts/big5-shell-polish.contract.test.tsx
+      - tests/contracts/enneagram-pdf-surface.contract.test.tsx
+      - tests/contracts/rich-result-report.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - result algorithm changes
+      - scoring changes
+      - payment/checkout/order behavior changes
+      - CMS mutation
+      - production DB mutation
+      - deploy
+      - sitemap/robots/llms/schema/canonical public SEO expansion
+      - product-grade PDF template work
+      - committed PDF or .tmp files
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/enneagram-pdf-surface.contract.test.tsx tests/contracts/big5-shell-polish.contract.test.tsx
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - "python3 - <<scope validation: changed files within RESULT-PDF-PRINT-PRIVATE-URL-GUARD-01 manifest scope>>"
+      - rg -n "window\\.print|print\\(|/result/.*report\\.pdf|report\\.pdf.*window\\.open" components/result components/big5/pdf app/(localized)/[locale]/(app)/result lib || true
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: RESULT-DEBUG-FIELD-SUPPRESSION-01
+
+  - id: RESULT-DEBUG-FIELD-SUPPRESSION-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/result-debug-field-suppression-01
+    base: main
+    title: "fix(result): suppress internal debug fields in public result views"
+    depends_on: [RESULT-PDF-PRINT-PRIVATE-URL-GUARD-01]
+    mode: execute
+    train_scope: result_p0_private_debug_pdf_leak_fix
+    status: pending_dependency
+    goal: "Prevent public result views and PDFs from rendering internal debug fields, registry names, controller names, PR identifiers, raw score-space ids, policy tokens, visibility state labels, and backend keys."
+    artifacts:
+      - components/result/**
+      - components/big5/report/**
+      - lib/big5/resultAssembler.ts
+      - lib/riasec/resultAssembler.ts
+      - lib/enneagram/resultAssembler.ts
+      - tests/contracts/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - components/result/**
+      - components/big5/report/**
+      - lib/big5/resultAssembler.ts
+      - lib/riasec/resultAssembler.ts
+      - lib/enneagram/resultAssembler.ts
+      - tests/contracts/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - result algorithm changes
+      - scoring changes
+      - CMS mutation
+      - payment/checkout/order behavior changes
+      - sitemap/robots/llms/schema/canonical public SEO expansion
+      - deploy
+    required_local_checks:
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - git diff --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: RESULT-OBJECT-RENDER-GUARD-01
+
+  - id: RESULT-OBJECT-RENDER-GUARD-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/result-object-render-guard-01
+    base: main
+    title: "fix(result): prevent object values from rendering in result shells"
+    depends_on: [RESULT-DEBUG-FIELD-SUPPRESSION-01]
+    mode: execute
+    train_scope: result_p0_private_debug_pdf_leak_fix
+    status: pending_dependency
+    goal: "Fix Enneagram and shared result rendering so unsupported object values never appear as raw keys or [object Object]."
+    artifacts:
+      - components/result/enneagram/**
+      - components/result/**
+      - tests/contracts/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - components/result/enneagram/**
+      - components/result/**
+      - tests/contracts/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - result algorithm changes
+      - scoring changes
+      - CMS mutation
+      - payment/checkout/order behavior changes
+      - sitemap/robots/llms/schema/canonical public SEO expansion
+      - deploy
+    required_local_checks:
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - git diff --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: RESULT-PRIVATE-PRINT-STYLES-AND-FOOTER-GATE-01
+
+  - id: RESULT-PRIVATE-PRINT-STYLES-AND-FOOTER-GATE-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/result-private-print-styles-footer-gate-01
+    base: main
+    title: "fix(result): gate global chrome and footer in private result print views"
+    depends_on: [RESULT-OBJECT-RENDER-GUARD-01]
+    mode: execute
+    train_scope: result_p0_private_debug_pdf_leak_fix
+    status: pending_dependency
+    goal: "Hide global header, footer, navigation, social icons, and unrelated global chrome from private result print/PDF output without changing global footer IA."
+    artifacts:
+      - app/globals.css
+      - components/layout/SiteChrome.tsx
+      - components/layout/SiteHeader.tsx
+      - components/layout/SiteFooter.tsx
+      - app/(localized)/[locale]/(app)/result/[id]/**
+      - tests/contracts/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - app/globals.css
+      - components/layout/SiteChrome.tsx
+      - components/layout/SiteHeader.tsx
+      - components/layout/SiteFooter.tsx
+      - app/(localized)/[locale]/(app)/result/[id]/**
+      - tests/contracts/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - global footer IA/link target changes
+      - sitemap/robots/llms/schema/canonical public SEO expansion
+      - result algorithm changes
+      - scoring changes
+      - CMS mutation
+      - deploy
+    required_local_checks:
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - git diff --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: RESULT-LEAK-CONTRACT-TESTS-01
+
+  - id: RESULT-LEAK-CONTRACT-TESTS-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/result-leak-contract-tests-01
+    base: main
+    title: "test(result): add private result leak regression contracts"
+    depends_on: [RESULT-PRIVATE-PRINT-STYLES-AND-FOOTER-GATE-01]
+    mode: execute
+    train_scope: result_p0_private_debug_pdf_leak_fix
+    status: pending_dependency
+    goal: "Add automated regression contracts for private result URL leaks, internal debug fields, raw payload keys, and [object Object] output."
+    artifacts:
+      - tests/contracts/**
+      - tests/fixtures/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - tests/contracts/**
+      - tests/fixtures/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - runtime behavior changes unless a tiny testability helper is justified
+      - committed PDF samples
+      - CMS mutation
+      - result algorithm changes
+      - scoring changes
+      - deploy
+    required_local_checks:
+      - pnpm test:contract
+      - pnpm typecheck
+      - git diff --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true

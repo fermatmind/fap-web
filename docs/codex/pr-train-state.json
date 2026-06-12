@@ -2,9 +2,9 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-12T10:24:32+08:00",
+  "updated_at": "2026-06-12T20:20:00+08:00",
   "status": "active",
-  "phase": "article_h1_stability",
+  "phase": "result_p0_private_debug_pdf_leak_fix",
   "pr_namespace": "PR-PRAC-*",
   "branch_naming_convention": "codex/pr-prac-<nn>-<short-scope>",
   "mode": "local_clone_preferred",
@@ -21447,6 +21447,337 @@
           "at": "2026-06-12T10:24:32+08:00",
           "status": "local_checks_passed",
           "summary": "Bilingual CMS API health, focused homepage contract, typecheck, manifest/state validation, and diff check passed. Full contract suite intentionally not required for this scoped PR due historical branch-exclusive scope guards."
+        }
+      ]
+    },
+    {
+      "id": "RESULT-PDF-PRINT-PRIVATE-URL-GUARD-01",
+      "repo": "fap-web",
+      "branch": "codex/result-pdf-print-private-url-guard-01",
+      "status": "ready_to_merge",
+      "commit_sha": "c59458361c2b138a9aa1336e9bca68f1e0f68f53",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1113",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized updating docs/codex/pr-train.yaml and docs/codex/pr-train-state.json for RESULT-P0-PRIVATE-DEBUG-PDF-LEAK-FIX-TRAIN-01 on 2026-06-12."
+        },
+        "dependency": {
+          "status": "pass",
+          "depends_on": []
+        },
+        "scope": {
+          "status": "pass",
+          "allowed_paths": [
+            "components/big5/pdf/PdfDownloadButton.tsx",
+            "components/result/big5/Big5ResultShell.tsx",
+            "components/result/enneagram/EnneagramResultShell.tsx",
+            "tests/contracts/big5-shell-polish.contract.test.tsx",
+            "tests/contracts/enneagram-pdf-surface.contract.test.tsx",
+            "tests/contracts/rich-result-report.contract.test.tsx",
+            "tests/contracts/helpers/currentPrScope.ts",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ],
+          "evidence": "Changed tracked files are limited to RESULT-PDF-PRINT-PRIVATE-URL-GUARD-01 allowed paths. NEXT_PUBLIC_API_URL production build regenerated public/sitemap.xml, and that out-of-scope generated artifact was restored before scope validation."
+        },
+        "local": {
+          "status": "pass",
+          "commands": [
+            {
+              "name": "focused PDF/result contracts",
+              "status": "pass",
+              "command": "pnpm exec vitest run tests/contracts/enneagram-pdf-surface.contract.test.tsx tests/contracts/big5-shell-polish.contract.test.tsx tests/contracts/rich-result-report.contract.test.tsx",
+              "evidence": "3 test files passed, 20 tests passed."
+            },
+            {
+              "name": "typecheck",
+              "status": "pass",
+              "command": "pnpm typecheck"
+            },
+            {
+              "name": "production API build",
+              "status": "pass",
+              "command": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+              "evidence": "Build passed; generated public/sitemap.xml diff was restored as out-of-scope generated output."
+            },
+            {
+              "name": "full contract suite",
+              "status": "pass_with_unrelated_sidecar_isolation",
+              "command": "pnpm test:contract",
+              "evidence": "Full suite passed with 474 files and 2708 tests after temporarily moving unrelated untracked generated sidecars out of the checkout; sidecars were restored afterward."
+            },
+            {
+              "name": "state JSON parse",
+              "status": "pass",
+              "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+            },
+            {
+              "name": "train YAML parse",
+              "status": "pass",
+              "command": "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\""
+            },
+            {
+              "name": "private print path scan",
+              "status": "pass",
+              "command": "rg -n \"window\\.print|print\\(|/result/.*report\\.pdf|report\\.pdf.*window\\.open\" components/result components/big5/pdf app/(localized)/[locale]/(app)/result lib || true",
+              "evidence": "No active result report.pdf/window.print path was found; regex hits were only unrelated Fingerprint identifiers."
+            },
+            {
+              "name": "diff whitespace check",
+              "status": "pass",
+              "command": "git diff --check"
+            }
+          ]
+        },
+        "github": {
+          "status": "pass",
+          "checks": [
+            "CodeQL",
+            "analyze (javascript-typescript)",
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze"
+          ],
+          "evidence": "GitHub checks passed for draft PR #1113 at head c59458361c2b138a9aa1336e9bca68f1e0f68f53; mergeStateStatus was CLEAN. Focused local revalidation and scope validation also passed before recording ready_to_merge."
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-12T18:40:00+08:00",
+          "status": "in_progress",
+          "note": "User authorized registering the RESULT-P0 private debug/PDF leak fix train and starting PR 1. Branch created from fap-web main aligned with origin/main."
+        },
+        {
+          "at": "2026-06-12T18:55:00+08:00",
+          "status": "in_progress",
+          "note": "Expanded scoped tests to include rich-result-report contract assertion for the new private result PDF unavailable state."
+        },
+        {
+          "at": "2026-06-12T19:20:00+08:00",
+          "status": "local_checks_passed",
+          "note": "Private Big Five and Enneagram result PDF CTAs now fail closed with unavailable copy, shared PDF button safety-disabled guard, focused contract coverage, full contract pass with unrelated generated sidecars isolated/restored, typecheck, production build, metadata parse, private print path scan, and diff checks passed."
+        },
+        {
+          "at": "2026-06-12T19:30:00+08:00",
+          "status": "committed_pending_push",
+          "note": "Implementation commit 654950d9cc82857596f42bbe4e097d895def1a61 created after scoped local validation; GitHub PR and checks remain pending."
+        },
+        {
+          "at": "2026-06-12T19:35:00+08:00",
+          "status": "pr_open_checks_pending",
+          "note": "Opened draft fap-web PR #1113 from codex/result-pdf-print-private-url-guard-01; GitHub checks pending."
+        },
+        {
+          "at": "2026-06-12T20:20:00+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed for PR #1113 at head c59458361c2b138a9aa1336e9bca68f1e0f68f53, mergeStateStatus was CLEAN, and focused local revalidation plus explicit scope validation passed. Recording ready_to_merge before merge per train policy."
+        }
+      ]
+    },
+    {
+      "id": "RESULT-DEBUG-FIELD-SUPPRESSION-01",
+      "repo": "fap-web",
+      "branch": "codex/result-debug-field-suppression-01",
+      "status": "pending_dependency",
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized updating docs/codex/pr-train.yaml and docs/codex/pr-train-state.json for RESULT-P0-PRIVATE-DEBUG-PDF-LEAK-FIX-TRAIN-01 on 2026-06-12."
+        },
+        "dependency": {
+          "status": "pending",
+          "depends_on": [
+            "RESULT-PDF-PRINT-PRIVATE-URL-GUARD-01"
+          ]
+        },
+        "scope": {
+          "status": "pending",
+          "allowed_paths": [
+            "components/result/**",
+            "components/big5/report/**",
+            "lib/big5/resultAssembler.ts",
+            "lib/riasec/resultAssembler.ts",
+            "lib/enneagram/resultAssembler.ts",
+            "tests/contracts/**",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ]
+        },
+        "local": {
+          "status": "pending",
+          "commands": []
+        },
+        "github": {
+          "status": "pending",
+          "checks": []
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-12T18:40:00+08:00",
+          "status": "pending_dependency",
+          "note": "Initialized from user-authorized train registration; execution waits for PR 1 merge and cleanup."
+        }
+      ]
+    },
+    {
+      "id": "RESULT-OBJECT-RENDER-GUARD-01",
+      "repo": "fap-web",
+      "branch": "codex/result-object-render-guard-01",
+      "status": "pending_dependency",
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized updating docs/codex/pr-train.yaml and docs/codex/pr-train-state.json for RESULT-P0-PRIVATE-DEBUG-PDF-LEAK-FIX-TRAIN-01 on 2026-06-12."
+        },
+        "dependency": {
+          "status": "pending",
+          "depends_on": [
+            "RESULT-DEBUG-FIELD-SUPPRESSION-01"
+          ]
+        },
+        "scope": {
+          "status": "pending",
+          "allowed_paths": [
+            "components/result/enneagram/**",
+            "components/result/**",
+            "tests/contracts/**",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ]
+        },
+        "local": {
+          "status": "pending",
+          "commands": []
+        },
+        "github": {
+          "status": "pending",
+          "checks": []
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-12T18:40:00+08:00",
+          "status": "pending_dependency",
+          "note": "Initialized from user-authorized train registration; execution waits for PR 2 merge and cleanup."
+        }
+      ]
+    },
+    {
+      "id": "RESULT-PRIVATE-PRINT-STYLES-AND-FOOTER-GATE-01",
+      "repo": "fap-web",
+      "branch": "codex/result-private-print-styles-footer-gate-01",
+      "status": "pending_dependency",
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized updating docs/codex/pr-train.yaml and docs/codex/pr-train-state.json for RESULT-P0-PRIVATE-DEBUG-PDF-LEAK-FIX-TRAIN-01 on 2026-06-12."
+        },
+        "dependency": {
+          "status": "pending",
+          "depends_on": [
+            "RESULT-OBJECT-RENDER-GUARD-01"
+          ]
+        },
+        "scope": {
+          "status": "pending",
+          "allowed_paths": [
+            "app/globals.css",
+            "components/layout/SiteChrome.tsx",
+            "components/layout/SiteHeader.tsx",
+            "components/layout/SiteFooter.tsx",
+            "app/(localized)/[locale]/(app)/result/[id]/**",
+            "tests/contracts/**",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ]
+        },
+        "local": {
+          "status": "pending",
+          "commands": []
+        },
+        "github": {
+          "status": "pending",
+          "checks": []
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-12T18:40:00+08:00",
+          "status": "pending_dependency",
+          "note": "Initialized from user-authorized train registration; execution waits for PR 3 merge and cleanup."
+        }
+      ]
+    },
+    {
+      "id": "RESULT-LEAK-CONTRACT-TESTS-01",
+      "repo": "fap-web",
+      "branch": "codex/result-leak-contract-tests-01",
+      "status": "pending_dependency",
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized updating docs/codex/pr-train.yaml and docs/codex/pr-train-state.json for RESULT-P0-PRIVATE-DEBUG-PDF-LEAK-FIX-TRAIN-01 on 2026-06-12."
+        },
+        "dependency": {
+          "status": "pending",
+          "depends_on": [
+            "RESULT-PRIVATE-PRINT-STYLES-AND-FOOTER-GATE-01"
+          ]
+        },
+        "scope": {
+          "status": "pending",
+          "allowed_paths": [
+            "tests/contracts/**",
+            "tests/fixtures/**",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ]
+        },
+        "local": {
+          "status": "pending",
+          "commands": []
+        },
+        "github": {
+          "status": "pending",
+          "checks": []
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-12T18:40:00+08:00",
+          "status": "pending_dependency",
+          "note": "Initialized from user-authorized train registration; execution waits for PR 4 merge and cleanup."
         }
       ]
     }
