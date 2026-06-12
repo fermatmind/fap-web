@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-13T00:42:00+08:00",
+  "updated_at": "2026-06-13T00:48:00+08:00",
   "status": "active",
   "phase": "result_p0_private_debug_pdf_leak_fix",
   "pr_namespace": "PR-PRAC-*",
@@ -21590,8 +21590,8 @@
       "id": "RESULT-DEBUG-FIELD-SUPPRESSION-01",
       "repo": "fap-web",
       "branch": "codex/result-debug-field-suppression-01",
-      "status": "pr_open_checks_pending",
-      "commit_sha": "463a9c48",
+      "status": "ready_to_merge",
+      "commit_sha": "0c74048fe75ad649d6934aae6a254f28751e51de",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1114",
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -21673,8 +21673,16 @@
           ]
         },
         "github": {
-          "status": "pending",
-          "checks": []
+          "status": "pass",
+          "checks": [
+            "CodeQL",
+            "analyze (javascript-typescript)",
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze"
+          ],
+          "evidence": "GitHub checks passed for draft PR #1114 at head 0c74048fe75ad649d6934aae6a254f28751e51de; mergeStateStatus was CLEAN. Focused local revalidation and scope validation passed before recording ready_to_merge."
         }
       },
       "history": [
@@ -21697,6 +21705,11 @@
           "at": "2026-06-13T00:42:00+08:00",
           "status": "pr_open_checks_pending",
           "note": "Opened draft fap-web PR #1114 from codex/result-debug-field-suppression-01 after scoped local validation; GitHub checks pending. commit_sha records the implementation commit before this PR URL ledger update."
+        },
+        {
+          "at": "2026-06-13T00:48:00+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed for PR #1114 at head 0c74048fe75ad649d6934aae6a254f28751e51de, mergeStateStatus was CLEAN, and focused local revalidation plus explicit scope validation passed. Recording ready_to_merge before merge per train policy."
         }
       ]
     },
