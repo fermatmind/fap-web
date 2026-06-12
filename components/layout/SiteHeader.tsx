@@ -194,6 +194,7 @@ export function SiteHeader({
 
   return (
     <header
+      data-private-result-print-hidden="true"
       className="sticky top-0 z-50 border-b border-[var(--fm-border-soft)] bg-white text-[var(--fm-text-main)]"
     >
       <Container

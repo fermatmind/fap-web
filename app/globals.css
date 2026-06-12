@@ -637,6 +637,12 @@ a {
   color: rgba(15, 23, 42, 0.68);
 }
 
+@media print {
+  body:has([data-private-result-print-root="true"]) [data-private-result-print-hidden="true"] {
+    display: none !important;
+  }
+}
+
 @media (max-width: 767px) {
   .fm-social-list {
     grid-template-columns: repeat(6, minmax(0, 1fr));

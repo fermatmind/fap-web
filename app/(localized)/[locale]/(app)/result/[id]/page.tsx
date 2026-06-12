@@ -25,6 +25,7 @@ export default async function ResultPage({
   return (
     <Container
       as="main"
+      data-private-result-print-root="true"
       className="w-full py-[var(--fm-space-10)] [&:has([data-testid=mbti-result-shell])>h1]:sr-only"
     >
       <h1 className="mb-[var(--fm-space-4)] mt-0 text-3xl font-bold text-slate-900">{dict.result.title}</h1>

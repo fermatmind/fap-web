@@ -574,6 +574,17 @@ const RESULT_OBJECT_RENDER_GUARD_01_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const RESULT_PRIVATE_PRINT_STYLES_AND_FOOTER_GATE_01_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/(app)/result/[id]/page.tsx",
+  "app/globals.css",
+  "components/layout/SiteFooter.tsx",
+  "components/layout/SiteHeader.tsx",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/result-private-print-chrome.contract.test.ts",
+]);
+
 const PR_WEB_SEC_23_ALLOWED_FILES = new Set([
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -2263,6 +2274,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/result-object-render-guard-01") {
     return RESULT_OBJECT_RENDER_GUARD_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/result-private-print-styles-footer-gate-01") {
+    return RESULT_PRIVATE_PRINT_STYLES_AND_FOOTER_GATE_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-web-sec-23-big5-comparative-fallback") {
