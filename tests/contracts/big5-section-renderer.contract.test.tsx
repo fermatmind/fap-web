@@ -150,4 +150,39 @@ describe("big5 section renderer contract", () => {
 
     expect(screen.getByText("Higher Openness supports idea discovery.")).toBeInTheDocument();
   });
+
+  it("suppresses debug-only Big Five engine/controller markers from user-facing blocks", () => {
+    render(
+      <SectionRenderer
+        section={{
+          key: "method_note",
+          title: "Big Five Report Engine v2 registry PR3B",
+          access_level: "free",
+          blocks: [
+            {
+              kind: "metric_card",
+              title: "AttemptReadController PR3A",
+              body: "Keep this user-facing sentence. AttemptReadController Big Five Report Engine v2 registry PR2 PR1",
+              tags: ["PR3B", "stable summary"],
+            },
+          ],
+        }}
+        locked={false}
+        normsStatus="CALIBRATED"
+        locale="en"
+        scaleCode="BIG5_OCEAN"
+      />
+    );
+
+    const html = document.body.textContent ?? "";
+    expect(html).not.toContain("AttemptReadController");
+    expect(html).not.toContain("Big Five Report Engine");
+    expect(html).not.toContain("registry");
+    expect(html).not.toContain("PR3B");
+    expect(html).not.toContain("PR3A");
+    expect(html).not.toContain("PR2");
+    expect(html).not.toContain("PR1");
+    expect(html).toContain("Keep this user-facing sentence.");
+    expect(html).toContain("stable summary");
+  });
 });

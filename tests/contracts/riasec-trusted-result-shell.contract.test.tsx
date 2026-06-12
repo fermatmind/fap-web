@@ -285,8 +285,10 @@ describe("RIASEC trusted result shell", () => {
 
     expect(screen.getByTestId("riasec-trusted-result-card")).toHaveTextContent("3 分钟结果卡");
     expect(screen.getByTestId("riasec-trusted-result-card")).toHaveTextContent("RIA");
-    expect(screen.getByTestId("riasec-measurement-boundary")).toHaveTextContent("riasec_60_likert5_activity_sum_space.v1");
-    expect(screen.getByTestId("riasec-measurement-boundary")).toHaveTextContent("minimal_answer_completion_only");
+    expect(screen.getByTestId("riasec-measurement-boundary")).toHaveTextContent("按本次题型独立解读");
+    expect(screen.getByTestId("riasec-measurement-boundary")).toHaveTextContent("已完成基础作答完整性校验");
+    expect(screen.getByTestId("riasec-measurement-boundary")).not.toHaveTextContent("riasec_60_likert5_activity_sum_space.v1");
+    expect(screen.getByTestId("riasec-measurement-boundary")).not.toHaveTextContent("minimal_answer_completion_only");
     expect(screen.getByTestId("riasec-six-dimension-map")).toBeInTheDocument();
 
     for (const code of ["R", "I", "A", "S", "E", "C"]) {
@@ -294,8 +296,12 @@ describe("RIASEC trusted result shell", () => {
     }
 
     expect(within(screen.getByTestId("riasec-six-dimension-map")).queryByText(/岗位匹配度|职业成功预测|更准确/)).not.toBeInTheDocument();
-    expect(screen.getByTestId("riasec-governed-copy-surface")).toHaveTextContent("content_example_not_registry_match");
-    expect(screen.getByTestId("riasec-activity-families")).toHaveTextContent("physical_implementation");
+    expect(screen.getByTestId("riasec-governed-copy-surface")).toHaveTextContent("内容示例，非职业数据库匹配");
+    expect(screen.getByTestId("riasec-governed-copy-surface")).not.toHaveTextContent("content_example_not_registry_match");
+    expect(screen.getByTestId("riasec-activity-families")).toHaveTextContent("实物操作");
+    expect(screen.getByTestId("riasec-activity-families")).toHaveTextContent("工具与设备");
+    expect(screen.getByTestId("riasec-activity-families")).not.toHaveTextContent("physical_implementation");
+    expect(screen.getByTestId("riasec-activity-families")).not.toHaveTextContent("tools_and_equipment");
     expect(screen.getByTestId("riasec-activity-pack")).toHaveTextContent("访谈或观察真实用户");
     expect(screen.getByTestId("riasec-occupation-examples")).toHaveTextContent("用户研究助理");
     expect(screen.getByTestId("riasec-occupation-examples")).toHaveTextContent("内容示例，非职业数据库匹配");
@@ -389,7 +395,8 @@ describe("RIASEC trusted result shell", () => {
 
     expect(screen.getByTestId("riasec-trusted-result-card")).toHaveTextContent("你的前三个兴趣维度依次是");
     expect(screen.getByTestId("riasec-six-dimension-map")).toBeInTheDocument();
-    expect(screen.getByTestId("riasec-governed-copy-surface")).toHaveTextContent("content_example_not_registry_match");
+    expect(screen.getByTestId("riasec-governed-copy-surface")).toHaveTextContent("内容示例，非职业数据库匹配");
+    expect(screen.getByTestId("riasec-governed-copy-surface")).not.toHaveTextContent("content_example_not_registry_match");
     expect(screen.getByTestId("riasec-occupation-examples")).toHaveTextContent("内容示例，非职业数据库匹配");
   });
 

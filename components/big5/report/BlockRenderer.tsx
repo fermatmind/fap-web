@@ -30,6 +30,31 @@ function splitBullets(text: string): string[] {
     .filter((item) => item.length > 0);
 }
 
+const INTERNAL_DEBUG_PATTERNS = [
+  /\bAttemptReadController\b/gi,
+  /\bBig Five Report Engine v\d+(?:\s+registry)?\b/gi,
+  /\bReport Engine v\d+\b/gi,
+  /\bPR(?:1|2|3A|3B)\b/g,
+];
+
+function stripInternalDebugText(value: unknown): string {
+  if (typeof value !== "string") return "";
+
+  let text = value.trim();
+  for (const pattern of INTERNAL_DEBUG_PATTERNS) {
+    text = text.replace(pattern, "");
+  }
+
+  const cleaned = text.replace(/\s{2,}/g, " ").replace(/^[\s:;|,-]+|[\s:;|,-]+$/g, "").trim();
+  return /^[.]+$/.test(cleaned) ? "" : cleaned;
+}
+
+function safeStringList(value: unknown): string[] {
+  return Array.isArray(value)
+    ? value.map(stripInternalDebugText).filter((item) => item.length > 0)
+    : [];
+}
+
 function inferKind(block: Block, sectionKey: string): string {
   if (typeof block.kind === "string" && block.kind.trim().length > 0) {
     return block.kind.trim().toLowerCase();
@@ -77,11 +102,11 @@ export function BlockRenderer({
   sectionKey: string;
   normsStatus?: string;
 }) {
-  const title = block.title ?? "";
-  const body = block.body ?? block.desc ?? "";
-  const bullets = Array.isArray(block.bullets) ? block.bullets.filter((item): item is string => Boolean(item)) : [];
-  const tips = Array.isArray(block.tips) ? block.tips.filter((item): item is string => Boolean(item)) : [];
-  const tags = Array.isArray(block.tags) ? block.tags.filter((item): item is string => Boolean(item)) : [];
+  const title = stripInternalDebugText(block.title);
+  const body = stripInternalDebugText(block.body) || stripInternalDebugText(block.desc);
+  const bullets = safeStringList(block.bullets);
+  const tips = safeStringList(block.tips);
+  const tags = safeStringList(block.tags);
   const kind = inferKind(block, sectionKey);
 
   if (kind === "callout") {
