@@ -585,6 +585,13 @@ const RESULT_PRIVATE_PRINT_STYLES_AND_FOOTER_GATE_01_ALLOWED_FILES = new Set([
   "tests/contracts/result-private-print-chrome.contract.test.ts",
 ]);
 
+const RESULT_LEAK_CONTRACT_TESTS_01_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/result-private-leak-regressions.contract.test.ts",
+]);
+
 const PR_WEB_SEC_23_ALLOWED_FILES = new Set([
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -2278,6 +2285,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/result-private-print-styles-footer-gate-01") {
     return RESULT_PRIVATE_PRINT_STYLES_AND_FOOTER_GATE_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/result-leak-contract-tests-01") {
+    return RESULT_LEAK_CONTRACT_TESTS_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-web-sec-23-big5-comparative-fallback") {
