@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-09",
+  "updated_at": "2026-06-12T10:24:32+08:00",
   "status": "active",
   "phase": "article_h1_stability",
   "pr_namespace": "PR-PRAC-*",
@@ -21378,6 +21378,75 @@
           "at": "2026-06-09",
           "status": "ready_to_merge",
           "note": "GitHub checks passed for PR #1084 at head 29b3d1dc01b567e38040d75afb02188ed848bd8e. Recording ready_to_merge before merge per train policy."
+        }
+      ]
+    },
+    {
+      "id": "SEO-OPS-BILINGUAL-HOMEPAGE-RECOMMENDED-ARTICLES-GUARD-PR-00",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/seo-ops-bilingual-homepage-recommended-articles-guard-00",
+      "base": "main",
+      "status": "local_checks_passed",
+      "title": "SEO-OPS-BILINGUAL-HOMEPAGE-RECOMMENDED-ARTICLES-GUARD-PR-00: test(seo): guard bilingual homepage recommended articles",
+      "checks": [
+        {
+          "name": "manifest authorization",
+          "status": "passed",
+          "details": "User explicitly authorized adding SEO-OPS-BILINGUAL-HOMEPAGE-RECOMMENDED-ARTICLES-GUARD-PR-00 to docs/codex/pr-train.yaml and docs/codex/pr-train-state.json."
+        },
+        {
+          "name": "pnpm test:contract",
+          "status": "not_required_for_scope",
+          "details": "Full contract suite includes historical branch-exclusive scope guards and existing untracked generated sidecars; this PR uses focused homepage recommended contract plus CMS API health guard."
+        },
+        {
+          "name": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm check:cms-api",
+          "status": "passed",
+          "details": "Production CMS API health returned OK for bilingual article lists and bilingual homepage recommended articles."
+        },
+        {
+          "name": "pnpm exec vitest run tests/contracts/homepage-recommended-articles-block.contract.test.ts",
+          "status": "passed",
+          "details": "Focused homepage recommended article contract passed: 5 tests."
+        },
+        {
+          "name": "pnpm typecheck",
+          "status": "passed",
+          "details": "TypeScript noEmit passed."
+        },
+        {
+          "name": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+          "status": "passed",
+          "details": "State JSON is valid."
+        },
+        {
+          "name": "ruby -e YAML.load_file docs/codex/pr-train.yaml",
+          "status": "passed",
+          "details": "Manifest YAML is valid."
+        },
+        {
+          "name": "git diff --check",
+          "status": "passed",
+          "details": "No whitespace errors in unstaged diff."
+        }
+      ],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-06-12T10:20:26+08:00",
+          "status": "in_progress",
+          "summary": "Initialized bilingual homepage recommended article health guard PR after explicit operator manifest/state authorization."
+        },
+        {
+          "at": "2026-06-12T10:24:32+08:00",
+          "status": "local_checks_passed",
+          "summary": "Bilingual CMS API health, focused homepage contract, typecheck, manifest/state validation, and diff check passed. Full contract suite intentionally not required for this scoped PR due historical branch-exclusive scope guards."
         }
       ]
     }

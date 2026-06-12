@@ -6,6 +6,10 @@ import { resolve } from "node:path";
 const DEFAULT_API_ORIGIN = "https://api.fermatmind.com";
 const DEFAULT_TIMEOUT_MS = 10000;
 const DEFAULT_ORG_ID = "0";
+const HOMEPAGE_RECOMMENDED_ARTICLE_LOCALES = [
+  { label: "en", apiLocale: "en", expectedArticleLocale: "en" },
+  { label: "zh-CN", apiLocale: "zh-CN", expectedArticleLocale: "zh-cn" },
+];
 const LOCALHOST_PATTERN = /^https?:\/\/(?:127\.0\.0\.1|localhost)(?::\d+)?(?:\/)?$/i;
 const RECOMMENDED_ARTICLE_BLOCK_KEYS = new Set(["recommended_articles", "homepage_recommended_articles"]);
 const REQUIRED_HOME_QUICK_START_HREFS = [
@@ -120,18 +124,18 @@ function readTimeoutMs() {
   return DEFAULT_TIMEOUT_MS;
 }
 
-function buildArticlesHealthUrl(origin) {
+function buildArticlesHealthUrl(origin, locale = "zh-CN") {
   const url = new URL("/api/v0.5/articles", origin);
-  url.searchParams.set("locale", "zh-CN");
+  url.searchParams.set("locale", locale);
   url.searchParams.set("page", "1");
   url.searchParams.set("per_page", "6");
   url.searchParams.set("org_id", DEFAULT_ORG_ID);
   return url;
 }
 
-function buildHomeSurfaceHealthUrl(origin) {
+function buildHomeSurfaceHealthUrl(origin, locale = "zh-CN") {
   const url = new URL("/api/v0.5/landing-surfaces/home", origin);
-  url.searchParams.set("locale", "zh-CN");
+  url.searchParams.set("locale", locale);
   url.searchParams.set("org_id", DEFAULT_ORG_ID);
   return url;
 }
@@ -177,16 +181,95 @@ function normalizeArticleRecord(value) {
   return article && typeof article === "object" && !Array.isArray(article) ? article : null;
 }
 
-function isPublishedPublicZhArticle(value) {
+function isPublishedPublicArticleForLocale(value, expectedLocale) {
   const article = normalizeArticleRecord(value);
   if (!article) return false;
   return (
     text(article.slug) &&
     text(article.title) &&
-    text(article.locale).toLowerCase() === "zh-cn" &&
-    text(article.status || "published") === "published" &&
+    text(article.locale).toLowerCase() === expectedLocale &&
+    text(article.status || "published").toLowerCase() === "published" &&
     article.is_public !== false
   );
+}
+
+function hasPositiveInteger(value) {
+  return Number.isInteger(value) && value > 0;
+}
+
+function hasPublishedRevision(value) {
+  return (
+    hasPositiveInteger(value.published_revision_id) ||
+    hasPositiveInteger(value.publishedRevisionId) ||
+    hasPositiveInteger(value.published_revision?.id) ||
+    hasPositiveInteger(value.publishedRevision?.id)
+  );
+}
+
+function hasUsableCoverImage(value) {
+  const coverUrl = text(value.cover_image_url || value.coverImageUrl);
+  const coverAlt = text(value.cover_image_alt || value.coverImageAlt);
+  const variants = value.cover_image_variants ?? value.coverImageVariants;
+
+  const hasVariantUrl = Array.isArray(variants)
+    ? variants.some((variant) => Boolean(text(variant?.url)))
+    : variants && typeof variants === "object"
+      ? Object.values(variants).some((variant) => {
+          if (typeof variant === "string") return Boolean(text(variant));
+          return Boolean(text(variant?.url));
+        })
+      : false;
+
+  return Boolean((coverUrl || hasVariantUrl) && coverAlt);
+}
+
+function hasCategory(value) {
+  const category = value.category;
+  return Boolean(
+    category &&
+      typeof category === "object" &&
+      !Array.isArray(category) &&
+      (text(category.slug) || text(category.name) || text(category.title)),
+  );
+}
+
+function hasTags(value) {
+  const tags = asArray(value.tags);
+  return tags.some((tag) => {
+    if (typeof tag === "string") return Boolean(text(tag));
+    return Boolean(
+      tag &&
+        typeof tag === "object" &&
+        !Array.isArray(tag) &&
+        (text(tag.slug) || text(tag.name) || text(tag.title)),
+    );
+  });
+}
+
+function homepageRecommendedArticleMissingFields(value) {
+  const article = normalizeArticleRecord(value);
+  if (!article) return ["article"];
+
+  const missing = [];
+  if (!hasPublishedRevision(article)) missing.push("published_revision_id");
+  if (!text(article.excerpt)) missing.push("excerpt");
+  if (!hasUsableCoverImage(article)) missing.push("cover_image_url_or_cover_image_variants_with_cover_image_alt");
+  if (!hasCategory(article)) missing.push("category");
+  if (!hasTags(article)) missing.push("tags");
+  return missing;
+}
+
+function isHomepageRecommendedArticleComplete(value, expectedLocale) {
+  return (
+    isPublishedPublicArticleForLocale(value, expectedLocale) &&
+    homepageRecommendedArticleMissingFields(value).length === 0
+  );
+}
+
+function articleDebugLabel(value) {
+  const article = normalizeArticleRecord(value);
+  if (!article) return "<invalid article>";
+  return text(article.slug) || text(article.title) || `<article:${article.id ?? "unknown"}>`;
 }
 
 function recommendedArticlesFromLandingSurface(payload) {
@@ -233,9 +316,6 @@ const apiOrigin = configuredOrigin || DEFAULT_API_ORIGIN;
 const timeoutMs = readTimeoutMs();
 const isLocalApi = LOCALHOST_PATTERN.test(apiOrigin);
 const strictMode = readBooleanEnv("CMS_API_HEALTH_STRICT", true);
-const articlesHealthUrl = buildArticlesHealthUrl(apiOrigin);
-const homeSurfaceHealthUrl = buildHomeSurfaceHealthUrl(apiOrigin);
-
 async function fetchJson(url) {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), timeoutMs);
@@ -327,24 +407,58 @@ function reportProblem(lines) {
 }
 
 try {
-  const [articlesPayload, homeSurfacePayload] = await Promise.all([
-    fetchJson(articlesHealthUrl),
-    fetchJson(homeSurfaceHealthUrl),
-  ]);
+  const localePayloads = await Promise.all(
+    HOMEPAGE_RECOMMENDED_ARTICLE_LOCALES.map(async (localeConfig) => {
+      const [articlesPayload, homeSurfacePayload] = await Promise.all([
+        fetchJson(buildArticlesHealthUrl(apiOrigin, localeConfig.apiLocale)),
+        fetchJson(buildHomeSurfaceHealthUrl(apiOrigin, localeConfig.apiLocale)),
+      ]);
 
-  const articleItems = asArray(articlesPayload?.items).filter(isPublishedPublicZhArticle);
-  const recommendedArticles = recommendedArticlesFromLandingSurface(homeSurfacePayload).filter(isPublishedPublicZhArticle);
+      const articleItems = asArray(articlesPayload?.items).filter((article) =>
+        isPublishedPublicArticleForLocale(article, localeConfig.expectedArticleLocale),
+      );
+      const publicRecommendedArticles = recommendedArticlesFromLandingSurface(homeSurfacePayload).filter((article) =>
+        isPublishedPublicArticleForLocale(article, localeConfig.expectedArticleLocale),
+      );
+      const completeRecommendedArticles = publicRecommendedArticles.filter((article) =>
+        isHomepageRecommendedArticleComplete(article, localeConfig.expectedArticleLocale),
+      );
+
+      return {
+        ...localeConfig,
+        articlesPayload,
+        homeSurfacePayload,
+        articleItems,
+        publicRecommendedArticles,
+        completeRecommendedArticles,
+      };
+    }),
+  );
+  const zhPayload = localePayloads.find((payload) => payload.apiLocale === "zh-CN") ?? localePayloads[0];
+  const homeSurfacePayload = zhPayload.homeSurfacePayload;
   const quickStartHrefs = quickStartItemsFromLandingSurface(homeSurfacePayload).map((item) => text(item?.href));
   const problems = [];
 
-  if (articleItems.length === 0) {
-    problems.push("[check-cms-api] Article list returned no published public zh-CN article records for the smoke query.");
-  }
+  for (const localePayload of localePayloads) {
+    if (localePayload.articleItems.length === 0) {
+      problems.push(
+        `[check-cms-api] Article list returned no published public ${localePayload.apiLocale} article records for the smoke query.`,
+      );
+    }
 
-  if (recommendedArticles.length < 6) {
-    problems.push(
-      `[check-cms-api] Homepage recommended_articles block expected 6 published public zh-CN articles, found ${recommendedArticles.length}.`
-    );
+    if (localePayload.completeRecommendedArticles.length < 6) {
+      const incompleteDetails = localePayload.publicRecommendedArticles
+        .filter((article) => homepageRecommendedArticleMissingFields(article).length > 0)
+        .map((article) =>
+          `${articleDebugLabel(article)} missing ${homepageRecommendedArticleMissingFields(article).join(", ")}`,
+        )
+        .join("; ");
+
+      problems.push(
+        `[check-cms-api] Homepage recommended_articles block expected 6 published public metadata-complete ${localePayload.apiLocale} articles, found ${localePayload.completeRecommendedArticles.length}.` +
+          (incompleteDetails ? ` Incomplete: ${incompleteDetails}.` : ""),
+      );
+    }
   }
 
   const missingQuickStartHrefs = REQUIRED_HOME_QUICK_START_HREFS.filter((href) => !quickStartHrefs.includes(href));
@@ -449,7 +563,7 @@ try {
 
   const localHint = isLocalApi ? " Local API mode is intended for backend/CMS contract work only." : "";
   console.log(
-    `[check-cms-api] OK: CMS API reachable at ${apiOrigin}; article list, homepage recommended articles, homepage test entry links, scale lookups, required question packs, and backend static media assets are populated.${localHint}`
+    `[check-cms-api] OK: CMS API reachable at ${apiOrigin}; bilingual article lists, bilingual homepage recommended articles, homepage test entry links, scale lookups, required question packs, and backend static media assets are populated.${localHint}`
   );
 } catch (error) {
   const reason = error instanceof Error ? error.message : String(error);

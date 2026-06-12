@@ -124,4 +124,76 @@ describe("homepage recommended articles page block contract", () => {
       tags: [{ slug: "mbti", name: "MBTI" }],
     });
   });
+
+  it("keeps the CMS API health guard bilingual and metadata-complete", () => {
+    const healthScript = read("scripts/check-cms-api-health.mjs");
+
+    expect(healthScript).toContain("HOMEPAGE_RECOMMENDED_ARTICLE_LOCALES");
+    expect(healthScript).toContain('apiLocale: "en"');
+    expect(healthScript).toContain('apiLocale: "zh-CN"');
+    expect(healthScript).toContain("homepageRecommendedArticleMissingFields");
+    expect(healthScript).toContain("cover_image_variants");
+    expect(healthScript).toContain("published_revision_id");
+    expect(healthScript).toContain("metadata-complete");
+  });
+
+  it("loads six complete English homepage recommended articles from CMS authority", async () => {
+    landingMock.mockResolvedValueOnce({
+      value: {
+        surfaceKey: "home",
+        locale: "en",
+        title: null,
+        description: null,
+        schemaVersion: "v1",
+        payloadJson: {},
+        status: "published",
+        isPublic: true,
+        isIndexable: true,
+        publishedAt: null,
+        scheduledAt: null,
+        pageBlocks: [
+          {
+            blockKey: "recommended_articles",
+            blockType: "articles",
+            title: "Recommended",
+            payloadJson: {
+              items: Array.from({ length: 6 }, (_, index) => ({
+                id: 420 + index,
+                slug: index === 0 ? "why-mbti-and-holland-code-results-dont-match" : `english-homepage-article-${index}`,
+                title: index === 0 ? "Why MBTI and Holland Code Results Do Not Match" : `English article ${index}`,
+                excerpt: "CMS-owned homepage card excerpt.",
+                locale: "en",
+                status: "published",
+                is_public: true,
+                published_revision_id: 480 + index,
+                cover_image_alt: "Illustration for the homepage article card",
+                cover_image_variants: {
+                  card: { url: `https://cdn.fermatmind.com/articles/en-${index}.webp`, width: 1200, height: 630 },
+                },
+                category: { slug: "career", name: "Career" },
+                tags: [{ slug: "riasec", name: "RIASEC" }],
+              })),
+            },
+            sortOrder: 10,
+            isEnabled: true,
+          },
+        ],
+      },
+      source: "fresh",
+      stale: false,
+      updatedAt: "2026-06-12T00:00:00.000Z",
+      error: null,
+    });
+
+    const { getHomepageRecommendedArticles } = await import("@/lib/marketing/homepageRecommendedArticles");
+    const articles = await getHomepageRecommendedArticles("en");
+
+    expect(landingMock).toHaveBeenCalledWith("home", "en");
+    expect(articles).toHaveLength(6);
+    expect(articles[0]).toMatchObject({
+      slug: "why-mbti-and-holland-code-results-dont-match",
+      locale: "en",
+    });
+  });
+
 });

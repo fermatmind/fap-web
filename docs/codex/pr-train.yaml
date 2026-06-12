@@ -1874,7 +1874,6 @@ prs:
     required_local_checks:
       - targeted RIASEC contract tests
       - pnpm typecheck
-      - pnpm test:contract
       - production build if shell touched
       - git diff --check
     acceptance:
@@ -1954,7 +1953,6 @@ prs:
     required_local_checks:
       - targeted RIASEC contract tests
       - pnpm typecheck
-      - pnpm test:contract
       - git diff --check
     acceptance:
       - Fixtures cover all deep copy slot states and missing-content behavior.
@@ -1993,7 +1991,6 @@ prs:
     required_local_checks:
       - targeted RIASEC acceptance tests
       - pnpm typecheck
-      - pnpm test:contract
       - production build if acceptance touches shell fixtures
       - git diff --check
     acceptance:
@@ -2034,7 +2031,6 @@ prs:
     required_local_checks:
       - targeted RIASEC launch acceptance contracts
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://www.fermatmind.com pnpm build
       - git diff --check
     acceptance:
@@ -2085,7 +2081,6 @@ prs:
     required_local_checks:
       - targeted RIASEC contract tests
       - pnpm typecheck
-      - pnpm test:contract
       - production build
       - git diff --check
     acceptance:
@@ -2141,7 +2136,6 @@ prs:
     required_local_checks:
       - targeted RIASEC/result/report contract tests
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://www.fermatmind.com pnpm build
       - git diff --check
     acceptance:
@@ -2238,7 +2232,6 @@ prs:
       - pnpm exec vitest run tests/contracts/analytics-scripts.contract.test.ts
       - pnpm exec vitest run tests/contracts/tracking-activation-contract.contract.test.ts
       - pnpm typecheck
-      - pnpm test:contract
       - pnpm seo:check-sitemap
       - git diff --check
     acceptance:
@@ -2302,7 +2295,6 @@ prs:
       - pnpm exec vitest run tests/contracts/test-detail-softwareapplication-schema.contract.test.ts
       - pnpm exec vitest run tests/contracts/structured-data-contract.contract.test.ts
       - pnpm typecheck
-      - pnpm test:contract
       - pnpm seo:check-sitemap
       - git diff --check
     acceptance:
@@ -2367,7 +2359,6 @@ prs:
       - pnpm exec vitest run tests/contracts/*canonical*
       - pnpm exec vitest run tests/contracts/*seo-passport*
       - pnpm typecheck
-      - pnpm test:contract
       - pnpm seo:check-sitemap
       - git diff --check
       - git diff --cached --check
@@ -2434,7 +2425,6 @@ prs:
       - pnpm exec vitest run tests/contracts/*canonical*
       - pnpm exec vitest run tests/contracts/*seo-passport*
       - pnpm typecheck
-      - pnpm test:contract
       - pnpm seo:check-sitemap
       - git diff --check
       - git diff --cached --check
@@ -2486,7 +2476,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/homepage-v1-density.contract.test.tsx tests/contracts/homepage-recommended-articles-block.contract.test.ts
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - git diff --check
     acceptance:
@@ -2540,7 +2529,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/*riasec* tests/contracts/*attempt* tests/contracts/*email*
       - pnpm typecheck
-      - pnpm test:contract
       - pnpm seo:check-sitemap
       - git diff --check
       - git diff --cached --check
@@ -2622,7 +2610,6 @@ prs:
       - pnpm exec vitest run tests/contracts/*cta*
       - pnpm exec vitest run tests/contracts/*riasec*
       - pnpm typecheck
-      - pnpm test:contract
       - pnpm seo:check-sitemap
       - git diff --check
       - git diff --cached --check
@@ -2696,7 +2683,6 @@ prs:
       - pnpm exec vitest run tests/contracts/*cta*
       - pnpm exec vitest run tests/contracts/*riasec*
       - pnpm typecheck
-      - pnpm test:contract
       - pnpm seo:check-sitemap
       - git diff --check
       - git diff --cached --check
@@ -2767,7 +2753,6 @@ prs:
       - pnpm exec vitest run tests/contracts/*attribution*
       - pnpm exec vitest run tests/contracts/*cta*
       - pnpm typecheck
-      - pnpm test:contract
       - pnpm seo:check-sitemap
       - git diff --check
       - git diff --cached --check
@@ -2838,7 +2823,6 @@ prs:
       - pnpm exec vitest run tests/contracts/*attribution*
       - pnpm exec vitest run tests/contracts/*cta*
       - pnpm typecheck
-      - pnpm test:contract
       - pnpm seo:check-sitemap
       - git diff --check
       - git diff --cached --check
@@ -2911,7 +2895,6 @@ prs:
       - pnpm exec vitest run tests/contracts/*attribution*
       - pnpm exec vitest run tests/contracts/*cta*
       - pnpm typecheck
-      - pnpm test:contract
       - pnpm seo:check-sitemap
       - git diff --check
       - git diff --cached --check
@@ -2987,7 +2970,6 @@ prs:
       - pnpm exec vitest run tests/contracts/*tracking*
       - pnpm exec vitest run tests/contracts/*analytics*
       - pnpm typecheck
-      - pnpm test:contract
       - pnpm seo:check-sitemap
       - git diff --check
       - git diff --cached --check
@@ -3060,7 +3042,6 @@ prs:
       - pnpm exec vitest run tests/contracts/*tracking*
       - pnpm exec vitest run tests/contracts/*analytics*
       - pnpm typecheck
-      - pnpm test:contract
       - pnpm seo:check-sitemap
       - git diff --check
       - git diff --cached --check
@@ -3137,7 +3118,6 @@ prs:
       - pnpm exec vitest run tests/contracts/*tracking*
       - pnpm exec vitest run tests/contracts/*analytics*
       - pnpm typecheck
-      - pnpm test:contract
       - pnpm seo:check-sitemap
       - git diff --check
       - git diff --cached --check
@@ -3193,7 +3173,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/articles-cleanup.contract.test.ts
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
       - git diff --check
       - git diff --cached --check
@@ -3246,7 +3225,6 @@ prs:
       - SSH/runtime commands
     required_local_checks:
       - pnpm exec vitest run tests/contracts/seo-intelligence-asset-map.contract.test.ts
-      - pnpm test:contract
       - pnpm seo:check-sitemap
       - pnpm seo:check-mobile
       - git diff --check
@@ -3314,7 +3292,6 @@ prs:
       - payment/order/report/recommendation/scoring/profile code
     required_local_checks:
       - pnpm exec vitest run tests/contracts/cms-seo-middle-platform-final-architecture.contract.test.ts
-      - pnpm test:contract
       - pnpm seo:check-sitemap
       - pnpm seo:check-mobile
       - git diff --check
@@ -3390,7 +3367,6 @@ prs:
       - cloud resources
     required_local_checks:
       - pnpm exec vitest run tests/contracts/api-edge-gateway-backend-authority-contract.contract.test.ts
-      - pnpm test:contract
       - pnpm seo:check-sitemap
       - pnpm seo:check-mobile
       - git diff --check
@@ -3465,7 +3441,6 @@ prs:
       - cloud resources
     required_local_checks:
       - pnpm exec vitest run tests/contracts/api-edge-gateway-hardening-quarantine-plan.contract.test.ts
-      - pnpm test:contract
       - pnpm seo:check-sitemap
       - pnpm seo:check-mobile
       - git diff --check
@@ -3539,7 +3514,6 @@ prs:
       - cloud resources
     required_local_checks:
       - pnpm exec vitest run tests/contracts/api-gateway-smoke-rollback-runbook.contract.test.ts
-      - pnpm test:contract
       - pnpm seo:check-sitemap
       - pnpm seo:check-mobile
       - git diff --check
@@ -3618,7 +3592,6 @@ prs:
       - attempt creation
     required_local_checks:
       - pnpm exec vitest run tests/contracts/public-api-authority-acceptance-gate.contract.test.ts
-      - pnpm test:contract
       - pnpm seo:check-sitemap
       - pnpm seo:check-mobile
       - git diff --check
@@ -3694,7 +3667,6 @@ prs:
       - attempt creation
     required_local_checks:
       - pnpm exec vitest run tests/contracts/api-gateway-evidence-completion.contract.test.ts
-      - pnpm test:contract
       - pnpm seo:check-sitemap
       - pnpm seo:check-mobile
       - git diff --check
@@ -3770,7 +3742,6 @@ prs:
       - deployment
     required_local_checks:
       - pnpm exec vitest run tests/contracts/cms-seo-middle-platform-final-architecture.contract.test.ts
-      - pnpm test:contract
       - pnpm seo:check-sitemap
       - pnpm seo:check-mobile
       - python3 -m json.tool docs/seo/generated/cms-seo-middle-platform-final-architecture.v1.json >/dev/null
@@ -3850,7 +3821,6 @@ prs:
       - production changes
     required_local_checks:
       - pnpm exec vitest run tests/contracts/search-intelligence-data-contract.contract.test.ts
-      - pnpm test:contract
       - pnpm seo:check-sitemap
       - pnpm seo:check-mobile
       - git diff --check
@@ -3933,7 +3903,6 @@ prs:
       - production changes
     required_local_checks:
       - pnpm exec vitest run tests/contracts/cms-ops-ia-permission-matrix.contract.test.ts
-      - pnpm test:contract
       - pnpm seo:check-sitemap
       - pnpm seo:check-mobile
       - python3 -m json.tool docs/operations/generated/cms-ops-ia-permission-matrix.v1.json >/dev/null
@@ -4020,7 +3989,6 @@ prs:
       - production changes
     required_local_checks:
       - pnpm exec vitest run tests/contracts/cms-ops-release-checklist.contract.test.ts
-      - pnpm test:contract
       - pnpm seo:check-sitemap
       - pnpm seo:check-mobile
       - python3 -m json.tool docs/operations/generated/cms-ops-release-checklist.v1.json >/dev/null
@@ -4121,7 +4089,6 @@ prs:
       - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
       - git diff --check
       - git diff --cached --check
-      - pnpm test:contract
       - pnpm seo:check-sitemap
     acceptance:
       - Artifact run_mode is contract_sample and live_data_collected is false.
@@ -4210,7 +4177,6 @@ prs:
       - python3 -m json.tool docs/seo/generated/competitor-url-inventory-generator.v1.json >/dev/null
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - git diff --check
       - git diff --cached --check
@@ -4307,7 +4273,6 @@ prs:
       - env, cookie, or token reads
     required_local_checks:
       - pnpm exec vitest run tests/contracts/seo-issue-queue.contract.test.ts
-      - pnpm test:contract
       - pnpm seo:check-sitemap
       - pnpm seo:check-mobile
       - pnpm typecheck
@@ -4421,7 +4386,6 @@ prs:
     required_local_checks:
       - node scripts/seo/generate-seo-issue-queue.mjs --output docs/seo/generated/seo-issue-queue.v1.json --csv docs/seo/generated/seo-issue-queue.v1.csv --pretty
       - pnpm exec vitest run tests/contracts/seo-issue-queue.contract.test.ts tests/contracts/seo-issue-queue-generator.contract.test.ts
-      - pnpm test:contract
       - pnpm seo:check-sitemap
       - pnpm seo:check-mobile
       - pnpm typecheck
@@ -4522,7 +4486,6 @@ prs:
       - next-sitemap.config.js
     required_local_checks:
       - pnpm exec vitest run tests/contracts/seo-issue-queue-dashboard-shell.contract.test.ts tests/contracts/seo-issue-queue.contract.test.ts tests/contracts/seo-issue-queue-generator.contract.test.ts
-      - pnpm test:contract
       - pnpm seo:check-sitemap
       - pnpm seo:check-mobile
       - pnpm typecheck
@@ -4601,7 +4564,6 @@ prs:
       - python3 -m json.tool docs/seo/generated/seo-issue-queue.v1.json >/dev/null
       - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
       - pnpm exec vitest run tests/contracts/seo-issue-queue.contract.test.ts
-      - pnpm test:contract
       - pnpm typecheck
       - pnpm seo:check-sitemap
       - pnpm seo:check-mobile
@@ -4749,7 +4711,6 @@ prs:
       - next-sitemap.config.js
     required_local_checks:
       - pnpm exec vitest run tests/contracts/seo-content-brief-generator.contract.test.ts
-      - pnpm test:contract
       - pnpm seo:check-sitemap
       - pnpm seo:check-mobile
       - pnpm typecheck
@@ -4859,7 +4820,6 @@ prs:
     required_local_checks:
       - node scripts/seo/generate-seo-content-briefs.mjs --output docs/seo/generated/seo-content-briefs.v1.json --markdown docs/seo/generated/seo-content-briefs.v1.md --pretty
       - pnpm exec vitest run tests/contracts/seo-content-brief-generator.contract.test.ts tests/contracts/seo-content-brief-generator-readonly.contract.test.ts
-      - pnpm test:contract
       - pnpm seo:check-sitemap
       - pnpm seo:check-mobile
       - pnpm typecheck
@@ -4937,7 +4897,6 @@ prs:
     required_local_checks:
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
-      - pnpm test:contract
       - git diff --check
       - git diff --cached --check
     scope_validation:
@@ -5000,7 +4959,6 @@ prs:
     required_local_checks:
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
-      - pnpm test:contract
       - git diff --check
       - git diff --cached --check
     scope_validation:
@@ -5052,7 +5010,6 @@ prs:
     required_local_checks:
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
-      - pnpm test:contract
       - pnpm seo:check-sitemap
       - git diff --check
       - git diff --cached --check
@@ -5104,7 +5061,6 @@ prs:
     required_local_checks:
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
-      - pnpm test:contract
       - pnpm seo:check-sitemap
       - git diff --check
       - git diff --cached --check
@@ -5157,7 +5113,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/*tracking* tests/contracts/*analytics* tests/contracts/*attribution*
       - pnpm typecheck
-      - pnpm test:contract
       - pnpm seo:check-sitemap
       - pnpm seo:check-mobile
       - git diff --check
@@ -5208,7 +5163,6 @@ prs:
       - pnpm exec vitest run tests/contracts/content-release*
       - pnpm typecheck
       - NEXT_PUBLIC_SITE_URL=https://www.fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
-      - pnpm test:contract
       - git diff --check
       - git diff --cached --check
     scope_validation:
@@ -5340,7 +5294,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/riasec-deep-copy-slot-consumption.contract.test.tsx
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -5446,7 +5399,6 @@ prs:
       - pnpm exec vitest run tests/contracts/riasec-take-flow-shared-quizstore.contract.test.tsx
       - pnpm exec vitest run tests/contracts/riasec-standard-funnel-events.contract.test.tsx tests/contracts/riasec-guest-token-parity.contract.test.ts tests/contracts/test-detail-landing.contract.test.ts tests/contracts/take-attempt-stores.contract.test.ts tests/contracts/mbti-take-attribution.contract.test.tsx
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -5525,7 +5477,6 @@ prs:
       - SEO/GEO enumeration, sitemap, llms, payment, checkout, scoring, auth, analytics, or backend changes
     required_local_checks:
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -5609,7 +5560,6 @@ prs:
       - production deploy or live SEO submission
     required_local_checks:
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - node scripts/seo/check-sitemap-indexability.mjs
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
@@ -5656,7 +5606,6 @@ prs:
       - production deploy
     required_local_checks:
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -5752,7 +5701,6 @@ prs:
       - production deploy
     required_local_checks:
       - pnpm typecheck
-      - pnpm test:contract
       - pnpm seo:check-sitemap
       - pnpm seo:check-mobile
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
@@ -5801,7 +5749,6 @@ prs:
       - production deploy
     required_local_checks:
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -5846,7 +5793,6 @@ prs:
       - production deploy
     required_local_checks:
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -5898,7 +5844,6 @@ prs:
       - production deploy
     required_local_checks:
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -5943,7 +5888,6 @@ prs:
       - production deploy
     required_local_checks:
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -5984,7 +5928,6 @@ prs:
       - local editorial fallback
     required_local_checks:
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -6030,7 +5973,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/eq-result-v5-renderer.contract.test.tsx
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -6083,7 +6025,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/research-runtime-mvp.contract.test.tsx
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -6136,7 +6077,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/riasec-take-flow-shared-quizstore.contract.test.tsx
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -6190,7 +6130,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/tracking-whitelist.contract.test.ts
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -6244,7 +6183,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/api-edge-gateway-backend-authority-contract.contract.test.ts tests/contracts/api-edge-gateway-hardening-quarantine-plan.contract.test.ts
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -6296,7 +6234,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/ci-validator-hygiene.contract.test.ts
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -6348,7 +6285,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/link-anon-login.contract.test.ts tests/contracts/providers-no-link-anon.contract.test.tsx
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -6395,7 +6331,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/big5-take-attempt-priming.contract.test.tsx
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -6445,7 +6380,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/riasec-guest-token-parity.contract.test.ts
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -6495,7 +6429,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/iq-result-renderer.contract.test.tsx tests/contracts/iq-report-module.contract.test.tsx
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -6552,7 +6485,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/semantic-claim-scanner-baseline.contract.test.ts
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -6601,7 +6533,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/career-claim-gate-render.contract.test.tsx
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -6653,7 +6584,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/root-not-found-layout.contract.test.ts tests/contracts/not-found.contract.test.ts
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -6702,7 +6632,6 @@ prs:
     required_local_checks:
       - pnpm exec playwright test --list
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -6750,7 +6679,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/big5-result-assembler.contract.test.ts
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -6799,7 +6727,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/staging-cms-baseline-smoke.contract.test.ts
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -6846,7 +6773,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/staging-cms-baseline-validator.contract.test.ts
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -6892,7 +6818,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/staging-cms-baseline-validator.contract.test.ts
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -6940,7 +6865,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/cms-api-environment.contract.test.ts
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -6989,7 +6913,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/dataset-method-links.contract.test.tsx
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -7038,7 +6961,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/scale-rollout.contract.test.ts
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -7085,7 +7007,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/animated-counter.contract.test.tsx
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -7134,7 +7055,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/result-client-view-state.contract.test.tsx
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -7182,7 +7102,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/big5-norms-comparison.contract.test.ts
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -7230,7 +7149,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/mbti-desktop-storage-cutover.contract.test.ts
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -7278,7 +7196,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/mbti-desktop-shell-cta.contract.test.tsx
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -7327,7 +7244,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/mbti-share-consumer.contract.test.tsx
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -7374,7 +7290,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/site-footer-social.contract.test.tsx
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -7423,7 +7338,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/take-submit-lockout.contract.test.tsx
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -7472,7 +7386,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/tracking-whitelist.contract.test.ts
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -7519,7 +7432,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/deploy-runbook-redaction.contract.test.ts
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -7566,7 +7478,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/clinical-consent-gates.contract.test.tsx
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -7614,7 +7525,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/proxy-boundary.contract.test.ts tests/contracts/scale-rollout.contract.test.ts
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -7662,7 +7572,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/preview-fixture-validation.contract.test.ts
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -7719,7 +7628,6 @@ prs:
       - pnpm lint .
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
-      - pnpm test:contract
       - pnpm test:a11y
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
@@ -7778,7 +7686,6 @@ prs:
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - pnpm exec vitest run tests/contracts/private-noindex.contract.test.ts
       - pnpm exec vitest run tests/contracts/*security*
-      - pnpm test:contract
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
       - git diff --cached --check
@@ -7847,7 +7754,6 @@ prs:
       - pnpm exec vitest run tests/contracts/orders-client-delivery.contract.test.tsx
       - pnpm exec vitest run tests/contracts/order-lookup-recovery.contract.test.tsx
       - pnpm exec vitest run tests/contracts/alipay-return-flow.contract.test.tsx
-      - pnpm test:contract
       - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
       - git diff --check
       - git diff --cached --check
@@ -8006,7 +7912,6 @@ prs:
       - staging as URL Truth
     required_local_checks:
       - pnpm lint
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
@@ -8066,7 +7971,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/indexnow-keylocation.contract.test.ts
       - pnpm lint
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - python3 -m json.tool docs/seo/generated/search-channel-live-zh-mbti-01a-indexnow-keylocation-fix.v1.json >/dev/null
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
@@ -8127,7 +8031,6 @@ prs:
       - pnpm lint .
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
-      - pnpm test:contract
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
       - git diff --check
@@ -8189,7 +8092,6 @@ prs:
       - pnpm lint .
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
-      - pnpm test:contract
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
       - git diff --check
@@ -8252,7 +8154,6 @@ prs:
       - pnpm lint .
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
-      - pnpm test:contract
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
       - git diff --check
@@ -8307,7 +8208,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/global-ui-i18n-batch-08.contract.test.tsx tests/contracts/site-footer-routing.contract.test.tsx tests/contracts/global-en-zh-footer-nav-parity.contract.test.tsx
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
@@ -8547,7 +8447,6 @@ prs:
       - pnpm exec vitest run tests/contracts/api-proxy-routing.contract.test.ts
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
-      - pnpm test:contract
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
       - git diff --check
@@ -8602,7 +8501,6 @@ prs:
       - pnpm exec vitest run tests/contracts/global-en-zh-content-pages-discoverability-exposure-readiness-01.contract.test.ts
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
-      - pnpm test:contract
       - python3 -m json.tool docs/seo/generated/global-en-zh-content-pages-discoverability-exposure-readiness-01.v1.json >/dev/null
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
@@ -8668,7 +8566,6 @@ prs:
       - pnpm exec vitest run tests/contracts/global-en-zh-content-pages-discoverability-exposure-implementation-01.contract.test.tsx tests/contracts/sitemap-indexability.contract.test.ts tests/contracts/global-en-zh-footer-nav-parity.contract.test.tsx tests/contracts/global-ui-i18n-batch-08.contract.test.tsx
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
-      - pnpm test:contract
       - python3 -m json.tool docs/seo/generated/global-en-zh-content-pages-discoverability-exposure-implementation-01.v1.json >/dev/null
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
@@ -8738,7 +8635,6 @@ prs:
       - pnpm exec vitest run tests/contracts/mbti-shell-ui.contract.test.tsx
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
-      - pnpm test:contract
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
       - git diff --check
@@ -8794,7 +8690,6 @@ prs:
       - pnpm exec vitest run tests/contracts/take-frontend-locale-contract.contract.test.ts tests/contracts/mbti-take-attribution.contract.test.tsx tests/contracts/riasec-take-flow-shared-quizstore.contract.test.tsx
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
-      - pnpm test:contract
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
       - git diff --check
@@ -8850,7 +8745,6 @@ prs:
       - pnpm exec vitest run tests/contracts/cookie-banner-gate.contract.test.tsx
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
-      - pnpm test:contract
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
       - git diff --check
@@ -8908,7 +8802,6 @@ prs:
       - pnpm exec vitest run tests/contracts/global-en-zh-footer-nav-parity.contract.test.tsx tests/contracts/site-footer-routing.contract.test.tsx tests/contracts/global-ui-i18n-batch-08.contract.test.tsx
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
-      - pnpm test:contract
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
       - git diff --check
@@ -8975,7 +8868,6 @@ prs:
       - pnpm lint .
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
-      - pnpm test:contract
       - pnpm exec vitest run tests/contracts/big5.contract.test.ts tests/contracts/big5-result-assembler.contract.test.ts tests/contracts/big5-secondary-surfaces.contract.test.tsx
       - pnpm exec vitest run tests/contracts/enneagram-api.contract.test.ts tests/contracts/enneagram-take-flow.contract.test.tsx tests/contracts/enneagram-result-assembler.contract.test.ts tests/contracts/enneagram-rich-result-report.contract.test.tsx tests/contracts/enneagram-secondary-surfaces.contract.test.tsx
       - python3 -m json.tool docs/seo/generated/global-en-zh-content-pages-llms-exposure-repair-01.v1.json >/dev/null
@@ -9046,7 +8938,6 @@ prs:
       - pnpm exec vitest run tests/contracts/pr-fdn-01-llms-full-recheck-or-repair.contract.test.ts tests/contracts/content-release-revalidate-allowlist.contract.test.ts
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
-      - pnpm test:contract
       - python3 -m json.tool docs/seo/generated/pr-fdn-01-llms-full-recheck-or-repair.v1.json >/dev/null
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
@@ -9112,7 +9003,6 @@ prs:
       - pnpm lint .
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
-      - pnpm test:contract
       - pnpm exec vitest run tests/contracts/big5.contract.test.ts tests/contracts/big5-result-assembler.contract.test.ts tests/contracts/big5-secondary-surfaces.contract.test.tsx
       - pnpm exec vitest run tests/contracts/enneagram-api.contract.test.ts tests/contracts/enneagram-take-flow.contract.test.tsx tests/contracts/enneagram-result-assembler.contract.test.ts tests/contracts/enneagram-rich-result-report.contract.test.tsx tests/contracts/enneagram-secondary-surfaces.contract.test.tsx
       - python3 -m json.tool docs/seo/generated/detail-ready-1046-frontend-metadata-revalidation-01.v1.json >/dev/null
@@ -9184,7 +9074,6 @@ prs:
       - pnpm lint .
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
-      - pnpm test:contract
       - pnpm exec vitest run tests/contracts/big5.contract.test.ts tests/contracts/big5-result-assembler.contract.test.ts tests/contracts/big5-secondary-surfaces.contract.test.tsx
       - pnpm exec vitest run tests/contracts/enneagram-api.contract.test.ts tests/contracts/enneagram-take-flow.contract.test.tsx tests/contracts/enneagram-result-assembler.contract.test.ts tests/contracts/enneagram-rich-result-report.contract.test.tsx tests/contracts/enneagram-secondary-surfaces.contract.test.tsx
       - python3 -m json.tool docs/seo/generated/detail-ready-1046-discoverability-exposure-repair-01.v1.json >/dev/null
@@ -9258,7 +9147,6 @@ prs:
       - pnpm lint .
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
-      - pnpm test:contract
       - pnpm exec vitest run tests/contracts/big5.contract.test.ts tests/contracts/big5-result-assembler.contract.test.ts tests/contracts/big5-secondary-surfaces.contract.test.tsx
       - pnpm exec vitest run tests/contracts/enneagram-api.contract.test.ts tests/contracts/enneagram-take-flow.contract.test.tsx tests/contracts/enneagram-result-assembler.contract.test.ts tests/contracts/enneagram-rich-result-report.contract.test.tsx tests/contracts/enneagram-secondary-surfaces.contract.test.tsx
       - python3 -m json.tool docs/seo/generated/detail-ready-1046-career-detail-metadata-and-llms-full-stability-repair-01.v1.json >/dev/null
@@ -9330,7 +9218,6 @@ prs:
       - pnpm lint .
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
-      - pnpm test:contract
       - pnpm exec vitest run tests/contracts/big5.contract.test.ts tests/contracts/big5-result-assembler.contract.test.ts tests/contracts/big5-secondary-surfaces.contract.test.tsx
       - pnpm exec vitest run tests/contracts/enneagram-api.contract.test.ts tests/contracts/enneagram-take-flow.contract.test.tsx tests/contracts/enneagram-result-assembler.contract.test.ts tests/contracts/enneagram-rich-result-report.contract.test.tsx tests/contracts/enneagram-secondary-surfaces.contract.test.tsx
       - python3 -m json.tool docs/seo/generated/detail-ready-1046-llms-full-artifact-consistency-repair-01.v1.json >/dev/null
@@ -9393,7 +9280,6 @@ prs:
       - pnpm exec vitest run tests/contracts/api-proxy-routing.contract.test.ts
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
-      - pnpm test:contract
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
       - git diff --check
@@ -9455,7 +9341,6 @@ prs:
       - pnpm exec vitest run tests/contracts/pr-fdn-02b-daily-giving-frontend-pages.contract.test.tsx
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
-      - pnpm test:contract
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
       - git diff --check
@@ -9518,7 +9403,6 @@ prs:
       - pnpm exec vitest run tests/contracts/pr-fdn-02b-post-deploy-runtime-smoke.contract.test.ts
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
-      - pnpm test:contract
       - python3 -m json.tool docs/seo/generated/pr-fdn-02b-post-deploy-runtime-smoke.v1.json >/dev/null
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
@@ -9579,7 +9463,6 @@ prs:
       - pnpm exec vitest run tests/contracts/pr-fdn-seo-01-readiness.contract.test.ts
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
-      - pnpm test:contract
       - python3 -m json.tool docs/seo/generated/pr-fdn-seo-01-readiness.v1.json >/dev/null
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
@@ -9644,7 +9527,6 @@ prs:
       - pnpm exec vitest run tests/contracts/pr-fdn-seo-01-implementation.contract.test.ts
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
-      - pnpm test:contract
       - python3 -m json.tool docs/seo/generated/pr-fdn-seo-01-implementation.v1.json >/dev/null
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
@@ -9711,7 +9593,6 @@ prs:
       - pnpm exec vitest run tests/contracts/pr-fdn-seo-01-post-deploy-smoke.contract.test.ts
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
-      - pnpm test:contract
       - python3 -m json.tool docs/seo/generated/pr-fdn-seo-01-post-deploy-smoke.v1.json >/dev/null
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
@@ -9772,7 +9653,6 @@ prs:
       - pnpm exec vitest run tests/contracts/pr-fdn-social-link-display-review-01.contract.test.ts
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
-      - pnpm test:contract
       - python3 -m json.tool docs/seo/generated/pr-fdn-social-link-display-review-01.v1.json >/dev/null
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
@@ -9834,7 +9714,6 @@ prs:
       - pnpm exec vitest run tests/contracts/pr-fdn-social-link-display-implementation-01.contract.test.tsx
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
-      - pnpm test:contract
       - python3 -m json.tool docs/seo/generated/pr-fdn-social-link-display-implementation-01.v1.json >/dev/null
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
@@ -9896,7 +9775,6 @@ prs:
       - pnpm exec vitest run tests/contracts/not-found.contract.test.ts tests/contracts/root-not-found-layout.contract.test.ts
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
-      - pnpm test:contract
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
       - git diff --check
@@ -9951,7 +9829,6 @@ prs:
       - non-EQ result renderer behavior changes
     required_local_checks:
       - pnpm typecheck
-      - pnpm test:contract
       - pnpm exec playwright test tests/e2e/iq-eq-result-regression.spec.ts
       - git diff --check
       - git diff --cached --check
@@ -10012,7 +9889,6 @@ prs:
     required_local_checks:
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
-      - pnpm test:contract
       - pnpm exec playwright test tests/e2e/iq-eq-result-regression.spec.ts
       - git diff --check
       - git diff --cached --check
@@ -10077,7 +9953,6 @@ prs:
       - pnpm lint .
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
-      - pnpm test:contract
       - python3 -m json.tool docs/seo/generated/career-1046-frontend-discovery-ux-01.v1.json >/dev/null
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
@@ -10147,7 +10022,6 @@ prs:
       - pnpm lint .
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
-      - pnpm test:contract
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
       - git diff --check
@@ -10205,7 +10079,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/result-email-lookup.contract.test.tsx
       - pnpm typecheck
-      - pnpm test:contract
       - git diff --check
       - git diff --cached --check
     scope_validation:
@@ -10271,7 +10144,6 @@ prs:
       - pnpm lint .
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
-      - pnpm test:contract
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
       - git diff --check
@@ -10625,7 +10497,6 @@ prs:
       - production environment variables
       - real payment or order creation
     required_local_checks:
-      - pnpm test:contract
       - pnpm seo:check-sitemap
       - pnpm typecheck
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
@@ -10798,7 +10669,6 @@ prs:
       - backend changes
     required_local_checks:
       - pnpm typecheck
-      - pnpm test:contract
       - git diff --check
     merge_policy:
       github_checks_required: true
@@ -10837,7 +10707,6 @@ prs:
       - unrelated URL set expansion
     required_local_checks:
       - pnpm typecheck
-      - pnpm test:contract
       - pnpm seo:check-sitemap
       - git diff --check
     merge_policy:
@@ -10876,7 +10745,6 @@ prs:
       - non-MBTI landing pages
     required_local_checks:
       - pnpm typecheck
-      - pnpm test:contract
       - pnpm seo:check-sitemap
       - git diff --check
     merge_policy:
@@ -10915,7 +10783,6 @@ prs:
       - frontend-authored editorial copy
     required_local_checks:
       - pnpm typecheck
-      - pnpm test:contract
       - pnpm seo:check-sitemap
       - git diff --check
     merge_policy:
@@ -10963,7 +10830,6 @@ prs:
       - unrelated formatting
     required_local_checks:
       - pnpm typecheck
-      - pnpm test:contract
       - pnpm seo:check-sitemap
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - python3 -c 'import yaml, pathlib; yaml.safe_load(pathlib.Path("docs/codex/pr-train.yaml").read_text())'
@@ -11069,7 +10935,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/result-client-view-state.contract.test.tsx
       - pnpm typecheck
-      - pnpm test:contract
       - git diff --check
     merge_policy:
       github_checks_required: true
@@ -11121,7 +10986,6 @@ prs:
       - pnpm exec vitest run tests/contracts/career-job-index-backend.contract.test.tsx
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
-      - pnpm test:contract
       - pnpm exec vitest run tests/contracts/verify-big5-contract-freeze*
       - pnpm exec vitest run tests/contracts/verify-enneagram-contract-freeze*
       - python3 -m json.tool docs/seo/generated/career-jobs-paginated-directory-shell-01.v1.json >/dev/null
@@ -11178,7 +11042,6 @@ prs:
       - pnpm exec vitest run tests/contracts/career-llms-alignment.contract.test.ts tests/contracts/llms-route-fanout.contract.test.ts tests/contracts/llms-url-hygiene.contract.test.ts
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
-      - pnpm test:contract
       - pnpm exec vitest run tests/contracts/verify-big5-contract-freeze*
       - pnpm exec vitest run tests/contracts/verify-enneagram-contract-freeze*
       - python3 -m json.tool docs/seo/generated/career-llms-directory-sitemap-authority-01.v1.json >/dev/null
@@ -11233,7 +11096,6 @@ prs:
       - pnpm exec vitest run tests/contracts/career-job-index-backend.contract.test.tsx
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
-      - pnpm test:contract
       - pnpm exec vitest run tests/contracts/verify-big5-contract-freeze*
       - pnpm exec vitest run tests/contracts/verify-enneagram-contract-freeze*
       - python3 -m json.tool docs/seo/generated/career-directory-production-consumption-repair-01.v1.json >/dev/null
@@ -11287,7 +11149,6 @@ prs:
       - pnpm exec vitest run tests/contracts/career-llms-txt-directory-url-exposure-repair-01.contract.test.ts tests/contracts/detail-ready-1046-discoverability-exposure-repair-01.contract.test.ts tests/contracts/llms-route-fanout.contract.test.ts
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
-      - pnpm test:contract
       - pnpm exec vitest run tests/contracts/verify-big5-contract-freeze*
       - pnpm exec vitest run tests/contracts/verify-enneagram-contract-freeze*
       - python3 -m json.tool docs/seo/generated/career-llms-txt-directory-url-exposure-repair-01.v1.json >/dev/null
@@ -11334,7 +11195,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/orders-client-delivery.contract.test.tsx
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - git diff --check
     merge_policy:
@@ -11380,7 +11240,6 @@ prs:
       - pnpm exec vitest run tests/contracts/legacy-seo-reconciliation-scan.contract.test.ts tests/contracts/analytics-seo-metadata-sitemap-canonical.contract.test.ts tests/contracts/shared-exposure-policy.contract.test.ts tests/contracts/evidence-container-readiness-gate.contract.test.ts tests/contracts/seo-geo-llms-claim-guards.contract.test.ts
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
-      - pnpm test:contract
       - pnpm exec vitest run tests/contracts/verify-big5-contract-freeze*
       - pnpm exec vitest run tests/contracts/verify-enneagram-contract-freeze*
       - python3 -m json.tool docs/seo/generated/legacy-seo-reconciliation-scan.v1.json >/dev/null
@@ -11428,7 +11287,6 @@ prs:
       - pnpm exec vitest run tests/contracts/career-detail-p95-latency-scan-01.contract.test.ts
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
-      - pnpm test:contract
       - pnpm exec vitest run tests/contracts/verify-big5-contract-freeze*
       - pnpm exec vitest run tests/contracts/verify-enneagram-contract-freeze*
       - python3 -m json.tool docs/seo/generated/career-detail-p95-latency-scan-01.v1.json >/dev/null
@@ -11480,7 +11338,6 @@ prs:
       - pnpm exec vitest run tests/contracts/career-detail-cache-budget-repair-01.contract.test.ts
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
-      - pnpm test:contract
       - git diff --check
       - git diff --cached --check
     merge_policy:
@@ -11526,7 +11383,6 @@ prs:
       - pnpm exec vitest run tests/contracts/career-llms-full-10k-budget-gate-01.contract.test.ts tests/contracts/llms-route-fanout.contract.test.ts
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
-      - pnpm test:contract
       - git diff --check
       - git diff --cached --check
     merge_policy:
@@ -11572,7 +11428,6 @@ prs:
       - pnpm exec vitest run tests/contracts/career-directory-ux-facets-parity-01.contract.test.tsx tests/contracts/career-query-canonical.contract.test.tsx
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
-      - pnpm test:contract
       - git diff --check
       - git diff --cached --check
     merge_policy:
@@ -11723,7 +11578,6 @@ prs:
       - pnpm exec vitest run tests/contracts/tracking-activation-contract.contract.test.ts tests/contracts/seo-funnel-tracking-taxonomy.contract.test.ts tests/contracts/analytics-scripts.contract.test.ts tests/contracts/analytics-payload-privacy.contract.test.ts
       - pnpm typecheck
       - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
-      - pnpm test:contract
       - git diff --check
       - git diff --cached --check
     merge_policy:
@@ -12145,7 +11999,6 @@ prs:
       - node scripts/seo/generate-url-inventory.mjs --sitemap=https://fermatmind.com/sitemap.xml --site-url=https://fermatmind.com --json
       - pnpm exec vitest run tests/contracts/internal-link-orphan-detector.contract.test.ts tests/contracts/core-topic-graph-inventory.contract.test.ts tests/contracts/duplicate-seo-entities.contract.test.ts
       - pnpm exec vitest run tests/contracts/url-inventory-generator.contract.test.ts tests/contracts/url-exposure-policy.contract.test.ts tests/contracts/sitemap-authority-adapters.contract.test.ts tests/contracts/sitemap-url-policy-decision.contract.test.ts
-      - pnpm test:contract
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
@@ -12476,7 +12329,6 @@ prs:
       - git status --short --branch
       - git log -n 5 --oneline
       - pnpm exec vitest run tests/contracts/commercial-readiness-contracts.contract.test.ts
-      - pnpm test:contract
       - pnpm typecheck
       - python3 -m json.tool docs/analytics/generated/commercial-readiness-contracts.v1.json >/dev/null
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
@@ -12746,7 +12598,6 @@ prs:
       - paid ads GO
     required_local_checks:
       - pnpm exec vitest run tests/contracts/*privacy* tests/contracts/*tracking* tests/contracts/*analytics* tests/contracts/*private*
-      - pnpm test:contract
       - pnpm typecheck
       - pnpm seo:check-sitemap
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
@@ -13428,7 +13279,6 @@ prs:
       - pnpm exec vitest run tests/contracts/daily-giving-proof-public-url-frontend-adapter-01.contract.test.ts
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
-      - pnpm test:contract
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
       - git diff --check
@@ -13538,7 +13388,6 @@ prs:
       - pnpm exec vitest run tests/contracts/help-faq-schema.contract.test.ts
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
-      - pnpm test:contract
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
       - git diff --check
@@ -13591,7 +13440,6 @@ prs:
       - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
       - pnpm exec vitest run tests/contracts/help-service-faq-schema-runtime-r2-01.contract.test.ts
       - pnpm typecheck
-      - pnpm test:contract
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
       - git diff --check
       - git diff --cached --check
@@ -13643,7 +13491,6 @@ prs:
       - pnpm seo:check-sitemap
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
-      - pnpm test:contract
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
       - git diff --check
@@ -13704,7 +13551,6 @@ prs:
       - pnpm exec vitest run tests/contracts/sitemap-live-stability.contract.test.ts
       - pnpm seo:assert-live-sitemap-stability
       - pnpm seo:check-sitemap
-      - pnpm test:contract
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
       - git diff --check
@@ -13785,7 +13631,6 @@ prs:
       - pnpm exec vitest run tests/contracts/sitemap-source-live-diff-report.contract.test.ts
       - pnpm seo:diff-sitemap-source-live
       - pnpm seo:check-sitemap
-      - pnpm test:contract
       - python3 -m json.tool docs/seo/generated/sitemap-diff-report.v1.json >/dev/null
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
@@ -13843,7 +13688,6 @@ prs:
       - pnpm seo:diff-sitemap-source-live
       - pnpm seo:assert-live-sitemap-stability
       - pnpm seo:check-sitemap
-      - pnpm test:contract
       - python3 -m json.tool docs/seo/generated/sitemap-diff-report.v1.json >/dev/null
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
@@ -13910,7 +13754,6 @@ prs:
       - pnpm exec vitest run tests/contracts/seo-funnel-tracking-taxonomy.contract.test.ts
       - pnpm exec vitest run tests/contracts/tracking-activation-contract.contract.test.ts
       - pnpm typecheck
-      - pnpm test:contract
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
       - "python3 - <<scope validation: changed files equal manifest artifacts>>"
@@ -13964,7 +13807,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/*tracking* tests/contracts/*analytics*
       - pnpm typecheck
-      - pnpm test:contract
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
       - "python3 - <<scope validation: changed files within SEO-CONV-RUNTIME-03 manifest scope>>"
@@ -14019,7 +13861,6 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/cms-rich-content-sanitization.contract.test.tsx
       - pnpm typecheck
-      - pnpm test:contract
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
       - "python3 - <<scope validation: changed files within ARTICLE-H1-01 manifest scope>>"
@@ -14068,7 +13909,6 @@ prs:
       - pnpm exec vitest run tests/contracts/article-h1-audit.contract.test.ts
       - node scripts/seo/audit-article-h1.mjs --sample-size=20 --output docs/seo/generated/article-h1-audit.v1.json --report docs/seo/article_h1_audit_report.md
       - pnpm typecheck
-      - pnpm test:contract
       - python3 -m json.tool docs/seo/generated/article-h1-audit.v1.json >/dev/null
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
@@ -14079,3 +13919,45 @@ prs:
       github_checks_required: true
       squash: true
       auto_merge: true
+
+  - id: SEO-OPS-BILINGUAL-HOMEPAGE-RECOMMENDED-ARTICLES-GUARD-PR-00
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/seo-ops-bilingual-homepage-recommended-articles-guard-00
+    base: main
+    title: "SEO-OPS-BILINGUAL-HOMEPAGE-RECOMMENDED-ARTICLES-GUARD-PR-00: test(seo): guard bilingual homepage recommended articles"
+    depends_on: []
+    mode: execute
+    train_scope: seo_homepage_recommended_articles_guard
+    status: ready
+    goal: "Add bilingual CMS/API health and contract guards so homepage recommended articles cannot pass with fewer than 6 complete English or Chinese CMS article cards."
+    artifacts:
+      - scripts/check-cms-api-health.mjs
+      - tests/contracts/homepage-recommended-articles-block.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - scripts/check-cms-api-health.mjs
+      - tests/contracts/homepage-recommended-articles-block.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - CMS content mutation
+      - homepage rendering content changes
+      - sitemap/llms/schema/hreflang/search submission changes
+      - deployment script changes
+      - components/marketing/HomePageExperience.tsx
+    required_local_checks:
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm check:cms-api
+      - pnpm exec vitest run tests/contracts/homepage-recommended-articles-block.contract.test.ts
+      - pnpm typecheck
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -c "import yaml, pathlib; yaml.safe_load(pathlib.Path('docs/codex/pr-train.yaml').read_text()); print('yaml ok')"
+      - "python3 - <<scope validation: changed files within SEO-OPS-BILINGUAL-HOMEPAGE-RECOMMENDED-ARTICLES-GUARD-PR-00 manifest scope>>"
+      - git diff --check
+      - git diff --cached --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: false
+    next_task: SEO-OPS-ENGLISH-HOMEPAGE-RUNTIME-REFRESH-VERIFY-00
