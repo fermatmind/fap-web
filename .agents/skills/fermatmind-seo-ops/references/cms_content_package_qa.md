@@ -42,3 +42,20 @@ Outputs:
 - `CMS_IMPORT_READY_REPORT.md`.
 
 No-go: no import, no CMS write, no publish.
+
+## V1.1 bilingual article pair additions
+
+For a pair of new zh/en articles, require:
+
+- shared article-pair manifest.
+- one CMS draft payload per locale.
+- shared `translation_group_id` plan.
+- locale-specific canonical plan.
+- hreflang hold plan unless both routes are explicitly ready.
+- schema hold plan unless explicit schema gate is allowed.
+- sitemap/llms hold plan unless explicit release is approved.
+- social image metadata plan with public Media Library asset, alt, dimensions, and hero/og variants.
+- Search Channel hold plan for every channel.
+- generated report and content-package zip no-commit attestation.
+
+If the topic touches career resilience, layoffs, industry change, AI disruption, career security, employability, or future-proofing, run the V1.1 career resilience claim taxonomy from `claim_gate_playbook.md`.
