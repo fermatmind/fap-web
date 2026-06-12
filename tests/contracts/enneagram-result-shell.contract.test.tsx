@@ -1402,6 +1402,104 @@ describe("enneagram result shell contract", () => {
     expect(moduleNode).not.toHaveTextContent("future_internal_action_key");
   });
 
+  it("does not render object payloads or analyzer keys on the public result surface", async () => {
+    const report = createV2ReportResponse({ scope: "close_call" });
+    const pages = (report.enneagram_report_v2?.pages ?? []) as Array<{ modules?: Record<string, unknown>[] }>;
+    const overviewModules = (pages[0]?.modules ?? []) as Record<string, unknown>[];
+    const workModules = (pages[1]?.modules ?? []) as Record<string, unknown>[];
+    const growthModules = (pages[2]?.modules ?? []) as Record<string, unknown>[];
+    const methodModules = (pages[4]?.modules ?? []) as Record<string, unknown>[];
+
+    const summary = overviewModules.find((module) => module.module_key === "instant_summary");
+    const top3 = overviewModules.find((module) => module.module_key === "top3_cards");
+    const dominanceGap = overviewModules.find((module) => module.module_key === "dominance_gap_card");
+    const closeCall = overviewModules.find((module) => module.module_key === "close_call_card");
+    const workStyle = workModules.find((module) => module.module_key === "work_style_summary");
+    const strength = growthModules.find((module) => module.module_key === "strength_expression");
+    const methodBoundary = overviewModules.find((module) => module.module_key === "methodology_boundary_card");
+    const technicalNote = methodModules.find((module) => module.module_key === "technical_note_link");
+
+    if (summary) {
+      summary.content = {
+        ...(summary.content as Record<string, unknown>),
+        form_badge: {
+          label: { analyzer_close_call: true },
+          body: { text: "[object Object]" },
+        },
+      };
+    }
+    if (top3) {
+      const content = top3.content as { cards?: Array<Record<string, unknown>> };
+      if (content.cards?.[0]) {
+        content.cards[0] = {
+          ...content.cards[0],
+          candidate_role: { key: "analyzer_close_call" },
+          core_logic: { text: "[object Object]" },
+          work_summary: { text: "private debug note" },
+        };
+      }
+    }
+    if (dominanceGap) {
+      dominanceGap.content = {
+        ...(dominanceGap.content as Record<string, unknown>),
+        profile_entropy: { analyzer_close_call: true },
+      };
+    }
+    if (closeCall) {
+      closeCall.content = {
+        ...(closeCall.content as Record<string, unknown>),
+        pair: { type_a: { label: "Type 1" }, type_b: { code: "analyzer_close_call" }, trigger_reason: { key: "analyzer_close_call" } },
+        pair_entry: {
+          core_motivation_difference: { text: "[object Object]" },
+          stress_reaction_difference: { text: "private debug note" },
+        },
+      };
+    }
+    if (workStyle) {
+      workStyle.content = {
+        ...(workStyle.content as Record<string, unknown>),
+        list_groups: [
+          {
+            label_key: { key: "internal_list_key" },
+            items: [{ title: { text: "private title" }, body: { text: "private body" } }],
+          },
+        ],
+      };
+    }
+    if (strength) {
+      strength.content = {
+        ...(strength.content as Record<string, unknown>),
+        items: [
+          {
+            group_ref: { key: "center:body" },
+            group_type: { key: "center" },
+            group_key: { key: "body" },
+            description: { text: "[object Object]" },
+            value: { text: "analyzer_close_call" },
+          },
+        ],
+      };
+    }
+    if (methodBoundary) {
+      methodBoundary.content = {
+        ...(methodBoundary.content as Record<string, unknown>),
+        form_badge: { label: { key: "analyzer_close_call" } },
+      };
+    }
+    if (technicalNote) {
+      technicalNote.content = {
+        ...(technicalNote.content as Record<string, unknown>),
+        sections: [{ section_key: { key: "analyzer_close_call" }, title: { text: "[object Object]" } }],
+      };
+    }
+
+    await renderShell(report);
+
+    const text = document.body.textContent ?? "";
+    expect(text).not.toContain("[object Object]");
+    expect(text).not.toContain("analyzer_close_call");
+  });
+
   it("links the technical note module to the dedicated technical note page", async () => {
     await renderShell(createV2ReportResponse());
 

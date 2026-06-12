@@ -566,6 +566,14 @@ const RESULT_DEBUG_FIELD_SUPPRESSION_01_ALLOWED_FILES = new Set([
   "tests/contracts/riasec-trusted-result-shell.contract.test.tsx",
 ]);
 
+const RESULT_OBJECT_RENDER_GUARD_01_ALLOWED_FILES = new Set([
+  "components/result/enneagram/EnneagramResultShell.tsx",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "tests/contracts/enneagram-result-shell.contract.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 const PR_WEB_SEC_23_ALLOWED_FILES = new Set([
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -2251,6 +2259,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/result-debug-field-suppression-01") {
     return RESULT_DEBUG_FIELD_SUPPRESSION_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/result-object-render-guard-01") {
+    return RESULT_OBJECT_RENDER_GUARD_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-web-sec-23-big5-comparative-fallback") {
