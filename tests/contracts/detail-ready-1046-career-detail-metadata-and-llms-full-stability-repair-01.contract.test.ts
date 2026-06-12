@@ -168,8 +168,10 @@ describe("DETAIL_READY_1046_CAREER_DETAIL_METADATA_AND_LLMS_FULL_STABILITY_REPAI
     const secondResponse = await GET();
     const secondText = await secondResponse.text();
 
-    expect(firstResponse.headers.get("X-FermatMind-LLMS-Full-Mode")).toBe("generated");
-    expect(secondResponse.headers.get("X-FermatMind-LLMS-Full-Mode")).toBe("cache");
+    expect(firstResponse.headers.get("X-FermatMind-LLMS-Full-Mode")).toBe("complete");
+    expect(firstResponse.headers.get("X-FermatMind-LLMS-Full-Source")).toBe("generated");
+    expect(secondResponse.headers.get("X-FermatMind-LLMS-Full-Mode")).toBe("complete");
+    expect(secondResponse.headers.get("X-FermatMind-LLMS-Full-Source")).toBe("cache");
     expect(listBackendSitemapCareerJobPaths).toHaveBeenCalledTimes(1);
     expect(secondText).toBe(firstText);
 

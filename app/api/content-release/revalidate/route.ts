@@ -193,6 +193,8 @@ export function collectPathDecisions(payload: ContentReleasePayload, requestOrig
     if (slug) {
       localized.push(`/zh/articles/${slug}`, `/en/articles/${slug}`);
     }
+
+    localized.push("/llms.txt", "/llms-full.txt");
   } else if (type === "support_article" || type === "interpretation_guide") {
     localized.push(localizedPath("/support", locale));
   }

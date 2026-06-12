@@ -108,7 +108,8 @@ describe("CAREER-LLMS-FULL-10K-BUDGET-GATE-01", () => {
     const text = await response.text();
 
     expect(response.status).toBe(200);
-    expect(response.headers.get("X-FermatMind-LLMS-Full-Mode")).toBe("generated");
+    expect(response.headers.get("X-FermatMind-LLMS-Full-Mode")).toBe("complete");
+    expect(response.headers.get("X-FermatMind-LLMS-Full-Source")).toBe("generated");
     expect(listBackendSitemapCareerJobPaths).toHaveBeenCalledTimes(1);
     expect(listBackendSitemapCareerJobPaths.mock.calls[0]?.[0]).toMatchObject({
       limit: LLMS_ROUTE_LIMITS.careerJobs,

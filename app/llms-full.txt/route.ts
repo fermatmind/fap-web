@@ -16,7 +16,7 @@ import { getTopicBySlug, listTopics } from "@/lib/cms/topics";
 import {
   MENTAL_HEALTH_NON_MEDICAL_DISCLAIMER,
   isMentalHealthScreeningTest,
-} from "@/components/compliance/MentalHealthDisclaimer";
+} from "@/lib/compliance/mentalHealthScreening";
 import { isSharedDiscoverabilityDeniedPath } from "@/lib/seo/discoverabilityExposurePolicy";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
 import { listBackendSitemapCareerJobPaths } from "@/lib/seo/backendSitemapSource";
@@ -28,6 +28,7 @@ import {
 } from "@/lib/seo/stagingDiscoverability";
 import {
   LLMS_ROUTE_CAREER_JOB_TIMEOUT_MS,
+  LLMS_ROUTE_ARTICLE_TIMEOUT_MS,
   LLMS_ROUTE_ARTICLE_MAX_PAGES,
   LLMS_ROUTE_CONTENT_PAGE_TIMEOUT_MS,
   LLMS_ROUTE_LIMITS,
@@ -37,7 +38,11 @@ import {
   LLMS_FULL_ENRICHMENT_TIMEOUT_MS,
   LLMS_FULL_RESPONSE_DEADLINE_MS,
 } from "@/lib/seo/llmsRouteBudget";
-import { getCachedLlmsFullText, getOrStartLlmsFullBuild } from "@/lib/seo/llmsFullResponseCache";
+import {
+  getCachedLlmsFullText,
+  getOrStartLlmsFullBuild,
+  writeLlmsFullResponseCache,
+} from "@/lib/seo/llmsFullResponseCache";
 import { TOPIC_LLMS_COMPATIBILITY_FALLBACKS } from "@/lib/seo/topicLlmsAuthority";
 import { getSiteUrlOrThrow } from "@/lib/site";
 import type { AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
@@ -94,7 +99,8 @@ function shouldRequireCompleteCareerJobCohort(): boolean {
   return process.env.NODE_ENV !== "test" || process.env.FERMATMIND_LLMS_FULL_REQUIRE_CAREER_COHORT === "true";
 }
 
-type LlmsFullResponseMode = "generated" | "cache" | "stale-cache" | "degraded";
+type LlmsFullResponseMode = "complete" | "degraded";
+type LlmsFullResponseSource = "generated" | "cache" | "stale-cache" | "degraded";
 
 type LlmsLocale = Locale;
 
@@ -409,12 +415,13 @@ function canonicalEntrypointEntries(siteUrl: string): LlmsFullEntry[] {
   ];
 }
 
-function createLlmsFullResponse(text: string, mode: LlmsFullResponseMode): NextResponse {
+function createLlmsFullResponse(text: string, mode: LlmsFullResponseMode, source: LlmsFullResponseSource): NextResponse {
   return new NextResponse(text, {
     headers: {
       "Content-Type": "text/plain; charset=utf-8",
       "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
       "X-FermatMind-LLMS-Full-Mode": mode,
+      "X-FermatMind-LLMS-Full-Source": source,
     },
   });
 }
@@ -444,7 +451,7 @@ function canonicalCareerJobUrlSet(text: string, siteUrl: string): Set<string> {
   return new Set(canonicalUrls);
 }
 
-function isCompleteLlmsFullText(text: string, siteUrl: string): boolean {
+export function isCompleteLlmsFullText(text: string, siteUrl: string): boolean {
   if (!text.includes("# FermatMind llms-full.txt") || text.includes("Mode: degraded")) {
     return false;
   }
@@ -704,7 +711,7 @@ async function enrichCareerGuideEntry(entry: LlmsFullEntry, siteUrl: string): Pr
   };
 }
 
-async function buildLlmsFullText(siteUrl: string): Promise<string> {
+export async function buildLlmsFullText(siteUrl: string): Promise<string> {
   const [
     enCareerGuides,
     zhCareerGuides,
@@ -758,7 +765,8 @@ async function buildLlmsFullText(siteUrl: string): Promise<string> {
           perPage: LLMS_ROUTE_LIMITS.articles,
           maxPages: LLMS_ROUTE_ARTICLE_MAX_PAGES,
         }).then((result) => result.value),
-      []
+      [],
+      { timeoutMs: LLMS_ROUTE_ARTICLE_TIMEOUT_MS }
     ),
     withLlmsRouteBudget(
       () =>
@@ -767,7 +775,8 @@ async function buildLlmsFullText(siteUrl: string): Promise<string> {
           perPage: LLMS_ROUTE_LIMITS.articles,
           maxPages: LLMS_ROUTE_ARTICLE_MAX_PAGES,
         }).then((result) => result.value),
-      []
+      [],
+      { timeoutMs: LLMS_ROUTE_ARTICLE_TIMEOUT_MS }
     ),
     withLlmsRouteBudget(
       () =>
@@ -1003,6 +1012,24 @@ async function buildLlmsFullText(siteUrl: string): Promise<string> {
   return lines.join("\n");
 }
 
+export async function buildAndCacheLlmsFullText(siteUrl: string, text = ""): Promise<{
+  ok: boolean;
+  cachePath: string;
+  bytes: number;
+  careerJobUrlCount: number;
+}> {
+  const resolvedText = text || (await buildLlmsFullText(siteUrl));
+  const cacheOptions = { isCacheable: (value: string) => isCompleteLlmsFullText(value, siteUrl) };
+  const result = await writeLlmsFullResponseCache(siteUrl, resolvedText, cacheOptions);
+
+  return {
+    ok: result.cached,
+    cachePath: result.cachePath,
+    bytes: Buffer.byteLength(resolvedText, "utf8"),
+    careerJobUrlCount: canonicalCareerJobUrlSet(resolvedText, siteUrl).size,
+  };
+}
+
 export async function GET() {
   if (isConfiguredStagingDiscoverability()) {
     return createConfiguredStagingLlmsResponse();
@@ -1012,18 +1039,18 @@ export async function GET() {
   const cacheOptions = { isCacheable: (text: string) => isCompleteLlmsFullText(text, siteUrl) };
   const freshCachedText = await getCachedLlmsFullText(siteUrl, LLMS_FULL_CACHE_FRESH_MS, cacheOptions);
   if (freshCachedText) {
-    return createLlmsFullResponse(freshCachedText, "cache");
+    return createLlmsFullResponse(freshCachedText, "complete", "cache");
   }
 
   const buildResult = await waitForLlmsFullBuildBudget(getOrStartLlmsFullBuild(siteUrl, buildLlmsFullText, cacheOptions));
   if (typeof buildResult === "string") {
-    return createLlmsFullResponse(buildResult, "generated");
+    return createLlmsFullResponse(buildResult, "complete", "generated");
   }
 
   const staleCachedText = await getCachedLlmsFullText(siteUrl, LLMS_FULL_CACHE_STALE_MS, cacheOptions);
   if (staleCachedText) {
-    return createLlmsFullResponse(staleCachedText, "stale-cache");
+    return createLlmsFullResponse(staleCachedText, "complete", "stale-cache");
   }
 
-  return createLlmsFullResponse(await buildDegradedLlmsFullText(siteUrl), "degraded");
+  return createLlmsFullResponse(await buildDegradedLlmsFullText(siteUrl), "degraded", "degraded");
 }

@@ -21,6 +21,7 @@ import {
 } from "@/lib/seo/stagingDiscoverability";
 import {
   LLMS_ROUTE_CAREER_JOB_TIMEOUT_MS,
+  LLMS_ROUTE_ARTICLE_TIMEOUT_MS,
   LLMS_ROUTE_ARTICLE_MAX_PAGES,
   LLMS_ROUTE_CONTENT_PAGE_TIMEOUT_MS,
   LLMS_ROUTE_LIMITS,
@@ -260,7 +261,8 @@ export async function GET() {
           perPage: LLMS_ROUTE_LIMITS.articles,
           maxPages: LLMS_ROUTE_ARTICLE_MAX_PAGES,
         }).then((result) => result.value),
-      []
+      [],
+      { timeoutMs: LLMS_ROUTE_ARTICLE_TIMEOUT_MS }
     ),
     withLlmsRouteBudget(
       () =>
@@ -269,7 +271,8 @@ export async function GET() {
           perPage: LLMS_ROUTE_LIMITS.articles,
           maxPages: LLMS_ROUTE_ARTICLE_MAX_PAGES,
         }).then((result) => result.value),
-      []
+      [],
+      { timeoutMs: LLMS_ROUTE_ARTICLE_TIMEOUT_MS }
     ),
     withLlmsRouteBudget(
       () =>
