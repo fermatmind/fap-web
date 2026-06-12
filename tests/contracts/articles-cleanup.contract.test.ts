@@ -286,6 +286,45 @@ describe("articles cleanup contract", () => {
     expect(article).toBeNull();
   });
 
+  it("strips internal CMS slot markers from normalized article detail content", async () => {
+    const fetchMock = vi.fn(async () =>
+      jsonResponse({
+        ok: true,
+        article: {
+          id: 88,
+          slug: "slot-marker-article",
+          locale: "zh-CN",
+          title: "Slot marker article",
+          excerpt: "",
+          content_md: [
+            "<!-- FM_SLOT:ABOVE_THE_FOLD_QA_START --> 正文开头。",
+            "继续正文。 <!-- FM_SLOT:ABOVE_THE_FOLD_QA_END -->",
+          ].join("\n\n"),
+          content_html: "<p>&lt;!-- FM_SLOT:VISIBLE_FAQ_START --&gt; HTML 正文。 &lt;!-- FM_SLOT:VISIBLE_FAQ_END --&gt;</p>",
+          status: "published",
+          is_public: true,
+          is_indexable: true,
+          published_revision_id: 88,
+        },
+      })
+    );
+
+    vi.stubGlobal("fetch", fetchMock);
+
+    const article = await getCmsArticle("slot-marker-article", "zh");
+
+    expect(article).toMatchObject({
+      slug: "slot-marker-article",
+    });
+    expect(article?.contentMd).toContain("正文开头。");
+    expect(article?.contentMd).toContain("继续正文。");
+    expect(article?.contentHtml).toContain("HTML 正文。");
+    expect(article?.excerpt).toBe("HTML 正文。");
+    expect(article?.contentMd).not.toContain("FM_SLOT");
+    expect(article?.contentHtml).not.toContain("FM_SLOT");
+    expect(article?.excerpt).not.toContain("FM_SLOT");
+  });
+
   it("treats unpublished revision contract responses as unavailable instead of rendering them", async () => {
     const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
       const url = String(input);

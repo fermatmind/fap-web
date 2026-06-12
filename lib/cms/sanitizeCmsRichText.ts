@@ -90,6 +90,12 @@ export type CmsHtmlSanitizeOptions = {
   minimumHeadingLevel?: 1 | 2 | 3 | 4 | 5 | 6;
 };
 
+const INTERNAL_CMS_SLOT_MARKER_RE = /(?:<!--|&lt;!--)\s*FM_SLOT:[\s\S]*?(?:-->|--&gt;)/gi;
+
+export function stripInternalCmsSlotMarkers(value: string): string {
+  return value.replace(INTERNAL_CMS_SLOT_MARKER_RE, "");
+}
+
 function normalizeHeadingTag(tagName: string, options: CmsHtmlSanitizeOptions): string {
   const minimumHeadingLevel = options.minimumHeadingLevel ?? 1;
   if (!/^h[1-6]$/.test(tagName)) {
@@ -389,32 +395,33 @@ export function sanitizeCmsHtml(html: string, options: CmsHtmlSanitizeOptions = 
     return "";
   }
 
+  const input = stripInternalCmsSlotMarkers(html);
   let output = "";
   let cursor = 0;
   const dropStack: string[] = [];
 
-  while (cursor < html.length) {
-    const tagStart = html.indexOf("<", cursor);
+  while (cursor < input.length) {
+    const tagStart = input.indexOf("<", cursor);
     if (tagStart === -1) {
       if (dropStack.length === 0) {
-        output += html.slice(cursor);
+        output += input.slice(cursor);
       }
       break;
     }
 
     if (dropStack.length === 0) {
-      output += html.slice(cursor, tagStart);
+      output += input.slice(cursor, tagStart);
     }
 
-    const tagEnd = findTagEnd(html, tagStart);
+    const tagEnd = findTagEnd(input, tagStart);
     if (tagEnd === -1) {
       if (dropStack.length === 0) {
-        output += escapeText(html.slice(tagStart));
+        output += escapeText(input.slice(tagStart));
       }
       break;
     }
 
-    output += sanitizeTag(html.slice(tagStart, tagEnd + 1), dropStack, options);
+    output += sanitizeTag(input.slice(tagStart, tagEnd + 1), dropStack, options);
     cursor = tagEnd + 1;
   }
 

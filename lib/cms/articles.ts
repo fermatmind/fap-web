@@ -2,6 +2,7 @@ import { ApiError, apiClient } from "@/lib/api-client";
 import type { AnswerSurfaceRaw, LandingSurfaceRaw, SeoSurfaceRaw } from "@/lib/api/v0_3";
 import { normalizeAnswerSurface, type AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
 import { withLastKnownGood, type LastKnownGoodResult } from "@/lib/cms/last-known-good";
+import { stripInternalCmsSlotMarkers } from "@/lib/cms/sanitizeCmsRichText";
 import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
 import { normalizeLandingSurface, type LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
 import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
@@ -562,7 +563,11 @@ function truncate(value: string, maxLength: number): string {
 }
 
 function buildFallbackExcerpt(article: CmsArticleApiRecord): string {
-  const sources = [article.excerpt, article.content_html ? stripHtml(article.content_html) : null, article.content_md];
+  const sources = [
+    article.excerpt,
+    article.content_html ? stripHtml(stripInternalCmsSlotMarkers(article.content_html)) : null,
+    article.content_md ? stripInternalCmsSlotMarkers(article.content_md) : null,
+  ];
 
   for (const source of sources) {
     const normalized = String(source ?? "").replace(/\s+/g, " ").trim();
@@ -572,6 +577,28 @@ function buildFallbackExcerpt(article: CmsArticleApiRecord): string {
   }
 
   return "";
+}
+
+function stripArticleRecordInternalSlotMarkers(article: CmsArticleApiRecord): CmsArticleApiRecord {
+  return {
+    ...article,
+    content_md: article.content_md ? stripInternalCmsSlotMarkers(article.content_md) : article.content_md,
+    content_html: article.content_html ? stripInternalCmsSlotMarkers(article.content_html) : article.content_html,
+  };
+}
+
+function stripArticleListResponseInternalSlotMarkers(response: CmsArticlesApiResponse): CmsArticlesApiResponse {
+  return {
+    ...response,
+    items: Array.isArray(response.items) ? response.items.map(stripArticleRecordInternalSlotMarkers) : response.items,
+  };
+}
+
+function stripArticleDetailResponseInternalSlotMarkers(response: CmsArticleApiResponse): CmsArticleApiResponse {
+  return {
+    ...response,
+    article: response.article ? stripArticleRecordInternalSlotMarkers(response.article) : response.article,
+  };
 }
 
 function estimateReadingMinutes(...sources: Array<string | null | undefined>): number | null {
@@ -818,6 +845,8 @@ function normalizeCategory(category: CmsArticleApiCategory): CmsArticleCategory 
 }
 
 function normalizeArticle(article: CmsArticleApiRecord): CmsArticle {
+  const contentMd = stripInternalCmsSlotMarkers(String(article.content_md ?? ""));
+  const contentHtml = stripInternalCmsSlotMarkers(String(article.content_html ?? ""));
   const nestedCoverImage = article.cover_image;
   const coverImageVariants = normalizeImageVariants(
     article.cover_image_variants ?? readRecordValue(nestedCoverImage, "variants", "image_variants", "imageVariants")
@@ -827,7 +856,7 @@ function normalizeArticle(article: CmsArticleApiRecord): CmsArticle {
     normalizeIsoValue(readRecordValue(nestedCoverImage, "url", "src")) ??
     firstImageUrl(coverImageVariants.hero, coverImageVariants.card, coverImageVariants.og, coverImageVariants.thumbnail);
   const readingMinutes =
-    normalizePositiveInteger(article.reading_minutes) ?? estimateReadingMinutes(article.content_html, article.content_md, article.excerpt);
+    normalizePositiveInteger(article.reading_minutes) ?? estimateReadingMinutes(contentHtml, contentMd, article.excerpt);
   const testEdges = normalizeArticleTestEdges(article.test_edges);
   const relatedTestSlug = normalizeIsoValue(article.related_test_slug);
   const relatedTestSlugs = Array.from(new Set([
@@ -842,8 +871,8 @@ function normalizeArticle(article: CmsArticleApiRecord): CmsArticle {
     locale: String(article.locale ?? "").trim() || "en",
     title: String(article.title ?? "").trim(),
     excerpt: buildFallbackExcerpt(article),
-    contentMd: String(article.content_md ?? ""),
-    contentHtml: String(article.content_html ?? ""),
+    contentMd,
+    contentHtml,
     authorName: normalizeIsoValue(article.author_name) ?? normalizeNamedEntity(readRecordValue(article, "author", "byline")),
     reviewerName: normalizeIsoValue(article.reviewer_name) ?? normalizeNamedEntity(readRecordValue(article, "reviewer", "reviewed_by")),
     readingMinutes,
@@ -917,11 +946,13 @@ export async function getCmsArticles(params: GetCmsArticlesParams): Promise<GetC
       : ({ cache: "no-store" } as const);
 
   try {
-    const response = await apiClient.get<CmsArticlesApiResponse>(`/v0.5/articles${query}`, {
-      locale: params.locale,
-      skipAuth: true,
-      ...cacheOptions,
-    });
+    const response = await apiClient
+      .get<CmsArticlesApiResponse>(`/v0.5/articles${query}`, {
+        locale: params.locale,
+        skipAuth: true,
+        ...cacheOptions,
+      })
+      .then(stripArticleListResponseInternalSlotMarkers);
 
     const rawItems = Array.isArray(response.items) ? response.items : [];
     const items = rawItems
@@ -1077,11 +1108,13 @@ export async function getCmsArticle(slug: string, locale: Locale | string): Prom
   });
 
   try {
-    const response = await apiClient.get<CmsArticleApiResponse>(`/v0.5/articles/${encodeURIComponent(normalizedSlug)}${query}`, {
-      locale,
-      skipAuth: true,
-      ...UNBOUNDED_ARTICLE_DETAIL_FETCH_OPTIONS,
-    });
+    const response = await apiClient
+      .get<CmsArticleApiResponse>(`/v0.5/articles/${encodeURIComponent(normalizedSlug)}${query}`, {
+        locale,
+        skipAuth: true,
+        ...UNBOUNDED_ARTICLE_DETAIL_FETCH_OPTIONS,
+      })
+      .then(stripArticleDetailResponseInternalSlotMarkers);
 
     if (!response.article) {
       return null;

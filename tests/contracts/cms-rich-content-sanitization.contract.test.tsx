@@ -117,6 +117,28 @@ describe("CMS rich content sanitization contract", () => {
     expect(articlePageSource).toContain("renderSimpleMarkdown(article.contentMd, { minimumHeadingLevel: 2 })");
   });
 
+  it("does not expose internal CMS slot markers in rich content", () => {
+    const markdownNode = renderSimpleMarkdown(
+      [
+        "<!-- FM_SLOT:ABOVE_THE_FOLD_QA_START --> Visible answer copy.",
+        "",
+        "More visible copy. <!-- FM_SLOT:ABOVE_THE_FOLD_QA_END -->",
+      ].join("\n")
+    );
+    const markdownHtml = renderToStaticMarkup(<div>{markdownNode as Parameters<typeof renderToStaticMarkup>[0]}</div>);
+    const sanitizedHtml = sanitizeCmsHtml(
+      '<p>&lt;!-- FM_SLOT:VISIBLE_FAQ_START --&gt; Visible FAQ copy. &lt;!-- FM_SLOT:VISIBLE_FAQ_END --&gt;</p>'
+    );
+
+    expect(markdownHtml).toContain("Visible answer copy.");
+    expect(markdownHtml).toContain("More visible copy.");
+    expect(markdownHtml).not.toContain("FM_SLOT");
+    expect(markdownHtml).not.toContain("ABOVE_THE_FOLD_QA");
+    expect(sanitizedHtml).toContain("Visible FAQ copy.");
+    expect(sanitizedHtml).not.toContain("FM_SLOT");
+    expect(sanitizedHtml).not.toContain("VISIBLE_FAQ");
+  });
+
   it("wires every current CMS HTML sink through the sanitized renderer", () => {
     const sinkFiles = [
       "app/(localized)/[locale]/articles/[slug]/page.tsx",
