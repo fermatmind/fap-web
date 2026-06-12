@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { sanitizeCmsUrl } from "@/lib/cms/sanitizeCmsRichText";
+import { sanitizeCmsUrl, stripInternalCmsSlotMarkers } from "@/lib/cms/sanitizeCmsRichText";
 import { renderCjkPunctuationText } from "@/lib/content/textPunctuation";
 
 type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
@@ -157,7 +157,7 @@ function isTableStart(line: string, nextLine: string | undefined): boolean {
 }
 
 function tokenizeMarkdown(markdown: string): MarkdownBlock[] {
-  const lines = normalizeLineBreaks(markdown).split("\n");
+  const lines = normalizeLineBreaks(stripInternalCmsSlotMarkers(markdown)).split("\n");
   const blocks: MarkdownBlock[] = [];
   let index = 0;
 
