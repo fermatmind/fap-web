@@ -36,3 +36,15 @@ Outputs:
 - `SEO_CANARY_OBSERVATION_D14_<slug>.md`.
 
 No-go: do not resubmit, retry, revalidate, or treat missing data as zero.
+
+## V1.1 feedback loop
+
+At D1, D7, and D14, create or update `CONTENT_FEEDBACK_QUEUE.md` when observations reveal reusable lessons for future briefs, including:
+
+- title/meta underperformance.
+- CTA click or transport gaps.
+- private URL or global-link exception policy issues.
+- schema/hreflang/sitemap/llms release timing issues.
+- Search Channel provider failures.
+- social image/resource warnings.
+- claim boundary wording that should be reused or avoided.

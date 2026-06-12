@@ -13,16 +13,23 @@ Use this skill for:
 - Daily SEO signal review.
 - Weekly SEO article review.
 - CMS content package QA before preview/import work.
+- New bilingual SEO article pair planning and readiness review.
 - SEO article publish accompaniment from package QA to operator publish gate.
 - Chinese legacy page overwrite/diff preview.
 - CMS field mapping QA.
 - CMS preview QA.
 - Operator publish review preparation.
+- Indexability readiness/release planning with schema, hreflang, sitemap, llms, Search Channel, and ISR held independently.
 - Post-publish smoke reports.
 - Search Channel Queue read-only audit.
+- Search Channel live-readiness approval drafting without execution.
+- Baidu platform/readiness retry guard review.
+- GSC manual inspection readiness review.
 - D1, D7, and D14 canary observation.
 - URL Truth and runtime drift review.
 - Claim Gate and Private URL Guard audit.
+- Social image / Media Library metadata readiness review.
+- Content feedback queue and ready-to-publish queue preparation.
 - Metabase/Ops Portal evidence interpretation.
 
 Do not use this skill to perform live SEO operations.
@@ -67,6 +74,9 @@ Never do these actions from this skill:
 - Treat readiness-only data as live collector data.
 - Treat competitor data as FermatMind evidence.
 - Generate unsupported psychometric, diagnosis, treatment, hiring, salary, or career success claims.
+- Commit content package zip files.
+- Mix unrelated `generated/` report directories into PRs or handoffs.
+- Retry provider-blocked Baidu push attempts without a fresh platform-side resolution and explicit operator approval.
 
 If a workflow requires one of these actions, stop at a report and mark `Human authorization required`.
 
@@ -100,14 +110,24 @@ Choose the workflow by user intent:
 | Daily SEO review | `daily_seo_review` |
 | Weekly article review | `weekly_article_review` |
 | Check a CMS content package | `cms_content_package_qa` |
+| Plan or QA a new bilingual article pair | `new_bilingual_article_pair_runner` |
 | Accompany an article package through preview and publish gate | `cms_seo_article_publish_runner` |
 | Replace a Chinese legacy page safely | `chinese_overwrite_diff_runner` |
 | Check CMS fields | `cms_field_mapping_qa` |
+| Check article social image metadata | `social_image_metadata_gate` |
 | Check preview URL | `preview_qa` |
 | Prepare human publish gate | `operator_publish_gate` |
+| Decide if a page can move from noindex to indexability release | `indexability_readiness_gate` |
+| Prepare bounded indexability-only release instructions | `indexability_release` |
+| Recheck sitemap and llms parity | `sitemap_llms_parity_check` |
 | Check public page after operator publish | `post_publish_smoke` |
 | Audit search channel queue | `search_channel_queue_audit` |
+| Prepare Search Channel live-readiness approval text | `search_channel_live_submission_readiness` |
+| Review Baidu platform/API retry safety | `baidu_retry_guard` |
+| Review GSC manual inspection readiness | `gsc_manual_inspection_readiness` |
 | D1/D7/D14 canary review | `canary_observation` |
+| Feed observation learnings into next briefs | `content_feedback_queue` |
+| Stage reviewed articles for later operator publish | `ready_to_publish_queue` |
 | URL truth or runtime drift review | `url_truth_drift_review` |
 | Claim safety audit | `claim_gate_audit` |
 | Private URL guard audit | `private_url_guard_audit` |
@@ -197,6 +217,23 @@ Outputs:
 Decision: `GO_FOR_PREVIEW` or `NO_GO_FOR_PREVIEW`.
 
 Hard gates: no import, no CMS write, no schema enablement, no publish.
+
+### `new_bilingual_article_pair_runner`
+
+Purpose: evaluate a pair of new zh/en SEO article URLs as one content operation without treating either page as a legacy overwrite.
+
+Use `references/new_bilingual_article_pair_runner.md`.
+
+Must check:
+
+- shared article-pair manifest.
+- one CMS draft payload per locale.
+- `translation_group_id` consistency.
+- locale-specific slug, canonical, title, meta, body, FAQ, CTA, internal links, cover/social image, claim gate, private URL guard, schema hold, hreflang hold, sitemap hold, llms hold, Search Channel hold.
+- separate preview QA and operator review per locale.
+- pair-level readiness decision.
+
+Hard gates: no CMS mutation, no publish, no indexability release, no sitemap/llms release, no search submission, no revalidation.
 
 ### `cms_seo_article_publish_runner`
 
@@ -290,6 +327,27 @@ Required fields:
 
 Output: `CMS_FIELD_MAPPING_REPORT.md`.
 
+### `social_image_metadata_gate`
+
+Purpose: block article publish, indexability, and search readiness when CMS cover/social image metadata is missing or unsafe.
+
+Use `references/social_image_metadata_gate.md`.
+
+Check:
+
+- `cover_image_url`.
+- `cover_image_alt`.
+- `cover_image_width`.
+- `cover_image_height`.
+- `cover_image_variants.hero`.
+- `cover_image_variants.og`.
+- public Media Library asset provenance.
+- public-safe URL.
+- no `__CMS_MEDIA_LIBRARY_PLACEHOLDER__`.
+- no private bucket, token, order, result, payment, or local file URL.
+
+Output: `SOCIAL_IMAGE_METADATA_GATE_REPORT.md`.
+
 ### `preview_qa`
 
 Purpose: check whether CMS preview is safe.
@@ -304,6 +362,8 @@ Check:
 - FAQ visible-only.
 - CTA visible.
 - CTA tracking can trigger.
+- CTA anchors use public canonical routes.
+- social metadata is absent in preview or safe if rendered.
 - no private URL.
 - no token, order, result, attempt, or payment ID.
 - schema not enabled early.
@@ -331,6 +391,52 @@ Must include:
 - hreflang allowed.
 - ISR revalidation allowed.
 - Search Channel enqueue/submit allowed.
+
+### `indexability_readiness_gate`
+
+Purpose: decide whether a published noindex article can move to indexability release.
+
+Use `references/indexability_readiness_gate.md`.
+
+Must keep these decisions independent:
+
+- claim gate acceptance.
+- science/legal/operator review.
+- make indexable.
+- sitemap eligible.
+- llms eligible.
+- schema.
+- hreflang.
+- Search Channel.
+- GSC/Baidu/IndexNow/360/Sogou/Shenma.
+- ISR revalidation.
+
+Output: `INDEXABILITY_READINESS_GATE_REPORT.md`.
+
+### `indexability_release`
+
+Purpose: prepare bounded operator-approved indexability-only release instructions and post-release verification.
+
+Use `references/indexability_release_playbook.md`.
+
+Default holds:
+
+- schema hold.
+- hreflang hold.
+- sitemap hold.
+- llms hold.
+- Search Channel hold.
+- ISR hold unless operator explicitly approves coupled release signal.
+
+Output: `INDEXABILITY_RELEASE_REPORT.md`.
+
+### `sitemap_llms_parity_check`
+
+Purpose: verify backend source and frontend public `sitemap.xml`, `llms.txt`, and `llms-full.txt` parity.
+
+Use `references/sitemap_llms_parity_check.md`.
+
+Output: `SITEMAP_LLMS_PARITY_CHECK_REPORT.md`.
 
 ### `post_publish_smoke`
 
@@ -376,6 +482,32 @@ Output: `SEARCH_CHANNEL_QUEUE_AUDIT.md`.
 
 Hard gate: do not submit GSC, Baidu, IndexNow, 360, Sogou, or Shenma.
 
+### `search_channel_live_submission_readiness`
+
+Purpose: prepare Search Channel dry-run/live-readiness review and exact operator approval text without executing enqueue, approval, or submission.
+
+Use `references/search_channel_live_submission_playbook.md`.
+
+Output: `SEARCH_CHANNEL_LIVE_SUBMISSION_READINESS.md`.
+
+### `baidu_retry_guard`
+
+Purpose: review Baidu platform/API readiness and decide whether a previous Baidu push failure is safe to retry.
+
+Use `references/baidu_retry_guard.md`.
+
+Default decision after provider-side `site init fail`: `NO_GO_RETRY_UNTIL_PLATFORM_RESOLUTION`.
+
+Output: `BAIDU_RETRY_GUARD_REPORT.md`.
+
+### `gsc_manual_inspection_readiness`
+
+Purpose: review Google Search Console manual inspection readiness and warnings without submitting or requesting indexing.
+
+Use `references/gsc_manual_inspection_readiness.md`.
+
+Output: `GSC_MANUAL_INSPECTION_READINESS_REPORT.md`.
+
 ### `canary_observation`
 
 Purpose: D1, D7, and D14 observation.
@@ -404,6 +536,22 @@ Outputs:
 - `SEO_CANARY_OBSERVATION_D1_<slug>.md`.
 - `SEO_CANARY_OBSERVATION_D7_<slug>.md`.
 - `SEO_CANARY_OBSERVATION_D14_<slug>.md`.
+
+### `content_feedback_queue`
+
+Purpose: convert weekly review and D1/D7/D14 observation learnings into next-brief feedback.
+
+Use `references/content_feedback_queue.md`.
+
+Output: `CONTENT_FEEDBACK_QUEUE.md`.
+
+### `ready_to_publish_queue`
+
+Purpose: stage articles that passed package QA, preview QA, and operator review for later human-controlled publish windows.
+
+Use `references/ready_to_publish_queue.md`.
+
+Output: `READY_TO_PUBLISH_QUEUE.md`.
 
 ### `url_truth_drift_review`
 
@@ -501,17 +649,26 @@ Block or escalate claims involving:
 - hiring fit, job performance certainty, salary guarantee, promotion guarantee, or career success guarantee.
 - precise best-career prediction.
 - unsupported psychometric claims for MBTI, Big Five, RIASEC, Enneagram, or IQ.
+- layoff-risk prediction, recession-proof guarantee, AI-proof guarantee, career-security guarantee, employability score, or resilience score unless backed by approved references and explicit operator/legal review.
 - claims without references or claim boundary notes.
 
 ## Search Channel rules
 
-The skill may audit queue evidence only. It must not enqueue, approve, submit, retry, call live APIs, or mark execution success.
+The skill may audit queue evidence and draft exact approval text only. It must not enqueue, approve, submit, retry, call live APIs, or mark execution success.
 
 Any Search Channel action must stay human-authorized. For unsafe URLs, output `NO_GO_FOR_SEARCH_CHANNEL`.
+
+For Baidu provider errors such as `site init fail`, do not recommend repeated live retries until platform-side site state, token ownership, endpoint, and operator resolution evidence are recorded.
 
 ## CMS publish rules
 
 The skill may prepare package QA, field mapping QA, preview QA, and operator publish review. It must not import, mutate, publish, make indexable, update SEO metadata, enable schema, enable hreflang, or change sitemap/llms eligibility.
+
+## Artifact and PR handoff rules
+
+Content package zip files are input artifacts, not repo artifacts. Do not commit them.
+
+Generated reports must be path-limited to the task output directory and must not be mixed into unrelated PRs. If a PR is needed, include only the skill files and explicitly authorized report files.
 
 ## Revalidation rules
 

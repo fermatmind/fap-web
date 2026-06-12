@@ -28,3 +28,15 @@ Checks:
 Output: `POST_PUBLISH_SMOKE_<slug>.md` using `assets/post_publish_smoke_template.md`.
 
 No-go: do not revalidate, submit search, or mutate CMS.
+
+## V1.1 post-publish smoke additions
+
+Check and record:
+
+- `og:image` and `twitter:image` are public-safe when rendered.
+- no `__CMS_MEDIA_LIBRARY_PLACEHOLDER__` occurs in public HTML.
+- schema output matches schema gate.
+- hreflang/alternate output matches hreflang gate.
+- sitemap and llms exposure match independent eligibility flags.
+- CTA markup exists even if live analytics transport is still pending.
+- if CTA transport cannot be observed but markup/attribution is valid, mark `POST_PUBLISH_TRACKING_VERIFY_PENDING` rather than blocking indexability by default.

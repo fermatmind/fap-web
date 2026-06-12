@@ -26,3 +26,20 @@ Decision values:
 - `NO_GO_FOR_PUBLISH` for blockers.
 
 No-go: do not publish or mutate CMS.
+
+## V1.1 release decision separation
+
+For SEO articles, record these as independent operator decisions. Do not infer one from another:
+
+- publish.
+- make indexable.
+- sitemap eligible.
+- llms eligible.
+- schema allowed.
+- hreflang allowed.
+- Search Channel enqueue.
+- Search Channel live submission.
+- GSC/Baidu/IndexNow/360/Sogou/Shenma action.
+- ISR/content release revalidation.
+
+If any decision is missing, mark it `hold` or `Needs operator confirmation`; do not default to allow.
