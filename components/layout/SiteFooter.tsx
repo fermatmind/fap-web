@@ -133,7 +133,10 @@ export function SiteFooter() {
     );
 
   return (
-    <footer className="fm-section-footer fm-site-footer-light border-t border-[var(--fm-border-subtle)] text-[var(--fm-text-main)]">
+    <footer
+      data-private-result-print-hidden="true"
+      className="fm-section-footer fm-site-footer-light border-t border-[var(--fm-border-subtle)] text-[var(--fm-text-main)]"
+    >
       <Container className="max-w-7xl space-y-16 py-20 md:py-28">
         <div className="grid grid-cols-2 gap-x-14 gap-y-14 md:grid-cols-5 lg:gap-x-18 xl:gap-x-24">
           {footerGroups.map((group) => (

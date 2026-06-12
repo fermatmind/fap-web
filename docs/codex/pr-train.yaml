@@ -14076,7 +14076,7 @@ prs:
     depends_on: [RESULT-DEBUG-FIELD-SUPPRESSION-01]
     mode: execute
     train_scope: result_p0_private_debug_pdf_leak_fix
-    status: in_progress
+    status: merged
     goal: "Fix Enneagram and shared result rendering so unsupported object values never appear as raw keys or [object Object]."
     artifacts:
       - components/result/enneagram/**
@@ -14117,7 +14117,7 @@ prs:
     depends_on: [RESULT-OBJECT-RENDER-GUARD-01]
     mode: execute
     train_scope: result_p0_private_debug_pdf_leak_fix
-    status: pending_dependency
+    status: in_progress
     goal: "Hide global header, footer, navigation, social icons, and unrelated global chrome from private result print/PDF output without changing global footer IA."
     artifacts:
       - app/globals.css
