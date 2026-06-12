@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-13T07:43:00+08:00",
+  "updated_at": "2026-06-13T07:45:00+08:00",
   "status": "active",
   "phase": "result_p0_private_debug_pdf_leak_fix",
   "pr_namespace": "PR-PRAC-*",
@@ -21986,9 +21986,9 @@
       "id": "RESULT-LEAK-CONTRACT-TESTS-01",
       "repo": "fap-web",
       "branch": "codex/result-leak-contract-tests-01",
-      "status": "local_checks_passed",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "pr_open_github_checks_pending",
+      "commit_sha": "2d454582d1a1e83472dbbf19e79b2d84a5a9594a",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1118",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -22060,7 +22060,8 @@
         },
         "github": {
           "status": "pending",
-          "checks": []
+          "checks": [],
+          "evidence": "Opened draft fap-web PR #1118 from codex/result-leak-contract-tests-01 after scoped local validation; GitHub checks pending. commit_sha records the implementation commit before this PR URL ledger update."
         }
       },
       "history": [
@@ -22083,6 +22084,11 @@
           "at": "2026-06-13T07:43:00+08:00",
           "status": "local_checks_passed",
           "note": "After user instructed to continue, removed an ES2018-only regex flag from the new contract and reran PR5 local checks. Focused leak regression contract, full contract suite with unrelated generated sidecars isolated/restored, typecheck, JSON/YAML parse, explicit scope validation, and diff check passed."
+        },
+        {
+          "at": "2026-06-13T07:45:00+08:00",
+          "status": "pr_open_github_checks_pending",
+          "note": "Opened draft fap-web PR #1118 from codex/result-leak-contract-tests-01 after scoped local validation; GitHub checks pending. commit_sha records the implementation commit before this PR URL ledger update."
         }
       ]
     }
