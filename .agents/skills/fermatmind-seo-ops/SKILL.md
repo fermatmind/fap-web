@@ -2,9 +2,9 @@
 
 ## Purpose
 
-Use this repo-scoped skill to assist FermatMind SEO operations without taking over the authority layers. The skill turns operator-provided SEO evidence, CMS content packages, preview evidence, Metabase exports, Search Channel Queue exports, and public runtime observations into structured review reports, QA checklists, and no-go decisions.
+Use this repo-scoped skill to assist FermatMind SEO operations without replacing the authority layers. The skill turns operator-provided SEO evidence, CMS content packages, preview evidence, Metabase exports, Search Channel Queue exports, and public runtime observations into structured review reports, QA checklists, and no-go decisions.
 
-This skill is an operating assistant. It is not a publisher, collector, scheduler, submitter, migration runner, CMS writer, Metabase admin, or revalidation actor.
+V2 adds an authorized full-release runner mode. By default this skill remains report-only. When a user-provided `/goal` includes an explicit Authorization Profile, the skill may execute only the scoped production-safe actions allowed by that profile and the linked playbooks. The skill is still not a migration runner, Metabase admin, auth/payment/security actor, environment/secret mutator, or unbounded submitter.
 
 ## When to use this skill
 
@@ -27,12 +27,21 @@ Use this skill for:
 - GSC manual inspection readiness review.
 - D1, D7, and D14 canary observation.
 - URL Truth and runtime drift review.
+- Authorized full release for a new SEO article package.
+- Authorized goal contract validation.
+- Full release state machine execution/resume.
+- Scoped PR-train blocker fix coordination.
+- Production draft import through the controlled writer.
+- Controlled publish through the controlled publish command.
+- Discoverability release for sitemap, llms, and llms-full.
+- Search discovery pipeline through bounded queue/channel workflows.
+- Daily article release goal generation.
 - Claim Gate and Private URL Guard audit.
 - Social image / Media Library metadata readiness review.
 - Content feedback queue and ready-to-publish queue preparation.
 - Metabase/Ops Portal evidence interpretation.
 
-Do not use this skill to perform live SEO operations.
+Do not use this skill to perform live SEO operations unless the current `/goal` includes an Authorization Profile that explicitly allows the exact action family and the relevant playbook preflight passes.
 
 ## Source hierarchy
 
@@ -50,7 +59,32 @@ Never use Node2 local Laravel, Node2 local DB, frontend static fallbacks, compet
 
 ## Hard no-go rules
 
-Never do these actions from this skill:
+Never do these actions from this skill, even in authorized runner mode:
+
+- Invent unknown routes.
+- Use placeholder, private, tokenized, or unverified Media Library assets.
+- Override the Claim Gate or publish unsafe claims.
+- Enable schema or hreflang implicitly.
+- Click GSC Request Indexing.
+- Push Baidu live submission without separate exact approval.
+- Change production env vars or secrets.
+- Run migrations or destructive DB changes.
+- Upgrade dependencies outside the current scope.
+- Change auth, payment, or security-risk code as part of SEO release automation.
+- Work around external platform blockers, CAPTCHA, or login failures.
+- Use Node2 local Laravel, local DB, or frontend static fallback as CMS authority.
+- Continue after a production command failure without rollback proof.
+- Read PII, raw orders, raw payments, raw users, raw emails, raw tokens, raw attempt IDs, or raw result IDs.
+- Auto-generate unsupported schema.
+- Auto-enable FAQ schema.
+- Treat readiness-only data as live collector data.
+- Treat competitor data as FermatMind evidence.
+- Generate unsupported psychometric, diagnosis, treatment, hiring, salary, or career success claims.
+- Commit content package zip files.
+- Mix unrelated `generated/` report directories into PRs or handoffs.
+- Retry provider-blocked Baidu push attempts without a fresh platform-side resolution and explicit operator approval.
+
+Default-denied actions that require Authorization Profile approval and a passing playbook:
 
 - Write CMS.
 - Import content packages.
@@ -63,26 +97,16 @@ Never do these actions from this skill:
 - Trigger ISR or content release revalidation.
 - Enable collectors.
 - Enable schedulers.
-- Run production migrations.
 - Write production databases.
 - Modify Metabase.
 - Expose Metabase.
 - Modify Ops Portal permissions.
-- Read PII, raw orders, raw payments, raw users, raw emails, raw tokens, raw attempt IDs, or raw result IDs.
-- Auto-generate unsupported schema.
-- Auto-enable FAQ schema.
-- Treat readiness-only data as live collector data.
-- Treat competitor data as FermatMind evidence.
-- Generate unsupported psychometric, diagnosis, treatment, hiring, salary, or career success claims.
-- Commit content package zip files.
-- Mix unrelated `generated/` report directories into PRs or handoffs.
-- Retry provider-blocked Baidu push attempts without a fresh platform-side resolution and explicit operator approval.
 
-If a workflow requires one of these actions, stop at a report and mark `Human authorization required`.
+If a workflow requires a default-denied action and the Authorization Profile does not allow it, stop at a report and mark `Human authorization required`. If a workflow hits a hard no-go rule, stop even if the Authorization Profile appears to allow the broader action.
 
 ## Human authorization gates
 
-The following always require explicit human authorization and must not be executed by the skill:
+The following always require explicit human authorization. In V1.1/readiness workflows the skill must not execute them. In V2 authorized runner workflows they may execute only when the Authorization Profile explicitly allows the exact action family and the referenced playbook preflight passes:
 
 - CMS mutation.
 - CMS package import.
@@ -90,16 +114,16 @@ The following always require explicit human authorization and must not be execut
 - `make_indexable` or equivalent CMS field changes.
 - `sitemap_eligible` changes.
 - `llms_eligible` changes.
-- Schema enablement.
-- Hreflang enablement.
+- Schema enablement. This remains exact-approval-only and must not be inferred from publish/indexability approval.
+- Hreflang enablement. This remains exact-approval-only and must not be inferred from publish/indexability approval.
 - Search Channel enqueue or submit.
-- GSC/Baidu/IndexNow/360/Sogou/Shenma calls.
+- GSC/Baidu/IndexNow/360/Sogou/Shenma calls. GSC Request Indexing and Baidu live push remain exact-approval-only; 360/Sogou/Shenma hold by default.
 - ISR revalidation.
 - Collector or scheduler enablement.
 - Metabase sharing, embedding, datasource, permission, or network changes.
 - Production DB writes.
 
-The skill may draft an approval checklist or phrase for the operator, but must not execute the gated action.
+The skill may draft an approval checklist or phrase for the operator. Exact approval phrases must name the target action, IDs or URLs, channel if applicable, target SHA if deploy-related, and release name if deploy-related.
 
 ## Workflow router
 
@@ -107,6 +131,15 @@ Choose the workflow by user intent:
 
 | User intent | Workflow |
 |---|---|
+| Run a complete authorized SEO article release | `seo_article_full_release` |
+| Validate or interpret an Authorization Profile | `authorized_goal_contract` |
+| Execute or resume the full release state machine | `full_release_state_machine` |
+| Handle scoped PR-train blocker fix within a release | `scoped_pr_train` |
+| Run production draft import dry-run/import | `production_draft_import` |
+| Run publish metadata gate and controlled publish | `controlled_publish` |
+| Release sitemap, llms, and llms-full discoverability | `discoverability_release` |
+| Run URL Truth and search discovery pipeline | `search_discovery_pipeline` |
+| Generate tomorrow's daily article release goal | `daily_article_release_goal` |
 | Daily SEO review | `daily_seo_review` |
 | Weekly article review | `weekly_article_review` |
 | Check a CMS content package | `cms_content_package_qa` |
@@ -134,6 +167,122 @@ Choose the workflow by user intent:
 | Metabase/Ops Portal evidence review | `seo_middle_office_audit` |
 
 ## Workflow definitions
+
+### `seo_article_full_release`
+
+Purpose: run one new SEO article package through the authorized V2 release chain from package QA to final search-discovery summary.
+
+Use:
+
+- `references/authorized_goal_contract.md`.
+- `references/full_article_release_state_machine.md`.
+- `references/package_autofix_playbook.md`.
+- `references/production_draft_writer_playbook.md`.
+- `references/publish_metadata_gate.md`.
+- `references/controlled_publish_playbook.md`.
+- `references/discoverability_release_playbook.md`.
+- `references/search_discovery_pipeline.md`.
+- `references/scoped_pr_train_automerge_deploy.md`.
+- `references/deploy_preapproval_policy.md`.
+
+Required stages:
+
+1. package QA.
+2. deterministic package autofix.
+3. social image auto-resolve.
+4. production draft import dry-run.
+5. production draft-only import.
+6. authenticated preview QA.
+7. publish metadata autofill.
+8. publish rehearsal.
+9. controlled publish.
+10. post-publish smoke.
+11. sitemap, llms, and llms-full release.
+12. URL Truth refresh.
+13. Search Channel Queue readiness.
+14. Search Channel Queue enqueue.
+15. IndexNow bounded submission.
+16. GSC manual readiness.
+17. Baidu readiness.
+18. final report.
+19. D1/D7/D14 observation queue.
+
+Hard gates: follow the Authorization Profile. Preserve schema and hreflang holds unless separately authorized. Stop on any hard no-go.
+
+### `authorized_goal_contract`
+
+Purpose: validate the current `/goal` Authorization Profile before the skill executes any default-denied action.
+
+Use `references/authorized_goal_contract.md`.
+
+Output: authorization boundary matrix and explicit allowed/held/stopped action list.
+
+### `full_release_state_machine`
+
+Purpose: execute or resume the article release state machine with durable stage decisions.
+
+Use `references/full_article_release_state_machine.md`.
+
+Output: full release state ledger and next resume point.
+
+### `scoped_pr_train`
+
+Purpose: handle a scoped runtime blocker discovered during a release, then resume the failed stage after merge and deploy readiness.
+
+Use:
+
+- `references/scoped_pr_train_automerge_deploy.md`.
+- `references/deploy_preapproval_policy.md`.
+
+Hard gates: no unrelated refactor, no generated commit, no dependency upgrade, no migration/env/secret/auth/payment/security change without exact approval.
+
+### `production_draft_import`
+
+Purpose: use the standard production writer to dry-run and, when authorized, create draft-only CMS articles.
+
+Use `references/production_draft_writer_playbook.md`.
+
+Standard command: `php artisan articles:import-seo-content-package-draft`.
+
+Hard gates: always dry-run first, no local DB, no Ops UI fallback unless explicitly requested, no publish in this stage, rollback proof required after failure.
+
+### `controlled_publish`
+
+Purpose: complete publish metadata, run publish rehearsals, and publish only through the controlled command when authorized.
+
+Use:
+
+- `references/publish_metadata_gate.md`.
+- `references/controlled_publish_playbook.md`.
+
+Hard gates: preview QA and publish rehearsal must pass; schema/hreflang remain independent.
+
+### `discoverability_release`
+
+Purpose: release sitemap, llms, and llms-full discoverability after public smoke passes and the Authorization Profile allows the release.
+
+Use `references/discoverability_release_playbook.md`.
+
+Hard gates: no private URL exposure, no schema/hreflang side effects, no search-channel submission.
+
+### `search_discovery_pipeline`
+
+Purpose: run URL Truth, Search Channel Queue, IndexNow bounded submission, GSC manual readiness, Baidu readiness, and final channel matrix.
+
+Use:
+
+- `references/search_discovery_pipeline.md`.
+- `references/indexnow_bounded_submission.md`.
+- `references/gsc_manual_readiness.md`.
+- `references/baidu_readiness_guard.md`.
+
+Hard gates: GSC is inspect-only, Baidu live push requires separate exact approval, 360/Sogou/Shenma hold by default.
+
+### `daily_article_release_goal`
+
+Purpose: generate tomorrow's short `/goal` prompt for an authorized article release.
+
+Use `assets/full_release_goal_template.md`.
 
 ### `daily_seo_review`
 

@@ -1,0 +1,52 @@
+# Production Draft Writer Playbook
+
+Standard writer:
+
+```bash
+php artisan articles:import-seo-content-package-draft
+```
+
+## Rules
+
+- Always run `--dry-run --json` first.
+- Real import is allowed only if `allow_production_draft_import=true`.
+- Use production backend runtime as CMS authority.
+- Do not use local DB.
+- Do not use Ops UI fallback unless the operator explicitly requests that route for a missing field.
+- Do not publish in draft import stage.
+- Do not make public, indexable, sitemap eligible, or llms eligible in draft import stage.
+- Keep schema and hreflang held.
+- If the command fails, require rollback proof before continuing.
+
+## Required Flags
+
+Use:
+
+- `--package=...`
+- `--translation-group-id=...`
+- `--locales=...`
+- `--draft-only`
+- `--no-publish`
+- `--no-index`
+- `--no-sitemap`
+- `--no-llms`
+- `--schema-hold`
+- `--hreflang-hold`
+- `--expected-zh-slug=...`
+- `--expected-en-slug=...`
+- `--dry-run` for rehearsal.
+- `--json` for machine-readable evidence.
+
+## Success Evidence
+
+- dry-run `ok=true`.
+- real import `ok=true`.
+- article IDs.
+- working revision IDs.
+- status draft or human_review.
+- `is_public=false` until publish stage.
+- `is_indexable=false` until controlled publish/indexability stage.
+- `sitemap_eligible=false`.
+- `llms_eligible=false`.
+- `claim_gate_status=not_reviewed` or reviewed human state.
+- preview URL candidates.
