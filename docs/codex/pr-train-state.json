@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-13T01:35:00+08:00",
+  "updated_at": "2026-06-13T01:40:00+08:00",
   "status": "active",
   "phase": "result_p0_private_debug_pdf_leak_fix",
   "pr_namespace": "PR-PRAC-*",
@@ -21853,9 +21853,9 @@
       "id": "RESULT-PRIVATE-PRINT-STYLES-AND-FOOTER-GATE-01",
       "repo": "fap-web",
       "branch": "codex/result-private-print-styles-footer-gate-01",
-      "status": "local_checks_passed",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "pr_open_checks_pending",
+      "commit_sha": "43f75f17",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1117",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -21955,6 +21955,11 @@
           "at": "2026-06-13T01:35:00+08:00",
           "status": "local_checks_passed",
           "note": "Implemented private result print marker and print-only global chrome hiding for SiteHeader/SiteFooter without changing footer IA, added source contract and PR4 scope helper entry, reconciled PR3 merged state. Focused contract, typecheck, production build, full contract suite with unrelated generated sidecars isolated/restored, JSON/YAML parse, scope validation, and diff check passed."
+        },
+        {
+          "at": "2026-06-13T01:40:00+08:00",
+          "status": "pr_open_checks_pending",
+          "note": "Opened draft fap-web PR #1117 from codex/result-private-print-styles-footer-gate-01 after scoped local validation; GitHub checks pending. commit_sha records the implementation commit before this PR URL ledger update."
         }
       ]
     },
