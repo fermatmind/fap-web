@@ -70,8 +70,8 @@ export function RiasecResultShell({
   const trustedCard = viewModel.trustedResultCard;
   const boundaryRows = trustedCard
     ? [
-        [isZh ? "分数空间" : "Score space", trustedCard.scoreSpaceVersion],
-        [isZh ? "质量规则" : "Quality rule", trustedCard.qualityRuleStatus],
+        [isZh ? "解读边界" : "Interpretation boundary", trustedCard.scoreSpaceVersion ? (isZh ? "按本次题型独立解读" : "Interpreted within this form") : ""],
+        [isZh ? "作答校验" : "Response check", trustedCard.qualityRuleStatus ? formatRiasecQualityRule(trustedCard.qualityRuleStatus, locale) : ""],
         [isZh ? "报告快照" : "Snapshot", trustedCard.snapshotBound ? (isZh ? "已绑定" : "bound") : (isZh ? "未绑定" : "not bound")],
         [isZh ? "跨表分数对比" : "Cross-form numeric compare", trustedCard.rawScoreDeltaAllowed ? (isZh ? "开启" : "enabled") : (isZh ? "关闭" : "disabled")],
       ].filter(([, value]) => Boolean(value))
@@ -143,12 +143,7 @@ export function RiasecResultShell({
   }
 
   return (
-    <div
-      className="space-y-[var(--fm-gap-md)]"
-      data-riasec-profile-shape={viewModel.interpretationState?.profileShape ?? undefined}
-      data-riasec-quality-state={viewModel.trustedResultCard?.qualityState || viewModel.moduleVisibilityPolicy?.qualityState || undefined}
-      data-riasec-module-policy={viewModel.moduleVisibilityPolicy?.policyId ?? undefined}
-    >
+    <div className="space-y-[var(--fm-gap-md)]">
       <section
         data-testid="riasec-trusted-result-card"
         className="rounded-2xl border border-[var(--fm-border)] bg-white p-[var(--fm-space-6)] shadow-[var(--fm-shadow-md)]"
@@ -179,13 +174,13 @@ export function RiasecResultShell({
         ) : null}
         {trustedCard?.occupationExamplesPolicy ? (
           <p className="mt-[var(--fm-space-3)] text-sm leading-6 text-[var(--fm-text-muted)]">
-            {isZh ? "职业例子策略" : "Occupation example policy"}: {trustedCard.occupationExamplesPolicy}
+            {formatRiasecOccupationPolicy(trustedCard.occupationExamplesPolicy, locale)}
           </p>
         ) : null}
         {viewModel.qualityGrade !== "A" || viewModel.qualityFlags.length > 0 ? (
           <p className="mt-[var(--fm-space-3)] text-sm text-amber-700">
             {isZh ? "作答质量提示" : "Response quality"}: {viewModel.qualityGrade}
-            {viewModel.qualityFlags.length > 0 ? ` · ${viewModel.qualityFlags.join(", ")}` : ""}
+            {viewModel.qualityFlags.length > 0 ? ` · ${viewModel.qualityFlags.map((flag) => formatRiasecQualityFlag(flag, locale)).filter(Boolean).join(isZh ? "、" : ", ")}` : ""}
           </p>
         ) : null}
         <div className="mt-[var(--fm-space-5)] flex flex-wrap gap-3">
@@ -246,10 +241,10 @@ export function RiasecResultShell({
             <div className="space-y-[var(--fm-gap-md)]">
               <div className="rounded-lg border border-[var(--fm-border)] bg-slate-50 px-3 py-2 text-sm text-[var(--fm-text-muted)]">
                 <span className="font-medium text-[var(--fm-text)]">
-                  {viewModel.activityExplorer.sourceStatus}
+                  {formatRiasecSourceStatus(viewModel.activityExplorer.sourceStatus, locale)}
                 </span>
                 {viewModel.activityExplorer.occupationExamplesPolicy ? (
-                  <span> · {viewModel.activityExplorer.occupationExamplesPolicy}</span>
+                  <span> · {formatRiasecOccupationPolicy(viewModel.activityExplorer.occupationExamplesPolicy, locale)}</span>
                 ) : null}
               </div>
               {viewModel.activityExplorer.dimensionActivityFamilies.length > 0 ? (
@@ -262,7 +257,7 @@ export function RiasecResultShell({
                       ) : null}
                       {family.activityFamilies.length > 0 ? (
                         <div className="mt-3 flex flex-wrap gap-2">
-                          {family.activityFamilies.map((activityFamily) => (
+                          {family.activityFamilies.map((activityFamily) => formatRiasecActivityFamily(activityFamily, locale)).filter(Boolean).map((activityFamily) => (
                             <span key={activityFamily} className="rounded-md bg-slate-100 px-2 py-1 text-xs text-[var(--fm-text-muted)]">
                               {activityFamily}
                             </span>
@@ -298,7 +293,7 @@ export function RiasecResultShell({
                           {activity.occupationExamples.map((example) => (
                             <article key={example.occupationExample} className="rounded-lg border border-[var(--fm-border)] bg-white p-3">
                               <div className="text-sm font-semibold text-[var(--fm-text)]">{example.occupationExample}</div>
-                              <div className="mt-1 text-xs text-[var(--fm-text-muted)]">{example.displayLabel || example.sourceStatus}</div>
+                              <div className="mt-1 text-xs text-[var(--fm-text-muted)]">{example.displayLabel || formatRiasecSourceStatus(example.sourceStatus, locale)}</div>
                               {example.commonTasks.length > 0 ? (
                                 <ul className="mt-2 list-disc space-y-1 pl-5 text-xs leading-5 text-[var(--fm-text-muted)]">
                                   {example.commonTasks.map((task) => (
@@ -372,14 +367,14 @@ function RiasecDeepContentSlotsSection({
       </CardHeader>
       <CardContent className="space-y-[var(--fm-gap-sm)]">
         {slots.map((slot) => (
-          <RiasecDeepContentSlotCard key={slot.slotId || `${slot.slotKey}-${slot.moduleKey}`} slot={slot} />
+          <RiasecDeepContentSlotCard key={slot.slotId || `${slot.slotKey}-${slot.moduleKey}`} slot={slot} isZh={isZh} />
         ))}
       </CardContent>
     </Card>
   );
 }
 
-function RiasecDeepContentSlotCard({ slot }: { slot: RiasecDeepContentSlot }) {
+function RiasecDeepContentSlotCard({ slot, isZh }: { slot: RiasecDeepContentSlot; isZh: boolean }) {
   const { content } = slot;
   const title = typeof content.title === "string" ? content.title : "";
   const summary = typeof content.summary === "string" ? content.summary : "";
@@ -390,9 +385,6 @@ function RiasecDeepContentSlotCard({ slot }: { slot: RiasecDeepContentSlot }) {
     <section
       className="rounded-lg border border-[var(--fm-border)] bg-white p-3"
       data-testid="riasec-deep-content-slot"
-      data-riasec-deep-slot-key={slot.slotKey}
-      data-riasec-deep-slot-group={slot.slotGroup}
-      data-riasec-deep-slot-visibility={slot.slotVisibility}
     >
       <div className="flex flex-wrap items-start justify-between gap-2">
         <div>
@@ -400,7 +392,7 @@ function RiasecDeepContentSlotCard({ slot }: { slot: RiasecDeepContentSlot }) {
           {summary ? <p className="mt-2 text-sm leading-6 text-[var(--fm-text-muted)]">{summary}</p> : null}
         </div>
         <span className="rounded-md bg-slate-100 px-2 py-1 text-xs text-[var(--fm-text-muted)]">
-          {slot.slotVisibility}
+          {formatRiasecSlotVisibility(slot.slotVisibility, isZh ? "zh" : "en")}
         </span>
       </div>
       {body ? <p className="mt-3 text-sm leading-6 text-[var(--fm-text-muted)]">{body}</p> : null}
@@ -413,12 +405,12 @@ function RiasecDeepContentSlotCard({ slot }: { slot: RiasecDeepContentSlot }) {
               </div>
               {Array.isArray(value) ? (
                 <ul className="mt-2 list-disc space-y-1 pl-5 text-sm leading-6 text-[var(--fm-text-muted)]">
-                  {value.map((item) => (
+                  {value.map((item) => formatRiasecDetailValue(item)).filter(Boolean).map((item) => (
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
               ) : (
-                <p className="mt-2 text-sm leading-6 text-[var(--fm-text-muted)]">{value}</p>
+                <p className="mt-2 text-sm leading-6 text-[var(--fm-text-muted)]">{formatRiasecDetailValue(value)}</p>
               )}
             </div>
           ))}
@@ -433,4 +425,86 @@ function RiasecDeepContentSlotCard({ slot }: { slot: RiasecDeepContentSlot }) {
 
 function formatDeepContentKey(key: string): string {
   return key.replace(/_/g, " ");
+}
+
+function formatRiasecQualityRule(value: string, locale: Locale): string {
+  if (value === "minimal_answer_completion_only") {
+    return locale === "zh" ? "已完成基础作答完整性校验" : "Basic answer-completion check passed";
+  }
+
+  return locale === "zh" ? "已完成作答校验" : "Response check complete";
+}
+
+function formatRiasecOccupationPolicy(value: string, locale: Locale): string {
+  if (value.includes("content_example_not_registry_match")) {
+    return locale === "zh"
+      ? "职业例子仅用于说明兴趣线索，不代表职业数据库匹配或推荐。"
+      : "Occupation examples illustrate interest signals only; they are not database matches or recommendations.";
+  }
+
+  return locale === "zh"
+    ? "职业例子仅作边界说明。"
+    : "Occupation examples are boundary-only examples.";
+}
+
+function formatRiasecSourceStatus(value: string, locale: Locale): string {
+  if (value === "content_example_not_registry_match") {
+    return locale === "zh" ? "内容示例，非职业数据库匹配" : "Content example, not an occupation database match";
+  }
+
+  return locale === "zh" ? "后端内容示例" : "Backend content example";
+}
+
+function formatRiasecQualityFlag(value: string, locale: Locale): string {
+  if (value === "attention_flag") {
+    return locale === "zh" ? "存在注意力检查提示" : "attention check notice";
+  }
+
+  if (!value || /[_A-Z]/.test(value)) {
+    return "";
+  }
+
+  return value;
+}
+
+function formatRiasecActivityFamily(value: string, locale: Locale): string {
+  const labels: Record<string, { zh: string; en: string }> = {
+    physical_implementation: { zh: "实物操作", en: "Hands-on implementation" },
+    tools_and_equipment: { zh: "工具与设备", en: "Tools and equipment" },
+  };
+  const label = labels[value];
+  if (label) {
+    return label[locale];
+  }
+
+  if (!value || /_/.test(value)) {
+    return "";
+  }
+
+  return value;
+}
+
+function formatRiasecSlotVisibility(value: string, locale: Locale): string {
+  if (value === "visible") {
+    return locale === "zh" ? "可阅读" : "available";
+  }
+
+  if (value === "collapsed") {
+    return locale === "zh" ? "摘要" : "summary";
+  }
+
+  return locale === "zh" ? "内容" : "content";
+}
+
+function formatRiasecDetailValue(value: unknown): string {
+  if (typeof value !== "string") {
+    return "";
+  }
+
+  const trimmed = value.trim();
+  if (!trimmed || /(?:[a-z]+_){1,}[a-z0-9]+/.test(trimmed)) {
+    return "";
+  }
+
+  return trimmed;
 }

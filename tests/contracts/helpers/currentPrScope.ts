@@ -555,6 +555,17 @@ const RESULT_PDF_PRINT_PRIVATE_URL_GUARD_01_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const RESULT_DEBUG_FIELD_SUPPRESSION_01_ALLOWED_FILES = new Set([
+  "components/big5/report/BlockRenderer.tsx",
+  "components/big5/report/SectionRenderer.tsx",
+  "components/result/riasec/RiasecResultShell.tsx",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "tests/contracts/big5-section-renderer.contract.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/riasec-trusted-result-shell.contract.test.tsx",
+]);
+
 const PR_WEB_SEC_23_ALLOWED_FILES = new Set([
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -2236,6 +2247,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/result-pdf-print-private-url-guard-01") {
     return RESULT_PDF_PRINT_PRIVATE_URL_GUARD_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/result-debug-field-suppression-01") {
+    return RESULT_DEBUG_FIELD_SUPPRESSION_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-web-sec-23-big5-comparative-fallback") {

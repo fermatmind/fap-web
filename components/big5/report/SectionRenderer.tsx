@@ -16,6 +16,25 @@ type Section = {
   [key: string]: unknown;
 };
 
+const INTERNAL_DEBUG_PATTERNS = [
+  /\bAttemptReadController\b/gi,
+  /\bBig Five Report Engine v\d+(?:\s+registry)?\b/gi,
+  /\bReport Engine v\d+\b/gi,
+  /\bPR(?:1|2|3A|3B)\b/g,
+];
+
+function stripInternalDebugText(value: unknown): string {
+  if (typeof value !== "string") return "";
+
+  let text = value.trim();
+  for (const pattern of INTERNAL_DEBUG_PATTERNS) {
+    text = text.replace(pattern, "");
+  }
+
+  const cleaned = text.replace(/\s{2,}/g, " ").replace(/^[\s:;|,-]+|[\s:;|,-]+$/g, "").trim();
+  return /^[.]+$/.test(cleaned) ? "" : cleaned;
+}
+
 function formatSectionKicker(section: Section, locale: "en" | "zh"): string {
   const orderValue = Number(section.order);
   const pageSlot = String(section.page_slot ?? "").trim();
@@ -56,7 +75,7 @@ export function SectionRenderer({
   scaleCode?: string;
 }) {
   const key = section.key ?? "unknown";
-  const title = section.title ?? key;
+  const title = stripInternalDebugText(section.title) || (locale === "zh" ? "报告部分" : "Report section");
   const sectionId = getSectionAnchorId(key);
   const isBigFive = scaleCode === "BIG5_OCEAN";
   const sectionShellClassName = isBigFive
@@ -66,7 +85,7 @@ export function SectionRenderer({
   const accessLevel = (section.access_level ?? "free").toString().toLowerCase();
   const isPaidSection = accessLevel === "paid";
   const blocks = Array.isArray(section.blocks) ? section.blocks : [];
-  const subtitle = String(section.subtitle ?? "").trim();
+  const subtitle = stripInternalDebugText(section.subtitle);
   const kicker = formatSectionKicker(section, locale);
   const lockedPreviewPolicy = String(section.locked_preview_policy ?? "none").trim().toLowerCase();
   const previewBlocks =
@@ -97,8 +116,8 @@ export function SectionRenderer({
         ) : null}
         <LockedBlock
           title={title}
-          ctaLabel={String(section.locked_preview_cta ?? ctaLabel ?? "").trim() || ctaLabel}
-          description={String(section.locked_preview_description ?? "").trim() || undefined}
+          ctaLabel={stripInternalDebugText(section.locked_preview_cta) || ctaLabel}
+          description={stripInternalDebugText(section.locked_preview_description) || undefined}
           locale={locale}
           intent={intent}
         />
