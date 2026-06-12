@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-13T01:00:00+08:00",
+  "updated_at": "2026-06-13T01:05:00+08:00",
   "status": "active",
   "phase": "result_p0_private_debug_pdf_leak_fix",
   "pr_namespace": "PR-PRAC-*",
@@ -21723,9 +21723,9 @@
       "id": "RESULT-OBJECT-RENDER-GUARD-01",
       "repo": "fap-web",
       "branch": "codex/result-object-render-guard-01",
-      "status": "local_checks_passed",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "pr_open_checks_pending",
+      "commit_sha": "af3053d6",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1116",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -21822,6 +21822,11 @@
           "at": "2026-06-13T01:00:00+08:00",
           "status": "local_checks_passed",
           "note": "Implemented public object-render guards for Enneagram result modules, added object payload regression contract and PR3 scope helper entry, reconciled PR2 merged state. Focused contract, typecheck, production build, full contract suite with unrelated generated sidecars isolated/restored, JSON/YAML parse, scope validation, and diff check passed."
+        },
+        {
+          "at": "2026-06-13T01:05:00+08:00",
+          "status": "pr_open_checks_pending",
+          "note": "Opened draft fap-web PR #1116 from codex/result-object-render-guard-01 after scoped local validation; GitHub checks pending. commit_sha records the implementation commit before this PR URL ledger update."
         }
       ]
     },
