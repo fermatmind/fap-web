@@ -35,8 +35,25 @@ function careerUrlCount(text: string): number {
   return new Set(text.match(/^- URL: https:\/\/fermatmind\.com\/(?:en|zh)\/career\/jobs\/[a-z0-9-]+$/gm) ?? []).size;
 }
 
-function mockLlmsFullDependencies(paths: () => string[]) {
+type MockArticleEntry = {
+  slug: string;
+  locale: "en" | "zh";
+  title: string;
+  excerpt: string;
+  href: string;
+  isIndexable: boolean;
+  llmsEligible?: boolean;
+  updatedAt: string;
+};
+
+function mockLlmsFullDependencies(
+  paths: () => string[],
+  articles: { en?: MockArticleEntry[]; zh?: MockArticleEntry[] } = {}
+) {
   const listBackendSitemapCareerJobPaths = vi.fn(async () => paths());
+  const listCmsArticlesForLlmsWithLastKnownGood = vi.fn(async ({ locale }: { locale: "en" | "zh" }) => ({
+    value: locale === "zh" ? articles.zh ?? [] : articles.en ?? [],
+  }));
 
   vi.doMock("@/lib/site", () => ({
     getSiteUrlOrThrow: vi.fn(() => SITE_URL),
@@ -56,7 +73,7 @@ function mockLlmsFullDependencies(paths: () => string[]) {
     adaptCareerRecommendationIndex: vi.fn(() => []),
   }));
   vi.doMock("@/lib/cms/articles", () => ({
-    listCmsArticlesForLlmsWithLastKnownGood: vi.fn(async () => ({ value: [] })),
+    listCmsArticlesForLlmsWithLastKnownGood,
     getCmsArticleWithLastKnownGood: vi.fn(async () => ({ value: null })),
   }));
   vi.doMock("@/lib/cms/career-guides", () => ({
@@ -81,7 +98,7 @@ function mockLlmsFullDependencies(paths: () => string[]) {
     listBackendDiscoverabilityTestEntries: vi.fn(async () => []),
   }));
 
-  return { listBackendSitemapCareerJobPaths };
+  return { listBackendSitemapCareerJobPaths, listCmsArticlesForLlmsWithLastKnownGood };
 }
 
 afterEach(() => {
@@ -111,13 +128,15 @@ describe("DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01", () => {
     currentPaths = fullCohortPaths();
     const generatedResponse = await GET();
     const generatedText = await generatedResponse.text();
-    expect(generatedResponse.headers.get("X-FermatMind-LLMS-Full-Mode")).toBe("generated");
+    expect(generatedResponse.headers.get("X-FermatMind-LLMS-Full-Mode")).toBe("complete");
+    expect(generatedResponse.headers.get("X-FermatMind-LLMS-Full-Source")).toBe("generated");
     expect(careerUrlCount(generatedText)).toBe(1046 * 2);
 
     currentPaths = [];
     const cachedResponse = await GET();
     const cachedText = await cachedResponse.text();
-    expect(cachedResponse.headers.get("X-FermatMind-LLMS-Full-Mode")).toBe("cache");
+    expect(cachedResponse.headers.get("X-FermatMind-LLMS-Full-Mode")).toBe("complete");
+    expect(cachedResponse.headers.get("X-FermatMind-LLMS-Full-Source")).toBe("cache");
     expect(cachedText).toBe(generatedText);
     expect(careerUrlCount(cachedText)).toBe(1046 * 2);
 
@@ -149,8 +168,87 @@ describe("DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01", () => {
     const sharedResponse = await secondModule.GET();
     const sharedText = await sharedResponse.text();
 
-    expect(sharedResponse.headers.get("X-FermatMind-LLMS-Full-Mode")).toBe("cache");
+    expect(sharedResponse.headers.get("X-FermatMind-LLMS-Full-Mode")).toBe("complete");
+    expect(sharedResponse.headers.get("X-FermatMind-LLMS-Full-Source")).toBe("cache");
     expect(sharedText).toBe(generatedText);
     expect(careerUrlCount(sharedText)).toBe(1046 * 2);
+  });
+
+  it("includes eligible published articles and excludes noindex, llms-disabled, and private article hrefs", async () => {
+    const cacheDir = fs.mkdtempSync(path.join(os.tmpdir(), "llms-full-articles-"));
+    process.env.FERMATMIND_LLMS_FULL_CACHE_DIR = cacheDir;
+    process.env.FERMATMIND_LLMS_FULL_ENABLE_SHARED_CACHE = "true";
+    process.env.FERMATMIND_LLMS_FULL_REQUIRE_CAREER_COHORT = "true";
+    mockLlmsFullDependencies(() => fullCohortPaths(), {
+      en: [
+        {
+          slug: "career-interest-test-vs-personality-test",
+          locale: "en",
+          title: "Career Interest Test vs Personality Test: Which Should You Take First?",
+          excerpt: "Compare career interest and personality tests.",
+          href: "/en/articles/career-interest-test-vs-personality-test",
+          isIndexable: true,
+          llmsEligible: true,
+          updatedAt: "2026-06-12T14:04:34.000Z",
+        },
+        {
+          slug: "draft-article",
+          locale: "en",
+          title: "Draft Article",
+          excerpt: "Should not appear.",
+          href: "/en/articles/draft-article",
+          isIndexable: false,
+          llmsEligible: true,
+          updatedAt: "2026-06-12T14:04:34.000Z",
+        },
+        {
+          slug: "llms-disabled-article",
+          locale: "en",
+          title: "LLMS Disabled Article",
+          excerpt: "Should not appear.",
+          href: "/en/articles/llms-disabled-article",
+          isIndexable: true,
+          llmsEligible: false,
+          updatedAt: "2026-06-12T14:04:34.000Z",
+        },
+        {
+          slug: "private-result-href",
+          locale: "en",
+          title: "Private Result Href",
+          excerpt: "Should not appear.",
+          href: "/en/result/private-result-href",
+          isIndexable: true,
+          llmsEligible: true,
+          updatedAt: "2026-06-12T14:04:34.000Z",
+        },
+      ],
+      zh: [
+        {
+          slug: "career-interest-vs-personality-test-differences",
+          locale: "zh",
+          title: "职业兴趣测试与性格测试的区别：选专业、找工作该先做哪个？",
+          excerpt: "比较职业兴趣测试与性格测试。",
+          href: "/zh/articles/career-interest-vs-personality-test-differences",
+          isIndexable: true,
+          llmsEligible: true,
+          updatedAt: "2026-06-12T14:04:34.000Z",
+        },
+      ],
+    });
+    const { GET } = await import("@/app/llms-full.txt/route");
+
+    const response = await GET();
+    const text = await response.text();
+
+    expect(response.headers.get("X-FermatMind-LLMS-Full-Mode")).toBe("complete");
+    expect(response.headers.get("X-FermatMind-LLMS-Full-Source")).toBe("generated");
+    expect(text).toContain(`${SITE_URL}/en/articles/career-interest-test-vs-personality-test`);
+    expect(text).toContain(`${SITE_URL}/zh/articles/career-interest-vs-personality-test-differences`);
+    expect(text).not.toContain("draft-article");
+    expect(text).not.toContain("llms-disabled-article");
+    expect(text).not.toContain("private-result-href");
+    expect(text).not.toMatch(/\/(?:take|result|share|orders?|pay|payment)(?:\/|$)/i);
+    expect(text).not.toContain("hreflang");
+    expect(text).not.toContain("application/ld+json");
   });
 });

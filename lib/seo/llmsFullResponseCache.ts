@@ -15,7 +15,7 @@ type LlmsFullCacheOptions = {
   isCacheable?: (text: string) => boolean;
 };
 
-function sharedCachePath(): string {
+export function getLlmsFullSharedCachePath(): string {
   return path.join(process.env.FERMATMIND_LLMS_FULL_CACHE_DIR || tmpdir(), "fermatmind-llms-full-response-cache.v1.json");
 }
 
@@ -29,7 +29,7 @@ async function readSharedCache(siteUrl: string, maxAgeMs: number, options: LlmsF
   }
 
   try {
-    const raw = await readFile(sharedCachePath(), "utf8");
+    const raw = await readFile(getLlmsFullSharedCachePath(), "utf8");
     const payload = JSON.parse(raw) as Partial<LlmsFullResponseCache>;
     const text = typeof payload.text === "string" ? payload.text : "";
     const cachedAtMs = Number(payload.cachedAtMs);
@@ -66,7 +66,7 @@ async function writeSharedCache(cache: LlmsFullResponseCache): Promise<void> {
   let temporaryDirectory: string | null = null;
 
   try {
-    const target = sharedCachePath();
+    const target = getLlmsFullSharedCachePath();
     await mkdir(path.dirname(target), { recursive: true });
     temporaryDirectory = await mkdtemp(path.join(path.dirname(target), ".fermatmind-llms-full-cache-"));
     const temporary = path.join(temporaryDirectory, "cache.json");
@@ -89,8 +89,29 @@ export function clearLlmsFullResponseCache(): void {
   llmsFullResponseCache = null;
   llmsFullBuildPromise = null;
   if (isSharedLlmsFullCacheEnabled()) {
-    void unlink(sharedCachePath()).catch(() => undefined);
+    void unlink(getLlmsFullSharedCachePath()).catch(() => undefined);
   }
+}
+
+export async function writeLlmsFullResponseCache(
+  siteUrl: string,
+  text: string,
+  options: LlmsFullCacheOptions = {}
+): Promise<{ cached: boolean; cachePath: string }> {
+  const cachePath = getLlmsFullSharedCachePath();
+  if (options.isCacheable && !options.isCacheable(text)) {
+    return { cached: false, cachePath };
+  }
+
+  const cache = {
+    siteUrl,
+    text,
+    cachedAtMs: Date.now(),
+  };
+  llmsFullResponseCache = cache;
+  await writeSharedCache(cache);
+
+  return { cached: true, cachePath };
 }
 
 export async function getCachedLlmsFullText(
@@ -120,13 +141,7 @@ export function getOrStartLlmsFullBuild(
     llmsFullBuildPromise = buildText(siteUrl)
       .then((text) => {
         if (text !== null && (!options.isCacheable || options.isCacheable(text))) {
-          const cache = {
-            siteUrl,
-            text,
-            cachedAtMs: Date.now(),
-          };
-          llmsFullResponseCache = cache;
-          void writeSharedCache(cache);
+          void writeLlmsFullResponseCache(siteUrl, text);
 
           return text;
         }

@@ -136,12 +136,16 @@ describe("content release revalidate allowlist", () => {
       "/zh/articles/how-personality-shapes-attitude-toward-ai",
       "/zh/articles",
       "/en/articles",
+      "/llms.txt",
+      "/llms-full.txt",
     ]);
     expect(payload.rejected_paths).toEqual([{ path: "/api/private", reason: "private_or_api_path" }]);
-    expect(mocks.revalidatePath).toHaveBeenCalledTimes(3);
+    expect(mocks.revalidatePath).toHaveBeenCalledTimes(5);
     expect(mocks.revalidatePath).toHaveBeenCalledWith("/zh/articles/how-personality-shapes-attitude-toward-ai");
     expect(mocks.revalidatePath).toHaveBeenCalledWith("/zh/articles");
     expect(mocks.revalidatePath).toHaveBeenCalledWith("/en/articles");
+    expect(mocks.revalidatePath).toHaveBeenCalledWith("/llms.txt");
+    expect(mocks.revalidatePath).toHaveBeenCalledWith("/llms-full.txt");
   });
 
   it("derives article list and detail paths from article release metadata", async () => {
@@ -171,12 +175,16 @@ describe("content release revalidate allowlist", () => {
       "/en/articles",
       "/zh/articles/big-five-personality-test-vs-mbti",
       "/en/articles/big-five-personality-test-vs-mbti",
+      "/llms.txt",
+      "/llms-full.txt",
     ]);
-    expect(mocks.revalidatePath).toHaveBeenCalledTimes(4);
+    expect(mocks.revalidatePath).toHaveBeenCalledTimes(6);
     expect(mocks.revalidatePath).toHaveBeenNthCalledWith(1, "/zh/articles");
     expect(mocks.revalidatePath).toHaveBeenNthCalledWith(2, "/en/articles");
     expect(mocks.revalidatePath).toHaveBeenNthCalledWith(3, "/zh/articles/big-five-personality-test-vs-mbti");
     expect(mocks.revalidatePath).toHaveBeenNthCalledWith(4, "/en/articles/big-five-personality-test-vs-mbti");
+    expect(mocks.revalidatePath).toHaveBeenNthCalledWith(5, "/llms.txt");
+    expect(mocks.revalidatePath).toHaveBeenNthCalledWith(6, "/llms-full.txt");
   });
 
   it("accepts apex and www article URLs for the same public frontend surface", () => {
@@ -199,6 +207,8 @@ describe("content release revalidate allowlist", () => {
       "/en/articles/big-five-personality-test-vs-mbti",
       "/zh/articles",
       "/en/articles",
+      "/llms.txt",
+      "/llms-full.txt",
     ]);
     expect(decisions.rejected).toEqual([{ path: "", reason: "malformed_or_external_url" }]);
   });
