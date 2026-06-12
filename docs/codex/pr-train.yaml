@@ -14117,7 +14117,7 @@ prs:
     depends_on: [RESULT-OBJECT-RENDER-GUARD-01]
     mode: execute
     train_scope: result_p0_private_debug_pdf_leak_fix
-    status: in_progress
+    status: merged
     goal: "Hide global header, footer, navigation, social icons, and unrelated global chrome from private result print/PDF output without changing global footer IA."
     artifacts:
       - app/globals.css
@@ -14164,7 +14164,7 @@ prs:
     depends_on: [RESULT-PRIVATE-PRINT-STYLES-AND-FOOTER-GATE-01]
     mode: execute
     train_scope: result_p0_private_debug_pdf_leak_fix
-    status: pending_dependency
+    status: local_checks_passed
     goal: "Add automated regression contracts for private result URL leaks, internal debug fields, raw payload keys, and [object Object] output."
     artifacts:
       - tests/contracts/**
