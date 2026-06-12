@@ -57,4 +57,28 @@ describe("enneagram pdf surface contract", () => {
     expect(appendedAnchor?.download).toBe("fermatmind-enneagram-e105-2026-04-25.pdf");
     expect(hoisted.clickAnchor).toHaveBeenCalled();
   });
+
+  it("does not fetch or trigger a blob download when safety-disabled on private result pages", () => {
+    render(
+      <PdfDownloadButton
+        attemptId="attempt-enneagram-105"
+        locked={false}
+        locale="zh"
+        filenamePrefix="enneagram-report"
+        downloadLabel="E105 标准版"
+        safetyDisabled
+        safetyDisabledLabel="PDF 暂不可用"
+        safetyDisabledReason="PDF 导出已安全暂停，避免私有结果链接进入文件页脚。"
+      />
+    );
+
+    const button = screen.getByRole("button", { name: "PDF 暂不可用" });
+    expect(button).toBeDisabled();
+    expect(screen.getByText("PDF 导出已安全暂停，避免私有结果链接进入文件页脚。")).toBeInTheDocument();
+
+    fireEvent.click(button);
+
+    expect(hoisted.fetchAttemptReportPdfWithMeta).not.toHaveBeenCalled();
+    expect(hoisted.clickAnchor).not.toHaveBeenCalled();
+  });
 });

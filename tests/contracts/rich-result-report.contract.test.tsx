@@ -1094,7 +1094,8 @@ describe("RichResultReport", () => {
     expect(screen.getByText("解锁更深入的特质解释与行动建议")).toBeInTheDocument();
     expect(screen.getByText("BIG5 Full Report")).toBeInTheDocument();
     expect(screen.getByText("¥99")).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "解锁后下载 PDF" })).toBeDisabled();
+    expect(screen.getByRole("button", { name: "PDF 暂不可用" })).toBeDisabled();
+    expect(screen.getByTestId("big5-pdf-entry")).toHaveTextContent("PDF 导出已安全暂停");
   });
 
   it("keeps MBTI preview locking behavior when full module is absent", () => {

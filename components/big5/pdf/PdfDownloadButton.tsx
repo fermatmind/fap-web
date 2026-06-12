@@ -21,6 +21,9 @@ export function PdfDownloadButton({
   filenamePrefix = "big5-report",
   filenameHint,
   downloadLabel,
+  safetyDisabled,
+  safetyDisabledLabel,
+  safetyDisabledReason,
 }: {
   attemptId: string;
   locked: boolean;
@@ -30,6 +33,9 @@ export function PdfDownloadButton({
   filenamePrefix?: string;
   filenameHint?: string | null;
   downloadLabel?: string | null;
+  safetyDisabled?: boolean;
+  safetyDisabledLabel?: string | null;
+  safetyDisabledReason?: string | null;
 }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -39,6 +45,7 @@ export function PdfDownloadButton({
     locked: locale === "zh" ? "解锁后下载 PDF" : "Unlock to download PDF",
     loading: locale === "zh" ? "PDF 生成中..." : "Generating PDF...",
     ready: locale === "zh" ? "下载 PDF" : "Download PDF",
+    safetyDisabled: locale === "zh" ? "PDF 下载暂不可用" : "PDF download unavailable",
     pendingError:
       locale === "zh" ? "PDF 仍在生成中，请稍后重试。" : "PDF is still generating. Please retry.",
     failure:
@@ -46,6 +53,7 @@ export function PdfDownloadButton({
   };
 
   const handleDownload = async () => {
+    if (safetyDisabled) return;
     if (pdfLocked) return;
 
     setLoading(true);
@@ -90,9 +98,18 @@ export function PdfDownloadButton({
 
   return (
     <div className="space-y-2">
-      <Button type="button" disabled={pdfLocked || loading} onClick={handleDownload}>
-        {pdfLocked ? copy.locked : loading ? copy.loading : resolvedButtonLabel(copy.ready, downloadLabel)}
+      <Button type="button" disabled={Boolean(safetyDisabled) || pdfLocked || loading} onClick={handleDownload}>
+        {safetyDisabled
+          ? (safetyDisabledLabel?.trim() || copy.safetyDisabled)
+          : pdfLocked
+            ? copy.locked
+            : loading
+              ? copy.loading
+              : resolvedButtonLabel(copy.ready, downloadLabel)}
       </Button>
+      {safetyDisabled && safetyDisabledReason ? (
+        <p className="m-0 text-xs leading-5 text-slate-500">{safetyDisabledReason}</p>
+      ) : null}
       {error ? <Alert>{error}</Alert> : null}
     </div>
   );
