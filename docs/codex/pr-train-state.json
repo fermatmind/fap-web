@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-13T00:35:00+08:00",
+  "updated_at": "2026-06-13T00:42:00+08:00",
   "status": "active",
   "phase": "result_p0_private_debug_pdf_leak_fix",
   "pr_namespace": "PR-PRAC-*",
@@ -21590,9 +21590,9 @@
       "id": "RESULT-DEBUG-FIELD-SUPPRESSION-01",
       "repo": "fap-web",
       "branch": "codex/result-debug-field-suppression-01",
-      "status": "local_checks_passed",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "pr_open_checks_pending",
+      "commit_sha": "463a9c48",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1114",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -21692,6 +21692,11 @@
           "at": "2026-06-13T00:35:00+08:00",
           "status": "local_checks_passed",
           "note": "Implemented RIASEC user-facing debug token mapping/suppression, removed raw RIASEC state data attributes from public HTML, filtered known Big Five engine/controller PR markers from report section/block rendering, updated contracts and branch scope helper. Focused contracts, typecheck, production build, full contract suite with unrelated generated sidecars isolated/restored, JSON/YAML parse, scope validation, and diff check passed."
+        },
+        {
+          "at": "2026-06-13T00:42:00+08:00",
+          "status": "pr_open_checks_pending",
+          "note": "Opened draft fap-web PR #1114 from codex/result-debug-field-suppression-01 after scoped local validation; GitHub checks pending. commit_sha records the implementation commit before this PR URL ledger update."
         }
       ]
     },
