@@ -14029,7 +14029,7 @@ prs:
     depends_on: [RESULT-PDF-PRINT-PRIVATE-URL-GUARD-01]
     mode: execute
     train_scope: result_p0_private_debug_pdf_leak_fix
-    status: in_progress
+    status: merged
     goal: "Prevent public result views and PDFs from rendering internal debug fields, registry names, controller names, PR identifiers, raw score-space ids, policy tokens, visibility state labels, and backend keys."
     artifacts:
       - components/result/**
@@ -14076,7 +14076,7 @@ prs:
     depends_on: [RESULT-DEBUG-FIELD-SUPPRESSION-01]
     mode: execute
     train_scope: result_p0_private_debug_pdf_leak_fix
-    status: pending_dependency
+    status: in_progress
     goal: "Fix Enneagram and shared result rendering so unsupported object values never appear as raw keys or [object Object]."
     artifacts:
       - components/result/enneagram/**

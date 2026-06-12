@@ -39,6 +39,7 @@ function formatScore(score: number | null): string {
 
 const INTERNAL_VISIBLE_TEXT_PATTERNS = [
   /\[object Object\]/i,
+  /analyzer_close_call/i,
   /deferred_to_future/i,
   /not_shipped/i,
   /^workplace_context_mode_not_enabled$/i,
@@ -91,6 +92,17 @@ function safePublicText(value: unknown): string {
   return normalized;
 }
 
+function firstSafePublicText(...values: unknown[]): string {
+  for (const value of values) {
+    const text = safePublicText(value);
+    if (text) {
+      return text;
+    }
+  }
+
+  return "";
+}
+
 function normalizeBarWidth(score: number | null): number | null {
   if (score === null) {
     return null;
@@ -116,8 +128,8 @@ function formBadgeCopy(viewModel: EnneagramResultViewModel, locale: Locale): { l
   const fromModule = viewModel.moduleMap.instant_summary?.content.form_badge;
   if (fromModule && typeof fromModule === "object" && !Array.isArray(fromModule)) {
     return {
-      label: String((fromModule as Record<string, unknown>).label ?? "").trim(),
-      body: String((fromModule as Record<string, unknown>).body ?? "").trim(),
+      label: safePublicText((fromModule as Record<string, unknown>).label),
+      body: safePublicText((fromModule as Record<string, unknown>).body),
     };
   }
 
@@ -408,7 +420,7 @@ function ListGroupSections({ module, locale }: { module: EnneagramReportV2Module
   return (
     <div className="grid gap-3">
       {groups.map((group, index) => {
-        const labelKey = String(group.label_key ?? "").trim();
+        const labelKey = safePublicText(group.label_key);
         const items = Array.isArray(group.items)
           ? group.items.filter((item): item is Record<string, unknown> => Boolean(item && typeof item === "object"))
           : [];
@@ -422,8 +434,8 @@ function ListGroupSections({ module, locale }: { module: EnneagramReportV2Module
             <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{listGroupLabel(labelKey, locale)}</p>
             <div className="mt-3 space-y-3">
               {items.map((item, itemIndex) => {
-                const title = String(item.title ?? "").trim();
-                const body = String(item.body ?? "").trim();
+                const title = safePublicText(item.title);
+                const body = safePublicText(item.body);
                 if (!title && !body) {
                   return null;
                 }
@@ -594,12 +606,12 @@ function GroupOverlayRenderer({ module, locale }: { module: EnneagramReportV2Mod
       {items.length > 0 ? (
         <div className="grid gap-3">
           {items.map((item, index) => (
-            <div key={`${String(item.group_ref ?? item.group_key ?? index)}`} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+            <div key={`${firstSafePublicText(item.group_ref, item.group_key) || index}`} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
               <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
-                {String(item.group_type ?? "").trim() || (locale === "zh" ? "分组" : "Group")} · {String(item.group_key ?? item.group_ref ?? "").trim()}
+                {safePublicText(item.group_type) || (locale === "zh" ? "分组" : "Group")} · {firstSafePublicText(item.group_key, item.group_ref)}
               </p>
-              {String(item.value ?? "").trim() ? <p className="m-0 mt-2 text-sm text-slate-700">{String(item.value ?? "").trim()}</p> : null}
-              {String(item.description ?? "").trim() ? <p className="m-0 mt-2 text-xs text-slate-500">{String(item.description ?? "").trim()}</p> : null}
+              {safePublicText(item.value) ? <p className="m-0 mt-2 text-sm text-slate-700">{safePublicText(item.value)}</p> : null}
+              {safePublicText(item.description) ? <p className="m-0 mt-2 text-xs text-slate-500">{safePublicText(item.description)}</p> : null}
             </div>
           ))}
         </div>
@@ -686,9 +698,9 @@ function PlaceholderCardRenderer({ module, locale }: { module: EnneagramReportV2
 function SampleReportRenderer({ module, locale }: { module: EnneagramReportV2Module; locale: Locale }) {
   const isZh = locale === "zh";
   const topTypes = moduleArray(module, "top_types").length > 0
-    ? moduleArray(module, "top_types").map((item) => String(item).trim()).filter(Boolean)
+    ? moduleArray(module, "top_types").map((item) => typeRefLabel(item)).filter(Boolean)
     : Array.isArray(module.content.top_types)
-      ? (module.content.top_types as unknown[]).map((item) => String(item).trim()).filter(Boolean)
+      ? (module.content.top_types as unknown[]).map((item) => typeRefLabel(item)).filter(Boolean)
       : [];
 
   return (
@@ -760,9 +772,9 @@ function ObservationModuleRenderer({
       ? state.tasks
       : moduleArray(module, "steps").map((step) => ({
           day: typeof step.day === "number" ? step.day : Number(step.day ?? Number.NaN),
-          phase: String(step.phase ?? "").trim() || null,
-          prompt: String(step.prompt ?? "").trim() || null,
-          suggested_next_action: String(step.suggested_next_action ?? "").trim() || null,
+          phase: safePublicText(step.phase) || null,
+          prompt: safePublicText(step.prompt) || null,
+          suggested_next_action: safePublicText(step.suggested_next_action) || null,
         }));
   const progress = state?.observation_completion_rate ?? 0;
   const currentFormRetakeHref = buildEnneagramTakeHref(SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM, locale, viewModel.formCode);
@@ -799,7 +811,7 @@ function ObservationModuleRenderer({
         <div data-testid="enneagram-observation-day3-summary" className="space-y-2 rounded-2xl border border-slate-200 bg-slate-50 p-4">
           <p className="m-0 text-sm font-semibold text-slate-800">{isZh ? "Day3 feedback 已记录" : "Day 3 feedback recorded"}</p>
           <p className="m-0 text-sm text-slate-600">
-            {String(state.day3_observation_feedback.more_like ?? "")} · {String(state.day3_observation_feedback.scene_type ?? "")}
+            {safePublicText(state.day3_observation_feedback.more_like)} · {safePublicText(state.day3_observation_feedback.scene_type)}
           </p>
         </div>
       ) : (
@@ -1235,15 +1247,15 @@ function renderModule(
     case "top3_cards": {
       const cards = moduleArray(module, "cards").map((card, index) => ({
         row: {
-          code: String(card.type ?? "").trim(),
-          label: String(card.type_name_en ?? card.type_name_cn ?? card.type ?? "").trim(),
+          code: safePublicText(card.type),
+          label: firstSafePublicText(card.type_name_en, card.type_name_cn, card.type),
           score: typeof card.display_score === "number" ? card.display_score : Number(card.display_score ?? Number.NaN),
           rank: index + 1,
-          candidateRole: String(card.candidate_role ?? "").trim(),
-          summary: String(card.core_logic ?? card.surface_impression ?? "").trim(),
+          candidateRole: safePublicText(card.candidate_role),
+          summary: firstSafePublicText(card.core_logic, card.surface_impression),
         } satisfies EnneagramTypeRow,
-        coreLogic: String(card.core_logic ?? "").trim(),
-        workSummary: String(card.work_summary ?? "").trim(),
+        coreLogic: safePublicText(card.core_logic),
+        workSummary: safePublicText(card.work_summary),
       }));
 
       return (
@@ -1268,8 +1280,8 @@ function renderModule(
     }
     case "all9_profile": {
       const items = moduleArray(module, "items").map((item, index) => ({
-        code: String(item.type ?? item.code ?? "").trim(),
-        label: String(item.type_name_en ?? item.type_name_cn ?? item.label ?? item.type ?? "").trim(),
+        code: firstSafePublicText(item.type, item.code),
+        label: firstSafePublicText(item.type_name_en, item.type_name_cn, item.label, item.type),
         score:
           typeof item.score_display === "number"
             ? item.score_display
@@ -1332,7 +1344,7 @@ function renderModule(
             ].map((item) => (
               <div key={item.key} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
                 <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{item.label}</p>
-                <p className="m-0 mt-2 text-sm text-slate-800">{String(module.content[item.key] ?? "n/a")}</p>
+                <p className="m-0 mt-2 text-sm text-slate-800">{safePublicText(module.content[item.key]) || "n/a"}</p>
               </div>
             ))}
           </div>
@@ -1344,14 +1356,19 @@ function renderModule(
     case "close_call_card": {
       const pair = module.content.pair as Record<string, unknown> | undefined;
       const pairEntry = module.content.pair_entry as Record<string, unknown> | undefined;
+      const pairTypeA = typeRefLabel(pair?.type_a);
+      const pairTypeB = typeRefLabel(pair?.type_b);
+      const triggerReason = safePublicText(pair?.trigger_reason);
+      const coreMotivationDifference = safePublicText(pairEntry?.core_motivation_difference);
+      const stressReactionDifference = safePublicText(pairEntry?.stress_reaction_difference);
       return (
         <ModuleCard title={isZh ? "Close call 辨析" : "Close-call differentiation"} testId="enneagram-module-close-call-card">
           <p className="m-0 text-sm text-slate-700">
-            {(pair?.type_a as string | undefined) || "?"} vs {(pair?.type_b as string | undefined) || "?"}
+            {pairTypeA || "?"} vs {pairTypeB || "?"}
           </p>
-          {pair?.trigger_reason ? <p className="m-0 text-sm text-slate-700">{String(pair.trigger_reason)}</p> : null}
-          {pairEntry?.core_motivation_difference ? <p className="m-0">{String(pairEntry.core_motivation_difference)}</p> : null}
-          {pairEntry?.stress_reaction_difference ? <p className="m-0 text-sm text-slate-600">{String(pairEntry.stress_reaction_difference)}</p> : null}
+          {triggerReason ? <p className="m-0 text-sm text-slate-700">{triggerReason}</p> : null}
+          {coreMotivationDifference ? <p className="m-0">{coreMotivationDifference}</p> : null}
+          {stressReactionDifference ? <p className="m-0 text-sm text-slate-600">{stressReactionDifference}</p> : null}
           {!pairEntry ? (
             <p className="m-0 text-xs text-slate-500">{isZh ? "当前只提供 scaffold 内容。" : "This currently uses scaffold content."}</p>
           ) : null}
@@ -1417,9 +1434,10 @@ function renderModule(
     case "methodology_boundary_card":
     case "method_boundary": {
       const badge = module.content.form_badge as Record<string, unknown> | undefined;
+      const badgeLabel = safePublicText(badge?.label);
       return (
         <ModuleCard title={isZh ? "方法边界" : "Method boundary"} testId={`enneagram-module-${module.moduleKey}`}>
-          {badge?.label ? <p className="m-0 text-sm font-semibold text-slate-800">{String(badge.label)}</p> : null}
+          {badgeLabel ? <p className="m-0 text-sm font-semibold text-slate-800">{badgeLabel}</p> : null}
           {moduleText(module, "methodology_copy") ? <p className="m-0">{moduleText(module, "methodology_copy")}</p> : null}
           {moduleText(module, "score_space_boundary") ? <p className="m-0">{moduleText(module, "score_space_boundary")}</p> : null}
           {moduleText(module, "non_diagnostic_boundary") ? <p className="m-0 text-sm text-slate-600">{moduleText(module, "non_diagnostic_boundary")}</p> : null}
@@ -1458,11 +1476,11 @@ function renderModule(
         <ModuleCard title={isZh ? "七天观察" : "Seven-day observation"} testId="enneagram-module-seven-day-observation">
           <div className="space-y-3">
             {steps.map((step) => (
-              <div key={String(step.day ?? step.phase ?? "")} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+              <div key={firstSafePublicText(step.day, step.phase) || "step"} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
                 <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
-                  Day {String(step.day ?? "?")} · {String(step.phase ?? "")}
+                  Day {safePublicText(step.day) || "?"} · {safePublicText(step.phase)}
                 </p>
-                <p className="m-0 mt-2 text-sm text-slate-700">{String(step.prompt ?? "")}</p>
+                {safePublicText(step.prompt) ? <p className="m-0 mt-2 text-sm text-slate-700">{safePublicText(step.prompt)}</p> : null}
               </div>
             ))}
           </div>
@@ -1503,7 +1521,9 @@ function renderModule(
           {sections.length > 0 ? (
             <ul className="m-0 list-disc space-y-1 pl-5 text-sm text-slate-600">
               {sections.slice(0, 4).map((section) => (
-                <li key={String(section.section_key ?? "")}>{String(section.title ?? section.section_key ?? "")}</li>
+                <li key={safePublicText(section.section_key) || safePublicText(section.title)}>
+                  {firstSafePublicText(section.title, section.section_key)}
+                </li>
               ))}
             </ul>
           ) : null}
