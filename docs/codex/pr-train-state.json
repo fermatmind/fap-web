@@ -23290,9 +23290,9 @@
       "id": "PERSONALITY-DETAIL-FAQ-SEO-01",
       "repo": "fap-api-and-fap-web",
       "branch": "codex/personality-detail-faq-seo-01",
-      "status": "local_checks_passed",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "pr_open",
+      "commit_sha": "cf4ab07bd6d982b080360f966a9510e68f0f789d",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1138",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -23338,6 +23338,11 @@
           "at": "2026-06-14T03:04:38+08:00",
           "status": "local_checks_passed",
           "note": "Frontend FAQ render/JSON-LD contracts, typecheck, full personality contracts, production API build, JSON/YAML parse, git diff check, and explicit scope validation passed."
+        },
+        {
+          "at": "2026-06-14T03:06:36+08:00",
+          "status": "pr_open",
+          "note": "Opened https://github.com/fermatmind/fap-web/pull/1138 after local checks and scope validation passed."
         }
       ]
     },
