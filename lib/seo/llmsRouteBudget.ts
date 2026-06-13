@@ -6,7 +6,7 @@ export const LLMS_FULL_RESPONSE_DEADLINE_MS = 12_000;
 export const LLMS_FULL_DEGRADED_CAREER_JOB_TIMEOUT_MS = 8_000;
 export const LLMS_FULL_ENRICHMENT_TIMEOUT_MS = 350;
 
-export const LLMS_ROUTE_ARTICLE_MAX_PAGES = 1;
+export const LLMS_ROUTE_ARTICLE_MAX_PAGES = 5;
 
 export const LLMS_ROUTE_LIMITS = {
   articles: 40,
