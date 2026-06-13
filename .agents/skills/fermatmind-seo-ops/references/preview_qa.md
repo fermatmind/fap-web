@@ -6,9 +6,11 @@ Inputs:
 
 - Preview URL or screenshot/export.
 - Expected slug, locale, canonical, title, meta, CTA, FAQ, and schema status.
+- Article Identity Lock evidence when article IDs or revision IDs already exist.
 
 Checks:
 
+0. Article IDs, working revision IDs, translation group ID, locale, slug, and canonical match the target when preview is CMS-backed.
 1. Preview is noindex.
 2. HTTP status is 200.
 3. H1 is unique.
@@ -25,6 +27,8 @@ Checks:
 Output: `PREVIEW_CHECKLIST_<slug>.md` using `assets/preview_checklist_template.md`.
 
 No-go: preview evidence does not authorize publish, indexability, schema, search submission, or ISR.
+
+Identity mismatch is a hard no-go. Do not continue with preview evidence from a different article pair or stale generated report.
 
 ## V1.1 preview additions
 

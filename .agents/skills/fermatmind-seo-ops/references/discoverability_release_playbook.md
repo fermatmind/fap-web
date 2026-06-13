@@ -2,6 +2,8 @@
 
 Run after controlled publish and post-publish smoke pass.
 
+Run Article Identity Lock before changing sitemap/llms eligibility or warming discoverability artifacts.
+
 ## Covered Surfaces
 
 - `sitemap_eligible`.
@@ -18,6 +20,7 @@ Run after controlled publish and post-publish smoke pass.
 - Release only if `allow_sitemap_llms_release=true`.
 - Do not submit search channels in this stage.
 - Do not enable schema or hreflang.
+- Stop on article ID, translation group, slug, or canonical mismatch.
 - Do not include draft/private/noindex URLs.
 - Verify sitemap, llms, and llms-full each contain the target public canonical URLs.
 - `llms-full.txt` must return complete mode before search discovery proceeds.

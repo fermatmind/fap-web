@@ -29,6 +29,8 @@ Checks:
 6. Private URL guard is present.
 7. Schema eligibility is not automatic enablement.
 8. CMS fields can map to known backend fields.
+9. Social/cover image gate and body visual gate are checked separately.
+10. Active import surfaces contain no unresolved Media Library visual placeholders, private URL examples, old aliases, or sensitive query keys.
 
 Decision:
 
@@ -57,5 +59,6 @@ For a pair of new zh/en articles, require:
 - social image metadata plan with public Media Library asset, alt, dimensions, and hero/og variants.
 - Search Channel hold plan for every channel.
 - generated report and content-package zip no-commit attestation.
+- body visual status, verified body visual asset or operator-authorized fallback, and no unresolved active placeholder.
 
 If the topic touches career resilience, layoffs, industry change, AI disruption, career security, employability, or future-proofing, run the V1.1 career resilience claim taxonomy from `claim_gate_playbook.md`.

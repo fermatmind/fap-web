@@ -139,6 +139,9 @@ Choose the workflow by user intent:
 | Run publish metadata gate and controlled publish | `controlled_publish` |
 | Release sitemap, llms, and llms-full discoverability | `discoverability_release` |
 | Run URL Truth and search discovery pipeline | `search_discovery_pipeline` |
+| Run schema readiness, no-write rehearsal, or rollout | `schema_rollout` |
+| Run hreflang readiness, no-write rehearsal, or rollout | `hreflang_rollout` |
+| Reconcile final release truth after follow-up work | `final_reconciliation` |
 | Generate tomorrow's daily article release goal | `daily_article_release_goal` |
 | Daily SEO review | `daily_seo_review` |
 | Weekly article review | `weekly_article_review` |
@@ -175,6 +178,8 @@ Purpose: run one new SEO article package through the authorized V2 release chain
 Use:
 
 - `references/authorized_goal_contract.md`.
+- `references/article_identity_lock.md`.
+- `references/mode_c_content_package_rules.md`.
 - `references/full_article_release_state_machine.md`.
 - `references/package_autofix_playbook.md`.
 - `references/production_draft_writer_playbook.md`.
@@ -182,6 +187,8 @@ Use:
 - `references/controlled_publish_playbook.md`.
 - `references/discoverability_release_playbook.md`.
 - `references/search_discovery_pipeline.md`.
+- `references/schema_hreflang_rollout_rules.md`.
+- `references/final_reconciliation.md`.
 - `references/scoped_pr_train_automerge_deploy.md`.
 - `references/deploy_preapproval_policy.md`.
 
@@ -206,8 +213,9 @@ Required stages:
 17. Baidu readiness.
 18. final report.
 19. D1/D7/D14 observation queue.
+20. final reconciliation after any follow-up schema, hreflang, GSC, Search Channel, IndexNow, or Baidu work.
 
-Hard gates: follow the Authorization Profile. Preserve schema and hreflang holds unless separately authorized. Stop on any hard no-go.
+Hard gates: follow the Authorization Profile. Run Article Identity Lock before preview QA, publish, discoverability release, schema, hreflang, Search Channel, GSC, or Baidu stages. Preserve schema and hreflang holds unless separately authorized. Stop on any hard no-go.
 
 ### `authorized_goal_contract`
 
@@ -261,7 +269,10 @@ Hard gates: preview QA and publish rehearsal must pass; schema/hreflang remain i
 
 Purpose: release sitemap, llms, and llms-full discoverability after public smoke passes and the Authorization Profile allows the release.
 
-Use `references/discoverability_release_playbook.md`.
+Use:
+
+- `references/article_identity_lock.md`.
+- `references/discoverability_release_playbook.md`.
 
 Hard gates: no private URL exposure, no schema/hreflang side effects, no search-channel submission.
 
@@ -272,17 +283,54 @@ Purpose: run URL Truth, Search Channel Queue, IndexNow bounded submission, GSC m
 Use:
 
 - `references/search_discovery_pipeline.md`.
+- `references/article_identity_lock.md`.
 - `references/indexnow_bounded_submission.md`.
 - `references/gsc_manual_readiness.md`.
 - `references/baidu_readiness_guard.md`.
 
-Hard gates: GSC is inspect-only, Baidu live push requires separate exact approval, 360/Sogou/Shenma hold by default.
+Hard gates: lock article identity before queue or provider work. GSC is inspect-only unless a separate exact Request Indexing authorization is present. Baidu live push requires separate exact approval. 360/Sogou/Shenma hold by default.
+
+### `schema_rollout`
+
+Purpose: run schema readiness, no-write JSON-LD rehearsal, and exact-approval rollout for a locked article pair.
+
+Use:
+
+- `references/article_identity_lock.md`.
+- `references/schema_hreflang_rollout_rules.md`.
+
+Hard gates: schema is granular. Article schema, Breadcrumb schema, and FAQ schema must have independent gates. FAQ schema defaults to hold. Missing publisher is `NO_GO_FOR_SCHEMA_ROLLOUT`.
+
+### `hreflang_rollout`
+
+Purpose: run hreflang readiness, no-write alternate rehearsal, and exact-approval rollout for a locked article pair.
+
+Use:
+
+- `references/article_identity_lock.md`.
+- `references/schema_hreflang_rollout_rules.md`.
+
+Hard gates: hreflang is independent from schema. Confirm reciprocal zh/en targets, canonical self-reference, x-default policy, sitemap/alternate consistency, no orphan locale, no wrong language route, and unchanged schema side effects.
+
+### `final_reconciliation`
+
+Purpose: update the final truth after any follow-up schema, hreflang, GSC, Search Channel, IndexNow, Baidu, sitemap/llms, or llms-full work.
+
+Use:
+
+- `references/article_identity_lock.md`.
+- `references/final_reconciliation.md`.
+
+Hard gates: do not treat an old final summary as final truth when follow-up state changed. Mark `FINAL_SUMMARY_STALE_NEEDS_UPDATE` until reconciliation is complete.
 
 ### `daily_article_release_goal`
 
 Purpose: generate tomorrow's short `/goal` prompt for an authorized article release.
 
-Use `assets/full_release_goal_template.md`.
+Use:
+
+- `references/mode_c_content_package_rules.md`.
+- `assets/full_release_goal_template.md`.
 
 ### `daily_seo_review`
 
@@ -340,6 +388,8 @@ Hard gates: no CMS mutation, no publish, no generated content injection.
 
 Purpose: check whether a GPT-5.5 Pro CMS content package can enter Codex preview flow.
 
+Use `references/mode_c_content_package_rules.md`.
+
 Required package checks:
 
 - `manifest.json`.
@@ -365,13 +415,16 @@ Outputs:
 
 Decision: `GO_FOR_PREVIEW` or `NO_GO_FOR_PREVIEW`.
 
-Hard gates: no import, no CMS write, no schema enablement, no publish.
+Hard gates: no import, no CMS write, no schema enablement, no publish. Social/cover image readiness and body visual readiness are separate gates; unresolved body visual placeholders block preview/import.
 
 ### `new_bilingual_article_pair_runner`
 
 Purpose: evaluate a pair of new zh/en SEO article URLs as one content operation without treating either page as a legacy overwrite.
 
-Use `references/new_bilingual_article_pair_runner.md`.
+Use:
+
+- `references/new_bilingual_article_pair_runner.md`.
+- `references/mode_c_content_package_rules.md`.
 
 Must check:
 
@@ -382,7 +435,7 @@ Must check:
 - separate preview QA and operator review per locale.
 - pair-level readiness decision.
 
-Hard gates: no CMS mutation, no publish, no indexability release, no sitemap/llms release, no search submission, no revalidation.
+Hard gates: no CMS mutation, no publish, no indexability release, no sitemap/llms release, no search submission, no revalidation. Stop on unresolved body visual placeholders, unverified Media Library asset keys, or active-surface private URL/alias leakage.
 
 ### `cms_seo_article_publish_runner`
 

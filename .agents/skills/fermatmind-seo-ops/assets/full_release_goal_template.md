@@ -39,16 +39,36 @@ Authorization Profile:
 - gsc_request_indexing=hold
 - baidu_live_push=hold
 
+Mode C media contract:
+- body_visual_required=<true|false>
+- body_visual_status=<verified|requires_media_library_resolution_before_preview>
+- desired_body_visual_concept=<if unresolved>
+- fallback_asset_candidates=<if unresolved>
+- body_visual_fallback_authorized=<true|false>
+
+Article Identity Lock:
+- lock article IDs, revision IDs, translation_group_id, locale, slug, and public canonical URLs before preview QA, publish, sitemap/llms, schema, hreflang, Search Channel, GSC, or Baidu work.
+
+Search Channel flow:
+- use queue readiness -> enqueue -> operator review -> search-channel-approve -> search-channel-submit-approved.
+- run IndexNow and Baidu as separate channel tasks.
+- do not use --channels=all.
+- do not open global production live gates.
+
 Hard stops:
 - unknown_route
 - missing_media_asset
+- unresolved body visual placeholder in active import surfaces
 - active private URL/token leak
+- old route alias in active import surfaces
 - unsafe claim gate
+- article identity mismatch
 - local DB / Ops UI fallback needed for CMS authority
 - production command failure without rollback proof
 - schema/hreflang requested implicitly
 - GSC Request Indexing
 - Baidu live push
+- Baidu site init fail / platform_action_required
 - production env/secret change
 - migration deploy
 - auth/payment/security risky change

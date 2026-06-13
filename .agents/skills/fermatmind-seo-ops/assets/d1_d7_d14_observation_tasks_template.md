@@ -20,6 +20,14 @@
 | CTR |  |  |
 | average position |  |  |
 | visible queries |  |  |
+| GSC indexed / not indexed / requested |  |  |
+| Search Channel queue item states |  |  |
+| IndexNow provider response |  | redacted |
+| Baidu provider response |  | redacted |
+| schema JSON-LD types |  |  |
+| FAQ schema count |  |  |
+| hreflang tags |  |  |
+| x-default target |  |  |
 | index status |  |  |
 | cache status |  |  |
 
