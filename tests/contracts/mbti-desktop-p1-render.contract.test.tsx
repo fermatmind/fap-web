@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
+import { cleanup, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { MbtiDesktopCloneShell } from "@/components/result/mbti/clone/MbtiDesktopCloneShell";
 import { getMbtiDesktopAnchorId } from "@/components/result/mbti/mbtiDesktopAnchorTargets";
@@ -630,17 +630,35 @@ function getDesktopSection(key: "career" | "growth" | "relationships") {
   return document.getElementById(getMbtiDesktopAnchorId(key)) as HTMLElement;
 }
 
+function createStoragePayloadForFullCode(fullCode: string): PersonalityDesktopCloneContentPayload | null {
+  const normalizedFullCode = fullCode.toUpperCase();
+  if (normalizedFullCode === "INFJ-A" || normalizedFullCode === "ENTJ-T" || normalizedFullCode === "ISTP-A") {
+    return createStoragePayload(normalizedFullCode);
+  }
+
+  return null;
+}
+
+async function waitForDesktopCloneStorage(typeCode: "INFJ-A" | "ENTJ-T" | "ISTP-A", locale: "zh" | "en" = "zh") {
+  await waitFor(() => {
+    expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith(typeCode, locale);
+  });
+
+  await screen.findByText(`intro 1 ${typeCode.toLowerCase()}`);
+}
+
 beforeEach(() => {
+  cleanup();
   vi.clearAllMocks();
-  vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValue(null);
+  vi.mocked(fetchPersonalityDesktopCloneContent).mockImplementation(async (fullCode) =>
+    createStoragePayloadForFullCode(String(fullCode)),
+  );
 });
 
 describe("MBTI desktop chapter premium teaser reset contract", () => {
   const unifiedUnlockBody = "解锁完整报告后即可查看这些结果，并纳入你的人格分析。";
 
   it("does not fetch or hydrate authored paid clone content while locked by default", async () => {
-    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("INFJ-A"));
-
     render(
       <MbtiDesktopCloneShell
         locale="zh"
@@ -683,13 +701,9 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
   });
 
   it("keeps Career chapter-end premium teasers on the locked path without extra matched cards", async () => {
-    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("INFJ-A"));
-
     renderShell("INFJ-A");
 
-    await waitFor(() => {
-      expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("INFJ-A", "zh");
-    });
+    await waitForDesktopCloneStorage("INFJ-A");
 
     const section = getDesktopSection("career");
     const scoped = within(section);
@@ -746,13 +760,9 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
   });
 
   it("renders Career authored body blocks on the unlocked path", async () => {
-    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("INFJ-A"));
-
     renderShell("INFJ-A", "zh", true);
 
-    await waitFor(() => {
-      expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("INFJ-A", "zh");
-    });
+    await waitForDesktopCloneStorage("INFJ-A");
 
     const section = getDesktopSection("career");
     const scoped = within(section);
@@ -782,13 +792,9 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
   });
 
   it("renders Growth chapter-end premium teasers with compact inline unlock copy", async () => {
-    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("ENTJ-T"));
-
     renderShell("ENTJ-T");
 
-    await waitFor(() => {
-      expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("ENTJ-T", "zh");
-    });
+    await waitForDesktopCloneStorage("ENTJ-T");
 
     const section = getDesktopSection("growth");
     const scoped = within(section);
@@ -839,13 +845,9 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
   });
 
   it("renders Growth authored insight blocks on the unlocked path", async () => {
-    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("ENTJ-T"));
-
     renderShell("ENTJ-T", "zh", true);
 
-    await waitFor(() => {
-      expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("ENTJ-T", "zh");
-    });
+    await waitForDesktopCloneStorage("ENTJ-T");
 
     const section = getDesktopSection("growth");
     const scoped = within(section);
@@ -875,13 +877,9 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
   });
 
   it("renders Relationships chapter-end premium teasers with compact inline unlock copy", async () => {
-    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("ISTP-A"));
-
     renderShell("ISTP-A");
 
-    await waitFor(() => {
-      expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("ISTP-A", "zh");
-    });
+    await waitForDesktopCloneStorage("ISTP-A");
 
     const section = getDesktopSection("relationships");
     const scoped = within(section);
@@ -932,13 +930,9 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
   });
 
   it("renders Relationships authored insight blocks on the unlocked path", async () => {
-    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("ISTP-A"));
-
     renderShell("ISTP-A", "zh", true);
 
-    await waitFor(() => {
-      expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("ISTP-A", "zh");
-    });
+    await waitForDesktopCloneStorage("ISTP-A");
 
     const section = getDesktopSection("relationships");
     const scoped = within(section);
@@ -967,13 +961,9 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
   });
 
   it("keeps locked state on the compact traits unlock strip and hides traits unlock detail panels", async () => {
-    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("INFJ-A"));
-
     renderShell("INFJ-A");
 
-    await waitFor(() => {
-      expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("INFJ-A", "zh");
-    });
+    await waitForDesktopCloneStorage("INFJ-A");
 
     const section = getDesktopSection("career");
     const scoped = within(section);
@@ -986,13 +976,9 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
   });
 
   it("renders unlocked traits detail panels directly under the trait row and before strengths/weaknesses", async () => {
-    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("INFJ-A"));
-
     renderShell("INFJ-A", "zh", true);
 
-    await waitFor(() => {
-      expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("INFJ-A", "zh");
-    });
+    await waitForDesktopCloneStorage("INFJ-A");
 
     const careerSection = getDesktopSection("career");
     const careerScoped = within(careerSection);
@@ -1020,13 +1006,9 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
   });
 
   it("switches the unlocked traits detail panel when a different trait pill is selected", async () => {
-    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("INFJ-A"));
-
     renderShell("INFJ-A", "zh", true);
 
-    await waitFor(() => {
-      expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("INFJ-A", "zh");
-    });
+    await waitForDesktopCloneStorage("INFJ-A");
 
     const careerScoped = within(getDesktopSection("career"));
     const detailPanel = careerScoped.getByTestId("mbti-career-traits-unlock-panel");
@@ -1043,7 +1025,7 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
   });
 
   it("keeps hero/rail/final-offer and asset slots stable after convergence", async () => {
-    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(
+    vi.mocked(fetchPersonalityDesktopCloneContent).mockImplementation(async () =>
       createStoragePayload("INFJ-A", {
         assetSlots: createAssetSlots({
           hero: {
@@ -1067,9 +1049,7 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
 
     renderShell("INFJ-A");
 
-    await waitFor(() => {
-      expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("INFJ-A", "zh");
-    });
+    await waitForDesktopCloneStorage("INFJ-A");
 
     expect(await screen.findByTestId("mbti-hero")).toHaveTextContent("hero infj-a");
     expect(screen.getByTestId("mbti-sticky-rail")).toBeInTheDocument();
@@ -1078,13 +1058,9 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
   });
 
   it("uses the same authored profileIdentity in hero and rail header", async () => {
-    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("INFJ-A"));
-
     renderShell("INFJ-A");
 
-    await waitFor(() => {
-      expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("INFJ-A", "zh");
-    });
+    await waitForDesktopCloneStorage("INFJ-A");
 
     expect(await screen.findByTestId("mbti-hero")).toHaveTextContent("INFJ-A");
     expect(screen.getByTestId("mbti-hero-identity-line")).toHaveTextContent("name infj-a · nickname infj-a");
@@ -1096,8 +1072,6 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
   });
 
   it("keeps non-zh path stable without rendering desktop clone storage modules", async () => {
-    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("INFJ-A"));
-
     renderShell("INFJ-A", "en");
 
     await waitFor(() => {
@@ -1111,8 +1085,6 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
   });
 
   it("switches the right traits card when a different axis is selected and keeps left/right same-source", async () => {
-    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("INFJ-A"));
-
     renderShellWithProjection({
       projectionViewModel: createProjectionViewModel([
         {
