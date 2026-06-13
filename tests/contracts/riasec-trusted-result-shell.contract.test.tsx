@@ -309,6 +309,137 @@ describe("RIASEC trusted result shell", () => {
     expect(screen.getByTestId("riasec-governed-copy-surface")).not.toHaveTextContent("岗位匹配度");
   });
 
+  it("suppresses RIASEC debug labels and raw keys from visible result output", () => {
+    const report = cloneReport(buildRiasecReport());
+    const projection = report.riasec_public_projection_v2 as Record<string, unknown>;
+    const explorer = projection.activity_explorer_v0_1 as Record<string, unknown>;
+    const families = explorer.dimension_activity_families as Array<Record<string, unknown>>;
+    families[0].activity_families = [
+      "physical_implementation",
+      "tools_and_equipment",
+      "field_troubleshooting",
+      "prototypes_and_tangible_outputs",
+      "hands_on_systems",
+    ];
+    families[1].activity_families = [
+      "analyze_complex_problems",
+      "organize_evidence_materials",
+      "model_systems",
+      "test_hypotheses",
+      "research_and_explain",
+    ];
+    const pack = explorer.code_activity_pack as Record<string, unknown>;
+    const activities = pack.activities as Array<Record<string, unknown>>;
+    activities[0].activity_key = "analyze_complex_problems";
+    activities[0].activity_label = "BUTTON LABEL";
+    activities[0].activity_user_copy = "Interest signal, not ability. raw score riasec_60_likert5_activity_sum_space.v1";
+    activities[0].task_examples = ["整理真实任务证据", "score space", "minimal_answer_completion_only"];
+    const occupationExamples = activities[0].occupation_examples as Array<Record<string, unknown>>;
+    occupationExamples[0].display_label = "content_example_not_registry_match";
+    occupationExamples[0].common_tasks = ["整理访谈证据", "raw score", "content_example_not_registry_match_without_reviewed_registry_source"];
+    projection.deep_content_slots_v1 = {
+      schema_version: "riasec.deep_content_slots.v1",
+      scale_code: "RIASEC",
+      locale: "zh",
+      content_authority: "backend_cms_projection",
+      snapshot_bound: true,
+      source_policy: {
+        frontend_fallback_allowed: false,
+        missing_content_behavior: "omit_slot",
+        pending_content_behavior: "omit_slot",
+        unknown_slot_behavior: "omit_slot",
+        formal_report_generation: "paused",
+      },
+      slot_visibility_policy: {
+        module_visibility_policy_id: "riasec_module_visibility_policy_v1",
+        hidden_slots_omitted: true,
+        pending_or_unavailable_slots_omitted: true,
+        frontend_inference_allowed: false,
+      },
+      slots: [
+        {
+          slot_key: "140q_cta_copy",
+          slot_group: "140q_layer_copy",
+          slot_id: "riasec-debug-label-suppression-contract",
+          module_key: "140q_cta",
+          slot_visibility: "visible",
+          status: "authored",
+          content_status: "authored",
+          content_version: "v1",
+          review_status: "reviewed",
+          source_status: "cms",
+          evidence_level: "boundary_copy",
+          locale: "zh",
+          frontend_fallback_allowed: false,
+          fallback_behavior: "omit_slot",
+          applicability: {
+            form_codes: ["riasec_60"],
+            profile_shapes: ["clear_code"],
+            quality_states: ["normal"],
+            codes: ["RIA"],
+            dimensions: ["R", "I"],
+          },
+          state: {},
+          content: {
+            title: "兴趣信号边界 BUTTON LABEL",
+            summary: "兴趣信号，不等于能力；不是职业推荐，也不是职业保证。",
+            body: "不代表职业数据库匹配，除非后端权威数据明确确认。 raw score",
+            button_label: "BUTTON LABEL",
+            activities_to_validate: ["保留可阅读活动", "score space", "riasec_60_likert5_activity_sum_space.v1"],
+          },
+          boundaries: {
+            user_visible_boundary: "兴趣信号，不等于能力；不是职业推荐，也不是职业保证。",
+            required_boundaries: [],
+            forbidden_claims: [],
+          },
+        },
+      ],
+    };
+
+    render(
+      <RiasecResultShell
+        locale="zh"
+        attemptId="attempt-riasec"
+        viewModel={assembleRiasecResultViewModel(report)}
+      />
+    );
+
+    const text = document.body.textContent ?? "";
+    const forbiddenTokens = [
+      "BUTTON LABEL",
+      "BUT TON LABEL",
+      "visible",
+      "collapsed",
+      "score space",
+      "raw score",
+      "riasec_60_likert5_activity_sum_space",
+      "minimal_answer_completion_only",
+      "content_example_not_registry_match",
+      "content_example_not_registry_match_without_reviewed_registry_source",
+      "physical_implementation",
+      "tools_and_equipment",
+      "field_troubleshooting",
+      "prototypes_and_tangible_outputs",
+      "hands_on_systems",
+      "analyze_complex_problems",
+      "organize_evidence_materials",
+      "model_systems",
+      "test_hypotheses",
+      "research_and_explain",
+    ];
+
+    for (const token of forbiddenTokens) {
+      expect(text).not.toContain(token);
+    }
+    expect(text).toContain("兴趣信号，不等于能力");
+    expect(text).toContain("不是职业推荐");
+    expect(text).toContain("不是职业保证");
+    expect(text).toContain("不代表职业数据库匹配");
+    expect(text).toContain("复杂问题分析");
+    expect(text).toContain("证据材料整理");
+    expect(text).toContain("保留可阅读活动");
+  });
+
   it("fails closed when backend module visibility hides strong RIASEC modules", () => {
     const report = cloneReport(buildRiasecReport());
     const projection = report.riasec_public_projection_v2 as Record<string, unknown>;

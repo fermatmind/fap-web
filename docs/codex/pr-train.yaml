@@ -227,7 +227,7 @@ prs:
     base: main
     depends_on: [PR-PRAC-04]
     mode: execute
-    status: planned
+    status: merged
     title: "test(seo): add discoverability authority convergence guards"
     artifacts:
       - docs/seo/discoverability-authority-convergence.md
@@ -241,7 +241,7 @@ prs:
     base: main
     depends_on: [PR-PRAC-05]
     mode: execute
-    status: planned
+    status: local_checks_passed
     title: "test(runtime): add freemium public runtime coverage matrix"
     artifacts:
       - docs/freemium/freemium-runtime-coverage.md
