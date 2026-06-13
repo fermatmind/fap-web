@@ -623,6 +623,15 @@ const RESULT_PRIVATE_PRINT_CHROME_GATE_HARDEN_02_ALLOWED_FILES = new Set([
   "tests/contracts/result-private-print-chrome.contract.test.ts",
 ]);
 
+const RESULT_BIG5_INTERNAL_METHOD_DEBUG_SUPPRESSION_02_ALLOWED_FILES = new Set([
+  "components/big5/report/BlockRenderer.tsx",
+  "components/big5/report/SectionRenderer.tsx",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "tests/contracts/big5-section-renderer.contract.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 const PR_WEB_SEC_23_ALLOWED_FILES = new Set([
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -2324,6 +2333,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/result-private-print-chrome-gate-harden-02") {
     return RESULT_PRIVATE_PRINT_CHROME_GATE_HARDEN_02_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/result-big5-internal-method-debug-suppression-02") {
+    return RESULT_BIG5_INTERNAL_METHOD_DEBUG_SUPPRESSION_02_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-web-sec-23-big5-comparative-fallback") {

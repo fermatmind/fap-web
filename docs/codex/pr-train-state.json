@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-13T14:51:30+08:00",
+  "updated_at": "2026-06-13T15:03:44+08:00",
   "status": "active",
   "phase": "result_p0_pdf_leak_hardening_02",
   "pr_namespace": "PR-PRAC-*",
@@ -4310,7 +4310,7 @@
       "branch": "codex/arch-seo-cms-01-asset-map-ownership-contract",
       "base": "main",
       "depends_on": [],
-      "status": "ready_to_merge",
+      "status": "merged",
       "title": "docs(architecture): add SEO intelligence asset map and ownership contract",
       "mode": "execute",
       "risk_level": "L2",
@@ -4396,9 +4396,9 @@
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/820",
       "commit_sha": "5da1f8212d9a9954077c78d7b2dc3164c71d7528",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-13T06:55:57Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "sidecar_issues": [],
       "history": [
         {
@@ -22712,6 +22712,11 @@
           "at": "2026-06-13T14:51:30+08:00",
           "status": "ready_to_merge",
           "note": "Opened draft PR #1121 and GitHub checks passed at head 788ce6f044e9f5b553f20e2488eabe9c5c2591f2; recording ready_to_merge before marking PR ready."
+        },
+        {
+          "at": "2026-06-13T15:00:30+08:00",
+          "status": "merged",
+          "note": "Reconciled PR #1121 merged state inside RESULT-BIG5-INTERNAL-METHOD-DEBUG-SUPPRESSION-02: GitHub reports merged at 2026-06-13T06:55:57Z with merge commit fd55d05521a3e740e4bf1b2dd05a92abdec0495c; origin/main contains the merge commit; remote branch is deleted; local worktree and branch cleanup were executed."
         }
       ]
     },
@@ -22719,17 +22724,44 @@
       "id": "RESULT-BIG5-INTERNAL-METHOD-DEBUG-SUPPRESSION-02",
       "repo": "fap-web",
       "branch": "codex/result-big5-internal-method-debug-suppression-02",
-      "status": "blocked_dependency",
+      "status": "local_checks_passed",
       "commit_sha": null,
       "pr_url": null,
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "failure_reason": "Waiting for RESULT-PRIVATE-PRINT-CHROME-GATE-HARDEN-02 to merge.",
+      "failure_reason": null,
       "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User provided /goal on 2026-06-13 with explicit RESULT-BIG5-INTERNAL-METHOD-DEBUG-SUPPRESSION-02 scope and train protocol."
+        },
         "dependency": {
-          "status": "pending",
-          "evidence": "Depends on RESULT-PRIVATE-PRINT-CHROME-GATE-HARDEN-02."
+          "status": "pass",
+          "evidence": "RESULT-PRIVATE-PRINT-CHROME-GATE-HARDEN-02 merged in PR #1121; origin/main contains merge commit fd55d05521a3e740e4bf1b2dd05a92abdec0495c."
+        },
+        "scope": {
+          "status": "pass",
+          "allowed_paths": [
+            "components/big5/report/BlockRenderer.tsx",
+            "components/big5/report/SectionRenderer.tsx",
+            "tests/contracts/big5-section-renderer.contract.test.tsx",
+            "tests/contracts/helpers/currentPrScope.ts",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ],
+          "evidence": "Changed files are confined to Big Five report renderer internal-debug suppression, focused contracts, scope helper, and train metadata/reconciliation. Explicit scope validation passed for 6 changed files."
+        },
+        "local": {
+          "status": "pass",
+          "commands": [
+            "pnpm typecheck",
+            "pnpm test:contract -- big5 result",
+            "pnpm exec vitest run tests/contracts/big5-section-renderer.contract.test.tsx tests/contracts/result-private-leak-regressions.contract.test.ts",
+            "git diff --check",
+            "scope validation"
+          ],
+          "evidence": "Focused Big Five/leak contracts passed 13 tests. pnpm typecheck passed. pnpm test:contract -- big5 result passed 477 files / 2723 tests. NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://www.fermatmind.com pnpm build passed. JSON/YAML parse, git diff --check, and explicit scope validation passed. Postbuild sitemap churn was restored and left out of scope."
         }
       },
       "history": [
@@ -22737,6 +22769,16 @@
           "at": "2026-06-13T14:24:20+08:00",
           "status": "blocked_dependency",
           "note": "Initialized follow-up train item; implementation deferred until dependency merges."
+        },
+        {
+          "at": "2026-06-13T15:00:30+08:00",
+          "status": "in_progress",
+          "note": "Dependency verified merged; started Big Five internal method/debug suppression branch from latest fap-web main."
+        },
+        {
+          "at": "2026-06-13T15:03:44+08:00",
+          "status": "local_checks_passed",
+          "note": "Focused contracts, typecheck, pnpm test:contract -- big5 result, env-corrected production build, metadata parse, diff check, and scope validation passed. Postbuild sitemap churn was restored and left out of scope."
         }
       ]
     },
