@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-13T15:24:36+08:00",
+  "updated_at": "2026-06-13T15:28:58+08:00",
   "status": "active",
   "phase": "result_p0_pdf_leak_hardening_02",
   "pr_namespace": "PR-PRAC-*",
@@ -22809,9 +22809,9 @@
       "id": "RESULT-RIASEC-DEBUG-LABEL-SUPPRESSION-02",
       "repo": "fap-web",
       "branch": "codex/result-riasec-debug-label-suppression-02",
-      "status": "local_checks_passed",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "ready_to_merge",
+      "commit_sha": "a18a95b397cd920f531f5016dcf9d3c66e0450ef",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1123",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -22846,6 +22846,19 @@
             "scope validation"
           ],
           "evidence": "Focused RIASEC contracts passed 12 tests after an in-scope deep-copy punctuation fix. pnpm typecheck passed. pnpm test:contract -- riasec result passed 477 files / 2724 tests. NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://www.fermatmind.com pnpm build passed. JSON/YAML parse, git diff --check, and explicit scope validation passed. Postbuild sitemap churn was restored and left out of scope."
+        },
+        "github": {
+          "status": "pass",
+          "head_sha": "a18a95b397cd920f531f5016dcf9d3c66e0450ef",
+          "checks": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "CodeQL",
+            "analyze (javascript-typescript)"
+          ],
+          "evidence": "GitHub checks passed for draft PR #1123 at head a18a95b397cd920f531f5016dcf9d3c66e0450ef."
         }
       },
       "history": [
@@ -22863,6 +22876,11 @@
           "at": "2026-06-13T15:24:36+08:00",
           "status": "local_checks_passed",
           "note": "Focused contracts, typecheck, pnpm test:contract -- riasec result, env-corrected production build, metadata parse, diff check, and scope validation passed. Postbuild sitemap churn was restored and left out of scope."
+        },
+        {
+          "at": "2026-06-13T15:28:58+08:00",
+          "status": "ready_to_merge",
+          "note": "Opened draft PR #1123 and GitHub checks passed at head a18a95b397cd920f531f5016dcf9d3c66e0450ef; recording ready_to_merge before marking PR ready."
         }
       ]
     },

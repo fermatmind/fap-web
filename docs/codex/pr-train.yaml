@@ -241,7 +241,7 @@ prs:
     base: main
     depends_on: [PR-PRAC-05]
     mode: execute
-    status: local_checks_passed
+    status: ready_to_merge
     title: "test(runtime): add freemium public runtime coverage matrix"
     artifacts:
       - docs/freemium/freemium-runtime-coverage.md
