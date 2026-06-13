@@ -23290,8 +23290,8 @@
       "id": "PERSONALITY-DETAIL-FAQ-SEO-01",
       "repo": "fap-api-and-fap-web",
       "branch": "codex/personality-detail-faq-seo-01",
-      "status": "pr_open",
-      "commit_sha": "3b4406a5",
+      "status": "ready_to_merge",
+      "commit_sha": "9d812f01d0f81fbc6c64b64dfea868bb1b846a23",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1138",
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -23326,8 +23326,8 @@
           "evidence": "Changed files are confined to the personality detail renderer, backend FAQ projection renderer/contract tests, current PR scope helper, one existing JSON-LD projection gate artifact/token contract, and docs/codex state. No fap-api, sitemap, llms URL set, metadata rewrite, comparison page, local editorial FAQ fallback, or public image asset changes are included."
         },
         "github": {
-          "status": "rerun_required",
-          "evidence": "Initial GitHub contracts failed after origin/main added llms article fanout expectations that were not in the PR branch base. The branch was rebased onto origin/main c00a9109 and local focused/full contract checks passed; GitHub checks must rerun on the rebased branch before merge."
+          "status": "pass",
+          "evidence": "GitHub checks passed on PR #1138 head 9d812f01 after rebase: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analyze, and CodeQL all succeeded. PR is open, non-draft, and mergeable."
         }
       },
       "history": [
@@ -23355,6 +23355,11 @@
           "at": "2026-06-14T03:17:49+08:00",
           "status": "pr_open",
           "note": "GitHub contracts initially failed on stale base after llms fanout contract changes landed on main. Rebased onto origin/main c00a9109, reran focused llms/personality contracts, typecheck, production build, standalone timeout repro files, and full pnpm test:contract successfully; GitHub checks require rerun on the rebased branch."
+        },
+        {
+          "at": "2026-06-14T03:22:45+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed on head 9d812f01 after rebase. Pre-merge PR state is open, mergeable, non-draft, and scope validation remains confined to the 9 allowed files."
         }
       ]
     },
