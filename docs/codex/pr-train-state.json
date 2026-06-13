@@ -23174,17 +23174,49 @@
       "id": "PERSONALITY-HUB-MEDIA-RENDER-VERIFY-01",
       "repo": "fap-web",
       "branch": "codex/personality-hub-media-render-verify-01",
-      "status": "blocked_dependency",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "ready_to_merge",
+      "commit_sha": "0240d7d96ced3d0bcbe61d3623c386edca3e59d2",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1134",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "failure_reason": "Blocked until PERSONALITY-DETAIL-CONTENT-COVERAGE-01 is merged.",
+      "failure_reason": null,
       "checks": {
         "dependency": {
-          "status": "blocked",
-          "evidence": "Depends on PERSONALITY-DETAIL-CONTENT-COVERAGE-01."
+          "status": "pass",
+          "evidence": "PERSONALITY-DETAIL-CONTENT-COVERAGE-01 merged in fermatmind/fap-api PR #2074 as 8235dad00c4f9fca50e3d3d13de6205dddabe5be; fap-api train state was closed on main at 289d6d8b14efba7c81d5e14ad9c9c352ffa1bfda."
+        },
+        "implementation": {
+          "status": "pass",
+          "evidence": "Hub cards render backend imageUrl with alt text, explicit 112x112 dimensions, priority loading for the first visible group, lazy loading below that, and code fallback. Detail pages render backend detail.heroImageUrl with alt text, explicit 192x192 dimensions, priority loading, and code fallback. Detail normalization now reuses managed CMS media filtering."
+        },
+        "local": {
+          "status": "pass",
+          "commands": [
+            "pnpm install --frozen-lockfile",
+            "pnpm vitest run tests/contracts/personality-hub-media-render-verify-01.contract.test.ts tests/contracts/personality-cms.contract.test.ts tests/contracts/personality-hub-contract.test.ts tests/contracts/personality-type-browse.contract.test.tsx",
+            "pnpm typecheck",
+            "pnpm test:contract -- personality",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build"
+          ],
+          "evidence": "Focused personality contracts passed 4 files / 22 tests; pnpm typecheck passed; full contract command passed 480 files / 2743 tests after adding the current PR scope to the shared scope helper; production API build passed after setting NEXT_PUBLIC_SITE_URL=https://fermatmind.com. The first build attempt without NEXT_PUBLIC_SITE_URL failed at /robots.txt page data collection and was corrected by the required production URL environment."
+        },
+        "scope": {
+          "status": "pass",
+          "evidence": "Final scope validation passed. Changed files are app/(localized)/[locale]/personality/[type]/page.tsx, app/(localized)/[locale]/personality/page.tsx, docs/codex/pr-train-state.json, lib/cms/personality.ts, tests/contracts/helpers/currentPrScope.ts, tests/contracts/personality-cms.contract.test.ts, and tests/contracts/personality-hub-media-render-verify-01.contract.test.ts. No fap-api, sitemap, llms, public image, or editorial content files are changed."
+        },
+        "github": {
+          "status": "pass",
+          "head_sha": "0240d7d96ced3d0bcbe61d3623c386edca3e59d2",
+          "checks": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "CodeQL analyze (javascript-typescript)",
+            "CodeQL"
+          ],
+          "evidence": "PR #1134 GitHub checks passed at head 0240d7d9 and mergeStateStatus was CLEAN."
         }
       },
       "history": [
@@ -23192,6 +23224,26 @@
           "at": "2026-06-13T22:29:23+08:00",
           "status": "blocked_dependency",
           "note": "Initialized frontend media rendering verification follow-up; execution deferred until backend content coverage is merged."
+        },
+        {
+          "at": "2026-06-13T23:55:00+08:00",
+          "status": "local_checks_passed",
+          "note": "Implemented backend personality media rendering and validation. Dependency, focused contracts, full contracts, typecheck, and production build passed; final git diff/scope validation still pending before commit."
+        },
+        {
+          "at": "2026-06-13T23:58:00+08:00",
+          "status": "scope_validation_passed",
+          "note": "Final scope validation passed; changed files remain within the manifest allowed paths and postbuild sitemap output was restored."
+        },
+        {
+          "at": "2026-06-14T00:03:00+08:00",
+          "status": "pr_open_github_checks_pending",
+          "note": "Pushed efb2b94e and opened PR #1134; GitHub checks are pending."
+        },
+        {
+          "at": "2026-06-14T00:08:00+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed for PR #1134 at head 0240d7d9 and mergeStateStatus was CLEAN; recording ready_to_merge before merge."
         }
       ]
     },

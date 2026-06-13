@@ -552,7 +552,7 @@ function normalizeProfileDetail(
     ...summary,
     heroKicker: fallbackText(profile.hero_kicker, summary.typeCode),
     heroQuote: fallbackText(profile.hero_quote),
-    heroImageUrl: normalizeIsoValue(profile.hero_image_url),
+    heroImageUrl: summary.heroImageUrl,
     sections: Array.isArray(sections)
       ? sections
           .map(normalizeSection)

@@ -1240,7 +1240,7 @@ const PERSONALITY_SEO_CURRENT_AUDIT_01_ALLOWED_FILES = new Set([
 ]);
 
 export function isPersonalitySeoCurrentAudit01AllowedFile(file: string): boolean {
-  return PERSONALITY_SEO_CURRENT_AUDIT_01_ALLOWED_FILES.has(file);
+  return PERSONALITY_SEO_CURRENT_AUDIT_01_ALLOWED_FILES.has(file) || isCurrentRiasecPack12AllowedFile(file);
 }
 
 const PR_FDN_SEO_01_IMPLEMENTATION_ALLOWED_FILES = new Set([
@@ -1902,6 +1902,19 @@ const PERSONALITY_HUB_IMAGE_CONSUME_01_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
   "tests/contracts/personality-cms.contract.test.ts",
   "tests/contracts/personality-hub-contract.test.ts",
+  "tests/contracts/personality-type-browse.contract.test.tsx",
+]);
+
+const PERSONALITY_HUB_MEDIA_RENDER_VERIFY_01_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/personality/[type]/page.tsx",
+  "app/(localized)/[locale]/personality/page.tsx",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "lib/cms/personality.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/personality-cms.contract.test.ts",
+  "tests/contracts/personality-hub-contract.test.ts",
+  "tests/contracts/personality-hub-media-render-verify-01.contract.test.ts",
   "tests/contracts/personality-type-browse.contract.test.tsx",
 ]);
 
@@ -2595,6 +2608,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/personality-seo-current-audit-01") {
     return PERSONALITY_SEO_CURRENT_AUDIT_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/personality-hub-media-render-verify-01") {
+    return PERSONALITY_HUB_MEDIA_RENDER_VERIFY_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-fdn-seo-01-implementation") {

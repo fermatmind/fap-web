@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
@@ -69,6 +70,11 @@ function formatPersonalityDetailHeading(detail: PersonalityProjectionViewModel, 
   }
 
   return locale === "zh" ? `${displayType} 人格` : `${displayType} Personality`;
+}
+
+function formatPersonalityDetailImageAlt(detail: PersonalityProjectionViewModel, locale: Locale): string {
+  const heading = formatPersonalityDetailHeading(detail, locale);
+  return locale === "zh" ? `${heading} 人格图像` : `${heading} personality illustration`;
 }
 
 function firstAvailableSectionHref(sectionKeys: Set<string>, fallbackHref: string, ...candidates: string[]): string {
@@ -434,11 +440,39 @@ export default async function PersonalityDetailPage({
         id="answer-first"
         className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
       >
-        <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">{heroHeading}</h1>
-        {locale !== "zh" && detail.summary ? <p className="m-0 text-[var(--fm-text-muted)]">{detail.summary}</p> : null}
-        {detail.heroSummary && detail.heroSummary !== detail.summary ? (
-          <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{detail.heroSummary}</p>
-        ) : null}
+        <div className="grid gap-5 md:grid-cols-[minmax(0,1fr)_12rem] md:items-start">
+          <div className="space-y-4">
+            <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">{heroHeading}</h1>
+            {locale !== "zh" && detail.summary ? <p className="m-0 text-[var(--fm-text-muted)]">{detail.summary}</p> : null}
+            {detail.heroSummary && detail.heroSummary !== detail.summary ? (
+              <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{detail.heroSummary}</p>
+            ) : null}
+          </div>
+          {detail.heroImageUrl ? (
+            <div
+              className="justify-self-center rounded-[1.75rem] border border-[var(--fm-border)] bg-white p-3 shadow-[var(--fm-shadow-sm)] md:justify-self-end"
+              data-testid="personality-detail-hero-image"
+            >
+              <Image
+                src={detail.heroImageUrl}
+                alt={formatPersonalityDetailImageAlt(detail, locale)}
+                width={192}
+                height={192}
+                sizes="(min-width: 768px) 12rem, 10rem"
+                priority
+                className="h-40 w-40 object-contain md:h-48 md:w-48"
+              />
+            </div>
+          ) : (
+            <div
+              className="grid h-40 w-40 place-items-center justify-self-center rounded-[1.75rem] border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] text-2xl font-semibold text-[var(--fm-text)] md:h-48 md:w-48 md:justify-self-end"
+              data-testid="personality-detail-hero-image-fallback"
+              aria-label={formatPersonalityDetailImageAlt(detail, locale)}
+            >
+              {detail.displayType}
+            </div>
+          )}
+        </div>
         <nav
           aria-label={locale === "zh" ? "人格页面重点入口" : "Personality page intent shortcuts"}
           className="flex flex-wrap gap-2"
