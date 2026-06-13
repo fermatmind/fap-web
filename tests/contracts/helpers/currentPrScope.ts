@@ -1918,6 +1918,18 @@ const PERSONALITY_HUB_MEDIA_RENDER_VERIFY_01_ALLOWED_FILES = new Set([
   "tests/contracts/personality-type-browse.contract.test.tsx",
 ]);
 
+const PERSONALITY_DETAIL_FAQ_SEO_01_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/personality/[type]/page.tsx",
+  "docs/codex/pr-train-state.json",
+  "docs/seo/generated/article-personality-jsonld-projection-gates.v1.json",
+  "lib/cms/personality-sections.tsx",
+  "tests/contracts/article-personality-jsonld-projection-gates.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/locale-purity.contract.test.ts",
+  "tests/contracts/personality-cms.contract.test.ts",
+  "tests/contracts/personality-sections.contract.test.tsx",
+]);
+
 const PERSONALITY_HUB_32_VARIANTS_01_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/personality/[type]/page.tsx",
   "app/(localized)/[locale]/personality/page.tsx",
@@ -2612,6 +2624,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/personality-hub-media-render-verify-01") {
     return PERSONALITY_HUB_MEDIA_RENDER_VERIFY_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/personality-detail-faq-seo-01") {
+    return PERSONALITY_DETAIL_FAQ_SEO_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-fdn-seo-01-implementation") {

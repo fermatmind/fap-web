@@ -20,7 +20,12 @@ import {
   type PersonalityProjection,
   type PersonalityProjectionViewModel,
 } from "@/lib/cms/personality";
-import { extractPersonalityFaqItems, renderPersonalitySections, renderProjectionSections } from "@/lib/cms/personality-sections";
+import {
+  extractPersonalityFaqItems,
+  extractProjectionFaqItems,
+  renderPersonalitySections,
+  renderProjectionSections,
+} from "@/lib/cms/personality-sections";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { DEFAULT_MBTI_FORM_CODE } from "@/lib/mbti/forms";
@@ -342,14 +347,21 @@ export default async function PersonalityDetailPage({
   const normalizedSeo = normalizePersonalitySeoPayload(seo, detail, locale);
   const canonicalPath = buildCanonicalPath(detail.routeSlug, locale);
   const fallbackProjectionGate = resolvePersonalityFallbackProjectionGate(detail);
-  const faqItems = detail.answerSurface?.faqBlocks.length
+  const answerSurfaceFaqItems = detail.answerSurface?.faqBlocks.length
     ? detail.answerSurface.faqBlocks
       .filter((item) => item.question && item.answer)
       .map((item) => ({
         question: item.question,
         answer: item.answer,
       }))
-    : extractPersonalityFaqItems(detail.faqSections);
+    : [];
+  const projectionFaqItems = extractProjectionFaqItems(detail.projection.sections);
+  const legacyFaqItems = extractPersonalityFaqItems(detail.faqSections);
+  const faqItems = answerSurfaceFaqItems.length
+    ? answerSurfaceFaqItems
+    : projectionFaqItems.length
+      ? projectionFaqItems
+      : legacyFaqItems;
   const webPageJsonLd = buildWebPageJsonLd({
     path: canonicalPath,
     title: normalizedSeo.meta.title,
@@ -361,7 +373,12 @@ export default async function PersonalityDetailPage({
     { name: locale === "zh" ? "人格" : "Personality", path: localizedPath("/personality", locale) },
     { name: detail.displayType, path: canonicalPath },
   ]);
-  const renderedProjectionSections = renderProjectionSections(detail.projection.sections, locale);
+  const renderedProjectionSections = renderProjectionSections(
+    answerSurfaceFaqItems.length
+      ? detail.projection.sections.filter((section) => !(section.key === "faq" && section.render === "faq"))
+      : detail.projection.sections,
+    locale
+  );
   const renderedSupplementalSections = renderPersonalitySections(
     [...detail.faqSections, ...detail.supplementalSections],
     locale

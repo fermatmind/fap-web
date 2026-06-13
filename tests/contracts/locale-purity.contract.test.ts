@@ -10,7 +10,8 @@ describe("locale purity contract", () => {
   it("keeps the MBTI local content pack off personality detail pages", () => {
     const source = read("app/(localized)/[locale]/personality/[type]/page.tsx");
 
-    expect(source).toContain("renderProjectionSections(detail.projection.sections, locale)");
+    expect(source).toContain("renderProjectionSections(");
+    expect(source).toContain("detail.projection.sections");
     expect(source).toContain('data-testid="personality-detail-section-map"');
     expect(source).not.toContain("getMbtiPersonalityContent(detail.routeSlug, locale)");
     expect(source).not.toContain('data-testid="mbti-personality-content-pack"');

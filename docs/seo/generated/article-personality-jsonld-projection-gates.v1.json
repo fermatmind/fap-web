@@ -65,7 +65,8 @@
             "resolvePersonalityFallbackProjectionGate(detail)",
             "fallbackProjectionGate.canRenderPublicSchema",
             "fallbackProjectionGate.canRenderCareerOrRecommendationClaims",
-            "renderProjectionSections(detail.projection.sections, locale)",
+            "renderProjectionSections(",
+            "detail.projection.sections",
             "data-testid=\"personality-detail-section-map\"",
             "testId=\"personality-detail-scene-entry\""
           ]

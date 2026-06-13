@@ -23256,17 +23256,21 @@
       "id": "PERSONALITY-AT-DIFFERENCE-SECTIONS-01",
       "repo": "fap-api",
       "branch": "codex/personality-at-difference-sections-01",
-      "status": "blocked_dependency",
-      "commit_sha": null,
-      "pr_url": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
+      "status": "merged",
+      "commit_sha": "1069eafd5a43dbf20f86b4f2558ce8be8b780c1d",
+      "pr_url": "https://github.com/fermatmind/fap-api/pull/2078",
+      "merged_at": "2026-06-13T13:53:37Z",
+      "remote_branch_deleted": true,
       "local_cleanup_executed": false,
-      "failure_reason": "Blocked until PERSONALITY-HUB-MEDIA-RENDER-VERIFY-01 is merged.",
+      "failure_reason": null,
       "checks": {
         "dependency": {
-          "status": "blocked",
-          "evidence": "Depends on PERSONALITY-HUB-MEDIA-RENDER-VERIFY-01."
+          "status": "pass",
+          "evidence": "PERSONALITY-HUB-MEDIA-RENDER-VERIFY-01 merged in fap-web PR #1134 as 153610c283c3dfab1d99e6c89d629c7bff481f84."
+        },
+        "github": {
+          "status": "pass",
+          "evidence": "Reconciled from fap-api PR #2078: GitHub reports MERGED at 2026-06-13T13:53:37Z with merge commit 1069eafd5a43dbf20f86b4f2558ce8be8b780c1d."
         }
       },
       "history": [
@@ -23274,6 +23278,11 @@
           "at": "2026-06-13T22:29:23+08:00",
           "status": "blocked_dependency",
           "note": "Initialized backend A/T difference section follow-up; execution deferred until frontend media rendering verification is merged."
+        },
+        {
+          "at": "2026-06-14T02:56:25+08:00",
+          "status": "merged",
+          "note": "Reconciled cross-repo dependency from fap-api PR #2078; remote branch deletion was verified earlier in the fap-api worktree, while fap-web local cleanup is not applicable for the backend branch."
         }
       ]
     },
@@ -23281,17 +23290,37 @@
       "id": "PERSONALITY-DETAIL-FAQ-SEO-01",
       "repo": "fap-api-and-fap-web",
       "branch": "codex/personality-detail-faq-seo-01",
-      "status": "blocked_dependency",
+      "status": "local_checks_passed",
       "commit_sha": null,
       "pr_url": null,
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "failure_reason": "Blocked until PERSONALITY-AT-DIFFERENCE-SECTIONS-01 is merged.",
+      "failure_reason": null,
       "checks": {
         "dependency": {
-          "status": "blocked",
-          "evidence": "Depends on PERSONALITY-AT-DIFFERENCE-SECTIONS-01."
+          "status": "pass",
+          "evidence": "PERSONALITY-AT-DIFFERENCE-SECTIONS-01 merged in fap-api PR #2078 as 1069eafd5a43dbf20f86b4f2558ce8be8b780c1d. Backend FAQ content contract merged in fap-api PR #2084 as b94c909b045d733d6c6399539c87c41bc6ea2a62; this fap-web PR consumes the backend-returned FAQ fields."
+        },
+        "local": {
+          "status": "pass",
+          "commands": [
+            "pnpm install --frozen-lockfile",
+            "pnpm exec vitest run tests/contracts/personality-sections.contract.test.tsx tests/contracts/personality-cms.contract.test.ts tests/contracts/locale-purity.contract.test.ts tests/contracts/article-personality-jsonld-projection-gates.contract.test.ts",
+            "pnpm typecheck",
+            "pnpm test:contract -- personality",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build",
+            "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "python3 -m json.tool docs/seo/generated/article-personality-jsonld-projection-gates.v1.json >/dev/null",
+            "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+            "git diff --check",
+            "scope validation"
+          ],
+          "evidence": "Focused contracts passed 4 files / 31 tests. pnpm typecheck passed. pnpm test:contract -- personality passed 480 files / 2746 tests after adding the current PR scope helper entry and updating stale projection render source-guard tokens. Production build passed with NEXT_PUBLIC_API_URL=https://api.fermatmind.com and NEXT_PUBLIC_SITE_URL=https://fermatmind.com. JSON/YAML parse, git diff --check, and explicit scope validation passed for the 9 changed files."
+        },
+        "scope": {
+          "status": "pass",
+          "evidence": "Changed files are confined to the personality detail renderer, backend FAQ projection renderer/contract tests, current PR scope helper, one existing JSON-LD projection gate artifact/token contract, and docs/codex state. No fap-api, sitemap, llms URL set, metadata rewrite, comparison page, local editorial FAQ fallback, or public image asset changes are included."
         }
       },
       "history": [
@@ -23299,6 +23328,16 @@
           "at": "2026-06-13T22:29:23+08:00",
           "status": "blocked_dependency",
           "note": "Initialized visible FAQ and FAQPage semantic follow-up; execution deferred until backend A/T difference sections are merged."
+        },
+        {
+          "at": "2026-06-14T02:56:25+08:00",
+          "status": "in_progress",
+          "note": "Started fap-web frontend half after backend A/T difference sections and backend FAQ content contract were merged. Scope is limited to consuming backend FAQ fields, visible FAQ rendering semantics, FAQPage JSON-LD parity, contracts, and PR-train metadata."
+        },
+        {
+          "at": "2026-06-14T03:04:38+08:00",
+          "status": "local_checks_passed",
+          "note": "Frontend FAQ render/JSON-LD contracts, typecheck, full personality contracts, production API build, JSON/YAML parse, git diff check, and explicit scope validation passed."
         }
       ]
     },
