@@ -23,6 +23,11 @@ Checks:
 10. No token, order, result, attempt, report, or payment ID.
 11. Schema is not enabled early.
 12. Hreflang is held or explicitly eligible.
+13. Article hero image renders when cover is required.
+14. Article card/list image renders when the preview or linked listing surface is available.
+15. OG/Twitter metadata uses public image URLs when metadata is rendered.
+16. Body visual renders if body markdown references one.
+17. Required Media Library variants are present: `original`, `hero`, `card`, `thumbnail`, `og`, `preload`.
 
 Output: `PREVIEW_CHECKLIST_<slug>.md` using `assets/preview_checklist_template.md`.
 
@@ -38,5 +43,8 @@ For article previews, also check:
 - CTA anchors/buttons point only to public canonical routes.
 - internal links are clickable anchors, not code-style path text.
 - if social metadata is rendered in preview, `og:image` and `twitter:image` are public-safe and do not contain `__CMS_MEDIA_LIBRARY_PLACEHOLDER__`.
+- image URLs are not fake, private, signed, local, or tokenized.
+- CDN image URLs return HTTP 200 with image content type when externally checkable.
+- body visual readiness is separate from social/cover readiness.
 - schema and hreflang remain held unless explicitly approved.
 - no generated content package zip path or local file path leaks into preview.

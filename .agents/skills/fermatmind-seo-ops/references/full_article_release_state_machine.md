@@ -33,11 +33,38 @@ Before entering `PREVIEW_QA`, `PUBLISH_REHEARSAL`, `CONTROLLED_PUBLISH`, `SITEMA
 - Failure decision: `BLOCKED_NEEDS_OPERATOR_INPUT`.
 - Resume: rerun package preflight after fix.
 
+### IMAGE_ASSET_BUNDLE_PREFLIGHT
+
+- Inputs: package preflight pass, `media/IMAGE_ASSET_MANIFEST.json`, source files, Authorization Profile.
+- Allowed actions: validate manifest, local file existence, dimensions, MIME/extension, file size, alt text, provenance, no placeholders, no competitor/private/fake assets.
+- Hard stops: missing manifest when image bundle required, missing source file, invalid MIME/SVG, animated image, image >10 MB, missing alt text, `competitor_asset=true`, unresolved placeholder in active surfaces.
+- Success decision: `IMAGE_ASSET_BUNDLE_PREFLIGHT_PASSED`.
+- Failure decision: `BLOCKED_NEEDS_OPERATOR_INPUT`.
+- Resume: fix package media files/manifest and rerun package preflight plus image preflight.
+
+### MEDIA_LIBRARY_IMAGE_IMPORT_DRY_RUN
+
+- Inputs: image preflight pass, production command `media-assets:import-seo-image-bundle`, translation group ID.
+- Allowed actions: dry-run only with `--dry-run --json`.
+- Hard stops: command unavailable, dry-run errors, duplicate recent cover blocked by policy, CDN readiness would fail, missing resolved output contract.
+- Success decision: `GO_FOR_MEDIA_LIBRARY_IMAGE_IMPORT_OR_BACKFILL`.
+- Failure decision: `NO_GO_FOR_MEDIA_LIBRARY_IMAGE_IMPORT`.
+- Resume: fix package or runtime, then rerun image importer dry-run.
+
+### MEDIA_LIBRARY_IMAGE_IMPORT_AND_BACKFILL
+
+- Inputs: dry-run pass, `allow_media_library_image_import=true`, `allow_resolved_package_write=true`, `allow_image_metadata_backfill=true`.
+- Allowed actions: import/register Media Library assets through the image importer, generate variants, verify CDN, write a resolved package copy, backfill CMS image metadata.
+- Hard stops: import writes outside Media Library/variants/resolved package, CMS article mutation, publish/index/sitemap/llms/search/revalidation/schema/hreflang side effect, CDN verification failure, unresolved body visual required by package.
+- Success decision: `GO_FOR_DRAFT_IMPORT_DRY_RUN`.
+- Failure decision: `FAILED_IMAGE_IMPORT_ROLLBACK_REVIEW_REQUIRED`.
+- Resume: verify no CMS mutation, fix image/import issue, rerun dry-run.
+
 ### DRAFT_IMPORT_DRY_RUN
 
-- Inputs: fixed package, production writer command, expected slugs.
+- Inputs: fixed package, resolved image package when required, production writer command, expected slugs.
 - Allowed actions: dry-run only.
-- Hard stops: command unavailable, preflight errors, malformed JSON, field length errors.
+- Hard stops: command unavailable, image bundle required but unresolved, missing cover/social/body visual metadata required by the package, preflight errors, malformed JSON, field length errors.
 - Success decision: `GO_FOR_DRAFT_IMPORT`.
 - Failure decision: `NO_GO_FOR_DRAFT_IMPORT`.
 - Resume: fix package or runtime, then rerun dry-run.
