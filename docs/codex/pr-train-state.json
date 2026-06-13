@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-13T15:36:54+08:00",
+  "updated_at": "2026-06-13T23:04:00+08:00",
   "status": "active",
   "phase": "result_p0_pdf_leak_hardening_02",
   "pr_namespace": "PR-PRAC-*",
@@ -23059,9 +23059,9 @@
       "id": "PERSONALITY-SEO-CURRENT-AUDIT-01",
       "repo": "fap-web",
       "branch": "codex/personality-seo-current-audit-01",
-      "status": "in_progress",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "github_checks_failed_fix_applied",
+      "commit_sha": "1f002a53ba5e30e9eae0bbb9154fc95729e42a68",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1133",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -23100,9 +23100,10 @@
           "evidence": "Focused contract passed 7 tests. pnpm test:contract -- personality-seo-current-audit-01 completed 479 files / 2740 tests. pnpm typecheck passed. NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build passed; postbuild sitemap churn was restored and left out of scope. JSON/YAML parse, git diff --check, and explicit scope validation passed for 6 allowed files."
         },
         "github": {
-          "status": "pending",
-          "head_sha": "cb01c050d84d7c9aea7713bcaa2b77d024e00f47",
-          "evidence": "Draft PR #1133 opened after local checks passed; waiting for GitHub checks."
+          "status": "failed_fix_applied",
+          "head_sha": "1f002a53ba5e30e9eae0bbb9154fc95729e42a68",
+          "failed_check": "contracts",
+          "evidence": "GitHub PR #1133 contracts failed on the merge ref because changedFiles() returned an empty list in CI. The scoped contract was updated to validate the expected allowed file set unconditionally and still validate actual changed files when diff refs are available. Focused contract, typecheck, git diff --check, scope validation, and pnpm test:contract -- personality-seo-current-audit-01 passed locally after the fix."
         }
       },
       "history": [
@@ -23120,6 +23121,16 @@
           "at": "2026-06-13T22:45:20+08:00",
           "status": "pr_open_checks_pending",
           "note": "Pushed rebased commit cb01c050 and opened draft PR #1133; GitHub checks are pending."
+        },
+        {
+          "at": "2026-06-13T22:49:00+08:00",
+          "status": "github_checks_failed_inspected",
+          "note": "GitHub PR #1133 build, CodeQL, verify-big5-contract-freeze, and verify-enneagram-contract-freeze passed; contracts failed in tests/contracts/personality-seo-current-audit-01.contract.test.ts because the CI merge checkout returned no changed files for the scope assertion."
+        },
+        {
+          "at": "2026-06-13T23:04:00+08:00",
+          "status": "github_checks_failed_fix_applied",
+          "note": "Applied an in-scope contract fix: assert the expected audit PR file allowlist directly and keep validating actual changed files when available. Local focused contract, typecheck, git diff --check, scope validation, and full contract command passed after the fix."
         }
       ]
     },

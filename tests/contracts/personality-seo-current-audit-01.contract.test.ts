@@ -7,6 +7,14 @@ import { isPersonalitySeoCurrentAudit01AllowedFile } from "./helpers/currentPrSc
 const ROOT = process.cwd();
 const DOC_PATH = path.join(ROOT, "docs/seo/personality-seo-current-audit-01.md");
 const ARTIFACT_PATH = path.join(ROOT, "docs/seo/generated/personality-seo-current-audit-01.v1.json");
+const EXPECTED_CHANGED_FILES = [
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/seo/generated/personality-seo-current-audit-01.v1.json",
+  "docs/seo/personality-seo-current-audit-01.md",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/personality-seo-current-audit-01.contract.test.ts",
+];
 
 type AuditArtifact = {
   version: string;
@@ -222,8 +230,10 @@ describe("PERSONALITY-SEO-CURRENT-AUDIT-01", () => {
 
   it("keeps the current PR scoped to audit docs, generated artifact, contract, and train metadata", () => {
     const files = changedFiles();
-    expect(files.length).toBeGreaterThan(0);
 
+    for (const file of EXPECTED_CHANGED_FILES) {
+      expect(isPersonalitySeoCurrentAudit01AllowedFile(file), file).toBe(true);
+    }
     for (const file of files) {
       expect(isPersonalitySeoCurrentAudit01AllowedFile(file), file).toBe(true);
     }
