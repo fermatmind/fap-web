@@ -23174,12 +23174,12 @@
       "id": "PERSONALITY-HUB-MEDIA-RENDER-VERIFY-01",
       "repo": "fap-web",
       "branch": "codex/personality-hub-media-render-verify-01",
-      "status": "ready_to_merge",
-      "commit_sha": "0240d7d96ced3d0bcbe61d3623c386edca3e59d2",
+      "status": "merged",
+      "commit_sha": "153610c283c3dfab1d99e6c89d629c7bff481f84",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1134",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-13T16:05:13Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "failure_reason": null,
       "checks": {
         "dependency": {
@@ -23207,16 +23207,16 @@
         },
         "github": {
           "status": "pass",
-          "head_sha": "0240d7d96ced3d0bcbe61d3623c386edca3e59d2",
+          "head_sha": "c13aaeb739cb7baffc7a777d5cd3ee1bbc584edd",
           "checks": [
             "build",
             "contracts",
             "verify-big5-contract-freeze",
             "verify-enneagram-contract-freeze",
-            "CodeQL analyze (javascript-typescript)",
+            "analyze (javascript-typescript)",
             "CodeQL"
           ],
-          "evidence": "PR #1134 GitHub checks passed at head 0240d7d9 and mergeStateStatus was CLEAN."
+          "evidence": "PR #1134 GitHub checks passed at head c13aaeb7 and mergeStateStatus was CLEAN before squash merge."
         }
       },
       "history": [
@@ -23244,6 +23244,11 @@
           "at": "2026-06-14T00:08:00+08:00",
           "status": "ready_to_merge",
           "note": "GitHub checks passed for PR #1134 at head 0240d7d9 and mergeStateStatus was CLEAN; recording ready_to_merge before merge."
+        },
+        {
+          "at": "2026-06-14T00:13:00+08:00",
+          "status": "merged",
+          "note": "PR #1134 was squash-merged as 153610c2; remote branch deletion, local branch deletion, and origin/main containment were verified."
         }
       ]
     },
