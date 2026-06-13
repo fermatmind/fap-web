@@ -36,6 +36,8 @@ export interface ScenarioMatrixCard {
 
 export interface TypeDecisionCard {
   typeCode: string;
+  baseTypeCode: string;
+  variantCode: string | null;
   slug: string;
   title: string;
   excerpt: string;

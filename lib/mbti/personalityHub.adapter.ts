@@ -1,6 +1,5 @@
 import type { AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
 import type { CmsPersonalityProfileSummary } from "@/lib/cms/personality";
-import { buildDefaultPublicPersonalitySlug } from "@/lib/cms/personality";
 import type { LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { getMbtiAdsLaunchTier } from "@/lib/mbti/adsPolicy";
@@ -18,6 +17,11 @@ import type {
 } from "@/lib/mbti/personalityHub.types";
 
 const MBTI_GROUP_ORDER = ["NT", "NF", "SJ", "SP"] as const;
+type MbtiGroupKey = (typeof MBTI_GROUP_ORDER)[number];
+
+const MBTI_BASE_TYPE_GROUP = new Map<string, MbtiGroupKey>(
+  MBTI_GROUP_ORDER.flatMap((groupKey) => MBTI_TYPE_GROUPS[groupKey].map((typeCode) => [typeCode, groupKey] as const))
+);
 
 const MBTI_GROUP_META = {
   NT: {
@@ -76,23 +80,26 @@ interface BuildPersonalityHubPayloadInput {
 
 function buildTypeDecisionCard(params: {
   locale: Locale;
-  typeCode: string;
-  personality?: CmsPersonalityProfileSummary;
-  groupKey: (typeof MBTI_GROUP_ORDER)[number];
+  personality: CmsPersonalityProfileSummary;
+  groupKey: MbtiGroupKey;
 }): TypeDecisionCard {
-  const { locale, typeCode, personality, groupKey } = params;
+  const { locale, personality, groupKey } = params;
   const groupMeta = MBTI_GROUP_META[groupKey][locale];
+  const typeCode = personality.displayType || personality.runtimeTypeCode || personality.typeCode;
+  const slug = personality.publicRouteSlug || personality.slug;
 
   return {
     typeCode,
-    slug: buildDefaultPublicPersonalitySlug(typeCode),
-    title: personality?.title || typeCode,
-    excerpt: personality?.excerpt || personality?.subtitle || groupMeta.summary,
-    imageUrl: personality?.heroImageUrl ?? null,
-    href: localizedPath(`/personality/${buildDefaultPublicPersonalitySlug(typeCode)}`, locale),
+    baseTypeCode: personality.baseTypeCode,
+    variantCode: personality.variantCode,
+    slug,
+    title: personality.title || typeCode,
+    excerpt: personality.excerpt || personality.subtitle || groupMeta.summary,
+    imageUrl: personality.heroImageUrl ?? null,
+    href: localizedPath(`/personality/${slug}`, locale),
     groupKey,
     groupTitle: groupMeta.title,
-    launchTier: getMbtiAdsLaunchTier(typeCode),
+    launchTier: getMbtiAdsLaunchTier(personality.baseTypeCode),
   };
 }
 
@@ -126,22 +133,42 @@ function buildScenarioCards(input: BuildPersonalityHubPayloadInput): ScenarioCar
 }
 
 function buildFamilyGroups(input: BuildPersonalityHubPayloadInput): PersonalityHubFamilyGroup[] {
-  const personalityByType = new Map(
-    input.personalities.map((personality) => [String(personality.typeCode ?? "").toUpperCase(), personality])
-  );
+  const variantDirectory = input.personalities
+    .filter((personality) => personality.publicRouteType === "32-type")
+    .filter((personality) => personality.runtimeTypeCode && personality.variantCode && personality.slug)
+    .filter((personality) => MBTI_BASE_TYPE_GROUP.has(personality.baseTypeCode))
+    .sort((left, right) => {
+      const leftGroup = MBTI_BASE_TYPE_GROUP.get(left.baseTypeCode) ?? "NT";
+      const rightGroup = MBTI_BASE_TYPE_GROUP.get(right.baseTypeCode) ?? "NT";
+      const groupDelta = MBTI_GROUP_ORDER.indexOf(leftGroup) - MBTI_GROUP_ORDER.indexOf(rightGroup);
+      if (groupDelta !== 0) {
+        return groupDelta;
+      }
+
+      const leftGroupOrder = (MBTI_TYPE_GROUPS[leftGroup] as readonly string[]).indexOf(left.baseTypeCode);
+      const rightGroupOrder = (MBTI_TYPE_GROUPS[rightGroup] as readonly string[]).indexOf(right.baseTypeCode);
+      if (leftGroupOrder !== rightGroupOrder) {
+        return leftGroupOrder - rightGroupOrder;
+      }
+
+      const variantRank = (variantCode: string | null) => (variantCode === "A" ? 0 : variantCode === "T" ? 1 : 9);
+
+      return variantRank(left.variantCode) - variantRank(right.variantCode);
+    });
 
   return MBTI_GROUP_ORDER.map((groupKey) => ({
     groupKey,
     title: MBTI_GROUP_META[groupKey][input.locale].title,
     summary: MBTI_GROUP_META[groupKey][input.locale].summary,
-    cards: MBTI_TYPE_GROUPS[groupKey].map((typeCode) =>
-      buildTypeDecisionCard({
-        locale: input.locale,
-        typeCode,
-        personality: personalityByType.get(typeCode),
-        groupKey,
-      })
-    ),
+    cards: variantDirectory
+      .filter((personality) => MBTI_BASE_TYPE_GROUP.get(personality.baseTypeCode) === groupKey)
+      .map((personality) =>
+        buildTypeDecisionCard({
+          locale: input.locale,
+          personality,
+          groupKey,
+        })
+      ),
   }));
 }
 
@@ -195,10 +222,10 @@ function buildCareerPreviewSeed(input: BuildPersonalityHubPayloadInput, cards: T
 function buildTypeWorkbenchSeed(input: BuildPersonalityHubPayloadInput, cards: TypeDecisionCard[]): TypeWorkbenchCard[] {
   return cards.map((card) => {
     const derivedTraitKeys = [
-      card.typeCode.startsWith("I") ? "introvert" : "extravert",
-      card.typeCode[1] === "N" ? "intuition" : "sensing",
-      card.typeCode[2] === "T" ? "thinking" : "feeling",
-      card.typeCode[3] === "J" ? "judging" : "perceiving",
+      card.baseTypeCode.startsWith("I") ? "introvert" : "extravert",
+      card.baseTypeCode[1] === "N" ? "intuition" : "sensing",
+      card.baseTypeCode[2] === "T" ? "thinking" : "feeling",
+      card.baseTypeCode[3] === "J" ? "judging" : "perceiving",
     ] as const;
 
     const derivedTraitLabels = derivedTraitKeys.map((trait) => {
@@ -233,8 +260,8 @@ function buildMethodologyBlocks(locale: Locale): MethodologyBlock[] {
       title: locale === "zh" ? "第一步：人格只负责缩小范围" : "Step 1: Use personality to narrow the field",
       body:
         locale === "zh"
-          ? "这页先用 16 型人格帮助你识别更可能顺手的决策方式、协作方式和长期消耗点，但它不直接代替职业判断。"
-          : "This page uses the 16 types to narrow likely decision styles, collaboration patterns, and long-term friction points, but it does not replace career judgment.",
+          ? "这页先用 A/T 人格变体帮助你识别更可能顺手的决策方式、协作方式和长期消耗点，但它不直接代替职业判断。"
+          : "This page uses A/T personality variants to narrow likely decision styles, collaboration patterns, and long-term friction points, but it does not replace career judgment.",
     },
     {
       key: "strain-before-fit",
@@ -261,8 +288,8 @@ function buildFaqBlocks(locale: Locale): FaqBlock[] {
       question: locale === "zh" ? "这里是测试入口还是人格目录？" : "Is this the test landing or the personality directory?",
       answer:
         locale === "zh"
-          ? "这里是 16 型人格发布中心。测试仍然从 MBTI landing 进入，这里负责浏览、比较与继续探索。"
-          : "This is the 16-type release hub. Testing still starts from the MBTI landing page, while this page is for browsing, comparing, and continuing exploration.",
+          ? "这里是 A/T 人格变体发布中心。测试仍然从 MBTI landing 进入，这里负责浏览、比较与继续探索。"
+          : "This is the A/T variant release hub. Testing still starts from the MBTI landing page, while this page is for browsing, comparing, and continuing exploration.",
     },
     {
       question:
@@ -325,8 +352,8 @@ export function buildPersonalityHubPayload(input: BuildPersonalityHubPayloadInpu
   const summaryBody =
     input.landingSurface?.summaryBlocks[0]?.body ||
     (input.locale === "zh"
-      ? "16 型人格的优势、风险、关系模式与职业方向。"
-      : "Strengths, risks, relationship patterns, and career direction across all 16 types.");
+      ? "A/T 人格变体的优势、风险、关系模式与职业方向。"
+      : "Strengths, risks, relationship patterns, and career direction across A/T variants.");
 
   return {
     hero: {
@@ -345,7 +372,7 @@ export function buildPersonalityHubPayload(input: BuildPersonalityHubPayloadInpu
       },
       discoverabilityLinks: [
         {
-          label: input.locale === "zh" ? "按类型组浏览 16 型" : "Browse all 16 by family",
+          label: input.locale === "zh" ? "按类型组浏览 A/T 变体" : "Browse A/T variants by family",
           href: `${input.canonicalPath}#mbti-family-groups`,
           kind: "tertiary",
         },

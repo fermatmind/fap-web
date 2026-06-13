@@ -4,6 +4,48 @@ import path from "node:path";
 import { PERSONALITY_HUB_TOKENS } from "@/lib/design/personalityHubTokens";
 import { buildPersonalityHubPayload } from "@/lib/mbti/personalityHub.adapter";
 
+const BASE_TYPES = [
+  "INTJ",
+  "ENTP",
+  "ENTJ",
+  "INTP",
+  "INFP",
+  "INFJ",
+  "ENFJ",
+  "ENFP",
+  "ISTJ",
+  "ISFJ",
+  "ESTJ",
+  "ESFJ",
+  "ISTP",
+  "ISFP",
+  "ESTP",
+  "ESFP",
+] as const;
+
+function buildVariantProfiles() {
+  return BASE_TYPES.flatMap((baseTypeCode) =>
+    (["A", "T"] as const).map((variantCode) => {
+      const runtimeTypeCode = `${baseTypeCode}-${variantCode}`;
+
+      return {
+        typeCode: runtimeTypeCode,
+        baseTypeCode,
+        runtimeTypeCode,
+        displayType: runtimeTypeCode,
+        variantCode,
+        slug: runtimeTypeCode.toLowerCase(),
+        publicRouteSlug: runtimeTypeCode.toLowerCase(),
+        publicRouteType: "32-type",
+        title: `${baseTypeCode} ${variantCode}`,
+        excerpt: `${runtimeTypeCode} summary.`,
+        subtitle: null,
+        heroImageUrl: `https://assets.fermatmind.com/static/personality/type-icons/${baseTypeCode.toLowerCase()}.png`,
+      };
+    })
+  ) as never[];
+}
+
 describe("personality hub contract", () => {
   it("exports the required semantic tokens", () => {
     expect(PERSONALITY_HUB_TOKENS.colors.navy).toContain("--fm-hub-navy");
@@ -12,35 +54,28 @@ describe("personality hub contract", () => {
     expect(PERSONALITY_HUB_TOKENS.sections.stickyDecisionBar.background).toContain("--fm-hub-sticky-bg");
   });
 
-  it("builds a stable hub payload with hero, scenarios, families, and 16-type inventory", () => {
+  it("builds a stable hub payload with hero, scenarios, families, and 32-variant inventory", () => {
     const payload = buildPersonalityHubPayload({
       locale: "en",
       canonicalPath: "/en/personality",
       landingSurface: null,
-      personalities: [
-        {
-          typeCode: "INTJ",
-          title: "Architect",
-          excerpt: "Strategic and long-range.",
-          subtitle: null,
-          heroImageUrl: "https://assets.fermatmind.com/static/personality/type-icons/intj.png",
-        },
-        { typeCode: "ENFJ", title: "Protagonist", excerpt: "People-first leadership.", subtitle: null },
-      ] as never[],
+      personalities: buildVariantProfiles(),
     });
 
     expect(payload.hero.title).toBe("Personality types");
     expect(payload.scenarioCards.length).toBeGreaterThan(0);
     expect(payload.scenarioMatrixSeed.length).toBeGreaterThan(0);
     expect(payload.familyGroups).toHaveLength(4);
-    expect(payload.typeDecisionCards).toHaveLength(16);
-    expect(payload.typeDecisionCards.find((card) => card.typeCode === "INTJ")?.imageUrl).toBe(
+    expect(payload.typeDecisionCards).toHaveLength(32);
+    expect(payload.typeDecisionCards.find((card) => card.typeCode === "INTJ-A")?.imageUrl).toBe(
       "https://assets.fermatmind.com/static/personality/type-icons/intj.png"
     );
-    expect(payload.typeDecisionCards.find((card) => card.typeCode === "ENTJ")?.imageUrl).toBeNull();
-    expect(payload.typeWorkbenchSeed).toHaveLength(16);
-    expect(payload.inventoryLinks).toHaveLength(16);
-    expect(new Set(payload.inventoryLinks.map((item) => item.typeCode)).size).toBe(16);
+    expect(payload.typeDecisionCards.find((card) => card.typeCode === "INTJ-A")?.baseTypeCode).toBe("INTJ");
+    expect(payload.typeDecisionCards.find((card) => card.typeCode === "INTJ-A")?.variantCode).toBe("A");
+    expect(payload.typeDecisionCards.find((card) => card.typeCode === "ENTJ-T")?.slug).toBe("entj-t");
+    expect(payload.typeWorkbenchSeed).toHaveLength(32);
+    expect(payload.inventoryLinks).toHaveLength(32);
+    expect(new Set(payload.inventoryLinks.map((item) => item.typeCode)).size).toBe(32);
     expect(payload.careerPreviewSeed.length).toBeGreaterThanOrEqual(3);
     expect(payload.methodologyBlocks).toHaveLength(3);
     expect(payload.faqBlocks.length).toBeGreaterThanOrEqual(4);
@@ -52,14 +87,14 @@ describe("personality hub contract", () => {
       locale: "zh",
       canonicalPath: "/zh/personality",
       landingSurface: null,
-      personalities: [],
+      personalities: buildVariantProfiles(),
     });
 
     expect(payload.faqItems).toBeDefined();
     expect(payload.methodologyItems).toBeDefined();
     expect(payload.jsonLdInputs).toBeDefined();
     expect(payload.jsonLdInputs?.faqItems.length).toBeGreaterThanOrEqual(4);
-    expect(payload.jsonLdInputs?.typeItemList).toHaveLength(16);
+    expect(payload.jsonLdInputs?.typeItemList).toHaveLength(32);
   });
 
   it("wires the personality page through the adapter and globals through hub css vars", () => {

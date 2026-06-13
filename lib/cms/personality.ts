@@ -29,10 +29,19 @@ type CmsPersonalityApiSeoMeta = {
 
 type CmsPersonalityApiProfile = {
   id?: number;
+  variant_id?: number;
+  profile_id?: number;
   org_id?: number;
   scale_code?: string;
   type_code?: string;
+  base_type_code?: string | null;
+  runtime_type_code?: string | null;
+  variant_code?: string | null;
+  display_type?: string | null;
+  public_route_slug?: string | null;
+  public_route_type?: string | null;
   slug?: string;
+  base_slug?: string | null;
   locale?: string;
   title?: string;
   subtitle?: string | null;
@@ -211,10 +220,19 @@ export type CmsPersonalitySection = {
 
 export type CmsPersonalityProfileSummary = {
   id: number | null;
+  variantId: number | null;
+  profileId: number | null;
   orgId: number;
   scaleCode: string;
   typeCode: string;
+  baseTypeCode: string;
+  runtimeTypeCode: string | null;
+  variantCode: string | null;
+  displayType: string;
+  publicRouteSlug: string | null;
+  publicRouteType: string | null;
   slug: string;
+  baseSlug: string | null;
   locale: string;
   title: string;
   subtitle: string;
@@ -388,6 +406,7 @@ export type GetCmsPersonalityProfilesParams = {
   locale: Locale | string;
   page?: number;
   perPage?: number;
+  includeVariants?: boolean;
 };
 
 export type GetCmsPersonalityProfilesResult = {
@@ -461,12 +480,32 @@ function normalizeSeoMeta(seoMeta: CmsPersonalityApiSeoMeta): CmsPersonalitySeoM
 }
 
 function normalizeProfileSummary(profile: CmsPersonalityApiProfile): CmsPersonalityProfileSummary {
+  const typeCode = fallbackText(profile.type_code).toUpperCase();
+  const runtimeTypeCode = fallbackText(profile.runtime_type_code, MBTI_RUNTIME_SLUG_RE.test(typeCode.toLowerCase()) ? typeCode : null).toUpperCase() || null;
+  const baseTypeCode =
+    fallbackText(
+      profile.base_type_code,
+      runtimeTypeCode?.replace(/-[AT]$/i, ""),
+      MBTI_RUNTIME_SLUG_RE.test(typeCode.toLowerCase()) ? typeCode.replace(/-[AT]$/i, "") : typeCode
+    ).toUpperCase() || typeCode;
+  const normalizedSlug = normalizePersonalitySlug(String(profile.slug ?? typeCode ?? ""));
+  const publicRouteSlug = normalizePersonalitySlug(String(profile.public_route_slug ?? normalizedSlug));
+
   return {
     id: typeof profile.id === "number" ? profile.id : null,
+    variantId: typeof profile.variant_id === "number" ? profile.variant_id : null,
+    profileId: typeof profile.profile_id === "number" ? profile.profile_id : null,
     orgId: typeof profile.org_id === "number" ? profile.org_id : 0,
     scaleCode: fallbackText(profile.scale_code) || DEFAULT_SCALE_CODE,
-    typeCode: fallbackText(profile.type_code).toUpperCase(),
-    slug: normalizePersonalitySlug(String(profile.slug ?? profile.type_code ?? "")),
+    typeCode,
+    baseTypeCode,
+    runtimeTypeCode,
+    variantCode: fallbackText(profile.variant_code).toUpperCase() || null,
+    displayType: fallbackText(profile.display_type, runtimeTypeCode, typeCode).toUpperCase(),
+    publicRouteSlug: publicRouteSlug || null,
+    publicRouteType: fallbackText(profile.public_route_type) || null,
+    slug: normalizedSlug,
+    baseSlug: normalizePersonalitySlug(String(profile.base_slug ?? baseTypeCode)) || null,
     locale: fallbackText(profile.locale) || "en",
     title: fallbackText(profile.title, profile.type_code),
     subtitle: fallbackText(profile.subtitle),
@@ -913,10 +952,19 @@ export function normalizePersonalitySeoPayload(
       "projection" in profile
         ? {
             id: null,
+            variantId: null,
+            profileId: null,
             orgId: 0,
             scaleCode: DEFAULT_SCALE_CODE,
             typeCode: profile.canonicalTypeCode,
+            baseTypeCode: profile.canonicalTypeCode,
+            runtimeTypeCode: profile.projection.runtimeTypeCode,
+            variantCode: profile.projection.variantCode,
+            displayType: profile.displayType,
+            publicRouteSlug: profile.routeSlug,
+            publicRouteType: profile.projection.meta.publicRouteType,
             slug: profile.slug,
+            baseSlug: profile.slug,
             locale: profile.locale,
             title: compatibility.title,
             subtitle: compatibility.subtitle,
@@ -972,6 +1020,7 @@ export async function listPersonalityProfiles(
     scale_code: DEFAULT_SCALE_CODE,
     page: requestedPage,
     per_page: requestedPerPage,
+    include_variants: params.includeVariants ? 1 : undefined,
   });
 
   try {
