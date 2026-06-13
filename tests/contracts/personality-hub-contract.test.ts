@@ -18,7 +18,13 @@ describe("personality hub contract", () => {
       canonicalPath: "/en/personality",
       landingSurface: null,
       personalities: [
-        { typeCode: "INTJ", title: "Architect", excerpt: "Strategic and long-range.", subtitle: null },
+        {
+          typeCode: "INTJ",
+          title: "Architect",
+          excerpt: "Strategic and long-range.",
+          subtitle: null,
+          heroImageUrl: "https://assets.fermatmind.com/static/personality/type-icons/intj.png",
+        },
         { typeCode: "ENFJ", title: "Protagonist", excerpt: "People-first leadership.", subtitle: null },
       ] as never[],
     });
@@ -28,6 +34,10 @@ describe("personality hub contract", () => {
     expect(payload.scenarioMatrixSeed.length).toBeGreaterThan(0);
     expect(payload.familyGroups).toHaveLength(4);
     expect(payload.typeDecisionCards).toHaveLength(16);
+    expect(payload.typeDecisionCards.find((card) => card.typeCode === "INTJ")?.imageUrl).toBe(
+      "https://assets.fermatmind.com/static/personality/type-icons/intj.png"
+    );
+    expect(payload.typeDecisionCards.find((card) => card.typeCode === "ENTJ")?.imageUrl).toBeNull();
     expect(payload.typeWorkbenchSeed).toHaveLength(16);
     expect(payload.inventoryLinks).toHaveLength(16);
     expect(new Set(payload.inventoryLinks.map((item) => item.typeCode)).size).toBe(16);
@@ -63,6 +73,10 @@ describe("personality hub contract", () => {
     expect(pageSource).toContain("buildPersonalityHubPayload({");
     expect(pageSource).toContain('data-testid="personality-type-group-browse"');
     expect(pageSource).toContain('data-testid="personality-type-directory"');
+    expect(pageSource).toContain('from "next/image"');
+    expect(pageSource).toContain('data-testid="personality-type-image"');
+    expect(pageSource).toContain('data-testid="personality-type-code-fallback"');
+    expect(pageSource).toContain("type.imageUrl");
     expect(pageSource).toContain('id="personality-itemlist-jsonld"');
     expect(pageSource).toContain("hubPayload.familyGroups");
     expect(pageSource).not.toContain('from "@/lib/mbti/personalityQuickLocate"');

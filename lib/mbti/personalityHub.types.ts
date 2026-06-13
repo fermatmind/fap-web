@@ -39,6 +39,7 @@ export interface TypeDecisionCard {
   slug: string;
   title: string;
   excerpt: string;
+  imageUrl: string | null;
   href: string;
   groupKey: string;
   groupTitle: string;

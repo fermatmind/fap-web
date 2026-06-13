@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { Container } from "@/components/layout/Container";
@@ -211,15 +212,31 @@ function TypeGroupBrowse({
                     aria-label={formatTypeLabel(type)}
                   >
                     <div>
-                      <div className="relative mb-8 flex h-28 items-end justify-center">
+                      <div className="relative mb-8 flex h-32 items-end justify-center">
                         <div
                           className={`absolute bottom-0 h-20 w-20 rotate-45 rounded-2xl ${tone.avatarShade} opacity-15 transition group-hover:rotate-[52deg]`}
                         />
-                        <div
-                          className={`relative grid h-24 w-24 place-items-center rounded-[1.75rem] ${tone.avatar} text-xl font-semibold shadow-sm transition group-hover:-translate-y-1`}
-                        >
-                          {type.typeCode}
-                        </div>
+                        {type.imageUrl ? (
+                          <div
+                            className="relative h-28 w-28 overflow-hidden rounded-[1.75rem] bg-white shadow-sm ring-1 ring-black/5 transition group-hover:-translate-y-1"
+                            data-testid="personality-type-image"
+                          >
+                            <Image
+                              src={type.imageUrl}
+                              alt={formatTypeLabel(type)}
+                              fill
+                              sizes="(min-width: 1280px) 7rem, 7rem"
+                              className="object-contain p-2"
+                            />
+                          </div>
+                        ) : (
+                          <div
+                            className={`relative grid h-24 w-24 place-items-center rounded-[1.75rem] ${tone.avatar} text-xl font-semibold shadow-sm transition group-hover:-translate-y-1`}
+                            data-testid="personality-type-code-fallback"
+                          >
+                            {type.typeCode}
+                          </div>
+                        )}
                         <div className={`absolute right-8 top-2 h-6 w-6 rounded-full ${tone.avatarShade} opacity-40`} />
                         <div className={`absolute left-8 top-8 h-3 w-12 rounded-full ${tone.avatarShade} opacity-30`} />
                       </div>

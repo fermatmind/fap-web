@@ -1863,6 +1863,17 @@ const FRONTEND_UI_POLISH_BATCH_02_ALLOWED_FILES = new Set([
   "tests/contracts/topics-cms.contract.test.tsx",
 ]);
 
+const PERSONALITY_HUB_IMAGE_CONSUME_01_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/personality/page.tsx",
+  "lib/cms/personality.ts",
+  "lib/mbti/personalityHub.adapter.ts",
+  "lib/mbti/personalityHub.types.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/personality-cms.contract.test.ts",
+  "tests/contracts/personality-hub-contract.test.ts",
+  "tests/contracts/personality-type-browse.contract.test.tsx",
+]);
+
 const RESULT_SMOKE_PROXY_GENERATION_HINTS_ALLOWED_FILES = new Set([
   ".github/workflows/live-result-smoke.yml",
   "app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx",
@@ -1918,6 +1929,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (isFrontendUiPolishBatch02ScopeActive()) {
     return FRONTEND_UI_POLISH_BATCH_02_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/personality-hub-image-consume-01") {
+    return PERSONALITY_HUB_IMAGE_CONSUME_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/result-smoke-proxy-generation-hints") {
