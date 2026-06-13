@@ -6,7 +6,7 @@ import {
   buildTestKpiTrackingPayload,
   resolveTestKpiFormCode,
 } from "@/lib/tracking/testKpiMetadata";
-import { isCurrentRiasecPack12AllowedFile } from "./helpers/currentPrScope";
+import { isTestKpiFrontendContract06AllowedFile } from "./helpers/currentPrScope";
 
 const ROOT = process.cwd();
 
@@ -97,7 +97,7 @@ describe("TEST-KPI-FRONTEND-CONTRACT-06 test KPI metadata contract", () => {
       "tests/contracts/take-frontend-locale-contract.contract.test.ts",
       "tests/contracts/test-kpi-frontend-contract.contract.test.ts",
     ]) {
-      expect(isCurrentRiasecPack12AllowedFile(file), file).toBe(true);
+      expect(isTestKpiFrontendContract06AllowedFile(file), file).toBe(true);
     }
   });
 });

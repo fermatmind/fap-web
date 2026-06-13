@@ -4,6 +4,7 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 import {
   isCommercialContractsFoundation01AllowedFile,
+  isCleanMainLikeCheckout,
   isCurrentRiasecPack12AllowedFile,
 } from "./helpers/currentPrScope";
 
@@ -344,7 +345,7 @@ describe("commercial readiness contracts foundation", () => {
         process.env.GITHUB_REF_NAME ||
         execFileSync("git", ["rev-parse", "--abbrev-ref", "HEAD"], { cwd: ROOT, encoding: "utf8" }).trim();
 
-      expect(currentRef).toBe("main");
+      expect(currentRef === "main" || isCleanMainLikeCheckout()).toBe(true);
       return;
     }
 

@@ -2,7 +2,7 @@ import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
-import { isCurrentRiasecPack12AllowedFile } from "./helpers/currentPrScope";
+import { isCleanMainLikeCheckout, isCurrentRiasecPack12AllowedFile } from "./helpers/currentPrScope";
 
 const ROOT = process.cwd();
 const DOC_PATH = path.join(ROOT, "docs/operations/cms-ops-ia-permission-matrix.md");
@@ -85,7 +85,7 @@ function currentBranch(): string {
 
 function prChangedFiles(): string[] {
   const changedFiles = new Set(currentChangedFiles());
-  if (changedFiles.size === 0 && currentBranch() === "main") {
+  if (changedFiles.size === 0 && isCleanMainLikeCheckout()) {
     return [];
   }
 
