@@ -23174,9 +23174,9 @@
       "id": "PERSONALITY-HUB-MEDIA-RENDER-VERIFY-01",
       "repo": "fap-web",
       "branch": "codex/personality-hub-media-render-verify-01",
-      "status": "local_checks_passed",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "pr_open_github_checks_pending",
+      "commit_sha": "efb2b94e0bbd3d0fc7b3940daec0828977b8ab2c",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1134",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -23204,6 +23204,11 @@
         "scope": {
           "status": "pass",
           "evidence": "Final scope validation passed. Changed files are app/(localized)/[locale]/personality/[type]/page.tsx, app/(localized)/[locale]/personality/page.tsx, docs/codex/pr-train-state.json, lib/cms/personality.ts, tests/contracts/helpers/currentPrScope.ts, tests/contracts/personality-cms.contract.test.ts, and tests/contracts/personality-hub-media-render-verify-01.contract.test.ts. No fap-api, sitemap, llms, public image, or editorial content files are changed."
+        },
+        "github": {
+          "status": "pending",
+          "head_sha": "efb2b94e0bbd3d0fc7b3940daec0828977b8ab2c",
+          "evidence": "PR #1134 opened after local checks and scope validation passed; waiting for GitHub checks."
         }
       },
       "history": [
@@ -23221,6 +23226,11 @@
           "at": "2026-06-13T23:58:00+08:00",
           "status": "scope_validation_passed",
           "note": "Final scope validation passed; changed files remain within the manifest allowed paths and postbuild sitemap output was restored."
+        },
+        {
+          "at": "2026-06-14T00:03:00+08:00",
+          "status": "pr_open_github_checks_pending",
+          "note": "Pushed efb2b94e and opened PR #1134; GitHub checks are pending."
         }
       ]
     },
