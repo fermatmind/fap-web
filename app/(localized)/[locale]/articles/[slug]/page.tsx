@@ -401,6 +401,14 @@ export default async function ArticleDetailPage({
           className="space-y-5 text-base text-[var(--fm-text)] [&_a]:text-[var(--fm-accent)] [&_a]:underline-offset-2 [&_a:hover]:underline [&_blockquote]:border-l-4 [&_blockquote]:border-[var(--fm-accent)] [&_blockquote]:bg-[var(--fm-surface-muted)] [&_blockquote]:px-5 [&_blockquote]:py-3 [&_blockquote]:text-[var(--fm-text)] [&_h2]:mt-10 [&_h2]:font-serif [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:leading-tight [&_h3]:mt-7 [&_h3]:font-serif [&_h3]:text-xl [&_h3]:font-semibold [&_img]:rounded-lg [&_img]:border [&_img]:border-[var(--fm-border)] [&_ol]:list-decimal [&_ol]:space-y-2 [&_ol]:pl-5 [&_p]:leading-8 [&_strong]:font-semibold [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-5"
         >
           {renderArticleBody(article, locale, canonicalPath)}
+          {article.bodyVisual?.imageUrl ? (
+            <ArticleResponsiveImage
+              src={article.bodyVisual.imageUrl}
+              alt={article.coverImageAlt ?? article.title}
+              mode="hero"
+              className="aspect-[16/9] rounded-lg border border-[var(--fm-border)]"
+            />
+          ) : null}
         </article>
 
         <aside className="space-y-5 border-t border-[var(--fm-border)] pt-5 lg:sticky lg:top-24 lg:border-t-0 lg:pt-0">

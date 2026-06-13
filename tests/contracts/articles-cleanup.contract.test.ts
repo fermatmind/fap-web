@@ -112,6 +112,8 @@ describe("articles cleanup contract", () => {
     expect(source).toContain("articleJsonLdAuthority.canRenderJsonLd");
     expect(source).toContain("articleSchemaGate.canRenderBreadcrumbJsonLd");
     expect(source).toContain("articleSchemaGate.canRenderFAQPageJsonLd");
+    expect(source).toContain("article.bodyVisual?.imageUrl");
+    expect(source).toContain("<ArticleResponsiveImage");
   });
 
   it("llms routes use cms article enumeration instead of local blog helpers", () => {
@@ -323,6 +325,74 @@ describe("articles cleanup contract", () => {
     expect(article?.contentMd).not.toContain("FM_SLOT");
     expect(article?.contentHtml).not.toContain("FM_SLOT");
     expect(article?.excerpt).not.toContain("FM_SLOT");
+  });
+
+  it("normalizes public article body visual metadata without exposing editorial package internals", async () => {
+    const fetchMock = vi.fn(async () =>
+      jsonResponse({
+        ok: true,
+        article: {
+          id: 90,
+          slug: "riasec-holland-career-interest-test-explained",
+          locale: "zh-CN",
+          title: "霍兰德职业兴趣测试是什么？RIASEC 六型如何帮助职业探索",
+          excerpt: "职业兴趣探索。",
+          content_md: "正文。",
+          status: "published",
+          is_public: true,
+          is_indexable: true,
+          published_revision_id: 90,
+          body_visual: {
+            image_url: "https://assets.fermatmind.com/articles/riasec/body_1600x900.jpg",
+            fallback_authorized: false,
+            editorial_package_v1: {
+              prompt: "internal only",
+            },
+          },
+        },
+      })
+    );
+
+    vi.stubGlobal("fetch", fetchMock);
+
+    const article = await getCmsArticle("riasec-holland-career-interest-test-explained", "zh");
+
+    expect(article?.bodyVisual).toEqual({
+      imageUrl: "https://assets.fermatmind.com/articles/riasec/body_1600x900.jpg",
+      fallbackAuthorized: false,
+    });
+    expect(JSON.stringify(article)).not.toContain("editorial_package_v1");
+    expect(JSON.stringify(article)).not.toContain("internal only");
+  });
+
+  it("rejects unsafe article body visual urls from cms detail payloads", async () => {
+    const fetchMock = vi.fn(async () =>
+      jsonResponse({
+        ok: true,
+        article: {
+          id: 91,
+          slug: "unsafe-body-visual",
+          locale: "en",
+          title: "Unsafe body visual",
+          excerpt: "Unsafe body visual.",
+          content_md: "Body.",
+          status: "published",
+          is_public: true,
+          is_indexable: true,
+          published_revision_id: 91,
+          body_visual: {
+            image_url: "javascript:alert(1)",
+            fallback_authorized: true,
+          },
+        },
+      })
+    );
+
+    vi.stubGlobal("fetch", fetchMock);
+
+    const article = await getCmsArticle("unsafe-body-visual", "en");
+
+    expect(article?.bodyVisual).toBeNull();
   });
 
   it("treats unpublished revision contract responses as unavailable instead of rendering them", async () => {
