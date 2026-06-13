@@ -1,0 +1,236 @@
+{
+  "version": "personality_seo_current_audit.v1",
+  "pr_id": "PERSONALITY-SEO-CURRENT-AUDIT-01",
+  "status": "audit_snapshot",
+  "scan_timestamp_utc": "2026-06-13T14:29:23Z",
+  "source": {
+    "site": "https://fermatmind.com",
+    "collection": "read_only_live_scan",
+    "user_agent": "Mozilla/5.0 Codex SEO audit",
+    "external_mutation_performed": false
+  },
+  "authority_boundary": {
+    "audit_only": true,
+    "runtime_behavior_changed": false,
+    "frontend_editorial_content_added": false,
+    "cms_mutation_performed": false,
+    "backend_is_personality_content_authority": true,
+    "frontend_must_not_infer_personality_content": true
+  },
+  "target_surface": {
+    "hub_urls": [
+      "https://fermatmind.com/zh/personality",
+      "https://fermatmind.com/en/personality"
+    ],
+    "detail_url_count": 64,
+    "expected_detail_locales": [
+      "zh",
+      "en"
+    ],
+    "expected_base_types": [
+      "intj",
+      "intp",
+      "entj",
+      "entp",
+      "infj",
+      "infp",
+      "enfj",
+      "enfp",
+      "istj",
+      "isfj",
+      "estj",
+      "esfj",
+      "istp",
+      "isfp",
+      "estp",
+      "esfp"
+    ],
+    "expected_variants_per_base": [
+      "a",
+      "t"
+    ]
+  },
+  "coverage_summary": {
+    "urls_scanned": 66,
+    "ok_200": 66,
+    "hub_pages": 2,
+    "detail_pages": 64,
+    "scan_errors": 0
+  },
+  "discoverability_summary": {
+    "sitemap": {
+      "status": 200,
+      "loc_count": 2283,
+      "sample_at_urls_present": true
+    },
+    "llms_txt": {
+      "status": 200,
+      "sample_at_urls_present": true
+    },
+    "llms_full_txt": {
+      "status": 200,
+      "sample_at_urls_present": true
+    }
+  },
+  "hub_summary": [
+    {
+      "url": "https://fermatmind.com/zh/personality",
+      "status": 200,
+      "title": "人格类型 | FermatMind",
+      "description": "先做 MBTI 测试，或直接浏览 32 个 A/T 人格变体内容。",
+      "h1": "32 个 A/T 人格入口",
+      "item_list_json_ld_present": true,
+      "personality_image_count": 0,
+      "image_count": 1,
+      "mentions_32": 2,
+      "mentions_16": 0
+    },
+    {
+      "url": "https://fermatmind.com/en/personality",
+      "status": 200,
+      "title": "Personality Types | FermatMind",
+      "description": "Start the MBTI test or browse the 32 A/T personality variant profiles directly.",
+      "h1": "32 A/T Personality Variants",
+      "item_list_json_ld_present": true,
+      "personality_image_count": 0,
+      "image_count": 1,
+      "mentions_32": 2,
+      "mentions_16": 0
+    }
+  ],
+  "detail_summary": {
+    "detail_pages_scanned": 64,
+    "json_ld_types_present": [
+      "AboutPage",
+      "WebPage",
+      "BreadcrumbList"
+    ],
+    "faq_page_json_ld_missing": 64,
+    "visible_faq_missing_estimate": 62,
+    "personality_image_missing": 64,
+    "at_difference_marker_missing": 0,
+    "duplicate_what_type_heading": 63,
+    "min_main_text_length": 371,
+    "max_main_text_length": 11781
+  },
+  "hard_gaps": [
+    {
+      "id": "zh_entj_t_missing_body",
+      "severity": "high",
+      "url": "https://fermatmind.com/zh/personality/entj-t",
+      "evidence": {
+        "title": "ENTJ-T 人格类型 | FermatMind",
+        "h1": "ENTJ-T 人格",
+        "main_text_length": 371,
+        "visible_heading": "内容暂未同步"
+      },
+      "recommended_pr": "PERSONALITY-DETAIL-CONTENT-COVERAGE-01",
+      "blocks": [
+        "PERSONALITY-AT-DIFFERENCE-SECTIONS-01",
+        "PERSONALITY-DETAIL-FAQ-SEO-01",
+        "PERSONALITY-SEO-TITLE-METADATA-01"
+      ]
+    }
+  ],
+  "at_similarity_findings": {
+    "method": "8_character_shingle_jaccard_after_nav_footer_script_style_removal",
+    "english_pairs_show_template_risk": true,
+    "top_similar_pairs": [
+      {
+        "locale": "en",
+        "base_type": "enfj",
+        "similarity": 0.664
+      },
+      {
+        "locale": "en",
+        "base_type": "estj",
+        "similarity": 0.659
+      },
+      {
+        "locale": "en",
+        "base_type": "istj",
+        "similarity": 0.658
+      },
+      {
+        "locale": "en",
+        "base_type": "istp",
+        "similarity": 0.657
+      },
+      {
+        "locale": "en",
+        "base_type": "estp",
+        "similarity": 0.657
+      },
+      {
+        "locale": "en",
+        "base_type": "intj",
+        "similarity": 0.655
+      }
+    ]
+  },
+  "issue_matrix": [
+    {
+      "issue_type": "missing_visible_personality_image",
+      "affected_pages": 66,
+      "severity": "high",
+      "recommended_pr": "PERSONALITY-HUB-MEDIA-RENDER-VERIFY-01"
+    },
+    {
+      "issue_type": "missing_faq_semantic_surface",
+      "affected_pages": 64,
+      "severity": "medium",
+      "recommended_pr": "PERSONALITY-DETAIL-FAQ-SEO-01",
+      "note": "FAQ must be visible user content and should not be positioned as guaranteed Google FAQ rich-result eligibility."
+    },
+    {
+      "issue_type": "duplicate_section_heading",
+      "affected_pages": 63,
+      "severity": "medium",
+      "recommended_pr": "PERSONALITY-AT-DIFFERENCE-SECTIONS-01"
+    },
+    {
+      "issue_type": "at_variant_similarity_risk",
+      "affected_pages": 32,
+      "severity": "medium",
+      "recommended_pr": "PERSONALITY-AT-DIFFERENCE-SECTIONS-01"
+    },
+    {
+      "issue_type": "metadata_template_risk",
+      "affected_pages": 66,
+      "severity": "medium",
+      "recommended_pr": "PERSONALITY-SEO-TITLE-METADATA-01"
+    },
+    {
+      "issue_type": "missing_at_comparison_long_tail_pages",
+      "affected_pages": 32,
+      "severity": "medium",
+      "recommended_pr": "PERSONALITY-COMPARISON-PAGES-01"
+    }
+  ],
+  "planned_pr_sequence": [
+    "PERSONALITY-SEO-CURRENT-AUDIT-01",
+    "PERSONALITY-DETAIL-CONTENT-COVERAGE-01",
+    "PERSONALITY-HUB-MEDIA-RENDER-VERIFY-01",
+    "PERSONALITY-AT-DIFFERENCE-SECTIONS-01",
+    "PERSONALITY-DETAIL-FAQ-SEO-01",
+    "PERSONALITY-SEO-TITLE-METADATA-01",
+    "PERSONALITY-COMPARISON-PAGES-01"
+  ],
+  "repository_rule_impact": {
+    "content_authority_changed": false,
+    "publishing_workflow_changed": false,
+    "seo_generation_changed": false,
+    "sitemap_or_llms_enumeration_changed": false,
+    "frontend_fallback_behavior_changed": false,
+    "new_content_surface_introduced": false,
+    "rules_update_required": false
+  },
+  "deferred_items": [
+    "Repair zh ENTJ-T backend content coverage in fap-api.",
+    "Render backend-provided personality media in fap-web hub and detail HTML.",
+    "Add backend-authored A/T difference sections and frontend rendering.",
+    "Add backend-authored visible FAQ and frontend semantic rendering.",
+    "Rewrite backend/API-authored or backend-derived SEO metadata.",
+    "Create backend-authoritative A/T comparison pages and frontend discoverability wiring."
+  ]
+}

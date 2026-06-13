@@ -1230,6 +1230,19 @@ export function isPrFdnSeo01ReadinessAllowedFile(file: string): boolean {
   return PR_FDN_SEO_01_READINESS_ALLOWED_FILES.has(file);
 }
 
+const PERSONALITY_SEO_CURRENT_AUDIT_01_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/seo/generated/personality-seo-current-audit-01.v1.json",
+  "docs/seo/personality-seo-current-audit-01.md",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/personality-seo-current-audit-01.contract.test.ts",
+]);
+
+export function isPersonalitySeoCurrentAudit01AllowedFile(file: string): boolean {
+  return PERSONALITY_SEO_CURRENT_AUDIT_01_ALLOWED_FILES.has(file);
+}
+
 const PR_FDN_SEO_01_IMPLEMENTATION_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/foundation/daily-giving/page.tsx",
   "app/(localized)/[locale]/foundation/daily-giving/[yearMonth]/page.tsx",
@@ -2578,6 +2591,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/pr-fdn-seo-01-readiness") {
     return PR_FDN_SEO_01_READINESS_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/personality-seo-current-audit-01") {
+    return PERSONALITY_SEO_CURRENT_AUDIT_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-fdn-seo-01-implementation") {

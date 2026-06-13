@@ -5121,6 +5121,288 @@ prs:
       github_checks_required: true
       squash: true
       auto_merge: false
+
+  - id: PERSONALITY-SEO-CURRENT-AUDIT-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/personality-seo-current-audit-01
+    base: main
+    title: "test(seo): freeze personality 64-page SEO audit"
+    depends_on: []
+    mode: execute
+    train_scope: personality_seo_authority_20260613
+    status: in_progress
+    goal: "Freeze the current 64 detail page plus 2 hub personality SEO audit covering indexability, sitemap, llms, FAQ gaps, image gaps, duplicate headings, A/T similarity, and the zh ENTJ-T missing-content gap without changing runtime behavior."
+    artifacts:
+      - docs/seo/personality-seo-current-audit-01.md
+      - docs/seo/generated/personality-seo-current-audit-01.v1.json
+      - tests/contracts/personality-seo-current-audit-01.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - docs/seo/personality-seo-current-audit-01.md
+      - docs/seo/generated/personality-seo-current-audit-01.v1.json
+      - tests/contracts/personality-seo-current-audit-01.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - backend/CMS/database mutation
+      - sitemap or llms URL-set changes
+      - runtime behavior changes
+      - frontend editorial fallback content
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/personality-seo-current-audit-01.contract.test.ts
+      - pnpm test:contract -- personality-seo-current-audit-01
+      - pnpm typecheck
+      - git diff --check
+      - JSON/YAML parse
+      - scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: PERSONALITY-DETAIL-CONTENT-COVERAGE-01
+
+  - id: PERSONALITY-DETAIL-CONTENT-COVERAGE-01
+    repo: fap-api
+    repo_path: <workspace>/fap-api
+    branch: codex/personality-detail-content-coverage-01
+    base: main
+    title: "fix(personality): restore zh ENTJ-T content coverage"
+    depends_on: [PERSONALITY-SEO-CURRENT-AUDIT-01]
+    mode: execute
+    train_scope: personality_seo_authority_20260613
+    status: planned
+    goal: "Repair backend-authored /zh/personality/entj-t content coverage so all 64 A/T detail pages have synchronized visible body content before FAQ, metadata, or comparison expansion."
+    artifacts:
+      - backend personality CMS/import/content authority files
+      - backend public API fixtures or tests
+    allowed_paths:
+      - app/**
+      - config/**
+      - database/**
+      - docs/**
+      - routes/**
+      - tests/**
+      - generated/**
+    forbidden:
+      - fap-web runtime changes
+      - frontend fallback content
+      - unrelated CMS surfaces
+      - deploy scripts unless explicitly required
+    required_local_checks:
+      - backend focused personality content coverage test
+      - backend public API smoke for /zh/personality/entj-t
+      - backend diff check
+      - scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: PERSONALITY-HUB-MEDIA-RENDER-VERIFY-01
+
+  - id: PERSONALITY-HUB-MEDIA-RENDER-VERIFY-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/personality-hub-media-render-verify-01
+    base: main
+    title: "fix(personality): render backend personality media in HTML"
+    depends_on: [PERSONALITY-DETAIL-CONTENT-COVERAGE-01]
+    mode: execute
+    train_scope: personality_seo_authority_20260613
+    status: planned
+    goal: "Consume backend-returned personality image fields in hub and detail cards so images enter HTML with alt text, dimensions, and appropriate eager/lazy loading strategy."
+    artifacts:
+      - app/(localized)/[locale]/personality/**
+      - components/personality/**
+      - lib/**
+      - tests/contracts/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - app/(localized)/[locale]/personality/**
+      - components/personality/**
+      - lib/**
+      - tests/contracts/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - frontend editorial fallback content
+      - new local public personality image assets
+      - backend/CMS mutation
+      - sitemap or llms URL-set changes unless only contract verification proves no drift
+    required_local_checks:
+      - pnpm typecheck
+      - pnpm test:contract -- personality
+      - production API build or focused render test
+      - git diff --check
+      - scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: PERSONALITY-AT-DIFFERENCE-SECTIONS-01
+
+  - id: PERSONALITY-AT-DIFFERENCE-SECTIONS-01
+    repo: fap-api
+    repo_path: <workspace>/fap-api
+    branch: codex/personality-at-difference-sections-01
+    base: main
+    title: "feat(personality): add backend-authored A/T difference sections"
+    depends_on: [PERSONALITY-HUB-MEDIA-RENDER-VERIFY-01]
+    mode: execute
+    train_scope: personality_seo_authority_20260613
+    status: planned
+    goal: "Add backend-authored A/T difference sections for each variant page so A and T detail pages have clear visible difference modules and lower template-similarity risk."
+    artifacts:
+      - backend personality content/API resources
+      - backend public API tests
+      - generated content validation artifacts when required
+    allowed_paths:
+      - app/**
+      - config/**
+      - database/**
+      - docs/**
+      - routes/**
+      - tests/**
+      - generated/**
+    forbidden:
+      - fap-web editorial content
+      - frontend inference of A/T differences
+      - unrelated personality scales
+    required_local_checks:
+      - backend focused personality section contract
+      - backend public API smoke for representative A/T pages
+      - backend diff check
+      - scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: PERSONALITY-DETAIL-FAQ-SEO-01
+
+  - id: PERSONALITY-DETAIL-FAQ-SEO-01
+    repo: fap-api-and-fap-web
+    repo_path: <workspace>
+    branch: codex/personality-detail-faq-seo-01
+    base: main
+    title: "feat(personality): add visible FAQ semantics"
+    depends_on: [PERSONALITY-AT-DIFFERENCE-SECTIONS-01]
+    mode: split_or_execute_with_backend_first
+    train_scope: personality_seo_authority_20260613
+    status: planned
+    goal: "Backend provides visible FAQ content for each A/T page and frontend renders that content plus FAQPage JSON-LD as visible semantic structure without promising Google FAQ rich-result eligibility."
+    artifacts:
+      - backend personality FAQ content/API resources
+      - fap-web personality detail renderer
+      - fap-web contracts
+      - backend public API tests
+    allowed_paths:
+      - app/**
+      - components/personality/**
+      - lib/**
+      - tests/**
+      - docs/**
+      - generated/**
+    forbidden:
+      - hidden FAQ schema stuffing
+      - frontend-authored FAQ fallback content
+      - claims of guaranteed FAQ rich-result eligibility
+      - unrelated page families
+    required_local_checks:
+      - backend FAQ API contract
+      - frontend FAQ render and JSON-LD contract
+      - pnpm typecheck
+      - pnpm test:contract -- personality
+      - scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: PERSONALITY-SEO-TITLE-METADATA-01
+
+  - id: PERSONALITY-SEO-TITLE-METADATA-01
+    repo: fap-api-and-fap-web
+    repo_path: <workspace>
+    branch: codex/personality-seo-title-metadata-01
+    base: main
+    title: "feat(personality): make metadata search-intent specific"
+    depends_on: [PERSONALITY-DETAIL-FAQ-SEO-01]
+    mode: split_or_execute_with_backend_first
+    train_scope: personality_seo_authority_20260613
+    status: planned
+    goal: "Rewrite hub and 64 detail page title/description fields around search intent for traits, careers, relationships, A/T difference, and rarity while preventing boilerplate metadata risk."
+    artifacts:
+      - backend SEO metadata fields or public API projection
+      - fap-web metadata adapter/contracts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - app/(localized)/[locale]/personality/**
+      - lib/**
+      - tests/**
+      - docs/**
+      - generated/**
+    forbidden:
+      - frontend-authored editorial metadata fallback
+      - unrelated sitemap or llms URL-set changes
+      - unrelated content pages
+    required_local_checks:
+      - backend metadata contract
+      - frontend metadata contract
+      - pnpm typecheck
+      - pnpm test:contract -- personality
+      - scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: PERSONALITY-COMPARISON-PAGES-01
+
+  - id: PERSONALITY-COMPARISON-PAGES-01
+    repo: fap-api-and-fap-web
+    repo_path: <workspace>
+    branch: codex/personality-comparison-pages-01
+    base: main
+    title: "feat(personality): add A/T comparison pages"
+    depends_on: [PERSONALITY-SEO-TITLE-METADATA-01]
+    mode: split_or_execute_with_backend_first
+    train_scope: personality_seo_authority_20260613
+    status: planned
+    goal: "Add 16 zh and 16 en A/T comparison pages such as /zh/personality/intj-a-vs-intj-t with backend-authoritative content, frontend rendering, sitemap/llms exposure, and CollectionPage/ItemList/Breadcrumb contracts."
+    artifacts:
+      - backend comparison content/API resources
+      - fap-web comparison routes/renderers
+      - sitemap and llms enumeration contracts
+      - tests/contracts/**
+    allowed_paths:
+      - app/(localized)/[locale]/personality/**
+      - lib/**
+      - tests/**
+      - docs/**
+      - generated/**
+    forbidden:
+      - frontend-authored comparison content
+      - local MDX/static content authority
+      - unrelated SEO URL expansion
+      - private route exposure
+    required_local_checks:
+      - backend comparison API contract
+      - frontend comparison render contract
+      - sitemap and llms exposure contract
+      - pnpm typecheck
+      - pnpm test:contract -- personality
+      - scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
     acceptance:
       - source_engine, consent_state, and traffic quality labels are transport fields only.
       - Existing analytics consent hard-stop remains intact.
