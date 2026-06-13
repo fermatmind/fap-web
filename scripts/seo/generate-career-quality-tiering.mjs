@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import fs from "node:fs";
 import path from "node:path";
+import { extractJsonLdTypesFromHtml } from "./lib/jsonld-types.mjs";
 
 const TASK_ID = "CAREER-QUALITY-TIERING-01";
 const SCHEMA_VERSION = "1.0";
@@ -325,25 +326,6 @@ function extractRobots(html) {
   return match ? match[1] : null;
 }
 
-function extractJsonLdTypes(html) {
-  const scripts = [...String(html || "").matchAll(/<script[^>]+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)];
-  const types = [];
-  for (const script of scripts) {
-    try {
-      const parsed = JSON.parse(script[1]);
-      const items = Array.isArray(parsed) ? parsed : [parsed];
-      for (const item of items) {
-        if (item && typeof item === "object" && item["@type"]) {
-          types.push(String(item["@type"]));
-        }
-      }
-    } catch {
-      types.push("parse_error");
-    }
-  }
-  return types;
-}
-
 function readFaqCount(detail) {
   const displayPage = readRecord(readRecord(detail.display_surface_v1).page);
   const content = readRecord(displayPage.content);
@@ -405,7 +387,7 @@ async function evaluateDetailSample({ slug, locale, row, siteUrl, apiOrigin, tim
     cjk_chars: 0,
   };
   const faqCount = detailStatus.ok ? readFaqCount(detail) : 0;
-  const htmlJsonLdTypes = extractJsonLdTypes(html);
+  const htmlJsonLdTypes = extractJsonLdTypesFromHtml(html);
   const structuredDataKeys = readArray(seoSurface.structured_data_keys).map(String);
   const reviewerStatus = readString(readRecord(detail.trust_manifest).reviewer_status) || row.reviewer_status;
   const claimPermissions = readRecord(detail.claim_permissions);
@@ -492,7 +474,7 @@ async function evaluateHub({ locale, siteUrl, sitemapPaths, timeoutMs }) {
   const url = `${siteUrl}${pathName}`;
   const htmlStatus = await fetchTextStatus(url, timeoutMs);
   const html = htmlStatus.text;
-  const jsonLdTypes = extractJsonLdTypes(html);
+  const jsonLdTypes = extractJsonLdTypesFromHtml(html);
   const riskCodes = [];
 
   if (!sitemapPaths.has(pathName)) riskCodes.push("hub_absent_from_sitemap");
