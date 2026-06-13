@@ -22982,7 +22982,7 @@
       "id": "RESULT-P0-POST-DEPLOY-SMOKE-RERUN-02",
       "repo": "fap-web",
       "branch": "codex/result-p0-post-deploy-smoke-rerun-02",
-      "status": "pr_open_checks_pending",
+      "status": "pending_external_merge",
       "commit_sha": "d788f8a6",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1125",
       "merged_at": null,
@@ -23014,8 +23014,17 @@
           "evidence": "Documentation redaction review found no raw UUID/private result URL patterns, no PDF/image/screenshot/temp/generated artifacts are staged for this PR, JSON/YAML parse passed, git diff --check passed, and explicit scope validation passed."
         },
         "github": {
-          "status": "pending",
-          "evidence": "Draft PR #1125 opened from commit d788f8a6; waiting for GitHub checks."
+          "status": "pass",
+          "head_sha": "2aa5cef3",
+          "checks": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "CodeQL",
+            "analyze (javascript-typescript)"
+          ],
+          "evidence": "GitHub checks passed for PR #1125 at head 2aa5cef3. PR6 merge_policy.auto_merge is false, so this docs-only blocked-sample report is left for external/manual merge."
         }
       },
       "history": [
@@ -23038,6 +23047,11 @@
           "at": "2026-06-13T16:01:48+08:00",
           "status": "pr_open_checks_pending",
           "note": "Pushed commit d788f8a6 and opened draft PR #1125."
+        },
+        {
+          "at": "2026-06-13T16:06:01+08:00",
+          "status": "pending_external_merge",
+          "note": "GitHub checks passed on PR #1125 at head 2aa5cef3. Auto-merge is disabled for PR6; leaving the docs-only smoke PR open for external/manual merge with final decision blocked_missing_live_result_samples."
         }
       ]
     }

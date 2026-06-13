@@ -268,7 +268,7 @@ prs:
     base: main
     depends_on: []
     mode: execute
-    status: local_checks_passed
+    status: pending_external_merge
     title: "chore(sbti): remove inactive SBTI product surface and test coverage"
     goal: "Remove the inactive SBTI frontend product surface, routes, product-code assets, tests, rollout links, and SEO/discoverability references without touching backend code or order lookup CI work."
     in_scope:
