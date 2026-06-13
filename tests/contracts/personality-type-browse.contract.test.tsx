@@ -3,6 +3,48 @@ import fs from "node:fs";
 import path from "node:path";
 import { buildPersonalityHubPayload } from "@/lib/mbti/personalityHub.adapter";
 
+const BASE_TYPES = [
+  "INTJ",
+  "ENTP",
+  "ENTJ",
+  "INTP",
+  "INFP",
+  "INFJ",
+  "ENFJ",
+  "ENFP",
+  "ISTJ",
+  "ISFJ",
+  "ESTJ",
+  "ESFJ",
+  "ISTP",
+  "ISFP",
+  "ESTP",
+  "ESFP",
+] as const;
+
+function buildVariantProfiles() {
+  return BASE_TYPES.flatMap((baseTypeCode) =>
+    (["A", "T"] as const).map((variantCode) => {
+      const runtimeTypeCode = `${baseTypeCode}-${variantCode}`;
+
+      return {
+        typeCode: runtimeTypeCode,
+        baseTypeCode,
+        runtimeTypeCode,
+        displayType: runtimeTypeCode,
+        variantCode,
+        slug: runtimeTypeCode.toLowerCase(),
+        publicRouteSlug: runtimeTypeCode.toLowerCase(),
+        publicRouteType: "32-type",
+        title: `${baseTypeCode} ${variantCode}`,
+        excerpt: `${runtimeTypeCode} summary.`,
+        subtitle: null,
+        heroImageUrl: null,
+      };
+    })
+  ) as never[];
+}
+
 function read(relativePath: string): string {
   return fs.readFileSync(path.join(process.cwd(), relativePath), "utf8");
 }
@@ -17,18 +59,20 @@ describe("personality type browse contract", () => {
       locale: "zh",
       canonicalPath: "/zh/personality",
       landingSurface: null,
-      personalities: [],
+      personalities: buildVariantProfiles(),
     });
 
     expect(payload.familyGroups.map((group) => group.groupKey)).toEqual(["NT", "NF", "SJ", "SP"]);
-    expect(payload.familyGroups.flatMap((group) => group.cards)).toHaveLength(16);
+    expect(payload.familyGroups.flatMap((group) => group.cards)).toHaveLength(32);
+    expect(payload.familyGroups[0]?.cards.map((card) => card.typeCode).slice(0, 2)).toEqual(["INTJ-A", "INTJ-T"]);
     expect(pageSource).toContain('id="type-groups"');
     expect(pageSource).toContain('data-testid="personality-type-group-browse"');
     expect(pageSource).toContain('data-testid="personality-type-directory"');
     expect(pageSource).toContain('data-testid="personality-type-image"');
     expect(pageSource).toContain('data-testid="personality-type-code-fallback"');
     expect(pageSource).toContain("formatTypeLabel(type)");
-    expect(pageSource).not.toContain("{type.typeCode} · {type.title}");
+    expect(pageSource).toContain("type.baseTypeCode.split");
+    expect(pageSource).toContain("type.variantCode");
   });
 
   it("removes theme navigation from the personality index", () => {
@@ -53,7 +97,7 @@ describe("personality type browse contract", () => {
     expect(detailSource).toContain("适合工作");
     expect(detailSource).toContain("优缺点");
     expect(detailSource).toContain("Take the test");
-    expect(detailSource).toContain("返回 16 型浏览");
+    expect(detailSource).toContain("返回 A/T 入口");
     expect(detailSource).toContain("MBTI免费测试");
     expect(detailSource).not.toContain('data-testid="mbti-personality-content-pack"');
     expect(detailSource).not.toContain("getMbtiPersonalityContent");

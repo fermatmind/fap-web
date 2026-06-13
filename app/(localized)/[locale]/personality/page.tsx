@@ -31,8 +31,8 @@ export async function generateMetadata({
     title: locale === "zh" ? "人格类型" : "Personality Types",
     description:
       locale === "zh"
-        ? "先做 MBTI 测试，或直接浏览 16 型人格内容。"
-        : "Start the MBTI test or browse the 16 personality type profiles directly.",
+        ? "先做 MBTI 测试，或直接浏览 32 个 A/T 人格变体内容。"
+        : "Start the MBTI test or browse the 32 A/T personality variant profiles directly.",
     alternatesByLocale: {
       en: "/en/personality",
       zh: "/zh/personality",
@@ -126,6 +126,7 @@ function TypeGroupBrowse({
   const getDisplayName = (type: PersonalityHubFamilyGroup["cards"][number]) =>
     formatTypeLabel(type)
       .replace(new RegExp(`^${type.typeCode}\\s*[-—–]\\s*`, "i"), "")
+      .replace(new RegExp(`^${type.baseTypeCode}\\s*[-—–]\\s*`, "i"), "")
       .trim();
   const getTone = (groupKey: string) => GROUP_TONES[groupKey] ?? GROUP_TONES.NT;
   const letterLabels = TYPE_LETTER_LABELS[locale];
@@ -136,7 +137,7 @@ function TypeGroupBrowse({
         <div className="max-w-3xl space-y-7">
           <div className="space-y-4">
             <h1 className="m-0 text-5xl font-semibold leading-[0.95] tracking-normal text-[var(--fm-text)] md:text-7xl">
-              {locale === "zh" ? "16 型人格画像" : "16 Personality Types"}
+              {locale === "zh" ? "32 个 A/T 人格入口" : "32 A/T Personality Variants"}
             </h1>
           </div>
 
@@ -206,7 +207,7 @@ function TypeGroupBrowse({
 
                 return (
                   <Link
-                    key={type.typeCode}
+                    key={type.slug}
                     href={type.href}
                     className="group grid min-h-[310px] content-between rounded-2xl bg-white/80 p-5 text-[var(--fm-text)] shadow-sm ring-1 ring-black/5 transition duration-200 hover:-translate-y-1 hover:bg-white hover:shadow-lg"
                     aria-label={formatTypeLabel(type)}
@@ -242,8 +243,11 @@ function TypeGroupBrowse({
                       </div>
 
                       <h3 className="m-0 text-2xl font-semibold leading-tight text-[var(--fm-text)]">
-                        {getDisplayName(type)}
+                        {type.typeCode}
                       </h3>
+                      <p className="m-0 mt-2 text-base font-medium leading-6 text-[var(--fm-text)]">
+                        {getDisplayName(type)}
+                      </p>
                       <p className="m-0 mt-3 line-clamp-3 text-sm leading-6 text-[var(--fm-muted)]">
                         {type.excerpt}
                       </p>
@@ -251,14 +255,19 @@ function TypeGroupBrowse({
 
                     <div className="mt-7 space-y-4">
                       <div className="flex flex-wrap gap-2">
-                        {type.typeCode.split("").map((letter) => (
+                        {type.baseTypeCode.split("").map((letter) => (
                           <span
-                            key={`${type.typeCode}-${letter}`}
+                            key={`${type.slug}-${letter}`}
                             className={`rounded-full border px-2.5 py-1 text-xs font-medium ${tone.chip}`}
                           >
                             {letterLabels[letter] ?? letter}
                           </span>
                         ))}
+                        {type.variantCode ? (
+                          <span className={`rounded-full border px-2.5 py-1 text-xs font-medium ${tone.chip}`}>
+                            {type.variantCode}
+                          </span>
+                        ) : null}
                       </div>
                       <span className={`inline-flex text-sm font-semibold ${tone.cta}`}>
                         {locale === "zh" ? "查看人格画像" : "View profile"}
@@ -283,7 +292,11 @@ export default async function PersonalityPage({
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
   const withLocale = (path: string) => localizedPath(path, locale);
-  const { items: personalities, landingSurface } = await listPersonalityProfiles({ locale }).catch(() => ({
+  const { items: personalities, landingSurface } = await listPersonalityProfiles({
+    locale,
+    includeVariants: true,
+    perPage: 100,
+  }).catch(() => ({
     items: [],
     landingSurface: null,
     pagination: {
@@ -314,8 +327,8 @@ export default async function PersonalityPage({
     title: locale === "zh" ? "人格类型" : "Personality Types",
     description:
       locale === "zh"
-        ? "先做 MBTI 测试，或直接浏览 16 型人格内容。"
-        : "Start the MBTI test or browse the 16 personality type profiles directly.",
+        ? "先做 MBTI 测试，或直接浏览 32 个 A/T 人格变体内容。"
+        : "Start the MBTI test or browse the 32 A/T personality variant profiles directly.",
     locale,
   });
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
@@ -326,11 +339,11 @@ export default async function PersonalityPage({
     typeItemList.length
       ? buildItemListJsonLd({
           path: canonicalPath,
-          title: locale === "zh" ? "16 型人格目录" : "16 personality type inventory",
+          title: locale === "zh" ? "32 个 A/T 人格入口目录" : "32 A/T personality variant inventory",
           description:
             locale === "zh"
-              ? "16 型人格内容页目录。"
-              : "Published 16 personality profile directory.",
+              ? "32 个 A/T 人格变体内容页目录。"
+              : "Published 32 A/T personality variant profile directory.",
           locale,
           idSuffix: "personality-inventory",
           items: typeItemList.map((item) => ({

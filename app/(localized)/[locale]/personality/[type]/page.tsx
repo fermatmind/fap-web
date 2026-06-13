@@ -24,7 +24,6 @@ import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { DEFAULT_MBTI_FORM_CODE } from "@/lib/mbti/forms";
 import {
-  MBTI_ENTRY_TEST_SLUG,
   buildMbtiEntryHref,
   buildMbtiEntryTrackingPayload,
 } from "@/lib/mbti/entryTracking";
@@ -148,8 +147,8 @@ function buildFallbackProjection(type: string, locale: Locale): PersonalityProje
   const displayType = type.toUpperCase();
   const summary =
     locale === "zh"
-      ? `${displayType} 人格内容暂时不可用。你仍然可以从这里返回 16 型浏览，或重新做一次 MBTI 测试确认自己的类型。`
-      : `${displayType} content is temporarily unavailable. You can still return to the 16-type browser or retake the MBTI test to confirm your type.`;
+      ? `${displayType} 人格内容暂时不可用。你仍然可以从这里返回 A/T 人格入口，或重新做一次 MBTI 测试确认自己的类型。`
+      : `${displayType} content is temporarily unavailable. You can still return to the A/T variant browser or retake the MBTI test to confirm your type.`;
 
   return {
     runtimeTypeCode: displayType,
@@ -207,8 +206,8 @@ function buildFallbackPersonalityDetail(type: string, locale: Locale): Personali
   const subtitle = locale === "zh" ? "人格类型内容" : "Personality type content";
   const summary =
     locale === "zh"
-      ? `${displayType} 的详细内容暂时不可用。你可以先返回 16 型人格浏览，或重新做一次 MBTI 测试确认自己的类型。`
-      : `${displayType} detail content is temporarily unavailable. You can return to the 16-type browser or retake the MBTI test to confirm your type.`;
+      ? `${displayType} 的详细内容暂时不可用。你可以先返回 A/T 人格入口，或重新做一次 MBTI 测试确认自己的类型。`
+      : `${displayType} detail content is temporarily unavailable. You can return to the A/T variant browser or retake the MBTI test to confirm your type.`;
 
   return {
     slug: routeSlug,
@@ -504,7 +503,7 @@ export default async function PersonalityDetailPage({
               </Link>
             ) : null}
             <Link href={personalityBrowseHref} className={buttonVariants({ variant: "outline", size: "sm" })}>
-              {locale === "zh" ? "返回 16 型浏览" : "Back to 16 types"}
+              {locale === "zh" ? "返回 A/T 入口" : "Back to A/T variants"}
             </Link>
             <TrackedEntryCtaLink
               href={mbtiPrimaryCtaHref}
@@ -588,8 +587,8 @@ export default async function PersonalityDetailPage({
             <CardContent className="text-sm text-[var(--fm-text-muted)]">
               <p className="m-0">
                 {locale === "zh"
-                  ? "当前语言下还没有可展示的正文内容，你可以先返回 16 型浏览，或通过 MBTI免费测试确认自己的类型。"
-                  : "No body content is available for this locale yet. You can return to the 16-type browser or use the Free MBTI test to confirm your type."}
+                  ? "当前语言下还没有可展示的正文内容，你可以先返回 A/T 人格入口，或通过 MBTI免费测试确认自己的类型。"
+                  : "No body content is available for this locale yet. You can return to the A/T variant browser or use the Free MBTI test to confirm your type."}
               </p>
             </CardContent>
           </Card>

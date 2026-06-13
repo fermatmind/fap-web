@@ -25,10 +25,19 @@ function jsonResponse(payload: unknown, status = 200): Response {
 
 const BASE_PROFILE: CmsPersonalityProfile = {
   id: 1,
+  variantId: null,
+  profileId: null,
   orgId: 0,
   scaleCode: "MBTI",
   typeCode: "INTJ",
+  baseTypeCode: "INTJ",
+  runtimeTypeCode: null,
+  variantCode: null,
+  displayType: "INTJ",
+  publicRouteSlug: null,
+  publicRouteType: null,
   slug: "intj",
+  baseSlug: "intj",
   locale: "en",
   title: "INTJ - Architect",
   subtitle: "Independent, strategic, and future-oriented.",
@@ -85,6 +94,7 @@ describe("personality cms adapter contract", () => {
       expect(url).toContain("locale=zh-CN");
       expect(url).toContain("org_id=0");
       expect(url).toContain("scale_code=MBTI");
+      expect(url).not.toContain("include_variants");
 
       return jsonResponse({
         ok: true,
@@ -127,8 +137,73 @@ describe("personality cms adapter contract", () => {
     expect(result.items).toHaveLength(1);
     expect(result.items[0]?.locale).toBe("zh-CN");
     expect(result.items[0]?.slug).toBe("intj");
+    expect(result.items[0]?.typeCode).toBe("INTJ");
+    expect(result.items[0]?.baseTypeCode).toBe("INTJ");
+    expect(result.items[0]?.runtimeTypeCode).toBeNull();
     expect(result.items[0]?.heroImageUrl).toBe("https://assets.fermatmind.com/static/personality/type-icons/intj.png");
     expect(result.pagination.total).toBe(1);
+  });
+
+  it("requests and normalizes the backend-authored variant directory when explicitly requested", async () => {
+    const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input);
+
+      expect(url).toContain("/api/v0.5/personality?");
+      expect(url).toContain("locale=en");
+      expect(url).toContain("include_variants=1");
+      expect(url).toContain("per_page=100");
+
+      return jsonResponse({
+        ok: true,
+        items: [
+          {
+            id: 101,
+            variant_id: 101,
+            profile_id: 1,
+            org_id: 0,
+            scale_code: "MBTI",
+            type_code: "INTJ-A",
+            base_type_code: "INTJ",
+            runtime_type_code: "INTJ-A",
+            variant_code: "A",
+            display_type: "INTJ-A",
+            slug: "intj-a",
+            base_slug: "intj",
+            public_route_slug: "intj-a",
+            public_route_type: "32-type",
+            locale: "en",
+            title: "INTJ - Architect",
+            subtitle: "Independent, strategic, and future-oriented.",
+            excerpt: "INTJ-A summary",
+            hero_image_url: "https://assets.fermatmind.com/static/personality/type-icons/intj.png",
+            status: "published",
+            is_public: true,
+            is_indexable: true,
+          },
+        ],
+        pagination: {
+          current_page: 1,
+          per_page: 100,
+          total: 32,
+          last_page: 1,
+        },
+      });
+    });
+
+    vi.stubGlobal("fetch", fetchMock);
+
+    const result = await listPersonalityProfiles({ locale: "en", includeVariants: true, perPage: 100 });
+
+    expect(result.items).toHaveLength(1);
+    expect(result.items[0]?.typeCode).toBe("INTJ-A");
+    expect(result.items[0]?.baseTypeCode).toBe("INTJ");
+    expect(result.items[0]?.runtimeTypeCode).toBe("INTJ-A");
+    expect(result.items[0]?.variantCode).toBe("A");
+    expect(result.items[0]?.slug).toBe("intj-a");
+    expect(result.items[0]?.publicRouteSlug).toBe("intj-a");
+    expect(result.items[0]?.publicRouteType).toBe("32-type");
+    expect(result.items[0]?.heroImageUrl).toBe("https://assets.fermatmind.com/static/personality/type-icons/intj.png");
+    expect(result.pagination.total).toBe(32);
   });
 
   it("drops non-managed personality list media URLs before hub consumption", async () => {
