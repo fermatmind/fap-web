@@ -213,7 +213,7 @@ prs:
     base: main
     depends_on: [PR-PRAC-03]
     mode: execute
-    status: planned
+    status: ready_to_merge
     title: "test(runtime): add public claim runtime boundary matrix"
     artifacts:
       - docs/claims/public-claim-boundary-matrix.md
@@ -8723,7 +8723,7 @@ prs:
     mode: execute
     train_scope: global_ui_consent_hydration
     risk_level: scoped_ui_hydration_fix
-    status: in_progress
+    status: merged
     title: "fix(consent): make cookie banner hydration-safe"
     goal: "Prevent the cookie consent banner from rendering a clickable accept/decline surface before client hydration has read browser consent state, so early clicks cannot be dropped."
     in_scope:
@@ -11314,7 +11314,7 @@ prs:
       - CAREER-DETAIL-P95-LATENCY-SCAN-01
     mode: execute
     train_scope: career_10k_scale_architecture
-    status: planned
+    status: in_progress
     title: "CAREER-DETAIL-CACHE-BUDGET-REPAIR-01 career detail cache budget repair"
     goal: "Repair career detail fetch/cache/render budget while preserving backend authority, noindex safety, and held slug exclusion."
     in_scope:

@@ -35,6 +35,14 @@ const INTERNAL_DEBUG_PATTERNS = [
   /\bBig Five Report Engine v\d+(?:\s+registry)?\b/gi,
   /\bReport Engine v\d+\b/gi,
   /\bPR(?:1|2|3A|3B)\b/g,
+  /\bfacet glossary\b/gi,
+  /\bprecision anomaly rules\b/gi,
+  /\bsentence-level modifier\b/gi,
+  /\bscenario action rule\b/gi,
+  /\bN-only\b/gi,
+  /\bpayload\b/gi,
+  /\bregistry\b/gi,
+  /\bproduction\s+(?:已接入|接入)/gi,
 ];
 
 function stripInternalDebugText(value: unknown): string {

@@ -162,8 +162,8 @@ describe("big5 section renderer contract", () => {
             {
               kind: "metric_card",
               title: "AttemptReadController PR3A",
-              body: "Keep this user-facing sentence. AttemptReadController Big Five Report Engine v2 registry PR2 PR1",
-              tags: ["PR3B", "stable summary"],
+              body: "Keep this user-facing sentence. AttemptReadController Big Five Report Engine v2 registry PR2 PR1 payload facet glossary precision anomaly rules sentence-level modifier scenario action rule N-only production 已接入 production 接入",
+              tags: ["PR3B", "stable summary", "payload", "facet glossary"],
             },
           ],
         }}
@@ -182,6 +182,14 @@ describe("big5 section renderer contract", () => {
     expect(html).not.toContain("PR3A");
     expect(html).not.toContain("PR2");
     expect(html).not.toContain("PR1");
+    expect(html).not.toContain("payload");
+    expect(html).not.toContain("facet glossary");
+    expect(html).not.toContain("precision anomaly rules");
+    expect(html).not.toContain("sentence-level modifier");
+    expect(html).not.toContain("scenario action rule");
+    expect(html).not.toContain("N-only");
+    expect(html).not.toContain("production 已接入");
+    expect(html).not.toContain("production 接入");
     expect(html).toContain("Keep this user-facing sentence.");
     expect(html).toContain("stable summary");
   });
