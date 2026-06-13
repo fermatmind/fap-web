@@ -34,12 +34,11 @@ import {
   extractTargetTestSlugFromHref,
 } from "@/lib/tracking/seoCtaAttribution";
 import { resolveArticleHreflangGate, resolveArticleJsonLdAuthority, resolveArticleSchemaGate } from "@/lib/seo/articlePersonalityAuthority";
+import { ARTICLE_AUTHOR_NAME, normalizeArticleJsonLdAuthorityPayload } from "@/lib/seo/articleJsonLdAuthority";
 import { buildI18nSeoPassport } from "@/lib/seo/i18nPassport";
 import { buildPageMetadata, normalizeTwitterImages, resolveTwitterCard } from "@/lib/seo/metadata";
 
 export const dynamic = "force-dynamic";
-
-const ARTICLE_AUTHOR_NAME = "Fermat Institute";
 
 type ArticleMetadataImage = {
   url: string;
@@ -71,20 +70,6 @@ function formatArticleDate(value: string | null, locale: Locale): string | null 
     month: "short",
     day: "numeric",
   }).format(date);
-}
-
-function normalizeArticleJsonLdAuthor(data: unknown): unknown | null {
-  if (!data || typeof data !== "object" || Array.isArray(data)) {
-    return null;
-  }
-
-  return {
-    ...data,
-    author: {
-      "@type": "Organization",
-      name: ARTICLE_AUTHOR_NAME,
-    },
-  };
 }
 
 function buildCanonicalPath(slug: string, locale: Locale): string {
@@ -267,7 +252,7 @@ export default async function ArticleDetailPage({
 
   const canonicalPath = buildCanonicalPath(article.slug, locale);
   const noindex = !article.isIndexable || shouldNoindex(seo?.meta.robots);
-  const cmsArticleSeoJsonLd = normalizeArticleJsonLdAuthor(seo?.jsonld);
+  const cmsArticleSeoJsonLd = normalizeArticleJsonLdAuthorityPayload(seo?.jsonld);
   const articleJsonLdAuthority = resolveArticleJsonLdAuthority({
     cmsArticleSeoJsonLd,
     article,

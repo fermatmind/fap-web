@@ -302,6 +302,12 @@ describe("article answer surface rendering", () => {
           article_schema_gate_v1: {
             enabled: true,
           },
+          breadcrumb_schema_gate_v1: {
+            enabled: true,
+          },
+          faq_schema_gate_v1: {
+            enabled: true,
+          },
         },
       },
     };
@@ -315,6 +321,34 @@ describe("article answer surface rendering", () => {
     expect(html).toContain('"@type":"FAQPage"');
     expect(html).toContain('"name":"When should I use the article FAQ?"');
     expect(html).toContain('"text":"Use it when you need the shortest answer before the full guide."');
+  });
+
+  it("emits Article and Breadcrumb JSON-LD without FAQPage when granular gates hold FAQ schema", async () => {
+    const article = {
+      ...makeArticle(),
+      slug: "choose-career-using-personality-tests",
+      seoMeta: {
+        schema_json: {
+          article_schema_gate_v1: {
+            enabled: true,
+          },
+          breadcrumb_schema_gate_v1: {
+            enabled: true,
+          },
+          faq_schema_gate_v1: {
+            enabled: false,
+          },
+        },
+      },
+    };
+    const html = await renderArticleDetail(article);
+
+    expect(html).toContain('id="article-jsonld-choose-career-using-personality-tests"');
+    expect(html).toContain('"@type":"Article"');
+    expect(html).toContain('id="article-breadcrumb-choose-career-using-personality-tests"');
+    expect(html).toContain('"@type":"BreadcrumbList"');
+    expect(html).not.toContain('id="article-faq-choose-career-using-personality-tests"');
+    expect(html).not.toContain('"@type":"FAQPage"');
   });
 
   it("does not emit FAQPage JSON-LD when no visible answer-surface FAQ exists", async () => {

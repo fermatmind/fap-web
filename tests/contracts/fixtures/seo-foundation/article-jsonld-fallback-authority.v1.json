@@ -37,7 +37,7 @@
       "temporaryAllowance": "Compatibility only behind explicit schema gate or legacy allowlist; do not treat fallback as final authority.",
       "requiredTokens": [
         "resolveArticleSchemaGate",
-        "normalizeArticleJsonLdAuthor(seo?.jsonld)",
+        "normalizeArticleJsonLdAuthorityPayload(seo?.jsonld)",
         "buildArticleJsonLd({",
         "article.title",
         "article.excerpt",

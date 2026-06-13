@@ -7,6 +7,7 @@ import {
   resolveArticleSchemaGate,
   resolvePersonalityFallbackProjectionGate,
 } from "@/lib/seo/articlePersonalityAuthority";
+import { normalizeArticleJsonLdAuthorityPayload } from "@/lib/seo/articleJsonLdAuthority";
 
 const ROOT = process.cwd();
 const ARTIFACT_PATH = path.join(ROOT, "docs/seo/generated/article-personality-jsonld-projection-gates.v1.json");
@@ -132,12 +133,39 @@ describe("Article / Personality JSON-LD and projection gates", () => {
       cmsArticleSeoJsonLd: { "@type": "Article" },
       article: { slug: "why-mbti-and-holland-code-results-dont-match", seoMeta: null },
     });
-    const explicitCmsGate = resolveArticleSchemaGate({
+    const explicitCmsArticleOnlyGate = resolveArticleSchemaGate({
       noindex: false,
       cmsArticleSeoJsonLd: null,
       article: {
         slug: "future-schema-approved-article",
         seoMeta: { schema_json: { article_schema_gate_v1: { enabled: true } } },
+      },
+    });
+    const explicitCmsGranularGate = resolveArticleSchemaGate({
+      noindex: false,
+      cmsArticleSeoJsonLd: { "@type": "Article" },
+      article: {
+        slug: "career-confusion-test-map",
+        seoMeta: {
+          schema_json: {
+            article_schema_gate_v1: { enabled: true },
+            breadcrumb_schema_gate_v1: { enabled: true },
+            faq_schema_gate_v1: { enabled: false },
+          },
+        },
+      },
+    });
+    const explicitCmsFaqOverrideGate = resolveArticleSchemaGate({
+      noindex: false,
+      cmsArticleSeoJsonLd: { "@type": "Article" },
+      article: {
+        slug: "choose-career-using-personality-tests",
+        seoMeta: {
+          schema_json: {
+            schema_gate_v1: { enabled: true },
+            faq_schema_gate_v1: { enabled: false },
+          },
+        },
       },
     });
     const legacyCompatibilityGate = resolveArticleSchemaGate({
@@ -158,11 +186,23 @@ describe("Article / Personality JSON-LD and projection gates", () => {
       canRenderBreadcrumbJsonLd: false,
       canRenderFAQPageJsonLd: false,
     });
-    expect(explicitCmsGate).toMatchObject({
+    expect(explicitCmsArticleOnlyGate).toMatchObject({
+      source: "explicit_cms_schema_gate",
+      canRenderArticleJsonLd: true,
+      canRenderBreadcrumbJsonLd: false,
+      canRenderFAQPageJsonLd: false,
+    });
+    expect(explicitCmsGranularGate).toMatchObject({
       source: "explicit_cms_schema_gate",
       canRenderArticleJsonLd: true,
       canRenderBreadcrumbJsonLd: true,
-      canRenderFAQPageJsonLd: true,
+      canRenderFAQPageJsonLd: false,
+    });
+    expect(explicitCmsFaqOverrideGate).toMatchObject({
+      source: "explicit_cms_schema_gate",
+      canRenderArticleJsonLd: true,
+      canRenderBreadcrumbJsonLd: true,
+      canRenderFAQPageJsonLd: false,
     });
     expect(legacyCompatibilityGate).toMatchObject({
       source: "legacy_schema_compatibility_allowlist",
@@ -170,6 +210,30 @@ describe("Article / Personality JSON-LD and projection gates", () => {
       canRenderBreadcrumbJsonLd: true,
       canRenderFAQPageJsonLd: true,
     });
+  });
+
+  it("fills missing publisher on API-backed Article JSON-LD without enabling FAQ schema", () => {
+    const normalized = normalizeArticleJsonLdAuthorityPayload({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      url: "https://fermatmind.com/en/articles/choose-career-using-personality-tests",
+      headline: "I Don’t Know What Career Is Right for Me",
+      author: {
+        "@type": "Person",
+        name: "Backend Author",
+      },
+    }) as Record<string, unknown>;
+
+    expect(normalized.author).toMatchObject({
+      "@type": "Organization",
+      name: "Fermat Institute",
+    });
+    expect(normalized.publisher).toMatchObject({
+      "@type": "Organization",
+      name: "FermatMind",
+      url: "https://fermatmind.com",
+    });
+    expect(JSON.stringify(normalized)).not.toContain("FAQPage");
   });
 
   it("decouples article hreflang output from indexability until an explicit hreflang gate allows it", () => {
