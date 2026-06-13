@@ -17,6 +17,14 @@ Record:
 - CTR.
 - average position.
 - visible queries.
+- GSC indexed / not indexed / requested state.
+- Search Channel Queue item states.
+- IndexNow provider response summary.
+- Baidu provider response summary.
+- schema JSON-LD types.
+- FAQ schema count.
+- hreflang tags.
+- x-default target.
 - `article_to_test_click`.
 - `start_test`.
 - `complete_test`.

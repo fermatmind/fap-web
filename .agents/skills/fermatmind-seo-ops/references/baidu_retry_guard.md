@@ -22,11 +22,20 @@ Use this workflow before any Baidu push retry after a failed or ambiguous Baidu 
 | Platform status | Verification, filing/ICP, API submit availability, quota, and abnormal site state checked if accessible. |
 | Prior `site init fail` | Treat as provider/platform blocker, not a normal retryable transport error. |
 
+## Provider error handling
+
+- `site init fail` maps to `platform_action_required`.
+- Do not auto retry `platform_action_required`.
+- Confirm site, endpoint, and token state without printing token.
+- Redact provider response before placing it in generated reports or PR notes.
+- If retry becomes allowed after platform resolution, run dry-run first and use the bounded approved queue executor for live push.
+
 ## Decisions
 
 - `GO_FOR_BAIDU_DRY_RUN_REQUEUE_ONLY`.
 - `GO_FOR_EXACT_BAIDU_LIVE_APPROVAL_TEXT`.
 - `NO_GO_RETRY_UNTIL_PLATFORM_RESOLUTION`.
+- `BAIDU_PLATFORM_ACTION_REQUIRED`.
 - `ACCESS_REQUIRED`.
 
 ## Stop conditions

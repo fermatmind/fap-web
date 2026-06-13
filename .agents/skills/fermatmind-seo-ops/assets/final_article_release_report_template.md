@@ -24,6 +24,25 @@ translation_group_id: `<translation-group-id>`
 | GSC |  |  |  |
 | Baidu |  |  |  |
 
+## Schema And Hreflang
+
+| Surface | State | Evidence | Notes |
+| --- | --- | --- | --- |
+| Article schema |  |  |  |
+| Breadcrumb schema |  |  |  |
+| FAQ schema |  |  |  |
+| hreflang en |  |  |  |
+| hreflang zh-CN |  |  |  |
+| x-default |  |  |  |
+
+## Search Submission Detail
+
+| Channel | Queue item IDs | Approval state | Provider response | Live submitted | Notes |
+| --- | --- | --- | --- | --- | --- |
+| IndexNow |  |  | redacted |  |  |
+| Baidu |  |  | redacted |  |  |
+| GSC Request Indexing | n/a | exact manual gate | n/a |  |  |
+
 ## Holds
 
 - schema:
@@ -35,6 +54,13 @@ translation_group_id: `<translation-group-id>`
 ## Remaining Tasks
 
 -
+
+## Final Reconciliation
+
+- reconciliation_status: `FINAL_RECONCILED` / `FINAL_SUMMARY_STALE_NEEDS_UPDATE`
+- reconciled_at:
+- stale_fields:
+- corrected_current_truth:
 
 ## D1/D7/D14 Observation Plan
 

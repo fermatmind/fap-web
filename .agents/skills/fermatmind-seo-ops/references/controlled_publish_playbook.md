@@ -7,6 +7,7 @@ Controlled publish is allowed only after:
 - authenticated preview QA passed.
 - publish metadata gate passed.
 - publish rehearsal passed.
+- Article Identity Lock passed for the exact article IDs, revision IDs, translation group ID, locale, slug, and canonical URLs.
 - Authorization Profile has `allow_publish_after_rehearsal=true`.
 
 ## Standard Command
@@ -25,6 +26,7 @@ Always dry-run first.
 - Hreflang never auto-enables unless separately authorized.
 - Sitemap and llms remain independent gates after post-publish smoke.
 - Only publish exact article IDs that passed rehearsal.
+- Stop on article ID, revision ID, translation group, slug, or canonical mismatch.
 
 ## Success Evidence
 
