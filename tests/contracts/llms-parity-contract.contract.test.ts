@@ -261,6 +261,8 @@ function mockLlmsDependencies() {
       },
     ]),
   }));
+
+  return { articleEnumerationCalls };
 }
 
 afterEach(() => {
@@ -303,22 +305,18 @@ describe("llms parity governance", () => {
   });
 
   it("includes eligible CMS articles beyond the first article list page in both llms surfaces", async () => {
-    mockLlmsDependencies();
+    const { articleEnumerationCalls } = mockLlmsDependencies();
 
-    const [{ GET: getLlms }, { buildLlmsFullText }, articlesModule] = await Promise.all([
+    const [{ GET: getLlms }, { buildLlmsFullText }] = await Promise.all([
       import("@/app/llms.txt/route"),
       import("@/app/llms-full.txt/route"),
-      import("@/lib/cms/articles"),
     ]);
     const [llmsText, llmsFullText] = await Promise.all([
       getLlms().then((response) => response.text()),
       buildLlmsFullText(SITE_URL),
     ]);
-    const articleCalls = (
-      articlesModule as unknown as { __articleEnumerationCalls: Array<{ locale: "en" | "zh"; maxPages?: number }> }
-    ).__articleEnumerationCalls;
 
-    const zhArticleCalls = articleCalls.filter((call) => call.locale === "zh");
+    const zhArticleCalls = articleEnumerationCalls.filter((call) => call.locale === "zh");
     expect(zhArticleCalls.length).toBeGreaterThan(0);
     expect(zhArticleCalls.every((call) => (call.maxPages ?? 0) > 1)).toBe(true);
     expect(llmsText).toContain(`${SITE_URL}/zh/articles/big-five-tool-guide`);
