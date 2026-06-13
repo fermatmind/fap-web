@@ -64,4 +64,16 @@ describe("private result leak regression contracts", () => {
     expect(globals).toContain("display: none !important");
     expect(globals).not.toMatch(/@media print\s*\{[\s\S]*?(?:header|footer)\s*\{\s*display:\s*none\s*!important/);
   });
+
+  it("keeps private result print URL redaction wired without exposing attempt ids", () => {
+    const resultClient = read("app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx");
+    const redaction = read("lib/result/privatePrintUrlRedaction.ts");
+
+    expect(resultClient).toContain("installPrivateResultPrintUrlRedaction(locale)");
+    expect(redaction).toContain("beforeprint");
+    expect(redaction).toContain("afterprint");
+    expect(redaction).toContain("window.history.replaceState(window.history.state, \"\", redactedPath)");
+    expect(redaction).toContain("PRIVATE_RESULT_PRINT_TITLE");
+    expect(redaction).not.toMatch(/attemptId|access_token|result_access_token|privateUrl|private_url/);
+  });
 });

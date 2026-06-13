@@ -55,6 +55,7 @@ import { buildDefaultPublicPersonalitySlug } from "@/lib/cms/personality";
 import { classifyApiError } from "@/lib/observability/httpError";
 import { logInfo, logWarn } from "@/lib/observability/logger";
 import { captureError } from "@/lib/observability/sentry";
+import { installPrivateResultPrintUrlRedaction } from "@/lib/result/privatePrintUrlRedaction";
 import type { ScaleRolloutEnvSnapshot } from "@/lib/rollout/scaleRollout";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import { assembleRiasecResultViewModel, hasRiasecProjection } from "@/lib/riasec/resultAssembler";
@@ -575,6 +576,8 @@ export default function ResultClient({
   const routeScaleCodeRef = useRef("UNKNOWN");
   const inviteProgressSnapshotRef = useRef<InviteProgressSnapshot | null>(null);
   const mbtiBootstrapPhaseTrackedRef = useRef(false);
+
+  useEffect(() => installPrivateResultPrintUrlRedaction(locale), [locale]);
 
   useEffect(() => {
     const authToken = getFmToken();

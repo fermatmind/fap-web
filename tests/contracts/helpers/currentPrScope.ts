@@ -604,6 +604,16 @@ const RESULT_LEAK_CONTRACT_TESTS_01_ALLOWED_FILES = new Set([
   "tests/contracts/result-private-leak-regressions.contract.test.ts",
 ]);
 
+const RESULT_PRINT_PRIVATE_URL_REDACTION_02_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "lib/result/privatePrintUrlRedaction.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/result-private-leak-regressions.contract.test.ts",
+  "tests/contracts/result-print-url-redaction.contract.test.ts",
+]);
+
 const PR_WEB_SEC_23_ALLOWED_FILES = new Set([
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -2400,6 +2410,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/seo-cms-canary-web-01-article-to-test-tracking") {
     return SEO_CMS_CANARY_WEB_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/result-print-private-url-redaction-02") {
+    return RESULT_PRINT_PRIVATE_URL_REDACTION_02_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-audit-fe-01-lint-ci-baseline") {

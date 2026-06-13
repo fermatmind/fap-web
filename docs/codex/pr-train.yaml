@@ -14191,3 +14191,260 @@ prs:
       github_checks_required: true
       squash: true
       auto_merge: true
+
+  - id: RESULT-PRINT-PRIVATE-URL-REDACTION-02
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/result-print-private-url-redaction-02
+    base: main
+    title: "fix(result): redact private result URLs during browser print"
+    depends_on: []
+    mode: execute
+    train_scope: result_p0_pdf_leak_hardening_02
+    status: in_progress
+    goal: "Prevent browser-generated print headers and footers from exposing raw private result URLs by temporarily replacing the address bar path and title during print."
+    artifacts:
+      - app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx
+      - lib/result/privatePrintUrlRedaction.ts
+      - tests/contracts/result-print-url-redaction.contract.test.ts
+      - tests/contracts/result-private-leak-regressions.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx
+      - lib/result/privatePrintUrlRedaction.ts
+      - tests/contracts/result-print-url-redaction.contract.test.ts
+      - tests/contracts/result-private-leak-regressions.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - CMS data changes
+      - backend data or database changes
+      - deployment config changes
+      - sitemap/robots/llms/schema/canonical/public SEO route changes
+      - payment flow changes
+      - quiz scoring or result algorithm changes
+      - uploaded/generated PDFs, screenshots, temp files, raw UUIDs, or raw private result URLs
+    required_local_checks:
+      - pnpm typecheck
+      - pnpm test:contract -- result
+      - pnpm exec vitest run tests/contracts/result-print-url-redaction.contract.test.ts tests/contracts/result-private-leak-regressions.contract.test.ts
+      - git diff --check
+      - scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: RESULT-PRIVATE-PRINT-CHROME-GATE-HARDEN-02
+
+  - id: RESULT-PRIVATE-PRINT-CHROME-GATE-HARDEN-02
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/result-private-print-chrome-gate-harden-02
+    base: main
+    title: "fix(result): harden private print chrome suppression"
+    depends_on: [RESULT-PRINT-PRIVATE-URL-REDACTION-02]
+    mode: execute
+    train_scope: result_p0_pdf_leak_hardening_02
+    status: planned
+    goal: "Ensure private result print/PDF output does not include global header, footer, account nav, social icons, footer columns, public marketing navigation, or unrelated marketing chrome."
+    artifacts:
+      - app/globals.css
+      - app/(localized)/[locale]/(app)/result/[id]/**
+      - components/layout/SiteHeader.tsx
+      - components/layout/SiteFooter.tsx
+      - tests/contracts/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - app/globals.css
+      - app/(localized)/[locale]/(app)/result/[id]/**
+      - components/layout/SiteHeader.tsx
+      - components/layout/SiteFooter.tsx
+      - tests/contracts/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - public page behavior changes outside print media
+      - sitemap/robots/llms/schema/canonical/public SEO route changes
+      - payment flow changes
+      - quiz scoring or result algorithm changes
+      - CMS/backend/database/deploy changes
+    required_local_checks:
+      - pnpm typecheck
+      - pnpm test:contract -- result
+      - targeted print CSS contract
+      - git diff --check
+      - scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: RESULT-BIG5-INTERNAL-METHOD-DEBUG-SUPPRESSION-02
+
+  - id: RESULT-BIG5-INTERNAL-METHOD-DEBUG-SUPPRESSION-02
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/result-big5-internal-method-debug-suppression-02
+    base: main
+    title: "fix(result): suppress Big Five internal method debug text"
+    depends_on: [RESULT-PRIVATE-PRINT-CHROME-GATE-HARDEN-02]
+    mode: execute
+    train_scope: result_p0_pdf_leak_hardening_02
+    status: planned
+    goal: "Remove Big Five internal implementation/debug/method-engine text from visible result and print/PDF output while preserving safe user-facing boundary copy."
+    artifacts:
+      - components/result/big5/**
+      - components/big5/report/**
+      - components/result/RichResultReport.tsx
+      - lib/big5/**
+      - lib/result/**
+      - tests/contracts/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - components/result/big5/**
+      - components/big5/report/**
+      - components/result/RichResultReport.tsx
+      - lib/big5/**
+      - lib/result/**
+      - tests/contracts/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - scoring/report payload contract changes
+      - CMS/backend/database mutation
+      - invented scientific proof, reliability, validation, or reviewer claims
+      - payment flow changes
+      - sitemap/robots/llms/schema/canonical/public SEO route changes
+    required_local_checks:
+      - pnpm typecheck
+      - pnpm test:contract -- big5 result
+      - targeted forbidden token contract
+      - git diff --check
+      - scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: RESULT-RIASEC-DEBUG-LABEL-SUPPRESSION-02
+
+  - id: RESULT-RIASEC-DEBUG-LABEL-SUPPRESSION-02
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/result-riasec-debug-label-suppression-02
+    base: main
+    title: "fix(result): suppress RIASEC debug labels"
+    depends_on: [RESULT-BIG5-INTERNAL-METHOD-DEBUG-SUPPRESSION-02]
+    mode: execute
+    train_scope: result_p0_pdf_leak_hardening_02
+    status: planned
+    goal: "Remove RIASEC/Holland debug labels, raw keys, and UI state labels from visible result and print/PDF output while preserving safe interest-signal boundaries."
+    artifacts:
+      - components/result/riasec/**
+      - lib/riasec/**
+      - app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx
+      - tests/contracts/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - components/result/riasec/**
+      - lib/riasec/**
+      - app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx
+      - tests/contracts/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - scoring/form/attempt changes
+      - deterministic career language
+      - CMS/backend/database mutation
+      - payment flow changes
+      - sitemap/robots/llms/schema/canonical/public SEO route changes
+    required_local_checks:
+      - pnpm typecheck
+      - pnpm test:contract -- riasec result
+      - targeted forbidden token contract
+      - git diff --check
+      - scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: RESULT-OBJECT-AND-PDF-LEAK-CONTRACT-EXPANSION-02
+
+  - id: RESULT-OBJECT-AND-PDF-LEAK-CONTRACT-EXPANSION-02
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/result-object-and-pdf-leak-contract-expansion-02
+    base: main
+    title: "test(result): expand PDF and object leak contracts"
+    depends_on: [RESULT-RIASEC-DEBUG-LABEL-SUPPRESSION-02]
+    mode: execute
+    train_scope: result_p0_pdf_leak_hardening_02
+    status: planned
+    goal: "Expand result leak regression contracts so private print URL, global print chrome, Big Five debug tokens, RIASEC debug tokens, Enneagram object tokens, and result privacy SEO envelope regressions fail locally."
+    artifacts:
+      - tests/contracts/**
+      - tests/fixtures/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - tests/contracts/**
+      - tests/fixtures/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - uploaded/generated PDFs
+      - screenshots/temp artifacts
+      - raw production/private IDs
+      - runtime behavior changes unless limited to testability helper explicitly justified
+      - CMS/backend/database/deploy changes
+    required_local_checks:
+      - pnpm test:contract -- result
+      - pnpm test:contract
+      - pnpm typecheck
+      - git diff --check
+      - JSON/YAML parse if docs/codex state is touched
+      - scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: RESULT-P0-POST-DEPLOY-SMOKE-RERUN-02
+
+  - id: RESULT-P0-POST-DEPLOY-SMOKE-RERUN-02
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/result-p0-post-deploy-smoke-rerun-02
+    base: main
+    title: "docs(result): rerun P0 PDF leak post-deploy smoke"
+    depends_on: [RESULT-OBJECT-AND-PDF-LEAK-CONTRACT-EXPANSION-02]
+    mode: docs_only_after_deployment
+    train_scope: result_p0_pdf_leak_hardening_02
+    status: planned
+    goal: "After deployment of PR1-PR5, run a production read-only smoke for uploaded/generated PDF evidence and live result privacy envelope, redacting raw ids and private URLs."
+    artifacts:
+      - docs/seo/result-p0-post-deploy-smoke-rerun-02.md
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - docs/seo/result-p0-post-deploy-smoke-rerun-02.md
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - code changes
+      - CMS/backend/database/deploy changes
+      - uploaded/generated PDFs
+      - screenshots/temp artifacts
+      - raw production/private IDs or raw private URLs
+    required_local_checks:
+      - documentation redaction review
+      - git diff --check
+      - JSON/YAML parse if docs/codex state is touched
+      - scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: false
