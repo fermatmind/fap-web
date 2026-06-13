@@ -713,6 +713,13 @@ const TEST_KPI_FRONTEND_CONTRACT_06_ALLOWED_FILES = new Set([
   "tests/contracts/test-kpi-frontend-contract.contract.test.ts",
 ]);
 
+const SCOPE_GUARD_CONTRACT_POSTMERGE_FIX_ALLOWED_FILES = new Set([
+  "tests/contracts/cms-ops-ia-permission-matrix.contract.test.ts",
+  "tests/contracts/commercial-readiness-contracts.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/test-kpi-frontend-contract.contract.test.ts",
+]);
+
 const PR_WEB_SEC_27_ALLOWED_FILES = new Set([
   "components/layout/SiteFooter.tsx",
   "docs/codex/pr-train.yaml",
@@ -1932,6 +1939,30 @@ function isFrontendUiPolishBatch02ScopeActive(): boolean {
   }
 }
 
+export function isCleanMainLikeCheckout(): boolean {
+  if (CURRENT_BRANCH === "main") {
+    return true;
+  }
+
+  try {
+    const head = execFileSync("git", ["rev-parse", "HEAD"], {
+      cwd: process.cwd(),
+      encoding: "utf8",
+    }).trim();
+    const originMain = execFileSync("git", ["rev-parse", "origin/main"], {
+      cwd: process.cwd(),
+      encoding: "utf8",
+    }).trim();
+    return head === originMain;
+  } catch {
+    return false;
+  }
+}
+
+export function isTestKpiFrontendContract06AllowedFile(file: string): boolean {
+  return TEST_KPI_FRONTEND_CONTRACT_06_ALLOWED_FILES.has(file);
+}
+
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (
     RIASEC_V2_POST_PUBLISH_SMOKE_02_ALLOWED_FILES.has(file) ||
@@ -2435,6 +2466,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/TEST-KPI-FRONTEND-CONTRACT-06") {
     return TEST_KPI_FRONTEND_CONTRACT_06_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/scope-guard-contract-postmerge-fix") {
+    return SCOPE_GUARD_CONTRACT_POSTMERGE_FIX_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-web-sec-27-footer-qr-toggle") {
