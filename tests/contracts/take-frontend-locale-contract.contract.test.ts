@@ -9,7 +9,7 @@ const quizTakeClientSource = readFileSync(
 
 describe("take frontend locale contract", () => {
   it("passes the resolved route locale to generic question and start requests", () => {
-    const localeAssignments = quizTakeClientSource.match(/locale: toApiLocale\(locale\),/g) ?? [];
+    const localeAssignments = quizTakeClientSource.match(/locale: testKpiMetadata\.apiLocale,/g) ?? [];
 
     expect(localeAssignments.length).toBeGreaterThanOrEqual(2);
     expect(quizTakeClientSource).not.toContain("...(isRiasecScale ? { locale: toApiLocale(locale) } : {})");

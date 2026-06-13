@@ -31,9 +31,10 @@ import {
   resolveEnneagramFormMeta,
 } from "@/lib/enneagram/forms";
 import { getDictSync } from "@/lib/i18n/getDict";
-import { getLocaleFromPathname, localizedPath, toApiLocale } from "@/lib/i18n/locales";
+import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
 import { classifyApiError } from "@/lib/observability/httpError";
 import { resolveResultAttemptId } from "@/lib/attempt/resolveResultAttemptId";
+import { buildTestKpiMetadata, buildTestKpiTrackingPayload } from "@/lib/tracking/testKpiMetadata";
 import {
   createTakeFlowController,
   resolveStaleDraftResetMessage,
@@ -218,6 +219,10 @@ function EnneagramTakeInner({
   const withLocale = useCallback((path: string) => localizedPath(path, locale), [locale]);
   const resolvedFormCode = normalizeEnneagramFormCode(formCode);
   const formMeta = resolveEnneagramFormMeta(resolvedFormCode);
+  const testKpiMetadata = useMemo(
+    () => buildTestKpiMetadata({ scaleCode: ENNEAGRAM_SCALE_CODE, formCode: resolvedFormCode, locale }),
+    [locale, resolvedFormCode]
+  );
   const forcedChoice = isEnneagramForcedChoiceForm(resolvedFormCode);
   const effectiveEstimatedMinutes = estimatedMinutes ?? formMeta.estimatedMinutes;
   const immersiveEnabled = isImmersiveSingleFlowEnabled();
@@ -338,9 +343,9 @@ function EnneagramTakeInner({
 
       try {
         const response = await fetchEnneagramQuestions({
-          locale: toApiLocale(locale),
+          locale: testKpiMetadata.apiLocale,
           anonId: anonId || undefined,
-          formCode: resolvedFormCode,
+          formCode: testKpiMetadata.formCode,
         });
         if (!active) return;
 
@@ -359,16 +364,13 @@ function EnneagramTakeInner({
               : "Failed to load questions. Please retry later."
         );
         const classified = classifyApiError(error);
-        trackEvent("questions_load_failure", {
-          scale_code: ENNEAGRAM_SCALE_CODE,
-          form_code: resolvedFormCode,
+        trackEvent("questions_load_failure", buildTestKpiTrackingPayload(testKpiMetadata, {
           stage: "questions",
           status_group: classified.statusGroup,
           status_code: classified.statusCode,
           error_code: classified.errorCode,
           route: "/tests/[slug]/take",
-          locale,
-        });
+        }));
       } finally {
         if (active) setQuestionsLoading(false);
       }
@@ -379,7 +381,7 @@ function EnneagramTakeInner({
     return () => {
       active = false;
     };
-  }, [anonId, authBlockError, locale, resolvedFormCode, setQuestions]);
+  }, [anonId, authBlockError, locale, setQuestions, testKpiMetadata]);
 
   useEffect(() => {
     if (questionsLoading) {
@@ -415,12 +417,12 @@ function EnneagramTakeInner({
       try {
         const response = await startEnneagramAttempt({
           anonId: anonId || undefined,
-          locale: toApiLocale(locale),
+          locale: testKpiMetadata.apiLocale,
           region: "GLOBAL",
-          formCode: resolvedFormCode,
+          formCode: testKpiMetadata.formCode,
           meta: {
             slug,
-            form_code: resolvedFormCode,
+            form_code: testKpiMetadata.formCode,
             question_mode: formMeta.questionMode,
           },
           clientVersion: "fe-enneagram-1",
@@ -428,15 +430,12 @@ function EnneagramTakeInner({
         if (!isFlowActive(runId)) {
           return null;
         }
-        setAttemptMeta(response.attempt_id, ENNEAGRAM_SCALE_CODE, resolvedFormCode);
-        trackEvent("start_attempt", {
+        setAttemptMeta(response.attempt_id, ENNEAGRAM_SCALE_CODE, testKpiMetadata.formCode ?? resolvedFormCode);
+        trackEvent("start_attempt", buildTestKpiTrackingPayload(testKpiMetadata, {
           slug,
           test_slug: slug,
-          scale_code: ENNEAGRAM_SCALE_CODE,
-          form_code: resolvedFormCode,
           attempt_id: response.attempt_id,
-          locale,
-        });
+        }));
         return response.attempt_id;
       } catch (error) {
         if (!isFlowActive(runId)) {
@@ -450,16 +449,13 @@ function EnneagramTakeInner({
               : "Failed to start attempt. Please retry later."
         );
         const classified = classifyApiError(error);
-        trackEvent("submit_failure", {
-          scale_code: ENNEAGRAM_SCALE_CODE,
-          form_code: resolvedFormCode,
+        trackEvent("submit_failure", buildTestKpiTrackingPayload(testKpiMetadata, {
           stage: "start_attempt",
           status_group: classified.statusGroup,
           status_code: classified.statusCode,
           error_code: classified.errorCode,
           route: "/tests/[slug]/take",
-          locale,
-        });
+        }));
         return null;
       } finally {
         ensureAttemptPromiseRef.current = null;
@@ -474,10 +470,10 @@ function EnneagramTakeInner({
     formMeta.questionMode,
     isFlowActive,
     locale,
-    resolvedFormCode,
     setAttemptMeta,
     slug,
     staleDraftError,
+    testKpiMetadata,
   ]);
 
   const ensureAttempt = useCallback(async (runId?: number): Promise<string | null> => {
@@ -534,18 +530,15 @@ function EnneagramTakeInner({
     if (!response.ok) {
       throw new Error("Submit failed.");
     }
-    trackEvent("submit_attempt", {
+    trackEvent("submit_attempt", buildTestKpiTrackingPayload(testKpiMetadata, {
       slug,
       test_slug: slug,
-      scale_code: ENNEAGRAM_SCALE_CODE,
-      form_code: resolvedFormCode,
       attempt_id: activeAttemptId,
       answered_count: questionIds.length,
       durationMs,
-      locale,
-    });
+    }));
     return resolveResultAttemptId(response, activeAttemptId);
-  }, [anonId, isFlowActive, locale, questionIds, resolvedFormCode, slug, startedAt]);
+  }, [anonId, isFlowActive, questionIds, slug, startedAt, testKpiMetadata]);
 
   const handleSubmit = useCallback(async (pendingSelection?: LastSelectionContext, runId?: number): Promise<string | null> => {
     if (submitInFlightRef.current || staleDraftError) {
@@ -594,16 +587,13 @@ function EnneagramTakeInner({
             : "Submit failed. Please retry later."
       );
       const classified = classifyApiError(error);
-      trackEvent("submit_failure", {
-        scale_code: ENNEAGRAM_SCALE_CODE,
-        form_code: resolvedFormCode,
+      trackEvent("submit_failure", buildTestKpiTrackingPayload(testKpiMetadata, {
         stage: "submit_attempt",
         status_group: classified.statusGroup,
         status_code: classified.statusCode,
         error_code: classified.errorCode,
         route: "/tests/[slug]/take",
-        locale,
-      });
+      }));
       return null;
     } finally {
       if (isFlowActive(activeRunId)) {
@@ -618,9 +608,9 @@ function EnneagramTakeInner({
     jump,
     locale,
     questions,
-    resolvedFormCode,
     staleDraftError,
     submitAttemptWithId,
+    testKpiMetadata,
     total,
   ]);
 

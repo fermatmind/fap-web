@@ -34,12 +34,13 @@ import { type QuestionsMeta, type ScaleQuestionItem } from "@/lib/api/v0_3";
 import { useClinicalAttemptStore } from "@/lib/clinical/attemptStore";
 import { mapClinicalError } from "@/lib/clinical/errors";
 import { getDictSync } from "@/lib/i18n/getDict";
-import { getLocaleFromPathname, localizedPath, toApiLocale } from "@/lib/i18n/locales";
+import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
 import { classifyApiError } from "@/lib/observability/httpError";
 import { captureError } from "@/lib/observability/sentry";
 import { useConstrainQuizUrlTokens } from "@/lib/quiz/urlTokenGuard";
 import { isImmersiveSingleFlowEnabled } from "@/lib/quiz/uxFlags";
 import { resolveResultAttemptId } from "@/lib/attempt/resolveResultAttemptId";
+import { buildTestKpiMetadata, buildTestKpiTrackingPayload } from "@/lib/tracking/testKpiMetadata";
 import {
   createTakeFlowController,
   recoverStaleAttemptSubmit,
@@ -244,21 +245,23 @@ export default function ClinicalTakeClient({
   const forceNewAttemptAppliedRef = useRef(false);
   const cancelAutoAdvanceRef = useRef<() => void>(() => {});
   const immersiveEnabled = isImmersiveSingleFlowEnabled();
+  const testKpiMetadata = useMemo(
+    () => buildTestKpiMetadata({ scaleCode, locale }),
+    [locale, scaleCode]
+  );
 
   const trackGuestTokenFailure = useCallback(
     (stage: "bootstrap" | "questions" | "start_attempt" | "submit_attempt", error: unknown) => {
       const telemetry = resolveGuestTokenTelemetry(error);
-      trackEvent("auth_guest_token_failure", {
-        scale_code: scaleCode,
+      trackEvent("auth_guest_token_failure", buildTestKpiTrackingPayload(testKpiMetadata, {
         stage,
         status_code: telemetry.statusCode,
         error_code: telemetry.errorCode,
         request_id: telemetry.requestId,
         route: "/tests/[slug]/take",
-        locale,
-      });
+      }));
     },
-    [locale, scaleCode]
+    [testKpiMetadata]
   );
 
   useEffect(() => {
@@ -285,14 +288,12 @@ export default function ClinicalTakeClient({
               : "Submission is temporarily unavailable because authentication service is not configured."
           );
           const telemetry = resolveGuestTokenTelemetry(error);
-          trackEvent("submit_blocked_no_token_service", {
-            scale_code: scaleCode,
+          trackEvent("submit_blocked_no_token_service", buildTestKpiTrackingPayload(testKpiMetadata, {
             status_code: telemetry.statusCode,
             error_code: telemetry.errorCode,
             request_id: telemetry.requestId,
             route: "/tests/[slug]/take",
-            locale,
-          });
+          }));
         }
       } finally {
         if (active) {
@@ -306,7 +307,7 @@ export default function ClinicalTakeClient({
     return () => {
       active = false;
     };
-  }, [anonId, locale, scaleCode, trackGuestTokenFailure]);
+  }, [anonId, locale, testKpiMetadata, trackGuestTokenFailure]);
 
   const runWithAuthRetry = useCallback(
     async <T,>(
@@ -327,18 +328,16 @@ export default function ClinicalTakeClient({
                 : "Submission is temporarily unavailable because authentication service is not configured."
             );
             const telemetry = resolveGuestTokenTelemetry(guestTokenError);
-            trackEvent("submit_blocked_no_token_service", {
-              scale_code: scaleCode,
+            trackEvent("submit_blocked_no_token_service", buildTestKpiTrackingPayload(testKpiMetadata, {
               status_code: telemetry.statusCode,
               error_code: telemetry.errorCode,
               request_id: telemetry.requestId,
               route: "/tests/[slug]/take",
-              locale,
-            });
+            }));
           }
         },
       }),
-    [anonId, locale, scaleCode, trackGuestTokenFailure]
+    [anonId, locale, testKpiMetadata, trackGuestTokenFailure]
   );
 
   const serverConsentVersion =
@@ -450,7 +449,7 @@ export default function ClinicalTakeClient({
         const response = await runWithAuthRetry("questions", () =>
           fetchClinicalQuestions({
             scaleCode,
-            locale: toApiLocale(locale),
+            locale: testKpiMetadata.apiLocale,
             region: "GLOBAL",
           })
         );
@@ -479,16 +478,14 @@ export default function ClinicalTakeClient({
         const mapped = mapClinicalError(error);
         setQuestionError(toUiMessage(error, mapped.message, locale));
         const classified = classifyApiError(error);
-        trackEvent("questions_load_failure", {
-          scale_code: scaleCode,
+        trackEvent("questions_load_failure", buildTestKpiTrackingPayload(testKpiMetadata, {
           stage: "questions",
           status_group: classified.statusGroup,
           status_code: classified.statusCode,
           error_code: classified.errorCode,
           request_id: classified.requestId,
           route: "/tests/[slug]/take",
-          locale,
-        });
+        }));
         captureError(error, {
           route: "/tests/[slug]/take",
           slug,
@@ -507,7 +504,7 @@ export default function ClinicalTakeClient({
     return () => {
       active = false;
     };
-  }, [authBlockError, initSession, locale, runWithAuthRetry, scaleCode, slug]);
+  }, [authBlockError, initSession, locale, runWithAuthRetry, scaleCode, slug, testKpiMetadata]);
 
   useEffect(() => {
     if (!needsConsent || !attemptId) {
@@ -523,11 +520,11 @@ export default function ClinicalTakeClient({
 
     acceptConsent({
       version: serverConsentVersion || null,
-      locale: toApiLocale(locale),
+      locale: testKpiMetadata.apiLocale,
     });
     setConsentChecked(false);
     setStartError(null);
-  }, [acceptConsent, loadingQuestions, locale, needsConsent, serverConsentVersion, totalQuestions]);
+  }, [acceptConsent, loadingQuestions, needsConsent, serverConsentVersion, testKpiMetadata.apiLocale, totalQuestions]);
 
   useEffect(() => {
     if (answeredCount === 0) {
@@ -557,12 +554,12 @@ export default function ClinicalTakeClient({
     const elapsedMs = Math.max(0, Date.now() - startedAt);
     const durationBucket = elapsedMs < 60000 ? "lt_1m" : elapsedMs < 180000 ? "1_3m" : "gte_3m";
     trackEvent("ui_quiz_milestone", {
-      scale_code: scaleCode,
+      scale_code: testKpiMetadata.scale_code,
       milestone: nextMilestone,
       duration_bucket: durationBucket,
       locale,
     });
-  }, [answeredCount, dict.quiz.milestoneHints, locale, scaleCode, seenMilestones, startedAt, totalQuestions]);
+  }, [answeredCount, dict.quiz.milestoneHints, locale, seenMilestones, startedAt, testKpiMetadata.scale_code, totalQuestions]);
 
   const buildAnswersSnapshot = useCallback((pendingSelection?: LastSelectionContext) => {
     const snapshot = {
@@ -593,12 +590,12 @@ export default function ClinicalTakeClient({
       const response = await runWithAuthRetry("start_attempt", () =>
         startClinicalAttempt({
           scaleCode,
-          locale: toApiLocale(locale),
+          locale: testKpiMetadata.apiLocale,
           region: "GLOBAL",
           consent: {
             accepted: true,
             version: serverConsentVersion,
-            locale: toApiLocale(locale),
+            locale: testKpiMetadata.apiLocale,
           },
           clientVersion: `fe-${scaleCode.toLowerCase()}-1`,
         })
@@ -608,12 +605,10 @@ export default function ClinicalTakeClient({
       }
 
       setAttemptId(response.attempt_id);
-      trackEvent("start_attempt", {
+      trackEvent("start_attempt", buildTestKpiTrackingPayload(testKpiMetadata, {
         slug,
         test_slug: slug,
-        scale_code: scaleCode,
-        locale,
-      });
+      }));
       return response.attempt_id;
     } catch (error) {
       if (!isFlowActive(runId)) {
@@ -622,15 +617,13 @@ export default function ClinicalTakeClient({
       const mapped = mapClinicalError(error);
       setStartError(toUiMessage(error, mapped.message, locale));
       const classified = classifyApiError(error);
-      trackEvent("submit_failure", {
-        scale_code: scaleCode,
+      trackEvent("submit_failure", buildTestKpiTrackingPayload(testKpiMetadata, {
         stage: "start_attempt",
         status_group: classified.statusGroup,
         status_code: classified.statusCode,
         error_code: classified.errorCode,
         route: "/tests/[slug]/take",
-        locale,
-      });
+      }));
       captureError(error, {
         route: "/tests/[slug]/take",
         slug,
@@ -643,7 +636,7 @@ export default function ClinicalTakeClient({
         setStarting(false);
       }
     }
-  }, [authBlockError, consentRequiredMessage, isFlowActive, locale, needsConsent, runWithAuthRetry, scaleCode, serverConsentVersion, setAttemptId, slug, staleDraftError]);
+  }, [authBlockError, consentRequiredMessage, isFlowActive, needsConsent, runWithAuthRetry, scaleCode, serverConsentVersion, setAttemptId, slug, staleDraftError, testKpiMetadata]);
 
   const ensureAttempt = useCallback(async (runId?: number) => {
     if (authBlockError || staleDraftError || recoveringAttemptRef.current) {
@@ -707,16 +700,14 @@ export default function ClinicalTakeClient({
     cacheSubmitReport(resultAttemptId, response.report);
 
     markSubmitted();
-    trackEvent("submit_attempt", {
+    trackEvent("submit_attempt", buildTestKpiTrackingPayload(testKpiMetadata, {
       slug,
       test_slug: slug,
       attempt_id: activeAttemptId,
-      scale_code: scaleCode,
-      locale,
       duration_bucket: durationMs < 60000 ? "lt_1m" : durationMs < 180000 ? "1_3m" : "gte_3m",
-    });
+    }));
     return resultAttemptId;
-  }, [isFlowActive, locale, markSubmitted, questions, runWithAuthRetry, scaleCode, slug, startedAt]);
+  }, [isFlowActive, markSubmitted, questions, runWithAuthRetry, slug, startedAt, testKpiMetadata]);
 
   const handleSubmit = useCallback(async (pendingSelection?: LastSelectionContext, runId?: number): Promise<string | null> => {
     if (submitInFlightRef.current || staleDraftError) {
@@ -726,7 +717,7 @@ export default function ClinicalTakeClient({
     submitInFlightRef.current = true;
     const activeRunId = typeof runId === "number" ? runId : takeFlowRef.current.beginRun();
     const submitConsentVersion = String(consentVersion ?? serverConsentVersion ?? "").trim();
-    const submitConsentLocale = String(consentLocale ?? toApiLocale(locale)).trim();
+    const submitConsentLocale = String(consentLocale ?? testKpiMetadata.apiLocale).trim();
     if (needsConsent || !consentAcceptedAt || !submitConsentVersion || !submitConsentLocale) {
       if (isFlowActive(activeRunId)) {
         setSubmitError(
@@ -821,15 +812,13 @@ export default function ClinicalTakeClient({
       const mapped = mapClinicalError(error);
       setSubmitError(toUiMessage(error, mapped.message, locale));
       const classified = classifyApiError(error);
-      trackEvent("submit_failure", {
-        scale_code: scaleCode,
+      trackEvent("submit_failure", buildTestKpiTrackingPayload(testKpiMetadata, {
         stage: "submit_attempt",
         status_group: classified.statusGroup,
         status_code: classified.statusCode,
         error_code: classified.errorCode,
         route: "/tests/[slug]/take",
-        locale,
-      });
+      }));
       captureError(error, {
         route: "/tests/[slug]/take",
         slug,
@@ -863,6 +852,7 @@ export default function ClinicalTakeClient({
     staleDraftError,
     startFreshAttempt,
     submitAttemptWithId,
+    testKpiMetadata.apiLocale,
   ]);
 
   const finalizeSuccessfulSubmit = useCallback(
@@ -877,36 +867,30 @@ export default function ClinicalTakeClient({
   const startSubmitOverlayPhases = useCallback((runId: number) => {
     setSubmitOverlayPhase(0);
 
-    trackEvent("ui_report_loading_phase", {
-      scale_code: scaleCode,
+    trackEvent("ui_report_loading_phase", buildTestKpiTrackingPayload(testKpiMetadata, {
       phase: "saving",
       locked: true,
       variant: "free",
-      locale,
-    });
+    }));
 
     takeFlowRef.current.schedule(() => {
       setSubmitOverlayPhase(1);
-      trackEvent("ui_report_loading_phase", {
-        scale_code: scaleCode,
+      trackEvent("ui_report_loading_phase", buildTestKpiTrackingPayload(testKpiMetadata, {
         phase: "analyzing",
         locked: true,
         variant: "free",
-        locale,
-      });
+      }));
     }, 800, runId);
 
     takeFlowRef.current.schedule(() => {
       setSubmitOverlayPhase(2);
-      trackEvent("ui_report_loading_phase", {
-        scale_code: scaleCode,
+      trackEvent("ui_report_loading_phase", buildTestKpiTrackingPayload(testKpiMetadata, {
         phase: "generating",
         locked: true,
         variant: "free",
-        locale,
-      });
+      }));
     }, 1500, runId);
-  }, [locale, scaleCode]);
+  }, [testKpiMetadata]);
 
   const handleSubmitWithOverlay = useCallback(async (pendingSelection?: LastSelectionContext) => {
     if (submitOverlayVisible || submitting) return;
