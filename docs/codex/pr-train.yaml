@@ -268,7 +268,7 @@ prs:
     base: main
     depends_on: []
     mode: execute
-    status: in_progress
+    status: local_checks_passed
     title: "chore(sbti): remove inactive SBTI product surface and test coverage"
     goal: "Remove the inactive SBTI frontend product surface, routes, product-code assets, tests, rollout links, and SEO/discoverability references without touching backend code or order lookup CI work."
     in_scope:
@@ -335,7 +335,7 @@ prs:
     base: main
     depends_on: []
     mode: execute
-    status: planned
+    status: merged
     title: "docs(iq): reconcile IQ frontend train ledger and register launch train"
     goal: "Reconcile already-merged IQ-FE-1 through IQ-FE-6 ledger entries to their real merged GitHub PRs and register the remaining IQ 123test launch train items without runtime behavior changes."
     in_scope:
@@ -364,7 +364,7 @@ prs:
     base: main
     depends_on: []
     mode: execute
-    status: planned
+    status: in_progress
     title: "feat(iq): add frontend API contracts"
     artifacts:
       - lib/api/v0_3.ts

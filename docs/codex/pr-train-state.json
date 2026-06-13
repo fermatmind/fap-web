@@ -22893,12 +22893,12 @@
       "id": "RESULT-OBJECT-AND-PDF-LEAK-CONTRACT-EXPANSION-02",
       "repo": "fap-web",
       "branch": "codex/result-object-and-pdf-leak-contract-expansion-02",
-      "status": "ready_to_merge",
-      "commit_sha": "5fc847b9",
+      "status": "merged",
+      "commit_sha": "ca4c6ff4a76c7dd63158ac2b6d0ca18e9c21e450",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1124",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-13T07:51:34Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "failure_reason": null,
       "checks": {
         "authorization": {
@@ -22933,7 +22933,16 @@
         },
         "github": {
           "status": "pass",
-          "evidence": "GitHub checks passed on PR #1124 head c87d3b5b: CodeQL, analyze (javascript-typescript), build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze."
+          "head_sha": "ca4c6ff4a76c7dd63158ac2b6d0ca18e9c21e450",
+          "checks": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "CodeQL",
+            "analyze (javascript-typescript)"
+          ],
+          "evidence": "GitHub checks passed for PR #1124 at final head ca4c6ff4a76c7dd63158ac2b6d0ca18e9c21e450; GitHub reports merged at 2026-06-13T07:51:34Z with merge commit da8f0e5c6be7e4defb272f88427773ba6b1d940d."
         }
       },
       "history": [
@@ -22961,6 +22970,11 @@
           "at": "2026-06-13T15:51:35+08:00",
           "status": "ready_to_merge",
           "note": "GitHub checks passed on PR #1124 head c87d3b5b and scope validation remains limited to PR5 contract/metadata files."
+        },
+        {
+          "at": "2026-06-13T15:58:43+08:00",
+          "status": "merged",
+          "note": "Reconciled PR #1124 merged state inside RESULT-P0-POST-DEPLOY-SMOKE-RERUN-02: GitHub reports merged at 2026-06-13T07:51:34Z with merge commit da8f0e5c6be7e4defb272f88427773ba6b1d940d; origin/main contains the merge commit; remote branch is deleted; local branch/worktree cleanup was executed; post-merge focused contract and main CI/CodeQL passed."
         }
       ]
     },
@@ -22968,17 +22982,36 @@
       "id": "RESULT-P0-POST-DEPLOY-SMOKE-RERUN-02",
       "repo": "fap-web",
       "branch": "codex/result-p0-post-deploy-smoke-rerun-02",
-      "status": "blocked_dependency",
+      "status": "local_checks_passed",
       "commit_sha": null,
       "pr_url": null,
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "failure_reason": "Waiting for RESULT-OBJECT-AND-PDF-LEAK-CONTRACT-EXPANSION-02 to merge and deployment of PR1-PR5.",
+      "failure_reason": "Fresh uploaded/generated PDF samples and live private result samples were not available; report decision is blocked_missing_live_result_samples.",
       "checks": {
         "dependency": {
-          "status": "pending",
-          "evidence": "Depends on RESULT-OBJECT-AND-PDF-LEAK-CONTRACT-EXPANSION-02 and post-deploy availability."
+          "status": "pass",
+          "evidence": "RESULT-OBJECT-AND-PDF-LEAK-CONTRACT-EXPANSION-02 merged in PR #1124; origin/main contains merge commit da8f0e5c6be7e4defb272f88427773ba6b1d940d. Production runtime CSS contains private-result print selectors, but no GitHub Deployment API record exists."
+        },
+        "scope": {
+          "status": "pass",
+          "allowed_paths": [
+            "docs/seo/result-p0-post-deploy-smoke-rerun-02.md",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ],
+          "evidence": "Changed files are limited to docs/seo/result-p0-post-deploy-smoke-rerun-02.md, docs/codex/pr-train.yaml, and docs/codex/pr-train-state.json."
+        },
+        "local": {
+          "status": "pass",
+          "commands": [
+            "documentation redaction review",
+            "git diff --check",
+            "JSON/YAML parse",
+            "scope validation"
+          ],
+          "evidence": "Documentation redaction review found no raw UUID/private result URL patterns, no PDF/image/screenshot/temp/generated artifacts are staged for this PR, JSON/YAML parse passed, git diff --check passed, and explicit scope validation passed."
         }
       },
       "history": [
@@ -22986,6 +23019,16 @@
           "at": "2026-06-13T14:24:20+08:00",
           "status": "blocked_dependency",
           "note": "Initialized docs-only post-deploy smoke item; execution deferred until implementation train is merged and deployed."
+        },
+        {
+          "at": "2026-06-13T15:58:43+08:00",
+          "status": "in_progress",
+          "note": "Started docs-only post-deploy smoke from latest fap-web main. Production CSS shows private-result print selectors and safe placeholder result paths preserve the privacy envelope, but fresh private PDF/live result samples are unavailable, so the report decision is blocked_missing_live_result_samples."
+        },
+        {
+          "at": "2026-06-13T16:00:10+08:00",
+          "status": "local_checks_passed",
+          "note": "Docs-only smoke report, redaction review, JSON/YAML parse, git diff check, and explicit scope validation passed. Report records blocked_missing_live_result_samples because no fresh private PDF/live result samples were available."
         }
       ]
     }
