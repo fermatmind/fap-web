@@ -74,6 +74,20 @@ function classifyRouteFamily(pathname: string): string {
 }
 
 function mockLlmsDependencies() {
+  vi.resetModules();
+
+  const pageTwoZhArticle = {
+    slug: "big-five-tool-guide",
+    locale: "zh",
+    title: "大五人格测试是什么？OCEAN 五大特质比 MBTI 更适合回答什么",
+    excerpt: "大五人格测试基于 OCEAN 五个连续特质维度。",
+    href: "/zh/articles/big-five-tool-guide",
+    isIndexable: true,
+    llmsEligible: true,
+    updatedAt: "2026-06-13T17:55:28Z",
+  };
+  const articleEnumerationCalls: Array<{ locale: "en" | "zh"; maxPages?: number }> = [];
+
   vi.doMock("@/lib/site", () => ({
     getSiteUrlOrThrow: vi.fn(() => SITE_URL),
     isConfiguredStagingSiteUrl: vi.fn(() => false),
@@ -140,22 +154,30 @@ function mockLlmsDependencies() {
     listBackendSitemapCareerJobPaths: vi.fn(async () => ["/en/career/jobs/private-denied-by-policy"]),
   }));
   vi.doMock("@/lib/cms/articles", () => ({
-    listCmsArticlesForLlmsWithLastKnownGood: vi.fn(async ({ locale }: { locale: "en" | "zh" }) => ({
-      value:
-        locale === "en"
-          ? [
-              {
-                slug: "mbti-basics",
-                locale: "en",
-                title: "MBTI Basics",
-                excerpt: "Article summary.",
-                href: "/en/articles/mbti-basics",
-                isIndexable: true,
-                updatedAt: "2026-05-01T00:00:00Z",
-              },
-            ]
-          : [],
-    })),
+    listCmsArticlesForLlmsWithLastKnownGood: vi.fn(
+      async ({ locale, maxPages }: { locale: "en" | "zh"; maxPages?: number }) => {
+        articleEnumerationCalls.push({ locale, maxPages });
+
+        return {
+          value:
+            locale === "en"
+              ? [
+                  {
+                    slug: "mbti-basics",
+                    locale: "en",
+                    title: "MBTI Basics",
+                    excerpt: "Article summary.",
+                    href: "/en/articles/mbti-basics",
+                    isIndexable: true,
+                    updatedAt: "2026-05-01T00:00:00Z",
+                  },
+                ]
+              : maxPages && maxPages > 1
+                ? [pageTwoZhArticle]
+                : [],
+        };
+      }
+    ),
     getCmsArticleWithLastKnownGood: vi.fn(async () => ({
       value: {
         slug: "mbti-basics",
@@ -183,6 +205,7 @@ function mockLlmsDependencies() {
         landingSurface: null,
       },
     })),
+    __articleEnumerationCalls: articleEnumerationCalls,
   }));
   vi.doMock("@/lib/cms/career-guides", () => ({
     listCareerGuidesFromCms: vi.fn(async (locale: "en" | "zh") =>
@@ -277,6 +300,29 @@ describe("llms parity governance", () => {
       ])
     );
     expect(extractCanonicalUrls(llmsFullText).length).toBeGreaterThan(llmsFullUrls.length);
+  });
+
+  it("includes eligible CMS articles beyond the first article list page in both llms surfaces", async () => {
+    mockLlmsDependencies();
+
+    const [{ GET: getLlms }, { buildLlmsFullText }, articlesModule] = await Promise.all([
+      import("@/app/llms.txt/route"),
+      import("@/app/llms-full.txt/route"),
+      import("@/lib/cms/articles"),
+    ]);
+    const [llmsText, llmsFullText] = await Promise.all([
+      getLlms().then((response) => response.text()),
+      buildLlmsFullText(SITE_URL),
+    ]);
+    const articleCalls = (
+      articlesModule as unknown as { __articleEnumerationCalls: Array<{ locale: "en" | "zh"; maxPages?: number }> }
+    ).__articleEnumerationCalls;
+
+    const zhArticleCalls = articleCalls.filter((call) => call.locale === "zh");
+    expect(zhArticleCalls.length).toBeGreaterThan(0);
+    expect(zhArticleCalls.every((call) => (call.maxPages ?? 0) > 1)).toBe(true);
+    expect(llmsText).toContain(`${SITE_URL}/zh/articles/big-five-tool-guide`);
+    expect(llmsFullText).toContain(`${SITE_URL}/zh/articles/big-five-tool-guide`);
   });
 
   it("keeps private and denied route families out of both llms surfaces", async () => {

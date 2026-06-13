@@ -321,9 +321,12 @@ export async function GET() {
   const testEntries = dedupePaths(backendTestEntries.map((entry) => entry.path));
 
   const articleEntries = dedupePaths(
-    [...enArticles, ...zhArticles]
-      .filter((article) => article.isIndexable && article.llmsEligible !== false)
-      .map((article) => article.href)
+    limitLlmsRouteEntries(
+      [...enArticles, ...zhArticles]
+        .filter((article) => article.isIndexable && article.llmsEligible !== false)
+        .map((article) => article.href),
+      LLMS_ROUTE_LIMITS.articles
+    )
   );
 
   const guideEntries = dedupePaths([

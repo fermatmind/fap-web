@@ -38,7 +38,8 @@ describe("llms route fanout budget contract", () => {
     expect(fallback).toBe("fallback");
     expect(timedOutSignalAborted).toBe(true);
     expect(LLMS_ROUTE_SOURCE_TIMEOUT_MS).toBeLessThanOrEqual(1500);
-    expect(LLMS_ROUTE_ARTICLE_MAX_PAGES).toBe(1);
+    expect(LLMS_ROUTE_ARTICLE_MAX_PAGES).toBeGreaterThanOrEqual(5);
+    expect(LLMS_ROUTE_ARTICLE_MAX_PAGES).toBeLessThanOrEqual(10);
     expect(LLMS_ROUTE_LIMITS.articles).toBeLessThanOrEqual(40);
     expect(LLMS_ROUTE_LIMITS.careerGuides).toBeLessThanOrEqual(24);
     expect(LLMS_ROUTE_LIMITS.careerJobs).toBeGreaterThanOrEqual(1046 * 2);
