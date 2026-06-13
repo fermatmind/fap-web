@@ -32,8 +32,8 @@ import {
 import { ApiError } from "@/lib/api-client";
 import { trackEvent, trackObservableFunnelEvent } from "@/lib/analytics";
 import { getDictSync } from "@/lib/i18n/getDict";
-import { getLocaleFromPathname, localizedPath, toApiLocale } from "@/lib/i18n/locales";
-import { isMbtiScaleCode, normalizeMbtiFormCode } from "@/lib/mbti/forms";
+import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
+import { isMbtiScaleCode } from "@/lib/mbti/forms";
 import { classifyApiError } from "@/lib/observability/httpError";
 import { captureError } from "@/lib/observability/sentry";
 import {
@@ -41,7 +41,7 @@ import {
   startIqAttempt,
   submitIqAttempt,
 } from "@/lib/iq/api";
-import { IQ_CANONICAL_SCALE_CODE, isIqScaleCode } from "@/lib/iq/constants";
+import { IQ_CANONICAL_SCALE_CODE } from "@/lib/iq/constants";
 import { buildIqSubmitAnswers, type IqTakeQuestion, normalizeIqQuestionsForTake } from "@/lib/iq/take";
 import { normalizeQuizQuestions } from "@/lib/quiz/normalizeQuestions";
 import { QuizStoreProvider, useQuizStore } from "@/lib/quiz/store";
@@ -60,6 +60,12 @@ import {
   toAttemptAttributionPayload,
   type TrackingAttributionPayload,
 } from "@/lib/tracking/attribution";
+import {
+  buildTestKpiMetadata,
+  buildTestKpiTrackingPayload,
+  isCanonicalIqScaleCode,
+  resolveTestKpiFormCode,
+} from "@/lib/tracking/testKpiMetadata";
 import { sanitizeSeoLandingPath } from "@/lib/tracking/seoCtaAttribution";
 import {
   createTakeFlowController,
@@ -356,15 +362,7 @@ export default function QuizTakeClient({
   const questionIds = useMemo(() => questions.map((question) => question.id), [questions]);
   const anonId = useMemo(() => getOrCreateAnonId(), []);
   const resolvedFormCode = useMemo(
-    () => {
-      if (isMbtiScaleCode(scaleCode)) {
-        return normalizeMbtiFormCode(formCode);
-      }
-      if (isRiasecScaleCode(scaleCode)) {
-        return normalizeRiasecFormCode(formCode);
-      }
-      return undefined;
-    },
+    () => resolveTestKpiFormCode({ scaleCode, formCode }),
     [formCode, scaleCode]
   );
   return (
@@ -461,29 +459,25 @@ function QuizTakeInner({
   const quizHeaderBrand = showsTitleQuizChrome ? testTitle : dict.header.brand;
   const trackedStartRef = useRef(false);
   const resolvedFormCode = useMemo(
-    () => {
-      if (isMbtiScaleCode(scaleCode)) {
-        return normalizeMbtiFormCode(formCode);
-      }
-      if (isRiasecScaleCode(scaleCode)) {
-        return normalizeRiasecFormCode(formCode);
-      }
-      return undefined;
-    },
+    () => resolveTestKpiFormCode({ scaleCode, formCode }),
     [formCode, scaleCode]
   );
-  const normalizedScaleCode = useMemo(() => scaleCode.trim().toUpperCase(), [scaleCode]);
-  const isIqScale = useMemo(() => isIqScaleCode(normalizedScaleCode), [normalizedScaleCode]);
-  const isRiasecScale = useMemo(() => isRiasecScaleCode(scaleCode), [scaleCode]);
+  const testKpiMetadata = useMemo(
+    () => buildTestKpiMetadata({ scaleCode, formCode: resolvedFormCode, locale }),
+    [locale, resolvedFormCode, scaleCode]
+  );
+  const normalizedScaleCode = testKpiMetadata.scale_code;
+  const isIqScale = useMemo(() => isCanonicalIqScaleCode(normalizedScaleCode), [normalizedScaleCode]);
+  const isRiasecScale = useMemo(() => isRiasecScaleCode(normalizedScaleCode), [normalizedScaleCode]);
   const matchesSavedAttempt = useMemo(() => {
-    if (!attemptId || savedScaleCode !== scaleCode) {
+    if (!attemptId || savedScaleCode !== testKpiMetadata.scaleCode) {
       return false;
     }
-    if (!resolvedFormCode) {
+    if (!testKpiMetadata.formCode) {
       return true;
     }
-    return savedFormCode === resolvedFormCode;
-  }, [attemptId, resolvedFormCode, savedFormCode, savedScaleCode, scaleCode]);
+    return savedFormCode === testKpiMetadata.formCode;
+  }, [attemptId, savedFormCode, savedScaleCode, testKpiMetadata.formCode, testKpiMetadata.scaleCode]);
 
   useEffect(() => {
     if (!attribution.invite_unlock_code || inviteLinkOpenedTrackedRef.current) {
@@ -508,17 +502,15 @@ function QuizTakeInner({
   const trackGuestTokenFailure = useCallback(
     (stage: "bootstrap" | "questions" | "start_attempt" | "submit_attempt", error: unknown) => {
       const telemetry = resolveGuestTokenTelemetry(error);
-      trackEvent("auth_guest_token_failure", {
-        scale_code: scaleCode,
+      trackEvent("auth_guest_token_failure", buildTestKpiTrackingPayload(testKpiMetadata, {
         stage,
         status_code: telemetry.statusCode,
         error_code: telemetry.errorCode,
         request_id: telemetry.requestId,
         route: "/tests/[slug]/take",
-        locale,
-      });
+      }));
     },
-    [locale, scaleCode]
+    [testKpiMetadata]
   );
 
   useEffect(() => {
@@ -540,14 +532,12 @@ function QuizTakeInner({
         if (isGuestTokenEndpointMissingError(error)) {
           setAuthBlockError(resolveNoTokenServiceMessage(locale));
           const telemetry = resolveGuestTokenTelemetry(error);
-          trackEvent("submit_blocked_no_token_service", {
-            scale_code: scaleCode,
+          trackEvent("submit_blocked_no_token_service", buildTestKpiTrackingPayload(testKpiMetadata, {
             status_code: telemetry.statusCode,
             error_code: telemetry.errorCode,
             request_id: telemetry.requestId,
             route: "/tests/[slug]/take",
-            locale,
-          });
+          }));
         }
       }
     };
@@ -557,7 +547,7 @@ function QuizTakeInner({
     return () => {
       active = false;
     };
-  }, [anonId, locale, scaleCode, trackGuestTokenFailure]);
+  }, [anonId, locale, testKpiMetadata, trackGuestTokenFailure]);
 
   useEffect(() => {
     if (!retryAfterSeconds || retryAfterSeconds <= 0) {
@@ -593,18 +583,16 @@ function QuizTakeInner({
           if (isGuestTokenEndpointMissingError(guestTokenError)) {
             setAuthBlockError(resolveNoTokenServiceMessage(locale));
             const telemetry = resolveGuestTokenTelemetry(guestTokenError);
-            trackEvent("submit_blocked_no_token_service", {
-              scale_code: scaleCode,
+            trackEvent("submit_blocked_no_token_service", buildTestKpiTrackingPayload(testKpiMetadata, {
               status_code: telemetry.statusCode,
               error_code: telemetry.errorCode,
               request_id: telemetry.requestId,
               route: "/tests/[slug]/take",
-              locale,
-            });
+            }));
           }
         },
       }),
-    [anonId, locale, scaleCode, trackGuestTokenFailure]
+    [anonId, locale, testKpiMetadata, trackGuestTokenFailure]
   );
 
   const isFlowActive = useCallback((runId?: number) => (
@@ -658,10 +646,10 @@ function QuizTakeInner({
         } else {
           const response = await runWithAuthRetry("questions", () =>
             fetchScaleQuestions({
-              scaleCode,
-              formCode: resolvedFormCode,
+              scaleCode: testKpiMetadata.scaleCode,
+              formCode: testKpiMetadata.formCode,
               anonId,
-              locale: toApiLocale(locale),
+              locale: testKpiMetadata.apiLocale,
             })
           );
 
@@ -687,20 +675,18 @@ function QuizTakeInner({
         setQuestionsError(uiError.message);
         setRetryAfterSeconds(uiError.retryAfterSeconds);
         const classified = classifyApiError(error);
-        trackEvent("questions_load_failure", {
-          scale_code: scaleCode,
+        trackEvent("questions_load_failure", buildTestKpiTrackingPayload(testKpiMetadata, {
           stage: "questions",
           status_group: classified.statusGroup,
           status_code: classified.statusCode,
           error_code: classified.errorCode,
           request_id: classified.requestId,
           route: "/tests/[slug]/take",
-          locale,
-        });
+        }));
         captureError(error, {
           route: "/tests/[slug]/take",
           slug,
-          scaleCode,
+          scaleCode: testKpiMetadata.scaleCode,
           stage: "load_questions",
         });
         setQuestions([]);
@@ -714,7 +700,7 @@ function QuizTakeInner({
     return () => {
       active = false;
     };
-  }, [anonId, authBlockError, isIqScale, isRiasecScale, locale, resolvedFormCode, runWithAuthRetry, scaleCode, setQuestions, slug]);
+  }, [anonId, authBlockError, isIqScale, isRiasecScale, locale, runWithAuthRetry, setQuestions, slug, testKpiMetadata]);
 
   useEffect(() => {
     latestAnswersRef.current = answers;
@@ -757,10 +743,10 @@ function QuizTakeInner({
             })
           : await runWithAuthRetry("start_attempt", () =>
               startAttempt({
-                scaleCode,
-                formCode: resolvedFormCode,
+                scaleCode: testKpiMetadata.scaleCode,
+                formCode: testKpiMetadata.formCode,
                 anonId,
-                locale: toApiLocale(locale),
+                locale: testKpiMetadata.apiLocale,
                 meta: {
                   ...(entryContext.entrySurface ? { entry_surface: entryContext.entrySurface } : {}),
                   ...(entryContext.sourcePageType ? { source_page_type: entryContext.sourcePageType } : {}),
@@ -776,7 +762,7 @@ function QuizTakeInner({
         if (!isFlowActive(runId)) {
           return null;
         }
-        setAttemptMeta(response.attempt_id, scaleCode, resolvedFormCode ?? null);
+        setAttemptMeta(response.attempt_id, testKpiMetadata.scaleCode, testKpiMetadata.formCode ?? null);
         setRetryAfterSeconds(null);
         return response.attempt_id;
       } catch (error) {
@@ -787,19 +773,17 @@ function QuizTakeInner({
         setAttemptError(uiError.message);
         setRetryAfterSeconds(uiError.retryAfterSeconds);
         const classified = classifyApiError(error);
-        trackEvent("submit_failure", {
-          scale_code: scaleCode,
+        trackEvent("submit_failure", buildTestKpiTrackingPayload(testKpiMetadata, {
           stage: "start_attempt",
           status_group: classified.statusGroup,
           status_code: classified.statusCode,
           error_code: classified.errorCode,
           route: "/tests/[slug]/take",
-          locale,
-        });
+        }));
         captureError(error, {
           route: "/tests/[slug]/take",
           slug,
-          scaleCode,
+          scaleCode: testKpiMetadata.scaleCode,
           stage: "start_attempt",
         });
         return null;
@@ -823,12 +807,11 @@ function QuizTakeInner({
     isIqScale,
     isRiasecScale,
     locale,
-    resolvedFormCode,
     runWithAuthRetry,
-    scaleCode,
     setAttemptMeta,
     slug,
     staleDraftError,
+    testKpiMetadata,
   ]);
 
   const ensureAttempt = useCallback(async (runId?: number): Promise<string | null> => {
@@ -870,24 +853,20 @@ function QuizTakeInner({
     if (!attemptId || trackedStartRef.current) return;
     trackedStartRef.current = true;
 
-    const eventPayload = {
+    const eventPayload = buildTestKpiTrackingPayload(testKpiMetadata, {
       ...trackingAttribution,
       slug,
-      scaleCode,
-      scale_code: normalizedScaleCode,
       test_slug: entryContext.testSlug ?? slug,
       target_test_slug: entryContext.testSlug ?? slug,
       ...(entryContext.entrySurface ? { entry_surface: entryContext.entrySurface } : {}),
       ...(entryContext.sourcePageType ? { source_page_type: entryContext.sourcePageType } : {}),
       ...(entryContext.targetAction ? { target_action: entryContext.targetAction } : {}),
       ...(entryContext.landingPath ? { landing_path: entryContext.landingPath } : {}),
-      ...(resolvedFormCode ? { form_code: resolvedFormCode } : {}),
       attempt_id: attemptId,
       attemptIdMasked: `${attemptId.slice(0, 6)}...${attemptId.slice(-4)}`,
-      locale,
-    };
+    }, { includeCamelScaleCode: true });
 
-    if (isMbtiScaleCode(scaleCode)) {
+    if (isMbtiScaleCode(normalizedScaleCode)) {
       trackObservableFunnelEvent("start_attempt", eventPayload);
       return;
     }
@@ -897,7 +876,7 @@ function QuizTakeInner({
         "start_attempt",
         buildRiasecStartAttemptTrackingPayload({
           slug,
-          formCode: resolvedFormCode ?? normalizeRiasecFormCode(null),
+          formCode: testKpiMetadata.formCode ?? normalizeRiasecFormCode(null),
           locale,
           attemptId,
           attribution: eventPayload,
@@ -907,7 +886,7 @@ function QuizTakeInner({
     }
 
     trackEvent("start_attempt", eventPayload);
-  }, [attemptId, entryContext.entrySurface, entryContext.landingPath, entryContext.sourcePageType, entryContext.targetAction, entryContext.testSlug, isRiasecScale, locale, normalizedScaleCode, resolvedFormCode, scaleCode, slug, trackingAttribution]);
+  }, [attemptId, entryContext.entrySurface, entryContext.landingPath, entryContext.sourcePageType, entryContext.targetAction, entryContext.testSlug, isRiasecScale, locale, normalizedScaleCode, slug, testKpiMetadata, trackingAttribution]);
 
   useEffect(() => {
     const takeFlow = takeFlowRef.current;
@@ -1050,11 +1029,9 @@ function QuizTakeInner({
     }
 
     const resultAttemptId = resolveResultAttemptId(response, activeAttemptId);
-    const eventPayload = {
+    const eventPayload = buildTestKpiTrackingPayload(testKpiMetadata, {
       ...trackingAttribution,
       slug,
-      scaleCode,
-      scale_code: normalizedScaleCode,
       test_slug: entryContext.testSlug ?? slug,
       target_test_slug: entryContext.testSlug ?? slug,
       ...(entryContext.entrySurface ? { entry_surface: entryContext.entrySurface } : {}),
@@ -1064,10 +1041,8 @@ function QuizTakeInner({
       attempt_id: resultAttemptId,
       attemptIdMasked: `${resultAttemptId.slice(0, 6)}...${resultAttemptId.slice(-4)}`,
       durationMs,
-      ...(resolvedFormCode ? { form_code: resolvedFormCode } : {}),
-      locale,
-    };
-    if (isMbtiScaleCode(scaleCode)) {
+    }, { includeCamelScaleCode: true });
+    if (isMbtiScaleCode(normalizedScaleCode)) {
       trackObservableFunnelEvent("submit_attempt", eventPayload);
     } else if (isRiasecScale) {
       const answeredCountSnapshot = questions.reduce(
@@ -1078,7 +1053,7 @@ function QuizTakeInner({
         "submit_attempt",
         buildRiasecSubmitAttemptTrackingPayload({
           slug,
-          formCode: resolvedFormCode ?? normalizeRiasecFormCode(null),
+          formCode: testKpiMetadata.formCode ?? normalizeRiasecFormCode(null),
           locale,
           attemptId: resultAttemptId,
           answeredCount: answeredCountSnapshot,
@@ -1090,7 +1065,7 @@ function QuizTakeInner({
       trackEvent("submit_attempt", eventPayload);
     }
     return resultAttemptId;
-  }, [anonId, attribution, entryContext.entrySurface, entryContext.landingPath, entryContext.sourcePageType, entryContext.targetAction, entryContext.testSlug, isFlowActive, isIqScale, isRiasecScale, locale, normalizedScaleCode, questions, resolvedFormCode, runWithAuthRetry, scaleCode, slug, startedAt, trackingAttribution]);
+  }, [anonId, attribution, entryContext.entrySurface, entryContext.landingPath, entryContext.sourcePageType, entryContext.targetAction, entryContext.testSlug, isFlowActive, isIqScale, isRiasecScale, locale, normalizedScaleCode, questions, runWithAuthRetry, slug, startedAt, testKpiMetadata, trackingAttribution]);
 
   const handleSubmit = async (pendingSelection?: LastSelectionContext, runId?: number): Promise<string | null> => {
     if (submitInFlightRef.current || staleDraftError) {
@@ -1178,19 +1153,17 @@ function QuizTakeInner({
       setSubmitError(uiError.message);
       setRetryAfterSeconds(uiError.retryAfterSeconds);
       const classified = classifyApiError(error);
-      trackEvent("submit_failure", {
-        scale_code: scaleCode,
+      trackEvent("submit_failure", buildTestKpiTrackingPayload(testKpiMetadata, {
         stage: "submit_attempt",
         status_group: classified.statusGroup,
         status_code: classified.statusCode,
         error_code: classified.errorCode,
         route: "/tests/[slug]/take",
-        locale,
-      });
+      }));
       captureError(error, {
         route: "/tests/[slug]/take",
         slug,
-        scaleCode,
+        scaleCode: testKpiMetadata.scaleCode,
         stage: "submit_attempt",
       });
       return null;
@@ -1216,34 +1189,28 @@ function QuizTakeInner({
   const startSubmitOverlayPhases = (runId: number) => {
     setSubmitOverlayPhase(0);
 
-    trackEvent("ui_report_loading_phase", {
-      scale_code: scaleCode,
+    trackEvent("ui_report_loading_phase", buildTestKpiTrackingPayload(testKpiMetadata, {
       phase: "saving",
       locked: true,
       variant: "free",
-      locale,
-    });
+    }));
 
     takeFlowRef.current.schedule(() => {
       setSubmitOverlayPhase(1);
-      trackEvent("ui_report_loading_phase", {
-        scale_code: scaleCode,
+      trackEvent("ui_report_loading_phase", buildTestKpiTrackingPayload(testKpiMetadata, {
         phase: "analyzing",
         locked: true,
         variant: "free",
-        locale,
-      });
+      }));
     }, 800, runId);
 
     takeFlowRef.current.schedule(() => {
       setSubmitOverlayPhase(2);
-      trackEvent("ui_report_loading_phase", {
-        scale_code: scaleCode,
+      trackEvent("ui_report_loading_phase", buildTestKpiTrackingPayload(testKpiMetadata, {
         phase: "generating",
         locked: true,
         variant: "free",
-        locale,
-      });
+      }));
     }, 1500, runId);
   };
 

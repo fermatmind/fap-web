@@ -702,6 +702,17 @@ const TAKE_FRONTEND_LOCALE_CONTRACT_04_ALLOWED_FILES = new Set([
   "tests/contracts/take-frontend-locale-contract.contract.test.ts",
 ]);
 
+const TEST_KPI_FRONTEND_CONTRACT_06_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/tests/[slug]/take/Big5TakeClient.tsx",
+  "app/(localized)/[locale]/tests/[slug]/take/ClinicalTakeClient.tsx",
+  "app/(localized)/[locale]/tests/[slug]/take/EnneagramTakeClient.tsx",
+  "app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient.tsx",
+  "lib/tracking/testKpiMetadata.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/take-frontend-locale-contract.contract.test.ts",
+  "tests/contracts/test-kpi-frontend-contract.contract.test.ts",
+]);
+
 const PR_WEB_SEC_27_ALLOWED_FILES = new Set([
   "components/layout/SiteFooter.tsx",
   "docs/codex/pr-train.yaml",
@@ -2420,6 +2431,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/take-frontend-locale-contract-04") {
     return TAKE_FRONTEND_LOCALE_CONTRACT_04_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/TEST-KPI-FRONTEND-CONTRACT-06") {
+    return TEST_KPI_FRONTEND_CONTRACT_06_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-web-sec-27-footer-qr-toggle") {

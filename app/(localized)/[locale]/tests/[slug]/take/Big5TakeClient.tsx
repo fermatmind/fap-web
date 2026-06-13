@@ -49,6 +49,7 @@ import { classifyApiError } from "@/lib/observability/httpError";
 import { useConstrainQuizUrlTokens } from "@/lib/quiz/urlTokenGuard";
 import { isImmersiveSingleFlowEnabled } from "@/lib/quiz/uxFlags";
 import { resolveResultAttemptId } from "@/lib/attempt/resolveResultAttemptId";
+import { buildTestKpiMetadata, buildTestKpiTrackingPayload } from "@/lib/tracking/testKpiMetadata";
 import {
   createTakeFlowController,
   recoverStaleAttemptSubmit,
@@ -157,6 +158,10 @@ export default function Big5TakeClient({
     () => resolveBig5FormMeta(resolvedFormCode),
     [resolvedFormCode]
   );
+  const testKpiMetadata = useMemo(
+    () => buildTestKpiMetadata({ scaleCode: "BIG5_OCEAN", formCode: resolvedFormCode, locale }),
+    [locale, resolvedFormCode]
+  );
   const effectiveEstimatedMinutes = estimatedMinutes ?? resolvedFormMeta.estimatedMinutes;
   const savedSlug = useBig5AttemptStore((store) => store.slug);
   const savedFormCode = useBig5AttemptStore((store) => store.formCode);
@@ -198,7 +203,7 @@ export default function Big5TakeClient({
 
   const trackingFallback = useMemo<Big5TrackingContext>(
     () => ({
-      scale_code: "BIG5_OCEAN",
+      scale_code: testKpiMetadata.scale_code,
       pack_version: packVersion,
       manifest_hash: "pending",
       norms_version: "unavailable",
@@ -208,16 +213,16 @@ export default function Big5TakeClient({
       sku_id: "",
       locale,
     }),
-    [locale, packVersion]
+    [locale, packVersion, testKpiMetadata.scale_code]
   );
 
   const buildEventPayload = useCallback(
-    (payload: Record<string, unknown>) => ({
-      ...(trackingBase ?? trackingFallback),
-      form_code: resolvedFormCode,
-      ...payload,
-    }),
-    [resolvedFormCode, trackingBase, trackingFallback]
+    (payload: Record<string, unknown>) =>
+      buildTestKpiTrackingPayload(testKpiMetadata, {
+        ...(trackingBase ?? trackingFallback),
+        ...payload,
+      }),
+    [testKpiMetadata, trackingBase, trackingFallback]
   );
 
   const handleRestartTest = useCallback(() => {
@@ -271,18 +276,15 @@ export default function Big5TakeClient({
   const trackGuestTokenFailure = useCallback(
     (stage: "bootstrap" | "questions" | "start_attempt" | "submit_attempt", error: unknown) => {
       const telemetry = resolveGuestTokenTelemetry(error);
-      trackEvent("auth_guest_token_failure", {
-        scale_code: "BIG5_OCEAN",
+      trackEvent("auth_guest_token_failure", buildTestKpiTrackingPayload(testKpiMetadata, {
         stage,
         status_code: telemetry.statusCode,
         error_code: telemetry.errorCode,
         request_id: telemetry.requestId,
         route: "/tests/[slug]/take",
-        form_code: resolvedFormCode,
-        locale,
-      });
+      }));
     },
-    [locale, resolvedFormCode]
+    [testKpiMetadata]
   );
 
   useEffect(() => {
@@ -310,14 +312,12 @@ export default function Big5TakeClient({
           setQuestionError(message);
 
           const telemetry = resolveGuestTokenTelemetry(error);
-          trackEvent("submit_blocked_no_token_service", {
-            scale_code: "BIG5_OCEAN",
+          trackEvent("submit_blocked_no_token_service", buildTestKpiTrackingPayload(testKpiMetadata, {
             status_code: telemetry.statusCode,
             error_code: telemetry.errorCode,
             request_id: telemetry.requestId,
             route: "/tests/[slug]/take",
-            locale,
-          });
+          }));
         }
       } finally {
         if (active) {
@@ -353,14 +353,12 @@ export default function Big5TakeClient({
             setQuestionError(message);
 
             const telemetry = resolveGuestTokenTelemetry(guestTokenError);
-            trackEvent("submit_blocked_no_token_service", {
-              scale_code: "BIG5_OCEAN",
+            trackEvent("submit_blocked_no_token_service", buildTestKpiTrackingPayload(testKpiMetadata, {
               status_code: telemetry.statusCode,
               error_code: telemetry.errorCode,
               request_id: telemetry.requestId,
               route: "/tests/[slug]/take",
-              locale,
-            });
+            }));
           }
         },
       }),
@@ -437,13 +435,11 @@ export default function Big5TakeClient({
 
     const elapsedMs = Math.max(0, Date.now() - startedAt);
     const durationBucket = elapsedMs < 60000 ? "lt_1m" : elapsedMs < 180000 ? "1_3m" : "gte_3m";
-    trackEvent("ui_quiz_milestone", {
-      scale_code: "BIG5_OCEAN",
+    trackEvent("ui_quiz_milestone", buildTestKpiTrackingPayload(testKpiMetadata, {
       milestone: nextMilestone,
       duration_bucket: durationBucket,
-      locale,
-    });
-  }, [answeredCount, dict.quiz.milestoneHints, locale, seenMilestones, startedAt, total]);
+    }));
+  }, [answeredCount, dict.quiz.milestoneHints, locale, seenMilestones, startedAt, testKpiMetadata, total]);
 
   useEffect(() => {
     let active = true;
@@ -505,9 +501,9 @@ export default function Big5TakeClient({
       try {
         const response = await runWithAuthRetry("questions", () =>
           fetchBig5Questions({
-            locale: toApiLocale(locale),
+            locale: testKpiMetadata.apiLocale,
             anonId: anonId || undefined,
-            formCode: resolvedFormCode,
+            formCode: testKpiMetadata.formCode,
           })
         );
 
@@ -596,14 +592,12 @@ export default function Big5TakeClient({
             setAuthBlockError(message);
             setQuestionError(message);
             const telemetry = resolveGuestTokenTelemetry(error);
-            trackEvent("submit_blocked_no_token_service", {
-              scale_code: "BIG5_OCEAN",
+            trackEvent("submit_blocked_no_token_service", buildTestKpiTrackingPayload(testKpiMetadata, {
               status_code: telemetry.statusCode,
               error_code: telemetry.errorCode,
               request_id: telemetry.requestId,
               route: "/tests/[slug]/take",
-              locale,
-            });
+            }));
           }
         }
 
@@ -613,16 +607,14 @@ export default function Big5TakeClient({
           copy: big5RetakeCopy,
         });
         const classified = classifyApiError(error);
-        trackEvent("questions_load_failure", {
-          scale_code: "BIG5_OCEAN",
+        trackEvent("questions_load_failure", buildTestKpiTrackingPayload(testKpiMetadata, {
           stage: "questions",
           status_group: classified.statusGroup,
           status_code: classified.statusCode,
           error_code: classified.errorCode,
           request_id: classified.requestId,
           route: "/tests/[slug]/take",
-          locale,
-        });
+        }));
         applyUiError("question", mapped);
       } finally {
         if (active) {
@@ -636,7 +628,7 @@ export default function Big5TakeClient({
     return () => {
       active = false;
     };
-  }, [anonId, applyUiError, authBlockError, authBootstrapping, big5RetakeCopy, locale, resolvedFormCode, rolloutBlocked, rolloutChecking, runWithAuthRetry, trackGuestTokenFailure]);
+  }, [anonId, applyUiError, authBlockError, authBootstrapping, big5RetakeCopy, locale, resolvedFormCode, rolloutBlocked, rolloutChecking, runWithAuthRetry, testKpiMetadata, trackGuestTokenFailure]);
 
   const startFreshAttempt = useCallback(async (runId?: number): Promise<string | null> => {
     if (authBlockError || staleDraftError) {
@@ -679,9 +671,9 @@ export default function Big5TakeClient({
             const response = await runWithAuthRetry("start_attempt", () =>
               startBig5Attempt({
                 anonId: anonId || undefined,
-                locale: toApiLocale(locale),
+                locale: testKpiMetadata.apiLocale,
                 region: "GLOBAL",
-                formCode: resolvedFormCode,
+                formCode: testKpiMetadata.formCode,
                 meta: requestMeta,
                 clientVersion: "fe-big5-2",
               })
@@ -736,14 +728,12 @@ export default function Big5TakeClient({
                     : "Submission is temporarily unavailable because authentication service is not configured.";
                 setAuthBlockError(message);
                 const telemetry = resolveGuestTokenTelemetry(error);
-                trackEvent("submit_blocked_no_token_service", {
-                  scale_code: "BIG5_OCEAN",
+                trackEvent("submit_blocked_no_token_service", buildTestKpiTrackingPayload(testKpiMetadata, {
                   status_code: telemetry.statusCode,
                   error_code: telemetry.errorCode,
                   request_id: telemetry.requestId,
                   route: "/tests/[slug]/take",
-                  locale,
-                });
+                }));
               }
             }
 
@@ -753,15 +743,13 @@ export default function Big5TakeClient({
               copy: big5RetakeCopy,
             });
             const classified = classifyApiError(error);
-            trackEvent("submit_failure", {
-              scale_code: "BIG5_OCEAN",
+            trackEvent("submit_failure", buildTestKpiTrackingPayload(testKpiMetadata, {
               stage: "start_attempt",
               status_group: classified.statusGroup,
               status_code: classified.statusCode,
               error_code: classified.errorCode,
               route: "/tests/[slug]/take",
-              locale,
-            });
+            }));
             applyUiError("start", mapped);
 
             if (error instanceof ApiError && error.status === 429) {
@@ -810,6 +798,7 @@ export default function Big5TakeClient({
     big5RetakeCopy,
     consentRequiredMessage,
     needsConsent,
+    testKpiMetadata,
   ]);
 
   const ensureAttempt = useCallback(async (runId?: number): Promise<string | null> => {
@@ -1034,14 +1023,12 @@ export default function Big5TakeClient({
               : "Submission is temporarily unavailable because authentication service is not configured.";
           setAuthBlockError(message);
           const telemetry = resolveGuestTokenTelemetry(error);
-          trackEvent("submit_blocked_no_token_service", {
-            scale_code: "BIG5_OCEAN",
+          trackEvent("submit_blocked_no_token_service", buildTestKpiTrackingPayload(testKpiMetadata, {
             status_code: telemetry.statusCode,
             error_code: telemetry.errorCode,
             request_id: telemetry.requestId,
             route: "/tests/[slug]/take",
-            locale,
-          });
+          }));
         }
       }
 
@@ -1051,15 +1038,13 @@ export default function Big5TakeClient({
         copy: big5RetakeCopy,
       });
       const classified = classifyApiError(error);
-      trackEvent("submit_failure", {
-        scale_code: "BIG5_OCEAN",
+      trackEvent("submit_failure", buildTestKpiTrackingPayload(testKpiMetadata, {
         stage: "submit_attempt",
         status_group: classified.statusGroup,
         status_code: classified.statusCode,
         error_code: classified.errorCode,
         route: "/tests/[slug]/take",
-        locale,
-      });
+      }));
       applyUiError("submit", mapped);
 
       if (error instanceof ApiError && error.status === 408) {
@@ -1107,6 +1092,7 @@ export default function Big5TakeClient({
     big5RetakeCopy,
     trackGuestTokenFailure,
     retryCountdownText,
+    testKpiMetadata,
   ]);
 
   const finalizeSuccessfulSubmit = useCallback(
@@ -1121,36 +1107,30 @@ export default function Big5TakeClient({
   const startSubmitOverlayPhases = useCallback((runId: number) => {
     setSubmitOverlayPhase(0);
 
-    trackEvent("ui_report_loading_phase", {
-      scale_code: "BIG5_OCEAN",
+    trackEvent("ui_report_loading_phase", buildTestKpiTrackingPayload(testKpiMetadata, {
       phase: "saving",
       locked: true,
       variant: "free",
-      locale,
-    });
+    }));
 
     takeFlowRef.current.schedule(() => {
       setSubmitOverlayPhase(1);
-      trackEvent("ui_report_loading_phase", {
-        scale_code: "BIG5_OCEAN",
+      trackEvent("ui_report_loading_phase", buildTestKpiTrackingPayload(testKpiMetadata, {
         phase: "analyzing",
         locked: true,
         variant: "free",
-        locale,
-      });
+      }));
     }, 800, runId);
 
     takeFlowRef.current.schedule(() => {
       setSubmitOverlayPhase(2);
-      trackEvent("ui_report_loading_phase", {
-        scale_code: "BIG5_OCEAN",
+      trackEvent("ui_report_loading_phase", buildTestKpiTrackingPayload(testKpiMetadata, {
         phase: "generating",
         locked: true,
         variant: "free",
-        locale,
-      });
+      }));
     }, 1500, runId);
-  }, [locale]);
+  }, [testKpiMetadata]);
 
   const handleSubmitWithOverlay = useCallback(async (pendingSelection?: LastSelectionContext): Promise<void> => {
     if (submitOverlayVisible || submitting) return;
