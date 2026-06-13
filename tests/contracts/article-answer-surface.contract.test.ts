@@ -144,7 +144,7 @@ afterEach(() => {
   vi.resetModules();
 });
 
-async function renderArticleDetail(article: CmsArticle) {
+async function renderArticleDetail(article: CmsArticle, seo: unknown = null) {
   process.env.NEXT_PUBLIC_SITE_URL = "https://fermatmind.com";
   vi.doMock("next/link", () => ({
     default: ({ href, children, ...props }: { href: string; children: ReactNode }) =>
@@ -156,7 +156,7 @@ async function renderArticleDetail(article: CmsArticle) {
     return {
       ...actual,
       getCmsArticleWithLastKnownGood: vi.fn(async () => ({ value: article })),
-      getCmsArticleSeoWithLastKnownGood: vi.fn(async () => ({ value: null })),
+      getCmsArticleSeoWithLastKnownGood: vi.fn(async () => ({ value: seo })),
     };
   });
 
@@ -321,6 +321,55 @@ describe("article answer surface rendering", () => {
     expect(html).toContain('"@type":"FAQPage"');
     expect(html).toContain('"name":"When should I use the article FAQ?"');
     expect(html).toContain('"text":"Use it when you need the shortest answer before the full guide."');
+  });
+
+  it("does not duplicate standalone FAQPage JSON-LD when CMS Article JSON-LD already contains FAQPage", async () => {
+    const article = {
+      ...makeArticle(),
+      slug: "what-is-riasec-holland-code-career-interest-test",
+    };
+    const seo = {
+      meta: {
+        title: "What Is RIASEC?",
+        description: "A CMS-backed article.",
+        canonical: "https://fermatmind.com/en/articles/what-is-riasec-holland-code-career-interest-test",
+        robots: "index, follow",
+        alternates: {},
+        og: {},
+        twitter: {},
+      },
+      surface: null,
+      jsonld: {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "@id": "https://fermatmind.com/en/articles/what-is-riasec-holland-code-career-interest-test#article",
+        headline: "What Is RIASEC?",
+        hasPart: [
+          {
+            "@type": "FAQPage",
+            "@id": "https://fermatmind.com/en/articles/what-is-riasec-holland-code-career-interest-test#faq",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: "When should I use the article FAQ?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Use it when you need the shortest answer before the full guide.",
+                },
+              },
+            ],
+          },
+        ],
+      },
+    };
+    const html = await renderArticleDetail(article, seo);
+
+    expect(html).toContain('id="article-jsonld-what-is-riasec-holland-code-career-interest-test"');
+    expect(html).toContain('"@type":"FAQPage"');
+    expect(html).toContain('"@id":"https://fermatmind.com/en/articles/what-is-riasec-holland-code-career-interest-test#faq"');
+    expect(html).not.toContain('id="article-faq-what-is-riasec-holland-code-career-interest-test"');
+    expect(html.match(/"@type":"FAQPage"/g)).toHaveLength(1);
+    expect(html).toContain("When should I use the article FAQ?");
   });
 
   it("emits Article and Breadcrumb JSON-LD without FAQPage when granular gates hold FAQ schema", async () => {

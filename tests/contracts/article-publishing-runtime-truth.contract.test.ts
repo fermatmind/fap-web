@@ -391,6 +391,11 @@ describe("Article Publishing Runtime Truth acceptance gate", () => {
     expect(source).toContain("articleSchemaGate.canRenderArticleJsonLd");
     expect(source).toContain("articleJsonLdAuthority.canRenderJsonLd");
     expect(source).toContain("const breadcrumbJsonLd = articleSchemaGate.canRenderBreadcrumbJsonLd");
-    expect(source).toContain("{articleSchemaGate.canRenderFAQPageJsonLd && faqItems.length > 0 ? <JsonLd id={`article-faq-${slug}`} data={buildFAQPageJsonLd(faqItems)} /> : null}");
+    expect(source).toContain("function jsonLdContainsType(value: unknown, schemaType: string): boolean");
+    expect(source).toContain("const shouldRenderStandaloneFaqJsonLd =");
+    expect(source).toContain("articleSchemaGate.canRenderFAQPageJsonLd");
+    expect(source).toContain("faqItems.length > 0");
+    expect(source).toContain('!jsonLdContainsType(articleJsonLd, "FAQPage")');
+    expect(source).toContain("{shouldRenderStandaloneFaqJsonLd ? <JsonLd id={`article-faq-${slug}`} data={buildFAQPageJsonLd(faqItems)} /> : null}");
   });
 });
