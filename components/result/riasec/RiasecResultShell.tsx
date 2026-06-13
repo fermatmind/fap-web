@@ -23,6 +23,28 @@ import {
 } from "@/lib/riasec/tracking";
 import { TRACKING_EVENTS } from "@/lib/tracking/events";
 
+const RIASEC_DEBUG_RENDER_PATTERNS = [
+  /\bBUTTON\s+LABEL\b/gi,
+  /\bBUT\s+TON\s+LABEL\b/gi,
+  /\bscore space\b/gi,
+  /\braw score\b/gi,
+  /\briasec_60_likert5_activity_sum_space(?:\.v\d+)?\b/gi,
+  /\bminimal_answer_completion_only\b/gi,
+  /\bcontent_example_not_registry_match(?:_without_reviewed_registry_source)?\b/gi,
+  /\bphysical_implementation\b/gi,
+  /\btools_and_equipment\b/gi,
+  /\bfield_troubleshooting\b/gi,
+  /\bprototypes_and_tangible_outputs\b/gi,
+  /\bhands_on_systems\b/gi,
+  /\banalyze_complex_problems\b/gi,
+  /\borganize_evidence_materials\b/gi,
+  /\bmodel_systems\b/gi,
+  /\btest_hypotheses\b/gi,
+  /\bresearch_and_explain\b/gi,
+];
+
+const RIASEC_HIDDEN_DEEP_CONTENT_KEYS = new Set(["button_label", "score_space", "raw_score"]);
+
 export function RiasecResultShell({
   locale,
   viewModel,
@@ -251,9 +273,13 @@ export function RiasecResultShell({
                 <div className="grid gap-3 md:grid-cols-3" data-testid="riasec-activity-families">
                   {viewModel.activityExplorer.dimensionActivityFamilies.map((family) => (
                     <section key={family.dimension} className="rounded-lg border border-[var(--fm-border)] p-3">
-                      <div className="text-sm font-semibold text-[var(--fm-text)]">{family.dimension} · {family.label}</div>
+                      <div className="text-sm font-semibold text-[var(--fm-text)]">
+                        {family.dimension} · {sanitizeRiasecRenderableText(family.label) || family.dimension}
+                      </div>
                       {family.coreDrive ? (
-                        <p className="mt-2 text-sm leading-6 text-[var(--fm-text-muted)]">{family.coreDrive}</p>
+                        <p className="mt-2 text-sm leading-6 text-[var(--fm-text-muted)]">
+                          {sanitizeRiasecRenderableText(family.coreDrive)}
+                        </p>
                       ) : null}
                       {family.activityFamilies.length > 0 ? (
                         <div className="mt-3 flex flex-wrap gap-2">
@@ -272,9 +298,13 @@ export function RiasecResultShell({
                 <div className="space-y-3" data-testid="riasec-activity-pack">
                   {viewModel.activityExplorer.codeActivityPack.activities.map((activity) => (
                     <section key={activity.activityKey} className="rounded-lg border border-[var(--fm-border)] p-3">
-                      <div className="text-sm font-semibold text-[var(--fm-text)]">{activity.activityLabel || activity.activityKey}</div>
+                      <div className="text-sm font-semibold text-[var(--fm-text)]">
+                        {formatRiasecActivityLabel(activity.activityLabel, activity.activityKey, locale)}
+                      </div>
                       {activity.activityUserCopy ? (
-                        <p className="mt-2 text-sm leading-6 text-[var(--fm-text-muted)]">{activity.activityUserCopy}</p>
+                        <p className="mt-2 text-sm leading-6 text-[var(--fm-text-muted)]">
+                          {sanitizeRiasecRenderableText(activity.activityUserCopy)}
+                        </p>
                       ) : null}
                       {activity.taskExamples.length > 0 ? (
                         <div className="mt-3">
@@ -282,7 +312,7 @@ export function RiasecResultShell({
                             {isZh ? "任务例子" : "Task examples"}
                           </div>
                           <ul className="mt-2 list-disc space-y-1 pl-5 text-sm leading-6 text-[var(--fm-text-muted)]">
-                            {activity.taskExamples.map((task) => (
+                            {activity.taskExamples.map((task) => formatRiasecDetailValue(task)).filter(Boolean).map((task) => (
                               <li key={task}>{task}</li>
                             ))}
                           </ul>
@@ -292,11 +322,15 @@ export function RiasecResultShell({
                         <div className="mt-3 grid gap-2 sm:grid-cols-2" data-testid="riasec-occupation-examples">
                           {activity.occupationExamples.map((example) => (
                             <article key={example.occupationExample} className="rounded-lg border border-[var(--fm-border)] bg-white p-3">
-                              <div className="text-sm font-semibold text-[var(--fm-text)]">{example.occupationExample}</div>
-                              <div className="mt-1 text-xs text-[var(--fm-text-muted)]">{example.displayLabel || formatRiasecSourceStatus(example.sourceStatus, locale)}</div>
+                              <div className="text-sm font-semibold text-[var(--fm-text)]">
+                                {sanitizeRiasecRenderableText(example.occupationExample)}
+                              </div>
+                              <div className="mt-1 text-xs text-[var(--fm-text-muted)]">
+                                {sanitizeRiasecRenderableText(example.displayLabel) || formatRiasecSourceStatus(example.sourceStatus, locale)}
+                              </div>
                               {example.commonTasks.length > 0 ? (
                                 <ul className="mt-2 list-disc space-y-1 pl-5 text-xs leading-5 text-[var(--fm-text-muted)]">
-                                  {example.commonTasks.map((task) => (
+                                  {example.commonTasks.map((task) => formatRiasecDetailValue(task)).filter(Boolean).map((task) => (
                                     <li key={task}>{task}</li>
                                   ))}
                                 </ul>
@@ -376,10 +410,20 @@ function RiasecDeepContentSlotsSection({
 
 function RiasecDeepContentSlotCard({ slot, isZh }: { slot: RiasecDeepContentSlot; isZh: boolean }) {
   const { content } = slot;
-  const title = typeof content.title === "string" ? content.title : "";
-  const summary = typeof content.summary === "string" ? content.summary : "";
-  const body = typeof content.body === "string" ? content.body : "";
-  const detailEntries = Object.entries(content).filter(([key]) => !["title", "summary", "body"].includes(key));
+  const title = sanitizeRiasecRenderableText(content.title);
+  const summary = sanitizeRiasecRenderableText(content.summary);
+  const body = sanitizeRiasecRenderableText(content.body);
+  const detailEntries = Object.entries(content)
+    .filter(([key]) => !["title", "summary", "body"].includes(key))
+    .map(([key, value]) => {
+      const label = formatDeepContentKey(key);
+      const values = Array.isArray(value)
+        ? value.map((item) => formatRiasecDetailValue(item)).filter(Boolean)
+        : formatRiasecDetailValue(value);
+
+      return { key, label, values };
+    })
+    .filter(({ label, values }) => Boolean(label) && (Array.isArray(values) ? values.length > 0 : Boolean(values)));
 
   return (
     <section
@@ -398,33 +442,39 @@ function RiasecDeepContentSlotCard({ slot, isZh }: { slot: RiasecDeepContentSlot
       {body ? <p className="mt-3 text-sm leading-6 text-[var(--fm-text-muted)]">{body}</p> : null}
       {detailEntries.length > 0 ? (
         <div className="mt-3 grid gap-2 md:grid-cols-2">
-          {detailEntries.map(([key, value]) => (
+          {detailEntries.map(({ key, label, values }) => (
             <div key={key} className="rounded-md bg-slate-50 px-3 py-2">
               <div className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">
-                {formatDeepContentKey(key)}
+                {label}
               </div>
-              {Array.isArray(value) ? (
+              {Array.isArray(values) ? (
                 <ul className="mt-2 list-disc space-y-1 pl-5 text-sm leading-6 text-[var(--fm-text-muted)]">
-                  {value.map((item) => formatRiasecDetailValue(item)).filter(Boolean).map((item) => (
+                  {values.map((item) => (
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
               ) : (
-                <p className="mt-2 text-sm leading-6 text-[var(--fm-text-muted)]">{formatRiasecDetailValue(value)}</p>
+                <p className="mt-2 text-sm leading-6 text-[var(--fm-text-muted)]">{values}</p>
               )}
             </div>
           ))}
         </div>
       ) : null}
       {slot.boundaries.userVisibleBoundary ? (
-        <p className="mt-3 text-xs leading-5 text-[var(--fm-text-muted)]">{slot.boundaries.userVisibleBoundary}</p>
+        <p className="mt-3 text-xs leading-5 text-[var(--fm-text-muted)]">
+          {sanitizeRiasecRenderableText(slot.boundaries.userVisibleBoundary)}
+        </p>
       ) : null}
     </section>
   );
 }
 
 function formatDeepContentKey(key: string): string {
-  return key.replace(/_/g, " ");
+  if (RIASEC_HIDDEN_DEEP_CONTENT_KEYS.has(key)) {
+    return "";
+  }
+
+  return sanitizeRiasecRenderableText(key.replace(/_/g, " "));
 }
 
 function formatRiasecQualityRule(value: string, locale: Locale): string {
@@ -471,6 +521,14 @@ function formatRiasecActivityFamily(value: string, locale: Locale): string {
   const labels: Record<string, { zh: string; en: string }> = {
     physical_implementation: { zh: "实物操作", en: "Hands-on implementation" },
     tools_and_equipment: { zh: "工具与设备", en: "Tools and equipment" },
+    field_troubleshooting: { zh: "现场排查", en: "Field troubleshooting" },
+    prototypes_and_tangible_outputs: { zh: "原型与实物产出", en: "Prototypes and tangible outputs" },
+    hands_on_systems: { zh: "动手系统", en: "Hands-on systems" },
+    analyze_complex_problems: { zh: "复杂问题分析", en: "Complex problem analysis" },
+    organize_evidence_materials: { zh: "证据材料整理", en: "Evidence organization" },
+    model_systems: { zh: "系统建模", en: "Systems modeling" },
+    test_hypotheses: { zh: "假设检验", en: "Hypothesis testing" },
+    research_and_explain: { zh: "研究与解释", en: "Research and explanation" },
   };
   const label = labels[value];
   if (label) {
@@ -482,6 +540,14 @@ function formatRiasecActivityFamily(value: string, locale: Locale): string {
   }
 
   return value;
+}
+
+function formatRiasecActivityLabel(label: string, key: string, locale: Locale): string {
+  return (
+    sanitizeRiasecRenderableText(label) ||
+    formatRiasecActivityFamily(key, locale) ||
+    (locale === "zh" ? "活动示例" : "Activity example")
+  );
 }
 
 function formatRiasecSlotVisibility(value: string, locale: Locale): string {
@@ -501,10 +567,27 @@ function formatRiasecDetailValue(value: unknown): string {
     return "";
   }
 
-  const trimmed = value.trim();
+  const trimmed = sanitizeRiasecRenderableText(value);
   if (!trimmed || /(?:[a-z]+_){1,}[a-z0-9]+/.test(trimmed)) {
     return "";
   }
 
   return trimmed;
+}
+
+function sanitizeRiasecRenderableText(value: unknown): string {
+  if (typeof value !== "string") {
+    return "";
+  }
+
+  let text = value.trim();
+  if (/^(?:visible|collapsed)$/i.test(text)) {
+    return "";
+  }
+
+  for (const pattern of RIASEC_DEBUG_RENDER_PATTERNS) {
+    text = text.replace(pattern, "");
+  }
+
+  return text.replace(/\s{2,}/g, " ").replace(/^[\s:;|,，、-]+|[\s:;|,，、-]+$/g, "").trim();
 }
