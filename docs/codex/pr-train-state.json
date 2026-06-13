@@ -2,9 +2,9 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-13T07:49:00+08:00",
+  "updated_at": "2026-06-13T14:31:20+08:00",
   "status": "active",
-  "phase": "result_p0_private_debug_pdf_leak_fix",
+  "phase": "result_p0_pdf_leak_hardening_02",
   "pr_namespace": "PR-PRAC-*",
   "branch_naming_convention": "codex/pr-prac-<nn>-<short-scope>",
   "mode": "local_clone_preferred",
@@ -22537,6 +22537,201 @@
           "at": "2026-06-09",
           "status": "ready_to_merge",
           "note": "GitHub checks passed and merge state was CLEAN for head 93da798ca36fb14fb2fc8693150ee7aa1e24ac01."
+        }
+      ]
+    },
+    {
+      "id": "RESULT-PRINT-PRIVATE-URL-REDACTION-02",
+      "repo": "fap-web",
+      "branch": "codex/result-print-private-url-redaction-02",
+      "status": "committed_pending_push",
+      "commit_sha": "9bad4acf99eac1eacadc169d74cf034a1b5daed5",
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User provided /goal on 2026-06-13 with explicit RESULT-P0-PDF-LEAK-HARDENING-TRAIN-02 sequence, PR ids, scopes, validation, and train protocol; initialized missing docs/codex manifest and state entries from that supplied scope."
+        },
+        "dependency": {
+          "status": "pass",
+          "evidence": "RESULT-PRINT-PRIVATE-URL-REDACTION-02 has no declared dependencies and started from fap-web main after git pull --ff-only origin main."
+        },
+        "scope": {
+          "status": "pass",
+          "allowed_paths": [
+            "app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx",
+            "lib/result/privatePrintUrlRedaction.ts",
+            "tests/contracts/result-print-url-redaction.contract.test.ts",
+            "tests/contracts/result-private-leak-regressions.contract.test.ts",
+            "tests/contracts/helpers/currentPrScope.ts",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ],
+          "evidence": "Changed files are confined to private result browser print URL/title redaction, focused contracts, scope helper, and train metadata. Explicit scope validation passed for 7 changed files."
+        },
+        "local": {
+          "status": "pass",
+          "commands": [
+            "pnpm exec vitest run tests/contracts/result-print-url-redaction.contract.test.ts tests/contracts/result-private-leak-regressions.contract.test.ts",
+            "pnpm typecheck",
+            "pnpm test:contract -- result",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://www.fermatmind.com pnpm build",
+            "node -e \"JSON.parse(require('fs').readFileSync('docs/codex/pr-train-state.json','utf8')); console.log('state json ok')\"",
+            "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+            "git diff --check",
+            "scope validation"
+          ],
+          "evidence": "Focused URL redaction/leak contracts passed 8 tests. pnpm typecheck passed. pnpm test:contract -- result passed 477 files / 2722 tests. Build passed with NEXT_PUBLIC_API_URL and NEXT_PUBLIC_SITE_URL set; first build attempt without NEXT_PUBLIC_SITE_URL failed at /robots.txt page-data collection, confirming an env prerequisite rather than a code failure. JSON/YAML parse, git diff --check, and explicit scope validation passed."
+        },
+        "github": {
+          "status": "pending",
+          "checks": []
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-13T14:24:20+08:00",
+          "status": "in_progress",
+          "note": "Created isolated branch codex/result-print-private-url-redaction-02 from latest fap-web main and implemented private result browser print URL/title redaction."
+        },
+        {
+          "at": "2026-06-13T14:30:12+08:00",
+          "status": "local_checks_passed",
+          "note": "Focused contracts, typecheck, pnpm test:contract -- result, env-corrected production build, metadata parse, diff check, and scope validation passed. Postbuild sitemap churn was restored and left out of scope."
+        },
+        {
+          "at": "2026-06-13T14:31:20+08:00",
+          "status": "committed_pending_push",
+          "note": "Created scoped implementation commit 9bad4acf99eac1eacadc169d74cf034a1b5daed5."
+        }
+      ]
+    },
+    {
+      "id": "RESULT-PRIVATE-PRINT-CHROME-GATE-HARDEN-02",
+      "repo": "fap-web",
+      "branch": "codex/result-private-print-chrome-gate-harden-02",
+      "status": "blocked_dependency",
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": "Waiting for RESULT-PRINT-PRIVATE-URL-REDACTION-02 to merge.",
+      "checks": {
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on RESULT-PRINT-PRIVATE-URL-REDACTION-02."
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-13T14:24:20+08:00",
+          "status": "blocked_dependency",
+          "note": "Initialized follow-up train item; implementation deferred until dependency merges."
+        }
+      ]
+    },
+    {
+      "id": "RESULT-BIG5-INTERNAL-METHOD-DEBUG-SUPPRESSION-02",
+      "repo": "fap-web",
+      "branch": "codex/result-big5-internal-method-debug-suppression-02",
+      "status": "blocked_dependency",
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": "Waiting for RESULT-PRIVATE-PRINT-CHROME-GATE-HARDEN-02 to merge.",
+      "checks": {
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on RESULT-PRIVATE-PRINT-CHROME-GATE-HARDEN-02."
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-13T14:24:20+08:00",
+          "status": "blocked_dependency",
+          "note": "Initialized follow-up train item; implementation deferred until dependency merges."
+        }
+      ]
+    },
+    {
+      "id": "RESULT-RIASEC-DEBUG-LABEL-SUPPRESSION-02",
+      "repo": "fap-web",
+      "branch": "codex/result-riasec-debug-label-suppression-02",
+      "status": "blocked_dependency",
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": "Waiting for RESULT-BIG5-INTERNAL-METHOD-DEBUG-SUPPRESSION-02 to merge.",
+      "checks": {
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on RESULT-BIG5-INTERNAL-METHOD-DEBUG-SUPPRESSION-02."
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-13T14:24:20+08:00",
+          "status": "blocked_dependency",
+          "note": "Initialized follow-up train item; implementation deferred until dependency merges."
+        }
+      ]
+    },
+    {
+      "id": "RESULT-OBJECT-AND-PDF-LEAK-CONTRACT-EXPANSION-02",
+      "repo": "fap-web",
+      "branch": "codex/result-object-and-pdf-leak-contract-expansion-02",
+      "status": "blocked_dependency",
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": "Waiting for RESULT-RIASEC-DEBUG-LABEL-SUPPRESSION-02 to merge.",
+      "checks": {
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on RESULT-RIASEC-DEBUG-LABEL-SUPPRESSION-02."
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-13T14:24:20+08:00",
+          "status": "blocked_dependency",
+          "note": "Initialized follow-up train item; implementation deferred until dependency merges."
+        }
+      ]
+    },
+    {
+      "id": "RESULT-P0-POST-DEPLOY-SMOKE-RERUN-02",
+      "repo": "fap-web",
+      "branch": "codex/result-p0-post-deploy-smoke-rerun-02",
+      "status": "blocked_dependency",
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": "Waiting for RESULT-OBJECT-AND-PDF-LEAK-CONTRACT-EXPANSION-02 to merge and deployment of PR1-PR5.",
+      "checks": {
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on RESULT-OBJECT-AND-PDF-LEAK-CONTRACT-EXPANSION-02 and post-deploy availability."
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-13T14:24:20+08:00",
+          "status": "blocked_dependency",
+          "note": "Initialized docs-only post-deploy smoke item; execution deferred until implementation train is merged and deployed."
         }
       ]
     }
