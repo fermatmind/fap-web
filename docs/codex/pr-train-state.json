@@ -22893,7 +22893,7 @@
       "id": "RESULT-OBJECT-AND-PDF-LEAK-CONTRACT-EXPANSION-02",
       "repo": "fap-web",
       "branch": "codex/result-object-and-pdf-leak-contract-expansion-02",
-      "status": "pr_open_checks_pending",
+      "status": "ready_to_merge",
       "commit_sha": "5fc847b9",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1124",
       "merged_at": null,
@@ -22932,8 +22932,8 @@
           "evidence": "Passed pnpm exec vitest run tests/contracts/result-private-leak-regressions.contract.test.ts (7 tests), pnpm typecheck, pnpm test:contract -- result (477 files, 2726 tests), pnpm test:contract (477 files, 2726 tests), JSON/YAML parse, git diff --check, and explicit scope validation."
         },
         "github": {
-          "status": "pending",
-          "evidence": "Draft PR #1124 opened from commit 5fc847b9; waiting for GitHub checks."
+          "status": "pass",
+          "evidence": "GitHub checks passed on PR #1124 head c87d3b5b: CodeQL, analyze (javascript-typescript), build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze."
         }
       },
       "history": [
@@ -22956,6 +22956,11 @@
           "at": "2026-06-13T15:45:30+08:00",
           "status": "pr_open_checks_pending",
           "note": "Pushed commit 5fc847b9 and opened draft PR #1124."
+        },
+        {
+          "at": "2026-06-13T15:51:35+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed on PR #1124 head c87d3b5b and scope validation remains limited to PR5 contract/metadata files."
         }
       ]
     },
