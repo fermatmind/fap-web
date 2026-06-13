@@ -1,0 +1,24 @@
+{
+  "files": [
+    {
+      "path": "examples/pass_100_assets.jsonl",
+      "bytes": 2173228,
+      "sha256": "ed9381c63c8df066dc5e793492772954bf283092943d58984184927a1f93e645"
+    },
+    {
+      "path": "examples/pass_100_audit_summary.json",
+      "bytes": 1196,
+      "sha256": "2f02bbad8a037b7afaf29e40c4f679ef3977d5c9721933a964603682c609f77c"
+    },
+    {
+      "path": "examples/pass_100_estimates.jsonl",
+      "bytes": 404155,
+      "sha256": "007dab7e47edb977afb8e7325dba2a6c53a5bfd7f522421229a9387b14ca5e3c"
+    },
+    {
+      "path": "examples/pass_100_evidence.jsonl",
+      "bytes": 442985,
+      "sha256": "35cfc157caa91923b84774e1db0aa77cbc5e7fc725cd8664d7fa6466295612cd"
+    }
+  ]
+}

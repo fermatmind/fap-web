@@ -1,0 +1,312 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fermatmind.com/schemas/career_salary_asset_v3_6.schema.json",
+  "title": "FermatMind Career Salary Asset v3.6",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "asset_type",
+    "asset_version",
+    "slug",
+    "locale",
+    "occupation",
+    "heading",
+    "summary",
+    "china_recruitment_reference",
+    "china_official_context",
+    "us_official_reference",
+    "uk_reference",
+    "eu_context_boundary",
+    "salary_drivers",
+    "reader_guidance",
+    "forbidden_claims",
+    "sources",
+    "evidence_used",
+    "derived_from_estimate",
+    "research_notes",
+    "audit_fields"
+  ],
+  "properties": {
+    "asset_type": {
+      "const": "career_job_salary_asset"
+    },
+    "asset_version": {
+      "const": "career_job_salary_asset_v3_5"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "locale": {
+      "enum": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    "occupation": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "title_en",
+        "title_zh",
+        "title_zh_seed",
+        "soc_code",
+        "onet_code",
+        "canonical_path",
+        "title_normalization"
+      ]
+    },
+    "heading": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "headline",
+        "short_answer",
+        "confidence_label"
+      ],
+      "properties": {
+        "headline": {
+          "type": "string"
+        },
+        "short_answer": {
+          "type": "string"
+        },
+        "confidence_label": {
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ]
+        }
+      }
+    },
+    "china_recruitment_reference": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "heading",
+        "evidence_status",
+        "display_monthly_range_cny",
+        "range_basis",
+        "body",
+        "data_boundary",
+        "confidence_label",
+        "confidence_reason",
+        "facts",
+        "limitations"
+      ]
+    },
+    "china_official_context": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "heading",
+        "body",
+        "facts"
+      ]
+    },
+    "us_official_reference": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "heading",
+        "status",
+        "mapping_quality",
+        "soc_code_used",
+        "body",
+        "facts",
+        "source_ids",
+        "limitations"
+      ]
+    },
+    "uk_reference": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "heading",
+        "status",
+        "body",
+        "facts",
+        "source_id",
+        "limitations"
+      ]
+    },
+    "eu_context_boundary": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "heading",
+        "status",
+        "body",
+        "source_id",
+        "limitations"
+      ]
+    },
+    "salary_drivers": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "required": [
+          "factor",
+          "description"
+        ],
+        "properties": {
+          "factor": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "reader_guidance": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "type": "string"
+      }
+    },
+    "forbidden_claims": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "string"
+      }
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": [
+          "market",
+          "name",
+          "url",
+          "source_id",
+          "used_for"
+        ]
+      }
+    },
+    "evidence_used": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "cn_evidence_ids",
+        "us_evidence_ids",
+        "uk_evidence_ids",
+        "eu_evidence_ids",
+        "all_source_evidence_ids"
+      ],
+      "properties": {
+        "cn_evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "us_evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "uk_evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "eu_evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "all_source_evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "derived_from_estimate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_estimate_file",
+        "estimate_schema_version",
+        "estimate_row_hash",
+        "cn_status",
+        "us_status",
+        "uk_status",
+        "eu_status"
+      ],
+      "properties": {
+        "source_estimate_file": {
+          "type": "string"
+        },
+        "estimate_schema_version": {
+          "type": "string"
+        },
+        "estimate_row_hash": {
+          "type": "string"
+        },
+        "cn_status": {
+          "type": "string"
+        },
+        "us_status": {
+          "type": "string"
+        },
+        "uk_status": {
+          "type": "string"
+        },
+        "eu_status": {
+          "type": "string"
+        }
+      }
+    },
+    "research_notes": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "limitations",
+        "query_terms_used",
+        "adjacent_roles_used",
+        "asset_generation_boundary"
+      ]
+    },
+    "audit_fields": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "generated_at",
+        "ready_for_codex_audit",
+        "row_hash"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "career_job_salary_asset_v3_5"
+        },
+        "generated_at": {
+          "type": "string"
+        },
+        "ready_for_codex_audit": {
+          "type": "boolean"
+        },
+        "row_hash": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
