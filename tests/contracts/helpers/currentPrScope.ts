@@ -640,6 +640,13 @@ const RESULT_RIASEC_DEBUG_LABEL_SUPPRESSION_02_ALLOWED_FILES = new Set([
   "tests/contracts/riasec-trusted-result-shell.contract.test.tsx",
 ]);
 
+const RESULT_OBJECT_AND_PDF_LEAK_CONTRACT_EXPANSION_02_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/result-private-leak-regressions.contract.test.ts",
+]);
+
 const PR_WEB_SEC_23_ALLOWED_FILES = new Set([
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -2349,6 +2356,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/result-riasec-debug-label-suppression-02") {
     return RESULT_RIASEC_DEBUG_LABEL_SUPPRESSION_02_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/result-object-and-pdf-leak-contract-expansion-02") {
+    return RESULT_OBJECT_AND_PDF_LEAK_CONTRACT_EXPANSION_02_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-web-sec-23-big5-comparative-fallback") {
