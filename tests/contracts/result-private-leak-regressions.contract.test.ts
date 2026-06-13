@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
+import { NOINDEX_ROBOTS } from "@/lib/seo/noindex";
 
 const ROOT = process.cwd();
 
@@ -78,5 +79,88 @@ describe("private result leak regression contracts", () => {
     expect(redaction).toContain("window.history.replaceState(window.history.state, \"\", redactedPath)");
     expect(redaction).toContain("PRIVATE_RESULT_PRINT_TITLE");
     expect(redaction).not.toMatch(/attemptId|access_token|result_access_token|privateUrl|private_url/);
+  });
+
+  it("keeps private result route metadata out of public discovery surfaces", () => {
+    const resultPage = read("app/(localized)/[locale]/(app)/result/[id]/page.tsx");
+
+    expect(resultPage).toContain("robots: NOINDEX_ROBOTS");
+    expect(NOINDEX_ROBOTS).toMatchObject({
+      index: false,
+      follow: false,
+      nocache: true,
+      noarchive: true,
+    });
+    expect(resultPage).not.toMatch(/\b(?:canonical|alternates|openGraph|twitter|jsonLd|jsonLD|JSONLD|application\/ld\+json|hreflang)\b/);
+  });
+
+  it("keeps focused render contracts covering the known PDF leak token families", () => {
+    const urlRedactionContract = read("tests/contracts/result-print-url-redaction.contract.test.ts");
+    const printChromeContract = read("tests/contracts/result-private-print-chrome.contract.test.ts");
+    const big5Contract = read("tests/contracts/big5-section-renderer.contract.test.tsx");
+    const riasecContract = read("tests/contracts/riasec-trusted-result-shell.contract.test.tsx");
+    const enneagramShell = read("components/result/enneagram/EnneagramResultShell.tsx");
+
+    for (const token of ["access_token", "private-attempt-sample", "PRIVATE_RESULT_PRINT_TITLE", "beforeprint", "afterprint"]) {
+      expect(urlRedactionContract).toContain(token);
+    }
+
+    for (const token of [
+      "dict.header.tests",
+      "dict.header.articles",
+      "dict.header.personality",
+      "dict.header.career",
+      "dict.header.help",
+      "dict.header.business",
+      "footerGroupTitles.tests",
+      "footerGroupTitles.articles",
+      "footerGroupTitles.company",
+      "footerGroupTitles.policies",
+      "研究与方法",
+    ]) {
+      expect(printChromeContract).toContain(token);
+    }
+
+    for (const token of [
+      "payload",
+      "facet glossary",
+      "precision anomaly rules",
+      "sentence-level modifier",
+      "scenario action rule",
+      "N-only",
+      "production 已接入",
+      "production 接入",
+    ]) {
+      expect(big5Contract).toContain(`not.toContain("${token}")`);
+    }
+
+    for (const token of [
+      "BUTTON LABEL",
+      "BUT TON LABEL",
+      "visible",
+      "collapsed",
+      "score space",
+      "raw score",
+      "riasec_60_likert5_activity_sum_space",
+      "minimal_answer_completion_only",
+      "content_example_not_registry_match",
+      "content_example_not_registry_match_without_reviewed_registry_source",
+      "physical_implementation",
+      "tools_and_equipment",
+      "field_troubleshooting",
+      "prototypes_and_tangible_outputs",
+      "hands_on_systems",
+      "analyze_complex_problems",
+      "organize_evidence_materials",
+      "model_systems",
+      "test_hypotheses",
+      "research_and_explain",
+    ]) {
+      expect(riasecContract).toContain(`not.toContain(token)`);
+      expect(riasecContract).toContain(token);
+    }
+
+    expect(enneagramShell).toContain("/\\[object Object\\]/i");
+    expect(enneagramShell).toContain("/analyzer_close_call/i");
   });
 });

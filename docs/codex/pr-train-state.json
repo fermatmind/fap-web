@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-13T15:28:58+08:00",
+  "updated_at": "2026-06-13T15:36:54+08:00",
   "status": "active",
   "phase": "result_p0_pdf_leak_hardening_02",
   "pr_namespace": "PR-PRAC-*",
@@ -22809,12 +22809,12 @@
       "id": "RESULT-RIASEC-DEBUG-LABEL-SUPPRESSION-02",
       "repo": "fap-web",
       "branch": "codex/result-riasec-debug-label-suppression-02",
-      "status": "ready_to_merge",
-      "commit_sha": "a18a95b397cd920f531f5016dcf9d3c66e0450ef",
+      "status": "merged",
+      "commit_sha": "f9d4c00393e7db28cbb2cdeff3922d6e3bfddbd4",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1123",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-13T07:33:34Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "failure_reason": null,
       "checks": {
         "authorization": {
@@ -22849,7 +22849,7 @@
         },
         "github": {
           "status": "pass",
-          "head_sha": "a18a95b397cd920f531f5016dcf9d3c66e0450ef",
+          "head_sha": "f9d4c00393e7db28cbb2cdeff3922d6e3bfddbd4",
           "checks": [
             "build",
             "contracts",
@@ -22858,7 +22858,7 @@
             "CodeQL",
             "analyze (javascript-typescript)"
           ],
-          "evidence": "GitHub checks passed for draft PR #1123 at head a18a95b397cd920f531f5016dcf9d3c66e0450ef."
+          "evidence": "GitHub checks passed for PR #1123 at final head f9d4c00393e7db28cbb2cdeff3922d6e3bfddbd4; GitHub reports merged at 2026-06-13T07:33:34Z with merge commit 0c9c62e12aef3ca12753c37d8dd3f7f8fcdb60bd."
         }
       },
       "history": [
@@ -22881,6 +22881,11 @@
           "at": "2026-06-13T15:28:58+08:00",
           "status": "ready_to_merge",
           "note": "Opened draft PR #1123 and GitHub checks passed at head a18a95b397cd920f531f5016dcf9d3c66e0450ef; recording ready_to_merge before marking PR ready."
+        },
+        {
+          "at": "2026-06-13T15:36:54+08:00",
+          "status": "merged",
+          "note": "Reconciled PR #1123 merged state inside RESULT-OBJECT-AND-PDF-LEAK-CONTRACT-EXPANSION-02: GitHub reports merged at 2026-06-13T07:33:34Z with merge commit 0c9c62e12aef3ca12753c37d8dd3f7f8fcdb60bd; origin/main contains the merge commit; remote branch is deleted; local worktree and branch cleanup were executed; post-merge focused contracts passed 12 tests."
         }
       ]
     },
@@ -22888,17 +22893,47 @@
       "id": "RESULT-OBJECT-AND-PDF-LEAK-CONTRACT-EXPANSION-02",
       "repo": "fap-web",
       "branch": "codex/result-object-and-pdf-leak-contract-expansion-02",
-      "status": "blocked_dependency",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "ready_to_merge",
+      "commit_sha": "5fc847b9",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1124",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "failure_reason": "Waiting for RESULT-RIASEC-DEBUG-LABEL-SUPPRESSION-02 to merge.",
+      "failure_reason": null,
       "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User provided /goal on 2026-06-13 with explicit RESULT-OBJECT-AND-PDF-LEAK-CONTRACT-EXPANSION-02 scope and train protocol."
+        },
         "dependency": {
-          "status": "pending",
-          "evidence": "Depends on RESULT-RIASEC-DEBUG-LABEL-SUPPRESSION-02."
+          "status": "pass",
+          "evidence": "RESULT-RIASEC-DEBUG-LABEL-SUPPRESSION-02 merged in PR #1123; origin/main contains merge commit 0c9c62e12aef3ca12753c37d8dd3f7f8fcdb60bd."
+        },
+        "scope": {
+          "status": "pass",
+          "allowed_paths": [
+            "tests/contracts/result-private-leak-regressions.contract.test.ts",
+            "tests/contracts/helpers/currentPrScope.ts",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ],
+          "evidence": "git diff --name-only is limited to tests/contracts/result-private-leak-regressions.contract.test.ts, tests/contracts/helpers/currentPrScope.ts, docs/codex/pr-train.yaml, and docs/codex/pr-train-state.json; explicit scope validation passed on 2026-06-13."
+        },
+        "local": {
+          "status": "pass",
+          "commands": [
+            "pnpm test:contract -- result",
+            "pnpm test:contract",
+            "pnpm typecheck",
+            "git diff --check",
+            "JSON/YAML parse",
+            "scope validation"
+          ],
+          "evidence": "Passed pnpm exec vitest run tests/contracts/result-private-leak-regressions.contract.test.ts (7 tests), pnpm typecheck, pnpm test:contract -- result (477 files, 2726 tests), pnpm test:contract (477 files, 2726 tests), JSON/YAML parse, git diff --check, and explicit scope validation."
+        },
+        "github": {
+          "status": "pass",
+          "evidence": "GitHub checks passed on PR #1124 head c87d3b5b: CodeQL, analyze (javascript-typescript), build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze."
         }
       },
       "history": [
@@ -22906,6 +22941,26 @@
           "at": "2026-06-13T14:24:20+08:00",
           "status": "blocked_dependency",
           "note": "Initialized follow-up train item; implementation deferred until dependency merges."
+        },
+        {
+          "at": "2026-06-13T15:36:54+08:00",
+          "status": "in_progress",
+          "note": "Dependency verified merged; started result object/PDF leak contract expansion branch from latest fap-web main."
+        },
+        {
+          "at": "2026-06-13T15:42:36+08:00",
+          "status": "local_checks_passed",
+          "note": "Expanded result leak regression contracts and passed focused, result-wide, full contract, typecheck, parse, diff, and scope validation."
+        },
+        {
+          "at": "2026-06-13T15:45:30+08:00",
+          "status": "pr_open_checks_pending",
+          "note": "Pushed commit 5fc847b9 and opened draft PR #1124."
+        },
+        {
+          "at": "2026-06-13T15:51:35+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed on PR #1124 head c87d3b5b and scope validation remains limited to PR5 contract/metadata files."
         }
       ]
     },
