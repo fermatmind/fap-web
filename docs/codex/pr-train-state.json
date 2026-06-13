@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-13T14:37:05+08:00",
+  "updated_at": "2026-06-13T14:46:50+08:00",
   "status": "active",
   "phase": "result_p0_pdf_leak_hardening_02",
   "pr_namespace": "PR-PRAC-*",
@@ -4216,7 +4216,7 @@
       "depends_on": [
         "PR-GRAPH-01:fap-api"
       ],
-      "status": "ready_to_merge",
+      "status": "merged",
       "title": "PR-GRAPH-01｜Article Multi-Test Graph Edges",
       "mode": "execute",
       "risk_level": "L2",
@@ -4276,9 +4276,9 @@
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/810",
       "commit_sha": "4a242b69870d6bee4e5428fee4eb7eb2c99a925f",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-13T06:40:29Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "sidecar_issues": [],
       "history": [
         {
@@ -22627,6 +22627,11 @@
           "at": "2026-06-13T14:37:05+08:00",
           "status": "ready_to_merge",
           "note": "GitHub checks passed for draft PR #1120 at head d9a5f2f36ecfee6192102c2819b62c9520e6045b; recording ready_to_merge before marking PR ready."
+        },
+        {
+          "at": "2026-06-13T14:44:20+08:00",
+          "status": "merged",
+          "note": "Reconciled PR #1120 merged state inside RESULT-PRIVATE-PRINT-CHROME-GATE-HARDEN-02: GitHub reports merged at 2026-06-13T06:40:29Z with merge commit b6b5e3619a2d467f69a3ea60455147dac32d998a; origin/main contains the merge commit; remote branch is deleted; local worktree and branch cleanup were executed."
         }
       ]
     },
@@ -22634,17 +22639,44 @@
       "id": "RESULT-PRIVATE-PRINT-CHROME-GATE-HARDEN-02",
       "repo": "fap-web",
       "branch": "codex/result-private-print-chrome-gate-harden-02",
-      "status": "blocked_dependency",
+      "status": "local_checks_passed",
       "commit_sha": null,
       "pr_url": null,
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "failure_reason": "Waiting for RESULT-PRINT-PRIVATE-URL-REDACTION-02 to merge.",
+      "failure_reason": null,
       "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User provided /goal on 2026-06-13 with explicit RESULT-PRIVATE-PRINT-CHROME-GATE-HARDEN-02 scope and train protocol."
+        },
         "dependency": {
-          "status": "pending",
-          "evidence": "Depends on RESULT-PRINT-PRIVATE-URL-REDACTION-02."
+          "status": "pass",
+          "evidence": "RESULT-PRINT-PRIVATE-URL-REDACTION-02 merged in PR #1120; origin/main contains merge commit b6b5e3619a2d467f69a3ea60455147dac32d998a."
+        },
+        "scope": {
+          "status": "pass",
+          "allowed_paths": [
+            "app/globals.css",
+            "tests/contracts/result-private-print-chrome.contract.test.ts",
+            "tests/contracts/result-private-leak-regressions.contract.test.ts",
+            "tests/contracts/helpers/currentPrScope.ts",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ],
+          "evidence": "Changed files are confined to private result print chrome CSS hardening, focused contracts, scope helper, and train metadata/reconciliation. Explicit scope validation passed for 6 changed files."
+        },
+        "local": {
+          "status": "pass",
+          "commands": [
+            "pnpm typecheck",
+            "pnpm test:contract -- result",
+            "pnpm exec vitest run tests/contracts/result-private-print-chrome.contract.test.ts tests/contracts/result-private-leak-regressions.contract.test.ts",
+            "git diff --check",
+            "scope validation"
+          ],
+          "evidence": "Focused print chrome/leak contracts passed 8 tests. pnpm typecheck passed. pnpm test:contract -- result passed 477 files / 2723 tests. NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://www.fermatmind.com pnpm build passed. JSON/YAML parse, git diff --check, and explicit scope validation passed. Postbuild sitemap churn was restored and left out of scope."
         }
       },
       "history": [
@@ -22652,6 +22684,16 @@
           "at": "2026-06-13T14:24:20+08:00",
           "status": "blocked_dependency",
           "note": "Initialized follow-up train item; implementation deferred until dependency merges."
+        },
+        {
+          "at": "2026-06-13T14:44:20+08:00",
+          "status": "in_progress",
+          "note": "Dependency verified merged; started private print chrome hardening branch from latest fap-web main."
+        },
+        {
+          "at": "2026-06-13T14:46:50+08:00",
+          "status": "local_checks_passed",
+          "note": "Focused contracts, typecheck, pnpm test:contract -- result, env-corrected production build, metadata parse, diff check, and scope validation passed. Postbuild sitemap churn was restored and left out of scope."
         }
       ]
     },

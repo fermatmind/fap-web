@@ -20,7 +20,40 @@ describe("private result print chrome contract", () => {
     expect(siteFooter).toContain('data-private-result-print-hidden="true"');
     expect(globals).toContain("@media print");
     expect(globals).toContain('body:has([data-private-result-print-root="true"]) [data-private-result-print-hidden="true"]');
+    expect(globals).toContain('body:has([data-private-result-print-root="true"]) :is(');
+    expect(globals).toContain("header,");
+    expect(globals).toContain("footer,");
+    expect(globals).toContain("nav,");
+    expect(globals).toContain('[role="navigation"]');
+    expect(globals).toContain(".fm-header-dropdown-panel");
+    expect(globals).toContain(".fm-site-footer-light");
+    expect(globals).toContain(".fm-section-footer");
+    expect(globals).toContain(".fm-social-rail");
+    expect(globals).toContain(".fm-social-list");
+    expect(globals).toContain(".fm-social-badge");
+    expect(globals).toContain(".fm-social-tooltip");
+    expect(globals).toContain(".fm-social-qr-panel");
     expect(globals).toContain("display: none !important");
+  });
+
+  it("keeps footer/nav leak labels only inside globally hidden chrome", () => {
+    const siteHeader = read("components/layout/SiteHeader.tsx");
+    const siteFooter = read("components/layout/SiteFooter.tsx");
+    const globals = read("app/globals.css");
+
+    for (const labelKey of ["dict.header.tests", "dict.header.articles", "dict.header.personality", "dict.header.career", "dict.header.help", "dict.header.business"]) {
+      expect(siteHeader).toContain(labelKey);
+    }
+
+    for (const labelKey of ["footerGroupTitles.tests", "footerGroupTitles.articles", "footerGroupTitles.company", "footerGroupTitles.policies"]) {
+      expect(siteFooter).toContain(labelKey);
+    }
+    expect(siteFooter).toContain("研究与方法");
+
+    expect(siteHeader).toContain('data-private-result-print-hidden="true"');
+    expect(siteFooter).toContain('data-private-result-print-hidden="true"');
+    expect(globals).toContain('body:has([data-private-result-print-root="true"]) :is(');
+    expect(globals).not.toMatch(/@media print\s*\{[\s\S]*?(?:header|footer|nav)\s*\{\s*display:\s*none\s*!important/);
   });
 
   it("does not change global footer IA or social link rendering", () => {

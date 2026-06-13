@@ -8667,7 +8667,7 @@ prs:
     mode: execute
     train_scope: take_frontend_locale_contract
     risk_level: scoped_take_locale_contract
-    status: in_progress
+    status: merged
     title: "fix(take): pass locale for generic scale take requests"
     goal: "Ensure the generic take client sends the resolved frontend locale to question and start-attempt API requests for MBTI, RIASEC, and other generic non-IQ scales so English take pages cannot consume Chinese display fields."
     in_scope:
@@ -10868,7 +10868,7 @@ prs:
       - ANALYTICS-SEO-P0-10
     mode: execute
     train_scope: analytics_seo_p0_p1
-    status: planned
+    status: in_progress
     title: "docs(analytics): clarify Baidu conversion limits and public CTA tracking"
     goal: "Correct analytics conversion setup docs to reflect current Baidu Tongji dashboard limits, keep GA4 as the business funnel source of truth, and restrict Baidu conversion consideration to public CTA element selection."
     in_scope:
