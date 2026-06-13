@@ -173,6 +173,11 @@ describe("Article / Personality JSON-LD and projection gates", () => {
       cmsArticleSeoJsonLd: { "@type": "Article" },
       article: { slug: "what-is-riasec-holland-code-career-interest-test", seoMeta: null },
     });
+    const zhRiasecPillarCompatibilityGate = resolveArticleSchemaGate({
+      noindex: false,
+      cmsArticleSeoJsonLd: { "@type": "Article" },
+      article: { slug: "riasec-holland-career-interest-test-explained", seoMeta: null },
+    });
 
     expect(noindexGate).toMatchObject({
       source: "noindex_hold",
@@ -205,6 +210,12 @@ describe("Article / Personality JSON-LD and projection gates", () => {
       canRenderFAQPageJsonLd: false,
     });
     expect(legacyCompatibilityGate).toMatchObject({
+      source: "legacy_schema_compatibility_allowlist",
+      canRenderArticleJsonLd: true,
+      canRenderBreadcrumbJsonLd: true,
+      canRenderFAQPageJsonLd: true,
+    });
+    expect(zhRiasecPillarCompatibilityGate).toMatchObject({
       source: "legacy_schema_compatibility_allowlist",
       canRenderArticleJsonLd: true,
       canRenderBreadcrumbJsonLd: true,
@@ -256,6 +267,10 @@ describe("Article / Personality JSON-LD and projection gates", () => {
       noindex: false,
       article: { slug: "what-is-riasec-holland-code-career-interest-test", seoMeta: null },
     });
+    const zhRiasecPillarCompatibilityGate = resolveArticleHreflangGate({
+      noindex: false,
+      article: { slug: "riasec-holland-career-interest-test-explained", seoMeta: null },
+    });
 
     expect(noindexGate).toMatchObject({
       source: "noindex_hold",
@@ -270,6 +285,10 @@ describe("Article / Personality JSON-LD and projection gates", () => {
       canRenderHreflang: true,
     });
     expect(legacyCompatibilityGate).toMatchObject({
+      source: "legacy_hreflang_compatibility_allowlist",
+      canRenderHreflang: true,
+    });
+    expect(zhRiasecPillarCompatibilityGate).toMatchObject({
       source: "legacy_hreflang_compatibility_allowlist",
       canRenderHreflang: true,
     });

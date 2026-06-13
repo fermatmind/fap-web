@@ -9,11 +9,15 @@ export type ArticleJsonLdAuthoritySource =
 const LEGACY_ARTICLE_SCHEMA_COMPATIBILITY_ALLOWLIST = new Set([
   // Pre-existing indexable RIASEC article whose Article/FAQ schema launch was already verified before schema hold decoupling.
   "what-is-riasec-holland-code-career-interest-test",
+  // Existing Chinese RIASEC pillar release paired with the English Holland Code article for Article/FAQ schema output.
+  "riasec-holland-career-interest-test-explained",
 ]);
 
 const LEGACY_ARTICLE_HREFLANG_COMPATIBILITY_ALLOWLIST = new Set([
   // Pre-existing indexable RIASEC article whose hreflang launch was already verified before article hreflang hold decoupling.
   "what-is-riasec-holland-code-career-interest-test",
+  // Existing Chinese RIASEC pillar release paired with the English Holland Code article for hreflang output.
+  "riasec-holland-career-interest-test-explained",
 ]);
 
 export type ArticleJsonLdAuthorityGate = {

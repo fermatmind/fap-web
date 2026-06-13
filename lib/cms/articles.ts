@@ -46,6 +46,7 @@ type CmsArticleApiRecord = {
   cover_image_height?: number | string | null;
   cover_image_variants?: unknown;
   cover_image?: unknown;
+  body_visual?: unknown;
   related_test_slug?: string | null;
   related_test_slugs?: unknown;
   test_edges?: unknown;
@@ -143,6 +144,11 @@ export type CmsArticleImageVariants = {
   preload: CmsArticleImageVariant | null;
 };
 
+export type CmsArticleBodyVisual = {
+  imageUrl: string;
+  fallbackAuthorized: boolean;
+};
+
 export type CmsArticleTestEdge = {
   testSlug: string;
   role: "primary" | "secondary" | "contextual" | string;
@@ -168,6 +174,7 @@ export type CmsArticle = {
   coverImageWidth: number | null;
   coverImageHeight: number | null;
   coverImageVariants: CmsArticleImageVariants;
+  bodyVisual?: CmsArticleBodyVisual | null;
   relatedTestSlug: string | null;
   relatedTestSlugs?: string[];
   testEdges?: CmsArticleTestEdge[];
@@ -664,6 +671,18 @@ function normalizeImageVariants(source: unknown): CmsArticleImageVariants {
   };
 }
 
+function normalizeArticleBodyVisual(source: unknown): CmsArticleBodyVisual | null {
+  const imageUrl = normalizeIsoValue(readRecordValue(source, "image_url", "imageUrl", "url", "src"));
+  if (!imageUrl || !/^https:\/\//i.test(imageUrl)) {
+    return null;
+  }
+
+  return {
+    imageUrl,
+    fallbackAuthorized: readRecordValue(source, "fallback_authorized", "fallbackAuthorized") === true,
+  };
+}
+
 function firstImageUrl(...variants: Array<CmsArticleImageVariant | null>): string | null {
   for (const variant of variants) {
     if (variant?.url) {
@@ -886,6 +905,7 @@ function normalizeArticle(article: CmsArticleApiRecord): CmsArticle {
     coverImageHeight:
       normalizePositiveInteger(article.cover_image_height) ?? normalizePositiveInteger(readRecordValue(nestedCoverImage, "height")),
     coverImageVariants,
+    bodyVisual: normalizeArticleBodyVisual(article.body_visual),
     relatedTestSlug,
     relatedTestSlugs,
     testEdges,
