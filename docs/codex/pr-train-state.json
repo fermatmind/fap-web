@@ -23174,8 +23174,8 @@
       "id": "PERSONALITY-HUB-MEDIA-RENDER-VERIFY-01",
       "repo": "fap-web",
       "branch": "codex/personality-hub-media-render-verify-01",
-      "status": "pr_open_github_checks_pending",
-      "commit_sha": "efb2b94e0bbd3d0fc7b3940daec0828977b8ab2c",
+      "status": "ready_to_merge",
+      "commit_sha": "0240d7d96ced3d0bcbe61d3623c386edca3e59d2",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1134",
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -23206,9 +23206,17 @@
           "evidence": "Final scope validation passed. Changed files are app/(localized)/[locale]/personality/[type]/page.tsx, app/(localized)/[locale]/personality/page.tsx, docs/codex/pr-train-state.json, lib/cms/personality.ts, tests/contracts/helpers/currentPrScope.ts, tests/contracts/personality-cms.contract.test.ts, and tests/contracts/personality-hub-media-render-verify-01.contract.test.ts. No fap-api, sitemap, llms, public image, or editorial content files are changed."
         },
         "github": {
-          "status": "pending",
-          "head_sha": "efb2b94e0bbd3d0fc7b3940daec0828977b8ab2c",
-          "evidence": "PR #1134 opened after local checks and scope validation passed; waiting for GitHub checks."
+          "status": "pass",
+          "head_sha": "0240d7d96ced3d0bcbe61d3623c386edca3e59d2",
+          "checks": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "CodeQL analyze (javascript-typescript)",
+            "CodeQL"
+          ],
+          "evidence": "PR #1134 GitHub checks passed at head 0240d7d9 and mergeStateStatus was CLEAN."
         }
       },
       "history": [
@@ -23231,6 +23239,11 @@
           "at": "2026-06-14T00:03:00+08:00",
           "status": "pr_open_github_checks_pending",
           "note": "Pushed efb2b94e and opened PR #1134; GitHub checks are pending."
+        },
+        {
+          "at": "2026-06-14T00:08:00+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed for PR #1134 at head 0240d7d9 and mergeStateStatus was CLEAN; recording ready_to_merge before merge."
         }
       ]
     },
