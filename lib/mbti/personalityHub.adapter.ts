@@ -88,6 +88,7 @@ function buildTypeDecisionCard(params: {
     slug: buildDefaultPublicPersonalitySlug(typeCode),
     title: personality?.title || typeCode,
     excerpt: personality?.excerpt || personality?.subtitle || groupMeta.summary,
+    imageUrl: personality?.heroImageUrl ?? null,
     href: localizedPath(`/personality/${buildDefaultPublicPersonalitySlug(typeCode)}`, locale),
     groupKey,
     groupTitle: groupMeta.title,

@@ -25,6 +25,8 @@ describe("personality type browse contract", () => {
     expect(pageSource).toContain('id="type-groups"');
     expect(pageSource).toContain('data-testid="personality-type-group-browse"');
     expect(pageSource).toContain('data-testid="personality-type-directory"');
+    expect(pageSource).toContain('data-testid="personality-type-image"');
+    expect(pageSource).toContain('data-testid="personality-type-code-fallback"');
     expect(pageSource).toContain("formatTypeLabel(type)");
     expect(pageSource).not.toContain("{type.typeCode} · {type.title}");
   });

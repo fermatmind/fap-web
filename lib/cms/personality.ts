@@ -1,6 +1,7 @@
 import { ApiError, apiClient } from "@/lib/api-client";
 import type { AnswerSurfaceRaw, LandingSurfaceRaw, SeoSurfaceRaw } from "@/lib/api/v0_3";
 import { normalizeAnswerSurface, type AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
+import { cmsManagedMediaUrl } from "@/lib/cms/media";
 import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
 import { normalizeLandingSurface, type LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
 import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
@@ -218,6 +219,7 @@ export type CmsPersonalityProfileSummary = {
   title: string;
   subtitle: string;
   excerpt: string;
+  heroImageUrl: string | null;
   status: string;
   isPublic: boolean;
   isIndexable: boolean;
@@ -469,6 +471,7 @@ function normalizeProfileSummary(profile: CmsPersonalityApiProfile): CmsPersonal
     title: fallbackText(profile.title, profile.type_code),
     subtitle: fallbackText(profile.subtitle),
     excerpt: fallbackText(profile.excerpt, profile.subtitle),
+    heroImageUrl: cmsManagedMediaUrl(profile.hero_image_url),
     status: fallbackText(profile.status),
     isPublic: Boolean(profile.is_public),
     isIndexable: Boolean(profile.is_indexable),

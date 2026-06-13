@@ -99,6 +99,7 @@ describe("personality cms adapter contract", () => {
             title: "INTJ 人格画像",
             subtitle: "独立、战略、面向未来。",
             excerpt: "示例摘要",
+            hero_image_url: "https://assets.fermatmind.com/static/personality/type-icons/intj.png",
             status: "published",
             is_public: true,
             is_indexable: true,
@@ -126,7 +127,46 @@ describe("personality cms adapter contract", () => {
     expect(result.items).toHaveLength(1);
     expect(result.items[0]?.locale).toBe("zh-CN");
     expect(result.items[0]?.slug).toBe("intj");
+    expect(result.items[0]?.heroImageUrl).toBe("https://assets.fermatmind.com/static/personality/type-icons/intj.png");
     expect(result.pagination.total).toBe(1);
+  });
+
+  it("drops non-managed personality list media URLs before hub consumption", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () =>
+        jsonResponse({
+          ok: true,
+          items: [
+            {
+              id: 1,
+              org_id: 0,
+              scale_code: "MBTI",
+              type_code: "INTJ",
+              slug: "intj",
+              locale: "en",
+              title: "INTJ",
+              subtitle: "Strategic.",
+              excerpt: "Strategic.",
+              hero_image_url: "https://static.lingcecdn.com/personality/v1/type/INTJ.png",
+              status: "published",
+              is_public: true,
+              is_indexable: true,
+            },
+          ],
+          pagination: {
+            current_page: 1,
+            per_page: 20,
+            total: 1,
+            last_page: 1,
+          },
+        })
+      )
+    );
+
+    const result = await listPersonalityProfiles({ locale: "en" });
+
+    expect(result.items[0]?.heroImageUrl).toBeNull();
   });
 
   it("normalizes detail payload and keeps only known sections", async () => {
