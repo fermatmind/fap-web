@@ -641,6 +641,25 @@ a {
   body:has([data-private-result-print-root="true"]) [data-private-result-print-hidden="true"] {
     display: none !important;
   }
+
+  body:has([data-private-result-print-root="true"]) :is(
+    header,
+    footer,
+    nav,
+    [role="navigation"],
+    .fm-header-dropdown-panel,
+    .fm-header-dropdown-link,
+    .fm-site-footer-light,
+    .fm-section-footer,
+    .fm-social-rail,
+    .fm-social-list,
+    .fm-social-item,
+    .fm-social-badge,
+    .fm-social-tooltip,
+    .fm-social-qr-panel
+  ) {
+    display: none !important;
+  }
 }
 
 @media (max-width: 767px) {

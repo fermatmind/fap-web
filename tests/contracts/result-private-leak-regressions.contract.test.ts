@@ -61,6 +61,9 @@ describe("private result leak regression contracts", () => {
     expect(siteHeader).toContain('data-private-result-print-hidden="true"');
     expect(siteFooter).toContain('data-private-result-print-hidden="true"');
     expect(globals).toContain('body:has([data-private-result-print-root="true"]) [data-private-result-print-hidden="true"]');
+    expect(globals).toContain('body:has([data-private-result-print-root="true"]) :is(');
+    expect(globals).toContain(".fm-site-footer-light");
+    expect(globals).toContain(".fm-social-rail");
     expect(globals).toContain("display: none !important");
     expect(globals).not.toMatch(/@media print\s*\{[\s\S]*?(?:header|footer)\s*\{\s*display:\s*none\s*!important/);
   });
