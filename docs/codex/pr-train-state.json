@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-13T23:12:00+08:00",
+  "updated_at": "2026-06-14T05:06:00+08:00",
   "status": "active",
   "phase": "result_p0_pdf_leak_hardening_02",
   "pr_namespace": "PR-PRAC-*",
@@ -23290,12 +23290,12 @@
       "id": "PERSONALITY-DETAIL-FAQ-SEO-01",
       "repo": "fap-api-and-fap-web",
       "branch": "codex/personality-detail-faq-seo-01",
-      "status": "ready_to_merge",
-      "commit_sha": "9d812f01d0f81fbc6c64b64dfea868bb1b846a23",
+      "status": "merged",
+      "commit_sha": "e04a309fa26608ff7013430ce9177f193fbe6634",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1138",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-13T19:27:31Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "failure_reason": null,
       "checks": {
         "dependency": {
@@ -23360,6 +23360,11 @@
           "at": "2026-06-14T03:22:45+08:00",
           "status": "ready_to_merge",
           "note": "GitHub checks passed on head 9d812f01 after rebase. Pre-merge PR state is open, mergeable, non-draft, and scope validation remains confined to the 9 allowed files."
+        },
+        {
+          "at": "2026-06-14T04:58:00+08:00",
+          "status": "merged",
+          "note": "Reconciled GitHub PR #1138 as merged; origin/main contains merge commit e04a309fa26608ff7013430ce9177f193fbe6634 and the remote branch is deleted."
         }
       ]
     },
@@ -23367,17 +23372,43 @@
       "id": "PERSONALITY-SEO-TITLE-METADATA-01",
       "repo": "fap-api-and-fap-web",
       "branch": "codex/personality-seo-title-metadata-01",
-      "status": "blocked_dependency",
+      "status": "local_checks_passed",
       "commit_sha": null,
       "pr_url": null,
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "failure_reason": "Blocked until PERSONALITY-DETAIL-FAQ-SEO-01 is merged.",
+      "failure_reason": null,
       "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User authorized continuing the PERSONALITY SEO PR train and fap-web docs/codex metadata updates."
+        },
         "dependency": {
-          "status": "blocked",
-          "evidence": "Depends on PERSONALITY-DETAIL-FAQ-SEO-01."
+          "status": "pass",
+          "evidence": "PERSONALITY-DETAIL-FAQ-SEO-01 is reconciled as merged in fap-web PR #1138 with merge commit e04a309fa26608ff7013430ce9177f193fbe6634; backend title metadata authority merged in fap-api PR #2087 as 1b9074549211fe15b257a9595a88782cef118616."
+        },
+        "scope": {
+          "status": "pass",
+          "evidence": "Changed files are confined to docs/codex/pr-train-state.json, tests/contracts/helpers/currentPrScope.ts, and tests/contracts/personality-cms.contract.test.ts. No frontend-authored personality metadata copy, sitemap, llms, comparison pages, unrelated content pages, or runtime page rendering changes are in scope."
+        },
+        "local": {
+          "status": "pass",
+          "commands": [
+            "pnpm install --frozen-lockfile",
+            "pnpm exec vitest run tests/contracts/personality-cms.contract.test.ts",
+            "pnpm typecheck",
+            "pnpm test:contract -- personality",
+            "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+            "git diff --check",
+            "scope validation"
+          ],
+          "evidence": "Focused personality CMS contract passed 1 file / 14 tests; pnpm typecheck passed; pnpm test:contract -- personality passed 480 files / 2750 tests; JSON/YAML parse, git diff --check, and explicit scope validation passed."
+        },
+        "github": {
+          "status": "pending",
+          "evidence": null
         }
       },
       "history": [
@@ -23385,6 +23416,16 @@
           "at": "2026-06-13T22:29:23+08:00",
           "status": "blocked_dependency",
           "note": "Initialized title and metadata follow-up; execution deferred until visible FAQ semantics are merged."
+        },
+        {
+          "at": "2026-06-14T04:58:00+08:00",
+          "status": "in_progress",
+          "note": "Started fap-web consumer contract for backend-authored search-intent personality metadata after backend PR #2087 and frontend FAQ PR #1138 were merged."
+        },
+        {
+          "at": "2026-06-14T05:06:00+08:00",
+          "status": "local_checks_passed",
+          "note": "Backend-authored search-intent metadata consumption was locked by contract; focused and broad frontend checks passed and scope stayed limited to contract/state files."
         }
       ]
     },

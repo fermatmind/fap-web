@@ -558,6 +558,73 @@ describe("personality cms adapter contract", () => {
     expect((normalized.jsonld as Record<string, unknown>)["@type"]).toBe("AboutPage");
   });
 
+  it("preserves backend-authored search-intent personality metadata over local profile fallback", () => {
+    const normalized = normalizePersonalitySeoPayload(
+      {
+        surface: null,
+        meta: {
+          title: "INTJ-A Architect Personality: Traits, Careers, Love & Rarity",
+          description:
+            "Explore INTJ-A Architect traits, A/T differences, strengths, blind spots, relationships, career fit, rarity, and how to confirm your type with an MBTI test.",
+          canonical: "https://api.fermatmind.com/en/personality/intj-a",
+          alternates: {
+            en: "https://api.fermatmind.com/en/personality/intj-a",
+            "zh-CN": "https://api.fermatmind.com/zh/personality/intj-a",
+          },
+          og: {
+            title: "INTJ-A Architect Personality: Traits, Careers, Love & Rarity",
+            description:
+              "Explore INTJ-A Architect traits, A/T differences, strengths, blind spots, relationships, career fit, rarity, and how to confirm your type with an MBTI test.",
+            image: null,
+            type: "article",
+          },
+          twitter: {
+            card: "summary_large_image",
+            title: "INTJ-A Architect Personality: Traits, Careers, Love & Rarity",
+            description:
+              "Explore INTJ-A Architect traits, A/T differences, strengths, blind spots, relationships, career fit, rarity, and how to confirm your type with an MBTI test.",
+            image: null,
+          },
+          robots: "index,follow",
+        },
+        jsonld: null,
+      },
+      {
+        ...BASE_PROFILE,
+        title: "INTJ - Architect",
+        subtitle: "Independent strategist.",
+        excerpt: "Local fallback excerpt that should not replace backend SEO metadata.",
+        seoMeta: {
+          ...BASE_PROFILE.seoMeta!,
+          seoTitle: "Local INTJ fallback title",
+          seoDescription: "Local fallback description.",
+        },
+      },
+      "en"
+    );
+
+    expect(normalized.meta.title).toBe("INTJ-A Architect Personality: Traits, Careers, Love & Rarity");
+    expect(normalized.meta.description).toContain("A/T differences");
+    expect(normalized.meta.description).toContain("career fit");
+    expect(normalized.meta.description).toContain("rarity");
+    expect(normalized.meta.description).toContain("MBTI test");
+    expect(normalized.meta.og.title).toBe(normalized.meta.title);
+    expect(normalized.meta.twitter.title).toBe(normalized.meta.title);
+    expect(normalized.meta.title).not.toBe("INTJ - Architect");
+    expect(normalized.meta.description).not.toBe("Local fallback description.");
+  });
+
+  it("keeps personality detail metadata generation backed by the backend seo endpoint", () => {
+    const source = read("app/(localized)/[locale]/personality/[type]/page.tsx");
+
+    expect(source).toContain("getPersonalitySeoBySlugOrType(type, locale)");
+    expect(source).toContain("normalizePersonalitySeoPayload(seo, detail, locale)");
+    expect(source).toContain("title: normalizedSeo.surface?.title || normalizedSeo.meta.title");
+    expect(source).toContain("description: normalizedSeo.surface?.description || normalizedSeo.meta.description");
+    expect(source).not.toContain("Personality Type: Traits, Careers, and Growth");
+    expect(source).not.toContain("人格类型：特质、职业与成长");
+  });
+
   it("falls back to cms profile fields without reviving local personality content", () => {
     const normalized = normalizePersonalitySeoPayload(
       null,
