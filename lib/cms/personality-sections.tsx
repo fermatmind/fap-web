@@ -29,6 +29,7 @@ const KNOWN_SECTION_KEYS = [
 const SUPPORTED_PROJECTION_RENDERS = [
   "rich_text",
   "bullets",
+  "faq",
   "letters_intro",
   "trait_dimension_grid",
   "preferred_role_list",
@@ -477,6 +478,30 @@ function renderProjectionBulletsSection(section: RenderableProjectionSection) {
   return renderBulletItems(fallbackItems);
 }
 
+function renderProjectionFaqSection(section: RenderableProjectionSection) {
+  const items = asArray<FaqItem>(section.payload?.items)
+    .map((item) => ({
+      question: normalizeText(item.question),
+      answer: normalizeText(item.answer),
+    }))
+    .filter((item) => item.question && item.answer);
+
+  if (items.length === 0) {
+    return renderProjectionRichTextSection(section);
+  }
+
+  return (
+    <dl className="m-0 space-y-4">
+      {items.map((item, index) => (
+        <div key={`${item.question}-${index}`} className="space-y-1">
+          <dt className="font-medium text-[var(--fm-text)]">{item.question}</dt>
+          <dd className="m-0 text-[var(--fm-text-muted)]">{item.answer}</dd>
+        </div>
+      ))}
+    </dl>
+  );
+}
+
 function renderLettersIntroSection(section: RenderableProjectionSection, locale: Locale) {
   const payload = normalizeLettersIntroPayload(section.payload);
 
@@ -686,6 +711,9 @@ export function renderProjectionSections(
         case "bullets":
           content = renderProjectionBulletsSection(section);
           break;
+        case "faq":
+          content = renderProjectionFaqSection(section);
+          break;
         case "rich_text":
         default:
           content = renderProjectionRichTextSection(section);
@@ -715,6 +743,21 @@ export function extractPersonalityFaqItems(sections: CmsPersonalitySection[]): F
     .flatMap((section) => {
       const payload = asRecord(section.payloadJson);
       const items = asArray<FaqItem>(payload?.items);
+
+      return items
+        .map((item) => ({
+          question: normalizeText(item.question),
+          answer: normalizeText(item.answer),
+        }))
+        .filter((item) => item.question && item.answer);
+    });
+}
+
+export function extractProjectionFaqItems(sections: PersonalityProjectionSection[]): FAQItem[] {
+  return normalizeProjectionSections(sections)
+    .filter((section) => section.key === "faq" && section.render === "faq")
+    .flatMap((section) => {
+      const items = asArray<FaqItem>(section.payload?.items);
 
       return items
         .map((item) => ({

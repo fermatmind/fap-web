@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import type { PersonalityProjectionSection } from "@/lib/cms/personality";
-import { normalizeProjectionSections, renderProjectionSections } from "@/lib/cms/personality-sections";
+import { extractProjectionFaqItems, normalizeProjectionSections, renderProjectionSections } from "@/lib/cms/personality-sections";
 
 function section(overrides: Partial<PersonalityProjectionSection>): PersonalityProjectionSection {
   return {
@@ -211,6 +211,45 @@ describe("personality projection section renderer contract", () => {
     expect(screen.getByText("Preview: recognition, purpose, and intellectual momentum.")).toBeInTheDocument();
     expect(screen.queryByText("Premium section preview")).not.toBeInTheDocument();
     expect(screen.queryByText("Unlock the full section in the premium experience.")).not.toBeInTheDocument();
+  });
+
+  it("renders and extracts backend projection FAQ sections as visible semantic content", () => {
+    const sections = [
+      section({
+        key: "faq",
+        title: "FAQ",
+        render: "faq",
+        bodyMd: "",
+        payload: {
+          items: [
+            {
+              question: "What does INTJ-A mean?",
+              answer: "INTJ-A describes an Assertive INTJ profile returned by the backend.",
+            },
+            {
+              question: "How is INTJ-A different from INTJ-T?",
+              answer: "The A/T difference is provided by backend personality content, not frontend copy.",
+            },
+          ],
+        },
+      }),
+    ];
+
+    render(<div>{renderProjectionSections(sections, "en")}</div>);
+
+    expect(screen.getByText("FAQ")).toBeInTheDocument();
+    expect(screen.getByText("What does INTJ-A mean?")).toBeInTheDocument();
+    expect(screen.getByText("INTJ-A describes an Assertive INTJ profile returned by the backend.")).toBeInTheDocument();
+    expect(extractProjectionFaqItems(sections)).toEqual([
+      {
+        question: "What does INTJ-A mean?",
+        answer: "INTJ-A describes an Assertive INTJ profile returned by the backend.",
+      },
+      {
+        question: "How is INTJ-A different from INTJ-T?",
+        answer: "The A/T difference is provided by backend personality content, not frontend copy.",
+      },
+    ]);
   });
 
   it("maps the backend MBTI variant section skeleton to search-intent headings", () => {

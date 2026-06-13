@@ -667,7 +667,11 @@ describe("personality cms adapter contract", () => {
     expect(source).toContain('zh: normalizedSeo.meta.alternates["zh-CN"] ?? buildPersonalityFrontendUrl("zh", detail.routeSlug)');
     expect(source).toContain("detail.displayType");
     expect(source).toContain("extractPersonalityFaqItems");
+    expect(source).toContain("extractProjectionFaqItems");
     expect(source).toContain("detail.answerSurface?.faqBlocks.length");
+    expect(source).toContain("const projectionFaqItems = extractProjectionFaqItems(detail.projection.sections);");
+    expect(source).toContain("const legacyFaqItems = extractPersonalityFaqItems(detail.faqSections);");
+    expect(source).toContain("projectionFaqItems.length");
     expect(source).toContain("AnswerSurfaceSection");
     expect(source).toContain("buildFAQPageJsonLd");
     expect(source).toContain("buildWebPageJsonLd");
