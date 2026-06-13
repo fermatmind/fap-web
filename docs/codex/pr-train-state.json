@@ -22982,9 +22982,9 @@
       "id": "RESULT-P0-POST-DEPLOY-SMOKE-RERUN-02",
       "repo": "fap-web",
       "branch": "codex/result-p0-post-deploy-smoke-rerun-02",
-      "status": "local_checks_passed",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "pr_open_checks_pending",
+      "commit_sha": "d788f8a6",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1125",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -23012,6 +23012,10 @@
             "scope validation"
           ],
           "evidence": "Documentation redaction review found no raw UUID/private result URL patterns, no PDF/image/screenshot/temp/generated artifacts are staged for this PR, JSON/YAML parse passed, git diff --check passed, and explicit scope validation passed."
+        },
+        "github": {
+          "status": "pending",
+          "evidence": "Draft PR #1125 opened from commit d788f8a6; waiting for GitHub checks."
         }
       },
       "history": [
@@ -23029,6 +23033,11 @@
           "at": "2026-06-13T16:00:10+08:00",
           "status": "local_checks_passed",
           "note": "Docs-only smoke report, redaction review, JSON/YAML parse, git diff check, and explicit scope validation passed. Report records blocked_missing_live_result_samples because no fresh private PDF/live result samples were available."
+        },
+        {
+          "at": "2026-06-13T16:01:48+08:00",
+          "status": "pr_open_checks_pending",
+          "note": "Pushed commit d788f8a6 and opened draft PR #1125."
         }
       ]
     }
