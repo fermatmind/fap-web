@@ -22893,9 +22893,9 @@
       "id": "RESULT-OBJECT-AND-PDF-LEAK-CONTRACT-EXPANSION-02",
       "repo": "fap-web",
       "branch": "codex/result-object-and-pdf-leak-contract-expansion-02",
-      "status": "local_checks_passed",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "pr_open_checks_pending",
+      "commit_sha": "5fc847b9",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1124",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -22930,6 +22930,10 @@
             "scope validation"
           ],
           "evidence": "Passed pnpm exec vitest run tests/contracts/result-private-leak-regressions.contract.test.ts (7 tests), pnpm typecheck, pnpm test:contract -- result (477 files, 2726 tests), pnpm test:contract (477 files, 2726 tests), JSON/YAML parse, git diff --check, and explicit scope validation."
+        },
+        "github": {
+          "status": "pending",
+          "evidence": "Draft PR #1124 opened from commit 5fc847b9; waiting for GitHub checks."
         }
       },
       "history": [
@@ -22947,6 +22951,11 @@
           "at": "2026-06-13T15:42:36+08:00",
           "status": "local_checks_passed",
           "note": "Expanded result leak regression contracts and passed focused, result-wide, full contract, typecheck, parse, diff, and scope validation."
+        },
+        {
+          "at": "2026-06-13T15:45:30+08:00",
+          "status": "pr_open_checks_pending",
+          "note": "Pushed commit 5fc847b9 and opened draft PR #1124."
         }
       ]
     },
