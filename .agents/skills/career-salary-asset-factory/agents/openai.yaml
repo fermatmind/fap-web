@@ -1,0 +1,6 @@
+interface:
+  display_name: "Career Salary Asset Factory"
+  short_description: "Gated career salary assets"
+  default_prompt: "Use $career-salary-asset-factory to run a gated FermatMind career salary batch."
+policy:
+  allow_implicit_invocation: true

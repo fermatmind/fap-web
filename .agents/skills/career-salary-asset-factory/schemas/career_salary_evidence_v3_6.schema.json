@@ -1,0 +1,535 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fermatmind.com/schemas/career_salary_evidence_v3_6.schema.json",
+  "title": "FermatMind Career Salary Evidence v3.6",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "slug",
+    "occupation",
+    "china_recruitment_evidence",
+    "us_official_evidence",
+    "uk_evidence",
+    "eu_context_evidence",
+    "quality_flags"
+  ],
+  "properties": {
+    "slug": {
+      "type": "string",
+      "minLength": 1
+    },
+    "occupation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "title_en",
+        "title_zh_seed",
+        "title_zh_cleaned",
+        "soc_code_seed",
+        "onet_code_seed"
+      ],
+      "properties": {
+        "title_en": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title_zh_seed": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title_zh_cleaned": {
+          "type": "string",
+          "minLength": 1
+        },
+        "soc_code_seed": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "onet_code_seed": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "china_recruitment_evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "exact_title_queries",
+        "adjacent_role_cluster",
+        "evidence_items",
+        "evidence_limitations"
+      ],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "sufficient",
+            "partial",
+            "weak",
+            "not_found"
+          ]
+        },
+        "exact_title_queries": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "adjacent_role_cluster": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "cluster_name",
+            "roles",
+            "reason"
+          ],
+          "properties": {
+            "cluster_name": {
+              "type": "string"
+            },
+            "roles": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "reason": {
+              "type": "string"
+            }
+          }
+        },
+        "evidence_items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "platform",
+              "source_type",
+              "query",
+              "source_url",
+              "captured_at",
+              "direct_match_level",
+              "city",
+              "city_tier",
+              "experience",
+              "sample_count_visible",
+              "raw_salary_text",
+              "visible_distribution_text",
+              "observed_monthly_low_cny",
+              "observed_monthly_high_cny",
+              "observed_average_monthly_cny",
+              "include_candidate",
+              "exclusion_reason"
+            ],
+            "properties": {
+              "evidence_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "platform": {
+                "type": "string",
+                "minLength": 1
+              },
+              "source_type": {
+                "type": "string",
+                "enum": [
+                  "platform_salary_page",
+                  "job_posting_sample",
+                  "salary_report",
+                  "adjacent_role_evidence"
+                ]
+              },
+              "query": {
+                "type": "string"
+              },
+              "source_url": {
+                "type": "string"
+              },
+              "captured_at": {
+                "type": "string"
+              },
+              "direct_match_level": {
+                "type": "string",
+                "enum": [
+                  "exact",
+                  "close_adjacent",
+                  "broad_adjacent",
+                  "invalid_proxy"
+                ]
+              },
+              "city": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "city_tier": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "experience": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "sample_count_visible": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 0
+              },
+              "raw_salary_text": {
+                "type": "string"
+              },
+              "visible_distribution_text": {
+                "type": "string"
+              },
+              "observed_monthly_low_cny": {
+                "type": [
+                  "integer",
+                  "number",
+                  "null"
+                ],
+                "minimum": 0
+              },
+              "observed_monthly_high_cny": {
+                "type": [
+                  "integer",
+                  "number",
+                  "null"
+                ],
+                "minimum": 0
+              },
+              "observed_average_monthly_cny": {
+                "type": [
+                  "integer",
+                  "number",
+                  "null"
+                ],
+                "minimum": 0
+              },
+              "include_candidate": {
+                "type": "boolean"
+              },
+              "exclusion_reason": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        },
+        "evidence_limitations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "us_official_evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mapping_quality",
+        "soc_code_used",
+        "mapping_source_url",
+        "wage_sources"
+      ],
+      "properties": {
+        "mapping_quality": {
+          "type": "string",
+          "enum": [
+            "exact_soc",
+            "soc_aggregate",
+            "adjacent_soc",
+            "reviewed_soc_override",
+            "unavailable"
+          ]
+        },
+        "soc_code_used": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "mapping_source_url": {
+          "type": "string"
+        },
+        "wage_sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "source_name",
+              "source_url",
+              "source_year",
+              "median_annual_usd",
+              "median_hourly_usd",
+              "p10_annual_usd",
+              "p25_annual_usd",
+              "p75_annual_usd",
+              "p90_annual_usd",
+              "job_outlook_pct",
+              "annual_openings",
+              "raw_evidence_text",
+              "limitations"
+            ],
+            "properties": {
+              "source_name": {
+                "type": "string",
+                "enum": [
+                  "BLS OOH",
+                  "BLS OEWS",
+                  "CareerOneStop",
+                  "My Next Move",
+                  "O*NET"
+                ]
+              },
+              "source_url": {
+                "type": "string"
+              },
+              "source_year": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "median_annual_usd": {
+                "type": [
+                  "integer",
+                  "number",
+                  "null"
+                ],
+                "minimum": 0
+              },
+              "median_hourly_usd": {
+                "type": [
+                  "integer",
+                  "number",
+                  "null"
+                ],
+                "minimum": 0
+              },
+              "p10_annual_usd": {
+                "type": [
+                  "integer",
+                  "number",
+                  "null"
+                ],
+                "minimum": 0
+              },
+              "p25_annual_usd": {
+                "type": [
+                  "integer",
+                  "number",
+                  "null"
+                ],
+                "minimum": 0
+              },
+              "p75_annual_usd": {
+                "type": [
+                  "integer",
+                  "number",
+                  "null"
+                ],
+                "minimum": 0
+              },
+              "p90_annual_usd": {
+                "type": [
+                  "integer",
+                  "number",
+                  "null"
+                ],
+                "minimum": 0
+              },
+              "job_outlook_pct": {
+                "type": [
+                  "integer",
+                  "number",
+                  "null"
+                ]
+              },
+              "annual_openings": {
+                "type": [
+                  "integer",
+                  "number",
+                  "null"
+                ],
+                "minimum": 0
+              },
+              "raw_evidence_text": {
+                "type": "string"
+              },
+              "limitations": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "uk_evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mapping_quality",
+        "source_name",
+        "source_url",
+        "starter_annual_gbp",
+        "experienced_annual_gbp",
+        "typical_hours",
+        "working_pattern",
+        "raw_evidence_text",
+        "limitations"
+      ],
+      "properties": {
+        "mapping_quality": {
+          "type": "string",
+          "enum": [
+            "direct_uk_profile",
+            "adjacent_uk_profile",
+            "variable_pay_profile",
+            "unavailable"
+          ]
+        },
+        "source_name": {
+          "type": "string"
+        },
+        "source_url": {
+          "type": "string"
+        },
+        "starter_annual_gbp": {
+          "type": [
+            "integer",
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "experienced_annual_gbp": {
+          "type": [
+            "integer",
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "typical_hours": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "working_pattern": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "raw_evidence_text": {
+          "type": "string"
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "eu_context_evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "source_name",
+        "source_url",
+        "raw_evidence_text",
+        "limitations"
+      ],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "macro_context_only",
+            "occupation_specific",
+            "unavailable"
+          ]
+        },
+        "source_name": {
+          "type": "string"
+        },
+        "source_url": {
+          "type": "string"
+        },
+        "raw_evidence_text": {
+          "type": "string"
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "quality_flags": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "has_cn_exact_or_close_source",
+        "has_cn_two_source_types",
+        "has_visible_sample_count",
+        "has_real_raw_salary_text",
+        "has_us_percentile_source",
+        "has_uk_direct_or_adjacent_source",
+        "invalid_proxy_detected",
+        "ready_for_asset_generation"
+      ],
+      "properties": {
+        "has_cn_exact_or_close_source": {
+          "type": "boolean"
+        },
+        "has_cn_two_source_types": {
+          "type": "boolean"
+        },
+        "has_visible_sample_count": {
+          "type": "boolean"
+        },
+        "has_real_raw_salary_text": {
+          "type": "boolean"
+        },
+        "has_us_percentile_source": {
+          "type": "boolean"
+        },
+        "has_uk_direct_or_adjacent_source": {
+          "type": "boolean"
+        },
+        "invalid_proxy_detected": {
+          "type": "boolean"
+        },
+        "ready_for_asset_generation": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

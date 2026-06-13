@@ -1,0 +1,270 @@
+{
+  "skill_dir": ".agents/skills/career-salary-asset-factory",
+  "file_count": 44,
+  "files": [
+    {
+      "path": ".agents/skills/career-salary-asset-factory/SKILL.md",
+      "skill_relative_path": "SKILL.md",
+      "bytes": 4996,
+      "sha256": "a43daf0a27372429ee2ab7c9f6f5a9ef42f4da5502acb39e15b7c20f3349c068"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/agents/openai.yaml",
+      "skill_relative_path": "agents/openai.yaml",
+      "bytes": 249,
+      "sha256": "e28d679a992439eec17d095256e56a91ae32edc99b01646e597bd3884f8d8cd5"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/examples/pass_100_assets.jsonl",
+      "skill_relative_path": "examples/pass_100_assets.jsonl",
+      "bytes": 2173228,
+      "sha256": "ed9381c63c8df066dc5e793492772954bf283092943d58984184927a1f93e645"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/examples/pass_100_audit_summary.json",
+      "skill_relative_path": "examples/pass_100_audit_summary.json",
+      "bytes": 1196,
+      "sha256": "2f02bbad8a037b7afaf29e40c4f679ef3977d5c9721933a964603682c609f77c"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/examples/pass_100_estimates.jsonl",
+      "skill_relative_path": "examples/pass_100_estimates.jsonl",
+      "bytes": 404155,
+      "sha256": "007dab7e47edb977afb8e7325dba2a6c53a5bfd7f522421229a9387b14ca5e3c"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/examples/pass_100_evidence.jsonl",
+      "skill_relative_path": "examples/pass_100_evidence.jsonl",
+      "bytes": 442985,
+      "sha256": "35cfc157caa91923b84774e1db0aa77cbc5e7fc725cd8664d7fa6466295612cd"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/examples/pass_100_sha256_manifest.json",
+      "skill_relative_path": "examples/pass_100_sha256_manifest.json",
+      "bytes": 698,
+      "sha256": "a7958f7f67d082b42f17d3d26cac37a227392a8864b96538a72678140569c334"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/references/batch_gate_rules.md",
+      "skill_relative_path": "references/batch_gate_rules.md",
+      "bytes": 638,
+      "sha256": "1e720393b1a5ec01d8009f021c72e00b55417a0a8f94c836b47fdf63b580b26a"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/references/cn_recruitment_evidence_rules.md",
+      "skill_relative_path": "references/cn_recruitment_evidence_rules.md",
+      "bytes": 1160,
+      "sha256": "fc324bbd92a7450cdfa0b84dbd04b39d1fa9becfda14f093a4fade066f04ea82"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/references/eu_context_rules.md",
+      "skill_relative_path": "references/eu_context_rules.md",
+      "bytes": 380,
+      "sha256": "395ef9c18a55eedfdbee2f56f85e74eac3b20c80f9a198871dc588770cc218d1"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/references/invalid_proxy_rules.md",
+      "skill_relative_path": "references/invalid_proxy_rules.md",
+      "bytes": 1549,
+      "sha256": "8619a24bb68e8d3b452a8c525460dfaad995596e192b865468e83dfa56f0afeb"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/references/safety_and_forbidden_claims.md",
+      "skill_relative_path": "references/safety_and_forbidden_claims.md",
+      "bytes": 661,
+      "sha256": "eb1e4324b64996255dbb4f06259c866971d0cfc39f538178b6c2d5ffc8e2a369"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/references/salary_asset_writing_rules.md",
+      "skill_relative_path": "references/salary_asset_writing_rules.md",
+      "bytes": 725,
+      "sha256": "59e4983d0b0d9580bc20b4fc1428fad10cbcd37f34b6ea93b7b099c52edf4de8"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/references/source_registry.json",
+      "skill_relative_path": "references/source_registry.json",
+      "bytes": 1144,
+      "sha256": "c643257a13c36ee5ec562162c43ef886c8bf5cb2e1956bf7f05f8754a05c318a"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/references/uk_mapping_rules.md",
+      "skill_relative_path": "references/uk_mapping_rules.md",
+      "bytes": 953,
+      "sha256": "44d1210a83286853d5c979d7f0ae630ba96b87d1a8beb8cb4cea0cd17c4551fa"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/references/us_official_source_rules.md",
+      "skill_relative_path": "references/us_official_source_rules.md",
+      "bytes": 813,
+      "sha256": "2933877c79fb01a6e6b1dde573ae76b2aa6bcdb8b03266bedefce9d14a776b66"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/schemas/career_salary_asset_v3_6.schema.json",
+      "skill_relative_path": "schemas/career_salary_asset_v3_6.schema.json",
+      "bytes": 6579,
+      "sha256": "55eab50f12607dd526c92187b0d3f9b09298d9bf0180ef9d3088d05cbda03819"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/schemas/career_salary_estimate_v3_6.schema.json",
+      "skill_relative_path": "schemas/career_salary_estimate_v3_6.schema.json",
+      "bytes": 10427,
+      "sha256": "e5678767e04baeb6a5ddb9d47963c1a461fb9954045d8d801133aefc7b3726db"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/schemas/career_salary_evidence_v3_6.schema.json",
+      "skill_relative_path": "schemas/career_salary_evidence_v3_6.schema.json",
+      "bytes": 13199,
+      "sha256": "222a1effcb2851466a2f732718f6abdaf01668a39dcdc54af87b41319e0d64f2"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/scripts/audit_estimates.py",
+      "skill_relative_path": "scripts/audit_estimates.py",
+      "bytes": 1272,
+      "sha256": "614bbcc6dccd03323136f85108c0169cbfc6d3c7fe01e89e9963abde131a36bc"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/scripts/audit_evidence.py",
+      "skill_relative_path": "scripts/audit_evidence.py",
+      "bytes": 2630,
+      "sha256": "44396d3dab0e1dc8d590ba0d2ee8882777f13b917ab1ff9c33e2dda27699ed0d"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/scripts/audit_salary_assets.py",
+      "skill_relative_path": "scripts/audit_salary_assets.py",
+      "bytes": 1382,
+      "sha256": "98491ae7a073cc3201ef72a17e0770da325a7cd8d5950cb4f3a4751af3fa8706"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/scripts/browser_collection_plan.py",
+      "skill_relative_path": "scripts/browser_collection_plan.py",
+      "bytes": 912,
+      "sha256": "7b4b811c12cd727a2c0d9ead47f70b270c91384f8379630744fae1f6f1ca943e"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/scripts/collect_cn_recruitment_evidence.py",
+      "skill_relative_path": "scripts/collect_cn_recruitment_evidence.py",
+      "bytes": 1181,
+      "sha256": "809ecf513c3fb268eb13693a6809b5927f5fd9f86c2fc89e20eac9eaca309758"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/scripts/collect_eu_context.py",
+      "skill_relative_path": "scripts/collect_eu_context.py",
+      "bytes": 841,
+      "sha256": "8cd94fec5fb531a51528f3255b7113c828e4def90874912d3d7498e709cbc694"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/scripts/collect_uk_evidence.py",
+      "skill_relative_path": "scripts/collect_uk_evidence.py",
+      "bytes": 1053,
+      "sha256": "a84f05ee40476441f539aab94d2cef263b030705d4ecb51ddca9c63fecf400c9"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/scripts/collect_us_official_evidence.py",
+      "skill_relative_path": "scripts/collect_us_official_evidence.py",
+      "bytes": 1250,
+      "sha256": "5afbbcd4491bfef819497dadb68782fd1bb3d26df0a7b4e49fc45a99a7633650"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/scripts/compute_estimates.py",
+      "skill_relative_path": "scripts/compute_estimates.py",
+      "bytes": 1013,
+      "sha256": "3a88304d60807b32abee42b2ea34952551018aa5b79521311bf41bc42659bd11"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/scripts/freeze_baseline.py",
+      "skill_relative_path": "scripts/freeze_baseline.py",
+      "bytes": 1534,
+      "sha256": "72284e7a8b8c953042b357b6ab5e59e525e2afcd04a243f1925356b2a2298171"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/scripts/generate_salary_assets.py",
+      "skill_relative_path": "scripts/generate_salary_assets.py",
+      "bytes": 1260,
+      "sha256": "63a8016919e5b4f65943384a47632cfc7688236c9b335c8c84b263bb1d16705b"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/scripts/make_batch_manifest.py",
+      "skill_relative_path": "scripts/make_batch_manifest.py",
+      "bytes": 2334,
+      "sha256": "15fd4b17742500a32241fcd7623cab6883b4036e13c1a58f87d508175e0988b9"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/scripts/make_pipeline_report.py",
+      "skill_relative_path": "scripts/make_pipeline_report.py",
+      "bytes": 936,
+      "sha256": "e6ec9b47e11071957002fac090f9a2cc0891b264229e092c84002136e3f1015a"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/scripts/normalize_source_names.py",
+      "skill_relative_path": "scripts/normalize_source_names.py",
+      "bytes": 1283,
+      "sha256": "feebb1fd248a37d86d563752b3eefbcc004dd8b31672689da29b779f412b3439"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/scripts/pipeline_lib.py",
+      "skill_relative_path": "scripts/pipeline_lib.py",
+      "bytes": 4909,
+      "sha256": "28a872c95654720d103f900bcb1cf2e9e95c2f6281c4277a321effedea935953"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/scripts/promote_batch.py",
+      "skill_relative_path": "scripts/promote_batch.py",
+      "bytes": 999,
+      "sha256": "c855f7a034172f21e02a601d625d7d1b5d441db63f5777db2280e292030078d9"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/scripts/repair_evidence.py",
+      "skill_relative_path": "scripts/repair_evidence.py",
+      "bytes": 834,
+      "sha256": "2b7caa3fcf9a8bef53ab33cbbf816cb85cc4c012f9128acc43fd03e1a99a9c7c"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/scripts/repair_salary_assets.py",
+      "skill_relative_path": "scripts/repair_salary_assets.py",
+      "bytes": 729,
+      "sha256": "a8e4c50b3e6bba3a252b1d0befb1f4804ed30be9a59d9ef6f0c69fd0e0d2b6b7"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/scripts/run_pipeline.py",
+      "skill_relative_path": "scripts/run_pipeline.py",
+      "bytes": 1799,
+      "sha256": "6bc9eef58f53a26ad0dcbbe44610926ed6066f27d0ce71fe64d6e50c80d16222"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/scripts/validate_estimates.py",
+      "skill_relative_path": "scripts/validate_estimates.py",
+      "bytes": 1027,
+      "sha256": "5a01afa2fbc40b21a7e7623690c0c6bf587544c9442c71806cbab67f784d194b"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/scripts/validate_evidence_schema.py",
+      "skill_relative_path": "scripts/validate_evidence_schema.py",
+      "bytes": 1234,
+      "sha256": "e28af3b4c1a94ec3d0445ce8cc1caf58eba94a351f97f4c0fc146408f0ddb083"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/templates/asset_repair_prompt.md",
+      "skill_relative_path": "templates/asset_repair_prompt.md",
+      "bytes": 287,
+      "sha256": "adbfe81d4c4a61d092476a915d1410d9292da4c5f60ab8bd155e336e4b12fcbc"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/templates/audit_report_template.md",
+      "skill_relative_path": "templates/audit_report_template.md",
+      "bytes": 324,
+      "sha256": "618bdc9d19b1d5d9439b3434962b4afb63918f6ed55587161e3d1dde5cd56061"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/templates/browser_capture_checklist.md",
+      "skill_relative_path": "templates/browser_capture_checklist.md",
+      "bytes": 372,
+      "sha256": "12b4b1d841a7640c11a76e14f4be2dbe1069a0030c8f246d62d67c57df9f90b2"
+    },
+    {
+      "path": ".agents/skills/career-salary-asset-factory/templates/evidence_repair_prompt.md",
+      "skill_relative_path": "templates/evidence_repair_prompt.md",
+      "bytes": 545,
+      "sha256": "099a24d4601101c7c2160102fc448627cae75f9bc00fde299acceda22c80a2fa"
+    }
+  ]
+}

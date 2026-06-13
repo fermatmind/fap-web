@@ -1,0 +1,42 @@
+{
+  "evidence_audit": {
+    "source": "generated/career-salary-v3-5-100-pass-baseline/evidence/audit_reports/audit.json",
+    "final_verdict": "PASS",
+    "metrics": {
+      "ready_slug_count": 100,
+      "ready_asset_count": null,
+      "repair_required_slug_count": 0,
+      "blocked_slug_count": 0,
+      "schema_error_count": 0
+    }
+  },
+  "estimate_audit": {
+    "source": "generated/career-salary-v3-5-100-pass-baseline/estimate/audit_reports/audit.json",
+    "final_verdict": "PASS",
+    "metrics": {
+      "ready_slug_count": 100,
+      "ready_asset_count": null,
+      "repair_required_slug_count": 0,
+      "blocked_slug_count": 0,
+      "schema_error_count": 0
+    }
+  },
+  "asset_audit": {
+    "source": "generated/career-salary-v3-5-100-pass-baseline/asset/audit_reports/audit.json",
+    "final_verdict": "PASS",
+    "metrics": {
+      "ready_slug_count": null,
+      "ready_asset_count": 200,
+      "repair_required_slug_count": null,
+      "blocked_slug_count": null,
+      "schema_error_count": 0
+    }
+  },
+  "baseline": {
+    "control_slugs": 100,
+    "evidence_pass": true,
+    "estimate_pass": true,
+    "asset_pass": true,
+    "source_files_modified_during_freeze": 0
+  }
+}

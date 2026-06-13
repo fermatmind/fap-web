@@ -1,0 +1,47 @@
+{
+  "version": "career_salary_source_registry_v3_6",
+  "purpose": "Canonical source category registry for FermatMind career salary evidence ledgers.",
+  "wage_sources": [
+    "BLS OOH",
+    "BLS OEWS",
+    "CareerOneStop",
+    "My Next Move",
+    "O*NET"
+  ],
+  "outlook_sources": [
+    "BLS Employment Projections",
+    "BLS OOH",
+    "CareerOneStop",
+    "O*NET"
+  ],
+  "mapping_sources": [
+    "O*NET",
+    "My Next Move",
+    "BLS OOH",
+    "CareerOneStop"
+  ],
+  "cn_recruitment_sources": [
+    "JobUI",
+    "BOSS Zhipin",
+    "Liepin",
+    "Zhaopin",
+    "Kanzhun",
+    "industry_salary_report",
+    "job_posting_sample"
+  ],
+  "uk_sources": [
+    "UK National Careers",
+    "Prospects",
+    "official professional body",
+    "audited adjacent profile"
+  ],
+  "eu_sources": [
+    "Eurostat macro earnings context",
+    "occupation-specific EU source when explicitly captured"
+  ],
+  "forbidden_wage_source_names": [
+    "BLS Employment Projections",
+    "BLS OEWS / Employment Projections seed context"
+  ],
+  "note": "BLS Employment Projections may appear in outlook context or raw_evidence_text, but not in wage_sources.source_name."
+}
