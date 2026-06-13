@@ -130,6 +130,24 @@ function renderArticleBody(article: CmsArticle, locale: Locale, canonicalPath: s
   return null;
 }
 
+function jsonLdContainsType(value: unknown, schemaType: string): boolean {
+  if (!value || typeof value !== "object") {
+    return false;
+  }
+
+  if (Array.isArray(value)) {
+    return value.some((item) => jsonLdContainsType(item, schemaType));
+  }
+
+  const record = value as Record<string, unknown>;
+  const type = record["@type"];
+  if (type === schemaType || (Array.isArray(type) && type.includes(schemaType))) {
+    return true;
+  }
+
+  return Object.values(record).some((item) => jsonLdContainsType(item, schemaType));
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -291,6 +309,10 @@ export default async function ArticleDetailPage({
         answer: item.answer,
       }))
     : [];
+  const shouldRenderStandaloneFaqJsonLd =
+    articleSchemaGate.canRenderFAQPageJsonLd &&
+    faqItems.length > 0 &&
+    !jsonLdContainsType(articleJsonLd, "FAQPage");
 
   const publishedAt = formatArticleDate(article.publishedAt, locale);
   const updatedAt = formatArticleDate(article.updatedAt, locale);
@@ -316,7 +338,7 @@ export default async function ArticleDetailPage({
     <Container as="main" className="space-y-8 py-10">
       {articleJsonLd ? <JsonLd id={`article-jsonld-${slug}`} data={articleJsonLd} /> : null}
       {breadcrumbJsonLd ? <JsonLd id={`article-breadcrumb-${slug}`} data={breadcrumbJsonLd} /> : null}
-      {articleSchemaGate.canRenderFAQPageJsonLd && faqItems.length > 0 ? <JsonLd id={`article-faq-${slug}`} data={buildFAQPageJsonLd(faqItems)} /> : null}
+      {shouldRenderStandaloneFaqJsonLd ? <JsonLd id={`article-faq-${slug}`} data={buildFAQPageJsonLd(faqItems)} /> : null}
 
       <Breadcrumb
         items={[
