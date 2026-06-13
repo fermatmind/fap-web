@@ -181,7 +181,7 @@ function TypeGroupBrowse({
       </section>
 
       <div className="space-y-8" data-testid="personality-type-directory">
-        {groups.map((group) => (
+        {groups.map((group, groupIndex) => (
           <section
             key={`${group.groupKey}-types`}
             id={group.groupKey.toLowerCase()}
@@ -202,8 +202,9 @@ function TypeGroupBrowse({
             </div>
 
             <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-              {group.cards.map((type) => {
+              {group.cards.map((type, typeIndex) => {
                 const tone = getTone(group.groupKey);
+                const isPriorityImage = groupIndex === 0 && typeIndex < 4;
 
                 return (
                   <Link
@@ -225,9 +226,12 @@ function TypeGroupBrowse({
                             <Image
                               src={type.imageUrl}
                               alt={formatTypeLabel(type)}
-                              fill
-                              sizes="(min-width: 1280px) 7rem, 7rem"
-                              className="object-contain p-2"
+                              width={112}
+                              height={112}
+                              sizes="112px"
+                              className="h-28 w-28 object-contain p-2"
+                              data-loading-strategy={isPriorityImage ? "priority" : "lazy"}
+                              {...(isPriorityImage ? { priority: true } : { loading: "lazy" as const })}
                             />
                           </div>
                         ) : (

@@ -323,7 +323,7 @@ describe("personality cms adapter contract", () => {
             excerpt: "Wrapper excerpt should not drive the page",
             hero_kicker: "The strategist",
             hero_quote: "See the pattern. Build the system.",
-            hero_image_url: "https://cdn.example.com/intj.jpg",
+            hero_image_url: "https://assets.fermatmind.com/static/personality/type-icons/intj.png",
             status: "published",
             is_public: true,
             is_indexable: true,
@@ -486,7 +486,7 @@ describe("personality cms adapter contract", () => {
     expect(detail?.locale).toBe("en");
     expect(detail?.heroKicker).toBe("The strategist");
     expect(detail?.heroQuote).toBe("See the pattern. Build the system.");
-    expect(detail?.heroImageUrl).toBe("https://cdn.example.com/intj.jpg");
+    expect(detail?.heroImageUrl).toBe("https://assets.fermatmind.com/static/personality/type-icons/intj.png");
     expect(detail?.faqSections).toHaveLength(1);
     expect(detail?.supplementalSections).toHaveLength(1);
     expect(detail?.seoMeta?.seoTitle).toBe("INTJ Personality Type");
