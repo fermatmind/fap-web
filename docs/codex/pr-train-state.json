@@ -12612,8 +12612,8 @@
       ],
       "status": "planned",
       "title": "GLOBAL-EN-ZH-PARITY-CONTENT-ASSET-BATCH-01 content help policy import package",
-      "commit_sha": null,
-      "pr_url": null,
+      "commit_sha": "cb01c050d84d7c9aea7713bcaa2b77d024e00f47",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1133",
       "checks": {
         "focused_contract": {
           "command": "pnpm exec vitest run tests/contracts/detail-ready-1046-discoverability-exposure-repair-01.contract.test.ts tests/contracts/career-llms-alignment.contract.test.ts tests/contracts/sitemap-indexability.contract.test.ts tests/contracts/llms-route-fanout.contract.test.ts",
@@ -23100,7 +23100,9 @@
           "evidence": "Focused contract passed 7 tests. pnpm test:contract -- personality-seo-current-audit-01 completed 479 files / 2740 tests. pnpm typecheck passed. NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build passed; postbuild sitemap churn was restored and left out of scope. JSON/YAML parse, git diff --check, and explicit scope validation passed for 6 allowed files."
         },
         "github": {
-          "status": "pending"
+          "status": "pending",
+          "head_sha": "cb01c050d84d7c9aea7713bcaa2b77d024e00f47",
+          "evidence": "Draft PR #1133 opened after local checks passed; waiting for GitHub checks."
         }
       },
       "history": [
@@ -23113,6 +23115,11 @@
           "at": "2026-06-13T22:38:40+08:00",
           "status": "local_checks_passed",
           "note": "Focused contract, full contract command, typecheck, production API build, JSON/YAML parse, git diff check, and scope validation passed. Postbuild sitemap churn was restored and left out of scope."
+        },
+        {
+          "at": "2026-06-13T22:45:20+08:00",
+          "status": "pr_open_checks_pending",
+          "note": "Pushed rebased commit cb01c050 and opened draft PR #1133; GitHub checks are pending."
         }
       ]
     },
