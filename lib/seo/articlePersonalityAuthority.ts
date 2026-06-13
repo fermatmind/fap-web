@@ -49,9 +49,21 @@ export type ArticleHreflangGate = {
   reason: string;
 };
 
-function readSchemaGateValue(source: unknown): boolean {
+type ArticleSchemaGateAllowances = {
+  article: boolean;
+  breadcrumb: boolean;
+  faq: boolean;
+};
+
+type ArticleSchemaGateRead = {
+  allowances: ArticleSchemaGateAllowances;
+  specified: ArticleSchemaGateAllowances;
+  hasExplicitSchemaGate: boolean;
+};
+
+function readBooleanGateValue(source: unknown): boolean | null {
   if (!source || typeof source !== "object" || Array.isArray(source)) {
-    return false;
+    return null;
   }
 
   const record = source as Record<string, unknown>;
@@ -59,22 +71,121 @@ function readSchemaGateValue(source: unknown): boolean {
     return true;
   }
 
-  const schemaGate = record.schema_gate_v1 ?? record.schemaGateV1;
-  if (readSchemaGateValue(schemaGate)) {
-    return true;
+  if (record.enabled === false || record.schema_allowed === false || record.schemaAllowed === false) {
+    return false;
   }
 
-  const articleSchemaGate = record.article_schema_gate_v1 ?? record.articleSchemaGateV1;
-  if (readSchemaGateValue(articleSchemaGate)) {
-    return true;
+  return null;
+}
+
+function allSchemaAllowances(allowed: boolean): ArticleSchemaGateAllowances {
+  return {
+    article: allowed,
+    breadcrumb: allowed,
+    faq: allowed,
+  };
+}
+
+function mergeSchemaGateRead(
+  current: ArticleSchemaGateRead,
+  next: ArticleSchemaGateRead
+): ArticleSchemaGateRead {
+  return {
+    allowances: {
+      article: next.specified.article ? next.allowances.article : current.allowances.article,
+      breadcrumb: next.specified.breadcrumb ? next.allowances.breadcrumb : current.allowances.breadcrumb,
+      faq: next.specified.faq ? next.allowances.faq : current.allowances.faq,
+    },
+    specified: {
+      article: current.specified.article || next.specified.article,
+      breadcrumb: current.specified.breadcrumb || next.specified.breadcrumb,
+      faq: current.specified.faq || next.specified.faq,
+    },
+    hasExplicitSchemaGate: current.hasExplicitSchemaGate || next.hasExplicitSchemaGate,
+  };
+}
+
+function readArticleSchemaGate(source: unknown): ArticleSchemaGateRead {
+  const empty: ArticleSchemaGateRead = {
+    allowances: {
+      article: false,
+      breadcrumb: false,
+      faq: false,
+    },
+    specified: {
+      article: false,
+      breadcrumb: false,
+      faq: false,
+    },
+    hasExplicitSchemaGate: false,
+  };
+
+  if (!source || typeof source !== "object" || Array.isArray(source)) {
+    return empty;
   }
 
-  const schemaJson = record.schema_json ?? record.schemaJson;
-  if (readSchemaGateValue(schemaJson)) {
-    return true;
+  const record = source as Record<string, unknown>;
+  let allowances = { ...empty.allowances };
+  const specified = { ...empty.specified };
+  let hasExplicitSchemaGate = false;
+
+  const directGate = readBooleanGateValue(record);
+  if (directGate !== null) {
+    allowances = allSchemaAllowances(directGate);
+    Object.assign(specified, allSchemaAllowances(true));
+    hasExplicitSchemaGate = true;
   }
 
-  return false;
+  const genericGate = readBooleanGateValue(record.schema_gate_v1 ?? record.schemaGateV1);
+  if (genericGate !== null) {
+    allowances = allSchemaAllowances(genericGate);
+    Object.assign(specified, allSchemaAllowances(true));
+    hasExplicitSchemaGate = true;
+  }
+
+  const articleGate = readBooleanGateValue(record.article_schema_gate_v1 ?? record.articleSchemaGateV1);
+  if (articleGate !== null) {
+    allowances.article = articleGate;
+    specified.article = true;
+    hasExplicitSchemaGate = true;
+  }
+
+  const breadcrumbGate = readBooleanGateValue(record.breadcrumb_schema_gate_v1 ?? record.breadcrumbSchemaGateV1);
+  if (breadcrumbGate !== null) {
+    allowances.breadcrumb = breadcrumbGate;
+    specified.breadcrumb = true;
+    hasExplicitSchemaGate = true;
+  }
+
+  const faqGate = readBooleanGateValue(record.faq_schema_gate_v1 ?? record.faqSchemaGateV1);
+  if (faqGate !== null) {
+    allowances.faq = faqGate;
+    specified.faq = true;
+    hasExplicitSchemaGate = true;
+  }
+
+  let read: ArticleSchemaGateRead = {
+    allowances,
+    specified,
+    hasExplicitSchemaGate,
+  };
+
+  const gateBundle = readArticleSchemaGate(record.schema_gates_v1 ?? record.schemaGatesV1);
+  if (gateBundle.hasExplicitSchemaGate) {
+    read = mergeSchemaGateRead(read, gateBundle);
+  }
+
+  const schemaJson = readArticleSchemaGate(record.schema_json ?? record.schemaJson);
+  if (schemaJson.hasExplicitSchemaGate) {
+    read = mergeSchemaGateRead(read, schemaJson);
+  }
+
+  return read;
+}
+
+function readSchemaGateValue(source: unknown): boolean {
+  const gate = readArticleSchemaGate(source);
+  return gate.allowances.article || gate.allowances.breadcrumb || gate.allowances.faq;
 }
 
 function readHreflangGateValue(source: unknown): boolean {
@@ -107,14 +218,18 @@ function readHreflangGateValue(source: unknown): boolean {
 
 function articleSchemaGate(
   source: ArticleSchemaGateSource,
-  allowed: boolean,
+  allowed: boolean | ArticleSchemaGateAllowances,
   reason: string
 ): ArticleSchemaGate {
+  const allowances = typeof allowed === "boolean"
+    ? { article: allowed, breadcrumb: allowed, faq: allowed }
+    : allowed;
+
   return {
     source,
-    canRenderArticleJsonLd: allowed,
-    canRenderBreadcrumbJsonLd: allowed,
-    canRenderFAQPageJsonLd: allowed,
+    canRenderArticleJsonLd: allowances.article,
+    canRenderBreadcrumbJsonLd: allowances.breadcrumb,
+    canRenderFAQPageJsonLd: allowances.faq,
     reason,
   };
 }
@@ -140,8 +255,13 @@ export function resolveArticleSchemaGate(input: {
     return articleSchemaGate("noindex_hold", false, "Noindex articles must not emit Article/Breadcrumb/FAQ JSON-LD.");
   }
 
-  if (readSchemaGateValue(input.article.seoMeta)) {
-    return articleSchemaGate("explicit_cms_schema_gate", true, "CMS article schema gate explicitly allows schema output.");
+  const explicitSchemaGate = readArticleSchemaGate(input.article.seoMeta);
+  if (explicitSchemaGate.hasExplicitSchemaGate) {
+    return articleSchemaGate(
+      "explicit_cms_schema_gate",
+      explicitSchemaGate.allowances,
+      "CMS article schema gate explicitly controls Article, Breadcrumb, and FAQ schema output."
+    );
   }
 
   if (input.cmsArticleSeoJsonLd && LEGACY_ARTICLE_SCHEMA_COMPATIBILITY_ALLOWLIST.has(input.article.slug)) {

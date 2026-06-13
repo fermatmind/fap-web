@@ -215,6 +215,18 @@ const ARTICLE_SCHEMA_HOLD_DECOUPLE_00_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const ARTICLE_SCHEMA_GRANULAR_GATES_00_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/articles/[slug]/page.tsx",
+  "lib/seo/articleJsonLdAuthority.ts",
+  "lib/seo/articlePersonalityAuthority.ts",
+  "tests/contracts/article-answer-surface.contract.test.ts",
+  "tests/contracts/article-jsonld-fallback-authority.contract.test.ts",
+  "tests/contracts/article-publishing-runtime-truth.contract.test.ts",
+  "tests/contracts/article-personality-jsonld-projection-gates.contract.test.ts",
+  "tests/contracts/fixtures/seo-foundation/article-jsonld-fallback-authority.v1.json",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 const ARTICLE_HREFLANG_HOLD_DECOUPLE_00_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/articles/[slug]/page.tsx",
   "lib/seo/articlePersonalityAuthority.ts",
@@ -2552,6 +2564,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/article-schema-hold-decouple-00") {
     return ARTICLE_SCHEMA_HOLD_DECOUPLE_00_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/article-schema-granular-gates-00") {
+    return ARTICLE_SCHEMA_GRANULAR_GATES_00_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/article-hreflang-hold-decouple-00") {

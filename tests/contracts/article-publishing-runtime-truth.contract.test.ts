@@ -385,7 +385,7 @@ describe("Article Publishing Runtime Truth acceptance gate", () => {
     expect(source).toContain("seo?.surface?.description || seo?.meta.description || article.excerpt");
     expect(source).toContain("seo?.surface?.canonicalUrl ?? seo?.meta.canonical");
     expect(source).toContain("const noindex = !article.isIndexable || shouldNoindex(seo?.meta.robots);");
-    expect(source).toContain("const cmsArticleSeoJsonLd = normalizeArticleJsonLdAuthor(seo?.jsonld);");
+    expect(source).toContain("const cmsArticleSeoJsonLd = normalizeArticleJsonLdAuthorityPayload(seo?.jsonld);");
     expect(source).toContain("resolveArticleJsonLdAuthority({");
     expect(source).toContain("resolveArticleSchemaGate({");
     expect(source).toContain("articleSchemaGate.canRenderArticleJsonLd");
