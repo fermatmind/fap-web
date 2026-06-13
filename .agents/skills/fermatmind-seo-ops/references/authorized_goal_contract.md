@@ -8,6 +8,10 @@ The current `/goal` must state the target package, article pair, allowed locales
 
 - `allow_package_autofix`
 - `allow_social_image_auto_resolve`
+- `allow_image_bundle_dry_run`
+- `allow_media_library_image_import`
+- `allow_resolved_package_write`
+- `allow_image_metadata_backfill`
 - `allow_production_draft_import`
 - `allow_preview_qa`
 - `allow_publish_metadata_autofill`
@@ -29,6 +33,14 @@ Stop immediately on:
 
 - `unknown_route`
 - `missing_media_asset`
+- `missing_image_asset_manifest`
+- `image_source_file_missing`
+- `image_mime_invalid`
+- `image_oversize`
+- `image_alt_missing`
+- `competitor_asset`
+- `cdn_verification_failed`
+- `duplicate_recent_cover_blocked`
 - `claim_override`
 - `schema_hreflang_enablement`
 - `gsc_request_indexing`

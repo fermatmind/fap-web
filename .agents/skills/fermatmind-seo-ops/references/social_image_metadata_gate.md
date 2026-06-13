@@ -19,6 +19,9 @@ Use this workflow before publish review, indexability release, sitemap/llms rele
 | `cover_image_height` | Positive integer. |
 | `cover_image_variants.hero` | Public-safe hero image URL. |
 | `cover_image_variants.og` | Public-safe OpenGraph image URL. |
+| `cover_image_variants.card` | Public-safe article card image URL. |
+| `cover_image_variants.thumbnail` | Public-safe thumbnail image URL. |
+| `cover_image_variants.preload` | Public-safe preload image URL. |
 | Media Library provenance | Existing approved Media Library asset or operator-provided public evidence. |
 
 ## Blockers
@@ -28,6 +31,11 @@ Use this workflow before publish review, indexability release, sitemap/llms rele
 - image URL returns 404 or is private/authenticated.
 - image URL contains token, order, payment, result, attempt, user, secret, or signed query parameters.
 - alt text implies diagnosis, guaranteed outcome, perfect fit, best career, salary, hiring fit, or clinical/scientific certainty.
+- cover/card asset duplicates a recent topical-lane article and package policy blocks reuse.
+
+## Separation from body visuals
+
+Passing this gate means cover/social metadata is safe. It does not mean body visual metadata is safe. Body visual fields must be checked through `references/image_asset_bundle_workflow.md` when body markdown references an inline/body image.
 
 ## Outputs
 

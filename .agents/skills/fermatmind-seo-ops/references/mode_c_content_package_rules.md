@@ -2,6 +2,75 @@
 
 Use when validating GPT/Mode C bilingual SEO article content packages before import, preview, publish, or release.
 
+## Image Asset Bundle Rule
+
+Mode C must support a `media/` directory for daily SEO packages:
+
+```text
+media/
+  IMAGE_ASSET_MANIFEST.json
+  cover_source_1600x900.png
+  body_visual_source_1600x900.png
+  og_1200x630.png
+  IMAGE_PROMPTS.md
+```
+
+Minimum daily requirement:
+
+- `media/IMAGE_ASSET_MANIFEST.json`.
+- `media/cover_source_1600x900.*`.
+- `media/IMAGE_PROMPTS.md`.
+
+Conditional files:
+
+- `body_visual_source_1600x900.*` is required only when the article body references a body visual or `body_visual_required=true`.
+- `og_1200x630.*` is optional. If absent, backend variants may generate OG.
+- card and thumbnail source files are not required from GPT; backend variants generate them.
+
+`IMAGE_ASSET_MANIFEST.json` must declare:
+
+- `schema_version=image_asset_manifest_v1`.
+- `package_id`.
+- `translation_group_id`.
+- `locale_scope`.
+- `assets[]`.
+- `qa_gates`.
+
+Each asset must include:
+
+- `asset_key`.
+- `role`.
+- `source_file`.
+- `alt_text`.
+- `locale_strategy`.
+- `intended_usage`.
+- `dimensions_expected`.
+- `format_allowed`.
+- `max_bytes`.
+- `fallback_allowed`.
+- `provenance`.
+
+Supported roles:
+
+- `cover`.
+- `body_visual`.
+- `og_override`.
+- `card_override`.
+- `thumbnail_override`.
+
+Allowed source formats: `jpg`, `jpeg`, `png`, `webp`.
+
+Forbidden: SVG, animated image, transparent-background dependent design, competitor image, private asset, fake URL, and unresolved placeholder.
+
+Dimension and size rules:
+
+- cover source: 1600x900 minimum, 2400x1350 preferred.
+- body visual: 1600x900 or 1200x675.
+- hard max: 10 MB.
+- recommended max: 3 MB warning.
+
+Mode C must not invent Media Library URLs. CMS JSON may carry proposed asset keys and local source filenames, but publishable CMS image fields must be filled only after `media-assets:import-seo-image-bundle` returns verified resolved metadata.
+
 ## Body Visual Rule
 
 Mode C must not hardcode nonexistent Media Library asset keys. If a body visual is desired but the asset is not verified public/published/CDN reachable, the package must output:
@@ -20,12 +89,15 @@ Fallback may be written only when:
 - the package contract explicitly allows the fallback, or
 - the operator explicitly authorizes the fallback asset.
 
+If a package includes a body visual placeholder or image asset manifest but no resolved CMS image metadata, the downstream decision is `BLOCKED_NEEDS_MEDIA_LIBRARY_IMPORT` until the image importer dry-run/import and metadata backfill pass.
+
 ## Social Image And Body Visual Separation
 
 Social/cover image readiness does not imply body visual readiness. Check separately:
 
 - `cover_media_asset_key`
 - `social_og_asset_key`
+- `article_card_asset_key`
 - `body_visual_asset_key`
 - `body_visual_required`
 - `body_visual_fallback_authorized`
@@ -52,6 +124,8 @@ Active surfaces must not contain:
 - old route aliases.
 - sensitive query keys.
 - unverified Media Library asset keys marked as selected.
+- fake Media Library URLs.
+- local image file paths presented as public URLs.
 
 ## Contract / Review Surfaces
 

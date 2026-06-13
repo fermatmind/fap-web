@@ -19,3 +19,9 @@
 | token/order/result id | absent |  |  |  |
 | schema | disabled unless approved |  |  |  |
 | hreflang | hold or eligible |  |  |  |
+| article hero image | renders when required |  |  |  |
+| article card/list image | renders when surface available |  |  |  |
+| OG/Twitter image | public-safe URL |  |  |  |
+| body visual | renders if referenced |  |  |  |
+| image variants | original/hero/card/thumbnail/og/preload present |  |  |  |
+| placeholder/fake/private image URL | absent |  |  |  |

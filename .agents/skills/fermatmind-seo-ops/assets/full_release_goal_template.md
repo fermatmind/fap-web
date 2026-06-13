@@ -22,6 +22,10 @@ Target:
 Authorization Profile:
 - allow_package_autofix=true
 - allow_social_image_auto_resolve=true
+- allow_image_bundle_dry_run=true
+- allow_media_library_image_import=<true|false>
+- allow_resolved_package_write=<true|false>
+- allow_image_metadata_backfill=<true|false>
 - allow_production_draft_import=true
 - allow_preview_qa=true
 - allow_publish_metadata_autofill=true
@@ -40,6 +44,12 @@ Authorization Profile:
 - baidu_live_push=hold
 
 Mode C media contract:
+- image_bundle_required=<true|false>
+- image_bundle_manifest=media/IMAGE_ASSET_MANIFEST.json
+- cover_source_required=true
+- cover_source_file=media/cover_source_1600x900.<jpg|jpeg|png|webp>
+- body_visual_source_required=<true|false>
+- media_library_importer=dry-run first using media-assets:import-seo-image-bundle
 - body_visual_required=<true|false>
 - body_visual_status=<verified|requires_media_library_resolution_before_preview>
 - desired_body_visual_concept=<if unresolved>
@@ -58,6 +68,13 @@ Search Channel flow:
 Hard stops:
 - unknown_route
 - missing_media_asset
+- missing IMAGE_ASSET_MANIFEST.json when image bundle is required
+- missing image source file
+- invalid MIME/SVG/animated image
+- image over 10MB or missing alt text
+- competitor_asset=true
+- CDN verification failed
+- duplicate recent cover blocked by policy
 - unresolved body visual placeholder in active import surfaces
 - active private URL/token leak
 - old route alias in active import surfaces

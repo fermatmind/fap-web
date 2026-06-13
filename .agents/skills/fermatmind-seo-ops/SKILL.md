@@ -38,6 +38,7 @@ Use this skill for:
 - Daily article release goal generation.
 - Claim Gate and Private URL Guard audit.
 - Social image / Media Library metadata readiness review.
+- SEO image asset bundle preflight and Media Library resolution.
 - Content feedback queue and ready-to-publish queue preparation.
 - Metabase/Ops Portal evidence interpretation.
 
@@ -146,6 +147,7 @@ Choose the workflow by user intent:
 | Daily SEO review | `daily_seo_review` |
 | Weekly article review | `weekly_article_review` |
 | Check a CMS content package | `cms_content_package_qa` |
+| Preflight/import SEO image asset bundle | `image_asset_bundle_preflight_and_media_library_resolution` |
 | Plan or QA a new bilingual article pair | `new_bilingual_article_pair_runner` |
 | Accompany an article package through preview and publish gate | `cms_seo_article_publish_runner` |
 | Replace a Chinese legacy page safely | `chinese_overwrite_diff_runner` |
@@ -180,6 +182,7 @@ Use:
 - `references/authorized_goal_contract.md`.
 - `references/article_identity_lock.md`.
 - `references/mode_c_content_package_rules.md`.
+- `references/image_asset_bundle_workflow.md`.
 - `references/full_article_release_state_machine.md`.
 - `references/package_autofix_playbook.md`.
 - `references/production_draft_writer_playbook.md`.
@@ -196,26 +199,29 @@ Required stages:
 
 1. package QA.
 2. deterministic package autofix.
-3. social image auto-resolve.
-4. production draft import dry-run.
-5. production draft-only import.
-6. authenticated preview QA.
-7. publish metadata autofill.
-8. publish rehearsal.
-9. controlled publish.
-10. post-publish smoke.
-11. sitemap, llms, and llms-full release.
-12. URL Truth refresh.
-13. Search Channel Queue readiness.
-14. Search Channel Queue enqueue.
-15. IndexNow bounded submission.
-16. GSC manual readiness.
-17. Baidu readiness.
-18. final report.
-19. D1/D7/D14 observation queue.
-20. final reconciliation after any follow-up schema, hreflang, GSC, Search Channel, IndexNow, or Baidu work.
+3. image asset bundle preflight.
+4. Media Library image import/register dry-run.
+5. authorized Media Library image import/register if needed.
+6. resolved CMS image metadata backfill.
+7. production draft import dry-run.
+8. production draft-only import.
+9. authenticated preview QA.
+10. publish metadata autofill.
+11. publish rehearsal.
+12. controlled publish.
+13. post-publish smoke.
+14. sitemap, llms, and llms-full release.
+15. URL Truth refresh.
+16. Search Channel Queue readiness.
+17. Search Channel Queue enqueue.
+18. IndexNow bounded submission.
+19. GSC manual readiness.
+20. Baidu readiness.
+21. final report.
+22. D1/D7/D14 observation queue.
+23. final reconciliation after any follow-up schema, hreflang, GSC, Search Channel, IndexNow, or Baidu work.
 
-Hard gates: follow the Authorization Profile. Run Article Identity Lock before preview QA, publish, discoverability release, schema, hreflang, Search Channel, GSC, or Baidu stages. Preserve schema and hreflang holds unless separately authorized. Stop on any hard no-go.
+Hard gates: follow the Authorization Profile. Run image asset bundle preflight before production draft dry-run. Run Article Identity Lock before preview QA, publish, discoverability release, schema, hreflang, Search Channel, GSC, or Baidu stages. Preserve schema and hreflang holds unless separately authorized. Stop on any hard no-go.
 
 ### `authorized_goal_contract`
 
@@ -224,6 +230,23 @@ Purpose: validate the current `/goal` Authorization Profile before the skill exe
 Use `references/authorized_goal_contract.md`.
 
 Output: authorization boundary matrix and explicit allowed/held/stopped action list.
+
+### `image_asset_bundle_preflight_and_media_library_resolution`
+
+Purpose: validate Mode C `media/IMAGE_ASSET_MANIFEST.json`, run the production-safe Media Library image importer dry-run, optionally import/register images when authorized, and backfill resolved CMS image metadata before article draft dry-run.
+
+Use:
+
+- `references/image_asset_bundle_workflow.md`.
+- `references/mode_c_content_package_rules.md`.
+- `assets/image_asset_bundle_reports_template.md`.
+- `assets/next_daily_image_bundle_template.md`.
+
+Standard command:
+
+`php artisan media-assets:import-seo-image-bundle`.
+
+Hard gates: dry-run first; do not upload/register images unless `allow_media_library_image_import=true`; do not overwrite the original source package; stop on missing manifest when image bundle required, missing source file, invalid MIME/SVG, animated image, oversize image, missing alt text, `competitor_asset=true`, CDN verification failure, unresolved placeholders in active surfaces, fake/private image URLs, or duplicate recent cover blocked by package policy.
 
 ### `full_release_state_machine`
 
@@ -390,9 +413,12 @@ Purpose: check whether a GPT-5.5 Pro CMS content package can enter Codex preview
 
 Use `references/mode_c_content_package_rules.md`.
 
+Also use `references/image_asset_bundle_workflow.md` when generating daily image package instructions.
+
 Required package checks:
 
 - `manifest.json`.
+- `media/IMAGE_ASSET_MANIFEST.json` when image bundle or unique article image is required.
 - `SEO_BRIEF`.
 - frontmatter.
 - `claim_gate.md`.
@@ -406,6 +432,7 @@ Required package checks:
 - `CANONICAL_PLAN`.
 - `SCHEMA_ELIGIBILITY_PLAN`.
 - `PRIVATE_URL_GUARD`.
+- image asset bundle preflight and resolved CMS image metadata when `media/` exists or body visual/unique cover is required.
 
 Outputs:
 
@@ -416,6 +443,7 @@ Outputs:
 Decision: `GO_FOR_PREVIEW` or `NO_GO_FOR_PREVIEW`.
 
 Hard gates: no import, no CMS write, no schema enablement, no publish. Social/cover image readiness and body visual readiness are separate gates; unresolved body visual placeholders block preview/import.
+Image bundle dry-run is allowed only when the Authorization Profile or task explicitly allows image bundle validation. Media Library import/register is a separate production mutation.
 
 ### `new_bilingual_article_pair_runner`
 
@@ -425,14 +453,17 @@ Use:
 
 - `references/new_bilingual_article_pair_runner.md`.
 - `references/mode_c_content_package_rules.md`.
+- `references/image_asset_bundle_workflow.md`.
 
 Must check:
 
 - shared article-pair manifest.
+- `media/IMAGE_ASSET_MANIFEST.json` and source image files when a unique cover/body visual is required.
 - one CMS draft payload per locale.
 - `translation_group_id` consistency.
 - locale-specific slug, canonical, title, meta, body, FAQ, CTA, internal links, cover/social image, claim gate, private URL guard, schema hold, hreflang hold, sitemap hold, llms hold, Search Channel hold.
 - separate preview QA and operator review per locale.
+- resolved image metadata backfill before draft import.
 - pair-level readiness decision.
 
 Hard gates: no CMS mutation, no publish, no indexability release, no sitemap/llms release, no search submission, no revalidation. Stop on unresolved body visual placeholders, unverified Media Library asset keys, or active-surface private URL/alias leakage.
