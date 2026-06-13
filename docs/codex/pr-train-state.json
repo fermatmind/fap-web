@@ -23054,6 +23054,217 @@
           "note": "GitHub checks passed on PR #1125 at head 2aa5cef3. Auto-merge is disabled for PR6; leaving the docs-only smoke PR open for external/manual merge with final decision blocked_missing_live_result_samples."
         }
       ]
+    },
+    {
+      "id": "PERSONALITY-SEO-CURRENT-AUDIT-01",
+      "repo": "fap-web",
+      "branch": "codex/personality-seo-current-audit-01",
+      "status": "in_progress",
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized adding the 7 PERSONALITY SEO PR-train items to fap-web docs/codex/pr-train.yaml and docs/codex/pr-train-state.json, then executing them sequentially."
+        },
+        "dependency": {
+          "status": "pass",
+          "evidence": "This audit PR has no dependencies."
+        },
+        "scope": {
+          "status": "pass",
+          "allowed_paths": [
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json",
+            "docs/seo/personality-seo-current-audit-01.md",
+            "docs/seo/generated/personality-seo-current-audit-01.v1.json",
+            "tests/contracts/personality-seo-current-audit-01.contract.test.ts",
+            "tests/contracts/helpers/currentPrScope.ts"
+          ]
+        },
+        "local": {
+          "status": "pass",
+          "commands": [
+            "pnpm exec vitest run tests/contracts/personality-seo-current-audit-01.contract.test.ts",
+            "pnpm test:contract -- personality-seo-current-audit-01",
+            "pnpm typecheck",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+            "git diff --check",
+            "JSON/YAML parse",
+            "scope validation"
+          ],
+          "evidence": "Focused contract passed 7 tests. pnpm test:contract -- personality-seo-current-audit-01 completed 479 files / 2740 tests. pnpm typecheck passed. NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build passed; postbuild sitemap churn was restored and left out of scope. JSON/YAML parse, git diff --check, and explicit scope validation passed for 6 allowed files."
+        },
+        "github": {
+          "status": "pending"
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-13T22:29:23+08:00",
+          "status": "in_progress",
+          "note": "Started audit-only personality SEO baseline PR from origin/main. Scope is limited to train metadata, docs/seo audit report, generated audit artifact, focused contract, and scope helper."
+        },
+        {
+          "at": "2026-06-13T22:38:40+08:00",
+          "status": "local_checks_passed",
+          "note": "Focused contract, full contract command, typecheck, production API build, JSON/YAML parse, git diff check, and scope validation passed. Postbuild sitemap churn was restored and left out of scope."
+        }
+      ]
+    },
+    {
+      "id": "PERSONALITY-DETAIL-CONTENT-COVERAGE-01",
+      "repo": "fap-api",
+      "branch": "codex/personality-detail-content-coverage-01",
+      "status": "blocked_dependency",
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": "Blocked until PERSONALITY-SEO-CURRENT-AUDIT-01 is merged and post-merge revalidated.",
+      "checks": {
+        "dependency": {
+          "status": "blocked",
+          "evidence": "Depends on PERSONALITY-SEO-CURRENT-AUDIT-01."
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-13T22:29:23+08:00",
+          "status": "blocked_dependency",
+          "note": "Initialized backend content coverage follow-up; execution deferred until the current audit PR is merged and revalidated."
+        }
+      ]
+    },
+    {
+      "id": "PERSONALITY-HUB-MEDIA-RENDER-VERIFY-01",
+      "repo": "fap-web",
+      "branch": "codex/personality-hub-media-render-verify-01",
+      "status": "blocked_dependency",
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": "Blocked until PERSONALITY-DETAIL-CONTENT-COVERAGE-01 is merged.",
+      "checks": {
+        "dependency": {
+          "status": "blocked",
+          "evidence": "Depends on PERSONALITY-DETAIL-CONTENT-COVERAGE-01."
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-13T22:29:23+08:00",
+          "status": "blocked_dependency",
+          "note": "Initialized frontend media rendering verification follow-up; execution deferred until backend content coverage is merged."
+        }
+      ]
+    },
+    {
+      "id": "PERSONALITY-AT-DIFFERENCE-SECTIONS-01",
+      "repo": "fap-api",
+      "branch": "codex/personality-at-difference-sections-01",
+      "status": "blocked_dependency",
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": "Blocked until PERSONALITY-HUB-MEDIA-RENDER-VERIFY-01 is merged.",
+      "checks": {
+        "dependency": {
+          "status": "blocked",
+          "evidence": "Depends on PERSONALITY-HUB-MEDIA-RENDER-VERIFY-01."
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-13T22:29:23+08:00",
+          "status": "blocked_dependency",
+          "note": "Initialized backend A/T difference section follow-up; execution deferred until frontend media rendering verification is merged."
+        }
+      ]
+    },
+    {
+      "id": "PERSONALITY-DETAIL-FAQ-SEO-01",
+      "repo": "fap-api-and-fap-web",
+      "branch": "codex/personality-detail-faq-seo-01",
+      "status": "blocked_dependency",
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": "Blocked until PERSONALITY-AT-DIFFERENCE-SECTIONS-01 is merged.",
+      "checks": {
+        "dependency": {
+          "status": "blocked",
+          "evidence": "Depends on PERSONALITY-AT-DIFFERENCE-SECTIONS-01."
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-13T22:29:23+08:00",
+          "status": "blocked_dependency",
+          "note": "Initialized visible FAQ and FAQPage semantic follow-up; execution deferred until backend A/T difference sections are merged."
+        }
+      ]
+    },
+    {
+      "id": "PERSONALITY-SEO-TITLE-METADATA-01",
+      "repo": "fap-api-and-fap-web",
+      "branch": "codex/personality-seo-title-metadata-01",
+      "status": "blocked_dependency",
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": "Blocked until PERSONALITY-DETAIL-FAQ-SEO-01 is merged.",
+      "checks": {
+        "dependency": {
+          "status": "blocked",
+          "evidence": "Depends on PERSONALITY-DETAIL-FAQ-SEO-01."
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-13T22:29:23+08:00",
+          "status": "blocked_dependency",
+          "note": "Initialized title and metadata follow-up; execution deferred until visible FAQ semantics are merged."
+        }
+      ]
+    },
+    {
+      "id": "PERSONALITY-COMPARISON-PAGES-01",
+      "repo": "fap-api-and-fap-web",
+      "branch": "codex/personality-comparison-pages-01",
+      "status": "blocked_dependency",
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": "Blocked until PERSONALITY-SEO-TITLE-METADATA-01 is merged.",
+      "checks": {
+        "dependency": {
+          "status": "blocked",
+          "evidence": "Depends on PERSONALITY-SEO-TITLE-METADATA-01."
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-13T22:29:23+08:00",
+          "status": "blocked_dependency",
+          "note": "Initialized A/T comparison pages follow-up; execution deferred until search-intent metadata is merged."
+        }
+      ]
     }
   ]
 }
