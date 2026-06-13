@@ -23291,7 +23291,7 @@
       "repo": "fap-api-and-fap-web",
       "branch": "codex/personality-detail-faq-seo-01",
       "status": "pr_open",
-      "commit_sha": "cf4ab07bd6d982b080360f966a9510e68f0f789d",
+      "commit_sha": "3b4406a5",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1138",
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -23307,20 +23307,27 @@
           "commands": [
             "pnpm install --frozen-lockfile",
             "pnpm exec vitest run tests/contracts/personality-sections.contract.test.tsx tests/contracts/personality-cms.contract.test.ts tests/contracts/locale-purity.contract.test.ts tests/contracts/article-personality-jsonld-projection-gates.contract.test.ts",
+            "pnpm exec vitest run tests/contracts/llms-parity-contract.contract.test.ts tests/contracts/personality-sections.contract.test.tsx tests/contracts/personality-cms.contract.test.ts tests/contracts/locale-purity.contract.test.ts tests/contracts/article-personality-jsonld-projection-gates.contract.test.ts",
             "pnpm typecheck",
+            "pnpm test:contract",
             "pnpm test:contract -- personality",
             "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build",
+            "pnpm exec vitest run tests/contracts/career-job-detail-actors-v42.contract.test.tsx tests/contracts/detail-ready-1046-llms-full-artifact-consistency-repair-01.contract.test.ts",
             "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
             "python3 -m json.tool docs/seo/generated/article-personality-jsonld-projection-gates.v1.json >/dev/null",
             "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
             "git diff --check",
             "scope validation"
           ],
-          "evidence": "Focused contracts passed 4 files / 31 tests. pnpm typecheck passed. pnpm test:contract -- personality passed 480 files / 2746 tests after adding the current PR scope helper entry and updating stale projection render source-guard tokens. Production build passed with NEXT_PUBLIC_API_URL=https://api.fermatmind.com and NEXT_PUBLIC_SITE_URL=https://fermatmind.com. JSON/YAML parse, git diff --check, and explicit scope validation passed for the 9 changed files."
+          "evidence": "Focused contracts passed 4 files / 31 tests before PR creation. After origin/main advanced with llms fanout stability changes, the branch was rebased onto c00a9109 and focused llms/personality contracts passed 5 files / 34 tests. pnpm typecheck passed. A parallel full contract run hit two non-scope 5s timeouts; those two files passed standalone 53 tests, and a subsequent non-parallel pnpm test:contract passed 480 files / 2748 tests. pnpm test:contract -- personality passed 480 files / 2746 tests before the rebase. Production build passed with NEXT_PUBLIC_API_URL=https://api.fermatmind.com and NEXT_PUBLIC_SITE_URL=https://fermatmind.com. JSON/YAML parse, git diff --check, and explicit scope validation passed for the 9 changed files."
         },
         "scope": {
           "status": "pass",
           "evidence": "Changed files are confined to the personality detail renderer, backend FAQ projection renderer/contract tests, current PR scope helper, one existing JSON-LD projection gate artifact/token contract, and docs/codex state. No fap-api, sitemap, llms URL set, metadata rewrite, comparison page, local editorial FAQ fallback, or public image asset changes are included."
+        },
+        "github": {
+          "status": "rerun_required",
+          "evidence": "Initial GitHub contracts failed after origin/main added llms article fanout expectations that were not in the PR branch base. The branch was rebased onto origin/main c00a9109 and local focused/full contract checks passed; GitHub checks must rerun on the rebased branch before merge."
         }
       },
       "history": [
@@ -23343,6 +23350,11 @@
           "at": "2026-06-14T03:06:36+08:00",
           "status": "pr_open",
           "note": "Opened https://github.com/fermatmind/fap-web/pull/1138 after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-06-14T03:17:49+08:00",
+          "status": "pr_open",
+          "note": "GitHub contracts initially failed on stale base after llms fanout contract changes landed on main. Rebased onto origin/main c00a9109, reran focused llms/personality contracts, typecheck, production build, standalone timeout repro files, and full pnpm test:contract successfully; GitHub checks require rerun on the rebased branch."
         }
       ]
     },
