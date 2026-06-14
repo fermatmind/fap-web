@@ -23,6 +23,26 @@ const {
 const { buildSafeSitemapFallbackEntries } = require("./lib/seo/sitemapFallback.cjs");
 const CAREER_JOB_DETAIL_PARTS_RE = /^\/(en|zh)\/career\/jobs\/([^/]+)$/i;
 const PERSONALITY_DETAIL_PARTS_RE = /^\/(en|zh)\/personality\/([ie][ns][ft][jp]-[at])$/i;
+const PERSONALITY_COMPARISON_PARTS_RE = /^\/(en|zh)\/personality\/(([ie][ns][ft][jp])-a-vs-\3-t)$/i;
+const PERSONALITY_COMPARISON_BASE_TYPES = [
+  "intj",
+  "intp",
+  "entj",
+  "entp",
+  "infj",
+  "infp",
+  "enfj",
+  "enfp",
+  "istj",
+  "isfj",
+  "estj",
+  "esfj",
+  "istp",
+  "isfp",
+  "estp",
+  "esfp",
+];
+const PERSONALITY_COMPARISON_BASE_SET = new Set(PERSONALITY_COMPARISON_BASE_TYPES);
 const DISCOVERABLE_CONTENT_PAGE_KEYS = [
   "about",
   "brand",
@@ -245,6 +265,25 @@ function parsePersonalityDetailPath(path) {
   };
 }
 
+function parsePersonalityComparisonPath(path) {
+  const normalized = normalizePath(path);
+  const match = normalized.match(PERSONALITY_COMPARISON_PARTS_RE);
+  const locale = match?.[1]?.toLowerCase();
+  const slug = match?.[2]?.toLowerCase();
+  const base = match?.[3]?.toLowerCase();
+
+  if ((locale !== "en" && locale !== "zh") || !slug || !base || !PERSONALITY_COMPARISON_BASE_SET.has(base)) {
+    return null;
+  }
+
+  return {
+    locale,
+    slug,
+    base,
+    path: normalized,
+  };
+}
+
 function shouldKeepBackendSitemapCareerJobDetailPath(path) {
   const normalized = normalizePath(path);
   const parsed = parseCareerJobDetailPath(normalized);
@@ -263,6 +302,14 @@ function shouldKeepBackendSitemapCareerJobDetailPath(path) {
 function shouldKeepBackendSitemapPersonalityDetailPath(path) {
   const normalized = normalizePath(path);
   return Boolean(parsePersonalityDetailPath(normalized)) && shouldIncludeGeneratedSitemapPath(normalized);
+}
+
+function shouldKeepPersonalityComparisonPath(path) {
+  const normalized = normalizePath(path);
+  return Boolean(parsePersonalityComparisonPath(normalized)) && shouldIncludeGeneratedSitemapPath(normalized, {
+    indexEligible: true,
+    indexState: "indexed",
+  });
 }
 
 function shouldIncludeGeneratedSitemapPath(path, explicitGate) {
@@ -808,6 +855,52 @@ async function buildPersonalityDetailPathsFromAuthority() {
   }
 }
 
+function buildPersonalityComparisonPathsFromVariantItems(localePrefix, items) {
+  const variantsByBase = new Map();
+
+  for (const item of items) {
+    if (!isPublicIndexable(item)) continue;
+
+    const base = normalizeSlug(item?.base_type_code || item?.canonical_type_code || "").toLowerCase();
+    const variant = normalizeSlug(item?.variant_code || "").toLowerCase();
+    if (!PERSONALITY_COMPARISON_BASE_SET.has(base) || (variant !== "a" && variant !== "t")) {
+      continue;
+    }
+
+    const variants = variantsByBase.get(base) || new Set();
+    variants.add(variant);
+    variantsByBase.set(base, variants);
+  }
+
+  return PERSONALITY_COMPARISON_BASE_TYPES
+    .filter((base) => variantsByBase.get(base)?.has("a") && variantsByBase.get(base)?.has("t"))
+    .map((base) => `/${localePrefix}/personality/${base}-a-vs-${base}-t`)
+    .filter(shouldKeepPersonalityComparisonPath);
+}
+
+async function buildPersonalityComparisonPathsFromAuthority() {
+  try {
+    const paths = new Set();
+
+    for (const { localePrefix, apiLocale } of CMS_LOCALES) {
+      const items = await fetchPaginatedItems("/v0.5/personality", {
+        locale: apiLocale,
+        org_id: 0,
+        scale_code: "MBTI",
+        include_variants: 1,
+      });
+
+      for (const path of buildPersonalityComparisonPathsFromVariantItems(localePrefix, items)) {
+        paths.add(path);
+      }
+    }
+
+    return [...paths].sort((left, right) => left.localeCompare(right));
+  } catch {
+    return [];
+  }
+}
+
 async function buildValidatedCmsPaths(apiRoute, builder) {
   if (!isValidCmsApiRoute(apiRoute)) {
     return [];
@@ -842,6 +935,7 @@ async function buildAdditionalSitemapEntries() {
     careerJobApiPaths,
     careerRecommendationApiPaths,
     personalityPaths,
+    personalityComparisonPaths,
     topicApiPaths,
     contentPagePaths,
     testApiPaths,
@@ -853,6 +947,7 @@ async function buildAdditionalSitemapEntries() {
     buildCareerJobDetailPathsFromAuthority(),
     buildCareerRecommendationDetailPathsFromAuthority(),
     buildPersonalityDetailPathsFromAuthority(),
+    buildPersonalityComparisonPathsFromAuthority(),
     buildValidatedCmsPaths("/v0.5/topics", buildTopicDetailPathsFromApi),
     buildValidatedCmsPaths("/v0.5/content-pages", buildDiscoverableContentPagePaths),
     buildTestPathsFromApi(),
@@ -868,6 +963,7 @@ async function buildAdditionalSitemapEntries() {
     ...careerJobApiPaths,
     ...careerRecommendationApiPaths,
     ...personalityPaths,
+    ...personalityComparisonPaths,
     ...topicApiPaths,
     ...contentPagePaths,
   ]);

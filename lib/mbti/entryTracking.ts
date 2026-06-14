@@ -14,6 +14,7 @@ export type MbtiEntrySurface =
   | "mbti_topic_index"
   | "mbti_personality_index"
   | "mbti_personality_detail"
+  | "mbti_personality_comparison"
   | "mbti_career_recommendation_detail"
   | "mbti_scene_block";
 
@@ -23,6 +24,7 @@ export type MbtiEntrySourcePageType =
   | "topic_index"
   | "personality_index"
   | "personality_detail"
+  | "personality_comparison"
   | "recommendation_detail"
   | "career_recommendation_detail"
   | "scene_block";

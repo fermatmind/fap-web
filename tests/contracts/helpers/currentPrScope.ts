@@ -1940,6 +1940,21 @@ const PERSONALITY_SEO_TITLE_METADATA_01_ALLOWED_FILES = new Set([
   "tests/contracts/personality-cms.contract.test.ts",
 ]);
 
+const PERSONALITY_COMPARISON_PAGES_01_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/personality/[type]/page.tsx",
+  "app/llms-full.txt/route.ts",
+  "app/llms.txt/route.ts",
+  "docs/codex/pr-train-state.json",
+  "docs/codex/pr-train.yaml",
+  "lib/cms/personality.ts",
+  "lib/mbti/entryTracking.ts",
+  "lib/mbti/personalityComparison.ts",
+  "next-sitemap.config.js",
+  "public/sitemap.xml",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/personality-comparison-pages.contract.test.tsx",
+]);
+
 const PERSONALITY_HUB_32_VARIANTS_01_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/personality/[type]/page.tsx",
   "app/(localized)/[locale]/personality/page.tsx",
@@ -2642,6 +2657,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/personality-seo-title-metadata-01") {
     return PERSONALITY_SEO_TITLE_METADATA_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/personality-comparison-pages-01") {
+    return PERSONALITY_COMPARISON_PAGES_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-fdn-seo-01-implementation") {

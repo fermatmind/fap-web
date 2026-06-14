@@ -11,12 +11,16 @@ import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import {
+  getPersonalityComparisonBySlug,
   buildPersonalityFrontendUrl,
   buildDefaultPublicPersonalitySlug,
   getPersonalityProjectionDetailBySlugOrType,
   getPersonalitySeoBySlugOrType,
   isCanonicalPersonalityBaseSlug,
   normalizePersonalitySeoPayload,
+  type PersonalityComparisonBlockViewModel,
+  type PersonalityComparisonVariantViewModel,
+  type PersonalityComparisonViewModel,
   type PersonalityProjection,
   type PersonalityProjectionViewModel,
 } from "@/lib/cms/personality";
@@ -33,6 +37,10 @@ import {
   buildMbtiEntryHref,
   buildMbtiEntryTrackingPayload,
 } from "@/lib/mbti/entryTracking";
+import {
+  buildPersonalityComparisonFrontendUrl,
+  isPersonalityComparisonSlug,
+} from "@/lib/mbti/personalityComparison";
 import { resolvePersonalityFallbackProjectionGate } from "@/lib/seo/articlePersonalityAuthority";
 import { buildBreadcrumbJsonLd, buildFAQPageJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata, normalizeTwitterImages, resolveTwitterCard } from "@/lib/seo/metadata";
@@ -135,6 +143,10 @@ function shouldNoindex(robotsValue: string | null | undefined): boolean {
 
 function buildCanonicalPath(slug: string, locale: Locale): string {
   return buildPersonalityFrontendUrl(locale, slug);
+}
+
+function buildComparisonCanonicalPath(slug: string, locale: Locale): string {
+  return buildPersonalityComparisonFrontendUrl(locale, slug);
 }
 
 function redirectLegacyBaseRouteIfNeeded(type: string, locale: Locale): void {
@@ -266,6 +278,179 @@ async function loadPersonalityPublicDetail(
   }
 }
 
+async function loadPersonalityComparison(type: string, locale: Locale): Promise<PersonalityComparisonViewModel | null> {
+  if (!isPersonalityComparisonSlug(type)) {
+    return null;
+  }
+
+  return getPersonalityComparisonBySlug(type, locale);
+}
+
+function comparisonSeoDescription(comparison: PersonalityComparisonViewModel): string {
+  return comparison.seoSurface?.description || comparison.description || comparison.seoMeta?.seoDescription || "";
+}
+
+function comparisonSeoTitle(comparison: PersonalityComparisonViewModel): string {
+  return comparison.seoSurface?.title || comparison.title || comparison.seoMeta?.seoTitle || comparison.comparisonSlug.toUpperCase();
+}
+
+function comparisonVariantSummary(variant: PersonalityComparisonVariantViewModel): string {
+  return variant.summaryCard.summary || variant.heroSummary || variant.seo.description || "";
+}
+
+function ComparisonVariantCard({
+  variant,
+  locale,
+}: {
+  variant: PersonalityComparisonVariantViewModel;
+  locale: Locale;
+}) {
+  const href = buildPersonalityFrontendUrl(locale, variant.publicRouteSlug);
+  const summary = comparisonVariantSummary(variant);
+
+  return (
+    <Link
+      href={href}
+      className="grid min-h-56 content-between rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)] transition hover:-translate-y-0.5 hover:border-[var(--fm-accent)]"
+      data-testid={`personality-comparison-variant-${variant.variantCode.toLowerCase()}`}
+    >
+      <div className="space-y-3">
+        <p className="m-0 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--fm-accent)]">
+          {variant.runtimeTypeCode}
+        </p>
+        <h2 className="m-0 text-2xl font-semibold text-[var(--fm-text)]">{variant.typeName || variant.displayType}</h2>
+        {variant.nickname ? <p className="m-0 text-sm font-medium text-[var(--fm-text)]">{variant.nickname}</p> : null}
+        {summary ? <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{summary}</p> : null}
+      </div>
+      <div className="mt-5 flex flex-wrap gap-2">
+        {variant.rarity ? (
+          <span className="rounded-full border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] px-3 py-1 text-xs text-[var(--fm-text-muted)]">
+            {variant.rarity}
+          </span>
+        ) : null}
+        {variant.keywords.slice(0, 3).map((keyword) => (
+          <span
+            key={keyword}
+            className="rounded-full border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] px-3 py-1 text-xs text-[var(--fm-text-muted)]"
+          >
+            {keyword}
+          </span>
+        ))}
+      </div>
+    </Link>
+  );
+}
+
+function ComparisonBlock({
+  block,
+  assertiveLabel,
+  turbulentLabel,
+}: {
+  block: PersonalityComparisonBlockViewModel;
+  assertiveLabel: string;
+  turbulentLabel: string;
+}) {
+  return (
+    <article
+      className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+      data-testid={`personality-comparison-block-${block.key}`}
+      data-authority-source={block.source ?? "comparison_public_projection_v1"}
+    >
+      <h2 className="m-0 text-xl font-semibold text-[var(--fm-text)]">{block.title}</h2>
+      <div className="mt-4 grid gap-3 md:grid-cols-2">
+        <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
+          <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">{assertiveLabel}</p>
+          {block.variants.a ? <p className="m-0 mt-2 text-sm leading-7 text-[var(--fm-text-muted)]">{block.variants.a}</p> : null}
+        </div>
+        <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
+          <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">{turbulentLabel}</p>
+          {block.variants.t ? <p className="m-0 mt-2 text-sm leading-7 text-[var(--fm-text-muted)]">{block.variants.t}</p> : null}
+        </div>
+      </div>
+    </article>
+  );
+}
+
+function PersonalityComparisonPage({
+  comparison,
+  locale,
+}: {
+  comparison: PersonalityComparisonViewModel;
+  locale: Locale;
+}) {
+  const canonicalPath = buildComparisonCanonicalPath(comparison.comparisonSlug, locale);
+  const title = comparisonSeoTitle(comparison);
+  const description = comparisonSeoDescription(comparison);
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+    { name: locale === "zh" ? "首页" : "Home", path: localizedPath("/", locale) },
+    { name: locale === "zh" ? "人格" : "Personality", path: localizedPath("/personality", locale) },
+    { name: title, path: canonicalPath },
+  ]);
+  const mbtiEntryViewTrackingProps = buildMbtiEntryTrackingPayload({
+    locale,
+    formCode: DEFAULT_MBTI_FORM_CODE,
+    entrySurface: "mbti_personality_comparison",
+    sourcePageType: "personality_comparison",
+    targetAction: "entry_view",
+    sourcePath: canonicalPath,
+  });
+  const assertiveLabel = comparison.variants.a.runtimeTypeCode;
+  const turbulentLabel = comparison.variants.t.runtimeTypeCode;
+
+  return (
+    <main
+      className="mx-auto w-full max-w-6xl space-y-6 px-[var(--fm-container-gutter)] py-10"
+      data-testid="personality-comparison-page"
+      data-authority-source="comparison_public_projection_v1"
+      data-comparison-contract-version={comparison.comparisonContractVersion}
+    >
+      <AnalyticsPageViewTracker eventName="landing_view" properties={mbtiEntryViewTrackingProps} />
+      <JsonLd id={`personality-comparison-jsonld-${comparison.comparisonSlug}`} data={comparison.jsonld} />
+      <JsonLd id={`personality-comparison-breadcrumb-${comparison.comparisonSlug}`} data={breadcrumbJsonLd} />
+      <Breadcrumb
+        items={[
+          { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
+          { label: locale === "zh" ? "人格" : "Personality", href: localizedPath("/personality", locale) },
+          { label: title },
+        ]}
+      />
+
+      <section className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
+        <p className="m-0 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--fm-accent)]">
+          {comparison.baseTypeCode}
+        </p>
+        <h1 className="m-0 mt-3 font-serif text-3xl font-semibold text-[var(--fm-text)] md:text-5xl">{title}</h1>
+        {description ? <p className="m-0 mt-4 max-w-3xl text-base leading-8 text-[var(--fm-text-muted)]">{description}</p> : null}
+      </section>
+
+      <section className="grid gap-4 md:grid-cols-2" data-testid="personality-comparison-variants">
+        <ComparisonVariantCard variant={comparison.variants.a} locale={locale} />
+        <ComparisonVariantCard variant={comparison.variants.t} locale={locale} />
+      </section>
+
+      {comparison.comparisonBlocks.length ? (
+        <section className="space-y-4" data-testid="personality-comparison-blocks">
+          {comparison.comparisonBlocks.map((block) => (
+            <ComparisonBlock
+              key={block.key}
+              block={block}
+              assertiveLabel={assertiveLabel}
+              turbulentLabel={turbulentLabel}
+            />
+          ))}
+        </section>
+      ) : null}
+
+      <AnswerSurfaceSection
+        surface={comparison.answerSurface}
+        locale={locale}
+        testId="personality-comparison-answer-surface"
+        pageFamily="personality_detail"
+      />
+    </main>
+  );
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -273,6 +458,63 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: localeParam, type } = await params;
   const locale = resolveLocale(localeParam);
+
+  if (isPersonalityComparisonSlug(type)) {
+    const comparison = await loadPersonalityComparison(type, locale);
+    if (!comparison) {
+      return { title: "Not Found", robots: { index: false, follow: false } };
+    }
+
+    const canonicalPath = buildComparisonCanonicalPath(comparison.comparisonSlug, locale);
+    const title = comparisonSeoTitle(comparison);
+    const description = comparisonSeoDescription(comparison);
+    const noindex = !comparison.isIndexable || shouldNoindex(comparison.seoSurface?.robotsPolicy ?? comparison.seoMeta?.robots);
+    const metadata = buildPageMetadata({
+      locale,
+      pathname: canonicalPath,
+      title,
+      description,
+      imagePath: comparison.seoSurface?.og.image ?? comparison.seoMeta?.ogImageUrl ?? undefined,
+      seoSurface: comparison.seoSurface,
+      noindex: !comparison.seoSurface ? noindex : undefined,
+      alternatesByLocale: {
+        en: comparison.alternates.en ?? buildComparisonCanonicalPath(comparison.comparisonSlug, "en"),
+        zh: comparison.alternates["zh-CN"] ?? buildComparisonCanonicalPath(comparison.comparisonSlug, "zh"),
+        xDefault: "/",
+      },
+    });
+    const canonical = canonicalUrl(canonicalPath);
+    const ogImage = comparison.seoSurface?.og.image ?? comparison.seoMeta?.ogImageUrl ?? null;
+    const twitterImages = normalizeTwitterImages(
+      comparison.seoSurface?.twitter.image,
+      comparison.seoMeta?.twitterImageUrl,
+      ogImage,
+      metadata.twitter?.images,
+    );
+
+    return {
+      ...metadata,
+      alternates: {
+        ...metadata.alternates,
+        canonical,
+      },
+      openGraph: {
+        type: "article",
+        url: canonical,
+        title: comparison.seoSurface?.og.title || comparison.seoMeta?.ogTitle || title,
+        description: comparison.seoSurface?.og.description || comparison.seoMeta?.ogDescription || description,
+        images: ogImage ? [ogImage] : undefined,
+        locale: locale === "zh" ? "zh_CN" : "en_US",
+      },
+      twitter: {
+        card: resolveTwitterCard(comparison.seoSurface?.twitter.card ?? "summary_large_image"),
+        title: comparison.seoSurface?.twitter.title || comparison.seoMeta?.twitterTitle || title,
+        description: comparison.seoSurface?.twitter.description || comparison.seoMeta?.twitterDescription || description,
+        images: twitterImages,
+      },
+    };
+  }
+
   redirectLegacyBaseRouteIfNeeded(type, locale);
 
   const { detail, seo } = await loadPersonalityPublicDetail(type, locale);
@@ -337,6 +579,16 @@ export default async function PersonalityDetailPage({
 }) {
   const { locale: localeParam, type } = await params;
   const locale = resolveLocale(localeParam);
+
+  if (isPersonalityComparisonSlug(type)) {
+    const comparison = await loadPersonalityComparison(type, locale);
+    if (!comparison) {
+      return notFound();
+    }
+
+    return <PersonalityComparisonPage comparison={comparison} locale={locale} />;
+  }
+
   redirectLegacyBaseRouteIfNeeded(type, locale);
   const { detail, seo } = await loadPersonalityPublicDetail(type, locale);
 
