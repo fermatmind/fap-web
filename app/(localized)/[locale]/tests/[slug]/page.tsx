@@ -90,6 +90,7 @@ import {
   type SupportedScaleCode,
 } from "@/lib/rollout/scaleRollout";
 import { findLandingCta, normalizeLandingSurface } from "@/lib/landing/landingSurface";
+import { getFreeTestStartLabel } from "@/lib/tests/freeTestLabels";
 import {
   buildBreadcrumbJsonLd,
   buildFAQPageJsonLd,
@@ -1436,7 +1437,13 @@ export default async function TestLandingPage({
                   eventProperties={buildStartClickTrackingProps({ targetAction: "start_test" })}
                   className={buttonVariants({ size: "lg" })}
                 >
-                  {locale === "zh" ? "开始测试" : "Start test"}
+                  {getFreeTestStartLabel({
+                    locale,
+                    scaleCode: test.scale_code,
+                    slug: test.slug,
+                    title: localizedTestTitle,
+                    fallback: locale === "zh" ? "开始测试" : "Start test",
+                  })}
                 </TrackedEntryCtaLink>
               </div>
             ) : null}

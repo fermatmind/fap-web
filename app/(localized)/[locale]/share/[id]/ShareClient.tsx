@@ -552,7 +552,7 @@ export default function ShareClient({
           locale={locale}
           viewModel={enneagramShareViewModel}
           primaryActionHref={primaryCtaHref}
-          primaryActionLabel={viewModel.primaryCtaLabel || (locale === "zh" ? "开始九型测试" : "Start Enneagram test")}
+          primaryActionLabel={viewModel.primaryCtaLabel || (locale === "zh" ? "开始九型人格免费测试" : "Start Enneagram test")}
           onPrimaryActionClick={() => {
             trackEvent("ui_card_interaction", {
               slug: "share-page",

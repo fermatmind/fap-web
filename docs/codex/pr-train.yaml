@@ -5226,7 +5226,7 @@ prs:
     depends_on: [SEO-FREE-TEST-HUB-CATEGORY-CTA-02]
     mode: execute
     train_scope: seo_free_test_flagship_landing
-    status: ready_to_merge
+    status: merged
     goal: "Update zh MBTI, Big Five, Holland/RIASEC, and Enneagram public test detail landings with free-test Title/H1/hero CTA/free boundary display while preserving CMS landing surface body authority and existing routes."
     artifacts:
       - app/(localized)/[locale]/tests/[slug]/page.tsx
@@ -5249,6 +5249,80 @@ prs:
       - IQ/EQ/secondary entry/sticky/share copy changes
     required_local_checks:
       - pnpm exec vitest run tests/contracts/seo-free-test-flagship-landing.contract.test.ts tests/contracts/test-detail-landing.contract.test.ts tests/contracts/mbti-landing-structure.contract.test.tsx tests/contracts/riasec-landing-structure.contract.test.tsx
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - git diff --check
+      - scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+
+  - id: SEO-FREE-TEST-SECONDARY-CTA-04
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/seo-free-test-secondary-cta-04
+    base: main
+    title: "fix(seo): add free-test wording to secondary CTAs"
+    depends_on: [SEO-FREE-TEST-FLAGSHIP-LANDING-03]
+    mode: execute
+    train_scope: seo_free_test_secondary_cta
+    status: ready_to_merge
+    goal: "Update zh IQ/EQ, career entry, personality entry, take metadata, sticky CTA, share-card, and natural contextual entry labels to free-test wording without changing result-page semantics or article/CMS content authority."
+    artifacts:
+      - app/(localized)/[locale]/career/tests/page.tsx
+      - app/(localized)/[locale]/personality/page.tsx
+      - app/(localized)/[locale]/share/[id]/ShareClient.tsx
+      - app/(localized)/[locale]/tests/[slug]/page.tsx
+      - app/(localized)/[locale]/tests/[slug]/take/page.tsx
+      - app/(localized)/[locale]/topics/[slug]/page.tsx
+      - components/business/CTASticky.tsx
+      - components/personality/PersonalityMobileDecisionBar.tsx
+      - components/personality/PublicContentAssetRenderer.tsx
+      - components/share/EnneagramShareSummaryCard.tsx
+      - components/share/MbtiShareSummaryCard.tsx
+      - lib/mbti/personalityHub.adapter.ts
+      - lib/mbti/sceneDeepContent.ts
+      - lib/og/mbtiShare.tsx
+      - lib/tests/freeTestLabels.ts
+      - tests/contracts/mbti-entry-wiring.contract.test.tsx
+      - tests/contracts/seo-free-test-secondary-cta.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - app/(localized)/[locale]/career/tests/page.tsx
+      - app/(localized)/[locale]/personality/page.tsx
+      - app/(localized)/[locale]/share/[id]/ShareClient.tsx
+      - app/(localized)/[locale]/tests/[slug]/page.tsx
+      - app/(localized)/[locale]/tests/[slug]/take/page.tsx
+      - app/(localized)/[locale]/topics/[slug]/page.tsx
+      - components/business/CTASticky.tsx
+      - components/personality/PersonalityMobileDecisionBar.tsx
+      - components/personality/PublicContentAssetRenderer.tsx
+      - components/share/EnneagramShareSummaryCard.tsx
+      - components/share/MbtiShareSummaryCard.tsx
+      - lib/mbti/personalityHub.adapter.ts
+      - lib/mbti/sceneDeepContent.ts
+      - lib/og/mbtiShare.tsx
+      - lib/tests/freeTestLabels.ts
+      - tests/contracts/mbti-entry-wiring.contract.test.tsx
+      - tests/contracts/seo-free-test-secondary-cta.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - result page core report semantics or recommendation content changes
+      - test scoring, form parsing, attempt, take flow behavior, or result logic changes
+      - sitemap, llms.txt, or llms-full.txt URL set changes
+      - article body or CMS editorial copy changes
+      - payment, report, entitlement, or paywall behavior changes
+      - frontend local editorial fallback expansion beyond natural CTA label display normalization
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/seo-free-test-secondary-cta.contract.test.ts tests/contracts/mbti-entry-wiring.contract.test.tsx tests/contracts/mbti-share-consumer.contract.test.tsx tests/contracts/enneagram-share-surface.contract.test.tsx tests/contracts/iq-bank-display-model.contract.test.ts tests/contracts/test-detail-landing.contract.test.ts
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
       - pnpm test:contract

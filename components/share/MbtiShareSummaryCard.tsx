@@ -51,7 +51,7 @@ export default function MbtiShareSummaryCard({
   onLibraryActionClick?: () => void;
 }) {
   const startTestHref = primaryActionHref || localizedPath(`/tests/${SCALE_CANONICAL_SLUG_MAP.MBTI}/take`, locale);
-  const startTestLabel = primaryActionLabel || (locale === "zh" ? "开始 MBTI 测试" : "Start MBTI test");
+  const startTestLabel = primaryActionLabel || (locale === "zh" ? "开始 MBTI 免费测试" : "Start MBTI test");
   const testsHref = localizedPath("/tests", locale);
   const heading = resolveHeading(card, locale);
   const secondaryLabel = resolveSecondaryLabel(card, heading);
