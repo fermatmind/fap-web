@@ -25,6 +25,7 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
       { href: "/tests/holland-career-interest-test-riasec", label: "RIASEC career interest test" },
       { href: "/tests/mbti-personality-test-16-personality-types", label: "MBTI personality test" },
       { href: "/tests/big-five-personality-test-ocean-model", label: "Big Five personality test" },
+      { href: "/tests/enneagram-personality-test-nine-types", label: "Enneagram test" },
       { href: "/tests/iq-test-intelligence-quotient-assessment", label: "IQ assessment" },
       { href: "/tests/eq-test-emotional-intelligence-assessment", label: "EQ assessment" },
     ],
@@ -34,6 +35,7 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
     personality: [
       { href: "/personality", label: "All personality profiles" },
       { href: "/personality/big-five", label: "Big Five (OCEAN)" },
+      { href: "/tests/enneagram-personality-test-nine-types", label: "Enneagram test" },
       { href: "/personality#nt", label: "Analysts (NT)" },
       { href: "/personality#nf", label: "Diplomats (NF)" },
       { href: "/personality#sj", label: "Sentinels (SJ)" },
@@ -74,6 +76,7 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
     personality: [
       { href: "/personality", label: "全部人格画像" },
       { href: "/personality/big-five", label: "大五人格（OCEAN）" },
+      { href: "/tests/enneagram-personality-test-nine-types", label: "九型人格测试" },
       { href: "/personality#nt", label: "分析家（NT）" },
       { href: "/personality#nf", label: "外交家（NF）" },
       { href: "/personality#sj", label: "守护者（SJ）" },
