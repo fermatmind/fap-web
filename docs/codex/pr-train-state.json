@@ -23764,6 +23764,91 @@
           "note": "Repaired CI-only scope contract failure caused by missing origin/main and root-style shallow diffs in GitHub checkout; local targeted contract, GITHUB_ACTIONS=true targeted contract, typecheck, and diff check passed after final hardening."
         }
       ]
+    },
+    {
+      "id": "PERSONALITY-ENNEAGRAM-V1-NOINDEX-RENDER-01",
+      "repo": "fap-web",
+      "branch": "codex/personality-enneagram-v1-noindex-render-01",
+      "status": "ready_to_merge",
+      "commit_sha": "969156c589e8430256cfc69333cde7179b14dca8",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1150",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized adding PERSONALITY-ENNEAGRAM-V1-NOINDEX-RENDER-01 and PERSONALITY-ENNEAGRAM-NAV-HUB-ALIGNMENT-01 to docs/codex/pr-train.yaml and docs/codex/pr-train-state.json, then continuing execution under the provided scope."
+        },
+        "backend_contract": {
+          "status": "pass",
+          "evidence": "fap-api PR #2091 merged at 2026-06-14T08:27:12Z with merge commit 9de5a87cc61e9c2de5c9177c0b3606e0d749199b, adding 26 bilingual Enneagram V1 placeholder assets for hub, centers, and core types."
+        },
+        "scope": {
+          "status": "pass",
+          "evidence": "Changed files are limited to Enneagram noindex content asset rendering, shared public content adapter/renderer support, route registry, contract tests, and authorized docs/codex metadata."
+        },
+        "local_validation": {
+          "status": "pass",
+          "evidence": "Passed: pnpm exec vitest run tests/contracts/personality-enneagram-v1-noindex-render.contract.test.ts tests/contracts/personality-big-five-v1-noindex-render.contract.test.ts; targeted scope-regression contracts; pnpm typecheck; NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build; pnpm test:contract; JSON/YAML parse; git diff --check. Build/test generated docs/seo/public sitemap side effects were restored and are not included."
+        },
+        "github_checks": {
+          "status": "pass",
+          "evidence": "GitHub checks passed on PR #1150 head 969156c589e8430256cfc69333cde7179b14dca8: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL, and analyze (javascript-typescript)."
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-14T16:36:00+08:00",
+          "status": "in_progress",
+          "note": "Started Enneagram V1 noindex public asset consumer in isolated worktree from origin/main; implementation must fail closed if public asset API is unavailable or returns non-content_ready assets."
+        },
+        {
+          "at": "2026-06-14T16:50:00+08:00",
+          "status": "local_checks_passed",
+          "note": "Implemented Enneagram V1 noindex public asset consumer; target contracts, typecheck, production build, full contract suite, JSON/YAML parse, scope validation, and git diff --check passed locally."
+        },
+        {
+          "at": "2026-06-14T16:53:00+08:00",
+          "status": "pr_open",
+          "note": "Opened fap-web PR #1150 for Enneagram V1 noindex public asset rendering; GitHub checks are pending."
+        },
+        {
+          "at": "2026-06-14T16:58:00+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed on PR #1150 head 969156c589e8430256cfc69333cde7179b14dca8 and mergeStateStatus is CLEAN."
+        }
+      ]
+    },
+    {
+      "id": "PERSONALITY-ENNEAGRAM-NAV-HUB-ALIGNMENT-01",
+      "repo": "fap-web",
+      "branch": "codex/personality-enneagram-nav-hub-alignment-01",
+      "status": "planned",
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized adding this navigation alignment follow-up to the PR train state."
+        },
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on PERSONALITY-ENNEAGRAM-V1-NOINDEX-RENDER-01 being merged so /personality/enneagram routes exist before the personality menu points to the hub."
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-14T16:36:00+08:00",
+          "status": "planned",
+          "note": "Queued Enneagram nav hub alignment after the noindex content route PR."
+        }
+      ]
     }
   ]
 }
