@@ -5344,7 +5344,7 @@ prs:
     depends_on: [SEO-FREE-TEST-SECONDARY-CTA-04]
     mode: execute
     train_scope: seo_free_test_article_internal_links
-    status: in_progress
+    status: ready_to_merge
     goal: "Update article/CMS internal-link rendering so bare zh test URLs and bare-url anchors display concrete free-test anchor text such as MBTI免费测试 and 大五人格免费测试, while preserving CMS article body authority and existing hrefs."
     artifacts:
       - lib/content/internalLinkText.ts
