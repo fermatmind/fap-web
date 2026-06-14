@@ -23904,9 +23904,9 @@
       "id": "PUBLIC-PROFILE-SEO-ASSET-FACTORY-SKILL-AUTOMATION-01",
       "repo": "fap-web",
       "branch": "codex/public-profile-seo-asset-factory-skill-automation-01",
-      "status": "local_checks_passed",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "pr_opened",
+      "commit_sha": "8f1f091f65c34dabbf0456fba4e5ec04cb13b670",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1154",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -23935,6 +23935,11 @@
           "at": "2026-06-14T20:14:22+08:00",
           "status": "local_checks_passed",
           "note": "Created automated public profile SEO asset factory skill, protocols, prompts, schemas, quality gates, framework rules, runbooks, examples, checklists, PR templates, and automation report; local parse/scope/diff checks passed."
+        },
+        {
+          "at": "2026-06-14T20:24:32+08:00",
+          "status": "pr_opened",
+          "note": "Opened PR #1154 for the scoped automation skill change."
         }
       ]
     }
