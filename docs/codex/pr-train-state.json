@@ -23462,8 +23462,8 @@
       "id": "PERSONALITY-COMPARISON-PAGES-01",
       "repo": "fap-api-and-fap-web",
       "branch": "codex/personality-comparison-pages-01",
-      "status": "local_checks_passed",
-      "commit_sha": null,
+      "status": "committed",
+      "commit_sha": "a6a484d2f52b4c8d0276270f859bed25614cd4cc",
       "pr_url": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -23513,6 +23513,11 @@
           "at": "2026-06-14T12:29:37+08:00",
           "status": "local_checks_passed",
           "note": "Comparison frontend consumer, sitemap/llms exposure, generated sitemap artifact, and scope contracts passed focused checks, build, full personality contract suite, JSON/YAML parse, and diff validation."
+        },
+        {
+          "at": "2026-06-14T12:30:36+08:00",
+          "status": "committed",
+          "note": "Recorded implementation commit a6a484d2f52b4c8d0276270f859bed25614cd4cc after local checks and scope validation passed."
         }
       ]
     }
