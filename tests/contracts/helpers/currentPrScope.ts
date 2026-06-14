@@ -37,6 +37,9 @@ const CURRENT_BRANCH = (() => {
   }
 })();
 
+const IS_GITHUB_PULL_REQUEST_MERGE_REF =
+  /^\d+\/merge$/.test(CURRENT_BRANCH) || /^refs\/pull\/\d+\/merge$/.test(CURRENT_BRANCH);
+
 const RIASEC_PACK12_ALLOWED_FILES = new Set([
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -2714,6 +2717,13 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/personality-llms-full-comparison-repair-01") {
     return PERSONALITY_LLMS_FULL_COMPARISON_REPAIR_01_ALLOWED_FILES.has(file);
+  }
+
+  if (
+    IS_GITHUB_PULL_REQUEST_MERGE_REF &&
+    PERSONALITY_LLMS_FULL_COMPARISON_REPAIR_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
   }
 
   if (CURRENT_BRANCH === "codex/personality-big5-v1-noindex-render-01") {

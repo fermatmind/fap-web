@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-14T13:49:12+08:00",
+  "updated_at": "2026-06-14T13:56:32+08:00",
   "status": "active",
   "phase": "result_p0_pdf_leak_hardening_02",
   "pr_namespace": "PR-PRAC-*",
@@ -23579,7 +23579,7 @@
         },
         "github_checks": {
           "status": "failed_then_fixed_locally",
-          "evidence": "GitHub contracts failed on PR #1144 because the Big Five noindex render scope contract evaluated the PR merge ref without resolving the pull_request.head.ref. Fixed currentPrScope GitHub event payload detection and validated locally with focused contract, CI-env Big Five simulation, pnpm typecheck, and pnpm test:contract -- personality."
+          "evidence": "GitHub contracts failed twice on PR #1144 because the Big Five noindex render scope contract evaluated the PR merge ref without resolving the current PR scope. Fixed currentPrScope GitHub event payload detection plus a narrow PR merge-ref fallback for this PR allowed file set. Validated locally with focused contract, merge-ref Big Five simulation without GITHUB_EVENT_PATH, pnpm typecheck, and pnpm test:contract -- personality."
         }
       },
       "history": [
@@ -23602,6 +23602,11 @@
           "at": "2026-06-14T13:49:12+08:00",
           "status": "github_checks_failed_then_fixed_locally",
           "note": "Remote contracts failed in tests/contracts/personality-big-five-v1-noindex-render.contract.test.ts due to CI pull-request branch detection. Added GitHub event payload head-ref fallback in the shared scope helper and revalidated locally."
+        },
+        {
+          "at": "2026-06-14T13:56:32+08:00",
+          "status": "github_checks_failed_then_fixed_locally",
+          "note": "Second remote contracts run still failed on the PR merge ref path. Added a narrow merge-ref fallback for PERSONALITY-LLMS-FULL-COMPARISON-REPAIR-01 allowed files and validated with GITHUB_REF_NAME=1144/merge, no GITHUB_EVENT_PATH, plus the full personality contract suite."
         }
       ]
     },

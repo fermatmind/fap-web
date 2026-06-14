@@ -47,6 +47,7 @@ describe("PERSONALITY-LLMS-FULL-COMPARISON-REPAIR-01", () => {
     expect(compactRoute).not.toContain("limitLlmsRouteEntries(personalityEntries, LLMS_ROUTE_LIMITS.personalityProfiles)");
     expect(scopeHelper).toContain("GITHUB_EVENT_PATH");
     expect(scopeHelper).toContain("pull_request?.head?.ref");
+    expect(scopeHelper).toContain("IS_GITHUB_PULL_REQUEST_MERGE_REF");
   });
 
   it("keeps the current PR scoped to the llms-full comparison repair", () => {
