@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-14T17:10:17+08:00",
+  "updated_at": "2026-06-14T17:14:12+08:00",
   "status": "active",
   "phase": "result_p0_pdf_leak_hardening_02",
   "pr_namespace": "PR-PRAC-*",
@@ -23834,8 +23834,8 @@
       "id": "PERSONALITY-ENNEAGRAM-NAV-HUB-ALIGNMENT-01",
       "repo": "fap-web",
       "branch": "codex/personality-enneagram-nav-hub-alignment-01",
-      "status": "pr_open",
-      "commit_sha": "489c56e19a801534606d238f661b67309247b8db",
+      "status": "ready_to_merge",
+      "commit_sha": "1f01924a8a17d8c6660779e65fc0581801b860a6",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1151",
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -23859,8 +23859,8 @@
           "evidence": "Passed: pnpm install --frozen-lockfile; pnpm exec vitest run tests/contracts/header-enneagram-personality-nav.contract.test.ts tests/contracts/navigation-dead-links.contract.test.ts tests/contracts/personality-enneagram-v1-noindex-render.contract.test.ts; pnpm typecheck; NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build; pnpm test:contract (488 files, 2781 tests); generated metadata/sitemap artifacts restored before commit."
         },
         "github_checks": {
-          "status": "pending",
-          "evidence": "PR #1151 opened; GitHub checks pending."
+          "status": "pass",
+          "evidence": "GitHub checks passed on PR #1151 head 1f01924a8a17d8c6660779e65fc0581801b860a6: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL, and analyze (javascript-typescript). mergeStateStatus is CLEAN."
         }
       },
       "history": [
@@ -23883,6 +23883,11 @@
           "at": "2026-06-14T17:10:17+08:00",
           "status": "pr_open",
           "note": "Opened fap-web PR #1151 for Enneagram personality nav hub alignment; GitHub checks are pending."
+        },
+        {
+          "at": "2026-06-14T17:14:12+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed on PR #1151 head 1f01924a8a17d8c6660779e65fc0581801b860a6 and mergeStateStatus is CLEAN."
         }
       ]
     }
