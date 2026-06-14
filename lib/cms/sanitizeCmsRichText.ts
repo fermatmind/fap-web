@@ -1,3 +1,6 @@
+import { labelInternalHref, splitInternalLinkText, type InternalLinkLabelMap } from "@/lib/content/internalLinkText";
+import type { Locale } from "@/lib/i18n/locales";
+
 const ALLOWED_TAGS = new Set([
   "a",
   "b",
@@ -88,6 +91,8 @@ const CONTROL_CHARS_RE = /[\u0000-\u001F\u007F-\u009F]/g;
 
 export type CmsHtmlSanitizeOptions = {
   minimumHeadingLevel?: 1 | 2 | 3 | 4 | 5 | 6;
+  internalLinkLabels?: InternalLinkLabelMap;
+  locale?: Locale;
 };
 
 const INTERNAL_CMS_SLOT_MARKER_RE = /(?:<!--|&lt;!--)\s*FM_SLOT:[\s\S]*?(?:-->|--&gt;)/gi;
@@ -156,6 +161,39 @@ function escapeText(value: string): string {
 
 function escapeAttribute(value: string): string {
   return escapeText(value).replace(/"/g, "&quot;");
+}
+
+function linkifyPlainInternalPaths(text: string, options: CmsHtmlSanitizeOptions): string {
+  return splitInternalLinkText(text, options.internalLinkLabels, options.locale ?? "zh")
+    .map((part) => {
+      if (part.type === "text") {
+        return part.text;
+      }
+
+      const href = sanitizeCmsUrl(part.href);
+      if (!href) {
+        return escapeText(part.label);
+      }
+
+      return `<a href="${escapeAttribute(href)}">${escapeText(part.label)}</a>`;
+    })
+    .join("");
+}
+
+function replaceBarePathAnchorText(text: string, href: string | null, options: CmsHtmlSanitizeOptions): string {
+  if (!href) {
+    return text;
+  }
+
+  const leading = text.match(/^\s*/)?.[0] ?? "";
+  const trailing = text.match(/\s*$/)?.[0] ?? "";
+  const body = text.slice(leading.length, text.length - trailing.length);
+  if (body !== href) {
+    return text;
+  }
+
+  const label = labelInternalHref(href, options.internalLinkLabels, options.locale ?? "zh");
+  return label ? `${leading}${escapeText(label)}${trailing}` : text;
 }
 
 export function sanitizeCmsUrl(value: string): string | null {
@@ -399,18 +437,22 @@ export function sanitizeCmsHtml(html: string, options: CmsHtmlSanitizeOptions = 
   let output = "";
   let cursor = 0;
   const dropStack: string[] = [];
+  let anchorDepth = 0;
+  let currentAnchorHref: string | null = null;
 
   while (cursor < input.length) {
     const tagStart = input.indexOf("<", cursor);
     if (tagStart === -1) {
       if (dropStack.length === 0) {
-        output += input.slice(cursor);
+        const text = input.slice(cursor);
+        output += anchorDepth > 0 ? replaceBarePathAnchorText(text, currentAnchorHref, options) : linkifyPlainInternalPaths(text, options);
       }
       break;
     }
 
     if (dropStack.length === 0) {
-      output += input.slice(cursor, tagStart);
+      const text = input.slice(cursor, tagStart);
+      output += anchorDepth > 0 ? replaceBarePathAnchorText(text, currentAnchorHref, options) : linkifyPlainInternalPaths(text, options);
     }
 
     const tagEnd = findTagEnd(input, tagStart);
@@ -421,7 +463,21 @@ export function sanitizeCmsHtml(html: string, options: CmsHtmlSanitizeOptions = 
       break;
     }
 
-    output += sanitizeTag(input.slice(tagStart, tagEnd + 1), dropStack, options);
+    const rawTag = input.slice(tagStart, tagEnd + 1);
+    const sanitizedTag = sanitizeTag(rawTag, dropStack, options);
+    output += sanitizedTag;
+    const anchorTag = rawTag.match(/^<\s*(\/?)\s*a\b/i);
+    if (anchorTag && dropStack.length === 0) {
+      if (anchorTag[1]) {
+        anchorDepth = Math.max(anchorDepth - 1, 0);
+        if (anchorDepth === 0) {
+          currentAnchorHref = null;
+        }
+      } else {
+        anchorDepth += 1;
+        currentAnchorHref = sanitizedTag.match(/\shref="([^"]+)"/)?.[1] ?? currentAnchorHref;
+      }
+    }
     cursor = tagEnd + 1;
   }
 

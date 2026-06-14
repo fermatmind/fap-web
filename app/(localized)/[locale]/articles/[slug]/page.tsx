@@ -20,6 +20,7 @@ import {
 } from "@/lib/cms/articles";
 import { findLandingCta } from "@/lib/landing/landingSurface";
 import type { RelatedContentItem } from "@/lib/content";
+import { extractInternalPaths, type InternalLinkLabelMap } from "@/lib/content/internalLinkText";
 import { renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
 import { renderCjkPunctuationText } from "@/lib/content/textPunctuation";
 import { getDict, resolveLocale } from "@/lib/i18n/getDict";
@@ -98,7 +99,57 @@ function shouldNoindex(robotsValue: string | null | undefined): boolean {
     .includes("noindex");
 }
 
-function renderArticleBody(article: CmsArticle, locale: Locale, canonicalPath: string) {
+function articlePathTarget(href: string, fallbackLocale: Locale): { locale: Locale; slug: string } | null {
+  const path = href.split("#")[0]?.split("?")[0]?.replace(/\/+$/, "") ?? href;
+  const match = path.match(/^\/(?:(zh|en)\/)?articles\/([^/]+)$/);
+  if (!match) {
+    return null;
+  }
+
+  return {
+    locale: match[1] === "en" || match[1] === "zh" ? match[1] : fallbackLocale,
+    slug: match[2] ?? "",
+  };
+}
+
+async function buildArticleInternalLinkLabels(article: CmsArticle, locale: Locale): Promise<InternalLinkLabelMap> {
+  const labels: InternalLinkLabelMap = {};
+  const hrefs = extractInternalPaths(`${article.contentMd}\n${article.contentHtml}`);
+  const targets = new Map<string, { hrefs: string[]; locale: Locale; slug: string }>();
+
+  for (const href of hrefs) {
+    const target = articlePathTarget(href, locale);
+    if (!target || target.slug === article.slug) {
+      continue;
+    }
+
+    const key = `${target.locale}:${target.slug}`;
+    const existing = targets.get(key);
+    if (existing) {
+      existing.hrefs.push(href);
+    } else {
+      targets.set(key, { hrefs: [href], ...target });
+    }
+  }
+
+  await Promise.all(Array.from(targets.values()).slice(0, 24).map(async (target) => {
+    const targetArticle = await getCmsArticleWithLastKnownGood(target.slug, target.locale)
+      .then((result) => result.value)
+      .catch(() => null);
+    const title = targetArticle?.title?.trim();
+    if (!title) {
+      return;
+    }
+
+    for (const href of target.hrefs) {
+      labels[href] = title;
+    }
+  }));
+
+  return labels;
+}
+
+function renderArticleBody(article: CmsArticle, locale: Locale, canonicalPath: string, internalLinkLabels: InternalLinkLabelMap) {
   if (article.contentHtml.trim()) {
     return (
       <AttributedSanitizedCmsHtml
@@ -108,6 +159,7 @@ function renderArticleBody(article: CmsArticle, locale: Locale, canonicalPath: s
         sourceSlug={article.slug}
         sourcePath={canonicalPath}
         contentId={article.id}
+        internalLinkLabels={internalLinkLabels}
         minimumHeadingLevel={2}
       />
     );
@@ -122,7 +174,7 @@ function renderArticleBody(article: CmsArticle, locale: Locale, canonicalPath: s
         sourcePath={canonicalPath}
         contentId={article.id}
       >
-        {renderSimpleMarkdown(article.contentMd, { minimumHeadingLevel: 2 }) ?? <div className="whitespace-pre-wrap">{article.contentMd}</div>}
+        {renderSimpleMarkdown(article.contentMd, { internalLinkLabels, locale, minimumHeadingLevel: 2 }) ?? <div className="whitespace-pre-wrap">{article.contentMd}</div>}
       </AttributedCmsLinkHydrator>
     );
   }
@@ -329,6 +381,7 @@ export default async function ArticleDetailPage({
   )) ?? [];
   const articleRuntimeContract = resolveArticleRuntimeContract(article);
   const hasCmsSidebarCtas = Boolean(backToArticlesCta || topicHubCta || articleTestCtas.length);
+  const internalLinkLabels = await buildArticleInternalLinkLabels(article, locale);
 
   const relatedArticles: RelatedContentItem[] = [];
   const relatedCareerGuides: RelatedContentItem[] = [];
@@ -422,7 +475,7 @@ export default async function ArticleDetailPage({
           data-article-runtime-page-family={articleRuntimeContract.pageFamily}
           className="space-y-5 text-base text-[var(--fm-text)] [&_a]:text-[var(--fm-accent)] [&_a]:underline-offset-2 [&_a:hover]:underline [&_blockquote]:border-l-4 [&_blockquote]:border-[var(--fm-accent)] [&_blockquote]:bg-[var(--fm-surface-muted)] [&_blockquote]:px-5 [&_blockquote]:py-3 [&_blockquote]:text-[var(--fm-text)] [&_h2]:mt-10 [&_h2]:font-serif [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:leading-tight [&_h3]:mt-7 [&_h3]:font-serif [&_h3]:text-xl [&_h3]:font-semibold [&_img]:rounded-lg [&_img]:border [&_img]:border-[var(--fm-border)] [&_ol]:list-decimal [&_ol]:space-y-2 [&_ol]:pl-5 [&_p]:leading-8 [&_strong]:font-semibold [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-5"
         >
-          {renderArticleBody(article, locale, canonicalPath)}
+          {renderArticleBody(article, locale, canonicalPath, internalLinkLabels)}
           {article.bodyVisual?.imageUrl ? (
             <ArticleResponsiveImage
               src={article.bodyVisual.imageUrl}

@@ -198,17 +198,17 @@ function parseMarkdown(markdown: string): MarkdownBlock[] {
   return blocks;
 }
 
-function renderInline(text: string, keyPrefix: string): ReactNode[] {
-  return renderCmsInlineMarkdown(text, keyPrefix);
+function renderInline(text: string, keyPrefix: string, locale: Locale): ReactNode[] {
+  return renderCmsInlineMarkdown(text, keyPrefix, { locale });
 }
 
 function plainInlineText(text: string): string {
   return stripMarkdownEmphasisMarkers(text.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1"));
 }
 
-function ContentPageBody({ page, blocks }: { page: ContentPageReaderView; blocks: MarkdownBlock[] }) {
+function ContentPageBody({ page, blocks, locale }: { page: ContentPageReaderView; blocks: MarkdownBlock[]; locale: Locale }) {
   if (page.contentHtml.trim()) {
-    return <SanitizedCmsHtml className="fm-content-page-prose" html={page.contentHtml} />;
+    return <SanitizedCmsHtml className="fm-content-page-prose" html={page.contentHtml} locale={locale} />;
   }
 
   return (
@@ -225,7 +225,7 @@ function ContentPageBody({ page, blocks }: { page: ContentPageReaderView; blocks
                 block.level === 2 ? "pt-7 text-2xl md:text-3xl" : "pt-3 text-xl md:text-2xl"
               )}
             >
-              {renderInline(block.text, `heading-${index}`)}
+              {renderInline(block.text, `heading-${index}`, locale)}
             </Heading>
           );
         }
@@ -233,7 +233,7 @@ function ContentPageBody({ page, blocks }: { page: ContentPageReaderView; blocks
         if (block.type === "paragraph") {
           return (
             <p key={`paragraph-${index}`} className="m-0 text-base leading-8 text-[var(--fm-text-muted)]">
-              {renderInline(block.text, `paragraph-${index}`)}
+              {renderInline(block.text, `paragraph-${index}`, locale)}
             </p>
           );
         }
@@ -242,7 +242,7 @@ function ContentPageBody({ page, blocks }: { page: ContentPageReaderView; blocks
           return (
             <ul key={`ul-${index}`} className="m-0 list-disc space-y-2 pl-5 text-base leading-8 text-[var(--fm-text-muted)]">
               {block.items.map((item, itemIndex) => (
-                <li key={`ul-${index}-${itemIndex}`}>{renderInline(item, `ul-${index}-${itemIndex}`)}</li>
+                <li key={`ul-${index}-${itemIndex}`}>{renderInline(item, `ul-${index}-${itemIndex}`, locale)}</li>
               ))}
             </ul>
           );
@@ -251,7 +251,7 @@ function ContentPageBody({ page, blocks }: { page: ContentPageReaderView; blocks
         return (
           <ol key={`ol-${index}`} className="m-0 list-decimal space-y-2 pl-5 text-base leading-8 text-[var(--fm-text-muted)]">
             {block.items.map((item, itemIndex) => (
-              <li key={`ol-${index}-${itemIndex}`}>{renderInline(item, `ol-${index}-${itemIndex}`)}</li>
+              <li key={`ol-${index}-${itemIndex}`}>{renderInline(item, `ol-${index}-${itemIndex}`, locale)}</li>
             ))}
           </ol>
         );
@@ -408,7 +408,7 @@ export function ContentPageTemplate({ page, locale }: { page: ContentPageReaderV
 
         <div className="grid gap-10 py-12 md:grid-cols-[minmax(0,1fr)_18rem] md:py-16">
           <article className="max-w-3xl">
-            <ContentPageBody page={page} blocks={markdownBlocks} />
+            <ContentPageBody page={page} blocks={markdownBlocks} locale={locale} />
           </article>
 
           <aside className="h-fit space-y-6 md:sticky md:top-24">
@@ -424,7 +424,7 @@ export function ContentPageTemplate({ page, locale }: { page: ContentPageReaderV
                       href={`#${item.id}`}
                       className="text-sm leading-6 text-[var(--fm-text-muted)] hover:text-[var(--fm-accent)]"
                     >
-                      {renderInline(item.text, `toc-${item.id}`)}
+                      {renderInline(item.text, `toc-${item.id}`, locale)}
                     </a>
                   ))}
                 </div>

@@ -45,6 +45,7 @@ import {
   normalizeCareerBundleCanonicalPath,
 } from "@/lib/career/urls";
 import { getCareerV1RendererCopy, getCareerV1StateCopy } from "@/lib/career/ui/stateCopy";
+import { splitInternalLinkText } from "@/lib/content/internalLinkText";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { buildPageMetadata } from "@/lib/seo/metadata";
@@ -392,7 +393,7 @@ function LegacyCareerJobCta({
   );
 }
 
-function renderMarkdownLine(line: string, index: number) {
+function renderMarkdownLine(line: string, index: number, locale: Locale) {
   const trimmed = line.trim();
   if (!trimmed) {
     return null;
@@ -402,7 +403,7 @@ function renderMarkdownLine(line: string, index: number) {
   if (bullet) {
     return (
       <li key={index} className="pl-1">
-        {bullet[1]}
+        {renderInternalLinkText(bullet[1] ?? "", locale)}
       </li>
     );
   }
@@ -411,23 +412,37 @@ function renderMarkdownLine(line: string, index: number) {
   if (ordered) {
     return (
       <li key={index} className="pl-1">
-        {ordered[2]}
+        {renderInternalLinkText(ordered[2] ?? "", locale)}
       </li>
     );
   }
 
   return (
     <p key={index} className="m-0">
-      {trimmed}
+      {renderInternalLinkText(trimmed, locale)}
     </p>
   );
+}
+
+function renderInternalLinkText(text: string, locale: Locale) {
+  return splitInternalLinkText(text, {}, locale).map((part, index) => {
+    if (part.type === "link") {
+      return (
+        <a key={`${part.href}-${index}`} href={part.href} className="text-[var(--fm-accent)] underline-offset-2 hover:underline">
+          {part.label}
+        </a>
+      );
+    }
+
+    return <span key={`text-${index}`}>{part.text}</span>;
+  });
 }
 
 function stripOrderedListMarker(line: string): string {
   return line.replace(/^\d+\.\s*/, "").trim();
 }
 
-function ContentSection({ section }: { section: CareerJobBundleAdapter["contentSections"][number] }) {
+function ContentSection({ section, locale }: { section: CareerJobBundleAdapter["contentSections"][number]; locale: Locale }) {
   const lines = section.bodyMd.split(/\n+/).map((line) => line.trim()).filter(Boolean);
   const bulletLines = lines.filter((line) => /^[-•]\s+/.test(line));
   const orderedItems = lines.filter((line) => /^\d+\.\s+/.test(line)).map(stripOrderedListMarker).filter(Boolean);
@@ -437,9 +452,9 @@ function ContentSection({ section }: { section: CareerJobBundleAdapter["contentS
     <article className="space-y-4 border-t border-slate-200 pt-6 first:border-t-0 first:pt-0">
       <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950">{section.title}</h2>
       <div className="space-y-3 text-base leading-8 text-slate-600">
-        {proseLines.map((line, index) => renderMarkdownLine(line, index))}
-        {bulletLines.length > 0 ? <ul className="m-0 list-disc space-y-2 pl-5">{bulletLines.map((line, index) => renderMarkdownLine(line, index))}</ul> : null}
-        {orderedItems.length > 0 ? <ul className="m-0 list-disc space-y-2 pl-5">{orderedItems.map((item, index) => <li key={index} className="pl-1">{item}</li>)}</ul> : null}
+        {proseLines.map((line, index) => renderMarkdownLine(line, index, locale))}
+        {bulletLines.length > 0 ? <ul className="m-0 list-disc space-y-2 pl-5">{bulletLines.map((line, index) => renderMarkdownLine(line, index, locale))}</ul> : null}
+        {orderedItems.length > 0 ? <ul className="m-0 list-disc space-y-2 pl-5">{orderedItems.map((item, index) => <li key={index} className="pl-1">{renderInternalLinkText(item, locale)}</li>)}</ul> : null}
       </div>
     </article>
   );
@@ -625,7 +640,7 @@ function parseMarkdownDocument(bodyMd: string, title: string): MarkdownBlock[] {
   return blocks;
 }
 
-function CareerJobDocument({ bodyMd, title }: { bodyMd: string; title: string }) {
+function CareerJobDocument({ bodyMd, title, locale }: { bodyMd: string; title: string; locale: Locale }) {
   const blocks = parseMarkdownDocument(bodyMd, title);
 
   return (
@@ -646,7 +661,7 @@ function CareerJobDocument({ bodyMd, title }: { bodyMd: string; title: string })
               <ul key={index} className="m-0 list-disc space-y-3 pl-6">
                 {block.items.map((item, itemIndex) => (
                   <li key={itemIndex} className="pl-1">
-                    {formatCareerJobDocumentText(item)}
+                    {renderInternalLinkText(formatCareerJobDocumentText(item), locale)}
                   </li>
                 ))}
               </ul>
@@ -721,7 +736,7 @@ function CareerJobDocument({ bodyMd, title }: { bodyMd: string; title: string })
               <ul key={index} className="m-0 list-disc space-y-3 pl-6">
                 {block.items.map((item, itemIndex) => (
                   <li key={itemIndex} className="pl-1">
-                    {formatCareerJobDocumentText(item)}
+                    {renderInternalLinkText(formatCareerJobDocumentText(item), locale)}
                   </li>
                 ))}
               </ul>
@@ -730,7 +745,7 @@ function CareerJobDocument({ bodyMd, title }: { bodyMd: string; title: string })
 
           return (
             <p key={index} className="m-0">
-              {formatCareerJobDocumentText(block.text)}
+              {renderInternalLinkText(formatCareerJobDocumentText(block.text), locale)}
             </p>
           );
         })}
@@ -913,7 +928,7 @@ export default async function CareerJobDetailPage({
               <h1 className="m-0 text-4xl font-semibold tracking-tight text-slate-950 md:text-5xl">{job.title}</h1>
               {job.titles.canonicalEn ? <p className="m-0 text-base leading-7 text-slate-500">{job.titles.canonicalEn}</p> : null}
             </section>
-            <CareerJobDocument bodyMd={visibleContentBodyMd} title={job.title} />
+            <CareerJobDocument bodyMd={visibleContentBodyMd} title={job.title} locale={locale} />
             {publishedIndexAuthority ? (
               <NextStepRail
                 title="下一步"
@@ -968,7 +983,7 @@ export default async function CareerJobDetailPage({
           <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm md:p-8" data-testid="career-job-docx-content">
             <div className="space-y-8">
               {visibleContentSections.map((section) => (
-                <ContentSection key={`${section.sectionKey}-${section.title}`} section={section} />
+                <ContentSection key={`${section.sectionKey}-${section.title}`} section={section} locale={locale} />
               ))}
             </div>
           </section>

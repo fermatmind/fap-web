@@ -14,6 +14,7 @@ type AttributedSanitizedCmsHtmlProps = {
   sourceSlug: string;
   sourcePath: string;
   contentId?: string | number | null;
+  internalLinkLabels?: CmsHtmlSanitizeOptions["internalLinkLabels"];
   minimumHeadingLevel?: CmsHtmlSanitizeOptions["minimumHeadingLevel"];
 };
 
@@ -25,9 +26,13 @@ export function AttributedSanitizedCmsHtml({
   sourceSlug,
   sourcePath,
   contentId,
+  internalLinkLabels,
   minimumHeadingLevel,
 }: AttributedSanitizedCmsHtmlProps) {
-  const sanitizedHtml = useMemo(() => sanitizeCmsHtml(html, { minimumHeadingLevel }), [html, minimumHeadingLevel]);
+  const sanitizedHtml = useMemo(
+    () => sanitizeCmsHtml(html, { internalLinkLabels, locale, minimumHeadingLevel }),
+    [html, internalLinkLabels, locale, minimumHeadingLevel]
+  );
 
   return (
     <AttributedCmsLinkHydrator

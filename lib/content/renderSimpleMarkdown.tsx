@@ -1,10 +1,14 @@
 import type { ReactNode } from "react";
 import { sanitizeCmsUrl, stripInternalCmsSlotMarkers } from "@/lib/cms/sanitizeCmsRichText";
+import { labelInternalHref, splitInternalLinkText, type InternalLinkLabelMap } from "@/lib/content/internalLinkText";
 import { renderCjkPunctuationText } from "@/lib/content/textPunctuation";
+import type { Locale } from "@/lib/i18n/locales";
 
 type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
 type MarkdownRenderOptions = {
   minimumHeadingLevel?: HeadingLevel;
+  internalLinkLabels?: InternalLinkLabelMap;
+  locale?: Locale;
 };
 
 type MarkdownBlock =
@@ -327,12 +331,27 @@ function tokenizeMarkdown(markdown: string): MarkdownBlock[] {
   return blocks;
 }
 
-function renderInlineMarkdown(text: string, keyPrefix: string): ReactNode[] {
+function renderPlainTextWithInternalLinks(text: string, keyPrefix: string, options: MarkdownRenderOptions): ReactNode[] {
+  return splitInternalLinkText(text, options.internalLinkLabels, options.locale ?? "zh").map((part, index) => {
+    const key = `${keyPrefix}-plain-${index}`;
+    if (part.type === "link") {
+      return (
+        <a key={key} href={part.href} className="text-[var(--fm-accent)] underline-offset-2 hover:underline">
+          {renderCjkPunctuationText(part.label, `${key}-text`)}
+        </a>
+      );
+    }
+
+    return <span key={key}>{renderCjkPunctuationText(part.text, `${key}-text`)}</span>;
+  });
+}
+
+function renderInlineMarkdown(text: string, keyPrefix: string, options: MarkdownRenderOptions = {}): ReactNode[] {
   const normalized = text.replace(/\n/g, "  ");
   const pattern = /(\[[^\]]+\]\([^)]+\)|\[\^[0-9A-Za-z-]+\]|`[^`]+`|\*\*[^*]+\*\*|__[^_]+__|(?<!\w)\*[^*\n]+\*(?!\w)|(?<!\w)_[^_\n]+_(?!\w))/g;
   const parts = normalized.split(pattern).filter((part) => part.length > 0);
 
-  return parts.map((part, index) => {
+  return parts.flatMap((part, index) => {
     const key = `${keyPrefix}-${index}`;
     const footnote = part.match(/^\[\^([0-9A-Za-z-]+)\]$/);
     if (footnote) {
@@ -349,10 +368,14 @@ function renderInlineMarkdown(text: string, keyPrefix: string): ReactNode[] {
       if (!href) {
         return <span key={key}>{renderCjkPunctuationText(link[1] ?? "", `${key}-text`)}</span>;
       }
+      const rawLabel = link[1] ?? "";
+      const label = rawLabel.trim() === href.trim()
+        ? labelInternalHref(href, options.internalLinkLabels, options.locale ?? "zh") ?? rawLabel
+        : rawLabel;
 
       return (
         <a key={key} href={href} className="text-[var(--fm-accent)] underline-offset-2 hover:underline">
-          {renderCjkPunctuationText(link[1] ?? "", `${key}-text`)}
+          {renderCjkPunctuationText(label, `${key}-text`)}
         </a>
       );
     }
@@ -376,13 +399,13 @@ function renderInlineMarkdown(text: string, keyPrefix: string): ReactNode[] {
       return <em key={key}>{renderCjkPunctuationText(emphasis[1] ?? "", `${key}-text`)}</em>;
     }
 
-    return <span key={key}>{renderCjkPunctuationText(part, `${key}-text`)}</span>;
+    return renderPlainTextWithInternalLinks(part, key, options);
   });
 }
 
 function renderHeading(level: HeadingLevel, text: string, key: string, options: MarkdownRenderOptions = {}) {
   level = Math.max(level, options.minimumHeadingLevel ?? 1) as HeadingLevel;
-  const content = renderInlineMarkdown(text, `${key}-inline`);
+  const content = renderInlineMarkdown(text, `${key}-inline`, options);
   const classNameByLevel: Record<HeadingLevel, string> = {
     1: "mt-0 font-serif text-3xl font-semibold text-[var(--fm-text)]",
     2: "mt-8 font-serif text-2xl font-semibold text-[var(--fm-text)]",
@@ -428,7 +451,7 @@ export function renderSimpleMarkdown(markdown: string, options: MarkdownRenderOp
       case "paragraph":
         return (
           <p key={key} className="m-0 leading-7 text-[var(--fm-text-muted)]">
-            {renderInlineMarkdown(block.text, `${key}-inline`)}
+            {renderInlineMarkdown(block.text, `${key}-inline`, options)}
           </p>
         );
       case "image": {
@@ -453,7 +476,7 @@ export function renderSimpleMarkdown(markdown: string, options: MarkdownRenderOp
         return (
           <ul key={key} className="m-0 list-disc space-y-2 pl-5 text-[var(--fm-text-muted)]">
             {block.items.map((item, itemIndex) => (
-              <li key={`${key}-item-${itemIndex}`}>{renderInlineMarkdown(item, `${key}-item-${itemIndex}`)}</li>
+              <li key={`${key}-item-${itemIndex}`}>{renderInlineMarkdown(item, `${key}-item-${itemIndex}`, options)}</li>
             ))}
           </ul>
         );
@@ -461,7 +484,7 @@ export function renderSimpleMarkdown(markdown: string, options: MarkdownRenderOp
         return (
           <ol key={key} className="m-0 list-decimal space-y-2 pl-5 text-[var(--fm-text-muted)]">
             {block.items.map((item, itemIndex) => (
-              <li key={`${key}-item-${itemIndex}`}>{renderInlineMarkdown(item, `${key}-item-${itemIndex}`)}</li>
+              <li key={`${key}-item-${itemIndex}`}>{renderInlineMarkdown(item, `${key}-item-${itemIndex}`, options)}</li>
             ))}
           </ol>
         );
@@ -479,7 +502,7 @@ export function renderSimpleMarkdown(markdown: string, options: MarkdownRenderOp
                   className="grid grid-cols-[auto,minmax(0,1fr)] gap-2"
                 >
                   <span className="font-semibold text-[var(--fm-text)]">【{item.label}】</span>
-                  <span>{renderInlineMarkdown(item.text, `${key}-footnote-${itemIndex}`)}</span>
+                  <span>{renderInlineMarkdown(item.text, `${key}-footnote-${itemIndex}`, options)}</span>
                 </li>
               );
             })}
@@ -493,7 +516,7 @@ export function renderSimpleMarkdown(markdown: string, options: MarkdownRenderOp
           >
             {splitLooseListText(block.text).map((item, itemIndex) => (
               <p key={`${key}-quote-${itemIndex}`} className={itemIndex === 0 ? "m-0" : "mt-2"}>
-                {renderInlineMarkdown(item, `${key}-quote-${itemIndex}`)}
+                {renderInlineMarkdown(item, `${key}-quote-${itemIndex}`, options)}
               </p>
             ))}
           </blockquote>
@@ -506,7 +529,7 @@ export function renderSimpleMarkdown(markdown: string, options: MarkdownRenderOp
                 <tr>
                   {block.headers.map((header, headerIndex) => (
                     <th key={`${key}-head-${headerIndex}`} className="border-b border-[var(--fm-border)] px-3 py-2 font-semibold">
-                      {renderInlineMarkdown(header, `${key}-head-${headerIndex}`)}
+                      {renderInlineMarkdown(header, `${key}-head-${headerIndex}`, options)}
                     </th>
                   ))}
                 </tr>
@@ -516,7 +539,7 @@ export function renderSimpleMarkdown(markdown: string, options: MarkdownRenderOp
                   <tr key={`${key}-row-${rowIndex}`} className="border-t border-[var(--fm-border)]">
                     {block.headers.map((_, cellIndex) => (
                       <td key={`${key}-row-${rowIndex}-cell-${cellIndex}`} className="px-3 py-2 align-top text-[var(--fm-text-muted)]">
-                        {renderInlineMarkdown(row[cellIndex] ?? "", `${key}-row-${rowIndex}-cell-${cellIndex}`)}
+                        {renderInlineMarkdown(row[cellIndex] ?? "", `${key}-row-${rowIndex}-cell-${cellIndex}`, options)}
                       </td>
                     ))}
                   </tr>
