@@ -5411,6 +5411,93 @@ prs:
       - Sitemap and llms enumeration include only complete A/T comparison pairs from backend-authoritative variant summaries.
       - Existing 32 personality detail routes and hub routes keep their current behavior.
       - Contract tests cover API consumption, rendering wiring, sitemap/llms exposure, and PR scope boundaries.
+    next_task: PERSONALITY-LLMS-FULL-COMPARISON-REPAIR-01
+
+  - id: PERSONALITY-LLMS-FULL-COMPARISON-REPAIR-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/personality-llms-full-comparison-repair-01
+    base: main
+    title: "fix(personality): keep A/T comparison pages in llms-full"
+    depends_on: [PERSONALITY-COMPARISON-PAGES-01]
+    mode: execute
+    train_scope: personality_seo_authority_20260614
+    status: planned
+    goal: "Repair llms-full personality enumeration so the 32 backend-authoritative A/T comparison pages remain present after the 64 detail page cohort is enriched."
+    artifacts:
+      - app/llms-full.txt/route.ts
+      - tests/contracts/personality-llms-full-comparison-repair-01.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - app/llms-full.txt/route.ts
+      - tests/contracts/personality-llms-full-comparison-repair-01.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - frontend-authored comparison content
+      - changes to sitemap or llms.txt URL sets
+      - backend API contract changes
+      - unrelated SEO URL expansion
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/personality-llms-full-comparison-repair-01.contract.test.ts
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract -- personality
+      - scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - llms-full personality enrichment keeps capacity for 64 detail URLs and 32 A/T comparison URLs.
+      - Comparison URLs continue to come from backend-authoritative variant summaries and comparison APIs.
+      - llms.txt and sitemap behavior are not changed in this repair.
+      - Contract tests guard against reintroducing the 64-entry llms-full truncation.
+    next_task: PERSONALITY-SEO-POST-DEPLOY-INDEXATION-AUDIT-01
+
+  - id: PERSONALITY-SEO-POST-DEPLOY-INDEXATION-AUDIT-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/personality-seo-post-deploy-indexation-audit-01
+    base: main
+    title: "test(personality): audit post-deploy indexation surfaces"
+    depends_on: [PERSONALITY-LLMS-FULL-COMPARISON-REPAIR-01]
+    mode: audit_only
+    train_scope: personality_seo_authority_20260614
+    status: planned
+    goal: "Freeze the post-deploy SEO/indexation audit for 64 personality detail pages and 32 A/T comparison pages across indexability, canonical, hreflang, sitemap, llms.txt, llms-full, and GSC sampling evidence."
+    artifacts:
+      - docs/seo/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - tests/contracts/**
+    allowed_paths:
+      - docs/seo/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - tests/contracts/**
+    forbidden:
+      - runtime page changes
+      - backend API changes
+      - CMS content edits
+      - frontend-authored editorial content
+    required_local_checks:
+      - focused personality indexation audit contract
+      - pnpm typecheck
+      - pnpm test:contract -- personality
+      - scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Audit covers all 64 detail URLs and 32 A/T comparison URLs.
+      - Audit records sitemap, llms.txt, llms-full, canonical, hreflang, robots/indexability, and GSC sampling status.
+      - Audit is documentation/contract only and does not change runtime behavior.
+      - Findings are concrete enough to seed the future public profile SEO asset skill.
 
   - id: PUBLISH-WEB-CONTENT-CACHE-PURGE
     repo: fap-web

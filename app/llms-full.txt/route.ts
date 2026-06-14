@@ -84,6 +84,10 @@ const LLMS_FULL_CACHE_FRESH_MS = 60 * 60 * 1000;
 const LLMS_FULL_CACHE_STALE_MS = 24 * 60 * 60 * 1000;
 const LLMS_FULL_RESPONSE_TIMEOUT = Symbol("llms-full-response-timeout");
 const LLMS_FULL_EXPECTED_CAREER_JOB_URL_COUNT = 1046 * 2;
+const LLMS_FULL_PERSONALITY_DETAIL_URL_COUNT = 32 * 2;
+const LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT = 16 * 2;
+const LLMS_FULL_PERSONALITY_ENTRY_LIMIT =
+  LLMS_FULL_PERSONALITY_DETAIL_URL_COUNT + LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT;
 const LLMS_FULL_REQUIRED_CAREER_JOB_SLUGS = [
   "accountants-and-auditors",
   "actors",
@@ -983,7 +987,7 @@ export async function buildLlmsFullText(siteUrl: string): Promise<string> {
 
   const [enrichedPersonalityEntries, enrichedTopicEntries, enrichedArticles, enrichedGuideEntries] = await Promise.all([
     mapWithConcurrency(
-      limitLlmsRouteEntries(personalityEntries, LLMS_ROUTE_LIMITS.personalityProfiles),
+      limitLlmsRouteEntries(personalityEntries, LLMS_FULL_PERSONALITY_ENTRY_LIMIT),
       ENRICHMENT_CONCURRENCY,
       (entry) => withLlmsRouteBudget(() => enrichPersonalityEntry(entry, siteUrl), entry, { timeoutMs: LLMS_FULL_ENRICHMENT_TIMEOUT_MS })
     ),
