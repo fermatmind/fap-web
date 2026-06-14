@@ -1,0 +1,31 @@
+{
+  "package_id": "big-five-domain-openness-en-example",
+  "framework": "big_five",
+  "entity_type": "domain",
+  "code": "openness",
+  "locale": "en",
+  "slug": "big-five/openness",
+  "title": "Openness",
+  "summary": "Short structural example only.",
+  "seo": {
+    "title": "Openness | Big Five",
+    "description": "Structural example for a dimensional Big Five domain."
+  },
+  "canonical": { "path": "/en/personality/big-five/openness" },
+  "hreflang": { "en": "/en/personality/big-five/openness", "zh-CN": "/zh/personality/big-five/openness" },
+  "robots": "noindex,follow",
+  "launch_state": "content_ready",
+  "index_eligible": false,
+  "sitemap_eligible": false,
+  "llms_eligible": false,
+  "sections": [{ "key": "overview", "title": "Overview", "body_md": "Example body placeholder." }],
+  "faq": [{ "question": "Is this a type?", "answer": "No. Big Five describes dimensions." }],
+  "media": { "status": "placeholder" },
+  "schema": { "@type": "WebPage" },
+  "method_boundary": { "summary": "Not diagnostic.", "not_for": ["clinical diagnosis", "employment screening"] },
+  "evidence_notes": ["Example evidence note."],
+  "internal_links": [{ "label": "Big Five", "href": "/en/personality/big-five", "relationship": "hub" }],
+  "source_ledger_refs": ["source-card-example"],
+  "model_output_refs": ["model-output-example"],
+  "last_reviewed_at": null
+}

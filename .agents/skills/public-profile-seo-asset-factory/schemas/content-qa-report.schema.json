@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fermatmind.com/schemas/public-profile/content-qa-report.schema.json",
+  "title": "Content QA Report",
+  "type": "object",
+  "required": ["package_id", "status", "gates"],
+  "additionalProperties": false,
+  "properties": {
+    "package_id": { "type": "string" },
+    "status": { "enum": ["pass", "fail", "blocked"] },
+    "gates": {
+      "type": "object",
+      "required": ["schema", "evidence", "bilingual_parity", "duplicate_risk", "private_result_boundary", "framework_no_go", "indexability"],
+      "additionalProperties": false,
+      "properties": {
+        "schema": { "enum": ["pass", "fail", "blocked"] },
+        "evidence": { "enum": ["pass", "fail", "blocked"] },
+        "bilingual_parity": { "enum": ["pass", "fail", "blocked"] },
+        "duplicate_risk": { "enum": ["pass", "fail", "blocked"] },
+        "private_result_boundary": { "enum": ["pass", "fail", "blocked"] },
+        "framework_no_go": { "enum": ["pass", "fail", "blocked"] },
+        "indexability": { "enum": ["pass", "fail", "blocked"] }
+      }
+    },
+    "blockers": { "type": "array", "items": { "type": "string" } },
+    "notes": { "type": "array", "items": { "type": "string" } }
+  }
+}

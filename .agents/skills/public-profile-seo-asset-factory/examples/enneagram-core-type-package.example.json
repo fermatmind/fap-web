@@ -1,0 +1,31 @@
+{
+  "package_id": "enneagram-core-type-5-en-example",
+  "framework": "enneagram",
+  "entity_type": "core_type",
+  "code": "type-5",
+  "locale": "en",
+  "slug": "enneagram/type-5",
+  "title": "Enneagram Type 5",
+  "summary": "Short structural example only.",
+  "seo": {
+    "title": "Enneagram Type 5",
+    "description": "Structural example for a core type page."
+  },
+  "canonical": { "path": "/en/personality/enneagram/type-5" },
+  "hreflang": { "en": "/en/personality/enneagram/type-5", "zh-CN": "/zh/personality/enneagram/type-5" },
+  "robots": "noindex,follow",
+  "launch_state": "content_ready",
+  "index_eligible": false,
+  "sitemap_eligible": false,
+  "llms_eligible": false,
+  "sections": [{ "key": "overview", "title": "Overview", "body_md": "Example body placeholder." }],
+  "faq": [{ "question": "Is this clinical?", "answer": "No. This is not diagnosis or screening." }],
+  "media": { "status": "placeholder" },
+  "schema": { "@type": "WebPage" },
+  "method_boundary": { "summary": "Use for reflection, not diagnosis.", "not_for": ["clinical diagnosis", "employment screening"] },
+  "evidence_notes": ["Example evidence note."],
+  "internal_links": [{ "label": "Enneagram", "href": "/en/personality/enneagram", "relationship": "hub" }],
+  "source_ledger_refs": ["source-card-example"],
+  "model_output_refs": ["model-output-example"],
+  "last_reviewed_at": null
+}

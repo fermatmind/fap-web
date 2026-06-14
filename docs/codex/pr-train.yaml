@@ -14978,3 +14978,50 @@ prs:
       github_checks_required: true
       squash: true
       auto_merge: true
+
+  - id: PUBLIC-PROFILE-SEO-ASSET-FACTORY-SKILL-AUTOMATION-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/public-profile-seo-asset-factory-skill-automation-01
+    base: main
+    title: "Automated public profile SEO asset factory skill"
+    depends_on: []
+    mode: execute
+    train_scope: public_profile_seo_asset_factory_skill
+    status: in_progress
+    goal: "Create the automated public-profile SEO asset factory skill files, protocols, prompts, schemas, quality gates, runbooks, examples, checklists, and audit report without runtime, sitemap, llms, indexability, fap-api, or generated production content changes."
+    artifacts:
+      - .agents/skills/public-profile-seo-asset-factory/**
+      - docs/research/personality/public-profile-seo-asset-factory-skill-automation-01/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - .agents/skills/public-profile-seo-asset-factory/**
+      - docs/research/personality/public-profile-seo-asset-factory-skill-automation-01/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - package.json
+      - pnpm-lock.yaml
+      - any .env* files
+      - fap-api changes
+      - runtime changes
+      - sitemap, llms.txt, or llms-full.txt changes
+      - indexability changes
+      - production content package generation beyond examples
+      - GPT/Gemini live content generation
+    required_local_checks:
+      - parse all JSON schemas
+      - JSON/YAML parse if docs/codex state is touched
+      - ensure no runtime files changed
+      - ensure no sitemap/llms/indexability files changed
+      - ensure no generated content package was created beyond examples
+      - git diff --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: false

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fermatmind.com/schemas/public-profile/evidence-source-card.schema.json",
+  "title": "Evidence Source Card",
+  "type": "object",
+  "required": ["id", "source_type", "title", "url", "accessed_at", "claim", "credibility"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "source_type": { "enum": ["academic", "official", "competitor", "internal_product", "inference"] },
+    "title": { "type": "string" },
+    "authors": { "type": "array", "items": { "type": "string" } },
+    "year": { "type": ["integer", "null"], "minimum": 1800 },
+    "publication": { "type": ["string", "null"] },
+    "doi": { "type": ["string", "null"] },
+    "url": { "type": "string" },
+    "accessed_at": { "type": "string" },
+    "claim": { "type": "string" },
+    "limitations": { "type": "string" },
+    "credibility": { "type": "integer", "minimum": 1, "maximum": 5 }
+  }
+}

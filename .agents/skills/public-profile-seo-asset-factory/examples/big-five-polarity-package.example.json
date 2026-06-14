@@ -1,0 +1,31 @@
+{
+  "package_id": "big-five-polarity-high-openness-en-example",
+  "framework": "big_five",
+  "entity_type": "polarity",
+  "code": "high-openness",
+  "locale": "en",
+  "slug": "big-five/high-openness",
+  "title": "High Openness",
+  "summary": "Short structural example only; high is not better than low.",
+  "seo": {
+    "title": "High Openness | Big Five",
+    "description": "Structural example for one Big Five pole."
+  },
+  "canonical": { "path": "/en/personality/big-five/high-openness" },
+  "hreflang": { "en": "/en/personality/big-five/high-openness", "zh-CN": "/zh/personality/big-five/high-openness" },
+  "robots": "noindex,follow",
+  "launch_state": "content_ready",
+  "index_eligible": false,
+  "sitemap_eligible": false,
+  "llms_eligible": false,
+  "sections": [{ "key": "overview", "title": "Overview", "body_md": "Example body placeholder." }],
+  "faq": [{ "question": "Is high better?", "answer": "No. The meaning depends on context." }],
+  "media": { "status": "placeholder" },
+  "schema": { "@type": "WebPage" },
+  "method_boundary": { "summary": "Not a hiring filter.", "not_for": ["employment screening"] },
+  "evidence_notes": ["Example evidence note."],
+  "internal_links": [{ "label": "Openness", "href": "/en/personality/big-five/openness", "relationship": "domain" }],
+  "source_ledger_refs": ["source-card-example"],
+  "model_output_refs": ["model-output-example"],
+  "last_reviewed_at": null
+}

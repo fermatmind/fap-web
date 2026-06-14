@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fermatmind.com/schemas/public-profile/run-manifest.schema.json",
+  "title": "Public Profile Asset Factory Run Manifest",
+  "type": "object",
+  "required": ["task_id", "framework", "mode", "automation_level", "locales", "asset_selection", "allowed_paths", "forbidden_paths"],
+  "additionalProperties": false,
+  "properties": {
+    "task_id": { "type": "string", "minLength": 1 },
+    "framework": { "enum": ["mbti", "big_five", "enneagram", "future"] },
+    "mode": { "enum": ["audit", "existing_asset_enhancement", "content_package_generation", "placeholder_upgrade", "publish_readiness"] },
+    "automation_level": { "enum": ["L1", "L2", "L3", "L4"] },
+    "locales": {
+      "type": "array",
+      "items": { "enum": ["en", "zh-CN"] },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "asset_selection": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["entity_type", "code"],
+        "additionalProperties": false,
+        "properties": {
+          "entity_type": { "type": "string" },
+          "code": { "type": "string" },
+          "route": { "type": "string" }
+        }
+      }
+    },
+    "model_sessions_allowed": { "type": "boolean", "default": false },
+    "target_launch_state": { "enum": ["draft", "content_stub", "content_ready", "published"] },
+    "allowed_paths": { "type": "array", "items": { "type": "string" } },
+    "forbidden_paths": { "type": "array", "items": { "type": "string" } },
+    "checks": { "type": "array", "items": { "type": "string" } }
+  }
+}
