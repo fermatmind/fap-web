@@ -36,15 +36,15 @@ function buildCanonicalPath(slug: string, locale: Locale): string {
   return buildCareerGuideFrontendUrl(locale, slug);
 }
 
-function renderGuideBody(guide: CareerGuideDetailViewModel) {
+function renderGuideBody(guide: CareerGuideDetailViewModel, locale: Locale) {
   const bodyMd = stripDuplicateFirstHeading(guide.bodyMd, guide.title);
 
   if (guide.bodyHtml.trim()) {
-    return <SanitizedCmsHtml html={guide.bodyHtml} />;
+    return <SanitizedCmsHtml html={guide.bodyHtml} locale={locale} />;
   }
 
   if (bodyMd.trim()) {
-    return renderSimpleMarkdown(bodyMd);
+    return renderSimpleMarkdown(bodyMd, { locale });
   }
 
   return null;
@@ -191,7 +191,7 @@ export default async function CareerGuideDetailPage({ params }: { params: Promis
 
       {guide.bodyMd.trim() || guide.bodyHtml.trim() ? (
         <article className="space-y-4 text-[var(--fm-text)] [&_a]:text-[var(--fm-accent)] [&_a]:underline-offset-2 [&_a:hover]:underline">
-          {renderGuideBody(guide)}
+            {renderGuideBody(guide, locale)}
         </article>
       ) : null}
 

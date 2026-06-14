@@ -42,13 +42,13 @@ function placeholderLabel(asset: PersonalityPublicContentAsset): string {
   return asset.framework === "enneagram" ? "9T" : "OCEAN";
 }
 
-function SectionBody({ section }: { section: PersonalityPublicContentSection }) {
+function SectionBody({ section, locale }: { section: PersonalityPublicContentSection; locale: Locale }) {
   if (section.bodyHtml.trim()) {
-    return <SanitizedCmsHtml className="fm-content-page-prose" html={section.bodyHtml} />;
+    return <SanitizedCmsHtml className="fm-content-page-prose" html={section.bodyHtml} locale={locale} />;
   }
 
   if (section.bodyMd.trim()) {
-    return <div className="fm-content-page-prose">{renderSimpleMarkdown(section.bodyMd, { minimumHeadingLevel: 3 })}</div>;
+    return <div className="fm-content-page-prose">{renderSimpleMarkdown(section.bodyMd, { locale, minimumHeadingLevel: 3 })}</div>;
   }
 
   return null;
@@ -135,7 +135,7 @@ export function PublicContentAssetRenderer({
                 </h2>
               ) : null}
               <div className={section.title ? "mt-5" : undefined}>
-                <SectionBody section={section} />
+                <SectionBody section={section} locale={locale} />
               </div>
             </section>
           ))}

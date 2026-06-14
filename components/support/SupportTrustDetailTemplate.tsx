@@ -124,13 +124,13 @@ function buildToc(bodyMd: string) {
     .filter((block) => block.level === 2);
 }
 
-function renderInline(text: string, keyPrefix: string): ReactNode[] {
-  return renderCmsInlineMarkdown(text, keyPrefix);
+function renderInline(text: string, keyPrefix: string, locale: Locale): ReactNode[] {
+  return renderCmsInlineMarkdown(text, keyPrefix, { locale });
 }
 
-function RichBody({ bodyMd, bodyHtml }: { bodyMd: string; bodyHtml: string }) {
+function RichBody({ bodyMd, bodyHtml, locale }: { bodyMd: string; bodyHtml: string; locale: Locale }) {
   if (bodyHtml.trim()) {
-    return <SanitizedCmsHtml className="fm-content-page-prose" html={bodyHtml} />;
+    return <SanitizedCmsHtml className="fm-content-page-prose" html={bodyHtml} locale={locale} />;
   }
 
   const blocks = parseMarkdown(bodyMd);
@@ -148,7 +148,7 @@ function RichBody({ bodyMd, bodyHtml }: { bodyMd: string; bodyHtml: string }) {
                 block.level === 2 ? "pt-7 text-2xl md:text-3xl" : "pt-3 text-xl md:text-2xl"
               )}
             >
-              {renderInline(block.text, `heading-${index}`)}
+              {renderInline(block.text, `heading-${index}`, locale)}
             </Heading>
           );
         }
@@ -156,7 +156,7 @@ function RichBody({ bodyMd, bodyHtml }: { bodyMd: string; bodyHtml: string }) {
         if (block.type === "paragraph") {
           return (
             <p key={`paragraph-${index}`} className="m-0 text-base leading-8 text-[var(--fm-text-muted)]">
-              {renderInline(block.text, `paragraph-${index}`)}
+              {renderInline(block.text, `paragraph-${index}`, locale)}
             </p>
           );
         }
@@ -165,7 +165,7 @@ function RichBody({ bodyMd, bodyHtml }: { bodyMd: string; bodyHtml: string }) {
           return (
             <ul key={`ul-${index}`} className="m-0 list-disc space-y-2 pl-5 text-base leading-8 text-[var(--fm-text-muted)]">
               {block.items.map((item, itemIndex) => (
-                <li key={`ul-${index}-${itemIndex}`}>{renderInline(item, `ul-${index}-${itemIndex}`)}</li>
+                <li key={`ul-${index}-${itemIndex}`}>{renderInline(item, `ul-${index}-${itemIndex}`, locale)}</li>
               ))}
             </ul>
           );
@@ -174,7 +174,7 @@ function RichBody({ bodyMd, bodyHtml }: { bodyMd: string; bodyHtml: string }) {
         return (
           <ol key={`ol-${index}`} className="m-0 list-decimal space-y-2 pl-5 text-base leading-8 text-[var(--fm-text-muted)]">
             {block.items.map((item, itemIndex) => (
-              <li key={`ol-${index}-${itemIndex}`}>{renderInline(item, `ol-${index}-${itemIndex}`)}</li>
+              <li key={`ol-${index}-${itemIndex}`}>{renderInline(item, `ol-${index}-${itemIndex}`, locale)}</li>
             ))}
           </ol>
         );
@@ -261,7 +261,7 @@ export function SupportTrustDetailTemplate({
               </div>
             </header>
 
-            <RichBody bodyMd={bodyMd} bodyHtml={bodyHtml} />
+            <RichBody bodyMd={bodyMd} bodyHtml={bodyHtml} locale={locale} />
           </article>
 
           <aside className="space-y-5 lg:sticky lg:top-24">
@@ -277,7 +277,7 @@ export function SupportTrustDetailTemplate({
                       href={`#${item.id}`}
                       className="block text-sm leading-6 text-[var(--fm-text-muted)] transition hover:text-[var(--fm-accent)]"
                     >
-                      {renderInline(item.text, `toc-${item.id}`)}
+                      {renderInline(item.text, `toc-${item.id}`, locale)}
                     </a>
                   ))}
                 </nav>

@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { SanitizedCmsHtml } from "@/components/content/SanitizedCmsHtml";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
 import {
   type CmsPersonalitySection,
   type PersonalityProjectionDimension,
@@ -172,25 +173,26 @@ function renderSectionCard(sectionKey: string, title: string, content: ReactNode
   );
 }
 
-function renderPlainMarkdown(body: string, className: string) {
+function renderPlainMarkdown(body: string, className: string, locale: Locale) {
   if (!body.trim()) {
     return null;
   }
 
-  return <p className={className}>{body}</p>;
+  return <div className={className}>{renderSimpleMarkdown(body, { locale, minimumHeadingLevel: 3 })}</div>;
 }
 
-function renderRichTextBlock(bodyHtml: string, bodyMd: string) {
+function renderRichTextBlock(bodyHtml: string, bodyMd: string, locale: Locale) {
   if (bodyHtml.trim()) {
     return (
       <SanitizedCmsHtml
         className="space-y-4 text-[var(--fm-text)] [&_a]:text-[var(--fm-accent)] [&_a]:underline-offset-2 [&_a:hover]:underline [&_p]:leading-7 [&_strong]:font-semibold [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-5"
         html={bodyHtml}
+        locale={locale}
       />
     );
   }
 
-  return renderPlainMarkdown(bodyMd, "m-0 whitespace-pre-wrap leading-7 text-[var(--fm-text-muted)]");
+  return renderPlainMarkdown(bodyMd, "space-y-4 leading-7 text-[var(--fm-text-muted)]", locale);
 }
 
 function renderBulletItems(items: BulletItem[]) {
@@ -242,12 +244,12 @@ function renderLegacyBulletsSection(section: CmsPersonalitySection) {
   return null;
 }
 
-function renderLegacyFaqSection(section: CmsPersonalitySection) {
+function renderLegacyFaqSection(section: CmsPersonalitySection, locale: Locale) {
   const payload = asRecord(section.payloadJson);
   const items = asArray<FaqItem>(payload?.items);
 
   if (items.length === 0) {
-    return renderRichTextBlock(section.bodyHtml, section.bodyMd);
+    return renderRichTextBlock(section.bodyHtml, section.bodyMd, locale);
   }
 
   return (
@@ -375,7 +377,7 @@ function renderLegacyCardsSection(section: CmsPersonalitySection, locale: Locale
     return renderedCards;
   }
 
-  return renderRichTextBlock(section.bodyHtml, section.bodyMd);
+  return renderRichTextBlock(section.bodyHtml, section.bodyMd, locale);
 }
 
 function normalizeLettersIntroPayload(payload: Record<string, unknown> | null): LettersIntroPayload {
@@ -454,8 +456,8 @@ function normalizePreferredRolePayload(payload: Record<string, unknown> | null):
   };
 }
 
-function renderProjectionRichTextSection(section: RenderableProjectionSection) {
-  return renderPlainMarkdown(section.bodyMd, "m-0 whitespace-pre-wrap leading-7 text-[var(--fm-text-muted)]");
+function renderProjectionRichTextSection(section: RenderableProjectionSection, locale: Locale) {
+  return renderPlainMarkdown(section.bodyMd, "space-y-4 leading-7 text-[var(--fm-text-muted)]", locale);
 }
 
 function renderProjectionBulletsSection(section: RenderableProjectionSection) {
@@ -478,7 +480,7 @@ function renderProjectionBulletsSection(section: RenderableProjectionSection) {
   return renderBulletItems(fallbackItems);
 }
 
-function renderProjectionFaqSection(section: RenderableProjectionSection) {
+function renderProjectionFaqSection(section: RenderableProjectionSection, locale: Locale) {
   const items = asArray<FaqItem>(section.payload?.items)
     .map((item) => ({
       question: normalizeText(item.question),
@@ -487,7 +489,7 @@ function renderProjectionFaqSection(section: RenderableProjectionSection) {
     .filter((item) => item.question && item.answer);
 
   if (items.length === 0) {
-    return renderProjectionRichTextSection(section);
+    return renderProjectionRichTextSection(section, locale);
   }
 
   return (
@@ -530,7 +532,7 @@ function renderLettersIntroSection(section: RenderableProjectionSection, locale:
           ))}
         </div>
       ) : (
-        renderProjectionRichTextSection(section)
+        renderProjectionRichTextSection(section, locale)
       )}
     </div>
   );
@@ -542,7 +544,7 @@ function renderTraitDimensionGridSection(section: RenderableProjectionSection, l
   const dimensions = normalizeTraitDimensions(payload);
 
   if (dimensions.length === 0) {
-    return renderProjectionRichTextSection(section);
+    return renderProjectionRichTextSection(section, locale);
   }
 
   return (
@@ -578,11 +580,11 @@ function renderTraitDimensionGridSection(section: RenderableProjectionSection, l
   );
 }
 
-function renderPreferredRoleListSection(section: RenderableProjectionSection) {
+function renderPreferredRoleListSection(section: RenderableProjectionSection, locale: Locale) {
   const payload = normalizePreferredRolePayload(section.payload);
 
   if (payload.groups.length === 0) {
-    return renderProjectionRichTextSection(section);
+    return renderProjectionRichTextSection(section, locale);
   }
 
   return (
@@ -643,7 +645,7 @@ export function renderPersonalitySections(sections: CmsPersonalitySection[], loc
           content = renderLegacyBulletsSection(section);
           break;
         case "faq":
-          content = renderLegacyFaqSection(section);
+          content = renderLegacyFaqSection(section, locale);
           break;
         case "cards":
         case "links":
@@ -652,7 +654,7 @@ export function renderPersonalitySections(sections: CmsPersonalitySection[], loc
         case "callout":
         case "rich_text":
         default:
-          content = renderRichTextBlock(section.bodyHtml, section.bodyMd);
+          content = renderRichTextBlock(section.bodyHtml, section.bodyMd, locale);
           break;
       }
 
@@ -703,7 +705,7 @@ export function renderProjectionSections(
           content = renderTraitDimensionGridSection(section, locale);
           break;
         case "preferred_role_list":
-          content = renderPreferredRoleListSection(section);
+          content = renderPreferredRoleListSection(section, locale);
           break;
         case "premium_teaser":
           content = renderPremiumTeaserSection(section);
@@ -712,11 +714,11 @@ export function renderProjectionSections(
           content = renderProjectionBulletsSection(section);
           break;
         case "faq":
-          content = renderProjectionFaqSection(section);
+          content = renderProjectionFaqSection(section, locale);
           break;
         case "rich_text":
         default:
-          content = renderProjectionRichTextSection(section);
+          content = renderProjectionRichTextSection(section, locale);
           break;
       }
 

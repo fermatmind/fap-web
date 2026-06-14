@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { SanitizedCmsHtml } from "@/components/content/SanitizedCmsHtml";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
 import type {
   CmsTopicEntry,
   CmsTopicEntryGroupKey,
@@ -84,18 +85,19 @@ function asArray<T = unknown>(value: unknown): T[] {
   return Array.isArray(value) ? (value as T[]) : [];
 }
 
-function renderRichTextSection(section: CmsTopicSection) {
+function renderRichTextSection(section: CmsTopicSection, locale: Locale) {
   if (section.bodyHtml.trim()) {
     return (
       <SanitizedCmsHtml
         className="space-y-4 text-[var(--fm-text)] [&_a]:text-[var(--fm-accent)] [&_a]:underline-offset-2 [&_a:hover]:underline [&_p]:leading-7 [&_strong]:font-semibold [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-5"
         html={section.bodyHtml}
+        locale={locale}
       />
     );
   }
 
   if (section.bodyMd.trim()) {
-    return <p className="m-0 whitespace-pre-wrap leading-7 text-[var(--fm-text-muted)]">{section.bodyMd}</p>;
+    return renderSimpleMarkdown(section.bodyMd, { locale, minimumHeadingLevel: 3 });
   }
 
   return null;
@@ -150,12 +152,12 @@ function renderBulletsSection(section: CmsTopicSection) {
   return null;
 }
 
-function renderFaqSection(section: CmsTopicSection) {
+function renderFaqSection(section: CmsTopicSection, locale: Locale) {
   const payload = asRecord(section.payloadJson);
   const items = asArray<FaqItem>(payload?.items);
 
   if (items.length === 0) {
-    return renderRichTextSection(section);
+    return renderRichTextSection(section, locale);
   }
 
   return (
@@ -179,12 +181,12 @@ function renderFaqSection(section: CmsTopicSection) {
   );
 }
 
-function renderCardsSection(section: CmsTopicSection) {
+function renderCardsSection(section: CmsTopicSection, locale: Locale) {
   const payload = asRecord(section.payloadJson);
   const items = asArray<CardItem>(payload?.items);
 
   if (items.length === 0) {
-    return renderRichTextSection(section);
+    return renderRichTextSection(section, locale);
   }
 
   return (
@@ -233,7 +235,6 @@ export function renderTopicSections(
   sections: CmsTopicSection[],
   locale: Locale
 ): ReactNode[] {
-  void locale;
   return getRenderableTopicSections(sections)
     .flatMap((section) => {
       let content: ReactNode = null;
@@ -243,16 +244,16 @@ export function renderTopicSections(
           content = renderBulletsSection(section);
           break;
         case "faq":
-          content = renderFaqSection(section);
+          content = renderFaqSection(section, locale);
           break;
         case "cards":
         case "links":
-          content = renderCardsSection(section);
+          content = renderCardsSection(section, locale);
           break;
         case "callout":
         case "rich_text":
         default:
-          content = renderRichTextSection(section);
+          content = renderRichTextSection(section, locale);
           break;
       }
 
