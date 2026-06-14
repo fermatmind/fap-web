@@ -1,0 +1,32 @@
+{
+  "task_id": "BIG-FIVE-V1-AUTO-CONTENT-PACKAGE-DRY-RUN-02-CODEX-ONLY",
+  "write_backend_seed": false,
+  "open_import_pr": false,
+  "packages": [
+    {
+      "locale": "zh-CN",
+      "source_package": "packages/zh-CN/openness.content-package.json",
+      "target_framework": "big_five",
+      "target_entity_type": "domain",
+      "target_code": "openness",
+      "target_canonical_path": "/zh/personality/big-five/openness",
+      "robots": "noindex,follow",
+      "index_eligible": false,
+      "sitemap_eligible": false,
+      "llms_eligible": false
+    },
+    {
+      "locale": "en",
+      "source_package": "packages/en/openness.content-package.json",
+      "target_framework": "big_five",
+      "target_entity_type": "domain",
+      "target_code": "openness",
+      "target_canonical_path": "/en/personality/big-five/openness",
+      "robots": "noindex,follow",
+      "index_eligible": false,
+      "sitemap_eligible": false,
+      "llms_eligible": false
+    }
+  ],
+  "recommended_import_mode": "future dry-run import only after user approval"
+}

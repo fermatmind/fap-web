@@ -1,0 +1,4 @@
+model_name,session_type,prompt_file,output_file,timestamp,inputs_summary,contains_external_sources,contains_private_data,accepted_for_package,rejection_reason
+Codex 5.5,codex_native_draft,model-outputs/codex-native-content-draft.prompt.md,model-outputs/codex-draft.raw.json,2026-06-14T22:05:00+08:00,"Source ledger, backend seed summary, route registry, skill schema, previous GPT failure notes.",yes_source_ledger_ids_only,false,true,
+Codex 5.5,skeptical_self_review,.agents/skills/public-profile-seo-asset-factory/prompts/codex-skeptical-self-review.md,model-outputs/codex-skeptical-self-review.md,2026-06-14T22:05:00+08:00,Raw Codex draft and QA gates.,yes_source_ledger_ids_only,false,true,
+Codex 5.5,adjudication,model-outputs/codex-adjudication.md,packages/*/openness.content-package.json,2026-06-14T22:05:00+08:00,Skeptical review and schema/evidence/indexability QA.,yes_source_ledger_ids_only,false,true,

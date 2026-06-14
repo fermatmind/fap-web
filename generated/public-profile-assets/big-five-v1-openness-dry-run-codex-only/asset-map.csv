@@ -1,0 +1,3 @@
+framework,entity_type,code,locale,slug,canonical_path,launch_state,robots,index_eligible,sitemap_eligible,llms_eligible,source
+big_five,domain,openness,zh-CN,openness,/zh/personality/big-five/openness,content_ready,"noindex,follow",false,false,false,codex_only_target
+big_five,domain,openness,en,openness,/en/personality/big-five/openness,content_ready,"noindex,follow",false,false,false,codex_only_target

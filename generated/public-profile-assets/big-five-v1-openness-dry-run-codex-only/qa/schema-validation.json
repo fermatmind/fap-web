@@ -1,0 +1,19 @@
+{
+  "status": "pass",
+  "validator": "python json parse + strict required-key/shape checks against skill schema expectations",
+  "packages": [
+    {
+      "path": "packages/zh-CN/openness.content-package.json",
+      "status": "pass",
+      "section_count": 12,
+      "faq_count": 5
+    },
+    {
+      "path": "packages/en/openness.content-package.json",
+      "status": "pass",
+      "section_count": 12,
+      "faq_count": 5
+    }
+  ],
+  "schema_path": ".agents/skills/public-profile-seo-asset-factory/schemas/public-profile-content-package.schema.json"
+}
