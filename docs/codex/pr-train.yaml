@@ -5174,7 +5174,7 @@ prs:
     depends_on: [SEO-FREE-TEST-HOMEPAGE-CTA-01]
     mode: execute
     train_scope: seo_free_test_hub_category_cta
-    status: ready_to_merge
+    status: merged
     goal: "Update zh tests hub and supported tests category card CTAs/titles to free-test search intent while preserving CMS body authority, public visibility filtering, and existing routes."
     artifacts:
       - components/marketing/tests/TestCategoryExperience.tsx
@@ -5205,6 +5205,50 @@ prs:
       - frontend local editorial fallback expansion beyond CTA/title display normalization
     required_local_checks:
       - pnpm exec vitest run tests/contracts/tests-hub-pr-ux-01-render.contract.test.tsx tests/contracts/tests-hub-category.contract.test.ts
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - git diff --check
+      - scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+
+  - id: SEO-FREE-TEST-FLAGSHIP-LANDING-03
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/seo-free-test-flagship-landing-03
+    base: main
+    title: "fix(seo): add free-test wording to flagship landings"
+    depends_on: [SEO-FREE-TEST-HUB-CATEGORY-CTA-02]
+    mode: execute
+    train_scope: seo_free_test_flagship_landing
+    status: local_checks_passed
+    goal: "Update zh MBTI, Big Five, Holland/RIASEC, and Enneagram public test detail landings with free-test Title/H1/hero CTA/free boundary display while preserving CMS landing surface body authority and existing routes."
+    artifacts:
+      - app/(localized)/[locale]/tests/[slug]/page.tsx
+      - tests/contracts/seo-free-test-flagship-landing.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - app/(localized)/[locale]/tests/[slug]/page.tsx
+      - tests/contracts/seo-free-test-flagship-landing.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - test scoring, form parsing, attempt, take, or result logic
+      - sitemap, llms.txt, or llms-full.txt URL set changes
+      - article body or CMS editorial copy changes
+      - payment, report, entitlement, or paywall behavior changes
+      - frontend local editorial fallback expansion beyond flagship free-test display labels and disclosure
+      - IQ/EQ/secondary entry/sticky/share copy changes
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/seo-free-test-flagship-landing.contract.test.ts tests/contracts/test-detail-landing.contract.test.ts tests/contracts/mbti-landing-structure.contract.test.tsx tests/contracts/riasec-landing-structure.contract.test.tsx
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
       - pnpm test:contract

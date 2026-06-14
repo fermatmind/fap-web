@@ -61,6 +61,14 @@ const SEO_FREE_TEST_HUB_CATEGORY_CTA_02_ALLOWED_FILES = new Set([
   "tests/contracts/tests-hub-pr-ux-01-render.contract.test.tsx",
 ]);
 
+const SEO_FREE_TEST_FLAGSHIP_LANDING_03_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/tests/[slug]/page.tsx",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/seo-free-test-flagship-landing.contract.test.ts",
+]);
+
 const RIASEC_PACK12_ALLOWED_FILES = new Set([
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -2185,6 +2193,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/seo-free-test-hub-category-cta-02") {
     return SEO_FREE_TEST_HUB_CATEGORY_CTA_02_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/seo-free-test-flagship-landing-03") {
+    return SEO_FREE_TEST_FLAGSHIP_LANDING_03_ALLOWED_FILES.has(file);
   }
 
   if (isFrontendUiPolishBatch02ScopeActive()) {
