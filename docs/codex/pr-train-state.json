@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-14T20:14:22+08:00",
+  "updated_at": "2026-06-14T20:30:20+08:00",
   "status": "active",
   "phase": "result_p0_pdf_leak_hardening_02",
   "pr_namespace": "PR-PRAC-*",
@@ -23940,6 +23940,60 @@
           "at": "2026-06-14T20:24:32+08:00",
           "status": "pr_opened",
           "note": "Opened PR #1154 for the scoped automation skill change."
+        }
+      ]
+    },
+    {
+      "id": "SEO-FREE-TEST-HOMEPAGE-CTA-01",
+      "repo": "fap-web",
+      "branch": "codex/seo-free-test-homepage-cta-01",
+      "status": "local_checks_passed",
+      "commit_sha": "2f25fd25d5b9d5d539d8d2cf7f21675b8e6e8d4c",
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User provided explicit PR id, title, scope, and sequential execution instruction for the five free-test SEO PR tasks on 2026-06-14."
+        },
+        "scope": {
+          "status": "pass",
+          "allowed_paths": [
+            "components/marketing/HomePageExperience.tsx",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json",
+            "tests/contracts/helpers/currentPrScope.ts",
+            "tests/contracts/homepage-v1-core-grid.contract.test.tsx"
+          ],
+          "evidence": "Changed files are limited to zh homepage highlighted-test CTA copy, homepage contract expectations, current PR scope helper, and docs/codex metadata."
+        },
+        "local_validation": {
+          "status": "pass",
+          "evidence": "Passed before rebase: pnpm install --frozen-lockfile; pnpm exec vitest run tests/contracts/homepage-v1-core-grid.contract.test.tsx; pnpm typecheck; NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build; pnpm test:contract (489 files, 2783 tests); JSON/YAML parse; git diff --check; changed-files scope validation. Build-generated public/sitemap.xml was restored before commit."
+        },
+        "rebase": {
+          "status": "resolved",
+          "evidence": "Rebased onto latest origin/main after PUBLIC-PROFILE-SEO-ASSET-FACTORY-SKILL-AUTOMATION-01 landed; docs/codex conflict resolved by preserving origin/main entries and re-appending this PR metadata."
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-14T20:22:32+08:00",
+          "status": "in_progress",
+          "note": "Started SEO-FREE-TEST-HOMEPAGE-CTA-01 in isolated worktree from origin/main; main checkout has unrelated dirty work and is not used for edits."
+        },
+        {
+          "at": "2026-06-14T20:27:30+08:00",
+          "status": "local_checks_passed",
+          "note": "Homepage highlighted-test CTA copy now uses specific free-test wording for the six zh cards; focused and full local checks plus scope validation passed."
+        },
+        {
+          "at": "2026-06-14T20:30:20+08:00",
+          "status": "rebase_resolved",
+          "note": "Resolved docs/codex rebase conflict against latest origin/main by preserving existing public-profile train metadata and re-adding this PR item."
         }
       ]
     }
