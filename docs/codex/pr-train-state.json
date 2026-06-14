@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-14T14:28:23+08:00",
+  "updated_at": "2026-06-14T14:32:20+08:00",
   "status": "active",
   "phase": "result_p0_pdf_leak_hardening_02",
   "pr_namespace": "PR-PRAC-*",
@@ -23639,8 +23639,8 @@
       "id": "PERSONALITY-SEO-POST-DEPLOY-INDEXATION-AUDIT-01",
       "repo": "fap-web",
       "branch": "codex/personality-seo-post-deploy-indexation-audit-01",
-      "status": "pr_open",
-      "commit_sha": "bde556ff3311516baf9b5688b8953e4d29b4088a",
+      "status": "ready_to_merge",
+      "commit_sha": "7eccd5a48a1a9000c30072b18dd102538fccf137",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1145",
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -23666,6 +23666,10 @@
         "gsc_sampling": {
           "status": "not_executed_in_repo_pr",
           "evidence": "No Search Console API credential or verified browser session was available in this repository PR run; artifact records a 12 URL post-deploy URL Inspection sample plan instead of fabricating GSC state."
+        },
+        "github_checks": {
+          "status": "pass",
+          "evidence": "GitHub checks passed on PR #1145 head 7eccd5a48a1a9000c30072b18dd102538fccf137: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL."
         }
       },
       "history": [
@@ -23688,6 +23692,11 @@
           "at": "2026-06-14T14:28:23+08:00",
           "status": "pr_open",
           "note": "Opened fap-web PR #1145 for the post-deploy personality SEO/indexation audit; GitHub checks are pending."
+        },
+        {
+          "at": "2026-06-14T14:32:20+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed on PR #1145 head 7eccd5a48a1a9000c30072b18dd102538fccf137 and the PR is ready for squash merge if repo policy allows."
         }
       ]
     },
