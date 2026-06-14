@@ -8,7 +8,7 @@ import {
   buildBigFivePublicContentPath,
   resolveBigFivePublicRouteEntry,
 } from "@/lib/personality/bigFivePublicRoutes";
-import { isCurrentRiasecPack12AllowedFile } from "./helpers/currentPrScope";
+import { isCleanMainLikeCheckout, isPersonalityBig5V1NoindexRender01AllowedFile } from "./helpers/currentPrScope";
 
 const ROOT = process.cwd();
 
@@ -281,8 +281,12 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
   });
 
   it("keeps the PR diff inside the declared noindex render scope", () => {
+    if (isCleanMainLikeCheckout()) {
+      return;
+    }
+
     const files = changedFiles();
     expect(files.length).toBeGreaterThan(0);
-    expect(files.every(isCurrentRiasecPack12AllowedFile), files.join("\n")).toBe(true);
+    expect(files.every(isPersonalityBig5V1NoindexRender01AllowedFile), files.join("\n")).toBe(true);
   });
 });

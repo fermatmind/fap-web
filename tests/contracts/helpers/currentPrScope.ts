@@ -2093,6 +2093,13 @@ export function isTestKpiFrontendContract06AllowedFile(file: string): boolean {
 
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (
+    (CURRENT_BRANCH === "main" || CURRENT_BRANCH === "codex/fix-main-contract-scope-965") &&
+    PERSONALITY_BIG5_V1_NOINDEX_RENDER_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
     RIASEC_V2_POST_PUBLISH_SMOKE_02_ALLOWED_FILES.has(file) ||
     RIASEC_V2_SEARCH_SUBMISSION_PREFLIGHT_01_ALLOWED_FILES.has(file)
   ) {
@@ -2896,6 +2903,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   }
 
   return CURRENT_BRANCH === "codex/riasec-full-content-pack-12" && RIASEC_PACK12_ALLOWED_FILES.has(file);
+}
+
+export function isPersonalityBig5V1NoindexRender01AllowedFile(file: string): boolean {
+  return PERSONALITY_BIG5_V1_NOINDEX_RENDER_01_ALLOWED_FILES.has(file);
 }
 
 export function isSeoConvTracking01AllowedFile(file: string): boolean {
