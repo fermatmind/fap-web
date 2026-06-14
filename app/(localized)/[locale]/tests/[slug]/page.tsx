@@ -30,6 +30,7 @@ import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
 import type { LandingSurfaceRaw } from "@/lib/api/v0_3";
 import {
   buildBig5TakeHref,
+  DEFAULT_BIG5_FORM_CODE,
   getBig5DurationSummary,
   getBig5QuestionSummary,
   getBig5StartLabel,
@@ -40,6 +41,7 @@ import {
 } from "@/lib/big5/forms";
 import {
   buildEnneagramTakeHref,
+  DEFAULT_ENNEAGRAM_FORM_CODE,
   getEnneagramStartLabel,
   getEnneagramVariantLabel,
   getEnneagramVariantSummary,
@@ -48,6 +50,7 @@ import {
 } from "@/lib/enneagram/forms";
 import {
   buildRiasecTakeHref,
+  DEFAULT_RIASEC_FORM_CODE,
   getRiasecDurationSummary,
   getRiasecQuestionSummary,
   getRiasecStartLabel,
@@ -554,6 +557,93 @@ type IqBankLandingChoiceWithTracking = IqBankLandingChoice & {
   eventProperties?: Record<string, string>;
 };
 
+type FlagshipFreeTestCopy = {
+  h1: string;
+  seoTitle: string;
+  primaryCtaLabel: string;
+  secondaryCtaLabelByFormCode: Record<string, string>;
+  freeBoundary: string;
+};
+
+function getFlagshipFreeTestCopy(scaleCode: string | null | undefined, locale: "en" | "zh"): FlagshipFreeTestCopy | null {
+  if (locale !== "zh") return null;
+
+  const freeBoundary = "可免费开始，基础结果免费；高级报告如有付费需提前说明。";
+
+  switch (String(scaleCode ?? "").trim().toUpperCase()) {
+    case "MBTI":
+      return {
+        h1: "MBTI免费测试",
+        seoTitle: "MBTI免费测试｜16型人格测试",
+        primaryCtaLabel: "开始 MBTI 免费测试",
+        secondaryCtaLabelByFormCode: {
+          mbti_93: "开始 MBTI 快速版免费测试",
+        },
+        freeBoundary,
+      };
+    case "BIG5_OCEAN":
+      return {
+        h1: "大五人格免费测试",
+        seoTitle: "大五人格免费测试｜Big Five人格测试",
+        primaryCtaLabel: "开始大五人格免费测试",
+        secondaryCtaLabelByFormCode: {
+          big5_90: "开始大五人格快速版免费测试",
+        },
+        freeBoundary,
+      };
+    case "ENNEAGRAM":
+      return {
+        h1: "九型人格免费测试",
+        seoTitle: "九型人格免费测试｜九型人格测试",
+        primaryCtaLabel: "开始九型人格免费测试",
+        secondaryCtaLabelByFormCode: {
+          enneagram_forced_choice_144: "开始九型人格二选一版免费测试",
+        },
+        freeBoundary,
+      };
+    case "RIASEC":
+      return {
+        h1: "霍兰德职业兴趣免费测试",
+        seoTitle: "霍兰德职业兴趣免费测试｜RIASEC职业测试",
+        primaryCtaLabel: "开始霍兰德职业兴趣免费测试",
+        secondaryCtaLabelByFormCode: {
+          riasec_140: "开始霍兰德职业兴趣增强版免费测试",
+        },
+        freeBoundary,
+      };
+    default:
+      return null;
+  }
+}
+
+function getFlagshipFreeTestCtaLabel({
+  scaleCode,
+  formCode,
+  locale,
+  fallback,
+}: {
+  scaleCode: string | null | undefined;
+  formCode: string;
+  locale: "en" | "zh";
+  fallback: string;
+}): string {
+  const copy = getFlagshipFreeTestCopy(scaleCode, locale);
+  if (!copy) return fallback;
+
+  const defaultFormByScaleCode: Record<string, string> = {
+    MBTI: DEFAULT_MBTI_FORM_CODE,
+    BIG5_OCEAN: DEFAULT_BIG5_FORM_CODE,
+    ENNEAGRAM: DEFAULT_ENNEAGRAM_FORM_CODE,
+    RIASEC: DEFAULT_RIASEC_FORM_CODE,
+  };
+  const normalizedScaleCode = String(scaleCode ?? "").trim().toUpperCase();
+  if (formCode === defaultFormByScaleCode[normalizedScaleCode]) {
+    return copy.primaryCtaLabel;
+  }
+
+  return copy.secondaryCtaLabelByFormCode[formCode] ?? fallback;
+}
+
 function FlagshipVariantChooser({
   title,
   subtitle,
@@ -704,6 +794,7 @@ export async function generateMetadata({
   const seoTitle = toStringValue(lookup?.seo_title);
   const seoDescription = toStringValue(lookup?.seo_description);
   const ogImageAuthority = toStringValue(lookup?.og_image_url);
+  const flagshipFreeTestCopy = getFlagshipFreeTestCopy(test.scale_code, locale);
   const iqSeoRampAuthority = await getIqSeoRampAuthorityForLocale(locale);
   const isClinicalDepressionPending = isClinicalDepressionPendingSlug(test.slug);
   const metadataAuthority = resolveTestDetailAuthority({
@@ -717,7 +808,7 @@ export async function generateMetadata({
     hasCtaBundle: false,
   });
 
-  const title = seoTitle || (metadataAuthority.metadata.allowed ? localizedTestTitle : test.slug);
+  const title = seoTitle || flagshipFreeTestCopy?.seoTitle || (metadataAuthority.metadata.allowed ? localizedTestTitle : test.slug);
   const description = seoDescription || (metadataAuthority.metadata.allowed ? test.description : "");
   const ogImage = ogImageAuthority || (metadataAuthority.metadata.allowed ? test.cover_image : "");
   const iqLaunchSeoGuard = resolveIqLaunchSeoGuard({
@@ -781,6 +872,7 @@ export default async function TestLandingPage({
   const langNode = toRecord(toRecord(lookup?.content_i18n_json)[locale]);
   const reportNode = toRecord(toRecord(lookup?.report_summary_i18n_json)[locale]);
   const landingCopy = toStringValue(langNode.landing_copy);
+  const flagshipFreeTestCopy = getFlagshipFreeTestCopy(test.scale_code, locale);
   const whenToUse = toStringValue(langNode.when_to_use);
   const audienceItems = parseStringList(langNode.audience);
   const howItWorksItems = parseStringList(langNode.how_it_works);
@@ -888,7 +980,12 @@ export default async function TestLandingPage({
         label: getMbtiVariantLabel(form.formCode, locale),
         summary: getMbtiVariantSummary(form.formCode, locale),
         href: withAttribution(buildMbtiTakeHref(test.slug, locale, form.formCode)),
-        ctaLabel: getMbtiStartLabel(form.formCode, locale),
+        ctaLabel: getFlagshipFreeTestCtaLabel({
+          scaleCode: test.scale_code,
+          formCode: form.formCode,
+          locale,
+          fallback: getMbtiStartLabel(form.formCode, locale),
+        }),
         testId: `test-detail-landing-cta-${form.formCode}`,
         eventProperties: buildStartClickTrackingProps({
           formCode: form.formCode,
@@ -901,7 +998,12 @@ export default async function TestLandingPage({
           label: getBig5VariantLabel(form.formCode, locale),
           summary: getBig5VariantSummary(form.formCode, locale),
           href: withAttribution(buildBig5TakeHref(test.slug, locale, form.formCode)),
-          ctaLabel: getBig5StartLabel(form.formCode, locale),
+          ctaLabel: getFlagshipFreeTestCtaLabel({
+            scaleCode: test.scale_code,
+            formCode: form.formCode,
+            locale,
+            fallback: getBig5StartLabel(form.formCode, locale),
+          }),
           testId: `test-detail-landing-cta-${form.formCode}`,
           eventProperties: buildStartClickTrackingProps({
             formCode: form.formCode,
@@ -914,7 +1016,12 @@ export default async function TestLandingPage({
             label: getEnneagramVariantLabel(form.formCode, locale),
             summary: getEnneagramVariantSummary(form.formCode, locale),
             href: buildEnneagramTakeHref(test.slug, locale, form.formCode),
-            ctaLabel: getEnneagramStartLabel(form.formCode, locale),
+            ctaLabel: getFlagshipFreeTestCtaLabel({
+              scaleCode: test.scale_code,
+              formCode: form.formCode,
+              locale,
+              fallback: getEnneagramStartLabel(form.formCode, locale),
+            }),
             testId: `test-detail-landing-cta-${form.formCode}`,
             eventProperties: buildStartClickTrackingProps({
               formCode: form.formCode,
@@ -927,7 +1034,12 @@ export default async function TestLandingPage({
               label: getRiasecVariantLabel(form.formCode, locale),
               summary: getRiasecVariantSummary(form.formCode, locale),
               href: withAttribution(buildRiasecTakeHref(test.slug, locale, form.formCode)),
-              ctaLabel: getRiasecStartLabel(form.formCode, locale),
+              ctaLabel: getFlagshipFreeTestCtaLabel({
+                scaleCode: test.scale_code,
+                formCode: form.formCode,
+                locale,
+                fallback: getRiasecStartLabel(form.formCode, locale),
+              }),
               testId: `test-detail-landing-cta-${form.formCode}`,
               eventProperties: buildStartClickTrackingProps({
                 formCode: form.formCode,
@@ -1085,8 +1197,9 @@ export default async function TestLandingPage({
   const landingRating =
     typeof test.highlight_rating === "number" ? Math.max(0, Math.min(5, Math.round(test.highlight_rating))) : null;
   const detailLensCopy = getDetailPageLensCopy(test.scale_code, locale);
+  const heroTitle = flagshipFreeTestCopy?.h1 ?? localizedTestTitle;
   const heroTitleDisplay = formatCardTitleForUi({
-    title: localizedTestTitle,
+    title: heroTitle,
     slug: test.slug,
     locale,
     surface: "tests_detail_hero",
@@ -1095,7 +1208,7 @@ export default async function TestLandingPage({
   const iqSeoRampAuthority = await getIqSeoRampAuthorityForLocale(locale);
   const canonicalPath = localizedPath(`/tests/${test.slug}`, locale);
   const mbtiLandingContinuityItems = showsMbtiActions ? buildMbtiTestLandingContinuityItems(locale) : [];
-  const softwareApplicationName = localizedTestTitle;
+  const softwareApplicationName = heroTitle;
   const softwareApplicationDescription = landingCopy || test.description;
   const softwareApplicationFeatureList = uniqueVisibleFeatureList([
     questionSummary,
@@ -1201,7 +1314,14 @@ export default async function TestLandingPage({
                     ))}
                   </div>
                 ) : null}
-                <p className="max-w-3xl text-[var(--fm-text-muted)]">{landingCopy || test.description}</p>
+                <div className="max-w-3xl space-y-2 text-[var(--fm-text-muted)]">
+                  <p className="m-0">{landingCopy || test.description}</p>
+                  {flagshipFreeTestCopy?.freeBoundary ? (
+                    <p className="m-0" data-testid="test-detail-free-boundary">
+                      {flagshipFreeTestCopy.freeBoundary}
+                    </p>
+                  ) : null}
+                </div>
                 <div className="flex flex-wrap items-center gap-2 text-sm text-[var(--fm-text-muted)]">
                   <span>
                     {questionSummary}
@@ -1242,11 +1362,11 @@ export default async function TestLandingPage({
                       eventProperties={mbtiPrimaryClickTrackingProps}
                       className={buttonVariants({ size: "lg" })}
                     >
-                      {mbtiPrimaryChoice?.ctaLabel || (locale === "zh" ? "开始 MBTI 测试" : "Start MBTI test")}
+                      {mbtiPrimaryChoice?.ctaLabel || (locale === "zh" ? "开始 MBTI 免费测试" : "Start MBTI test")}
                     </TrackedEntryCtaLink>
                   ) : (
                     <Link href={startTestHref} prefetch={false} className={buttonVariants({ size: "lg" })} data-testid="mbti-landing-primary-cta">
-                      {locale === "zh" ? "开始 MBTI 测试" : "Start MBTI test"}
+                      {locale === "zh" ? "开始 MBTI 免费测试" : "Start MBTI test"}
                     </Link>
                   )}
                   {mbtiSecondaryHref && mbtiSecondaryClickTrackingProps ? (
