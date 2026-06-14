@@ -24028,8 +24028,8 @@
       "id": "SEO-FREE-TEST-HUB-CATEGORY-CTA-02",
       "repo": "fap-web",
       "branch": "codex/seo-free-test-hub-category-cta-02",
-      "status": "pr_open_checks_pending",
-      "commit_sha": "de1cad2545c2f718e8bba2e2062b00aba422b73f",
+      "status": "ready_to_merge",
+      "commit_sha": "7f4e0da128c472905964287e4e06a60eb8e9f25f",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1156",
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -24064,8 +24064,16 @@
           "evidence": "Passed: pnpm exec vitest run tests/contracts/tests-hub-pr-ux-01-render.contract.test.tsx tests/contracts/tests-hub-category.contract.test.ts (2 files, 6 tests); pnpm typecheck; NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build; pnpm test:contract (489 files, 2784 tests); python3 -m json.tool docs/codex/pr-train-state.json >/dev/null; ruby YAML parse; git diff --check; explicit scope validation. Build-generated public/sitemap.xml was restored before commit."
         },
         "github_checks": {
-          "status": "pending",
-          "evidence": null
+          "status": "pass",
+          "checks": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "CodeQL",
+            "analyze (javascript-typescript)"
+          ],
+          "evidence": "GitHub checks passed on PR #1156 head 7f4e0da128c472905964287e4e06a60eb8e9f25f. mergeStateStatus is CLEAN and PR scope revalidation found only the 9 allowed files."
         }
       },
       "history": [
@@ -24083,6 +24091,11 @@
           "at": "2026-06-14T20:55:00+08:00",
           "status": "pr_open",
           "note": "Opened fap-web PR #1156 for SEO-FREE-TEST-HUB-CATEGORY-CTA-02 after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-06-14T20:56:43+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed on PR #1156 head 7f4e0da128c472905964287e4e06a60eb8e9f25f and mergeStateStatus is CLEAN; PR changed-file scope revalidation passed."
         }
       ]
     }
