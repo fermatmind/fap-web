@@ -1,0 +1,7 @@
+{
+  "final_verdict": "PASS",
+  "metrics": {
+    "total_lines": 300,
+    "english_contains_chinese_count": 0
+  }
+}

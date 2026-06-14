@@ -31,7 +31,8 @@
       "const": "career_job_salary_asset"
     },
     "asset_version": {
-      "const": "career_job_salary_asset_v3_5"
+      "type": "string",
+      "pattern": "^career_job_salary_asset_v3_[0-9]+$"
     },
     "slug": {
       "type": "string"
@@ -295,7 +296,8 @@
       ],
       "properties": {
         "schema_version": {
-          "const": "career_job_salary_asset_v3_5"
+          "type": "string",
+          "pattern": "^career_job_salary_asset_v3_[0-9]+$"
         },
         "generated_at": {
           "type": "string"

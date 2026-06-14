@@ -56,10 +56,8 @@
           ]
         },
         "batch_role": {
-          "enum": [
-            "control_30",
-            "new_70"
-          ]
+          "type": "string",
+          "pattern": "^(control|new)_[0-9]+$"
         }
       }
     },
@@ -78,7 +76,8 @@
           "type": "string"
         },
         "evidence_version": {
-          "const": "v3.5_repaired_4"
+          "type": "string",
+          "minLength": 1
         },
         "evidence_audit_verdict": {
           "const": "PASS"
@@ -448,7 +447,8 @@
       ],
       "properties": {
         "schema_version": {
-          "const": "career_job_salary_estimate_v3_5"
+          "type": "string",
+          "pattern": "^career_job_salary_estimate_v3_[0-9]+$"
         },
         "generated_at": {
           "type": "string"

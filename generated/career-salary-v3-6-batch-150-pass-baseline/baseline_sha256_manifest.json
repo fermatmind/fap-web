@@ -1,0 +1,76 @@
+{
+  "files": [
+    {
+      "source_path": "generated/career-salary-batch-150/career_salary_batch_150_manifest.json",
+      "baseline_path": "generated/career-salary-v3-6-batch-150-pass-baseline/career_salary_batch_150_manifest.json",
+      "bytes": 58359,
+      "sha256": "790776031eae413546576df23831093e481e310f6477d5d23402a823d7423867"
+    },
+    {
+      "source_path": "generated/career-salary-batch-150/career_salary_batch_150_manifest_validation.json",
+      "baseline_path": "generated/career-salary-v3-6-batch-150-pass-baseline/career_salary_batch_150_manifest_validation.json",
+      "bytes": 520,
+      "sha256": "648b9f89a9969a6f5b9de877083430725410ba6a885cf5e8a924c93853bc4589"
+    },
+    {
+      "source_path": "generated/career-salary-evidence-v3-6-batch-150/career_job_salary_evidence_150_v3_6.jsonl",
+      "baseline_path": "generated/career-salary-v3-6-batch-150-pass-baseline/career_job_salary_evidence_150_v3_6.jsonl",
+      "bytes": 663640,
+      "sha256": "804edb69090126a84d7abc38c3a950269f1dcae207bb0da1cc4ca3bb81d9b832"
+    },
+    {
+      "source_path": "generated/career-salary-evidence-v3-6-batch-150/career_job_salary_evidence_150_v3_6_schema_validation.json",
+      "baseline_path": "generated/career-salary-v3-6-batch-150-pass-baseline/career_job_salary_evidence_150_v3_6_schema_validation.json",
+      "bytes": 265,
+      "sha256": "92c4a535a722c7012a672d71555a90e3a3e5ea8d3bc54500af53d54a819a1c85"
+    },
+    {
+      "source_path": "generated/career-salary-evidence-v3-6-batch-150-audit/reports/audit.json",
+      "baseline_path": "generated/career-salary-v3-6-batch-150-pass-baseline/audit.json",
+      "bytes": 239,
+      "sha256": "01ad5d3fd31ebcf6aa7008dfebffc340a9f9817657fe430b19b00674ca054de0"
+    },
+    {
+      "source_path": "generated/career-salary-evidence-v3-6-batch-150-trust-audit/reports/audit.json",
+      "baseline_path": "generated/career-salary-v3-6-batch-150-pass-baseline/audit.json",
+      "bytes": 331,
+      "sha256": "28e2479fcb7474dc90a6391ffe0b991778a4f1ea8fc855a33cc46617d4a1944b"
+    },
+    {
+      "source_path": "generated/career-salary-estimates-v3-6-batch-150/career_job_salary_estimates_150_v3_6.jsonl",
+      "baseline_path": "generated/career-salary-v3-6-batch-150-pass-baseline/career_job_salary_estimates_150_v3_6.jsonl",
+      "bytes": 599755,
+      "sha256": "8222712a0f733e6551d9c93e6fb5fec9ccc718861c73b4d945752520e9ad17db"
+    },
+    {
+      "source_path": "generated/career-salary-estimates-v3-6-batch-150/career_job_salary_estimates_150_v3_6_schema_validation.json",
+      "baseline_path": "generated/career-salary-v3-6-batch-150-pass-baseline/career_job_salary_estimates_150_v3_6_schema_validation.json",
+      "bytes": 85,
+      "sha256": "8a6867a9634598b90111d0f117e99ed44d6623cdfa2836786851844a6e799fda"
+    },
+    {
+      "source_path": "generated/career-salary-estimates-v3-6-batch-150-audit/reports/audit.json",
+      "baseline_path": "generated/career-salary-v3-6-batch-150-pass-baseline/audit.json",
+      "bytes": 101,
+      "sha256": "e4d83709b010c8688f7e1ce572ff6cad77ce392c5829b33e41eef9c5ffe7d544"
+    },
+    {
+      "source_path": "generated/career-salary-assets-v3-6-batch-150/career_job_salary_assets_150_v3_6.jsonl",
+      "baseline_path": "generated/career-salary-v3-6-batch-150-pass-baseline/career_job_salary_assets_150_v3_6.jsonl",
+      "bytes": 2573889,
+      "sha256": "406ea54bcade91f25d18ccb85e7ee00a9c1fcfc81d1a8f32235d674ea8f416ab"
+    },
+    {
+      "source_path": "generated/career-salary-assets-v3-6-batch-150/career_job_salary_assets_150_v3_6_schema_validation.json",
+      "baseline_path": "generated/career-salary-v3-6-batch-150-pass-baseline/career_job_salary_assets_150_v3_6_schema_validation.json",
+      "bytes": 85,
+      "sha256": "9f5eede9e8dadcb305272da9fb634a6aa028647fdfc85d2c8f56ab2852400c37"
+    },
+    {
+      "source_path": "generated/career-salary-assets-v3-6-batch-150-audit/reports/audit.json",
+      "baseline_path": "generated/career-salary-v3-6-batch-150-pass-baseline/audit.json",
+      "bytes": 114,
+      "sha256": "48e49083477739432d5f4680f60e55e342b2a5dc8d7c23bf8d70a9cbc45ada81"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "batch_name": "career_salary_batch_150",
+  "total_slugs": 150,
+  "control_100_count": 100,
+  "new_50_count": 50,
+  "duplicate_slug_count": 0,
+  "every_slug_exists_in_seed": true,
+  "control_100_order_matches_baseline": true,
+  "new_50_selected_from_seed_order_after_excluding_control": true,
+  "seed_fields_copied_without_mutation": true,
+  "no_evidence_ledger_generated": true,
+  "no_estimate_ledger_generated": true,
+  "no_salary_asset_generated": true,
+  "validation_errors": [],
+  "passes_manifest_gate": true
+}

@@ -1,0 +1,12 @@
+{
+  "total_lines": 150,
+  "control_rows_copied": 100,
+  "new_rows_collected": 50,
+  "new_rows_ready_for_asset_generation": 4,
+  "new_rows_with_cn_evidence": 10,
+  "new_rows_with_two_cn_items": 9,
+  "new_rows_with_us_source": 50,
+  "new_rows_with_uk_source": 21,
+  "generated_salary_asset": false,
+  "generated_estimate_ledger": false
+}

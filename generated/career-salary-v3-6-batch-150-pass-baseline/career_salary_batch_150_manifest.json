@@ -1,0 +1,2113 @@
+{
+  "asset_factory_version": "v3_6_post_deploy_trust_gate",
+  "batch_name": "career_salary_batch_150",
+  "source_seed": "generated/career-salary-seed/career_jobs_1046_salary_asset_seed.json",
+  "trusted_baseline_dir": "generated/career-salary-v3-5-100-pass-baseline",
+  "trusted_restart_decision": "generated/career-salary-trust-gate-post-deploy-validation/trusted_restart_decision.json",
+  "previous_pass_count": 100,
+  "target_total_slugs": 150,
+  "control_count": 100,
+  "new_count": 50,
+  "jobs": [
+    {
+      "batch_index": 1,
+      "seed_ordinal": 1,
+      "slug": "accountants-and-auditors",
+      "title_en": "Accountants and auditors",
+      "title_zh_seed": "会计师和审计师",
+      "soc_code_seed": "13-2011",
+      "onet_code_seed": "13-2011.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 2,
+      "seed_ordinal": 2,
+      "slug": "actors",
+      "title_en": "Actors",
+      "title_zh_seed": "演员职业诊断",
+      "soc_code_seed": null,
+      "onet_code_seed": null,
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 3,
+      "seed_ordinal": 21,
+      "slug": "agricultural-engineers",
+      "title_en": "Agricultural Engineers",
+      "title_zh_seed": "农业工程师适合谁？",
+      "soc_code_seed": "17-2021",
+      "onet_code_seed": "17-2021.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 4,
+      "seed_ordinal": 17,
+      "slug": "aerospace-engineers",
+      "title_en": "Aerospace Engineers",
+      "title_zh_seed": "航空航天工程师",
+      "soc_code_seed": "17-2011",
+      "onet_code_seed": "17-2011.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 5,
+      "seed_ordinal": 854,
+      "slug": "registered-nurses",
+      "title_en": "Registered nurses",
+      "title_zh_seed": "注册护士",
+      "soc_code_seed": "29-1141",
+      "onet_code_seed": "29-1141.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 6,
+      "seed_ordinal": 44,
+      "slug": "anesthesiologists",
+      "title_en": "Anesthesiologists",
+      "title_zh_seed": "麻醉医师",
+      "soc_code_seed": "29-1211",
+      "onet_code_seed": "29-1211.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 7,
+      "seed_ordinal": 496,
+      "slug": "high-school-teachers",
+      "title_en": "Secondary School Teachers, Except Special and Career/Technical Education",
+      "title_zh_seed": "高中教师（不含特殊与职业技术教育）职业诊断",
+      "soc_code_seed": "25-2031",
+      "onet_code_seed": "25-2031.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 8,
+      "seed_ordinal": 9,
+      "slug": "administrative-services-managers",
+      "title_en": "Administrative Services Managers",
+      "title_zh_seed": "行政服务经理",
+      "soc_code_seed": "11-3012",
+      "onet_code_seed": "11-3012.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 9,
+      "seed_ordinal": 14,
+      "slug": "advertising-sales-agents",
+      "title_en": "Advertising Sales Agents",
+      "title_zh_seed": "广告销售代表适合谁？",
+      "soc_code_seed": "41-3011",
+      "onet_code_seed": "41-3011.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 10,
+      "seed_ordinal": 66,
+      "slug": "art-directors",
+      "title_en": "Art directors",
+      "title_zh_seed": "艺术总监适合谁？",
+      "soc_code_seed": "27-1011",
+      "onet_code_seed": "27-1011.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 11,
+      "seed_ordinal": 34,
+      "slug": "aircraft-mechanics-and-service-technicians",
+      "title_en": "Aircraft Mechanics And Service Technicians",
+      "title_zh_seed": "飞机机械师技术员",
+      "soc_code_seed": "49-3011",
+      "onet_code_seed": "49-3011.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 12,
+      "seed_ordinal": 306,
+      "slug": "electricians",
+      "title_en": "Electricians",
+      "title_zh_seed": "其他职业",
+      "soc_code_seed": "47-2111",
+      "onet_code_seed": "47-2111.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 13,
+      "seed_ordinal": 146,
+      "slug": "cashiers",
+      "title_en": "Cashiers",
+      "title_zh_seed": "收银员适合谁？",
+      "soc_code_seed": "41-2011",
+      "onet_code_seed": "41-2011.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 14,
+      "seed_ordinal": 1021,
+      "slug": "waiters-and-waitresses",
+      "title_en": "Waiters And Waitresses",
+      "title_zh_seed": "服务员",
+      "soc_code_seed": "35-3031",
+      "onet_code_seed": "35-3031.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 15,
+      "seed_ordinal": 252,
+      "slug": "data-scientists",
+      "title_en": "Data scientists",
+      "title_zh_seed": "数据科学家",
+      "soc_code_seed": "15-2051",
+      "onet_code_seed": "15-2051.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 16,
+      "seed_ordinal": 1030,
+      "slug": "web-developers",
+      "title_en": "Web Developers",
+      "title_zh_seed": "网页开发人员",
+      "soc_code_seed": "15-1254",
+      "onet_code_seed": "15-1254.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 17,
+      "seed_ordinal": 197,
+      "slug": "computer-programmers",
+      "title_en": "Computer programmers",
+      "title_zh_seed": "计算机程序员",
+      "soc_code_seed": null,
+      "onet_code_seed": null,
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 18,
+      "seed_ordinal": 808,
+      "slug": "project-management-specialists",
+      "title_en": "Project management specialists",
+      "title_zh_seed": "项目管理专员",
+      "soc_code_seed": "13-1082",
+      "onet_code_seed": "13-1082.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 19,
+      "seed_ordinal": 26,
+      "slug": "agricultural-workers",
+      "title_en": "Agricultural Workers",
+      "title_zh_seed": "农业从业人员",
+      "soc_code_seed": "45-2092",
+      "onet_code_seed": "45-2092.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 20,
+      "seed_ordinal": 47,
+      "slug": "animal-caretakers",
+      "title_en": "Animal Caretakers",
+      "title_zh_seed": "动物照护员",
+      "soc_code_seed": "39-2021",
+      "onet_code_seed": "39-2021.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 21,
+      "seed_ordinal": 57,
+      "slug": "architects-except-landscape-and-naval",
+      "title_en": "Architects, Except Landscape And Naval",
+      "title_zh_seed": "建筑师、景观船舶",
+      "soc_code_seed": "17-1011",
+      "onet_code_seed": "17-1011.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 22,
+      "seed_ordinal": 39,
+      "slug": "airline-pilots-copilots-and-flight-engineers",
+      "title_en": "Airline Pilots, Copilots, And Flight Engineers",
+      "title_zh_seed": "工程师",
+      "soc_code_seed": "53-2011",
+      "onet_code_seed": "53-2011.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 23,
+      "seed_ordinal": 29,
+      "slug": "air-traffic-controllers",
+      "title_en": "Air Traffic Controllers",
+      "title_zh_seed": "空中交通管制员职业诊断",
+      "soc_code_seed": "53-2021",
+      "onet_code_seed": "53-2021.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 24,
+      "seed_ordinal": 669,
+      "slug": "music-therapists",
+      "title_en": "Music Therapists",
+      "title_zh_seed": "治疗师",
+      "soc_code_seed": "29-1129",
+      "onet_code_seed": "29-1129.02",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 25,
+      "seed_ordinal": 955,
+      "slug": "surgical-technologists",
+      "title_en": "Surgical Technologists",
+      "title_zh_seed": "技术专家",
+      "soc_code_seed": "29-2055",
+      "onet_code_seed": "29-2055.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 26,
+      "seed_ordinal": 163,
+      "slug": "civil-engineers",
+      "title_en": "Civil engineers",
+      "title_zh_seed": "土木工程师职业诊断",
+      "soc_code_seed": "17-2051",
+      "onet_code_seed": "17-2051.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 27,
+      "seed_ordinal": 621,
+      "slug": "mechanical-engineers",
+      "title_en": "Mechanical engineers",
+      "title_zh_seed": "机械工程师",
+      "soc_code_seed": null,
+      "onet_code_seed": null,
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 28,
+      "seed_ordinal": 311,
+      "slug": "elementary-school-teachers-except-special-education",
+      "title_en": "Elementary School Teachers, Except Special Education",
+      "title_zh_seed": "教育教师",
+      "soc_code_seed": "25-2021",
+      "onet_code_seed": "25-2021.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 29,
+      "seed_ordinal": 880,
+      "slug": "sales-representatives-wholesale-and-manufacturing-except-technical-and-scientific-products",
+      "title_en": "Sales Representatives, Wholesale And Manufacturing, Except Technical And Scientific Products",
+      "title_zh_seed": "销售代表、批发制造、产品",
+      "soc_code_seed": "41-4012",
+      "onet_code_seed": "41-4012.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 30,
+      "seed_ordinal": 148,
+      "slug": "chefs-and-head-cooks",
+      "title_en": "Chefs and head cooks",
+      "title_zh_seed": "主厨与厨师长适合谁？",
+      "soc_code_seed": "35-1011",
+      "onet_code_seed": "35-1011.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 31,
+      "seed_ordinal": 3,
+      "slug": "actuaries",
+      "title_en": "Actuaries",
+      "title_zh_seed": "精算师职业诊断",
+      "soc_code_seed": "15-2011",
+      "onet_code_seed": "15-2011.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 32,
+      "seed_ordinal": 4,
+      "slug": "acupuncturists",
+      "title_en": "Acupuncturists",
+      "title_zh_seed": "针灸师",
+      "soc_code_seed": "29-1291",
+      "onet_code_seed": "29-1291.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 33,
+      "seed_ordinal": 5,
+      "slug": "acute-care-nurses",
+      "title_en": "Acute Care Nurses",
+      "title_zh_seed": "急症护理护士",
+      "soc_code_seed": "29-1141",
+      "onet_code_seed": "29-1141.01",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 34,
+      "seed_ordinal": 6,
+      "slug": "adapted-physical-education-specialists",
+      "title_en": "Adapted Physical Education Specialists",
+      "title_zh_seed": "专家教育",
+      "soc_code_seed": "25-2059",
+      "onet_code_seed": "25-2059.01",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 35,
+      "seed_ordinal": 7,
+      "slug": "adhesive-bonding-machine-operators-and-tenders",
+      "title_en": "Adhesive Bonding Machine Operators And Tenders",
+      "title_zh_seed": "机器操作员看护员",
+      "soc_code_seed": "51-9191",
+      "onet_code_seed": "51-9191.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 36,
+      "seed_ordinal": 8,
+      "slug": "administrative-law-judges-adjudicators-and-hearing-officers",
+      "title_en": "Administrative Law Judges, Adjudicators, And Hearing Officers",
+      "title_zh_seed": "行政法官、官",
+      "soc_code_seed": "23-1021",
+      "onet_code_seed": "23-1021.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 37,
+      "seed_ordinal": 10,
+      "slug": "adult-literacy-and-ged-teachers",
+      "title_en": "Adult Basic and Secondary Education and ESL Teachers",
+      "title_zh_seed": "成人基础与中等教育及ESL教师适合谁？",
+      "soc_code_seed": "25-3011",
+      "onet_code_seed": "25-3011.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 38,
+      "seed_ordinal": 11,
+      "slug": "adult-basic-education-adult-secondary-education-and-english-as-a-second-language-instructors",
+      "title_en": "Adult Basic Education, Adult Secondary Education, And English As A Second Language Instructors",
+      "title_zh_seed": "成人基础教育、成人中等教育、英语作为第二语言",
+      "soc_code_seed": "25-3011",
+      "onet_code_seed": "25-3011.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 39,
+      "seed_ordinal": 12,
+      "slug": "advanced-practice-psychiatric-nurses",
+      "title_en": "Advanced Practice Psychiatric Nurses",
+      "title_zh_seed": "精神科护士",
+      "soc_code_seed": "29-1141",
+      "onet_code_seed": "29-1141.02",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 40,
+      "seed_ordinal": 13,
+      "slug": "advertising-and-promotions-managers",
+      "title_en": "Advertising And Promotions Managers",
+      "title_zh_seed": "广告与促销经理",
+      "soc_code_seed": "11-2011",
+      "onet_code_seed": "11-2011.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 41,
+      "seed_ordinal": 15,
+      "slug": "advertising-promotions-and-marketing-managers",
+      "title_en": "Advertising, Promotions, and Marketing Managers",
+      "title_zh_seed": "广告、促销与市场经理适合谁？",
+      "soc_code_seed": "11-2021",
+      "onet_code_seed": "11-2021.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 42,
+      "seed_ordinal": 16,
+      "slug": "aerospace-engineering-and-operations-technicians",
+      "title_en": "Aerospace Engineering and Operations Technologists and Technicians",
+      "title_zh_seed": "航空航天工程与运营技术员适合谁？",
+      "soc_code_seed": "17-3021",
+      "onet_code_seed": "17-3021.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 43,
+      "seed_ordinal": 18,
+      "slug": "agents-and-business-managers-of-artists-performers-and-athletes",
+      "title_en": "Agents And Business Managers Of Artists, Performers, And Athletes",
+      "title_zh_seed": "经理商业",
+      "soc_code_seed": "13-1011",
+      "onet_code_seed": "13-1011.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 44,
+      "seed_ordinal": 19,
+      "slug": "agricultural-and-food-science-technicians",
+      "title_en": "Agricultural and Food Science Technicians",
+      "title_zh_seed": "农业与食品科学技术员适合谁？",
+      "soc_code_seed": "19-4012",
+      "onet_code_seed": "19-4012.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 45,
+      "seed_ordinal": 20,
+      "slug": "agricultural-and-food-scientists",
+      "title_en": "Agricultural And Food Scientists",
+      "title_zh_seed": "农业与食品科学家",
+      "soc_code_seed": "19-1012",
+      "onet_code_seed": "19-1012.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 46,
+      "seed_ordinal": 22,
+      "slug": "agricultural-equipment-operators",
+      "title_en": "Agricultural Equipment Operators",
+      "title_zh_seed": "农业操作员",
+      "soc_code_seed": "45-2091",
+      "onet_code_seed": "45-2091.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 47,
+      "seed_ordinal": 23,
+      "slug": "agricultural-inspectors",
+      "title_en": "Agricultural Inspectors",
+      "title_zh_seed": "农业检查员",
+      "soc_code_seed": "45-2011",
+      "onet_code_seed": "45-2011.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 48,
+      "seed_ordinal": 24,
+      "slug": "agricultural-sciences-teachers-postsecondary",
+      "title_en": "Agricultural Sciences Teachers, Postsecondary",
+      "title_zh_seed": "农业教师",
+      "soc_code_seed": "25-1041",
+      "onet_code_seed": "25-1041.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 49,
+      "seed_ordinal": 25,
+      "slug": "agricultural-technicians",
+      "title_en": "Agricultural Technicians",
+      "title_zh_seed": "农业技术员",
+      "soc_code_seed": "19-4012",
+      "onet_code_seed": "19-4012.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 50,
+      "seed_ordinal": 27,
+      "slug": "air-crew-members",
+      "title_en": "Air Crew Members",
+      "title_zh_seed": "机组成员",
+      "soc_code_seed": "55-3011",
+      "onet_code_seed": "55-3011.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 51,
+      "seed_ordinal": 28,
+      "slug": "air-crew-officers",
+      "title_en": "Air Crew Officers",
+      "title_zh_seed": "空勤军官",
+      "soc_code_seed": "55-1011",
+      "onet_code_seed": "55-1011.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 52,
+      "seed_ordinal": 30,
+      "slug": "aircraft-and-avionics-equipment-mechanics-and-technicians",
+      "title_en": "Aircraft and Avionics Equipment Mechanics and Technicians",
+      "title_zh_seed": "飞机与航空电子设备维修技师适合谁？",
+      "soc_code_seed": "49-3011",
+      "onet_code_seed": "49-3011.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 53,
+      "seed_ordinal": 31,
+      "slug": "aircraft-cargo-handling-supervisors",
+      "title_en": "Aircraft Cargo Handling Supervisors",
+      "title_zh_seed": "飞机货物装卸主管",
+      "soc_code_seed": "53-1041",
+      "onet_code_seed": "53-1041.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 54,
+      "seed_ordinal": 32,
+      "slug": "aircraft-launch-and-recovery-officers",
+      "title_en": "Aircraft Launch And Recovery Officers",
+      "title_zh_seed": "飞机官",
+      "soc_code_seed": "55-1012",
+      "onet_code_seed": "55-1012.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 55,
+      "seed_ordinal": 33,
+      "slug": "aircraft-launch-and-recovery-specialists",
+      "title_en": "Aircraft Launch And Recovery Specialists",
+      "title_zh_seed": "飞机专员",
+      "soc_code_seed": "55-3012",
+      "onet_code_seed": "55-3012.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 56,
+      "seed_ordinal": 35,
+      "slug": "aircraft-service-attendants",
+      "title_en": "Aircraft Service Attendants",
+      "title_zh_seed": "飞机服务服务员",
+      "soc_code_seed": "53-6032",
+      "onet_code_seed": "53-6032.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 57,
+      "seed_ordinal": 36,
+      "slug": "aircraft-structure-surfaces-rigging-and-systems-assemblers",
+      "title_en": "Aircraft Structure, Surfaces, Rigging, And Systems Assemblers",
+      "title_zh_seed": "飞机结构、表面、索具、系统装配工",
+      "soc_code_seed": "51-2011",
+      "onet_code_seed": "51-2011.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 58,
+      "seed_ordinal": 37,
+      "slug": "airfield-operations-specialists",
+      "title_en": "Airfield Operations Specialists",
+      "title_zh_seed": "机场运行专员",
+      "soc_code_seed": "53-2022",
+      "onet_code_seed": "53-2022.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 59,
+      "seed_ordinal": 38,
+      "slug": "airline-and-commercial-pilots",
+      "title_en": "Airline and Commercial Pilots",
+      "title_zh_seed": "航空公司与商业飞行员职业诊断",
+      "soc_code_seed": "53-2011",
+      "onet_code_seed": "53-2011.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 60,
+      "seed_ordinal": 40,
+      "slug": "allergists-and-immunologists",
+      "title_en": "Allergists And Immunologists",
+      "title_zh_seed": "过敏专科医师免疫学医师",
+      "soc_code_seed": "29-1229",
+      "onet_code_seed": "29-1229.01",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 61,
+      "seed_ordinal": 41,
+      "slug": "ambulance-drivers-and-attendants-except-emergency-medical-technicians",
+      "title_en": "Ambulance Drivers And Attendants, Except Emergency Medical Technicians",
+      "title_zh_seed": "救护车司机服务员、急诊医疗技术员",
+      "soc_code_seed": "53-3011",
+      "onet_code_seed": "53-3011.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 62,
+      "seed_ordinal": 42,
+      "slug": "amusement-and-recreation-attendants",
+      "title_en": "Amusement And Recreation Attendants",
+      "title_zh_seed": "娱乐与休闲服务员",
+      "soc_code_seed": "39-3091",
+      "onet_code_seed": "39-3091.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 63,
+      "seed_ordinal": 43,
+      "slug": "anesthesiologist-assistants",
+      "title_en": "Anesthesiologist Assistants",
+      "title_zh_seed": "麻醉医师助理",
+      "soc_code_seed": "29-1071",
+      "onet_code_seed": "29-1071.01",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 64,
+      "seed_ordinal": 45,
+      "slug": "animal-breeders",
+      "title_en": "Animal Breeders",
+      "title_zh_seed": "动物饲养员",
+      "soc_code_seed": "45-2021",
+      "onet_code_seed": "45-2021.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 65,
+      "seed_ordinal": 46,
+      "slug": "animal-care-and-service-workers",
+      "title_en": "Animal Care and Service Workers",
+      "title_zh_seed": "动物照护与服务人员适合谁？",
+      "soc_code_seed": "39-2021",
+      "onet_code_seed": "39-2021.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 66,
+      "seed_ordinal": 48,
+      "slug": "animal-control-workers",
+      "title_en": "Animal Control Workers",
+      "title_zh_seed": "动物工人",
+      "soc_code_seed": "33-9011",
+      "onet_code_seed": "33-9011.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 67,
+      "seed_ordinal": 49,
+      "slug": "animal-scientists",
+      "title_en": "Animal Scientists",
+      "title_zh_seed": "动物科学家",
+      "soc_code_seed": "19-1011",
+      "onet_code_seed": "19-1011.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 68,
+      "seed_ordinal": 50,
+      "slug": "animal-trainers",
+      "title_en": "Animal Trainers",
+      "title_zh_seed": "动物训练师",
+      "soc_code_seed": "39-2011",
+      "onet_code_seed": "39-2011.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 69,
+      "seed_ordinal": 51,
+      "slug": "announcers",
+      "title_en": "Broadcast Announcers And Radio Disc Jockeys",
+      "title_zh_seed": "广播主持人与电台DJ",
+      "soc_code_seed": "27-3011",
+      "onet_code_seed": "27-3011.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 70,
+      "seed_ordinal": 52,
+      "slug": "anthropologists-and-archeologists",
+      "title_en": "Anthropologists And Archeologists",
+      "title_zh_seed": "人类学家与考古学家",
+      "soc_code_seed": "19-3091",
+      "onet_code_seed": "19-3091.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 71,
+      "seed_ordinal": 53,
+      "slug": "anthropology-and-archeology-teachers-postsecondary",
+      "title_en": "Anthropology And Archeology Teachers, Postsecondary",
+      "title_zh_seed": "教师、高等教育",
+      "soc_code_seed": "25-1061",
+      "onet_code_seed": "25-1061.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 72,
+      "seed_ordinal": 54,
+      "slug": "appraisers-of-personal-and-business-property",
+      "title_en": "Appraisers Of Personal And Business Property",
+      "title_zh_seed": "个人与商业财产评估师",
+      "soc_code_seed": "13-2022",
+      "onet_code_seed": "13-2022.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 73,
+      "seed_ordinal": 55,
+      "slug": "arbitrators-mediators-and-conciliators",
+      "title_en": "Arbitrators, Mediators, And Conciliators",
+      "title_zh_seed": "仲裁员、调解员与和解员",
+      "soc_code_seed": "23-1022",
+      "onet_code_seed": "23-1022.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 74,
+      "seed_ordinal": 56,
+      "slug": "architects",
+      "title_en": "Architects, Except Landscape and Naval",
+      "title_zh_seed": "建筑师（不含景观与船舶）职业诊断",
+      "soc_code_seed": "17-1011",
+      "onet_code_seed": "17-1011.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 75,
+      "seed_ordinal": 58,
+      "slug": "architectural-and-civil-drafters",
+      "title_en": "Architectural And Civil Drafters",
+      "title_zh_seed": "建筑土木制图员",
+      "soc_code_seed": "17-3011",
+      "onet_code_seed": "17-3011.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 76,
+      "seed_ordinal": 59,
+      "slug": "architectural-and-engineering-managers",
+      "title_en": "Architectural and engineering managers",
+      "title_zh_seed": "建筑与工程经理职业诊断",
+      "soc_code_seed": "11-9041",
+      "onet_code_seed": "11-9041.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 77,
+      "seed_ordinal": 60,
+      "slug": "architecture-teachers-postsecondary",
+      "title_en": "Architecture Teachers, Postsecondary",
+      "title_zh_seed": "建筑教师",
+      "soc_code_seed": "25-1031",
+      "onet_code_seed": "25-1031.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 78,
+      "seed_ordinal": 61,
+      "slug": "archivists",
+      "title_en": "Archivists",
+      "title_zh_seed": "档案管理员",
+      "soc_code_seed": "25-4011",
+      "onet_code_seed": "25-4011.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 79,
+      "seed_ordinal": 62,
+      "slug": "curators-museum-technicians-and-conservators",
+      "title_en": "Curators",
+      "title_zh_seed": "策展人",
+      "soc_code_seed": "25-4012",
+      "onet_code_seed": "25-4012.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 80,
+      "seed_ordinal": 63,
+      "slug": "area-ethnic-and-cultural-studies-teachers-postsecondary",
+      "title_en": "Area, Ethnic, And Cultural Studies Teachers, Postsecondary",
+      "title_zh_seed": "教师、高等教育",
+      "soc_code_seed": "25-1062",
+      "onet_code_seed": "25-1062.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 81,
+      "seed_ordinal": 64,
+      "slug": "armored-assault-vehicle-crew-members",
+      "title_en": "Armored Assault Vehicle Crew Members",
+      "title_zh_seed": "装甲突击车辆成员",
+      "soc_code_seed": "55-3013",
+      "onet_code_seed": "55-3013.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 82,
+      "seed_ordinal": 65,
+      "slug": "armored-assault-vehicle-officers",
+      "title_en": "Armored Assault Vehicle Officers",
+      "title_zh_seed": "装甲突击车辆官",
+      "soc_code_seed": "55-1013",
+      "onet_code_seed": "55-1013.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 83,
+      "seed_ordinal": 67,
+      "slug": "art-therapists",
+      "title_en": "Art Therapists",
+      "title_zh_seed": "治疗师",
+      "soc_code_seed": "29-1129",
+      "onet_code_seed": "29-1129.01",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 84,
+      "seed_ordinal": 68,
+      "slug": "art-drama-and-music-teachers-postsecondary",
+      "title_en": "Art, Drama, And Music Teachers, Postsecondary",
+      "title_zh_seed": "教师、高等教育",
+      "soc_code_seed": "25-1121",
+      "onet_code_seed": "25-1121.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 85,
+      "seed_ordinal": 69,
+      "slug": "artillery-and-missile-crew-members",
+      "title_en": "Artillery And Missile Crew Members",
+      "title_zh_seed": "火炮导弹成员",
+      "soc_code_seed": "55-3014",
+      "onet_code_seed": "55-3014.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 86,
+      "seed_ordinal": 70,
+      "slug": "artillery-and-missile-officers",
+      "title_en": "Artillery And Missile Officers",
+      "title_zh_seed": "火炮导弹官",
+      "soc_code_seed": "55-1014",
+      "onet_code_seed": "55-1014.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 87,
+      "seed_ordinal": 71,
+      "slug": "assemblers-and-fabricators",
+      "title_en": "Team Assemblers",
+      "title_zh_seed": "团队装配工",
+      "soc_code_seed": "51-2092",
+      "onet_code_seed": "51-2092.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 88,
+      "seed_ordinal": 72,
+      "slug": "astronomers",
+      "title_en": "Astronomers",
+      "title_zh_seed": "其他职业",
+      "soc_code_seed": "19-2011",
+      "onet_code_seed": "19-2011.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 89,
+      "seed_ordinal": 73,
+      "slug": "athletes-and-sports-competitors",
+      "title_en": "Athletes And Sports Competitors",
+      "title_zh_seed": "运动员与体育竞赛选手",
+      "soc_code_seed": "27-2021",
+      "onet_code_seed": "27-2021.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 90,
+      "seed_ordinal": 74,
+      "slug": "athletic-trainers",
+      "title_en": "Athletic Trainers",
+      "title_zh_seed": "运动训练师",
+      "soc_code_seed": "29-9091",
+      "onet_code_seed": "29-9091.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 91,
+      "seed_ordinal": 75,
+      "slug": "atmospheric-and-space-scientists",
+      "title_en": "Atmospheric And Space Scientists",
+      "title_zh_seed": "大气与空间科学家",
+      "soc_code_seed": "19-2021",
+      "onet_code_seed": "19-2021.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 92,
+      "seed_ordinal": 76,
+      "slug": "atmospheric-scientists-including-meteorologists",
+      "title_en": "Atmospheric Scientists, Including Meteorologists",
+      "title_zh_seed": "大气科学家（含气象学家）",
+      "soc_code_seed": "19-2021",
+      "onet_code_seed": "19-2021.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 93,
+      "seed_ordinal": 77,
+      "slug": "atmospheric-earth-marine-and-space-sciences-teachers-postsecondary",
+      "title_en": "Atmospheric, Earth, Marine, And Space Sciences Teachers, Postsecondary",
+      "title_zh_seed": "土方、船舶、教师、高等教育",
+      "soc_code_seed": "25-1051",
+      "onet_code_seed": "25-1051.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 94,
+      "seed_ordinal": 78,
+      "slug": "audio-and-video-technicians",
+      "title_en": "Audio And Video Technicians",
+      "title_zh_seed": "音频视频技术员",
+      "soc_code_seed": "27-4011",
+      "onet_code_seed": "27-4011.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 95,
+      "seed_ordinal": 79,
+      "slug": "audiologists",
+      "title_en": "Audiologists",
+      "title_zh_seed": "听力学家",
+      "soc_code_seed": "29-1181",
+      "onet_code_seed": "29-1181.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 96,
+      "seed_ordinal": 80,
+      "slug": "audiovisual-equipment-installers-and-repairers",
+      "title_en": "Audiovisual Equipment Installers And Repairers",
+      "title_zh_seed": "设备安装工",
+      "soc_code_seed": "49-2097",
+      "onet_code_seed": "49-2097.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 97,
+      "seed_ordinal": 81,
+      "slug": "automotive-and-watercraft-service-attendants",
+      "title_en": "Automotive And Watercraft Service Attendants",
+      "title_zh_seed": "汽车与船艇服务员",
+      "soc_code_seed": "53-6031",
+      "onet_code_seed": "53-6031.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 98,
+      "seed_ordinal": 82,
+      "slug": "automotive-body-and-glass-repairers",
+      "title_en": "Automotive Body and Related Repairers",
+      "title_zh_seed": "汽车车身及相关维修工适合谁？",
+      "soc_code_seed": "49-3021",
+      "onet_code_seed": "49-3021.00",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 99,
+      "seed_ordinal": 83,
+      "slug": "automotive-engineering-technicians",
+      "title_en": "Automotive Engineering Technicians",
+      "title_zh_seed": "技术员工程",
+      "soc_code_seed": "17-3027",
+      "onet_code_seed": "17-3027.01",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 100,
+      "seed_ordinal": 84,
+      "slug": "automotive-engineers",
+      "title_en": "Automotive Engineers",
+      "title_zh_seed": "工程师",
+      "soc_code_seed": "17-2141",
+      "onet_code_seed": "17-2141.02",
+      "batch_role": "control_100",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 101,
+      "seed_ordinal": 85,
+      "slug": "automotive-glass-installers-and-repairers",
+      "title_en": "Automotive Glass Installers And Repairers",
+      "title_zh_seed": "汽车玻璃安装工",
+      "soc_code_seed": "49-3022",
+      "onet_code_seed": "49-3022.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 102,
+      "seed_ordinal": 86,
+      "slug": "automotive-service-technicians-and-mechanics",
+      "title_en": "Automotive Service Technicians And Mechanics",
+      "title_zh_seed": "汽车维修技师与机械师",
+      "soc_code_seed": "49-3023",
+      "onet_code_seed": "49-3023.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 103,
+      "seed_ordinal": 87,
+      "slug": "aviation-inspectors",
+      "title_en": "Aviation Inspectors",
+      "title_zh_seed": "航空检查员",
+      "soc_code_seed": "53-6051",
+      "onet_code_seed": "53-6051.01",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 104,
+      "seed_ordinal": 88,
+      "slug": "avionics-technicians",
+      "title_en": "Avionics Technicians",
+      "title_zh_seed": "航空电子技术员",
+      "soc_code_seed": "49-2091",
+      "onet_code_seed": "49-2091.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 105,
+      "seed_ordinal": 89,
+      "slug": "baggage-porters-and-bellhops",
+      "title_en": "Baggage Porters And Bellhops",
+      "title_zh_seed": "行李搬运员行李员",
+      "soc_code_seed": "39-6011",
+      "onet_code_seed": "39-6011.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 106,
+      "seed_ordinal": 90,
+      "slug": "bailiffs",
+      "title_en": "Bailiffs",
+      "title_zh_seed": "法警",
+      "soc_code_seed": "33-3011",
+      "onet_code_seed": "33-3011.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 107,
+      "seed_ordinal": 91,
+      "slug": "bakers",
+      "title_en": "Bakers",
+      "title_zh_seed": "面包师",
+      "soc_code_seed": "51-3011",
+      "onet_code_seed": "51-3011.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 108,
+      "seed_ordinal": 92,
+      "slug": "barbers",
+      "title_en": "Barbers",
+      "title_zh_seed": "理发师",
+      "soc_code_seed": "39-5011",
+      "onet_code_seed": "39-5011.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 109,
+      "seed_ordinal": 93,
+      "slug": "barbers-hairstylists-and-cosmetologists",
+      "title_en": "Hairdressers, Hairstylists, And Cosmetologists",
+      "title_zh_seed": "美发师、发型师与美容师",
+      "soc_code_seed": "39-5012",
+      "onet_code_seed": "39-5012.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 110,
+      "seed_ordinal": 94,
+      "slug": "baristas",
+      "title_en": "Baristas",
+      "title_zh_seed": "咖啡师",
+      "soc_code_seed": "35-3023",
+      "onet_code_seed": "35-3023.01",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 111,
+      "seed_ordinal": 95,
+      "slug": "bartenders",
+      "title_en": "Bartenders",
+      "title_zh_seed": "调酒师",
+      "soc_code_seed": "35-3011",
+      "onet_code_seed": "35-3011.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 112,
+      "seed_ordinal": 96,
+      "slug": "bicycle-repairers",
+      "title_en": "Bicycle Repairers",
+      "title_zh_seed": "自行车修理工",
+      "soc_code_seed": "49-3091",
+      "onet_code_seed": "49-3091.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 113,
+      "seed_ordinal": 97,
+      "slug": "bill-and-account-collectors",
+      "title_en": "Bill and account collectors",
+      "title_zh_seed": "账单与账款催收员适合谁？",
+      "soc_code_seed": "43-3011",
+      "onet_code_seed": "43-3011.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 114,
+      "seed_ordinal": 98,
+      "slug": "billing-and-posting-clerks",
+      "title_en": "Billing And Posting Clerks",
+      "title_zh_seed": "账单过账文员",
+      "soc_code_seed": "43-3021",
+      "onet_code_seed": "43-3021.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 115,
+      "seed_ordinal": 99,
+      "slug": "biochemists-and-biophysicists",
+      "title_en": "Biochemists and biophysicists",
+      "title_zh_seed": "生物化学家与生物物理学家适合谁？",
+      "soc_code_seed": "19-1021",
+      "onet_code_seed": "19-1021.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 116,
+      "seed_ordinal": 100,
+      "slug": "biomedical-engineers",
+      "title_en": "Bioengineers and biomedical engineers",
+      "title_zh_seed": "生物工程师与生物医学工程师职业诊断",
+      "soc_code_seed": "17-2031",
+      "onet_code_seed": "17-2031.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 117,
+      "seed_ordinal": 101,
+      "slug": "biofuels-processing-technicians",
+      "title_en": "Biofuels Processing Technicians",
+      "title_zh_seed": "生物燃料加工技术员",
+      "soc_code_seed": "51-8099",
+      "onet_code_seed": "51-8099.01",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 118,
+      "seed_ordinal": 102,
+      "slug": "biofuels-production-managers",
+      "title_en": "Biofuels Production Managers",
+      "title_zh_seed": "生产经理",
+      "soc_code_seed": "11-3051",
+      "onet_code_seed": "11-3051.03",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 119,
+      "seed_ordinal": 103,
+      "slug": "biofuels-biodiesel-technology-and-product-development-managers",
+      "title_en": "Biofuels/Biodiesel Technology And Product Development Managers",
+      "title_zh_seed": "经理",
+      "soc_code_seed": "11-9041",
+      "onet_code_seed": "11-9041.01",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 120,
+      "seed_ordinal": 104,
+      "slug": "bioinformatics-scientists",
+      "title_en": "Bioinformatics Scientists",
+      "title_zh_seed": "生物信息学科学家",
+      "soc_code_seed": "19-1029",
+      "onet_code_seed": "19-1029.01",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 121,
+      "seed_ordinal": 105,
+      "slug": "bioinformatics-technicians",
+      "title_en": "Bioinformatics Technicians",
+      "title_zh_seed": "生物信息技术员",
+      "soc_code_seed": "15-2099",
+      "onet_code_seed": "15-2099.01",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 122,
+      "seed_ordinal": 106,
+      "slug": "biological-science-teachers-postsecondary",
+      "title_en": "Biological Science Teachers, Postsecondary",
+      "title_zh_seed": "高校生物科学教师",
+      "soc_code_seed": "25-1042",
+      "onet_code_seed": "25-1042.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 123,
+      "seed_ordinal": 107,
+      "slug": "biological-technicians",
+      "title_en": "Biological Technicians",
+      "title_zh_seed": "生物技术员",
+      "soc_code_seed": "19-4021",
+      "onet_code_seed": "19-4021.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 124,
+      "seed_ordinal": 108,
+      "slug": "biologists",
+      "title_en": "Biologists",
+      "title_zh_seed": "生物学家",
+      "soc_code_seed": "19-1029",
+      "onet_code_seed": "19-1029.04",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 125,
+      "seed_ordinal": 109,
+      "slug": "biomass-plant-technicians",
+      "title_en": "Biomass Plant Technicians",
+      "title_zh_seed": "生物质电厂技术员",
+      "soc_code_seed": "51-8013",
+      "onet_code_seed": "51-8013.03",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 126,
+      "seed_ordinal": 110,
+      "slug": "biomass-power-plant-managers",
+      "title_en": "Biomass Power Plant Managers",
+      "title_zh_seed": "电力经理",
+      "soc_code_seed": "11-3051",
+      "onet_code_seed": "11-3051.04",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 127,
+      "seed_ordinal": 111,
+      "slug": "biostatisticians",
+      "title_en": "Biostatisticians",
+      "title_zh_seed": "生物统计学家",
+      "soc_code_seed": "15-2041",
+      "onet_code_seed": "15-2041.01",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 128,
+      "seed_ordinal": 112,
+      "slug": "blockchain-engineers",
+      "title_en": "Blockchain Engineers",
+      "title_zh_seed": "工程师",
+      "soc_code_seed": "15-1299",
+      "onet_code_seed": "15-1299.07",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 129,
+      "seed_ordinal": 113,
+      "slug": "boilermakers",
+      "title_en": "Boilermakers",
+      "title_zh_seed": "锅炉制造与安装工",
+      "soc_code_seed": "47-2011",
+      "onet_code_seed": "47-2011.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 130,
+      "seed_ordinal": 114,
+      "slug": "bookkeeping-accounting-and-auditing-clerks",
+      "title_en": "Bookkeeping, accounting, and auditing clerks",
+      "title_zh_seed": "簿记、会计与审计文员适合谁？",
+      "soc_code_seed": "43-3031",
+      "onet_code_seed": "43-3031.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 131,
+      "seed_ordinal": 115,
+      "slug": "brickmasons-and-blockmasons",
+      "title_en": "Brickmasons And Blockmasons",
+      "title_zh_seed": "砖石与砌块工",
+      "soc_code_seed": "47-2021",
+      "onet_code_seed": "47-2021.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 132,
+      "seed_ordinal": 116,
+      "slug": "bridge-and-lock-tenders",
+      "title_en": "Bridge And Lock Tenders",
+      "title_zh_seed": "桥梁与船闸操作员",
+      "soc_code_seed": "53-6011",
+      "onet_code_seed": "53-6011.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 133,
+      "seed_ordinal": 117,
+      "slug": "broadcast-announcers-and-radio-disc-jockeys",
+      "title_en": "Broadcast Announcers And Radio Disc Jockeys",
+      "title_zh_seed": "广播主持人电台唱片唱片骑师",
+      "soc_code_seed": "27-3011",
+      "onet_code_seed": "27-3011.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 134,
+      "seed_ordinal": 118,
+      "slug": "broadcast-technicians",
+      "title_en": "Broadcast Technicians",
+      "title_zh_seed": "广播技术员",
+      "soc_code_seed": "27-4012",
+      "onet_code_seed": "27-4012.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 135,
+      "seed_ordinal": 119,
+      "slug": "broadcast-and-sound-engineering-technicians",
+      "title_en": "Audio And Video Technicians",
+      "title_zh_seed": "音频与视频技术员",
+      "soc_code_seed": "27-4011",
+      "onet_code_seed": "27-4011.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 136,
+      "seed_ordinal": 120,
+      "slug": "brokerage-clerks",
+      "title_en": "Brokerage Clerks",
+      "title_zh_seed": "经纪文员",
+      "soc_code_seed": "43-4011",
+      "onet_code_seed": "43-4011.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 137,
+      "seed_ordinal": 121,
+      "slug": "brownfield-redevelopment-specialists-and-site-managers",
+      "title_en": "Brownfield Redevelopment Specialists And Site Managers",
+      "title_zh_seed": "专家经理",
+      "soc_code_seed": "11-9199",
+      "onet_code_seed": "11-9199.11",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 138,
+      "seed_ordinal": 122,
+      "slug": "budget-analysts",
+      "title_en": "Budget analysts",
+      "title_zh_seed": "预算分析师职业诊断",
+      "soc_code_seed": "13-2031",
+      "onet_code_seed": "13-2031.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 139,
+      "seed_ordinal": 123,
+      "slug": "bus-and-truck-mechanics-and-diesel-engine-specialists",
+      "title_en": "Bus And Truck Mechanics And Diesel Engine Specialists",
+      "title_zh_seed": "公交卡车机械师发动机专员",
+      "soc_code_seed": "49-3031",
+      "onet_code_seed": "49-3031.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 140,
+      "seed_ordinal": 124,
+      "slug": "bus-drivers",
+      "title_en": "Bus Drivers, Transit And Intercity",
+      "title_zh_seed": "公交与城际巴士司机",
+      "soc_code_seed": "53-3052",
+      "onet_code_seed": "53-3052.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 141,
+      "seed_ordinal": 125,
+      "slug": "bus-drivers-school",
+      "title_en": "Bus Drivers, School",
+      "title_zh_seed": "公交司机",
+      "soc_code_seed": "53-3051",
+      "onet_code_seed": "53-3051.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 142,
+      "seed_ordinal": 126,
+      "slug": "bus-drivers-transit-and-intercity",
+      "title_en": "Bus Drivers, Transit And Intercity",
+      "title_zh_seed": "公交司机、公交",
+      "soc_code_seed": "53-3052",
+      "onet_code_seed": "53-3052.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 143,
+      "seed_ordinal": 127,
+      "slug": "business-continuity-planners",
+      "title_en": "Business Continuity Planners",
+      "title_zh_seed": "业务连续性规划师",
+      "soc_code_seed": "13-1199",
+      "onet_code_seed": "13-1199.04",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 144,
+      "seed_ordinal": 128,
+      "slug": "business-intelligence-analysts",
+      "title_en": "Business Intelligence Analysts",
+      "title_zh_seed": "分析师商业",
+      "soc_code_seed": "15-2051",
+      "onet_code_seed": "15-2051.01",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 145,
+      "seed_ordinal": 129,
+      "slug": "business-teachers-postsecondary",
+      "title_en": "Business Teachers, Postsecondary",
+      "title_zh_seed": "教师商业",
+      "soc_code_seed": "25-1011",
+      "onet_code_seed": "25-1011.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 146,
+      "seed_ordinal": 130,
+      "slug": "butchers-and-meat-cutters",
+      "title_en": "Butchers And Meat Cutters",
+      "title_zh_seed": "屠宰工肉类切割工",
+      "soc_code_seed": "51-3021",
+      "onet_code_seed": "51-3021.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 147,
+      "seed_ordinal": 131,
+      "slug": "buyers-and-purchasing-agents-farm-products",
+      "title_en": "Buyers And Purchasing Agents, Farm Products",
+      "title_zh_seed": "采购员采购、农场产品",
+      "soc_code_seed": "13-1021",
+      "onet_code_seed": "13-1021.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 148,
+      "seed_ordinal": 132,
+      "slug": "cabinetmakers-and-bench-carpenters",
+      "title_en": "Cabinetmakers And Bench Carpenters",
+      "title_zh_seed": "橱柜制造工台架木工",
+      "soc_code_seed": "51-7011",
+      "onet_code_seed": "51-7011.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 149,
+      "seed_ordinal": 133,
+      "slug": "calibration-technologists-and-technicians",
+      "title_en": "Calibration Technologists And Technicians",
+      "title_zh_seed": "校准技术员",
+      "soc_code_seed": "17-3028",
+      "onet_code_seed": "17-3028.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 150,
+      "seed_ordinal": 134,
+      "slug": "camera-and-photographic-equipment-repairers",
+      "title_en": "Camera And Photographic Equipment Repairers",
+      "title_zh_seed": "摄像设备",
+      "soc_code_seed": "49-9061",
+      "onet_code_seed": "49-9061.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    }
+  ]
+}
