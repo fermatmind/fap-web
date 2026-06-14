@@ -1991,6 +1991,15 @@ const LEGACY_CI_EMPTY_DIFF_SCOPE_SENTINEL_FILES = new Set([
   "tests/contracts/personality-big-five-v1-noindex-render.contract.test.ts",
 ]);
 
+const PERSONALITY_SEO_POST_DEPLOY_INDEXATION_AUDIT_01_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train-state.json",
+  "docs/codex/pr-train.yaml",
+  "docs/seo/generated/personality-seo-post-deploy-indexation-audit-01.v1.json",
+  "docs/seo/personality-seo-post-deploy-indexation-audit-01.md",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/personality-seo-post-deploy-indexation-audit-01.contract.test.ts",
+]);
+
 const PERSONALITY_HUB_32_VARIANTS_01_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/personality/[type]/page.tsx",
   "app/(localized)/[locale]/personality/page.tsx",
@@ -2729,9 +2738,17 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (
     (IS_GITHUB_PULL_REQUEST_MERGE_REF || IS_GITHUB_ACTIONS_DETACHED_HEAD) &&
     (PERSONALITY_LLMS_FULL_COMPARISON_REPAIR_01_ALLOWED_FILES.has(file) ||
+      PERSONALITY_SEO_POST_DEPLOY_INDEXATION_AUDIT_01_ALLOWED_FILES.has(file) ||
       LEGACY_CI_EMPTY_DIFF_SCOPE_SENTINEL_FILES.has(file))
   ) {
     return true;
+  }
+
+  if (CURRENT_BRANCH === "codex/personality-seo-post-deploy-indexation-audit-01") {
+    return (
+      PERSONALITY_SEO_POST_DEPLOY_INDEXATION_AUDIT_01_ALLOWED_FILES.has(file) ||
+      LEGACY_CI_EMPTY_DIFF_SCOPE_SENTINEL_FILES.has(file)
+    );
   }
 
   if (CURRENT_BRANCH === "codex/personality-big5-v1-noindex-render-01") {

@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-14T14:14:53+08:00",
+  "updated_at": "2026-06-14T14:32:20+08:00",
   "status": "active",
   "phase": "result_p0_pdf_leak_hardening_02",
   "pr_namespace": "PR-PRAC-*",
@@ -23553,12 +23553,12 @@
       "id": "PERSONALITY-LLMS-FULL-COMPARISON-REPAIR-01",
       "repo": "fap-web",
       "branch": "codex/personality-llms-full-comparison-repair-01",
-      "status": "ready_to_merge",
-      "commit_sha": "dc9fae71344e1e919427d49c3006cdedd3aec840",
+      "status": "merged",
+      "commit_sha": "965af83206299260acd498b3bb7cb89142c538fd",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1144",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-14T06:18:41Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "failure_reason": null,
       "checks": {
         "authorization": {
@@ -23627,6 +23627,11 @@
           "at": "2026-06-14T14:14:53+08:00",
           "status": "ready_to_merge",
           "note": "GitHub checks passed on PR #1144 head dc9fae71344e1e919427d49c3006cdedd3aec840 and the PR is ready for squash merge if repo policy allows."
+        },
+        {
+          "at": "2026-06-14T14:24:21+08:00",
+          "status": "merged",
+          "note": "Reconciled PR #1144 as merged at 2026-06-14T06:18:41Z with squash merge commit 965af83206299260acd498b3bb7cb89142c538fd; remote branch deletion and local post-merge cleanup were verified."
         }
       ]
     },
@@ -23634,21 +23639,37 @@
       "id": "PERSONALITY-SEO-POST-DEPLOY-INDEXATION-AUDIT-01",
       "repo": "fap-web",
       "branch": "codex/personality-seo-post-deploy-indexation-audit-01",
-      "status": "blocked_dependency",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "ready_to_merge",
+      "commit_sha": "7eccd5a48a1a9000c30072b18dd102538fccf137",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1145",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "failure_reason": "Blocked until PERSONALITY-LLMS-FULL-COMPARISON-REPAIR-01 is merged and post-merge revalidated.",
+      "failure_reason": null,
       "checks": {
         "authorization": {
           "status": "pass",
           "evidence": "User explicitly authorized adding and executing this audit after PERSONALITY-LLMS-FULL-COMPARISON-REPAIR-01."
         },
         "dependency": {
-          "status": "blocked",
-          "evidence": "Depends on PERSONALITY-LLMS-FULL-COMPARISON-REPAIR-01."
+          "status": "pass",
+          "evidence": "PERSONALITY-LLMS-FULL-COMPARISON-REPAIR-01 merged in fap-web PR #1144 as 965af83206299260acd498b3bb7cb89142c538fd and post-merge focused revalidation passed."
+        },
+        "scope": {
+          "status": "pass",
+          "evidence": "Changed files are limited to docs/seo/personality-seo-post-deploy-indexation-audit-01.md, docs/seo/generated/personality-seo-post-deploy-indexation-audit-01.v1.json, tests/contracts/personality-seo-post-deploy-indexation-audit-01.contract.test.ts, tests/contracts/helpers/currentPrScope.ts, and docs/codex PR-train metadata."
+        },
+        "local_validation": {
+          "status": "pass",
+          "evidence": "Passed: public read-only scan for 2 hubs, 64 detail pages, 32 comparison pages, sitemap.xml, llms.txt, and llms-full.txt; pnpm exec vitest run tests/contracts/personality-seo-post-deploy-indexation-audit-01.contract.test.ts; python3 -m json.tool docs/codex/pr-train-state.json >/dev/null; python3 -m json.tool docs/seo/generated/personality-seo-post-deploy-indexation-audit-01.v1.json >/dev/null; ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"; git diff --check; pnpm typecheck; pnpm test:contract -- personality."
+        },
+        "gsc_sampling": {
+          "status": "not_executed_in_repo_pr",
+          "evidence": "No Search Console API credential or verified browser session was available in this repository PR run; artifact records a 12 URL post-deploy URL Inspection sample plan instead of fabricating GSC state."
+        },
+        "github_checks": {
+          "status": "pass",
+          "evidence": "GitHub checks passed on PR #1145 head 7eccd5a48a1a9000c30072b18dd102538fccf137: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL."
         }
       },
       "history": [
@@ -23656,6 +23677,26 @@
           "at": "2026-06-14T13:36:27+08:00",
           "status": "blocked_dependency",
           "note": "Initialized post-deploy indexation audit follow-up; execution deferred until llms-full comparison repair is merged."
+        },
+        {
+          "at": "2026-06-14T14:24:21+08:00",
+          "status": "in_progress",
+          "note": "Started post-deploy indexation audit after reconciling PR #1144 as merged and locally revalidated."
+        },
+        {
+          "at": "2026-06-14T14:27:01+08:00",
+          "status": "local_checks_passed",
+          "note": "Audit artifact and contract were added; public scan found 98/98 URLs HTTP 200, sitemap and llms.txt include 64 detail plus 32 comparison URLs, while live llms-full.txt still has 0/32 comparison URLs pending frontend deploy."
+        },
+        {
+          "at": "2026-06-14T14:28:23+08:00",
+          "status": "pr_open",
+          "note": "Opened fap-web PR #1145 for the post-deploy personality SEO/indexation audit; GitHub checks are pending."
+        },
+        {
+          "at": "2026-06-14T14:32:20+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed on PR #1145 head 7eccd5a48a1a9000c30072b18dd102538fccf137 and the PR is ready for squash merge if repo policy allows."
         }
       ]
     },

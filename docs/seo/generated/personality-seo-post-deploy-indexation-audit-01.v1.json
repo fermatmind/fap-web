@@ -1,0 +1,230 @@
+{
+  "version": "personality_seo_post_deploy_indexation_audit.v1",
+  "pr_id": "PERSONALITY-SEO-POST-DEPLOY-INDEXATION-AUDIT-01",
+  "status": "audit_snapshot",
+  "generated_at": "2026-06-14T06:21:20Z",
+  "site": "https://fermatmind.com",
+  "authority_boundary": {
+    "audit_only": true,
+    "runtime_behavior_changed": false,
+    "frontend_editorial_content_added": false,
+    "cms_mutation_performed": false,
+    "backend_is_personality_content_authority": true,
+    "frontend_must_not_infer_personality_content": true
+  },
+  "target_surface": {
+    "hub_urls": [
+      "https://fermatmind.com/zh/personality",
+      "https://fermatmind.com/en/personality"
+    ],
+    "detail_url_count": 64,
+    "comparison_url_count": 32,
+    "total_public_urls_scanned": 98,
+    "expected_locales": [
+      "zh",
+      "en"
+    ],
+    "expected_base_types": [
+      "intj",
+      "intp",
+      "entj",
+      "entp",
+      "infj",
+      "infp",
+      "enfj",
+      "enfp",
+      "istj",
+      "isfj",
+      "estj",
+      "esfj",
+      "istp",
+      "isfp",
+      "estp",
+      "esfp"
+    ],
+    "expected_variants_per_base": [
+      "a",
+      "t"
+    ],
+    "comparison_pattern": "/{locale}/personality/{base}-a-vs-{base}-t"
+  },
+  "public_http_summary": {
+    "urls_scanned": 98,
+    "ok_200": 98,
+    "non_200": [],
+    "scan_errors": 0
+  },
+  "indexability_summary": {
+    "canonical_missing": 0,
+    "hreflang_missing": 0,
+    "robots_noindex_count": 0,
+    "canonical_self_reference_expected": true,
+    "hreflang_expected_per_page": 3
+  },
+  "discoverability_summary": {
+    "sitemap_xml": {
+      "status": 200,
+      "loc_count": 2315,
+      "detail_urls_present": 64,
+      "comparison_urls_present": 32,
+      "status_label": "pass"
+    },
+    "llms_txt": {
+      "status": 200,
+      "detail_urls_present": 64,
+      "comparison_urls_present": 32,
+      "status_label": "pass"
+    },
+    "llms_full_txt": {
+      "status": 200,
+      "detail_urls_present": 64,
+      "comparison_urls_present": 0,
+      "status_label": "repair_merged_not_live",
+      "expected_after_frontend_deploy": 32,
+      "blocking_pr": "PERSONALITY-LLMS-FULL-COMPARISON-REPAIR-01",
+      "blocking_pr_url": "https://github.com/fermatmind/fap-web/pull/1144",
+      "blocking_pr_merge_commit": "965af83206299260acd498b3bb7cb89142c538fd"
+    }
+  },
+  "structured_data_summary": {
+    "hub_jsonld_types": [
+      "BreadcrumbList",
+      "ItemList",
+      "WebPage"
+    ],
+    "detail_jsonld_types": [
+      "AboutPage",
+      "BreadcrumbList",
+      "WebPage"
+    ],
+    "comparison_jsonld_types": [
+      "BreadcrumbList",
+      "CollectionPage"
+    ],
+    "faq_page_jsonld_missing": 98,
+    "item_list_jsonld_hub_present": true,
+    "comparison_collection_page_jsonld_present": true
+  },
+  "media_summary": {
+    "hub_pages_with_personality_image_missing": 2,
+    "detail_pages_with_personality_image_missing": 64,
+    "comparison_pages_with_personality_image_missing": 32,
+    "total_personality_image_missing": 98,
+    "method_note": "Counts inspect live HTML img tags for personality/type/image alt or source markers. Generic site chrome images are not counted as personality images."
+  },
+  "content_depth_summary": {
+    "minimum_visible_text_length": 2209,
+    "minimum_visible_text_url": "https://fermatmind.com/zh/personality/entp-a-vs-entp-t",
+    "comparison_pages_show_template_risk": true,
+    "sample_lowest_visible_text_pages": [
+      {
+        "url": "https://fermatmind.com/zh/personality/entp-a-vs-entp-t",
+        "visible_text_length": 2209,
+        "title_length": 44,
+        "description_length": 71
+      },
+      {
+        "url": "https://fermatmind.com/zh/personality/esfp-a-vs-esfp-t",
+        "visible_text_length": 2216,
+        "title_length": 44,
+        "description_length": 71
+      },
+      {
+        "url": "https://fermatmind.com/zh/personality/estp-a-vs-estp-t",
+        "visible_text_length": 2243,
+        "title_length": 44,
+        "description_length": 71
+      },
+      {
+        "url": "https://fermatmind.com/zh/personality/infp-a-vs-infp-t",
+        "visible_text_length": 2270,
+        "title_length": 44,
+        "description_length": 71
+      },
+      {
+        "url": "https://fermatmind.com/zh/personality/enfj-a-vs-enfj-t",
+        "visible_text_length": 2273,
+        "title_length": 44,
+        "description_length": 71
+      }
+    ]
+  },
+  "gsc_sampling": {
+    "status": "not_executed_in_repo_pr",
+    "reason": "No Search Console API credential or verified browser session is available inside this repository PR run. Public crawlability checks are recorded here; URL Inspection sampling must be executed with an authenticated Search Console session after deployment.",
+    "required_sample_size": 12,
+    "sample_policy": "2 hubs, 4 detail URLs per locale, and 2 comparison URLs per locale, with at least one recently merged comparison URL.",
+    "sample_urls": [
+      "https://fermatmind.com/zh/personality",
+      "https://fermatmind.com/en/personality",
+      "https://fermatmind.com/zh/personality/intj-a",
+      "https://fermatmind.com/zh/personality/entj-t",
+      "https://fermatmind.com/zh/personality/infp-a",
+      "https://fermatmind.com/zh/personality/esfp-t",
+      "https://fermatmind.com/en/personality/intj-a",
+      "https://fermatmind.com/en/personality/entj-t",
+      "https://fermatmind.com/en/personality/infp-a",
+      "https://fermatmind.com/en/personality/esfp-t",
+      "https://fermatmind.com/zh/personality/intj-a-vs-intj-t",
+      "https://fermatmind.com/en/personality/intj-a-vs-intj-t"
+    ]
+  },
+  "findings": [
+    {
+      "id": "live_llms_full_missing_comparison_urls",
+      "severity": "high",
+      "status": "repair_merged_not_live",
+      "evidence": {
+        "llms_full_detail_urls_present": 64,
+        "llms_full_comparison_urls_present": 0,
+        "expected_comparison_urls": 32,
+        "repair_pr": "https://github.com/fermatmind/fap-web/pull/1144"
+      },
+      "recommended_next_action": "Deploy frontend containing merge commit 965af83206299260acd498b3bb7cb89142c538fd, then re-run llms-full public scan."
+    },
+    {
+      "id": "gsc_url_inspection_not_sampled",
+      "severity": "medium",
+      "status": "requires_authenticated_search_console",
+      "evidence": {
+        "public_http_ok": 98,
+        "canonical_missing": 0,
+        "hreflang_missing": 0,
+        "robots_noindex_count": 0
+      },
+      "recommended_next_action": "Run the recorded 12 URL sample in Google Search Console URL Inspection after the llms-full repair is live."
+    },
+    {
+      "id": "faq_semantic_surface_missing",
+      "severity": "high",
+      "status": "open_follow_up",
+      "evidence": {
+        "faq_page_jsonld_missing": 98
+      },
+      "recommended_next_action": "Execute backend-authoritative visible FAQ and FAQPage JSON-LD PR for detail/comparison surfaces."
+    },
+    {
+      "id": "personality_images_missing_from_live_html",
+      "severity": "high",
+      "status": "open_follow_up",
+      "evidence": {
+        "total_personality_image_missing": 98
+      },
+      "recommended_next_action": "Verify image HTML output after frontend media render deployment and add post-deploy checks."
+    }
+  ],
+  "repository_rule_impact": {
+    "content_authority_changed": false,
+    "sitemap_or_llms_enumeration_changed": false,
+    "frontend_fallback_behavior_changed": false,
+    "runtime_behavior_changed": false,
+    "rules_update_required": false
+  },
+  "deferred_items": [
+    "Deploy PR #1144 to production before asserting live llms-full comparison coverage.",
+    "Run authenticated Google Search Console URL Inspection sample.",
+    "Do not add frontend-authored personality copy in this audit PR.",
+    "Do not mutate CMS/backend personality content in this audit PR.",
+    "Do not change sitemap, llms.txt, or llms-full runtime code in this audit PR."
+  ]
+}
