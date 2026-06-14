@@ -1955,6 +1955,14 @@ const PERSONALITY_COMPARISON_PAGES_01_ALLOWED_FILES = new Set([
   "tests/contracts/personality-comparison-pages.contract.test.tsx",
 ]);
 
+const PERSONALITY_LLMS_FULL_COMPARISON_REPAIR_01_ALLOWED_FILES = new Set([
+  "app/llms-full.txt/route.ts",
+  "docs/codex/pr-train-state.json",
+  "docs/codex/pr-train.yaml",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/personality-llms-full-comparison-repair-01.contract.test.ts",
+]);
+
 const PERSONALITY_HUB_32_VARIANTS_01_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/personality/[type]/page.tsx",
   "app/(localized)/[locale]/personality/page.tsx",
@@ -2681,6 +2689,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/personality-comparison-pages-01") {
     return PERSONALITY_COMPARISON_PAGES_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/personality-llms-full-comparison-repair-01") {
+    return PERSONALITY_LLMS_FULL_COMPARISON_REPAIR_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/personality-big5-v1-noindex-render-01") {
