@@ -13,6 +13,44 @@ Every state must record:
 
 Before entering `PREVIEW_QA`, `PUBLISH_REHEARSAL`, `CONTROLLED_PUBLISH`, `SITEMAP_LLMS_RELEASE`, `URL_TRUTH_REFRESH`, `SEARCH_CHANNEL_READINESS`, `INDEXNOW_BOUNDED_SUBMISSION`, `GSC_MANUAL_READINESS`, `BAIDU_READINESS`, schema rollout, hreflang rollout, or post-release follow-up work, run `references/article_identity_lock.md`. Stop when article IDs, revision IDs, translation group ID, locale, slug, or public canonical URLs do not match the current target pair.
 
+## Daily Release And Search Batch Separation
+
+Daily content release may end safely at one of these terminal states when public content and discoverability are safe but search-provider work is intentionally batched:
+
+- `CONTENT_RELEASED_SEARCH_BATCH_HELD`.
+- `DISCOVERABILITY_RECONCILED_SEARCH_BATCH_HELD`.
+- `PUBLISHED_DISCOVERABILITY_HELD`.
+- `INDEXNOW_DONE_BAIDU_QUOTA_HELD`.
+- `GSC_MANUAL_HELD`.
+- `SCHEMA_HREFLANG_HELD`.
+- `D1_D7_D14_OBSERVATION_QUEUED`.
+- `PROVIDER_QUOTA_BLOCKED_NOT_CONTENT_BLOCKER`.
+- `FINAL_SUMMARY_STALE_NEEDS_RECONCILIATION`.
+
+Search submissions are batch tasks after publish/discoverability convergence. Baidu, GSC, and IndexNow live actions must not block the next article's package/import/preview/publish workflow.
+
+## Operation Type Branches
+
+For `operation_type=update_existing_article`:
+
+- lock `article_id`;
+- lock current `published_revision_id`;
+- lock target `working_revision_id` when known;
+- preserve slug and canonical unless a separate route migration task exists;
+- require preview QA marker before promotion;
+- require revision approval metadata before promotion: `reviewed_by`, `reviewed_at`, and `approved_at`;
+- use a safe existing-article promote command when available;
+- if no safe existing-article promote command exists, stop with `BLOCKED_NEEDS_RUNTIME_FIX`;
+- do not fall back to creating a new article or changing the route to avoid a publish blocker.
+
+For `operation_type=new_article`:
+
+- `DRAFT_CREATED_PUBLIC_RELEASE_HELD` is a normal intermediate state;
+- article ID is unknown until CMS import;
+- publish metadata autofill must pass before publish rehearsal;
+- claim/editorial warnings require continuation rather than silent publish;
+- final public smoke is required after publish.
+
 ## States
 
 ### PACKAGE_PREFLIGHT
@@ -155,7 +193,7 @@ Before entering `PREVIEW_QA`, `PUBLISH_REHEARSAL`, `CONTROLLED_PUBLISH`, `SITEMA
 - Inputs: URL Truth rows, CMS flags, public runtime evidence.
 - Allowed actions: Article Identity Lock and readiness checks only.
 - Hard stops: draft/noindex/private/claim unsafe.
-- Success decision: `GO_FOR_SEARCH_CHANNEL_ENQUEUE`.
+- Success decision: `GO_FOR_SEARCH_CHANNEL_ENQUEUE` or `DISCOVERABILITY_RECONCILED_SEARCH_BATCH_HELD`.
 - Failure decision: `NO_GO_FOR_SEARCH_CHANNEL`.
 - Resume: fix gating issue and rerun.
 
@@ -173,7 +211,7 @@ Before entering `PREVIEW_QA`, `PUBLISH_REHEARSAL`, `CONTROLLED_PUBLISH`, `SITEMA
 - Inputs: queue item IDs and channel matrix.
 - Allowed actions: approve/hold channel plan according to profile using the official `search-channel-approve` flow.
 - Hard stops: missing exact approval for live-required channel.
-- Success decision: `GO_FOR_INDEXNOW_BOUNDED_SUBMISSION`.
+- Success decision: `GO_FOR_INDEXNOW_BOUNDED_SUBMISSION` or `SEARCH_BATCH_APPROVED_HELD_FOR_LIVE_AUTHORIZATION`.
 - Failure decision: `BLOCKED_NEEDS_EXACT_APPROVAL`.
 - Resume: provide exact approval or record hold.
 
@@ -199,9 +237,9 @@ Before entering `PREVIEW_QA`, `PUBLISH_REHEARSAL`, `CONTROLLED_PUBLISH`, `SITEMA
 
 - Inputs: Baidu queue items and readiness evidence.
 - Allowed actions: Article Identity Lock, readiness/dry-run only unless separate exact approval.
-- Hard stops: identity lock failure, site init fail, token exposure, live gate disabled without bounded approved executor path.
+- Hard stops: identity lock failure, `site init fail`, HTTP 400 `over quota`, token exposure, live gate disabled without bounded approved executor path.
 - Success decision: `BAIDU_READINESS_COMPLETED_OR_HELD`.
-- Failure decision: `BAIDU_PLATFORM_BLOCKED`.
+- Failure decision: `BAIDU_PLATFORM_BLOCKED` or `PROVIDER_QUOTA_BLOCKED_NOT_CONTENT_BLOCKER`.
 - Resume: rerun after platform-side resolution.
 
 ### SCHEMA_ROLLOUT
@@ -226,7 +264,7 @@ Before entering `PREVIEW_QA`, `PUBLISH_REHEARSAL`, `CONTROLLED_PUBLISH`, `SITEMA
 
 - Inputs: all stage reports.
 - Allowed actions: generate final report and remaining holds.
-- Hard stops: missing required stage evidence.
+- Hard stops: missing required stage evidence or treating an old generated final report as current truth after follow-up work.
 - Success decision: `FULL_RELEASE_COMPLETED_WITH_SEARCH_LIVE_HOLDS` or `FULL_RELEASE_COMPLETED_AND_SEARCH_SUBMITTED`.
 - Failure decision: `BLOCKED_NEEDS_OPERATOR_INPUT`.
 - Resume: complete missing stage.

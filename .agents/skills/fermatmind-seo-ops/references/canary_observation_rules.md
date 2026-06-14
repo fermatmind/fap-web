@@ -37,13 +37,31 @@ Record:
 - cache status.
 - notes.
 
+Also record:
+
+- article ID.
+- published revision ID.
+- canonical URL.
+- publish completion timestamp when known.
+- discoverability completion timestamp when known.
+- IndexNow queue ID and execution state.
+- Baidu queue ID, execution state, and provider message.
+- GSC manual state and whether Request Indexing was clicked.
+- schema state.
+- hreflang state.
+- D1/D7/D14 due date.
+- owner.
+- observation status.
+
 Outputs:
 
 - `SEO_CANARY_OBSERVATION_D1_<slug>.md`.
 - `SEO_CANARY_OBSERVATION_D7_<slug>.md`.
 - `SEO_CANARY_OBSERVATION_D14_<slug>.md`.
 
-No-go: do not resubmit, retry, revalidate, or treat missing data as zero.
+No-go: do not resubmit, retry, revalidate, mutate CMS, click GSC Request Indexing, or treat missing data as zero.
+
+Observation is not a search-submission workflow. Provider quota failures remain visible until resolved, but observation must not retry them.
 
 ## V1.1 feedback loop
 

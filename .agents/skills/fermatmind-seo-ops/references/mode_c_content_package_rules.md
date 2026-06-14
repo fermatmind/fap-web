@@ -2,6 +2,40 @@
 
 Use when validating GPT/Mode C bilingual SEO article content packages before import, preview, publish, or release.
 
+## Operation And Identity Rule
+
+Mode C must declare:
+
+- `operation_type`: `new_article` or `update_existing_article`.
+- `target_article_id` for `update_existing_article`.
+- `current_published_revision_id` when known for existing articles.
+- `target_working_revision_id` when continuing an existing draft/update.
+- `translation_group_id`.
+- `locale`.
+- slug and canonical.
+- whether a new route is forbidden.
+
+For `update_existing_article`, preserve slug and canonical unless a separate route migration task exists. Do not create a new article to avoid an existing-article publish blocker.
+
+For `new_article`, article ID may be `UNKNOWN_UNTIL_CMS_IMPORT`; downstream work must run Article Identity Lock after import.
+
+## Route Cannibalization And Localized Route Rule
+
+Mode C must include a route cannibalization decision:
+
+- existing route checked.
+- target canonical selected.
+- rejected or forbidden alternate routes.
+- forbidden old CTA aliases.
+- public test route targets.
+
+Route contracts may store canonical slugs or locale-neutral references, but active surfaces must resolve localized public routes:
+
+- zh-CN article body, CTA hrefs, CMS fields, and public route checks use `/zh/...` routes such as `/zh/tests/...`.
+- en article body, CTA hrefs, CMS fields, and public route checks use `/en/...` routes.
+- unknown localized route stops with `ROUTE_UNKNOWN_REQUIRES_CODEX_RESOLUTION`.
+- known aliases may be autofixed only when the replacement is unambiguous.
+
 ## Image Asset Bundle Rule
 
 Mode C must support a `media/` directory for daily SEO packages:
@@ -104,6 +138,8 @@ Social/cover image readiness does not imply body visual readiness. Check separat
 
 If `body_visual_required=true` and no verified or authorized fallback exists, stop before preview/import.
 
+Body visual metadata is not enough. When a body visual is required, the package must include a body placeholder or markdown image reference that causes the visual to render in the public article body after resolved metadata is backfilled.
+
 ## Active Import Surfaces
 
 Active surfaces include:
@@ -148,6 +184,27 @@ Mode C should declare schema candidates separately:
 
 FAQ schema defaults to false unless explicitly approved. Schema readiness must be blocked if title, description, canonical, image, published/modified time, author, or publisher cannot be resolved.
 
+Schema and hreflang must be held in normal daily article release unless a separate task explicitly authorizes them. Search Channel queue/search live, GSC Request Indexing, IndexNow live, and Baidu live must be marked as batch-held/separate authorization lanes.
+
+## Claim Gate And Unknown Fields
+
+Mode C must include topic-specific forbidden claims and preserve `Unknown` for unsupported psychometric fields such as validity coefficients, norm samples, test-retest reliability, official instrument equivalence, percentile mappings, clinical use, hiring fit, salary, promotion, or success prediction.
+
+Psychometric topics must not assert diagnosis, treatment, hiring fit, salary, career success, relationship success, official equivalence, or deterministic outcome claims without approved source and operator review.
+
+## Structured Metadata Requirements
+
+Mode C should provide or explicitly mark pending:
+
+- existing category recommendation.
+- existing tag recommendations.
+- structured CTA slots.
+- FAQ items.
+- references count/status.
+- graph/internal link status.
+- internal link plan using public routes only.
+- social image metadata requirements.
+
 ## Article Identity Handoff
 
 Before downstream rollout, the handoff must include or request:
@@ -158,5 +215,12 @@ Before downstream rollout, the handoff must include or request:
 - locale.
 - slug.
 - public canonical URLs.
+- operation type.
+- target public test routes.
+- image asset requirements.
+- import/update mode.
+- publish gate requirements.
+- post-publish discoverability batch note.
+- search batch hold note.
 
 When article IDs are not yet known, use placeholders and require a later `ARTICLE_IDENTITY_LOCK` before any downstream action.
