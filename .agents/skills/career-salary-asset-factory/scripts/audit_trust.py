@@ -15,6 +15,8 @@ CN_GENERATED_PATTERNS = [
     "本轮仅记录招聘市场观察边界",
     "相关岗位常见月薪区间约",
     "观察区间约￥",
+    "大同的朋友平均工资",
+    "大同平均工资",
 ]
 
 US_GENERATED_PATTERNS = [
@@ -52,6 +54,23 @@ def all_strings(value: Any) -> list[str]:
 def normalized_url_tail(url: str | None) -> str:
     raw = (url or "").rstrip("/")
     return raw.rsplit("/", 1)[-1]
+
+
+def has_documented_uk_direct_first_boundary(uk: dict[str, Any]) -> bool:
+    text = " ".join(all_strings({
+        "raw_evidence_text": uk.get("raw_evidence_text"),
+        "limitations": uk.get("limitations"),
+    })).lower()
+    return (
+        "direct" in text
+        and (
+            "not automatically captured" in text
+            or "not found" in text
+            or "unavailable" in text
+            or "direct-first" in text
+            or "direct first" in text
+        )
+    )
 
 
 def cn_item_reasons(item: dict[str, Any]) -> tuple[list[str], list[str]]:
@@ -132,9 +151,10 @@ def row_reasons(row: dict[str, Any]) -> tuple[list[str], list[str]]:
     if uk_quality == "unavailable":
         blocked.append("uk_unavailable")
     if uk_quality == "adjacent_uk_profile":
-        repair.append("uk_adjacent_profile")
         if uk_profile in GENERIC_UK_PROFILES:
             blocked.append("uk_generic_adjacent_profile")
+        elif not has_documented_uk_direct_first_boundary(uk):
+            repair.append("uk_adjacent_profile_without_direct_first_boundary")
     if uk.get("typical_hours") is not None and not isinstance(uk.get("typical_hours"), str):
         blocked.append("uk_typical_hours_not_string_or_null")
 
