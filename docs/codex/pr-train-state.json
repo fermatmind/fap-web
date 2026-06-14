@@ -23769,8 +23769,8 @@
       "id": "PERSONALITY-ENNEAGRAM-V1-NOINDEX-RENDER-01",
       "repo": "fap-web",
       "branch": "codex/personality-enneagram-v1-noindex-render-01",
-      "status": "pr_open",
-      "commit_sha": "408ce32fabc4408367273b9309bd95d239798a9c",
+      "status": "ready_to_merge",
+      "commit_sha": "969156c589e8430256cfc69333cde7179b14dca8",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1150",
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -23792,6 +23792,10 @@
         "local_validation": {
           "status": "pass",
           "evidence": "Passed: pnpm exec vitest run tests/contracts/personality-enneagram-v1-noindex-render.contract.test.ts tests/contracts/personality-big-five-v1-noindex-render.contract.test.ts; targeted scope-regression contracts; pnpm typecheck; NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build; pnpm test:contract; JSON/YAML parse; git diff --check. Build/test generated docs/seo/public sitemap side effects were restored and are not included."
+        },
+        "github_checks": {
+          "status": "pass",
+          "evidence": "GitHub checks passed on PR #1150 head 969156c589e8430256cfc69333cde7179b14dca8: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL, and analyze (javascript-typescript)."
         }
       },
       "history": [
@@ -23809,6 +23813,11 @@
           "at": "2026-06-14T16:53:00+08:00",
           "status": "pr_open",
           "note": "Opened fap-web PR #1150 for Enneagram V1 noindex public asset rendering; GitHub checks are pending."
+        },
+        {
+          "at": "2026-06-14T16:58:00+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed on PR #1150 head 969156c589e8430256cfc69333cde7179b14dca8 and mergeStateStatus is CLEAN."
         }
       ]
     },
