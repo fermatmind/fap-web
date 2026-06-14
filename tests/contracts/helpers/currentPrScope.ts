@@ -1969,6 +1969,26 @@ const PERSONALITY_HUB_32_VARIANTS_01_ALLOWED_FILES = new Set([
   "tests/contracts/personality-workbench.contract.test.ts",
 ]);
 
+const PERSONALITY_BIG5_V1_NOINDEX_RENDER_01_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/personality/big-five/[[...slug]]/page.tsx",
+  "components/personality/PublicContentAssetRenderer.tsx",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/research/personality/big-five-v1-noindex-render/00-executive-summary.md",
+  "docs/research/personality/big-five-v1-noindex-render/01-route-inventory.md",
+  "docs/research/personality/big-five-v1-noindex-render/02-api-consumer-contract.md",
+  "docs/research/personality/big-five-v1-noindex-render/03-metadata-schema-audit.md",
+  "docs/research/personality/big-five-v1-noindex-render/04-noindex-sitemap-llms-audit.md",
+  "docs/research/personality/big-five-v1-noindex-render/05-render-smoke-results.md",
+  "docs/research/personality/big-five-v1-noindex-render/06-go-no-go-for-publish-gate.md",
+  "docs/seo/generated/metadata-surface-inventory.v1.csv",
+  "docs/seo/generated/metadata-surface-inventory.v1.json",
+  "lib/cms/personality-public-content-assets.ts",
+  "lib/personality/bigFivePublicRoutes.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/personality-big-five-v1-noindex-render.contract.test.ts",
+]);
+
 const RESULT_SMOKE_PROXY_GENERATION_HINTS_ALLOWED_FILES = new Set([
   ".github/workflows/live-result-smoke.yml",
   "app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx",
@@ -2661,6 +2681,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/personality-comparison-pages-01") {
     return PERSONALITY_COMPARISON_PAGES_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/personality-big5-v1-noindex-render-01") {
+    return PERSONALITY_BIG5_V1_NOINDEX_RENDER_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-fdn-seo-01-implementation") {
