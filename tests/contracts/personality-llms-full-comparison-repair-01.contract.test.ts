@@ -49,6 +49,7 @@ describe("PERSONALITY-LLMS-FULL-COMPARISON-REPAIR-01", () => {
     expect(scopeHelper).toContain("pull_request?.head?.ref");
     expect(scopeHelper).toContain("IS_GITHUB_PULL_REQUEST_MERGE_REF");
     expect(scopeHelper).toContain("IS_GITHUB_ACTIONS_DETACHED_HEAD");
+    expect(scopeHelper).toContain("LEGACY_CI_EMPTY_DIFF_SCOPE_SENTINEL_FILES");
   });
 
   it("keeps the current PR scoped to the llms-full comparison repair", () => {

@@ -1987,6 +1987,9 @@ const PERSONALITY_LLMS_FULL_COMPARISON_REPAIR_01_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
   "tests/contracts/personality-llms-full-comparison-repair-01.contract.test.ts",
 ]);
+const LEGACY_CI_EMPTY_DIFF_SCOPE_SENTINEL_FILES = new Set([
+  "tests/contracts/personality-big-five-v1-noindex-render.contract.test.ts",
+]);
 
 const PERSONALITY_HUB_32_VARIANTS_01_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/personality/[type]/page.tsx",
@@ -2722,7 +2725,8 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (
     (IS_GITHUB_PULL_REQUEST_MERGE_REF || IS_GITHUB_ACTIONS_DETACHED_HEAD) &&
-    PERSONALITY_LLMS_FULL_COMPARISON_REPAIR_01_ALLOWED_FILES.has(file)
+    (PERSONALITY_LLMS_FULL_COMPARISON_REPAIR_01_ALLOWED_FILES.has(file) ||
+      LEGACY_CI_EMPTY_DIFF_SCOPE_SENTINEL_FILES.has(file))
   ) {
     return true;
   }

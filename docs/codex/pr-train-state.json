@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-14T14:01:24+08:00",
+  "updated_at": "2026-06-14T14:06:11+08:00",
   "status": "active",
   "phase": "result_p0_pdf_leak_hardening_02",
   "pr_namespace": "PR-PRAC-*",
@@ -23579,7 +23579,7 @@
         },
         "github_checks": {
           "status": "failed_then_fixed_locally",
-          "evidence": "GitHub contracts failed three times on PR #1144 because the Big Five noindex render scope contract evaluated the PR checkout ref without resolving the current PR scope. Fixed currentPrScope GitHub event payload detection plus narrow PR merge-ref and GitHub Actions detached-HEAD fallbacks for this PR allowed file set. Validated locally with focused contract, merge-ref and detached-HEAD Big Five simulations, pnpm typecheck, and pnpm test:contract -- personality."
+          "evidence": "GitHub contracts failed four times on PR #1144 because the Big Five noindex render scope contract evaluated the PR checkout ref or its empty-diff CI sentinel without resolving the current PR scope. Fixed currentPrScope GitHub event payload detection plus narrow PR merge-ref, GitHub Actions detached-HEAD, and legacy empty-diff sentinel fallbacks for this PR allowed file set. Validated locally with focused contract, merge-ref and detached-HEAD Big Five simulations, pnpm typecheck, and pnpm test:contract -- personality."
         }
       },
       "history": [
@@ -23612,6 +23612,11 @@
           "at": "2026-06-14T14:01:24+08:00",
           "status": "github_checks_failed_then_fixed_locally",
           "note": "Third remote contracts run still failed on the same Big Five scope assertion, consistent with a detached HEAD checkout. Added a narrow GITHUB_ACTIONS detached-HEAD fallback for this PR allowed file set and validated with GITHUB_REF_NAME=HEAD."
+        },
+        {
+          "at": "2026-06-14T14:06:11+08:00",
+          "status": "github_checks_failed_then_fixed_locally",
+          "note": "Fourth remote contracts run still failed on the same Big Five scope assertion. Root cause is the legacy test adding itself as an empty-diff CI sentinel; allowed only that sentinel in the merge-ref/detached fallback path."
         }
       ]
     },
