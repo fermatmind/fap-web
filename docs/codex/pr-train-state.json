@@ -12896,7 +12896,7 @@
       "depends_on": [
         "GLOBAL-EN-ZH-CONTENT-PAGES-DISCOVERABILITY-EXPOSURE-READINESS-01"
       ],
-      "status": "pr_open",
+      "status": "ready_to_merge",
       "title": "fix(seo): expose approved English content pages to discoverability surfaces",
       "commit_sha": "a7aca2ef6a98b7686d09114714761d965452c0be",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/912",
@@ -23498,10 +23498,17 @@
           "evidence": "Focused personality comparison contract passed 1 file / 4 tests; pnpm typecheck passed; production-site-url build passed and regenerated sitemap.xml; pnpm test:contract -- personality passed 482 files / 2756 tests; JSON/YAML parse, git diff --check, and explicit scope validation passed."
         },
         "github": {
-          "status": "pending",
-          "head_sha": "8b0fbee35e0b605098bb64d42b323490becb352d",
-          "checks": [],
-          "evidence": "Opened PR #1142; GitHub checks are pending."
+          "status": "pass",
+          "head_sha": "a89841e0ae3ee89912db0e657d2eba492cc43460",
+          "checks": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "analyze (javascript-typescript)",
+            "CodeQL"
+          ],
+          "evidence": "PR #1142 checks passed on head a89841e0ae3ee89912db0e657d2eba492cc43460: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL."
         }
       },
       "history": [
@@ -23529,6 +23536,11 @@
           "at": "2026-06-14T12:31:27+08:00",
           "status": "pr_open",
           "note": "Opened https://github.com/fermatmind/fap-web/pull/1142 from head 8b0fbee35e0b605098bb64d42b323490becb352d; GitHub checks are pending."
+        },
+        {
+          "at": "2026-06-14T12:35:36+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed on head a89841e0ae3ee89912db0e657d2eba492cc43460 and PR #1142 is open, non-draft, and mergeable."
         }
       ]
     }
