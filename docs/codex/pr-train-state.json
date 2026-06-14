@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-14T14:27:01+08:00",
+  "updated_at": "2026-06-14T14:28:23+08:00",
   "status": "active",
   "phase": "result_p0_pdf_leak_hardening_02",
   "pr_namespace": "PR-PRAC-*",
@@ -23639,9 +23639,9 @@
       "id": "PERSONALITY-SEO-POST-DEPLOY-INDEXATION-AUDIT-01",
       "repo": "fap-web",
       "branch": "codex/personality-seo-post-deploy-indexation-audit-01",
-      "status": "local_checks_passed",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "pr_open",
+      "commit_sha": "bde556ff3311516baf9b5688b8953e4d29b4088a",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1145",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -23683,6 +23683,11 @@
           "at": "2026-06-14T14:27:01+08:00",
           "status": "local_checks_passed",
           "note": "Audit artifact and contract were added; public scan found 98/98 URLs HTTP 200, sitemap and llms.txt include 64 detail plus 32 comparison URLs, while live llms-full.txt still has 0/32 comparison URLs pending frontend deploy."
+        },
+        {
+          "at": "2026-06-14T14:28:23+08:00",
+          "status": "pr_open",
+          "note": "Opened fap-web PR #1145 for the post-deploy personality SEO/indexation audit; GitHub checks are pending."
         }
       ]
     },
