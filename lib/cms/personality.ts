@@ -4,6 +4,10 @@ import { normalizeAnswerSurface, type AnswerSurfaceViewModel } from "@/lib/answe
 import { cmsManagedMediaUrl } from "@/lib/cms/media";
 import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
 import { normalizeLandingSurface, type LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
+import {
+  buildPersonalityComparisonFrontendUrl,
+  normalizePersonalityComparisonSlug,
+} from "@/lib/mbti/personalityComparison";
 import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
 import { normalizeSeoSurface, type SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
 import { canonicalUrl } from "@/lib/site";
@@ -112,6 +116,65 @@ type CmsPersonalitySeoApiResponse = {
   };
   jsonld?: unknown;
   seo_surface_v1?: SeoSurfaceRaw | null;
+};
+
+type CmsPersonalityComparisonVariantApiRecord = {
+  profile_id?: number | null;
+  variant_id?: number | null;
+  base_type_code?: string | null;
+  runtime_type_code?: string | null;
+  variant_code?: string | null;
+  public_route_slug?: string | null;
+  public_url?: string | null;
+  display_type?: string | null;
+  type_name?: string | null;
+  nickname?: string | null;
+  rarity?: string | null;
+  keywords?: unknown;
+  hero_summary?: string | null;
+  summary_card?: CmsPersonalityApiProjectionSummaryCard | null;
+  seo?: CmsPersonalityApiProjectionSeo | null;
+};
+
+type CmsPersonalityComparisonBlockApiRecord = {
+  key?: string | null;
+  title?: string | null;
+  source?: string | null;
+  variants?: {
+    a?: string | null;
+    t?: string | null;
+  } | null;
+  body_md?: string | null;
+};
+
+type CmsPersonalityComparisonProjectionApiRecord = {
+  comparison_contract_version?: string | null;
+  comparison_slug?: string | null;
+  base_type_code?: string | null;
+  scale_code?: string | null;
+  locale?: string | null;
+  public_route_type?: string | null;
+  title?: string | null;
+  description?: string | null;
+  canonical_url?: string | null;
+  alternates?: Record<string, string | null | undefined> | null;
+  variants?: {
+    a?: CmsPersonalityComparisonVariantApiRecord | null;
+    t?: CmsPersonalityComparisonVariantApiRecord | null;
+  } | null;
+  comparison_blocks?: CmsPersonalityComparisonBlockApiRecord[];
+  source_refs?: unknown;
+};
+
+type CmsPersonalityComparisonApiResponse = {
+  ok?: boolean;
+  comparison?: CmsPersonalityComparisonProjectionApiRecord | null;
+  comparison_public_projection_v1?: CmsPersonalityComparisonProjectionApiRecord | null;
+  seo_meta?: CmsPersonalityApiSeoMeta;
+  jsonld?: unknown;
+  seo_surface_v1?: SeoSurfaceRaw | null;
+  landing_surface_v1?: LandingSurfaceRaw | null;
+  answer_surface_v1?: AnswerSurfaceRaw | null;
 };
 
 export type CmsPersonalityApiProjectionProfile = {
@@ -385,6 +448,63 @@ export type PersonalityProjectionViewModel = {
   answerSurface: AnswerSurfaceViewModel | null;
 };
 
+export type PersonalityComparisonVariantViewModel = {
+  profileId: number | null;
+  variantId: number | null;
+  baseTypeCode: string;
+  runtimeTypeCode: string;
+  variantCode: "A" | "T";
+  publicRouteSlug: string;
+  publicUrl: string | null;
+  displayType: string;
+  typeName: string | null;
+  nickname: string | null;
+  rarity: string | null;
+  keywords: string[];
+  heroSummary: string | null;
+  summaryCard: PersonalityProjectionSummaryCard;
+  seo: PersonalityProjectionSeo;
+};
+
+export type PersonalityComparisonBlockViewModel = {
+  key: string;
+  title: string;
+  source: string | null;
+  variants: {
+    a: string;
+    t: string;
+  };
+  bodyMd: string;
+};
+
+export type PersonalityComparisonViewModel = {
+  comparisonContractVersion: string;
+  comparisonSlug: string;
+  baseTypeCode: string;
+  scaleCode: string;
+  locale: string;
+  publicRouteType: string;
+  title: string;
+  description: string;
+  canonicalUrl: string | null;
+  alternates: {
+    en: string | null;
+    "zh-CN": string | null;
+  };
+  variants: {
+    a: PersonalityComparisonVariantViewModel;
+    t: PersonalityComparisonVariantViewModel;
+  };
+  comparisonBlocks: PersonalityComparisonBlockViewModel[];
+  sourceRefs: string[];
+  seoMeta: CmsPersonalitySeoMeta | null;
+  jsonld: unknown;
+  seoSurface: SeoSurfaceViewModel | null;
+  landingSurface: LandingSurfaceViewModel | null;
+  answerSurface: AnswerSurfaceViewModel | null;
+  isIndexable: boolean;
+};
+
 export type PersonalitySeoCompatibilityInput = {
   slug: string;
   locale: string;
@@ -604,6 +724,139 @@ function normalizeProjectionSummaryCard(
     summary: fallbackText(summaryCard?.summary) || null,
     tagline: fallbackText(summaryCard?.tagline) || null,
     publicTags: normalizeStringArray(summaryCard?.public_tags),
+  };
+}
+
+function normalizeComparisonAlternates(
+  alternates: Record<string, string | null | undefined> | null | undefined
+): PersonalityComparisonViewModel["alternates"] {
+  return {
+    en: normalizeIsoValue(alternates?.en),
+    "zh-CN": normalizeIsoValue(alternates?.["zh-CN"]),
+  };
+}
+
+function normalizeComparisonVariant(
+  variant: CmsPersonalityComparisonVariantApiRecord | null | undefined,
+  expectedVariantCode: "A" | "T"
+): PersonalityComparisonVariantViewModel | null {
+  if (!variant || typeof variant !== "object") {
+    return null;
+  }
+
+  const runtimeTypeCode = fallbackText(variant.runtime_type_code).toUpperCase();
+  const publicRouteSlug = normalizePersonalitySlug(String(variant.public_route_slug ?? ""));
+  const baseTypeCode = fallbackText(variant.base_type_code).toUpperCase();
+  const variantCode = fallbackText(variant.variant_code).toUpperCase();
+  if (!runtimeTypeCode || !publicRouteSlug || variantCode !== expectedVariantCode) {
+    return null;
+  }
+
+  return {
+    profileId: typeof variant.profile_id === "number" ? variant.profile_id : null,
+    variantId: typeof variant.variant_id === "number" ? variant.variant_id : null,
+    baseTypeCode,
+    runtimeTypeCode,
+    variantCode: expectedVariantCode,
+    publicRouteSlug,
+    publicUrl: normalizeIsoValue(variant.public_url),
+    displayType: fallbackText(variant.display_type, runtimeTypeCode),
+    typeName: fallbackText(variant.type_name) || null,
+    nickname: fallbackText(variant.nickname) || null,
+    rarity: fallbackText(variant.rarity) || null,
+    keywords: normalizeStringArray(variant.keywords),
+    heroSummary: fallbackText(variant.hero_summary) || null,
+    summaryCard: normalizeProjectionSummaryCard(variant.summary_card),
+    seo: normalizeProjectionSeo(variant.seo),
+  };
+}
+
+function normalizeComparisonBlock(
+  block: CmsPersonalityComparisonBlockApiRecord
+): PersonalityComparisonBlockViewModel | null {
+  const key = fallbackText(block.key).toLowerCase();
+  const title = fallbackText(block.title, block.key);
+  const assertive = fallbackText(block.variants?.a);
+  const turbulent = fallbackText(block.variants?.t);
+  const bodyMd = String(block.body_md ?? "").trim();
+
+  if (!key || (!assertive && !turbulent && !bodyMd)) {
+    return null;
+  }
+
+  return {
+    key,
+    title,
+    source: fallbackText(block.source) || null,
+    variants: {
+      a: assertive,
+      t: turbulent,
+    },
+    bodyMd,
+  };
+}
+
+function normalizeComparisonSourceRefs(value: unknown): string[] {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+
+  return Array.from(new Set(value.map((item) => fallbackText(typeof item === "string" ? item : String(item ?? ""))).filter(Boolean)));
+}
+
+function normalizePersonalityComparisonPayload(
+  response: CmsPersonalityComparisonApiResponse,
+  locale: Locale | string
+): PersonalityComparisonViewModel | null {
+  const projection = response.comparison_public_projection_v1 ?? response.comparison ?? null;
+  if (!projection || typeof projection !== "object") {
+    return null;
+  }
+
+  const comparisonSlug = normalizePersonalityComparisonSlug(projection.comparison_slug);
+  const baseTypeCode = fallbackText(projection.base_type_code).toUpperCase();
+  const assertive = normalizeComparisonVariant(projection.variants?.a, "A");
+  const turbulent = normalizeComparisonVariant(projection.variants?.t, "T");
+  if (!comparisonSlug || !baseTypeCode || !assertive || !turbulent) {
+    return null;
+  }
+
+  const seoMeta = normalizeSeoMeta(response.seo_meta ?? null);
+  const title = fallbackText(projection.title, seoMeta?.seoTitle);
+  const description = fallbackText(projection.description, seoMeta?.seoDescription);
+  const robots = fallbackText(seoMeta?.robots, "index,follow");
+
+  return {
+    comparisonContractVersion: fallbackText(projection.comparison_contract_version, "mbti.at_comparison.v1"),
+    comparisonSlug,
+    baseTypeCode,
+    scaleCode: fallbackText(projection.scale_code, DEFAULT_SCALE_CODE),
+    locale: fallbackText(projection.locale, mapFrontendLocaleToPersonalityApiLocale(locale)),
+    publicRouteType: fallbackText(projection.public_route_type, "at-comparison"),
+    title,
+    description,
+    canonicalUrl: normalizeIsoValue(projection.canonical_url ?? seoMeta?.canonicalUrl) ?? canonicalUrl(buildPersonalityComparisonFrontendUrl(locale, comparisonSlug)),
+    alternates: normalizeComparisonAlternates(projection.alternates),
+    variants: {
+      a: assertive,
+      t: turbulent,
+    },
+    comparisonBlocks: Array.isArray(projection.comparison_blocks)
+      ? projection.comparison_blocks
+          .map(normalizeComparisonBlock)
+          .filter((block): block is PersonalityComparisonBlockViewModel => block !== null)
+      : [],
+    sourceRefs: normalizeComparisonSourceRefs(projection.source_refs),
+    seoMeta,
+    jsonld: response.jsonld ?? null,
+    seoSurface: normalizeSeoSurface(response.seo_surface_v1 ?? null),
+    landingSurface: normalizeLandingSurface(response.landing_surface_v1 ?? null),
+    answerSurface: normalizeAnswerSurface(response.answer_surface_v1 ?? null),
+    isIndexable: !robots
+      .toLowerCase()
+      .split(",")
+      .map((part) => part.trim())
+      .includes("noindex"),
   };
 }
 
@@ -1189,6 +1442,41 @@ export async function getPersonalitySeoBySlugOrType(
       jsonld: response.jsonld ?? null,
       surface: normalizeSeoSurface(response.seo_surface_v1 ?? null),
     };
+  } catch (error) {
+    if (error instanceof ApiError && error.status === 404) {
+      return null;
+    }
+
+    throw error;
+  }
+}
+
+export async function getPersonalityComparisonBySlug(
+  comparisonSlug: string,
+  locale: Locale | string
+): Promise<PersonalityComparisonViewModel | null> {
+  const normalizedSlug = normalizePersonalityComparisonSlug(comparisonSlug);
+  if (!normalizedSlug) {
+    return null;
+  }
+
+  const query = buildQuery({
+    locale: mapFrontendLocaleToPersonalityApiLocale(locale),
+    org_id: DEFAULT_ORG_ID,
+    scale_code: DEFAULT_SCALE_CODE,
+  });
+
+  try {
+    const response = await apiClient.get<CmsPersonalityComparisonApiResponse>(
+      `/v0.5/personality/comparisons/${encodeURIComponent(normalizedSlug)}${query}`,
+      {
+        locale,
+        skipAuth: true,
+        ...PUBLIC_API_CACHE_OPTIONS,
+      }
+    );
+
+    return normalizePersonalityComparisonPayload(response, locale);
   } catch (error) {
     if (error instanceof ApiError && error.status === 404) {
       return null;

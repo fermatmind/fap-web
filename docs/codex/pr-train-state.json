@@ -12896,7 +12896,7 @@
       "depends_on": [
         "GLOBAL-EN-ZH-CONTENT-PAGES-DISCOVERABILITY-EXPOSURE-READINESS-01"
       ],
-      "status": "pr_open",
+      "status": "ready_to_merge",
       "title": "fix(seo): expose approved English content pages to discoverability surfaces",
       "commit_sha": "a7aca2ef6a98b7686d09114714761d965452c0be",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/912",
@@ -23372,12 +23372,12 @@
       "id": "PERSONALITY-SEO-TITLE-METADATA-01",
       "repo": "fap-api-and-fap-web",
       "branch": "codex/personality-seo-title-metadata-01",
-      "status": "ready_to_merge",
-      "commit_sha": "a0f1867ad6a0529f7e3fb72fb38e384b34a8a951",
+      "status": "merged",
+      "commit_sha": "bb6562f40dd5c970cfa61cec25adbe78d3773378",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1140",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-13T20:39:11Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "failure_reason": null,
       "checks": {
         "authorization": {
@@ -23450,6 +23450,11 @@
           "at": "2026-06-14T05:18:00+08:00",
           "status": "ready_to_merge",
           "note": "GitHub checks passed and pre-merge scope validation showed only the 3 declared PR files changed."
+        },
+        {
+          "at": "2026-06-14T12:22:44+08:00",
+          "status": "merged",
+          "note": "Reconciled GitHub PR #1140 as merged at 2026-06-13T20:39:11Z with merge commit bb6562f40dd5c970cfa61cec25adbe78d3773378; origin/main contains the merge commit and the local/remote task branches are absent."
         }
       ]
     },
@@ -23457,17 +23462,53 @@
       "id": "PERSONALITY-COMPARISON-PAGES-01",
       "repo": "fap-api-and-fap-web",
       "branch": "codex/personality-comparison-pages-01",
-      "status": "blocked_dependency",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "pr_open",
+      "commit_sha": "a6a484d2f52b4c8d0276270f859bed25614cd4cc",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1142",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "failure_reason": "Blocked until PERSONALITY-SEO-TITLE-METADATA-01 is merged.",
+      "failure_reason": null,
       "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly requested completing the fap-web PERSONALITY-COMPARISON-PAGES-01 frontend consumer PR and including stale ledger reconciliation in this PR."
+        },
         "dependency": {
-          "status": "blocked",
-          "evidence": "Depends on PERSONALITY-SEO-TITLE-METADATA-01."
+          "status": "pass",
+          "evidence": "fap-web PERSONALITY-SEO-TITLE-METADATA-01 merged in PR #1140 as bb6562f40dd5c970cfa61cec25adbe78d3773378; backend comparison API authority merged in fap-api PR #2089 as 7b6ee96b4f5ff5e58684784433f06d653825c141."
+        },
+        "scope": {
+          "status": "pass",
+          "evidence": "Changed files are confined to comparison page routing/rendering, CMS comparison adapter, sitemap/llms enumeration, generated public sitemap exposure, MBTI entry tracking type extension, contract tests, and PR-train metadata."
+        },
+        "local": {
+          "status": "pass",
+          "commands": [
+            "pnpm install --frozen-lockfile",
+            "pnpm exec vitest run tests/contracts/personality-comparison-pages.contract.test.tsx",
+            "pnpm typecheck",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build",
+            "pnpm test:contract -- personality",
+            "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+            "git diff --check",
+            "scope validation"
+          ],
+          "evidence": "Focused personality comparison contract passed 1 file / 4 tests; pnpm typecheck passed; production-site-url build passed and regenerated sitemap.xml; pnpm test:contract -- personality passed 482 files / 2756 tests; JSON/YAML parse, git diff --check, and explicit scope validation passed."
+        },
+        "github": {
+          "status": "pass",
+          "head_sha": "a89841e0ae3ee89912db0e657d2eba492cc43460",
+          "checks": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "analyze (javascript-typescript)",
+            "CodeQL"
+          ],
+          "evidence": "PR #1142 checks passed on head a89841e0ae3ee89912db0e657d2eba492cc43460: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL."
         }
       },
       "history": [
@@ -23475,6 +23516,31 @@
           "at": "2026-06-13T22:29:23+08:00",
           "status": "blocked_dependency",
           "note": "Initialized A/T comparison pages follow-up; execution deferred until search-intent metadata is merged."
+        },
+        {
+          "at": "2026-06-14T12:22:44+08:00",
+          "status": "in_progress",
+          "note": "Started fap-web comparison consumer implementation after reconciling fap-web PR #1140 and fap-api PR #2089 as merged dependencies."
+        },
+        {
+          "at": "2026-06-14T12:29:37+08:00",
+          "status": "local_checks_passed",
+          "note": "Comparison frontend consumer, sitemap/llms exposure, generated sitemap artifact, and scope contracts passed focused checks, build, full personality contract suite, JSON/YAML parse, and diff validation."
+        },
+        {
+          "at": "2026-06-14T12:30:36+08:00",
+          "status": "committed",
+          "note": "Recorded implementation commit a6a484d2f52b4c8d0276270f859bed25614cd4cc after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-06-14T12:31:27+08:00",
+          "status": "pr_open",
+          "note": "Opened https://github.com/fermatmind/fap-web/pull/1142 from head 8b0fbee35e0b605098bb64d42b323490becb352d; GitHub checks are pending."
+        },
+        {
+          "at": "2026-06-14T12:35:36+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed on head a89841e0ae3ee89912db0e657d2eba492cc43460 and PR #1142 is open, non-draft, and mergeable."
         }
       ]
     }

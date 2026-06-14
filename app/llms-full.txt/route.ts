@@ -9,9 +9,14 @@ import {
 } from "@/lib/cms/content-pages";
 import {
   buildDefaultPublicPersonalitySlug,
+  getPersonalityComparisonBySlug,
   getPersonalityProjectionDetailBySlugOrType,
   listPersonalityProfiles,
 } from "@/lib/cms/personality";
+import {
+  buildPersonalityComparisonSlugsFromProfiles,
+  isPersonalityComparisonSlug,
+} from "@/lib/mbti/personalityComparison";
 import { getTopicBySlug, listTopics } from "@/lib/cms/topics";
 import {
   MENTAL_HEALTH_NON_MEDICAL_DISCLAIMER,
@@ -578,9 +583,11 @@ function publishedPersonalityVariantSlugs(value: string): string[] {
 
 async function listPersonalityEntries(): Promise<LlmsFullEntry[]> {
   try {
-    const [enProfiles, zhProfiles] = await Promise.all([
+    const [enProfiles, zhProfiles, enVariantProfiles, zhVariantProfiles] = await Promise.all([
       listPersonalityProfiles({ locale: "en", perPage: LLMS_ROUTE_LIMITS.personalityProfiles }),
       listPersonalityProfiles({ locale: "zh", perPage: LLMS_ROUTE_LIMITS.personalityProfiles }),
+      listPersonalityProfiles({ locale: "en", perPage: LLMS_ROUTE_LIMITS.personalityProfiles, includeVariants: true }),
+      listPersonalityProfiles({ locale: "zh", perPage: LLMS_ROUTE_LIMITS.personalityProfiles, includeVariants: true }),
     ]);
 
     return [
@@ -606,8 +613,26 @@ async function listPersonalityEntries(): Promise<LlmsFullEntry[]> {
               title: `${slug.toUpperCase()} | ${item.title || item.typeCode}`,
               type: "personality",
               summary: summaryFromRecord(item),
-            }))
+          }))
         ),
+      ...buildPersonalityComparisonSlugsFromProfiles(
+        limitLlmsRouteEntries(enVariantProfiles.items, LLMS_ROUTE_LIMITS.personalityProfiles)
+      ).map((slug) => ({
+        locale: "en" as const,
+        path: `/en/personality/${slug}`,
+        title: slug.toUpperCase(),
+        type: "personality",
+        summary: "",
+      })),
+      ...buildPersonalityComparisonSlugsFromProfiles(
+        limitLlmsRouteEntries(zhVariantProfiles.items, LLMS_ROUTE_LIMITS.personalityProfiles)
+      ).map((slug) => ({
+        locale: "zh" as const,
+        path: `/zh/personality/${slug}`,
+        title: slug.toUpperCase(),
+        type: "personality",
+        summary: "",
+      })),
     ].filter((entry) => shouldKeep(entry.path));
   } catch {
     // Personality coverage is CMS-authoritative; do not fall back to local MBTI data here.
@@ -667,6 +692,20 @@ async function enrichArticleEntry(entry: LlmsFullEntry, siteUrl: string): Promis
 
 async function enrichPersonalityEntry(entry: LlmsFullEntry, siteUrl: string): Promise<LlmsFullEntry> {
   const slug = extractSlugFromPath(entry.path);
+  if (slug && isPersonalityComparisonSlug(slug)) {
+    const comparison = await getPersonalityComparisonBySlug(slug, entry.locale).catch(() => null);
+    const answerSurface = comparison?.answerSurface ?? null;
+    const landingSurface = comparison?.landingSurface ?? null;
+
+    return {
+      ...entry,
+      title: comparison?.title || entry.title,
+      summary: buildSummary({ answerSurface, landingSurface, sourceSummary: comparison?.description || entry.summary }),
+      faq: buildFaq(answerSurface),
+      nextSteps: buildNextSteps(answerSurface, siteUrl),
+    };
+  }
+
   const detail = slug ? await getPersonalityProjectionDetailBySlugOrType(slug, entry.locale).catch(() => null) : null;
   const answerSurface = detail?.answerSurface ?? null;
   const landingSurface = detail?.landingSurface ?? null;

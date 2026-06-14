@@ -5380,10 +5380,12 @@ prs:
       - backend comparison content/API resources
       - fap-web comparison routes/renderers
       - sitemap and llms enumeration contracts
+      - public/sitemap.xml generated URL exposure artifact
       - tests/contracts/**
     allowed_paths:
       - app/(localized)/[locale]/personality/**
       - lib/**
+      - public/sitemap.xml
       - tests/**
       - docs/**
       - generated/**
@@ -5404,13 +5406,11 @@ prs:
       squash: true
       auto_merge: true
     acceptance:
-      - source_engine, consent_state, and traffic quality labels are transport fields only.
-      - Existing analytics consent hard-stop remains intact.
-      - Canonical funnel event taxonomy and purchase conversion semantics are unchanged.
-      - PII, raw order identifiers, raw attempt identifiers, cookies, tokens, and payment IDs remain forbidden or masked.
-      - /api/track remains transport only and backend purchase truth remains authoritative.
-    next_task: SEO-DASH-03B
-    rollback_note: "Remove Search Intelligence tracking field enrichment, docs, artifact, and focused contract tests added for SEO-DASH-03A."
+      - Comparison routes render from backend comparison_public_projection_v1 without frontend-authored comparison copy.
+      - Backend JSON-LD CollectionPage and ItemList are preserved, and frontend adds BreadcrumbList for the public route.
+      - Sitemap and llms enumeration include only complete A/T comparison pairs from backend-authoritative variant summaries.
+      - Existing 32 personality detail routes and hub routes keep their current behavior.
+      - Contract tests cover API consumption, rendering wiring, sitemap/llms exposure, and PR scope boundaries.
 
   - id: PUBLISH-WEB-CONTENT-CACHE-PURGE
     repo: fap-web
