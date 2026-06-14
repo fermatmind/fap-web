@@ -2720,7 +2720,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   }
 
   if (CURRENT_BRANCH === "codex/personality-llms-full-comparison-repair-01") {
-    return PERSONALITY_LLMS_FULL_COMPARISON_REPAIR_01_ALLOWED_FILES.has(file);
+    return (
+      PERSONALITY_LLMS_FULL_COMPARISON_REPAIR_01_ALLOWED_FILES.has(file) ||
+      LEGACY_CI_EMPTY_DIFF_SCOPE_SENTINEL_FILES.has(file)
+    );
   }
 
   if (
