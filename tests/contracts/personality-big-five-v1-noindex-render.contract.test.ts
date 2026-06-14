@@ -95,6 +95,28 @@ function changedFiles(): string[] {
       // Some local and CI checkouts expose different bases.
     }
   }
+  if (files.size === 0) {
+    try {
+      const commits = execFileSync("git", ["rev-list", "--max-count=10", "HEAD"], {
+        cwd: ROOT,
+        encoding: "utf8",
+      })
+        .split("\n")
+        .map((line) => line.trim())
+        .filter(Boolean);
+      for (const commit of commits) {
+        const output = execFileSync("git", ["diff-tree", "--no-commit-id", "--name-only", "-r", commit], {
+          cwd: ROOT,
+          encoding: "utf8",
+        });
+        for (const line of output.split("\n")) {
+          if (line.trim()) files.add(line.trim());
+        }
+      }
+    } catch {
+      // Shallow CI checkouts may not expose the PR base ref; keep the assertion explicit below.
+    }
+  }
   return [...files].sort();
 }
 

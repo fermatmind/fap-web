@@ -23575,6 +23575,10 @@
         "local_validation": {
           "status": "pass",
           "evidence": "pnpm exec vitest run tests/contracts/personality-big-five-v1-noindex-render.contract.test.ts, pnpm test:contract, pnpm typecheck, NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build, metadata inventory generation, sitemap/llms absence check, JSON/YAML parse, and git diff --check all passed locally."
+        },
+        "github_contract_repair": {
+          "status": "repaired_locally",
+          "evidence": "Initial GitHub contracts check failed because the scope contract expected origin/main, which is absent in the CI checkout. The contract now falls back to commit file lists only when diff bases are unavailable; targeted contract, full pnpm test:contract, pnpm typecheck, sitemap/llms absence check, and git diff --check passed locally after the repair."
         }
       },
       "history": [
@@ -23597,6 +23601,11 @@
           "at": "2026-06-14T12:55:00+08:00",
           "status": "pr_open",
           "note": "Opened https://github.com/fermatmind/fap-web/pull/1143 for the scoped noindex Big Five V1 render consumer."
+        },
+        {
+          "at": "2026-06-14T13:02:00+08:00",
+          "status": "github_contract_repaired",
+          "note": "Repaired CI-only scope contract failure caused by missing origin/main in GitHub checkout; local targeted contract, full contract suite, typecheck, sitemap/llms absence check, and diff check passed."
         }
       ]
     }
