@@ -24291,9 +24291,9 @@
       "id": "SEO-FREE-TEST-ARTICLE-INTERNAL-LINKS-05",
       "repo": "fap-web",
       "branch": "codex/seo-free-test-article-internal-links-05",
-      "status": "local_checks_passed",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "pr_open",
+      "commit_sha": "2053dfbf2b6ec8269377b28caf598bbd819fa780",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1159",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -24321,6 +24321,10 @@
         "local_validation": {
           "status": "pass",
           "evidence": "Passed: pnpm exec vitest run tests/contracts/article-internal-link-anchor-text.contract.test.tsx tests/contracts/seo-ops-02d-article-rich-content-cta-attribution.contract.test.tsx tests/contracts/seo-ops-02e-article-markdown-cta-visible-attribution.contract.test.tsx (3 files, 10 tests); pnpm typecheck; NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build; pnpm test:contract (491 files, 2789 tests); python3 JSON parse; ruby YAML parse; git diff --check; explicit scope validation including untracked files. Build-generated public/sitemap.xml was restored before commit."
+        },
+        "pull_request": {
+          "status": "open",
+          "evidence": "Opened https://github.com/fermatmind/fap-web/pull/1159 after local checks and scope validation passed."
         }
       },
       "history": [
@@ -24333,6 +24337,11 @@
           "at": "2026-06-14T21:49:00+08:00",
           "status": "local_checks_passed",
           "note": "Article/CMS internal link rendering now labels bare zh test URLs and bare-url anchors with concrete free-test anchor text while preserving CMS body authority and hrefs; focused contracts, typecheck, build, full contracts, parse checks, diff check, and scope validation passed locally."
+        },
+        {
+          "at": "2026-06-14T21:52:00+08:00",
+          "status": "pr_open",
+          "note": "Opened fap-web PR #1159 for SEO-FREE-TEST-ARTICLE-INTERNAL-LINKS-05 after local checks and scope validation passed."
         }
       ]
     }
