@@ -23462,9 +23462,9 @@
       "id": "PERSONALITY-COMPARISON-PAGES-01",
       "repo": "fap-api-and-fap-web",
       "branch": "codex/personality-comparison-pages-01",
-      "status": "committed",
+      "status": "pr_open",
       "commit_sha": "a6a484d2f52b4c8d0276270f859bed25614cd4cc",
-      "pr_url": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1142",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -23496,6 +23496,12 @@
             "scope validation"
           ],
           "evidence": "Focused personality comparison contract passed 1 file / 4 tests; pnpm typecheck passed; production-site-url build passed and regenerated sitemap.xml; pnpm test:contract -- personality passed 482 files / 2756 tests; JSON/YAML parse, git diff --check, and explicit scope validation passed."
+        },
+        "github": {
+          "status": "pending",
+          "head_sha": "8b0fbee35e0b605098bb64d42b323490becb352d",
+          "checks": [],
+          "evidence": "Opened PR #1142; GitHub checks are pending."
         }
       },
       "history": [
@@ -23518,6 +23524,11 @@
           "at": "2026-06-14T12:30:36+08:00",
           "status": "committed",
           "note": "Recorded implementation commit a6a484d2f52b4c8d0276270f859bed25614cd4cc after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-06-14T12:31:27+08:00",
+          "status": "pr_open",
+          "note": "Opened https://github.com/fermatmind/fap-web/pull/1142 from head 8b0fbee35e0b605098bb64d42b323490becb352d; GitHub checks are pending."
         }
       ]
     }
