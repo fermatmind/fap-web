@@ -9,6 +9,11 @@ import {
 import type { Locale } from "@/lib/i18n/locales";
 import type { CategoryContent } from "@/lib/marketing/testsHubContent";
 
+function getCategoryDisplayTitle(locale: Locale, content: CategoryContent): string {
+  if (locale !== "zh") return content.hero.title;
+  return content.slug === "career" ? "免费职业测试" : "免费人格测试";
+}
+
 export function TestCategoryExperience({
   locale,
   content,
@@ -16,6 +21,8 @@ export function TestCategoryExperience({
   locale: Locale;
   content: CategoryContent;
 }) {
+  const heroTitle = getCategoryDisplayTitle(locale, content);
+
   return (
     <>
       <section className="relative overflow-hidden bg-[#0e151d] text-white">
@@ -40,7 +47,7 @@ export function TestCategoryExperience({
             </nav>
             <p className="m-0 text-xs font-semibold uppercase tracking-[0.24em] text-white/52">{content.hero.eyebrow}</p>
             <h1 className="m-0 text-balance text-[clamp(2.5rem,5vw,4.6rem)] font-semibold leading-[0.98] tracking-[-0.055em] text-white">
-              {content.hero.title}
+              {heroTitle}
             </h1>
             <p className="m-0 max-w-[42rem] text-[1.02rem] leading-8 text-slate-300 md:text-[1.08rem]">{content.hero.body}</p>
           </div>
@@ -60,7 +67,7 @@ export function TestCategoryExperience({
           <SectionHeading eyebrow={content.featured.kicker} title={content.featured.title} body={content.featured.body} />
           <div className="mt-8 grid gap-4">
             {content.featured.items.map((item) => (
-              <HubTestCard key={`featured-${item.key}`} item={item} showPreview />
+              <HubTestCard key={`featured-${item.key}`} item={item} showPreview locale={locale} />
             ))}
           </div>
         </Container>
@@ -71,7 +78,7 @@ export function TestCategoryExperience({
           <SectionHeading eyebrow={content.allTests.kicker} title={content.allTests.title} body={content.allTests.body} />
           <div className="mt-8 grid gap-4 xl:grid-cols-2">
             {content.allTests.items.map((item) => (
-              <HubTestCard key={`all-${item.key}`} item={item} />
+              <HubTestCard key={`all-${item.key}`} item={item} locale={locale} />
             ))}
           </div>
         </Container>

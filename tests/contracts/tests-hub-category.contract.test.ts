@@ -25,6 +25,23 @@ describe("tests hub and category contract", () => {
     expect(source).toContain('idSuffix: "all-tests-itemlist"');
   });
 
+  it("renders category and card CTAs with free-test search intent without taking CMS body authority", () => {
+    const categoryExperience = read("components/marketing/tests/TestCategoryExperience.tsx");
+    const sharedCards = read("components/marketing/tests/TestsShared.tsx");
+    const hubExperience = read("components/marketing/tests/TestsHubExperience.tsx");
+    const contentAdapter = read("lib/marketing/testsHubContent.ts");
+
+    expect(categoryExperience).toContain("免费人格测试");
+    expect(categoryExperience).toContain("免费职业测试");
+    expect(sharedCards).toContain("getFreeTestPrimaryLabel(item, locale)");
+    expect(hubExperience).toContain('locale === "zh" ? "免费测试"');
+    expect(contentAdapter).toContain("开始 MBTI 免费测试");
+    expect(contentAdapter).toContain('return "大五人格"');
+    expect(contentAdapter).toContain('return "霍兰德职业兴趣"');
+    expect(contentAdapter).toContain("`开始${name}免费测试`");
+    expect(contentAdapter).not.toContain("clinical-depression-anxiety-assessment-professional-edition");
+  });
+
   it("renders the tests hub with collection and item-list schema", () => {
     const source = read("app/(localized)/[locale]/tests/page.tsx");
 

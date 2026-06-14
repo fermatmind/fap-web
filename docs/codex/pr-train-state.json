@@ -23947,12 +23947,12 @@
       "id": "SEO-FREE-TEST-HOMEPAGE-CTA-01",
       "repo": "fap-web",
       "branch": "codex/seo-free-test-homepage-cta-01",
-      "status": "ready_to_merge",
-      "commit_sha": "d6ecfd567ba44f30f506a1ab29b0c3d596d04e49",
+      "status": "merged",
+      "commit_sha": "3a5086f3803a96a0b6366816bd43b21194ea01c9",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1155",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-14T12:42:13Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "failure_reason": null,
       "checks": {
         "authorization": {
@@ -23984,7 +23984,11 @@
         },
         "github_checks": {
           "status": "pass",
-          "evidence": "GitHub checks passed on PR #1155: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL/analyze, and CodeQL."
+          "evidence": "GitHub checks passed on PR #1155: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL/analyze, and CodeQL. A transient contracts failure in detail-ready-1046-llms-full-artifact-consistency-repair-01 was inspected and rerun green without code changes."
+        },
+        "post_merge_revalidation": {
+          "status": "pass",
+          "evidence": "PR #1155 squash merged as 3a5086f3803a96a0b6366816bd43b21194ea01c9; origin/main contains the merge commit, the remote branch was deleted, local cleanup ran, and pnpm exec vitest run tests/contracts/homepage-v1-core-grid.contract.test.tsx passed after sync."
         }
       },
       "history": [
@@ -24012,6 +24016,86 @@
           "at": "2026-06-14T20:36:20+08:00",
           "status": "ready_to_merge",
           "note": "GitHub checks passed on PR #1155 head d6ecfd567ba44f30f506a1ab29b0c3d596d04e49; scope validation remains confined to the 5 allowed files."
+        },
+        {
+          "at": "2026-06-14T20:42:13+08:00",
+          "status": "merged",
+          "note": "PR #1155 squash merged as 3a5086f3803a96a0b6366816bd43b21194ea01c9; remote branch deletion, local branch cleanup, main sync, and focused post-merge contract revalidation completed."
+        }
+      ]
+    },
+    {
+      "id": "SEO-FREE-TEST-HUB-CATEGORY-CTA-02",
+      "repo": "fap-web",
+      "branch": "codex/seo-free-test-hub-category-cta-02",
+      "status": "ready_to_merge",
+      "commit_sha": "7f4e0da128c472905964287e4e06a60eb8e9f25f",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1156",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User provided explicit PR id, scope, and sequential execution instruction for SEO-FREE-TEST-HUB-CATEGORY-CTA-02 on 2026-06-14."
+        },
+        "dependency": {
+          "status": "pass",
+          "evidence": "SEO-FREE-TEST-HOMEPAGE-CTA-01 merged in fap-web PR #1155 as 3a5086f3803a96a0b6366816bd43b21194ea01c9 before this PR started."
+        },
+        "scope": {
+          "status": "pass",
+          "allowed_paths": [
+            "components/marketing/tests/TestCategoryExperience.tsx",
+            "components/marketing/tests/TestsHubExperience.tsx",
+            "components/marketing/tests/TestsShared.tsx",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json",
+            "lib/marketing/testsHubContent.ts",
+            "tests/contracts/helpers/currentPrScope.ts",
+            "tests/contracts/tests-hub-category.contract.test.ts",
+            "tests/contracts/tests-hub-pr-ux-01-render.contract.test.tsx"
+          ],
+          "evidence": "Changed files are limited to zh tests hub/category title and card CTA display normalization, the shared CTA label helper, focused contracts, current PR scope helper, and docs/codex metadata."
+        },
+        "local_validation": {
+          "status": "pass",
+          "evidence": "Passed: pnpm exec vitest run tests/contracts/tests-hub-pr-ux-01-render.contract.test.tsx tests/contracts/tests-hub-category.contract.test.ts (2 files, 6 tests); pnpm typecheck; NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build; pnpm test:contract (489 files, 2784 tests); python3 -m json.tool docs/codex/pr-train-state.json >/dev/null; ruby YAML parse; git diff --check; explicit scope validation. Build-generated public/sitemap.xml was restored before commit."
+        },
+        "github_checks": {
+          "status": "pass",
+          "checks": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "CodeQL",
+            "analyze (javascript-typescript)"
+          ],
+          "evidence": "GitHub checks passed on PR #1156 head 7f4e0da128c472905964287e4e06a60eb8e9f25f. mergeStateStatus is CLEAN and PR scope revalidation found only the 9 allowed files."
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-14T20:43:00+08:00",
+          "status": "in_progress",
+          "note": "Started SEO-FREE-TEST-HUB-CATEGORY-CTA-02 from latest origin/main after homepage CTA PR #1155 merged and post-merge validation passed."
+        },
+        {
+          "at": "2026-06-14T20:50:53+08:00",
+          "status": "local_checks_passed",
+          "note": "Tests hub/category zh titles and card CTAs now use free-test search-intent wording through product rendering/fallback contracts; focused contracts, typecheck, build, full contracts, parse checks, diff check, and scope validation passed locally."
+        },
+        {
+          "at": "2026-06-14T20:55:00+08:00",
+          "status": "pr_open",
+          "note": "Opened fap-web PR #1156 for SEO-FREE-TEST-HUB-CATEGORY-CTA-02 after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-06-14T20:56:43+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed on PR #1156 head 7f4e0da128c472905964287e4e06a60eb8e9f25f and mergeStateStatus is CLEAN; PR changed-file scope revalidation passed."
         }
       ]
     }
