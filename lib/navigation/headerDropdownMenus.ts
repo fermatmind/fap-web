@@ -35,7 +35,7 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
     personality: [
       { href: "/personality", label: "All personality profiles" },
       { href: "/personality/big-five", label: "Big Five (OCEAN)" },
-      { href: "/tests/enneagram-personality-test-nine-types", label: "Enneagram test" },
+      { href: "/personality/enneagram", label: "Enneagram" },
       { href: "/personality#nt", label: "Analysts (NT)" },
       { href: "/personality#nf", label: "Diplomats (NF)" },
       { href: "/personality#sj", label: "Sentinels (SJ)" },
@@ -76,7 +76,7 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
     personality: [
       { href: "/personality", label: "全部人格画像" },
       { href: "/personality/big-five", label: "大五人格（OCEAN）" },
-      { href: "/tests/enneagram-personality-test-nine-types", label: "九型人格测试" },
+      { href: "/personality/enneagram", label: "九型人格" },
       { href: "/personality#nt", label: "分析家（NT）" },
       { href: "/personality#nf", label: "外交家（NF）" },
       { href: "/personality#sj", label: "守护者（SJ）" },
