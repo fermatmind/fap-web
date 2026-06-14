@@ -23769,9 +23769,9 @@
       "id": "PERSONALITY-ENNEAGRAM-V1-NOINDEX-RENDER-01",
       "repo": "fap-web",
       "branch": "codex/personality-enneagram-v1-noindex-render-01",
-      "status": "in_progress",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "pr_open",
+      "commit_sha": "408ce32fabc4408367273b9309bd95d239798a9c",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1150",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -23804,6 +23804,11 @@
           "at": "2026-06-14T16:50:00+08:00",
           "status": "local_checks_passed",
           "note": "Implemented Enneagram V1 noindex public asset consumer; target contracts, typecheck, production build, full contract suite, JSON/YAML parse, scope validation, and git diff --check passed locally."
+        },
+        {
+          "at": "2026-06-14T16:53:00+08:00",
+          "status": "pr_open",
+          "note": "Opened fap-web PR #1150 for Enneagram V1 noindex public asset rendering; GitHub checks are pending."
         }
       ]
     },
