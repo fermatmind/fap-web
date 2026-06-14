@@ -1,0 +1,240 @@
+{
+  "package_id": "big_five:zh-CN:facets:codex-only-batch-v1",
+  "framework": "big_five",
+  "entity_type": "facet_hub",
+  "code": "facets",
+  "locale": "zh-CN",
+  "slug": "big-five/facets",
+  "title": "大五人格 30 个细分面向",
+  "summary": "大五人格 30 个细分面向的公共内容包，用连续维度解释倾向、权衡、沟通和方法边界。",
+  "seo": {
+    "title": "大五人格 30 个细分面向｜大五人格公共解释",
+    "description": "大五人格 30 个细分面向的公共内容包，用连续维度解释倾向、权衡、沟通和方法边界。"
+  },
+  "canonical": {
+    "path": "/zh/personality/big-five/facets"
+  },
+  "hreflang": {
+    "zh-CN": "/zh/personality/big-five/facets",
+    "en": "/en/personality/big-five/facets"
+  },
+  "robots": "noindex,follow",
+  "launch_state": "content_ready",
+  "index_eligible": false,
+  "sitemap_eligible": false,
+  "llms_eligible": false,
+  "sections": [
+    {
+      "key": "quick_answer",
+      "title": "快速回答",
+      "body": "大五的 30 个细分面向用于解释五个宽维度内部的差异；它们不是本批次的独立详情页。",
+      "evidence_ids": [
+        "A1",
+        "A8"
+      ]
+    },
+    {
+      "key": "why_facets_matter",
+      "title": "为什么需要细分",
+      "body": "两个同样偏高的维度表现，可能来自不同细分面向。",
+      "evidence_ids": [
+        "A1",
+        "A3",
+        "A8"
+      ]
+    },
+    {
+      "key": "openness_facets",
+      "title": "开放性细分",
+      "body": "开放性常涉及想象、审美、感受、行动、想法和价值观等主题。",
+      "evidence_ids": [
+        "A1",
+        "A8"
+      ]
+    },
+    {
+      "key": "conscientiousness_facets",
+      "title": "尽责性细分",
+      "body": "尽责性可从能力感、秩序、责任、成就追求、自律和审慎等角度理解。",
+      "evidence_ids": [
+        "A1",
+        "A8"
+      ]
+    },
+    {
+      "key": "extraversion_facets",
+      "title": "外向性细分",
+      "body": "外向性包含温暖、合群、表达、活跃、刺激需求和积极情绪等差异。",
+      "evidence_ids": [
+        "A1",
+        "A8"
+      ]
+    },
+    {
+      "key": "agreeableness_facets",
+      "title": "宜人性细分",
+      "body": "宜人性可从信任、直率、利他、顺从、谦逊和温情等方向观察。",
+      "evidence_ids": [
+        "A1",
+        "A8"
+      ]
+    },
+    {
+      "key": "neuroticism_facets",
+      "title": "神经质细分",
+      "body": "神经质相关面向可包括焦虑、愤怒、低落、自我意识、冲动和脆弱感等。",
+      "evidence_ids": [
+        "A1",
+        "A8",
+        "A9"
+      ]
+    },
+    {
+      "key": "no_detail_routes",
+      "title": "本批次不生成详情页",
+      "body": "本批次只做 facet hub。30 个细分面向可作为后续 depth-upgrade 候选。",
+      "evidence_ids": [
+        "I1",
+        "I2"
+      ]
+    },
+    {
+      "key": "how_to_use",
+      "title": "如何使用",
+      "body": "把细分面向当作解释线索，而不是给人贴更细的固定标签。",
+      "evidence_ids": [
+        "A5"
+      ]
+    },
+    {
+      "key": "method_boundary",
+      "title": "方法边界",
+      "body": "细分面向不能替代测评解释，也不能用于诊断或筛选。",
+      "evidence_ids": [
+        "I4"
+      ]
+    },
+    {
+      "key": "related_links",
+      "title": "继续浏览",
+      "body": "回到五个维度，或查看高低两端的公共解释。",
+      "evidence_ids": [
+        "I2"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "id": "facets-type-question",
+      "question": "大五人格 30 个细分面向是一种人格类型吗？",
+      "answer": "不是。大五人格使用连续维度描述倾向，大五人格 30 个细分面向只是其中一个公共解释入口。",
+      "evidence_ids": [
+        "A1",
+        "A5"
+      ]
+    },
+    {
+      "id": "facets-better-question",
+      "question": "大五人格 30 个细分面向更高或更低更好吗？",
+      "answer": "不能这样判断。高低两端都有优势和代价，关键在任务、环境和沟通方式。",
+      "evidence_ids": [
+        "A5"
+      ]
+    },
+    {
+      "id": "facets-career-question",
+      "question": "大五人格 30 个细分面向能决定职业选择吗？",
+      "answer": "不能。它可以提供偏好语言，但不应用来做招聘筛选或职业决定论。",
+      "evidence_ids": [
+        "I4"
+      ]
+    },
+    {
+      "id": "facets-relationship-question",
+      "question": "大五人格 30 个细分面向对关系有什么用？",
+      "answer": "它可以帮助把差异说成需要和沟通节奏，而不是把人贴上优劣标签。",
+      "evidence_ids": [
+        "A5"
+      ]
+    },
+    {
+      "id": "facets-facet-question",
+      "question": "大五人格 30 个细分面向和 30 个细分面向有什么关系？",
+      "answer": "细分面向解释宽维度内部的差异；本批次只提供总览，不生成细分详情页。",
+      "evidence_ids": [
+        "A1",
+        "A8"
+      ]
+    }
+  ],
+  "media": {
+    "status": "placeholder",
+    "image_url": null,
+    "alt": "大五人格 30 个细分面向的抽象维度说明图占位，不使用 MBTI 品牌图。"
+  },
+  "schema": {
+    "type": "Article",
+    "status": "noindex_content_package",
+    "framework": "big_five",
+    "entity_type": "facet_hub"
+  },
+  "method_boundary": {
+    "summary": "本页解释大五人格公共知识和沟通语言，不解释个人测评结果。",
+    "not_for": [
+      "临床诊断",
+      "心理治疗",
+      "招聘筛选",
+      "职业决定论",
+      "智力或能力判断"
+    ]
+  },
+  "evidence_notes": [
+    "证据依据：A1, A5, I1, I2, I4。所有产品化判断均作为 inference 处理。",
+    "竞品来源仅用于内容缺口观察，不复制结构或措辞。"
+  ],
+  "internal_links": [
+    {
+      "label": "大五人格",
+      "href": "/zh/personality/big-five",
+      "relationship": "hub"
+    },
+    {
+      "label": "开放性",
+      "href": "/zh/personality/big-five/openness",
+      "relationship": "related_domain"
+    },
+    {
+      "label": "尽责性",
+      "href": "/zh/personality/big-five/conscientiousness",
+      "relationship": "related_domain"
+    },
+    {
+      "label": "外向性",
+      "href": "/zh/personality/big-five/extraversion",
+      "relationship": "related_domain"
+    },
+    {
+      "label": "宜人性",
+      "href": "/zh/personality/big-five/agreeableness",
+      "relationship": "related_domain"
+    },
+    {
+      "label": "神经质 / 情绪敏感性",
+      "href": "/zh/personality/big-five/neuroticism",
+      "relationship": "related_domain"
+    }
+  ],
+  "source_ledger_refs": [
+    "A1",
+    "A2",
+    "A5",
+    "I1",
+    "I2",
+    "I4"
+  ],
+  "model_output_refs": [
+    "model-outputs/codex-batch-draft.raw.json",
+    "model-outputs/codex-skeptical-self-review.md"
+  ],
+  "last_reviewed_at": "2026-06-14"
+}

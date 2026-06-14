@@ -1,0 +1,240 @@
+{
+  "package_id": "big_five:en:facets:codex-only-batch-v1",
+  "framework": "big_five",
+  "entity_type": "facet_hub",
+  "code": "facets",
+  "locale": "en",
+  "slug": "big-five/facets",
+  "title": "Big Five 30 Facets",
+  "summary": "A public content package for Big Five 30 Facets, explaining tendencies, tradeoffs, communication, and method boundaries through a continuous dimension model.",
+  "seo": {
+    "title": "Big Five 30 Facets | Big Five public guide",
+    "description": "A public content package for Big Five 30 Facets, explaining tendencies, tradeoffs, communication, and method boundaries through a continuous dimension model."
+  },
+  "canonical": {
+    "path": "/en/personality/big-five/facets"
+  },
+  "hreflang": {
+    "zh-CN": "/zh/personality/big-five/facets",
+    "en": "/en/personality/big-five/facets"
+  },
+  "robots": "noindex,follow",
+  "launch_state": "content_ready",
+  "index_eligible": false,
+  "sitemap_eligible": false,
+  "llms_eligible": false,
+  "sections": [
+    {
+      "key": "quick_answer",
+      "title": "Quick answer",
+      "body": "The Big Five 30 facets explain variation inside broad domains; they are not separate detail pages in this batch.",
+      "evidence_ids": [
+        "A1",
+        "A8"
+      ]
+    },
+    {
+      "key": "why_facets_matter",
+      "title": "Why facets matter",
+      "body": "Two people can appear high on the same domain for different facet reasons.",
+      "evidence_ids": [
+        "A1",
+        "A3",
+        "A8"
+      ]
+    },
+    {
+      "key": "openness_facets",
+      "title": "Openness facets",
+      "body": "Openness often involves imagination, aesthetics, feelings, actions, ideas, and values.",
+      "evidence_ids": [
+        "A1",
+        "A8"
+      ]
+    },
+    {
+      "key": "conscientiousness_facets",
+      "title": "Conscientiousness facets",
+      "body": "Conscientiousness can be understood through competence, order, dutifulness, achievement striving, self-discipline, and deliberation.",
+      "evidence_ids": [
+        "A1",
+        "A8"
+      ]
+    },
+    {
+      "key": "extraversion_facets",
+      "title": "Extraversion facets",
+      "body": "Extraversion includes warmth, gregariousness, assertiveness, activity, excitement seeking, and positive emotions.",
+      "evidence_ids": [
+        "A1",
+        "A8"
+      ]
+    },
+    {
+      "key": "agreeableness_facets",
+      "title": "Agreeableness facets",
+      "body": "Agreeableness can involve trust, straightforwardness, altruism, compliance, modesty, and tender-mindedness.",
+      "evidence_ids": [
+        "A1",
+        "A8"
+      ]
+    },
+    {
+      "key": "neuroticism_facets",
+      "title": "Neuroticism facets",
+      "body": "Neuroticism-related facets can include anxiety, anger, low mood, self-consciousness, impulsiveness, and vulnerability.",
+      "evidence_ids": [
+        "A1",
+        "A8",
+        "A9"
+      ]
+    },
+    {
+      "key": "no_detail_routes",
+      "title": "No detail routes",
+      "body": "This batch creates only the facet hub. The 30 facets can become future depth-upgrade candidates.",
+      "evidence_ids": [
+        "I1",
+        "I2"
+      ]
+    },
+    {
+      "key": "how_to_use",
+      "title": "How to use",
+      "body": "Use facets as explanatory clues, not narrower fixed labels.",
+      "evidence_ids": [
+        "A5"
+      ]
+    },
+    {
+      "key": "method_boundary",
+      "title": "Method boundary",
+      "body": "Facets do not replace assessment interpretation and must not be used for diagnosis or screening.",
+      "evidence_ids": [
+        "I4"
+      ]
+    },
+    {
+      "key": "related_links",
+      "title": "Related links",
+      "body": "Return to the five domains or review high/low pole explanations.",
+      "evidence_ids": [
+        "I2"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "id": "facets-type-question",
+      "question": "Is Big Five 30 Facets a personality type?",
+      "answer": "No. The Big Five uses continuous dimensions; Big Five 30 Facets is one public explanation entry.",
+      "evidence_ids": [
+        "A1",
+        "A5"
+      ]
+    },
+    {
+      "id": "facets-better-question",
+      "question": "Is higher or lower Big Five 30 Facets better?",
+      "answer": "Not by itself. Both poles can have strengths and costs; context, task, and communication matter.",
+      "evidence_ids": [
+        "A5"
+      ]
+    },
+    {
+      "id": "facets-career-question",
+      "question": "Can Big Five 30 Facets decide a career choice?",
+      "answer": "No. It can provide preference language, but should not be used for hiring screening or deterministic career decisions.",
+      "evidence_ids": [
+        "I4"
+      ]
+    },
+    {
+      "id": "facets-relationship-question",
+      "question": "How is Big Five 30 Facets useful in relationships?",
+      "answer": "It can help describe needs and communication rhythm instead of labeling people as better or worse.",
+      "evidence_ids": [
+        "A5"
+      ]
+    },
+    {
+      "id": "facets-facet-question",
+      "question": "How does Big Five 30 Facets relate to the 30 facets?",
+      "answer": "Facets explain variation inside broad domains; this batch provides an overview only, not facet detail pages.",
+      "evidence_ids": [
+        "A1",
+        "A8"
+      ]
+    }
+  ],
+  "media": {
+    "status": "placeholder",
+    "image_url": null,
+    "alt": "Placeholder visual for Big Five 30 Facets as a Big Five dimension, not an MBTI-branded image."
+  },
+  "schema": {
+    "type": "Article",
+    "status": "noindex_content_package",
+    "framework": "big_five",
+    "entity_type": "facet_hub"
+  },
+  "method_boundary": {
+    "summary": "This page explains public Big Five concepts and communication language, not a personal assessment outcome.",
+    "not_for": [
+      "clinical diagnosis",
+      "therapy",
+      "hiring screening",
+      "deterministic career decisions",
+      "intelligence or ability judgment"
+    ]
+  },
+  "evidence_notes": [
+    "Evidence references: A1, A5, I1, I2, I4. Product framing decisions are treated as inference.",
+    "Competitor sources are used for gap awareness only; structure and wording are not copied."
+  ],
+  "internal_links": [
+    {
+      "label": "Big Five Personality",
+      "href": "/en/personality/big-five",
+      "relationship": "hub"
+    },
+    {
+      "label": "Openness",
+      "href": "/en/personality/big-five/openness",
+      "relationship": "related_domain"
+    },
+    {
+      "label": "Conscientiousness",
+      "href": "/en/personality/big-five/conscientiousness",
+      "relationship": "related_domain"
+    },
+    {
+      "label": "Extraversion",
+      "href": "/en/personality/big-five/extraversion",
+      "relationship": "related_domain"
+    },
+    {
+      "label": "Agreeableness",
+      "href": "/en/personality/big-five/agreeableness",
+      "relationship": "related_domain"
+    },
+    {
+      "label": "Neuroticism / Emotional Sensitivity",
+      "href": "/en/personality/big-five/neuroticism",
+      "relationship": "related_domain"
+    }
+  ],
+  "source_ledger_refs": [
+    "A1",
+    "A2",
+    "A5",
+    "I1",
+    "I2",
+    "I4"
+  ],
+  "model_output_refs": [
+    "model-outputs/codex-batch-draft.raw.json",
+    "model-outputs/codex-skeptical-self-review.md"
+  ],
+  "last_reviewed_at": "2026-06-14"
+}

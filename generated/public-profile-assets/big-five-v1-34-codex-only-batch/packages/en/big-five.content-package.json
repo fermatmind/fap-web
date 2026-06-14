@@ -1,0 +1,238 @@
+{
+  "package_id": "big_five:en:big-five:codex-only-batch-v1",
+  "framework": "big_five",
+  "entity_type": "hub",
+  "code": "big-five",
+  "locale": "en",
+  "slug": "big-five",
+  "title": "Big Five Personality",
+  "summary": "A public content package for Big Five Personality, explaining tendencies, tradeoffs, communication, and method boundaries through a continuous dimension model.",
+  "seo": {
+    "title": "Big Five Personality | Big Five public guide",
+    "description": "A public content package for Big Five Personality, explaining tendencies, tradeoffs, communication, and method boundaries through a continuous dimension model."
+  },
+  "canonical": {
+    "path": "/en/personality/big-five"
+  },
+  "hreflang": {
+    "zh-CN": "/zh/personality/big-five",
+    "en": "/en/personality/big-five"
+  },
+  "robots": "noindex,follow",
+  "launch_state": "content_ready",
+  "index_eligible": false,
+  "sitemap_eligible": false,
+  "llms_eligible": false,
+  "sections": [
+    {
+      "key": "quick_answer",
+      "title": "Quick answer",
+      "body": "The Big Five describes personality differences through five continuous dimensions. It is not a fixed type label.",
+      "evidence_ids": [
+        "A1",
+        "A5",
+        "A7"
+      ]
+    },
+    {
+      "key": "model_overview",
+      "title": "Model overview",
+      "body": "Each dimension can appear higher, lower, or in the middle. Public pages explain the language, not a personal report.",
+      "evidence_ids": [
+        "A1",
+        "A5"
+      ]
+    },
+    {
+      "key": "five_domains",
+      "title": "Five domains",
+      "body": "The five domains cover exploration and imagination, planning and responsibility, social energy, cooperation style, and stress response.",
+      "evidence_ids": [
+        "A1",
+        "A2"
+      ]
+    },
+    {
+      "key": "high_low_poles",
+      "title": "High and low poles",
+      "body": "High and low poles are not a moral ranking. They describe tendencies, costs, and context fit.",
+      "evidence_ids": [
+        "A5"
+      ]
+    },
+    {
+      "key": "facet_map",
+      "title": "Facet map",
+      "body": "Thirty facets can explain variation inside broad domains. This batch creates the overview only.",
+      "evidence_ids": [
+        "A1",
+        "A8"
+      ]
+    },
+    {
+      "key": "how_to_read",
+      "title": "How to read",
+      "body": "Start with domain meaning, then high/low poles, then apply the language to learning, work, communication, and relationships.",
+      "evidence_ids": [
+        "I1",
+        "I2"
+      ]
+    },
+    {
+      "key": "work_learning",
+      "title": "Work and learning",
+      "body": "Big Five language can describe preferences and collaboration style, but should not decide career conclusions.",
+      "evidence_ids": [
+        "A5",
+        "I4"
+      ]
+    },
+    {
+      "key": "relationships",
+      "title": "Relationships and communication",
+      "body": "Trait language can reduce misunderstanding by framing differences as communication preferences rather than personal worth.",
+      "evidence_ids": [
+        "A5"
+      ]
+    },
+    {
+      "key": "common_misunderstandings",
+      "title": "Common misunderstandings",
+      "body": "The Big Five is not MBTI, not a 16Personalities-style type system, and not a fixed official type inventory.",
+      "evidence_ids": [
+        "A5",
+        "C6"
+      ]
+    },
+    {
+      "key": "method_boundary",
+      "title": "Method boundary",
+      "body": "This page is public education only, not clinical, therapeutic, hiring, or deterministic life advice.",
+      "evidence_ids": [
+        "I4"
+      ]
+    },
+    {
+      "key": "related_links",
+      "title": "Related links",
+      "body": "Continue to the five domains, high/low poles, and the 30-facet overview.",
+      "evidence_ids": [
+        "I2"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "id": "big-five-type-question",
+      "question": "Is Big Five Personality a personality type?",
+      "answer": "No. The Big Five uses continuous dimensions; Big Five Personality is one public explanation entry.",
+      "evidence_ids": [
+        "A1",
+        "A5"
+      ]
+    },
+    {
+      "id": "big-five-better-question",
+      "question": "Is higher or lower Big Five Personality better?",
+      "answer": "Not by itself. Both poles can have strengths and costs; context, task, and communication matter.",
+      "evidence_ids": [
+        "A5"
+      ]
+    },
+    {
+      "id": "big-five-career-question",
+      "question": "Can Big Five Personality decide a career choice?",
+      "answer": "No. It can provide preference language, but should not be used for hiring screening or deterministic career decisions.",
+      "evidence_ids": [
+        "I4"
+      ]
+    },
+    {
+      "id": "big-five-relationship-question",
+      "question": "How is Big Five Personality useful in relationships?",
+      "answer": "It can help describe needs and communication rhythm instead of labeling people as better or worse.",
+      "evidence_ids": [
+        "A5"
+      ]
+    },
+    {
+      "id": "big-five-facet-question",
+      "question": "How does Big Five Personality relate to the 30 facets?",
+      "answer": "Facets explain variation inside broad domains; this batch provides an overview only, not facet detail pages.",
+      "evidence_ids": [
+        "A1",
+        "A8"
+      ]
+    }
+  ],
+  "media": {
+    "status": "placeholder",
+    "image_url": null,
+    "alt": "Placeholder visual for Big Five Personality as a Big Five dimension, not an MBTI-branded image."
+  },
+  "schema": {
+    "type": "Article",
+    "status": "noindex_content_package",
+    "framework": "big_five",
+    "entity_type": "hub"
+  },
+  "method_boundary": {
+    "summary": "This page explains public Big Five concepts and communication language, not a personal assessment outcome.",
+    "not_for": [
+      "clinical diagnosis",
+      "therapy",
+      "hiring screening",
+      "deterministic career decisions",
+      "intelligence or ability judgment"
+    ]
+  },
+  "evidence_notes": [
+    "Evidence references: A1, A5, I1, I2, I4. Product framing decisions are treated as inference.",
+    "Competitor sources are used for gap awareness only; structure and wording are not copied."
+  ],
+  "internal_links": [
+    {
+      "label": "Big Five Personality",
+      "href": "/en/personality/big-five",
+      "relationship": "hub"
+    },
+    {
+      "label": "Big Five 30 Facets",
+      "href": "/en/personality/big-five/facets",
+      "relationship": "facet_overview"
+    },
+    {
+      "label": "Openness",
+      "href": "/en/personality/big-five/openness",
+      "relationship": "related_domain"
+    },
+    {
+      "label": "Conscientiousness",
+      "href": "/en/personality/big-five/conscientiousness",
+      "relationship": "related_domain"
+    },
+    {
+      "label": "Extraversion",
+      "href": "/en/personality/big-five/extraversion",
+      "relationship": "related_domain"
+    },
+    {
+      "label": "Agreeableness",
+      "href": "/en/personality/big-five/agreeableness",
+      "relationship": "related_domain"
+    }
+  ],
+  "source_ledger_refs": [
+    "A1",
+    "A2",
+    "A5",
+    "I1",
+    "I2",
+    "I4"
+  ],
+  "model_output_refs": [
+    "model-outputs/codex-batch-draft.raw.json",
+    "model-outputs/codex-skeptical-self-review.md"
+  ],
+  "last_reviewed_at": "2026-06-14"
+}

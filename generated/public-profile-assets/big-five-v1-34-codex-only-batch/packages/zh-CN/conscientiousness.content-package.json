@@ -1,0 +1,243 @@
+{
+  "package_id": "big_five:zh-CN:conscientiousness:codex-only-batch-v1",
+  "framework": "big_five",
+  "entity_type": "domain",
+  "code": "conscientiousness",
+  "locale": "zh-CN",
+  "slug": "big-five/conscientiousness",
+  "title": "尽责性",
+  "summary": "尽责性的公共内容包，用连续维度解释倾向、权衡、沟通和方法边界。",
+  "seo": {
+    "title": "尽责性｜大五人格公共解释",
+    "description": "尽责性的公共内容包，用连续维度解释倾向、权衡、沟通和方法边界。"
+  },
+  "canonical": {
+    "path": "/zh/personality/big-five/conscientiousness"
+  },
+  "hreflang": {
+    "zh-CN": "/zh/personality/big-five/conscientiousness",
+    "en": "/en/personality/big-five/conscientiousness"
+  },
+  "robots": "noindex,follow",
+  "launch_state": "content_ready",
+  "index_eligible": false,
+  "sitemap_eligible": false,
+  "llms_eligible": false,
+  "sections": [
+    {
+      "key": "quick_answer",
+      "title": "快速回答",
+      "body": "尽责性描述一个人在秩序、自律、责任、执行和审慎计划上的倾向。它是连续维度，不是类型标签。",
+      "evidence_ids": [
+        "A1",
+        "A2",
+        "A5"
+      ]
+    },
+    {
+      "key": "definition",
+      "title": "维度定义",
+      "body": "尽责性帮助理解稳定偏好如何在学习、沟通和日常选择中出现，但不说明能力高低。",
+      "evidence_ids": [
+        "A1",
+        "A2",
+        "A5"
+      ]
+    },
+    {
+      "key": "daily_signs",
+      "title": "日常表现",
+      "body": "日常中，尽责性可能体现在信息选择、计划节奏、互动方式和压力处理上；具体表现会随情境变化。",
+      "evidence_ids": [
+        "A1",
+        "A2",
+        "A5"
+      ]
+    },
+    {
+      "key": "high_pole",
+      "title": "偏高时",
+      "body": "尽责性偏高通常意味着相关倾向更常被调动，但也可能带来注意力、边界或恢复成本。",
+      "evidence_ids": [
+        "A1",
+        "A2",
+        "A5"
+      ]
+    },
+    {
+      "key": "low_pole",
+      "title": "偏低时",
+      "body": "尽责性偏低不等于缺陷，它可能代表更谨慎、更节制或更依赖熟悉结构。",
+      "evidence_ids": [
+        "A1",
+        "A2",
+        "A5"
+      ]
+    },
+    {
+      "key": "strengths_tradeoffs",
+      "title": "优势与权衡",
+      "body": "尽责性的价值取决于任务和环境。优势和代价通常同时存在。",
+      "evidence_ids": [
+        "A1",
+        "A2",
+        "A5"
+      ]
+    },
+    {
+      "key": "work_learning",
+      "title": "工作与学习",
+      "body": "在工作和学习中，尽责性可以帮助描述协作偏好和反馈方式，但不能决定职业结论。",
+      "evidence_ids": [
+        "A1",
+        "A2",
+        "A5"
+      ]
+    },
+    {
+      "key": "relationships",
+      "title": "关系与沟通",
+      "body": "在关系中，谈论尽责性应聚焦需要和沟通方式，而不是评价谁更好。",
+      "evidence_ids": [
+        "A1",
+        "A2",
+        "A5"
+      ]
+    },
+    {
+      "key": "misunderstandings",
+      "title": "常见误解",
+      "body": "误解尽责性时，常把连续倾向说成固定身份，或把高低说成优劣。",
+      "evidence_ids": [
+        "A1",
+        "A2",
+        "A5"
+      ]
+    },
+    {
+      "key": "method_boundary",
+      "title": "方法边界",
+      "body": "本页解释尽责性公共知识，不解释个人结果，也不用于临床、招聘或治疗。",
+      "evidence_ids": [
+        "I4"
+      ]
+    },
+    {
+      "key": "related_links",
+      "title": "继续浏览",
+      "body": "继续查看尽责性的高低两端和 30 细分面向总览。",
+      "evidence_ids": [
+        "I2"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "id": "conscientiousness-type-question",
+      "question": "尽责性是一种人格类型吗？",
+      "answer": "不是。大五人格使用连续维度描述倾向，尽责性只是其中一个公共解释入口。",
+      "evidence_ids": [
+        "A1",
+        "A5"
+      ]
+    },
+    {
+      "id": "conscientiousness-better-question",
+      "question": "尽责性更高或更低更好吗？",
+      "answer": "不能这样判断。高低两端都有优势和代价，关键在任务、环境和沟通方式。",
+      "evidence_ids": [
+        "A5"
+      ]
+    },
+    {
+      "id": "conscientiousness-career-question",
+      "question": "尽责性能决定职业选择吗？",
+      "answer": "不能。它可以提供偏好语言，但不应用来做招聘筛选或职业决定论。",
+      "evidence_ids": [
+        "I4"
+      ]
+    },
+    {
+      "id": "conscientiousness-relationship-question",
+      "question": "尽责性对关系有什么用？",
+      "answer": "它可以帮助把差异说成需要和沟通节奏，而不是把人贴上优劣标签。",
+      "evidence_ids": [
+        "A5"
+      ]
+    },
+    {
+      "id": "conscientiousness-facet-question",
+      "question": "尽责性和 30 个细分面向有什么关系？",
+      "answer": "细分面向解释宽维度内部的差异；本批次只提供总览，不生成细分详情页。",
+      "evidence_ids": [
+        "A1",
+        "A8"
+      ]
+    }
+  ],
+  "media": {
+    "status": "placeholder",
+    "image_url": null,
+    "alt": "尽责性的抽象维度说明图占位，不使用 MBTI 品牌图。"
+  },
+  "schema": {
+    "type": "Article",
+    "status": "noindex_content_package",
+    "framework": "big_five",
+    "entity_type": "domain"
+  },
+  "method_boundary": {
+    "summary": "本页解释大五人格公共知识和沟通语言，不解释个人测评结果。",
+    "not_for": [
+      "临床诊断",
+      "心理治疗",
+      "招聘筛选",
+      "职业决定论",
+      "智力或能力判断"
+    ]
+  },
+  "evidence_notes": [
+    "证据依据：A1, A5, I1, I2, I4。所有产品化判断均作为 inference 处理。",
+    "竞品来源仅用于内容缺口观察，不复制结构或措辞。"
+  ],
+  "internal_links": [
+    {
+      "label": "大五人格",
+      "href": "/zh/personality/big-five",
+      "relationship": "hub"
+    },
+    {
+      "label": "大五人格 30 个细分面向",
+      "href": "/zh/personality/big-five/facets",
+      "relationship": "facet_overview"
+    },
+    {
+      "label": "高尽责性",
+      "href": "/zh/personality/big-five/high-conscientiousness",
+      "relationship": "high_pole"
+    },
+    {
+      "label": "低尽责性",
+      "href": "/zh/personality/big-five/low-conscientiousness",
+      "relationship": "low_pole"
+    },
+    {
+      "label": "大五人格测试",
+      "href": "/zh/tests/big-five-personality-test",
+      "relationship": "test_landing"
+    }
+  ],
+  "source_ledger_refs": [
+    "A1",
+    "A2",
+    "A5",
+    "I1",
+    "I2",
+    "I4"
+  ],
+  "model_output_refs": [
+    "model-outputs/codex-batch-draft.raw.json",
+    "model-outputs/codex-skeptical-self-review.md"
+  ],
+  "last_reviewed_at": "2026-06-14"
+}

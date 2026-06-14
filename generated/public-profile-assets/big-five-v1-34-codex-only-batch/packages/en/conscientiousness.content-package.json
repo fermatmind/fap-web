@@ -1,0 +1,243 @@
+{
+  "package_id": "big_five:en:conscientiousness:codex-only-batch-v1",
+  "framework": "big_five",
+  "entity_type": "domain",
+  "code": "conscientiousness",
+  "locale": "en",
+  "slug": "big-five/conscientiousness",
+  "title": "Conscientiousness",
+  "summary": "A public content package for Conscientiousness, explaining tendencies, tradeoffs, communication, and method boundaries through a continuous dimension model.",
+  "seo": {
+    "title": "Conscientiousness | Big Five public guide",
+    "description": "A public content package for Conscientiousness, explaining tendencies, tradeoffs, communication, and method boundaries through a continuous dimension model."
+  },
+  "canonical": {
+    "path": "/en/personality/big-five/conscientiousness"
+  },
+  "hreflang": {
+    "zh-CN": "/zh/personality/big-five/conscientiousness",
+    "en": "/en/personality/big-five/conscientiousness"
+  },
+  "robots": "noindex,follow",
+  "launch_state": "content_ready",
+  "index_eligible": false,
+  "sitemap_eligible": false,
+  "llms_eligible": false,
+  "sections": [
+    {
+      "key": "quick_answer",
+      "title": "Quick answer",
+      "body": "Conscientiousness describes tendencies around order, self-discipline, responsibility, execution, and careful planning. It is a continuous dimension, not a type label.",
+      "evidence_ids": [
+        "A1",
+        "A2",
+        "A5"
+      ]
+    },
+    {
+      "key": "definition",
+      "title": "Definition",
+      "body": "Conscientiousness helps explain how stable preferences may appear in learning, communication, and daily choices, without ranking ability.",
+      "evidence_ids": [
+        "A1",
+        "A2",
+        "A5"
+      ]
+    },
+    {
+      "key": "daily_signs",
+      "title": "Daily signs",
+      "body": "In daily life, Conscientiousness can appear in information choices, planning rhythm, interaction style, and stress handling; expression varies by context.",
+      "evidence_ids": [
+        "A1",
+        "A2",
+        "A5"
+      ]
+    },
+    {
+      "key": "high_pole",
+      "title": "Higher pole",
+      "body": "Higher Conscientiousness usually means the related tendency is more often activated, while also carrying possible attention, boundary, or recovery costs.",
+      "evidence_ids": [
+        "A1",
+        "A2",
+        "A5"
+      ]
+    },
+    {
+      "key": "low_pole",
+      "title": "Lower pole",
+      "body": "Lower Conscientiousness is not a flaw; it can reflect caution, restraint, or greater reliance on familiar structure.",
+      "evidence_ids": [
+        "A1",
+        "A2",
+        "A5"
+      ]
+    },
+    {
+      "key": "strengths_tradeoffs",
+      "title": "Strengths and tradeoffs",
+      "body": "The value of Conscientiousness depends on task and environment. Strengths and tradeoffs usually appear together.",
+      "evidence_ids": [
+        "A1",
+        "A2",
+        "A5"
+      ]
+    },
+    {
+      "key": "work_learning",
+      "title": "Work and learning",
+      "body": "In work and learning, Conscientiousness can describe collaboration preferences and feedback style, but cannot determine career conclusions.",
+      "evidence_ids": [
+        "A1",
+        "A2",
+        "A5"
+      ]
+    },
+    {
+      "key": "relationships",
+      "title": "Relationships and communication",
+      "body": "In relationships, discussing Conscientiousness should focus on needs and communication style, not who is better.",
+      "evidence_ids": [
+        "A1",
+        "A2",
+        "A5"
+      ]
+    },
+    {
+      "key": "misunderstandings",
+      "title": "Common misunderstandings",
+      "body": "A common misunderstanding is treating Conscientiousness as a fixed identity or ranking high and low as better or worse.",
+      "evidence_ids": [
+        "A1",
+        "A2",
+        "A5"
+      ]
+    },
+    {
+      "key": "method_boundary",
+      "title": "Method boundary",
+      "body": "This page explains public knowledge about Conscientiousness; it does not interpret a personal outcome and is not for clinical, hiring, or therapy use.",
+      "evidence_ids": [
+        "I4"
+      ]
+    },
+    {
+      "key": "related_links",
+      "title": "Related links",
+      "body": "Continue to the high/low poles for Conscientiousness and the 30-facet overview.",
+      "evidence_ids": [
+        "I2"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "id": "conscientiousness-type-question",
+      "question": "Is Conscientiousness a personality type?",
+      "answer": "No. The Big Five uses continuous dimensions; Conscientiousness is one public explanation entry.",
+      "evidence_ids": [
+        "A1",
+        "A5"
+      ]
+    },
+    {
+      "id": "conscientiousness-better-question",
+      "question": "Is higher or lower Conscientiousness better?",
+      "answer": "Not by itself. Both poles can have strengths and costs; context, task, and communication matter.",
+      "evidence_ids": [
+        "A5"
+      ]
+    },
+    {
+      "id": "conscientiousness-career-question",
+      "question": "Can Conscientiousness decide a career choice?",
+      "answer": "No. It can provide preference language, but should not be used for hiring screening or deterministic career decisions.",
+      "evidence_ids": [
+        "I4"
+      ]
+    },
+    {
+      "id": "conscientiousness-relationship-question",
+      "question": "How is Conscientiousness useful in relationships?",
+      "answer": "It can help describe needs and communication rhythm instead of labeling people as better or worse.",
+      "evidence_ids": [
+        "A5"
+      ]
+    },
+    {
+      "id": "conscientiousness-facet-question",
+      "question": "How does Conscientiousness relate to the 30 facets?",
+      "answer": "Facets explain variation inside broad domains; this batch provides an overview only, not facet detail pages.",
+      "evidence_ids": [
+        "A1",
+        "A8"
+      ]
+    }
+  ],
+  "media": {
+    "status": "placeholder",
+    "image_url": null,
+    "alt": "Placeholder visual for Conscientiousness as a Big Five dimension, not an MBTI-branded image."
+  },
+  "schema": {
+    "type": "Article",
+    "status": "noindex_content_package",
+    "framework": "big_five",
+    "entity_type": "domain"
+  },
+  "method_boundary": {
+    "summary": "This page explains public Big Five concepts and communication language, not a personal assessment outcome.",
+    "not_for": [
+      "clinical diagnosis",
+      "therapy",
+      "hiring screening",
+      "deterministic career decisions",
+      "intelligence or ability judgment"
+    ]
+  },
+  "evidence_notes": [
+    "Evidence references: A1, A5, I1, I2, I4. Product framing decisions are treated as inference.",
+    "Competitor sources are used for gap awareness only; structure and wording are not copied."
+  ],
+  "internal_links": [
+    {
+      "label": "Big Five Personality",
+      "href": "/en/personality/big-five",
+      "relationship": "hub"
+    },
+    {
+      "label": "Big Five 30 Facets",
+      "href": "/en/personality/big-five/facets",
+      "relationship": "facet_overview"
+    },
+    {
+      "label": "High Conscientiousness",
+      "href": "/en/personality/big-five/high-conscientiousness",
+      "relationship": "high_pole"
+    },
+    {
+      "label": "Low Conscientiousness",
+      "href": "/en/personality/big-five/low-conscientiousness",
+      "relationship": "low_pole"
+    },
+    {
+      "label": "Big Five test",
+      "href": "/en/tests/big-five-personality-test",
+      "relationship": "test_landing"
+    }
+  ],
+  "source_ledger_refs": [
+    "A1",
+    "A2",
+    "A5",
+    "I1",
+    "I2",
+    "I4"
+  ],
+  "model_output_refs": [
+    "model-outputs/codex-batch-draft.raw.json",
+    "model-outputs/codex-skeptical-self-review.md"
+  ],
+  "last_reviewed_at": "2026-06-14"
+}

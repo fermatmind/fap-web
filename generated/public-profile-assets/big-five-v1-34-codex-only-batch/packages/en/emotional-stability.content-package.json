@@ -1,0 +1,243 @@
+{
+  "package_id": "big_five:en:emotional-stability:codex-only-batch-v1",
+  "framework": "big_five",
+  "entity_type": "polarity",
+  "code": "emotional-stability",
+  "locale": "en",
+  "slug": "big-five/emotional-stability",
+  "title": "Emotional Stability",
+  "summary": "A public content package for Emotional Stability, explaining tendencies, tradeoffs, communication, and method boundaries through a continuous dimension model.",
+  "seo": {
+    "title": "Emotional Stability | Big Five public guide",
+    "description": "A public content package for Emotional Stability, explaining tendencies, tradeoffs, communication, and method boundaries through a continuous dimension model."
+  },
+  "canonical": {
+    "path": "/en/personality/big-five/emotional-stability"
+  },
+  "hreflang": {
+    "zh-CN": "/zh/personality/big-five/emotional-stability",
+    "en": "/en/personality/big-five/emotional-stability"
+  },
+  "robots": "noindex,follow",
+  "launch_state": "content_ready",
+  "index_eligible": false,
+  "sitemap_eligible": false,
+  "llms_eligible": false,
+  "sections": [
+    {
+      "key": "quick_answer",
+      "title": "Quick answer",
+      "body": "Emotional Stability means relatively lower stress reactivity and faster recovery, not an absence of emotion or a guarantee of mental health. It is not a better/worse judgment.",
+      "evidence_ids": [
+        "A1",
+        "A2",
+        "A9"
+      ]
+    },
+    {
+      "key": "daily_signs",
+      "title": "Daily signs",
+      "body": "Daily signs may appear in choice rhythm, communication style, recovery needs, and reactions to uncertainty.",
+      "evidence_ids": [
+        "A1",
+        "A2",
+        "A9"
+      ]
+    },
+    {
+      "key": "strengths",
+      "title": "Possible strengths",
+      "body": "The strengths of Emotional Stability usually come from fit between tendency and task demands, not from a personality ranking.",
+      "evidence_ids": [
+        "A1",
+        "A2",
+        "A9"
+      ]
+    },
+    {
+      "key": "tradeoffs",
+      "title": "Possible tradeoffs",
+      "body": "The same tendency can carry costs in mismatched contexts, such as misunderstanding, overextension, or missed information.",
+      "evidence_ids": [
+        "A1",
+        "A2",
+        "A9"
+      ]
+    },
+    {
+      "key": "work_learning",
+      "title": "Work and learning",
+      "body": "In work and learning, use Emotional Stability as a collaboration cue for pacing, feedback, and role boundaries.",
+      "evidence_ids": [
+        "A1",
+        "A2",
+        "A9"
+      ]
+    },
+    {
+      "key": "relationships",
+      "title": "Relationships and communication",
+      "body": "In relationships, translate Emotional Stability into concrete requests, such as more space, more confirmation, or clearer planning.",
+      "evidence_ids": [
+        "A1",
+        "A2",
+        "A9"
+      ]
+    },
+    {
+      "key": "common_misunderstanding",
+      "title": "Common misunderstanding",
+      "body": "A common misunderstanding is treating Emotional Stability as a virtue or defect. A better framing is that it has different effects across contexts.",
+      "evidence_ids": [
+        "A1",
+        "A2",
+        "A9"
+      ]
+    },
+    {
+      "key": "action_prompts",
+      "title": "Action prompts",
+      "body": "Ask: What is this tendency helping with now? What might it make me overlook? What communication boundary is needed?",
+      "evidence_ids": [
+        "A1",
+        "A2",
+        "A9"
+      ]
+    },
+    {
+      "key": "comparison",
+      "title": "Contrast with the other pole",
+      "body": "Compared with the other pole, Emotional Stability is not an opposite personality; it is a different tendency pattern on the same continuum.",
+      "evidence_ids": [
+        "A1",
+        "A2",
+        "A9"
+      ]
+    },
+    {
+      "key": "method_boundary",
+      "title": "Method boundary",
+      "body": "This page does not interpret a personal assessment outcome and does not provide diagnosis, therapy, hiring screening, or deterministic career advice.",
+      "evidence_ids": [
+        "I4"
+      ]
+    },
+    {
+      "key": "related_links",
+      "title": "Related links",
+      "body": "Continue to the Neuroticism / Emotional Sensitivity domain, the opposite pole, and the facet overview.",
+      "evidence_ids": [
+        "I2"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "id": "emotional-stability-type-question",
+      "question": "Is Emotional Stability a personality type?",
+      "answer": "No. The Big Five uses continuous dimensions; Emotional Stability is one public explanation entry.",
+      "evidence_ids": [
+        "A1",
+        "A5"
+      ]
+    },
+    {
+      "id": "emotional-stability-better-question",
+      "question": "Is higher or lower Emotional Stability better?",
+      "answer": "Not by itself. Both poles can have strengths and costs; context, task, and communication matter.",
+      "evidence_ids": [
+        "A5"
+      ]
+    },
+    {
+      "id": "emotional-stability-career-question",
+      "question": "Can Emotional Stability decide a career choice?",
+      "answer": "No. It can provide preference language, but should not be used for hiring screening or deterministic career decisions.",
+      "evidence_ids": [
+        "I4"
+      ]
+    },
+    {
+      "id": "emotional-stability-relationship-question",
+      "question": "How is Emotional Stability useful in relationships?",
+      "answer": "It can help describe needs and communication rhythm instead of labeling people as better or worse.",
+      "evidence_ids": [
+        "A5"
+      ]
+    },
+    {
+      "id": "emotional-stability-facet-question",
+      "question": "How does Emotional Stability relate to the 30 facets?",
+      "answer": "Facets explain variation inside broad domains; this batch provides an overview only, not facet detail pages.",
+      "evidence_ids": [
+        "A1",
+        "A8"
+      ]
+    }
+  ],
+  "media": {
+    "status": "placeholder",
+    "image_url": null,
+    "alt": "Placeholder visual for Emotional Stability as a Big Five dimension, not an MBTI-branded image."
+  },
+  "schema": {
+    "type": "Article",
+    "status": "noindex_content_package",
+    "framework": "big_five",
+    "entity_type": "polarity"
+  },
+  "method_boundary": {
+    "summary": "This page explains public Big Five concepts and communication language, not a personal assessment outcome.",
+    "not_for": [
+      "clinical diagnosis",
+      "therapy",
+      "hiring screening",
+      "deterministic career decisions",
+      "intelligence or ability judgment"
+    ]
+  },
+  "evidence_notes": [
+    "Evidence references: A1, A5, I1, I2, I4. Product framing decisions are treated as inference.",
+    "Competitor sources are used for gap awareness only; structure and wording are not copied."
+  ],
+  "internal_links": [
+    {
+      "label": "Big Five Personality",
+      "href": "/en/personality/big-five",
+      "relationship": "hub"
+    },
+    {
+      "label": "Big Five 30 Facets",
+      "href": "/en/personality/big-five/facets",
+      "relationship": "facet_overview"
+    },
+    {
+      "label": "Neuroticism / Emotional Sensitivity",
+      "href": "/en/personality/big-five/neuroticism",
+      "relationship": "parent_domain"
+    },
+    {
+      "label": "High Neuroticism / High Emotional Sensitivity",
+      "href": "/en/personality/big-five/high-neuroticism",
+      "relationship": "contrast_pole"
+    },
+    {
+      "label": "Big Five test",
+      "href": "/en/tests/big-five-personality-test",
+      "relationship": "test_landing"
+    }
+  ],
+  "source_ledger_refs": [
+    "A1",
+    "A2",
+    "A5",
+    "I1",
+    "I2",
+    "I4"
+  ],
+  "model_output_refs": [
+    "model-outputs/codex-batch-draft.raw.json",
+    "model-outputs/codex-skeptical-self-review.md"
+  ],
+  "last_reviewed_at": "2026-06-14"
+}
