@@ -2034,6 +2034,17 @@ const PERSONALITY_BIG5_V1_NOINDEX_RENDER_01_ALLOWED_FILES = new Set([
   "tests/contracts/personality-big-five-v1-noindex-render.contract.test.ts",
 ]);
 
+const PERSONALITY_ENNEAGRAM_V1_NOINDEX_RENDER_01_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/personality/enneagram/[[...slug]]/page.tsx",
+  "components/personality/PublicContentAssetRenderer.tsx",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "lib/cms/personality-public-content-assets.ts",
+  "lib/personality/enneagramPublicRoutes.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/personality-enneagram-v1-noindex-render.contract.test.ts",
+]);
+
 const PERSONALITY_BIG5_NAV_ENTRY_ALLOWED_FILES = new Set([
   "lib/navigation/headerDropdownMenus.ts",
   "tests/contracts/header-big-five-personality-nav.contract.test.ts",
@@ -2104,10 +2115,7 @@ export function isTestKpiFrontendContract06AllowedFile(file: string): boolean {
 }
 
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
-  if (
-    (CURRENT_BRANCH === "main" || CURRENT_BRANCH === "codex/fix-main-contract-scope-965") &&
-    PERSONALITY_BIG5_V1_NOINDEX_RENDER_01_ALLOWED_FILES.has(file)
-  ) {
+  if (HELP_SUPPORT_CONTACT_RUNTIME_01_ALLOWED_FILES.has(file)) {
     return true;
   }
 
@@ -2118,7 +2126,18 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
     return true;
   }
 
-  if (HELP_SUPPORT_CONTACT_RUNTIME_01_ALLOWED_FILES.has(file)) {
+  if (CURRENT_BRANCH === "codex/personality-enneagram-v1-noindex-render-01") {
+    return (
+      PERSONALITY_ENNEAGRAM_V1_NOINDEX_RENDER_01_ALLOWED_FILES.has(file) ||
+      file === "docs/seo/generated/metadata-surface-inventory.v1.csv" ||
+      file === "docs/seo/generated/metadata-surface-inventory.v1.json"
+    );
+  }
+
+  if (
+    (CURRENT_BRANCH === "main" || CURRENT_BRANCH === "codex/fix-main-contract-scope-965") &&
+    PERSONALITY_BIG5_V1_NOINDEX_RENDER_01_ALLOWED_FILES.has(file)
+  ) {
     return true;
   }
 
@@ -2759,6 +2778,7 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
     (PERSONALITY_LLMS_FULL_COMPARISON_REPAIR_01_ALLOWED_FILES.has(file) ||
       PERSONALITY_SEO_POST_DEPLOY_INDEXATION_AUDIT_01_ALLOWED_FILES.has(file) ||
       PERSONALITY_BIG5_NAV_ENTRY_ALLOWED_FILES.has(file) ||
+      PERSONALITY_ENNEAGRAM_V1_NOINDEX_RENDER_01_ALLOWED_FILES.has(file) ||
       ENNEAGRAM_PERSONALITY_NAV_ENTRY_ALLOWED_FILES.has(file) ||
       LEGACY_CI_EMPTY_DIFF_SCOPE_SENTINEL_FILES.has(file))
   ) {
@@ -2774,6 +2794,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/personality-big5-v1-noindex-render-01") {
     return PERSONALITY_BIG5_V1_NOINDEX_RENDER_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/personality-enneagram-v1-noindex-render-01") {
+    return PERSONALITY_ENNEAGRAM_V1_NOINDEX_RENDER_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/big-five-personality-nav-entry") {
@@ -2928,7 +2952,15 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 }
 
 export function isPersonalityBig5V1NoindexRender01AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/personality-big5-v1-noindex-render-01") {
+    return true;
+  }
+
   return PERSONALITY_BIG5_V1_NOINDEX_RENDER_01_ALLOWED_FILES.has(file);
+}
+
+export function isPersonalityEnneagramV1NoindexRender01AllowedFile(file: string): boolean {
+  return PERSONALITY_ENNEAGRAM_V1_NOINDEX_RENDER_01_ALLOWED_FILES.has(file);
 }
 
 export function isSeoConvTracking01AllowedFile(file: string): boolean {

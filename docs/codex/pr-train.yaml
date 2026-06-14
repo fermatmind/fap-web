@@ -14877,3 +14877,104 @@ prs:
       github_checks_required: true
       squash: true
       auto_merge: false
+
+  - id: PERSONALITY-ENNEAGRAM-V1-NOINDEX-RENDER-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/personality-enneagram-v1-noindex-render-01
+    base: main
+    title: "feat(personality): render Enneagram V1 public noindex assets"
+    depends_on: []
+    mode: execute
+    train_scope: personality_public_asset_consumer
+    status: in_progress
+    goal: "Consume fap-api PersonalityPublicContentAsset Enneagram V1 placeholder assets and render the 26 bilingual noindex frontend routes without adding sitemap, llms, result-page, MBTI, scoring, wing detail, subtype detail, 54 wing x instinct, or Tritype routes."
+    artifacts:
+      - app/(localized)/[locale]/personality/enneagram/**
+      - components/personality/**
+      - lib/cms/**
+      - lib/personality/**
+      - tests/contracts/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - app/(localized)/[locale]/personality/enneagram/**
+      - components/personality/**
+      - lib/cms/**
+      - lib/personality/**
+      - tests/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - MBTI page changes
+      - Big Five result page changes
+      - Enneagram result page changes
+      - scoring/form/attempt changes
+      - Enneagram wing detail routes
+      - Enneagram instinctual subtype detail routes
+      - Enneagram 54 wing x instinct pages
+      - Tritype pages
+      - fap-api changes
+      - frontend local editorial fallback copy
+      - sitemap, llms.txt, or llms-full.txt inclusion
+      - robots index promotion
+      - navigation changes
+    required_local_checks:
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - targeted Enneagram V1 noindex route contract
+      - sitemap absence check
+      - llms absence check
+      - git diff --check
+      - JSON/YAML parse if docs/codex state is touched
+      - scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: PERSONALITY-ENNEAGRAM-NAV-HUB-ALIGNMENT-01
+
+  - id: PERSONALITY-ENNEAGRAM-NAV-HUB-ALIGNMENT-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/personality-enneagram-nav-hub-alignment-01
+    base: main
+    title: "fix(nav): point Enneagram personality menu to content hub"
+    depends_on: [PERSONALITY-ENNEAGRAM-V1-NOINDEX-RENDER-01]
+    mode: execute
+    train_scope: personality_navigation_alignment
+    status: planned
+    goal: "After Enneagram public noindex content routes exist, point the personality menu Enneagram item to /personality/enneagram while preserving the tests menu Enneagram test entry."
+    artifacts:
+      - lib/navigation/headerDropdownMenus.ts
+      - tests/contracts/header-enneagram-personality-nav.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - lib/navigation/headerDropdownMenus.ts
+      - tests/contracts/header-enneagram-personality-nav.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - MBTI changes
+      - result page changes
+      - scoring/form/attempt changes
+      - sitemap, llms.txt, or llms-full.txt inclusion
+      - content route renderer changes
+      - fap-api changes
+      - frontend local editorial fallback copy
+    required_local_checks:
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - targeted Enneagram nav contract
+      - git diff --check
+      - JSON/YAML parse if docs/codex state is touched
+      - scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true

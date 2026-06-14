@@ -7,6 +7,15 @@ import {
   type BigFivePublicEntityType,
   type BigFivePublicRouteEntry,
 } from "@/lib/personality/bigFivePublicRoutes";
+import {
+  buildEnneagramPublicContentPath,
+  type EnneagramPublicEntityType,
+  type EnneagramPublicRouteEntry,
+} from "@/lib/personality/enneagramPublicRoutes";
+
+export type PersonalityPublicFramework = "big_five" | "enneagram";
+export type PersonalityPublicEntityType = BigFivePublicEntityType | EnneagramPublicEntityType;
+type PersonalityPublicRouteEntry = BigFivePublicRouteEntry | EnneagramPublicRouteEntry;
 
 export type PersonalityPublicContentSection = {
   key: string;
@@ -44,8 +53,8 @@ export type PersonalityPublicContentEvidenceNote = {
 };
 
 export type PersonalityPublicContentAsset = {
-  framework: "big_five";
-  entityType: BigFivePublicEntityType;
+  framework: PersonalityPublicFramework;
+  entityType: PersonalityPublicEntityType;
   code: string;
   slug: string;
   locale: "en" | "zh-CN";
@@ -118,9 +127,16 @@ function normalizeRobots(value: unknown): PersonalityPublicContentAsset["robots"
   return "noindex,follow";
 }
 
-function normalizeEntityType(value: unknown): BigFivePublicEntityType | null {
+function normalizeEntityType(value: unknown): PersonalityPublicEntityType | null {
   const normalized = asString(value).toLowerCase();
-  if (normalized === "hub" || normalized === "domain" || normalized === "polarity" || normalized === "facet_hub") {
+  if (
+    normalized === "hub" ||
+    normalized === "domain" ||
+    normalized === "polarity" ||
+    normalized === "facet_hub" ||
+    normalized === "center" ||
+    normalized === "core_type"
+  ) {
     return normalized;
   }
 
@@ -224,7 +240,18 @@ function normalizeEvidenceNotes(value: unknown): PersonalityPublicContentEvidenc
     .filter((item): item is PersonalityPublicContentEvidenceNote => item !== null);
 }
 
-function normalizeAsset(raw: unknown, expected: BigFivePublicRouteEntry, locale: Locale): PersonalityPublicContentAsset | null {
+function buildExpectedPath(locale: Locale, framework: PersonalityPublicFramework, expected: PersonalityPublicRouteEntry): string {
+  return framework === "big_five"
+    ? buildBigFivePublicContentPath(locale, expected as BigFivePublicRouteEntry)
+    : buildEnneagramPublicContentPath(locale, expected as EnneagramPublicRouteEntry);
+}
+
+function normalizeAsset(
+  raw: unknown,
+  expected: PersonalityPublicRouteEntry,
+  locale: Locale,
+  expectedFramework: PersonalityPublicFramework
+): PersonalityPublicContentAsset | null {
   const record = asRecord(raw);
   const entityType = normalizeEntityType(record.entity_type);
   const apiLocale = toApiLocale(locale);
@@ -238,7 +265,7 @@ function normalizeAsset(raw: unknown, expected: BigFivePublicRouteEntry, locale:
   const isPublic = asBoolean(record.is_public);
 
   if (
-    framework !== "big_five" ||
+    framework !== expectedFramework ||
     entityType !== expected.entityType ||
     code !== expected.code ||
     asString(record.locale) !== apiLocale ||
@@ -249,7 +276,7 @@ function normalizeAsset(raw: unknown, expected: BigFivePublicRouteEntry, locale:
   }
 
   return {
-    framework: "big_five",
+    framework: expectedFramework,
     entityType,
     code,
     slug: asString(record.slug),
@@ -261,7 +288,7 @@ function normalizeAsset(raw: unknown, expected: BigFivePublicRouteEntry, locale:
       description: asString(seo.description) || asString(record.summary),
     },
     robots: normalizeRobots(record.robots),
-    canonicalPath: asString(record.canonical_path) || asString(canonical.path) || buildBigFivePublicContentPath(locale, expected),
+    canonicalPath: asString(record.canonical_path) || asString(canonical.path) || buildExpectedPath(locale, expectedFramework, expected),
     hreflang: {
       en: asNullableString(hreflang.en),
       "zh-CN": asNullableString(hreflang["zh-CN"] ?? hreflang.zh),
@@ -304,7 +331,37 @@ export async function getBigFivePublicContentAsset(
       return null;
     }
 
-    return normalizeAsset(response.personality_public_content_asset_v1 ?? response.asset, entry, locale);
+    return normalizeAsset(response.personality_public_content_asset_v1 ?? response.asset, entry, locale, "big_five");
+  } catch (error) {
+    if (error instanceof ApiError && (error.status === 404 || error.status === 422)) {
+      return null;
+    }
+
+    return null;
+  }
+}
+
+export async function getEnneagramPublicContentAsset(
+  locale: Locale,
+  entry: EnneagramPublicRouteEntry
+): Promise<PersonalityPublicContentAsset | null> {
+  try {
+    const response = await apiClient.get<PersonalityPublicContentAssetResponse>(
+      `/v0.5/personality-content-assets/enneagram/${entry.entityType}/${entry.code}?locale=${encodeURIComponent(
+        toApiLocale(locale)
+      )}&org_id=0`,
+      {
+        ...PUBLIC_API_CACHE_OPTIONS,
+        skipAuth: true,
+        locale,
+      }
+    );
+
+    if (response?.ok !== true) {
+      return null;
+    }
+
+    return normalizeAsset(response.personality_public_content_asset_v1 ?? response.asset, entry, locale, "enneagram");
   } catch (error) {
     if (error instanceof ApiError && (error.status === 404 || error.status === 422)) {
       return null;

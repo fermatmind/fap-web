@@ -7,15 +7,39 @@ import { renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
 import type { PersonalityPublicContentAsset, PersonalityPublicContentSection } from "@/lib/cms/personality-public-content-assets";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 
-function entityLabel(entityType: PersonalityPublicContentAsset["entityType"], locale: Locale): string {
+function entityLabel(asset: PersonalityPublicContentAsset, locale: Locale): string {
+  if (asset.entityType === "hub") {
+    return asset.framework === "enneagram" ? (locale === "zh" ? "九型人格" : "Enneagram") : locale === "zh" ? "大五人格" : "Big Five";
+  }
+
   const labels: Record<PersonalityPublicContentAsset["entityType"], Record<Locale, string>> = {
     hub: { en: "Big Five", zh: "大五人格" },
     domain: { en: "Domain", zh: "维度" },
     polarity: { en: "Pole", zh: "高低极" },
     facet_hub: { en: "Facets", zh: "细分面" },
+    center: { en: "Center", zh: "中心" },
+    core_type: { en: "Core type", zh: "核心型" },
   };
 
-  return labels[entityType][locale];
+  return labels[asset.entityType][locale];
+}
+
+function frameworkCta(asset: PersonalityPublicContentAsset, locale: Locale): { href: string; label: string } {
+  if (asset.framework === "enneagram") {
+    return {
+      href: localizedPath("/tests/enneagram-personality-test-nine-types", locale),
+      label: locale === "zh" ? "开始九型人格测试" : "Take the Enneagram test",
+    };
+  }
+
+  return {
+    href: localizedPath("/tests/big-five-personality-test-ocean-model", locale),
+    label: locale === "zh" ? "开始大五人格测试" : "Take the Big Five test",
+  };
+}
+
+function placeholderLabel(asset: PersonalityPublicContentAsset): string {
+  return asset.framework === "enneagram" ? "9T" : "OCEAN";
 }
 
 function SectionBody({ section }: { section: PersonalityPublicContentSection }) {
@@ -37,20 +61,20 @@ export function PublicContentAssetRenderer({
   asset: PersonalityPublicContentAsset;
   locale: Locale;
 }) {
-  const testHref = localizedPath("/tests/big-five-personality-test-ocean-model", locale);
+  const testCta = frameworkCta(asset, locale);
   const visibleSections = asset.sections.filter((section) => section.title || section.bodyMd || section.bodyHtml);
   const visibleFaq = asset.faq.filter((item) => item.question && item.answer);
   const visibleLinks = asset.internalLinks.filter((item) => item.label && item.href);
   const boundary = asset.methodBoundary;
 
   return (
-    <main className="bg-[var(--fm-bg)] text-[var(--fm-text)]" data-testid="big-five-public-content-page">
+    <main className="bg-[var(--fm-bg)] text-[var(--fm-text)]" data-testid={`${asset.framework}-public-content-page`}>
       <section className="border-b border-[var(--fm-border)] bg-[var(--fm-surface)]">
         <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:px-8 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-center lg:py-18">
           <div className="space-y-7">
             <div className="inline-flex items-center gap-2 rounded-full border border-[var(--fm-border)] bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--fm-text-muted)]">
               <BookOpen className="h-3.5 w-3.5" aria-hidden="true" />
-              {entityLabel(asset.entityType, locale)}
+              {entityLabel(asset, locale)}
             </div>
             <div className="space-y-4">
               <h1 className="m-0 max-w-4xl text-4xl font-semibold leading-tight tracking-normal text-[var(--fm-text)] md:text-6xl">
@@ -63,8 +87,8 @@ export function PublicContentAssetRenderer({
               ) : null}
             </div>
             <div className="flex flex-wrap gap-3">
-              <Link href={testHref} className={buttonVariants({ variant: "default", size: "lg" })}>
-                {locale === "zh" ? "开始大五人格测试" : "Take the Big Five test"}
+              <Link href={testCta.href} className={buttonVariants({ variant: "default", size: "lg" })}>
+                {testCta.label}
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
               {visibleSections[0] ? (
@@ -87,7 +111,7 @@ export function PublicContentAssetRenderer({
             ) : (
               <div className="grid aspect-[4/3] place-items-center rounded-xl bg-[var(--fm-surface-muted)] text-center">
                 <div>
-                  <p className="m-0 text-5xl font-semibold text-[var(--fm-trust-blue)]">OCEAN</p>
+                  <p className="m-0 text-5xl font-semibold text-[var(--fm-trust-blue)]">{placeholderLabel(asset)}</p>
                   <p className="m-0 mt-3 text-sm font-medium text-[var(--fm-text-muted)]">{asset.code}</p>
                 </div>
               </div>
