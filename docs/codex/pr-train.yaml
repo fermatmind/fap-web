@@ -5122,6 +5122,49 @@ prs:
       squash: true
       auto_merge: false
 
+  - id: SEO-FREE-TEST-HOMEPAGE-CTA-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/seo-free-test-homepage-cta-01
+    base: main
+    title: "fix(seo): add free-test wording to homepage cards"
+    depends_on: []
+    mode: execute
+    train_scope: seo_free_test_homepage_cta
+    status: local_checks_passed
+    goal: "Update the six zh homepage highlighted-test card CTAs from start-test wording to specific free-test wording while preserving CMS/backend authority and existing card routes."
+    artifacts:
+      - components/marketing/HomePageExperience.tsx
+      - tests/contracts/homepage-v1-core-grid.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - components/marketing/HomePageExperience.tsx
+      - tests/contracts/homepage-v1-core-grid.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - test scoring, form, attempt, or result logic
+      - sitemap, llms.txt, or llms-full.txt URL set changes
+      - article body or CMS editorial copy changes
+      - payment, report, or entitlement changes
+      - frontend local editorial fallback expansion
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/homepage-v1-core-grid.contract.test.tsx
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - git diff --check
+      - scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+
   - id: PERSONALITY-SEO-CURRENT-AUDIT-01
     repo: fap-web
     repo_path: <workspace>/fap-web

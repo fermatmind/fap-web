@@ -41,6 +41,14 @@ const IS_GITHUB_PULL_REQUEST_MERGE_REF =
   /^\d+\/merge$/.test(CURRENT_BRANCH) || /^refs\/pull\/\d+\/merge$/.test(CURRENT_BRANCH);
 const IS_GITHUB_ACTIONS_DETACHED_HEAD = CURRENT_BRANCH === "HEAD" && process.env.GITHUB_ACTIONS === "true";
 
+const SEO_FREE_TEST_HOMEPAGE_CTA_01_ALLOWED_FILES = new Set([
+  "components/marketing/HomePageExperience.tsx",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/homepage-v1-core-grid.contract.test.tsx",
+]);
+
 const RIASEC_PACK12_ALLOWED_FILES = new Set([
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -2157,6 +2165,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/homepage-content-polish-batch") {
     return HOMEPAGE_CONTENT_POLISH_BATCH_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/seo-free-test-homepage-cta-01") {
+    return SEO_FREE_TEST_HOMEPAGE_CTA_01_ALLOWED_FILES.has(file);
   }
 
   if (isFrontendUiPolishBatch02ScopeActive()) {
