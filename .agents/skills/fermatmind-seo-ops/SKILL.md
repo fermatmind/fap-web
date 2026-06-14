@@ -35,6 +35,8 @@ Use this skill for:
 - Controlled publish through the controlled publish command.
 - Discoverability release for sitemap, llms, and llms-full.
 - Search discovery pipeline through bounded queue/channel workflows.
+- Multi-article release retrospective and skill gap scans.
+- Daily content-release pipeline guidance with search-submission batch separation.
 - Daily article release goal generation.
 - Claim Gate and Private URL Guard audit.
 - Social image / Media Library metadata readiness review.
@@ -140,6 +142,8 @@ Choose the workflow by user intent:
 | Run publish metadata gate and controlled publish | `controlled_publish` |
 | Release sitemap, llms, and llms-full discoverability | `discoverability_release` |
 | Run URL Truth and search discovery pipeline | `search_discovery_pipeline` |
+| Run a multi-article release retrospective / skill gap scan | `multi_article_release_retro` |
+| Patch or review daily content-release vs search-batch guidance | `daily_pipeline_search_batch_separation` |
 | Run schema readiness, no-write rehearsal, or rollout | `schema_rollout` |
 | Run hreflang readiness, no-write rehearsal, or rollout | `hreflang_rollout` |
 | Reconcile final release truth after follow-up work | `final_reconciliation` |
@@ -190,6 +194,7 @@ Use:
 - `references/controlled_publish_playbook.md`.
 - `references/discoverability_release_playbook.md`.
 - `references/search_discovery_pipeline.md`.
+- `references/daily_pipeline_search_batch_separation.md`.
 - `references/schema_hreflang_rollout_rules.md`.
 - `references/final_reconciliation.md`.
 - `references/scoped_pr_train_automerge_deploy.md`.
@@ -213,15 +218,39 @@ Required stages:
 14. sitemap, llms, and llms-full release.
 15. URL Truth refresh.
 16. Search Channel Queue readiness.
-17. Search Channel Queue enqueue.
-18. IndexNow bounded submission.
-19. GSC manual readiness.
-20. Baidu readiness.
+17. Search Channel Queue enqueue or explicit `DISCOVERABILITY_RECONCILED_SEARCH_BATCH_HELD`.
+18. IndexNow bounded submission only when the search batch is separately authorized.
+19. GSC manual readiness only; Request Indexing remains a separate exact-authorization lane.
+20. Baidu readiness/live path only when separately authorized.
 21. final report.
 22. D1/D7/D14 observation queue.
 23. final reconciliation after any follow-up schema, hreflang, GSC, Search Channel, IndexNow, or Baidu work.
 
-Hard gates: follow the Authorization Profile. Run image asset bundle preflight before production draft dry-run. Run Article Identity Lock before preview QA, publish, discoverability release, schema, hreflang, Search Channel, GSC, or Baidu stages. Preserve schema and hreflang holds unless separately authorized. Stop on any hard no-go.
+Hard gates: follow the Authorization Profile. Run image asset bundle preflight before production draft dry-run. Run Article Identity Lock before preview QA, publish, discoverability release, schema, hreflang, Search Channel, GSC, or Baidu stages. Preserve schema and hreflang holds unless separately authorized. Search submissions are batch tasks and must not block the next daily content release once public/discoverability state is safe. Stop on any hard no-go.
+
+### `multi_article_release_retro`
+
+Purpose: reconcile several article releases after follow-up work and produce skill, Mode C, memo, runtime-tooling, and observation patch recommendations without mutating production state.
+
+Use:
+
+- `references/multi_article_release_retro.md`.
+- `references/final_reconciliation.md`.
+- `references/search_discovery_pipeline.md`.
+- `references/daily_pipeline_search_batch_separation.md`.
+
+Hard gates: read-only unless a separate Authorization Profile allows a bounded action. Old generated final summaries are inputs, not final truth.
+
+### `daily_pipeline_search_batch_separation`
+
+Purpose: guide daily SEO operations so content release, discoverability reconciliation, search submissions, GSC, schema, hreflang, and D1/D7/D14 observation remain distinct lanes.
+
+Use:
+
+- `references/daily_pipeline_search_batch_separation.md`.
+- `assets/daily_seo_memo_template.md`.
+
+Hard gates: search live actions, GSC Request Indexing, schema, hreflang, CMS writes, Media Library writes, URL Truth writes, revalidation, and deploy remain exact-authorization only.
 
 ### `authorized_goal_contract`
 

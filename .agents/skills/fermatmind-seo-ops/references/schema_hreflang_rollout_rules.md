@@ -2,6 +2,11 @@
 
 Schema and hreflang are separate rollout lanes. Do not enable both implicitly in one task.
 
+Schema and hreflang are not part of normal daily article release. Use separate tasks such as:
+
+- `SEO-OPS-ARTICLE-SCHEMA-ELIGIBILITY-REVIEW-00`.
+- `SEO-OPS-BILINGUAL-HREFLANG-ROLLOUT-REVIEW-00`.
+
 ## Schema Readiness
 
 Before schema rollout, confirm:
@@ -29,7 +34,7 @@ Schema must support independent gates:
 - Breadcrumb schema.
 - FAQ schema.
 
-FAQ schema defaults to hold. Article + Breadcrumb may roll out together only when FAQ remains disabled and public QA proves `FAQPage` count is 0.
+FAQ schema defaults to hold unless visible FAQ parity and the claim gate pass. Article + Breadcrumb may roll out together only when FAQ remains disabled and public QA proves `FAQPage` count is 0.
 
 Required post-rollout QA:
 
@@ -55,6 +60,7 @@ Before hreflang rollout, confirm:
 - sitemap/alternate behavior is consistent when applicable.
 - no orphan locale.
 - no wrong language route.
+- no private, preview, admin, or tokenized route.
 - public smoke passed.
 - schema side effects are unchanged.
 

@@ -21,14 +21,19 @@ Use this workflow before any Baidu push retry after a failed or ambiguous Baidu 
 | Live gates | Disabled before and after readiness/retry tasks unless bounded approval says otherwise. |
 | Platform status | Verification, filing/ICP, API submit availability, quota, and abnormal site state checked if accessible. |
 | Prior `site init fail` | Treat as provider/platform blocker, not a normal retryable transport error. |
+| Prior `over quota` | Treat as provider quota exhaustion. Retry only failed queue IDs after quota reset and fresh bounded approval. |
 
 ## Provider error handling
 
 - `site init fail` maps to `platform_action_required`.
+- HTTP 400 `over quota` maps to `provider_quota_exhausted`.
 - Do not auto retry `platform_action_required`.
+- Do not auto retry `provider_quota_exhausted`.
 - Confirm site, endpoint, and token state without printing token.
 - Redact provider response before placing it in generated reports or PR notes.
 - If retry becomes allowed after platform resolution, run dry-run first and use the bounded approved queue executor for live push.
+- Do not retry queue items already in `execution_state=submitted`.
+- Generate the exact approval phrase for failed queue item IDs only.
 
 ## Decisions
 
@@ -36,6 +41,7 @@ Use this workflow before any Baidu push retry after a failed or ambiguous Baidu 
 - `GO_FOR_EXACT_BAIDU_LIVE_APPROVAL_TEXT`.
 - `NO_GO_RETRY_UNTIL_PLATFORM_RESOLUTION`.
 - `BAIDU_PLATFORM_ACTION_REQUIRED`.
+- `BAIDU_PROVIDER_QUOTA_EXHAUSTED`.
 - `ACCESS_REQUIRED`.
 
 ## Stop conditions
@@ -43,6 +49,7 @@ Use this workflow before any Baidu push retry after a failed or ambiguous Baidu 
 Stop on:
 
 - provider message `site init fail` without new platform-side resolution evidence.
+- provider message `over quota` without quota reset/operator readiness evidence.
 - missing token/site/endpoint.
 - token/site mismatch.
 - live gates already open unexpectedly.
@@ -54,4 +61,4 @@ Use `assets/baidu_retry_guard_template.md`.
 
 ## Hard gates
 
-Do not submit Baidu push, change secrets, rotate token, enable live gates, requeue, or reset queue items unless separately authorized.
+Do not submit Baidu push, change secrets, rotate token, enable live gates, requeue, reset queue items, or include already submitted queue items unless separately authorized.

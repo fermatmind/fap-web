@@ -14,6 +14,8 @@ php artisan media-assets:import-seo-image-bundle \
 
 The image workflow must run after package preflight and before `articles:import-seo-content-package-draft`.
 
+Mode C must not invent Media Library URLs. CMS image fields may be filled only from verified resolved metadata returned by the importer or a resolved package copy.
+
 ## Standard Order
 
 1. package preflight.
@@ -113,6 +115,8 @@ File size:
 - hard max: 10 MB.
 - recommended max: 3 MB, warning only unless package policy blocks it.
 
+When a body visual is required, metadata alone is not sufficient. The resolved package must also prove the public article body will render the visual through a body markdown image reference or approved renderer contract.
+
 ## Authorization Profile Fields
 
 The runner may perform image workflow steps only when the current Authorization Profile allows them:
@@ -168,6 +172,15 @@ When body visual is required:
 - `body_visual_image_url`.
 - `body_visual_fallback_authorized`.
 
+Required variant verification should include:
+
+- `original`.
+- `hero`.
+- `card`.
+- `thumbnail`.
+- `og`.
+- `preload`.
+
 Social/cover image readiness does not imply body visual readiness. Check cover image, social/OG image, article card image, and body visual image separately.
 
 ## Duplicate Recent Cover Check
@@ -187,6 +200,7 @@ Preview QA must check:
 - article card/list image renders when the preview or linked listing surface is available.
 - OG/Twitter metadata uses public image URLs when metadata is rendered.
 - body visual renders if referenced.
+- body visual renders when `body_visual_required=true`.
 - no `__CMS_MEDIA_LIBRARY_PLACEHOLDER__`.
 - no fake URL.
 - no private asset or signed/private bucket URL.

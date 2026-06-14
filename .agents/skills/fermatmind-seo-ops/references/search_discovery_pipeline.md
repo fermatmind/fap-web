@@ -4,6 +4,8 @@ Run after public URLs, sitemap, llms, and llms-full are converged.
 
 Run `references/article_identity_lock.md` before URL Truth refresh, queue readiness/enqueue, provider dry-runs, GSC readiness, or Baidu readiness.
 
+Search discovery is normally a batch lane. A daily article release may stop at `DISCOVERABILITY_RECONCILED_SEARCH_BATCH_HELD` and continue with the next article when public/discoverability state is safe.
+
 ## Stages
 
 1. URL Truth refresh.
@@ -22,15 +24,30 @@ Run `references/article_identity_lock.md` before URL Truth refresh, queue readin
 - Queue enqueue requires `allow_search_channel_enqueue=true`.
 - Queue item live submission must use the official flow: queue readiness, queue enqueue, operator review, `search-channel-approve`, then `search-channel-submit-approved`.
 - Submit only specified queue item IDs that are `approval_state=approved` and whose dry-run passed.
+- Do not submit queue items whose `execution_state=submitted`.
 - IndexNow may run only if bounded, channel-specific, and `allow_indexnow_bounded_submission=true`.
-- Baidu may run only if bounded, channel-specific, and separately approved; `site init fail` is `platform_action_required`, not an automatic retry condition.
-- GSC is inspection only; do not click Request Indexing without separate exact authorization.
+- Baidu may run only if bounded, channel-specific, and separately approved; `site init fail` is `platform_action_required`, and HTTP 400 `over quota` is `provider_quota_exhausted`. Neither is an automatic retry condition.
+- GSC is inspection only and must not be included in Search Channel executor commands; do not click Request Indexing without separate exact authorization.
 - 360, Sogou, and Shenma hold by default.
 - Do not mix channels in one live submit command.
 - Do not use `--channels=all`.
 - Do not temporarily open global production live gates.
 - Do not call IndexNow or Baidu provider APIs directly outside the official queue executor.
 - Do not print tokens or secrets.
+
+## Baidu Quota Retry Rule
+
+If Baidu returns HTTP 400 `over quota`:
+
+- classify as `provider_quota_exhausted`;
+- mark the affected queue items as retry-held;
+- do not retry automatically;
+- retry only failed queue item IDs after quota reset;
+- do not retry already submitted items;
+- run submit-approved dry-run before retry;
+- require a new exact live approval phrase for the failed IDs only.
+
+For the six-pillar 2026-06 batch, failed Baidu queue IDs were `49,51,53,55`; submitted IDs `47,48` must not be retried.
 
 ## Output
 
