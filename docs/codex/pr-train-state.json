@@ -24192,12 +24192,12 @@
       "id": "SEO-FREE-TEST-SECONDARY-CTA-04",
       "repo": "fap-web",
       "branch": "codex/seo-free-test-secondary-cta-04",
-      "status": "ready_to_merge",
-      "commit_sha": "332707430075e7a982a385e007f516640186fd21",
+      "status": "merged",
+      "commit_sha": "c39ccb94f5c6401e42fcc43b283e62656973026d",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1158",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-14T13:42:20Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "failure_reason": null,
       "checks": {
         "authorization": {
@@ -24253,6 +24253,10 @@
             "analyze (javascript-typescript)"
           ],
           "evidence": "GitHub checks passed on PR #1158 head 332707430075e7a982a385e007f516640186fd21: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL, and analyze (javascript-typescript). mergeStateStatus is CLEAN and PR changed-file scope revalidation passed."
+        },
+        "post_merge_revalidation": {
+          "status": "pass",
+          "evidence": "PR #1158 squash merged as c39ccb94f5c6401e42fcc43b283e62656973026d; remote branch deletion and local cleanup were verified, main was synced, and focused PR4 contracts passed after merge."
         }
       },
       "history": [
@@ -24275,6 +24279,86 @@
           "at": "2026-06-14T21:42:00+08:00",
           "status": "ready_to_merge",
           "note": "GitHub checks passed on PR #1158 head 332707430075e7a982a385e007f516640186fd21 and mergeStateStatus is CLEAN; PR changed-file scope revalidation passed."
+        },
+        {
+          "at": "2026-06-14T21:42:20+08:00",
+          "status": "merged",
+          "note": "Reconciled PR #1158 merge: squash merge commit c39ccb94f5c6401e42fcc43b283e62656973026d, remote branch deleted, local branch cleaned, and focused post-merge contracts passed."
+        }
+      ]
+    },
+    {
+      "id": "SEO-FREE-TEST-ARTICLE-INTERNAL-LINKS-05",
+      "repo": "fap-web",
+      "branch": "codex/seo-free-test-article-internal-links-05",
+      "status": "ready_to_merge",
+      "commit_sha": "adfcfaac5e5c5726cd342c6de7e1e4a187947c1c",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1159",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User provided explicit PR id, scope, and sequential execution instruction for SEO-FREE-TEST-ARTICLE-INTERNAL-LINKS-05 on 2026-06-14."
+        },
+        "dependency": {
+          "status": "pass",
+          "evidence": "SEO-FREE-TEST-SECONDARY-CTA-04 merged in fap-web PR #1158 as c39ccb94f5c6401e42fcc43b283e62656973026d before this PR started."
+        },
+        "scope": {
+          "status": "pass",
+          "allowed_paths": [
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json",
+            "lib/content/internalLinkText.ts",
+            "tests/contracts/article-internal-link-anchor-text.contract.test.tsx",
+            "tests/contracts/helpers/currentPrScope.ts"
+          ],
+          "evidence": "Changed files are limited to 5 allowed PR5 files covering zh article/CMS bare test URL anchor label normalization, the existing article anchor contract, current PR scope helper, and docs/codex metadata."
+        },
+        "local_validation": {
+          "status": "pass",
+          "evidence": "Passed: pnpm exec vitest run tests/contracts/article-internal-link-anchor-text.contract.test.tsx tests/contracts/seo-ops-02d-article-rich-content-cta-attribution.contract.test.tsx tests/contracts/seo-ops-02e-article-markdown-cta-visible-attribution.contract.test.tsx (3 files, 10 tests); pnpm typecheck; NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build; pnpm test:contract (491 files, 2789 tests); python3 JSON parse; ruby YAML parse; git diff --check; explicit scope validation including untracked files. Build-generated public/sitemap.xml was restored before commit."
+        },
+        "pull_request": {
+          "status": "open",
+          "evidence": "Opened https://github.com/fermatmind/fap-web/pull/1159 after local checks and scope validation passed."
+        },
+        "github_checks": {
+          "status": "pass",
+          "checks": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "CodeQL",
+            "analyze (javascript-typescript)"
+          ],
+          "evidence": "GitHub checks passed on PR #1159 head adfcfaac5e5c5726cd342c6de7e1e4a187947c1c: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL, and analyze (javascript-typescript). mergeStateStatus is CLEAN and PR changed-file scope revalidation passed."
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-14T21:45:00+08:00",
+          "status": "in_progress",
+          "note": "Started SEO-FREE-TEST-ARTICLE-INTERNAL-LINKS-05 from latest origin/main after PR #1158 merge, cleanup, and post-merge focused validation."
+        },
+        {
+          "at": "2026-06-14T21:49:00+08:00",
+          "status": "local_checks_passed",
+          "note": "Article/CMS internal link rendering now labels bare zh test URLs and bare-url anchors with concrete free-test anchor text while preserving CMS body authority and hrefs; focused contracts, typecheck, build, full contracts, parse checks, diff check, and scope validation passed locally."
+        },
+        {
+          "at": "2026-06-14T21:52:00+08:00",
+          "status": "pr_open",
+          "note": "Opened fap-web PR #1159 for SEO-FREE-TEST-ARTICLE-INTERNAL-LINKS-05 after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-06-14T21:56:00+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed on PR #1159 head adfcfaac5e5c5726cd342c6de7e1e4a187947c1c and mergeStateStatus is CLEAN; PR changed-file scope revalidation passed."
         }
       ]
     }

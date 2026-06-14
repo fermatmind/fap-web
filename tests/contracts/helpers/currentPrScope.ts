@@ -92,6 +92,14 @@ const SEO_FREE_TEST_SECONDARY_CTA_04_ALLOWED_FILES = new Set([
   "tests/contracts/seo-free-test-secondary-cta.contract.test.ts",
 ]);
 
+const SEO_FREE_TEST_ARTICLE_INTERNAL_LINKS_05_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "lib/content/internalLinkText.ts",
+  "tests/contracts/article-internal-link-anchor-text.contract.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 const RIASEC_PACK12_ALLOWED_FILES = new Set([
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -2224,6 +2232,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/seo-free-test-secondary-cta-04") {
     return SEO_FREE_TEST_SECONDARY_CTA_04_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/seo-free-test-article-internal-links-05") {
+    return SEO_FREE_TEST_ARTICLE_INTERNAL_LINKS_05_ALLOWED_FILES.has(file);
   }
 
   if (isFrontendUiPolishBatch02ScopeActive()) {
