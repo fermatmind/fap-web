@@ -23548,9 +23548,9 @@
       "id": "PERSONALITY-BIG5-V1-NOINDEX-RENDER-01",
       "repo": "fap-web",
       "branch": "codex/personality-big5-v1-noindex-render-01",
-      "status": "in_progress",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "pr_open",
+      "commit_sha": "9d2bc63b476a8529f9961c9aa693b164410e0951",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1143",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -23592,6 +23592,11 @@
           "at": "2026-06-14T12:50:00+08:00",
           "status": "local_checks_passed",
           "note": "Implemented noindex Big Five public asset consumer, generated authorized metadata inventory artifacts, confirmed sitemap/llms absence, and passed local contract/typecheck/build/diff validation."
+        },
+        {
+          "at": "2026-06-14T12:55:00+08:00",
+          "status": "pr_open",
+          "note": "Opened https://github.com/fermatmind/fap-web/pull/1143 for the scoped noindex Big Five V1 render consumer."
         }
       ]
     }
