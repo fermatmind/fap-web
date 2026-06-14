@@ -7,7 +7,7 @@ description: Automated FermatMind public personality profile SEO asset factory f
 
 ## Purpose
 
-Run an automated public profile SEO content production factory for FermatMind personality assets. The skill coordinates research, GPT/Gemini/Codex model work, content package generation, evidence ledgers, schema validation, QA gates, import handoff, render smoke, and publish readiness packets.
+Run an automated public profile SEO content production factory for FermatMind personality assets. The default automation mode is `codex_native_content_generation`: Codex builds the source ledger, drafts content, performs skeptical self-review, repairs when needed, validates QA gates, and prepares handoff previews without requiring external browser model calls.
 
 This skill is not a page generator, not a direct publisher, and not a result-page tool.
 
@@ -15,6 +15,7 @@ This skill is not a page generator, not a direct publisher, and not a result-pag
 
 - L1 research: scan repo truth, existing reports, backend contracts, current route/indexability state, and competitor/source inputs.
 - L2 content production: create structured content package drafts through model prompt packets and ledgers.
+- L2 default `codex_native_content_generation`: Codex-native draft, skeptical self-review, repair pass when needed, final package, QA gates, and handoff preview.
 - L3 QA/import PR: validate schemas, evidence, bilingual parity, framework rules, and prepare backend import PR handoff.
 - L4 publish PR: allowed only after explicit publish/indexability gate approval; never implicit.
 
@@ -22,7 +23,7 @@ This skill is not a page generator, not a direct publisher, and not a result-pag
 
 - Auditing MBTI, Big Five, or Enneagram public profile content assets.
 - Preparing public profile content packages for backend CMS/API import.
-- Coordinating GPT/Gemini/Codex content production with source and model-output ledgers.
+- Coordinating Codex-native content production with source and model-output ledgers.
 - Planning noindex render, runtime smoke, or publish-readiness PRs.
 - Checking indexability, sitemap, llms, duplicate, and private-result boundaries.
 
@@ -54,19 +55,36 @@ This skill is not a page generator, not a direct publisher, and not a result-pag
 - `big_five.content_package_generation`: create schema-valid packages for 5-10-30 dimensional assets. Do not create official 32 OCEAN SEO pages.
 - `enneagram.placeholder_upgrade`: upgrade V1 placeholder assets for hub, centers, and core types. Do not create 54 combination pages or Tritype.
 
-## Computer Use Protocol
+## Default Codex-Native Workflow
 
-Codex may use @computer use to open GPT or Gemini sessions when the user explicitly asks for model-assisted production. Each external model call must start from a prompt packet in `prompts/` or a run-specific prompt packet, and each output must be recorded in a model-output ledger before it can influence a content package.
+The default content production flow is:
 
-Never paste cookies, tokens, secrets, `.env` values, private result payloads, user-specific scores, or private report body copy into GPT/Gemini. Competitor content may be summarized for gap review only and must not be copied. Academic claims require DOI/URL, access date, and claim mapping. Unsourced model output must be marked as inference or removed.
+1. source ledger
+2. Codex native draft
+3. Codex skeptical self-review
+4. Codex repaired draft if needed
+5. final package
+6. QA gates
+7. handoff preview
 
-## GPT / Gemini / Codex Division Of Labor
+Codex output cannot be written directly to production seed or production CMS. Codex-generated content must be treated as an untrusted draft until schema, evidence, duplicate, private-result-boundary, framework, and indexability QA all pass.
 
-- GPT: structured content drafts, bilingual independent writing, FAQ, section copy, method-boundary wording.
-- Gemini: competitor gap review, SERP/search intent review, weak-claim detection.
-- Codex: repo truth, schema validation, import mapping, PR decomposition, QA gates, render smoke, sitemap/llms/indexability checks.
+## External Model Protocol
 
-Model output is never production truth until Codex validates it against schemas, source ledgers, framework rules, and repository boundaries.
+ChatGPT web, Gemini, Chrome, and @computer use are optional only and are not required for content generation. Do not use browser automation unless explicitly requested by the current task. Each external model call must start from a prompt packet and be recorded in a model-output ledger.
+
+Never paste cookies, tokens, secrets, `.env` values, private result payloads, user-specific scores, or private report body copy into ChatGPT, Gemini, or any external model. Competitor content may be summarized for gap review only and must not be copied. Academic claims require DOI/URL, access date, and claim mapping. Unsourced model output must be marked as inference or removed.
+
+Model output is never production truth until Codex validates it against schemas, source ledgers, framework rules, and repository boundaries. External model output must not be written directly to backend seed or production CMS.
+
+## Codex-Only Dry-Run Workflow
+
+- `codex_native_draft`: Codex generates strict JSON from the source ledger and repo contracts.
+- `codex_skeptical_self_review`: Codex reviews its own draft as if it came from an external model and records critical, major, and minor violations.
+- `codex_repair`: if needed, Codex repairs the draft while preserving the raw draft audit.
+- `codex_adjudication`: Codex assembles final dry-run packages and QA reports.
+
+GO for a batch only if the raw or repaired Codex draft has zero critical contract violations and final packages pass QA. Codex self-repair must not hide generator failure.
 
 ## Research Source Rules
 
@@ -78,7 +96,7 @@ Model output is never production truth until Codex validates it against schemas,
 
 ## Content Package Contract
 
-All packages must include framework, entity_type, code, locale, slug, title, summary, seo, canonical, hreflang, robots, launch_state, index_eligible, sitemap_eligible, llms_eligible, sections, faq, media, schema, method_boundary, evidence_notes, internal_links, source_ledger_refs, model_output_refs, and last_reviewed_at.
+All packages must include framework, entity_type, code, locale, slug, title, summary, seo, canonical, hreflang, robots, launch_state, index_eligible, sitemap_eligible, llms_eligible, sections, faq, media, schema, method_boundary, evidence_notes, internal_links, source_ledger_refs, model_output_refs, and last_reviewed_at. For strict package drafts, `sections` must be an array and `faq` must be lowercase.
 
 ## Private Result Boundary
 
@@ -89,6 +107,7 @@ Result pages may inspire taxonomy, structure, or neutral phrasing only. Do not c
 Required gates:
 
 - schema validation
+- raw ChatGPT or raw Codex contract audit
 - source/evidence validation
 - bilingual parity and independence
 - duplicate/template risk
@@ -118,6 +137,8 @@ fap-api is the schema/import/API/content authority. fap-web consumes public API 
 ## Failure Modes
 
 Stop when source evidence is missing, schemas fail, bilingual parity fails, private result leakage is detected, framework no-go rules are violated, indexability changes appear in a noindex scope, or model output cannot be traced to a ledger.
+
+For batch readiness, Codex auto-repair must not hide generator failure. GO for a batch only if raw or repaired generator output has zero critical contract violations and final Codex packages pass all QA gates.
 
 ## Final Output Format
 

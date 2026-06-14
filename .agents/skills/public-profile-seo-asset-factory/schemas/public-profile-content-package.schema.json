@@ -3,8 +3,17 @@
   "$id": "https://fermatmind.com/schemas/public-profile/public-profile-content-package.schema.json",
   "title": "Public Profile Content Package",
   "type": "object",
-  "required": ["package_id", "framework", "entity_type", "code", "locale", "slug", "title", "summary", "seo", "robots", "launch_state", "index_eligible", "sitemap_eligible", "llms_eligible", "sections", "faq", "method_boundary", "evidence_notes", "internal_links", "source_ledger_refs", "model_output_refs"],
+  "required": ["package_id", "framework", "entity_type", "code", "locale", "slug", "title", "summary", "seo", "canonical", "hreflang", "robots", "launch_state", "index_eligible", "sitemap_eligible", "llms_eligible", "sections", "faq", "media", "schema", "method_boundary", "evidence_notes", "internal_links", "source_ledger_refs", "model_output_refs", "last_reviewed_at"],
   "additionalProperties": false,
+  "not": {
+    "anyOf": [
+      { "required": ["noindex"] },
+      { "required": ["nofollow"] },
+      { "required": ["indexable"] },
+      { "required": ["allow_index"] },
+      { "required": ["FAQ"] }
+    ]
+  },
   "properties": {
     "package_id": { "type": "string" },
     "framework": { "enum": ["mbti", "big_five", "enneagram", "future"] },
@@ -25,11 +34,24 @@
     },
     "canonical": {
       "type": "object",
+      "required": ["path"],
       "additionalProperties": false,
-      "properties": { "path": { "type": "string" } }
+      "properties": {
+        "path": {
+          "type": "string",
+          "pattern": "^/(en|zh)/personality/big-five/openness$",
+          "not": {
+            "anyOf": [
+              { "const": "/zh-CN/big-five/openness" },
+              { "const": "/en/big-five/openness" }
+            ]
+          }
+        }
+      }
     },
     "hreflang": {
       "type": "object",
+      "required": ["en", "zh-CN"],
       "additionalProperties": false,
       "properties": {
         "en": { "type": ["string", "null"] },
@@ -45,12 +67,13 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["key", "title", "body_md"],
+        "required": ["key", "title", "body", "evidence_ids"],
         "additionalProperties": false,
         "properties": {
           "key": { "type": "string" },
           "title": { "type": "string" },
-          "body_md": { "type": "string" }
+          "body": { "type": "string" },
+          "evidence_ids": { "type": "array", "items": { "type": "string" } }
         }
       }
     },
@@ -58,11 +81,13 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["question", "answer"],
+        "required": ["id", "question", "answer", "evidence_ids"],
         "additionalProperties": false,
         "properties": {
+          "id": { "type": "string" },
           "question": { "type": "string" },
-          "answer": { "type": "string" }
+          "answer": { "type": "string" },
+          "evidence_ids": { "type": "array", "items": { "type": "string" } }
         }
       }
     },

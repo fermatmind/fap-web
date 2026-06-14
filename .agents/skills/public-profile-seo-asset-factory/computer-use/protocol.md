@@ -1,12 +1,14 @@
 # Computer Use Protocol
 
+Computer use is optional and is not required for Codex-only content production. Do not use browser automation for content generation unless the current task explicitly requests it.
+
 Codex may use @computer use to open GPT or Gemini sessions only when model-assisted production is requested by the user or by an approved run manifest.
 
 ## Required Steps
 
 1. Generate a prompt packet.
 2. Verify the prompt packet contains no secrets, cookies, tokens, `.env` values, user private data, or private result payloads.
-3. Submit the packet to GPT or Gemini.
+3. Submit the packet to GPT or Gemini only when the current run allows external models.
 4. Capture the output in a model-output ledger.
 5. Validate sources and claims before using the output.
 6. Convert approved output into a structured package only after QA.

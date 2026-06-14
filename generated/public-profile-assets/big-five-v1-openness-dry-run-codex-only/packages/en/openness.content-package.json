@@ -1,0 +1,274 @@
+{
+  "package_id": "big_five.domain.openness.en.codex_only_2026_06_14",
+  "framework": "big_five",
+  "entity_type": "domain",
+  "code": "openness",
+  "locale": "en",
+  "slug": "openness",
+  "title": "Openness",
+  "summary": "Openness describes how a person tends to explore new ideas, experiences, aesthetics, and change. It is a continuous trait domain, not a type or value label.",
+  "seo": {
+    "title": "Openness | Big Five Personality Domain",
+    "description": "Understand Big Five openness as a continuous trait domain, including high and low openness, facets, misunderstandings, and method boundaries."
+  },
+  "canonical": {
+    "path": "/en/personality/big-five/openness"
+  },
+  "hreflang": {
+    "zh-CN": "/zh/personality/big-five/openness",
+    "en": "/en/personality/big-five/openness"
+  },
+  "robots": "noindex,follow",
+  "launch_state": "content_ready",
+  "index_eligible": false,
+  "sitemap_eligible": false,
+  "llms_eligible": false,
+  "sections": [
+    {
+      "key": "quick_answer",
+      "title": "Quick answer",
+      "body": "Openness is a continuous Big Five domain that describes how a person tends to explore new ideas, experiences, aesthetics, abstract questions, and change. It is not a personality type and not a value ranking. Higher openness often points to more interest in novelty and possibility; lower openness often points to a more familiar, concrete, and evidence-oriented style.",
+      "evidence_ids": [
+        "A1",
+        "A5"
+      ]
+    },
+    {
+      "key": "definition",
+      "title": "What openness means",
+      "body": "In Big Five research, openness is one of the five broad domains. Depending on the instrument, related labels include Openness to Experience, Open-Mindedness, or Openness/Intellect. The shared idea is exploration in experience and cognition: aesthetic interest, imagination, intellectual curiosity, tolerance for change, and attention to alternative perspectives.",
+      "evidence_ids": [
+        "A1",
+        "A2",
+        "A3",
+        "A5"
+      ]
+    },
+    {
+      "key": "high_openness",
+      "title": "Higher openness",
+      "body": "Higher openness may appear as interest in new concepts, art, complex questions, or unconventional approaches. It can support exploration and reframing, but it does not mean someone is automatically smarter, more successful, or better in every creative setting. Openness still needs context, skill, motivation, and the other Big Five domains.",
+      "evidence_ids": [
+        "A3",
+        "A6"
+      ]
+    },
+    {
+      "key": "low_openness",
+      "title": "Lower openness",
+      "body": "Lower openness may appear as preference for familiar routines, concrete evidence, and stable methods. This is not a defect and does not mean a person lacks imagination. In many contexts, a practical and verifiable style helps preserve working routines, reduce unnecessary change, and turn ideas into usable steps.",
+      "evidence_ids": [
+        "A1",
+        "A5"
+      ]
+    },
+    {
+      "key": "strengths_and_tradeoffs",
+      "title": "Strengths and tradeoffs",
+      "body": "The useful question is not which side is better, but where a style helps and where it creates friction. Higher openness may help with exploration and reframing while creating too many options. Lower openness may help with stability and reality testing while making unfamiliar frameworks harder to accept quickly.",
+      "evidence_ids": [
+        "A1",
+        "A3",
+        "A5"
+      ]
+    },
+    {
+      "key": "work_and_learning",
+      "title": "Work and learning",
+      "body": "In learning, higher openness may prefer conceptual maps, cross-domain examples, and exploratory experiments. Lower openness may prefer clear demonstrations, proven frameworks, and a visible path from concept to use. At work, openness is useful for discussing collaboration and change preferences; it should not be used as a hiring screen or career verdict.",
+      "evidence_ids": [
+        "A1",
+        "A5",
+        "I4"
+      ]
+    },
+    {
+      "key": "relationships_and_communication",
+      "title": "Relationships and communication",
+      "body": "Differences in openness often appear during conversations about change. A higher-openness person may want to explore possibilities before narrowing choices. A lower-openness person may first ask about evidence, cost, and necessity. Communication improves when the group names the stage: exploring, testing, or choosing a stable plan.",
+      "evidence_ids": [
+        "A1",
+        "A5"
+      ]
+    },
+    {
+      "key": "facets_inside_openness",
+      "title": "Facets inside openness",
+      "body": "Some Big Five instruments break openness into more specific facets. BFI-2 uses facets under Open-Mindedness such as aesthetic sensitivity, intellectual curiosity, and creative imagination. Other traditions discuss imagination, aesthetics, actions, ideas, and values. Facets help explain why people with similar broad openness can still look different in practice.",
+      "evidence_ids": [
+        "A1",
+        "A2",
+        "A3"
+      ]
+    },
+    {
+      "key": "common_misunderstandings",
+      "title": "Common misunderstandings",
+      "body": "Openness is not the same as accepting every belief, enjoying every risk, or rejecting tradition. It is also not an official MBTI dimension and should not be collapsed into one type letter. The Big Five describes continuous traits; MBTI-like systems describe preference categories. They can both support reflection, but they are not interchangeable.",
+      "evidence_ids": [
+        "A1",
+        "A5",
+        "I4"
+      ]
+    },
+    {
+      "key": "how_to_use_this_page",
+      "title": "How to use this page",
+      "body": "Use this page to understand openness as a public concept, prepare better reflection questions, or compare communication preferences around novelty. If someone later takes a Big Five assessment, openness should be read with conscientiousness, extraversion, agreeableness, and emotional stability rather than carrying the full interpretation alone.",
+      "evidence_ids": [
+        "A1",
+        "A5",
+        "I1"
+      ]
+    },
+    {
+      "key": "method_boundary",
+      "title": "Method boundary",
+      "body": "This page is public educational content, not a tool for diagnosis, therapy, hiring, or career decisions. Higher and lower openness are not value ranks and not fixed identities. Any assessment interpretation should consider instrument quality, language and culture, context, and the other domains.",
+      "evidence_ids": [
+        "A1",
+        "A5",
+        "I1"
+      ]
+    },
+    {
+      "key": "related_links",
+      "title": "Related links",
+      "body": "Continue with the Big Five hub, high openness, low openness, the 30 facets overview, and the Big Five test landing page. Cross-framework links to MBTI or Enneagram can be useful only when the page explains that the models use different assumptions and should not be translated directly.",
+      "evidence_ids": [
+        "I1",
+        "I2",
+        "I3"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "id": "openness-type",
+      "question": "Is openness a personality type?",
+      "answer": "No. Openness is a continuous Big Five domain. It describes a tendency, not a type identity, and should be read with the other domains.",
+      "evidence_ids": [
+        "A1",
+        "A5"
+      ]
+    },
+    {
+      "id": "openness-high-better",
+      "question": "Is higher openness always better?",
+      "answer": "No. Higher openness may help exploration and reframing, while lower openness may help stability and reality testing. The value depends on context.",
+      "evidence_ids": [
+        "A1",
+        "A5"
+      ]
+    },
+    {
+      "id": "openness-low-creativity",
+      "question": "Does lower openness mean no imagination?",
+      "answer": "No. Lower openness more often means a preference for familiar, concrete, and tested approaches. It does not mean a person lacks imagination or creative expression.",
+      "evidence_ids": [
+        "A1",
+        "A5"
+      ]
+    },
+    {
+      "id": "openness-mbti-intuition",
+      "question": "Is openness the same as MBTI intuition?",
+      "answer": "No. Openness is a continuous Big Five trait domain; MBTI intuition is part of a type or preference framework. They should not be translated directly.",
+      "evidence_ids": [
+        "A1",
+        "A5",
+        "I4"
+      ]
+    },
+    {
+      "id": "openness-facets",
+      "question": "Why look at facets inside openness?",
+      "answer": "Facets explain where openness comes from, such as aesthetic interest, intellectual curiosity, or creative imagination. Two people with similar broad openness can still differ in practice.",
+      "evidence_ids": [
+        "A1",
+        "A2",
+        "A3"
+      ]
+    }
+  ],
+  "media": {
+    "status": "placeholder",
+    "alt": "Abstract visual for the openness domain showing ideas, aesthetics, and exploration paths",
+    "recommended_asset": "abstract Big Five openness domain illustration",
+    "do_not_use": "MBTI-branded imagery or private result visuals"
+  },
+  "schema": {
+    "type": "WebPage",
+    "indexability": "noindex",
+    "faq_visible": true,
+    "faq_rich_result_claimed": false
+  },
+  "method_boundary": {
+    "summary": "The Big Five is a dimensional model, not a fixed type system. Higher or lower openness is not good or bad; this page supports public understanding, reflection, learning, and communication.",
+    "not_for": [
+      "clinical diagnosis",
+      "therapy advice",
+      "employment screening",
+      "deterministic career decisions",
+      "private result interpretation"
+    ]
+  },
+  "evidence_notes": [
+    "A1 and A2 support BFI-2 domain/facet framing.",
+    "A3 and A6 support Openness/Intellect nuance without equating openness with intelligence.",
+    "A5 supports Big Five dimensional framing.",
+    "Competitor sources C1-C6 were used only for gap review and not copied.",
+    "Internal sources I1-I4 define route/indexability/taxonomy boundaries."
+  ],
+  "internal_links": [
+    {
+      "label": "Big Five hub",
+      "href": "/en/personality/big-five",
+      "relationship": "hub"
+    },
+    {
+      "label": "High openness",
+      "href": "/en/personality/big-five/high-openness",
+      "relationship": "polarity"
+    },
+    {
+      "label": "Low openness",
+      "href": "/en/personality/big-five/low-openness",
+      "relationship": "polarity"
+    },
+    {
+      "label": "Big Five facets",
+      "href": "/en/personality/big-five/facets",
+      "relationship": "facet_hub"
+    },
+    {
+      "label": "Big Five personality test",
+      "href": "/en/tests/big-five-personality-test-ocean-model",
+      "relationship": "test_landing"
+    }
+  ],
+  "source_ledger_refs": [
+    "A1",
+    "A2",
+    "A3",
+    "A4",
+    "A5",
+    "A6",
+    "C1",
+    "C2",
+    "C3",
+    "C4",
+    "C5",
+    "C6",
+    "I1",
+    "I2",
+    "I3",
+    "I4"
+  ],
+  "model_output_refs": [
+    "M1_CODEX_NATIVE_DRAFT",
+    "M2_CODEX_SKEPTICAL_SELF_REVIEW",
+    "M3_CODEX_ADJUDICATION"
+  ],
+  "last_reviewed_at": "2026-06-14"
+}
