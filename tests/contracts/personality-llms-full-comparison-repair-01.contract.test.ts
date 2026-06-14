@@ -35,6 +35,7 @@ function changedFiles(): string[] {
 describe("PERSONALITY-LLMS-FULL-COMPARISON-REPAIR-01", () => {
   it("keeps llms-full personality comparison entries after the 64 detail URL cohort", () => {
     const route = read("app/llms-full.txt/route.ts");
+    const scopeHelper = read("tests/contracts/helpers/currentPrScope.ts");
     const compactRoute = route.replace(/\s+/g, " ");
 
     expect(route).toContain("LLMS_FULL_PERSONALITY_DETAIL_URL_COUNT = 32 * 2");
@@ -44,6 +45,8 @@ describe("PERSONALITY-LLMS-FULL-COMPARISON-REPAIR-01", () => {
     );
     expect(compactRoute).toContain("limitLlmsRouteEntries(personalityEntries, LLMS_FULL_PERSONALITY_ENTRY_LIMIT)");
     expect(compactRoute).not.toContain("limitLlmsRouteEntries(personalityEntries, LLMS_ROUTE_LIMITS.personalityProfiles)");
+    expect(scopeHelper).toContain("GITHUB_EVENT_PATH");
+    expect(scopeHelper).toContain("pull_request?.head?.ref");
   });
 
   it("keeps the current PR scoped to the llms-full comparison repair", () => {

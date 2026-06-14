@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-14T13:41:37+08:00",
+  "updated_at": "2026-06-14T13:49:12+08:00",
   "status": "active",
   "phase": "result_p0_pdf_leak_hardening_02",
   "pr_namespace": "PR-PRAC-*",
@@ -23576,6 +23576,10 @@
         "local_validation": {
           "status": "pass",
           "evidence": "Passed: pnpm exec vitest run tests/contracts/personality-llms-full-comparison-repair-01.contract.test.ts; python3 -m json.tool docs/codex/pr-train-state.json >/dev/null; ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"; git diff --check; pnpm typecheck; NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build; pnpm test:contract -- personality."
+        },
+        "github_checks": {
+          "status": "failed_then_fixed_locally",
+          "evidence": "GitHub contracts failed on PR #1144 because the Big Five noindex render scope contract evaluated the PR merge ref without resolving the pull_request.head.ref. Fixed currentPrScope GitHub event payload detection and validated locally with focused contract, CI-env Big Five simulation, pnpm typecheck, and pnpm test:contract -- personality."
         }
       },
       "history": [
@@ -23593,6 +23597,11 @@
           "at": "2026-06-14T13:41:37+08:00",
           "status": "pr_open",
           "note": "Opened fap-web PR #1144 for the llms-full comparison exposure repair; GitHub checks are pending."
+        },
+        {
+          "at": "2026-06-14T13:49:12+08:00",
+          "status": "github_checks_failed_then_fixed_locally",
+          "note": "Remote contracts failed in tests/contracts/personality-big-five-v1-noindex-render.contract.test.ts due to CI pull-request branch detection. Added GitHub event payload head-ref fallback in the shared scope helper and revalidated locally."
         }
       ]
     },

@@ -1,7 +1,28 @@
 import { execFileSync } from "node:child_process";
+import { readFileSync } from "node:fs";
 
 const CURRENT_BRANCH = (() => {
-  const githubBranch = process.env.GITHUB_HEAD_REF || process.env.GITHUB_REF_NAME;
+  const githubHeadBranch = process.env.GITHUB_HEAD_REF;
+  if (githubHeadBranch) {
+    return githubHeadBranch;
+  }
+
+  const githubEventPath = process.env.GITHUB_EVENT_PATH;
+  if (githubEventPath) {
+    try {
+      const eventPayload = JSON.parse(readFileSync(githubEventPath, "utf8")) as {
+        pull_request?: { head?: { ref?: unknown } };
+      };
+      const pullRequestHeadRef = eventPayload.pull_request?.head?.ref;
+      if (typeof pullRequestHeadRef === "string" && pullRequestHeadRef.length > 0) {
+        return pullRequestHeadRef;
+      }
+    } catch {
+      // Fall through to the ref name and local git branch fallbacks.
+    }
+  }
+
+  const githubBranch = process.env.GITHUB_REF_NAME;
   if (githubBranch) {
     return githubBranch;
   }
