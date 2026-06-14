@@ -24192,9 +24192,9 @@
       "id": "SEO-FREE-TEST-SECONDARY-CTA-04",
       "repo": "fap-web",
       "branch": "codex/seo-free-test-secondary-cta-04",
-      "status": "local_checks_passed",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "pr_open",
+      "commit_sha": "102d35744acf281f5c6dbfc9d011b744c9019f4f",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1158",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -24237,6 +24237,10 @@
         "local_validation": {
           "status": "pass",
           "evidence": "Passed: pnpm exec vitest run tests/contracts/seo-free-test-secondary-cta.contract.test.ts tests/contracts/mbti-entry-wiring.contract.test.tsx tests/contracts/mbti-share-consumer.contract.test.tsx tests/contracts/enneagram-share-surface.contract.test.tsx tests/contracts/iq-bank-display-model.contract.test.ts tests/contracts/test-detail-landing.contract.test.ts (6 files, 43 tests); pnpm typecheck; NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build; pnpm test:contract (491 files, 2789 tests); python3 JSON parse; ruby YAML parse; git diff --check; explicit scope validation including untracked files. Build-generated public/sitemap.xml was restored before commit."
+        },
+        "pull_request": {
+          "status": "open",
+          "evidence": "Opened https://github.com/fermatmind/fap-web/pull/1158 after local checks and scope validation passed."
         }
       },
       "history": [
@@ -24249,6 +24253,11 @@
           "at": "2026-06-14T21:34:00+08:00",
           "status": "local_checks_passed",
           "note": "Secondary zh CTA/title surfaces now use free-test labels for IQ/EQ, career/personality entries, take metadata, sticky CTA, share cards, and natural contextual entries; focused contracts, typecheck, build, full contracts, parse checks, diff check, and scope validation passed locally."
+        },
+        {
+          "at": "2026-06-14T21:37:00+08:00",
+          "status": "pr_open",
+          "note": "Opened fap-web PR #1158 for SEO-FREE-TEST-SECONDARY-CTA-04 after local checks and scope validation passed."
         }
       ]
     }
