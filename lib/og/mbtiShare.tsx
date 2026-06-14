@@ -59,7 +59,7 @@ function buildShareOgView(viewModel?: MbtiSharePageViewModel | null): ShareOgVie
       })
       .filter((dimension): dimension is ShareDimensionView => Boolean(dimension))
       .slice(0, 5),
-    ctaLabel: viewModel?.primaryCtaLabel || "开始测试",
+    ctaLabel: viewModel?.primaryCtaLabel || "开始 MBTI 免费测试",
   };
 }
 

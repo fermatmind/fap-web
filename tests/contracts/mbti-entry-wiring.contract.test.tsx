@@ -147,11 +147,10 @@ describe("mbti entry wiring contract", () => {
       />
     );
 
-    const links144 = screen.getAllByRole("link", { name: /开始深度版/ });
-    const links93 = screen.getAllByRole("link", { name: /开始快速版/ });
+    const mbtiFreeTestLinks = screen.getAllByRole("link", { name: /开始 MBTI 免费测试/ });
 
     expect(
-      links144.some((link) => {
+      mbtiFreeTestLinks.some((link) => {
         const href = link.getAttribute("href") ?? "";
         return href.startsWith("/zh/tests/mbti-personality-test-16-personality-types/take?")
           && href.includes("form=mbti_144")
@@ -159,7 +158,7 @@ describe("mbti entry wiring contract", () => {
       })
     ).toBe(true);
     expect(
-      links93.some((link) => {
+      mbtiFreeTestLinks.some((link) => {
         const href = link.getAttribute("href") ?? "";
         return href.startsWith("/zh/tests/mbti-personality-test-16-personality-types/take?")
           && href.includes("form=mbti_93")
@@ -230,11 +229,10 @@ describe("mbti entry wiring contract", () => {
       />
     );
 
-    const links120 = screen.getAllByRole("link", { name: /开始深度版/ });
-    const links90 = screen.getAllByRole("link", { name: /开始快速版/ });
+    const big5FreeTestLinks = screen.getAllByRole("link", { name: /开始大五人格免费测试/ });
 
-    expect(links120.some((link) => link.getAttribute("href") === "/zh/tests/big-five-personality-test-ocean-model/take?form=big5_120")).toBe(true);
-    expect(links90.some((link) => link.getAttribute("href") === "/zh/tests/big-five-personality-test-ocean-model/take?form=big5_90")).toBe(true);
+    expect(big5FreeTestLinks.some((link) => link.getAttribute("href") === "/zh/tests/big-five-personality-test-ocean-model/take?form=big5_120")).toBe(true);
+    expect(big5FreeTestLinks.some((link) => link.getAttribute("href") === "/zh/tests/big-five-personality-test-ocean-model/take?form=big5_90")).toBe(true);
   });
 
   it("renders dual riasec CTAs in landing sticky CTA surface", () => {
@@ -249,11 +247,10 @@ describe("mbti entry wiring contract", () => {
       />
     );
 
-    const links60 = screen.getAllByRole("link", { name: /开始标准版/ });
-    const links140 = screen.getAllByRole("link", { name: /开始增强版/ });
+    const riasecFreeTestLinks = screen.getAllByRole("link", { name: /开始霍兰德职业兴趣免费测试/ });
 
-    expect(links60.some((link) => link.getAttribute("href") === "/zh/tests/holland-career-interest-test-riasec/take?form=riasec_60")).toBe(true);
-    expect(links140.some((link) => link.getAttribute("href") === "/zh/tests/holland-career-interest-test-riasec/take?form=riasec_140")).toBe(true);
+    expect(riasecFreeTestLinks.some((link) => link.getAttribute("href") === "/zh/tests/holland-career-interest-test-riasec/take?form=riasec_60")).toBe(true);
+    expect(riasecFreeTestLinks.some((link) => link.getAttribute("href") === "/zh/tests/holland-career-interest-test-riasec/take?form=riasec_140")).toBe(true);
   });
 
   it("keeps homepage free of direct big5 version-entry wiring", () => {

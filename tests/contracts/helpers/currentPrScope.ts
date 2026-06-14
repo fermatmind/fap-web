@@ -69,6 +69,29 @@ const SEO_FREE_TEST_FLAGSHIP_LANDING_03_ALLOWED_FILES = new Set([
   "tests/contracts/seo-free-test-flagship-landing.contract.test.ts",
 ]);
 
+const SEO_FREE_TEST_SECONDARY_CTA_04_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/career/tests/page.tsx",
+  "app/(localized)/[locale]/personality/page.tsx",
+  "app/(localized)/[locale]/share/[id]/ShareClient.tsx",
+  "app/(localized)/[locale]/tests/[slug]/page.tsx",
+  "app/(localized)/[locale]/tests/[slug]/take/page.tsx",
+  "app/(localized)/[locale]/topics/[slug]/page.tsx",
+  "components/business/CTASticky.tsx",
+  "components/personality/PersonalityMobileDecisionBar.tsx",
+  "components/personality/PublicContentAssetRenderer.tsx",
+  "components/share/EnneagramShareSummaryCard.tsx",
+  "components/share/MbtiShareSummaryCard.tsx",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "lib/mbti/personalityHub.adapter.ts",
+  "lib/mbti/sceneDeepContent.ts",
+  "lib/og/mbtiShare.tsx",
+  "lib/tests/freeTestLabels.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/mbti-entry-wiring.contract.test.tsx",
+  "tests/contracts/seo-free-test-secondary-cta.contract.test.ts",
+]);
+
 const RIASEC_PACK12_ALLOWED_FILES = new Set([
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -2197,6 +2220,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/seo-free-test-flagship-landing-03") {
     return SEO_FREE_TEST_FLAGSHIP_LANDING_03_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/seo-free-test-secondary-cta-04") {
+    return SEO_FREE_TEST_SECONDARY_CTA_04_ALLOWED_FILES.has(file);
   }
 
   if (isFrontendUiPolishBatch02ScopeActive()) {

@@ -19,6 +19,7 @@ import {
 } from "@/lib/rollout/scaleRollout";
 import { NOINDEX_ROBOTS } from "@/lib/seo/noindex";
 import { isImmersiveSingleFlowEnabled } from "@/lib/quiz/uxFlags";
+import { getFreeTestStartLabel } from "@/lib/tests/freeTestLabels";
 import Big5TakeClient from "./Big5TakeClient";
 import ClinicalTakeClient from "./ClinicalTakeClient";
 import EnneagramTakeClient from "./EnneagramTakeClient";
@@ -88,9 +89,18 @@ export async function generateMetadata({
   const slug = resolveCanonicalSlug(requestedSlug);
   const test = await getTestBySlug(slug, locale);
   const localizedTestTitle = test ? resolveTestTitleByLocale(test, locale) : slug;
+  const startTitle = test
+    ? getFreeTestStartLabel({
+        locale,
+        scaleCode: test.scale_code,
+        slug: test.slug,
+        title: localizedTestTitle,
+        fallback: locale === "zh" ? "开始测试" : "Start test",
+      })
+    : locale === "zh" ? "开始测试" : "Start test";
 
   return {
-    title: test ? (locale === "zh" ? `开始测试 - ${localizedTestTitle}` : `Start test - ${localizedTestTitle}`) : `Start test - ${slug}`,
+    title: test ? `${startTitle} - ${localizedTestTitle}` : `Start test - ${slug}`,
     robots: NOINDEX_ROBOTS,
     alternates: {
       canonical: localizedPath(`/tests/${slug}`, locale),

@@ -46,7 +46,7 @@ export function PersonalityMobileDecisionBar({
           eventProperties={primaryTrackingProps}
           className={`${buttonVariants({ size: "sm" })} flex-1 justify-center`}
         >
-          {locale === "zh" ? "开始测试" : "Start test"}
+          {locale === "zh" ? "开始 MBTI 免费测试" : "Start test"}
         </TrackedEntryCtaLink>
         <Link
           href={quickLocateHref}

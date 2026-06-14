@@ -255,7 +255,7 @@ export default async function TopicDetailPage({
               eventProperties={mbtiPrimaryCtaTrackingProps}
               className={buttonVariants({ size: "lg" })}
             >
-              {locale === "zh" ? "开始 MBTI 测试" : "Start MBTI test"}
+              {locale === "zh" ? "开始 MBTI 免费测试" : "Start MBTI test"}
             </TrackedEntryCtaLink>
             <Link
               href={mbtiPersonalityHubHref}

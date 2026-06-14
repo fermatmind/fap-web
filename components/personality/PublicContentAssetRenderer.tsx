@@ -28,13 +28,13 @@ function frameworkCta(asset: PersonalityPublicContentAsset, locale: Locale): { h
   if (asset.framework === "enneagram") {
     return {
       href: localizedPath("/tests/enneagram-personality-test-nine-types", locale),
-      label: locale === "zh" ? "开始九型人格测试" : "Take the Enneagram test",
+      label: locale === "zh" ? "开始九型人格免费测试" : "Take the Enneagram test",
     };
   }
 
   return {
     href: localizedPath("/tests/big-five-personality-test-ocean-model", locale),
-    label: locale === "zh" ? "开始大五人格测试" : "Take the Big Five test",
+    label: locale === "zh" ? "开始大五人格免费测试" : "Take the Big Five test",
   };
 }
 

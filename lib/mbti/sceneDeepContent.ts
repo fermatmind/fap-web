@@ -133,7 +133,7 @@ export function buildMbtiTopicScenarioDeepModules(locale: Locale): MbtiSceneDeep
         { key: "go_mbti_guide", label: isZh ? "阅读职业匹配指南" : "Read MBTI job-fit guide", href: guidePath },
         {
           key: "start_mbti_test",
-          label: isZh ? "开始 MBTI 测试" : "Start MBTI test",
+          label: isZh ? "开始 MBTI 免费测试" : "Start MBTI test",
           href: testPath,
           kind: "start_test",
           targetAction: "start_mbti_test_scene_career_direction",

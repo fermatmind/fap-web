@@ -59,7 +59,7 @@ export default async function CareerTestsPage({ params }: { params: Promise<{ lo
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
           <Link href={withLocale("/tests/holland-career-interest-test-riasec")} className={buttonVariants({ variant: "default" })}>
-            {locale === "zh" ? "开始测试" : "Start test"}
+            {locale === "zh" ? "开始霍兰德职业兴趣免费测试" : "Start test"}
           </Link>
         </div>
       </section>
