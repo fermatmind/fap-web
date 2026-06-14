@@ -4,6 +4,7 @@ import { CmsMediaAuthorityShell } from "@/components/marketing/CmsMediaAuthority
 import { buttonVariants } from "@/components/ui/button";
 import type { Locale } from "@/lib/i18n/locales";
 import { IQ_PUBLIC_SLUG } from "@/lib/iq/constants";
+import { getFreeTestPrimaryLabel } from "@/lib/marketing/testsHubContent";
 import type {
   HubQuestionItem,
   HubTestCardItem,
@@ -154,6 +155,8 @@ export function HubTestCard({
   showSecondary?: boolean;
   locale?: Locale;
 }) {
+  const primaryLabel = getFreeTestPrimaryLabel(item, locale);
+
   return (
     <article className="rounded-[1.8rem] border border-slate-200/80 bg-white/95 p-5 shadow-[0_24px_70px_rgba(15,23,42,0.07)]">
       <div className={cn("grid gap-5", showPreview && "xl:grid-cols-[minmax(0,1fr)_12rem] xl:items-start")}>
@@ -193,7 +196,7 @@ export function HubTestCard({
               ))
             ) : (
               <Link href={item.href} prefetch={false} className={buttonVariants({ size: "sm" })}>
-                {item.primaryLabel}
+                {primaryLabel}
               </Link>
             )}
             {showSecondary && item.detailsHref && item.secondaryLabel ? (

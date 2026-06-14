@@ -223,6 +223,31 @@ export function listTestsCategorySlugs(): TestsCategorySlug[] {
   return ["personality", "career"];
 }
 
+function getFreeTestName(item: Pick<HubTestCardItem, "key" | "title" | "href" | "detailsHref">): string | null {
+  const raw = `${item.key ?? ""} ${item.title ?? ""} ${item.href ?? ""} ${item.detailsHref ?? ""}`.toLowerCase();
+
+  if (raw.includes("mbti")) return "MBTI";
+  if (raw.includes("big-five") || raw.includes("big five") || raw.includes("大五")) return "大五人格";
+  if (raw.includes("holland") || raw.includes("riasec") || raw.includes("霍兰德")) return "霍兰德职业兴趣";
+  if (raw.includes("enneagram") || raw.includes("九型")) return "九型人格";
+  if (raw.includes("iq") || raw.includes("智商")) return "智商";
+  if (raw.includes("eq") || raw.includes("情商")) return "情商";
+
+  return null;
+}
+
+export function getFreeTestPrimaryLabel(
+  item: Pick<HubTestCardItem, "key" | "title" | "href" | "detailsHref" | "primaryLabel">,
+  locale: Locale,
+): string {
+  if (locale !== "zh") return item.primaryLabel;
+
+  const name = getFreeTestName(item);
+  if (!name) return item.primaryLabel;
+
+  return name === "MBTI" ? "开始 MBTI 免费测试" : `开始${name}免费测试`;
+}
+
 export async function getTestsHubContent(locale: Locale): Promise<TestsHubContent> {
   const surface = await getCmsLandingSurfaceWithLastKnownGood<TestsHubContent>("tests", locale);
   const content = assertHubContent(surface.value.payloadJson);
