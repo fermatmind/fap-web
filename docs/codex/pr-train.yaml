@@ -5226,7 +5226,7 @@ prs:
     depends_on: [SEO-FREE-TEST-HUB-CATEGORY-CTA-02]
     mode: execute
     train_scope: seo_free_test_flagship_landing
-    status: pr_open
+    status: ready_to_merge
     goal: "Update zh MBTI, Big Five, Holland/RIASEC, and Enneagram public test detail landings with free-test Title/H1/hero CTA/free boundary display while preserving CMS landing surface body authority and existing routes."
     artifacts:
       - app/(localized)/[locale]/tests/[slug]/page.tsx
