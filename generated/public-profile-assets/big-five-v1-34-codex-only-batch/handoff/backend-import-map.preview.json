@@ -1,0 +1,8 @@
+{
+  "status": "preview_only",
+  "next_task": "BIG-FIVE-V1-CONTENT-PACKAGE-IMPORT-01-CODEX-ONLY",
+  "package_root": "generated/public-profile-assets/big-five-v1-34-codex-only-batch/packages",
+  "package_count": 34,
+  "import_execution_allowed": false,
+  "publish_allowed": false
+}

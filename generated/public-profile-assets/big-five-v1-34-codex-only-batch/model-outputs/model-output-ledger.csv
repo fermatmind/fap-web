@@ -1,0 +1,4 @@
+model_name,session_type,prompt_file,output_file,timestamp,inputs_summary,contains_external_sources,contains_private_data,accepted_for_package,rejection_reason
+Codex 5.5,codex_batch_native_draft,model-outputs/codex-native-content-draft.prompt.md,model-outputs/codex-batch-draft.raw.json,2026-06-14T22:55:00+08:00,"Source ledger, seed, route registry, skill schema and dry-run 02 guardrails.",yes_source_ledger_ids_only,false,true,
+Codex 5.5,skeptical_self_review,.agents/skills/public-profile-seo-asset-factory/prompts/codex-skeptical-self-review.md,model-outputs/codex-skeptical-self-review.md,2026-06-14T22:55:00+08:00,Raw batch draft and QA gates.,yes_source_ledger_ids_only,false,true,
+Codex 5.5,adjudication,model-outputs/codex-adjudication.md,packages/*/*.content-package.json,2026-06-14T22:55:00+08:00,Final package write and QA reports.,yes_source_ledger_ids_only,false,true,

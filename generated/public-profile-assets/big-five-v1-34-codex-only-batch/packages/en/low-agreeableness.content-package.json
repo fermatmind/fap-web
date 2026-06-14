@@ -1,0 +1,243 @@
+{
+  "package_id": "big_five:en:low-agreeableness:codex-only-batch-v1",
+  "framework": "big_five",
+  "entity_type": "polarity",
+  "code": "low-agreeableness",
+  "locale": "en",
+  "slug": "big-five/low-agreeableness",
+  "title": "Low Agreeableness",
+  "summary": "A public content package for Low Agreeableness, explaining tendencies, tradeoffs, communication, and method boundaries through a continuous dimension model.",
+  "seo": {
+    "title": "Low Agreeableness | Big Five public guide",
+    "description": "A public content package for Low Agreeableness, explaining tendencies, tradeoffs, communication, and method boundaries through a continuous dimension model."
+  },
+  "canonical": {
+    "path": "/en/personality/big-five/low-agreeableness"
+  },
+  "hreflang": {
+    "zh-CN": "/zh/personality/big-five/low-agreeableness",
+    "en": "/en/personality/big-five/low-agreeableness"
+  },
+  "robots": "noindex,follow",
+  "launch_state": "content_ready",
+  "index_eligible": false,
+  "sitemap_eligible": false,
+  "llms_eligible": false,
+  "sections": [
+    {
+      "key": "quick_answer",
+      "title": "Quick answer",
+      "body": "Low Agreeableness means Agreeableness-related tendencies are less outwardly expressed, often with more reliance on familiar structure or selective investment. It is not a better/worse judgment.",
+      "evidence_ids": [
+        "A1",
+        "A2",
+        "A5"
+      ]
+    },
+    {
+      "key": "daily_signs",
+      "title": "Daily signs",
+      "body": "Daily signs may appear in choice rhythm, communication style, recovery needs, and reactions to uncertainty.",
+      "evidence_ids": [
+        "A1",
+        "A2",
+        "A5"
+      ]
+    },
+    {
+      "key": "strengths",
+      "title": "Possible strengths",
+      "body": "The strengths of Low Agreeableness usually come from fit between tendency and task demands, not from a personality ranking.",
+      "evidence_ids": [
+        "A1",
+        "A2",
+        "A5"
+      ]
+    },
+    {
+      "key": "tradeoffs",
+      "title": "Possible tradeoffs",
+      "body": "The same tendency can carry costs in mismatched contexts, such as misunderstanding, overextension, or missed information.",
+      "evidence_ids": [
+        "A1",
+        "A2",
+        "A5"
+      ]
+    },
+    {
+      "key": "work_learning",
+      "title": "Work and learning",
+      "body": "In work and learning, use Low Agreeableness as a collaboration cue for pacing, feedback, and role boundaries.",
+      "evidence_ids": [
+        "A1",
+        "A2",
+        "A5"
+      ]
+    },
+    {
+      "key": "relationships",
+      "title": "Relationships and communication",
+      "body": "In relationships, translate Low Agreeableness into concrete requests, such as more space, more confirmation, or clearer planning.",
+      "evidence_ids": [
+        "A1",
+        "A2",
+        "A5"
+      ]
+    },
+    {
+      "key": "common_misunderstanding",
+      "title": "Common misunderstanding",
+      "body": "A common misunderstanding is treating Low Agreeableness as a virtue or defect. A better framing is that it has different effects across contexts.",
+      "evidence_ids": [
+        "A1",
+        "A2",
+        "A5"
+      ]
+    },
+    {
+      "key": "action_prompts",
+      "title": "Action prompts",
+      "body": "Ask: What is this tendency helping with now? What might it make me overlook? What communication boundary is needed?",
+      "evidence_ids": [
+        "A1",
+        "A2",
+        "A5"
+      ]
+    },
+    {
+      "key": "comparison",
+      "title": "Contrast with the other pole",
+      "body": "Compared with the other pole, Low Agreeableness is not an opposite personality; it is a different tendency pattern on the same continuum.",
+      "evidence_ids": [
+        "A1",
+        "A2",
+        "A5"
+      ]
+    },
+    {
+      "key": "method_boundary",
+      "title": "Method boundary",
+      "body": "This page does not interpret a personal assessment outcome and does not provide diagnosis, therapy, hiring screening, or deterministic career advice.",
+      "evidence_ids": [
+        "I4"
+      ]
+    },
+    {
+      "key": "related_links",
+      "title": "Related links",
+      "body": "Continue to the Agreeableness domain, the opposite pole, and the facet overview.",
+      "evidence_ids": [
+        "I2"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "id": "low-agreeableness-type-question",
+      "question": "Is Low Agreeableness a personality type?",
+      "answer": "No. The Big Five uses continuous dimensions; Low Agreeableness is one public explanation entry.",
+      "evidence_ids": [
+        "A1",
+        "A5"
+      ]
+    },
+    {
+      "id": "low-agreeableness-better-question",
+      "question": "Is higher or lower Low Agreeableness better?",
+      "answer": "Not by itself. Both poles can have strengths and costs; context, task, and communication matter.",
+      "evidence_ids": [
+        "A5"
+      ]
+    },
+    {
+      "id": "low-agreeableness-career-question",
+      "question": "Can Low Agreeableness decide a career choice?",
+      "answer": "No. It can provide preference language, but should not be used for hiring screening or deterministic career decisions.",
+      "evidence_ids": [
+        "I4"
+      ]
+    },
+    {
+      "id": "low-agreeableness-relationship-question",
+      "question": "How is Low Agreeableness useful in relationships?",
+      "answer": "It can help describe needs and communication rhythm instead of labeling people as better or worse.",
+      "evidence_ids": [
+        "A5"
+      ]
+    },
+    {
+      "id": "low-agreeableness-facet-question",
+      "question": "How does Low Agreeableness relate to the 30 facets?",
+      "answer": "Facets explain variation inside broad domains; this batch provides an overview only, not facet detail pages.",
+      "evidence_ids": [
+        "A1",
+        "A8"
+      ]
+    }
+  ],
+  "media": {
+    "status": "placeholder",
+    "image_url": null,
+    "alt": "Placeholder visual for Low Agreeableness as a Big Five dimension, not an MBTI-branded image."
+  },
+  "schema": {
+    "type": "Article",
+    "status": "noindex_content_package",
+    "framework": "big_five",
+    "entity_type": "polarity"
+  },
+  "method_boundary": {
+    "summary": "This page explains public Big Five concepts and communication language, not a personal assessment outcome.",
+    "not_for": [
+      "clinical diagnosis",
+      "therapy",
+      "hiring screening",
+      "deterministic career decisions",
+      "intelligence or ability judgment"
+    ]
+  },
+  "evidence_notes": [
+    "Evidence references: A1, A5, I1, I2, I4. Product framing decisions are treated as inference.",
+    "Competitor sources are used for gap awareness only; structure and wording are not copied."
+  ],
+  "internal_links": [
+    {
+      "label": "Big Five Personality",
+      "href": "/en/personality/big-five",
+      "relationship": "hub"
+    },
+    {
+      "label": "Big Five 30 Facets",
+      "href": "/en/personality/big-five/facets",
+      "relationship": "facet_overview"
+    },
+    {
+      "label": "Agreeableness",
+      "href": "/en/personality/big-five/agreeableness",
+      "relationship": "parent_domain"
+    },
+    {
+      "label": "High Agreeableness",
+      "href": "/en/personality/big-five/high-agreeableness",
+      "relationship": "contrast_pole"
+    },
+    {
+      "label": "Big Five test",
+      "href": "/en/tests/big-five-personality-test",
+      "relationship": "test_landing"
+    }
+  ],
+  "source_ledger_refs": [
+    "A1",
+    "A2",
+    "A5",
+    "I1",
+    "I2",
+    "I4"
+  ],
+  "model_output_refs": [
+    "model-outputs/codex-batch-draft.raw.json",
+    "model-outputs/codex-skeptical-self-review.md"
+  ],
+  "last_reviewed_at": "2026-06-14"
+}

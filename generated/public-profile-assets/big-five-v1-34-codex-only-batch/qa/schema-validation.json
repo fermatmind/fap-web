@@ -1,0 +1,6 @@
+{
+  "status": "pass",
+  "validator": "python json parse plus strict required-key/shape checks against skill schema expectations",
+  "package_count": 34,
+  "errors": []
+}

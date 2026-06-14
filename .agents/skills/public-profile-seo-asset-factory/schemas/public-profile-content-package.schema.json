@@ -39,7 +39,7 @@
       "properties": {
         "path": {
           "type": "string",
-          "pattern": "^/(en|zh)/personality/big-five/openness$",
+          "pattern": "^/(en|zh)/personality/big-five(?:/(?:openness|conscientiousness|extraversion|agreeableness|neuroticism|high-openness|low-openness|high-conscientiousness|low-conscientiousness|high-extraversion|low-extraversion|high-agreeableness|low-agreeableness|high-neuroticism|emotional-stability|facets))?$",
           "not": {
             "anyOf": [
               { "const": "/zh-CN/big-five/openness" },

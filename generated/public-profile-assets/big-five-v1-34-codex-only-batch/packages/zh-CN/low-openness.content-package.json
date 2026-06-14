@@ -1,0 +1,243 @@
+{
+  "package_id": "big_five:zh-CN:low-openness:codex-only-batch-v1",
+  "framework": "big_five",
+  "entity_type": "polarity",
+  "code": "low-openness",
+  "locale": "zh-CN",
+  "slug": "big-five/low-openness",
+  "title": "低开放性",
+  "summary": "低开放性的公共内容包，用连续维度解释倾向、权衡、沟通和方法边界。",
+  "seo": {
+    "title": "低开放性｜大五人格公共解释",
+    "description": "低开放性的公共内容包，用连续维度解释倾向、权衡、沟通和方法边界。"
+  },
+  "canonical": {
+    "path": "/zh/personality/big-five/low-openness"
+  },
+  "hreflang": {
+    "zh-CN": "/zh/personality/big-five/low-openness",
+    "en": "/en/personality/big-five/low-openness"
+  },
+  "robots": "noindex,follow",
+  "launch_state": "content_ready",
+  "index_eligible": false,
+  "sitemap_eligible": false,
+  "llms_eligible": false,
+  "sections": [
+    {
+      "key": "quick_answer",
+      "title": "快速回答",
+      "body": "低开放性表示开放性相关倾向较少外显，常更依赖熟悉结构或选择性投入。这不是好坏判断。",
+      "evidence_ids": [
+        "A1",
+        "A3",
+        "A6"
+      ]
+    },
+    {
+      "key": "daily_signs",
+      "title": "日常迹象",
+      "body": "日常迹象可能出现在选择节奏、沟通方式、恢复需求和对不确定性的反应中。",
+      "evidence_ids": [
+        "A1",
+        "A3",
+        "A6"
+      ]
+    },
+    {
+      "key": "strengths",
+      "title": "可能优势",
+      "body": "低开放性的优势通常来自稳定倾向与任务需求匹配，而不是来自人格等级。",
+      "evidence_ids": [
+        "A1",
+        "A3",
+        "A6"
+      ]
+    },
+    {
+      "key": "tradeoffs",
+      "title": "可能代价",
+      "body": "同一倾向在不合适的情境中可能带来成本，例如误解、过度消耗或错过其他信息。",
+      "evidence_ids": [
+        "A1",
+        "A3",
+        "A6"
+      ]
+    },
+    {
+      "key": "work_learning",
+      "title": "工作与学习",
+      "body": "工作学习中，可以把低开放性当作协作提示：如何安排节奏、反馈和角色边界。",
+      "evidence_ids": [
+        "A1",
+        "A3",
+        "A6"
+      ]
+    },
+    {
+      "key": "relationships",
+      "title": "关系与沟通",
+      "body": "关系沟通中，低开放性适合转化为具体请求，例如需要更多空间、更多确认或更清晰计划。",
+      "evidence_ids": [
+        "A1",
+        "A3",
+        "A6"
+      ]
+    },
+    {
+      "key": "common_misunderstanding",
+      "title": "常见误解",
+      "body": "常见误解是把低开放性说成优点或缺点。更准确的说法是它在不同场景中有不同效果。",
+      "evidence_ids": [
+        "A1",
+        "A3",
+        "A6"
+      ]
+    },
+    {
+      "key": "action_prompts",
+      "title": "行动提示",
+      "body": "可以问：这个倾向现在帮我解决了什么？又让我忽略了什么？需要怎样的沟通边界？",
+      "evidence_ids": [
+        "A1",
+        "A3",
+        "A6"
+      ]
+    },
+    {
+      "key": "comparison",
+      "title": "与另一端比较",
+      "body": "与另一端相比，低开放性不是相反人格，而是同一连续维度上的不同倾向组合。",
+      "evidence_ids": [
+        "A1",
+        "A3",
+        "A6"
+      ]
+    },
+    {
+      "key": "method_boundary",
+      "title": "方法边界",
+      "body": "本页不解释个人测评结果，不提供诊断、治疗、招聘筛选或确定性职业建议。",
+      "evidence_ids": [
+        "I4"
+      ]
+    },
+    {
+      "key": "related_links",
+      "title": "继续浏览",
+      "body": "继续查看开放性维度、另一端解释和细分面向总览。",
+      "evidence_ids": [
+        "I2"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "id": "low-openness-type-question",
+      "question": "低开放性是一种人格类型吗？",
+      "answer": "不是。大五人格使用连续维度描述倾向，低开放性只是其中一个公共解释入口。",
+      "evidence_ids": [
+        "A1",
+        "A5"
+      ]
+    },
+    {
+      "id": "low-openness-better-question",
+      "question": "低开放性更高或更低更好吗？",
+      "answer": "不能这样判断。高低两端都有优势和代价，关键在任务、环境和沟通方式。",
+      "evidence_ids": [
+        "A5"
+      ]
+    },
+    {
+      "id": "low-openness-career-question",
+      "question": "低开放性能决定职业选择吗？",
+      "answer": "不能。它可以提供偏好语言，但不应用来做招聘筛选或职业决定论。",
+      "evidence_ids": [
+        "I4"
+      ]
+    },
+    {
+      "id": "low-openness-relationship-question",
+      "question": "低开放性对关系有什么用？",
+      "answer": "它可以帮助把差异说成需要和沟通节奏，而不是把人贴上优劣标签。",
+      "evidence_ids": [
+        "A5"
+      ]
+    },
+    {
+      "id": "low-openness-facet-question",
+      "question": "低开放性和 30 个细分面向有什么关系？",
+      "answer": "细分面向解释宽维度内部的差异；本批次只提供总览，不生成细分详情页。",
+      "evidence_ids": [
+        "A1",
+        "A8"
+      ]
+    }
+  ],
+  "media": {
+    "status": "placeholder",
+    "image_url": null,
+    "alt": "低开放性的抽象维度说明图占位，不使用 MBTI 品牌图。"
+  },
+  "schema": {
+    "type": "Article",
+    "status": "noindex_content_package",
+    "framework": "big_five",
+    "entity_type": "polarity"
+  },
+  "method_boundary": {
+    "summary": "本页解释大五人格公共知识和沟通语言，不解释个人测评结果。",
+    "not_for": [
+      "临床诊断",
+      "心理治疗",
+      "招聘筛选",
+      "职业决定论",
+      "智力或能力判断"
+    ]
+  },
+  "evidence_notes": [
+    "证据依据：A1, A5, I1, I2, I4。所有产品化判断均作为 inference 处理。",
+    "竞品来源仅用于内容缺口观察，不复制结构或措辞。"
+  ],
+  "internal_links": [
+    {
+      "label": "大五人格",
+      "href": "/zh/personality/big-five",
+      "relationship": "hub"
+    },
+    {
+      "label": "大五人格 30 个细分面向",
+      "href": "/zh/personality/big-five/facets",
+      "relationship": "facet_overview"
+    },
+    {
+      "label": "开放性",
+      "href": "/zh/personality/big-five/openness",
+      "relationship": "parent_domain"
+    },
+    {
+      "label": "高开放性",
+      "href": "/zh/personality/big-five/high-openness",
+      "relationship": "contrast_pole"
+    },
+    {
+      "label": "大五人格测试",
+      "href": "/zh/tests/big-five-personality-test",
+      "relationship": "test_landing"
+    }
+  ],
+  "source_ledger_refs": [
+    "A1",
+    "A2",
+    "A5",
+    "I1",
+    "I2",
+    "I4"
+  ],
+  "model_output_refs": [
+    "model-outputs/codex-batch-draft.raw.json",
+    "model-outputs/codex-skeptical-self-review.md"
+  ],
+  "last_reviewed_at": "2026-06-14"
+}

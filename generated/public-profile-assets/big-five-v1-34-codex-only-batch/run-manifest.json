@@ -1,0 +1,15 @@
+{
+  "task_id": "BIG-FIVE-V1-AUTO-CONTENT-PACKAGE-RUN-01-CODEX-ONLY",
+  "created_at": "2026-06-14T22:55:00+08:00",
+  "framework": "big_five",
+  "package_count": 34,
+  "locales": [
+    "zh-CN",
+    "en"
+  ],
+  "no_import": true,
+  "no_publish": true,
+  "no_index": true,
+  "source_seed": "/Users/rainie/Desktop/GitHub/fap-api/backend/content_assets/personality_public/big_five_v1_seed.json",
+  "source_routes": "lib/personality/bigFivePublicRoutes.ts"
+}
