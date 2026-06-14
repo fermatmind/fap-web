@@ -2052,6 +2052,8 @@ const PERSONALITY_BIG5_NAV_ENTRY_ALLOWED_FILES = new Set([
 ]);
 
 const ENNEAGRAM_PERSONALITY_NAV_ENTRY_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train-state.json",
+  "docs/codex/pr-train.yaml",
   "lib/navigation/headerDropdownMenus.ts",
   "tests/contracts/header-enneagram-personality-nav.contract.test.ts",
   "tests/contracts/helpers/currentPrScope.ts",
@@ -2129,6 +2131,14 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (CURRENT_BRANCH === "codex/personality-enneagram-v1-noindex-render-01") {
     return (
       PERSONALITY_ENNEAGRAM_V1_NOINDEX_RENDER_01_ALLOWED_FILES.has(file) ||
+      file === "docs/seo/generated/metadata-surface-inventory.v1.csv" ||
+      file === "docs/seo/generated/metadata-surface-inventory.v1.json"
+    );
+  }
+
+  if (CURRENT_BRANCH === "codex/personality-enneagram-nav-hub-alignment-01") {
+    return (
+      ENNEAGRAM_PERSONALITY_NAV_ENTRY_ALLOWED_FILES.has(file) ||
       file === "docs/seo/generated/metadata-surface-inventory.v1.csv" ||
       file === "docs/seo/generated/metadata-surface-inventory.v1.json"
     );
@@ -2804,7 +2814,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
     return PERSONALITY_BIG5_NAV_ENTRY_ALLOWED_FILES.has(file);
   }
 
-  if (CURRENT_BRANCH === "codex/enneagram-personality-nav-entry") {
+  if (
+    CURRENT_BRANCH === "codex/enneagram-personality-nav-entry" ||
+    CURRENT_BRANCH === "codex/personality-enneagram-nav-hub-alignment-01"
+  ) {
     return ENNEAGRAM_PERSONALITY_NAV_ENTRY_ALLOWED_FILES.has(file);
   }
 
