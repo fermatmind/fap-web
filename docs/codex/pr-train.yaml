@@ -5174,7 +5174,7 @@ prs:
     depends_on: [SEO-FREE-TEST-HOMEPAGE-CTA-01]
     mode: execute
     train_scope: seo_free_test_hub_category_cta
-    status: local_checks_passed
+    status: pr_open
     goal: "Update zh tests hub and supported tests category card CTAs/titles to free-test search intent while preserving CMS body authority, public visibility filtering, and existing routes."
     artifacts:
       - components/marketing/tests/TestCategoryExperience.tsx

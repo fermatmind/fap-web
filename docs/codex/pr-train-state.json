@@ -24028,9 +24028,9 @@
       "id": "SEO-FREE-TEST-HUB-CATEGORY-CTA-02",
       "repo": "fap-web",
       "branch": "codex/seo-free-test-hub-category-cta-02",
-      "status": "local_checks_passed",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "pr_open_checks_pending",
+      "commit_sha": "de1cad2545c2f718e8bba2e2062b00aba422b73f",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1156",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -24078,6 +24078,11 @@
           "at": "2026-06-14T20:50:53+08:00",
           "status": "local_checks_passed",
           "note": "Tests hub/category zh titles and card CTAs now use free-test search-intent wording through product rendering/fallback contracts; focused contracts, typecheck, build, full contracts, parse checks, diff check, and scope validation passed locally."
+        },
+        {
+          "at": "2026-06-14T20:55:00+08:00",
+          "status": "pr_open",
+          "note": "Opened fap-web PR #1156 for SEO-FREE-TEST-HUB-CATEGORY-CTA-02 after local checks and scope validation passed."
         }
       ]
     }
