@@ -23543,6 +23543,57 @@
           "note": "GitHub checks passed on head a89841e0ae3ee89912db0e657d2eba492cc43460 and PR #1142 is open, non-draft, and mergeable."
         }
       ]
+    },
+    {
+      "id": "PERSONALITY-BIG5-V1-NOINDEX-RENDER-01",
+      "repo": "fap-web",
+      "branch": "codex/personality-big5-v1-noindex-render-01",
+      "status": "in_progress",
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User provided explicit PR ID, frontend noindex render scope, allowed docs/codex metadata paths, and explicitly authorized adding docs/seo/generated/metadata-surface-inventory.v1.csv/json to this PR scope after the route inventory scanner required generated parity."
+        },
+        "backend_contract": {
+          "status": "pass",
+          "evidence": "fap-api PR #2083 is merged and defines PersonalityPublicContentAsset Big Five V1 coverage: 94 assets total, 34 content_ready render candidates, all noindex and out of sitemap/llms."
+        },
+        "production_api_observation": {
+          "status": "warning",
+          "evidence": "Read-only smoke on 2026-06-14 observed https://api.fermatmind.com/api/v0.5/personality-content-assets?framework=big_five&locale=en returning zero items, so live 34-route smoke may remain blocked until backend deploy/import reaches production."
+        },
+        "metadata_inventory_scope": {
+          "status": "authorized",
+          "evidence": "The new App Router Big Five route is a metadata surface; docs/seo/generated/metadata-surface-inventory.v1.csv/json are required generated contract artifacts and are now in scope by user authorization."
+        },
+        "local_validation": {
+          "status": "pass",
+          "evidence": "pnpm exec vitest run tests/contracts/personality-big-five-v1-noindex-render.contract.test.ts, pnpm test:contract, pnpm typecheck, NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build, metadata inventory generation, sitemap/llms absence check, JSON/YAML parse, and git diff --check all passed locally."
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-14T12:24:00+08:00",
+          "status": "in_progress",
+          "note": "Started fap-web Big Five V1 noindex render consumer in isolated worktree from origin/main; implementation must fail closed if public asset API is unavailable."
+        },
+        {
+          "at": "2026-06-14T12:39:00+08:00",
+          "status": "scope_authorized",
+          "note": "User authorized adding metadata-surface-inventory generated CSV/JSON to the PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 scope."
+        },
+        {
+          "at": "2026-06-14T12:50:00+08:00",
+          "status": "local_checks_passed",
+          "note": "Implemented noindex Big Five public asset consumer, generated authorized metadata inventory artifacts, confirmed sitemap/llms absence, and passed local contract/typecheck/build/diff validation."
+        }
+      ]
     }
   ]
 }

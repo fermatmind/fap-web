@@ -14730,3 +14730,63 @@ prs:
       github_checks_required: true
       squash: true
       auto_merge: false
+
+  - id: PERSONALITY-BIG5-V1-NOINDEX-RENDER-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/personality-big5-v1-noindex-render-01
+    base: main
+    title: "feat(personality): render Big Five V1 public noindex assets"
+    depends_on: []
+    mode: execute
+    train_scope: personality_public_asset_consumer
+    status: in_progress
+    goal: "Consume fap-api PersonalityPublicContentAsset Big Five V1 content_ready assets and render the 34 bilingual noindex frontend routes without adding sitemap, llms, result-page, MBTI, Enneagram, or scoring changes."
+    artifacts:
+      - app/(localized)/[locale]/personality/big-five/**
+      - components/personality/**
+      - lib/cms/**
+      - lib/personality/**
+      - tests/contracts/**
+      - docs/research/personality/big-five-v1-noindex-render/**
+      - docs/seo/generated/metadata-surface-inventory.v1.csv
+      - docs/seo/generated/metadata-surface-inventory.v1.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - app/(localized)/[locale]/personality/big-five/**
+      - components/personality/**
+      - lib/cms/**
+      - lib/personality/**
+      - tests/**
+      - docs/research/personality/big-five-v1-noindex-render/**
+      - docs/seo/generated/metadata-surface-inventory.v1.csv
+      - docs/seo/generated/metadata-surface-inventory.v1.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - MBTI page changes
+      - Big Five result page changes
+      - Enneagram page or result changes
+      - scoring/form/attempt changes
+      - Big Five 30 facet detail routes
+      - 32 OCEAN SEO pages
+      - fap-api changes
+      - frontend local editorial fallback copy
+      - sitemap, llms.txt, or llms-full.txt inclusion
+      - robots index promotion
+    required_local_checks:
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - targeted Big Five V1 noindex route contract
+      - sitemap absence check
+      - llms absence check
+      - node scripts/seo/generate-metadata-surface-inventory.mjs --pretty
+      - git diff --check
+      - JSON/YAML parse if docs/codex state is touched
+      - scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: false

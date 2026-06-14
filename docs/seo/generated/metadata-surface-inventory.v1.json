@@ -8,25 +8,25 @@
     "scanner": "scripts/seo/generate-metadata-surface-inventory.mjs"
   },
   "summary": {
-    "totalSurfaces": 80,
+    "totalSurfaces": 81,
     "byClassification": {
       "private_noindex": 22,
       "product_code_only": 18,
       "safe_static": 12,
       "migration_required": 2,
-      "cms_backed": 19,
+      "cms_backed": 20,
       "backend_owned": 5,
       "watchlist": 2
     },
     "byOwnership": {
       "private_noindex": 22,
       "product_code_only": 20,
-      "cms_backed": 33,
+      "cms_backed": 34,
       "backend_owned": 5
     },
     "byRouteFamily": {
       "private_flow": 21,
-      "other": 15,
+      "other": 16,
       "static_content_page": 10,
       "article_detail": 2,
       "articles_hub": 1,
@@ -55,7 +55,7 @@
     "migrationRequiredSurfaces": 2,
     "watchlistSurfaces": 2,
     "privateNoindexSurfaces": 22,
-    "frontendJsonLdFallbackSurfaces": 21
+    "frontendJsonLdFallbackSurfaces": 22
   },
   "rows": [
     {
@@ -897,6 +897,21 @@
       "classification": "backend_owned",
       "risk": "P2",
       "reason": "Route consumes backend seo.surface.v1 or equivalent backend SEO bundle."
+    },
+    {
+      "file": "app/(localized)/[locale]/personality/big-five/[[...slug]]/page.tsx",
+      "routePattern": "/personality/big-five/:[...slug]",
+      "routeFamily": "other",
+      "exportKind": "generateMetadata",
+      "usesBuildPageMetadata": true,
+      "usesSeoSurface": false,
+      "rendersJsonLd": true,
+      "hasFrontendJsonLdBuilderFallback": true,
+      "noindexSignal": true,
+      "ownership": "cms_backed",
+      "classification": "cms_backed",
+      "risk": "P2",
+      "reason": "Route metadata is derived from CMS/public API data."
     },
     {
       "file": "app/(localized)/[locale]/personality/page.tsx",
