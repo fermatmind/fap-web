@@ -7,7 +7,7 @@ description: FermatMind career salary content-asset production workflow for 1046
 
 Use this skill for FermatMind career salary asset production. The pipeline is evidence-first and gate-driven:
 
-`baseline -> batch manifest -> evidence ledger -> evidence audit -> estimate ledger -> estimate audit -> salary asset -> asset audit -> promote/freeze`.
+`baseline -> batch manifest -> evidence ledger -> evidence audit -> trust audit -> estimate ledger -> estimate audit -> salary asset -> asset audit -> promote/freeze`.
 
 ## Non-Negotiable Rules
 
@@ -18,6 +18,8 @@ Use this skill for FermatMind career salary asset production. The pipeline is ev
 - Treat BLS Employment Projections as outlook/openings context, not a wage source label.
 - UK evidence must try a UK National Careers direct profile first, then an audited adjacent profile. `typical_hours` must be `string|null`.
 - EU evidence is macro context by default. Do not state EU-wide occupation median salary unless a specific occupation-level EU source is captured.
+- Trust audit must PASS before estimates are computed. Schema-valid evidence is not enough.
+- Generated China salary snippets, generic O*NET fallback wages, and generic UK adjacent profiles must not pass trust audit.
 - Browser, Chrome, and Computer Use are fallback tools for dynamic pages, logged-in pages, or source capture that static scripts cannot fetch.
 - Failure stops the pipeline. Do not continue to estimate or asset stages while any current batch row is blocked.
 
@@ -29,8 +31,9 @@ Use this skill for FermatMind career salary asset production. The pipeline is ev
    - US: `references/us_official_source_rules.md`
    - UK: `references/uk_mapping_rules.md`
    - EU: `references/eu_context_rules.md`
-3. Check source labels in `references/source_registry.json`.
-4. Use examples only as PASS baseline examples; do not mutate them.
+3. Read `references/trust_audit_rules.md`.
+4. Check source labels in `references/source_registry.json`.
+5. Use examples only as PASS baseline examples; do not mutate them.
 
 ## Pipeline Commands
 
@@ -57,6 +60,12 @@ python .agents/skills/career-salary-asset-factory/scripts/audit_evidence.py \
   --manifest batch_manifest.json \
   --seed generated/career-salary-seed/career_jobs_1046_salary_asset_seed.json \
   --output-dir batch_evidence_audit
+
+python .agents/skills/career-salary-asset-factory/scripts/audit_trust.py \
+  --input batch_evidence.jsonl \
+  --manifest batch_manifest.json \
+  --control-baseline trusted_baseline_evidence.jsonl \
+  --output-dir batch_trust_audit
 ```
 
 Run a stage gate:
@@ -74,7 +83,8 @@ python .agents/skills/career-salary-asset-factory/scripts/run_pipeline.py \
 ## Stage Rules
 
 - `evidence` mode may create batch manifests, collection plans, validation, and audit reports.
-- `estimate` mode may run only after the evidence audit is PASS.
+- `trust` audit must run after evidence audit and before estimate generation.
+- `estimate` mode may run only after the evidence audit and trust audit are both PASS.
 - `asset` mode may run only after evidence and estimate audits are PASS.
 - `full` mode must stop at the first failed gate.
 - Repair loops are capped, default 3. If still blocked, stop and report; do not fabricate content.
@@ -88,7 +98,8 @@ python .agents/skills/career-salary-asset-factory/scripts/run_pipeline.py \
 - `browser_collection_plan.py`: produces Browser/Chrome fallback checklists for dynamic pages.
 - `normalize_source_names.py`: fixes source category labels without changing evidence facts.
 - `validate_*` and `audit_*`: strict validation and report generation.
-- `compute_estimates.py`: computes estimate ledger only from PASS evidence.
+- `audit_trust.py`: blocks generated CN salary text, generic O*NET fallback wages, generic UK adjacent profiles, and unchanged-control regressions before estimates.
+- `compute_estimates.py`: computes estimate ledger only after evidence audit and trust audit both PASS.
 - `generate_salary_assets.py`: writes reader-facing asset JSONL only from PASS evidence and PASS estimates.
 - `promote_batch.py`: freezes/promotes a PASS batch.
 

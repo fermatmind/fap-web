@@ -14,9 +14,12 @@ def main() -> int:
     parser.add_argument("--output-dir", required=True, type=Path)
     parser.add_argument("--artifact", action="append", default=[], help="file path to archive; may be repeated")
     parser.add_argument("--audit", action="append", default=[], help="audit.json path that must be PASS; may be repeated")
+    parser.add_argument("--trust-audit", type=Path, help="trust audit.json path that must be PASS")
     args = parser.parse_args()
 
     verdicts = {path: read_audit_verdict(Path(path)) for path in args.audit}
+    if args.trust_audit:
+        verdicts[str(args.trust_audit)] = read_audit_verdict(args.trust_audit)
     if any(verdict != "PASS" for verdict in verdicts.values()):
         write_json(args.output_dir / "baseline_freeze_failed.json", {"verdicts": verdicts})
         return 2
@@ -29,6 +32,7 @@ def main() -> int:
     write_json(args.output_dir / "baseline_sha256_manifest.json", {"files": entries})
     write_basic_md(args.output_dir / "baseline_freeze_report.md", "Baseline Freeze Report", [
         f"- audits_passed: `{len(verdicts)}`",
+        f"- trust_audit_passed: `{str(args.trust_audit is not None).lower()}`",
         f"- archived_files: `{len(entries)}`",
         "- source files modified during freeze: `0`",
     ])
