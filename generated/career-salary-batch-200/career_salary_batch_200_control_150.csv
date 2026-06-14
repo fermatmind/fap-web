@@ -1,0 +1,151 @@
+batch_index,seed_ordinal,slug,title_en,title_zh_seed,soc_code_seed,onet_code_seed,batch_role,expected_locales
+1,1,accountants-and-auditors,Accountants and auditors,会计师和审计师,13-2011,13-2011.00,control_150,zh-CN|en
+2,2,actors,Actors,演员职业诊断,,,control_150,zh-CN|en
+3,21,agricultural-engineers,Agricultural Engineers,农业工程师适合谁？,17-2021,17-2021.00,control_150,zh-CN|en
+4,17,aerospace-engineers,Aerospace Engineers,航空航天工程师,17-2011,17-2011.00,control_150,zh-CN|en
+5,854,registered-nurses,Registered nurses,注册护士,29-1141,29-1141.00,control_150,zh-CN|en
+6,44,anesthesiologists,Anesthesiologists,麻醉医师,29-1211,29-1211.00,control_150,zh-CN|en
+7,496,high-school-teachers,"Secondary School Teachers, Except Special and Career/Technical Education",高中教师（不含特殊与职业技术教育）职业诊断,25-2031,25-2031.00,control_150,zh-CN|en
+8,9,administrative-services-managers,Administrative Services Managers,行政服务经理,11-3012,11-3012.00,control_150,zh-CN|en
+9,14,advertising-sales-agents,Advertising Sales Agents,广告销售代表适合谁？,41-3011,41-3011.00,control_150,zh-CN|en
+10,66,art-directors,Art directors,艺术总监适合谁？,27-1011,27-1011.00,control_150,zh-CN|en
+11,34,aircraft-mechanics-and-service-technicians,Aircraft Mechanics And Service Technicians,飞机机械师技术员,49-3011,49-3011.00,control_150,zh-CN|en
+12,306,electricians,Electricians,其他职业,47-2111,47-2111.00,control_150,zh-CN|en
+13,146,cashiers,Cashiers,收银员适合谁？,41-2011,41-2011.00,control_150,zh-CN|en
+14,1021,waiters-and-waitresses,Waiters And Waitresses,服务员,35-3031,35-3031.00,control_150,zh-CN|en
+15,252,data-scientists,Data scientists,数据科学家,15-2051,15-2051.00,control_150,zh-CN|en
+16,1030,web-developers,Web Developers,网页开发人员,15-1254,15-1254.00,control_150,zh-CN|en
+17,197,computer-programmers,Computer programmers,计算机程序员,,,control_150,zh-CN|en
+18,808,project-management-specialists,Project management specialists,项目管理专员,13-1082,13-1082.00,control_150,zh-CN|en
+19,26,agricultural-workers,Agricultural Workers,农业从业人员,45-2092,45-2092.00,control_150,zh-CN|en
+20,47,animal-caretakers,Animal Caretakers,动物照护员,39-2021,39-2021.00,control_150,zh-CN|en
+21,57,architects-except-landscape-and-naval,"Architects, Except Landscape And Naval",建筑师、景观船舶,17-1011,17-1011.00,control_150,zh-CN|en
+22,39,airline-pilots-copilots-and-flight-engineers,"Airline Pilots, Copilots, And Flight Engineers",工程师,53-2011,53-2011.00,control_150,zh-CN|en
+23,29,air-traffic-controllers,Air Traffic Controllers,空中交通管制员职业诊断,53-2021,53-2021.00,control_150,zh-CN|en
+24,669,music-therapists,Music Therapists,治疗师,29-1129,29-1129.02,control_150,zh-CN|en
+25,955,surgical-technologists,Surgical Technologists,技术专家,29-2055,29-2055.00,control_150,zh-CN|en
+26,163,civil-engineers,Civil engineers,土木工程师职业诊断,17-2051,17-2051.00,control_150,zh-CN|en
+27,621,mechanical-engineers,Mechanical engineers,机械工程师,,,control_150,zh-CN|en
+28,311,elementary-school-teachers-except-special-education,"Elementary School Teachers, Except Special Education",教育教师,25-2021,25-2021.00,control_150,zh-CN|en
+29,880,sales-representatives-wholesale-and-manufacturing-except-technical-and-scientific-products,"Sales Representatives, Wholesale And Manufacturing, Except Technical And Scientific Products",销售代表、批发制造、产品,41-4012,41-4012.00,control_150,zh-CN|en
+30,148,chefs-and-head-cooks,Chefs and head cooks,主厨与厨师长适合谁？,35-1011,35-1011.00,control_150,zh-CN|en
+31,3,actuaries,Actuaries,精算师职业诊断,15-2011,15-2011.00,control_150,zh-CN|en
+32,4,acupuncturists,Acupuncturists,针灸师,29-1291,29-1291.00,control_150,zh-CN|en
+33,5,acute-care-nurses,Acute Care Nurses,急症护理护士,29-1141,29-1141.01,control_150,zh-CN|en
+34,6,adapted-physical-education-specialists,Adapted Physical Education Specialists,专家教育,25-2059,25-2059.01,control_150,zh-CN|en
+35,7,adhesive-bonding-machine-operators-and-tenders,Adhesive Bonding Machine Operators And Tenders,机器操作员看护员,51-9191,51-9191.00,control_150,zh-CN|en
+36,8,administrative-law-judges-adjudicators-and-hearing-officers,"Administrative Law Judges, Adjudicators, And Hearing Officers",行政法官、官,23-1021,23-1021.00,control_150,zh-CN|en
+37,10,adult-literacy-and-ged-teachers,Adult Basic and Secondary Education and ESL Teachers,成人基础与中等教育及ESL教师适合谁？,25-3011,25-3011.00,control_150,zh-CN|en
+38,11,adult-basic-education-adult-secondary-education-and-english-as-a-second-language-instructors,"Adult Basic Education, Adult Secondary Education, And English As A Second Language Instructors",成人基础教育、成人中等教育、英语作为第二语言,25-3011,25-3011.00,control_150,zh-CN|en
+39,12,advanced-practice-psychiatric-nurses,Advanced Practice Psychiatric Nurses,精神科护士,29-1141,29-1141.02,control_150,zh-CN|en
+40,13,advertising-and-promotions-managers,Advertising And Promotions Managers,广告与促销经理,11-2011,11-2011.00,control_150,zh-CN|en
+41,15,advertising-promotions-and-marketing-managers,"Advertising, Promotions, and Marketing Managers",广告、促销与市场经理适合谁？,11-2021,11-2021.00,control_150,zh-CN|en
+42,16,aerospace-engineering-and-operations-technicians,Aerospace Engineering and Operations Technologists and Technicians,航空航天工程与运营技术员适合谁？,17-3021,17-3021.00,control_150,zh-CN|en
+43,18,agents-and-business-managers-of-artists-performers-and-athletes,"Agents And Business Managers Of Artists, Performers, And Athletes",经理商业,13-1011,13-1011.00,control_150,zh-CN|en
+44,19,agricultural-and-food-science-technicians,Agricultural and Food Science Technicians,农业与食品科学技术员适合谁？,19-4012,19-4012.00,control_150,zh-CN|en
+45,20,agricultural-and-food-scientists,Agricultural And Food Scientists,农业与食品科学家,19-1012,19-1012.00,control_150,zh-CN|en
+46,22,agricultural-equipment-operators,Agricultural Equipment Operators,农业操作员,45-2091,45-2091.00,control_150,zh-CN|en
+47,23,agricultural-inspectors,Agricultural Inspectors,农业检查员,45-2011,45-2011.00,control_150,zh-CN|en
+48,24,agricultural-sciences-teachers-postsecondary,"Agricultural Sciences Teachers, Postsecondary",农业教师,25-1041,25-1041.00,control_150,zh-CN|en
+49,25,agricultural-technicians,Agricultural Technicians,农业技术员,19-4012,19-4012.00,control_150,zh-CN|en
+50,27,air-crew-members,Air Crew Members,机组成员,55-3011,55-3011.00,control_150,zh-CN|en
+51,28,air-crew-officers,Air Crew Officers,空勤军官,55-1011,55-1011.00,control_150,zh-CN|en
+52,30,aircraft-and-avionics-equipment-mechanics-and-technicians,Aircraft and Avionics Equipment Mechanics and Technicians,飞机与航空电子设备维修技师适合谁？,49-3011,49-3011.00,control_150,zh-CN|en
+53,31,aircraft-cargo-handling-supervisors,Aircraft Cargo Handling Supervisors,飞机货物装卸主管,53-1041,53-1041.00,control_150,zh-CN|en
+54,32,aircraft-launch-and-recovery-officers,Aircraft Launch And Recovery Officers,飞机官,55-1012,55-1012.00,control_150,zh-CN|en
+55,33,aircraft-launch-and-recovery-specialists,Aircraft Launch And Recovery Specialists,飞机专员,55-3012,55-3012.00,control_150,zh-CN|en
+56,35,aircraft-service-attendants,Aircraft Service Attendants,飞机服务服务员,53-6032,53-6032.00,control_150,zh-CN|en
+57,36,aircraft-structure-surfaces-rigging-and-systems-assemblers,"Aircraft Structure, Surfaces, Rigging, And Systems Assemblers",飞机结构、表面、索具、系统装配工,51-2011,51-2011.00,control_150,zh-CN|en
+58,37,airfield-operations-specialists,Airfield Operations Specialists,机场运行专员,53-2022,53-2022.00,control_150,zh-CN|en
+59,38,airline-and-commercial-pilots,Airline and Commercial Pilots,航空公司与商业飞行员职业诊断,53-2011,53-2011.00,control_150,zh-CN|en
+60,40,allergists-and-immunologists,Allergists And Immunologists,过敏专科医师免疫学医师,29-1229,29-1229.01,control_150,zh-CN|en
+61,41,ambulance-drivers-and-attendants-except-emergency-medical-technicians,"Ambulance Drivers And Attendants, Except Emergency Medical Technicians",救护车司机服务员、急诊医疗技术员,53-3011,53-3011.00,control_150,zh-CN|en
+62,42,amusement-and-recreation-attendants,Amusement And Recreation Attendants,娱乐与休闲服务员,39-3091,39-3091.00,control_150,zh-CN|en
+63,43,anesthesiologist-assistants,Anesthesiologist Assistants,麻醉医师助理,29-1071,29-1071.01,control_150,zh-CN|en
+64,45,animal-breeders,Animal Breeders,动物饲养员,45-2021,45-2021.00,control_150,zh-CN|en
+65,46,animal-care-and-service-workers,Animal Care and Service Workers,动物照护与服务人员适合谁？,39-2021,39-2021.00,control_150,zh-CN|en
+66,48,animal-control-workers,Animal Control Workers,动物工人,33-9011,33-9011.00,control_150,zh-CN|en
+67,49,animal-scientists,Animal Scientists,动物科学家,19-1011,19-1011.00,control_150,zh-CN|en
+68,50,animal-trainers,Animal Trainers,动物训练师,39-2011,39-2011.00,control_150,zh-CN|en
+69,51,announcers,Broadcast Announcers And Radio Disc Jockeys,广播主持人与电台DJ,27-3011,27-3011.00,control_150,zh-CN|en
+70,52,anthropologists-and-archeologists,Anthropologists And Archeologists,人类学家与考古学家,19-3091,19-3091.00,control_150,zh-CN|en
+71,53,anthropology-and-archeology-teachers-postsecondary,"Anthropology And Archeology Teachers, Postsecondary",教师、高等教育,25-1061,25-1061.00,control_150,zh-CN|en
+72,54,appraisers-of-personal-and-business-property,Appraisers Of Personal And Business Property,个人与商业财产评估师,13-2022,13-2022.00,control_150,zh-CN|en
+73,55,arbitrators-mediators-and-conciliators,"Arbitrators, Mediators, And Conciliators",仲裁员、调解员与和解员,23-1022,23-1022.00,control_150,zh-CN|en
+74,56,architects,"Architects, Except Landscape and Naval",建筑师（不含景观与船舶）职业诊断,17-1011,17-1011.00,control_150,zh-CN|en
+75,58,architectural-and-civil-drafters,Architectural And Civil Drafters,建筑土木制图员,17-3011,17-3011.00,control_150,zh-CN|en
+76,59,architectural-and-engineering-managers,Architectural and engineering managers,建筑与工程经理职业诊断,11-9041,11-9041.00,control_150,zh-CN|en
+77,60,architecture-teachers-postsecondary,"Architecture Teachers, Postsecondary",建筑教师,25-1031,25-1031.00,control_150,zh-CN|en
+78,61,archivists,Archivists,档案管理员,25-4011,25-4011.00,control_150,zh-CN|en
+79,62,curators-museum-technicians-and-conservators,Curators,策展人,25-4012,25-4012.00,control_150,zh-CN|en
+80,63,area-ethnic-and-cultural-studies-teachers-postsecondary,"Area, Ethnic, And Cultural Studies Teachers, Postsecondary",教师、高等教育,25-1062,25-1062.00,control_150,zh-CN|en
+81,64,armored-assault-vehicle-crew-members,Armored Assault Vehicle Crew Members,装甲突击车辆成员,55-3013,55-3013.00,control_150,zh-CN|en
+82,65,armored-assault-vehicle-officers,Armored Assault Vehicle Officers,装甲突击车辆官,55-1013,55-1013.00,control_150,zh-CN|en
+83,67,art-therapists,Art Therapists,治疗师,29-1129,29-1129.01,control_150,zh-CN|en
+84,68,art-drama-and-music-teachers-postsecondary,"Art, Drama, And Music Teachers, Postsecondary",教师、高等教育,25-1121,25-1121.00,control_150,zh-CN|en
+85,69,artillery-and-missile-crew-members,Artillery And Missile Crew Members,火炮导弹成员,55-3014,55-3014.00,control_150,zh-CN|en
+86,70,artillery-and-missile-officers,Artillery And Missile Officers,火炮导弹官,55-1014,55-1014.00,control_150,zh-CN|en
+87,71,assemblers-and-fabricators,Team Assemblers,团队装配工,51-2092,51-2092.00,control_150,zh-CN|en
+88,72,astronomers,Astronomers,其他职业,19-2011,19-2011.00,control_150,zh-CN|en
+89,73,athletes-and-sports-competitors,Athletes And Sports Competitors,运动员与体育竞赛选手,27-2021,27-2021.00,control_150,zh-CN|en
+90,74,athletic-trainers,Athletic Trainers,运动训练师,29-9091,29-9091.00,control_150,zh-CN|en
+91,75,atmospheric-and-space-scientists,Atmospheric And Space Scientists,大气与空间科学家,19-2021,19-2021.00,control_150,zh-CN|en
+92,76,atmospheric-scientists-including-meteorologists,"Atmospheric Scientists, Including Meteorologists",大气科学家（含气象学家）,19-2021,19-2021.00,control_150,zh-CN|en
+93,77,atmospheric-earth-marine-and-space-sciences-teachers-postsecondary,"Atmospheric, Earth, Marine, And Space Sciences Teachers, Postsecondary",土方、船舶、教师、高等教育,25-1051,25-1051.00,control_150,zh-CN|en
+94,78,audio-and-video-technicians,Audio And Video Technicians,音频视频技术员,27-4011,27-4011.00,control_150,zh-CN|en
+95,79,audiologists,Audiologists,听力学家,29-1181,29-1181.00,control_150,zh-CN|en
+96,80,audiovisual-equipment-installers-and-repairers,Audiovisual Equipment Installers And Repairers,设备安装工,49-2097,49-2097.00,control_150,zh-CN|en
+97,81,automotive-and-watercraft-service-attendants,Automotive And Watercraft Service Attendants,汽车与船艇服务员,53-6031,53-6031.00,control_150,zh-CN|en
+98,82,automotive-body-and-glass-repairers,Automotive Body and Related Repairers,汽车车身及相关维修工适合谁？,49-3021,49-3021.00,control_150,zh-CN|en
+99,83,automotive-engineering-technicians,Automotive Engineering Technicians,技术员工程,17-3027,17-3027.01,control_150,zh-CN|en
+100,84,automotive-engineers,Automotive Engineers,工程师,17-2141,17-2141.02,control_150,zh-CN|en
+101,85,automotive-glass-installers-and-repairers,Automotive Glass Installers And Repairers,汽车玻璃安装工,49-3022,49-3022.00,control_150,zh-CN|en
+102,86,automotive-service-technicians-and-mechanics,Automotive Service Technicians And Mechanics,汽车维修技师与机械师,49-3023,49-3023.00,control_150,zh-CN|en
+103,87,aviation-inspectors,Aviation Inspectors,航空检查员,53-6051,53-6051.01,control_150,zh-CN|en
+104,88,avionics-technicians,Avionics Technicians,航空电子技术员,49-2091,49-2091.00,control_150,zh-CN|en
+105,89,baggage-porters-and-bellhops,Baggage Porters And Bellhops,行李搬运员行李员,39-6011,39-6011.00,control_150,zh-CN|en
+106,90,bailiffs,Bailiffs,法警,33-3011,33-3011.00,control_150,zh-CN|en
+107,91,bakers,Bakers,面包师,51-3011,51-3011.00,control_150,zh-CN|en
+108,92,barbers,Barbers,理发师,39-5011,39-5011.00,control_150,zh-CN|en
+109,93,barbers-hairstylists-and-cosmetologists,"Hairdressers, Hairstylists, And Cosmetologists",美发师、发型师与美容师,39-5012,39-5012.00,control_150,zh-CN|en
+110,94,baristas,Baristas,咖啡师,35-3023,35-3023.01,control_150,zh-CN|en
+111,95,bartenders,Bartenders,调酒师,35-3011,35-3011.00,control_150,zh-CN|en
+112,96,bicycle-repairers,Bicycle Repairers,自行车修理工,49-3091,49-3091.00,control_150,zh-CN|en
+113,97,bill-and-account-collectors,Bill and account collectors,账单与账款催收员适合谁？,43-3011,43-3011.00,control_150,zh-CN|en
+114,98,billing-and-posting-clerks,Billing And Posting Clerks,账单过账文员,43-3021,43-3021.00,control_150,zh-CN|en
+115,99,biochemists-and-biophysicists,Biochemists and biophysicists,生物化学家与生物物理学家适合谁？,19-1021,19-1021.00,control_150,zh-CN|en
+116,100,biomedical-engineers,Bioengineers and biomedical engineers,生物工程师与生物医学工程师职业诊断,17-2031,17-2031.00,control_150,zh-CN|en
+117,101,biofuels-processing-technicians,Biofuels Processing Technicians,生物燃料加工技术员,51-8099,51-8099.01,control_150,zh-CN|en
+118,102,biofuels-production-managers,Biofuels Production Managers,生产经理,11-3051,11-3051.03,control_150,zh-CN|en
+119,103,biofuels-biodiesel-technology-and-product-development-managers,Biofuels/Biodiesel Technology And Product Development Managers,经理,11-9041,11-9041.01,control_150,zh-CN|en
+120,104,bioinformatics-scientists,Bioinformatics Scientists,生物信息学科学家,19-1029,19-1029.01,control_150,zh-CN|en
+121,105,bioinformatics-technicians,Bioinformatics Technicians,生物信息技术员,15-2099,15-2099.01,control_150,zh-CN|en
+122,106,biological-science-teachers-postsecondary,"Biological Science Teachers, Postsecondary",高校生物科学教师,25-1042,25-1042.00,control_150,zh-CN|en
+123,107,biological-technicians,Biological Technicians,生物技术员,19-4021,19-4021.00,control_150,zh-CN|en
+124,108,biologists,Biologists,生物学家,19-1029,19-1029.04,control_150,zh-CN|en
+125,109,biomass-plant-technicians,Biomass Plant Technicians,生物质电厂技术员,51-8013,51-8013.03,control_150,zh-CN|en
+126,110,biomass-power-plant-managers,Biomass Power Plant Managers,电力经理,11-3051,11-3051.04,control_150,zh-CN|en
+127,111,biostatisticians,Biostatisticians,生物统计学家,15-2041,15-2041.01,control_150,zh-CN|en
+128,112,blockchain-engineers,Blockchain Engineers,工程师,15-1299,15-1299.07,control_150,zh-CN|en
+129,113,boilermakers,Boilermakers,锅炉制造与安装工,47-2011,47-2011.00,control_150,zh-CN|en
+130,114,bookkeeping-accounting-and-auditing-clerks,"Bookkeeping, accounting, and auditing clerks",簿记、会计与审计文员适合谁？,43-3031,43-3031.00,control_150,zh-CN|en
+131,115,brickmasons-and-blockmasons,Brickmasons And Blockmasons,砖石与砌块工,47-2021,47-2021.00,control_150,zh-CN|en
+132,116,bridge-and-lock-tenders,Bridge And Lock Tenders,桥梁与船闸操作员,53-6011,53-6011.00,control_150,zh-CN|en
+133,117,broadcast-announcers-and-radio-disc-jockeys,Broadcast Announcers And Radio Disc Jockeys,广播主持人电台唱片唱片骑师,27-3011,27-3011.00,control_150,zh-CN|en
+134,118,broadcast-technicians,Broadcast Technicians,广播技术员,27-4012,27-4012.00,control_150,zh-CN|en
+135,119,broadcast-and-sound-engineering-technicians,Audio And Video Technicians,音频与视频技术员,27-4011,27-4011.00,control_150,zh-CN|en
+136,120,brokerage-clerks,Brokerage Clerks,经纪文员,43-4011,43-4011.00,control_150,zh-CN|en
+137,121,brownfield-redevelopment-specialists-and-site-managers,Brownfield Redevelopment Specialists And Site Managers,专家经理,11-9199,11-9199.11,control_150,zh-CN|en
+138,122,budget-analysts,Budget analysts,预算分析师职业诊断,13-2031,13-2031.00,control_150,zh-CN|en
+139,123,bus-and-truck-mechanics-and-diesel-engine-specialists,Bus And Truck Mechanics And Diesel Engine Specialists,公交卡车机械师发动机专员,49-3031,49-3031.00,control_150,zh-CN|en
+140,124,bus-drivers,"Bus Drivers, Transit And Intercity",公交与城际巴士司机,53-3052,53-3052.00,control_150,zh-CN|en
+141,125,bus-drivers-school,"Bus Drivers, School",公交司机,53-3051,53-3051.00,control_150,zh-CN|en
+142,126,bus-drivers-transit-and-intercity,"Bus Drivers, Transit And Intercity",公交司机、公交,53-3052,53-3052.00,control_150,zh-CN|en
+143,127,business-continuity-planners,Business Continuity Planners,业务连续性规划师,13-1199,13-1199.04,control_150,zh-CN|en
+144,128,business-intelligence-analysts,Business Intelligence Analysts,分析师商业,15-2051,15-2051.01,control_150,zh-CN|en
+145,129,business-teachers-postsecondary,"Business Teachers, Postsecondary",教师商业,25-1011,25-1011.00,control_150,zh-CN|en
+146,130,butchers-and-meat-cutters,Butchers And Meat Cutters,屠宰工肉类切割工,51-3021,51-3021.00,control_150,zh-CN|en
+147,131,buyers-and-purchasing-agents-farm-products,"Buyers And Purchasing Agents, Farm Products",采购员采购、农场产品,13-1021,13-1021.00,control_150,zh-CN|en
+148,132,cabinetmakers-and-bench-carpenters,Cabinetmakers And Bench Carpenters,橱柜制造工台架木工,51-7011,51-7011.00,control_150,zh-CN|en
+149,133,calibration-technologists-and-technicians,Calibration Technologists And Technicians,校准技术员,17-3028,17-3028.00,control_150,zh-CN|en
+150,134,camera-and-photographic-equipment-repairers,Camera And Photographic Equipment Repairers,摄像设备,49-9061,49-9061.00,control_150,zh-CN|en

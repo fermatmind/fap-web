@@ -1,0 +1,64 @@
+{
+  "files": [
+    {
+      "source_path": "generated/career-salary-batch-200/career_salary_batch_200_manifest.json",
+      "baseline_path": "generated/career-salary-v3-6-batch-200-pass-baseline/career_salary_batch_200_manifest.json",
+      "bytes": 78372,
+      "sha256": "c29b605330754a1ba57a98a6bd34280b4ec09230ec6f1a6b8afdec5b2d97f6fd"
+    },
+    {
+      "source_path": "generated/career-salary-batch-200/career_salary_batch_200_manifest_validation.json",
+      "baseline_path": "generated/career-salary-v3-6-batch-200-pass-baseline/career_salary_batch_200_manifest_validation.json",
+      "bytes": 487,
+      "sha256": "e87d18a844210da0e3fbfa9626cf5c5884f4b4fb18dfa0497c5ae5872a86fa8c"
+    },
+    {
+      "source_path": "generated/career-salary-evidence-v3-6-batch-200/career_job_salary_evidence_200_v3_6.jsonl",
+      "baseline_path": "generated/career-salary-v3-6-batch-200-pass-baseline/career_job_salary_evidence_200_v3_6.jsonl",
+      "bytes": 896750,
+      "sha256": "3697e1e9ee4815c0f9ee2855113699e418223bba3b3044806ad77127eb202503"
+    },
+    {
+      "source_path": "generated/career-salary-evidence-v3-6-batch-200/career_job_salary_evidence_200_v3_6_schema_validation.json",
+      "baseline_path": "generated/career-salary-v3-6-batch-200-pass-baseline/career_job_salary_evidence_200_v3_6_schema_validation.json",
+      "bytes": 265,
+      "sha256": "d55260b370b01a66c5dbcd35611fc120ebe20fdd65d3c4ac61b82a272bb4da77"
+    },
+    {
+      "source_path": "generated/career-salary-estimates-v3-6-batch-200/career_job_salary_estimates_200_v3_6.jsonl",
+      "baseline_path": "generated/career-salary-v3-6-batch-200-pass-baseline/career_job_salary_estimates_200_v3_6.jsonl",
+      "bytes": 787368,
+      "sha256": "e95ad5deaa94a7a7077332f727ffff08b20c1639d111508ee72a7cda9fe533e0"
+    },
+    {
+      "source_path": "generated/career-salary-estimates-v3-6-batch-200/career_job_salary_estimates_200_v3_6_schema_validation.json",
+      "baseline_path": "generated/career-salary-v3-6-batch-200-pass-baseline/career_job_salary_estimates_200_v3_6_schema_validation.json",
+      "bytes": 85,
+      "sha256": "7c033139b10335ae16ac438f2c8a5bca5eee8e81ecc162bf3eccc9c476a9142b"
+    },
+    {
+      "source_path": "generated/career-salary-assets-v3-6-batch-200/career_job_salary_assets_200_v3_6.jsonl",
+      "baseline_path": "generated/career-salary-v3-6-batch-200-pass-baseline/career_job_salary_assets_200_v3_6.jsonl",
+      "bytes": 3437938,
+      "sha256": "fbf6e37da2a7370378440222490fb1ee91ff3b887aabc0741c1acffca04ac3ab"
+    },
+    {
+      "source_path": "generated/career-salary-assets-v3-6-batch-200/career_job_salary_assets_200_v3_6_schema_validation.json",
+      "baseline_path": "generated/career-salary-v3-6-batch-200-pass-baseline/career_job_salary_assets_200_v3_6_schema_validation.json",
+      "bytes": 85,
+      "sha256": "272457bc5f393e37b048e60c272ba58d36a0bbc17f5c9c28ea21af3595f33396"
+    },
+    {
+      "source_path": "generated/career-salary-batch-200/batch_200_pipeline_report.md",
+      "baseline_path": "generated/career-salary-v3-6-batch-200-pass-baseline/batch_200_pipeline_report.md",
+      "bytes": 378,
+      "sha256": "4cfbc2d5a748aecf6703fae4393339f17cca8a34a5bdcac6779caa990bb29adc"
+    },
+    {
+      "source_path": "generated/career-salary-batch-200/batch_200_pipeline_report.json",
+      "baseline_path": "generated/career-salary-v3-6-batch-200-pass-baseline/batch_200_pipeline_report.json",
+      "bytes": 534,
+      "sha256": "ca265e916746566f82c9e5773687cbf2825ff914aaaa5e499764d7bfbbaf9530"
+    }
+  ]
+}

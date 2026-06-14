@@ -1,0 +1,7 @@
+{
+  "final_verdict": "PASS",
+  "metrics": {
+    "total_lines": 200,
+    "parse_error_count": 0
+  }
+}
