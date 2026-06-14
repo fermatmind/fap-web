@@ -29,6 +29,19 @@ def money_gbp(value: float | None) -> str:
     return f"£{int(value):,}" if value is not None else "not captured"
 
 
+def cny_range_for_locale(value: str | None, locale: str) -> str | None:
+    if not value:
+        return value
+    if locale == "zh-CN":
+        return value
+    return (
+        value
+        .replace("约 ", "about ")
+        .replace("￥", "¥")
+        .replace("/月", " per month")
+    )
+
+
 def source_rows(evidence: dict, locale: str) -> list[dict]:
     sources: list[dict] = []
     for item in (evidence.get("china_recruitment_evidence") or {}).get("evidence_items") or []:
@@ -107,6 +120,7 @@ def build_asset(evidence: dict, estimate: dict, locale: str, estimate_path: Path
     title_zh = estimate["identity"].get("title_zh_cleaned") or estimate["identity"].get("title_zh_seed") or title_en
     title = title_zh if locale == "zh-CN" else title_en
     cn = estimate["cn_recruitment_estimate"]
+    cn_display = cny_range_for_locale(cn.get("display_monthly_range_cny"), locale)
     us = estimate["us_official_estimate"]
     uk = estimate["uk_reference_estimate"]
     eu = estimate["eu_context_estimate"]
@@ -118,8 +132,8 @@ def build_asset(evidence: dict, estimate: dict, locale: str, estimate_path: Path
     if locale == "zh-CN":
         heading = f"{title}薪资与就业参考"
         headline = f"{title}薪资参考"
-        short = f"中国大陆使用招聘市场可见证据，参考区间为 {cn.get('display_monthly_range_cny') or '暂不可计算'}；美国、英国和欧盟仅按各自来源边界阅读。"
-        cn_body = f"中国大陆部分只使用已通过审计的招聘市场证据。{title} 当前可见参考为 {cn.get('display_monthly_range_cny') or '暂不可计算'}，不是官方职业中位薪资，也不是个人收入预测。"
+        short = f"中国大陆使用招聘市场可见证据，参考区间为 {cn_display or '暂不可计算'}；美国、英国和欧盟仅按各自来源边界阅读。"
+        cn_body = f"中国大陆部分只使用已通过审计的招聘市场证据。{title} 当前可见参考为 {cn_display or '暂不可计算'}，不是官方职业中位薪资，也不是个人收入预测。"
         us_body = f"美国部分使用官方或公共职业来源；当前 median annual 为 {money_usd(us.get('median_annual_usd'))}，p25/p75 缺失时保持为空。"
         uk_body = f"英国部分使用 UK National Careers 或有边界的相邻 profile；starter 为 {money_gbp(uk.get('starter_annual_gbp'))}，experienced 为 {money_gbp(uk.get('experienced_annual_gbp'))}。"
         eu_body = "欧盟部分只作为宏观语境边界，不写成统一欧洲职业薪资。"
@@ -142,8 +156,8 @@ def build_asset(evidence: dict, estimate: dict, locale: str, estimate_path: Path
     else:
         heading = f"{title_en} salary and outlook reference"
         headline = f"{title_en} salary reference"
-        short = f"China is shown only as a recruitment-market signal ({cn.get('display_monthly_range_cny') or 'not calculable'}), while US, UK, and EU references must be read within their source boundaries."
-        cn_body = f"The China section uses passed recruitment-market evidence only. The current bounded reference for {title_en} is {cn.get('display_monthly_range_cny') or 'not calculable'}; it is not an official occupation wage or personal salary prediction."
+        short = f"China is shown only as a recruitment-market signal ({cn_display or 'not calculable'}), while US, UK, and EU references must be read within their source boundaries."
+        cn_body = f"The China section uses passed recruitment-market evidence only. The current bounded reference for {title_en} is {cn_display or 'not calculable'}; it is not an official occupation wage or personal salary prediction."
         us_body = f"The US section uses official or public career evidence. Current median annual pay is {money_usd(us.get('median_annual_usd'))}; missing p25/p75 values remain null."
         uk_body = f"The UK section uses a National Careers or audited adjacent profile. Starter is {money_gbp(uk.get('starter_annual_gbp'))}; experienced is {money_gbp(uk.get('experienced_annual_gbp'))}."
         eu_body = "The EU section is macro context only and must not be read as a unified European occupation salary."
@@ -178,7 +192,7 @@ def build_asset(evidence: dict, estimate: dict, locale: str, estimate_path: Path
         "china_recruitment_reference": {
             "heading": "中国招聘市场参考" if locale == "zh-CN" else "China recruitment-market reference",
             "evidence_status": cn["status"],
-            "display_monthly_range_cny": cn.get("display_monthly_range_cny"),
+            "display_monthly_range_cny": cn_display,
             "range_basis": "observed evidence range, not percentile",
             "body": cn_body,
             "data_boundary": cn["official_wage_boundary"],

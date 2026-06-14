@@ -1,0 +1,14 @@
+{
+  "collection_status": "BLOCKED_SOURCE_ACCESS_REPAIR_REQUIRED",
+  "total_lines": 200,
+  "control_rows_copied": 150,
+  "new_rows_collected": 50,
+  "new_rows_ready_for_asset_generation": 0,
+  "new_rows_with_cn_evidence": 0,
+  "new_rows_with_two_cn_items": 0,
+  "new_rows_with_us_source": 0,
+  "new_rows_with_uk_source": 0,
+  "generated_salary_asset": false,
+  "generated_estimate_ledger": false,
+  "captured_at": "2026-06-14T16:20:12.565363+00:00"
+}
