@@ -5270,7 +5270,7 @@ prs:
     depends_on: [SEO-FREE-TEST-FLAGSHIP-LANDING-03]
     mode: execute
     train_scope: seo_free_test_secondary_cta
-    status: ready_to_merge
+    status: merged
     goal: "Update zh IQ/EQ, career entry, personality entry, take metadata, sticky CTA, share-card, and natural contextual entry labels to free-test wording without changing result-page semantics or article/CMS content authority."
     artifacts:
       - app/(localized)/[locale]/career/tests/page.tsx
@@ -5323,6 +5323,50 @@ prs:
       - frontend local editorial fallback expansion beyond natural CTA label display normalization
     required_local_checks:
       - pnpm exec vitest run tests/contracts/seo-free-test-secondary-cta.contract.test.ts tests/contracts/mbti-entry-wiring.contract.test.tsx tests/contracts/mbti-share-consumer.contract.test.tsx tests/contracts/enneagram-share-surface.contract.test.tsx tests/contracts/iq-bank-display-model.contract.test.ts tests/contracts/test-detail-landing.contract.test.ts
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - git diff --check
+      - scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+
+  - id: SEO-FREE-TEST-ARTICLE-INTERNAL-LINKS-05
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/seo-free-test-article-internal-links-05
+    base: main
+    title: "fix(seo): label article test links as free tests"
+    depends_on: [SEO-FREE-TEST-SECONDARY-CTA-04]
+    mode: execute
+    train_scope: seo_free_test_article_internal_links
+    status: in_progress
+    goal: "Update article/CMS internal-link rendering so bare zh test URLs and bare-url anchors display concrete free-test anchor text such as MBTI免费测试 and 大五人格免费测试, while preserving CMS article body authority and existing hrefs."
+    artifacts:
+      - lib/content/internalLinkText.ts
+      - tests/contracts/article-internal-link-anchor-text.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - lib/content/internalLinkText.ts
+      - tests/contracts/article-internal-link-anchor-text.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - article body, CMS payload, or editorial content edits
+      - frontend hardcoded article正文
+      - test scoring, form parsing, attempt, take flow behavior, or result logic changes
+      - sitemap, llms.txt, or llms-full.txt URL set changes
+      - payment, report, entitlement, or paywall behavior changes
+      - unrelated navigation/footer/header label changes
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/article-internal-link-anchor-text.contract.test.tsx tests/contracts/seo-ops-02d-article-rich-content-cta-attribution.contract.test.tsx tests/contracts/seo-ops-02e-article-markdown-cta-visible-attribution.contract.test.tsx
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
       - pnpm test:contract

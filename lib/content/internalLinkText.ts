@@ -12,12 +12,12 @@ const INTERNAL_PATH_RE =
 const TRAILING_PUNCTUATION_RE = /[。．，,、；;：:！？!?）)\]】》>]+$/;
 
 const ZH_TEST_LABELS: Record<string, string> = {
-  "big-five-personality-test-ocean-model": "大五人格测试",
-  "enneagram-personality-test-nine-types": "九型人格测试",
-  "eq-test-emotional-intelligence-assessment": "情商测试",
-  "holland-career-interest-test-riasec": "霍兰德职业兴趣测试",
-  "iq-test-intelligence-quotient-assessment": "IQ 测试",
-  "mbti-personality-test-16-personality-types": "MBTI 性格测试",
+  "big-five-personality-test-ocean-model": "大五人格免费测试",
+  "enneagram-personality-test-nine-types": "九型人格免费测试",
+  "eq-test-emotional-intelligence-assessment": "情商免费测试",
+  "holland-career-interest-test-riasec": "霍兰德职业兴趣免费测试",
+  "iq-test-intelligence-quotient-assessment": "智商免费测试",
+  "mbti-personality-test-16-personality-types": "MBTI免费测试",
 };
 
 const EN_TEST_LABELS: Record<string, string> = {
