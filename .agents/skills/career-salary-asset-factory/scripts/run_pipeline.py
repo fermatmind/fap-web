@@ -16,7 +16,7 @@ def main() -> int:
     parser.add_argument("--batch-size", type=int, default=50)
     parser.add_argument("--max-repair-loops", type=int, default=3)
     parser.add_argument("--start-after-baseline", action="store_true")
-    parser.add_argument("--mode", choices=["evidence", "estimate", "asset", "full"], required=True)
+    parser.add_argument("--mode", choices=["evidence", "trust", "estimate", "asset", "full"], required=True)
     parser.add_argument("--output-dir", type=Path, default=Path("generated/career-salary-pipeline-run"))
     args = parser.parse_args()
 
@@ -28,7 +28,7 @@ def main() -> int:
         "max_repair_loops": args.max_repair_loops,
         "start_after_baseline": args.start_after_baseline,
         "status": "PLANNED_ONLY",
-        "stop_reason": "This orchestrator enforces gates. Provide stage artifacts to run validation/audit scripts; it will not fabricate evidence, estimates, or assets.",
+        "stop_reason": "This orchestrator enforces evidence, trust, estimate, and asset gates. Provide stage artifacts to run validation/audit scripts; it will not fabricate evidence, estimates, or assets.",
     }
     if args.batch_size > 50:
         result["status"] = "BLOCKED"
