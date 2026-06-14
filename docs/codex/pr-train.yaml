@@ -5270,7 +5270,7 @@ prs:
     depends_on: [SEO-FREE-TEST-FLAGSHIP-LANDING-03]
     mode: execute
     train_scope: seo_free_test_secondary_cta
-    status: in_progress
+    status: ready_to_merge
     goal: "Update zh IQ/EQ, career entry, personality entry, take metadata, sticky CTA, share-card, and natural contextual entry labels to free-test wording without changing result-page semantics or article/CMS content authority."
     artifacts:
       - app/(localized)/[locale]/career/tests/page.tsx
