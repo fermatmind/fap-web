@@ -2034,6 +2034,12 @@ const PERSONALITY_BIG5_V1_NOINDEX_RENDER_01_ALLOWED_FILES = new Set([
   "tests/contracts/personality-big-five-v1-noindex-render.contract.test.ts",
 ]);
 
+const PERSONALITY_BIG5_NAV_ENTRY_ALLOWED_FILES = new Set([
+  "lib/navigation/headerDropdownMenus.ts",
+  "tests/contracts/header-big-five-personality-nav.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 const RESULT_SMOKE_PROXY_GENERATION_HINTS_ALLOWED_FILES = new Set([
   ".github/workflows/live-result-smoke.yml",
   "app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx",
@@ -2746,6 +2752,7 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
     (IS_GITHUB_PULL_REQUEST_MERGE_REF || IS_GITHUB_ACTIONS_DETACHED_HEAD) &&
     (PERSONALITY_LLMS_FULL_COMPARISON_REPAIR_01_ALLOWED_FILES.has(file) ||
       PERSONALITY_SEO_POST_DEPLOY_INDEXATION_AUDIT_01_ALLOWED_FILES.has(file) ||
+      PERSONALITY_BIG5_NAV_ENTRY_ALLOWED_FILES.has(file) ||
       LEGACY_CI_EMPTY_DIFF_SCOPE_SENTINEL_FILES.has(file))
   ) {
     return true;
@@ -2760,6 +2767,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/personality-big5-v1-noindex-render-01") {
     return PERSONALITY_BIG5_V1_NOINDEX_RENDER_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/big-five-personality-nav-entry") {
+    return PERSONALITY_BIG5_NAV_ENTRY_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-fdn-seo-01-implementation") {
