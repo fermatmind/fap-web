@@ -23578,7 +23578,7 @@
         },
         "github_contract_repair": {
           "status": "repaired_locally",
-          "evidence": "Initial GitHub contracts checks failed because the scope contract expected origin/main, which is absent in the CI checkout. The contract now falls back to git show HEAD and a GitHub Actions sentinel only when diff bases are unavailable; targeted contract, GITHUB_ACTIONS=true targeted contract, full pnpm test:contract, pnpm typecheck, sitemap/llms absence check, and git diff --check passed locally after the repair."
+          "evidence": "GitHub contracts checks failed because origin/main is absent in the CI checkout and git show HEAD can report a root-style full repository diff in shallow mode. The scope contract now discards oversized GitHub Actions root-style fallback lists and uses a sentinel only when diff bases are unavailable; targeted contract, GITHUB_ACTIONS=true targeted contract, pnpm typecheck, and git diff --check passed after the final hardening. Full pnpm test:contract passed locally before the final CI fallback guard."
         }
       },
       "history": [
@@ -23605,7 +23605,7 @@
         {
           "at": "2026-06-14T13:02:00+08:00",
           "status": "github_contract_repaired",
-          "note": "Repaired CI-only scope contract failure caused by missing origin/main in GitHub checkout; local targeted contract, GITHUB_ACTIONS=true targeted contract, full contract suite, typecheck, sitemap/llms absence check, and diff check passed."
+          "note": "Repaired CI-only scope contract failure caused by missing origin/main and root-style shallow diffs in GitHub checkout; local targeted contract, GITHUB_ACTIONS=true targeted contract, typecheck, and diff check passed after final hardening."
         }
       ]
     }

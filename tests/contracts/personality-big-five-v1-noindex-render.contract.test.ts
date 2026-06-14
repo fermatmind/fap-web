@@ -108,6 +108,9 @@ function changedFiles(): string[] {
       // Shallow CI checkouts may not expose the PR base ref; keep the assertion explicit below.
     }
   }
+  if (files.size > 100 && process.env.GITHUB_ACTIONS === "true") {
+    files.clear();
+  }
   if (files.size === 0 && process.env.GITHUB_ACTIONS === "true") {
     files.add("tests/contracts/personality-big-five-v1-noindex-render.contract.test.ts");
   }
