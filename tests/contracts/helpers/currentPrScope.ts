@@ -39,6 +39,7 @@ const CURRENT_BRANCH = (() => {
 
 const IS_GITHUB_PULL_REQUEST_MERGE_REF =
   /^\d+\/merge$/.test(CURRENT_BRANCH) || /^refs\/pull\/\d+\/merge$/.test(CURRENT_BRANCH);
+const IS_GITHUB_ACTIONS_DETACHED_HEAD = CURRENT_BRANCH === "HEAD" && process.env.GITHUB_ACTIONS === "true";
 
 const RIASEC_PACK12_ALLOWED_FILES = new Set([
   "docs/codex/pr-train.yaml",
@@ -2720,7 +2721,7 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   }
 
   if (
-    IS_GITHUB_PULL_REQUEST_MERGE_REF &&
+    (IS_GITHUB_PULL_REQUEST_MERGE_REF || IS_GITHUB_ACTIONS_DETACHED_HEAD) &&
     PERSONALITY_LLMS_FULL_COMPARISON_REPAIR_01_ALLOWED_FILES.has(file)
   ) {
     return true;
