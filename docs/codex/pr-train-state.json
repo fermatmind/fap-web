@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-14T17:14:12+08:00",
+  "updated_at": "2026-06-14T20:14:22+08:00",
   "status": "active",
   "phase": "result_p0_pdf_leak_hardening_02",
   "pr_namespace": "PR-PRAC-*",
@@ -23834,12 +23834,12 @@
       "id": "PERSONALITY-ENNEAGRAM-NAV-HUB-ALIGNMENT-01",
       "repo": "fap-web",
       "branch": "codex/personality-enneagram-nav-hub-alignment-01",
-      "status": "ready_to_merge",
-      "commit_sha": "1f01924a8a17d8c6660779e65fc0581801b860a6",
+      "status": "merged",
+      "commit_sha": "cf8378b83f19e26b4091a2e4525a67ca22e2670a",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1151",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-14T09:18:17Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "failure_reason": null,
       "checks": {
         "authorization": {
@@ -23861,6 +23861,10 @@
         "github_checks": {
           "status": "pass",
           "evidence": "GitHub checks passed on PR #1151 head 1f01924a8a17d8c6660779e65fc0581801b860a6: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL, and analyze (javascript-typescript). mergeStateStatus is CLEAN."
+        },
+        "post_merge_cleanup": {
+          "status": "pass",
+          "evidence": "PR #1151 merged as fdba5d367c79e35c9602c5107543d450c0f12169; GitHub reports merged at 2026-06-14T09:18:17Z and the remote branch is deleted."
         }
       },
       "history": [
@@ -23888,6 +23892,49 @@
           "at": "2026-06-14T17:14:12+08:00",
           "status": "ready_to_merge",
           "note": "GitHub checks passed on PR #1151 head 1f01924a8a17d8c6660779e65fc0581801b860a6 and mergeStateStatus is CLEAN."
+        },
+        {
+          "at": "2026-06-14T20:12:55+08:00",
+          "status": "merged",
+          "note": "Reconciled previously ready_to_merge ledger state: GitHub reports PR #1151 merged with squash merge commit fdba5d367c79e35c9602c5107543d450c0f12169."
+        }
+      ]
+    },
+    {
+      "id": "PUBLIC-PROFILE-SEO-ASSET-FACTORY-SKILL-AUTOMATION-01",
+      "repo": "fap-web",
+      "branch": "codex/public-profile-seo-asset-factory-skill-automation-01",
+      "status": "local_checks_passed",
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User provided explicit task id and scope to create the automated public profile SEO asset factory skill and update docs/codex PR train metadata if present."
+        },
+        "scope": {
+          "status": "pass",
+          "evidence": "Changed files for this task are limited to .agents/skills/public-profile-seo-asset-factory/**, docs/research/personality/public-profile-seo-asset-factory-skill-automation-01/**, and docs/codex metadata. Existing untracked input-audit artifacts are unrelated and were not modified for this task."
+        },
+        "local_validation": {
+          "status": "pass",
+          "evidence": "Passed: parsed all JSON files under .agents/skills/public-profile-seo-asset-factory; parsed docs/codex/pr-train-state.json; parsed docs/codex/pr-train.yaml; verified no app/components/lib/public/package/pnpm-lock/sitemap/llms forbidden path changes; git diff --check passed."
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-14T20:12:55+08:00",
+          "status": "in_progress",
+          "note": "Started automated public profile SEO asset factory skill creation; no runtime, fap-api, sitemap, llms, indexability, or production content package changes are allowed."
+        },
+        {
+          "at": "2026-06-14T20:14:22+08:00",
+          "status": "local_checks_passed",
+          "note": "Created automated public profile SEO asset factory skill, protocols, prompts, schemas, quality gates, framework rules, runbooks, examples, checklists, PR templates, and automation report; local parse/scope/diff checks passed."
         }
       ]
     }

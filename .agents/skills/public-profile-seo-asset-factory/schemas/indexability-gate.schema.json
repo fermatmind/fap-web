@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fermatmind.com/schemas/public-profile/indexability-gate.schema.json",
+  "title": "Indexability Gate",
+  "type": "object",
+  "required": ["launch_state", "robots", "index_eligible", "sitemap_eligible", "llms_eligible", "decision"],
+  "additionalProperties": false,
+  "properties": {
+    "launch_state": { "enum": ["draft", "review", "approved", "content_stub", "content_ready", "published", "archived"] },
+    "robots": { "enum": ["index,follow", "noindex,follow", "noindex,nofollow"] },
+    "index_eligible": { "type": "boolean" },
+    "sitemap_eligible": { "type": "boolean" },
+    "llms_eligible": { "type": "boolean" },
+    "canonical_verified": { "type": "boolean" },
+    "hreflang_verified": { "type": "boolean" },
+    "live_smoke_passed": { "type": "boolean" },
+    "decision": { "enum": ["blocked", "noindex_render_allowed", "publish_ready"] },
+    "blockers": { "type": "array", "items": { "type": "string" } }
+  }
+}

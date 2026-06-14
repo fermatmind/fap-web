@@ -1,0 +1,19 @@
+{
+  "task_id": "BIG-FIVE-V1-PACKAGE-EXAMPLE",
+  "framework": "big_five",
+  "mode": "content_package_generation",
+  "automation_level": "L2",
+  "locales": ["en", "zh-CN"],
+  "asset_selection": [
+    {
+      "entity_type": "domain",
+      "code": "openness",
+      "route": "/personality/big-five/openness"
+    }
+  ],
+  "model_sessions_allowed": false,
+  "target_launch_state": "content_ready",
+  "allowed_paths": ["docs/research/personality/**"],
+  "forbidden_paths": ["app/**", "components/**", "lib/**", "public/**", ".env*"],
+  "checks": ["schema", "evidence", "bilingual_parity", "framework_no_go", "indexability"]
+}

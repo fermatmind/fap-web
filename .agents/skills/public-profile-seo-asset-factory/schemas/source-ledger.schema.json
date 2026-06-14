@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fermatmind.com/schemas/public-profile/source-ledger.schema.json",
+  "title": "Source Ledger",
+  "type": "object",
+  "required": ["ledger_id", "created_at", "sources"],
+  "additionalProperties": false,
+  "properties": {
+    "ledger_id": { "type": "string" },
+    "created_at": { "type": "string" },
+    "sources": {
+      "type": "array",
+      "items": { "$ref": "evidence-source-card.schema.json" }
+    },
+    "evidence_gaps": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}

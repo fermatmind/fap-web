@@ -1,0 +1,14 @@
+{
+  "package_id": "mbti-intj-a-enhancement-en-example",
+  "framework": "mbti",
+  "entity_type": "existing_asset_enhancement",
+  "code": "intj-a",
+  "locale": "en",
+  "slug": "intj-a",
+  "enhancement_scope": ["faq", "method_boundary", "at_disclaimer"],
+  "existing_route": "/en/personality/intj-a",
+  "notes": "Enhancement package only. This is not a full page regeneration.",
+  "source_ledger_refs": ["source-card-example"],
+  "model_output_refs": ["model-output-example"],
+  "indexability_change_requested": false
+}

@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fermatmind.com/schemas/public-profile/public-profile-content-package.schema.json",
+  "title": "Public Profile Content Package",
+  "type": "object",
+  "required": ["package_id", "framework", "entity_type", "code", "locale", "slug", "title", "summary", "seo", "robots", "launch_state", "index_eligible", "sitemap_eligible", "llms_eligible", "sections", "faq", "method_boundary", "evidence_notes", "internal_links", "source_ledger_refs", "model_output_refs"],
+  "additionalProperties": false,
+  "properties": {
+    "package_id": { "type": "string" },
+    "framework": { "enum": ["mbti", "big_five", "enneagram", "future"] },
+    "entity_type": { "type": "string" },
+    "code": { "type": "string" },
+    "locale": { "enum": ["en", "zh-CN"] },
+    "slug": { "type": "string" },
+    "title": { "type": "string" },
+    "summary": { "type": "string" },
+    "seo": {
+      "type": "object",
+      "required": ["title", "description"],
+      "additionalProperties": false,
+      "properties": {
+        "title": { "type": "string" },
+        "description": { "type": "string" }
+      }
+    },
+    "canonical": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": { "path": { "type": "string" } }
+    },
+    "hreflang": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "en": { "type": ["string", "null"] },
+        "zh-CN": { "type": ["string", "null"] }
+      }
+    },
+    "robots": { "enum": ["index,follow", "noindex,follow", "noindex,nofollow"] },
+    "launch_state": { "enum": ["draft", "review", "approved", "content_stub", "content_ready", "published", "archived"] },
+    "index_eligible": { "type": "boolean" },
+    "sitemap_eligible": { "type": "boolean" },
+    "llms_eligible": { "type": "boolean" },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["key", "title", "body_md"],
+        "additionalProperties": false,
+        "properties": {
+          "key": { "type": "string" },
+          "title": { "type": "string" },
+          "body_md": { "type": "string" }
+        }
+      }
+    },
+    "faq": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["question", "answer"],
+        "additionalProperties": false,
+        "properties": {
+          "question": { "type": "string" },
+          "answer": { "type": "string" }
+        }
+      }
+    },
+    "media": { "type": "object" },
+    "schema": { "type": "object" },
+    "method_boundary": {
+      "type": "object",
+      "required": ["summary", "not_for"],
+      "additionalProperties": false,
+      "properties": {
+        "summary": { "type": "string" },
+        "not_for": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "evidence_notes": { "type": "array", "items": { "type": "string" } },
+    "internal_links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["label", "href"],
+        "additionalProperties": false,
+        "properties": {
+          "label": { "type": "string" },
+          "href": { "type": "string" },
+          "relationship": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "source_ledger_refs": { "type": "array", "items": { "type": "string" } },
+    "model_output_refs": { "type": "array", "items": { "type": "string" } },
+    "last_reviewed_at": { "type": ["string", "null"] }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fermatmind.com/schemas/public-profile/framework-asset-map.schema.json",
+  "title": "Framework Asset Map",
+  "type": "object",
+  "required": ["framework", "assets"],
+  "additionalProperties": false,
+  "properties": {
+    "framework": { "enum": ["mbti", "big_five", "enneagram", "future"] },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["entity_type", "code", "expected_locales", "current_state"],
+        "additionalProperties": false,
+        "properties": {
+          "entity_type": { "type": "string" },
+          "code": { "type": "string" },
+          "route": { "type": ["string", "null"] },
+          "expected_locales": { "type": "array", "items": { "enum": ["en", "zh-CN"] } },
+          "current_state": { "enum": ["missing", "draft", "content_stub", "content_ready", "published"] },
+          "notes": { "type": "string" }
+        }
+      }
+    }
+  }
+}

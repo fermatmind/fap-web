@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fermatmind.com/schemas/public-profile/model-output-ledger.schema.json",
+  "title": "Model Output Ledger",
+  "type": "object",
+  "required": ["ledger_id", "outputs"],
+  "additionalProperties": false,
+  "properties": {
+    "ledger_id": { "type": "string" },
+    "outputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "model", "prompt_packet", "captured_at", "summary", "qa_status"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string" },
+          "model": { "enum": ["gpt", "gemini", "codex", "other"] },
+          "session_id": { "type": ["string", "null"] },
+          "prompt_packet": { "type": "string" },
+          "captured_at": { "type": "string" },
+          "summary": { "type": "string" },
+          "source_claims": { "type": "array", "items": { "type": "string" } },
+          "unsupported_claims": { "type": "array", "items": { "type": "string" } },
+          "qa_status": { "enum": ["pending", "accepted", "needs_rewrite", "rejected"] },
+          "approved_uses": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    }
+  }
+}
