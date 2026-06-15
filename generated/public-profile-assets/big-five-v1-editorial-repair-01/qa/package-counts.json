@@ -1,0 +1,15 @@
+{
+  "total": 34,
+  "locales": {
+    "zh-CN": 17,
+    "en": 17
+  },
+  "entity_types": {
+    "hub": 2,
+    "domain": 10,
+    "polarity": 20,
+    "facet_hub": 2
+  },
+  "facet_detail_packages": 0,
+  "ocean_32_packages": 0
+}

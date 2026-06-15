@@ -1,0 +1,247 @@
+{
+  "package_id": "big_five:en:big-five:editorial-repair-01",
+  "framework": "big_five",
+  "entity_type": "hub",
+  "code": "big-five",
+  "locale": "en",
+  "slug": "big-five",
+  "title": "Big Five Personality",
+  "summary": "The Big Five describes personality differences through five continuous dimensions: openness, conscientiousness, extraversion, agreeableness, and neuroticism.",
+  "seo": {
+    "title": "Big Five Personality | Big Five guide",
+    "description": "The Big Five describes personality differences through five continuous dimensions: openness, conscientiousness, extraversion, agreeableness, and neuroticism."
+  },
+  "canonical": {
+    "path": "/en/personality/big-five"
+  },
+  "hreflang": {
+    "zh-CN": "/zh/personality/big-five",
+    "en": "/en/personality/big-five"
+  },
+  "robots": "noindex,follow",
+  "launch_state": "content_ready",
+  "index_eligible": false,
+  "sitemap_eligible": false,
+  "llms_eligible": false,
+  "sections": [
+    {
+      "key": "quick_answer",
+      "title": "Quick answer",
+      "body": "The Big Five is not a fixed personality type table. It describes stable tendencies through five continuous dimensions and supports self-understanding, communication, and learning reflection.",
+      "evidence_ids": [
+        "A5",
+        "A1"
+      ]
+    },
+    {
+      "key": "model_overview",
+      "title": "How the model works",
+      "body": "Each dimension can range from lower to higher. The useful question is not “which type am I?” but “where does this tendency help, and where do I need a strategy?”",
+      "evidence_ids": [
+        "A5"
+      ]
+    },
+    {
+      "key": "five_domains",
+      "title": "The five domains",
+      "body": "Openness covers new experience and imagination; conscientiousness covers planning and execution; extraversion covers social energy and expression; agreeableness covers cooperation and boundaries; neuroticism covers stress response and recovery cost.",
+      "evidence_ids": [
+        "A1",
+        "A5"
+      ]
+    },
+    {
+      "key": "ten_poles",
+      "title": "How to read high and low poles",
+      "body": "Higher and lower poles are not better or worse. Higher usually means a tendency is activated more often; lower can mean restraint, caution, or reliance on familiar structure.",
+      "evidence_ids": [
+        "A5"
+      ]
+    },
+    {
+      "key": "facets_overview",
+      "title": "The 30 facets",
+      "body": "Facets explain variation inside broad domains. This version provides an overview only, not facet detail pages.",
+      "evidence_ids": [
+        "A1",
+        "A8"
+      ]
+    },
+    {
+      "key": "examples",
+      "title": "Two examples",
+      "body": "If team conversations often feel mismatched, start with extraversion and agreeableness. If study plans repeatedly stall, start with openness and conscientiousness.",
+      "evidence_ids": [
+        "I2"
+      ]
+    },
+    {
+      "key": "work_learning",
+      "title": "Work and learning",
+      "body": "Big Five language can describe work rhythm, feedback style, and learning environment. Career decisions still require skills, opportunity, values, and real constraints.",
+      "evidence_ids": [
+        "A5",
+        "I4"
+      ]
+    },
+    {
+      "key": "relationships",
+      "title": "Relationships and communication",
+      "body": "In relationships, Big Five language works best when it names concrete needs such as exploration space, clearer planning, recovery time, or boundary negotiation.",
+      "evidence_ids": [
+        "A5"
+      ]
+    },
+    {
+      "key": "misunderstandings",
+      "title": "Common misunderstandings",
+      "body": "Common mistakes include treating Big Five as a type system, ranking high and low as better or worse, or using one dimension to decide careers and relationships.",
+      "evidence_ids": [
+        "A5",
+        "I4"
+      ]
+    },
+    {
+      "key": "practical_prompt",
+      "title": "Action prompt",
+      "body": "Pick one recent situation. Name the most relevant dimension, one likely strength, one possible cost, and one small adjustment for next time.",
+      "evidence_ids": [
+        "I4"
+      ]
+    },
+    {
+      "key": "method_boundary",
+      "title": "Method boundary",
+      "body": "This page explains public knowledge. It does not interpret an individual assessment and is not for diagnosis, therapy, hiring screening, ability judgment, or career decisions.",
+      "evidence_ids": [
+        "I4"
+      ]
+    },
+    {
+      "key": "related_links",
+      "title": "Explore next",
+      "body": "Continue to the five domains, ten high/low pole pages, and the 30-facet overview, or take the Big Five test.",
+      "evidence_ids": [
+        "I2"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "id": "type",
+      "question": "Is Big Five a personality type system?",
+      "answer": "No. Big Five is a dimensional model; it does not sort people into fixed types.",
+      "evidence_ids": [
+        "A5"
+      ]
+    },
+    {
+      "id": "ocean",
+      "question": "What does OCEAN mean?",
+      "answer": "OCEAN is a common abbreviation for the five domains.",
+      "evidence_ids": [
+        "A5"
+      ]
+    },
+    {
+      "id": "poles",
+      "question": "Are higher or lower traits better?",
+      "answer": "No. High and low describe tendency strength, and usefulness depends on task, relationship, and environment.",
+      "evidence_ids": [
+        "A5"
+      ]
+    },
+    {
+      "id": "career",
+      "question": "Can Big Five decide a career?",
+      "answer": "No. It can describe preferences, but career choice also needs skills, experience, opportunity, and constraints.",
+      "evidence_ids": [
+        "I4"
+      ]
+    },
+    {
+      "id": "facets",
+      "question": "What are the 30 facets?",
+      "answer": "Facets are narrower explanations inside the five broad domains. This version provides an overview only.",
+      "evidence_ids": [
+        "A1",
+        "A8"
+      ]
+    }
+  ],
+  "media": {
+    "status": "placeholder",
+    "image_url": null,
+    "alt": "Neutral Big Five placeholder visual for Big Five Personality; not an MBTI-branded image."
+  },
+  "schema": {
+    "type": "CollectionPage",
+    "status": "noindex_repaired_content",
+    "framework": "big_five",
+    "entity_type": "hub"
+  },
+  "method_boundary": {
+    "summary": "This page explains public Big Five concepts and communication language; it does not interpret an individual assessment or replace professional judgment.",
+    "not_for": [
+      "clinical diagnosis",
+      "therapy advice",
+      "hiring screening",
+      "ability or intelligence judgment",
+      "career or partner decisions"
+    ]
+  },
+  "evidence_notes": [
+    "This page follows public Big Five research framing, including BFI-2, five-factor model reviews, IPIP resources, and 30-facet literature.",
+    "The material is for trait language and communication reflection, not clinical diagnosis, therapy, hiring screening, ability judgment, or deterministic career choice.",
+    "Competitor pages were used only for gap awareness; their structure, examples, and wording were not copied."
+  ],
+  "internal_links": [
+    {
+      "label": "Big Five Personality",
+      "href": "/en/personality/big-five",
+      "relationship": "hub"
+    },
+    {
+      "label": "Big Five test",
+      "href": "/en/tests/big-five-personality-test-ocean-model",
+      "relationship": "test_landing"
+    },
+    {
+      "label": "30 facets overview",
+      "href": "/en/personality/big-five/facets",
+      "relationship": "facet_overview"
+    },
+    {
+      "label": "Openness",
+      "href": "/en/personality/big-five/openness",
+      "relationship": "domain"
+    },
+    {
+      "label": "Conscientiousness",
+      "href": "/en/personality/big-five/conscientiousness",
+      "relationship": "domain"
+    },
+    {
+      "label": "Extraversion",
+      "href": "/en/personality/big-five/extraversion",
+      "relationship": "domain"
+    },
+    {
+      "label": "Agreeableness",
+      "href": "/en/personality/big-five/agreeableness",
+      "relationship": "domain"
+    }
+  ],
+  "source_ledger_refs": [
+    "A1",
+    "A2",
+    "A5",
+    "A8",
+    "I2",
+    "I4"
+  ],
+  "model_output_refs": [
+    "BIG-FIVE-V1-CONTENT-EDITORIAL-REPAIR-01"
+  ],
+  "last_reviewed_at": "2026-06-15"
+}

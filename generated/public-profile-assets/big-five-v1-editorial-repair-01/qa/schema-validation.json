@@ -1,0 +1,10 @@
+{
+  "ok": true,
+  "package_count": 34,
+  "required_fields_ok": true,
+  "section_min_ok": true,
+  "faq_min_ok": true,
+  "noindex_ok": true,
+  "forbidden_user_wording_hits": [],
+  "forbidden_routes_ok": true
+}

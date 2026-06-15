@@ -1,0 +1,221 @@
+{
+  "package_id": "big_five:en:emotional-stability:editorial-repair-01",
+  "framework": "big_five",
+  "entity_type": "polarity",
+  "code": "emotional-stability",
+  "locale": "en",
+  "slug": "big-five/emotional-stability",
+  "title": "Emotional Stability",
+  "summary": "Emotional Stability describes tendencies around lower relative stress response, faster recovery, less sustained high arousal; it is not a rank, but a way to understand fit and communication strategy.",
+  "seo": {
+    "title": "Emotional Stability | Big Five guide",
+    "description": "Emotional Stability describes tendencies around lower relative stress response, faster recovery, less sustained high arousal; it is not a rank, but a way to understand fit and communication strategy."
+  },
+  "canonical": {
+    "path": "/en/personality/big-five/emotional-stability"
+  },
+  "hreflang": {
+    "zh-CN": "/zh/personality/big-five/emotional-stability",
+    "en": "/en/personality/big-five/emotional-stability"
+  },
+  "robots": "noindex,follow",
+  "launch_state": "content_ready",
+  "index_eligible": false,
+  "sitemap_eligible": false,
+  "llms_eligible": false,
+  "sections": [
+    {
+      "key": "quick_answer",
+      "title": "Quick answer",
+      "body": "Emotional Stability describes tendencies around lower relative stress response, faster recovery, less sustained high arousal; it is not a rank, but a way to understand fit and communication strategy.",
+      "evidence_ids": [
+        "A5"
+      ]
+    },
+    {
+      "key": "daily_signs",
+      "title": "Daily signs",
+      "body": "In projects or live communication, Emotional Stability may appear as lower relative stress response, which can provide cues while still needing balance from the other pole.",
+      "evidence_ids": [
+        "A5"
+      ]
+    },
+    {
+      "key": "strengths",
+      "title": "Possible strengths",
+      "body": "Emotional Stability may help you identify needs, choose rhythm, or stabilize collaboration when the context fits.",
+      "evidence_ids": [
+        "A5"
+      ]
+    },
+    {
+      "key": "tradeoffs",
+      "title": "Possible tradeoffs",
+      "body": "Emotional stability is not the absence of emotion or a mental-health certificate; it describes relative stress response and recovery rhythm. Relying only on this pole can hide information from the other side.",
+      "evidence_ids": [
+        "A5"
+      ]
+    },
+    {
+      "key": "work_learning",
+      "title": "Work and learning",
+      "body": "Translate Emotional Stability into concrete conditions: how much structure, feedback, change, interaction, or recovery time do you need?",
+      "evidence_ids": [
+        "A5"
+      ]
+    },
+    {
+      "key": "relationships",
+      "title": "Relationships and communication",
+      "body": "In relationships, use Emotional Stability to explain needs rather than evaluate people.",
+      "evidence_ids": [
+        "A5"
+      ]
+    },
+    {
+      "key": "paired_pole",
+      "title": "Read with the other pole",
+      "body": "Read this together with High Neuroticism / High Emotional Sensitivity. The two poles are regulation styles inside one dimension.",
+      "evidence_ids": [
+        "A5"
+      ]
+    },
+    {
+      "key": "misunderstanding",
+      "title": "Common misunderstanding",
+      "body": "Emotional stability is not the absence of emotion or a mental-health certificate; it describes relative stress response and recovery rhythm.",
+      "evidence_ids": [
+        "A5"
+      ]
+    },
+    {
+      "key": "action_prompt",
+      "title": "Action prompt",
+      "body": "Think of a recent situation: what did this pole help solve, and what small move from the other pole would help next time?",
+      "evidence_ids": [
+        "I4"
+      ]
+    },
+    {
+      "key": "method_boundary",
+      "title": "Method boundary",
+      "body": "This page explains public knowledge about Emotional Stability. It does not interpret individual results and is not for diagnosis, therapy, hiring screening, ability judgment, or career decisions.",
+      "evidence_ids": [
+        "I4"
+      ]
+    },
+    {
+      "key": "related_links",
+      "title": "Explore next",
+      "body": "Continue to Neuroticism / Emotional Sensitivity, High Neuroticism / High Emotional Sensitivity, and the 30-facet overview.",
+      "evidence_ids": [
+        "I4"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "id": "emotional-stability-meaning",
+      "question": "What does Emotional Stability mean?",
+      "answer": "Emotional Stability means tendencies around lower relative stress response, faster recovery, less sustained high arousal are more likely to appear in daily choices.",
+      "evidence_ids": [
+        "A5"
+      ]
+    },
+    {
+      "id": "emotional-stability-better",
+      "question": "Is this better?",
+      "answer": "No. It is a tendency pattern; usefulness depends on context and regulation.",
+      "evidence_ids": [
+        "A5"
+      ]
+    },
+    {
+      "id": "emotional-stability-pair",
+      "question": "Why read the other pole?",
+      "answer": "The other pole shows needs you may miss, such as stability, exploration, boundaries, or recovery.",
+      "evidence_ids": [
+        "A5"
+      ]
+    },
+    {
+      "id": "emotional-stability-work",
+      "question": "Can it decide what work fits me?",
+      "answer": "No. It can describe work-style preferences, but it cannot decide a career by itself.",
+      "evidence_ids": [
+        "I4"
+      ]
+    },
+    {
+      "id": "emotional-stability-practice",
+      "question": "How can I use this practically?",
+      "answer": "Choose one situation, keep the strength of this pole, and add one small move from the other pole.",
+      "evidence_ids": [
+        "I4"
+      ]
+    }
+  ],
+  "media": {
+    "status": "placeholder",
+    "image_url": null,
+    "alt": "Neutral Big Five placeholder visual for Emotional Stability; not an MBTI-branded image."
+  },
+  "schema": {
+    "type": "Article",
+    "status": "noindex_repaired_content",
+    "framework": "big_five",
+    "entity_type": "polarity"
+  },
+  "method_boundary": {
+    "summary": "This page explains public Big Five concepts and communication language; it does not interpret an individual assessment or replace professional judgment.",
+    "not_for": [
+      "clinical diagnosis",
+      "therapy advice",
+      "hiring screening",
+      "ability or intelligence judgment",
+      "career or partner decisions"
+    ]
+  },
+  "evidence_notes": [
+    "This page follows public Big Five research framing, including BFI-2, five-factor model reviews, IPIP resources, and 30-facet literature.",
+    "The material is for trait language and communication reflection, not clinical diagnosis, therapy, hiring screening, ability judgment, or deterministic career choice.",
+    "Competitor pages were used only for gap awareness; their structure, examples, and wording were not copied."
+  ],
+  "internal_links": [
+    {
+      "label": "Big Five Personality",
+      "href": "/en/personality/big-five",
+      "relationship": "hub"
+    },
+    {
+      "label": "Big Five test",
+      "href": "/en/tests/big-five-personality-test-ocean-model",
+      "relationship": "test_landing"
+    },
+    {
+      "label": "30 facets overview",
+      "href": "/en/personality/big-five/facets",
+      "relationship": "facet_overview"
+    },
+    {
+      "label": "Neuroticism / Emotional Sensitivity",
+      "href": "/en/personality/big-five/neuroticism",
+      "relationship": "domain"
+    },
+    {
+      "label": "High Neuroticism / High Emotional Sensitivity",
+      "href": "/en/personality/big-five/high-neuroticism",
+      "relationship": "paired_pole"
+    }
+  ],
+  "source_ledger_refs": [
+    "A1",
+    "A5",
+    "I2",
+    "I4"
+  ],
+  "model_output_refs": [
+    "BIG-FIVE-V1-CONTENT-EDITORIAL-REPAIR-01"
+  ],
+  "last_reviewed_at": "2026-06-15"
+}

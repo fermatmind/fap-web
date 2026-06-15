@@ -1,0 +1,252 @@
+{
+  "package_id": "big_five:en:facets:editorial-repair-01",
+  "framework": "big_five",
+  "entity_type": "facet_hub",
+  "code": "facets",
+  "locale": "en",
+  "slug": "big-five/facets",
+  "title": "Big Five 30 Facets",
+  "summary": "The 30 facets are narrower explanations beneath the five Big Five domains, showing why people can differ inside the same broad trait.",
+  "seo": {
+    "title": "Big Five 30 Facets | Big Five guide",
+    "description": "The 30 facets are narrower explanations beneath the five Big Five domains, showing why people can differ inside the same broad trait."
+  },
+  "canonical": {
+    "path": "/en/personality/big-five/facets"
+  },
+  "hreflang": {
+    "zh-CN": "/zh/personality/big-five/facets",
+    "en": "/en/personality/big-five/facets"
+  },
+  "robots": "noindex,follow",
+  "launch_state": "content_ready",
+  "index_eligible": false,
+  "sitemap_eligible": false,
+  "llms_eligible": false,
+  "sections": [
+    {
+      "key": "quick_answer",
+      "title": "Quick answer",
+      "body": "The 30 facets are narrower explanations beneath the five Big Five domains, showing why people can differ inside the same broad trait. This page is an overview and glossary map only; it does not open facet detail pages.",
+      "evidence_ids": [
+        "A1",
+        "A8"
+      ]
+    },
+    {
+      "key": "why_facets",
+      "title": "Why facets matter",
+      "body": "Five broad domains can be too coarse. Facets help separate different expressions inside one domain.",
+      "evidence_ids": [
+        "A1",
+        "A8"
+      ]
+    },
+    {
+      "key": "domain_map",
+      "title": "Facet map by domain",
+      "body": "Openness: imagination, aesthetics, feelings, actions, ideas, values; Conscientiousness: competence, order, dutifulness, achievement striving, self-discipline, deliberation; Extraversion: warmth, gregariousness, assertiveness, activity, excitement seeking, positive emotions; Agreeableness: trust, straightforwardness, altruism, compliance, modesty, tender-mindedness; Neuroticism / Emotional Sensitivity: anxiety, anger, depression, self-consciousness, impulsiveness, vulnerability",
+      "evidence_ids": [
+        "A1",
+        "A8"
+      ]
+    },
+    {
+      "key": "openness_facets",
+      "title": "Inside openness",
+      "body": "Openness facets include imagination, aesthetics, feelings, actions, ideas, and values.",
+      "evidence_ids": [
+        "A1",
+        "A8"
+      ]
+    },
+    {
+      "key": "conscientiousness_facets",
+      "title": "Inside conscientiousness",
+      "body": "Conscientiousness facets include competence, order, dutifulness, achievement striving, self-discipline, and deliberation.",
+      "evidence_ids": [
+        "A1",
+        "A8"
+      ]
+    },
+    {
+      "key": "social_facets",
+      "title": "Extraversion and agreeableness facets",
+      "body": "Extraversion facets separate expression, activity, and positive emotion. Agreeableness facets separate trust, directness, altruism, compliance, modesty, and tender-mindedness.",
+      "evidence_ids": [
+        "A1",
+        "A8"
+      ]
+    },
+    {
+      "key": "neuroticism_facets",
+      "title": "Neuroticism facet boundary",
+      "body": "Neuroticism facets involve stress-related personality language. They are not clinical diagnoses.",
+      "evidence_ids": [
+        "A1",
+        "A8"
+      ]
+    },
+    {
+      "key": "examples",
+      "title": "Two reading examples",
+      "body": "If openness feels too broad, compare ideas versus actions. If conscientiousness feels too broad, separate order, self-discipline, and deliberation.",
+      "evidence_ids": [
+        "A1",
+        "A8"
+      ]
+    },
+    {
+      "key": "misunderstanding",
+      "title": "Common misunderstanding",
+      "body": "Facets are not 30 new personality types and not 30 indexable detail pages.",
+      "evidence_ids": [
+        "I4"
+      ]
+    },
+    {
+      "key": "action_prompt",
+      "title": "Action prompt",
+      "body": "Choose one broad domain, then pick two facets that describe you more closely and one that does not.",
+      "evidence_ids": [
+        "I4"
+      ]
+    },
+    {
+      "key": "method_boundary",
+      "title": "Method boundary",
+      "body": "This page is a glossary overview. It does not interpret individual results and is not for diagnosis, therapy, hiring screening, ability judgment, or career decisions.",
+      "evidence_ids": [
+        "I4"
+      ]
+    },
+    {
+      "key": "related_links",
+      "title": "Explore next",
+      "body": "Return to the five domains or the Big Five test. Any future facet-depth upgrade should pass separate QA and noindex validation.",
+      "evidence_ids": [
+        "I4"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "id": "count",
+      "question": "Why are there 30 facets?",
+      "answer": "Common Big Five explanations can divide each broad domain into narrower facets; this page uses a 5 x 6 overview structure.",
+      "evidence_ids": [
+        "A1",
+        "A8"
+      ]
+    },
+    {
+      "id": "detail",
+      "question": "Does this open facet detail pages?",
+      "answer": "No. This stage is overview-only and does not generate 30 facet detail pages.",
+      "evidence_ids": [
+        "I4"
+      ]
+    },
+    {
+      "id": "types",
+      "question": "Are facets 30 personality types?",
+      "answer": "No. They are narrower explanations inside dimensions, not personality types.",
+      "evidence_ids": [
+        "A8"
+      ]
+    },
+    {
+      "id": "use",
+      "question": "How should I use facets?",
+      "answer": "Use them to make the five broad domains more precise, not to replace a full assessment.",
+      "evidence_ids": [
+        "A8"
+      ]
+    },
+    {
+      "id": "source",
+      "question": "Do facets have research support?",
+      "answer": "BFI-2 and other five-factor materials use hierarchical or facet language, although labels differ by instrument.",
+      "evidence_ids": [
+        "A1",
+        "A2",
+        "A8"
+      ]
+    }
+  ],
+  "media": {
+    "status": "placeholder",
+    "image_url": null,
+    "alt": "Neutral Big Five placeholder visual for Big Five 30 Facets; not an MBTI-branded image."
+  },
+  "schema": {
+    "type": "CollectionPage",
+    "status": "noindex_repaired_content",
+    "framework": "big_five",
+    "entity_type": "facet_hub"
+  },
+  "method_boundary": {
+    "summary": "This page explains public Big Five concepts and communication language; it does not interpret an individual assessment or replace professional judgment.",
+    "not_for": [
+      "clinical diagnosis",
+      "therapy advice",
+      "hiring screening",
+      "ability or intelligence judgment",
+      "career or partner decisions"
+    ]
+  },
+  "evidence_notes": [
+    "This page follows public Big Five research framing, including BFI-2, five-factor model reviews, IPIP resources, and 30-facet literature.",
+    "The material is for trait language and communication reflection, not clinical diagnosis, therapy, hiring screening, ability judgment, or deterministic career choice.",
+    "Competitor pages were used only for gap awareness; their structure, examples, and wording were not copied."
+  ],
+  "internal_links": [
+    {
+      "label": "Big Five Personality",
+      "href": "/en/personality/big-five",
+      "relationship": "hub"
+    },
+    {
+      "label": "Big Five test",
+      "href": "/en/tests/big-five-personality-test-ocean-model",
+      "relationship": "test_landing"
+    },
+    {
+      "label": "30 facets overview",
+      "href": "/en/personality/big-five/facets",
+      "relationship": "facet_overview"
+    },
+    {
+      "label": "Openness",
+      "href": "/en/personality/big-five/openness",
+      "relationship": "domain"
+    },
+    {
+      "label": "Conscientiousness",
+      "href": "/en/personality/big-five/conscientiousness",
+      "relationship": "domain"
+    },
+    {
+      "label": "Extraversion",
+      "href": "/en/personality/big-five/extraversion",
+      "relationship": "domain"
+    },
+    {
+      "label": "Agreeableness",
+      "href": "/en/personality/big-five/agreeableness",
+      "relationship": "domain"
+    }
+  ],
+  "source_ledger_refs": [
+    "A1",
+    "A2",
+    "A6",
+    "A8",
+    "I2",
+    "I4"
+  ],
+  "model_output_refs": [
+    "BIG-FIVE-V1-CONTENT-EDITORIAL-REPAIR-01"
+  ],
+  "last_reviewed_at": "2026-06-15"
+}
