@@ -1,0 +1,247 @@
+{
+  "task_id": "BIG-FIVE-V1-CONTENT-EDITORIAL-REPAIR-01",
+  "package_count": 34,
+  "source_dir": "generated/public-profile-assets/big-five-v1-editorial-repair-01/packages",
+  "import_execution_allowed": false,
+  "publish_allowed": false,
+  "assets": [
+    {
+      "locale": "zh-CN",
+      "entity_type": "hub",
+      "code": "big-five",
+      "path": "packages/zh-CN/big-five.content-package.json",
+      "canonical": "/zh/personality/big-five"
+    },
+    {
+      "locale": "zh-CN",
+      "entity_type": "domain",
+      "code": "openness",
+      "path": "packages/zh-CN/openness.content-package.json",
+      "canonical": "/zh/personality/big-five/openness"
+    },
+    {
+      "locale": "zh-CN",
+      "entity_type": "domain",
+      "code": "conscientiousness",
+      "path": "packages/zh-CN/conscientiousness.content-package.json",
+      "canonical": "/zh/personality/big-five/conscientiousness"
+    },
+    {
+      "locale": "zh-CN",
+      "entity_type": "domain",
+      "code": "extraversion",
+      "path": "packages/zh-CN/extraversion.content-package.json",
+      "canonical": "/zh/personality/big-five/extraversion"
+    },
+    {
+      "locale": "zh-CN",
+      "entity_type": "domain",
+      "code": "agreeableness",
+      "path": "packages/zh-CN/agreeableness.content-package.json",
+      "canonical": "/zh/personality/big-five/agreeableness"
+    },
+    {
+      "locale": "zh-CN",
+      "entity_type": "domain",
+      "code": "neuroticism",
+      "path": "packages/zh-CN/neuroticism.content-package.json",
+      "canonical": "/zh/personality/big-five/neuroticism"
+    },
+    {
+      "locale": "zh-CN",
+      "entity_type": "polarity",
+      "code": "high-openness",
+      "path": "packages/zh-CN/high-openness.content-package.json",
+      "canonical": "/zh/personality/big-five/high-openness"
+    },
+    {
+      "locale": "zh-CN",
+      "entity_type": "polarity",
+      "code": "low-openness",
+      "path": "packages/zh-CN/low-openness.content-package.json",
+      "canonical": "/zh/personality/big-five/low-openness"
+    },
+    {
+      "locale": "zh-CN",
+      "entity_type": "polarity",
+      "code": "high-conscientiousness",
+      "path": "packages/zh-CN/high-conscientiousness.content-package.json",
+      "canonical": "/zh/personality/big-five/high-conscientiousness"
+    },
+    {
+      "locale": "zh-CN",
+      "entity_type": "polarity",
+      "code": "low-conscientiousness",
+      "path": "packages/zh-CN/low-conscientiousness.content-package.json",
+      "canonical": "/zh/personality/big-five/low-conscientiousness"
+    },
+    {
+      "locale": "zh-CN",
+      "entity_type": "polarity",
+      "code": "high-extraversion",
+      "path": "packages/zh-CN/high-extraversion.content-package.json",
+      "canonical": "/zh/personality/big-five/high-extraversion"
+    },
+    {
+      "locale": "zh-CN",
+      "entity_type": "polarity",
+      "code": "low-extraversion",
+      "path": "packages/zh-CN/low-extraversion.content-package.json",
+      "canonical": "/zh/personality/big-five/low-extraversion"
+    },
+    {
+      "locale": "zh-CN",
+      "entity_type": "polarity",
+      "code": "high-agreeableness",
+      "path": "packages/zh-CN/high-agreeableness.content-package.json",
+      "canonical": "/zh/personality/big-five/high-agreeableness"
+    },
+    {
+      "locale": "zh-CN",
+      "entity_type": "polarity",
+      "code": "low-agreeableness",
+      "path": "packages/zh-CN/low-agreeableness.content-package.json",
+      "canonical": "/zh/personality/big-five/low-agreeableness"
+    },
+    {
+      "locale": "zh-CN",
+      "entity_type": "polarity",
+      "code": "high-neuroticism",
+      "path": "packages/zh-CN/high-neuroticism.content-package.json",
+      "canonical": "/zh/personality/big-five/high-neuroticism"
+    },
+    {
+      "locale": "zh-CN",
+      "entity_type": "polarity",
+      "code": "emotional-stability",
+      "path": "packages/zh-CN/emotional-stability.content-package.json",
+      "canonical": "/zh/personality/big-five/emotional-stability"
+    },
+    {
+      "locale": "zh-CN",
+      "entity_type": "facet_hub",
+      "code": "facets",
+      "path": "packages/zh-CN/facets.content-package.json",
+      "canonical": "/zh/personality/big-five/facets"
+    },
+    {
+      "locale": "en",
+      "entity_type": "hub",
+      "code": "big-five",
+      "path": "packages/en/big-five.content-package.json",
+      "canonical": "/en/personality/big-five"
+    },
+    {
+      "locale": "en",
+      "entity_type": "domain",
+      "code": "openness",
+      "path": "packages/en/openness.content-package.json",
+      "canonical": "/en/personality/big-five/openness"
+    },
+    {
+      "locale": "en",
+      "entity_type": "domain",
+      "code": "conscientiousness",
+      "path": "packages/en/conscientiousness.content-package.json",
+      "canonical": "/en/personality/big-five/conscientiousness"
+    },
+    {
+      "locale": "en",
+      "entity_type": "domain",
+      "code": "extraversion",
+      "path": "packages/en/extraversion.content-package.json",
+      "canonical": "/en/personality/big-five/extraversion"
+    },
+    {
+      "locale": "en",
+      "entity_type": "domain",
+      "code": "agreeableness",
+      "path": "packages/en/agreeableness.content-package.json",
+      "canonical": "/en/personality/big-five/agreeableness"
+    },
+    {
+      "locale": "en",
+      "entity_type": "domain",
+      "code": "neuroticism",
+      "path": "packages/en/neuroticism.content-package.json",
+      "canonical": "/en/personality/big-five/neuroticism"
+    },
+    {
+      "locale": "en",
+      "entity_type": "polarity",
+      "code": "high-openness",
+      "path": "packages/en/high-openness.content-package.json",
+      "canonical": "/en/personality/big-five/high-openness"
+    },
+    {
+      "locale": "en",
+      "entity_type": "polarity",
+      "code": "low-openness",
+      "path": "packages/en/low-openness.content-package.json",
+      "canonical": "/en/personality/big-five/low-openness"
+    },
+    {
+      "locale": "en",
+      "entity_type": "polarity",
+      "code": "high-conscientiousness",
+      "path": "packages/en/high-conscientiousness.content-package.json",
+      "canonical": "/en/personality/big-five/high-conscientiousness"
+    },
+    {
+      "locale": "en",
+      "entity_type": "polarity",
+      "code": "low-conscientiousness",
+      "path": "packages/en/low-conscientiousness.content-package.json",
+      "canonical": "/en/personality/big-five/low-conscientiousness"
+    },
+    {
+      "locale": "en",
+      "entity_type": "polarity",
+      "code": "high-extraversion",
+      "path": "packages/en/high-extraversion.content-package.json",
+      "canonical": "/en/personality/big-five/high-extraversion"
+    },
+    {
+      "locale": "en",
+      "entity_type": "polarity",
+      "code": "low-extraversion",
+      "path": "packages/en/low-extraversion.content-package.json",
+      "canonical": "/en/personality/big-five/low-extraversion"
+    },
+    {
+      "locale": "en",
+      "entity_type": "polarity",
+      "code": "high-agreeableness",
+      "path": "packages/en/high-agreeableness.content-package.json",
+      "canonical": "/en/personality/big-five/high-agreeableness"
+    },
+    {
+      "locale": "en",
+      "entity_type": "polarity",
+      "code": "low-agreeableness",
+      "path": "packages/en/low-agreeableness.content-package.json",
+      "canonical": "/en/personality/big-five/low-agreeableness"
+    },
+    {
+      "locale": "en",
+      "entity_type": "polarity",
+      "code": "high-neuroticism",
+      "path": "packages/en/high-neuroticism.content-package.json",
+      "canonical": "/en/personality/big-five/high-neuroticism"
+    },
+    {
+      "locale": "en",
+      "entity_type": "polarity",
+      "code": "emotional-stability",
+      "path": "packages/en/emotional-stability.content-package.json",
+      "canonical": "/en/personality/big-five/emotional-stability"
+    },
+    {
+      "locale": "en",
+      "entity_type": "facet_hub",
+      "code": "facets",
+      "path": "packages/en/facets.content-package.json",
+      "canonical": "/en/personality/big-five/facets"
+    }
+  ]
+}

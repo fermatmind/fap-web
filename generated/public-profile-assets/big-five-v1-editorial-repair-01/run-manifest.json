@@ -1,0 +1,11 @@
+{
+  "task_id": "BIG-FIVE-V1-CONTENT-EDITORIAL-REPAIR-01",
+  "generated_at": "2026-06-15",
+  "framework": "big_five",
+  "package_count": 34,
+  "locales": {
+    "zh-CN": 17,
+    "en": 17
+  },
+  "scope": "content package repair only; no import, publish, or indexability change"
+}
