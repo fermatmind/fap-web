@@ -1,0 +1,11 @@
+batch_index,seed_ordinal,slug,title_en,title_zh_seed,soc_code_seed,onet_code_seed,batch_role,expected_locales
+281,270,diesel-service-technicians-and-mechanics,Diesel Service Technicians And Mechanics,柴油设备维修技师与机械师,49-3023,49-3023.00,new_50,zh-CN|en
+282,271,dietetic-technicians,Dietetic Technicians,膳食技术员,29-2051,29-2051.00,new_50,zh-CN|en
+283,272,dietitians-and-nutritionists,Dietitians And Nutritionists,膳食与营养师,29-1031,29-1031.00,new_50,zh-CN|en
+284,273,dining-room-and-cafeteria-attendants-and-bartender-helpers,Dining Room And Cafeteria Attendants And Bartender Helpers,餐厅与食堂服务员帮工,35-9011,35-9011.00,new_50,zh-CN|en
+285,274,directors-religious-activities-and-education,"Directors, Religious Activities And Education",总监、教育,21-2021,21-2021.00,new_50,zh-CN|en
+286,275,disc-jockeys-except-radio,"Disc Jockeys, Except Radio",非电台唱片骑师,27-2091,27-2091.00,new_50,zh-CN|en
+287,276,dishwashers,Dishwashers,洗碗工,35-9021,35-9021.00,new_50,zh-CN|en
+288,277,dispatchers-except-police-fire-and-ambulance,"Dispatchers, Except Police, Fire, And Ambulance",调度员、警察、消防、救护车,43-5032,43-5032.00,new_50,zh-CN|en
+289,278,document-management-specialists,Document Management Specialists,管理专员,15-1299,15-1299.03,new_50,zh-CN|en
+290,279,door-to-door-sales-workers-news-and-street-vendors-and-related-workers,"Door To Door Sales Workers, News And Street Vendors, And Related Workers",工人销售,41-9091,41-9091.00,new_50,zh-CN|en

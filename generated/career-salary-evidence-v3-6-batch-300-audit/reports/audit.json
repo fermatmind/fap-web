@@ -1,0 +1,12 @@
+{
+  "final_verdict": "PASS",
+  "metrics": {
+    "total_lines": 300,
+    "valid_json_lines": 300,
+    "slug_order_matches_manifest": true,
+    "ready_count": 300,
+    "repair_required_count": 0,
+    "blocked_count": 0
+  },
+  "errors": []
+}

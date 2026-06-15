@@ -1,0 +1,11 @@
+batch_index,seed_ordinal,slug,title_en,title_zh_seed,soc_code_seed,onet_code_seed,batch_role,expected_locales
+261,249,dancers,Dancers,舞者,27-2031,27-2031.00,new_50,zh-CN|en
+262,250,dancers-and-choreographers,Dancers,舞者,27-2031,27-2031.00,new_50,zh-CN|en
+263,251,data-entry-keyers,Data Entry Keyers,数据录入员,43-9021,43-9021.00,new_50,zh-CN|en
+264,253,data-warehousing-specialists,Data Warehousing Specialists,数据专员,15-1243,15-1243.01,new_50,zh-CN|en
+265,254,database-administrators,Database Administrators,数据库管理员,15-1242,15-1242.00,new_50,zh-CN|en
+266,255,database-architects,Database Architects,建筑师,15-1243,15-1243.00,new_50,zh-CN|en
+267,256,delivery-truck-drivers-and-driver-sales-workers,Light Truck Drivers,轻型卡车司机,53-3033,53-3033.00,new_50,zh-CN|en
+268,257,demonstrators-and-product-promoters,Demonstrators And Product Promoters,演示员推广员,41-9011,41-9011.00,new_50,zh-CN|en
+269,258,dental-and-ophthalmic-laboratory-technicians-and-medical-appliance-technicians,Dental Laboratory Technicians,牙科实验室技术员,51-9081,51-9081.00,new_50,zh-CN|en
+270,259,dental-assistants,Dental assistants,牙科助理适合谁？,31-9091,31-9091.00,new_50,zh-CN|en

@@ -1,0 +1,154 @@
+{
+  "source_manifest": "generated/career-salary-batch-300/career_salary_batch_300_manifest.json",
+  "batch": 300,
+  "pack": 1,
+  "pack_size": 10,
+  "batch_role": "new_50",
+  "jobs": [
+    {
+      "batch_index": 251,
+      "seed_ordinal": 239,
+      "slug": "crushing-grinding-and-polishing-machine-setters-operators-and-tenders",
+      "title_en": "Crushing, Grinding, And Polishing Machine Setters, Operators, And Tenders",
+      "title_zh_seed": "机器铺设工、操作员、看护员",
+      "soc_code_seed": "51-9021",
+      "onet_code_seed": "51-9021.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 252,
+      "seed_ordinal": 240,
+      "slug": "curators",
+      "title_en": "Curators",
+      "title_zh_seed": "策展人",
+      "soc_code_seed": "25-4012",
+      "onet_code_seed": "25-4012.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 253,
+      "seed_ordinal": 241,
+      "slug": "customer-service-representatives",
+      "title_en": "Customer Service Representatives",
+      "title_zh_seed": "客户服务代表",
+      "soc_code_seed": "43-4051",
+      "onet_code_seed": "43-4051.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 254,
+      "seed_ordinal": 242,
+      "slug": "customs-and-border-protection-officers",
+      "title_en": "Customs And Border Protection Officers",
+      "title_zh_seed": "海关官",
+      "soc_code_seed": "33-3051",
+      "onet_code_seed": "33-3051.04",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 255,
+      "seed_ordinal": 243,
+      "slug": "customs-brokers",
+      "title_en": "Customs Brokers",
+      "title_zh_seed": "海关经纪人",
+      "soc_code_seed": "13-1041",
+      "onet_code_seed": "13-1041.08",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 256,
+      "seed_ordinal": 244,
+      "slug": "cutters-and-trimmers-hand",
+      "title_en": "Cutters And Trimmers, Hand",
+      "title_zh_seed": "切割工布置员、手工",
+      "soc_code_seed": "51-9031",
+      "onet_code_seed": "51-9031.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 257,
+      "seed_ordinal": 245,
+      "slug": "cutting-and-slicing-machine-setters-operators-and-tenders",
+      "title_en": "Cutting And Slicing Machine Setters, Operators, And Tenders",
+      "title_zh_seed": "机器铺设工、操作员、看护员",
+      "soc_code_seed": "51-9032",
+      "onet_code_seed": "51-9032.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 258,
+      "seed_ordinal": 246,
+      "slug": "cutting-punching-and-press-machine-setters-operators-and-tenders-metal-and-plastic",
+      "title_en": "Cutting, Punching, And Press Machine Setters, Operators, And Tenders, Metal And Plastic",
+      "title_zh_seed": "机器铺设工、操作员、看护员、金属塑料",
+      "soc_code_seed": "51-4031",
+      "onet_code_seed": "51-4031.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 259,
+      "seed_ordinal": 247,
+      "slug": "cytogenetic-technologists",
+      "title_en": "Cytogenetic Technologists",
+      "title_zh_seed": "技术专家",
+      "soc_code_seed": "29-2011",
+      "onet_code_seed": "29-2011.01",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 260,
+      "seed_ordinal": 248,
+      "slug": "cytotechnologists",
+      "title_en": "Cytotechnologists",
+      "title_zh_seed": "细胞技术专家",
+      "soc_code_seed": "29-2011",
+      "onet_code_seed": "29-2011.02",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    }
+  ],
+  "validation": {
+    "total_slugs": 10,
+    "duplicate_slug_count": 0,
+    "seed_order_preserved": true
+  }
+}
