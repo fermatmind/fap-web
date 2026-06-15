@@ -1,14 +1,4 @@
 fix_required,reasons,slug,status
-repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,construction-managers,BLOCKED
-repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,continuous-mining-machine-operators,BLOCKED
-repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,control-and-valve-installers-and-repairers-except-mechanical-door,BLOCKED
-repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,conveyor-operators-and-tenders,BLOCKED
-repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,cooks,BLOCKED
-repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,cooks-fast-food,BLOCKED
-repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,cooks-institution-and-cafeteria,BLOCKED
-repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,cooks-private-household,BLOCKED
-repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,cooks-restaurant,BLOCKED
-repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,cooks-short-order,BLOCKED
 repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,cooling-and-freezing-equipment-operators-and-tenders,BLOCKED
 repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,coroners,BLOCKED
 repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,correctional-officers,BLOCKED

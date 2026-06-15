@@ -1,0 +1,31 @@
+{
+  "batch": "250",
+  "pack": "3",
+  "repair_scope": "evidence_only",
+  "pack_slugs": [
+    "construction-managers",
+    "continuous-mining-machine-operators",
+    "control-and-valve-installers-and-repairers-except-mechanical-door",
+    "conveyor-operators-and-tenders",
+    "cooks",
+    "cooks-fast-food",
+    "cooks-institution-and-cafeteria",
+    "cooks-private-household",
+    "cooks-restaurant",
+    "cooks-short-order"
+  ],
+  "pack_ready_count": 10,
+  "pack_evidence_blocked_count": 0,
+  "pack_evidence_repair_required_count": 0,
+  "pack_trust_blocked_count": 0,
+  "pack_trust_repair_required_count": 0,
+  "control_200_unchanged": true,
+  "schema_valid": true,
+  "schema_error_count": 0,
+  "whole_batch_evidence_verdict": "REJECT",
+  "whole_batch_trust_verdict": "REJECT",
+  "remaining_blocked_count": 20,
+  "estimate_generated": false,
+  "asset_generated": false,
+  "evidence_sha256": "a03555685dff25209cc06ec0be5b50b4da05ac5f6b2a0816fd973c5afd4acf33"
+}
