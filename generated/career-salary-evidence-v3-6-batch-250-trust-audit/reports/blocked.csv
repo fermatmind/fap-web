@@ -1,14 +1,4 @@
 fix_required,reasons,slug,status
-repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,cooling-and-freezing-equipment-operators-and-tenders,BLOCKED
-repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,coroners,BLOCKED
-repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,correctional-officers,BLOCKED
-repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,correspondence-clerks,BLOCKED
-repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,cost-estimators,BLOCKED
-repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,costume-attendants,BLOCKED
-repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,counter-and-rental-clerks,BLOCKED
-repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,couriers-and-messengers,BLOCKED
-repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,court-reporters,BLOCKED
-repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,court-municipal-and-license-clerks,BLOCKED
 repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,craft-and-fine-artists,BLOCKED
 repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,craft-artists,BLOCKED
 repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,crane-and-tower-operators,BLOCKED
