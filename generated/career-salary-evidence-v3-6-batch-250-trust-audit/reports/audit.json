@@ -6,10 +6,10 @@
     "slug_order_matches_manifest": true,
     "control_rows_checked": 200,
     "control_changed_count": 0,
-    "ready_count": 210,
+    "ready_count": 220,
     "repair_required_count": 0,
-    "blocked_count": 40,
-    "new_ready_count": 10
+    "blocked_count": 30,
+    "new_ready_count": 20
   },
   "errors": []
 }

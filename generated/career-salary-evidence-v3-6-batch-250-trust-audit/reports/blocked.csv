@@ -1,14 +1,4 @@
 fix_required,reasons,slug,status
-repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,computer-support-specialists,BLOCKED
-repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,computer-systems-analysts,BLOCKED
-repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,computer-systems-engineers-architects,BLOCKED
-repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,computer-automated-teller-and-office-machine-repairers,BLOCKED
-repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,concierges,BLOCKED
-repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,conservation-scientists,BLOCKED
-repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,construction-and-building-inspectors,BLOCKED
-repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,construction-equipment-operators,BLOCKED
-repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,construction-laborers,BLOCKED
-repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,construction-laborers-and-helpers,BLOCKED
 repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,construction-managers,BLOCKED
 repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,continuous-mining-machine-operators,BLOCKED
 repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,control-and-valve-installers-and-repairers-except-mechanical-door,BLOCKED
