@@ -1,0 +1,25 @@
+# Batch 250 Pack 1 Evidence Repair Summary
+
+- scope: `evidence_only`
+- pack_ready_count: `10`
+- pack_blocked_count: `0`
+- pack_repair_required_count: `0`
+- control_200_unchanged: `True`
+- schema_error_count: `0`
+- whole_batch_evidence_audit_verdict: `REJECT` (expected until packs 2-5 are repaired)
+- whole_batch_trust_audit_verdict: `REJECT` (expected until packs 2-5 are repaired)
+- remaining_blocked_count: `40`
+- estimate_generated: `False`
+- asset_generated: `False`
+
+## Ready Slugs
+- `compliance-managers`
+- `compliance-officers`
+- `computer-and-information-research-scientists`
+- `computer-and-information-systems-managers`
+- `computer-hardware-engineers`
+- `computer-network-architects`
+- `computer-network-support-specialists`
+- `computer-numerically-controlled-tool-operators`
+- `computer-numerically-controlled-tool-programmers`
+- `computer-science-teachers-postsecondary`

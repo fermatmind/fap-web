@@ -1,0 +1,51 @@
+batch_index,seed_ordinal,slug,title_en,title_zh_seed,soc_code_seed,onet_code_seed,batch_role,expected_locales
+201,188,compliance-managers,Compliance Managers,合规经理,11-9199,11-9199.02,new_50,zh-CN|en
+202,189,compliance-officers,Compliance officers,合规专员,,,new_50,zh-CN|en
+203,190,computer-and-information-research-scientists,Computer and information research scientists,计算机与信息研究科学家适合谁？,15-1221,15-1221.00,new_50,zh-CN|en
+204,191,computer-and-information-systems-managers,Computer and information systems managers,计算机与信息系统经理适合谁？,11-3021,11-3021.00,new_50,zh-CN|en
+205,192,computer-hardware-engineers,Computer hardware engineers,计算机硬件工程师,,,new_50,zh-CN|en
+206,193,computer-network-architects,Computer Network Architects,计算机网络架构师,15-1241,15-1241.00,new_50,zh-CN|en
+207,194,computer-network-support-specialists,Computer Network Support Specialists,专家计算机,15-1231,15-1231.00,new_50,zh-CN|en
+208,195,computer-numerically-controlled-tool-operators,Computer Numerically Controlled Tool Operators,操作员计算机,51-9161,51-9161.00,new_50,zh-CN|en
+209,196,computer-numerically-controlled-tool-programmers,Computer Numerically Controlled Tool Programmers,计算机,51-9162,51-9162.00,new_50,zh-CN|en
+210,198,computer-science-teachers-postsecondary,"Computer Science Teachers, Postsecondary",教师计算机,25-1021,25-1021.00,new_50,zh-CN|en
+211,199,computer-support-specialists,Computer support specialists,计算机支持专员适合谁？,15-1232,15-1232.00,new_50,zh-CN|en
+212,200,computer-systems-analysts,Computer Systems Analysts,计算机系统分析师,15-1211,15-1211.00,new_50,zh-CN|en
+213,201,computer-systems-engineers-architects,Computer Systems Engineers/Architects,工程师计算机,15-1299,15-1299.08,new_50,zh-CN|en
+214,202,computer-automated-teller-and-office-machine-repairers,"Computer, Automated Teller, And Office Machine Repairers",计算机修理,49-2011,49-2011.00,new_50,zh-CN|en
+215,203,concierges,Concierges,礼宾员,39-6012,39-6012.00,new_50,zh-CN|en
+216,204,conservation-scientists,Conservation Scientists,其他职业,19-1031,19-1031.00,new_50,zh-CN|en
+217,205,construction-and-building-inspectors,Construction and building inspectors,建筑与施工检查员适合谁？,47-4011,47-4011.00,new_50,zh-CN|en
+218,206,construction-equipment-operators,Operating Engineers And Other Construction Equipment Operators,操作工程师及其他工程设备操作员,47-2073,47-2073.00,new_50,zh-CN|en
+219,207,construction-laborers,Construction Laborers,建筑施工,47-2061,47-2061.00,new_50,zh-CN|en
+220,208,construction-laborers-and-helpers,Construction Laborers,建筑工人,47-2061,47-2061.00,new_50,zh-CN|en
+221,209,construction-managers,Construction managers,施工经理适合谁？,11-9021,11-9021.00,new_50,zh-CN|en
+222,210,continuous-mining-machine-operators,Continuous Mining Machine Operators,机器操作员,47-5041,47-5041.00,new_50,zh-CN|en
+223,211,control-and-valve-installers-and-repairers-except-mechanical-door,"Control And Valve Installers And Repairers, Except Mechanical Door",控制与阀门安装工、机械门,49-9012,49-9012.00,new_50,zh-CN|en
+224,212,conveyor-operators-and-tenders,Conveyor Operators And Tenders,操作员看护员,53-7011,53-7011.00,new_50,zh-CN|en
+225,213,cooks,"Cooks, Restaurant",餐馆厨师,35-2014,35-2014.00,new_50,zh-CN|en
+226,214,cooks-fast-food,"Cooks, Fast Food",快餐厨师,35-2011,35-2011.00,new_50,zh-CN|en
+227,215,cooks-institution-and-cafeteria,"Cooks, Institution And Cafeteria",食堂,35-2012,35-2012.00,new_50,zh-CN|en
+228,216,cooks-private-household,"Cooks, Private Household",私人家庭厨师,35-2013,35-2013.00,new_50,zh-CN|en
+229,217,cooks-restaurant,"Cooks, Restaurant",餐厅厨师,35-2014,35-2014.00,new_50,zh-CN|en
+230,218,cooks-short-order,"Cooks, Short Order",简餐厨师,35-2015,35-2015.00,new_50,zh-CN|en
+231,219,cooling-and-freezing-equipment-operators-and-tenders,Cooling And Freezing Equipment Operators And Tenders,设备操作员看护员,51-9193,51-9193.00,new_50,zh-CN|en
+232,220,coroners,Coroners,验尸官,13-1041,13-1041.06,new_50,zh-CN|en
+233,221,correctional-officers,Correctional officers and bailiffs,惩教官与法警适合谁？,33-3012,33-3012.00,new_50,zh-CN|en
+234,222,correspondence-clerks,Correspondence Clerks,通信文员,43-4021,43-4021.00,new_50,zh-CN|en
+235,223,cost-estimators,Cost Estimators,成本估算师,13-1051,13-1051.00,new_50,zh-CN|en
+236,224,costume-attendants,Costume Attendants,服装服务员,39-3092,39-3092.00,new_50,zh-CN|en
+237,225,counter-and-rental-clerks,Counter And Rental Clerks,柜台租赁文员,41-2021,41-2021.00,new_50,zh-CN|en
+238,226,couriers-and-messengers,Couriers And Messengers,快递员,43-5021,43-5021.00,new_50,zh-CN|en
+239,227,court-reporters,Court reporters and simultaneous captioners,法庭记录员与实时字幕员适合谁？,27-3092,27-3092.00,new_50,zh-CN|en
+240,228,court-municipal-and-license-clerks,"Court, Municipal, And License Clerks",法院、市政、执照文员,43-4031,43-4031.00,new_50,zh-CN|en
+241,229,craft-and-fine-artists,"Fine Artists, Including Painters, Sculptors, And Illustrators",美术艺术家（画家、雕塑家与插画师）,27-1013,27-1013.00,new_50,zh-CN|en
+242,230,craft-artists,Craft Artists,工艺艺术家,27-1012,27-1012.00,new_50,zh-CN|en
+243,231,crane-and-tower-operators,Crane And Tower Operators,操作员,53-7021,53-7021.00,new_50,zh-CN|en
+244,232,credit-analysts,Credit Analysts,信用分析师,13-2041,13-2041.00,new_50,zh-CN|en
+245,233,credit-authorizers-checkers-and-clerks,"Credit Authorizers, Checkers, And Clerks",信贷授权员、核查员、文员,43-4041,43-4041.00,new_50,zh-CN|en
+246,234,credit-counselors,Credit counselors,信贷咨询顾问适合谁？,13-2071,13-2071.00,new_50,zh-CN|en
+247,235,crematory-operators,Crematory Operators,火化设备操作员,39-4012,39-4012.00,new_50,zh-CN|en
+248,236,criminal-justice-and-law-enforcement-teachers-postsecondary,"Criminal Justice And Law Enforcement Teachers, Postsecondary",高校刑事司法与执法教师,25-1111,25-1111.00,new_50,zh-CN|en
+249,237,critical-care-nurses,Critical Care Nurses,重症护理护士,29-1141,29-1141.03,new_50,zh-CN|en
+250,238,crossing-guards-and-flaggers,Crossing Guards And Flaggers,交通路口警卫旗手,33-9091,33-9091.00,new_50,zh-CN|en

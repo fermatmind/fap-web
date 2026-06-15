@@ -1,0 +1,12 @@
+{
+  "valid": true,
+  "total_lines": 250,
+  "valid_json_lines": 250,
+  "parse_error_count": 0,
+  "control_parse_error_count": 0,
+  "control_rows_checked": 200,
+  "control_changed_count": 0,
+  "schema_validated_count": 50,
+  "schema_error_count": 0,
+  "errors": []
+}
