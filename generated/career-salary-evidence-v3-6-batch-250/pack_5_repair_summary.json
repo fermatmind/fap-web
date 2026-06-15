@@ -1,0 +1,31 @@
+{
+  "batch": "250",
+  "pack": "5",
+  "repair_scope": "evidence_only",
+  "pack_slugs": [
+    "craft-and-fine-artists",
+    "craft-artists",
+    "crane-and-tower-operators",
+    "credit-analysts",
+    "credit-authorizers-checkers-and-clerks",
+    "credit-counselors",
+    "crematory-operators",
+    "criminal-justice-and-law-enforcement-teachers-postsecondary",
+    "critical-care-nurses",
+    "crossing-guards-and-flaggers"
+  ],
+  "pack_ready_count": 10,
+  "pack_evidence_blocked_count": 0,
+  "pack_evidence_repair_required_count": 0,
+  "pack_trust_blocked_count": 0,
+  "pack_trust_repair_required_count": 0,
+  "control_200_unchanged": true,
+  "schema_valid": true,
+  "schema_error_count": 0,
+  "whole_batch_evidence_verdict": "PASS",
+  "whole_batch_trust_verdict": "PASS",
+  "remaining_blocked_count": 0,
+  "estimate_generated": false,
+  "asset_generated": false,
+  "evidence_sha256": "0008a5ea66a436d4b3f83f86e88a74044d1f1c1769e5ecd2af114ffaebcc0235"
+}
