@@ -1,0 +1,50 @@
+{
+  "batch": "250",
+  "stage": "evidence",
+  "verdict": "PASS",
+  "schema_validation": {
+    "valid": true,
+    "total_lines": 250,
+    "valid_json_lines": 250,
+    "parse_error_count": 0,
+    "control_parse_error_count": 0,
+    "control_rows_checked": 200,
+    "control_changed_count": 0,
+    "schema_validated_count": 50,
+    "schema_error_count": 0,
+    "errors": []
+  },
+  "evidence_audit": {
+    "final_verdict": "PASS",
+    "metrics": {
+      "total_lines": 250,
+      "valid_json_lines": 250,
+      "slug_order_matches_manifest": true,
+      "ready_count": 250,
+      "repair_required_count": 0,
+      "blocked_count": 0
+    },
+    "errors": []
+  },
+  "trust_audit": {
+    "final_verdict": "PASS",
+    "metrics": {
+      "total_lines": 250,
+      "valid_json_lines": 250,
+      "slug_order_matches_manifest": true,
+      "control_rows_checked": 200,
+      "control_changed_count": 0,
+      "ready_count": 250,
+      "repair_required_count": 0,
+      "blocked_count": 0,
+      "new_ready_count": 50
+    },
+    "errors": []
+  },
+  "control_200_unchanged": true,
+  "new_50_ready_count": 50,
+  "estimate_generated": false,
+  "asset_generated": false,
+  "freeze_generated": false,
+  "evidence_sha256": "0008a5ea66a436d4b3f83f86e88a74044d1f1c1769e5ecd2af114ffaebcc0235"
+}

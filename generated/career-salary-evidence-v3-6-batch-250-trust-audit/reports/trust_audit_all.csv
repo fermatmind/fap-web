@@ -239,13 +239,13 @@ fix_required,reasons,slug,status
 ,,couriers-and-messengers,READY
 ,,court-reporters,READY
 ,,court-municipal-and-license-clerks,READY
-repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,craft-and-fine-artists,BLOCKED
-repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,craft-artists,BLOCKED
-repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,crane-and-tower-operators,BLOCKED
-repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,credit-analysts,BLOCKED
-repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,credit-authorizers-checkers-and-clerks,BLOCKED
-repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,credit-counselors,BLOCKED
-repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,crematory-operators,BLOCKED
-repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,criminal-justice-and-law-enforcement-teachers-postsecondary,BLOCKED
-repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,critical-care-nurses,BLOCKED
-repair evidence only with source-captured facts; do not compute estimates or generate assets,cn_no_included_evidence | uk_unavailable | us_no_wage_source,crossing-guards-and-flaggers,BLOCKED
+,,craft-and-fine-artists,READY
+,,craft-artists,READY
+,,crane-and-tower-operators,READY
+,,credit-analysts,READY
+,,credit-authorizers-checkers-and-clerks,READY
+,,credit-counselors,READY
+,,crematory-operators,READY
+,,criminal-justice-and-law-enforcement-teachers-postsecondary,READY
+,,critical-care-nurses,READY
+,,crossing-guards-and-flaggers,READY
