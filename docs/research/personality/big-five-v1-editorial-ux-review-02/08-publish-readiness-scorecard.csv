@@ -1,0 +1,35 @@
+url,locale,entity_type,code,content_quality_score_1_5,duplication_risk,boundary_risk,ux_risk,media_risk,evidence_risk,recommended_status,required_fix_before_publish
+https://fermatmind.com/zh/personality/big-five,zh-CN,hub,big-five,3,low,safe,medium,high,medium,needs_minor_editorial_repair,minor editorial polish before publish
+https://fermatmind.com/zh/personality/big-five/openness,zh-CN,domain,openness,3,high,safe,low,high,medium,needs_major_rewrite_or_hold,major risk or duplicate blocker
+https://fermatmind.com/zh/personality/big-five/conscientiousness,zh-CN,domain,conscientiousness,3,high,safe,low,high,medium,needs_major_rewrite_or_hold,major risk or duplicate blocker
+https://fermatmind.com/zh/personality/big-five/extraversion,zh-CN,domain,extraversion,3,high,safe,low,high,medium,needs_major_rewrite_or_hold,major risk or duplicate blocker
+https://fermatmind.com/zh/personality/big-five/agreeableness,zh-CN,domain,agreeableness,3,high,safe,low,high,medium,needs_major_rewrite_or_hold,major risk or duplicate blocker
+https://fermatmind.com/zh/personality/big-five/neuroticism,zh-CN,domain,neuroticism,3,high,medium risk,low,high,medium,needs_major_rewrite_or_hold,major risk or duplicate blocker
+https://fermatmind.com/zh/personality/big-five/high-openness,zh-CN,polarity,high-openness,3,high,safe,low,high,medium,needs_major_rewrite_or_hold,major risk or duplicate blocker
+https://fermatmind.com/zh/personality/big-five/low-openness,zh-CN,polarity,low-openness,3,high,safe,low,high,medium,needs_major_rewrite_or_hold,major risk or duplicate blocker
+https://fermatmind.com/zh/personality/big-five/high-conscientiousness,zh-CN,polarity,high-conscientiousness,3,high,safe,low,high,medium,needs_major_rewrite_or_hold,major risk or duplicate blocker
+https://fermatmind.com/zh/personality/big-five/low-conscientiousness,zh-CN,polarity,low-conscientiousness,3,high,safe,low,high,medium,needs_major_rewrite_or_hold,major risk or duplicate blocker
+https://fermatmind.com/zh/personality/big-five/high-extraversion,zh-CN,polarity,high-extraversion,3,high,safe,low,high,medium,needs_major_rewrite_or_hold,major risk or duplicate blocker
+https://fermatmind.com/zh/personality/big-five/low-extraversion,zh-CN,polarity,low-extraversion,3,high,safe,low,high,medium,needs_major_rewrite_or_hold,major risk or duplicate blocker
+https://fermatmind.com/zh/personality/big-five/high-agreeableness,zh-CN,polarity,high-agreeableness,3,high,safe,low,high,medium,needs_major_rewrite_or_hold,major risk or duplicate blocker
+https://fermatmind.com/zh/personality/big-five/low-agreeableness,zh-CN,polarity,low-agreeableness,3,high,safe,low,high,medium,needs_major_rewrite_or_hold,major risk or duplicate blocker
+https://fermatmind.com/zh/personality/big-five/high-neuroticism,zh-CN,polarity,high-neuroticism,3,high,medium risk,low,high,medium,needs_major_rewrite_or_hold,major risk or duplicate blocker
+https://fermatmind.com/zh/personality/big-five/emotional-stability,zh-CN,polarity,emotional-stability,3,high,medium risk,low,high,medium,needs_major_rewrite_or_hold,major risk or duplicate blocker
+https://fermatmind.com/zh/personality/big-five/facets,zh-CN,facet_hub,facets,3,low,safe,medium,high,medium,needs_minor_editorial_repair,minor editorial polish before publish
+https://fermatmind.com/en/personality/big-five,en,hub,big-five,3,low,safe,medium,high,medium,needs_minor_editorial_repair,minor editorial polish before publish
+https://fermatmind.com/en/personality/big-five/openness,en,domain,openness,3,high,safe,low,high,medium,needs_major_rewrite_or_hold,major risk or duplicate blocker
+https://fermatmind.com/en/personality/big-five/conscientiousness,en,domain,conscientiousness,3,high,safe,low,high,medium,needs_major_rewrite_or_hold,major risk or duplicate blocker
+https://fermatmind.com/en/personality/big-five/extraversion,en,domain,extraversion,3,high,safe,low,high,medium,needs_major_rewrite_or_hold,major risk or duplicate blocker
+https://fermatmind.com/en/personality/big-five/agreeableness,en,domain,agreeableness,3,high,safe,low,high,medium,needs_major_rewrite_or_hold,major risk or duplicate blocker
+https://fermatmind.com/en/personality/big-five/neuroticism,en,domain,neuroticism,3,high,medium risk,low,high,medium,needs_major_rewrite_or_hold,major risk or duplicate blocker
+https://fermatmind.com/en/personality/big-five/high-openness,en,polarity,high-openness,3,high,safe,low,high,medium,needs_major_rewrite_or_hold,major risk or duplicate blocker
+https://fermatmind.com/en/personality/big-five/low-openness,en,polarity,low-openness,3,high,safe,low,high,medium,needs_major_rewrite_or_hold,major risk or duplicate blocker
+https://fermatmind.com/en/personality/big-five/high-conscientiousness,en,polarity,high-conscientiousness,3,high,safe,low,high,medium,needs_major_rewrite_or_hold,major risk or duplicate blocker
+https://fermatmind.com/en/personality/big-five/low-conscientiousness,en,polarity,low-conscientiousness,3,high,safe,low,high,medium,needs_major_rewrite_or_hold,major risk or duplicate blocker
+https://fermatmind.com/en/personality/big-five/high-extraversion,en,polarity,high-extraversion,3,high,safe,low,high,medium,needs_major_rewrite_or_hold,major risk or duplicate blocker
+https://fermatmind.com/en/personality/big-five/low-extraversion,en,polarity,low-extraversion,3,high,safe,low,high,medium,needs_major_rewrite_or_hold,major risk or duplicate blocker
+https://fermatmind.com/en/personality/big-five/high-agreeableness,en,polarity,high-agreeableness,3,high,safe,low,high,medium,needs_major_rewrite_or_hold,major risk or duplicate blocker
+https://fermatmind.com/en/personality/big-five/low-agreeableness,en,polarity,low-agreeableness,3,high,safe,low,high,medium,needs_major_rewrite_or_hold,major risk or duplicate blocker
+https://fermatmind.com/en/personality/big-five/high-neuroticism,en,polarity,high-neuroticism,3,high,medium risk,low,high,medium,needs_major_rewrite_or_hold,major risk or duplicate blocker
+https://fermatmind.com/en/personality/big-five/emotional-stability,en,polarity,emotional-stability,3,high,medium risk,low,high,medium,needs_major_rewrite_or_hold,major risk or duplicate blocker
+https://fermatmind.com/en/personality/big-five/facets,en,facet_hub,facets,3,low,safe,medium,high,medium,needs_minor_editorial_repair,minor editorial polish before publish
