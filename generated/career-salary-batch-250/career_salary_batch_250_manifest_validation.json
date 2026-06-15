@@ -1,0 +1,19 @@
+{
+  "total_slugs": 250,
+  "control_200_count": 200,
+  "new_50_count": 50,
+  "duplicate_slug_count": 0,
+  "every_slug_exists_in_seed": true,
+  "control_200_order_matches_baseline_200": true,
+  "new_50_selected_from_seed_order_after_excluding_control_200": true,
+  "seed_ordinal_copied_without_mutation": true,
+  "title_en_copied_from_seed": true,
+  "title_zh_seed_copied_from_seed": true,
+  "soc_code_seed_copied_from_seed": true,
+  "onet_code_seed_copied_from_seed": true,
+  "no_evidence_ledger_generated": false,
+  "no_estimate_ledger_generated": true,
+  "no_salary_asset_generated": true,
+  "passes_manifest_gate": true,
+  "blocked_evidence_ledger_generated_for_gate": true
+}
