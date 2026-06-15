@@ -1,0 +1,13 @@
+{
+  "status": "BATCH_300_PASS_BASELINE",
+  "trusted_control_count": 300,
+  "next_batch": 350,
+  "next_batch_shape": "control_300 + new_50",
+  "batch_350_generated": false,
+  "evidence_pass": true,
+  "trust_pass": true,
+  "estimate_pass": true,
+  "asset_pass": true,
+  "source_files_modified_during_freeze": 0,
+  "baseline_dir": "generated/career-salary-v3-6-batch-300-pass-baseline"
+}

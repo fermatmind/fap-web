@@ -1,0 +1,9 @@
+{
+  "batch": 300,
+  "final_verdict": "PASS",
+  "trusted_control_count": 300,
+  "next_batch": 350,
+  "evidence_rows": 300,
+  "estimate_rows": 300,
+  "asset_lines": 600
+}

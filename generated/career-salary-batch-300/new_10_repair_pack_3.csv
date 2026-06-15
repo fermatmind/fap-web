@@ -1,0 +1,11 @@
+batch_index,seed_ordinal,slug,title_en,title_zh_seed,soc_code_seed,onet_code_seed,batch_role,expected_locales
+271,260,dental-hygienists,Dental hygienists,口腔卫生师适合谁？,29-1292,29-1292.00,new_50,zh-CN|en
+272,261,dental-laboratory-technicians,Dental Laboratory Technicians,牙科技工室技术员,51-9081,51-9081.00,new_50,zh-CN|en
+273,262,dentists,"Dentists, General",普通牙医职业诊断,29-1021,29-1021.00,new_50,zh-CN|en
+274,263,dentists-all-other-specialists,"Dentists, All Other Specialists",专家牙医,29-1029,29-1029.00,new_50,zh-CN|en
+275,264,dentists-general,"Dentists, General",牙医、普通,29-1021,29-1021.00,new_50,zh-CN|en
+276,265,dermatologists,Dermatologists,皮肤科医师,29-1213,29-1213.00,new_50,zh-CN|en
+277,266,derrick-operators-oil-and-gas,"Derrick Operators, Oil And Gas",操作员、石油天然气,47-5011,47-5011.00,new_50,zh-CN|en
+278,267,desktop-publishers,Desktop publishers,桌面出版专员适合谁？,43-9031,43-9031.00,new_50,zh-CN|en
+279,268,detectives-and-criminal-investigators,Detectives And Criminal Investigators,侦探刑事调查员,33-3021,33-3021.00,new_50,zh-CN|en
+280,269,diagnostic-medical-sonographers,Diagnostic medical sonographers,医学超声诊断师适合谁？,29-2032,29-2032.00,new_50,zh-CN|en

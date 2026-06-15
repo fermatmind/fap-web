@@ -1,0 +1,154 @@
+{
+  "source_manifest": "generated/career-salary-batch-300/career_salary_batch_300_manifest.json",
+  "batch": 300,
+  "pack": 2,
+  "pack_size": 10,
+  "batch_role": "new_50",
+  "jobs": [
+    {
+      "batch_index": 261,
+      "seed_ordinal": 249,
+      "slug": "dancers",
+      "title_en": "Dancers",
+      "title_zh_seed": "舞者",
+      "soc_code_seed": "27-2031",
+      "onet_code_seed": "27-2031.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 262,
+      "seed_ordinal": 250,
+      "slug": "dancers-and-choreographers",
+      "title_en": "Dancers",
+      "title_zh_seed": "舞者",
+      "soc_code_seed": "27-2031",
+      "onet_code_seed": "27-2031.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 263,
+      "seed_ordinal": 251,
+      "slug": "data-entry-keyers",
+      "title_en": "Data Entry Keyers",
+      "title_zh_seed": "数据录入员",
+      "soc_code_seed": "43-9021",
+      "onet_code_seed": "43-9021.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 264,
+      "seed_ordinal": 253,
+      "slug": "data-warehousing-specialists",
+      "title_en": "Data Warehousing Specialists",
+      "title_zh_seed": "数据专员",
+      "soc_code_seed": "15-1243",
+      "onet_code_seed": "15-1243.01",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 265,
+      "seed_ordinal": 254,
+      "slug": "database-administrators",
+      "title_en": "Database Administrators",
+      "title_zh_seed": "数据库管理员",
+      "soc_code_seed": "15-1242",
+      "onet_code_seed": "15-1242.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 266,
+      "seed_ordinal": 255,
+      "slug": "database-architects",
+      "title_en": "Database Architects",
+      "title_zh_seed": "建筑师",
+      "soc_code_seed": "15-1243",
+      "onet_code_seed": "15-1243.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 267,
+      "seed_ordinal": 256,
+      "slug": "delivery-truck-drivers-and-driver-sales-workers",
+      "title_en": "Light Truck Drivers",
+      "title_zh_seed": "轻型卡车司机",
+      "soc_code_seed": "53-3033",
+      "onet_code_seed": "53-3033.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 268,
+      "seed_ordinal": 257,
+      "slug": "demonstrators-and-product-promoters",
+      "title_en": "Demonstrators And Product Promoters",
+      "title_zh_seed": "演示员推广员",
+      "soc_code_seed": "41-9011",
+      "onet_code_seed": "41-9011.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 269,
+      "seed_ordinal": 258,
+      "slug": "dental-and-ophthalmic-laboratory-technicians-and-medical-appliance-technicians",
+      "title_en": "Dental Laboratory Technicians",
+      "title_zh_seed": "牙科实验室技术员",
+      "soc_code_seed": "51-9081",
+      "onet_code_seed": "51-9081.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 270,
+      "seed_ordinal": 259,
+      "slug": "dental-assistants",
+      "title_en": "Dental assistants",
+      "title_zh_seed": "牙科助理适合谁？",
+      "soc_code_seed": "31-9091",
+      "onet_code_seed": "31-9091.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    }
+  ],
+  "validation": {
+    "total_slugs": 10,
+    "duplicate_slug_count": 0,
+    "seed_order_preserved": true
+  }
+}

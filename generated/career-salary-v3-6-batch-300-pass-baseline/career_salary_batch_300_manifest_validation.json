@@ -1,0 +1,22 @@
+{
+  "valid": true,
+  "batch": 300,
+  "total_slugs": 300,
+  "control_250_count": 250,
+  "new_50_count": 50,
+  "duplicate_slug_count": 0,
+  "every_slug_exists_in_seed": true,
+  "control_250_order_matches_batch_250": true,
+  "new_50_selected_from_seed_order_after_excluding_control_250": true,
+  "seed_ordinal_copied_without_mutation": true,
+  "title_en_copied_from_seed": true,
+  "title_zh_seed_copied_from_seed": true,
+  "soc_code_seed_copied_from_seed": true,
+  "onet_code_seed_copied_from_seed": true,
+  "no_evidence_ledger_generated": true,
+  "no_estimate_ledger_generated": true,
+  "no_salary_asset_generated": true,
+  "errors": [],
+  "seed_sha256": "a2998f6a68cab8d4fe6e3b565c51a486c31d430375837981fae58346b30e160c",
+  "baseline_manifest_sha256": "784c19ced6379bbb7003eb13f94cb17bf2042581c2cec6b2207b74ac2d74093e"
+}

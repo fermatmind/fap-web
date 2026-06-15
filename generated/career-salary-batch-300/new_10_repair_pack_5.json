@@ -1,0 +1,154 @@
+{
+  "source_manifest": "generated/career-salary-batch-300/career_salary_batch_300_manifest.json",
+  "batch": 300,
+  "pack": 5,
+  "pack_size": 10,
+  "batch_role": "new_50",
+  "jobs": [
+    {
+      "batch_index": 291,
+      "seed_ordinal": 280,
+      "slug": "drafters",
+      "title_en": "Architectural And Civil Drafters",
+      "title_zh_seed": "建筑与土木制图员",
+      "soc_code_seed": "17-3011",
+      "onet_code_seed": "17-3011.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 292,
+      "seed_ordinal": 281,
+      "slug": "dredge-operators",
+      "title_en": "Dredge Operators",
+      "title_zh_seed": "挖泥船操作员",
+      "soc_code_seed": "53-7031",
+      "onet_code_seed": "53-7031.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 293,
+      "seed_ordinal": 282,
+      "slug": "drilling-and-boring-machine-tool-setters-operators-and-tenders-metal-and-plastic",
+      "title_en": "Drilling And Boring Machine Tool Setters, Operators, And Tenders, Metal And Plastic",
+      "title_zh_seed": "机器工具铺设工、操作员、看护员、金属塑料",
+      "soc_code_seed": "51-4032",
+      "onet_code_seed": "51-4032.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 294,
+      "seed_ordinal": 283,
+      "slug": "driver-sales-workers",
+      "title_en": "Driver/Sales Workers",
+      "title_zh_seed": "工人销售",
+      "soc_code_seed": "53-3031",
+      "onet_code_seed": "53-3031.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 295,
+      "seed_ordinal": 284,
+      "slug": "drywall-and-ceiling-tile-installers",
+      "title_en": "Drywall And Ceiling Tile Installers",
+      "title_zh_seed": "石膏板与天花板瓷砖安装工",
+      "soc_code_seed": "47-2081",
+      "onet_code_seed": "47-2081.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 296,
+      "seed_ordinal": 285,
+      "slug": "drywall-and-ceiling-tile-installers-and-tapers",
+      "title_en": "Drywall And Ceiling Tile Installers",
+      "title_zh_seed": "石膏板与吊顶板安装工",
+      "soc_code_seed": "47-2081",
+      "onet_code_seed": "47-2081.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 297,
+      "seed_ordinal": 286,
+      "slug": "earth-drillers-except-oil-and-gas",
+      "title_en": "Earth Drillers, Except Oil And Gas",
+      "title_zh_seed": "土方钻探工、石油天然气",
+      "soc_code_seed": "47-5023",
+      "onet_code_seed": "47-5023.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 298,
+      "seed_ordinal": 287,
+      "slug": "economics-teachers-postsecondary",
+      "title_en": "Economics Teachers, Postsecondary",
+      "title_zh_seed": "高校经济学教师",
+      "soc_code_seed": "25-1063",
+      "onet_code_seed": "25-1063.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 299,
+      "seed_ordinal": 288,
+      "slug": "economists",
+      "title_en": "Economists",
+      "title_zh_seed": "经济学家",
+      "soc_code_seed": null,
+      "onet_code_seed": null,
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 300,
+      "seed_ordinal": 289,
+      "slug": "editors",
+      "title_en": "Editors",
+      "title_zh_seed": "编辑",
+      "soc_code_seed": "27-3041",
+      "onet_code_seed": "27-3041.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    }
+  ],
+  "validation": {
+    "total_slugs": 10,
+    "duplicate_slug_count": 0,
+    "seed_order_preserved": true
+  }
+}

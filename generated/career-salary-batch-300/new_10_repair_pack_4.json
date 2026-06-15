@@ -1,0 +1,154 @@
+{
+  "source_manifest": "generated/career-salary-batch-300/career_salary_batch_300_manifest.json",
+  "batch": 300,
+  "pack": 4,
+  "pack_size": 10,
+  "batch_role": "new_50",
+  "jobs": [
+    {
+      "batch_index": 281,
+      "seed_ordinal": 270,
+      "slug": "diesel-service-technicians-and-mechanics",
+      "title_en": "Diesel Service Technicians And Mechanics",
+      "title_zh_seed": "柴油设备维修技师与机械师",
+      "soc_code_seed": "49-3023",
+      "onet_code_seed": "49-3023.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 282,
+      "seed_ordinal": 271,
+      "slug": "dietetic-technicians",
+      "title_en": "Dietetic Technicians",
+      "title_zh_seed": "膳食技术员",
+      "soc_code_seed": "29-2051",
+      "onet_code_seed": "29-2051.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 283,
+      "seed_ordinal": 272,
+      "slug": "dietitians-and-nutritionists",
+      "title_en": "Dietitians And Nutritionists",
+      "title_zh_seed": "膳食与营养师",
+      "soc_code_seed": "29-1031",
+      "onet_code_seed": "29-1031.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 284,
+      "seed_ordinal": 273,
+      "slug": "dining-room-and-cafeteria-attendants-and-bartender-helpers",
+      "title_en": "Dining Room And Cafeteria Attendants And Bartender Helpers",
+      "title_zh_seed": "餐厅与食堂服务员帮工",
+      "soc_code_seed": "35-9011",
+      "onet_code_seed": "35-9011.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 285,
+      "seed_ordinal": 274,
+      "slug": "directors-religious-activities-and-education",
+      "title_en": "Directors, Religious Activities And Education",
+      "title_zh_seed": "总监、教育",
+      "soc_code_seed": "21-2021",
+      "onet_code_seed": "21-2021.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 286,
+      "seed_ordinal": 275,
+      "slug": "disc-jockeys-except-radio",
+      "title_en": "Disc Jockeys, Except Radio",
+      "title_zh_seed": "非电台唱片骑师",
+      "soc_code_seed": "27-2091",
+      "onet_code_seed": "27-2091.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 287,
+      "seed_ordinal": 276,
+      "slug": "dishwashers",
+      "title_en": "Dishwashers",
+      "title_zh_seed": "洗碗工",
+      "soc_code_seed": "35-9021",
+      "onet_code_seed": "35-9021.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 288,
+      "seed_ordinal": 277,
+      "slug": "dispatchers-except-police-fire-and-ambulance",
+      "title_en": "Dispatchers, Except Police, Fire, And Ambulance",
+      "title_zh_seed": "调度员、警察、消防、救护车",
+      "soc_code_seed": "43-5032",
+      "onet_code_seed": "43-5032.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 289,
+      "seed_ordinal": 278,
+      "slug": "document-management-specialists",
+      "title_en": "Document Management Specialists",
+      "title_zh_seed": "管理专员",
+      "soc_code_seed": "15-1299",
+      "onet_code_seed": "15-1299.03",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "batch_index": 290,
+      "seed_ordinal": 279,
+      "slug": "door-to-door-sales-workers-news-and-street-vendors-and-related-workers",
+      "title_en": "Door To Door Sales Workers, News And Street Vendors, And Related Workers",
+      "title_zh_seed": "工人销售",
+      "soc_code_seed": "41-9091",
+      "onet_code_seed": "41-9091.00",
+      "batch_role": "new_50",
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ]
+    }
+  ],
+  "validation": {
+    "total_slugs": 10,
+    "duplicate_slug_count": 0,
+    "seed_order_preserved": true
+  }
+}

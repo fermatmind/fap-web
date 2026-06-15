@@ -1,0 +1,11 @@
+batch_index,seed_ordinal,slug,title_en,title_zh_seed,soc_code_seed,onet_code_seed,batch_role,expected_locales
+291,280,drafters,Architectural And Civil Drafters,建筑与土木制图员,17-3011,17-3011.00,new_50,zh-CN|en
+292,281,dredge-operators,Dredge Operators,挖泥船操作员,53-7031,53-7031.00,new_50,zh-CN|en
+293,282,drilling-and-boring-machine-tool-setters-operators-and-tenders-metal-and-plastic,"Drilling And Boring Machine Tool Setters, Operators, And Tenders, Metal And Plastic",机器工具铺设工、操作员、看护员、金属塑料,51-4032,51-4032.00,new_50,zh-CN|en
+294,283,driver-sales-workers,Driver/Sales Workers,工人销售,53-3031,53-3031.00,new_50,zh-CN|en
+295,284,drywall-and-ceiling-tile-installers,Drywall And Ceiling Tile Installers,石膏板与天花板瓷砖安装工,47-2081,47-2081.00,new_50,zh-CN|en
+296,285,drywall-and-ceiling-tile-installers-and-tapers,Drywall And Ceiling Tile Installers,石膏板与吊顶板安装工,47-2081,47-2081.00,new_50,zh-CN|en
+297,286,earth-drillers-except-oil-and-gas,"Earth Drillers, Except Oil And Gas",土方钻探工、石油天然气,47-5023,47-5023.00,new_50,zh-CN|en
+298,287,economics-teachers-postsecondary,"Economics Teachers, Postsecondary",高校经济学教师,25-1063,25-1063.00,new_50,zh-CN|en
+299,288,economists,Economists,经济学家,,,new_50,zh-CN|en
+300,289,editors,Editors,编辑,27-3041,27-3041.00,new_50,zh-CN|en
