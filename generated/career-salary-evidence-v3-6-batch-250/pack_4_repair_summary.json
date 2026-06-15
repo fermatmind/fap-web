@@ -1,0 +1,31 @@
+{
+  "batch": "250",
+  "pack": "4",
+  "repair_scope": "evidence_only",
+  "pack_slugs": [
+    "cooling-and-freezing-equipment-operators-and-tenders",
+    "coroners",
+    "correctional-officers",
+    "correspondence-clerks",
+    "cost-estimators",
+    "costume-attendants",
+    "counter-and-rental-clerks",
+    "couriers-and-messengers",
+    "court-reporters",
+    "court-municipal-and-license-clerks"
+  ],
+  "pack_ready_count": 10,
+  "pack_evidence_blocked_count": 0,
+  "pack_evidence_repair_required_count": 0,
+  "pack_trust_blocked_count": 0,
+  "pack_trust_repair_required_count": 0,
+  "control_200_unchanged": true,
+  "schema_valid": true,
+  "schema_error_count": 0,
+  "whole_batch_evidence_verdict": "REJECT",
+  "whole_batch_trust_verdict": "REJECT",
+  "remaining_blocked_count": 10,
+  "estimate_generated": false,
+  "asset_generated": false,
+  "evidence_sha256": "8da947897d04bf1d5a7f58d58619b7454db89881f1f27a80cd8b1895a5689fd7"
+}

@@ -4,6 +4,6 @@
 - total_lines: `250`
 - valid_json_lines: `250`
 - slug_order_matches_manifest: `True`
-- ready_count: `230`
+- ready_count: `240`
 - repair_required_count: `0`
-- blocked_count: `20`
+- blocked_count: `10`
