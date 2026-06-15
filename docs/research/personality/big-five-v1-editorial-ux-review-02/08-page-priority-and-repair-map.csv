@@ -1,0 +1,35 @@
+priority,locale,entity_type,code,word_count,depth_score,duplicate_pairs,internal_wording,recommended_action,url
+P0,en,polarity,high-openness,552,7,9,true,remove internal package wording; rewrite visible summary and quick answer,https://www.fermatmind.com/en/personality/big-five/high-openness
+P0,en,polarity,low-openness,328,6,9,false,rewrite repeated sections with trait-specific examples and structure,https://www.fermatmind.com/en/personality/big-five/low-openness
+P0,en,polarity,high-conscientiousness,552,7,9,true,remove internal package wording; rewrite visible summary and quick answer,https://www.fermatmind.com/en/personality/big-five/high-conscientiousness
+P0,en,polarity,low-conscientiousness,324,6,9,false,rewrite repeated sections with trait-specific examples and structure,https://www.fermatmind.com/en/personality/big-five/low-conscientiousness
+P0,en,polarity,high-extraversion,552,7,9,true,remove internal package wording; rewrite visible summary and quick answer,https://www.fermatmind.com/en/personality/big-five/high-extraversion
+P0,en,polarity,low-extraversion,330,6,9,false,rewrite repeated sections with trait-specific examples and structure,https://www.fermatmind.com/en/personality/big-five/low-extraversion
+P0,en,polarity,high-agreeableness,552,7,9,true,remove internal package wording; rewrite visible summary and quick answer,https://www.fermatmind.com/en/personality/big-five/high-agreeableness
+P0,en,polarity,low-agreeableness,324,6,9,false,rewrite repeated sections with trait-specific examples and structure,https://www.fermatmind.com/en/personality/big-five/low-agreeableness
+P0,en,polarity,high-neuroticism,357,6,9,false,rewrite repeated sections with trait-specific examples and structure,https://www.fermatmind.com/en/personality/big-five/high-neuroticism
+P0,en,polarity,emotional-stability,337,6,9,false,rewrite repeated sections with trait-specific examples and structure,https://www.fermatmind.com/en/personality/big-five/emotional-stability
+P0,zh-CN,polarity,high-openness,672,8,9,false,rewrite repeated sections with trait-specific examples and structure,https://www.fermatmind.com/zh/personality/big-five/high-openness
+P0,zh-CN,polarity,low-openness,1083,9,9,true,remove internal package wording; rewrite visible summary and quick answer,https://www.fermatmind.com/zh/personality/big-five/low-openness
+P0,zh-CN,polarity,high-conscientiousness,675,8,9,false,rewrite repeated sections with trait-specific examples and structure,https://www.fermatmind.com/zh/personality/big-five/high-conscientiousness
+P0,zh-CN,polarity,low-conscientiousness,1092,9,9,true,remove internal package wording; rewrite visible summary and quick answer,https://www.fermatmind.com/zh/personality/big-five/low-conscientiousness
+P0,zh-CN,polarity,high-extraversion,684,8,9,false,rewrite repeated sections with trait-specific examples and structure,https://www.fermatmind.com/zh/personality/big-five/high-extraversion
+P0,zh-CN,polarity,low-extraversion,1087,9,9,true,remove internal package wording; rewrite visible summary and quick answer,https://www.fermatmind.com/zh/personality/big-five/low-extraversion
+P0,zh-CN,polarity,high-agreeableness,671,8,9,false,rewrite repeated sections with trait-specific examples and structure,https://www.fermatmind.com/zh/personality/big-five/high-agreeableness
+P0,zh-CN,polarity,low-agreeableness,1088,9,9,true,remove internal package wording; rewrite visible summary and quick answer,https://www.fermatmind.com/zh/personality/big-five/low-agreeableness
+P0,zh-CN,polarity,high-neuroticism,723,8,9,false,rewrite repeated sections with trait-specific examples and structure,https://www.fermatmind.com/zh/personality/big-five/high-neuroticism
+P0,zh-CN,polarity,emotional-stability,703,8,9,false,rewrite repeated sections with trait-specific examples and structure,https://www.fermatmind.com/zh/personality/big-five/emotional-stability
+P0,en,hub,big-five,529,8,0,true,remove internal package wording; rewrite visible summary and quick answer,https://www.fermatmind.com/en/personality/big-five
+P1,en,domain,openness,302,7,4,false,expand page-specific examples and practical interpretation,https://www.fermatmind.com/en/personality/big-five/openness
+P1,en,domain,conscientiousness,300,7,4,false,expand page-specific examples and practical interpretation,https://www.fermatmind.com/en/personality/big-five/conscientiousness
+P1,en,domain,extraversion,304,7,4,false,expand page-specific examples and practical interpretation,https://www.fermatmind.com/en/personality/big-five/extraversion
+P1,en,domain,agreeableness,300,7,4,false,expand page-specific examples and practical interpretation,https://www.fermatmind.com/en/personality/big-five/agreeableness
+P1,en,domain,neuroticism,326,7,4,false,expand page-specific examples and practical interpretation,https://www.fermatmind.com/en/personality/big-five/neuroticism
+P1,zh-CN,domain,openness,664,9,4,false,light polish after P0/P1 fixes,https://www.fermatmind.com/zh/personality/big-five/openness
+P1,zh-CN,domain,conscientiousness,671,9,4,false,light polish after P0/P1 fixes,https://www.fermatmind.com/zh/personality/big-five/conscientiousness
+P1,zh-CN,domain,extraversion,678,9,4,false,light polish after P0/P1 fixes,https://www.fermatmind.com/zh/personality/big-five/extraversion
+P1,zh-CN,domain,agreeableness,669,9,4,false,light polish after P0/P1 fixes,https://www.fermatmind.com/zh/personality/big-five/agreeableness
+P1,zh-CN,domain,neuroticism,710,9,4,false,light polish after P0/P1 fixes,https://www.fermatmind.com/zh/personality/big-five/neuroticism
+P1,en,facet_hub,facets,327,7,0,false,expand page-specific examples and practical interpretation,https://www.fermatmind.com/en/personality/big-five/facets
+P2,zh-CN,hub,big-five,648,8,0,false,light polish after P0/P1 fixes,https://www.fermatmind.com/zh/personality/big-five
+P2,zh-CN,facet_hub,facets,772,9,0,false,light polish after P0/P1 fixes,https://www.fermatmind.com/zh/personality/big-five/facets

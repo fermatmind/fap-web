@@ -1,0 +1,18 @@
+{
+  "generated_at": "2026-06-15T06:38:39.653Z",
+  "total_pages": 34,
+  "status_200": 34,
+  "api_200": 34,
+  "avg_depth": 7.65,
+  "avg_ux": 8.15,
+  "avg_rigor": 8.24,
+  "private_hits": 0,
+  "internal_hits": 9,
+  "unsafe_no_go_hits": 0,
+  "duplicate_pairs_ge_072": 110,
+  "min_word_count": 300,
+  "max_word_count": 1092,
+  "go_for_publish": false,
+  "go_for_editorial_polish_pr": true,
+  "verdict": "GO for editorial polish planning; NO-GO for publish/indexability"
+}
