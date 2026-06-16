@@ -6,6 +6,7 @@ import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { ClaimGuard } from "@/components/career/ClaimGuard";
 import { CareerDisplaySurface } from "@/components/career/display/CareerDisplaySurface";
 import { CareerExplainabilityPanel } from "@/components/career/CareerExplainabilityPanel";
+import { CareerSalaryAssetPreviewSection } from "@/components/career/salary/CareerSalaryAssetPreviewSection";
 import { StrainRadar } from "@/components/career/StrainRadar";
 import { CareerProjectionDeltaPanel } from "@/components/career/timeline/CareerProjectionDeltaPanel";
 import { CareerProjectionTimeline } from "@/components/career/timeline/CareerProjectionTimeline";
@@ -39,6 +40,7 @@ import { fetchCareerFirstWaveNextStepLinks } from "@/lib/career/api/fetchCareerF
 import { fetchCareerJobExplainability } from "@/lib/career/api/fetchCareerJobExplainability";
 import { fetchCareerJobBundle } from "@/lib/career/api/fetchCareerJobBundle";
 import { fetchCareerRuntimeConfig } from "@/lib/career/api/fetchCareerRuntimeConfig";
+import { fetchCareerSalaryAssetPreview } from "@/lib/career/api/fetchCareerSalaryAssetPreview";
 import {
   buildCareerFamilyFrontendUrl,
   buildCareerJobFrontendUrl,
@@ -192,6 +194,10 @@ function shouldRedirectEnglishJobDetailToChinese(job: CareerJobBundleAdapter, lo
 const loadCareerJobBundle = cache(async (locale: Locale, slug: string): Promise<CareerJobBundleAdapter | null> => {
   const payload = await fetchCareerJobBundle({ locale, slug, includeSeoAuthority: true });
   return adaptCareerJobBundle({ locale, requestedSlug: slug, payload });
+});
+
+const loadCareerSalaryAssetPreview = cache(async (locale: Locale, slug: string) => {
+  return fetchCareerSalaryAssetPreview({ locale, slug });
 });
 
 async function resolveCareerJobSearchParams(
@@ -829,6 +835,7 @@ export default async function CareerJobDetailPage({
   const hasInboundAttribution = Object.keys(displayCtaAttributionParams).length > 0;
   const displayCtaLandingPath = appendAttributionParamsToHref(jobDetailLandingPath, displayCtaAttributionParams);
   const displaySurface = job.displaySurfaceV1;
+  const salaryAssetPreview = await loadCareerSalaryAssetPreview(locale, job.slug);
 
   if (displaySurface) {
     const displayFAQJsonLd = buildCareerDisplayFAQPageJsonLd(displaySurface);
@@ -865,6 +872,7 @@ export default async function CareerJobDetailPage({
             ctaAttributionParams={displayCtaAttributionParams}
             ctaLandingPath={displayCtaLandingPath}
           />
+          <CareerSalaryAssetPreviewSection asset={salaryAssetPreview} locale={locale} />
         </Container>
       </main>
     );
@@ -929,6 +937,7 @@ export default async function CareerJobDetailPage({
               {job.titles.canonicalEn ? <p className="m-0 text-base leading-7 text-slate-500">{job.titles.canonicalEn}</p> : null}
             </section>
             <CareerJobDocument bodyMd={visibleContentBodyMd} title={job.title} locale={locale} />
+            <CareerSalaryAssetPreviewSection asset={salaryAssetPreview} locale={locale} />
             {publishedIndexAuthority ? (
               <NextStepRail
                 title="下一步"
@@ -1011,6 +1020,8 @@ export default async function CareerJobDetailPage({
             />
           </div>
         </section>
+
+        <CareerSalaryAssetPreviewSection asset={salaryAssetPreview} locale={locale} />
 
         <section className="grid gap-4 lg:grid-cols-2" data-testid="career-job-v1-fit-and-facts">
           <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm md:p-6">
