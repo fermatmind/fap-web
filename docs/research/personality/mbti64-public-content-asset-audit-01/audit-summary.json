@@ -1,0 +1,34 @@
+{
+  "audit_date": "2026-06-16",
+  "scope": "Read-only audit for MBTI64 public content pages plus bilingual A/T comparison pages; no runtime changes.",
+  "counts": {
+    "hub_pages": 2,
+    "variant_pages": 64,
+    "comparison_pages": 32,
+    "total_urls_audited": 98,
+    "status_200": 98,
+    "index_follow": 98,
+    "thin_h2_structure": 64,
+    "weak_personality_internal_links": 64,
+    "no_jsonld_detected": 0,
+    "hreflang_under_2": 0
+  },
+  "gsc_screenshot_seed_paths": {
+    "/en/personality/intj-a-vs-intj-t": {
+      "gsc_impressions_24h_screenshot": "18",
+      "gsc_clicks_24h_screenshot": "0"
+    },
+    "/zh/personality/istj-a": {
+      "gsc_impressions_24h_screenshot": "11",
+      "gsc_clicks_24h_screenshot": "0"
+    },
+    "/en/personality/intp-a-vs-intp-t": {
+      "gsc_impressions_24h_screenshot": "10",
+      "gsc_clicks_24h_screenshot": "0"
+    },
+    "/zh/personality/infp-t": {
+      "gsc_impressions_24h_screenshot": "GSC recommendation: more impressions than usual",
+      "gsc_clicks_24h_screenshot": "unknown"
+    }
+  }
+}
