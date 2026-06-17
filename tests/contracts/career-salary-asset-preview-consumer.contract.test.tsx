@@ -3,9 +3,9 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import { CareerSalaryAssetPreviewSection } from "@/components/career/salary/CareerSalaryAssetPreviewSection";
 import { ApiError, apiClient } from "@/lib/api-client";
 import {
-  CAREER_SALARY_ASSET_PREVIEW_SLUGS,
+  hasCareerSalaryAssetPreviewSlug,
   isCareerSalaryAssetPreviewEnabled,
-  isCareerSalaryAssetPreviewSlug,
+  shouldFetchCareerSalaryAssetPreview,
 } from "@/lib/career/salaryAssetPreviewConfig";
 import { fetchCareerSalaryAssetPreview, type CareerSalaryAssetPreviewAsset } from "@/lib/career/api/fetchCareerSalaryAssetPreview";
 
@@ -21,10 +21,10 @@ vi.mock("@/lib/api-client", async () => {
 
 const mockedGet = vi.mocked(apiClient.get);
 
-function buildAsset(locale: "zh-CN" | "en" = "en"): CareerSalaryAssetPreviewAsset {
+function buildAsset(locale: "zh-CN" | "en" = "en", slug = "accountants-and-auditors"): CareerSalaryAssetPreviewAsset {
   const isZh = locale === "zh-CN";
   return {
-    slug: "accountants-and-auditors",
+    slug,
     locale,
     heading: isZh ? "会计师和审计师薪资与就业参考" : "Accountants and auditors salary reference",
     summary: {
@@ -80,21 +80,24 @@ describe("career salary asset preview consumer", () => {
     delete process.env.FAP_CAREER_SALARY_ASSET_PREVIEW_ENABLED;
   });
 
-  it("keeps the preview reader gated by server flag and 10-slug allowlist", () => {
+  it("keeps the preview reader gated by server flag and backend availability instead of a frontend slug allowlist", () => {
     expect(isCareerSalaryAssetPreviewEnabled()).toBe(false);
+    expect(shouldFetchCareerSalaryAssetPreview("accountants-and-auditors")).toBe(false);
+
     process.env.FAP_CAREER_SALARY_ASSET_PREVIEW_ENABLED = "true";
     expect(isCareerSalaryAssetPreviewEnabled()).toBe(true);
-    expect(CAREER_SALARY_ASSET_PREVIEW_SLUGS).toHaveLength(10);
-    expect(isCareerSalaryAssetPreviewSlug("accountants-and-auditors")).toBe(true);
-    expect(isCareerSalaryAssetPreviewSlug("registered-nurses")).toBe(false);
+    expect(hasCareerSalaryAssetPreviewSlug("accountants-and-auditors")).toBe(true);
+    expect(hasCareerSalaryAssetPreviewSlug("registered-nurses")).toBe(true);
+    expect(hasCareerSalaryAssetPreviewSlug(" ")).toBe(false);
+    expect(shouldFetchCareerSalaryAssetPreview("registered-nurses")).toBe(true);
   });
 
-  it("does not call the preview API when the flag is closed or slug is outside the allowlist", async () => {
+  it("does not call the preview API when the flag is closed or the slug is blank", async () => {
     await expect(fetchCareerSalaryAssetPreview({ locale: "en", slug: "accountants-and-auditors" })).resolves.toBeNull();
     expect(mockedGet).not.toHaveBeenCalled();
 
     process.env.FAP_CAREER_SALARY_ASSET_PREVIEW_ENABLED = "true";
-    await expect(fetchCareerSalaryAssetPreview({ locale: "en", slug: "registered-nurses" })).resolves.toBeNull();
+    await expect(fetchCareerSalaryAssetPreview({ locale: "en", slug: " " })).resolves.toBeNull();
     expect(mockedGet).not.toHaveBeenCalled();
   });
 
@@ -124,6 +127,22 @@ describe("career salary asset preview consumer", () => {
     );
   });
 
+  it("fetches 1046-scale backend-governed preview assets beyond the original ten slug smoke list", async () => {
+    process.env.FAP_CAREER_SALARY_ASSET_PREVIEW_ENABLED = "true";
+    mockedGet.mockResolvedValueOnce({ ok: true, preview: true, salary_asset_v1: buildAsset("en", "registered-nurses") });
+
+    const asset = await fetchCareerSalaryAssetPreview({ locale: "en", slug: "registered-nurses" });
+
+    expect(asset?.slug).toBe("registered-nurses");
+    expect(mockedGet).toHaveBeenCalledWith(
+      "/v0.5/career/jobs/registered-nurses/salary-asset?locale=en",
+      expect.objectContaining({
+        locale: "en",
+        skipAuth: true,
+      })
+    );
+  });
+
   it("renders reader-facing salary preview without raw enum or lineage leakage", () => {
     render(<CareerSalaryAssetPreviewSection asset={buildAsset("en")} locale="en" />);
 
@@ -141,6 +160,22 @@ describe("career salary asset preview consumer", () => {
     expect(section).not.toHaveTextContent("salary_and_outlook");
     expect(section).not.toHaveTextContent("estimate_row_hash");
     expect(section.textContent).not.toMatch(/[\u3400-\u9fff]/);
+  });
+
+  it("renders reader-safe sources even when backend projection omits internal source ids", () => {
+    const asset = buildAsset("en");
+    asset.sources = [
+      { market: "CN", name: "JobUI", url: "https://www.jobui.com/salary/quanguo-zhongjihuijishi/" },
+      { market: "US", name: "BLS OOH", url: "https://www.bls.gov/ooh/business-and-financial/accountants-and-auditors.htm" },
+    ];
+
+    render(<CareerSalaryAssetPreviewSection asset={asset} locale="en" />);
+
+    const section = screen.getByTestId("career-salary-asset-preview");
+    expect(section).toHaveTextContent("CN: JobUI");
+    expect(section).toHaveTextContent("US: BLS OOH");
+    expect(section).not.toHaveTextContent("cn_001");
+    expect(section).not.toHaveTextContent("us_001");
   });
 
   it("renders nothing when the backend asset is absent", () => {

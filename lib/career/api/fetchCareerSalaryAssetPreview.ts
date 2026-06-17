@@ -6,7 +6,7 @@ import { shouldFetchCareerSalaryAssetPreview } from "@/lib/career/salaryAssetPre
 const CAREER_SALARY_ASSET_FETCH_TIMEOUT_MS = 12_000;
 
 export type CareerSalaryAssetPreviewSource = {
-  source_id: string;
+  source_id?: string;
   market: "CN" | "US" | "UK" | "EU" | string;
   name: string;
   url: string;
@@ -100,16 +100,20 @@ function adaptSources(value: unknown): CareerSalaryAssetPreviewSource[] {
 
   return value
     .map((item) => {
-      if (!isRecord(item) || !isString(item.source_id) || !isString(item.market) || !isString(item.name) || !isString(item.url)) {
+      if (!isRecord(item) || !isString(item.market) || !isString(item.name) || !isString(item.url)) {
         return null;
       }
 
-      return {
-        source_id: item.source_id,
+      const source: CareerSalaryAssetPreviewSource = {
         market: item.market,
         name: item.name,
         url: item.url,
       };
+      if (isString(item.source_id)) {
+        source.source_id = item.source_id;
+      }
+
+      return source;
     })
     .filter((item): item is CareerSalaryAssetPreviewSource => item !== null);
 }
