@@ -1,0 +1,30 @@
+{
+  "artifact_type": "career_salary_1046_editorial_review_report",
+  "version": "v3.6.1046.editorial_review.1",
+  "decision": "EDITORIAL_QA_PASS",
+  "source_asset_sha256": "c62c3c5b515034cebcec1a7429b82309092664d6615b01ce64cd02e798ff9dd4",
+  "row_count": 2092,
+  "slug_count": 1046,
+  "locale_counts": {
+    "zh-CN": 1046,
+    "en": 1046
+  },
+  "rejected_count": 0,
+  "blocked_count": 0,
+  "production_import_approved": false,
+  "high_risk_reviewed_slug_count": 89,
+  "category_counts": {
+    "finance_legal_business": 72,
+    "variable_pay_or_performance": 61,
+    "wildlife_or_environment": 46,
+    "engineering_or_software": 89,
+    "medical_or_health": 86,
+    "general_control": 460,
+    "teacher_or_education": 81,
+    "trade_or_service": 188,
+    "military_or_command": 25
+  },
+  "high_risk_sample_path": "generated/career-salary-v3-6-1046-editorial-review-package/high_risk_editorial_sample.csv",
+  "approval_manifest_path": "generated/career-salary-v3-6-1046-editorial-review-package/approval_manifest.json",
+  "approval_manifest_sha256": "95b4690df6a96b2c14f02195cf4f6993d575e79b8a2c250ce055f1879c9ead0d"
+}
