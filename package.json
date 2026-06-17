@@ -47,7 +47,7 @@
     "test:e2e:visual:update:linux": "bash scripts/visual/update_linux_snapshots.sh",
     "verify:release-freeze": "bash scripts/release_freeze_verify.sh",
     "release:gate": "bash scripts/release_gate.sh",
-    "postbuild": "pnpm seo:generate-sitemap"
+    "postbuild": "pnpm seo:generate-sitemap && bash scripts/sync_standalone_assets.sh"
   },
   "dependencies": {
     "clsx": "^2.1.1",
