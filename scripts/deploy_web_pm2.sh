@@ -26,6 +26,7 @@ CONTENT_RELEASE_REVALIDATE_SLUG="${CONTENT_RELEASE_REVALIDATE_SLUG:-help-privacy
 CONTENT_RELEASE_REVALIDATE_PATHS="${CONTENT_RELEASE_REVALIDATE_PATHS:-/help/privacy,/support}"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROLLING_RELOAD_SCRIPT="${ROLLING_RELOAD_SCRIPT:-${SCRIPT_DIR}/rolling_reload_pm2.sh}"
+SYNC_STANDALONE_ASSETS_SCRIPT="${SYNC_STANDALONE_ASSETS_SCRIPT:-${SCRIPT_DIR}/sync_standalone_assets.sh}"
 
 log() {
   printf '[deploy_web_pm2] %s\n' "$*"
@@ -183,10 +184,7 @@ if [[ ! -f .next/standalone/server.js ]]; then
 fi
 
 log "sync standalone static assets"
-mkdir -p .next/standalone/public
-rsync -a --delete public/ .next/standalone/public/
-mkdir -p .next/standalone/.next
-rsync -a --delete .next/static/ .next/standalone/.next/static/
+bash "$SYNC_STANDALONE_ASSETS_SCRIPT"
 
 if [[ ! -f ecosystem.config.cjs ]]; then
   log "missing PM2 config: ecosystem.config.cjs"
