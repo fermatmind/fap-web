@@ -839,10 +839,16 @@ export default async function CareerJobDetailPage({
 
   if (displaySurface) {
     const displayFAQJsonLd = buildCareerDisplayFAQPageJsonLd(displaySurface);
+    const breadcrumbItems = [
+      { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
+      { label: locale === "zh" ? "职业" : "Career", href: localizedPath("/career", locale) },
+      { label: locale === "zh" ? "职业库" : "Jobs", href: localizedPath("/career/jobs", locale) },
+      { label: job.title },
+    ];
 
     return (
       <main className="min-h-screen bg-slate-50">
-        <Container as="div" className="space-y-8 py-8 md:space-y-10 md:py-12">
+        <Container as="div" className="py-4 md:py-8">
           <AnalyticsPageViewTracker
             eventName={CAREER_TRACKING_EVENTS.jobDetailView}
             properties={buildCareerAttributionPayload({
@@ -859,21 +865,14 @@ export default async function CareerJobDetailPage({
           {shouldRenderOccupationJsonLd(job) ? <JsonLd id={`career-job-occupation-${job.slug}`} data={job.structuredData.occupation} /> : null}
           {job.structuredData.breadcrumbList ? <JsonLd id={`career-job-breadcrumb-${job.slug}`} data={job.structuredData.breadcrumbList} /> : null}
           {displayFAQJsonLd ? <JsonLd id={`career-job-display-faq-${job.slug}`} data={displayFAQJsonLd} /> : null}
-          <Breadcrumb
-            items={[
-              { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
-              { label: locale === "zh" ? "职业" : "Career", href: localizedPath("/career", locale) },
-              { label: locale === "zh" ? "职业库" : "Jobs", href: localizedPath("/career/jobs", locale) },
-              { label: job.title },
-            ]}
-          />
           <CareerDisplaySurface
             surface={displaySurface}
+            breadcrumbItems={breadcrumbItems}
             ctaAttributionParams={displayCtaAttributionParams}
             ctaLandingPath={displayCtaLandingPath}
             suppressLegacySalaryMetadata={salaryAssetPreview !== null}
+            salarySlot={<CareerSalaryAssetPreviewSection asset={salaryAssetPreview} locale={locale} />}
           />
-          <CareerSalaryAssetPreviewSection asset={salaryAssetPreview} locale={locale} />
         </Container>
       </main>
     );

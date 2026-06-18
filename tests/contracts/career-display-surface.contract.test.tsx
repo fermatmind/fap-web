@@ -68,11 +68,13 @@ describe("career display surface contract", () => {
     expect(screen.getByTestId("ai-impact-block")).toHaveTextContent("Will AI Replace Actors?");
     expect(screen.getByTestId("career-risks-block")).toHaveTextContent("What Are the Biggest Risks of Acting?");
     expect(screen.getByTestId("contract-risks-block")).toHaveTextContent("Contract and Project Risks");
-    expect(screen.getByTestId("next-steps-block")).toHaveTextContent("What Should You Prepare Next?");
+    expect(screen.getByTestId("career-decision-action-block")).toHaveTextContent("Next: verify fit with FermatMind tests");
+    expect(screen.queryByTestId("next-steps-block")).not.toBeInTheDocument();
     expect(screen.getByTestId("career-display-faq")).toHaveTextContent("FAQ");
-    expect(screen.getByTestId("source-list")).toHaveTextContent("Sources");
-    expect(screen.getByTestId("boundary-notice")).toHaveTextContent("Boundary notice");
-    expect(screen.getByTestId("career-display-cta")).toHaveTextContent("Next step");
+    expect(screen.getByTestId("career-source-disclosure")).toHaveTextContent("Sources and update notes");
+    expect(screen.getByTestId("source-list")).toHaveTextContent("O*NET");
+    expect(screen.queryByTestId("related-next-pages")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("career-display-cta")).not.toBeInTheDocument();
   });
 
   it.each([
@@ -101,7 +103,7 @@ describe("career display surface contract", () => {
     expect(screen.getByTestId("career-snapshot-primary")).toHaveTextContent("Career Snapshot: U.S. Reference");
     expect(screen.getByTestId("career-display-faq")).toHaveTextContent(`Is ${titleEn} a good career fit?`);
     expect(screen.getByTestId("source-list")).toHaveTextContent("O*NET Online");
-    expect(screen.getByTestId("boundary-notice")).toHaveTextContent("Last reviewed: 2026-05-03");
+    expect(screen.getByTestId("career-source-disclosure")).toHaveTextContent("Last reviewed: 2026-05-03");
   });
 
   it.each(D5_SELECTED_DISPLAY_SLUGS)("adapts D5 selected display surfaces for %s", (slug, titleEn) => {
@@ -118,18 +120,24 @@ describe("career display surface contract", () => {
     render(<CareerDisplaySurface surface={surface} />);
 
     expect(screen.getByTestId("career-display-surface")).toHaveTextContent(titleEn);
-    expect(screen.getByTestId("career-display-cta")).toHaveTextContent("Measure my career interests");
+    expect(screen.getByTestId("career-decision-action-block")).toHaveTextContent("Measure my career interests");
     expect(screen.getByTestId("career-display-faq")).toHaveTextContent(`Is ${titleEn} a good career fit?`);
   });
 
   it("adapts real backend component-keyed selected payloads for Chinese locale", () => {
+    const fixture = buildSelectedCareerDisplaySurfaceFixture({
+      slug: "data-scientists",
+      locale: "zh",
+      titleEn: "Data Scientists",
+      titleZh: "数据科学家",
+    });
+    fixture.page.content.primary_cta.label = "Take the Holland / RIASEC Career Interest Test";
+    fixture.page.content.primary_cta.href = "/en/tests/holland-career-interest-test-riasec";
+    fixture.page.content.final_cta.label = "Take the Holland / RIASEC Career Interest Test";
+    fixture.page.content.final_cta.href = "/en/tests/holland-career-interest-test-riasec";
+
     const surface = adaptCareerDisplaySurface(
-      buildSelectedCareerDisplaySurfaceFixture({
-        slug: "data-scientists",
-        locale: "zh",
-        titleEn: "Data Scientists",
-        titleZh: "数据科学家",
-      }),
+      fixture,
       "zh-CN"
     );
 
@@ -138,6 +146,23 @@ describe("career display surface contract", () => {
     expect(surface?.subject.path).toBe("/zh/career/jobs/data-scientists");
     expect(surface?.hero.primaryCta.href).toBe("/zh/tests/holland-career-interest-test-riasec");
     expect(surface?.faqItems[0]?.question).toBe("数据科学家 适合普通人探索吗？");
+
+    if (!surface) {
+      throw new Error("Expected Chinese display surface fixture to adapt");
+    }
+
+    render(<CareerDisplaySurface surface={surface} />);
+
+    expect(screen.queryByText("Take the Holland / RIASEC Career Interest Test")).not.toBeInTheDocument();
+    expect(screen.queryByText("下一步页面")).not.toBeInTheDocument();
+
+    const localizedCtas = screen.getAllByRole("link", { name: "测我的职业兴趣是否匹配" });
+    expect(localizedCtas.length).toBeGreaterThanOrEqual(2);
+    localizedCtas.forEach((cta) => {
+      const href = cta.getAttribute("href") ?? "";
+      expect(href).toMatch(/^\/zh\/tests\/holland-career-interest-test-riasec(?:\?|$)/);
+      expect(href).not.toContain("/en/");
+    });
   });
 
   it("adapts component-keyed AI explanation objects without accepting unsafe schema", () => {
@@ -180,8 +205,8 @@ describe("career display surface contract", () => {
     expect(screen.queryByTestId("ai-impact-block")).not.toBeInTheDocument();
     expect(screen.getByTestId("claim-permission-notice-salary")).toHaveTextContent("Direct salary comparison is hidden");
     expect(screen.queryByText("Median hourly wage")).not.toBeInTheDocument();
-    expect(screen.getByTestId("boundary-notice")).toHaveTextContent("Boundary notice");
-    expect(screen.getByTestId("career-display-cta")).toHaveTextContent("Measure my career interests");
+    expect(screen.getByTestId("career-source-disclosure")).toHaveTextContent("Sources and update notes");
+    expect(screen.getByTestId("career-decision-action-block")).toHaveTextContent("Measure my career interests");
   });
 
   it("rejects unsafe backend CTA hrefs before they reach Link sinks", () => {
@@ -261,7 +286,7 @@ describe("career display surface contract", () => {
     render(<CareerDisplaySurface surface={surface} />);
 
     expect(screen.getByTestId("career-display-surface")).toHaveTextContent(titleEn);
-    expect(screen.getByTestId("career-display-cta")).toHaveTextContent("Measure my career interests");
+    expect(screen.getByTestId("career-decision-action-block")).toHaveTextContent("Measure my career interests");
     expect(screen.getByTestId("career-display-faq")).toHaveTextContent(`Is ${titleEn} a good career fit?`);
   });
 
