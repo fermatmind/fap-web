@@ -153,10 +153,11 @@ function safeForRelatedTest(candidate) {
 
 function markdownTable(rows, fields) {
   if (!rows.length) return "_None_";
+  const escapeCell = (value) => String(value ?? "").replace(/\\/g, "\\\\").replace(/\|/g, "\\|");
   return [
     `| ${fields.join(" | ")} |`,
     `| ${fields.map(() => "---").join(" | ")} |`,
-    ...rows.map((row) => `| ${fields.map((field) => String(row[field] ?? "").replace(/\|/g, "\\|")).join(" | ")} |`),
+    ...rows.map((row) => `| ${fields.map((field) => escapeCell(row[field])).join(" | ")} |`),
   ].join("\n");
 }
 
