@@ -1,0 +1,57 @@
+{
+  "artifact_type": "career_salary_1046_post_import_seo_safety_audit",
+  "version": "v1",
+  "final_conclusion": "POST_IMPORT_SEO_SAFE",
+  "generated_at": "2026-06-18T02:36:21.242Z",
+  "site_url": "https://fermatmind.com",
+  "production_import": {
+    "report_path": "/Users/rainie/Desktop/GitHub/fap-web/generated/career-salary-1046-production-import-ops/final_report.md",
+    "report_present": true,
+    "expected_asset_sha256": "c62c3c5b515034cebcec1a7429b82309092664d6615b01ce64cd02e798ff9dd4",
+    "report_contains_pass_verdict": true,
+    "report_contains_expected_asset_sha256": true
+  },
+  "sample": {
+    "slug_count": 14,
+    "locale_count": 2,
+    "page_count": 28,
+    "slugs": [
+      "accountants-and-auditors",
+      "actuaries",
+      "computer-programmers",
+      "agents-and-business-managers-of-artists-performers-and-athletes",
+      "writers-and-authors",
+      "zoologists-and-wildlife-biologists",
+      "wind-turbine-technicians",
+      "woodworking-machine-setters-operators-and-tenders-except-sawing",
+      "air-traffic-controllers",
+      "athletes-and-sports-competitors",
+      "command-and-control-center-officers",
+      "registered-nurses",
+      "elementary-school-teachers-except-special-education",
+      "commercial-pilots"
+    ]
+  },
+  "totals": {
+    "sitemap_llms_sources_checked": 3,
+    "sitemap_llms_issue_count": 0,
+    "sample_pages_checked": 28,
+    "sample_pages_ready": 28,
+    "sample_pages_failed": 0,
+    "private_noindex_pages_checked": 6,
+    "private_noindex_pages_ready": 6,
+    "private_noindex_pages_failed": 0,
+    "jsonld_issue_count": 0
+  },
+  "checks": {
+    "sitemap_llms_pass": true,
+    "canonical_noindex_pass": true,
+    "jsonld_schema_pass": true,
+    "rendering_pass": true
+  },
+  "notes": [
+    "Audit-only PR: this script performs live production reads and writes report files only.",
+    "No sitemap, llms.txt, canonical, noindex, JSON-LD, frontend rendering, salary asset, evidence, or estimate behavior is changed by this audit.",
+    "Existing full live sitemap URL checker is intentionally not embedded as the blocking guard here because it checks every live sitemap URL and exceeded interactive runtime on the current production sitemap size. This audit still fully parses sitemap/llms URL sets and live-checks the post-import salary sample plus private noindex samples."
+  ]
+}

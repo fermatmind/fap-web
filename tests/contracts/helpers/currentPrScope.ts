@@ -224,6 +224,19 @@ const SEO_SITEMAP_DIFF_04_ALLOWED_FILES = new Set([
   "tests/contracts/sitemap-source-live-diff-report.contract.test.ts",
 ]);
 
+const CAREER_SALARY_POST_IMPORT_SEO_SAFETY_AUDIT_ALLOWED_FILES = new Set([
+  "generated/career-salary-1046-post-import-seo-safety-audit/audit.json",
+  "generated/career-salary-1046-post-import-seo-safety-audit/audit.md",
+  "generated/career-salary-1046-post-import-seo-safety-audit/jsonld_schema_review.json",
+  "generated/career-salary-1046-post-import-seo-safety-audit/rendering_smoke.json",
+  "generated/career-salary-1046-post-import-seo-safety-audit/sample_pages.csv",
+  "generated/career-salary-1046-post-import-seo-safety-audit/sha256_manifest.json",
+  "generated/career-salary-1046-post-import-seo-safety-audit/sitemap_llms_review.json",
+  "scripts/seo/audit-career-salary-post-import-seo-safety.mjs",
+  "tests/contracts/career-salary-post-import-seo-safety-audit.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 const SEO_CONV_TRACKING_01_ALLOWED_FILES = new Set([
   "docs/codex/pr-train-state.json",
   "docs/codex/pr-train.yaml",
@@ -3006,6 +3019,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
       RIASEC_V2_POST_PUBLISH_SMOKE_02_ALLOWED_FILES.has(file) ||
       RIASEC_V2_SEARCH_SUBMISSION_PREFLIGHT_01_ALLOWED_FILES.has(file)
     );
+  }
+
+  if (CURRENT_BRANCH === "codex/career-salary-post-import-seo-safety-audit") {
+    return CAREER_SALARY_POST_IMPORT_SEO_SAFETY_AUDIT_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/seo-conv-tracking-01") {
