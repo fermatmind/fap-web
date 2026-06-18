@@ -229,6 +229,25 @@ describe("career display surface contract", () => {
     expect(screen.queryByText(/What salary can I expect/i)).not.toBeInTheDocument();
   });
 
+  it("suppresses legacy salary and search-intent metadata when a salary asset is rendered", () => {
+    const surface = adaptCareerDisplaySurface(
+      buildSelectedCareerDisplaySurfaceFixture({
+        slug: "accountants-and-auditors",
+        titleEn: "Accountants and Auditors",
+      }),
+      "en"
+    );
+
+    render(<CareerDisplaySurface surface={surface} suppressLegacySalaryMetadata />);
+
+    expect(screen.getByTestId("career-display-surface")).toHaveTextContent("Accountants and Auditors");
+    expect(screen.queryByText("Search intent")).not.toBeInTheDocument();
+    expect(screen.queryByText("career_exploration")).not.toBeInTheDocument();
+    expect(screen.queryByText("career_fit")).not.toBeInTheDocument();
+    expect(screen.queryByText("Salary data type")).not.toBeInTheDocument();
+    expect(screen.queryByText("official_reference")).not.toBeInTheDocument();
+  });
+
   it.each(D8_ACTIVE_DISPLAY_SLUGS)("adapts D8 validator-eligible display surfaces for %s", (slug, titleEn) => {
     const surface = adaptCareerDisplaySurface(
       buildSelectedCareerDisplaySurfaceFixture({ slug, titleEn }),
