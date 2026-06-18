@@ -168,4 +168,86 @@ describe("SEO-OPS-02D article CMS rich-content CTA attribution contract", () => 
 
     expectSafeArticleAttributionHref(cta.getAttribute("href") ?? "");
   });
+
+  it("can hide the article answer-surface comparison label without dropping comparison cards", () => {
+    const surface: AnswerSurfaceViewModel = {
+      version: "answer.surface.v1",
+      answerContractVersion: "answer.surface.v1",
+      answerFingerprint: "seo-ops-02d-answer-surface-comparison",
+      answerScope: "public_indexable_detail",
+      surfaceType: "article_public_detail",
+      summaryBlocks: [],
+      faqBlocks: [],
+      compareBlocks: [
+        {
+          key: "category",
+          title: "内容分类",
+          body: "职业决策",
+          href: null,
+          kind: "comparison",
+        },
+      ],
+      sceneSummaryBlocks: [],
+      nextStepBlocks: [],
+      answerBundle: [],
+      evidenceRefs: [],
+      publicSafetyState: null,
+      indexabilityState: "indexable",
+      attributionScope: "article_detail",
+      seoSurfaceRef: null,
+      landingSurfaceRef: null,
+      publicSurfaceRef: null,
+      primaryContentRef: `article:${sourceSlug}`,
+      relatedSurfaceKeys: [],
+      runtimeArtifactRef: null,
+    };
+
+    render(<AnswerSurfaceSection surface={surface} locale="zh" pageFamily="article_detail" hideCompareLabel />);
+
+    expect(screen.queryByText("对比线索")).not.toBeInTheDocument();
+    expect(screen.getByText("内容分类")).toBeInTheDocument();
+    expect(screen.getByText("职业决策")).toBeInTheDocument();
+  });
+
+  it("can render article answer-surface summary without the generic heading or empty second column", () => {
+    const surface: AnswerSurfaceViewModel = {
+      version: "answer.surface.v1",
+      answerContractVersion: "answer.surface.v1",
+      answerFingerprint: "seo-ops-02d-answer-surface-summary",
+      answerScope: "public_indexable_detail",
+      surfaceType: "article_public_detail",
+      summaryBlocks: [
+        {
+          key: "quick_answer",
+          title: "高考志愿选专业：霍兰德、MBTI和职业兴趣测试怎么用",
+          body: "高考志愿填报前，先把测评结果放回现实验证。",
+          href: null,
+          kind: "summary",
+        },
+      ],
+      faqBlocks: [],
+      compareBlocks: [],
+      sceneSummaryBlocks: [],
+      nextStepBlocks: [],
+      answerBundle: [],
+      evidenceRefs: [],
+      publicSafetyState: null,
+      indexabilityState: "indexable",
+      attributionScope: "article_detail",
+      seoSurfaceRef: null,
+      landingSurfaceRef: null,
+      publicSurfaceRef: null,
+      primaryContentRef: `article:${sourceSlug}`,
+      relatedSurfaceKeys: [],
+      runtimeArtifactRef: null,
+    };
+
+    const { container } = render(
+      <AnswerSurfaceSection surface={surface} locale="zh" pageFamily="article_detail" hideHeading expandSingleSummaryBlock />
+    );
+
+    expect(screen.queryByRole("heading", { name: "快速答案" })).not.toBeInTheDocument();
+    expect(screen.getByText("高考志愿选专业：霍兰德、MBTI和职业兴趣测试怎么用")).toBeInTheDocument();
+    expect(container.querySelector('[data-evidence-block="quick_answer"] .md\\:grid-cols-2')).not.toBeInTheDocument();
+  });
 });

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
@@ -7,7 +6,6 @@ import { ArticleResponsiveImage } from "@/components/content/ArticleResponsiveIm
 import { AttributedCmsLinkHydrator } from "@/components/content/AttributedCmsLinkHydrator";
 import { AttributedSanitizedCmsHtml } from "@/components/content/AttributedSanitizedCmsHtml";
 import { RelatedContent } from "@/components/content/RelatedContent";
-import { SeoTrackedCtaLink } from "@/components/cta/SeoTrackedCtaLink";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Badge } from "@/components/ui/badge";
@@ -18,7 +16,6 @@ import {
   type CmsArticle,
   type CmsArticleSeoPayload,
 } from "@/lib/cms/articles";
-import { findLandingCta } from "@/lib/landing/landingSurface";
 import type { RelatedContentItem } from "@/lib/content";
 import { extractInternalPaths, type InternalLinkLabelMap } from "@/lib/content/internalLinkText";
 import { renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
@@ -30,10 +27,6 @@ import {
   buildBreadcrumbJsonLd,
   buildFAQPageJsonLd,
 } from "@/lib/seo/generateSchema";
-import {
-  extractPublicTestDetailPathFromHref,
-  extractTargetTestSlugFromHref,
-} from "@/lib/tracking/seoCtaAttribution";
 import { resolveArticleHreflangGate, resolveArticleJsonLdAuthority, resolveArticleSchemaGate } from "@/lib/seo/articlePersonalityAuthority";
 import { ARTICLE_AUTHOR_NAME, normalizeArticleJsonLdAuthorityPayload } from "@/lib/seo/articleJsonLdAuthority";
 import { buildI18nSeoPassport } from "@/lib/seo/i18nPassport";
@@ -374,13 +367,7 @@ export default async function ArticleDetailPage({
     ...article.tags.map((tag) => tag.name).filter(Boolean),
   ].filter((label): label is string => Boolean(label)).slice(0, 5);
 
-  const backToArticlesCta = findLandingCta(article.landingSurface, "back_to_articles");
-  const topicHubCta = findLandingCta(article.landingSurface, "topic_hub");
-  const articleTestCtas = article.landingSurface?.ctaBundle.filter((cta) => (
-    Boolean(extractPublicTestDetailPathFromHref(cta.href, locale))
-  )) ?? [];
   const articleRuntimeContract = resolveArticleRuntimeContract(article);
-  const hasCmsSidebarCtas = Boolean(backToArticlesCta || topicHubCta || articleTestCtas.length);
   const internalLinkLabels = await buildArticleInternalLinkLabels(article, locale);
 
   const relatedArticles: RelatedContentItem[] = [];
@@ -456,6 +443,9 @@ export default async function ArticleDetailPage({
         surface={article.answerSurface}
         locale={locale}
         testId="article-detail-answer-surface"
+        hideHeading
+        hideCompareLabel
+        expandSingleSummaryBlock
         pageFamily="article_detail"
         seoCtaAttribution={{
           locale,
@@ -467,7 +457,7 @@ export default async function ArticleDetailPage({
         }}
       />
 
-      <div className="grid gap-8 lg:grid-cols-[minmax(0,760px)_minmax(240px,1fr)] lg:items-start">
+      <div className="mx-auto w-full max-w-4xl">
         <article
           id="how-it-works"
           data-testid="article-detail-content"
@@ -485,58 +475,6 @@ export default async function ArticleDetailPage({
             />
           ) : null}
         </article>
-
-        <aside className="space-y-5 border-t border-[var(--fm-border)] pt-5 lg:sticky lg:top-24 lg:border-t-0 lg:pt-0">
-          {hasCmsSidebarCtas ? (
-            <section className="rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface)] p-4 text-sm text-[var(--fm-text-muted)] shadow-[var(--fm-shadow-sm)]">
-              <p className="m-0 font-semibold text-[var(--fm-text)]">{locale === "zh" ? "继续探索" : "Keep exploring"}</p>
-              <div className="mt-3 flex flex-col gap-2">
-                {backToArticlesCta ? (
-                  <Link
-                    href={backToArticlesCta.href}
-                    className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
-                  >
-                    {backToArticlesCta.label}
-                  </Link>
-                ) : null}
-
-                {topicHubCta ? (
-                  <Link href={topicHubCta.href} className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
-                    {topicHubCta.label}
-                  </Link>
-                ) : null}
-
-                {articleTestCtas.map((cta) => (
-                  <SeoTrackedCtaLink
-                    key={cta.key}
-                    href={cta.href}
-                    sourceRouteFamily="article_detail"
-                    sourceSlug={article.slug}
-                    sourcePath={canonicalPath}
-                    contentId={article.id}
-                    translationGroupId={article.translationGroupId}
-                    ctaId={cta.key}
-                    ctaPriority={cta.priority}
-                    targetTestSlug={extractTargetTestSlugFromHref(cta.href) ?? article.relatedTestSlug}
-                    locale={locale}
-                    className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
-                  >
-                    {cta.label}
-                  </SeoTrackedCtaLink>
-                ))}
-              </div>
-            </section>
-          ) : null}
-
-          <section
-            id="limitations"
-            className="rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4 text-sm leading-6 text-[var(--fm-text-muted)]"
-          >
-            {locale === "zh"
-              ? "本内容用于自我认知与教育参考，不构成医疗或法律建议。"
-              : "This content is for self-discovery and educational use, not medical or legal advice."}
-          </section>
-        </aside>
       </div>
 
       <div className="space-y-6">

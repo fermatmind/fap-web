@@ -196,10 +196,13 @@ describe("SEO-OPS-02 article CTA attribution contract", () => {
   it("wires article CTA, test detail, and RIASEC take through shared attribution helpers", () => {
     const seoCtaLink = readFileSync("components/cta/SeoTrackedCtaLink.tsx", "utf8");
     const articlePage = readFileSync("app/(localized)/[locale]/articles/[slug]/page.tsx", "utf8");
+    const articleAnswerSurface = readFileSync("components/content/AnswerSurfaceSection.tsx", "utf8");
     const testDetailPage = readFileSync("app/(localized)/[locale]/tests/[slug]/page.tsx", "utf8");
     const riasecTake = readFileSync("app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient.tsx", "utf8");
 
-    expect(articlePage).toContain("SeoTrackedCtaLink");
+    expect(articlePage).toContain("AnswerSurfaceSection");
+    expect(articlePage).toContain("seoCtaAttribution");
+    expect(articleAnswerSurface).toContain("SeoTrackedCtaLink");
     expect(seoCtaLink).toContain("buildSeoCtaNavigationHref");
     expect(seoCtaLink).toContain("extractAttributionParamsFromSearchParams");
     expect(seoCtaLink).toContain("readStoredTrackingAttributionPayload");
