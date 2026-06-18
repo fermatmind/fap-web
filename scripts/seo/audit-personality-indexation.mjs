@@ -41,6 +41,23 @@ const PILOT_PATHS = [
 const PRIVATE_URL_PATTERN =
   /\/(?:result|results|order|orders|share|pay|payment|history|private|account|profile)(?:\/|$)|(?:resultid|result_id|attemptid|attempt_id|reportid|report_id|token|payment_id|order_no|orderno)=/i;
 
+const URL_PATTERN = /https:\/\/fermatmind\.com\/[^\s<>"')\]}]+/g;
+
+const PR_1178_BASELINE_COUNTS = {
+  total_pages: 96,
+  variant_pages: 64,
+  comparison_pages: 32,
+  http_200: 96,
+  index_directive_index: 96,
+  follow_directive_follow: 96,
+  self_canonical_yes: 96,
+  hreflang_present_yes: 96,
+  in_sitemap_yes: 64,
+  in_llms_yes: 96,
+  in_llms_full_yes: 96,
+  outbound_private_url_seen_yes: 96,
+};
+
 function allTargetPages() {
   const rows = [];
   for (const locale of ["en", "zh"]) {
@@ -185,10 +202,42 @@ function isSelfCanonical(canonical, expectedUrl) {
 }
 
 function normalizeUrl(value) {
-  return value.replace(/\/$/, "");
+  try {
+    const parsed = new URL(value, SITE_ORIGIN);
+    parsed.hash = "";
+    parsed.search = "";
+    return parsed.toString().replace(/\/$/, "");
+  } catch {
+    return String(value || "").replace(/\/$/, "");
+  }
 }
 
-function membership(text, url, pagePath) {
+function parseSitemapLocSet(xml) {
+  const urls = new Set();
+  for (const match of xml.matchAll(/<loc>\s*([^<\s]+)\s*<\/loc>/gi)) {
+    urls.add(normalizeUrl(match[1]));
+  }
+  return urls;
+}
+
+function parsePlainUrlSet(text) {
+  const urls = new Set();
+  for (const match of text.matchAll(URL_PATTERN)) {
+    urls.add(normalizeUrl(trimUrlToken(match[0])));
+  }
+  return urls;
+}
+
+function trimUrlToken(value) {
+  return value.replace(/[.,;:!?]+$/g, "");
+}
+
+function exactMembership(urlSet, url, sourceText) {
+  if (!sourceText) return "unknown";
+  return urlSet.has(normalizeUrl(url)) ? "yes" : "no";
+}
+
+function fuzzyMembership(text, url, pagePath) {
   if (!text) return "unknown";
   return text.includes(url) || text.includes(pagePath) ? "yes" : "no";
 }
@@ -255,6 +304,9 @@ async function main() {
       error,
     })),
   ]);
+  const sitemapUrls = parseSitemapLocSet(sitemap.text || "");
+  const llmsUrls = parsePlainUrlSet(llms.text || "");
+  const llmsFullUrls = parsePlainUrlSet(llmsFull.text || "");
 
   const rows = [];
   for (const page of allTargetPages()) {
@@ -287,9 +339,12 @@ async function main() {
       canonical_self_reference: isSelfCanonical(canonical, url),
       hreflang_present: hreflangs.length > 0 ? "yes" : "no",
       hreflang_targets: hreflangs.length > 0 ? hreflangs.join(" | ") : "Unknown",
-      in_sitemap: membership(sitemap.text, url, page.path),
-      in_llms: membership(llms.text, url, page.path),
-      in_llms_full: membership(llmsFull.text, url, page.path),
+      in_sitemap: exactMembership(sitemapUrls, url, sitemap.text),
+      in_llms: exactMembership(llmsUrls, url, llms.text),
+      in_llms_full: exactMembership(llmsFullUrls, url, llmsFull.text),
+      sitemap_fuzzy_match: fuzzyMembership(sitemap.text, url, page.path),
+      llms_fuzzy_match: fuzzyMembership(llms.text, url, page.path),
+      llms_full_fuzzy_match: fuzzyMembership(llmsFull.text, url, page.path),
       gsc_24h_impressions: "Unknown",
       gsc_7d_impressions: "Unknown",
       gsc_clicks: "Unknown",
@@ -383,9 +438,9 @@ async function main() {
       note: "GSC metrics are recorded as Unknown because the local audit does not use external credentials.",
     },
     source_snapshots: {
-      sitemap: { url: sitemap.url, status: sitemap.status, bytes: sitemap.text.length },
-      llms: { url: llms.url, status: llms.status, bytes: llms.text.length },
-      llms_full: { url: llmsFull.url, status: llmsFull.status, bytes: llmsFull.text.length },
+      sitemap: { url: sitemap.url, status: sitemap.status, bytes: sitemap.text.length, exact_url_count: sitemapUrls.size },
+      llms: { url: llms.url, status: llms.status, bytes: llms.text.length, exact_url_count: llmsUrls.size },
+      llms_full: { url: llmsFull.url, status: llmsFull.status, bytes: llmsFull.text.length, exact_url_count: llmsFullUrls.size },
     },
     counts: {
       total_pages: rows.length,
@@ -400,6 +455,16 @@ async function main() {
       in_llms_yes: rows.filter((row) => row.in_llms === "yes").length,
       in_llms_full_yes: rows.filter((row) => row.in_llms_full === "yes").length,
       outbound_private_url_seen_yes: rows.filter((row) => row.outbound_private_url_seen === "yes").length,
+    },
+    pr_1178_baseline_counts: PR_1178_BASELINE_COUNTS,
+    exact_exposure_hardening: {
+      sitemap_matching: "Exact normalized <loc> URL set membership.",
+      llms_matching: "Exact normalized URL set membership parsed from llms.txt.",
+      llms_full_matching: "Exact normalized URL set membership parsed from llms-full.txt.",
+      fuzzy_fields:
+        "sitemap_fuzzy_match, llms_fuzzy_match, and llms_full_fuzzy_match are diagnostics only and do not affect exposure values.",
+      substring_false_positive_guard:
+        "/en/personality/intj-a and /zh/personality/intj-a do not match their A-vs-T comparison URLs unless the exact URL is present.",
     },
   };
 
@@ -450,6 +515,12 @@ function indexationMarkdown(summary, rows) {
 
 Read-only baseline for 64 MBTI A/T variant pages and 32 A-vs-T comparison pages. This artifact captures facts only. It does not repair sitemap, llms, llms-full, canonical, hreflang, schema, page content, CMS, scoring, or result-page behavior.
 
+This revision hardens exposure detection by replacing substring membership with exact normalized URL-set matching:
+
+- sitemap exposure uses exact normalized \`<loc>\` URLs.
+- \`llms.txt\` and \`llms-full.txt\` exposure use exact normalized URLs parsed from each file.
+- fuzzy match fields are diagnostic only and do not affect the main yes/no exposure fields.
+
 ## Summary
 
 - Run date: ${summary.run_date}
@@ -465,6 +536,23 @@ Read-only baseline for 64 MBTI A/T variant pages and 32 A-vs-T comparison pages.
 - In llms: ${summary.counts.in_llms_yes}
 - In llms-full: ${summary.counts.in_llms_full_yes}
 - Private/user-specific URL patterns detected: ${summary.counts.outbound_private_url_seen_yes}
+
+## Count Changes From PR #1178
+
+| Field | PR #1178 baseline | Exact-match audit | Note |
+| --- | ---: | ---: | --- |
+${Object.entries(summary.pr_1178_baseline_counts)
+  .map(([key, baselineValue]) => {
+    const currentValue = summary.counts[key];
+    const note =
+      currentValue === baselineValue
+        ? "unchanged"
+        : ["in_sitemap_yes", "in_llms_yes", "in_llms_full_yes"].includes(key)
+          ? "changed after exact URL matching replaced substring matching"
+          : "changed in regenerated live snapshot; not an exposure-matching field";
+    return `| ${key} | ${baselineValue} | ${currentValue} | ${note} |`;
+  })
+  .join("\n")}
 
 ## External Data
 
