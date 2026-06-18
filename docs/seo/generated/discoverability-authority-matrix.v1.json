@@ -222,7 +222,7 @@
       "sourceFiles": [
         {
           "path": "tests/contracts/article-answer-surface.contract.test.ts",
-          "requiredTokens": ["renders existing answer_surface_v1 blocks visibly", "holds FAQPage JSON-LD by default even when the answer surface FAQ is visible", "emits Article, Breadcrumb, and FAQPage JSON-LD only when an explicit article schema gate allows it", "does not emit FAQPage JSON-LD when no visible answer-surface FAQ exists"]
+          "requiredTokens": ["renders article answer_surface_v1 FAQ and CTA blocks while hiding duplicate summary blocks on article detail", "holds FAQPage JSON-LD by default even when the answer surface FAQ is visible", "emits Article, Breadcrumb, and FAQPage JSON-LD only when an explicit article schema gate allows it", "does not emit FAQPage JSON-LD when no visible answer-surface FAQ exists"]
         },
         {
           "path": "docs/seo/structured-data-spec.md",
