@@ -298,6 +298,29 @@ function comparisonVariantSummary(variant: PersonalityComparisonVariantViewModel
   return variant.summaryCard.summary || variant.heroSummary || variant.seo.description || "";
 }
 
+function asPlainRecord(value: unknown): Record<string, unknown> | null {
+  return value && typeof value === "object" && !Array.isArray(value) ? (value as Record<string, unknown>) : null;
+}
+
+function normalizeQuickAnswerText(value: unknown): string {
+  return typeof value === "string" ? value.replace(/\s+/g, " ").trim() : "";
+}
+
+function projectionQuickAnswerBody(sections: PersonalityProjection["sections"]): string | null {
+  const section = sections.find((item) => item.key === "quick_answer" && item.isEnabled !== false);
+  if (!section) {
+    return null;
+  }
+
+  const payload = asPlainRecord(section.payload);
+  const body = normalizeQuickAnswerText(section.bodyMd)
+    || normalizeQuickAnswerText(payload?.body)
+    || normalizeQuickAnswerText(payload?.summary)
+    || normalizeQuickAnswerText(payload?.answer);
+
+  return body || null;
+}
+
 function ComparisonVariantCard({
   variant,
   locale,
@@ -396,6 +419,8 @@ function PersonalityComparisonPage({
   });
   const assertiveLabel = comparison.variants.a.runtimeTypeCode;
   const turbulentLabel = comparison.variants.t.runtimeTypeCode;
+  const renderedComparisonSections = renderPersonalitySections(comparison.sections, locale);
+  const comparisonFaqItems = extractPersonalityFaqItems(comparison.sections);
 
   return (
     <main
@@ -407,6 +432,9 @@ function PersonalityComparisonPage({
       <AnalyticsPageViewTracker eventName="landing_view" properties={mbtiEntryViewTrackingProps} />
       <JsonLd id={`personality-comparison-jsonld-${comparison.comparisonSlug}`} data={comparison.jsonld} />
       <JsonLd id={`personality-comparison-breadcrumb-${comparison.comparisonSlug}`} data={breadcrumbJsonLd} />
+      {comparisonFaqItems.length > 0 ? (
+        <JsonLd id={`personality-comparison-faq-${comparison.comparisonSlug}`} data={buildFAQPageJsonLd(comparisonFaqItems)} />
+      ) : null}
       <Breadcrumb
         items={[
           { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
@@ -438,6 +466,12 @@ function PersonalityComparisonPage({
               turbulentLabel={turbulentLabel}
             />
           ))}
+        </section>
+      ) : null}
+
+      {renderedComparisonSections.length > 0 ? (
+        <section className="space-y-4" data-testid="personality-comparison-promoted-sections">
+          {renderedComparisonSections}
         </section>
       ) : null}
 
@@ -614,6 +648,7 @@ export default async function PersonalityDetailPage({
     : projectionFaqItems.length
       ? projectionFaqItems
       : legacyFaqItems;
+  const quickAnswerBody = projectionQuickAnswerBody(detail.projection.sections);
   const webPageJsonLd = buildWebPageJsonLd({
     path: canonicalPath,
     title: normalizedSeo.meta.title,
@@ -627,8 +662,8 @@ export default async function PersonalityDetailPage({
   ]);
   const renderedProjectionSections = renderProjectionSections(
     answerSurfaceFaqItems.length
-      ? detail.projection.sections.filter((section) => !(section.key === "faq" && section.render === "faq"))
-      : detail.projection.sections,
+      ? detail.projection.sections.filter((section) => !(section.key === "faq" && section.render === "faq") && section.key !== "quick_answer")
+      : detail.projection.sections.filter((section) => section.key !== "quick_answer"),
     locale
   );
   const renderedSupplementalSections = renderPersonalitySections(
@@ -715,6 +750,17 @@ export default async function PersonalityDetailPage({
             {locale !== "zh" && detail.summary ? <p className="m-0 text-[var(--fm-text-muted)]">{detail.summary}</p> : null}
             {detail.heroSummary && detail.heroSummary !== detail.summary ? (
               <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{detail.heroSummary}</p>
+            ) : null}
+            {quickAnswerBody ? (
+              <aside
+                className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4 text-sm leading-7 text-[var(--fm-text-muted)]"
+                data-testid="personality-detail-quick-answer"
+              >
+                <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
+                  {locale === "zh" ? "快速答案" : "Quick answer"}
+                </p>
+                <p className="mb-0 mt-2">{quickAnswerBody}</p>
+              </aside>
             ) : null}
           </div>
           {detail.heroImageUrl ? (

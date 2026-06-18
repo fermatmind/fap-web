@@ -4,6 +4,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import {
   buildDefaultPublicPersonalitySlug,
   buildPersonalityFrontendUrl,
+  getPersonalityComparisonBySlug,
   getPersonalityProjectionDetailBySlugOrType,
   getPersonalityProfileBySlugOrType,
   listPersonalityProfiles,
@@ -721,6 +722,94 @@ describe("personality cms adapter contract", () => {
         answer: "Long-range clarity, leverage, and structured execution.",
       },
     ]);
+  });
+
+  it("keeps future promoted comparison sections from the backend comparison response", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () =>
+        jsonResponse({
+          ok: true,
+          comparison_public_projection_v1: {
+            comparison_contract_version: "mbti.at_comparison.v1",
+            comparison_slug: "intj-a-vs-intj-t",
+            base_type_code: "INTJ",
+            scale_code: "MBTI",
+            locale: "en",
+            public_route_type: "at-comparison",
+            title: "INTJ-A vs INTJ-T",
+            description: "Compare confidence and stress response.",
+            canonical_url: "/en/personality/intj-a-vs-intj-t",
+            variants: {
+              a: {
+                base_type_code: "INTJ",
+                runtime_type_code: "INTJ-A",
+                variant_code: "A",
+                public_route_slug: "intj-a",
+                display_type: "INTJ-A",
+                summary_card: { summary: "Assertive INTJ summary." },
+              },
+              t: {
+                base_type_code: "INTJ",
+                runtime_type_code: "INTJ-T",
+                variant_code: "T",
+                public_route_slug: "intj-t",
+                display_type: "INTJ-T",
+                summary_card: { summary: "Turbulent INTJ summary." },
+              },
+            },
+            comparison_blocks: [],
+          },
+          sections: [
+            {
+              section_key: "mbti64_comparison_a_vs_t",
+              title: "INTJ-A vs INTJ-T",
+              render_variant: "rich_text",
+              body_md: "Promoted quick answer.",
+              payload_json: {
+                content: {
+                  side_by_side_summary: {
+                    h2: "INTJ-A vs INTJ-T at a glance",
+                    rows: [
+                      {
+                        dimension: "Decision confidence",
+                        a_variant: "Acts once the strategy is good enough.",
+                        t_variant: "Reviews assumptions before acting.",
+                      },
+                    ],
+                  },
+                },
+                faq: [
+                  {
+                    question: "Is INTJ-A better than INTJ-T?",
+                    answer: "No. They are different operating styles.",
+                  },
+                ],
+              },
+              sort_order: 920,
+              is_enabled: true,
+            },
+          ],
+          seo_meta: {
+            seo_title: "INTJ-A vs INTJ-T",
+            seo_description: "Compare confidence and stress response.",
+            robots: "index,follow",
+          },
+        })
+      )
+    );
+
+    const comparison = await getPersonalityComparisonBySlug("intj-a-vs-intj-t", "en");
+
+    expect(comparison).not.toBeNull();
+    expect(comparison?.sections).toHaveLength(1);
+    expect(comparison?.sections[0]).toMatchObject({
+      sectionKey: "mbti64_comparison_a_vs_t",
+      title: "INTJ-A vs INTJ-T",
+      renderVariant: "rich_text",
+      sortOrder: 920,
+      isEnabled: true,
+    });
   });
 
   it("personality detail page redirects legacy 4-letter routes while keeping cms seo wiring and faq schema hooks", () => {
