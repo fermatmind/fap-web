@@ -20,6 +20,7 @@ type CareerDisplaySurfaceProps = {
   surface: CareerDisplaySurfaceViewModel | null;
   ctaAttributionParams?: AttributionParams;
   ctaLandingPath?: string;
+  suppressLegacySalaryMetadata?: boolean;
 };
 
 function findSection(sections: CareerDisplaySection[], component: string): CareerDisplaySection | null {
@@ -109,6 +110,50 @@ function sectionIncludesSalaryClaim(section: CareerDisplaySection): boolean {
       textIncludesAny(item.answer, SALARY_CLAIM_PATTERNS)
     ))
   );
+}
+
+const SEARCH_INTENT_METADATA_PATTERNS = [
+  "search intent",
+  "搜索意图",
+  "career_exploration",
+  "career_fit",
+  "salary_and_outlook",
+  "how_to_enter",
+];
+
+const LEGACY_SALARY_METADATA_PATTERNS = [
+  "salary data type",
+  "薪资数据类型",
+  "industry_proxy",
+  "source_bounded_reference_only",
+  "recruitment_sample",
+  "official_reference",
+];
+
+function sectionIncludesSearchIntentMetadata(section: CareerDisplaySection): boolean {
+  return (
+    textIncludesAny(section.heading, SEARCH_INTENT_METADATA_PATTERNS) ||
+    (section.rows ?? []).some((row) => row.some((cell) => textIncludesAny(cell, SEARCH_INTENT_METADATA_PATTERNS))) ||
+    stringListIncludesSalaryClaim(section.contexts) ||
+    (section.contexts ?? []).some((item) => textIncludesAny(item, SEARCH_INTENT_METADATA_PATTERNS))
+  );
+}
+
+function sectionIncludesLegacySalaryMetadata(section: CareerDisplaySection): boolean {
+  const bodyHasLegacyMetadata = Array.isArray(section.body)
+    ? section.body.some((paragraph) => textIncludesAny(paragraph, LEGACY_SALARY_METADATA_PATTERNS))
+    : textIncludesAny(section.body, LEGACY_SALARY_METADATA_PATTERNS);
+
+  return (
+    textIncludesAny(section.heading, LEGACY_SALARY_METADATA_PATTERNS) ||
+    bodyHasLegacyMetadata ||
+    (section.rows ?? []).some((row) => row.some((cell) => textIncludesAny(cell, LEGACY_SALARY_METADATA_PATTERNS))) ||
+    (section.signalMeta ?? []).some((row) => row.some((cell) => textIncludesAny(cell, LEGACY_SALARY_METADATA_PATTERNS)))
+  );
+}
+
+function isLegacyMetadataSection(section: CareerDisplaySection): boolean {
+  return sectionIncludesSearchIntentMetadata(section) || sectionIncludesLegacySalaryMetadata(section);
 }
 
 function stripSalaryClaims(section: CareerDisplaySection, allowSalaryComparison: boolean): CareerDisplaySection | null {
@@ -238,15 +283,19 @@ export function CareerDisplaySurface({
   surface,
   ctaAttributionParams,
   ctaLandingPath,
+  suppressLegacySalaryMetadata = false,
 }: CareerDisplaySurfaceProps) {
   if (!surface) {
     return null;
   }
 
   const claimPermissions = surface.claimPermissions;
+  const baseSections = suppressLegacySalaryMetadata
+    ? surface.sections.filter((section) => !isLegacyMetadataSection(section) && !sectionIncludesSalaryClaim(section))
+    : surface.sections;
   const visibleSections = claimPermissions.allowSalaryComparison
-    ? surface.sections
-    : surface.sections
+    ? baseSections
+    : baseSections
       .map((section) => stripSalaryClaims(section, false))
       .filter((section): section is CareerDisplaySection => section !== null);
   const decision = findSection(visibleSections, "FermatDecisionCard");
@@ -266,7 +315,7 @@ export function CareerDisplaySurface({
   const faq = findSection(visibleSections, "CareerFAQBlock");
   const visibleFaqItems = faq?.faqItems ?? [];
   const salaryClaimsRestricted =
-    !claimPermissions.allowSalaryComparison && surface.sections.some((section) => sectionIncludesSalaryClaim(section));
+    !claimPermissions.allowSalaryComparison && baseSections.some((section) => sectionIncludesSalaryClaim(section));
 
   return (
     <article className="mx-auto max-w-5xl space-y-6 px-4 py-8 md:px-6" data-testid="career-display-surface">

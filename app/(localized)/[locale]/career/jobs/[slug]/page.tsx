@@ -871,6 +871,7 @@ export default async function CareerJobDetailPage({
             surface={displaySurface}
             ctaAttributionParams={displayCtaAttributionParams}
             ctaLandingPath={displayCtaLandingPath}
+            suppressLegacySalaryMetadata={salaryAssetPreview !== null}
           />
           <CareerSalaryAssetPreviewSection asset={salaryAssetPreview} locale={locale} />
         </Container>
