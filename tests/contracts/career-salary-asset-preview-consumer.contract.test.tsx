@@ -110,6 +110,21 @@ describe("career salary asset preview consumer", () => {
     await expect(fetchCareerSalaryAssetPreview({ locale: "en", slug: "accountants-and-auditors" })).resolves.toBeNull();
   });
 
+  it("accepts production-imported salary assets after the backend import gate", async () => {
+    process.env.FAP_CAREER_SALARY_ASSET_PREVIEW_ENABLED = "true";
+    mockedGet.mockResolvedValueOnce({
+      ok: true,
+      preview: false,
+      status: "production_imported",
+      salary_asset_v1: buildAsset("en", "accountants-and-auditors"),
+    });
+
+    const asset = await fetchCareerSalaryAssetPreview({ locale: "en", slug: "accountants-and-auditors" });
+
+    expect(asset?.slug).toBe("accountants-and-auditors");
+    expect(asset?.locale).toBe("en");
+  });
+
   it("fetches and adapts the allowlisted staging preview asset by locale", async () => {
     process.env.FAP_CAREER_SALARY_ASSET_PREVIEW_ENABLED = "true";
     mockedGet.mockResolvedValueOnce({ ok: true, preview: true, salary_asset_v1: buildAsset("zh-CN") });

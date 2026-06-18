@@ -54,6 +54,7 @@ export type CareerSalaryAssetPreviewAsset = {
 type CareerSalaryAssetPreviewResponseRaw = {
   ok?: unknown;
   preview?: unknown;
+  status?: unknown;
   salary_asset_v1?: unknown;
 };
 
@@ -199,7 +200,10 @@ export async function fetchCareerSalaryAssetPreview(
       }
     );
 
-    if (payload?.ok !== true || payload.preview !== true) {
+    const isReadableSalaryAsset =
+      payload?.preview === true || (typeof payload?.status === "string" && payload.status === "production_imported");
+
+    if (payload?.ok !== true || !isReadableSalaryAsset) {
       return null;
     }
 
