@@ -40,4 +40,22 @@ Read:
 3. `references/ai_exposure_rubric.md`
 4. `references/trust_rules.md`
 5. `references/writing_rules.md`
-6. `../career-content-asset-factory/references/shared_pipeline_contract.md`
+6. `references/ai_impact_v2_generation_rules.md` when working on AI impact assets.
+7. `../career-content-asset-factory/references/shared_pipeline_contract.md`
+
+## AI Impact v2 Gate
+
+Use the v2 schemas and scripts for AI impact batch work:
+
+- `schemas/career_ai_impact_evidence_v2.schema.json`
+- `schemas/career_ai_impact_synthesis_v2.schema.json`
+- `schemas/career_ai_impact_asset_v2.schema.json`
+- `schemas/career_ai_impact_search_projection_v2.schema.json`
+- `scripts/audit_ai_impact_evidence_v2.py`
+- `scripts/audit_ai_impact_synthesis_v2.py`
+- `scripts/audit_ai_impact_assets_v2.py`
+- `scripts/audit_ai_impact_template_reuse_v2.py`
+- `scripts/audit_ai_impact_score_rationale_v2.py`
+- `scripts/audit_ai_impact_search_projection_v2.py`
+
+Rejected v1 AI impact files must not be patched. Regenerate a v2 batch from evidence first using `templates/ai_impact_batch_001_v2_regeneration_prompt.md`.

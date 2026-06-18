@@ -1,0 +1,152 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Career AI Impact Evidence Ledger v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "ledger_type",
+    "asset_version",
+    "block_type",
+    "slug",
+    "occupation",
+    "seed_ordinal",
+    "batch_role",
+    "sources",
+    "external_calibration_sources",
+    "workflow_evidence_items",
+    "internal_rubric_use",
+    "reader_boundary",
+    "audit_fields"
+  ],
+  "properties": {
+    "ledger_type": { "const": "career-ai-impact_evidence" },
+    "asset_version": { "type": "string", "pattern": "^v2" },
+    "block_type": { "const": "career-risk-future.ai_impact" },
+    "slug": { "type": "string", "minLength": 1 },
+    "occupation": { "type": "object" },
+    "seed_ordinal": { "type": "integer", "minimum": 1 },
+    "batch_role": { "type": "string", "pattern": "^(control|new)_[0-9]+$" },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/sourceObject" }
+    },
+    "external_calibration_sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/sourceObject" }
+    },
+    "workflow_evidence_items": {
+      "type": "array",
+      "minItems": 4,
+      "items": { "$ref": "#/$defs/workflowEvidenceItem" }
+    },
+    "internal_rubric_use": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_id", "used_with_task_evidence", "used_with_external_calibration", "boundary"],
+      "properties": {
+        "source_id": { "type": "string", "minLength": 1 },
+        "used_with_task_evidence": { "type": "boolean" },
+        "used_with_external_calibration": { "type": "boolean" },
+        "boundary": { "type": "string", "minLength": 1 }
+      }
+    },
+    "reader_boundary": { "type": "string", "minLength": 1 },
+    "limitations": { "type": "array", "items": { "type": "string" } },
+    "audit_fields": { "type": "object" }
+  },
+  "$defs": {
+    "sourceObject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_id",
+        "name",
+        "publisher",
+        "url",
+        "source_type",
+        "used_for",
+        "evidence_scope",
+        "citation_boundary",
+        "captured_at"
+      ],
+      "properties": {
+        "source_id": { "type": "string", "minLength": 1 },
+        "name": { "type": "string", "minLength": 1 },
+        "publisher": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "minLength": 1 },
+        "source_type": {
+          "type": "string",
+          "enum": [
+            "official_occupation_profile",
+            "official_task_database",
+            "academic_ai_exposure_research",
+            "institutional_ai_exposure_methodology",
+            "internal_rubric"
+          ]
+        },
+        "used_for": { "type": "string", "minLength": 1 },
+        "evidence_scope": {
+          "type": "string",
+          "enum": [
+            "occupation_specific",
+            "task_methodology",
+            "calibration_only",
+            "internal_scoring"
+          ]
+        },
+        "citation_boundary": { "type": "string", "minLength": 1 },
+        "captured_at": { "type": "string", "minLength": 1 }
+      }
+    },
+    "workflowEvidenceItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "evidence_id",
+        "workflow_area",
+        "occupation_specific_task",
+        "source_id",
+        "source_quote_or_paraphrase",
+        "ai_relevance",
+        "likely_ai_effect",
+        "reason"
+      ],
+      "properties": {
+        "evidence_id": { "type": "string", "minLength": 1 },
+        "workflow_area": { "type": "string", "minLength": 1 },
+        "occupation_specific_task": { "type": "string", "minLength": 1 },
+        "source_id": { "type": "string", "minLength": 1 },
+        "source_quote_or_paraphrase": { "type": "string", "minLength": 1 },
+        "ai_relevance": {
+          "type": "string",
+          "enum": [
+            "structured_text",
+            "structured_data",
+            "pattern_detection",
+            "documentation",
+            "physical_presence",
+            "interpersonal_trust",
+            "legal_accountability",
+            "clinical_accountability",
+            "safety_critical_operation",
+            "creative_performance",
+            "field_variability"
+          ]
+        },
+        "likely_ai_effect": {
+          "type": "string",
+          "enum": [
+            "accelerate",
+            "assist",
+            "monitor",
+            "low_direct_effect",
+            "uncertain"
+          ]
+        },
+        "reason": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

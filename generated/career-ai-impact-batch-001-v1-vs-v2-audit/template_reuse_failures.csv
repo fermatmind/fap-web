@@ -1,0 +1,497 @@
+level,slug,locale,code,message
+repair_required,__template__,,repeated_task_template,Document and record summarization: 40 rows
+repair_required,__template__,,repeated_task_template,Pattern and exception screening: 40 rows
+repair_required,__template__,,repeated_task_template,Draft communication: 40 rows
+repair_required,__template__,,repeated_task_template,Planning support: 40 rows
+repair_required,__template__,,repeated_task_template,On-site judgment: 40 rows
+repair_required,__template__,,repeated_task_template,Safety and accountability: 40 rows
+repair_required,accountants-and-auditors,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,actors,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,actuaries,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,acupuncturists,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,acute-care-nurses,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,adapted-physical-education-specialists,zh-CN,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,adapted-physical-education-specialists,zh-CN,generic_template_asset,AI can compare routine records
+repair_required,adapted-physical-education-specialists,zh-CN,generic_template_asset,AI can draft routine explanations
+repair_required,adapted-physical-education-specialists,zh-CN,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,adapted-physical-education-specialists,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,adapted-physical-education-specialists,zh-CN,generic_template_asset,把混乱的
+repair_required,adapted-physical-education-specialists,zh-CN,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,adapted-physical-education-specialists,en,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,adapted-physical-education-specialists,en,generic_template_asset,AI can compare routine records
+repair_required,adapted-physical-education-specialists,en,generic_template_asset,AI can draft routine explanations
+repair_required,adapted-physical-education-specialists,en,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,adapted-physical-education-specialists,en,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,adhesive-bonding-machine-operators-and-tenders,zh-CN,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,adhesive-bonding-machine-operators-and-tenders,zh-CN,generic_template_asset,AI can compare routine records
+repair_required,adhesive-bonding-machine-operators-and-tenders,zh-CN,generic_template_asset,AI can draft routine explanations
+repair_required,adhesive-bonding-machine-operators-and-tenders,zh-CN,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,adhesive-bonding-machine-operators-and-tenders,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,adhesive-bonding-machine-operators-and-tenders,zh-CN,generic_template_asset,把混乱的
+repair_required,adhesive-bonding-machine-operators-and-tenders,zh-CN,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,adhesive-bonding-machine-operators-and-tenders,en,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,adhesive-bonding-machine-operators-and-tenders,en,generic_template_asset,AI can compare routine records
+repair_required,adhesive-bonding-machine-operators-and-tenders,en,generic_template_asset,AI can draft routine explanations
+repair_required,adhesive-bonding-machine-operators-and-tenders,en,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,adhesive-bonding-machine-operators-and-tenders,en,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,administrative-law-judges-adjudicators-and-hearing-officers,zh-CN,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,administrative-law-judges-adjudicators-and-hearing-officers,zh-CN,generic_template_asset,AI can compare routine records
+repair_required,administrative-law-judges-adjudicators-and-hearing-officers,zh-CN,generic_template_asset,AI can draft routine explanations
+repair_required,administrative-law-judges-adjudicators-and-hearing-officers,zh-CN,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,administrative-law-judges-adjudicators-and-hearing-officers,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,administrative-law-judges-adjudicators-and-hearing-officers,zh-CN,generic_template_asset,把混乱的
+repair_required,administrative-law-judges-adjudicators-and-hearing-officers,zh-CN,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,administrative-law-judges-adjudicators-and-hearing-officers,en,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,administrative-law-judges-adjudicators-and-hearing-officers,en,generic_template_asset,AI can compare routine records
+repair_required,administrative-law-judges-adjudicators-and-hearing-officers,en,generic_template_asset,AI can draft routine explanations
+repair_required,administrative-law-judges-adjudicators-and-hearing-officers,en,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,administrative-law-judges-adjudicators-and-hearing-officers,en,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,administrative-services-managers,zh-CN,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,administrative-services-managers,zh-CN,generic_template_asset,AI can compare routine records
+repair_required,administrative-services-managers,zh-CN,generic_template_asset,AI can draft routine explanations
+repair_required,administrative-services-managers,zh-CN,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,administrative-services-managers,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,administrative-services-managers,zh-CN,generic_template_asset,把混乱的
+repair_required,administrative-services-managers,zh-CN,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,administrative-services-managers,en,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,administrative-services-managers,en,generic_template_asset,AI can compare routine records
+repair_required,administrative-services-managers,en,generic_template_asset,AI can draft routine explanations
+repair_required,administrative-services-managers,en,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,administrative-services-managers,en,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,adult-literacy-and-ged-teachers,zh-CN,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,adult-literacy-and-ged-teachers,zh-CN,generic_template_asset,AI can compare routine records
+repair_required,adult-literacy-and-ged-teachers,zh-CN,generic_template_asset,AI can draft routine explanations
+repair_required,adult-literacy-and-ged-teachers,zh-CN,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,adult-literacy-and-ged-teachers,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,adult-literacy-and-ged-teachers,zh-CN,generic_template_asset,把混乱的
+repair_required,adult-literacy-and-ged-teachers,zh-CN,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,adult-literacy-and-ged-teachers,en,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,adult-literacy-and-ged-teachers,en,generic_template_asset,AI can compare routine records
+repair_required,adult-literacy-and-ged-teachers,en,generic_template_asset,AI can draft routine explanations
+repair_required,adult-literacy-and-ged-teachers,en,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,adult-literacy-and-ged-teachers,en,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,adult-basic-education-adult-secondary-education-and-english-as-a-second-language-instructors,zh-CN,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,adult-basic-education-adult-secondary-education-and-english-as-a-second-language-instructors,zh-CN,generic_template_asset,AI can compare routine records
+repair_required,adult-basic-education-adult-secondary-education-and-english-as-a-second-language-instructors,zh-CN,generic_template_asset,AI can draft routine explanations
+repair_required,adult-basic-education-adult-secondary-education-and-english-as-a-second-language-instructors,zh-CN,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,adult-basic-education-adult-secondary-education-and-english-as-a-second-language-instructors,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,adult-basic-education-adult-secondary-education-and-english-as-a-second-language-instructors,zh-CN,generic_template_asset,把混乱的
+repair_required,adult-basic-education-adult-secondary-education-and-english-as-a-second-language-instructors,zh-CN,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,adult-basic-education-adult-secondary-education-and-english-as-a-second-language-instructors,en,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,adult-basic-education-adult-secondary-education-and-english-as-a-second-language-instructors,en,generic_template_asset,AI can compare routine records
+repair_required,adult-basic-education-adult-secondary-education-and-english-as-a-second-language-instructors,en,generic_template_asset,AI can draft routine explanations
+repair_required,adult-basic-education-adult-secondary-education-and-english-as-a-second-language-instructors,en,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,adult-basic-education-adult-secondary-education-and-english-as-a-second-language-instructors,en,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,advanced-practice-psychiatric-nurses,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,advertising-and-promotions-managers,zh-CN,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,advertising-and-promotions-managers,zh-CN,generic_template_asset,AI can compare routine records
+repair_required,advertising-and-promotions-managers,zh-CN,generic_template_asset,AI can draft routine explanations
+repair_required,advertising-and-promotions-managers,zh-CN,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,advertising-and-promotions-managers,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,advertising-and-promotions-managers,zh-CN,generic_template_asset,把混乱的
+repair_required,advertising-and-promotions-managers,zh-CN,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,advertising-and-promotions-managers,en,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,advertising-and-promotions-managers,en,generic_template_asset,AI can compare routine records
+repair_required,advertising-and-promotions-managers,en,generic_template_asset,AI can draft routine explanations
+repair_required,advertising-and-promotions-managers,en,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,advertising-and-promotions-managers,en,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,advertising-sales-agents,zh-CN,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,advertising-sales-agents,zh-CN,generic_template_asset,AI can compare routine records
+repair_required,advertising-sales-agents,zh-CN,generic_template_asset,AI can draft routine explanations
+repair_required,advertising-sales-agents,zh-CN,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,advertising-sales-agents,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,advertising-sales-agents,zh-CN,generic_template_asset,把混乱的
+repair_required,advertising-sales-agents,zh-CN,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,advertising-sales-agents,en,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,advertising-sales-agents,en,generic_template_asset,AI can compare routine records
+repair_required,advertising-sales-agents,en,generic_template_asset,AI can draft routine explanations
+repair_required,advertising-sales-agents,en,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,advertising-sales-agents,en,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,advertising-promotions-and-marketing-managers,zh-CN,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,advertising-promotions-and-marketing-managers,zh-CN,generic_template_asset,AI can compare routine records
+repair_required,advertising-promotions-and-marketing-managers,zh-CN,generic_template_asset,AI can draft routine explanations
+repair_required,advertising-promotions-and-marketing-managers,zh-CN,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,advertising-promotions-and-marketing-managers,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,advertising-promotions-and-marketing-managers,zh-CN,generic_template_asset,把混乱的
+repair_required,advertising-promotions-and-marketing-managers,zh-CN,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,advertising-promotions-and-marketing-managers,en,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,advertising-promotions-and-marketing-managers,en,generic_template_asset,AI can compare routine records
+repair_required,advertising-promotions-and-marketing-managers,en,generic_template_asset,AI can draft routine explanations
+repair_required,advertising-promotions-and-marketing-managers,en,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,advertising-promotions-and-marketing-managers,en,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,aerospace-engineering-and-operations-technicians,zh-CN,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,aerospace-engineering-and-operations-technicians,zh-CN,generic_template_asset,AI can compare routine records
+repair_required,aerospace-engineering-and-operations-technicians,zh-CN,generic_template_asset,AI can draft routine explanations
+repair_required,aerospace-engineering-and-operations-technicians,zh-CN,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,aerospace-engineering-and-operations-technicians,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,aerospace-engineering-and-operations-technicians,zh-CN,generic_template_asset,把混乱的
+repair_required,aerospace-engineering-and-operations-technicians,zh-CN,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,aerospace-engineering-and-operations-technicians,en,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,aerospace-engineering-and-operations-technicians,en,generic_template_asset,AI can compare routine records
+repair_required,aerospace-engineering-and-operations-technicians,en,generic_template_asset,AI can draft routine explanations
+repair_required,aerospace-engineering-and-operations-technicians,en,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,aerospace-engineering-and-operations-technicians,en,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,aerospace-engineers,zh-CN,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,aerospace-engineers,zh-CN,generic_template_asset,AI can compare routine records
+repair_required,aerospace-engineers,zh-CN,generic_template_asset,AI can draft routine explanations
+repair_required,aerospace-engineers,zh-CN,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,aerospace-engineers,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,aerospace-engineers,zh-CN,generic_template_asset,把混乱的
+repair_required,aerospace-engineers,zh-CN,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,aerospace-engineers,en,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,aerospace-engineers,en,generic_template_asset,AI can compare routine records
+repair_required,aerospace-engineers,en,generic_template_asset,AI can draft routine explanations
+repair_required,aerospace-engineers,en,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,aerospace-engineers,en,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,agents-and-business-managers-of-artists-performers-and-athletes,zh-CN,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,agents-and-business-managers-of-artists-performers-and-athletes,zh-CN,generic_template_asset,AI can compare routine records
+repair_required,agents-and-business-managers-of-artists-performers-and-athletes,zh-CN,generic_template_asset,AI can draft routine explanations
+repair_required,agents-and-business-managers-of-artists-performers-and-athletes,zh-CN,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,agents-and-business-managers-of-artists-performers-and-athletes,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,agents-and-business-managers-of-artists-performers-and-athletes,zh-CN,generic_template_asset,把混乱的
+repair_required,agents-and-business-managers-of-artists-performers-and-athletes,zh-CN,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,agents-and-business-managers-of-artists-performers-and-athletes,en,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,agents-and-business-managers-of-artists-performers-and-athletes,en,generic_template_asset,AI can compare routine records
+repair_required,agents-and-business-managers-of-artists-performers-and-athletes,en,generic_template_asset,AI can draft routine explanations
+repair_required,agents-and-business-managers-of-artists-performers-and-athletes,en,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,agents-and-business-managers-of-artists-performers-and-athletes,en,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,agricultural-and-food-science-technicians,zh-CN,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,agricultural-and-food-science-technicians,zh-CN,generic_template_asset,AI can compare routine records
+repair_required,agricultural-and-food-science-technicians,zh-CN,generic_template_asset,AI can draft routine explanations
+repair_required,agricultural-and-food-science-technicians,zh-CN,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,agricultural-and-food-science-technicians,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,agricultural-and-food-science-technicians,zh-CN,generic_template_asset,把混乱的
+repair_required,agricultural-and-food-science-technicians,zh-CN,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,agricultural-and-food-science-technicians,en,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,agricultural-and-food-science-technicians,en,generic_template_asset,AI can compare routine records
+repair_required,agricultural-and-food-science-technicians,en,generic_template_asset,AI can draft routine explanations
+repair_required,agricultural-and-food-science-technicians,en,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,agricultural-and-food-science-technicians,en,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,agricultural-and-food-scientists,zh-CN,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,agricultural-and-food-scientists,zh-CN,generic_template_asset,AI can compare routine records
+repair_required,agricultural-and-food-scientists,zh-CN,generic_template_asset,AI can draft routine explanations
+repair_required,agricultural-and-food-scientists,zh-CN,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,agricultural-and-food-scientists,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,agricultural-and-food-scientists,zh-CN,generic_template_asset,把混乱的
+repair_required,agricultural-and-food-scientists,zh-CN,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,agricultural-and-food-scientists,en,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,agricultural-and-food-scientists,en,generic_template_asset,AI can compare routine records
+repair_required,agricultural-and-food-scientists,en,generic_template_asset,AI can draft routine explanations
+repair_required,agricultural-and-food-scientists,en,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,agricultural-and-food-scientists,en,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,agricultural-engineers,zh-CN,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,agricultural-engineers,zh-CN,generic_template_asset,AI can compare routine records
+repair_required,agricultural-engineers,zh-CN,generic_template_asset,AI can draft routine explanations
+repair_required,agricultural-engineers,zh-CN,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,agricultural-engineers,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,agricultural-engineers,zh-CN,generic_template_asset,把混乱的
+repair_required,agricultural-engineers,zh-CN,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,agricultural-engineers,en,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,agricultural-engineers,en,generic_template_asset,AI can compare routine records
+repair_required,agricultural-engineers,en,generic_template_asset,AI can draft routine explanations
+repair_required,agricultural-engineers,en,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,agricultural-engineers,en,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,agricultural-equipment-operators,zh-CN,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,agricultural-equipment-operators,zh-CN,generic_template_asset,AI can compare routine records
+repair_required,agricultural-equipment-operators,zh-CN,generic_template_asset,AI can draft routine explanations
+repair_required,agricultural-equipment-operators,zh-CN,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,agricultural-equipment-operators,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,agricultural-equipment-operators,zh-CN,generic_template_asset,把混乱的
+repair_required,agricultural-equipment-operators,zh-CN,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,agricultural-equipment-operators,en,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,agricultural-equipment-operators,en,generic_template_asset,AI can compare routine records
+repair_required,agricultural-equipment-operators,en,generic_template_asset,AI can draft routine explanations
+repair_required,agricultural-equipment-operators,en,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,agricultural-equipment-operators,en,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,agricultural-inspectors,zh-CN,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,agricultural-inspectors,zh-CN,generic_template_asset,AI can compare routine records
+repair_required,agricultural-inspectors,zh-CN,generic_template_asset,AI can draft routine explanations
+repair_required,agricultural-inspectors,zh-CN,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,agricultural-inspectors,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,agricultural-inspectors,zh-CN,generic_template_asset,把混乱的
+repair_required,agricultural-inspectors,zh-CN,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,agricultural-inspectors,en,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,agricultural-inspectors,en,generic_template_asset,AI can compare routine records
+repair_required,agricultural-inspectors,en,generic_template_asset,AI can draft routine explanations
+repair_required,agricultural-inspectors,en,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,agricultural-inspectors,en,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,agricultural-sciences-teachers-postsecondary,zh-CN,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,agricultural-sciences-teachers-postsecondary,zh-CN,generic_template_asset,AI can compare routine records
+repair_required,agricultural-sciences-teachers-postsecondary,zh-CN,generic_template_asset,AI can draft routine explanations
+repair_required,agricultural-sciences-teachers-postsecondary,zh-CN,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,agricultural-sciences-teachers-postsecondary,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,agricultural-sciences-teachers-postsecondary,zh-CN,generic_template_asset,把混乱的
+repair_required,agricultural-sciences-teachers-postsecondary,zh-CN,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,agricultural-sciences-teachers-postsecondary,en,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,agricultural-sciences-teachers-postsecondary,en,generic_template_asset,AI can compare routine records
+repair_required,agricultural-sciences-teachers-postsecondary,en,generic_template_asset,AI can draft routine explanations
+repair_required,agricultural-sciences-teachers-postsecondary,en,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,agricultural-sciences-teachers-postsecondary,en,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,agricultural-technicians,zh-CN,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,agricultural-technicians,zh-CN,generic_template_asset,AI can compare routine records
+repair_required,agricultural-technicians,zh-CN,generic_template_asset,AI can draft routine explanations
+repair_required,agricultural-technicians,zh-CN,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,agricultural-technicians,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,agricultural-technicians,zh-CN,generic_template_asset,把混乱的
+repair_required,agricultural-technicians,zh-CN,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,agricultural-technicians,en,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,agricultural-technicians,en,generic_template_asset,AI can compare routine records
+repair_required,agricultural-technicians,en,generic_template_asset,AI can draft routine explanations
+repair_required,agricultural-technicians,en,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,agricultural-technicians,en,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,agricultural-workers,zh-CN,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,agricultural-workers,zh-CN,generic_template_asset,AI can compare routine records
+repair_required,agricultural-workers,zh-CN,generic_template_asset,AI can draft routine explanations
+repair_required,agricultural-workers,zh-CN,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,agricultural-workers,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,agricultural-workers,zh-CN,generic_template_asset,把混乱的
+repair_required,agricultural-workers,zh-CN,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,agricultural-workers,en,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,agricultural-workers,en,generic_template_asset,AI can compare routine records
+repair_required,agricultural-workers,en,generic_template_asset,AI can draft routine explanations
+repair_required,agricultural-workers,en,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,agricultural-workers,en,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,air-crew-members,zh-CN,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,air-crew-members,zh-CN,generic_template_asset,AI can compare routine records
+repair_required,air-crew-members,zh-CN,generic_template_asset,AI can draft routine explanations
+repair_required,air-crew-members,zh-CN,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,air-crew-members,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,air-crew-members,zh-CN,generic_template_asset,把混乱的
+repair_required,air-crew-members,zh-CN,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,air-crew-members,en,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,air-crew-members,en,generic_template_asset,AI can compare routine records
+repair_required,air-crew-members,en,generic_template_asset,AI can draft routine explanations
+repair_required,air-crew-members,en,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,air-crew-members,en,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,air-crew-officers,zh-CN,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,air-crew-officers,zh-CN,generic_template_asset,AI can compare routine records
+repair_required,air-crew-officers,zh-CN,generic_template_asset,AI can draft routine explanations
+repair_required,air-crew-officers,zh-CN,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,air-crew-officers,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,air-crew-officers,zh-CN,generic_template_asset,把混乱的
+repair_required,air-crew-officers,zh-CN,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,air-crew-officers,en,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,air-crew-officers,en,generic_template_asset,AI can compare routine records
+repair_required,air-crew-officers,en,generic_template_asset,AI can draft routine explanations
+repair_required,air-crew-officers,en,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,air-crew-officers,en,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,air-traffic-controllers,zh-CN,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,air-traffic-controllers,zh-CN,generic_template_asset,AI can compare routine records
+repair_required,air-traffic-controllers,zh-CN,generic_template_asset,AI can draft routine explanations
+repair_required,air-traffic-controllers,zh-CN,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,air-traffic-controllers,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,air-traffic-controllers,zh-CN,generic_template_asset,把混乱的
+repair_required,air-traffic-controllers,zh-CN,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,air-traffic-controllers,en,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,air-traffic-controllers,en,generic_template_asset,AI can compare routine records
+repair_required,air-traffic-controllers,en,generic_template_asset,AI can draft routine explanations
+repair_required,air-traffic-controllers,en,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,air-traffic-controllers,en,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,aircraft-and-avionics-equipment-mechanics-and-technicians,zh-CN,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,aircraft-and-avionics-equipment-mechanics-and-technicians,zh-CN,generic_template_asset,AI can compare routine records
+repair_required,aircraft-and-avionics-equipment-mechanics-and-technicians,zh-CN,generic_template_asset,AI can draft routine explanations
+repair_required,aircraft-and-avionics-equipment-mechanics-and-technicians,zh-CN,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,aircraft-and-avionics-equipment-mechanics-and-technicians,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,aircraft-and-avionics-equipment-mechanics-and-technicians,zh-CN,generic_template_asset,把混乱的
+repair_required,aircraft-and-avionics-equipment-mechanics-and-technicians,zh-CN,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,aircraft-and-avionics-equipment-mechanics-and-technicians,en,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,aircraft-and-avionics-equipment-mechanics-and-technicians,en,generic_template_asset,AI can compare routine records
+repair_required,aircraft-and-avionics-equipment-mechanics-and-technicians,en,generic_template_asset,AI can draft routine explanations
+repair_required,aircraft-and-avionics-equipment-mechanics-and-technicians,en,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,aircraft-and-avionics-equipment-mechanics-and-technicians,en,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,aircraft-cargo-handling-supervisors,zh-CN,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,aircraft-cargo-handling-supervisors,zh-CN,generic_template_asset,AI can compare routine records
+repair_required,aircraft-cargo-handling-supervisors,zh-CN,generic_template_asset,AI can draft routine explanations
+repair_required,aircraft-cargo-handling-supervisors,zh-CN,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,aircraft-cargo-handling-supervisors,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,aircraft-cargo-handling-supervisors,zh-CN,generic_template_asset,把混乱的
+repair_required,aircraft-cargo-handling-supervisors,zh-CN,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,aircraft-cargo-handling-supervisors,en,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,aircraft-cargo-handling-supervisors,en,generic_template_asset,AI can compare routine records
+repair_required,aircraft-cargo-handling-supervisors,en,generic_template_asset,AI can draft routine explanations
+repair_required,aircraft-cargo-handling-supervisors,en,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,aircraft-cargo-handling-supervisors,en,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,aircraft-launch-and-recovery-officers,zh-CN,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,aircraft-launch-and-recovery-officers,zh-CN,generic_template_asset,AI can compare routine records
+repair_required,aircraft-launch-and-recovery-officers,zh-CN,generic_template_asset,AI can draft routine explanations
+repair_required,aircraft-launch-and-recovery-officers,zh-CN,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,aircraft-launch-and-recovery-officers,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,aircraft-launch-and-recovery-officers,zh-CN,generic_template_asset,把混乱的
+repair_required,aircraft-launch-and-recovery-officers,zh-CN,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,aircraft-launch-and-recovery-officers,en,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,aircraft-launch-and-recovery-officers,en,generic_template_asset,AI can compare routine records
+repair_required,aircraft-launch-and-recovery-officers,en,generic_template_asset,AI can draft routine explanations
+repair_required,aircraft-launch-and-recovery-officers,en,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,aircraft-launch-and-recovery-officers,en,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,aircraft-launch-and-recovery-specialists,zh-CN,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,aircraft-launch-and-recovery-specialists,zh-CN,generic_template_asset,AI can compare routine records
+repair_required,aircraft-launch-and-recovery-specialists,zh-CN,generic_template_asset,AI can draft routine explanations
+repair_required,aircraft-launch-and-recovery-specialists,zh-CN,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,aircraft-launch-and-recovery-specialists,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,aircraft-launch-and-recovery-specialists,zh-CN,generic_template_asset,把混乱的
+repair_required,aircraft-launch-and-recovery-specialists,zh-CN,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,aircraft-launch-and-recovery-specialists,en,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,aircraft-launch-and-recovery-specialists,en,generic_template_asset,AI can compare routine records
+repair_required,aircraft-launch-and-recovery-specialists,en,generic_template_asset,AI can draft routine explanations
+repair_required,aircraft-launch-and-recovery-specialists,en,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,aircraft-launch-and-recovery-specialists,en,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,aircraft-mechanics-and-service-technicians,zh-CN,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,aircraft-mechanics-and-service-technicians,zh-CN,generic_template_asset,AI can compare routine records
+repair_required,aircraft-mechanics-and-service-technicians,zh-CN,generic_template_asset,AI can draft routine explanations
+repair_required,aircraft-mechanics-and-service-technicians,zh-CN,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,aircraft-mechanics-and-service-technicians,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,aircraft-mechanics-and-service-technicians,zh-CN,generic_template_asset,把混乱的
+repair_required,aircraft-mechanics-and-service-technicians,zh-CN,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,aircraft-mechanics-and-service-technicians,en,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,aircraft-mechanics-and-service-technicians,en,generic_template_asset,AI can compare routine records
+repair_required,aircraft-mechanics-and-service-technicians,en,generic_template_asset,AI can draft routine explanations
+repair_required,aircraft-mechanics-and-service-technicians,en,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,aircraft-mechanics-and-service-technicians,en,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,aircraft-service-attendants,zh-CN,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,aircraft-service-attendants,zh-CN,generic_template_asset,AI can compare routine records
+repair_required,aircraft-service-attendants,zh-CN,generic_template_asset,AI can draft routine explanations
+repair_required,aircraft-service-attendants,zh-CN,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,aircraft-service-attendants,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,aircraft-service-attendants,zh-CN,generic_template_asset,把混乱的
+repair_required,aircraft-service-attendants,zh-CN,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,aircraft-service-attendants,en,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,aircraft-service-attendants,en,generic_template_asset,AI can compare routine records
+repair_required,aircraft-service-attendants,en,generic_template_asset,AI can draft routine explanations
+repair_required,aircraft-service-attendants,en,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,aircraft-service-attendants,en,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,aircraft-structure-surfaces-rigging-and-systems-assemblers,zh-CN,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,aircraft-structure-surfaces-rigging-and-systems-assemblers,zh-CN,generic_template_asset,AI can compare routine records
+repair_required,aircraft-structure-surfaces-rigging-and-systems-assemblers,zh-CN,generic_template_asset,AI can draft routine explanations
+repair_required,aircraft-structure-surfaces-rigging-and-systems-assemblers,zh-CN,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,aircraft-structure-surfaces-rigging-and-systems-assemblers,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,aircraft-structure-surfaces-rigging-and-systems-assemblers,zh-CN,generic_template_asset,把混乱的
+repair_required,aircraft-structure-surfaces-rigging-and-systems-assemblers,zh-CN,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,aircraft-structure-surfaces-rigging-and-systems-assemblers,en,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,aircraft-structure-surfaces-rigging-and-systems-assemblers,en,generic_template_asset,AI can compare routine records
+repair_required,aircraft-structure-surfaces-rigging-and-systems-assemblers,en,generic_template_asset,AI can draft routine explanations
+repair_required,aircraft-structure-surfaces-rigging-and-systems-assemblers,en,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,aircraft-structure-surfaces-rigging-and-systems-assemblers,en,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,airfield-operations-specialists,zh-CN,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,airfield-operations-specialists,zh-CN,generic_template_asset,AI can compare routine records
+repair_required,airfield-operations-specialists,zh-CN,generic_template_asset,AI can draft routine explanations
+repair_required,airfield-operations-specialists,zh-CN,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,airfield-operations-specialists,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,airfield-operations-specialists,zh-CN,generic_template_asset,把混乱的
+repair_required,airfield-operations-specialists,zh-CN,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,airfield-operations-specialists,en,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,airfield-operations-specialists,en,generic_template_asset,AI can compare routine records
+repair_required,airfield-operations-specialists,en,generic_template_asset,AI can draft routine explanations
+repair_required,airfield-operations-specialists,en,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,airfield-operations-specialists,en,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,airline-and-commercial-pilots,zh-CN,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,airline-and-commercial-pilots,zh-CN,generic_template_asset,AI can compare routine records
+repair_required,airline-and-commercial-pilots,zh-CN,generic_template_asset,AI can draft routine explanations
+repair_required,airline-and-commercial-pilots,zh-CN,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,airline-and-commercial-pilots,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,airline-and-commercial-pilots,zh-CN,generic_template_asset,把混乱的
+repair_required,airline-and-commercial-pilots,zh-CN,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,airline-and-commercial-pilots,en,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,airline-and-commercial-pilots,en,generic_template_asset,AI can compare routine records
+repair_required,airline-and-commercial-pilots,en,generic_template_asset,AI can draft routine explanations
+repair_required,airline-and-commercial-pilots,en,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,airline-and-commercial-pilots,en,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,airline-pilots-copilots-and-flight-engineers,zh-CN,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,airline-pilots-copilots-and-flight-engineers,zh-CN,generic_template_asset,AI can compare routine records
+repair_required,airline-pilots-copilots-and-flight-engineers,zh-CN,generic_template_asset,AI can draft routine explanations
+repair_required,airline-pilots-copilots-and-flight-engineers,zh-CN,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,airline-pilots-copilots-and-flight-engineers,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,airline-pilots-copilots-and-flight-engineers,zh-CN,generic_template_asset,把混乱的
+repair_required,airline-pilots-copilots-and-flight-engineers,zh-CN,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,airline-pilots-copilots-and-flight-engineers,en,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,airline-pilots-copilots-and-flight-engineers,en,generic_template_asset,AI can compare routine records
+repair_required,airline-pilots-copilots-and-flight-engineers,en,generic_template_asset,AI can draft routine explanations
+repair_required,airline-pilots-copilots-and-flight-engineers,en,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,airline-pilots-copilots-and-flight-engineers,en,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,allergists-and-immunologists,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,ambulance-drivers-and-attendants-except-emergency-medical-technicians,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,amusement-and-recreation-attendants,zh-CN,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,amusement-and-recreation-attendants,zh-CN,generic_template_asset,AI can compare routine records
+repair_required,amusement-and-recreation-attendants,zh-CN,generic_template_asset,AI can draft routine explanations
+repair_required,amusement-and-recreation-attendants,zh-CN,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,amusement-and-recreation-attendants,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,amusement-and-recreation-attendants,zh-CN,generic_template_asset,把混乱的
+repair_required,amusement-and-recreation-attendants,zh-CN,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,amusement-and-recreation-attendants,en,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,amusement-and-recreation-attendants,en,generic_template_asset,AI can compare routine records
+repair_required,amusement-and-recreation-attendants,en,generic_template_asset,AI can draft routine explanations
+repair_required,amusement-and-recreation-attendants,en,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,amusement-and-recreation-attendants,en,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,anesthesiologist-assistants,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,anesthesiologists,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,animal-breeders,zh-CN,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,animal-breeders,zh-CN,generic_template_asset,AI can compare routine records
+repair_required,animal-breeders,zh-CN,generic_template_asset,AI can draft routine explanations
+repair_required,animal-breeders,zh-CN,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,animal-breeders,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,animal-breeders,zh-CN,generic_template_asset,把混乱的
+repair_required,animal-breeders,zh-CN,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,animal-breeders,en,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,animal-breeders,en,generic_template_asset,AI can compare routine records
+repair_required,animal-breeders,en,generic_template_asset,AI can draft routine explanations
+repair_required,animal-breeders,en,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,animal-breeders,en,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,animal-care-and-service-workers,zh-CN,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,animal-care-and-service-workers,zh-CN,generic_template_asset,AI can compare routine records
+repair_required,animal-care-and-service-workers,zh-CN,generic_template_asset,AI can draft routine explanations
+repair_required,animal-care-and-service-workers,zh-CN,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,animal-care-and-service-workers,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,animal-care-and-service-workers,zh-CN,generic_template_asset,把混乱的
+repair_required,animal-care-and-service-workers,zh-CN,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,animal-care-and-service-workers,en,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,animal-care-and-service-workers,en,generic_template_asset,AI can compare routine records
+repair_required,animal-care-and-service-workers,en,generic_template_asset,AI can draft routine explanations
+repair_required,animal-care-and-service-workers,en,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,animal-care-and-service-workers,en,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,animal-caretakers,zh-CN,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,animal-caretakers,zh-CN,generic_template_asset,AI can compare routine records
+repair_required,animal-caretakers,zh-CN,generic_template_asset,AI can draft routine explanations
+repair_required,animal-caretakers,zh-CN,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,animal-caretakers,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,animal-caretakers,zh-CN,generic_template_asset,把混乱的
+repair_required,animal-caretakers,zh-CN,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,animal-caretakers,en,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,animal-caretakers,en,generic_template_asset,AI can compare routine records
+repair_required,animal-caretakers,en,generic_template_asset,AI can draft routine explanations
+repair_required,animal-caretakers,en,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,animal-caretakers,en,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,animal-control-workers,zh-CN,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,animal-control-workers,zh-CN,generic_template_asset,AI can compare routine records
+repair_required,animal-control-workers,zh-CN,generic_template_asset,AI can draft routine explanations
+repair_required,animal-control-workers,zh-CN,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,animal-control-workers,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,animal-control-workers,zh-CN,generic_template_asset,把混乱的
+repair_required,animal-control-workers,zh-CN,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,animal-control-workers,en,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,animal-control-workers,en,generic_template_asset,AI can compare routine records
+repair_required,animal-control-workers,en,generic_template_asset,AI can draft routine explanations
+repair_required,animal-control-workers,en,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,animal-control-workers,en,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,animal-scientists,zh-CN,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,animal-scientists,zh-CN,generic_template_asset,AI can compare routine records
+repair_required,animal-scientists,zh-CN,generic_template_asset,AI can draft routine explanations
+repair_required,animal-scientists,zh-CN,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,animal-scientists,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,animal-scientists,zh-CN,generic_template_asset,把混乱的
+repair_required,animal-scientists,zh-CN,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,animal-scientists,en,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,animal-scientists,en,generic_template_asset,AI can compare routine records
+repair_required,animal-scientists,en,generic_template_asset,AI can draft routine explanations
+repair_required,animal-scientists,en,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,animal-scientists,en,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,animal-trainers,zh-CN,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,animal-trainers,zh-CN,generic_template_asset,AI can compare routine records
+repair_required,animal-trainers,zh-CN,generic_template_asset,AI can draft routine explanations
+repair_required,animal-trainers,zh-CN,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,animal-trainers,zh-CN,generic_template_asset,最终责任和复杂判断仍在人
+repair_required,animal-trainers,zh-CN,generic_template_asset,把混乱的
+repair_required,animal-trainers,zh-CN,generic_template_asset,"AI can turn procedures, schedules and known constraints"
+repair_required,animal-trainers,en,generic_template_asset,"work still depends on the conditions, people, equipment or environment"
+repair_required,animal-trainers,en,generic_template_asset,AI can compare routine records
+repair_required,animal-trainers,en,generic_template_asset,AI can draft routine explanations
+repair_required,animal-trainers,en,generic_template_asset,Final decisions remain human because mistakes can affect safety
+repair_required,animal-trainers,en,generic_template_asset,"AI can turn procedures, schedules and known constraints"
