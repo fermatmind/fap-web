@@ -113,6 +113,18 @@ def read_projection(path: Path | None) -> list[dict[str, str]]:
         return list(csv.DictReader(handle))
 
 
+def parse_jsonish_field(value: Any) -> Any:
+    if not isinstance(value, str):
+        return value
+    stripped = value.strip()
+    if not stripped or stripped[0] not in "[{":
+        return value
+    try:
+        return json.loads(stripped)
+    except json.JSONDecodeError:
+        return value
+
+
 def row_text(row: Any) -> str:
     if row is None:
         return ""
@@ -339,17 +351,50 @@ def audit_projection_rows(rows: list[dict[str, Any]], evidence_rows: list[dict[s
             findings.append(Finding("repair_required", slug, locale, "projection_missing_audit_boundary", boundary))
         if re.search(r"update runtime|write runtime|directly write|直接写入|直接用于|canonical 更新|noindex 更新", text, flags=re.I):
             findings.append(Finding("repair_required", slug, locale, "search_projection_runtime_seo_instruction", text[:240]))
-        snippets = row.get("citation_snippets", [])
+        snippets = parse_jsonish_field(row.get("citation_snippets", []))
         if isinstance(snippets, str):
             findings.append(Finding("repair_required", slug, locale, "citation_snippets_wrong_shape", "expected array of objects, found string"))
+            continue
+        if not isinstance(snippets, list) or not snippets:
+            findings.append(Finding("repair_required", slug, locale, "citation_snippets_wrong_shape", "expected non-empty array of objects"))
             continue
         for snippet in snippets or []:
             if not isinstance(snippet, dict):
                 findings.append(Finding("repair_required", slug, locale, "citation_snippet_not_object", repr(snippet)))
                 continue
+            if not (snippet.get("snippet") or snippet.get("claim")):
+                findings.append(Finding("repair_required", slug, locale, "citation_snippet_missing_claim", repr(snippet)))
             for sid in snippet.get("source_ids", []) or []:
                 if sid not in source_ids.get(slug, set()):
                     findings.append(Finding("repair_required", slug, locale, "projection_source_traceability_error", str(sid)))
+    return findings
+
+
+def audit_manual_review_resolution(synthesis_rows: list[dict[str, Any]], asset_rows: list[dict[str, Any]], evidence_rows: list[dict[str, Any]]) -> list[Finding]:
+    findings: list[Finding] = []
+    evidence_slugs = {str(row.get("slug", "")) for row in evidence_rows}
+    synthesis_by_key = {(str(row.get("slug", "")), str(row.get("locale", ""))): row for row in synthesis_rows}
+    asset_by_key = {(str(row.get("slug", "")), str(row.get("locale", ""))): row for row in asset_rows}
+    for slug, rule in MANUAL_REVIEW_RULES.items():
+        if slug not in evidence_slugs:
+            continue
+        for dataset_name, rows_by_key in (("synthesis", synthesis_by_key), ("asset", asset_by_key)):
+            for locale in LOCALES:
+                row = rows_by_key.get((slug, locale))
+                if row is None:
+                    findings.append(Finding("repair_required", slug, locale, "manual_review_row_missing", dataset_name))
+                    continue
+                rationale = row.get("score_rationale")
+                if not isinstance(rationale, dict):
+                    findings.append(Finding("repair_required", slug, locale, "manual_review_rationale_missing", dataset_name))
+                    continue
+                if rationale.get("manual_review_flag") is not False:
+                    findings.append(Finding("repair_required", slug, locale, "manual_review_unresolved", rule))
+                reason = str(rationale.get("manual_review_reason", "")).strip()
+                if len(reason) < 20:
+                    findings.append(Finding("repair_required", slug, locale, "manual_review_reason_too_thin", dataset_name))
+                if not rationale.get("why_not_higher") or not rationale.get("why_not_lower"):
+                    findings.append(Finding("repair_required", slug, locale, "manual_review_score_boundary_missing", dataset_name))
     return findings
 
 
@@ -379,7 +424,7 @@ def write_report(output_dir: Path, findings_by_file: dict[str, list[Finding]], v
     }
     (output_dir / "audit.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
     lines = [
-        "# Career AI Impact v1 vs v2 Audit",
+        "# Career AI Impact v2 Audit",
         "",
         f"Verdict: `{verdict}`",
         "",
@@ -390,13 +435,11 @@ def write_report(output_dir: Path, findings_by_file: dict[str, list[Finding]], v
     ]
     for code, count in counts.most_common(20):
         lines.append(f"- `{code}`: {count}")
-    lines.extend([
-        "",
-        "## Next Step",
-        "",
-        "Regenerate batch 001 v2 evidence, synthesis, assets, sources, and search projection from the v2 prompt. Do not patch v1.",
-        "",
-    ])
+    if verdict == "PASS":
+        next_step = "Batch 001 passes the v2 gate. Freeze this batch before starting batch 002."
+    else:
+        next_step = "Regenerate batch 001 v2 evidence, synthesis, assets, sources, and search projection from the v2 prompt. Do not patch v1."
+    lines.extend(["", "## Next Step", "", next_step, ""])
     (output_dir / "audit.md").write_text("\n".join(lines), encoding="utf-8")
     for filename, findings in findings_by_file.items():
         write_csv(output_dir / filename, findings)
@@ -439,12 +482,7 @@ def run_audit(args: argparse.Namespace, mode: str) -> int:
         findings_by_file["template_reuse_failures.csv"] = audit_template_reuse(evidence, assets)
     if mode in {"all", "projection"}:
         findings_by_file["projection_failures.csv"] = audit_projection_rows(projection, evidence)
-    manual = []
-    for row in evidence:
-        slug = str(row.get("slug", ""))
-        if slug in MANUAL_REVIEW_RULES:
-            manual.append(Finding("repair_required", slug, "", "manual_review_required_seed", MANUAL_REVIEW_RULES[slug]))
-    findings_by_file["manual_review_required.csv"] = manual
+    findings_by_file["manual_review_required.csv"] = audit_manual_review_resolution(synthesis, assets, evidence)
     verdict = "PASS" if not any(findings_by_file.values()) else "NEEDS_BATCH_001_REGENERATION"
     write_report(Path(args.output_dir), findings_by_file, verdict)
     return 0 if verdict == "PASS" else 2
