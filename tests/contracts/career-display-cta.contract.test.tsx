@@ -12,13 +12,26 @@ import {
   buildSelectedCareerDisplaySurfaceFixture,
 } from "@/tests/contracts/careerDisplaySurface.fixture";
 
+function getPrimaryDecisionCta(): HTMLAnchorElement {
+  const links = Array.from(screen.getByTestId("career-decision-action-block").querySelectorAll("a"));
+  const cta = links.find((link) =>
+    link.getAttribute("href")?.includes(`/tests/${CAREER_DISPLAY_RIASEC_TEST_SLUG}`)
+  );
+
+  if (!cta) {
+    throw new Error("Expected the primary career decision CTA to link to the RIASEC test");
+  }
+
+  return cta;
+}
+
 describe("career display CTA contract", () => {
   it("renders the RIASEC CTA and preserves the test slug", () => {
     const surface = adaptCareerDisplaySurface(buildActorsDisplaySurfaceFixture(), "en");
 
     render(<CareerDisplaySurface surface={surface} />);
 
-    const cta = screen.getByTestId("career-display-cta").querySelector("a");
+    const cta = getPrimaryDecisionCta();
     expect(cta).toBeInTheDocument();
     expect(cta?.getAttribute("href")).toContain(`/tests/${CAREER_DISPLAY_RIASEC_TEST_SLUG}`);
     expect(cta?.getAttribute("href")).toContain(`test_slug=${CAREER_DISPLAY_RIASEC_TEST_SLUG}`);
@@ -115,7 +128,7 @@ describe("career display CTA contract", () => {
       />
     );
 
-    const cta = screen.getByTestId("career-display-cta").querySelector("a");
+    const cta = getPrimaryDecisionCta();
     const parsed = new URL(`https://fermatmind.test${cta?.getAttribute("href") ?? ""}`);
 
     expect(parsed.pathname).toBe("/zh/tests/holland-career-interest-test-riasec");
@@ -157,7 +170,7 @@ describe("career display CTA contract", () => {
       />
     );
 
-    const cta = screen.getByTestId("career-display-cta").querySelector("a");
+    const cta = getPrimaryDecisionCta();
     const parsed = new URL(`https://fermatmind.test${cta?.getAttribute("href") ?? ""}`);
 
     expect(parsed.searchParams.get("subject_key")).toBe("registered-nurses");
@@ -189,7 +202,7 @@ describe("career display CTA contract", () => {
       />
     );
 
-    const cta = screen.getByTestId("career-display-cta").querySelector("a");
+    const cta = getPrimaryDecisionCta();
     const parsed = new URL(`https://fermatmind.test${cta?.getAttribute("href") ?? ""}`);
 
     expect(parsed.searchParams.get("subject_key")).toBe("civil-engineers");
@@ -220,7 +233,7 @@ describe("career display CTA contract", () => {
       />
     );
 
-    const cta = screen.getByTestId("career-display-cta").querySelector("a");
+    const cta = getPrimaryDecisionCta();
     const parsed = new URL(`https://fermatmind.test${cta?.getAttribute("href") ?? ""}`);
 
     expect(parsed.searchParams.get("subject_key")).toBe("web-developers");

@@ -1028,6 +1028,13 @@ export function adaptCareerDisplaySurface(
     subjectSlug: canonicalSlug,
     attributionParams,
   });
+  const localizedHero: CareerDisplayHeroViewModel = {
+    ...hero,
+    primaryCta: {
+      ...hero.primaryCta,
+      href: isKnownTestHref(hero.primaryCta.href) ? localizeKnownTestHref(locale, hero.primaryCta.href) : hero.primaryCta.href,
+    },
+  };
 
   return {
     surfaceVersion: CAREER_DISPLAY_SURFACE_VERSION,
@@ -1039,20 +1046,20 @@ export function adaptCareerDisplaySurface(
     subject: {
       canonicalSlug,
       path,
-      title: hero.h1,
-      ...(hero.subtitle ? { subtitle: hero.subtitle } : {}),
+      title: localizedHero.h1,
+      ...(localizedHero.subtitle ? { subtitle: localizedHero.subtitle } : {}),
     },
     componentOrder,
-    hero,
+    hero: localizedHero,
     sections,
     faqItems,
     sources: normalizeSources(root.sources),
-    relatedNextPages: buildRelatedNextPages(locale, hero),
+    relatedNextPages: buildRelatedNextPages(locale, localizedHero),
     boundaryNotice: normalizeBoundaryNotice(root, locale, page),
     reviewValidity: normalizeReviewValidity(root, page),
     claimPermissions: normalizeClaimPermissions(root.claim_permissions),
     cta: {
-      label: hero.primaryCta.label,
+      label: localizedHero.primaryCta.label,
       href: ctaHref,
       testSlug: CAREER_DISPLAY_RIASEC_TEST_SLUG,
       targetAction: "start_riasec_test",

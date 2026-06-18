@@ -1,19 +1,19 @@
-import { BoundaryNotice } from "@/components/career/display/BoundaryNotice";
-import { CareerDisplayCTA } from "@/components/career/display/CareerDisplayCTA";
+import type { ReactNode } from "react";
+import { CareerDecisionActionBlock } from "@/components/career/display/CareerDecisionActionBlock";
 import { CareerDisplayHero } from "@/components/career/display/CareerDisplayHero";
 import { CareerFAQBlock } from "@/components/career/display/CareerFAQBlock";
 import { ClaimGuard } from "@/components/career/ClaimGuard";
 import { EvidenceContainer } from "@/components/career/display/EvidenceContainer";
 import { FermatDecisionCard } from "@/components/career/display/FermatDecisionCard";
 import { MarketSignalCard } from "@/components/career/display/MarketSignalCard";
-import { RelatedNextPages } from "@/components/career/display/RelatedNextPages";
-import { SourceList } from "@/components/career/display/SourceList";
+import { SourceDisclosureBlock } from "@/components/career/display/SourceDisclosureBlock";
 import type {
   CareerDisplayClaimPermissions,
   CareerDisplaySection,
   CareerDisplaySurfaceViewModel,
   CareerDisplayTableRow,
 } from "@/lib/career/displaySurface";
+import { buildCareerDisplayCtaHref as buildDisplayCtaHref } from "@/lib/career/displaySurface";
 import type { AttributionParams } from "@/lib/tracking/attribution";
 
 type CareerDisplaySurfaceProps = {
@@ -21,6 +21,8 @@ type CareerDisplaySurfaceProps = {
   ctaAttributionParams?: AttributionParams;
   ctaLandingPath?: string;
   suppressLegacySalaryMetadata?: boolean;
+  breadcrumbItems?: Array<{ label: string; href?: string }>;
+  salarySlot?: ReactNode;
 };
 
 function findSection(sections: CareerDisplaySection[], component: string): CareerDisplaySection | null {
@@ -156,6 +158,92 @@ function isLegacyMetadataSection(section: CareerDisplaySection): boolean {
   return sectionIncludesSearchIntentMetadata(section) || sectionIncludesLegacySalaryMetadata(section);
 }
 
+function firstString(value: string[] | undefined): string | null {
+  return value?.find((item) => item.trim().length > 0) ?? null;
+}
+
+function firstCheckTitle(section: CareerDisplaySection | null): string | null {
+  const first = section?.checks?.[0];
+  if (!first) {
+    return null;
+  }
+
+  return typeof first === "string" ? first : first.title;
+}
+
+function joinedPreview(items: string[] | undefined, separator: string): string | null {
+  const visible = (items ?? []).filter((item) => item.trim().length > 0).slice(0, 2);
+  return visible.length > 0 ? visible.join(separator) : null;
+}
+
+function buildHeroSnapshotItems({
+  locale,
+  riasecFit,
+  fitDecision,
+  workContext,
+  careerRisks,
+  contractRisks,
+  hasSalaryAsset,
+}: {
+  locale: CareerDisplaySurfaceViewModel["locale"];
+  riasecFit: CareerDisplaySection | null;
+  fitDecision: CareerDisplaySection | null;
+  workContext: CareerDisplaySection | null;
+  careerRisks: CareerDisplaySection | null;
+  contractRisks: CareerDisplaySection | null;
+  hasSalaryAsset: boolean;
+}) {
+  const separator = locale === "zh" ? "、" : ", ";
+  const items = [
+    {
+      label: locale === "zh" ? "兴趣结构" : "Interest structure",
+      value: joinedPreview(riasecFit?.profile, separator),
+    },
+    {
+      label: locale === "zh" ? "核心门槛" : "Core gate",
+      value: firstCheckTitle(fitDecision) ?? firstString(riasecFit?.traits),
+    },
+    {
+      label: locale === "zh" ? "典型场景" : "Typical settings",
+      value: joinedPreview(workContext?.contexts, separator),
+    },
+    {
+      label: locale === "zh" ? "主要风险" : "Main risk",
+      value: firstString(careerRisks?.careerRisks) ?? firstCheckTitle(contractRisks),
+    },
+    {
+      label: locale === "zh" ? "薪资参考" : "Salary reference",
+      value: hasSalaryAsset
+        ? locale === "zh"
+          ? "已接入新版薪资模块"
+          : "New salary module enabled"
+        : null,
+    },
+  ];
+
+  return items.filter((item): item is { label: string; value: string } => Boolean(item.value));
+}
+
+function SectionGroup({
+  title,
+  description,
+  children,
+}: {
+  title: string;
+  description?: string;
+  children: ReactNode;
+}) {
+  return (
+    <section className="space-y-4" data-testid={`career-display-group-${title.toLowerCase().replace(/\s+/g, "-")}`}>
+      <div>
+        <h2 className="m-0 text-xl font-semibold tracking-normal text-slate-950 md:text-2xl">{title}</h2>
+        {description ? <p className="m-0 mt-2 text-sm leading-7 text-slate-600">{description}</p> : null}
+      </div>
+      <div className="grid gap-4">{children}</div>
+    </section>
+  );
+}
+
 function stripSalaryClaims(section: CareerDisplaySection, allowSalaryComparison: boolean): CareerDisplaySection | null {
   if (allowSalaryComparison) {
     return section;
@@ -284,6 +372,8 @@ export function CareerDisplaySurface({
   ctaAttributionParams,
   ctaLandingPath,
   suppressLegacySalaryMetadata = false,
+  breadcrumbItems = [],
+  salarySlot,
 }: CareerDisplaySurfaceProps) {
   if (!surface) {
     return null;
@@ -316,33 +406,90 @@ export function CareerDisplaySurface({
   const visibleFaqItems = faq?.faqItems ?? [];
   const salaryClaimsRestricted =
     !claimPermissions.allowSalaryComparison && baseSections.some((section) => sectionIncludesSalaryClaim(section));
+  const heroSnapshotItems = buildHeroSnapshotItems({
+    locale: surface.locale,
+    riasecFit,
+    fitDecision,
+    workContext,
+    careerRisks,
+    contractRisks,
+    hasSalaryAsset: Boolean(salarySlot),
+  });
+  const fitGroupDescription =
+    surface.locale === "zh"
+      ? "先判断这份工作的行为结构是否适合你，再看职业事实和行动路径。"
+      : "Start with fit and work structure before reading facts and next steps.";
+  const profileGroupTitle = surface.locale === "zh" ? "职业画像" : "Career profile";
+  const profileGroupDescription =
+    surface.locale === "zh"
+      ? "把定义、职责和工作场景放在一起看，避免只凭职业名称做判断。"
+      : "Read the definition, responsibilities, and context together instead of judging by title alone.";
+  const fitMapGroupTitle = surface.locale === "zh" ? "适配地图" : "Fit map";
+  const riskGroupTitle = surface.locale === "zh" ? "风险与变化" : "Risks and change";
+  const primaryCtaHref = ctaLandingPath
+    ? buildDisplayCtaHref({
+        locale: surface.locale,
+        landingPath: ctaLandingPath,
+        subjectSlug: surface.subject.canonicalSlug,
+        attributionParams: ctaAttributionParams,
+      })
+    : surface.cta.href;
 
   return (
-    <article className="mx-auto max-w-5xl space-y-6 px-4 py-8 md:px-6" data-testid="career-display-surface">
-      <CareerDisplayHero hero={surface.hero} />
+    <article className="mx-auto max-w-6xl space-y-8 px-4 py-6 md:px-6 md:py-8" data-testid="career-display-surface">
+      <CareerDisplayHero
+        hero={surface.hero}
+        locale={surface.locale}
+        breadcrumbItems={breadcrumbItems}
+        snapshotItems={heroSnapshotItems}
+      />
       {shouldShowIntegrityNotice(claimPermissions) ? (
         <ClaimPermissionNotice locale={surface.locale} kind="integrity" />
       ) : null}
-      <ClaimGuard
-        allowed={claimPermissions.allowStrongClaim}
-        fallback={decision ? <ClaimPermissionNotice locale={surface.locale} kind="strong_claim" /> : null}
-      >
-        {decision ? <FermatDecisionCard section={decision} /> : null}
-      </ClaimGuard>
+      <SectionGroup title={surface.locale === "zh" ? "快速判断" : "Quick decision"} description={fitGroupDescription}>
+        <ClaimGuard
+          allowed={claimPermissions.allowStrongClaim}
+          fallback={decision ? <ClaimPermissionNotice locale={surface.locale} kind="strong_claim" /> : null}
+        >
+          {decision ? <FermatDecisionCard section={decision} /> : null}
+        </ClaimGuard>
+        {fitDecision ? <EvidenceContainer section={fitDecision} testId="fit-decision-checklist" /> : null}
+      </SectionGroup>
+      <SectionGroup title={profileGroupTitle} description={profileGroupDescription}>
+        {definition ? <EvidenceContainer section={definition} testId="definition-block" /> : null}
+        {responsibilities ? <EvidenceContainer section={responsibilities} testId="responsibilities-block" /> : null}
+        {workContext ? <EvidenceContainer section={workContext} testId="work-context-block" /> : null}
+        {snapshots.map((section, index) => (
+          <EvidenceContainer
+            key={section.id}
+            section={section}
+            testId={index === 0 ? "career-snapshot-primary" : "career-snapshot-secondary"}
+          />
+        ))}
+      </SectionGroup>
+      <SectionGroup title={fitMapGroupTitle}>
+        {riasecFit ? <EvidenceContainer section={riasecFit} testId="riasec-fit-block" /> : null}
+        {personalityFit ? <EvidenceContainer section={personalityFit} testId="personality-fit-block" /> : null}
+      </SectionGroup>
       {salaryClaimsRestricted ? <ClaimPermissionNotice locale={surface.locale} kind="salary" /> : null}
-      {snapshots.map((section, index) => (
-        <EvidenceContainer
-          key={section.id}
-          section={section}
-          testId={index === 0 ? "career-snapshot-primary" : "career-snapshot-secondary"}
-        />
-      ))}
-      {fitDecision ? <EvidenceContainer section={fitDecision} testId="fit-decision-checklist" /> : null}
-      {riasecFit ? <EvidenceContainer section={riasecFit} testId="riasec-fit-block" /> : null}
-      {personalityFit ? <EvidenceContainer section={personalityFit} testId="personality-fit-block" /> : null}
-      {definition ? <EvidenceContainer section={definition} testId="definition-block" /> : null}
-      {responsibilities ? <EvidenceContainer section={responsibilities} testId="responsibilities-block" /> : null}
-      {workContext ? <EvidenceContainer section={workContext} testId="work-context-block" /> : null}
+      {salarySlot}
+      <CareerDecisionActionBlock
+        surface={surface}
+        nextSteps={nextSteps}
+        riasecFit={riasecFit}
+        personalityFit={personalityFit}
+        primaryCtaHref={primaryCtaHref}
+      />
+      <SectionGroup title={riskGroupTitle}>
+        {careerRisks ? <EvidenceContainer section={careerRisks} testId="career-risks-block" /> : null}
+        {contractRisks ? <EvidenceContainer section={contractRisks} testId="contract-risks-block" /> : null}
+        <ClaimGuard
+          allowed={claimPermissions.allowAiStrategy}
+          fallback={aiImpact ? <ClaimPermissionNotice locale={surface.locale} kind="ai" /> : null}
+        >
+          {aiImpact ? <EvidenceContainer section={aiImpact} testId="ai-impact-block" /> : null}
+        </ClaimGuard>
+      </SectionGroup>
       <ClaimGuard
         allowed={claimPermissions.allowMarketSignal}
         fallback={marketSignal ? <ClaimPermissionNotice locale={surface.locale} kind="market" /> : null}
@@ -350,27 +497,12 @@ export function CareerDisplaySurface({
         {marketSignal ? <MarketSignalCard section={marketSignal} /> : null}
       </ClaimGuard>
       {comparison ? <EvidenceContainer section={comparison} testId="comparison-block" /> : null}
-      <ClaimGuard
-        allowed={claimPermissions.allowAiStrategy}
-        fallback={aiImpact ? <ClaimPermissionNotice locale={surface.locale} kind="ai" /> : null}
-      >
-        {aiImpact ? <EvidenceContainer section={aiImpact} testId="ai-impact-block" /> : null}
-      </ClaimGuard>
-      {careerRisks ? <EvidenceContainer section={careerRisks} testId="career-risks-block" /> : null}
-      {contractRisks ? <EvidenceContainer section={contractRisks} testId="contract-risks-block" /> : null}
-      {nextSteps ? <EvidenceContainer section={nextSteps} testId="next-steps-block" /> : null}
       {faq ? <CareerFAQBlock heading={faq.heading} items={visibleFaqItems} /> : null}
-      <RelatedNextPages heading={surface.locale === "zh" ? "下一步页面" : "Related next pages"} pages={surface.relatedNextPages} />
-      <SourceList heading={surface.locale === "zh" ? "来源" : "Sources"} sources={surface.sources} />
-      <BoundaryNotice
-        heading={surface.locale === "zh" ? "边界说明" : "Boundary notice"}
+      <SourceDisclosureBlock
+        locale={surface.locale}
+        sources={surface.sources}
         notices={surface.boundaryNotice}
         reviewValidity={surface.reviewValidity}
-      />
-      <CareerDisplayCTA
-        surface={surface}
-        ctaAttributionParams={ctaAttributionParams}
-        ctaLandingPath={ctaLandingPath}
       />
     </article>
   );

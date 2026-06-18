@@ -177,6 +177,47 @@ describe("career salary asset preview consumer", () => {
     expect(section.textContent).not.toMatch(/[\u3400-\u9fff]/);
   });
 
+  it("keeps zh-CN salary copy locale-safe and avoids sparse official wage cards", () => {
+    const asset = buildAsset("zh-CN");
+    asset.china_official_context = {
+      heading: "中国官方工资语境",
+      body: "中国大陆没有在本资产中使用官方单职业中位薪资；官方行业或单位数据只能作为宏观语境。",
+    };
+    asset.china_recruitment_reference = {
+      ...asset.china_recruitment_reference,
+      data_boundary:
+        "This is a China recruitment-market reference derived from platform samples, posting snippets, salary pages, or adjacent-role evidence; it is not an official Chinese single-occupation median wage.",
+      limitations: [
+        "China recruitment estimates are platform, posting, or salary-report signals only; they are not official Chinese single-occupation wages and not personal salary predictions.",
+      ],
+    };
+    asset.us_official_reference = {
+      ...asset.us_official_reference,
+      limitations: [
+        "OOH 10th/90th percentile evidence was captured where visible; p25/p75 still require OEWS or CareerOneStop extraction.",
+      ],
+    };
+    asset.eu_context_boundary = {
+      ...asset.eu_context_boundary,
+      limitations: [
+        "Do not present this as a unified EU occupation salary; use only as regional/macro boundary unless occupation-level EU data is later captured.",
+      ],
+    };
+
+    render(<CareerSalaryAssetPreviewSection asset={asset} locale="zh" />);
+
+    const section = screen.getByTestId("career-salary-asset-preview");
+    expect(section).toHaveTextContent("这是基于平台样本、招聘片段、薪资页或相邻岗位证据形成的中国招聘市场参考");
+    expect(section).toHaveTextContent("中国招聘薪资仅是平台、岗位片段或薪资报告信号");
+    expect(section).toHaveTextContent("美国 OOH 可见的 10/90 分位证据按来源边界阅读");
+    expect(section).toHaveTextContent("欧盟部分只作为区域或宏观边界");
+    expect(section).toHaveTextContent("中国大陆没有在本资产中使用官方单职业中位薪资");
+    expect(screen.queryByRole("heading", { name: "中国官方工资语境" })).not.toBeInTheDocument();
+    expect(section).not.toHaveTextContent("This is a China recruitment-market reference");
+    expect(section).not.toHaveTextContent("China recruitment estimates are platform");
+    expect(section).not.toHaveTextContent("Do not present this");
+  });
+
   it("renders reader-safe sources even when backend projection omits internal source ids", () => {
     const asset = buildAsset("en");
     asset.sources = [
