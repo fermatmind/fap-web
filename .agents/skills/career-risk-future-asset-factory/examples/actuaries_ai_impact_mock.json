@@ -4,24 +4,47 @@
   "block_type": "career-risk-future",
   "slug": "actuaries",
   "locale": "en",
+  "locale_market_context": {
+    "primary_reader_market": "us_uk_eu_english",
+    "market_scope": [
+      "US",
+      "UK",
+      "EU",
+      "global"
+    ],
+    "localization_mode": "market_specific_original",
+    "market_boundary": "English reader-facing copy is written for US/UK/EU actuarial work context. It is not a translation of the Chinese asset and does not carry China-only regulatory examples."
+  },
   "occupation": "Actuaries",
   "seed_ordinal": 1,
   "batch_role": "new_1",
-  "summary": "AI task exposure is high for actuarial analysis because recurring work includes modeling, data review, documentation, scenario testing, and report drafting. This does not mean the occupation will disappear.",
+  "summary": "FermatMind rates actuaries at 8/10 for AI task exposure because actuarial work includes data reconciliation, probability modeling, scenario testing, report drafting, and model review. This is not a replacement prediction; the durable skill signal is defining risk boundaries, explaining model outputs, and owning assumptions.",
   "facts": {
     "display_label": "AI task exposure",
     "display_score": "8/10",
-    "reader_safe_interpretation": "High task exposure: AI can accelerate parts of modeling, analysis, checking, and documentation, while professional judgment and accountability remain human responsibilities.",
+    "reader_safe_interpretation": "High task exposure: AI can accelerate actuarial data checks, batch model runs, scenario drafts, and report preparation, while out-of-distribution risk judgment, model explainability, regulatory accountability, and cross-functional tradeoffs remain human responsibilities.",
     "mock_only": true
   },
   "items": [
     {
-      "label": "Modeling and scenario analysis",
-      "interpretation": "AI can assist with simulation setup, formula checking, documentation, and sensitivity analysis."
+      "label": "Data reconciliation and cleaning",
+      "interpretation": "AI can help check premium, claims, lapse, mortality, accident, or loss data, generate SQL/Python cleaning scripts, map fields, and validate tables under human review."
     },
     {
-      "label": "Professional accountability",
-      "interpretation": "Risk assumptions, regulatory judgment, sign-off, and communication with stakeholders remain bounded by human expertise."
+      "label": "Batch model runs and scenario drafts",
+      "interpretation": "Within established actuarial systems and model frameworks, AI can accelerate life tables, loss reserves, cash-flow projections, sensitivity tests, stress-test outputs, and first-pass explanations."
+    },
+    {
+      "label": "Out-of-distribution risk judgment",
+      "interpretation": "When historical data is thin, such as autonomous-vehicle liability, climate-related extreme loss, new health-risk patterns, or new insurance products, actuaries still need to set the initial assumption boundary."
+    },
+    {
+      "label": "Model explainability and accountability",
+      "interpretation": "More complex nonlinear models are not automatically more usable. Actuaries still need to explain where a model may fail and whether its results can be accepted by regulators and business decision-makers."
+    },
+    {
+      "label": "Skill evidence to build",
+      "interpretation": "The stronger signal is evidence of problem definition, model explanation, black-box review, and accountability-aware use of actuarial outputs, not only routine software operation."
     }
   ],
   "sources": [
