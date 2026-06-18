@@ -1,0 +1,107 @@
+{
+  "artifact": "MBTI64-FRONTEND-SEO-CONSUME-01",
+  "status": "pass",
+  "render_paths_checked": [
+    "app/(localized)/[locale]/personality/[type]/page.tsx",
+    "lib/cms/personality.ts",
+    "lib/cms/personality-sections.tsx",
+    "tests/contracts/personality-cms.contract.test.ts",
+    "tests/contracts/personality-sections.contract.test.tsx",
+    "tests/contracts/personality-comparison-pages.contract.test.tsx"
+  ],
+  "variant_render_support": {
+    "quick_answer_above_fold": "supported when backend projection includes quick_answer",
+    "h2_sections": "supported through CMS section renderer",
+    "section_keys": [
+      "quick_answer",
+      "meaning",
+      "a_t_difference",
+      "core_traits",
+      "strengths_blind_spots",
+      "careers_work_style",
+      "relationships_communication",
+      "common_misreads",
+      "similar_types"
+    ],
+    "method_boundary": "supported from mbti64_promotion_metadata payload raw_row or structured_metadata",
+    "trademark_boundary": "supported from mbti64_promotion_metadata payload raw_row or structured_metadata"
+  },
+  "comparison_render_support": {
+    "backend_comparison_blocks": "preserved",
+    "promoted_comparison_overlay": "supported when comparison response includes sections[] with mbti64_comparison_a_vs_t",
+    "section_keys": [
+      "quick_answer",
+      "side_by_side_summary",
+      "core_traits_comparison",
+      "stress_confidence",
+      "career_work_style",
+      "relationships_love",
+      "which_one_fits"
+    ],
+    "visible_comparison_sections": "supported through payload_json.content",
+    "visible_faq": "supported through payload_json.faq"
+  },
+  "faq_render_support": {
+    "variant_faq": "visible only when backend provides faq section or projection faq",
+    "comparison_faq": "visible only when backend provides comparison sections faq",
+    "faq_schema": "emitted only when visible FAQ items are extracted"
+  },
+  "internal_link_render_support": {
+    "safe_public_route_required_when_present": true,
+    "allowed_routes": [
+      "/en/personality",
+      "/zh/personality",
+      "/en/personality/*",
+      "/zh/personality/*",
+      "/en/tests/mbti-personality-test-16-personality-types",
+      "/zh/tests/mbti-personality-test-16-personality-types",
+      "/en/tests/big-five-personality-test-ocean-model",
+      "/zh/tests/big-five-personality-test-ocean-model",
+      "/en/tests/holland-career-interest-test-riasec",
+      "/zh/tests/holland-career-interest-test-riasec"
+    ],
+    "forbidden_routes_omitted": true
+  },
+  "route_safety": {
+    "forbidden_patterns_filtered": [
+      "/result",
+      "/results",
+      "/results/lookup",
+      "/orders",
+      "/orders/lookup",
+      "/share",
+      "/pay",
+      "/payment",
+      "/history",
+      "/private",
+      "/account",
+      "token=",
+      "session=",
+      "user=",
+      "result_id=",
+      "report_id=",
+      "order_no="
+    ],
+    "search_channel_touched": false,
+    "sitemap_touched": false,
+    "llms_touched": false
+  },
+  "backward_compatibility": {
+    "missing_structured_fields": "safe no-op",
+    "current_comparison_blocks": "preserved",
+    "current_personality_projection_sections": "preserved",
+    "canonical_behavior": "unchanged"
+  },
+  "draft_leakage_protection": {
+    "cms_draft_fetch_added": false,
+    "promotion_write_added": false,
+    "local_content_copy_added": false,
+    "draft_only_fields_rendered": false
+  },
+  "blockers": [],
+  "warnings": [
+    "Comparison overlay rendering depends on future backend comparison response exposing promoted sections[] or equivalent live payload.",
+    "This PR does not authorize or execute CMS revision promotion."
+  ],
+  "recommended_next_task": "MBTI64-INTERNAL-LINK-GRAPH-01"
+}

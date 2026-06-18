@@ -1,7 +1,14 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import type { PersonalityProjectionSection } from "@/lib/cms/personality";
-import { extractProjectionFaqItems, normalizeProjectionSections, renderProjectionSections } from "@/lib/cms/personality-sections";
+import type { CmsPersonalitySection, PersonalityProjectionSection } from "@/lib/cms/personality";
+import {
+  buildPersonalitySectionLinks,
+  extractPersonalityFaqItems,
+  extractProjectionFaqItems,
+  normalizeProjectionSections,
+  renderPersonalitySections,
+  renderProjectionSections,
+} from "@/lib/cms/personality-sections";
 
 function section(overrides: Partial<PersonalityProjectionSection>): PersonalityProjectionSection {
   return {
@@ -12,6 +19,20 @@ function section(overrides: Partial<PersonalityProjectionSection>): PersonalityP
     payload: null,
     isEnabled: true,
     source: "base",
+    ...overrides,
+  };
+}
+
+function cmsSection(overrides: Partial<CmsPersonalitySection>): CmsPersonalitySection {
+  return {
+    sectionKey: "quick_answer",
+    title: "Quick answer",
+    renderVariant: "rich_text",
+    bodyMd: "Default CMS body",
+    bodyHtml: "",
+    payloadJson: null,
+    sortOrder: 100,
+    isEnabled: true,
     ...overrides,
   };
 }
@@ -277,5 +298,192 @@ describe("personality projection section renderer contract", () => {
     expect(screen.getByText("适合工作")).toBeInTheDocument();
     expect(screen.getByText("优势")).toBeInTheDocument();
     expect(screen.getByText("弱点")).toBeInTheDocument();
+  });
+
+  it("renders promoted MBTI64 zh variant sections without frontend-side translation or private routes", () => {
+    const sections = [
+      cmsSection({
+        sectionKey: "meaning",
+        title: "这个类型是什么意思",
+        bodyMd: "ISTJ-A 表示更稳定自信的 ISTJ 表达方式。",
+      }),
+      cmsSection({
+        sectionKey: "faq",
+        title: "FAQ",
+        renderVariant: "faq",
+        bodyMd: "",
+        payloadJson: {
+          items: [
+            {
+              question: "ISTJ-A 比 ISTJ-T 更好吗？",
+              answer: "不是。A/T 描述的是压力和自我确认方式，不是好坏排序。",
+            },
+          ],
+        },
+      }),
+      cmsSection({
+        sectionKey: "related_content",
+        title: "Related content",
+        renderVariant: "links",
+        bodyMd: "",
+        payloadJson: {
+          links: [
+            {
+              href: "/zh/personality",
+              anchor_text: "人格主入口",
+              role: "hub",
+              safe_public_route: true,
+            },
+            {
+              href: "/zh/tests/big-five-personality-test-ocean-model",
+              anchor_text: "大五人格测试",
+              role: "related_test",
+              safe_public_route: true,
+            },
+            {
+              href: "/zh/results/lookup",
+              anchor_text: "结果查询",
+              role: "private",
+              safe_public_route: false,
+            },
+          ],
+        },
+      }),
+      cmsSection({
+        sectionKey: "mbti64_promotion_metadata",
+        title: "Promotion metadata",
+        renderVariant: "callout",
+        bodyMd: "",
+        payloadJson: {
+          raw_row: {
+            method_boundary: "本页用于自我理解，不用于招聘、诊断或重大决策。",
+            trademark_boundary: "FermatMind 发布独立 16 型教育内容。",
+          },
+        },
+      }),
+    ];
+
+    const { container } = render(<div>{renderPersonalitySections(sections, "zh")}</div>);
+
+    expect(screen.getByRole("heading", { level: 2, name: "这个类型是什么意思" })).toBeInTheDocument();
+    expect(screen.getByText("ISTJ-A 表示更稳定自信的 ISTJ 表达方式。")).toBeInTheDocument();
+    expect(screen.getByText("ISTJ-A 比 ISTJ-T 更好吗？")).toBeInTheDocument();
+    expect(screen.getByText("大五人格测试")).toBeInTheDocument();
+    expect(screen.getAllByText("方法边界").length).toBeGreaterThan(0);
+    expect(screen.getByText("商标与体系边界")).toBeInTheDocument();
+    expect(screen.queryByText("结果查询")).not.toBeInTheDocument();
+    expect(container.innerHTML).not.toContain("/results");
+    expect(extractPersonalityFaqItems(sections)).toEqual([
+      {
+        question: "ISTJ-A 比 ISTJ-T 更好吗？",
+        answer: "不是。A/T 描述的是压力和自我确认方式，不是好坏排序。",
+      },
+    ]);
+  });
+
+  it("renders promoted MBTI64 comparison content, FAQ, boundaries, and safe related-test links", () => {
+    const sections = [
+      cmsSection({
+        sectionKey: "mbti64_comparison_a_vs_t",
+        title: "INTJ-A vs INTJ-T",
+        renderVariant: "rich_text",
+        bodyMd: "Fallback comparison summary",
+        payloadJson: {
+          content: {
+            quick_answer: "INTJ-A and INTJ-T share the same INTJ core; A/T changes confidence and stress response.",
+            side_by_side_summary: {
+              h2: "INTJ-A vs INTJ-T at a glance",
+              rows: [
+                {
+                  dimension: "Decision confidence",
+                  a_variant: "Commits when the strategy is good enough.",
+                  t_variant: "Re-checks assumptions before committing.",
+                },
+              ],
+            },
+            core_traits_comparison: {
+              h2: "What stays the same",
+              body: "Both variants stay strategic, independent and systems-oriented.",
+            },
+          },
+          faq: [
+            {
+              question: "Is INTJ-A better than INTJ-T?",
+              answer: "No. They describe different operating styles around the same type core.",
+            },
+          ],
+          internal_links: [
+            {
+              href: "/en/personality/intj-a",
+              anchor_text: "Read INTJ-A",
+              role: "sibling_variant",
+              safe_public_route: true,
+            },
+            {
+              href: "/en/tests/holland-career-interest-test-riasec",
+              anchor_text: "Explore Holland/RIASEC",
+              role: "related_test",
+              safe_public_route: true,
+            },
+            {
+              href: "/en/account",
+              anchor_text: "Account",
+              role: "account",
+              safe_public_route: false,
+            },
+          ],
+          raw_row: {
+            method_boundary: "Use this as structured self-reflection, not as a hiring or clinical tool.",
+            trademark_boundary: "A/T is treated as an interpretation layer, not the four-letter core code.",
+          },
+        },
+      }),
+    ];
+
+    const { container } = render(<div>{renderPersonalitySections(sections, "en")}</div>);
+
+    expect(screen.getByRole("heading", { level: 2, name: "A/T comparison" })).toBeInTheDocument();
+    expect(screen.getByText("INTJ-A vs INTJ-T at a glance")).toBeInTheDocument();
+    expect(screen.getByText("Decision confidence")).toBeInTheDocument();
+    expect(screen.getByText("Commits when the strategy is good enough.")).toBeInTheDocument();
+    expect(screen.getByText("Is INTJ-A better than INTJ-T?")).toBeInTheDocument();
+    expect(screen.getByText("Read INTJ-A")).toBeInTheDocument();
+    expect(screen.getByText("Explore Holland/RIASEC")).toBeInTheDocument();
+    expect(screen.getByText("Method boundary")).toBeInTheDocument();
+    expect(screen.getByText("Trademark and framework boundary")).toBeInTheDocument();
+    expect(screen.queryByText("Account")).not.toBeInTheDocument();
+    expect(container.innerHTML).not.toContain("/account");
+    expect(container.innerHTML).not.toContain("/results/lookup");
+    expect(extractPersonalityFaqItems(sections)).toEqual([
+      {
+        question: "Is INTJ-A better than INTJ-T?",
+        answer: "No. They describe different operating styles around the same type core.",
+      },
+    ]);
+  });
+
+  it("omits unsafe internal links and keeps safe public related-test links", () => {
+    const links = buildPersonalitySectionLinks(
+      cmsSection({
+        sectionKey: "related_content",
+        renderVariant: "links",
+        payloadJson: {
+          links: [
+            { href: "/en/tests/mbti-personality-test-16-personality-types", anchor_text: "MBTI test", safe_public_route: true },
+            { href: "/en/tests/big-five-personality-test-ocean-model", anchor_text: "Big Five test", safe_public_route: true },
+            { href: "/en/tests/holland-career-interest-test-riasec", anchor_text: "RIASEC test", safe_public_route: true },
+            { href: "/en/results/lookup?result_id=abc", anchor_text: "Result lookup", safe_public_route: true },
+            { href: "/en/orders/lookup", anchor_text: "Order lookup", safe_public_route: false },
+          ],
+        },
+      }),
+      "en"
+    );
+
+    expect(links).toEqual([
+      { title: "MBTI test", href: "/en/tests/mbti-personality-test-16-personality-types", summary: "" },
+      { title: "Big Five test", href: "/en/tests/big-five-personality-test-ocean-model", summary: "" },
+      { title: "RIASEC test", href: "/en/tests/holland-career-interest-test-riasec", summary: "" },
+    ]);
   });
 });

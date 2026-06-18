@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { SanitizedCmsHtml } from "@/components/content/SanitizedCmsHtml";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
 import {
   type CmsPersonalitySection,
@@ -25,6 +25,23 @@ const KNOWN_SECTION_KEYS = [
   "career_fit",
   "faq",
   "related_content",
+  "quick_answer",
+  "meaning",
+  "a_t_difference",
+  "core_traits",
+  "strengths_blind_spots",
+  "careers_work_style",
+  "relationships_communication",
+  "common_misreads",
+  "similar_types",
+  "side_by_side_summary",
+  "core_traits_comparison",
+  "stress_confidence",
+  "career_work_style",
+  "relationships_love",
+  "which_one_fits",
+  "mbti64_comparison_a_vs_t",
+  "mbti64_promotion_metadata",
 ] as const;
 
 const SUPPORTED_PROJECTION_RENDERS = [
@@ -56,6 +73,9 @@ type LinkItem = {
   href?: string;
   slug?: string;
   title?: string;
+  anchor_text?: string;
+  role?: string;
+  safe_public_route?: boolean;
   body?: string | null;
   summary?: string | null;
 };
@@ -122,7 +142,38 @@ function asArray<T = unknown>(value: unknown): T[] {
   return Array.isArray(value) ? (value as T[]) : [];
 }
 
+const FORBIDDEN_PUBLIC_CONTENT_ROUTE_RE =
+  /(?:^|\/)(?:result|results|orders|share|pay|payment|history|private|account)(?:\/|$)|(?:[?&](?:token|session|user|result_id|report_id|order_no)=)/i;
+
+const ALLOWED_PUBLIC_CONTENT_ROUTE_RE =
+  /^\/(?:en|zh)\/(?:personality(?:\/[a-z0-9-]+)?|tests\/(?:mbti-personality-test-16-personality-types|big-five-personality-test-ocean-model|holland-career-interest-test-riasec))(?:#[A-Za-z0-9][\w:.-]{0,127})?$/;
+
+function isSafePublicPersonalityHref(href: string | null): href is string {
+  if (!href || FORBIDDEN_PUBLIC_CONTENT_ROUTE_RE.test(href)) {
+    return false;
+  }
+
+  return ALLOWED_PUBLIC_CONTENT_ROUTE_RE.test(href);
+}
+
 const PROJECTION_SECTION_TITLE_COPY: Record<string, { zh: string; en: string }> = {
+  quick_answer: { zh: "快速答案", en: "Quick answer" },
+  meaning: { zh: "这个类型是什么意思", en: "What this type means" },
+  a_t_difference: { zh: "A/T 差异", en: "A/T difference" },
+  core_traits: { zh: "核心特征", en: "Core traits" },
+  strengths_blind_spots: { zh: "优势与盲区", en: "Strengths and blind spots" },
+  careers_work_style: { zh: "职业与工作风格", en: "Careers and work style" },
+  relationships_communication: { zh: "关系与沟通", en: "Relationships and communication" },
+  common_misreads: { zh: "常见误读", en: "Common misreads" },
+  similar_types: { zh: "相近类型", en: "Similar types" },
+  side_by_side_summary: { zh: "并排对比", en: "Side-by-side summary" },
+  core_traits_comparison: { zh: "核心特征对比", en: "Core traits comparison" },
+  stress_confidence: { zh: "压力与自信", en: "Stress and confidence" },
+  career_work_style: { zh: "职业与工作风格", en: "Career and work style" },
+  relationships_love: { zh: "关系与亲密关系", en: "Relationships and love" },
+  which_one_fits: { zh: "哪个更像你", en: "Which one fits" },
+  mbti64_comparison_a_vs_t: { zh: "A/T 对比", en: "A/T comparison" },
+  mbti64_promotion_metadata: { zh: "方法边界", en: "Method boundary" },
   overview: { zh: "这个类型是什么", en: "What this type means" },
   letters_intro: { zh: "这个类型是什么", en: "What this type means" },
   trait_overview: { zh: "常见特征", en: "Common traits" },
@@ -166,7 +217,7 @@ function renderSectionCard(sectionKey: string, title: string, content: ReactNode
   return (
     <Card key={sectionKey} id={sectionKey} data-section-key={sectionKey}>
       <CardHeader>
-        <CardTitle>{displayTitle}</CardTitle>
+        <h2 className="m-0 text-xl font-semibold leading-tight tracking-tight text-[var(--fm-text)]">{displayTitle}</h2>
       </CardHeader>
       <CardContent className="space-y-4 text-sm">{content}</CardContent>
     </Card>
@@ -279,21 +330,33 @@ function normalizeLinkItems(
 ): Array<Required<Pick<LinkItem, "title">> & { href: string | null; summary: string }> {
   return items
     .map((item) => {
-      const title = normalizeText(item.title);
+      const title = normalizeText(item.title || item.anchor_text);
       const summary = normalizeText(item.summary ?? item.body);
       const href = normalizeInternalHref(item.href);
       const slug = normalizeText(item.slug);
+      const safePublicRoute = item.safe_public_route;
 
       if (!title) {
         return null;
       }
 
-      if (href) {
+      if (safePublicRoute === false) {
+        return null;
+      }
+
+      if (href && isSafePublicPersonalityHref(href)) {
         return { title, href, summary };
       }
 
+      if (normalizeText(item.href)) {
+        return null;
+      }
+
       if (slug) {
-        return { title, href: buildPersonalityFrontendUrl(locale, slug), summary };
+        const personalityHref = buildPersonalityFrontendUrl(locale, slug);
+        return isSafePublicPersonalityHref(personalityHref)
+          ? { title, href: personalityHref, summary }
+          : null;
       }
 
       return { title, href: null, summary };
@@ -370,7 +433,10 @@ function renderLegacyCardsSection(section: CmsPersonalitySection, locale: Locale
   }
 
   const payload = asRecord(section.payloadJson);
-  const items = normalizeLinkItems(asArray<LinkItem>(payload?.items), locale);
+  const items = normalizeLinkItems(
+    [...asArray<LinkItem>(payload?.items), ...asArray<LinkItem>(payload?.links)],
+    locale
+  );
   const renderedCards = renderGenericCards(items);
 
   if (renderedCards) {
@@ -378,6 +444,197 @@ function renderLegacyCardsSection(section: CmsPersonalitySection, locale: Locale
   }
 
   return renderRichTextBlock(section.bodyHtml, section.bodyMd, locale);
+}
+
+function renderSafeInternalLinks(items: LinkItem[], locale: Locale) {
+  const links = normalizeLinkItems(items, locale).filter((item) => item.href);
+
+  if (links.length === 0) {
+    return null;
+  }
+
+  return (
+    <div className="space-y-3" data-testid="mbti64-safe-internal-links">
+      <h3 className="m-0 text-base font-semibold text-[var(--fm-text)]">
+        {locale === "zh" ? "继续浏览" : "Continue reading"}
+      </h3>
+      {renderGenericCards(links)}
+    </div>
+  );
+}
+
+function renderBoundaryCallouts(payload: Record<string, unknown> | null, locale: Locale) {
+  const rawRow = asRecord(payload?.raw_row);
+  const structuredMetadata = asRecord(payload?.structured_metadata);
+  const methodBoundary = normalizeText(rawRow?.method_boundary ?? structuredMetadata?.method_boundary);
+  const trademarkBoundary = normalizeText(rawRow?.trademark_boundary ?? structuredMetadata?.trademark_boundary);
+  const items = [
+    methodBoundary
+      ? {
+          key: "method-boundary",
+          title: locale === "zh" ? "方法边界" : "Method boundary",
+          body: methodBoundary,
+        }
+      : null,
+    trademarkBoundary
+      ? {
+          key: "trademark-boundary",
+          title: locale === "zh" ? "商标与体系边界" : "Trademark and framework boundary",
+          body: trademarkBoundary,
+        }
+      : null,
+  ].filter((item): item is { key: string; title: string; body: string } => item !== null);
+
+  if (items.length === 0) {
+    return null;
+  }
+
+  return (
+    <div className="space-y-3">
+      {items.map((item) => (
+        <aside
+          key={item.key}
+          id={item.key}
+          className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4"
+          data-testid={`mbti64-${item.key}`}
+        >
+          <h3 className="m-0 text-base font-semibold text-[var(--fm-text)]">{item.title}</h3>
+          <p className="mb-0 mt-2 leading-7 text-[var(--fm-text-muted)]">{item.body}</p>
+        </aside>
+      ))}
+    </div>
+  );
+}
+
+function contentBodyFromValue(value: unknown): string {
+  if (typeof value === "string") {
+    return normalizeText(value);
+  }
+
+  const record = asRecord(value);
+  if (!record) {
+    return "";
+  }
+
+  return normalizeText(record.body ?? record.summary ?? record.text ?? record.answer);
+}
+
+function contentTitleFromValue(key: string, value: unknown, locale: Locale): string {
+  const record = asRecord(value);
+  return normalizeText(record?.h2 ?? record?.title) || projectionSectionTitle(key, key, locale);
+}
+
+function renderSideBySideRows(value: unknown) {
+  const record = asRecord(value);
+  const rows = asArray<Record<string, unknown>>(record?.rows)
+    .map((row) => ({
+      dimension: normalizeText(row.dimension),
+      assertive: normalizeText(row.a_variant ?? row.assertive ?? row.a),
+      turbulent: normalizeText(row.t_variant ?? row.turbulent ?? row.t),
+    }))
+    .filter((row) => row.dimension || row.assertive || row.turbulent);
+
+  if (rows.length === 0) {
+    return null;
+  }
+
+  return (
+    <div className="grid gap-3">
+      {rows.map((row, index) => (
+        <article
+          key={`${row.dimension || "row"}-${index}`}
+          className="grid gap-3 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4 md:grid-cols-[0.8fr_1fr_1fr]"
+        >
+          <p className="m-0 font-semibold text-[var(--fm-text)]">{row.dimension}</p>
+          {row.assertive ? <p className="m-0 text-[var(--fm-text-muted)]">{row.assertive}</p> : null}
+          {row.turbulent ? <p className="m-0 text-[var(--fm-text-muted)]">{row.turbulent}</p> : null}
+        </article>
+      ))}
+    </div>
+  );
+}
+
+function renderMbti64ContentEntries(content: Record<string, unknown>, locale: Locale) {
+  return Object.entries(content)
+    .map(([key, value]) => {
+      const sideBySide = renderSideBySideRows(value);
+      const body = contentBodyFromValue(value);
+
+      if (!sideBySide && !body) {
+        return null;
+      }
+
+      return (
+        <section key={key} id={key} className="space-y-3" data-testid={`mbti64-content-section-${key}`}>
+          <h3 className="m-0 text-base font-semibold text-[var(--fm-text)]">
+            {contentTitleFromValue(key, value, locale)}
+          </h3>
+          {sideBySide ?? <div className="space-y-4 leading-7 text-[var(--fm-text-muted)]">{renderSimpleMarkdown(body, { locale, minimumHeadingLevel: 4 })}</div>}
+        </section>
+      );
+    })
+    .filter((item) => item !== null);
+}
+
+function renderMbti64ComparisonSection(section: CmsPersonalitySection, locale: Locale) {
+  const payload = asRecord(section.payloadJson);
+  const content = asRecord(payload?.content);
+  const faq = asArray<FaqItem>(payload?.faq);
+  const internalLinks = asArray<LinkItem>(payload?.internal_links);
+  const contentEntries = content ? renderMbti64ContentEntries(content, locale) : [];
+  const renderedFaq = faq.length
+    ? renderLegacyFaqSection(
+        {
+          ...section,
+          sectionKey: "faq",
+          renderVariant: "faq",
+          bodyMd: "",
+          bodyHtml: "",
+          payloadJson: { items: faq },
+        },
+        locale
+      )
+    : null;
+  const renderedLinks = renderSafeInternalLinks(internalLinks, locale);
+  const renderedBoundaries = renderBoundaryCallouts(payload, locale);
+
+  if (contentEntries.length === 0 && !renderedFaq && !renderedLinks && !renderedBoundaries) {
+    return renderRichTextBlock(section.bodyHtml, section.bodyMd, locale);
+  }
+
+  return (
+    <div className="space-y-5">
+      {contentEntries}
+      {renderedFaq ? (
+        <section id="faq" className="space-y-3" data-testid="mbti64-visible-faq">
+          <h3 className="m-0 text-base font-semibold text-[var(--fm-text)]">
+            {locale === "zh" ? "常见问题" : "FAQ"}
+          </h3>
+          {renderedFaq}
+        </section>
+      ) : null}
+      {renderedLinks}
+      {renderedBoundaries}
+    </div>
+  );
+}
+
+function renderMbti64PromotionMetadataSection(section: CmsPersonalitySection, locale: Locale) {
+  const payload = asRecord(section.payloadJson);
+  const renderedBoundaries = renderBoundaryCallouts(payload, locale);
+  const rawRow = asRecord(payload?.raw_row);
+  const renderedLinks = renderSafeInternalLinks(asArray<LinkItem>(rawRow?.internal_links), locale);
+
+  if (!renderedBoundaries && !renderedLinks) {
+    return null;
+  }
+
+  return (
+    <div className="space-y-4">
+      {renderedBoundaries}
+      {renderedLinks}
+    </div>
+  );
 }
 
 function normalizeLettersIntroPayload(payload: Record<string, unknown> | null): LettersIntroPayload {
@@ -640,29 +897,38 @@ export function renderPersonalitySections(sections: CmsPersonalitySection[], loc
     .map((section) => {
       let content: ReactNode = null;
 
-      switch (section.renderVariant) {
-        case "bullets":
-          content = renderLegacyBulletsSection(section);
+      switch (section.sectionKey) {
+        case "mbti64_comparison_a_vs_t":
+          content = renderMbti64ComparisonSection(section, locale);
           break;
-        case "faq":
-          content = renderLegacyFaqSection(section, locale);
+        case "mbti64_promotion_metadata":
+          content = renderMbti64PromotionMetadataSection(section, locale);
           break;
-        case "cards":
-        case "links":
-          content = renderLegacyCardsSection(section, locale);
-          break;
-        case "callout":
-        case "rich_text":
         default:
-          content = renderRichTextBlock(section.bodyHtml, section.bodyMd, locale);
-          break;
+          switch (section.renderVariant) {
+            case "bullets":
+              content = renderLegacyBulletsSection(section);
+              break;
+            case "faq":
+              content = renderLegacyFaqSection(section, locale);
+              break;
+            case "cards":
+            case "links":
+              content = renderLegacyCardsSection(section, locale);
+              break;
+            case "callout":
+            case "rich_text":
+            default:
+              content = renderRichTextBlock(section.bodyHtml, section.bodyMd, locale);
+              break;
+          }
       }
 
       if (!content) {
         return null;
       }
 
-      return renderSectionCard(section.sectionKey, section.title, content);
+      return renderSectionCard(section.sectionKey, section.title, content, locale);
     })
     .filter((section) => section !== null);
 }
@@ -736,15 +1002,22 @@ export function buildPersonalitySectionLinks(
   locale: Locale
 ): Array<{ title: string; href: string | null; summary: string }> {
   const payload = asRecord(section.payloadJson);
-  return normalizeLinkItems(asArray<LinkItem>(payload?.items), locale);
+  return normalizeLinkItems(
+    [...asArray<LinkItem>(payload?.items), ...asArray<LinkItem>(payload?.links), ...asArray<LinkItem>(payload?.internal_links)],
+    locale
+  );
 }
 
 export function extractPersonalityFaqItems(sections: CmsPersonalitySection[]): FAQItem[] {
   return getRenderablePersonalitySections(sections)
-    .filter((section) => section.sectionKey === "faq")
     .flatMap((section) => {
       const payload = asRecord(section.payloadJson);
-      const items = asArray<FaqItem>(payload?.items);
+      const items =
+        section.sectionKey === "mbti64_comparison_a_vs_t"
+          ? asArray<FaqItem>(payload?.faq)
+          : section.sectionKey === "faq"
+            ? asArray<FaqItem>(payload?.items)
+            : [];
 
       return items
         .map((item) => ({

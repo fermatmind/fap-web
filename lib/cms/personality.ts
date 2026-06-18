@@ -170,6 +170,7 @@ type CmsPersonalityComparisonApiResponse = {
   ok?: boolean;
   comparison?: CmsPersonalityComparisonProjectionApiRecord | null;
   comparison_public_projection_v1?: CmsPersonalityComparisonProjectionApiRecord | null;
+  sections?: CmsPersonalityApiSection[];
   seo_meta?: CmsPersonalityApiSeoMeta;
   jsonld?: unknown;
   seo_surface_v1?: SeoSurfaceRaw | null;
@@ -497,6 +498,7 @@ export type PersonalityComparisonViewModel = {
   };
   comparisonBlocks: PersonalityComparisonBlockViewModel[];
   sourceRefs: string[];
+  sections: CmsPersonalitySection[];
   seoMeta: CmsPersonalitySeoMeta | null;
   jsonld: unknown;
   seoSurface: SeoSurfaceViewModel | null;
@@ -847,6 +849,13 @@ function normalizePersonalityComparisonPayload(
           .filter((block): block is PersonalityComparisonBlockViewModel => block !== null)
       : [],
     sourceRefs: normalizeComparisonSourceRefs(projection.source_refs),
+    sections: Array.isArray(response.sections)
+      ? response.sections
+          .map(normalizeSection)
+          .filter((section): section is CmsPersonalitySection => section !== null)
+          .filter((section) => section.isEnabled)
+          .sort((left, right) => left.sortOrder - right.sortOrder)
+      : [],
     seoMeta,
     jsonld: response.jsonld ?? null,
     seoSurface: normalizeSeoSurface(response.seo_surface_v1 ?? null),
