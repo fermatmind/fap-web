@@ -1,0 +1,334 @@
+{
+  "artifact": "MBTI64-QUERY-INTENT-MAP-01",
+  "version": "pilot-v1",
+  "created_at": "2026-06-18",
+  "source_artifacts": [
+    "docs/seo/personality/indexation-audit-2026-06-18.json",
+    "docs/seo/personality/target-cohort-lock-2026-06-18.json",
+    "docs/research/personality/mbti64-public-content-asset-audit-01/05-gpt55-content-package-prompt.md"
+  ],
+  "scope": "Strategy artifact for the 8-page MBTI/A-T pilot cohort. This is not a publication, sitemap, llms, search-release, CMS import, or rendering change.",
+  "usage_for_gpt55": [
+    "Generate all 8 pilot pages in the locked queue.",
+    "Use primary_query as the page's main search target.",
+    "Use excluded_queries as hard cannibalization boundaries.",
+    "Do not let variant pages target comparison queries.",
+    "Do not let comparison pages target standalone profile or meaning queries.",
+    "Keep /results/lookup out of target_test_route and treat it as a separate route-classification issue."
+  ],
+  "baseline_summary": {
+    "pages_audited": 96,
+    "exact_sitemap_exposed_pages": 32,
+    "exact_llms_exposed_pages": 96,
+    "exact_llms_full_exposed_pages": 96,
+    "results_lookup_pattern_seen": true,
+    "gsc_fields": "Unknown in local artifacts"
+  },
+  "forbidden_target_route_patterns": [
+    "/result",
+    "/results",
+    "/orders",
+    "/orders/lookup",
+    "/share",
+    "/pay",
+    "/payment",
+    "/history",
+    "token",
+    "session",
+    "user",
+    "private",
+    "account"
+  ],
+  "rows": [
+    {
+      "url": "/en/personality/intj-a-vs-intj-t",
+      "locale": "en",
+      "page_type": "comparison",
+      "primary_query": "intj-a vs intj-t difference",
+      "secondary_queries": [
+        "intj-a vs intj-t",
+        "intj-a and intj-t differences",
+        "assertive architect vs turbulent architect",
+        "intj-a vs intj-t careers",
+        "intj-a vs intj-t relationships"
+      ],
+      "excluded_queries": [
+        "intj-a meaning",
+        "intj-t meaning",
+        "intj-a personality",
+        "intj-t personality",
+        "intj personality type",
+        "mbti test"
+      ],
+      "target_intent": "Difference/comparison intent between INTJ-A and INTJ-T, including traits, work style, relationships, and identification cues.",
+      "snippet_angle": "Clear side-by-side answer: INTJ-A is the assertive Architect pattern; INTJ-T is the turbulent Architect pattern; both remain INTJ.",
+      "internal_link_role": "Comparison hub for the INTJ-A and INTJ-T sibling variant pages.",
+      "target_test_route": "/en/tests/mbti-personality-test-16-personality-types",
+      "cannibalization_risk": "medium: must not absorb standalone INTJ-A or INTJ-T meaning/profile intent.",
+      "sibling_pages": [
+        "/en/personality/intj-a",
+        "/en/personality/intj-t",
+        "/zh/personality/intj-a-vs-intj-t"
+      ],
+      "canonical_target": "/en/personality/intj-a-vs-intj-t",
+      "sitemap_exposure_status": "yes",
+      "llms_exposure_status": "yes",
+      "llms_full_exposure_status": "yes",
+      "content_gap_notes": "Comparison pages currently have stronger H2 structure than variant pages. Keep this page comparison-first and avoid taking standalone profile queries from INTJ-A or INTJ-T. /results/lookup route exposure must be classified before publish/search release.",
+      "notes": "P0 pilot row from GSC screenshot signal and high strategic value."
+    },
+    {
+      "url": "/zh/personality/istj-a",
+      "locale": "zh-CN",
+      "page_type": "variant",
+      "primary_query": "ISTJ-A 人格特点",
+      "secondary_queries": [
+        "ISTJ-A 是什么人格",
+        "ISTJ-A 性格",
+        "ISTJ-A 职业",
+        "ISTJ-A 爱情",
+        "ISTJ-A 工作风格"
+      ],
+      "excluded_queries": [
+        "ISTJ-A 和 ISTJ-T 区别",
+        "ISTJ-A vs ISTJ-T",
+        "ISTJ-T 人格特点",
+        "ISTJ 人格",
+        "MBTI 测试"
+      ],
+      "target_intent": "Chinese standalone meaning/profile intent for ISTJ-A, emphasizing traits, work style, relationships, and practical self-understanding.",
+      "snippet_angle": "直接回答 ISTJ-A 的核心特点、常见优势、职业倾向与关系沟通方式，不展开 ISTJ-A/ISTJ-T 对比。",
+      "internal_link_role": "Variant profile page that should link to the ISTJ-A vs ISTJ-T comparison and MBTI test route without targeting comparison intent.",
+      "target_test_route": "/zh/tests/mbti-personality-test-16-personality-types",
+      "cannibalization_risk": "medium: must avoid competing with the ISTJ-A vs ISTJ-T comparison page and the broader ISTJ hub intent.",
+      "sibling_pages": [
+        "/zh/personality/istj-t",
+        "/zh/personality/istj-a-vs-istj-t",
+        "/en/personality/istj-a"
+      ],
+      "canonical_target": "/zh/personality/istj-a",
+      "sitemap_exposure_status": "no",
+      "llms_exposure_status": "yes",
+      "llms_full_exposure_status": "yes",
+      "content_gap_notes": "Chinese variant pages currently have H2_count = 0 and FAQ unknown in the baseline. English variant pages are also thinner than comparison pages. /results/lookup route exposure must be classified before publish/search release.",
+      "notes": "P0 pilot row from GSC screenshot signal."
+    },
+    {
+      "url": "/en/personality/intp-a-vs-intp-t",
+      "locale": "en",
+      "page_type": "comparison",
+      "primary_query": "intp-a vs intp-t difference",
+      "secondary_queries": [
+        "intp-a vs intp-t",
+        "intp-a and intp-t differences",
+        "assertive logician vs turbulent logician",
+        "intp-a vs intp-t careers",
+        "intp-a vs intp-t relationships"
+      ],
+      "excluded_queries": [
+        "intp-a meaning",
+        "intp-t meaning",
+        "intp-a personality",
+        "intp-t personality",
+        "intp personality type",
+        "mbti test"
+      ],
+      "target_intent": "Difference/comparison intent between INTP-A and INTP-T, with side-by-side traits, pressure response, work style, and relationships.",
+      "snippet_angle": "Explain how the assertive and turbulent Logician variants differ while staying within the same INTP type.",
+      "internal_link_role": "Comparison hub for INTP-A and INTP-T sibling variant pages.",
+      "target_test_route": "/en/tests/mbti-personality-test-16-personality-types",
+      "cannibalization_risk": "medium: must not compete with standalone INTP-A or INTP-T meaning/profile pages.",
+      "sibling_pages": [
+        "/en/personality/intp-a",
+        "/en/personality/intp-t",
+        "/zh/personality/intp-a-vs-intp-t"
+      ],
+      "canonical_target": "/en/personality/intp-a-vs-intp-t",
+      "sitemap_exposure_status": "yes",
+      "llms_exposure_status": "yes",
+      "llms_full_exposure_status": "yes",
+      "content_gap_notes": "Comparison pages currently have stronger H2 structure. Keep this page comparison-first and avoid absorbing standalone INTP-A or INTP-T profile intent. /results/lookup route exposure must be classified before publish/search release.",
+      "notes": "P0 pilot row from GSC screenshot signal and comparison intent."
+    },
+    {
+      "url": "/zh/personality/infp-t",
+      "locale": "zh-CN",
+      "page_type": "variant",
+      "primary_query": "INFP-T 人格特点",
+      "secondary_queries": [
+        "INFP-T 是什么人格",
+        "INFP-T 性格",
+        "INFP-T 爱情",
+        "INFP-T 职业",
+        "INFP-T 调停者"
+      ],
+      "excluded_queries": [
+        "INFP-A 和 INFP-T 区别",
+        "INFP-A vs INFP-T",
+        "INFP-A 人格特点",
+        "INFP 人格",
+        "MBTI 测试"
+      ],
+      "target_intent": "Chinese standalone meaning/profile intent for INFP-T, focused on traits, emotions, relationships, career tendency, and practical self-understanding.",
+      "snippet_angle": "说明 INFP-T 的敏感、理想、压力反应和关系沟通特点，不抢 INFP-A/INFP-T 对比意图。",
+      "internal_link_role": "Variant profile page that should link to INFP-A, the INFP-A vs INFP-T comparison, and the MBTI test route.",
+      "target_test_route": "/zh/tests/mbti-personality-test-16-personality-types",
+      "cannibalization_risk": "medium: must separate INFP-T profile intent from INFP-A vs INFP-T comparison intent and broad INFP hub intent.",
+      "sibling_pages": [
+        "/zh/personality/infp-a",
+        "/zh/personality/infp-a-vs-infp-t",
+        "/en/personality/infp-t"
+      ],
+      "canonical_target": "/zh/personality/infp-t",
+      "sitemap_exposure_status": "no",
+      "llms_exposure_status": "yes",
+      "llms_full_exposure_status": "yes",
+      "content_gap_notes": "Chinese variant pages currently have H2_count = 0 and FAQ unknown in the baseline. This row also had GSC recommendation visibility. /results/lookup route exposure must be classified before publish/search release.",
+      "notes": "P0 pilot row from GSC recommendation signal."
+    },
+    {
+      "url": "/en/personality/intj-a",
+      "locale": "en",
+      "page_type": "variant",
+      "primary_query": "intj-a meaning",
+      "secondary_queries": [
+        "intj-a personality",
+        "intj-a traits",
+        "assertive architect personality",
+        "intj-a careers",
+        "intj-a relationships"
+      ],
+      "excluded_queries": [
+        "intj-a vs intj-t",
+        "intj-a vs intj-t difference",
+        "intj-t meaning",
+        "intj personality type",
+        "mbti test"
+      ],
+      "target_intent": "Standalone meaning/profile intent for INTJ-A, including traits, strengths, work style, relationships, and practical interpretation.",
+      "snippet_angle": "Define INTJ-A quickly, then explain how Assertive Architect patterns show up in work, decisions, and relationships without turning into a comparison page.",
+      "internal_link_role": "Sibling variant profile that should link to INTJ-T and the INTJ-A vs INTJ-T comparison page.",
+      "target_test_route": "/en/tests/mbti-personality-test-16-personality-types",
+      "cannibalization_risk": "high: exact sitemap exposure is no while llms exposure is yes; must avoid stealing comparison intent from /en/personality/intj-a-vs-intj-t.",
+      "sibling_pages": [
+        "/en/personality/intj-t",
+        "/en/personality/intj-a-vs-intj-t",
+        "/zh/personality/intj-a"
+      ],
+      "canonical_target": "/en/personality/intj-a",
+      "sitemap_exposure_status": "no",
+      "llms_exposure_status": "yes",
+      "llms_full_exposure_status": "yes",
+      "content_gap_notes": "English variant pages are thinner than comparison pages and currently have weaker H2 structure than comparison pages. /results/lookup route exposure must be classified before publish/search release.",
+      "notes": "Required example row. Primary query must remain standalone meaning/profile intent."
+    },
+    {
+      "url": "/en/personality/intj-t",
+      "locale": "en",
+      "page_type": "variant",
+      "primary_query": "intj-t meaning",
+      "secondary_queries": [
+        "intj-t personality",
+        "intj-t traits",
+        "turbulent architect personality",
+        "intj-t careers",
+        "intj-t relationships"
+      ],
+      "excluded_queries": [
+        "intj-a vs intj-t",
+        "intj-a vs intj-t difference",
+        "intj-a meaning",
+        "intj personality type",
+        "mbti test"
+      ],
+      "target_intent": "Standalone meaning/profile intent for INTJ-T, including traits, pressure response, work style, relationships, and practical interpretation.",
+      "snippet_angle": "Define INTJ-T and explain the Turbulent Architect profile without becoming the A-vs-T comparison page.",
+      "internal_link_role": "Sibling variant profile that should link to INTJ-A and the INTJ-A vs INTJ-T comparison page.",
+      "target_test_route": "/en/tests/mbti-personality-test-16-personality-types",
+      "cannibalization_risk": "high: must avoid duplicate content and query overlap with INTJ-A and the INTJ-A vs INTJ-T comparison page.",
+      "sibling_pages": [
+        "/en/personality/intj-a",
+        "/en/personality/intj-a-vs-intj-t",
+        "/zh/personality/intj-t"
+      ],
+      "canonical_target": "/en/personality/intj-t",
+      "sitemap_exposure_status": "no",
+      "llms_exposure_status": "yes",
+      "llms_full_exposure_status": "yes",
+      "content_gap_notes": "English variant pages are thinner than comparison pages and currently have weaker H2 structure than comparison pages. /results/lookup route exposure must be classified before publish/search release.",
+      "notes": "P1 strategic sibling row; keep distinct examples from INTJ-A."
+    },
+    {
+      "url": "/zh/personality/intj-a",
+      "locale": "zh-CN",
+      "page_type": "variant",
+      "primary_query": "INTJ-A 人格特点",
+      "secondary_queries": [
+        "INTJ-A 是什么人格",
+        "INTJ-A 性格",
+        "INTJ-A 职业",
+        "INTJ-A 爱情",
+        "INTJ-A 建筑师"
+      ],
+      "excluded_queries": [
+        "INTJ-A 和 INTJ-T 区别",
+        "INTJ-A vs INTJ-T",
+        "INTJ-T 人格特点",
+        "INTJ 人格",
+        "MBTI 测试"
+      ],
+      "target_intent": "Chinese standalone meaning/profile intent for INTJ-A, including traits, decision style, work style, relationships, and practical self-understanding.",
+      "snippet_angle": "回答 INTJ-A 是什么、有什么特点、适合怎样的工作沟通方式，不展开 INTJ-A/INTJ-T 对比。",
+      "internal_link_role": "Chinese variant profile that should link to INTJ-T, the INTJ-A vs INTJ-T comparison, and the MBTI test route.",
+      "target_test_route": "/zh/tests/mbti-personality-test-16-personality-types",
+      "cannibalization_risk": "high: must separate Chinese INTJ-A profile intent from INTJ-A vs INTJ-T comparison intent.",
+      "sibling_pages": [
+        "/zh/personality/intj-t",
+        "/zh/personality/intj-a-vs-intj-t",
+        "/en/personality/intj-a"
+      ],
+      "canonical_target": "/zh/personality/intj-a",
+      "sitemap_exposure_status": "no",
+      "llms_exposure_status": "yes",
+      "llms_full_exposure_status": "yes",
+      "content_gap_notes": "Chinese variant pages currently have H2_count = 0 and FAQ unknown in the baseline. /results/lookup route exposure must be classified before publish/search release.",
+      "notes": "Required example row. Chinese query intent is native Chinese, not a direct English phrase."
+    },
+    {
+      "url": "/zh/personality/intj-t",
+      "locale": "zh-CN",
+      "page_type": "variant",
+      "primary_query": "INTJ-T 人格特点",
+      "secondary_queries": [
+        "INTJ-T 是什么人格",
+        "INTJ-T 性格",
+        "INTJ-T 职业",
+        "INTJ-T 爱情",
+        "INTJ-T 建筑师"
+      ],
+      "excluded_queries": [
+        "INTJ-A 和 INTJ-T 区别",
+        "INTJ-A vs INTJ-T",
+        "INTJ-A 人格特点",
+        "INTJ 人格",
+        "MBTI 测试"
+      ],
+      "target_intent": "Chinese standalone meaning/profile intent for INTJ-T, including traits, stress response, work style, relationships, and practical self-understanding.",
+      "snippet_angle": "回答 INTJ-T 是什么、和压力反应/自我要求相关的特点，不抢 INTJ-A/INTJ-T 对比页。",
+      "internal_link_role": "Chinese variant profile that should link to INTJ-A, the INTJ-A vs INTJ-T comparison, and the MBTI test route.",
+      "target_test_route": "/zh/tests/mbti-personality-test-16-personality-types",
+      "cannibalization_risk": "high: must separate Chinese INTJ-T profile intent from INTJ-A vs INTJ-T comparison intent and broad INTJ intent.",
+      "sibling_pages": [
+        "/zh/personality/intj-a",
+        "/zh/personality/intj-a-vs-intj-t",
+        "/en/personality/intj-t"
+      ],
+      "canonical_target": "/zh/personality/intj-t",
+      "sitemap_exposure_status": "no",
+      "llms_exposure_status": "yes",
+      "llms_full_exposure_status": "yes",
+      "content_gap_notes": "Chinese variant pages currently have H2_count = 0 and FAQ unknown in the baseline. /results/lookup route exposure must be classified before publish/search release.",
+      "notes": "Required example row. Chinese query intent is native Chinese, not a direct English phrase."
+    }
+  ]
+}
