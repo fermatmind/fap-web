@@ -92,12 +92,15 @@ describe("SEO page CTA attribution contract", () => {
 
   it("uses tracked CTA wrappers only on SEO page CTA paths in PR-SEO-JUNE-02 scope", () => {
     const articlePage = readFileSync("app/(localized)/[locale]/articles/[slug]/page.tsx", "utf8");
+    const articleAnswerSurface = readFileSync("components/content/AnswerSurfaceSection.tsx", "utf8");
     const topicPage = readFileSync("app/(localized)/[locale]/topics/[slug]/page.tsx", "utf8");
     const testPage = readFileSync("app/(localized)/[locale]/tests/[slug]/page.tsx", "utf8");
 
-    expect(articlePage).toContain("SeoTrackedCtaLink");
-    expect(articlePage).toContain('sourceRouteFamily="article_detail"');
+    expect(articlePage).toContain("AnswerSurfaceSection");
+    expect(articlePage).toContain("seoCtaAttribution");
+    expect(articlePage).toContain('sourceRouteFamily: "article_detail"');
     expect(articlePage).toContain("contentId={article.id}");
+    expect(articleAnswerSurface).toContain("SeoTrackedCtaLink");
     expect(topicPage).toContain("renderLandingCta");
     expect(topicPage).toContain('sourceRouteFamily="topic_detail"');
     expect(topicPage).toContain("topicId={topic.id}");

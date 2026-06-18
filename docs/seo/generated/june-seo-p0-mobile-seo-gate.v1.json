@@ -107,7 +107,11 @@
       "sourceFiles": [
         {
           "path": "app/(localized)/[locale]/articles/[slug]/page.tsx",
-          "requiredTokens": ["AnswerSurfaceSection", "SeoTrackedCtaLink", "resolveArticleRuntimeContract"]
+          "requiredTokens": ["AnswerSurfaceSection", "seoCtaAttribution", "resolveArticleRuntimeContract"]
+        },
+        {
+          "path": "components/content/AnswerSurfaceSection.tsx",
+          "requiredTokens": ["SeoTrackedCtaLink", "seoCtaAttribution"]
         },
         {
           "path": "docs/seo/generated/url-inventory.v1.csv",

@@ -251,7 +251,7 @@ describe("article answer surface rendering", () => {
     const html = await renderArticleDetail(makeArticle());
 
     expect(html).toContain('data-testid="article-detail-answer-surface"');
-    expect(html).toContain("Quick answers");
+    expect(html).not.toContain("Quick answers");
     expect(html).toContain("When should I use this guide?");
     expect(html).toContain("Use it when you want a fast interpretation before reading the full article.");
     expect(html).toContain("FAQ");

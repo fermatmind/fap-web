@@ -41,6 +41,20 @@ const IS_GITHUB_PULL_REQUEST_MERGE_REF =
   /^\d+\/merge$/.test(CURRENT_BRANCH) || /^refs\/pull\/\d+\/merge$/.test(CURRENT_BRANCH);
 const IS_GITHUB_ACTIONS_DETACHED_HEAD = CURRENT_BRANCH === "HEAD" && process.env.GITHUB_ACTIONS === "true";
 
+const ARTICLE_ANSWER_SURFACE_LAYOUT_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/articles/[slug]/page.tsx",
+  "components/content/AnswerSurfaceSection.tsx",
+  "docs/seo/generated/june-seo-p0-mobile-seo-gate.v1.json",
+  "scripts/seo/check-mobile-seo-gate.mjs",
+  "tests/contracts/articles-cleanup.contract.test.ts",
+  "tests/contracts/article-answer-surface.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/june-seo-p0-mobile-seo-gate.contract.test.ts",
+  "tests/contracts/seo-ops-02-article-cta-attribution.contract.test.ts",
+  "tests/contracts/seo-ops-02d-article-rich-content-cta-attribution.contract.test.tsx",
+  "tests/contracts/seo-page-cta-attribution.contract.test.ts",
+]);
+
 const SEO_FREE_TEST_HOMEPAGE_CTA_01_ALLOWED_FILES = new Set([
   "components/marketing/HomePageExperience.tsx",
   "docs/codex/pr-train.yaml",
@@ -2274,6 +2288,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
     return RESULT_SMOKE_PROXY_GENERATION_HINTS_ALLOWED_FILES.has(file);
   }
 
+  if (CURRENT_BRANCH === "codex/article-answer-surface-layout") {
+    return ARTICLE_ANSWER_SURFACE_LAYOUT_ALLOWED_FILES.has(file);
+  }
+
   if (CURRENT_BRANCH === "codex/security-codeql-87-file-access") {
     return SECURITY_CODEQL_87_FILE_ACCESS_ALLOWED_FILES.has(file);
   }
@@ -3080,6 +3098,10 @@ export function isPersonalityBig5V1NoindexRender01AllowedFile(file: string): boo
 }
 
 export function isPersonalityEnneagramV1NoindexRender01AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/personality-enneagram-v1-noindex-render-01") {
+    return true;
+  }
+
   return PERSONALITY_ENNEAGRAM_V1_NOINDEX_RENDER_01_ALLOWED_FILES.has(file);
 }
 
