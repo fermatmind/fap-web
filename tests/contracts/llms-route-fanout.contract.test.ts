@@ -78,7 +78,8 @@ describe("llms route fanout budget contract", () => {
     expect(source).toContain("getCachedLlmsFullText");
     expect(source).toContain("buildDegradedLlmsFullText");
     expect(source).toContain("X-FermatMind-LLMS-Full-Mode");
-    expect(source).toContain("limitLlmsRouteEntries(articles, LLMS_ROUTE_LIMITS.articles)");
+    expect(source).toContain("const LLMS_FULL_ARTICLE_ENTRY_LIMIT = LLMS_ROUTE_LIMITS.articles * 2");
+    expect(source).toContain("limitLlmsRouteEntries(articles, LLMS_FULL_ARTICLE_ENTRY_LIMIT)");
     expect(source).toContain("withLlmsRouteBudget(() => enrichArticleEntry(entry, siteUrl), entry, { timeoutMs: LLMS_FULL_ENRICHMENT_TIMEOUT_MS })");
     expect(source).toContain("withLlmsRouteBudget(() => enrichPersonalityEntry(entry, siteUrl), entry, { timeoutMs: LLMS_FULL_ENRICHMENT_TIMEOUT_MS })");
     expect(source).toContain("withLlmsRouteBudget(() => enrichTopicEntry(entry, siteUrl), entry, { timeoutMs: LLMS_FULL_ENRICHMENT_TIMEOUT_MS })");
