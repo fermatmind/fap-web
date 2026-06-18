@@ -1,0 +1,126 @@
+{
+  "artifact": "MBTI64-CONTENT-PACKAGE-V2.1-QA-01",
+  "status": "pass",
+  "source_prs": [
+    "#1186",
+    "#1188"
+  ],
+  "v2_path": "docs/seo/personality/content-packages/pilot-v2/mbti64-content-package-pilot-v2-final/mbti64-content-package-pilot-v2.json",
+  "v21_path": "docs/seo/personality/content-packages/pilot-v2.1/mbti64-content-package-pilot-v2.1.json",
+  "row_count": 8,
+  "row_order_unchanged": true,
+  "previous_v2_warning_resolved": true,
+  "immutable_fields_changed": [],
+  "related_test_link_validation": [
+    {
+      "url": "/en/personality/intj-a-vs-intj-t",
+      "locale": "en",
+      "related_test_hrefs": [
+        "/en/tests/big-five-personality-test-ocean-model",
+        "/en/tests/holland-career-interest-test-riasec"
+      ],
+      "missing_routes": [],
+      "unsafe_link_count": 0,
+      "forbidden_link_count": 0
+    },
+    {
+      "url": "/zh/personality/istj-a",
+      "locale": "zh-CN",
+      "related_test_hrefs": [
+        "/zh/tests/big-five-personality-test-ocean-model",
+        "/zh/tests/holland-career-interest-test-riasec"
+      ],
+      "missing_routes": [],
+      "unsafe_link_count": 0,
+      "forbidden_link_count": 0
+    },
+    {
+      "url": "/en/personality/intp-a-vs-intp-t",
+      "locale": "en",
+      "related_test_hrefs": [
+        "/en/tests/big-five-personality-test-ocean-model",
+        "/en/tests/holland-career-interest-test-riasec"
+      ],
+      "missing_routes": [],
+      "unsafe_link_count": 0,
+      "forbidden_link_count": 0
+    },
+    {
+      "url": "/zh/personality/infp-t",
+      "locale": "zh-CN",
+      "related_test_hrefs": [
+        "/zh/tests/big-five-personality-test-ocean-model",
+        "/zh/tests/holland-career-interest-test-riasec"
+      ],
+      "missing_routes": [],
+      "unsafe_link_count": 0,
+      "forbidden_link_count": 0
+    },
+    {
+      "url": "/en/personality/intj-a",
+      "locale": "en",
+      "related_test_hrefs": [
+        "/en/tests/big-five-personality-test-ocean-model",
+        "/en/tests/holland-career-interest-test-riasec"
+      ],
+      "missing_routes": [],
+      "unsafe_link_count": 0,
+      "forbidden_link_count": 0
+    },
+    {
+      "url": "/en/personality/intj-t",
+      "locale": "en",
+      "related_test_hrefs": [
+        "/en/tests/big-five-personality-test-ocean-model",
+        "/en/tests/holland-career-interest-test-riasec"
+      ],
+      "missing_routes": [],
+      "unsafe_link_count": 0,
+      "forbidden_link_count": 0
+    },
+    {
+      "url": "/zh/personality/intj-a",
+      "locale": "zh-CN",
+      "related_test_hrefs": [
+        "/zh/tests/big-five-personality-test-ocean-model",
+        "/zh/tests/holland-career-interest-test-riasec"
+      ],
+      "missing_routes": [],
+      "unsafe_link_count": 0,
+      "forbidden_link_count": 0
+    },
+    {
+      "url": "/zh/personality/intj-t",
+      "locale": "zh-CN",
+      "related_test_hrefs": [
+        "/zh/tests/big-five-personality-test-ocean-model",
+        "/zh/tests/holland-career-interest-test-riasec"
+      ],
+      "missing_routes": [],
+      "unsafe_link_count": 0,
+      "forbidden_link_count": 0
+    }
+  ],
+  "raw_forbidden_pattern_matches": [],
+  "route_decision_status": "pass",
+  "safe_public_routes_source": {
+    "en": [
+      "/en/tests/big-five-personality-test-ocean-model",
+      "/en/tests/holland-career-interest-test-riasec"
+    ],
+    "zh": [
+      "/zh/tests/big-five-personality-test-ocean-model",
+      "/zh/tests/holland-career-interest-test-riasec"
+    ]
+  },
+  "allowed_change_summary": {
+    "version_status_metadata": true,
+    "related_test_additions": true,
+    "route_safety_updates": true,
+    "qa_flags_cleanup": true,
+    "v2_optimization_notes": true
+  },
+  "blockers": [],
+  "warnings": [],
+  "recommended_next_task": "MBTI64-CONTENT-PACKAGE-GATES-01"
+}
