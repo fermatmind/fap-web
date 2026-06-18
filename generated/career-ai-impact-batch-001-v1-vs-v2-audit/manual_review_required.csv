@@ -1,0 +1,12 @@
+level,slug,locale,code,message
+repair_required,actuaries,,manual_review_required_seed,"Actuaries require manual review because low exposure conflicts with actuarial modeling, reserving, pricing, scenario testing, and risk-report workflows."
+repair_required,acute-care-nurses,,manual_review_required_seed,Distinguish documentation support from clinical accountability.
+repair_required,adhesive-bonding-machine-operators-and-tenders,,manual_review_required_seed,Distinguish industrial automation from AI task exposure.
+repair_required,administrative-law-judges-adjudicators-and-hearing-officers,,manual_review_required_seed,"Legal evidence review, statutory reasoning, and written decisions require manual review."
+repair_required,advanced-practice-psychiatric-nurses,,manual_review_required_seed,Distinguish documentation support from clinical accountability.
+repair_required,air-traffic-controllers,,manual_review_required_seed,Preserve safety-critical human accountability.
+repair_required,airline-and-commercial-pilots,,manual_review_required_seed,Preserve safety-critical human accountability.
+repair_required,airline-pilots-copilots-and-flight-engineers,,manual_review_required_seed,Preserve safety-critical human accountability.
+repair_required,allergists-and-immunologists,,manual_review_required_seed,Distinguish documentation support from clinical accountability.
+repair_required,anesthesiologist-assistants,,manual_review_required_seed,Distinguish documentation support from clinical accountability.
+repair_required,anesthesiologists,,manual_review_required_seed,Distinguish documentation support from clinical accountability.

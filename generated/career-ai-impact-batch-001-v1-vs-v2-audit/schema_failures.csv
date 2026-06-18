@@ -1,0 +1,611 @@
+level,slug,locale,code,message
+repair_required,accountants-and-auditors,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,accountants-and-auditors,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,accountants-and-auditors,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,accountants-and-auditors,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,accountants-and-auditors,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,accountants-and-auditors,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,accountants-and-auditors,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,accountants-and-auditors,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,accountants-and-auditors,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,actors,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,actors,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,actors,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,actors,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,actors,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,actors,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,actors,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,actors,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,actuaries,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,actuaries,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,actuaries,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,actuaries,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,actuaries,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,actuaries,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,actuaries,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,actuaries,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,acupuncturists,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,acupuncturists,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,acupuncturists,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,acupuncturists,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,acupuncturists,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,acupuncturists,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,acupuncturists,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,acupuncturists,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,acute-care-nurses,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,acute-care-nurses,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,acute-care-nurses,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,acute-care-nurses,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,acute-care-nurses,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,acute-care-nurses,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,acute-care-nurses,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,acute-care-nurses,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,adapted-physical-education-specialists,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,adapted-physical-education-specialists,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,adapted-physical-education-specialists,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,adapted-physical-education-specialists,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,adapted-physical-education-specialists,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,adapted-physical-education-specialists,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,adapted-physical-education-specialists,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,adapted-physical-education-specialists,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,adhesive-bonding-machine-operators-and-tenders,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,adhesive-bonding-machine-operators-and-tenders,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,adhesive-bonding-machine-operators-and-tenders,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,adhesive-bonding-machine-operators-and-tenders,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,adhesive-bonding-machine-operators-and-tenders,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,adhesive-bonding-machine-operators-and-tenders,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,adhesive-bonding-machine-operators-and-tenders,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,adhesive-bonding-machine-operators-and-tenders,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,administrative-law-judges-adjudicators-and-hearing-officers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,administrative-law-judges-adjudicators-and-hearing-officers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,administrative-law-judges-adjudicators-and-hearing-officers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,administrative-law-judges-adjudicators-and-hearing-officers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,administrative-law-judges-adjudicators-and-hearing-officers,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,administrative-law-judges-adjudicators-and-hearing-officers,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,administrative-law-judges-adjudicators-and-hearing-officers,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,administrative-law-judges-adjudicators-and-hearing-officers,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,administrative-services-managers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,administrative-services-managers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,administrative-services-managers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,administrative-services-managers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,administrative-services-managers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,administrative-services-managers,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,administrative-services-managers,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,administrative-services-managers,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,administrative-services-managers,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,adult-literacy-and-ged-teachers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,adult-literacy-and-ged-teachers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,adult-literacy-and-ged-teachers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,adult-literacy-and-ged-teachers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,adult-literacy-and-ged-teachers,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,adult-literacy-and-ged-teachers,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,adult-literacy-and-ged-teachers,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,adult-literacy-and-ged-teachers,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,adult-basic-education-adult-secondary-education-and-english-as-a-second-language-instructors,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,adult-basic-education-adult-secondary-education-and-english-as-a-second-language-instructors,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,adult-basic-education-adult-secondary-education-and-english-as-a-second-language-instructors,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,adult-basic-education-adult-secondary-education-and-english-as-a-second-language-instructors,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,adult-basic-education-adult-secondary-education-and-english-as-a-second-language-instructors,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,adult-basic-education-adult-secondary-education-and-english-as-a-second-language-instructors,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,adult-basic-education-adult-secondary-education-and-english-as-a-second-language-instructors,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,adult-basic-education-adult-secondary-education-and-english-as-a-second-language-instructors,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,advanced-practice-psychiatric-nurses,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,advanced-practice-psychiatric-nurses,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,advanced-practice-psychiatric-nurses,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,advanced-practice-psychiatric-nurses,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,advanced-practice-psychiatric-nurses,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,advanced-practice-psychiatric-nurses,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,advanced-practice-psychiatric-nurses,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,advanced-practice-psychiatric-nurses,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,advertising-and-promotions-managers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,advertising-and-promotions-managers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,advertising-and-promotions-managers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,advertising-and-promotions-managers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,advertising-and-promotions-managers,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,advertising-and-promotions-managers,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,advertising-and-promotions-managers,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,advertising-and-promotions-managers,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,advertising-sales-agents,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,advertising-sales-agents,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,advertising-sales-agents,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,advertising-sales-agents,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,advertising-sales-agents,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,advertising-sales-agents,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,advertising-sales-agents,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,advertising-sales-agents,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,advertising-sales-agents,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,advertising-promotions-and-marketing-managers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,advertising-promotions-and-marketing-managers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,advertising-promotions-and-marketing-managers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,advertising-promotions-and-marketing-managers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,advertising-promotions-and-marketing-managers,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,advertising-promotions-and-marketing-managers,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,advertising-promotions-and-marketing-managers,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,advertising-promotions-and-marketing-managers,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,aerospace-engineering-and-operations-technicians,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aerospace-engineering-and-operations-technicians,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aerospace-engineering-and-operations-technicians,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aerospace-engineering-and-operations-technicians,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aerospace-engineering-and-operations-technicians,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aerospace-engineering-and-operations-technicians,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aerospace-engineering-and-operations-technicians,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,aerospace-engineering-and-operations-technicians,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,aerospace-engineers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aerospace-engineers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aerospace-engineers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aerospace-engineers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aerospace-engineers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aerospace-engineers,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aerospace-engineers,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aerospace-engineers,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,aerospace-engineers,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,agents-and-business-managers-of-artists-performers-and-athletes,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agents-and-business-managers-of-artists-performers-and-athletes,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agents-and-business-managers-of-artists-performers-and-athletes,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agents-and-business-managers-of-artists-performers-and-athletes,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agents-and-business-managers-of-artists-performers-and-athletes,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agents-and-business-managers-of-artists-performers-and-athletes,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agents-and-business-managers-of-artists-performers-and-athletes,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,agents-and-business-managers-of-artists-performers-and-athletes,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,agricultural-and-food-science-technicians,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-and-food-science-technicians,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-and-food-science-technicians,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-and-food-science-technicians,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-and-food-science-technicians,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-and-food-science-technicians,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-and-food-science-technicians,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,agricultural-and-food-science-technicians,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,agricultural-and-food-scientists,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-and-food-scientists,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-and-food-scientists,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-and-food-scientists,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-and-food-scientists,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-and-food-scientists,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-and-food-scientists,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,agricultural-and-food-scientists,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,agricultural-engineers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-engineers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-engineers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-engineers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-engineers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-engineers,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-engineers,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-engineers,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,agricultural-engineers,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,agricultural-equipment-operators,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-equipment-operators,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-equipment-operators,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-equipment-operators,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-equipment-operators,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-equipment-operators,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-equipment-operators,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,agricultural-equipment-operators,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,agricultural-inspectors,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-inspectors,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-inspectors,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-inspectors,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-inspectors,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-inspectors,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-inspectors,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,agricultural-inspectors,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,agricultural-sciences-teachers-postsecondary,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-sciences-teachers-postsecondary,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-sciences-teachers-postsecondary,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-sciences-teachers-postsecondary,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-sciences-teachers-postsecondary,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-sciences-teachers-postsecondary,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-sciences-teachers-postsecondary,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,agricultural-sciences-teachers-postsecondary,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,agricultural-technicians,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-technicians,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-technicians,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-technicians,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-technicians,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-technicians,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-technicians,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,agricultural-technicians,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,agricultural-workers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-workers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-workers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-workers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-workers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-workers,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-workers,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,agricultural-workers,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,agricultural-workers,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,air-crew-members,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,air-crew-members,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,air-crew-members,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,air-crew-members,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,air-crew-members,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,air-crew-members,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,air-crew-members,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,air-crew-members,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,air-crew-officers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,air-crew-officers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,air-crew-officers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,air-crew-officers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,air-crew-officers,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,air-crew-officers,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,air-crew-officers,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,air-crew-officers,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,air-traffic-controllers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,air-traffic-controllers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,air-traffic-controllers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,air-traffic-controllers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,air-traffic-controllers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,air-traffic-controllers,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,air-traffic-controllers,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,air-traffic-controllers,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,air-traffic-controllers,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,aircraft-and-avionics-equipment-mechanics-and-technicians,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-and-avionics-equipment-mechanics-and-technicians,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-and-avionics-equipment-mechanics-and-technicians,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-and-avionics-equipment-mechanics-and-technicians,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-and-avionics-equipment-mechanics-and-technicians,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-and-avionics-equipment-mechanics-and-technicians,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-and-avionics-equipment-mechanics-and-technicians,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,aircraft-and-avionics-equipment-mechanics-and-technicians,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,aircraft-cargo-handling-supervisors,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-cargo-handling-supervisors,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-cargo-handling-supervisors,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-cargo-handling-supervisors,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-cargo-handling-supervisors,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-cargo-handling-supervisors,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-cargo-handling-supervisors,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,aircraft-cargo-handling-supervisors,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,aircraft-launch-and-recovery-officers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-launch-and-recovery-officers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-launch-and-recovery-officers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-launch-and-recovery-officers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-launch-and-recovery-officers,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-launch-and-recovery-officers,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-launch-and-recovery-officers,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,aircraft-launch-and-recovery-officers,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,aircraft-launch-and-recovery-specialists,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-launch-and-recovery-specialists,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-launch-and-recovery-specialists,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-launch-and-recovery-specialists,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-launch-and-recovery-specialists,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-launch-and-recovery-specialists,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-launch-and-recovery-specialists,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,aircraft-launch-and-recovery-specialists,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,aircraft-mechanics-and-service-technicians,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-mechanics-and-service-technicians,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-mechanics-and-service-technicians,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-mechanics-and-service-technicians,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-mechanics-and-service-technicians,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-mechanics-and-service-technicians,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-mechanics-and-service-technicians,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-mechanics-and-service-technicians,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,aircraft-mechanics-and-service-technicians,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,aircraft-service-attendants,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-service-attendants,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-service-attendants,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-service-attendants,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-service-attendants,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-service-attendants,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-service-attendants,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,aircraft-service-attendants,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,aircraft-structure-surfaces-rigging-and-systems-assemblers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-structure-surfaces-rigging-and-systems-assemblers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-structure-surfaces-rigging-and-systems-assemblers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-structure-surfaces-rigging-and-systems-assemblers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-structure-surfaces-rigging-and-systems-assemblers,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-structure-surfaces-rigging-and-systems-assemblers,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,aircraft-structure-surfaces-rigging-and-systems-assemblers,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,aircraft-structure-surfaces-rigging-and-systems-assemblers,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,airfield-operations-specialists,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,airfield-operations-specialists,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,airfield-operations-specialists,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,airfield-operations-specialists,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,airfield-operations-specialists,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,airfield-operations-specialists,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,airfield-operations-specialists,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,airfield-operations-specialists,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,airline-and-commercial-pilots,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,airline-and-commercial-pilots,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,airline-and-commercial-pilots,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,airline-and-commercial-pilots,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,airline-and-commercial-pilots,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,airline-and-commercial-pilots,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,airline-and-commercial-pilots,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,airline-and-commercial-pilots,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,airline-pilots-copilots-and-flight-engineers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,airline-pilots-copilots-and-flight-engineers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,airline-pilots-copilots-and-flight-engineers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,airline-pilots-copilots-and-flight-engineers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,airline-pilots-copilots-and-flight-engineers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,airline-pilots-copilots-and-flight-engineers,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,airline-pilots-copilots-and-flight-engineers,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,airline-pilots-copilots-and-flight-engineers,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,airline-pilots-copilots-and-flight-engineers,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,allergists-and-immunologists,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,allergists-and-immunologists,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,allergists-and-immunologists,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,allergists-and-immunologists,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,allergists-and-immunologists,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,allergists-and-immunologists,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,allergists-and-immunologists,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,allergists-and-immunologists,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,ambulance-drivers-and-attendants-except-emergency-medical-technicians,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,ambulance-drivers-and-attendants-except-emergency-medical-technicians,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,ambulance-drivers-and-attendants-except-emergency-medical-technicians,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,ambulance-drivers-and-attendants-except-emergency-medical-technicians,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,ambulance-drivers-and-attendants-except-emergency-medical-technicians,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,ambulance-drivers-and-attendants-except-emergency-medical-technicians,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,ambulance-drivers-and-attendants-except-emergency-medical-technicians,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,ambulance-drivers-and-attendants-except-emergency-medical-technicians,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,amusement-and-recreation-attendants,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,amusement-and-recreation-attendants,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,amusement-and-recreation-attendants,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,amusement-and-recreation-attendants,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,amusement-and-recreation-attendants,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,amusement-and-recreation-attendants,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,amusement-and-recreation-attendants,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,amusement-and-recreation-attendants,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,anesthesiologist-assistants,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,anesthesiologist-assistants,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,anesthesiologist-assistants,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,anesthesiologist-assistants,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,anesthesiologist-assistants,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,anesthesiologist-assistants,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,anesthesiologist-assistants,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,anesthesiologist-assistants,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,anesthesiologists,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,anesthesiologists,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,anesthesiologists,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,anesthesiologists,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,anesthesiologists,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,anesthesiologists,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,anesthesiologists,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,anesthesiologists,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,animal-breeders,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,animal-breeders,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,animal-breeders,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,animal-breeders,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,animal-breeders,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,animal-breeders,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,animal-breeders,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,animal-breeders,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,animal-care-and-service-workers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,animal-care-and-service-workers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,animal-care-and-service-workers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,animal-care-and-service-workers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,animal-care-and-service-workers,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,animal-care-and-service-workers,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,animal-care-and-service-workers,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,animal-care-and-service-workers,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,animal-caretakers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,animal-caretakers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,animal-caretakers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,animal-caretakers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,animal-caretakers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,animal-caretakers,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,animal-caretakers,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,animal-caretakers,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,animal-caretakers,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,animal-control-workers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,animal-control-workers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,animal-control-workers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,animal-control-workers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,animal-control-workers,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,animal-control-workers,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,animal-control-workers,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,animal-control-workers,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,animal-scientists,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,animal-scientists,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,animal-scientists,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,animal-scientists,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,animal-scientists,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,animal-scientists,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,animal-scientists,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,animal-scientists,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,animal-trainers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,animal-trainers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,animal-trainers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,animal-trainers,,evidence_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,animal-trainers,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,animal-trainers,,external_calibration_source_missing_fields,"citation_boundary,evidence_scope,publisher,source_type"
+repair_required,animal-trainers,,workflow_evidence_items_below_4,minimum 4 occupation-specific workflow evidence items
+repair_required,animal-trainers,,internal_rubric_alone_or_unbounded,internal rubric must be paired with task evidence and external calibration
+repair_required,accountants-and-auditors,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,accountants-and-auditors,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将会计师和审计师评为 8/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速凭证、对账、内控、税务/审计底稿、财务报表和风险解释中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_13_2011_00_summary"", ""bls_ooh_ac"
+repair_required,accountants-and-auditors,en,score_rationale_missing,score_rationale must be an object
+repair_required,accountants-and-auditors,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,actors,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,actors,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将演员评为 4/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速剧本、试镜、排练、表演选择、现场协作和观众反馈中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""bls_ooh_actors"", ""pew_onet_ai_exposure_method"
+repair_required,actors,en,score_rationale_missing,score_rationale must be an object
+repair_required,actors,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,actuaries,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,actuaries,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将精算师评为 4/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速概率模型、理赔历史、定价假设、准备金、风险报告和利益相关方解释中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_15_2011_00_summary"", ""pew_onet_"
+repair_required,actuaries,en,score_rationale_missing,score_rationale must be an object
+repair_required,actuaries,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,acupuncturists,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,acupuncturists,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将针灸师评为 3/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速问诊、症状史、触诊、取穴施治、治疗记录和复诊计划中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_29_1291_00_summary"", ""pew_onet_ai_expo"
+repair_required,acupuncturists,en,score_rationale_missing,score_rationale must be an object
+repair_required,acupuncturists,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,acute-care-nurses,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,acute-care-nurses,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将急症护理护士评为 3/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速患者评估、监测、用药/治疗支持、病历记录、升级处置和交接班中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_29_1141_01_summary"", ""pew_onet"
+repair_required,acute-care-nurses,en,score_rationale_missing,score_rationale must be an object
+repair_required,acute-care-nurses,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,adapted-physical-education-specialists,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,adapted-physical-education-specialists,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将适应体育教育专家评为 4/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速教案、学习评估、个别化支持、进度记录和课堂引导中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_25_2059_01_summary"", ""pew_onet_ai_"
+repair_required,adapted-physical-education-specialists,en,score_rationale_missing,score_rationale must be an object
+repair_required,adapted-physical-education-specialists,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,adhesive-bonding-machine-operators-and-tenders,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,adhesive-bonding-machine-operators-and-tenders,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将胶合机操作员与看护员评为 7/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速设备设定、上料、过程检查、质量缺陷和班次交接中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_51_9191_00_summary"", ""pew_onet_ai"
+repair_required,adhesive-bonding-machine-operators-and-tenders,en,score_rationale_missing,score_rationale must be an object
+repair_required,adhesive-bonding-machine-operators-and-tenders,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,administrative-law-judges-adjudicators-and-hearing-officers,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,administrative-law-judges-adjudicators-and-hearing-officers,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将行政法法官、裁决员与听证官评为 4/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速案卷、听证、证据记录、法规分析和书面裁决中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_23_1021_00_summary"", ""pew_onet_a"
+repair_required,administrative-law-judges-adjudicators-and-hearing-officers,en,score_rationale_missing,score_rationale must be an object
+repair_required,administrative-law-judges-adjudicators-and-hearing-officers,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,administrative-services-managers,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,administrative-services-managers,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将行政服务经理评为 5/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速设施、供应商、预算、安全流程、办公服务和连续性安排中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_11_3012_00_summary"", ""bls_ooh_admi"
+repair_required,administrative-services-managers,en,score_rationale_missing,score_rationale must be an object
+repair_required,administrative-services-managers,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,adult-literacy-and-ged-teachers,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,adult-literacy-and-ged-teachers,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将成人基础与中等教育及 ESL 教师评为 4/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速教案、学习评估、个别化支持、进度记录和课堂引导中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_25_3011_00_summary"", ""pew"
+repair_required,adult-literacy-and-ged-teachers,en,score_rationale_missing,score_rationale must be an object
+repair_required,adult-literacy-and-ged-teachers,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,adult-basic-education-adult-secondary-education-and-english-as-a-second-language-instructors,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,adult-basic-education-adult-secondary-education-and-english-as-a-second-language-instructors,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将成人基础教育、成人中等教育与英语作为第二语言教师评为 4/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速教案、学习评估、个别化支持、进度记录和课堂引导中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_25_3011_00_summary"
+repair_required,adult-basic-education-adult-secondary-education-and-english-as-a-second-language-instructors,en,score_rationale_missing,score_rationale must be an object
+repair_required,adult-basic-education-adult-secondary-education-and-english-as-a-second-language-instructors,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,advanced-practice-psychiatric-nurses,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,advanced-practice-psychiatric-nurses,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将高级执业精神科护士评为 3/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速患者评估、监测、用药/治疗支持、病历记录、升级处置和交接班中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_29_1141_02_summary"", ""pew_o"
+repair_required,advanced-practice-psychiatric-nurses,en,score_rationale_missing,score_rationale must be an object
+repair_required,advanced-practice-psychiatric-nurses,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,advertising-and-promotions-managers,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,advertising-and-promotions-managers,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将广告与促销经理评为 6/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速活动简报、受众研究、创意审查、媒介计划和效果报告中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_11_2011_00_summary"", ""pew_onet_ai_"
+repair_required,advertising-and-promotions-managers,en,score_rationale_missing,score_rationale must be an object
+repair_required,advertising-and-promotions-managers,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,advertising-sales-agents,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,advertising-sales-agents,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将广告销售代理评为 6/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速客户线索研究、客户沟通、方案、谈判和账户跟进中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_41_3011_00_summary"", ""bls_ooh_adverti"
+repair_required,advertising-sales-agents,en,score_rationale_missing,score_rationale must be an object
+repair_required,advertising-sales-agents,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,advertising-promotions-and-marketing-managers,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,advertising-promotions-and-marketing-managers,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将广告、促销与市场经理评为 6/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速活动简报、受众研究、创意审查、媒介计划和效果报告中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_11_2021_00_summary"", ""pew_onet_"
+repair_required,advertising-promotions-and-marketing-managers,en,score_rationale_missing,score_rationale must be an object
+repair_required,advertising-promotions-and-marketing-managers,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,aerospace-engineering-and-operations-technicians,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,aerospace-engineering-and-operations-technicians,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将航空航天工程与运营技术员评为 4/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速设计评审、测试数据、需求、仿真、实验和安全文件中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_17_3021_00_summary"", ""pew_onet"
+repair_required,aerospace-engineering-and-operations-technicians,en,score_rationale_missing,score_rationale must be an object
+repair_required,aerospace-engineering-and-operations-technicians,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,aerospace-engineers,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,aerospace-engineers,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将航空航天工程师评为 4/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速设计评审、测试数据、需求、仿真、实验和安全文件中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_17_2011_00_summary"", ""bls_ooh_aeros"
+repair_required,aerospace-engineers,en,score_rationale_missing,score_rationale must be an object
+repair_required,aerospace-engineers,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,agents-and-business-managers-of-artists-performers-and-athletes,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,agents-and-business-managers-of-artists-performers-and-athletes,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将艺术家、表演者和运动员经纪人与商务经理评为 6/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速合同、档期、赞助、谈判、客户定位和关系管理中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_13_1011_00_summary"", ""pew"
+repair_required,agents-and-business-managers-of-artists-performers-and-athletes,en,score_rationale_missing,score_rationale must be an object
+repair_required,agents-and-business-managers-of-artists-performers-and-athletes,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,agricultural-and-food-science-technicians,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,agricultural-and-food-science-technicians,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将农业与食品科学技术员评为 4/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速田间采样、实验检测、样本记录、设备检查和数据录入中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_19_4012_00_summary"", ""pew_onet_"
+repair_required,agricultural-and-food-science-technicians,en,score_rationale_missing,score_rationale must be an object
+repair_required,agricultural-and-food-science-technicians,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,agricultural-and-food-scientists,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,agricultural-and-food-scientists,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将农业与食品科学家评为 4/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速实验设计、数据解释、文献复核、实验/田野研究和报告中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_19_1012_00_summary"", ""pew_onet_a"
+repair_required,agricultural-and-food-scientists,en,score_rationale_missing,score_rationale must be an object
+repair_required,agricultural-and-food-scientists,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,agricultural-engineers,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,agricultural-engineers,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将农业工程师评为 4/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速设备设计、灌溉排水、结构、田间约束和实施检查中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_17_2021_00_summary"", ""bls_ooh_agricult"
+repair_required,agricultural-engineers,en,score_rationale_missing,score_rationale must be an object
+repair_required,agricultural-engineers,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,agricultural-equipment-operators,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,agricultural-equipment-operators,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将农业设备操作员评为 6/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速田间机械、播种/收获、天气约束、维护和安全检查中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_45_2091_00_summary"", ""pew_onet_ai_e"
+repair_required,agricultural-equipment-operators,en,score_rationale_missing,score_rationale must be an object
+repair_required,agricultural-equipment-operators,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,agricultural-inspectors,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,agricultural-inspectors,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将农业检查员评为 4/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速现场检查、合规记录、采样、违规记录和执法交接中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_45_2011_00_summary"", ""pew_onet_ai_expo"
+repair_required,agricultural-inspectors,en,score_rationale_missing,score_rationale must be an object
+repair_required,agricultural-inspectors,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,agricultural-sciences-teachers-postsecondary,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,agricultural-sciences-teachers-postsecondary,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将高等教育农业科学教师评为 4/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速教案、学习评估、个别化支持、进度记录和课堂引导中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_25_1041_00_summary"", ""pew_onet_a"
+repair_required,agricultural-sciences-teachers-postsecondary,en,score_rationale_missing,score_rationale must be an object
+repair_required,agricultural-sciences-teachers-postsecondary,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,agricultural-technicians,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,agricultural-technicians,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将农业技术员评为 4/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速田间采样、实验检测、样本记录、设备检查和数据录入中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_19_4012_00_summary"", ""pew_onet_ai_ex"
+repair_required,agricultural-technicians,en,score_rationale_missing,score_rationale must be an object
+repair_required,agricultural-technicians,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,agricultural-workers,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,agricultural-workers,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将农业从业人员评为 6/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速田间机械、播种/收获、天气约束、维护和安全检查中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_45_2092_00_summary"", ""bls_ooh_agricu"
+repair_required,agricultural-workers,en,score_rationale_missing,score_rationale must be an object
+repair_required,agricultural-workers,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,air-crew-members,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,air-crew-members,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将空勤人员评为 3/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速任务程序、装备检查、发射/回收步骤、机组协同和安全规程中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_55_3011_00_summary"", ""pew_onet_ai_"
+repair_required,air-crew-members,en,score_rationale_missing,score_rationale must be an object
+repair_required,air-crew-members,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,air-crew-officers,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,air-crew-officers,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将空勤军官评为 3/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速任务程序、装备检查、发射/回收步骤、机组协同和安全规程中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_55_1011_00_summary"", ""pew_onet_ai_"
+repair_required,air-crew-officers,en,score_rationale_missing,score_rationale must be an object
+repair_required,air-crew-officers,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,air-traffic-controllers,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,air-traffic-controllers,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将空中交通管制员评为 3/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速雷达/目视监控、管制许可、间隔规则、应急协调和交接班中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_53_2021_00_summary"", ""bls_ooh_ai"
+repair_required,air-traffic-controllers,en,score_rationale_missing,score_rationale must be an object
+repair_required,air-traffic-controllers,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,aircraft-and-avionics-equipment-mechanics-and-technicians,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,aircraft-and-avionics-equipment-mechanics-and-technicians,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将飞机与航空电子设备维修技师评为 4/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速检查、故障排查、部件更换、维修记录和安全放行中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_49_3011_00_summary"", ""pew_onet"
+repair_required,aircraft-and-avionics-equipment-mechanics-and-technicians,en,score_rationale_missing,score_rationale must be an object
+repair_required,aircraft-and-avionics-equipment-mechanics-and-technicians,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,aircraft-cargo-handling-supervisors,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,aircraft-cargo-handling-supervisors,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将飞机货物装卸主管评为 4/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速航班周转协调、货物/旅客服务、跑道/机场检查、事件记录和团队调度中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_53_1041_00_summary"", ""pew"
+repair_required,aircraft-cargo-handling-supervisors,en,score_rationale_missing,score_rationale must be an object
+repair_required,aircraft-cargo-handling-supervisors,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,aircraft-launch-and-recovery-officers,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,aircraft-launch-and-recovery-officers,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将飞机发射与回收军官评为 3/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速任务程序、装备检查、发射/回收步骤、机组协同和安全规程中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_55_1012_00_summary"", ""pew_one"
+repair_required,aircraft-launch-and-recovery-officers,en,score_rationale_missing,score_rationale must be an object
+repair_required,aircraft-launch-and-recovery-officers,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,aircraft-launch-and-recovery-specialists,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,aircraft-launch-and-recovery-specialists,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将飞机发射与回收专员评为 3/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速任务程序、装备检查、发射/回收步骤、机组协同和安全规程中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_55_3012_00_summary"", ""pew_one"
+repair_required,aircraft-launch-and-recovery-specialists,en,score_rationale_missing,score_rationale must be an object
+repair_required,aircraft-launch-and-recovery-specialists,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,aircraft-mechanics-and-service-technicians,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,aircraft-mechanics-and-service-technicians,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将飞机机械师与维修技术员评为 4/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速检查、故障排查、部件更换、维修记录和安全放行中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_49_3011_00_summary"", ""bls_ooh_ai"
+repair_required,aircraft-mechanics-and-service-technicians,en,score_rationale_missing,score_rationale must be an object
+repair_required,aircraft-mechanics-and-service-technicians,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,aircraft-service-attendants,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,aircraft-service-attendants,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将飞机服务员评为 5/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速航班周转协调、货物/旅客服务、跑道/机场检查、事件记录和团队调度中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_53_6032_00_summary"", ""pew_on"
+repair_required,aircraft-service-attendants,en,score_rationale_missing,score_rationale must be an object
+repair_required,aircraft-service-attendants,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,aircraft-structure-surfaces-rigging-and-systems-assemblers,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,aircraft-structure-surfaces-rigging-and-systems-assemblers,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将飞机结构、表面、索具与系统装配工评为 5/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速设备设定、上料、过程检查、质量缺陷和班次交接中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_51_2011_00_summary"", ""pew_o"
+repair_required,aircraft-structure-surfaces-rigging-and-systems-assemblers,en,score_rationale_missing,score_rationale must be an object
+repair_required,aircraft-structure-surfaces-rigging-and-systems-assemblers,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,airfield-operations-specialists,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,airfield-operations-specialists,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将机场运行专员评为 4/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速航班周转协调、货物/旅客服务、跑道/机场检查、事件记录和团队调度中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_53_2022_00_summary"", ""pew_o"
+repair_required,airfield-operations-specialists,en,score_rationale_missing,score_rationale must be an object
+repair_required,airfield-operations-specialists,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,airline-and-commercial-pilots,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,airline-and-commercial-pilots,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将航空公司与商业飞行员评为 3/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速飞行计划、驾驶舱检查、天气评估、航路决策、机组协同和应急程序中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_53_2011_00_summary"", ""pew"
+repair_required,airline-and-commercial-pilots,en,score_rationale_missing,score_rationale must be an object
+repair_required,airline-and-commercial-pilots,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,airline-pilots-copilots-and-flight-engineers,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,airline-pilots-copilots-and-flight-engineers,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将航空公司飞行员、副驾驶与飞行工程师评为 3/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速飞行计划、驾驶舱检查、天气评估、航路决策、机组协同和应急程序中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_53_2011_00_summary"
+repair_required,airline-pilots-copilots-and-flight-engineers,en,score_rationale_missing,score_rationale must be an object
+repair_required,airline-pilots-copilots-and-flight-engineers,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,allergists-and-immunologists,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,allergists-and-immunologists,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将过敏专科医师与免疫学医师评为 3/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速患者评估、监测、用药/治疗支持、病历记录、升级处置和交接班中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_29_1229_01_summary"", ""pe"
+repair_required,allergists-and-immunologists,en,score_rationale_missing,score_rationale must be an object
+repair_required,allergists-and-immunologists,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,ambulance-drivers-and-attendants-except-emergency-medical-technicians,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,ambulance-drivers-and-attendants-except-emergency-medical-technicians,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将救护车司机与随车服务员（不含急救医疗技术员）评为 4/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速患者评估、监测、用药/治疗支持、病历记录、升级处置和交接班中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_53_3011_00_sum"
+repair_required,ambulance-drivers-and-attendants-except-emergency-medical-technicians,en,score_rationale_missing,score_rationale must be an object
+repair_required,ambulance-drivers-and-attendants-except-emergency-medical-technicians,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,amusement-and-recreation-attendants,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,amusement-and-recreation-attendants,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将娱乐与休闲服务员评为 5/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速记录、排班、客户或相关方沟通、标准流程和异常处理中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_39_3091_00_summary"", ""pew_onet_ai"
+repair_required,amusement-and-recreation-attendants,en,score_rationale_missing,score_rationale must be an object
+repair_required,amusement-and-recreation-attendants,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,anesthesiologist-assistants,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,anesthesiologist-assistants,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将麻醉医师助理评为 3/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速患者评估、监测、用药/治疗支持、病历记录、升级处置和交接班中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_29_1071_01_summary"", ""pew_onet"
+repair_required,anesthesiologist-assistants,en,score_rationale_missing,score_rationale must be an object
+repair_required,anesthesiologist-assistants,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,anesthesiologists,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,anesthesiologists,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将麻醉医师评为 3/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速患者评估、监测、用药/治疗支持、病历记录、升级处置和交接班中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_29_1211_00_summary"", ""pew_onet_a"
+repair_required,anesthesiologists,en,score_rationale_missing,score_rationale must be an object
+repair_required,anesthesiologists,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,animal-breeders,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,animal-breeders,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将动物育种员评为 4/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速喂养、抓取、清洁、行为观察、繁育/训练记录和安全控制中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_45_2021_00_summary"", ""pew_onet_ai_"
+repair_required,animal-breeders,en,score_rationale_missing,score_rationale must be an object
+repair_required,animal-breeders,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,animal-care-and-service-workers,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,animal-care-and-service-workers,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将动物照护与服务人员评为 4/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速喂养、抓取、清洁、行为观察、繁育/训练记录和安全控制中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_39_2021_00_summary"", ""pew_onet"
+repair_required,animal-care-and-service-workers,en,score_rationale_missing,score_rationale must be an object
+repair_required,animal-care-and-service-workers,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,animal-caretakers,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,animal-caretakers,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将动物照护员评为 4/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速喂养、抓取、清洁、行为观察、繁育/训练记录和安全控制中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_39_2021_00_summary"", ""bls_ooh_anim"
+repair_required,animal-caretakers,en,score_rationale_missing,score_rationale must be an object
+repair_required,animal-caretakers,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,animal-control-workers,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,animal-control-workers,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将动物管制员评为 4/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速喂养、抓取、清洁、行为观察、繁育/训练记录和安全控制中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_33_9011_00_summary"", ""pew_onet_ai_"
+repair_required,animal-control-workers,en,score_rationale_missing,score_rationale must be an object
+repair_required,animal-control-workers,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,animal-scientists,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,animal-scientists,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将动物科学家评为 4/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速实验设计、数据解释、文献复核、实验/田野研究和报告中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_19_1011_00_summary"", ""pew_onet_ai_e"
+repair_required,animal-scientists,en,score_rationale_missing,score_rationale must be an object
+repair_required,animal-scientists,en,english_contains_chinese,English asset contains Chinese characters
+repair_required,animal-trainers,zh-CN,score_rationale_missing,score_rationale must be an object
+repair_required,animal-trainers,zh-CN,search_projection_runtime_seo_instruction,"{""answer_snippets"": [""FermatMind 将动物训练师评为 4/10 AI 任务暴露，这不是职业消失或收入预测。"", ""AI 更可能加速喂养、抓取、清洁、行为观察、繁育/训练记录和安全控制中的结构化环节；复杂判断和责任仍在人。""], ""citation_snippets"": [{""claim"": ""该评分是任务暴露度，不是失业或收入预测。"", ""source_ids"": [""onet_39_2011_00_summary"", ""pew_onet_ai_"
+repair_required,animal-trainers,en,score_rationale_missing,score_rationale must be an object
+repair_required,animal-trainers,en,english_contains_chinese,English asset contains Chinese characters

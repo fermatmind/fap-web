@@ -1,0 +1,25 @@
+{
+  "verdict": "NEEDS_BATCH_001_REGENERATION",
+  "finding_count": 2137,
+  "level_counts": {
+    "repair_required": 2137
+  },
+  "code_counts": {
+    "evidence_source_missing_fields": 210,
+    "external_calibration_source_missing_fields": 100,
+    "workflow_evidence_items_below_4": 50,
+    "internal_rubric_alone_or_unbounded": 50,
+    "score_rationale_missing": 200,
+    "search_projection_runtime_seo_instruction": 50,
+    "english_contains_chinese": 50,
+    "asset_source_missing_fields": 420,
+    "asset_external_calibration_source_not_object": 200,
+    "occupation_specificity_score_below_3": 100,
+    "locale_independence_score_below_3": 100,
+    "repeated_task_template": 6,
+    "generic_template_asset": 490,
+    "projection_missing_audit_boundary": 100,
+    "manual_review_required_seed": 11
+  },
+  "expected_v1_reject_confirmed": true
+}

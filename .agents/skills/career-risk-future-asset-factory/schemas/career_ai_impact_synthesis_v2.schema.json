@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Career AI Impact Synthesis Ledger v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "ledger_type",
+    "asset_version",
+    "block_type",
+    "slug",
+    "locale",
+    "locale_market_context",
+    "occupation",
+    "seed_ordinal",
+    "batch_role",
+    "workflow_evidence_items",
+    "external_calibration_sources",
+    "score_rationale",
+    "reader_boundary",
+    "evidence_used",
+    "audit_fields"
+  ],
+  "properties": {
+    "ledger_type": { "const": "career-ai-impact_synthesis" },
+    "asset_version": { "type": "string", "pattern": "^v2" },
+    "block_type": { "const": "career-risk-future.ai_impact" },
+    "slug": { "type": "string", "minLength": 1 },
+    "locale": { "type": "string", "enum": ["zh-CN", "en"] },
+    "locale_market_context": { "type": "object" },
+    "occupation": { "type": "object" },
+    "seed_ordinal": { "type": "integer", "minimum": 1 },
+    "batch_role": { "type": "string", "pattern": "^(control|new)_[0-9]+$" },
+    "workflow_evidence_items": { "type": "array", "minItems": 4, "items": { "type": "object" } },
+    "external_calibration_sources": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/sourceObject" } },
+    "score_rationale": { "$ref": "#/$defs/scoreRationale" },
+    "reader_boundary": { "type": "string", "minLength": 1 },
+    "evidence_used": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "audit_fields": { "type": "object" }
+  },
+  "$defs": {
+    "sourceObject": {
+      "type": "object",
+      "required": ["source_id", "name", "publisher", "url", "source_type", "used_for", "evidence_scope", "citation_boundary", "captured_at"]
+    },
+    "scoreRationale": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "score_1_to_10",
+        "score_band",
+        "exposure_type",
+        "confidence",
+        "task_exposure_drivers",
+        "human_judgment_anchors",
+        "why_not_higher",
+        "why_not_lower",
+        "confidence_reason",
+        "evidence_ids_used",
+        "external_calibration_source_ids_used",
+        "internal_rubric_source_id",
+        "manual_review_flag",
+        "manual_review_reason"
+      ],
+      "properties": {
+        "score_1_to_10": { "type": "integer", "minimum": 1, "maximum": 10 },
+        "score_band": { "type": "string", "minLength": 1 },
+        "exposure_type": { "type": "string", "enum": ["augmentation", "automation", "mixed", "unknown"] },
+        "confidence": { "type": "string", "enum": ["high", "medium", "low"] },
+        "task_exposure_drivers": { "type": "array", "minItems": 3, "items": { "type": "string" } },
+        "human_judgment_anchors": { "type": "array", "minItems": 2, "items": { "type": "string" } },
+        "why_not_higher": { "type": "string", "minLength": 1 },
+        "why_not_lower": { "type": "string", "minLength": 1 },
+        "confidence_reason": { "type": "string", "minLength": 1 },
+        "evidence_ids_used": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "external_calibration_source_ids_used": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "internal_rubric_source_id": { "type": "string", "minLength": 1 },
+        "manual_review_flag": { "type": "boolean" },
+        "manual_review_reason": { "type": ["string", "null"] }
+      }
+    }
+  }
+}
