@@ -1,0 +1,124 @@
+{
+  "ledger_type": "career-risk-future_asset",
+  "asset_version": "mock-v0",
+  "block_type": "career-risk-future",
+  "slug": "actuaries",
+  "locale": "en",
+  "occupation": "Actuaries",
+  "seed_ordinal": 1,
+  "batch_role": "new_1",
+  "summary": "AI task exposure is high for actuarial analysis because recurring work includes modeling, data review, documentation, scenario testing, and report drafting. This does not mean the occupation will disappear.",
+  "facts": {
+    "display_label": "AI task exposure",
+    "display_score": "8/10",
+    "reader_safe_interpretation": "High task exposure: AI can accelerate parts of modeling, analysis, checking, and documentation, while professional judgment and accountability remain human responsibilities.",
+    "mock_only": true
+  },
+  "items": [
+    {
+      "label": "Modeling and scenario analysis",
+      "interpretation": "AI can assist with simulation setup, formula checking, documentation, and sensitivity analysis."
+    },
+    {
+      "label": "Professional accountability",
+      "interpretation": "Risk assumptions, regulatory judgment, sign-off, and communication with stakeholders remain bounded by human expertise."
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "onet_actuaries_tasks_mock",
+      "source_name": "O*NET Online: Actuaries",
+      "source_url": "https://www.onetonline.org/link/summary/15-2011.00",
+      "source_type": "task_taxonomy",
+      "used_for": "Occupation task structure",
+      "boundary": "Used as task evidence, not as an AI-risk score."
+    },
+    {
+      "source_id": "pew_ai_onet_method_mock",
+      "source_name": "Pew Research Center AI and O*NET methodology",
+      "source_url": "https://www.pewresearch.org/social-trends/2023/07/26/2023-ai-and-jobs-methodology-for-onet-analysis/",
+      "source_type": "external_calibration",
+      "used_for": "External example of mapping AI exposure to work activities",
+      "boundary": "Methodology reference only; does not publish this mock occupation score."
+    },
+    {
+      "source_id": "gpts_are_gpts_mock",
+      "source_name": "GPTs are GPTs task exposure paper",
+      "source_url": "https://arxiv.org/abs/2303.10130",
+      "source_type": "external_calibration",
+      "used_for": "External task-exposure framing",
+      "boundary": "Calibration reference only; not an employment outcome prediction."
+    }
+  ],
+  "task_evidence": [
+    {
+      "task_id": "mock-onet-task-actuarial-analysis",
+      "task_label": "Analyze statistical data to estimate risk and uncertainty",
+      "source_id": "onet_actuaries_tasks_mock",
+      "source_type": "task_taxonomy",
+      "captured_fact": "Actuarial work includes recurring quantitative analysis, modeling, and risk-estimation tasks.",
+      "boundary": "Mock example based on occupation task structure; production rows must capture exact source snippets.",
+      "exposure_relevance": "Quantitative information-processing tasks can be accelerated by AI tools under human review.",
+      "importance": "high"
+    },
+    {
+      "task_id": "mock-onet-task-documentation",
+      "task_label": "Prepare reports and communicate risk findings",
+      "source_id": "onet_actuaries_tasks_mock",
+      "source_type": "task_taxonomy",
+      "captured_fact": "The occupation includes documentation and communication of analytical findings.",
+      "boundary": "Mock example; production rows must capture exact source snippets.",
+      "exposure_relevance": "Drafting, summarization, and consistency checking can be AI-assisted.",
+      "importance": "medium"
+    }
+  ],
+  "ai_exposure_score": {
+    "exposure_type": "mixed",
+    "score_1_to_10": 8,
+    "confidence": "medium",
+    "rubric_source": "FermatMind internal AI exposure rubric calibrated against task-level external AI exposure literature",
+    "score_interpretation": "A score of 8 indicates high task exposure to AI assistance or partial automation, not job-loss probability."
+  },
+  "external_calibration_sources": [
+    {
+      "source_id": "pew_ai_onet_method_mock",
+      "source_name": "Pew Research Center AI and O*NET methodology",
+      "source_url": "https://www.pewresearch.org/social-trends/2023/07/26/2023-ai-and-jobs-methodology-for-onet-analysis/",
+      "source_type": "external_calibration",
+      "used_for": "Calibrating task/activity exposure framing",
+      "boundary": "Methodology source, not an occupation-specific score source."
+    },
+    {
+      "source_id": "gpts_are_gpts_mock",
+      "source_name": "GPTs are GPTs task exposure paper",
+      "source_url": "https://arxiv.org/abs/2303.10130",
+      "source_type": "external_calibration",
+      "used_for": "Calibrating language-model task exposure framing",
+      "boundary": "Research framing source, not a prediction that this occupation will disappear."
+    }
+  ],
+  "reader_boundary": "This AI score is a task-exposure signal. It is not a prediction that actuaries will disappear, lose income, or lose employment.",
+  "evidence_used": [
+    "onet_actuaries_tasks_mock",
+    "pew_ai_onet_method_mock",
+    "gpts_are_gpts_mock"
+  ],
+  "derived_from_synthesis": {
+    "source_file": "mock_only",
+    "row_hash": "mock_only"
+  },
+  "limitations": [
+    "Mock example only; not a production career asset.",
+    "Production rows must capture exact O*NET task snippets and pass trust audit before asset generation."
+  ],
+  "audit_fields": {
+    "mock": true,
+    "row_hash": "mock_only",
+    "protected_fields": [
+      "task_evidence",
+      "sources",
+      "external_calibration_sources",
+      "ai_exposure_score.score_1_to_10"
+    ]
+  }
+}

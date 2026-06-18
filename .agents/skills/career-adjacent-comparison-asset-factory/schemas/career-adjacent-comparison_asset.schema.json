@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Career Adjacent Comparison Asset Ledger",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "ledger_type",
+    "asset_version",
+    "block_type",
+    "slug",
+    "locale",
+    "occupation",
+    "seed_ordinal",
+    "batch_role",
+    "sources",
+    "audit_fields"
+  ],
+  "properties": {
+    "ledger_type": {
+      "type": "string",
+      "const": "career-adjacent-comparison_asset"
+    },
+    "asset_version": {
+      "type": "string"
+    },
+    "block_type": {
+      "type": "string",
+      "const": "career-adjacent-comparison"
+    },
+    "slug": {
+      "type": "string",
+      "minLength": 1
+    },
+    "locale": {
+      "type": "string",
+      "enum": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    "occupation": {
+      "type": "string",
+      "minLength": 1
+    },
+    "seed_ordinal": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "batch_role": {
+      "type": "string",
+      "pattern": "^(control|new)_[0-9]+$"
+    },
+    "summary": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "facts": {
+      "type": "object"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "evidence_used": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "derived_from_synthesis": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "audit_fields": {
+      "type": "object"
+    }
+  }
+}
