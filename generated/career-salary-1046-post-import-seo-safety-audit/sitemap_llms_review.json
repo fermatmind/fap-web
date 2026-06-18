@@ -1,0 +1,90 @@
+{
+  "sources": [
+    {
+      "key": "sitemap",
+      "url": "https://fermatmind.com/sitemap.xml",
+      "status": 200,
+      "url_count": 2253,
+      "career_job_url_count": 2092,
+      "forbidden_exposure_count": 0,
+      "issues": [],
+      "passed": true
+    },
+    {
+      "key": "llms",
+      "url": "https://fermatmind.com/llms.txt",
+      "status": 200,
+      "url_count": 165,
+      "career_job_url_count": 0,
+      "forbidden_exposure_count": 0,
+      "issues": [],
+      "passed": true
+    },
+    {
+      "key": "llms_full",
+      "url": "https://fermatmind.com/llms-full.txt",
+      "status": 200,
+      "url_count": 10,
+      "career_job_url_count": 0,
+      "forbidden_exposure_count": 0,
+      "issues": [],
+      "passed": true
+    }
+  ],
+  "private_noindex_rows": [
+    {
+      "url": "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types/take",
+      "status": 200,
+      "x_robots_tag": "noindex, nofollow, noarchive, nocache",
+      "meta_noindex": true,
+      "exposed_in": "",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "url": "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types/take",
+      "status": 200,
+      "x_robots_tag": "noindex, nofollow, noarchive, nocache",
+      "meta_noindex": true,
+      "exposed_in": "",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "url": "https://fermatmind.com/en/pay/wait",
+      "status": 307,
+      "x_robots_tag": "noindex, nofollow, noarchive, nocache",
+      "meta_noindex": true,
+      "exposed_in": "",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "url": "https://fermatmind.com/en/orders/lookup",
+      "status": 200,
+      "x_robots_tag": "noindex, nofollow, noarchive, nocache",
+      "meta_noindex": true,
+      "exposed_in": "",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "url": "https://fermatmind.com/en/result/site-chrome-smoke",
+      "status": 200,
+      "x_robots_tag": "noindex, nofollow, noarchive, nocache",
+      "meta_noindex": true,
+      "exposed_in": "",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "url": "https://fermatmind.com/en/share/site-chrome-smoke",
+      "status": 200,
+      "x_robots_tag": "noindex, nofollow, noarchive, nocache",
+      "meta_noindex": true,
+      "exposed_in": "",
+      "passed": true,
+      "issues": []
+    }
+  ]
+}

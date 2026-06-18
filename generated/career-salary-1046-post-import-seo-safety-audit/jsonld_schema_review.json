@@ -1,0 +1,483 @@
+{
+  "sample_page_count": 28,
+  "rows": [
+    {
+      "slug": "accountants-and-auditors",
+      "locale": "zh",
+      "url": "https://fermatmind.com/zh/career/jobs/accountants-and-auditors",
+      "status": 200,
+      "jsonld_types": [
+        "Answer",
+        "BreadcrumbList",
+        "FAQPage",
+        "ListItem",
+        "Question"
+      ],
+      "unauthorized_jsonld_type_count": 0,
+      "unauthorized_jsonld_field_count": 0,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "slug": "accountants-and-auditors",
+      "locale": "en",
+      "url": "https://fermatmind.com/en/career/jobs/accountants-and-auditors",
+      "status": 200,
+      "jsonld_types": [
+        "Answer",
+        "BreadcrumbList",
+        "FAQPage",
+        "ListItem",
+        "Question"
+      ],
+      "unauthorized_jsonld_type_count": 0,
+      "unauthorized_jsonld_field_count": 0,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "slug": "actuaries",
+      "locale": "zh",
+      "url": "https://fermatmind.com/zh/career/jobs/actuaries",
+      "status": 200,
+      "jsonld_types": [
+        "Answer",
+        "BreadcrumbList",
+        "FAQPage",
+        "ListItem",
+        "Question"
+      ],
+      "unauthorized_jsonld_type_count": 0,
+      "unauthorized_jsonld_field_count": 0,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "slug": "actuaries",
+      "locale": "en",
+      "url": "https://fermatmind.com/en/career/jobs/actuaries",
+      "status": 200,
+      "jsonld_types": [
+        "Answer",
+        "BreadcrumbList",
+        "FAQPage",
+        "ListItem",
+        "Question"
+      ],
+      "unauthorized_jsonld_type_count": 0,
+      "unauthorized_jsonld_field_count": 0,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "slug": "computer-programmers",
+      "locale": "zh",
+      "url": "https://fermatmind.com/zh/career/jobs/computer-programmers",
+      "status": 200,
+      "jsonld_types": [
+        "Answer",
+        "BreadcrumbList",
+        "FAQPage",
+        "ListItem",
+        "Occupation",
+        "Question"
+      ],
+      "unauthorized_jsonld_type_count": 0,
+      "unauthorized_jsonld_field_count": 0,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "slug": "computer-programmers",
+      "locale": "en",
+      "url": "https://fermatmind.com/en/career/jobs/computer-programmers",
+      "status": 200,
+      "jsonld_types": [
+        "Answer",
+        "BreadcrumbList",
+        "FAQPage",
+        "ListItem",
+        "Occupation",
+        "Question"
+      ],
+      "unauthorized_jsonld_type_count": 0,
+      "unauthorized_jsonld_field_count": 0,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "slug": "agents-and-business-managers-of-artists-performers-and-athletes",
+      "locale": "zh",
+      "url": "https://fermatmind.com/zh/career/jobs/agents-and-business-managers-of-artists-performers-and-athletes",
+      "status": 200,
+      "jsonld_types": [
+        "Answer",
+        "BreadcrumbList",
+        "FAQPage",
+        "ListItem",
+        "Question"
+      ],
+      "unauthorized_jsonld_type_count": 0,
+      "unauthorized_jsonld_field_count": 0,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "slug": "agents-and-business-managers-of-artists-performers-and-athletes",
+      "locale": "en",
+      "url": "https://fermatmind.com/en/career/jobs/agents-and-business-managers-of-artists-performers-and-athletes",
+      "status": 200,
+      "jsonld_types": [
+        "Answer",
+        "BreadcrumbList",
+        "FAQPage",
+        "ListItem",
+        "Question"
+      ],
+      "unauthorized_jsonld_type_count": 0,
+      "unauthorized_jsonld_field_count": 0,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "slug": "writers-and-authors",
+      "locale": "zh",
+      "url": "https://fermatmind.com/zh/career/jobs/writers-and-authors",
+      "status": 200,
+      "jsonld_types": [
+        "Answer",
+        "BreadcrumbList",
+        "FAQPage",
+        "ListItem",
+        "Question"
+      ],
+      "unauthorized_jsonld_type_count": 0,
+      "unauthorized_jsonld_field_count": 0,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "slug": "writers-and-authors",
+      "locale": "en",
+      "url": "https://fermatmind.com/en/career/jobs/writers-and-authors",
+      "status": 200,
+      "jsonld_types": [
+        "Answer",
+        "BreadcrumbList",
+        "FAQPage",
+        "ListItem",
+        "Question"
+      ],
+      "unauthorized_jsonld_type_count": 0,
+      "unauthorized_jsonld_field_count": 0,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "slug": "zoologists-and-wildlife-biologists",
+      "locale": "zh",
+      "url": "https://fermatmind.com/zh/career/jobs/zoologists-and-wildlife-biologists",
+      "status": 200,
+      "jsonld_types": [
+        "Answer",
+        "BreadcrumbList",
+        "FAQPage",
+        "ListItem",
+        "Question"
+      ],
+      "unauthorized_jsonld_type_count": 0,
+      "unauthorized_jsonld_field_count": 0,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "slug": "zoologists-and-wildlife-biologists",
+      "locale": "en",
+      "url": "https://fermatmind.com/en/career/jobs/zoologists-and-wildlife-biologists",
+      "status": 200,
+      "jsonld_types": [
+        "Answer",
+        "BreadcrumbList",
+        "FAQPage",
+        "ListItem",
+        "Question"
+      ],
+      "unauthorized_jsonld_type_count": 0,
+      "unauthorized_jsonld_field_count": 0,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "slug": "wind-turbine-technicians",
+      "locale": "zh",
+      "url": "https://fermatmind.com/zh/career/jobs/wind-turbine-technicians",
+      "status": 200,
+      "jsonld_types": [
+        "Answer",
+        "BreadcrumbList",
+        "FAQPage",
+        "ListItem",
+        "Question"
+      ],
+      "unauthorized_jsonld_type_count": 0,
+      "unauthorized_jsonld_field_count": 0,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "slug": "wind-turbine-technicians",
+      "locale": "en",
+      "url": "https://fermatmind.com/en/career/jobs/wind-turbine-technicians",
+      "status": 200,
+      "jsonld_types": [
+        "Answer",
+        "BreadcrumbList",
+        "FAQPage",
+        "ListItem",
+        "Question"
+      ],
+      "unauthorized_jsonld_type_count": 0,
+      "unauthorized_jsonld_field_count": 0,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "slug": "woodworking-machine-setters-operators-and-tenders-except-sawing",
+      "locale": "zh",
+      "url": "https://fermatmind.com/zh/career/jobs/woodworking-machine-setters-operators-and-tenders-except-sawing",
+      "status": 200,
+      "jsonld_types": [
+        "Answer",
+        "BreadcrumbList",
+        "FAQPage",
+        "ListItem",
+        "Question"
+      ],
+      "unauthorized_jsonld_type_count": 0,
+      "unauthorized_jsonld_field_count": 0,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "slug": "woodworking-machine-setters-operators-and-tenders-except-sawing",
+      "locale": "en",
+      "url": "https://fermatmind.com/en/career/jobs/woodworking-machine-setters-operators-and-tenders-except-sawing",
+      "status": 200,
+      "jsonld_types": [
+        "Answer",
+        "BreadcrumbList",
+        "FAQPage",
+        "ListItem",
+        "Question"
+      ],
+      "unauthorized_jsonld_type_count": 0,
+      "unauthorized_jsonld_field_count": 0,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "slug": "air-traffic-controllers",
+      "locale": "zh",
+      "url": "https://fermatmind.com/zh/career/jobs/air-traffic-controllers",
+      "status": 200,
+      "jsonld_types": [
+        "Answer",
+        "BreadcrumbList",
+        "FAQPage",
+        "ListItem",
+        "Question"
+      ],
+      "unauthorized_jsonld_type_count": 0,
+      "unauthorized_jsonld_field_count": 0,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "slug": "air-traffic-controllers",
+      "locale": "en",
+      "url": "https://fermatmind.com/en/career/jobs/air-traffic-controllers",
+      "status": 200,
+      "jsonld_types": [
+        "Answer",
+        "BreadcrumbList",
+        "FAQPage",
+        "ListItem",
+        "Question"
+      ],
+      "unauthorized_jsonld_type_count": 0,
+      "unauthorized_jsonld_field_count": 0,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "slug": "athletes-and-sports-competitors",
+      "locale": "zh",
+      "url": "https://fermatmind.com/zh/career/jobs/athletes-and-sports-competitors",
+      "status": 200,
+      "jsonld_types": [
+        "Answer",
+        "BreadcrumbList",
+        "FAQPage",
+        "ListItem",
+        "Question"
+      ],
+      "unauthorized_jsonld_type_count": 0,
+      "unauthorized_jsonld_field_count": 0,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "slug": "athletes-and-sports-competitors",
+      "locale": "en",
+      "url": "https://fermatmind.com/en/career/jobs/athletes-and-sports-competitors",
+      "status": 200,
+      "jsonld_types": [
+        "Answer",
+        "BreadcrumbList",
+        "FAQPage",
+        "ListItem",
+        "Question"
+      ],
+      "unauthorized_jsonld_type_count": 0,
+      "unauthorized_jsonld_field_count": 0,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "slug": "command-and-control-center-officers",
+      "locale": "zh",
+      "url": "https://fermatmind.com/zh/career/jobs/command-and-control-center-officers",
+      "status": 200,
+      "jsonld_types": [
+        "Answer",
+        "BreadcrumbList",
+        "FAQPage",
+        "ListItem",
+        "Question"
+      ],
+      "unauthorized_jsonld_type_count": 0,
+      "unauthorized_jsonld_field_count": 0,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "slug": "command-and-control-center-officers",
+      "locale": "en",
+      "url": "https://fermatmind.com/en/career/jobs/command-and-control-center-officers",
+      "status": 200,
+      "jsonld_types": [
+        "Answer",
+        "BreadcrumbList",
+        "FAQPage",
+        "ListItem",
+        "Question"
+      ],
+      "unauthorized_jsonld_type_count": 0,
+      "unauthorized_jsonld_field_count": 0,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "slug": "registered-nurses",
+      "locale": "zh",
+      "url": "https://fermatmind.com/zh/career/jobs/registered-nurses",
+      "status": 200,
+      "jsonld_types": [
+        "Answer",
+        "BreadcrumbList",
+        "FAQPage",
+        "ListItem",
+        "Question"
+      ],
+      "unauthorized_jsonld_type_count": 0,
+      "unauthorized_jsonld_field_count": 0,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "slug": "registered-nurses",
+      "locale": "en",
+      "url": "https://fermatmind.com/en/career/jobs/registered-nurses",
+      "status": 200,
+      "jsonld_types": [
+        "Answer",
+        "BreadcrumbList",
+        "FAQPage",
+        "ListItem",
+        "Question"
+      ],
+      "unauthorized_jsonld_type_count": 0,
+      "unauthorized_jsonld_field_count": 0,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "slug": "elementary-school-teachers-except-special-education",
+      "locale": "zh",
+      "url": "https://fermatmind.com/zh/career/jobs/elementary-school-teachers-except-special-education",
+      "status": 200,
+      "jsonld_types": [
+        "Answer",
+        "BreadcrumbList",
+        "FAQPage",
+        "ListItem",
+        "Question"
+      ],
+      "unauthorized_jsonld_type_count": 0,
+      "unauthorized_jsonld_field_count": 0,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "slug": "elementary-school-teachers-except-special-education",
+      "locale": "en",
+      "url": "https://fermatmind.com/en/career/jobs/elementary-school-teachers-except-special-education",
+      "status": 200,
+      "jsonld_types": [
+        "Answer",
+        "BreadcrumbList",
+        "FAQPage",
+        "ListItem",
+        "Question"
+      ],
+      "unauthorized_jsonld_type_count": 0,
+      "unauthorized_jsonld_field_count": 0,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "slug": "commercial-pilots",
+      "locale": "zh",
+      "url": "https://fermatmind.com/zh/career/jobs/commercial-pilots",
+      "status": 200,
+      "jsonld_types": [
+        "Answer",
+        "BreadcrumbList",
+        "FAQPage",
+        "ListItem",
+        "Question"
+      ],
+      "unauthorized_jsonld_type_count": 0,
+      "unauthorized_jsonld_field_count": 0,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "slug": "commercial-pilots",
+      "locale": "en",
+      "url": "https://fermatmind.com/en/career/jobs/commercial-pilots",
+      "status": 200,
+      "jsonld_types": [
+        "Answer",
+        "BreadcrumbList",
+        "FAQPage",
+        "ListItem",
+        "Question"
+      ],
+      "unauthorized_jsonld_type_count": 0,
+      "unauthorized_jsonld_field_count": 0,
+      "passed": true,
+      "issues": []
+    }
+  ]
+}
