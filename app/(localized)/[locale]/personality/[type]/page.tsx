@@ -16,6 +16,7 @@ import {
   buildDefaultPublicPersonalitySlug,
   getPersonalityProjectionDetailBySlugOrType,
   getPersonalitySeoBySlugOrType,
+  type CmsPersonalitySection,
   isCanonicalPersonalityBaseSlug,
   normalizePersonalitySeoPayload,
   type PersonalityComparisonBlockViewModel,
@@ -65,11 +66,23 @@ function normalizeDisplayText(value: string | null | undefined): string {
   return String(value ?? "").replace(/\s+/g, " ").trim();
 }
 
+function publicNameFromJsonLd(value: unknown): string | null {
+  const record = asPlainRecord(value);
+  const name = normalizeDisplayText(typeof record?.name === "string" ? record.name : null);
+
+  return name || null;
+}
+
 function stripZhPersonalityTypeSuffix(value: string): string {
   return value.replace(/型$/u, "").trim();
 }
 
 function formatPersonalityDetailHeading(detail: PersonalityProjectionViewModel, locale: Locale): string {
+  const promotedName = publicNameFromJsonLd(detail.projection.seo.jsonld);
+  if (promotedName) {
+    return promotedName;
+  }
+
   const displayType = normalizeDisplayText(detail.displayType || detail.projection.runtimeTypeCode || detail.canonicalTypeCode).toUpperCase();
   const rawTypeName = normalizeDisplayText(detail.typeName);
   const typeName = locale === "zh" ? stripZhPersonalityTypeSuffix(rawTypeName) : rawTypeName;
@@ -294,6 +307,10 @@ function comparisonSeoTitle(comparison: PersonalityComparisonViewModel): string 
   return comparison.seoSurface?.title || comparison.title || comparison.seoMeta?.seoTitle || comparison.comparisonSlug.toUpperCase();
 }
 
+function comparisonPageHeading(comparison: PersonalityComparisonViewModel): string {
+  return comparison.title || comparisonSeoTitle(comparison);
+}
+
 function comparisonVariantSummary(variant: PersonalityComparisonVariantViewModel): string {
   return variant.summaryCard.summary || variant.heroSummary || variant.seo.description || "";
 }
@@ -317,6 +334,23 @@ function projectionQuickAnswerBody(sections: PersonalityProjection["sections"]):
     || normalizeQuickAnswerText(payload?.body)
     || normalizeQuickAnswerText(payload?.summary)
     || normalizeQuickAnswerText(payload?.answer);
+
+  return body || null;
+}
+
+function cmsQuickAnswerBody(sections: CmsPersonalitySection[]): string | null {
+  const section = sections.find((item) => item.sectionKey === "quick_answer" && item.isEnabled !== false);
+  if (!section) {
+    return null;
+  }
+
+  const payload = asPlainRecord(section.payloadJson);
+  const raw = asPlainRecord(payload?.raw);
+  const body = normalizeQuickAnswerText(section.bodyMd)
+    || normalizeQuickAnswerText(payload?.body)
+    || normalizeQuickAnswerText(payload?.summary)
+    || normalizeQuickAnswerText(payload?.answer)
+    || normalizeQuickAnswerText(raw?.body);
 
   return body || null;
 }
@@ -403,11 +437,12 @@ function PersonalityComparisonPage({
 }) {
   const canonicalPath = buildComparisonCanonicalPath(comparison.comparisonSlug, locale);
   const title = comparisonSeoTitle(comparison);
+  const heading = comparisonPageHeading(comparison);
   const description = comparisonSeoDescription(comparison);
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
     { name: locale === "zh" ? "首页" : "Home", path: localizedPath("/", locale) },
     { name: locale === "zh" ? "人格" : "Personality", path: localizedPath("/personality", locale) },
-    { name: title, path: canonicalPath },
+    { name: heading, path: canonicalPath },
   ]);
   const mbtiEntryViewTrackingProps = buildMbtiEntryTrackingPayload({
     locale,
@@ -447,7 +482,7 @@ function PersonalityComparisonPage({
         <p className="m-0 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--fm-accent)]">
           {comparison.baseTypeCode}
         </p>
-        <h1 className="m-0 mt-3 font-serif text-3xl font-semibold text-[var(--fm-text)] md:text-5xl">{title}</h1>
+        <h1 className="m-0 mt-3 font-serif text-3xl font-semibold text-[var(--fm-text)] md:text-5xl">{heading}</h1>
         {description ? <p className="m-0 mt-4 max-w-3xl text-base leading-8 text-[var(--fm-text-muted)]">{description}</p> : null}
       </section>
 
@@ -648,7 +683,7 @@ export default async function PersonalityDetailPage({
     : projectionFaqItems.length
       ? projectionFaqItems
       : legacyFaqItems;
-  const quickAnswerBody = projectionQuickAnswerBody(detail.projection.sections);
+  const quickAnswerBody = projectionQuickAnswerBody(detail.projection.sections) || cmsQuickAnswerBody(detail.supplementalSections);
   const webPageJsonLd = buildWebPageJsonLd({
     path: canonicalPath,
     title: normalizedSeo.meta.title,
@@ -667,7 +702,7 @@ export default async function PersonalityDetailPage({
     locale
   );
   const renderedSupplementalSections = renderPersonalitySections(
-    [...detail.faqSections, ...detail.supplementalSections],
+    [...detail.supplementalSections.filter((section) => section.sectionKey !== "quick_answer"), ...detail.faqSections],
     locale
   );
   const hasRenderableContent = renderedProjectionSections.length > 0 || renderedSupplementalSections.length > 0;

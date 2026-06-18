@@ -345,6 +345,32 @@ describe("personality cms adapter contract", () => {
               is_enabled: true,
             },
             {
+              section_key: "quick_answer",
+              title: null,
+              render_variant: "rich_text",
+              body_md: "INTJ-A meaning: promoted quick answer from the CMS revision.",
+              body_html: null,
+              payload_json: {
+                body: "INTJ-A meaning: promoted quick answer from the CMS revision.",
+                source: "mbti64_content_package_v2_1",
+              },
+              sort_order: 95,
+              is_enabled: true,
+            },
+            {
+              section_key: "meaning",
+              title: "What does INTJ-A mean?",
+              render_variant: "rich_text",
+              body_md: "Promoted meaning section from the CMS revision.",
+              body_html: null,
+              payload_json: {
+                body: "Promoted meaning section from the CMS revision.",
+                source: "mbti64_content_package_v2_1",
+              },
+              sort_order: 96,
+              is_enabled: true,
+            },
+            {
               section_key: "related_content",
               title: "Related content",
               render_variant: "links",
@@ -489,7 +515,11 @@ describe("personality cms adapter contract", () => {
     expect(detail?.heroQuote).toBe("See the pattern. Build the system.");
     expect(detail?.heroImageUrl).toBe("https://assets.fermatmind.com/static/personality/type-icons/intj.png");
     expect(detail?.faqSections).toHaveLength(1);
-    expect(detail?.supplementalSections).toHaveLength(1);
+    expect(detail?.supplementalSections.map((section) => section.sectionKey)).toEqual([
+      "quick_answer",
+      "meaning",
+      "related_content",
+    ]);
     expect(detail?.seoMeta?.seoTitle).toBe("INTJ Personality Type");
     expect(detail?.landingSurface?.entrySurface).toBe("personality_detail");
     expect(detail?.landingSurface?.ctaBundle[0]?.href).toBe("/en/tests/mbti-personality-test-16-personality-types");
@@ -828,6 +858,10 @@ describe("personality cms adapter contract", () => {
     expect(source).toContain("const projectionFaqItems = extractProjectionFaqItems(detail.projection.sections);");
     expect(source).toContain("const legacyFaqItems = extractPersonalityFaqItems(detail.faqSections);");
     expect(source).toContain("projectionFaqItems.length");
+    expect(source).toContain("cmsQuickAnswerBody(detail.supplementalSections)");
+    expect(source).toContain("comparisonPageHeading(comparison)");
+    expect(source).toContain("publicNameFromJsonLd(detail.projection.seo.jsonld)");
+    expect(source).toContain('[...detail.supplementalSections.filter((section) => section.sectionKey !== "quick_answer"), ...detail.faqSections]');
     expect(source).toContain("AnswerSurfaceSection");
     expect(source).toContain("buildFAQPageJsonLd");
     expect(source).toContain("buildWebPageJsonLd");
