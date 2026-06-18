@@ -114,6 +114,8 @@ export function AnswerSurfaceSection({
   locale,
   testId,
   hideHeading = false,
+  hideCompareLabel = false,
+  expandSingleSummaryBlock = false,
   pageFamily,
   evidenceSourceType = "answer_surface_v1",
   seoCtaAttribution,
@@ -122,6 +124,8 @@ export function AnswerSurfaceSection({
   locale: Locale;
   testId?: string;
   hideHeading?: boolean;
+  hideCompareLabel?: boolean;
+  expandSingleSummaryBlock?: boolean;
   hideSummaryLabel?: boolean;
   pageFamily?: EvidencePageFamily;
   evidenceSourceType?: "answer_surface_v1" | "visible_page_content";
@@ -158,7 +162,7 @@ export function AnswerSurfaceSection({
 
       {surface.summaryBlocks.length ? (
         <div className="space-y-3" data-evidence-block={pageFamily ? "quick_answer" : undefined}>
-          <div className="grid gap-3 md:grid-cols-2">
+          <div className={expandSingleSummaryBlock && surface.summaryBlocks.length === 1 ? "grid gap-3" : "grid gap-3 md:grid-cols-2"}>
             {surface.summaryBlocks.map((block) => (
               <article key={block.key} className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
                 {block.title ? <p className="m-0 text-sm font-medium text-[var(--fm-text)]">{block.title}</p> : null}
@@ -187,9 +191,11 @@ export function AnswerSurfaceSection({
 
       {surface.compareBlocks.length ? (
         <div className="space-y-3" data-evidence-block={pageFamily ? "comparison" : undefined}>
-          <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-            {sectionTitle("compare", locale)}
-          </p>
+          {!hideCompareLabel ? (
+            <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
+              {sectionTitle("compare", locale)}
+            </p>
+          ) : null}
           <div className="grid gap-3 md:grid-cols-2">
             {surface.compareBlocks.map((block) => (
               <article key={block.key} className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">

@@ -96,7 +96,9 @@ describe("articles cleanup contract", () => {
     expect(source).toContain("article.answerSurface");
     expect(source).toContain('testId="article-detail-answer-surface"');
     expect(source).toContain("buildFAQPageJsonLd");
-    expect(source).toContain('findLandingCta(article.landingSurface, "back_to_articles")');
+    expect(source).toContain('className="mx-auto w-full max-w-4xl"');
+    expect(source).not.toContain("<aside");
+    expect(source).not.toContain('id="limitations"');
     expect(source).not.toContain("normalizeStructuredDataUrls");
     expect(source).toContain("seo?.surface?.canonicalUrl ?? seo?.meta.canonical");
     expect(source).toContain("seoSurface: seo?.surface");
