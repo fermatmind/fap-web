@@ -1,0 +1,255 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Career Risk Future Evidence Ledger",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "ledger_type",
+    "asset_version",
+    "block_type",
+    "slug",
+    "locale",
+    "occupation",
+    "seed_ordinal",
+    "batch_role",
+    "sources",
+    "task_evidence",
+    "ai_exposure_score",
+    "external_calibration_sources",
+    "reader_boundary",
+    "audit_fields"
+  ],
+  "properties": {
+    "ledger_type": {
+      "type": "string",
+      "const": "career-risk-future_evidence"
+    },
+    "asset_version": {
+      "type": "string"
+    },
+    "block_type": {
+      "type": "string",
+      "const": "career-risk-future"
+    },
+    "slug": {
+      "type": "string",
+      "minLength": 1
+    },
+    "locale": {
+      "type": "string",
+      "enum": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    "occupation": {
+      "type": "string",
+      "minLength": 1
+    },
+    "seed_ordinal": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "batch_role": {
+      "type": "string",
+      "pattern": "^(control|new)_[0-9]+$"
+    },
+    "summary": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "facts": {
+      "type": "object"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "task_evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "task_label",
+          "source_id",
+          "source_type",
+          "captured_fact",
+          "boundary"
+        ],
+        "properties": {
+          "task_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "task_label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_type": {
+            "type": "string",
+            "enum": [
+              "task_taxonomy",
+              "official_profile",
+              "external_calibration",
+              "internal_rubric",
+              "macro_context"
+            ]
+          },
+          "captured_fact": {
+            "type": "string",
+            "minLength": 1
+          },
+          "boundary": {
+            "type": "string",
+            "minLength": 1
+          },
+          "exposure_relevance": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "importance": {
+            "type": [
+              "number",
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "ai_exposure_score": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "exposure_type",
+        "score_1_to_10",
+        "confidence",
+        "rubric_source",
+        "score_interpretation"
+      ],
+      "properties": {
+        "exposure_type": {
+          "type": "string",
+          "enum": [
+            "augmentation",
+            "automation",
+            "mixed",
+            "unknown"
+          ]
+        },
+        "score_1_to_10": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10
+        },
+        "confidence": {
+          "type": "string",
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ]
+        },
+        "rubric_source": {
+          "type": "string",
+          "minLength": 1
+        },
+        "score_interpretation": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "external_calibration_sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source_id",
+          "source_name",
+          "source_type",
+          "used_for",
+          "boundary"
+        ],
+        "properties": {
+          "source_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_url": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "source_type": {
+            "type": "string",
+            "enum": [
+              "external_calibration",
+              "task_taxonomy",
+              "macro_context"
+            ]
+          },
+          "used_for": {
+            "type": "string",
+            "minLength": 1
+          },
+          "boundary": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "reader_boundary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidence_used": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "derived_from_synthesis": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "audit_fields": {
+      "type": "object"
+    }
+  }
+}

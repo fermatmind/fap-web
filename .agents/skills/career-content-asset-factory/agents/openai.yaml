@@ -1,0 +1,8 @@
+version: 1
+name: career-content-asset-factory
+description: Orchestrates FermatMind modular career content asset pipelines without generating block facts itself.
+instructions:
+  - Read SKILL.md before operating.
+  - Treat block skills as the source of block-specific evidence and trust rules.
+  - Stop on failed gates; do not continue downstream from blocked rows.
+

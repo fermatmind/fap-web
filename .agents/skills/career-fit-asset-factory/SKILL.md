@@ -1,0 +1,39 @@
+---
+name: career-fit-asset-factory
+description: FermatMind career fit content-asset workflow for RIASEC, personality/work-style signals, fit checklists, and test-conversion decision copy. Use when Codex needs to create, audit, repair, or freeze career fit assets.
+---
+
+# Career Fit Asset Factory
+
+Use this skill for fit signals and test-conversion content. It helps readers decide whether to validate fit with FermatMind tests, without making diagnosis or outcome claims.
+
+Pipeline:
+
+`manifest -> fit evidence -> evidence audit -> trust audit -> fit synthesis -> synthesis audit -> fit asset -> asset audit -> freeze`.
+
+## Non-Negotiable Rules
+
+- Depend on PASS identity and work-activities blocks.
+- Use O*NET interests/work styles/work values, validated test frameworks, and bounded interpretation.
+- Do not claim a test can decide career destiny, income, employment, success, mental health, or personal value.
+- Treat MBTI and Big Five as supplementary work-style language, not occupational proof.
+- Keep RIASEC as the primary career-interest fit signal.
+- Reader-facing CTAs must be localized and must not look like official occupational facts.
+
+## Outputs
+
+- RIASEC fit interpretation
+- work-style fit signals
+- fit decision checklist
+- mismatch/risk cues
+- test action module copy
+
+## Required References
+
+Read:
+
+1. `references/source_rules.md`
+2. `references/trust_rules.md`
+3. `references/writing_rules.md`
+4. `../career-content-asset-factory/references/shared_pipeline_contract.md`
+

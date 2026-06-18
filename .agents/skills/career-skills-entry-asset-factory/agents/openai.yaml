@@ -1,0 +1,6 @@
+version: 1
+name: career-skills-entry-asset-factory
+description: Career Skills Entry block skill for FermatMind career content assets.
+instructions:
+  - Read SKILL.md and references before running.
+  - Do not generate downstream assets unless upstream gates PASS.

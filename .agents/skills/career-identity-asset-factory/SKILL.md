@@ -1,0 +1,43 @@
+---
+name: career-identity-asset-factory
+description: FermatMind career identity content-asset workflow for occupation definitions, official boundaries, title cleanup, aliases, and classification mappings. Use when Codex needs to create, audit, repair, or freeze career identity evidence, synthesis, or asset ledgers.
+---
+
+# Career Identity Asset Factory
+
+Use this skill for the occupation identity block. It establishes what a career page is about before downstream blocks describe work, fit, entry paths, risks, adjacent careers, or page assembly.
+
+Pipeline:
+
+`manifest -> identity evidence -> evidence audit -> trust audit -> identity synthesis -> synthesis audit -> identity asset -> asset audit -> freeze`.
+
+## Non-Negotiable Rules
+
+- Do not infer official occupation boundaries from a job title alone.
+- Use official or authoritative classification sources first: O*NET, SOC, BLS, ESCO/ISCO, national occupational classification sources, and seed mappings.
+- Preserve seed slug and canonical path. Title cleanup may add display titles but must not mutate slug identity.
+- Distinguish exact occupation, aggregate occupation, adjacent occupation, alias, and local-market job title.
+- Do not fabricate SOC/O*NET/ISCO/CIP codes or official definitions.
+- If classification mapping is weak or ambiguous, mark the row `REPAIR_REQUIRED` or `BLOCKED`; do not smooth it over with generic wording.
+
+## Outputs
+
+- cleaned title and alias boundary
+- official definition summary
+- classification mapping and mapping quality
+- inclusion/exclusion boundaries
+- source list and review validity
+
+## Required References
+
+Read:
+
+1. `references/source_rules.md`
+2. `references/trust_rules.md`
+3. `references/writing_rules.md`
+4. `../career-content-asset-factory/references/shared_pipeline_contract.md`
+
+## Scripts
+
+Use the scripts in `scripts/` for the standard stages. They delegate shared orchestration to `career-content-asset-factory`; block-specific implementation must obey this skill's references.
+
