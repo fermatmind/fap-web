@@ -1,0 +1,1221 @@
+{
+  "artifact": "MBTI64-BACKEND-IMPORT-CONTRACT-01",
+  "status": "conditional",
+  "package_version_reviewed": "pilot-v2.1",
+  "source_package": "docs/seo/personality/content-packages/pilot-v2.1/mbti64-content-package-pilot-v2.1.json",
+  "source_qa": "docs/seo/personality/content-package-v21-qa-2026-06-18.json",
+  "source_gates": "docs/seo/personality/content-package-gates-2026-06-18.json",
+  "contract_rows": [
+    {
+      "url": "/en/personality/intj-a-vs-intj-t",
+      "locale": "en",
+      "page_type": "comparison",
+      "slug": "intj-a-vs-intj-t",
+      "canonical_target": "/en/personality/intj-a-vs-intj-t",
+      "existing_url_required": true,
+      "create_new_url_allowed": false,
+      "publish_allowed_default": false,
+      "sitemap_allowed_default": false,
+      "llms_allowed_default": false,
+      "llms_full_allowed_default": false,
+      "search_release_allowed_default": false,
+      "review_state_default": "draft_for_operator_review",
+      "source_package_path": "docs/seo/personality/content-packages/pilot-v2.1/mbti64-content-package-pilot-v2.1.json",
+      "source_package_version": "pilot-v2.1",
+      "source_package_sha256": "09acd30cfd7a8dd3eb0eacf8bef1ed10b54cfa0b89277e328faa6583fdf602a3",
+      "source_qa_artifact": "docs/seo/personality/content-package-v21-qa-2026-06-18.json",
+      "source_gates_artifact": "docs/seo/personality/content-package-gates-2026-06-18.json",
+      "import_payload_shape": {
+        "top_level": [
+          "url",
+          "locale",
+          "page_type",
+          "primary_query",
+          "secondary_queries",
+          "excluded_queries",
+          "target_intent",
+          "target_test_route",
+          "canonical_target",
+          "status"
+        ],
+        "seo": [
+          "seo.seo_title",
+          "seo.seo_description",
+          "seo.breadcrumb_title",
+          "seo.h1",
+          "seo.quick_answer_summary"
+        ],
+        "content": [
+          "content.quick_answer",
+          "content.side_by_side_summary",
+          "content.core_traits_comparison",
+          "content.stress_confidence",
+          "content.career_work_style",
+          "content.relationships_love",
+          "content.which_one_fits"
+        ],
+        "shared": [
+          "faq",
+          "internal_links",
+          "method_boundary",
+          "trademark_boundary",
+          "information_gain",
+          "claim_risk_notes",
+          "route_safety",
+          "above_the_fold_module",
+          "serp_ctr_package_v2",
+          "v2_optimization"
+        ],
+        "revision_metadata": [
+          "source_artifact",
+          "source_artifact_sha256",
+          "generated_by",
+          "qa_state",
+          "operator_review_required",
+          "rollback_required",
+          "previous_revision_id",
+          "new_revision_id",
+          "publish_allowed",
+          "search_release_allowed"
+        ]
+      },
+      "required_backend_fields": [
+        "personality_profile_variant.public_route_slug",
+        "personality_profile_variant.runtime_type_code",
+        "personality_profile_variant_seo_meta.seo_title",
+        "personality_profile_variant_seo_meta.seo_description",
+        "personality_profile_variant_seo_meta.canonical_url",
+        "personality_profile_variant_seo_meta.robots",
+        "personality_profile_variant_sections.section_key",
+        "personality_profile_variant_sections.body_md",
+        "personality_profile_variant_sections.payload_json",
+        "personality_profile_variant_revisions.snapshot_json"
+      ],
+      "optional_backend_fields": [
+        "breadcrumb_title",
+        "faq_schema_payload",
+        "above_the_fold_module",
+        "internal_link_roles",
+        "source_artifact_metadata",
+        "operator_review_state",
+        "rollback_metadata"
+      ],
+      "unsupported_fields": [
+        "comparison_page_first_class_revision_model_unknown",
+        "method_boundary_first_class_field_unknown",
+        "trademark_boundary_first_class_field_unknown",
+        "information_gain_first_class_field_unknown",
+        "serp_ctr_package_v2_first_class_field_unknown",
+        "publish_allowed_first_class_field_unknown",
+        "search_release_allowed_first_class_field_unknown"
+      ],
+      "data_loss_risk": "medium",
+      "route_safety_status": "pass",
+      "canonical_safety_status": "pass",
+      "rollback_metadata_required": true,
+      "notes": [
+        "Comparison page write path must be implemented carefully because current backend evidence suggests comparison output is derived from paired variants, not a proven standalone comparison revision table.",
+        "Non-critical metadata may need to be stored in snapshot_json or payload_json if no first-class backend field exists."
+      ]
+    },
+    {
+      "url": "/zh/personality/istj-a",
+      "locale": "zh-CN",
+      "page_type": "variant",
+      "slug": "istj-a",
+      "canonical_target": "/zh/personality/istj-a",
+      "existing_url_required": true,
+      "create_new_url_allowed": false,
+      "publish_allowed_default": false,
+      "sitemap_allowed_default": false,
+      "llms_allowed_default": false,
+      "llms_full_allowed_default": false,
+      "search_release_allowed_default": false,
+      "review_state_default": "draft_for_operator_review",
+      "source_package_path": "docs/seo/personality/content-packages/pilot-v2.1/mbti64-content-package-pilot-v2.1.json",
+      "source_package_version": "pilot-v2.1",
+      "source_package_sha256": "09acd30cfd7a8dd3eb0eacf8bef1ed10b54cfa0b89277e328faa6583fdf602a3",
+      "source_qa_artifact": "docs/seo/personality/content-package-v21-qa-2026-06-18.json",
+      "source_gates_artifact": "docs/seo/personality/content-package-gates-2026-06-18.json",
+      "import_payload_shape": {
+        "top_level": [
+          "url",
+          "locale",
+          "page_type",
+          "primary_query",
+          "secondary_queries",
+          "excluded_queries",
+          "target_intent",
+          "target_test_route",
+          "canonical_target",
+          "status"
+        ],
+        "seo": [
+          "seo.seo_title",
+          "seo.seo_description",
+          "seo.breadcrumb_title",
+          "seo.h1",
+          "seo.quick_answer_summary"
+        ],
+        "content": [
+          "content.quick_answer",
+          "content.meaning",
+          "content.a_t_difference",
+          "content.core_traits",
+          "content.strengths_blind_spots",
+          "content.careers_work_style",
+          "content.relationships_communication",
+          "content.common_misreads",
+          "content.similar_types"
+        ],
+        "shared": [
+          "faq",
+          "internal_links",
+          "method_boundary",
+          "trademark_boundary",
+          "information_gain",
+          "claim_risk_notes",
+          "route_safety",
+          "above_the_fold_module",
+          "serp_ctr_package_v2",
+          "v2_optimization"
+        ],
+        "revision_metadata": [
+          "source_artifact",
+          "source_artifact_sha256",
+          "generated_by",
+          "qa_state",
+          "operator_review_required",
+          "rollback_required",
+          "previous_revision_id",
+          "new_revision_id",
+          "publish_allowed",
+          "search_release_allowed"
+        ]
+      },
+      "required_backend_fields": [
+        "personality_profile_variant.public_route_slug",
+        "personality_profile_variant.runtime_type_code",
+        "personality_profile_variant_seo_meta.seo_title",
+        "personality_profile_variant_seo_meta.seo_description",
+        "personality_profile_variant_seo_meta.canonical_url",
+        "personality_profile_variant_seo_meta.robots",
+        "personality_profile_variant_sections.section_key",
+        "personality_profile_variant_sections.body_md",
+        "personality_profile_variant_sections.payload_json",
+        "personality_profile_variant_revisions.snapshot_json"
+      ],
+      "optional_backend_fields": [
+        "breadcrumb_title",
+        "faq_schema_payload",
+        "above_the_fold_module",
+        "internal_link_roles",
+        "source_artifact_metadata",
+        "operator_review_state",
+        "rollback_metadata"
+      ],
+      "unsupported_fields": [
+        "comparison_page_first_class_revision_model_unknown",
+        "method_boundary_first_class_field_unknown",
+        "trademark_boundary_first_class_field_unknown",
+        "information_gain_first_class_field_unknown",
+        "serp_ctr_package_v2_first_class_field_unknown",
+        "publish_allowed_first_class_field_unknown",
+        "search_release_allowed_first_class_field_unknown"
+      ],
+      "data_loss_risk": "medium",
+      "route_safety_status": "pass",
+      "canonical_safety_status": "pass",
+      "rollback_metadata_required": true,
+      "notes": [
+        "Non-critical metadata may need to be stored in snapshot_json or payload_json if no first-class backend field exists."
+      ]
+    },
+    {
+      "url": "/en/personality/intp-a-vs-intp-t",
+      "locale": "en",
+      "page_type": "comparison",
+      "slug": "intp-a-vs-intp-t",
+      "canonical_target": "/en/personality/intp-a-vs-intp-t",
+      "existing_url_required": true,
+      "create_new_url_allowed": false,
+      "publish_allowed_default": false,
+      "sitemap_allowed_default": false,
+      "llms_allowed_default": false,
+      "llms_full_allowed_default": false,
+      "search_release_allowed_default": false,
+      "review_state_default": "draft_for_operator_review",
+      "source_package_path": "docs/seo/personality/content-packages/pilot-v2.1/mbti64-content-package-pilot-v2.1.json",
+      "source_package_version": "pilot-v2.1",
+      "source_package_sha256": "09acd30cfd7a8dd3eb0eacf8bef1ed10b54cfa0b89277e328faa6583fdf602a3",
+      "source_qa_artifact": "docs/seo/personality/content-package-v21-qa-2026-06-18.json",
+      "source_gates_artifact": "docs/seo/personality/content-package-gates-2026-06-18.json",
+      "import_payload_shape": {
+        "top_level": [
+          "url",
+          "locale",
+          "page_type",
+          "primary_query",
+          "secondary_queries",
+          "excluded_queries",
+          "target_intent",
+          "target_test_route",
+          "canonical_target",
+          "status"
+        ],
+        "seo": [
+          "seo.seo_title",
+          "seo.seo_description",
+          "seo.breadcrumb_title",
+          "seo.h1",
+          "seo.quick_answer_summary"
+        ],
+        "content": [
+          "content.quick_answer",
+          "content.side_by_side_summary",
+          "content.core_traits_comparison",
+          "content.stress_confidence",
+          "content.career_work_style",
+          "content.relationships_love",
+          "content.which_one_fits"
+        ],
+        "shared": [
+          "faq",
+          "internal_links",
+          "method_boundary",
+          "trademark_boundary",
+          "information_gain",
+          "claim_risk_notes",
+          "route_safety",
+          "above_the_fold_module",
+          "serp_ctr_package_v2",
+          "v2_optimization"
+        ],
+        "revision_metadata": [
+          "source_artifact",
+          "source_artifact_sha256",
+          "generated_by",
+          "qa_state",
+          "operator_review_required",
+          "rollback_required",
+          "previous_revision_id",
+          "new_revision_id",
+          "publish_allowed",
+          "search_release_allowed"
+        ]
+      },
+      "required_backend_fields": [
+        "personality_profile_variant.public_route_slug",
+        "personality_profile_variant.runtime_type_code",
+        "personality_profile_variant_seo_meta.seo_title",
+        "personality_profile_variant_seo_meta.seo_description",
+        "personality_profile_variant_seo_meta.canonical_url",
+        "personality_profile_variant_seo_meta.robots",
+        "personality_profile_variant_sections.section_key",
+        "personality_profile_variant_sections.body_md",
+        "personality_profile_variant_sections.payload_json",
+        "personality_profile_variant_revisions.snapshot_json"
+      ],
+      "optional_backend_fields": [
+        "breadcrumb_title",
+        "faq_schema_payload",
+        "above_the_fold_module",
+        "internal_link_roles",
+        "source_artifact_metadata",
+        "operator_review_state",
+        "rollback_metadata"
+      ],
+      "unsupported_fields": [
+        "comparison_page_first_class_revision_model_unknown",
+        "method_boundary_first_class_field_unknown",
+        "trademark_boundary_first_class_field_unknown",
+        "information_gain_first_class_field_unknown",
+        "serp_ctr_package_v2_first_class_field_unknown",
+        "publish_allowed_first_class_field_unknown",
+        "search_release_allowed_first_class_field_unknown"
+      ],
+      "data_loss_risk": "medium",
+      "route_safety_status": "pass",
+      "canonical_safety_status": "pass",
+      "rollback_metadata_required": true,
+      "notes": [
+        "Comparison page write path must be implemented carefully because current backend evidence suggests comparison output is derived from paired variants, not a proven standalone comparison revision table.",
+        "Non-critical metadata may need to be stored in snapshot_json or payload_json if no first-class backend field exists."
+      ]
+    },
+    {
+      "url": "/zh/personality/infp-t",
+      "locale": "zh-CN",
+      "page_type": "variant",
+      "slug": "infp-t",
+      "canonical_target": "/zh/personality/infp-t",
+      "existing_url_required": true,
+      "create_new_url_allowed": false,
+      "publish_allowed_default": false,
+      "sitemap_allowed_default": false,
+      "llms_allowed_default": false,
+      "llms_full_allowed_default": false,
+      "search_release_allowed_default": false,
+      "review_state_default": "draft_for_operator_review",
+      "source_package_path": "docs/seo/personality/content-packages/pilot-v2.1/mbti64-content-package-pilot-v2.1.json",
+      "source_package_version": "pilot-v2.1",
+      "source_package_sha256": "09acd30cfd7a8dd3eb0eacf8bef1ed10b54cfa0b89277e328faa6583fdf602a3",
+      "source_qa_artifact": "docs/seo/personality/content-package-v21-qa-2026-06-18.json",
+      "source_gates_artifact": "docs/seo/personality/content-package-gates-2026-06-18.json",
+      "import_payload_shape": {
+        "top_level": [
+          "url",
+          "locale",
+          "page_type",
+          "primary_query",
+          "secondary_queries",
+          "excluded_queries",
+          "target_intent",
+          "target_test_route",
+          "canonical_target",
+          "status"
+        ],
+        "seo": [
+          "seo.seo_title",
+          "seo.seo_description",
+          "seo.breadcrumb_title",
+          "seo.h1",
+          "seo.quick_answer_summary"
+        ],
+        "content": [
+          "content.quick_answer",
+          "content.meaning",
+          "content.a_t_difference",
+          "content.core_traits",
+          "content.strengths_blind_spots",
+          "content.careers_work_style",
+          "content.relationships_communication",
+          "content.common_misreads",
+          "content.similar_types"
+        ],
+        "shared": [
+          "faq",
+          "internal_links",
+          "method_boundary",
+          "trademark_boundary",
+          "information_gain",
+          "claim_risk_notes",
+          "route_safety",
+          "above_the_fold_module",
+          "serp_ctr_package_v2",
+          "v2_optimization"
+        ],
+        "revision_metadata": [
+          "source_artifact",
+          "source_artifact_sha256",
+          "generated_by",
+          "qa_state",
+          "operator_review_required",
+          "rollback_required",
+          "previous_revision_id",
+          "new_revision_id",
+          "publish_allowed",
+          "search_release_allowed"
+        ]
+      },
+      "required_backend_fields": [
+        "personality_profile_variant.public_route_slug",
+        "personality_profile_variant.runtime_type_code",
+        "personality_profile_variant_seo_meta.seo_title",
+        "personality_profile_variant_seo_meta.seo_description",
+        "personality_profile_variant_seo_meta.canonical_url",
+        "personality_profile_variant_seo_meta.robots",
+        "personality_profile_variant_sections.section_key",
+        "personality_profile_variant_sections.body_md",
+        "personality_profile_variant_sections.payload_json",
+        "personality_profile_variant_revisions.snapshot_json"
+      ],
+      "optional_backend_fields": [
+        "breadcrumb_title",
+        "faq_schema_payload",
+        "above_the_fold_module",
+        "internal_link_roles",
+        "source_artifact_metadata",
+        "operator_review_state",
+        "rollback_metadata"
+      ],
+      "unsupported_fields": [
+        "comparison_page_first_class_revision_model_unknown",
+        "method_boundary_first_class_field_unknown",
+        "trademark_boundary_first_class_field_unknown",
+        "information_gain_first_class_field_unknown",
+        "serp_ctr_package_v2_first_class_field_unknown",
+        "publish_allowed_first_class_field_unknown",
+        "search_release_allowed_first_class_field_unknown"
+      ],
+      "data_loss_risk": "medium",
+      "route_safety_status": "pass",
+      "canonical_safety_status": "pass",
+      "rollback_metadata_required": true,
+      "notes": [
+        "Non-critical metadata may need to be stored in snapshot_json or payload_json if no first-class backend field exists."
+      ]
+    },
+    {
+      "url": "/en/personality/intj-a",
+      "locale": "en",
+      "page_type": "variant",
+      "slug": "intj-a",
+      "canonical_target": "/en/personality/intj-a",
+      "existing_url_required": true,
+      "create_new_url_allowed": false,
+      "publish_allowed_default": false,
+      "sitemap_allowed_default": false,
+      "llms_allowed_default": false,
+      "llms_full_allowed_default": false,
+      "search_release_allowed_default": false,
+      "review_state_default": "draft_for_operator_review",
+      "source_package_path": "docs/seo/personality/content-packages/pilot-v2.1/mbti64-content-package-pilot-v2.1.json",
+      "source_package_version": "pilot-v2.1",
+      "source_package_sha256": "09acd30cfd7a8dd3eb0eacf8bef1ed10b54cfa0b89277e328faa6583fdf602a3",
+      "source_qa_artifact": "docs/seo/personality/content-package-v21-qa-2026-06-18.json",
+      "source_gates_artifact": "docs/seo/personality/content-package-gates-2026-06-18.json",
+      "import_payload_shape": {
+        "top_level": [
+          "url",
+          "locale",
+          "page_type",
+          "primary_query",
+          "secondary_queries",
+          "excluded_queries",
+          "target_intent",
+          "target_test_route",
+          "canonical_target",
+          "status"
+        ],
+        "seo": [
+          "seo.seo_title",
+          "seo.seo_description",
+          "seo.breadcrumb_title",
+          "seo.h1",
+          "seo.quick_answer_summary"
+        ],
+        "content": [
+          "content.quick_answer",
+          "content.meaning",
+          "content.a_t_difference",
+          "content.core_traits",
+          "content.strengths_blind_spots",
+          "content.careers_work_style",
+          "content.relationships_communication",
+          "content.common_misreads",
+          "content.similar_types"
+        ],
+        "shared": [
+          "faq",
+          "internal_links",
+          "method_boundary",
+          "trademark_boundary",
+          "information_gain",
+          "claim_risk_notes",
+          "route_safety",
+          "above_the_fold_module",
+          "serp_ctr_package_v2",
+          "v2_optimization"
+        ],
+        "revision_metadata": [
+          "source_artifact",
+          "source_artifact_sha256",
+          "generated_by",
+          "qa_state",
+          "operator_review_required",
+          "rollback_required",
+          "previous_revision_id",
+          "new_revision_id",
+          "publish_allowed",
+          "search_release_allowed"
+        ]
+      },
+      "required_backend_fields": [
+        "personality_profile_variant.public_route_slug",
+        "personality_profile_variant.runtime_type_code",
+        "personality_profile_variant_seo_meta.seo_title",
+        "personality_profile_variant_seo_meta.seo_description",
+        "personality_profile_variant_seo_meta.canonical_url",
+        "personality_profile_variant_seo_meta.robots",
+        "personality_profile_variant_sections.section_key",
+        "personality_profile_variant_sections.body_md",
+        "personality_profile_variant_sections.payload_json",
+        "personality_profile_variant_revisions.snapshot_json"
+      ],
+      "optional_backend_fields": [
+        "breadcrumb_title",
+        "faq_schema_payload",
+        "above_the_fold_module",
+        "internal_link_roles",
+        "source_artifact_metadata",
+        "operator_review_state",
+        "rollback_metadata"
+      ],
+      "unsupported_fields": [
+        "comparison_page_first_class_revision_model_unknown",
+        "method_boundary_first_class_field_unknown",
+        "trademark_boundary_first_class_field_unknown",
+        "information_gain_first_class_field_unknown",
+        "serp_ctr_package_v2_first_class_field_unknown",
+        "publish_allowed_first_class_field_unknown",
+        "search_release_allowed_first_class_field_unknown"
+      ],
+      "data_loss_risk": "medium",
+      "route_safety_status": "pass",
+      "canonical_safety_status": "pass",
+      "rollback_metadata_required": true,
+      "notes": [
+        "Non-critical metadata may need to be stored in snapshot_json or payload_json if no first-class backend field exists."
+      ]
+    },
+    {
+      "url": "/en/personality/intj-t",
+      "locale": "en",
+      "page_type": "variant",
+      "slug": "intj-t",
+      "canonical_target": "/en/personality/intj-t",
+      "existing_url_required": true,
+      "create_new_url_allowed": false,
+      "publish_allowed_default": false,
+      "sitemap_allowed_default": false,
+      "llms_allowed_default": false,
+      "llms_full_allowed_default": false,
+      "search_release_allowed_default": false,
+      "review_state_default": "draft_for_operator_review",
+      "source_package_path": "docs/seo/personality/content-packages/pilot-v2.1/mbti64-content-package-pilot-v2.1.json",
+      "source_package_version": "pilot-v2.1",
+      "source_package_sha256": "09acd30cfd7a8dd3eb0eacf8bef1ed10b54cfa0b89277e328faa6583fdf602a3",
+      "source_qa_artifact": "docs/seo/personality/content-package-v21-qa-2026-06-18.json",
+      "source_gates_artifact": "docs/seo/personality/content-package-gates-2026-06-18.json",
+      "import_payload_shape": {
+        "top_level": [
+          "url",
+          "locale",
+          "page_type",
+          "primary_query",
+          "secondary_queries",
+          "excluded_queries",
+          "target_intent",
+          "target_test_route",
+          "canonical_target",
+          "status"
+        ],
+        "seo": [
+          "seo.seo_title",
+          "seo.seo_description",
+          "seo.breadcrumb_title",
+          "seo.h1",
+          "seo.quick_answer_summary"
+        ],
+        "content": [
+          "content.quick_answer",
+          "content.meaning",
+          "content.a_t_difference",
+          "content.core_traits",
+          "content.strengths_blind_spots",
+          "content.careers_work_style",
+          "content.relationships_communication",
+          "content.common_misreads",
+          "content.similar_types"
+        ],
+        "shared": [
+          "faq",
+          "internal_links",
+          "method_boundary",
+          "trademark_boundary",
+          "information_gain",
+          "claim_risk_notes",
+          "route_safety",
+          "above_the_fold_module",
+          "serp_ctr_package_v2",
+          "v2_optimization"
+        ],
+        "revision_metadata": [
+          "source_artifact",
+          "source_artifact_sha256",
+          "generated_by",
+          "qa_state",
+          "operator_review_required",
+          "rollback_required",
+          "previous_revision_id",
+          "new_revision_id",
+          "publish_allowed",
+          "search_release_allowed"
+        ]
+      },
+      "required_backend_fields": [
+        "personality_profile_variant.public_route_slug",
+        "personality_profile_variant.runtime_type_code",
+        "personality_profile_variant_seo_meta.seo_title",
+        "personality_profile_variant_seo_meta.seo_description",
+        "personality_profile_variant_seo_meta.canonical_url",
+        "personality_profile_variant_seo_meta.robots",
+        "personality_profile_variant_sections.section_key",
+        "personality_profile_variant_sections.body_md",
+        "personality_profile_variant_sections.payload_json",
+        "personality_profile_variant_revisions.snapshot_json"
+      ],
+      "optional_backend_fields": [
+        "breadcrumb_title",
+        "faq_schema_payload",
+        "above_the_fold_module",
+        "internal_link_roles",
+        "source_artifact_metadata",
+        "operator_review_state",
+        "rollback_metadata"
+      ],
+      "unsupported_fields": [
+        "comparison_page_first_class_revision_model_unknown",
+        "method_boundary_first_class_field_unknown",
+        "trademark_boundary_first_class_field_unknown",
+        "information_gain_first_class_field_unknown",
+        "serp_ctr_package_v2_first_class_field_unknown",
+        "publish_allowed_first_class_field_unknown",
+        "search_release_allowed_first_class_field_unknown"
+      ],
+      "data_loss_risk": "medium",
+      "route_safety_status": "pass",
+      "canonical_safety_status": "pass",
+      "rollback_metadata_required": true,
+      "notes": [
+        "Non-critical metadata may need to be stored in snapshot_json or payload_json if no first-class backend field exists."
+      ]
+    },
+    {
+      "url": "/zh/personality/intj-a",
+      "locale": "zh-CN",
+      "page_type": "variant",
+      "slug": "intj-a",
+      "canonical_target": "/zh/personality/intj-a",
+      "existing_url_required": true,
+      "create_new_url_allowed": false,
+      "publish_allowed_default": false,
+      "sitemap_allowed_default": false,
+      "llms_allowed_default": false,
+      "llms_full_allowed_default": false,
+      "search_release_allowed_default": false,
+      "review_state_default": "draft_for_operator_review",
+      "source_package_path": "docs/seo/personality/content-packages/pilot-v2.1/mbti64-content-package-pilot-v2.1.json",
+      "source_package_version": "pilot-v2.1",
+      "source_package_sha256": "09acd30cfd7a8dd3eb0eacf8bef1ed10b54cfa0b89277e328faa6583fdf602a3",
+      "source_qa_artifact": "docs/seo/personality/content-package-v21-qa-2026-06-18.json",
+      "source_gates_artifact": "docs/seo/personality/content-package-gates-2026-06-18.json",
+      "import_payload_shape": {
+        "top_level": [
+          "url",
+          "locale",
+          "page_type",
+          "primary_query",
+          "secondary_queries",
+          "excluded_queries",
+          "target_intent",
+          "target_test_route",
+          "canonical_target",
+          "status"
+        ],
+        "seo": [
+          "seo.seo_title",
+          "seo.seo_description",
+          "seo.breadcrumb_title",
+          "seo.h1",
+          "seo.quick_answer_summary"
+        ],
+        "content": [
+          "content.quick_answer",
+          "content.meaning",
+          "content.a_t_difference",
+          "content.core_traits",
+          "content.strengths_blind_spots",
+          "content.careers_work_style",
+          "content.relationships_communication",
+          "content.common_misreads",
+          "content.similar_types"
+        ],
+        "shared": [
+          "faq",
+          "internal_links",
+          "method_boundary",
+          "trademark_boundary",
+          "information_gain",
+          "claim_risk_notes",
+          "route_safety",
+          "above_the_fold_module",
+          "serp_ctr_package_v2",
+          "v2_optimization"
+        ],
+        "revision_metadata": [
+          "source_artifact",
+          "source_artifact_sha256",
+          "generated_by",
+          "qa_state",
+          "operator_review_required",
+          "rollback_required",
+          "previous_revision_id",
+          "new_revision_id",
+          "publish_allowed",
+          "search_release_allowed"
+        ]
+      },
+      "required_backend_fields": [
+        "personality_profile_variant.public_route_slug",
+        "personality_profile_variant.runtime_type_code",
+        "personality_profile_variant_seo_meta.seo_title",
+        "personality_profile_variant_seo_meta.seo_description",
+        "personality_profile_variant_seo_meta.canonical_url",
+        "personality_profile_variant_seo_meta.robots",
+        "personality_profile_variant_sections.section_key",
+        "personality_profile_variant_sections.body_md",
+        "personality_profile_variant_sections.payload_json",
+        "personality_profile_variant_revisions.snapshot_json"
+      ],
+      "optional_backend_fields": [
+        "breadcrumb_title",
+        "faq_schema_payload",
+        "above_the_fold_module",
+        "internal_link_roles",
+        "source_artifact_metadata",
+        "operator_review_state",
+        "rollback_metadata"
+      ],
+      "unsupported_fields": [
+        "comparison_page_first_class_revision_model_unknown",
+        "method_boundary_first_class_field_unknown",
+        "trademark_boundary_first_class_field_unknown",
+        "information_gain_first_class_field_unknown",
+        "serp_ctr_package_v2_first_class_field_unknown",
+        "publish_allowed_first_class_field_unknown",
+        "search_release_allowed_first_class_field_unknown"
+      ],
+      "data_loss_risk": "medium",
+      "route_safety_status": "pass",
+      "canonical_safety_status": "pass",
+      "rollback_metadata_required": true,
+      "notes": [
+        "Non-critical metadata may need to be stored in snapshot_json or payload_json if no first-class backend field exists."
+      ]
+    },
+    {
+      "url": "/zh/personality/intj-t",
+      "locale": "zh-CN",
+      "page_type": "variant",
+      "slug": "intj-t",
+      "canonical_target": "/zh/personality/intj-t",
+      "existing_url_required": true,
+      "create_new_url_allowed": false,
+      "publish_allowed_default": false,
+      "sitemap_allowed_default": false,
+      "llms_allowed_default": false,
+      "llms_full_allowed_default": false,
+      "search_release_allowed_default": false,
+      "review_state_default": "draft_for_operator_review",
+      "source_package_path": "docs/seo/personality/content-packages/pilot-v2.1/mbti64-content-package-pilot-v2.1.json",
+      "source_package_version": "pilot-v2.1",
+      "source_package_sha256": "09acd30cfd7a8dd3eb0eacf8bef1ed10b54cfa0b89277e328faa6583fdf602a3",
+      "source_qa_artifact": "docs/seo/personality/content-package-v21-qa-2026-06-18.json",
+      "source_gates_artifact": "docs/seo/personality/content-package-gates-2026-06-18.json",
+      "import_payload_shape": {
+        "top_level": [
+          "url",
+          "locale",
+          "page_type",
+          "primary_query",
+          "secondary_queries",
+          "excluded_queries",
+          "target_intent",
+          "target_test_route",
+          "canonical_target",
+          "status"
+        ],
+        "seo": [
+          "seo.seo_title",
+          "seo.seo_description",
+          "seo.breadcrumb_title",
+          "seo.h1",
+          "seo.quick_answer_summary"
+        ],
+        "content": [
+          "content.quick_answer",
+          "content.meaning",
+          "content.a_t_difference",
+          "content.core_traits",
+          "content.strengths_blind_spots",
+          "content.careers_work_style",
+          "content.relationships_communication",
+          "content.common_misreads",
+          "content.similar_types"
+        ],
+        "shared": [
+          "faq",
+          "internal_links",
+          "method_boundary",
+          "trademark_boundary",
+          "information_gain",
+          "claim_risk_notes",
+          "route_safety",
+          "above_the_fold_module",
+          "serp_ctr_package_v2",
+          "v2_optimization"
+        ],
+        "revision_metadata": [
+          "source_artifact",
+          "source_artifact_sha256",
+          "generated_by",
+          "qa_state",
+          "operator_review_required",
+          "rollback_required",
+          "previous_revision_id",
+          "new_revision_id",
+          "publish_allowed",
+          "search_release_allowed"
+        ]
+      },
+      "required_backend_fields": [
+        "personality_profile_variant.public_route_slug",
+        "personality_profile_variant.runtime_type_code",
+        "personality_profile_variant_seo_meta.seo_title",
+        "personality_profile_variant_seo_meta.seo_description",
+        "personality_profile_variant_seo_meta.canonical_url",
+        "personality_profile_variant_seo_meta.robots",
+        "personality_profile_variant_sections.section_key",
+        "personality_profile_variant_sections.body_md",
+        "personality_profile_variant_sections.payload_json",
+        "personality_profile_variant_revisions.snapshot_json"
+      ],
+      "optional_backend_fields": [
+        "breadcrumb_title",
+        "faq_schema_payload",
+        "above_the_fold_module",
+        "internal_link_roles",
+        "source_artifact_metadata",
+        "operator_review_state",
+        "rollback_metadata"
+      ],
+      "unsupported_fields": [
+        "comparison_page_first_class_revision_model_unknown",
+        "method_boundary_first_class_field_unknown",
+        "trademark_boundary_first_class_field_unknown",
+        "information_gain_first_class_field_unknown",
+        "serp_ctr_package_v2_first_class_field_unknown",
+        "publish_allowed_first_class_field_unknown",
+        "search_release_allowed_first_class_field_unknown"
+      ],
+      "data_loss_risk": "medium",
+      "route_safety_status": "pass",
+      "canonical_safety_status": "pass",
+      "rollback_metadata_required": true,
+      "notes": [
+        "Non-critical metadata may need to be stored in snapshot_json or payload_json if no first-class backend field exists."
+      ]
+    }
+  ],
+  "field_mapping": {
+    "variant": {
+      "top_level": [
+        "url",
+        "locale",
+        "page_type",
+        "primary_query",
+        "secondary_queries",
+        "excluded_queries",
+        "target_intent",
+        "target_test_route",
+        "canonical_target",
+        "status"
+      ],
+      "seo": [
+        "seo.seo_title",
+        "seo.seo_description",
+        "seo.breadcrumb_title",
+        "seo.h1",
+        "seo.quick_answer_summary"
+      ],
+      "content": [
+        "content.quick_answer",
+        "content.meaning",
+        "content.a_t_difference",
+        "content.core_traits",
+        "content.strengths_blind_spots",
+        "content.careers_work_style",
+        "content.relationships_communication",
+        "content.common_misreads",
+        "content.similar_types"
+      ],
+      "shared": [
+        "faq",
+        "internal_links",
+        "method_boundary",
+        "trademark_boundary",
+        "information_gain",
+        "claim_risk_notes",
+        "route_safety",
+        "above_the_fold_module",
+        "serp_ctr_package_v2",
+        "v2_optimization"
+      ]
+    },
+    "comparison": {
+      "top_level": [
+        "url",
+        "locale",
+        "page_type",
+        "primary_query",
+        "secondary_queries",
+        "excluded_queries",
+        "target_intent",
+        "target_test_route",
+        "canonical_target",
+        "status"
+      ],
+      "seo": [
+        "seo.seo_title",
+        "seo.seo_description",
+        "seo.breadcrumb_title",
+        "seo.h1",
+        "seo.quick_answer_summary"
+      ],
+      "content": [
+        "content.quick_answer",
+        "content.side_by_side_summary",
+        "content.core_traits_comparison",
+        "content.stress_confidence",
+        "content.career_work_style",
+        "content.relationships_love",
+        "content.which_one_fits"
+      ],
+      "shared": [
+        "faq",
+        "internal_links",
+        "method_boundary",
+        "trademark_boundary",
+        "information_gain",
+        "claim_risk_notes",
+        "route_safety",
+        "above_the_fold_module",
+        "serp_ctr_package_v2",
+        "v2_optimization"
+      ]
+    },
+    "shared": [
+      "faq",
+      "internal_links",
+      "method_boundary",
+      "trademark_boundary",
+      "information_gain",
+      "claim_risk_notes",
+      "route_safety",
+      "above_the_fold_module",
+      "serp_ctr_package_v2",
+      "v2_optimization"
+    ],
+    "revision_metadata": [
+      "source_artifact",
+      "source_artifact_sha256",
+      "generated_by",
+      "qa_state",
+      "operator_review_required",
+      "rollback_required",
+      "previous_revision_id",
+      "new_revision_id",
+      "publish_allowed",
+      "search_release_allowed"
+    ]
+  },
+  "backend_cms_discovery": {
+    "evidence_files": [
+      {
+        "file": "lib/cms/personality.ts",
+        "evidence": "Frontend consumer declares CMS personality detail, SEO, sections, comparison projection, and public projection response shapes."
+      },
+      {
+        "file": "app/(localized)/[locale]/personality/[type]/page.tsx",
+        "evidence": "Personality detail route consumes backend personality detail/comparison APIs and renders variant/comparison pages from API projection data."
+      },
+      {
+        "file": "lib/cms/personality-sections.tsx",
+        "evidence": "Frontend supports rich_text, bullets, faq, trait_dimension_grid, preferred_role_list and section payload rendering."
+      },
+      {
+        "file": "/Users/rainie/Desktop/GitHub/fap-api/backend/app/Models/PersonalityProfileVariantRevision.php",
+        "evidence": "Backend model supports variant revision snapshots through snapshot_json, revision_no, note, admin user, and created_at fields."
+      },
+      {
+        "file": "/Users/rainie/Desktop/GitHub/fap-api/backend/database/migrations/2026_03_16_000110_create_personality_profile_variant_authority_tables.php",
+        "evidence": "Backend variant tables support variant sections, variant SEO meta, and variant revisions; comparison page storage appears derived from paired variants."
+      },
+      {
+        "file": "/Users/rainie/Desktop/GitHub/fap-api/backend/app/Http/Controllers/API/V0_5/Cms/PersonalityController.php",
+        "evidence": "Backend exposes public variant and comparison read APIs, including comparison_public_projection_v1."
+      }
+    ],
+    "content_model_found": true,
+    "import_path_found": "unknown",
+    "notes": [
+      "Variant profile/section/SEO/revision models exist in fap-api.",
+      "Comparison pages are exposed through a backend comparison API built from paired A/T variants; no separate comparison write/import model was proven in this scan.",
+      "No dedicated importer for the MBTI64 V2.1 GPT content package was found in the local fap-web scope; future backend PR must implement or adapt a dry-run/write command.",
+      "Because backend field support for method_boundary, trademark_boundary, information_gain, SERP CTR metadata, and source artifact metadata is not proven as first-class fields, final status is conditional."
+    ]
+  },
+  "validation": {
+    "row_count_ok": true,
+    "row_order_ok": true,
+    "every_row_existing_url": true,
+    "no_new_url_creation": true,
+    "canonical_target_equals_url": true,
+    "locale_preserved": true,
+    "page_type_preserved": true,
+    "slug_preserved": true,
+    "forbidden_route_patterns_absent_from_import_payload": true,
+    "official_mbti_claims_absent": true,
+    "clinical_claims_absent": true,
+    "guarantee_claims_absent": true,
+    "internal_links_safe_public_routes": true,
+    "big_five_and_riasec_related_tests_present": true,
+    "comparison_rows_use_comparison_contract": true,
+    "variant_rows_use_variant_contract": true,
+    "review_state_draft_for_operator_review": true,
+    "publish_allowed_false": true,
+    "sitemap_allowed_false": true,
+    "llms_allowed_false": true,
+    "llms_full_allowed_false": true,
+    "search_release_allowed_false": true,
+    "rollback_metadata_required": true,
+    "no_cms_mutation_occurred": true,
+    "validation_rows": [
+      {
+        "url": "/en/personality/intj-a-vs-intj-t",
+        "existing_url": true,
+        "canonical_matches_url": true,
+        "locale_preserved": true,
+        "page_type_preserved": true,
+        "slug_preserved": true,
+        "forbidden_payload_patterns": [],
+        "official_claim_patterns": [],
+        "clinical_claim_patterns": [],
+        "guarantee_claim_patterns": [],
+        "missing_related_routes": [],
+        "unsafe_related_routes": [],
+        "contract_field_set": "comparison"
+      },
+      {
+        "url": "/zh/personality/istj-a",
+        "existing_url": true,
+        "canonical_matches_url": true,
+        "locale_preserved": true,
+        "page_type_preserved": true,
+        "slug_preserved": true,
+        "forbidden_payload_patterns": [],
+        "official_claim_patterns": [],
+        "clinical_claim_patterns": [],
+        "guarantee_claim_patterns": [],
+        "missing_related_routes": [],
+        "unsafe_related_routes": [],
+        "contract_field_set": "variant"
+      },
+      {
+        "url": "/en/personality/intp-a-vs-intp-t",
+        "existing_url": true,
+        "canonical_matches_url": true,
+        "locale_preserved": true,
+        "page_type_preserved": true,
+        "slug_preserved": true,
+        "forbidden_payload_patterns": [],
+        "official_claim_patterns": [],
+        "clinical_claim_patterns": [],
+        "guarantee_claim_patterns": [],
+        "missing_related_routes": [],
+        "unsafe_related_routes": [],
+        "contract_field_set": "comparison"
+      },
+      {
+        "url": "/zh/personality/infp-t",
+        "existing_url": true,
+        "canonical_matches_url": true,
+        "locale_preserved": true,
+        "page_type_preserved": true,
+        "slug_preserved": true,
+        "forbidden_payload_patterns": [],
+        "official_claim_patterns": [],
+        "clinical_claim_patterns": [],
+        "guarantee_claim_patterns": [],
+        "missing_related_routes": [],
+        "unsafe_related_routes": [],
+        "contract_field_set": "variant"
+      },
+      {
+        "url": "/en/personality/intj-a",
+        "existing_url": true,
+        "canonical_matches_url": true,
+        "locale_preserved": true,
+        "page_type_preserved": true,
+        "slug_preserved": true,
+        "forbidden_payload_patterns": [],
+        "official_claim_patterns": [],
+        "clinical_claim_patterns": [],
+        "guarantee_claim_patterns": [],
+        "missing_related_routes": [],
+        "unsafe_related_routes": [],
+        "contract_field_set": "variant"
+      },
+      {
+        "url": "/en/personality/intj-t",
+        "existing_url": true,
+        "canonical_matches_url": true,
+        "locale_preserved": true,
+        "page_type_preserved": true,
+        "slug_preserved": true,
+        "forbidden_payload_patterns": [],
+        "official_claim_patterns": [],
+        "clinical_claim_patterns": [],
+        "guarantee_claim_patterns": [],
+        "missing_related_routes": [],
+        "unsafe_related_routes": [],
+        "contract_field_set": "variant"
+      },
+      {
+        "url": "/zh/personality/intj-a",
+        "existing_url": true,
+        "canonical_matches_url": true,
+        "locale_preserved": true,
+        "page_type_preserved": true,
+        "slug_preserved": true,
+        "forbidden_payload_patterns": [],
+        "official_claim_patterns": [],
+        "clinical_claim_patterns": [],
+        "guarantee_claim_patterns": [],
+        "missing_related_routes": [],
+        "unsafe_related_routes": [],
+        "contract_field_set": "variant"
+      },
+      {
+        "url": "/zh/personality/intj-t",
+        "existing_url": true,
+        "canonical_matches_url": true,
+        "locale_preserved": true,
+        "page_type_preserved": true,
+        "slug_preserved": true,
+        "forbidden_payload_patterns": [],
+        "official_claim_patterns": [],
+        "clinical_claim_patterns": [],
+        "guarantee_claim_patterns": [],
+        "missing_related_routes": [],
+        "unsafe_related_routes": [],
+        "contract_field_set": "variant"
+      }
+    ]
+  },
+  "known_holds": [
+    "Result lookup route classification remains a separate sidecar and blocks publish/search release.",
+    "No CMS import in this PR.",
+    "No sitemap/llms/llms-full/search-release work in this PR.",
+    "Operator approval required before CMS revision draft creation."
+  ],
+  "blockers": [],
+  "warnings": [
+    "Backend import path for this exact MBTI64 V2.1 package is unknown; future backend PR must implement dry-run/write support.",
+    "Some V2.1 fields have uncertain first-class backend support and may need structured snapshot_json/payload_json storage.",
+    "Carried from gates: Medium duplicate-risk signals are present but justified as non-blocking sibling/topic similarity."
+  ],
+  "recommended_next_task": "MBTI64-BACKEND-IMPORT-DRY-RUN-01"
+}
