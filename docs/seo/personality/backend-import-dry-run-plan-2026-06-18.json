@@ -1,0 +1,245 @@
+{
+  "artifact": "MBTI64-BACKEND-IMPORT-DRY-RUN-PLAN-01",
+  "status": "conditional",
+  "package_version_reviewed": "pilot-v2.1",
+  "source_package": "docs/seo/personality/content-packages/pilot-v2.1/mbti64-content-package-pilot-v2.1.json",
+  "source_package_sha256": "09acd30cfd7a8dd3eb0eacf8bef1ed10b54cfa0b89277e328faa6583fdf602a3",
+  "operation_scope": "dry_run_only_no_db_write",
+  "row_count": 8,
+  "rows": [
+    {
+      "existing_url": "/en/personality/intj-a-vs-intj-t",
+      "existing_slug": "intj-a-vs-intj-t",
+      "locale": "en",
+      "page_type": "comparison",
+      "operation": "create_revision_draft_only",
+      "production_url_changed": false,
+      "canonical_changed": false,
+      "publish_immediately": false,
+      "sitemap_changed": false,
+      "llms_changed": false,
+      "search_submitted": false,
+      "expected_revision_state": "draft_for_operator_review",
+      "rollback_required": true,
+      "rollback_reference": {
+        "previous_revision_id": "Unknown until CMS draft creation",
+        "new_revision_id": "Unknown until CMS draft creation",
+        "source_artifact": "docs/seo/personality/content-packages/pilot-v2.1/mbti64-content-package-pilot-v2.1.json",
+        "source_artifact_sha256": "09acd30cfd7a8dd3eb0eacf8bef1ed10b54cfa0b89277e328faa6583fdf602a3",
+        "row_sha256": "84b534ad483e8a07bbff0d5abb3698cfd37b7c2924ba1870b8e3f1fea08a581f"
+      },
+      "blockers": [],
+      "warnings": [
+        "Comparison page write path must be implemented carefully because current backend evidence suggests comparison output is derived from paired variants, not a proven standalone comparison revision table.",
+        "Non-critical metadata may need to be stored in snapshot_json or payload_json if no first-class backend field exists."
+      ]
+    },
+    {
+      "existing_url": "/zh/personality/istj-a",
+      "existing_slug": "istj-a",
+      "locale": "zh-CN",
+      "page_type": "variant",
+      "operation": "create_revision_draft_only",
+      "production_url_changed": false,
+      "canonical_changed": false,
+      "publish_immediately": false,
+      "sitemap_changed": false,
+      "llms_changed": false,
+      "search_submitted": false,
+      "expected_revision_state": "draft_for_operator_review",
+      "rollback_required": true,
+      "rollback_reference": {
+        "previous_revision_id": "Unknown until CMS draft creation",
+        "new_revision_id": "Unknown until CMS draft creation",
+        "source_artifact": "docs/seo/personality/content-packages/pilot-v2.1/mbti64-content-package-pilot-v2.1.json",
+        "source_artifact_sha256": "09acd30cfd7a8dd3eb0eacf8bef1ed10b54cfa0b89277e328faa6583fdf602a3",
+        "row_sha256": "a126f88bf1e0ee1e5abed2c1d479a5ec8906fef1a9a5e05bf133403c9e4c29f6"
+      },
+      "blockers": [],
+      "warnings": [
+        "Non-critical metadata may need to be stored in snapshot_json or payload_json if no first-class backend field exists."
+      ]
+    },
+    {
+      "existing_url": "/en/personality/intp-a-vs-intp-t",
+      "existing_slug": "intp-a-vs-intp-t",
+      "locale": "en",
+      "page_type": "comparison",
+      "operation": "create_revision_draft_only",
+      "production_url_changed": false,
+      "canonical_changed": false,
+      "publish_immediately": false,
+      "sitemap_changed": false,
+      "llms_changed": false,
+      "search_submitted": false,
+      "expected_revision_state": "draft_for_operator_review",
+      "rollback_required": true,
+      "rollback_reference": {
+        "previous_revision_id": "Unknown until CMS draft creation",
+        "new_revision_id": "Unknown until CMS draft creation",
+        "source_artifact": "docs/seo/personality/content-packages/pilot-v2.1/mbti64-content-package-pilot-v2.1.json",
+        "source_artifact_sha256": "09acd30cfd7a8dd3eb0eacf8bef1ed10b54cfa0b89277e328faa6583fdf602a3",
+        "row_sha256": "50af3b6c124cbe3c3f222d60170aaa50321ad9bf3a3292900301e11a141409d3"
+      },
+      "blockers": [],
+      "warnings": [
+        "Comparison page write path must be implemented carefully because current backend evidence suggests comparison output is derived from paired variants, not a proven standalone comparison revision table.",
+        "Non-critical metadata may need to be stored in snapshot_json or payload_json if no first-class backend field exists."
+      ]
+    },
+    {
+      "existing_url": "/zh/personality/infp-t",
+      "existing_slug": "infp-t",
+      "locale": "zh-CN",
+      "page_type": "variant",
+      "operation": "create_revision_draft_only",
+      "production_url_changed": false,
+      "canonical_changed": false,
+      "publish_immediately": false,
+      "sitemap_changed": false,
+      "llms_changed": false,
+      "search_submitted": false,
+      "expected_revision_state": "draft_for_operator_review",
+      "rollback_required": true,
+      "rollback_reference": {
+        "previous_revision_id": "Unknown until CMS draft creation",
+        "new_revision_id": "Unknown until CMS draft creation",
+        "source_artifact": "docs/seo/personality/content-packages/pilot-v2.1/mbti64-content-package-pilot-v2.1.json",
+        "source_artifact_sha256": "09acd30cfd7a8dd3eb0eacf8bef1ed10b54cfa0b89277e328faa6583fdf602a3",
+        "row_sha256": "f84005b3bfc1640d17d2490e17d80f0b92cb5f0f7ac22a818d1c7b8ae04c29a6"
+      },
+      "blockers": [],
+      "warnings": [
+        "Non-critical metadata may need to be stored in snapshot_json or payload_json if no first-class backend field exists."
+      ]
+    },
+    {
+      "existing_url": "/en/personality/intj-a",
+      "existing_slug": "intj-a",
+      "locale": "en",
+      "page_type": "variant",
+      "operation": "create_revision_draft_only",
+      "production_url_changed": false,
+      "canonical_changed": false,
+      "publish_immediately": false,
+      "sitemap_changed": false,
+      "llms_changed": false,
+      "search_submitted": false,
+      "expected_revision_state": "draft_for_operator_review",
+      "rollback_required": true,
+      "rollback_reference": {
+        "previous_revision_id": "Unknown until CMS draft creation",
+        "new_revision_id": "Unknown until CMS draft creation",
+        "source_artifact": "docs/seo/personality/content-packages/pilot-v2.1/mbti64-content-package-pilot-v2.1.json",
+        "source_artifact_sha256": "09acd30cfd7a8dd3eb0eacf8bef1ed10b54cfa0b89277e328faa6583fdf602a3",
+        "row_sha256": "e859a4aa25db240dc2d678ef2f9c482936ebddffd8d2c5c9470f85494db9199c"
+      },
+      "blockers": [],
+      "warnings": [
+        "Non-critical metadata may need to be stored in snapshot_json or payload_json if no first-class backend field exists."
+      ]
+    },
+    {
+      "existing_url": "/en/personality/intj-t",
+      "existing_slug": "intj-t",
+      "locale": "en",
+      "page_type": "variant",
+      "operation": "create_revision_draft_only",
+      "production_url_changed": false,
+      "canonical_changed": false,
+      "publish_immediately": false,
+      "sitemap_changed": false,
+      "llms_changed": false,
+      "search_submitted": false,
+      "expected_revision_state": "draft_for_operator_review",
+      "rollback_required": true,
+      "rollback_reference": {
+        "previous_revision_id": "Unknown until CMS draft creation",
+        "new_revision_id": "Unknown until CMS draft creation",
+        "source_artifact": "docs/seo/personality/content-packages/pilot-v2.1/mbti64-content-package-pilot-v2.1.json",
+        "source_artifact_sha256": "09acd30cfd7a8dd3eb0eacf8bef1ed10b54cfa0b89277e328faa6583fdf602a3",
+        "row_sha256": "0c9535818986ad46f3c231e9ed2d2873702f737662ef96684835757a530a5bff"
+      },
+      "blockers": [],
+      "warnings": [
+        "Non-critical metadata may need to be stored in snapshot_json or payload_json if no first-class backend field exists."
+      ]
+    },
+    {
+      "existing_url": "/zh/personality/intj-a",
+      "existing_slug": "intj-a",
+      "locale": "zh-CN",
+      "page_type": "variant",
+      "operation": "create_revision_draft_only",
+      "production_url_changed": false,
+      "canonical_changed": false,
+      "publish_immediately": false,
+      "sitemap_changed": false,
+      "llms_changed": false,
+      "search_submitted": false,
+      "expected_revision_state": "draft_for_operator_review",
+      "rollback_required": true,
+      "rollback_reference": {
+        "previous_revision_id": "Unknown until CMS draft creation",
+        "new_revision_id": "Unknown until CMS draft creation",
+        "source_artifact": "docs/seo/personality/content-packages/pilot-v2.1/mbti64-content-package-pilot-v2.1.json",
+        "source_artifact_sha256": "09acd30cfd7a8dd3eb0eacf8bef1ed10b54cfa0b89277e328faa6583fdf602a3",
+        "row_sha256": "1586ef89d6ffef0958a3bb09f33042c8e0c17585105e84913ef043207f7f511c"
+      },
+      "blockers": [],
+      "warnings": [
+        "Non-critical metadata may need to be stored in snapshot_json or payload_json if no first-class backend field exists."
+      ]
+    },
+    {
+      "existing_url": "/zh/personality/intj-t",
+      "existing_slug": "intj-t",
+      "locale": "zh-CN",
+      "page_type": "variant",
+      "operation": "create_revision_draft_only",
+      "production_url_changed": false,
+      "canonical_changed": false,
+      "publish_immediately": false,
+      "sitemap_changed": false,
+      "llms_changed": false,
+      "search_submitted": false,
+      "expected_revision_state": "draft_for_operator_review",
+      "rollback_required": true,
+      "rollback_reference": {
+        "previous_revision_id": "Unknown until CMS draft creation",
+        "new_revision_id": "Unknown until CMS draft creation",
+        "source_artifact": "docs/seo/personality/content-packages/pilot-v2.1/mbti64-content-package-pilot-v2.1.json",
+        "source_artifact_sha256": "09acd30cfd7a8dd3eb0eacf8bef1ed10b54cfa0b89277e328faa6583fdf602a3",
+        "row_sha256": "4621ee1b1bb89c2ef4d5583cecc0a7e125d3b169e3b72ab31849d5297b12e3c3"
+      },
+      "blockers": [],
+      "warnings": [
+        "Non-critical metadata may need to be stored in snapshot_json or payload_json if no first-class backend field exists."
+      ]
+    }
+  ],
+  "global_defaults": {
+    "operation": "create_revision_draft_only",
+    "production_url_changed": false,
+    "canonical_changed": false,
+    "publish_immediately": false,
+    "sitemap_changed": false,
+    "llms_changed": false,
+    "search_submitted": false,
+    "expected_revision_state": "draft_for_operator_review",
+    "rollback_required": true
+  },
+  "validation": {
+    "exactly_8_revision_draft_operations": true,
+    "no_publish_or_indexing_change": true,
+    "no_url_or_canonical_change": true,
+    "no_db_write_in_this_pr": true
+  },
+  "blockers": [],
+  "warnings": [
+    "Backend import path for this exact MBTI64 V2.1 package is unknown; future backend PR must implement dry-run/write support.",
+    "Some V2.1 fields have uncertain first-class backend support and may need structured snapshot_json/payload_json storage.",
+    "Carried from gates: Medium duplicate-risk signals are present but justified as non-blocking sibling/topic similarity."
+  ],
+  "recommended_next_task": "MBTI64-BACKEND-IMPORT-DRY-RUN-01"
+}
