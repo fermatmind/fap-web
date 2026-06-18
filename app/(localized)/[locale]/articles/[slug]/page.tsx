@@ -444,6 +444,7 @@ export default async function ArticleDetailPage({
         locale={locale}
         testId="article-detail-answer-surface"
         hideHeading
+        hideSummaryBlocks
         hideCompareLabel
         expandSingleSummaryBlock
         pageFamily="article_detail"
@@ -457,7 +458,7 @@ export default async function ArticleDetailPage({
         }}
       />
 
-      <div className="mx-auto w-full max-w-4xl">
+      <div className="w-full">
         <article
           id="how-it-works"
           data-testid="article-detail-content"

@@ -114,6 +114,7 @@ export function AnswerSurfaceSection({
   locale,
   testId,
   hideHeading = false,
+  hideSummaryBlocks = false,
   hideCompareLabel = false,
   expandSingleSummaryBlock = false,
   pageFamily,
@@ -124,6 +125,7 @@ export function AnswerSurfaceSection({
   locale: Locale;
   testId?: string;
   hideHeading?: boolean;
+  hideSummaryBlocks?: boolean;
   hideCompareLabel?: boolean;
   expandSingleSummaryBlock?: boolean;
   hideSummaryLabel?: boolean;
@@ -135,8 +137,9 @@ export function AnswerSurfaceSection({
     return null;
   }
 
+  const summaryBlocks = hideSummaryBlocks ? [] : surface.summaryBlocks;
   const hasContent =
-    surface.summaryBlocks.length > 0 ||
+    summaryBlocks.length > 0 ||
     surface.faqBlocks.length > 0 ||
     surface.compareBlocks.length > 0 ||
     surface.sceneSummaryBlocks.length > 0 ||
@@ -160,10 +163,10 @@ export function AnswerSurfaceSection({
         </h2>
       ) : null}
 
-      {surface.summaryBlocks.length ? (
+      {summaryBlocks.length ? (
         <div className="space-y-3" data-evidence-block={pageFamily ? "quick_answer" : undefined}>
-          <div className={expandSingleSummaryBlock && surface.summaryBlocks.length === 1 ? "grid gap-3" : "grid gap-3 md:grid-cols-2"}>
-            {surface.summaryBlocks.map((block) => (
+          <div className={expandSingleSummaryBlock && summaryBlocks.length === 1 ? "grid gap-3" : "grid gap-3 md:grid-cols-2"}>
+            {summaryBlocks.map((block) => (
               <article key={block.key} className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
                 {block.title ? <p className="m-0 text-sm font-medium text-[var(--fm-text)]">{block.title}</p> : null}
                 {block.body ? <p className="m-0 mt-2 text-sm leading-7 text-[var(--fm-text-muted)]">{block.body}</p> : null}
