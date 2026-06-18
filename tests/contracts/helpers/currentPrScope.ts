@@ -151,6 +151,14 @@ const MBTI64_FRONTEND_SEO_CONSUME_01_ALLOWED_FILES = new Set([
   "tests/contracts/personality-sections.contract.test.tsx",
 ]);
 
+const MBTI64_FRONTEND_PERSONALITY_V21_RENDER_CONTRACT_01_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/personality/[type]/page.tsx",
+  "docs/seo/personality/mbti64-v21-render-contract-2026-06-19.md",
+  "lib/cms/personality.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/personality-cms.contract.test.ts",
+]);
+
 const RESEARCH_REPORT_METADATA_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/research/[slug]/page.tsx",
   "docs/seo/generated/metadata-surface-inventory.v1.csv",
@@ -2297,6 +2305,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/mbti64-frontend-seo-consume-01") {
     return MBTI64_FRONTEND_SEO_CONSUME_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/mbti64-frontend-personality-v21-render-contract-01") {
+    return MBTI64_FRONTEND_PERSONALITY_V21_RENDER_CONTRACT_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/result-smoke-proxy-generation-hints") {

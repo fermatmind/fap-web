@@ -423,6 +423,23 @@ export type PersonalityProjection = {
   meta: PersonalityProjectionMeta;
 };
 
+const MBTI64_PROMOTED_DETAIL_SECTION_KEYS = new Set([
+  "quick_answer",
+  "meaning",
+  "a_t_difference",
+  "core_traits",
+  "strengths_blind_spots",
+  "careers_work_style",
+  "relationships_communication",
+  "common_misreads",
+  "similar_types",
+  "mbti64_promotion_metadata",
+]);
+
+function isMbti64PromotedDetailSection(section: CmsPersonalitySection): boolean {
+  return section.isEnabled && MBTI64_PROMOTED_DETAIL_SECTION_KEYS.has(section.sectionKey);
+}
+
 export type PersonalityProjectionViewModel = {
   slug: string;
   routeSlug: string;
@@ -986,7 +1003,9 @@ function buildProjectionViewModel(
   projection: PersonalityProjection
 ): PersonalityProjectionViewModel {
   const faqSections = detailProfile.sections.filter((section) => section.sectionKey === "faq");
-  const supplementalSections = detailProfile.sections.filter((section) => section.sectionKey === "related_content");
+  const supplementalSections = detailProfile.sections.filter(
+    (section) => section.sectionKey === "related_content" || isMbti64PromotedDetailSection(section)
+  );
   const title = fallbackText(projection.summaryCard.title, projection.displayType, projection.canonicalTypeCode);
 
   return {
