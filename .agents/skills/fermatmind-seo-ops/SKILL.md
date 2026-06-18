@@ -10,6 +10,7 @@ V2 adds an authorized full-release runner mode. By default this skill remains re
 
 Use this skill for:
 
+- Heavy SEO release, discoverability, search, schema, hreflang, and revalidation work after daily planning. For daily topic selection or Mode B brief planning, prefer the thin `fermatmind-daily-seo-ops` skill first, then return here for controlled execution playbooks.
 - Daily SEO signal review.
 - Weekly SEO article review.
 - CMS content package QA before preview/import work.
@@ -147,6 +148,7 @@ Choose the workflow by user intent:
 | Run schema readiness, no-write rehearsal, or rollout | `schema_rollout` |
 | Run hreflang readiness, no-write rehearsal, or rollout | `hreflang_rollout` |
 | Reconcile final release truth after follow-up work | `final_reconciliation` |
+| Select a daily article topic or generate a Mode B brief | use `fermatmind-daily-seo-ops` first |
 | Generate tomorrow's daily article release goal | `daily_article_release_goal` |
 | Daily SEO review | `daily_seo_review` |
 | Weekly article review | `weekly_article_review` |
