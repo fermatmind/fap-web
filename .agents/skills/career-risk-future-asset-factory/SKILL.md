@@ -17,6 +17,7 @@ Pipeline:
 - Treat AI impact as task-level exposure, not a prediction that a career will disappear.
 - AI impact scores such as `8/10` must be derived from task evidence plus external calibration sources. They cannot be based only on the FermatMind internal rubric.
 - AI impact scores describe exposure to automation or augmentation of tasks, not unemployment risk, wage loss, career disappearance, or individual outcome prediction.
+- Locale assets must be market-specific, not translations of the same paragraph. `zh-CN` should be written for mainland China reader context and source boundaries. `en` should be written primarily for US/UK/EU English-market reader context and source boundaries.
 - Separate automation exposure, regulatory risk, safety risk, market cyclicality, contract/project volatility, and credential risk.
 - Do not make employment guarantees, doom claims, investment advice, or personal outcome predictions.
 - If evidence is weak or macro-only, state that boundary.

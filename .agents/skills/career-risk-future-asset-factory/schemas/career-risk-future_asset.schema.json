@@ -9,6 +9,7 @@
     "block_type",
     "slug",
     "locale",
+    "locale_market_context",
     "occupation",
     "seed_ordinal",
     "batch_role",
@@ -41,6 +42,51 @@
         "zh-CN",
         "en"
       ]
+    },
+    "locale_market_context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "primary_reader_market",
+        "market_scope",
+        "localization_mode"
+      ],
+      "properties": {
+        "primary_reader_market": {
+          "type": "string",
+          "enum": [
+            "mainland_china",
+            "us_uk_eu_english"
+          ]
+        },
+        "market_scope": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "enum": [
+              "CN",
+              "US",
+              "UK",
+              "EU",
+              "global"
+            ]
+          }
+        },
+        "localization_mode": {
+          "type": "string",
+          "enum": [
+            "market_specific_original",
+            "translated_only"
+          ]
+        },
+        "market_boundary": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
     },
     "occupation": {
       "type": "string",
