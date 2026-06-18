@@ -1,0 +1,374 @@
+{
+  "artifact": "MBTI64-CONTENT-PACKAGE-QA-01",
+  "input_zip": "/Users/rainie/Desktop/mbti64-content-package-pilot-v2-final.zip",
+  "input_zip_sha256": "c508a2d27d4e746854ca3c1023ba4fdc686c2fd6ddb7c5e29e5813a302f0c6ec",
+  "status": "conditional",
+  "row_count": 8,
+  "pilot_order_preserved": true,
+  "file_inventory": {
+    "expected_files": [
+      "README.md",
+      "manifest.json",
+      "mbti64-content-package-pilot-v2-qa-report.json",
+      "mbti64-content-package-pilot-v2.json",
+      "operator-notes.md",
+      "qa-diff-summary.md",
+      "validate-mbti64-content-package-v2.mjs",
+      "pages/en__personality__intj-a-vs-intj-t.json",
+      "pages/en__personality__intj-a.json",
+      "pages/en__personality__intj-t.json",
+      "pages/en__personality__intp-a-vs-intp-t.json",
+      "pages/zh__personality__infp-t.json",
+      "pages/zh__personality__intj-a.json",
+      "pages/zh__personality__intj-t.json",
+      "pages/zh__personality__istj-a.json"
+    ],
+    "present_files": [
+      "README.md",
+      "manifest.json",
+      "mbti64-content-package-pilot-v2-qa-report.json",
+      "mbti64-content-package-pilot-v2.json",
+      "operator-notes.md",
+      "pages/en__personality__intj-a-vs-intj-t.json",
+      "pages/en__personality__intj-a.json",
+      "pages/en__personality__intj-t.json",
+      "pages/en__personality__intp-a-vs-intp-t.json",
+      "pages/zh__personality__infp-t.json",
+      "pages/zh__personality__intj-a.json",
+      "pages/zh__personality__intj-t.json",
+      "pages/zh__personality__istj-a.json",
+      "qa-diff-summary.md",
+      "validate-mbti64-content-package-v2.mjs"
+    ],
+    "missing_expected_files": [],
+    "json_files_parsed": [
+      "manifest.json",
+      "mbti64-content-package-pilot-v2-qa-report.json",
+      "mbti64-content-package-pilot-v2.json",
+      "pages/en__personality__intj-a-vs-intj-t.json",
+      "pages/en__personality__intj-a.json",
+      "pages/en__personality__intj-t.json",
+      "pages/en__personality__intp-a-vs-intp-t.json",
+      "pages/zh__personality__infp-t.json",
+      "pages/zh__personality__intj-a.json",
+      "pages/zh__personality__intj-t.json",
+      "pages/zh__personality__istj-a.json"
+    ]
+  },
+  "schema_validation": {
+    "root_required_fields_present": true,
+    "version_ok": true,
+    "status_ok": true,
+    "row_count_ok": true,
+    "row_required_fields_ok": true,
+    "seo_required_fields_ok": true,
+    "variant_sections_ok": true,
+    "comparison_sections_ok": true,
+    "faq_min_7_ok": true,
+    "details": []
+  },
+  "query_intent_validation": {
+    "status": "fail",
+    "details": [
+      "/en/personality/intj-a-vs-intj-t: target_intent differs from query intent map",
+      "/en/personality/intj-a-vs-intj-t: excluded_queries differs from query intent map",
+      "/zh/personality/istj-a: target_intent differs from query intent map",
+      "/zh/personality/istj-a: excluded_queries differs from query intent map",
+      "/en/personality/intp-a-vs-intp-t: target_intent differs from query intent map",
+      "/en/personality/intp-a-vs-intp-t: excluded_queries differs from query intent map",
+      "/zh/personality/infp-t: target_intent differs from query intent map",
+      "/zh/personality/infp-t: excluded_queries differs from query intent map",
+      "/zh/personality/intj-a: excluded_queries differs from query intent map",
+      "/zh/personality/intj-t: excluded_queries differs from query intent map"
+    ]
+  },
+  "route_safety_validation": {
+    "status": "pass",
+    "internal_link_issues": [],
+    "raw_forbidden_mentions_outside_hold_notes": [],
+    "mbti_test_route_evidence": [
+      {
+        "route": "/en/tests/mbti-personality-test-16-personality-types",
+        "evidence_files": [
+          "lib/seo/sitemapAuthorityAdapters.cjs",
+          "docs/graph/generated/core-topic-graph-inventory.v1.json"
+        ],
+        "verified": true
+      },
+      {
+        "route": "/zh/tests/mbti-personality-test-16-personality-types",
+        "evidence_files": [
+          "lib/seo/sitemapAuthorityAdapters.cjs",
+          "docs/graph/generated/core-topic-graph-inventory.v1.json"
+        ],
+        "verified": true
+      }
+    ],
+    "related_tests_note": "Big Five / RIASEC related_test links omitted pending route confirmation; operator must accept narrower V2 internal-link scope or request V2.1 content patch."
+  },
+  "trademark_claim_validation": {
+    "status": "pass",
+    "findings": []
+  },
+  "medical_deterministic_claim_validation": {
+    "status": "pass",
+    "findings": []
+  },
+  "duplicate_differentiation_validation": {
+    "status": "pass",
+    "duplicate_risk_by_page": [
+      {
+        "url": "/en/personality/intj-a-vs-intj-t",
+        "risk": "low",
+        "compared_pairs": 0
+      },
+      {
+        "url": "/zh/personality/istj-a",
+        "risk": "low",
+        "compared_pairs": 3
+      },
+      {
+        "url": "/en/personality/intp-a-vs-intp-t",
+        "risk": "low",
+        "compared_pairs": 0
+      },
+      {
+        "url": "/zh/personality/infp-t",
+        "risk": "low",
+        "compared_pairs": 3
+      },
+      {
+        "url": "/en/personality/intj-a",
+        "risk": "medium",
+        "compared_pairs": 1
+      },
+      {
+        "url": "/en/personality/intj-t",
+        "risk": "medium",
+        "compared_pairs": 1
+      },
+      {
+        "url": "/zh/personality/intj-a",
+        "risk": "low",
+        "compared_pairs": 3
+      },
+      {
+        "url": "/zh/personality/intj-t",
+        "risk": "low",
+        "compared_pairs": 3
+      }
+    ],
+    "notable_pairs": [
+      {
+        "a": "/zh/personality/istj-a",
+        "b": "/zh/personality/infp-t",
+        "risk": "low",
+        "max_score": 0.8,
+        "substantive_max_score": 0.25,
+        "h2_only_score": 0.8,
+        "note": "shared section-heading architecture only; substantive fields are below medium-risk threshold",
+        "signals": {
+          "quick_answer": 0.043478260869565216,
+          "seo_title": 0.25,
+          "seo_description": 0,
+          "faq_questions": 0.14285714285714285,
+          "faq_answers": 0,
+          "career_examples": 0.013333333333333334,
+          "relationship_examples": 0.01818181818181818,
+          "h2": 0.8
+        }
+      },
+      {
+        "a": "/zh/personality/istj-a",
+        "b": "/zh/personality/intj-a",
+        "risk": "low",
+        "max_score": 0.8,
+        "substantive_max_score": 0.222,
+        "h2_only_score": 0.8,
+        "note": "shared section-heading architecture only; substantive fields are below medium-risk threshold",
+        "signals": {
+          "quick_answer": 0.045454545454545456,
+          "seo_title": 0.2222222222222222,
+          "seo_description": 0,
+          "faq_questions": 0.06666666666666667,
+          "faq_answers": 0,
+          "career_examples": 0.015384615384615385,
+          "relationship_examples": 0.0392156862745098,
+          "h2": 0.8
+        }
+      },
+      {
+        "a": "/zh/personality/istj-a",
+        "b": "/zh/personality/intj-t",
+        "risk": "low",
+        "max_score": 0.8,
+        "substantive_max_score": 0.222,
+        "h2_only_score": 0.8,
+        "note": "shared section-heading architecture only; substantive fields are below medium-risk threshold",
+        "signals": {
+          "quick_answer": 0.043478260869565216,
+          "seo_title": 0.2222222222222222,
+          "seo_description": 0,
+          "faq_questions": 0.125,
+          "faq_answers": 0,
+          "career_examples": 0.014705882352941176,
+          "relationship_examples": 0.02040816326530612,
+          "h2": 0.8
+        }
+      },
+      {
+        "a": "/zh/personality/infp-t",
+        "b": "/zh/personality/intj-a",
+        "risk": "low",
+        "max_score": 0.8,
+        "substantive_max_score": 0.286,
+        "h2_only_score": 0.8,
+        "note": "shared section-heading architecture only; substantive fields are below medium-risk threshold",
+        "signals": {
+          "quick_answer": 0.041666666666666664,
+          "seo_title": 0.2857142857142857,
+          "seo_description": 0.16666666666666666,
+          "faq_questions": 0.14285714285714285,
+          "faq_answers": 0.016129032258064516,
+          "career_examples": 0.014492753623188406,
+          "relationship_examples": 0.018518518518518517,
+          "h2": 0.8
+        }
+      },
+      {
+        "a": "/zh/personality/infp-t",
+        "b": "/zh/personality/intj-t",
+        "risk": "low",
+        "max_score": 0.8,
+        "substantive_max_score": 0.286,
+        "h2_only_score": 0.8,
+        "note": "shared section-heading architecture only; substantive fields are below medium-risk threshold",
+        "signals": {
+          "quick_answer": 0.04,
+          "seo_title": 0.2857142857142857,
+          "seo_description": 0.07692307692307693,
+          "faq_questions": 0.2,
+          "faq_answers": 0.03125,
+          "career_examples": 0.013888888888888888,
+          "relationship_examples": 0.0196078431372549,
+          "h2": 0.8
+        }
+      },
+      {
+        "a": "/en/personality/intj-a",
+        "b": "/en/personality/intj-t",
+        "risk": "medium",
+        "max_score": 0.852,
+        "substantive_max_score": 0.5,
+        "h2_only_score": 0.852,
+        "signals": {
+          "quick_answer": 0.3076923076923077,
+          "seo_title": 0.5,
+          "seo_description": 0.47619047619047616,
+          "faq_questions": 0.37037037037037035,
+          "faq_answers": 0.22099447513812154,
+          "career_examples": 0.2127659574468085,
+          "relationship_examples": 0.19148936170212766,
+          "h2": 0.8518518518518519
+        }
+      },
+      {
+        "a": "/zh/personality/intj-a",
+        "b": "/zh/personality/intj-t",
+        "risk": "low",
+        "max_score": 0.8,
+        "substantive_max_score": 0.25,
+        "h2_only_score": 0.8,
+        "note": "shared section-heading architecture only; substantive fields are below medium-risk threshold",
+        "signals": {
+          "quick_answer": 0.08695652173913043,
+          "seo_title": 0.25,
+          "seo_description": 0.16666666666666666,
+          "faq_questions": 0.2,
+          "faq_answers": 0.05172413793103448,
+          "career_examples": 0.03278688524590164,
+          "relationship_examples": 0.0425531914893617,
+          "h2": 0.8
+        }
+      }
+    ]
+  },
+  "serp_ctr_validation": {
+    "status": "pass",
+    "findings": []
+  },
+  "information_gain_validation": {
+    "status": "pass",
+    "findings": []
+  },
+  "per_page_file_validation": {
+    "status": "pass",
+    "pages": [
+      {
+        "url": "/en/personality/intj-a-vs-intj-t",
+        "file": "pages/en__personality__intj-a-vs-intj-t.json",
+        "status": "pass",
+        "detail": ""
+      },
+      {
+        "url": "/zh/personality/istj-a",
+        "file": "pages/zh__personality__istj-a.json",
+        "status": "pass",
+        "detail": ""
+      },
+      {
+        "url": "/en/personality/intp-a-vs-intp-t",
+        "file": "pages/en__personality__intp-a-vs-intp-t.json",
+        "status": "pass",
+        "detail": ""
+      },
+      {
+        "url": "/zh/personality/infp-t",
+        "file": "pages/zh__personality__infp-t.json",
+        "status": "pass",
+        "detail": ""
+      },
+      {
+        "url": "/en/personality/intj-a",
+        "file": "pages/en__personality__intj-a.json",
+        "status": "pass",
+        "detail": ""
+      },
+      {
+        "url": "/en/personality/intj-t",
+        "file": "pages/en__personality__intj-t.json",
+        "status": "pass",
+        "detail": ""
+      },
+      {
+        "url": "/zh/personality/intj-a",
+        "file": "pages/zh__personality__intj-a.json",
+        "status": "pass",
+        "detail": ""
+      },
+      {
+        "url": "/zh/personality/intj-t",
+        "file": "pages/zh__personality__intj-t.json",
+        "status": "pass",
+        "detail": ""
+      }
+    ]
+  },
+  "package_self_qa_verification": {
+    "self_qa_status": "pass",
+    "self_qa_reported_pass": true,
+    "independent_blockers_found": 0,
+    "independent_warnings_found": 1,
+    "independent_validation_wins": true
+  },
+  "known_holds": [
+    "/results/lookup sidecar classification blocks publish/search release",
+    "Operator approval required before CMS import",
+    "No sitemap/llms/search-release work in this PR"
+  ],
+  "blockers": [],
+  "warnings": [
+    "Big Five / RIASEC related_test links omitted pending route confirmation; operator must accept narrower V2 internal-link scope or request V2.1 content patch."
+  ],
+  "recommended_next_task": "MBTI64-TRADEMARK-CLAIM-GATE-01 and MBTI64-DUPLICATE-DIFFERENTIATION-GATE-01 before any CMS import"
+}

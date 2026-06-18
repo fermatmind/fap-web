@@ -1,0 +1,29 @@
+{
+  "artifact": "MBTI64-CONTENT-PACKAGE-PILOT-V2-QA-REPORT",
+  "status": "pass",
+  "generated_at": "2026-06-18T02:50:00Z",
+  "checks": {
+    "row_count": 8,
+    "pilot_order_preserved": true,
+    "faq_total": 56,
+    "faq_minimum_per_page": 7,
+    "internal_links_total": 40,
+    "unknown_related_test_links": 0,
+    "all_have_v2_optimization": true,
+    "all_have_serp_ctr_package_v2": true,
+    "variant_sections_present": true,
+    "comparison_sections_present": true,
+    "no_results_lookup_literal": true,
+    "no_slash_forbidden_route_literals_in_rows": true,
+    "no_official_mbti_claim": true,
+    "no_official_32_types_claim": true,
+    "no_career_guarantee_claim": true,
+    "no_clinical_diagnose_word": true
+  },
+  "known_holds": [
+    "Codex QA required before CMS import",
+    "Lookup-route sidecar classification blocks publish/search release",
+    "Operator approval required before any sitemap, llms, or search-release work"
+  ],
+  "warnings": []
+}

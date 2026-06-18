@@ -1,0 +1,17 @@
+{
+  "artifact": "MBTI64-CONTENT-PACKAGE-PILOT-V2-FINAL-ZIP",
+  "version": "pilot-v2",
+  "status": "draft_for_codex_qa",
+  "primary_file": "mbti64-content-package-pilot-v2.json",
+  "rows": 8,
+  "files": [
+    "mbti64-content-package-pilot-v2.json",
+    "pages/*.json",
+    "mbti64-content-package-pilot-v2-qa-report.json",
+    "validate-mbti64-content-package-v2.mjs",
+    "qa-diff-summary.md",
+    "operator-notes.md",
+    "README.md"
+  ],
+  "no_production_behavior_changed": true
+}
