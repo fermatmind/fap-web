@@ -1225,6 +1225,13 @@ const PR_03_FOLLOWUP_LLMS_CONTENT_PAGE_DETAIL_AUTHORITY_01_ALLOWED_FILES = new S
   "tests/contracts/public-surface-lkg-coverage.contract.test.ts",
 ]);
 
+const LLMS_FULL_ARTICLE_ENUMERATION_ALLOWED_FILES = new Set([
+  "app/llms-full.txt/route.ts",
+  "tests/contracts/detail-ready-1046-llms-full-artifact-consistency-repair-01.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/llms-route-fanout.contract.test.ts",
+]);
+
 const GLOBAL_EN_ZH_FOOTER_NAV_PARITY_01_ALLOWED_FILES = new Set([
   "components/layout/SiteFooter.tsx",
   "docs/codex/pr-train.yaml",
@@ -2522,6 +2529,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/pr-03-followup-llms-content-page-detail-authority-01") {
     return PR_03_FOLLOWUP_LLMS_CONTENT_PAGE_DETAIL_AUTHORITY_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/llms-full-article-enumeration") {
+    return LLMS_FULL_ARTICLE_ENUMERATION_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/fix-frontend-ci-build-timeout") {

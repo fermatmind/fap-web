@@ -88,6 +88,7 @@ const LLMS_FULL_PERSONALITY_DETAIL_URL_COUNT = 32 * 2;
 const LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT = 16 * 2;
 const LLMS_FULL_PERSONALITY_ENTRY_LIMIT =
   LLMS_FULL_PERSONALITY_DETAIL_URL_COUNT + LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT;
+const LLMS_FULL_ARTICLE_ENTRY_LIMIT = LLMS_ROUTE_LIMITS.articles * 2;
 const LLMS_FULL_REQUIRED_CAREER_JOB_SLUGS = [
   "accountants-and-auditors",
   "actors",
@@ -997,7 +998,7 @@ export async function buildLlmsFullText(siteUrl: string): Promise<string> {
       (entry) => withLlmsRouteBudget(() => enrichTopicEntry(entry, siteUrl), entry, { timeoutMs: LLMS_FULL_ENRICHMENT_TIMEOUT_MS })
     ),
     mapWithConcurrency(
-      limitLlmsRouteEntries(articles, LLMS_ROUTE_LIMITS.articles),
+      limitLlmsRouteEntries(articles, LLMS_FULL_ARTICLE_ENTRY_LIMIT),
       ENRICHMENT_CONCURRENCY,
       (entry) => withLlmsRouteBudget(() => enrichArticleEntry(entry, siteUrl), entry, { timeoutMs: LLMS_FULL_ENRICHMENT_TIMEOUT_MS })
     ),

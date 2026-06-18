@@ -251,4 +251,43 @@ describe("DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01", () => {
     expect(text).not.toContain("hreflang");
     expect(text).not.toContain("application/ld+json");
   });
+
+  it("keeps newly eligible Chinese articles after the English article page fills the base limit", async () => {
+    const cacheDir = fs.mkdtempSync(path.join(os.tmpdir(), "llms-full-article-locale-budget-"));
+    process.env.FERMATMIND_LLMS_FULL_CACHE_DIR = cacheDir;
+    process.env.FERMATMIND_LLMS_FULL_ENABLE_SHARED_CACHE = "true";
+    process.env.FERMATMIND_LLMS_FULL_REQUIRE_CAREER_COHORT = "true";
+    const enArticles = Array.from({ length: 40 }, (_, index) => ({
+      slug: `english-seo-article-${index + 1}`,
+      locale: "en" as const,
+      title: `English SEO Article ${index + 1}`,
+      excerpt: "English article summary.",
+      href: `/en/articles/english-seo-article-${index + 1}`,
+      isIndexable: true,
+      llmsEligible: true,
+      updatedAt: "2026-06-18T06:03:46.000Z",
+    }));
+    const targetArticle = {
+      slug: "college-major-choice-holland-mbti-career-test",
+      locale: "zh" as const,
+      title: "高考志愿选专业：霍兰德、MBTI和职业兴趣测试怎么用",
+      excerpt: "高考志愿填报前，如何用霍兰德职业兴趣测试、MBTI和现实验证辅助选专业？",
+      href: "/zh/articles/college-major-choice-holland-mbti-career-test",
+      isIndexable: true,
+      llmsEligible: true,
+      updatedAt: "2026-06-18T06:03:46.000Z",
+    };
+    mockLlmsFullDependencies(() => fullCohortPaths(), {
+      en: enArticles,
+      zh: [targetArticle],
+    });
+    const { GET } = await import("@/app/llms-full.txt/route");
+
+    const response = await GET();
+    const text = await response.text();
+
+    expect(response.headers.get("X-FermatMind-LLMS-Full-Mode")).toBe("complete");
+    expect(text).toContain(`${SITE_URL}/en/articles/english-seo-article-40`);
+    expect(text).toContain(`${SITE_URL}/zh/articles/college-major-choice-holland-mbti-career-test`);
+  });
 });
