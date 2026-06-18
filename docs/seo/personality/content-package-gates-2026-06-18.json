@@ -1,0 +1,195 @@
+{
+  "artifact": "MBTI64-CONTENT-PACKAGE-GATES-01",
+  "status": "pass",
+  "package_version_reviewed": "pilot-v2.1",
+  "source_package": "docs/seo/personality/content-packages/pilot-v2.1/mbti64-content-package-pilot-v2.1.json",
+  "trademark_claim_gate": {
+    "status": "pass",
+    "findings": []
+  },
+  "duplicate_differentiation_gate": {
+    "status": "pass",
+    "page_risks": [
+      {
+        "url": "/en/personality/intj-a-vs-intj-t",
+        "risk": "medium",
+        "justification": "Medium similarity is non-blocking: sibling/section conventions overlap, while substantive page intent and examples remain distinct."
+      },
+      {
+        "url": "/zh/personality/istj-a",
+        "risk": "low",
+        "justification": "No blocking duplicate/template-swap signal."
+      },
+      {
+        "url": "/en/personality/intp-a-vs-intp-t",
+        "risk": "medium",
+        "justification": "Medium similarity is non-blocking: sibling/section conventions overlap, while substantive page intent and examples remain distinct."
+      },
+      {
+        "url": "/zh/personality/infp-t",
+        "risk": "low",
+        "justification": "No blocking duplicate/template-swap signal."
+      },
+      {
+        "url": "/en/personality/intj-a",
+        "risk": "medium",
+        "justification": "Medium similarity is non-blocking: sibling/section conventions overlap, while substantive page intent and examples remain distinct."
+      },
+      {
+        "url": "/en/personality/intj-t",
+        "risk": "medium",
+        "justification": "Medium similarity is non-blocking: sibling/section conventions overlap, while substantive page intent and examples remain distinct."
+      },
+      {
+        "url": "/zh/personality/intj-a",
+        "risk": "low",
+        "justification": "No blocking duplicate/template-swap signal."
+      },
+      {
+        "url": "/zh/personality/intj-t",
+        "risk": "low",
+        "justification": "No blocking duplicate/template-swap signal."
+      }
+    ],
+    "findings": [
+      {
+        "a": "/en/personality/intj-a-vs-intj-t",
+        "b": "/en/personality/intp-a-vs-intp-t",
+        "risk": "medium",
+        "critical_pair": true,
+        "max_signal": 0.554,
+        "substantive_max_signal": 0.554,
+        "justification": "Medium similarity is constrained to expected sibling or shared SERP framing; substantive body, examples and intent remain distinct.",
+        "signals": {
+          "quick_answer_overlap": 0.14492753623188406,
+          "seo_title_overlap": 0.3333333333333333,
+          "seo_description_overlap": 0.38095238095238093,
+          "h1_overlap": 0.3333333333333333,
+          "faq_question_overlap": 0.28205128205128205,
+          "faq_answer_overlap": 0.14917127071823205,
+          "section_heading_overlap": 0.46875,
+          "career_examples_overlap": 0.20261437908496732,
+          "relationship_examples_overlap": 0.18382352941176472,
+          "blind_spot_examples_overlap": 0,
+          "above_fold_overlap": 0.1724137931034483,
+          "serp_ctr_overlap": 0.5535714285714286
+        }
+      },
+      {
+        "a": "/en/personality/intj-a",
+        "b": "/en/personality/intj-t",
+        "risk": "medium",
+        "critical_pair": true,
+        "max_signal": 0.852,
+        "substantive_max_signal": 0.5,
+        "justification": "Medium similarity is constrained to expected sibling or shared SERP framing; substantive body, examples and intent remain distinct.",
+        "signals": {
+          "quick_answer_overlap": 0.3076923076923077,
+          "seo_title_overlap": 0.5,
+          "seo_description_overlap": 0.47619047619047616,
+          "h1_overlap": 0.3333333333333333,
+          "faq_question_overlap": 0.37037037037037035,
+          "faq_answer_overlap": 0.22099447513812154,
+          "section_heading_overlap": 0.8518518518518519,
+          "career_examples_overlap": 0.2127659574468085,
+          "relationship_examples_overlap": 0.19148936170212766,
+          "blind_spot_examples_overlap": 0.1,
+          "above_fold_overlap": 0.379746835443038,
+          "serp_ctr_overlap": 0.4838709677419355
+        }
+      },
+      {
+        "a": "/zh/personality/intj-a",
+        "b": "/zh/personality/intj-t",
+        "risk": "low",
+        "critical_pair": true,
+        "max_signal": 0.8,
+        "substantive_max_signal": 0.452,
+        "justification": "No blocking template-swap signal.",
+        "signals": {
+          "quick_answer_overlap": 0.08695652173913043,
+          "seo_title_overlap": 0.25,
+          "seo_description_overlap": 0.16666666666666666,
+          "h1_overlap": 0.3333333333333333,
+          "faq_question_overlap": 0.2,
+          "faq_answer_overlap": 0.05172413793103448,
+          "section_heading_overlap": 0.8,
+          "career_examples_overlap": 0.03278688524590164,
+          "relationship_examples_overlap": 0.0425531914893617,
+          "blind_spot_examples_overlap": 0.037037037037037035,
+          "above_fold_overlap": 0.42857142857142855,
+          "serp_ctr_overlap": 0.45161290322580644
+        }
+      }
+    ]
+  },
+  "serp_ctr_gate": {
+    "status": "pass",
+    "page_results": [
+      {
+        "url": "/en/personality/intj-a-vs-intj-t",
+        "primary_query": "intj-a vs intj-t difference",
+        "page_type": "comparison",
+        "result": "pass"
+      },
+      {
+        "url": "/zh/personality/istj-a",
+        "primary_query": "ISTJ-A 人格特点",
+        "page_type": "variant",
+        "result": "pass"
+      },
+      {
+        "url": "/en/personality/intp-a-vs-intp-t",
+        "primary_query": "intp-a vs intp-t difference",
+        "page_type": "comparison",
+        "result": "pass"
+      },
+      {
+        "url": "/zh/personality/infp-t",
+        "primary_query": "INFP-T 人格特点",
+        "page_type": "variant",
+        "result": "pass"
+      },
+      {
+        "url": "/en/personality/intj-a",
+        "primary_query": "intj-a meaning",
+        "page_type": "variant",
+        "result": "pass"
+      },
+      {
+        "url": "/en/personality/intj-t",
+        "primary_query": "intj-t meaning",
+        "page_type": "variant",
+        "result": "pass"
+      },
+      {
+        "url": "/zh/personality/intj-a",
+        "primary_query": "INTJ-A 人格特点",
+        "page_type": "variant",
+        "result": "pass"
+      },
+      {
+        "url": "/zh/personality/intj-t",
+        "primary_query": "INTJ-T 人格特点",
+        "page_type": "variant",
+        "result": "pass"
+      }
+    ],
+    "findings": []
+  },
+  "route_safety_recheck": {
+    "status": "pass",
+    "findings": []
+  },
+  "known_holds": [
+    "/results/lookup sidecar classification blocks publish/search release",
+    "No CMS import in this PR",
+    "No sitemap/llms/search-release work in this PR",
+    "Operator approval required before CMS revision draft"
+  ],
+  "blockers": [],
+  "warnings": [
+    "Medium duplicate-risk signals are present but justified as non-blocking sibling/topic similarity."
+  ],
+  "recommended_next_task": "MBTI64-BACKEND-IMPORT-CONTRACT-01"
+}
