@@ -1,0 +1,227 @@
+{
+  "artifact": "MBTI64-ORGANIC-TO-TEST-FUNNEL-GATE-01",
+  "generated_at": "2026-06-19T00:00:00+08:00",
+  "status": "pass",
+  "decision": "PASS_SAFE_PUBLIC_TEST_FUNNEL_READY",
+  "evidence_inputs": [
+    "docs/seo/personality/content-packages/pilot-v2.1/mbti64-content-package-pilot-v2.1.json",
+    "docs/seo/personality/related-test-route-scope-decision-2026-06-18.json",
+    "docs/seo/personality/internal-link-graph-2026-06-18.json",
+    "/tmp/MBTI64-INDEX-SURFACE-READINESS-2026-06-19.json",
+    "/tmp/MBTI64-CMS-REVISION-PROMOTE-POST-WRITE-SMOKE-REVIEW-04-2026-06-19.json",
+    "/tmp/MBTI64-INDEXNOW-LIVE-SUBMIT-POST-SMOKE-01-2026-06-19.json",
+    "/tmp/mbti64-organic-funnel-live/*.html"
+  ],
+  "checked_urls": [
+    {
+      "url": "/en/personality/intj-a-vs-intj-t",
+      "locale": "en",
+      "package_related_test_links": [
+        "/en/tests/mbti-personality-test-16-personality-types",
+        "/en/tests/big-five-personality-test-ocean-model",
+        "/en/tests/holland-career-interest-test-riasec"
+      ],
+      "required_public_test_links_present": [
+        "/en/tests/mbti-personality-test-16-personality-types",
+        "/en/tests/big-five-personality-test-ocean-model",
+        "/en/tests/holland-career-interest-test-riasec"
+      ],
+      "required_public_test_links_missing": [],
+      "unsafe_internal_links": [],
+      "package_forbidden_hits": [],
+      "live_html_sha256": "49a220b24e8e499b9a2bd475a46fc335d4985bac472ac2da39bef3a0ef63160c",
+      "live_required_test_links_found_in_html": [
+        "/en/tests/mbti-personality-test-16-personality-types",
+        "/en/tests/big-five-personality-test-ocean-model",
+        "/en/tests/holland-career-interest-test-riasec"
+      ],
+      "live_same_origin_forbidden_hits": []
+    },
+    {
+      "url": "/zh/personality/istj-a",
+      "locale": "zh",
+      "package_related_test_links": [
+        "/zh/tests/mbti-personality-test-16-personality-types",
+        "/zh/tests/big-five-personality-test-ocean-model",
+        "/zh/tests/holland-career-interest-test-riasec"
+      ],
+      "required_public_test_links_present": [
+        "/zh/tests/mbti-personality-test-16-personality-types",
+        "/zh/tests/big-five-personality-test-ocean-model",
+        "/zh/tests/holland-career-interest-test-riasec"
+      ],
+      "required_public_test_links_missing": [],
+      "unsafe_internal_links": [],
+      "package_forbidden_hits": [],
+      "live_html_sha256": "97b510c4f7f4bfa1f7918806d865fee2c5dc128ab52e499a1e55ae5d89cc2a0c",
+      "live_required_test_links_found_in_html": [
+        "/zh/tests/mbti-personality-test-16-personality-types",
+        "/zh/tests/big-five-personality-test-ocean-model",
+        "/zh/tests/holland-career-interest-test-riasec"
+      ],
+      "live_same_origin_forbidden_hits": []
+    },
+    {
+      "url": "/en/personality/intp-a-vs-intp-t",
+      "locale": "en",
+      "package_related_test_links": [
+        "/en/tests/mbti-personality-test-16-personality-types",
+        "/en/tests/big-five-personality-test-ocean-model",
+        "/en/tests/holland-career-interest-test-riasec"
+      ],
+      "required_public_test_links_present": [
+        "/en/tests/mbti-personality-test-16-personality-types",
+        "/en/tests/big-five-personality-test-ocean-model",
+        "/en/tests/holland-career-interest-test-riasec"
+      ],
+      "required_public_test_links_missing": [],
+      "unsafe_internal_links": [],
+      "package_forbidden_hits": [],
+      "live_html_sha256": "5edfce179ddcc7846bd15c4d6e243ad31c36caa25056c393f5a1b839bba4af61",
+      "live_required_test_links_found_in_html": [
+        "/en/tests/mbti-personality-test-16-personality-types",
+        "/en/tests/big-five-personality-test-ocean-model",
+        "/en/tests/holland-career-interest-test-riasec"
+      ],
+      "live_same_origin_forbidden_hits": []
+    },
+    {
+      "url": "/zh/personality/infp-t",
+      "locale": "zh",
+      "package_related_test_links": [
+        "/zh/tests/mbti-personality-test-16-personality-types",
+        "/zh/tests/big-five-personality-test-ocean-model",
+        "/zh/tests/holland-career-interest-test-riasec"
+      ],
+      "required_public_test_links_present": [
+        "/zh/tests/mbti-personality-test-16-personality-types",
+        "/zh/tests/big-five-personality-test-ocean-model",
+        "/zh/tests/holland-career-interest-test-riasec"
+      ],
+      "required_public_test_links_missing": [],
+      "unsafe_internal_links": [],
+      "package_forbidden_hits": [],
+      "live_html_sha256": "f3b98122ceb1c762e4f048e9c457cfdb7db410dcf0cd5cb00c3ac4c93faf1763",
+      "live_required_test_links_found_in_html": [
+        "/zh/tests/mbti-personality-test-16-personality-types",
+        "/zh/tests/big-five-personality-test-ocean-model",
+        "/zh/tests/holland-career-interest-test-riasec"
+      ],
+      "live_same_origin_forbidden_hits": []
+    },
+    {
+      "url": "/en/personality/intj-a",
+      "locale": "en",
+      "package_related_test_links": [
+        "/en/tests/mbti-personality-test-16-personality-types",
+        "/en/tests/big-five-personality-test-ocean-model",
+        "/en/tests/holland-career-interest-test-riasec"
+      ],
+      "required_public_test_links_present": [
+        "/en/tests/mbti-personality-test-16-personality-types",
+        "/en/tests/big-five-personality-test-ocean-model",
+        "/en/tests/holland-career-interest-test-riasec"
+      ],
+      "required_public_test_links_missing": [],
+      "unsafe_internal_links": [],
+      "package_forbidden_hits": [],
+      "live_html_sha256": "2e569d68d1d3f6099c77ee3b26c4af4f3528c0c970d02850c9e81607a743b148",
+      "live_required_test_links_found_in_html": [
+        "/en/tests/mbti-personality-test-16-personality-types",
+        "/en/tests/big-five-personality-test-ocean-model",
+        "/en/tests/holland-career-interest-test-riasec"
+      ],
+      "live_same_origin_forbidden_hits": []
+    },
+    {
+      "url": "/en/personality/intj-t",
+      "locale": "en",
+      "package_related_test_links": [
+        "/en/tests/mbti-personality-test-16-personality-types",
+        "/en/tests/big-five-personality-test-ocean-model",
+        "/en/tests/holland-career-interest-test-riasec"
+      ],
+      "required_public_test_links_present": [
+        "/en/tests/mbti-personality-test-16-personality-types",
+        "/en/tests/big-five-personality-test-ocean-model",
+        "/en/tests/holland-career-interest-test-riasec"
+      ],
+      "required_public_test_links_missing": [],
+      "unsafe_internal_links": [],
+      "package_forbidden_hits": [],
+      "live_html_sha256": "19e141109626a52c021973e96215102db206fc19f282939b9a08c43cb50ef983",
+      "live_required_test_links_found_in_html": [
+        "/en/tests/mbti-personality-test-16-personality-types",
+        "/en/tests/big-five-personality-test-ocean-model",
+        "/en/tests/holland-career-interest-test-riasec"
+      ],
+      "live_same_origin_forbidden_hits": []
+    },
+    {
+      "url": "/zh/personality/intj-a",
+      "locale": "zh",
+      "package_related_test_links": [
+        "/zh/tests/mbti-personality-test-16-personality-types",
+        "/zh/tests/big-five-personality-test-ocean-model",
+        "/zh/tests/holland-career-interest-test-riasec"
+      ],
+      "required_public_test_links_present": [
+        "/zh/tests/mbti-personality-test-16-personality-types",
+        "/zh/tests/big-five-personality-test-ocean-model",
+        "/zh/tests/holland-career-interest-test-riasec"
+      ],
+      "required_public_test_links_missing": [],
+      "unsafe_internal_links": [],
+      "package_forbidden_hits": [],
+      "live_html_sha256": "1df356ebdeb21b6489e9c52bb720ffaff66d8a23327796935a23f15c853c0bd4",
+      "live_required_test_links_found_in_html": [
+        "/zh/tests/mbti-personality-test-16-personality-types",
+        "/zh/tests/big-five-personality-test-ocean-model",
+        "/zh/tests/holland-career-interest-test-riasec"
+      ],
+      "live_same_origin_forbidden_hits": []
+    },
+    {
+      "url": "/zh/personality/intj-t",
+      "locale": "zh",
+      "package_related_test_links": [
+        "/zh/tests/mbti-personality-test-16-personality-types",
+        "/zh/tests/big-five-personality-test-ocean-model",
+        "/zh/tests/holland-career-interest-test-riasec"
+      ],
+      "required_public_test_links_present": [
+        "/zh/tests/mbti-personality-test-16-personality-types",
+        "/zh/tests/big-five-personality-test-ocean-model",
+        "/zh/tests/holland-career-interest-test-riasec"
+      ],
+      "required_public_test_links_missing": [],
+      "unsafe_internal_links": [],
+      "package_forbidden_hits": [],
+      "live_html_sha256": "a63d8663c6775987055913a611b2d906c8fa23b7be6665c1951b2ccc9660c10f",
+      "live_required_test_links_found_in_html": [
+        "/zh/tests/mbti-personality-test-16-personality-types",
+        "/zh/tests/big-five-personality-test-ocean-model",
+        "/zh/tests/holland-career-interest-test-riasec"
+      ],
+      "live_same_origin_forbidden_hits": []
+    }
+  ],
+  "summary": {
+    "checked_url_count": 8,
+    "package_rows_count": 8,
+    "urls_with_required_public_test_links": 8,
+    "package_forbidden_hit_count": 0,
+    "live_same_origin_forbidden_hit_count": 0,
+    "related_test_route_scope_status": "pass",
+    "internal_link_graph_status": "pass"
+  },
+  "blockers": [],
+  "warnings": [],
+  "recommended_next_task": "MBTI64-SEO-MEASUREMENT-COHORT-01",
+  "non_goals": [
+    "no CMS write",
+    "no frontend runtime change",
+    "no sitemap/llms mutation",
+    "no search submission"
+  ]
+}
