@@ -650,10 +650,40 @@ describe("personality cms adapter contract", () => {
 
     expect(source).toContain("getPersonalitySeoBySlugOrType(type, locale)");
     expect(source).toContain("normalizePersonalitySeoPayload(seo, detail, locale)");
-    expect(source).toContain("title: normalizedSeo.surface?.title || normalizedSeo.meta.title");
+    expect(source).toContain("const effectiveMetadataTitle = normalizedSeo.surface?.title || normalizedSeo.meta.title");
+    expect(source).toContain("title: effectiveMetadataTitle");
     expect(source).toContain("description: normalizedSeo.surface?.description || normalizedSeo.meta.description");
+    expect(source).toContain("applyPersonalityMetadataTitleTemplateGuard");
     expect(source).not.toContain("Personality Type: Traits, Careers, and Growth");
     expect(source).not.toContain("人格类型：特质、职业与成长");
+  });
+
+  it("prevents localized title template duplication when backend personality metadata already includes the brand", async () => {
+    const { applyPersonalityMetadataTitleTemplateGuard } = await import(
+      "@/app/(localized)/[locale]/personality/[type]/page"
+    );
+
+    const branded = applyPersonalityMetadataTitleTemplateGuard(
+      {
+        title: "INTJ-A Meaning | FermatMind",
+        description: "Backend description.",
+        robots: { index: true, follow: true },
+      },
+      "INTJ-A Meaning | FermatMind"
+    );
+    const unbranded = applyPersonalityMetadataTitleTemplateGuard(
+      {
+        title: "INTJ-A Meaning",
+        description: "Backend description.",
+        robots: { index: true, follow: true },
+      },
+      "INTJ-A Meaning"
+    );
+
+    expect(branded.title).toEqual({ absolute: "INTJ-A Meaning | FermatMind" });
+    expect(branded.description).toBe("Backend description.");
+    expect(branded.robots).toMatchObject({ index: true, follow: true });
+    expect(unbranded.title).toBe("INTJ-A Meaning");
   });
 
   it("falls back to cms profile fields without reviving local personality content", () => {

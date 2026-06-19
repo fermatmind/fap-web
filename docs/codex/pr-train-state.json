@@ -2,9 +2,9 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-19T16:46:00+08:00",
+  "updated_at": "2026-06-19T17:52:00+08:00",
   "status": "active",
-  "phase": "mbti64_llms_full_pilot_membership_recheck",
+  "phase": "mbti64_serp_snippet_metadata_adapter_repair",
   "pr_namespace": "PR-PRAC-*",
   "branch_naming_convention": "codex/pr-prac-<nn>-<short-scope>",
   "mode": "local_clone_preferred",
@@ -22255,6 +22255,115 @@
           "at": "2026-06-19T16:46:00+08:00",
           "status": "ready_to_merge",
           "note": "GitHub checks passed and mergeStateStatus is CLEAN for PR #1213."
+        }
+      ]
+    },
+    {
+      "id": "MBTI64-SERP-SNIPPET-METADATA-ADAPTER-REPAIR-01",
+      "repo": "fap-web",
+      "branch": "codex/mbti64-serp-snippet-metadata-adapter-repair-01",
+      "status": "pr_open",
+      "commit_sha": "06a926f7d5225308b30d9ff814f6fff7b179d565",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1214",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly requested MBTI64-SERP-SNIPPET-METADATA-ADAPTER-REPAIR-01 and authorized docs/codex train/state updates as part of the two-PR execution plan on 2026-06-19."
+        },
+        "dependency": {
+          "status": "pass",
+          "evidence": "MBTI64-SERP-SNIPPET-CTR-PACKAGE-01 artifacts are present on main and documented 8/8 duplicated brand suffixes."
+        },
+        "scope": {
+          "status": "pass",
+          "allowed_paths": [
+            "app/(localized)/[locale]/personality/[type]/page.tsx",
+            "tests/contracts/personality-cms.contract.test.ts",
+            "tests/contracts/personality-comparison-pages.contract.test.tsx",
+            "tests/contracts/helpers/currentPrScope.ts",
+            "docs/seo/personality/mbti64-serp-snippet-metadata-adapter-repair-2026-06-19.md",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ],
+          "evidence": "Changed files are limited to 7 allowed PR files: personality route metadata adapter, focused contracts, currentPrScope helper, SERP repair report, and docs/codex train metadata."
+        },
+        "local_validation": {
+          "status": "pass",
+          "evidence": "Passed: pnpm exec vitest run tests/contracts/personality-cms.contract.test.ts tests/contracts/personality-comparison-pages.contract.test.tsx; pnpm typecheck; NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build; pnpm test:contract (495 files, 2830 tests); ruby YAML parse docs/codex/pr-train.yaml; Node JSON parse docs/codex/pr-train-state.json; git diff --check; explicit scope validation."
+        },
+        "pull_request": {
+          "status": "open",
+          "evidence": "Opened https://github.com/fermatmind/fap-web/pull/1214 after local checks and scope validation passed."
+        },
+        "github_checks": {
+          "status": "pending",
+          "checks": [],
+          "evidence": "GitHub checks pending PR creation."
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-19T17:30:00+08:00",
+          "status": "in_progress",
+          "note": "Started MBTI64-SERP-SNIPPET-METADATA-ADAPTER-REPAIR-01 from latest main in clean worktree; implementing personality metadata title-template guard and focused contracts."
+        },
+        {
+          "at": "2026-06-19T17:38:00+08:00",
+          "status": "scope_guard_updated",
+          "note": "Added tests/contracts/helpers/currentPrScope.ts to current PR scope so focused contract scope guard matches the declared changed files."
+        },
+        {
+          "at": "2026-06-19T17:46:00+08:00",
+          "status": "local_checks_passed",
+          "note": "Implemented title-template guard for CMS-branded personality metadata; focused contracts, typecheck, build, full contracts, parse checks, diff check, and scope validation passed."
+        },
+        {
+          "at": "2026-06-19T17:47:00+08:00",
+          "status": "committed",
+          "note": "Committed local changes as baa3e844c596d6d7ff5e7c870f1b430fd87ebe33."
+        },
+        {
+          "at": "2026-06-19T17:48:00+08:00",
+          "status": "commit_sha_reconciled",
+          "note": "Reconciled amended commit SHA to 7625e36ad59a92a4c9138d7a2165719d192508cf."
+        },
+        {
+          "at": "2026-06-19T17:52:00+08:00",
+          "status": "pr_open",
+          "note": "Opened fap-web PR #1214 for MBTI64-SERP-SNIPPET-METADATA-ADAPTER-REPAIR-01."
+        }
+      ]
+    },
+    {
+      "id": "MBTI64-LLMS-FULL-PILOT-EXPOSURE-POLICY-01",
+      "repo": "fap-web",
+      "branch": "codex/mbti64-llms-full-pilot-exposure-policy-01",
+      "status": "pending_dependency",
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly requested MBTI64-LLMS-FULL-PILOT-EXPOSURE-POLICY-01 and authorized docs/codex train/state updates as part of the two-PR execution plan on 2026-06-19."
+        },
+        "dependency": {
+          "status": "pending",
+          "evidence": "Waiting for MBTI64-SERP-SNIPPET-METADATA-ADAPTER-REPAIR-01 to merge before starting this artifact-only policy PR."
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-19T17:30:00+08:00",
+          "status": "pending_dependency",
+          "note": "Queued after MBTI64-SERP-SNIPPET-METADATA-ADAPTER-REPAIR-01 per user-requested two-PR sequence."
         }
       ]
     }

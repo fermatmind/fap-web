@@ -241,6 +241,8 @@ describe("PERSONALITY-COMPARISON-PAGES-01", () => {
 
     expect(pageSource).toContain("isPersonalityComparisonSlug(type)");
     expect(pageSource).toContain("getPersonalityComparisonBySlug(type, locale)");
+    expect(pageSource).toContain("const effectiveMetadataTitle = comparison.seoSurface?.title || title");
+    expect(pageSource).toContain("applyPersonalityMetadataTitleTemplateGuard");
     expect(pageSource).toContain('data-testid="personality-comparison-page"');
     expect(pageSource).toContain("comparison.jsonld");
     expect(pageSource).toContain("personality-comparison-breadcrumb");

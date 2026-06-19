@@ -2110,6 +2110,16 @@ const PERSONALITY_COMPARISON_PAGES_01_ALLOWED_FILES = new Set([
   "tests/contracts/personality-comparison-pages.contract.test.tsx",
 ]);
 
+const MBTI64_SERP_SNIPPET_METADATA_ADAPTER_REPAIR_01_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/personality/[type]/page.tsx",
+  "docs/codex/pr-train-state.json",
+  "docs/codex/pr-train.yaml",
+  "docs/seo/personality/mbti64-serp-snippet-metadata-adapter-repair-2026-06-19.md",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/personality-cms.contract.test.ts",
+  "tests/contracts/personality-comparison-pages.contract.test.tsx",
+]);
+
 const PERSONALITY_LLMS_FULL_COMPARISON_REPAIR_01_ALLOWED_FILES = new Set([
   "app/llms-full.txt/route.ts",
   "docs/codex/pr-train-state.json",
@@ -2951,6 +2961,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/personality-comparison-pages-01") {
     return PERSONALITY_COMPARISON_PAGES_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/mbti64-serp-snippet-metadata-adapter-repair-01") {
+    return MBTI64_SERP_SNIPPET_METADATA_ADAPTER_REPAIR_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/personality-llms-full-comparison-repair-01") {

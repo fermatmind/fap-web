@@ -15376,3 +15376,103 @@ prs:
       squash: true
       auto_merge: true
     next_task: MBTI64-LLMS-FULL-PILOT-EXPOSURE-POLICY-01
+
+  - id: MBTI64-SERP-SNIPPET-METADATA-ADAPTER-REPAIR-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/mbti64-serp-snippet-metadata-adapter-repair-01
+    base: main
+    title: "fix(seo): prevent MBTI64 personality title brand duplication"
+    depends_on: [MBTI64-SERP-SNIPPET-CTR-PACKAGE-01]
+    mode: execute
+    train_scope: mbti64_serp_snippet_metadata_adapter_repair
+    status: in_progress
+    goal: "Fix MBTI64 personality detail and comparison metadata so final HTML title uses a single FermatMind brand suffix when backend/CMS metadata already includes the brand, without CMS content, sitemap, llms, Search Queue, or search submit changes."
+    artifacts:
+      - app/(localized)/[locale]/personality/[type]/page.tsx
+      - tests/contracts/personality-cms.contract.test.ts
+      - tests/contracts/personality-comparison-pages.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/seo/personality/mbti64-serp-snippet-metadata-adapter-repair-2026-06-19.md
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - app/(localized)/[locale]/personality/[type]/page.tsx
+      - tests/contracts/personality-cms.contract.test.ts
+      - tests/contracts/personality-comparison-pages.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/seo/personality/mbti64-serp-snippet-metadata-adapter-repair-2026-06-19.md
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - components/**
+      - lib/**
+      - public/**
+      - package.json
+      - pnpm-lock.yaml
+      - fap-api changes
+      - CMS import/write/promotion
+      - sitemap, llms.txt, or llms-full.txt behavior changes
+      - Search Queue enqueue/approve/submit
+      - local editorial fallback copy
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/personality-cms.contract.test.ts tests/contracts/personality-comparison-pages.contract.test.tsx
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - ruby YAML parse docs/codex/pr-train.yaml
+      - Node JSON parse docs/codex/pr-train-state.json
+      - git diff --check
+      - scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: MBTI64-LLMS-FULL-PILOT-EXPOSURE-POLICY-01
+
+  - id: MBTI64-LLMS-FULL-PILOT-EXPOSURE-POLICY-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/mbti64-llms-full-pilot-exposure-policy-01
+    base: main
+    title: "docs(seo): decide MBTI64 pilot llms-full exposure policy"
+    depends_on: [MBTI64-LLMS-FULL-PILOT-MEMBERSHIP-RECHECK-01, MBTI64-SERP-SNIPPET-METADATA-ADAPTER-REPAIR-01]
+    mode: execute
+    train_scope: mbti64_llms_full_pilot_exposure_policy
+    status: pending
+    goal: "Create an artifact-only llms-full exposure policy decision for the 8 MBTI64 V2.1 pilot URLs using current membership evidence and generator policy, without changing llms-full generation or URL sets."
+    artifacts:
+      - docs/seo/personality/mbti64-llms-full-pilot-exposure-policy-2026-06-19.json
+      - docs/seo/personality/mbti64-llms-full-pilot-exposure-policy-2026-06-19.md
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - docs/seo/personality/mbti64-llms-full-pilot-exposure-policy-2026-06-19.json
+      - docs/seo/personality/mbti64-llms-full-pilot-exposure-policy-2026-06-19.md
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - package.json
+      - pnpm-lock.yaml
+      - fap-api changes
+      - frontend runtime changes
+      - CMS import/write/promotion
+      - sitemap, llms.txt, or llms-full.txt behavior changes
+      - Search Queue enqueue/approve/submit
+      - local editorial fallback copy
+    required_local_checks:
+      - jq empty docs/seo/personality/mbti64-llms-full-pilot-exposure-policy-2026-06-19.json
+      - Node JSON parse generated report
+      - ruby YAML parse docs/codex/pr-train.yaml
+      - Node JSON parse docs/codex/pr-train-state.json
+      - git diff --check
+      - scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: MBTI64-LLMS-FULL-PILOT-EXPOSURE-REPAIR-01

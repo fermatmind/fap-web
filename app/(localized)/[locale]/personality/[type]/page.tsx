@@ -154,6 +154,20 @@ function shouldNoindex(robotsValue: string | null | undefined): boolean {
     .includes("noindex");
 }
 
+export function applyPersonalityMetadataTitleTemplateGuard(metadata: Metadata, sourceTitle: string): Metadata {
+  const title = sourceTitle.replace(/\s+/g, " ").trim();
+  if (!/\|\s*FermatMind\s*$/i.test(title)) {
+    return metadata;
+  }
+
+  return {
+    ...metadata,
+    title: {
+      absolute: title,
+    },
+  };
+}
+
 function buildCanonicalPath(slug: string, locale: Locale): string {
   return buildPersonalityFrontendUrl(locale, slug);
 }
@@ -557,6 +571,7 @@ export async function generateMetadata({
 
     const canonicalPath = buildComparisonCanonicalPath(comparison.comparisonSlug, locale);
     const title = comparisonSeoTitle(comparison);
+    const effectiveMetadataTitle = comparison.seoSurface?.title || title;
     const description = comparisonSeoDescription(comparison);
     const noindex = !comparison.isIndexable || shouldNoindex(comparison.seoSurface?.robotsPolicy ?? comparison.seoMeta?.robots);
     const metadata = buildPageMetadata({
@@ -582,7 +597,7 @@ export async function generateMetadata({
       metadata.twitter?.images,
     );
 
-    return {
+    return applyPersonalityMetadataTitleTemplateGuard({
       ...metadata,
       alternates: {
         ...metadata.alternates,
@@ -602,7 +617,7 @@ export async function generateMetadata({
         description: comparison.seoSurface?.twitter.description || comparison.seoMeta?.twitterDescription || description,
         images: twitterImages,
       },
-    };
+    }, effectiveMetadataTitle);
   }
 
   redirectLegacyBaseRouteIfNeeded(type, locale);
@@ -616,10 +631,11 @@ export async function generateMetadata({
   const normalizedSeo = normalizePersonalitySeoPayload(seo, detail, locale);
   const canonicalPath = buildCanonicalPath(detail.routeSlug, locale);
   const noindex = !detail.isIndexable || shouldNoindex(normalizedSeo.meta.robots);
+  const effectiveMetadataTitle = normalizedSeo.surface?.title || normalizedSeo.meta.title;
   const metadata = buildPageMetadata({
     locale,
     pathname: canonicalPath,
-    title: normalizedSeo.surface?.title || normalizedSeo.meta.title,
+    title: effectiveMetadataTitle,
     description: normalizedSeo.surface?.description || normalizedSeo.meta.description,
     imagePath: normalizedSeo.surface?.og.image ?? normalizedSeo.meta.og.image ?? undefined,
     seoSurface: normalizedSeo.surface,
@@ -639,7 +655,7 @@ export async function generateMetadata({
     metadata.twitter?.images,
   );
 
-  return {
+  return applyPersonalityMetadataTitleTemplateGuard({
     ...metadata,
     alternates: {
       ...metadata.alternates,
@@ -659,7 +675,7 @@ export async function generateMetadata({
       description: normalizedSeo.surface?.twitter.description || normalizedSeo.meta.twitter.description,
       images: twitterImages,
     },
-  };
+  }, effectiveMetadataTitle);
 }
 
 export default async function PersonalityDetailPage({
