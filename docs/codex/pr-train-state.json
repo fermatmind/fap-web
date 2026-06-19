@@ -22745,9 +22745,9 @@
       "id": "SEO-WEEKLY-AUTOMATION-CONTROL-PACKET-02",
       "repo": "fap-web",
       "branch": "codex/seo-weekly-automation-control-packet-02",
-      "status": "local_checks_passed",
+      "status": "pr_open",
       "commit_sha": "7292da03df7bf1f7bc571dca4ab23df9600b4676",
-      "pr_url": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1231",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -22785,7 +22785,7 @@
         },
         "github_checks": {
           "status": "pending",
-          "evidence": "PR not opened yet."
+          "evidence": "PR #1231 opened; GitHub checks pending."
         }
       },
       "history": [
@@ -22803,6 +22803,11 @@
           "at": "2026-06-20T05:53:00+08:00",
           "status": "committed",
           "note": "Committed scoped implementation as 7292da03df7bf1f7bc571dca4ab23df9600b4676."
+        },
+        {
+          "at": "2026-06-20T05:54:05+08:00",
+          "status": "pr_open",
+          "note": "Opened PR #1231 at https://github.com/fermatmind/fap-web/pull/1231; GitHub checks pending."
         }
       ]
     }
