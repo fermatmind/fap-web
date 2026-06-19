@@ -33,6 +33,32 @@ function shouldHideMenuHref(href: string, flags: ProductPriorityEnvSnapshot): bo
   return false;
 }
 
+function stripLocalePrefix(pathname: string): string {
+  const normalizedPath = pathname.split(/[?#]/)[0]?.replace(/\/+$/, "") || "/";
+  if (normalizedPath === "/zh" || normalizedPath === "/en") return "/";
+  return normalizedPath.replace(/^\/(?:zh|en)(?=\/)/, "") || "/";
+}
+
+function shouldHidePrivateLookupHeaderCta(pathname: string): boolean {
+  const path = stripLocalePrefix(pathname);
+
+  if (/^\/tests\/[^/]+\/take(?:\/|$)/.test(path)) return false;
+  if (/^\/(?:result|results|orders|payment|pay|history|account|share)(?:\/|$)/.test(path)) return false;
+
+  return (
+    path === "/personality" ||
+    path.startsWith("/personality/") ||
+    path === "/articles" ||
+    path.startsWith("/articles/") ||
+    path === "/topics" ||
+    path.startsWith("/topics/") ||
+    path === "/career" ||
+    path.startsWith("/career/") ||
+    path === "/tests" ||
+    path.startsWith("/tests/")
+  );
+}
+
 export function SiteHeader({
   productPriority,
 }: {
@@ -53,6 +79,7 @@ export function SiteHeader({
   const localeHref = toggleLocalePath(pathname, targetLocale);
   const localeLabel = targetLocale === "zh" ? dict.lang.zh_label : dict.lang.en_label;
   const disableLocaleSwitchLinks = shouldDisableLocaleSwitchLinks(pathname);
+  const hidePrivateLookupHeaderCta = shouldHidePrivateLookupHeaderCta(pathname);
   const priorityFlags: ProductPriorityEnvSnapshot = useMemo(
     () =>
       productPriority ?? {
@@ -326,13 +353,15 @@ export function SiteHeader({
               </Link>
               <LocaleSwitcher />
 
-              <Link
-                href={withLocale("/results/lookup")}
-                prefetch={false}
-                className={startButtonClass}
-              >
-                {dict.header.profile}
-              </Link>
+              {hidePrivateLookupHeaderCta ? null : (
+                <Link
+                  href={withLocale("/results/lookup")}
+                  prefetch={false}
+                  className={startButtonClass}
+                >
+                  {dict.header.profile}
+                </Link>
+              )}
             </div>
           </div>
         </div>
@@ -454,18 +483,20 @@ export function SiteHeader({
               </nav>
             </div>
 
-            <div className="shrink-0 border-t border-[var(--fm-border-soft)] bg-[var(--fm-bg-page)] p-4">
-              <div className="flex items-center gap-2">
-                <Link
-                  href={withLocale("/results/lookup")}
-                  prefetch={false}
-                  className={`${buttonVariants({ size: "sm" })} flex-1 justify-center`}
-                  onClick={handleMobileLinkClick}
-                >
-                  {dict.header.profile}
-                </Link>
+            {hidePrivateLookupHeaderCta ? null : (
+              <div className="shrink-0 border-t border-[var(--fm-border-soft)] bg-[var(--fm-bg-page)] p-4">
+                <div className="flex items-center gap-2">
+                  <Link
+                    href={withLocale("/results/lookup")}
+                    prefetch={false}
+                    className={`${buttonVariants({ size: "sm" })} flex-1 justify-center`}
+                    onClick={handleMobileLinkClick}
+                  >
+                    {dict.header.profile}
+                  </Link>
+                </div>
               </div>
-            </div>
+            )}
           </aside>
         </div>
       ) : null}

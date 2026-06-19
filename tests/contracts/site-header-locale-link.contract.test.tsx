@@ -1,8 +1,12 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import { describe, expect, it, vi } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import { LocaleProvider } from "@/components/i18n/LocaleContext";
 import { LocaleSwitcher } from "@/components/i18n/LocaleSwitcher";
 import { SiteHeader } from "@/components/layout/SiteHeader";
+
+const navigationState = vi.hoisted(() => ({
+  pathname: "/zh/tests/enneagram-personality-test-nine-types/take",
+}));
 
 vi.mock("next/link", () => ({
   default: ({
@@ -27,10 +31,14 @@ vi.mock("next/link", () => ({
 }));
 
 vi.mock("next/navigation", () => ({
-  usePathname: () => "/zh/tests/enneagram-personality-test-nine-types/take",
+  usePathname: () => navigationState.pathname,
 }));
 
 describe("SiteHeader locale link contract", () => {
+  beforeEach(() => {
+    navigationState.pathname = "/zh/tests/enneagram-personality-test-nine-types/take";
+  });
+
   it("does not inject live query params into the SSR-rendered locale switch href", () => {
     render(
       <LocaleProvider locale="zh">
@@ -57,6 +65,55 @@ describe("SiteHeader locale link contract", () => {
 
     expect(screen.queryByText("过去30天已完成")).not.toBeInTheDocument();
     expect(screen.queryByText("次测评")).not.toBeInTheDocument();
+  });
+
+  it("keeps same-origin private result lookup out of public personality SEO header chrome", () => {
+    navigationState.pathname = "/zh/personality/intj-a";
+    const { container } = render(
+      <LocaleProvider locale="zh">
+        <SiteHeader />
+      </LocaleProvider>
+    );
+
+    expect(container.innerHTML).not.toContain("/results/lookup");
+    expect(container.innerHTML).not.toContain("/zh/results/lookup");
+
+    fireEvent.click(screen.getByRole("button", { name: "菜单" }));
+
+    expect(container.innerHTML).not.toContain("/results/lookup");
+    expect(container.innerHTML).not.toContain("/zh/results/lookup");
+  });
+
+  it("keeps same-origin private result lookup out of public comparison SEO header chrome", () => {
+    navigationState.pathname = "/en/personality/intj-a-vs-intj-t";
+    const { container } = render(
+      <LocaleProvider locale="en">
+        <SiteHeader />
+      </LocaleProvider>
+    );
+
+    expect(container.innerHTML).not.toContain("/results/lookup");
+    expect(container.innerHTML).not.toContain("/en/results/lookup");
+
+    fireEvent.click(screen.getByRole("button", { name: "Menu" }));
+
+    expect(container.innerHTML).not.toContain("/results/lookup");
+    expect(container.innerHTML).not.toContain("/en/results/lookup");
+  });
+
+  it("keeps result lookup available in non-SEO product flows", () => {
+    navigationState.pathname = "/zh/tests/enneagram-personality-test-nine-types/take";
+    const { container } = render(
+      <LocaleProvider locale="zh">
+        <SiteHeader />
+      </LocaleProvider>
+    );
+
+    expect(container.innerHTML).toContain("/zh/results/lookup");
+
+    fireEvent.click(screen.getByRole("button", { name: "菜单" }));
+
+    expect(container.innerHTML).toContain("/zh/results/lookup");
   });
 
   it("keeps the standalone desktop locale switcher SSR-safe when the current URL has query params", () => {

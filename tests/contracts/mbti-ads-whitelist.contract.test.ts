@@ -149,10 +149,19 @@ describe("mbti ads whitelist contract", () => {
     expect(headerMenus).toContain('/tests/mbti-personality-test-16-personality-types", label: "MBTI personality test"');
     expect(headerMenus).toContain('/tests/mbti-personality-test-16-personality-types", label: "MBTI 性格测试"');
     expect(headerMenus).not.toContain('/tests/mbti-personality-test-16-personality-types/take", label: "MBTI personality test"');
+    expect(siteHeader).toContain("shouldHidePrivateLookupHeaderCta(pathname)");
     expect(siteHeader).toContain('href={withLocale("/results/lookup")}');
     expect(siteHeader).not.toContain('href={withLocale("/tests/mbti-personality-test-16-personality-types/take")}');
     expect(hero).toContain('href={withLocale("/tests/mbti-personality-test-16-personality-types")}');
     expect(socialProof).toContain('href={withLocale("/tests/mbti-personality-test-16-personality-types")}');
+  });
+
+  it("keeps footer social share URLs external instead of treating them as same-origin private share routes", () => {
+    const footerSocialIcons = read("lib/ui/footerSocialIcons.ts");
+
+    expect(footerSocialIcons).toContain("https://www.facebook.com/share/");
+    expect(footerSocialIcons).not.toContain('href: "/share');
+    expect(footerSocialIcons).not.toContain("localizedPath(\"/share");
   });
 
   it("keeps personality and recommendation detail pages in the ads secondary whitelist with reduced secondary CTA weight", () => {
