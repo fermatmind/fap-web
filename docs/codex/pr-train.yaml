@@ -15807,3 +15807,79 @@ prs:
       squash: true
       auto_merge: true
     next_task: SEO-OPPORTUNITY-QUEUE-CONTRACT-01
+
+  - id: SEO-OPPORTUNITY-QUEUE-CONTRACT-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/seo-opportunity-queue-contract-01
+    base: main
+    title: "test(seo-agent): define opportunity queue contract"
+    depends_on:
+      - SEO-WEEKLY-AUTOMATION-CONTROL-PACKET-02
+      - SEO-GSC-DATA-QUALITY-01
+      - SEO-OPS-READMODEL-BRIDGE-01
+    mode: execute
+    train_scope: seo_agent_opportunity_queue_contract
+    status: in_progress
+    goal: "Define the SEO opportunity queue contract: inputs, scoring, evidence sources, and forbidden actions. This PR must not implement queue generation or execution."
+    artifacts:
+      - package.json
+      - scripts/seo/check-seo-opportunity-queue-contract.mjs
+      - docs/seo/agent/OPPORTUNITY_QUEUE_CONTRACT.md
+      - docs/seo/agent/examples/seo-opportunity-queue-contract.example.json
+      - docs/seo/agent/schemas/SEO_OPPORTUNITY_QUEUE_CONTRACT.schema.json
+      - tests/contracts/seo-opportunity-queue-contract.contract.test.ts
+      - tests/contracts/seo-agent-weekly-control-packet.contract.test.ts
+      - tests/contracts/seo-agent-gpt55-handoff.contract.test.ts
+      - tests/contracts/seo-ops-readmodel-bridge.contract.test.ts
+      - tests/contracts/seo-runtime-qa-agent.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - package.json
+      - scripts/seo/check-seo-opportunity-queue-contract.mjs
+      - docs/seo/agent/OPPORTUNITY_QUEUE_CONTRACT.md
+      - docs/seo/agent/examples/seo-opportunity-queue-contract.example.json
+      - docs/seo/agent/schemas/SEO_OPPORTUNITY_QUEUE_CONTRACT.schema.json
+      - tests/contracts/seo-opportunity-queue-contract.contract.test.ts
+      - tests/contracts/seo-agent-weekly-control-packet.contract.test.ts
+      - tests/contracts/seo-agent-gpt55-handoff.contract.test.ts
+      - tests/contracts/seo-ops-readmodel-bridge.contract.test.ts
+      - tests/contracts/seo-runtime-qa-agent.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - docs/seo/generated/**
+      - public/**
+      - pnpm-lock.yaml
+      - env files
+      - automation TOML
+      - CMS writes, draft creation, import, publish, or unpublish
+      - Search Channel enqueue, approve, or submit
+      - search provider submission
+      - queue execution or queue generation implementation
+      - frontend revalidation
+      - sitemap, robots, llms, schema, hreflang, canonical, noindex, redirect, or runtime SEO changes
+    required_local_checks:
+      - node scripts/seo/check-seo-opportunity-queue-contract.mjs docs/seo/agent/examples/seo-opportunity-queue-contract.example.json
+      - pnpm exec vitest run tests/contracts/seo-opportunity-queue-contract.contract.test.ts tests/contracts/seo-agent-weekly-control-packet.contract.test.ts tests/contracts/seo-agent-gpt55-handoff.contract.test.ts tests/contracts/seo-runtime-qa-agent.contract.test.ts tests/contracts/seo-ops-readmodel-bridge.contract.test.ts
+      - pnpm test:contract
+      - pnpm lint .
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -m json.tool docs/seo/agent/schemas/SEO_OPPORTUNITY_QUEUE_CONTRACT.schema.json >/dev/null
+      - python3 -m json.tool docs/seo/agent/examples/seo-opportunity-queue-contract.example.json >/dev/null
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - git diff --check
+      - scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: SEO-CMS-DRAFT-PACKAGE-CONTRACT-01

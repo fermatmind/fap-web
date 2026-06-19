@@ -6,6 +6,7 @@ import { describe, expect, it } from "vitest";
 
 import {
   isSeoGpt55Handoff01AllowedFile,
+  isSeoOpportunityQueueContract01AllowedFile,
   isSeoWeeklyAutomationControlPacket02AllowedFile,
 } from "./helpers/currentPrScope";
 
@@ -166,7 +167,12 @@ describe("SEO Agent GPT 5.5 Pro review handoff", () => {
     }
 
     expect(
-      files.every((file) => isSeoGpt55Handoff01AllowedFile(file) || isSeoWeeklyAutomationControlPacket02AllowedFile(file)),
+      files.every(
+        (file) =>
+          isSeoGpt55Handoff01AllowedFile(file) ||
+          isSeoWeeklyAutomationControlPacket02AllowedFile(file) ||
+          isSeoOpportunityQueueContract01AllowedFile(file),
+      ),
       files.join("\n")
     ).toBe(true);
   });
