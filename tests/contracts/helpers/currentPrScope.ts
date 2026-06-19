@@ -1238,6 +1238,12 @@ const CODEQL_HYGIENE_ALLOWED_FILES = new Set([
   "tests/e2e/big5-flow.spec.ts",
 ]);
 
+const CODEQL_HTTP_FILE_ACCESS_108_ALLOWED_FILES = new Set([
+  "scripts/ops/check-big5-v2-live-result-pdf.mjs",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/result-private-leak-regressions.contract.test.ts",
+]);
+
 const DISCOVERABILITY_STAGING_META_NOINDEX_FIX_02_ALLOWED_FILES = new Set([
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -2679,6 +2685,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/codeql-hygiene-alerts") {
     return CODEQL_HYGIENE_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/fix-codeql-http-file-access") {
+    return CODEQL_HTTP_FILE_ACCESS_108_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-web-sec-01-eq-v5-report-gate") {

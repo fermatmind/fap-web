@@ -86,6 +86,10 @@ describe("private result leak regression contracts", () => {
 
     expect(smoke).toContain("pdftotext");
     expect(smoke).toContain("extractPdfText");
+    expect(smoke).toContain('execFileSync("pdftotext", ["-", "-"]');
+    expect(smoke).toContain("input: pdfBytes");
+    expect(smoke).not.toContain("writeFileSync");
+    expect(smoke).not.toContain("mkdtempSync");
     expect(smoke).toContain("auditPdfText");
     expect(smoke).toContain("Big Five Report Engine");
     expect(smoke).toContain("PR3B");
