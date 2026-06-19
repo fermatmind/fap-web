@@ -5,6 +5,7 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 
 import {
+  isSeoCmsDraftPackageContract01AllowedFile,
   isSeoOpportunityQueueContract01AllowedFile,
   isSeoWeeklyAutomationControlPacket02AllowedFile,
 } from "./helpers/currentPrScope";
@@ -158,7 +159,10 @@ describe("SEO Agent weekly automation control packet", () => {
 
     expect(
       files.every(
-        (file) => isSeoWeeklyAutomationControlPacket02AllowedFile(file) || isSeoOpportunityQueueContract01AllowedFile(file),
+        (file) =>
+          isSeoWeeklyAutomationControlPacket02AllowedFile(file) ||
+          isSeoOpportunityQueueContract01AllowedFile(file) ||
+          isSeoCmsDraftPackageContract01AllowedFile(file),
       ),
       files.join("\n"),
     ).toBe(true);

@@ -7,6 +7,7 @@ import {
   seoOperationsUnavailableReadModel,
 } from "@/lib/ops/seoOperationsReadModel";
 import {
+  isSeoCmsDraftPackageContract01AllowedFile,
   isSeoGpt55Handoff01AllowedFile,
   isSeoOpportunityQueueContract01AllowedFile,
   isSeoWeeklyAutomationControlPacket02AllowedFile,
@@ -113,7 +114,8 @@ describe("SEO ops read-model bridge", () => {
           allowedFiles.has(file) ||
           isSeoGpt55Handoff01AllowedFile(file) ||
           isSeoWeeklyAutomationControlPacket02AllowedFile(file) ||
-          isSeoOpportunityQueueContract01AllowedFile(file),
+          isSeoOpportunityQueueContract01AllowedFile(file) ||
+          isSeoCmsDraftPackageContract01AllowedFile(file),
       ),
       files.join("\n"),
     ).toBe(true);

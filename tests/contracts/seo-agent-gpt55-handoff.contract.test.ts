@@ -5,6 +5,7 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 
 import {
+  isSeoCmsDraftPackageContract01AllowedFile,
   isSeoGpt55Handoff01AllowedFile,
   isSeoOpportunityQueueContract01AllowedFile,
   isSeoWeeklyAutomationControlPacket02AllowedFile,
@@ -171,7 +172,8 @@ describe("SEO Agent GPT 5.5 Pro review handoff", () => {
         (file) =>
           isSeoGpt55Handoff01AllowedFile(file) ||
           isSeoWeeklyAutomationControlPacket02AllowedFile(file) ||
-          isSeoOpportunityQueueContract01AllowedFile(file),
+          isSeoOpportunityQueueContract01AllowedFile(file) ||
+          isSeoCmsDraftPackageContract01AllowedFile(file),
       ),
       files.join("\n")
     ).toBe(true);

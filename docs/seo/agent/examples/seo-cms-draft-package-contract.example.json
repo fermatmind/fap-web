@@ -1,0 +1,63 @@
+{
+  "schema_version": "fermatmind.seo_agent.cms_draft_package_contract.v1",
+  "mode": "dry_run_contract_only",
+  "package_id": "seo-cms-draft-package-contract-example-2026-06-20",
+  "target": {
+    "url": "https://www.fermatmind.com/zh/personality/infp-t",
+    "locale": "zh",
+    "content_type": "personality_profile"
+  },
+  "source_opportunities": [
+    {
+      "opportunity_id": "opp-mbti-public-profile-title-001",
+      "queue_contract": "docs/seo/agent/examples/seo-opportunity-queue-contract.example.json"
+    }
+  ],
+  "evidence_references": [
+    {
+      "evidence_id": "gsc-quality-gate",
+      "source_class": "GSC_VERIFIED_FRESH",
+      "evidence_label": "PASS_VERIFIED_FRESH",
+      "artifact_path": "fap-api:gsc_data_quality_gate"
+    }
+  ],
+  "proposed_draft": {
+    "seo_title": "INFP-T 人格：特质、职业倾向与成长建议 | FermatMind",
+    "meta_description": "了解 INFP-T 的人格特质、职业倾向、关系风格与成长建议。内容需经 CMS 人工审批后才能发布。",
+    "body_blocks": [
+      {
+        "block_id": "quick-answer",
+        "type": "quick_answer",
+        "text": "INFP-T 通常指倾向内省、重视意义感、对反馈更敏感的 INFP 变体。"
+      }
+    ],
+    "media_policy": {
+      "media_library_required": true,
+      "local_public_asset_write_allowed": false
+    }
+  },
+  "claim_gate": {
+    "protocol": "CLAIM_GATE_PROTOCOL",
+    "claims": [
+      {
+        "claim_id": "claim-infp-t-definition",
+        "text": "INFP-T 通常指倾向内省、重视意义感、对反馈更敏感的 INFP 变体。",
+        "risk_level": "medium",
+        "evidence_ids": ["gsc-quality-gate"],
+        "verdict": "NEEDS_HUMAN_REVIEW"
+      }
+    ]
+  },
+  "approvals_required": [
+    "AUTHORIZE_CMS_MUTATION",
+    "APPROVE_CLAIM_GATE",
+    "APPROVE_DRAFT_PACKAGE_HASH"
+  ],
+  "forbidden_actions": [
+    "CMS save, draft creation, import, publish, unpublish, or media upload",
+    "Search Channel enqueue, approve, or submit",
+    "Google, Baidu, IndexNow, or provider submission",
+    "sitemap, robots, llms, schema, hreflang, canonical, noindex, redirect, or runtime SEO changes"
+  ]
+}
+
