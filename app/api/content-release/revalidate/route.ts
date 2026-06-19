@@ -22,6 +22,14 @@ type PathDecision = {
 
 const DEFAULT_PUBLIC_FRONTEND_ORIGINS = ["https://fermatmind.com", "https://www.fermatmind.com"];
 const PUBLIC_CONTENT_PAGE_SLUGS = new Set(["about", "brand", "charter", "foundation", "careers", "policies"]);
+const PERSONALITY_CONTENT_TYPES = new Set([
+  "personality_profile",
+  "personality_profile_variant",
+  "personality_profile_comparison",
+  "mbti64_personality_profile",
+  "mbti64_personality_profile_variant",
+  "mbti64_personality_profile_comparison",
+]);
 
 function normalizeLocaleToSegment(locale: string | null | undefined): "en" | "zh" {
   return String(locale ?? "").toLowerCase().startsWith("zh") ? "zh" : "en";
@@ -215,6 +223,16 @@ export function collectPathDecisions(payload: ContentReleasePayload, requestOrig
     if (derivesPublicContentPagePath) {
       localized.push("/llms.txt", "/llms-full.txt");
     }
+  }
+
+  if (PERSONALITY_CONTENT_TYPES.has(type)) {
+    localized.push(localizedPath("/personality", locale));
+
+    if (slug) {
+      localized.push(localizedPath(`/personality/${slug}`, locale));
+    }
+
+    localized.push("/llms.txt", "/llms-full.txt");
   }
 
   const accepted: string[] = [];

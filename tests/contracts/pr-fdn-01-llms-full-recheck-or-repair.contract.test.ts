@@ -69,4 +69,41 @@ describe("PR-FDN-01 llms-full recheck or repair", () => {
     expect(mocks.revalidatePath).toHaveBeenNthCalledWith(3, "/llms-full.txt");
     expect(mocks.clearLlmsFullResponseCache).toHaveBeenCalledTimes(1);
   });
+
+  it("derives personality profile paths plus llms surfaces for MBTI64 public content releases", async () => {
+    process.env.CONTENT_RELEASE_REVALIDATE_TOKEN = "release-token";
+
+    const request = new NextRequest("https://fermatmind.com/api/content-release/revalidate", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        "x-fm-content-release-token": "release-token",
+      },
+      body: JSON.stringify({
+        content: {
+          type: "personality_profile_variant",
+          slug: "intj-a",
+          locale: "en",
+        },
+      }),
+    });
+
+    const response = await POST(request);
+    const payload = await response.json();
+
+    expect(response.status).toBe(200);
+    expect(payload.revalidated_paths).toEqual([
+      "/en/personality",
+      "/en/personality/intj-a",
+      "/llms.txt",
+      "/llms-full.txt",
+    ]);
+    expect(payload.rejected_paths).toEqual([]);
+    expect(mocks.revalidatePath).toHaveBeenCalledTimes(4);
+    expect(mocks.revalidatePath).toHaveBeenCalledWith("/en/personality");
+    expect(mocks.revalidatePath).toHaveBeenCalledWith("/en/personality/intj-a");
+    expect(mocks.revalidatePath).toHaveBeenCalledWith("/llms.txt");
+    expect(mocks.revalidatePath).toHaveBeenCalledWith("/llms-full.txt");
+    expect(mocks.clearLlmsFullResponseCache).toHaveBeenCalledTimes(1);
+  });
 });

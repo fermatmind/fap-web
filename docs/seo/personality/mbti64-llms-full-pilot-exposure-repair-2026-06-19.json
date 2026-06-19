@@ -1,0 +1,34 @@
+{
+  "artifact": "MBTI64-LLMS-FULL-PILOT-EXPOSURE-REPAIR-01",
+  "generated_at": "2026-06-19T18:30:00+08:00",
+  "status": "repair_implemented_pending_pr_validation",
+  "source_policy_artifact": "docs/seo/personality/mbti64-llms-full-pilot-exposure-policy-2026-06-19.json",
+  "root_cause": {
+    "classification": "generator_cohort_guarantee_gap",
+    "summary": "llms-full personality generation had a 96 URL total budget but did not explicitly guarantee separate 64 A/T variant and 32 A-vs-T comparison cohorts before enrichment and output.",
+    "impact": "The 8 MBTI64 pilot URLs could be exact-present in sitemap.xml and llms.txt while still absent from llms-full.txt."
+  },
+  "repair": {
+    "llms_full_generator": [
+      "Builds explicit per-locale 32 variant cohorts from CMS includeVariants records, with CMS base-profile derivation only as a non-editorial fallback.",
+      "Builds explicit per-locale 16 A-vs-T comparison cohorts from indexable CMS variant records.",
+      "Dedupes by normalized path and keeps private/result/order/pay/account/token paths blocked.",
+      "Enriches the already-bounded 96 URL cohort without applying another mixed-list truncation."
+    ],
+    "content_release_revalidation": [
+      "Personality profile, variant, and comparison release events revalidate the localized personality path.",
+      "Personality release events revalidate /llms.txt and /llms-full.txt and clear the llms-full process cache."
+    ]
+  },
+  "expected_post_deploy_check": {
+    "task": "MBTI64-LLMS-FULL-PILOT-MEMBERSHIP-RECHECK-02",
+    "required_result": "8/8 pilot URLs exact-present in live /llms-full.txt before MBTI64 Search Queue release proceeds"
+  },
+  "search_queue": {
+    "enqueue_attempted": false,
+    "approval_attempted": false,
+    "submit_attempted": false,
+    "external_search_api_attempted": false,
+    "decision": "blocked_until_live_llms_full_recheck_passes"
+  }
+}

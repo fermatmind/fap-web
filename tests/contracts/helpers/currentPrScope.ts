@@ -177,6 +177,19 @@ const MBTI64_GLOBAL_HEADER_PRIVATE_ROUTE_HYGIENE_01_ALLOWED_FILES = new Set([
   "tests/contracts/site-header-locale-link.contract.test.tsx",
 ]);
 
+const MBTI64_LLMS_FULL_PILOT_EXPOSURE_REPAIR_01_ALLOWED_FILES = new Set([
+  "app/api/content-release/revalidate/route.ts",
+  "app/llms-full.txt/route.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/seo/personality/mbti64-llms-full-pilot-exposure-repair-2026-06-19.json",
+  "docs/seo/personality/mbti64-llms-full-pilot-exposure-repair-2026-06-19.md",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/mbti64-llms-full-pilot-exposure-repair.contract.test.ts",
+  "tests/contracts/personality-llms-full-comparison-repair-01.contract.test.ts",
+  "tests/contracts/pr-fdn-01-llms-full-recheck-or-repair.contract.test.ts",
+]);
+
 const RESEARCH_REPORT_METADATA_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/research/[slug]/page.tsx",
   "docs/seo/generated/metadata-surface-inventory.v1.csv",
@@ -3130,6 +3143,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/seo-conv-runtime-03") {
     return SEO_CONV_RUNTIME_03_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/mbti64-llms-full-pilot-exposure-repair-01") {
+    return MBTI64_LLMS_FULL_PILOT_EXPOSURE_REPAIR_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/article-h1-01") {
