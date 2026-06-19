@@ -52,7 +52,8 @@ function runChecker(reviewPath: string): { status: number; stdout: string } {
 function withTempReview(mutator: (review: ReviewFixture) => void): string {
   const review = readJson(REVIEW_PATH) as ReviewFixture;
   mutator(review);
-  const filePath = path.join(os.tmpdir(), `gpt55-review-${process.pid}-${Math.random().toString(16).slice(2)}.json`);
+  const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "gpt55-review-"));
+  const filePath = path.join(tempDir, "review.json");
   fs.writeFileSync(filePath, JSON.stringify(review, null, 2));
   return filePath;
 }
