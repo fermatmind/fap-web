@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-19T16:35:00+08:00",
+  "updated_at": "2026-06-19T16:37:00+08:00",
   "status": "active",
   "phase": "mbti64_llms_full_pilot_membership_recheck",
   "pr_namespace": "PR-PRAC-*",
@@ -22188,9 +22188,9 @@
       "id": "MBTI64-LLMS-FULL-PILOT-MEMBERSHIP-RECHECK-01",
       "repo": "fap-web",
       "branch": "codex/mbti64-llms-full-pilot-membership-recheck-01",
-      "status": "local_checks_passed",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "pr_open",
+      "commit_sha": "98646e4a5ab6ad3b52085e8ee851159624e689ea",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1213",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -22219,8 +22219,8 @@
           "evidence": "Passed: jq empty generated JSON; Node JSON parse for report and state; ruby YAML parse for manifest; git diff --check; explicit scope validation including untracked files."
         },
         "pull_request": {
-          "status": "pending",
-          "evidence": null
+          "status": "open",
+          "evidence": "Opened https://github.com/fermatmind/fap-web/pull/1213 after local checks and scope validation passed."
         },
         "github_checks": {
           "status": "pending",
@@ -22238,6 +22238,11 @@
           "at": "2026-06-19T16:35:00+08:00",
           "status": "local_checks_passed",
           "note": "Generated 8-page llms-full exact membership recheck; validation passed and no runtime/CMS/sitemap/llms/search behavior files changed."
+        },
+        {
+          "at": "2026-06-19T16:37:00+08:00",
+          "status": "pr_open",
+          "note": "Opened fap-web PR #1213 for MBTI64-LLMS-FULL-PILOT-MEMBERSHIP-RECHECK-01."
         }
       ]
     }
