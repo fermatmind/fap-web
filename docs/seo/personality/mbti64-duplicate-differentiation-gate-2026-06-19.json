@@ -1,0 +1,170 @@
+{
+  "artifact": "MBTI64-DUPLICATE-DIFFERENTIATION-GATE-01",
+  "generated_at": "2026-06-19T00:00:00+08:00",
+  "status": "pass_with_serp_snippet_followup",
+  "scope": "Artifact-only duplicate and differentiation audit for the MBTI64 V2.1 8-page pilot content package. No CMS write, frontend runtime change, sitemap/llms change, queue enqueue, search approval, or search submission was performed.",
+  "inputs": {
+    "package": "docs/seo/personality/content-packages/pilot-v2.1/mbti64-content-package-pilot-v2.1.json",
+    "package_status": "pass",
+    "package_qa": "docs/seo/personality/content-package-v21-qa-2026-06-18.json",
+    "trademark_claim_gate": "docs/seo/personality/mbti64-trademark-claim-gate-2026-06-19.json"
+  },
+  "similarity_method": {
+    "method": "Normalized text extraction from seo, content, and faq fields; tokenization into Latin words and CJK characters; 5-gram shingle Jaccard similarity.",
+    "blocker_threshold": 0.15,
+    "review_threshold": 0.1,
+    "note": "Shared navigation links, route safety metadata, and QA flags were excluded from the similarity body."
+  },
+  "coverage": {
+    "row_count": 8,
+    "variant_row_count": 6,
+    "comparison_row_count": 2,
+    "locale_counts": {
+      "en": 4,
+      "zh-CN": 4
+    },
+    "pilot_urls": [
+      "/en/personality/intj-a-vs-intj-t",
+      "/zh/personality/istj-a",
+      "/en/personality/intp-a-vs-intp-t",
+      "/zh/personality/infp-t",
+      "/en/personality/intj-a",
+      "/en/personality/intj-t",
+      "/zh/personality/intj-a",
+      "/zh/personality/intj-t"
+    ]
+  },
+  "top_similarity_pairs": [
+    {
+      "a": "/zh/personality/intj-a",
+      "b": "/zh/personality/intj-t",
+      "same_locale": true,
+      "pair_type": "variant-variant",
+      "jaccard_5gram": 0.0679,
+      "decision": "pass"
+    },
+    {
+      "a": "/en/personality/intj-a",
+      "b": "/en/personality/intj-t",
+      "same_locale": true,
+      "pair_type": "variant-variant",
+      "jaccard_5gram": 0.0356,
+      "decision": "pass"
+    },
+    {
+      "a": "/zh/personality/infp-t",
+      "b": "/zh/personality/intj-t",
+      "same_locale": true,
+      "pair_type": "variant-variant",
+      "jaccard_5gram": 0.0275,
+      "decision": "pass"
+    },
+    {
+      "a": "/zh/personality/istj-a",
+      "b": "/zh/personality/intj-a",
+      "same_locale": true,
+      "pair_type": "variant-variant",
+      "jaccard_5gram": 0.0254,
+      "decision": "pass"
+    },
+    {
+      "a": "/en/personality/intj-a-vs-intj-t",
+      "b": "/en/personality/intp-a-vs-intp-t",
+      "same_locale": true,
+      "pair_type": "comparison-comparison",
+      "jaccard_5gram": 0.0027,
+      "decision": "pass"
+    }
+  ],
+  "differentiation_findings": [
+    {
+      "url": "/en/personality/intj-a-vs-intj-t",
+      "status": "pass",
+      "information_gain": "Architect-specific decision confidence, critique handling, strategic autonomy, and over-review patterns distinguish this from a generic A/T comparison."
+    },
+    {
+      "url": "/en/personality/intp-a-vs-intp-t",
+      "status": "pass",
+      "information_gain": "Logician-specific uncertainty tolerance, model revision, caveat-heavy communication, and prototype-versus-refinement work patterns distinguish this from the INTJ comparison."
+    },
+    {
+      "url": "/en/personality/intj-a",
+      "status": "pass",
+      "information_gain": "Decision ownership, confidence calibration, system adoption, and emotional legibility distinguish INTJ-A from the INTJ-T sibling."
+    },
+    {
+      "url": "/en/personality/intj-t",
+      "status": "pass",
+      "information_gain": "Risk scanning, self-review, over-review, and pressure refinement distinguish INTJ-T from the INTJ-A sibling."
+    },
+    {
+      "url": "/zh/personality/intj-a",
+      "status": "pass",
+      "information_gain": "战略模型、决策闭合、沟通采纳和中文职场中的独立负责区分 INTJ-A 与 INTJ-T。"
+    },
+    {
+      "url": "/zh/personality/intj-t",
+      "status": "pass",
+      "information_gain": "高标准、风险扫描、自我审视和防止完美主义阻碍行动的内容区分 INTJ-T 与 INTJ-A。"
+    },
+    {
+      "url": "/zh/personality/istj-a",
+      "status": "pass",
+      "information_gain": "责任闭环、验收标准、流程稳定性和中文职场沟通场景使 ISTJ-A 与 INTJ/INFP pilot 页面明显区分。"
+    },
+    {
+      "url": "/zh/personality/infp-t",
+      "status": "pass",
+      "information_gain": "价值感、关系敏感度、自我审视、创作压力和边界问题使 INFP-T 与其他中文 pilot 页面明显区分。"
+    }
+  ],
+  "module_depth": {
+    "comparison_pages": {
+      "content_section_count": 7,
+      "faq_count": 7,
+      "required_sections_present": [
+        "quick_answer",
+        "side_by_side_summary",
+        "core_traits_comparison",
+        "stress_confidence",
+        "career_work_style",
+        "relationships_love",
+        "which_one_fits"
+      ]
+    },
+    "variant_pages": {
+      "content_section_count": 9,
+      "faq_count": 7,
+      "required_sections_present": [
+        "quick_answer",
+        "meaning",
+        "a_t_difference",
+        "core_traits",
+        "strengths_blind_spots",
+        "careers_work_style",
+        "relationships_communication",
+        "common_misreads",
+        "similar_types"
+      ]
+    }
+  },
+  "warnings": [
+    "Variant pages intentionally share a common section taxonomy. This is acceptable because body copy and information_gain differ; future GPT batches should keep measuring body-level similarity, not section-key overlap.",
+    "SERP titles should be handled separately in MBTI64-SERP-SNIPPET-CTR-PACKAGE-01 because the live closure spot check observed duplicated brand suffixes."
+  ],
+  "blockers": [],
+  "final_decision": "PASS_FOR_MEASUREMENT_BASELINE_AND_SERP_CTR_PACKAGE",
+  "recommended_next_tasks": [
+    "MBTI64-SERP-SNIPPET-CTR-PACKAGE-01",
+    "MBTI64-SEO-MEASUREMENT-COHORT-01",
+    "MBTI64-SEARCH-QUEUE-RELEASE-01"
+  ],
+  "side_effect_boundary": {
+    "cms_write_performed_by_this_pr": false,
+    "frontend_runtime_changed_by_this_pr": false,
+    "sitemap_changed_by_this_pr": false,
+    "llms_changed_by_this_pr": false,
+    "search_queue_enqueue_performed_by_this_pr": false,
+    "search_submit_performed_by_this_pr": false
+  }
+}
