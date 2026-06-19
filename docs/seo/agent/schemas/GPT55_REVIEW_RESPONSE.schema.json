@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fermatmind.com/schemas/gpt55-review-response.schema.json",
+  "title": "GPT 5.5 Pro SEO Agent Review Response",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "verdict",
+    "recommended_lane",
+    "ranked_actions",
+    "evidence_used",
+    "unsupported_assumptions",
+    "claim_risks",
+    "approvals_required",
+    "blocked_items"
+  ],
+  "properties": {
+    "verdict": {
+      "type": "string",
+      "enum": [
+        "GO_FOR_EXECUTION",
+        "NEEDS_MORE_EVIDENCE",
+        "BLOCKED"
+      ]
+    },
+    "recommended_lane": {
+      "type": "string",
+      "enum": [
+        "DOCS_ONLY_PR",
+        "RUNTIME_QA_READONLY",
+        "OPS_READMODEL_BRIDGE",
+        "GSC_DATA_QUALITY_READONLY",
+        "OPPORTUNITY_QUEUE_READONLY",
+        "CMS_DRAFT_PACKAGE_DRY_RUN",
+        "SEARCH_READINESS_REPORT",
+        "BLOCKED_MUTATION"
+      ]
+    },
+    "ranked_actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "rank",
+          "action_id",
+          "lane",
+          "recommendation",
+          "reason"
+        ],
+        "properties": {
+          "rank": { "type": "integer", "minimum": 1 },
+          "action_id": { "type": "string" },
+          "lane": { "type": "string" },
+          "recommendation": {
+            "type": "string",
+            "enum": [
+              "do_now",
+              "do_next",
+              "hold",
+              "block"
+            ]
+          },
+          "reason": { "type": "string" }
+        }
+      }
+    },
+    "evidence_used": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "evidence_id",
+          "source_class",
+          "how_used"
+        ],
+        "properties": {
+          "evidence_id": { "type": "string" },
+          "source_class": { "type": "string" },
+          "how_used": { "type": "string" }
+        }
+      }
+    },
+    "unsupported_assumptions": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "claim_risks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "risk",
+          "severity",
+          "recommendation"
+        ],
+        "properties": {
+          "risk": { "type": "string" },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "low",
+              "medium",
+              "high",
+              "blocked"
+            ]
+          },
+          "recommendation": { "type": "string" }
+        }
+      }
+    },
+    "approvals_required": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "approval",
+          "why_required"
+        ],
+        "properties": {
+          "approval": { "type": "string" },
+          "why_required": { "type": "string" }
+        }
+      }
+    },
+    "blocked_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "item",
+          "reason"
+        ],
+        "properties": {
+          "item": { "type": "string" },
+          "reason": { "type": "string" }
+        }
+      }
+    }
+  }
+}
