@@ -316,6 +316,16 @@ const CAREER_SALARY_POST_IMPORT_SEO_SAFETY_AUDIT_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const CAREER_AI_IMPACT_PREVIEW_CONSUMER_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/career/jobs/[slug]/page.tsx",
+  "components/career/ai-impact/CareerAiImpactPreviewSection.tsx",
+  "components/career/display/CareerDisplaySurface.tsx",
+  "lib/career/aiImpactAssetPreviewConfig.ts",
+  "lib/career/api/fetchCareerAiImpactAssetPreview.ts",
+  "tests/contracts/career-ai-impact-preview-consumer.contract.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 const SEO_CONV_TRACKING_01_ALLOWED_FILES = new Set([
   "docs/codex/pr-train-state.json",
   "docs/codex/pr-train.yaml",
@@ -3158,6 +3168,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/career-salary-post-import-seo-safety-audit") {
     return CAREER_SALARY_POST_IMPORT_SEO_SAFETY_AUDIT_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/career-ai-impact-preview-consumer") {
+    return CAREER_AI_IMPACT_PREVIEW_CONSUMER_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/seo-conv-tracking-01") {
