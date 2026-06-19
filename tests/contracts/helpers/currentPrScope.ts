@@ -274,6 +274,13 @@ const SEO_SITEMAP_STABILITY_04_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const SEO_OPS_STABILIZE_02_PUBLIC_ARTICLE_SMOKE_ALLOWED_FILES = new Set([
+  "package.json",
+  "scripts/seo/verify-public-article-release.mjs",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/public-article-release-smoke.contract.test.ts",
+]);
+
 const SEO_SITEMAP_DIFF_01_ALLOWED_FILES = new Set([
   "docs/codex/pr-train-state.json",
   "docs/codex/pr-train.yaml",
@@ -3125,6 +3132,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
       RIASEC_V2_POST_PUBLISH_SMOKE_02_ALLOWED_FILES.has(file) ||
       RIASEC_V2_SEARCH_SUBMISSION_PREFLIGHT_01_ALLOWED_FILES.has(file)
     );
+  }
+
+  if (CURRENT_BRANCH === "codex/seo-ops-stabilize-02-public-article-smoke") {
+    return SEO_OPS_STABILIZE_02_PUBLIC_ARTICLE_SMOKE_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/seo-sitemap-diff-01") {

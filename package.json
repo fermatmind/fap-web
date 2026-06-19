@@ -33,6 +33,7 @@
     "seo:assert-live-sitemap-stability": "node scripts/seo/assert-live-sitemap-stability.mjs https://fermatmind.com/sitemap.xml",
     "seo:assert-live-llms": "node scripts/seo/assert-live-llms-clean.mjs https://fermatmind.com/llms.txt",
     "seo:assert-live-llms-full": "node scripts/seo/assert-live-llms-clean.mjs https://fermatmind.com/llms-full.txt",
+    "seo:verify-public-article-release": "node scripts/seo/verify-public-article-release.mjs",
     "seo:check-science-contentpage-live-exposure": "node scripts/seo/check-science-contentpage-live-exposure.mjs",
     "seo:check-science-contentpage-zh-footer-links": "node scripts/seo/check-science-contentpage-zh-footer-links.mjs",
     "seo:push-baidu": "node scripts/seo/push-baidu.mjs",
