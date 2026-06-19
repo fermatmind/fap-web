@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-20T07:09:00+08:00",
+  "updated_at": "2026-06-20T07:12:00+08:00",
   "status": "active",
   "phase": "mbti64_llms_full_pilot_exposure_policy",
   "pr_namespace": "PR-PRAC-*",
@@ -22906,8 +22906,8 @@
       "id": "SEO-CMS-DRAFT-PACKAGE-CONTRACT-01",
       "repo": "fap-web",
       "branch": "codex/seo-cms-draft-package-contract-01",
-      "status": "local_checks_passed",
-      "commit_sha": null,
+      "status": "committed",
+      "commit_sha": "f72317f7",
       "pr_url": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -22961,6 +22961,11 @@
           "at": "2026-06-20T07:09:00+08:00",
           "status": "local_checks_passed",
           "note": "CMS draft package contract checker, focused contracts, full contract suite, lint, typecheck, build, JSON/YAML parse, diff check, and explicit scope validation passed. Build-generated public/sitemap.xml was restored because sitemap artifacts are outside this PR scope."
+        },
+        {
+          "at": "2026-06-20T07:12:00+08:00",
+          "status": "committed",
+          "note": "Committed scoped implementation as f72317f7."
         }
       ]
     }
