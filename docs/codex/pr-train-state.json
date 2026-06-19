@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-19T16:37:00+08:00",
+  "updated_at": "2026-06-19T16:46:00+08:00",
   "status": "active",
   "phase": "mbti64_llms_full_pilot_membership_recheck",
   "pr_namespace": "PR-PRAC-*",
@@ -22188,8 +22188,8 @@
       "id": "MBTI64-LLMS-FULL-PILOT-MEMBERSHIP-RECHECK-01",
       "repo": "fap-web",
       "branch": "codex/mbti64-llms-full-pilot-membership-recheck-01",
-      "status": "pr_open",
-      "commit_sha": "98646e4a5ab6ad3b52085e8ee851159624e689ea",
+      "status": "ready_to_merge",
+      "commit_sha": "bd22cce23a0f55050ef7788fc051e6181da9da81",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1213",
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -22223,9 +22223,16 @@
           "evidence": "Opened https://github.com/fermatmind/fap-web/pull/1213 after local checks and scope validation passed."
         },
         "github_checks": {
-          "status": "pending",
-          "checks": [],
-          "evidence": null
+          "status": "pass",
+          "checks": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "CodeQL",
+            "analyze (javascript-typescript)"
+          ],
+          "evidence": "GitHub checks passed on PR #1213 head bd22cce23a0f55050ef7788fc051e6181da9da81 and mergeStateStatus is CLEAN."
         }
       },
       "history": [
@@ -22243,6 +22250,11 @@
           "at": "2026-06-19T16:37:00+08:00",
           "status": "pr_open",
           "note": "Opened fap-web PR #1213 for MBTI64-LLMS-FULL-PILOT-MEMBERSHIP-RECHECK-01."
+        },
+        {
+          "at": "2026-06-19T16:46:00+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed and mergeStateStatus is CLEAN for PR #1213."
         }
       ]
     }
