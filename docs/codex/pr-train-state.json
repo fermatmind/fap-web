@@ -22657,8 +22657,8 @@
       "repo": "fap-web",
       "branch": "codex/seo-gpt55-handoff-01",
       "status": "local_checks_passed",
-      "commit_sha": "e72a3d1e343218fefb54f8bc5c23f93ac01308db",
-      "pr_url": null,
+      "commit_sha": "d9532209570f00515d946086d01180436d3811b3",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1230",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -22695,7 +22695,7 @@
         },
         "github_checks": {
           "status": "pending",
-          "evidence": "PR not opened yet."
+          "evidence": "PR #1230 opened; GitHub checks pending."
         }
       },
       "history": [
@@ -22713,6 +22713,11 @@
           "at": "2026-06-20T05:18:00+08:00",
           "status": "commit_created",
           "note": "Recorded implementation commit e72a3d1e343218fefb54f8bc5c23f93ac01308db after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-06-20T05:19:00+08:00",
+          "status": "pr_open",
+          "note": "Opened https://github.com/fermatmind/fap-web/pull/1230 after local checks and scope validation passed."
         }
       ]
     }
