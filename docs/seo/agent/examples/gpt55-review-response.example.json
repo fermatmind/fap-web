@@ -1,0 +1,93 @@
+{
+  "schema_version": "fermatmind.seo_agent.gpt55_review_response.v1",
+  "review_id": "gpt55-review-seo-agent-weekly-2026-06-20-example",
+  "reviewed_control_packet_run_id": "seo-agent-weekly-2026-06-20-mvp0-example",
+  "verdict": "REVIEW_PASS_NON_EXECUTING",
+  "recommended_lane": "DOCS_ONLY_PR",
+  "ranked_actions": [
+    {
+      "rank": 1,
+      "action_id": "action-control-packet",
+      "lane": "DOCS_ONLY_PR",
+      "recommendation": "do_now",
+      "evidence_ids": [
+        "evidence-weekly-automation-readonly",
+        "evidence-ops-dashboard-mock"
+      ],
+      "reason": "The packet evidence supports a docs-only control packet and does not require CMS, search-provider, schema, hreflang, or indexability execution."
+    },
+    {
+      "rank": 2,
+      "action_id": "action-ops-readmodel-bridge",
+      "lane": "OPS_READMODEL_BRIDGE",
+      "recommendation": "do_next",
+      "evidence_ids": [
+        "evidence-ops-dashboard-mock"
+      ],
+      "reason": "The ops dashboard has verified mock/static-artifact inputs, so a read-model bridge is the next safe engineering step."
+    },
+    {
+      "rank": 3,
+      "action_id": "action-cms-draft-agent",
+      "lane": "CMS_DRAFT_PACKAGE_DRY_RUN",
+      "recommendation": "hold",
+      "evidence_ids": [
+        "evidence-gsc-fixture-collector"
+      ],
+      "reason": "CMS draft work must remain hold until a dry-run package contract, claim gate, and exact human approval exist."
+    }
+  ],
+  "evidence_used": [
+    {
+      "evidence_id": "evidence-weekly-automation-readonly",
+      "source_class": "STATIC_ARTIFACT",
+      "how_used": "Confirmed the weekly automation is bounded as read-only and can produce a review packet without external writes."
+    },
+    {
+      "evidence_id": "evidence-ops-dashboard-mock",
+      "source_class": "MOCK",
+      "how_used": "Confirmed dashboard data cannot drive production SEO decisions until read-model bridge evidence exists."
+    },
+    {
+      "evidence_id": "evidence-gsc-fixture-collector",
+      "source_class": "FIXTURE",
+      "how_used": "Confirmed GSC-derived opportunity scoring must remain blocked until live data quality passes."
+    }
+  ],
+  "unsupported_assumptions": [
+    "GSC live data freshness is not verified in the packet.",
+    "The packet does not prove CMS draft preview quality or publication approval.",
+    "The packet does not prove search-provider submission readiness."
+  ],
+  "claim_risks": [
+    {
+      "risk": "The packet could be misread as permission to rewrite public SEO copy from fixture or mock evidence.",
+      "severity": "medium",
+      "recommendation": "Keep GPT 5.5 Pro output advisory only and require cited packet evidence for every recommendation."
+    }
+  ],
+  "approvals_required": [
+    {
+      "approval": "AUTHORIZE_CMS_MUTATION=<exact entity, URL, action, environment>",
+      "why_required": "GPT 5.5 Pro cannot approve CMS save, import, publish, unpublish, indexability, schema, or hreflang changes."
+    },
+    {
+      "approval": "AUTHORIZE_SEARCH_PROVIDER_SUBMISSION=<channel, URL batch, environment>",
+      "why_required": "GPT 5.5 Pro cannot approve GSC Request Indexing, Baidu, IndexNow, or Search Channel provider submission."
+    }
+  ],
+  "blocked_items": [
+    {
+      "item": "CMS save/publish/import/indexability/schema/hreflang execution",
+      "reason": "Requires separate exact human approval and is outside the review handoff authority."
+    },
+    {
+      "item": "GSC/Baidu/IndexNow/Search Channel submission",
+      "reason": "Requires separate provider/channel approval and is outside the review handoff authority."
+    },
+    {
+      "item": "Opportunity queue scoring",
+      "reason": "Live GSC data quality is not verified in the reviewed packet."
+    }
+  ]
+}

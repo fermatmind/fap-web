@@ -2,6 +2,7 @@ import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
+import { isSeoGpt55Handoff01AllowedFile } from "./helpers/currentPrScope";
 
 const ROOT = process.cwd();
 
@@ -89,6 +90,6 @@ describe("SEO runtime QA agent", () => {
       return;
     }
 
-    expect(files.every((file) => allowedFiles.has(file)), files.join("\n")).toBe(true);
+    expect(files.every((file) => allowedFiles.has(file) || isSeoGpt55Handoff01AllowedFile(file)), files.join("\n")).toBe(true);
   });
 });
