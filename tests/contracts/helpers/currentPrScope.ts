@@ -169,6 +169,14 @@ const MBTI64_FRONTEND_PERSONALITY_V21_HTML_COMPLETENESS_REPAIR_01_ALLOWED_FILES 
   "tests/contracts/personality-sections.contract.test.tsx",
 ]);
 
+const MBTI64_GLOBAL_HEADER_PRIVATE_ROUTE_HYGIENE_01_ALLOWED_FILES = new Set([
+  "components/layout/SiteHeader.tsx",
+  "docs/seo/personality/mbti64-global-header-private-route-hygiene-2026-06-19.md",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/mbti-ads-whitelist.contract.test.ts",
+  "tests/contracts/site-header-locale-link.contract.test.tsx",
+]);
+
 const RESEARCH_REPORT_METADATA_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/research/[slug]/page.tsx",
   "docs/seo/generated/metadata-surface-inventory.v1.csv",
@@ -2323,6 +2331,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/mbti64-frontend-personality-v21-html-completeness-repair-01") {
     return MBTI64_FRONTEND_PERSONALITY_V21_HTML_COMPLETENESS_REPAIR_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/mbti64-global-header-private-route-hygiene-01") {
+    return MBTI64_GLOBAL_HEADER_PRIVATE_ROUTE_HYGIENE_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/result-smoke-proxy-generation-hints") {
