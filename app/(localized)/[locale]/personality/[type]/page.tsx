@@ -311,6 +311,14 @@ function comparisonPageHeading(comparison: PersonalityComparisonViewModel): stri
   return comparison.title || comparisonSeoTitle(comparison);
 }
 
+function comparisonQuickAnswerBody(comparison: PersonalityComparisonViewModel): string {
+  const answerSurfaceSummary = comparison.answerSurface?.summaryBlocks
+    .map((block) => normalizeDisplayText(block.body))
+    .find(Boolean);
+
+  return answerSurfaceSummary || comparison.description || comparisonSeoDescription(comparison);
+}
+
 function comparisonVariantSummary(variant: PersonalityComparisonVariantViewModel): string {
   return variant.summaryCard.summary || variant.heroSummary || variant.seo.description || "";
 }
@@ -454,6 +462,7 @@ function PersonalityComparisonPage({
   });
   const assertiveLabel = comparison.variants.a.runtimeTypeCode;
   const turbulentLabel = comparison.variants.t.runtimeTypeCode;
+  const quickAnswerBody = comparisonQuickAnswerBody(comparison);
   const renderedComparisonSections = renderPersonalitySections(comparison.sections, locale);
   const comparisonFaqItems = extractPersonalityFaqItems(comparison.sections);
 
@@ -485,6 +494,18 @@ function PersonalityComparisonPage({
         <h1 className="m-0 mt-3 font-serif text-3xl font-semibold text-[var(--fm-text)] md:text-5xl">{heading}</h1>
         {description ? <p className="m-0 mt-4 max-w-3xl text-base leading-8 text-[var(--fm-text-muted)]">{description}</p> : null}
       </section>
+
+      {quickAnswerBody ? (
+        <section
+          className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+          data-testid="personality-comparison-quick-answer"
+        >
+          <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
+            {locale === "zh" ? "快速答案" : "Quick answer"}
+          </p>
+          <p className="m-0 mt-2 text-base leading-8 text-[var(--fm-text-muted)]">{quickAnswerBody}</p>
+        </section>
+      ) : null}
 
       <section className="grid gap-4 md:grid-cols-2" data-testid="personality-comparison-variants">
         <ComparisonVariantCard variant={comparison.variants.a} locale={locale} />

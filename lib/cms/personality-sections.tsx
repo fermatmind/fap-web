@@ -109,6 +109,17 @@ type PreferredRolePayload = {
   groups: PreferredRoleGroup[];
 };
 
+const MBTI64_PROMOTED_DETAIL_SECTION_KEYS = new Set([
+  "meaning",
+  "a_t_difference",
+  "core_traits",
+  "strengths_blind_spots",
+  "careers_work_style",
+  "relationships_communication",
+  "common_misreads",
+  "similar_types",
+]);
+
 export type RenderableProjectionSection = {
   key: string;
   title: string;
@@ -211,8 +222,19 @@ function stripZhTraitSuffix(title: string, locale: Locale): string {
   return title.replace(/（-?[A-Z]）$/, "").trim();
 }
 
-function renderSectionCard(sectionKey: string, title: string, content: ReactNode, locale?: Locale) {
-  const displayTitle = locale ? projectionSectionTitle(sectionKey, title, locale) : title;
+function renderSectionCard(
+  sectionKey: string,
+  title: string,
+  content: ReactNode,
+  locale?: Locale,
+  options: { preserveBackendTitle?: boolean } = {}
+) {
+  const displayTitle =
+    options.preserveBackendTitle && normalizeText(title)
+      ? title
+      : locale
+        ? projectionSectionTitle(sectionKey, title, locale)
+        : title;
 
   return (
     <Card key={sectionKey} id={sectionKey} data-section-key={sectionKey}>
@@ -506,6 +528,17 @@ function renderBoundaryCallouts(payload: Record<string, unknown> | null, locale:
   );
 }
 
+function firstTextValue(...values: unknown[]): string {
+  for (const value of values) {
+    const text = normalizeText(value);
+    if (text) {
+      return text;
+    }
+  }
+
+  return "";
+}
+
 function contentBodyFromValue(value: unknown): string {
   if (typeof value === "string") {
     return normalizeText(value);
@@ -517,6 +550,85 @@ function contentBodyFromValue(value: unknown): string {
   }
 
   return normalizeText(record.body ?? record.summary ?? record.text ?? record.answer);
+}
+
+function renderNamedTextList(title: string, items: unknown[], key: string) {
+  const normalizedItems = items.map((item) => normalizeText(item)).filter(Boolean);
+  if (normalizedItems.length === 0) {
+    return null;
+  }
+
+  return (
+    <section key={key} className="space-y-2" data-testid={`mbti64-detail-list-${key}`}>
+      <h3 className="m-0 text-base font-semibold text-[var(--fm-text)]">{title}</h3>
+      <ul className="m-0 space-y-2 pl-5 text-[var(--fm-text-muted)]">
+        {normalizedItems.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
+function renderMbti64DetailSection(section: CmsPersonalitySection, locale: Locale) {
+  const payload = asRecord(section.payloadJson);
+  const raw = asRecord(payload?.raw);
+  const body = firstTextValue(section.bodyMd, payload?.body, raw?.body);
+  const contentBlocks: ReactNode[] = [];
+
+  if (body) {
+    contentBlocks.push(
+      <div key="body" className="space-y-4 leading-7 text-[var(--fm-text-muted)]">
+        {renderSimpleMarkdown(body, { locale, minimumHeadingLevel: 3 })}
+      </div>
+    );
+  }
+
+  const itemList = renderNamedTextList(locale === "zh" ? "要点" : "Key points", asArray(raw?.items), "items");
+  if (itemList) {
+    contentBlocks.push(itemList);
+  }
+
+  const groupedLists = [
+    {
+      key: "strengths",
+      title: locale === "zh" ? "优势" : "Strengths",
+      items: asArray(raw?.strengths),
+    },
+    {
+      key: "blind_spots",
+      title: locale === "zh" ? "盲点" : "Blind spots",
+      items: asArray(raw?.blind_spots),
+    },
+    {
+      key: "watchouts",
+      title: locale === "zh" ? "注意事项" : "Watchouts",
+      items: asArray(raw?.watchouts),
+    },
+    {
+      key: "best_fit_environments",
+      title: locale === "zh" ? "适合环境" : "Best-fit environments",
+      items: asArray(raw?.best_fit_environments),
+    },
+    {
+      key: "communication_tips",
+      title: locale === "zh" ? "沟通建议" : "Communication tips",
+      items: asArray(raw?.communication_tips),
+    },
+  ];
+
+  for (const group of groupedLists) {
+    const rendered = renderNamedTextList(group.title, group.items, group.key);
+    if (rendered) {
+      contentBlocks.push(rendered);
+    }
+  }
+
+  if (contentBlocks.length === 0) {
+    return renderRichTextBlock(section.bodyHtml, section.bodyMd, locale);
+  }
+
+  return <div className="space-y-4">{contentBlocks}</div>;
 }
 
 function contentTitleFromValue(key: string, value: unknown, locale: Locale): string {
@@ -905,22 +1017,26 @@ export function renderPersonalitySections(sections: CmsPersonalitySection[], loc
           content = renderMbti64PromotionMetadataSection(section, locale);
           break;
         default:
-          switch (section.renderVariant) {
-            case "bullets":
-              content = renderLegacyBulletsSection(section);
-              break;
-            case "faq":
-              content = renderLegacyFaqSection(section, locale);
-              break;
-            case "cards":
-            case "links":
-              content = renderLegacyCardsSection(section, locale);
-              break;
-            case "callout":
-            case "rich_text":
-            default:
-              content = renderRichTextBlock(section.bodyHtml, section.bodyMd, locale);
-              break;
+          if (MBTI64_PROMOTED_DETAIL_SECTION_KEYS.has(section.sectionKey)) {
+            content = renderMbti64DetailSection(section, locale);
+          } else {
+            switch (section.renderVariant) {
+              case "bullets":
+                content = renderLegacyBulletsSection(section);
+                break;
+              case "faq":
+                content = renderLegacyFaqSection(section, locale);
+                break;
+              case "cards":
+              case "links":
+                content = renderLegacyCardsSection(section, locale);
+                break;
+              case "callout":
+              case "rich_text":
+              default:
+                content = renderRichTextBlock(section.bodyHtml, section.bodyMd, locale);
+                break;
+            }
           }
       }
 
@@ -928,7 +1044,9 @@ export function renderPersonalitySections(sections: CmsPersonalitySection[], loc
         return null;
       }
 
-      return renderSectionCard(section.sectionKey, section.title, content, locale);
+      return renderSectionCard(section.sectionKey, section.title, content, locale, {
+        preserveBackendTitle: MBTI64_PROMOTED_DETAIL_SECTION_KEYS.has(section.sectionKey),
+      });
     })
     .filter((section) => section !== null);
 }

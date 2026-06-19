@@ -820,6 +820,22 @@ describe("personality cms adapter contract", () => {
               is_enabled: true,
             },
           ],
+          answer_surface_v1: {
+            version: "answer.surface.v1",
+            answer_contract_version: "answer.surface.v1",
+            answer_scope: "public_indexable_detail",
+            surface_type: "personality_comparison_public_detail",
+            summary_blocks: [
+              {
+                key: "comparison_summary",
+                title: "INTJ-A vs INTJ-T: Key Differences",
+                body: "INTJ-A and INTJ-T share the Architect core; the main difference is confidence and pressure response.",
+                kind: "answer_first",
+              },
+            ],
+            faq_blocks: [],
+            compare_blocks: [],
+          },
           seo_meta: {
             seo_title: "INTJ-A vs INTJ-T",
             seo_description: "Compare confidence and stress response.",
@@ -833,6 +849,10 @@ describe("personality cms adapter contract", () => {
 
     expect(comparison).not.toBeNull();
     expect(comparison?.sections).toHaveLength(1);
+    expect(comparison?.answerSurface?.surfaceType).toBe("personality_comparison_public_detail");
+    expect(comparison?.answerSurface?.summaryBlocks[0]?.body).toBe(
+      "INTJ-A and INTJ-T share the Architect core; the main difference is confidence and pressure response."
+    );
     expect(comparison?.sections[0]).toMatchObject({
       sectionKey: "mbti64_comparison_a_vs_t",
       title: "INTJ-A vs INTJ-T",
@@ -859,6 +879,8 @@ describe("personality cms adapter contract", () => {
     expect(source).toContain("const legacyFaqItems = extractPersonalityFaqItems(detail.faqSections);");
     expect(source).toContain("projectionFaqItems.length");
     expect(source).toContain("cmsQuickAnswerBody(detail.supplementalSections)");
+    expect(source).toContain("comparisonQuickAnswerBody(comparison)");
+    expect(source).toContain('data-testid="personality-comparison-quick-answer"');
     expect(source).toContain("comparisonPageHeading(comparison)");
     expect(source).toContain("publicNameFromJsonLd(detail.projection.seo.jsonld)");
     expect(source).toContain('[...detail.supplementalSections.filter((section) => section.sectionKey !== "quick_answer"), ...detail.faqSections]');
