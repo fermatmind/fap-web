@@ -22657,7 +22657,7 @@
       "repo": "fap-web",
       "branch": "codex/seo-gpt55-handoff-01",
       "status": "local_checks_passed",
-      "commit_sha": "d9532209570f00515d946086d01180436d3811b3",
+      "commit_sha": "75dd1ba7082713e8c8217b4f3493b32f1aa3cae0",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1230",
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -22691,7 +22691,7 @@
         },
         "local_validation": {
           "status": "pass",
-          "evidence": "Passed: node scripts/seo/check-seo-agent-gpt55-handoff.mjs docs/seo/agent/examples/gpt55-review-response.example.json --packet docs/seo/agent/examples/seo-agent-control-packet.weekly.example.json; pnpm exec vitest run tests/contracts/seo-agent-gpt55-handoff.contract.test.ts; pnpm test:contract (501 files, 2866 tests); pnpm typecheck; NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build; focused rerun for GPT handoff/runtime QA/ops bridge contracts; JSON/YAML parse; git diff --check; explicit changed-file scope validation."
+          "evidence": "Passed: node scripts/seo/check-seo-agent-gpt55-handoff.mjs docs/seo/agent/examples/gpt55-review-response.example.json --packet docs/seo/agent/examples/seo-agent-control-packet.weekly.example.json; pnpm exec vitest run tests/contracts/seo-agent-gpt55-handoff.contract.test.ts; pnpm test:contract (501 files, 2866 tests); pnpm lint . after remote build exposed a no-explicit-any lint error; pnpm typecheck; NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build; focused rerun for GPT handoff/runtime QA/ops bridge contracts; JSON/YAML parse; git diff --check; explicit changed-file scope validation."
         },
         "github_checks": {
           "status": "pending",
@@ -22718,6 +22718,11 @@
           "at": "2026-06-20T05:19:00+08:00",
           "status": "pr_open",
           "note": "Opened https://github.com/fermatmind/fap-web/pull/1230 after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-06-20T05:24:00+08:00",
+          "status": "github_checks_failed_inspected_and_fixed",
+          "note": "PR #1230 build failed in pnpm lint . because tests/contracts/seo-agent-gpt55-handoff.contract.test.ts used explicit any. Fixed within current PR scope, reran lint, focused test, typecheck, build, diff check, and restored build-generated sitemap before pushing 75dd1ba7082713e8c8217b4f3493b32f1aa3cae0."
         }
       ]
     }
