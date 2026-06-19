@@ -1,6 +1,6 @@
 ---
 name: fermatmind-daily-seo-ops
-description: Use for FermatMind daily SEO article operations when Codex needs to select today's article topic, generate a Mode B brief handoff, QA a Mode C CMS package, prepare CMS release-gate checklists, or run D1/D7/D14 observation for SEO articles without executing CMS writes, publish, revalidation, schema/hreflang, GSC, IndexNow, Baidu, sitemap, or llms actions.
+description: Use for FermatMind daily SEO article operations when Codex needs to select today's article topic, generate a Mode B brief handoff, produce a GPT 5.5 Pro content-package prompt packet, QA a Mode C CMS package, prepare CMS release-gate checklists, or run D1/D7/D14 observation for SEO articles without executing CMS writes, publish, revalidation, schema/hreflang, GSC, IndexNow, Baidu, sitemap, or llms actions.
 ---
 
 # FermatMind Daily SEO Ops Skill
@@ -38,6 +38,7 @@ Prefer evidence in this order:
 |---|---|
 | Pick today's SEO topic or compare topic candidates | `daily_topic_selection` |
 | Create a brief-only GPT handoff | `mode_b_brief_generation` |
+| Create a paste-ready GPT 5.5 Pro content-package prompt packet | `gpt_content_package_prompt_handoff` |
 | QA a GPT/Mode C CMS package | `mode_c_package_qa` |
 | Prepare controlled CMS release gate text/checklists | `cms_release_gate` |
 | Review D1/D7/D14 performance and feed next briefs | `d1_d7_d14_observation` |
@@ -92,6 +93,33 @@ No-go:
 - Do not write a full article body.
 - Do not create a CMS import package.
 - Do not imply publish/search authorization.
+
+### `gpt_content_package_prompt_handoff`
+
+Purpose: after `daily_topic_selection` and `mode_b_brief_generation`, produce a paste-ready GPT 5.5 Pro prompt packet for Mode C content package generation.
+
+Do:
+
+- Output the daily recommendation and why it should be written today.
+- Include not-selected alternates and the reason each is held.
+- Include route cannibalization boundaries and existing public routes that GPT must not duplicate.
+- Include the GPT 5.5 Pro role instruction and task card.
+- Include the content package output tree, required CMS fields, media requirements, public route/CTA/internal-link contract, claim gate, and forbidden claims.
+- Include Codex follow-up QA acceptance criteria for the returned package.
+- Mark downstream lanes as held: CMS draft/import, publish/promote, revalidation, schema, hreflang, sitemap, llms, GSC, IndexNow, Baidu, and Search Channel.
+
+Output:
+
+- Recommended topic summary.
+- Paste-ready GPT 5.5 Pro prompt packet.
+- Decision: `GPT_PROMPT_READY_FOR_MODE_C_PACKAGE_OWNER` or `GPT_PROMPT_BLOCKED_NEEDS_BRIEF_OR_ROUTE_INPUT`.
+
+No-go:
+
+- Do not write the full article body.
+- Do not create or zip the content package.
+- Do not create CMS drafts, import packages, promote revisions, publish, revalidate, submit search, enable schema/hreflang, mutate sitemap/llms, or create code/PR instructions for GPT.
+- Do not include secrets, admin URLs, raw analytics exports with private data, private result/order/share/payment URLs, tokenized URLs, local image paths, or fake Media Library URLs.
 
 ### `mode_c_package_qa`
 
