@@ -22826,7 +22826,7 @@
       "repo": "fap-web",
       "branch": "codex/seo-opportunity-queue-contract-01",
       "status": "local_checks_passed",
-      "commit_sha": null,
+      "commit_sha": "aa31b8751aa9759419282178ef6c7e5ce89ec0b2",
       "pr_url": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -22879,6 +22879,11 @@
           "at": "2026-06-20T06:18:00+08:00",
           "status": "local_checks_passed",
           "note": "Opportunity queue contract checker, focused contracts, full contract suite, lint, typecheck, build, parse checks, diff check, and explicit scope validation passed. Build-generated public/sitemap.xml was restored because sitemap artifacts are outside this PR scope."
+        },
+        {
+          "at": "2026-06-20T06:19:00+08:00",
+          "status": "committed",
+          "note": "Committed scoped implementation as aa31b8751aa9759419282178ef6c7e5ce89ec0b2."
         }
       ]
     }
