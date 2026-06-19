@@ -2,9 +2,9 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-14T20:36:20+08:00",
+  "updated_at": "2026-06-19T16:25:00+08:00",
   "status": "active",
-  "phase": "result_p0_pdf_leak_hardening_02",
+  "phase": "mbti64_serp_snippet_ctr_package",
   "pr_namespace": "PR-PRAC-*",
   "branch_naming_convention": "codex/pr-prac-<nn>-<short-scope>",
   "mode": "local_clone_preferred",
@@ -22101,6 +22101,76 @@
           "at": "2026-06-13T07:49:00+08:00",
           "status": "ready_to_merge",
           "note": "GitHub checks passed for PR #1118 at head 9ddc6be63059c9546d913067f352f3c6850c9009 and mergeStateStatus was CLEAN. Recording ready_to_merge before merge per train policy."
+        }
+      ]
+    },
+    {
+      "id": "MBTI64-SERP-SNIPPET-CTR-PACKAGE-01",
+      "repo": "fap-web",
+      "branch": "codex/mbti64-serp-snippet-ctr-package-01",
+      "status": "ready_to_merge",
+      "commit_sha": "fdad98cd549624f6708ffddbfdca2cf1401979d3",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1212",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly approved implementing MBTI64-SERP-SNIPPET-CTR-PACKAGE-01 and authorized docs/codex train/state updates on 2026-06-19."
+        },
+        "scope": {
+          "status": "pass",
+          "allowed_paths": [
+            "docs/seo/personality/mbti64-serp-snippet-ctr-package-2026-06-19.json",
+            "docs/seo/personality/mbti64-serp-snippet-ctr-package-2026-06-19.md",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ],
+          "evidence": "Changed files are limited to docs/codex train metadata and the two MBTI64 SERP snippet CTR package report artifacts."
+        },
+        "local_validation": {
+          "status": "pass",
+          "evidence": "Passed: jq empty generated JSON; Node JSON parse for report and state; ruby YAML parse for manifest; git diff --check; explicit scope validation including untracked files."
+        },
+        "pull_request": {
+          "status": "open",
+          "evidence": "Opened https://github.com/fermatmind/fap-web/pull/1212 after local checks and scope validation passed."
+        },
+        "github_checks": {
+          "status": "pass",
+          "checks": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "CodeQL",
+            "analyze (javascript-typescript)"
+          ],
+          "evidence": "GitHub checks passed on PR #1212 head fdad98cd549624f6708ffddbfdca2cf1401979d3 and mergeStateStatus is CLEAN."
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-19T16:10:00+08:00",
+          "status": "in_progress",
+          "note": "Started MBTI64-SERP-SNIPPET-CTR-PACKAGE-01 from latest origin/main on clean worktree and generated artifact-only SERP snippet CTR package."
+        },
+        {
+          "at": "2026-06-19T16:13:00+08:00",
+          "status": "local_checks_passed",
+          "note": "Generated 8-page SERP snippet CTR package; validation passed and no runtime/CMS/sitemap/llms/search files changed."
+        },
+        {
+          "at": "2026-06-19T16:15:00+08:00",
+          "status": "pr_open",
+          "note": "Opened fap-web PR #1212 for MBTI64-SERP-SNIPPET-CTR-PACKAGE-01."
+        },
+        {
+          "at": "2026-06-19T16:25:00+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed and mergeStateStatus is CLEAN for PR #1212."
         }
       ]
     }
