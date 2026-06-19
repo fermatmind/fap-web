@@ -22825,8 +22825,8 @@
       "id": "SEO-OPPORTUNITY-QUEUE-CONTRACT-01",
       "repo": "fap-web",
       "branch": "codex/seo-opportunity-queue-contract-01",
-      "status": "pr_open",
-      "commit_sha": "aa31b8751aa9759419282178ef6c7e5ce89ec0b2",
+      "status": "ready_to_merge",
+      "commit_sha": "b6ce620595a3849ea94e6ebe60a8a8967b7d901a",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1232",
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -22865,8 +22865,8 @@
           "evidence": "Passed: node scripts/seo/check-seo-opportunity-queue-contract.mjs docs/seo/agent/examples/seo-opportunity-queue-contract.example.json; pnpm exec vitest run tests/contracts/seo-opportunity-queue-contract.contract.test.ts tests/contracts/seo-agent-weekly-control-packet.contract.test.ts tests/contracts/seo-agent-gpt55-handoff.contract.test.ts tests/contracts/seo-runtime-qa-agent.contract.test.ts tests/contracts/seo-ops-readmodel-bridge.contract.test.ts; pnpm test:contract (503 files, 2879 tests); pnpm lint . (0 errors, existing warnings only); pnpm typecheck; NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build; JSON/YAML parse checks; git diff --check; explicit scope validation."
         },
         "github_checks": {
-          "status": "pending",
-          "evidence": "PR #1232 opened; GitHub checks pending."
+          "status": "pass",
+          "evidence": "PR #1232 checks passed: CodeQL, analyze (javascript-typescript), build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze. mergeStateStatus=CLEAN and PR diff scope validation passed."
         }
       },
       "history": [
@@ -22889,6 +22889,11 @@
           "at": "2026-06-20T06:19:47+08:00",
           "status": "pr_open",
           "note": "Opened PR #1232 at https://github.com/fermatmind/fap-web/pull/1232; GitHub checks pending."
+        },
+        {
+          "at": "2026-06-20T06:25:33+08:00",
+          "status": "ready_to_merge",
+          "note": "PR #1232 checks passed, mergeStateStatus was CLEAN, and PR diff scope validation matched the opportunity queue contract allowlist."
         }
       ]
     }
