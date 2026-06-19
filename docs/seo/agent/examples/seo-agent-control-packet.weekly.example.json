@@ -1,0 +1,421 @@
+{
+  "schema_version": "fermatmind.seo_agent.control_packet.v1",
+  "run_id": "seo-agent-weekly-2026-06-20-mvp0-example",
+  "run_type": "weekly",
+  "generated_at": "2026-06-20T02:00:00+08:00",
+  "generated_by": "Codex",
+  "mode": "read_only",
+  "repositories": [
+    {
+      "name": "fap-web",
+      "path": "/private/tmp/fap-web-seo-agent-control-packet-01",
+      "branch": "codex/seo-agent-control-packet-01",
+      "head_sha": "a6e5fe505e9f3c10c6d834a9178208f6ee012ca3",
+      "status": "clean"
+    },
+    {
+      "name": "fap-api",
+      "path": "/private/tmp/fap-api-seo-agent-mvp0-evidence-closure-01",
+      "branch": "detached_origin_main",
+      "head_sha": "2fe2c8da251a0e97b0aa9da6282dee5ec6bbb81e",
+      "status": "clean"
+    }
+  ],
+  "evidence_window": {
+    "started_at": "2026-06-20T01:00:00+08:00",
+    "ended_at": "2026-06-20T02:00:00+08:00",
+    "timezone": "Asia/Shanghai"
+  },
+  "source_summary": [
+    {
+      "source_id": "fap-api-seo-intel-read-model",
+      "source_name": "fap-api seo_intel read model",
+      "source_class": "LIVE_API",
+      "evidence_label": "VERIFIED",
+      "authority_rank": 1,
+      "allowed_use": "Read-only operational truth after access and payload shape are verified.",
+      "forbidden_use": "May not mutate CMS, provider, collector, scheduler, or production state.",
+      "notes": "Routes and read-only controller metadata exist in repo evidence."
+    },
+    {
+      "source_id": "public-runtime-html",
+      "source_name": "Public runtime HTML and discovery files",
+      "source_class": "LIVE_API",
+      "evidence_label": "VERIFIED",
+      "authority_rank": 2,
+      "allowed_use": "Rendered SEO truth for status, redirects, canonical, robots, schema, hreflang, sitemap, and llms inclusion.",
+      "forbidden_use": "Cannot infer CMS editorial intent or approve mutation."
+    },
+    {
+      "source_id": "ops-seo-operations-dashboard",
+      "source_name": "fap-web /ops/seo-operations dashboard",
+      "source_class": "MIXED",
+      "component_sources": [
+        "MOCK",
+        "STATIC_ARTIFACT"
+      ],
+      "evidence_label": "VERIFIED",
+      "authority_rank": 6,
+      "allowed_use": "Dashboard shell and UI contract review only.",
+      "forbidden_use": "Must not drive production SEO decisions until bridged to seo_intel read models."
+    },
+    {
+      "source_id": "seo-issue-queue-artifact",
+      "source_name": "docs/seo/generated/seo-issue-queue.v1.json",
+      "source_class": "STATIC_ARTIFACT",
+      "evidence_label": "VERIFIED",
+      "authority_rank": 6,
+      "allowed_use": "Issue queue shell sample and contract shape.",
+      "forbidden_use": "Not production queue truth."
+    },
+    {
+      "source_id": "gsc-live-data",
+      "source_name": "GSC live data",
+      "source_class": "UNKNOWN",
+      "evidence_label": "NEEDS_OPERATOR_CONFIRMATION",
+      "authority_rank": 5,
+      "allowed_use": "Observation only after export or read-model freshness is verified.",
+      "forbidden_use": "Must not enter opportunity scoring until data quality passes."
+    }
+  ],
+  "evidence_items": [
+    {
+      "id": "evidence-weekly-automation-readonly",
+      "source_id": "weekly-automation",
+      "evidence_label": "VERIFIED",
+      "file_path": "/Users/rainie/.codex/automations/weekly-fermatmind-seo-analysis-and-optimization-plan/automation.toml",
+      "summary": "Existing weekly automation is active and hard-bounded as read-only."
+    },
+    {
+      "id": "evidence-ops-dashboard-mock",
+      "source_id": "ops-seo-operations-dashboard",
+      "evidence_label": "VERIFIED",
+      "file_path": "components/ops/seo/SeoOperationsDashboard.tsx",
+      "summary": "Dashboard uses artifact-backed operations data and labels the surface as Contract-backed mock."
+    },
+    {
+      "id": "evidence-gsc-fixture-collector",
+      "source_id": "gsc-live-data",
+      "evidence_label": "VERIFIED",
+      "file_path": "backend/app/Services/SeoIntel/GscCollector.php",
+      "summary": "Repo evidence indicates fixture-only GSC collector behavior; live row freshness remains unverified."
+    }
+  ],
+  "runtime_findings": [
+    {
+      "id": "runtime-en-mbti-basics-redirect",
+      "title": "/en/articles/mbti-basics redirects to zh article",
+      "evidence_label": "VERIFIED",
+      "source_class": "LIVE_API",
+      "severity": "medium",
+      "summary": "Runtime sample found 308 redirect from /en/articles/mbti-basics to /zh/articles/mbti-basics. This may be intentional for a zh-only article but requires CMS/article route-policy confirmation.",
+      "recommended_lane": "RUNTIME_QA_READONLY",
+      "requires_human_confirmation": true
+    }
+  ],
+  "ops_dashboard_findings": [
+    {
+      "id": "ops-dashboard-kpi-mixed",
+      "title": "/ops/seo-operations KPI card data is mixed",
+      "evidence_label": "VERIFIED",
+      "source_class": "MIXED",
+      "component_sources": [
+        "MOCK",
+        "STATIC_ARTIFACT"
+      ],
+      "severity": "medium",
+      "summary": "Issue/blocked counts can derive from a static artifact, while other readiness/indexed values remain mock.",
+      "recommended_lane": "OPS_READMODEL_BRIDGE",
+      "requires_human_confirmation": false
+    },
+    {
+      "id": "ops-dashboard-trends-keywords-pages-mock",
+      "title": "/ops/seo-operations trend, keyword, and page tables are mock",
+      "evidence_label": "VERIFIED",
+      "source_class": "MOCK",
+      "severity": "medium",
+      "summary": "Traffic trend, keyword opportunity, and page performance modules are hard-coded mock data and must not drive production SEO decisions.",
+      "recommended_lane": "OPS_READMODEL_BRIDGE",
+      "requires_human_confirmation": false
+    },
+    {
+      "id": "ops-dashboard-issue-queue-static-artifact",
+      "title": "Issue queue is static artifact-backed",
+      "evidence_label": "VERIFIED",
+      "source_class": "STATIC_ARTIFACT",
+      "severity": "low",
+      "summary": "Issue/task queue rows map from docs/seo/generated/seo-issue-queue.v1.json and are suitable only as contract shell data.",
+      "recommended_lane": "OPS_READMODEL_BRIDGE",
+      "requires_human_confirmation": false
+    }
+  ],
+  "seo_intel_findings": [
+    {
+      "id": "seo-intel-read-endpoints-exist",
+      "title": "seo_intel read endpoints exist",
+      "evidence_label": "VERIFIED",
+      "source_class": "LIVE_API",
+      "severity": "low",
+      "summary": "fap-api defines admin-gated read-only endpoints for overview, URL truth, issues, trends, page performance, and conversion funnel.",
+      "recommended_lane": "OPS_READMODEL_BRIDGE",
+      "requires_human_confirmation": false
+    }
+  ],
+  "gsc_status": {
+    "evidence_label": "NEEDS_OPERATOR_CONFIRMATION",
+    "source_class": "UNKNOWN",
+    "summary": "seo_gsc_daily schema and readers exist, but production live data freshness and fixture-vs-live state are unknown.",
+    "can_drive_actions": false,
+    "blocked_reason": "Run SEO-GSC-DATA-QUALITY-01 before opportunity scoring."
+  },
+  "cms_status": {
+    "evidence_label": "VERIFIED",
+    "source_class": "LIVE_API",
+    "summary": "CMS admin surfaces and preview gates exist, but CMS draft/write automation is not approved.",
+    "can_drive_actions": false,
+    "blocked_reason": "CMS Draft Agent remains HOLD until dry-run package and approval gates exist."
+  },
+  "search_channel_status": {
+    "evidence_label": "VERIFIED",
+    "source_class": "LIVE_API",
+    "summary": "Search Channel queue tables and guardrails exist; writes and live submissions are disabled by default.",
+    "can_drive_actions": false,
+    "blocked_reason": "Search-provider execution remains human-authorized and out of MVP0."
+  },
+  "candidate_actions": [
+    {
+      "id": "action-control-packet",
+      "lane": "DOCS_ONLY_PR",
+      "verdict": "GO",
+      "summary": "Create the control-plane contract and schemas.",
+      "risk": "low",
+      "requires_approval": false
+    },
+    {
+      "id": "action-runtime-qa",
+      "lane": "RUNTIME_QA_READONLY",
+      "verdict": "GO",
+      "summary": "Add repeatable public runtime SEO QA after this contract lands.",
+      "risk": "low",
+      "requires_approval": false
+    },
+    {
+      "id": "action-ops-readmodel-bridge",
+      "lane": "OPS_READMODEL_BRIDGE",
+      "verdict": "GO",
+      "summary": "Bridge /ops/seo-operations to fap-api seo_intel read models.",
+      "risk": "medium",
+      "requires_approval": false
+    },
+    {
+      "id": "action-gsc-data-quality",
+      "lane": "GSC_DATA_QUALITY_READONLY",
+      "verdict": "CONDITIONAL_GO",
+      "summary": "Validate GSC table freshness and live-vs-fixture status before opportunity queue work.",
+      "risk": "medium",
+      "requires_approval": false
+    },
+    {
+      "id": "action-opportunity-queue",
+      "lane": "OPPORTUNITY_QUEUE_READONLY",
+      "verdict": "HOLD",
+      "summary": "Hold until GSC data quality passes.",
+      "risk": "medium",
+      "requires_approval": false
+    },
+    {
+      "id": "action-cms-draft-agent",
+      "lane": "CMS_DRAFT_PACKAGE_DRY_RUN",
+      "verdict": "HOLD",
+      "summary": "Hold until dry-run package contract, preview QA, and approval gates exist.",
+      "risk": "high",
+      "requires_approval": true
+    }
+  ],
+  "blocked_actions": [
+    {
+      "action": "CMS save/publish/import",
+      "reason": "Production CMS mutation is default-denied.",
+      "required_approval": "Exact human approval naming entity, URL, action, and lane."
+    },
+    {
+      "action": "GSC Request Indexing or provider submit",
+      "reason": "Search provider mutation is out of scope.",
+      "required_approval": "Separate exact provider/channel approval."
+    },
+    {
+      "action": "Opportunity queue scoring",
+      "reason": "Live GSC data quality is not verified.",
+      "required_approval": "Complete SEO-GSC-DATA-QUALITY-01 first."
+    }
+  ],
+  "approvals_required": [
+    {
+      "approval_id": "approval-cms-mutation",
+      "action": "Any CMS save/import/publish/indexability change",
+      "required_phrase": "AUTHORIZE_CMS_MUTATION=<exact entity, URL, action, environment>",
+      "required_before_lane": "CMS_DRAFT_PACKAGE_DRY_RUN"
+    },
+    {
+      "approval_id": "approval-provider-submit",
+      "action": "Any GSC/Baidu/IndexNow/search-provider submission",
+      "required_phrase": "AUTHORIZE_SEARCH_PROVIDER_SUBMISSION=<channel, URL batch, environment>",
+      "required_before_lane": "SEARCH_READINESS_REPORT"
+    }
+  ],
+  "recommended_prs": [
+    {
+      "id": "SEO-AGENT-CONTROL-PACKET-01",
+      "title": "Define FermatMind SEO Agent control packet",
+      "order": 1,
+      "verdict": "GO",
+      "scope": [
+        "docs/seo/agent/**"
+      ],
+      "dependencies": [],
+      "notes": "Current docs/contracts-only PR."
+    },
+    {
+      "id": "SEO-OPS-READMODEL-BRIDGE-01",
+      "title": "Bridge Ops SEO dashboard to seo_intel read models",
+      "order": 2,
+      "verdict": "GO",
+      "scope": [
+        "components/ops/seo/**",
+        "read-only frontend API adapter/tests"
+      ],
+      "dependencies": [
+        "SEO-AGENT-CONTROL-PACKET-01"
+      ],
+      "notes": "Recommended next PR after this one."
+    },
+    {
+      "id": "SEO-RUNTIME-QA-AGENT-01",
+      "title": "Add public-runtime SEO QA agent",
+      "order": 3,
+      "verdict": "GO",
+      "scope": [
+        "docs/seo/agent/runtime-qa/** or explicitly authorized QA script files"
+      ],
+      "dependencies": [
+        "SEO-AGENT-CONTROL-PACKET-01"
+      ],
+      "notes": "Can proceed after bridge if operator prefers dashboard truth first."
+    },
+    {
+      "id": "SEO-GSC-DATA-QUALITY-01",
+      "title": "Add read-only GSC data quality gate",
+      "order": 4,
+      "verdict": "CONDITIONAL_GO",
+      "scope": [
+        "backend read-only validator/tests",
+        "docs/seo/agent/**"
+      ],
+      "dependencies": [
+        "SEO-AGENT-CONTROL-PACKET-01"
+      ],
+      "notes": "Must precede opportunity queue."
+    }
+  ],
+  "observation_windows": [
+    {
+      "window": "D1",
+      "purpose": "Verify runtime rendering and no accidental SEO regression.",
+      "metrics": [
+        "HTTP status",
+        "canonical",
+        "robots",
+        "schema",
+        "hreflang",
+        "sitemap inclusion",
+        "llms inclusion"
+      ],
+      "rollback_conditions": [
+        "Public URL becomes 4xx/5xx",
+        "noindex appears unexpectedly",
+        "canonical points to wrong language or private URL"
+      ],
+      "expand_conditions": [
+        "No runtime regression",
+        "Expected metadata is stable"
+      ]
+    },
+    {
+      "window": "D7",
+      "purpose": "Review early search and indexability signals.",
+      "metrics": [
+        "GSC impressions",
+        "GSC clicks",
+        "CTR",
+        "average position",
+        "Baidu landing if available",
+        "Search Channel readiness"
+      ],
+      "rollback_conditions": [
+        "Coverage/indexability regresses",
+        "CTR or query mix suggests misleading title/meta"
+      ],
+      "expand_conditions": [
+        "Impressions appear without technical regressions",
+        "Query intent matches target page"
+      ]
+    },
+    {
+      "window": "D14",
+      "purpose": "Trend review before scaling similar actions.",
+      "metrics": [
+        "GSC trend",
+        "query coverage",
+        "article_to_test_click",
+        "start_test",
+        "complete_test"
+      ],
+      "rollback_conditions": [
+        "Sustained traffic or conversion deterioration",
+        "Unexpected private URL or claim-risk signal"
+      ],
+      "expand_conditions": [
+        "Positive trend with stable conversion path",
+        "No new claim or private URL issue"
+      ]
+    },
+    {
+      "window": "D28",
+      "purpose": "Keep, rollback, or expand decision.",
+      "metrics": [
+        "D28 clicks",
+        "D28 impressions",
+        "CTR",
+        "average position",
+        "conversion funnel",
+        "search-channel state"
+      ],
+      "rollback_conditions": [
+        "Material SEO or conversion regression",
+        "Provider/indexability state worsens after action"
+      ],
+      "expand_conditions": [
+        "Stable positive search trend",
+        "No runtime or claim risk",
+        "Clear page-family candidate set"
+      ]
+    }
+  ],
+  "gpt55_handoff": {
+    "required": true,
+    "packet_path": "docs/seo/agent/examples/seo-agent-control-packet.weekly.example.json",
+    "review_questions": [
+      "Is the final verdict supported by evidence?",
+      "Should Opportunity Queue remain HOLD?",
+      "Should CMS Draft Agent remain HOLD?",
+      "Are claim-risk or unsupported assumptions present?"
+    ],
+    "authority_boundary": "GPT 5.5 Pro may advise on strategy and claim boundaries but cannot approve CMS mutation or search-provider submission."
+  },
+  "final_verdict": {
+    "verdict": "GO",
+    "recommended_lane": "DOCS_ONLY_PR",
+    "summary": "Proceed with the docs-only control packet. Hold Opportunity Queue and CMS Draft Agent until their prerequisites pass."
+  },
+  "stop_conditions_triggered": []
+}
