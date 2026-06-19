@@ -304,8 +304,33 @@ describe("personality projection section renderer contract", () => {
     const sections = [
       cmsSection({
         sectionKey: "meaning",
-        title: "这个类型是什么意思",
+        title: "ISTJ-A 是什么人格？",
         bodyMd: "ISTJ-A 表示更稳定自信的 ISTJ 表达方式。",
+      }),
+      cmsSection({
+        sectionKey: "core_traits",
+        title: "ISTJ-A 的核心特点",
+        bodyMd: "",
+        payloadJson: {
+          raw: {
+            h2: "ISTJ-A 的核心特点",
+            items: [
+              "责任闭环：倾向于把承诺落实到流程、时间表和可检查的结果。",
+              "稳定执行：在压力下通常更愿意按既定标准推进。",
+            ],
+          },
+        },
+      }),
+      cmsSection({
+        sectionKey: "strengths_blind_spots",
+        title: "优势与盲点",
+        bodyMd: "",
+        payloadJson: {
+          raw: {
+            strengths: ["可靠、守时、重视标准。"],
+            blind_spots: ["可能过早把不确定性排除在计划外。"],
+          },
+        },
       }),
       cmsSection({
         sectionKey: "faq",
@@ -365,8 +390,14 @@ describe("personality projection section renderer contract", () => {
 
     const { container } = render(<div>{renderPersonalitySections(sections, "zh")}</div>);
 
-    expect(screen.getByRole("heading", { level: 2, name: "这个类型是什么意思" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 2, name: "ISTJ-A 是什么人格？" })).toBeInTheDocument();
+    expect(screen.queryByRole("heading", { level: 2, name: "这个类型是什么意思" })).not.toBeInTheDocument();
     expect(screen.getByText("ISTJ-A 表示更稳定自信的 ISTJ 表达方式。")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 2, name: "ISTJ-A 的核心特点" })).toBeInTheDocument();
+    expect(screen.getByText("责任闭环：倾向于把承诺落实到流程、时间表和可检查的结果。")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 2, name: "优势与盲点" })).toBeInTheDocument();
+    expect(screen.getByText("可靠、守时、重视标准。")).toBeInTheDocument();
+    expect(screen.getByText("可能过早把不确定性排除在计划外。")).toBeInTheDocument();
     expect(screen.getByText("ISTJ-A 比 ISTJ-T 更好吗？")).toBeInTheDocument();
     expect(screen.getByText("大五人格测试")).toBeInTheDocument();
     expect(screen.getAllByText("方法边界").length).toBeGreaterThan(0);
