@@ -74,8 +74,9 @@ function personalitySummary({
   };
 }
 
-function mockLlmsFullMbti64Dependencies() {
+function mockLlmsFullMbti64Dependencies(options: { personalityDelayMs?: number } = {}) {
   vi.resetModules();
+  const personalityDelayMs = options.personalityDelayMs ?? 0;
 
   vi.doMock("@/lib/site", () => ({
     getSiteUrlOrThrow: vi.fn(() => SITE_URL),
@@ -88,21 +89,27 @@ function mockLlmsFullMbti64Dependencies() {
   }));
   vi.doMock("@/lib/cms/personality", () => ({
     buildDefaultPublicPersonalitySlug: vi.fn((value: string) => `${String(value).toLowerCase()}-a`),
-    listPersonalityProfiles: vi.fn(async (params: { locale: TestLocale; includeVariants?: boolean }) => ({
-      items: params.includeVariants
-        ? MBTI_BASE_TYPES.flatMap((base) => [
-            personalitySummary({ locale: params.locale, base, variant: "a" }),
-            personalitySummary({ locale: params.locale, base, variant: "t" }),
-          ])
-        : MBTI_BASE_TYPES.map((base) => personalitySummary({ locale: params.locale, base })),
-      landingSurface: null,
-      pagination: {
-        currentPage: 1,
-        perPage: params.includeVariants ? 32 : 16,
-        total: params.includeVariants ? 32 : 16,
-        lastPage: 1,
-      },
-    })),
+    listPersonalityProfiles: vi.fn(async (params: { locale: TestLocale; includeVariants?: boolean }) => {
+      if (personalityDelayMs > 0) {
+        await new Promise((resolve) => setTimeout(resolve, personalityDelayMs));
+      }
+
+      return {
+        items: params.includeVariants
+          ? MBTI_BASE_TYPES.flatMap((base) => [
+              personalitySummary({ locale: params.locale, base, variant: "a" }),
+              personalitySummary({ locale: params.locale, base, variant: "t" }),
+            ])
+          : MBTI_BASE_TYPES.map((base) => personalitySummary({ locale: params.locale, base })),
+        landingSurface: null,
+        pagination: {
+          currentPage: 1,
+          perPage: params.includeVariants ? 32 : 16,
+          total: params.includeVariants ? 32 : 16,
+          lastPage: 1,
+        },
+      };
+    }),
     getPersonalityComparisonBySlug: vi.fn(async (slug: string) => ({
       title: `${slug.toUpperCase()} comparison`,
       description: `${slug.toUpperCase()} comparison summary.`,
@@ -181,9 +188,30 @@ function changedFiles(): string[] {
 afterEach(() => {
   vi.restoreAllMocks();
   vi.resetModules();
+  delete process.env.FERMATMIND_LLMS_FULL_REQUIRE_PERSONALITY_COHORT;
 });
 
-describe("MBTI64-LLMS-FULL-PILOT-EXPOSURE-REPAIR-01", () => {
+function minimalLlmsFullText(urls: string[]): string {
+  return [
+    "# FermatMind llms-full.txt",
+    "Generated-At: 2026-06-19T00:00:00.000Z",
+    `Site: ${SITE_URL}`,
+    "",
+    ...urls.map((url) => `- URL: ${url}`),
+  ].join("\n");
+}
+
+function completeMbti64Urls(): string[] {
+  return ["en", "zh"].flatMap((locale) => [
+    ...MBTI_BASE_TYPES.flatMap((base) => [
+      `${SITE_URL}/${locale}/personality/${base}-a`,
+      `${SITE_URL}/${locale}/personality/${base}-t`,
+    ]),
+    ...MBTI_BASE_TYPES.map((base) => `${SITE_URL}/${locale}/personality/${base}-a-vs-${base}-t`),
+  ]);
+}
+
+describe("MBTI64-LLMS-FULL-PILOT-EXPOSURE-REPAIR-02", () => {
   it("keeps the 8 pilot URLs in the llms-full MBTI64 personality cohort", async () => {
     mockLlmsFullMbti64Dependencies();
 
@@ -198,6 +226,42 @@ describe("MBTI64-LLMS-FULL-PILOT-EXPOSURE-REPAIR-01", () => {
     expect(personalityUrls.size).toBe(96);
     expect([...personalityUrls].filter((url) => /\/personality\/[a-z]{4}-[at]$/.test(url)).length).toBe(64);
     expect([...personalityUrls].filter((url) => /-a-vs-[a-z]{4}-t$/.test(url)).length).toBe(32);
+  });
+
+  it("keeps the MBTI64 cohort when personality API latency exceeds the default source budget", async () => {
+    mockLlmsFullMbti64Dependencies({ personalityDelayMs: 1_650 });
+
+    const startedAt = Date.now();
+    const { buildLlmsFullText } = await import("@/app/llms-full.txt/route");
+    const text = await buildLlmsFullText(SITE_URL);
+    const personalityUrls = new Set(extractPersonalityUrls(text));
+
+    expect(Date.now() - startedAt).toBeGreaterThanOrEqual(1_500);
+    for (const path of PILOT_PATHS) {
+      expect(text).toContain(`${SITE_URL}${path}`);
+    }
+    expect(personalityUrls.size).toBe(96);
+  });
+
+  it("does not treat an incomplete MBTI64 personality cohort as a complete llms-full cache artifact", async () => {
+    process.env.FERMATMIND_LLMS_FULL_REQUIRE_PERSONALITY_COHORT = "true";
+    const { isCompleteLlmsFullText } = await import("@/app/llms-full.txt/route");
+    const incomplete = minimalLlmsFullText([
+      `${SITE_URL}/en/personality`,
+      `${SITE_URL}/zh/personality`,
+      `${SITE_URL}/en/career/jobs/accountants-and-auditors`,
+      `${SITE_URL}/zh/career/jobs/accountants-and-auditors`,
+    ]);
+
+    expect(isCompleteLlmsFullText(incomplete, SITE_URL)).toBe(false);
+  });
+
+  it("allows a complete MBTI64 personality cohort to pass llms-full cacheability without the career cohort in tests", async () => {
+    process.env.FERMATMIND_LLMS_FULL_REQUIRE_PERSONALITY_COHORT = "true";
+    const { isCompleteLlmsFullText } = await import("@/app/llms-full.txt/route");
+    const complete = minimalLlmsFullText(completeMbti64Urls());
+
+    expect(isCompleteLlmsFullText(complete, SITE_URL)).toBe(true);
   });
 
   it("keeps private route families out of the generated llms-full cohort", async () => {
