@@ -15548,7 +15548,7 @@ prs:
       - SEO-AGENT-CONTROL-PACKET-01
     mode: execute
     train_scope: seo_agent_ops_readmodel_bridge
-    status: in_progress
+    status: pr_open
     goal: "Bridge the fap-web SEO operations dashboard from mock/static artifact assumptions to a sanitized read-model boundary with explicit source labels, without CMS writes, search submission, provider calls, revalidation, production config, or runtime sitemap/llms/schema/hreflang changes."
     artifacts:
       - app/(localized)/[locale]/ops/seo-operations/page.tsx

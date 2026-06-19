@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-20T04:02:00+08:00",
+  "updated_at": "2026-06-20T04:04:00+08:00",
   "status": "active",
   "phase": "mbti64_llms_full_pilot_exposure_policy",
   "pr_namespace": "PR-PRAC-*",
@@ -22489,8 +22489,8 @@
       "id": "SEO-OPS-READMODEL-BRIDGE-01",
       "repo": "fap-web",
       "branch": "codex/seo-ops-readmodel-bridge-01",
-      "status": "local_checks_passed",
-      "pr_url": null,
+      "status": "pr_open",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1227",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -22527,6 +22527,10 @@
         "github_checks": {
           "status": "pending",
           "evidence": null
+        },
+        "pull_request": {
+          "status": "open",
+          "evidence": "Opened https://github.com/fermatmind/fap-web/pull/1227 after local checks and scope validation passed."
         }
       },
       "history": [
@@ -22549,9 +22553,14 @@
           "at": "2026-06-20T04:02:00+08:00",
           "status": "commit_sha_recorded",
           "note": "Recorded local commit 9b7ff37a56fda0633fdbb522fb5d51176a6dbe7b before push."
+        },
+        {
+          "at": "2026-06-20T04:04:00+08:00",
+          "status": "pr_open",
+          "note": "Opened PR #1227 for SEO-OPS-READMODEL-BRIDGE-01 after local checks and scope validation passed."
         }
       ],
-      "commit_sha": "9b7ff37a56fda0633fdbb522fb5d51176a6dbe7b"
+      "commit_sha": "cd518d7373ab698b0861d81cd665d34ea5ead632"
     }
   ],
   "sidecar_issues": [
