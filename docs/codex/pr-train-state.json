@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-20T04:28:00+08:00",
+  "updated_at": "2026-06-20T04:31:00+08:00",
   "status": "active",
   "phase": "mbti64_llms_full_pilot_exposure_policy",
   "pr_namespace": "PR-PRAC-*",
@@ -22586,7 +22586,7 @@
       "branch": "codex/seo-runtime-qa-agent-01",
       "status": "local_validation_passed",
       "commit_sha": "4cd52f9292a538def7615b475218ea31dbfa7cb1",
-      "pr_url": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1229",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -22621,7 +22621,7 @@
         },
         "github_checks": {
           "status": "pending",
-          "evidence": null
+          "evidence": "PR #1229 opened; GitHub checks pending."
         }
       },
       "history": [
@@ -22634,6 +22634,11 @@
           "at": "2026-06-20T04:28:00+08:00",
           "status": "local_validation_passed",
           "note": "Local validation and scope validation passed; public runtime QA remains read-only and no generated SEO artifact was committed."
+        },
+        {
+          "at": "2026-06-20T04:31:00+08:00",
+          "status": "pr_opened",
+          "note": "Opened PR #1229 for SEO-RUNTIME-QA-AGENT-01."
         }
       ]
     }
