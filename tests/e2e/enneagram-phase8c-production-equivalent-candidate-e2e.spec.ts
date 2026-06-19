@@ -9,10 +9,11 @@ const CANDIDATE_DIR = process.env.PHASE8B_CANDIDATE_DIR;
 const OUTPUT_DIR = buildReportOutputDir(process.env.PHASE8C_OUTPUT_DIR ?? process.env.PHASE8C1_OUTPUT_DIR, "fm_enneagram_phase8c");
 
 const EXPECTED_MANIFEST_SHA256 =
-  "87f7eb874eb162ff158b5d3ac5e4393218d045054b2f0e3e0eddc09c6c3ea556";
+  "a9fd3eb474ea2ca0130d06ad2b1640305d9160ee1a74e559ad4f60bfc4db56c0";
 const EXPECTED_RUNTIME_REGISTRY_MANIFEST_SHA256 =
   "ac5bdaab3c761b0d01a56f92679aa58341110d64de0f47a1fa0062b64f76f97f";
 const EXPECTED_PAYLOAD_COUNT = 630;
+const API_V0_3_PREFIX = "(?:/api)?/v0\\.3";
 
 const GROUP_COUNTS = {
   baseline: 36,
@@ -545,20 +546,23 @@ async function installRouteMocks(page: Page, fixtureRecord: FixtureRecord): Prom
     await route.fulfill({ status: 204, body: "" });
   });
 
-  await page.route("**/api/v0.3/auth/guest*", async (route) => {
+  await page.route(/.*(?:\/api)?\/v0\.3\/auth\/guest(?:\?.*)?$/, async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",
-      body: JSON.stringify({
-        data: {
-          token: "phase8c-guest-token",
-          user_id: "phase8c-guest-user",
-        },
-      }),
+      body: JSON.stringify({ ok: true, fm_token: "fm_phase8c_enneagram_candidate" }),
     });
   });
 
-  await page.route(new RegExp(`/api/v0\\.3/attempts/${fixtureRecord.attemptId}/report-access(?:\\?.*)?$`), async (route) => {
+  await page.route(/.*(?:\/api)?\/v0\.3\/me\/attempts\/link-anon(?:\?.*)?$/, async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({ ok: true, linked_count: 0 }),
+    });
+  });
+
+  await page.route(new RegExp(`${API_V0_3_PREFIX}/attempts/${fixtureRecord.attemptId}/report-access(?:\\?.*)?$`), async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -576,7 +580,7 @@ async function installRouteMocks(page: Page, fixtureRecord: FixtureRecord): Prom
     });
   });
 
-  await page.route(new RegExp(`/api/v0\\.3/attempts/${fixtureRecord.attemptId}/report(?:\\?.*)?$`), async (route) => {
+  await page.route(new RegExp(`${API_V0_3_PREFIX}/attempts/${fixtureRecord.attemptId}/report(?:\\?.*)?$`), async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -584,7 +588,7 @@ async function installRouteMocks(page: Page, fixtureRecord: FixtureRecord): Prom
     });
   });
 
-  await page.route(new RegExp(`/api/v0\\.3/attempts/${fixtureRecord.attemptId}/result(?:\\?.*)?$`), async (route) => {
+  await page.route(new RegExp(`${API_V0_3_PREFIX}/attempts/${fixtureRecord.attemptId}/result(?:\\?.*)?$`), async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -600,7 +604,7 @@ async function installRouteMocks(page: Page, fixtureRecord: FixtureRecord): Prom
     });
   });
 
-  await page.route(new RegExp(`/api/v0\\.3/attempts/${fixtureRecord.attemptId}/submission(?:\\?.*)?$`), async (route) => {
+  await page.route(new RegExp(`${API_V0_3_PREFIX}/attempts/${fixtureRecord.attemptId}/submission(?:\\?.*)?$`), async (route) => {
     await route.fulfill({
       status: 404,
       contentType: "application/json",
@@ -614,7 +618,7 @@ async function installRouteMocks(page: Page, fixtureRecord: FixtureRecord): Prom
   });
 
   await page.route(
-    new RegExp(`/api/v0\\.3/attempts/${fixtureRecord.attemptId}/enneagram/observation(?:\\?.*)?$`),
+    new RegExp(`${API_V0_3_PREFIX}/attempts/${fixtureRecord.attemptId}/enneagram/observation(?:\\?.*)?$`),
     async (route) => {
       await route.fulfill({
         status: 200,
