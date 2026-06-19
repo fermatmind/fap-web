@@ -243,7 +243,7 @@ async function main() {
     const result = await fetchText(target.pageUrl);
     const aiSection = findAiSection(result.text);
     const hasPreviewBlock = aiSection.length > 0;
-    const sectionText = aiSection.replace(/<script[\s\S]*?<\/script>/gi, "").replace(/<[^>]+>/g, " ");
+    const sectionText = aiSection.replace(/<[^>]+>/g, " ");
     const ok =
       result.status === 200 &&
       hasPreviewBlock &&

@@ -12,7 +12,7 @@ Final conclusion: `STAGING_PAGE_QA_50_PASS`
 ## Deployment Confirmation
 
 - origin/main contains PR #1224 merge commit: yes
-- origin/main SHA: `3aee4b746bdea440e25024b9ddeb7ced466d8ce5`
+- origin/main SHA: `babd7d188ab0b31d40fa2c24549cb39d8c979c9c`
 - PR #1224 merge SHA: `8f8a69a044a90c891c90f01c4a3cc7094704c1ca`
 - Staging does not expose `/REVISION`; runtime confirmation is inferred from the preview block rendered on the sampled staging pages.
 
