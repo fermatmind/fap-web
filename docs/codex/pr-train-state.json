@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-20T04:35:00+08:00",
+  "updated_at": "2026-06-20T07:09:00+08:00",
   "status": "active",
   "phase": "mbti64_llms_full_pilot_exposure_policy",
   "pr_namespace": "PR-PRAC-*",
@@ -22825,12 +22825,12 @@
       "id": "SEO-OPPORTUNITY-QUEUE-CONTRACT-01",
       "repo": "fap-web",
       "branch": "codex/seo-opportunity-queue-contract-01",
-      "status": "ready_to_merge",
-      "commit_sha": "b6ce620595a3849ea94e6ebe60a8a8967b7d901a",
+      "status": "merged",
+      "commit_sha": "e89d04e03c79d1b01d5bc52fb694843be93c8b8a",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1232",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-19T22:30:44Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "failure_reason": null,
       "checks": {
         "authorization": {
@@ -22894,6 +22894,73 @@
           "at": "2026-06-20T06:25:33+08:00",
           "status": "ready_to_merge",
           "note": "PR #1232 checks passed, mergeStateStatus was CLEAN, and PR diff scope validation matched the opportunity queue contract allowlist."
+        },
+        {
+          "at": "2026-06-20T06:35:01+08:00",
+          "status": "merged",
+          "note": "Reconciled PR #1232 merge facts while starting SEO-CMS-DRAFT-PACKAGE-CONTRACT-01; squash merge commit e89d04e03c79d1b01d5bc52fb694843be93c8b8a, remote branch deleted, local branch cleaned, main synced, and post-merge focused validation passed."
+        }
+      ]
+    },
+    {
+      "id": "SEO-CMS-DRAFT-PACKAGE-CONTRACT-01",
+      "repo": "fap-web",
+      "branch": "codex/seo-cms-draft-package-contract-01",
+      "status": "local_checks_passed",
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly provided SEO-CMS-DRAFT-PACKAGE-CONTRACT-01 as the seventh PR in the FermatMind SEO Agent sequence and authorized continuous PR-train execution."
+        },
+        "dependency": {
+          "status": "pass",
+          "evidence": "SEO-OPPORTUNITY-QUEUE-CONTRACT-01 is merged in PR #1232 and SEO-GPT55-HANDOFF-01 is merged in PR #1230 before this PR started."
+        },
+        "scope": {
+          "status": "pass",
+          "allowed_paths": [
+            "package.json",
+            "scripts/seo/check-seo-cms-draft-package-contract.mjs",
+            "docs/seo/agent/CMS_DRAFT_PACKAGE_CONTRACT.md",
+            "docs/seo/agent/examples/seo-cms-draft-package-contract.example.json",
+            "docs/seo/agent/schemas/SEO_CMS_DRAFT_PACKAGE_CONTRACT.schema.json",
+            "tests/contracts/seo-cms-draft-package-contract.contract.test.ts",
+            "tests/contracts/seo-opportunity-queue-contract.contract.test.ts",
+            "tests/contracts/seo-agent-weekly-control-packet.contract.test.ts",
+            "tests/contracts/seo-agent-gpt55-handoff.contract.test.ts",
+            "tests/contracts/seo-ops-readmodel-bridge.contract.test.ts",
+            "tests/contracts/seo-runtime-qa-agent.contract.test.ts",
+            "tests/contracts/helpers/currentPrScope.ts",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ],
+          "evidence": "Changed files match the SEO-CMS-DRAFT-PACKAGE-CONTRACT-01 allowlist after restoring build-generated public/sitemap.xml; no CMS writes, draft creation, media upload, search/provider writes, or runtime SEO changes are present."
+        },
+        "local_validation": {
+          "status": "pass",
+          "evidence": "node scripts/seo/check-seo-cms-draft-package-contract.mjs docs/seo/agent/examples/seo-cms-draft-package-contract.example.json passed. Focused SEO Agent contract suite passed: cms draft package, opportunity queue, weekly control packet, GPT 5.5 handoff, runtime QA, and ops read model bridge contracts. pnpm test:contract passed: 504 files, 2885 tests. pnpm lint . passed with 0 errors and existing warnings only. pnpm typecheck passed. NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build passed; build-generated public/sitemap.xml was restored as out of scope. JSON parse, YAML parse via Ruby, git diff --check, and explicit changed-file allowlist validation passed."
+        },
+        "github_checks": {
+          "status": "pending",
+          "evidence": "PR not opened yet."
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-20T06:35:01+08:00",
+          "status": "in_progress",
+          "note": "Initialized SEO-CMS-DRAFT-PACKAGE-CONTRACT-01 from explicit user sequence; this PR defines a CMS draft dry-run contract and claim gate only and must not write CMS, create drafts, upload media, or perform search/runtime SEO actions."
+        },
+        {
+          "at": "2026-06-20T07:09:00+08:00",
+          "status": "local_checks_passed",
+          "note": "CMS draft package contract checker, focused contracts, full contract suite, lint, typecheck, build, JSON/YAML parse, diff check, and explicit scope validation passed. Build-generated public/sitemap.xml was restored because sitemap artifacts are outside this PR scope."
         }
       ]
     }

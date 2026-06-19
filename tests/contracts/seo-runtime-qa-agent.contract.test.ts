@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 import {
+  isSeoCmsDraftPackageContract01AllowedFile,
   isSeoGpt55Handoff01AllowedFile,
   isSeoOpportunityQueueContract01AllowedFile,
   isSeoWeeklyAutomationControlPacket02AllowedFile,
@@ -100,7 +101,8 @@ describe("SEO runtime QA agent", () => {
           allowedFiles.has(file) ||
           isSeoGpt55Handoff01AllowedFile(file) ||
           isSeoWeeklyAutomationControlPacket02AllowedFile(file) ||
-          isSeoOpportunityQueueContract01AllowedFile(file)
+          isSeoOpportunityQueueContract01AllowedFile(file) ||
+          isSeoCmsDraftPackageContract01AllowedFile(file)
       ),
       files.join("\n")
     ).toBe(true);
