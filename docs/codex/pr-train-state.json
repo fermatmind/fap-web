@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-20T07:12:00+08:00",
+  "updated_at": "2026-06-20T07:43:00+08:00",
   "status": "active",
   "phase": "mbti64_llms_full_pilot_exposure_policy",
   "pr_namespace": "PR-PRAC-*",
@@ -22906,9 +22906,9 @@
       "id": "SEO-CMS-DRAFT-PACKAGE-CONTRACT-01",
       "repo": "fap-web",
       "branch": "codex/seo-cms-draft-package-contract-01",
-      "status": "committed",
-      "commit_sha": "f72317f7",
-      "pr_url": null,
+      "status": "pr_open",
+      "commit_sha": "87dac6621f85d33326ba639652175799fffb67b8",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1234",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -22948,7 +22948,7 @@
         },
         "github_checks": {
           "status": "pending",
-          "evidence": "PR not opened yet."
+          "evidence": "PR #1234 opened; GitHub checks pending on head 87dac6621f85d33326ba639652175799fffb67b8."
         }
       },
       "history": [
@@ -22966,6 +22966,11 @@
           "at": "2026-06-20T07:12:00+08:00",
           "status": "committed",
           "note": "Committed scoped implementation as f72317f7."
+        },
+        {
+          "at": "2026-06-20T07:43:00+08:00",
+          "status": "pr_open",
+          "note": "Opened PR #1234 at https://github.com/fermatmind/fap-web/pull/1234; GitHub checks pending."
         }
       ]
     }
