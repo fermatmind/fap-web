@@ -297,6 +297,22 @@ const SEO_WEEKLY_AUTOMATION_CONTROL_PACKET_02_ALLOWED_FILES = new Set([
   "docs/codex/pr-train-state.json",
 ]);
 
+const SEO_OPPORTUNITY_QUEUE_CONTRACT_01_ALLOWED_FILES = new Set([
+  "package.json",
+  "scripts/seo/check-seo-opportunity-queue-contract.mjs",
+  "docs/seo/agent/OPPORTUNITY_QUEUE_CONTRACT.md",
+  "docs/seo/agent/examples/seo-opportunity-queue-contract.example.json",
+  "docs/seo/agent/schemas/SEO_OPPORTUNITY_QUEUE_CONTRACT.schema.json",
+  "tests/contracts/seo-opportunity-queue-contract.contract.test.ts",
+  "tests/contracts/seo-agent-weekly-control-packet.contract.test.ts",
+  "tests/contracts/seo-agent-gpt55-handoff.contract.test.ts",
+  "tests/contracts/seo-ops-readmodel-bridge.contract.test.ts",
+  "tests/contracts/seo-runtime-qa-agent.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+]);
+
 const ORDER_LOOKUP_RECOVERY_CONTRACT_STABILIZE_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
   "tests/contracts/order-lookup-recovery.contract.test.tsx",
@@ -3265,6 +3281,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
     return SEO_WEEKLY_AUTOMATION_CONTROL_PACKET_02_ALLOWED_FILES.has(file);
   }
 
+  if (CURRENT_BRANCH === "codex/seo-opportunity-queue-contract-01") {
+    return SEO_OPPORTUNITY_QUEUE_CONTRACT_01_ALLOWED_FILES.has(file);
+  }
+
   if (CURRENT_BRANCH === "codex/mbti64-llms-full-pilot-exposure-repair-01") {
     return MBTI64_LLMS_FULL_PILOT_EXPOSURE_REPAIR_01_ALLOWED_FILES.has(file);
   }
@@ -3338,4 +3358,8 @@ export function isSeoGpt55Handoff01AllowedFile(file: string): boolean {
 
 export function isSeoWeeklyAutomationControlPacket02AllowedFile(file: string): boolean {
   return SEO_WEEKLY_AUTOMATION_CONTROL_PACKET_02_ALLOWED_FILES.has(file);
+}
+
+export function isSeoOpportunityQueueContract01AllowedFile(file: string): boolean {
+  return SEO_OPPORTUNITY_QUEUE_CONTRACT_01_ALLOWED_FILES.has(file);
 }

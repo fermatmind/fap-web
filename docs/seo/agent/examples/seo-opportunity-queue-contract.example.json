@@ -1,0 +1,76 @@
+{
+  "schema_version": "fermatmind.seo_agent.opportunity_queue_contract.v1",
+  "mode": "contract_only",
+  "queue_id": "seo-opportunity-queue-contract-example-2026-06-20",
+  "generated_at": "2026-06-20T00:00:00Z",
+  "source_gate": {
+    "requires_gsc_quality_gate": true,
+    "allows_fixture_or_mock_gsc": false,
+    "allows_stale_gsc": false,
+    "minimum_gsc_quality_status": "PASS_VERIFIED_FRESH"
+  },
+  "scoring_components": [
+    "impression_potential",
+    "ctr_gap",
+    "position_gap",
+    "business_priority",
+    "evidence_confidence",
+    "implementation_risk"
+  ],
+  "opportunities": [
+    {
+      "id": "opp-mbti-public-profile-title-001",
+      "url": "https://www.fermatmind.com/zh/personality/infp-t",
+      "locale": "zh",
+      "page_type": "personality_profile",
+      "query_cluster": {
+        "primary_query": "infp-t",
+        "supporting_queries": ["infp-t 人格", "infp t 职业"]
+      },
+      "evidence_sources": [
+        {
+          "source_id": "gsc-quality-gate",
+          "source_class": "GSC_VERIFIED_FRESH",
+          "evidence_label": "PASS_VERIFIED_FRESH",
+          "freshness_window": "D7",
+          "artifact_path": "fap-api:gsc_data_quality_gate"
+        },
+        {
+          "source_id": "runtime-qa",
+          "source_class": "RUNTIME_QA_READONLY",
+          "evidence_label": "PASS_RUNTIME_SEO_QA",
+          "freshness_window": "D1",
+          "artifact_path": "docs/seo/agent/runtime-qa/default-samples.v1.json"
+        }
+      ],
+      "scoring_inputs": {
+        "impression_potential": 34,
+        "ctr_gap": 21,
+        "position_gap": 18,
+        "business_priority": 12,
+        "evidence_confidence": 10,
+        "implementation_risk": -8
+      },
+      "score": 87,
+      "status": "READY_FOR_REVIEW",
+      "recommended_lane": "CMS_DRAFT_PACKAGE_DRY_RUN",
+      "blocked_actions": [
+        "AUTHORIZE_CMS_MUTATION required before CMS draft/write/import/publish",
+        "AUTHORIZE_SEARCH_PROVIDER_SUBMISSION required before Search Channel enqueue or provider submission"
+      ]
+    }
+  ],
+  "forbidden_actions": [
+    "CMS save, draft creation, import, publish, or unpublish",
+    "Search Channel enqueue, approve, or submit",
+    "Google, Baidu, IndexNow, or provider submission",
+    "sitemap, robots, llms, schema, hreflang, canonical, noindex, redirect, or runtime SEO changes",
+    "automation TOML changes"
+  ],
+  "approval_boundaries": [
+    "AUTHORIZE_CMS_MUTATION",
+    "AUTHORIZE_SEARCH_PROVIDER_SUBMISSION",
+    "AUTHORIZE_RUNTIME_SEO_CHANGE"
+  ]
+}
+

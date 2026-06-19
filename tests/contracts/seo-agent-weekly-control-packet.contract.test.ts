@@ -4,7 +4,10 @@ import os from "node:os";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 
-import { isSeoWeeklyAutomationControlPacket02AllowedFile } from "./helpers/currentPrScope";
+import {
+  isSeoOpportunityQueueContract01AllowedFile,
+  isSeoWeeklyAutomationControlPacket02AllowedFile,
+} from "./helpers/currentPrScope";
 
 const ROOT = process.cwd();
 const PACKET_PATH = "docs/seo/agent/examples/seo-agent-control-packet.weekly.example.json";
@@ -153,6 +156,11 @@ describe("SEO Agent weekly automation control packet", () => {
       return;
     }
 
-    expect(files.every((file) => isSeoWeeklyAutomationControlPacket02AllowedFile(file)), files.join("\n")).toBe(true);
+    expect(
+      files.every(
+        (file) => isSeoWeeklyAutomationControlPacket02AllowedFile(file) || isSeoOpportunityQueueContract01AllowedFile(file),
+      ),
+      files.join("\n"),
+    ).toBe(true);
   });
 });

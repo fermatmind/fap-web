@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fermatmind.com/schemas/seo-opportunity-queue-contract.schema.json",
+  "title": "FermatMind SEO Opportunity Queue Contract",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "mode",
+    "queue_id",
+    "generated_at",
+    "source_gate",
+    "scoring_components",
+    "opportunities",
+    "forbidden_actions",
+    "approval_boundaries"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "fermatmind.seo_agent.opportunity_queue_contract.v1"
+    },
+    "mode": {
+      "const": "contract_only"
+    },
+    "queue_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "generated_at": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_gate": {
+      "type": "object",
+      "required": ["requires_gsc_quality_gate", "allows_fixture_or_mock_gsc", "allows_stale_gsc"],
+      "properties": {
+        "requires_gsc_quality_gate": { "const": true },
+        "allows_fixture_or_mock_gsc": { "const": false },
+        "allows_stale_gsc": { "const": false }
+      },
+      "additionalProperties": true
+    },
+    "scoring_components": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "impression_potential",
+          "ctr_gap",
+          "position_gap",
+          "business_priority",
+          "evidence_confidence",
+          "implementation_risk"
+        ]
+      },
+      "minItems": 6,
+      "uniqueItems": true
+    },
+    "opportunities": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "url",
+          "locale",
+          "page_type",
+          "query_cluster",
+          "evidence_sources",
+          "scoring_inputs",
+          "score",
+          "status",
+          "recommended_lane",
+          "blocked_actions"
+        ],
+        "additionalProperties": true
+      }
+    },
+    "forbidden_actions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string" }
+    },
+    "approval_boundaries": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string" }
+    }
+  },
+  "additionalProperties": true
+}
+

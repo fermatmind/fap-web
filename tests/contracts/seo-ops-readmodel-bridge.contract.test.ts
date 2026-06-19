@@ -8,6 +8,7 @@ import {
 } from "@/lib/ops/seoOperationsReadModel";
 import {
   isSeoGpt55Handoff01AllowedFile,
+  isSeoOpportunityQueueContract01AllowedFile,
   isSeoWeeklyAutomationControlPacket02AllowedFile,
 } from "./helpers/currentPrScope";
 
@@ -111,7 +112,8 @@ describe("SEO ops read-model bridge", () => {
         (file) =>
           allowedFiles.has(file) ||
           isSeoGpt55Handoff01AllowedFile(file) ||
-          isSeoWeeklyAutomationControlPacket02AllowedFile(file),
+          isSeoWeeklyAutomationControlPacket02AllowedFile(file) ||
+          isSeoOpportunityQueueContract01AllowedFile(file),
       ),
       files.join("\n"),
     ).toBe(true);

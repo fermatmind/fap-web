@@ -4,6 +4,7 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 import {
   isSeoGpt55Handoff01AllowedFile,
+  isSeoOpportunityQueueContract01AllowedFile,
   isSeoWeeklyAutomationControlPacket02AllowedFile,
 } from "./helpers/currentPrScope";
 
@@ -98,7 +99,8 @@ describe("SEO runtime QA agent", () => {
         (file) =>
           allowedFiles.has(file) ||
           isSeoGpt55Handoff01AllowedFile(file) ||
-          isSeoWeeklyAutomationControlPacket02AllowedFile(file)
+          isSeoWeeklyAutomationControlPacket02AllowedFile(file) ||
+          isSeoOpportunityQueueContract01AllowedFile(file)
       ),
       files.join("\n")
     ).toBe(true);
