@@ -15476,3 +15476,64 @@ prs:
       squash: true
       auto_merge: true
     next_task: MBTI64-LLMS-FULL-PILOT-EXPOSURE-REPAIR-01
+
+  - id: MBTI64-LLMS-FULL-PILOT-EXPOSURE-REPAIR-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/mbti64-llms-full-pilot-exposure-repair-01
+    base: main
+    title: "fix(seo): repair MBTI64 pilot llms-full exposure"
+    depends_on: [MBTI64-LLMS-FULL-PILOT-EXPOSURE-POLICY-01]
+    mode: execute
+    train_scope: mbti64_llms_full_pilot_exposure_repair
+    status: in_progress
+    goal: "Repair llms-full personality generation so the 8 MBTI64 V2.1 pilot URLs and the 96 MBTI64 public personality URL cohort are deterministically included, without CMS writes, Search Queue release, sitemap behavior changes, or local editorial fallback copy."
+    artifacts:
+      - app/llms-full.txt/route.ts
+      - app/api/content-release/revalidate/route.ts
+      - docs/seo/personality/mbti64-llms-full-pilot-exposure-repair-2026-06-19.json
+      - docs/seo/personality/mbti64-llms-full-pilot-exposure-repair-2026-06-19.md
+      - tests/contracts/mbti64-llms-full-pilot-exposure-repair.contract.test.ts
+      - tests/contracts/personality-llms-full-comparison-repair-01.contract.test.ts
+      - tests/contracts/pr-fdn-01-llms-full-recheck-or-repair.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - app/llms-full.txt/route.ts
+      - app/api/content-release/revalidate/route.ts
+      - docs/seo/personality/mbti64-llms-full-pilot-exposure-repair-2026-06-19.json
+      - docs/seo/personality/mbti64-llms-full-pilot-exposure-repair-2026-06-19.md
+      - tests/contracts/mbti64-llms-full-pilot-exposure-repair.contract.test.ts
+      - tests/contracts/personality-llms-full-comparison-repair-01.contract.test.ts
+      - tests/contracts/pr-fdn-01-llms-full-recheck-or-repair.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - components/**
+      - lib/**
+      - public/**
+      - package.json
+      - pnpm-lock.yaml
+      - fap-api changes
+      - CMS import/write/promotion
+      - sitemap.xml generation behavior changes
+      - Search Queue enqueue/approve/submit
+      - external search API calls
+      - local editorial fallback copy
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/mbti64-llms-full-pilot-exposure-repair.contract.test.ts tests/contracts/llms-full-enrichment.contract.test.ts tests/contracts/llms-parity-contract.contract.test.ts tests/contracts/pr-fdn-01-llms-full-recheck-or-repair.contract.test.ts
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - jq empty docs/seo/personality/mbti64-llms-full-pilot-exposure-repair-2026-06-19.json
+      - ruby YAML parse docs/codex/pr-train.yaml
+      - Node JSON parse docs/codex/pr-train-state.json
+      - git diff --check
+      - scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: MBTI64-LLMS-FULL-PILOT-MEMBERSHIP-RECHECK-02

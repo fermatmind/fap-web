@@ -43,7 +43,12 @@ describe("PERSONALITY-LLMS-FULL-COMPARISON-REPAIR-01", () => {
     expect(route).toContain(
       "LLMS_FULL_PERSONALITY_DETAIL_URL_COUNT + LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT"
     );
-    expect(compactRoute).toContain("limitLlmsRouteEntries(personalityEntries, LLMS_FULL_PERSONALITY_ENTRY_LIMIT)");
+    expect(route).toContain("LLMS_FULL_PERSONALITY_DETAIL_URL_COUNT_PER_LOCALE = 32");
+    expect(route).toContain("LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT_PER_LOCALE = 16");
+    expect(route).toContain("function buildPersonalityVariantEntries(");
+    expect(route).toContain("function buildPersonalityComparisonEntries(");
+    expect(compactRoute).toContain("limitLlmsRouteEntries(uniqueEntriesByPath([");
+    expect(compactRoute).toContain("]), LLMS_FULL_PERSONALITY_ENTRY_LIMIT)");
     expect(compactRoute).not.toContain("limitLlmsRouteEntries(personalityEntries, LLMS_ROUTE_LIMITS.personalityProfiles)");
     expect(scopeHelper).toContain("GITHUB_EVENT_PATH");
     expect(scopeHelper).toContain("pull_request?.head?.ref");

@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-19T18:06:00+08:00",
+  "updated_at": "2026-06-19T20:20:00+08:00",
   "status": "active",
   "phase": "mbti64_llms_full_pilot_exposure_policy",
   "pr_namespace": "PR-PRAC-*",
@@ -22342,12 +22342,12 @@
       "id": "MBTI64-LLMS-FULL-PILOT-EXPOSURE-POLICY-01",
       "repo": "fap-web",
       "branch": "codex/mbti64-llms-full-pilot-exposure-policy-01",
-      "status": "pr_open",
-      "commit_sha": "bd6f128e08026630b7a7240b6c80488cf7658318",
+      "status": "merged",
+      "commit_sha": "d0e62670a472edef8bbf6d871fe0577317db3f1b",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1215",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-19T11:57:38Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "failure_reason": null,
       "checks": {
         "authorization": {
@@ -22377,9 +22377,16 @@
           "evidence": "Opened https://github.com/fermatmind/fap-web/pull/1215 after local checks and scope validation passed."
         },
         "github_checks": {
-          "status": "pending",
-          "checks": [],
-          "evidence": "GitHub checks pending."
+          "status": "pass",
+          "checks": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "CodeQL",
+            "analyze (javascript-typescript)"
+          ],
+          "evidence": "GitHub shows PR #1215 merged with merge commit d0e62670a472edef8bbf6d871fe0577317db3f1b, which is contained in current origin/main before MBTI64-LLMS-FULL-PILOT-EXPOSURE-REPAIR-01 started."
         }
       },
       "history": [
@@ -22397,6 +22404,84 @@
           "at": "2026-06-19T18:06:00+08:00",
           "status": "pr_open",
           "note": "Opened fap-web PR #1215 for MBTI64-LLMS-FULL-PILOT-EXPOSURE-POLICY-01."
+        },
+        {
+          "at": "2026-06-19T18:30:00+08:00",
+          "status": "merged_reconciled",
+          "note": "Reconciled PR #1215 as merged before starting MBTI64-LLMS-FULL-PILOT-EXPOSURE-REPAIR-01."
+        }
+      ]
+    },
+    {
+      "id": "MBTI64-LLMS-FULL-PILOT-EXPOSURE-REPAIR-01",
+      "repo": "fap-web",
+      "branch": "codex/mbti64-llms-full-pilot-exposure-repair-01",
+      "status": "pr_open",
+      "commit_sha": "ee7af2162103bf4e963bd86201f5e974b3726ddc",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1216",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly requested MBTI64-LLMS-FULL-PILOT-EXPOSURE-REPAIR-01 and authorized implementing the repair plan on 2026-06-19."
+        },
+        "dependency": {
+          "status": "pass",
+          "evidence": "MBTI64-LLMS-FULL-PILOT-EXPOSURE-POLICY-01 is merged into origin/main as d0e62670a472edef8bbf6d871fe0577317db3f1b before this PR started."
+        },
+        "scope": {
+          "status": "pass",
+          "allowed_paths": [
+            "app/llms-full.txt/route.ts",
+            "app/api/content-release/revalidate/route.ts",
+            "docs/seo/personality/mbti64-llms-full-pilot-exposure-repair-2026-06-19.json",
+            "docs/seo/personality/mbti64-llms-full-pilot-exposure-repair-2026-06-19.md",
+            "tests/contracts/mbti64-llms-full-pilot-exposure-repair.contract.test.ts",
+            "tests/contracts/personality-llms-full-comparison-repair-01.contract.test.ts",
+            "tests/contracts/pr-fdn-01-llms-full-recheck-or-repair.contract.test.ts",
+            "tests/contracts/helpers/currentPrScope.ts",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ],
+          "evidence": "Changed files are limited to llms-full route, content release revalidation, focused contracts, repair artifacts, currentPrScope helper, and docs/codex train metadata."
+        },
+        "local_validation": {
+          "status": "pass",
+          "evidence": "Passed: focused llms-full/pilot/revalidation/personality cleanup contracts; pnpm typecheck; NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build; jq empty repair JSON; ruby YAML parse docs/codex/pr-train.yaml; Node JSON parse docs/codex/pr-train-state.json; git diff --check; explicit scope validation; pnpm test:contract (496 files, 2834 tests)."
+        },
+        "pull_request": {
+          "status": "open",
+          "evidence": "Opened https://github.com/fermatmind/fap-web/pull/1216 after local checks and scope validation passed."
+        },
+        "github_checks": {
+          "status": "pending",
+          "checks": [],
+          "evidence": "GitHub checks pending after PR creation."
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-19T18:30:00+08:00",
+          "status": "in_progress",
+          "note": "Started MBTI64-LLMS-FULL-PILOT-EXPOSURE-REPAIR-01 from latest origin/main in clean worktree; implementing deterministic 64 variant + 32 comparison llms-full personality cohort and personality release revalidation."
+        },
+        {
+          "at": "2026-06-19T20:13:00+08:00",
+          "status": "local_checks_passed",
+          "note": "Implemented deterministic MBTI64 llms-full personality cohort and personality release revalidation; focused contracts, typecheck, build, full contract suite, parse checks, diff check, and scope validation passed."
+        },
+        {
+          "at": "2026-06-19T20:14:00+08:00",
+          "status": "committed",
+          "note": "Committed local changes as 155f9cb628e0356f55c7f8fb4b255bb23cfd9690."
+        },
+        {
+          "at": "2026-06-19T20:20:00+08:00",
+          "status": "pr_open",
+          "note": "Opened fap-web PR #1216 for MBTI64-LLMS-FULL-PILOT-EXPOSURE-REPAIR-01."
         }
       ]
     }

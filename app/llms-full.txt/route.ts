@@ -14,9 +14,11 @@ import {
   listPersonalityProfiles,
 } from "@/lib/cms/personality";
 import {
+  MBTI_COMPARISON_BASE_TYPES,
   buildPersonalityComparisonSlugsFromProfiles,
   isPersonalityComparisonSlug,
 } from "@/lib/mbti/personalityComparison";
+import type { CmsPersonalityProfileSummary } from "@/lib/cms/personality";
 import { getTopicBySlug, listTopics } from "@/lib/cms/topics";
 import {
   MENTAL_HEALTH_NON_MEDICAL_DISCLAIMER,
@@ -84,6 +86,8 @@ const LLMS_FULL_CACHE_FRESH_MS = 60 * 60 * 1000;
 const LLMS_FULL_CACHE_STALE_MS = 24 * 60 * 60 * 1000;
 const LLMS_FULL_RESPONSE_TIMEOUT = Symbol("llms-full-response-timeout");
 const LLMS_FULL_EXPECTED_CAREER_JOB_URL_COUNT = 1046 * 2;
+const LLMS_FULL_PERSONALITY_DETAIL_URL_COUNT_PER_LOCALE = 32;
+const LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT_PER_LOCALE = 16;
 const LLMS_FULL_PERSONALITY_DETAIL_URL_COUNT = 32 * 2;
 const LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT = 16 * 2;
 const LLMS_FULL_PERSONALITY_ENTRY_LIMIT =
@@ -586,59 +590,158 @@ function publishedPersonalityVariantSlugs(value: string): string[] {
   return [defaultSlug];
 }
 
+function normalizePersonalityVariantSlug(value: string | null | undefined): string | null {
+  const normalized = String(value ?? "").trim().toLowerCase();
+
+  return /^[ie][ns][ft][jp]-[at]$/.test(normalized) ? normalized : null;
+}
+
+function normalizePersonalityComparisonEntrySlug(value: string | null | undefined): string | null {
+  const normalized = String(value ?? "").trim().toLowerCase();
+  const match = normalized.match(/^([ie][ns][ft][jp])-a-vs-\1-t$/);
+
+  return match ? normalized : null;
+}
+
+function uniqueEntriesByPath(entries: LlmsFullEntry[]): LlmsFullEntry[] {
+  const seen = new Set<string>();
+  const results: LlmsFullEntry[] = [];
+
+  for (const entry of entries) {
+    const normalizedPath = normalizePath(entry.path);
+    if (seen.has(normalizedPath) || !shouldKeep(normalizedPath)) {
+      continue;
+    }
+
+    seen.add(normalizedPath);
+    results.push({ ...entry, path: normalizedPath });
+  }
+
+  return results;
+}
+
+function personalityVariantEntryFromProfile(
+  item: CmsPersonalityProfileSummary,
+  locale: LlmsLocale
+): LlmsFullEntry | null {
+  if (!item.isIndexable) {
+    return null;
+  }
+
+  const slug =
+    normalizePersonalityVariantSlug(item.publicRouteSlug) ??
+    normalizePersonalityVariantSlug(item.runtimeTypeCode) ??
+    normalizePersonalityVariantSlug(item.slug);
+
+  if (!slug) {
+    return null;
+  }
+
+  return {
+    locale,
+    path: `/${locale}/personality/${slug}`,
+    title: `${slug.toUpperCase()} | ${item.title || item.displayType || item.typeCode}`,
+    type: "personality",
+    summary: summaryFromRecord(item),
+    updatedAt: item.updatedAt ?? "",
+  };
+}
+
+function personalityVariantEntriesFromBaseProfile(
+  item: CmsPersonalityProfileSummary,
+  locale: LlmsLocale
+): LlmsFullEntry[] {
+  if (!item.isIndexable) {
+    return [];
+  }
+
+  return publishedPersonalityVariantSlugs(String(item.typeCode ?? item.slug ?? ""))
+    .map((slug) => normalizePersonalityVariantSlug(slug))
+    .filter((slug): slug is string => Boolean(slug))
+    .map((slug) => ({
+      locale,
+      path: `/${locale}/personality/${slug}`,
+      title: `${slug.toUpperCase()} | ${item.title || item.typeCode}`,
+      type: "personality",
+      summary: summaryFromRecord(item),
+      updatedAt: item.updatedAt ?? "",
+    }));
+}
+
+function buildPersonalityVariantEntries(
+  variantProfiles: CmsPersonalityProfileSummary[],
+  baseProfiles: CmsPersonalityProfileSummary[],
+  locale: LlmsLocale
+): LlmsFullEntry[] {
+  const variantEntries = variantProfiles
+    .map((item) => personalityVariantEntryFromProfile(item, locale))
+    .filter((entry): entry is LlmsFullEntry => Boolean(entry));
+  const fallbackEntries = baseProfiles.flatMap((item) => personalityVariantEntriesFromBaseProfile(item, locale));
+
+  return limitLlmsRouteEntries(
+    uniqueEntriesByPath([...variantEntries, ...fallbackEntries]),
+    LLMS_FULL_PERSONALITY_DETAIL_URL_COUNT_PER_LOCALE
+  );
+}
+
+function buildPersonalityComparisonEntries(
+  variantProfiles: CmsPersonalityProfileSummary[],
+  locale: LlmsLocale
+): LlmsFullEntry[] {
+  const comparisonSlugs = buildPersonalityComparisonSlugsFromProfiles(variantProfiles)
+    .map(normalizePersonalityComparisonEntrySlug)
+    .filter((slug): slug is string => Boolean(slug));
+  const orderedSlugs = MBTI_COMPARISON_BASE_TYPES
+    .map((base) => `${base}-a-vs-${base}-t`)
+    .filter((slug) => comparisonSlugs.includes(slug));
+
+  return limitLlmsRouteEntries(
+    uniqueEntriesByPath(
+      orderedSlugs.map((slug) => ({
+        locale,
+        path: `/${locale}/personality/${slug}`,
+        title: slug.toUpperCase(),
+        type: "personality",
+        summary: "",
+      }))
+    ),
+    LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT_PER_LOCALE
+  );
+}
+
 async function listPersonalityEntries(): Promise<LlmsFullEntry[]> {
   try {
     const [enProfiles, zhProfiles, enVariantProfiles, zhVariantProfiles] = await Promise.all([
-      listPersonalityProfiles({ locale: "en", perPage: LLMS_ROUTE_LIMITS.personalityProfiles }),
-      listPersonalityProfiles({ locale: "zh", perPage: LLMS_ROUTE_LIMITS.personalityProfiles }),
-      listPersonalityProfiles({ locale: "en", perPage: LLMS_ROUTE_LIMITS.personalityProfiles, includeVariants: true }),
-      listPersonalityProfiles({ locale: "zh", perPage: LLMS_ROUTE_LIMITS.personalityProfiles, includeVariants: true }),
+      listPersonalityProfiles({ locale: "en", perPage: LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT_PER_LOCALE }),
+      listPersonalityProfiles({ locale: "zh", perPage: LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT_PER_LOCALE }),
+      listPersonalityProfiles({
+        locale: "en",
+        perPage: LLMS_FULL_PERSONALITY_DETAIL_URL_COUNT_PER_LOCALE,
+        includeVariants: true,
+      }),
+      listPersonalityProfiles({
+        locale: "zh",
+        perPage: LLMS_FULL_PERSONALITY_DETAIL_URL_COUNT_PER_LOCALE,
+        includeVariants: true,
+      }),
     ]);
 
-    return [
-      ...limitLlmsRouteEntries(enProfiles.items, LLMS_ROUTE_LIMITS.personalityProfiles)
-        .filter((item) => item.isIndexable)
-        .flatMap((item) =>
-          publishedPersonalityVariantSlugs(String(item.typeCode ?? item.slug ?? ""))
-            .map((slug) => ({
-              locale: "en" as const,
-              path: `/en/personality/${slug}`,
-              title: `${slug.toUpperCase()} | ${item.title || item.typeCode}`,
-              type: "personality",
-              summary: summaryFromRecord(item),
-            }))
-        ),
-      ...limitLlmsRouteEntries(zhProfiles.items, LLMS_ROUTE_LIMITS.personalityProfiles)
-        .filter((item) => item.isIndexable)
-        .flatMap((item) =>
-          publishedPersonalityVariantSlugs(String(item.typeCode ?? item.slug ?? ""))
-            .map((slug) => ({
-              locale: "zh" as const,
-              path: `/zh/personality/${slug}`,
-              title: `${slug.toUpperCase()} | ${item.title || item.typeCode}`,
-              type: "personality",
-              summary: summaryFromRecord(item),
-          }))
-        ),
-      ...buildPersonalityComparisonSlugsFromProfiles(
-        limitLlmsRouteEntries(enVariantProfiles.items, LLMS_ROUTE_LIMITS.personalityProfiles)
-      ).map((slug) => ({
-        locale: "en" as const,
-        path: `/en/personality/${slug}`,
-        title: slug.toUpperCase(),
-        type: "personality",
-        summary: "",
-      })),
-      ...buildPersonalityComparisonSlugsFromProfiles(
-        limitLlmsRouteEntries(zhVariantProfiles.items, LLMS_ROUTE_LIMITS.personalityProfiles)
-      ).map((slug) => ({
-        locale: "zh" as const,
-        path: `/zh/personality/${slug}`,
-        title: slug.toUpperCase(),
-        type: "personality",
-        summary: "",
-      })),
-    ].filter((entry) => shouldKeep(entry.path));
+    const enBaseProfiles = enProfiles.items.filter((item) => item.isIndexable);
+    const zhBaseProfiles = zhProfiles.items.filter((item) => item.isIndexable);
+    const enVariantProfilesForLlmsFull = enVariantProfiles.items.filter((item) => item.isIndexable);
+    const zhVariantProfilesForLlmsFull = zhVariantProfiles.items.filter((item) => item.isIndexable);
+
+    const enVariantEntries = buildPersonalityVariantEntries(enVariantProfilesForLlmsFull, enBaseProfiles, "en");
+    const zhVariantEntries = buildPersonalityVariantEntries(zhVariantProfilesForLlmsFull, zhBaseProfiles, "zh");
+    const enComparisonEntries = buildPersonalityComparisonEntries(enVariantProfilesForLlmsFull, "en");
+    const zhComparisonEntries = buildPersonalityComparisonEntries(zhVariantProfilesForLlmsFull, "zh");
+
+    return limitLlmsRouteEntries(uniqueEntriesByPath([
+      ...enVariantEntries,
+      ...zhVariantEntries,
+      ...enComparisonEntries,
+      ...zhComparisonEntries,
+    ]), LLMS_FULL_PERSONALITY_ENTRY_LIMIT);
   } catch {
     // Personality coverage is CMS-authoritative; do not fall back to local MBTI data here.
   }
@@ -988,7 +1091,7 @@ export async function buildLlmsFullText(siteUrl: string): Promise<string> {
 
   const [enrichedPersonalityEntries, enrichedTopicEntries, enrichedArticles, enrichedGuideEntries] = await Promise.all([
     mapWithConcurrency(
-      limitLlmsRouteEntries(personalityEntries, LLMS_FULL_PERSONALITY_ENTRY_LIMIT),
+      personalityEntries,
       ENRICHMENT_CONCURRENCY,
       (entry) => withLlmsRouteBudget(() => enrichPersonalityEntry(entry, siteUrl), entry, { timeoutMs: LLMS_FULL_ENRICHMENT_TIMEOUT_MS })
     ),
