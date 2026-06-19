@@ -1,0 +1,103 @@
+{
+  "artifact": "MBTI64-PILOT-CONTENT-REVISION-PUBLISH-CLOSURE-01",
+  "generated_at": "2026-06-19T00:00:00+08:00",
+  "status": "pass_with_deferred_search_release",
+  "scope": "Artifact-only closure for the MBTI64 V2.1 8-page pilot content revision chain. No CMS write, promotion, sitemap/llms release, queue enqueue, approval, submit, or frontend runtime change was performed by this PR.",
+  "pilot_urls": [
+    "/en/personality/intj-a-vs-intj-t",
+    "/zh/personality/istj-a",
+    "/en/personality/intp-a-vs-intp-t",
+    "/zh/personality/infp-t",
+    "/en/personality/intj-a",
+    "/en/personality/intj-t",
+    "/zh/personality/intj-a",
+    "/zh/personality/intj-t"
+  ],
+  "source_package": {
+    "version": "pilot-v2.1",
+    "sha256": "09acd30cfd7a8dd3eb0eacf8bef1ed10b54cfa0b89277e328faa6583fdf602a3",
+    "row_count": 8,
+    "variant_row_count": 6,
+    "comparison_row_count": 2
+  },
+  "verified_chain": [
+    {
+      "step": "draft_revision_write",
+      "status": "pass",
+      "evidence": "/private/tmp/MBTI64-CMS-REVISION-DRAFT-PRODUCTION-WRITE-2026-06-18.json",
+      "summary": "Production command was draft-only and idempotent; no publish, index, sitemap/llms, search release, or runtime update was attempted."
+    },
+    {
+      "step": "draft_revision_post_write_smoke",
+      "status": "pass",
+      "evidence": "/private/tmp/MBTI64-CMS-REVISION-DRAFT-POST-WRITE-SMOKE-2026-06-18.json",
+      "summary": "Eight draft revisions existed with matching source SHA, snapshot keys, and draft-only safety holds. Live HTML had zero draft phrase leakage."
+    },
+    {
+      "step": "promotion_write",
+      "status": "pass",
+      "evidence": "/private/tmp/MBTI64-CMS-REVISION-PROMOTE-WRITE-2026-06-18.json",
+      "summary": "Eight rows were promoted to live CMS content. Side effects were bounded: no index, sitemap/llms, search release, queue enqueue, or external calls were attempted."
+    },
+    {
+      "step": "post_promotion_html_review",
+      "status": "pass",
+      "evidence": "/private/tmp/MBTI64-CMS-REVISION-PROMOTE-POST-WRITE-SMOKE-REVIEW-04-2026-06-19.json",
+      "summary": "Eight live pilot pages passed the promoted content, canonical, FAQ, and same-origin private-route hygiene checks."
+    },
+    {
+      "step": "index_surface_readiness",
+      "status": "conditional_pass",
+      "evidence": "/private/tmp/MBTI64-INDEX-SURFACE-READINESS-2026-06-19.json",
+      "summary": "Eight URLs were HTTP 200, self-canonical, index/follow, present in sitemap.xml, llms.txt, and llms-full.txt, with no private route hits. The only warning was that Search Channel recheck still needed a fresh production run."
+    },
+    {
+      "step": "url_truth_and_search_queue_state",
+      "status": "operator_reported_needs_repo_archive",
+      "evidence": "Production /tmp artifacts reported after backend URL Truth handoff write: MBTI64-URL-TRUTH-HANDOFF-PRODUCTION-WRITE-2026-06-19, MBTI64-SEARCH-CHANNEL-URL-TRUTH-RECHECK-2026-06-19-AFTER-WRITE, and MBTI64-SEARCH-QUEUE-RELEASE-DRY-RUN-2026-06-19.",
+      "summary": "Operator-reported latest state: 96 MBTI64 URL Truth rows written, 8/8 pilot URL Truth found, Search Queue dry-run eligible, planned queue item count 64, duplicate count 0, and final decision GO_FOR_SEARCH_QUEUE_RELEASE_APPROVAL. These latest production artifacts were not present in this local worktree and should be archived by the dedicated Search Queue release/measurement gate."
+    }
+  ],
+  "live_spot_check_2026_06_19": {
+    "method": "Read-only public HTTP fetch from this PR worktree; no production write or search action.",
+    "summary": {
+      "url_count": 8,
+      "http_200_count": 8,
+      "self_canonical_count": 8,
+      "index_follow_count": 8,
+      "same_origin_results_lookup_hits": 0
+    },
+    "warnings": [
+      "The live <title> values currently include a duplicated brand suffix pattern, for example '| FermatMind | FermatMind'. This is not a publish closure blocker, but should be handled by MBTI64-SERP-SNIPPET-CTR-PACKAGE-01."
+    ]
+  },
+  "side_effect_boundary": {
+    "cms_write_performed_by_this_pr": false,
+    "frontend_runtime_changed_by_this_pr": false,
+    "sitemap_changed_by_this_pr": false,
+    "llms_changed_by_this_pr": false,
+    "search_queue_enqueue_performed_by_this_pr": false,
+    "search_submit_performed_by_this_pr": false,
+    "external_search_api_called_by_this_pr": false
+  },
+  "blockers": [],
+  "warnings": [
+    "Latest post-URL-Truth-write Search Queue dry-run artifacts are not checked into this repository. Closure records the operator-reported state and keeps search release as a separate gate.",
+    "SERP title branding duplication is deferred to MBTI64-SERP-SNIPPET-CTR-PACKAGE-01."
+  ],
+  "final_decision": "PASS_FOR_CONTENT_REVISION_PUBLISH_CLOSURE",
+  "not_authorized_by_this_closure": [
+    "Search Queue enqueue",
+    "Search submission",
+    "Search channel approval",
+    "Sitemap or llms release",
+    "Additional CMS promotion",
+    "Frontend runtime changes"
+  ],
+  "recommended_next_tasks": [
+    "MBTI64-TRADEMARK-CLAIM-GATE-01",
+    "MBTI64-DUPLICATE-DIFFERENTIATION-GATE-01",
+    "MBTI64-SEO-MEASUREMENT-COHORT-01",
+    "MBTI64-SEARCH-QUEUE-RELEASE-01"
+  ]
+}
