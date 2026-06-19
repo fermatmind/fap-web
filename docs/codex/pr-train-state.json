@@ -22906,12 +22906,12 @@
       "id": "SEO-CMS-DRAFT-PACKAGE-CONTRACT-01",
       "repo": "fap-web",
       "branch": "codex/seo-cms-draft-package-contract-01",
-      "status": "ready_to_merge",
-      "commit_sha": "c6b84a86ad83deefb9ce4557a72c2fad6a5e81f0",
+      "status": "merged",
+      "commit_sha": "9a833b98d7b1ca1599d74b13208be6220deb55f1",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1234",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-19T22:52:08Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "failure_reason": null,
       "checks": {
         "authorization": {
@@ -22949,6 +22949,10 @@
         "github_checks": {
           "status": "pass",
           "evidence": "PR #1234 checks passed on head c6b84a86ad83deefb9ce4557a72c2fad6a5e81f0: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL. mergeStateStatus was CLEAN and PR diff scope validation matched the allowlist."
+        },
+        "post_merge": {
+          "status": "pass",
+          "evidence": "GitHub reports PR #1234 MERGED at 2026-06-19T22:52:08Z with squash merge commit 9a833b98d7b1ca1599d74b13208be6220deb55f1. origin/main contains the merge commit, the remote task branch is absent, no local task branch remains in the primary checkout, and post-merge focused validation passed for the CMS draft package contract checker plus focused SEO Agent contracts."
         }
       },
       "history": [
@@ -22976,6 +22980,11 @@
           "at": "2026-06-20T07:48:00+08:00",
           "status": "ready_to_merge",
           "note": "PR #1234 checks passed, mergeStateStatus was CLEAN, and PR diff scope validation matched the CMS draft package contract allowlist."
+        },
+        {
+          "at": "2026-06-20T08:00:00+08:00",
+          "status": "merged",
+          "note": "Reconciled PR #1234 merge facts while auditing SEO_AGENT_PR_TRAIN_RUNNER; squash merge commit 9a833b98d7b1ca1599d74b13208be6220deb55f1, remote branch deleted, local branch absent, and post-merge focused validation passed."
         }
       ]
     }
