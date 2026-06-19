@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-19T16:15:00+08:00",
+  "updated_at": "2026-06-19T16:25:00+08:00",
   "status": "active",
   "phase": "mbti64_serp_snippet_ctr_package",
   "pr_namespace": "PR-PRAC-*",
@@ -22108,8 +22108,8 @@
       "id": "MBTI64-SERP-SNIPPET-CTR-PACKAGE-01",
       "repo": "fap-web",
       "branch": "codex/mbti64-serp-snippet-ctr-package-01",
-      "status": "pr_open",
-      "commit_sha": null,
+      "status": "ready_to_merge",
+      "commit_sha": "fdad98cd549624f6708ffddbfdca2cf1401979d3",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1212",
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -22139,9 +22139,16 @@
           "evidence": "Opened https://github.com/fermatmind/fap-web/pull/1212 after local checks and scope validation passed."
         },
         "github_checks": {
-          "status": "pending",
-          "checks": [],
-          "evidence": null
+          "status": "pass",
+          "checks": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "CodeQL",
+            "analyze (javascript-typescript)"
+          ],
+          "evidence": "GitHub checks passed on PR #1212 head fdad98cd549624f6708ffddbfdca2cf1401979d3 and mergeStateStatus is CLEAN."
         }
       },
       "history": [
@@ -22159,6 +22166,11 @@
           "at": "2026-06-19T16:15:00+08:00",
           "status": "pr_open",
           "note": "Opened fap-web PR #1212 for MBTI64-SERP-SNIPPET-CTR-PACKAGE-01."
+        },
+        {
+          "at": "2026-06-19T16:25:00+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed and mergeStateStatus is CLEAN for PR #1212."
         }
       ]
     }
