@@ -3180,7 +3180,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
     return CAREER_SALARY_POST_IMPORT_SEO_SAFETY_AUDIT_ALLOWED_FILES.has(file);
   }
 
-  if (CURRENT_BRANCH === "codex/career-ai-impact-preview-consumer") {
+  if (
+    CURRENT_BRANCH === "codex/career-ai-impact-preview-consumer" ||
+    CURRENT_BRANCH === "codex/ai-impact-v5-staging-page-qa-50"
+  ) {
     return CAREER_AI_IMPACT_PREVIEW_CONSUMER_ALLOWED_FILES.has(file);
   }
 
