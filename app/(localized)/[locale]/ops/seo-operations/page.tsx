@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { SeoOperationsDashboard } from "@/components/ops/seo/SeoOperationsDashboard";
 import { normalizeLocale, type Locale } from "@/lib/i18n/locales";
+import { loadSeoOperationsReadModel } from "@/lib/ops/seoOperationsReadModel";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -19,6 +20,7 @@ export const metadata: Metadata = {
 export default async function SeoOperationsPage({ params }: Props) {
   const { locale: localeParam } = await params;
   const locale = normalizeLocale(localeParam) as Locale;
+  const readModel = await loadSeoOperationsReadModel();
 
-  return <SeoOperationsDashboard locale={locale} />;
+  return <SeoOperationsDashboard locale={locale} readModel={readModel} />;
 }

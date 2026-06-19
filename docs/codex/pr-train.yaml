@@ -15537,3 +15537,68 @@ prs:
       squash: true
       auto_merge: true
     next_task: MBTI64-LLMS-FULL-PILOT-MEMBERSHIP-RECHECK-02
+
+  - id: SEO-OPS-READMODEL-BRIDGE-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/seo-ops-readmodel-bridge-01
+    base: main
+    title: "feat(ops): bridge SEO operations dashboard to read model"
+    depends_on:
+      - SEO-AGENT-CONTROL-PACKET-01
+    mode: execute
+    train_scope: seo_agent_ops_readmodel_bridge
+    status: ready_to_merge
+    goal: "Bridge the fap-web SEO operations dashboard from mock/static artifact assumptions to a sanitized read-model boundary with explicit source labels, without CMS writes, search submission, provider calls, revalidation, production config, or runtime sitemap/llms/schema/hreflang changes."
+    artifacts:
+      - app/(localized)/[locale]/ops/seo-operations/page.tsx
+      - components/ops/seo/SeoOperationsDashboard.tsx
+      - components/ops/seo/mockSeoOperations.ts
+      - components/ops/seo/seoIssueQueueArtifactAdapter.ts
+      - lib/ops/seoOperationsReadModel.ts
+      - tests/contracts/seo-issue-queue-dashboard-shell.contract.test.ts
+      - tests/contracts/seo-ops-readmodel-bridge.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - app/(localized)/[locale]/ops/seo-operations/page.tsx
+      - components/ops/seo/SeoOperationsDashboard.tsx
+      - components/ops/seo/mockSeoOperations.ts
+      - components/ops/seo/seoIssueQueueArtifactAdapter.ts
+      - lib/ops/seoOperationsReadModel.ts
+      - tests/contracts/seo-issue-queue-dashboard-shell.contract.test.ts
+      - tests/contracts/seo-ops-readmodel-bridge.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - app/api/**
+      - lib/cms/**
+      - scripts/seo/push-baidu.mjs
+      - docs/seo/generated/**
+      - public/**
+      - package.json
+      - pnpm-lock.yaml
+      - automation TOML
+      - env files
+      - CMS writes, draft creation, publish, or unpublish
+      - Search Channel enqueue, approve, or submit
+      - search provider submission
+      - frontend revalidation
+      - sitemap, robots, llms, schema, or hreflang runtime changes
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/seo-issue-queue-dashboard-shell.contract.test.ts tests/contracts/seo-ops-readmodel-bridge.contract.test.ts
+      - pnpm typecheck
+      - pnpm seo:check-sitemap
+      - pnpm seo:check-mobile
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - git diff --check
+      - scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: SEO-RUNTIME-QA-AGENT-01

@@ -7,9 +7,11 @@ import { seoIssueQueueArtifactOperationsData } from "@/components/ops/seo/seoIss
 import { isCurrentRiasecPack12AllowedFile } from "./helpers/currentPrScope";
 
 const ROOT = process.cwd();
+const PAGE_PATH = path.join(ROOT, "app/(localized)/[locale]/ops/seo-operations/page.tsx");
 const DASHBOARD_PATH = path.join(ROOT, "components/ops/seo/SeoOperationsDashboard.tsx");
 const ADAPTER_PATH = path.join(ROOT, "components/ops/seo/seoIssueQueueArtifactAdapter.ts");
 const TABLE_PATH = path.join(ROOT, "components/ops/seo/IssueQueueTable.tsx");
+const READ_MODEL_PATH = path.join(ROOT, "lib/ops/seoOperationsReadModel.ts");
 
 function read(relativePath: string): string {
   return fs.readFileSync(path.join(ROOT, relativePath), "utf8");
@@ -42,6 +44,8 @@ function isAllowedFile(file: string): boolean {
       "components/ops/seo/SeoOperationsDashboard.tsx",
       "components/ops/seo/mockSeoOperations.ts",
       "components/ops/seo/seoIssueQueueArtifactAdapter.ts",
+      "lib/ops/seoOperationsReadModel.ts",
+      "tests/contracts/seo-ops-readmodel-bridge.contract.test.ts",
       "docs/codex/pr-train.yaml",
       "docs/codex/pr-train-state.json",
       "tests/contracts/helpers/currentPrScope.ts",
@@ -82,14 +86,22 @@ describe("SEO issue queue dashboard shell artifact adapter", () => {
     const dashboard = fs.readFileSync(DASHBOARD_PATH, "utf8");
     const adapter = fs.readFileSync(ADAPTER_PATH, "utf8");
     const table = fs.readFileSync(TABLE_PATH, "utf8");
+    const page = fs.readFileSync(PAGE_PATH, "utf8");
+    const readModel = fs.readFileSync(READ_MODEL_PATH, "utf8");
 
     expect(dashboard).toContain("Contract-backed mock");
     expect(dashboard).toContain("任务队列读取本地 issue queue artifact");
+    expect(dashboard).toContain("Read-model boundary");
     expect(dashboard).toContain("SEO-ISSUE-QUEUE-01 sample-only artifact");
     expect(dashboard).toContain("批量动作只提交后台任务");
     expect(adapter).toContain("docs/seo/generated/seo-issue-queue.v1.json");
     expect(adapter).toContain("must not write CMS content");
     expect(table).toContain("issue_queue_artifact");
+    expect(page).toContain("loadSeoOperationsReadModel");
+    expect(readModel).toContain("artifact_sample");
+    expect(readModel).toContain("live_read_model");
+    expect(readModel).toContain("mock_fixture");
+    expect(readModel).toContain("unavailable");
   });
 
   it("does not introduce runtime integrations, CMS writes, search submission, or deployment hooks", () => {
@@ -98,6 +110,7 @@ describe("SEO issue queue dashboard shell artifact adapter", () => {
       read("components/ops/seo/IssueQueueTable.tsx"),
       read("components/ops/seo/mockSeoOperations.ts"),
       read("components/ops/seo/seoIssueQueueArtifactAdapter.ts"),
+      read("lib/ops/seoOperationsReadModel.ts"),
     ].join("\n");
 
     expect(scanned).not.toMatch(/\bfetch\s*\(/);

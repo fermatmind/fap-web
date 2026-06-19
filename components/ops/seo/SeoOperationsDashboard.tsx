@@ -25,8 +25,8 @@ import {
   type SeoIssueTask,
   type TrafficPoint,
 } from "@/components/ops/seo/mockSeoOperations";
-import { seoIssueQueueArtifactOperationsData } from "@/components/ops/seo/seoIssueQueueArtifactAdapter";
 import type { Locale } from "@/lib/i18n/locales";
+import type { SeoOperationsReadModel, SeoOperationsReadModelSource } from "@/lib/ops/seoOperationsReadModel";
 import { cn } from "@/lib/utils";
 
 const contentTypeOptions: Array<{ value: SeoContentType; label: string }> = [
@@ -90,6 +90,13 @@ const severityRank: Record<SeoIssueTask["severity"], number> = {
   high: 1,
   medium: 2,
   low: 3,
+};
+
+const readModelTone: Record<SeoOperationsReadModelSource, StatusTone> = {
+  live_read_model: "success",
+  artifact_sample: "info",
+  mock_fixture: "warning",
+  unavailable: "danger",
 };
 
 function formatNumber(value: number): string {
@@ -189,8 +196,8 @@ function TrafficTrendPanel({ points }: { points: TrafficPoint[] }) {
   );
 }
 
-export function SeoOperationsDashboard({ locale }: { locale: Locale }) {
-  const operationsData = seoIssueQueueArtifactOperationsData;
+export function SeoOperationsDashboard({ locale, readModel }: { locale: Locale; readModel: SeoOperationsReadModel }) {
+  const operationsData = readModel.data;
   const [search, setSearch] = useState("");
   const [contentType, setContentType] = useState<SeoContentType>("all");
   const [issueFocus, setIssueFocus] = useState<SeoIssueFocus>("all");
@@ -319,8 +326,13 @@ export function SeoOperationsDashboard({ locale }: { locale: Locale }) {
       <OpsHeader
         eyebrow="SEO 与增长"
         title="SEO 运营看板"
-        description="面向运营的只读 dashboard shell。任务队列读取本地 issue queue artifact；关键词、趋势、页面表现仍保留 mock，后续接入 seo_intel 观测层和 CMS API 资源摘要。"
-        meta={<StatusBadge tone="info">Contract-backed mock</StatusBadge>}
+        description="面向运营的只读 dashboard shell。数据经 read-model boundary 注入；当前任务队列读取本地 issue queue artifact，关键词、趋势、页面表现仍保留 mock，后续接入 seo_intel 观测层和 CMS API 资源摘要。"
+        meta={
+          <div className="flex flex-wrap gap-2">
+            <StatusBadge tone={readModelTone[readModel.source]}>{readModel.sourceLabel}</StatusBadge>
+            <StatusBadge tone="info">Contract-backed mock</StatusBadge>
+          </div>
+        }
         actions={
           <>
             <button
@@ -342,6 +354,24 @@ export function SeoOperationsDashboard({ locale }: { locale: Locale }) {
       />
 
       <div className="space-y-4 p-4 sm:p-6">
+        <section className="rounded-lg border border-slate-200 bg-white p-4 text-xs text-slate-600 shadow-sm">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+            <div>
+              <h2 className="text-sm font-semibold text-slate-950">Read-model boundary</h2>
+              <p className="mt-1 leading-5">{readModel.sourceDetail}</p>
+              <p className="mt-1 font-mono text-[11px] text-slate-500">source={readModel.source}</p>
+            </div>
+            <StatusBadge tone="neutral">更新 {readModel.generatedAt}</StatusBadge>
+          </div>
+          {readModel.warnings.length > 0 ? (
+            <ul className="mt-3 list-disc space-y-1 pl-5">
+              {readModel.warnings.map((warning) => (
+                <li key={warning}>{warning}</li>
+              ))}
+            </ul>
+          ) : null}
+        </section>
+
         <FilterBar
           search={search}
           onSearchChange={setSearch}
