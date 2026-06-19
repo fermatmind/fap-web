@@ -1,0 +1,207 @@
+{
+  "artifact": "MBTI64-LLMS-FULL-PILOT-EXPOSURE-POLICY-01",
+  "generated_at": "2026-06-19T17:58:00+08:00",
+  "status": "policy_created_conditional_repair_recommended",
+  "scope": {
+    "type": "artifact_only_policy_decision",
+    "runtime_changed": false,
+    "cms_changed": false,
+    "sitemap_changed": false,
+    "llms_changed": false,
+    "llms_full_changed": false,
+    "search_queue_changed": false
+  },
+  "source_inputs": [
+    "docs/seo/personality/mbti64-llms-full-pilot-membership-recheck-2026-06-19.json",
+    "docs/seo/personality/mbti64-seo-measurement-cohort-2026-06-19.json",
+    "app/llms-full.txt/route.ts",
+    "live https://fermatmind.com/llms-full.txt snapshot from membership recheck artifact"
+  ],
+  "evidence_summary": {
+    "pilot_url_count": 8,
+    "sitemap_exact_present_count": 8,
+    "llms_exact_present_count": 8,
+    "llms_full_exact_present_count": 0,
+    "llms_full_fuzzy_present_count": 0,
+    "private_or_sensitive_surface_match_count": 0,
+    "source_llms_full_status": 200,
+    "source_llms_full_bytes": 522571,
+    "source_llms_full_sha256": "b35d124d749cbed28175ef31ca366ef38d74745bbe5ce5dd47ce693fb8930dd2",
+    "measurement_cohort_final_decision": "BASELINE_CREATED_CONDITIONAL_FOR_SEARCH_RELEASE"
+  },
+  "generator_policy_evidence": {
+    "llms_full_personality_detail_url_count": 64,
+    "llms_full_personality_comparison_url_count": 32,
+    "llms_full_personality_entry_limit": 96,
+    "route_evidence": [
+      "app/llms-full.txt/route.ts defines LLMS_FULL_PERSONALITY_DETAIL_URL_COUNT = 32 * 2.",
+      "app/llms-full.txt/route.ts defines LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT = 16 * 2.",
+      "app/llms-full.txt/route.ts builds personality variant and comparison entries from backend CMS authority via listPersonalityEntries().",
+      "app/llms-full.txt/route.ts enriches personality entries after applying LLMS_FULL_PERSONALITY_ENTRY_LIMIT."
+    ],
+    "deny_pattern_observation": "The deny pattern blocks base 16 type paths such as /en/personality/intj, not the A/T pilot variant or A-vs-T comparison paths."
+  },
+  "policy_questions": {
+    "should_the_8_pilot_urls_be_eligible_for_llms_full": true,
+    "rationale": "The 8 pilot URLs are public MBTI64 personality pages, exact-present in sitemap.xml and llms.txt, have zero private/sensitive route matches in the recheck artifact, and fall within the declared personality llms-full entry budget of 96.",
+    "why_0_of_8_currently_present": "Evidence is insufficient to prove a single cause from artifacts alone. The likely causes are generator behavior, enrichment/cache timing, CMS/API list ordering, or current live llms-full cache state rather than route safety, because sitemap and llms membership pass and private-route scan is clean.",
+    "is_search_release_blocked_by_llms_full_absence": "conditional_warning_not_hard_blocker",
+    "search_release_note": "Search release can treat llms-full absence as a warning only if the operator explicitly accepts that llms-full is not a required channel for this 8-page pilot; otherwise run the repair PR first."
+  },
+  "rows": [
+    {
+      "path": "/en/personality/intj-a-vs-intj-t",
+      "full_url": "https://fermatmind.com/en/personality/intj-a-vs-intj-t",
+      "locale": "en",
+      "page_type": "comparison",
+      "index_surface": {
+        "sitemap_exact_present": true,
+        "llms_exact_present": true,
+        "llms_full_exact_present": false,
+        "llms_full_fuzzy_diagnostic": false
+      },
+      "policy_inputs": {
+        "public_indexable_inferred": true,
+        "safe_route_inferred": true
+      },
+      "decision": "missing_from_llms_full"
+    },
+    {
+      "path": "/zh/personality/istj-a",
+      "full_url": "https://fermatmind.com/zh/personality/istj-a",
+      "locale": "zh",
+      "page_type": "variant",
+      "index_surface": {
+        "sitemap_exact_present": true,
+        "llms_exact_present": true,
+        "llms_full_exact_present": false,
+        "llms_full_fuzzy_diagnostic": false
+      },
+      "policy_inputs": {
+        "public_indexable_inferred": true,
+        "safe_route_inferred": true
+      },
+      "decision": "missing_from_llms_full"
+    },
+    {
+      "path": "/en/personality/intp-a-vs-intp-t",
+      "full_url": "https://fermatmind.com/en/personality/intp-a-vs-intp-t",
+      "locale": "en",
+      "page_type": "comparison",
+      "index_surface": {
+        "sitemap_exact_present": true,
+        "llms_exact_present": true,
+        "llms_full_exact_present": false,
+        "llms_full_fuzzy_diagnostic": false
+      },
+      "policy_inputs": {
+        "public_indexable_inferred": true,
+        "safe_route_inferred": true
+      },
+      "decision": "missing_from_llms_full"
+    },
+    {
+      "path": "/zh/personality/infp-t",
+      "full_url": "https://fermatmind.com/zh/personality/infp-t",
+      "locale": "zh",
+      "page_type": "variant",
+      "index_surface": {
+        "sitemap_exact_present": true,
+        "llms_exact_present": true,
+        "llms_full_exact_present": false,
+        "llms_full_fuzzy_diagnostic": false
+      },
+      "policy_inputs": {
+        "public_indexable_inferred": true,
+        "safe_route_inferred": true
+      },
+      "decision": "missing_from_llms_full"
+    },
+    {
+      "path": "/en/personality/intj-a",
+      "full_url": "https://fermatmind.com/en/personality/intj-a",
+      "locale": "en",
+      "page_type": "variant",
+      "index_surface": {
+        "sitemap_exact_present": true,
+        "llms_exact_present": true,
+        "llms_full_exact_present": false,
+        "llms_full_fuzzy_diagnostic": false
+      },
+      "policy_inputs": {
+        "public_indexable_inferred": true,
+        "safe_route_inferred": true
+      },
+      "decision": "missing_from_llms_full"
+    },
+    {
+      "path": "/en/personality/intj-t",
+      "full_url": "https://fermatmind.com/en/personality/intj-t",
+      "locale": "en",
+      "page_type": "variant",
+      "index_surface": {
+        "sitemap_exact_present": true,
+        "llms_exact_present": true,
+        "llms_full_exact_present": false,
+        "llms_full_fuzzy_diagnostic": false
+      },
+      "policy_inputs": {
+        "public_indexable_inferred": true,
+        "safe_route_inferred": true
+      },
+      "decision": "missing_from_llms_full"
+    },
+    {
+      "path": "/zh/personality/intj-a",
+      "full_url": "https://fermatmind.com/zh/personality/intj-a",
+      "locale": "zh",
+      "page_type": "variant",
+      "index_surface": {
+        "sitemap_exact_present": true,
+        "llms_exact_present": true,
+        "llms_full_exact_present": false,
+        "llms_full_fuzzy_diagnostic": false
+      },
+      "policy_inputs": {
+        "public_indexable_inferred": true,
+        "safe_route_inferred": true
+      },
+      "decision": "missing_from_llms_full"
+    },
+    {
+      "path": "/zh/personality/intj-t",
+      "full_url": "https://fermatmind.com/zh/personality/intj-t",
+      "locale": "zh",
+      "page_type": "variant",
+      "index_surface": {
+        "sitemap_exact_present": true,
+        "llms_exact_present": true,
+        "llms_full_exact_present": false,
+        "llms_full_fuzzy_diagnostic": false
+      },
+      "policy_inputs": {
+        "public_indexable_inferred": true,
+        "safe_route_inferred": true
+      },
+      "decision": "missing_from_llms_full"
+    }
+  ],
+  "blockers": [],
+  "warnings": [
+    "8/8 pilot URLs are absent from llms-full.txt by exact URL/path membership.",
+    "Artifacts do not prove whether absence is caused by generator ordering, cache state, enrichment behavior, or CMS/API response shape.",
+    "This PR intentionally does not modify app/llms-full.txt/route.ts."
+  ],
+  "final_decision": "CONDITIONAL_REPAIR_RECOMMENDED",
+  "recommended_next_task": "MBTI64-LLMS-FULL-PILOT-EXPOSURE-REPAIR-01",
+  "acceptable_non_blocking_path": {
+    "decision": "ACCEPT_AS_SEARCH_RELEASE_WARNING_ONLY_WITH_OPERATOR_SIGNOFF",
+    "condition": "Operator explicitly accepts that llms-full absence is non-blocking for MBTI64-SEARCH-QUEUE-RELEASE-01 after sitemap, llms.txt, URL Truth, metadata, private-route, and Search Queue dry-run gates pass."
+  },
+  "intentionally_deferred": [
+    "No llms-full generator repair.",
+    "No sitemap or llms URL-set change.",
+    "No CMS write, import, promotion, or publish.",
+    "No Search Queue enqueue, approve, submit, or external search API call."
+  ]
+}
