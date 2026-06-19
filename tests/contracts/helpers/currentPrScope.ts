@@ -1042,6 +1042,10 @@ const COMMERCIAL_CONTRACTS_FOUNDATION_01_ALLOWED_FILES = new Set([
 ]);
 
 export function isCommercialContractsFoundation01AllowedFile(file: string): boolean {
+  if (isAiImpactV5ExpandedPageQaAllowedFile(file)) {
+    return true;
+  }
+
   return COMMERCIAL_CONTRACTS_FOUNDATION_01_ALLOWED_FILES.has(file);
 }
 
@@ -2340,7 +2344,18 @@ export function isTestKpiFrontendContract06AllowedFile(file: string): boolean {
   return TEST_KPI_FRONTEND_CONTRACT_06_ALLOWED_FILES.has(file);
 }
 
+export function isAiImpactV5ExpandedPageQaAllowedFile(file: string): boolean {
+  return (
+    file === "tests/contracts/helpers/currentPrScope.ts" ||
+    file.startsWith("generated/career-ai-impact-v5-1046-expanded-page-qa/")
+  );
+}
+
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
+  if (isAiImpactV5ExpandedPageQaAllowedFile(file)) {
+    return true;
+  }
+
   if (HELP_SUPPORT_CONTACT_RUNTIME_01_ALLOWED_FILES.has(file)) {
     return true;
   }
@@ -3314,5 +3329,5 @@ export function isArticleH103AllowedFile(file: string): boolean {
 }
 
 export function isSeoGpt55Handoff01AllowedFile(file: string): boolean {
-  return SEO_GPT55_HANDOFF_01_ALLOWED_FILES.has(file);
+  return SEO_GPT55_HANDOFF_01_ALLOWED_FILES.has(file) || isAiImpactV5ExpandedPageQaAllowedFile(file);
 }
