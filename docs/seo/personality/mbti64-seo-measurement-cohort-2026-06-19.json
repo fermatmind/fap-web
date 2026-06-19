@@ -1,0 +1,170 @@
+{
+  "artifact": "MBTI64-SEO-MEASUREMENT-COHORT-01",
+  "generated_at": "2026-06-19T15:43:02+08:00",
+  "status": "baseline_created_with_llms_full_warning",
+  "scope": "Artifact-only SEO measurement baseline for the MBTI64 V2.1 8-page pilot cohort before Search Queue release. No CMS write, frontend runtime change, sitemap/llms change, queue enqueue, search approval, or search submission was performed.",
+  "inputs": {
+    "publish_closure": "docs/seo/personality/mbti64-pilot-content-revision-publish-closure-2026-06-19.json",
+    "trademark_claim_gate": "docs/seo/personality/mbti64-trademark-claim-gate-2026-06-19.json",
+    "duplicate_differentiation_gate": "docs/seo/personality/mbti64-duplicate-differentiation-gate-2026-06-19.json",
+    "live_origin": "https://fermatmind.com"
+  },
+  "measurement_boundary": {
+    "gsc_access": "unknown_not_used",
+    "ga4_access": "unknown_not_used",
+    "search_console_request_indexing": false,
+    "search_queue_enqueue": false,
+    "search_submit": false,
+    "external_search_api_call": false,
+    "note": "This baseline uses public HTTP and repository artifacts only. GSC/GA4 metrics require a separate read-only browser or API collection task."
+  },
+  "cohort_summary": {
+    "url_count": 8,
+    "http_200_count": 8,
+    "self_canonical_count": 8,
+    "index_follow_count": 8,
+    "same_origin_private_route_hit_count": 0,
+    "sitemap_present_count": 8,
+    "llms_present_count": 8,
+    "llms_full_present_count": 0,
+    "title_brand_suffix_duplicate_count": 8
+  },
+  "surface_snapshots": {
+    "/sitemap.xml": {
+      "status": 200,
+      "bytes": 337203,
+      "sha256": "a0f40c9f383bd7ea8fb7eb8d517f4fffa1542e34844529bd36b377fe607a6c83",
+      "pilot_present_count": 8
+    },
+    "/llms.txt": {
+      "status": 200,
+      "bytes": 164108,
+      "sha256": "a3419978d6629d7613e8d090c03b76e95d542424dcca225a0e6996a43763df0d",
+      "pilot_present_count": 8
+    },
+    "/llms-full.txt": {
+      "status": 200,
+      "bytes": 522571,
+      "sha256": "b35d124d749cbed28175ef31ca366ef38d74745bbe5ce5dd47ce693fb8930dd2",
+      "pilot_present_count": 0
+    }
+  },
+  "pages": [
+    {
+      "path": "/en/personality/intj-a-vs-intj-t",
+      "status": 200,
+      "canonical": "https://fermatmind.com/en/personality/intj-a-vs-intj-t",
+      "robots": "index, follow",
+      "h1": "INTJ-A vs INTJ-T: Key Differences",
+      "title": "INTJ-A vs INTJ-T: Confidence, Stress and Work Style | FermatMind | FermatMind",
+      "sitemap_present": true,
+      "llms_present": true,
+      "llms_full_present": false,
+      "private_hit_count": 0
+    },
+    {
+      "path": "/zh/personality/istj-a",
+      "status": 200,
+      "canonical": "https://fermatmind.com/zh/personality/istj-a",
+      "robots": "index, follow",
+      "h1": "ISTJ-A 人格特点",
+      "title": "ISTJ-A 人格特点：责任感、执行力、职业与关系 | FermatMind | FermatMind",
+      "sitemap_present": true,
+      "llms_present": true,
+      "llms_full_present": false,
+      "private_hit_count": 0
+    },
+    {
+      "path": "/en/personality/intp-a-vs-intp-t",
+      "status": 200,
+      "canonical": "https://fermatmind.com/en/personality/intp-a-vs-intp-t",
+      "robots": "index, follow",
+      "h1": "INTP-A vs INTP-T: Key Differences",
+      "title": "INTP-A vs INTP-T: Doubt, Stress and Analysis Style | FermatMind | FermatMind",
+      "sitemap_present": true,
+      "llms_present": true,
+      "llms_full_present": false,
+      "private_hit_count": 0
+    },
+    {
+      "path": "/zh/personality/infp-t",
+      "status": 200,
+      "canonical": "https://fermatmind.com/zh/personality/infp-t",
+      "robots": "index, follow",
+      "h1": "INFP-T 人格特点",
+      "title": "INFP-T 人格特点：敏感、理想、自我审视与职业 | FermatMind | FermatMind",
+      "sitemap_present": true,
+      "llms_present": true,
+      "llms_full_present": false,
+      "private_hit_count": 0
+    },
+    {
+      "path": "/en/personality/intj-a",
+      "status": 200,
+      "canonical": "https://fermatmind.com/en/personality/intj-a",
+      "robots": "index, follow",
+      "h1": "INTJ-A Meaning",
+      "title": "INTJ-A Meaning: Assertive Architect Traits and Work Style | FermatMind | FermatMind",
+      "sitemap_present": true,
+      "llms_present": true,
+      "llms_full_present": false,
+      "private_hit_count": 0
+    },
+    {
+      "path": "/en/personality/intj-t",
+      "status": 200,
+      "canonical": "https://fermatmind.com/en/personality/intj-t",
+      "robots": "index, follow",
+      "h1": "INTJ-T Meaning",
+      "title": "INTJ-T Meaning: Turbulent Architect Traits and Stress Style | FermatMind | FermatMind",
+      "sitemap_present": true,
+      "llms_present": true,
+      "llms_full_present": false,
+      "private_hit_count": 0
+    },
+    {
+      "path": "/zh/personality/intj-a",
+      "status": 200,
+      "canonical": "https://fermatmind.com/zh/personality/intj-a",
+      "robots": "index, follow",
+      "h1": "INTJ-A 人格特点",
+      "title": "INTJ-A 人格特点：独立判断、战略规划与关系沟通 | FermatMind | FermatMind",
+      "sitemap_present": true,
+      "llms_present": true,
+      "llms_full_present": false,
+      "private_hit_count": 0
+    },
+    {
+      "path": "/zh/personality/intj-t",
+      "status": 200,
+      "canonical": "https://fermatmind.com/zh/personality/intj-t",
+      "robots": "index, follow",
+      "h1": "INTJ-T 人格特点",
+      "title": "INTJ-T 人格特点：高标准、自我审视与压力反应 | FermatMind | FermatMind",
+      "sitemap_present": true,
+      "llms_present": true,
+      "llms_full_present": false,
+      "private_hit_count": 0
+    }
+  ],
+  "search_channel_state": {
+    "url_truth_write": "operator_reported_completed_for_96_mbti64_urls",
+    "queue_dry_run": "operator_reported_go_for_search_queue_release_approval",
+    "enqueue_performed": false,
+    "approval_performed": false,
+    "submit_performed": false,
+    "note": "Latest production Search Queue dry-run artifacts were not present in this local worktree. This baseline does not replace the required production Search Queue release gate."
+  },
+  "warnings": [
+    "llms-full.txt currently does not contain the 8 pilot URLs by exact full URL or path string matching, despite sitemap.xml and llms.txt membership passing.",
+    "All 8 titles contain a duplicated brand suffix pattern: '| FermatMind | FermatMind'. Handle in MBTI64-SERP-SNIPPET-CTR-PACKAGE-01.",
+    "GSC and GA4 metrics are Unknown in this artifact because no authenticated analytics connector/browser collection was used."
+  ],
+  "blockers": [],
+  "final_decision": "BASELINE_CREATED_CONDITIONAL_FOR_SEARCH_RELEASE",
+  "recommended_next_tasks": [
+    "MBTI64-SERP-SNIPPET-CTR-PACKAGE-01",
+    "MBTI64-LLMS-FULL-PILOT-MEMBERSHIP-RECHECK-01",
+    "MBTI64-SEARCH-QUEUE-RELEASE-01"
+  ]
+}
