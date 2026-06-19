@@ -3,6 +3,7 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 import {
   LLMS_ROUTE_ARTICLE_MAX_PAGES,
+  LLMS_ROUTE_ARTICLE_TIMEOUT_MS,
   LLMS_ROUTE_CAREER_JOB_TIMEOUT_MS,
   LLMS_ROUTE_CONTENT_PAGE_TIMEOUT_MS,
   LLMS_ROUTE_LIMITS,
@@ -45,6 +46,8 @@ describe("llms route fanout budget contract", () => {
     expect(LLMS_ROUTE_LIMITS.careerJobs).toBeGreaterThanOrEqual(1046 * 2);
     expect(LLMS_ROUTE_LIMITS.careerJobs).toBeLessThanOrEqual(2200);
     expect(LLMS_ROUTE_CAREER_JOB_TIMEOUT_MS).toBeLessThanOrEqual(30_000);
+    expect(LLMS_ROUTE_ARTICLE_TIMEOUT_MS).toBeGreaterThan(LLMS_ROUTE_CONTENT_PAGE_TIMEOUT_MS);
+    expect(LLMS_ROUTE_ARTICLE_TIMEOUT_MS).toBeLessThan(LLMS_FULL_RESPONSE_DEADLINE_MS);
     expect(LLMS_ROUTE_CONTENT_PAGE_TIMEOUT_MS).toBeGreaterThan(LLMS_ROUTE_SOURCE_TIMEOUT_MS);
     expect(LLMS_ROUTE_CONTENT_PAGE_TIMEOUT_MS).toBeLessThanOrEqual(5_000);
     expect(LLMS_FULL_RESPONSE_DEADLINE_MS).toBeLessThan(30_000);

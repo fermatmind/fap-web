@@ -1291,6 +1291,7 @@ const PR_03_FOLLOWUP_LLMS_CONTENT_PAGE_DETAIL_AUTHORITY_01_ALLOWED_FILES = new S
 
 const LLMS_FULL_ARTICLE_ENUMERATION_ALLOWED_FILES = new Set([
   "app/llms-full.txt/route.ts",
+  "lib/seo/llmsRouteBudget.ts",
   "tests/contracts/detail-ready-1046-llms-full-artifact-consistency-repair-01.contract.test.ts",
   "tests/contracts/helpers/currentPrScope.ts",
   "tests/contracts/llms-route-fanout.contract.test.ts",
@@ -2628,7 +2629,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
     return PR_03_FOLLOWUP_LLMS_CONTENT_PAGE_DETAIL_AUTHORITY_01_ALLOWED_FILES.has(file);
   }
 
-  if (CURRENT_BRANCH === "codex/llms-full-article-enumeration") {
+  if (
+    CURRENT_BRANCH === "codex/llms-full-article-enumeration" ||
+    CURRENT_BRANCH === "codex/llms-full-latest-article-enumeration"
+  ) {
     return LLMS_FULL_ARTICLE_ENUMERATION_ALLOWED_FILES.has(file);
   }
 
