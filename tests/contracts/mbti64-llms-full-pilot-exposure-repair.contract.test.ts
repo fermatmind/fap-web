@@ -148,7 +148,12 @@ function mockLlmsFullMbti64Dependencies() {
 }
 
 function extractPersonalityUrls(text: string): string[] {
-  return [...text.matchAll(/https:\/\/fermatmind\.com\/(?:en|zh)\/personality\/[a-z0-9-]+/g)].map((match) => match[0]);
+  const personalityUrlPattern = /^https:\/\/fermatmind\.com\/(?:en|zh)\/personality\/[a-z0-9-]+$/;
+
+  return text
+    .split(/\s+/)
+    .map((token) => token.replace(/^[[(<]+|[)\]>,.;:]+$/g, ""))
+    .filter((token) => personalityUrlPattern.test(token));
 }
 
 function changedFiles(): string[] {
