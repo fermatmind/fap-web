@@ -2395,7 +2395,8 @@ export function isTestKpiFrontendContract06AllowedFile(file: string): boolean {
 export function isAiImpactV5ExpandedPageQaAllowedFile(file: string): boolean {
   return (
     file === "tests/contracts/helpers/currentPrScope.ts" ||
-    file.startsWith("generated/career-ai-impact-v5-1046-expanded-page-qa/")
+    file.startsWith("generated/career-ai-impact-v5-1046-expanded-page-qa/") ||
+    file.startsWith("generated/career-ai-impact-v5-editorial-review-package/")
   );
 }
 
@@ -3393,13 +3394,22 @@ export function isSeoGpt55Handoff01AllowedFile(file: string): boolean {
 }
 
 export function isSeoWeeklyAutomationControlPacket02AllowedFile(file: string): boolean {
-  return SEO_WEEKLY_AUTOMATION_CONTROL_PACKET_02_ALLOWED_FILES.has(file);
+  return (
+    SEO_WEEKLY_AUTOMATION_CONTROL_PACKET_02_ALLOWED_FILES.has(file) ||
+    isAiImpactV5ExpandedPageQaAllowedFile(file)
+  );
 }
 
 export function isSeoOpportunityQueueContract01AllowedFile(file: string): boolean {
-  return SEO_OPPORTUNITY_QUEUE_CONTRACT_01_ALLOWED_FILES.has(file);
+  return (
+    SEO_OPPORTUNITY_QUEUE_CONTRACT_01_ALLOWED_FILES.has(file) ||
+    isAiImpactV5ExpandedPageQaAllowedFile(file)
+  );
 }
 
 export function isSeoCmsDraftPackageContract01AllowedFile(file: string): boolean {
-  return SEO_CMS_DRAFT_PACKAGE_CONTRACT_01_ALLOWED_FILES.has(file);
+  return (
+    SEO_CMS_DRAFT_PACKAGE_CONTRACT_01_ALLOWED_FILES.has(file) ||
+    isAiImpactV5ExpandedPageQaAllowedFile(file)
+  );
 }

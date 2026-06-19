@@ -1,0 +1,53 @@
+{
+  "schema_version": "career_ai_impact_v5_editorial_review_package_v1",
+  "generated_at": "2026-06-19T22:59:58.867Z",
+  "final_conclusion": "AI_IMPACT_V5_EDITORIAL_REVIEW_PASS",
+  "report_scope": "AI Impact v5 1046 editorial review package; report only; no production import, page runtime, or SEO surface changes",
+  "inputs": {
+    "final_repaired_dir": "/Users/rainie/Desktop/GitHub/fap-web/generated/career-ai-impact-v5-1046-final-repaired",
+    "final_repaired_asset_sha256": "f22e0266f9b8aa904b00466c9cf751efa72835aebcee41c959d454ffacf96a92",
+    "final_independent_qa_sha256": "91cd890e13991be840652ac197318b41150820efbe38845b78b52bf3906eabc4",
+    "staging_api_smoke_sha256": "985f6fd39893ac80b4aaeb4f26b26b850d18a200b4da977ee69edcdd4f367a2f",
+    "expanded_page_qa_sha256": "112207b5f23c7fd5f75ca7c581fafff2100ca26a593a9fef24c95d434c1ebcb1",
+    "approval_manifest_sha256": "f07686a30aba34452b9c6faecd1367b003ad19dd17d6896020d3e9e091753646"
+  },
+  "metrics": {
+    "asset_rows": 2092,
+    "evidence_rows": 1046,
+    "synthesis_rows": 2092,
+    "search_projection_rows": 2092,
+    "unique_slugs": 1046,
+    "zh_CN_assets": 1046,
+    "en_assets": 1046,
+    "score_distribution": {
+      "3": 184,
+      "4": 508,
+      "5": 556,
+      "6": 374,
+      "7": 340,
+      "8": 130
+    },
+    "high_risk_rows": 1510,
+    "sample_review_rows": 60,
+    "findings": 0,
+    "rejected_rows": 0
+  },
+  "upstream_gates": {
+    "final_independent_qa": "READY_FOR_STAGING_PREVIEW_DESIGN",
+    "staging_api_smoke": "AI_IMPACT_V5_1046_STAGING_API_SMOKE_PASS",
+    "staging_api_smoke_ready_rows": 2092,
+    "staging_api_smoke_failed_rows": 0,
+    "staging_fail_closed": "AI_IMPACT_V5_FAIL_CLOSED_PASS",
+    "expanded_page_qa": "EXPANDED_PAGE_QA_PASS",
+    "expanded_page_rendering_ready_rows": 300,
+    "expanded_page_rendering_target_rows": 300
+  },
+  "guarantees": {
+    "no_production_import": true,
+    "no_staging_write": true,
+    "no_page_runtime_change": true,
+    "no_sitemap_llms_canonical_noindex_jsonld_change": true,
+    "search_projection_not_in_reader_asset": true
+  },
+  "findings": []
+}
