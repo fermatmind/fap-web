@@ -1,0 +1,83 @@
+{
+  "artifact": "MBTI64-TRADEMARK-CLAIM-GATE-01",
+  "generated_at": "2026-06-19T00:00:00+08:00",
+  "status": "pass_with_copy_hygiene_warnings",
+  "scope": "Artifact-only trademark and claim-risk audit for the MBTI64 V2.1 8-page pilot package and current live HTML. No CMS write, frontend runtime change, sitemap/llms change, queue enqueue, search approval, or search submission was performed.",
+  "inputs": {
+    "package": "docs/seo/personality/content-packages/pilot-v2.1/mbti64-content-package-pilot-v2.1.json",
+    "package_status": "pass",
+    "package_qa": "docs/seo/personality/content-package-v21-qa-2026-06-18.json",
+    "live_origin": "https://fermatmind.com",
+    "pilot_url_count": 8
+  },
+  "pilot_urls": [
+    "/en/personality/intj-a-vs-intj-t",
+    "/zh/personality/istj-a",
+    "/en/personality/intp-a-vs-intp-t",
+    "/zh/personality/infp-t",
+    "/en/personality/intj-a",
+    "/en/personality/intj-t",
+    "/zh/personality/intj-a",
+    "/zh/personality/intj-t"
+  ],
+  "raw_regex_scan": {
+    "package_row_count": 8,
+    "live_row_count": 8,
+    "package_potential_blocker_hit_count": 19,
+    "package_review_hit_count": 32,
+    "live_potential_blocker_hit_count": 20,
+    "live_review_hit_count": 48,
+    "live_http_200_count": 8,
+    "note": "Potential blocker hits were adjudicated manually because negative boundary copy such as 'not as a hiring tool' and 'does not determine career success' intentionally contains risky terms."
+  },
+  "adjudicated_claims": {
+    "official_mbti_or_myers_briggs_claim": {
+      "status": "pass",
+      "finding": "No positive claim that FermatMind is official MBTI, Myers-Briggs, 16Personalities, or an official Myers-Briggs provider was found in the package or live sample."
+    },
+    "official_32_type_claim": {
+      "status": "pass",
+      "finding": "No positive claim that A/T creates an official MBTI 32-type system was found."
+    },
+    "clinical_or_treatment_claim": {
+      "status": "pass",
+      "finding": "No positive clinical diagnosis, treatment, therapy, mental-health-disorder, or medical decision claim was found."
+    },
+    "hiring_or_screening_claim": {
+      "status": "pass",
+      "finding": "Raw hits were boundary disclaimers such as 'not as a medical, hiring, admissions, financial, or relationship decision tool' and 'No deterministic hiring... claim'. They are protective, not promotional claims."
+    },
+    "deterministic_career_or_success_claim": {
+      "status": "pass",
+      "finding": "Raw hits were either negated boundary statements such as 'does not determine career success' / '人格类型不能决定职业结果' or grammar false positives such as 'decisions must be made'. No positive deterministic career, salary, success, or relationship promise was found."
+    },
+    "private_result_boundary": {
+      "status": "warning",
+      "finding": "Live English variant pages contain public-facing wording like 'If your result feels close'. No result id, report id, token, lookup route, private report route, or score payload was found in this gate, but the wording should be reviewed in a future copy hygiene pass."
+    }
+  },
+  "trademark_reference_review": {
+    "status": "pass_with_boundary_dependency",
+    "finding": "MBTI appears as a search/test label and route phrase, for example 'Free MBTI test' and `/tests/mbti-personality-test-16-personality-types`. This is acceptable only if product copy continues to avoid official affiliation claims and keeps method/trademark boundaries visible."
+  },
+  "warnings": [
+    "Review English public copy containing 'your result feels close' so it does not read like private result-page language.",
+    "Keep explicit non-affiliation/method-boundary language in the CMS source when future GPT revisions edit MBTI64 pages.",
+    "The live closure spot check observed duplicated title brand suffixes; handle in MBTI64-SERP-SNIPPET-CTR-PACKAGE-01, not in this gate."
+  ],
+  "blockers": [],
+  "final_decision": "PASS_FOR_NEXT_DUPLICATE_DIFFERENTIATION_GATE",
+  "recommended_next_tasks": [
+    "MBTI64-DUPLICATE-DIFFERENTIATION-GATE-01",
+    "MBTI64-SERP-SNIPPET-CTR-PACKAGE-01",
+    "MBTI64-SEO-MEASUREMENT-COHORT-01"
+  ],
+  "side_effect_boundary": {
+    "cms_write_performed_by_this_pr": false,
+    "frontend_runtime_changed_by_this_pr": false,
+    "sitemap_changed_by_this_pr": false,
+    "llms_changed_by_this_pr": false,
+    "search_queue_enqueue_performed_by_this_pr": false,
+    "search_submit_performed_by_this_pr": false
+  }
+}
