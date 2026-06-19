@@ -1,0 +1,38 @@
+{
+  "schema_version": "career_ai_impact_v5_expanded_page_qa_audit_v1",
+  "final_conclusion": "EXPANDED_PAGE_QA_PASS",
+  "generated_at": "2026-06-19T22:20:29.888Z",
+  "report_scope": "fap-web 1046 expanded AI Impact staging page QA; report only; no content/runtime/SEO changes",
+  "staging_origin": "https://staging.fermatmind.com",
+  "production_api_origin": "https://api.fermatmind.com",
+  "checks": {
+    "slug_count": 150,
+    "api_ready_rows": 300,
+    "api_target_rows": 300,
+    "rendering_ready_rows": 300,
+    "rendering_target_rows": 300,
+    "seo_surface_ready_rows": 30,
+    "seo_surface_target_rows": 30,
+    "fail_closed_ready_rows": 3,
+    "fail_closed_target_rows": 3,
+    "production_closed_ready_rows": 50,
+    "production_closed_target_rows": 50,
+    "screenshot_ready_rows": 16,
+    "screenshot_target_rows": 16
+  },
+  "guarantees": {
+    "no_content_asset_changes": true,
+    "no_staging_write": true,
+    "no_production_import": true,
+    "no_sitemap_llms_canonical_noindex_jsonld_changes": true,
+    "search_projection_not_rendered": true
+  },
+  "failure_summary": {
+    "api_failures": [],
+    "rendering_failures": [],
+    "seo_surface_failures": [],
+    "fail_closed_failures": [],
+    "production_closed_failures": [],
+    "screenshot_failures": []
+  }
+}

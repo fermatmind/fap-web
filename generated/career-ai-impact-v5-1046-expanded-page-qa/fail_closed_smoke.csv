@@ -1,0 +1,4 @@
+case_name,url,status,ok,preview_visible,error
+invalid_slug_api_zh,https://staging.fermatmind.com/api/v0.5/career/jobs/not-a-real-career-slug/ai-impact-asset?locale=zh-CN,404,true,false,
+invalid_slug_page_zh,https://staging.fermatmind.com/zh/career/jobs/not-a-real-career-slug,404,true,false,
+unsupported_locale_api,https://staging.fermatmind.com/api/v0.5/career/jobs/accountants-and-auditors/ai-impact-asset?locale=fr,404,true,false,
