@@ -5388,7 +5388,7 @@ prs:
     depends_on: []
     mode: execute
     train_scope: personality_seo_authority_20260613
-    status: in_progress
+    status: merged
     goal: "Freeze the current 64 detail page plus 2 hub personality SEO audit covering indexability, sitemap, llms, FAQ gaps, image gaps, duplicate headings, A/T similarity, and the zh ENTJ-T missing-content gap without changing runtime behavior."
     artifacts:
       - docs/seo/personality-seo-current-audit-01.md
@@ -15734,3 +15734,76 @@ prs:
       squash: true
       auto_merge: true
     next_task: SEO-WEEKLY-AUTOMATION-CONTROL-PACKET-02
+
+  - id: SEO-WEEKLY-AUTOMATION-CONTROL-PACKET-02
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/seo-weekly-automation-control-packet-02
+    base: main
+    title: "test(seo-agent): add weekly automation control packet contract"
+    depends_on:
+      - SEO-AGENT-CONTROL-PACKET-01
+      - SEO-GPT55-HANDOFF-01
+    mode: execute
+    train_scope: seo_agent_weekly_automation_control_packet
+    status: in_progress
+    goal: "Make weekly SEO automation output a checkable SEO Agent control packet. This PR defines output contract only and must not edit automation TOML, CMS/search/provider state, or runtime SEO behavior."
+    artifacts:
+      - package.json
+      - scripts/seo/check-seo-agent-weekly-control-packet.mjs
+      - docs/seo/agent/WEEKLY_AUTOMATION_CONTROL_PACKET.md
+      - docs/seo/agent/examples/seo-agent-control-packet.weekly.example.json
+      - docs/seo/agent/schemas/SEO_AGENT_CONTROL_PACKET.schema.json
+      - tests/contracts/seo-agent-weekly-control-packet.contract.test.ts
+      - tests/contracts/seo-agent-gpt55-handoff.contract.test.ts
+      - tests/contracts/seo-ops-readmodel-bridge.contract.test.ts
+      - tests/contracts/seo-runtime-qa-agent.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - package.json
+      - scripts/seo/check-seo-agent-weekly-control-packet.mjs
+      - docs/seo/agent/WEEKLY_AUTOMATION_CONTROL_PACKET.md
+      - docs/seo/agent/examples/seo-agent-control-packet.weekly.example.json
+      - docs/seo/agent/schemas/SEO_AGENT_CONTROL_PACKET.schema.json
+      - tests/contracts/seo-agent-weekly-control-packet.contract.test.ts
+      - tests/contracts/seo-agent-gpt55-handoff.contract.test.ts
+      - tests/contracts/seo-ops-readmodel-bridge.contract.test.ts
+      - tests/contracts/seo-runtime-qa-agent.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - local Codex automation config outside this repository
+      - automation TOML
+      - app/**
+      - components/**
+      - lib/**
+      - docs/seo/generated/**
+      - public/**
+      - pnpm-lock.yaml
+      - env files
+      - CMS writes, draft creation, publish, or unpublish
+      - Search Channel enqueue, approve, or submit
+      - search provider submission
+      - frontend revalidation
+      - sitemap, robots, llms, schema, hreflang, or indexability runtime changes
+    required_local_checks:
+      - node scripts/seo/check-seo-agent-weekly-control-packet.mjs docs/seo/agent/examples/seo-agent-control-packet.weekly.example.json
+      - pnpm exec vitest run tests/contracts/seo-agent-weekly-control-packet.contract.test.ts
+      - pnpm test:contract
+      - pnpm lint .
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -m json.tool docs/seo/agent/schemas/SEO_AGENT_CONTROL_PACKET.schema.json >/dev/null
+      - python3 -m json.tool docs/seo/agent/examples/seo-agent-control-packet.weekly.example.json >/dev/null
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - git diff --check
+      - scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: SEO-OPPORTUNITY-QUEUE-CONTRACT-01

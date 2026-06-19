@@ -22656,12 +22656,12 @@
       "id": "SEO-GPT55-HANDOFF-01",
       "repo": "fap-web",
       "branch": "codex/seo-gpt55-handoff-01",
-      "status": "ready_to_merge",
-      "commit_sha": "ce1b43526d0b777f78dfae0296a6107d6b291138",
+      "status": "merged",
+      "commit_sha": "87bd94604b25e126934e5d0d5b9c38ec079324f7",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1230",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-19T21:40:15Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "failure_reason": null,
       "checks": {
         "authorization": {
@@ -22733,6 +22733,86 @@
           "at": "2026-06-20T05:36:00+08:00",
           "status": "ready_to_merge",
           "note": "PR #1230 checks passed on head ce1b43526d0b777f78dfae0296a6107d6b291138 and mergeStateStatus was CLEAN; recording ready_to_merge before merge."
+        },
+        {
+          "at": "2026-06-20T05:41:00+08:00",
+          "status": "merged",
+          "note": "Reconciled PR #1230 merge facts while starting SEO-WEEKLY-AUTOMATION-CONTROL-PACKET-02; GitHub merged it as 87bd94604b25e126934e5d0d5b9c38ec079324f7 and remote/local task branches were cleaned."
+        }
+      ]
+    },
+    {
+      "id": "SEO-WEEKLY-AUTOMATION-CONTROL-PACKET-02",
+      "repo": "fap-web",
+      "branch": "codex/seo-weekly-automation-control-packet-02",
+      "status": "ready_to_merge",
+      "commit_sha": "8fc72f06f79d22163efc214fa506010d66ae5029",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1231",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly provided SEO-WEEKLY-AUTOMATION-CONTROL-PACKET-02 as the fifth PR in the FermatMind SEO Agent sequence and authorized continuous PR-train execution."
+        },
+        "dependency": {
+          "status": "pass",
+          "evidence": "SEO-AGENT-CONTROL-PACKET-01 is merged in PR #1226 and SEO-GPT55-HANDOFF-01 is merged in PR #1230 before this PR started."
+        },
+        "scope": {
+          "status": "pass",
+          "allowed_paths": [
+            "package.json",
+            "scripts/seo/check-seo-agent-weekly-control-packet.mjs",
+            "docs/seo/agent/WEEKLY_AUTOMATION_CONTROL_PACKET.md",
+            "docs/seo/agent/examples/seo-agent-control-packet.weekly.example.json",
+            "docs/seo/agent/schemas/SEO_AGENT_CONTROL_PACKET.schema.json",
+            "tests/contracts/seo-agent-weekly-control-packet.contract.test.ts",
+            "tests/contracts/seo-agent-gpt55-handoff.contract.test.ts",
+            "tests/contracts/seo-ops-readmodel-bridge.contract.test.ts",
+            "tests/contracts/seo-runtime-qa-agent.contract.test.ts",
+            "tests/contracts/helpers/currentPrScope.ts",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ],
+          "evidence": "Scope validation passed with changed files limited to weekly automation control packet contract docs, checker, example, schema, focused contract, package script, scope helper, compatibility scope contracts, and train metadata. Local automation TOML is forbidden and was not edited."
+        },
+        "local_validation": {
+          "status": "pass",
+          "evidence": "Passed: node scripts/seo/check-seo-agent-weekly-control-packet.mjs docs/seo/agent/examples/seo-agent-control-packet.weekly.example.json; pnpm exec vitest run tests/contracts/seo-agent-weekly-control-packet.contract.test.ts tests/contracts/seo-agent-gpt55-handoff.contract.test.ts tests/contracts/seo-runtime-qa-agent.contract.test.ts tests/contracts/seo-ops-readmodel-bridge.contract.test.ts tests/contracts/semantic-claim-scanner-baseline.contract.test.ts; pnpm test:contract (502 files, 2873 tests); pnpm lint . (0 errors, existing warnings only); pnpm typecheck; NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build; JSON/YAML parse checks; git diff --check; explicit scope validation."
+        },
+        "github_checks": {
+          "status": "pass",
+          "evidence": "PR #1231 checks passed: CodeQL, analyze (javascript-typescript), build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze. mergeStateStatus=CLEAN and PR diff scope validation passed."
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-20T05:41:00+08:00",
+          "status": "in_progress",
+          "note": "Initialized SEO-WEEKLY-AUTOMATION-CONTROL-PACKET-02 from explicit user sequence; implementation must not edit automation TOML or perform CMS/search/provider/runtime writes."
+        },
+        {
+          "at": "2026-06-20T05:52:11+08:00",
+          "status": "local_checks_passed",
+          "note": "Weekly control packet checker, focused contracts, full contract suite, lint, typecheck, build, parse checks, diff check, and explicit scope validation passed. Build-generated public/sitemap.xml was restored because sitemap artifacts are outside this PR scope."
+        },
+        {
+          "at": "2026-06-20T05:53:00+08:00",
+          "status": "committed",
+          "note": "Committed scoped implementation as 7292da03df7bf1f7bc571dca4ab23df9600b4676."
+        },
+        {
+          "at": "2026-06-20T05:54:05+08:00",
+          "status": "pr_open",
+          "note": "Opened PR #1231 at https://github.com/fermatmind/fap-web/pull/1231; GitHub checks pending."
+        },
+        {
+          "at": "2026-06-20T05:58:44+08:00",
+          "status": "ready_to_merge",
+          "note": "PR #1231 checks passed, mergeStateStatus was CLEAN, and PR diff scope validation matched the weekly control packet allowlist."
         }
       ]
     }

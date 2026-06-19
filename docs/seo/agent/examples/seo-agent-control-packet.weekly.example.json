@@ -5,6 +5,20 @@
   "generated_at": "2026-06-20T02:00:00+08:00",
   "generated_by": "Codex",
   "mode": "read_only",
+  "automation_context": {
+    "automation_name": "Weekly FermatMind SEO analysis and optimization plan",
+    "schedule": "Monday 09:00 Asia/Shanghai",
+    "timezone": "Asia/Shanghai",
+    "read_only": true,
+    "automation_toml_change_allowed": false,
+    "required_output_blocks": [
+      "human_weekly_summary",
+      "CONTROL_PACKET_JSON",
+      "GPT55_HANDOFF_PROMPT",
+      "APPROVAL_MATRIX"
+    ],
+    "post_merge_authorization": "Any change to local automation TOML requires a separate post-merge authorization and is not part of this packet contract PR."
+  },
   "repositories": [
     {
       "name": "fap-web",

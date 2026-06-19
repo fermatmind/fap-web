@@ -6,7 +6,10 @@ import {
   normalizeSeoOperationsReadModel,
   seoOperationsUnavailableReadModel,
 } from "@/lib/ops/seoOperationsReadModel";
-import { isSeoGpt55Handoff01AllowedFile } from "./helpers/currentPrScope";
+import {
+  isSeoGpt55Handoff01AllowedFile,
+  isSeoWeeklyAutomationControlPacket02AllowedFile,
+} from "./helpers/currentPrScope";
 
 const ROOT = process.cwd();
 
@@ -103,6 +106,14 @@ describe("SEO ops read-model bridge", () => {
       return;
     }
 
-    expect(files.every((file) => allowedFiles.has(file) || isSeoGpt55Handoff01AllowedFile(file)), files.join("\n")).toBe(true);
+    expect(
+      files.every(
+        (file) =>
+          allowedFiles.has(file) ||
+          isSeoGpt55Handoff01AllowedFile(file) ||
+          isSeoWeeklyAutomationControlPacket02AllowedFile(file),
+      ),
+      files.join("\n"),
+    ).toBe(true);
   });
 });
