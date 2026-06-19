@@ -1,0 +1,22 @@
+{
+  "schema_version": "career_ai_impact_v5_approval_manifest_v1",
+  "generated_at": "2026-06-19T22:59:58.865Z",
+  "final_conclusion": "AI_IMPACT_V5_EDITORIAL_REVIEW_PASS",
+  "production_import_allowed": false,
+  "next_allowed_transition": "approved",
+  "approved_rows": 2092,
+  "rejected_rows": 0,
+  "unique_slugs": 1046,
+  "final_repaired_asset_sha256": "f22e0266f9b8aa904b00466c9cf751efa72835aebcee41c959d454ffacf96a92",
+  "final_independent_qa_sha256": "91cd890e13991be840652ac197318b41150820efbe38845b78b52bf3906eabc4",
+  "expanded_page_qa_sha256": "112207b5f23c7fd5f75ca7c581fafff2100ca26a593a9fef24c95d434c1ebcb1",
+  "staging_api_smoke_sha256": "985f6fd39893ac80b4aaeb4f26b26b850d18a200b4da977ee69edcdd4f367a2f",
+  "staging_fail_closed_sha256": "e7cd9dc1e86015675f64fd0fe894903d3b4a5b42cd62a9d17ee74191f9eb0609",
+  "required_for_approved_transition": {
+    "asset_sha256": "f22e0266f9b8aa904b00466c9cf751efa72835aebcee41c959d454ffacf96a92",
+    "final_independent_qa_sha256": "91cd890e13991be840652ac197318b41150820efbe38845b78b52bf3906eabc4",
+    "approval_manifest_sha256": "0d6afb888e114b5a9514b970c73a75103fe8cf309f80e2e59b74546f2ab8d5d3",
+    "row_count": 2092,
+    "slug_count": 1046
+  }
+}

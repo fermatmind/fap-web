@@ -1,0 +1,61 @@
+slug,locale,occupation,score,sample_reason,status
+accountants-and-auditors,zh-CN,Accountants and Auditors,8,representative,ready
+accountants-and-auditors,en,Accountants and Auditors,8,representative,ready
+actuaries,zh-CN,Actuaries,8,representative,ready
+actuaries,en,Actuaries,8,representative,ready
+acute-care-nurses,zh-CN,Acute Care Nurses,4,medical_clinical,ready
+acute-care-nurses,en,Acute Care Nurses,4,medical_clinical,ready
+air-traffic-controllers,zh-CN,Air Traffic Controllers,3,aviation_transport_safety,ready
+air-traffic-controllers,en,Air Traffic Controllers,3,aviation_transport_safety,ready
+airline-pilots-copilots-and-flight-engineers,zh-CN,"Airline Pilots, Copilots, and Flight Engineers",3,aviation_transport_safety,ready
+airline-pilots-copilots-and-flight-engineers,en,"Airline Pilots, Copilots, and Flight Engineers",3,aviation_transport_safety,ready
+administrative-law-judges-adjudicators-and-hearing-officers,zh-CN,"Administrative Law Judges, Adjudicators, and Hearing Officers",5,legal_regulatory,ready
+administrative-law-judges-adjudicators-and-hearing-officers,en,"Administrative Law Judges, Adjudicators, and Hearing Officers",5,legal_regulatory,ready
+armored-assault-vehicle-crew-members,zh-CN,Armored Assault Vehicle Crew Members,3,military_command,ready
+armored-assault-vehicle-crew-members,en,Armored Assault Vehicle Crew Members,3,military_command,ready
+elementary-school-teachers-except-special-education,zh-CN,"Elementary School Teachers, Except Special Education",5,aviation_transport_safety,ready
+elementary-school-teachers-except-special-education,en,"Elementary School Teachers, Except Special Education",5,aviation_transport_safety,ready
+writers-and-authors,zh-CN,Writers And Authors,7,aviation_transport_safety,ready
+writers-and-authors,en,Writers And Authors,7,aviation_transport_safety,ready
+zoologists-and-wildlife-biologists,zh-CN,Zoologists And Wildlife Biologists,7,aviation_transport_safety,ready
+zoologists-and-wildlife-biologists,en,Zoologists And Wildlife Biologists,7,aviation_transport_safety,ready
+actors,zh-CN,Actors,3,creative_performance,ready
+actors,en,Actors,3,creative_performance,ready
+adapted-physical-education-specialists,zh-CN,Adapted Physical Education Specialists,4,education_counseling,ready
+adapted-physical-education-specialists,en,Adapted Physical Education Specialists,4,education_counseling,ready
+adhesive-bonding-machine-operators-and-tenders,zh-CN,Adhesive Bonding Machine Operators and Tenders,4,physical_trade_service,ready
+adhesive-bonding-machine-operators-and-tenders,en,Adhesive Bonding Machine Operators and Tenders,4,physical_trade_service,ready
+adult-literacy-and-ged-teachers,zh-CN,Adult Basic and Secondary Education and Esl Teachers,4,education_counseling,ready
+adult-literacy-and-ged-teachers,en,Adult Basic and Secondary Education and Esl Teachers,4,education_counseling,ready
+adult-basic-education-adult-secondary-education-and-english-as-a-second-language-instructors,zh-CN,"Adult Basic Education, Adult Secondary Education, and English As A Second Language Instructors",4,education_counseling,ready
+adult-basic-education-adult-secondary-education-and-english-as-a-second-language-instructors,en,"Adult Basic Education, Adult Secondary Education, and English As A Second Language Instructors",4,education_counseling,ready
+advanced-practice-psychiatric-nurses,zh-CN,Advanced Practice Psychiatric Nurses,4,medical_clinical,ready
+advanced-practice-psychiatric-nurses,en,Advanced Practice Psychiatric Nurses,4,medical_clinical,ready
+aerospace-engineering-and-operations-technicians,zh-CN,Aerospace Engineering and Operations Technologists and Technicians,4,engineering_architecture_validation,ready
+aerospace-engineering-and-operations-technicians,en,Aerospace Engineering and Operations Technologists and Technicians,4,engineering_architecture_validation,ready
+aerospace-engineers,zh-CN,Aerospace Engineers,4,engineering_architecture_validation,ready
+aerospace-engineers,en,Aerospace Engineers,4,engineering_architecture_validation,ready
+agents-and-business-managers-of-artists-performers-and-athletes,zh-CN,"Agents and Business Managers of Artists, Performers, and Athletes",5,creative_performance,ready
+agents-and-business-managers-of-artists-performers-and-athletes,en,"Agents and Business Managers of Artists, Performers, and Athletes",5,creative_performance,ready
+agricultural-and-food-science-technicians,zh-CN,Agricultural and Food Science Technicians,5,physical_trade_service,ready
+agricultural-and-food-science-technicians,en,Agricultural and Food Science Technicians,5,physical_trade_service,ready
+agricultural-and-food-scientists,zh-CN,Agricultural and Food Scientists,5,physical_trade_service,ready
+agricultural-and-food-scientists,en,Agricultural and Food Scientists,5,physical_trade_service,ready
+agricultural-engineers,zh-CN,Agricultural Engineers,5,physical_trade_service,ready
+agricultural-engineers,en,Agricultural Engineers,5,physical_trade_service,ready
+agricultural-equipment-operators,zh-CN,Agricultural Equipment Operators,5,physical_trade_service,ready
+agricultural-equipment-operators,en,Agricultural Equipment Operators,5,physical_trade_service,ready
+agricultural-inspectors,zh-CN,Agricultural Inspectors,5,physical_trade_service,ready
+agricultural-inspectors,en,Agricultural Inspectors,5,physical_trade_service,ready
+agricultural-sciences-teachers-postsecondary,zh-CN,"Agricultural Sciences Teachers, Postsecondary",5,education_counseling,ready
+agricultural-sciences-teachers-postsecondary,en,"Agricultural Sciences Teachers, Postsecondary",5,education_counseling,ready
+agricultural-technicians,zh-CN,Agricultural Technicians,5,physical_trade_service,ready
+agricultural-technicians,en,Agricultural Technicians,5,physical_trade_service,ready
+agricultural-workers,zh-CN,Agricultural Workers,5,physical_trade_service,ready
+agricultural-workers,en,Agricultural Workers,5,physical_trade_service,ready
+air-crew-members,zh-CN,Air Crew Members,4,engineering_architecture_validation,ready
+air-crew-members,en,Air Crew Members,4,engineering_architecture_validation,ready
+air-crew-officers,zh-CN,Air Crew Officers,4,engineering_architecture_validation,ready
+air-crew-officers,en,Air Crew Officers,4,engineering_architecture_validation,ready
+aircraft-and-avionics-equipment-mechanics-and-technicians,zh-CN,Aircraft and Avionics Equipment Mechanics and Technicians,4,aviation_transport_safety,ready
+aircraft-and-avionics-equipment-mechanics-and-technicians,en,Aircraft and Avionics Equipment Mechanics and Technicians,4,aviation_transport_safety,ready
