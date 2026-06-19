@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-19T16:13:00+08:00",
+  "updated_at": "2026-06-19T16:15:00+08:00",
   "status": "active",
   "phase": "mbti64_serp_snippet_ctr_package",
   "pr_namespace": "PR-PRAC-*",
@@ -22108,9 +22108,9 @@
       "id": "MBTI64-SERP-SNIPPET-CTR-PACKAGE-01",
       "repo": "fap-web",
       "branch": "codex/mbti64-serp-snippet-ctr-package-01",
-      "status": "local_checks_passed",
+      "status": "pr_open",
       "commit_sha": null,
-      "pr_url": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1212",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -22135,8 +22135,8 @@
           "evidence": "Passed: jq empty generated JSON; Node JSON parse for report and state; ruby YAML parse for manifest; git diff --check; explicit scope validation including untracked files."
         },
         "pull_request": {
-          "status": "pending",
-          "evidence": null
+          "status": "open",
+          "evidence": "Opened https://github.com/fermatmind/fap-web/pull/1212 after local checks and scope validation passed."
         },
         "github_checks": {
           "status": "pending",
@@ -22154,6 +22154,11 @@
           "at": "2026-06-19T16:13:00+08:00",
           "status": "local_checks_passed",
           "note": "Generated 8-page SERP snippet CTR package; validation passed and no runtime/CMS/sitemap/llms/search files changed."
+        },
+        {
+          "at": "2026-06-19T16:15:00+08:00",
+          "status": "pr_open",
+          "note": "Opened fap-web PR #1212 for MBTI64-SERP-SNIPPET-CTR-PACKAGE-01."
         }
       ]
     }
