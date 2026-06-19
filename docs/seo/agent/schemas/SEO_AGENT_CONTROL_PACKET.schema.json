@@ -11,6 +11,7 @@
     "generated_at",
     "generated_by",
     "mode",
+    "automation_context",
     "repositories",
     "evidence_window",
     "source_summary",
@@ -63,6 +64,41 @@
         "dry_run",
         "approved_execution"
       ]
+    },
+    "automation_context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "automation_name",
+        "schedule",
+        "timezone",
+        "read_only",
+        "automation_toml_change_allowed",
+        "required_output_blocks",
+        "post_merge_authorization"
+      ],
+      "properties": {
+        "automation_name": { "type": "string" },
+        "schedule": { "type": "string" },
+        "timezone": { "type": "string" },
+        "read_only": { "type": "boolean", "const": true },
+        "automation_toml_change_allowed": { "type": "boolean", "const": false },
+        "required_output_blocks": {
+          "type": "array",
+          "minItems": 4,
+          "items": {
+            "type": "string",
+            "enum": [
+              "human_weekly_summary",
+              "CONTROL_PACKET_JSON",
+              "GPT55_HANDOFF_PROMPT",
+              "APPROVAL_MATRIX"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "post_merge_authorization": { "type": "string" }
+      }
     },
     "repositories": {
       "type": "array",

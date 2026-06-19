@@ -31,6 +31,7 @@
     "seo:check-mobile": "node scripts/seo/check-mobile-seo-gate.mjs",
     "seo:runtime-qa": "node scripts/seo/check-public-runtime-seo-qa.mjs",
     "seo:gpt55-handoff": "node scripts/seo/check-seo-agent-gpt55-handoff.mjs",
+    "seo:weekly-control-packet": "node scripts/seo/check-seo-agent-weekly-control-packet.mjs",
     "seo:assert-live-sitemap": "node scripts/seo/assert-live-sitemap-clean.mjs https://fermatmind.com/sitemap.xml",
     "seo:assert-live-sitemap-stability": "node scripts/seo/assert-live-sitemap-stability.mjs https://fermatmind.com/sitemap.xml",
     "seo:assert-live-llms": "node scripts/seo/assert-live-llms-clean.mjs https://fermatmind.com/llms.txt",
