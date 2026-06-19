@@ -243,6 +243,19 @@ const HELP_SUPPORT_CONTACT_RUNTIME_01_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const SEO_OPS_READMODEL_BRIDGE_01_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/ops/seo-operations/page.tsx",
+  "components/ops/seo/SeoOperationsDashboard.tsx",
+  "components/ops/seo/mockSeoOperations.ts",
+  "components/ops/seo/seoIssueQueueArtifactAdapter.ts",
+  "lib/ops/seoOperationsReadModel.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/seo-issue-queue-dashboard-shell.contract.test.ts",
+  "tests/contracts/seo-ops-readmodel-bridge.contract.test.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+]);
+
 const ORDER_LOOKUP_RECOVERY_CONTRACT_STABILIZE_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
   "tests/contracts/order-lookup-recovery.contract.test.tsx",
@@ -3190,6 +3203,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/seo-conv-runtime-03") {
     return SEO_CONV_RUNTIME_03_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/seo-ops-readmodel-bridge-01") {
+    return SEO_OPS_READMODEL_BRIDGE_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/mbti64-llms-full-pilot-exposure-repair-01") {
