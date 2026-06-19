@@ -1,9 +1,6 @@
 #!/usr/bin/env node
 
 import { execFileSync } from "node:child_process";
-import { mkdtempSync, rmSync, writeFileSync } from "node:fs";
-import { tmpdir } from "node:os";
-import path from "node:path";
 import { createHash } from "node:crypto";
 
 const DEFAULT_API_ORIGIN = "https://api.fermatmind.com";
@@ -252,21 +249,15 @@ async function waitForReport({ apiOrigin, token, anonId, attemptId, reportTimeou
 }
 
 function extractPdfText(pdfBytes) {
-  const dir = mkdtempSync(path.join(tmpdir(), "big5-v2-pdf-"));
-  const pdfPath = path.join(dir, "report.pdf");
   try {
-    writeFileSync(pdfPath, pdfBytes);
-    try {
-      return execFileSync("pdftotext", [pdfPath, "-"], {
-        encoding: "utf8",
-        stdio: ["ignore", "pipe", "ignore"],
-        maxBuffer: 10 * 1024 * 1024,
-      });
-    } catch {
-      return pdfBytes.toString("latin1");
-    }
-  } finally {
-    rmSync(dir, { recursive: true, force: true });
+    return execFileSync("pdftotext", ["-", "-"], {
+      input: pdfBytes,
+      encoding: "utf8",
+      stdio: ["pipe", "pipe", "ignore"],
+      maxBuffer: 10 * 1024 * 1024,
+    });
+  } catch {
+    return pdfBytes.toString("latin1");
   }
 }
 
