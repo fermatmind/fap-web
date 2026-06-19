@@ -22746,7 +22746,7 @@
       "repo": "fap-web",
       "branch": "codex/seo-weekly-automation-control-packet-02",
       "status": "local_checks_passed",
-      "commit_sha": null,
+      "commit_sha": "7292da03df7bf1f7bc571dca4ab23df9600b4676",
       "pr_url": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -22798,6 +22798,11 @@
           "at": "2026-06-20T05:52:11+08:00",
           "status": "local_checks_passed",
           "note": "Weekly control packet checker, focused contracts, full contract suite, lint, typecheck, build, parse checks, diff check, and explicit scope validation passed. Build-generated public/sitemap.xml was restored because sitemap artifacts are outside this PR scope."
+        },
+        {
+          "at": "2026-06-20T05:53:00+08:00",
+          "status": "committed",
+          "note": "Committed scoped implementation as 7292da03df7bf1f7bc571dca4ab23df9600b4676."
         }
       ]
     }
