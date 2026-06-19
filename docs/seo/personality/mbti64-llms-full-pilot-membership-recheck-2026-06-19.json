@@ -1,0 +1,220 @@
+{
+  "artifact": "MBTI64-LLMS-FULL-PILOT-MEMBERSHIP-RECHECK-01",
+  "generated_at": "2026-06-19T08:11:54.477Z",
+  "status": "pass_with_llms_full_warning",
+  "scope": "artifact-only exact membership recheck for 8 MBTI64 V2.1 pilot URLs across sitemap.xml, llms.txt, and llms-full.txt; no runtime or discoverability behavior changes.",
+  "source_inputs": {
+    "previous_measurement_cohort": "docs/seo/personality/mbti64-seo-measurement-cohort-2026-06-19.json",
+    "previous_comparison_diagnosis": "docs/seo/personality/llms-full-comparison-diagnosis-2026-06-18.json",
+    "live_sources": [
+      "https://fermatmind.com/sitemap.xml",
+      "https://fermatmind.com/llms.txt",
+      "https://fermatmind.com/llms-full.txt"
+    ]
+  },
+  "source_snapshots": {
+    "sitemap": {
+      "url": "https://fermatmind.com/sitemap.xml",
+      "final_url": "https://fermatmind.com/sitemap.xml",
+      "status": 200,
+      "bytes": 337203,
+      "sha256": "a0f40c9f383bd7ea8fb7eb8d517f4fffa1542e34844529bd36b377fe607a6c83",
+      "exact_url_count": 2299,
+      "private_or_sensitive_matches": []
+    },
+    "llms": {
+      "url": "https://fermatmind.com/llms.txt",
+      "final_url": "https://fermatmind.com/llms.txt",
+      "status": 200,
+      "bytes": 164108,
+      "sha256": "a3419978d6629d7613e8d090c03b76e95d542424dcca225a0e6996a43763df0d",
+      "exact_url_count": 2285,
+      "private_or_sensitive_matches": []
+    },
+    "llms_full": {
+      "url": "https://fermatmind.com/llms-full.txt",
+      "final_url": "https://fermatmind.com/llms-full.txt",
+      "status": 200,
+      "bytes": 522571,
+      "sha256": "b35d124d749cbed28175ef31ca366ef38d74745bbe5ce5dd47ce693fb8930dd2",
+      "exact_url_count": 2175,
+      "private_or_sensitive_matches": []
+    }
+  },
+  "summary": {
+    "pilot_url_count": 8,
+    "sitemap_exact_present_count": 8,
+    "llms_exact_present_count": 8,
+    "llms_full_exact_present_count": 0,
+    "llms_full_fuzzy_present_count": 0,
+    "private_or_sensitive_surface_match_count": 0,
+    "previous_measurement_llms_full_present_count": "unknown"
+  },
+  "rows": [
+    {
+      "path": "/en/personality/intj-a-vs-intj-t",
+      "full_url": "https://fermatmind.com/en/personality/intj-a-vs-intj-t",
+      "locale": "en",
+      "page_type": "comparison",
+      "in_sitemap_exact_url": true,
+      "in_llms_exact_url": true,
+      "in_llms_exact_path": false,
+      "in_llms_full_exact_url": false,
+      "in_llms_full_exact_path": false,
+      "llms_full_fuzzy_diagnostic": false,
+      "membership_decision": "missing"
+    },
+    {
+      "path": "/zh/personality/istj-a",
+      "full_url": "https://fermatmind.com/zh/personality/istj-a",
+      "locale": "zh",
+      "page_type": "variant",
+      "in_sitemap_exact_url": true,
+      "in_llms_exact_url": true,
+      "in_llms_exact_path": false,
+      "in_llms_full_exact_url": false,
+      "in_llms_full_exact_path": false,
+      "llms_full_fuzzy_diagnostic": false,
+      "membership_decision": "missing"
+    },
+    {
+      "path": "/en/personality/intp-a-vs-intp-t",
+      "full_url": "https://fermatmind.com/en/personality/intp-a-vs-intp-t",
+      "locale": "en",
+      "page_type": "comparison",
+      "in_sitemap_exact_url": true,
+      "in_llms_exact_url": true,
+      "in_llms_exact_path": false,
+      "in_llms_full_exact_url": false,
+      "in_llms_full_exact_path": false,
+      "llms_full_fuzzy_diagnostic": false,
+      "membership_decision": "missing"
+    },
+    {
+      "path": "/zh/personality/infp-t",
+      "full_url": "https://fermatmind.com/zh/personality/infp-t",
+      "locale": "zh",
+      "page_type": "variant",
+      "in_sitemap_exact_url": true,
+      "in_llms_exact_url": true,
+      "in_llms_exact_path": false,
+      "in_llms_full_exact_url": false,
+      "in_llms_full_exact_path": false,
+      "llms_full_fuzzy_diagnostic": false,
+      "membership_decision": "missing"
+    },
+    {
+      "path": "/en/personality/intj-a",
+      "full_url": "https://fermatmind.com/en/personality/intj-a",
+      "locale": "en",
+      "page_type": "variant",
+      "in_sitemap_exact_url": true,
+      "in_llms_exact_url": true,
+      "in_llms_exact_path": false,
+      "in_llms_full_exact_url": false,
+      "in_llms_full_exact_path": false,
+      "llms_full_fuzzy_diagnostic": false,
+      "membership_decision": "missing"
+    },
+    {
+      "path": "/en/personality/intj-t",
+      "full_url": "https://fermatmind.com/en/personality/intj-t",
+      "locale": "en",
+      "page_type": "variant",
+      "in_sitemap_exact_url": true,
+      "in_llms_exact_url": true,
+      "in_llms_exact_path": false,
+      "in_llms_full_exact_url": false,
+      "in_llms_full_exact_path": false,
+      "llms_full_fuzzy_diagnostic": false,
+      "membership_decision": "missing"
+    },
+    {
+      "path": "/zh/personality/intj-a",
+      "full_url": "https://fermatmind.com/zh/personality/intj-a",
+      "locale": "zh",
+      "page_type": "variant",
+      "in_sitemap_exact_url": true,
+      "in_llms_exact_url": true,
+      "in_llms_exact_path": false,
+      "in_llms_full_exact_url": false,
+      "in_llms_full_exact_path": false,
+      "llms_full_fuzzy_diagnostic": false,
+      "membership_decision": "missing"
+    },
+    {
+      "path": "/zh/personality/intj-t",
+      "full_url": "https://fermatmind.com/zh/personality/intj-t",
+      "locale": "zh",
+      "page_type": "variant",
+      "in_sitemap_exact_url": true,
+      "in_llms_exact_url": true,
+      "in_llms_exact_path": false,
+      "in_llms_full_exact_url": false,
+      "in_llms_full_exact_path": false,
+      "llms_full_fuzzy_diagnostic": false,
+      "membership_decision": "missing"
+    }
+  ],
+  "prior_artifact_comparison": [
+    {
+      "path": "/en/personality/intj-a-vs-intj-t",
+      "current_llms_full": "missing",
+      "prior_2026_06_18_diagnosis": "yes",
+      "note": "Prior comparison diagnosis only covered comparison URLs and may have used an older llms-full snapshot; current exact recheck is authoritative for this run."
+    },
+    {
+      "path": "/zh/personality/istj-a",
+      "current_llms_full": "missing",
+      "prior_2026_06_18_diagnosis": "not_in_prior_comparison_diagnosis",
+      "note": "No conflicting prior comparison diagnosis for this pilot row."
+    },
+    {
+      "path": "/en/personality/intp-a-vs-intp-t",
+      "current_llms_full": "missing",
+      "prior_2026_06_18_diagnosis": "yes",
+      "note": "Prior comparison diagnosis only covered comparison URLs and may have used an older llms-full snapshot; current exact recheck is authoritative for this run."
+    },
+    {
+      "path": "/zh/personality/infp-t",
+      "current_llms_full": "missing",
+      "prior_2026_06_18_diagnosis": "not_in_prior_comparison_diagnosis",
+      "note": "No conflicting prior comparison diagnosis for this pilot row."
+    },
+    {
+      "path": "/en/personality/intj-a",
+      "current_llms_full": "missing",
+      "prior_2026_06_18_diagnosis": "not_in_prior_comparison_diagnosis",
+      "note": "No conflicting prior comparison diagnosis for this pilot row."
+    },
+    {
+      "path": "/en/personality/intj-t",
+      "current_llms_full": "missing",
+      "prior_2026_06_18_diagnosis": "not_in_prior_comparison_diagnosis",
+      "note": "No conflicting prior comparison diagnosis for this pilot row."
+    },
+    {
+      "path": "/zh/personality/intj-a",
+      "current_llms_full": "missing",
+      "prior_2026_06_18_diagnosis": "not_in_prior_comparison_diagnosis",
+      "note": "No conflicting prior comparison diagnosis for this pilot row."
+    },
+    {
+      "path": "/zh/personality/intj-t",
+      "current_llms_full": "missing",
+      "prior_2026_06_18_diagnosis": "not_in_prior_comparison_diagnosis",
+      "note": "No conflicting prior comparison diagnosis for this pilot row."
+    }
+  ],
+  "blockers": [],
+  "warnings": [
+    "0/8 pilot URLs are present in llms-full.txt by exact URL/path membership."
+  ],
+  "final_decision": "CONDITIONAL_NOT_IN_LLMS_FULL_BUT_POLICY_EXPLAINED",
+  "recommended_next_task": "MBTI64-LLMS-FULL-PILOT-EXPOSURE-POLICY-01",
+  "intentionally_deferred": [
+    "No llms-full generator or route behavior change in this PR.",
+    "No sitemap or llms.txt behavior change in this PR.",
+    "No Search Queue enqueue, approval, submit, or external search API call in this PR."
+  ]
+}
