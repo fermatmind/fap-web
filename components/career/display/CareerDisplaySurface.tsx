@@ -22,6 +22,7 @@ type CareerDisplaySurfaceProps = {
   ctaLandingPath?: string;
   suppressLegacySalaryMetadata?: boolean;
   breadcrumbItems?: Array<{ label: string; href?: string }>;
+  aiImpactSlot?: ReactNode;
   salarySlot?: ReactNode;
 };
 
@@ -373,6 +374,7 @@ export function CareerDisplaySurface({
   ctaLandingPath,
   suppressLegacySalaryMetadata = false,
   breadcrumbItems = [],
+  aiImpactSlot,
   salarySlot,
 }: CareerDisplaySurfaceProps) {
   if (!surface) {
@@ -485,9 +487,9 @@ export function CareerDisplaySurface({
         {contractRisks ? <EvidenceContainer section={contractRisks} testId="contract-risks-block" /> : null}
         <ClaimGuard
           allowed={claimPermissions.allowAiStrategy}
-          fallback={aiImpact ? <ClaimPermissionNotice locale={surface.locale} kind="ai" /> : null}
+          fallback={aiImpact || aiImpactSlot ? <ClaimPermissionNotice locale={surface.locale} kind="ai" /> : null}
         >
-          {aiImpact ? <EvidenceContainer section={aiImpact} testId="ai-impact-block" /> : null}
+          {aiImpactSlot ?? (aiImpact ? <EvidenceContainer section={aiImpact} testId="ai-impact-block" /> : null)}
         </ClaimGuard>
       </SectionGroup>
       <ClaimGuard

@@ -4,6 +4,7 @@ import { notFound, permanentRedirect } from "next/navigation";
 import { cache } from "react";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { ClaimGuard } from "@/components/career/ClaimGuard";
+import { CareerAiImpactPreviewSection } from "@/components/career/ai-impact/CareerAiImpactPreviewSection";
 import { CareerDisplaySurface } from "@/components/career/display/CareerDisplaySurface";
 import { CareerExplainabilityPanel } from "@/components/career/CareerExplainabilityPanel";
 import { CareerSalaryAssetPreviewSection } from "@/components/career/salary/CareerSalaryAssetPreviewSection";
@@ -37,6 +38,7 @@ import {
   buildCareerDisplayFAQPageJsonLd,
 } from "@/lib/career/displaySurface";
 import { fetchCareerFirstWaveNextStepLinks } from "@/lib/career/api/fetchCareerFirstWaveNextStepLinks";
+import { fetchCareerAiImpactAssetPreview } from "@/lib/career/api/fetchCareerAiImpactAssetPreview";
 import { fetchCareerJobExplainability } from "@/lib/career/api/fetchCareerJobExplainability";
 import { fetchCareerJobBundle } from "@/lib/career/api/fetchCareerJobBundle";
 import { fetchCareerRuntimeConfig } from "@/lib/career/api/fetchCareerRuntimeConfig";
@@ -198,6 +200,10 @@ const loadCareerJobBundle = cache(async (locale: Locale, slug: string): Promise<
 
 const loadCareerSalaryAssetPreview = cache(async (locale: Locale, slug: string) => {
   return fetchCareerSalaryAssetPreview({ locale, slug });
+});
+
+const loadCareerAiImpactAssetPreview = cache(async (locale: Locale, slug: string) => {
+  return fetchCareerAiImpactAssetPreview({ locale, slug });
 });
 
 async function resolveCareerJobSearchParams(
@@ -836,6 +842,7 @@ export default async function CareerJobDetailPage({
   const displayCtaLandingPath = appendAttributionParamsToHref(jobDetailLandingPath, displayCtaAttributionParams);
   const displaySurface = job.displaySurfaceV1;
   const salaryAssetPreview = await loadCareerSalaryAssetPreview(locale, job.slug);
+  const aiImpactAssetPreview = displaySurface ? await loadCareerAiImpactAssetPreview(locale, job.slug) : null;
 
   if (displaySurface) {
     const displayFAQJsonLd = buildCareerDisplayFAQPageJsonLd(displaySurface);
@@ -871,6 +878,9 @@ export default async function CareerJobDetailPage({
             ctaAttributionParams={displayCtaAttributionParams}
             ctaLandingPath={displayCtaLandingPath}
             suppressLegacySalaryMetadata={salaryAssetPreview !== null}
+            aiImpactSlot={
+              aiImpactAssetPreview ? <CareerAiImpactPreviewSection asset={aiImpactAssetPreview} locale={locale} /> : null
+            }
             salarySlot={<CareerSalaryAssetPreviewSection asset={salaryAssetPreview} locale={locale} />}
           />
         </Container>
