@@ -13,7 +13,7 @@ Use this skill for:
 - Heavy SEO release, discoverability, search, schema, hreflang, and revalidation work after daily planning. For daily topic selection or Mode B brief planning, prefer the thin `fermatmind-daily-seo-ops` skill first, then return here for controlled execution playbooks.
 - Single-article release closeout after publish/discoverability/search work, using backend `articles:release-closeout` and frontend public smoke verification evidence.
 - Daily SEO signal review.
-- Weekly SEO article review.
+- Weekly SEO article review and optimization queue generation, using read-only fap-api export data, GSC/GA4 evidence, and competitor SERP structure review.
 - CMS content package QA before preview/import work.
 - New bilingual SEO article pair planning and readiness review.
 - SEO article publish accompaniment from package QA to operator publish gate.
@@ -449,7 +449,30 @@ Hard gates: no collector run, no search submit, no DB write, no Metabase changes
 
 ### `weekly_article_review`
 
-Purpose: weekly SEO article review.
+Purpose: weekly SEO article review and optimization planning without mutating content or search state.
+
+Use:
+
+- fap-api read-only weekly export:
+  `php artisan articles:weekly-seo-observation-export --from=<YYYY-MM-DD> --to=<YYYY-MM-DD> --locale=<locale-or-empty> --json --no-ansi`
+- Optional locked cohort export:
+  `php artisan articles:weekly-seo-observation-export --article-ids=<ids> --expected-slugs=<slugs> --from=<YYYY-MM-DD> --to=<YYYY-MM-DD> --json --no-ansi`
+- fap-api single article closeout for rows with blockers:
+  `php artisan articles:release-closeout --article-id=<id> --expected-slug=<slug> --json --no-ansi`
+- fap-web public smoke verifier for rows with public HTML drift:
+  `pnpm seo:verify-public-article-release --url=https://fermatmind.com/<locale>/articles/<slug> --expect-title --expect-meta --expect-canonical --expect-robots=index,follow --retry=3 --retry-delay-ms=60000 --json`
+- Operator-provided GSC export, GA4/Metabase/Ops screenshots, Baidu status, Search Channel status, and CMS status when available.
+- Competitor pages only for SERP framing, title/meta patterns, content structure, FAQ/internal-link ideas, and search-intent coverage. Do not copy claims, text, images, data, or schema.
+
+Do:
+
+- Define the weekly cohort explicitly: dates, locales, article ids/slugs, new articles, updated articles, and high-impression existing articles.
+- Run or request the read-only weekly export before analysis. Missing GSC/GA4 tables are `data_unavailable`, not zero.
+- Merge backend closeout decisions with GSC clicks/impressions/CTR/average position, site conversion metrics, Search Channel status, GSC manual indexing status, and public smoke evidence.
+- Compare competitor pages by visible SERP/title/meta/H1/section/FAQ/internal-link structure only, and mark any competitor-derived idea as `competitive_structure_signal`.
+- Identify whether each article needs title/meta update, internal-link addition, CTA adjustment, FAQ visible-content review, schema/hreflang gate review, media/taxonomy cleanup, or a new supporting article.
+- Route changes to the right next workflow:
+  `existing_article_update_package`, `internal_link_update`, `schema_rollout`, `hreflang_rollout`, `single_article_release_closeout`, `daily_topic_selection`, or `hold_for_more_data`.
 
 Classify:
 
@@ -461,13 +484,30 @@ Classify:
 - high-impression low-CTR pages.
 - pages needing title/meta updates.
 - pages needing FAQ, internal links, or CTA updates.
+- pages with discoverability/search closeout blockers.
+- pages with public HTML/cache drift.
+- pages where competitor structure suggests a gap but claims require source review.
 
 Outputs:
 
 - `WEEKLY_ARTICLE_SEO_REVIEW.md`.
 - `ARTICLE_OPTIMIZATION_QUEUE.csv`.
+- `WEEKLY_COMPETITOR_STRUCTURE_NOTES.md` when competitor review is requested.
+- Decision: `WEEKLY_SEO_REVIEW_COMPLETE_OPTIMIZATION_QUEUE_READY`, `BLOCKED_NEEDS_EXPORT_INPUT`, `BLOCKED_NEEDS_OPERATOR_INPUT`, or `HOLD_INSUFFICIENT_DATA`.
 
-Hard gates: no CMS mutation, no publish, no generated content injection.
+Hard gates:
+
+- No CMS mutation.
+- No publish/promote.
+- No generated content injection.
+- No revalidation.
+- No search submission or Search Channel mutation.
+- No GSC Request Indexing click.
+- No schema/hreflang writes.
+- No sitemap/llms mutation.
+- No deploy.
+- No competitor-content copying.
+- If an optimization is recommended, output the exact next workflow and approval requirements; do not execute it inside weekly review.
 
 ### `cms_content_package_qa`
 
@@ -986,5 +1026,5 @@ Use fermatmind-seo-ops daily_seo_review with these inputs: GSC export, Baidu exp
 Weekly example:
 
 ```text
-Use fermatmind-seo-ops weekly_article_review with this article metrics export and CMS status export. Produce WEEKLY_ARTICLE_SEO_REVIEW.md and ARTICLE_OPTIMIZATION_QUEUE.csv. Do not mutate CMS.
+Use fermatmind-seo-ops weekly_article_review for articles published or updated this week. Use fap-api `articles:weekly-seo-observation-export` output, GSC/GA4 evidence if provided, and competitor structure notes if current web research is requested. Produce WEEKLY_ARTICLE_SEO_REVIEW.md, ARTICLE_OPTIMIZATION_QUEUE.csv, and next workflow recommendations. Do not mutate CMS, publish, revalidate, submit search, enable schema/hreflang, or change sitemap/llms.
 ```

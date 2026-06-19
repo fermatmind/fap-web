@@ -29,8 +29,9 @@ Prefer evidence in this order:
 2. Backend CMS and `seo_intel` truth from fap-api.
 3. Public runtime pages, sitemap, llms, URL Truth, and public canonical routes.
 4. Existing article inventory, previous D1/D7/D14 observations, and content feedback queues.
-5. Current seasonal/search context from live web research when the user asks for today's topic, hotspots, trends, or current recommendations.
-6. Competitor pages only for intent, structure, and SERP framing; never for proprietary claims, data, images, or copy.
+5. Weekly SEO observation/export outputs from `fermatmind-seo-ops weekly_article_review`, including CTR, average position, CTA, Search Channel, and closeout blockers.
+6. Current seasonal/search context from live web research when the user asks for today's topic, hotspots, trends, or current recommendations.
+7. Competitor pages only for intent, structure, and SERP framing; never for proprietary claims, data, images, or copy.
 
 ## Workflow Router
 
@@ -43,6 +44,7 @@ Prefer evidence in this order:
 | QA a GPT/Mode C CMS package | `mode_c_package_qa` |
 | Prepare controlled CMS release gate text/checklists | `cms_release_gate` |
 | Review D1/D7/D14 performance and feed next briefs | `d1_d7_d14_observation` |
+| Consume weekly review output before selecting the next topic | use `fermatmind-seo-ops weekly_article_review` first, then `daily_topic_selection` |
 
 ## Shared Rules
 
@@ -50,6 +52,7 @@ Prefer evidence in this order:
 - Keep schema and hreflang as separate gates unless the user provides exact authorization and the heavy SEO ops playbook passes.
 - For Chinese SEO articles, prefer user-problem and career-decision intent when it can safely route to RIASEC/Holland.
 - Avoid cannibalization: check existing routes before recommending a new article; prefer updating an existing route when it already owns the intent.
+- Treat weekly optimization queues as input to topic selection. If a route already has impressions and an actionable title/meta/internal-link opportunity, recommend `update_existing_article` before creating a near-duplicate new route.
 - Preserve public localized routes only; reject private URLs, old aliases, tokenized links, local image paths, and fake Media Library URLs.
 - Keep psychometric claims bounded: no diagnosis, treatment, hiring fit, admission prediction, salary prediction, career success prediction, official-instrument equivalence, or fabricated reliability/validity/sample/norm data.
 
@@ -62,6 +65,7 @@ Purpose: choose the next daily SEO article topic.
 Do:
 
 - Review recent article inventory, known pillar routes, current GSC/Baidu/GA4/Ops signals when provided, and prior observation learnings.
+- Review the latest `WEEKLY_ARTICLE_SEO_REVIEW.md`, `ARTICLE_OPTIMIZATION_QUEUE.csv`, or `articles:weekly-seo-observation-export` output when available.
 - Use live web research for current seasonality or hotspots when the user asks for today's topic or current trends.
 - Check route/cannibalization risk, target locale, primary silo, CTA fit, claim safety, Media Library feasibility, and D1/D7/D14 observability.
 - Rank candidates by: career decision intent, model-crossing intent, existing GSC seed, concrete personality pain point, method-boundary trust topic, generic explainer.
