@@ -250,4 +250,51 @@ describe("SEO-OPS-02D article CMS rich-content CTA attribution contract", () => 
     expect(screen.getByText("高考志愿选专业：霍兰德、MBTI和职业兴趣测试怎么用")).toBeInTheDocument();
     expect(container.querySelector('[data-evidence-block="quick_answer"] .md\\:grid-cols-2')).not.toBeInTheDocument();
   });
+
+  it("can hide article answer-surface summary blocks while preserving FAQ content", () => {
+    const surface: AnswerSurfaceViewModel = {
+      version: "answer.surface.v1",
+      answerContractVersion: "answer.surface.v1",
+      answerFingerprint: "seo-ops-02d-answer-surface-hidden-summary",
+      answerScope: "public_indexable_detail",
+      surfaceType: "article_public_detail",
+      summaryBlocks: [
+        {
+          key: "quick_answer",
+          title: "霍兰德职业兴趣测试是什么？RIASEC 六型如何帮助职业探索",
+          body: "霍兰德职业兴趣测试基于 RIASEC 六型。",
+          href: null,
+          kind: "summary",
+        },
+      ],
+      faqBlocks: [
+        {
+          key: "riasec_intro",
+          question: "RIASEC 是职业测试吗？",
+          answer: "RIASEC 是职业兴趣模型。",
+        },
+      ],
+      compareBlocks: [],
+      sceneSummaryBlocks: [],
+      nextStepBlocks: [],
+      answerBundle: [],
+      evidenceRefs: [],
+      publicSafetyState: null,
+      indexabilityState: "indexable",
+      attributionScope: "article_detail",
+      seoSurfaceRef: null,
+      landingSurfaceRef: null,
+      publicSurfaceRef: null,
+      primaryContentRef: `article:${sourceSlug}`,
+      relatedSurfaceKeys: [],
+      runtimeArtifactRef: null,
+    };
+
+    render(<AnswerSurfaceSection surface={surface} locale="zh" pageFamily="article_detail" hideHeading hideSummaryBlocks />);
+
+    expect(screen.queryByText("霍兰德职业兴趣测试是什么？RIASEC 六型如何帮助职业探索")).not.toBeInTheDocument();
+    expect(screen.queryByText("霍兰德职业兴趣测试基于 RIASEC 六型。")).not.toBeInTheDocument();
+    expect(screen.getByText("FAQ")).toBeInTheDocument();
+    expect(screen.getByText("RIASEC 是职业测试吗？")).toBeInTheDocument();
+  });
 });

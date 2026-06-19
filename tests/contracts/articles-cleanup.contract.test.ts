@@ -95,8 +95,9 @@ describe("articles cleanup contract", () => {
     expect(source).toContain("AnswerSurfaceSection");
     expect(source).toContain("article.answerSurface");
     expect(source).toContain('testId="article-detail-answer-surface"');
+    expect(source).toContain("hideSummaryBlocks");
     expect(source).toContain("buildFAQPageJsonLd");
-    expect(source).toContain('className="mx-auto w-full max-w-4xl"');
+    expect(source).toContain('className="w-full"');
     expect(source).not.toContain("<aside");
     expect(source).not.toContain('id="limitations"');
     expect(source).not.toContain("normalizeStructuredDataUrls");

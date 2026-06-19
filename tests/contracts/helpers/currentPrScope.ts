@@ -44,6 +44,7 @@ const IS_GITHUB_ACTIONS_DETACHED_HEAD = CURRENT_BRANCH === "HEAD" && process.env
 const ARTICLE_ANSWER_SURFACE_LAYOUT_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/articles/[slug]/page.tsx",
   "components/content/AnswerSurfaceSection.tsx",
+  "docs/seo/generated/discoverability-authority-matrix.v1.json",
   "docs/seo/generated/june-seo-p0-mobile-seo-gate.v1.json",
   "scripts/seo/check-mobile-seo-gate.mjs",
   "tests/contracts/articles-cleanup.contract.test.ts",
@@ -2315,7 +2316,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
     return RESULT_SMOKE_PROXY_GENERATION_HINTS_ALLOWED_FILES.has(file);
   }
 
-  if (CURRENT_BRANCH === "codex/article-answer-surface-layout") {
+  if (
+    CURRENT_BRANCH === "codex/article-answer-surface-layout" ||
+    CURRENT_BRANCH === "codex/article-body-width-align"
+  ) {
     return ARTICLE_ANSWER_SURFACE_LAYOUT_ALLOWED_FILES.has(file);
   }
 

@@ -247,13 +247,13 @@ describe("article answer surface rendering", () => {
     );
   });
 
-  it("renders existing answer_surface_v1 blocks visibly on article detail", async () => {
+  it("renders article answer_surface_v1 FAQ and CTA blocks while hiding duplicate summary blocks on article detail", async () => {
     const html = await renderArticleDetail(makeArticle());
 
     expect(html).toContain('data-testid="article-detail-answer-surface"');
     expect(html).not.toContain("Quick answers");
-    expect(html).toContain("When should I use this guide?");
-    expect(html).toContain("Use it when you want a fast interpretation before reading the full article.");
+    expect(html).not.toContain("When should I use this guide?");
+    expect(html).not.toContain("Use it when you want a fast interpretation before reading the full article.");
     expect(html).toContain("FAQ");
     expect(html).toContain("When should I use the article FAQ?");
     expect(html).toContain("Use it when you need the shortest answer before the full guide.");
