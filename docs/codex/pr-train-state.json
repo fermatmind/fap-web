@@ -22657,7 +22657,7 @@
       "repo": "fap-web",
       "branch": "codex/seo-gpt55-handoff-01",
       "status": "local_checks_passed",
-      "commit_sha": "75dd1ba7082713e8c8217b4f3493b32f1aa3cae0",
+      "commit_sha": "eb2088c189d7c7f8117f62ba352057575603ad08",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1230",
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -22723,6 +22723,11 @@
           "at": "2026-06-20T05:24:00+08:00",
           "status": "github_checks_failed_inspected_and_fixed",
           "note": "PR #1230 build failed in pnpm lint . because tests/contracts/seo-agent-gpt55-handoff.contract.test.ts used explicit any. Fixed within current PR scope, reran lint, focused test, typecheck, build, diff check, and restored build-generated sitemap before pushing 75dd1ba7082713e8c8217b4f3493b32f1aa3cae0."
+        },
+        {
+          "at": "2026-06-20T05:31:00+08:00",
+          "status": "codeql_failed_inspected_and_fixed",
+          "note": "PR #1230 CodeQL reported insecure temp file creation in the new GPT handoff test. Replaced direct os.tmpdir random path construction with fs.mkdtempSync, reran lint, focused test, typecheck, and diff check, then committed eb2088c189d7c7f8117f62ba352057575603ad08."
         }
       ]
     }
