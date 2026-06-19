@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-19T18:02:00+08:00",
+  "updated_at": "2026-06-19T18:06:00+08:00",
   "status": "active",
   "phase": "mbti64_llms_full_pilot_exposure_policy",
   "pr_namespace": "PR-PRAC-*",
@@ -22342,9 +22342,9 @@
       "id": "MBTI64-LLMS-FULL-PILOT-EXPOSURE-POLICY-01",
       "repo": "fap-web",
       "branch": "codex/mbti64-llms-full-pilot-exposure-policy-01",
-      "status": "local_checks_passed",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "pr_open",
+      "commit_sha": "bd6f128e08026630b7a7240b6c80488cf7658318",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1215",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -22373,13 +22373,13 @@
           "evidence": "Passed: jq empty policy JSON; Node JSON parse policy report; ruby YAML parse docs/codex/pr-train.yaml; Node JSON parse docs/codex/pr-train-state.json; git diff --check; explicit scope validation."
         },
         "pull_request": {
-          "status": "pending",
-          "evidence": "PR not opened yet."
+          "status": "open",
+          "evidence": "Opened https://github.com/fermatmind/fap-web/pull/1215 after local checks and scope validation passed."
         },
         "github_checks": {
           "status": "pending",
           "checks": [],
-          "evidence": "GitHub checks pending PR creation."
+          "evidence": "GitHub checks pending."
         }
       },
       "history": [
@@ -22392,6 +22392,11 @@
           "at": "2026-06-19T18:02:00+08:00",
           "status": "local_checks_passed",
           "note": "Created artifact-only llms-full pilot exposure policy with conditional repair recommendation; JSON/YAML parse, diff check, and scope validation passed."
+        },
+        {
+          "at": "2026-06-19T18:06:00+08:00",
+          "status": "pr_open",
+          "note": "Opened fap-web PR #1215 for MBTI64-LLMS-FULL-PILOT-EXPOSURE-POLICY-01."
         }
       ]
     }
