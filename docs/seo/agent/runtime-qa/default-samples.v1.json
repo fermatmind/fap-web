@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-06-20T04:18:00+08:00",
+  "site_url": "https://fermatmind.com",
+  "seed": "SEO-RUNTIME-QA-AGENT-01",
+  "public_samples": [
+    { "path": "/en", "expect": { "fetch": true, "status_family": "2xx" } },
+    { "path": "/en/tests", "expect": { "fetch": true, "status_family": "2xx" } },
+    { "path": "/en/tests/mbti-personality-test-16-personality-types", "expect": { "fetch": true, "status_family": "2xx" } },
+    { "path": "/en/articles", "expect": { "fetch": true, "status_family": "2xx" } },
+    { "path": "/zh/articles", "expect": { "fetch": true, "status_family": "2xx" } },
+    { "path": "/en/articles/how-personality-shapes-attitude-toward-ai", "expect": { "fetch": true, "status_family": "2xx" } },
+    { "path": "/zh/articles/mbti-basics", "expect": { "fetch": true, "status_family": "2xx" } },
+    { "path": "/en/articles/mbti-basics", "expect": { "fetch": true, "status_family": "redirect", "redirect_to_path": "/zh/articles/mbti-basics" } },
+    { "path": "/en/topics/mbti", "expect": { "fetch": true, "status_family": "2xx" } },
+    { "path": "/zh/topics/mbti", "expect": { "fetch": true, "status_family": "2xx" } },
+    { "path": "/en/personality/intp-a", "expect": { "fetch": true, "status_family": "2xx" } },
+    { "path": "/zh/career/jobs/accountants-and-auditors", "expect": { "fetch": true, "status_family": "2xx" } },
+    { "path": "/en/help/faq", "expect": { "fetch": true, "status_family": "2xx" } },
+    { "path": "/zh/help/faq", "expect": { "fetch": true, "status_family": "2xx" } }
+  ],
+  "deny_policy_samples": [
+    { "path": "/en/result/example", "expect": { "fetch": false, "reason": "forbidden-private-path" } },
+    { "path": "/zh/orders/example", "expect": { "fetch": false, "reason": "forbidden-private-path" } },
+    { "path": "/en/share/example", "expect": { "fetch": false, "reason": "forbidden-private-path" } },
+    { "path": "/en/pay/wait", "expect": { "fetch": false, "reason": "forbidden-private-path" } },
+    { "path": "/en/tests/mbti-personality-test-16-personality-types/take", "expect": { "fetch": false, "reason": "forbidden-private-path" } }
+  ]
+}
