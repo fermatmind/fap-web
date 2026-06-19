@@ -22825,9 +22825,9 @@
       "id": "SEO-OPPORTUNITY-QUEUE-CONTRACT-01",
       "repo": "fap-web",
       "branch": "codex/seo-opportunity-queue-contract-01",
-      "status": "local_checks_passed",
+      "status": "pr_open",
       "commit_sha": "aa31b8751aa9759419282178ef6c7e5ce89ec0b2",
-      "pr_url": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1232",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -22866,7 +22866,7 @@
         },
         "github_checks": {
           "status": "pending",
-          "evidence": "PR not opened yet."
+          "evidence": "PR #1232 opened; GitHub checks pending."
         }
       },
       "history": [
@@ -22884,6 +22884,11 @@
           "at": "2026-06-20T06:19:00+08:00",
           "status": "committed",
           "note": "Committed scoped implementation as aa31b8751aa9759419282178ef6c7e5ce89ec0b2."
+        },
+        {
+          "at": "2026-06-20T06:19:47+08:00",
+          "status": "pr_open",
+          "note": "Opened PR #1232 at https://github.com/fermatmind/fap-web/pull/1232; GitHub checks pending."
         }
       ]
     }
