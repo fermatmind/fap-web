@@ -42,6 +42,11 @@ const allowedFiles = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
   "tests/contracts/seo-issue-queue-dashboard-shell.contract.test.ts",
   "tests/contracts/seo-ops-readmodel-bridge.contract.test.ts",
+  "package.json",
+  "scripts/seo/check-public-runtime-seo-qa.mjs",
+  "docs/seo/seo-runtime-qa-agent.md",
+  "docs/seo/agent/runtime-qa/default-samples.v1.json",
+  "tests/contracts/seo-runtime-qa-agent.contract.test.ts",
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
 ]);

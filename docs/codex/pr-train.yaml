@@ -15548,7 +15548,7 @@ prs:
       - SEO-AGENT-CONTROL-PACKET-01
     mode: execute
     train_scope: seo_agent_ops_readmodel_bridge
-    status: ready_to_merge
+    status: merged
     goal: "Bridge the fap-web SEO operations dashboard from mock/static artifact assumptions to a sanitized read-model boundary with explicit source labels, without CMS writes, search submission, provider calls, revalidation, production config, or runtime sitemap/llms/schema/hreflang changes."
     artifacts:
       - app/(localized)/[locale]/ops/seo-operations/page.tsx
@@ -15602,3 +15602,66 @@ prs:
       squash: true
       auto_merge: true
     next_task: SEO-RUNTIME-QA-AGENT-01
+
+  - id: SEO-RUNTIME-QA-AGENT-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/seo-runtime-qa-agent-01
+    base: main
+    title: "test(seo): add public runtime SEO QA agent"
+    depends_on:
+      - SEO-AGENT-CONTROL-PACKET-01
+      - SEO-OPS-READMODEL-BRIDGE-01
+    mode: execute
+    train_scope: seo_agent_runtime_qa
+    status: in_progress
+    goal: "Create a read-only public runtime SEO QA evidence generator that samples public URLs and deny-policy private paths, emits bounded JSON/optional Markdown evidence, and keeps anomalies as evidence only without CMS writes, search submission, provider calls, revalidation, or runtime fixes."
+    artifacts:
+      - package.json
+      - scripts/seo/check-public-runtime-seo-qa.mjs
+      - docs/seo/seo-runtime-qa-agent.md
+      - docs/seo/agent/runtime-qa/default-samples.v1.json
+      - tests/contracts/seo-runtime-qa-agent.contract.test.ts
+      - tests/contracts/seo-ops-readmodel-bridge.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - package.json
+      - scripts/seo/check-public-runtime-seo-qa.mjs
+      - docs/seo/seo-runtime-qa-agent.md
+      - docs/seo/agent/runtime-qa/default-samples.v1.json
+      - tests/contracts/seo-runtime-qa-agent.contract.test.ts
+      - tests/contracts/seo-ops-readmodel-bridge.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - docs/seo/generated/**
+      - public/**
+      - pnpm-lock.yaml
+      - automation TOML
+      - env files
+      - CMS writes, draft creation, publish, or unpublish
+      - Search Channel enqueue, approve, or submit
+      - search provider submission
+      - frontend revalidation
+      - sitemap, robots, llms, schema, or hreflang runtime changes
+      - live private/order/result/share/pay/take path fetches
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/seo-runtime-qa-agent.contract.test.ts
+      - pnpm test:contract
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - git diff --check
+      - scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: SEO-GSC-DATA-QUALITY-01

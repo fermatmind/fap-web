@@ -29,6 +29,7 @@
     "seo:diff-sitemap-source-live": "node scripts/seo/diff-sitemap-source-vs-live.mjs",
     "seo:assert-sitemap-source-live-parity": "node scripts/seo/diff-sitemap-source-vs-live.mjs --assert-clean",
     "seo:check-mobile": "node scripts/seo/check-mobile-seo-gate.mjs",
+    "seo:runtime-qa": "node scripts/seo/check-public-runtime-seo-qa.mjs",
     "seo:assert-live-sitemap": "node scripts/seo/assert-live-sitemap-clean.mjs https://fermatmind.com/sitemap.xml",
     "seo:assert-live-sitemap-stability": "node scripts/seo/assert-live-sitemap-stability.mjs https://fermatmind.com/sitemap.xml",
     "seo:assert-live-llms": "node scripts/seo/assert-live-llms-clean.mjs https://fermatmind.com/llms.txt",
