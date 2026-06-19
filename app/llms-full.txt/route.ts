@@ -41,6 +41,7 @@ import {
   LLMS_ROUTE_LIMITS,
   limitLlmsRouteEntries,
   withLlmsRouteBudget,
+  LLMS_FULL_PERSONALITY_SOURCE_TIMEOUT_MS,
   LLMS_FULL_DEGRADED_CAREER_JOB_TIMEOUT_MS,
   LLMS_FULL_ENRICHMENT_TIMEOUT_MS,
   LLMS_FULL_RESPONSE_DEADLINE_MS,
@@ -92,6 +93,16 @@ const LLMS_FULL_PERSONALITY_DETAIL_URL_COUNT = 32 * 2;
 const LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT = 16 * 2;
 const LLMS_FULL_PERSONALITY_ENTRY_LIMIT =
   LLMS_FULL_PERSONALITY_DETAIL_URL_COUNT + LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT;
+const LLMS_FULL_REQUIRED_PERSONALITY_PILOT_PATHS = [
+  "/en/personality/intj-a-vs-intj-t",
+  "/zh/personality/istj-a",
+  "/en/personality/intp-a-vs-intp-t",
+  "/zh/personality/infp-t",
+  "/en/personality/intj-a",
+  "/en/personality/intj-t",
+  "/zh/personality/intj-a",
+  "/zh/personality/intj-t",
+] as const;
 const LLMS_FULL_ARTICLE_ENTRY_LIMIT = LLMS_ROUTE_LIMITS.articles * 2;
 const LLMS_FULL_REQUIRED_CAREER_JOB_SLUGS = [
   "accountants-and-auditors",
@@ -111,6 +122,10 @@ const LLMS_FULL_EXCLUDED_CAREER_JOB_SLUGS = [
 
 function shouldRequireCompleteCareerJobCohort(): boolean {
   return process.env.NODE_ENV !== "test" || process.env.FERMATMIND_LLMS_FULL_REQUIRE_CAREER_COHORT === "true";
+}
+
+function shouldRequireCompletePersonalityCohort(): boolean {
+  return process.env.NODE_ENV !== "test" || process.env.FERMATMIND_LLMS_FULL_REQUIRE_PERSONALITY_COHORT === "true";
 }
 
 type LlmsFullResponseMode = "complete" | "degraded";
@@ -441,6 +456,8 @@ function createLlmsFullResponse(text: string, mode: LlmsFullResponseMode, source
 }
 
 const CAREER_JOB_CANONICAL_PATH_RE = /^\/(?:en|zh)\/career\/jobs\/[a-z0-9-]+$/;
+const MBTI64_PERSONALITY_VARIANT_CANONICAL_PATH_RE = /^\/(?:en|zh)\/personality\/[a-z]{4}-[at]$/;
+const MBTI64_PERSONALITY_COMPARISON_CANONICAL_PATH_RE = /^\/(?:en|zh)\/personality\/([a-z]{4})-a-vs-\1-t$/;
 
 function canonicalCareerJobUrlSet(text: string, siteUrl: string): Set<string> {
   let siteOrigin: string;
@@ -465,6 +482,41 @@ function canonicalCareerJobUrlSet(text: string, siteUrl: string): Set<string> {
   return new Set(canonicalUrls);
 }
 
+function canonicalPathUrlSet(text: string, siteUrl: string, pattern: RegExp): Set<string> {
+  let siteOrigin: string;
+  try {
+    siteOrigin = new URL(siteUrl).origin;
+  } catch {
+    return new Set();
+  }
+
+  const urls = text.match(/https?:\/\/[^\s)]+/g) ?? [];
+  const canonicalUrls = urls.flatMap((url) => {
+    try {
+      const parsed = new URL(url);
+      return parsed.origin === siteOrigin && pattern.test(parsed.pathname) ? [`${siteOrigin}${parsed.pathname}`] : [];
+    } catch {
+      return [];
+    }
+  });
+
+  return new Set(canonicalUrls);
+}
+
+function hasCompleteMbti64PersonalityCohort(text: string, siteUrl: string): boolean {
+  const variantUrls = canonicalPathUrlSet(text, siteUrl, MBTI64_PERSONALITY_VARIANT_CANONICAL_PATH_RE);
+  if (variantUrls.size < LLMS_FULL_PERSONALITY_DETAIL_URL_COUNT) {
+    return false;
+  }
+
+  const comparisonUrls = canonicalPathUrlSet(text, siteUrl, MBTI64_PERSONALITY_COMPARISON_CANONICAL_PATH_RE);
+  if (comparisonUrls.size < LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT) {
+    return false;
+  }
+
+  return LLMS_FULL_REQUIRED_PERSONALITY_PILOT_PATHS.every((path) => text.includes(`${siteUrl}${path}`));
+}
+
 export function isCompleteLlmsFullText(text: string, siteUrl: string): boolean {
   if (!text.includes("# FermatMind llms-full.txt") || text.includes("Mode: degraded")) {
     return false;
@@ -477,6 +529,10 @@ export function isCompleteLlmsFullText(text: string, siteUrl: string): boolean {
   }
 
   if (/(staging\.fermatmind\.com|\/(?:take|result|share|orders?|pay|payment)(?:\/|$))/i.test(text)) {
+    return false;
+  }
+
+  if (shouldRequireCompletePersonalityCohort() && !hasCompleteMbti64PersonalityCohort(text, siteUrl)) {
     return false;
   }
 
@@ -903,7 +959,7 @@ export async function buildLlmsFullText(siteUrl: string): Promise<string> {
         ),
       []
     ),
-    withLlmsRouteBudget(() => listPersonalityEntries(), []),
+    withLlmsRouteBudget(() => listPersonalityEntries(), [], { timeoutMs: LLMS_FULL_PERSONALITY_SOURCE_TIMEOUT_MS }),
     withLlmsRouteBudget(() => listTopicEntries(), []),
     withLlmsRouteBudget(
       () =>

@@ -190,6 +190,14 @@ const MBTI64_LLMS_FULL_PILOT_EXPOSURE_REPAIR_01_ALLOWED_FILES = new Set([
   "tests/contracts/pr-fdn-01-llms-full-recheck-or-repair.contract.test.ts",
 ]);
 
+const MBTI64_LLMS_FULL_PILOT_EXPOSURE_REPAIR_02_ALLOWED_FILES = new Set([
+  "app/llms-full.txt/route.ts",
+  "docs/seo/personality/mbti64-llms-full-pilot-exposure-repair-02-2026-06-19.md",
+  "lib/seo/llmsRouteBudget.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/mbti64-llms-full-pilot-exposure-repair.contract.test.ts",
+]);
+
 const RESEARCH_REPORT_METADATA_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/research/[slug]/page.tsx",
   "docs/seo/generated/metadata-surface-inventory.v1.csv",
@@ -3151,6 +3159,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/mbti64-llms-full-pilot-exposure-repair-01") {
     return MBTI64_LLMS_FULL_PILOT_EXPOSURE_REPAIR_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/mbti64-llms-full-pilot-exposure-repair-02") {
+    return MBTI64_LLMS_FULL_PILOT_EXPOSURE_REPAIR_02_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/article-h1-01") {
