@@ -1,0 +1,4 @@
+slug,locale,reason,api_status,page_status,api_closed,page_closed,ok
+acupuncturists,zh-CN,known career slug outside preview_50 plan,404,200,true,true,true
+acupuncturists,en,known career slug outside preview_50 plan,404,200,true,true,true
+not-a-real-career-ai-impact-preview-slug,en,missing career slug,404,404,true,true,true

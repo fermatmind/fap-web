@@ -485,12 +485,16 @@ export function CareerDisplaySurface({
       <SectionGroup title={riskGroupTitle}>
         {careerRisks ? <EvidenceContainer section={careerRisks} testId="career-risks-block" /> : null}
         {contractRisks ? <EvidenceContainer section={contractRisks} testId="contract-risks-block" /> : null}
-        <ClaimGuard
-          allowed={claimPermissions.allowAiStrategy}
-          fallback={aiImpact || aiImpactSlot ? <ClaimPermissionNotice locale={surface.locale} kind="ai" /> : null}
-        >
-          {aiImpactSlot ?? (aiImpact ? <EvidenceContainer section={aiImpact} testId="ai-impact-block" /> : null)}
-        </ClaimGuard>
+        {aiImpactSlot ? (
+          aiImpactSlot
+        ) : (
+          <ClaimGuard
+            allowed={claimPermissions.allowAiStrategy}
+            fallback={aiImpact ? <ClaimPermissionNotice locale={surface.locale} kind="ai" /> : null}
+          >
+            {aiImpact ? <EvidenceContainer section={aiImpact} testId="ai-impact-block" /> : null}
+          </ClaimGuard>
+        )}
       </SectionGroup>
       <ClaimGuard
         allowed={claimPermissions.allowMarketSignal}

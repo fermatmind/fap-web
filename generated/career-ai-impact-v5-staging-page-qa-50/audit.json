@@ -1,0 +1,41 @@
+{
+  "schema_version": "career_ai_impact_v5_staging_page_qa_50_v1",
+  "generated_at": "2026-06-19T20:19:15.025Z",
+  "final_conclusion": "STAGING_PAGE_QA_50_PASS",
+  "staging_origin": "https://staging.fermatmind.com",
+  "production_api_origin": "https://api.fermatmind.com",
+  "git": {
+    "head_sha": "378807817e60f9f8441add7ae4fac2f440203576",
+    "origin_main_sha": "babd7d188ab0b31d40fa2c24549cb39d8c979c9c",
+    "pr_1224_merge_sha": "8f8a69a044a90c891c90f01c4a3cc7094704c1ca",
+    "origin_main_contains_pr_1224": true
+  },
+  "staging_deploy_confirmation": {
+    "revision_endpoint_available": false,
+    "github_deployments_api_exposed_staging_revision": false,
+    "origin_main_contains_pr_1224": true,
+    "runtime_contains_preview_consumer_inferred_from_rendered_preview_block": true,
+    "note": "The staging app does not expose a REVISION endpoint in this environment; runtime confirmation is based on the PR #1224-only preview block rendering on all sampled pages."
+  },
+  "metrics": {
+    "preview_slug_count": 50,
+    "expected_endpoint_count": 100,
+    "api_ready_rows": 100,
+    "api_failed_rows": 0,
+    "page_ready_rows": 100,
+    "page_failed_rows": 0,
+    "fail_closed_ready_rows": 3,
+    "fail_closed_failed_rows": 0,
+    "production_preview_closed_ready_rows": 20,
+    "production_preview_closed_failed_rows": 0,
+    "internal_leakage_count": 0,
+    "unsafe_outcome_count": 0,
+    "english_contains_chinese_count": 0,
+    "raw_enum_count": 0
+  },
+  "intentionally_not_changed": [
+    "No staging data writes were performed by this QA.",
+    "No production import was performed.",
+    "No content asset, sitemap, llms.txt, canonical, noindex, or JSON-LD changes were made."
+  ]
+}

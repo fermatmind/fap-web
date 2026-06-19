@@ -1,0 +1,1202 @@
+{
+  "schema_version": "career_ai_impact_v5_preview_50_plan_v1",
+  "validation": {
+    "generated_at": "2026-06-19T14:17:35.729502+00:00",
+    "source_dir": "/Users/rainie/Desktop/GitHub/fap-web/generated/career-ai-impact-v5-1046-final-repaired",
+    "final_qa_conclusion": "READY_FOR_STAGING_PREVIEW_DESIGN",
+    "final_qa_metrics": {
+      "asset_rows": 2092,
+      "evidence_rows": 1046,
+      "search_projection_rows": 2092,
+      "finding_count": 0,
+      "template_reuse_phrase_count": 0,
+      "generic_workflow_evidence": 0,
+      "search_projection_repair_required": 0,
+      "synthesis_rows": 2092,
+      "zh_CN_assets": 1046,
+      "en_assets": 1046,
+      "unique_slugs": 1046,
+      "repair_required": 0,
+      "blocked": 0
+    },
+    "preview_slug_count": 50,
+    "expected_endpoint_count": 100,
+    "fixed_10_count": 10,
+    "representative_40_count": 40,
+    "missing_asset_rows": [],
+    "duplicate_slug_count": 0,
+    "all_selected_slugs_have_zh_CN_and_en": true,
+    "search_projection_quarantined_by_design": true,
+    "production_import_allowed": false,
+    "staging_write_performed": false,
+    "page_runtime_changed": false,
+    "decision": "AI_IMPACT_V5_STAGING_PREVIEW_DESIGN_READY"
+  },
+  "slugs": [
+    {
+      "preview_index": 1,
+      "slug": "accountants-and-auditors",
+      "seed_ordinal": 1,
+      "title_en": "Accountants and Auditors",
+      "title_zh": "会计师和审计师",
+      "soc_code": "13-2011",
+      "onet_code": "13-2011.00",
+      "score_1_to_10": 8,
+      "confidence": "high",
+      "exposure_type": "mixed",
+      "micro_family": "audit and assurance work",
+      "selection_role": "fixed_10_regression",
+      "risk_tags": [
+        "fixed_10_regression"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "fixed 10-slug regression and high-score professional knowledge-work sample"
+    },
+    {
+      "preview_index": 2,
+      "slug": "actuaries",
+      "seed_ordinal": 3,
+      "title_en": "Actuaries",
+      "title_zh": "精算师",
+      "soc_code": "15-2011",
+      "onet_code": "15-2011.00",
+      "score_1_to_10": 8,
+      "confidence": "high",
+      "exposure_type": "mixed",
+      "micro_family": "actuarial risk modeling",
+      "selection_role": "fixed_10_regression",
+      "risk_tags": [
+        "fixed_10_regression"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "fixed regression; high-score quantitative risk sample"
+    },
+    {
+      "preview_index": 3,
+      "slug": "computer-programmers",
+      "seed_ordinal": 197,
+      "title_en": "Computer programmers",
+      "title_zh": "计算机程序员",
+      "soc_code": null,
+      "onet_code": null,
+      "score_1_to_10": 8,
+      "confidence": "high",
+      "exposure_type": "mixed",
+      "micro_family": "computer research, systems, networks, and software work",
+      "selection_role": "fixed_10_regression",
+      "risk_tags": [
+        "fixed_10_regression",
+        "engineering_validation"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "fixed regression; high-score software/coding sample"
+    },
+    {
+      "preview_index": 4,
+      "slug": "agents-and-business-managers-of-artists-performers-and-athletes",
+      "seed_ordinal": 18,
+      "title_en": "Agents and Business Managers of Artists, Performers, and Athletes",
+      "title_zh": "艺术家、表演者和运动员经纪人与商务经理",
+      "soc_code": "13-1011",
+      "onet_code": "13-1011.00",
+      "score_1_to_10": 5,
+      "confidence": "medium",
+      "exposure_type": "augmentation",
+      "micro_family": "operations coordination and representation",
+      "selection_role": "fixed_10_regression",
+      "risk_tags": [
+        "fixed_10_regression",
+        "creative_performance"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "fixed regression; representation/creative-business sample"
+    },
+    {
+      "preview_index": 5,
+      "slug": "writers-and-authors",
+      "seed_ordinal": 1045,
+      "title_en": "Writers And Authors",
+      "title_zh": "作家与作者",
+      "soc_code": "27-3043",
+      "onet_code": "27-3043.00",
+      "score_1_to_10": 7,
+      "confidence": "high",
+      "exposure_type": "mixed",
+      "micro_family": "writing, authorship, and biological-science interpretation",
+      "selection_role": "fixed_10_regression",
+      "risk_tags": [
+        "fixed_10_regression",
+        "creative_performance"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "fixed regression; final-batch creative/writing sample"
+    },
+    {
+      "preview_index": 6,
+      "slug": "zoologists-and-wildlife-biologists",
+      "seed_ordinal": 1046,
+      "title_en": "Zoologists And Wildlife Biologists",
+      "title_zh": "动物学家与野生生物学家",
+      "soc_code": "19-1023",
+      "onet_code": "19-1023.00",
+      "score_1_to_10": 7,
+      "confidence": "medium",
+      "exposure_type": "mixed",
+      "micro_family": "writing, authorship, and biological-science interpretation",
+      "selection_role": "fixed_10_regression",
+      "risk_tags": [
+        "fixed_10_regression"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "fixed regression; scientific/environmental field sample"
+    },
+    {
+      "preview_index": 7,
+      "slug": "wind-turbine-technicians",
+      "seed_ordinal": 1041,
+      "title_en": "Wind Turbine Technicians",
+      "title_zh": "风力涡轮机技术员",
+      "soc_code": "49-9081",
+      "onet_code": "49-9081.00",
+      "score_1_to_10": 6,
+      "confidence": "high",
+      "exposure_type": "augmentation",
+      "micro_family": "wellhead, wind-energy development, and renewable operations",
+      "selection_role": "fixed_10_regression",
+      "risk_tags": [
+        "fixed_10_regression",
+        "physical_trade_service"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "fixed regression; physical trade/energy maintenance sample"
+    },
+    {
+      "preview_index": 8,
+      "slug": "woodworking-machine-setters-operators-and-tenders-except-sawing",
+      "seed_ordinal": 1043,
+      "title_en": "Woodworking Machine Setters, Operators, And Tenders, Except Sawing",
+      "title_zh": "木工机械设置、操作与看护员（不含锯切）",
+      "soc_code": "51-7042",
+      "onet_code": "51-7042.00",
+      "score_1_to_10": 4,
+      "confidence": "medium",
+      "exposure_type": "augmentation",
+      "micro_family": "weighing, sampling, welding, and woodworking production",
+      "selection_role": "fixed_10_regression",
+      "risk_tags": [
+        "fixed_10_regression",
+        "physical_trade_service"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "fixed regression; manufacturing/operator sample"
+    },
+    {
+      "preview_index": 9,
+      "slug": "air-traffic-controllers",
+      "seed_ordinal": 29,
+      "title_en": "Air Traffic Controllers",
+      "title_zh": "空中交通管制员",
+      "soc_code": "53-2021",
+      "onet_code": "53-2021.00",
+      "score_1_to_10": 3,
+      "confidence": "high",
+      "exposure_type": "augmentation",
+      "micro_family": "aerospace operations and safety",
+      "selection_role": "fixed_10_regression",
+      "risk_tags": [
+        "fixed_10_regression",
+        "aviation_transport_safety"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "fixed regression; aviation safety low-score accountability sample"
+    },
+    {
+      "preview_index": 10,
+      "slug": "athletes-and-sports-competitors",
+      "seed_ordinal": 73,
+      "title_en": "Athletes And Sports Competitors",
+      "title_zh": "运动员和体育竞赛选手",
+      "soc_code": "27-2021",
+      "onet_code": "27-2021.00",
+      "score_1_to_10": 3,
+      "confidence": "medium",
+      "exposure_type": "augmentation",
+      "micro_family": "competitive sports performance",
+      "selection_role": "fixed_10_regression",
+      "risk_tags": [
+        "fixed_10_regression",
+        "creative_performance"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "fixed regression; embodied performance sample"
+    },
+    {
+      "preview_index": 11,
+      "slug": "acute-care-nurses",
+      "seed_ordinal": 5,
+      "title_en": "Acute Care Nurses",
+      "title_zh": "急性期护士",
+      "soc_code": "29-1141",
+      "onet_code": "29-1141.01",
+      "score_1_to_10": 4,
+      "confidence": "high",
+      "exposure_type": "augmentation",
+      "micro_family": "acute-care nursing",
+      "selection_role": "high_risk_representative_40",
+      "risk_tags": [
+        "medical_clinical"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "representative high-risk or market-segment sample for AI Impact preview QA"
+    },
+    {
+      "preview_index": 12,
+      "slug": "emergency-medicine-physicians",
+      "seed_ordinal": 318,
+      "title_en": "Emergency Medicine Physicians",
+      "title_zh": "急诊医学医生",
+      "soc_code": "29-1214",
+      "onet_code": "29-1214.00",
+      "score_1_to_10": 5,
+      "confidence": "high",
+      "exposure_type": "augmentation",
+      "micro_family": "emergency management, emergency medical response, and endoscopy support",
+      "selection_role": "high_risk_representative_40",
+      "risk_tags": [
+        "medical_clinical"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "representative high-risk or market-segment sample for AI Impact preview QA"
+    },
+    {
+      "preview_index": 13,
+      "slug": "nurse-anesthetists",
+      "seed_ordinal": 689,
+      "title_en": "Nurse Anesthetists",
+      "title_zh": "麻醉护士",
+      "soc_code": "29-1151",
+      "onet_code": "29-1151.00",
+      "score_1_to_10": 6,
+      "confidence": "high",
+      "exposure_type": "augmentation",
+      "micro_family": "advanced nursing and perinatal care",
+      "selection_role": "high_risk_representative_40",
+      "risk_tags": [
+        "medical_clinical"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "representative high-risk or market-segment sample for AI Impact preview QA"
+    },
+    {
+      "preview_index": 14,
+      "slug": "pharmacists",
+      "seed_ordinal": 751,
+      "title_en": "Pharmacists",
+      "title_zh": "药剂师",
+      "soc_code": "29-1051",
+      "onet_code": "29-1051.00",
+      "score_1_to_10": 7,
+      "confidence": "high",
+      "exposure_type": "mixed",
+      "micro_family": "pharmacy medication safety and dispensing",
+      "selection_role": "high_risk_representative_40",
+      "risk_tags": [
+        "medical_clinical"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "representative high-risk or market-segment sample for AI Impact preview QA"
+    },
+    {
+      "preview_index": 15,
+      "slug": "diagnostic-medical-sonographers",
+      "seed_ordinal": 269,
+      "title_en": "Diagnostic medical sonographers",
+      "title_zh": "诊断医学超声技师",
+      "soc_code": "29-2032",
+      "onet_code": "29-2032.00",
+      "score_1_to_10": 4,
+      "confidence": "high",
+      "exposure_type": "augmentation",
+      "micro_family": "diagnostic medical sonography and imaging capture",
+      "selection_role": "high_risk_representative_40",
+      "risk_tags": [
+        "medical_clinical"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "representative high-risk or market-segment sample for AI Impact preview QA"
+    },
+    {
+      "preview_index": 16,
+      "slug": "medical-and-clinical-laboratory-technologists",
+      "seed_ordinal": 626,
+      "title_en": "Medical And Clinical Laboratory Technologists",
+      "title_zh": "医学和临床实验室技师",
+      "soc_code": "29-2011",
+      "onet_code": "29-2011.00",
+      "score_1_to_10": 7,
+      "confidence": "high",
+      "exposure_type": "mixed",
+      "micro_family": "clinical lab diagnostics and health records",
+      "selection_role": "high_risk_representative_40",
+      "risk_tags": [
+        "medical_clinical"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "representative high-risk or market-segment sample for AI Impact preview QA"
+    },
+    {
+      "preview_index": 17,
+      "slug": "genetic-counselors",
+      "seed_ordinal": 453,
+      "title_en": "Genetic counselors",
+      "title_zh": "遗传咨询师",
+      "soc_code": "29-9092",
+      "onet_code": "29-9092.00",
+      "score_1_to_10": 6,
+      "confidence": "high",
+      "exposure_type": "augmentation",
+      "micro_family": "genetic counseling, genetics research, and risk interpretation",
+      "selection_role": "high_risk_representative_40",
+      "risk_tags": [
+        "medical_clinical",
+        "education_counseling"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "representative high-risk or market-segment sample for AI Impact preview QA"
+    },
+    {
+      "preview_index": 18,
+      "slug": "physicians-and-surgeons",
+      "seed_ordinal": 765,
+      "title_en": "Physicians, All Other",
+      "title_zh": "其他医师",
+      "soc_code": "29-1229",
+      "onet_code": "29-1229.00",
+      "score_1_to_10": 6,
+      "confidence": "medium",
+      "exposure_type": "augmentation",
+      "micro_family": "physician assistant general clinical care",
+      "selection_role": "high_risk_representative_40",
+      "risk_tags": [
+        "medical_clinical"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "representative high-risk or market-segment sample for AI Impact preview QA"
+    },
+    {
+      "preview_index": 19,
+      "slug": "airline-pilots-copilots-and-flight-engineers",
+      "seed_ordinal": 39,
+      "title_en": "Airline Pilots, Copilots, and Flight Engineers",
+      "title_zh": "航空公司飞行员、副驾驶和飞行工程师",
+      "soc_code": "53-2011",
+      "onet_code": "53-2011.00",
+      "score_1_to_10": 3,
+      "confidence": "medium",
+      "exposure_type": "augmentation",
+      "micro_family": "aerospace operations and safety",
+      "selection_role": "high_risk_representative_40",
+      "risk_tags": [
+        "aviation_transport_safety",
+        "engineering_validation"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "representative high-risk or market-segment sample for AI Impact preview QA"
+    },
+    {
+      "preview_index": 20,
+      "slug": "aviation-inspectors",
+      "seed_ordinal": 87,
+      "title_en": "Aviation Inspectors",
+      "title_zh": "航空检查员",
+      "soc_code": "53-6051",
+      "onet_code": "53-6051.01",
+      "score_1_to_10": 5,
+      "confidence": "high",
+      "exposure_type": "augmentation",
+      "micro_family": "aviation inspection and avionics maintenance",
+      "selection_role": "high_risk_representative_40",
+      "risk_tags": [
+        "aviation_transport_safety"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "representative high-risk or market-segment sample for AI Impact preview QA"
+    },
+    {
+      "preview_index": 21,
+      "slug": "aircraft-and-avionics-equipment-mechanics-and-technicians",
+      "seed_ordinal": 30,
+      "title_en": "Aircraft and Avionics Equipment Mechanics and Technicians",
+      "title_zh": "飞机和航空电子设备机械师与技术员",
+      "soc_code": "49-3011",
+      "onet_code": "49-3011.00",
+      "score_1_to_10": 4,
+      "confidence": "medium",
+      "exposure_type": "augmentation",
+      "micro_family": "aerospace operations and safety",
+      "selection_role": "high_risk_representative_40",
+      "risk_tags": [
+        "aviation_transport_safety"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "representative high-risk or market-segment sample for AI Impact preview QA"
+    },
+    {
+      "preview_index": 22,
+      "slug": "commercial-pilots",
+      "seed_ordinal": 183,
+      "title_en": "Commercial Pilots",
+      "title_zh": "商业飞行员",
+      "soc_code": "53-2012",
+      "onet_code": "53-2012.00",
+      "score_1_to_10": 4,
+      "confidence": "high",
+      "exposure_type": "augmentation",
+      "micro_family": "high-risk field operations in diving and aviation",
+      "selection_role": "high_risk_representative_40",
+      "risk_tags": [
+        "aviation_transport_safety"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "representative high-risk or market-segment sample for AI Impact preview QA"
+    },
+    {
+      "preview_index": 23,
+      "slug": "administrative-law-judges-adjudicators-and-hearing-officers",
+      "seed_ordinal": 8,
+      "title_en": "Administrative Law Judges, Adjudicators, and Hearing Officers",
+      "title_zh": "行政法法官、裁决员和听证官",
+      "soc_code": "23-1021",
+      "onet_code": "23-1021.00",
+      "score_1_to_10": 5,
+      "confidence": "high",
+      "exposure_type": "augmentation",
+      "micro_family": "administrative law adjudication",
+      "selection_role": "high_risk_representative_40",
+      "risk_tags": [
+        "legal_regulatory"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "representative high-risk or market-segment sample for AI Impact preview QA"
+    },
+    {
+      "preview_index": 24,
+      "slug": "judges-magistrate-judges-and-magistrates",
+      "seed_ordinal": 551,
+      "title_en": "Judges, Magistrate Judges, And Magistrates",
+      "title_zh": "法官、地方法官和治安法官",
+      "soc_code": "23-1023",
+      "onet_code": "23-1023.00",
+      "score_1_to_10": 7,
+      "confidence": "high",
+      "exposure_type": "mixed",
+      "micro_family": "judicial decision, legal research, legislation, and procedural accountability",
+      "selection_role": "high_risk_representative_40",
+      "risk_tags": [
+        "legal_regulatory"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "representative high-risk or market-segment sample for AI Impact preview QA"
+    },
+    {
+      "preview_index": 25,
+      "slug": "lawyers",
+      "seed_ordinal": 562,
+      "title_en": "Lawyers",
+      "title_zh": "律师",
+      "soc_code": "23-1011",
+      "onet_code": "23-1011.00",
+      "score_1_to_10": 7,
+      "confidence": "high",
+      "exposure_type": "mixed",
+      "micro_family": "judicial decision, legal research, legislation, and procedural accountability",
+      "selection_role": "high_risk_representative_40",
+      "risk_tags": [
+        "legal_regulatory"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "representative high-risk or market-segment sample for AI Impact preview QA"
+    },
+    {
+      "preview_index": 26,
+      "slug": "judicial-law-clerks",
+      "seed_ordinal": 552,
+      "title_en": "Judicial Law Clerks",
+      "title_zh": "司法法律文员",
+      "soc_code": "23-1012",
+      "onet_code": "23-1012.00",
+      "score_1_to_10": 7,
+      "confidence": "medium",
+      "exposure_type": "mixed",
+      "micro_family": "judicial decision, legal research, legislation, and procedural accountability",
+      "selection_role": "high_risk_representative_40",
+      "risk_tags": [
+        "legal_regulatory"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "representative high-risk or market-segment sample for AI Impact preview QA"
+    },
+    {
+      "preview_index": 27,
+      "slug": "military-careers",
+      "seed_ordinal": 648,
+      "title_en": "Military Enlisted Tactical Operations And Air/Weapons Specialists And Crew Members, All Other",
+      "title_zh": "军事战术与空中/武器专业人员",
+      "soc_code": "55-3019",
+      "onet_code": "55-3019.00",
+      "score_1_to_10": 3,
+      "confidence": "high",
+      "exposure_type": "augmentation",
+      "micro_family": "military tactical air weapons operations",
+      "selection_role": "high_risk_representative_40",
+      "risk_tags": [
+        "aviation_transport_safety",
+        "military_command"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "representative high-risk or market-segment sample for AI Impact preview QA"
+    },
+    {
+      "preview_index": 28,
+      "slug": "first-line-supervisors-of-air-crew-members",
+      "seed_ordinal": 378,
+      "title_en": "First Line Supervisors Of Air Crew Members",
+      "title_zh": "航空机组一线主管",
+      "soc_code": "55-2011",
+      "onet_code": "55-2011.00",
+      "score_1_to_10": 5,
+      "confidence": "medium",
+      "exposure_type": "augmentation",
+      "micro_family": "military tactical, air-crew, and weapons-specialist supervision",
+      "selection_role": "high_risk_representative_40",
+      "risk_tags": [
+        "aviation_transport_safety",
+        "military_command"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "representative high-risk or market-segment sample for AI Impact preview QA"
+    },
+    {
+      "preview_index": 29,
+      "slug": "first-line-supervisors-of-weapons-specialists-crew-members",
+      "seed_ordinal": 400,
+      "title_en": "First Line Supervisors Of Weapons Specialists/Crew Members",
+      "title_zh": "武器专员和机组成员一线主管",
+      "soc_code": "55-2012",
+      "onet_code": "55-2012.00",
+      "score_1_to_10": 5,
+      "confidence": "high",
+      "exposure_type": "augmentation",
+      "micro_family": "military tactical, air-crew, and weapons-specialist supervision",
+      "selection_role": "high_risk_representative_40",
+      "risk_tags": [
+        "aviation_transport_safety",
+        "military_command"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "representative high-risk or market-segment sample for AI Impact preview QA"
+    },
+    {
+      "preview_index": 30,
+      "slug": "command-and-control-center-officers",
+      "seed_ordinal": 179,
+      "title_en": "Command And Control Center Officers",
+      "title_zh": "指挥控制中心军官",
+      "soc_code": "55-1015",
+      "onet_code": "55-1015.00",
+      "score_1_to_10": 3,
+      "confidence": "high",
+      "exposure_type": "augmentation",
+      "micro_family": "command and control center operations",
+      "selection_role": "high_risk_representative_40",
+      "risk_tags": [
+        "military_command"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "representative high-risk or market-segment sample for AI Impact preview QA"
+    },
+    {
+      "preview_index": 31,
+      "slug": "elementary-school-teachers-except-special-education",
+      "seed_ordinal": 311,
+      "title_en": "Elementary School Teachers, Except Special Education",
+      "title_zh": "小学教师（不含特殊教育）",
+      "soc_code": "25-2021",
+      "onet_code": "25-2021.00",
+      "score_1_to_10": 5,
+      "confidence": "high",
+      "exposure_type": "augmentation",
+      "micro_family": "school teaching, higher education instruction, and education leadership",
+      "selection_role": "high_risk_representative_40",
+      "risk_tags": [
+        "education_counseling"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "representative high-risk or market-segment sample for AI Impact preview QA"
+    },
+    {
+      "preview_index": 32,
+      "slug": "school-and-career-counselors",
+      "seed_ordinal": 883,
+      "title_en": "School And Career Counselors And Advisors",
+      "title_zh": "学校与职业咨询顾问",
+      "soc_code": "21-1012",
+      "onet_code": "21-1012.00",
+      "score_1_to_10": 5,
+      "confidence": "medium",
+      "exposure_type": "augmentation",
+      "micro_family": "school counseling psychology teaching and student safety",
+      "selection_role": "high_risk_representative_40",
+      "risk_tags": [
+        "education_counseling"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "representative high-risk or market-segment sample for AI Impact preview QA"
+    },
+    {
+      "preview_index": 33,
+      "slug": "adult-literacy-and-ged-teachers",
+      "seed_ordinal": 10,
+      "title_en": "Adult Basic and Secondary Education and Esl Teachers",
+      "title_zh": "成人识字和 GED 教师",
+      "soc_code": "25-3011",
+      "onet_code": "25-3011.00",
+      "score_1_to_10": 4,
+      "confidence": "medium",
+      "exposure_type": "augmentation",
+      "micro_family": "adult basic and ESL education",
+      "selection_role": "high_risk_representative_40",
+      "risk_tags": [
+        "education_counseling"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "representative high-risk or market-segment sample for AI Impact preview QA"
+    },
+    {
+      "preview_index": 34,
+      "slug": "special-education-teachers-elementary-school",
+      "seed_ordinal": 931,
+      "title_en": "Special Education Teachers, Elementary School",
+      "title_zh": "小学特殊教育教师",
+      "soc_code": "25-2056",
+      "onet_code": "25-2056.00",
+      "score_1_to_10": 5,
+      "confidence": "medium",
+      "exposure_type": "augmentation",
+      "micro_family": "special education student support and learning access",
+      "selection_role": "high_risk_representative_40",
+      "risk_tags": [
+        "education_counseling"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "representative high-risk or market-segment sample for AI Impact preview QA"
+    },
+    {
+      "preview_index": 35,
+      "slug": "actors",
+      "seed_ordinal": 2,
+      "title_en": "Actors",
+      "title_zh": "演员",
+      "soc_code": null,
+      "onet_code": null,
+      "score_1_to_10": 3,
+      "confidence": "medium",
+      "exposure_type": "augmentation",
+      "micro_family": "performance and embodied expression",
+      "selection_role": "high_risk_representative_40",
+      "risk_tags": [
+        "creative_performance"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "representative high-risk or market-segment sample for AI Impact preview QA"
+    },
+    {
+      "preview_index": 36,
+      "slug": "poets-lyricists-and-creative-writers",
+      "seed_ordinal": 776,
+      "title_en": "Poets, Lyricists And Creative Writers",
+      "title_zh": "诗人、作词人与创意写作者",
+      "soc_code": "27-3043",
+      "onet_code": "27-3043.05",
+      "score_1_to_10": 8,
+      "confidence": "medium",
+      "exposure_type": "mixed",
+      "micro_family": "creative writing and lyric work",
+      "selection_role": "high_risk_representative_40",
+      "risk_tags": [
+        "creative_performance"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "representative high-risk or market-segment sample for AI Impact preview QA"
+    },
+    {
+      "preview_index": 37,
+      "slug": "multimedia-artists-and-animators",
+      "seed_ordinal": 936,
+      "title_en": "Special Effects Artists And Animators",
+      "title_zh": "特效艺术家与动画师",
+      "soc_code": "27-1014",
+      "onet_code": "27-1014.00",
+      "score_1_to_10": 7,
+      "confidence": "medium",
+      "exposure_type": "mixed",
+      "micro_family": "set exhibit animation and sound production",
+      "selection_role": "high_risk_representative_40",
+      "risk_tags": [
+        "creative_performance"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "representative high-risk or market-segment sample for AI Impact preview QA"
+    },
+    {
+      "preview_index": 38,
+      "slug": "dancers-and-choreographers",
+      "seed_ordinal": 250,
+      "title_en": "Dancers",
+      "title_zh": "舞者和编舞师",
+      "soc_code": "27-2031",
+      "onet_code": "27-2031.00",
+      "score_1_to_10": 5,
+      "confidence": "medium",
+      "exposure_type": "augmentation",
+      "micro_family": "costume, visual art, curation, and dance expression",
+      "selection_role": "high_risk_representative_40",
+      "risk_tags": [
+        "creative_performance"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "representative high-risk or market-segment sample for AI Impact preview QA"
+    },
+    {
+      "preview_index": 39,
+      "slug": "electricians",
+      "seed_ordinal": 306,
+      "title_en": "Electricians",
+      "title_zh": "电工",
+      "soc_code": "47-2111",
+      "onet_code": "47-2111.00",
+      "score_1_to_10": 4,
+      "confidence": "medium",
+      "exposure_type": "augmentation",
+      "micro_family": "electrical trades, mechatronics, and equipment assembly",
+      "selection_role": "high_risk_representative_40",
+      "risk_tags": [
+        "physical_trade_service"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "representative high-risk or market-segment sample for AI Impact preview QA"
+    },
+    {
+      "preview_index": 40,
+      "slug": "plumbers-pipefitters-and-steamfitters",
+      "seed_ordinal": 774,
+      "title_en": "Plumbers, Pipefitters, And Steamfitters",
+      "title_zh": "管道工、配管工与蒸汽管安装工",
+      "soc_code": "47-2152",
+      "onet_code": "47-2152.00",
+      "score_1_to_10": 4,
+      "confidence": "medium",
+      "exposure_type": "augmentation",
+      "micro_family": "heavy construction pipe and surface trades",
+      "selection_role": "high_risk_representative_40",
+      "risk_tags": [
+        "physical_trade_service"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "representative high-risk or market-segment sample for AI Impact preview QA"
+    },
+    {
+      "preview_index": 41,
+      "slug": "firefighters",
+      "seed_ordinal": 377,
+      "title_en": "Firefighters",
+      "title_zh": "消防员",
+      "soc_code": "33-2011",
+      "onet_code": "33-2011.00",
+      "score_1_to_10": 4,
+      "confidence": "high",
+      "exposure_type": "augmentation",
+      "micro_family": "fire inspection, suppression, rescue, and prevention supervision",
+      "selection_role": "high_risk_representative_40",
+      "risk_tags": [
+        "physical_trade_service"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "representative high-risk or market-segment sample for AI Impact preview QA"
+    },
+    {
+      "preview_index": 42,
+      "slug": "police-and-sheriff-s-patrol-officers",
+      "seed_ordinal": 778,
+      "title_en": "Police And Sheriff's Patrol Officers",
+      "title_zh": "警察与治安巡逻警官",
+      "soc_code": "33-3051",
+      "onet_code": "33-3051.00",
+      "score_1_to_10": 5,
+      "confidence": "medium",
+      "exposure_type": "augmentation",
+      "micro_family": "law enforcement patrol records and identification",
+      "selection_role": "high_risk_representative_40",
+      "risk_tags": [
+        "legal_regulatory",
+        "physical_trade_service"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "representative high-risk or market-segment sample for AI Impact preview QA"
+    },
+    {
+      "preview_index": 43,
+      "slug": "heavy-and-tractor-trailer-truck-drivers",
+      "seed_ordinal": 485,
+      "title_en": "Heavy And Tractor Trailer Truck Drivers",
+      "title_zh": "重型和半挂卡车司机",
+      "soc_code": "53-3032",
+      "onet_code": "53-3032.00",
+      "score_1_to_10": 4,
+      "confidence": "high",
+      "exposure_type": "augmentation",
+      "micro_family": "HVAC/R, heavy equipment service, and heavy-truck operations",
+      "selection_role": "high_risk_representative_40",
+      "risk_tags": [
+        "creative_performance",
+        "physical_trade_service"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "representative high-risk or market-segment sample for AI Impact preview QA"
+    },
+    {
+      "preview_index": 44,
+      "slug": "construction-and-building-inspectors",
+      "seed_ordinal": 205,
+      "title_en": "Construction and building inspectors",
+      "title_zh": "建筑与施工检查员",
+      "soc_code": "47-4011",
+      "onet_code": "47-4011.00",
+      "score_1_to_10": 6,
+      "confidence": "high",
+      "exposure_type": "augmentation",
+      "micro_family": "construction inspection, management, and estimating",
+      "selection_role": "high_risk_representative_40",
+      "risk_tags": [
+        "physical_trade_service"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "representative high-risk or market-segment sample for AI Impact preview QA"
+    },
+    {
+      "preview_index": 45,
+      "slug": "web-developers",
+      "seed_ordinal": 1030,
+      "title_en": "Web Developers",
+      "title_zh": "网页开发人员",
+      "soc_code": "15-1254",
+      "onet_code": "15-1254.00",
+      "score_1_to_10": 8,
+      "confidence": "high",
+      "exposure_type": "mixed",
+      "micro_family": "game, web, digital interface, and document production",
+      "selection_role": "high_risk_representative_40",
+      "risk_tags": [
+        "engineering_validation"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "representative high-risk or market-segment sample for AI Impact preview QA"
+    },
+    {
+      "preview_index": 46,
+      "slug": "data-scientists",
+      "seed_ordinal": 252,
+      "title_en": "Data scientists",
+      "title_zh": "数据科学家",
+      "soc_code": "15-2051",
+      "onet_code": "15-2051.00",
+      "score_1_to_10": 8,
+      "confidence": "high",
+      "exposure_type": "mixed",
+      "micro_family": "data operations, data science, and database architecture",
+      "selection_role": "high_risk_representative_40",
+      "risk_tags": [
+        "engineering_validation"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "representative high-risk or market-segment sample for AI Impact preview QA"
+    },
+    {
+      "preview_index": 47,
+      "slug": "information-security-analysts",
+      "seed_ordinal": 529,
+      "title_en": "Information Security Analysts",
+      "title_zh": "信息安全分析师",
+      "soc_code": "15-1212",
+      "onet_code": "15-1212.00",
+      "score_1_to_10": 8,
+      "confidence": "high",
+      "exposure_type": "mixed",
+      "micro_family": "cybersecurity analysis and intelligence assessment",
+      "selection_role": "high_risk_representative_40",
+      "risk_tags": [
+        "engineering_validation"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "representative high-risk or market-segment sample for AI Impact preview QA"
+    },
+    {
+      "preview_index": 48,
+      "slug": "civil-engineers",
+      "seed_ordinal": 163,
+      "title_en": "Civil engineers",
+      "title_zh": "土木工程师",
+      "soc_code": "17-2051",
+      "onet_code": "17-2051.00",
+      "score_1_to_10": 6,
+      "confidence": "medium",
+      "exposure_type": "augmentation",
+      "micro_family": "civil engineering and infrastructure delivery",
+      "selection_role": "high_risk_representative_40",
+      "risk_tags": [
+        "engineering_validation"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "representative high-risk or market-segment sample for AI Impact preview QA"
+    },
+    {
+      "preview_index": 49,
+      "slug": "biomedical-engineers",
+      "seed_ordinal": 100,
+      "title_en": "Bioengineers and biomedical engineers",
+      "title_zh": "生物工程师和生物医学工程师",
+      "soc_code": "17-2031",
+      "onet_code": "17-2031.00",
+      "score_1_to_10": 6,
+      "confidence": "medium",
+      "exposure_type": "augmentation",
+      "micro_family": "biomedical research and engineering",
+      "selection_role": "high_risk_representative_40",
+      "risk_tags": [
+        "medical_clinical",
+        "engineering_validation"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "representative high-risk or market-segment sample for AI Impact preview QA"
+    },
+    {
+      "preview_index": 50,
+      "slug": "computer-systems-engineers-architects",
+      "seed_ordinal": 201,
+      "title_en": "Computer Systems Engineers/Architects",
+      "title_zh": "计算机系统工程师和架构师",
+      "soc_code": "15-1299",
+      "onet_code": "15-1299.08",
+      "score_1_to_10": 8,
+      "confidence": "high",
+      "exposure_type": "mixed",
+      "micro_family": "systems engineering and architecture",
+      "selection_role": "high_risk_representative_40",
+      "risk_tags": [
+        "engineering_validation"
+      ],
+      "expected_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "expected_endpoint_count": 2,
+      "selection_reason": "representative high-risk or market-segment sample for AI Impact preview QA"
+    }
+  ]
+}

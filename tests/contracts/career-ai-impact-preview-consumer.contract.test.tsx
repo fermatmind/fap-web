@@ -215,7 +215,7 @@ describe("career AI impact asset preview consumer", () => {
     expect(screen.queryByText("Will AI Replace Actors?")).not.toBeInTheDocument();
   });
 
-  it("keeps AI impact preview hidden when backend claim permission blocks AI strategy", () => {
+  it("renders safe preview assets even when legacy AI strategy claims are blocked", () => {
     const fixture = buildActorsDisplaySurfaceFixture();
     fixture.claim_permissions = buildDisplaySurfaceClaimPermissions({
       allow_ai_strategy: false,
@@ -230,7 +230,22 @@ describe("career AI impact asset preview consumer", () => {
       />
     );
 
+    expect(screen.getByTestId("career-ai-impact-preview")).toHaveTextContent("AI task exposure");
+    expect(screen.queryByTestId("claim-permission-notice-ai")).not.toBeInTheDocument();
+  });
+
+  it("keeps the legacy AI impact table hidden when backend claim permission blocks AI strategy", () => {
+    const fixture = buildActorsDisplaySurfaceFixture();
+    fixture.claim_permissions = buildDisplaySurfaceClaimPermissions({
+      allow_ai_strategy: false,
+      blocked_claims: ["ai_exposure_missing"],
+    });
+    const surface = adaptCareerDisplaySurface(fixture, "en");
+
+    render(<CareerDisplaySurface surface={surface} />);
+
     expect(screen.queryByTestId("career-ai-impact-preview")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("ai-impact-block")).not.toBeInTheDocument();
     expect(screen.getByTestId("claim-permission-notice-ai")).toHaveTextContent("AI strategy language is hidden");
   });
 
