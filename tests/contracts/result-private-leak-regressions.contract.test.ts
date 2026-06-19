@@ -81,6 +81,26 @@ describe("private result leak regression contracts", () => {
     expect(redaction).not.toMatch(/attemptId|access_token|result_access_token|privateUrl|private_url/);
   });
 
+  it("keeps the Big Five V2 post-deploy PDF smoke redacted and token-focused", () => {
+    const smoke = read("scripts/ops/check-big5-v2-live-result-pdf.mjs");
+
+    expect(smoke).toContain("pdftotext");
+    expect(smoke).toContain("extractPdfText");
+    expect(smoke).toContain("auditPdfText");
+    expect(smoke).toContain("Big Five Report Engine");
+    expect(smoke).toContain("PR3B");
+    expect(smoke).toContain("AttemptReadController");
+    expect(smoke).toContain("payload");
+    expect(smoke).toContain("registry");
+    expect(smoke).toContain("attempt_hash");
+    expect(smoke).not.toContain("attempt_id=");
+    expect(smoke).toContain("[big5-v2-post-deploy] attempt_hash=");
+    expect(smoke).not.toContain("[big5-v2-post-deploy] attempt_id=");
+    expect(smoke).not.toContain("private_url");
+    expect(smoke).not.toContain("privateUrl");
+    expect(smoke).not.toContain("raw_payload");
+  });
+
   it("keeps private result route metadata out of public discovery surfaces", () => {
     const resultPage = read("app/(localized)/[locale]/(app)/result/[id]/page.tsx");
 

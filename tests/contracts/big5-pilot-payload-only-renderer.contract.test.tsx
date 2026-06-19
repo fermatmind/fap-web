@@ -7,6 +7,7 @@ import {
   getBig5ResultPageV2Payload,
 } from "@/lib/big5/resultPageV2";
 import pilotEnvelope from "@/tests/fixtures/big5/result_page_v2/pilot_o59_staging_payload_v0_1.payload.json";
+import liveBridgeV2ReportFixture from "@/tests/fixtures/big5/report_live_bridge_v2.projection.json";
 
 const MUST_RENDER_TERMS = [
   "敏锐的独立思考者",
@@ -160,5 +161,29 @@ describe("Big Five V2 pilot payload-only renderer contract", () => {
     for (const term of PILOT_BODY_TERMS) {
       expect(visibleText()).not.toContain(term);
     }
+  });
+
+  it("falls back to the short-term legacy engine when V2 is malformed and legacy payload is present", () => {
+    const invalidPayload = structuredClone(pilotEnvelope).big5_result_page_v2 as {
+      modules: Array<{ blocks: Array<{ content: unknown }> }>;
+    };
+    invalidPayload.modules[0].blocks[0].content = {
+      body: "INVALID_V2_BODY_SHOULD_NOT_RENDER",
+      internal_metadata: "forbidden",
+    };
+    const legacyReport = structuredClone(liveBridgeV2ReportFixture) as ReportResponse;
+    const report = {
+      ...legacyReport,
+      [BIG5_RESULT_PAGE_V2_PAYLOAD_KEY]: invalidPayload,
+    } as ReportResponse;
+
+    expect(getBig5ResultPageV2Payload(report)).toBeNull();
+
+    render(<RichResultReport locale="zh" reportData={report} />);
+
+    expect(screen.queryByTestId("big5-result-page-v2-shell")).not.toBeInTheDocument();
+    expect(screen.getByTestId("big5-result-shell")).toBeInTheDocument();
+    expect(visibleText()).not.toContain("INVALID_V2_BODY_SHOULD_NOT_RENDER");
+    expect(visibleText()).toContain("结果摘要");
   });
 });
