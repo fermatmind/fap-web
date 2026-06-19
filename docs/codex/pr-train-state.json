@@ -22656,8 +22656,8 @@
       "id": "SEO-GPT55-HANDOFF-01",
       "repo": "fap-web",
       "branch": "codex/seo-gpt55-handoff-01",
-      "status": "local_checks_passed",
-      "commit_sha": "eb2088c189d7c7f8117f62ba352057575603ad08",
+      "status": "ready_to_merge",
+      "commit_sha": "ce1b43526d0b777f78dfae0296a6107d6b291138",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1230",
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -22694,8 +22694,8 @@
           "evidence": "Passed: node scripts/seo/check-seo-agent-gpt55-handoff.mjs docs/seo/agent/examples/gpt55-review-response.example.json --packet docs/seo/agent/examples/seo-agent-control-packet.weekly.example.json; pnpm exec vitest run tests/contracts/seo-agent-gpt55-handoff.contract.test.ts; pnpm test:contract (501 files, 2866 tests); pnpm lint . after remote build exposed a no-explicit-any lint error; pnpm typecheck; NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build; focused rerun for GPT handoff/runtime QA/ops bridge contracts; JSON/YAML parse; git diff --check; explicit changed-file scope validation."
         },
         "github_checks": {
-          "status": "pending",
-          "evidence": "PR #1230 opened; GitHub checks pending."
+          "status": "pass",
+          "evidence": "PR #1230 GitHub checks passed on head ce1b43526d0b777f78dfae0296a6107d6b291138: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analyze, and CodeQL. mergeStateStatus CLEAN."
         }
       },
       "history": [
@@ -22728,6 +22728,11 @@
           "at": "2026-06-20T05:31:00+08:00",
           "status": "codeql_failed_inspected_and_fixed",
           "note": "PR #1230 CodeQL reported insecure temp file creation in the new GPT handoff test. Replaced direct os.tmpdir random path construction with fs.mkdtempSync, reran lint, focused test, typecheck, and diff check, then committed eb2088c189d7c7f8117f62ba352057575603ad08."
+        },
+        {
+          "at": "2026-06-20T05:36:00+08:00",
+          "status": "ready_to_merge",
+          "note": "PR #1230 checks passed on head ce1b43526d0b777f78dfae0296a6107d6b291138 and mergeStateStatus was CLEAN; recording ready_to_merge before merge."
         }
       ]
     }
