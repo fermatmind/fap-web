@@ -5,6 +5,9 @@
   "type": "object",
   "additionalProperties": false,
   "required": [
+    "schema_version",
+    "review_id",
+    "reviewed_control_packet_run_id",
     "verdict",
     "recommended_lane",
     "ranked_actions",
@@ -15,10 +18,22 @@
     "blocked_items"
   ],
   "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "fermatmind.seo_agent.gpt55_review_response.v1"
+    },
+    "review_id": {
+      "type": "string",
+      "minLength": 8
+    },
+    "reviewed_control_packet_run_id": {
+      "type": "string",
+      "minLength": 8
+    },
     "verdict": {
       "type": "string",
       "enum": [
-        "GO_FOR_EXECUTION",
+        "REVIEW_PASS_NON_EXECUTING",
         "NEEDS_MORE_EVIDENCE",
         "BLOCKED"
       ]
@@ -46,6 +61,7 @@
           "action_id",
           "lane",
           "recommendation",
+          "evidence_ids",
           "reason"
         ],
         "properties": {
@@ -60,6 +76,12 @@
               "hold",
               "block"
             ]
+          },
+          "evidence_ids": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string" },
+            "uniqueItems": true
           },
           "reason": { "type": "string" }
         }

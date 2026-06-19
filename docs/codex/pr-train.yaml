@@ -364,7 +364,7 @@ prs:
     base: main
     depends_on: []
     mode: execute
-    status: in_progress
+    status: merged
     title: "feat(iq): add frontend API contracts"
     artifacts:
       - lib/api/v0_3.ts
@@ -15664,4 +15664,73 @@ prs:
       github_checks_required: true
       squash: true
       auto_merge: true
-    next_task: SEO-GSC-DATA-QUALITY-01
+    next_task: SEO-GPT55-HANDOFF-01
+
+  - id: SEO-GPT55-HANDOFF-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/seo-gpt55-handoff-01
+    base: main
+    title: "test(seo-agent): add GPT 5.5 review handoff contract"
+    depends_on:
+      - SEO-AGENT-CONTROL-PACKET-01
+    mode: execute
+    train_scope: seo_agent_gpt55_handoff
+    status: in_progress
+    goal: "Make GPT 5.5 Pro review output schema-checkable, evidence-bound, and non-executing. GPT 5.5 Pro may advise only; it must not approve CMS/search/schema/hreflang/indexability execution or bypass exact human approval."
+    artifacts:
+      - package.json
+      - scripts/seo/check-seo-agent-gpt55-handoff.mjs
+      - docs/seo/agent/GPT55_REVIEW_PACKET.md
+      - docs/seo/agent/examples/gpt55-review-response.example.json
+      - docs/seo/agent/schemas/GPT55_REVIEW_RESPONSE.schema.json
+      - tests/contracts/seo-agent-gpt55-handoff.contract.test.ts
+      - tests/contracts/seo-ops-readmodel-bridge.contract.test.ts
+      - tests/contracts/seo-runtime-qa-agent.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - package.json
+      - scripts/seo/check-seo-agent-gpt55-handoff.mjs
+      - docs/seo/agent/GPT55_REVIEW_PACKET.md
+      - docs/seo/agent/examples/gpt55-review-response.example.json
+      - docs/seo/agent/schemas/GPT55_REVIEW_RESPONSE.schema.json
+      - tests/contracts/seo-agent-gpt55-handoff.contract.test.ts
+      - tests/contracts/seo-ops-readmodel-bridge.contract.test.ts
+      - tests/contracts/seo-runtime-qa-agent.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - docs/seo/generated/**
+      - public/**
+      - pnpm-lock.yaml
+      - automation TOML
+      - env files
+      - CMS writes, draft creation, publish, or unpublish
+      - Search Channel enqueue, approve, or submit
+      - search provider submission
+      - frontend revalidation
+      - sitemap, robots, llms, schema, hreflang, or indexability runtime changes
+      - prompt or schema language allowing GPT 5.5 Pro to approve execution directly
+    required_local_checks:
+      - node scripts/seo/check-seo-agent-gpt55-handoff.mjs docs/seo/agent/examples/gpt55-review-response.example.json --packet docs/seo/agent/examples/seo-agent-control-packet.weekly.example.json
+      - pnpm exec vitest run tests/contracts/seo-agent-gpt55-handoff.contract.test.ts
+      - pnpm test:contract
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -m json.tool docs/seo/agent/schemas/GPT55_REVIEW_RESPONSE.schema.json >/dev/null
+      - python3 -m json.tool docs/seo/agent/examples/gpt55-review-response.example.json >/dev/null
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - git diff --check
+      - scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: SEO-WEEKLY-AUTOMATION-CONTROL-PACKET-02
