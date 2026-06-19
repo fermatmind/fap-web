@@ -1,0 +1,51 @@
+preview_index,slug,seed_ordinal,title_en,title_zh,score_1_to_10,confidence,exposure_type,micro_family,selection_role,risk_tags
+1,accountants-and-auditors,1,Accountants and Auditors,会计师和审计师,8,high,mixed,audit and assurance work,fixed_10_regression,fixed_10_regression
+2,actuaries,3,Actuaries,精算师,8,high,mixed,actuarial risk modeling,fixed_10_regression,fixed_10_regression
+3,computer-programmers,197,Computer programmers,计算机程序员,8,high,mixed,"computer research, systems, networks, and software work",fixed_10_regression,fixed_10_regression|engineering_validation
+4,agents-and-business-managers-of-artists-performers-and-athletes,18,"Agents and Business Managers of Artists, Performers, and Athletes",艺术家、表演者和运动员经纪人与商务经理,5,medium,augmentation,operations coordination and representation,fixed_10_regression,fixed_10_regression|creative_performance
+5,writers-and-authors,1045,Writers And Authors,作家与作者,7,high,mixed,"writing, authorship, and biological-science interpretation",fixed_10_regression,fixed_10_regression|creative_performance
+6,zoologists-and-wildlife-biologists,1046,Zoologists And Wildlife Biologists,动物学家与野生生物学家,7,medium,mixed,"writing, authorship, and biological-science interpretation",fixed_10_regression,fixed_10_regression
+7,wind-turbine-technicians,1041,Wind Turbine Technicians,风力涡轮机技术员,6,high,augmentation,"wellhead, wind-energy development, and renewable operations",fixed_10_regression,fixed_10_regression|physical_trade_service
+8,woodworking-machine-setters-operators-and-tenders-except-sawing,1043,"Woodworking Machine Setters, Operators, And Tenders, Except Sawing",木工机械设置、操作与看护员（不含锯切）,4,medium,augmentation,"weighing, sampling, welding, and woodworking production",fixed_10_regression,fixed_10_regression|physical_trade_service
+9,air-traffic-controllers,29,Air Traffic Controllers,空中交通管制员,3,high,augmentation,aerospace operations and safety,fixed_10_regression,fixed_10_regression|aviation_transport_safety
+10,athletes-and-sports-competitors,73,Athletes And Sports Competitors,运动员和体育竞赛选手,3,medium,augmentation,competitive sports performance,fixed_10_regression,fixed_10_regression|creative_performance
+11,acute-care-nurses,5,Acute Care Nurses,急性期护士,4,high,augmentation,acute-care nursing,high_risk_representative_40,medical_clinical
+12,emergency-medicine-physicians,318,Emergency Medicine Physicians,急诊医学医生,5,high,augmentation,"emergency management, emergency medical response, and endoscopy support",high_risk_representative_40,medical_clinical
+13,nurse-anesthetists,689,Nurse Anesthetists,麻醉护士,6,high,augmentation,advanced nursing and perinatal care,high_risk_representative_40,medical_clinical
+14,pharmacists,751,Pharmacists,药剂师,7,high,mixed,pharmacy medication safety and dispensing,high_risk_representative_40,medical_clinical
+15,diagnostic-medical-sonographers,269,Diagnostic medical sonographers,诊断医学超声技师,4,high,augmentation,diagnostic medical sonography and imaging capture,high_risk_representative_40,medical_clinical
+16,medical-and-clinical-laboratory-technologists,626,Medical And Clinical Laboratory Technologists,医学和临床实验室技师,7,high,mixed,clinical lab diagnostics and health records,high_risk_representative_40,medical_clinical
+17,genetic-counselors,453,Genetic counselors,遗传咨询师,6,high,augmentation,"genetic counseling, genetics research, and risk interpretation",high_risk_representative_40,medical_clinical|education_counseling
+18,physicians-and-surgeons,765,"Physicians, All Other",其他医师,6,medium,augmentation,physician assistant general clinical care,high_risk_representative_40,medical_clinical
+19,airline-pilots-copilots-and-flight-engineers,39,"Airline Pilots, Copilots, and Flight Engineers",航空公司飞行员、副驾驶和飞行工程师,3,medium,augmentation,aerospace operations and safety,high_risk_representative_40,aviation_transport_safety|engineering_validation
+20,aviation-inspectors,87,Aviation Inspectors,航空检查员,5,high,augmentation,aviation inspection and avionics maintenance,high_risk_representative_40,aviation_transport_safety
+21,aircraft-and-avionics-equipment-mechanics-and-technicians,30,Aircraft and Avionics Equipment Mechanics and Technicians,飞机和航空电子设备机械师与技术员,4,medium,augmentation,aerospace operations and safety,high_risk_representative_40,aviation_transport_safety
+22,commercial-pilots,183,Commercial Pilots,商业飞行员,4,high,augmentation,high-risk field operations in diving and aviation,high_risk_representative_40,aviation_transport_safety
+23,administrative-law-judges-adjudicators-and-hearing-officers,8,"Administrative Law Judges, Adjudicators, and Hearing Officers",行政法法官、裁决员和听证官,5,high,augmentation,administrative law adjudication,high_risk_representative_40,legal_regulatory
+24,judges-magistrate-judges-and-magistrates,551,"Judges, Magistrate Judges, And Magistrates",法官、地方法官和治安法官,7,high,mixed,"judicial decision, legal research, legislation, and procedural accountability",high_risk_representative_40,legal_regulatory
+25,lawyers,562,Lawyers,律师,7,high,mixed,"judicial decision, legal research, legislation, and procedural accountability",high_risk_representative_40,legal_regulatory
+26,judicial-law-clerks,552,Judicial Law Clerks,司法法律文员,7,medium,mixed,"judicial decision, legal research, legislation, and procedural accountability",high_risk_representative_40,legal_regulatory
+27,military-careers,648,"Military Enlisted Tactical Operations And Air/Weapons Specialists And Crew Members, All Other",军事战术与空中/武器专业人员,3,high,augmentation,military tactical air weapons operations,high_risk_representative_40,aviation_transport_safety|military_command
+28,first-line-supervisors-of-air-crew-members,378,First Line Supervisors Of Air Crew Members,航空机组一线主管,5,medium,augmentation,"military tactical, air-crew, and weapons-specialist supervision",high_risk_representative_40,aviation_transport_safety|military_command
+29,first-line-supervisors-of-weapons-specialists-crew-members,400,First Line Supervisors Of Weapons Specialists/Crew Members,武器专员和机组成员一线主管,5,high,augmentation,"military tactical, air-crew, and weapons-specialist supervision",high_risk_representative_40,aviation_transport_safety|military_command
+30,command-and-control-center-officers,179,Command And Control Center Officers,指挥控制中心军官,3,high,augmentation,command and control center operations,high_risk_representative_40,military_command
+31,elementary-school-teachers-except-special-education,311,"Elementary School Teachers, Except Special Education",小学教师（不含特殊教育）,5,high,augmentation,"school teaching, higher education instruction, and education leadership",high_risk_representative_40,education_counseling
+32,school-and-career-counselors,883,School And Career Counselors And Advisors,学校与职业咨询顾问,5,medium,augmentation,school counseling psychology teaching and student safety,high_risk_representative_40,education_counseling
+33,adult-literacy-and-ged-teachers,10,Adult Basic and Secondary Education and Esl Teachers,成人识字和 GED 教师,4,medium,augmentation,adult basic and ESL education,high_risk_representative_40,education_counseling
+34,special-education-teachers-elementary-school,931,"Special Education Teachers, Elementary School",小学特殊教育教师,5,medium,augmentation,special education student support and learning access,high_risk_representative_40,education_counseling
+35,actors,2,Actors,演员,3,medium,augmentation,performance and embodied expression,high_risk_representative_40,creative_performance
+36,poets-lyricists-and-creative-writers,776,"Poets, Lyricists And Creative Writers",诗人、作词人与创意写作者,8,medium,mixed,creative writing and lyric work,high_risk_representative_40,creative_performance
+37,multimedia-artists-and-animators,936,Special Effects Artists And Animators,特效艺术家与动画师,7,medium,mixed,set exhibit animation and sound production,high_risk_representative_40,creative_performance
+38,dancers-and-choreographers,250,Dancers,舞者和编舞师,5,medium,augmentation,"costume, visual art, curation, and dance expression",high_risk_representative_40,creative_performance
+39,electricians,306,Electricians,电工,4,medium,augmentation,"electrical trades, mechatronics, and equipment assembly",high_risk_representative_40,physical_trade_service
+40,plumbers-pipefitters-and-steamfitters,774,"Plumbers, Pipefitters, And Steamfitters",管道工、配管工与蒸汽管安装工,4,medium,augmentation,heavy construction pipe and surface trades,high_risk_representative_40,physical_trade_service
+41,firefighters,377,Firefighters,消防员,4,high,augmentation,"fire inspection, suppression, rescue, and prevention supervision",high_risk_representative_40,physical_trade_service
+42,police-and-sheriff-s-patrol-officers,778,Police And Sheriff's Patrol Officers,警察与治安巡逻警官,5,medium,augmentation,law enforcement patrol records and identification,high_risk_representative_40,legal_regulatory|physical_trade_service
+43,heavy-and-tractor-trailer-truck-drivers,485,Heavy And Tractor Trailer Truck Drivers,重型和半挂卡车司机,4,high,augmentation,"HVAC/R, heavy equipment service, and heavy-truck operations",high_risk_representative_40,creative_performance|physical_trade_service
+44,construction-and-building-inspectors,205,Construction and building inspectors,建筑与施工检查员,6,high,augmentation,"construction inspection, management, and estimating",high_risk_representative_40,physical_trade_service
+45,web-developers,1030,Web Developers,网页开发人员,8,high,mixed,"game, web, digital interface, and document production",high_risk_representative_40,engineering_validation
+46,data-scientists,252,Data scientists,数据科学家,8,high,mixed,"data operations, data science, and database architecture",high_risk_representative_40,engineering_validation
+47,information-security-analysts,529,Information Security Analysts,信息安全分析师,8,high,mixed,cybersecurity analysis and intelligence assessment,high_risk_representative_40,engineering_validation
+48,civil-engineers,163,Civil engineers,土木工程师,6,medium,augmentation,civil engineering and infrastructure delivery,high_risk_representative_40,engineering_validation
+49,biomedical-engineers,100,Bioengineers and biomedical engineers,生物工程师和生物医学工程师,6,medium,augmentation,biomedical research and engineering,high_risk_representative_40,medical_clinical|engineering_validation
+50,computer-systems-engineers-architects,201,Computer Systems Engineers/Architects,计算机系统工程师和架构师,8,high,mixed,systems engineering and architecture,high_risk_representative_40,engineering_validation
