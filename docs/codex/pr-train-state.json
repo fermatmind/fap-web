@@ -22745,8 +22745,8 @@
       "id": "SEO-WEEKLY-AUTOMATION-CONTROL-PACKET-02",
       "repo": "fap-web",
       "branch": "codex/seo-weekly-automation-control-packet-02",
-      "status": "pr_open",
-      "commit_sha": "7292da03df7bf1f7bc571dca4ab23df9600b4676",
+      "status": "ready_to_merge",
+      "commit_sha": "8fc72f06f79d22163efc214fa506010d66ae5029",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1231",
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -22784,8 +22784,8 @@
           "evidence": "Passed: node scripts/seo/check-seo-agent-weekly-control-packet.mjs docs/seo/agent/examples/seo-agent-control-packet.weekly.example.json; pnpm exec vitest run tests/contracts/seo-agent-weekly-control-packet.contract.test.ts tests/contracts/seo-agent-gpt55-handoff.contract.test.ts tests/contracts/seo-runtime-qa-agent.contract.test.ts tests/contracts/seo-ops-readmodel-bridge.contract.test.ts tests/contracts/semantic-claim-scanner-baseline.contract.test.ts; pnpm test:contract (502 files, 2873 tests); pnpm lint . (0 errors, existing warnings only); pnpm typecheck; NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build; JSON/YAML parse checks; git diff --check; explicit scope validation."
         },
         "github_checks": {
-          "status": "pending",
-          "evidence": "PR #1231 opened; GitHub checks pending."
+          "status": "pass",
+          "evidence": "PR #1231 checks passed: CodeQL, analyze (javascript-typescript), build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze. mergeStateStatus=CLEAN and PR diff scope validation passed."
         }
       },
       "history": [
@@ -22808,6 +22808,11 @@
           "at": "2026-06-20T05:54:05+08:00",
           "status": "pr_open",
           "note": "Opened PR #1231 at https://github.com/fermatmind/fap-web/pull/1231; GitHub checks pending."
+        },
+        {
+          "at": "2026-06-20T05:58:44+08:00",
+          "status": "ready_to_merge",
+          "note": "PR #1231 checks passed, mergeStateStatus was CLEAN, and PR diff scope validation matched the weekly control packet allowlist."
         }
       ]
     }
