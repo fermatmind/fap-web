@@ -10,6 +10,27 @@ const ROOT = process.cwd();
 const REVIEW_PATH = "docs/seo/agent/examples/gpt55-review-response.example.json";
 const PACKET_PATH = "docs/seo/agent/examples/seo-agent-control-packet.weekly.example.json";
 
+type ReviewFixture = {
+  verdict: string;
+  evidence_used: Array<{
+    evidence_id: string;
+    source_class: string;
+    how_used: string;
+  }>;
+  ranked_actions: Array<{
+    recommendation: string;
+  }>;
+  claim_risks: Array<{
+    risk: string;
+    severity: string;
+    recommendation: string;
+  }>;
+  approvals_required: Array<{
+    approval: string;
+    why_required: string;
+  }>;
+};
+
 function readJson(relativePath: string) {
   return JSON.parse(fs.readFileSync(path.join(ROOT, relativePath), "utf8"));
 }
@@ -28,8 +49,8 @@ function runChecker(reviewPath: string): { status: number; stdout: string } {
   }
 }
 
-function withTempReview(mutator: (review: any) => void): string {
-  const review = readJson(REVIEW_PATH);
+function withTempReview(mutator: (review: ReviewFixture) => void): string {
+  const review = readJson(REVIEW_PATH) as ReviewFixture;
   mutator(review);
   const filePath = path.join(os.tmpdir(), `gpt55-review-${process.pid}-${Math.random().toString(16).slice(2)}.json`);
   fs.writeFileSync(filePath, JSON.stringify(review, null, 2));
