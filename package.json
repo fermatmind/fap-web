@@ -37,6 +37,7 @@
     "seo:check-science-contentpage-zh-footer-links": "node scripts/seo/check-science-contentpage-zh-footer-links.mjs",
     "seo:push-baidu": "node scripts/seo/push-baidu.mjs",
     "ops:result-smoke": "node scripts/ops/check-live-result-smoke.mjs",
+    "ops:big5-v2-post-deploy-smoke": "node scripts/ops/check-big5-v2-live-result-pdf.mjs",
     "content:check-translations": "node scripts/content/check-translations.mjs",
     "test:contract": "vitest run tests/contracts",
     "test:a11y": "vitest run tests/a11y",
