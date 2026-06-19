@@ -11,6 +11,7 @@ V2 adds an authorized full-release runner mode. By default this skill remains re
 Use this skill for:
 
 - Heavy SEO release, discoverability, search, schema, hreflang, and revalidation work after daily planning. For daily topic selection or Mode B brief planning, prefer the thin `fermatmind-daily-seo-ops` skill first, then return here for controlled execution playbooks.
+- Single-article release closeout after publish/discoverability/search work, using backend `articles:release-closeout` and frontend public smoke verification evidence.
 - Daily SEO signal review.
 - Weekly SEO article review.
 - CMS content package QA before preview/import work.
@@ -148,6 +149,7 @@ Choose the workflow by user intent:
 | Run schema readiness, no-write rehearsal, or rollout | `schema_rollout` |
 | Run hreflang readiness, no-write rehearsal, or rollout | `hreflang_rollout` |
 | Reconcile final release truth after follow-up work | `final_reconciliation` |
+| Close out one article after daily release work | `single_article_release_closeout` |
 | Select a daily article topic or generate a Mode B brief | use `fermatmind-daily-seo-ops` first |
 | Generate tomorrow's daily article release goal | `daily_article_release_goal` |
 | Daily SEO review | `daily_seo_review` |
@@ -242,6 +244,35 @@ Use:
 - `references/daily_pipeline_search_batch_separation.md`.
 
 Hard gates: read-only unless a separate Authorization Profile allows a bounded action. Old generated final summaries are inputs, not final truth.
+
+### `single_article_release_closeout`
+
+Purpose: decide whether one released SEO article can be closed as complete with search observation pending, or whether a specific lane remains blocked.
+
+Use:
+
+- fap-api read-only command:
+  `php artisan articles:release-closeout --article-id=<id> --expected-slug=<slug> --json --no-ansi`
+- fap-web public smoke verifier:
+  `pnpm seo:verify-public-article-release --url=https://fermatmind.com/<locale>/articles/<slug> --expect-title --expect-meta --expect-canonical --expect-robots=index,follow --expect-sitemap --expect-llms --expect-llms-full --expect-jsonld=Article,BreadcrumbList --forbid-jsonld=FAQPage --forbid-hreflang --retry=3 --retry-delay-ms=60000 --json`
+- Ops/CMS Article `SEO Release Status` panel when browser/CMS evidence is requested.
+
+Do:
+
+- Run or request read-only evidence for content state, title/meta/canonical/robots, public media URLs, reader-facing taxonomy, sitemap, llms, llms-full, URL Truth, Search Channel queue states, schema/hreflang gates, public HTML JSON-LD, GSC manual request status, and D1/D7/D14 observation queue.
+- Treat PR1 backend closeout and PR2 frontend smoke outputs as complementary: backend tells authority/state gaps; frontend confirms public runtime HTML and cache state.
+- Apply retry/cache-window judgment for public HTML smoke. Do not call one transient cache miss a release failure until the configured retry window completes.
+- Separate hard blockers from intentional holds. FAQ schema hold and no-hreflang policy are acceptable when recorded; missing Article/Breadcrumb schema or missing no-hreflang policy is a closeout gap unless explicitly held.
+
+Output:
+
+- Closeout matrix by lane: content, media, taxonomy, schema, hreflang, sitemap, llms, llms-full, URL Truth, Search Channel, GSC, public HTML smoke, and observation.
+- Remaining exact actions, if any, with dry-run command and approval phrase requirements.
+- Final decision: `ARTICLE_RELEASE_COMPLETE_SEARCH_OBSERVATION_PENDING`, `BLOCKED_DISCOVERABILITY_GAP`, `BLOCKED_SEARCH_QUEUE_GAP`, `BLOCKED_PUBLIC_HTML_DRIFT`, or `BLOCKED_OPERATOR_INPUT`.
+
+No-go:
+
+- Do not mutate CMS, publish/promote, revalidate, submit search, enable schema/hreflang, update sitemap/llms, or click GSC from this workflow without a separate exact authorization and the relevant playbook preflight.
 
 ### `daily_pipeline_search_batch_separation`
 

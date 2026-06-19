@@ -1,6 +1,6 @@
 ---
 name: fermatmind-daily-seo-ops
-description: Use for FermatMind daily SEO article operations when Codex needs to select today's article topic, generate a Mode B brief handoff, produce a GPT 5.5 Pro content-package prompt packet, QA a Mode C CMS package, prepare CMS release-gate checklists, or run D1/D7/D14 observation for SEO articles without executing CMS writes, publish, revalidation, schema/hreflang, GSC, IndexNow, Baidu, sitemap, or llms actions.
+description: Use for FermatMind daily SEO article operations when Codex needs to select today's article topic, generate a Mode B brief handoff, produce a GPT 5.5 Pro content-package prompt packet, intake-check a returned package, QA a Mode C CMS package, prepare CMS release-gate checklists, or run D1/D7/D14 observation for SEO articles without executing CMS writes, publish, revalidation, schema/hreflang, GSC, IndexNow, Baidu, sitemap, or llms actions.
 ---
 
 # FermatMind Daily SEO Ops Skill
@@ -39,6 +39,7 @@ Prefer evidence in this order:
 | Pick today's SEO topic or compare topic candidates | `daily_topic_selection` |
 | Create a brief-only GPT handoff | `mode_b_brief_generation` |
 | Create a paste-ready GPT 5.5 Pro content-package prompt packet | `gpt_content_package_prompt_handoff` |
+| Intake-check a returned GPT content package before heavy QA | `package_intake_checklist` |
 | QA a GPT/Mode C CMS package | `mode_c_package_qa` |
 | Prepare controlled CMS release gate text/checklists | `cms_release_gate` |
 | Review D1/D7/D14 performance and feed next briefs | `d1_d7_d14_observation` |
@@ -145,6 +146,31 @@ Output:
 No-go:
 
 - Do not import, write CMS, publish, revalidate, or submit search.
+
+### `package_intake_checklist`
+
+Purpose: when GPT returns a content package zip, decide whether it is ready for the heavier `fermatmind-seo-ops` QA/import lane.
+
+Do:
+
+- Confirm the zip opens, contains a manifest, article markdown/body, CMS field mapping, SEO title/meta, cover/body visual source references, internal-link plan, CTA plan, and claim-boundary notes.
+- Check the package follows the requested route, slug, locale, canonical, and no-cannibalization contract from `gpt_content_package_prompt_handoff`.
+- Confirm image sources are local source files or planned Media Library inputs only; reject private URLs, tokenized URLs, fake public asset URLs, and missing body visual placeholders.
+- Confirm no full CMS write, publish, schema, hreflang, sitemap, llms, GSC, IndexNow, Baidu, or Search Channel action is embedded in the GPT package.
+- Output the exact next heavy workflow to use in `fermatmind-seo-ops`, usually `cms_content_package_qa` or `seo_article_full_release`, and list the operator approvals that will be needed later.
+
+Output:
+
+- Package intake summary.
+- Pass/fail checklist.
+- Missing files or blocker list.
+- Next-step instruction for Codex.
+- Decision: `PACKAGE_READY_FOR_HEAVY_QA`, `PACKAGE_BLOCKED_NEEDS_GPT_REVISION`, `PACKAGE_BLOCKED_NEEDS_MEDIA_SOURCE`, or `PACKAGE_BLOCKED_NEEDS_OPERATOR_INPUT`.
+
+No-go:
+
+- Do not fix the content package unless the user separately asks for package repair.
+- Do not import, write CMS, promote, publish, revalidate, submit search, enable schema/hreflang, mutate sitemap/llms, or create frontend content.
 
 ### `cms_release_gate`
 
