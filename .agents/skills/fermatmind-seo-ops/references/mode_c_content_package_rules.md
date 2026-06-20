@@ -1,6 +1,6 @@
 # Mode C Content Package Rules
 
-Use when validating GPT/Mode C bilingual SEO article content packages before import, preview, publish, or release.
+Use when validating GPT/Mode C bilingual SEO article content packages before import, preview, publish, or release. Mode C identifies a content-package source or external draft format. SEO Agent run-control review handoffs use Codex review artifacts, not content-package source labels.
 
 ## Operation And Identity Rule
 

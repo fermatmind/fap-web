@@ -6,6 +6,10 @@ Use this repo-scoped skill to assist FermatMind SEO operations without replacing
 
 V2 adds an authorized full-release runner mode. By default this skill remains report-only. When a user-provided `/goal` includes an explicit Authorization Profile, the skill may execute only the scoped production-safe actions allowed by that profile and the linked playbooks. The skill is still not a migration runner, Metabase admin, auth/payment/security actor, environment/secret mutator, or unbounded submitter.
 
+SEO Agent run-control and opportunity-review handoffs are Codex-reviewed by default. A `seo-agent-codex-review-handoff.v1` artifact may be reviewed only for verdicts, recommended dry-run actions, risk flags, and human approval requirements; it must not grant execution permission.
+
+External-model and Mode C references in this skill describe content-package source material only, not the canonical review layer.
+
 ## When to use this skill
 
 Use this skill for:
