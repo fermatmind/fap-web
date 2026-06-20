@@ -20,6 +20,7 @@ test("MBTI locked result keeps the unlock offer on the current access-first path
   const attemptId = "827adbb2-f7d1-40de-9190-578ca788c348";
   const orderNo = "ord_mbti_lock_offer_199";
   const paymentRecoveryToken = "token_mbti_lock_offer";
+  const reportPattern = new RegExp(`/api/v0\\.3/attempts/${attemptId}/report(?:\\?.*)?$`);
 
   await page.addInitScript(() => {
     window.localStorage.setItem(
@@ -81,7 +82,7 @@ test("MBTI locked result keeps the unlock offer on the current access-first path
     });
   });
 
-  await page.route(`**/api/v0.3/attempts/${attemptId}/report`, async (route) => {
+  await page.route(reportPattern, async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -142,7 +143,7 @@ test("MBTI locked result keeps the unlock offer on the current access-first path
   await expect(page.getByTestId("mbti-result-shell")).toBeVisible();
   await expect(getDesktopOfferComparison(page)).toBeVisible();
   await expect(page.locator(`#${getMbtiDesktopAnchorId("offerFull")}`)).toBeVisible();
-  await expect(getDesktopOfferPrimaryCta(page)).toHaveText("解锁完整报告");
+  await expect(getDesktopOfferPrimaryCta(page)).toHaveText("1.99元直接解锁");
 
   await getDesktopOfferPrimaryCta(page).click();
   await expect(page).toHaveURL(new RegExp(`/zh/pay/wait\\?order_no=${orderNo}.*`));

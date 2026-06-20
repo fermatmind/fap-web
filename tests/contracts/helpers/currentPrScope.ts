@@ -141,6 +141,16 @@ const RIASEC_PACK12_ALLOWED_FILES = new Set([
   "tests/contracts/fixtures/riasec/lifecycle-feedback-boundaries.projection.json",
 ]);
 
+const QUIZ_PACK_PERFORMANCE_HOTFIX_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient.tsx",
+  "tests/e2e/big5-flow.spec.ts",
+  "tests/e2e/mbti-locked-unlock.spec.ts",
+  "tests/e2e/mbti-share.spec.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/quiz-pack-performance-hotfix.contract.test.ts",
+  "tests/contracts/riasec-guest-token-parity.contract.test.ts",
+]);
+
 const MBTI64_FRONTEND_SEO_CONSUME_01_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/personality/[type]/page.tsx",
   "docs/seo/personality/frontend-seo-consume-2026-06-18.json",
@@ -2400,7 +2410,15 @@ export function isAiImpactV5ExpandedPageQaAllowedFile(file: string): boolean {
   );
 }
 
+export function isCurrentQuizPackPerformanceHotfixAllowedFile(file: string): boolean {
+  return CURRENT_BRANCH === "codex/quiz-pack-performance-hotfix" && QUIZ_PACK_PERFORMANCE_HOTFIX_ALLOWED_FILES.has(file);
+}
+
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
+  if (isCurrentQuizPackPerformanceHotfixAllowedFile(file)) {
+    return true;
+  }
+
   if (isAiImpactV5ExpandedPageQaAllowedFile(file)) {
     return true;
   }
@@ -3390,26 +3408,33 @@ export function isArticleH103AllowedFile(file: string): boolean {
 }
 
 export function isSeoGpt55Handoff01AllowedFile(file: string): boolean {
-  return SEO_GPT55_HANDOFF_01_ALLOWED_FILES.has(file) || isAiImpactV5ExpandedPageQaAllowedFile(file);
+  return (
+    SEO_GPT55_HANDOFF_01_ALLOWED_FILES.has(file) ||
+    isAiImpactV5ExpandedPageQaAllowedFile(file) ||
+    isCurrentQuizPackPerformanceHotfixAllowedFile(file)
+  );
 }
 
 export function isSeoWeeklyAutomationControlPacket02AllowedFile(file: string): boolean {
   return (
     SEO_WEEKLY_AUTOMATION_CONTROL_PACKET_02_ALLOWED_FILES.has(file) ||
-    isAiImpactV5ExpandedPageQaAllowedFile(file)
+    isAiImpactV5ExpandedPageQaAllowedFile(file) ||
+    isCurrentQuizPackPerformanceHotfixAllowedFile(file)
   );
 }
 
 export function isSeoOpportunityQueueContract01AllowedFile(file: string): boolean {
   return (
     SEO_OPPORTUNITY_QUEUE_CONTRACT_01_ALLOWED_FILES.has(file) ||
-    isAiImpactV5ExpandedPageQaAllowedFile(file)
+    isAiImpactV5ExpandedPageQaAllowedFile(file) ||
+    isCurrentQuizPackPerformanceHotfixAllowedFile(file)
   );
 }
 
 export function isSeoCmsDraftPackageContract01AllowedFile(file: string): boolean {
   return (
     SEO_CMS_DRAFT_PACKAGE_CONTRACT_01_ALLOWED_FILES.has(file) ||
-    isAiImpactV5ExpandedPageQaAllowedFile(file)
+    isAiImpactV5ExpandedPageQaAllowedFile(file) ||
+    isCurrentQuizPackPerformanceHotfixAllowedFile(file)
   );
 }

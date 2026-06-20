@@ -257,6 +257,14 @@ function normalizeQueryValue(value: string | null): string | undefined {
   return normalized ? normalized : undefined;
 }
 
+function estimatePayloadBytes(payload: unknown): number | null {
+  try {
+    return new TextEncoder().encode(JSON.stringify(payload)).length;
+  } catch {
+    return null;
+  }
+}
+
 function readTakeFlowAttribution(
   searchParams: ReadonlyURLSearchParams,
   scaleCode: string
@@ -458,6 +466,15 @@ function QuizTakeInner({
   const showsTitleQuizChrome = isMbtiScaleCode(scaleCode) || isRiasecScaleCode(scaleCode);
   const quizHeaderBrand = showsTitleQuizChrome ? testTitle : dict.header.brand;
   const trackedStartRef = useRef(false);
+  const firstQuestionReadyTrackedRef = useRef(false);
+  const takeMountedAtRef = useRef(Date.now());
+  const lastQuestionsLoadMetricsRef = useRef<{
+    questionsMs: number | null;
+    payloadBytes: number | null;
+  }>({
+    questionsMs: null,
+    payloadBytes: null,
+  });
   const resolvedFormCode = useMemo(
     () => resolveTestKpiFormCode({ scaleCode, formCode }),
     [formCode, scaleCode]
@@ -530,7 +547,6 @@ function QuizTakeInner({
         trackGuestTokenFailure("bootstrap", error);
 
         if (isGuestTokenEndpointMissingError(error)) {
-          setAuthBlockError(resolveNoTokenServiceMessage(locale));
           const telemetry = resolveGuestTokenTelemetry(error);
           trackEvent("submit_blocked_no_token_service", buildTestKpiTrackingPayload(testKpiMetadata, {
             status_code: telemetry.statusCode,
@@ -617,6 +633,8 @@ function QuizTakeInner({
 
       setQuestionsLoading(true);
       setQuestionsError(null);
+      const questionsStartedAt = Date.now();
+      let payloadBytes: number | null = null;
 
       try {
         if (isIqScale) {
@@ -624,6 +642,7 @@ function QuizTakeInner({
             locale,
             anonId,
           });
+          payloadBytes = estimatePayloadBytes(response);
 
           if (!active) return;
 
@@ -652,6 +671,7 @@ function QuizTakeInner({
               locale: testKpiMetadata.apiLocale,
             })
           );
+          payloadBytes = estimatePayloadBytes(response);
 
           if (!active) return;
 
@@ -668,6 +688,10 @@ function QuizTakeInner({
             })
           );
         }
+        lastQuestionsLoadMetricsRef.current = {
+          questionsMs: Date.now() - questionsStartedAt,
+          payloadBytes,
+        };
         setRetryAfterSeconds(null);
       } catch (error) {
         if (!active) return;
@@ -716,6 +740,7 @@ function QuizTakeInner({
     }
 
     setAttemptError(null);
+    const attemptStartedAt = Date.now();
 
     const pending = (async () => {
       try {
@@ -764,6 +789,11 @@ function QuizTakeInner({
         }
         setAttemptMeta(response.attempt_id, testKpiMetadata.scaleCode, testKpiMetadata.formCode ?? null);
         setRetryAfterSeconds(null);
+        trackEvent("attempt_start_performance", buildTestKpiTrackingPayload(testKpiMetadata, {
+          stage: "start_attempt",
+          attempt_start_ms: Date.now() - attemptStartedAt,
+          route: "/tests/[slug]/take",
+        }));
         return response.attempt_id;
       } catch (error) {
         if (!isFlowActive(runId)) {
@@ -940,6 +970,24 @@ function QuizTakeInner({
     !isIqScale &&
     questionOptions.length === 5 &&
     questionOptions.every((option) => option.svg == null);
+
+  useEffect(() => {
+    if (questionsLoading || !question || firstQuestionReadyTrackedRef.current) {
+      return;
+    }
+
+    firstQuestionReadyTrackedRef.current = true;
+    trackEvent("first_question_ready", buildTestKpiTrackingPayload(testKpiMetadata, {
+      stage: "questions",
+      route: "/tests/[slug]/take",
+      slug,
+      form_code: testKpiMetadata.formCode ?? null,
+      question_count: total,
+      questions_ms: lastQuestionsLoadMetricsRef.current.questionsMs,
+      first_question_ms: Date.now() - takeMountedAtRef.current,
+      payload_bytes: lastQuestionsLoadMetricsRef.current.payloadBytes,
+    }));
+  }, [question, questionsLoading, slug, testKpiMetadata, total]);
 
   useEffect(() => {
     if (questionsLoading) {
