@@ -21,6 +21,16 @@ def latest_baseline(state_dir: Path, block: str) -> dict | None:
     if not path.exists():
         return None
     data = read_json(path)
+    if isinstance(data.get("baselines"), list):
+        for row in data["baselines"]:
+            if row.get("block_name") in {block, state_key(block)}:
+                return {
+                    "baseline_path": row.get("baseline_directory"),
+                    "control_count": row.get("slug_count"),
+                    "final_conclusion": row.get("final_conclusion"),
+                    "sha256_manifest": row.get("sha256_manifest"),
+                    "block_version": row.get("block_version"),
+                }
     return data.get(block) or data.get(state_key(block))
 
 
@@ -29,6 +39,12 @@ def open_failures(state_dir: Path, block: str) -> list:
     if not path.exists():
         return []
     data = read_json(path)
+    if isinstance(data.get("failures"), list):
+        return [
+            failure
+            for failure in data["failures"]
+            if failure.get("block_name") in {block, state_key(block)}
+        ]
     return data.get(block) or data.get(state_key(block)) or data.get("failures") or []
 
 
