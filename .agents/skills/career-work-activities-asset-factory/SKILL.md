@@ -41,9 +41,12 @@ Read:
 2. `references/trust_rules.md`
 3. `references/writing_rules.md`
 4. `references/quality_gates.md`
-5. `../career-content-asset-factory/references/shared_pipeline_contract.md`
-6. `../career-content-asset-factory/references/shared_gate_rules.md`
-7. `../career-content-asset-factory/references/shared_editorial_quality_gate.md`
+5. `references/military_profile_evidence_policy.md`
+6. `../career-content-asset-factory/references/shared_pipeline_contract.md`
+7. `../career-content-asset-factory/references/shared_gate_rules.md`
+8. `../career-content-asset-factory/references/shared_editorial_quality_gate.md`
+9. `../career-content-asset-factory/references/operator_source_availability_policy.md`
+10. `../career-content-asset-factory/references/lexical_false_positive_policy.md`
 
 ## Shared Orchestrator Contract
 

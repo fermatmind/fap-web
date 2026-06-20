@@ -1,0 +1,99 @@
+{
+  "operator_mode": true,
+  "dry_run": true,
+  "state_dir": "generated/fermatmind-content-agent-state",
+  "block": "career-work-activities",
+  "max_repair_loops": 2,
+  "latest_pass_baseline": {
+    "baseline_path": "generated/career-work-activities-v1-batch-100-pass-baseline/",
+    "batch": 2,
+    "control_count": 100,
+    "final_conclusion": "BATCH_100_BASELINE_FROZEN",
+    "freeze_report": "generated/career-work-activities-v1-batch-100-pass-baseline/baseline_freeze_report.md",
+    "sha256_manifest": "generated/career-work-activities-v1-batch-100-pass-baseline/baseline_sha256_manifest.json"
+  },
+  "baseline_validation": {
+    "asset_line_count": 200,
+    "asset_pass": true,
+    "baseline_slug_count": 100,
+    "changed_asset_rows": [
+      {
+        "after_contains": "anticipated property valuation inputs",
+        "before_contains": "anticipated property income streams",
+        "field": "work_activity_groups.items",
+        "locale": "en",
+        "slug": "appraisers-of-personal-and-business-property"
+      }
+    ],
+    "cms_imported": false,
+    "en_asset_count": 100,
+    "evidence_line_count": 200,
+    "evidence_pass": true,
+    "final_conclusion": "BATCH_100_BASELINE_FROZEN",
+    "generated_at": "2026-06-20T17:18:37.851170+00:00",
+    "lexical_false_positive_rows": [
+      {
+        "locale": "en",
+        "review": "not_wage_word_boundary_false_positive",
+        "slug": "architectural-and-civil-drafters",
+        "status": "ACCEPTED",
+        "term": "sewage"
+      }
+    ],
+    "production_imported": false,
+    "runtime_modified": false,
+    "search_projection_generated": false,
+    "seo_modified": false,
+    "sha256_mismatch_count": 0,
+    "source_files_modified_count": 0,
+    "staging_created": false,
+    "synthesis_line_count": 200,
+    "synthesis_valid": true,
+    "transient_source_timeout_nonblocking": true,
+    "zh_CN_asset_count": 100
+  },
+  "open_failure_count": 0,
+  "next_action": {
+    "action": "create_next_manifest",
+    "phase": "manifest",
+    "block": "career-work-activities",
+    "current_batch": 2,
+    "next_batch_index": 3,
+    "control_role": "control_100",
+    "new_role": "new_50",
+    "target_total_count": 150,
+    "target_batch_label": "batch 150",
+    "suggested_output_dir": "generated/career-work-activities-batch-150",
+    "reason": "latest PASS frozen baseline exists and no open failures remain"
+  },
+  "requires_human_approval": false,
+  "hard_stop": false,
+  "source_availability_policy": {
+    "transient_source_timeout": "may_continue_cache_only_for_asset_or_synthesis_reaudit_when_cache_available",
+    "cache_available": "requires_local_pass_evidence_synthesis_and_traceability",
+    "cache_missing": "hard_stop_source_availability_issue",
+    "source_removed": "hard_stop_source_availability_issue",
+    "source_changed": "hard_stop_source_availability_issue",
+    "source_required_for_evidence": "live_or_verified_source_required",
+    "source_not_required_for_asset_reaudit_if_evidence_pass": true
+  },
+  "max_repair_loop_stop_classes": [
+    "gate_policy_review_needed",
+    "source_availability_issue",
+    "evidence_insufficient",
+    "asset_repair_needed",
+    "schema_change_needed"
+  ],
+  "execution_performed": false,
+  "content_generated": false,
+  "evidence_generated": false,
+  "synthesis_generated": false,
+  "asset_generated": false,
+  "search_projection_generated": false,
+  "runtime_modified": false,
+  "seo_modified": false,
+  "cms_modified": false,
+  "staging_created": false,
+  "production_imported": false,
+  "next_goal": "Goal: Create career-work-activities batch 150 manifest only.\\n\\nUse career-content-asset-factory.\\n\\nInput: latest frozen baseline with control_100 and canonical 1046 seed.\\nTask: create manifest using control_100 + new_50.\\nDo not generate evidence, synthesis, assets, search_projection, staging, import, runtime, SEO, or CMS changes.\\n"
+}

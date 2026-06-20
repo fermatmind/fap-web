@@ -1,0 +1,33 @@
+{
+  "scope": "career content operator hard-stop policy hardening",
+  "content_generated": false,
+  "runtime_modified": false,
+  "seo_modified": false,
+  "cms_modified": false,
+  "staging_created": false,
+  "production_imported": false,
+  "changed_skill_files": [
+    ".agents/skills/career-content-asset-factory/SKILL.md",
+    ".agents/skills/career-content-asset-factory/references/lexical_false_positive_policy.md",
+    ".agents/skills/career-content-asset-factory/references/operator_failure_modes.md",
+    ".agents/skills/career-content-asset-factory/references/operator_mode.md",
+    ".agents/skills/career-content-asset-factory/references/operator_runbook.md",
+    ".agents/skills/career-content-asset-factory/references/operator_source_availability_policy.md",
+    ".agents/skills/career-content-asset-factory/references/repair_loop_policy.md",
+    ".agents/skills/career-content-asset-factory/scripts/check_lexical_false_positive_policy.py",
+    ".agents/skills/career-content-asset-factory/scripts/evaluate_gate_result.py",
+    ".agents/skills/career-content-asset-factory/scripts/run_operator_next.py",
+    ".agents/skills/career-work-activities-asset-factory/SKILL.md",
+    ".agents/skills/career-work-activities-asset-factory/references/military_profile_evidence_policy.md",
+    ".agents/skills/career-work-activities-asset-factory/references/quality_gates.md",
+    ".agents/skills/career-work-activities-asset-factory/references/source_rules.md"
+  ],
+  "generated_reports": [
+    "generated/career-content-operator-hard-stop-policy/operator_hard_stop_policy_report.md",
+    "generated/career-content-operator-hard-stop-policy/changed_files_manifest.json",
+    "generated/career-content-operator-hard-stop-policy/lexical_false_positive_regression_report.json",
+    "generated/career-content-operator-hard-stop-policy/source_availability_policy_report.json",
+    "generated/career-content-operator-hard-stop-policy/dry_run_operator_report.json",
+    "generated/career-content-operator-hard-stop-policy/next_goal_recommendation.md"
+  ]
+}

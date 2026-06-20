@@ -67,7 +67,7 @@ Before orchestrating a block, read:
 6. `references/staging_import_release_contract.md`
 7. `references/post_import_live_qa_contract.md`
 8. `references/runtime_leakage_prevention.md`
-9. For autonomous continuation, read `references/operator_mode.md` and `references/operator_runbook.md`.
+9. For autonomous continuation, read `references/operator_mode.md`, `references/operator_runbook.md`, `references/operator_source_availability_policy.md`, and `references/lexical_false_positive_policy.md`.
 10. The target block skill's `SKILL.md` and required block references.
 
 Use legacy shared references as supporting material:
@@ -117,6 +117,7 @@ The scripts in `scripts/` are orchestration and validation helpers only. They mu
 - `operator_guard.py`
 - `select_next_phase.py`
 - `evaluate_gate_result.py`
+- `check_lexical_false_positive_policy.py`
 - `render_next_goal_from_state.py`
 - `propose_operator_self_improvement.py`
 

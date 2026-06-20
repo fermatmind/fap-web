@@ -1,0 +1,27 @@
+{
+  "final_conclusion": "SOURCE_AVAILABILITY_POLICY_DOCUMENTED",
+  "transient_source_timeout": {
+    "classification": "transient_source_timeout",
+    "asset_reaudit_with_cache_available": "allowed",
+    "evidence_collection_or_repair": "stop_source_availability_issue"
+  },
+  "cache_available": {
+    "requires": [
+      "local PASS evidence",
+      "local synthesis",
+      "source references",
+      "traceability to PASS gate"
+    ],
+    "allows": "offline/cache-only synthesis or asset gate rerun"
+  },
+  "cache_missing": "stop_source_availability_issue",
+  "source_removed": "stop_source_availability_issue",
+  "source_changed": "stop_source_availability_issue",
+  "source_required_for_evidence": "live_or_verified_source_required",
+  "source_not_required_for_asset_reaudit_if_evidence_pass": true,
+  "quality_gate_scope": {
+    "does_not_loosen_evidence_trust": true,
+    "does_not_disable_source_traceability": true,
+    "does_not_suppress_real_salary_income_claims": true
+  }
+}
