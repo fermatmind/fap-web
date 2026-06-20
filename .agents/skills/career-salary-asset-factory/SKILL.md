@@ -106,3 +106,13 @@ python .agents/skills/career-salary-asset-factory/scripts/run_pipeline.py \
 ## Examples
 
 The `examples/` folder contains the frozen 100 PASS baseline copies and an audit summary. Use these for regression comparison and schema examples only.
+
+## Shared Orchestrator Contract
+
+This block inherits the shared orchestrator contract from `career-content-asset-factory`.
+
+- The shared orchestrator owns global state, batch progression, freeze readiness, staging/import readiness, and next-goal planning.
+- This block's source rules, trust rules, and block-specific gates remain authoritative for its own evidence, synthesis, and asset outputs.
+- Staging, import, release, exact-SHA approval, post-import QA, and no-frontend-fallback rules are inherited from the shared orchestrator contract.
+- Candidate `search_projection` or SEO/GEO/schema data must stay quarantined outside reader assets when this block produces it.
+- This block must not self-declare PASS. PASS requires audited gate artifacts, frozen baseline outputs, and SHA manifests.

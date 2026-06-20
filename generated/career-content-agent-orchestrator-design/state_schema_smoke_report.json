@@ -1,0 +1,141 @@
+{
+  "checks": [
+    {
+      "schema": "career_content_global_state.schema.json",
+      "required_key_check": "PASS",
+      "missing": [],
+      "sample_keys": [
+        "batch_registry_path",
+        "bridge_assets",
+        "career_blocks",
+        "human_approval_required",
+        "import_state_path",
+        "latest_pass_baselines_path",
+        "next_goal_recommendation_path",
+        "open_failures_path",
+        "personality_blocks",
+        "schema_version",
+        "updated_at"
+      ]
+    },
+    {
+      "schema": "career_block_status.schema.json",
+      "required_key_check": "PASS",
+      "missing": [],
+      "sample_keys": [
+        "asset_pass",
+        "block_name",
+        "block_version",
+        "control_count",
+        "current_batch",
+        "editorial_approval_status",
+        "estimate_pass",
+        "evidence_pass",
+        "human_approval_required",
+        "latest_baseline_directory",
+        "latest_baseline_slug_count",
+        "new_count",
+        "open_failures",
+        "post_import_qa_status",
+        "production_import_status",
+        "search_projection_quarantined",
+        "sha256_manifests",
+        "source_artifact_paths",
+        "staging_status",
+        "synthesis_pass"
+      ]
+    },
+    {
+      "schema": "personality_block_status.schema.json",
+      "required_key_check": "PASS",
+      "missing": [],
+      "sample_keys": [
+        "asset_pass",
+        "block_name",
+        "block_version",
+        "control_count",
+        "current_batch",
+        "editorial_approval_status",
+        "estimate_pass",
+        "evidence_pass",
+        "framework",
+        "human_approval_required",
+        "latest_baseline_directory",
+        "latest_baseline_slug_count",
+        "new_count",
+        "open_failures",
+        "post_import_qa_status",
+        "production_import_status",
+        "public_profile_status",
+        "search_projection_quarantined",
+        "sha256_manifests",
+        "source_artifact_paths",
+        "staging_status",
+        "synthesis_pass"
+      ]
+    },
+    {
+      "schema": "bridge_asset_status.schema.json",
+      "required_key_check": "PASS",
+      "missing": [],
+      "sample_keys": [
+        "asset_pass",
+        "block_name",
+        "block_version",
+        "bridge_gate_pass",
+        "control_count",
+        "current_batch",
+        "editorial_approval_status",
+        "estimate_pass",
+        "evidence_pass",
+        "human_approval_required",
+        "latest_baseline_directory",
+        "latest_baseline_slug_count",
+        "new_count",
+        "open_failures",
+        "post_import_qa_status",
+        "production_import_status",
+        "search_projection_quarantined",
+        "sha256_manifests",
+        "source_artifact_paths",
+        "source_career_blocks",
+        "source_personality_blocks",
+        "staging_status",
+        "synthesis_pass"
+      ]
+    },
+    {
+      "schema": "latest_pass_baselines.schema.json",
+      "required_key_check": "PASS",
+      "missing": [],
+      "sample_keys": [
+        "baselines"
+      ]
+    },
+    {
+      "schema": "batch_registry.schema.json",
+      "required_key_check": "PASS",
+      "missing": [],
+      "sample_keys": [
+        "batches"
+      ]
+    },
+    {
+      "schema": "open_failures.schema.json",
+      "required_key_check": "PASS",
+      "missing": [],
+      "sample_keys": [
+        "failures"
+      ]
+    },
+    {
+      "schema": "import_state.schema.json",
+      "required_key_check": "PASS",
+      "missing": [],
+      "sample_keys": [
+        "imports"
+      ]
+    }
+  ],
+  "final_conclusion": "PASS"
+}

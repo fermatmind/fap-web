@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Import State",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "imports": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "block_name": {
+            "type": "string"
+          },
+          "block_version": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "dry_run",
+              "staging_preview",
+              "editorial_review",
+              "approved",
+              "production_imported",
+              "post_import_qa_pass",
+              "blocked"
+            ]
+          },
+          "row_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "slug_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "artifact_sha256": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "approval_manifest_path": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "rollback_report_path": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "human_approval_required": {
+            "type": "boolean"
+          },
+          "source_artifact_paths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "block_name",
+          "block_version",
+          "state",
+          "row_count",
+          "slug_count",
+          "human_approval_required",
+          "source_artifact_paths"
+        ]
+      }
+    }
+  },
+  "required": [
+    "imports"
+  ]
+}

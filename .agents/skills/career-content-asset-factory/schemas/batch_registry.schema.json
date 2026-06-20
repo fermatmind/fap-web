@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Batch Registry",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "batches": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "block_name": {
+            "type": "string"
+          },
+          "batch_index": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "control_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "new_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "manifest_path": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "gate_report_path": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "block_name",
+          "batch_index",
+          "control_count",
+          "new_count",
+          "manifest_path",
+          "status"
+        ]
+      }
+    }
+  },
+  "required": [
+    "batches"
+  ]
+}

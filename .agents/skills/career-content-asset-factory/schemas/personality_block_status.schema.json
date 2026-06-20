@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Personality Block Status",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "block_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "block_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "latest_baseline_slug_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "latest_baseline_directory": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "evidence_pass": {
+      "type": "boolean"
+    },
+    "synthesis_pass": {
+      "type": "boolean"
+    },
+    "estimate_pass": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "asset_pass": {
+      "type": "boolean"
+    },
+    "search_projection_quarantined": {
+      "type": "boolean"
+    },
+    "staging_status": {
+      "type": "string"
+    },
+    "editorial_approval_status": {
+      "type": "string"
+    },
+    "production_import_status": {
+      "type": "string"
+    },
+    "post_import_qa_status": {
+      "type": "string"
+    },
+    "current_batch": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "control_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "new_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "human_approval_required": {
+      "type": "boolean"
+    },
+    "sha256_manifests": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "source_artifact_paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "open_failures": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "framework": {
+      "type": "string"
+    },
+    "public_profile_status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "block_name",
+    "block_version",
+    "framework",
+    "latest_baseline_slug_count",
+    "asset_pass",
+    "staging_status",
+    "production_import_status",
+    "human_approval_required",
+    "sha256_manifests",
+    "source_artifact_paths"
+  ]
+}
