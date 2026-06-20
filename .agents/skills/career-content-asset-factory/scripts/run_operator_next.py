@@ -88,6 +88,43 @@ def render_goal(action: dict) -> str:
     return f"Goal: {action.get('action', 'stop')} for {action.get('block', 'career content')}."
 
 
+def failure_blob(failures: list) -> str:
+    return json.dumps(failures, ensure_ascii=False).lower()
+
+
+def max_failure_repair_loop(failures: list) -> int:
+    max_loop = 0
+    for failure in failures:
+        if isinstance(failure, dict):
+            for key in ("repair_loop_count", "repair_loops", "attempt", "attempts"):
+                value = failure.get(key)
+                if isinstance(value, int):
+                    max_loop = max(max_loop, value)
+    return max_loop
+
+
+def classify_open_failure_stop(failures: list, max_repair_loops: int) -> str | None:
+    blob = failure_blob(failures)
+    loop_count = max_failure_repair_loop(failures)
+    if "source_removed" in blob or "source_changed" in blob or "cache_missing" in blob:
+        return "source_availability_issue"
+    if "transient_source_timeout" in blob and "cache_available" not in blob:
+        return "source_availability_issue"
+    if loop_count >= max_repair_loops:
+        if "military" in blob and ("55-" in blob or "duties" in blob or "direct onet" in blob):
+            return "gate_policy_review_needed"
+        if "source" in blob or "timeout" in blob:
+            return "source_availability_issue"
+        if "schema" in blob:
+            return "schema_change_needed"
+        if "evidence" in blob or "workflow" in blob:
+            return "evidence_insufficient"
+        if "asset" in blob or "reader" in blob:
+            return "asset_repair_needed"
+        return "gate_policy_review_needed"
+    return None
+
+
 def build_report(state_dir: Path, block: str, dry_run: bool, batch_size: int, max_repair_loops: int) -> dict:
     failures = open_failures(state_dir, block)
     baseline = latest_baseline(state_dir, block)
@@ -95,15 +132,18 @@ def build_report(state_dir: Path, block: str, dry_run: bool, batch_size: int, ma
     validation = baseline_validation(baseline.get("baseline_path") if baseline else None)
 
     if failures:
+        stop_classification = classify_open_failure_stop(failures, max_repair_loops)
         action = {
-            "action": "repair_failed_rows",
-            "phase": "repair",
+            "action": "stop_for_human_approval" if stop_classification else "repair_failed_rows",
+            "phase": "blocked" if stop_classification else "repair",
             "block": block,
             "reason": "open failures exist",
             "failure_count": len(failures),
+            "max_failure_repair_loop": max_failure_repair_loop(failures),
+            "stop_classification": stop_classification,
         }
-        hard_stop = False
-        requires_human_approval = False
+        hard_stop = bool(stop_classification)
+        requires_human_approval = bool(stop_classification)
     elif not baseline:
         action = {
             "action": "stop_for_human_approval",
@@ -140,6 +180,22 @@ def build_report(state_dir: Path, block: str, dry_run: bool, batch_size: int, ma
         "next_action": action,
         "requires_human_approval": requires_human_approval,
         "hard_stop": hard_stop,
+        "source_availability_policy": {
+            "transient_source_timeout": "may_continue_cache_only_for_asset_or_synthesis_reaudit_when_cache_available",
+            "cache_available": "requires_local_pass_evidence_synthesis_and_traceability",
+            "cache_missing": "hard_stop_source_availability_issue",
+            "source_removed": "hard_stop_source_availability_issue",
+            "source_changed": "hard_stop_source_availability_issue",
+            "source_required_for_evidence": "live_or_verified_source_required",
+            "source_not_required_for_asset_reaudit_if_evidence_pass": True,
+        },
+        "max_repair_loop_stop_classes": [
+            "gate_policy_review_needed",
+            "source_availability_issue",
+            "evidence_insufficient",
+            "asset_repair_needed",
+            "schema_change_needed",
+        ],
         "execution_performed": False,
         "content_generated": False,
         "evidence_generated": False,

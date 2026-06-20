@@ -1,0 +1,45 @@
+{
+  "policy": "lexical_false_positive_policy",
+  "word_boundary_matching": true,
+  "semantic_context_required_for_ambiguous_cases": true,
+  "fixture_count": 5,
+  "failure_count": 0,
+  "passed": true,
+  "cases": [
+    {
+      "text": "wage",
+      "expected_flag": true,
+      "reason": "standalone wage claim",
+      "actual_flag": true,
+      "passed": true
+    },
+    {
+      "text": "salary",
+      "expected_flag": true,
+      "reason": "standalone salary claim",
+      "actual_flag": true,
+      "passed": true
+    },
+    {
+      "text": "income prediction",
+      "expected_flag": true,
+      "reason": "income outcome claim",
+      "actual_flag": true,
+      "passed": true
+    },
+    {
+      "text": "sewage system",
+      "expected_flag": false,
+      "reason": "wage substring inside sewage",
+      "actual_flag": false,
+      "passed": true
+    },
+    {
+      "text": "stormwater and sewer drawings",
+      "expected_flag": false,
+      "reason": "sewer infrastructure term",
+      "actual_flag": false,
+      "passed": true
+    }
+  ]
+}
