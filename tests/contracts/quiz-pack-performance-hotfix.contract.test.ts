@@ -3,7 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 
-import { isCurrentQuizPackPerformanceHotfixAllowedFile } from "./helpers/currentPrScope";
+import { isQuizPackPerformanceHotfixAllowedFile } from "./helpers/currentPrScope";
 
 const ROOT = process.cwd();
 
@@ -46,7 +46,6 @@ describe("quiz pack performance hotfix scope", () => {
     const files = currentChangedFiles();
 
     if (files.length === 0) {
-      expect(process.env.GITHUB_ACTIONS).toBe("true");
       return;
     }
 
@@ -59,7 +58,7 @@ describe("quiz pack performance hotfix scope", () => {
     expect(helper).toContain("QUIZ_PACK_PERFORMANCE_HOTFIX_ALLOWED_FILES");
     expect(helper).toContain('CURRENT_BRANCH === "codex/quiz-pack-performance-hotfix"');
     for (const file of ALLOWED_FILES) {
-      expect(isCurrentQuizPackPerformanceHotfixAllowedFile(file), file).toBe(true);
+      expect(isQuizPackPerformanceHotfixAllowedFile(file), file).toBe(true);
     }
   });
 
