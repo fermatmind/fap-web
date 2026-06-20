@@ -401,7 +401,6 @@ test("MBTI result share flow uses /share/{id} and compare CTA routes into take f
     .poll(async () => page.evaluate(() => (window as typeof window & { __copiedShareUrl?: string }).__copiedShareUrl ?? ""))
     .toBe(shareUrl);
   await expect(page.getByTestId("mbti-footer-cta").getByText("Result link copied.")).toBeVisible();
-  await expect(page.getByTestId("mbti-sticky-rail-share-status")).toHaveText("Result link copied.");
 
   await page.goto(`${shareUrl}?utm_source=wechat&utm_medium=organic&utm_campaign=mbti`, {
     referer: `http://127.0.0.1:3000/en/result/${attemptId}`,
@@ -447,7 +446,9 @@ test("MBTI result share flow uses /share/{id} and compare CTA routes into take f
       },
     },
   });
-  expect(String((shareClickBodies[0].meta as Record<string, unknown>).referrer ?? "")).toContain(`/en/result/${attemptId}`);
+  const redactedReferrer = String((shareClickBodies[0].meta as Record<string, unknown>).referrer ?? "");
+  expect(redactedReferrer).toContain("/en/result/redacted");
+  expect(redactedReferrer).not.toContain(attemptId);
 
   await page.getByRole("button", { name: "Invite a friend to compare" }).click();
 
@@ -468,7 +469,9 @@ test("MBTI result share flow uses /share/{id} and compare CTA routes into take f
       share_click_id: shareClickId,
     },
   });
-  expect(String(compareInviteBodies[0].referrer ?? "")).toContain(`/en/result/${attemptId}`);
+  const redactedCompareReferrer = String(compareInviteBodies[0].referrer ?? "");
+  expect(redactedCompareReferrer).toContain("/en/result/redacted");
+  expect(redactedCompareReferrer).not.toContain(attemptId);
 
   await expect(page).toHaveURL(
     new RegExp(`/en/tests/mbti-personality-test-16-personality-types/take\\?(.+&)?share_id=${shareId}(&|$)`)

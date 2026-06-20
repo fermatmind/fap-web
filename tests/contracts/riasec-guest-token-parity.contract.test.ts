@@ -173,4 +173,17 @@ describe("RIASEC guest token parity contract", () => {
     expect(riasecTake).toContain("...attribution");
     expect(riasecTake).not.toContain("email:");
   });
+
+  it("keeps public question loading out of the bootstrap guest-token critical path", () => {
+    const riasecTake = readSource("app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient.tsx");
+    const bootstrapEffect = riasecTake.match(/const run = async \(\) => \{[\s\S]*?trackGuestTokenFailure\("bootstrap", error\);[\s\S]*?void run\(\);/u)?.[0] ?? "";
+    const questionsEffect = riasecTake.match(/const run = async \(\) => \{[\s\S]*?setQuestionsLoading\(true\);[\s\S]*?fetchScaleQuestions\(/u)?.[0] ?? "";
+
+    expect(bootstrapEffect).not.toContain("setAuthBlockError(resolveNoTokenServiceMessage");
+    expect(questionsEffect).toContain("fetchScaleQuestions");
+    expect(questionsEffect).toContain('runWithAuthRetry("questions"');
+    expect(riasecTake).toContain('trackEvent("first_question_ready"');
+    expect(riasecTake).toContain("questions_ms");
+    expect(riasecTake).toContain("payload_bytes");
+  });
 });

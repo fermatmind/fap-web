@@ -94,6 +94,17 @@ test("BIG5 flow: answer -> submit -> foundation result", async ({ page }) => {
     });
   });
 
+  await page.route("**/api/v0.3/auth/guest*", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        fm_token: "fm_e2e_big5_flow_guest_token",
+      }),
+    });
+  });
+
   const big5QuestionsPayload = {
     ok: true,
     scale_code: "BIG5_OCEAN",
