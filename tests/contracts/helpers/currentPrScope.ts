@@ -2395,6 +2395,8 @@ export function isTestKpiFrontendContract06AllowedFile(file: string): boolean {
 export function isAiImpactV5ExpandedPageQaAllowedFile(file: string): boolean {
   return (
     file === "tests/contracts/helpers/currentPrScope.ts" ||
+    file === "lib/career/api/fetchCareerAiImpactAssetPreview.ts" ||
+    file === "tests/contracts/career-ai-impact-preview-consumer.contract.test.tsx" ||
     file.startsWith("generated/career-ai-impact-v5-1046-expanded-page-qa/") ||
     file.startsWith("generated/career-ai-impact-v5-editorial-review-package/")
   );
@@ -3285,7 +3287,8 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (
     CURRENT_BRANCH === "codex/career-ai-impact-preview-consumer" ||
-    CURRENT_BRANCH === "codex/ai-impact-v5-staging-page-qa-50"
+    CURRENT_BRANCH === "codex/ai-impact-v5-staging-page-qa-50" ||
+    CURRENT_BRANCH === "codex/ai-impact-post-import-seo-safety-audit"
   ) {
     return CAREER_AI_IMPACT_PREVIEW_CONSUMER_ALLOWED_FILES.has(file);
   }
