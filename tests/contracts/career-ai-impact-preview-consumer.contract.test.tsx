@@ -111,7 +111,7 @@ describe("career AI impact asset preview consumer", () => {
     expect(mockedGet).not.toHaveBeenCalled();
   });
 
-  it("fails closed on 404, preview-off payloads, slug mismatch, and internal lineage leakage", async () => {
+  it("fails closed on 404, unapproved preview-off payloads, slug mismatch, and internal lineage leakage", async () => {
     process.env.FAP_CAREER_AI_IMPACT_ASSET_PREVIEW_ENABLED = "true";
     mockedGet.mockRejectedValueOnce(new ApiError({ status: 404, errorCode: "NOT_FOUND", message: "Not found." }));
     await expect(fetchCareerAiImpactAssetPreview({ locale: "en", slug: "actuaries" })).resolves.toBeNull();
@@ -133,9 +133,29 @@ describe("career AI impact asset preview consumer", () => {
     await expect(fetchCareerAiImpactAssetPreview({ locale: "en", slug: "actuaries" })).resolves.toBeNull();
   });
 
+  it("accepts production imported reader-safe assets without requiring preview=true", async () => {
+    process.env.FAP_CAREER_AI_IMPACT_ASSET_PREVIEW_ENABLED = "true";
+    mockedGet.mockResolvedValueOnce({
+      ok: true,
+      preview: false,
+      status: "production_imported",
+      ai_impact_asset_v1: buildAsset("en"),
+    });
+
+    const asset = await fetchCareerAiImpactAssetPreview({ locale: "en", slug: "actuaries" });
+
+    expect(asset?.locale).toBe("en");
+    expect(asset?.summary).toContain("FermatMind rates actuaries");
+  });
+
   it("fetches and adapts the staging preview asset by locale", async () => {
     process.env.FAP_CAREER_AI_IMPACT_ASSET_PREVIEW_ENABLED = "true";
-    mockedGet.mockResolvedValueOnce({ ok: true, preview: true, ai_impact_asset_v1: buildAsset("zh-CN") });
+    mockedGet.mockResolvedValueOnce({
+      ok: true,
+      preview: true,
+      status: "staging_preview",
+      ai_impact_asset_v1: buildAsset("zh-CN"),
+    });
 
     const asset = await fetchCareerAiImpactAssetPreview({ locale: "zh", slug: "actuaries" });
 

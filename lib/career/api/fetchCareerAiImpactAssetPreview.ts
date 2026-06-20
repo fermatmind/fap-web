@@ -67,6 +67,13 @@ type CareerAiImpactAssetPreviewResponseRaw = {
   ai_impact_asset_v1?: unknown;
 };
 
+const ALLOWED_ASSET_STATUSES = new Set([
+  "staging_preview",
+  "editorial_review",
+  "approved",
+  "production_imported",
+]);
+
 type FetchCareerAiImpactAssetPreviewInput = {
   locale: Locale | string;
   slug: string;
@@ -141,6 +148,19 @@ function hasEnglishReaderCjk(value: unknown): boolean {
   }
 
   return false;
+}
+
+function isAllowedAiImpactAssetResponse(payload: CareerAiImpactAssetPreviewResponseRaw | null | undefined): boolean {
+  if (payload?.ok !== true) {
+    return false;
+  }
+
+  const status = typeof payload.status === "string" ? payload.status.trim().toLowerCase() : "";
+  if (status && ALLOWED_ASSET_STATUSES.has(status)) {
+    return true;
+  }
+
+  return payload.preview === true;
 }
 
 function adaptTextItem(value: unknown): CareerAiImpactPreviewTextItem | null {
@@ -288,7 +308,7 @@ export async function fetchCareerAiImpactAssetPreview(
       }
     );
 
-    if (payload?.ok !== true || payload.preview !== true) {
+    if (!isAllowedAiImpactAssetResponse(payload)) {
       return null;
     }
 
