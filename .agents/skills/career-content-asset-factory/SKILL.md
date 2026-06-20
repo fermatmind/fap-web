@@ -11,6 +11,10 @@ Canonical pipeline:
 
 `seed -> block manifest -> evidence ledger -> evidence schema audit -> trust audit -> synthesis ledger -> synthesis audit -> asset JSONL -> asset/editorial audit -> freeze baseline -> staging preview -> editorial review -> approved -> production import`.
 
+Shared post-asset chain:
+
+`final independent QA -> repair_batches_50 if needed -> final repaired QA -> staging preview design -> dry-run importer -> staging preview write -> API/page smoke -> editorial review -> approved transition -> exact-SHA production import -> post-import live QA/SEO safety`.
+
 ## Non-Negotiable Rules
 
 - Evidence comes before reader-facing content. No PASS evidence ledger means no synthesis or asset generation.
@@ -20,6 +24,8 @@ Canonical pipeline:
 - Do not generate all 1046 or 10000 careers in one step. Default to `control_<previous> + new_50`; the final batch may contain fewer new careers.
 - Do not use reader-facing text as evidence. Reader text must trace to evidence and synthesis ledgers.
 - Do not fabricate facts, source URLs, sample counts, salary values, statistics, credentials, regulatory requirements, AI impact claims, or employment outcomes.
+- Candidate search, SEO, schema, or GEO projection fields must not be embedded in reader assets. If a block needs these candidates, keep them in a separate ledger and require a separate runtime/SEO release gate.
+- Engineering PASS does not equal public content readiness. Every block needs a competitive/editorial quality gate or an explicit block-specific quality gate after schema/trust checks.
 - If a block remains `BLOCKED` after the configured repair loops, stop and produce a repair prompt; do not continue downstream.
 - Production import is a separate gate and requires explicit approval. This skill may prepare readiness artifacts but must not imply deployment or import permission.
 
@@ -40,7 +46,9 @@ Canonical pipeline:
 2. Read `references/block_dependency_graph.md`.
 3. Read `references/shared_gate_rules.md`.
 4. Read `references/import_state_machine.md` before any staging/import planning.
-5. For the target content block, read that block skill's `SKILL.md` and its references.
+5. Read `references/shared_staging_import_contract.md` before preview/import design.
+6. Read `references/shared_editorial_quality_gate.md` before declaring public-ready content.
+7. For the target content block, read that block skill's `SKILL.md` and its references.
 
 ## Operating Defaults
 
@@ -59,4 +67,3 @@ The scripts in this skill are shared orchestration helpers. Block skills may cal
 - `freeze_baseline.py`: archives PASS artifacts and writes SHA manifests.
 - `block_stage.py`: shared wrapper for block-level stage scripts.
 - `make_pipeline_report.py`: writes summary reports from block outputs.
-

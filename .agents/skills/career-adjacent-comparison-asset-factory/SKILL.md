@@ -11,6 +11,8 @@ Pipeline:
 
 `manifest -> adjacent evidence -> evidence audit -> trust audit -> adjacent synthesis -> synthesis audit -> adjacent asset -> asset audit -> freeze`.
 
+This block inherits the shared factory contract but must use stricter proxy defenses than most blocks. Adjacent comparison cannot be driven by title similarity, salary similarity, or broad family alone.
+
 ## Non-Negotiable Rules
 
 - Depend on PASS identity and work-activities blocks for both the source career and compared careers.
@@ -18,6 +20,8 @@ Pipeline:
 - Distinguish adjacent, broader aggregate, narrower specialization, and unrelated title collision.
 - Do not promise easy transitions or guaranteed mobility.
 - Every comparison row must have a reason, shared skills, key difference, and transfer boundary.
+- Each adjacent recommendation must trace to work-activities and skills evidence for both roles.
+- If evidence cannot separate duties and transfer cost, mark the comparison `REPAIR_REQUIRED`.
 
 ## Outputs
 
@@ -34,5 +38,7 @@ Read:
 1. `references/source_rules.md`
 2. `references/trust_rules.md`
 3. `references/writing_rules.md`
-4. `../career-content-asset-factory/references/shared_pipeline_contract.md`
-
+4. `references/quality_gates.md`
+5. `../career-content-asset-factory/references/shared_pipeline_contract.md`
+6. `../career-content-asset-factory/references/shared_gate_rules.md`
+7. `../career-content-asset-factory/references/shared_editorial_quality_gate.md`
