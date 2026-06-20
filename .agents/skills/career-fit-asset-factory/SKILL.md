@@ -11,6 +11,8 @@ Pipeline:
 
 `manifest -> fit evidence -> evidence audit -> trust audit -> fit synthesis -> synthesis audit -> fit asset -> asset audit -> freeze`.
 
+This block inherits the shared factory contract but must not copy AI Impact scoring logic. Fit assets support test conversion and self-reflection; they are not diagnostic, predictive, or destiny claims.
+
 ## Non-Negotiable Rules
 
 - Depend on PASS identity and work-activities blocks.
@@ -19,6 +21,8 @@ Pipeline:
 - Treat MBTI and Big Five as supplementary work-style language, not occupational proof.
 - Keep RIASEC as the primary career-interest fit signal.
 - Reader-facing CTAs must be localized and must not look like official occupational facts.
+- Fit copy must distinguish interest fit, work-style fit, values fit, and mismatch signals.
+- Do not overfit a personality framework to an occupation when work evidence is weak.
 
 ## Outputs
 
@@ -35,5 +39,7 @@ Read:
 1. `references/source_rules.md`
 2. `references/trust_rules.md`
 3. `references/writing_rules.md`
-4. `../career-content-asset-factory/references/shared_pipeline_contract.md`
-
+4. `references/quality_gates.md`
+5. `../career-content-asset-factory/references/shared_pipeline_contract.md`
+6. `../career-content-asset-factory/references/shared_gate_rules.md`
+7. `../career-content-asset-factory/references/shared_editorial_quality_gate.md`

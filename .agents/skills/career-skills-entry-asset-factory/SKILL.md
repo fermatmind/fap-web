@@ -11,6 +11,8 @@ Pipeline:
 
 `manifest -> skills evidence -> evidence audit -> trust audit -> skills synthesis -> synthesis audit -> skills asset -> asset audit -> freeze`.
 
+This block inherits the shared factory contract and the shared skill-evidence usefulness standard. Preparation advice must become verifiable evidence a learner or career changer can build, not generic motivation.
+
 ## Non-Negotiable Rules
 
 - Depend on PASS identity and work-activities blocks.
@@ -19,6 +21,8 @@ Pipeline:
 - Do not guarantee admission, certification, hiring, salary, immigration, or promotion.
 - If a path differs by country, state the country boundary or leave it out.
 - Do not transform job-board preferences into formal requirements.
+- Separate required credentials from helpful skills, common employer preferences, and optional portfolio signals.
+- Do not invent local certificates, exam paths, or licensing rules to make a path feel complete.
 
 ## Outputs
 
@@ -36,5 +40,7 @@ Read:
 1. `references/source_rules.md`
 2. `references/trust_rules.md`
 3. `references/writing_rules.md`
-4. `../career-content-asset-factory/references/shared_pipeline_contract.md`
-
+4. `references/quality_gates.md`
+5. `../career-content-asset-factory/references/shared_pipeline_contract.md`
+6. `../career-content-asset-factory/references/shared_gate_rules.md`
+7. `../career-content-asset-factory/references/shared_editorial_quality_gate.md`

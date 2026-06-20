@@ -11,6 +11,8 @@ Pipeline:
 
 `manifest -> identity evidence -> evidence audit -> trust audit -> identity synthesis -> synthesis audit -> identity asset -> asset audit -> freeze`.
 
+This block inherits the shared career content factory contract: `control_<previous> + new_50` batching, freeze before reuse, final independent QA, protected diff, and staging/import gates only after content PASS. Identity assets are upstream authority for other blocks, so their quality gate prioritizes official boundary accuracy over reader-prose polish.
+
 ## Non-Negotiable Rules
 
 - Do not infer official occupation boundaries from a job title alone.
@@ -19,6 +21,8 @@ Pipeline:
 - Distinguish exact occupation, aggregate occupation, adjacent occupation, alias, and local-market job title.
 - Do not fabricate SOC/O*NET/ISCO/CIP codes or official definitions.
 - If classification mapping is weak or ambiguous, mark the row `REPAIR_REQUIRED` or `BLOCKED`; do not smooth it over with generic wording.
+- Do not use AI Impact, salary, fit, or adjacent-career signals to repair identity boundaries.
+- Title cleanup must remove machine disambiguators and backend boundary phrases, but it must preserve the official mapping evidence.
 
 ## Outputs
 
@@ -35,9 +39,11 @@ Read:
 1. `references/source_rules.md`
 2. `references/trust_rules.md`
 3. `references/writing_rules.md`
-4. `../career-content-asset-factory/references/shared_pipeline_contract.md`
+4. `references/quality_gates.md`
+5. `../career-content-asset-factory/references/shared_pipeline_contract.md`
+6. `../career-content-asset-factory/references/shared_gate_rules.md`
+7. `../career-content-asset-factory/references/shared_editorial_quality_gate.md`
 
 ## Scripts
 
 Use the scripts in `scripts/` for the standard stages. They delegate shared orchestration to `career-content-asset-factory`; block-specific implementation must obey this skill's references.
-
