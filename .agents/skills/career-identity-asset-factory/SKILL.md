@@ -47,3 +47,13 @@ Read:
 ## Scripts
 
 Use the scripts in `scripts/` for the standard stages. They delegate shared orchestration to `career-content-asset-factory`; block-specific implementation must obey this skill's references.
+
+## Shared Orchestrator Contract
+
+This block inherits the shared orchestrator contract from `career-content-asset-factory`.
+
+- The shared orchestrator owns global state, batch progression, freeze readiness, staging/import readiness, and next-goal planning.
+- This block's source rules, trust rules, and block-specific gates remain authoritative for its own evidence, synthesis, and asset outputs.
+- Staging, import, release, exact-SHA approval, post-import QA, and no-frontend-fallback rules are inherited from the shared orchestrator contract.
+- Candidate `search_projection` or SEO/GEO/schema data must stay quarantined outside reader assets when this block produces it.
+- This block must not self-declare PASS. PASS requires audited gate artifacts, frozen baseline outputs, and SHA manifests.

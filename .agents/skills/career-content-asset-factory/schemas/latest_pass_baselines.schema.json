@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Latest PASS Baselines",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "baselines": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "block_name": {
+            "type": "string"
+          },
+          "block_version": {
+            "type": "string"
+          },
+          "slug_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "baseline_directory": {
+            "type": "string"
+          },
+          "sha256_manifest": {
+            "type": "string"
+          },
+          "final_conclusion": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "block_name",
+          "block_version",
+          "slug_count",
+          "baseline_directory",
+          "sha256_manifest",
+          "final_conclusion"
+        ]
+      }
+    }
+  },
+  "required": [
+    "baselines"
+  ]
+}

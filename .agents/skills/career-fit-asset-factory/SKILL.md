@@ -43,3 +43,13 @@ Read:
 5. `../career-content-asset-factory/references/shared_pipeline_contract.md`
 6. `../career-content-asset-factory/references/shared_gate_rules.md`
 7. `../career-content-asset-factory/references/shared_editorial_quality_gate.md`
+
+## Shared Orchestrator Contract
+
+This block inherits the shared orchestrator contract from `career-content-asset-factory`.
+
+- The shared orchestrator owns global state, batch progression, freeze readiness, staging/import readiness, and next-goal planning.
+- This block's source rules, trust rules, and block-specific gates remain authoritative for its own evidence, synthesis, and asset outputs.
+- Staging, import, release, exact-SHA approval, post-import QA, and no-frontend-fallback rules are inherited from the shared orchestrator contract.
+- Candidate `search_projection` or SEO/GEO/schema data must stay quarantined outside reader assets when this block produces it.
+- This block must not self-declare PASS. PASS requires audited gate artifacts, frozen baseline outputs, and SHA manifests.

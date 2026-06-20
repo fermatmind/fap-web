@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Career Content Global State",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "updated_at": {
+      "type": "string"
+    },
+    "career_blocks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "personality_blocks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "bridge_assets": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "latest_pass_baselines_path": {
+      "type": "string"
+    },
+    "batch_registry_path": {
+      "type": "string"
+    },
+    "open_failures_path": {
+      "type": "string"
+    },
+    "import_state_path": {
+      "type": "string"
+    },
+    "next_goal_recommendation_path": {
+      "type": "string"
+    },
+    "human_approval_required": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "schema_version",
+    "updated_at",
+    "career_blocks",
+    "personality_blocks",
+    "bridge_assets",
+    "latest_pass_baselines_path",
+    "batch_registry_path",
+    "open_failures_path",
+    "import_state_path",
+    "next_goal_recommendation_path",
+    "human_approval_required"
+  ]
+}

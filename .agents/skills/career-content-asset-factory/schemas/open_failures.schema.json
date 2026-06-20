@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Open Failures",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "failures": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "failure_id": {
+            "type": "string"
+          },
+          "block_name": {
+            "type": "string"
+          },
+          "batch_index": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "slug": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "locale": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "stage": {
+            "type": "string"
+          },
+          "severity": {
+            "type": "string"
+          },
+          "finding": {
+            "type": "string"
+          },
+          "required_action": {
+            "type": "string"
+          },
+          "source_artifact_path": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "human_approval_required": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "failure_id",
+          "block_name",
+          "stage",
+          "severity",
+          "finding",
+          "required_action",
+          "human_approval_required"
+        ]
+      }
+    }
+  },
+  "required": [
+    "failures"
+  ]
+}

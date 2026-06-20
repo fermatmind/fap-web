@@ -1,0 +1,85 @@
+{
+  "checks": [
+    {
+      "script": ".agents/skills/career-content-asset-factory/scripts/audit_block_outputs.py",
+      "help_exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "script": ".agents/skills/career-content-asset-factory/scripts/block_stage.py",
+      "help_exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "script": ".agents/skills/career-content-asset-factory/scripts/block_stage_wrapper.py",
+      "help_exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "script": ".agents/skills/career-content-asset-factory/scripts/check_runtime_leakage_terms.py",
+      "help_exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "script": ".agents/skills/career-content-asset-factory/scripts/create_next_batch_manifest.py",
+      "help_exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "script": ".agents/skills/career-content-asset-factory/scripts/detect_latest_baseline.py",
+      "help_exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "script": ".agents/skills/career-content-asset-factory/scripts/freeze_baseline.py",
+      "help_exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "script": ".agents/skills/career-content-asset-factory/scripts/freeze_block_baseline.py",
+      "help_exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "script": ".agents/skills/career-content-asset-factory/scripts/make_batch_manifest.py",
+      "help_exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "script": ".agents/skills/career-content-asset-factory/scripts/make_pipeline_report.py",
+      "help_exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "script": ".agents/skills/career-content-asset-factory/scripts/plan_next_goal.py",
+      "help_exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "script": ".agents/skills/career-content-asset-factory/scripts/run_pipeline.py",
+      "help_exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "script": ".agents/skills/career-content-asset-factory/scripts/update_agent_state.py",
+      "help_exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "script": ".agents/skills/career-content-asset-factory/scripts/validate_agent_state.py",
+      "help_exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "script": ".agents/skills/career-content-asset-factory/scripts/validate_page_assembly_no_new_facts.py",
+      "help_exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "script": ".agents/skills/career-content-asset-factory/scripts/validate_search_projection_quarantine.py",
+      "help_exit_code": 0,
+      "status": "PASS"
+    }
+  ],
+  "final_conclusion": "PASS"
+}
