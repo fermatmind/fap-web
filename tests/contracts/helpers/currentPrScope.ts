@@ -2412,11 +2412,26 @@ export function isAiImpactV5ExpandedPageQaAllowedFile(file: string): boolean {
   );
 }
 
+export function isQuizPackPerformanceHotfixAllowedFile(file: string): boolean {
+  return QUIZ_PACK_PERFORMANCE_HOTFIX_ALLOWED_FILES.has(file);
+}
+
+function isQuizPackContractMainReplayAllowedFile(file: string): boolean {
+  return (
+    CURRENT_BRANCH === "codex/fix-quiz-pack-contract-main-replay" &&
+    (file === "tests/contracts/helpers/currentPrScope.ts" || file === "tests/contracts/quiz-pack-performance-hotfix.contract.test.ts")
+  );
+}
+
 export function isCurrentQuizPackPerformanceHotfixAllowedFile(file: string): boolean {
-  return CURRENT_BRANCH === "codex/quiz-pack-performance-hotfix" && QUIZ_PACK_PERFORMANCE_HOTFIX_ALLOWED_FILES.has(file);
+  return CURRENT_BRANCH === "codex/quiz-pack-performance-hotfix" && isQuizPackPerformanceHotfixAllowedFile(file);
 }
 
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
+  if (isQuizPackContractMainReplayAllowedFile(file)) {
+    return true;
+  }
+
   if (isCurrentQuizPackPerformanceHotfixAllowedFile(file)) {
     return true;
   }
@@ -3414,6 +3429,7 @@ export function isSeoGpt55Handoff01AllowedFile(file: string): boolean {
   return (
     SEO_GPT55_HANDOFF_01_ALLOWED_FILES.has(file) ||
     isAiImpactV5ExpandedPageQaAllowedFile(file) ||
+    isQuizPackContractMainReplayAllowedFile(file) ||
     isCurrentQuizPackPerformanceHotfixAllowedFile(file)
   );
 }
@@ -3422,6 +3438,7 @@ export function isSeoWeeklyAutomationControlPacket02AllowedFile(file: string): b
   return (
     SEO_WEEKLY_AUTOMATION_CONTROL_PACKET_02_ALLOWED_FILES.has(file) ||
     isAiImpactV5ExpandedPageQaAllowedFile(file) ||
+    isQuizPackContractMainReplayAllowedFile(file) ||
     isCurrentQuizPackPerformanceHotfixAllowedFile(file)
   );
 }
@@ -3430,6 +3447,7 @@ export function isSeoOpportunityQueueContract01AllowedFile(file: string): boolea
   return (
     SEO_OPPORTUNITY_QUEUE_CONTRACT_01_ALLOWED_FILES.has(file) ||
     isAiImpactV5ExpandedPageQaAllowedFile(file) ||
+    isQuizPackContractMainReplayAllowedFile(file) ||
     isCurrentQuizPackPerformanceHotfixAllowedFile(file)
   );
 }
@@ -3438,6 +3456,7 @@ export function isSeoCmsDraftPackageContract01AllowedFile(file: string): boolean
   return (
     SEO_CMS_DRAFT_PACKAGE_CONTRACT_01_ALLOWED_FILES.has(file) ||
     isAiImpactV5ExpandedPageQaAllowedFile(file) ||
+    isQuizPackContractMainReplayAllowedFile(file) ||
     isCurrentQuizPackPerformanceHotfixAllowedFile(file)
   );
 }
