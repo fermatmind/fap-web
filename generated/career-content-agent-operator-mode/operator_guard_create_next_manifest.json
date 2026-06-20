@@ -1,0 +1,9 @@
+{
+  "action": "create_next_manifest",
+  "allowed": true,
+  "requires_human_approval": false,
+  "dry_run": true,
+  "execution_allowed": false,
+  "content_generation_action": false,
+  "reason": "autonomous_allowed"
+}

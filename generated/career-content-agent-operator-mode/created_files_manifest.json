@@ -1,0 +1,139 @@
+{
+  "files": [
+    {
+      "path": ".agents/skills/career-content-asset-factory/SKILL.md",
+      "sha256": "cd40841dde2f45b14236ef310d237be1ae18b4e021a55862251e6f9081fc1dd7",
+      "bytes": 7680
+    },
+    {
+      "path": ".agents/skills/career-content-asset-factory/references/autonomous_allowed_actions.md",
+      "sha256": "6acc09dfa53dac05cfca83cf384ac03862de78f709ead422cc9ba455691646af",
+      "bytes": 764
+    },
+    {
+      "path": ".agents/skills/career-content-asset-factory/references/human_approval_required_actions.md",
+      "sha256": "669b9d4eabc8ad65209baae14d245f9e12ddd7953a30bae036079376f2e8d64d",
+      "bytes": 689
+    },
+    {
+      "path": ".agents/skills/career-content-asset-factory/references/operator_failure_modes.md",
+      "sha256": "2fbb9e2bb360641648c57426127e18de8c97a3cfde41e4a4e6318635ded9d40f",
+      "bytes": 715
+    },
+    {
+      "path": ".agents/skills/career-content-asset-factory/references/operator_mode.md",
+      "sha256": "0bf529212c38992307578ca38360efc1ef06572b0b63b47ca24daa144f3b643a",
+      "bytes": 1245
+    },
+    {
+      "path": ".agents/skills/career-content-asset-factory/references/operator_runbook.md",
+      "sha256": "80ce2034af43091f1dac740c0d7591d2626a5174237f1e4bfac62c505c27a5af",
+      "bytes": 1037
+    },
+    {
+      "path": ".agents/skills/career-content-asset-factory/references/operator_state_transition_table.md",
+      "sha256": "cabcde91df76667a743c6029521bc4ab927d3a083697097bb663f5f3a298aaea",
+      "bytes": 1252
+    },
+    {
+      "path": ".agents/skills/career-content-asset-factory/references/repair_loop_policy.md",
+      "sha256": "877cccd0853dc79f83eb223a87dbb30589ee847b578477caa11b6ca5503c089f",
+      "bytes": 802
+    },
+    {
+      "path": ".agents/skills/career-content-asset-factory/scripts/evaluate_gate_result.py",
+      "sha256": "79376cede567721731c5b244984ef231b3d65582be9b0b5c8e6d638c4997b8c7",
+      "bytes": 2183
+    },
+    {
+      "path": ".agents/skills/career-content-asset-factory/scripts/operator_guard.py",
+      "sha256": "10af9fcc5d6a7386a98b12f9aa7d548debaf3df319641591bbcc4ac7b45c45c5",
+      "bytes": 2431
+    },
+    {
+      "path": ".agents/skills/career-content-asset-factory/scripts/propose_operator_self_improvement.py",
+      "sha256": "d343097ca9babc4122f1f3173b7983c4ce74fd5de6869e78c0d6ea646f303712",
+      "bytes": 1910
+    },
+    {
+      "path": ".agents/skills/career-content-asset-factory/scripts/render_next_goal_from_state.py",
+      "sha256": "eda0ce5bf58c18cdcb722f09987d344c1627b7112218366d696a125ea1dffebe",
+      "bytes": 1370
+    },
+    {
+      "path": ".agents/skills/career-content-asset-factory/scripts/run_operator_loop.py",
+      "sha256": "6168c5291b927c18d4a97561c492e4abd12b365129ffe83d41d1d68c61230fc8",
+      "bytes": 2871
+    },
+    {
+      "path": ".agents/skills/career-content-asset-factory/scripts/run_operator_next.py",
+      "sha256": "c4463e2e552477a23559229ab8548d5287329c392087a013011e63b1364a1436",
+      "bytes": 6703
+    },
+    {
+      "path": ".agents/skills/career-content-asset-factory/scripts/select_next_phase.py",
+      "sha256": "414563ab8b7e772f2e3cd95bd7e9fc7b38df1790a0717d7793b6aaecbeb4aec9",
+      "bytes": 2339
+    },
+    {
+      "path": ".agents/skills/career-content-asset-factory/templates/goal_continue_until_next_hard_stop.md",
+      "sha256": "62854132148863f21b82f7e6f35a9d17b1ce0ae6e3c32b968f31cb202ec47b97",
+      "bytes": 415
+    },
+    {
+      "path": ".agents/skills/career-content-asset-factory/templates/goal_operator_self_improvement_review.md",
+      "sha256": "22ad8d415cddbc9632e2e591ed33fc910e101a815fd53f0207d23dc19e4127b1",
+      "bytes": 347
+    },
+    {
+      "path": ".agents/skills/career-content-asset-factory/templates/goal_run_operator_loop.md",
+      "sha256": "fa746246850aa57c8ac6ea6ec827f2eeaa9fc401656f4de63135ca0fd278a0f4",
+      "bytes": 445
+    },
+    {
+      "path": ".agents/skills/career-content-asset-factory/templates/goal_run_operator_next.md",
+      "sha256": "afaf9d78c16b423e9ab7c5e2542ea577d5a2a8b3a4ebc97d195a86f337121961",
+      "bytes": 496
+    },
+    {
+      "path": "generated/career-content-agent-operator-mode/created_files_manifest.json",
+      "sha256": "953a6e6f52b97ab20de80a8df14390aa31be90652d442381819dfcd12b745f93",
+      "bytes": 4065
+    },
+    {
+      "path": "generated/career-content-agent-operator-mode/dry_run_state_report.json",
+      "sha256": "fec8df791c6b7d5eaba9dfef8489130dd1b087363da1b1b30c2db6758d380bb9",
+      "bytes": 2543
+    },
+    {
+      "path": "generated/career-content-agent-operator-mode/next_goal_recommendation.md",
+      "sha256": "413fd0d4e8531966c9736dee2996a365fcb6b66be72f359ab8bbd0a457292ec4",
+      "bytes": 336
+    },
+    {
+      "path": "generated/career-content-agent-operator-mode/operator_guard_create_next_manifest.json",
+      "sha256": "00d7c9640dc2b3729dbd5033cc0759cf35a13b30e261a3b97810de57118e5af5",
+      "bytes": 215
+    },
+    {
+      "path": "generated/career-content-agent-operator-mode/operator_loop_report.json",
+      "sha256": "49756a9ec16926772d5b18a326dcbd8e186a2f98fbdc25685130c8dca8dab9cc",
+      "bytes": 3444
+    },
+    {
+      "path": "generated/career-content-agent-operator-mode/operator_mode_report.json",
+      "sha256": "2c76f753a2ec0437a4869d850faa79ab5338db511e0450b17a1edabb1802fab2",
+      "bytes": 3041
+    },
+    {
+      "path": "generated/career-content-agent-operator-mode/operator_mode_report.md",
+      "sha256": "a6b7e575e64e3558fd171238ec97d4048fc3cabe1e92920f6ea0fb84c8ae2c71",
+      "bytes": 898
+    },
+    {
+      "path": "generated/career-content-agent-operator-mode/script_smoke_report.json",
+      "sha256": "dcf388f8f31172a7f194cf31e39fab13f18fd986f421d7bfad5b3c1ad7f8982b",
+      "bytes": 925
+    }
+  ]
+}

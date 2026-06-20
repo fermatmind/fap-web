@@ -1,0 +1,47 @@
+{
+  "all_help_ok": true,
+  "scripts": [
+    {
+      "script": "run_operator_next.py",
+      "help_exit_code": 0,
+      "help_ok": true,
+      "stderr": ""
+    },
+    {
+      "script": "run_operator_loop.py",
+      "help_exit_code": 0,
+      "help_ok": true,
+      "stderr": ""
+    },
+    {
+      "script": "operator_guard.py",
+      "help_exit_code": 0,
+      "help_ok": true,
+      "stderr": ""
+    },
+    {
+      "script": "select_next_phase.py",
+      "help_exit_code": 0,
+      "help_ok": true,
+      "stderr": ""
+    },
+    {
+      "script": "evaluate_gate_result.py",
+      "help_exit_code": 0,
+      "help_ok": true,
+      "stderr": ""
+    },
+    {
+      "script": "render_next_goal_from_state.py",
+      "help_exit_code": 0,
+      "help_ok": true,
+      "stderr": ""
+    },
+    {
+      "script": "propose_operator_self_improvement.py",
+      "help_exit_code": 0,
+      "help_ok": true,
+      "stderr": ""
+    }
+  ]
+}
