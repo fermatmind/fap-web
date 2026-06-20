@@ -42,6 +42,7 @@ Canonical post-asset chain:
 - No frontend fallback content can become content authority. Empty backend/API responses must fail closed or render bounded empty states.
 - Page assembly must not invent missing facts.
 - No self-declared PASS: a block can only PASS through its audited gate outputs and frozen SHA artifacts.
+- Operator mode is dry-run-first. It may plan or perform only autonomous content-production actions and must stop for human approval before schema changes, runtime/SEO/CMS changes, staging writes, approved transitions, or production import.
 
 ## Block Skills
 
@@ -66,7 +67,8 @@ Before orchestrating a block, read:
 6. `references/staging_import_release_contract.md`
 7. `references/post_import_live_qa_contract.md`
 8. `references/runtime_leakage_prevention.md`
-9. The target block skill's `SKILL.md` and required block references.
+9. For autonomous continuation, read `references/operator_mode.md` and `references/operator_runbook.md`.
+10. The target block skill's `SKILL.md` and required block references.
 
 Use legacy shared references as supporting material:
 
@@ -110,5 +112,12 @@ The scripts in `scripts/` are orchestration and validation helpers only. They mu
 - `check_runtime_leakage_terms.py`
 - `validate_search_projection_quarantine.py`
 - `validate_page_assembly_no_new_facts.py`
+- `run_operator_next.py`
+- `run_operator_loop.py`
+- `operator_guard.py`
+- `select_next_phase.py`
+- `evaluate_gate_result.py`
+- `render_next_goal_from_state.py`
+- `propose_operator_self_improvement.py`
 
 Block-specific content generation remains in block factories.

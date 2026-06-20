@@ -1,0 +1,1 @@
+Goal: Create career-work-activities batch 100 manifest only.\n\nUse career-content-asset-factory.\n\nInput: latest frozen baseline with control_50 and canonical 1046 seed.\nTask: create manifest using control_50 + new_50.\nDo not generate evidence, synthesis, assets, search_projection, staging, import, runtime, SEO, or CMS changes.\n
