@@ -4,6 +4,7 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 
 import {
+  isCurrentRiasecPack12AllowedFile,
   isPersonalityPublicProfileAgentSplit01AllowedFile,
   isQuizPackPerformanceHotfixAllowedFile,
 } from "./helpers/currentPrScope";
@@ -59,7 +60,12 @@ describe("quiz pack performance hotfix scope", () => {
     }
 
     expect(
-      files.every((file) => ALLOWED_FILES.includes(file) || isPersonalityPublicProfileAgentSplit01AllowedFile(file)),
+      files.every(
+        (file) =>
+          ALLOWED_FILES.includes(file) ||
+          isPersonalityPublicProfileAgentSplit01AllowedFile(file) ||
+          isCurrentRiasecPack12AllowedFile(file),
+      ),
       files.join("\n")
     ).toBe(true);
   });

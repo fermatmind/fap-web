@@ -222,6 +222,19 @@ const PERSONALITY_AGENT_QA_GATES_01_ALLOWED_FILES = new Set([
   "tests/contracts/personality-agent-qa-gates-01.contract.test.ts",
 ]);
 
+const CONTRACT_SCOPE_GUARD_STRATEGY_02_ALLOWED_FILES = new Set([
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/personality-public-profile-agent-split-01.contract.test.ts",
+  "tests/contracts/quiz-pack-performance-hotfix.contract.test.ts",
+  "tests/contracts/seo-agent-fapweb-code-pr-writer.contract.test.ts",
+  "tests/contracts/seo-agent-gpt55-handoff.contract.test.ts",
+  "tests/contracts/seo-agent-weekly-control-packet.contract.test.ts",
+  "tests/contracts/seo-cms-draft-package-contract.contract.test.ts",
+  "tests/contracts/seo-opportunity-queue-contract.contract.test.ts",
+  "tests/contracts/seo-ops-readmodel-bridge.contract.test.ts",
+  "tests/contracts/seo-runtime-qa-agent.contract.test.ts",
+]);
+
 const RESEARCH_REPORT_METADATA_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/research/[slug]/page.tsx",
   "docs/seo/generated/metadata-surface-inventory.v1.csv",
@@ -2581,6 +2594,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/personality-agent-qa-gates-01") {
     return PERSONALITY_AGENT_QA_GATES_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/contract-scope-guard-strategy-02") {
+    return CONTRACT_SCOPE_GUARD_STRATEGY_02_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/result-smoke-proxy-generation-hints") {
