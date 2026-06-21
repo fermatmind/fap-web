@@ -5344,7 +5344,7 @@ prs:
     depends_on: [SEO-FREE-TEST-SECONDARY-CTA-04]
     mode: execute
     train_scope: seo_free_test_article_internal_links
-    status: ready_to_merge
+    status: merged
     goal: "Update article/CMS internal-link rendering so bare zh test URLs and bare-url anchors display concrete free-test anchor text such as MBTI免费测试 and 大五人格免费测试, while preserving CMS article body authority and existing hrefs."
     artifacts:
       - lib/content/internalLinkText.ts
@@ -5435,7 +5435,7 @@ prs:
     depends_on: [PERSONALITY-SEO-CURRENT-AUDIT-01]
     mode: execute
     train_scope: personality_seo_authority_20260613
-    status: planned
+    status: merged
     goal: "Repair backend-authored /zh/personality/entj-t content coverage so all 64 A/T detail pages have synchronized visible body content before FAQ, metadata, or comparison expansion."
     artifacts:
       - backend personality CMS/import/content authority files
@@ -5724,7 +5724,7 @@ prs:
     depends_on: [PERSONALITY-LLMS-FULL-COMPARISON-REPAIR-01]
     mode: audit_only
     train_scope: personality_seo_authority_20260614
-    status: planned
+    status: merged
     goal: "Freeze the post-deploy SEO/indexation audit for 64 personality detail pages and 32 A/T comparison pages across indexability, canonical, hreflang, sitemap, llms.txt, llms-full, and GSC sampling evidence."
     artifacts:
       - docs/seo/**
@@ -14400,7 +14400,7 @@ prs:
     depends_on: [SEO-CONV-TRACKING-01, SEO-CONV-INGEST-02]
     mode: execute
     train_scope: seo_conversion_runtime
-    status: in_progress
+    status: merged
     goal: "Wire frontend runtime surfaces to send the minimum SEO conversion loop after the frontend contract and backend ingest PRs are merged."
     artifacts:
       - lib/analytics.ts
@@ -14455,7 +14455,7 @@ prs:
     depends_on: []
     mode: execute
     train_scope: article_h1_stability
-    status: in_progress
+    status: merged
     goal: "Add frontend final-DOM defense so article detail pages keep the page title as the only h1 while CMS body HTML or Markdown headings render no higher than h2."
     artifacts:
       - app/(localized)/[locale]/articles/[slug]/page.tsx
@@ -14507,7 +14507,7 @@ prs:
     depends_on: [ARTICLE-H1-01, ARTICLE-H1-02]
     mode: execute
     train_scope: article_h1_stability
-    status: pending_dependency
+    status: merged
     goal: "Add a live audit script and article_h1_audit_report.md covering at least 20 article detail URLs after frontend and CMS-side H1 controls are merged."
     artifacts:
       - scripts/seo/audit-article-h1.mjs
@@ -14827,7 +14827,7 @@ prs:
     depends_on: []
     mode: execute
     train_scope: result_p0_pdf_leak_hardening_02
-    status: in_progress
+    status: merged
     goal: "Prevent browser-generated print headers and footers from exposing raw private result URLs by temporarily replacing the address bar path and title during print."
     artifacts:
       - app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx
@@ -14874,7 +14874,7 @@ prs:
     depends_on: [RESULT-PRINT-PRIVATE-URL-REDACTION-02]
     mode: execute
     train_scope: result_p0_pdf_leak_hardening_02
-    status: planned
+    status: merged
     goal: "Ensure private result print/PDF output does not include global header, footer, account nav, social icons, footer columns, public marketing navigation, or unrelated marketing chrome."
     artifacts:
       - app/globals.css
@@ -15049,7 +15049,7 @@ prs:
     depends_on: [RESULT-OBJECT-AND-PDF-LEAK-CONTRACT-EXPANSION-02]
     mode: docs_only_after_deployment
     train_scope: result_p0_pdf_leak_hardening_02
-    status: planned
+    status: merged
     goal: "After deployment of PR1-PR5, run a production read-only smoke for uploaded/generated PDF evidence and live result privacy envelope, redacting raw ids and private URLs."
     artifacts:
       - docs/seo/result-p0-post-deploy-smoke-rerun-02.md
@@ -15245,7 +15245,7 @@ prs:
     depends_on: []
     mode: execute
     train_scope: public_profile_seo_asset_factory_skill
-    status: in_progress
+    status: merged
     goal: "Create the automated public-profile SEO asset factory skill files, protocols, prompts, schemas, quality gates, runbooks, examples, checklists, and audit report without runtime, sitemap, llms, indexability, fap-api, or generated production content changes."
     artifacts:
       - .agents/skills/public-profile-seo-asset-factory/**
