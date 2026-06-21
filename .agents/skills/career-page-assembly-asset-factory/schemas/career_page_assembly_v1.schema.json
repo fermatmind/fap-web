@@ -1,0 +1,187 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Career Page Assembly V1 Reference Ledger",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "ledger_type",
+    "asset_version",
+    "block_type",
+    "slug",
+    "seed_ordinal",
+    "locale",
+    "occupation",
+    "page_sections",
+    "section_order",
+    "block_refs",
+    "source_coverage",
+    "missing_blocks",
+    "reader_boundary",
+    "no_new_fact_boundary",
+    "search_projection_quarantine_status",
+    "runtime_boundary",
+    "audit_fields"
+  ],
+  "properties": {
+    "ledger_type": {
+      "type": "string",
+      "const": "career-page-assembly"
+    },
+    "asset_version": {
+      "type": "string",
+      "const": "career_page_assembly_v1"
+    },
+    "block_type": {
+      "type": "string",
+      "const": "career-page-assembly"
+    },
+    "slug": {
+      "type": "string",
+      "minLength": 1
+    },
+    "seed_ordinal": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "locale": {
+      "type": "string",
+      "enum": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    "occupation": {
+      "type": "object",
+      "required": [
+        "title_en",
+        "title_zh",
+        "soc_code",
+        "onet_code"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "title_en": {
+          "type": "string"
+        },
+        "title_zh": {
+          "type": "string"
+        },
+        "soc_code": {
+          "type": "string"
+        },
+        "onet_code": {
+          "type": "string"
+        }
+      }
+    },
+    "page_sections": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "section_key",
+          "source_block",
+          "source_baseline_path",
+          "source_slug",
+          "source_locale",
+          "display_priority",
+          "availability_status",
+          "omission_reason",
+          "no_new_fact_boundary"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "section_key": {
+            "type": "string"
+          },
+          "source_block": {
+            "type": "string"
+          },
+          "source_baseline_path": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "source_slug": {
+            "type": "string"
+          },
+          "source_locale": {
+            "type": "string"
+          },
+          "source_row_hash": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "proof_artifacts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "display_priority": {
+            "type": "integer"
+          },
+          "availability_status": {
+            "type": "string",
+            "enum": [
+              "available",
+              "mature_registered",
+              "missing"
+            ]
+          },
+          "omission_reason": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "no_new_fact_boundary": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "section_order": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "block_refs": {
+      "type": "object"
+    },
+    "source_coverage": {
+      "type": "object"
+    },
+    "missing_blocks": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "reader_boundary": {
+      "type": "string"
+    },
+    "no_new_fact_boundary": {
+      "type": "string"
+    },
+    "search_projection_quarantine_status": {
+      "type": "string"
+    },
+    "runtime_boundary": {
+      "type": "string"
+    },
+    "audit_fields": {
+      "type": "object",
+      "required": [
+        "row_hash",
+        "source_block_count",
+        "generated_at"
+      ]
+    }
+  }
+}
