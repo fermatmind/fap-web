@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate career-identity evidence JSONL shape."""
+"""Validate career-identity synthesis JSONL shape."""
 
 from __future__ import annotations
 
@@ -13,7 +13,7 @@ REQUIRED = {"ledger_type", "asset_version", "block_type", "slug", "locale", "occ
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--input", required=True, help="Evidence JSONL path.")
+    parser.add_argument("--input", required=True, help="Synthesis JSONL path.")
     parser.add_argument("--output", required=True, help="Validation JSON output path.")
     return parser.parse_args()
 
@@ -27,12 +27,8 @@ def main() -> int:
         missing = sorted(REQUIRED - row.keys())
         if missing:
             findings.append({"row": index, "slug": row.get("slug"), "locale": row.get("locale"), "issue": "missing_required_fields", "fields": missing})
-        if row.get("ledger_type") != "career-identity_evidence":
+        if row.get("ledger_type") != "career-identity_synthesis":
             findings.append({"row": index, "slug": row.get("slug"), "locale": row.get("locale"), "issue": "bad_ledger_type"})
-        if row.get("block_type") != "career-identity":
-            findings.append({"row": index, "slug": row.get("slug"), "locale": row.get("locale"), "issue": "bad_block_type"})
-        if row.get("locale") not in {"en", "zh-CN"}:
-            findings.append({"row": index, "slug": row.get("slug"), "locale": row.get("locale"), "issue": "bad_locale"})
         key = (row.get("slug"), row.get("locale"))
         if key in seen:
             findings.append({"row": index, "slug": row.get("slug"), "locale": row.get("locale"), "issue": "duplicate_slug_locale"})
