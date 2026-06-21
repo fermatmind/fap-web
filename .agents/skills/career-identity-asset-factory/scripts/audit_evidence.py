@@ -9,7 +9,7 @@ import re
 from identity_common import fail_report, read_jsonl
 
 
-OFFICIAL_HINTS = re.compile(r"(O\\*NET|SOC|BLS|ESCO|ISCO|National Careers|official|onetonline)", re.I)
+OFFICIAL_HINTS = re.compile(r"(O\*NET|SOC|BLS|ESCO|ISCO|National Careers|official|onetonline)", re.I)
 
 
 def parse_args() -> argparse.Namespace:
@@ -38,6 +38,12 @@ def main() -> int:
         source_blob = " ".join(str(source.get(key, "")) for source in sources for key in ("source_name", "url", "final_url", "boundary", "source_relation"))
         if sources and not OFFICIAL_HINTS.search(source_blob):
             findings.append({"slug": slug, "locale": locale, "issue": "official_authority_missing_without_boundary"})
+        if not facts.get("onet_code_seed"):
+            findings.append({"slug": slug, "locale": locale, "issue": "missing_onet_code_seed"})
+        if not facts.get("soc_code_seed"):
+            findings.append({"slug": slug, "locale": locale, "issue": "missing_soc_code_seed"})
+        if any(source.get("source_relation") == "seed_mapping_requires_repair" for source in sources):
+            findings.append({"slug": slug, "locale": locale, "issue": "official_mapping_requires_repair"})
         for item in row.get("items") or []:
             sid = item.get("source_id")
             if sid and sid not in source_ids:

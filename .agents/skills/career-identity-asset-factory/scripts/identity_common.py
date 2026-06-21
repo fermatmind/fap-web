@@ -90,14 +90,34 @@ def get_seed_field(row: dict[str, Any], *names: str, default: Any = None) -> Any
 
 def normalize_seed_row(row: dict[str, Any], ordinal: int | None = None) -> dict[str, Any]:
     seed_ordinal = int(get_seed_field(row, "seed_ordinal", "ordinal", "index", default=ordinal or 0))
+    occupation = row.get("occupation") if isinstance(row.get("occupation"), dict) else {}
+    context = row.get("existing_fermatmind_context") if isinstance(row.get("existing_fermatmind_context"), dict) else {}
+    context_en = context.get("en") if isinstance(context.get("en"), dict) else {}
+    context_zh = context.get("zh-CN") if isinstance(context.get("zh-CN"), dict) else {}
+
+    def field(*names: str, default: Any = None) -> Any:
+        value = get_seed_field(row, *names)
+        if value not in (None, ""):
+            return value
+        value = get_seed_field(occupation, *names)
+        if value not in (None, ""):
+            return value
+        value = get_seed_field(context_en, *names)
+        if value not in (None, ""):
+            return value
+        value = get_seed_field(context_zh, *names)
+        if value not in (None, ""):
+            return value
+        return default
+
     return {
         "seed_ordinal": seed_ordinal,
-        "slug": get_seed_field(row, "slug"),
-        "title_en": get_seed_field(row, "title_en", "occupation_en", "name_en"),
-        "title_zh": get_seed_field(row, "title_zh", "title_zh_seed", "occupation_zh", "name_zh"),
-        "title_zh_seed": get_seed_field(row, "title_zh_seed", "title_zh", "occupation_zh", "name_zh"),
-        "soc_code_seed": get_seed_field(row, "soc_code_seed", "soc_code", "soc"),
-        "onet_code_seed": get_seed_field(row, "onet_code_seed", "onet_code", "onet"),
+        "slug": field("slug"),
+        "title_en": field("title_en", "occupation_en", "name_en", "title"),
+        "title_zh": field("title_zh", "title_zh_seed", "occupation_zh", "name_zh"),
+        "title_zh_seed": field("title_zh_seed", "title_zh", "occupation_zh", "name_zh"),
+        "soc_code_seed": field("soc_code_seed", "soc_code", "soc"),
+        "onet_code_seed": field("onet_code_seed", "onet_code", "onet"),
     }
 
 
