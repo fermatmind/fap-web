@@ -185,6 +185,8 @@ def has_unsafe_outcome_claim(text: str) -> bool:
             "property income approach",
             "anticipated property income",
             "income capitalization",
+            "income potential",
+            "property values",
             "low-income population",
             "low income population",
             "compensation polic",
