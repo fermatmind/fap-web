@@ -180,7 +180,19 @@ def has_unsafe_outcome_claim(text: str) -> bool:
         if not OUTCOME_CLAIMS.search(sentence):
             continue
         lowered = sentence.lower()
-        if any(marker in lowered for marker in ("property income stream", "property income approach", "anticipated property income", "income capitalization")):
+        allowed_occupational_contexts = (
+            "property income stream",
+            "property income approach",
+            "anticipated property income",
+            "income capitalization",
+            "low-income population",
+            "low income population",
+            "compensation polic",
+            "compensation plan",
+            "prevailing wage rate",
+            "employee retirement income security act",
+        )
+        if any(marker in lowered for marker in allowed_occupational_contexts):
             continue
         if any(marker in lowered for marker in ("does not", "do not", "not ", "no ", "without ", "must not", "is not")):
             continue
