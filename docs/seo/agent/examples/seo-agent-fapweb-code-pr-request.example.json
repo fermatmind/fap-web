@@ -1,0 +1,18 @@
+{
+  "schema_version": "seo-agent-fapweb-code-pr-request.v1",
+  "request_id": "seo-agent-code-fix-example-001",
+  "fix_type": "canonical_hreflang",
+  "scope_summary": "Repair a CMS-backed canonical or hreflang rendering bug through fap-web code only.",
+  "base_branch": "main",
+  "branch_name": "codex/seo-agent-canonical-hreflang-example",
+  "target_files": [
+    "lib/seo/metadata.ts",
+    "tests/contracts/analytics-seo-metadata-sitemap-canonical.contract.test.ts"
+  ],
+  "evidence_refs": [
+    "seo-agent-run-control-packet-sha256:example",
+    "runtime-seo-qa-artifact-sha256:example"
+  ],
+  "direct_main_push_allowed": false,
+  "auto_deploy_allowed": false
+}

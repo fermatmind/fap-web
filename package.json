@@ -34,6 +34,7 @@
     "seo:weekly-control-packet": "node scripts/seo/check-seo-agent-weekly-control-packet.mjs",
     "seo:opportunity-queue-contract": "node scripts/seo/check-seo-opportunity-queue-contract.mjs",
     "seo:cms-draft-package-contract": "node scripts/seo/check-seo-cms-draft-package-contract.mjs",
+    "seo-agent:fapweb-code-pr-writer": "node scripts/seo/generate-seo-agent-fapweb-code-pr-writer.mjs",
     "seo:assert-live-sitemap": "node scripts/seo/assert-live-sitemap-clean.mjs https://fermatmind.com/sitemap.xml",
     "seo:assert-live-sitemap-stability": "node scripts/seo/assert-live-sitemap-stability.mjs https://fermatmind.com/sitemap.xml",
     "seo:assert-live-llms": "node scripts/seo/assert-live-llms-clean.mjs https://fermatmind.com/llms.txt",
