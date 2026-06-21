@@ -32,7 +32,7 @@ RUNTIME_OR_SEO = re.compile(
     re.I,
 )
 OUTCOME_CLAIMS = re.compile(
-    r"\b(guarantee[sd]?|guaranteed|will get hired|job offer|admission guaranteed|certification guaranteed|visa|immigration|salary|wage|income|promotion)\b"
+    r"\b(guarantee[sd]?|guaranteed|will get hired|job offer|admission guaranteed|certification guaranteed|visa|immigration|salary|wage|income|promotion guaranteed|guaranteed promotion)\b"
     r"|保证(?:录取|就业|入职|拿证|加薪|移民|签证)|(?:薪资|工资|收入|升职)保证",
     re.I,
 )

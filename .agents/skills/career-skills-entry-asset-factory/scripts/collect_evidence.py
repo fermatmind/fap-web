@@ -38,6 +38,28 @@ def select_work_items(work_row: dict, limit: int = 6) -> list[dict]:
     return (preferred + fallback)[:limit]
 
 
+def source_list_for_selected_items(work_row: dict, selected: list[dict], fallback: dict) -> list[dict]:
+    referenced = {item.get("source_id") for item in selected if item.get("source_id")}
+    sources = []
+    for source in work_row.get("sources") or []:
+        if source.get("source_id") in referenced:
+            sources.append(source)
+    if not sources:
+        sources.append(fallback)
+    by_id = {}
+    for source in sources:
+        sid = source.get("source_id") or fallback.get("source_id")
+        by_id[sid] = {
+            "source_id": sid,
+            "source_name": source.get("source_name") or source.get("name") or fallback.get("source_name"),
+            "url": source.get("url") or source.get("final_url") or fallback.get("url"),
+            "source_relation": source.get("source_relation") or fallback.get("source_relation"),
+            "source_type": source.get("source_type") or fallback.get("source_type"),
+            "boundary": source.get("boundary") or fallback.get("boundary"),
+        }
+    return list(by_id.values())
+
+
 def main() -> int:
     args = parse_args()
     manifest = read_json(args.manifest)
@@ -58,7 +80,7 @@ def main() -> int:
             selected = select_work_items(work_row or {})
             onet = item.get("onet_code_seed")
             source_id = f"onet:{onet}" if onet else f"seed:{slug}:skills-entry-boundary"
-            source = {
+            fallback_source = {
                 "source_id": source_id,
                 "source_name": "O*NET OnLine" if onet else "Canonical career seed with PASS work-activities dependency",
                 "url": f"https://www.onetonline.org/link/summary/{onet}" if onet else None,
@@ -66,6 +88,7 @@ def main() -> int:
                 "source_type": "official_occupation_profile" if onet else "pass_block_dependency",
                 "boundary": "Skills-entry evidence derived from official occupation/task evidence and completed identity/work-activities baselines; not salary, fit, AI impact, admission, hiring, or licensing guarantee evidence.",
             }
+            sources = source_list_for_selected_items(work_row or {}, selected, fallback_source)
             evidence_items = []
             for idx, work_item in enumerate(selected, start=1):
                 captured = work_item.get("captured_fact")
@@ -113,7 +136,7 @@ def main() -> int:
                     "search_projection_generated": False,
                 },
                 "items": evidence_items,
-                "sources": [source],
+                "sources": sources,
                 "evidence_used": [e["evidence_id"] for e in evidence_items],
                 "derived_from_synthesis": None,
                 "limitations": [
