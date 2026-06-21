@@ -23242,12 +23242,12 @@
       "id": "SEO-CONV-RUNTIME-03",
       "repo": "fap-web",
       "branch": "codex/seo-conv-runtime-03",
-      "status": "ready_to_merge",
-      "commit_sha": "2890298dc958be2b64fe9ffe8f6f6fe5b910989e",
+      "status": "merged",
+      "commit_sha": "84f0d718ac0a322322223b327106cadba803bc87",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1085",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-09T03:45:35Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "failure_reason": null,
       "checks": {
         "dependency": {
@@ -23292,6 +23292,10 @@
             "analyze (javascript-typescript)"
           ],
           "evidence": "GitHub checks passed for fap-web PR #1085 at head 2890298dc958be2b64fe9ffe8f6f6fe5b910989e."
+        },
+        "ledger_reconciliation": {
+          "status": "pass",
+          "evidence": "Reconciled on 2026-06-21: GitHub reports fap-web PR #1085 MERGED at 2026-06-09T03:45:35Z with merge commit 84f0d718ac0a322322223b327106cadba803bc87; GitHub required checks were SUCCESS before merge. origin/main contains the merge commit; remote and local task branches are absent in this cleanup worktree."
         }
       },
       "history": [
@@ -23314,6 +23318,11 @@
           "at": "2026-06-09",
           "status": "ready_to_merge",
           "note": "GitHub checks passed for PR #1085 at head 2890298dc958be2b64fe9ffe8f6f6fe5b910989e. Recording ready_to_merge before merge per train policy."
+        },
+        {
+          "at": "2026-06-21T08:22:15Z",
+          "status": "merged_reconciled",
+          "note": "Reconciled stale ledger state from GitHub: PR #1085 is merged, 84f0d718ac0a322322223b327106cadba803bc87 is in origin/main, required checks passed, and codex/seo-conv-runtime-03 is absent locally/remotely."
         }
       ]
     },
@@ -23321,12 +23330,12 @@
       "id": "ARTICLE-H1-01",
       "repo": "fap-web",
       "branch": "codex/article-h1-01",
-      "status": "ready_to_merge",
-      "commit_sha": "c4eca9afba407c368e4797dc838523f38b995a08",
+      "status": "merged",
+      "commit_sha": "da2d4e124de958bdd6256c8ec9d85b3eae6bdfe6",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1087",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-09T05:36:13Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "failure_reason": null,
       "checks": {
         "authorization": {
@@ -23379,6 +23388,10 @@
           ],
           "merge_state": "CLEAN",
           "evidence": "GitHub checks passed for fap-web PR #1087 at head 7e75031d8f3256560efaed2bcd9a0549d1267669."
+        },
+        "ledger_reconciliation": {
+          "status": "pass",
+          "evidence": "Reconciled on 2026-06-21: GitHub reports fap-web PR #1087 MERGED at 2026-06-09T05:36:13Z with merge commit da2d4e124de958bdd6256c8ec9d85b3eae6bdfe6; GitHub required checks were SUCCESS before merge. origin/main contains the merge commit; remote and local task branches are absent in this cleanup worktree."
         }
       },
       "history": [
@@ -23406,6 +23419,11 @@
           "at": "2026-06-09",
           "status": "ready_to_merge",
           "note": "GitHub checks passed for PR #1087 at head 7e75031d8f3256560efaed2bcd9a0549d1267669 and mergeStateStatus is CLEAN."
+        },
+        {
+          "at": "2026-06-21T08:22:15Z",
+          "status": "merged_reconciled",
+          "note": "Reconciled stale ledger state from GitHub: PR #1087 is merged, da2d4e124de958bdd6256c8ec9d85b3eae6bdfe6 is in origin/main, required checks passed, and codex/article-h1-01 is absent locally/remotely."
         }
       ]
     },
@@ -23413,12 +23431,12 @@
       "id": "ARTICLE-H1-03",
       "repo": "fap-web",
       "branch": "codex/article-h1-03",
-      "status": "ready_to_merge",
-      "commit_sha": "93da798ca36fb14fb2fc8693150ee7aa1e24ac01",
+      "status": "merged",
+      "commit_sha": "9d4bb1c55ebfcb9695cb04069fee520442f1ef0f",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1088",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-09T06:47:45Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "failure_reason": null,
       "checks": {
         "authorization": {
@@ -23472,6 +23490,10 @@
         "github_checks": {
           "status": "pass",
           "evidence": "GitHub checks for head 93da798ca36fb14fb2fc8693150ee7aa1e24ac01 passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analyze, CodeQL."
+        },
+        "ledger_reconciliation": {
+          "status": "pass",
+          "evidence": "Reconciled on 2026-06-21: GitHub reports fap-web PR #1088 MERGED at 2026-06-09T06:47:45Z with merge commit 9d4bb1c55ebfcb9695cb04069fee520442f1ef0f; GitHub required checks were SUCCESS before merge. origin/main contains the merge commit; remote and local task branches are absent in this cleanup worktree."
         }
       },
       "history": [
@@ -23499,6 +23521,11 @@
           "at": "2026-06-09",
           "status": "ready_to_merge",
           "note": "GitHub checks passed and merge state was CLEAN for head 93da798ca36fb14fb2fc8693150ee7aa1e24ac01."
+        },
+        {
+          "at": "2026-06-21T08:22:15Z",
+          "status": "merged_reconciled",
+          "note": "Reconciled stale ledger state from GitHub: PR #1088 is merged, 9d4bb1c55ebfcb9695cb04069fee520442f1ef0f is in origin/main, required checks passed, and codex/article-h1-03 is absent locally/remotely."
         }
       ]
     },
@@ -23506,12 +23533,12 @@
       "id": "RESULT-PRINT-PRIVATE-URL-REDACTION-02",
       "repo": "fap-web",
       "branch": "codex/result-print-private-url-redaction-02",
-      "status": "ready_to_merge",
-      "commit_sha": "d9a5f2f36ecfee6192102c2819b62c9520e6045b",
+      "status": "merged",
+      "commit_sha": "b6b5e3619a2d467f69a3ea60455147dac32d998a",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1120",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-13T06:40:29Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "failure_reason": null,
       "checks": {
         "authorization": {
@@ -23562,6 +23589,10 @@
           ],
           "merge_state": "UNSTABLE",
           "evidence": "GitHub checks passed for draft PR #1120 at head d9a5f2f36ecfee6192102c2819b62c9520e6045b. mergeStateStatus was UNSTABLE while PR was still draft; scope validation remained clean."
+        },
+        "ledger_reconciliation": {
+          "status": "pass",
+          "evidence": "Reconciled on 2026-06-21: GitHub reports fap-web PR #1120 MERGED at 2026-06-13T06:40:29Z with merge commit b6b5e3619a2d467f69a3ea60455147dac32d998a; GitHub required checks were SUCCESS before merge. origin/main contains the merge commit; remote and local task branches are absent in this cleanup worktree."
         }
       },
       "history": [
@@ -23594,6 +23625,11 @@
           "at": "2026-06-13T14:44:20+08:00",
           "status": "merged",
           "note": "Reconciled PR #1120 merged state inside RESULT-PRIVATE-PRINT-CHROME-GATE-HARDEN-02: GitHub reports merged at 2026-06-13T06:40:29Z with merge commit b6b5e3619a2d467f69a3ea60455147dac32d998a; origin/main contains the merge commit; remote branch is deleted; local worktree and branch cleanup were executed."
+        },
+        {
+          "at": "2026-06-21T08:22:15Z",
+          "status": "merged_reconciled",
+          "note": "Reconciled stale ledger state from GitHub: PR #1120 is merged, b6b5e3619a2d467f69a3ea60455147dac32d998a is in origin/main, required checks passed, and codex/result-print-private-url-redaction-02 is absent locally/remotely."
         }
       ]
     },
@@ -23601,12 +23637,12 @@
       "id": "RESULT-PRIVATE-PRINT-CHROME-GATE-HARDEN-02",
       "repo": "fap-web",
       "branch": "codex/result-private-print-chrome-gate-harden-02",
-      "status": "ready_to_merge",
-      "commit_sha": "788ce6f044e9f5b553f20e2488eabe9c5c2591f2",
+      "status": "merged",
+      "commit_sha": "fd55d05521a3e740e4bf1b2dd05a92abdec0495c",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1121",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-13T06:55:57Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "failure_reason": null,
       "checks": {
         "authorization": {
@@ -23652,6 +23688,10 @@
             "analyze (javascript-typescript)"
           ],
           "evidence": "GitHub checks passed for draft PR #1121 at head 788ce6f044e9f5b553f20e2488eabe9c5c2591f2."
+        },
+        "ledger_reconciliation": {
+          "status": "pass",
+          "evidence": "Reconciled on 2026-06-21: GitHub reports fap-web PR #1121 MERGED at 2026-06-13T06:55:57Z with merge commit fd55d05521a3e740e4bf1b2dd05a92abdec0495c; GitHub required checks were SUCCESS before merge. origin/main contains the merge commit; remote and local task branches are absent in this cleanup worktree."
         }
       },
       "history": [
@@ -23679,6 +23719,11 @@
           "at": "2026-06-13T15:00:30+08:00",
           "status": "merged",
           "note": "Reconciled PR #1121 merged state inside RESULT-BIG5-INTERNAL-METHOD-DEBUG-SUPPRESSION-02: GitHub reports merged at 2026-06-13T06:55:57Z with merge commit fd55d05521a3e740e4bf1b2dd05a92abdec0495c; origin/main contains the merge commit; remote branch is deleted; local worktree and branch cleanup were executed."
+        },
+        {
+          "at": "2026-06-21T08:22:15Z",
+          "status": "merged_reconciled",
+          "note": "Reconciled stale ledger state from GitHub: PR #1121 is merged, fd55d05521a3e740e4bf1b2dd05a92abdec0495c is in origin/main, required checks passed, and codex/result-private-print-chrome-gate-harden-02 is absent locally/remotely."
         }
       ]
     },
@@ -23944,13 +23989,13 @@
       "id": "RESULT-P0-POST-DEPLOY-SMOKE-RERUN-02",
       "repo": "fap-web",
       "branch": "codex/result-p0-post-deploy-smoke-rerun-02",
-      "status": "pending_external_merge",
-      "commit_sha": "d788f8a6",
+      "status": "merged",
+      "commit_sha": "2cba196608c09d21afff7475eae2c12e7186fa25",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1125",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
-      "failure_reason": "Fresh uploaded/generated PDF samples and live private result samples were not available; report decision is blocked_missing_live_result_samples.",
+      "merged_at": "2026-06-13T08:13:20Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
+      "failure_reason": null,
       "checks": {
         "dependency": {
           "status": "pass",
@@ -23987,6 +24032,10 @@
             "analyze (javascript-typescript)"
           ],
           "evidence": "GitHub checks passed for PR #1125 at head 2aa5cef3. PR6 merge_policy.auto_merge is false, so this docs-only blocked-sample report is left for external/manual merge."
+        },
+        "ledger_reconciliation": {
+          "status": "pass",
+          "evidence": "Reconciled on 2026-06-21: GitHub reports fap-web PR #1125 MERGED at 2026-06-13T08:13:20Z with merge commit 2cba196608c09d21afff7475eae2c12e7186fa25; GitHub required checks were SUCCESS before merge. origin/main contains the merge commit; remote and local task branches are absent in this cleanup worktree."
         }
       },
       "history": [
@@ -24014,6 +24063,11 @@
           "at": "2026-06-13T16:06:01+08:00",
           "status": "pending_external_merge",
           "note": "GitHub checks passed on PR #1125 at head 2aa5cef3. Auto-merge is disabled for PR6; leaving the docs-only smoke PR open for external/manual merge with final decision blocked_missing_live_result_samples."
+        },
+        {
+          "at": "2026-06-21T08:22:15Z",
+          "status": "merged_reconciled",
+          "note": "Reconciled stale ledger state from GitHub: PR #1125 is merged, 2cba196608c09d21afff7475eae2c12e7186fa25 is in origin/main, required checks passed, and codex/result-p0-post-deploy-smoke-rerun-02 is absent locally/remotely."
         }
       ]
     },
@@ -24021,12 +24075,12 @@
       "id": "PERSONALITY-SEO-CURRENT-AUDIT-01",
       "repo": "fap-web",
       "branch": "codex/personality-seo-current-audit-01",
-      "status": "ready_to_merge",
-      "commit_sha": "c029ae1b5badd35cb9cde223d1f055261bee5551",
+      "status": "merged",
+      "commit_sha": "185df2cccfa6df158770ed4db12f17245308bd9c",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1133",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-13T15:02:20Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "failure_reason": null,
       "checks": {
         "authorization": {
@@ -24072,6 +24126,10 @@
             "CodeQL/analyze"
           ],
           "evidence": "GitHub PR #1133 checks passed after the scoped contract fix; mergeStateStatus was CLEAN. Pre-merge scope validation confirmed only the 6 allowed files are in the branch diff."
+        },
+        "ledger_reconciliation": {
+          "status": "pass",
+          "evidence": "Reconciled on 2026-06-21: GitHub reports fap-web PR #1133 MERGED at 2026-06-13T15:02:20Z with merge commit 185df2cccfa6df158770ed4db12f17245308bd9c; GitHub required checks were SUCCESS before merge. origin/main contains the merge commit; remote and local task branches are absent in this cleanup worktree."
         }
       },
       "history": [
@@ -24104,6 +24162,11 @@
           "at": "2026-06-13T23:12:00+08:00",
           "status": "ready_to_merge",
           "note": "GitHub checks passed on PR #1133 after the scoped fix. Pre-merge scope validation and git diff --check passed; untracked docs/research files were left out of scope and not staged."
+        },
+        {
+          "at": "2026-06-21T08:22:15Z",
+          "status": "merged_reconciled",
+          "note": "Reconciled stale ledger state from GitHub: PR #1133 is merged, 185df2cccfa6df158770ed4db12f17245308bd9c is in origin/main, required checks passed, and codex/personality-seo-current-audit-01 is absent locally/remotely."
         }
       ]
     },
@@ -24111,17 +24174,21 @@
       "id": "PERSONALITY-DETAIL-CONTENT-COVERAGE-01",
       "repo": "fap-api",
       "branch": "codex/personality-detail-content-coverage-01",
-      "status": "blocked_dependency",
-      "commit_sha": null,
-      "pr_url": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
+      "status": "merged_reconciled_cross_repo",
+      "commit_sha": "8235dad00c4f9fca50e3d3d13de6205dddabe5be",
+      "pr_url": "https://github.com/fermatmind/fap-api/pull/2074",
+      "merged_at": "2026-06-13T15:36:47Z",
+      "remote_branch_deleted": true,
       "local_cleanup_executed": false,
-      "failure_reason": "Blocked until PERSONALITY-SEO-CURRENT-AUDIT-01 is merged and post-merge revalidated.",
+      "failure_reason": null,
       "checks": {
         "dependency": {
           "status": "blocked",
           "evidence": "Depends on PERSONALITY-SEO-CURRENT-AUDIT-01."
+        },
+        "ledger_reconciliation": {
+          "status": "pass",
+          "evidence": "Reconciled on 2026-06-21: GitHub reports fap-api PR #2074 MERGED at 2026-06-13T15:36:47Z with merge commit 8235dad00c4f9fca50e3d3d13de6205dddabe5be; GitHub required checks were SUCCESS before merge. GitHub compare confirms the merge commit is contained by fap-api main; remote task branch is absent. Local fap-api cleanup was not executed from this fap-web ledger worktree."
         }
       },
       "history": [
@@ -24129,6 +24196,11 @@
           "at": "2026-06-13T22:29:23+08:00",
           "status": "blocked_dependency",
           "note": "Initialized backend content coverage follow-up; execution deferred until the current audit PR is merged and revalidated."
+        },
+        {
+          "at": "2026-06-21T08:22:15Z",
+          "status": "merged_reconciled",
+          "note": "Reconciled stale cross-repo ledger state from GitHub: fap-api PR #2074 is merged, 8235dad00c4f9fca50e3d3d13de6205dddabe5be is contained by fap-api main, required checks passed, and the remote branch is absent."
         }
       ]
     },
@@ -24601,12 +24673,12 @@
       "id": "PERSONALITY-SEO-POST-DEPLOY-INDEXATION-AUDIT-01",
       "repo": "fap-web",
       "branch": "codex/personality-seo-post-deploy-indexation-audit-01",
-      "status": "ready_to_merge",
-      "commit_sha": "7eccd5a48a1a9000c30072b18dd102538fccf137",
+      "status": "merged",
+      "commit_sha": "b69dabca03a412baf8aababc9ebcbacbb9096cf6",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1145",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-14T06:37:22Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "failure_reason": null,
       "checks": {
         "authorization": {
@@ -24632,6 +24704,10 @@
         "github_checks": {
           "status": "pass",
           "evidence": "GitHub checks passed on PR #1145 head 7eccd5a48a1a9000c30072b18dd102538fccf137: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL."
+        },
+        "ledger_reconciliation": {
+          "status": "pass",
+          "evidence": "Reconciled on 2026-06-21: GitHub reports fap-web PR #1145 MERGED at 2026-06-14T06:37:22Z with merge commit b69dabca03a412baf8aababc9ebcbacbb9096cf6; GitHub required checks were SUCCESS before merge. origin/main contains the merge commit; remote and local task branches are absent in this cleanup worktree."
         }
       },
       "history": [
@@ -24659,6 +24735,11 @@
           "at": "2026-06-14T14:32:20+08:00",
           "status": "ready_to_merge",
           "note": "GitHub checks passed on PR #1145 head 7eccd5a48a1a9000c30072b18dd102538fccf137 and the PR is ready for squash merge if repo policy allows."
+        },
+        {
+          "at": "2026-06-21T08:22:15Z",
+          "status": "merged_reconciled",
+          "note": "Reconciled stale ledger state from GitHub: PR #1145 is merged, b69dabca03a412baf8aababc9ebcbacbb9096cf6 is in origin/main, required checks passed, and codex/personality-seo-post-deploy-indexation-audit-01 is absent locally/remotely."
         }
       ]
     },
@@ -24866,12 +24947,12 @@
       "id": "PUBLIC-PROFILE-SEO-ASSET-FACTORY-SKILL-AUTOMATION-01",
       "repo": "fap-web",
       "branch": "codex/public-profile-seo-asset-factory-skill-automation-01",
-      "status": "pr_opened",
-      "commit_sha": "8f1f091f65c34dabbf0456fba4e5ec04cb13b670",
+      "status": "merged",
+      "commit_sha": "e31436814d2cc1308eb849ba343826303da24bf7",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1154",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-14T12:26:36Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "failure_reason": null,
       "checks": {
         "authorization": {
@@ -24885,6 +24966,10 @@
         "local_validation": {
           "status": "pass",
           "evidence": "Passed: parsed all JSON files under .agents/skills/public-profile-seo-asset-factory; parsed docs/codex/pr-train-state.json; parsed docs/codex/pr-train.yaml; verified no app/components/lib/public/package/pnpm-lock/sitemap/llms forbidden path changes; git diff --check passed."
+        },
+        "ledger_reconciliation": {
+          "status": "pass",
+          "evidence": "Reconciled on 2026-06-21: GitHub reports fap-web PR #1154 MERGED at 2026-06-14T12:26:36Z with merge commit e31436814d2cc1308eb849ba343826303da24bf7; GitHub required checks were SUCCESS before merge. origin/main contains the merge commit; remote and local task branches are absent in this cleanup worktree."
         }
       },
       "history": [
@@ -24902,6 +24987,11 @@
           "at": "2026-06-14T20:24:32+08:00",
           "status": "pr_opened",
           "note": "Opened PR #1154 for the scoped automation skill change."
+        },
+        {
+          "at": "2026-06-21T08:22:15Z",
+          "status": "merged_reconciled",
+          "note": "Reconciled stale ledger state from GitHub: PR #1154 is merged, e31436814d2cc1308eb849ba343826303da24bf7 is in origin/main, required checks passed, and codex/public-profile-seo-asset-factory-skill-automation-01 is absent locally/remotely."
         }
       ]
     },
@@ -25253,12 +25343,12 @@
       "id": "SEO-FREE-TEST-ARTICLE-INTERNAL-LINKS-05",
       "repo": "fap-web",
       "branch": "codex/seo-free-test-article-internal-links-05",
-      "status": "ready_to_merge",
-      "commit_sha": "adfcfaac5e5c5726cd342c6de7e1e4a187947c1c",
+      "status": "merged",
+      "commit_sha": "cba89c07f0a3436399fee8461ac73fd76ad54796",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1159",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-14T13:58:37Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "failure_reason": null,
       "checks": {
         "authorization": {
@@ -25299,6 +25389,10 @@
             "analyze (javascript-typescript)"
           ],
           "evidence": "GitHub checks passed on PR #1159 head adfcfaac5e5c5726cd342c6de7e1e4a187947c1c: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL, and analyze (javascript-typescript). mergeStateStatus is CLEAN and PR changed-file scope revalidation passed."
+        },
+        "ledger_reconciliation": {
+          "status": "pass",
+          "evidence": "Reconciled on 2026-06-21: GitHub reports fap-web PR #1159 MERGED at 2026-06-14T13:58:37Z with merge commit cba89c07f0a3436399fee8461ac73fd76ad54796; GitHub required checks were SUCCESS before merge. origin/main contains the merge commit; remote and local task branches are absent in this cleanup worktree."
         }
       },
       "history": [
@@ -25321,6 +25415,11 @@
           "at": "2026-06-14T21:56:00+08:00",
           "status": "ready_to_merge",
           "note": "GitHub checks passed on PR #1159 head adfcfaac5e5c5726cd342c6de7e1e4a187947c1c and mergeStateStatus is CLEAN; PR changed-file scope revalidation passed."
+        },
+        {
+          "at": "2026-06-21T08:22:15Z",
+          "status": "merged_reconciled",
+          "note": "Reconciled stale ledger state from GitHub: PR #1159 is merged, cba89c07f0a3436399fee8461ac73fd76ad54796 is in origin/main, required checks passed, and codex/seo-free-test-article-internal-links-05 is absent locally/remotely."
         }
       ]
     }
