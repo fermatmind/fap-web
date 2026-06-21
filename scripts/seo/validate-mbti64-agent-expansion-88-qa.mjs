@@ -3,6 +3,7 @@ import path from "node:path";
 
 const ROOT = process.cwd();
 const DATE = "2026-06-21";
+const GENERATED_AT = process.env.GENERATED_AT || new Date().toISOString();
 const INPUT_PATH = "docs/seo/personality/mbti64-agent-expansion-88-recommendations-2026-06-21.json";
 const OUTPUT_JSON_PATH = `docs/seo/personality/mbti64-agent-expansion-88-qa-${DATE}.json`;
 const OUTPUT_MD_PATH = `docs/seo/personality/mbti64-agent-expansion-88-qa-${DATE}.md`;
@@ -95,6 +96,16 @@ const RESULT_LEAKAGE_PATTERNS = [
   /\b报告引擎\b/i,
   /\b结果\s*ID\b/i,
 ];
+
+const GRAMMAR_PATTERNS = [
+  /\ban\s+Turbulent\b/i,
+  /\ba\s+Assertive\b/i,
+];
+
+const MBTI_CODE_PATTERN = /\b(?:INTJ|INTP|ENTJ|ENTP|INFJ|INFP|ENFJ|ENFP|ISTJ|ISFJ|ESTJ|ESFJ|ISTP|ISFP|ESTP|ESFP)(?:-[AT])?\b/gi;
+const ZH_MBTI_CODE_PATTERN = /(?:INTJ|INTP|ENTJ|ENTP|INFJ|INFP|ENFJ|ENFP|ISTJ|ISFJ|ESTJ|ESFJ|ISTP|ISFP|ESTP|ESFP)(?:-[AT])?/gi;
+const STYLE_PATTERN = /\b(?:Assertive|Turbulent)\b/gi;
+const ZH_STYLE_PATTERN = /(?:A 型|T 型|A型|T型)/gi;
 
 function readJson(file) {
   return JSON.parse(fs.readFileSync(path.join(ROOT, file), "utf8"));
@@ -245,6 +256,18 @@ function visibleClaimText(item) {
   ].join(" ");
 }
 
+function visibleEditorialText(item) {
+  const recommendation = item.recommendations ?? {};
+  const faqAnswerText = (recommendation.faq ?? [])
+    .map((faq) => faq.answer ?? "")
+    .join(" ");
+
+  return [
+    recommendation.quick_answer?.recommended,
+    faqAnswerText,
+  ].join(" ");
+}
+
 function buildDuplicateSignatures(recommendations) {
   const signatures = new Map();
   for (const item of recommendations) {
@@ -256,6 +279,23 @@ function buildDuplicateSignatures(recommendations) {
       normalizeText(recommendation.quick_answer?.recommended),
       normalizeText((recommendation.faq ?? []).map((faq) => faq.question).join("|")),
     ].join(" :: ");
+    const urls = signatures.get(signature) ?? [];
+    urls.push(item.target_url);
+    signatures.set(signature, urls);
+  }
+  return [...signatures.entries()]
+    .filter(([, urls]) => urls.length > 1)
+    .map(([signature, urls]) => ({ signature, urls }));
+}
+
+function buildNormalizedEditorialDuplicateSignatures(recommendations) {
+  const signatures = new Map();
+  for (const item of recommendations) {
+    const signature = normalizeText(visibleEditorialText(item))
+      .replace(MBTI_CODE_PATTERN, "TYPE")
+      .replace(ZH_MBTI_CODE_PATTERN, "TYPE")
+      .replace(STYLE_PATTERN, "STYLE")
+      .replace(ZH_STYLE_PATTERN, "STYLE");
     const urls = signatures.get(signature) ?? [];
     urls.push(item.target_url);
     signatures.set(signature, urls);
@@ -289,6 +329,7 @@ function buildBilingualConsistency(recommendations) {
 const input = readJson(INPUT_PATH);
 const recommendations = input.recommendations ?? [];
 const duplicateGroups = buildDuplicateSignatures(recommendations);
+const normalizedEditorialDuplicateGroups = buildNormalizedEditorialDuplicateSignatures(recommendations);
 const bilingualConsistency = buildBilingualConsistency(recommendations);
 
 const pageResults = recommendations.map((item) => {
@@ -300,6 +341,7 @@ const pageResults = recommendations.map((item) => {
   const claimRiskHits = findPatternHits(visibleClaims, CLAIM_RISK_PATTERNS);
   const privateRouteHits = findPrivateRouteHits(item, serialized);
   const resultLeakageHits = findPatternHits(visibleClaims, RESULT_LEAKAGE_PATTERNS);
+  const grammarHits = findPatternHits(visibleClaims, GRAMMAR_PATTERNS);
   const seoProjectionErrors = [];
   const title = item.recommendations?.title?.recommended ?? "";
   const description = item.recommendations?.description?.recommended ?? "";
@@ -320,6 +362,7 @@ const pageResults = recommendations.map((item) => {
     ...claimRiskHits.map((hit) => `claim_risk_hit:${hit}`),
     ...privateRouteHits.map((hit) => `private_route_hit:${hit}`),
     ...resultLeakageHits.map((hit) => `result_leakage_hit:${hit}`),
+    ...grammarHits.map((hit) => `grammar_hit:${hit}`),
     ...seoProjectionErrors,
   ];
 
@@ -347,10 +390,15 @@ const pageResults = recommendations.map((item) => {
 });
 
 const duplicateBlockedUrls = new Set(duplicateGroups.flatMap((group) => group.urls));
+const normalizedDuplicateBlockedUrls = new Set(normalizedEditorialDuplicateGroups.flatMap((group) => group.urls));
 for (const result of pageResults) {
-  if (duplicateBlockedUrls.has(result.target_url)) {
+  if (duplicateBlockedUrls.has(result.target_url) || normalizedDuplicateBlockedUrls.has(result.target_url)) {
     result.gates.duplicate_template_gate = "fail";
-    result.blockers.push("duplicate_template_signature");
+    result.blockers.push(
+      normalizedDuplicateBlockedUrls.has(result.target_url)
+        ? "normalized_editorial_duplicate_template_signature"
+        : "duplicate_template_signature",
+    );
     result.decision = "NO_GO_BLOCKED_BY_QA";
   }
 }
@@ -371,7 +419,7 @@ const finalDecision =
 
 const report = {
   artifact: "MBTI64-PUBLIC-PROFILE-AGENT-EXPANSION-88-QA-01",
-  generated_at: new Date().toISOString(),
+  generated_at: GENERATED_AT,
   status: finalDecision.toLowerCase(),
   input_artifact: INPUT_PATH,
   scope:
@@ -383,6 +431,7 @@ const report = {
     blocked_count: blockedCount,
     warning_count: warnings.length,
     duplicate_signature_group_count: duplicateGroups.length,
+    normalized_editorial_duplicate_signature_group_count: normalizedEditorialDuplicateGroups.length,
     bilingual_asymmetric_type_count: bilingualConsistency.asymmetric_type_count,
     gsc_evidence_state: "GSC_EVIDENCE_PENDING",
   },
@@ -390,15 +439,20 @@ const report = {
     schema_validation_failures: pageResults.filter((result) => result.gates.schema_validation === "fail").length,
     trademark_claim_failures: pageResults.filter((result) => result.gates.trademark_claim_gate === "fail").length,
     claim_risk_failures: pageResults.filter((result) => result.gates.claim_risk_gate === "fail").length,
-    duplicate_template_failures: duplicateBlockedUrls.size,
+    duplicate_template_failures: new Set([...duplicateBlockedUrls, ...normalizedDuplicateBlockedUrls]).size,
     private_route_failures: pageResults.filter((result) => result.gates.private_route_gate === "fail").length,
     result_page_leakage_failures: pageResults.filter((result) => result.gates.result_page_leakage_gate === "fail").length,
     seo_projection_failures: pageResults.filter((result) => result.gates.seo_projection_gate === "fail").length,
     bilingual_consistency_failures: bilingualConsistency.asymmetric_type_count,
+    grammar_editorial_failures: pageResults.filter((result) =>
+      result.blockers.some((blocker) => blocker.startsWith("grammar_hit:")),
+    ).length,
   },
   duplicate_template_gate: {
     duplicate_signature_group_count: duplicateGroups.length,
     duplicate_groups: duplicateGroups,
+    normalized_editorial_duplicate_signature_group_count: normalizedEditorialDuplicateGroups.length,
+    normalized_editorial_duplicate_groups: normalizedEditorialDuplicateGroups,
   },
   bilingual_consistency_gate: bilingualConsistency,
   page_results: pageResults,
@@ -435,11 +489,13 @@ This is an artifact-only QA gate over the 88 MBTI64 public profile draft recomme
 | Ready for CMS draft | ${report.summary.pass_ready_for_cms_draft_count} |
 | Blocked by QA | ${report.summary.blocked_count} |
 | Duplicate signature groups | ${report.summary.duplicate_signature_group_count} |
+| Normalized editorial duplicate groups | ${report.summary.normalized_editorial_duplicate_signature_group_count} |
 | Private route failures | ${report.gate_rollup.private_route_failures} |
 | Result leakage failures | ${report.gate_rollup.result_page_leakage_failures} |
 | Trademark/official-claim failures | ${report.gate_rollup.trademark_claim_failures} |
 | Claim risk failures | ${report.gate_rollup.claim_risk_failures} |
 | SEO projection failures | ${report.gate_rollup.seo_projection_failures} |
+| Grammar/editorial failures | ${report.gate_rollup.grammar_editorial_failures} |
 
 ## Gate Results
 
