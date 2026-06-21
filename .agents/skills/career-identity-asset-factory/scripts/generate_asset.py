@@ -17,6 +17,19 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
+def reader_safe_items(items):
+    safe = []
+    for item in items or []:
+        safe.append(
+            {
+                "item_type": item.get("item_type"),
+                "captured_fact": item.get("captured_fact"),
+                "boundary": item.get("boundary"),
+            }
+        )
+    return safe
+
+
 def main() -> int:
     args = parse_args()
     now = datetime.datetime.now(datetime.timezone.utc).isoformat()
@@ -39,12 +52,11 @@ def main() -> int:
                 "mapping_quality": facts.get("mapping_quality"),
                 "boundary_type": facts.get("boundary_type"),
             },
-            "items": synthesis.get("items") or [],
+            "items": reader_safe_items(synthesis.get("items") or []),
             "sources": [
                 {"name": source.get("source_name") or source.get("name"), "url": source.get("url") or source.get("final_url"), "boundary": source.get("boundary")}
                 for source in synthesis.get("sources", [])
             ],
-            "evidence_used": synthesis.get("evidence_used") or [],
             "limitations": synthesis.get("limitations") or [],
             "derived_from_synthesis": {
                 "synthesis_row_hash": synthesis.get("audit_fields", {}).get("row_hash"),
