@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Run career-skills-entry trust audit over evidence rows."""
+"""Compatibility entrypoint for career-skills-entry evidence generation."""
 
 from __future__ import annotations
 
-from audit_evidence import main
+from collect_evidence import main
 
 
 if __name__ == "__main__":
