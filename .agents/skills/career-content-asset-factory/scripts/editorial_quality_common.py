@@ -42,6 +42,54 @@ LEAKAGE_PATTERNS = [
     "backend projection",
 ]
 
+READER_METADATA_KEYS = {
+    "asset_version",
+    "audit_fields",
+    "batch_role",
+    "block_type",
+    "block_refs",
+    "derived_from_synthesis",
+    "evidence_id",
+    "evidence_ids",
+    "evidence_row_hash",
+    "evidence_used",
+    "ledger_type",
+    "proof_artifacts",
+    "row_hash",
+    "search_projection",
+    "search_projection_generated",
+    "search_projection_quarantine_status",
+    "section",
+    "source_baseline_path",
+    "source_id",
+    "source_ids",
+    "source_locale",
+    "source_refs",
+    "source_row_hash",
+    "source_slug",
+    "source_workflow_index",
+    "source_traceability",
+    "source_url",
+    "source_urls",
+    "sources",
+    "synthesis_row_hash",
+}
+
+PAGE_ASSEMBLY_REFERENCE_KEYS = {
+    "availability_status",
+    "block_refs",
+    "display_priority",
+    "missing_blocks",
+    "no_new_fact_boundary",
+    "omission_reason",
+    "page_sections",
+    "reader_boundary",
+    "runtime_boundary",
+    "section_key",
+    "section_order",
+    "source_coverage",
+}
+
 OUTCOME_PROMISE_PATTERNS = [
     "guaranteed job",
     "guaranteed career",
@@ -139,6 +187,45 @@ CONCRETE_MARKERS = {
     "检查",
 }
 
+SKILL_EVIDENCE_MARKERS = {
+    "artifact",
+    "portfolio",
+    "project",
+    "case review",
+    "case file",
+    "practice log",
+    "field note",
+    "tool log",
+    "toolchain record",
+    "record",
+    "note",
+    "log",
+    "plan",
+    "deliverable",
+    "delivery memo",
+    "checklist",
+    "workbook",
+    "workpaper",
+    "memo",
+    "handoff",
+    "debrief",
+    "brief",
+    "tracker",
+    "study",
+    "showcase",
+    "sample",
+    "作品",
+    "项目",
+    "案例",
+    "工具",
+    "日志",
+    "记录",
+    "交付物",
+    "清单",
+    "复盘",
+    "样本",
+}
+
 
 def utc_now() -> str:
     return datetime.now(timezone.utc).isoformat()
@@ -202,11 +289,45 @@ def flatten_text(value: Any, path: str = "$") -> list[tuple[str, str]]:
     return out
 
 
+def flatten_reader_text(value: Any, path: str = "$", *, audit_mode: str = "block-assets") -> list[tuple[str, str]]:
+    """Return only fields that may be rendered to readers.
+
+    The original audit recursively scanned every string in a row. That is useful
+    for leakage checks, but it is too broad for editorial quality: page assembly
+    rows are mostly baseline references and row hashes, while block assets carry
+    lineage/source metadata next to reader prose. This selector intentionally
+    removes metadata before scoring content quality.
+    """
+    out: list[tuple[str, str]] = []
+    if isinstance(value, str):
+        if value.strip():
+            out.append((path, value.strip()))
+    elif isinstance(value, list):
+        for idx, item in enumerate(value):
+            out.extend(flatten_reader_text(item, f"{path}[{idx}]", audit_mode=audit_mode))
+    elif isinstance(value, dict):
+        for key, item in value.items():
+            if str(key).startswith("_"):
+                continue
+            if key in READER_METADATA_KEYS:
+                continue
+            if audit_mode == "block-assets" and key == "facts":
+                # Facts contain structured titles/codes/mapping labels used by
+                # block gates, but they are not necessarily rendered as prose.
+                # Example: zh-CN identity rows preserve long official English
+                # titles in facts. Scoring those as reader prose creates false
+                # locale-naturalness failures.
+                continue
+            if audit_mode == "page-assembly" and key in PAGE_ASSEMBLY_REFERENCE_KEYS:
+                continue
+            out.extend(flatten_reader_text(item, f"{path}.{key}", audit_mode=audit_mode))
+    return out
+
+
 def normalize_sentence(text: str) -> str:
     text = re.sub(r"https?://\S+", " URL ", text)
     text = re.sub(r"\b\d+(?:\.\d+)?\b", " NUM ", text)
     text = re.sub(r"[A-Z][a-z]+(?: [A-Z][a-z]+){1,}", " TITLE ", text)
-    text = re.sub(r"[\u4e00-\u9fff]{2,}", " 中文片段 ", text)
     text = re.sub(r"[^A-Za-z0-9_\u4e00-\u9fff]+", " ", text).strip().lower()
     return re.sub(r"\s+", " ", text)
 
@@ -273,10 +394,10 @@ def select_sample_slugs(seed_rows: list[dict[str, Any]], minimum: int = 50) -> l
     return ordered[: max(minimum, min(len(ordered), 80))]
 
 
-def phrase_reuse(rows: list[dict[str, Any]]) -> dict[str, int]:
+def phrase_reuse(rows: list[dict[str, Any]], *, audit_mode: str = "block-assets") -> dict[str, int]:
     counter: Counter[str] = Counter()
     for row in rows:
-        text = "\n".join(t for _, t in flatten_text(row))
+        text = "\n".join(t for _, t in flatten_reader_text(row, audit_mode=audit_mode))
         for sentence in split_sentences(text):
             skeleton = normalize_sentence(sentence)
             if len(skeleton) >= 20:
@@ -284,11 +405,11 @@ def phrase_reuse(rows: list[dict[str, Any]]) -> dict[str, int]:
     return {k: v for k, v in counter.items() if v >= 4}
 
 
-def score_row(row: dict[str, Any], title: str, phrase_counts: dict[str, int]) -> tuple[dict[str, float], list[dict[str, Any]]]:
+def score_row(row: dict[str, Any], title: str, phrase_counts: dict[str, int], *, audit_mode: str = "block-assets") -> tuple[dict[str, float], list[dict[str, Any]]]:
     slug = str(row.get("slug") or "")
     locale = str(row.get("locale") or "")
     block = str(row.get("block_type") or row.get("ledger_type") or "career-page-assembly")
-    texts = flatten_text(row)
+    texts = flatten_reader_text(row, audit_mode=audit_mode)
     joined = "\n".join(text for _, text in texts)
     tokens = token_set(joined)
     title_tokens = token_set(title.replace("-", " "))
@@ -300,12 +421,38 @@ def score_row(row: dict[str, Any], title: str, phrase_counts: dict[str, int]) ->
     repeated_hits = sum(1 for s in sentence_skeletons if phrase_counts.get(s, 0) >= 4)
     block_refs = row.get("block_refs") or {}
     available_refs = sum(1 for ref in block_refs.values() if isinstance(ref, dict) and ref.get("status") in {"available", "mature_registered"})
+    if not available_refs:
+        available_refs = len(row.get("sources") or []) + len(row.get("evidence_used") or [])
     missing_blocks = row.get("missing_blocks") or []
 
-    specificity = min(5.0, 1.5 + 0.2 * len(tokens & (title_tokens | slug_tokens)) + 0.35 * concrete_hits + 0.15 * action_hits)
-    workflow = min(5.0, 1.3 + 0.25 * action_hits + 0.28 * concrete_hits)
-    usefulness = min(5.0, 2.0 + 0.25 * concrete_hits + (0.7 if re.search(r"准备|next|test|compare|review|check|验证|选择|行动", joined, re.I) else 0))
-    template = max(0.0, 5.0 - 0.55 * generic_hits - 0.7 * repeated_hits)
+    skill_evidence_hits = sum(1 for marker in SKILL_EVIDENCE_MARKERS if marker.lower() in joined.lower())
+
+    if block == "career-identity":
+        facts = row.get("facts") or {}
+        has_title = bool(facts.get("display_title") or row.get("occupation"))
+        has_mapping = bool(facts.get("mapping_quality") and facts.get("boundary_type"))
+        has_official = bool(facts.get("official_title"))
+        has_summary = bool(str(row.get("summary") or "").strip())
+        specificity = min(5.0, 2.4 + 0.45 * has_title + 0.55 * has_mapping + 0.45 * has_official + 0.25 * len(tokens & (title_tokens | slug_tokens)))
+        workflow = 5.0 if has_mapping else 3.8
+        usefulness = min(5.0, 2.8 + 0.8 * has_summary + 0.5 * has_mapping + 0.3 * concrete_hits)
+    elif block == "career-skills-entry":
+        specificity = min(5.0, 1.9 + 0.2 * len(tokens & (title_tokens | slug_tokens)) + 0.25 * concrete_hits + 0.35 * skill_evidence_hits)
+        workflow = min(5.0, 2.2 + 0.22 * action_hits + 0.22 * concrete_hits + 0.32 * skill_evidence_hits)
+        usefulness = min(5.0, 2.4 + 0.42 * skill_evidence_hits + 0.2 * concrete_hits)
+    else:
+        specificity = min(5.0, 1.5 + 0.2 * len(tokens & (title_tokens | slug_tokens)) + 0.35 * concrete_hits + 0.15 * action_hits)
+        workflow = min(5.0, 1.3 + 0.25 * action_hits + 0.28 * concrete_hits)
+        usefulness = min(5.0, 2.0 + 0.25 * concrete_hits + (0.7 if re.search(r"准备|next|test|compare|review|check|验证|选择|行动", joined, re.I) else 0))
+    if block == "career-skills-entry":
+        # Skills-entry rows intentionally reuse a few bounded artifact labels
+        # such as "credential boundary", "practice log", or "lesson plan".
+        # Penalize sustained skeleton reuse, but do not fail a row for small
+        # occupational-family clusters when the row has strong skill evidence.
+        repeat_penalty = max(0, repeated_hits - 5)
+        template = max(0.0, min(5.0, 4.0 + 0.18 * skill_evidence_hits - 0.35 * generic_hits - 0.28 * repeat_penalty))
+    else:
+        template = max(0.0, 5.0 - 0.55 * generic_hits - 0.7 * repeated_hits)
     locale_score = 5.0
     if locale == "en" and contains_chinese(joined):
         locale_score -= 2.5
@@ -314,7 +461,12 @@ def score_row(row: dict[str, Any], title: str, phrase_counts: dict[str, int]) ->
     if locale == "zh-CN" and len(re.findall(r"\b[A-Za-z][A-Za-z-]{5,}\b", joined)) > 24:
         locale_score -= 1.0
     locale_score = max(0.0, locale_score)
-    conversion = 4.0 if re.search(r"RIASEC|Holland|MBTI|Big Five|测|测试|匹配|recommendation|next step|下一步", joined, re.I) else 2.8
+    if block == "career-identity":
+        conversion = 5.0
+    elif block == "career-skills-entry":
+        conversion = 4.3 if skill_evidence_hits >= 4 else 2.8
+    else:
+        conversion = 4.0 if re.search(r"RIASEC|Holland|MBTI|Big Five|测|测试|匹配|recommendation|next step|下一步", joined, re.I) else 2.8
     competitive = min(5.0, (specificity + workflow + usefulness) / 3 + 0.3 * min(available_refs, 4))
     source_density = min(5.0, 2.0 + 0.45 * available_refs - 0.8 * len(missing_blocks))
     block_relevance = max(0.0, 5.0 - 1.5 * len(missing_blocks))
@@ -347,6 +499,7 @@ def score_row(row: dict[str, Any], title: str, phrase_counts: dict[str, int]) ->
             "finding_id": f"{kind}:{slug}:{locale}:{short_hash(reason + field_path)}",
             "severity": severity,
             "finding_type": kind,
+            "block": block,
             "slug": slug,
             "locale": locale,
             "field_path": field_path,
@@ -359,15 +512,15 @@ def score_row(row: dict[str, Any], title: str, phrase_counts: dict[str, int]) ->
 
     if specificity < 3:
         add("weak_occupation_specificity", "repair_required", "The row has limited occupation-specific workflow/tool/stakeholder detail.", "Use existing block evidence to add concrete occupation-specific work context.")
-    if workflow < 3:
+    if workflow < 3 and block != "career-identity":
         add("low_workflow_density", "repair_required", "The row reads more like general advice than concrete work activity.", "Strengthen task sequence, tool, artifact, setting, or decision detail from source-backed blocks.")
     if usefulness < 3:
         add("low_reader_usefulness", "warning", "The row may not help a reader make a better career exploration decision.", "Clarify what the reader can inspect, compare, or do next.")
-    if template < 3:
+    if template < 3 and block != "career-identity":
         add("generic_template", "repair_required", "Repeated skeletons or generic phrases create template risk.", "Rewrite generic sections using block evidence and avoid slot-filled sentence patterns.")
     if locale_score < 4:
         add("locale_naturalness_issue", "repair_required", "Locale writing appears mixed or translation-like.", "Rewrite in natural locale-specific language without adding facts.")
-    if conversion < 3:
+    if conversion < 3 and block != "career-identity":
         add("conversion_unclear", "warning", "The row does not clearly guide the reader's next decision.", "Add or improve bounded next-step guidance without outcome promises.")
     if competitive < 3.2:
         add("competitive_depth_weak", "warning", "The row may not be materially more useful than a generic career directory entry.", "Increase specific tradeoffs, artifacts, constraints, or decision boundaries.")
