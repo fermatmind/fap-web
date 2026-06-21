@@ -9,8 +9,8 @@ import re
 from identity_common import fail_report, read_jsonl
 
 
-LEAKAGE = re.compile(r"\\b(search_projection|sitemap|canonical|noindex|json-ld|jsonld|robots\\.txt|llms\\.txt|cms import|production import|staging_preview)\\b", re.I)
-RAW = re.compile(r"\\b(evidence_id|source_id|row_hash|audit_fields|internal lineage|repair note|gate label)\\b", re.I)
+LEAKAGE = re.compile(r"\b(search_projection|sitemap|canonical|noindex|json-ld|jsonld|robots\.txt|llms\.txt|cms import|production import|staging_preview)\b", re.I)
+RAW = re.compile(r"\b(evidence_id|source_id|row_hash|audit_fields|internal lineage|repair note|gate label)\b", re.I)
 
 
 def parse_args() -> argparse.Namespace:
@@ -34,6 +34,19 @@ def text_values(value):
             yield from text_values(item)
 
 
+def raw_metadata_keys(value):
+    if isinstance(value, dict):
+        for key, item in value.items():
+            if key in {"audit_fields", "derived_from_synthesis"}:
+                continue
+            if RAW.search(str(key)):
+                yield key
+            yield from raw_metadata_keys(item)
+    elif isinstance(value, list):
+        for item in value:
+            yield from raw_metadata_keys(item)
+
+
 def main() -> int:
     args = parse_args()
     assets = read_jsonl(args.assets)
@@ -49,6 +62,9 @@ def main() -> int:
             findings.append({"slug": slug, "locale": locale, "issue": "runtime_or_search_instruction_leakage"})
         if RAW.search(text):
             findings.append({"slug": slug, "locale": locale, "issue": "raw_internal_metadata_leakage"})
+        leaked_keys = sorted(set(raw_metadata_keys(row)))
+        if leaked_keys:
+            findings.append({"slug": slug, "locale": locale, "issue": "raw_internal_metadata_key_leakage", "keys": leaked_keys})
         if row.get("facts", {}).get("display_title") in (None, ""):
             findings.append({"slug": slug, "locale": locale, "issue": "missing_display_title"})
         if row.get("facts", {}).get("mapping_quality") in (None, ""):
