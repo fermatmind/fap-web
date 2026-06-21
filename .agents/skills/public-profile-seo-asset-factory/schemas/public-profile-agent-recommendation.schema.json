@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fermatmind.com/schemas/public-profile/public-profile-agent-recommendation.schema.json",
+  "title": "Public Profile Agent Recommendation",
+  "type": "object",
+  "required": [
+    "recommendation_id",
+    "target_url",
+    "framework",
+    "locale",
+    "source_inputs",
+    "current_surface",
+    "observed_signal",
+    "reference_patterns_used",
+    "recommendations",
+    "qa_required",
+    "blocked_reason",
+    "status"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "recommendation_id": { "type": "string", "minLength": 1 },
+    "target_url": {
+      "type": "string",
+      "pattern": "^https://fermatmind\\.com/(en|zh)/personality/.+"
+    },
+    "framework": { "enum": ["mbti64", "big_five", "enneagram"] },
+    "locale": { "enum": ["en", "zh-CN"] },
+    "source_inputs": {
+      "type": "object",
+      "required": ["cms_or_api_snapshot", "reference_pack", "seo_signal", "source_ledger"],
+      "additionalProperties": false,
+      "properties": {
+        "cms_or_api_snapshot": { "type": "string" },
+        "reference_pack": { "type": "string" },
+        "seo_signal": { "type": "string" },
+        "source_ledger": { "type": "string" }
+      }
+    },
+    "current_surface": {
+      "type": "object",
+      "required": ["title", "description", "h1", "quick_answer", "faq_count", "internal_link_count"],
+      "additionalProperties": false,
+      "properties": {
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "h1": { "type": "string" },
+        "quick_answer": { "type": "string" },
+        "faq_count": { "type": "integer", "minimum": 0 },
+        "internal_link_count": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "observed_signal": {
+      "type": "object",
+      "required": ["evidence_state", "impressions", "clicks", "ctr", "average_position", "notes"],
+      "additionalProperties": false,
+      "properties": {
+        "evidence_state": { "enum": ["gsc_verified", "gsc_pending", "runtime_only", "evidence_gap"] },
+        "impressions": { "type": ["number", "null"], "minimum": 0 },
+        "clicks": { "type": ["number", "null"], "minimum": 0 },
+        "ctr": { "type": ["number", "null"], "minimum": 0 },
+        "average_position": { "type": ["number", "null"], "minimum": 0 },
+        "notes": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "reference_patterns_used": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["pattern_id", "source_url", "how_used"],
+        "additionalProperties": false,
+        "properties": {
+          "pattern_id": { "type": "string" },
+          "source_url": { "type": "string" },
+          "how_used": { "type": "string" }
+        }
+      }
+    },
+    "recommendations": {
+      "type": "object",
+      "required": ["title", "description", "h1", "quick_answer", "faq", "internal_links", "differentiation_notes"],
+      "additionalProperties": false,
+      "properties": {
+        "title": { "$ref": "#/$defs/recommendedText" },
+        "description": { "$ref": "#/$defs/recommendedText" },
+        "h1": { "$ref": "#/$defs/recommendedText" },
+        "quick_answer": { "$ref": "#/$defs/recommendedText" },
+        "faq": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["question", "answer", "reason"],
+            "additionalProperties": false,
+            "properties": {
+              "question": { "type": "string" },
+              "answer": { "type": "string" },
+              "reason": { "type": "string" }
+            }
+          }
+        },
+        "internal_links": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["href", "anchor_text", "reason", "safe_public_route"],
+            "additionalProperties": false,
+            "properties": {
+              "href": { "type": "string", "pattern": "^/(en|zh)/" },
+              "anchor_text": { "type": "string" },
+              "reason": { "type": "string" },
+              "safe_public_route": { "type": "boolean" }
+            }
+          }
+        },
+        "differentiation_notes": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "qa_required": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "schema_validation",
+          "trademark_claim_gate",
+          "claim_risk_gate",
+          "duplicate_template_gate",
+          "private_route_gate",
+          "result_page_leakage_gate",
+          "seo_projection_gate",
+          "bilingual_consistency_gate"
+        ]
+      }
+    },
+    "blocked_reason": { "type": ["string", "null"] },
+    "status": { "enum": ["draft_recommendation", "blocked", "qa_ready"] }
+  },
+  "$defs": {
+    "recommendedText": {
+      "type": "object",
+      "required": ["current", "recommended", "reason"],
+      "additionalProperties": false,
+      "properties": {
+        "current": { "type": "string" },
+        "recommended": { "type": "string" },
+        "reason": { "type": "string" }
+      }
+    }
+  }
+}
