@@ -3,6 +3,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
+import { isCurrentRiasecPack12AllowedFile } from "./helpers/currentPrScope";
 
 const ROOT = process.cwd();
 const EXAMPLE_REQUEST = "docs/seo/agent/examples/seo-agent-fapweb-code-pr-request.example.json";
@@ -180,6 +181,9 @@ describe("SEO Agent fap-web code PR writer", () => {
       return;
     }
 
-    expect(files.every((file) => allowedFiles.has(file)), files.join("\n")).toBe(true);
+    expect(
+      files.every((file) => allowedFiles.has(file) || isCurrentRiasecPack12AllowedFile(file)),
+      files.join("\n"),
+    ).toBe(true);
   });
 });

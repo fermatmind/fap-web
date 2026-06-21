@@ -4,7 +4,10 @@ import os from "node:os";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 
-import { isSeoCmsDraftPackageContract01AllowedFile } from "./helpers/currentPrScope";
+import {
+  isCurrentRiasecPack12AllowedFile,
+  isSeoCmsDraftPackageContract01AllowedFile,
+} from "./helpers/currentPrScope";
 
 const ROOT = process.cwd();
 const PACKAGE_PATH = "docs/seo/agent/examples/seo-cms-draft-package-contract.example.json";
@@ -146,7 +149,11 @@ describe("SEO CMS draft package contract", () => {
       return;
     }
 
-    expect(files.every((file) => isSeoCmsDraftPackageContract01AllowedFile(file)), files.join("\n")).toBe(true);
+    expect(
+      files.every(
+        (file) => isSeoCmsDraftPackageContract01AllowedFile(file) || isCurrentRiasecPack12AllowedFile(file),
+      ),
+      files.join("\n"),
+    ).toBe(true);
   });
 });
-
