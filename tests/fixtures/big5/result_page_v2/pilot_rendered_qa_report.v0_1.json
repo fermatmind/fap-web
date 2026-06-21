@@ -1,31 +1,55 @@
 {
-  "schema": "fap.big5.result_page_v2.pilot_rendered_qa_report.web.v0_1",
-  "package_key": "big5_result_page_v2.o59_pilot_rendered_qa.web.v0_1",
-  "mode": "pilot_rendered_qa_contract",
+  "schema": "fap.big5.result_page_v2.pilot_rendered_qa_report.v0_1",
+  "package_key": "big5_result_page_v2.o59_pilot_rendered_qa.v0_1",
+  "created_at_utc": "2026-05-05T07:50:34Z",
+  "mode": "pilot_rendered_qa_advisory",
   "runtime_use": "not_runtime",
   "production_use_allowed": false,
+  "ready_for_asset_review": true,
+  "ready_for_pilot": false,
   "ready_for_runtime": false,
   "ready_for_production": false,
+  "surface_count": 6,
+  "surface_status_counts": {
+    "pass": 6,
+    "pending_surface": 0,
+    "fail": 0
+  },
   "passed_surfaces": [
     "result_page_desktop",
-    "result_page_mobile"
-  ],
-  "failed_surfaces": [],
-  "pending_surfaces": [
+    "result_page_mobile",
     "pdf",
     "share_card",
     "history",
     "compare"
   ],
-  "pilot_rendered_qa": {
-    "desktop_mobile_result_page_contract_available": true,
-    "all_required_surfaces_passed": false,
-    "pilot_user_surface_release_blocked": true,
+  "failed_surfaces": [],
+  "pending_surfaces": [],
+  "public_payload_banned_scan": {
+    "status": "pass",
+    "scan_scope": "repo_owned_o59_pilot_payload_visible_fields_only",
+    "terms_scanned_from": "big5_o59_pilot_rendered_qa_surface_matrix_v0_1.json.banned_rendered_terms_union"
+  },
+  "pilot_readiness": {
+    "pilot_runtime_flag_default_off": true,
+    "pilot_runtime_available_in_allowed_non_production_environment": true,
+    "result_page_desktop_contract_available": true,
+    "result_page_mobile_contract_available": true,
+    "pdf_contract_available": true,
+    "share_card_contract_available": true,
+    "history_contract_available": true,
+    "compare_contract_available": true,
+    "all_required_surfaces_passed": true,
+    "pilot_rendered_qa_complete": true,
+    "pilot_can_proceed_for_default_off_backend_payload_preview": true,
+    "pilot_user_surface_release_blocked": false,
     "production_blocked": true
   },
+  "remaining_blockers": [],
   "not_allowed": [
-    "Do not mark PDF, share, history, or compare as pass without a rendered harness.",
-    "Do not use frontend-authored Big Five body fallback for V2 pilot payloads.",
-    "Do not expose internal metadata or staging flags in public rendered text."
+    "Do not treat this advisory QA report as production approval.",
+    "Do not enable production runtime.",
+    "Do not add frontend-authored Big Five explanation fallback.",
+    "Do not generate final big5_result_page_v2 payloads for frontend in this advisory package."
   ]
 }

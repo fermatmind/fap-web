@@ -270,7 +270,7 @@
     "scenario_priorities": [],
     "expected_suppressed_refs": ["pdf_surface", "share_card_surface", "history_surface", "compare_surface"],
     "metadata_non_leak_terms": ["source_reference", "selector_basis", "internal_metadata", "production_use_allowed", "runtime_use", "[object Object]"],
-    "notes": "PDF/share/history/compare remain pending_surface until real harness evidence exists."
+    "notes": "PDF/share/history/compare route refs remain suppressed from the result-page payload; M6 secondary surface coverage is proven by dedicated backend adapter fixtures and fap-web rendered QA contracts."
   },
   {
     "case_id": "route_golden_14_alias_coupling_resolution",

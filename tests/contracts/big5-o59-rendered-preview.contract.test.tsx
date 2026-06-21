@@ -6,7 +6,7 @@ import { BIG5_RESULT_PAGE_V2_PAYLOAD_KEY } from "@/lib/big5/resultPageV2";
 import o59Envelope from "@/tests/fixtures/big5/result_page_v2/canonical_o59_core_body_preview.payload.json";
 
 const TESTED_SURFACES = ["result_page_desktop", "result_page_mobile"] as const;
-const PENDING_SURFACES = ["pdf", "share_card", "history", "compare"] as const;
+const M6_SECONDARY_SURFACES = ["pdf", "share_card", "history", "compare"] as const;
 
 const MUST_RENDER_TERMS = [
   "敏锐的独立思考者",
@@ -30,6 +30,14 @@ const MUST_RENDER_TERMS = [
 const SCORE_TERMS = ["O59", "C32", "E20", "A55", "N68"] as const;
 
 const MUST_NOT_RENDER_TERMS = [
+  "private URL",
+  "attempt id",
+  "footer",
+  "Big Five Report Engine",
+  "PR3B",
+  "AttemptReadController",
+  "payload",
+  "registry",
   "A compact overview",
   "Norms Comparison",
   "Methodology and Access",
@@ -102,9 +110,9 @@ describe("Big Five V2 O59 rendered preview contract", () => {
     }
   });
 
-  it("keeps unsupported rendered preview surfaces explicit instead of claiming a false pass", () => {
+  it("keeps secondary surface coverage delegated to the dedicated M6 rendered QA contracts", () => {
     expect(TESTED_SURFACES).toEqual(["result_page_desktop", "result_page_mobile"]);
-    expect(PENDING_SURFACES).toEqual(["pdf", "share_card", "history", "compare"]);
+    expect(M6_SECONDARY_SURFACES).toEqual(["pdf", "share_card", "history", "compare"]);
   });
 
   it("does not synthesize O59 body copy when the V2 payload is missing", () => {

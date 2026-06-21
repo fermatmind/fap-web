@@ -19,7 +19,7 @@ type RenderedQaSurface = {
 };
 
 const TESTED_SURFACES = ["result_page_desktop", "result_page_mobile"] as const;
-const PENDING_SURFACES = ["pdf", "share_card", "history", "compare"] as const;
+const SECONDARY_SURFACES = ["pdf", "share_card", "history", "compare"] as const;
 
 function createO59Report(): ReportResponse {
   return {
@@ -95,7 +95,7 @@ function expectForbiddenTermAbsent(text: string, term: string) {
 }
 
 describe("Big Five V2 O59 expanded rendered QA contract", () => {
-  it("keeps the expanded surface matrix honest about pass and pending surfaces", () => {
+  it("keeps the expanded surface matrix honest about pass evidence for every surface", () => {
     const surfaces = surfacesByKey();
 
     expect(Object.keys(surfaces).sort()).toEqual([
@@ -113,9 +113,12 @@ describe("Big Five V2 O59 expanded rendered QA contract", () => {
       expect(surfaces[surfaceKey].evidence.length).toBeGreaterThan(0);
     }
 
-    for (const surfaceKey of PENDING_SURFACES) {
-      expect(surfaces[surfaceKey].status).toBe("pending_surface");
-      expect(surfaces[surfaceKey].evidence).toEqual([]);
+    for (const surfaceKey of SECONDARY_SURFACES) {
+      expect(surfaces[surfaceKey].status).toBe("pass");
+      expect(surfaces[surfaceKey].evidence.length).toBeGreaterThan(0);
+      expect(surfaces[surfaceKey].evidence.some((entry) => entry.startsWith("backend/app/Services/BigFive/ResultPageV2/"))).toBe(true);
+      expect(surfaces[surfaceKey].evidence.some((entry) => entry.startsWith("backend/tests/Fixtures/big5_result_page_v2/"))).toBe(true);
+      expect(surfaces[surfaceKey].evidence.some((entry) => entry.startsWith("fap-web/tests/contracts/big5-"))).toBe(true);
     }
   });
 
@@ -138,12 +141,12 @@ describe("Big Five V2 O59 expanded rendered QA contract", () => {
     }
   });
 
-  it("does not treat secondary surfaces as covered by the O59 rendered preview until real harnesses exist", () => {
+  it("treats secondary surfaces as covered only through backend fixture and rendered contract evidence", () => {
     const surfaces = surfacesByKey();
 
-    expect(surfaces.pdf.coverage).toContain("no_o59_pdf_render_harness");
-    expect(surfaces.share_card.coverage).toContain("no_o59_share_card_render_harness");
-    expect(surfaces.history.coverage).toContain("not_o59_v2_payload_rendered_preview");
-    expect(surfaces.compare.coverage).toContain("not_o59_v2_payload_rendered_preview");
+    expect(surfaces.pdf.coverage).toBe("backend_adapter_fixture_plus_fap_web_rendered_contract");
+    expect(surfaces.share_card.coverage).toBe("backend_share_safe_fixture_plus_fap_web_rendered_contract");
+    expect(surfaces.history.coverage).toBe("backend_history_snapshot_fixture_plus_fap_web_rendered_contract");
+    expect(surfaces.compare.coverage).toBe("backend_compare_snapshot_fixture_plus_fap_web_rendered_contract");
   });
 });

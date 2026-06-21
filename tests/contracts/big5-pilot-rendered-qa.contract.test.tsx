@@ -21,7 +21,7 @@ type PilotRenderedQaSurface = {
 };
 
 const TESTED_SURFACES = ["result_page_desktop", "result_page_mobile"] as const;
-const PENDING_SURFACES = ["pdf", "share_card", "history", "compare"] as const;
+const SECONDARY_SURFACES = ["pdf", "share_card", "history", "compare"] as const;
 
 function createPilotReport(overrides: Partial<ReportResponse> = {}): ReportResponse {
   return {
@@ -59,7 +59,7 @@ function visibleText(): string {
 }
 
 describe("Big Five V2 pilot rendered QA contract", () => {
-  it("keeps the pilot rendered QA matrix explicit about pass and pending surfaces", () => {
+  it("keeps the pilot rendered QA matrix explicit about pass evidence for every surface", () => {
     const surfaces = surfacesByKey();
 
     expect(Object.keys(surfaces).sort()).toEqual([
@@ -73,26 +73,27 @@ describe("Big Five V2 pilot rendered QA contract", () => {
 
     for (const surfaceKey of TESTED_SURFACES) {
       expect(surfaces[surfaceKey].status).toBe("pass");
-      expect(surfaces[surfaceKey].coverage).toBe("fap_web_pilot_rendered_contract");
-      expect(surfaces[surfaceKey].evidence).toEqual([
-        "tests/contracts/big5-pilot-rendered-qa.contract.test.tsx",
-      ]);
+      expect(surfaces[surfaceKey].evidence.length).toBeGreaterThan(0);
     }
 
-    for (const surfaceKey of PENDING_SURFACES) {
-      expect(surfaces[surfaceKey].status).toBe("pending_surface");
-      expect(surfaces[surfaceKey].evidence).toEqual([]);
-      expect(surfaces[surfaceKey].pending_reason).toBeTruthy();
+    for (const surfaceKey of SECONDARY_SURFACES) {
+      expect(surfaces[surfaceKey].status).toBe("pass");
+      expect(surfaces[surfaceKey].evidence.some((entry) => entry.startsWith("backend/app/Services/BigFive/ResultPageV2/"))).toBe(true);
+      expect(surfaces[surfaceKey].evidence.some((entry) => entry.startsWith("backend/tests/Fixtures/big5_result_page_v2/"))).toBe(true);
+      expect(surfaces[surfaceKey].evidence.some((entry) => entry.startsWith("fap-web/tests/contracts/big5-"))).toBe(true);
     }
 
     expect(pilotSurfaceMatrix.status_counts).toEqual({
-      pass: 2,
-      pending_surface: 4,
+      pass: 6,
+      pending_surface: 0,
       fail: 0,
     });
-    expect(pilotRenderedQaReport.pending_surfaces).toEqual(PENDING_SURFACES);
-    expect(pilotRenderedQaReport.pilot_rendered_qa.all_required_surfaces_passed).toBe(false);
-    expect(pilotRenderedQaReport.pilot_rendered_qa.production_blocked).toBe(true);
+    expect(pilotRenderedQaReport.pending_surfaces).toEqual([]);
+    expect(pilotRenderedQaReport.pilot_readiness.all_required_surfaces_passed).toBe(true);
+    expect(pilotRenderedQaReport.pilot_readiness.pilot_rendered_qa_complete).toBe(true);
+    expect(pilotRenderedQaReport.pilot_readiness.production_blocked).toBe(true);
+    expect(pilotRenderedQaReport.ready_for_runtime).toBe(false);
+    expect(pilotRenderedQaReport.ready_for_production).toBe(false);
   });
 
   it.each(TESTED_SURFACES)("%s renders the pilot payload without fallback, metadata, or anti-target leaks", (surfaceKey) => {
@@ -116,12 +117,12 @@ describe("Big Five V2 pilot rendered QA contract", () => {
     expect(text).not.toContain("FRONTEND_FALLBACK_BODY_SHOULD_NOT_RENDER");
   });
 
-  it("does not claim PDF, share, history, or compare pilot rendered coverage without harnesses", () => {
+  it("claims secondary surface coverage only with backend fixture and fap-web rendered contract evidence", () => {
     const surfaces = surfacesByKey();
 
-    expect(surfaces.pdf.coverage).toBe("no_pilot_pdf_render_harness");
-    expect(surfaces.share_card.coverage).toBe("no_pilot_share_card_render_harness");
-    expect(surfaces.history.coverage).toBe("no_pilot_history_surface_contract");
-    expect(surfaces.compare.coverage).toBe("no_pilot_compare_surface_contract");
+    expect(surfaces.pdf.coverage).toBe("backend_adapter_fixture_plus_fap_web_rendered_contract");
+    expect(surfaces.share_card.coverage).toBe("backend_share_safe_fixture_plus_fap_web_rendered_contract");
+    expect(surfaces.history.coverage).toBe("backend_history_snapshot_fixture_plus_fap_web_rendered_contract");
+    expect(surfaces.compare.coverage).toBe("backend_compare_snapshot_fixture_plus_fap_web_rendered_contract");
   });
 });

@@ -44,6 +44,17 @@ const MUST_NOT_RENDER_TERMS = [
   "[object Object]",
 ] as const;
 
+const M6_RENDERED_FORBIDDEN_TERMS = [
+  "private URL",
+  "attempt id",
+  "footer",
+  "Big Five Report Engine",
+  "PR3B",
+  "AttemptReadController",
+  "payload",
+  "registry",
+] as const;
+
 function BigFiveV2ShareCardRenderedContract({ envelope }: { envelope: BigFiveV2ShareCardEnvelope }) {
   const payload = envelope.big5_result_page_v2_share_card;
 
@@ -68,7 +79,7 @@ describe("Big Five V2 share card rendered QA contract", () => {
       expect(text).toContain(term);
     }
 
-    for (const term of MUST_NOT_RENDER_TERMS) {
+    for (const term of [...MUST_NOT_RENDER_TERMS, ...M6_RENDERED_FORBIDDEN_TERMS]) {
       expect(text).not.toContain(term);
     }
   });
