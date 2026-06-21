@@ -9,7 +9,11 @@ import re
 from identity_common import fail_report, read_jsonl
 
 
-LEAKAGE = re.compile(r"\b(search_projection|sitemap|canonical|noindex|json-ld|jsonld|robots\.txt|llms\.txt|cms import|production import|staging_preview)\b", re.I)
+LEAKAGE = re.compile(
+    r"\b(search_projection|sitemap|noindex|json-ld|jsonld|robots\.txt|llms\.txt|cms import|production import|staging_preview)\b"
+    r"|rel=['\"]?canonical|canonical\s+(?:url|tag|link|meta)",
+    re.I,
+)
 RAW = re.compile(r"\b(evidence_id|source_id|row_hash|audit_fields|internal lineage|repair note|gate label)\b", re.I)
 
 
