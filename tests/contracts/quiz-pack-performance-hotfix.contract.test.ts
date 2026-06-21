@@ -9,6 +9,12 @@ const ROOT = process.cwd();
 
 const ALLOWED_FILES = [
   "app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient.tsx",
+  "docs/seo/agent/FAPWEB_CODE_PR_WRITER.md",
+  "docs/seo/agent/examples/seo-agent-fapweb-code-pr-request.example.json",
+  "docs/seo/generated/seo-agent-fapweb-code-pr-writer.v1.json",
+  "package.json",
+  "scripts/seo/generate-seo-agent-fapweb-code-pr-writer.mjs",
+  "tests/contracts/seo-agent-fapweb-code-pr-writer.contract.test.ts",
   "tests/e2e/big5-flow.spec.ts",
   "tests/e2e/mbti-locked-unlock.spec.ts",
   "tests/e2e/mbti-share.spec.ts",

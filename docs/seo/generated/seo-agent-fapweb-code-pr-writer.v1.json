@@ -1,0 +1,47 @@
+{
+  "schema_version": "seo-agent-fapweb-code-pr-writer.v1",
+  "mode": "contract",
+  "canonical_runner": "scripts/seo/generate-seo-agent-fapweb-code-pr-writer.mjs",
+  "request_schema_version": "seo-agent-fapweb-code-pr-request.v1",
+  "allowed_fix_types": [
+    "structured_data",
+    "canonical_hreflang",
+    "sitemap_llms",
+    "runtime_seo_rendering"
+  ],
+  "allowed_target_prefixes": [
+    "app/",
+    "components/",
+    "lib/seo/",
+    "scripts/seo/",
+    "tests/",
+    "docs/seo/"
+  ],
+  "disallowed_target_prefixes": [
+    ".env",
+    ".github/workflows/",
+    "content/",
+    "data/",
+    "docs/seo/generated/",
+    "lib/marketing/",
+    "public/"
+  ],
+  "required_checks": [
+    "pnpm typecheck",
+    "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+    "pnpm test:contract",
+    "git diff --check"
+  ],
+  "negative_guarantees": {
+    "git_push_attempted": false,
+    "github_pr_created_by_runner": false,
+    "direct_main_push_allowed": false,
+    "auto_deploy_allowed": false,
+    "cms_write_allowed": false,
+    "search_channel_submit_allowed": false,
+    "indexing_request_allowed": false,
+    "scheduler_activation_allowed": false,
+    "production_env_change_allowed": false
+  },
+  "repository_rule_impact": "This contract adds a PR-only fap-web SEO code lane. It does not add frontend editorial authority or generated artifact hand-edits."
+}

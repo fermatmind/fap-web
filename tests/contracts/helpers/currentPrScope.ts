@@ -143,6 +143,12 @@ const RIASEC_PACK12_ALLOWED_FILES = new Set([
 
 const QUIZ_PACK_PERFORMANCE_HOTFIX_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient.tsx",
+  "docs/seo/agent/FAPWEB_CODE_PR_WRITER.md",
+  "docs/seo/agent/examples/seo-agent-fapweb-code-pr-request.example.json",
+  "docs/seo/generated/seo-agent-fapweb-code-pr-writer.v1.json",
+  "package.json",
+  "scripts/seo/generate-seo-agent-fapweb-code-pr-writer.mjs",
+  "tests/contracts/seo-agent-fapweb-code-pr-writer.contract.test.ts",
   "tests/e2e/big5-flow.spec.ts",
   "tests/e2e/mbti-locked-unlock.spec.ts",
   "tests/e2e/mbti-share.spec.ts",
@@ -338,6 +344,17 @@ const SEO_CMS_DRAFT_PACKAGE_CONTRACT_01_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
+]);
+
+const SEO_AGENT_FAPWEB_CODE_PR_WRITER_01_ALLOWED_FILES = new Set([
+  "package.json",
+  "scripts/seo/generate-seo-agent-fapweb-code-pr-writer.mjs",
+  "docs/seo/agent/FAPWEB_CODE_PR_WRITER.md",
+  "docs/seo/agent/examples/seo-agent-fapweb-code-pr-request.example.json",
+  "docs/seo/generated/seo-agent-fapweb-code-pr-writer.v1.json",
+  "tests/contracts/seo-agent-fapweb-code-pr-writer.contract.test.ts",
+  "tests/contracts/quiz-pack-performance-hotfix.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
 const ORDER_LOOKUP_RECOVERY_CONTRACT_STABILIZE_ALLOWED_FILES = new Set([
@@ -3358,6 +3375,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
     return SEO_CMS_DRAFT_PACKAGE_CONTRACT_01_ALLOWED_FILES.has(file);
   }
 
+  if (CURRENT_BRANCH === "codex/seo-agent-fapweb-code-pr-writer-01") {
+    return SEO_AGENT_FAPWEB_CODE_PR_WRITER_01_ALLOWED_FILES.has(file);
+  }
+
   if (CURRENT_BRANCH === "codex/mbti64-llms-full-pilot-exposure-repair-01") {
     return MBTI64_LLMS_FULL_PILOT_EXPOSURE_REPAIR_01_ALLOWED_FILES.has(file);
   }
@@ -3428,6 +3449,7 @@ export function isArticleH103AllowedFile(file: string): boolean {
 export function isSeoGpt55Handoff01AllowedFile(file: string): boolean {
   return (
     SEO_GPT55_HANDOFF_01_ALLOWED_FILES.has(file) ||
+    SEO_AGENT_FAPWEB_CODE_PR_WRITER_01_ALLOWED_FILES.has(file) ||
     isAiImpactV5ExpandedPageQaAllowedFile(file) ||
     isQuizPackContractMainReplayAllowedFile(file) ||
     isCurrentQuizPackPerformanceHotfixAllowedFile(file)
@@ -3437,6 +3459,7 @@ export function isSeoGpt55Handoff01AllowedFile(file: string): boolean {
 export function isSeoWeeklyAutomationControlPacket02AllowedFile(file: string): boolean {
   return (
     SEO_WEEKLY_AUTOMATION_CONTROL_PACKET_02_ALLOWED_FILES.has(file) ||
+    SEO_AGENT_FAPWEB_CODE_PR_WRITER_01_ALLOWED_FILES.has(file) ||
     isAiImpactV5ExpandedPageQaAllowedFile(file) ||
     isQuizPackContractMainReplayAllowedFile(file) ||
     isCurrentQuizPackPerformanceHotfixAllowedFile(file)
@@ -3446,6 +3469,7 @@ export function isSeoWeeklyAutomationControlPacket02AllowedFile(file: string): b
 export function isSeoOpportunityQueueContract01AllowedFile(file: string): boolean {
   return (
     SEO_OPPORTUNITY_QUEUE_CONTRACT_01_ALLOWED_FILES.has(file) ||
+    SEO_AGENT_FAPWEB_CODE_PR_WRITER_01_ALLOWED_FILES.has(file) ||
     isAiImpactV5ExpandedPageQaAllowedFile(file) ||
     isQuizPackContractMainReplayAllowedFile(file) ||
     isCurrentQuizPackPerformanceHotfixAllowedFile(file)
@@ -3455,6 +3479,7 @@ export function isSeoOpportunityQueueContract01AllowedFile(file: string): boolea
 export function isSeoCmsDraftPackageContract01AllowedFile(file: string): boolean {
   return (
     SEO_CMS_DRAFT_PACKAGE_CONTRACT_01_ALLOWED_FILES.has(file) ||
+    SEO_AGENT_FAPWEB_CODE_PR_WRITER_01_ALLOWED_FILES.has(file) ||
     isAiImpactV5ExpandedPageQaAllowedFile(file) ||
     isQuizPackContractMainReplayAllowedFile(file) ||
     isCurrentQuizPackPerformanceHotfixAllowedFile(file)
