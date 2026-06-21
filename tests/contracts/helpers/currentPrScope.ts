@@ -214,6 +214,14 @@ const MBTI64_LLMS_FULL_PILOT_EXPOSURE_REPAIR_02_ALLOWED_FILES = new Set([
   "tests/contracts/mbti64-llms-full-pilot-exposure-repair.contract.test.ts",
 ]);
 
+const PERSONALITY_AGENT_QA_GATES_01_ALLOWED_FILES = new Set([
+  "docs/seo/personality/mbti64-agent-expansion-88-qa-2026-06-21.json",
+  "docs/seo/personality/mbti64-agent-expansion-88-qa-2026-06-21.md",
+  "scripts/seo/validate-mbti64-agent-expansion-88-qa.mjs",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/personality-agent-qa-gates-01.contract.test.ts",
+]);
+
 const RESEARCH_REPORT_METADATA_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/research/[slug]/page.tsx",
   "docs/seo/generated/metadata-surface-inventory.v1.csv",
@@ -2569,6 +2577,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/mbti64-global-header-private-route-hygiene-01") {
     return MBTI64_GLOBAL_HEADER_PRIVATE_ROUTE_HYGIENE_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/personality-agent-qa-gates-01") {
+    return PERSONALITY_AGENT_QA_GATES_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/result-smoke-proxy-generation-hints") {
