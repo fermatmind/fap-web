@@ -83,6 +83,12 @@
         "null"
       ]
     },
+    "derived_from_evidence": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
     "limitations": {
       "type": "array",
       "items": {

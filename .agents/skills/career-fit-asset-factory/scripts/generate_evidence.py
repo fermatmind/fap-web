@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Trust audit for career-fit evidence."""
+"""Compatibility entrypoint for career-fit evidence generation."""
 from __future__ import annotations
-from audit_evidence import main
+from collect_evidence import main
 if __name__=='__main__': raise SystemExit(main())
