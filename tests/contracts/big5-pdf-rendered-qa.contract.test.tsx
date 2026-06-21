@@ -42,6 +42,17 @@ const MUST_NOT_RENDER_TERMS = [
   "Methodology and Access",
 ] as const;
 
+const M6_RENDERED_FORBIDDEN_TERMS = [
+  "private URL",
+  "attempt id",
+  "footer",
+  "Big Five Report Engine",
+  "PR3B",
+  "AttemptReadController",
+  "payload",
+  "registry",
+] as const;
+
 function visibleTextFromValue(value: unknown): string {
   if (value == null || typeof value === "boolean") {
     return "";
@@ -98,7 +109,7 @@ describe("Big Five V2 PDF rendered QA contract", () => {
       expect(text).toContain(term);
     }
 
-    for (const term of MUST_NOT_RENDER_TERMS) {
+    for (const term of [...MUST_NOT_RENDER_TERMS, ...M6_RENDERED_FORBIDDEN_TERMS]) {
       expect(text).not.toContain(term);
     }
   });

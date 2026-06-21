@@ -53,9 +53,17 @@ const TESTED_VIEWPORTS = [
   ["mobile", 390],
 ] as const;
 
-const PENDING_SURFACES = ["pdf", "share_card", "history", "compare"] as const;
+const SECONDARY_SURFACES = ["pdf", "share_card", "history", "compare"] as const;
 
 const MUST_NOT_RENDER_TERMS = [
+  "private URL",
+  "attempt id",
+  "footer",
+  "Big Five Report Engine",
+  "PR3B",
+  "AttemptReadController",
+  "payload",
+  "registry",
   "frontend_fallback",
   "internal_metadata",
   "selector_basis",
@@ -144,13 +152,13 @@ describe("Big Five V2 route-driven rendered QA contract", () => {
     expect(text).not.toContain("FRONTEND_FALLBACK_BODY_SHOULD_NOT_RENDER");
   });
 
-  it("keeps PDF, share, history, and compare outside route-driven rendered pass coverage", () => {
+  it("keeps PDF, share, history, and compare covered by backend fixture handoff evidence", () => {
     const surfaces = Object.fromEntries(
       (pilotSurfaceMatrix.surfaces as RenderedSurfaceStatus[]).map((surface) => [surface.surface_key, surface])
     );
 
-    for (const surfaceKey of PENDING_SURFACES) {
-      expect(surfaces[surfaceKey].status).toBe("pending_surface");
+    for (const surfaceKey of SECONDARY_SURFACES) {
+      expect(surfaces[surfaceKey].status).toBe("pass");
     }
   });
 });

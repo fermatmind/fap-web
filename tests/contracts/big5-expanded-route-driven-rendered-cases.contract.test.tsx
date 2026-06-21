@@ -58,6 +58,14 @@ const TESTED_VIEWPORTS = [
 ] as const;
 
 const MUST_NOT_RENDER_TERMS = [
+  "private URL",
+  "attempt id",
+  "footer",
+  "Big Five Report Engine",
+  "PR3B",
+  "AttemptReadController",
+  "payload",
+  "registry",
   "frontend_fallback",
   "internal_metadata",
   "selector_basis",
@@ -143,13 +151,13 @@ describe("Big Five V2 expanded route-driven rendered cases", () => {
     expect(text).not.toContain("FRONTEND_FALLBACK_BODY_SHOULD_NOT_RENDER");
   });
 
-  it("keeps expanded non-result-page surfaces pending rather than fake-passing", () => {
+  it("keeps expanded non-result-page surfaces covered by backend fixture handoff evidence", () => {
     const surfaces = Object.fromEntries(
       (pilotSurfaceMatrix.surfaces as RenderedSurfaceStatus[]).map((surface) => [surface.surface_key, surface])
     );
 
     for (const surfaceKey of ["pdf", "share_card", "history", "compare"]) {
-      expect(surfaces[surfaceKey].status).toBe("pending_surface");
+      expect(surfaces[surfaceKey].status).toBe("pass");
     }
   });
 });
