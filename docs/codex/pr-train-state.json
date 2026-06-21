@@ -22992,9 +22992,9 @@
       "id": "PERSONALITY-PUBLIC-PROFILE-AGENT-SPLIT-01",
       "repo": "fap-web",
       "branch": "codex/personality-public-profile-agent-split-01",
-      "status": "local_checks_passed",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "pr_open",
+      "commit_sha": "df7e7e9c7bde3bf1f99cda001618adca37fcf87c",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1251",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -23032,6 +23032,11 @@
             "explicit path-limited scope validation"
           ],
           "evidence": "Focused contract passed 7 tests; full pnpm test:contract passed 506 files / 2894 tests; pnpm typecheck passed; schema/YAML/JSON parsing passed; git diff --check passed; scope validation passed."
+        },
+        "pull_request": {
+          "status": "open",
+          "url": "https://github.com/fermatmind/fap-web/pull/1251",
+          "evidence": "PR opened after local validation passed."
         }
       },
       "history": [
@@ -23044,6 +23049,11 @@
           "at": "2026-06-21T11:43:30+08:00",
           "status": "local_checks_passed",
           "note": "Implemented MBTI64, Big Five, and Enneagram public profile agent contracts plus orchestrator/QA/release guard docs. Local focused checks, full contract suite, typecheck, parse checks, diff check, and scope validation passed."
+        },
+        {
+          "at": "2026-06-21T11:47:30+08:00",
+          "status": "pr_open",
+          "note": "Opened https://github.com/fermatmind/fap-web/pull/1251 from commit df7e7e9c7bde3bf1f99cda001618adca37fcf87c."
         }
       ]
     }
