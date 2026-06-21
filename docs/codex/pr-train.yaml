@@ -4873,7 +4873,7 @@ prs:
     mode: execute
     train_scope: security_audit_remediation
     risk_level: high
-    status: planned
+    status: merged
     title: "fix(security): harden CMS article link attribution against javascript href XSS"
     findings:
       - "CMS data attribute can reintroduce javascript: href XSS"
@@ -4925,7 +4925,7 @@ prs:
     mode: execute
     train_scope: security_audit_remediation
     risk_level: medium
-    status: planned
+    status: merged
     title: "fix(security): enforce analytics consent and redact sensitive tracking payloads"
     findings:
       - "MBTI analytics sent despite denied consent"
@@ -4988,7 +4988,7 @@ prs:
     mode: execute
     train_scope: security_audit_remediation
     risk_level: medium
-    status: planned
+    status: merged
     title: "fix(security): require explicit career SEO index authority"
     findings:
       - "Partial SEO authority can force candidate pages indexable"
@@ -5039,7 +5039,7 @@ prs:
     mode: execute
     train_scope: security_audit_remediation
     risk_level: medium
-    status: planned
+    status: merged
     title: "fix(security): bound LLMS route fanout and cancel timed-out work"
     findings:
       - "llms budget timeouts leave backend fanout running"
