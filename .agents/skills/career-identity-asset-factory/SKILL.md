@@ -46,7 +46,21 @@ Read:
 
 ## Scripts
 
-Use the scripts in `scripts/` for the standard stages. They delegate shared orchestration to `career-content-asset-factory`; block-specific implementation must obey this skill's references.
+Use the scripts in `scripts/` for the standard stages. Block-specific implementation must obey this skill's references and shared orchestration rules.
+
+- `make_batch_manifest.py`
+- `generate_evidence.py`
+- `validate_evidence_schema.py`
+- `audit_evidence.py`
+- `generate_synthesis.py`
+- `validate_synthesis_schema.py`
+- `audit_synthesis.py`
+- `generate_asset.py`
+- `validate_asset_schema.py`
+- `audit_asset.py`
+- `freeze_baseline.py`
+
+Legacy `collect_evidence.py` and `audit_trust.py` may remain as shared wrappers, but the canonical identity v1 path uses the explicit scripts above.
 
 ## Shared Orchestrator Contract
 
