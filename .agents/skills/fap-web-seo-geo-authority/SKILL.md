@@ -9,6 +9,7 @@ Keep fap-web SEO and GEO surfaces aligned with backend or CMS authority without 
 ## When to use
 - Use for sitemap, `llms.txt`, `llms-full.txt`, metadata, structured data, canonical URL, and public content enumeration changes.
 - Use when SEO/GEO behavior must consume CMS or public API data.
+- Use `docs/seo/agent/FAPWEB_CODE_PR_WRITER.md` and `pnpm seo-agent:fapweb-code-pr-writer` when an SEO Agent runtime QA finding needs a scoped fap-web code PR for structured data, canonical/hreflang, sitemap/llms, or rendering bugs.
 
 ## When not to use
 - Do not use to add local article, help, landing, topic, personality, or career editorial content.
@@ -32,6 +33,7 @@ Keep fap-web SEO and GEO surfaces aligned with backend or CMS authority without 
 3. Keep stale cache or minimal shell behavior distinct from source-of-truth content.
 4. Validate contracts and build behavior with the production public API URL when required.
 5. Document repository rule impact when enumeration or authority changes.
+6. For SEO Agent code-fix requests, keep the runner as a plan generator only; after human review, Codex may open a scoped PR but must not direct-push `main`, auto-merge, auto-deploy, or bypass CMS/API authority.
 
 ## Acceptance commands
 ```bash
