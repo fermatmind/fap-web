@@ -5,6 +5,7 @@ import path from "node:path";
 
 const ROOT = process.cwd();
 const AUDIT_DATE = process.env.AUDIT_DATE || "2026-06-21";
+const GENERATED_AT = process.env.GENERATED_AT || new Date().toISOString();
 const SITE_ORIGIN = "https://fermatmind.com";
 const GRAPH_PATH = "docs/seo/personality/internal-link-graph-2026-06-18.json";
 const REFERENCE_PACK_PATH = "docs/seo/personality/mbti64-optimized-pilot-reference-pack-2026-06-21.json";
@@ -163,6 +164,30 @@ function variantLabel(variant, locale) {
   return variant === "a" ? "Assertive" : "Turbulent";
 }
 
+function variantArticlePhrase(variant, locale) {
+  const label = variantLabel(variant, locale);
+  if (localeBucket(locale) === "zh") return `${label}身份风格`;
+  return variant === "a" ? `an ${label} identity style` : `a ${label} identity style`;
+}
+
+function variantLens(variant, locale) {
+  if (localeBucket(locale) === "zh") {
+    return variant === "a"
+      ? "更偏向稳定自信、决策后持续推进和较少反复确认"
+      : "更偏向主动复盘、对反馈敏感和在压力下持续校准";
+  }
+  return variant === "a"
+    ? "steadier self-trust, post-decision follow-through and less repeated reassurance"
+    : "active self-checking, stronger feedback sensitivity and more pressure-based recalibration";
+}
+
+function variantLensShort(variant, locale) {
+  if (localeBucket(locale) === "zh") return variantLens(variant, locale);
+  return variant === "a"
+    ? "steady self-trust and follow-through"
+    : "active self-checking and feedback sensitivity";
+}
+
 function typeLabel(type, locale) {
   return TYPE_LABELS[type]?.[localeBucket(locale)] || type.toUpperCase();
 }
@@ -189,16 +214,17 @@ function buildRecommendedTitle(node) {
 
 function buildRecommendedDescription(node) {
   const code = node.mbti_type.toUpperCase();
+  const angle = typeAngle(node.mbti_type, node.locale);
   if (node.page_type === "comparison") {
     if (localeBucket(node.locale) === "zh") {
-      return `比较 ${code}-A 和 ${code}-T 在自信、压力恢复、反馈处理、工作节奏和关系沟通上的差异。`;
+      return `比较 ${code}-A 和 ${code}-T 如何围绕${angle}处理自信、压力恢复、反馈、工作节奏和关系沟通。`;
     }
-    return `Compare ${code}-A and ${code}-T by confidence, stress recovery, feedback style, work rhythm and relationship communication.`;
+    return `Compare ${code}-A and ${code}-T through ${angle}, confidence, stress recovery, feedback style, work rhythm and relationships.`;
   }
   if (localeBucket(node.locale) === "zh") {
-    return `系统了解 ${code}-${node.variant.toUpperCase()} 的${typeAngle(node.mbti_type, node.locale)}、优势盲点、职业工作风格、关系沟通和自我校准建议。`;
+    return `系统了解 ${code}-${node.variant.toUpperCase()} 的${angle}、${variantLens(node.variant, node.locale)}、优势盲点、工作风格和关系沟通。`;
   }
-  return `Understand ${code}-${node.variant.toUpperCase()} through ${typeAngle(node.mbti_type, node.locale)}, strengths, blind spots, work style, relationships and self-check prompts.`;
+  return `Explore ${code}-${node.variant.toUpperCase()} through ${angle}, ${variantLensShort(node.variant, node.locale)}, strengths, blind spots and relationships.`;
 }
 
 function buildRecommendedH1(node) {
@@ -212,53 +238,53 @@ function buildQuickAnswer(node) {
   const angle = typeAngle(node.mbti_type, node.locale);
   if (node.page_type === "comparison") {
     if (localeBucket(node.locale) === "zh") {
-      return `${code}-A 和 ${code}-T 共享同一个 ${code} 核心；差异主要体现在自信稳定度、压力反应、反馈处理和自我修正方式。这个页面适合用来比较两种 A/T 风格，而不是判断哪一种更好。`;
+      return `${code}-A 和 ${code}-T 共享同一个 ${code} 核心；在${angle}这个主题下，差异主要体现在自信稳定度、压力反应、反馈处理和自我修正方式。这个页面适合比较两种 A/T 风格，而不是判断哪一种更好。`;
     }
-    return `${code}-A and ${code}-T share the same ${code} core. The useful difference is how the two A/T styles handle confidence, pressure, feedback and self-correction, not which one is better.`;
+    return `${code}-A and ${code}-T share the same ${code} core. Within ${angle}, the useful difference is how the two A/T styles handle confidence, pressure, feedback and self-correction, not which one is better.`;
   }
-  const variantName = variantLabel(node.variant, node.locale);
   if (localeBucket(node.locale) === "zh") {
-    return `${code}-${node.variant.toUpperCase()} 是 ${code} 核心加上 ${variantName}身份风格的公开人格画像，通常会围绕${angle}展开。它适合用于自我理解和沟通校准，不适合作为职业或关系结论。`;
+    return `${code}-${node.variant.toUpperCase()} 是 ${code} 核心加上 ${variantArticlePhrase(node.variant, node.locale)}的公开人格画像，通常会围绕${angle}展开，并呈现${variantLens(node.variant, node.locale)}。它适合用于自我理解和沟通校准，不适合作为职业或关系结论。`;
   }
-  return `${code}-${node.variant.toUpperCase()} combines the ${code} core pattern with an ${variantName} identity style. Read it as a public profile for self-understanding, communication and work-style reflection, not as a career or relationship verdict.`;
+  return `${code}-${node.variant.toUpperCase()} combines the ${code} core pattern with ${variantArticlePhrase(node.variant, node.locale)}. In practice, this points to ${variantLens(node.variant, node.locale)} around ${angle}. Read it as a public profile, not as a career or relationship verdict.`;
 }
 
 function buildFaq(node) {
   const code = node.mbti_type.toUpperCase();
+  const angle = typeAngle(node.mbti_type, node.locale);
   if (node.page_type === "comparison") {
     if (localeBucket(node.locale) === "zh") {
       return [
-        [`${code}-A 和 ${code}-T 最大差异是什么？`, `主要差异通常在自信、压力反应、反馈处理和自我修正节奏上，而不是 ${code} 核心是否改变。`],
-        [`${code}-A 比 ${code}-T 更好吗？`, `不是。A/T 是风格差异，不是优劣等级。不同场景会奖励不同的稳定性、谨慎度和修正能力。`],
-        [`如何判断自己更像 ${code}-A 还是 ${code}-T？`, `观察你在压力、批评、选择后复盘和不确定环境中的自然反应，比只看标签更可靠。`],
-        [`这个比较可以用于职业决定吗？`, `不建议直接用于职业决定。它可以帮助你理解工作节奏和沟通偏好，但不能替代能力、经验和环境判断。`],
+        [`${code}-A 和 ${code}-T 最大差异是什么？`, `在${angle}相关情境里，主要差异通常是自信稳定度、压力反应、反馈处理和自我修正节奏，而不是 ${code} 核心是否改变。`],
+        [`${code}-A 比 ${code}-T 更好吗？`, `不是。A/T 是风格差异，不是优劣等级。${code} 的不同任务场景会奖励不同的稳定性、谨慎度和修正能力。`],
+        [`如何判断自己更像 ${code}-A 还是 ${code}-T？`, `观察你在${angle}相关压力、批评、选择后复盘和不确定环境中的自然反应，比只看标签更可靠。`],
+        [`这个比较可以用于职业决定吗？`, `不建议直接用于职业决定。它可以帮助你理解 ${code} 在工作节奏和沟通偏好上的差异，但不能替代能力、经验和环境判断。`],
         [`A/T 是官方 MBTI 维度吗？`, `这里把 A/T 作为 FermatMind 公共画像中的身份风格层来解释，不把它表述为官方 MBTI 原生维度。`],
       ].map(([question, answer]) => ({ question, answer, reason: "Covers comparison intent and claim boundary." }));
     }
     return [
-      [`What is the main ${code}-A vs ${code}-T difference?`, `The main difference is usually confidence style, stress response, feedback processing and self-correction, not a change in the ${code} core.`],
-      [`Is ${code}-A better than ${code}-T?`, `No. A/T describes style differences, not a ranking. Different contexts can reward steadiness, caution or revision in different ways.`],
-      [`How can I tell whether I am ${code}-A or ${code}-T?`, `Look at your response to pressure, criticism, uncertainty and post-decision review rather than treating the label as a verdict.`],
-      [`Can this comparison decide my career path?`, `No. It can support work-style reflection, but it should not replace skills, experience, values or context.`],
+      [`What is the main ${code}-A vs ${code}-T difference?`, `Around ${angle}, the main difference is usually confidence style, stress response, feedback processing and self-correction, not a change in the ${code} core.`],
+      [`Is ${code}-A better than ${code}-T?`, `No. A/T describes style differences, not a ranking. ${code} situations can reward steadiness, caution or revision in different ways.`],
+      [`How can I tell whether I am ${code}-A or ${code}-T?`, `Look at your response to ${angle}-related pressure, criticism, uncertainty and post-decision review rather than treating the label as a verdict.`],
+      [`Can this comparison decide my career path?`, `No. It can support ${code} work-style reflection, but it should not replace skills, experience, values or context.`],
       [`Is A/T an official MBTI dimension?`, `This page treats A/T as an identity-style layer in FermatMind public profiles, not as an official native MBTI dimension.`],
     ].map(([question, answer]) => ({ question, answer, reason: "Covers comparison intent and claim boundary." }));
   }
 
   if (localeBucket(node.locale) === "zh") {
     return [
-      [`${code}-${node.variant.toUpperCase()} 人格特点是什么？`, `${code}-${node.variant.toUpperCase()} 通常把 ${code} 核心与 ${variantLabel(node.variant, node.locale)}身份风格结合起来，重点体现在${typeAngle(node.mbti_type, node.locale)}。`],
-      [`${code}-${node.variant.toUpperCase()} 适合什么工作环境？`, `更适合讨论工作节奏、沟通方式和环境偏好，不能直接推出职业结论或招聘判断。`],
-      [`${code}-${node.variant.toUpperCase()} 的优势和盲点是什么？`, `优势和盲点需要结合具体情境看待；同一种风格在不同团队、压力和任务结构中会有不同表现。`],
-      [`${code}-${node.variant.toUpperCase()} 和另一种 A/T 有什么不同？`, `主要看压力反应、自信稳定度、反馈处理和复盘强度，而不是人格核心是否完全不同。`],
+      [`${code}-${node.variant.toUpperCase()} 人格特点是什么？`, `${code}-${node.variant.toUpperCase()} 通常把 ${code} 核心与 ${variantArticlePhrase(node.variant, node.locale)}结合起来，重点体现在${angle}和${variantLens(node.variant, node.locale)}。`],
+      [`${code}-${node.variant.toUpperCase()} 适合什么工作环境？`, `更适合讨论${angle}相关的工作节奏、沟通方式和环境偏好，不能直接推出职业结论或招聘判断。`],
+      [`${code}-${node.variant.toUpperCase()} 的优势和盲点是什么？`, `优势和盲点需要结合${variantLens(node.variant, node.locale)}看待；同一种风格在不同团队、压力和任务结构中会有不同表现。`],
+      [`${code}-${node.variant.toUpperCase()} 和另一种 A/T 有什么不同？`, `主要看${variantLens(node.variant, node.locale)}如何影响压力反应、自信稳定度、反馈处理和复盘强度，而不是人格核心是否完全不同。`],
       [`这个页面可以替代测试结果吗？`, `不能。它是公共解释页，适合先理解概念；个人结果仍应以正式测试和完整报告为准。`],
     ].map(([question, answer]) => ({ question, answer, reason: "Covers variant meaning, work-style reflection and boundary." }));
   }
 
   return [
-    [`What does ${code}-${node.variant.toUpperCase()} mean?`, `${code}-${node.variant.toUpperCase()} combines the ${code} core pattern with an ${variantLabel(node.variant, node.locale)} identity style, especially around ${typeAngle(node.mbti_type, node.locale)}.`],
-    [`What work environment fits ${code}-${node.variant.toUpperCase()}?`, `Use the profile to reflect on work rhythm, communication and environment fit, not to make a deterministic career decision.`],
-    [`What are common ${code}-${node.variant.toUpperCase()} strengths and blind spots?`, `Strengths and blind spots depend on context; the same style can help or hinder depending on team, pressure and task structure.`],
-    [`How is ${code}-${node.variant.toUpperCase()} different from the other A/T variant?`, `The practical difference is usually stress response, confidence stability, feedback processing and revision intensity.`],
+    [`What does ${code}-${node.variant.toUpperCase()} mean?`, `${code}-${node.variant.toUpperCase()} combines the ${code} core pattern with ${variantArticlePhrase(node.variant, node.locale)}, especially around ${angle} and ${variantLens(node.variant, node.locale)}.`],
+    [`What work environment fits ${code}-${node.variant.toUpperCase()}?`, `Use the profile to reflect on ${angle}-related work rhythm, communication and environment fit, not to make a deterministic career decision.`],
+    [`What are common ${code}-${node.variant.toUpperCase()} strengths and blind spots?`, `Strengths and blind spots depend on context and ${variantLens(node.variant, node.locale)}; the same style can help or hinder depending on team, pressure and task structure.`],
+    [`How is ${code}-${node.variant.toUpperCase()} different from the other A/T variant?`, `The practical difference is how ${variantLens(node.variant, node.locale)} changes stress response, confidence stability, feedback processing and revision intensity.`],
     [`Can this page replace a test result?`, `No. This is a public explanation page. Personal interpretation should come from a completed test and full report context.`],
   ].map(([question, answer]) => ({ question, answer, reason: "Covers variant meaning, work-style reflection and boundary." }));
 }
@@ -462,7 +488,7 @@ async function main() {
   const report = {
     artifact: "MBTI64-PUBLIC-PROFILE-AGENT-EXPANSION-88-01",
     version: "mbti64.agent_expansion_88_recommendations.v1",
-    generated_at: new Date().toISOString(),
+    generated_at: GENERATED_AT,
     status: blockers.length === 0 ? "pass_ready_for_qa_gates" : "fail",
     scope:
       "Artifact-only draft recommendations for 88 non-pilot MBTI64 public personality URLs. No CMS write, publish, indexability, sitemap/llms, Search Queue, approval, or submission action.",

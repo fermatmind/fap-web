@@ -20,11 +20,13 @@ This is an artifact-only QA gate over the 88 MBTI64 public profile draft recomme
 | Ready for CMS draft | 88 |
 | Blocked by QA | 0 |
 | Duplicate signature groups | 0 |
+| Normalized editorial duplicate groups | 0 |
 | Private route failures | 0 |
 | Result leakage failures | 0 |
 | Trademark/official-claim failures | 0 |
 | Claim risk failures | 0 |
 | SEO projection failures | 0 |
+| Grammar/editorial failures | 0 |
 
 ## Gate Results
 

@@ -1,0 +1,50 @@
+{
+  "artifact": "MBTI64-CMS-PROJECTION-DRAFT-88-EDITORIAL-REPAIR-01",
+  "generated_at": "2026-06-21T00:00:00.000Z",
+  "status": "pass_ready_for_production_dry_run",
+  "scope": "Artifact and generator repair for 88 MBTI64 agent projection recommendations. No CMS write, no publish, no index/search release, no sitemap/llms mutation, no frontend runtime change.",
+  "inputs": {
+    "previous_promotion_readiness_artifact": "/tmp/MBTI64-CMS-PROJECTION-DRAFT-88-PROMOTION-READINESS-01-2026-06-21.json",
+    "previous_editorial_audit_artifact": "/tmp/MBTI64-CMS-PROJECTION-DRAFT-88-PROMOTION-READINESS-01-2026-06-21.editorial-audit.json",
+    "recommendations": "docs/seo/personality/mbti64-agent-expansion-88-recommendations-2026-06-21.json",
+    "qa": "docs/seo/personality/mbti64-agent-expansion-88-qa-2026-06-21.json"
+  },
+  "previous_findings": {
+    "grammar_issue_count": 15,
+    "grammar_issue_pattern": "an Turbulent",
+    "duplicate_group_count": 17,
+    "duplicate_url_count": 60,
+    "previous_final_decision": "CONDITIONAL_EDITORIAL_REPAIR_REQUIRED"
+  },
+  "repairs": [
+    "Fixed English A/T article handling so Assertive uses 'an' and Turbulent uses 'a'.",
+    "Added variant-specific lenses to quick answers, FAQ answers and descriptions.",
+    "Added type-angle context to comparison quick answers and FAQ answers so comparison pages are not normalized template copies.",
+    "Hardened QA to fail grammar patterns such as 'an Turbulent' and normalized editorial duplicate signatures."
+  ],
+  "repaired_hashes": {
+    "source_package_sha256": "c72d3c7a837c7a59dbbaba6afee4410b1a54c58c401aa42a2b91fe6de9c54083",
+    "qa_artifact_sha256": "710fb05025435b5089244410e2e44a55d855842ea65734f6ae2b742e7d729978"
+  },
+  "qa_summary": {
+    "checked_recommendation_count": 88,
+    "pass_ready_for_cms_draft_count": 88,
+    "blocked_count": 0,
+    "grammar_editorial_failures": 0,
+    "duplicate_template_failures": 0,
+    "normalized_editorial_duplicate_signature_group_count": 0,
+    "trademark_claim_failures": 0,
+    "claim_risk_failures": 0,
+    "private_route_failures": 0,
+    "result_page_leakage_failures": 0,
+    "seo_projection_failures": 0,
+    "bilingual_consistency_failures": 0,
+    "gsc_evidence_state": "GSC_EVIDENCE_PENDING"
+  },
+  "blockers": [],
+  "warnings": [
+    "GSC_EVIDENCE_PENDING"
+  ],
+  "decision": "PASS_READY_FOR_PRODUCTION_DRY_RUN",
+  "recommended_next_task": "MBTI64-CMS-PROJECTION-DRAFT-88-DRY-RUN-02"
+}
