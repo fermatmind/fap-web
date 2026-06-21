@@ -63,6 +63,12 @@ The public profile factory is split into framework-specific agents plus shared Q
 
 These agents are coordination contracts, not autonomous publishers. They must not write production CMS, mutate sitemap or llms output, enqueue Search Queue items, submit search providers, or change result pages without a separate explicit gate.
 
+## Agent Runner Contract
+
+Use `schemas/public-profile-agent-recommendation.schema.json` and `runbooks/personality-public-profile-agent-runner.md` when a framework agent needs to turn a target public personality URL into a draft recommendation package.
+
+Runner inputs are target URL, framework, current CMS/API or live surface, optimized reference pack, SEO/GSC signal, source ledger, and framework rules. Runner outputs are draft recommendations for title, description, H1, quick answer, FAQ, internal links, and duplicate differentiation notes. Runner output is not CMS truth and must pass the QA gates before any backend draft revision handoff.
+
 ## Framework-Specific Modes
 
 - `mbti.existing_asset_enhancement`: audit or improve existing CMS-backed 64 A/T pages and comparison pages. Do not regenerate the estate.
