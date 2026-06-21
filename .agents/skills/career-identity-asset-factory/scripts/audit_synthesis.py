@@ -9,7 +9,7 @@ import re
 from identity_common import fail_report, read_jsonl
 
 
-DISALLOWED = re.compile(r"\\b(salary|wage|income|AI Impact|RIASEC|MBTI|Big Five|search_projection|sitemap|canonical|noindex|JSON-LD)\\b", re.I)
+DISALLOWED = re.compile(r"\b(salary|wage|income|AI Impact|RIASEC|MBTI|Big Five|search_projection|sitemap|canonical|noindex|JSON-LD)\b", re.I)
 
 
 def parse_args() -> argparse.Namespace:

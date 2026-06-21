@@ -81,13 +81,13 @@ def main() -> int:
                         "item_type": "official_identity_boundary",
                         "source_id": source_id,
                         "captured_fact": f"{title_en} is mapped to O*NET {onet} and SOC {soc} in the canonical seed." if onet else f"{title_en} lacks an O*NET mapping in the canonical seed and requires official authority repair.",
-                        "boundary": "Identity evidence only; not salary, AI Impact, work-activities, or frontend fallback evidence.",
+                        "boundary": "Identity evidence only; not compensation, automation/risk, work-activities, or frontend fallback evidence.",
                     }
                 ],
                 "sources": [source],
                 "evidence_used": [evidence_id],
                 "derived_from_synthesis": None,
-                "limitations": ["Identity evidence is limited to official boundary/title/classification mapping and does not describe salary, fit, work activities, or outcomes."],
+                "limitations": ["Identity evidence is limited to official boundary/title/classification mapping and does not describe compensation, fit, work activities, or outcomes."],
                 "audit_fields": {
                     "generator": "career-identity generate_evidence.py",
                     "generated_at": now,
