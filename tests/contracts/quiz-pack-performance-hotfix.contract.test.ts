@@ -3,7 +3,10 @@ import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 
-import { isQuizPackPerformanceHotfixAllowedFile } from "./helpers/currentPrScope";
+import {
+  isPersonalityPublicProfileAgentSplit01AllowedFile,
+  isQuizPackPerformanceHotfixAllowedFile,
+} from "./helpers/currentPrScope";
 
 const ROOT = process.cwd();
 
@@ -49,7 +52,10 @@ describe("quiz pack performance hotfix scope", () => {
       return;
     }
 
-    expect(files.every((file) => ALLOWED_FILES.includes(file)), files.join("\n")).toBe(true);
+    expect(
+      files.every((file) => ALLOWED_FILES.includes(file) || isPersonalityPublicProfileAgentSplit01AllowedFile(file)),
+      files.join("\n")
+    ).toBe(true);
   });
 
   it("registers the active branch allowlist for legacy scope guard contracts", () => {

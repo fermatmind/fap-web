@@ -1544,6 +1544,30 @@ export function isPersonalitySeoCurrentAudit01AllowedFile(file: string): boolean
   return PERSONALITY_SEO_CURRENT_AUDIT_01_ALLOWED_FILES.has(file) || isCurrentRiasecPack12AllowedFile(file);
 }
 
+const PERSONALITY_PUBLIC_PROFILE_AGENT_SPLIT_01_ALLOWED_FILES = new Set([
+  ".agents/skills/public-profile-seo-asset-factory/SKILL.md",
+  ".agents/skills/public-profile-seo-asset-factory/agents/personality-content-orchestrator.md",
+  ".agents/skills/public-profile-seo-asset-factory/agents/mbti64-public-personality-agent.md",
+  ".agents/skills/public-profile-seo-asset-factory/agents/big-five-public-personality-agent.md",
+  ".agents/skills/public-profile-seo-asset-factory/agents/enneagram-public-personality-agent.md",
+  ".agents/skills/public-profile-seo-asset-factory/agents/seo-projection-qa-agent.md",
+  ".agents/skills/public-profile-seo-asset-factory/agents/editorial-claim-qa-agent.md",
+  ".agents/skills/public-profile-seo-asset-factory/agents/release-guard-agent.md",
+  ".agents/skills/public-profile-seo-asset-factory/orchestration/personality-agent-matrix.md",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/research/personality/personality-public-profile-agent-split-01/00-executive-summary.md",
+  "docs/research/personality/personality-public-profile-agent-split-01/01-agent-matrix.md",
+  "docs/research/personality/personality-public-profile-agent-split-01/02-next-task-handoff.md",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/personality-public-profile-agent-split-01.contract.test.ts",
+  "tests/contracts/quiz-pack-performance-hotfix.contract.test.ts",
+]);
+
+export function isPersonalityPublicProfileAgentSplit01AllowedFile(file: string): boolean {
+  return PERSONALITY_PUBLIC_PROFILE_AGENT_SPLIT_01_ALLOWED_FILES.has(file);
+}
+
 const PR_FDN_SEO_01_IMPLEMENTATION_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/foundation/daily-giving/page.tsx",
   "app/(localized)/[locale]/foundation/daily-giving/[yearMonth]/page.tsx",
@@ -3137,6 +3161,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
     return PERSONALITY_SEO_CURRENT_AUDIT_01_ALLOWED_FILES.has(file);
   }
 
+  if (CURRENT_BRANCH === "codex/personality-public-profile-agent-split-01") {
+    return PERSONALITY_PUBLIC_PROFILE_AGENT_SPLIT_01_ALLOWED_FILES.has(file);
+  }
+
   if (CURRENT_BRANCH === "codex/personality-hub-media-render-verify-01") {
     return PERSONALITY_HUB_MEDIA_RENDER_VERIFY_01_ALLOWED_FILES.has(file);
   }
@@ -3427,6 +3455,7 @@ export function isArticleH103AllowedFile(file: string): boolean {
 
 export function isSeoGpt55Handoff01AllowedFile(file: string): boolean {
   return (
+    isPersonalityPublicProfileAgentSplit01AllowedFile(file) ||
     SEO_GPT55_HANDOFF_01_ALLOWED_FILES.has(file) ||
     isAiImpactV5ExpandedPageQaAllowedFile(file) ||
     isQuizPackContractMainReplayAllowedFile(file) ||
@@ -3436,6 +3465,7 @@ export function isSeoGpt55Handoff01AllowedFile(file: string): boolean {
 
 export function isSeoWeeklyAutomationControlPacket02AllowedFile(file: string): boolean {
   return (
+    isPersonalityPublicProfileAgentSplit01AllowedFile(file) ||
     SEO_WEEKLY_AUTOMATION_CONTROL_PACKET_02_ALLOWED_FILES.has(file) ||
     isAiImpactV5ExpandedPageQaAllowedFile(file) ||
     isQuizPackContractMainReplayAllowedFile(file) ||
@@ -3445,6 +3475,7 @@ export function isSeoWeeklyAutomationControlPacket02AllowedFile(file: string): b
 
 export function isSeoOpportunityQueueContract01AllowedFile(file: string): boolean {
   return (
+    isPersonalityPublicProfileAgentSplit01AllowedFile(file) ||
     SEO_OPPORTUNITY_QUEUE_CONTRACT_01_ALLOWED_FILES.has(file) ||
     isAiImpactV5ExpandedPageQaAllowedFile(file) ||
     isQuizPackContractMainReplayAllowedFile(file) ||
@@ -3454,6 +3485,7 @@ export function isSeoOpportunityQueueContract01AllowedFile(file: string): boolea
 
 export function isSeoCmsDraftPackageContract01AllowedFile(file: string): boolean {
   return (
+    isPersonalityPublicProfileAgentSplit01AllowedFile(file) ||
     SEO_CMS_DRAFT_PACKAGE_CONTRACT_01_ALLOWED_FILES.has(file) ||
     isAiImpactV5ExpandedPageQaAllowedFile(file) ||
     isQuizPackContractMainReplayAllowedFile(file) ||

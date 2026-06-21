@@ -49,6 +49,20 @@ This skill is not a page generator, not a direct publisher, and not a result-pag
 - Big Five: content package generation for 5 domains, 10 poles, and 30 facets.
 - Enneagram: placeholder upgrade for 3 centers and 9 core types first; 18 wings and 27 instinctual subtypes later.
 
+## Public Profile Agent Matrix
+
+The public profile factory is split into framework-specific agents plus shared QA and release guards:
+
+- Content Orchestrator Agent: routes work to framework agents, records inputs/outputs, and prevents scope mixing.
+- MBTI64 Public Personality Agent: audits and improves the existing 64 A/T variant pages and A-vs-T comparison pages.
+- Big Five Public Personality Agent: produces or QA-checks 5-domain, 10-pole, and 30-facet dimensional content packages.
+- Enneagram Public Personality Agent: upgrades hub, 3 centers, and 9 core types before wings or instinctual subtypes.
+- SEO Projection QA Agent: checks search-intent, title/description, internal-link, llms, sitemap, and Search Queue readiness artifacts.
+- Editorial Claim QA Agent: checks trademark, method-boundary, duplicate-risk, private-result-boundary, and deterministic-claim rules.
+- Release Guard Agent: separates draft/package, backend import, frontend render, publish/indexability, sitemap/llms, and search-release gates.
+
+These agents are coordination contracts, not autonomous publishers. They must not write production CMS, mutate sitemap or llms output, enqueue Search Queue items, submit search providers, or change result pages without a separate explicit gate.
+
 ## Framework-Specific Modes
 
 - `mbti.existing_asset_enhancement`: audit or improve existing CMS-backed 64 A/T pages and comparison pages. Do not regenerate the estate.
