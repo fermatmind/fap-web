@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fermatmind.com/schemas/career_content_editorial_repair_plan.schema.json",
+  "title": "Career Content Editorial Repair Plan",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["generated_at", "plan_type", "repairs", "content_rewritten", "baseline_mutated"],
+  "properties": {
+    "generated_at": { "type": "string" },
+    "plan_type": { "type": "string", "const": "career_content_editorial_repair_plan" },
+    "repairs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "slug",
+          "locale",
+          "block",
+          "affected_fields",
+          "recommended_rewrite_type",
+          "preserve_fields",
+          "forbidden_changes",
+          "source_refs_to_use",
+          "max_repair_scope",
+          "human_review_required"
+        ],
+        "properties": {
+          "slug": { "type": "string" },
+          "locale": { "type": "string", "enum": ["zh-CN", "en"] },
+          "block": { "type": "string" },
+          "affected_fields": { "type": "array", "items": { "type": "string" } },
+          "recommended_rewrite_type": { "type": "string" },
+          "preserve_fields": { "type": "array", "items": { "type": "string" } },
+          "forbidden_changes": { "type": "array", "items": { "type": "string" } },
+          "source_refs_to_use": { "type": "array", "items": { "type": "string" } },
+          "max_repair_scope": { "type": "string" },
+          "human_review_required": { "type": "boolean" }
+        }
+      }
+    },
+    "content_rewritten": { "type": "boolean", "const": false },
+    "baseline_mutated": { "type": "boolean", "const": false }
+  }
+}

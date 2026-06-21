@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fermatmind.com/schemas/career_content_editorial_quality_finding.schema.json",
+  "title": "Career Content Editorial Quality Finding",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "finding_id",
+    "severity",
+    "finding_type",
+    "slug",
+    "locale",
+    "field_path",
+    "excerpt",
+    "reason",
+    "repair_instruction",
+    "repair_allowed_without_source_change",
+    "requires_human_review"
+  ],
+  "properties": {
+    "finding_id": { "type": "string", "minLength": 1 },
+    "severity": {
+      "type": "string",
+      "enum": ["info", "warning", "repair_required", "blocked"]
+    },
+    "finding_type": {
+      "type": "string",
+      "enum": [
+        "generic_template",
+        "weak_occupation_specificity",
+        "low_workflow_density",
+        "low_reader_usefulness",
+        "phrase_overuse",
+        "locale_naturalness_issue",
+        "conversion_unclear",
+        "competitive_depth_weak",
+        "unsupported_fact_risk",
+        "block_repetition",
+        "boundary_boilerplate",
+        "cross_block_claim_leakage",
+        "raw_enum_leakage",
+        "source_id_reader_leakage",
+        "overlong_disclaimer",
+        "CTA_outcome_promise"
+      ]
+    },
+    "slug": { "type": "string", "minLength": 1 },
+    "locale": { "type": "string", "enum": ["zh-CN", "en"] },
+    "field_path": { "type": "string" },
+    "excerpt": { "type": "string" },
+    "reason": { "type": "string", "minLength": 1 },
+    "repair_instruction": { "type": "string", "minLength": 1 },
+    "repair_allowed_without_source_change": { "type": "boolean" },
+    "requires_human_review": { "type": "boolean" }
+  }
+}

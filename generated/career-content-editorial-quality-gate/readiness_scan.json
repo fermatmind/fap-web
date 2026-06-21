@@ -1,0 +1,97 @@
+{
+  "generated_at": "2026-06-21T09:37:28.163507+00:00",
+  "shared_editorial_quality_gate_exists": true,
+  "skills": [
+    {
+      "skill": "career-content-asset-factory",
+      "exists": true,
+      "quality_gate_reference": true,
+      "generic_template_checks_mentioned": false,
+      "locale_checks_mentioned": false,
+      "reader_usefulness_checks_mentioned": true,
+      "repair_plan_without_rewrite_supported_by_shared_gate": true
+    },
+    {
+      "skill": "career-page-assembly-asset-factory",
+      "exists": true,
+      "quality_gate_reference": true,
+      "generic_template_checks_mentioned": false,
+      "locale_checks_mentioned": false,
+      "reader_usefulness_checks_mentioned": true,
+      "repair_plan_without_rewrite_supported_by_shared_gate": false
+    },
+    {
+      "skill": "career-work-activities-asset-factory",
+      "exists": true,
+      "quality_gate_reference": true,
+      "generic_template_checks_mentioned": true,
+      "locale_checks_mentioned": false,
+      "reader_usefulness_checks_mentioned": true,
+      "repair_plan_without_rewrite_supported_by_shared_gate": false
+    },
+    {
+      "skill": "career-identity-asset-factory",
+      "exists": true,
+      "quality_gate_reference": true,
+      "generic_template_checks_mentioned": false,
+      "locale_checks_mentioned": false,
+      "reader_usefulness_checks_mentioned": true,
+      "repair_plan_without_rewrite_supported_by_shared_gate": false
+    },
+    {
+      "skill": "career-skills-entry-asset-factory",
+      "exists": true,
+      "quality_gate_reference": true,
+      "generic_template_checks_mentioned": false,
+      "locale_checks_mentioned": false,
+      "reader_usefulness_checks_mentioned": true,
+      "repair_plan_without_rewrite_supported_by_shared_gate": false
+    },
+    {
+      "skill": "career-fit-asset-factory",
+      "exists": true,
+      "quality_gate_reference": true,
+      "generic_template_checks_mentioned": false,
+      "locale_checks_mentioned": false,
+      "reader_usefulness_checks_mentioned": true,
+      "repair_plan_without_rewrite_supported_by_shared_gate": false
+    },
+    {
+      "skill": "career-adjacent-comparison-asset-factory",
+      "exists": true,
+      "quality_gate_reference": true,
+      "generic_template_checks_mentioned": false,
+      "locale_checks_mentioned": false,
+      "reader_usefulness_checks_mentioned": true,
+      "repair_plan_without_rewrite_supported_by_shared_gate": false
+    },
+    {
+      "skill": "career-risk-future-asset-factory",
+      "exists": true,
+      "quality_gate_reference": true,
+      "generic_template_checks_mentioned": true,
+      "locale_checks_mentioned": true,
+      "reader_usefulness_checks_mentioned": true,
+      "repair_plan_without_rewrite_supported_by_shared_gate": false
+    },
+    {
+      "skill": "career-salary-asset-factory",
+      "exists": true,
+      "quality_gate_reference": false,
+      "generic_template_checks_mentioned": false,
+      "locale_checks_mentioned": false,
+      "reader_usefulness_checks_mentioned": true,
+      "repair_plan_without_rewrite_supported_by_shared_gate": false
+    }
+  ],
+  "answers": {
+    "shared_editorial_quality_gate": "yes, expanded in this PR with metrics, schemas, scripts, sample policy, and repair-plan renderer",
+    "block_specific_editorial_quality_gates": "partially; block skills have quality_gates references and now inherit the shared gate",
+    "generic_template_checks": "yes, implemented by audit_editorial_quality.py and compare_phrase_reuse.py",
+    "locale_naturalness_checks": "yes, implemented by score_locale_naturalness.py and the shared audit",
+    "reader_usefulness_checks": "yes, scored by reader_usefulness_score and repair findings",
+    "conversion_clarity_checks": "yes, scored without permitting outcome promises",
+    "repair_plans_without_rewriting": "yes, render_editorial_repair_plan.py outputs instructions only",
+    "wired_into_staging_readiness": "yes, shared staging/import references now require sample audit before staging and full audit/acceptance before production"
+  }
+}

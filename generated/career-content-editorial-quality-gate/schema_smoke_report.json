@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-06-21T09:37:28.163507+00:00",
+  "schemas": [
+    {
+      "schema": "career_content_editorial_quality_report.schema.json",
+      "json_parse": true,
+      "has_schema_uri": true,
+      "has_required": true
+    },
+    {
+      "schema": "career_content_editorial_quality_finding.schema.json",
+      "json_parse": true,
+      "has_schema_uri": true,
+      "has_required": true
+    },
+    {
+      "schema": "career_content_editorial_repair_plan.schema.json",
+      "json_parse": true,
+      "has_schema_uri": true,
+      "has_required": true
+    }
+  ],
+  "report_required_keys_present": true,
+  "finding_required_keys_present": true,
+  "repair_plan_required_keys_present": true,
+  "schemas_valid": true
+}

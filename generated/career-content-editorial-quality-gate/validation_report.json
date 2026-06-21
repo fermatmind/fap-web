@@ -1,0 +1,16 @@
+{
+  "generated_at": "2026-06-21T09:37:28.163507+00:00",
+  "preflight_pass": true,
+  "sample_slug_count": 80,
+  "sample_includes_high_risk_cases": true,
+  "report_schema_valid": true,
+  "runtime_modified": false,
+  "seo_modified": false,
+  "cms_imported": false,
+  "staging_created": false,
+  "production_imported": false,
+  "content_rewritten": false,
+  "baseline_mutated": false,
+  "search_projection_generated": false,
+  "tooling_final_conclusion": "EDITORIAL_QUALITY_GATE_TOOLING_READY"
+}

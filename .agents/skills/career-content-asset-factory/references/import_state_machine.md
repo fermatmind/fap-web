@@ -16,6 +16,8 @@ Only `approved` content may transition to `production_imported`.
 
 - row count and slug count match the frozen baseline
 - SHA-256 manifest matches approved artifact
+- representative editorial quality sample audit completed before staging preview
+- full editorial quality audit completed or accepted by human editorial approval before production import
 - dry-run authority gate PASS
 - staging preview write PASS
 - API smoke PASS

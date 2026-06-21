@@ -1,0 +1,37 @@
+{
+  "generated_at": "2026-06-21T09:37:28.163507+00:00",
+  "scripts": [
+    {
+      "script": "audit_editorial_quality.py",
+      "help_smoke": true,
+      "py_compile": true
+    },
+    {
+      "script": "select_editorial_quality_sample.py",
+      "help_smoke": true,
+      "py_compile": true
+    },
+    {
+      "script": "render_editorial_repair_plan.py",
+      "help_smoke": true,
+      "py_compile": true
+    },
+    {
+      "script": "compare_phrase_reuse.py",
+      "help_smoke": true,
+      "py_compile": true
+    },
+    {
+      "script": "score_locale_naturalness.py",
+      "help_smoke": true,
+      "py_compile": true
+    },
+    {
+      "script": "summarize_editorial_quality.py",
+      "help_smoke": true,
+      "py_compile": true
+    }
+  ],
+  "scripts_compile": true,
+  "help_smoke": true
+}
