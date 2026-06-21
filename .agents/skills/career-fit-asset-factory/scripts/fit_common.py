@@ -95,7 +95,7 @@ def _is_negative_boundary(sentence: str) -> bool:
 
 def _allowed_occupational_outcome_context(sentence: str) -> bool:
     lowered = sentence.lower()
-    return any(marker in lowered for marker in ("property income stream", "anticipated property income", "income capitalization", "low-income population", "low income population", "employee retirement income security act", "compensation polic", "compensation plan", "prevailing wage rate"))
+    return any(marker in lowered for marker in ("property income stream", "anticipated property income", "income capitalization", "low-income population", "low income population", "employee retirement income security act", "compensation polic", "compensation plan", "prevailing wage rate", "available monthly income", "income growth", "financial situations", "financial information", "debt obligations", "credit data", "extending credit", "lending money", "loan requests", "credit reports", "profitability of loans"))
 
 def unsafe_fit_text(text: str)->bool:
     for sentence in re.split(r"(?<=[。.!?])\s+", text):
