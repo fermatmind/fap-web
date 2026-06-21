@@ -191,6 +191,18 @@ def has_unsafe_outcome_claim(text: str) -> bool:
             "compensation plan",
             "prevailing wage rate",
             "employee retirement income security act",
+            "income growth",
+            "available monthly income",
+            "clients' overall financial situations",
+            "income, assets, debts",
+            "immigration document",
+            "immigration application",
+            "immigration laws",
+            "customs or immigration",
+            "visas, and passports",
+            "applications, visas, and passports",
+            "eligibility for admission, residence, and travel",
+            "violation of immigration or customs laws",
         )
         if any(marker in lowered for marker in allowed_occupational_contexts):
             continue
