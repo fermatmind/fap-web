@@ -5,6 +5,7 @@ import argparse, datetime, json
 from fit_common import VERSION, read_jsonl, row_hash, write_jsonl
 
 ZH_WORKFLOW_PATTERNS = [
+    (("payroll", "paycheck", "wage", "time sheet", "earnings", "deduction", "pay adjustment"), "核对工时、薪酬项目、扣款和工资单记录"),
     (("diagnos", "examin", "patient"), "接诊、问诊、体征观察和检查结果解释"),
     (("medical histor", "patient"), "整理患者病史并把关键变化记录清楚"),
     (("spine", "musculoskeletal", "adjust"), "评估脊柱和肌肉骨骼问题并执行手法调整"),
