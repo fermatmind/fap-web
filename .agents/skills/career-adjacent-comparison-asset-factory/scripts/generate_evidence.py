@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Audit adjacent-comparison synthesis."""
+"""Compatibility entrypoint for adjacent-comparison evidence generation."""
 from __future__ import annotations
-from validate_synthesis_schema import main
+from collect_evidence import main
 
 if __name__ == "__main__":
     raise SystemExit(main())
