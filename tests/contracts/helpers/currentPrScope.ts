@@ -368,6 +368,8 @@ const SEO_CMS_DRAFT_PACKAGE_CONTRACT_01_ALLOWED_FILES = new Set([
 ]);
 
 const SEO_AGENT_FAPWEB_CODE_PR_WRITER_01_ALLOWED_FILES = new Set([
+  ".agents/skills/fap-web-seo-geo-authority/SKILL.md",
+  ".agents/skills/fermatmind-seo-ops/SKILL.md",
   "package.json",
   "scripts/seo/generate-seo-agent-fapweb-code-pr-writer.mjs",
   "docs/seo/agent/FAPWEB_CODE_PR_WRITER.md",

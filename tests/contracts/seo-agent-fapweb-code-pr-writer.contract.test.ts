@@ -75,6 +75,8 @@ function changedFiles(): string[] {
 }
 
 const allowedFiles = new Set([
+  ".agents/skills/fap-web-seo-geo-authority/SKILL.md",
+  ".agents/skills/fermatmind-seo-ops/SKILL.md",
   "package.json",
   "docs/seo/agent/FAPWEB_CODE_PR_WRITER.md",
   "docs/seo/agent/examples/seo-agent-fapweb-code-pr-request.example.json",
@@ -160,9 +162,13 @@ describe("SEO Agent fap-web code PR writer", () => {
     const pkg = fs.readFileSync(path.join(ROOT, "package.json"), "utf8");
 
     expect(docs).toContain("PR-only");
+    expect(docs).toContain("create a `codex/` task branch");
+    expect(docs).toContain("open a scoped GitHub PR");
     expect(docs).toContain("direct_main_push_allowed=false");
     expect(docs).toContain("auto_deploy_allowed=false");
     expect(docs).toContain("does not add frontend editorial fallback content");
+    expect(generated.codex_after_review_allowed_actions).toContain("open_scoped_github_pr");
+    expect(generated.codex_after_review_forbidden_actions).toContain("auto_deploy");
     expect(generated.negative_guarantees).toMatchObject({
       direct_main_push_allowed: false,
       auto_deploy_allowed: false,
@@ -171,6 +177,22 @@ describe("SEO Agent fap-web code PR writer", () => {
       indexing_request_allowed: false,
     });
     expect(pkg).toContain("\"seo-agent:fapweb-code-pr-writer\"");
+  });
+
+  it("keeps fap-web SEO skills aligned to the Codex PR-only lane", () => {
+    const seoGeoSkill = fs.readFileSync(
+      path.join(ROOT, ".agents/skills/fap-web-seo-geo-authority/SKILL.md"),
+      "utf8",
+    );
+    const seoOpsSkill = fs.readFileSync(
+      path.join(ROOT, ".agents/skills/fermatmind-seo-ops/SKILL.md"),
+      "utf8",
+    );
+
+    expect(seoGeoSkill).toContain("pnpm seo-agent:fapweb-code-pr-writer");
+    expect(seoGeoSkill).toContain("must not direct-push `main`, auto-merge, auto-deploy");
+    expect(seoOpsSkill).toContain("seo-agent-fapweb-code-pr-writer.v1");
+    expect(seoOpsSkill).toContain("must not direct-push `main`, auto-merge, auto-deploy");
   });
 
   it("keeps current PR changed files inside the approved fap-web code writer scope", () => {

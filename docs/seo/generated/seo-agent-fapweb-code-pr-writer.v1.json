@@ -32,6 +32,23 @@
     "pnpm test:contract",
     "git diff --check"
   ],
+  "codex_after_review_allowed_actions": [
+    "create_codex_task_branch",
+    "modify_approved_fap_web_product_code_or_tests",
+    "run_required_local_checks",
+    "push_task_branch",
+    "open_scoped_github_pr"
+  ],
+  "codex_after_review_forbidden_actions": [
+    "direct_push_main",
+    "auto_merge",
+    "auto_deploy",
+    "frontend_editorial_fallback",
+    "generated_seo_artifact_hand_edit",
+    "cms_write",
+    "search_channel_submit",
+    "indexing_request"
+  ],
   "negative_guarantees": {
     "git_push_attempted": false,
     "github_pr_created_by_runner": false,
