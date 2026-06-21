@@ -11,7 +11,7 @@ LOCALES=('zh-CN','en')
 REQUIRED={'ledger_type','asset_version','block_type','slug','locale','occupation','seed_ordinal','batch_role','sources','audit_fields'}
 RUNTIME_OR_SEO=re.compile(r"\b(search_projection|sitemap|noindex|json-ld|jsonld|robots\.txt|llms\.txt|cms import|production import|staging_preview|canonical)\b", re.I)
 RAW_INTERNAL=re.compile(r"\b(evidence_id|source_id|row_hash|audit_fields|internal lineage|repair note|gate label|source_id)\b", re.I)
-DETERMINISTIC_FIT=re.compile(r"\b(must choose|cannot choose|guarantees? fit|perfect career|best career for your type|will succeed|will fail|destiny|mental health diagnosis|clinical diagnosis|therapy)\b|必须选择|不能从事|一定适合|一定不适合|命中注定|心理诊断|心理疾病|保证成功", re.I)
+DETERMINISTIC_FIT=re.compile(r"\b(must choose|cannot choose|guarantees? fit|perfect career|best career for your type|will succeed|will fail|destiny|mental health diagnosis|clinical diagnosis)\b|必须选择|不能从事|一定适合|一定不适合|命中注定|心理诊断|心理疾病|保证成功", re.I)
 OUTCOME_CLAIMS=re.compile(r"\b(will get hired|job offer|salary|wage|income|promotion guaranteed|guaranteed promotion|admission|certification guaranteed|employment guaranteed|guarantee[sd]?)\b|保证(?:就业|入职|录取|拿证|收入|薪资|工资|升职)", re.I)
 DISALLOWED_EVIDENCE_TERMS=re.compile(r"\b(ai impact|automation score|salary|wage|income|job board|indeed|linkedin job|glassdoor)\b|薪资|工资|收入|招聘网站|岗位广告|AI影响", re.I)
 
@@ -93,9 +93,13 @@ def _is_negative_boundary(sentence: str) -> bool:
     lowered = sentence.lower()
     return any(marker in lowered for marker in ("not ", "no ", "does not", "do not", "cannot", "must not", "without", "rather than", "不是", "不能", "不得", "不会", "并非", "不预测", "不作为"))
 
+def _allowed_occupational_outcome_context(sentence: str) -> bool:
+    lowered = sentence.lower()
+    return any(marker in lowered for marker in ("property income stream", "anticipated property income", "income capitalization"))
+
 def unsafe_fit_text(text: str)->bool:
     for sentence in re.split(r"(?<=[。.!?])\s+", text):
-        if _is_negative_boundary(sentence):
+        if _is_negative_boundary(sentence) or _allowed_occupational_outcome_context(sentence):
             continue
         if DETERMINISTIC_FIT.search(sentence) or OUTCOME_CLAIMS.search(sentence):
             return True
@@ -103,7 +107,7 @@ def unsafe_fit_text(text: str)->bool:
 
 def source_safe_text(text: str)->bool:
     for sentence in re.split(r"(?<=[。.!?])\s+", text):
-        if _is_negative_boundary(sentence):
+        if _is_negative_boundary(sentence) or _allowed_occupational_outcome_context(sentence):
             continue
         if DISALLOWED_EVIDENCE_TERMS.search(sentence):
             return False
