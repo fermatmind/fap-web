@@ -22992,7 +22992,7 @@
       "id": "PERSONALITY-PUBLIC-PROFILE-AGENT-SPLIT-01",
       "repo": "fap-web",
       "branch": "codex/personality-public-profile-agent-split-01",
-      "status": "pr_open",
+      "status": "github_checks_passed",
       "commit_sha": "df7e7e9c7bde3bf1f99cda001618adca37fcf87c",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1251",
       "merged_at": null,
@@ -23037,6 +23037,10 @@
           "status": "open",
           "url": "https://github.com/fermatmind/fap-web/pull/1251",
           "evidence": "PR opened after local validation passed."
+        },
+        "github": {
+          "status": "pass",
+          "evidence": "PR #1251 checks passed: CodeQL, analyze (javascript-typescript), build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze."
         }
       },
       "history": [
@@ -23054,6 +23058,11 @@
           "at": "2026-06-21T11:47:30+08:00",
           "status": "pr_open",
           "note": "Opened https://github.com/fermatmind/fap-web/pull/1251 from commit df7e7e9c7bde3bf1f99cda001618adca37fcf87c."
+        },
+        {
+          "at": "2026-06-21T11:53:20+08:00",
+          "status": "github_checks_passed",
+          "note": "GitHub checks passed for PR #1251. Auto-merge is disabled for this train item, so merge is deferred to operator/repo policy."
         }
       ]
     }
