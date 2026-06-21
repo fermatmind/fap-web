@@ -180,6 +180,8 @@ def has_unsafe_outcome_claim(text: str) -> bool:
         if not OUTCOME_CLAIMS.search(sentence):
             continue
         lowered = sentence.lower()
+        if any(marker in lowered for marker in ("property income stream", "property income approach", "anticipated property income", "income capitalization")):
+            continue
         if any(marker in lowered for marker in ("does not", "do not", "not ", "no ", "without ", "must not", "is not")):
             continue
         if any(marker in sentence for marker in ("不", "不得", "不能", "不会", "没有", "并非", "非")):
