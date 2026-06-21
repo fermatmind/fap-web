@@ -83,6 +83,12 @@
         "null"
       ]
     },
+    "derived_from_evidence": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
     "limitations": {
       "type": "array",
       "items": {
@@ -91,6 +97,24 @@
     },
     "audit_fields": {
       "type": "object"
+    },
+    "fit_signals": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "possible_friction_points": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "how_to_test_fit": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
     }
   }
 }
