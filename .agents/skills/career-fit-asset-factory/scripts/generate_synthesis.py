@@ -42,12 +42,19 @@ def zh_workflow_label(workflow: str, occupation: str, index: int) -> str:
     ]
     return fallback[index % len(fallback)]
 
+def en_workflow_label(workflow: str, occupation: str) -> str:
+    cleaned=' '.join((workflow or '').split())
+    if not cleaned:
+        return occupation
+    first=cleaned[0].lower()+cleaned[1:] if len(cleaned)>1 else cleaned.lower()
+    return f"In {occupation}, {first}"
+
 def main():
     a=parse_args(); now=datetime.datetime.now(datetime.timezone.utc).isoformat(); rows=[]
     for ev in read_jsonl(a.evidence):
         loc=ev['locale']; occ=ev['occupation']; facts=ev.get('facts') or {}; lenses=facts.get('riasec_lenses') or []
         workflows=[i.get('captured_fact') for i in ev.get('items',[]) if i.get('item_type')=='workflow_fit_signal'][:4]
-        display_workflows=[zh_workflow_label(w, occ, i) for i,w in enumerate(workflows)] if loc=='zh-CN' else workflows
+        display_workflows=[zh_workflow_label(w, occ, i) for i,w in enumerate(workflows)] if loc=='zh-CN' else [en_workflow_label(w, occ) for w in workflows]
         lens_text=', '.join([l.get('riasec_code') for l in lenses if l.get('riasec_code')]) or 'work-structure'
         if loc=='zh-CN':
             summary=f"{occ}的匹配度应先看工作结构：{lens_text} 只是需要用霍兰德/RIASEC继续验证的兴趣线索，不是人格结论。"
