@@ -1,0 +1,121 @@
+{
+  "input": "generated/career-page-assembly-v1-1046-pass-baseline/career_page_assembly_1046_v1.jsonl",
+  "row_count": 2092,
+  "repeated_phrase_group_count": 28,
+  "groups": [
+    {
+      "skeleton": "this row contains assembly references only and no release instruction",
+      "count": 2092
+    },
+    {
+      "skeleton": "num num num num title 中文片段 available this assembly section references the named pass or mature block only it does not create or rewrite occupational facts",
+      "count": 1186
+    },
+    {
+      "skeleton": "available this assembly section references the named pass or mature block only it does not create or rewrite occupational facts",
+      "count": 92
+    },
+    {
+      "skeleton": "num num num num title title 中文片段 available this assembly section references the named pass or mature block only it does not create or rewrite occupational facts",
+      "count": 74
+    },
+    {
+      "skeleton": "num num num num title title 中文片段 中文片段 available this assembly section references the named pass or mature block only it does not create or rewrite occupational facts",
+      "count": 66
+    },
+    {
+      "skeleton": "num num num num title postsecondary 中文片段 available this assembly section references the named pass or mature block only it does not create or rewrite occupational facts",
+      "count": 60
+    },
+    {
+      "skeleton": "num num num num title operators title title 中文片段 中文片段 中文片段 中文片段 available this assembly section references the named pass or mature block only it does not create or rewrite occupational facts",
+      "count": 20
+    },
+    {
+      "skeleton": "num num num num title title title 中文片段 available this assembly section references the named pass or mature block only it does not create or rewrite occupational facts",
+      "count": 16
+    },
+    {
+      "skeleton": "num num num num title title title 中文片段 中文片段 available this assembly section references the named pass or mature block only it does not create or rewrite occupational facts",
+      "count": 12
+    },
+    {
+      "skeleton": "num num num num title operators title 中文片段 中文片段 中文片段 available this assembly section references the named pass or mature block only it does not create or rewrite occupational facts",
+      "count": 10
+    },
+    {
+      "skeleton": "num num num num cooks title 中文片段 available this assembly section references the named pass or mature block only it does not create or rewrite occupational facts",
+      "count": 8
+    },
+    {
+      "skeleton": "num num num num title postsecondary 中文片段 中文片段 available this assembly section references the named pass or mature block only it does not create or rewrite occupational facts",
+      "count": 8
+    },
+    {
+      "skeleton": "num num num num title hand 中文片段 中文片段 available this assembly section references the named pass or mature block only it does not create or rewrite occupational facts",
+      "count": 6
+    },
+    {
+      "skeleton": "num num num num title title title 中文片段 中文片段 中文片段 available this assembly section references the named pass or mature block only it does not create or rewrite occupational facts",
+      "count": 6
+    },
+    {
+      "skeleton": "num num num num captains mates title 中文片段 中文片段 available this assembly section references the named pass or mature block only it does not create or rewrite occupational facts",
+      "count": 4
+    },
+    {
+      "skeleton": "num num num num career title title 中文片段 available this assembly section references the named pass or mature block only it does not create or rewrite occupational facts",
+      "count": 4
+    },
+    {
+      "skeleton": "num num num num chemists 中文片段 available this assembly section references the named pass or mature block only it does not create or rewrite occupational facts",
+      "count": 4
+    },
+    {
+      "skeleton": "num num num num cooks restaurant 中文片段 available this assembly section references the named pass or mature block only it does not create or rewrite occupational facts",
+      "count": 4
+    },
+    {
+      "skeleton": "num num num num curators 中文片段 available this assembly section references the named pass or mature block only it does not create or rewrite occupational facts",
+      "count": 4
+    },
+    {
+      "skeleton": "num num num num dancers 中文片段 available this assembly section references the named pass or mature block only it does not create or rewrite occupational facts",
+      "count": 4
+    },
+    {
+      "skeleton": "num num num num geoscientists title 中文片段 中文片段 available this assembly section references the named pass or mature block only it does not create or rewrite occupational facts",
+      "count": 4
+    },
+    {
+      "skeleton": "num num num num machinists 中文片段 available this assembly section references the named pass or mature block only it does not create or rewrite occupational facts",
+      "count": 4
+    },
+    {
+      "skeleton": "num num num num physicists 中文片段 available this assembly section references the named pass or mature block only it does not create or rewrite occupational facts",
+      "count": 4
+    },
+    {
+      "skeleton": "num num num num title and title 中文片段",
+      "count": 4
+    },
+    {
+      "skeleton": "num num num num title general 中文片段 available this assembly section references the named pass or mature block only it does not create or rewrite occupational facts",
+      "count": 4
+    },
+    {
+      "skeleton": "num num num num title mechanical 中文片段 available this assembly section references the named pass or mature block only it does not create or rewrite occupational facts",
+      "count": 4
+    },
+    {
+      "skeleton": "num num num num title s title 中文片段 available this assembly section references the named pass or mature block only it does not create or rewrite occupational facts",
+      "count": 4
+    },
+    {
+      "skeleton": "num num num num title 中文片段",
+      "count": 4
+    }
+  ],
+  "content_rewritten": false,
+  "baseline_mutated": false
+}

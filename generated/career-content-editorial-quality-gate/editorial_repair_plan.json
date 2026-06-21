@@ -1,0 +1,5288 @@
+{
+  "generated_at": "2026-06-21T09:37:26.039334+00:00",
+  "plan_type": "career_content_editorial_repair_plan",
+  "repairs": [
+    {
+      "slug": "accountants-and-auditors",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "accountants-and-auditors",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "actors",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "actors",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "actuaries",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "actuaries",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "acupuncturists",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "acupuncturists",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "acute-care-nurses",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "acute-care-nurses",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "adapted-physical-education-specialists",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "adapted-physical-education-specialists",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "adhesive-bonding-machine-operators-and-tenders",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "adhesive-bonding-machine-operators-and-tenders",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "administrative-law-judges-adjudicators-and-hearing-officers",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "administrative-law-judges-adjudicators-and-hearing-officers",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "administrative-services-managers",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "administrative-services-managers",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "adult-basic-education-adult-secondary-education-and-english-as-a-second-language-instructors",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "adult-basic-education-adult-secondary-education-and-english-as-a-second-language-instructors",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "adult-literacy-and-ged-teachers",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "adult-literacy-and-ged-teachers",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "advanced-practice-psychiatric-nurses",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "advanced-practice-psychiatric-nurses",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "advertising-and-promotions-managers",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "advertising-and-promotions-managers",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "advertising-promotions-and-marketing-managers",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "advertising-promotions-and-marketing-managers",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "aerospace-engineering-and-operations-technicians",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "aerospace-engineering-and-operations-technicians",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "aerospace-engineers",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "aerospace-engineers",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "agents-and-business-managers-of-artists-performers-and-athletes",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "agents-and-business-managers-of-artists-performers-and-athletes",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "agricultural-equipment-operators",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "agricultural-equipment-operators",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "agricultural-sciences-teachers-postsecondary",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "agricultural-sciences-teachers-postsecondary",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "agricultural-workers",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "agricultural-workers",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "air-crew-members",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "air-crew-members",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "air-crew-officers",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "air-crew-officers",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "air-traffic-controllers",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "air-traffic-controllers",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "aircraft-and-avionics-equipment-mechanics-and-technicians",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "aircraft-and-avionics-equipment-mechanics-and-technicians",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "aircraft-cargo-handling-supervisors",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "aircraft-cargo-handling-supervisors",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "aircraft-launch-and-recovery-officers",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "aircraft-launch-and-recovery-officers",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "aircraft-launch-and-recovery-specialists",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "aircraft-launch-and-recovery-specialists",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "aircraft-mechanics-and-service-technicians",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "aircraft-mechanics-and-service-technicians",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "aircraft-service-attendants",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "aircraft-service-attendants",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "aircraft-structure-surfaces-rigging-and-systems-assemblers",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "aircraft-structure-surfaces-rigging-and-systems-assemblers",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "airfield-operations-specialists",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "airfield-operations-specialists",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "airline-and-commercial-pilots",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "airline-and-commercial-pilots",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "airline-pilots-copilots-and-flight-engineers",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "airline-pilots-copilots-and-flight-engineers",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "allergists-and-immunologists",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "allergists-and-immunologists",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "ambulance-drivers-and-attendants-except-emergency-medical-technicians",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "ambulance-drivers-and-attendants-except-emergency-medical-technicians",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "anesthesiologist-assistants",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "anesthesiologist-assistants",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "anesthesiologists",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "anesthesiologists",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "animal-scientists",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "animal-scientists",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "animal-trainers",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "animal-trainers",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "announcers",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "announcers",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "anthropologists-and-archeologists",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "anthropologists-and-archeologists",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "anthropology-and-archeology-teachers-postsecondary",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "anthropology-and-archeology-teachers-postsecondary",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "arbitrators-mediators-and-conciliators",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "arbitrators-mediators-and-conciliators",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "architects",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "architects",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "architects-except-landscape-and-naval",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "architects-except-landscape-and-naval",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "architectural-and-civil-drafters",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "architectural-and-civil-drafters",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "architectural-and-engineering-managers",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "architectural-and-engineering-managers",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "architecture-teachers-postsecondary",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "architecture-teachers-postsecondary",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "archivists",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "archivists",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "area-ethnic-and-cultural-studies-teachers-postsecondary",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "area-ethnic-and-cultural-studies-teachers-postsecondary",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "art-directors",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "art-directors",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "art-drama-and-music-teachers-postsecondary",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "art-drama-and-music-teachers-postsecondary",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "art-therapists",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "art-therapists",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "assemblers-and-fabricators",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "assemblers-and-fabricators",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "astronomers",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "astronomers",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "athletes-and-sports-competitors",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "athletes-and-sports-competitors",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "athletic-trainers",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "athletic-trainers",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "atmospheric-and-space-scientists",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "atmospheric-and-space-scientists",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "atmospheric-earth-marine-and-space-sciences-teachers-postsecondary",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "atmospheric-earth-marine-and-space-sciences-teachers-postsecondary",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "atmospheric-scientists-including-meteorologists",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "atmospheric-scientists-including-meteorologists",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "audio-and-video-technicians",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "audio-and-video-technicians",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "audiologists",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "audiologists",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "audiovisual-equipment-installers-and-repairers",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "audiovisual-equipment-installers-and-repairers",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "automotive-and-watercraft-service-attendants",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "automotive-and-watercraft-service-attendants",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "automotive-body-and-glass-repairers",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "automotive-body-and-glass-repairers",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "automotive-engineering-technicians",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "automotive-engineering-technicians",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "automotive-engineers",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "automotive-engineers",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "automotive-glass-installers-and-repairers",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "automotive-glass-installers-and-repairers",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "automotive-service-technicians-and-mechanics",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "automotive-service-technicians-and-mechanics",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "curators-museum-technicians-and-conservators",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "curators-museum-technicians-and-conservators",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "transportation-inspectors",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "transportation-inspectors",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "transportation-planners",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "transportation-planners",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "transportation-security-screeners",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "transportation-security-screeners",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "transportation-storage-and-distribution-managers",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "transportation-storage-and-distribution-managers",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "transportation-vehicle-equipment-and-systems-inspectors-except-aviation",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "transportation-vehicle-equipment-and-systems-inspectors-except-aviation",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "travel-agents",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "travel-agents",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "travel-guides",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "travel-guides",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "treasurers-and-controllers",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "treasurers-and-controllers",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "tree-trimmers-and-pruners",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "tree-trimmers-and-pruners",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "tutors",
+      "locale": "en",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    },
+    {
+      "slug": "tutors",
+      "locale": "zh-CN",
+      "block": "career-page-assembly",
+      "affected_fields": [
+        "$"
+      ],
+      "recommended_rewrite_type": "editorial_quality_repair_without_new_facts",
+      "preserve_fields": [
+        "source_urls",
+        "source_ids",
+        "evidence_ids",
+        "row_hash",
+        "source_row_hash",
+        "seed_identity",
+        "slug",
+        "soc_code",
+        "onet_code",
+        "salary_values",
+        "ai_impact_scores",
+        "search_projection",
+        "runtime_seo"
+      ],
+      "forbidden_changes": [
+        "Do not change source URLs, source IDs, evidence IDs, row hashes, seed identity, official codes, salary values, AI impact scores, or runtime SEO.",
+        "Do not generate new career facts."
+      ],
+      "source_refs_to_use": [
+        "completed PASS block assets referenced by page assembly row"
+      ],
+      "max_repair_scope": "reader-facing wording only, selected fields only",
+      "human_review_required": false
+    }
+  ],
+  "content_rewritten": false,
+  "baseline_mutated": false
+}

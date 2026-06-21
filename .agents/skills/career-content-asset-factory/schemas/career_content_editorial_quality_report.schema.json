@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fermatmind.com/schemas/career_content_editorial_quality_report.schema.json",
+  "title": "Career Content Editorial Quality Report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "generated_at",
+    "report_type",
+    "input_refs",
+    "summary",
+    "rows",
+    "findings",
+    "runtime_modified",
+    "seo_modified",
+    "cms_imported",
+    "staging_created",
+    "production_imported",
+    "search_projection_generated"
+  ],
+  "properties": {
+    "generated_at": { "type": "string" },
+    "report_type": { "type": "string", "const": "career_content_editorial_quality_report" },
+    "input_refs": {
+      "type": "object",
+      "additionalProperties": { "type": ["string", "number", "boolean", "null", "array", "object"] }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": { "type": ["string", "number", "boolean", "null", "array", "object"] }
+    },
+    "rows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "block",
+          "slug",
+          "locale",
+          "row_ref",
+          "source_baseline_ref",
+          "overall_editorial_score",
+          "occupation_specificity_score",
+          "workflow_density_score",
+          "reader_usefulness_score",
+          "template_reuse_score",
+          "locale_naturalness_score",
+          "conversion_clarity_score",
+          "competitive_depth_score",
+          "source_backed_claim_density_score",
+          "block_relevance_score",
+          "reader_safe_boundary_score",
+          "status",
+          "findings",
+          "recommended_repair_scope",
+          "do_not_modify_fields",
+          "source_traceability_boundary",
+          "generated_at"
+        ],
+        "properties": {
+          "block": { "type": "string" },
+          "slug": { "type": "string" },
+          "locale": { "type": "string", "enum": ["zh-CN", "en"] },
+          "row_ref": { "type": "string" },
+          "source_baseline_ref": { "type": "string" },
+          "overall_editorial_score": { "type": "number", "minimum": 0, "maximum": 5 },
+          "occupation_specificity_score": { "type": "number", "minimum": 0, "maximum": 5 },
+          "workflow_density_score": { "type": "number", "minimum": 0, "maximum": 5 },
+          "reader_usefulness_score": { "type": "number", "minimum": 0, "maximum": 5 },
+          "template_reuse_score": { "type": "number", "minimum": 0, "maximum": 5 },
+          "locale_naturalness_score": { "type": "number", "minimum": 0, "maximum": 5 },
+          "conversion_clarity_score": { "type": "number", "minimum": 0, "maximum": 5 },
+          "competitive_depth_score": { "type": "number", "minimum": 0, "maximum": 5 },
+          "source_backed_claim_density_score": { "type": "number", "minimum": 0, "maximum": 5 },
+          "block_relevance_score": { "type": "number", "minimum": 0, "maximum": 5 },
+          "reader_safe_boundary_score": { "type": "number", "minimum": 0, "maximum": 5 },
+          "status": {
+            "type": "string",
+            "enum": ["editorial_ready", "editorial_repair_required", "blocked"]
+          },
+          "findings": {
+            "type": "array",
+            "items": { "$ref": "career_content_editorial_quality_finding.schema.json" }
+          },
+          "recommended_repair_scope": { "type": "array", "items": { "type": "string" } },
+          "do_not_modify_fields": { "type": "array", "items": { "type": "string" } },
+          "source_traceability_boundary": { "type": "string" },
+          "generated_at": { "type": "string" }
+        }
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": { "$ref": "career_content_editorial_quality_finding.schema.json" }
+    },
+    "runtime_modified": { "type": "boolean" },
+    "seo_modified": { "type": "boolean" },
+    "cms_imported": { "type": "boolean" },
+    "staging_created": { "type": "boolean" },
+    "production_imported": { "type": "boolean" },
+    "search_projection_generated": { "type": "boolean" }
+  }
+}

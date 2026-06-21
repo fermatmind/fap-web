@@ -24,6 +24,8 @@ Dry run must not write staging or production rows.
 - expose preview rows only through preview flags, allowlists, or status gates
 - fail closed when API returns 404, flag is off, status is not allowed, or payload is incomplete
 
+Before staging preview, a representative editorial quality sample audit should be run. Full integrated QA proves assembly integrity; editorial quality audit proves public-usefulness readiness.
+
 ## Frontend Preview QA
 
 Frontend preview QA must verify:
@@ -36,3 +38,5 @@ Frontend preview QA must verify:
 ## Approval And Production
 
 Move to `editorial_review`, then `approved`, then `production_imported`. Production import requires exact artifact SHA approval from the user and a rollback plan.
+
+Before production import, run the full editorial quality audit or attach a human editorial acceptance manifest that explicitly accepts remaining findings. Editorial gates must not modify sitemap, `llms.txt`, canonical, noindex, robots, JSON-LD, or other SEO runtime surfaces.
