@@ -10,6 +10,7 @@ from identity_common import fail_report, read_jsonl
 
 
 OFFICIAL_HINTS = re.compile(r"(O\*NET|SOC|BLS|ESCO|ISCO|National Careers|official|onetonline)", re.I)
+OFFICIAL_AGGREGATE_MAPPING_QUALITIES = {"official_bls_aggregate_repair", "official_soc_aggregate_repair"}
 
 
 def parse_args() -> argparse.Namespace:
@@ -29,6 +30,12 @@ def main() -> int:
         facts = row.get("facts") or {}
         sources = row.get("sources") or []
         source_ids = {source.get("source_id") for source in sources if source.get("source_id")}
+        mapping_quality = facts.get("mapping_quality")
+        official_aggregate_mapping = (
+            mapping_quality in OFFICIAL_AGGREGATE_MAPPING_QUALITIES
+            and bool(facts.get("soc_code_seed"))
+            and "aggregate" in str(facts.get("boundary_type", "")).lower()
+        )
         if facts.get("canonical_seed_mutated") is True:
             findings.append({"slug": slug, "locale": locale, "issue": "canonical_seed_mutation"})
         if facts.get("title_similarity_proxy_used") is True:
@@ -38,7 +45,7 @@ def main() -> int:
         source_blob = " ".join(str(source.get(key, "")) for source in sources for key in ("source_name", "url", "final_url", "boundary", "source_relation"))
         if sources and not OFFICIAL_HINTS.search(source_blob):
             findings.append({"slug": slug, "locale": locale, "issue": "official_authority_missing_without_boundary"})
-        if not facts.get("onet_code_seed"):
+        if not facts.get("onet_code_seed") and not official_aggregate_mapping:
             findings.append({"slug": slug, "locale": locale, "issue": "missing_onet_code_seed"})
         if not facts.get("soc_code_seed"):
             findings.append({"slug": slug, "locale": locale, "issue": "missing_soc_code_seed"})
