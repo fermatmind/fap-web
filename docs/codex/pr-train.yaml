@@ -15283,6 +15283,71 @@ prs:
       squash: true
       auto_merge: false
 
+  - id: PERSONALITY-PUBLIC-PROFILE-AGENT-SPLIT-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/personality-public-profile-agent-split-01
+    base: main
+    title: "Split public profile personality agents"
+    depends_on: [PUBLIC-PROFILE-SEO-ASSET-FACTORY-SKILL-AUTOMATION-01]
+    mode: execute
+    train_scope: personality_public_profile_agent_split
+    status: in_progress
+    goal: "Split the public-profile SEO asset factory into explicit MBTI64, Big Five, and Enneagram public profile agents plus orchestrator, SEO projection QA, editorial claim QA, and release guard contracts without runtime, CMS, sitemap, llms, indexability, Search Queue, or generated production content changes."
+    artifacts:
+      - .agents/skills/public-profile-seo-asset-factory/SKILL.md
+      - .agents/skills/public-profile-seo-asset-factory/agents/**
+      - .agents/skills/public-profile-seo-asset-factory/orchestration/personality-agent-matrix.md
+      - docs/research/personality/personality-public-profile-agent-split-01/**
+      - tests/contracts/personality-public-profile-agent-split-01.contract.test.ts
+      - tests/contracts/quiz-pack-performance-hotfix.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - .agents/skills/public-profile-seo-asset-factory/SKILL.md
+      - .agents/skills/public-profile-seo-asset-factory/agents/**
+      - .agents/skills/public-profile-seo-asset-factory/orchestration/personality-agent-matrix.md
+      - docs/research/personality/personality-public-profile-agent-split-01/**
+      - tests/contracts/personality-public-profile-agent-split-01.contract.test.ts
+      - tests/contracts/quiz-pack-performance-hotfix.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - package.json
+      - pnpm-lock.yaml
+      - any .env* files
+      - fap-api changes
+      - runtime changes
+      - frontend local editorial fallback copy
+      - CMS import/write/promotion
+      - sitemap, llms.txt, or llms-full.txt changes
+      - indexability changes
+      - URL Truth writes
+      - Search Queue enqueue/approve/submit
+      - GPT/Gemini live content generation
+      - production content package generation
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/personality-public-profile-agent-split-01.contract.test.ts
+      - pnpm exec vitest run tests/contracts/quiz-pack-performance-hotfix.contract.test.ts
+      - pnpm typecheck
+      - parse all JSON schemas
+      - JSON/YAML parse if docs/codex state is touched
+      - ensure no runtime files changed
+      - ensure no sitemap/llms/indexability files changed
+      - git diff --check
+      - scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: false
+    next_task: MBTI64-SEARCH-QUEUE-EXPANSION-DRY-RUN-01
+
   - id: MBTI64-SERP-SNIPPET-CTR-PACKAGE-01
     repo: fap-web
     repo_path: <workspace>/fap-web

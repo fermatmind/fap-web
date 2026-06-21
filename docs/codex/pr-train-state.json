@@ -2,9 +2,9 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-20T07:48:00+08:00",
+  "updated_at": "2026-06-21T11:20:59+08:00",
   "status": "active",
-  "phase": "mbti64_llms_full_pilot_exposure_policy",
+  "phase": "personality_public_profile_agent_split",
   "pr_namespace": "PR-PRAC-*",
   "branch_naming_convention": "codex/pr-prac-<nn>-<short-scope>",
   "mode": "local_clone_preferred",
@@ -22985,6 +22985,65 @@
           "at": "2026-06-20T08:00:00+08:00",
           "status": "merged",
           "note": "Reconciled PR #1234 merge facts while auditing SEO_AGENT_PR_TRAIN_RUNNER; squash merge commit 9a833b98d7b1ca1599d74b13208be6220deb55f1, remote branch deleted, local branch absent, and post-merge focused validation passed."
+        }
+      ]
+    },
+    {
+      "id": "PERSONALITY-PUBLIC-PROFILE-AGENT-SPLIT-01",
+      "repo": "fap-web",
+      "branch": "codex/personality-public-profile-agent-split-01",
+      "status": "local_checks_passed",
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized Codex to update docs/codex/pr-train.yaml and docs/codex/pr-train-state.json for PERSONALITY-PUBLIC-PROFILE-AGENT-SPLIT-01 and implement MBTI64, Big Five, and Enneagram public profile agents."
+        },
+        "scope": {
+          "status": "pass",
+          "allowed_paths": [
+            ".agents/skills/public-profile-seo-asset-factory/SKILL.md",
+            ".agents/skills/public-profile-seo-asset-factory/agents/**",
+            ".agents/skills/public-profile-seo-asset-factory/orchestration/personality-agent-matrix.md",
+            "docs/research/personality/personality-public-profile-agent-split-01/**",
+            "tests/contracts/personality-public-profile-agent-split-01.contract.test.ts",
+            "tests/contracts/quiz-pack-performance-hotfix.contract.test.ts",
+            "tests/contracts/helpers/currentPrScope.ts",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ],
+          "evidence": "Scope validation passed with 17 changed files limited to skill agent contracts, research handoff docs, focused contracts, train metadata, and one legacy scope-test compatibility update. No runtime, CMS, sitemap, llms, URL Truth, or Search Queue files changed."
+        },
+        "local_validation": {
+          "status": "pass",
+          "commands": [
+            "pnpm exec vitest run tests/contracts/personality-public-profile-agent-split-01.contract.test.ts tests/contracts/quiz-pack-performance-hotfix.contract.test.ts",
+            "pnpm test:contract",
+            "pnpm typecheck",
+            "python3 schema parse for .agents/skills/public-profile-seo-asset-factory/schemas/*.json",
+            "python3 -m json.tool docs/codex/pr-train-state.json",
+            "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml')\"",
+            "git diff --check",
+            "explicit path-limited scope validation"
+          ],
+          "evidence": "Focused contract passed 7 tests; full pnpm test:contract passed 506 files / 2894 tests; pnpm typecheck passed; schema/YAML/JSON parsing passed; git diff --check passed; scope validation passed."
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-21T11:20:59+08:00",
+          "status": "in_progress",
+          "note": "Started PERSONALITY-PUBLIC-PROFILE-AGENT-SPLIT-01 from latest origin/main in a clean worktree; scope is agent-contract only and defers MBTI64 96 URL Search Queue expansion dry-run to a separate read-only production gate."
+        },
+        {
+          "at": "2026-06-21T11:43:30+08:00",
+          "status": "local_checks_passed",
+          "note": "Implemented MBTI64, Big Five, and Enneagram public profile agent contracts plus orchestrator/QA/release guard docs. Local focused checks, full contract suite, typecheck, parse checks, diff check, and scope validation passed."
         }
       ]
     }
