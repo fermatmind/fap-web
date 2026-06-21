@@ -12,7 +12,7 @@ REQUIRED={'ledger_type','asset_version','block_type','slug','locale','occupation
 RUNTIME_OR_SEO=re.compile(r"\b(search_projection|sitemap|noindex|json-ld|jsonld|robots\.txt|llms\.txt|cms import|production import|staging_preview|canonical)\b", re.I)
 RAW_INTERNAL=re.compile(r"\b(evidence_id|source_id|row_hash|audit_fields|internal lineage|repair note|gate label|source_id)\b", re.I)
 DETERMINISTIC_FIT=re.compile(r"\b(must choose|cannot choose|guarantees? fit|perfect career|best career for your type|will succeed|will fail|destiny|mental health diagnosis|clinical diagnosis|therapy)\b|必须选择|不能从事|一定适合|一定不适合|命中注定|心理诊断|心理疾病|保证成功", re.I)
-OUTCOME_CLAIMS=re.compile(r"\b(will get hired|job offer|salary|wage|income|promotion|admission|certification guaranteed|employment guaranteed|guarantee[sd]?)\b|保证(?:就业|入职|录取|拿证|收入|薪资|工资|升职)", re.I)
+OUTCOME_CLAIMS=re.compile(r"\b(will get hired|job offer|salary|wage|income|promotion guaranteed|guaranteed promotion|admission|certification guaranteed|employment guaranteed|guarantee[sd]?)\b|保证(?:就业|入职|录取|拿证|收入|薪资|工资|升职)", re.I)
 DISALLOWED_EVIDENCE_TERMS=re.compile(r"\b(ai impact|automation score|salary|wage|income|job board|indeed|linkedin job|glassdoor)\b|薪资|工资|收入|招聘网站|岗位广告|AI影响", re.I)
 
 def read_json(path: str|Path)->Any:
