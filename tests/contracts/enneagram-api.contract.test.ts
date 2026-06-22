@@ -250,7 +250,9 @@ describe("enneagram frontend API contract", () => {
     );
 
     expect(source).toContain('label: "Enneagram"');
+    expect(source).toContain('preferredOptionCodes: ["0"]');
     expect(source).toContain('includeQuestionIndex: true');
+    expect(source).toContain("if (scale.defaultCode && codes.includes(scale.defaultCode))");
     expect(source).toContain("...(scale.includeQuestionIndex ? { question_index: index } : {}),");
   });
 
