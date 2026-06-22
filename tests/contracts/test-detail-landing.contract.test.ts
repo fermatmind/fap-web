@@ -11,12 +11,16 @@ describe("test detail landing contract", () => {
   it("consumes backend landing_surface_v1 instead of inventing test landing truth locally", () => {
     const source = fs.readFileSync(PAGE_PATH, "utf8");
 
+    expect(source).toContain("getTestDetailCmsLandingSurface(slug, locale)");
+    expect(source).toContain("resolveTestDetailCmsLandingSurfaceContent(cmsLandingSurface)");
     expect(source).toContain('normalizeLandingSurface(lookup?.landing_surface_v1 ?? null)');
     expect(source).toContain('const testDetailAuthority = resolveTestDetailAuthority({');
     expect(source).toContain('const startTestHref = withAttribution(');
     expect(source).toContain('landingSurface?.startTestTarget || (testDetailAuthority.cta.allowed ? withLocale(`/tests/${test.slug}/take`) : landingBasePath)');
     expect(source).toContain("const canRenderStartCta = testDetailAuthority.cta.allowed || Boolean(landingSurface?.startTestTarget);");
     expect(source).toContain('findLandingCta(landingSurface, "continue_public_content")');
+    expect(source).toContain("const heroTitle = cmsLandingSurfaceContent.heroTitle || flagshipFreeTestCopy?.h1 || localizedTestTitle;");
+    expect(source).toContain("const heroCopy = cmsLandingSurfaceContent.heroCopy || landingCopy || test.description;");
     expect(source).toContain('data-testid="test-detail-landing-cta"');
     expect(source).toContain(') : canRenderStartCta ? (');
     expect(source).toContain("{testDetailAuthority.cta.allowed ? (");

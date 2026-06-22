@@ -25503,6 +25503,78 @@
           "note": "GitHub checks passed on PR #1301 head 8767f19548fae614e761469f30b6017a90dfd4b2 and mergeStateStatus was CLEAN; scope revalidation stayed within PR6 allowed files."
         }
       ]
+    },
+    {
+      "id": "SIX-HUB-TEST-DETAIL-FRONTEND-LANDING-SURFACE-CONSUMER-01",
+      "repo": "fap-web",
+      "branch": "codex/six-hub-test-detail-frontend-landing-surface-consumer-01",
+      "base": "main",
+      "status": "pr_open",
+      "train_scope": "six_hub_test_detail_frontend_landing_surface_consumer",
+      "title": "fix(seo): consume published CMS landing surfaces on flagship test detail pages",
+      "depends_on": [
+        "SEO-FREE-TEST-FLAGSHIP-LANDING-03"
+      ],
+      "commit_sha": "3ca2dbf9d6de51eac69079add53730d155b1a19a",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1305",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "dependency": {
+          "status": "pass",
+          "evidence": "SEO-FREE-TEST-FLAGSHIP-LANDING-03 merged in fap-web PR #1157 as 2b2fa5c145f5629477ad259232ef925727890b85 before this bridge consumer follow-up started."
+        },
+        "implementation": {
+          "status": "pass",
+          "evidence": "The test-detail page now consumes published public CMS landing surface authority for MBTI and RIASEC metadata title, description, hero H1, and hero copy while preserving v0.3 lookup CTA/take route authority and existing FAQ/schema gating."
+        },
+        "local_validation": {
+          "status": "pass",
+          "evidence": "Focused landing contracts, pnpm typecheck, production build, git diff --check, targeted helper regression contracts, and the full pnpm test:contract suite all passed after formal branch scope registration."
+        },
+        "scope": {
+          "status": "pass",
+          "allowed_paths": [
+            "app/(localized)/[locale]/tests/[slug]/page.tsx",
+            "tests/contracts/seo-free-test-flagship-landing.contract.test.ts",
+            "tests/contracts/test-detail-landing.contract.test.ts",
+            "tests/contracts/test-detail-softwareapplication-schema.contract.test.ts",
+            "tests/contracts/helpers/currentPrScope.ts",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ],
+          "evidence": "Final branch diff remains limited to the test-detail runtime consumer, its three scoped contract files, currentPrScope registration, and PR-train manifest/state registration."
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-22T13:17:00+08:00",
+          "status": "split_required_confirmed",
+          "note": "Followed SIX-HUB-LANDING-SURFACE-RUNTIME-AUTHORITY-BRIDGE-01 split guidance: backend-only bridge was not taken in this repo, so a frontend-only consumer follow-up was started on a clean worktree branch."
+        },
+        {
+          "at": "2026-06-22T13:26:00+08:00",
+          "status": "focused_checks_passed_pre_manifest",
+          "note": "Focused landing contracts, pnpm typecheck, production build, and git diff --check passed for the frontend consumer change before formal PR-train registration; postbuild sitemap churn was restored out of scope."
+        },
+        {
+          "at": "2026-06-22T13:40:00+08:00",
+          "status": "manifest_scope_registered",
+          "note": "Registered the branch in docs/codex/pr-train.yaml, docs/codex/pr-train-state.json, and tests/contracts/helpers/currentPrScope.ts so full contract scope gates can evaluate the branch as an approved single-scope PR."
+        },
+        {
+          "at": "2026-06-22T13:52:00+08:00",
+          "status": "local_validation_passed",
+          "note": "Passed focused landing contracts, pnpm typecheck, production build, helper regression contracts, full pnpm test:contract, and git diff --check with the branch scope still confined to the declared runtime consumer files."
+        },
+        {
+          "at": "2026-06-22T13:56:00+08:00",
+          "status": "pr_open",
+          "note": "Opened GitHub PR #1305 from commit 3ca2dbf9d6de51eac69079add53730d155b1a19a after local validation passed and scope stayed within the registered manifest boundaries."
+        }
+      ]
     }
   ]
 }
