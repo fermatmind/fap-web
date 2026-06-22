@@ -1,0 +1,108 @@
+{
+  "version": 1,
+  "task_id": "FA30-WEB-07",
+  "status": "planning_policy_only",
+  "runtime_behavior_changed": false,
+  "public_routes_changed": false,
+  "search_surfaces_changed": false,
+  "cms_records_changed": false,
+  "allowed_page_families": [
+    {
+      "family": "category_alternatives",
+      "allowed_now": false,
+      "future_gate": "reviewed_category_backend_authority_and_claim_review"
+    },
+    {
+      "family": "method_comparison",
+      "allowed_now": false,
+      "future_gate": "method_boundary_source_ledger_and_claim_review"
+    },
+    {
+      "family": "product_fit_comparison",
+      "allowed_now": false,
+      "future_gate": "first_party_fact_review_and_cms_authority"
+    },
+    {
+      "family": "competitor_name_page",
+      "allowed_now": false,
+      "future_gate": "legal_trademark_review_claim_review_and_source_ledger"
+    }
+  ],
+  "forbidden_page_families": [
+    "n_by_n_competitor_pages",
+    "auto_generated_best_alternative_pages",
+    "scraped_review_or_rating_pages",
+    "copied_competitor_ia_or_copy",
+    "affiliation_or_endorsement_implication",
+    "competitor_attack_pages",
+    "pages_without_backend_cms_authority"
+  ],
+  "claim_boundary": {
+    "allowed": [
+      "compare_public_assessment_entry_points",
+      "compare_method_boundaries",
+      "describe_reviewed_first_party_features",
+      "state_exploration_not_ranking"
+    ],
+    "forbidden": [
+      "best_alternative_claim",
+      "more_accurate_than_competitor_claim",
+      "unreviewed_cheaper_better_faster_claim",
+      "clinical_or_hiring_or_admission_or_salary_or_success_comparison",
+      "official_affiliation_or_endorsement_claim"
+    ]
+  },
+  "data_boundary": {
+    "allowed_sources": [
+      "fermatmind_first_party_product_facts",
+      "backend_cms_reviewed_public_projection",
+      "read_only_competitor_url_inventory_advisory_signal",
+      "operator_reviewed_public_source_notes"
+    ],
+    "forbidden_sources": [
+      "raw_competitor_scraped_copy",
+      "private_dashboards",
+      "cookies_or_sessions",
+      "emails",
+      "paywalled_content",
+      "copied_user_reviews",
+      "unverified_pricing_rankings_ratings_or_review_counts"
+    ]
+  },
+  "seo_boundary": {
+    "sitemap_change_allowed": false,
+    "llms_change_allowed": false,
+    "llms_full_change_allowed": false,
+    "robots_change_allowed": false,
+    "canonical_change_allowed": false,
+    "hreflang_change_allowed": false,
+    "jsonld_change_allowed": false,
+    "search_submission_allowed": false,
+    "bulk_programmatic_expansion_allowed": false,
+    "competitor_inventory_can_generate_pages_directly": false
+  },
+  "authority_boundary": {
+    "frontend_publishable_content_authority": false,
+    "frontend_local_fallback_content_allowed": false,
+    "backend_or_cms_authority_required": true,
+    "legal_review_required_for_named_competitors": true,
+    "claim_review_required": true,
+    "source_ledger_required": true
+  },
+  "mvp_decision": {
+    "ship_competitor_name_pages_now": false,
+    "ship_category_alternative_pages_now": false,
+    "use_competitor_inventory_for_internal_gap_analysis_only": true,
+    "next_allowed_step": "backend_authority_and_source_ledger_design_before_any_page_implementation"
+  },
+  "negative_guarantees": [
+    "no_competitor_or_alternative_routes",
+    "no_public_frontend_content",
+    "no_competitor_fetch",
+    "no_cms_records",
+    "no_search_submit",
+    "no_sitemap_or_llms_change",
+    "no_canonical_hreflang_robots_noindex_jsonld_change",
+    "no_deploy"
+  ]
+}
