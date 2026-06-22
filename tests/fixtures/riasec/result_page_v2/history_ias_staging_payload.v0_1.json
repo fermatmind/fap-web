@@ -1,0 +1,14 @@
+{
+  "riasec_result_page_v2_history_snapshot": {
+    "schema_version": "fap.riasec.result_page_v2.history_snapshot.web_fixture.v0_1",
+    "surface_key": "history",
+    "profile_code": "IAS",
+    "summary_zh": "本次结果保留为职业兴趣方向快照，便于之后回看兴趣排序是否发生变化。",
+    "snapshot_policy": {
+      "summary_only": true,
+      "private_measurements_visible": false,
+      "norm_rank_visible": false,
+      "full_body_visible": false
+    }
+  }
+}

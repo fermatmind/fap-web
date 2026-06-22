@@ -25422,6 +25422,61 @@
           "note": "Reconciled stale ledger state from GitHub: PR #1159 is merged, cba89c07f0a3436399fee8461ac73fd76ad54796 is in origin/main, required checks passed, and codex/seo-free-test-article-internal-links-05 is absent locally/remotely."
         }
       ]
+    },
+    {
+      "id": "RIASEC-RESULT-FAPWEB-RENDERED-PREVIEW-QA-01",
+      "repo": "fap-web",
+      "branch": "codex/riasec-result-fapweb-rendered-preview-qa-01",
+      "base": "main",
+      "status": "local_checks_passed",
+      "train_scope": "riasec_result_ops_agent_release_chain",
+      "title": "RIASEC-RESULT-FAPWEB-RENDERED-PREVIEW-QA-01: test(riasec): add rendered preview QA",
+      "depends_on": [
+        "RIASEC-OPS-AGENT-REPORTING-SIDECAR-01"
+      ],
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized the RIASEC ops agent and release-chain /goal train, including this fap-web rendered preview QA PR."
+        },
+        "dependency": {
+          "status": "pass",
+          "evidence": "fap-api PR #2259 for RIASEC-OPS-AGENT-REPORTING-SIDECAR-01 merged at 2026-06-22T01:05:12Z with merge commit 2a3b388274e5379c37c4ba98da9955f1c35621fa before this PR started."
+        },
+        "local_validation": {
+          "status": "pass",
+          "evidence": "Passed: pnpm exec vitest run tests/contracts/riasec-result-rendered-preview-qa.contract.test.tsx; JSON fixture/state parse; YAML manifest parse; git diff --check; explicit scope validation including untracked fixture files."
+        },
+        "scope": {
+          "status": "pass",
+          "allowed_paths": [
+            "tests/contracts/riasec-result-rendered-preview-qa.contract.test.tsx",
+            "tests/fixtures/riasec/result_page_v2/**",
+            "tests/contracts/helpers/currentPrScope.ts",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ],
+          "evidence": "Changed files are limited to the rendered preview QA contract, RIASEC result_page_v2 fixture bundle, current PR scope helper, and PR train metadata."
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-22T09:10:00+08:00",
+          "status": "in_progress",
+          "note": "Started from clean fap-web worktree on latest origin/main. Scope is fixture and contract-only rendered preview QA; no runtime, CMS, or production gate changes."
+        },
+        {
+          "at": "2026-06-22T09:12:22+08:00",
+          "status": "local_checks_passed",
+          "note": "Rendered preview fixture contract, parse checks, diff check, and explicit allowed-path scope validation passed locally."
+        }
+      ]
     }
   ]
 }
