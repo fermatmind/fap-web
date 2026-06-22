@@ -2591,6 +2591,13 @@ const RESULT_PAGE_AGENT_RUNTIME_QA_HANDOFF_01_ALLOWED_FILES = new Set([
   "tests/contracts/result-page-agent-runtime-qa-handoff.contract.test.ts",
 ]);
 
+const RESULT_PAGE_AGENT_ANALYTICS_HANDOFF_01_ALLOWED_FILES = new Set([
+  "docs/result-page-agents/result-page-agent-analytics-handoff-2026-06-23.md",
+  "docs/result-page-agents/result-page-agent-analytics-handoff.v1.json",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/result-page-agent-analytics-handoff.contract.test.ts",
+]);
+
 function isFrontendUiPolishBatch02ScopeActive(): boolean {
   if (CURRENT_BRANCH === "codex/frontend-ui-polish-batch-02") {
     return true;
@@ -2777,6 +2784,13 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (
     CURRENT_BRANCH === "codex/result-page-agent-runtime-qa-handoff-01" &&
     RESULT_PAGE_AGENT_RUNTIME_QA_HANDOFF_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/result-page-agent-analytics-handoff-01" &&
+    RESULT_PAGE_AGENT_ANALYTICS_HANDOFF_01_ALLOWED_FILES.has(file)
   ) {
     return true;
   }
