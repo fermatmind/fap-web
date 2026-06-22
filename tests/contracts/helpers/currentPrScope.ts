@@ -2452,6 +2452,11 @@ const RESULT_SMOKE_PROXY_GENERATION_HINTS_ALLOWED_FILES = new Set([
   "tests/contracts/result-client-view-state.contract.test.tsx",
 ]);
 
+const RESULT_P0_LIVE_PDFS_EVIDENCE_REPORT_01_ALLOWED_FILES = new Set([
+  "docs/seo/result-p0-post-deploy-smoke-rerun-live-pdfs-01.md",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 function isFrontendUiPolishBatch02ScopeActive(): boolean {
   if (CURRENT_BRANCH === "codex/frontend-ui-polish-batch-02") {
     return true;
@@ -2537,6 +2542,13 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   }
 
   if (isCurrentQuizPackPerformanceHotfixAllowedFile(file)) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/result-p0-live-pdfs-evidence-report-01" &&
+    (RESULT_P0_LIVE_PDFS_EVIDENCE_REPORT_01_ALLOWED_FILES.has(file) || CODEQL_HYGIENE_ALLOWED_FILES.has(file))
+  ) {
     return true;
   }
 
