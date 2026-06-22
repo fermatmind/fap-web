@@ -180,10 +180,11 @@ function readQuestionId(question) {
   return String(question?.question_id ?? question?.id ?? "").trim();
 }
 
-function readOptionCode(question, options, scale) {
+function readOptionCode(question, options, scale, meta) {
   const questionOptions = Array.isArray(question?.options) ? question.options : [];
   const sharedOptions = Array.isArray(options?.format) ? options.format : [];
-  const candidates = [...questionOptions, ...sharedOptions];
+  const anchorOptions = Array.isArray(meta?.option_anchors) ? meta.option_anchors : [];
+  const candidates = [...questionOptions, ...sharedOptions, ...anchorOptions];
   const codes = candidates
     .filter((item) => item && typeof item === "object")
     .map((item) => String(item.code ?? item.id ?? item.value ?? "").trim())
@@ -227,6 +228,7 @@ async function fetchQuestions({ apiOrigin, token, anonId, locale, scale }) {
   return {
     questions,
     options: response.payload?.options,
+    meta: response.payload?.meta,
   };
 }
 
@@ -253,10 +255,10 @@ async function startAttempt({ apiOrigin, token, anonId, locale, scale }) {
   return attemptId;
 }
 
-async function submitAttempt({ apiOrigin, token, anonId, attemptId, questions, options, scale }) {
+async function submitAttempt({ apiOrigin, token, anonId, attemptId, questions, options, meta, scale }) {
   const answers = questions.map((question, index) => ({
     question_id: readQuestionId(question),
-    code: readOptionCode(question, options, scale),
+    code: readOptionCode(question, options, scale, meta),
     ...(scale.includeQuestionIndex ? { question_index: index } : {}),
   }));
 
@@ -347,6 +349,7 @@ async function runScale(options, scale) {
     attemptId,
     questions: questionPayload.questions,
     options: questionPayload.options,
+    meta: questionPayload.meta,
     scale,
   });
 
