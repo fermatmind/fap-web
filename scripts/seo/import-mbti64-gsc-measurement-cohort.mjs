@@ -4,20 +4,23 @@ import fs from "node:fs/promises";
 import path from "node:path";
 
 const ROOT = process.cwd();
-const GENERATED_DATE = "2026-06-22";
+const GENERATED_DATE = getArgValue("--generated-date") ?? process.env.MBTI64_GSC_IMPORT_DATE ?? "2026-06-22";
 const SITE_ORIGIN = "https://fermatmind.com";
-const DEFAULT_COHORT_PATH = path.join(
-  ROOT,
-  "docs/seo/personality/mbti64-seo-measurement-cohort-2026-06-22.json",
+const DEFAULT_COHORT_PATH = resolveRepoPath(
+  getArgValue("--cohort") ?? "docs/seo/personality/mbti64-seo-measurement-cohort-2026-06-22.json",
 );
-const OUTPUT_JSON = path.join(
-  ROOT,
-  `docs/seo/personality/mbti64-seo-measurement-cohort-gsc-import-${GENERATED_DATE}.json`,
+const OUTPUT_JSON = resolveRepoPath(
+  getArgValue("--output-json") ??
+    `docs/seo/personality/mbti64-seo-measurement-cohort-gsc-import-${GENERATED_DATE}.json`,
 );
-const OUTPUT_MD = path.join(
-  ROOT,
-  `docs/seo/personality/mbti64-seo-measurement-cohort-gsc-import-${GENERATED_DATE}.md`,
+const OUTPUT_MD = resolveRepoPath(
+  getArgValue("--output-md") ??
+    `docs/seo/personality/mbti64-seo-measurement-cohort-gsc-import-${GENERATED_DATE}.md`,
 );
+
+function resolveRepoPath(filePath) {
+  return path.isAbsolute(filePath) ? filePath : path.join(ROOT, filePath);
+}
 
 function sha256(value) {
   return crypto.createHash("sha256").update(value ?? "").digest("hex");
@@ -231,8 +234,13 @@ function buildExportInstructions() {
       ctr: ["ctr"],
       position: ["position", "avg position", "average position"],
     },
-    rerun_command:
-      "node scripts/seo/import-mbti64-gsc-measurement-cohort.mjs --gsc-csv=/absolute/path/to/gsc-export.csv",
+    rerun_command: [
+      "node scripts/seo/import-mbti64-gsc-measurement-cohort.mjs",
+      "--generated-date=YYYY-MM-DD",
+      "--cohort=docs/seo/personality/mbti64-seo-measurement-cohort-YYYY-MM-DD.json",
+      "--gsc-csv=/absolute/path/to/gsc-export.csv",
+      "--source-kind=gsc_performance_csv_export",
+    ].join(" "),
   };
 }
 
@@ -333,10 +341,10 @@ async function main() {
         : "NO_GO_GSC_IMPORT_BLOCKED"
       : "PASS_IMPORTER_READY_GSC_EXPORT_REQUIRED",
     input_artifacts: {
-      cohort: "docs/seo/personality/mbti64-seo-measurement-cohort-2026-06-22.json",
+      cohort: path.relative(ROOT, DEFAULT_COHORT_PATH),
       gsc_csv: gsc
         ? {
-            path: gsc.path,
+            path: path.isAbsolute(gsc.path) ? gsc.path : path.relative(ROOT, gsc.path),
             source_kind: gsc.source_kind,
             sha256: gsc.sha256,
             row_count: gsc.row_count,

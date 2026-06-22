@@ -266,6 +266,24 @@ const PERSONALITY_AGENT_QA_GATES_01_ALLOWED_FILES = new Set([
   "tests/contracts/personality-agent-qa-gates-01.contract.test.ts",
 ]);
 
+const MBTI64_GSC_IMPORT_STABILIZE_01_ALLOWED_FILES = new Set([
+  "docs/seo/personality/mbti64-agent-optimization-priority-selection-2026-06-23.json",
+  "docs/seo/personality/mbti64-agent-optimization-priority-selection-2026-06-23.md",
+  "docs/seo/personality/mbti64-agent-visible-expansion-13-query-evidence-decision-2026-06-23.csv",
+  "docs/seo/personality/mbti64-agent-visible-expansion-13-query-evidence-decision-2026-06-23.json",
+  "docs/seo/personality/mbti64-agent-visible-expansion-13-query-evidence-decision-2026-06-23.md",
+  "docs/seo/personality/mbti64-seo-measurement-cohort-gsc-import-2026-06-23.json",
+  "docs/seo/personality/mbti64-seo-measurement-cohort-gsc-import-2026-06-23.md",
+  "docs/seo/personality/mbti64-seo-measurement-cohort-gsc-import-stabilize-2026-06-23.json",
+  "docs/seo/personality/mbti64-seo-measurement-cohort-gsc-import-stabilize-2026-06-23.md",
+  "scripts/seo/decide-mbti64-visible-expansion-query-evidence.mjs",
+  "scripts/seo/import-mbti64-gsc-measurement-cohort.mjs",
+  "scripts/seo/select-mbti64-agent-optimization-priorities.mjs",
+  "scripts/seo/stabilize-mbti64-gsc-import-priority.mjs",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/mbti64-gsc-import-stabilize.contract.test.ts",
+]);
+
 const CONTRACT_SCOPE_GUARD_STRATEGY_02_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
   "tests/contracts/personality-public-profile-agent-split-01.contract.test.ts",
@@ -2715,6 +2733,13 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   }
 
   if (isCurrentQuizPackPerformanceHotfixAllowedFile(file)) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/mbti64-gsc-import-stabilize-01" &&
+    MBTI64_GSC_IMPORT_STABILIZE_01_ALLOWED_FILES.has(file)
+  ) {
     return true;
   }
 

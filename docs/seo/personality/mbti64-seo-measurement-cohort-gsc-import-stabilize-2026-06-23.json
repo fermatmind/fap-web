@@ -1,0 +1,69 @@
+{
+  "artifact": "MBTI64-SEO-MEASUREMENT-COHORT-GSC-IMPORT-STABILIZE-01",
+  "generated_at": "2026-06-22T18:23:51.358Z",
+  "status": "pass",
+  "final_decision": "PASS_GSC_IMPORT_PRIORITY_PIPELINE_STABILIZED",
+  "input_artifacts": {
+    "gsc_import": "docs/seo/personality/mbti64-seo-measurement-cohort-gsc-import-2026-06-23.json",
+    "priority_selection": "docs/seo/personality/mbti64-agent-optimization-priority-selection-2026-06-23.json",
+    "query_evidence_decision": "docs/seo/personality/mbti64-agent-visible-expansion-13-query-evidence-decision-2026-06-23.json"
+  },
+  "stable_rerun_contract": {
+    "page_level_import_command": "node scripts/seo/import-mbti64-gsc-measurement-cohort.mjs --generated-date=YYYY-MM-DD --cohort=docs/seo/personality/mbti64-seo-measurement-cohort-YYYY-MM-DD.json --gsc-csv=/absolute/path/to/gsc-performance.csv --source-kind=gsc_performance_csv_export",
+    "priority_selection_command": "node scripts/seo/select-mbti64-agent-optimization-priorities.mjs --generated-date=YYYY-MM-DD --gsc-import=docs/seo/personality/mbti64-seo-measurement-cohort-gsc-import-YYYY-MM-DD.json --recommendations=docs/seo/personality/mbti64-agent-expansion-88-recommendations-2026-06-21.json --qa=docs/seo/personality/mbti64-agent-expansion-88-qa-2026-06-21.json",
+    "query_decision_command": "node scripts/seo/decide-mbti64-visible-expansion-query-evidence.mjs --generated-date=YYYY-MM-DD",
+    "no_gsc_api_required": true,
+    "manual_csv_or_browser_export_allowed": true,
+    "missing_gsc_rows_are_not_zero_demand": true
+  },
+  "evidence_summary": {
+    "cohort_url_count": 96,
+    "page_level_gsc_imported_url_count": 16,
+    "imported_no_row_count": 80,
+    "selected_for_agent_review_count": 13,
+    "query_backed_ready_count": 3,
+    "query_suppressed_hold_count": 10,
+    "query_rows_total": 3,
+    "p0_high_impressions_low_ctr": 0,
+    "p1_visible_no_clicks": 0,
+    "p2_early_visibility_observe": 16,
+    "p3_no_gsc_visibility_yet": 80
+  },
+  "selected_visible_13_decision": {
+    "ready_paths": [
+      "/en/personality/enfj-a",
+      "/zh/personality/intp-a",
+      "/zh/personality/esfp-a"
+    ],
+    "held_paths": [
+      "/en/personality/esfj-t",
+      "/en/personality/enfp-a",
+      "/zh/personality/istp-a",
+      "/zh/personality/intp-a-vs-intp-t",
+      "/en/personality/esfj-a",
+      "/zh/personality/esfj-a",
+      "/en/personality/intp-a",
+      "/en/personality/istp-a",
+      "/en/personality/entj-a",
+      "/en/personality/estp-t"
+    ],
+    "ready_count": 3,
+    "held_count": 10,
+    "selected_paths_without_query_decision": []
+  },
+  "safety_boundary": {
+    "docs_script_only": true,
+    "cms_write_attempted": false,
+    "frontend_runtime_change_attempted": false,
+    "search_queue_mutation_attempted": false,
+    "live_search_submit_attempted": false,
+    "sitemap_llms_mutation_attempted": false,
+    "gsc_request_indexing_attempted": false,
+    "gsc_api_call_attempted": false
+  },
+  "blockers": [],
+  "warnings": [
+    "GSC_SOURCE_PAGE_TABLE_SNAPSHOT_QUERY_DIMENSION_LIMITED"
+  ],
+  "recommended_next_task": "MBTI64-AGENT-PRIORITY-RANKER-01 or next GSC import rerun with fresh CSV"
+}
