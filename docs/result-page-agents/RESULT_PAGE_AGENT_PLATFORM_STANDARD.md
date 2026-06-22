@@ -1,6 +1,6 @@
 # Result Page Agent Platform Standard
 
-Status: v1 docs/contracts proposal.
+Status: v1 frozen docs/contracts standard.
 
 Scope: mandatory result-page agent standard for `MBTI`, `BIG5_OCEAN`, `RIASEC`, `IQ_RAVEN`, `EQ_60`, and `ENNEAGRAM`.
 
@@ -21,11 +21,43 @@ Free Full Report Mode makes all six assessment result pages first-class product 
 | EQ_60 | `eq60_result_page` | `components/result/eq/EQResultV5.tsx` | missing dedicated agent stack |
 | ENNEAGRAM | `enneagram_result_page` | `components/result/enneagram/EnneagramResultShell.tsx` | existing backend readiness/ops agent; needs shared-standard alignment |
 
+## Canonical Test Slugs
+
+Each readiness artifact must use the repo canonical test slug, not a short alias.
+
+| Scale | Canonical test slug |
+|---|---|
+| MBTI | `mbti-personality-test-16-personality-types` |
+| BIG5_OCEAN | `big-five-personality-test-ocean-model` |
+| RIASEC | `holland-career-interest-test-riasec` |
+| IQ_RAVEN | `iq-test-intelligence-quotient-assessment` |
+| EQ_60 | `eq-test-emotional-intelligence-assessment` |
+| ENNEAGRAM | `enneagram-personality-test-nine-types` |
+
+IQ result-page agent planning keeps the agent target `iq_raven_result_page` for continuity, but backend report authority treats `IQ_INTELLIGENCE_QUOTIENT` as the canonical scale code. `IQ_RAVEN` is a legacy/input alias and must not be surfaced as user-facing IQ copy.
+
 Shared result route evidence:
 
+- `app/(localized)/[locale]/(app)/result/[id]/page.tsx`
 - `app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx`
 - `components/result/RichResultReport.tsx`
 - `lib/api/v0_3.ts`
+
+Shared API and boundary evidence:
+
+- Report API: `fap-api:backend/routes/api.php` and `fap-api:backend/app/Http/Controllers/API/V0_3/AttemptReadController.php` for `/api/v0.3/attempts/{attempt_id}/report`
+- Report-access API: `fap-api:backend/routes/api.php` and `fap-api:backend/app/Http/Controllers/API/V0_3/AttemptReadController.php` for `/api/v0.3/attempts/{attempt_id}/report-access`
+- PDF API: `fap-api:backend/routes/api.php` and `fap-api:backend/app/Http/Controllers/API/V0_3/AttemptReadController.php` for `/api/v0.3/attempts/{attempt_id}/report.pdf`
+- Share API: `fap-api:backend/routes/api.php` for `/api/v0.3/attempts/{attempt_id}/share` and `/api/v0.3/shares/{share_id}`
+- Frontend API adapter: `lib/api/v0_3.ts` for report, report-access, PDF, and share helpers.
+- Shared contract tests: `tests/contracts/result-client-view-state.contract.test.tsx`, `tests/contracts/result-access-token-api.contract.test.ts`, `tests/contracts/report-action-url-safety.contract.test.ts`, `tests/contracts/result-private-print-chrome.contract.test.ts`, `tests/contracts/result-print-url-redaction.contract.test.ts`, `tests/contracts/result-private-leak-regressions.contract.test.ts`, and `tests/contracts/rich-result-report.contract.test.tsx`.
+
+Renderer dispatch notes:
+
+- MBTI, Big Five, RIASEC, and Enneagram can render through `RichResultReport` when their backend projections are present.
+- IQ dispatches through `ResultClient` to `components/result/iq/IqResultShell.tsx` before generic rich-result rendering.
+- EQ60 dispatches through `ResultClient` to `components/result/eq/EQResultV5.tsx`.
+- EQ60 is intentionally excluded from `RichResultReport` by `isEqV5ReportResponse` so EQ V5 uses its dedicated renderer.
 
 ## Minimum Agent Contract
 

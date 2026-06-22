@@ -76,6 +76,31 @@
     "claim_privacy_safety_gate_check",
     "source_classification_check"
   ],
+  "shared_evidence_paths": {
+    "result_route": "fap-web:app/(localized)/[locale]/(app)/result/[id]/page.tsx",
+    "result_client": "fap-web:app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx",
+    "rich_result_report": "fap-web:components/result/RichResultReport.tsx",
+    "frontend_api_adapter": "fap-web:lib/api/v0_3.ts",
+    "report_api": "fap-api:backend/routes/api.php#/api/v0.3/attempts/{attempt_id}/report",
+    "report_access_api": "fap-api:backend/routes/api.php#/api/v0.3/attempts/{attempt_id}/report-access",
+    "pdf_api": "fap-api:backend/routes/api.php#/api/v0.3/attempts/{attempt_id}/report.pdf",
+    "share_api": "fap-api:backend/routes/api.php#/api/v0.3/attempts/{attempt_id}/share",
+    "share_read_api": "fap-api:backend/routes/api.php#/api/v0.3/shares/{share_id}",
+    "backend_report_controller": "fap-api:backend/app/Http/Controllers/API/V0_3/AttemptReadController.php",
+    "backend_share_controller": "fap-api:backend/app/Http/Controllers/API/V0_3/ShareController.php",
+    "shared_contract_tests": [
+      "fap-web:tests/contracts/result-client-view-state.contract.test.tsx",
+      "fap-web:tests/contracts/result-access-token-api.contract.test.ts",
+      "fap-web:tests/contracts/report-action-url-safety.contract.test.ts",
+      "fap-web:tests/contracts/result-private-print-chrome.contract.test.ts",
+      "fap-web:tests/contracts/result-print-url-redaction.contract.test.ts",
+      "fap-web:tests/contracts/result-private-leak-regressions.contract.test.ts",
+      "fap-web:tests/contracts/rich-result-report.contract.test.tsx",
+      "fap-api:backend/tests/Feature/V0_3/AttemptReportAccessReadTest.php",
+      "fap-api:backend/tests/Feature/V0_3/AttemptPublicReportPdfParityTest.php",
+      "fap-api:backend/tests/Feature/Ops/ReportPdfCenterTest.php"
+    ]
+  },
   "common_stop_conditions": [
     "backend_authority_missing_or_contradictory",
     "private_result_or_raw_attempt_required",
@@ -88,7 +113,7 @@
     {
       "agent_id": "mbti_result_page",
       "scale_code": "MBTI",
-      "canonical_test_slug": "personality-test",
+      "canonical_test_slug": "mbti-personality-test-16-personality-types",
       "result_route": "/[locale]/result/[id]",
       "report_api": "/api/v0.3/attempts/{attempt_id}/report",
       "report_access_api": "/api/v0.3/attempts/{attempt_id}/report-access",
@@ -96,8 +121,16 @@
       "share_behavior": "share_surface_must_not_expose_private_attempt_or_report_payload",
       "frontend_renderer": "components/result/mbti/MbtiResultShell.tsx",
       "backend_authority": [
-        "fap-api MBTI report builders",
-        "fap-api MBTI report authority adapters"
+        "backend/app/Services/Report/ReportComposer.php",
+        "backend/app/Services/Mbti/Adapters/MbtiReportAuthoritySourceAdapter.php",
+        "backend/app/Services/Mbti/MbtiPublicProjectionService.php"
+      ],
+      "contract_tests": [
+        "fap-web:tests/contracts/mbti-share-consumer.contract.test.tsx",
+        "fap-web:tests/contracts/mbti-private-relationship.consumer.contract.test.tsx",
+        "fap-web:tests/e2e/mbti-share.spec.ts",
+        "fap-api:backend/tests/Feature/V0_3/MbtiReportHttpContractRegressionTest.php",
+        "fap-api:backend/tests/Feature/V0_3/MbtiAttemptShareAccessTest.php"
       ],
       "source_of_truth": [
         "backend_report_payload",
@@ -148,7 +181,7 @@
     {
       "agent_id": "big_five_result_page",
       "scale_code": "BIG5_OCEAN",
-      "canonical_test_slug": "big-five-personality-test",
+      "canonical_test_slug": "big-five-personality-test-ocean-model",
       "result_route": "/[locale]/result/[id]",
       "report_api": "/api/v0.3/attempts/{attempt_id}/report",
       "report_access_api": "/api/v0.3/attempts/{attempt_id}/report-access",
@@ -159,6 +192,14 @@
         "backend/app/Console/Commands/BigFiveResultPageV2AssetAgentAuditCommand.php",
         "backend/app/Services/BigFive/ResultPageV2/AssetAgent/BigFiveResultPageV2AssetAgent.php",
         "backend/docs/big5/result-asset-agent-runbook.md"
+      ],
+      "contract_tests": [
+        "fap-web:tests/contracts/big5-result-page-v2-consumer.contract.test.tsx",
+        "fap-web:tests/contracts/big5-pdf-rendered-qa.contract.test.tsx",
+        "fap-web:tests/contracts/big5-share-card-rendered-qa.contract.test.tsx",
+        "fap-api:backend/tests/Feature/Console/BigFiveResultPageV2AgentAutomationTest.php",
+        "fap-api:backend/tests/Unit/Services/BigFive/ResultPageV2/BigFiveResultPageV2AssetAgentTest.php",
+        "fap-api:backend/tests/Feature/V0_3/BigFiveResultPageV2RuntimeGateTest.php"
       ],
       "source_of_truth": [
         "big5_result_page_v2_payload",
@@ -222,6 +263,14 @@
         "backend/app/Services/Riasec/AssetAgent/RiasecResultPageAssetAgent.php",
         "backend/app/Services/Riasec/Ops/RiasecResultPageOpsAgentRunOrchestrator.php"
       ],
+      "contract_tests": [
+        "fap-web:tests/contracts/riasec-result-rendered-preview-qa.contract.test.tsx",
+        "fap-web:tests/contracts/riasec-trusted-result-shell.contract.test.tsx",
+        "fap-web:tests/contracts/riasec-trusted-result-v15-smoke-acceptance.contract.test.ts",
+        "fap-api:backend/tests/Feature/Console/RiasecOpsAgentRunnerCommandTest.php",
+        "fap-api:backend/tests/Unit/Services/Riasec/RiasecResultPageAssetAgentTest.php",
+        "fap-api:backend/tests/Unit/Services/Riasec/Ops/RiasecOpsAgentRunOrchestratorTest.php"
+      ],
       "source_of_truth": [
         "riasec_public_projection_v2",
         "backend_asset_agent_output",
@@ -275,17 +324,31 @@
     {
       "agent_id": "iq_raven_result_page",
       "scale_code": "IQ_RAVEN",
-      "canonical_test_slug": "iq-test",
+      "canonical_scale_code": "IQ_INTELLIGENCE_QUOTIENT",
+      "legacy_input_alias": "IQ_RAVEN",
+      "canonical_test_slug": "iq-test-intelligence-quotient-assessment",
       "result_route": "/[locale]/result/[id]",
       "report_api": "/api/v0.3/attempts/{attempt_id}/report",
       "report_access_api": "/api/v0.3/attempts/{attempt_id}/report-access",
       "pdf_behavior": "report_pdf_url_or_api_pdf_when_available",
       "share_behavior": "share_surface_must_not_expose_private_attempt_or_report_payload",
       "frontend_renderer": "components/result/iq/IqResultShell.tsx",
+      "renderer_dispatch": "ResultClient dispatches IQ reports to IqResultShell before generic RichResultReport rendering.",
       "backend_authority": [
+        "backend/app/Services/Report/IqReportBuilder.php",
+        "backend/app/Services/Iq/IqNormAuthorityContract.php",
+        "backend/app/Services/Iq/IqResultPayloadRedactor.php",
         "backend/docs/iq/iq-production-norm-authority.md",
         "backend/docs/iq/iq-beta-30-original-bank-spec.md",
         "backend/docs/iq/iq-beta-50-bank-spec.md"
+      ],
+      "contract_tests": [
+        "fap-web:tests/contracts/iq-result-renderer.contract.test.tsx",
+        "fap-web:tests/contracts/iq-report-module.contract.test.tsx",
+        "fap-web:tests/e2e/iq-eq-result-regression.spec.ts",
+        "fap-api:backend/tests/Feature/V0_3/IqReportContractTest.php",
+        "fap-api:backend/tests/Feature/Content/IqNormAuthorityTest.php",
+        "fap-api:backend/tests/Unit/Services/Report/IqReportBuilderTest.php"
       ],
       "source_of_truth": [
         "iq_report_contract",
@@ -339,16 +402,29 @@
     {
       "agent_id": "eq60_result_page",
       "scale_code": "EQ_60",
-      "canonical_test_slug": "eq-test",
+      "canonical_test_slug": "eq-test-emotional-intelligence-assessment",
       "result_route": "/[locale]/result/[id]",
       "report_api": "/api/v0.3/attempts/{attempt_id}/report",
       "report_access_api": "/api/v0.3/attempts/{attempt_id}/report-access",
       "pdf_behavior": "report_pdf_url_or_api_pdf_when_available",
       "share_behavior": "share_surface_must_not_expose_private_attempt_or_report_payload",
       "frontend_renderer": "components/result/eq/EQResultV5.tsx",
+      "renderer_dispatch": "ResultClient dispatches EQ60 reports to EQResultV5; RichResultReport intentionally excludes EQ V5 via isEqV5ReportResponse.",
       "backend_authority": [
-        "fap-api EQ60 report composers",
-        "fap-api EQ60 norms"
+        "backend/app/Services/Report/Eq60ReportComposer.php",
+        "backend/app/Services/Report/EqIntegratedReportComposer.php",
+        "backend/app/Services/Content/Eq60PackLoader.php",
+        "backend/app/Services/Psychometrics/Eq60/NormGroupResolver.php",
+        "backend/content_packs/EQ_60/v1/compiled/manifest.json",
+        "backend/content_packs/EQ_60/v1/compiled/report.compiled.json"
+      ],
+      "contract_tests": [
+        "fap-web:tests/contracts/eq-result-v5-renderer.contract.test.tsx",
+        "fap-web:tests/e2e/iq-eq-result-regression.spec.ts",
+        "fap-api:backend/tests/Feature/Report/Eq60V5ReportContractTest.php",
+        "fap-api:backend/tests/Feature/Report/Eq60V5ReportDeliveryTest.php",
+        "fap-api:backend/tests/Feature/Psychometrics/Eq60NormsImportTest.php",
+        "fap-api:backend/tests/Feature/Psychometrics/Eq60NormsDriftCheckTest.php"
       ],
       "source_of_truth": [
         "eq60_report_contract",
@@ -402,7 +478,7 @@
     {
       "agent_id": "enneagram_result_page",
       "scale_code": "ENNEAGRAM",
-      "canonical_test_slug": "enneagram-test",
+      "canonical_test_slug": "enneagram-personality-test-nine-types",
       "result_route": "/[locale]/result/[id]",
       "report_api": "/api/v0.3/attempts/{attempt_id}/report",
       "report_access_api": "/api/v0.3/attempts/{attempt_id}/report-access",
@@ -415,6 +491,14 @@
         "backend/app/Services/Enneagram/Assets/Agent/EnneagramResultPageAgentReadiness.php",
         "backend/app/Services/Enneagram/Assets/Agent/EnneagramResultPageOpsAgentRunOrchestrator.php",
         "backend/docs/enneagram/result-page-agent-runbook.md"
+      ],
+      "contract_tests": [
+        "fap-web:tests/contracts/enneagram-result-shell.contract.test.tsx",
+        "fap-web:tests/contracts/enneagram-rich-result-report.contract.test.tsx",
+        "fap-web:tests/contracts/enneagram-share-surface.contract.test.tsx",
+        "fap-web:tests/contracts/enneagram-pdf-surface.contract.test.tsx",
+        "fap-api:backend/tests/Feature/Console/EnneagramResultPageOpsRunnerCommandTest.php",
+        "fap-api:backend/tests/Unit/Services/Enneagram/Assets/EnneagramResultPageAgentReadinessTest.php"
       ],
       "source_of_truth": [
         "enneagram_result_projection",
